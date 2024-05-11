@@ -54,7 +54,7 @@ public sealed class ActionOnInteractSystem : EntitySystem
 
     private void OnActivate(EntityUid uid, ActionOnInteractComponent component, ActivateInWorldEvent args)
     {
-        if (args.Handled || !args.Complex)
+        if (args.Handled)
             return;
 
         if (component.ActionEntities is not {} actionEnts)
@@ -70,6 +70,12 @@ public sealed class ActionOnInteractSystem : EntitySystem
             return;
 
         var (actId, act) = _random.Pick(options);
+        if (act.Event != null)
+        {
+            act.Event.Performer = args.User;
+            act.Event.Action = actId;
+        }
+
         _actions.PerformAction(args.User, null, actId, act, act.Event, _timing.CurTime, false);
         args.Handled = true;
     }
@@ -103,6 +109,8 @@ public sealed class ActionOnInteractSystem : EntitySystem
                 var (entActId, entAct) = _random.Pick(entOptions);
                 if (entAct.Event != null)
                 {
+                    entAct.Event.Performer = args.User;
+                    entAct.Event.Action = entActId;
                     entAct.Event.Target = args.Target.Value;
                 }
 
@@ -150,11 +158,28 @@ public sealed class ActionOnInteractSystem : EntitySystem
         var (actId, act) = _random.Pick(options);
         if (act.Event != null)
         {
+            act.Event.Performer = args.User;
+            act.Event.Action = actId;
             act.Event.Target = args.ClickLocation;
         }
 
         _actions.PerformAction(args.User, null, actId, act, act.Event, _timing.CurTime, false);
         args.Handled = true;
+    }
+
+    private bool ValidAction(BaseActionComponent action, bool canReach = true)
+    {
+        if (!action.Enabled)
+            return false;
+
+        if (action.Charges.HasValue && action.Charges <= 0)
+            return false;
+
+        var curTime = _timing.CurTime;
+        if (action.Cooldown.HasValue && action.Cooldown.Value.End > curTime)
+            return false;
+
+        return canReach || action is BaseTargetActionComponent { CheckCanAccess: false };
     }
 
     private List<(EntityUid Id, T Comp)> GetValidActions<T>(List<EntityUid>? actions, bool canReach = true) where T : BaseActionComponent
@@ -168,7 +193,7 @@ public sealed class ActionOnInteractSystem : EntitySystem
         {
             if (!_actions.TryGetActionData(id, out var baseAction) ||
                 baseAction as T is not { } action ||
-                !_actions.ValidAction(action, canReach))
+                !ValidAction(action, canReach))
             {
                 continue;
             }

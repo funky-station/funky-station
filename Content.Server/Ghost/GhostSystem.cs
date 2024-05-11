@@ -90,9 +90,11 @@ namespace Content.Server.Ghost
         [Dependency] private readonly JobSystem _jobs = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly MindSystem _minds = default!;
+        [Dependency] private readonly SharedMindSystem _mindSystem = default!;
         [Dependency] private readonly MobStateSystem _mobState = default!;
         [Dependency] private readonly SharedPhysicsSystem _physics = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private readonly GameTicker _ticker = default!;
         [Dependency] private readonly TransformSystem _transformSystem = default!;
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
         [Dependency] private readonly MetaDataSystem _metaData = default!;
@@ -288,6 +290,22 @@ namespace Content.Server.Ghost
                 _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask & ~(int) VisibilityFlags.Ghost, eyeComponent);
         }
 
+        private void OnMapInit(EntityUid uid, GhostComponent component, MapInitEvent args)
+        {
+            if (_actions.AddAction(uid, ref component.BooActionEntity, out var act, component.BooAction)
+                && act.UseDelay != null)
+            {
+                var start = _gameTiming.CurTime;
+                var end = start + act.UseDelay.Value;
+                _actions.SetCooldown(component.BooActionEntity.Value, start, end);
+            }
+
+            _actions.AddAction(uid, ref component.ToggleGhostHearingActionEntity, component.ToggleGhostHearingAction);
+            _actions.AddAction(uid, ref component.ToggleLightingActionEntity, component.ToggleLightingAction);
+            _actions.AddAction(uid, ref component.ToggleFoVActionEntity, component.ToggleFoVAction);
+            _actions.AddAction(uid, ref component.ToggleGhostsActionEntity, component.ToggleGhostsAction);
+        }
+
         private void OnGhostExamine(EntityUid uid, GhostComponent component, ExaminedEvent args)
         {
             var timeSinceDeath = _gameTiming.RealTime.Subtract(component.TimeOfDeath);
@@ -336,7 +354,7 @@ namespace Content.Server.Ghost
                 return;
             }
 
-            _mind.UnVisit(actor.PlayerSession);
+            _mindSystem.UnVisit(actor.PlayerSession);
         }
 
         #region Warp

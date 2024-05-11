@@ -96,6 +96,79 @@ public abstract class SharedMagicSystem : EntitySystem
         SubscribeLocalEvent<RandomGlobalSpawnSpellEvent>(OnRandomGlobalSpawnSpell);
         SubscribeLocalEvent<MindSwapSpellEvent>(OnMindSwapSpell);
         SubscribeLocalEvent<VoidApplauseSpellEvent>(OnVoidApplause);
+
+        // Spell wishlist
+        //  A wishlish of spells that I'd like to implement or planning on implementing in a future PR
+
+        // TODO: InstantDoAfterSpell and WorldDoafterSpell
+        //  Both would be an action that take in an event, that passes an event to trigger once the doafter is done
+        //  This would be three events:
+        //    1 - Event that triggers from the action that starts the doafter
+        //    2 - The doafter event itself, which passes the event with it
+        //    3 - The event to trigger once the do-after finishes
+
+        // TODO: Inanimate objects to life ECS
+        //  AI sentience
+
+        // TODO: Flesh2Stone
+        //   Entity Target spell
+        //   Synergy with Inanimate object to life (detects player and allows player to move around)
+
+        // TODO: Lightning Spell
+        // Should just fire lightning, try to prevent arc back to caster
+
+        // TODO: Magic Missile (homing projectile ecs)
+        //   Instant action, target any player (except self) on screen
+
+        // TODO: Random projectile ECS for magic-carp, wand of magic
+
+        // TODO: Recall Spell
+        //  mark any item in hand to recall
+        //    ItemRecallComponent
+        //    Event adds the component if it doesn't exist and the performer isn't stored in the comp
+        //    2nd firing of the event checks to see if the recall comp has this uid, and if it does it calls it
+        //  if no free hands, summon at feet
+        //  if item deleted, clear stored item
+
+        // TODO: Jaunt (should be its own ECS)
+        // Instant action
+        //   When clicked, disappear/reappear (goes to paused map)
+        //   option to restrict to tiles
+        //   option for requiring entry/exit (blood jaunt)
+        //   speed option
+
+        // TODO: Summon Events
+        //  List of wizard events to add into the event pool that frequently activate
+        //  floor is lava
+        //  change places
+        //  ECS that when triggered, will periodically trigger a random GameRule
+        //  Would need a controller/controller entity?
+
+        // TODO: Summon Guns
+        //  Summon a random gun at peoples feet
+        //    Get every alive player (not in cryo, not a simplemob)
+        //  TODO: After Antag Rework - Rare chance of giving gun collector status to people
+
+        // TODO: Summon Magic
+        //  Summon a random magic wand at peoples feet
+        //    Get every alive player (not in cryo, not a simplemob)
+        //  TODO: After Antag Rework - Rare chance of giving magic collector status to people
+
+        // TODO: Bottle of Blood
+        //  Summons Slaughter Demon
+        //  TODO: Slaughter Demon
+        //    Also see Jaunt
+
+        // TODO: Field Spells
+        //  Should be able to specify a grid of tiles (3x3 for example) that it effects
+        //  Timed despawn - so it doesn't last forever
+        //  Ignore caster - for spells that shouldn't effect the caster (ie if timestop should effect the caster)
+
+        // TODO: Touch toggle spell
+        //  1 - When toggled on, show in hand
+        //  2 - Block hand when toggled on
+        //      - Require free hand
+        //  3 - use spell event when toggled & click
     }
 
     private void OnBeforeCastSpell(Entity<MagicComponent> ent, ref BeforeCastSpellEvent args)
@@ -312,11 +385,25 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         ev.Handled = true;
-        if (ev.DoSpeech)
-            Speak(ev);
+        Speak(ev);
 
-        RemoveComponents(ev.Target, ev.ToRemove);
-        AddComponents(ev.Target, ev.ToAdd);
+        foreach (var toRemove in ev.ToRemove)
+        {
+            if (_compFact.TryGetRegistration(toRemove, out var registration))
+                RemComp(ev.Target, registration.Type);
+        }
+
+        foreach (var (name, data) in ev.ToAdd)
+        {
+            if (HasComp(ev.Target, data.Component.GetType()))
+                continue;
+
+            var component = (Component) _compFact.GetComponent(name);
+            component.Owner = ev.Target;
+            var temp = (object) component;
+            _seriMan.CopyTo(data.Component, ref temp);
+            EntityManager.AddComponent(ev.Target, (Component) temp!);
+        }
     }
     // End Change Component Spells
     #endregion
@@ -332,10 +419,10 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         var transform = Transform(args.Performer);
-        if (transform.MapID != _transform.GetMapId(args.Target) || !_interaction.InRangeUnobstructed(args.Performer, args.Target, range: 1000F, collisionMask: CollisionGroup.Opaque, popup: true))
-            return;
 
-        _transform.SetCoordinates(args.Performer, args.Target);
+        if (transform.MapID != args.Target.GetMapId(EntityManager) || !_interaction.InRangeUnobstructed(args.Performer, args.Target, range: 1000F, collisionMask: CollisionGroup.Opaque, popup: true))
+
+            _transform.SetCoordinates(args.Performer, args.Target);
         _transform.AttachToGridOrMap(args.Performer, transform);
         Speak(args);
         args.Handled = true;
@@ -398,7 +485,7 @@ public abstract class SharedMagicSystem : EntitySystem
     }
     // End Spell Helpers
     #endregion
-    #region Touch Spells
+    #region Smite Spells
     private void OnSmiteSpell(SmiteSpellEvent ev)
     {
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
@@ -417,8 +504,7 @@ public abstract class SharedMagicSystem : EntitySystem
 
         _body.GibBody(ev.Target, true, body);
     }
-
-    // End Touch Spells
+    // End Smite Spells
     #endregion
     #region Knock Spells
     /// <summary>

@@ -1,19 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using System.Collections.Generic;
 using Content.Server.Cargo.Systems;
 using Content.Server.Construction.Completions;
@@ -60,7 +44,6 @@ public sealed class MaterialArbitrageTest
         var pricing = entManager.System<PricingSystem>();
         var stackSys = entManager.System<StackSystem>();
         var mapSystem = server.System<SharedMapSystem>();
-        var latheSys = server.System<SharedLatheSystem>();
         var compFact = server.ResolveDependency<IComponentFactory>();
 
         Assert.That(mapSystem.IsInitialized(testMap.MapId));
@@ -70,8 +53,12 @@ public sealed class MaterialArbitrageTest
         var materialName = compFact.GetComponentName(typeof(MaterialComponent));
         var destructibleName = compFact.GetComponentName(typeof(DestructibleComponent));
 
-        // get the inverted lathe recipe dictionary
-        var latheRecipes = latheSys.InverseRecipes;
+        // construct inverted lathe recipe dictionary
+        Dictionary<string, List<LatheRecipePrototype>> latheRecipes = new();
+        foreach (var proto in protoManager.EnumeratePrototypes<LatheRecipePrototype>())
+        {
+            latheRecipes.GetOrNew(proto.Result).Add(proto);
+        }
 
         // Lets assume the possible lathe for resource multipliers:
         // TODO: each recipe can technically have its own cost multiplier associated with it, so this test needs redone to factor that in.
@@ -206,7 +193,7 @@ public sealed class MaterialArbitrageTest
                 {
                     foreach (var recipe in recipes)
                     {
-                        foreach (var (matId, amount) in recipe.Materials)
+                        foreach (var (matId, amount) in recipe.RequiredMaterials)
                         {
                             var actualAmount = SharedLatheSystem.AdjustMaterial(amount, recipe.ApplyMaterialDiscount, multiplier);
                             if (spawnedMats.TryGetValue(matId, out var numSpawned))
@@ -286,7 +273,7 @@ public sealed class MaterialArbitrageTest
                 {
                     foreach (var recipe in recipes)
                     {
-                        foreach (var (matId, amount) in recipe.Materials)
+                        foreach (var (matId, amount) in recipe.RequiredMaterials)
                         {
                             var actualAmount = SharedLatheSystem.AdjustMaterial(amount, recipe.ApplyMaterialDiscount, multiplier);
                             if (deconstructedMats.TryGetValue(matId, out var numSpawned))
@@ -341,7 +328,7 @@ public sealed class MaterialArbitrageTest
                 {
                     foreach (var recipe in recipes)
                     {
-                        foreach (var (matId, amount) in recipe.Materials)
+                        foreach (var (matId, amount) in recipe.RequiredMaterials)
                         {
                             var actualAmount = SharedLatheSystem.AdjustMaterial(amount, recipe.ApplyMaterialDiscount, multiplier);
                             if (compositionComponent.MaterialComposition.TryGetValue(matId, out var numSpawned))
@@ -362,7 +349,7 @@ public sealed class MaterialArbitrageTest
             }
         });
 
-        await server.WaitPost(() => mapSystem.DeleteMap(testMap.MapId));
+        await server.WaitPost(() => mapManager.DeleteMap(testMap.MapId));
         await pair.CleanReturnAsync();
 
         async Task<double> GetSpawnedPrice(Dictionary<string, int> ents)
@@ -383,8 +370,7 @@ public sealed class MaterialArbitrageTest
                 await server.WaitPost(() =>
                 {
                     var ent = entManager.SpawnEntity(id, testMap.GridCoords);
-                    if (entManager.TryGetComponent<StackComponent>(ent, out var stackComp))
-                        stackSys.SetCount((ent, stackComp), 1);
+                    stackSys.SetCount(ent, 1);
                     priceCache[id] = price = pricing.GetPrice(ent, false);
                     entManager.DeleteEntity(ent);
                 });

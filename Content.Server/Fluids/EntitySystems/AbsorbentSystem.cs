@@ -324,7 +324,6 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
 
         _melee.DoLunge(user, used, Angle.Zero, localPos, null, false);
 
-        RaiseNetworkEvent(new IncrementStatsValueEvent("MoppedTimes"));
         return true;
     }
 }

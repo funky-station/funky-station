@@ -101,7 +101,6 @@ namespace Content.Server.Nutrition.EntitySystems
                 otherPlayers.RemovePlayer(actor.PlayerSession);
             }
             _popup.PopupEntity(Loc.GetString("cream-pied-component-on-hit-by-message-others", ("owner", Identity.Name(uid, EntityManager)), ("thrower", args.Thrown)), uid, otherPlayers, false);
-            RaiseNetworkEvent(new IncrementStatsValueEvent("CreampPiedCount", 1));
         }
 
         private void OnRejuvenate(Entity<CreamPiedComponent> entity, ref RejuvenateEvent args)

@@ -4,13 +4,8 @@ using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Roles;
 using Content.Shared.Changeling;
-using Content.Shared.NPC.Prototypes;
-using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
-using Content.Shared.Store;
-using Content.Shared.Store.Components;
 using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
 using System.Text;
 using Content.Shared.Obsessed;
 
@@ -22,8 +17,6 @@ public sealed partial class ObsessedRuleSystem : GameRuleSystem<ObsessedRuleComp
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly ObjectivesSystem _objective = default!;
-
-    public readonly ProtoId<AntagPrototype> ObsessedPrototypeId = "Obsessed";
 
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/Funkystation/Ambience/angels_harp_sound.ogg");
 

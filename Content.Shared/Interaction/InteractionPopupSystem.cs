@@ -3,6 +3,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Obsessed;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -92,8 +93,16 @@ public sealed class InteractionPopupSystem : EntitySystem
 
         if (_random.Prob(component.SuccessChance))
         {
+            // Funkystation - hugging counter :godo:
             if (component.InteractSuccessString != null)
+            {
+                if (TryComp<ObsessedComponent>(uid, out var obsessed) && obsessed.TargetUid == target && component.InteractSuccessString == "hugging-success-generic")
+                {
+                    obsessed.HugAmount += 1;
+                }
+
                 msg = Loc.GetString(component.InteractSuccessString, ("target", Identity.Entity(uid, EntityManager))); // Success message (localized).
+            }
 
             if (component.InteractSuccessSound != null)
                 sfx = component.InteractSuccessSound;

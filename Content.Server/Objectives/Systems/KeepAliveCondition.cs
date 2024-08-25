@@ -5,6 +5,8 @@ using Content.Shared.Objectives.Components;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Server.Funkystation.Components;
+using Content.Server.Funkystation.Objectives.Components;
 using Content.Server.Goobstation.Objectives.Components;
 
 namespace Content.Server.Objectives.Systems;
@@ -29,6 +31,8 @@ public sealed class KeepAliveConditionSystem : EntitySystem
         SubscribeLocalEvent<RandomTraitorAliveComponent, ObjectiveAssignedEvent>(OnAssigned);
 
         SubscribeLocalEvent<RandomTraitorTargetComponent, ObjectiveAssignedEvent>(OnTraitorTargetAssigned);
+
+        SubscribeLocalEvent<RandomPersistentTargetComponent, ObjectiveAssignedEvent>(OnPersistentAssigned);
     }
 
     private void OnGetProgress(EntityUid uid, KeepAliveConditionComponent comp, ref ObjectiveGetProgressEvent args)
@@ -106,6 +110,31 @@ public sealed class KeepAliveConditionSystem : EntitySystem
         }
 
         _target.SetTarget(uid, _random.Pick(killTargets), target);
+    }
+
+    // funkystation - persistent target for an antag
+    // TODO: make more generic but idgaf
+    private void OnPersistentAssigned(EntityUid uid, RandomPersistentTargetComponent comp, ref ObjectiveAssignedEvent args)
+    {
+        if (!TryComp<TargetObjectiveComponent>(uid, out var target))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        EnsureComp<ObsessedPersistentTargetComponent>(uid, out var obsessedTarget);
+
+        if (obsessedTarget.EntityUid != EntityUid.Invalid)
+        {
+            _target.SetTarget(uid, obsessedTarget.EntityUid, target);
+            return;
+        }
+
+        var allAlive = _mind.GetAliveHumansExcept(uid);
+        var luckyOne = _random.Pick(allAlive);
+
+        obsessedTarget.EntityUid = luckyOne;
+        _target.SetTarget(uid, obsessedTarget.EntityUid, target);
     }
 
     private float GetProgress(EntityUid target)

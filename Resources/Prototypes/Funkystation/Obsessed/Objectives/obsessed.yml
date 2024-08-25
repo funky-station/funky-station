@@ -1,0 +1,25 @@
+﻿- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseObsessedObjective
+  components:
+  - type: Objective
+    difficulty: 1.5 # unused but necessary I guess
+    issuer: objective-issuer-obsessed
+  - type: RoleRequirement
+    roles:
+      components:
+      - ObsessedRole
+
+- type: entity
+  parent: [BaseObsessedObjective, BaseKeepAliveObjective]
+  id: ObsessedKeepAliveObjective
+  description: No matter what, I can't let anyone hurt them!
+  components:
+  - type: Objective
+    icon:
+      sprite: Mobs/Demons/abomination.rsi
+      state: dead
+  - type: TargetObjective
+    title: objective-condition-obsessed-keep-safe-title
+  - type: RandomPersistentTarget

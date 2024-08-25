@@ -1,6 +1,7 @@
 using Content.Shared.Bed.Sleep;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Components;
+using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Obsessed;
@@ -21,6 +22,7 @@ public sealed class InteractionPopupSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!; // Funkystation
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly INetManager _netMan = default!;
 
@@ -96,7 +98,9 @@ public sealed class InteractionPopupSystem : EntitySystem
             // Funkystation - hugging counter :godo:
             if (component.InteractSuccessString != null)
             {
-                if (TryComp<ObsessedComponent>(uid, out var obsessed) && obsessed.TargetUid == target && component.InteractSuccessString == "hugging-success-generic")
+                if (TryComp<ObsessedComponent>(user, out var obsessed)
+                    && TryComp<MetaDataComponent>(uid, out var meta)
+                    && obsessed.TargetName.Equals(meta.EntityName))
                 {
                     obsessed.HugAmount += 1;
                 }

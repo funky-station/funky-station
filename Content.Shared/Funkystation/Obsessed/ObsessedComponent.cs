@@ -6,5 +6,6 @@ namespace Content.Shared.Obsessed;
 public sealed partial class ObsessedComponent : Component
 {
     public float HugAmount = 0f;
-    public EntityUid TargetUid;
+    public EntityUid TargetUid = EntityUid.Invalid;
+    public string TargetName = "";
 }

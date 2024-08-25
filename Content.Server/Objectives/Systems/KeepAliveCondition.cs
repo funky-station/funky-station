@@ -122,7 +122,7 @@ public sealed class KeepAliveConditionSystem : EntitySystem
             return;
         }
 
-        EnsureComp<ObsessedPersistentTargetComponent>(uid, out var obsessedTarget);
+        EnsureComp<ObsessedPersistentTargetComponent>((EntityUid) args.Mind.OwnedEntity!, out var obsessedTarget);
 
         if (obsessedTarget.EntityUid != EntityUid.Invalid)
         {
@@ -133,7 +133,11 @@ public sealed class KeepAliveConditionSystem : EntitySystem
         var allAlive = _mind.GetAliveHumansExcept(uid);
         var luckyOne = _random.Pick(allAlive);
 
+        if (!TryComp<MindComponent>(luckyOne, out var targetMind) || targetMind.CharacterName == null)
+            return;
+
         obsessedTarget.EntityUid = luckyOne;
+        obsessedTarget.EntityName = targetMind.CharacterName;
         _target.SetTarget(uid, obsessedTarget.EntityUid, target);
     }
 

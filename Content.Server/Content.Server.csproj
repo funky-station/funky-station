@@ -27,7 +27,6 @@
     <ProjectReference Include="..\Content.Shared\Content.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Funkystation\Objectives\Systems\" />
     <Folder Include="Objectives\Interfaces\" />
   </ItemGroup>
   <ItemGroup>

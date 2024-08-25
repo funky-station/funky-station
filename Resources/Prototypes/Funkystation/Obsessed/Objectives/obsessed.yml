@@ -23,3 +23,18 @@
   - type: TargetObjective
     title: objective-condition-obsessed-keep-safe-title
   - type: RandomPersistentTarget
+
+- type: entity
+  parent: BaseObsessedObjective
+  id: ObsessedHugObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Mobs/Demons/abomination.rsi
+      state: dead
+  - type: NumberObjective
+    min: 5
+    max: 15
+    title: objective-condition-obsessed-hug-target-title
+    description: I need to be around them more!
+  - type: HuggingObjectiveCondition

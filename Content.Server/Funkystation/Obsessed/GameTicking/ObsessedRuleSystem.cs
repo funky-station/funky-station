@@ -18,6 +18,8 @@ public sealed partial class ObsessedRuleSystem : GameRuleSystem<ObsessedRuleComp
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly ObjectivesSystem _objective = default!;
 
+    private readonly ObsessedRuleComponent _rules = default!;
+
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/Funkystation/Ambience/angels_harp_sound.ogg");
 
     public override void Initialize()
@@ -87,5 +89,21 @@ public sealed partial class ObsessedRuleSystem : GameRuleSystem<ObsessedRuleComp
         sb.AppendLine(Loc.GetString($"roundend-prepend-changeling-stolen{(!string.IsNullOrWhiteSpace(mostStolenName) ? "-named" : "")}", ("name", mostStolenName), ("number", mostStolen)));
 
         args.Text = sb.ToString();
+    }
+
+    public void ObsessedCompletedObjectives(EntityUid mind)
+    {
+        if (!_mind.TryGetMind(mind, out var mindId, out var mindComponent))
+            return;
+
+        for (int i = 0; i < _rules.Objectives.Count; i++)
+        {
+            _mind.TryRemoveObjective(mindId, mindComponent, i);
+        }
+
+        EnsureComp<ObsessedComponent>((EntityUid) mindComponent.OwnedEntity!, out var obsessedComponent);
+
+        _mind.TryAddObjective(mindId, mindComponent, _rules.Murder);
+        _antag.SendBriefing(mindComponent.Session, Loc.GetString("obsessed-role-murder", ("target", obsessedComponent.TargetName)), Color.Pink, BriefingSound);
     }
 }

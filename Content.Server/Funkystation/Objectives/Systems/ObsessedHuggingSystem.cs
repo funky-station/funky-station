@@ -35,6 +35,15 @@ public sealed partial class ObsessedHuggingSystem : EntitySystem
     private void OnHugCheck(EntityUid uid, HuggingObjectiveConditionComponent conditionComponent, ref ObjectiveGetProgressEvent args)
     {
         args.Progress = HugCheck(conditionComponent, _number.GetTarget(uid), args.Mind.CurrentEntity);
+
+        if (!TryComp<ObsessedComponent>(args.Mind.CurrentEntity, out var obsessedComponent))
+            return;
+
+        // blahblahblahblah
+        if (args.Progress >= 1F && !obsessedComponent.CompletedObjectives.ContainsKey("ObsessedHuggingCondition"))
+        {
+            obsessedComponent.CompletedObjectives.Add("ObsessedHuggingCondition", true);
+        }
     }
 
     private float HugCheck(HuggingObjectiveConditionComponent comp, int target, EntityUid? targetEntity)

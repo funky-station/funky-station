@@ -9,5 +9,10 @@ public sealed partial class ObsessedRuleComponent : Component
     [
         "ObsessedKeepAliveObjective",
         "ObsessedHugObjective",
+        "ObsessedProximityObjective",
+        "ObsessedKillRandomPersonObjective",
     ];
+
+    public readonly EntProtoId Murder = "ObsessedKillKeepAliveObjective";
+
 }

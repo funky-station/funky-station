@@ -10,3 +10,8 @@ obsessed-role-greeting =
     Note, you ARE NOT a traditional antagonist!
 obsessed-role-greeting-short =
     You're infatuated with a crew member on the station.
+
+obsessed-role-murder =
+    You've had enough...
+    {$target} doesn't notice you...
+    Murder them.

@@ -130,7 +130,7 @@ public sealed class KeepAliveConditionSystem : EntitySystem
             return;
         }
 
-        var allAlive = _mind.GetAliveHumansExcept(uid);
+        var allAlive = _mind.GetAliveHumansExcept(args.MindId);
         var luckyOne = _random.Pick(allAlive);
 
         if (!TryComp<MindComponent>(luckyOne, out var targetMind) || targetMind.CharacterName == null)

@@ -858,6 +858,8 @@ namespace Content.Client.Lobby.UI
 
             UpdateNameEdit();
             UpdateFlavorTextEdit();
+            // #Goobstation - Borg Preferred Name
+            UpdateBorgNameEdit();
             UpdateSexControls();
             UpdateGenderControls();
             UpdateSkinColor();
@@ -1607,6 +1609,14 @@ namespace Content.Client.Lobby.UI
             var name = HumanoidCharacterProfile.GetName(Profile.Species, Profile.Gender);
             SetName(name);
             UpdateNameEdit();
+        }
+        // #Goobstation - Borg Preferred Name
+        private void RandomizeBorgName()
+        {
+            if (Profile == null) return;
+            var name = HumanoidCharacterProfile.GetBorgName();
+            SetBorgName(name);
+            UpdateBorgNameEdit();
 
             _recordsTab.Update(Profile); // CD - Character Records
         }

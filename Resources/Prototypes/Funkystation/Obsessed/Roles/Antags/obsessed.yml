@@ -1,0 +1,7 @@
+﻿- type: antag
+  id: Obsessed
+  name: Obsessed
+  antagonist: true
+  setPreference: true
+  objective: Do anything in your power to protect your obsession.
+  guides: [ Changelings ]

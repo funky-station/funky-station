@@ -5,6 +5,7 @@ using Content.Server.Shuttles.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
+using Content.Shared.Obsessed;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
@@ -43,6 +44,14 @@ public sealed class KillPersonConditionSystem : EntitySystem
             return;
 
         args.Progress = GetProgress(target.Value, comp.RequireDead);
+
+        if (!TryComp<ObsessedComponent>(args.Mind.CurrentEntity, out var obsessed))
+            return;
+
+        if (args.Progress >= 1f && !obsessed.CompletedObjectives.ContainsKey("ObsessedJealousMurderObjective"))
+        {
+            obsessed.CompletedObjectives.Add("ObsessedJealousMurderObjective", true);
+        }
     }
 
     private void OnPersonAssigned(EntityUid uid, PickRandomPersonComponent comp, ref ObjectiveAssignedEvent args)

@@ -23,6 +23,7 @@
     - Felinid
     - Harpy
     - Gingerbread
+    - Rodentia
 
 - type: loadoutEffectGroup
   id: EffectSpeciesVox
@@ -58,7 +59,7 @@
     proto: OxygenBreather
   storage:
     back:
-    - BoxHugSlots
+    - BoxHugSlots # Goobstation - Slots Based Survival Boxes
 
 - type: loadout
   id: EmergencyNitrogenClown
@@ -67,7 +68,27 @@
     proto: NitrogenBreather
   storage:
     back:
-    - BoxHugSlotsNitrogen
+    - BoxHugSlotsNitrogen # Goobstation - Slots Based Survival Boxes
+
+# Mime
+- type: loadout
+  id: EmergencyOxygenMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreather
+  storage:
+    back:
+    - BoxMimeSlots # Goobstation - Slots Based Survival Boxes
+
+- type: loadout
+  id: EmergencyNitrogenMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NitrogenBreather
+  storage:
+    back:
+    - BoxMimeSlotsNitrogen # Goobstation - Slots Based Survival Boxes
+
 
 # Engineering / Extended
 - type: loadout

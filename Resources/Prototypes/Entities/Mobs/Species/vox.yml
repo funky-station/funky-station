@@ -3,7 +3,6 @@
   id: BaseMobVox
   abstract: true
   components:
-  - type: Absorbable # Goobstation - changelings
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -38,6 +37,8 @@
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
         color: "#7a8bf2"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
   - type: Bloodstream
     bloodReagent: AmmoniaBlood
   - type: MeleeWeapon

@@ -50,10 +50,12 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
+  - type: Multishot # Goobstation
+    spreadMultiplier: 1.6
 
 - type: entity
   name: AKMS
-  parent: [BaseWeaponRifle, BaseMajorContraband]
+  parent: [BaseWeaponRifle, BaseRestrictedContraband]
   id: WeaponRifleAk
   description: An iconic weapon of war. Uses .30 rifle ammo.
   components:

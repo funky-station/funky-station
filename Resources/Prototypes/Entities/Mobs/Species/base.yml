@@ -3,6 +3,7 @@
   parent:
   - BaseMob
   - MobDamageable
+  - MobPolymorphable
   - MobCombat
   - StripableInventoryBase
   id: BaseMobSpecies
@@ -134,6 +135,7 @@
     - Flashed
     - RadiationProtection
     - Drowsiness
+    - Vulgarity # Goobstation - add Profanol
   - type: Body
     prototype: Human
     requiredLegs: 2
@@ -225,6 +227,7 @@
   id: BaseMobSpeciesOrganic
   abstract: true
   components:
+  - type: Absorbable # Goobstation - changelings
   - type: Barotrauma
     damage:
       types:
@@ -282,6 +285,7 @@
   - type: FireVisuals
     alternateState: Standing
   - type: Carriable # Goobstation
+  - type: LayingDown # WD EDIT
 
 - type: entity
   save: false

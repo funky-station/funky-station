@@ -5,7 +5,6 @@
   id: MobHarpyBase
   abstract: true
   components:
-  - type: Absorbable # Goobstation - changelings
   - type: HarpySinger
   - type: Instrument
     allowPercussion: false
@@ -127,6 +126,12 @@
     speciesId: harpy
     templateId: digitigrade
   - type: HarpyVisuals
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - HarpyEmotes
 
 - type: entity
   save: false

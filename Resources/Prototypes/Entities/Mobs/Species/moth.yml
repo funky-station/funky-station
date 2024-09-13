@@ -5,7 +5,6 @@
   id: BaseMobMoth
   abstract: true
   components:
-  - type: Absorbable # Goobstation - changelings
   - type: HumanoidAppearance
     species: Moth
     hideLayersOnEquip:
@@ -40,6 +39,8 @@
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
         color: "#808A51"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
   - type: MothAccent
   - type: Vocal
     sounds:

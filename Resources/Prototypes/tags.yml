@@ -61,6 +61,9 @@
   id: Bloodpack
 
 - type: Tag
+  id: BlueprintAutolathe
+
+- type: Tag
   id: BodyBag
 
 - type: Tag
@@ -202,6 +205,9 @@
   id: BorgServiceTorso
 
 - type: Tag
+  id: Bot
+
+- type: Tag
   id: BotanyHatchet
 
 - type: Tag
@@ -218,6 +224,9 @@
 
 - type: Tag
   id: BoxHug
+
+- type: Tag # goob edit
+  id: Brain
 
 - type: Tag
   id: BrassInstrument
@@ -578,6 +587,9 @@
 - type: Tag
   id: ExplosivePassable
 
+- type: Tag # goob edit
+  id: Eyes
+
 - type: Tag
   id: Figurine
 
@@ -628,6 +640,9 @@
 
 - type: Tag
   id: Galaxythistle
+
+- type: Tag # goob edit
+  id: GasMask
 
 - type: Tag
   id: GasScrubber
@@ -712,6 +727,9 @@
 
 - type: Tag
   id: Head
+
+- type: Tag # goob edit
+  id: Heart
 
 - type: Tag
   id: HelmetEVA
@@ -806,6 +824,9 @@
 - type: Tag
   id: KeyedInstrument
 
+- type: Tag # goob edit
+  id: Kidneys
+
 - type: Tag
   id: KitchenKnife
 
@@ -819,7 +840,16 @@
   id: Lemon
 
 - type: Tag
+  id: LightBulb
+
+- type: Tag
   id: Lime
+
+- type: Tag # goob edit
+  id: Liver
+
+- type: Tag # goob edit
+  id: Lungs
 
 - type: Tag
   id: Machete
@@ -884,6 +914,9 @@
 
 - type: Tag
   id: MailingUnitElectronics
+
+- type: Tag # goob edit
+  id: Mask
 
 - type: Tag
   id: Matchstick
@@ -965,6 +998,9 @@
 
 - type: Tag
   id: Ore
+
+- type: Tag # goob edit
+  id: Organ
 
 - type: Tag
   id: Packet
@@ -1088,6 +1124,9 @@
   id: RifleStock
 
 - type: Tag
+  id: Ring
+
+- type: Tag
   id: RipleyCentralControlModule
 
 - type: Tag
@@ -1128,6 +1167,18 @@
 
 - type: Tag
   id: SecBeltEquip
+
+- type: Tag
+  id: SecurePlasmaWindoor
+
+- type: Tag
+  id: SecureUraniumWindoor
+
+- type: Tag
+  id: SecureWindoor
+
+- type: Tag  
+  id: SecurityHelmet
 
 - type: Tag
   id: SecwayKeys
@@ -1181,6 +1232,7 @@
 
 - type: Tag
   id: Soup
+
 - type: Tag
   id: Spear
 
@@ -1209,13 +1261,22 @@
   id: SpreaderIgnore
 
 - type: Tag
+  id: StationAi
+
+- type: Tag
   id: StationMapElectronics
 
 - type: Tag
   id: Steak
 
+- type: Tag # goob edit
+  id: Stomach
+
 - type: Tag
   id: StringInstrument
+
+- type: Tag
+  id: Stunbaton
 
 - type: Tag
   id: SubdermalImplant
@@ -1244,6 +1305,9 @@
 - type: Tag
   id: Spellbook
 
+- type: Tag # goob edit
+  id: Table
+
 - type: Tag
   id: TabletopBoard
 
@@ -1262,8 +1326,17 @@
 - type: Tag
   id: TimerSignalElectronics
 
+- type: Tag # goob edit
+  id: Tongue
+
 - type: Tag
   id: Toolbox
+
+- type: Tag
+  id: ToothSharkminnow
+
+- type: Tag
+  id: ToothSpaceCarp
 
 - type: Tag
   id: Torch

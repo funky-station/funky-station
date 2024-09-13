@@ -1,7 +1,7 @@
 - type: gameMap
   id: Core
   mapName: 'Core'
-  mapPath: /Maps/core.yml
+  mapPath: /Maps/core-brig.yml #Funkystation
   minPlayers: 35
   maxPlayers: 70
   stations:
@@ -51,6 +51,7 @@
             HeadOfSecurity: [ 1, 1 ]
             SecurityOfficer: [ 4, 4 ]
             Warden: [ 1, 1 ]
+            Brigmedic: [ 1, 1 ] # Funkystation
             Lawyer: [ 1, 1 ]
             SecurityCadet: [ 1, 1 ]
             Detective: [ 1, 1 ]

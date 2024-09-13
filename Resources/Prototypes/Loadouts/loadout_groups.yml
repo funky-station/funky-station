@@ -1054,7 +1054,7 @@
 - type: loadoutGroup
   id: SecurityStar
   name: loadout-group-security-star
-  minLimit: 0
+  minLimit: 1
   loadouts:
   - SecStar
 

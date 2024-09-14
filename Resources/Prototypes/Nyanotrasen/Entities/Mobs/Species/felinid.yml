@@ -25,6 +25,25 @@
     prototype: Felinid
   - type: Damageable
     damageModifierSet: Felinid
+  # Funkystation - felinids are hairless cats, so they take more cold damage.
+  - type: Temperature
+    heatDamageThreshold: 325
+    coldDamageThreshold: 285
+    currentTemperature: 310.15
+    specificHeat: 46
+    coldDamage:
+      types:
+        Cold: 0.1 #per second, scales with temperature & other constants
+  # Funkystation - same as lizard for now, could probably work on a rebalance
+  - type: TemperatureSpeed
+    thresholds:
+      301: 0.8
+      295: 0.6
+      285: 0.4
+  # Funkystation - cars get thirsty!
+  # TODO make it so felinids are only able to drink from sinks since cars irl do not drink still water
+  - type: Thirst
+    baseDecayRate: 0.12
   # Goobstation - Siouxcide, felinids have standard slow on damage numbers
 # - type: SlowOnDamage
 #   speedModifierThresholds:

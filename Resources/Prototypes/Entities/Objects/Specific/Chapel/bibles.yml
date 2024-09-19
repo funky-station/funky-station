@@ -29,6 +29,7 @@
     bibleUserOnly: true
   - type: Summonable
     specialItem: SpawnPointGhostRemilia
+  - type: RevealRevenantOnCollide # imp
   - type: ReactionMixer
     mixMessage: "bible-mixing-success"
     reactionTypes:

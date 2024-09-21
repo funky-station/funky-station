@@ -221,6 +221,9 @@
             "name": "idseniorphysician"
         },
         {
+            "name": "idvisitor"
+        },
+        {
             "name": "idseniorofficer"
         },
         {

@@ -1,0 +1,5 @@
+﻿- type: jukebox
+  id: droopylikesyourface
+  name: C418 - Droopy likes your face
+  path:
+    path: /Audio/Lobby/droopy_likes_your_face.ogg

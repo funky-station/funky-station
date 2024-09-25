@@ -3,12 +3,14 @@
   files:
     - /Audio/Lobby/space_asshole.ogg
     # Goobstation - Custom lobby music
-    - /Audio/Lobby/skubstep.ogg
+#    - /Audio/Lobby/skubstep.ogg
     - /Audio/Lobby/sneedsfeedandseed.ogg
-    - /Audio/Lobby/honk.ogg
-    - /Audio/Lobby/clownalwayswins.ogg
-    - /Audio/Lobby/clownwmv.ogg
-    - /Audio/Lobby/dawsonschristian.ogg
+#    - /Audio/Lobby/honk.ogg
+#    - /Audio/Lobby/clownalwayswins.ogg
+#    - /Audio/Lobby/clownwmv.ogg
+#    - /Audio/Lobby/dawsonschristian.ogg
     - /Audio/Lobby/thewizard.ogg
     - /Audio/Lobby/skubstub.ogg
     - /Audio/Lobby/space_radiation.ogg
+    # Funky Station - custom lobby music
+    - /Audio/Lobby/droopy_likes_your_face.ogg

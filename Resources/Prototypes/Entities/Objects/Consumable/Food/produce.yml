@@ -2596,7 +2596,7 @@
         - ReagentId: Vitamin
           Quantity: 3
   - type: Sprite
-    sprite: Goobstation/Objects/Specific/Hydroponics/cherry.rsi
+    sprite: _Goobstation/Objects/Specific/Hydroponics/cherry.rsi
   - type: Produce
     seedId: cherry
   - type: Extractable
@@ -2609,7 +2609,7 @@
     - Fruit
   - type: FoodSequenceElement
     sprite:
-      sprite: Goobstation/Objects/Specific/Hydroponics/cherry.rsi
+      sprite: _Goobstation/Objects/Specific/Hydroponics/cherry.rsi
       state: produce
     entries:
       burger:
@@ -2623,10 +2623,10 @@
   id: TrashCherryPit
   components:
   - type: Sprite
-    sprite: Goobstation/Objects/Specific/Hydroponics/cherry.rsi
+    sprite: _Goobstation/Objects/Specific/Hydroponics/cherry.rsi
     state: pit
   - type: Item
-    sprite: Goobstation/Objects/Specific/Hydroponics/cherry.rsi
+    sprite: _Goobstation/Objects/Specific/Hydroponics/cherry.rsi
     heldPrefix: pit
   - type: Tag
     tags:

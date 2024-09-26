@@ -681,4 +681,4 @@
     - type: Seed
       seedId: cherry
     - type: Sprite
-      sprite: Goobstation/Objects/Specific/Hydroponics/cherry.rsi
+      sprite: _Goobstation/Objects/Specific/Hydroponics/cherry.rsi

@@ -1,6 +1,6 @@
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Server._Goobstation.Objectives.Components;
+using Content.Server.Goobstation.Objectives.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Objectives.Components;
@@ -29,7 +29,7 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
     [Dependency] private readonly ObjectivesSystem _objective = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
 
-    public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
+    public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
 
     public readonly ProtoId<NpcFactionPrototype> HereticFactionId = "Heretic";
 

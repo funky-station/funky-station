@@ -235,7 +235,6 @@
     damage:
       types:
         Heat: 5
-        Ion: 10 #Goobstation
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -276,7 +275,6 @@
     damage:
       types:
         Heat: 1
-        Ion: 5 #Goobstation
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -1054,4 +1052,3 @@
     proto: BulletDisablerSmg
     count: 3 #bit stronger than a disabler if you hit your shots you goober, still not a 2 hit stun though
     spread: 9 
-    

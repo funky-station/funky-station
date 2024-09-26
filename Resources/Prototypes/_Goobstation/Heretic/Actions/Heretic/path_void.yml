@@ -2,13 +2,13 @@
   id: ActionHereticVoidBlast
   name: Void Blast
   description: Fire off a cone of ice in front of you.
-  categories: [ HideSpawnMenu ]
+  noSpawn: true
   components:
   - type: InstantAction
     useDelay: 15
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: Goobstation/Heretic/abilities_heretic.rsi
       state: void_blast
     event: !type:HereticVoidBlastEvent
   - type: HereticAction
@@ -19,13 +19,13 @@
   id: ActionHereticVoidPhase
   name: Void Phase
   description: Shift through the void, knocking down everyone around you.
-  categories: [ HideSpawnMenu ]
+  noSpawn: true
   components:
   - type: WorldTargetAction
     useDelay: 15
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: Goobstation/Heretic/abilities_heretic.rsi
       state: void_phase
     event: !type:HereticVoidBlinkEvent
     checkCanAccess: false
@@ -38,13 +38,13 @@
   id: ActionHereticVoidPull
   name: Void Pull
   description: Pull and damage nearby heathens.
-  categories: [ HideSpawnMenu ]
+  noSpawn: true
   components:
   - type: InstantAction
     useDelay: 20
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: Goobstation/Heretic/abilities_heretic.rsi
       state: void_pull
     event: !type:HereticVoidPullEvent
   - type: HereticAction

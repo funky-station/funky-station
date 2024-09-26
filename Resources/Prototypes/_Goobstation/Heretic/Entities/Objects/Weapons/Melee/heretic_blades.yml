@@ -7,7 +7,7 @@
   - type: HereticBlade
   - type: Sharp
   - type: Sprite
-    sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
+    sprite: Goobstation/Heretic/Blades/blade_blade.rsi
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: -125
@@ -17,7 +17,7 @@
         Slash: 17.5
   - type: Item
     size: Normal
-    sprite: _Goobstation/Heretic/Blades/blade_blade-inhand.rsi
+    sprite: Goobstation/Heretic/Blades/blade_blade-inhand.rsi
   - type: ItemToggle
 
 - type: entity
@@ -29,10 +29,10 @@
   - type: HereticBlade
     path: Ash
   - type: Sprite
-    sprite: _Goobstation/Heretic/Blades/blade_ash.rsi
+    sprite: Goobstation/Heretic/Blades/blade_ash.rsi
     state: icon
   - type: Item
-    sprite: _Goobstation/Heretic/Blades/blade_ash-inhand.rsi
+    sprite: Goobstation/Heretic/Blades/blade_ash-inhand.rsi
   - type: MeleeWeapon
     wideAnimationRotation: -125
     attackRate: 1
@@ -59,10 +59,10 @@
   - type: HereticBlade
     path: Flesh
   - type: Sprite
-    sprite: _Goobstation/Heretic/Blades/blade_flesh.rsi
+    sprite: Goobstation/Heretic/Blades/blade_flesh.rsi
     state: icon
   - type: Item
-    sprite: _Goobstation/Heretic/Blades/blade_flesh-inhand.rsi
+    sprite: Goobstation/Heretic/Blades/blade_flesh-inhand.rsi
 
 - type: entity
   parent: HereticBladeBase
@@ -73,10 +73,10 @@
   - type: HereticBlade
     path: Lock
   - type: Sprite
-    sprite: _Goobstation/Heretic/Blades/blade_lock.rsi
+    sprite: Goobstation/Heretic/Blades/blade_lock.rsi
     state: icon
   - type: Item
-    sprite: _Goobstation/Heretic/Blades/blade_lock-inhand.rsi
+    sprite: Goobstation/Heretic/Blades/blade_lock-inhand.rsi
 
 - type: entity
   parent: HereticBladeBase
@@ -87,10 +87,10 @@
   - type: HereticBlade
     path: Rust
   - type: Sprite
-    sprite: _Goobstation/Heretic/Blades/blade_rust.rsi
+    sprite: Goobstation/Heretic/Blades/blade_rust.rsi
     state: icon
   - type: Item
-    sprite: _Goobstation/Heretic/Blades/blade_rust-inhand.rsi
+    sprite: Goobstation/Heretic/Blades/blade_rust-inhand.rsi
 
 - type: entity
   parent: HereticBladeBase
@@ -101,10 +101,10 @@
   - type: HereticBlade
     path: Void
   - type: Sprite
-    sprite: _Goobstation/Heretic/Blades/blade_void.rsi
+    sprite: Goobstation/Heretic/Blades/blade_void.rsi
     state: icon
   - type: Item
-    sprite: _Goobstation/Heretic/Blades/blade_void-inhand.rsi
+    sprite: Goobstation/Heretic/Blades/blade_void-inhand.rsi
   - type: MeleeWeapon
     wideAnimationRotation: -125
     attackRate: 1

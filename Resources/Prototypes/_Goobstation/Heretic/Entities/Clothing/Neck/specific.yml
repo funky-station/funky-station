@@ -7,7 +7,7 @@
   components:
     - type: HereticMagicItem
     - type: Sprite
-      sprite: _Goobstation/Heretic/amber_focus.rsi
+      sprite: Goobstation/Heretic/amber_focus.rsi
       state: icon
     - type: Clothing
-      sprite: _Goobstation/Heretic/amber_focus.rsi
+      sprite: Goobstation/Heretic/amber_focus.rsi

@@ -84,7 +84,6 @@ public abstract class SharedLayingDownSystem : EntitySystem
             _mobState.IsIncapacitated(uid) || !_standing.Stand(uid))
         {
             component.CurrentState = StandingState.Lying;
-            return;
         }
 
         component.CurrentState = StandingState.Standing;
@@ -124,7 +123,6 @@ public abstract class SharedLayingDownSystem : EntitySystem
 
         var args = new DoAfterArgs(EntityManager, uid, layingDown.StandingUpTime, new StandingUpDoAfterEvent(), uid)
         {
-            BreakOnDamage = true,
             BreakOnHandChange = false,
             RequireCanInteract = false
         };
@@ -148,7 +146,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
             return false;
         }
 
-        _standing.Down(uid, true, behavior != DropHeldItemsBehavior.NoDrop, false, standingState);
+        _standing.Down(uid, true, behavior != DropHeldItemsBehavior.NoDrop, standingState);
         return true;
     }
 }

@@ -115,24 +115,13 @@
     speechVerb: Robotic
 
 - type: entity
-  id: BaseSecurityPDA
-  abstract: true
-  components:
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-    - CrewManifestCartridge
-    - NotekeeperCartridge
-    - NewsReaderCartridge
-    - WantedListCartridge
-
-- type: entity
   parent: BasePDA
   id: BaseMedicalPDA
   abstract: true
   components:
   - type: ItemToggle
     onUse: false
+  - type: ItemTogglePointLight
   - type: HealthAnalyzer
     scanDelay: 1
     scanningEndSound:
@@ -371,12 +360,6 @@
     accentVColor: "#a23e3e"
   - type: Icon
     state: pda-qm
-  - type: CartridgeLoader # DeltaV - MailMetrics courier tracker
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - MailMetricsCartridge
 
 - type: entity
   parent: BasePDA
@@ -451,7 +434,7 @@
     state: pda-library
 
 - type: entity
-  parent: [BaseSecurityPDA, BasePDA]
+  parent: BasePDA
   id: LawyerPDA
   name: lawyer PDA
   description: For lawyers to poach dubious clients.
@@ -494,7 +477,7 @@
     state: pda-janitor
 
 - type: entity
-  parent: [BaseSecurityPDA, BasePDA]
+  parent: BasePDA
   id: CaptainPDA
   name: captain PDA
   description: Surprisingly no different from your PDA.
@@ -669,7 +652,7 @@
     state: pda-science
 
 - type: entity
-  parent: [BaseSecurityPDA, BasePDA]
+  parent: BasePDA
   id: HoSPDA
   name: head of security PDA
   description: Whosoever bears this PDA is the law.
@@ -684,7 +667,7 @@
     state: pda-hos
 
 - type: entity
-  parent: [BaseSecurityPDA, BasePDA]
+  parent: BasePDA
   id: WardenPDA
   name: warden PDA
   description: The OS appears to have been jailbroken.
@@ -699,7 +682,7 @@
     state: pda-warden
 
 - type: entity
-  parent: [BaseSecurityPDA, BasePDA]
+  parent: BasePDA
   id: SecurityPDA
   name: security PDA
   description: Red to hide the stains of passenger blood.
@@ -713,7 +696,7 @@
     state: pda-security
 
 - type: entity
-  parent: [BaseSecurityPDA, BasePDA]
+  parent: BasePDA
   id: CentcomPDA
   name: CentComm PDA
   description: Light green sign of walking bureaucracy.
@@ -751,7 +734,6 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - LogProbeCartridge
-      - WantedListCartridge
 
 - type: entity
   parent: CentcomPDA
@@ -853,7 +835,7 @@
           - Cartridge
 
 - type: entity
-  parent: [BaseSecurityPDA, BasePDA]
+  parent: BasePDA
   id: ERTLeaderPDA
   name: ERT Leader PDA
   suffix: Leader
@@ -1001,7 +983,7 @@
     state: pda-boxer
 
 - type: entity
-  parent: [BaseSecurityPDA, BasePDA]
+  parent: BasePDA
   id: DetectivePDA
   name: detective PDA
   description: Smells like rain... pouring down the rooftops...
@@ -1101,7 +1083,7 @@
     state: pda-seniorphysician
 
 - type: entity
-  parent: [BaseSecurityPDA, BasePDA]
+  parent: BasePDA
   id: SeniorOfficerPDA
   name: senior officer PDA
   description: Beaten, battered and broken, but just barely useable.

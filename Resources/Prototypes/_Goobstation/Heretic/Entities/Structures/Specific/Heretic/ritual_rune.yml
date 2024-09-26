@@ -8,7 +8,7 @@
   - type: HereticRitualRune
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: _Goobstation/Heretic/ritual_rune.rsi
+    sprite: Goobstation/Heretic/ritual_rune.rsi
     state: icon
   - type: Clickable
 
@@ -16,13 +16,13 @@
   id: HereticRuneRitualDrawAnimation
   name: unfinished transmutation rune
   description: An unfinished ancient drawing used by sinister individuals for sacrifices.
-  categories: [ HideSpawnMenu ]
+  noSpawn: true
   placement:
     mode: SnapgridCenter
   components:
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: _Goobstation/Heretic/ritual_rune.rsi
+    sprite: Goobstation/Heretic/ritual_rune.rsi
     state: icon_drawanim
 
 - type: entity
@@ -31,11 +31,11 @@
   description: you shouldn't be seeing this description
   placement:
     mode: SnapgridCenter
-  categories: [ HideSpawnMenu ]
+  noSpawn: true
   components:
   - type: TimedDespawn
     lifetime: 1
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: _Goobstation/Heretic/ritual_rune.rsi
+    sprite: Goobstation/Heretic/ritual_rune.rsi
     state: icon_ritualanim

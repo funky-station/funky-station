@@ -6,9 +6,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Helmets/helldiver.rsi
+    sprite: Goobstation/Clothing/Head/Helmets/helldiver.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Helmets/helldiver.rsi
+    sprite: Goobstation/Clothing/Head/Helmets/helldiver.rsi
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
@@ -24,14 +24,3 @@
     - Hair
     - HeadTop
     - HeadSide
-
-- type: entity
-  parent: ClothingHeadHelmetHardsuitBasic
-  id: ClothingHeadHelmetHEV
-  name: H.E.V helmet
-  description: Not included in a set with crowbar, long jump module and gravity manipulation device.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
-  - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi

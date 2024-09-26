@@ -6,10 +6,10 @@
   components:
   - type: HereticMagicItem
   - type: Sprite
-    sprite: _Goobstation/Heretic/eldritch_hood.rsi
+    sprite: Goobstation/Heretic/eldritch_hood.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/eldritch_hood.rsi
+    sprite: Goobstation/Heretic/eldritch_hood.rsi
   - type: Tag
     tags:
     - WhitelistChameleon

@@ -1733,7 +1733,7 @@
         name: food-sequence-content-rat
       skewer:
         name: food-sequence-content-rat
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-rat
 
@@ -2935,6 +2935,8 @@
     states:
       Alive:
         Base: spacecat
+      Critical:
+        Base: spacecat_dead
       Dead:
         Base: spacecat_dead
   - type: Temperature
@@ -2942,10 +2944,10 @@
     coldDamageThreshold: 0
   - type: Tag
     tags:
-      - DoorBumpOpener
+    - DoorBumpOpener
   - type: MovementAlwaysTouching
   - type: PressureImmunity
-  - type: StepTriggerImmune
+  - type: ProtectedFromStepTriggers
   - type: Insulated
   - type: InteractionPopup
     successChance: 0.7

@@ -17,7 +17,7 @@
   components:
   - type: Objective
     icon:
-      sprite: Goobstation/Heretic/reality_fracture.rsi
+      sprite: _Goobstation/Heretic/reality_fracture.rsi
       state: icon_harvested
   - type: NumberObjective
     min: 12
@@ -31,7 +31,7 @@
   components:
   - type: Objective
     icon:
-      sprite: Goobstation/Heretic/Blades/blade_blade.rsi
+      sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
       state: icon
   - type: NumberObjective
     min: 2
@@ -45,7 +45,7 @@
   components:
   - type: Objective
     icon:
-      sprite: Goobstation/Heretic/Blades/blade_blade.rsi
+      sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
       state: icon
   - type: NumberObjective
     min: 1

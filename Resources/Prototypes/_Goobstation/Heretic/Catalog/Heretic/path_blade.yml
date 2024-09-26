@@ -2,7 +2,7 @@
   id: KnowledgePathStartBlade
   name: knowledge-path-blade-s1-name
   description: knowledge-path-blade-s1-desc
-  icon: { sprite: Goobstation/Heretic/Blades/blade_blade.rsi, state: icon }
+  icon: { sprite: _Goobstation/Heretic/Blades/blade_blade.rsi, state: icon }
   #productHereticKnowledge:
   cost:
     KnowledgePoint: 1

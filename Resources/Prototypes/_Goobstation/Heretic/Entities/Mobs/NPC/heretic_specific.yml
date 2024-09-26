@@ -2,11 +2,11 @@
   id: PolymorphAshJauntAnimation
   name: ashen thing
   description: you're not really supposed to read this
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: Goobstation/Heretic/polymorphs.rsi
+    sprite: _Goobstation/Heretic/polymorphs.rsi
     state: ash_jaunt
     loop: false
   - type: TimedDespawn
@@ -16,11 +16,11 @@
   id: PolymorphAshJauntEndAnimation
   name: ashen thing
   description: you're not really supposed to read this
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: Goobstation/Heretic/polymorphs.rsi
+    sprite: _Goobstation/Heretic/polymorphs.rsi
     state: ash_jaunt_end
     loop: false
   - type: TimedDespawn
@@ -30,7 +30,7 @@
   id: PolymorphAshJaunt
   name: ashen thing
   description: again you're not supposed to read this
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: MindContainer
   - type: InputMover

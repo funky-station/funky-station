@@ -2,13 +2,13 @@
   id: ActionHereticJaunt
   name: Ashen Passage
   description: A short range spell that allows you to pass unimpeded through walls.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     useDelay: 15
     itemIconStyle: NoItem
     icon:
-      sprite: Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: ashen_shift
     event: !type:EventHereticAshenShift
   - type: HereticAction
@@ -19,13 +19,13 @@
   id: ActionHereticVolcanoBlast
   name: Volcanic Blast
   description: Charge up a blast of fire that chains between nearby targets, setting them ablaze.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     useDelay: 10
     itemIconStyle: NoItem
     icon:
-      sprite: Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: volcano_blast
     event: !type:EventHereticVolcanoBlast
   - type: HereticAction
@@ -36,13 +36,13 @@
   id: ActionHereticNightwatcherRebirth
   name: Nightwatcher's Rebirth
   description: A spell that extinguishes you and drains nearby heathens engulfed in flames of their life force.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     useDelay: 15
     itemIconStyle: NoItem
     icon:
-      sprite: Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: nightwatcher_rebirth
     event: !type:EventHereticNightwatcherRebirth
   - type: HereticAction
@@ -53,13 +53,13 @@
   id: ActionHereticAscension1
   name: Oath of Flame
   description: For a minute, you will passively create a ring of fire around you.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     useDelay: 90
     itemIconStyle: NoItem
     icon:
-      sprite: Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: ashlord_rite1
     event: !type:EventHereticFlames
   - type: HereticAction
@@ -70,13 +70,13 @@
   id: ActionHereticAscension2
   name: Fire Cascade
   description: Heats the air around you.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     useDelay: 30
     itemIconStyle: NoItem
     icon:
-      sprite: Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: ashlord_rite2
     event: !type:EventHereticCascade
   - type: HereticAction

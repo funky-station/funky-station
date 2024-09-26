@@ -34,5 +34,5 @@
       - ShowAntagIcons
       - Mindcontrolled
   icon:
-    sprite: /Textures/Goobstation/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
     state: Mindcontrolled

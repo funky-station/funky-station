@@ -9,7 +9,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: headcrab
-      sprite: Goobstation/Changeling/headcrab.rsi
+      sprite: _Goobstation/Changeling/headcrab.rsi
   - type: Physics
   - type: Bloodstream
     bloodReagent: BloodChangeling
@@ -29,4 +29,3 @@
     baseSprintSpeed: 7
   - type: ExplosionResistance
     damageCoefficient: 0
-    

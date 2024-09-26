@@ -8,7 +8,7 @@
   - type: InteractionOutline
   - type: EldritchInfluence
   - type: Sprite
-    sprite: Goobstation/Heretic/reality_fracture.rsi
+    sprite: _Goobstation/Heretic/reality_fracture.rsi
     state: icon
   - type: Clickable
   - type: Visibility
@@ -16,7 +16,7 @@
 
 - type: entity
   id: EldritchInfluenceIntermediate
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
     lifetime: 30
@@ -32,6 +32,6 @@
   components:
   - type: InteractionOutline
   - type: Sprite
-    sprite: Goobstation/Heretic/reality_fracture.rsi
+    sprite: _Goobstation/Heretic/reality_fracture.rsi
     state: icon_harvested
   - type: Clickable

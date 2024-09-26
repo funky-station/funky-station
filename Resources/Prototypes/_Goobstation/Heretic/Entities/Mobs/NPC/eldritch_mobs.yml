@@ -65,7 +65,7 @@
   - type: IntrinsicRadioTransmitter
     channels:
     - Mansus
-  
+
 
 - type: entity
   parent: BaseMobGhoul
@@ -76,7 +76,7 @@
   - type: Ghoul
     totalHealth: 150
   - type: Sprite
-    sprite: Goobstation/Heretic/eldritch_mobs.rsi
+    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
     state: stalker
   - type: GhostRole
     name: ghostrole-stalker-name
@@ -102,7 +102,7 @@
     totalHealth: 75
   - type: Sprite
     noRot: true
-    sprite: Goobstation/Heretic/eldritch_mobs.rsi
+    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
     layers:
     - map: [ "movement" ]
       state: raw_prophet
@@ -149,7 +149,7 @@
     weightlessModifier: 1.5
   - type: Sprite
     drawdepth: Mobs
-    sprite: Goobstation/Heretic/eldritch_horror.rsi
+    sprite: _Goobstation/Heretic/eldritch_horror.rsi
     noRot: true
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]

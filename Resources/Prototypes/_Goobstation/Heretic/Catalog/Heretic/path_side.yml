@@ -19,7 +19,7 @@
   id: HereticSidePath3Armor
   name: knowledge-path-side-s3-armor-name
   description: knowledge-path-side-s3-armor-desc
-  icon: { sprite: Goobstation/Heretic/eldritch_hood.rsi, state: icon }
+  icon: { sprite: _Goobstation/Heretic/eldritch_hood.rsi, state: icon }
   productHereticKnowledge: ArmorerRitual
   cost:
     KnowledgePoint: 2

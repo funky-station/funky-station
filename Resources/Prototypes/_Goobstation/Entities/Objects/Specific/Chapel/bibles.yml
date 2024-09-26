@@ -6,9 +6,9 @@
   id: BibleAtheist
   components:
   - type: Sprite
-    sprite: Goobstation/Objects/Specific/Chapel/atheism.rsi
+    sprite: _Goobstation/Objects/Specific/Chapel/atheism.rsi
   - type: Item
-    sprite: Goobstation/Objects/Specific/Chapel/atheism.rsi
+    sprite: _Goobstation/Objects/Specific/Chapel/atheism.rsi
 
 - type: entity
   parent: Bible
@@ -17,7 +17,7 @@
   id: BibleBhuddhist
   components:
   - type: Sprite
-    sprite: Goobstation/Objects/Specific/Chapel/tripitaka.rsi
+    sprite: _Goobstation/Objects/Specific/Chapel/tripitaka.rsi
   - type: Item
-    sprite: Goobstation/Objects/Specific/Chapel/tripitaka.rsi
+    sprite: _Goobstation/Objects/Specific/Chapel/tripitaka.rsi
 ## Public Domain YAML Ends

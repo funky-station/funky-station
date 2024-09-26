@@ -5,10 +5,10 @@
   description: A ragged, dusty set of robes. Strange eyes line the inside.
   components:
   - type: Sprite
-    sprite: Goobstation/Heretic/eldritch_armor.rsi
+    sprite: _Goobstation/Heretic/eldritch_armor.rsi
     state: icon
   - type: Clothing
-    sprite: Goobstation/Heretic/eldritch_armor.rsi
+    sprite: _Goobstation/Heretic/eldritch_armor.rsi
   - type: Armor
     modifiers:
       coefficients:

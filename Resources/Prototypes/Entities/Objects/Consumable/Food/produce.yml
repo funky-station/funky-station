@@ -57,6 +57,28 @@
     - Wheat
 
 - type: entity
+  name: meatwheat bushel
+  description: Some blood-drenched wheat stalks. You can crush them into what passes for meat if you squint hard enough.
+  id: MeatwheatBushel
+  parent: ProduceBase
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/meatwheat.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 10
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodMeatWheat
+    sound:
+      path: /Audio/Voice/Slime/slime_squish.ogg
+  - type: Produce
+    seedId: meatwheat
+
+- type: entity
   name: oat bushel
   description: Eat oats, do squats.
   id: OatBushel
@@ -118,7 +140,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - peas
+    - peas
   - type: SolutionContainerManager
     solutions:
       food:
@@ -261,7 +283,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - banana
+    - banana
   - type: Food
     trash:
     - TrashBananaPeel
@@ -305,8 +327,8 @@
   components:
   - type: FlavorProfile
     flavors:
-      - banana
-      - nothing
+    - banana
+    - nothing
   - type: Food
     trash:
     - TrashMimanaPeel
@@ -453,7 +475,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - carrot
+    - carrot
   - type: Tag
     tags:
     - Carrot
@@ -498,7 +520,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - cabbage
+    - cabbage
   - type: SolutionContainerManager
     solutions:
       food:
@@ -533,7 +555,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - garlic
+    - garlic
   - type: SolutionContainerManager
     solutions:
       food:
@@ -570,7 +592,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - sour
+    - sour
   - type: SolutionContainerManager
     solutions:
       food:
@@ -611,7 +633,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - lemoon
+    - lemoon
   - type: SolutionContainerManager
     solutions:
       food:
@@ -651,7 +673,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - sour
+    - sour
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/lime.rsi
   - type: Produce
@@ -683,7 +705,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - orange
+    - orange
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/orange.rsi
   - type: Produce
@@ -707,6 +729,43 @@
         name: food-sequence-content-orange
 
 - type: entity
+  name: extradimensional orange
+  parent: FoodProduceBase
+  id: FoodExtradimensionalOrange
+  description: You can hardly wrap your head around this thing.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - truenature
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: Haloperidol
+          Quantity: 5
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/extradimensional_orange.rsi
+    scale: 0.5,0.5
+  - type: Produce
+    seedId: extradimensionalOrange
+  - type: PotencyVisuals
+    minimumScale: 0.5 # reduce this in size because the sprite is way too big
+    maximumScale: 1
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceOrange
+        Quantity: 10
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
   name: pineapple
   parent: FoodProduceBase
   id: FoodPineapple
@@ -714,7 +773,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - pineapple
+    - pineapple
   - type: SolutionContainerManager
     solutions:
       food:
@@ -750,7 +809,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - potatoes
+    - potatoes
   - type: SolutionContainerManager
     solutions:
       food:
@@ -792,7 +851,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - tomato
+    - tomato
   - type: SolutionContainerManager
     solutions:
       food:
@@ -972,7 +1031,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - eggplant
+    - eggplant
   - type: SolutionContainerManager
     solutions:
       food:
@@ -999,7 +1058,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - apple
+    - apple
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1039,8 +1098,8 @@
   components:
   - type: FlavorProfile
     flavors:
-      - apple
-      - metallic
+    - apple
+    - metallic
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1084,7 +1143,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - chocolate
+    - chocolate
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1102,7 +1161,7 @@
     seedId: cocoa
   - type: SpawnItemsOnUse
     items:
-      - id: FoodCocoaBeans
+    - id: FoodCocoaBeans
     sound:
       path: /Audio/Effects/packetrip.ogg
   - type: Tag
@@ -1126,7 +1185,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - corn
+    - corn
   - type: Food
     trash:
     - FoodCornTrash
@@ -1183,7 +1242,7 @@
     size: Tiny
   - type: Tag
     tags:
-      - Trash
+    - Trash
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1209,7 +1268,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - onion
+    - onion
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1249,7 +1308,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - onion
+    - onion
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1345,7 +1404,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - pineapple
+    - pineapple
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/pineapple.rsi
   - type: Extractable
@@ -1375,7 +1434,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - onion
+    - onion
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/onion.rsi
   - type: SolutionContainerManager
@@ -1411,7 +1470,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - onion
+    - onion
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/onion_red.rsi
   - type: SolutionContainerManager
@@ -1447,18 +1506,18 @@
   components:
   - type: FlavorProfile
     flavors:
-      - spicy
+    - spicy
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 18
         reagents:
-          - ReagentId: Nutriment
-            Quantity: 4
-          - ReagentId: CapsaicinOil
-            Quantity: 10
-          - ReagentId: Vitamin
-            Quantity: 4
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: CapsaicinOil
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 4
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/chili.rsi
   - type: Produce
@@ -1489,19 +1548,19 @@
   components:
   - type: FlavorProfile
     flavors:
-      - spicy
-      - cold
+    - spicy
+    - cold
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 18
         reagents:
-          - ReagentId: Nutriment
-            Quantity: 4
-          - ReagentId: Frostoil
-            Quantity: 10
-          - ReagentId: Vitamin
-            Quantity: 4
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Frostoil
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 4
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/chilly.rsi
   - type: Produce
@@ -1529,7 +1588,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - medicine
+    - medicine
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1570,7 +1629,7 @@
     quickEquip: false
   - type: FlavorProfile
     flavors:
-      - medicine
+    - medicine
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1607,7 +1666,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - medicine
+    - medicine
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1644,8 +1703,8 @@
   components:
   - type: FlavorProfile
     flavors:
-      - mushroom
-      - medicine
+    - mushroom
+    - medicine
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1684,8 +1743,8 @@
   components:
   - type: FlavorProfile
     flavors:
-      - leafy
-      - medicine
+    - leafy
+    - medicine
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1730,8 +1789,8 @@
   components:
   - type: FlavorProfile
     flavors:
-      - leafy
-      - medicine
+    - leafy
+    - medicine
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1776,7 +1835,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - medicine
+    - medicine
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1816,7 +1875,7 @@
     heldPrefix: produce
   - type: FlavorProfile
     flavors:
-      - sharp
+    - sharp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1863,7 +1922,7 @@
       types:
         Slash: 15
     soundHit:
-        path: /Audio/Weapons/bladeslice.ogg
+      path: /Audio/Weapons/bladeslice.ogg
   - type: Tag
     tags:
     - Galaxythistle
@@ -1885,7 +1944,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - mushroom
+    - mushroom
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1925,7 +1984,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - gunpowder
+    - gunpowder
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1963,7 +2022,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - plastic
+    - plastic
   - type: SolutionContainerManager
     solutions:
       food:
@@ -2065,7 +2124,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - violets
+    - violets
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/spacemans_trumpet.rsi
   - type: SolutionContainerManager
@@ -2141,7 +2200,7 @@
     size: Small
   - type: FlavorProfile
     flavors:
-      - watermelon
+    - watermelon
   - type: SolutionContainerManager
     solutions:
       food:
@@ -2203,7 +2262,7 @@
     size: Tiny
   - type: FlavorProfile
     flavors:
-      - watermelon
+    - watermelon
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/watermelon.rsi
   - type: SolutionContainerManager
@@ -2237,6 +2296,104 @@
         name: food-sequence-content-watermelon
 
 - type: entity
+  name: holymelon
+  parent: [FoodProduceBase, ItemHeftyBase]
+  id: FoodHolymelon
+  description: The water within this melon has been blessed by some deity that's particularly fond of watermelon.
+  components:
+  - type: Item
+    size: Small
+  - type: FlavorProfile
+    flavors:
+    - holy
+    - watermelon
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Holywater
+          Quantity: 10
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/holymelon.rsi
+  - type: Produce
+    seedId: watermelon
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Wine
+        Quantity: 20
+  - type: Damageable
+    damageContainer: Biological
+  - type: DamageOnHighSpeedImpact
+    minimumSpeed: 0.1
+    damage:
+      types:
+        Blunt: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: desecration
+      - !type:SpillBehavior
+        solution: food
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SliceableFood
+    count: 5
+    slice: FoodHolymelonSlice
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: ClothingHeadHatHolyWatermelon
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: holymelon slice
+  parent: ProduceSliceBase
+  id: FoodHolymelonSlice
+  description: Juicy golden and red slice.
+  components:
+  - type: Item
+    size: Tiny
+  - type: FlavorProfile
+    flavors:
+    - holy
+    - watermelon
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/holymelon.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 1
+        - ReagentId: Holywater
+          Quantity: 2
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Wine
+        Quantity: 4
+  - type: Tag
+    tags:
+    - Fruit
+    - Slice
+
+- type: entity
   name: grapes
   parent: FoodProduceBase
   id: FoodGrape
@@ -2244,7 +2401,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - grape
+    - grape
   - type: SolutionContainerManager
     solutions:
       food:
@@ -2275,7 +2432,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - berry
+    - berry
   - type: SolutionContainerManager
     solutions:
       food:
@@ -2315,7 +2472,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - bungo
+    - bungo
   - type: Food
     trash:
     - FoodBungoPit
@@ -2386,7 +2543,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - peas
+    - peas
   - type: SolutionContainerManager
     solutions:
       food:
@@ -2414,6 +2571,34 @@
         name: food-sequence-content-pea
 
 - type: entity
+  parent: FoodProduceBase
+  id: FoodWorldPeas
+  name: cluster of world peas
+  description: It's rumored to bring peace to any who consume it.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - numbingtranquility
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Happiness
+          Quantity: 3
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Pax
+          Quantity: 2
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/world_pea.rsi
+  - type: Produce
+    seedId: worldPea
+  - type: Tag
+    tags:
+    - Vegetable
+
+- type: entity
   name: pumpkin
   parent: FoodProduceBase
   id: FoodPumpkin
@@ -2423,7 +2608,7 @@
     size: Small
   - type: FlavorProfile
     flavors:
-      - pumpkin
+    - pumpkin
   - type: SolutionContainerManager
     solutions:
       food:
@@ -2472,7 +2657,7 @@
     size: Small
   - type: FlavorProfile
     flavors:
-      - bluepumpkin
+    - bluepumpkin
   - type: SolutionContainerManager
     solutions:
       food:
@@ -2522,7 +2707,7 @@
     sprite: Objects/Specific/Hydroponics/cotton.rsi
   - type: FlavorProfile
     flavors:
-      - cotton
+    - cotton
   - type: Food
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
@@ -2551,7 +2736,7 @@
     sprite: Objects/Specific/Hydroponics/pyrotton.rsi
   - type: FlavorProfile
     flavors:
-      - pyrotton
+    - pyrotton
   - type: Food
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
@@ -2582,7 +2767,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - cherry
+    - cherry
   - type: Food
     trash:
     - TrashCherryPit
@@ -2645,3 +2830,35 @@
     seedId: cherry
   - type: SpaceGarbage
   - type: BadFood
+
+- type: entity
+  name: anomaly berry
+  description: A strange blue fruit. Something about it doesn't seem right.
+  parent: FoodProduceBase
+  id: FoodAnomalyBerry
+  components:
+  - type: FlavorProfile
+    flavors:
+    - strange
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/anomaly_berry.rsi
+    state: produce
+  - type: Produce
+    seedId: anomalyBerry
+  - type: Food
+    trash:
+    - EffectAnomalyFloraBulb # Random loot
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: Artifexium
+          Quantity: 1
+  - type: Tag
+    tags:
+    - Fruit

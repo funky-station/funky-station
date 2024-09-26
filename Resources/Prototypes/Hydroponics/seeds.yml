@@ -6,7 +6,9 @@
   plantRsi: Objects/Specific/Hydroponics/wheat.rsi
   packetPrototype: WheatSeeds
   productPrototypes:
-    - WheatBushel
+  - WheatBushel
+  mutationPrototypes:
+  - meatwheat
   lifespan: 25
   maturation: 6
   production: 3
@@ -25,6 +27,32 @@
       PotencyDivisor: 20
 
 - type: seed
+  id: meatwheat
+  name: seeds-meatwheat-name
+  noun: seeds-noun-seeds
+  displayName: seeds-meatwheat-display-name
+  plantRsi: Objects/Specific/Hydroponics/meatwheat.rsi
+  packetPrototype: MeatwheatSeeds
+  productPrototypes:
+  - MeatwheatBushel
+  lifespan: 25
+  maturation: 6
+  production: 3
+  yield: 3
+  potency: 5
+  idealLight: 8
+  nutrientConsumption: 0.40
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 20
+      PotencyDivisor: 20
+    UncookedAnimalProteins:
+      Min: 5
+      Max: 20
+      PotencyDivisor: 20
+
+- type: seed
   id: oat
   name: seeds-oat-name
   noun: seeds-noun-seeds
@@ -32,7 +60,7 @@
   plantRsi: Objects/Specific/Hydroponics/oat.rsi
   packetPrototype: OatSeeds
   productPrototypes:
-    - OatBushel
+  - OatBushel
   lifespan: 25
   maturation: 6
   production: 3
@@ -58,9 +86,9 @@
   plantRsi: Objects/Specific/Hydroponics/banana.rsi
   packetPrototype: BananaSeeds
   productPrototypes:
-    - FoodBanana
+  - FoodBanana
   mutationPrototypes:
-    - mimana
+  - mimana
   harvestRepeat: Repeat
   lifespan: 50
   maturation: 6
@@ -87,7 +115,7 @@
   plantRsi: Objects/Specific/Hydroponics/mimana.rsi
   packetPrototype: MimanaSeeds
   productPrototypes:
-    - FoodMimana
+  - FoodMimana
   harvestRepeat: Repeat
   lifespan: 50
   maturation: 6
@@ -114,7 +142,7 @@
   plantRsi: Objects/Specific/Hydroponics/carrot.rsi
   packetPrototype: CarrotSeeds
   productPrototypes:
-    - FoodCarrot
+  - FoodCarrot
   lifespan: 25
   maturation: 10
   production: 3
@@ -144,7 +172,9 @@
   plantRsi: Objects/Specific/Hydroponics/laughin_pea.rsi
   packetPrototype: LaughinPeaSeeds
   productPrototypes:
-    - FoodLaughinPeaPod
+  - FoodLaughinPeaPod
+  mutationPrototypes:
+  - worldPea
   lifespan: 25
   growthStages: 3
   maturation: 7
@@ -177,9 +207,11 @@
   plantRsi: Objects/Specific/Hydroponics/lemon.rsi
   packetPrototype: LemonSeeds
   productPrototypes:
-    - FoodLemon
+  - FoodLemon
   mutationPrototypes:
-    - lemoon
+  - lemoon
+  - lime
+  - orange
   harvestRepeat: Repeat
   lifespan: 55
   maturation: 6
@@ -205,7 +237,7 @@
   plantRsi: Objects/Specific/Hydroponics/lemoon.rsi
   packetPrototype: LemoonSeeds
   productPrototypes:
-    - FoodLemoon
+  - FoodLemoon
   harvestRepeat: Repeat
   lifespan: 90
   maturation: 8
@@ -231,7 +263,10 @@
   plantRsi: Objects/Specific/Hydroponics/lime.rsi
   packetPrototype: LimeSeeds
   productPrototypes:
-    - FoodLime
+  - FoodLime
+  mutationPrototypes:
+  - orange
+  - lemon
   harvestRepeat: Repeat
   lifespan: 55
   maturation: 6
@@ -257,7 +292,11 @@
   plantRsi: Objects/Specific/Hydroponics/orange.rsi
   packetPrototype: OrangeSeeds
   productPrototypes:
-    - FoodOrange
+  - FoodOrange
+  mutationPrototypes:
+  - extradimensionalOrange
+  - lemon
+  - lime
   harvestRepeat: Repeat
   lifespan: 55
   maturation: 6
@@ -276,6 +315,36 @@
       PotencyDivisor: 25
 
 - type: seed
+  id: extradimensionalOrange
+  name: seeds-extradimensionalorange-name
+  noun: seeds-noun-seeds
+  displayName: seeds-extradimensionalorange-display-name
+  plantRsi: Objects/Specific/Hydroponics/extradimensional_orange.rsi
+  packetPrototype: ExtradimensionalOrangeSeeds
+  productPrototypes:
+  - FoodExtradimensionalOrange
+  harvestRepeat: Repeat
+  lifespan: 55
+  maturation: 6
+  production: 6
+  yield: 3
+  potency: 10
+  idealLight: 8
+  chemicals:
+    Haloperidol:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 20
+    Nutriment:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 20
+    Vitamin:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 25
+
+- type: seed
   id: pineapple
   name: seeds-pineapple-name
   noun: seeds-noun-seeds
@@ -283,7 +352,7 @@
   plantRsi: Objects/Specific/Hydroponics/pineapple.rsi
   packetPrototype: PineappleSeeds
   productPrototypes:
-    - FoodPineapple
+  - FoodPineapple
   harvestRepeat: Repeat
   lifespan: 55
   maturation: 6
@@ -314,7 +383,7 @@
   plantRsi: Objects/Specific/Hydroponics/potato.rsi
   packetPrototype: PotatoSeeds
   productPrototypes:
-    - FoodPotato
+  - FoodPotato
   lifespan: 30
   maturation: 10
   production: 3
@@ -340,9 +409,9 @@
   plantRsi: Objects/Specific/Hydroponics/sugarcane.rsi
   packetPrototype: SugarcaneSeeds
   productPrototypes:
-    - Sugarcane
+  - Sugarcane
   mutationPrototypes:
-    - papercane
+  - papercane
   harvestRepeat: Repeat
   lifespan: 60
   maturation: 6
@@ -365,7 +434,7 @@
   plantRsi: Objects/Specific/Hydroponics/tea_plant.rsi
   packetPrototype: TeaPlantSeeds
   productPrototypes:
-    - LeavesTea
+  - LeavesTea
   harvestRepeat: Repeat
   lifespan: 75
   maturation: 5
@@ -390,7 +459,7 @@
   plantRsi: Objects/Specific/Hydroponics/papercane.rsi
   packetPrototype: PapercaneSeeds
   productPrototypes:
-    - Papercane
+  - Papercane
   harvestRepeat: Repeat
   lifespan: 60
   maturation: 6
@@ -408,9 +477,9 @@
   plantRsi: Objects/Specific/Hydroponics/towercap.rsi
   packetPrototype: TowercapSeeds
   productPrototypes:
-    - Log
+  - Log
   mutationPrototypes:
-    - steelcap
+  - steelcap
   lifespan: 80
   maturation: 15
   ligneous: true
@@ -431,7 +500,7 @@
   plantRsi: Objects/Specific/Hydroponics/steelcap.rsi
   packetPrototype: SteelcapSeeds
   productPrototypes:
-    - SteelLog
+  - SteelLog
   lifespan: 80
   maturation: 15
   ligneous: true
@@ -452,10 +521,10 @@
   plantRsi: Objects/Specific/Hydroponics/tomato.rsi
   packetPrototype: TomatoSeeds
   productPrototypes:
-    - FoodTomato
+  - FoodTomato
   mutationPrototypes:
-    - blueTomato
-    - bloodTomato
+  - blueTomato
+  - bloodTomato
   harvestRepeat: Repeat
   lifespan: 25
   maturation: 8
@@ -489,7 +558,7 @@
   plantRsi: Objects/Specific/Hydroponics/blue_tomato.rsi
   packetPrototype: BlueTomatoSeeds
   productPrototypes:
-    - FoodBlueTomato
+  - FoodBlueTomato
   harvestRepeat: Repeat
   lifespan: 25
   maturation: 8
@@ -523,9 +592,9 @@
   plantRsi: Objects/Specific/Hydroponics/blood_tomato.rsi
   packetPrototype: BloodTomatoSeeds
   productPrototypes:
-    - FoodBloodTomato
+  - FoodBloodTomato
   mutationPrototypes:
-    - killerTomato
+  - killerTomato
   harvestRepeat: Repeat
   lifespan: 60
   maturation: 8
@@ -555,7 +624,7 @@
   plantRsi: Objects/Specific/Hydroponics/tomatokiller.rsi
   packetPrototype: KillerTomatoSeeds
   productPrototypes:
-    - MobTomatoKiller
+  - MobTomatoKiller
   harvestRepeat: Repeat
   lifespan: 25
   maturation: 15
@@ -586,9 +655,9 @@
   plantRsi: Objects/Specific/Hydroponics/eggplant.rsi
   packetPrototype: EggplantSeeds
   productPrototypes:
-    - FoodEggplant
+  - FoodEggplant
   mutationPrototypes:
-    - eggy
+  - eggy
   harvestRepeat: Repeat
   lifespan: 25
   maturation: 6
@@ -615,7 +684,7 @@
   plantRsi: Objects/Specific/Hydroponics/cabbage.rsi
   packetPrototype: CabbageSeeds
   productPrototypes:
-    - FoodCabbage
+  - FoodCabbage
   lifespan: 50
   maturation: 7
   production: 5
@@ -640,7 +709,7 @@
   plantRsi: Objects/Specific/Hydroponics/garlic.rsi
   packetPrototype: GarlicSeeds
   productPrototypes:
-    - FoodGarlic
+  - FoodGarlic
   lifespan: 25
   maturation: 8
   production: 5
@@ -669,9 +738,9 @@
   plantRsi: Objects/Specific/Hydroponics/apple.rsi
   packetPrototype: AppleSeeds
   productPrototypes:
-    - FoodApple
+  - FoodApple
   mutationPrototypes:
-    - goldenApple
+  - goldenApple
   harvestRepeat: Repeat
   lifespan: 55
   maturation: 6
@@ -697,7 +766,7 @@
   plantRsi: Objects/Specific/Hydroponics/golden_apple.rsi
   packetPrototype: GoldenAppleSeeds
   productPrototypes:
-    - FoodGoldenApple
+  - FoodGoldenApple
   harvestRepeat: Repeat
   lifespan: 55
   maturation: 6
@@ -729,7 +798,7 @@
   plantRsi: Objects/Specific/Hydroponics/corn.rsi
   packetPrototype: CornSeeds
   productPrototypes:
-    - FoodCorn
+  - FoodCorn
   lifespan: 25
   maturation: 8
   production: 6
@@ -757,9 +826,9 @@
   plantRsi: Objects/Specific/Hydroponics/onion.rsi
   packetPrototype: OnionSeeds
   productPrototypes:
-    - FoodOnion
+  - FoodOnion
   mutationPrototypes:
-    - onionred
+  - onionred
   lifespan: 25
   maturation: 8
   production: 6
@@ -791,7 +860,7 @@
   plantRsi: Objects/Specific/Hydroponics/onion_red.rsi
   packetPrototype: OnionRedSeeds
   productPrototypes:
-    - FoodOnionRed
+  - FoodOnionRed
   lifespan: 25
   maturation: 8
   production: 6
@@ -823,7 +892,7 @@
   plantRsi: Objects/Specific/Hydroponics/chanterelle.rsi
   packetPrototype: ChanterelleSeeds
   productPrototypes:
-    - FoodMushroom
+  - FoodMushroom
   lifespan: 35
   maturation: 10
   production: 7
@@ -848,7 +917,7 @@
   plantRsi: Objects/Specific/Hydroponics/eggy.rsi
   packetPrototype: EggySeeds
   productPrototypes:
-    - FoodEgg
+  - FoodEgg
   harvestRepeat: Repeat
   lifespan: 75
   maturation: 6
@@ -872,9 +941,9 @@
   plantRsi: Objects/Specific/Hydroponics/cannabis.rsi
   packetPrototype: CannabisSeeds
   productPrototypes:
-    - LeavesCannabis
+  - LeavesCannabis
   mutationPrototypes:
-    - rainbowCannabis
+  - rainbowCannabis
   harvestRepeat: Repeat
   lifespan: 75
   maturation: 8
@@ -899,7 +968,7 @@
   plantRsi: Objects/Specific/Hydroponics/rainbow_cannabis.rsi
   packetPrototype: RainbowCannabisSeeds
   productPrototypes:
-    - LeavesCannabisRainbow
+  - LeavesCannabisRainbow
   harvestRepeat: Repeat
   lifespan: 75
   maturation: 8
@@ -926,11 +995,11 @@
     Happiness:
       Min: 1
       Max: 5
-#     PotencyDivisor: 20
-#   ColorfulReagent:
-#     Min: 0
-#     Max: 5
-#     PotencyDivisor: 20
+    #     PotencyDivisor: 20
+    #   ColorfulReagent:
+    #     Min: 0
+    #     Max: 5
+    #     PotencyDivisor: 20
     Psicodine:
       Min: 0
       Max: 5
@@ -944,7 +1013,7 @@
   plantRsi: Objects/Specific/Hydroponics/tobacco.rsi
   packetPrototype: TobaccoSeeds
   productPrototypes:
-    - LeavesTobacco
+  - LeavesTobacco
   harvestRepeat: Repeat
   lifespan: 75
   maturation: 5
@@ -969,9 +1038,9 @@
   plantRsi: Objects/Specific/Hydroponics/nettle.rsi
   packetPrototype: NettleSeeds
   productPrototypes:
-    - Nettle
+  - Nettle
   mutationPrototypes:
-    - deathNettle
+  - deathNettle
   lifespan: 25
   maturation: 8
   production: 6
@@ -995,7 +1064,7 @@
   plantRsi: Objects/Specific/Hydroponics/death_nettle.rsi
   packetPrototype: DeathNettleSeeds
   productPrototypes:
-    - DeathNettle
+  - DeathNettle
   lifespan: 25
   maturation: 8
   production: 6
@@ -1024,9 +1093,9 @@
   plantRsi: Objects/Specific/Hydroponics/chili.rsi
   packetPrototype: ChiliSeeds
   productPrototypes:
-    - FoodChiliPepper
+  - FoodChiliPepper
   mutationPrototypes:
-    - chilly
+  - chilly
   harvestRepeat: Repeat
   lifespan: 25
   maturation: 6
@@ -1057,7 +1126,7 @@
   plantRsi: Objects/Specific/Hydroponics/chilly.rsi
   packetPrototype: ChillySeeds
   productPrototypes:
-    - FoodChillyPepper
+  - FoodChillyPepper
   harvestRepeat: Repeat
   lifespan: 25
   maturation: 6
@@ -1088,9 +1157,9 @@
   plantRsi: Objects/Specific/Hydroponics/poppy.rsi
   packetPrototype: PoppySeeds
   productPrototypes:
-    - FoodPoppy
+  - FoodPoppy
   mutationPrototypes:
-    - lily
+  - lily
   lifespan: 25
   maturation: 10
   production: 3
@@ -1116,7 +1185,7 @@
   plantRsi: Objects/Specific/Hydroponics/aloe.rsi
   packetPrototype: AloeSeeds
   productPrototypes:
-    - FoodAloe
+  - FoodAloe
   lifespan: 25
   maturation: 10
   production: 3
@@ -1142,9 +1211,9 @@
   plantRsi: Objects/Specific/Hydroponics/lily.rsi
   packetPrototype: LilySeeds
   productPrototypes:
-    - FoodLily
+  - FoodLily
   mutationPrototypes:
-    - spacemansTrumpet
+  - spacemansTrumpet
   lifespan: 25
   maturation: 10
   production: 3
@@ -1170,7 +1239,7 @@
   plantRsi: Objects/Specific/Hydroponics/lingzhi.rsi
   packetPrototype: LingzhiSeeds
   productPrototypes:
-    - FoodLingzhi
+  - FoodLingzhi
   lifespan: 25
   maturation: 10
   production: 3
@@ -1196,9 +1265,9 @@
   plantRsi: Objects/Specific/Hydroponics/ambrosia_vulgaris.rsi
   packetPrototype: AmbrosiaVulgarisSeeds
   productPrototypes:
-    - FoodAmbrosiaVulgaris
+  - FoodAmbrosiaVulgaris
   mutationPrototypes:
-    - ambrosiaDeus
+  - ambrosiaDeus
   lifespan: 25
   maturation: 10
   production: 3
@@ -1236,7 +1305,7 @@
   plantRsi: Objects/Specific/Hydroponics/ambrosia_deus.rsi
   packetPrototype: AmbrosiaDeusSeeds
   productPrototypes:
-    - FoodAmbrosiaDeus
+  - FoodAmbrosiaDeus
   lifespan: 25
   maturation: 10
   production: 3
@@ -1270,9 +1339,9 @@
   plantRsi: Objects/Specific/Hydroponics/galaxythistle.rsi
   packetPrototype: GalaxythistleSeeds
   productPrototypes:
-    - FoodGalaxythistle
+  - FoodGalaxythistle
   mutationPrototypes:
-    - glasstle
+  - glasstle
   lifespan: 25
   maturation: 10
   production: 3
@@ -1294,7 +1363,7 @@
   plantRsi: Objects/Specific/Hydroponics/glasstle.rsi
   packetPrototype: GlasstleSeeds
   productPrototypes:
-    - FoodGlasstle
+  - FoodGlasstle
   lifespan: 25
   maturation: 10
   production: 3
@@ -1316,7 +1385,7 @@
   plantRsi: Objects/Specific/Hydroponics/fly_amanita.rsi
   packetPrototype: FlyAmanitaSeeds
   productPrototypes:
-    - FoodFlyAmanita
+  - FoodFlyAmanita
   lifespan: 25
   maturation: 12
   production: 3
@@ -1343,10 +1412,10 @@
   plantRsi: Objects/Specific/Hydroponics/gatfruit.rsi
   packetPrototype: GatfruitSeeds
   productPrototypes:
-    - FoodGatfruit
+  - FoodGatfruit
   mutationPrototypes:
-    - fakeCapfruit
-    - realCapfruit
+  - fakeCapfruit
+  - realCapfruit
   lifespan: 65
   maturation: 25
   production: 25
@@ -1372,7 +1441,7 @@
   plantRsi: Objects/Specific/Hydroponics/capfruit.rsi
   packetPrototype: FakeCapfruitSeeds
   productPrototypes:
-    - FoodFakeCapfruit
+  - FoodFakeCapfruit
   lifespan: 65
   maturation: 25
   production: 25
@@ -1398,7 +1467,7 @@
   plantRsi: Objects/Specific/Hydroponics/capfruit.rsi
   packetPrototype: RealCapfruitSeeds
   productPrototypes:
-    - FoodRealCapfruit
+  - FoodRealCapfruit
   lifespan: 65
   maturation: 25
   production: 25
@@ -1424,7 +1493,7 @@
   plantRsi: Objects/Specific/Hydroponics/rice.rsi
   packetPrototype: RiceSeeds
   productPrototypes:
-    - RiceBushel
+  - RiceBushel
   lifespan: 25
   maturation: 6
   production: 3
@@ -1452,9 +1521,9 @@
   plantRsi: Objects/Specific/Hydroponics/soybeans.rsi
   packetPrototype: SoybeanSeeds
   productPrototypes:
-    - FoodSoybeans
+  - FoodSoybeans
   mutationPrototypes:
-    - koibean
+  - koibean
   growthStages: 4
   lifespan: 25
   maturation: 6
@@ -1477,7 +1546,7 @@
   plantRsi: Objects/Specific/Hydroponics/spacemans_trumpet.rsi
   packetPrototype: SpacemansTrumpetSeeds
   productPrototypes:
-    - FoodSpacemansTrumpet
+  - FoodSpacemansTrumpet
   growthStages: 4
   lifespan: 20
   maturation: 14
@@ -1503,7 +1572,7 @@
   plantRsi: Objects/Specific/Hydroponics/koibean.rsi
   packetPrototype: KoibeanSeeds
   productPrototypes:
-    - FoodKoibean
+  - FoodKoibean
   growthStages: 4
   lifespan: 25
   maturation: 6
@@ -1530,7 +1599,7 @@
   plantRsi: Objects/Specific/Hydroponics/grape.rsi
   packetPrototype: GrapeSeeds
   productPrototypes:
-    - FoodGrape
+  - FoodGrape
   lifespan: 50
   maturation: 6
   production: 5
@@ -1555,7 +1624,9 @@
   plantRsi: Objects/Specific/Hydroponics/watermelon.rsi
   packetPrototype: WatermelonSeeds
   productPrototypes:
-    - FoodWatermelon
+  - FoodWatermelon
+  mutationPrototypes:
+  - holymelon
   lifespan: 55
   maturation: 12
   production: 3
@@ -1577,6 +1648,35 @@
       PotencyDivisor: 20
 
 - type: seed
+  id: holymelon
+  name: seeds-holymelon-name
+  noun: seeds-noun-seeds
+  displayName: seeds-holymelon-display-name
+  plantRsi: Objects/Specific/Hydroponics/holymelon.rsi
+  packetPrototype: HolymelonSeeds
+  productPrototypes:
+  - FoodHolymelon
+  lifespan: 55
+  maturation: 12
+  production: 3
+  yield: 1
+  potency: 1
+  idealLight: 8
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    Holywater:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    Vitamin:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 20
+
+- type: seed
   id: cocoa
   name: seeds-cocoa-name
   noun: seeds-noun-seeds
@@ -1584,7 +1684,7 @@
   plantRsi: Objects/Specific/Hydroponics/cocoa.rsi
   packetPrototype: CocoaSeeds
   productPrototypes:
-    - FoodCocoaPod
+  - FoodCocoaPod
   harvestRepeat: Repeat
   lifespan: 50
   maturation: 6
@@ -1612,7 +1712,7 @@
   plantRsi: Objects/Specific/Hydroponics/berries.rsi
   packetPrototype: BerrySeeds
   productPrototypes:
-    - FoodBerries
+  - FoodBerries
   harvestRepeat: Repeat
   lifespan: 50
   maturation: 6
@@ -1638,7 +1738,7 @@
   plantRsi: Objects/Specific/Hydroponics/bungo.rsi
   packetPrototype: BungoSeeds
   productPrototypes:
-    - FoodBungo
+  - FoodBungo
   harvestRepeat: Repeat
   lifespan: 50
   maturation: 8
@@ -1667,9 +1767,9 @@
   plantRsi: Objects/Specific/Hydroponics/pea.rsi
   packetPrototype: PeaSeeds
   productPrototypes:
-    - FoodPeaPod
+  - FoodPeaPod
   mutationPrototypes:
-    - laughinPea
+  - laughinPea
   lifespan: 25
   growthStages: 3
   maturation: 8
@@ -1691,6 +1791,39 @@
       PotencyDivisor: 50
 
 - type: seed
+  id: worldPea
+  name: seeds-worldpea-name
+  noun: seeds-noun-seeds
+  displayName: seeds-worldpea-display-name
+  plantRsi: Objects/Specific/Hydroponics/world_pea.rsi
+  packetPrototype: PeaSeeds
+  productPrototypes:
+  - FoodWorldPeas
+  lifespan: 25
+  growthStages: 3
+  maturation: 20
+  production: 6
+  yield: 3
+  potency: 25
+  idealLight: 8
+  harvestRepeat: Repeat
+  nutrientConsumption: 0.5
+  waterConsumption: 0.5
+  chemicals:
+    Happiness:
+      Min: 1
+      Max: 3
+      PotencyDivisor: 25
+    Nutriment:
+      Min: 1
+      Max: 3
+      PotencyDivisor: 20
+    Pax:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 50
+
+- type: seed
   id: pumpkin
   name: seeds-pumpkin-name
   noun: seeds-noun-seeds
@@ -1698,9 +1831,9 @@
   plantRsi: Objects/Specific/Hydroponics/pumpkin.rsi
   packetPrototype: PumpkinSeeds
   productPrototypes:
-    - FoodPumpkin
+  - FoodPumpkin
   mutationPrototypes:
-    - bluePumpkin
+  - bluePumpkin
   lifespan: 55
   maturation: 10
   production: 4
@@ -1726,7 +1859,7 @@
   plantRsi: Objects/Specific/Hydroponics/blue_pumpkin.rsi
   packetPrototype: BluePumpkinSeeds
   productPrototypes:
-    - FoodBluePumpkin
+  - FoodBluePumpkin
   lifespan: 55
   maturation: 10
   production: 4
@@ -1756,9 +1889,9 @@
   plantRsi: Objects/Specific/Hydroponics/cotton.rsi
   packetPrototype: CottonSeeds
   productPrototypes:
-    - CottonBol
+  - CottonBol
   mutationPrototypes:
-    - pyrotton
+  - pyrotton
   lifespan: 25
   maturation: 8
   production: 3
@@ -1781,7 +1914,7 @@
   plantRsi: Objects/Specific/Hydroponics/pyrotton.rsi
   packetPrototype: PyrottonSeeds
   productPrototypes:
-    - PyrottonBol
+  - PyrottonBol
   lifespan: 25
   maturation: 8
   production: 3
@@ -1808,7 +1941,7 @@
   plantRsi: _Goobstation/Objects/Specific/Hydroponics/cherry.rsi
   packetPrototype: CherrySeeds
   productPrototypes:
-    - FoodCherry
+  - FoodCherry
   harvestRepeat: Repeat
   lifespan: 55
   maturation: 6
@@ -1824,4 +1957,35 @@
     Vitamin:
       Min: 1
       Max: 3
+      PotencyDivisor: 40
+
+- type: seed
+  id: anomalyBerry
+  name: seeds-anomaly-berry-name
+  noun: seeds-noun-seeds
+  displayName: seeds-anomaly-berry-display-name
+  plantRsi: Objects/Specific/Hydroponics/anomaly_berry.rsi
+  packetPrototype: AnomalyBerrySeeds
+  productPrototypes:
+  - FoodAnomalyBerry
+  lifespan: 25
+  maturation: 12
+  production: 3
+  yield: 3
+  potency: 10
+  growthStages: 2
+  waterConsumption: 0.60
+  nutrientConsumption: 0.50
+  chemicals:
+    Artifexium:
+      Min: 1
+      Max: 1
+      PotencyDivisor: 4
+    Nutriment:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 30
+    Vitamin:
+      Min: 1
+      Max: 2
       PotencyDivisor: 40

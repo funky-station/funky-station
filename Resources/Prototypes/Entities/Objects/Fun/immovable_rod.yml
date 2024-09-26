@@ -210,3 +210,14 @@
     state: icon
     rotation: 225
     noRot: false
+
+- type: entity
+  parent: ImmovableRodKeepTilesStill
+  id: ImmovableRodWeh
+  name: immovable weh
+  description: WEH!
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/toys.rsi
+    state: plushie_lizard
+    noRot: false

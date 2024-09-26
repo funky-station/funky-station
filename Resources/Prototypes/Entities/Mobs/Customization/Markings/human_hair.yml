@@ -1356,7 +1356,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-    - sprite: Goobstation/Mobs/Customization/human_hair.rsi
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: braidedExtensions
 
 - type: marking
@@ -1372,7 +1372,7 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-    - sprite: Goobstation/Mobs/Customization/human_hair.rsi
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: fantasyHair
 
 - type: marking

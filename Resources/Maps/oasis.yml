@@ -15676,14 +15676,6 @@ entities:
     - type: Transform
       pos: 21.42931,-41.39281
       parent: 2
-- proto: AntimovCircuitBoard
-  entities:
-  - uid: 29447
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 59.214676,22.569477
-      parent: 2
 - proto: APCBasic
   entities:
   - uid: 1172
@@ -38052,18 +38044,6 @@ entities:
       parent: 29261
     - type: Physics
       canCollide: False
-  - uid: 29291
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 26.243004,4.587342
-      parent: 2
-  - uid: 29292
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 26.243004,4.587342
-      parent: 2
   - uid: 29291
     components:
     - type: Transform
@@ -126741,6 +126721,8 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 18463
+    - type: AtmosPipeColor
+      color: '#0335FCFF'
   - uid: 14721
     components:
     - type: Transform
@@ -128625,6 +128607,8 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 18463
+    - type: AtmosPipeColor
+      color: '#FF1212FF'
   - uid: 14720
     components:
     - type: Transform
@@ -142190,14 +142174,6 @@ entities:
     - type: Transform
       pos: -27.493137,-34.27025
       parent: 2
-- proto: OverlordCircuitBoard
-  entities:
-  - uid: 29448
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 59.798008,22.579893
-      parent: 2
 - proto: OxygenCanister
   entities:
   - uid: 723
@@ -142544,6 +142520,7 @@ entities:
         __________________________ (Stamp)
 
 
+
     - type: Physics
       canCollide: False
   - uid: 7657
@@ -142646,6 +142623,7 @@ entities:
         Authorizing Entity:
 
         __________________________ (Stamp)
+
 
 
     - type: Physics
@@ -143155,6 +143133,7 @@ entities:
         __________________________ (Stamp)
 
 
+
   - uid: 29262
     components:
     - type: Transform
@@ -143255,6 +143234,7 @@ entities:
         Authorizing Entity:
 
         __________________________ (Stamp)
+
 
 
     - type: Physics
@@ -143359,6 +143339,7 @@ entities:
         Authorizing Entity:
 
         __________________________ (Stamp)
+
 
     - type: Physics
       canCollide: False
@@ -143465,6 +143446,7 @@ entities:
         __________________________ (Stamp)
 
 
+
   - uid: 29267
     components:
     - type: Transform
@@ -143566,6 +143548,7 @@ entities:
         Authorizing Entity:
 
         __________________________ (Stamp)
+
 
 
 - proto: PaperBin10

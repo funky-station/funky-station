@@ -1,3 +1,4 @@
+
 using System.Linq;
 using System.Numerics;
 using Content.Server.Administration;
@@ -22,6 +23,7 @@ using Content.Shared.DeviceNetwork;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Parallax.Biomes;
+using Content.Shared.Preferences;
 using Content.Shared.Salvage;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Tiles;
@@ -91,7 +93,7 @@ public sealed class ArrivalsSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PlayerSpawningEvent>(HandlePlayerSpawning, before: new []{ typeof(ContainerSpawnPointSystem), typeof(SpawnPointSystem)});
+        SubscribeLocalEvent<PlayerSpawningEvent>(HandlePlayerSpawning, before: new []{ typeof(SpawnPointSystem)}, after: new [] { typeof(ContainerSpawnPointSystem)});
 
         SubscribeLocalEvent<StationArrivalsComponent, StationPostInitEvent>(OnStationPostInit);
 
@@ -333,6 +335,8 @@ public sealed class ArrivalsSystem : EntitySystem
     {
         if (ev.SpawnResult != null)
             return;
+
+        // We use arrivals as the default spawn so don't check for job prio.
 
         // Only works on latejoin even if enabled.
         if (!Enabled || _ticker.RunLevel != GameRunLevel.InRound)

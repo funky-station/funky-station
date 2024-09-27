@@ -1,3 +1,4 @@
+
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -7,10 +8,10 @@ namespace Content.Shared._White.Standing;
 public sealed partial class LayingDownComponent : Component
 {
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-    public float StandingUpTime { get; set; } = .5f;
+    public float StandingUpTime { get; set; } = 1.5f;
 
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-    public float SpeedModify { get; set; } = .4f;
+    public float SpeedModify { get; set; } = .3f;
 
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public bool AutoGetUp;

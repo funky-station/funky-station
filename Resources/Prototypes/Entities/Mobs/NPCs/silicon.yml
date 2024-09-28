@@ -108,7 +108,7 @@
   - type: TypingIndicator
     proto: robot
   - type: ZombieImmune
-  - type: ProtectedFromStepTriggers
+  - type: StepTriggerImmune
   - type: NoSlip
   - type: Insulated
 
@@ -251,8 +251,6 @@
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: Item # Goobstation
     size: Large
-  - type: StationAiVision # Goobstation - AI can see through NT silicon
-    range: 0
 
 - type: entity
   parent:
@@ -290,7 +288,7 @@
           enum.DamageStateVisualLayers.BaseUnshaded:
             powered: Rainbow
   - type: Sprite
-    sprite: _Goobstation/Mobs/Silicon/Bots/medibot.rsi
+    sprite: Goobstation/Mobs/Silicon/Bots/medibot.rsi
     layers:
       - state: medibot
         map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -322,8 +320,6 @@
     pack: MedibotAds
   - type: Inventory
     templateId: medibot
-  - type: StationAiVision # Goobstation - AI can see through NT silicon
-    range: 1
 
 - type: entity
   parent:
@@ -423,5 +419,3 @@
     - Binary
     - Common
     - Supply
-  - type: StationAiVision # Goobstation - AI can see through NT silicon
-    range: 1

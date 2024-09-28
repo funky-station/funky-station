@@ -55,7 +55,6 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
         SubscribeLocalEvent<AnomalyComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<AnomalyComponent, StartCollideEvent>(OnStartCollide);
 
-
         InitializeGenerator();
         InitializeScanner();
         InitializeVessel();
@@ -87,10 +86,7 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
 
     private void OnShutdown(Entity<AnomalyComponent> anomaly, ref ComponentShutdown args)
     {
-        if (anomaly.Comp.CurrentBehavior is not null)
-            RemoveBehavior(anomaly, anomaly.Comp.CurrentBehavior.Value);
-
-        EndAnomaly(anomaly, spawnCore: false);
+        EndAnomaly(anomaly);
     }
 
     private void OnStartCollide(Entity<AnomalyComponent> anomaly, ref StartCollideEvent args)

@@ -166,7 +166,6 @@
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
   id: ChemMasterMachineCircuitboard
-  result: ChemMasterMachineCircuitboard
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
@@ -335,11 +334,6 @@
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
-  id: SalvageMagnetMachineCircuitboard
-  result: SalvageMagnetMachineCircuitboard
-
-- type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
   id: RipleyCentralElectronics
   result: RipleyCentralElectronics
 
@@ -432,7 +426,6 @@
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
   id: MicrowaveMachineCircuitboard
-  result: MicrowaveMachineCircuitboard
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
@@ -542,7 +535,6 @@
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
   id: MiniGravityGeneratorCircuitboard
-  result: MiniGravityGeneratorCircuitboard
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe

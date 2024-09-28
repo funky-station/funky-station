@@ -1,6 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Numerics;
 using Content.Client.Examine;
 using Content.Client.Gameplay;
 using Content.Client.Popups;
@@ -8,7 +7,6 @@ using Content.Shared.Examine;
 using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
-using Robust.Client.ComponentTrees;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
@@ -23,10 +21,9 @@ namespace Content.Client.Verbs
     {
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly ExamineSystem _examine = default!;
-        [Dependency] private readonly SpriteTreeSystem _tree = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly IStateManager _stateManager = default!;
-        [Dependency] private readonly IEyeManager _eyeManager = default!;
+        [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
 
         /// <summary>
@@ -34,14 +31,14 @@ namespace Content.Client.Verbs
         /// </summary>
         public const float EntityMenuLookupSize = 0.25f;
 
+        [Dependency] private readonly IEyeManager _eyeManager = default!;
+
         /// <summary>
         ///     These flags determine what entities the user can see on the context menu.
         /// </summary>
         public MenuVisibility Visibility;
 
         public Action<VerbsResponseEvent>? OnVerbsResponse;
-
-        private List<EntityUid> _entities = new();
 
         public override void Initialize()
         {
@@ -79,50 +76,49 @@ namespace Content.Client.Verbs
             visibility = ev.Visibility;
 
             // Get entities
-            _entities.Clear();
-            var entitiesUnderMouse = _tree.QueryAabb(targetPos.MapId, Box2.CenteredAround(targetPos.Position, new Vector2(EntityMenuLookupSize, EntityMenuLookupSize)));
+            List<EntityUid> entities;
+            var examineFlags = LookupFlags.All & ~LookupFlags.Sensors;
 
             // Do we have to do FoV checks?
             if ((visibility & MenuVisibility.NoFov) == 0)
             {
-                bool Predicate(EntityUid e) => e == player;
+                var entitiesUnderMouse = gameScreenBase.GetClickableEntities(targetPos).ToHashSet();
+                bool Predicate(EntityUid e) => e == player || entitiesUnderMouse.Contains(e);
 
                 TryComp(player.Value, out ExaminerComponent? examiner);
 
-                foreach (var ent in entitiesUnderMouse)
+                entities = new();
+                foreach (var ent in _entityLookup.GetEntitiesInRange(targetPos, EntityMenuLookupSize, flags: examineFlags))
                 {
-                    if (_examine.CanExamine(player.Value, targetPos, Predicate, ent.Uid, examiner))
-                        _entities.Add(ent.Uid);
+                    if (_examine.CanExamine(player.Value, targetPos, Predicate, ent, examiner))
+                        entities.Add(ent);
                 }
             }
             else
             {
-                foreach (var ent in entitiesUnderMouse)
-                {
-                    _entities.Add(ent.Uid);
-                }
+                entities = _entityLookup.GetEntitiesInRange(targetPos, EntityMenuLookupSize, flags: examineFlags).ToList();
             }
 
-            if (_entities.Count == 0)
+            if (entities.Count == 0)
                 return false;
 
             if (visibility == MenuVisibility.All)
             {
-                result = new (_entities);
+                result = entities;
                 return true;
             }
 
             // remove any entities in containers
             if ((visibility & MenuVisibility.InContainer) == 0)
             {
-                for (var i = _entities.Count - 1; i >= 0; i--)
+                for (var i = entities.Count - 1; i >= 0; i--)
                 {
-                    var entity = _entities[i];
+                    var entity = entities[i];
 
                     if (ContainerSystem.IsInSameOrTransparentContainer(player.Value, entity))
                         continue;
 
-                    _entities.RemoveSwap(i);
+                    entities.RemoveSwap(i);
                 }
             }
 
@@ -131,23 +127,23 @@ namespace Content.Client.Verbs
             {
                 var spriteQuery = GetEntityQuery<SpriteComponent>();
 
-                for (var i = _entities.Count - 1; i >= 0; i--)
+                for (var i = entities.Count - 1; i >= 0; i--)
                 {
-                    var entity = _entities[i];
+                    var entity = entities[i];
 
                     if (!spriteQuery.TryGetComponent(entity, out var spriteComponent) ||
                         !spriteComponent.Visible ||
                         _tagSystem.HasTag(entity, "HideContextMenu"))
                     {
-                        _entities.RemoveSwap(i);
+                        entities.RemoveSwap(i);
                     }
                 }
             }
 
-            if (_entities.Count == 0)
+            if (entities.Count == 0)
                 return false;
 
-            result = new(_entities);
+            result = entities;
             return true;
         }
 

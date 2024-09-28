@@ -136,7 +136,7 @@
     - Hardsuit
     - WhitelistChameleon
     - HidesHarpyWings # Goobstation
-  - type: ProtectedFromStepTriggers
+  - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
   - type: DamageOnInteractProtection
     damageProtection:
@@ -162,7 +162,7 @@
   - type: HeldSpeedModifier
   - type: Item
     size: Huge
-  - type: ProtectedFromStepTriggers
+  - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
   - type: Tag #Goobstation
     tags:

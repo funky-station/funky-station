@@ -12,7 +12,6 @@
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
   jobEntity: StationAiBrain
-  applyTraits: false
 
 - type: job
   id: Borg
@@ -26,4 +25,3 @@
   icon: JobIconBorg
   supervisors: job-supervisors-rd
   jobEntity: PlayerBorgGeneric
-  applyTraits: false

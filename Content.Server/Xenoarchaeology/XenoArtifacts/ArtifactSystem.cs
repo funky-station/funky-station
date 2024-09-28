@@ -140,11 +140,10 @@ public sealed partial class ArtifactSystem : EntitySystem
     /// <param name="uid"></param>
     /// <param name="user"></param>
     /// <param name="component"></param>
-    /// <param name="logMissing">Set this to false if you don't know if the entity is an artifact.</param>
     /// <returns></returns>
-    public bool TryActivateArtifact(EntityUid uid, EntityUid? user = null, ArtifactComponent? component = null, bool logMissing = true)
+    public bool TryActivateArtifact(EntityUid uid, EntityUid? user = null, ArtifactComponent? component = null)
     {
-        if (!Resolve(uid, ref component, logMissing))
+        if (!Resolve(uid, ref component))
             return false;
 
         // check if artifact is under suppression field

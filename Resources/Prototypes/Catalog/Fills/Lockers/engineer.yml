@@ -153,5 +153,3 @@
         amount: 2
       - id: GeigerCounter
         amount: 2
-      - id: ClothingOuterSuitHEV
-        prob: 0.05

@@ -1,11 +1,17 @@
 #These are intentionally all very mediocre as locational damage does not exist yet. Without it, armor values will stack in a way that makes it really god damn hard to determine how effective something is, along with making players extremely tanky.
 #When it DOES exist, the values here should be totally reworked - probably just port them from SS13.
 
+#Basic Helmet (Security Helmet)
 - type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHelmetBase
-  abstract: true
+  parent: [ClothingHeadBase, BaseRestrictedContraband]
+  id: ClothingHeadHelmetBasic
+  name: helmet
+  description: Standard security gear. Protects the head from impacts.
   components:
+  - type: Sprite
+    sprite: Clothing/Head/Helmets/security.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Helmets/security.rsi
   - type: Armor #Values seem to let the user survive one extra hit if attacked consistently.
     modifiers:
       coefficients:
@@ -22,25 +28,9 @@
     - HeadTop
     - HeadSide
 
-#Basic Helmet (Security Helmet)
-- type: entity
-  parent: [ClothingHeadHelmetBase, BaseRestrictedContraband]
-  id: ClothingHeadHelmetBasic
-  name: helmet
-  description: Standard security gear. Protects the head from impacts.
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Helmets/security.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Helmets/security.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - SecurityHelmet
-
 #Mercenary Helmet
 - type: entity
-  parent: [ ClothingHeadHelmetBase, BaseRestrictedContraband ]
+  parent: [ ClothingHeadHelmetBasic, BaseRestrictedContraband ]
   id: ClothingHeadHelmetMerc
   name: mercenary helmet
   description: The combat helmet is commonly used by mercenaries, is strong, light and smells like gunpowder and the jungle.
@@ -64,10 +54,11 @@
   - type: Armor #This is intentionally not spaceproof, when the time comes to port the values from SS13 this should be buffed from what it was.
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
-        Heat: 0.85
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.80
+        Heat: 0.80
+        Radiation: 0.80
         Caustic: 0.95
   - type: ExplosionResistance
     damageCoefficient: 0.75
@@ -146,7 +137,7 @@
 
 #Cult Helmet
 - type: entity
-  parent: [ClothingHeadBase, BaseMajorContraband]
+  parent: ClothingHeadBase
   id: ClothingHeadHelmetCult
   name: cult helmet
   description: A robust, evil-looking cult helmet.
@@ -166,7 +157,7 @@
 
 #Space Ninja Helmet
 - type: entity
-  parent: [ClothingHeadEVAHelmetBase, BaseMajorContraband]
+  parent: ClothingHeadEVAHelmetBase
   id: ClothingHeadHelmetSpaceNinja
   name: space ninja helmet
   description: What may appear to be a simple black garment is in fact a highly sophisticated nano-weave helmet. Standard issue ninja gear.
@@ -258,7 +249,7 @@
 
 #Atmos Fire Helmet
 - type: entity
-  parent: [ClothingHeadLightBase, BaseEngineeringContraband]
+  parent: ClothingHeadLightBase
   id: ClothingHeadHelmetAtmosFire
   name: atmos fire helmet
   description: An atmos fire helmet, able to keep the user cool in any situation.
@@ -291,7 +282,7 @@
 
 #Chitinous Helmet
 - type: entity
-  parent: [ ClothingHeadBase, BaseMajorContraband]
+  parent: ClothingHeadBase
   id: ClothingHeadHelmetLing
   name: chitinous helmet
   description: An all-consuming chitinous mass of armor.
@@ -311,7 +302,7 @@
 #ERT HELMETS
 #ERT Leader Helmet
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHelmetBase ]
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetBasic ]
   id: ClothingHeadHelmetERTLeader
   name: ERT leader helmet
   description: An in-atmosphere helmet worn by the leader of a Nanotrasen Emergency Response Team. Has blue highlights.
@@ -323,7 +314,7 @@
 
 #ERT Security Helmet
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHelmetBase ]
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetBasic ]
   id: ClothingHeadHelmetERTSecurity
   name: ERT security helmet
   description: An in-atmosphere helmet worn by security members of the Nanotrasen Emergency Response Team. Has red highlights.
@@ -335,7 +326,7 @@
 
 #ERT Medic Helmet
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHelmetBase ]
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetBasic ]
   id: ClothingHeadHelmetERTMedic
   name: ERT medic helmet
   description: An in-atmosphere helmet worn by medical members of the Nanotrasen Emergency Response Team. Has white highlights.
@@ -347,7 +338,7 @@
 
 #ERT Engineer Helmet
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHelmetBase ]
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetBasic ]
   id: ClothingHeadHelmetERTEngineer
   name: ERT engineer helmet
   description: An in-atmosphere helmet worn by engineering members of the Nanotrasen Emergency Response Team. Has orange highlights.
@@ -359,7 +350,7 @@
 
 #ERT Janitor Helmet
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHelmetBase ]
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetBasic ]
   id: ClothingHeadHelmetERTJanitor
   name: ERT janitor helmet
   description: An in-atmosphere helmet worn by janitorial members of the Nanotrasen Emergency Response Team. Has dark purple highlights.
@@ -370,7 +361,7 @@
     sprite: Clothing/Head/Helmets/ert_janitor.rsi
 
 - type: entity
-  parent: [ BaseSyndicateContraband, ClothingHeadHelmetBase ]
+  parent: [ BaseSyndicateContraband, ClothingHeadHelmetBasic ]
   id: ClothingHeadHelmetRaid
   name: syndicate raid helmet
   description: An armored helmet for use with the syndicate raid suit. Very stylish.
@@ -389,7 +380,7 @@
 
 #Bone Helmet
 - type: entity
-  parent: [ ClothingHeadHelmetBase, BaseMinorContraband ]
+  parent: ClothingHeadHelmetBasic
   id: ClothingHeadHelmetBone
   name: bone helmet
   description: Cool-looking helmet made of skull of your enemies.
@@ -403,7 +394,7 @@
     node: helmet
 
 - type: entity
-  parent: [ ClothingHeadHelmetBase, BaseMinorContraband ]
+  parent: ClothingHeadHelmetBasic
   id: ClothingHeadHelmetPodWars
   name: ironclad II helmet
   description: An ironclad II helmet, a relic of the pod wars.
@@ -415,7 +406,7 @@
 
 #Justice Helmet
 - type: entity
-  parent: [ ClothingHeadHelmetBase, BaseRestrictedContraband ]
+  parent: ClothingHeadHelmetBasic
   id: ClothingHeadHelmetJustice
   name: justice helm
   description: Advanced security gear. Protects the station from ne'er-do-wells.
@@ -439,8 +430,6 @@
       path: /Audio/Items/flashlight_on.ogg
     soundDeactivate:
       path: /Audio/Items/flashlight_off.ogg
-    soundFailToActivate:
-      path: /Audio/Machines/button.ogg
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Effects/Vehicle/policesiren.ogg
@@ -481,6 +470,9 @@
   - type: Construction
     graph: HelmetJustice
     node: helmet
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingHeadHelmetJustice

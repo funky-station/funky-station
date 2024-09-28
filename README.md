@@ -10,7 +10,7 @@ If you want to host or create content for SS14, or for Goob Station, go to the [
 
 ## Documentation/Wiki
 
-The Goob Station [docs site](https://docs.goobstation.com/) has documentation on GS14's content, engine, game design, and more. It also have lots of resources for new contributors to the project.
+The Space Station 14's [docs site](https://docs.spacestation14.io/) has documentation on SS14s content, engine, game design, and more. It also have lots of resources for new contributors to the project.
 
 ## Contributing
 
@@ -23,7 +23,7 @@ We recommend you read the contribution guidelines. [Contribution Guidelines](htt
 2. Run `RUN_THIS.py` to init submodules and download the engine.
 3. Compile the solution.
 
-[More detailed instructions on building the project.](https://docs.goobstation.com/en/general-development/setup.html)
+[More detailed instructions on building the project.](https://docs.spacestation14.com/en/general-development/setup.html)
 
 ## License
 

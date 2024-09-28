@@ -6,7 +6,6 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Server.Atmos.Piping.Unary.Components
 {
     // The world if people documented their shit.
-    [AutoGenerateComponentPause]
     [RegisterComponent]
     public sealed partial class GasVentPumpComponent : Component
     {
@@ -16,25 +15,31 @@ namespace Content.Server.Atmos.Piping.Unary.Components
         [ViewVariables]
         public bool IsDirty { get; set; } = false;
 
-        [DataField]
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("inlet")]
         public string Inlet { get; set; } = "pipe";
 
-        [DataField]
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("outlet")]
         public string Outlet { get; set; } = "pipe";
 
-        [DataField]
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("pumpDirection")]
         public VentPumpDirection PumpDirection { get; set; } = VentPumpDirection.Releasing;
 
-        [DataField]
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("pressureChecks")]
         public VentPressureBound PressureChecks { get; set; } = VentPressureBound.ExternalBound;
 
-        [DataField]
+        [ViewVariables(VVAccess.ReadOnly)]
+        [DataField("underPressureLockout")]
         public bool UnderPressureLockout { get; set; } = false;
 
         /// <summary>
         ///     In releasing mode, do not pump when environment pressure is below this limit.
         /// </summary>
-        [DataField]
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("underPressureLockoutThreshold")]
         public float UnderPressureLockoutThreshold = 80; // this must be tuned in conjunction with atmos.mmos_spacing_speed
 
         /// <summary>
@@ -50,30 +55,12 @@ namespace Content.Server.Atmos.Piping.Unary.Components
         ///     repressurizing of the development map take about 30 minutes using an oxygen tank (high pressure)
         /// </remarks>
 
-        [DataField]
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("underPressureLockoutLeaking")]
         public float UnderPressureLockoutLeaking = 0.0001f;
-        /// <summary>
-        /// Is the vent pressure lockout currently manually disabled?
-        /// </summary>
-        [DataField]
-        public bool IsPressureLockoutManuallyDisabled = false;
-        /// <summary>
-        /// The time when the manual pressure lockout will be reenabled. 
-        /// </summary>
-        [DataField]
-        [AutoPausedField]
-        public TimeSpan ManualLockoutReenabledAt;
-        /// <summary>
-        /// How long the lockout should remain manually disabled after being interacted with.
-        /// </summary>
-        [DataField]
-        public TimeSpan ManualLockoutDisabledDuration = TimeSpan.FromSeconds(30); // Enough time to fill a 5x5 room
-        /// <summary>
-        /// How long the doAfter should take when attempting to manually disable the pressure lockout.
-        /// </summary>
-        public float ManualLockoutDisableDoAfter = 2.0f;
 
-        [DataField]
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("externalPressureBound")]
         public float ExternalPressureBound
         {
             get => _externalPressureBound;
@@ -85,7 +72,8 @@ namespace Content.Server.Atmos.Piping.Unary.Components
 
         private float _externalPressureBound = Atmospherics.OneAtmosphere;
 
-        [DataField]
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("internalPressureBound")]
         public float InternalPressureBound
         {
             get => _internalPressureBound;
@@ -100,7 +88,8 @@ namespace Content.Server.Atmos.Piping.Unary.Components
         /// <summary>
         ///     Max pressure of the target gas (NOT relative to source).
         /// </summary>
-        [DataField]
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("maxPressure")]
         public float MaxPressure = Atmospherics.MaxOutputPressure;
 
         /// <summary>
@@ -111,7 +100,8 @@ namespace Content.Server.Atmos.Piping.Unary.Components
         ///     is too high, and the vent is connected to a large pipe-net, then someone can nearly instantly flood a
         ///     room with gas.
         /// </remarks>
-        [DataField]
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("targetPressureChange")]
         public float TargetPressureChange = Atmospherics.OneAtmosphere;
 
         /// <summary>
@@ -121,26 +111,29 @@ namespace Content.Server.Atmos.Piping.Unary.Components
         ///     Vents cannot suck a pipe completely empty, instead pressurizing a section to a max of
         ///     pipe pressure * PumpPower (in kPa). So a 51 kPa pipe is required for 101 kPA sections at PumpPower 2.0
         /// </remarks>
-        [DataField]
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("PumpPower")]
         public float PumpPower = 2.0f;
 
         #region Machine Linking
         /// <summary>
         ///     Whether or not machine linking is enabled for this component.
         /// </summary>
-        [DataField]
+        [DataField("canLink")]
         public bool CanLink = false;
 
-        [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
+        [DataField("pressurizePort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
         public string PressurizePort = "Pressurize";
 
-        [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
+        [DataField("depressurizePort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
         public string DepressurizePort = "Depressurize";
 
-        [DataField]
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("pressurizePressure")]
         public float PressurizePressure = Atmospherics.OneAtmosphere;
 
-        [DataField]
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("depressurizePressure")]
         public float DepressurizePressure = 0;
 
         // When true, ignore under-pressure lockout. Used to re-fill rooms in air alarm "Fill" mode.

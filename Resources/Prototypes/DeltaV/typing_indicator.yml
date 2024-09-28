@@ -4,9 +4,3 @@
   typingState: felinid0
   offset: 0, 0.2 # 0625
 
-- type: typingIndicator
-  id: rodentia
-  spritePath: /Textures/DeltaV/Effects/speech.rsi
-  typingState: rodentia0
-  offset: 0, 0.2 # 0625
-

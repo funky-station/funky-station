@@ -182,14 +182,6 @@ namespace Content.Server.Explosion.EntitySystems
 
         private void HandleDeleteTrigger(EntityUid uid, DeleteOnTriggerComponent component, TriggerEvent args)
         {
-            //Goobstation - bluespace lifeline implanter
-            if (TryComp(uid, out TransformComponent? xform) && xform.ParentUid != null)
-            {
-                EntityManager.QueueDeleteEntity(xform.ParentUid);
-                args.Handled = true;
-                return;
-            }
-
             EntityManager.QueueDeleteEntity(uid);
             args.Handled = true;
         }
@@ -209,7 +201,6 @@ namespace Content.Server.Explosion.EntitySystems
             _body.GibBody(xform.ParentUid, true);
             args.Handled = true;
         }
-
 
         private void HandleRattleTrigger(EntityUid uid, RattleComponent component, TriggerEvent args)
         {
@@ -239,7 +230,7 @@ namespace Content.Server.Explosion.EntitySystems
         private void OnTriggerCollide(EntityUid uid, TriggerOnCollideComponent component, ref StartCollideEvent args)
         {
             if (args.OurFixtureId == component.FixtureID && (!component.IgnoreOtherNonHard || args.OtherFixture.Hard))
-                Trigger(uid, args.OtherEntity);
+                Trigger(uid);
         }
 
         private void OnSpawnTriggered(EntityUid uid, TriggerOnSpawnComponent component, MapInitEvent args)

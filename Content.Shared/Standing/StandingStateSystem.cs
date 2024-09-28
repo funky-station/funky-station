@@ -32,10 +32,7 @@ public sealed class StandingStateSystem : EntitySystem
         return standingState.CurrentState is StandingState.Lying or StandingState.GettingUp;
     }
 
-    public bool Down(EntityUid uid,
-        bool playSound = true,
-        bool dropHeldItems = true,
-        bool force = true,
+    public bool Down(EntityUid uid, bool playSound = true, bool dropHeldItems = true,
         StandingStateComponent? standingState = null,
         AppearanceComponent? appearance = null,
         HandsComponent? hands = null)
@@ -58,17 +55,17 @@ public sealed class StandingStateSystem : EntitySystem
             RaiseLocalEvent(uid, new DropHandItemsEvent(), false);
         }
 
-        if (!force)
-        {
-            var msg = new DownAttemptEvent();
-            RaiseLocalEvent(uid, msg, false);
+        if (TryComp(uid, out BuckleComponent? buckle) && buckle.Buckled && !_buckle.TryUnbuckle(uid, uid, buckleComp: buckle)) // WD EDIT
+            return false;
 
-            if (msg.Cancelled)
-                return false;
-        }
+        var msg = new DownAttemptEvent();
+        RaiseLocalEvent(uid, msg, false);
+
+        if (msg.Cancelled)
+            return false;
 
         standingState.CurrentState = StandingState.Lying;
-        Dirty(uid, standingState);
+        Dirty(standingState);
         RaiseLocalEvent(uid, new DownedEvent(), false);
 
         // Seemed like the best place to put it

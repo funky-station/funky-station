@@ -116,7 +116,6 @@
       - id: BalloonNT
       - id: BalloonCorgi
       - id: MysteryFigureBox
-      - id: RubberChicken
       # Cult
       - !type:AllSelector
         children:
@@ -287,8 +286,6 @@
       - id: ResearchDisk5000
       - id: PetCarrier
       - id: DrinkMopwataBottleRandom
-      # Goobstation - Spectral locator
-      - id: SpectralLocator
       - id: LidSalami
         weight: 0.05
 

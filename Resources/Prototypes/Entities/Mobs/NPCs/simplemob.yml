@@ -29,7 +29,6 @@
     - Flashed
     - RadiationProtection
     - Drowsiness
-    - Adrenaline
   - type: Buckle
   - type: StandingState
   - type: Tag
@@ -107,7 +106,6 @@
     - Flashed
     - RadiationProtection
     - Drowsiness
-    - Adrenaline
   - type: Bloodstream
     bloodMaxVolume: 150
   - type: MobPrice

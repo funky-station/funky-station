@@ -68,13 +68,6 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
         }
     }
 
-    private void GetOfficer(EntityUid uid, out string officer)
-    {
-        var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(null, uid);
-        RaiseLocalEvent(tryGetIdentityShortInfoEvent);
-        officer = tryGetIdentityShortInfoEvent.Title ?? Loc.GetString("criminal-records-console-unknown-officer");
-    }
-
     private void OnChangeStatus(Entity<CriminalRecordsConsoleComponent> ent, ref CriminalRecordChangeStatus msg)
     {
         // prevent malf client violating wanted/reason nullability
@@ -97,22 +90,29 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
                 return;
         }
 
-        var oldStatus = record.Status;
-
-        var name = _records.RecordName(key.Value);
-        GetOfficer(mob.Value, out var officer);
-
         // when arresting someone add it to history automatically
         // fallback exists if the player was not set to wanted beforehand
         if (msg.Status == SecurityStatus.Detained)
         {
             var oldReason = record.Reason ?? Loc.GetString("criminal-records-console-unspecified-reason");
             var history = Loc.GetString("criminal-records-console-auto-history", ("reason", oldReason));
-            _criminalRecords.TryAddHistory(key.Value, history, officer);
+            _criminalRecords.TryAddHistory(key.Value, history);
         }
 
+        var oldStatus = record.Status;
+
         // will probably never fail given the checks above
-        _criminalRecords.TryChangeStatus(key.Value, msg.Status, msg.Reason, officer);
+        _criminalRecords.TryChangeStatus(key.Value, msg.Status, msg.Reason);
+
+        var name = _records.RecordName(key.Value);
+        var officer = Loc.GetString("criminal-records-console-unknown-officer");
+
+        var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(null, mob.Value);
+        RaiseLocalEvent(tryGetIdentityShortInfoEvent);
+        if (tryGetIdentityShortInfoEvent.Title != null)
+        {
+            officer = tryGetIdentityShortInfoEvent.Title;
+        }
 
         (string, object)[] args;
         if (reason != null)
@@ -152,16 +152,14 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
 
     private void OnAddHistory(Entity<CriminalRecordsConsoleComponent> ent, ref CriminalRecordAddHistory msg)
     {
-        if (!CheckSelected(ent, msg.Actor, out var mob, out var key))
+        if (!CheckSelected(ent, msg.Actor, out _, out var key))
             return;
 
         var line = msg.Line.Trim();
         if (line.Length < 1 || line.Length > ent.Comp.MaxStringLength)
             return;
 
-        GetOfficer(mob.Value, out var officer);
-
-        if (!_criminalRecords.TryAddHistory(key.Value, line, officer))
+        if (!_criminalRecords.TryAddHistory(key.Value, line))
             return;
 
         // no radio message since its not crucial to officers patrolling

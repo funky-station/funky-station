@@ -45,12 +45,6 @@ public sealed partial class PerishableComponent : Component
 
     [DataField, AutoNetworkedField]
     public int Stage;
-
-    /// <summary>
-    /// If true, rot will always progress.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool ForceRotProgression;
 }
 
 

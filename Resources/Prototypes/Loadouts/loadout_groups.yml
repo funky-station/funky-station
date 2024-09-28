@@ -60,14 +60,6 @@
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
 
-- type: loadoutGroup
-  id: GroupPocketTankDouble
-  name: loadout-group-pocket-tank-double
-  hidden: true
-  loadouts:
-  - LoadoutSpeciesPocketDoubleNitrogen
-  - LoadoutSpeciesPocketDoubleOxygen
-
 # Command
 - type: loadoutGroup
   id: CaptainHead
@@ -495,6 +487,7 @@
   loadouts:
   - MimeSuspendersRed
   - MimeSuspendersBlack
+  
 - type: loadoutGroup
   id: SurvivalMime
   name: loadout-group-survival-mime
@@ -601,7 +594,6 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianHead
-  - CargoTechnicianHeadMail # Goob/DeltaV - Mail
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
@@ -609,8 +601,6 @@
   loadouts:
   - CargoTechnicianJumpsuit
   - CargoTechnicianJumpskirt
-  - CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail
-  - CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
@@ -626,7 +616,6 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianWintercoat
-  - CargoTechnicianWintercoatMail # Goob/DeltaV - Mail
 
 - type: loadoutGroup
   id: CargoTechnicianShoes
@@ -952,7 +941,6 @@
   loadouts:
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
-  - Bodycam # Goobstation - Body cameras
 
 - type: loadoutGroup
   id: WardenHead
@@ -975,7 +963,6 @@
   loadouts:
   - WardenCoat
   - WardenArmoredWinterCoat
-  - Bodycam # Goobstation - Body cameras
 
 - type: loadoutGroup
   id: SecurityHead
@@ -1021,7 +1008,6 @@
   - ArmorVest
   - ArmorVestSlim
   - SecurityOfficerWintercoat
-  - Bodycam # Goobstation - Body cameras
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1068,7 +1054,6 @@
   loadouts:
   - DetectiveArmorVest
   - DetectiveCoat
-  - Bodycam # Goobstation - Body cameras
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit

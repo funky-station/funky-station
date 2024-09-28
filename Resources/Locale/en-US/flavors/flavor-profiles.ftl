@@ -20,7 +20,6 @@ flavor-base-fishy = fishy
 flavor-base-crabby = crabby
 flavor-base-cheesy = cheesy
 flavor-base-funny = funny
-flavor-base-strange = strange
 flavor-base-tingly = tingly
 flavor-base-acid = acidic
 flavor-base-leafy = leafy
@@ -175,9 +174,6 @@ flavor-complex-violets = like violets
 flavor-complex-pyrotton = like a burning mouth
 flavor-complex-mothballs = like mothballs
 flavor-complex-paint-thinner = like paint thinner
-flavor-complex-numbing-tranquility = like numbing tranquility
-flavor-complex-true-nature = like the true nature of reality
-flavor-complex-false-meat = not entirely unlike meat
 flavor-complex-paper = like mushy pulp
 flavor-complex-compressed-meat = like compressed meat
 

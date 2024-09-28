@@ -61,6 +61,7 @@ public sealed class TechAnomalySystem : EntitySystem
         var devices = _lookup.GetEntitiesInRange<DeviceLinkSinkComponent>(Transform(tech).Coordinates, range);
         if (devices.Count < 1)
             return;
+
         for (var i = 0; i < count; i++)
         {
             var device = _random.Pick(devices);

@@ -12192,11 +12192,6 @@ entities:
     - type: Transform
       pos: 8.5,-4.5
       parent: 2
-  - uid: 1949
-    components:
-    - type: Transform
-      pos: 8.5,-4.5
-      parent: 2
 - proto: Poweredlight
   entities:
   - uid: 876

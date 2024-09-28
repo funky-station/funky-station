@@ -4472,8 +4472,8 @@ entities:
         - volume: 2500
           temperature: 235
           moles:
-          - 0
-          - 0
+          - 21.824879
+          - 82.10312
           - 0
           - 0
           - 0
@@ -4485,7 +4485,7 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 235
+          temperature: 293.15
           moles:
           - 0
           - 0
@@ -66886,12 +66886,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 10.5,-38.5
-      parent: 4812
-  - uid: 12628
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 26.5,11.5
       parent: 4812
 - proto: ReinforcedPlasmaWindow
   entities:

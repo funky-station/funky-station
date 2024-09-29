@@ -252,7 +252,7 @@ ghost-role-information-medical-description = You are a medical professional, but
 ghost-role-information-cargo-name = Cargo
 ghost-role-information-cargo-description = You are part of a logistics mission, but seem to have found yourself in a strange situation...
 
-ghost-role-information-engineering-name = Engineering 
+ghost-role-information-engineering-name = Engineering
 ghost-role-information-engineering-description = You are on an engineering job, but seem to have found yourself in a strange situation...
 
 ghost-role-information-science-name = Science
@@ -306,3 +306,7 @@ ghost-role-information-pirate-captain-description = Argh matey! You are in charg
 
 ghost-role-information-artifact-name = Sentient Artifact
 ghost-role-information-artifact-description = Enact your eldritch whims. Forcibly activate your nodes for good or for evil.
+
+ghost-role-information-tomatokiller-name = Tomato killer
+ghost-role-information-tomatokiller-description = This little tomato will serve the botanist for the rest of his life... that is, a couple of minutes
+

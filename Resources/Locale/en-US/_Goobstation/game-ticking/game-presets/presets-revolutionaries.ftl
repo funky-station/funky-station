@@ -1,8 +1,8 @@
 revolutionaries-lose-announcement-shuttle-call = Based on data from our long-range sensors, the enemy revolutionary cells on the station have been suppressed and neutralized.
-revolutionaries-lose-announcement = Based on data from our long-range sensors, the enemy revolutionary cells on the station have been suppressed and neutralized.
+revolutionaries-lose-announcement = Based on data from our long-range sensors, the enemy revolutionary cells on the station have been suppressed and neutralized. An evacuation shuttle has been called, ETA: {$time} {$units}.
 
 revolutionaries-win-announcement-shuttle-call =
-    All command members have been eliminated or have been taken hostage. The station is now under Revolutionary control.
+    All command members have been eliminated or have been taken hostage. The station is now under Revolutionary control. An evacuation shuttle has been called, ETA: {$time} {$units}.
 
     Viva la revolución!
 

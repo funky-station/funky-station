@@ -345,6 +345,7 @@
   - type: GuideHelp
     guides:
     - SpaceLaw
+    - RulesOfConduct
 
 - type: entity
   parent: BookBase

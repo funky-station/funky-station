@@ -408,6 +408,12 @@
   - SpaceLawCrimeList
 
 - type: guideEntry
+  id: RulesOfConduct
+  name: guide-entry-rules-of-conduct
+  priority: 10
+  text: "/ServerInfo/Funkystation/Guidebook/Security/RulesOfConduct.xml"
+
+- type: guideEntry
   id: SpaceLawCrimeList
   name: guide-entry-rules-sl-crime-list
   priority: 5

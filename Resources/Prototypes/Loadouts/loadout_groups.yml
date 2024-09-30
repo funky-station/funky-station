@@ -1069,6 +1069,7 @@
   - DetectiveArmorVest
   - DetectiveCoat
   - Bodycam # Goobstation - Body cameras
+  - DetectiveCoatGrey
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit

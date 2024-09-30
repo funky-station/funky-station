@@ -1,14 +1,15 @@
-revolutionaries-lose-announcement-shuttle-call = Based on our scans from our long-range sensors, the enemy revolutionary cells on the station have been suppressed and neutralized. We will call emergency shuttle that will arrive shortly. ETA: {$time} {$units}.
-revolutionaries-lose-announcement = Based on our scans from our long-range sensors, the enemy revolutionary cells on the station have been suppressed and neutralized. Shuttle is already called.
+revolutionaries-lose-announcement-shuttle-call = Based on data from our long-range sensors, the enemy revolutionary cells on the station have been suppressed and neutralized.
+revolutionaries-lose-announcement = Based on data from our long-range sensors, the enemy revolutionary cells on the station have been suppressed and neutralized.
 
 revolutionaries-win-announcement-shuttle-call =
-    According the reports, the corporate command was overthrown and station has been taken under our control. We will call you our evacuation shuttle that will arrive shortly. ETA: {$time} {$units}.
+    All command members have been eliminated or have been taken hostage. The station is now under Revolutionary control.
 
-    Viva la revolution!
+    Viva la revolución!
 
 revolutionaries-win-announcement =
-    According the reports, the corporate command was overthrown and station has been taken under our control. Our evacuation shuttle already called.
+    All command members have been eliminated or have been taken hostage. The station is now under Revolutionary control.
 
-    Viva la revolution!
+    Viva la revolución!
 
-revolutionaries-win-sender = Revolutionary Command
+revolutionaries-win-sender = Taipan Communications
+revolutionaries-sender-cc = Central Command

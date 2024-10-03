@@ -1,0 +1,16 @@
+# actions
+- type: entity
+  id: ActionHRevOpenStore
+  name: Open Revolutionary Store
+  description: Open the Revolutionary Store.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Interface/Misc/job_icons.rsi
+      state: HeadRevolutionary
+    event: !type:EventHrevOpenStore {}
+  - type: HRevAction
+    requiresSelectedPath: NONE
+

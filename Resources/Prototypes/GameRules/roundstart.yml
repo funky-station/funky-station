@@ -210,6 +210,7 @@
       components:
       - type: Revolutionary
       - type: HeadRevolutionary
+      - type: HRev # funkystation love this
       mindComponents:
       - type: RevolutionaryRole
         prototype: HeadRev

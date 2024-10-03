@@ -10,7 +10,6 @@
     icon:
       sprite: Interface/Misc/job_icons.rsi
       state: HeadRevolutionary
-    event: !type:EventHrevOpenStore {}
+    event: !type:EventHRevOpenStore {}
   - type: HRevAction
     requiresSelectedPath: NONE
-

@@ -1,0 +1,80 @@
+# path select start
+- type: listing
+  id: HRevMenuSelectVanguard
+  name: hrevmenu-vanguard-select-name
+  description: hrevmenu-vanguard-select-desc
+  icon: {
+    sprite: Objects/Misc/books.rsi,
+    state: book_icon
+  }
+  productEvent: HRevSelectedVanguard
+  cost:
+    RevCoin: 1
+  categories:
+  - RevStoreGeneral
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+    blacklist:
+    - WOTP
+    - Warlord
+
+- type: listing
+  id: HRevMenuSelectWOTP
+  name: hrevmenu-wotp-select-name
+  description: hrevmenu-wotp-select-desc
+  icon: {
+    sprite: Objects/Misc/handcuffs.rsi,
+    state: handcuff
+  }
+  productEvent: HRevSelectedWOTP
+  cost:
+    RevCoin: 1
+  categories:
+  - RevStoreGeneral
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HRevPathCondition
+    blacklist:
+    - Vanguard
+    - Warlord
+
+- type: listing
+  id: HRevMenuSelectWarlord
+  name: hrevmenu-warlord-select-name
+  description: hrevmenu-warlord-select-desc
+  icon: {
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi,
+    state: icon
+  }
+  productEvent: HRevSelectedWarlord
+  cost:
+    RevCoin: 1
+  categories:
+  - RevStoreGeneral
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HRevPathCondition
+    blacklist:
+    - WOTP
+    - Vanguard
+# path select end
+
+- type: listing
+  id: HRevMenuSelectVanguardTest
+  name: The Uniform
+  description: A vanguard cannot exist without a sharp uniform.
+  icon: {
+    sprite: Objects/Misc/handcuffs.rsi,
+    state: handcuff
+  }
+  productEvent: HRevSelectedVanguard
+  cost:
+    RevCoin: 1
+  categories:
+  - RevStoreVanguard
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

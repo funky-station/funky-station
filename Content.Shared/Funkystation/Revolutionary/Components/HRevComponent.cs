@@ -14,4 +14,12 @@ public sealed partial class HRevComponent : Component
 {
     [DataField, AutoNetworkedField]
     public RevolutionaryPaths CurrentPath = RevolutionaryPaths.NONE;
+
+    public enum RevolutionaryPaths
+    {
+        NONE,
+        VANGUARD,
+        WOTP,
+        WARLORD
+    }
 }

@@ -11,6 +11,8 @@ public sealed partial class HRevSystem : EntitySystem {
     {
         SubscribeLocalEvent<HRevComponent, EventHRevOpenStore>(OnOpenStore);
         SubscribeLocalEvent<HRevComponent, HRevSelectedVanguardEvent>(OnSelectVanguardPath);
+        SubscribeLocalEvent<HRevComponent, HRevSelectedWarlordEvent>(OnSelectWarlordPath);
+        SubscribeLocalEvent<HRevComponent, HRevSelectedWOTPEvent>(OnSelectWOTPPath);
     }
 
     private void OnOpenStore(EntityUid uid, HRevComponent comp, ref EventHRevOpenStore args)
@@ -29,5 +31,25 @@ public sealed partial class HRevSystem : EntitySystem {
             return;
 
         store.Categories.Add(RevCoinStore[HRevComponent.RevolutionaryPaths.VANGUARD]);
+    }
+
+    private void OnSelectWarlordPath(EntityUid uid, HRevComponent comp, ref HRevSelectedWarlordEvent ev)
+    {
+        comp.CurrentPath = HRevComponent.RevolutionaryPaths.WARLORD;
+
+        if (!TryComp<StoreComponent>(uid, out var store))
+            return;
+
+        store.Categories.Add(RevCoinStore[HRevComponent.RevolutionaryPaths.WARLORD]);
+    }
+
+    private void OnSelectWOTPPath(EntityUid uid, HRevComponent comp, ref HRevSelectedWOTPEvent ev)
+    {
+        comp.CurrentPath = HRevComponent.RevolutionaryPaths.WOTP;
+
+        if (!TryComp<StoreComponent>(uid, out var store))
+            return;
+
+        store.Categories.Add(RevCoinStore[HRevComponent.RevolutionaryPaths.WOTP]);
     }
 }

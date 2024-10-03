@@ -24,8 +24,8 @@
   name: hrevmenu-wotp-select-name
   description: hrevmenu-wotp-select-desc
   icon: {
-    sprite: Objects/Misc/handcuffs.rsi,
-    state: handcuff
+    sprite: Objects/Weapons/Melee/flash.rsi,
+    state: flash
   }
   productEvent: HRevSelectedWOTP
   cost:
@@ -61,6 +61,26 @@
     - WOTP
     - Vanguard
 # path select end
+
+# general stuff
+
+- type: listing
+  id: HRevMenuSelectVanguardTest
+  name: Flash
+  description: Ol' reliable. Use this to convert people one at a time.
+  icon: {
+    sprite: Objects/Weapons/Melee/flash.rsi,
+    state: flash
+  }
+  productEntity: Flash
+  cost:
+    RevCoin: 3
+  categories:
+  - RevStoreGeneral
+  blacklist:
+  - None
+
+# general stuff end
 
 - type: listing
   id: HRevMenuSelectVanguardTest

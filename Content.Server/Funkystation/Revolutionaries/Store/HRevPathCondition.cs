@@ -10,6 +10,7 @@ public sealed partial class HRevPathCondition : ListingCondition
 {
     [DataField] public HashSet<string>? Whitelist;
     [DataField] public HashSet<string>? Blacklist;
+    [DataField] public bool? AllowOnNone;
 
     public static string GetFriendlyRevPathName(RevolutionaryPaths path)
     {
@@ -28,7 +29,7 @@ public sealed partial class HRevPathCondition : ListingCondition
         var ent = args.EntityManager;
         var minds = ent.System<SharedMindSystem>();
 
-        if (!minds.TryGetMind(args.Buyer, out var mindId, out var mind))
+        if (!minds.TryGetMind(args.Buyer, out var _, out var _))
             return false;
 
         if (!ent.TryGetComponent<HRevComponent>(args.Buyer, out var hRevComponent))

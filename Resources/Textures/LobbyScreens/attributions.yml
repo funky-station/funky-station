@@ -54,6 +54,31 @@
   source: "https://github.com/space-wizards/space-station-14"
 
 - files: ["reclaimer-nuke.webp"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "GetOutMarutak,aka.Snicket on Discord/github/Cara/Ko-fi"
-  source: "https://github.com/space-wizards/space-station-14"
+  license: "CC-BY-SA-3.0"
+  copyright: "Unknown"
+  source: "https://forums.goobstation.com"
+
+- files: ["GoobNukie.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "@Cheeki - on discord"
+  source: "https://forums.goobstation.com"
+
+- files: ["cqcm.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "blooodyspy"
+  source: "https://forums.goobstation.com"
+
+- files: ["cqcm1.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "blooodyspy"
+  source: "https://forums.goobstation.com"
+
+- files: ["cqcm2.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "blooodyspy"
+  source: "https://forums.goobstation.com"
+
+- files: ["cqcm3.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "blooodyspy"
+  source: "https://forums.goobstation.com"

@@ -15,6 +15,7 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:HRevPathCondition
     blacklist:
     - WOTP
     - Warlord
@@ -65,7 +66,7 @@
 # general stuff
 
 - type: listing
-  id: HRevMenuSelectVanguardTest
+  id: HRevMenuFlash
   name: Flash
   description: Ol' reliable. Use this to convert people one at a time.
   icon: {
@@ -77,24 +78,33 @@
     RevCoin: 3
   categories:
   - RevStoreGeneral
-  blacklist:
-  - None
+  conditions:
+  - !type:HRevPathCondition
+    whitelist:
+    - WOTP
+    - Vanguard
+    - Warlord
 
 # general stuff end
 
+# wotp
 - type: listing
-  id: HRevMenuSelectVanguardTest
-  name: The Uniform
-  description: A vanguard cannot exist without a sharp uniform.
+  id: HRevMenuMosin
+  name: Kardashev-Mosin
+  description: The weapon of the people.
   icon: {
-    sprite: Objects/Misc/handcuffs.rsi,
-    state: handcuff
+    sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi,
+    state: base
   }
-  productEvent: HRevSelectedVanguard
+  productEntity: WeaponSniperMosin
   cost:
     RevCoin: 1
   categories:
-  - RevStoreVanguard
+  - RevStoreWotp
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 1
+    stock: 3
+  - !type:HRevPathCondition
+    whitelist:
+    - WOTP
+

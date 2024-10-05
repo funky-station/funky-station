@@ -4,7 +4,7 @@
   components:
   - type: ChangelingRule
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 8
     delay:
       min: 30
       max: 60

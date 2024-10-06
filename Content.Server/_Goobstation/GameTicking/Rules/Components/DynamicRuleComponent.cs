@@ -63,7 +63,6 @@ public sealed partial class DynamicRuleComponent : Component
     ///
     /// </summary>
     public float ThreatCurveWidth = 1.8f;
-    [ViewVariables(VVAccess.ReadOnly)] public List<(EntProtoId, EntityUid?)> ExecutedRules = new();
 
     #endregion
 }

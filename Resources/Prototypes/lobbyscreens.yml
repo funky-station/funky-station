@@ -45,3 +45,7 @@
 - type: lobbyBackground
   id: ReclaimerNuke
   background: /Textures/LobbyScreens/reclaimer-nuke.webp
+
+- type: lobbyBackground
+  id: GoobHeretic
+  background: /Textures/LobbyScreens/heretic.webp

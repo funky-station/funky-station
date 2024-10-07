@@ -10,7 +10,7 @@ namespace Content.Shared.Revolutionary;
 /// If you don't like it well, no one's asking you to merge this.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class HRevComponent : Component
+public sealed partial class HeadRevolutionaryPathComponent : Component
 {
     [DataField, AutoNetworkedField]
     public RevolutionaryPaths CurrentPath = RevolutionaryPaths.NONE;

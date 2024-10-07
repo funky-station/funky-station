@@ -275,16 +275,16 @@ public sealed partial class StoreSystem
             // shitcode x10
             switch (listing.ID)
             {
-                case "HRevMenuSelectVanguard":
-                    var vanguard = new HRevSelectedVanguardEvent();
+                case "HeadRevolutionaryMenuSelectVanguard":
+                    var vanguard = new HeadRevolutionarySelectedVanguardEvent();
                     RaiseLocalEvent(buyer, vanguard);
                     break;
-                case "HRevMenuSelectWOTP":
-                    var wotp = new HRevSelectedWOTPEvent();
+                case "HeadRevolutionaryMenuSelectWOTP":
+                    var wotp = new HeadRevolutionarySelectedWOTPEvent();
                     RaiseLocalEvent(buyer, wotp);
                     break;
-                case "HRevMenuSelectWarlord":
-                    var warlord = new HRevSelectedWarlordEvent();
+                case "HeadRevolutionaryMenuSelectWarlord":
+                    var warlord = new HeadRevolutionarySelectedWarlordEvent();
                     RaiseLocalEvent(buyer, warlord);
                     break;
                 default:

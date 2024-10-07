@@ -5,11 +5,11 @@ using Content.Shared.Revolutionary;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Robust.Shared.Prototypes;
-using static Content.Shared.Revolutionary.HRevComponent;
+using static Content.Shared.Revolutionary.HeadRevolutionaryPathComponent;
 
 namespace Content.Server.Revolutionary;
 
-public sealed partial class HRevSystem : EntitySystem
+public sealed partial class HeadRevolutionarySystem : EntitySystem
 {
     [Dependency]
     private readonly ActionsSystem _actions = default!;
@@ -44,12 +44,12 @@ public sealed partial class HRevSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HRevComponent, ComponentInit>(HRevComponentInitialize);
+        SubscribeLocalEvent<HeadRevolutionaryPathComponent, ComponentInit>(HeadRevolutionaryPathComponentInitialize);
 
         SubscribeEvents();
     }
 
-    private void HRevComponentInitialize(EntityUid uid, HRevComponent comp, ref ComponentInit ev)
+    private void HeadRevolutionaryPathComponentInitialize(EntityUid uid, HeadRevolutionaryPathComponent comp, ref ComponentInit ev)
     {
         if (!_mind.TryGetMind(uid, out _, out _))
         {
@@ -61,7 +61,7 @@ public sealed partial class HRevSystem : EntitySystem
         storeComp.Categories.Add(RevCoinStore[RevolutionaryPaths.NONE]);
         storeComp.Balance.Add(Currency, 5);
 
-        _actions.AddAction(uid, "ActionHRevOpenStore");
+        _actions.AddAction(uid, "ActionHeadRevolutionaryUplink");
     }
 }
 

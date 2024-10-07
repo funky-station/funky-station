@@ -1,6 +1,6 @@
 # actions
 - type: entity
-  id: ActionHRevOpenStore
+  id: ActionHeadRevolutionaryUplink
   name: Open Revolutionary Store
   description: Open the Revolutionary Store.
   categories: [ HideSpawnMenu ]
@@ -10,6 +10,6 @@
     icon:
       sprite: Interface/Misc/job_icons.rsi
       state: HeadRevolutionary
-    event: !type:EventHRevOpenStore {}
-  - type: HRevAction
+    event: !type:EventHeadRevolutionaryOpenUplink {}
+  - type: HeadRevolutionaryAction
     requiresSelectedPath: NONE

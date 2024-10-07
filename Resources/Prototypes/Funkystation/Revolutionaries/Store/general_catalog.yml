@@ -1,13 +1,13 @@
 # path select start
 - type: listing
-  id: HRevMenuSelectVanguard
+  id: HeadRevolutionaryMenuSelectVanguard
   name: hrevmenu-vanguard-select-name
   description: hrevmenu-vanguard-select-desc
   icon: {
     sprite: Objects/Misc/books.rsi,
     state: book_icon
   }
-  productEvent: HRevSelectedVanguard
+  productEvent: HeadRevolutionaryPathSelectedVanguard
   cost:
     RevCoin: 1
   categories:
@@ -15,20 +15,20 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-  - !type:HRevPathCondition
+  - !type:HeadRevolutionaryPathCondition
     blacklist:
     - WOTP
     - Warlord
 
 - type: listing
-  id: HRevMenuSelectWOTP
+  id: HeadRevolutionarySelectWOTP
   name: hrevmenu-wotp-select-name
   description: hrevmenu-wotp-select-desc
   icon: {
     sprite: Objects/Weapons/Melee/flash.rsi,
     state: flash
   }
-  productEvent: HRevSelectedWOTP
+  productEvent: HeadRevolutionaryPathSelectedWOTP
   cost:
     RevCoin: 1
   categories:
@@ -36,20 +36,20 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-  - !type:HRevPathCondition
+  - !type:HeadRevolutionaryPathCondition
     blacklist:
     - Vanguard
     - Warlord
 
 - type: listing
-  id: HRevMenuSelectWarlord
+  id: HeadRevolutionarySelectWarlord
   name: hrevmenu-warlord-select-name
   description: hrevmenu-warlord-select-desc
   icon: {
     sprite: Objects/Weapons/Guns/Pistols/viper.rsi,
     state: icon
   }
-  productEvent: HRevSelectedWarlord
+  productEvent: HeadRevolutionaryPathSelectedWarlord
   cost:
     RevCoin: 1
   categories:
@@ -57,14 +57,13 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-  - !type:HRevPathCondition
+  - !type:HeadRevolutionaryPathCondition
     blacklist:
     - WOTP
     - Vanguard
 # path select end
 
 # general stuff
-
 - type: listing
   id: HRevMenuFlash
   name: Flash
@@ -79,7 +78,7 @@
   categories:
   - RevStoreGeneral
   conditions:
-  - !type:HRevPathCondition
+  - !type:HeadRevolutionaryPathCondition
     whitelist:
     - WOTP
     - Vanguard
@@ -104,7 +103,7 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 3
-  - !type:HRevPathCondition
+  - !type:HeadRevolutionaryPathCondition
     whitelist:
     - WOTP
 

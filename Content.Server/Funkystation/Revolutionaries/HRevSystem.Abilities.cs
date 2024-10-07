@@ -1,14 +1,12 @@
-
-using Content.Shared.Actions;
 using Content.Shared.Revolutionary;
 using Content.Shared.Store.Components;
-using static Content.Shared.Revolutionary.HRevComponent;
+using static Content.Shared.Revolutionary.HeadRevolutionaryPathComponent;
 using Content.Server.Chat.Managers;
 using Content.Shared.Chat;
 
 namespace Content.Server.Revolutionary;
 
-public sealed partial class HRevSystem : EntitySystem
+public sealed partial class HeadRevolutionarySystem : EntitySystem
 {
     [Dependency]
     private readonly IChatManager _chat = default!;
@@ -27,13 +25,13 @@ public sealed partial class HRevSystem : EntitySystem
 
     public void SubscribeEvents()
     {
-        SubscribeLocalEvent<HRevComponent, EventHRevOpenStore>(OnOpenStore);
-        SubscribeLocalEvent<HRevComponent, HRevSelectedVanguardEvent>(OnSelectVanguardPath);
-        SubscribeLocalEvent<HRevComponent, HRevSelectedWarlordEvent>(OnSelectWarlordPath);
-        SubscribeLocalEvent<HRevComponent, HRevSelectedWOTPEvent>(OnSelectWOTPPath);
+        SubscribeLocalEvent<HeadRevolutionaryPathComponent, EventHeadRevolutionaryOpenUplink>(OnOpenStore);
+        SubscribeLocalEvent<HeadRevolutionaryPathComponent, HeadRevolutionarySelectedVanguardEvent>(OnSelectVanguardPath);
+        SubscribeLocalEvent<HeadRevolutionaryPathComponent, HeadRevolutionarySelectedWOTPEvent>(OnSelectWarlordPath);
+        SubscribeLocalEvent<HeadRevolutionaryPathComponent, HeadRevolutionarySelectedWarlordEvent>(OnSelectWOTPPath);
     }
 
-    private void OnOpenStore(EntityUid uid, HRevComponent comp, ref EventHRevOpenStore args)
+    private void OnOpenStore(EntityUid uid, HeadRevolutionaryPathComponent comp, ref EventHeadRevolutionaryOpenUplink args)
     {
         if (!TryComp<StoreComponent>(uid, out var store))
             return;
@@ -41,9 +39,9 @@ public sealed partial class HRevSystem : EntitySystem
         _store.ToggleUi(uid, uid, store);
     }
 
-    private void OnSelectVanguardPath(EntityUid uid, HRevComponent comp, ref HRevSelectedVanguardEvent ev)
+    private void OnSelectVanguardPath(EntityUid uid, HeadRevolutionaryPathComponent comp, ref HeadRevolutionarySelectedVanguardEvent ev)
     {
-        comp.CurrentPath = HRevComponent.RevolutionaryPaths.VANGUARD;
+        comp.CurrentPath = RevolutionaryPaths.VANGUARD;
 
         if (!TryComp<StoreComponent>(uid, out var store))
             return;
@@ -52,20 +50,20 @@ public sealed partial class HRevSystem : EntitySystem
         PlayerPathNotify(uid, comp.CurrentPath);
     }
 
-    private void OnSelectWarlordPath(EntityUid uid, HRevComponent comp, ref HRevSelectedWarlordEvent ev)
+    private void OnSelectWarlordPath(EntityUid uid, HeadRevolutionaryPathComponent comp, ref HeadRevolutionarySelectedWOTPEvent ev)
     {
         comp.CurrentPath = RevolutionaryPaths.WARLORD;
 
         if (!TryComp<StoreComponent>(uid, out var store))
             return;
 
-        store.Categories.Add(RevCoinStore[HRevComponent.RevolutionaryPaths.WARLORD]);
+        store.Categories.Add(RevCoinStore[RevolutionaryPaths.WARLORD]);
         PlayerPathNotify(uid, comp.CurrentPath);
     }
 
-    private void OnSelectWOTPPath(EntityUid uid, HRevComponent comp, ref HRevSelectedWOTPEvent ev)
+    private void OnSelectWOTPPath(EntityUid uid, HeadRevolutionaryPathComponent comp, ref HeadRevolutionarySelectedWarlordEvent ev)
     {
-        comp.CurrentPath = HRevComponent.RevolutionaryPaths.WOTP;
+        comp.CurrentPath = RevolutionaryPaths.WOTP;
 
         if (!TryComp<StoreComponent>(uid, out var store))
             return;

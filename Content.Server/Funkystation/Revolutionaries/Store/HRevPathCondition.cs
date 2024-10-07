@@ -1,12 +1,11 @@
-using Content.Shared.Heretic;
 using Content.Shared.Mind;
 using Content.Shared.Revolutionary;
 using Content.Shared.Store;
-using static Content.Shared.Revolutionary.HRevComponent;
+using static Content.Shared.Revolutionary.HeadRevolutionaryPathComponent;
 
 namespace Content.Server.Store.Conditions;
 
-public sealed partial class HRevPathCondition : ListingCondition
+public sealed partial class HeadRevolutionaryPathCondition : ListingCondition
 {
     [DataField] public HashSet<string>? Whitelist;
     [DataField] public HashSet<string>? Blacklist;
@@ -32,13 +31,13 @@ public sealed partial class HRevPathCondition : ListingCondition
         if (!minds.TryGetMind(args.Buyer, out var _, out var _))
             return false;
 
-        if (!ent.TryGetComponent<HRevComponent>(args.Buyer, out var hRevComponent))
+        if (!ent.TryGetComponent<HeadRevolutionaryPathComponent>(args.Buyer, out var headRevolutionaryPathComponent))
             return false;
 
         if (Whitelist != null)
         {
             foreach (var allowed in Whitelist)
-                if (GetFriendlyRevPathName(hRevComponent.CurrentPath) == allowed)
+                if (GetFriendlyRevPathName(headRevolutionaryPathComponent.CurrentPath) == allowed)
                     return true;
 
             return false;
@@ -47,7 +46,7 @@ public sealed partial class HRevPathCondition : ListingCondition
         if (Blacklist != null)
         {
             foreach (var disallowed in Blacklist)
-                if (GetFriendlyRevPathName(hRevComponent.CurrentPath) == disallowed)
+                if (GetFriendlyRevPathName(headRevolutionaryPathComponent.CurrentPath) == disallowed)
                     return false;
 
             return true;

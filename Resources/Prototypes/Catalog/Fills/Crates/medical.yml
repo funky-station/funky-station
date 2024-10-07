@@ -46,12 +46,12 @@
   id: CrateMindShieldImplants
   parent: CrateMedical
   name: MindShield implant crate
-  description: Crate filled with 3 MindShield implants.
+  description: Crate filled with 6 MindShield implants. # funkystation - get more mindshields per box
   components:
   - type: StorageFill
     contents:
       - id: MindShieldImplanter
-        amount: 3
+        amount: 6 # funkystation
 
 - type: entity
   id: CrateMedicalSurgery

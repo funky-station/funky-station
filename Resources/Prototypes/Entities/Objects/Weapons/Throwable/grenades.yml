@@ -86,7 +86,7 @@
 - type: entity
   name: revolutionary flashbang
   description: Viva.
-  parent: [ GrenadeBase, BaseRestrictedContraband ]
+  parent: [ GrenadeBase, BaseSyndicateContraband ]
   id: GrenadeFlashBangRevolutionary
   components:
   - type: Sprite

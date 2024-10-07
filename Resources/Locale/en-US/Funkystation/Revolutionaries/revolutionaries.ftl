@@ -13,5 +13,5 @@ store-rev-category-warlord = Warlord
 
 hrevmenu-wotp-select-name = The Great Person
 hrevmenu-wotp-select-desc = You are more than just a crewmember. You are the sun, the wind, the air. Lead the masses to victory.
-hrevmenu-wotp-select-chat = I am God! I posess the strength and knowledge to create a utopia among utopias. With the masses help, nothing can stop me.
+hrevmenu-wotp-select-chat = I am God! I possess the strength and knowledge to create a utopia among utopias. With the masses help, nothing can stop me.
 store-rev-category-wotp = Will of the People

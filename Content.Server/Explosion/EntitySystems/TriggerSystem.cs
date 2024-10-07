@@ -35,6 +35,7 @@ using Robust.Shared.Player;
 using Content.Shared.Coordinates;
 using Robust.Shared.Utility;
 using Robust.Shared.Timing;
+using Content.Shared.Revolutionary;
 
 namespace Content.Server.Explosion.EntitySystems
 {
@@ -103,6 +104,7 @@ namespace Content.Server.Explosion.EntitySystems
             SubscribeLocalEvent<DeleteOnTriggerComponent, TriggerEvent>(HandleDeleteTrigger);
             SubscribeLocalEvent<ExplodeOnTriggerComponent, TriggerEvent>(HandleExplodeTrigger);
             SubscribeLocalEvent<FlashOnTriggerComponent, TriggerEvent>(HandleFlashTrigger);
+            SubscribeLocalEvent<RevolutionaryFlashOnTriggerComponent, TriggerEvent>(HandleRevolutionaryFlashTrigger); // funkystation
             SubscribeLocalEvent<GibOnTriggerComponent, TriggerEvent>(HandleGibTrigger);
 
             SubscribeLocalEvent<AnchorOnTriggerComponent, TriggerEvent>(OnAnchorTrigger);
@@ -177,6 +179,13 @@ namespace Content.Server.Explosion.EntitySystems
         {
             // TODO Make flash durations sane ffs.
             _flashSystem.FlashArea(uid, args.User, component.Range, component.Duration * 1000f, probability: component.Probability);
+            args.Handled = true;
+        }
+
+        // funkystation - no other clear way to do this
+        private void HandleRevolutionaryFlashTrigger(EntityUid uid, RevolutionaryFlashOnTriggerComponent comp, TriggerEvent args)
+        {
+            _flashSystem.RevolutionaryFlashArea(uid, args.User, comp.Range, comp.Duration * 1000f, probability: comp.Probability);
             args.Handled = true;
         }
 

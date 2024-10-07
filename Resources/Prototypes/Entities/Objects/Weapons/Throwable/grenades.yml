@@ -82,6 +82,32 @@
     - Security
     - Antagonists
 
+# funkystation
+- type: entity
+  name: revolutionary flashbang
+  description: Viva.
+  parent: [ GrenadeBase, BaseRestrictedContraband ]
+  id: GrenadeFlashBangRevolutionary
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/flashbang.rsi
+  - type: RevolutionaryFlashOnTrigger
+    range: 7
+  - type: SoundOnTrigger
+    sound:
+      path: "/Audio/Effects/flash_bang.ogg"
+  - type: DeleteOnTrigger
+  - type: SpawnOnTrigger
+    proto: GrenadeFlashEffect
+  - type: Appearance
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: /Audio/Effects/countdown.ogg
+  - type: GuideHelp
+    guides:
+    - Security
+    - Antagonists
+
 - type: entity
   id: GrenadeFlashEffect
   categories: [ HideSpawnMenu ]

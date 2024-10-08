@@ -1,0 +1,14 @@
+Entries:
+- author: Petally
+  changes:
+    - message: add the effigy
+      type: Add
+  id: 1
+  time: '2024-10-7T09:17:57.0000000+00:00'
+  url: https://github.com/funky-station/funky-station/pull/27
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Tweaked numbers on max heretics and changelings
+  id: 2
+  time: '2024-10-08T02:15:24.0000000+00:00'

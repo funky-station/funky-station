@@ -18,3 +18,9 @@ Entries:
       message: fixed effigy sound
   id: 3
   time: '2024-10-08T21:43:53.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Added some more lobby songs, and more for the jukebox!
+  id: 4
+  time: '2024-10-08T23:11:45.0000000+00:00'

@@ -12,3 +12,9 @@ Entries:
       message: Tweaked numbers on max heretics and changelings
   id: 2
   time: '2024-10-08T02:15:24.0000000+00:00'
+- author: Petally
+  changes:
+    - type: Fix
+      message: fixed effigy sound
+  id: 3
+  time: '2024-10-08T21:43:53.0000000+00:00'

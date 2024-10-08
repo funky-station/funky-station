@@ -3,3 +3,27 @@
   name: C418 - Droopy likes your face
   path:
     path: /Audio/Lobby/droopy_likes_your_face.ogg
+
+- type: jukebox
+  id: spacershome
+  name: Vic Tyler - Spacers Home
+  path:
+    path: /Audio/Lobby/spacers_home.ogg
+
+- type: jukebox
+  id: sugarboo
+  name: Serani Poji - Sugar Boo
+  path:
+    path: /Audio/Lobby/sugar_boo.ogg
+
+- type: jukebox
+  id: starpilotshymn
+  name: Anne Prather - Star Pilot's Hymn
+  path:
+    path: /Audio/Lobby/starpilotshymn.ogg
+
+- type: jukebox
+  id: livingintheurban
+  name: OKSY - Living in the Urban
+  path:
+    path: /Audio/Lobby/livingintheurban.ogg

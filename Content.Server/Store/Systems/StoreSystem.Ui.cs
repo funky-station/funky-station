@@ -12,6 +12,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mind;
+using Content.Shared.Revolutionary;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Content.Shared.UserInterface;
@@ -267,6 +268,27 @@ public sealed partial class StoreSystem
                 RaiseLocalEvent(listing.ProductEvent);
             else
                 RaiseLocalEvent(buyer, listing.ProductEvent);
+
+            // funkystation
+            // ts dont even work dawg ^ lemme live bro
+            // shitcode x10
+            switch (listing.ID)
+            {
+                case "HeadRevolutionaryMenuSelectVanguard":
+                    var vanguard = new HeadRevolutionarySelectedVanguardEvent();
+                    RaiseLocalEvent(buyer, vanguard);
+                    break;
+                case "HeadRevolutionaryMenuSelectWOTP":
+                    var wotp = new HeadRevolutionarySelectedWOTPEvent();
+                    RaiseLocalEvent(buyer, wotp);
+                    break;
+                case "HeadRevolutionaryMenuSelectWarlord":
+                    var warlord = new HeadRevolutionarySelectedWarlordEvent();
+                    RaiseLocalEvent(buyer, warlord);
+                    break;
+                default:
+                    break;
+            }
         }
 
         //log dat shit.

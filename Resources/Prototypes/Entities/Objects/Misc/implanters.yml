@@ -92,7 +92,7 @@
           map: [ "implantOnly" ]
     - type: Implanter
       currentMode: Inject
-      implantOnly: true
+      implantTime: 20 # funkystation - modify implant time
 
 - type: entity
   id: BaseImplantOnlyImplanterSyndi

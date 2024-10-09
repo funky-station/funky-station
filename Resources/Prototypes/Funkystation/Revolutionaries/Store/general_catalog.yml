@@ -1,0 +1,109 @@
+# path select start
+- type: listing
+  id: HeadRevolutionaryMenuSelectVanguard
+  name: hrevmenu-vanguard-select-name
+  description: hrevmenu-vanguard-select-desc
+  icon: {
+    sprite: Objects/Misc/books.rsi,
+    state: book_icon
+  }
+  productEvent: HeadRevolutionaryPathSelectedVanguard
+  cost:
+    RevCoin: 1
+  categories:
+  - RevStoreGeneral
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HeadRevolutionaryPathCondition
+    blacklist:
+    - WOTP
+    - Warlord
+
+- type: listing
+  id: HeadRevolutionarySelectWOTP
+  name: hrevmenu-wotp-select-name
+  description: hrevmenu-wotp-select-desc
+  icon: {
+    sprite: Objects/Weapons/Melee/flash.rsi,
+    state: flash
+  }
+  productEvent: HeadRevolutionaryPathSelectedWOTP
+  cost:
+    RevCoin: 1
+  categories:
+  - RevStoreGeneral
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HeadRevolutionaryPathCondition
+    blacklist:
+    - Vanguard
+    - Warlord
+
+- type: listing
+  id: HeadRevolutionarySelectWarlord
+  name: hrevmenu-warlord-select-name
+  description: hrevmenu-warlord-select-desc
+  icon: {
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi,
+    state: icon
+  }
+  productEvent: HeadRevolutionaryPathSelectedWarlord
+  cost:
+    RevCoin: 1
+  categories:
+  - RevStoreGeneral
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HeadRevolutionaryPathCondition
+    blacklist:
+    - WOTP
+    - Vanguard
+# path select end
+
+# general stuff
+- type: listing
+  id: HRevMenuFlash
+  name: Flash
+  description: Ol' reliable. Use this to convert people one at a time.
+  icon: {
+    sprite: Objects/Weapons/Melee/flash.rsi,
+    state: flash
+  }
+  productEntity: Flash
+  cost:
+    RevCoin: 3
+  categories:
+  - RevStoreGeneral
+  conditions:
+  - !type:HeadRevolutionaryPathCondition
+    whitelist:
+    - WOTP
+    - Vanguard
+    - Warlord
+
+# general stuff end
+
+# wotp
+- type: listing
+  id: HRevMenuMosin
+  name: Kardashev-Mosin
+  description: The weapon of the people.
+  icon: {
+    sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi,
+    state: base
+  }
+  productEntity: WeaponSniperMosin
+  cost:
+    RevCoin: 1
+  categories:
+  - RevStoreWotp
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 3
+  - !type:HeadRevolutionaryPathCondition
+    whitelist:
+    - WOTP
+

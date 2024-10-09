@@ -1,0 +1,72 @@
+- type: entity
+  parent: BaseItem
+  id: TheEffigy
+  name: the effigy
+  description: It's entirely motionless, yet it feels alive. (This thing reeks.)
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/the_effigy.rsi
+    state: icon
+  - type: Item
+    sprite: _Funkystation/Objects/Fun/the_effigy.rsi
+  - type: Tag
+    tags:
+      - Payload
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Funkystation/Items/the_effigy.ogg
+      params:
+        variation: 0.125
+  - type: UseDelay
+    delay: 1
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_Funkystation/Items/the_effigy_collide.ogg
+  - type: SpamEmitSound
+    minInterval: 3
+    maxInterval: 4
+    sound:
+      path: /Audio/_Funkystation/Items/the_effigy_breathe.ogg
+      params:
+        volume: -4
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: Blood
+          Quantity: 100
+  - type: Damageable
+    damageContainer: Biological
+  - type: DamageOnHighSpeedImpact
+    minimumSpeed: 1
+    damage:
+      types:
+        Blunt: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+          spawn:
+              OrganHumanHeart:
+                min: 1
+                max: 1
+              OrganHumanEyes:
+                min: 1
+                max: 1
+              OrganHumanBrain:
+                min: 1
+                max: 1
+      - !type:SpillBehavior
+        solution: drink
+      - !type:PopupBehavior
+        popup: effigy-destroyed
+        type: Local
+      - !type:PlaySoundBehavior
+        sound: 
+          path: /Audio/Effects/gib3.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

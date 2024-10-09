@@ -24,3 +24,13 @@ Entries:
       message: Added some more lobby songs, and more for the jukebox!
   id: 4
   time: '2024-10-08T23:11:45.0000000+00:00'
+- author: Petally
+  changes:
+    - type: Add
+      message: added breathing sounds to effigy
+    - type: Add
+      message: effigy can now be destroyed and turns into gibs when so
+    - type: Add
+      message: effigy now gets hurt when hitting walls
+  id: 5
+  time: '2024-10-09T19:02:31.0000000+00:00'

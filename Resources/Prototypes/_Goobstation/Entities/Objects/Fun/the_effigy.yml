@@ -5,10 +5,10 @@
   description: It's entirely motionless, yet it feels alive. (This thing reeks.)
   components:
   - type: Sprite
-    sprite: Objects/Fun/the_effigy.rsi
+    sprite: _Goobstation/Objects/Fun/the_effigy.rsi
     state: icon
   - type: Item
-    sprite: Objects/Fun/the_effigy.rsi
+    sprite: _Goobstation/Objects/Fun/the_effigy.rsi
   - type: Tag
     tags:
       - Payload

@@ -64,7 +64,7 @@
         solution: drink
       - !type:PopupBehavior
         popup: effigy-destroyed
-        type: Local
+        popupType: LargeCaution
       - !type:PlaySoundBehavior
         sound: 
           path: /Audio/Effects/gib3.ogg

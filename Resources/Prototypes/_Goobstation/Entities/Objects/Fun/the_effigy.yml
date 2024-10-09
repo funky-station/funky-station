@@ -22,3 +22,10 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_Goobstation/Items/the_effigy_collide.ogg
+  - type: SpamEmitSound
+    minInterval: 3
+    maxInterval: 4
+    sound:
+      path: /Audio/_Goobstation/Items/the_effigy_breathe.ogg
+      params:
+        volume: -4

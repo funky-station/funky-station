@@ -45,11 +45,6 @@ public sealed partial class DynamicRuleComponent : Component
 
     [DataField] public ProtoId<DatasetPrototype> RoundstartRulesPool;
 
-    /// <summary>
-    ///     Used for EORG.
-    /// </summary>
-    public List<(EntProtoId, EntityUid?)> ExecutedRules = new();
-
     #endregion
 
     #region Calculations
@@ -63,6 +58,7 @@ public sealed partial class DynamicRuleComponent : Component
     ///
     /// </summary>
     public float ThreatCurveWidth = 1.8f;
+    [ViewVariables(VVAccess.ReadOnly)] public List<(EntProtoId, EntityUid?)> ExecutedRules = new();
 
     #endregion
 }

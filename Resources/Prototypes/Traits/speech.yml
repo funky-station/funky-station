@@ -100,7 +100,7 @@
   category: SpeechTraits
   cost: 2
   components:
-  - type: Russian
+  - type: RussianAccent
 
 - type: trait
   id: SocialAnxiety

@@ -6,9 +6,6 @@
   - node: start
     edges:
     - to: revFlashbang
-#    conditions: finish this
-#      - !type:CrafterHasComponent
-#        componentName: HeadRevolutionaryCraftFlashbang
     steps:
     - tool: Screwing
       doAfter: 15

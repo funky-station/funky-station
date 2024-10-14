@@ -1,10 +1,12 @@
 using Content.Shared.Construction;
 using Content.Shared.Examine;
 using Content.Shared.Mind;
+using Content.Shared.Item.PseudoItem;
 using Content.Shared.Revolutionary.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.Item;
 
 namespace Content.Server.Construction.Conditions;
 
@@ -17,8 +19,6 @@ namespace Content.Server.Construction.Conditions;
 /// </summary>
 public sealed partial class CrafterHasComponent : IGraphCondition
 {
-    [Dependency]
-    private readonly SharedMindSystem _mind = default!;
 
     [DataField("componentName")]
     public EntProtoId ComponentName;
@@ -30,12 +30,13 @@ public sealed partial class CrafterHasComponent : IGraphCondition
 
     public bool Condition(EntityUid uid, IEntityManager entityManager)
     {
+        var minds = entityManager.System<SharedMindSystem>();
         var transformComponent = entityManager.GetComponentOrNull<TransformComponent>(uid);
 
         if (transformComponent == null)
             return false;
 
-        if (!_mind.TryGetMind(transformComponent.ParentUid, out var mindId, out var mindComp))
+        if (!minds.TryGetMind(transformComponent.ParentUid, out var mindId, out var mindComp))
             return false;
 
         if (mindComp.CurrentEntity == null)
@@ -43,7 +44,8 @@ public sealed partial class CrafterHasComponent : IGraphCondition
 
         foreach (var comp in entityManager.GetComponents((EntityUid) mindComp.CurrentEntity))
         {
-            if (comp.GetType().ToString() == ComponentName)
+            var type = comp.GetType();
+            if (type.ToString().Contains(ComponentName.ToString())) // i dont wanna hear it idgaf
             {
                 return true;
             }
@@ -54,7 +56,15 @@ public sealed partial class CrafterHasComponent : IGraphCondition
 
     public bool DoExamine(ExaminedEvent args)
     {
-        throw new NotImplementedException();
+        var entity = args.Examined;
+
+        var entMan = IoCManager.Resolve<IEntityManager>();
+
+        if (!entMan.TryGetComponent(entity, out ItemComponent? item)) return false;
+
+        args.PushMarkup("Something might happen if you use a screwdriver on it.");
+
+        return true;
     }
 
     public IEnumerable<ConstructionGuideEntry> GenerateGuideEntry()

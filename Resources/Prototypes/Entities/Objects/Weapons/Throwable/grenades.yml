@@ -110,9 +110,6 @@
     guides:
     - Security
     - Antagonists
-  - type: Construction
-    graph: RevolutionaryFlashbangGraph
-    node: revFlashbang
 
 - type: entity
   id: GrenadeFlashEffect

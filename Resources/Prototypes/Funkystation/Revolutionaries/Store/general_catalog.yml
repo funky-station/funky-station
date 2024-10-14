@@ -21,7 +21,7 @@
     - Warlord
 
 - type: listing
-  id: HeadRevolutionarySelectWOTP
+  id: HeadRevolutionaryMenuSelectWOTP
   name: hrevmenu-wotp-select-name
   description: hrevmenu-wotp-select-desc
   icon: {
@@ -42,7 +42,7 @@
     - Warlord
 
 - type: listing
-  id: HeadRevolutionarySelectWarlord
+  id: HeadRevolutionaryMenuSelectWarlord
   name: hrevmenu-warlord-select-name
   description: hrevmenu-warlord-select-desc
   icon: {

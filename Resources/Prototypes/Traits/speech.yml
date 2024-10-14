@@ -94,6 +94,15 @@
 # 2 Cost
 
 - type: trait
+  id: Russian
+  name: trait-russian-name
+  description: trait-russian-desc
+  category: SpeechTraits
+  cost: 2
+  components:
+  - type: RussianAccent
+
+- type: trait
   id: SocialAnxiety
   name: trait-socialanxiety-name
   description: trait-socialanxiety-desc

@@ -34,3 +34,15 @@ Entries:
       message: effigy now gets hurt when hitting walls
   id: 5
   time: '2024-10-09T19:02:31.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Add
+      message: Added russian accent to traits
+  id: 6
+  time: '2024-10-11T00:40:52.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Tweak
+      message: Doxa heals genetic on dead players
+  id: 7
+  time: '2024-10-11T21:12:53.0000000+00:00'

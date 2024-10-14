@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Shared.FixedPoint;
 using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Revolutionary.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -102,6 +103,11 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     [DataField]
     public ProtoId<HereticKnowledgePrototype>? ProductHereticKnowledge;
 
+    // funkystation revolutions update
+    // productEvent doesnt work, also same shit up here ^
+    [DataField]
+    public ProtoId<HeadRevolutionaryRecipePrototype>? ProductHeadRevolutionaryRecipe;
+
     [DataField]
     public bool RaiseProductEventOnUser;
 
@@ -188,6 +194,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             ProductActionEntity = ProductActionEntity,
             ProductEvent = ProductEvent,
             ProductHereticKnowledge = ProductHereticKnowledge, // goob edit
+            ProductHeadRevolutionaryRecipe = ProductHeadRevolutionaryRecipe, // funkystation - revolutions
             PurchaseAmount = PurchaseAmount,
             RestockTime = RestockTime,
             // WD START

@@ -107,3 +107,22 @@
     whitelist:
     - WOTP
 
+- type: listing
+  id: HRevMenuFlashAbility
+  name: Unlock Revolutionary Flashbang Recipe
+  description: Unlocks the ability to craft revolutionary flashbangs. Take a screwdriver to a flashbang, fiddle with it for 15 seconds, and lob it into a crowd. No-ones the wiser.
+  icon: {
+    sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi,
+    state: base
+  }
+  productHeadRevolutionaryRecipe: RevolutionaryFlashbangRecipe
+  cost:
+    RevCoin: 1
+  categories:
+  - RevStoreWotp
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HeadRevolutionaryPathCondition
+    whitelist:
+    - WOTP

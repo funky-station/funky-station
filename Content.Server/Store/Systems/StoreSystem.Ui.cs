@@ -3,6 +3,7 @@ using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Heretic.EntitySystems;
 using Content.Server.PDA.Ringer;
+using Content.Server.Revolutionary;
 using Content.Server.Stack;
 using Content.Server.Store.Components;
 using Content.Shared.Actions;
@@ -261,6 +262,12 @@ public sealed partial class StoreSystem
 
             if (upgradeActionId != null)
                 HandleRefundComp(uid, component, upgradeActionId.Value);
+        }
+
+        if (listing.ProductHeadRevolutionaryRecipe != null)
+        {
+            if (!TryComp<HeadRevolutionaryPathComponent>(buyer, out var hrevComp))
+                HeadRevolutionarySystem.GrantRecipeComponent(buyer, listing.ProductHeadRevolutionaryRecipe);
         }
 
         if (listing.ProductEvent != null)

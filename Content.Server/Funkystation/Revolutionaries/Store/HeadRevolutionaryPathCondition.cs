@@ -7,9 +7,12 @@ namespace Content.Server.Store.Conditions;
 
 public sealed partial class HeadRevolutionaryPathCondition : ListingCondition
 {
-    [DataField] public HashSet<string>? Whitelist;
-    [DataField] public HashSet<string>? Blacklist;
-    [DataField] public bool? AllowOnNone;
+    [DataField]
+    public HashSet<string>? Whitelist;
+    [DataField]
+    public HashSet<string>? Blacklist;
+    [DataField]
+    public bool? AllowOnNone;
 
     public static string GetFriendlyRevPathName(RevolutionaryPaths path)
     {

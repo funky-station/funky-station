@@ -2,6 +2,7 @@ using Content.Server.Actions;
 using Content.Server.Mind;
 using Content.Server.Store.Systems;
 using Content.Shared.Revolutionary;
+using Content.Shared.Revolutionary.Prototypes;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Robust.Shared.Prototypes;
@@ -62,6 +63,14 @@ public sealed partial class HeadRevolutionarySystem : EntitySystem
         storeComp.Balance.Add(Currency, 5);
 
         _actions.AddAction(uid, "ActionHeadRevolutionaryUplink");
+    }
+
+    public void GrantRecipeComponent(EntityUid uid, ProtoId<HeadRevolutionaryRecipePrototype>? recipes)
+    {
+        if (recipes == null)
+            return;
+
+        
     }
 }
 

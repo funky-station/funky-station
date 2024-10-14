@@ -1,11 +1,9 @@
-﻿- type: job
+- type: job
   id: TechnicalAssistant
   name: job-name-technical-assistant
   description: job-description-technical-assistant
   playTimeTracker: JobTechnicalAssistant
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 1800 # 30 Minutes
     - !type:DepartmentTimeRequirement
       department: Engineering
       time: 54000 #15 hrs

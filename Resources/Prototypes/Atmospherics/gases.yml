@@ -99,4 +99,24 @@
   gasMolesVisible: 0.6
   color: 3a758c
   reagent: Frezon
-  pricePerMole: 0.3
+  pricePerMole: 1.1
+
+- type: gas
+  id: 9
+  name: gases-bz
+  specificHeat: 20
+  heatCapacityRatio: 1.4
+  molarMass: 10
+  color: 9370db
+  reagent: BZ
+  pricePerMole: 0.15
+
+- type: gas
+  id: 10
+  name: gases-healium
+  specificHeat: 20
+  heatCapacityRatio: 1.4
+  molarMass: 10
+  color: 8b0000
+  reagent: Healium
+  pricePerMole: 1.4

@@ -68,3 +68,6 @@ trait-french-desc = Your accent seems to have a certain «je ne sais quoi».
 
 trait-spanish-name = Spanish accent
 trait-spanish-desc = Hola señor, donde esta la biblioteca.
+
+trait-russian-name = Russian accent
+trait-russian-desc = Niko, it's Roman! Let's go bowling!

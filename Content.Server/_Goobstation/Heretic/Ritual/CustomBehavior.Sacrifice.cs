@@ -50,6 +50,7 @@ using FastAccessors;
 using Content.Shared.Humanoid.Markings;
 using JetBrains.Annotations;
 using System.ComponentModel.Design;
+using Microsoft.CodeAnalysis;
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -159,7 +160,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         for (int i = 0; i < Max; i++)
         {
             var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]);
-            var knowledgeGain = isCommand ? 2f : 1f;
+            var knowledgeGain = isCommand ? 4f : 2f;
 
             // start the sacrifing process -space
             if (args.EntityManager.TryGetComponent<TransformComponent>(uids[i], out var transform))
@@ -185,7 +186,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
 
                 // teleports them away -space
                 var mapPos = _xform.GetWorldPosition(transform);
-                var radius = 30;
+                var radius = 35;
                 var gridBounds = new Box2(mapPos - new Vector2(radius, radius), mapPos + new Vector2(radius, radius));
 
                 var mobs = new HashSet<Entity<MobStateComponent>>();
@@ -203,12 +204,24 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
                         // will teleport other dead bodies away if there is any but im too lazy to figure out a better way -space
 
                         var ent = comp.Owner;
-                        var randomX = _random.NextFloat(gridBounds.Left, gridBounds.Right);
-                        var randomY = _random.NextFloat(gridBounds.Bottom, gridBounds.Top);
+                        var check = false;
 
-                        var pos = new Vector2(randomX, randomY);
+                        do
+                        {
+                            var randomX = _random.NextFloat(gridBounds.Left, gridBounds.Right);
+                            var randomY = _random.NextFloat(gridBounds.Bottom, gridBounds.Top);
 
-                        _xform.SetWorldPosition(ent, pos);
+                            var pos = new Vector2(randomX, randomY);
+
+                            _xform.SetWorldPosition(ent, pos);
+
+                            if (!args.EntityManager.TryGetComponent<TransformComponent>(ent, out var trans))
+                                continue;
+                            if (trans.GridUid != null) ;
+                            {
+                                break;
+                            }
+                        } while (check == false);
 
                         // tell them they've been sacrificed -space
 

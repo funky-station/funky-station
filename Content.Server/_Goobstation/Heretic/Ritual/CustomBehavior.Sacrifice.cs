@@ -222,9 +222,6 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         var mapPos = _xform.GetWorldPosition(transform);
         var radius = 30;
         var gridBounds = new Box2(mapPos - new Vector2(radius, radius), mapPos + new Vector2(radius, radius));
-
-        var mobs = new HashSet<Entity<MobStateComponent>>();
-        _lookup.GetEntitiesInRange(transform.Coordinates, .0000001f, mobs, flags: LookupFlags.Uncontained);
         if (args.EntityManager.TryGetComponent<MobStateComponent>(uid, out var mobstate))
 
         {

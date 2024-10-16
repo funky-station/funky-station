@@ -105,7 +105,7 @@ public sealed partial class HereticSystem : EntitySystem
     private void OnUpdateTargets(Entity<HereticComponent> ent, ref EventHereticUpdateTargets args)
     {
         ent.Comp.SacrificeTargets = ent.Comp.SacrificeTargets
-            .Where(target => TryGetEntity(target, out var tent) && Exists(tent) && !HasComp<SacrificedComponent>(tent))
+            .Where(target => TryGetEntity(target, out var tent) && Exists(tent) && !HasComp<SacrificedComponent>(tent)) //checks to see if they have the comp before updating targets
             .ToList();
         Dirty<HereticComponent>(ent); // update client
     }
@@ -123,6 +123,7 @@ public sealed partial class HereticSystem : EntitySystem
             eligibleTargets.Add(target.AttachedEntity!.Value); // it can't be null because see .Where(HasValue)
 
         // no heretics or other baboons
+        // checks for the sacrificed comp as well -space
         eligibleTargets = eligibleTargets.Where(t => !HasComp<GhoulComponent>(t) && !HasComp<SacrificedComponent>(t) && !HasComp<HereticComponent>(t)).ToList();
 
         var pickedTargets = new List<EntityUid?>();

@@ -173,7 +173,8 @@
     - Organ
     - Kidneys
 
-- type: entity
+#funkystation
+- type: entity 
   id: OrganAnimalEyes
   parent: BaseAnimalOrgan
   name: eyes

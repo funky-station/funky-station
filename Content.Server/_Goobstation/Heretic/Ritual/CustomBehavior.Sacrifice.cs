@@ -220,7 +220,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
 
         // teleports them away -space
         var mapPos = _xform.GetWorldPosition(transform);
-        var radius = 35;
+        var radius = 30;
         var gridBounds = new Box2(mapPos - new Vector2(radius, radius), mapPos + new Vector2(radius, radius));
 
         var mobs = new HashSet<Entity<MobStateComponent>>();
@@ -253,7 +253,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
                     {
                         break;
                     }
-                } while (check <= 20); //failsafe here just incase they get sacrificed and only space is left around them, that way it wont loop infinitely -space
+                } while (check <= 30); //failsafe here just incase they get sacrificed and only space is left around them, that way it wont loop infinitely -space
 
                 // tell them they've been sacrificed -space
                 var message = Loc.GetString("sacrificed-description");

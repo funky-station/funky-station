@@ -172,3 +172,19 @@
     - Meat
     - Organ
     - Kidneys
+
+- type: entity
+  id: OrganAnimalEyes
+  parent: BaseAnimalOrgan
+  name: eyes
+  description: "I see you!"
+  components:
+  - type: Sprite
+    layers:
+      - state: eyeball-l
+      - state: eyeball-r
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Eyes

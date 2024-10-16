@@ -10,7 +10,6 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
 using Content.Server.Heretic.EntitySystems;
-using JetBrains.FormatRipper.Elf;
 using System.Numerics;
 using System;
 using Robust.Shared.Random;
@@ -204,7 +203,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
                         // will teleport other dead bodies away if there is any but im too lazy to figure out a better way -space
 
                         var ent = comp.Owner;
-                        var check = false;
+                        var check = 1;
 
                         do
                         {
@@ -215,13 +214,15 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
 
                             _xform.SetWorldPosition(ent, pos);
 
+                            check++;
+
                             if (!args.EntityManager.TryGetComponent<TransformComponent>(ent, out var trans))
                                 continue;
                             if (trans.GridUid != null) ;
                             {
                                 break;
                             }
-                        } while (check == false);
+                        } while (check <= 20 );
 
                         // tell them they've been sacrificed -space
 

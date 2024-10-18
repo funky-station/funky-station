@@ -35,7 +35,7 @@
       enum.HereticLivingHeartKey.Key: # goob edit - heretics
         type: LivingHeartMenuBoundUserInterface
   - type: Sprite
-    scale: 0.9, 0.9
+    # scale: 0.9, 0.9 // funkystation the great scalening
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]

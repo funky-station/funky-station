@@ -50,6 +50,8 @@ using Content.Shared.Humanoid.Markings;
 using JetBrains.Annotations;
 using System.ComponentModel.Design;
 using Microsoft.CodeAnalysis;
+using Content.Shared.Teleportation.Components;
+using Robust.Shared.Map;
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -93,6 +95,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
     [Dependency] protected IRobustRandom _random = default!;
     [Dependency] protected ISharedAdminLogManager _adminLogger = default!;
     [Dependency] protected IChatManager _chat = default!;
+    [Dependency] protected IEntityManager _mapsys = default!;
     protected MobStateSystem _mobState = default!;
     protected MobThresholdSystem _mobThreshold = default!;
 
@@ -215,13 +218,8 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
             }
         }
 
+        //start the teleporting process -space
 
-
-
-        // teleports them away -space
-        var mapPos = _xform.GetWorldPosition(transform);
-        var radius = 30;
-        var gridBounds = new Box2(mapPos - new Vector2(radius, radius), mapPos + new Vector2(radius, radius));
         if (args.EntityManager.TryGetComponent<MobStateComponent>(uid, out var mobstate))
 
         {
@@ -231,26 +229,10 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
                 //check if DEAD
 
                 var ent = uid;
-                var check = 1;
 
-                do //loop here to place the person in the right spot that is on a grid (so they cant get lost in space) -space
-                {
-                    var randomX = _random.NextFloat(gridBounds.Left, gridBounds.Right);
-                    var randomY = _random.NextFloat(gridBounds.Bottom, gridBounds.Top);
 
-                    var pos = new Vector2(randomX, randomY);
 
-                    _xform.SetWorldPosition(ent, pos);
-
-                    check++;
-
-                    if (!args.EntityManager.TryGetComponent<TransformComponent>(ent, out var trans))
-                        continue;
-                    if (trans.GridUid != null) ;
-                    {
-                        break;
-                    }
-                } while (check <= 30); //failsafe here just incase they get sacrificed and only space is left around them, that way it wont loop infinitely -space
+                TeleportRandomly(transform, args, uid); //send the loop over to a function -space
 
                 // tell them they've been sacrificed -space
                 var message = Loc.GetString("sacrificed-description");
@@ -305,5 +287,30 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         _blood.TryModifyBloodLevel(uid, 1000);
         _blood.TryModifyBleedAmount(uid, -1000);
 
+    }
+
+    private void TeleportRandomly(TransformComponent transform, RitualData args, EntityUid uid) // start le teleporting loop -space
+    {
+        var maxrandomtp = 40; // this is how many attempts it will try before breaking the loop -space
+        var maxrandomradius = 40; // this is the max range it will do -space
+
+
+        if (!args.EntityManager.TryGetComponent<TransformComponent>(uid, out var xform))
+            return;
+        var coords = xform.Coordinates;
+        var newCoords = coords.Offset(_random.NextVector2(maxrandomradius));
+        for (var i = 0; i < maxrandomtp; i++) //start of the loop -space
+        {
+            var randVector = _random.NextVector2(maxrandomradius);
+            newCoords = coords.Offset(randVector);
+            if (!args.EntityManager.TryGetComponent<TransformComponent>(uid, out var trans))
+                continue;
+            if (trans.GridUid != null && !_lookup.GetEntitiesIntersecting(newCoords.ToMap(_mapsys, _xform), LookupFlags.Static).Any()) // if they're not in space and not in wall, it will choose these coords and end the loop -space
+            {
+                break;
+            }
+        }
+
+        _xform.SetCoordinates(uid, newCoords);
     }
 }

@@ -20,8 +20,8 @@
       sprite: _Goobstation/Heretic/reality_fracture.rsi
       state: icon_harvested
   - type: NumberObjective
-    min: 12
-    max: 18
+    min: 10 #funkystation
+    max: 14 #funkystation
     title: objective-condition-knowledge-title
   - type: HereticKnowledgeCondition
 
@@ -34,8 +34,8 @@
       sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
       state: icon
   - type: NumberObjective
-    min: 2
-    max: 4
+    min: 3 #funkystation
+    max: 5 #funkystation
     title: objective-condition-sacrifice-title
   - type: HereticSacrificeCondition
 

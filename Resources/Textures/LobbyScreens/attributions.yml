@@ -62,7 +62,7 @@
   license: "CC-BY-SA-3.0"
   copyright: "@Cheeki - on discord"
   source: "https://forums.goobstation.com"
-  
+
 - files: ["heretic.webp"]
   license: "CC-BY-SA-3.0"
   copyright: "@Cheeki - on discord"
@@ -87,3 +87,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "blooodyspy"
   source: "https://forums.goobstation.com"
+
+- files: ["cirnochef.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "AbjectAngel - on discord"
+  source: "https://funkystation.org"

@@ -22,6 +22,7 @@ public sealed partial class ArtifactGasTriggerComponent : Component
         Gas.NitrousOxide,
         Gas.BZ,
         Gas.Healium,
+        Gas.Nitrium,
     };
 
     /// <summary>

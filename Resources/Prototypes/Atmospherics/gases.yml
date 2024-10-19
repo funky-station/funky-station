@@ -120,3 +120,16 @@
   color: 8b0000
   reagent: Healium
   pricePerMole: 5
+
+- type: gas
+  id: 11
+  name: gases-nitrium
+  specificHeat: 10
+  heatCapacityRatio: 1.4
+  gasOverlaySprite: /Textures/Effects/atmospherics.rsi
+  gasOverlayState: nitrium
+  gasMolesVisible: 0.6
+  molarMass: 10
+  color: b76f0e
+  reagent: Nitrium
+  pricePerMole: 6

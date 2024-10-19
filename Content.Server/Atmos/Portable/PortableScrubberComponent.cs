@@ -31,6 +31,7 @@ namespace Content.Server.Atmos.Portable
             Gas.Frezon,
             Gas.BZ,
             Gas.Healium,
+            Gas.Nitrium,
         };
 
         [ViewVariables(VVAccess.ReadWrite)]

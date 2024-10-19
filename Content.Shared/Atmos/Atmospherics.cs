@@ -256,11 +256,6 @@ namespace Content.Shared.Atmos
         public const float BZFormationEnergy = 80e3f;
 
         /// <summary>
-        ///     Some number taken from the air to keep BZ from instantly converting everything.
-        /// </summary>
-        public const float BZFormationRate = 5f;
-
-        /// <summary>
         ///     The amount of energy 1 mol of Healium forming from BZ and frezon releases.
         /// </summary>
         public const float HealiumProductionEnergy = 9e3f;

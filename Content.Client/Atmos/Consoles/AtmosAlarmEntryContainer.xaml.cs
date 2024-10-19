@@ -44,7 +44,11 @@ public sealed partial class AtmosAlarmEntryContainer : BoxContainer
         [Gas.WaterVapor] = "H₂O",
         [Gas.BZ] = "BZ",
         [Gas.Healium] = "F3BZ",
+<<<<<<< HEAD
         [Gas.Nitrium] = "Nitrium"
+=======
+        [Gas.Nitrium] = "Nitrium",
+>>>>>>> b465e7854136c978b06087f083244154ce808542
     };
 
     public AtmosAlarmEntryContainer(NetEntity uid, EntityCoordinates? coordinates)

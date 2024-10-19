@@ -516,9 +516,8 @@
         time: 3
         type: Add
       - !type:Drunk
-        boozePower: 100
+        boozePower: 150
         conditions:
         - !type:ReagentThreshold
           reagent: Healium
           min: 3
-        scaleByQuantity: true

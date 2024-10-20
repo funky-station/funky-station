@@ -60,3 +60,9 @@ Entries:
       message: BZ Formation mechanics
   id: 9
   time: '2024-10-19T19:34:13.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: added Nitrium gas
+  id: 10
+  time: '2024-10-20T04:25:18.0000000+00:00'

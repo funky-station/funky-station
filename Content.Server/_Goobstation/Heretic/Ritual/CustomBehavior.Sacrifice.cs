@@ -1,14 +1,11 @@
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Changeling;
 using Content.Shared.Mobs.Components;
-using Robust.Shared.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Server.Revolutionary.Components;
 using Content.Server.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
-using Robust.Shared.GameObjects;
 using Content.Shared.Heretic;
 using Content.Server.Heretic.EntitySystems;
 using Content.Server.Chat.Managers;
@@ -17,11 +14,8 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs;
 using Content.Server.Body.Systems;
 using Content.Shared.Inventory;
-using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Content.Shared.Chat;
-using System.Linq;
-using Microsoft.CodeAnalysis;
 
 namespace Content.Server.Heretic.Ritual;
 

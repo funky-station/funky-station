@@ -539,6 +539,7 @@
           min: 4
         walkSpeedModifier: 1.35
         sprintSpeedModifier: 1.35
+        time: 3
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
@@ -557,12 +558,12 @@
         conditions:
         - !type:ReagentThreshold
           reagent: Nitrium
-          min: 15
+          min: 10
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
           reagent: Nitrium
-          min: 10
+          min: 8
         key: Drowsiness
         time: 10
         type: Remove
@@ -570,14 +571,14 @@
         conditions:
         - !type:ReagentThreshold
           reagent: Nitrium
-          min: 15
+          min: 10
         key: ForcedSleep
         type: Remove
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           reagent: Nitrium
-          min: 20
+          min: 15
         scaleByQuantity: true
         ignoreResistances: true
         damage:

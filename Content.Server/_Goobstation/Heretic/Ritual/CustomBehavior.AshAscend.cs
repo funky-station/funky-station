@@ -35,14 +35,17 @@ public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior
 
     public override void Finalize(RitualData args)
     {
-        for (int i = 0; i < Max; i++)
+        var damageableSystem = args.EntityManager.System<DamageableSystem>();
+        var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
+
+        for (var i = 0; i < Max; i++)
         {
             // YES!!! ASH!!!
             if (args.EntityManager.TryGetComponent<DamageableComponent>(uids[i], out var dmg))
             {
                 var prot = (ProtoId<DamageGroupPrototype>) "Burn";
-                var dmgtype = _proto.Index(prot);
-                _damage.TryChangeDamage(uids[i], new DamageSpecifier(dmgtype, 3984f), true);
+                var dmgtype = prototypeManager.Index(prot);
+                damageableSystem.TryChangeDamage(uids[i], new DamageSpecifier(dmgtype, 3984f), true);
             }
         }
 

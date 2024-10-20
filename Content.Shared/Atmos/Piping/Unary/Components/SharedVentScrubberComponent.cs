@@ -24,7 +24,8 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
             Gas.NitrousOxide,
             Gas.Frezon,
             Gas.BZ,
-            Gas.Healium
+            Gas.Healium,
+            Gas.Nitrium
         };
 
         // Presets for 'dumb' air alarm modes

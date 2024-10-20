@@ -172,7 +172,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Total number of gases. Increase this if you want to add more!
         /// </summary>
-        public const int TotalNumberOfGases = 11;
+        public const int TotalNumberOfGases = 12;
 
         /// <summary>
         ///     This is the actual length of the gases arrays in mixtures.
@@ -259,6 +259,16 @@ namespace Content.Shared.Atmos
         ///     The amount of energy 1 mol of Healium forming from BZ and frezon releases.
         /// </summary>
         public const float HealiumProductionEnergy = 9e3f;
+
+        /// <summary>
+        ///     The amount of energy 1 mol of Nitrium forming from Tritium, Nitrogen and BZ releases.
+        /// </summary>
+        public const float NitriumProductionEnergy = 100e3f;
+
+        /// <summary>
+        ///     The amount of energy 1 mol of Nitrium decomposing into nitrogen and water vapor releases.
+        /// </summary>
+        public const float NitriumDecompositionEnergy = 30e3f;
 
         /// <summary>
         ///     Determines at what pressure the ultra-high pressure red icon is displayed.
@@ -349,5 +359,6 @@ namespace Content.Shared.Atmos
         Frezon = 8,
         BZ = 9,
         Healium = 10,
+        Nitrium = 11,
     }
 }

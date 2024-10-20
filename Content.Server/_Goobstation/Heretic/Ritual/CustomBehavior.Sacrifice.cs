@@ -16,6 +16,7 @@ using Content.Server.Body.Systems;
 using Content.Shared.Inventory;
 using Robust.Server.GameObjects;
 using Content.Shared.Chat;
+using System.Linq;
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -28,15 +29,6 @@ namespace Content.Server.Heretic.Ritual;
 [Virtual]
 public partial class RitualSacrificeBehavior : RitualCustomBehavior
 {
-    [Dependency]
-    protected IChatManager ChatManager = default!;
-
-    [Dependency]
-    protected IRobustRandom Random = default!;
-
-    [Dependency]
-    protected IEntityManager EntityManager = default!;
-
     /// <summary>
     ///     Minimal amount of corpses.
     /// </summary>
@@ -150,6 +142,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         var bloodSystem = args.EntityManager.System<BloodstreamSystem>();
         var mobStateSystem = args.EntityManager.System<MobStateSystem>();
         var damageSystem = args.EntityManager.System<DamageableSystem>();
+        var chatManager = IoCManager.Resolve<IChatManager>();
 
         if (args.EntityManager.TryGetComponent<InventoryComponent>(uid, out var comp2))
         {
@@ -175,7 +168,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
                 sharedMindSystem.TryGetMind(uid, out _, out var mindComponent) &&
                 mindComponent.Session != null)
             {
-                ChatManager.ChatMessageToOne(ChatChannel.Server,
+                chatManager.ChatMessageToOne(ChatChannel.Server,
                     message,
                     wrappedMessage,
                     default,
@@ -204,26 +197,25 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         var transformSystem = args.EntityManager.System<SharedTransformSystem>();
         var lookupSystem = args.EntityManager.System<EntityLookupSystem>();
         var xformSystem = args.EntityManager.System<TransformSystem>();
+        var randomSystem = IoCManager.Resolve<IRobustRandom>();
+        var sharedXformSystem = args.EntityManager.System<SharedTransformSystem>();
 
         var maxrandomtp = 40; // this is how many attempts it will try before breaking the loop -space
         var maxrandomradius = 40; // this is the max range it will do -space
 
         if (!args.EntityManager.TryGetComponent<TransformComponent>(uid, out var transformComponent))
             return;
+
         var coords = transformComponent.Coordinates;
-        var newCoords = coords.Offset(Random.NextVector2(maxrandomradius));
+        var newCoords = coords.Offset(randomSystem.NextVector2(maxrandomradius));
         for (var i = 0; i < maxrandomtp; i++) //start of the loop -space
         {
-            var randVector = Random.NextVector2(maxrandomradius);
+            var randVector = randomSystem.NextVector2(maxrandomradius);
             newCoords = coords.Offset(randVector);
-            if (!args.EntityManager.TryGetComponent<TransformComponent>(uid, out var trans))
-                continue;
 
             // if they're not in space and not in wall, it will choose these coords and end the loop -space
-            if (trans.GridUid != null && lookupSystem.GetEntitiesIntersecting(newCoords.ToMap(EntityManager, transformSystem), LookupFlags.Static).Count == 0)
-            {
+            if (transformComponent.GridUid != null && !lookupSystem.GetEntitiesIntersecting(newCoords.ToMap(args.EntityManager, sharedXformSystem), LookupFlags.Static).Any())
                 break;
-            }
         }
 
         xformSystem.SetCoordinates(uid, newCoords);

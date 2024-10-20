@@ -516,7 +516,7 @@
         time: 3
         type: Add
       - !type:Drunk
-        boozePower: 150
+        boozePower: 50
         conditions:
         - !type:ReagentThreshold
           reagent: Healium
@@ -527,24 +527,23 @@
   name: reagent-name-nitrium
   desc: reagent-desc-nitrium
   physicalDesc: reagent-physical-desc-gaseous
-  flavor: sweet
+  flavor: sour
   color: "#8b0000"
   metabolisms:
     Gas:
       effects:
-      - !type:MovespeedModifier
+      - !type:NitriumMovespeedModifier
         conditions:
         - !type:ReagentThreshold
           reagent: Nitrium
           min: 4
-        walkSpeedModifier: 1.35
-        sprintSpeedModifier: 1.35
-        time: 3
+        walkSpeedModifier: 1.25
+        sprintSpeedModifier: 1.25
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
           reagent: Nitrium
-          min: 5
+          min: 15
         key: Stutter
         component: StutteringAccent
         time: 10
@@ -552,18 +551,18 @@
         conditions:
         - !type:ReagentThreshold
           reagent: Nitrium
-          min: 6
+          min: 10
         time: 10
       - !type:ResetNarcolepsy
         conditions:
         - !type:ReagentThreshold
           reagent: Nitrium
-          min: 10
+          min: 15
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
           reagent: Nitrium
-          min: 8
+          min: 10
         key: Drowsiness
         time: 10
         type: Remove
@@ -571,15 +570,23 @@
         conditions:
         - !type:ReagentThreshold
           reagent: Nitrium
-          min: 10
+          min: 15
         key: ForcedSleep
         type: Remove
-      - !type:HealthChange
+        time: 3
+      - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
           reagent: Nitrium
           min: 15
-        scaleByQuantity: true
+        key: Adrenaline
+        type: Add
+        time: 3
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nitrium
+          min: 18
         ignoreResistances: true
         damage:
           types:

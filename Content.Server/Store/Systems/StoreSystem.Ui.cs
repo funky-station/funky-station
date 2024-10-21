@@ -268,13 +268,10 @@ public sealed partial class StoreSystem
                 HandleRefundComp(uid, component, upgradeActionId.Value);
         }
 
+        // funkystation - revolutions
         if (listing.ProductHeadRevolutionaryRecipe != null)
-        {
             if (!TryComp<HeadRevolutionaryPathComponent>(buyer, out var hrevComp))
-            {
                 _headRevSystem.GrantRecipeComponent(buyer, hrevComp, (ProtoId<HeadRevolutionaryRecipePrototype>) listing.ProductHeadRevolutionaryRecipe);
-            }
-        }
 
         if (listing.ProductEvent != null)
         {

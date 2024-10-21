@@ -482,7 +482,7 @@
         conditions:
         - !type:ReagentThreshold
           reagent: Healium
-          min: 1.5
+          min: 1
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -499,13 +499,6 @@
         visualType: Medium
         messages: [ "effect-sleepy" ]
         probability: 0.1
-      - !type:MovespeedModifier
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Healium
-          min: 1
-        walkSpeedModifier: 0.65
-        sprintSpeedModifier: 0.65
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
@@ -516,7 +509,7 @@
         time: 3
         type: Add
       - !type:Drunk
-        boozePower: 150
+        boozePower: 50
         conditions:
         - !type:ReagentThreshold
           reagent: Healium
@@ -527,23 +520,23 @@
   name: reagent-name-nitrium
   desc: reagent-desc-nitrium
   physicalDesc: reagent-physical-desc-gaseous
-  flavor: sweet
+  flavor: sour
   color: "#8b0000"
   metabolisms:
     Gas:
       effects:
-      - !type:MovespeedModifier
+      - !type:NitriumMovespeedModifier
         conditions:
         - !type:ReagentThreshold
           reagent: Nitrium
           min: 4
-        walkSpeedModifier: 1.35
-        sprintSpeedModifier: 1.35
+        walkSpeedModifier: 1.25
+        sprintSpeedModifier: 1.25
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
           reagent: Nitrium
-          min: 5
+          min: 15
         key: Stutter
         component: StutteringAccent
         time: 10
@@ -551,7 +544,7 @@
         conditions:
         - !type:ReagentThreshold
           reagent: Nitrium
-          min: 6
+          min: 10
         time: 10
       - !type:ResetNarcolepsy
         conditions:
@@ -573,12 +566,20 @@
           min: 15
         key: ForcedSleep
         type: Remove
+        time: 3
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nitrium
+          min: 15
+        key: Adrenaline
+        type: Add
+        time: 3
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           reagent: Nitrium
-          min: 20
-        scaleByQuantity: true
+          min: 18
         ignoreResistances: true
         damage:
           types:

@@ -78,3 +78,9 @@ Entries:
       message: 'Adjust nitrium effect concentration triggers. '
   id: 11
   time: '2024-10-21T19:26:10.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Tweak
+      message: Getting sacrificed places you in better spots
+  id: 12
+  time: '2024-10-21T20:28:59.0000000+00:00'

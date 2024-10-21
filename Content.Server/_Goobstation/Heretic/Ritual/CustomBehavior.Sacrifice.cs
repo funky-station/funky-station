@@ -19,6 +19,8 @@ using Robust.Server.GameObjects;
 using Content.Shared.Chat;
 using System.Linq;
 using Robust.Shared.Physics;
+using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Systems;
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -202,12 +204,18 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         var randomSystem = IoCManager.Resolve<IRobustRandom>();
         var sharedXformSystem = args.EntityManager.System<SharedTransformSystem>();
         var atmosSystem = args.EntityManager.System<AtmosphereSystem>();
+        var pullSystem = args.EntityManager.System<PullingSystem>();
 
         var maxrandomtp = 50; // this is how many attempts it will try before breaking the loop -space
         var maxrandomradius = 40; // this is the max range it will do -space
 
         if (!args.EntityManager.TryGetComponent<TransformComponent>(uid, out var transformComponent))
             return;
+
+        // Stop the heretic to being pulled with the sacrificed target (or anything else who is pulling it) -space
+        if (args.EntityManager.TryGetComponent<PullableComponent>(uid, out var pull))
+            pullSystem.TryStopPull(uid, pull);
+
 
         var coords = transformComponent.Coordinates;
         var newCoords = coords.Offset(randomSystem.NextVector2(maxrandomradius));

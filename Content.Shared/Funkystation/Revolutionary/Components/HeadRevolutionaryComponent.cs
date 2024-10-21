@@ -15,6 +15,9 @@ public sealed partial class HeadRevolutionaryPathComponent : Component
     [DataField, AutoNetworkedField]
     public RevolutionaryPaths CurrentPath = RevolutionaryPaths.NONE;
 
+    [DataField, AutoNetworkedField]
+    public List<string> Recipes = [];
+
     public enum RevolutionaryPaths
     {
         NONE,

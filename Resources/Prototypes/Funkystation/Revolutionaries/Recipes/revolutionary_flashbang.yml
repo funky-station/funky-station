@@ -12,8 +12,8 @@
               prototype: GrenadeFlashBangRevolutionary
             - !type:DeleteEntity {}
           conditions:
-            - !type:CrafterHasComponent
-              componentName: HeadRevolutionary
+            - !type:RevolutionaryCrafterHasRecipeComponent
+              recipeName: HeadRevolutionaryFlashbang
           steps:
             - tool: Screwing
               doAfter: 15

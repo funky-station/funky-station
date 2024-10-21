@@ -14,6 +14,7 @@ using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Revolutionary;
+using Content.Shared.Revolutionary.Prototypes;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Content.Shared.UserInterface;
@@ -39,6 +40,9 @@ public sealed partial class StoreSystem
 
     // goobstation - heretics
     [Dependency] private readonly HereticKnowledgeSystem _heretic = default!;
+
+    // funkystation - rev update
+    [Dependency] private readonly HeadRevolutionarySystem _headRevSystem = default!;
 
     private void InitializeUi()
     {
@@ -267,7 +271,9 @@ public sealed partial class StoreSystem
         if (listing.ProductHeadRevolutionaryRecipe != null)
         {
             if (!TryComp<HeadRevolutionaryPathComponent>(buyer, out var hrevComp))
-                HeadRevolutionarySystem.GrantRecipeComponent(buyer, listing.ProductHeadRevolutionaryRecipe);
+            {
+                _headRevSystem.GrantRecipeComponent(buyer, hrevComp, (ProtoId<HeadRevolutionaryRecipePrototype>) listing.ProductHeadRevolutionaryRecipe);
+            }
         }
 
         if (listing.ProductEvent != null)

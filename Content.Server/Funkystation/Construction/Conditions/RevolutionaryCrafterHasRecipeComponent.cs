@@ -1,12 +1,10 @@
 using Content.Shared.Construction;
 using Content.Shared.Examine;
 using Content.Shared.Mind;
-using Content.Shared.Item.PseudoItem;
-using Content.Shared.Revolutionary.Components;
 using JetBrains.Annotations;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Shared.Item;
+using Content.Shared.Revolutionary;
 
 namespace Content.Server.Construction.Conditions;
 
@@ -17,11 +15,11 @@ namespace Content.Server.Construction.Conditions;
 /// recipes only accessible by "knowledge" or some other mechanic. Only works if the item
 /// is parented to their character, which, I know, drawback.
 /// </summary>
-public sealed partial class CrafterHasComponent : IGraphCondition
+public sealed partial class RevolutionaryCrafterHasRecipeComponent : IGraphCondition
 {
 
-    [DataField("componentName")]
-    public EntProtoId ComponentName;
+    [DataField("recipeName")]
+    public string RecipeName;
 
     [DataField("guideText")]
     public string? GuideText { get; private set; }
@@ -42,13 +40,12 @@ public sealed partial class CrafterHasComponent : IGraphCondition
         if (mindComp.CurrentEntity == null)
             return false;
 
-        foreach (var comp in entityManager.GetComponents((EntityUid) mindComp.CurrentEntity))
+        var revComp = entityManager.GetComponent<HeadRevolutionaryPathComponent>((EntityUid) mindComp.CurrentEntity);
+
+        foreach (var recipe in revComp.Recipes)
         {
-            var type = comp.GetType();
-            if (type.ToString().Contains(ComponentName.ToString())) // i dont wanna hear it idgaf
-            {
+            if (recipe == RecipeName)
                 return true;
-            }
         }
 
         return false;

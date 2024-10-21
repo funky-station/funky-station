@@ -1,7 +1,10 @@
 using Content.Server.Actions;
 using Content.Server.Mind;
+using Content.Server.Revolutionary.Components;
 using Content.Server.Store.Systems;
+using Content.Shared.Mind;
 using Content.Shared.Revolutionary;
+using Content.Shared.Revolutionary.Components;
 using Content.Shared.Revolutionary.Prototypes;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
@@ -18,6 +21,8 @@ public sealed partial class HeadRevolutionarySystem : EntitySystem
     private readonly MindSystem _mind = default!;
     [Dependency]
     private readonly StoreSystem _store = default!;
+    [Dependency]
+    private readonly IPrototypeManager _proto = default!;
 
     public readonly ProtoId<CurrencyPrototype> Currency = "RevCoin";
 
@@ -65,12 +70,23 @@ public sealed partial class HeadRevolutionarySystem : EntitySystem
         _actions.AddAction(uid, "ActionHeadRevolutionaryUplink");
     }
 
-    public void GrantRecipeComponent(EntityUid uid, ProtoId<HeadRevolutionaryRecipePrototype>? recipes)
+    public void GrantRecipeComponent(EntityUid uid, HeadRevolutionaryPathComponent? comp, ProtoId<HeadRevolutionaryRecipePrototype> id)
     {
-        if (recipes == null)
+        var recipeComp = _proto.Index(id);
+
+        if (comp == null)
             return;
 
-        
+        if (!_mind.TryGetMind(uid, out var _, out var mindComp))
+            return;
+
+        if (!HasComp<HeadRevolutionaryPathComponent>(mindComp.CurrentEntity))
+            return;
+
+        if (recipeComp.Recipes == null)
+            return;
+
+        foreach (var recipe in recipeComp.Recipes)
+            comp.Recipes.Add(recipe);
     }
 }
-

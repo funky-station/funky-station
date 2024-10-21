@@ -7,7 +7,7 @@ namespace Content.Shared.Revolutionary.Prototypes;
 public sealed partial class HeadRevolutionaryRecipePrototype : IPrototype
 {
     [DataField]
-    public List<EntProtoId>? AddComponents;
+    public List<string>? Recipes;
 
     [IdDataField]
     public string ID { get; private set; } = default!;

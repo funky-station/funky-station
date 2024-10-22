@@ -1,0 +1,29 @@
+- type: entity
+  parent: BasePlushie
+  id: PlushieCirno
+  name: cirno plushie
+  description: For when the Scarlet police arrive.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/toys.rsi
+    state: plushie_cirno
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Funkystation/Items/Toys/baka.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Funkystation/Items/Toys/baka.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Funkystation/Items/Toys/baka.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Funkystation/Items/Toys/baka.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/_Funkystation/Items/Toys/baka.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/_Funkystation/Items/Toys/baka.ogg

@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "meijunkie on Discord - https://funkystation.org",
+    "size": {
+      "x": 19,
+      "y": 23
+    },
+    "states": [
+      {
+        "name": "plushie_cirno"
+      }
+    ]
+}

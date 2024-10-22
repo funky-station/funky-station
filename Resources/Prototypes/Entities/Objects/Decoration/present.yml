@@ -369,6 +369,7 @@
       - id: RGBStaff
         orGroup: GiftPool
       - id: PlushieDawn
+      - id: PlushieCirno
         orGroup: GiftPool
     sound:
       path: /Audio/Effects/unwrap.ogg

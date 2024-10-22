@@ -130,6 +130,7 @@
     - PlushieHuman
     - ClothingHeadHatCowboyRed
     - Whistle
+    - PlushieDawn
   - type: WiresPanel
   - type: Wires
     layoutId: Arcade

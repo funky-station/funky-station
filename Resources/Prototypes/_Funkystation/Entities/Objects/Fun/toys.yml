@@ -1,20 +1,13 @@
-- type: entity
-  parent: BasePlushie
-  id: BasePlushieFunky #having this prototype is probably useless, whatever tho
-  abstract: true
-  components:
-  - type: Sprite
-    sprite: _Funkystation/Objects/Fun/toys.rsi
-
 ## Plushies
 - type: entity
-  parent: BasePlushieFunky
+  parent: BasePlushie
   id: PlushieDawn #AAAAAAAA!!!!
   name: weird thing
   description: I am Dawn Leander
   components:
   - type: Sprite
     state: plushie_dawn
+    sprite: _Funkystation/Objects/Fun/dawn_plush.rsi
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Voice/Moth/moth_laugh.ogg

@@ -2,7 +2,7 @@
   id: CrateFunDawnPlushieBulk
   parent: CrateGenericSteel
   name: bulk dawn plushie crate
-  description: AAAAAAAAAAAAAAAAAAAAAAAAAAA!!
+  description: 4 dawn plushies.
   components:
   - type: EntityTableContainerFill
     containers:

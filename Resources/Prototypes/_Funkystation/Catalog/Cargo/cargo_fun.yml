@@ -1,7 +1,7 @@
 - type: cargoProduct
   id: FunDawnPlushies
   icon:
-    sprite: _Funkystation/Objects/Fun/toys.rsi
+    sprite: _Funkystation/Objects/Fun/dawn_plush.rsi
     state: plushie_dawn
   product: CrateFunDawnPlushieBulk
   cost: 2000

@@ -39,7 +39,6 @@
     - id: PlushieMoth
     - id: PlushieArachind
     - id: PlushiePenguin
-    - id: PlushieDawn
 
 - type: entity
   id: CrateFunPlushie

@@ -130,6 +130,7 @@
     - PlushieHuman
     - ClothingHeadHatCowboyRed
     - Whistle
+    - PlushieCirno #funkystation
   - type: WiresPanel
   - type: Wires
     layoutId: Arcade

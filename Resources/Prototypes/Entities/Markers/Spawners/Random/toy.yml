@@ -34,6 +34,7 @@
         - ToyMouse
         - PlushieDiona
         - PlushieArachind
+        - PlushieCirno
       chance: 0.5
       offset: 0.2
 
@@ -101,7 +102,7 @@
       - ToyFigurineLawyer
       - ToyFigurineCargoTech
       - ToyFigurineSalvage
-      - ToyFigurineQuartermaster   
+      - ToyFigurineQuartermaster
       - ToyFigurineChiefEngineer
       - ToyFigurineAtmosTech
       - ToyFigurineEngineer

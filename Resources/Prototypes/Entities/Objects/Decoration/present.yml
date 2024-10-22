@@ -368,6 +368,8 @@
         orGroup: GiftPool
       - id: RGBStaff
         orGroup: GiftPool
+      - id: PlushieCirno
+        orGroup: GiftPool
     sound:
       path: /Audio/Effects/unwrap.ogg
 

@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: FunDawnPlushies
+  icon:
+    sprite: _Funkystation/Objects/Fun/toys.rsi
+    state: plushie_dawn
+  product: CrateFunDawnPlushieBulk
+  cost: 1000
+  category: cargoproduct-category-name-fun
+  group: market

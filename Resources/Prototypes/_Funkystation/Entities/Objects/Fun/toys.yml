@@ -1,3 +1,38 @@
+## Plushies
+- type: entity
+  parent: BasePlushie
+  id: PlushieDawn #AAAAAAAA!!!!
+  name: weird thing
+  description: I am Dawn Leander
+  components:
+  - type: Sprite
+    state: plushie_dawn
+    sprite: _Funkystation/Objects/Fun/dawn_plush.rsi
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: Speech
+    speechVerb: Moth
+  - type: UseDelay
+    delay: 1.8
+
 - type: entity
   parent: BasePlushie
   id: PlushieCirno

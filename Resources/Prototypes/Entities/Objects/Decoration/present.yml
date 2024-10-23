@@ -368,6 +368,8 @@
         orGroup: GiftPool
       - id: RGBStaff
         orGroup: GiftPool
+      - id: PlushieDawn
+        orGroup: GiftPool
       - id: PlushieCirno
         orGroup: GiftPool
     sound:

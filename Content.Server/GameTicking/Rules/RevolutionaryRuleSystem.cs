@@ -34,6 +34,8 @@ using Content.Server.Communications;
 using System.Linq;
 using Content.Shared.Chat;
 using Content.Server.Chat.Systems;
+using Content.Shared.Changeling;
+using Content.Shared.Heretic;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -172,6 +174,10 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         var alwaysConvertible = HasComp<AlwaysRevolutionaryConvertibleComponent>(ev.Target);
 
         if (!_mind.TryGetMind(ev.Target, out var mindId, out var mind) && !alwaysConvertible)
+            return;
+
+        // funkystation - Heretics and Changelings shouldn't be revved
+        if (HasComp<ChangelingComponent>(ev.Target) || HasComp<HereticComponent>(ev.Target))
             return;
 
         // GoobStation - added check if rev is head rev to enable back his convert ability

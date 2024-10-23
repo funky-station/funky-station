@@ -133,3 +133,8 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: "Star Pilot's Hymn by Anne Prather"
   source: "https://www.youtube.com/watch?v=tpiw-rOi9Kk"
+
+- files: ["starpilotshymn.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Tus Mentiras by Alex Torres Y Los Reyes Latinos"
+  source: "https://www.youtube.com/watch?v=rHhuXadGGDY"

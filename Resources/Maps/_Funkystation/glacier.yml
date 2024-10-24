@@ -12482,7 +12482,7 @@ entities:
       pos: -42.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -654.20294
+      secondsUntilStateChange: -1020.719
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12866,7 +12866,7 @@ entities:
       pos: -54.5,31.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -464.63644
+      secondsUntilStateChange: -831.1525
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -56458,7 +56458,7 @@ entities:
       pos: 55.5,39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2965.3271
+      secondsUntilStateChange: -3331.8433
       state: Closing
 - proto: CurtainsBlue
   entities:
@@ -88085,6 +88085,61 @@ entities:
       parent: 2
 - proto: Poweredlight
   entities:
+  - uid: 422
+    components:
+    - type: Transform
+      pos: 24.5,12.5
+      parent: 2
+  - uid: 423
+    components:
+    - type: Transform
+      pos: 30.5,12.5
+      parent: 2
+  - uid: 424
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,9.5
+      parent: 2
+  - uid: 425
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,3.5
+      parent: 2
+  - uid: 427
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 37.5,-17.5
+      parent: 2
+  - uid: 429
+    components:
+    - type: Transform
+      pos: 32.5,-15.5
+      parent: 2
+  - uid: 430
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 29.5,-19.5
+      parent: 2
+  - uid: 431
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 51.5,-9.5
+      parent: 2
+  - uid: 436
+    components:
+    - type: Transform
+      pos: 25.5,39.5
+      parent: 2
+  - uid: 437
+    components:
+    - type: Transform
+      pos: -19.5,11.5
+      parent: 2
   - uid: 3937
     components:
     - type: Transform
@@ -89088,6 +89143,47 @@ entities:
       parent: 2
 - proto: PoweredSmallLight
   entities:
+  - uid: 432
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 45.5,-1.5
+      parent: 2
+  - uid: 433
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 44.5,4.5
+      parent: 2
+  - uid: 434
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 30.5,16.5
+      parent: 2
+  - uid: 435
+    components:
+    - type: Transform
+      pos: 27.5,15.5
+      parent: 2
+  - uid: 438
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,17.5
+      parent: 2
+  - uid: 439
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,15.5
+      parent: 2
+  - uid: 440
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.5,14.5
+      parent: 2
   - uid: 687
     components:
     - type: Transform
@@ -96830,6 +96926,13 @@ entities:
     components:
     - type: Transform
       pos: 53.5,-15.5
+      parent: 2
+- proto: SpawnPointPsychologist
+  entities:
+  - uid: 442
+    components:
+    - type: Transform
+      pos: 0.5,17.5
       parent: 2
 - proto: SpawnPointQuartermaster
   entities:
@@ -110966,7 +111069,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -7913.691
+      secondsUntilStateChange: -8280.207
       state: Opening
     - type: Airlock
       autoClose: False
@@ -110982,7 +111085,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -7913.1245
+      secondsUntilStateChange: -8279.641
       state: Opening
     - type: Airlock
       autoClose: False
@@ -111004,7 +111107,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -7912.6577
+      secondsUntilStateChange: -8279.174
       state: Opening
     - type: Airlock
       autoClose: False
@@ -111020,7 +111123,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -7914.191
+      secondsUntilStateChange: -8280.707
       state: Opening
     - type: Airlock
       autoClose: False

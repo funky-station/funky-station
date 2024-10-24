@@ -9,6 +9,7 @@ using Content.Shared.Damage;
 using Content.Shared.Heretic;
 using Content.Server.Heretic.EntitySystems;
 using Content.Server.Chat.Managers;
+using Content.Server.Atmos.EntitySystems;
 using Robust.Shared.Random;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs;
@@ -17,6 +18,9 @@ using Content.Shared.Inventory;
 using Robust.Server.GameObjects;
 using Content.Shared.Chat;
 using System.Linq;
+using Robust.Shared.Physics;
+using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Systems;
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -199,12 +203,19 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         var xformSystem = args.EntityManager.System<TransformSystem>();
         var randomSystem = IoCManager.Resolve<IRobustRandom>();
         var sharedXformSystem = args.EntityManager.System<SharedTransformSystem>();
+        var atmosSystem = args.EntityManager.System<AtmosphereSystem>();
+        var pullSystem = args.EntityManager.System<PullingSystem>();
 
-        var maxrandomtp = 40; // this is how many attempts it will try before breaking the loop -space
+        var maxrandomtp = 50; // this is how many attempts it will try before breaking the loop -space
         var maxrandomradius = 40; // this is the max range it will do -space
 
         if (!args.EntityManager.TryGetComponent<TransformComponent>(uid, out var transformComponent))
             return;
+
+        // Stop the heretic to being pulled with the sacrificed target (or anything else who is pulling it) -space
+        if (args.EntityManager.TryGetComponent<PullableComponent>(uid, out var pull))
+            pullSystem.TryStopPull(uid, pull);
+
 
         var coords = transformComponent.Coordinates;
         var newCoords = coords.Offset(randomSystem.NextVector2(maxrandomradius));
@@ -213,11 +224,14 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
             var randVector = randomSystem.NextVector2(maxrandomradius);
             newCoords = coords.Offset(randVector);
 
+            xformSystem.SetCoordinates(uid, newCoords); //move person teleported to check if they're under a tile (the tiles intersecting doesnt account for this so we need to do this) -space
+
+            var air = atmosSystem.GetContainingMixture((uid, transformComponent)); //check if the room has any sort of atmos (this prevents getting teleported into solars and grilles outta the station) -space
+
             // if they're not in space and not in wall, it will choose these coords and end the loop -space
-            if (transformComponent.GridUid != null && !lookupSystem.GetEntitiesIntersecting(newCoords.ToMap(args.EntityManager, sharedXformSystem), LookupFlags.Static).Any())
+            if (transformComponent.GridUid != null && air != null && !lookupSystem.GetEntitiesIntersecting(newCoords.ToMap(args.EntityManager, sharedXformSystem), LookupFlags.Static).Any())
                 break;
         }
 
-        xformSystem.SetCoordinates(uid, newCoords);
     }
 }

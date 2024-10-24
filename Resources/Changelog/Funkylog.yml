@@ -66,3 +66,33 @@ Entries:
       message: added Nitrium gas
   id: 10
   time: '2024-10-20T04:25:18.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: 'Lower healium booze power. '
+    - type: Tweak
+      message: 'Lower nitrium speed boost. '
+    - type: Tweak
+      message: Nitrium speed boost is now consistently applied between breaths.
+    - type: Tweak
+      message: 'Adjust nitrium effect concentration triggers. '
+  id: 11
+  time: '2024-10-21T19:26:10.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Tweak
+      message: Getting sacrificed places you in better spots
+  id: 12
+  time: '2024-10-21T20:28:59.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Fix
+      message: Sacrificing will no longer pull you
+  id: 13
+  time: '2024-10-21T22:20:56.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Adds Glacier to the game.
+  id: 14
+  time: '2024-10-24T02:53:06.0000000+00:00'

@@ -91,6 +91,7 @@
   effects:
   - !type:N2ODecompositionReaction {}
 
+ #funkystation
 - type: gasReaction
   id: bzFormation
   priority: 2

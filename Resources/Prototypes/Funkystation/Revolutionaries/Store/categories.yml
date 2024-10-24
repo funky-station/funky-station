@@ -1,0 +1,19 @@
+- type: storeCategory
+  id: RevStoreGeneral
+  name: store-rev-category-general
+  priority: 0
+
+- type: storeCategory
+  id: RevStoreVanguard
+  name: store-rev-category-vanguard
+  priority: 1
+
+- type: storeCategory
+  id: RevStoreWarlord
+  name: store-rev-category-warlord
+  priority: 2
+
+- type: storeCategory
+  id: RevStoreWotp
+  name: store-rev-category-wotp
+  priority: 3

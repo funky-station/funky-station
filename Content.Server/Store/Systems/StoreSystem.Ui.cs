@@ -3,6 +3,7 @@ using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Heretic.EntitySystems;
 using Content.Server.PDA.Ringer;
+using Content.Server.Revolutionary;
 using Content.Server.Stack;
 using Content.Server.Store.Components;
 using Content.Shared.Actions;
@@ -12,6 +13,8 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mind;
+using Content.Shared.Revolutionary;
+using Content.Shared.Revolutionary.Prototypes;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Content.Shared.UserInterface;
@@ -36,6 +39,9 @@ public sealed partial class StoreSystem
 
     // goobstation - heretics
     [Dependency] private readonly HereticKnowledgeSystem _heretic = default!;
+
+    // funkystation - rev update
+    [Dependency] private readonly HeadRevolutionarySystem _headRevSystem = default!;
 
     private void InitializeUi()
     {
@@ -261,12 +267,38 @@ public sealed partial class StoreSystem
                 HandleRefundComp(uid, component, upgradeActionId.Value);
         }
 
+        // funkystation - revolutions
+        if (listing.ProductHeadRevolutionaryRecipe != null)
+            if (!TryComp<HeadRevolutionaryPathComponent>(buyer, out var hrevComp))
+                _headRevSystem.GrantRecipeComponent(buyer, hrevComp, (ProtoId<HeadRevolutionaryRecipePrototype>) listing.ProductHeadRevolutionaryRecipe);
+
         if (listing.ProductEvent != null)
         {
             if (!listing.RaiseProductEventOnUser)
                 RaiseLocalEvent(listing.ProductEvent);
             else
                 RaiseLocalEvent(buyer, listing.ProductEvent);
+
+            // funkystation
+            // ts dont even work dawg ^ lemme live bro
+            // shitcode x10
+            switch (listing.ID)
+            {
+                case "HeadRevolutionaryMenuSelectVanguard":
+                    var vanguard = new HeadRevolutionarySelectedVanguardEvent();
+                    RaiseLocalEvent(buyer, vanguard);
+                    break;
+                case "HeadRevolutionaryMenuSelectWOTP":
+                    var wotp = new HeadRevolutionarySelectedWOTPEvent();
+                    RaiseLocalEvent(buyer, wotp);
+                    break;
+                case "HeadRevolutionaryMenuSelectWarlord":
+                    var warlord = new HeadRevolutionarySelectedWarlordEvent();
+                    RaiseLocalEvent(buyer, warlord);
+                    break;
+                default:
+                    break;
+            }
         }
 
         //log dat shit.

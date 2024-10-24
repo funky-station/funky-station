@@ -90,3 +90,9 @@ Entries:
       message: Sacrificing will no longer pull you
   id: 13
   time: '2024-10-21T22:20:56.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Adds Glacier to the game.
+  id: 14
+  time: '2024-10-24T02:53:06.0000000+00:00'

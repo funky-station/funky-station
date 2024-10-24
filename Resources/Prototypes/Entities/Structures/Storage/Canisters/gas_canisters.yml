@@ -638,6 +638,7 @@
   - type: Lock
     locked: true
 
+ #funkystation
 - type: entity
   parent: GasCanister
   id: BZCanister
@@ -935,6 +936,7 @@
   - type: Sprite
     state: frezon-1
 
+ #funkystation
 - type: entity
   parent: GasCanisterBrokenBase
   id: BZCanisterBroken

@@ -363,6 +363,7 @@
           reagent: Frezon
           min: 1
 
+ #funkystation
 - type: reagent
   id: BZ
   name: reagent-name-bz

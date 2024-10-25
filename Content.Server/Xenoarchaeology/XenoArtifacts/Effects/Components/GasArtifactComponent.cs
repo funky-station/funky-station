@@ -30,9 +30,9 @@ public sealed partial class GasArtifactComponent : Component
         Gas.Ammonia,
         Gas.NitrousOxide,
         Gas.Frezon,
-        Gas.BZ,
-        Gas.Healium,
-        Gas.Nitrium
+        Gas.BZ, //funkystation
+        Gas.Healium, //funkystation
+        Gas.Nitrium //funkystation
     };
 
     /// <summary>

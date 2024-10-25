@@ -96,3 +96,9 @@ Entries:
       message: Adds Glacier to the game.
   id: 14
   time: '2024-10-24T02:53:06.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Added bz, healium and nitrium to the guidebook!
+  id: 15
+  time: '2024-10-24T05:54:54.0000000+00:00'

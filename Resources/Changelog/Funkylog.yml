@@ -102,3 +102,9 @@ Entries:
       message: Added bz, healium and nitrium to the guidebook!
   id: 15
   time: '2024-10-24T05:54:54.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Remove
+      message: Removed the reference to the man. We do not need to remember.
+  id: 16
+  time: '2024-10-25T21:50:21.0000000+00:00'

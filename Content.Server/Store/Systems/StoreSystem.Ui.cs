@@ -290,7 +290,7 @@ public sealed partial class StoreSystem
                     RaiseLocalEvent(buyer, vanguard);
                     break;
                 case "HeadRevolutionaryMenuSelectWOTP":
-                    var wotp = new HeadRevolutionarySelectedWOTPEvent();
+                    var wotp = new HeadRevolutionarySelectedWotpEvent();
                     RaiseLocalEvent(buyer, wotp);
                     break;
                 case "HeadRevolutionaryMenuSelectWarlord":

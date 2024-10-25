@@ -16,10 +16,14 @@ public sealed partial class HeadRevolutionaryActionComponent : Component
 }
 
 
-#region Abilities
-public sealed partial class EventHeadRevolutionaryOpenUplink : InstantActionEvent { }
-public readonly record struct HeadRevolutionarySelectedVanguardEvent { }
-public readonly record struct HeadRevolutionarySelectedWOTPEvent { }
-public readonly record struct HeadRevolutionarySelectedWarlordEvent { }
+#region Generic Abilities
+
+public sealed partial class EventHeadRevolutionaryOpenUplink : InstantActionEvent;
+
+public readonly record struct HeadRevolutionarySelectedVanguardEvent;
+public readonly record struct HeadRevolutionarySelectedWotpEvent;
+public readonly record struct HeadRevolutionarySelectedWarlordEvent;
+
+public readonly record struct HeadRevolutionaryCreateUniformEvent;
 
 #endregion

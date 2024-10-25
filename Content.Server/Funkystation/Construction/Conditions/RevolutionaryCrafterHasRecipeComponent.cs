@@ -5,6 +5,8 @@ using JetBrains.Annotations;
 using Robust.Shared.Utility;
 using Content.Shared.Item;
 using Content.Shared.Revolutionary;
+using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.Manager;
 
 namespace Content.Server.Construction.Conditions;
 
@@ -18,12 +20,12 @@ namespace Content.Server.Construction.Conditions;
 public sealed partial class RevolutionaryCrafterHasRecipeComponent : IGraphCondition
 {
 
-    [DataField("recipeName")]
+    [DataField]
     public string RecipeName;
 
-    [DataField("guideText")]
+    [DataField]
     public string? GuideText { get; private set; }
-    [DataField("guideIcon")]
+    [DataField]
     public SpriteSpecifier? GuideIcon { get; private set; }
 
     public bool Condition(EntityUid uid, IEntityManager entityManager)
@@ -69,11 +71,11 @@ public sealed partial class RevolutionaryCrafterHasRecipeComponent : IGraphCondi
         if (GuideText == null)
                 yield break;
 
-            yield return new ConstructionGuideEntry()
-            {
-                Localization = GuideText,
-                Icon = GuideIcon,
-            };
+        yield return new ConstructionGuideEntry()
+        {
+            Localization = GuideText,
+            Icon = GuideIcon,
+        };
     }
 }
 

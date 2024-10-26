@@ -62,6 +62,7 @@ OR
 * Unless their job demands it, personnel are forbidden from entering maintenance tunnels. Personnel in violation of this order may be charged with trespassing;
 * Visitors to the station (anyone with Civilian-level access) are to remain inside the Bar, Library or Dormitories for the duration of Code Red;
 * Personnel are to follow the instructions of Security staff, so long as they are within the bounds of Space Law and are not acting against the general well-being of the station and its crew. Failure to do so may lead to their arrest for Creating a Workplace Hazard.
+* Unauthorized crewmembers in Maintenance may be considered Trespassing.
 
 # Station Alert - Gamma
 ## Called by: Central Command. Use a Fax Machine and send a fax stamped by a member of command.
@@ -94,7 +95,6 @@ OR
 
 #### Security:
 * In the case of a Malfunctioning AI Unit, all Security personnel are required to drop whatever it is they are doing, and proceed to neutralize the AI Unit. Any relevant help from station personnel (such as Engineers or Scientists) is not to be turned down;
-* In the case of Nuclear Operatives, defusing the bomb is not recommended. Security personnel are to escort all other personnel off-station;
 * In the case of a Central Command-authorized activation of the on-board Nuclear Fission Device, all Security personnel are to stand down.
 #### Secure Areas:
 * EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used
@@ -110,7 +110,7 @@ OR
 * The following jobs require permission from Central Command before hiring/transfer is done: Blueshield and the Nanotrasen Representative. The same applies to any functionally identical job with another title;
 * All new hires to the Security Department, and Legal Sub-Department, are to be mindshield implanted and fully checked for unauthorized materials or suspicious communications.
 ## Firing/Demotion Policies
-* In the case of a full dismissal, the relevant ID is to be terminated;
+* In the case of a full dismissal, the relevant ID is to be terminated by disabling all access and storing it in a secure location;
 * In the case of a demotion, Civilian-level access is recommended. Alternatively, jobs such as Janitor or Clown may also be used;
 * No dismissals or demotions are to be performed without authorization from the relevant Head of Staff or Captain. See Chain of Command for how to handle dismissing a member of Command;
 * Personnel are to report to the Head of Personnel for dismissal/demotion. Failure to do so will lead to Security detaining them forcefully;
@@ -157,7 +157,7 @@ _A Vote of No Confidence is a method for crew to arrange for demotions of unfit 
 8. The Head of Personnel is not permitted to perform Security duty. The Head of Personnel is permitted to carry a Disabler for self-defense only.
 
 ### Nanotrasen Representative
-1. The Nanotrasen Representative is to ensure that every Department is following Standard Operating Procedure, up to and including the respective Head of Staff. If a Head of Staff is not available for a Department, the NanoTrasen Representative must ensure that the Captain appoints an Acting Head of Staff for said Department;
+1. The Nanotrasen Representative is to ensure that every Department is following Standard Operating Procedure, up to and including the respective Head of Staff. If a Head of Staff is not available for a Department, the Nanotrasen Representative must ensure that the Captain appoints an Acting Head of Staff for said Department;
 2. The Nanotrasen Representative must attempt to resolve any breach of Standard Operating Procedure locally before contacting Central Command. This is an imperative: Standard Operating Procedure should always be followed unless there is a very good reason not to;
 3. The Nanotrasen Representative must, together with the Head of Security, ensure that Space Law is being followed and correctly applied;
 4. The Nanotrasen Representative may not threaten the use of a fax in order to gain leverage over any personnel, up to and including Command. In addition they may not threaten to fire or have Central Command fire anyone, unless they actually possess a demotion note;
@@ -185,7 +185,7 @@ _A Vote of No Confidence is a method for crew to arrange for demotions of unfit 
 
 #### Code Blue
 1. All Guidelines carry over from Code Green. In regard to Guideline 2, the Head of Security is now encouraged to carry their unique Energy Gun.
-2. In regard to guideline 4, leniency may be granted in order to ensure command and other important members of the station are protected.
+2. In regard to guideline 4, leniency may be granted in order to ensure Command and other important members of the station are protected.
 
 #### Code Red
 1. Guidelines 1, 3, 5, 7, 8, 9, and 10 are carried over from Code Green;
@@ -194,14 +194,15 @@ _A Vote of No Confidence is a method for crew to arrange for demotions of unfit 
 
 ### Security Officers / Cadets
 #### Code Green
-1. Security officers are encouraged to act in accordance with the Security Rules of Conduct before engaging with any member of the public.
+1. Security Officers are encouraged to act in accordance with the Security Rules of Conduct before engaging with any member of the public.
 2. Security Officers are required to state the reasons behind an arrest before any further action is taken. Exception is made if the suspect refuses to stop;
 3. Security Officers must attempt to bring all suspects or witnesses to the Brig without handcuffing or incapacitating them. Should the suspect not cooperate, the officer may proceed as usual;
 4. No weapons are to be brandished until the suspect attempts to run away or becomes actively hostile;
 5. Security Officers may not demand access to the interior of other Departments during regular patrols. However, asking for access from the Head of Personnel is still acceptable;
-6. Security officers are not permitted to have weapons drawn during regular patrols;
-7. Security officers are permitted to conduct searches, provided there is reasonable evidence/suspicion that the person in question has committed a crime. Any further searches require a warrant from the Head of Security or Captain;
+6. Security Officers are not permitted to have weapons drawn during regular patrols;
+7. Security Officers are permitted to conduct searches, provided there is reasonable evidence/suspicion that the person in question has committed a crime. Any further searches require a warrant from the Head of Security or Captain;
 8. Security Officers are required to wear their uniform in accordance with the Security Rules of Conduct.
+
 #### Code Blue
 1. Guidelines 1, 2, 4 and 8 are carried over from Code Green;
 2. Security Officers are permitted to carry around any weapons or equipment available in the Armory, at the Warden's discretion, but never more than one at a time. Exception is made for severe emergencies, such as Nuclear Operatives;
@@ -210,6 +211,7 @@ _A Vote of No Confidence is a method for crew to arrange for demotions of unfit 
 5. Security Officers may demand entry to specific Departments during regular patrols;
 6. Security Officers may randomly search crewmembers, but are not allowed to apply any degree of force unless said crewmember acts overtly hostile. Crew who refuse to be searched may be stunned and cuffed for the search;
 7. Security Officers are permitted to leave prisoners cuffed should they act hostile.
+
 #### Code Red
 1. Guidelines 2, 3, 4, 5, 6, and 7 are carried over from Code Blue. Guideline 8 is carried over from Code Green;
 2. Security Officers may arrest crewmembers with no stated reason if there is evidence they are involved in criminal activities;
@@ -231,7 +233,7 @@ _A Vote of No Confidence is a method for crew to arrange for demotions of unfit 
 
 #### Code Blue
 1. Guidelines 1, 2, 3, 5, 8, 10 and 11 are carried over from Code Green;
-2. The Warden is permitted to hand out all equipment from the Armory. Energy and Laser guns are only to be handed out with Head of Security or Captain's approval, as they present a lethal risk, or if there is an immediate threat, such as Nuclear Operatives;
+2. The Warden is permitted to hand out all equipment from the Armory. Guns are only to be handed out with Head of Security or Captain's approval, as they present a lethal risk, or if there is an immediate threat, such as Nuclear Operatives;
 3. The Warden is permitted to place the portable flashers inside the Brig;
 4. The Warden is permitted to place the deployable barriers inside the Brig.
 
@@ -282,25 +284,18 @@ There are, however, circumstances where deadly force is permissible:
 * Armed and Dangerous Individuals
 * May include people with stun weapons, lethal weapons, etc.
 * Multiple Assailants
-* Armed or otherwise
 * Individuals Possessing Explosives
 * (Grenades, welding fuel tanks, etc.)
 * Revolutionaries
 * Armory Trespassers
-* Armed or Otherwise
-* Operating in Hostile Environments
-* N2O, Fire, Space
-
 
 ## Lethals Recommended - Posthumous Revival Potentially Required
 * Heretics
-* Heavily Armed Individuals
 * Holoparasite Users
 * Hostile Hardsuits
 * Non-Crew
 * Ash Walkers (ghouls), abominable creatures
 * Uncontainable sentient beings
-* Abominations, acts of God, etc.
 
 ## Lethals Authorized - Kill on Sight
 * Ascended Heretics

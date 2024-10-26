@@ -114,3 +114,9 @@ Entries:
       message: Fixed the plasma cutter's description.
   id: 17
   time: '2024-10-26T02:26:03.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Rapid Piping Device
+  id: 18
+  time: '2024-10-26T02:41:46.0000000+00:00'

@@ -108,3 +108,9 @@ Entries:
       message: Removed the reference to the man. We do not need to remember.
   id: 16
   time: '2024-10-25T21:50:21.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Tweak
+      message: Fixed the plasma cutter's description.
+  id: 17
+  time: '2024-10-26T02:26:03.0000000+00:00'

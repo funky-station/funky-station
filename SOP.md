@@ -72,7 +72,7 @@ OR
 #### Security:
 * Martial Law is enacted. Standard Operating Procedure is suspended. Security personnel have full permission to do whatever it takes to ensure that the safety of the station and crew is maintained. Personnel interfering with emergency procedures may be detained. Security are cleared to use lethal force in response to any physical threat. Assault of Command or ERT may be punished with immediate field execution.
 * Random searches are fully permitted, allowed and encouraged. Security personnel may detain any personnel refusing a random search in order to conduct said search;
-* Security personnel are to cooperate fully with any Central Command Staff (such as Emergency Response Teams) in order to eliminate the threat to the station. #
+* Security personnel are to cooperate fully with any Central Command Staff (such as Emergency Response Teams) in order to eliminate the threat to the station.
 #### Secure Areas:
 * EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used
 * All Secure Areas are to be bolted down. Secure Areas may be left unbolted at the discretion of Command personnel;

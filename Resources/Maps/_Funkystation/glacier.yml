@@ -9607,7 +9607,8 @@ entities:
           -3,3:
             0: 45695
           -3,4:
-            0: 65339
+            0: 63291
+            2: 2048
           -2,1:
             0: 65535
           -2,2:
@@ -9635,7 +9636,8 @@ entities:
           -5,4:
             0: 32758
           -4,5:
-            0: 4087
+            2: 1
+            0: 4086
           -5,5:
             0: 11187
           -4,6:
@@ -9702,7 +9704,8 @@ entities:
           -4,11:
             0: 3276
           -3,9:
-            0: 118
+            0: 114
+            5: 4
           -3,10:
             0: 4352
             3: 26214
@@ -10122,7 +10125,8 @@ entities:
           9,6:
             0: 61525
           9,7:
-            0: 53759
+            0: 20991
+            2: 32768
           9,8:
             0: 64605
           10,5:
@@ -10192,7 +10196,7 @@ entities:
             3: 61166
           -1,15:
             0: 15
-            5: 65280
+            6: 65280
           0,16:
             3: 43942
             0: 8
@@ -10348,7 +10352,8 @@ entities:
           -7,4:
             0: 30470
           -7,5:
-            0: 26487
+            0: 10103
+            7: 16384
           -7,6:
             0: 59120
           -7,3:
@@ -10894,7 +10899,7 @@ entities:
             0: 32887
           13,-7:
             0: 40412
-            6: 16384
+            8: 16384
           13,-6:
             0: 60637
           13,-9:
@@ -11095,10 +11100,10 @@ entities:
           -3,15:
             3: 8739
             0: 8
-            5: 34816
+            6: 34816
           -3,16:
             3: 60963
-            5: 8
+            6: 8
           -2,13:
             3: 3324
             0: 49152
@@ -11106,12 +11111,12 @@ entities:
             0: 65535
           -2,15:
             0: 15
-            5: 65280
+            6: 65280
           -2,16:
-            5: 15
+            6: 15
             3: 65280
           -1,16:
-            5: 15
+            6: 15
             3: 7936
           -5,16:
             3: 7962
@@ -11539,8 +11544,38 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
+          - 21.6852
+          - 81.57766
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 21.640223
+          - 81.40846
           - 0
           - 0
           - 0
@@ -11828,18 +11863,18 @@ entities:
     - type: DeviceList
       devices:
       - 4760
-  - uid: 10674
+  - uid: 10619
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
+      rot: 3.141592653589793 rad
       pos: 12.5,64.5
       parent: 2
     - type: DeviceList
       devices:
-      - 10623
-      - 10629
-      - 10619
       - 10606
+      - 10629
+      - 10623
+      - 10674
   - uid: 17596
     components:
     - type: MetaData
@@ -12494,7 +12529,7 @@ entities:
       pos: -42.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -9068.007
+      secondsUntilStateChange: -9689.05
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12885,7 +12920,7 @@ entities:
       pos: -54.5,31.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -8878.44
+      secondsUntilStateChange: -9499.483
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -42020,6 +42055,11 @@ entities:
     - type: Transform
       pos: 23.5,57.5
       parent: 2
+  - uid: 13029
+    components:
+    - type: Transform
+      pos: 13.5,62.5
+      parent: 2
   - uid: 15035
     components:
     - type: Transform
@@ -56482,8 +56522,8 @@ entities:
         immutable: False
         temperature: 293.14957
         moles:
-        - 1.6971024
-        - 6.3843384
+        - 1.8817583
+        - 7.0789967
         - 0
         - 0
         - 0
@@ -56913,7 +56953,7 @@ entities:
       pos: 55.5,39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -11379.132
+      secondsUntilStateChange: -12000.175
       state: Closing
 - proto: CurtainsBlue
   entities:
@@ -80157,7 +80197,7 @@ entities:
       - 17606
     - type: AtmosPipeColor
       color: '#0055CCFF'
-  - uid: 10623
+  - uid: 10606
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -80165,9 +80205,9 @@ entities:
       parent: 2
     - type: DeviceNetwork
       configurators:
-      - invalid
+      - 13026
       deviceLists:
-      - 10674
+      - 10619
   - uid: 10629
     components:
     - type: Transform
@@ -80176,9 +80216,9 @@ entities:
       parent: 2
     - type: DeviceNetwork
       configurators:
-      - invalid
+      - 13026
       deviceLists:
-      - 10674
+      - 10619
   - uid: 12292
     components:
     - type: Transform
@@ -81015,7 +81055,7 @@ entities:
       - 17606
     - type: AtmosPipeColor
       color: '#990000FF'
-  - uid: 10606
+  - uid: 10623
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -81023,10 +81063,10 @@ entities:
       parent: 2
     - type: DeviceNetwork
       configurators:
-      - invalid
+      - 13026
       deviceLists:
-      - 10674
-  - uid: 10619
+      - 10619
+  - uid: 10674
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
@@ -81034,9 +81074,9 @@ entities:
       parent: 2
     - type: DeviceNetwork
       configurators:
-      - invalid
+      - 13026
       deviceLists:
-      - 10674
+      - 10619
   - uid: 14340
     components:
     - type: Transform
@@ -85895,6 +85935,24 @@ entities:
     - type: Transform
       pos: 39.5,31.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: LockerEngineer
   entities:
   - uid: 10239
@@ -85969,6 +86027,24 @@ entities:
     - type: Transform
       pos: -8.5,18.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: LockerFreezer
   entities:
   - uid: 10243
@@ -86046,8 +86122,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
+        - 1.8856695
+        - 7.0937095
         - 0
         - 0
         - 0
@@ -86228,6 +86304,24 @@ entities:
     - type: Transform
       pos: -15.5,20.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: LockerWeldingSuppliesFilled
   entities:
   - uid: 10263
@@ -87147,6 +87241,21 @@ entities:
     - type: Transform
       pos: -2.779036,-6.4157686
       parent: 2
+  - uid: 13026
+    components:
+    - type: Transform
+      pos: 12.356243,66.11238
+      parent: 2
+    - type: NetworkConfigurator
+      devices:
+        'UID: 23637': 10606
+        'UID: 23638': 10629
+        'UID: 23642': 10623
+        'UID: 23641': 10674
+      linkModeActive: False
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: NetworkConfigurator
   entities:
   - uid: 12089
@@ -87962,6 +88071,8 @@ entities:
     - type: Transform
       parent: 6389
     - type: Physics
+      angularDamping: 0
+      linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
   - uid: 6391
@@ -87969,6 +88080,8 @@ entities:
     - type: Transform
       parent: 6389
     - type: Physics
+      angularDamping: 0
+      linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
   - uid: 6392
@@ -87976,6 +88089,8 @@ entities:
     - type: Transform
       parent: 6389
     - type: Physics
+      angularDamping: 0
+      linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
   - uid: 6393
@@ -87983,6 +88098,8 @@ entities:
     - type: Transform
       parent: 6389
     - type: Physics
+      angularDamping: 0
+      linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
   - uid: 6394
@@ -87990,6 +88107,8 @@ entities:
     - type: Transform
       parent: 6389
     - type: Physics
+      angularDamping: 0
+      linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
   - uid: 12221
@@ -88146,6 +88265,8 @@ entities:
     - type: Transform
       parent: 6389
     - type: Physics
+      angularDamping: 0
+      linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
   - uid: 6396
@@ -88153,6 +88274,8 @@ entities:
     - type: Transform
       parent: 6389
     - type: Physics
+      angularDamping: 0
+      linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
   - uid: 6397
@@ -88160,6 +88283,8 @@ entities:
     - type: Transform
       parent: 6389
     - type: Physics
+      angularDamping: 0
+      linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
   - uid: 12245
@@ -102144,6 +102269,20 @@ entities:
     - type: Transform
       pos: 7.5,52.5
       parent: 2
+- proto: TeslaCoil
+  entities:
+  - uid: 13028
+    components:
+    - type: Transform
+      pos: 13.5,62.5
+      parent: 2
+- proto: TeslaGroundingRod
+  entities:
+  - uid: 13027
+    components:
+    - type: Transform
+      pos: 15.5,62.5
+      parent: 2
 - proto: ThermomachineFreezerMachineCircuitBoard
   entities:
   - uid: 14537
@@ -112334,6 +112473,8 @@ entities:
     - type: Transform
       parent: 6071
     - type: Physics
+      angularDamping: 0
+      linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
 - proto: WeaponTurretSyndicateBroken
@@ -112848,7 +112989,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -16327.495
+      secondsUntilStateChange: -16948.54
       state: Opening
     - type: Airlock
       autoClose: False
@@ -112864,7 +113005,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -16326.929
+      secondsUntilStateChange: -16947.973
       state: Opening
     - type: Airlock
       autoClose: False
@@ -112886,7 +113027,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -16326.462
+      secondsUntilStateChange: -16947.506
       state: Opening
     - type: Airlock
       autoClose: False
@@ -112902,7 +113043,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -16327.995
+      secondsUntilStateChange: -16949.04
       state: Opening
     - type: Airlock
       autoClose: False

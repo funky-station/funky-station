@@ -12529,7 +12529,7 @@ entities:
       pos: -42.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -9626.107
+      secondsUntilStateChange: -9689.05
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12920,7 +12920,7 @@ entities:
       pos: -54.5,31.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -9436.541
+      secondsUntilStateChange: -9499.483
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -42055,6 +42055,11 @@ entities:
     - type: Transform
       pos: 23.5,57.5
       parent: 2
+  - uid: 13029
+    components:
+    - type: Transform
+      pos: 13.5,62.5
+      parent: 2
   - uid: 15035
     components:
     - type: Transform
@@ -56948,7 +56953,7 @@ entities:
       pos: 55.5,39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -11937.232
+      secondsUntilStateChange: -12000.175
       state: Closing
 - proto: CurtainsBlue
   entities:
@@ -102264,6 +102269,20 @@ entities:
     - type: Transform
       pos: 7.5,52.5
       parent: 2
+- proto: TeslaCoil
+  entities:
+  - uid: 13028
+    components:
+    - type: Transform
+      pos: 13.5,62.5
+      parent: 2
+- proto: TeslaGroundingRod
+  entities:
+  - uid: 13027
+    components:
+    - type: Transform
+      pos: 15.5,62.5
+      parent: 2
 - proto: ThermomachineFreezerMachineCircuitBoard
   entities:
   - uid: 14537
@@ -112970,7 +112989,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -16885.596
+      secondsUntilStateChange: -16948.54
       state: Opening
     - type: Airlock
       autoClose: False
@@ -112986,7 +113005,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -16885.03
+      secondsUntilStateChange: -16947.973
       state: Opening
     - type: Airlock
       autoClose: False
@@ -113008,7 +113027,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -16884.562
+      secondsUntilStateChange: -16947.506
       state: Opening
     - type: Airlock
       autoClose: False
@@ -113024,7 +113043,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -16886.096
+      secondsUntilStateChange: -16949.04
       state: Opening
     - type: Airlock
       autoClose: False

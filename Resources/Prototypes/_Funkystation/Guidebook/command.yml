@@ -5,7 +5,7 @@
   children:
   - CommandSOP
   - SecuritySOP
-  - AlertSOP
+  - AlertLevelsSOP
   - EnemiesOfTheCorporation
 
 - type: guideEntry

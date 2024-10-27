@@ -45,6 +45,21 @@ OR
 * Personnel are highly encouraged to exercise caution, even if the threat is only suspected. Following simple safety procedures (such as not going through Maintenance alone) can prevent needless accidents;
 * Visitors to the station (anyone with Civilian-level access) are recommended to stay in public areas, for their safety.
 
+# Station Alert - Yellow
+## Called by: Anyone with Command-Level Access at a working Communications Console.
+### Conditions:
+* There is an atmospheric threat aboard the station such as mass hull breaches, spacing, or high temperatures that make the station uninhabitable without an EVA suit.
+
+#### Security:
+* You should ensure EVA suits are properly distributed around the station while maintaining vigilance.
+#### Secure Areas:
+* EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used
+* It is recommended that all Secure Areas be bolted down unless their use is necessary;
+#### General Crew:
+* All personnel are highly recommended to maximize their Suit Sensors;
+* Personnel are to report any suspicious activity to the nearest member of Security, or use their PDA or headsets if required;
+* Personnel are highly encouraged to either get into a safe area or find emergency EVA suits as well as a source of oxygen/nitrogen as required.
+
 # Station Alert - Red
 ## Called by: Anyone with Command-Level Access at a working Communications Console.
 ### Conditions:
@@ -55,7 +70,7 @@ OR
 * Random searches are fully permitted and recommended. Security personnel may detain any personnel refusing a random search in order to conduct said search;
 * Security personnel are to cooperate fully with any Central Command Staff (such as Emergency Response Teams) in order to eliminate the threat to the station.
 #### Secure Areas:
-* EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used
+* EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, anywhere else requiring command level access that does not get regularly used
 * There are no restrictions on bolting Secure Areas. Secure Areas may be left bolted or unbolted at the discretion of Command personnel;
 #### General Crew:
 * All personnel are required to maximize their Suit Sensors;

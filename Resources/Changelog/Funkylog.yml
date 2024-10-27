@@ -126,3 +126,9 @@ Entries:
       message: Adds SOP and the appropriate docs in game.
   id: 19
   time: '2024-10-27T21:56:14.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Adds SOP to the game, along with the appropriate documentation
+  id: 20
+  time: '2024-10-27T22:20:00.0000000+00:00'

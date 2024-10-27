@@ -1,0 +1,137 @@
+<Document>
+
+# Alert Levels and You!
+
+## Station Alert - Green
+Called by: Anyone with Command-Level Access at a working Communications Console.
+[bold]Conditions:[/bold]
+Default Alert Code at the start of the shift. Do not change unless a threat is suspected/confirmed;
+
+[bold]OR[/bold]
+
+All confirmed/suspected threats to the station and/or crew have been handled, or simply vanished on their own. It is recommended that, after 15+ minutes on Code Blue without any hostile activity, Code Green be called;
+
+[bold]Security:[/bold]
+All weapons must be holstered or kept in pockets/suit storage slots unless absolutely required;
+Random searches are not permitted without express permission by either the Head of Security or Captain. However, searches are still permitted if there is reasonable suspicion of a crime
+
+[bold]Secure Areas:[/bold]
+EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used
+Secure areas such as EVA are to be left unbolted and ready to be used for their intended purposes. Exceptions are below;
+The Vault is not to be opened unless repairs are required, gold is required for Research and Development (in case Mining fails to deliver) or a critical item needs to be hidden in the safe
+Searches of a person or department need to have a signed and stamped warrant by the Captain or HoP.
+
+[bold]General Crew:[/bold]
+While not required, it is recommended that the crew activate and maximize their Suit Sensors, due to the potential for workplace accidents;
+Free transit through the station is permitted for the crew, outside of Secure Areas.
+
+## Station Alert - Blue
+Called by: Anyone with Command-Level Access at a working Communications Console.
+[bold]Conditions:[/bold]
+There is a suspected threat on-board the station, or at a nearby location in space. This includes any signs of hostile activity that have not caused any damage to station or crew, but nonetheless seem present.
+Minor threats such as thieves, bar fights, and non-violent protests are not credible enough threats to elevate alert level to blue.
+
+[bold]OR[/bold]
+
+Confirmed Code Red threats have been properly handled or subsided on their own. It is recommended that, after 10+ minutes on Code Red without any hostile activity, Code Blue be called.
+
+[bold]Security:[/bold]
+Weapons do not need to be holstered. However, it is recommended that Security personnel follow Security SOP in order to prevent accidents and to be fully aware of armament procedure;
+Random searches are fully permitted. Security personnel may detain any personnel refusing a random search in order to conduct said search;
+
+[bold]Secure Areas:[/bold]
+EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used
+It is recommended that all Secure Areas be bolted down unless their use is necessary;
+Excursions into the Gateway are not recommended, unless they are rescue parties.
+
+[bold]General Crew:[/bold]
+All personnel are highly recommended to maximize their Suit Sensors;
+Personnel are to report any suspicious activity to the nearest member of Security, or use their PDA or headsets if required;
+Personnel are highly encouraged to exercise caution, even if the threat is only suspected. Following simple safety procedures (such as not going through Maintenance alone) can prevent needless accidents;
+Visitors to the station (anyone with Civilian-level access) are recommended to stay in public areas, for their safety.
+
+## Station Alert - Yellow
+Called by: Anyone with Command-Level Access at a working Communications Console.
+[bold]Conditions:[/bold]
+There is an atmospheric threat aboard the station such as mass hull breaches, spacing, or high temperatures that make the station uninhabitable without an EVA suit.
+
+[bold]Security:[/bold]
+You should ensure EVA suits are properly distributed around the station while maintaining vigilance.
+
+[bold]Secure Areas:[/bold]
+EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used
+It is recommended that all Secure Areas be bolted down unless their use is necessary;
+
+[bold]General Crew:[/bold]
+All personnel are highly recommended to maximize their Suit Sensors;
+Personnel are to report any suspicious activity to the nearest member of Security, or use their PDA or headsets if required;
+Personnel are highly encouraged to either get into a safe area or find emergency EVA suits as well as a source of oxygen/nitrogen as required.
+
+## Station Alert - Red
+Called by: Anyone with Command-Level Access at a working Communications Console.
+[bold]Conditions:[/bold]
+There is a confirmed, hostile threat on-board the station or nearby in space. This threat should pose recognizable danger to the station and/or crew at large.
+
+[bold]Security:[/bold]
+Security personnel should read Security SOP for armament, armory and safety procedures;
+Random searches are fully permitted and recommended. Security personnel may detain any personnel refusing a random search in order to conduct said search;
+Security personnel are to cooperate fully with any Central Command Staff (such as Emergency Response Teams) in order to eliminate the threat to the station.
+
+[bold]Secure Areas:[/bold]
+EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, anywhere else requiring command level access that does not get regularly used
+There are no restrictions on bolting Secure Areas. Secure Areas may be left bolted or unbolted at the discretion of Command personnel;
+
+[bold]General Crew:[/bold]
+All personnel are required to maximize their Suit Sensors;
+Unless their job demands it, personnel are forbidden from entering maintenance tunnels. Personnel in violation of this order may be charged with trespassing;
+Visitors to the station (anyone with Civilian-level access) are to remain inside the Bar, Library or Dormitories for the duration of Code Red;
+Personnel are to follow the instructions of Security staff, so long as they are within the bounds of Space Law and are not acting against the general well-being of the station and its crew. Failure to do so may lead to their arrest for Creating a Workplace Hazard.
+Unauthorized crewmembers in Maintenance may be considered Trespassing.
+
+## Station Alert - Gamma
+Called by: Central Command. Use a Fax Machine and send a fax stamped by a member of command.
+[bold]Conditions:[/bold]
+There is a massive threat to the continued safety of the station and crew, threatening the very existence of the Station;
+However, this threat is not yet big enough to warrant the destruction of the Station, and Central Command may still want to protect their assets.
+
+[bold]Security:[/bold]
+Martial Law is enacted. Standard Operating Procedure is suspended. Security personnel have full permission to do whatever it takes to ensure that the safety of the station and crew is maintained. Personnel interfering with emergency procedures may be detained. Security are cleared to use lethal force in response to any physical threat. Assault of Command or ERT may be punished with immediate field execution.
+Random searches are fully permitted, allowed and encouraged. Security personnel may detain any personnel refusing a random search in order to conduct said search;
+Security personnel are to cooperate fully with any Central Command Staff (such as Emergency Response Teams) in order to eliminate the threat to the station.
+
+[bold]Secure Areas:[/bold]
+EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used
+All Secure Areas are to be bolted down. Secure Areas may be left unbolted at the discretion of Command personnel;
+Excursions into the Gateway are fully prohibited.
+
+[bold]General Crew:[/bold]
+All personnel are required to maximize their Suit Sensors;
+All personnel are to remain inside their Departments until such a point as Code Gamma has passed, unless specifically requested by Security and/or Command, or their particular skills can help resolve the situation (such as Field Medics or Engineers);
+Visitors to the station (anyone with Civilian-level access) are to remain inside the Bar, Library or Dormitories until such a point as Code Gamma has passed;
+Personnel are to follow the instructions of Security staff, so long as they are within the bounds of Space Law and are not acting against the general well-being of the station and its crew. Failure to do so may lead to their arrest for Creating a Workplace Hazard.
+
+## Station Alert - Delta
+Called by: Malfunctioning AI Units, the supermatter delaminating, or the on-board Nuclear Fission Device being activated.
+[bold]Conditions:[/bold]
+A Malfunctioning AI Unit has dropped all semblance of stealth and activated their Override Mechanism.
+
+[bold]OR[/bold]
+
+The on-board Nuclear Fission Device has been activated by Command or Central Command personnel. Though it does not trigger Code Delta, Nuclear Operative Nuclear Operations should still be considered as a Code Delta situation.
+
+[bold]OR[/bold]
+
+The supermatter is in the process of delaminating. This is a station-wide threat.
+
+[bold]Security:[/bold]
+In the case of a Malfunctioning AI Unit, all Security personnel are required to drop whatever it is they are doing, and proceed to neutralize the AI Unit. Any relevant help from station personnel (such as Engineers or Scientists) is not to be turned down;
+In the case of a Central Command-authorized activation of the on-board Nuclear Fission Device, all Security personnel are to stand down.
+
+[bold]Secure Areas:[/bold]
+EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used
+Procedures are irrelevant.
+
+[bold]General Crew:[/bold]
+In the case of a Malfunctioning AI Unit or Nuclear Operatives that have armed a nuclear device, all non-vital personnel are to evacuate off-station immediately;
+In the case of a Central Command-authorized activation of the on-board Nuclear Fission Device, all personnel are to stand down.
+</Document>

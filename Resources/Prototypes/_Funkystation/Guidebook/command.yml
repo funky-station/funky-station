@@ -1,0 +1,29 @@
+﻿- type: guideEntry
+  id: SOP101
+  name: SOP 101
+  text: "/ServerInfo/Funkystation/Guidebook/SOP/SOP101.xml"
+  children:
+  - CommandSOP
+  - SecuritySOP
+  - AlertLevelsSOP
+  - EnemiesOfTheCorporation
+
+- type: guideEntry
+  id: CommandSOP
+  name: guide-entry-command-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Command/CommandStandardOperatingProcedure.xml"
+
+- type: guideEntry
+  id: AlertLevelsSOP
+  name: guide-entry-alert-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Command/AlertLevels.xml"
+
+- type: guideEntry
+  id: SecuritySOP
+  name: guide-entry-security-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Security/SecurityStandardOperatingProcedure.xml"
+
+- type: guideEntry
+  id: EnemiesOfTheCorporation
+  name: guide-entry-eoc-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Security/EnemiesOfTheCorporation.xml"

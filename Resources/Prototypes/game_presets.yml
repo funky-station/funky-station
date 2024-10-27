@@ -184,7 +184,7 @@
   showInVote: false
   rules:
     - Nukeops
-    - SubGamemodesRule funkystation - Heretics and Nukies shouldnt exist together
+    - SubGamemodesRule
     - BasicStationEventScheduler
     - AntagStationEventScheduler
   #  - MeteorSwarmScheduler Goobstation - nuh uh

@@ -23,7 +23,7 @@
   showInVote: false
   rules:
   - Heretic
-  - Changelings
+  - CalmLing
   - BasicStationEventScheduler
   - AntagStationEventScheduler
   - BasicRoundstartVariation

@@ -120,3 +120,9 @@ Entries:
       message: Rapid Piping Device
   id: 18
   time: '2024-10-26T02:41:46.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Adds SOP and the appropriate docs in game.
+  id: 19
+  time: '2024-10-27T21:56:14.0000000+00:00'

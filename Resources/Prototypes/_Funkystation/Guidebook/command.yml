@@ -5,12 +5,18 @@
   children:
   - CommandSOP
   - SecuritySOP
+  - AlertSOP
   - EnemiesOfTheCorporation
 
 - type: guideEntry
   id: CommandSOP
   name: guide-entry-command-sop
   text: "/ServerInfo/Funkystation/Guidebook/Command/CommandStandardOperatingProcedure.xml"
+
+- type: guideEntry
+  id: AlertLevelsSOP
+  name: guide-entry-alert-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Command/AlertLevels.xml"
 
 - type: guideEntry
   id: SecuritySOP

@@ -1,9 +1,9 @@
 - type: gameMap #funkystation map
   id: Divide
   mapName: 'Divide'
-  mapPath: /Maps/divide.yml
-  minPlayers: 7
-  maxPlayers: 35
+  mapPath: /Maps/_Funkystation/divide.yml
+  minPlayers: 20
+  maxPlayers: 80
   stations:
     Packed:
       stationProto: StandardNanotrasenStation
@@ -14,7 +14,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'VG'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_omega.yml
+          emergencyShuttlePath: /Maps/Shuttles/emergency_divide.yml
         - type: StationJobs
           availableJobs:
             #service

@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Mind;
 using Content.Shared.Revolutionary;
 using Content.Shared.Store;
@@ -39,22 +40,9 @@ public sealed partial class HeadRevolutionaryPathCondition : ListingCondition
 
         if (Whitelist != null)
         {
-            foreach (var allowed in Whitelist)
-                if (GetFriendlyRevPathName(headRevolutionaryPathComponent.CurrentPath) == allowed)
-                    return true;
-
-            return false;
+            return Whitelist.Any(allowed => GetFriendlyRevPathName(headRevolutionaryPathComponent.CurrentPath) == allowed);
         }
 
-        if (Blacklist != null)
-        {
-            foreach (var disallowed in Blacklist)
-                if (GetFriendlyRevPathName(headRevolutionaryPathComponent.CurrentPath) == disallowed)
-                    return false;
-
-            return true;
-        }
-
-        return true;
+        return Blacklist == null || Blacklist.All(disallowed => GetFriendlyRevPathName(headRevolutionaryPathComponent.CurrentPath) != disallowed);
     }
 }

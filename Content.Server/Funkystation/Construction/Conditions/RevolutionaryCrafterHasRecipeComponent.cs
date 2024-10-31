@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Construction;
 using Content.Shared.Examine;
 using Content.Shared.Mind;
@@ -44,13 +45,7 @@ public sealed partial class RevolutionaryCrafterHasRecipeComponent : IGraphCondi
 
         var revComp = entityManager.GetComponent<HeadRevolutionaryPathComponent>((EntityUid) mindComp.CurrentEntity);
 
-        foreach (var recipe in revComp.Recipes)
-        {
-            if (recipe == RecipeName)
-                return true;
-        }
-
-        return false;
+        return revComp.Recipes.Any(recipe => recipe == RecipeName);
     }
 
     public bool DoExamine(ExaminedEvent args)

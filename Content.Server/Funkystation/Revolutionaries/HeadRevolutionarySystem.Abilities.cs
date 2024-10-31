@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Linq;
 using Content.Shared.Revolutionary;
 using Content.Shared.Store.Components;
@@ -21,6 +22,7 @@ public sealed partial class HeadRevolutionarySystem
     private readonly MetaDataSystem _metadata = default!;
 
     public EntProtoId[] Uniforms = [];
+    public EntityUid[] UniformIds = [];
 
     public static string GetFriendlyRevPathName(RevolutionaryPaths path)
     {
@@ -52,13 +54,18 @@ public sealed partial class HeadRevolutionarySystem
         _store.ToggleUi(uid, uid, store);
     }
 
-    private bool CheckIfUniformIsAdded(EntityUid uid)
+    private bool UniformIsAdded(EntityUid uid)
     {
         return TryComp<MetaDataComponent>(uid, out var metaData)
                && Uniforms.Any(uniform => metaData.EntityPrototype!.ID.Contains(uniform));
     }
 
-    private bool CheckIfItemIsClothing(EntityUid uid)
+    private bool UniformListFull()
+    {
+        return Uniforms.Length >= 2;
+    }
+
+    private bool ItemIsClothing(EntityUid uid)
     {
         return TryComp<MetaDataComponent>(uid, out var metaData) && metaData.EntityPrototype!.ID.Contains("Clothing");
     }
@@ -67,13 +74,32 @@ public sealed partial class HeadRevolutionarySystem
     {
         var activeItem = _hands.GetActiveItem(uid);
 
-        if (CheckIfUniformIsAdded(uid))
+        if (activeItem == null)
             return;
 
-        if (!CheckIfItemIsClothing(uid))
+        if (TryComp<RevolutionaryClothingComponent>(activeItem, out _))
             return;
 
+        if (!ItemIsClothing(uid))
+            return;
 
+        if (UniformIsAdded(uid))
+            return;
+
+        if (UniformListFull())
+        {
+            EnsureComp<RevolutionaryClothingComponent>((EntityUid) activeItem);
+            UniformIds.Append((EntityUid) activeItem);
+
+            return;
+        }
+
+        if (!TryComp<MetaDataComponent>(activeItem, out var metaData))
+            return;
+
+        Uniforms.Append(metaData.EntityPrototype!.ID);
+        EnsureComp<RevolutionaryClothingComponent>((EntityUid) activeItem);
+        UniformIds.Append((EntityUid) activeItem);
     }
 
     private void OnSelectVanguardPath(EntityUid uid, HeadRevolutionaryPathComponent comp, ref HeadRevolutionarySelectedVanguardEvent ev)

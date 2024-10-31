@@ -5,14 +5,14 @@
   minPlayers: 20
   maxPlayers: 80
   stations:
-    Packed:
+    Divide:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
           mapNameTemplate: '{0} Divide {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'VG'
+            prefixCreator: '14'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_divide.yml
         - type: StationJobs

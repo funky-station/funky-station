@@ -64,11 +64,13 @@ namespace Content.IntegrationTests.Tests
             "Reach",
             "Origin", // Goobstation - Readds Origin
             "Train",
+            "Glacier", // Funkystation - add glacier
             "Oasis",
             "Cog",
             "FlandHighPop", // Goobstation - add highpop maps
             "OriginHighPop",
-            "OasisHighPop"
+            "OasisHighPop",
+            "Barratry" // Goobstation - add Barratry
         };
 
         /// <summary>

@@ -1,0 +1,13 @@
+- type: entity
+  id: CrateFunDawnPlushieBulk
+  parent: CrateGenericSteel
+  name: bulk dawn plushie crate
+  description: 4 dawn plushies.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: PlushieDawn
+          amount: !type:ConstantNumberSelector
+            value: 4

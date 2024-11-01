@@ -1,9 +1,9 @@
 - type: loadout
   id: Bodycam
   equipment:
-    outerClothing: SurveillanceWirelessCameraBodySecurity
+    neck: SurveillanceWirelessCameraBodySecurity # funkystation - bodycams should take up a neckslot
 
 - type: loadout
   id: NoPro
   equipment:
-    outerClothing: SurveillanceWirelessCameraBodyEntertainment
+    neck: SurveillanceWirelessCameraBodyEntertainment # funkystation - bodycams should take up a neckslot

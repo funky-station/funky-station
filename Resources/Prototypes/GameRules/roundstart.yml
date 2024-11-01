@@ -22,8 +22,8 @@
     rules:
     - id: Thief
       prob: 0.75
-    - id: Heretic # goob edit
-      prob: 0.4
+    #- id: Heretic # goob edit
+    #  prob: 0.4 # funkystation - nuh uh
 
 - type: entity
   id: DeathMatch31
@@ -110,7 +110,7 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: [ names_death_commando ] # goob edit
+        # nameSegments: [ names_death_commando ] # goob edit # funkystation - undo this
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -126,7 +126,7 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: [ names_death_commando ] # goob edit
+        # nameSegments: [ names_death_commando ] # goob edit # funkystation - undo this
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -144,7 +144,7 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: [ names_death_commando ] # goob edit
+        # nameSegments: [ names_death_commando ] # goob edit # funkystation - undo this
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -179,8 +179,8 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ Traitor ]
-      max: 8
-      playerRatio: 10
+      max: 6
+      playerRatio: 20
       blacklist:
         components:
         - AntagImmune
@@ -200,7 +200,7 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ HeadRev ]
-      max: 3
+      max: 2
       playerRatio: 15
       briefing:
         text: head-rev-role-greeting

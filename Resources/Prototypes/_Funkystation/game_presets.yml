@@ -1,0 +1,30 @@
+﻿- type: gamePreset
+  id: Heretics
+  alias:
+  - heretics
+  - heret
+  name: heretics-gamemode-title
+  description: heretics-gamemode-description
+  showInVote: false
+  rules:
+  - Heretic
+  - BasicStationEventScheduler
+  - AntagStationEventScheduler
+  - BasicRoundstartVariation
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: ChangelingHeretics
+  alias:
+  - cheretics
+  - changehere
+  name: heretics-gamemode-title
+  description: heretics-gamemode-description
+  showInVote: false
+  rules:
+  - Heretic
+  - CalmLing
+  - BasicStationEventScheduler
+  - AntagStationEventScheduler
+  - BasicRoundstartVariation
+  - BasicRoundstartVariation

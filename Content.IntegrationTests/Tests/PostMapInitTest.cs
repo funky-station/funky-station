@@ -65,6 +65,7 @@ namespace Content.IntegrationTests.Tests
             "Origin", // Goobstation - Readds Origin
             "Train",
             "Glacier", // Funkystation - add glacier
+            "Divide", // Funkystation - add divide
             "Oasis",
             "Cog",
             "FlandHighPop", // Goobstation - add highpop maps

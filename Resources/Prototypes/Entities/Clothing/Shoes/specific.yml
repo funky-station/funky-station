@@ -163,13 +163,13 @@
     - type: Tag
       tags: [] # ignore "WhitelistChameleon" tag
     - type: Sprite
-      sprite: Clothing/Shoes/color.rsi
+      sprite: _Funkystation/Clothing/Shoes/color.rsi
       layers:
       - state: icon
         color: "#3f3f3f"
       - state: soles-icon
     - type: Clothing
-      sprite: Clothing/Shoes/color.rsi
+      sprite: _Funkystation/Clothing/Shoes/color.rsi
       clothingVisuals:
         shoes:
         - state: equipped-FEET

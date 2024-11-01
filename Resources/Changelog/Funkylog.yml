@@ -138,3 +138,9 @@ Entries:
       message: 'Body cams now take up a neck slot '
   id: 21
   time: '2024-10-31T21:44:13.0000000+00:00'
+- author: Merrokitsune
+  changes:
+    - type: Tweak
+      message: Resprited color clothing and humans.
+  id: 22
+  time: '2024-11-01T23:27:32.0000000+00:00'

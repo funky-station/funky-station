@@ -5370,22 +5370,46 @@ entities:
       rot: 3.141592653589793 rad
       pos: 43.5,16.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        22991:
+        - DoorStatus: DoorBolt
   - uid: 22991
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 45.5,16.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        22990:
+        - DoorStatus: DoorBolt
   - uid: 23566
     components:
     - type: Transform
       pos: 37.5,-102.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        23567:
+        - DoorStatus: DoorBolt
   - uid: 23567
     components:
     - type: Transform
       pos: 37.5,-105.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        23566:
+        - DoorStatus: DoorBolt
 - proto: AirlockExternalGlassCargoLocked
   entities:
   - uid: 14951
@@ -5462,12 +5486,24 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -56.5,-75.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        24098:
+        - DoorStatus: DoorBolt
   - uid: 24098
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -56.5,-78.5
       parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        24097:
+        - DoorStatus: DoorBolt
 - proto: AirlockExternalGlassShuttleArrivals
   entities:
   - uid: 10880
@@ -5773,7 +5809,7 @@ entities:
       pos: 30.5,-50.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -19194.518
+      secondsUntilStateChange: -19298.592
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5945,7 +5981,7 @@ entities:
       pos: -5.5,7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -44801.66
+      secondsUntilStateChange: -44905.734
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -55594,7 +55630,7 @@ entities:
       pos: 34.5,-50.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -105480.47
+      secondsUntilStateChange: -105584.54
       state: Opening
   - uid: 5497
     components:
@@ -55603,7 +55639,7 @@ entities:
       pos: 35.5,-50.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -105479.97
+      secondsUntilStateChange: -105584.04
       state: Opening
 - proto: CurtainsBlueOpen
   entities:
@@ -135848,41 +135884,6 @@ entities:
     - type: Transform
       pos: -36.5,-43.5
       parent: 2
-  - uid: 21814
-    components:
-    - type: MetaData
-      desc: 15th of march 4048
-      name: i hate my life
-    - type: Transform
-      pos: 36.110493,-91.528465
-      parent: 2
-    - type: MeleeWeapon
-      attackRate: 10
-      autoAttack: True
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.5,-0.5
-            - 0.5,-0.5
-            - 0.5,0.5
-            - -0.5,0.5
-          mask:
-          - Impassable
-          - HighImpassable
-          layer: []
-          density: 20
-          hard: True
-          restitution: 0.3
-          friction: 0.2
-    - type: ScaleVisuals
-    - type: Appearance
-    - type: Jittering
 - proto: ToyFigurineGreytider
   entities:
   - uid: 21430

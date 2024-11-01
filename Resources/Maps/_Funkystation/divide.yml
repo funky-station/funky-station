@@ -5809,7 +5809,7 @@ entities:
       pos: 30.5,-50.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -19298.592
+      secondsUntilStateChange: -19427.182
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5981,7 +5981,7 @@ entities:
       pos: -5.5,7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -44905.734
+      secondsUntilStateChange: -45034.324
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -55630,7 +55630,7 @@ entities:
       pos: 34.5,-50.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -105584.54
+      secondsUntilStateChange: -105713.13
       state: Opening
   - uid: 5497
     components:
@@ -55639,7 +55639,7 @@ entities:
       pos: 35.5,-50.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -105584.04
+      secondsUntilStateChange: -105712.63
       state: Opening
 - proto: CurtainsBlueOpen
   entities:

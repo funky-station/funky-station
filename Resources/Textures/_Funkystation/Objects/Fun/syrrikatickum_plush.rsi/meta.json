@@ -1,14 +1,9 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "plush_tickum by Sover31gnty",
-  "size": {
-    "x": 19,
-    "y": 23
-  },
-  "states": [
-    {
-      "name": "plush_tickum"
-    }
-  ]
-}
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "plush_tickum by Sover31gnty",
+    "size": {
+        "x": 19,
+        "y": 23
+    },
+    "states": [{ "name": "plush_tickum"}]}

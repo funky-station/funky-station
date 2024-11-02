@@ -7,5 +7,6 @@ guide-entry-alertlevel-green = Green Alert
 guide-entry-alertlevel-yellow = Yellow Alert
 guide-entry-alertlevel-blue = Blue Alert
 guide-entry-alertlevel-red = Red Alert
+guide-entry-alertlevel-violet = Violet Alert
 guide-entry-alertlevel-gamma = Gamma Alert
 guide-entry-alertlevel-delta = Delta Alert

@@ -60,13 +60,19 @@
   text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/RedAlert.xml"
 
 - type: guideEntry
-  id: DeltaAlertSOP
-  name: guide-entry-alertlevel-delta
-  priority: 60
-  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/DeltaAlert.xml"
+  id: RedAlertSOP
+  name: guide-entry-alertlevel-violet
+  priority: 50
+  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/VioletAlert.xml"
 
 - type: guideEntry
   id: GammaAlertSOP
   name: guide-entry-alertlevel-gamma
-  priority: 50
+  priority: 60
   text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/GammaAlert.xml"
+
+- type: guideEntry
+  id: DeltaAlertSOP
+  name: guide-entry-alertlevel-delta
+  priority: 70
+  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/DeltaAlert.xml"

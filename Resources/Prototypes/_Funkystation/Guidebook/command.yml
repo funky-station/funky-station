@@ -22,6 +22,7 @@
   - YellowAlertSOP
   - BlueAlertSOP
   - RedAlertSOP
+  - VioletAlertSOP
   - DeltaAlertSOP
   - GammaAlertSOP
 
@@ -60,7 +61,7 @@
   text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/RedAlert.xml"
 
 - type: guideEntry
-  id: RedAlertSOP
+  id: VioletAlertSOP
   name: guide-entry-alertlevel-violet
   priority: 50
   text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/VioletAlert.xml"

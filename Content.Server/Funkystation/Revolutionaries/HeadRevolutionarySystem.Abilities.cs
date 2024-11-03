@@ -7,6 +7,7 @@ using Content.Server.Chat.Managers;
 using Content.Shared.Chat;
 using Content.Shared.Hands.EntitySystems;
 using Robust.Shared.Prototypes;
+using Stopwatch = Robust.Shared.Timing.Stopwatch;
 
 namespace Content.Server.Revolutionary;
 
@@ -21,10 +22,10 @@ public sealed partial class HeadRevolutionarySystem
     [Dependency]
     private readonly MetaDataSystem _metadata = default!;
 
-    public EntProtoId[] Uniforms = [];
-    public EntityUid[] UniformIds = [];
+    private EntProtoId[] Uniforms = [];
+    private EntityUid[] UniformIds = [];
 
-    public static string GetFriendlyRevPathName(RevolutionaryPaths path)
+    private static string GetFriendlyRevPathName(RevolutionaryPaths path)
     {
         return path switch
         {
@@ -36,7 +37,7 @@ public sealed partial class HeadRevolutionarySystem
         };
     }
 
-    public void SubscribeEvents()
+    private void SubscribeEvents()
     {
         SubscribeLocalEvent<HeadRevolutionaryPathComponent, EventHeadRevolutionaryOpenUplink>(OnOpenStore);
         SubscribeLocalEvent<HeadRevolutionaryPathComponent, HeadRevolutionarySelectedVanguardEvent>(OnSelectVanguardPath);

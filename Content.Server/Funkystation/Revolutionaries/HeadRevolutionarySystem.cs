@@ -9,6 +9,7 @@ using Content.Shared.Revolutionary.Prototypes;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using static Content.Shared.Revolutionary.HeadRevolutionaryPathComponent;
 
 namespace Content.Server.Revolutionary;

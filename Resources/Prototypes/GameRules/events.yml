@@ -35,6 +35,7 @@
     - id: RevenantSpawn
     - id: SleeperAgents
     - id: ZombieOutbreak
+    - id: FalseAlarm
 
 - type: entity
   id: BaseStationEvent
@@ -146,7 +147,8 @@
   - type: StationEvent
     weight: 5
     duration: 1
-    minimumPlayers: 10
+    minimumPlayers: 20 # funkystation yea yea
+    reoccurrenceDelay: 30 # funkystation
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
 
@@ -155,9 +157,9 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    weight: 6.5
-    earliestStart: 40
-    reoccurrenceDelay: 20
+    weight: 3.0 # funkystation
+    earliestStart: 40 # funkystation
+    reoccurrenceDelay: 60 # funkystation
     minimumPlayers: 20
     duration: null
   - type: SpaceSpawnRule
@@ -188,7 +190,7 @@
     weight: 6
     duration: null
     earliestStart: 30
-    reoccurrenceDelay: 20
+    reoccurrenceDelay: 60 # funkystation
     minimumPlayers: 30
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
@@ -235,7 +237,7 @@
   id: RevenantSpawn
   components:
   - type: StationEvent
-    weight: 7.5
+    weight: 5 # funkystation - why was it as common as a gas leak?
     duration: 1
     earliestStart: 45
     minimumPlayers: 20
@@ -243,14 +245,14 @@
     prototype: MobRevenant
 
 # disabled until event is rewritten to be more interesting
-#- type: entity
-#  id: FalseAlarm
-#  parent: BaseGameRule
-#  components:
-#  - type: StationEvent
-#    weight: 15
-#    duration: 1
-#  - type: FalseAlarmRule
+- type: entity
+  id: FalseAlarm
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 6
+    duration: 1
+  - type: FalseAlarmRule
 
 - type: entity
   id: GasLeak
@@ -400,7 +402,7 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/aliens.ogg
-    earliestStart: 20
+    earliestStart: 25 # funkystation delay
     minimumPlayers: 20
     weight: 1.5
     duration: 60
@@ -414,7 +416,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    earliestStart: 90
+    earliestStart: 60 # funkystation
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1

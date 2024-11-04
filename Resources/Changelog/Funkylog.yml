@@ -154,3 +154,9 @@ Entries:
       message: Updated glacier
   id: 24
   time: '2024-11-03T21:41:25.0000000+00:00'
+- author: sleepyapril
+  changes:
+    - type: Tweak
+      message: Removed BSO and NTR age requirement because no other roles have one.
+  id: 25
+  time: '2024-11-04T18:43:46.0000000+00:00'

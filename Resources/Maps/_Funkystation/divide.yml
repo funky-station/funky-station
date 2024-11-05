@@ -5735,7 +5735,7 @@ entities:
       pos: 30.5,-50.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -24763.883
+      secondsUntilStateChange: -24873.123
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5907,7 +5907,7 @@ entities:
       pos: -5.5,7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -50371.03
+      secondsUntilStateChange: -50480.27
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -55912,7 +55912,7 @@ entities:
       pos: 34.5,-50.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -111049.836
+      secondsUntilStateChange: -111159.08
       state: Opening
   - uid: 5497
     components:
@@ -55921,7 +55921,7 @@ entities:
       pos: 35.5,-50.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -111049.336
+      secondsUntilStateChange: -111158.58
       state: Opening
 - proto: CurtainsBlueOpen
   entities:
@@ -103734,6 +103734,34 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -18.5,-0.5
+      parent: 2
+- proto: GasThermoMachineHellfireFreezer
+  entities:
+  - uid: 12736
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -40.5,-64.5
+      parent: 2
+  - uid: 12737
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -40.5,-65.5
+      parent: 2
+- proto: GasThermoMachineHellfireHeater
+  entities:
+  - uid: 12738
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -40.5,-66.5
+      parent: 2
+  - uid: 12739
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -40.5,-67.5
       parent: 2
 - proto: GasValve
   entities:

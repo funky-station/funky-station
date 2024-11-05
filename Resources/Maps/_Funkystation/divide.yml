@@ -5442,48 +5442,6 @@ entities:
       parent: 2
 - proto: AirlockExternalGlassLocked
   entities:
-  - uid: 253
-    components:
-    - type: Transform
-      pos: -6.5,-34.5
-      parent: 2
-  - uid: 254
-    components:
-    - type: Transform
-      pos: -6.5,-36.5
-      parent: 2
-  - uid: 255
-    components:
-    - type: Transform
-      pos: 11.5,-34.5
-      parent: 2
-  - uid: 256
-    components:
-    - type: Transform
-      pos: 11.5,-36.5
-      parent: 2
-  - uid: 397
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 11.5,-42.5
-      parent: 2
-  - uid: 398
-    components:
-    - type: Transform
-      pos: -6.5,-42.5
-      parent: 2
-  - uid: 399
-    components:
-    - type: Transform
-      pos: -6.5,-44.5
-      parent: 2
-  - uid: 565
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 11.5,-44.5
-      parent: 2
   - uid: 16741
     components:
     - type: Transform
@@ -5825,7 +5783,7 @@ entities:
       pos: 30.5,-50.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -23099.232
+      secondsUntilStateChange: -23200.398
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5997,7 +5955,7 @@ entities:
       pos: -5.5,7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -48706.38
+      secondsUntilStateChange: -48807.547
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -55908,7 +55866,7 @@ entities:
       pos: 34.5,-50.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -109385.19
+      secondsUntilStateChange: -109486.35
       state: Opening
   - uid: 5497
     components:
@@ -55917,7 +55875,7 @@ entities:
       pos: 35.5,-50.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -109384.69
+      secondsUntilStateChange: -109485.85
       state: Opening
 - proto: CurtainsBlueOpen
   entities:

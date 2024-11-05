@@ -126,9 +126,8 @@ public sealed class SlipperySystem : EntitySystem
 
         var playSound = !_statusEffects.HasStatusEffect(other, "KnockedDown");
 
-        // goob edit - stunmeta
-        _stun.TryKnockdown(other, TimeSpan.FromSeconds(component.ParalyzeTime), true);
-        
+        _stun.TryParalyze(other, TimeSpan.FromSeconds(component.ParalyzeTime), true);
+
         // Preventing from playing the slip sound when you are already knocked down.
         if (playSound)
         {

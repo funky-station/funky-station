@@ -5825,7 +5825,7 @@ entities:
       pos: 30.5,-50.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -22731.049
+      secondsUntilStateChange: -23099.232
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5997,7 +5997,7 @@ entities:
       pos: -5.5,7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -48338.195
+      secondsUntilStateChange: -48706.38
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -54325,6 +54325,11 @@ entities:
     - type: Transform
       pos: 46.5,-67.5
       parent: 2
+  - uid: 26357
+    components:
+    - type: Transform
+      pos: 63.5,-79.5
+      parent: 2
 - proto: ClosetWall
   entities:
   - uid: 2888
@@ -55903,7 +55908,7 @@ entities:
       pos: 34.5,-50.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -109017.01
+      secondsUntilStateChange: -109385.19
       state: Opening
   - uid: 5497
     components:
@@ -55912,7 +55917,7 @@ entities:
       pos: 35.5,-50.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -109016.51
+      secondsUntilStateChange: -109384.69
       state: Opening
 - proto: CurtainsBlueOpen
   entities:

@@ -304,6 +304,56 @@ entities:
     - type: Transform
       pos: 9.5,-2.5
       parent: 2
+- proto: AtmosDeviceFanDirectional
+  entities:
+  - uid: 442
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,-13.5
+      parent: 2
+  - uid: 443
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,-11.5
+      parent: 2
+  - uid: 444
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,-5.5
+      parent: 2
+  - uid: 445
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,-3.5
+      parent: 2
+  - uid: 446
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 13.5,-3.5
+      parent: 2
+  - uid: 447
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 13.5,-5.5
+      parent: 2
+  - uid: 448
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 13.5,-11.5
+      parent: 2
+  - uid: 449
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 13.5,-13.5
+      parent: 2
 - proto: BaseComputer
   entities:
   - uid: 48
@@ -1165,11 +1215,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 10.5,-21.5
       parent: 2
-  - uid: 145
-    components:
-    - type: Transform
-      pos: 8.5,-3.5
-      parent: 2
   - uid: 153
     components:
     - type: Transform
@@ -1280,6 +1325,12 @@ entities:
     components:
     - type: Transform
       pos: 11.5,-15.5
+      parent: 2
+  - uid: 452
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 8.5,-4.5
       parent: 2
 - proto: ClosetWallEmergencyFilledRandom
   entities:
@@ -1423,6 +1474,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 6.5,2.5
+      parent: 2
+  - uid: 455
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 12.5,-22.5
       parent: 2
 - proto: GasPipeBend
   entities:
@@ -1721,6 +1778,45 @@ entities:
     - type: Transform
       pos: 8.322654,-12.217561
       parent: 2
+- proto: MedkitBruteFilled
+  entities:
+  - uid: 368
+    components:
+    - type: Transform
+      pos: 8.312666,-12.446291
+      parent: 2
+- proto: MedkitBurnFilled
+  entities:
+  - uid: 145
+    components:
+    - type: Transform
+      pos: 8.734541,-12.211916
+      parent: 2
+- proto: MedkitFilled
+  entities:
+  - uid: 453
+    components:
+    - type: Transform
+      pos: 8.593916,-12.336916
+      parent: 2
+  - uid: 454
+    components:
+    - type: Transform
+      pos: 8.468916,-12.540041
+      parent: 2
+- proto: PottedPlant1
+  entities:
+  - uid: 441
+    components:
+    - type: Transform
+      pos: 8.5,-3.5
+      parent: 2
+    - type: ContainerContainer
+      containers:
+        stash: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 391
 - proto: PoweredlightCyan
   entities:
   - uid: 342
@@ -1845,11 +1941,11 @@ entities:
   - uid: 391
     components:
     - type: Transform
-      pos: 8.448288,-3.5058277
-      parent: 2
+      parent: 441
     - type: Physics
       angularDamping: 0
       linearDamping: 0
+      canCollide: False
 - proto: ShuttleWindow
   entities:
   - uid: 10
@@ -2660,11 +2756,11 @@ entities:
       parent: 2
 - proto: WindoorSecureSecurityLocked
   entities:
-  - uid: 368
+  - uid: 451
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 8.5,-4.5
+      rot: -1.5707963267948966 rad
+      pos: 9.5,-4.5
       parent: 2
 - proto: WindowReinforcedDirectional
   entities:
@@ -2705,5 +2801,10 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 9.5,-3.5
+      parent: 2
+  - uid: 450
+    components:
+    - type: Transform
+      pos: 8.5,-4.5
       parent: 2
 ...

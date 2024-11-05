@@ -2,7 +2,7 @@
   id: Divide
   mapName: 'Divide'
   mapPath: /Maps/_Funkystation/divide.yml
-  minPlayers: 20
+  minPlayers: 25
   maxPlayers: 80
   stations:
     Divide:
@@ -39,23 +39,23 @@
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 6, 6 ]
             MedicalIntern: [ 3, 3 ]
-            Paramedic: [ 1, 1 ]
+            Paramedic: [ 2, 2 ]
             Psychologist: [ 1, 1 ]
             #science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 4, 4 ]
-            ResearchAssistant: [ 2, 2 ]
+            Scientist: [ 5, 5 ]
+            ResearchAssistant: [ 3, 3 ]
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
-            SecurityOfficer: [ 4, 4 ]
+            SecurityOfficer: [ 5, 5 ]
             Detective: [ 1, 1 ]
-            SecurityCadet: [ 2, 2 ]
+            SecurityCadet: [ 3, 3 ]
             Lawyer: [ 1, 2 ]
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
-            CargoTechnician: [ 4, 4 ]
+            CargoTechnician: [ 6, 6 ]
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]

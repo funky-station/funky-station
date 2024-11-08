@@ -184,3 +184,9 @@ Entries:
       message: Fixed cams on divide not being rigged
   id: 29
   time: '2024-11-08T07:40:27.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Tweak
+      message: Changed antag rates to have a higher cap!
+  id: 30
+  time: '2024-11-08T23:34:58.0000000+00:00'

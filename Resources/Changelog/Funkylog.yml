@@ -176,3 +176,11 @@ Entries:
       message: Added divide to map pool
   id: 28
   time: '2024-11-05T23:59:39.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Add
+      message: Added reporter to divide
+    - type: Fix
+      message: Fixed cams on divide not being rigged
+  id: 29
+  time: '2024-11-08T07:40:27.0000000+00:00'

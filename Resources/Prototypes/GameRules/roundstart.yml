@@ -179,8 +179,8 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ Traitor ]
-      max: 6
-      playerRatio: 20
+      max: 8
+      playerRatio: 10
       blacklist:
         components:
         - AntagImmune
@@ -200,8 +200,8 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ HeadRev ]
-      max: 2
-      playerRatio: 15
+      max: 3
+      playerRatio: 20
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue

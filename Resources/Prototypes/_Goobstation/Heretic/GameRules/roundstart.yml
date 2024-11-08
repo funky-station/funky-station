@@ -4,7 +4,7 @@
   components:
   - type: HereticRule
   - type: GameRule
-    minPlayers: 8
+    minPlayers: 20
     delay:
       min: 30
       max: 60
@@ -24,7 +24,7 @@
   id: CalmHeretic # For Dual Antag Gamemodes (i dont want 4 damn heretics with 4 lings)
   components:
   - type: GameRule
-    minPlayers: 8
+    minPlayers: 20
     delay:
       min: 30
       max: 60

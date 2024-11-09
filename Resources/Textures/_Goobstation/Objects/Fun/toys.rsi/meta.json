@@ -8,10 +8,7 @@
     },
     "states": [
         {
-            "name": "plushie_louie"
-        },
-        {
-            "name": "plushie_durk"
+          "name": "plushie_louie"
         }
     ]
 }

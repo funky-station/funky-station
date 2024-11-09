@@ -32,6 +32,11 @@
   text: "/ServerInfo/Funkystation/Guidebook/Security/SecurityStandardOperatingProcedure.xml"
 
 - type: guideEntry
+  id: EngineeringSOP
+  name: guide-entry-alertlevel-delta
+  text: "/ServerInfo/Funkystation/Guidebook/Engineering/EngineeringSOP.xml"
+
+- type: guideEntry
   id: EnemiesOfTheCorporation
   name: guide-entry-eoc-sop
   text: "/ServerInfo/Funkystation/Guidebook/Security/EnemiesOfTheCorporation.xml"

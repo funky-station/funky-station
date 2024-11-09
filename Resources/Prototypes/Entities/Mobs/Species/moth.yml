@@ -195,7 +195,7 @@
         32:
           sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
           state: inhand_right
-
+  - type: FootPrints
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -233,4 +233,4 @@
           32:
             sprite: _Funkystation/Mobs/Species/Moth/displacement.rsi
             state: jumpsuit_male
-    
+

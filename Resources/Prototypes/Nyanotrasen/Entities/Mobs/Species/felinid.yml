@@ -91,6 +91,7 @@
     - FootstepSound
     - DoorBumpOpener
     - FelinidEmotes
+  - type: FootPrints # WD EDIT
 
 - type: entity
   save: false

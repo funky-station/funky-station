@@ -200,3 +200,9 @@ Entries:
       message: Cargo request computer now prints invoices.
   id: 32
   time: '2024-11-09T21:06:34.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Stethoscopes can now tell if someone has been sacrificed.
+  id: 33
+  time: '2024-11-09T21:35:17.0000000+00:00'

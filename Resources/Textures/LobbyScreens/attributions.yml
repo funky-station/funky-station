@@ -1,57 +1,82 @@
-- files: ["supermatter.webp", "robotics.webp"]
+- files: ["janishootout.webp"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "Veritius#2351 (257233913951289344) on discord / @Veritius on GitHub"
-  source: "https://github.com/Veritius"
+  copyright: "Unknown"
+  source: "https://forums.goobstation.com"
 
-- files: ["warden.webp", "pharmacy.webp"]
+- files: ["breakingchem.webp"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "Solbusaur#4343 (220208697429852160) on discord"
-  source: "https://github.com/space-wizards/space-station-14"
+  copyright: "Unknown"
+  source: "https://forums.goobstation.com"
 
-- files: ["ssxiv.webp"]
+- files: ["clown.webp"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "Abyssal#4842 on discord / @aby_doodles on Twitter"
-  source: "https://twitter.com/aby_doodles"
+  copyright: "Unknown"
+  source: "https://forums.goobstation.com"
 
-- files: ["susstation.webp"]
+- files: ["command.webp"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "Alekshhh github"
-  source: "https://github.com/space-wizards/space-station-14"
+  copyright: "Unknown"
+  source: "https://forums.goobstation.com"
 
-- files: ["skellyvstherev.webp"]
-  license: "CC-BY-SA-4.0"
-  copyright: "Hannah 'FairlySadPanda' Dawson 2024"
-  source: "https://github.com/FairlySadPanda"
-
-- files: ["doomed.webp"]
+- files: ["goob.webp"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "brainfood1183 github"
-  source: "https://github.com/space-wizards/space-station-14"
+  copyright: "Unknown"
+  source: "https://forums.goobstation.com"
 
-- files: ["blueprint.webp"]
+- files: ["gugel.webp"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "data_redacted on discord"
-  source: "https://github.com/space-wizards/space-station-14"
-
-- files: ["behonker.webp"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "InCrah on twitter / @in_crah"
-  source: "https://twitter.com/in_crah"
-
-- files: ["terminalstation.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "aserovich on discord"
-  source: "https://github.com/space-wizards/space-station-14"
+  copyright: "Unknown"
+  source: "https://forums.goobstation.com"
 
 - files: ["justaweekaway.webp"]
   license: "CC-BY-SA-3.0"
   copyright: "plantyfern on discord"
   source: "https://github.com/space-wizards/space-station-14"
 
-- files: ["janishootout.webp"]
-  license: "CC0-1.0"
-  copyright: "psychpsyo on Github/Twitter"
-  source: "https://github.com/space-wizards/space-station-14"
+- files: ["mime.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Unknown"
+  source: "https://forums.goobstation.com"
+
+- files: ["courtjester.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Piras314"
+  source: "https://forums.goobstation.com"
+
+- files: ["donottouch.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Piras314"
+  source: "https://forums.goobstation.com"
+
+- files: ["foundinghonkers.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Piras314"
+  source: "https://forums.goobstation.com"
+
+- files: ["cburn.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "PubliclyExecutedPig"
+  source: "https://forums.goobstation.com"
+
+- files: ["clownhell.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "kA2220"
+  source: "https://forums.goobstation.com"
+
+- files: ["grandtheftgoob.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Piras314"
+  source: "https://forums.goobstation.com"
+
+- files: ["killsigned.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "icepick"
+  source: "https://forums.goobstation.com"
+
+- files: ["clownassassin.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "ka2220"
+  source: "https://forums.goobstation.com"
 
 - files: ["reclaimer-nuke.webp"]
   license: "CC-BY-SA-3.0"
@@ -63,11 +88,6 @@
   copyright: "@Cheeki - on discord"
   source: "https://forums.goobstation.com"
   
-- files: ["heretic.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "@Cheeki - on discord"
-  source: "https://forums.goobstation.com"
-
 - files: ["heretic.webp"]
   license: "CC-BY-SA-3.0"
   copyright: "@Cheeki - on discord"
@@ -92,8 +112,3 @@
   license: "CC-BY-SA-3.0"
   copyright: "blooodyspy"
   source: "https://forums.goobstation.com"
-
-- files: ["cirnochef.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "AbjectAngel - on discord"
-  source: "https://funkystation.org"

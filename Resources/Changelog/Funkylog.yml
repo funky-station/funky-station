@@ -194,3 +194,9 @@ Entries:
   changes: []
   id: 31
   time: '2024-11-09T20:17:12.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Cargo request computer now prints invoices.
+  id: 32
+  time: '2024-11-09T21:06:34.0000000+00:00'

@@ -33,8 +33,13 @@
 
 - type: guideEntry
   id: EngineeringSOP
-  name: guide-entry-alertlevel-delta
+  name: guide-entry-engineering-sop
   text: "/ServerInfo/Funkystation/Guidebook/Engineering/EngineeringSOP.xml"
+
+- type: guideEntry
+  id: CargoSOP
+  name: guide-entry-cargo-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Cargo/CargoSOP.xml"
 
 - type: guideEntry
   id: EnemiesOfTheCorporation

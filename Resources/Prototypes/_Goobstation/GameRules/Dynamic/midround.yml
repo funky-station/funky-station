@@ -51,8 +51,8 @@
     weight: 4
     cost: 5
   - type: StationEvent
-    earliestStart: 20
-    weight: 3
+    earliestStart: 20 
+    weight: 3 
     minimumPlayers: 30
     startAnnouncement: station-event-communication-interception
     startAudio:
@@ -72,8 +72,8 @@
     cost: 7
     highImpact: true
   - type: StationEvent
-    earliestStart: 20
-    weight: 3
+    earliestStart: 20 
+    weight: 3 
     minimumPlayers: 30
     maxOccurrences: 1
     duration: null
@@ -126,9 +126,8 @@
       min: 1
       max: 1
       pickPlayer: false
-      mindComponents:
-      - type: DragonRole
-        prototype: Dragon
+      mindRoles:
+      - MindRoleDragon
 
 # Space Ninja Spawn
 - type: entity
@@ -181,9 +180,8 @@
         nameSegments:
         - names_ninja_title
         - names_ninja
-      mindComponents:
-      - type: NinjaRole
-        prototype: SpaceNinja
+      mindRoles:
+      - MindRoleNinja
 
 # Revenant Spawn
 - type: entity
@@ -239,9 +237,8 @@
       - type: ZombifyOnDeath
       - type: IncurableZombie
       - type: InitialInfected
-      mindComponents:
-      - type: InitialInfectedRole
-        prototype: InitialInfected
+      mindRoles:
+      - MindRoleInitialInfected
 
 # Lone Operative Spawn
 - type: entity

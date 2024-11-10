@@ -128,8 +128,7 @@ namespace Content.Server.Flash
 
             if (stunDuration != null)
             {
-                // goob edit - stunmeta
-                _stun.TryKnockdown(target, stunDuration.Value, true);
+                _stun.TryParalyze(target, stunDuration.Value, true);
             }
             else
             {

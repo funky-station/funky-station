@@ -641,8 +641,9 @@ namespace Content.Server.Mail
 
             foreach (var receiver in EntityQuery<MailReceiverComponent>())
             {
-                if (_stationSystem.GetOwningStation(receiver.Owner) != _stationSystem.GetOwningStation(uid))
-                    continue;
+                // funkystation - this flat out doesnt work
+                // if (_stationSystem.GetOwningStation(receiver.Owner) != _stationSystem.GetOwningStation(uid))
+                //     continue;
 
                 if (TryGetMailRecipientForReceiver(receiver, out MailRecipient? recipient))
                     candidateList.Add(recipient.Value);

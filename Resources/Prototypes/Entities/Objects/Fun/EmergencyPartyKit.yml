@@ -1,6 +1,6 @@
 - type: entity
   id: EmergencyPartyKit
-  parent: BaseItem
+  parent: BaseStorageItem
   name: emergency party kit
   description: For when you need a party STAT and cant wait for cargo.
   components:

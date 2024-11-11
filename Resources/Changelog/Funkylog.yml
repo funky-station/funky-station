@@ -212,3 +212,11 @@ Entries:
       message: SOP for Cargo and Engineering added to guidebook
   id: 34
   time: '2024-11-11T06:42:24.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Add
+      message: Added sounds for harmbatoning
+    - type: Tweak
+      message: Harmbaton damage upped to 12
+  id: 35
+  time: '2024-11-11T23:06:37.0000000+00:00'

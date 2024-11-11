@@ -67,7 +67,7 @@
   parent: BasePlushie
   id: PlushieAshleyTickum
   name: unfortunate captain plush
-  description: Very sensitive and likes to call for this "Douglas" figure, you can now get this captain in plush form!
+  description: Do you ever hate the fact that you always get soda-tripped by the same person over and over again? Well, this plush allows you to take up whatever frustrations you might've faced with that said person. Great for security and janitors alike, though make sure it doesn't call for some "Douglas" figure. It also may or may not have fears of anything sharp.
   components:
   - type: Sprite
     state: plush_tickum

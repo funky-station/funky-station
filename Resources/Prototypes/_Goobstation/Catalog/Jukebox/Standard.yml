@@ -45,3 +45,9 @@
   name: DJ B1G YAPPA - SKUBSTUB
   path:
     path: /Audio/Lobby/skubstub.ogg
+
+- type: jukebox
+  id: tusmentiras
+  name: Alex Torres Y Los Reyes Latinos - Tus Mentiras
+  path:
+    path: /Audio/Lobby/tusmentiras.ogg

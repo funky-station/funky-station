@@ -49,3 +49,7 @@
 - type: lobbyBackground
   id: GoobHeretic
   background: /Textures/LobbyScreens/heretic.webp
+
+- type: lobbyBackground
+  id: funkyCirnoChef
+  background: /Textures/LobbyScreens/cirnochef.webp

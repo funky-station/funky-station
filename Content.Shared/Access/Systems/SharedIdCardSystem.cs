@@ -138,6 +138,7 @@ public abstract class SharedIdCardSystem : EntitySystem
         if (id.LocalizedJobTitle == jobTitle)
             return true;
         id.LocalizedJobTitle = jobTitle;
+        id.JobTitle = jobTitle; // funkystation - apparently this is why mail is broken?
         Dirty(uid, id);
         UpdateEntityName(uid, id);
 

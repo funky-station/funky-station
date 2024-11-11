@@ -363,6 +363,7 @@
           reagent: Frezon
           min: 1
 
+ #funkystation
 - type: reagent
   id: BZ
   name: reagent-name-bz
@@ -482,39 +483,105 @@
         conditions:
         - !type:ReagentThreshold
           reagent: Healium
-          min: 0.5
+          min: 1
         scaleByQuantity: true
         ignoreResistances: true
         damage:
           groups:
-            Burn: -0.3
-            Toxin: -0.3
-          types:
-            Blunt: -0.3
-      - !type:ModifyBleedAmount
-        amount: -0.15
+            Burn: -2
+            Toxin: -5
+            Brute: -2
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold
           reagent: Healium
-          min: 0.5
+          min: 1.5
         type: Local
         visualType: Medium
         messages: [ "effect-sleepy" ]
         probability: 0.1
-      - !type:MovespeedModifier
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Healium
-          min: 1
-        walkSpeedModifier: 0.65
-        sprintSpeedModifier: 0.65
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
           reagent: Healium
-          min: 1.8
+          min: 6
         key: ForcedSleep
         component: ForcedSleeping
         time: 3
         type: Add
+      - !type:Drunk
+        boozePower: 50
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Healium
+          min: 3
+
+- type: reagent
+  id: Nitrium
+  name: reagent-name-nitrium
+  desc: reagent-desc-nitrium
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: sour
+  color: "#8b0000"
+  metabolisms:
+    Gas:
+      effects:
+      - !type:NitriumMovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nitrium
+          min: 4
+        walkSpeedModifier: 1.25
+        sprintSpeedModifier: 1.25
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nitrium
+          min: 15
+        key: Stutter
+        component: StutteringAccent
+        time: 10
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nitrium
+          min: 10
+        time: 10
+      - !type:ResetNarcolepsy
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nitrium
+          min: 15
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nitrium
+          min: 10
+        key: Drowsiness
+        time: 10
+        type: Remove
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nitrium
+          min: 15
+        key: ForcedSleep
+        type: Remove
+        time: 3
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nitrium
+          min: 15
+        key: Adrenaline
+        type: Add
+        time: 3
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nitrium
+          min: 18
+        ignoreResistances: true
+        damage:
+          types:
+            Asphyxiation: 15

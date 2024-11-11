@@ -24,3 +24,6 @@ reagent-desc-bz = A potent hallucinogenic that also puts slimes into stasis.
 
 reagent-name-healium = healium
 reagent-desc-healium = A powerful sleeping agent with regenerative properties.
+
+reagent-name-nitrium = nitrium
+reagent-desc-nitrium = A strong stimulant that will improve reflexes and stamina.

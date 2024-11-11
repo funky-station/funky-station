@@ -88,12 +88,15 @@
   - type: StorageFill
     contents:
       - id: ClothingOuterHardsuitAtmos
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
       - id: ClothingMaskGasAtmos
       - id: ClothingOuterSuitAtmosFire
       - id: ClothingHeadHelmetAtmosFire
       - id: GasAnalyzer
       - id: MedkitOxygenFilled
       - id: HolofanProjector
+      - id: RPD #funkystation
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
       - id: RCD
       - id: RCDAmmo
@@ -111,6 +114,7 @@
       - id: GasAnalyzer
       - id: MedkitOxygenFilled
       - id: HolofanProjector
+      - id: RPD #funkystation
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
       - id: RCD
       - id: RCDAmmo
@@ -123,6 +127,8 @@
   - type: StorageFill
     contents:
       - id: ClothingOuterHardsuitEngineering
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
       - id: ClothingHandsGlovesColorYellow
       - id: ClothingMaskGas
       - id: ClothingShoesBootsMag

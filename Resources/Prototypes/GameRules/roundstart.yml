@@ -22,8 +22,8 @@
     rules:
     - id: Thief
       prob: 0.75
-    - id: Heretic # goob edit
-      prob: 0.4
+    #- id: Heretic # goob edit
+    #  prob: 0.4 # funkystation - nuh uh
 
 - type: entity
   id: DeathMatch31
@@ -110,13 +110,12 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: [ names_death_commando ] # goob edit
+        # nameSegments: [ names_death_commando ] # goob edit # funkystation - undo this
       - type: NpcFactionMember
         factions:
         - Syndicate
-      mindComponents:
-      - type: NukeopsRole
-        prototype: NukeopsCommander
+      mindRoles:
+      - MindRoleNukeopsCommander
     - prefRoles: [ NukeopsMedic ]
       fallbackRoles: [ Nukeops, NukeopsCommander ]
       spawnerPrototype: SpawnPointNukeopsMedic
@@ -126,13 +125,12 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: [ names_death_commando ] # goob edit
+        # nameSegments: [ names_death_commando ] # goob edit # funkystation - undo this
       - type: NpcFactionMember
         factions:
         - Syndicate
-      mindComponents:
-      - type: NukeopsRole
-        prototype: NukeopsMedic
+      mindRoles:
+      - MindRoleNukeopsMedic
     - prefRoles: [ Nukeops ]
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
@@ -144,13 +142,12 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: [ names_death_commando ] # goob edit
+        # nameSegments: [ names_death_commando ] # goob edit # funkystation - undo this
       - type: NpcFactionMember
         factions:
         - Syndicate
-      mindComponents:
-      - type: NukeopsRole
-        prototype: Nukeops
+      mindRoles:
+      - MindRoleNukeops
 
 - type: entity
   abstract: true
@@ -186,9 +183,8 @@
         - AntagImmune
         - Changeling # Goobstation
       lateJoinAdditional: true
-      mindComponents:
-      - type: TraitorRole
-        prototype: Traitor
+      mindRoles:
+      - MindRoleTraitor
 
 - type: entity
   id: Revolutionary
@@ -201,7 +197,7 @@
     definitions:
     - prefRoles: [ HeadRev ]
       max: 3
-      playerRatio: 15
+      playerRatio: 20
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
@@ -210,9 +206,8 @@
       components:
       - type: Revolutionary
       - type: HeadRevolutionary
-      mindComponents:
-      - type: RevolutionaryRole
-        prototype: HeadRev
+      mindRoles:
+      - MindRoleHeadRevolutionary
 
 - type: entity
   id: Sandbox
@@ -254,9 +249,8 @@
       - type: ZombifyOnDeath
       - type: IncurableZombie
       - type: InitialInfected
-      mindComponents:
-      - type: InitialInfectedRole
-        prototype: InitialInfected
+      mindRoles:
+      - MindRoleInitialInfected
 
 # event schedulers
 

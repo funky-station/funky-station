@@ -118,3 +118,8 @@
   license: "CC-BY-NC-SA-4.0"
   copyright: "Bluecometdude"
   source: "https://soundcloud.com/bluecometdude/red-sun-in-the-sky-hq-and-extended"
+
+- files: ["merrynightmerrylight.ogg"]
+  license: "Custom"
+  copyright: "Mitsukiyo - https://mitsukiyo.info/"
+  source: "https://www.youtube.com/watch?v=RN_Z5eAhNIo"

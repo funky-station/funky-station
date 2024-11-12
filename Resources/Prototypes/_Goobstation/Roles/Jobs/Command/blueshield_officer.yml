@@ -12,8 +12,6 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 36000 # 10 hours
-    - !type:AgeRequirement
-      requiredAge: 21
   weight: 20
   startingGear: BlueshieldOfficerGear
   icon: "JobIconNanotrasen"

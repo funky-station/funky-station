@@ -1,7 +1,7 @@
 - type: entity
-  parent: ClothingBackpack
+  parent: [ClothingBackpack, BaseCentcommContraband]
   id: ClothingBackpackCentcom
-  name: Centcom backpack
+  name: centcomm backpack
   description: A luxurious backpack, smells like money.
   components:
   - type: Sprite
@@ -10,7 +10,7 @@
 - type: entity
   parent: [ClothingBackpack, BaseCentcommContraband]
   id: ClothingBackpackBlueshield
-  name: bluesheild backpack
+  name: blueshield backpack
   description: A very protective backpack, smells like energy gun.
   components:
   - type: Sprite

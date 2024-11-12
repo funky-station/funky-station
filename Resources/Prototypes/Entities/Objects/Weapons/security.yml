@@ -32,14 +32,18 @@
     activatedDamage:
       types:
         Blunt: 0
+    deactivatedSoundOnHit:
+      collection: MetalThud #fs - Thwack
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 7
+        Blunt: 12 #fs - Thwack
     bluntStaminaDamageFactor: 2.0
     angle: 60
     animation: WeaponArcSlash
+    soundHit:
+      collection: MetalThud #fs - Thwack
   - type: StaminaDamageOnHit
     damage: 35
     sound: /Audio/Weapons/egloves.ogg

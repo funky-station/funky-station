@@ -212,9 +212,31 @@ namespace Content.Server.Cargo.Systems
             _adminLogger.Add(LogType.Action, LogImpact.Low,
                 $"{ToPrettyString(player):user} approved order [orderId:{order.OrderId}, quantity:{order.OrderQuantity}, product:{order.ProductId}, requester:{order.Requester}, reason:{order.Reason}] with balance at {bank.Balance}");
 
+            var label = Spawn("PaperCargoInvoice", Transform(uid).Coordinates);
+
+            SetupInvoicePaper(label, order);
+
             orderDatabase.Orders.Remove(order);
             DeductFunds(bank, cost);
             UpdateOrders(station.Value);
+        }
+
+        private void SetupInvoicePaper(EntityUid uid, CargoOrderData order)
+        {
+            var val = Loc.GetString("cargo-console-paper-print-name", ("orderNumber", order.OrderId));
+            _metaSystem.SetEntityName(uid, val);
+
+            if (!TryComp<PaperComponent>(uid, out var paper))
+                return;
+
+            _paperSystem.SetContent((uid, paper), Loc.GetString(
+                "cargo-console-paper-print-text",
+                ("orderNumber", order.OrderId),
+                ("itemName", order.ProductName),
+                ("orderQuantity", order.OrderQuantity),
+                ("requester", order.Requester),
+                ("reason", order.Reason),
+                ("approver", order.Approver ?? string.Empty)));
         }
 
         private EntityUid? TryFulfillOrder(Entity<StationDataComponent> stationData, CargoOrderData order, StationCargoOrderDatabaseComponent orderDatabase)

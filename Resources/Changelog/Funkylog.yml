@@ -120,3 +120,103 @@ Entries:
       message: Rapid Piping Device
   id: 18
   time: '2024-10-26T02:41:46.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Adds SOP and the appropriate docs in game.
+  id: 19
+  time: '2024-10-27T21:56:14.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Adds SOP to the game, along with the appropriate documentation
+  id: 20
+  time: '2024-10-27T22:20:00.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: 'Body cams now take up a neck slot '
+  id: 21
+  time: '2024-10-31T21:44:13.0000000+00:00'
+- author: Merrokitsune
+  changes:
+    - type: Tweak
+      message: Resprited color clothing and humans.
+  id: 22
+  time: '2024-11-01T23:27:32.0000000+00:00'
+- author: DevilishMilk
+  changes: []
+  id: 23
+  time: '2024-11-02T01:43:02.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Tweak
+      message: Updated glacier
+  id: 24
+  time: '2024-11-03T21:41:25.0000000+00:00'
+- author: sleepyapril
+  changes:
+    - type: Tweak
+      message: Removed BSO and NTR age requirement because no other roles have one.
+  id: 25
+  time: '2024-11-04T18:43:46.0000000+00:00'
+- author: DevilishMilk
+  changes: []
+  id: 26
+  time: '2024-11-05T00:42:06.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Fix
+      message: Fixed divide power and servers
+  id: 27
+  time: '2024-11-05T05:16:37.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Add
+      message: Added divide to map pool
+  id: 28
+  time: '2024-11-05T23:59:39.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Add
+      message: Added reporter to divide
+    - type: Fix
+      message: Fixed cams on divide not being rigged
+  id: 29
+  time: '2024-11-08T07:40:27.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Tweak
+      message: Changed antag rates to have a higher cap!
+  id: 30
+  time: '2024-11-08T23:34:58.0000000+00:00'
+- author: DevilishMilk
+  changes: []
+  id: 31
+  time: '2024-11-09T20:17:12.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Cargo request computer now prints invoices.
+  id: 32
+  time: '2024-11-09T21:06:34.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Stethoscopes can now tell if someone has been sacrificed.
+  id: 33
+  time: '2024-11-09T21:35:17.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: SOP for Cargo and Engineering added to guidebook
+  id: 34
+  time: '2024-11-11T06:42:24.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Add
+      message: Added sounds for harmbatoning
+    - type: Tweak
+      message: Harmbaton damage upped to 12
+  id: 35
+  time: '2024-11-11T23:06:37.0000000+00:00'

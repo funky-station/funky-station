@@ -5,11 +5,11 @@
   description: For when you need a party STAT and cant wait for cargo.
   components:
   - type: Sprite
-    sprite: Objects/Fun/EmergencyPartyKit.rsi
+    sprite: _Funkystation/Objects/Fun/EmergencyPartyKit.rsi
     state: EmergencyPartyKit
   - type: Item
     size: Large
-    sprite: Objects/Fun/EmergencyPartyKit.rsi
+    sprite: _Funkystation/Objects/Fun/EmergencyPartyKit.rsi
     heldPrefix: EmergencyPartyKit
   - type: Storage
     maxItemSize: Small

@@ -1,6 +1,8 @@
 ﻿guide-entry-command-sop = Command SOP
 guide-entry-security-sop = Security SOP
 guide-entry-engineering-sop = Engineering SOP
+guide-entry-medical-sop = Medical SOP
+guide-entry-service-sop = Service SOP
 guide-entry-cargo-sop = Cargo SOP
 guide-entry-eoc-sop = Enemies of the Corp.
 guide-entry-alert-sop = Alert Levels

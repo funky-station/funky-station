@@ -226,3 +226,9 @@ Entries:
       message: Medical & Service SOP
   id: 36
   time: '2024-11-14T04:49:55.0000000+00:00'
+- author: Sover31gnty
+  changes:
+    - type: Add
+      message: Added the "unfortunate captain" plush.
+  id: 37
+  time: '2024-11-14T05:03:37.0000000+00:00'

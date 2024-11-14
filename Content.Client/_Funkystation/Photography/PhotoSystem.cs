@@ -1,15 +1,11 @@
 ﻿using System.IO;
 using System.Numerics;
-using System.Threading;
 using System.Threading.Tasks;
-using Content.Shared.Hands.Components;
 using Content.Shared.Photography;
-using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
 using Robust.Shared.ContentPack;
-using Robust.Shared.Input;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using SixLabors.ImageSharp;
@@ -27,14 +23,11 @@ public sealed class PhotoSystem : SharedPhotoSystem
     [Dependency] private readonly ISawmill _logger = default!;
     [Dependency] private readonly IClyde _clyde = default!;
 
-    private PhotoSystem _photoSystem = null!;
-
     public override void Initialize()
     {
         base.Initialize();
 
         IoCManager.InjectDependencies(this);
-        _photoSystem = IoCManager.Resolve<PhotoSystem>();
 
         SubscribeNetworkEvent<RequestPhotoResponse>(OnRequestPhotoResponse);
     }
@@ -92,7 +85,7 @@ public sealed class PhotoSystem : SharedPhotoSystem
         if (TryGetPhotoBytes("test", out _) | !msg.Loaded)
             return;
 
-        _photoSystem.StorePhoto(msg.PhotoData, msg.PhotoId);
+        StorePhoto(msg.PhotoData, msg.PhotoId);
 
         // todo: open window when photo is loaded
         // gotta do it this way cuz i cant figure it out another way
@@ -124,7 +117,7 @@ public sealed class PhotoSystem : SharedPhotoSystem
             );
 
             //Store it to disk as a PNG
-            var path = await _photoSystem.StoreImagePNG(screenshot);
+            var path = await StoreImagePNG(screenshot);
 
             await using var file =
                 _resourceManager.UserData.Open(path, FileMode.Open);

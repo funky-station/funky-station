@@ -21,9 +21,8 @@ public sealed class RequestPhotoResponse(string id, byte[] photo, bool loaded) :
     public readonly bool Loaded = loaded;
 }
 
-public sealed class TookPhotoResponse(EntityUid author, byte[] data, bool suicide) : EntityEventArgs
+public sealed class TookPhotoResponse(byte[] data, bool suicide) : EntityEventArgs
 {
     public readonly byte[] PhotoData = data;
-    public readonly EntityUid Author = author;
     public readonly bool Suicide = suicide;
 }

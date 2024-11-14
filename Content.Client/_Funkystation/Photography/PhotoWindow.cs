@@ -10,10 +10,7 @@ public sealed class PhotoWindow : BaseWindow
 
     public PhotoWindow()
     {
-        var topContainer = new BoxContainer
-        {
-            Orientation = BoxContainer.LayoutOrientation.Horizontal,
-        };
+        var topContainer = new BoxContainer();
 
         _photo = new TextureRect();
 

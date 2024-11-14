@@ -129,7 +129,7 @@ public sealed class PhotoSystem : SharedPhotoSystem
             await using var file =
                 _resourceManager.UserData.Open(path, FileMode.Open);
 
-            RaiseNetworkEvent(new TookPhotoResponse(author, file.CopyToArray(), false));
+            RaiseNetworkEvent(new TookPhotoResponse(file.CopyToArray(), false));
         }
     }
 }

@@ -24,7 +24,7 @@ public sealed class PhotoSystem : SharedPhotoSystem
     [Dependency] private readonly IInputManager _inputManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IResourceManager _resourceManager = default!;
-
+    [Dependency] private readonly ISawmill _logger = default!;
     [Dependency] private readonly IClyde _clyde = default!;
 
     private PhotoSystem _photoSystem = null!;
@@ -75,13 +75,13 @@ public sealed class PhotoSystem : SharedPhotoSystem
             }
             catch (IOException e)
             {
-                Logger.WarningS("photo", "Failed to save photo, retrying?:\n{0}", e);
+                _logger.Error("Failed to save photo, retrying?:\n{0}", e);
             }
         }
 
         if (!success)
         {
-            Logger.ErrorS("photo", "Unable to save photo.");
+            _logger.Error("Unable to save photo.");
         }
 
         return new ResPath(null!);
@@ -103,7 +103,7 @@ public sealed class PhotoSystem : SharedPhotoSystem
         if (TryGetPhotoBytes(photoId, out var bytes))
             return bytes;
 
-        RaiseNetworkEvent(new RequestPhotoUiMessage(photoId));
+        RaiseNetworkEvent(new RequestPhotoUi(photoId));
 
         return null;
     }
@@ -129,7 +129,7 @@ public sealed class PhotoSystem : SharedPhotoSystem
             await using var file =
                 _resourceManager.UserData.Open(path, FileMode.Open);
 
-            // SendNetworkMessage(new TookPhotoMessage(author, file.CopyToArray(), suicide));
+            RaiseNetworkEvent(new TookPhotoResponse(author, file.CopyToArray(), false));
         }
     }
 }

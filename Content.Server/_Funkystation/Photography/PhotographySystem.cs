@@ -28,7 +28,7 @@ public sealed class PhotographySystem : SharedPhotoSystem
         await StorePhotoImpl(data, photo.PhotoId.ToString());
     }
 
-    private void RequestPhoto(RequestPhotoUiMessage request, EntitySessionEventArgs eventArgs)
+    private void RequestPhoto(RequestPhotoUi request, EntitySessionEventArgs eventArgs)
     {
         RaiseNetworkEvent(
             TryGetPhotoBytes(request.PhotoId, out var photoBytes)

@@ -92,7 +92,7 @@ public sealed class PhotoSystem : SharedPhotoSystem
         if (TryGetPhotoBytes("test", out _) | !msg.Loaded)
             return;
 
-        _photoSystem.StorePhoto(msg.PhotoData, "test");
+        _photoSystem.StorePhoto(msg.PhotoData, msg.PhotoId);
 
         // todo: open window when photo is loaded
         // gotta do it this way cuz i cant figure it out another way

@@ -1,8 +1,12 @@
-﻿namespace Content.Shared.Photography;
+﻿using Robust.Shared.GameStates;
 
-public sealed partial class SharedPhotoComponent : Component
+namespace Content.Shared.Photography;
+
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class PhotoComponent : Component
 {
-    public string Name => "Photo";
+    [ViewVariables] public int PhotoId = 0;
+    [ViewVariables] public bool PhotoDried = false;
 }
 
 public sealed class RequestPhotoUi(string photoId) : EntityEventArgs
@@ -10,8 +14,9 @@ public sealed class RequestPhotoUi(string photoId) : EntityEventArgs
     public readonly string PhotoId = photoId;
 }
 
-public sealed class RequestPhotoResponse(byte[] photo, bool loaded) : EntityEventArgs
+public sealed class RequestPhotoResponse(string id, byte[] photo, bool loaded) : EntityEventArgs
 {
+    public readonly string PhotoId = id;
     public readonly byte[] PhotoData = photo;
     public readonly bool Loaded = loaded;
 }

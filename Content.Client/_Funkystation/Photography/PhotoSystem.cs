@@ -34,7 +34,6 @@ public sealed class PhotoSystem : SharedPhotoSystem
         base.Initialize();
 
         IoCManager.InjectDependencies(this);
-        _inputSystem = IoCManager.Resolve<InputSystem>();
         _photoSystem = IoCManager.Resolve<PhotoSystem>();
 
         SubscribeNetworkEvent<RequestPhotoResponse>(OnRequestPhotoResponse);

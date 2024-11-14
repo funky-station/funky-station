@@ -7,11 +7,12 @@ namespace Content.Shared.Photography;
 
 public abstract class SharedPhotoSystem : EntitySystem
 {
+    [Dependency] private readonly IResourceManager _resourceManager = default!;
+    [Dependency] private readonly ISawmill _logger = default!;
+
     public static ResPath PhotosPath = new("/Photos");
 
     private Dictionary<string, ResPath> _photos = new();
-
-    [Dependency] private readonly IResourceManager _resourceManager = default!;
 
     protected void EnsurePhotoDirExists()
     {
@@ -23,7 +24,7 @@ public abstract class SharedPhotoSystem : EntitySystem
 
     protected async Task StorePhotoImpl(byte[] data, string photoId)
     {
-        Logger.InfoS("photo", "Storing a photo...");
+        _logger.Info("Storing a photo...");
 
         EnsurePhotoDirExists();
 
@@ -40,7 +41,7 @@ public abstract class SharedPhotoSystem : EntitySystem
             }
         }
 
-        Logger.InfoS("photo", $"Stored a photo to {path}");
+        _logger.Info($"Stored a photo to {path}");
 
         _photos.Add(photoId, path);
     }

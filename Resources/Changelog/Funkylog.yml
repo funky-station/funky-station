@@ -232,3 +232,23 @@ Entries:
       message: Added the "unfortunate captain" plush.
   id: 37
   time: '2024-11-14T05:03:37.0000000+00:00'
+- author: TooSillyFennec
+  changes:
+    - type: Fix
+      message: >-
+        Dynamic Traitors have normal objective count now. Say "Byeeee!!!" to 5
+        kill objective games or the grand theft ripoff thief.
+    - type: Fix
+      message: Dynamic actually scales past 20 players now.
+    - type: Fix
+      message: >-
+        Midround antags actually use more than... 3 threat... thanks, real
+        smart. AKA, Midround threat level actually gets used and matters.
+    - type: Tweak
+      message: >-
+        Costs and weights for dynamic have been majorly reworked. Changelings
+        don't eat crazy threat, Thieves don't spawn like crazy, and Traitors
+        actually share codewords with more than one person and are the common
+        antag they are supposed to be.
+  id: 38
+  time: '2024-11-14T15:18:38.0000000+00:00'

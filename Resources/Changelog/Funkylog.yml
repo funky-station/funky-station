@@ -252,3 +252,9 @@ Entries:
         antag they are supposed to be.
   id: 38
   time: '2024-11-14T15:18:38.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Fix
+      message: SOP placement error in guidebook
+  id: 39
+  time: '2024-11-15T20:41:48.0000000+00:00'

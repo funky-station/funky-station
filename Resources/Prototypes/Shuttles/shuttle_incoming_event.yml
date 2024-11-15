@@ -95,6 +95,6 @@
   copies: 1
 
 - type: preloadedGrid
-  id: Striker
+  id: ShuttleStriker
   path: /Maps/Shuttles/ShuttleEvent/striker.yml
   copies: 2

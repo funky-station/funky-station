@@ -129,7 +129,12 @@
   copyright: "Christendom College Choir & Schola Gregoriana"
   source: "https://www.youtube.com/watch?v=WHWqj6gKS9g"
 
-- files: ["angelsweheardonhigh.ogg"]
+- files: ["shoppinga.ogg"]
   license: "Custom"
-  copyright: "Bayonetta 2 OST"
+  copyright: "Bayonetta 2 OST - Shopping A"
+  source: "https://www.youtube.com/watch?v=e4T5542wjmA"
+
+- files: ["auldlangsyne.ogg"]
+  license: "Custom"
+  copyright: "Public Domain, Guy Lombardo - Auld Lang Syne"
   source: "https://www.youtube.com/watch?v=e4T5542wjmA"

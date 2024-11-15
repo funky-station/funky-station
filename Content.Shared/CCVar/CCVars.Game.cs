@@ -333,4 +333,11 @@ public sealed partial class CCVars
         public static readonly CVarDef<bool> GameHostnameInTitlebar =
             CVarDef.Create("game.hostname_in_titlebar", true, CVar.SERVER | CVar.REPLICATED);
 
+        /// <summary>
+        ///     Goobstation - indicates how much players are required for the round to be considered lowpop.
+        ///     Used for dynamic gamemode.
+        /// </summary>
+        public static readonly CVarDef<float> LowpopThreshold =
+            CVarDef.Create("game.players.lowpop_threshold", 20f, CVar.SERVERONLY);
+
 }

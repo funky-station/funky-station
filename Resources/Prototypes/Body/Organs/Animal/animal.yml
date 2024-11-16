@@ -66,6 +66,9 @@
     - Meat
     - Organ
     - Lungs
+  - type: Item
+    size: Small
+    heldPrefix: lungs
 
 - type: entity
   id: OrganAnimalStomach
@@ -97,6 +100,9 @@
     - Meat
     - Organ
     - Stomach
+  - type: Item
+    size: Small
+    heldPrefix: stomach
 
 - type: entity
   id: OrganMouseStomach
@@ -108,6 +114,9 @@
     solutions:
       stomach:
         maxVol: 30
+  - type: Item
+    size: Small
+    heldPrefix: stomach
 
 - type: entity
   id: OrganAnimalLiver
@@ -129,6 +138,9 @@
     - Meat
     - Organ
     - Liver
+  - type: Item
+    size: Small
+    heldPrefix: liver
 
 - type: entity
   id: OrganAnimalHeart
@@ -146,6 +158,9 @@
     - id: Medicine
     - id: Poison
     - id: Narcotic
+  - type: Item
+    size: Small
+    heldPrefix: heart
   - type: Tag # goob edit
     tags:
     - Meat
@@ -172,9 +187,12 @@
     - Meat
     - Organ
     - Kidneys
+  - type: Item
+    size: Small
+    heldPrefix: kidneys
 
 #funkystation
-- type: entity 
+- type: entity
   id: OrganAnimalEyes
   parent: BaseAnimalOrgan
   name: eyes

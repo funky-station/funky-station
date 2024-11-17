@@ -22,6 +22,7 @@
     Urn: 5
     # Goobstation - Spectral locator
     SpectralLocator: 1
+    Bible: 1
   emaggedInventory:
     ClothingOuterArmorCult: 1
     ClothingHeadHelmetCult: 1

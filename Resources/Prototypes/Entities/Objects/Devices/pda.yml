@@ -170,7 +170,7 @@
   parent: BaseMedicalPDA
   id: MedicalInternPDA
   name: medical intern PDA
-  description: Why isn't it white?
+  description: Why isn't it white? Has a built-in health analyzer.
   components:
   - type: Pda
     id: MedicalInternIDCard
@@ -502,7 +502,7 @@
     state: pda-janitor
 
 - type: entity
-  parent: BaseSecurityPDA
+  parent: BasePDA
   id: CaptainPDA
   name: captain PDA
   description: Surprisingly no different from your PDA.
@@ -576,7 +576,7 @@
   parent: BaseMedicalPDA
   id: CMOPDA
   name: chief medical officer PDA
-  description: Extraordinarily shiny and sterile.
+  description: Extraordinarily shiny and sterile. Has a built-in health analyzer.
   components:
   - type: Pda
     id: CMOIDCard
@@ -592,7 +592,7 @@
   parent: BaseMedicalPDA
   id: MedicalPDA
   name: medical PDA
-  description: Shiny and sterile.
+  description: Shiny and sterile. Has a built-in health analyzer.
   components:
   - type: Pda
     id: MedicalIDCard
@@ -619,7 +619,7 @@
   parent: BaseMedicalPDA
   id: ParamedicPDA
   name: paramedic PDA
-  description: Shiny and sterile.
+  description: Shiny and sterile. Has a built-in rapid health analyzer.
   components:
   - type: Pda
     id: ParamedicIDCard
@@ -690,6 +690,13 @@
     accentHColor: "#447987"
   - type: Icon
     state: pda-hos
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - WantedListCartridge
+    - LogProbeCartridge
 
 - type: entity
   parent: BaseSecurityPDA
@@ -738,6 +745,16 @@
     borderColor: "#00842e"
   - type: Icon
     state: pda-centcom
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - MedTekCartridge
+      - WantedListCartridge
+      - LogProbeCartridge
+      - AstroNavCartridge
 
 - type: entity
   parent: CentcomPDA
@@ -760,6 +777,8 @@
       - NewsReaderCartridge
       - LogProbeCartridge
       - WantedListCartridge
+      - MedTekCartridge
+      - AstroNavCartridge
 
 - type: entity
   parent: CentcomPDA
@@ -851,14 +870,6 @@
     uiKey: enum.PdaUiKey.Key
     preinstalled:
       - NotekeeperCartridge
-    cartridgeSlot:
-      priority: -1
-      name: Cartridge
-      ejectSound: /Audio/Machines/id_swipe.ogg
-      insertSound: /Audio/Machines/id_insert.ogg
-      whitelist:
-        components:
-          - Cartridge
 
 - type: entity
   parent: BaseSecurityPDA
@@ -876,6 +887,16 @@
     accentVColor: "#447987"
   - type: Icon
     state: pda-ert
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - MedTekCartridge
+      - WantedListCartridge
+      - LogProbeCartridge
+      - AstroNavCartridge
 
 - type: entity
   parent: ERTLeaderPDA
@@ -912,18 +933,10 @@
   id: ERTMedicPDA
   name: ERT Medic PDA
   suffix: Medic
-  description: Red for firepower, it's shiny and sterile.
+  description: Red for firepower, it's shiny and sterile. Has a built-in rapid health analyzer.
   components:
   - type: Pda
     id: ERTMedicIDCard
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - MedTekCartridge
-      - WantedListCartridge
 
 - type: entity
   parent: ERTLeaderPDA
@@ -1025,12 +1038,19 @@
     borderColor: "#774705"
   - type: Icon
     state: pda-detective
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - WantedListCartridge
+    - LogProbeCartridge
 
 - type: entity
   parent: BaseMedicalPDA
   id: BrigmedicPDA
   name: brigmedic PDA
-  description: I wonder whose pulse is on the screen? I hope it doesn't stop...
+  description: I wonder whose pulse is on the screen? I hope he doesnt stop... PDA has a built-in health analyzer.
   components:
   - type: Pda
     id: BrigmedicIDCard
@@ -1041,6 +1061,13 @@
     accentVColor: "#d7d7d0"
   - type: Icon
     state: pda-brigmedic
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - WantedListCartridge
+    - MedTekCartridge
 
 - type: entity
   parent: ClownPDA
@@ -1100,7 +1127,7 @@
   parent: BaseMedicalPDA
   id: SeniorPhysicianPDA
   name: senior physician PDA
-  description: Smells faintly like iron and chemicals.
+  description: Smells faintly like iron and chemicals. Has a built-in health analyzer.
   components:
   - type: Pda
     id: SeniorPhysicianIDCard
@@ -1157,11 +1184,3 @@
     preinstalled:
       - NotekeeperCartridge
       - MedTekCartridge
-    cartridgeSlot:
-      priority: -1
-      name: Cartridge
-      ejectSound: /Audio/Machines/id_swipe.ogg
-      insertSound: /Audio/Machines/id_insert.ogg
-      whitelist:
-        components:
-          - Cartridge

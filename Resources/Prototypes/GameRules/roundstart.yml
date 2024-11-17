@@ -187,6 +187,17 @@
       - MindRoleTraitor
 
 - type: entity
+  id: TraitorReinforcement
+  parent: BaseTraitorRule
+  components:
+  - type: TraitorRule
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Traitor ]
+      mindRoles:
+      - MindRoleTraitor
+
+- type: entity
   id: Revolutionary
   parent: BaseGameRule
   components:

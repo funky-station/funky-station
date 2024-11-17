@@ -206,3 +206,55 @@ Entries:
       message: Stethoscopes can now tell if someone has been sacrificed.
   id: 33
   time: '2024-11-09T21:35:17.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: SOP for Cargo and Engineering added to guidebook
+  id: 34
+  time: '2024-11-11T06:42:24.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Add
+      message: Added sounds for harmbatoning
+    - type: Tweak
+      message: Harmbaton damage upped to 12
+  id: 35
+  time: '2024-11-11T23:06:37.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Add
+      message: Medical & Service SOP
+  id: 36
+  time: '2024-11-14T04:49:55.0000000+00:00'
+- author: Sover31gnty
+  changes:
+    - type: Add
+      message: Added the "unfortunate captain" plush.
+  id: 37
+  time: '2024-11-14T05:03:37.0000000+00:00'
+- author: TooSillyFennec
+  changes:
+    - type: Fix
+      message: >-
+        Dynamic Traitors have normal objective count now. Say "Byeeee!!!" to 5
+        kill objective games or the grand theft ripoff thief.
+    - type: Fix
+      message: Dynamic actually scales past 20 players now.
+    - type: Fix
+      message: >-
+        Midround antags actually use more than... 3 threat... thanks, real
+        smart. AKA, Midround threat level actually gets used and matters.
+    - type: Tweak
+      message: >-
+        Costs and weights for dynamic have been majorly reworked. Changelings
+        don't eat crazy threat, Thieves don't spawn like crazy, and Traitors
+        actually share codewords with more than one person and are the common
+        antag they are supposed to be.
+  id: 38
+  time: '2024-11-14T15:18:38.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Fix
+      message: SOP placement error in guidebook
+  id: 39
+  time: '2024-11-15T20:41:48.0000000+00:00'

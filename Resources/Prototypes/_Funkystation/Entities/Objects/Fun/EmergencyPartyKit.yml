@@ -1,0 +1,25 @@
+- type: entity
+  id: EmergencyPartyKit
+  parent: BaseStorageItem
+  name: emergency party kit
+  description: For when you need a party STAT and cant wait for cargo.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/EmergencyPartyKit.rsi
+    state: EmergencyPartyKit
+  - type: Item
+    size: Large
+    sprite: _Funkystation/Objects/Fun/EmergencyPartyKit.rsi
+    heldPrefix: EmergencyPartyKit
+  - type: Storage
+    maxItemSize: Small
+    grid:
+      - 0,0,3,1
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHatPartyBlue
+      -   amount: 1
+      - id: FoodSnackLunacakeWrapped
+      -   amount: 1
+      - id: CrayonRainbow
+      -   amount: 1

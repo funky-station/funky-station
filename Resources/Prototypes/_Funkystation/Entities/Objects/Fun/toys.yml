@@ -62,3 +62,39 @@
     wideAnimationRotation: 180
     soundHit:
       path: /Audio/_Funkystation/Items/Toys/baka.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieAshleyTickum
+  name: unfortunate captain plush
+  description: Do you ever hate the fact that you always get soda-tripped by the same person over and over again? Well, this plush allows you to take up whatever frustrations you might've faced with that said person. Great for security and janitors alike, though make sure it doesn't call for some "Douglas" figure. It also may or may not have fears of anything sharp.
+  components:
+  - type: Sprite
+    state: plush_tickum
+    sprite: _Funkystation/Objects/Fun/syrrikatickum_plush.rsi
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_purr1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_scream2.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_purr1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_purr1.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_scream1.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - type: Speech
+    speechVerb: Felinid
+  - type: UseDelay
+    delay: 1.8
+
+

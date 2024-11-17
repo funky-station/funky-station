@@ -1,0 +1,13 @@
+# Medical
+
+- type: entity
+  id: SpawnPointMedicalLogisiticsSpecialist
+  parent: SpawnPointJobBase
+  name: MedicalLogisiticsSpecialist
+  components:
+  - type: SpawnPoint
+    job_id: MedicalLogisiticsSpecialist
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ertleader

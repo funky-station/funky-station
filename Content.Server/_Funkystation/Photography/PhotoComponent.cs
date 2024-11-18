@@ -1,7 +1,7 @@
 ﻿using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 
-namespace Content.Shared.Photography;
+namespace Content.Server.Photography;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class PhotoComponent : Component
@@ -11,4 +11,7 @@ public sealed partial class PhotoComponent : Component
 
     [ViewVariables]
     public FormattedMessage Descriptor = new();
+
+    [ViewVariables]
+    public PhotoSession? Session;
 }

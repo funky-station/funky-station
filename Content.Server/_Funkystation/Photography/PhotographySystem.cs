@@ -9,7 +9,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Photography;
 
-public sealed class PhotographySystem : EntitySystem
+public sealed partial class PhotographySystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly HealthExaminableSystem _healthExaminableSystem = default!;

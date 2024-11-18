@@ -5,7 +5,7 @@
   abstract: true
   components:
   - type: Damageable
-    damageContainer: OrganicPart # Shitmed Change
+    damageContainer: Biological
   - type: BodyPart
   - type: ContainerContainer
     containers:
@@ -16,43 +16,6 @@
   - type: Tag
     tags:
       - Trash
-  # Shitmed Change Start
-  - type: Gibbable
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/organ1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/organ2.ogg
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 110
-      behaviors:
-      - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Slash
-        damage: 150
-      behaviors:
-      - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Heat
-        damage: 200
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawnInContainer: true
-        spawn:
-          Ash:
-            min: 1
-            max: 1
-      - !type:BurnBodyBehavior { }
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MeatLaserImpact
-  # Shitmed Change End
 
 - type: entity
   id: TorsoHarpy
@@ -68,42 +31,6 @@
     state: "torso_m"
   - type: BodyPart
     partType: Torso
-  # Shitmed Change Start
-    toolName: "a torso"
-    containerName: "torso_slot"
-  - type: ContainerContainer
-    containers:
-      torso_slot: !type:ContainerSlot {}
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 400
-      behaviors:
-      - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Slash
-        damage: 400
-      behaviors:
-      - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Heat
-        damage: 400
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawnInContainer: true
-        spawn:
-          Ash:
-            min: 1
-            max: 1
-      - !type:BurnBodyBehavior { }
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MeatLaserImpact
-  # Shitmed Change End
 
 - type: entity
   id: HeadHarpy
@@ -120,7 +47,6 @@
   - type: BodyPart
     partType: Head
     vital: true
-    toolName: "a head" # Shitmed Change
   - type: Input
     context: "ghost"
   - type: InputMover
@@ -144,7 +70,6 @@
   - type: BodyPart
     partType: Arm
     symmetry: Left
-    toolName: "a left arm" # Shitmed Change
 
 - type: entity
   id: RightArmHarpy
@@ -161,7 +86,6 @@
   - type: BodyPart
     partType: Arm
     symmetry: Right
-    toolName: "a right arm" # Shitmed Change
 
 - type: entity
   id: LeftHandHarpy
@@ -178,7 +102,6 @@
   - type: BodyPart
     partType: Hand
     symmetry: Left
-    toolName: "a left hand" # Shitmed Change
 
 - type: entity
   id: RightHandHarpy
@@ -195,7 +118,7 @@
   - type: BodyPart
     partType: Hand
     symmetry: Right
-    toolName: "a right hand" # Shitmed Change
+
 - type: entity
   id: LeftLegHarpy
   name: "left harpy leg"
@@ -211,7 +134,6 @@
   - type: BodyPart
     partType: Leg
     symmetry: Left
-    toolName: "a left leg" # Shitmed Change
   - type: MovementBodyPart
 
 - type: entity
@@ -229,7 +151,6 @@
   - type: BodyPart
     partType: Leg
     symmetry: Right
-    toolName: "a right leg" # Shitmed Change
   - type: MovementBodyPart
 
 - type: entity
@@ -247,7 +168,6 @@
   - type: BodyPart
     partType: Foot
     symmetry: Left
-    toolName: "a left foot" # Shitmed Change
 
 - type: entity
   id: RightFootHarpy
@@ -264,4 +184,3 @@
   - type: BodyPart
     partType: Foot
     symmetry: Right
-    toolName: "a right foot" # Shitmed Change

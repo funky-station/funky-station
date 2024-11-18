@@ -2,7 +2,6 @@ using Content.Server.Body.Components;
 using Content.Server.Ghost.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
-using Content.Shared._Shitmed.Body.Organ; // Shitmed Change
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Pointing;
@@ -17,30 +16,10 @@ namespace Content.Server.Body.Systems
         {
             base.Initialize();
 
-            SubscribeLocalEvent<BrainComponent, OrganAddedToBodyEvent>(HandleAddition);
-        // Shitmed Change Start
-            SubscribeLocalEvent<BrainComponent, OrganRemovedFromBodyEvent>(HandleRemoval);
+            SubscribeLocalEvent<BrainComponent, OrganAddedToBodyEvent>((uid, _, args) => HandleMind(args.Body, uid));
+            SubscribeLocalEvent<BrainComponent, OrganRemovedFromBodyEvent>((uid, _, args) => HandleMind(uid, args.OldBody));
             SubscribeLocalEvent<BrainComponent, PointAttemptEvent>(OnPointAttempt);
         }
-
-        private void HandleRemoval(EntityUid uid, BrainComponent _, ref OrganRemovedFromBodyEvent args)
-        {
-            if (TerminatingOrDeleted(uid) || TerminatingOrDeleted(args.OldBody))
-                return;
-
-            // Prevents revival, should kill the user within a given timespan too.
-            EnsureComp<DebrainedComponent>(args.OldBody);
-            HandleMind(uid, args.OldBody);
-        }
-        private void HandleAddition(EntityUid uid, BrainComponent _, ref OrganAddedToBodyEvent args)
-        {
-            if (TerminatingOrDeleted(uid) || TerminatingOrDeleted(args.Body))
-                return;
-
-            RemComp<DebrainedComponent>(args.Body);
-            HandleMind(args.Body, uid);
-        }
-        // Shitmed Change End
 
         private void HandleMind(EntityUid newEntity, EntityUid oldEntity)
         {

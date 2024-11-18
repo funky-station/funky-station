@@ -12,7 +12,7 @@
   - type: Sprite
     sprite: Mobs/Species/Reptilian/parts.rsi
   - type: Damageable
-    damageContainer: OrganicPart # Shitmed
+    damageContainer: Biological
   - type: BodyPart
   - type: ContainerContainer
     containers:

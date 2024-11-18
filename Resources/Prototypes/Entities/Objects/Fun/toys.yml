@@ -849,19 +849,19 @@
     state: plushie_moth
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/Voice/Moth/moth_chitter.ogg
+      path: /Audio/Voice/Moth/moth_squeak.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Voice/Moth/moth_chitter.ogg
+      path: /Audio/Voice/Moth/moth_scream.ogg
   - type: EmitSoundOnActivate
     sound:
-      path: /Audio/Voice/Moth/moth_chitter.ogg
+      path: /Audio/Voice/Moth/moth_squeak.ogg
   - type: EmitSoundOnTrigger
     sound:
-      path: /Audio/Voice/Moth/moth_chitter.ogg
+      path: /Audio/Voice/Moth/moth_scream.ogg
   - type: MeleeWeapon
     soundHit:
-      path: /Audio/Voice/Moth/moth_chitter.ogg
+      path: /Audio/Voice/Moth/moth_squeak.ogg
   - type: Food
     requiresSpecialDigestion: true
     useSound:

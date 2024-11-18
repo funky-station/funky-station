@@ -5,6 +5,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Storage;
+using Content.Shared._Shitmed.Targeting.Events; // Shitmed
 using JetBrains.Annotations;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
@@ -39,6 +40,7 @@ namespace Content.Client.Inventory
 
             SubscribeLocalEvent<InventorySlotsComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
             SubscribeLocalEvent<InventorySlotsComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
+            SubscribeLocalEvent<InventorySlotsComponent, RefreshInventorySlotsEvent>(OnRefreshInventorySlots); // Shitmed Change
 
             SubscribeLocalEvent<InventoryComponent, ComponentShutdown>(OnShutdown);
 
@@ -181,6 +183,17 @@ namespace Content.Client.Inventory
                 EntitySlotUpdate?.Invoke(newData);
         }
 
+        // Shitmed Change Start
+        public void OnRefreshInventorySlots(EntityUid owner, InventorySlotsComponent component, RefreshInventorySlotsEvent args)
+        {
+            if (!component.SlotData.TryGetValue(args.SlotName, out var slotData)
+                || _playerManager.LocalEntity != owner)
+                return;
+
+            OnSlotRemoved?.Invoke(slotData);
+        }
+        // Shitmed Change End
+
         public bool TryAddSlotDef(EntityUid owner, InventorySlotsComponent component, SlotDefinition newSlotDef)
         {
             SlotData newSlotData = newSlotDef; //convert to slotData
@@ -235,23 +248,10 @@ namespace Content.Client.Inventory
             EntityManager.RaisePredictiveEvent(new InteractInventorySlotEvent(GetNetEntity(item.Value), altInteract: true));
         }
 
-        protected override void UpdateInventoryTemplate(Entity<InventoryComponent> ent)
-        {
-            base.UpdateInventoryTemplate(ent);
-
-            if (TryComp(ent, out InventorySlotsComponent? inventorySlots))
-            {
-                foreach (var slot in ent.Comp.Slots)
-                {
-                    if (inventorySlots.SlotData.TryGetValue(slot.Name, out var slotData))
-                        slotData.SlotDef = slot;
-                }
-            }
-        }
-
         public sealed class SlotData
         {
-            public SlotDefinition SlotDef;
+            [ViewVariables] // Shitmed Change - Mostly for debugging.
+            public readonly SlotDefinition SlotDef;
             public EntityUid? HeldEntity => Container?.ContainedEntity;
             public bool Blocked;
             public bool Highlighted;

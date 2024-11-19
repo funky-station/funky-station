@@ -258,7 +258,7 @@ Entries:
       message: SOP placement error in guidebook
   id: 39
   time: '2024-11-15T20:41:48.0000000+00:00'
-- author: taydeo
+- author: Mocho, Deltanedas
   changes:
     - type: Tweak
       message: Cyborg arms/legs can now be used as suplementary body parts.
@@ -289,6 +289,6 @@ Entries:
 - author: 12rabbits
   changes:
     - type: Add
-      message: Added a ready manifest display to the pre-round lobby.
+      message: Added a ready manifest display to the pre-round lobby. (Originally on ImpStation)
   id: 41
   time: '2024-11-19T00:00:20.0000000+00:00'

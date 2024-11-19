@@ -1772,6 +1772,14 @@ giEntries:
         wherever the corpse was moved.
   id: 215
   time: '2024-11-09T02:58:50.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Tweak
+      message: >-
+        higher grade power cells now deal more damage when used in the svallin
+        pistol and machine gun.
+  id: 237
+  time: '2024-11-19T22:10:11.0000000+00:00'
 - author: starch70
   changes:
     - type: Add
@@ -1800,4 +1808,3 @@ giEntries:
         lathes.
   id: 354
   time: '2024-12-12T21:08:04.0000000+00:00'
->>>>>>> 1ce9cc538f (Automated changelog update (#1134))

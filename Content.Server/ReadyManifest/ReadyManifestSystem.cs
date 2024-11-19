@@ -23,6 +23,7 @@ public sealed class ReadyManifestSystem : EntitySystem
 {
     [Dependency] private readonly EuiManager _euiManager = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
 
@@ -33,7 +34,7 @@ public sealed class ReadyManifestSystem : EntitySystem
     {
         SubscribeNetworkEvent<RequestReadyManifestMessage>(OnRequestReadyManifest);
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStarting);
-        SubscribeLocalEvent<GameTicker.PlayerToggleReadyEvent>(OnPlayerToggleReady);
+        SubscribeLocalEvent<PlayerToggleReadyEvent>(OnPlayerToggleReady);
     }
 
     private void OnRoundStarting(RoundStartingEvent ev)

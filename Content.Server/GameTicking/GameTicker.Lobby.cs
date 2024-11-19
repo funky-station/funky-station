@@ -192,6 +192,7 @@ namespace Content.Server.GameTicking
                 if (!_playerManager.TryGetSessionById(playerUserId, out var playerSession))
                     continue;
                 RaiseNetworkEvent(GetStatusMsg(playerSession), playerSession.Channel);
+                RaiseLocalEvent(new PlayerToggleReadyEvent(playerSession));
             }
         }
 
@@ -215,6 +216,7 @@ namespace Content.Server.GameTicking
                 ? PlayerGameStatus.ReadyToPlay
                 : PlayerGameStatus.NotReadyToPlay;
             RaiseNetworkEvent(GetStatusMsg(player), player.Channel);
+            RaiseLocalEvent(new PlayerToggleReadyEvent(player));
             // update server info to reflect new ready count
             UpdateInfoText();
         }
@@ -232,6 +234,16 @@ namespace Content.Server.GameTicking
             {
                 PlayerSession = playerSession;
             }
+        }
+    }
+
+    public sealed class PlayerToggleReadyEvent : EntityEventArgs
+    {
+        public readonly ICommonSession PlayerSession;
+
+        public PlayerToggleReadyEvent(ICommonSession playerSession)
+        {
+            PlayerSession = playerSession;
         }
     }
 }

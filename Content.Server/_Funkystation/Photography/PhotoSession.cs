@@ -1,5 +1,4 @@
 ﻿using System.Numerics;
-using Content.Server.Tabletop;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 
@@ -15,7 +14,7 @@ public sealed class PhotoSession
     /// <summary>
     ///     The set of players currently viewing this photograph.
     /// </summary>
-    public readonly Dictionary<ICommonSession, TabletopSessionPlayerData> Players = new();
+    public readonly Dictionary<ICommonSession, PhotoSessionPlayerData> Players = new();
 
     /// <summary>
     ///     All entities bound to this session. If you create an entity for this session, you have to add it here.

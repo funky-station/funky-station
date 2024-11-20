@@ -336,6 +336,12 @@
   - ChaplainRobesDark
 
 - type: loadoutGroup
+  id: ChaplainAnnabelle
+  name: Weapon
+  loadouts:
+  - ChaplainAnnabelle
+
+- type: loadoutGroup
   id: ChaplainOuterClothing
   name: loadout-group-chaplain-outerclothing
   minLimit: 0

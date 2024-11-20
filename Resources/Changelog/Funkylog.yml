@@ -289,6 +289,14 @@ Entries:
 - author: 12rabbits
   changes:
     - type: Add
-      message: Added a ready manifest display to the pre-round lobby. (Originally on ImpStation)
+      message: >-
+        Added a ready manifest display to the pre-round lobby. (Originally on
+        ImpStation)
   id: 41
   time: '2024-11-19T00:00:20.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Adds Annabelle, the Chaplains best friend.
+  id: 42
+  time: '2024-11-20T22:12:08.0000000+00:00'

@@ -338,7 +338,7 @@
 # funkystation
 - type: loadoutGroup
   id: ChaplainAnnabelle
-  name: Weapon
+  name: loadout-group-chaplain-weapon
   loadouts:
   - ChaplainAnnabelle
 

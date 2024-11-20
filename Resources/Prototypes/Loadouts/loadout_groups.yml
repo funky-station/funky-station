@@ -335,6 +335,7 @@
   - ChaplainRobesLight
   - ChaplainRobesDark
 
+# funkystation
 - type: loadoutGroup
   id: ChaplainAnnabelle
   name: Weapon

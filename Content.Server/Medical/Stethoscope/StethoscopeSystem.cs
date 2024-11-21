@@ -7,6 +7,7 @@ using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
+using Content.Shared.Heretic;
 using Content.Shared.Medical;
 using Content.Shared.Medical.Stethoscope;
 using Content.Shared.Mobs.Components;
@@ -129,6 +130,15 @@ namespace Content.Server.Medical.Stethoscope
 
             if (!TryComp<DamageableComponent>(target, out var damage))
                 return;
+
+            // funkystation - a way to identify sacrificed people
+            if (TryComp<SacrificedComponent>(target, out var _))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("stethoscope-sacrificed"), target, user);
+
+                return;
+            }
+
             // these should probably get loc'd at some point before a non-english fork accidentally breaks a bunch of stuff that does this
             if (!damage.Damage.DamageDict.TryGetValue("Asphyxiation", out var value))
                 return;

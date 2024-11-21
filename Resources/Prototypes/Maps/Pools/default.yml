@@ -7,6 +7,7 @@
   - Cluster
   #- Cog # Goobstation - cog is broken
   - Core
+  - Divide #funkystation
   - Fland
   - Marathon
   - Meta
@@ -20,3 +21,4 @@
   - FlandHighPop
   - OasisHighPop
   - Barratry # Goobstation - Re-add barratry
+  - Kettle # Goobstation - Re-add kettle (before it was gemini!)

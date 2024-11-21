@@ -237,7 +237,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (comp.StrainedMusclesActive)
         {
             var stamina = EnsureComp<StaminaComponent>(uid);
-            _stamina.TakeStaminaDamage(uid, 7.5f, visual: false, immediate: false);
+            _stamina.TakeStaminaDamage(uid, 7.5f, visual: false);
             if (stamina.StaminaDamage >= stamina.CritThreshold || _gravity.IsWeightless(uid))
                 ToggleStrainedMuscles(uid, comp);
         }
@@ -442,7 +442,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         foreach (var storedDNA in comp.AbsorbedDNA)
         {
-            if (storedDNA.DNA != null && storedDNA.DNA == dna.DNA)
+            if (storedDNA.DNA == dna.DNA)
                 return false;
         }
 
@@ -457,16 +457,19 @@ public sealed partial class ChangelingSystem : EntitySystem
             data.Fingerprint = fingerprint.Fingerprint;
 
         if (comp.AbsorbedDNA.Count >= comp.MaxAbsorbedDNA)
-            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-max"), uid, uid);
-        else comp.AbsorbedDNA.Add(data);
-
-        if (countObjective
-        && _mind.TryGetMind(uid, out var mindId, out var mind)
-        && _mind.TryGetObjectiveComp<StealDNAConditionComponent>(mindId, out var objective, mind))
         {
-            objective.DNAStolen += 1;
+            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-max"), uid, uid);
+            return false;
         }
 
+        comp.AbsorbedDNA.Add(data);
+
+        if (!countObjective
+            || !_mind.TryGetMind(uid, out var mindId, out var mind)
+            || !_mind.TryGetObjectiveComp<StealDNAConditionComponent>(mindId, out var objective, mind))
+            return true;
+
+        objective.DNAStolen++;
         comp.TotalStolenDNA++;
 
         return true;

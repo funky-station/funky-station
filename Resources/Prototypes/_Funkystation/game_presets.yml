@@ -1,4 +1,4 @@
-﻿- type: gamePreset
+- type: gamePreset
   id: Heretics
   alias:
   - heretics
@@ -22,7 +22,7 @@
   description: heretics-gamemode-description
   showInVote: false
   rules:
-  - Heretic
+  - CalmHeretic
   - CalmLing
   - BasicStationEventScheduler
   - AntagStationEventScheduler

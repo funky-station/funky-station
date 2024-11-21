@@ -133,3 +133,13 @@
   - type: Clothing
     equippedPrefix: autism
 
+- type: entity
+  parent: ClothingNeckPinBase
+  id: ClothingNeckGoldAutismPin
+  name: golden autism pin
+  description: Be autism do warcrime.
+  components:
+  - type: Sprite
+    state: goldautism
+  - type: Clothing
+    equippedPrefix: goldautism

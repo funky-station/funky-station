@@ -151,6 +151,7 @@
         - id: ClothingNeckPansexualPin
         - id: ClothingNeckTransPin
         - id: ClothingNeckAutismPin
+        - id: ClothingNeckGoldAutismPin
     # Rare Group
     - !type:GroupSelector
       weight: 2
@@ -288,7 +289,6 @@
       - id: ResearchDisk5000
       - id: PetCarrier
       - id: DrinkMopwataBottleRandom
-      # Goobstation - Spectral locator
       - id: SpectralLocator
       - id: LidSalami
         weight: 0.05

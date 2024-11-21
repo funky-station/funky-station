@@ -32,22 +32,23 @@
     activatedDamage:
       types:
         Blunt: 0
-  - type: MeleeWeapon # goob edited
-    angle: 0
+    deactivatedSoundOnHit:
+      collection: MetalThud #fs - Thwack
+  - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 7
+        Blunt: 12 #fs - Thwack
     bluntStaminaDamageFactor: 2.0
+    angle: 60
     animation: WeaponArcSlash
-  # it was ~35 now it's 55 so it's a buff ig
-  - type: StaminaDamageOnHit # goob edited
-    damage: 15
-    overtime: 40
+    soundHit:
+      collection: MetalThud #fs - Thwack
+  - type: StaminaDamageOnHit
+    damage: 35
     sound: /Audio/Weapons/egloves.ogg
-  - type: StaminaDamageOnCollide # goob edited
-    damage: 15
-    overtime: 40
+  - type: StaminaDamageOnCollide
+    damage: 35
     sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery

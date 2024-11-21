@@ -42,7 +42,7 @@
 
 - type: entity
   id: KingRatMigration
-  parent: BaseStationEventShortDelay
+  parent: BaseStationEventLongDelay # funky
   components:
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement

@@ -144,3 +144,171 @@ Entries:
       message: Resprited color clothing and humans.
   id: 22
   time: '2024-11-01T23:27:32.0000000+00:00'
+- author: DevilishMilk
+  changes: []
+  id: 23
+  time: '2024-11-02T01:43:02.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Tweak
+      message: Updated glacier
+  id: 24
+  time: '2024-11-03T21:41:25.0000000+00:00'
+- author: sleepyapril
+  changes:
+    - type: Tweak
+      message: Removed BSO and NTR age requirement because no other roles have one.
+  id: 25
+  time: '2024-11-04T18:43:46.0000000+00:00'
+- author: DevilishMilk
+  changes: []
+  id: 26
+  time: '2024-11-05T00:42:06.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Fix
+      message: Fixed divide power and servers
+  id: 27
+  time: '2024-11-05T05:16:37.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Add
+      message: Added divide to map pool
+  id: 28
+  time: '2024-11-05T23:59:39.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Add
+      message: Added reporter to divide
+    - type: Fix
+      message: Fixed cams on divide not being rigged
+  id: 29
+  time: '2024-11-08T07:40:27.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Tweak
+      message: Changed antag rates to have a higher cap!
+  id: 30
+  time: '2024-11-08T23:34:58.0000000+00:00'
+- author: DevilishMilk
+  changes: []
+  id: 31
+  time: '2024-11-09T20:17:12.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Cargo request computer now prints invoices.
+  id: 32
+  time: '2024-11-09T21:06:34.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Stethoscopes can now tell if someone has been sacrificed.
+  id: 33
+  time: '2024-11-09T21:35:17.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: SOP for Cargo and Engineering added to guidebook
+  id: 34
+  time: '2024-11-11T06:42:24.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Add
+      message: Added sounds for harmbatoning
+    - type: Tweak
+      message: Harmbaton damage upped to 12
+  id: 35
+  time: '2024-11-11T23:06:37.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Add
+      message: Medical & Service SOP
+  id: 36
+  time: '2024-11-14T04:49:55.0000000+00:00'
+- author: Sover31gnty
+  changes:
+    - type: Add
+      message: Added the "unfortunate captain" plush.
+  id: 37
+  time: '2024-11-14T05:03:37.0000000+00:00'
+- author: TooSillyFennec
+  changes:
+    - type: Fix
+      message: >-
+        Dynamic Traitors have normal objective count now. Say "Byeeee!!!" to 5
+        kill objective games or the grand theft ripoff thief.
+    - type: Fix
+      message: Dynamic actually scales past 20 players now.
+    - type: Fix
+      message: >-
+        Midround antags actually use more than... 3 threat... thanks, real
+        smart. AKA, Midround threat level actually gets used and matters.
+    - type: Tweak
+      message: >-
+        Costs and weights for dynamic have been majorly reworked. Changelings
+        don't eat crazy threat, Thieves don't spawn like crazy, and Traitors
+        actually share codewords with more than one person and are the common
+        antag they are supposed to be.
+  id: 38
+  time: '2024-11-14T15:18:38.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Fix
+      message: SOP placement error in guidebook
+  id: 39
+  time: '2024-11-15T20:41:48.0000000+00:00'
+- author: Mocho, Deltanedas
+  changes:
+    - type: Tweak
+      message: Cyborg arms/legs can now be used as suplementary body parts.
+    - type: Tweak
+      message: Entities now properly take asphyxiation damage after losing their brain.
+    - type: Tweak
+      message: Entities now perish after 60 seconds of losing their heart and/or brain.
+    - type: Fix
+      message: >-
+        Items not being removed from their respective slots if the parts were
+        gibbed rather than dropped.
+    - type: Fix
+      message: TORSOS NO LONGER DISAPPEAR, PRAISE BE THE LORD.
+    - type: Fix
+      message: Ghetto surgical tools are no longer faster than the advanced ones.
+    - type: Fix
+      message: Fixed Cavity Insertions not working due to shitcode.
+    - type: Fix
+      message: >-
+        You can no longer reuse your organs over and over to abuse transplant
+        healing.
+    - type: Fix
+      message: >-
+        Organs are now properly "spent" once they've been used in a transplant
+        surgery.
+  id: 40
+  time: '2024-11-18T22:53:09.0000000+00:00'
+- author: 12rabbits
+  changes:
+    - type: Add
+      message: >-
+        Added a ready manifest display to the pre-round lobby. (Originally on
+        ImpStation)
+  id: 41
+  time: '2024-11-19T00:00:20.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Adds Annabelle, the Chaplains best friend.
+  id: 42
+  time: '2024-11-20T22:12:08.0000000+00:00'
+- author: UtopiOne
+  changes:
+    - type: Tweak
+      message: Moth plushie sounds are now more varied
+  id: 43
+  time: '2024-11-21T17:42:32.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Add
+      message: Johns are now included in ion storm laws
+  id: 44
+  time: '2024-11-21T19:44:38.0000000+00:00'

@@ -1,9 +1,16 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Storage;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+
+// Shitmed Change
+using Robust.Shared.Serialization.Manager;
+using Content.Shared.Random;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace Content.Shared.Inventory;
 
@@ -11,6 +18,8 @@ public partial class InventorySystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IViewVariablesManager _vvm = default!;
+    [Dependency] private readonly RandomHelperSystem _randomHelper = default!; // Shitmed Change
+    [Dependency] private readonly ISerializationManager _serializationManager = default!; // Shitmed Change
 
     private void InitializeSlots()
     {
@@ -19,6 +28,8 @@ public partial class InventorySystem : EntitySystem
 
         _vvm.GetTypeHandler<InventoryComponent>()
             .AddHandler(HandleViewVariablesSlots, ListViewVariablesSlots);
+
+        SubscribeLocalEvent<InventoryComponent, AfterAutoHandleStateEvent>(AfterAutoState);
     }
 
     private void ShutdownSlots()
@@ -57,7 +68,7 @@ public partial class InventorySystem : EntitySystem
         if (!_prototypeManager.TryIndex(component.TemplateId, out InventoryTemplatePrototype? invTemplate))
             return;
 
-        component.Slots = invTemplate.Slots;
+        _serializationManager.CopyTo(invTemplate.Slots, ref component.Slots, notNullableOverride: true); // Shitmed Change
         component.Containers = new ContainerSlot[component.Slots.Length];
         for (var i = 0; i < component.Containers.Length; i++)
         {
@@ -66,6 +77,27 @@ public partial class InventorySystem : EntitySystem
             container.OccludesLight = false;
             component.Containers[i] = container;
         }
+    }
+
+    private void AfterAutoState(Entity<InventoryComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        UpdateInventoryTemplate(ent);
+    }
+
+    protected virtual void UpdateInventoryTemplate(Entity<InventoryComponent> ent)
+    {
+        if (ent.Comp.LifeStage < ComponentLifeStage.Initialized)
+            return;
+
+        if (!_prototypeManager.TryIndex(ent.Comp.TemplateId, out InventoryTemplatePrototype? invTemplate))
+            return;
+
+        DebugTools.Assert(ent.Comp.Slots.Length == invTemplate.Slots.Length);
+
+        ent.Comp.Slots = invTemplate.Slots;
+
+        var ev = new InventoryTemplateUpdated();
+        RaiseLocalEvent(ent, ref ev);
     }
 
     private void OnOpenSlotStorage(OpenSlotStorageNetworkMessage ev, EntitySessionEventArgs args)
@@ -115,7 +147,7 @@ public partial class InventorySystem : EntitySystem
 
         foreach (var slotDef in inventory.Slots)
         {
-            if (!slotDef.Name.Equals(slot))
+            if (!slotDef.Name.Equals(slot) || slotDef.Disabled) // Shitmed Change
                 continue;
             slotDefinition = slotDef;
             return true;
@@ -171,6 +203,31 @@ public partial class InventorySystem : EntitySystem
     }
 
     /// <summary>
+    /// Change the inventory template ID an entity is using. The new template must be compatible.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// For an inventory template to be compatible with another, it must have exactly the same slot names.
+    /// All other changes are rejected.
+    /// </para>
+    /// </remarks>
+    /// <param name="ent">The entity to update.</param>
+    /// <param name="newTemplate">The ID of the new inventory template prototype.</param>
+    /// <exception cref="ArgumentException">
+    /// Thrown if the new template is not compatible with the existing one.
+    /// </exception>
+    public void SetTemplateId(Entity<InventoryComponent> ent, ProtoId<InventoryTemplatePrototype> newTemplate)
+    {
+        var newPrototype = _prototypeManager.Index(newTemplate);
+
+        if (!newPrototype.Slots.Select(x => x.Name).SequenceEqual(ent.Comp.Slots.Select(x => x.Name)))
+            throw new ArgumentException("Incompatible inventory template!");
+
+        ent.Comp.TemplateId = newTemplate;
+        Dirty(ent);
+    }
+
+    /// <summary>
     /// Enumerator for iterating over an inventory's slot containers. Also has methods that skip empty containers.
     /// It should be safe to add or remove items while enumerating.
     /// </summary>
@@ -203,7 +260,7 @@ public partial class InventorySystem : EntitySystem
                 var i = _nextIdx++;
                 var slot = _slots[i];
 
-                if ((slot.SlotFlags & _flags) == 0)
+                if ((slot.SlotFlags & _flags) == 0 || slot.Disabled) // Shitmed Change
                     continue;
 
                 container = _containers[i];
@@ -243,7 +300,7 @@ public partial class InventorySystem : EntitySystem
                 var i = _nextIdx++;
                 slot = _slots[i];
 
-                if ((slot.SlotFlags & _flags) == 0)
+                if ((slot.SlotFlags & _flags) == 0 || slot.Disabled) // Shitmed Change
                     continue;
 
                 var container = _containers[i];
@@ -259,4 +316,34 @@ public partial class InventorySystem : EntitySystem
             return false;
         }
     }
+
+    // Shitmed Change Start
+    public void SetSlotStatus(EntityUid uid, string slotName, bool isDisabled, InventoryComponent? inventory = null)
+    {
+        if (!Resolve(uid, ref inventory))
+            return;
+
+        foreach (var slot in inventory.Slots)
+        {
+            if (slot.Name != slotName)
+                continue;
+
+            if (isDisabled)
+            {
+                if (!TryGetSlotContainer(uid, slotName, out var container, out _, inventory))
+                    break;
+
+                if (container.ContainedEntity is { } entityUid && TryComp(entityUid, out TransformComponent? transform) && _gameTiming.IsFirstTimePredicted)
+                {
+                    _transform.AttachToGridOrMap(entityUid, transform);
+                    _randomHelper.RandomOffset(entityUid, 0.5f);
+                }
+            }
+            slot.Disabled = isDisabled;
+            break;
+        }
+
+        Dirty(uid, inventory);
+    }
+    // Shitmed Change End
 }

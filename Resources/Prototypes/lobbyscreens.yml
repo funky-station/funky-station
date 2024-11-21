@@ -60,4 +60,4 @@
 
 - type: lobbyBackground
   id: funkystationcrew
-  background: Textures/LobbyScreens/funkystationcrew.webp
+  background: /Textures/LobbyScreens/funkystationcrew.webp

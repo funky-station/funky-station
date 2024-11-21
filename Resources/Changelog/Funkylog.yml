@@ -300,3 +300,9 @@ Entries:
       message: Adds Annabelle, the Chaplains best friend.
   id: 42
   time: '2024-11-20T22:12:08.0000000+00:00'
+- author: UtopiOne
+  changes:
+    - type: Tweak
+      message: Moth plushie sounds are now more varied
+  id: 43
+  time: '2024-11-21T17:42:32.0000000+00:00'

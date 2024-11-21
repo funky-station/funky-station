@@ -289,6 +289,26 @@ Entries:
 - author: 12rabbits
   changes:
     - type: Add
-      message: Added a ready manifest display to the pre-round lobby. (Originally on ImpStation)
+      message: >-
+        Added a ready manifest display to the pre-round lobby. (Originally on
+        ImpStation)
   id: 41
   time: '2024-11-19T00:00:20.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Adds Annabelle, the Chaplains best friend.
+  id: 42
+  time: '2024-11-20T22:12:08.0000000+00:00'
+- author: UtopiOne
+  changes:
+    - type: Tweak
+      message: Moth plushie sounds are now more varied
+  id: 43
+  time: '2024-11-21T17:42:32.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Add
+      message: Johns are now included in ion storm laws
+  id: 44
+  time: '2024-11-21T19:44:38.0000000+00:00'

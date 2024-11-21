@@ -58,6 +58,6 @@
   id: funkyComputerLove
   background: /Textures/LobbyScreens/computerlove.webp
 
-- type: LobbyBackground
+- type: lobbyBackground
   id: funkystationcrew
   background: /Textures/LobbyScreens/funkystationcrew.webp

@@ -32,6 +32,26 @@
       - id: BoxBottle
         amount: 2
 
+- type: entity # FS - Add surgery crate
+  id: CrateSurgery
+  parent: CrateMedical
+  name: surgical supplies crate
+  description: Surgical instruments.
+  components:
+  - type: StorageFill
+    contents:
+      - id: Scalpel
+      - id: Retractor
+      - id: Cautery
+      - id: Drill
+      - id: Saw
+      - id: Hemostat
+      - id: ClothingMaskSterile
+      # Shitmed Change
+      - id: BoneGel
+      - id: BoxLatexGloves
+      - id: BoxSterileMask
+
 - type: entity
   id: CrateChemistryVials
   parent: CrateMedical

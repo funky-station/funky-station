@@ -341,3 +341,9 @@ Entries:
       message: Heretics now trigger Delta alert level when they ascend.
   id: 48
   time: '2024-11-22T06:41:06.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: Preferred cyborg names works again.
+  id: 49
+  time: '2024-11-22T15:34:03.0000000+00:00'

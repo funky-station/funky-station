@@ -589,13 +589,13 @@
   impact: Medium
   reactants:
     Cryoxadone:
-      amount: 1
+      amount: 3
     Aloe:
-      amount: 2
+      amount: 1
     Sigynate:
-      amount: 2
+      amount: 1
   products:
-      Aloxadone: 4
+      Aloxadone: 5
 
 - type: reaction
   id: Psicodine

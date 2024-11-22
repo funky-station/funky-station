@@ -13,6 +13,7 @@ using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.NameIdentifier;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
@@ -138,9 +139,13 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             DoJobSpecials(job, jobEntity);
             _identity.QueueIdentityUpdate(jobEntity);
             // #Goobstation - Borg Preferred Name
-            if (profile != null && prototype.JobEntity == "PlayerBorgGeneric")
+            if (profile != null && prototype.ID == "Borg")
             {
-                _metaSystem.SetEntityName(jobEntity, profile.BorgName);
+                var name = profile.BorgName;
+                if (TryComp<NameIdentifierComponent>(jobEntity, out var nameIdentifier))
+                    name = $"{name} {nameIdentifier.FullIdentifier}";
+
+                _metaSystem.SetEntityName(jobEntity, name);
             }
             return jobEntity;
         }

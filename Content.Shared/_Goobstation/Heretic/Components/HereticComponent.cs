@@ -57,4 +57,26 @@ public sealed partial class HereticComponent : Component
     ///     Requires wearing focus, codex cicatrix, hood or anything else that allows him to do so.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)] public bool CanCastSpells = false;
+
+    /// <summary>
+    ///     dunno how to word this
+    ///     its for making sure the next point update is 20 minutes in
+    /// </summary>
+    [DataField, AutoNetworkedField] public TimeSpan NextPointUpdate;
+
+    /// <summary>
+    ///     dunno how to word this
+    ///     its for making sure the next point update is 20 minutes in
+    /// </summary>
+    [DataField, AutoNetworkedField] public TimeSpan PointCooldown = TimeSpan.FromMinutes(20);
+
+    /// <summary>
+    ///     when the time delta alert happens
+    /// </summary>
+    [DataField, AutoNetworkedField] public TimeSpan AlertTime;
+
+    /// <summary>
+    ///     how long 2 wait
+    /// </summary>
+    [DataField, AutoNetworkedField] public TimeSpan AlertWaitTime = TimeSpan.FromSeconds(10);
 }

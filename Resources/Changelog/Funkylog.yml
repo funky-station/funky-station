@@ -312,3 +312,14 @@ Entries:
       message: Johns are now included in ion storm laws
   id: 44
   time: '2024-11-21T19:44:38.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: Aloxadone now heals 5 heat damage, up from 3.
+    - type: Tweak
+      message: >-
+        Aloxadone's recipe has been buffed to be 20u Aloe, 20u Sigynate, and 60u
+        Cryoxadone for 100u Aloxadone. This results in 2.5x more product per
+        resource intensive ingredient.
+  id: 45
+  time: '2024-11-22T02:13:09.0000000+00:00'

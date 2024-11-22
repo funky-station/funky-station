@@ -21,7 +21,7 @@
 - type: cargoProduct # FS - add surgery crate
   id: MedicalSurgery
   icon:
-    sprite: Objects/Specific/Medical/scalpel.rsi
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
   product: CrateSurgery
   cost: 1500

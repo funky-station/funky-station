@@ -427,10 +427,11 @@
     back:
     - LightReplacer
     - BoxLightMixed
-    - BoxLightMixed
     - Soap
     - CrowbarRed
     - AdvMopItem
+    - TrashBag
+    - Holoprojector
 
 - type: startingGear
   id: ERTJanitorGearEVA

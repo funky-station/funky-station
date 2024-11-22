@@ -329,3 +329,9 @@ Entries:
       message: Added surgery crate to Cargo
   id: 46
   time: '2024-11-22T03:31:56.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Remove
+      message: Removed brainrot
+  id: 47
+  time: '2024-11-22T05:23:10.0000000+00:00'

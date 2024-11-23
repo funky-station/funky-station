@@ -35,7 +35,7 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ Traitor ]
-      max: 6
+      max: 4
       playerRatio: 15
       blacklist:
         components:

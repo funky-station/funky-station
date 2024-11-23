@@ -347,3 +347,9 @@ Entries:
       message: Preferred cyborg names works again.
   id: 49
   time: '2024-11-22T15:34:03.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Fix
+      message: added missing gas references to xenoarch
+  id: 50
+  time: '2024-11-23T21:38:15.0000000+00:00'

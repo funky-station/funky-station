@@ -1658,14 +1658,14 @@ entities:
     - type: Transform
       pos: 2.5,3.5
       parent: 1
-- proto: SyringeBicaridine
+- proto: SyringeLibital
   entities:
   - uid: 120
     components:
     - type: Transform
       pos: 1.41879,-2.1404262
       parent: 1
-- proto: SyringeDermaline
+- proto: SyringeAiuri
   entities:
   - uid: 121
     components:

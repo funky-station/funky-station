@@ -474,11 +474,11 @@
   components:
   - type: FoamArtifact
     reagents:
-    - Dermaline
+    - Aiuri # Funkychem
     - Arithrazine
-    - Bicaridine
+    - Libital # Funkychem
     - Inaprovaline
-    - Kelotane
+    - Multiver # Funkychem
     - Dexalin
     - Omnizine
 
@@ -492,18 +492,19 @@
       maxVol: 500
       canReact: false
     possibleChemicals:
-    - Dermaline
+    - Lenturi # Funkychem
     - Arithrazine
-    - Bicaridine
+    - Libital # Funkychem
+    - Probital # Funkychem
     - Inaprovaline
-    - Kelotane
+    - Aiuri # Funkychem
     - Dexalin
     - Omnizine
     - Napalm
     - Toxin
     - Epinephrine
     - Cognizine
-    - Ultravasculine
+    - PenteticAcid # Funkychem
     - Desoxyephedrine
     - Pax
     - Siderlac

@@ -7,7 +7,7 @@
     - type: SolutionContainerManager
       solutions:
         beaker:
-          maxVol: 200
+          maxVol: 400 # Death To Jug Meta - Funky Station
     - type: Sprite
       sprite: Objects/Specific/Chemistry/jug.rsi
       layers:
@@ -26,10 +26,10 @@
       solution: beaker
     - type: ExaminableSolution
       solution: beaker
-    - type: DrawableSolution
-      solution: beaker
-    - type: InjectableSolution
-      solution: beaker
+  #  - type: DrawableSolution
+  #    solution: beaker
+  #  - type: InjectableSolution
+  #    solution: beaker
     - type: SolutionTransfer
       canChangeTransferAmount: true
     - type: SolutionItemStatus
@@ -38,8 +38,8 @@
       interfaces:
         enum.TransferAmountUiKey.Key:
           type: TransferAmountBoundUserInterface
-    - type: Drink
-      solution: beaker
+   # - type: Drink
+   #   solution: beaker
     - type: Spillable
       solution: beaker
     - type: Appearance
@@ -97,7 +97,7 @@
       beaker:
         reagents:
         - ReagentId: Carbon
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -112,7 +112,7 @@
       beaker:
         reagents:
         - ReagentId: Iodine
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -127,7 +127,7 @@
       beaker:
         reagents:
         - ReagentId: Fluorine
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -142,7 +142,7 @@
       beaker:
         reagents:
         - ReagentId: Chlorine
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -157,7 +157,7 @@
       beaker:
         reagents:
         - ReagentId: Aluminium
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -172,7 +172,7 @@
       beaker:
         reagents:
         - ReagentId: Phosphorus
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -187,7 +187,7 @@
       beaker:
         reagents:
         - ReagentId: Sulfur
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -202,7 +202,7 @@
       beaker:
         reagents:
         - ReagentId: Silicon
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -217,7 +217,7 @@
       beaker:
         reagents:
         - ReagentId: Hydrogen
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -232,7 +232,7 @@
       beaker:
         reagents:
         - ReagentId: Lithium
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -247,7 +247,7 @@
       beaker:
         reagents:
         - ReagentId: Sodium
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -262,7 +262,7 @@
       beaker:
         reagents:
         - ReagentId: Potassium
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -277,7 +277,7 @@
       beaker:
         reagents:
         - ReagentId: Radium
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -292,7 +292,7 @@
       beaker:
         reagents:
         - ReagentId: Iron
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -307,7 +307,7 @@
       beaker:
         reagents:
         - ReagentId: Copper
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -322,7 +322,7 @@
       beaker:
         reagents:
         - ReagentId: Gold
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -337,7 +337,7 @@
       beaker:
         reagents:
         - ReagentId: Mercury
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -352,7 +352,7 @@
       beaker:
         reagents:
         - ReagentId: Silver
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -367,7 +367,7 @@
       beaker:
         reagents:
         - ReagentId: Ethanol
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -382,7 +382,7 @@
       beaker:
         reagents:
         - ReagentId: Sugar
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -397,7 +397,7 @@
       beaker:
         reagents:
         - ReagentId: Nitrogen
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -412,7 +412,7 @@
       beaker:
         reagents:
         - ReagentId: Oxygen
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -427,7 +427,7 @@
       beaker:
         reagents:
         - ReagentId: PlantBGone
-          Quantity: 200
+          Quantity: 400 # Funky Station
 
 - type: entity
   parent: Jug
@@ -442,4 +442,4 @@
       beaker:
         reagents:
         - ReagentId: WeldingFuel
-          Quantity: 200
+          Quantity: 400 # Funky Station

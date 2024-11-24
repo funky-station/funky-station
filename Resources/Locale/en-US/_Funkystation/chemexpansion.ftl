@@ -35,7 +35,7 @@ reagent-name-heparin = Heparin
 reagent-desc-heparin = A Fast-Acting toxin that quickly opens wounds on a body, making them bleed rapidly. 
 
 reagent-name-rhigoxane = Rhigoxane
-reagent-desc-rhigoxane = That looks so cold and refreshing... don't take a sip, it's pretty warm... and you shall be cold as you thought it was if ingested.
+reagent-desc-rhigoxane = That looks so cold and refreshing... don't take a sip, it's pretty warm... and you don't want to freeze to death.
 
 reagent-name-spewium = Spewium
 reagent-desc-spewium = Even smelling it warrants a vomit comet.
@@ -43,8 +43,8 @@ reagent-desc-spewium = Even smelling it warrants a vomit comet.
 reagent-name-pestiline = Pestiline
 reagent-desc-pestiline = This exotic and strange toxin is rumored to be the essence of sickness itself.
 
-reagent-name-exoticreagent = Exotic Reagent
-reagent-desc-exoticreagent = You've never even heard of it before, unless you are a chemist. Then, it's secrets are in your hands, and it's time to use the true power of chemistry.
+reagent-name-exotic = Liquid Exotium
+reagent-desc-exotic = A precursor to many different chemicals, allowing you to unlock the next level of medical science.
 
 reagent-name-stasicillin = Stasicillin
 reagent-desc-stasicillin = A very rare chemical used by both top-level medbays and nanotrasen secret agents for both the effective injury treatment and it's side effect, sending the consumer to sleep.

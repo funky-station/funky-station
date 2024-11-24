@@ -1,8 +1,8 @@
 - type: reagent
   id: ExoticReagent # The base chem for the top-level chem tree, + other reactions.
-  name: reagent-name-exoticreagent
+  name: reagent-name-exotic
   group: Special
-  desc: reagent-desc-exoticreagent
+  desc: reagent-desc-exotic
   physicalDesc: reagent-physical-desc-exotic-smelling
   flavor: nothing
   color: "#d111fc"

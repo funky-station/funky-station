@@ -2,7 +2,7 @@ reagent-name-libital = Libital
 reagent-desc-libital = A Common, but weak medicine used to heal brute trauma. Commonly added to other medicine due to it's low side effects.
 
 reagent-name-probital = Probital
-reagent-desc-probital = An analgesic which is effective at treating general brute trauma. It's useful for all types of beatings. Known to make movement slower. 
+reagent-desc-probital = A common analgesic which is effective at treating general brute trauma. It's useful for all types of beatings. Known to make movement slower. 
 
 reagent-name-salicylicacid = Salicylic Acid
 reagent-desc-salicylicacid = A heavy-duty analgesic that stabilizes the severely beaten, but is barely effective on people with less wounds. Overdosing will reverse the effect however.
@@ -11,7 +11,7 @@ reagent-name-aiuri = Aiuri
 reagent-desc-aiuri = A Common, but weak medicine used to heal brute injuries. Commonly added to other medicine due to it's low side effects.
 
 reagent-name-lenturi = Lenturi
-reagent-desc-lenturi = A chemical that is effective at treating burn damage, but uses water inside your body, thus dehydrating you.
+reagent-desc-lenturi = A common chemical that is effective at treating burn damage, but uses water inside your body, thus dehydrating you.
 
 reagent-name-oxandrolone = Oxandrolone
 reagent-desc-oxandrolone = A heavy-duty chemical that stabilizes the severely burned, but is barely effective on people with less wounds. Overdosing will reverse the effect however.

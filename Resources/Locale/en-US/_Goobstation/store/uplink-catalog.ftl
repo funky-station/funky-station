@@ -14,6 +14,9 @@ uplink-gondola-desc = Crate containing one standard issue gondola.
 uplink-operative-radio-name = Nuclear Operative Teleporter
 uplink-operative-radio-desc = Radio in a nuclear operative of extremely questionable quality. No off button, buy this if you're ready to party. They have basic nuclear operative gear.
 
+uplink-signaller-name = Advanced Remote Signaller
+uplink-signaller-desc = A device that can trigger signals at any distance. You can link items with a multitool or network configurator.
+
 uplink-miniature-energy-crossbow-name = Miniature Energy Crossbow
 uplink-miniature-energy-crossbow-desc = The syndicate's energy crossbow, small, silent and deadly.
 
@@ -36,10 +39,16 @@ uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor 
 
 # Weapons
 
+uplink-m90-name = M-90 Bundle
+uplink-m90-desc = A bundle with a M-90 and 2 .20 rifle mags.
+
 uplink-weapon-burner-name = Burner Heavy Rifle Bundle
 uplink-weapon-burner-desc = A bundle containing a Burner Heavy Rifle and a couple of magazines, including some high-explosive rounds.
 
 # Ammo
+
+uplink-rifle-mag-name = .20 Rifle Magazine
+uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
 
 uplink-high-caliber-box-name = 30 round .50 Box
 uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.

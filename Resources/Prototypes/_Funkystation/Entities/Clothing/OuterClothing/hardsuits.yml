@@ -1,0 +1,16 @@
+- type: entity
+  parent: ClothingOuterHardsuitClown
+  id: ClothingOuterHardsuitMusician
+  name: musician hardsuit
+  description: A custom-made musician hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/musician.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/musician.rsi
+  # - type: Construction
+  #   graph: MusicianHardsuit
+  #   node: musicianHardsuit
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitMusician
+

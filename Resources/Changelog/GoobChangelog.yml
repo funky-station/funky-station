@@ -1772,6 +1772,14 @@ Entries:
         wherever the corpse was moved.
   id: 215
   time: '2024-11-09T02:58:50.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: The M-90 rifle has been added to the Syndicate uplink for 85 TC
+    - type: Tweak
+      message: .20 rifle mags are now available in the Syndicate uplink for 15 TC
+  id: 264
+  time: '2024-11-24T21:41:38.0000000+00:00'
 - author: Tonk
   changes:
     - type: Add

@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: ClothingHeadHelmetHardsuitSecurity
   id: ClothingHeadHelmetHardsuitMusician
   name: musician hardsuit helmet
   description: A musician hardsuit helmet.

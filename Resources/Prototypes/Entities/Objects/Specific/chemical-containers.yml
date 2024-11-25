@@ -30,8 +30,8 @@
   #    solution: beaker
   #  - type: InjectableSolution
   #    solution: beaker
-    - type: SolutionTransfer
-      canChangeTransferAmount: true
+  #  - type: SolutionTransfer
+  #    canChangeTransferAmount: true
     - type: SolutionItemStatus
       solution: beaker
     - type: UserInterface

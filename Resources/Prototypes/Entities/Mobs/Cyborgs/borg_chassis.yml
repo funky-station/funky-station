@@ -19,6 +19,8 @@
     maxModules: 0
     hasMindState: robot_e
     noMindState: robot_e_r
+  - type: Construction
+    node: cyborg
   - type: BorgTransponder
     sprite:
       sprite: Mobs/Silicon/chassis.rsi

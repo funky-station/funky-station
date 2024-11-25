@@ -75,11 +75,6 @@
       # Goobstation - Add the station map interface to the borg
       enum.StationMapUiKey.Key:
         type: StationMapBoundUserInterface
-  # Goobstation - Add the station map interface to the borg
-  - type: IntrinsicUI
-    uis:
-      enum.StationMapUiKey.Key:
-        toggleAction: ActionAGhostShowStationMap
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
   - type: SiliconLawBound

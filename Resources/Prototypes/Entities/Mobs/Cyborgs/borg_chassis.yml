@@ -108,6 +108,8 @@
       - BorgModuleSyndicateAssault
     hasMindState: synd_sec_e
     noMindState: synd_sec
+  - type: Construction
+    node: syndicateassault
   - type: InteractionPopup
     interactSuccessString: petting-success-syndicate-cyborg
     interactFailureString: petting-failure-syndicate-cyborg
@@ -140,6 +142,8 @@
       - BorgModuleSyndicate
     hasMindState: synd_medical_e
     noMindState: synd_medical
+  - type: Construction
+    node: syndicatemedical
   - type: ShowHealthBars
   - type: InteractionPopup
     interactSuccessString: petting-success-syndicate-cyborg
@@ -179,6 +183,8 @@
       - BorgModuleSyndicate
     hasMindState: synd_engi_e
     noMindState: synd_engi
+  - type: Construction
+    node: syndicatesaboteur
   - type: ShowHealthBars
     damageContainers:
     - Inorganic

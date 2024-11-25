@@ -373,3 +373,9 @@ Entries:
       message: Removed all the fun from Divide!
   id: 53
   time: '2024-11-25T15:55:06.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Space Law guidebook to NTR locker
+  id: 54
+  time: '2024-11-25T15:55:47.0000000+00:00'

@@ -498,10 +498,6 @@
     Plastic: 500
     Gold: 300
     Silver: 300
-- type: latheRecipe
-  parent: BaseBorgModuleRecipe
-  id: BorgModuleClowning
-  result: BorgModuleClowning
 
 # Shitmed Recipes
 

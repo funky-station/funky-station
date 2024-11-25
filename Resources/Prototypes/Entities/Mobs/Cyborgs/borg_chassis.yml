@@ -5,7 +5,7 @@
   - type: Sprite
     layers:
     - state: robot
-      map: ["enum.BorgVisualLayers.Body", "movement"]
+      map: ["movement"]
     - state: robot_e_r
       map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded

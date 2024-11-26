@@ -314,7 +314,7 @@
         - ReagentSlimePax
         - ReagentSlimeNocturine
         - ReagentSlimeTHC
-        - ReagentSlimeSalicylicAcid # Funkychem
+        - ReagentSlimeBicaridine
         - ReagentSlimeToxin
         - ReagentSlimeNapalm
         - ReagentSlimeOmnizine
@@ -399,21 +399,21 @@
         color: "#808080"
 
 - type: entity
-  id: ReagentSlimeSalicylicAcid
+  id: ReagentSlimeBicaridine
   parent: ReagentSlime
-  suffix: Salicylic Acid
+  suffix: Bicaridine
   components:
   - type: Bloodstream
-    bloodReagent: SalicylicAcid
+    bloodReagent: Bicaridine
   - type: PointLight
-    color: "#f9e0e9"
+    color: "#ffaa00"
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/elemental.rsi
     layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: alive
-        color: "#f9e0e9"
+        color: "#ffaa00"
 
 - type: entity
   id: ReagentSlimeToxin

@@ -771,13 +771,13 @@
     - RobustHarvest
     usefulChemicals:
     - Cryptobiolin
-    - PenteticAcid
+    - Dylovene
     - Arithrazine
-    - SalicylicAcid # Funkychem
+    - Bicaridine
     - Cryoxadone
-    - Oxandrolone # Funkychem
-    - Convermol #
-    - Salbutamol #
+    - Dermaline
+    - Dexalin
+    - DexalinPlus
     - Epinephrine
     - Leporazine
     - Ambuzol
@@ -802,7 +802,6 @@
     - Honk
     - Carpetium
     - JuiceThatMakesYouWeh
-    - ExoticReagent # Funkychem
   - type: Drink
     solution: anomaly
   - type: DrainableSolution

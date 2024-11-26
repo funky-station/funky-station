@@ -210,10 +210,10 @@
     contents:
     - id: CigaretteIron
     - id: CigaretteTricordrazine
-    - id: CigaretteMultiver
-    - id: CigaretteAiuri
+    - id: CigaretteDylovene
+    - id: CigaretteDermaline
     - id: CigaretteArithrazine
-    - id: CigaretteSalicylicAcid
+    - id: CigaretteBicaridine
     - id: CigaretteIpecac
     - id: CigaretteOmnizine
       prob: 0.25

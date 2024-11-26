@@ -87,10 +87,10 @@
     children:
       - id: CigaretteOmnizine
       - id: CigaretteIron
-      - id: CigaretteMultiver
-      - id: CigaretteAiuri
+      - id: CigaretteDylovene
+      - id: CigaretteDermaline
       - id: CigaretteIpecac
-      - id: CigaretteSalicylicAcid
+      - id: CigaretteBicaridine
       - id: CigaretteDexalin
       - id: CigarettePax
       - id: CigaretteBbqSauce

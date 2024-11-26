@@ -12,7 +12,7 @@
     - id: Gauze
       maxAmount: 5
 
-- type: entity # Funkychem
+- type: entity
   parent: BaseMailLarge
   id: MailMedicalMedicinePills
   suffix: Pills
@@ -21,12 +21,10 @@
     contents:
     - id: PillTricordrazine
       maxAmount: 2
-    - id: PillGranibitulari
+    - id: PillDylovene
       maxAmount: 2
-    - id: PillMultiver
-    - id: PillHyronalin
-    - id: PillAiuri
-    - id: PillLibital
+    - id: PillKelotane
+      maxAmount: 2
 
 - type: entity
   parent: BaseMailLarge
@@ -51,8 +49,6 @@
       maxAmount: 2
     - id: SyringeTranexamicAcid
       maxAmount: 2
-    - id: SyringeSaline # Funkychem
-    - id: SyringeConvermol #
 
 # Chemist
 - type: entity

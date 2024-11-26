@@ -1,38 +1,38 @@
-#- type: reaction
-#  id: Libital
-#  reactants:
-#    Nitrogen:
-#      amount: 1
-#    Oil:
-#      amount: 1
-#    Oxygen:
-#      amount: 1
-#  products:
-#    Libital: 3
+- type: reaction
+  id: Libital
+  reactants:
+    Nitrogen:
+      amount: 1
+    Oil:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    Libital: 3
 
-#- type: reaction
-#  id: Probital
-#  reactants:
-#    Acetone:
-#      amount: 2
-#    Copper:
-#      amount: 1
-#    Phosphorus:
-#      amount: 1
-#  products:
-#    Probital: 4
+- type: reaction
+  id: Probital
+  reactants:
+    Acetone:
+      amount: 2
+    Copper:
+      amount: 1
+    Phosphorus:
+      amount: 1
+  products:
+    Probital: 4
 
-#- type: reaction
-#  id: SalicylicAcid
-#  reactants:
-#    Phenol:
-#      amount: 1
-#    Probital:
-#      amount: 1
-#    SulfuricAcid:
-#      amount: 1
-#  products:
-#    SalicylicAcid: 3
+- type: reaction
+  id: SalicylicAcid
+  reactants:
+    Phenol:
+      amount: 1
+    Probital:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+  products:
+    SalicylicAcid: 3
 
 - type: reaction
   id: Aiuri
@@ -102,49 +102,49 @@
   products:
     PenteticAcid: 5
 
-#- type: reaction
-#  id: Granibitulari
-#  reactants:
-#    TableSalt:
-#      amount: 1
-#    Carbon:
-#      amount: 1
-#    Potassium:
-#      amount: 1
-#  products:
-#    Granibitulari: 3
+- type: reaction
+  id: Granibitulari
+  reactants:
+    TableSalt:
+      amount: 1
+    Carbon:
+      amount: 1
+    Potassium:
+      amount: 1
+  products:
+    Granibitulari: 3
 
-#- type: reaction
-#  id: Salbutamol
-#  reactants:
-#    Dexalin:
-#      amount: 1
-#    Ammonia:
-#      amount: 1
-#    Inaprovaline:
-#      amount: 1
-#    Phenol:
-#      amount: 1
-#    Lithium:
-#      amount: 1
-#  products:
-#    Salbutamol: 5
+- type: reaction
+  id: Salbutamol
+  reactants:
+    Dexalin:
+      amount: 1
+    Ammonia:
+      amount: 1
+    Inaprovaline:
+      amount: 1
+    Phenol:
+      amount: 1
+    Lithium:
+      amount: 1
+  products:
+    Salbutamol: 5
 
-#- type: reaction
-#  id: Convermol
-#  reactants:
-#    Dexalin:
-#      amount: 1
-#    Ammonia:
-#      amount: 1
-#    Plasma:
-#      amount: 1
-#    Aluminium:
-#      amount: 1
-#    Fluorine:
-#      amount: 1
-#  products:
-#    Convermol: 5
+- type: reaction
+  id: Convermol
+  reactants:
+    Dexalin:
+      amount: 1
+    Ammonia:
+      amount: 1
+    Plasma:
+      amount: 1
+    Aluminium:
+      amount: 1
+    Fluorine:
+      amount: 1
+  products:
+    Convermol: 5
 
 - type: reaction
   id: Pielovene

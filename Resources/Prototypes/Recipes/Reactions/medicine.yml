@@ -109,7 +109,7 @@
       amount: 2
     Iron: # Funky Chem Expansion
       amount: 1
-      catalyst: true
+    #  catalyst: true - seems to break currently
   products:
     Dexalin: 3
 

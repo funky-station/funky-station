@@ -247,6 +247,8 @@
       amount: 1
     Dexalin: # Funky Chem Expansion
       amount: 1
+    Silicon: # Funky Chem Expansion ## fennec if youre reading this, old recipe clashed with Salbutamol :sob:
+      amount: 1 
   products:
     Tricordrazine: 2
 

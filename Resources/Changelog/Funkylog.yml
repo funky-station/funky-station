@@ -379,3 +379,36 @@ Entries:
       message: Space Law guidebook to NTR locker
   id: 54
   time: '2024-11-25T15:55:47.0000000+00:00'
+- author: TooSillyFennec
+  changes:
+    - type: Add
+      message: Many top level chems created by mixing a new chemical, Liquid Exotium.
+    - type: Add
+      message: >-
+        Many new toxins have been added. Test out Heparin [Bleed], Rhigoxane
+        [Cold], Spewium, and Pestiline [VERY slow cellular toxin]
+    - type: Add
+      message: >-
+        Bicaridine, Kelotane, and Dermaline have been replaced by 6 new
+        chemicals, as well as five other new chemicals, some replacing older
+        medical chems. Treat /Patients/ with /SS13 Rip off/ Chemicals today! -
+        Central Command Automated Advertiser
+    - type: Tweak
+      message: Normal species can metabolise 3 chemicals now, have fun making mixes!
+    - type: Tweak
+      message: >-
+        Medical Chemicals now metabolise at the rate of 0.2, making them last
+        longer, and have higher overdoses. Basic Med Chems od at 20, and
+        Advanced Med Chems at 15. Medicine heals slower to compensate.
+    - type: Tweak
+      message: >-
+        Medical patches have been re-balanced completely. And they also don't
+        have spelling errors... yay.
+    - type: Tweak
+      message: Chem Dispensers now have welding fuel.
+    - type: Tweak
+      message: >-
+        Medkits have been changed heavily, to be stronger and have much more
+        contents. Have fun healing more than 1 person now!
+  id: 55
+  time: '2024-11-26T02:06:12.0000000+00:00'

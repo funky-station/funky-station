@@ -105,8 +105,8 @@
     contents:
       - id: MedicatedSuture
       - id: RegenerativeMesh
-      - id: SyringeEphedrine
-      - id: SyringeSaline
+      - id: SyringeRevivopine # Funkychem - An Actually combat centred chem in the combat kit??? no way!!! Girl, who ever uses the eph/saline??
+        amount: 2
       - id: BruteAutoInjector
       - id: BurnAutoInjector
 

@@ -32,7 +32,7 @@
     BluespaceBeaker: 1
 
 - type: vendingMachineInventory
-  id: ChemVendInventorySyndicate # Rebalanced for nukler teams, chemvends are made for a full chem team
+  id: ChemVendInventorySyndicate
   startingInventory:
     Jug: 1
     MedicalPatchRapid: 12

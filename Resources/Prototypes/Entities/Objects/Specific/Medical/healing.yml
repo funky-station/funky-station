@@ -731,32 +731,6 @@
           Quantity: 15
 
 - type: entity
-  name: pill canister
-  parent: PillCanister
-  id: PillCanisterLibital
-  suffix: Libital 15u
-  components:
-  - type: Label
-    currentLabel: libital 15u
-  - type: StorageFill
-    contents:
-    - id: PillLibital
-      amount: 8
-
-- type: entity
-  name: pill canister
-  parent: PillCanister
-  id: PillCanisterProbital
-  suffix: Probital 15u
-  components:
-  - type: Label
-    currentLabel: probital 15u
-  - type: StorageFill
-    contents:
-    - id: PillProbital
-      amount: 8
-
-- type: entity
   name: pill
   suffix: Charcoal 10u
   parent: Pill
@@ -1094,6 +1068,21 @@
         maxVol: 15
         reagents:
         - ReagentId: Convermol
+          Quantity: 15
+
+- type: entity
+  suffix: revivopine
+  parent: PrefilledSyringe
+  id: SyringeRevivopine
+  components:
+  - type: Label
+    currentLabel: revivopine
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Revivopine
           Quantity: 15
 
 #this is where all the syringes are so i didn't know where to put it

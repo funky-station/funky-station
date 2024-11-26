@@ -27,9 +27,3 @@
       - state: off-equipped-HELMET
   - type: RgbLightController
     layers: [ 1 ]
-  # - type: HideLayerClothing
-  #   slots:
-  #   - Hair
-  #   - Snout
-  #   - HeadTop
-  #   - HeadSide

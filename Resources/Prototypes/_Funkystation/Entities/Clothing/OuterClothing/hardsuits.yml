@@ -8,9 +8,9 @@
     sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/musician.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/musician.rsi
-  # - type: Construction
-  #   graph: MusicianHardsuit
-  #   node: musicianHardsuit
+  - type: Construction
+    graph: MusicianHardsuit
+    node: musicianHardsuit
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMusician
 

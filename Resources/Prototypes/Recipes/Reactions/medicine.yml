@@ -107,7 +107,7 @@
   reactants:
     Oxygen:
       amount: 2
-    Iron: # Funky Chem Expansion
+    Plasma: # Funky Chem Expansion ## fennec if youre reading this, this makes it so the thermite and dex recipe no longer clash :sob:
       amount: 1
     #  catalyst: true - seems to break currently
   products:

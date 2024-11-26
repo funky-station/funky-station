@@ -34,6 +34,10 @@ public sealed partial class StaminaSystem : EntitySystem
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!; // goob edit
+    [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goob edit
+    [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goob edit
+    [Dependency] private readonly ClothingModifyStunTimeSystem _modify = default!; // goob edit
 
     /// <summary>
     /// How much of a buffer is there between the stun duration and when stuns can be re-applied.
@@ -286,20 +290,10 @@ public sealed partial class StaminaSystem : EntitySystem
 
         SetStaminaAlert(uid, component);
 
-        if (!component.Critical)
-        {
-            if (component.StaminaDamage >= component.CritThreshold)
-            {
-                EnterStamCrit(uid, component);
-            }
-        }
-        else
-        {
-            if (component.StaminaDamage < component.CritThreshold)
-            {
-                ExitStamCrit(uid, component);
-            }
-        }
+        if (!component.Critical && component.StaminaDamage >= component.CritThreshold && value > 0) // goob edit
+            EnterStamCrit(uid, component, immediate);
+        else if (component.StaminaDamage < component.CritThreshold)
+            ExitStamCrit(uid, component);
 
         EnsureComp<ActiveStaminaComponent>(uid);
         Dirty(uid, component);
@@ -368,8 +362,7 @@ public sealed partial class StaminaSystem : EntitySystem
 
     private void EnterStamCrit(EntityUid uid, StaminaComponent? component = null)
     {
-        if (!Resolve(uid, ref component) ||
-            component.Critical)
+        if (!Resolve(uid, ref component) || !hardStun && component.Critical)
         {
             return;
         }
@@ -382,8 +375,8 @@ public sealed partial class StaminaSystem : EntitySystem
 
         _stunSystem.TryParalyze(uid, component.StunTime, true);
 
-        // Give them buffer before being able to be re-stunned
-        component.NextUpdate = _timing.CurTime + component.StunTime + StamCritBufferTime;
+        component.NextUpdate = _timing.CurTime + component.StunTime * _modify.GetModifier(uid) + StamCritBufferTime;
+
         EnsureComp<ActiveStaminaComponent>(uid);
         Dirty(uid, component);
         _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(uid):user} entered stamina crit");

@@ -369,7 +369,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: SalicylicAcid # Funkychem
+        - ReagentId: Bicaridine
           Quantity: 20
   - type: StaticPrice
     price: 750

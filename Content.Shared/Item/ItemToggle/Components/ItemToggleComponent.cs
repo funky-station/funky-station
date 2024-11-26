@@ -45,6 +45,13 @@ public sealed partial class ItemToggleComponent : Component
     public string VerbToggleOff = "item-toggle-deactivate";
 
     /// <summary>
+    /// Goobstation
+    /// Don't toggle on wielding/unwielding if false
+    /// </summary>
+    [DataField]
+    public bool WieldToggle = true;
+
+    /// <summary>
     ///     Whether the item's toggle can be predicted by the client.
     /// </summary>
     /// /// <remarks>

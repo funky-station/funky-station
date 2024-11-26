@@ -110,7 +110,7 @@
   description: A viper for use by cyborgs. Creates .35 ammo on the fly from an internal ammo fabricator, which slowly self-charges.
   components:
   - type: Gun
-    fireRate: 5
+    fireRate: 7
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto

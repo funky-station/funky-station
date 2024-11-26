@@ -145,14 +145,14 @@
       minAngle: 21
       maxAngle: 32
       fireRate: 12
-      burstFireRate: 12
+      burstFireRate: 12 #default fireRate is 12
       selectedMode: Burst
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
       availableModes:
         - Burst
-      shotsPerBurst: 3
-      burstCooldown: 0.25
+      shotsPerBurst: 3 #default is 3
+      burstCooldown: 0.25 #default is 25
     - type: ItemSlots
       slots:
         gun_magazine:

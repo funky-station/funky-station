@@ -91,7 +91,7 @@
   reactants:
     Multiver:
       amount: 1
-    Ammonia:
+    Silicon: ## fennec, had to change it cuz it conflicted w Diethylamine
       amount: 1
     Oil:
       amount: 1

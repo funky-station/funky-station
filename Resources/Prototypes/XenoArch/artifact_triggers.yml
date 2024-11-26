@@ -125,8 +125,8 @@
   - type: Reactive
     groups:
       Acidic: [ Touch ]
-    reactions:
-    - reagents: [ Dylovene, Diphenhydramine, Arithrazine, Bicaridine, Dermaline, Dexalin, DexalinPlus, Tricordrazine, Leporazine, Bruizine, Lacerinol, Puncturase, Pyrazine, Insuzine, Kelotane, Hyronalin, Inaprovaline, Epinephrine ]
+    reactions: # Funkychem
+    - reagents: [ Multiver, PenteticAcid, Diphenhydramine, Arithrazine, Probital, Libital, SalicylicAcid, Lenturi, Oxandrolone, Dexalin, Salbutamol, Convermol, Tricordrazine, Leporazine, Bruizine, Lacerinol, Puncturase, Pyrazine, Insuzine, Aiuri, Hyronalin, Inaprovaline, Epinephrine ]
       methods: [ Touch ]
       effects:
       - !type:ActivateArtifact

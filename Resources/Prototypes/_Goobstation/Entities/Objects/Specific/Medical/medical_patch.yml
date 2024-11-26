@@ -1,3 +1,4 @@
+# Fenn [From Funky] Here, the coder that made this really can't spell jeez. Anddd these are the best we have for patches yay. At least i balanced them better :3
 - type: entity
   parent: BaseHealingItem
   id: BaseMedicalPatch
@@ -29,6 +30,7 @@
   - type: MixableSolution
     solution: drink
   - type: MedicalPatch
+    transferAmount: 2 # Funky
   - type: Tag
     tags:
     - MedicalPatch
@@ -37,7 +39,7 @@
   parent: BaseMedicalPatch
   id: MedicalPatchBasic
   name: patch
-  description: put this on your boo boo
+  description: A Chemical Patch. Keep it on tightly. # Funky
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -53,7 +55,7 @@
   - type: SolutionContainerManager
     solutions:
       drink:  #drink is the same as Bottle solution, this is to prevent recoding chem master. TODO: recode chem master
-        maxVol: 40
+        maxVol: 30 # Funky
   - type: Tag
     tags:
     - MedicalPatch
@@ -65,7 +67,7 @@
   parent: BaseHealingItem
   id: UsedMedicalPatch
   name: patch used
-  description: EEEEWWWWWWW
+  description: Disgustingggg!!! # Funky
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -81,7 +83,7 @@
   parent: UsedMedicalPatch
   id: UsedMedicalPatchMakeshift
   name: patch used
-  description: EEEEWWWWWWW
+  description: You have nearly thrown up lunch by seeing this... # Funky
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -91,7 +93,7 @@
   parent: MedicalPatchBasic
   id: MedicalPatchRapid
   name: rapid patch
-  description:  has racing cars drawn on
+  description:  A Rapid-Application patch for fast application. Be sure to not overdose a patient. # Funky
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -103,13 +105,13 @@
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
   - type: MedicalPatch
-    transferAmount: 2 # Twice the ammound of basic
+    transferAmount: 5 # Funky
 
 - type: entity
   parent: MedicalPatchBasic
   id: MedicalPatchLarge
   name: large patch
-  description: put this on your Big boo boo
+  description: A Larger Chemical Patch. Holds much more chemicals and injects them slower. # Funky
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -124,27 +126,28 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 60 # +50% from basic
+        maxVol: 60 # 2x basic
   - type: MedicalPatch
-    injectPercentageOnAttatch: 15 # 10u when full
+    transferAmount: 1 # Funky
+  #  injectPercentageOnAttatch: 15 # 10u when full
 
 - type: entity
   parent: BaseMedicalPatch
   id: MedicalPatchMakeshift
   name: makeshift patch
-  description: does not look hygienic
+  description: You hate this creation, but it has chemicals. Maybe. # Funky
   components:
   - type: Sprite
     state: MakeshiftPatch
   - type: MedicalPatch
-    updateTime: 2 # slow
+    updateTime: 4 # slower - funky
     singleUse: true
     trashObject: UsedMedicalPatchMakeshift
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 15  #Low volume but a full will last for 30sec
-  - type: RefillableSolution  # So Tiders can fill ther bandages whit hotch and ventcurd
+        maxVol: 15  #Low volume but a full patch  will last for 60 seconds
+  - type: RefillableSolution  # So Tiders can fill ther bandages whit hotch and ventcurd - The spelling i really can't [Funky]
     solution: drink
   - type: Construction
     graph: MedicalPatchMakeshift
@@ -155,16 +158,16 @@
   result: MedicalPatchBasic
   completetime: 2
   materials:
-    Plastic: 100
-    Cloth: 100
+    Plastic: 50
+    Cloth: 50
 
 - type: latheRecipe
   id: MedicalPatchRapid
   result: MedicalPatchRapid
   completetime: 2
   materials:
-    Cloth: 100
-    Plastic: 100
+    Cloth: 75
+    Plastic: 75
 
 - type: latheRecipe
   id: MedicalPatchLarge
@@ -183,8 +186,8 @@
     - to: medicalPatchMakeshift
       steps:
       - material: Gauze
-        amount: 3
-        doAfter: 10
+        amount: 2 
+        doAfter: 5 
   - node: medicalPatchMakeshift
     entity: MedicalPatchMakeshift
 
@@ -196,7 +199,7 @@
   targetNode: medicalPatchMakeshift
   category: construction-category-tools
   objectType: Item
-  description: a little better then nothig
+  description: A Ghetto chemist dream. For the customer? A Nightmare. # Funky
   icon:
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
     state: MakeshiftPatch

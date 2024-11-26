@@ -4869,7 +4869,7 @@ entities:
           - 550
     - type: Physics
       canCollide: False
-- proto: PillCanisterDylovene
+- proto: PillCanisterMultiver # Funkychem
   entities:
   - uid: 92
     components:

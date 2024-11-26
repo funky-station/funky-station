@@ -1,7 +1,14 @@
+# Funky Station Chem Expansion
 - type: vendingMachineInventory
   id: ChemVendInventory
   startingInventory:
-    Jug: 4
+    Jug: 3
+    Syringe: 6
+    Dropper: 3
+    PillCanister: 5
+    MedicalPatchBasic: 30 # Can't refill these, and they are nearly the equivalent of a pill. Sucks, but best work around.
+    BoxBottle: 1
+    BoxBeaker: 1
     JugAluminium: 2
     JugCarbon: 4
     JugChlorine: 1
@@ -22,13 +29,21 @@
     JugSodium: 2
     JugSugar: 3
     JugSulfur: 1
+    JugWeldingFuel: 1
   emaggedInventory:
-    ToxinChemistryBottle: 1
+    BluespaceBeaker: 1 # Syndicate Shenanigans >:3
 
 - type: vendingMachineInventory
-  id: ChemVendInventorySyndicate
+  id: ChemVendInventorySyndicate # Rebalanced for nukler teams, chemvends are made for a full chem team
   startingInventory:
-    Jug: 4
+    Jug: 1
+    Syringe: 3
+    Dropper: 2
+    PillCanister: 6
+    MedicalPatchRapid: 12
+    MedicalPatchLarge: 6
+    BoxBottle: 2
+    BoxBeaker: 1
     JugAluminium: 2
     JugCarbon: 4
     JugChlorine: 1

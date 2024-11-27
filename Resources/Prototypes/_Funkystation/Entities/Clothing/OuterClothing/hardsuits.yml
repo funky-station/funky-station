@@ -18,9 +18,9 @@
     allowProgramChange: true
   - type: ActivatableUI
     blockSpectators: true
-    inHandsOnly:  false
     singleUser: true
     requiresComplex: true
+    verbOnly: true
     verbText: verb-instrument-openui
     key: enum.InstrumentUiKey.Key
   - type: UserInterface

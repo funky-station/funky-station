@@ -826,7 +826,7 @@
   components:
   - type: Tag
     tags:
-    - MusicianWinterCoat
+    - MusicianWinterCoat # Funky
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatnomi.rsi
   - type: Clothing

@@ -13,4 +13,18 @@
     node: musicianHardsuit
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMusician
+  - type: Instrument
+    allowPercussion: true
+    allowProgramChange: true
+  - type: ActivatableUI
+    blockSpectators: true
+    inHandsOnly:  false
+    singleUser: true
+    requiresComplex: true
+    verbText: verb-instrument-openui
+    key: enum.InstrumentUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
 

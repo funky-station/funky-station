@@ -312,3 +312,103 @@ Entries:
       message: Johns are now included in ion storm laws
   id: 44
   time: '2024-11-21T19:44:38.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: Aloxadone now heals 5 heat damage, up from 3.
+    - type: Tweak
+      message: >-
+        Aloxadone's recipe has been buffed to be 20u Aloe, 20u Sigynate, and 60u
+        Cryoxadone for 100u Aloxadone. This results in 2.5x more product per
+        resource intensive ingredient.
+  id: 45
+  time: '2024-11-22T02:13:09.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Add
+      message: Added surgery crate to Cargo
+  id: 46
+  time: '2024-11-22T03:31:56.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Remove
+      message: Removed brainrot
+  id: 47
+  time: '2024-11-22T05:23:10.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Heretics now trigger Delta alert level when they ascend.
+  id: 48
+  time: '2024-11-22T06:41:06.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: Preferred cyborg names works again.
+  id: 49
+  time: '2024-11-22T15:34:03.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Fix
+      message: added missing gas references to xenoarch
+  id: 50
+  time: '2024-11-23T21:38:15.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Add
+      message: Train
+  id: 51
+  time: '2024-11-24T06:02:08.0000000+00:00'
+- author: K3-1R
+  changes:
+    - type: Remove
+      message: Removed Divide pending rework
+  id: 52
+  time: '2024-11-25T04:10:06.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Add
+      message: Readded Divide (Peak)!
+    - type: Remove
+      message: Removed all the fun from Divide!
+  id: 53
+  time: '2024-11-25T15:55:06.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Space Law guidebook to NTR locker
+  id: 54
+  time: '2024-11-25T15:55:47.0000000+00:00'
+- author: TooSillyFennec
+  changes:
+    - type: Add
+      message: Many top level chems created by mixing a new chemical, Liquid Exotium.
+    - type: Add
+      message: >-
+        Many new toxins have been added. Test out Heparin [Bleed], Rhigoxane
+        [Cold], Spewium, and Pestiline [VERY slow cellular toxin]
+    - type: Add
+      message: >-
+        Bicaridine, Kelotane, and Dermaline have been replaced by 6 new
+        chemicals, as well as five other new chemicals, some replacing older
+        medical chems. Treat /Patients/ with /SS13 Rip off/ Chemicals today! -
+        Central Command Automated Advertiser
+    - type: Tweak
+      message: Normal species can metabolise 3 chemicals now, have fun making mixes!
+    - type: Tweak
+      message: >-
+        Medical Chemicals now metabolise at the rate of 0.2, making them last
+        longer, and have higher overdoses. Basic Med Chems od at 20, and
+        Advanced Med Chems at 15. Medicine heals slower to compensate.
+    - type: Tweak
+      message: >-
+        Medical patches have been re-balanced completely. And they also don't
+        have spelling errors... yay.
+    - type: Tweak
+      message: Chem Dispensers now have welding fuel.
+    - type: Tweak
+      message: >-
+        Medkits have been changed heavily, to be stronger and have much more
+        contents. Have fun healing more than 1 person now!
+  id: 55
+  time: '2024-11-26T02:06:12.0000000+00:00'

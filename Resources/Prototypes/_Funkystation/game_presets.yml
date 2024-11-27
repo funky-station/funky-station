@@ -14,6 +14,22 @@
   - BasicRoundstartVariation
 
 - type: gamePreset
+  id: HereticTraitor
+  alias:
+  - heretics
+  - heret
+  name: heretics-gamemode-title
+  description: heretics-gamemode-description
+  showInVote: false
+  rules:
+  - CalmHeretic
+  - CalmTraitor
+  - BasicStationEventScheduler
+  - AntagStationEventScheduler
+  - BasicRoundstartVariation
+  - BasicRoundstartVariation
+
+- type: gamePreset
   id: ChangelingHeretics
   alias:
   - cheretics

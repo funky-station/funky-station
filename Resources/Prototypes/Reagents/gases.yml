@@ -522,6 +522,12 @@
         component: ForcedSleeping
         time: 3
         type: Add
+      - !type:Drunk
+        boozePower: 50
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Healium
+          min: 3
         # needs to be made into hypothium to work well as a chem, use as a gas otherwise
 
 - type: reagent

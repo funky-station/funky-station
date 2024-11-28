@@ -198,7 +198,7 @@
   physicalDesc: reagent-physical-desc-bubbling
   flavor: medicine
   color: "#32cd32"
-  worksOnTheDead: true
+ # worksOnTheDead: true
   metabolisms:
     Medicine:
       effects:
@@ -1405,7 +1405,7 @@
   group: Medicine
   desc: reagent-desc-pyroxadone
   physicalDesc: reagent-physical-desc-fizzy
-  flavor: Burning
+  flavor: spicy
   color: "#E69908"
   metabolisms:
     Medicine:
@@ -1427,7 +1427,7 @@
   group: Medicine
   desc: reagent-desc-ardthyrnkole
   physicalDesc: reagent-physical-desc-blazing
-  flavor: Spicy
+  flavor: sour
   color: "#894379"
   worksOnTheDead: true
   metabolisms:
@@ -1449,7 +1449,7 @@
   group: Medicine
   desc: reagent-desc-natusixadone
   physicalDesc: reagent-physical-desc-bubbling
-  flavor: Medicine
+  flavor: medicine
   color: "#acbb27"
   worksOnTheDead: true
   metabolisms:

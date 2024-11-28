@@ -1596,7 +1596,7 @@
         reagents:
         - ReagentId: Aloe
           Quantity: 10
-        - ReagentId: Aiuri
+        - ReagentId: Dermaline
           Quantity: 10
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/aloe.rsi
@@ -1637,7 +1637,7 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
-        - ReagentId: SalicylicAcid
+        - ReagentId: Bicaridine
           Quantity: 20
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/poppy.rsi
@@ -1675,7 +1675,7 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
-        - ReagentId: SalicylicAcid
+        - ReagentId: Bicaridine
           Quantity: 20
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/lily.rsi
@@ -1711,7 +1711,7 @@
       food:
         maxVol: 40
         reagents:
-        - ReagentId: PenteticAcid
+        - ReagentId: Ultravasculine
           Quantity: 20
         - ReagentId: Epinephrine
           Quantity: 20
@@ -1751,9 +1751,9 @@
       food:
         maxVol: 24
         reagents:
-        - ReagentId: Probital
+        - ReagentId: Bicaridine
           Quantity: 5
-        - ReagentId: Lenturi
+        - ReagentId: Kelotane
           Quantity: 5
         - ReagentId: Nutriment
           Quantity: 2

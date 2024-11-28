@@ -1,21 +1,21 @@
-#- type: reaction
-#  id: Dylovene
-#  reactants:
-#    Silicon:
-#      amount: 1
-#    Nitrogen:
-#      amount: 1
-#    Potassium:
-#      amount: 1
-#  products:
-#    Dylovene: 3
+- type: reaction
+  id: Dylovene
+  reactants:
+    Silicon:
+      amount: 1
+    Nitrogen:
+      amount: 1
+    Potassium:
+      amount: 1
+  products:
+    Dylovene: 3
 
 - type: reaction
   id: Ethylredoxrazine
   reactants:
     Oxygen:
       amount: 1
-    Multiver:
+    Dylovene:
       amount: 1
     Carbon:
       amount: 1
@@ -44,15 +44,15 @@
   products:
     Arithrazine: 2
 
-#- type: reaction
-#  id: Bicaridine
-#  reactants:
-#    Inaprovaline:
-#      amount: 1
-#    Carbon:
-#      amount: 1
-#  products:
-#    Bicaridine: 2
+- type: reaction
+  id: Bicaridine
+  reactants:
+    Inaprovaline:
+      amount: 1
+    Carbon:
+      amount: 1
+  products:
+    Bicaridine: 2
 
 - type: reaction
   id: Cryoxadone
@@ -90,47 +90,47 @@
   products:
     Epinephrine: 4
 
-#- type: reaction
-#  id: Dermaline
-#  reactants:
-#    Kelotane:
-#      amount: 1
-#    Oxygen:
-#      amount: 1
-#    Phosphorus:
-#      amount: 1
-#  products:
-#    Dermaline: 3
+- type: reaction
+  id: Dermaline
+  reactants:
+    Kelotane:
+      amount: 1
+    Oxygen:
+      amount: 1
+    Phosphorus:
+      amount: 1
+  products:
+    Dermaline: 3
 
 - type: reaction
   id: Dexalin
   reactants:
     Oxygen:
       amount: 2
-    Plasma: # Funky Chem Expansion ## fennec if youre reading this, this makes it so the thermite and dex recipe no longer clash :sob:
+    Plasma:
       amount: 1
-    #  catalyst: true - seems to break currently
+      catalyst: true
   products:
     Dexalin: 3
 
-#- type: reaction
-#  id: DexalinPlus
-#  reactants:
-#    Dexalin:
-#      amount: 1
-#    Carbon:
-#      amount: 1
-#    Iron:
-#      amount: 1
-#  products:
-#    DexalinPlus: 3
+- type: reaction
+  id: DexalinPlus
+  reactants:
+    Dexalin:
+      amount: 1
+    Carbon:
+      amount: 1
+    Iron:
+      amount: 1
+  products:
+    DexalinPlus: 3
 
 - type: reaction
   id: Hyronalin
   reactants:
     Radium:
       amount: 1
-    PotassiumIodide: # Funky Chem Expansion
+    Dylovene:
       amount: 1
   products:
     Hyronalin: 2
@@ -171,15 +171,15 @@
   products:
     TranexamicAcid: 3
 
-#- type: reaction
-#  id: Kelotane
-#  reactants:
-#    Silicon:
-#      amount: 1
-#    Carbon:
-#      amount: 1
-#  products:
-#    Kelotane: 2
+- type: reaction
+  id: Kelotane
+  reactants:
+    Silicon:
+      amount: 1
+    Carbon:
+      amount: 1
+  products:
+    Kelotane: 2
 
 - type: reaction
   id: Leporazine
@@ -209,7 +209,7 @@
 - type: reaction
   id: Ambuzol
   reactants:
-    Multiver:
+    Dylovene:
       amount: 1
     Ammonia:
       amount: 1
@@ -245,17 +245,15 @@
   reactants:
     Inaprovaline:
       amount: 1
-    Dexalin: # Funky Chem Expansion
+    Dylovene:
       amount: 1
-    Silicon: # Funky Chem Expansion ## fennec if youre reading this, old recipe clashed with Salbutamol :sob:
-      amount: 1 
   products:
     Tricordrazine: 2
 
 - type: reaction
   id: HeartbreakerToxin
   reactants:
-    Salbutamol: # Funky Chem Expansion
+    DexalinPlus:
       amount: 1
     MindbreakerToxin:
       amount: 1
@@ -320,7 +318,7 @@
       amount: 1
     Hydrogen:
       amount: 1
-    Multiver: # Funky Chem Expansion
+    Dylovene:
       amount: 1
   products:
     MindbreakerToxin: 3
@@ -337,16 +335,16 @@
   products:
     SpaceDrugs: 3
 
-#- type: reaction
-#  id: Ultravasculine
-#  reactants:
-#    Histamine:
-#      amount: 2
-#    Plasma:
-#      amount: 1
-#      catalyst: true
-#  products:
-#    Ultravasculine: 2
+- type: reaction
+  id: Ultravasculine
+  reactants:
+    Histamine:
+      amount: 2
+    Plasma:
+      amount: 1
+      catalyst: true
+  products:
+    Ultravasculine: 2
 
 - type: reaction
   id: Oculine
@@ -391,7 +389,7 @@
       amount: 1
     SodiumHydroxide:
       amount: 1
-    Lenturi: # Funky Chem Expansion
+    Kelotane:
       amount: 1
     Water:
       amount: 1
@@ -415,7 +413,7 @@
   impact: Medium
   minTemp: 335
   reactants:
-    Libital: # Funky Chem Expansion
+    Bicaridine: # Bicaridine is a conflicting brute medication and if mixed incorrectly will make Razorium. This is intended.
       amount: 1
     Benzene:
       amount: 1
@@ -427,7 +425,7 @@
   impact: Medium
   minTemp: 325
   reactants:
-    Libital: # Funky Chem Expansion
+    Bicaridine: # Bicaridine is a conflicting brute medication and if mixed incorrectly will make Razorium. This is intended.
       amount: 1
     Hydroxide:
       amount: 1
@@ -438,7 +436,7 @@
   id: Bruizine
   impact: Medium
   reactants:
-    Libital: 
+    Bicaridine: # Bicaridine is a conflicting brute medication and if mixed incorrectly will make Razorium. This is intended.
       amount: 1
     Lithium:
       amount: 0.9
@@ -448,40 +446,40 @@
     Bruizine: 2
 
 - type: reaction
-  id: SalyLacerinol # Funky Chem Expansion - Mix 2 Brute dvanced Meds, Get Razor. All Razor Recipes below.
+  id: BicarLacerinol # mixing any two brute medications will make Razorium
   impact: Medium
   reactants:
     Lacerinol:
       amount: 1
-    SalicylicAcid:
+    Bicaridine:
       amount: 1
   products:
     Razorium: 1
 
 - type: reaction
-  id: SalyPuncturase 
+  id: BicarPuncturase # mixing any two brute medications will make Razorium
   impact: Medium
   reactants:
     Puncturase:
       amount: 1
-    SalicylicAcid:
+    Bicaridine:
       amount: 1
   products:
     Razorium: 1
 
 - type: reaction
-  id: BicarBruizine 
+  id: BicarBruizine # mixing any two brute medications will make Razorium
   impact: Medium
   reactants:
     Bruizine:
       amount: 1
-    SalicylicAcid:
+    Bicaridine:
       amount: 1
   products:
     Razorium: 1
 
 - type: reaction
-  id: BruizineLacerinol 
+  id: BruizineLacerinol # mixing any two brute medications will make Razorium
   impact: Medium
   reactants:
     Lacerinol:
@@ -492,7 +490,7 @@
     Razorium: 1
 
 - type: reaction
-  id: BruizinePuncturase 
+  id: BruizinePuncturase # mixing any two brute medications will make Razorium
   impact: Medium
   reactants:
     Puncturase:
@@ -503,7 +501,7 @@
     Razorium: 1
 
 - type: reaction
-  id: PuncturaseLacerinol 
+  id: PuncturaseLacerinol # mixing any two brute medications will make Razorium
   impact: Medium
   reactants:
     Lacerinol:
@@ -538,7 +536,7 @@
   reactants:
     Leporazine:
       amount: 1
-    Aiuri:
+    Dermaline:
       amount: 1
     Carbon:
       amount: 1
@@ -552,7 +550,7 @@
   reactants:
     Leporazine:
       amount: 1
-    Aiuri:
+    Kelotane:
       amount: 1
     Silicon:
       amount: 1

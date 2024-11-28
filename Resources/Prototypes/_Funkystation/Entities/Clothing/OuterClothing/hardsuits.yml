@@ -1,4 +1,19 @@
 - type: entity
+  parent: BaseItem
+  id: ClothingOuterHardsuitMusicianConstruction
+  name: musician hardsuit shell
+  description: A custom-made incomplete musician hardsuit.
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/musician.rsi
+    state: icon-incomplete
+  - type: Construction
+    graph: MusicianHardsuit
+    node: addInstruments
+
+- type: entity
   parent: ClothingOuterHardsuitClown
   id: ClothingOuterHardsuitMusician
   name: musician hardsuit

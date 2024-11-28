@@ -824,9 +824,6 @@
   name: musician's winter coat
   description: An oversized, plasticine space tuxedo that'll have people asking "do you know me?"
   components:
-  - type: Tag
-    tags:
-    - MusicianWinterCoat # Funky
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatnomi.rsi
   - type: Clothing

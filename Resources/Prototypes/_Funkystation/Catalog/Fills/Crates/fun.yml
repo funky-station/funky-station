@@ -11,3 +11,24 @@
         - id: PlushieDawn
           amount: !type:ConstantNumberSelector
             value: 4
+
+- type: entity
+  id: CrateCopsNRobbers
+  parent: CrateGenericSteel
+  name: cops and robbers crate
+  description: Recreate an ancient game of dress up and pretend you're still terra-bound with this crate of cap guns and cowboy hats!
+  components:
+  - type: StorageFill
+    contents:
+    - id: RevolverCapGun
+      amount: 4
+    - id: SpeedLoaderCap
+      amount: 4
+    - id: BoxCartridgeCap
+      amount: 2
+    - id: ClothingShoesBootsCowboyBrown
+      amount: 4
+    - id: ClothingHeadHatCowboyBrown
+      amount: 2
+    - id: ClothingHeadHatOutlawHat
+      amount: 2

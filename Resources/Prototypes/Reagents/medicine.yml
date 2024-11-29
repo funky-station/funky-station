@@ -1392,10 +1392,10 @@
       - !type:HealthChange
         damage: # still less than healium as a gas but a good liquid chem
           groups:
-            Brute: -4
-            Burn: -4
-            Toxin: -4
-            Airloss: -4
+            Brute: -6
+            Burn: -6
+            Toxin: -6
+            Airloss: -6
       - !type:ModifyBleedAmount
         amount: -0.5
 

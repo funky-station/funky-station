@@ -444,3 +444,9 @@ Entries:
       message: The Rattler Revolver, available in the uplink
   id: 59
   time: '2024-11-29T19:49:54.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Adds Cops and Robbers crate to cargo order console
+  id: 60
+  time: '2024-11-29T19:50:47.0000000+00:00'

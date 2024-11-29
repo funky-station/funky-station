@@ -438,3 +438,9 @@ Entries:
         chem: hypothium!
   id: 58
   time: '2024-11-29T03:42:45.0000000+00:00'
+- author: Z4NEER-exe
+  changes:
+    - type: Add
+      message: The Rattler Revolver, available in the uplink
+  id: 59
+  time: '2024-11-29T19:49:54.0000000+00:00'

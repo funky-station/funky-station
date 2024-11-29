@@ -412,3 +412,9 @@ Entries:
         contents. Have fun healing more than 1 person now!
   id: 55
   time: '2024-11-26T02:06:12.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Fix
+      message: surgical supplies crate now contains surgical supplies
+  id: 56
+  time: '2024-11-29T02:49:45.0000000+00:00'

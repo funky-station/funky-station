@@ -424,3 +424,17 @@ Entries:
       message: Added the ability to reply to AHelps while exclusively on discord.
   id: 57
   time: '2024-11-29T03:20:05.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Add
+      message: >-
+        adds three new "pyrogenic" chemicals: pyroxadone, ardthyrnkole, and
+        natusixadone! check the guidebook for what they do!
+    - type: Tweak
+      message: doxa no longer works on hollowed corpses
+    - type: Tweak
+      message: >-
+        condensed healium very minorly heals now, and can be used to make a new
+        chem: hypothium!
+  id: 58
+  time: '2024-11-29T03:42:45.0000000+00:00'

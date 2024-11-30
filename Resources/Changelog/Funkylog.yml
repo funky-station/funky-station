@@ -496,3 +496,9 @@ Entries:
       message: The pen is now usable again as a ghetto surgery tool.
   id: 61
   time: '2024-11-30T04:26:13.0000000+00:00'
+- author: UtopiOne
+  changes:
+    - type: Add
+      message: You can now add a Cirno plushie to your loadout.
+  id: 62
+  time: '2024-11-30T15:04:47.0000000+00:00'

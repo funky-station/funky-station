@@ -505,6 +505,30 @@
         - !type:ReagentThreshold
           reagent: Healium
           min: 3
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -0.1
+            Toxin: -0.1
+            Brute: -0.1
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Healium
+          min: 6
+        key: ForcedSleep
+        component: ForcedSleeping
+        time: 3
+        type: Add
+      - !type:Drunk
+        boozePower: 50
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Healium
+          min: 3
+        # needs to be made into hypothium to work well as a chem, use as a gas otherwise
 
 - type: reagent
   id: Nitrium

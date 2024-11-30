@@ -450,3 +450,49 @@ Entries:
       message: Adds Cops and Robbers crate to cargo order console
   id: 60
   time: '2024-11-29T19:50:47.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: (Probably) Fixed all of the slot issues.
+    - type: Fix
+      message: Fixed organ transplants being broken again
+    - type: Fix
+      message: You can now perform surgery on changelings.
+    - type: Fix
+      message: Reattached parts now display their state on your status doll correctly.
+    - type: Fix
+      message: >-
+        Organs now only apply their effects when inserted into the correct
+        slots.
+    - type: Fix
+      message: >-
+        Now you can put items that are used as surgical tools into disposals
+        again.
+    - type: Fix
+      message: >-
+        Fixed locational armor not applying to parts. Need to refactor the
+        calculations though.
+    - type: Fix
+      message: >-
+        Fixed the medical T3 research not showing up, sorry to anyone I might
+        have accidentally gaslit on discord
+    - type: Tweak
+      message: T2 medical tools research now costs 10k research
+    - type: Tweak
+      message: >-
+        Added wrapping for alerts to prevent it from overlapping with the body
+        doll. The body status doll isn't an alert yet so expect jankyness with
+        its placement for now. Please report any weirdness so I can tweak
+        values!
+    - type: Tweak
+      message: >-
+        Changed the boring saw in the surgical duffel bag / crates to a circular
+        saw.
+    - type: Tweak
+      message: >-
+        Moved surgery to a verb that comes up when right clicking on a valid
+        entity with a surgical tool in hand.
+    - type: Tweak
+      message: The pen is now usable again as a ghetto surgery tool.
+  id: 61
+  time: '2024-11-30T04:26:13.0000000+00:00'

@@ -38,7 +38,7 @@
           icon:
             sprite: Objects/Fun/Instruments/h_synthesizer.rsi
             state: icon
-          doafter: 1
+          doAfter: 1
           completed:
           - !type:PlaySound
             sound: /Audio/Machines/button.ogg

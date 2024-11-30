@@ -167,20 +167,20 @@ public sealed partial class CCVars
     ///     Overrides DiscordReplyColor and AdminBwoinkColor.
     /// </summary>
     public static readonly CVarDef<bool> UseDiscordRoleColor =
-        CVarDef.Create("admin.use_discord_role_color", false, CVar.SERVERONLY);
+        CVarDef.Create("admin.use_discord_role_color", true, CVar.SERVERONLY);
 
     /// <summary>
     ///     If an admin replies to users from discord, should it use their discord role color? (if applicable)
     ///     Overrides DiscordReplyColor and AdminBwoinkColor.
     /// </summary>
     public static readonly CVarDef<bool> UseDiscordRoleName =
-        CVarDef.Create("admin.use_discord_role_name", false, CVar.SERVERONLY);
+        CVarDef.Create("admin.use_discord_role_name", true, CVar.SERVERONLY);
 
     /// <summary>
     ///     The text before an admin's name when replying from discord to indicate they're speaking from discord.
     /// </summary>
     public static readonly CVarDef<string> DiscordReplyPrefix =
-        CVarDef.Create("admin.discord_reply_prefix", "(DC) ", CVar.SERVERONLY);
+        CVarDef.Create("admin.discord_reply_prefix", "(DISCORD) ", CVar.SERVERONLY);
 
     /// <summary>
     ///     The color of the names of admins. This is the fallback color for admins.

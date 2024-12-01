@@ -22,26 +22,31 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
         });
 
         SubscribeLocalEvent<SmartFridgeComponent, MapInitEvent>(MapInit, before: [typeof(ItemSlotsSystem)]);
-        SubscribeLocalEvent<SmartFridgeComponent, AfterInteractEvent>(OnAfterInteractEvent);
         SubscribeLocalEvent<SmartFridgeComponent, ItemSlotEjectAttemptEvent>(OnItemEjectEvent);
+        SubscribeLocalEvent<SmartFridgeComponent, InteractUsingEvent>(OnInteractEvent);
+    }
+
+    private void OnInteractEvent(EntityUid entity, SmartFridgeComponent component, ref InteractUsingEvent ev)
+    {
+        if (!_itemSlotsSystem.TryInsertEmpty(ev.Target, ev.Used, ev.User, true))
+            return;
+
+        component.Inventory = GetInventory(entity);
+
+        ev.Handled = true;
+
+        Dirty(entity, component);
     }
 
     private void OnItemEjectEvent(EntityUid entity, SmartFridgeComponent component, ref ItemSlotEjectAttemptEvent ev)
     {
         if (component.SlotToEjectFrom == ev.Slot)
         {
+            Dirty(entity, component);
             return;
         }
 
         ev.Cancelled = !component.Ejecting;
-    }
-
-    private void OnAfterInteractEvent(EntityUid entity, SmartFridgeComponent component, ref AfterInteractEvent ev)
-    {
-        if (ev.Target == null)
-            return;
-
-        Dirty(ev.Target.Value, component);
     }
 
     public override void Update(float frameTime)
@@ -79,6 +84,7 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
             return;
 
         VendFromSlot(uid, args.Id);
+        Dirty(uid, component);
     }
 
     private void VendFromSlot(EntityUid uid, string itemSlotToEject, SmartFridgeComponent? component = null)
@@ -111,7 +117,6 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
             !_itemSlotsSystem.TryEject(uid, component.SlotToEjectFrom, null, out _))
             return;
 
-        Dirty(uid, component);
         component.SlotToEjectFrom = null;
     }
 

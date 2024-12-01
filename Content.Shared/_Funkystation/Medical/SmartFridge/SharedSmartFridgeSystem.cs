@@ -1,5 +1,7 @@
 ﻿using System.Linq;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Labels.Components;
 
 namespace Content.Shared._Funkystation.Medical.SmartFridge;
@@ -7,6 +9,16 @@ namespace Content.Shared._Funkystation.Medical.SmartFridge;
 public abstract class SharedSmartFridgeSystem : EntitySystem
 {
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
+
+    public List<SmartFridgeInventoryItem> TryGetInventory(EntityUid entity, SmartFridgeComponent? smartFridgeComponent = null)
+    {
+        if (!Resolve(entity, ref smartFridgeComponent))
+            return [];
+
+        smartFridgeComponent.Inventory = GetInventory(entity);
+
+        return smartFridgeComponent.Inventory;
+    }
 
     public List<SmartFridgeInventoryItem> GetInventory(EntityUid uid, SmartFridgeComponent? smartFridgeComponent = null)
     {
@@ -40,7 +52,6 @@ public abstract class SharedSmartFridgeSystem : EntitySystem
             repeatedItems.Add(itemLabel, new SmartFridgeInventoryItem(meta.EntityPrototype!, storageSlotId, itemLabel, 1));
         }
 
-        Dirty(uid, smartFridgeComponent);
         return repeatedItems.Values.ToList();
     }
 }

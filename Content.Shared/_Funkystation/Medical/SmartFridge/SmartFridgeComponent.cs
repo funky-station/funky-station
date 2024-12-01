@@ -9,7 +9,7 @@ using Component = Robust.Shared.GameObjects.Component;
 
 namespace Content.Shared._Funkystation.Medical.SmartFridge;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SmartFridgeComponent : Component
 {
     /// <summary>
@@ -26,6 +26,9 @@ public sealed partial class SmartFridgeComponent : Component
 
     [DataField]
     public List<ItemSlot> StorageSlots = [];
+
+    [DataField, AutoNetworkedField]
+    public List<SmartFridgeInventoryItem> Inventory = [];
 
     /// <summary>
     /// Prefix for automatically-generated slot name for storage, up to NumSlots.

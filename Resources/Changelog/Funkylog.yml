@@ -508,3 +508,11 @@ Entries:
       message: Removes Barratry from the map pool
   id: 63
   time: '2024-12-01T00:46:29.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: >-
+        The SmartFridge™, feature complete with methods to store pills, jugs,
+        and perishables.
+  id: 64
+  time: '2024-12-01T20:42:29.0000000+00:00'

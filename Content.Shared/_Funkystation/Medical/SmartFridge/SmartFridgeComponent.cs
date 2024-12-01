@@ -9,7 +9,7 @@ using Component = Robust.Shared.GameObjects.Component;
 
 namespace Content.Shared._Funkystation.Medical.SmartFridge;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class SmartFridgeComponent : Component
 {
     /// <summary>

@@ -502,3 +502,9 @@ Entries:
       message: You can now add a Cirno plushie to your loadout.
   id: 62
   time: '2024-11-30T15:04:47.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Remove
+      message: Removes Barratry from the map pool
+  id: 63
+  time: '2024-12-01T00:46:29.0000000+00:00'

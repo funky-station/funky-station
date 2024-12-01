@@ -10,6 +10,7 @@
       - PillCanister
       - Meat
       - ChemDispensable
+      - Bottle
   - type: ActivatableUI
     key: enum.SmartFridgeUiKey.Key
   - type: ActivatableUIRequiresPower

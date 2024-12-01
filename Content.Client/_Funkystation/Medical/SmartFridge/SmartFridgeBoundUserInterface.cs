@@ -29,7 +29,7 @@ public sealed class SmartFridgeBoundUserInterface(EntityUid owner, Enum uiKey) :
     public void Refresh()
     {
         var system = EntMan.System<SmartFridgeSystem>();
-        _cachedInventory = system.TryGetInventory(Owner);
+        _cachedInventory = system.GetInventoryClient(Owner);
 
         _menu?.Populate(_cachedInventory);
     }

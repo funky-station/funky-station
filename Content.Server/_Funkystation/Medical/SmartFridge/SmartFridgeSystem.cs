@@ -117,7 +117,10 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
             !_itemSlotsSystem.TryEject(uid, component.SlotToEjectFrom, null, out _))
             return;
 
+        component.Inventory = GetInventory(uid);
         component.SlotToEjectFrom = null;
+
+        Dirty(uid, component);
     }
 
     private void SetupSmartFridge(EntityUid uid, SmartFridgeComponent component)

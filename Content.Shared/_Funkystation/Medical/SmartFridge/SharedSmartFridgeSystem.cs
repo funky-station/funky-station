@@ -10,17 +10,20 @@ public abstract class SharedSmartFridgeSystem : EntitySystem
 {
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
 
-    public List<SmartFridgeInventoryItem> TryGetInventory(EntityUid entity, SmartFridgeComponent? smartFridgeComponent = null)
+    public List<SmartFridgeInventoryItem> GetInventoryClient(EntityUid uid,
+        SmartFridgeComponent? smartFridgeComponent = null)
     {
-        if (!Resolve(entity, ref smartFridgeComponent))
+        if (!Resolve(uid, ref smartFridgeComponent))
             return [];
 
-        smartFridgeComponent.Inventory = GetInventory(entity);
+        var inventory = new List<SmartFridgeInventoryItem>();
 
-        return smartFridgeComponent.Inventory;
+        inventory.AddRange(smartFridgeComponent.Inventory);
+
+        return inventory;
     }
 
-    public List<SmartFridgeInventoryItem> GetInventory(EntityUid uid, SmartFridgeComponent? smartFridgeComponent = null)
+    protected List<SmartFridgeInventoryItem> GetInventory(EntityUid uid, SmartFridgeComponent? smartFridgeComponent = null)
     {
         if (!Resolve(uid, ref smartFridgeComponent))
             return [];

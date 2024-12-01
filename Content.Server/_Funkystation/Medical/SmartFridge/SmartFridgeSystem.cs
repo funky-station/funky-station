@@ -2,6 +2,7 @@
 using Content.Shared._Funkystation.Medical.SmartFridge;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Interaction;
+using Content.Shared.Tag;
 using Robust.Server.Audio;
 
 namespace Content.Server._Funkystation.Medical.SmartFridge;
@@ -9,6 +10,7 @@ namespace Content.Server._Funkystation.Medical.SmartFridge;
 public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
 {
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
+    [Dependency] private readonly TagSystem _tags = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
 
     public override void Initialize()
@@ -28,6 +30,15 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
 
     private void OnInteractEvent(EntityUid entity, SmartFridgeComponent component, ref InteractUsingEvent ev)
     {
+        if (component.StorageWhitelist != null)
+        {
+            if (!_tags.HasAnyTag(ev.Used, component.StorageWhitelist.Tags!.ToArray()))
+            {
+                ev.Handled = true;
+                return;
+            }
+        }
+
         if (!_itemSlotsSystem.TryInsertEmpty(ev.Target, ev.Used, ev.User, true))
             return;
 

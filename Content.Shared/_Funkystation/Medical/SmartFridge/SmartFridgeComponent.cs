@@ -27,6 +27,9 @@ public sealed partial class SmartFridgeComponent : Component
     [DataField]
     public List<ItemSlot> StorageSlots = [];
 
+    /// <summary>
+    /// latest available inventory
+    /// </summary>
     [DataField, AutoNetworkedField]
     public List<SmartFridgeInventoryItem> Inventory = [];
 

@@ -5,6 +5,11 @@
   description: A refrigerated storage unit for keeping items cold and fresh.
   components:
   - type: SmartFridge
+    storageWhitelist:
+      tags:
+      - PillCanister
+      - Meat
+      - ChemDispensable
   - type: ActivatableUI
     key: enum.SmartFridgeUiKey.Key
   - type: ActivatableUIRequiresPower

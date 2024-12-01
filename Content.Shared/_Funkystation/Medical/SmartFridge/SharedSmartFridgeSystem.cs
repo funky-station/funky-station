@@ -1,7 +1,5 @@
 ﻿using System.Linq;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Interaction;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Labels.Components;
 
 namespace Content.Shared._Funkystation.Medical.SmartFridge;

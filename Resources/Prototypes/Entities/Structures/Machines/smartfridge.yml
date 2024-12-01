@@ -4,6 +4,20 @@
   name: SmartFridge
   description: A refrigerated storage unit for keeping items cold and fresh.
   components:
+  - type: SmartFridge
+    storageWhitelist:
+      tags:
+      - PillCanister
+      - Meat
+      - ChemDispensable
+      - Bottle
+  - type: ActivatableUI
+    key: enum.SmartFridgeUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.SmartFridgeUiKey.Key:
+        type: SmartFridgeBoundUserInterface
   - type: StationAiWhitelist
   - type: Advertise
     pack: SmartFridgeAds
@@ -18,6 +32,8 @@
     - state: smartfridge_door
       map: ["enum.StorageVisualLayers.Door"]
       shader: unshaded
+  - type: ApcPowerReceiver
+    powerLoad: 0
   - type: EntityStorageVisuals
     stateBaseClosed: smartfridge
     stateDoorOpen: smartfridge_open
@@ -26,23 +42,6 @@
     radius: 1.5
     energy: 1.6
     color: "#9dc5c9"
-  - type: EntityStorage
-    isCollidableWhenOpen: true
-    closeSound:
-      path: /Audio/Machines/windoor_open.ogg
-      params:
-        volume: -3
-    openSound:
-      path: /Audio/Machines/windoor_open.ogg
-      params:
-        volume: -3
-  - type: ContainerContainer
-    containers:
-      entity_storage: !type:Container
-  - type: UseDelay
-    delay: 1
-  - type: AntiRottingContainer
-  - type: ResistLocker
   - type: Physics
     bodyType: Static
   - type: Transform

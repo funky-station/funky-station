@@ -522,3 +522,11 @@ Entries:
       message: changed pyroxadone's color to not look like bic
   id: 65
   time: '2024-12-02T14:34:51.0000000+00:00'
+- author: UtopiOne
+  changes:
+    - type: Add
+      message: >-
+        Musician's Hardsuit can now be found in the crafting menu. Play music to
+        your heart's content!
+  id: 66
+  time: '2024-12-02T14:35:28.0000000+00:00'

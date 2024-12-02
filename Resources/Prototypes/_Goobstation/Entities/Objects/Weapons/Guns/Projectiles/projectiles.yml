@@ -43,7 +43,7 @@
     damage:
       types:
         Heat: 5
-        Structural: 50 #funkystation -okay its a plasma CUTTER wouldn't it make more sense for this to do struct dmg? like wtf?
+        Structural: 75 #funkystation -okay its a plasma CUTTER wouldn't it make more sense for this to do struct dmg? like wtf?
   - type: TimedDespawn
     lifetime: 0.2
   - type: PointLight

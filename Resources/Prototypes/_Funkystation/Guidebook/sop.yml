@@ -5,6 +5,10 @@
   children:
   - CommandSOP
   - SecuritySOP
+  - MedicalSOP
+  - ServiceSOP
+  - EngineeringSOP
+  - CargoSOP
   - AlertLevelsSOP
   - EnemiesOfTheCorporation
 
@@ -45,6 +49,16 @@
   id: EnemiesOfTheCorporation
   name: guide-entry-eoc-sop
   text: "/ServerInfo/Funkystation/Guidebook/Security/EnemiesOfTheCorporation.xml"
+
+- type: guideEntry
+  id: MedicalSOP
+  name: guide-entry-medical-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Medical/MedicalStandardOperatingProcedure.xml"
+
+- type: guideEntry
+  id: ServiceSOP
+  name: guide-entry-service-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Service/ServiceStandardOperatingProcedure.xml"
 
 - type: guideEntry
   id: GreenAlertSOP

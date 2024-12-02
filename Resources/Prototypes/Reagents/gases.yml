@@ -243,23 +243,13 @@
         - !type:ReagentThreshold
           reagent: NitrousOxide
           min: 0.2
+          max: 0.5
         - !type:OrganType
           type: Slime
           shouldHave: false
         emote: Laugh
         showInChat: true
         probability: 0.1
-      - !type:Emote
-        conditions:
-        - !type:ReagentThreshold
-          reagent: NitrousOxide
-          min: 0.2
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
-        emote: Scream
-        showInChat: true
-        probability: 0.01
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold
@@ -286,13 +276,13 @@
         conditions:
         - !type:ReagentThreshold
           reagent: NitrousOxide
-          min: 1.8
+          min: 1
         - !type:OrganType
           type: Slime
           shouldHave: false
         key: ForcedSleep
         component: ForcedSleeping
-        time: 3
+        time: 200 # This reeks, but I guess it works LMAO
         type: Add
       - !type:HealthChange
         conditions:
@@ -515,6 +505,30 @@
         - !type:ReagentThreshold
           reagent: Healium
           min: 3
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -0.1
+            Toxin: -0.1
+            Brute: -0.1
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Healium
+          min: 6
+        key: ForcedSleep
+        component: ForcedSleeping
+        time: 3
+        type: Add
+      - !type:Drunk
+        boozePower: 50
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Healium
+          min: 3
+        # needs to be made into hypothium to work well as a chem, use as a gas otherwise
 
 - type: reagent
   id: Nitrium

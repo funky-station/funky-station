@@ -35,6 +35,7 @@
     - id: RevenantSpawn
     - id: SleeperAgents
     - id: ZombieOutbreak
+    - id: LoneOpsSpawn
     - id: FalseAlarm
 
 - type: entity
@@ -242,13 +243,13 @@
   - type: RandomSpawnRule
     prototype: MobRevenant
 
-# disabled until event is rewritten to be more interesting
+# Funky Station - reenabled because funny
 - type: entity
   id: FalseAlarm
   parent: BaseGameRule
   components:
   - type: StationEvent
-    weight: 6
+    weight: 15
     duration: 1
   - type: FalseAlarmRule
 

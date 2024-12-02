@@ -59,7 +59,7 @@
   - type: Projectile
     damage:
       types:
-        Heat: 10 #funkystation -GLORY TO TAYDEO!!!!, GREAT LEADER!!! TAYDEO NUMBA 1!!!
+        Heat: 8 #funkystation -GLORY TO TAYDEO!!!!, GREAT LEADER!!! TAYDEO NUMBA 1!!!
         Structural: 10 #funkystation -seriously why the fuck would this shit do 100 struct what kinda of crack are these people smoking???
   - type: TimedDespawn
     lifetime: 0.4

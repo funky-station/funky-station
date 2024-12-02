@@ -47,6 +47,7 @@
     fireRate: 2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: GunRequiresWield  #funkystation or something honestly i sorta hate my life and it went all downhill when my wife left me
   - type: Battery
     maxCharge: 600
     startingCharge: 600

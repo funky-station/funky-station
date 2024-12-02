@@ -516,3 +516,9 @@ Entries:
         and perishables.
   id: 64
   time: '2024-12-01T20:42:29.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Tweak
+      message: changed pyroxadone's color to not look like bic
+  id: 65
+  time: '2024-12-02T14:34:51.0000000+00:00'

@@ -459,6 +459,7 @@
     - CutterMachineCircuitboard
     - StationAnchorCircuitboard
     - SalvageMagnetMachineCircuitboard
+    - OperatingTableCircuitboard # Shitmed Change
     dynamicRecipes:
       - ThermomachineFreezerMachineCircuitBoard
       - HellfireFreezerMachineCircuitBoard
@@ -494,6 +495,7 @@
       - DawInstrumentMachineCircuitboard
       - CloningConsoleComputerCircuitboard
       - StasisBedMachineCircuitboard
+      - AutodocCircuitboard # Shitmed
       - OreProcessorIndustrialMachineCircuitboard
       - CargoTelepadMachineCircuitboard
       - RipleyCentralElectronics

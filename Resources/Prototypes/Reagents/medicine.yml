@@ -1406,7 +1406,7 @@
   desc: reagent-desc-pyroxadone
   physicalDesc: reagent-physical-desc-fizzy
   flavor: spicy
-  color: "#E69908"
+  color: "#f8c8ba"
   metabolisms:
     Medicine:
       effects:

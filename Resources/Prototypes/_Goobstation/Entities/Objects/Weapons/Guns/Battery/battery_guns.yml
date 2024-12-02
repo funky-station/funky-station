@@ -29,7 +29,7 @@
 
 - type: entity
   name: Plasma Rifle
-  parent: BaseWeaponBattery
+  parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponPlasmaRifle
   description: It may or may not explode in your face.
   components:

@@ -31,16 +31,15 @@ namespace Content.Server._Goobstation.WeaponRandomExplode
                 var intensity = 1;
                 if (component.multiplyByCharge > 0)
                 {
-                    intensity = Convert.ToInt32(component.multiplyByCharge * (battery.CurrentCharge / 100));
+                    intensity = Convert.ToInt32(component.multiplyByCharge * (battery.CurrentCharge / 200));
                 }
 
                 _explosionSystem.QueueExplosion(
                     (EntityUid) uid,
                     typeId: "Default",
                     totalIntensity: intensity,
-                    slope: 5,
-                    maxTileIntensity: 10);
-                QueueDel(uid);
+                    slope: 3,
+                    maxTileIntensity: 5);
             }
         }
     }

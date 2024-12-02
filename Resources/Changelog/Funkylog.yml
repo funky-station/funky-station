@@ -570,3 +570,9 @@ Entries:
       message: Added a circuit board and crafting recipe for Operating Tables.
   id: 67
   time: '2024-12-02T14:40:54.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Changed the Captain's sprites to be more consistent
+  id: 68
+  time: '2024-12-02T15:34:00.0000000+00:00'

@@ -44,7 +44,7 @@
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/plasma_rifle.rsi
   - type: Gun
-    fireRate: 2
+    fireRate: 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: GunRequiresWield  #funkystation or something honestly i sorta hate my life and it went all downhill when my wife left me

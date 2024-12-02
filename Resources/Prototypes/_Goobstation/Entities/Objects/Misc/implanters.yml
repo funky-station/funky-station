@@ -85,6 +85,14 @@
   - type: Implanter
     implant: BluespaceLifelineImplant
 
+- type: entity 
+  parent: BaseImplantOnlyImplanter
+  id: PacifismImplanter
+  suffix: pacifism
+  components:
+  - type: Implanter
+    implant: PacifismImplant
+
 - type: entity
   parent: BaseImplantOnlyImplanterSyndi
   id: SmokeImplanter

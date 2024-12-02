@@ -576,3 +576,9 @@ Entries:
       message: Changed the Captain's sprites to be more consistent
   id: 68
   time: '2024-12-02T15:34:00.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Fix
+      message: SmartFridge now uses hand label names
+  id: 69
+  time: '2024-12-02T17:22:57.0000000+00:00'

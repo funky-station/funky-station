@@ -17,11 +17,11 @@ public sealed partial class WeaponRandomExplodeComponent : Component
     /// decreases the self damage and explosion radius
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float reduction;
+    public float? reduction;
 
     /// <summary>
     /// deletes the gun after the explosion if this is true
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool destroygun;
+    public bool destroyGun;
 }

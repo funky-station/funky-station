@@ -29,17 +29,26 @@ namespace Content.Server._Goobstation.WeaponRandomExplode
             if (_random.Prob(component.explosionChance))
             {
                 var intensity = 1;
+                var reduction = 1;
+                if (component.reduction > 1)
+                {
+                    reduction = Convert.ToInt32(component.reduction);
+                }
                 if (component.multiplyByCharge > 0)
                 {
-                    intensity = Convert.ToInt32(component.multiplyByCharge * (battery.CurrentCharge / 200));
+                    intensity = Convert.ToInt32(component.multiplyByCharge * (battery.CurrentCharge / (100 * reduction)));
                 }
 
                 _explosionSystem.QueueExplosion(
                     (EntityUid) uid,
                     typeId: "Default",
                     totalIntensity: intensity,
-                    slope: 3,
-                    maxTileIntensity: 5);
+                    slope: (5 / reduction),
+                    maxTileIntensity: (10 / reduction));
+                if (component.destroygun == true)
+                {
+                    QueueDel(uid);
+                }
             }
         }
     }

@@ -59,6 +59,8 @@
   - type: WeaponRandomExplode
     explosionChance: 0.16
     multiplyByCharge: 1.0
+    reduction: 2.0
+    destroygun: false
   - type: MagazineVisuals
     magState: mag
     steps: 5

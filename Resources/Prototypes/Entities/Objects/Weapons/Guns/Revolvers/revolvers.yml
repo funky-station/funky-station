@@ -181,7 +181,7 @@
       params:
         volume: 3
         pitch: 1
-        maxdistance: 30
+        maxDistance: 30
 
   - type: ContainerContainer
     containers:

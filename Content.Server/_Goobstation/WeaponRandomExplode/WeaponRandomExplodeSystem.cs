@@ -29,7 +29,11 @@ namespace Content.Server._Goobstation.WeaponRandomExplode
             if (_random.Prob(component.explosionChance))
             {
                 var intensity = 1;
-                var reduction = Convert.ToInt32(component.reduction);
+                var reduction = 1;
+                if (component.reduction != null)
+                {
+                    reduction = Convert.ToInt32(component.reduction);
+                }
                 if (component.multiplyByCharge > 0)
                 {
                     intensity = Convert.ToInt32(component.multiplyByCharge * (battery.CurrentCharge / (100 * reduction)));

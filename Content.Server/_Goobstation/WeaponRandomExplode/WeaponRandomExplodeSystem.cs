@@ -29,7 +29,7 @@ namespace Content.Server._Goobstation.WeaponRandomExplode
             if (_random.Prob(component.explosionChance))
             {
                 var intensity = 1;
-                var reduction = 1;
+                var reduction = 1; //#funkystation type shit
                 if (component.reduction != null)
                 {
                     reduction = Convert.ToInt32(component.reduction);
@@ -45,7 +45,7 @@ namespace Content.Server._Goobstation.WeaponRandomExplode
                     totalIntensity: intensity,
                     slope: (5 / reduction),
                     maxTileIntensity: (10 / reduction));
-                if (component.destroyGun == true)
+                if (component.destroyGun == true) //#funkystation part of comp or something idk go away tay i dont wanna do this shit
                 {
                     QueueDel(uid);
                 }

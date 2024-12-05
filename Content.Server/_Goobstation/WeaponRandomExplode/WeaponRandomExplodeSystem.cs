@@ -45,7 +45,7 @@ namespace Content.Server._Goobstation.WeaponRandomExplode
                     totalIntensity: intensity,
                     slope: (5 / reduction),
                     maxTileIntensity: (10 / reduction));
-                if (component.destroyGun == true) //#funkystation part of comp or something idk go away tay i dont wanna do this shit
+                if (component.destroyGun) //#funkystation part of comp or something idk go away tay i dont wanna do this shit
                 {
                     QueueDel(uid);
                 }

@@ -588,3 +588,11 @@ Entries:
       message: Funky Station is now a little Christmas.
   id: 70
   time: '2024-12-04T01:33:39.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: RPD can now build under tiles
+    - type: Fix
+      message: RPD can now build volume pumps
+  id: 71
+  time: '2024-12-05T19:57:02.0000000+00:00'

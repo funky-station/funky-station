@@ -596,3 +596,13 @@ Entries:
       message: RPD can now build volume pumps
   id: 71
   time: '2024-12-05T19:57:02.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: Added max heal rate to healium
+    - type: Tweak
+      message: Increase healium booze power
+    - type: Tweak
+      message: Increase healium minimum mols needed to force user asleep.
+  id: 72
+  time: '2024-12-05T19:57:42.0000000+00:00'

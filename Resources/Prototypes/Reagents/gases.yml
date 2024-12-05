@@ -474,6 +474,7 @@
         - !type:ReagentThreshold
           reagent: Healium
           min: 1
+          max: 15
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -481,11 +482,22 @@
             Burn: -2
             Toxin: -5
             Brute: -2
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Healium
+          min: 15
+        ignoreResistances: true
+        damage:
+          groups:
+            Burn: -12
+            Toxin: -25
+            Brute: -12
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold
           reagent: Healium
-          min: 1.5
+          min: 4
         type: Local
         visualType: Medium
         messages: [ "effect-sleepy" ]
@@ -494,17 +506,17 @@
         conditions:
         - !type:ReagentThreshold
           reagent: Healium
-          min: 6
+          min: 8
         key: ForcedSleep
         component: ForcedSleeping
         time: 3
         type: Add
       - !type:Drunk
-        boozePower: 50
+        boozePower: 150
         conditions:
         - !type:ReagentThreshold
           reagent: Healium
-          min: 3
+          min: 4
     Medicine:
       effects:
       - !type:HealthChange

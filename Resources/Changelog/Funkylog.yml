@@ -606,3 +606,11 @@ Entries:
       message: Increase healium minimum mols needed to force user asleep.
   id: 72
   time: '2024-12-05T19:57:42.0000000+00:00'
+- author: conrad-schroder
+  changes:
+    - type: Fix
+      message: >-
+        Fixed an issue where the Chaplain's weapon would be replaced by the
+        backpack during loadout application.
+  id: 73
+  time: '2024-12-06T01:55:09.0000000+00:00'

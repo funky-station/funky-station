@@ -8,9 +8,11 @@
     storageWhitelist:
       tags:
       - PillCanister
-      - Meat
+      - MeatF
+      - Cooked
       - ChemDispensable
       - Bottle
+      - Syringe
   - type: ActivatableUI
     key: enum.SmartFridgeUiKey.Key
   - type: ActivatableUIRequiresPower
@@ -33,7 +35,10 @@
       map: ["enum.StorageVisualLayers.Door"]
       shader: unshaded
   - type: ApcPowerReceiver
-    powerLoad: 0
+    powerLoad: 100
+  - type: ExtensionCableReceiver
+  - type: LightningTarget
+    priority: 1
   - type: EntityStorageVisuals
     stateBaseClosed: smartfridge
     stateDoorOpen: smartfridge_open
@@ -46,7 +51,7 @@
     bodyType: Static
   - type: Transform
     noRot: true
-    anchored: True
+    anchored: true
   - type: Fixtures
     fixtures:
       fix1:

@@ -614,3 +614,11 @@ Entries:
         backpack during loadout application.
   id: 73
   time: '2024-12-06T01:55:09.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: SmartFridge can now store syringes.
+    - type: Fix
+      message: SmartFridge can now be unanchored.
+  id: 74
+  time: '2024-12-06T06:13:24.0000000+00:00'

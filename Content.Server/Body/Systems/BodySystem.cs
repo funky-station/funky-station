@@ -165,9 +165,20 @@ public sealed class BodySystem : SharedBodySystem
         var ev = new BeingGibbedEvent(gibs);
         RaiseLocalEvent(partId, ref ev);
 
-        QueueDel(partId);
+        if (gibs.Any())
+            QueueDel(partId);
 
         return gibs;
+    }
+
+    public override bool BurnPart(EntityUid partId, BodyPartComponent? part = null)
+    {
+        if (!Resolve(partId, ref part, logMissing: false)
+            || TerminatingOrDeleted(partId)
+            || EntityManager.IsQueuedForDeletion(partId))
+            return false;
+
+        return base.BurnPart(partId, part);
     }
 
     protected override void ApplyPartMarkings(EntityUid target, BodyPartAppearanceComponent component)

@@ -17,13 +17,13 @@ using Content.Shared._Shitmed.Medical.Surgery.Effects.Step;
 using Content.Shared._Shitmed.Medical.Surgery.Steps;
 using Content.Shared._Shitmed.Medical.Surgery.Steps.Parts;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
-using Content.Shared.Prototypes;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared.Verbs;
 
 namespace Content.Server._Shitmed.Medical.Surgery;
 
@@ -39,26 +39,24 @@ public sealed class SurgerySystem : SharedSurgerySystem
     [Dependency] private readonly RottingSystem _rot = default!;
     [Dependency] private readonly BlindableSystem _blindableSystem = default!;
 
-    private readonly List<EntProtoId> _surgeries = new();
-
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SurgeryToolComponent, AfterInteractEvent>(OnToolAfterInteract);
+        SubscribeLocalEvent<SurgeryToolComponent, GetVerbsEvent<UtilityVerb>>(OnUtilityVerb);
         SubscribeLocalEvent<SurgeryTargetComponent, SurgeryStepDamageEvent>(OnSurgeryStepDamage);
-        SubscribeLocalEvent<SurgeryDamageChangeEffectComponent, SurgeryStepEvent>(OnSurgeryDamageChange);
-        SubscribeLocalEvent<SurgerySpecialDamageChangeEffectComponent, SurgeryStepEvent>(OnSurgerySpecialDamageChange);
+        // You might be wondering "why aren't we using StepEvent for these two?" reason being that StepEvent fires off regardless of success on the previous functions
+        // so this would heal entities even if you had a used or incorrect organ.
+        SubscribeLocalEvent<SurgerySpecialDamageChangeEffectComponent, SurgeryStepDamageChangeEvent>(OnSurgerySpecialDamageChange);
+        SubscribeLocalEvent<SurgeryDamageChangeEffectComponent, SurgeryStepDamageChangeEvent>(OnSurgeryDamageChange);
         SubscribeLocalEvent<SurgeryStepEmoteEffectComponent, SurgeryStepEvent>(OnStepScreamComplete);
         SubscribeLocalEvent<SurgeryStepSpawnEffectComponent, SurgeryStepEvent>(OnStepSpawnComplete);
-        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
-        LoadPrototypes();
     }
 
     protected override void RefreshUI(EntityUid body)
     {
         var surgeries = new Dictionary<NetEntity, List<EntProtoId>>();
-        foreach (var surgery in _surgeries)
+        foreach (var surgery in AllSurgeries)
         {
             if (GetSingleton(surgery) is not { } surgeryEnt)
                 continue;
@@ -101,43 +99,48 @@ public sealed class SurgerySystem : SharedSurgerySystem
             targetPart: _body.GetTargetBodyPart(partComp));
     }
 
-    private void OnToolAfterInteract(Entity<SurgeryToolComponent> ent, ref AfterInteractEvent args)
+    private void AttemptStartSurgery(Entity<SurgeryToolComponent> ent, EntityUid user, EntityUid target)
     {
-        var user = args.User;
-        if (args.Handled
-            || !args.CanReach
-            || args.Target == null
-            || !HasComp<SurgeryTargetComponent>(args.Target)
-            || !TryComp<SurgeryTargetComponent>(args.User, out var surgery)
-            || !surgery.CanOperate
-            || !IsLyingDown(args.Target.Value, args.User))
-        {
+        if (!IsLyingDown(target, user))
             return;
-        }
 
-        if (user == args.Target && !_config.GetCVar(CCVars.CanOperateOnSelf))
+        if (user == target && !_config.GetCVar(CCVars.CanOperateOnSelf))
         {
             _popup.PopupEntity(Loc.GetString("surgery-error-self-surgery"), user, user);
             return;
         }
 
-        args.Handled = true;
-        _ui.OpenUi(args.Target.Value, SurgeryUIKey.Key, user);
-        RefreshUI(args.Target.Value);
+        _ui.OpenUi(target, SurgeryUIKey.Key, user);
+        RefreshUI(target);
+    }
+
+    private void OnUtilityVerb(Entity<SurgeryToolComponent> ent, ref GetVerbsEvent<UtilityVerb> args)
+    {
+        if (!args.CanInteract
+            || !args.CanAccess
+            || !HasComp<SurgeryTargetComponent>(args.Target))
+            return;
+
+        var user = args.User;
+        var target = args.Target;
+
+        var verb = new UtilityVerb()
+        {
+            Act = () => AttemptStartSurgery(ent, user, target),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Specific/Medical/Surgery/scalpel.rsi/"), "scalpel"),
+            Text = Loc.GetString("surgery-verb-text"),
+            Message = Loc.GetString("surgery-verb-message"),
+            DoContactInteraction = true
+        };
+
+        args.Verbs.Add(verb);
     }
 
     private void OnSurgeryStepDamage(Entity<SurgeryTargetComponent> ent, ref SurgeryStepDamageEvent args) =>
         SetDamage(args.Body, args.Damage, args.PartMultiplier, args.User, args.Part);
 
-    private void OnSurgeryDamageChange(Entity<SurgeryDamageChangeEffectComponent> ent, ref SurgeryStepEvent args)
+    private void OnSurgeryDamageChange(Entity<SurgeryDamageChangeEffectComponent> ent, ref SurgeryStepDamageChangeEvent args)
     {
-        // This unintentionally punishes the user if they have an organ in another hand that is already used.
-        // Imo surgery shouldn't let you automatically pick tools on both hands anyway, it should only use the one you've got in your selected hand.
-        if (ent.Comp.IsConsumable
-            && args.Tools.Where(tool => TryComp<OrganComponent>(tool, out var organComp)
-            && !_body.TrySetOrganUsed(tool, true, organComp)).Any())
-            return;
-
         var damageChange = ent.Comp.Damage;
         if (HasComp<ForcedSleepingComponent>(args.Body))
             damageChange = damageChange * ent.Comp.SleepModifier;
@@ -145,19 +148,15 @@ public sealed class SurgerySystem : SharedSurgerySystem
         SetDamage(args.Body, damageChange, 0.5f, args.User, args.Part);
     }
 
-    private void OnSurgerySpecialDamageChange(Entity<SurgerySpecialDamageChangeEffectComponent> ent, ref SurgeryStepEvent args)
+    private void OnSurgerySpecialDamageChange(Entity<SurgerySpecialDamageChangeEffectComponent> ent, ref SurgeryStepDamageChangeEvent args)
     {
-        if (ent.Comp.IsConsumable
-            && args.Tools.Where(tool => TryComp<OrganComponent>(tool, out var organComp)
-            && !_body.TrySetOrganUsed(tool, true, organComp)).Any())
-            return;
-
+        // Im killing this shit soon too, inshallah.
         if (ent.Comp.DamageType == "Rot")
             _rot.ReduceAccumulator(args.Body, TimeSpan.FromSeconds(2147483648)); // BEHOLD, SHITCODE THAT I JUST COPY PASTED. I'll redo it at some point, pinky swear :)
-        else if (ent.Comp.DamageType == "Eye"
-            && TryComp(args.Body, out BlindableComponent? blindComp)
+        /*else if (ent.Comp.DamageType == "Eye"
+            && TryComp(ent, out BlindableComponent? blindComp)
             && blindComp.EyeDamage > 0)
-            _blindableSystem.AdjustEyeDamage((args.Body, blindComp), -blindComp!.EyeDamage);
+            _blindableSystem.AdjustEyeDamage((args.Body, blindComp), -blindComp!.EyeDamage);*/
     }
 
     private void OnStepScreamComplete(Entity<SurgeryStepEmoteEffectComponent> ent, ref SurgeryStepEvent args)
@@ -169,20 +168,4 @@ public sealed class SurgerySystem : SharedSurgerySystem
     }
     private void OnStepSpawnComplete(Entity<SurgeryStepSpawnEffectComponent> ent, ref SurgeryStepEvent args) =>
         SpawnAtPosition(ent.Comp.Entity, Transform(args.Body).Coordinates);
-
-    private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
-    {
-        if (!args.WasModified<EntityPrototype>())
-            return;
-
-        LoadPrototypes();
-    }
-
-    private void LoadPrototypes()
-    {
-        _surgeries.Clear();
-        foreach (var entity in _prototypes.EnumeratePrototypes<EntityPrototype>())
-            if (entity.HasComponent<SurgeryComponent>())
-                _surgeries.Add(new EntProtoId(entity.ID));
-    }
 }

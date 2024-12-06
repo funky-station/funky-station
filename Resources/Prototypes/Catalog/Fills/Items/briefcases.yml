@@ -29,6 +29,21 @@
       - id: BarberScissors
 
 - type: entity
+  id: BriefcaseSyndieRevolverBundleFilled
+  parent: BriefcaseSyndie
+  suffix: Syndicate, Revolver Bundle
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponRevolverHristov
+      - id: MagazineBoxAntiMateriel
+      - id: ClothingMaskGoldenCursed
+      - id: ClothingUniformJumpsuitSyndieFormal
+      - id: ClothingNeckTieRed
+      - id: ClothingHandsGlovesLatex
+      - id: ClothingShoesColorWhite
+
+- type: entity
   id: BriefcaseSyndieLobbyingBundleFilled
   parent: BriefcaseSyndie
   suffix: Syndicate, Spesos

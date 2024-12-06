@@ -77,3 +77,13 @@
   id: ChaplainHoodie
   equipment:
     outerClothing: ClothingOuterHoodieChaplain
+
+# funkystation
+- type: loadout
+  id: ChaplainAnnabelle
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ChaplainAnnabelleRighteousness
+  storage:
+    back:
+    - WeaponSniperChaplainAnnabelle

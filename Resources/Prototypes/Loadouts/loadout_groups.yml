@@ -10,6 +10,7 @@
   - Headphones
   - PlushieLizard
   - PlushieSpaceLizard
+  - PlushieCirno
   - Lighter
   - CigPackGreen
   - CigPackRed
@@ -334,6 +335,13 @@
   - ChaplainJumpskirt
   - ChaplainRobesLight
   - ChaplainRobesDark
+
+# funkystation
+- type: loadoutGroup
+  id: ChaplainAnnabelle
+  name: loadout-group-chaplain-weapon
+  loadouts:
+  - ChaplainAnnabelle
 
 - type: loadoutGroup
   id: ChaplainOuterClothing

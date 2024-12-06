@@ -22,8 +22,8 @@ public partial class SharedBodySystem
 
         SubscribeLocalEvent<BodyPartAppearanceComponent, ComponentStartup>(OnPartAppearanceStartup);
         SubscribeLocalEvent<BodyPartAppearanceComponent, AfterAutoHandleStateEvent>(HandleState);
-        SubscribeLocalEvent<BodyComponent, BodyPartAttachedEvent>(OnPartAttachedToBody);
-        SubscribeLocalEvent<BodyComponent, BodyPartDroppedEvent>(OnPartDroppedFromBody);
+        SubscribeLocalEvent<BodyComponent, BodyPartAddedEvent>(OnPartAttachedToBody);
+        SubscribeLocalEvent<BodyComponent, BodyPartRemovedEvent>(OnPartDroppedFromBody);
     }
 
     private void OnPartAppearanceStartup(EntityUid uid, BodyPartAppearanceComponent component, ComponentStartup args)
@@ -32,19 +32,20 @@ public partial class SharedBodySystem
             || part.ToHumanoidLayers() is not { } relevantLayer)
             return;
 
-        if (part.OriginalBody == null
-            || TerminatingOrDeleted(part.OriginalBody.Value)
-            || !TryComp(part.OriginalBody.Value, out HumanoidAppearanceComponent? bodyAppearance))
+        if (part.BaseLayerId != null)
         {
             component.ID = part.BaseLayerId;
             component.Type = relevantLayer;
             return;
         }
 
+        if (part.Body is not { Valid: true } body
+            || !TryComp(body, out HumanoidAppearanceComponent? bodyAppearance))
+            return;
+
         var customLayers = bodyAppearance.CustomBaseLayers;
         var spriteLayers = bodyAppearance.BaseLayers;
         component.Type = relevantLayer;
-        component.OriginalBody = part.OriginalBody.Value;
 
         part.Species = bodyAppearance.Species;
 
@@ -131,7 +132,7 @@ public partial class SharedBodySystem
     private void HandleState(EntityUid uid, BodyPartAppearanceComponent component, ref AfterAutoHandleStateEvent args) =>
         ApplyPartMarkings(uid, component);
 
-    private void OnPartAttachedToBody(EntityUid uid, BodyComponent component, ref BodyPartAttachedEvent args)
+    private void OnPartAttachedToBody(EntityUid uid, BodyComponent component, ref BodyPartAddedEvent args)
     {
         if (!TryComp(args.Part, out BodyPartAppearanceComponent? partAppearance)
             || !TryComp(uid, out HumanoidAppearanceComponent? bodyAppearance))
@@ -143,7 +144,7 @@ public partial class SharedBodySystem
         UpdateAppearance(uid, partAppearance);
     }
 
-    private void OnPartDroppedFromBody(EntityUid uid, BodyComponent component, ref BodyPartDroppedEvent args)
+    private void OnPartDroppedFromBody(EntityUid uid, BodyComponent component, ref BodyPartRemovedEvent args)
     {
         if (TerminatingOrDeleted(uid)
             || TerminatingOrDeleted(args.Part)
@@ -166,7 +167,10 @@ public partial class SharedBodySystem
             return;
 
         if (component.EyeColor != null)
+        {
             bodyAppearance.EyeColor = component.EyeColor.Value;
+            _humanoid.SetLayerVisibility(target, HumanoidVisualLayers.Eyes, true, true, bodyAppearance);
+        }
 
         if (component.Color != null)
             _humanoid.SetBaseLayerColor(target, component.Type, component.Color, true, bodyAppearance);
@@ -177,7 +181,9 @@ public partial class SharedBodySystem
         {
             _humanoid.SetLayerVisibility(target, visualLayer, true, true, bodyAppearance);
             foreach (var marking in markingList)
-                _humanoid.AddMarking(target, marking.MarkingId, marking.MarkingColors, false, true, bodyAppearance);
+            {
+                _humanoid.AddMarking(target, marking.MarkingId, marking.MarkingColors, true, true, bodyAppearance);
+            }
         }
 
         Dirty(target, bodyAppearance);

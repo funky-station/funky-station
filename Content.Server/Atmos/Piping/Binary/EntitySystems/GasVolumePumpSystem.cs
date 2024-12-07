@@ -35,6 +35,7 @@ using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.Power.Components;
 using Content.Shared.Atmos.Piping.Binary.Components;
+using Content.Shared.Atmos.Piping.Components;
 using Content.Shared.Atmos.Piping.Binary.Systems;
 using Content.Shared.Atmos.Piping.Components;
 using Content.Shared.Atmos.Visuals;

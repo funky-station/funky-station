@@ -622,3 +622,9 @@ Entries:
       message: SmartFridge can now be unanchored.
   id: 74
   time: '2024-12-06T06:13:24.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Tweak
+      message: Made the plasma rifle fun
+  id: 75
+  time: '2024-12-07T21:18:25.0000000+00:00'

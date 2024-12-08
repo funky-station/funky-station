@@ -9,7 +9,7 @@
   showInVote: false
   rules:
     - Changeling
-    - SubGamemodesRule
+    # - SubGamemodesRule
     - BasicStationEventScheduler
     - AntagStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh

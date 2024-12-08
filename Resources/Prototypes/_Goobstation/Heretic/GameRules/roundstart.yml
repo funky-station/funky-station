@@ -13,7 +13,7 @@
     definitions:
     - prefRoles: [ Heretic ]
       max: 3
-      playerRatio: 20
+      playerRatio: 30
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole

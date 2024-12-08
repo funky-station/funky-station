@@ -1,0 +1,20 @@
+<Document>
+  # Alert Levels and You!
+
+  [bold]What is an alert level?[/bold]
+
+  Alert levels are a way to quickly alert crew of any possible threats that may be present on the station.
+
+  Alert levels also determine which procedures to follow, including security. On certain alert levels, security may be granted more leniency to deal with threats and unruly crew.
+
+  Failure to abide by the regulations put on by these alert levels may result in contract termination.
+
+  The following are all possible alert levels:
+
+  - [textlink="Green Alert" link="GreenAlertSOP"]
+  - [textlink="Yellow Alert" link="YellowAlertSOP"]
+  - [textlink="Blue Alert" link="BlueAlertSOP"]
+  - [textlink="Red Alert" link="RedAlertSOP"]
+  - [textlink="Gamma Alert" link="GammaAlertSOP"]
+  - [textlink="Delta Alert" link="DeltaAlertSOP"]
+</Document>

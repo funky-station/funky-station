@@ -1,0 +1,72 @@
+﻿- type: guideEntry
+  id: SOP101
+  name: SOP 101
+  text: "/ServerInfo/Funkystation/Guidebook/SOP/SOP101.xml"
+  children:
+  - CommandSOP
+  - SecuritySOP
+  - AlertLevelsSOP
+  - EnemiesOfTheCorporation
+
+- type: guideEntry
+  id: CommandSOP
+  name: guide-entry-command-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Command/CommandStandardOperatingProcedure.xml"
+
+- type: guideEntry
+  id: AlertLevelsSOP
+  name: guide-entry-alert-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Command/AlertLevels.xml"
+  children:
+  - GreenAlertSOP
+  - YellowAlertSOP
+  - BlueAlertSOP
+  - RedAlertSOP
+  - DeltaAlertSOP
+  - GammaAlertSOP
+
+- type: guideEntry
+  id: SecuritySOP
+  name: guide-entry-security-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Security/SecurityStandardOperatingProcedure.xml"
+
+- type: guideEntry
+  id: EnemiesOfTheCorporation
+  name: guide-entry-eoc-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Security/EnemiesOfTheCorporation.xml"
+
+- type: guideEntry
+  id: GreenAlertSOP
+  name: guide-entry-alertlevel-green
+  priority: 10
+  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/GreenAlert.xml"
+
+- type: guideEntry
+  id: YellowAlertSOP
+  name: guide-entry-alertlevel-yellow
+  priority: 20
+  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/YellowAlert.xml"
+
+- type: guideEntry
+  id: BlueAlertSOP
+  name: guide-entry-alertlevel-blue
+  priority: 30
+  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/BlueAlert.xml"
+
+- type: guideEntry
+  id: RedAlertSOP
+  name: guide-entry-alertlevel-red
+  priority: 40
+  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/RedAlert.xml"
+
+- type: guideEntry
+  id: DeltaAlertSOP
+  name: guide-entry-alertlevel-delta
+  priority: 60
+  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/DeltaAlert.xml"
+
+- type: guideEntry
+  id: GammaAlertSOP
+  name: guide-entry-alertlevel-gamma
+  priority: 50
+  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/GammaAlert.xml"

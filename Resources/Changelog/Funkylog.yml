@@ -90,3 +90,45 @@ Entries:
       message: Sacrificing will no longer pull you
   id: 13
   time: '2024-10-21T22:20:56.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Adds Glacier to the game.
+  id: 14
+  time: '2024-10-24T02:53:06.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Added bz, healium and nitrium to the guidebook!
+  id: 15
+  time: '2024-10-24T05:54:54.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Remove
+      message: Removed the reference to the man. We do not need to remember.
+  id: 16
+  time: '2024-10-25T21:50:21.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Tweak
+      message: Fixed the plasma cutter's description.
+  id: 17
+  time: '2024-10-26T02:26:03.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Rapid Piping Device
+  id: 18
+  time: '2024-10-26T02:41:46.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Adds SOP and the appropriate docs in game.
+  id: 19
+  time: '2024-10-27T21:56:14.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Adds SOP to the game, along with the appropriate documentation
+  id: 20
+  time: '2024-10-27T22:20:00.0000000+00:00'

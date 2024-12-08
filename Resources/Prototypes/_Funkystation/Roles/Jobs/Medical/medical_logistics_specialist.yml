@@ -1,0 +1,24 @@
+- type: job
+  id: MedicalLogisiticsSpecialist
+  name: Medical Logisitics Specialist
+  description: "In charge of making sure all equipment is in order and staff are well stocked and maintained."
+  playTimeTracker: JobMedicalLogisticsSpecialist
+  requirements:
+  weight: 20
+  startingGear: MedicalLogisiticsSpecialistGear
+  icon: "JobIconNanotrasenRepresentative"
+  requireAdminNotify: true
+  joinNotifyCrew: true
+  supervisors: job-supervisors-centcom
+  canBeAntag: true
+  access:
+  - Cryogenics
+  - Maintenance
+  - Medical
+
+- type: startingGear
+  id: MedicalLogisiticsSpecialistGear
+  equipment:
+    id: SeniorPhysicianPDA
+    ears: ClothingHeadsetMedical
+

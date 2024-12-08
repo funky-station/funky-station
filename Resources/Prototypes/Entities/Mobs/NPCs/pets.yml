@@ -134,7 +134,7 @@
   components:
   - type: NpcFactionMember
     factions:
-      - PetsNT
+    - PetsNT
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -157,7 +157,7 @@
   components:
   - type: NpcFactionMember
     factions:
-      - PetsNT
+    - PetsNT
   - type: Grammar
     attributes:
       proper: true
@@ -628,7 +628,7 @@
       path: /Audio/Animals/snake_hiss.ogg
   - type: NpcFactionMember
     factions:
-      - PetsNT
+    - PetsNT
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -777,6 +777,7 @@
     name: ghost-role-information-smile-name
     description: ghost-role-information-smile-description
     rules: ghost-role-information-nonantagonist-rules
+    raffle: null
   - type: Grammar
     attributes:
       proper: true
@@ -823,15 +824,15 @@
   id: MobCrabAtmos
   description: The noble and stalwart defender of Atmosia. Viva!
   components:
-#  - type: GhostRole
-#    prob: 1
-#    makeSentient: true
-#    allowSpeech: true
-#    allowMovement: true
-#    name: ghost-role-information-tropico-name
-#    description: ghost-role-information-tropico-description
-#    rules: ghost-role-information-nonantagonist-rules
-#  - type: GhostTakeoverAvailable
+  #  - type: GhostRole
+  #    prob: 1
+  #    makeSentient: true
+  #    allowSpeech: true
+  #    allowMovement: true
+  #    name: ghost-role-information-tropico-name
+  #    description: ghost-role-information-tropico-description
+  #    rules: ghost-role-information-nonantagonist-rules
+  #  - type: GhostTakeoverAvailable
   - type: Tag
     tags:
     - VimPilot
@@ -840,6 +841,6 @@
     attributes:
       proper: true
       gender: male
-#  - type: AlwaysRevolutionaryConvertible
+  #  - type: AlwaysRevolutionaryConvertible
   - type: StealTarget
     stealGroup: AnimalTropico

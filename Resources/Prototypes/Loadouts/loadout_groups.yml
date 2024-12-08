@@ -7,8 +7,10 @@
   loadouts:
   - FlowerWreath
   - Hairflower
+  - Headphones
   - PlushieLizard
   - PlushieSpaceLizard
+  - PlushieCirno
   - Lighter
   - CigPackGreen
   - CigPackRed
@@ -27,6 +29,23 @@
   - ClothingNeckPansexualPin
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
+  - ClothingNeckGoldAutismPin
+  - TowelColorBlack
+  - TowelColorDarkBlue
+  - TowelColorDarkGreen
+  - TowelColorGold
+  - TowelColorGray
+  - TowelColorGreen
+  - TowelColorLightBlue
+  - TowelColorLightBrown
+  - TowelColorMaroon
+  - TowelColorMime
+  - TowelColorOrange
+  - TowelColorPurple
+  - TowelColorRed
+  - TowelColorSilver
+  - TowelColorWhite
+  - TowelColorYellow
 
 - type: loadoutGroup
   id: Glasses
@@ -316,6 +335,13 @@
   - ChaplainJumpskirt
   - ChaplainRobesLight
   - ChaplainRobesDark
+
+# funkystation
+- type: loadoutGroup
+  id: ChaplainAnnabelle
+  name: loadout-group-chaplain-weapon
+  loadouts:
+  - ChaplainAnnabelle
 
 - type: loadoutGroup
   id: ChaplainOuterClothing

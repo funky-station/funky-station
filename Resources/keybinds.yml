@@ -44,9 +44,6 @@ binds:
 - function: Walk
   type: State
   key: Shift
-- function: ToggleStanding
-  type: State
-  key: R
 # Shuttle
 - function: ShuttleStrafeUp
   type: State
@@ -69,7 +66,6 @@ binds:
 - function: ShuttleBrake
   type: State
   key: Space
-# Camera
 - function: CameraRotateLeft
   type: State
   key: NumpadNum7
@@ -272,16 +268,6 @@ binds:
   type: State
   key: MouseMiddle
   canFocus: true
-- function: RotateObjectClockwise
-  type: State
-  key: R
-- function: RotateObjectCounterclockwise
-  type: State
-  key: R
-  mod1: Shift
-- function: FlipObject
-  type: State
-  key: F
 - function: TextCursorLeft
   type: State
   key: Left
@@ -502,19 +488,15 @@ binds:
 - function: ArcadeUp
   type: State
   key: Up
-  priority: -1
 - function: ArcadeDown
   type: State
   key: Down
-  priority: -1
 - function: ArcadeLeft
   type: State
   key: Left
-  priority: -1
 - function: ArcadeRight
   type: State
   key: Right
-  priority: -1
 - function: Arcade1
   type: State
   key: Space
@@ -558,7 +540,7 @@ binds:
   type: State
   key: Num9
 ### goobstation-start
-- function: Loadout0
+- function: Loadout0 
   type: State
   key: Num0
   mod1: Shift
@@ -599,33 +581,3 @@ binds:
   key: Num9
   mod1: Shift
 ### goobstation-end
-- function: MappingUnselect
-  type: State
-  key: MouseRight
-  canFocus: true
-- function: SaveMap
-  type: State
-  key: S
-  mod1: Control
-- function: MappingEnablePick
-  type: State
-  key: Num5
-- function: MappingEnableDelete
-  type: State
-  key: Num6
-- function: MappingPick
-  type: State
-  key: MouseLeft
-  canFocus: true
-- function: MappingRemoveDecal
-  type: State
-  key: MouseLeft
-  canFocus: true
-- function: MappingCancelEraseDecal
-  type: State
-  key: MouseRight
-  canFocus: true
-- function: MappingOpenContextMenu
-  type: State
-  key: MouseRight
-  canFocus: true

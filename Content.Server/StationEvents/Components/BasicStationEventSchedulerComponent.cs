@@ -11,13 +11,13 @@ public sealed partial class BasicStationEventSchedulerComponent : Component
     /// How long the the scheduler waits to begin starting rules.
     /// </summary>
     [DataField]
-    public float MinimumTimeUntilFirstEvent = 200;
+    public float MinimumTimeUntilFirstEvent = 10 * 60; // funkystation - too much too fast
 
     /// <summary>
     /// The minimum and maximum time between rule starts in seconds.
     /// </summary>
     [DataField]
-    public MinMax MinMaxEventTiming = new(5 * 60, 25 * 60); // funkystation - FUCK YOU
+    public MinMax MinMaxEventTiming = new(7 * 60, 25 * 60); // funkystation - FUCK YOU
 
     /// <summary>
     /// How long until the next check for an event runs, is initially set based on MinimumTimeUntilFirstEvent & MinMaxEventTiming.

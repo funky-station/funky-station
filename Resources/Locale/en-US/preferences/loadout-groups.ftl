@@ -57,6 +57,7 @@ loadout-group-chaplain-head = Chaplain head
 loadout-group-chaplain-mask = Chaplain mask
 loadout-group-chaplain-jumpsuit = Chaplain jumpsuit
 loadout-group-chaplain-outerclothing = Chaplain outer clothing
+loadout-group-chaplain-weapon = Chaplain weapon
 loadout-group-chaplain-neck = Chaplain neck
 
 loadout-group-janitor-head = Janitor head

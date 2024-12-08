@@ -28,7 +28,7 @@
       - HEVSuit
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingNeckBase # funkystation - bodycams should take up a neckslot
   id: SurveillanceWirelessCameraBodyEntertainment
   name: nopro camera
   description: A body mounted camera. It's watching you.

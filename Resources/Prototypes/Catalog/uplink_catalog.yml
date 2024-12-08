@@ -12,6 +12,18 @@
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT
 
+# Heavy Hit and Run
+- type: listing
+  id: UplinkRevolverRattler
+  name: Rattler
+  description: Who built this?! Uses .45 magnum
+  productEntity: WeaponRevolverRattler
+  cost:
+    Telecrystal: 20 # Temporary price
+  categories:
+  - UplinkWeaponry
+  saleLimit: 1
+
 - type: listing
   id: UplinkRevolverPython
   name: uplink-revolver-python-name
@@ -134,6 +146,18 @@
   productEntity: BriefcaseSyndieSniperBundleFilled
   cost:
     Telecrystal: 80 # goob - increase price by a lot when the thing has a scope
+  categories:
+  - UplinkWeaponry
+  saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: UplinkRevolverBundle
+  name: uplink-revolver-bundle-name
+  description: uplink-revolver-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Revolvers/hristov_revolver.rsi, state: icon }
+  productEntity: BriefcaseSyndieRevolverBundleFilled
+  cost:
+    Telecrystal: 60
   categories:
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT
@@ -353,7 +377,7 @@
   description: uplink-exploding-syndicate-bomb-desc
   productEntity: SyndicateBomb
   cost:
-    Telecrystal: 55 # goob
+    Telecrystal: 60 # goob - the no restock tax of 5tc... devastating to the economy...
   categories:
     - UplinkExplosives
   conditions:

@@ -114,27 +114,27 @@
   copyright: "Space Radiation by Outer"
   source: "https://soundcloud.com/user-957617053"
 
-- files: ["spacers_home.ogg"]
+- files: ["redsun.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "Bluecometdude"
+  source: "https://soundcloud.com/bluecometdude/red-sun-in-the-sky-hq-and-extended"
+
+- files: ["merrynightmerrylight.ogg"]
   license: "Custom"
-  copyright: "Spacers Home by Vic Tyler"
-  source: "https://archive.org/details/filk_carmen_mirandas_ghost"
+  copyright: "Mitsukiyo - https://mitsukiyo.info/"
+  source: "https://www.youtube.com/watch?v=RN_Z5eAhNIo"
 
-- files: ["sugar_boo.ogg"]
+- files: ["angelsweheardonhigh.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Christendom College Choir & Schola Gregoriana"
+  source: "https://www.youtube.com/watch?v=WHWqj6gKS9g"
+
+- files: ["shoppinga.ogg"]
   license: "Custom"
-  copyright: "Sugar Boo by Seranji Poji"
-  source: "https://archive.org/details/merry-go-round-jailhouse"
+  copyright: "Bayonetta 2 OST - Shopping A"
+  source: "https://www.youtube.com/watch?v=e4T5542wjmA"
 
-- files: ["livingintheurban.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "Living in the Urban by OKSY"
-  source: "https://www.youtube.com/watch?v=tpiw-rOi9Kk"
-
-- files: ["starpilotshymn.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "Star Pilot's Hymn by Anne Prather"
-  source: "https://www.youtube.com/watch?v=tpiw-rOi9Kk"
-
-- files: ["starpilotshymn.ogg"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "Tus Mentiras by Alex Torres Y Los Reyes Latinos"
-  source: "https://www.youtube.com/watch?v=rHhuXadGGDY"
+- files: ["auldlangsyne.ogg"]
+  license: "Custom"
+  copyright: "Public Domain, Guy Lombardo - Auld Lang Syne"
+  source: "https://www.youtube.com/watch?v=e4T5542wjmA"

@@ -29,6 +29,14 @@ ghost-role-information-silicon-rules = You are a [color=#6495ed][bold]Silicon[/b
                                        You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
                                        You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
 
+# funkystation
+ghost-role-information-skeleton-rules = You are a [color=yellow][bold]Skeleton[/bold][/color]. You are a former member of crew and are considered crew.
+                                         While you are considered crew and are bound to the same laws as other crew members, you are free to act as an antagonist or a non antagonist.
+                                         Be sure to take extra care to follow escalation rules, as others will have to do with you.
+                                         You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
+                                         You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
+                                         You are NOT allowed to cause mass station destruction, such as releasing the singularity from containment.
+
 ghost-role-information-mouse-name = Mouse
 ghost-role-information-mouse-description = A hungry and mischievous mouse.
 

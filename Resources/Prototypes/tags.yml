@@ -1389,4 +1389,19 @@
 - type: Tag
   id: WriteIgnoreStamps
 
+- type: Tag
+  id: BorgLArm
+
+- type: Tag
+  id: BorgRArm
+
+- type: Tag
+  id: BorgLLeg
+
+- type: Tag
+  id: BorgRLeg
+
+- type: Tag
+  id: BorgTorso
+
 # ALPHABETICAL

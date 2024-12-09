@@ -131,6 +131,13 @@
   priority: 13
   text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC13MRPRoleplay.xml"
 
+- type: guideEntry
+  id: Metashield
+  name: guide-entry-metashield
+  ruleEntry: true
+  priority: 4
+  text: "/ServerInfo/Guidebook/ServerRules/Metashield.xml"
+
 #- type: guideEntry
 #  id: RuleC14
 #  name: guide-entry-rules-c14

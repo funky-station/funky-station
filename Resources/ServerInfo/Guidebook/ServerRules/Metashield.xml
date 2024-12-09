@@ -1,22 +1,8 @@
 <Document>
-  # Roleplay Rule 4 - Do not metagame, obey the Metashield
+  # The Metashield
   Something that is "shielded" cannot be known by your character during a round until the "revealing condition" happens. This also means that your character cannot do things based on "shielded" information. Knowing or acting on something that is shielded before the revealing condition is met is referred to as metagaming.
 
   Revealing conditions reveal the shielded information for the round, not for a specific instance. This means that once a revealing condition is met in a round, the shield no longer applies in any case for the remainder of the round.
-
-  ## Never Revealed IC
-  Some shields are never revealed IC. This means that your character can never act as if they know about that shielded thing.
-
-  The following are shielded:
-  - Current game mode and possible antags during the current game mode.
-  - Events from previous rounds.
-  - Events you experienced as a different character.
-  - All information related to the player of a character rather than the character itself. (See "Metafriending and Metagrudging" below.)
-  - All information gained while dead or a ghost.
-  - All information gained while in critical condition or unconscious.
-  - The fact that a round will end.
-
-  This does not prevent knowing that a shift will end, but does prohibit things like preparing to kill people at central command when roleplay rules stop being enforced on LRP.
 
   ## Nuclear Operatives
 
@@ -25,25 +11,23 @@
   The fact that the nuke disk must be protected and could be used by a bad actor to try to destroy the station is not shielded.
 
   The revealing condition for this shield is any of the following:
-  - discovering a blood red hardsuit
+  - discovering a bloodred hardsuit
   - discovering a nuclear operative's shuttle
   - an operative name
   - a War Ops announcement
-  - being a nuclear operative
 
   ## Changelings
 
   In the eyes of the public, changelings are an exterminated predatory lifeform and their potential existence on the station is shielded.
   This metashield prohibits players from crew bloodtesting until the metashield is revealed.
-  
+
   Knowledge about the abilities of changelings is not shielded.
 
   The revealing condition for this shield is any of the following:
   - discovering a hollowed body
-  - witnessing changeling use their non-stealth abilities (not stings or passive abilities)
+  - witnessing the use of changeling-only abilities
   - witnessing someone trying to absorb a body
   - witnessing someone changing their appearance
-  - being a changeling
 
   ## Implanted Implants
 

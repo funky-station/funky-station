@@ -628,3 +628,9 @@ Entries:
       message: Made the plasma rifle fun
   id: 75
   time: '2024-12-07T21:18:25.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Fix
+      message: Updated rules. Read them
+  id: 76
+  time: '2024-12-09T21:31:48.0000000+00:00'

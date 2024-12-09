@@ -5,8 +5,8 @@
   text: "/ServerInfo/Guidebook/ServerRules/DefaultRules.xml"
   children:
   - CoreRules
-  - RoleplayRules
-  - SiliconRules
+#  - RoleplayRules
+#  - SiliconRules
   - RoleTypes
   - BanTypes
   - BanDurations
@@ -38,7 +38,7 @@
   - RuleC11
   - RuleC12
   - RuleC13
-  - RuleC14
+#  - RuleC14
 
 - type: guideEntry
   id: RuleC1

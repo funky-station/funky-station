@@ -72,7 +72,8 @@ namespace Content.IntegrationTests.Tests
             "Divide", // funkystation
             "Glacier", // funkystation
             "Barratry", // Goobstation - add Barratry
-            "Kettle" // Goobstation - add Kettle
+            "Kettle", // Goobstation - add Kettle
+            "Amber",
         };
 
         /// <summary>

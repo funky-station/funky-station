@@ -640,3 +640,9 @@ Entries:
       message: Vulpkanin tail wagging
   id: 77
   time: '2024-12-10T06:55:42.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Fix
+      message: buffed pyroxadone & related chems
+  id: 78
+  time: '2024-12-10T06:56:16.0000000+00:00'

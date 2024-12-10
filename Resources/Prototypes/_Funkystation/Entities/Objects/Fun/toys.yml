@@ -97,4 +97,232 @@
   - type: UseDelay
     delay: 1.8
 
+# self-insert plushies
+- type: entity
+  parent: BasePlushie
+  id: BaseSelfPlushie
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/self_plushie.rsi
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+  - type: UseDelay
+    delay: 1.8
 
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieLunaStargazer
+  name: luna stargazer plushie
+  description: A highly respected Research Director on certain stations.
+  components:
+  - type: Sprite
+    state: plushie_lunastargazer
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: Speech
+    speechVerb: Moth
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieMelodyHennion
+  name: melody hennion plushie
+  description: Get a bunch of them and you can say they're harmonizing, get it?
+  components:
+  - type: Sprite
+    state: plushie_melodyhennion
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: Food
+    useSound:
+      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: Speech
+    speechVerb: Vulpkanin
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieJeepersCReepers
+  name: jeepers c reepers plushie
+  description: A very friendly Head of Personnel, she loves her dog Ian!
+  components:
+  - type: Sprite
+    state: plushie_jeeperscreepers
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Human/womanlaugh.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Human/womanlaugh.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Human/cry_female_1.ogg
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieTincan
+  name: tincan plushie
+  description: 
+  components:
+  - type: Sprite
+    state: plushie_tincan
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieSilasAhas
+  name: silas ahas plushie
+  description: It's pointing and laughing at you and you feel a bit pissed off looking at it...
+  components:
+  - type: Sprite
+    state: plushie_silasahas
+  - type: SpeakOnUse
+    pack: SelfPlushSilasAhas
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: UseDelay
+    delay: 5
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieLokiHydrus
+  name: loki hydrus plushie
+  description: Oh GOD. Throw this one out!
+  components:
+  - type: Sprite
+    state: plushie_lokihydrus
+  - type: SpeakOnUse
+    pack: SelfPlushLokiHydrus
+  - type: UseDelay
+    delay: 5
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieKorrinKarpen
+  name: korrin karpen plushie
+  description: It seems to smell of lavender for some reason, it also seems to be an outdated job for said worker aswell.
+  components:
+  - type: Sprite
+    state: plushie_korrinkarpen
+  - type: SpeakOnUse
+    pack: SelfPlushKorrinKarpen
+  - type: UseDelay
+    delay: 5
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieRikdaVargh
+  name: rikda vargh plushie
+  description: A representative of NanoTrasen and an official from CentCom. Talk about flexing.
+  components:
+  - type: Sprite
+    state: plushie_rikdavargh
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Speech
+    speechVerb: Reptilian
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieLintonByers
+  name: linton byers plushie
+  description: It smells like milk..?
+  components:
+  - type: Sprite
+    state: plushie_lintonbyers
+  - type: SpeakOnUse
+    pack: SelfPlushLintonByers
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - type: UseDelay
+    delay: 5
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieFelixKay
+  name: felix kay plushie
+  description: "Try not to bring near explosions."
+  components:
+  - type: Sprite
+    state: plushie_felixkay
+  - type: SpeakOnUse
+    pack: SelfPlushFelixKay
+  - type: UseDelay
+    delay: 5

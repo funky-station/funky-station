@@ -291,28 +291,6 @@
       state: vulp-tip
 
 - type: marking
-  id: VulpTailWag
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
-  sprites:
-    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: vulp_wag
-    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: vulp_wag-tip #fade
-
-- type: marking
-  id: VulpTailWagTip
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
-  sprites:
-    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: vulp_wag
-    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: vulp_wag-tip
-
-- type: marking
   id: VulpTailAlt
   bodyPart: Tail
   markingCategory: Tail
@@ -368,28 +346,6 @@
       state: fox-tip
 
 - type: marking
-  id: VulpTailFoxWag
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
-  sprites:
-    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: fox_wag
-    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: fox_wag-fade
-
-- type: marking
-  id: VulpTailFoxWagTip
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
-  sprites:
-    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: fox_wag
-    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: fox_wag-tip
-
-- type: marking
   id: VulpTailBushy
   bodyPart: Tail
   markingCategory: Tail
@@ -399,15 +355,6 @@
       state: bushfluff
 
 - type: marking
-  id: VulpTailBushyWag
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
-  sprites:
-    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: bushfluff_wag
-
-- type: marking
   id: VulpTailCoyote
   bodyPart: Tail
   markingCategory: Tail
@@ -415,24 +362,6 @@
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: coyote
-
-- type: marking
-  id: VulpTailCoyoteWag
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
-  sprites:
-    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: coyote_wag
-
-- type: marking
-  id: VulpTailCorgiWag
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
-  sprites:
-    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: corgi_wag
 
 - type: marking
   id: VulpTailHusky
@@ -501,8 +430,81 @@
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fluffy
 
+# Tail Markings (wagging variants)
+
 - type: marking
-  id: VulpTailDalmatianWag
+  id: VulpTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: vulp_wag
+    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: vulp_wag-tip #fade
+
+- type: marking
+  id: VulpTailTipAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: vulp_wag
+    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: vulp_wag-tip
+
+- type: marking
+  id: VulpTailFoxAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: fox_wag
+    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: fox_wag-fade
+
+- type: marking
+  id: VulpTailFoxTipAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: fox_wag
+    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: fox_wag-tip
+
+- type: marking
+  id: VulpTailBushyAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: bushfluff_wag
+
+- type: marking
+  id: VulpTailCoyoteAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: coyote_wag
+
+- type: marking
+  id: VulpTailCorgiAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+      state: corgi_wag
+
+- type: marking
+  id: VulpTailDalmatianAnimated
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]

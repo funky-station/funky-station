@@ -103,6 +103,7 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
+  - MedicalLogisticsSpecialist
 
 - type: department
   id: Security

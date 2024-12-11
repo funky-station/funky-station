@@ -29,6 +29,7 @@
             Captain: [ -1, -1 ]
             NanotrasenRepresentative: [ -1, -1 ] # Goob - remove it after test
             BlueshieldOfficer: [ -1, -1 ] # Remove this too
+            MedicalLogisticsSpecialist: [ -1, -1 ]
 
 - type: gameMap
   id: TestTeg

@@ -355,6 +355,9 @@
       - DeviceQuantumSpinInverter
       - WeaponPlasmaCutter # Goobstation
       - WeaponPlasmaRifle # Goobstation
+      - EnergyScalpel # Shitmed Change
+      - EnergyCautery # Shitmed Change
+      - AdvancedRetractor # Shitmed Change
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -456,6 +459,7 @@
     - CutterMachineCircuitboard
     - StationAnchorCircuitboard
     - SalvageMagnetMachineCircuitboard
+    - OperatingTableCircuitboard # Shitmed Change
     dynamicRecipes:
       - ThermomachineFreezerMachineCircuitBoard
       - HellfireFreezerMachineCircuitBoard
@@ -491,6 +495,7 @@
       - DawInstrumentMachineCircuitboard
       - CloningConsoleComputerCircuitboard
       - StasisBedMachineCircuitboard
+      - AutodocCircuitboard # Shitmed
       - OreProcessorIndustrialMachineCircuitboard
       - CargoTelepadMachineCircuitboard
       - RipleyCentralElectronics
@@ -584,6 +589,7 @@
     - RightLegBorg
     - LightHeadBorg
     - TorsoBorg
+    - BorgModuleSurgery # Shitmed Change
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleAdvancedCleaning
@@ -614,6 +620,13 @@
     - HamtrLLeg
     - HamtrRLeg
     - VimHarness
+    # Shitmed Change
+    - BorgModuleAdvancedSurgery
+    - JawsOfLifeLeftArm
+    - JawsOfLifeRightArm
+    - SpeedLeftLeg
+    - SpeedRightLeg
+    - BasicCyberneticEyes
   - type: MaterialStorage
     whitelist:
       tags:
@@ -787,6 +800,8 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
+      - SecurityCyberneticEyes # Shitmed Change
+      - MedicalCyberneticEyes # Shitmed Change
   - type: MaterialStorage
     whitelist:
       tags:
@@ -915,6 +930,12 @@
       - BluespaceBeaker
       - SyringeBluespace
       - SyringeCryostasis
+      # Shitmed Change
+      - EnergyScalpel
+      - EnergyCautery
+      - AdvancedRetractor
+      - OmnimedTool
+      - MedicalCyberneticEyes
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget

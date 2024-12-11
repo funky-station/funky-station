@@ -17,7 +17,7 @@ reagent-name-cryoxadone = cryoxadone
 reagent-desc-cryoxadone = Required for the proper function of cryogenics. Heals all standard types of damage, but only works in temperatures under 213K. It can treat and rejuvenate plants when applied in small doses.
 
 reagent-name-doxarubixadone = doxarubixadone
-reagent-desc-doxarubixadone = A cryogenics chemical. Heals certain types of cellular damage done by Slimes and improper use of other chemicals. Mainly for healing massive amounts of cellular damage on corpses. Works on dead bodies.
+reagent-desc-doxarubixadone = A cryogenics chemical. Heals certain types of cellular damage done by Slimes and improper use of other chemicals.
 
 reagent-name-dermaline = dermaline
 reagent-desc-dermaline = An advanced chemical that is more effective at treating burn damage than kelotane.
@@ -147,3 +147,15 @@ reagent-desc-potassium-iodide = Will reduce the damaging effects of radiation by
 
 reagent-name-haloperidol = haloperidol
 reagent-desc-haloperidol = Removes most stimulating and hallucinogenic drugs. Reduces druggy effects and jitteriness. Causes drowsiness.
+
+reagent-name-hypothium = hypothium
+reagent-desc-hypothium = A difficult to synthesize drug used to cure most wounds and clot blood.
+
+reagent-name-pyroxadone = pyroxadone
+reagent-desc-pyroxadone = A chemical that works inversely of cryoxadone, requiring high temperatures in order to work. Heals most damage.
+
+reagent-name-ardthyrnkole = ardthyrnkole
+reagent-desc-ardthyrnkole = A pyrogenics chemical used to treat severe frostbite on corpses by rapidly defrosting and regenerating frozen tissue.
+
+reagent-name-natusixadone = natusixadone
+reagent-desc-natusixadone = A pyrogenics chemical that burns away cancerous cells, regardless of if they are alive or dead.

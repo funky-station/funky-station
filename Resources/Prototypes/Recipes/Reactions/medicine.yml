@@ -561,7 +561,7 @@
   id: Opporozidone
   minTemp: 400 #Maybe if a method of reducing reagent temp exists one day, this could be -50
   reactants:
-    Cognizine: 
+    Cognizine:
       amount: 1
     Plasma:
       amount: 2
@@ -662,3 +662,52 @@
       amount: 1
   products:
     Haloperidol: 5
+
+# funkystation
+- type: reaction
+  id: Hypothium
+  reactants:
+    Healium:
+      amount: 1
+    Omnizine:
+      amount: 1
+    Ethyloxyephedrine:
+      amount: 1
+  products:
+    Hypothium: 3
+
+- type: reaction
+  id: Pyroxadone
+  minTemp: 433
+  reactants:
+    Dexalin:
+      amount: 1
+    Thermite:
+      amount: 1
+    WeldingFuel:
+      amount: 1
+  products:
+    Pyroxadone: 3
+
+- type: reaction
+  id: Ardthyrnkole
+  reactants:
+    Pyroxadone:
+      amount: 1
+    Plasma:
+      amount: 1
+      catalyst: true
+    Siderlac:
+      amount: 1
+  products:
+    Ardthyrnkole: 2
+
+- type: reaction
+  id: Natusixadone
+  reactants:
+    Pyroxadone:
+      amount: 1
+    UnstableMutagen:
+      amount: 1
+  products:
+    Natusixadone: 2

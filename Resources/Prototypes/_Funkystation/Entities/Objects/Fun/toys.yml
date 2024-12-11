@@ -180,10 +180,10 @@
     state: plushie_jeeperscreepers
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/Voice/Human/womanlaugh.ogg
+      path: /Audio/Animals/small_dog_bark_happy.ogg
   - type: EmitSoundOnActivate
     sound:
-      path: /Audio/Voice/Human/womanlaugh.ogg
+      path: /Audio/Animals/small_dog_bark_happy.ogg
   - type: Food
     useSound:
       path: /Audio/Voice/Human/cry_female_1.ogg

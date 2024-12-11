@@ -184,6 +184,9 @@
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/Animals/small_dog_bark_happy.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Animals/small_dog_bark_happy.ogg
   - type: Food
     useSound:
       path: /Audio/Voice/Human/cry_female_1.ogg
@@ -196,6 +199,26 @@
   components:
   - type: Sprite
     state: plushie_tincan
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Talk/arachnid.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Talk/arachnid.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Talk/arachnid.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Talk/arachnid.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Talk/arachnid.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Talk/arachnid.ogg
+  - type: Speech
+    speechVerb: Arachnid
 
 - type: entity
   parent: BaseSelfPlushie
@@ -227,6 +250,8 @@
       path: /Audio/Voice/Moth/moth_laugh.ogg
   - type: UseDelay
     delay: 5
+  - type: Speech
+    speechVerb: Moth
 
 - type: entity
   parent: BaseSelfPlushie
@@ -240,6 +265,8 @@
     pack: SelfPlushLokiHydrus
   - type: UseDelay
     delay: 5
+  - type: Speech
+    speechVerb: Harpy
 
 - type: entity
   parent: BaseSelfPlushie
@@ -253,6 +280,8 @@
     pack: SelfPlushKorrinKarpen
   - type: UseDelay
     delay: 5
+  - type: Speech
+    speechVerb: Moth
 
 - type: entity
   parent: BaseSelfPlushie
@@ -313,12 +342,14 @@
       path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
   - type: UseDelay
     delay: 5
+  - type: Speech
+    speechVerb: Felinid
 
 - type: entity
   parent: BaseSelfPlushie
   id: PlushieFelixKay
   name: felix kay plushie
-  description: "Try not to bring near explosions."
+  description: Try not to bring near explosions.
   components:
   - type: Sprite
     state: plushie_felixkay
@@ -326,3 +357,77 @@
     pack: SelfPlushFelixKay
   - type: UseDelay
     delay: 5
+  - type: Speech
+    speechVerb: Slime
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieAliceAndreev
+  name: alice andreev plushie
+  description: Seems evil...
+  components:
+  - type: Sprite
+    state: plushie_aliceandreev
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Talk/slime_exclaim.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Talk/slime_exclaim.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Talk/slime_exclaim.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Talk/slime_exclaim.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Talk/slime_exclaim.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Talk/slime_exclaim.ogg
+  - type: Speech
+    speechVerb: Slime
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieParfeyMaelstorm
+  name: parfey maelstorm plushie
+  description: Not to be trusted with fire
+  components:
+  - type: Sprite
+    state: plushie_parfeymaelstorm
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: UseDelay
+    delay: 2
+  - type: Speech
+    speechVerb: Reptilian
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieChadleySkrimblo
+  name: chadley skrimblo plushie
+  description: Leave him in a room alone and a vox box will appear!
+  components:
+  - type: Sprite
+    state: plushie_chadleyskrimblo
+  - type: UseDelay
+    delay: 2
+    speechVerb: Human

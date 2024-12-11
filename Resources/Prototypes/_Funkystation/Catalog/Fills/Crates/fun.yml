@@ -49,6 +49,9 @@
     - id: PlushieKorrinKarpen
     - id: PlushieLintonByers
     - id: PlushieFelixKay
+    - id: PlushieParfeyMaelstorm
+    - id: PlushieAliceAndreev
+    - id: PlushieChadleySkrimblo
 
 - type: entity
   id: CrateFunPlushieSelfInsert

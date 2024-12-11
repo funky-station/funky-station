@@ -496,3 +496,153 @@ Entries:
       message: The pen is now usable again as a ghetto surgery tool.
   id: 61
   time: '2024-11-30T04:26:13.0000000+00:00'
+- author: UtopiOne
+  changes:
+    - type: Add
+      message: You can now add a Cirno plushie to your loadout.
+  id: 62
+  time: '2024-11-30T15:04:47.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Remove
+      message: Removes Barratry from the map pool
+  id: 63
+  time: '2024-12-01T00:46:29.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: >-
+        The SmartFridge™, feature complete with methods to store pills, jugs,
+        and perishables.
+  id: 64
+  time: '2024-12-01T20:42:29.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Tweak
+      message: changed pyroxadone's color to not look like bic
+  id: 65
+  time: '2024-12-02T14:34:51.0000000+00:00'
+- author: UtopiOne
+  changes:
+    - type: Add
+      message: >-
+        Musician's Hardsuit can now be found in the crafting menu. Play music to
+        your heart's content!
+  id: 66
+  time: '2024-12-02T14:35:28.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: >-
+        Added the Autodoc Mk. XIV with the Automated Surgery tier 2 civ tech.
+        AUTOMATED ORGAN HARVESTING!!!
+    - type: Fix
+      message: Fixed touching light bulbs damaging your torso instead of your hands
+    - type: Fix
+      message: >-
+        Fixed clumsy clowns damaging their torsos instead of their head when
+        hitting a table.
+    - type: Fix
+      message: Fixed borgs being unable to wear hats
+    - type: Fix
+      message: Fixed diona nymphs imploding as soon as they appear (lol)
+    - type: Fix
+      message: Fixed slime stomachs being unable to metabolize chemicals.
+    - type: Fix
+      message: >-
+        Fixed part damage code not caring about whether or not damage should
+        ignore resistances.
+    - type: Fix
+      message: Fixed monkeys not having hands.
+    - type: Fix
+      message: Fixed some simple mobs being unable to equip apparel or gear.
+    - type: Fix
+      message: Fixed mannequins not working.
+    - type: Fix
+      message: Fixed hands being added out of order on surgical reattachment.
+    - type: Fix
+      message: >-
+        Fixed fire gibbing not removing your organs properly, in turn allowing
+        you to continue living as a nugget.
+    - type: Tweak
+      message: You can now hear people doing surgeries.
+    - type: Tweak
+      message: Added a circuit board and crafting recipe for Operating Tables.
+  id: 67
+  time: '2024-12-02T14:40:54.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Changed the Captain's sprites to be more consistent
+  id: 68
+  time: '2024-12-02T15:34:00.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Fix
+      message: SmartFridge now uses hand label names
+  id: 69
+  time: '2024-12-02T17:22:57.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Funky Station is now a little Christmas.
+  id: 70
+  time: '2024-12-04T01:33:39.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: RPD can now build under tiles
+    - type: Fix
+      message: RPD can now build volume pumps
+  id: 71
+  time: '2024-12-05T19:57:02.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: Added max heal rate to healium
+    - type: Tweak
+      message: Increase healium booze power
+    - type: Tweak
+      message: Increase healium minimum mols needed to force user asleep.
+  id: 72
+  time: '2024-12-05T19:57:42.0000000+00:00'
+- author: conrad-schroder
+  changes:
+    - type: Fix
+      message: >-
+        Fixed an issue where the Chaplain's weapon would be replaced by the
+        backpack during loadout application.
+  id: 73
+  time: '2024-12-06T01:55:09.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: SmartFridge can now store syringes.
+    - type: Fix
+      message: SmartFridge can now be unanchored.
+  id: 74
+  time: '2024-12-06T06:13:24.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Tweak
+      message: Made the plasma rifle fun
+  id: 75
+  time: '2024-12-07T21:18:25.0000000+00:00'
+- author: DevilishMilk
+  changes:
+    - type: Fix
+      message: Updated rules. Read them
+  id: 76
+  time: '2024-12-09T21:31:48.0000000+00:00'
+- author: RetroManb
+  changes:
+    - type: Add
+      message: Vulpkanin tail wagging
+  id: 77
+  time: '2024-12-10T06:55:42.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Fix
+      message: buffed pyroxadone & related chems
+  id: 78
+  time: '2024-12-10T06:56:16.0000000+00:00'

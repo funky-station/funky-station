@@ -1,0 +1,10 @@
+- type: construction
+  name: musician hardsuit
+  id: MusicianHardsuit
+  graph: MusicianHardsuit
+  startNode: start
+  targetNode: musicianHardsuit
+  category: construction-category-clothing
+  description: A modified hardsuit fit for a musician.
+  icon: { sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/musician.rsi, state: icon }
+  objectType: Item

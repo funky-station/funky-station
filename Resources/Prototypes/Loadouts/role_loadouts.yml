@@ -28,7 +28,7 @@
 # Silicons
 - type: roleLoadout
   id: JobStationAi
-  nameDataset: names_ai
+  nameDataset: NamesAI
 
 # Civilian
 - type: roleLoadout
@@ -116,11 +116,11 @@
   - ChaplainMask
   - ChaplainNeck
   - ChaplainJumpsuit
-  - ChaplainAnnabelle # funkystation
   - CommonBackpack
   - ChaplainOuterClothing
   - Glasses
   - Survival
+  - ChaplainAnnabelle # funkystation
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -379,7 +379,6 @@
 - type: roleLoadout
   id: JobDetective
   groups:
-  - GroupTankHarness
   - DetectiveHead
   - DetectiveNeck
   - DetectiveJumpsuit

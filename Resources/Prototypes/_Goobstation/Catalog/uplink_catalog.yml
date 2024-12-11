@@ -205,18 +205,6 @@
   categories:
   - UplinkAmmo
 
-# real
-- type: listing
-  id: UplinkRifleMag
-  name: uplink-rifle-mag-name
-  description: uplink-rifle-mag-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: red }
-  productEntity: MagazineRifle
-  cost:
-    Telecrystal: 15 # C-20R
-  categories:
-  - UplinkAmmo
-
 - type: listing
   id: UplinkSyndicateSegwayCrate
   name: uplink-syndicate-segway-crate-name # Funnily enough these localizations weren't removed when wiz removed vehicles

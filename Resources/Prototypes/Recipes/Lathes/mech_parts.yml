@@ -44,6 +44,7 @@
     Steel: 1000
     Glass: 750
 
+
 # H.O.N.K.
 - type: latheRecipe
   id: HonkerHarness
@@ -61,9 +62,9 @@
   category: Honker # Goobstation
   completetime: 10
   materials:
-    Steel: 3000
-    Glass: 1200
-    Bananium: 500
+    Steel: 2000
+    Glass: 750
+    Bananium: 250
 
 - type: latheRecipe
   id: HonkerLLeg
@@ -158,3 +159,11 @@
   materials:
     Steel: 500
     Bananium: 200
+
+- type: latheRecipe
+  id: VimHarness
+  result: VimHarness
+  completetime: 5
+  materials:
+    Steel: 500
+    Glass: 200

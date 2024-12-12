@@ -80,7 +80,7 @@
   - type: GuideHelp
     guides:
     - Security
-    - Antagonistsx
+    - Antagonists
   - type: Construction
     graph: RevolutionaryFlashbangGraph
     node: start

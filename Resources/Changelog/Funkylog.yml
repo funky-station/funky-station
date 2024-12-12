@@ -658,3 +658,9 @@ Entries:
       message: Added Mechs!
   id: 80
   time: '2024-12-12T15:59:50.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: The Revolutionary Flashbang, a new favorite for young revolutionaries.
+  id: 81
+  time: '2024-12-12T16:13:53.0000000+00:00'

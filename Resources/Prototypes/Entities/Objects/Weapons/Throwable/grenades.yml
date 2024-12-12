@@ -80,7 +80,10 @@
   - type: GuideHelp
     guides:
     - Security
-    - Antagonists
+    - Antagonistsx
+  - type: Construction
+    graph: RevolutionaryFlashbangGraph
+    node: start
 
 - type: entity
   id: GrenadeFlashEffect

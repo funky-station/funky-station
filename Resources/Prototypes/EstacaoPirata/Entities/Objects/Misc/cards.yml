@@ -17,7 +17,7 @@
       map: [ "openLayer" ]
       visible: false
   - type: Storage
-    maxItemSize: Normal
+    maxItemSize: Small
     grid:
     - 0,0,1,0
     whitelist:

@@ -159,11 +159,3 @@
   materials:
     Steel: 500
     Bananium: 200
-
-- type: latheRecipe
-  id: VimHarness
-  result: VimHarness
-  completetime: 5
-  materials:
-    Steel: 500
-    Glass: 200

@@ -1,0 +1,21 @@
+- type: constructionGraph
+  id: RevolutionaryFlashbangGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: revFlashbang
+      completed:
+      - !type:AdminLog
+        message: "A revolutionary flashbang was crafted"
+      - !type:SpawnPrototype
+        prototype: GrenadeFlashBangRevolutionary
+      - !type:DeleteEntity {}
+      conditions:
+      - !type:RevolutionaryCrafterHasRecipeComponent
+      steps:
+      - tool: Screwing
+        doAfter: 15
+
+  - node: revFlashbang
+    entity: GrenadeFlashBangRevolutionary

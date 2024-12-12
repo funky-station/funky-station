@@ -646,3 +646,15 @@ Entries:
       message: buffed pyroxadone & related chems
   id: 78
   time: '2024-12-10T06:56:16.0000000+00:00'
+- author: RetroManb
+  changes:
+    - type: Add
+      message: Self-insert plushies
+  id: 79
+  time: '2024-12-12T14:41:33.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Add
+      message: Added Mechs!
+  id: 80
+  time: '2024-12-12T15:59:50.0000000+00:00'

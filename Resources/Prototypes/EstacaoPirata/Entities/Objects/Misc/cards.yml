@@ -17,7 +17,7 @@
       map: [ "openLayer" ]
       visible: false
   - type: Storage
-    maxItemSize: Small
+    maxItemSize: Normal
     grid:
     - 0,0,1,0
     whitelist:
@@ -29,18 +29,28 @@
       amount: 1
   - type: Appearance
 
+# Frontier: base stack for card stack component
 - type: entity
   parent: BaseItem
+  id: CardStackBase
+  name: stack of cards
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+  - type: CardStack
+  - type: ContainerContainer # Frontier
+    containers: # Frontier
+      cardstack-container: !type:Container # Frontier
+        # End Frontier
+
+- type: entity
+  parent: CardStackBase
   id: CardHandBase
   categories: [ HideSpawnMenu ]
   name: hand of cards
   components:
-  - type: Item
-    size: Small
-    shape:
-    - 0,0,1,0
   - type: CardHand
-  - type: CardStack
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: singlecard_down_black
@@ -48,9 +58,11 @@
     interfaces:
       enum.CardUiKey.Key:
         type: CardHandMenuBoundUserInterface
+  # - type: ActivatableUI # Frontier
+  #   key: enum.CardUiKey.Key # Frontier
 
 - type: entity
-  parent: BaseItem
+  parent: CardStackBase
   id: CardDeckBase
   categories: [ HideSpawnMenu ]
   name: deck of cards
@@ -60,10 +72,7 @@
     state: deck_black_full
   - type: Item
     size: Small
-    shape:
-    - 0,0,1,0
   - type: CardDeck
-  - type: CardStack
 
 
 - type: entity
@@ -169,7 +178,7 @@
     state: singlecard_down_black
   - type: Rotatable
   - type: Item
-    size: Tiny
+    size: Small
   - type: UseDelay
     delay: 0.5
   - type: Card
@@ -177,6 +186,7 @@
     - sprite: EstacaoPirata/Objects/Misc/cards.rsi
       state: singlecard_down_black
     flipped: true
+# region Black Cards
 
 - type: entity
   parent: CardBase
@@ -765,3 +775,5 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: black_joker
+
+# endregion Black Deck

@@ -195,7 +195,7 @@
   parent: BaseSelfPlushie
   id: PlushieTincan
   name: tincan plushie
-  description: 
+  description: The self-proclaimed "NanoTrasen's worst detective."
   components:
   - type: Sprite
     state: plushie_tincan
@@ -373,7 +373,7 @@
       path: /Audio/Voice/Talk/slime_exclaim.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Voice/Talk/slime_exclaim.ogg
+      path: /Audio/Voice/Human/femalescream_5.ogg
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/Voice/Talk/slime_exclaim.ogg
@@ -393,7 +393,7 @@
   parent: BaseSelfPlushie
   id: PlushieParfeyMaelstorm
   name: parfey maelstorm plushie
-  description: Not to be trusted with fire
+  description: Not to be trusted with fire.
   components:
   - type: Sprite
     state: plushie_parfeymaelstorm
@@ -430,4 +430,32 @@
     state: plushie_chadleyskrimblo
   - type: UseDelay
     delay: 2
-    speechVerb: Human
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieAkishJeen
+  name: akish jeen plushie
+  description: The Jeen.
+  components:
+  - type: Sprite
+    state: plushie_akishjeen
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Speech
+    speechVerb: Reptilian

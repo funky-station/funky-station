@@ -33,7 +33,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Player;
 using Content.Shared.Coordinates;
-using Content.Shared.Revolutionary;
 using Robust.Shared.Utility;
 using Robust.Shared.Timing;
 
@@ -110,8 +109,6 @@ namespace Content.Server.Explosion.EntitySystems
             SubscribeLocalEvent<SoundOnTriggerComponent, TriggerEvent>(OnSoundTrigger);
             SubscribeLocalEvent<ShockOnTriggerComponent, TriggerEvent>(HandleShockTrigger);
             SubscribeLocalEvent<RattleComponent, TriggerEvent>(HandleRattleTrigger);
-
-            SubscribeLocalEvent<RevolutionaryFlashOnTriggerComponent, TriggerEvent>(HandleRevolutionaryFlashTrigger); // funkystation
         }
 
         private void OnSoundTrigger(EntityUid uid, SoundOnTriggerComponent component, TriggerEvent args)
@@ -180,13 +177,6 @@ namespace Content.Server.Explosion.EntitySystems
         {
             // TODO Make flash durations sane ffs.
             _flashSystem.FlashArea(uid, args.User, component.Range, component.Duration * 1000f, probability: component.Probability);
-            args.Handled = true;
-        }
-
-        // funkystation - no other clear way to do this
-        private void HandleRevolutionaryFlashTrigger(EntityUid uid, RevolutionaryFlashOnTriggerComponent comp, TriggerEvent args)
-        {
-            _flashSystem.RevolutionaryFlashArea(uid, args.User, comp.Range, comp.Duration * 1000f, probability: comp.Probability);
             args.Handled = true;
         }
 

@@ -10,7 +10,6 @@
     - 0,0,1,0
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
-    state: box
     layers:
     - state: black_box
     - state: black_box_open
@@ -84,7 +83,6 @@
     size: Small
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
-    state: box
     layers:
     - state: black_box
     - state: black_box_open

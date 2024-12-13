@@ -3,10 +3,8 @@
   mapName: 'Roid'
   mapPath: /Maps/_Funkystation/roid_outpost.yml
   minPlayers: 0
-  maxPlayers: 50
-  fallback: true
   stations:
-    Saltern:
+    roid_outpost:
       stationProto: StandardNanotrasenStation
       components:
       - type: StationNameSetup

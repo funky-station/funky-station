@@ -20770,22 +20770,22 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-0.5
-      parent: 17752
+      parent: 2
   - uid: 17754
     components:
     - type: Transform
       pos: 0.5,0.5
-      parent: 17752
+      parent: 2
   - uid: 17755
     components:
     - type: Transform
       pos: 2.5,-0.5
-      parent: 17752
+      parent: 2
   - uid: 17756
     components:
     - type: Transform
       pos: 1.5,0.5
-      parent: 17752
+      parent: 2
 - proto: AsteroidRockMining
   entities:
   - uid: 1856
@@ -87660,7 +87660,7 @@ entities:
       name: mountain watchman
     - type: Transform
       pos: 1.4998493,-1.4490204
-      parent: 17752
+      parent: 2
 - proto: PlushieSharkBlue
   entities:
   - uid: 13278
@@ -108022,7 +108022,7 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-0.5
-      parent: 17752
+      parent: 2
 - proto: WallShuttle
   entities:
   - uid: 16692

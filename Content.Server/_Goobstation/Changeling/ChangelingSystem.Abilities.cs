@@ -601,6 +601,14 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
+        if (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
+        {
+            var cuff = cuffs.LastAddedCuffs;
+
+            _cuffs.Uncuff(uid, cuffs.LastAddedCuffs, cuff);
+            QueueDel(cuff);
+        }
+
         comp.IsInLastResort = true;
 
         var newUid = TransformEntity(

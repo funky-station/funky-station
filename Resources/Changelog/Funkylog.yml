@@ -664,3 +664,15 @@ Entries:
       message: The Revolutionary Flashbang, a new favorite for young revolutionaries.
   id: 81
   time: '2024-12-12T16:13:53.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Add
+      message: >-
+        Added the ability for Alerts to show dynamically updating text in
+        real-time.
+    - type: Add
+      message: >-
+        The Cyborg's Battery Alert on the sidebar will now show your charge
+        percentage in real-time when you hover over it with your mouse.
+  id: 82
+  time: '2024-12-13T01:45:54.0000000+00:00'

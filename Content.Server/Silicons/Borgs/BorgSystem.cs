@@ -284,8 +284,10 @@ public sealed partial class BorgSystem : SharedBorgSystem
             chargePercent = 1;
         }
 
+        string? chargeMessage = Loc.GetString("borg-ui-charge-label", ("charge", (int) MathF.Round(battery.CurrentCharge / battery.MaxCharge * 100f)));
+
         _alerts.ClearAlert(ent, ent.Comp.NoBatteryAlert);
-        _alerts.ShowAlert(ent, ent.Comp.BatteryAlert, chargePercent);
+        _alerts.ShowAlert(ent, ent.Comp.BatteryAlert, chargePercent, dynamicMessage: chargeMessage);
     }
 
     /// <summary>

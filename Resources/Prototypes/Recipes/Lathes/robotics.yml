@@ -195,8 +195,3 @@
   parent: BaseBorgModuleRecipe
   id: BorgModuleHarvesting
   result: BorgModuleHarvesting
-
-- type: latheRecipe
-  parent: BaseBorgModuleRecipe
-  id: BorgModuleClowning
-  result: BorgModuleClowning

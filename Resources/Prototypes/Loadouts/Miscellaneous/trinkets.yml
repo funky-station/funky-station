@@ -358,3 +358,10 @@
   storage:
     back:
     - TowelColorMime
+
+# misc
+- type: loadout
+  id: CardBoxBlack
+  storage:
+    back:
+    - CardBoxBlack

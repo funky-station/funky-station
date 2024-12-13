@@ -1413,13 +1413,15 @@
       - !type:HealthChange
         conditions:
         - !type:Temperature
-          min: 343.3 # completely arbitrary
+          min: 337.3 # completely arbitrary
         damage:
           groups: # same as cryox
             Airloss: -6
             Brute: -4
             Burn: -6
             Toxin: -4
+          types:
+            Heat: -3
 
 - type: reagent
   id: Ardthyrnkole
@@ -1440,7 +1442,7 @@
         damage:
           types:
             Cold: -5
-            Heat: -1 # offsets heat damage from the pod
+            Heat: -3 # offsets heat damage from the pod
             Shock: -3
 
 - type: reagent
@@ -1461,5 +1463,5 @@
           min: 343.3
         damage:
           types:
-            Cellular: -2
-            Heat: -1
+            Cellular: -4
+            Heat: -3

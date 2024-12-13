@@ -158,7 +158,6 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> AdminUseCustomNamesAdminRank =
         CVarDef.Create("admin.use_custom_names_admin_rank", true, CVar.SERVERONLY);
 
-
     public static readonly CVarDef<bool> BanHardwareIds =
         CVarDef.Create("ban.hardware_ids", true, CVar.SERVERONLY);
 

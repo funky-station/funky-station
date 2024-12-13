@@ -17,3 +17,13 @@
   cost: 2000
   category: cargoproduct-category-name-fun
   group: market
+
+- type: cargoProduct
+  id: FunSelfPlushies
+  icon:
+    sprite: _Funkystation/Objects/Fun/syrrikatickum_plush.rsi
+    state: plush_tickum
+  product: CrateFunPlushieSelfInsert
+  cost: 2000
+  category: cargoproduct-category-name-fun
+  group: market

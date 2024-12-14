@@ -74,7 +74,7 @@
       types:
         Heat: 0
   - type: StaminaDamageOnCollide
-    damage: 40 #funkystation give it a little more stamina damage, its kinda ass otherwise
+    damage: 45 #funkystation give it a little more stamina damage, its kinda ass otherwise (3 shot crit)
 
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
@@ -89,9 +89,9 @@
   - type: Projectile
     damage:
       types:
-        Heat: 15
+        Heat: 10 #funkystation nerf the damage with the base
   - type: IgniteOnCollide
-    fireStacks: 4 #funkystation give it a little more oompf
+    fireStacks: 3
 
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]

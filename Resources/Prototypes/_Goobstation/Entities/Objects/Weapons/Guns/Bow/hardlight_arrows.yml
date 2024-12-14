@@ -26,7 +26,7 @@
     onlyCollideWhenShot: true
     damage:
       types:
-        Heat: 50
+        Heat: 35 #nerf it down from a 2 shot to a 3 shot
   - type: TimedDespawn
     lifetime: 10
   - type: PointLight
@@ -74,7 +74,7 @@
       types:
         Heat: 0
   - type: StaminaDamageOnCollide
-    damage: 45
+    damage: 40 #funkystation give it a little more stamina damage, its kinda ass otherwise
 
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
@@ -91,7 +91,7 @@
       types:
         Heat: 15
   - type: IgniteOnCollide
-    fireStacks: 3
+    fireStacks: 4 #funkystation give it a little more oompf
 
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
@@ -150,7 +150,7 @@
     penetrate: true
     damage:
       types:
-        Heat: 35
+        Radiation: 30 #I'm gonna make it rads and keep the damage low
   - type: Fixtures
     fixtures:
       projectile:

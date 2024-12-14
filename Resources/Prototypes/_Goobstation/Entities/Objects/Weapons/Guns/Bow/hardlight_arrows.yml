@@ -26,7 +26,7 @@
     onlyCollideWhenShot: true
     damage:
       types:
-        Heat: 40 #nerf it down from a 2 shot to a 3 shot
+        Heat: 30 #funky change it down to a 4 shot
   - type: TimedDespawn
     lifetime: 10
   - type: PointLight
@@ -74,7 +74,7 @@
       types:
         Heat: 0
   - type: StaminaDamageOnCollide
-    damage: 45 #funkystation give it a little more stamina damage, its kinda ass otherwise (3 shot crit)
+    damage: 40 #funkystation give it a little more stamina damage, its kinda ass otherwise (3 shot crit)
 
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
@@ -89,7 +89,7 @@
   - type: Projectile
     damage:
       types:
-        Heat: 10 #funkystation nerf the damage with the base
+        Heat: 5 #funkystation nerf the damage with the base
   - type: IgniteOnCollide
     fireStacks: 3
 
@@ -150,7 +150,7 @@
     penetrate: true
     damage:
       types:
-        Radiation: 30 #I'm gonna make it rads and keep the damage low
+        Radiation: 20 #funky make it rads and keep the damage low
   - type: Fixtures
     fixtures:
       projectile:
@@ -180,7 +180,7 @@
   - type: SpawnEntitiesOnHit
     spawnOnlyIfHitMob: true
     proto: MobAngryBeeWeak
-    amount: 8
+    amount: 7 #funky turn it down to 7 bees
     collideIgnoreEntities:
     - MobBee
     - MobAngryBee

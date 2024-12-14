@@ -26,7 +26,7 @@
     onlyCollideWhenShot: true
     damage:
       types:
-        Heat: 35 #nerf it down from a 2 shot to a 3 shot
+        Heat: 40 #nerf it down from a 2 shot to a 3 shot
   - type: TimedDespawn
     lifetime: 10
   - type: PointLight

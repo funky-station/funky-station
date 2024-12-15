@@ -211,6 +211,28 @@ public abstract class SharedMindSystem : EntitySystem
     }
 
     /// <summary>
+    /// Returns a list of every living humanoid player's minds, except for a single one which is exluded.
+    /// </summary>
+    public List<EntityUid> GetAliveHumansExcept(EntityUid exclude)
+    {
+        var allHumans = new List<EntityUid>();
+        // HumanoidAppearanceComponent is used to prevent mice, pAIs, etc from being chosen
+        var query = EntityQueryEnumerator<MindContainerComponent, MobStateComponent, HumanoidAppearanceComponent>();
+        while (query.MoveNext(out var uid, out var mc, out var mobState, out _))
+        {
+            // the player needs to have a mind and not be the excluded one
+            if (mc.Mind == null || mc.Mind == exclude)
+                continue;
+
+            // the player has to be alive
+            if (_mobState.IsAlive(uid, mobState))
+                allHumans.Add(mc.Mind.Value);
+        }
+
+        return allHumans;
+    }
+
+    /// <summary>
     ///     True if the OwnedEntity of this mind is physically dead.
     ///     This specific definition, as opposed to CharacterDeadIC, is used to determine if ghosting should allow return.
     /// </summary>
@@ -527,30 +549,6 @@ public abstract class SharedMindSystem : EntitySystem
     public string? GetCharacterName(NetUserId userId)
     {
         return TryGetMind(userId, out _, out var mind) ? mind.CharacterName : null;
-    }
-
-    /// <summary>
-    /// Returns a list of every living humanoid player's minds, except for a single one which is exluded.
-    /// </summary>
-    public List<EntityUid> GetAliveHumansExcept(EntityUid exclude)
-    {
-        var mindQuery = EntityQuery<MindComponent>();
-
-        var allHumans = new List<EntityUid>();
-        // HumanoidAppearanceComponent is used to prevent mice, pAIs, etc from being chosen
-        var query = EntityQueryEnumerator<MindContainerComponent, MobStateComponent, HumanoidAppearanceComponent>();
-        while (query.MoveNext(out var uid, out var mc, out var mobState, out _))
-        {
-            // the player needs to have a mind and not be the excluded one
-            if (mc.Mind == null || mc.Mind == exclude)
-                continue;
-
-            // the player has to be alive
-            if (_mobState.IsAlive(uid, mobState))
-                allHumans.Add(mc.Mind.Value);
-        }
-
-        return allHumans;
     }
 
     /// <summary>

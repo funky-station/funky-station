@@ -145,7 +145,7 @@ namespace Content.Server.Administration.Systems
             var webhookId = match.Groups[1].Value;
             var webhookToken = match.Groups[2].Value;
 
-            _onCallData = await GetWebhookData(url);
+            _onCallData = await GetWebhookData(webhookId, webhookToken);
         }
 
         private void PlayerRateLimitedAction(ICommonSession obj)
@@ -175,7 +175,7 @@ namespace Content.Server.Administration.Systems
                 }
 
                 // Check if the user has been banned
-                var ban = await _dbManager.GetServerBanAsync(null, e.Session.UserId, null);
+                var ban = await _dbManager.GetServerBanAsync(null, e.Session.UserId, null, null);
                 if (ban != null)
                 {
                     var banMessage = Loc.GetString("bwoink-system-player-banned", ("banReason", ban.Reason));
@@ -354,7 +354,6 @@ namespace Content.Server.Administration.Systems
             {
                 // TODO: Ideally, CVar validation during setting should be better integrated
                 Log.Warning("Webhook URL does not appear to be valid. Using anyways...");
-                await GetWebhookData(url); // Frontier - Support for Custom URLS, we still want to see if theres Webhook data available
                 return;
             }
 
@@ -364,13 +363,16 @@ namespace Content.Server.Administration.Systems
                 return;
             }
 
+            var webhookId = match.Groups[1].Value;
+            var webhookToken = match.Groups[2].Value;
+
             // Fire and forget
-            await GetWebhookData(url); // Frontier - Support for Custom URLS
+            _webhookData = await GetWebhookData(webhookId, webhookToken);
         }
 
-        private async Task<WebhookData?> GetWebhookData(string url)
+        private async Task<WebhookData?> GetWebhookData(string id, string token)
         {
-            var response = await _httpClient.GetAsync(url);
+            var response = await _httpClient.GetAsync($"https://discord.com/api/v10/webhooks/{id}/{token}");
 
             var content = await response.Content.ReadAsStringAsync();
             if (!response.IsSuccessStatusCode)

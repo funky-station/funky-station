@@ -684,3 +684,9 @@ Entries:
       message: Changed headslug to work in cuffs and to move under doors
   id: 83
   time: '2024-12-13T01:52:14.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Added the hardlight bow (Syndie)
+  id: 84
+  time: '2024-12-15T01:41:36.0000000+00:00'

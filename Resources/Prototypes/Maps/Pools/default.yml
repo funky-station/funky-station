@@ -1,13 +1,13 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps:
+  - Amber
   - Atlas
   - Bagel
   - Box
   - Cluster
   #- Cog # Goobstation - cog is broken
   - Core
-  #- Divide #funkystation - IF YOU REMOVE DIVIDE AGAIN I WILL END YOUR BLOODLINE
   - Fland
   - Marathon
   - Meta

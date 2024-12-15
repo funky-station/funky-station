@@ -1008,6 +1008,7 @@ public sealed partial class ShuttleSystem
                     continue;
                 }
 
+                // If it has the FTLSmashImmuneComponent ignore it.
                 if (_immuneQuery.HasComponent(ent))
                 {
                     continue;

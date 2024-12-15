@@ -188,6 +188,17 @@
   materials:
     Steel: 1100
 
+# Vim
+- type: latheRecipe
+  id: VimHarness
+  result: VimHarness
+  category: Vim # Goobstation
+  completetime: 5
+  materials:
+    Steel: 500
+    Glass: 200
+
+
 # Equipment
 - type: latheRecipe
   id: MechEquipmentDrill
@@ -208,6 +219,15 @@
     Plastic: 150
     Silver: 350
     Diamond: 150
+
+- type: latheRecipe
+  id: MechEquipmentGrabber
+  result: MechEquipmentGrabber
+  category: MechEquipment
+  completetime: 10
+  materials:
+    Steel: 500
+    Plastic: 200
 
 
 - type: latheRecipe

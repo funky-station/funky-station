@@ -55,6 +55,14 @@
     Glass: 750
 
 
+- type: latheRecipe
+  parent: BaseMechPartRecipe
+  id: MechEquipmentGrabberSmall
+  result: MechEquipmentGrabberSmall
+  materials:
+    Steel: 200
+    Plastic: 200
+
 # H.O.N.K.
 - type: latheRecipe
   id: HonkerHarness

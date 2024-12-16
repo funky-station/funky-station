@@ -14,7 +14,7 @@ public sealed partial class CommandStaffComponent : Component
     /// Check for removing mindshield implant from command.
     /// </summary>
     [DataField]
-    public bool Enabled = true;
+    public bool Enabled = true; 
 }
 
 //TODO this should probably be on a mind role, not the mob

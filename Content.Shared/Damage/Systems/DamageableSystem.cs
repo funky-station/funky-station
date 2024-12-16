@@ -124,8 +124,8 @@ namespace Content.Shared.Damage
             }, true);
             Subs.CVar(_config, CCVars.PlaytestReagentHealModifier, value =>
             {
-                 UniversalReagentHealModifier = value;
-                 _chemistryGuideData.ReloadAllReagentPrototypes();
+                UniversalReagentHealModifier = value;
+                _chemistryGuideData.ReloadAllReagentPrototypes();
             }, true);
             Subs.CVar(_config, CCVars.PlaytestExplosionDamageModifier, value => UniversalExplosionDamageModifier = value, true);
             Subs.CVar(_config, CCVars.PlaytestThrownDamageModifier, value => UniversalThrownDamageModifier = value, true);
@@ -219,7 +219,7 @@ namespace Content.Shared.Damage
         ///     null if the user had no applicable components that can take damage.
         /// </returns>
         public DamageSpecifier? TryChangeDamage(EntityUid? uid, DamageSpecifier damage, bool ignoreResistances = false,
-            bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null,
+            bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null, EntityUid? tool = null,
             // Shitmed Change
             bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null)
         {
@@ -261,7 +261,7 @@ namespace Content.Shared.Damage
                     damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
                 }
 
-                var ev = new DamageModifyEvent(damage, origin, targetPart); // Shitmed Change
+                var ev = new DamageModifyEvent(damage, origin, tool, targetPart); // Shitmed Change
                 RaiseLocalEvent(uid.Value, ev);
                 damage = ev.Damage;
 
@@ -487,13 +487,15 @@ namespace Content.Shared.Damage
         public readonly DamageSpecifier OriginalDamage;
         public DamageSpecifier Damage;
         public EntityUid? Origin;
+        public EntityUid? Tool;
         public readonly TargetBodyPart? TargetPart; // Shitmed Change
 
-        public DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null) // Shitmed Change
+        public DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null, EntityUid? tool = null, TargetBodyPart? targetPart = null) // Shitmed Change
         {
             OriginalDamage = damage;
             Damage = damage;
             Origin = origin;
+            Tool = tool;
             TargetPart = targetPart; // Shitmed Change
         }
     }

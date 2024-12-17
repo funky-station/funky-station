@@ -540,7 +540,6 @@
         - !type:ReagentThreshold
           reagent: Healium
           min: 4
-          min: 4
     Medicine:
       effects:
       - !type:HealthChange

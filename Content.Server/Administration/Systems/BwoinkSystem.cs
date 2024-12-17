@@ -349,11 +349,13 @@ namespace Content.Server.Administration.Systems
 
             // Basic sanity check and capturing webhook ID and token
             var match = DiscordRegex().Match(url);
+            var webhookToken = match.Groups[2].Value;
 
             if (!match.Success)
             {
                 // TODO: Ideally, CVar validation during setting should be better integrated
                 Log.Warning("Webhook URL does not appear to be valid. Using anyways...");
+                await GetWebhookData(url, webhookToken); // Frontier - Support for Custom URLS, we still want to see if theres Webhook data available
                 return;
             }
 
@@ -363,11 +365,8 @@ namespace Content.Server.Administration.Systems
                 return;
             }
 
-            var webhookId = match.Groups[1].Value;
-            var webhookToken = match.Groups[2].Value;
-
             // Fire and forget
-            _webhookData = await GetWebhookData(webhookId, webhookToken);
+            await GetWebhookData(url, webhookToken); // Frontier - Support for Custom URLS
         }
 
         private async Task<WebhookData?> GetWebhookData(string id, string token)
@@ -378,7 +377,7 @@ namespace Content.Server.Administration.Systems
             if (!response.IsSuccessStatusCode)
             {
                 _sawmill.Log(LogLevel.Error,
-                    $"Webhook returned bad status code when trying to get webhook data (perhaps the webhook URL is invalid?): {response.StatusCode}\nResponse: {content}");
+                    $"Discord returned bad status code when trying to get webhook data (perhaps the webhook URL is invalid?): {response.StatusCode}\nResponse: {content}");
                 return null;
             }
 

@@ -16,7 +16,7 @@
     - type: Appearance
     - type: GenericVisualizer
       visuals:
-        enum.AnchorVisuals.Anchored:
+        enum.GasPortableVisuals.ConnectedState:
           connectedToPort:
             False: { state: can-connector, visible: false }
             True: { state: can-connector, visible: true }

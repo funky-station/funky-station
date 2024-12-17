@@ -362,7 +362,7 @@
           reagent: Frezon
           min: 1
 
- #funkystation
+ #/tg/ gases
 - type: reagent
   id: BZ
   name: reagent-name-bz
@@ -540,6 +540,7 @@
         - !type:ReagentThreshold
           reagent: Healium
           min: 4
+          min: 4
     Medicine:
       effects:
       - !type:HealthChange
@@ -593,7 +594,7 @@
         conditions:
         - !type:ReagentThreshold
           reagent: Nitrium
-          min: 15
+          min: 8
         key: Stutter
         component: StutteringAccent
         time: 8

@@ -46,6 +46,7 @@
   - TowelColorSilver
   - TowelColorWhite
   - TowelColorYellow
+  - CardBoxBlack
 
 - type: loadoutGroup
   id: Glasses

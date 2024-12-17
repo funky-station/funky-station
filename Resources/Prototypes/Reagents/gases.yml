@@ -362,7 +362,7 @@
           reagent: Frezon
           min: 1
 
- #funkystation
+ #/tg/ gases
 - type: reagent
   id: BZ
   name: reagent-name-bz
@@ -535,7 +535,7 @@
         time: 3
         type: Add
       - !type:Drunk
-        boozePower: 50
+        boozePower: 150
         conditions:
         - !type:ReagentThreshold
           reagent: Healium

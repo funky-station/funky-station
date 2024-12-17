@@ -1,5 +1,7 @@
-﻿using Content.Server.Power.EntitySystems;
+﻿using Content.Server.Interaction;
+using Content.Server.Power.EntitySystems;
 using Content.Shared._Funkystation.Medical.SmartFridge;
+using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Interaction;
 using Content.Shared.Tag;
@@ -10,6 +12,8 @@ namespace Content.Server._Funkystation.Medical.SmartFridge;
 public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
 {
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
+    [Dependency] private readonly AnchorableSystem _anchorable = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly TagSystem _tags = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
 
@@ -30,6 +34,19 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
 
     private void OnInteractEvent(EntityUid entity, SmartFridgeComponent component, ref InteractUsingEvent ev)
     {
+        if (_tags.HasTag(ev.Used, "Wrench"))
+        {
+            _anchorable.TryToggleAnchor(entity, ev.User, ev.Used);
+
+            ev.Handled = true;
+        }
+
+        if (!_anchorable.IsPowered(entity, _entityManager))
+        {
+            ev.Handled = true;
+            return;
+        }
+
         if (component.StorageWhitelist != null)
         {
             if (!_tags.HasAnyTag(ev.Used, component.StorageWhitelist.Tags!.ToArray()))

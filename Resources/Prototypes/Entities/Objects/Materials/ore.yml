@@ -52,6 +52,11 @@
   components:
   - type: Stack
     stackType: GoldOre
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: gold
   - type: Material
@@ -83,6 +88,11 @@
   components:
   - type: Stack
     stackType: DiamondOre
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: diamond
   - type: Material
@@ -114,6 +124,11 @@
   components:
   - type: Stack
     stackType: SteelOre
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: iron
   - type: Material
@@ -145,6 +160,11 @@
   components:
   - type: Stack
     stackType: PlasmaOre
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: plasma
   - type: Material
@@ -181,6 +201,11 @@
   components:
   - type: Stack
     stackType: SilverOre
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: silver
   - type: Material
@@ -212,6 +237,11 @@
   components:
   - type: Stack
     stackType: SpaceQuartz
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: spacequartz
   - type: Material
@@ -243,6 +273,11 @@
   components:
   - type: Stack
     stackType: UraniumOre
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: uranium
   - type: Material
@@ -282,6 +317,11 @@
   components:
   - type: Stack
     stackType: BananiumOre
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: bananium
   - type: Material
@@ -322,6 +362,11 @@
   components:
   - type: Stack
     stackType: Coal
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: coal
   - type: Material
@@ -354,39 +399,6 @@
     count: 1
 
 - type: entity
-  parent: OreBase
-  id: SaltOre
-  name: salt
-  suffix: Full
-  components:
-  - type: Stack
-    stackType: SaltOre
-  - type: Sprite
-    state: salt
-  - type: Material
-  - type: PhysicalComposition
-    materialComposition:
-      RawSalt: 100
-  - type: Extractable
-    grindableSolutionName: saltore
-  - type: SolutionContainerManager
-    solutions:
-      saltore:
-        reagents:
-        - ReagentId: TableSalt
-          Quantity: 10
-        - ReagentId: Iodine
-          Quantity: 5
-
-- type: entity
-  parent: SaltOre
-  id: Salt1
-  suffix: Single
-  components:
-  - type: Stack
-    count: 1
-
-- type: entity
   parent: Coal
   id: Coal5
   suffix: Five
@@ -409,3 +421,41 @@
   components:
   - type: Stack
     count: 15
+
+- type: entity
+  parent: OreBase
+  id: SaltOre
+  name: salt
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: SaltOre
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
+  - type: Sprite
+    state: salt
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RawSalt: 300 # Goobstation - was 100
+  - type: Extractable
+    grindableSolutionName: saltore
+  - type: SolutionContainerManager
+    solutions:
+      saltore:
+        reagents:
+        - ReagentId: TableSalt
+          Quantity: 10
+        - ReagentId: Iodine
+          Quantity: 5
+
+- type: entity
+  parent: SaltOre
+  id: Salt1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1

@@ -145,7 +145,7 @@ namespace Content.Server.Administration.Systems
             var webhookId = match.Groups[1].Value;
             var webhookToken = match.Groups[2].Value;
 
-            _onCallData = await GetWebhookData(webhookId, webhookToken);
+            _onCallData = await GetWebhookData(url);
         }
 
         private void PlayerRateLimitedAction(ICommonSession obj)
@@ -175,7 +175,7 @@ namespace Content.Server.Administration.Systems
                 }
 
                 // Check if the user has been banned
-                var ban = await _dbManager.GetServerBanAsync(null, e.Session.UserId, null, null);
+                var ban = await _dbManager.GetServerBanAsync(null, e.Session.UserId, null);
                 if (ban != null)
                 {
                     var banMessage = Loc.GetString("bwoink-system-player-banned", ("banReason", ban.Reason));
@@ -349,13 +349,12 @@ namespace Content.Server.Administration.Systems
 
             // Basic sanity check and capturing webhook ID and token
             var match = DiscordRegex().Match(url);
-            var webhookToken = match.Groups[2].Value;
 
             if (!match.Success)
             {
                 // TODO: Ideally, CVar validation during setting should be better integrated
                 Log.Warning("Webhook URL does not appear to be valid. Using anyways...");
-                await GetWebhookData(url, webhookToken); // Frontier - Support for Custom URLS, we still want to see if theres Webhook data available
+                await GetWebhookData(url); // Frontier - Support for Custom URLS, we still want to see if theres Webhook data available
                 return;
             }
 
@@ -366,18 +365,18 @@ namespace Content.Server.Administration.Systems
             }
 
             // Fire and forget
-            await GetWebhookData(url, webhookToken); // Frontier - Support for Custom URLS
+            await GetWebhookData(url); // Frontier - Support for Custom URLS
         }
 
-        private async Task<WebhookData?> GetWebhookData(string id, string token)
+        private async Task<WebhookData?> GetWebhookData(string url)
         {
-            var response = await _httpClient.GetAsync($"https://discord.com/api/v10/webhooks/{id}/{token}");
+            var response = await _httpClient.GetAsync(url);
 
             var content = await response.Content.ReadAsStringAsync();
             if (!response.IsSuccessStatusCode)
             {
                 _sawmill.Log(LogLevel.Error,
-                    $"Discord returned bad status code when trying to get webhook data (perhaps the webhook URL is invalid?): {response.StatusCode}\nResponse: {content}");
+                    $"Webhook returned bad status code when trying to get webhook data (perhaps the webhook URL is invalid?): {response.StatusCode}\nResponse: {content}");
                 return null;
             }
 

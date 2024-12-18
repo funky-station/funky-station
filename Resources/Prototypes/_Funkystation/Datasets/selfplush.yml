@@ -29,3 +29,9 @@
   values:
     prefix: selfplush-felixkay-
     count: 1
+
+- type: localizedDataset
+  id: SelfPlushAltecZorban
+  values:
+    prefix: selfplush-alteczorban-
+    count: 1

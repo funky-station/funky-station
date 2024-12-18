@@ -1,0 +1,60 @@
+- type: loadoutGroup
+  id: MedicalLogisticsSpecialistHead
+  name: loadout-group-mls-head
+  minLimit: 0
+  loadouts:
+  - SeniorPhysicianBeret
+  - NurseHat
+
+- type: loadoutGroup
+  id: MedicalLogisticsSpecialistJumpsuit
+  name: loadout-group-mls-jumpsuit
+  loadouts:
+  - SeniorPhysicianJumpsuit
+  - SeniorPhysicianJumpskirt
+  - MedicalBlueScrubs
+  - MedicalGreenScrubs
+  - MedicalPurpleScrubs
+
+- type: loadoutGroup
+  id: MedicalLogisticsSpecialistOuterClothing
+  name: loadout-group-mls-outerclothing
+  minLimit: 0
+  loadouts:
+  - SeniorPhysicianLabCoat
+
+- type: loadoutGroup
+  id: MedicalBackpack
+  name: loadout-group-medical-doctor-backpack
+  loadouts:
+  - MedicalDoctorBackpack
+  - MedicalDoctorSatchel
+  - MedicalDoctorDuffel
+
+- type: loadoutGroup
+  id: MedicalShoes
+  name: loadout-group-medical-doctor-shoes
+  loadouts:
+  - WhiteShoes
+  - MedicalWinterBoots
+
+- type: loadoutGroup
+  id: MedicalLogisticsSpecialistPDA
+  name: loadout-group-medical-doctor-id
+  loadouts:
+  - SeniorPhysicianPDA
+
+- type: loadoutGroup
+  id: MedicalGloves
+  name: loadout-group-medical-gloves
+  minLimit: 0
+  loadouts:
+  - LatexGloves
+  - NitrileGloves
+
+- type: loadoutGroup
+  id: MedicalMask
+  name: loadout-group-medical-mask
+  minLimit: 0
+  loadouts:
+  - SterileMask

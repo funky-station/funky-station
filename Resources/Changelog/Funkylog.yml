@@ -698,3 +698,9 @@ Entries:
       message: Modified Nitrium, Healium, N2O and BZ effects
   id: 85
   time: '2024-12-18T00:11:46.0000000+00:00'
+- author: jorgun VigersRay Roudenn Rxup
+  changes:
+    - type: Add
+      message: Added Blob
+  id: 86
+  time: '2024-12-18T23:35:35.0000000+00:00'

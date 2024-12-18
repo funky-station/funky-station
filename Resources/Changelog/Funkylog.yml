@@ -690,3 +690,11 @@ Entries:
       message: Added the hardlight bow (Syndie)
   id: 84
   time: '2024-12-15T01:41:36.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Added Nitrosyl Plasmide
+    - type: Tweak
+      message: Modified Nitrium, Healium, N2O and BZ effects
+  id: 85
+  time: '2024-12-18T00:11:46.0000000+00:00'

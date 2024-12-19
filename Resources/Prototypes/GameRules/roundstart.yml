@@ -22,8 +22,8 @@
     rules:
     - id: Thief
       prob: 0.75
-    #- id: Heretic # goob edit
-    #  prob: 0.4 # funkystation - nuh uh
+    - id: Heretic # goob edit
+      prob: 0.4 # funkystation - readd side antag heretic
 
 - type: entity
   id: DeathMatch31

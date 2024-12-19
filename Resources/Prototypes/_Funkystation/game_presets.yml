@@ -44,3 +44,20 @@
   - AntagStationEventScheduler
   - BasicRoundstartVariation
   - BasicRoundstartVariation
+
+
+- type: gamePreset
+  id: BlobTraitor
+  alias:
+  - BlobTot
+  - TotsBlob
+  name: blob-title
+  description: blob-description
+  showInVote: false
+  rules:
+  - CalmTraitor
+  - BlobGameMode
+  - BasicStationEventScheduler
+  - AntagStationEventScheduler
+  - BasicRoundstartVariation
+  - BasicRoundstartVariation

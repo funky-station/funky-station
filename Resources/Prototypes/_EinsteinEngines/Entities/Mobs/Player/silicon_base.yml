@@ -301,7 +301,7 @@
       priority: 1
       lightningExplode: false
     - type: ComplexInteraction
-    - type: FootPrints
+    #- type: FootPrints disable cuz its not in
     - type: Carriable
     - type: Targeting
     - type: SurgeryTarget

@@ -728,3 +728,9 @@ Entries:
       message: Added Text-to-Speech voice for AI announcements.
   id: 90
   time: '2024-12-19T12:17:45.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Station AI TTS now reads messages faster.
+  id: 91
+  time: '2024-12-19T15:50:00.0000000+00:00'

@@ -37,7 +37,7 @@ namespace Content.Server.Communications
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-		[Dependency] private readonly AnnounceTTSSystem _announceTtsSystem = default!;
+		[Dependency] private readonly AnnounceTtsSystem _announceTtsSystem = default!;
 
         private const float UIUpdateInterval = 5.0f;
 
@@ -269,7 +269,7 @@ namespace Content.Server.Communications
 
 			List<string> announcementWords = new List<string>{};
 			if (canTTS)
-				announcementWords = AnnounceTTSSystem.PrepareTTSMessage((string)msg);
+				announcementWords = AnnounceTtsSystem.PrepareTtsMessage((string)msg);
 			msg += "\n" + Loc.GetString("comms-console-announcement-sent-by") + " " + author;
             if (comp.Global)
             {

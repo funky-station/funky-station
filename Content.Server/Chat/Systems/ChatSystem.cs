@@ -22,12 +22,14 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Players;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Radio;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.Whitelist;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -60,7 +62,8 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
-	[Dependency] private readonly AnnounceTTSSystem _announceTtsSystem = default!;
+	[Dependency] private readonly AnnounceTtsSystem _announceTtsSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _containers = default!;
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
@@ -332,7 +335,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         {
 			if (announcementWords != null)
 			{
-				_announceTtsSystem.QueueTTSMessage(announcementWords, DefaultAnnouncementSound);
+				_announceTtsSystem.QueueTtsMessage(null, announcementWords, DefaultAnnouncementSound);
 			}
 			else
 			{
@@ -341,7 +344,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         }
 		else if (announcementWords != null)
 		{
-			_announceTtsSystem.QueueTTSMessage(announcementWords);
+			_announceTtsSystem.QueueTtsMessage(null, announcementWords);
 		}
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Global station announcement from {sender}: {message}");
     }
@@ -412,18 +415,12 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         if (playDefaultSound)
         {
-			if (announcementWords != null)
-			{
-				_announceTtsSystem.QueueTTSMessage(announcementWords, DefaultAnnouncementSound);
-			}
-			else
-			{
-				_audio.PlayGlobal(announcementSound == null ? DefaultAnnouncementSound : _audio.GetSound(announcementSound), Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
-			}
+            _audio.PlayGlobal(announcementSound == null ? DefaultAnnouncementSound : _audio.GetSound(announcementSound), Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
         }
-		else if (announcementWords != null)
+
+        if (announcementWords != null && TryGetAiCore(source, out var aiCore))
 		{
-			_announceTtsSystem.QueueTTSMessage(announcementWords);
+			_announceTtsSystem.QueueTtsMessage(aiCore!, announcementWords);
 		}
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement on {station} from {sender}: {message}");
@@ -723,6 +720,27 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (insistNoHideChat && initialResult == MessageRangeCheckResult.HideChat)
             return MessageRangeCheckResult.Full;
         return initialResult;
+    }
+
+    /// <summary>
+    /// Used for TTS. Copied from the SharedAiCoreSystem.
+    /// </summary>
+    /// <param name="ent"></param>
+    /// <param name="core"></param>
+    /// <returns></returns>
+    private bool TryGetAiCore(EntityUid ent, out Entity<StationAiCoreComponent?> core)
+    {
+        if (!_containers.TryGetContainingContainer(ent, out var container) ||
+            container.ID != StationAiCoreComponent.Container ||
+            !TryComp(container.Owner, out StationAiCoreComponent? coreComp) ||
+            coreComp.RemoteEntity == null)
+        {
+            core = (EntityUid.Invalid, null);
+            return false;
+        }
+
+        core = (container.Owner, coreComp);
+        return true;
     }
 
     /// <summary>

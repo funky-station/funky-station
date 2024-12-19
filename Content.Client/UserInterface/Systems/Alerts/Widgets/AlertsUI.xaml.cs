@@ -98,6 +98,7 @@ public sealed partial class AlertsUI : UIWidget
                 existingAlertControl.SetSeverity(alertState.Severity);
                 if (alertState.ShowCooldown)
                     existingAlertControl.Cooldown = alertState.Cooldown;
+                existingAlertControl.DynamicMessage = alertState.DynamicMessage;
             }
             else
             {
@@ -143,9 +144,12 @@ public sealed partial class AlertsUI : UIWidget
         if (alertState.ShowCooldown)
             cooldown = alertState.Cooldown;
 
+        string? dynamicMessage = alertState.DynamicMessage;
+
         var alertControl = new AlertControl(alert, alertState.Severity)
         {
-            Cooldown = cooldown
+            Cooldown = cooldown,
+            DynamicMessage = dynamicMessage,
         };
         alertControl.OnPressed += AlertControlPressed;
         return alertControl;

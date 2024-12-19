@@ -459,3 +459,36 @@
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
   - type: Speech
     speechVerb: Reptilian
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieAltecZorban
+  name: altec zorban plushie
+  description: what a nice purple lizard, you somehow feel compelled to kill it.
+  components:
+  - type: Sprite
+    state: plushie_alteczorban
+  - type: SpeakOnUse
+    pack: SelfPlushAltecZorban
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: UseDelay
+    delay: 5
+  - type: Speech
+    speechVerb: Reptilian

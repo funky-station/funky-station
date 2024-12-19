@@ -22,6 +22,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed;
+using Robust.Shared.Audio;
 
 namespace Content.Server.Silicons.Laws;
 
@@ -182,6 +183,8 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         base.OnGotEmagged(uid, component, ref args);
         NotifyLawsChanged(uid, component.EmaggedSound);
+        if(_mind.TryGetMind(uid, out var mindId, out _))
+            EnsureSubvertedSiliconRole(mindId);
 
         _stunSystem.TryParalyze(uid, component.StunTime, true);
 

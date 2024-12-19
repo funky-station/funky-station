@@ -658,3 +658,55 @@ Entries:
       message: Added Mechs!
   id: 80
   time: '2024-12-12T15:59:50.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: The Revolutionary Flashbang, a new favorite for young revolutionaries.
+  id: 81
+  time: '2024-12-12T16:13:53.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Add
+      message: >-
+        Added the ability for Alerts to show dynamically updating text in
+        real-time.
+    - type: Add
+      message: >-
+        The Cyborg's Battery Alert on the sidebar will now show your charge
+        percentage in real-time when you hover over it with your mouse.
+  id: 82
+  time: '2024-12-13T01:45:54.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Tweak
+      message: Changed biomass drain and vomit
+    - type: Tweak
+      message: Changed headslug to work in cuffs and to move under doors
+  id: 83
+  time: '2024-12-13T01:52:14.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Added the hardlight bow (Syndie)
+  id: 84
+  time: '2024-12-15T01:41:36.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Added Nitrosyl Plasmide
+    - type: Tweak
+      message: Modified Nitrium, Healium, N2O and BZ effects
+  id: 85
+  time: '2024-12-18T00:11:46.0000000+00:00'
+- author: jorgun VigersRay Roudenn Rxup
+  changes:
+    - type: Add
+      message: Added Blob
+  id: 86
+  time: '2024-12-18T23:35:35.0000000+00:00'
+- author: Teromax34
+  changes:
+    - type: Add
+      message: added altec zorban plush
+  id: 87
+  time: '2024-12-18T23:42:25.0000000+00:00'

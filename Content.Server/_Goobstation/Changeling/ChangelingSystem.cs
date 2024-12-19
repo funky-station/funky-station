@@ -180,7 +180,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
     private void UpdateBiomass(EntityUid uid, ChangelingComponent comp, float? amount = null)
     {
-        comp.Biomass += amount ?? -1;
+        comp.Biomass += amount ?? -0.5f; // #funkystation, nerfs the drain to half
         comp.Biomass = Math.Clamp(comp.Biomass, 0, comp.MaxBiomass);
         Dirty(uid, comp);
         _alerts.ShowAlert(uid, "ChangelingBiomass");
@@ -200,7 +200,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         }
         else if (comp.Biomass <= comp.MaxBiomass / 3)
         {
-            // vomit blood
+            // vomit (funkystation) VOMIT LIKE ITS A HUGE GIVEAWAY IF ITS BLOOD VRO LIKE WTF???
             if (random == 1)
             {
                 if (TryComp<StatusEffectsComponent>(uid, out var status))
@@ -208,9 +208,8 @@ public sealed partial class ChangelingSystem : EntitySystem
 
                 var solution = new Solution();
 
-                var vomitAmount = 15f;
-                _blood.TryModifyBloodLevel(uid, -vomitAmount);
-                solution.AddReagent("Blood", vomitAmount);
+                var vomitAmount = 10f;
+                solution.AddReagent("Vomit", vomitAmount);
 
                 _puddle.TrySplashSpillAt(uid, Transform(uid).Coordinates, solution, out _);
 

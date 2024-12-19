@@ -716,3 +716,9 @@ Entries:
       message: Mailbag can now hold envelopes
   id: 88
   time: '2024-12-19T03:10:26.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Add
+      message: Added IPCs as a playable species.
+  id: 89
+  time: '2024-12-19T03:13:20.0000000+00:00'

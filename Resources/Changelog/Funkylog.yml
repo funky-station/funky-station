@@ -710,3 +710,9 @@ Entries:
       message: added altec zorban plush
   id: 87
   time: '2024-12-18T23:42:25.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Mailbag can now hold envelopes
+  id: 88
+  time: '2024-12-19T03:10:26.0000000+00:00'

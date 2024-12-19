@@ -60,6 +60,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
+	[Dependency] private readonly AnnounceTTSSystem _announceTtsSystem = default!;
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
@@ -319,7 +320,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null
+        Color? colorOverride = null,
+		List<string>? announcementWords = null
         )
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
@@ -328,8 +330,19 @@ public sealed partial class ChatSystem : SharedChatSystem
         _chatManager.ChatMessageToAll(ChatChannel.Radio, message, wrappedMessage, default, false, true, colorOverride);
         if (playSound)
         {
-            _audio.PlayGlobal(announcementSound == null ? DefaultAnnouncementSound : _audio.GetSound(announcementSound), Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+			if (announcementWords != null)
+			{
+				_announceTtsSystem.QueueTTSMessage(announcementWords, DefaultAnnouncementSound);
+			}
+			else
+			{
+				_audio.PlayGlobal(announcementSound == null ? DefaultAnnouncementSound : _audio.GetSound(announcementSound), Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+			}
         }
+		else if (announcementWords != null)
+		{
+			_announceTtsSystem.QueueTTSMessage(announcementWords);
+		}
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Global station announcement from {sender}: {message}");
     }
 
@@ -372,12 +385,13 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// <param name="playDefaultSound">Play the announcement sound</param>
     /// <param name="colorOverride">Optional color for the announcement message</param>
     public void DispatchStationAnnouncement(
-        EntityUid source,
-        string message,
-        string? sender = null,
-        bool playDefaultSound = true,
-        SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null)
+		EntityUid source,
+		string message,
+		string? sender = null,
+		bool playDefaultSound = true,
+		SoundSpecifier? announcementSound = null,
+		Color? colorOverride = null,
+		List<string>? announcementWords = null)
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
@@ -398,8 +412,19 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         if (playDefaultSound)
         {
-            _audio.PlayGlobal(announcementSound?.ToString() ?? DefaultAnnouncementSound, filter, true, AudioParams.Default.WithVolume(-2f));
+			if (announcementWords != null)
+			{
+				_announceTtsSystem.QueueTTSMessage(announcementWords, DefaultAnnouncementSound);
+			}
+			else
+			{
+				_audio.PlayGlobal(announcementSound == null ? DefaultAnnouncementSound : _audio.GetSound(announcementSound), Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+			}
         }
+		else if (announcementWords != null)
+		{
+			_announceTtsSystem.QueueTTSMessage(announcementWords);
+		}
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement on {station} from {sender}: {message}");
     }

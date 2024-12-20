@@ -734,3 +734,11 @@ Entries:
       message: Station AI TTS now reads messages faster.
   id: 91
   time: '2024-12-19T15:50:00.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Add
+      message: Added blob to secret!
+    - type: Tweak
+      message: Changed heretics to spawn as a side antag like thief.
+  id: 92
+  time: '2024-12-20T02:18:30.0000000+00:00'

@@ -3,6 +3,7 @@
   mapName: 'Roid'
   mapPath: /Maps/_Funkystation/roid_outpost.yml
   minPlayers: 0
+  maxPlayers: 60
   stations:
     roid_outpost:
       stationProto: StandardNanotrasenStation
@@ -23,24 +24,26 @@
           Bartender: [ 1, 1 ]
           Botanist: [ 1, 2 ]
           Chef: [ 1, 1 ]
-          Janitor: [ 1, 1 ]
+          Janitor: [ 2, 2 ]
           Chaplain: [ 1, 1 ]
           Librarian: [ 1, 1 ]
           ServiceWorker: [ 2, 2 ]
+          Reporter: [ 1, 1 ]
           #engineering
           ChiefEngineer: [ 1, 1 ]
           AtmosphericTechnician: [ 2, 2 ]
-          StationEngineer: [ 4, 4 ]
-          TechnicalAssistant: [ 4, 4 ]
+          StationEngineer: [ 3, 3 ]
+          TechnicalAssistant: [ 2, 2 ]
           #medical
           ChiefMedicalOfficer: [ 1, 1 ]
           Chemist: [ 2, 2 ]
           MedicalDoctor: [ 3, 3 ]
-          MedicalIntern: [ 4, 4 ]
+          MedicalIntern: [ 2, 2 ]
           Paramedic: [ 1, 1 ]
+          Psychologist: [ 1, 1 ]
           #science
           ResearchDirector: [ 1, 1 ]
-          Scientist: [ 4, 4 ]
+          Scientist: [ 3, 3 ]
           ResearchAssistant: [ 2, 2 ]
           Borg: [ 2, 2 ]
           #security
@@ -48,11 +51,13 @@
           Warden: [ 1, 1 ]
           Detective: [ 1, 1 ]
           SecurityOfficer: [ 4, 4 ]
-          SecurityCadet: [ 4, 4 ]
+          SecurityCadet: [ 2, 2 ]
+          Lawyer: [ 1, 1 ]
+          Brigmedic: [ 1, 1 ]
           #supply
           Quartermaster: [ 1, 1 ]
-          SalvageSpecialist: [ 1, 3 ]
-          CargoTechnician: [ 2, 2 ]
+          SalvageSpecialist: [ 2, 2 ]
+          CargoTechnician: [ 3, 3 ]
           #civillian
           Passenger: [ -1, -1 ]
           Clown: [ 1, 1 ]

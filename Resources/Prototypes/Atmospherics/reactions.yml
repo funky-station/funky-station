@@ -91,7 +91,7 @@
   effects:
   - !type:N2ODecompositionReaction {}
 
- #funkystation
+ #/tg/ gases
 - type: gasReaction
   id: bzFormation
   priority: 2
@@ -112,6 +112,8 @@
 - type: gasReaction
   id: HealiumProduction
   priority: 2
+  maximumTemperature: 300.0
+  minimumTemperature: 22.0
   minimumRequirements:
   - 0     # oxygen
   - 0     # nitrogen
@@ -129,6 +131,7 @@
 - type: gasReaction
   id: NitriumProduction
   priority: 2
+  minimumTemperature: 1500.0
   minimumRequirements:
   - 0     # oxygen
   - 10    # nitrogen
@@ -146,6 +149,7 @@
 - type: gasReaction
   id: NitriumDecomposition
   priority: 2
+  maximumTemperature: 343.15
   minimumRequirements:
   - 0.01  # oxygen
   - 0     # nitrogen

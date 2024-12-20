@@ -157,7 +157,6 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-  #disableRefund: true
 
 - type: listing
   id: SpellbookEventSummonMagic
@@ -171,7 +170,6 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-  #disableRefund: true
 
 # Upgrades
 - type: listing

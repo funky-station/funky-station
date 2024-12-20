@@ -53,6 +53,7 @@
     - id: PlushieAliceAndreev
     - id: PlushieChadleySkrimblo
     - id: PlushieAkishJeen
+    - id: PlushieAltecZorban
 
 - type: entity
   id: CrateFunPlushieSelfInsert
@@ -66,4 +67,3 @@
         tableId: AllSelfInsertPlushiesTable
         rolls: !type:ConstantNumberSelector
           value: 5
-          

@@ -107,3 +107,17 @@
     Steel: 1500
     Glass: 750
     Silver: 150
+
+- type: latheRecipe
+  id: CartridgeEpinephrine
+  result: CartridgeEpinephrine
+  completetime: 1
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: BolaEnergy
+  result: BolaEnergy
+  completetime: 3
+  materials:
+    Steel: 200

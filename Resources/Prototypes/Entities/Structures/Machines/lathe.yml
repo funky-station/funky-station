@@ -227,6 +227,9 @@
       - RiotShield
       - SpeedLoaderMagnum
       - SpeedLoaderMagnumEmpty
+      - GrenadeFlashBang # Goobstation
+      - BolaEnergy # Goobstation
+      - CartridgeEpinephrine # Goobstation
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -811,6 +814,9 @@
       - WeaponFlareGunSecurity
       - WeaponLaserCarbinePractice
       - Zipties
+      - GrenadeFlashBang # Goobstation
+      - BolaEnergy # Goobstation
+      - CartridgeEpinephrine # Goobstation
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary

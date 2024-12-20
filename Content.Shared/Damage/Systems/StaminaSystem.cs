@@ -7,10 +7,13 @@ using Content.Shared.Damage.Events;
 using Content.Shared.Database;
 using Content.Shared.Effects;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Jittering;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Rounding;
+using Content.Shared.Speech.EntitySystems;
+using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
@@ -291,7 +294,7 @@ public sealed partial class StaminaSystem : EntitySystem
         SetStaminaAlert(uid, component);
 
         if (!component.Critical && component.StaminaDamage >= component.CritThreshold && value > 0) // goob edit
-            EnterStamCrit(uid, component, immediate);
+            EnterStamCrit(uid, component);
         else if (component.StaminaDamage < component.CritThreshold)
             ExitStamCrit(uid, component);
 
@@ -360,7 +363,7 @@ public sealed partial class StaminaSystem : EntitySystem
         }
     }
 
-    private void EnterStamCrit(EntityUid uid, StaminaComponent? component = null)
+    private void EnterStamCrit(EntityUid uid, StaminaComponent? component = null, bool hardStun = false)
     {
         if (!Resolve(uid, ref component) || !hardStun && component.Critical)
         {

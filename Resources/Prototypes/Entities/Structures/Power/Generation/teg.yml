@@ -102,6 +102,9 @@
         - Power
     - type: StealTarget
       stealGroup: Teg
+    - type: Tag
+      tags:
+      - ShadowSideLootEpic
 
 - type: entity
   id: TegCirculator

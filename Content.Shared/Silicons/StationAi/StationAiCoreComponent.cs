@@ -25,6 +25,12 @@ public sealed partial class StationAiCoreComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? RemoteEntity;
 
+    /// <summary>
+    /// Buffer for TTS words. Can be set negative.
+    /// </summary>
+    [DataField]
+    public int TtsBufferBetweenWordsMs = -50;
+
     [DataField(readOnly: true)]
     public EntProtoId? RemoteEntityProto = "StationAiHolo";
 

@@ -149,7 +149,7 @@
   components:
     - type: StationShadowDimension
       replacements:
-        Wall: FloorChromiteChasm
+        Wall: ShadowDimensionBarrierSpawner
         Window: ShadowDimensionFillSpawner
         Pipe: ShadowDimensionFillSpawner
         # Loot zone

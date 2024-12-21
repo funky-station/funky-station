@@ -784,3 +784,9 @@ Entries:
       message: Now you won't get stunned no matter what after baton knockdown.
   id: 93
   time: '2024-12-20T23:18:04.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Fix
+      message: Fixed thief and heretic spawning
+  id: 94
+  time: '2024-12-21T07:19:30.0000000+00:00'

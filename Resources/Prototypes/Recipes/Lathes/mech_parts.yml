@@ -54,7 +54,6 @@
     Steel: 1000
     Glass: 750
 
-
 # H.O.N.K.
 - type: latheRecipe
   id: HonkerHarness

@@ -7,7 +7,7 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 18000 #5 hrs
+    time: 10800 #3 hrs
   - !type:SpeciesRequirement
     inverted: true
     species:

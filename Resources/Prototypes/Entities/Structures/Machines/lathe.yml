@@ -227,6 +227,9 @@
       - RiotShield
       - SpeedLoaderMagnum
       - SpeedLoaderMagnumEmpty
+      - GrenadeFlashBang # Goobstation
+      - BolaEnergy # Goobstation
+      - CartridgeEpinephrine # Goobstation
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -600,6 +603,20 @@
     - BorgModuleSurgery # Shitmed Change
     - MechAirTank # Goobstation
     - MechThruster # Goobstation
+    # Shitmed Change
+    - BorgModuleSurgery
+    - TorsoIPC
+    - LeftArmIPC
+    - RightArmIPC
+    - LeftLegIPC
+    - RightLegIPC
+    - HeadIPC
+    - LeftHandIPC
+    - RightHandIPC
+    - LeftFootIPC
+    - RightFootIPC
+    - OrganIPCEyes
+    - OrganIPCPump
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleAdvancedCleaning
@@ -797,6 +814,9 @@
       - WeaponFlareGunSecurity
       - WeaponLaserCarbinePractice
       - Zipties
+      - GrenadeFlashBang # Goobstation
+      - BolaEnergy # Goobstation
+      - CartridgeEpinephrine # Goobstation
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary

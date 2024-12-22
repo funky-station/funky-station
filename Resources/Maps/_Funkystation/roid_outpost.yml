@@ -29256,13 +29256,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -39.5,-29.5
       parent: 2
-    - type: DeviceList
-      configurators:
-      - invalid
-      devices:
-      - 4476
-      - 4477
-      - 4475
   - uid: 4322
     components:
     - type: Transform

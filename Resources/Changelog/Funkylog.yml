@@ -790,3 +790,9 @@ Entries:
       message: Fixed thief and heretic spawning
   id: 94
   time: '2024-12-21T07:19:30.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Changed BSO implanter to be bluespace instead of syndi
+  id: 95
+  time: '2024-12-22T18:17:20.0000000+00:00'

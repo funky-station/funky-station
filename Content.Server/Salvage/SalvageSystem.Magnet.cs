@@ -46,19 +46,7 @@ public sealed partial class SalvageSystem
             return;
         }
 
-        var index = args.Index;
-        async void TryTakeMagnetOffer()
-        {
-            try
-            {
-                await TakeMagnetOffer((station.Value, dataComp), index, (uid, component));
-            }
-            catch (Exception e)
-            {
-                _runtimeLog.LogException(e, $"{nameof(SalvageSystem)}.{nameof(TakeMagnetOffer)}");
-            }
-        }
-        TryTakeMagnetOffer();
+        TakeMagnetOffer((station.Value, dataComp), args.Index, (uid, component));
     }
 
     private void OnMagnetStartup(EntityUid uid, SalvageMagnetComponent component, ComponentStartup args)
@@ -291,15 +279,10 @@ public sealed partial class SalvageSystem
             case SalvageOffering wreck:
                 var salvageProto = wreck.SalvageMap;
 
-                var opts = new MapLoadOptions
-                {
-                    Offset = new Vector2(0, 0)
-                };
-
-                if (!_map.TryLoad(salvMapXform.MapID, salvageProto.MapPath.ToString(), out _, opts))
+                if (!_loader.TryLoadGrid(salvMapXform.MapID, salvageProto.MapPath, out _))
                 {
                     Report(magnet, MagnetChannel, "salvage-system-announcement-spawn-debris-disintegrated");
-                    _mapManager.DeleteMap(salvMapXform.MapID);
+                    _mapSystem.DeleteMap(salvMapXform.MapID);
                     return;
                 }
 

@@ -19,7 +19,7 @@
     definitions:
     - prefRoles: [ Thief ]
       max: 3
-      playerRatio: 25
+      playerRatio: 25 #funky reduce le rate
       lateJoinAdditional: true
       allowNonHumans: true
       multiAntagSetting: NotExclusive

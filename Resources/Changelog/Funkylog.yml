@@ -796,3 +796,9 @@ Entries:
       message: Changed BSO implanter to be bluespace instead of syndi
   id: 95
   time: '2024-12-22T18:17:20.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Tweak
+      message: Changed thief rates
+  id: 96
+  time: '2024-12-23T00:23:27.0000000+00:00'

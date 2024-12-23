@@ -833,3 +833,9 @@ Entries:
       message: Harpies now have acceleration when theres no gravity, akin to moths.
   id: 98
   time: '2024-12-23T06:51:04.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Fix
+      message: Fixed ash ascended heretic's limbs falling off
+  id: 99
+  time: '2024-12-23T07:32:19.0000000+00:00'

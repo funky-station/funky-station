@@ -1022,8 +1022,6 @@ entities:
       pos: -7.5,17.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 3
 - proto: APCBasic
@@ -8949,8 +8947,6 @@ entities:
       pos: -6.5,17.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 3
 - proto: GasVentScrubberVox
@@ -8962,8 +8958,6 @@ entities:
       pos: -6.5,16.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 3
 - proto: GeneratorBasic15kW

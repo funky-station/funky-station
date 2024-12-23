@@ -802,3 +802,11 @@ Entries:
       message: Changed thief rates
   id: 96
   time: '2024-12-23T00:23:27.0000000+00:00'
+- author: hereelabs
+  changes:
+    - type: Add
+      message: >-
+        Planet-Side Hot Springs map and Party Bus Shuttle for "Hot Springs"
+        Event
+  id: 97
+  time: '2024-12-23T04:57:20.0000000+00:00'

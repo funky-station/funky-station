@@ -1,0 +1,30 @@
+- type: gameMap
+  id: Hot Springs
+  mapName: 'Hot Springs'
+  mapPath: /Maps/Event/hotspring.yml
+  minPlayers: 15
+  maxPlayers: 30
+  stations:
+    Hot Springs:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Hot Springs'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'SC'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency.yml
+        - type: StationJobs
+          availableJobs:
+            HeadOfPersonnel: [ 1, 1 ]
+            Bartender: [ 1, 1 ]
+            Botanist: [ 1, 1 ]
+            Chef: [ 1, 1 ]
+            AtmosphericTechnician: [ 1, 1 ]
+            MedicalDoctor: [ 1, 1 ]
+            Chemist: [ 1, 1 ]
+            Janitor: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            Passenger: [ -1, -1 ]
+

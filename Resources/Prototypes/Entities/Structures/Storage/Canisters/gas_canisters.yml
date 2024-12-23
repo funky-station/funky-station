@@ -646,7 +646,7 @@
   components:
   - type: Sprite
     layers:
-    - state: bz
+    - state: purple
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -745,7 +745,7 @@
   components:
   - type: Sprite
     layers:
-    - state: yellow
+    - state: brown
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -943,7 +943,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    state: bz-1
+    state: purple-1
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -959,4 +959,4 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    state: yellow-1
+    state: brown-1

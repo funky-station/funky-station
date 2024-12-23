@@ -810,3 +810,26 @@ Entries:
         Event
   id: 97
   time: '2024-12-23T04:57:20.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Add
+      message: >-
+        Harpy wings (currently on their right arm lol) now give you the ability
+        to fly.
+    - type: Add
+      message: >-
+        Severing wings from a harpy will render it unable to fly, and
+        conversely, reattaching them to yourself will grant you that ability
+        instead.
+    - type: Tweak
+      message: Harpies can no longer wear shoes. Have fun with space wind.
+    - type: Tweak
+      message: Harpies can now imitate pianos, church organs and violins.
+    - type: Tweak
+      message: >-
+        Harpies are now immune to mice traps, landmines and glass
+        shards/caltrops.
+    - type: Tweak
+      message: Harpies now have acceleration when theres no gravity, akin to moths.
+  id: 98
+  time: '2024-12-23T06:51:04.0000000+00:00'

@@ -845,3 +845,17 @@ Entries:
       message: Changeling invisibility goes away quicker, even when crawling.
   id: 100
   time: '2024-12-23T18:46:07.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Add
+      message: added plasma, n2o gas miners to atmos
+    - type: Add
+      message: >-
+        added round-start singularity generators on containment field sector for
+        every map
+    - type: Remove
+      message: deleted mapped teg setups
+    - type: Tweak
+      message: buffed oxygen / nitrogen gas miners
+  id: 101
+  time: '2024-12-23T19:22:43.0000000+00:00'

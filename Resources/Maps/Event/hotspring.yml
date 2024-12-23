@@ -11891,8 +11891,6 @@ entities:
       pos: -13.5,-3.5
       parent: 1
     - type: DisposalUnit
-      recentlyEjected:
-      - invalid
   - uid: 1976
     components:
     - type: Transform

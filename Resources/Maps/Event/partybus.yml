@@ -638,8 +638,6 @@ entities:
       pos: -0.5,3.5
       parent: 1
     - type: Strap
-      buckledEntities:
-      - invalid
   - uid: 79
     components:
     - type: Transform

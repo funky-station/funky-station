@@ -839,3 +839,9 @@ Entries:
       message: Fixed ash ascended heretic's limbs falling off
   id: 99
   time: '2024-12-23T07:32:19.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Changeling invisibility goes away quicker, even when crawling.
+  id: 100
+  time: '2024-12-23T18:46:07.0000000+00:00'

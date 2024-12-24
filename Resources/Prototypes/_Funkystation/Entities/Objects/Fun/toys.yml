@@ -492,3 +492,36 @@
     delay: 5
   - type: Speech
     speechVerb: Reptilian
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieCynsKatyns
+  name: cyns katyns plushie
+  description: A small stuffed harpy, he loves to deliver mail and can appear mute because he is shy. He secretly has advanced knowledge of biochemistry, but prefers to be a mail carrier.
+  components:
+  - type: Sprite
+    state: plushie_cynskatyns
+  - type: SpeakOnUse
+    pack: SelfPlushCynsKatyns
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/DeltaV/Voice/Harpy/chirp1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/DeltaV/Voice/Harpy/chirp1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/DeltaV/Voice/Harpy/chirp1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/DeltaV/Voice/Harpy/chirp1.ogg
+  - type: Food
+    useSound:
+      path: /Audio/DeltaV/Voice/Harpy/chirp1.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/DeltaV/Voice/Harpy/chirp1.ogg
+  - type: UseDelay
+    delay: 5
+  - type: Speech
+    speechVerb: Harpy

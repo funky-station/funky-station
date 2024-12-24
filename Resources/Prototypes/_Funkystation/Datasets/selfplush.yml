@@ -35,3 +35,9 @@
   values:
     prefix: selfplush-alteczorban-
     count: 1
+
+- type: localizedDataset
+  id: SelfPlushCynsKatyns
+  values:
+    prefix: selfplush-cynskatyns-
+    count: 1

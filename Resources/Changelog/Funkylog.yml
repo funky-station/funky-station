@@ -865,3 +865,11 @@ Entries:
       message: Added sprites for /tg/ gases
   id: 102
   time: '2024-12-23T19:30:09.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Tweak
+      message: Heretic can spawn on low pop
+    - type: Fix
+      message: Fixes lowpop getting set to extended if the heretic player req isnt met
+  id: 103
+  time: '2024-12-24T00:15:36.0000000+00:00'

@@ -55,6 +55,7 @@
     - id: PlushieAkishJeen
     - id: PlushieAltecZorban
     - id: PlushieCynsKatyns
+    - id: PlushieKuafuMoeller
 
 - type: entity
   id: CrateFunPlushieSelfInsert

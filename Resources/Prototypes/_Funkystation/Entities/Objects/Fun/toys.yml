@@ -66,8 +66,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieAshleyTickum
-  name: unfortunate captain plush
-  description: Do you ever hate the fact that you always get soda-tripped by the same person over and over again? Well, this plush allows you to take up whatever frustrations you might've faced with that said person. Great for security and janitors alike, though make sure it doesn't call for some "Douglas" figure. It also may or may not have fears of anything sharp.
+  name: ashley tickum plush
+  description: Prefers to salvage alone when given the chance, this plush hates needles and will do just about ANYTHING to take her revenge on the carps. Just make sure that she doesn't talk about some "Douglas" figure.
   components:
   - type: Sprite
     state: plush_tickum

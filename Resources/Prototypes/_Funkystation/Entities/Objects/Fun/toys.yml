@@ -525,3 +525,36 @@
     delay: 5
   - type: Speech
     speechVerb: Harpy
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieKuafuMoeller
+  name: kuafu moeller plushie
+  description: Pitch black moth from deep space!!!
+  components:
+  - type: Sprite
+    state: plushie_kuafumoeller
+  - type: SpeakOnUse
+    pack: SelfPlushKuafuMoeller
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: UseDelay
+    delay: 5
+  - type: Speech
+    speechVerb: Moth

@@ -873,3 +873,9 @@ Entries:
       message: Fixes lowpop getting set to extended if the heretic player req isnt met
   id: 103
   time: '2024-12-24T00:15:36.0000000+00:00'
+- author: Teromax34
+  changes:
+    - type: Add
+      message: added cyns katyn plush
+  id: 104
+  time: '2024-12-24T00:18:35.0000000+00:00'

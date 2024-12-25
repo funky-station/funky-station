@@ -4,7 +4,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Photography;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class PhotoComponent : Component
 {
     /// <summary>

@@ -247,6 +247,10 @@
     pilotWhitelist:
       tags:
       - Hamster
+    equipmentWhitelist: # Funkystation
+      tags:
+      - CombatMech
+      - SmallMech
   - type: MeleeWeapon
     hidden: true
     attackRate: 0.8

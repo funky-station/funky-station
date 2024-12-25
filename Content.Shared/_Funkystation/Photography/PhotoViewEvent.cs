@@ -1,6 +1,6 @@
 ﻿using Robust.Shared.Serialization;
 
-namespace Content.Shared.Photography;
+namespace Content.Shared._Funkystation.Photography;
 
 [Serializable, NetSerializable]
 public sealed class PhotoViewEvent(NetEntity tableUid, NetEntity cameraUid, string title, Vector2i size)

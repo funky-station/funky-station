@@ -1,8 +1,7 @@
 ﻿using System.Numerics;
-using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Photography;
+namespace Content.Server._Funkystation.Photography;
 
 [RegisterComponent]
 public sealed partial class PhotoComponent : Component

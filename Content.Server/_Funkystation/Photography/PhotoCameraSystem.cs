@@ -1,6 +1,6 @@
-﻿using Content.Server.Photography;
+﻿using Content.Shared._Funkystation.Photography;
 
-namespace Content.Shared.Photography;
+namespace Content.Server._Funkystation.Photography;
 
 public sealed class PhotoCameraSystem : EntitySystem
 {

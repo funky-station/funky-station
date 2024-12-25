@@ -2,7 +2,7 @@
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 
-namespace Content.Server.Photography;
+namespace Content.Server._Funkystation.Photography;
 
 public sealed class PhotoSession
 {

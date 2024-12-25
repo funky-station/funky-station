@@ -1,12 +1,11 @@
 ﻿using System.Numerics;
-using Content.Server.Tabletop;
-using Content.Shared.Photography;
+using Content.Shared._Funkystation.Photography;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Photography;
+namespace Content.Server._Funkystation.Photography;
 
 // basically takes the Tabletop System and reworks it for Photography.
 public sealed partial class PhotographySystem

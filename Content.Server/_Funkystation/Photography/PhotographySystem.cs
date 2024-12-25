@@ -1,16 +1,15 @@
 ﻿using System.Linq;
 using Content.Server.Pinpointer;
+using Content.Shared._Funkystation.Photography;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.HealthExaminable;
-using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Photography;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Photography;
+namespace Content.Server._Funkystation.Photography;
 
 public sealed partial class PhotographySystem : EntitySystem
 {

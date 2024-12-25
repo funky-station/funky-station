@@ -1,5 +1,5 @@
 using Content.Client._Funkystation.Photography.UI;
-using Content.Shared.Photography;
+using Content.Shared._Funkystation.Photography;
 using Robust.Client.UserInterface.CustomControls;
 
 namespace Content.Client._Funkystation.Photography;

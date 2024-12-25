@@ -1,9 +1,8 @@
 ﻿using System.Numerics;
 using Robust.Server.GameObjects;
-using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
-namespace Content.Server.Photography;
+namespace Content.Server._Funkystation.Photography;
 
 public sealed partial class PhotographySystem
 {

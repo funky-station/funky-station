@@ -36,7 +36,6 @@ public sealed partial class PhotographySystem
         foreach (var entId in scene)
         {
             var meta = MetaData(entId);
-
             var ent = Spawn(meta.EntityPrototype!.ToString());
         }
     }
@@ -45,7 +44,7 @@ public sealed partial class PhotographySystem
     ///     Adds a player to a tabletop game session, sending a message so the tabletop window opens on their end.
     /// </summary>
     /// <param name="player">The player session in question.</param>
-    /// <param name="uid">The UID of the tabletop game entity.</param>
+    /// <param name="uid">The UID of the photo entity.</param>
     public void OpenSessionFor(ICommonSession player, EntityUid uid)
     {
         if (!TryComp<PhotoComponent>(uid, out var photoComponent) || player.AttachedEntity is not {Valid: true} attachedEntity)

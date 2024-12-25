@@ -4,7 +4,10 @@ using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.HealthExaminable;
+using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Photography;
+using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Photography;
@@ -21,11 +24,23 @@ public sealed partial class PhotographySystem : EntitySystem
 
         SubscribeLocalEvent<PhotoCameraComponent, GetItemActionsEvent>(OnGetActionsEvent);
         SubscribeLocalEvent<PhotoComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<PhotoComponent, UseInHandEvent>(OnUseInHandEvent);
     }
 
     private void OnExamined(EntityUid uid, PhotoComponent component, ExaminedEvent args)
     {
         args.PushMessage(component.Descriptor);
+    }
+
+    private void OnUseInHandEvent(EntityUid uid, PhotoComponent component, ref UseInHandEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
+            return;
+
+        OpenSessionFor(actor.PlayerSession, uid);
     }
 
     private void OnGetActionsEvent(EntityUid uid, PhotoCameraComponent component, GetItemActionsEvent args)

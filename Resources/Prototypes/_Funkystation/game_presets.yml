@@ -11,6 +11,20 @@
   - BasicStationEventScheduler
   - AntagStationEventScheduler
   - BasicRoundstartVariation
+
+- type: gamePreset
+  id: HereticTraitor
+  alias:
+  - heretics
+  - heret
+  name: heretics-gamemode-title
+  description: heretics-gamemode-description
+  showInVote: false
+  rules:
+  - CalmHeretic
+  - CalmTraitor
+  - BasicStationEventScheduler
+  - AntagStationEventScheduler
   - BasicRoundstartVariation
 
 - type: gamePreset
@@ -27,4 +41,20 @@
   - BasicStationEventScheduler
   - AntagStationEventScheduler
   - BasicRoundstartVariation
+
+
+- type: gamePreset
+  id: BlobTraitor
+  alias:
+  - BlobTot
+  - TotsBlob
+  name: blob-title
+  description: blob-description
+  showInVote: false
+  rules:
+  - CalmTraitor
+  - BlobGameMode
+  - SubGamemodesRule
+  - BasicStationEventScheduler
+  - AntagStationEventScheduler
   - BasicRoundstartVariation

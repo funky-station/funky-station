@@ -29,7 +29,7 @@
 
 - type: entity
   name: Plasma Rifle
-  parent: BaseWeaponBattery
+  parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponPlasmaRifle
   description: It may or may not explode in your face.
   components:
@@ -44,9 +44,10 @@
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/plasma_rifle.rsi
   - type: Gun
-    fireRate: 2
+    fireRate: 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: GunRequiresWield  #funkystation or something honestly i sorta hate my life and it went all downhill when my wife left me
   - type: Battery
     maxCharge: 600
     startingCharge: 600
@@ -58,6 +59,8 @@
   - type: WeaponRandomExplode
     explosionChance: 0.16
     multiplyByCharge: 1.0
+    reduction: 2.0
+    destroyGun: false
   - type: MagazineVisuals
     magState: mag
     steps: 5

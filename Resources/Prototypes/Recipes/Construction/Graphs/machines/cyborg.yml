@@ -34,3 +34,30 @@
 
   - node: cyborg
     entity: BorgChassisSelectable
+
+  - node: engineer
+    entity: BorgChassisEngineer
+
+  - node: janitor
+    entity: BorgChassisJanitor
+
+  - node: mining
+    entity: BorgChassisMining
+
+  - node: medical
+    entity: BorgChassisMedical
+
+  - node: service
+    entity: BorgChassisService
+
+  - node: syndicateassault
+    entity: BorgChassisSyndicateAssault
+
+  - node: syndicatemedical
+    entity: BorgChassisSyndicateMedical
+
+  - node: syndicatesaboteur
+    entity: BorgChassisSyndicateSaboteur
+
+  - node: derelictcyborg
+    entity: BorgChassisDerelict

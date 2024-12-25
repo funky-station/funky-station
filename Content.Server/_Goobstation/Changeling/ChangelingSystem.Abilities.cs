@@ -557,7 +557,8 @@ public sealed partial class ChangelingSystem : EntitySystem
         }
 
         EnsureComp<StealthComponent>(uid);
-        EnsureComp<StealthOnMoveComponent>(uid);
+        EnsureComp<StealthOnMoveComponent>(uid, out var stealthOnMoveComponent);
+        stealthOnMoveComponent.MovementVisibilityRate = 1f; // funkystation - fucking nerf this garbage
         _popup.PopupEntity(Loc.GetString("changeling-chameleon-start"), uid, uid);
     }
     public void OnEphedrineOverdose(EntityUid uid, ChangelingComponent comp, ref ActionEphedrineOverdoseEvent args)
@@ -600,6 +601,14 @@ public sealed partial class ChangelingSystem : EntitySystem
     {
         if (!TryUseAbility(uid, comp, args))
             return;
+
+        if (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
+        {
+            var cuff = cuffs.LastAddedCuffs;
+
+            _cuffs.Uncuff(uid, cuffs.LastAddedCuffs, cuff);
+            QueueDel(cuff);
+        }
 
         comp.IsInLastResort = true;
 

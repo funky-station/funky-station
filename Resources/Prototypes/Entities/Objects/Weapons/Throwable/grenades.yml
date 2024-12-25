@@ -81,6 +81,10 @@
     guides:
     - Security
     - Antagonists
+  - type: Flashbang # Goobstation
+  - type: Construction
+    graph: RevolutionaryFlashbangGraph
+    node: start
 
 - type: entity
   id: GrenadeFlashEffect

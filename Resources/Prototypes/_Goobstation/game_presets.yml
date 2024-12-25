@@ -9,7 +9,7 @@
   showInVote: false
   rules:
     - Changeling
-    # - SubGamemodesRule
+    - SubGamemodesRule
     - BasicStationEventScheduler
     - AntagStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
@@ -26,6 +26,7 @@
   rules:
     - CalmLing
     - CalmTraitor
+    - SubGamemodesRule
     - BasicStationEventScheduler
     - AntagStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
@@ -91,8 +92,23 @@
   rules:
     - CalmRevs
     - CalmLing
+    - SubGamemodesRule
     - BasicStationEventScheduler
     - AntagStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
     - BasicRoundstartVariation
+
+- type: gamePreset
+  id: Blob
+  alias:
+  - blab
+  name: blob-title
+  description: blob-description
+  showInVote: false
+  rules:
+  - BlobGameMode
+  - BasicStationEventScheduler
+  - AntagStationEventScheduler
+  - BasicRoundstartVariation
+  - SubGamemodesRule

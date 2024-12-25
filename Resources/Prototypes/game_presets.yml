@@ -42,6 +42,8 @@
     - Traitor
     - Revolutionary
     - Zombie
+    - BlobGameMode # Goobstation antag
+    - SubGamemodesRule
     # - KesslerSyndromeScheduler Goobstation - nuh uh
     - RampingStationEventScheduler
     - Changeling # Goobstation - changeling playtest
@@ -63,6 +65,8 @@
     - Traitor
     - Revolutionary
     - Zombie
+    - BlobGameMode # Goobstation antag
+    - SubGamemodesRule
     - BasicStationEventScheduler
     - KesslerSyndromeScheduler
     - MeteorSwarmMildScheduler
@@ -155,7 +159,7 @@
   showInVote: false
   rules:
     - Traitor
-    # - SubGamemodesRule
+    - SubGamemodesRule
     - BasicStationEventScheduler
     - AntagStationEventScheduler
   #  - MeteorSwarmScheduler Goobstation - nuh uh
@@ -202,7 +206,7 @@
   showInVote: false
   rules:
     - Revolutionary
-    # - SubGamemodesRule
+    - SubGamemodesRule
     - BasicStationEventScheduler
     - AntagStationEventScheduler
   #  - MeteorSwarmScheduler Goobstation - nuh uh

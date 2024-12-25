@@ -57,6 +57,7 @@ loadout-group-chaplain-head = Chaplain head
 loadout-group-chaplain-mask = Chaplain mask
 loadout-group-chaplain-jumpsuit = Chaplain jumpsuit
 loadout-group-chaplain-outerclothing = Chaplain outer clothing
+loadout-group-chaplain-weapon = Chaplain weapon
 loadout-group-chaplain-neck = Chaplain neck
 
 loadout-group-janitor-head = Janitor head
@@ -140,6 +141,7 @@ loadout-group-scientist-outerclothing = Scientist outer clothing
 loadout-group-scientist-gloves = Scientist gloves
 loadout-group-scientist-shoes = Scientist shoes
 loadout-group-scientist-id = Scientist ID
+loadout-group-roboticist-id = Roboticist ID
 
 loadout-group-research-assistant-jumpsuit = Research Assistant jumpsuit
 

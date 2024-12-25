@@ -35,12 +35,17 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  # Shitmed Change
+  - !type:AddComponentSpecial
+    components:
+    - type: SurgerySpeedModifier
+      SpeedModifier: 2.5
 
 - type: startingGear
   id: CMOGear
   equipment:
     id: CMOPDA
-    ears: ClothingHeadsetCMO
+    ears: ClothingHeadsetAltMedical # Goobstation
     belt: ClothingBeltMedicalFilled
   storage:
     back:

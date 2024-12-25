@@ -109,6 +109,10 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: StepTriggerImmune # Goobstation
+    whitelist:
+      types:
+      - Shard
 
 - type: entity
   parent: BaseSpeciesDummy

@@ -49,6 +49,9 @@ def main():
         cur_changelog = yaml.safe_load(f)
 
     diff = diff_changelog(last_changelog, cur_changelog)
+
+    print(diff)
+
     send_to_discord(diff)
 
 

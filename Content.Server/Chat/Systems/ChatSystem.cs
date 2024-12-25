@@ -22,12 +22,14 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Players;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Radio;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.Whitelist;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -60,6 +62,8 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
+	[Dependency] private readonly AnnounceTtsSystem _announceTtsSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _containers = default!;
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
@@ -319,7 +323,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null
+        Color? colorOverride = null,
+		List<string>? announcementWords = null
         )
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
@@ -328,8 +333,19 @@ public sealed partial class ChatSystem : SharedChatSystem
         _chatManager.ChatMessageToAll(ChatChannel.Radio, message, wrappedMessage, default, false, true, colorOverride);
         if (playSound)
         {
-            _audio.PlayGlobal(announcementSound == null ? DefaultAnnouncementSound : _audio.GetSound(announcementSound), Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+			if (announcementWords != null)
+			{
+				_announceTtsSystem.QueueTtsMessage(null, announcementWords, DefaultAnnouncementSound);
+			}
+			else
+			{
+				_audio.PlayGlobal(announcementSound == null ? DefaultAnnouncementSound : _audio.GetSound(announcementSound), Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+			}
         }
+		else if (announcementWords != null)
+		{
+			_announceTtsSystem.QueueTtsMessage(null, announcementWords);
+		}
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Global station announcement from {sender}: {message}");
     }
 
@@ -372,12 +388,13 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// <param name="playDefaultSound">Play the announcement sound</param>
     /// <param name="colorOverride">Optional color for the announcement message</param>
     public void DispatchStationAnnouncement(
-        EntityUid source,
-        string message,
-        string? sender = null,
-        bool playDefaultSound = true,
-        SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null)
+		EntityUid source,
+		string message,
+		string? sender = null,
+		bool playDefaultSound = true,
+		SoundSpecifier? announcementSound = null,
+		Color? colorOverride = null,
+		List<string>? announcementWords = null)
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
@@ -398,8 +415,13 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         if (playDefaultSound)
         {
-            _audio.PlayGlobal(announcementSound?.ToString() ?? DefaultAnnouncementSound, filter, true, AudioParams.Default.WithVolume(-2f));
+            _audio.PlayGlobal(announcementSound == null ? DefaultAnnouncementSound : _audio.GetSound(announcementSound), Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
         }
+
+        if (announcementWords != null && TryGetAiCore(source, out var aiCore))
+		{
+			_announceTtsSystem.QueueTtsMessage(aiCore!, announcementWords);
+		}
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement on {station} from {sender}: {message}");
     }
@@ -701,6 +723,27 @@ public sealed partial class ChatSystem : SharedChatSystem
     }
 
     /// <summary>
+    /// Used for TTS. Copied from the SharedAiCoreSystem.
+    /// </summary>
+    /// <param name="ent"></param>
+    /// <param name="core"></param>
+    /// <returns></returns>
+    private bool TryGetAiCore(EntityUid ent, out Entity<StationAiCoreComponent?> core)
+    {
+        if (!_containers.TryGetContainingContainer(ent, out var container) ||
+            container.ID != StationAiCoreComponent.Container ||
+            !TryComp(container.Owner, out StationAiCoreComponent? coreComp) ||
+            coreComp.RemoteEntity == null)
+        {
+            core = (EntityUid.Invalid, null);
+            return false;
+        }
+
+        core = (container.Owner, coreComp);
+        return true;
+    }
+
+    /// <summary>
     ///     Sends a chat message to the given players in range of the source entity.
     /// </summary>
     private void SendInVoiceRange(ChatChannel channel, string message, string wrappedMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null)
@@ -752,9 +795,6 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         // Sanitize it first as it might change the word order
         _sanitizer.TrySanitizeEmoteShorthands(newMessage, source, out newMessage, out emoteStr);
-
-        // // Goobstation: sanitize first
-        // _sanitizer.TrySanitizeOutSmilies(newMessage, source, out newMessage, out emoteStr);
 
         if (capitalize)
             newMessage = SanitizeMessageCapital(newMessage);

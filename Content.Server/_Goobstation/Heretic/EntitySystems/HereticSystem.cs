@@ -16,13 +16,13 @@ using Content.Server.Heretic.Components;
 using Content.Server.Antag;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Server.AlertLevel;
 using Content.Shared.Humanoid;
 using Robust.Server.Player;
+using Robust.Shared.Timing;
 using Content.Server.Revolutionary.Components;
-using Content.Shared.Random.Helpers;
-using Content.Shared.Roles.Jobs;
+using Content.Server.Station.Systems;
 using Robust.Shared.Prototypes;
-using Content.Shared.Roles;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -34,16 +34,20 @@ public sealed partial class HereticSystem : EntitySystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly IPlayerManager _playerMan = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
-    private float _timer = 0f;
-    private float _passivePointCooldown = 20f * 60f;
+    private EntityQuery<TransformComponent> _transformQuery;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        _transformQuery = GetEntityQuery<TransformComponent>();
 
         SubscribeLocalEvent<HereticComponent, ComponentInit>(OnCompInit);
 
@@ -53,25 +57,40 @@ public sealed partial class HereticSystem : EntitySystem
 
         SubscribeLocalEvent<HereticComponent, BeforeDamageChangedEvent>(OnBeforeDamage);
         SubscribeLocalEvent<HereticComponent, DamageModifyEvent>(OnDamage);
-
-        
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        _timer += frameTime;
+        var time = _timing.CurTime;
 
-        if (_timer < _passivePointCooldown)
-            return;
+        var query = EntityQueryEnumerator<HereticComponent>();
 
-        _timer = 0f;
-
-        foreach (var heretic in EntityQuery<HereticComponent>())
+        while (query.MoveNext(out var uid, out var heretic))
         {
-            // passive point gain every 20 minutes
-            UpdateKnowledge(heretic.Owner, heretic, 1f);
+            if (heretic.NextPointUpdate <= time)
+            {
+                heretic.NextPointUpdate = time + heretic.PointCooldown;
+
+                UpdateKnowledge(uid, heretic, 1f);
+            }
+
+            if (heretic.AlertTime <= time && heretic.Ascended)
+            {
+                if (!_transformQuery.TryComp(uid, out var transform))
+                    return;
+
+                if (transform.GridUid == null)
+                    return;
+
+                var station = _station.GetStationInMap(transform.MapID);
+
+                if (station == null)
+                    return;
+
+                _entitySystem.GetEntitySystem<AlertLevelSystem>().SetLevel(station.Value, "delta", true, true, true);
+            }
         }
     }
 
@@ -96,6 +115,8 @@ public sealed partial class HereticSystem : EntitySystem
 
         foreach (var knowledge in ent.Comp.BaseKnowledge)
             _knowledge.AddKnowledge(ent, ent.Comp, knowledge);
+
+        ent.Comp.NextPointUpdate = _timing.CurTime + ent.Comp.PointCooldown;
 
         RaiseLocalEvent(ent, new EventHereticRerollTargets());
     }
@@ -170,6 +191,8 @@ public sealed partial class HereticSystem : EntitySystem
         var pathLoc = ent.Comp.CurrentPath!.ToLower();
         var ascendSound = new SoundPathSpecifier($"/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_{pathLoc}.ogg");
         _chat.DispatchGlobalAnnouncement(Loc.GetString($"heretic-ascension-{pathLoc}"), Name(ent), true, ascendSound, Color.Pink);
+
+        ent.Comp.AlertTime = _timing.CurTime + ent.Comp.AlertWaitTime;
 
         // do other logic, e.g. make heretic immune to whatever
         switch (ent.Comp.CurrentPath!)

@@ -11,3 +11,60 @@
         - id: PlushieDawn
           amount: !type:ConstantNumberSelector
             value: 4
+
+- type: entity
+  id: CrateCopsNRobbers
+  parent: CrateGenericSteel
+  name: cops and robbers crate
+  description: Recreate an ancient game of dress up and pretend you're still terra-bound with this crate of cap guns and cowboy hats!
+  components:
+  - type: StorageFill
+    contents:
+    - id: RevolverCapGun
+      amount: 4
+    - id: SpeedLoaderCap
+      amount: 4
+    - id: BoxCartridgeCap
+      amount: 2
+    - id: ClothingShoesBootsCowboyBrown
+      amount: 4
+    - id: ClothingHeadHatCowboyBrown
+      amount: 2
+    - id: ClothingHeadHatOutlawHat
+      amount: 2
+
+# self-insert plushies
+- type: entityTable
+  id: AllSelfInsertPlushiesTable
+  table: !type:GroupSelector
+    children:
+    - id: PlushieDawn
+    - id: PlushieAshleyTickum
+    - id: PlushieLunaStargazer
+    - id: PlushieMelodyHennion
+    - id: PlushieJeepersCReepers
+    - id: PlushieTincan
+    - id: PlushieSilasAhas
+    - id: PlushieLokiHydrus
+    - id: PlushieKorrinKarpen
+    - id: PlushieLintonByers
+    - id: PlushieFelixKay
+    - id: PlushieParfeyMaelstorm
+    - id: PlushieAliceAndreev
+    - id: PlushieChadleySkrimblo
+    - id: PlushieAkishJeen
+    - id: PlushieAltecZorban
+    - id: PlushieCynsKatyns
+
+- type: entity
+  id: CrateFunPlushieSelfInsert
+  parent: CrateGenericSteel
+  name: self-insert plushie crate
+  description: As NT continues to invest time and resources into it's loyal employees, NT has started a new program where YOU invest in NT! The Self-insert plush program allows you to purchase plushies of your fellow crewmates to show your support of NT! #WRITTEN BY PALAKONA THANK YOU!!!!!!!
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: AllSelfInsertPlushiesTable
+        rolls: !type:ConstantNumberSelector
+          value: 5

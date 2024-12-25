@@ -15,6 +15,7 @@ id-card-access-level-atmospherics = Atmospherics
 
 id-card-access-level-research-director = Research Director
 id-card-access-level-research = Research
+id-card-access-level-robotics = Robotics
 
 id-card-access-level-chief-medical-officer = Chief Medical Officer
 id-card-access-level-medical = Medical
@@ -42,3 +43,5 @@ id-card-access-level-nuclear-operative = Nuclear Operative
 id-card-access-level-syndicate-agent = Syndicate Agent
 
 id-card-access-level-central-command = Central Command
+
+id-card-access-level-wizard = Wizard

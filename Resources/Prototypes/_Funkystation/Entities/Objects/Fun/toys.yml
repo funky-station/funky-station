@@ -66,8 +66,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieAshleyTickum
-  name: unfortunate captain plush
-  description: Do you ever hate the fact that you always get soda-tripped by the same person over and over again? Well, this plush allows you to take up whatever frustrations you might've faced with that said person. Great for security and janitors alike, though make sure it doesn't call for some "Douglas" figure. It also may or may not have fears of anything sharp.
+  name: ashley tickum plush
+  description: Prefers to salvage alone when given the chance, this plush hates needles and will do just about ANYTHING to take her revenge on the carps. Just make sure that she doesn't talk about some "Douglas" figure.
   components:
   - type: Sprite
     state: plush_tickum
@@ -97,4 +97,431 @@
   - type: UseDelay
     delay: 1.8
 
+# self-insert plushies
+- type: entity
+  parent: BasePlushie
+  id: BaseSelfPlushie
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/self_plushie.rsi
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+  - type: UseDelay
+    delay: 1.8
 
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieLunaStargazer
+  name: luna stargazer plushie
+  description: A highly respected Research Director on certain stations.
+  components:
+  - type: Sprite
+    state: plushie_lunastargazer
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: Speech
+    speechVerb: Moth
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieMelodyHennion
+  name: melody hennion plushie
+  description: Get a bunch of them and you can say they're harmonizing, get it?
+  components:
+  - type: Sprite
+    state: plushie_melodyhennion
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: Food
+    useSound:
+      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: Speech
+    speechVerb: Vulpkanin
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieJeepersCReepers
+  name: jeepers c reepers plushie
+  description: A very friendly Head of Personnel, she loves her dog Ian!
+  components:
+  - type: Sprite
+    state: plushie_jeeperscreepers
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Animals/small_dog_bark_happy.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Animals/small_dog_bark_happy.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Animals/small_dog_bark_happy.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Human/cry_female_1.ogg
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieTincan
+  name: tincan plushie
+  description: The self-proclaimed "NanoTrasen's worst detective."
+  components:
+  - type: Sprite
+    state: plushie_tincan
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Talk/arachnid.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Talk/arachnid.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Talk/arachnid.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Talk/arachnid.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Talk/arachnid.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Talk/arachnid.ogg
+  - type: Speech
+    speechVerb: Arachnid
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieSilasAhas
+  name: silas ahas plushie
+  description: It's pointing and laughing at you and you feel a bit pissed off looking at it...
+  components:
+  - type: Sprite
+    state: plushie_silasahas
+  - type: SpeakOnUse
+    pack: SelfPlushSilasAhas
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: UseDelay
+    delay: 5
+  - type: Speech
+    speechVerb: Moth
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieLokiHydrus
+  name: loki hydrus plushie
+  description: Oh GOD. Throw this one out!
+  components:
+  - type: Sprite
+    state: plushie_lokihydrus
+  - type: SpeakOnUse
+    pack: SelfPlushLokiHydrus
+  - type: UseDelay
+    delay: 5
+  - type: Speech
+    speechVerb: Harpy
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieKorrinKarpen
+  name: korrin karpen plushie
+  description: It seems to smell of lavender for some reason, it also seems to be an outdated job for said worker aswell.
+  components:
+  - type: Sprite
+    state: plushie_korrinkarpen
+  - type: SpeakOnUse
+    pack: SelfPlushKorrinKarpen
+  - type: UseDelay
+    delay: 5
+  - type: Speech
+    speechVerb: Moth
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieRikdaVargh
+  name: rikda vargh plushie
+  description: A representative of NanoTrasen and an official from CentCom. Talk about flexing.
+  components:
+  - type: Sprite
+    state: plushie_rikdavargh
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Speech
+    speechVerb: Reptilian
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieLintonByers
+  name: linton byers plushie
+  description: It smells like milk..?
+  components:
+  - type: Sprite
+    state: plushie_lintonbyers
+  - type: SpeakOnUse
+    pack: SelfPlushLintonByers
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - type: UseDelay
+    delay: 5
+  - type: Speech
+    speechVerb: Felinid
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieFelixKay
+  name: felix kay plushie
+  description: Try not to bring near explosions.
+  components:
+  - type: Sprite
+    state: plushie_felixkay
+  - type: SpeakOnUse
+    pack: SelfPlushFelixKay
+  - type: UseDelay
+    delay: 5
+  - type: Speech
+    speechVerb: Slime
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieAliceAndreev
+  name: alice andreev plushie
+  description: Seems evil...
+  components:
+  - type: Sprite
+    state: plushie_aliceandreev
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Talk/slime_exclaim.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Human/femalescream_5.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Talk/slime_exclaim.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Talk/slime_exclaim.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Talk/slime_exclaim.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Talk/slime_exclaim.ogg
+  - type: Speech
+    speechVerb: Slime
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieParfeyMaelstorm
+  name: parfey maelstorm plushie
+  description: Not to be trusted with fire.
+  components:
+  - type: Sprite
+    state: plushie_parfeymaelstorm
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: UseDelay
+    delay: 2
+  - type: Speech
+    speechVerb: Reptilian
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieChadleySkrimblo
+  name: chadley skrimblo plushie
+  description: Leave him in a room alone and a vox box will appear!
+  components:
+  - type: Sprite
+    state: plushie_chadleyskrimblo
+  - type: UseDelay
+    delay: 2
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieAkishJeen
+  name: akish jeen plushie
+  description: The Jeen.
+  components:
+  - type: Sprite
+    state: plushie_akishjeen
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Speech
+    speechVerb: Reptilian
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieAltecZorban
+  name: altec zorban plushie
+  description: what a nice purple lizard, you somehow feel compelled to kill it.
+  components:
+  - type: Sprite
+    state: plushie_alteczorban
+  - type: SpeakOnUse
+    pack: SelfPlushAltecZorban
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: UseDelay
+    delay: 5
+  - type: Speech
+    speechVerb: Reptilian
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieCynsKatyns
+  name: cyns katyns plushie
+  description: A small stuffed harpy, he loves to deliver mail and can appear mute because he is shy. He secretly has advanced knowledge of biochemistry, but prefers to be a mail carrier.
+  components:
+  - type: Sprite
+    state: plushie_cynskatyns
+  - type: SpeakOnUse
+    pack: SelfPlushCynsKatyns
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/DeltaV/Voice/Harpy/chirp1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/DeltaV/Voice/Harpy/chirp1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/DeltaV/Voice/Harpy/chirp1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/DeltaV/Voice/Harpy/chirp1.ogg
+  - type: Food
+    useSound:
+      path: /Audio/DeltaV/Voice/Harpy/chirp1.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/DeltaV/Voice/Harpy/chirp1.ogg
+  - type: UseDelay
+    delay: 5
+  - type: Speech
+    speechVerb: Harpy

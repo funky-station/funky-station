@@ -2,6 +2,7 @@
   id: JobNanotrasenRepresentative
   groups:
   - NanotrasenRepresentativeHead
+  - NanotrasenRepresentativeNeck
   - NanotrasenRepresentativeJumpsuit
   - NanotrasenRepresentativeBackpack
   - NanotrasenRepresentativeShoes
@@ -16,6 +17,7 @@
   groups:
   - BlueshieldOfficerHead
   - BlueshieldOfficerJumpsuit
+  - BlueshieldOfficerBackpack
   - BlueshieldOfficerOuter
   - BlueshieldOfficerNeck
   - Trinkets

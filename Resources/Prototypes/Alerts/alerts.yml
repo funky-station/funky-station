@@ -19,6 +19,7 @@
     - category: Piloting
     - alertType: Corporeal
     - alertType: Stun
+    - alertType: KnockedDown # goobstation
     - category: Breathing # Vox gang not calling this oxygen
     - category: Pressure
     - alertType: Bleed

@@ -90,6 +90,14 @@
   - type: Wires
     layoutId: AirlockScience
 
+- type: entity # funkystation
+  parent: Airlock
+  id: AirlockRobotics
+  suffix: Robotics
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/robotics.rsi
+
 - type: entity
   parent: Airlock
   id: AirlockCommand
@@ -256,6 +264,16 @@
     department: Science
   - type: Wires
     layoutId: AirlockScience
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockRoboticsGlass
+  suffix: Robotics
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Glass/robotics.rsi
+  - type: PaintableAirlock
+    group: Glass
 
 - type: entity
   parent: AirlockGlass

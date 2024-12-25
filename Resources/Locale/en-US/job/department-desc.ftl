@@ -5,6 +5,6 @@ department-CentralCommand-description = Manage the crew and keep them working ef
 department-Engineering-description = Keep the power on and the station operational.
 department-Medical-description = Keep the crew healthy.
 department-Security-description = Keep the peace around the station.
-department-Science-description = Research artifacts and anomalies to invent new equipment for the station
+department-Science-description = Research artifacts and anomalies to invent new equipment for the station. Also build robots.
 department-Silicon-description = Obey your laws and serve the crew.
 department-Specific-description = Jobs that not all stations have.

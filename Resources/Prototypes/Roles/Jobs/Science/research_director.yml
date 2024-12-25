@@ -16,6 +16,7 @@
   canBeAntag: false
   access:
   - Research
+  - Robotics # funkystation
   - Command
   - Maintenance
   - ResearchDirector

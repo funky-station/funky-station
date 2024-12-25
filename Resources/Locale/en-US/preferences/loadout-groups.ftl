@@ -141,6 +141,7 @@ loadout-group-scientist-outerclothing = Scientist outer clothing
 loadout-group-scientist-gloves = Scientist gloves
 loadout-group-scientist-shoes = Scientist shoes
 loadout-group-scientist-id = Scientist ID
+loadout-group-roboticist-id = Roboticist ID
 
 loadout-group-research-assistant-jumpsuit = Research Assistant jumpsuit
 

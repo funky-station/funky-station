@@ -950,6 +950,13 @@
   - SeniorResearcherPDA
 
 - type: loadoutGroup
+  id: RoboticsPDA
+  name: loadout-group-roboticist-id
+  loadouts:
+  - RoboticsPDA
+  - SeniorResearcherPDA
+
+- type: loadoutGroup
   id: ResearchAssistantJumpsuit
   name: loadout-group-research-assistant-jumpsuit
   loadouts:

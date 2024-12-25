@@ -879,3 +879,15 @@ Entries:
       message: added cyns katyn plush
   id: 104
   time: '2024-12-24T00:18:35.0000000+00:00'
+- author: KingFroozy, tay
+  changes:
+    - type: Add
+      message: Roboticist role added, now we wait for the mappers to get to it.
+  id: 105
+  time: '2024-12-25T03:08:09.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Tweak
+      message: Changes to the "Unfortunate Captain" plush.
+  id: 106
+  time: '2024-12-25T06:14:32.0000000+00:00'

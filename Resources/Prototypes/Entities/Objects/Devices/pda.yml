@@ -680,6 +680,21 @@
     state: pda-science
 
 - type: entity
+  parent: BasePDA
+  id: RoboticsPDA
+  name: robotics PDA
+  description: It's covered with scratches all over it.
+  components:
+  - type: Pda
+    id: RoboticsIDCard
+    state: pda-roboticist
+  - type: PdaBorderColor
+    borderColor: "#484848"
+    accentVColor: "#d33725"
+  - type: Icon
+    state: pda-roboticist
+
+- type: entity
   parent: BaseSecurityPDA
   id: HoSPDA
   name: head of security PDA

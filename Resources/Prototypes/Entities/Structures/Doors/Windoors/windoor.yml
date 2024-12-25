@@ -462,6 +462,17 @@
 
 - type: entity
   parent: WindoorSecure
+  id: WindoorSecureRoboticsLocked
+  suffix: Robotics, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsRobotics ]
+  - type: Wires
+    layoutId: AirlockScience
+
+- type: entity
+  parent: WindoorSecure
   id: WindoorSecureServiceLocked
   suffix: Service, Locked
   components:

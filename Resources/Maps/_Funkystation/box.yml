@@ -61,9 +61,6 @@ entities:
   - uid: 8364
     components:
     - type: MetaData
-    - type: Transform
-      pos: 0.50032806,0.50115013
-      parent: invalid
     - type: MapGrid
       chunks:
         -1,-1:
@@ -8649,16 +8646,6 @@ entities:
           - 0
           - 0
         chunkSize: 4
-    - type: Joint
-      joints:
-        docking46345: !type:WeldJoint
-          bodyB: invalid
-          bodyA: 8364
-          id: docking46345
-          localAnchorB: -0.5,-1
-          localAnchorA: -66.5,22
-          damping: 42.400932
-          stiffness: 380.5899
     - type: OccluderTree
     - type: Shuttle
     - type: RadiationGridResistance
@@ -11857,9 +11844,6 @@ entities:
     - type: Door
       changeAirtight: False
       state: Open
-    - type: Docking
-      dockJointId: docking46345
-      dockedWith: invalid
     - type: DeviceLinkSource
       linkedPorts:
         1495:

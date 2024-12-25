@@ -46,7 +46,8 @@
             Psychologist: [ 1, 1 ]
             #science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 5, 5 ]
+            Scientist: [ 4, 4 ]
+            Roboticist: [ 1, 1 ]
             ResearchAssistant: [ 6, 6 ]
             Borg: [ 2, 2 ]
             #security

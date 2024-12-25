@@ -43,7 +43,8 @@
             MedicalIntern: [ 8, 8 ]
             #science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 4, 6 ]
+            Scientist: [ 4, 5 ]
+            Roboticist: [ 1, 1 ]
             ResearchAssistant: [ 8, 8 ]
             Borg: [ 2, 2 ]
             #security

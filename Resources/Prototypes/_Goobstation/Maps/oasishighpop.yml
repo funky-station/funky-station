@@ -1,7 +1,7 @@
 - type: gameMap
   id: OasisHighPop
   mapName: 'Oasis'
-  mapPath: /Maps/_Goobstation/oasis.yml
+  mapPath: /Maps/_Funkystation/oasis.yml #Funkystation - Robotics
   minPlayers: 85
   stations:
     Oasis:

@@ -1,7 +1,7 @@
 - type: gameMap
   id: Origin
   mapName: 'Origin'
-  mapPath: /Maps/_Goobstation/origin.yml
+  mapPath: /Maps/_Funkystation/origin.yml #Funkystation - Robotics
   minPlayers: 50
   maxPlayers: 85
   stations:

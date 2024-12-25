@@ -1,7 +1,7 @@
 - type: gameMap
   id: FlandHighPop
   mapName: 'Fland Installation'
-  mapPath: /Maps/_Goobstation/fland.yml
+  mapPath: /Maps/_Funkystation/fland.yml #Funkystation - Robotics
   minPlayers: 85
   stations:
     Fland:

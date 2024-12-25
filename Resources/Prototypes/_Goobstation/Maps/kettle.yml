@@ -1,7 +1,7 @@
 - type: gameMap
   id: Kettle
   mapName: 'Kettle'
-  mapPath: /Maps/_Goobstation/kettle.yml
+  mapPath: /Maps/_Funkystation/kettle.yml 3Funkystation - Robotics
   minPlayers: 35
   stations:
     Kettle:

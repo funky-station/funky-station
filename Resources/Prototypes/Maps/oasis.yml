@@ -1,7 +1,7 @@
 - type: gameMap
   id: Oasis
   mapName: 'Oasis'
-  mapPath: /Maps/_Goobstation/oasis.yml # Goobstation - SM
+  mapPath: /Maps/_Funkystation/oasis.yml #Funkystation - Robotics(Based on Goob)
   minPlayers: 30 # Goobstation return minPlayers requirement for maps
   maxPlayers: 85 # Goobstation - Limit mappool to highpop versions of maps only
   stations:

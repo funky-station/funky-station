@@ -1,7 +1,7 @@
 - type: gameMap
   id: Saltern
   mapName: 'Saltern'
-  mapPath: /Maps/_Goobstation/saltern.yml # Goobstation - use custom saltern
+  mapPath: /Maps/_Funkystation/saltern.yml # Funkystation - Robotics(Based on Goob Variant)
   minPlayers: 0
   maxPlayers: 35
   fallback: true

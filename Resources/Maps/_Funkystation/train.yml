@@ -68,9 +68,6 @@ entities:
     components:
     - type: MetaData
       name: Space Train
-    - type: Transform
-      pos: -0.5056241,-0.46626663
-      parent: invalid
     - type: MapGrid
       chunks:
         0,0:

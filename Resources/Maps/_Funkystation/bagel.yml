@@ -63,9 +63,6 @@ entities:
   - uid: 60
     components:
     - type: MetaData
-    - type: Transform
-      pos: 0.4558292,0.42837813
-      parent: invalid
     - type: MapGrid
       chunks:
         0,-1:

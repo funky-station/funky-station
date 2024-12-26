@@ -71,9 +71,6 @@ entities:
     components:
     - type: MetaData
       name: Core
-    - type: Transform
-      pos: -3.3744779,0.95276964
-      parent: invalid
     - type: MapGrid
       chunks:
         0,0:

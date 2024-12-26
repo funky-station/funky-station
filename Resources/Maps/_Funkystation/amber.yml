@@ -51,9 +51,6 @@ entities:
     components:
     - type: MetaData
       name: grid
-    - type: Transform
-      pos: 0.53697205,0.547603
-      parent: invalid
     - type: BecomesStation
       id: Amber
     - type: MapGrid

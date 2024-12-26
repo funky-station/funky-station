@@ -1,7 +1,7 @@
 - type: gameMap
   id: Cluster
   mapName: 'Cluster'
-  mapPath: /Maps/_Goobstation/cluster.yml
+  mapPath: /Maps/_Funkystation/cluster.yml #Funkystation - Robotics
   minPlayers: 10
   maxPlayers: 35
   stations:
@@ -43,7 +43,8 @@
             MedicalIntern: [ 2, 2 ]
             #science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 3, 3 ]
+            Scientist: [ 2, 2 ]
+            Roboticist: [ 1, 1 ]
             ResearchAssistant: [ 2, 2 ]
             Borg: [ 1, 1 ]
             #security

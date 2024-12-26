@@ -1,7 +1,7 @@
 - type: gameMap
   id: Core
   mapName: 'Core'
-  mapPath: /Maps/core.yml
+  mapPath: /Maps/_Funkystation/core.yml #Funkystatin - Robotics
   minPlayers: 35
   maxPlayers: 70
   stations:
@@ -44,7 +44,8 @@
             Paramedic: [ 1, 2 ]
             #science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 3, 3 ]
+            Scientist: [ 2, 2 ]
+            Roboticist: [ 1, 1 ]
             ResearchAssistant: [ 1, 1 ]
             #security
             HeadOfSecurity: [ 1, 1 ]

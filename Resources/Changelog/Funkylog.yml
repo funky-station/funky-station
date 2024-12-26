@@ -891,3 +891,9 @@ Entries:
       message: Changes to the "Unfortunate Captain" plush.
   id: 106
   time: '2024-12-25T06:14:32.0000000+00:00'
+- author: TheShuEd
+  changes:
+    - type: Fix
+      message: 'Fixed space chunks loot spawning '
+  id: 107
+  time: '2024-12-26T20:35:50.0000000+00:00'

@@ -32,6 +32,8 @@
   A suspect can be forced to receive implant removal if there is strong reasonable proof that they have been implanted, such as an officer witnessing them use an implantation device or their biological information being found on a discarded injector. Unlike the implantation procedure a prisoner can have their sentence entirely delayed or extended until they comply with the procedure, as long as security are actively making attempts to preform it. Akin to implanting, if an inmate gives their clear permission, implant removal can proceed without proof.
 
   ## Sentencing
+  [bold]If brigtime goes above 20 minutes, perma is highly recommended.[/bold]
+
   All sentencing is to primarily be handled by the Warden, if no Warden is available the HoS is to take over that duty, if there's no HoS it falls onto the highest ranking command member.
 
   Use common sense and humanity when issuing punishments. You should not always seek out the highest punishment you can, you don't have to always give the maximum time or always look to demote someone. Always take in account the severity and only charge for what is needed for someone to learn their lesson.
@@ -42,15 +44,243 @@
 
   [bold]Executions:[/bold] Executions may be authorized by the Captain / acting Captain after a trial has been conducted. Executions may also be approved by CentComm, following formal contact.
 
-  ## Normal Punishments
-  - [color=#a4885c]Warning:[/color] For minor crimes, fix the issue, then warn the person not to attempt the crime again. If they still proceed to do it at a later date, a brig time may be better.
-  - [color=#a4885c]Confinement:[/color] The typical punishment, being confined in a cell for a temporary amount of time according to the crimes.
-  - [color=#a4885c]Demotion:[/color] Entails removing all departmental gear they have on their person and revoking the involved department access off their ID. This requires the captain's or involved department head's approval. Demotions should only be issued if the person pose a threat to their own department or are in a position where they have/can abuse their job's gear to commit further crimes.
 
-  ## Major Punishments
-  [color=#a4885c]Permanent Confinement:[/color] Being held in the permanent brig for the entire duration of the shift. A person is eligible for permanent confinement if their timed sentence would exceed 15 minutes. Any persons subject to this punishment are required to be transported in cuffs to CentComm at the end of the shift. A permanent prisoner can not be deprived of anything covered by the section "Treatment Of Prisoners".
-  [color=#a4885c]Execution:[/color] A humane way of dealing with extremely unruly crewmates. Within reason, a prisoner who has been given the death sentence may pick how they wish to be killed, common methods are firing line, lethal injection, exile, and high voltage electrocution. Another alternate method of "execution" is the process of placing a staff's mind into a borg, this is allowed so long as it is lawful. Execution can only be issued with the captain's or acting captain's approval; if the HoS is acting captain or there is no acting captain, all heads of staff are to hold a vote on the matter.
 
-  ## Crime Listing
-  - [textlink="Crime Listing" link="SpaceLawCrimeList"]
+  # Crimes
+
+  # I Degree
+
+  For minor crimes, fix the issue then warn the person to not attempt the crime again, if they still proceed to do it at a later date, a brig time may be better.
+
+  ## Disturbance
+
+  [bold]Description[/bold]: To cause a public disturbance.
+
+  [bold]Recommended Maximum Punishment:[/bold] 2:00
+
+  [bold]Notes:[/bold] Sometimes referred to as hooliganism. The catch-all for obnoxious crewmates. Covers things such as public nudity, needless insults, obstructing authorities, and inciting crime or violence.
+
+  ## Petty Theft
+
+  [bold]Description[/bold]: To take non-vital or inexpensive property of another individual, organization, or common property, without consent.
+
+  [bold]Recommended Maximum Punishment:[/bold] 3:00
+
+  [bold]Notes:[/bold] The difference between petty theft and grand theft is based on how crucial the stolen item is, things like instruments, clothing and tools fall under petty theft. In most cases all you need to do is detain the thief, return the stolen item and let them go with a warning.
+
+  ## Possession/Use of Illegal Substances
+
+  [bold]Description[/bold]: To make, hold, or abuse restricted drugs or chemicals.
+
+  [bold]Recommended Maximum Punishment:[/bold] 3:00
+
+  [bold]Notes: This is to be followed in accordance with Standard Operating Procedure. If anything questionable is not brought up in SOP the captain or highest standing command staff may publicly restrict it.[/bold]
+
+  ## Trespass
+
+  [bold]Description[/bold]: To enter a non-secured area without permission.
+
+  [bold]Recommended Maximum Punishment:[/bold] 2:00
+
+  [bold]Notes:[/bold] It's best to just remove them from the area unless this is a repeated crime.
+
+  ## Vandalism
+
+  [bold]Description[/bold]: To intentionally deface or superficially damage public or private property.
+
+  [bold]Recommended Maximum Punishment:[/bold] 2:00
+
+  [bold]Notes:[/bold] Painting graffiti, smashing bar glasses, and cracking internal windows is vandalism, breaking a window into space or secure areas is not.
+
+
+
+  # II Degree
+
+  ## Animal Cruelty
+
+  [bold]Description[/bold]: To inflict unnecessary suffering or harm on a non-sapient being with malicious intent.
+
+  [bold]Recommended Maximum Punishment:[/bold] 5:00
+
+  [bold]Notes:[/bold] This doesn't include legitimate and authorized animal testing and usually doesn't extend to vermin or creatures that could pose a threat to the station.
+
+  ## Damage/Destruction of Property
+
+  [bold]Description[/bold]: To maliciously damage or deface public or private property or equipment.
+
+  [bold]Recommended Maximum Punishment:[/bold] 4:00
+
+  [bold]Notes:[/bold] Step up from vandalism but a step down from mass destruction.
+
+  ## Endangerment
+
+  [bold]Description[/bold]: To recklessly put yourself or others in danger, either through direct action, or failure to act.
+
+  [bold]Recommended Maximum Punishment:[/bold] 4:00
+
+  [bold]Notes:[/bold] Covers industrial accidents, industrial negligence, self-experimentation, or even medical malpractice.
+
+  ## Failure to Comply
+
+  [bold]Description[/bold]: To resist reasonable orders given by an authority. This extends to warrants and authorized searches.
+
+  [bold]Recommended Maximum Punishment:[/bold] 2:00
+
+  [bold]Notes:[/bold] The order has to be reasonable and the person has to receive a good amount of warning before the arrest is issued.
+
+  ## Possession of Restricted Gear
+
+  [bold]Description[/bold]: To hold or use non-lethal items or objects that are restricted or illegal.
+
+  [bold]Recommended Maximum Punishment:[/bold] 5:00
+
+  [bold]Notes:[/bold] This is mostly for syndicate contraband; EMAGs, syndicate gas masks, bloodred hardsuits, hijacked PDAs, or implants, however can sometimes extend to things the individual shouldn't possess like kevlar vests and security gear.
+
+  ## Rioting
+
+  [bold]Description[/bold]: To take part in a large group of personnel creating an unlawful public disturbance.
+
+  [bold]Recommended Maximum Punishment:[/bold] 4:00
+
+  [bold]Notes:[/bold] Crimes like damage of property or battery are expected to be thrown on top of this charge. Leaders of a riot can be charged with all crimes that happen under their lead.
+
+
+
+  # III Degree
+
+  ## Assault/Battery
+
+  [bold]Description[/bold]: To threaten to or to use physical force against someone without the intent to kill.
+
+  [bold]Recommended Maximum Punishment:[/bold] 6:00
+
+  [bold]Notes:[/bold] Attempted murder and battery are different, make sure you've got it right.
+
+  ## Breach of Arrest
+
+  [bold]Description[/bold]: To intentionally resist and flee arrest or detainment by an authorized staff.
+
+  [bold]Recommended Maximum Punishment:[/bold] 4:00
+
+  [bold]Notes:[/bold] This only applies if the person is actively being physically arrested. Includes people uncuffing or assisting others out of an arrest. Breach of custody is a separate crime.
+
+  ## Grand Theft
+
+  [bold]Description[/bold]: To take critical or unreplaceable property of another individual or organization without consent.
+
+  [bold]Recommended Maximum Punishment:[/bold] 6:00
+
+  [bold]Notes:[/bold] The difference between petty theft and grand theft is based on how crucial the stolen item is, this mostly is used for the theft of command staff items, things like door remotes, hardsuits, jetpacks, and unreplaceable machine parts.
+
+  ## Manslaughter
+
+  [bold]Description[/bold]: To incidentally kill a sapient being without intent.
+
+  [bold]Recommended Maximum Punishment:[/bold] 10:00
+
+  [bold]Notes:[/bold] Includes manslaughter in self-defense and negligent manslaughter.
+
+  ## Mass Destruction
+
+  [bold]Description[/bold]: To cause massive damage to an area or major station system.
+
+  [bold]Recommended Maximum Punishment:[/bold] 15:00
+
+  [bold]Notes:[/bold] This is mostly used for deadly bombings or sabotage of major station systems such as power production, cloning, substations, or atmos.
+
+  ## Posession of Restricted Weaponry
+
+  [bold]Description[/bold]: To hold or use a weapon that is unlawful or contraband.
+
+  [bold]Recommended Maximum Punishment:[/bold] 6:00
+
+  [bold]Notes:[/bold] Everything from guns without a permit, deadly blades, explosives, syndicate firearms to explosive implants.
+
+  ## Secure Trespass
+
+  [bold]Description[/bold]: To enter a secured area without permission.
+
+  [bold]Recommended Maximum Punishment:[/bold] 8:00
+
+  [bold]Notes:[/bold] This covers places like telecomms, head offices, security zones, command areas, the vault and armory.
+
+  ## Breach of Custody
+
+  [bold]Description[/bold]: To break out of a cell or custody with the intention of escaping.
+
+  [bold]Recommended Maximum Punishment:[/bold] 5:00
+
+  [bold]Notes:[/bold] This time should be added on top of a prisoners current brig time. While rare, this charge can be bumped to permanent brig if the suspect has repeatedly attempted to break out of the permanent brig. Includes people breaking others out.
+
+
+
+  # IV Degree
+
+  ## Attempted Murder
+
+  [bold]Description[/bold]: To make an attempt to use physical force against someone with the clear intent to kill.
+
+  [bold]Recommended Maximum Punishment:[/bold] 10:00
+
+  [bold]Notes:[/bold] Make sure you've got the proof to back up the intention claims.
+
+  ## Unlawful Control/Kidnapping/Hostage Taking
+
+  [bold]Description[/bold]: To unlawfully restrain, transport, control or confine a sapient being against that individual's will.
+
+  [bold]Recommended Maximum Punishment:[/bold] 10:00
+
+  [bold]Notes:[/bold] A large range of things, used mostly as a catch all when dealing with unlawful control of another being.
+
+  ## Murder
+
+  [bold]Description[/bold]: To kill a sapient being with malicious intent.
+
+  [bold]Recommended Maximum Punishment:[/bold] 10:00
+
+  [bold]Notes:[/bold] This only changes from attempted to full on murder if the victim enters a state of being deceased, having to be resurrected.
+
+
+
+  # V Degree
+
+  ## Mass Murder
+
+  [bold]Description[/bold]: To kill three or more sapient beings with malicious intent.
+
+  [bold]Recommended Maximum Punishment:[/bold] Permanent
+
+  [bold]Notes:[/bold] Only applies when there have been multiple killings with intention.
+
+  ## Capital Negligence
+
+  [bold]Description[/bold]: To recklessly put yourself or others in danger, either through direct action, or failure to act as a command member.
+
+  [bold]Recommended Maximum Punishment:[/bold] Permanent / Demotion
+
+  [bold]Notes:[/bold] This covers causing the death of one or more crewmates, failing to repair / mitigate severe station damage, or causing severe station damage. This charge is meant to be handed to Command members, and may be added to their permanent record.
+
+  ## Prevention of Revival
+
+  [bold]Description[/bold]: To render a body unresurrectable.
+
+  [bold]Recommended Maximum Punishment:[/bold] Permanent
+
+  [bold]Notes:[/bold] This covers gibbing, spacing, intentionally hiding a body leading to it rotting, or other ways of preventing a body with a soul from being resurrected.
+
+  ## Refusal of Mental Shielding
+
+  [bold]Description[/bold]: To refuse to comply with a reasonable Mind Shielding procedure.
+
+  [bold]Recommended Maximum Punishment:[/bold] Permanent
+
+  [bold]Notes:[/bold] Applies if the suspect is excessively uncooperative or the implant fails to function due to the mental state of the prisoner already being too far gone. If the implant fails the Recommended Maximum Punishment is upped to Expedited Execution.
+
+  ## Terrorism
+
+  [bold]Description[/bold]: To engage in maliciously destructive actions which threaten to destroy, or successfully destroy a vessel or habitat.
+
+  [bold]Recommended Maximum Punishment:[/bold] Execution
+
+  [bold]Notes:[/bold] Summed up; extreme sabotage of station systems or setting off self-destruction systems.
 </Document>

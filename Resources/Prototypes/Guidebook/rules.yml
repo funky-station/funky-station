@@ -411,8 +411,6 @@
   name: guide-entry-rules-space-law
   priority: 1
   text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SpaceLaw.xml"
-  children:
-  - SpaceLawCrimeList
 
 - type: guideEntry
   id: RulesOfConduct

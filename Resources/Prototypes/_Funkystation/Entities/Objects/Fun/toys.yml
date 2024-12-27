@@ -498,13 +498,15 @@
 - type: entity
   parent: BasePlushie
   id: BaseStowawayPlushie
-  description: A toy-making brand you've never heard of before. This one looks familiar, but you don't know why.
+  description: The tag says that this plushie was made by "Stowaway Toys," a toy-making brand you've never heard of before. This one looks familiar, but you don't know why.
   abstract: true
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Fun/stowaway_toys.rsi
   - type: Food
     requiresSpecialDigestion: true
+  - type: RandomFillSolution
+    solution: RandomFillTrashPuddle
   - type: MeleeWeapon
     wideAnimationRotation: 180
   - type: UseDelay
@@ -614,9 +616,20 @@
   parent: BaseStowawayPlushie
   id: PlushieSkeleton
   name: skeleton plushie
-  description: This thing rattles you to your bones!
+  description: This thing rattles you to your bones! A plushie by Stowaway Toys.
   components:
   - type: Sprite
     state: plushie_skele
+  - type: UseDelay
+    delay: 2
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushiePanda
+  name: panda plushie
+  description: Bamboo, anyone? A plushie by Stowaway Toys.
+  components:
+  - type: Sprite
+    state: plushie_panda
   - type: UseDelay
     delay: 2

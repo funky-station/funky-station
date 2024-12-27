@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "plushie_assistantspider, plushie_barkeeplizard, plushie_captainspider, plushie_cargobird, plushie_chaplaindog, plushie_chemistlizard, plushie_piratemoth, plushie_qmmoth, plushie_rddog, plushie_rdlizard, plushie_skele by meijunkie",
+  "copyright": "plushie_assistantspider, plushie_barkeeplizard, plushie_captainspider, plushie_cargobird, plushie_chaplaindog, plushie_chemistlizard, plushie_piratemoth, plushie_qmmoth, plushie_rddog, plushie_rdlizard, plushie_skele, plushie_panda by meijunkie",
   "size": {
     "x": 32,
     "y": 32
@@ -39,6 +39,9 @@
         },
         {
             "name": "plushie_skele"
+        },
+		{
+            "name": "plushie_panda"
         }
     ]
 }

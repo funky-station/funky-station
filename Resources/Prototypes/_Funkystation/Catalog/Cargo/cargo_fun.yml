@@ -27,7 +27,7 @@
   cost: 2000
   category: cargoproduct-category-name-fun
   group: market
-  
+
 - type: cargoProduct
   id: FunStowawayToys
   icon:

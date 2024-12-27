@@ -509,6 +509,8 @@
     wideAnimationRotation: 180
   - type: UseDelay
     delay: 1.8
+  - type: Drainable
+    Solution: drink
     
 - type: entity
   parent: BaseStowawayPlushie
@@ -521,6 +523,13 @@
     delay: 2
   - type: Extractable
     juiceSolution:
+        reagents:
+        - ReagentId: CopperBlood
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
         reagents:
         - ReagentId: CopperBlood
           Quantity: 30
@@ -539,7 +548,14 @@
         reagents:
         - ReagentId: Gold
           Quantity: 30
-    
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Gold
+          Quantity: 30
+
 - type: entity
   parent: BaseStowawayPlushie
   id: PlushieCaptainSpider
@@ -551,6 +567,13 @@
     delay: 2
   - type: Extractable
     juiceSolution:
+        reagents:
+        - ReagentId: SpaceGlue
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
         reagents:
         - ReagentId: SpaceGlue
           Quantity: 30
@@ -569,6 +592,13 @@
         reagents:
         - ReagentId: Iron
           Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Iron
+          Quantity: 30
     
 - type: entity
   parent: BaseStowawayPlushie
@@ -581,6 +611,13 @@
     delay: 2
   - type: Extractable
     juiceSolution:
+        reagents:
+        - ReagentId: Holywater
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
         reagents:
         - ReagentId: Holywater
           Quantity: 30
@@ -599,7 +636,14 @@
         reagents:
         - ReagentId: Inaprovaline
           Quantity: 30
-    
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Inaprovaline
+          Quantity: 30
+
 - type: entity
   parent: BaseStowawayPlushie
   id: PlushiePirateMoth
@@ -611,6 +655,13 @@
     delay: 2
   - type: Extractable
     juiceSolution:
+        reagents:
+        - ReagentId: Hooch
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
         reagents:
         - ReagentId: Hooch
           Quantity: 30
@@ -629,6 +680,13 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
     
 - type: entity
   parent: BaseStowawayPlushie
@@ -644,6 +702,13 @@
         reagents:
         - ReagentId: Blood
           Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
     
 - type: entity
   parent: BaseStowawayPlushie
@@ -656,6 +721,13 @@
     delay: 2
   - type: Extractable
     juiceSolution:
+        reagents:
+        - ReagentId: Moonshine
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
         reagents:
         - ReagentId: Moonshine
           Quantity: 30
@@ -675,6 +747,13 @@
         reagents:
         - ReagentId: Milk
           Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Milk
+          Quantity: 30
 
 - type: entity
   parent: BaseStowawayPlushie
@@ -688,6 +767,13 @@
     delay: 2
   - type: Extractable
     juiceSolution:
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
         reagents:
         - ReagentId: Blood
           Quantity: 30

@@ -897,3 +897,9 @@ Entries:
       message: 'Fixed space chunks loot spawning '
   id: 107
   time: '2024-12-26T20:35:50.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: Medborgs can now perform surgery again.
+  id: 108
+  time: '2024-12-27T02:11:33.0000000+00:00'

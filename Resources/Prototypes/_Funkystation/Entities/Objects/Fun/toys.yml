@@ -670,6 +670,11 @@
     state: plushie_skele
   - type: UseDelay
     delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Milk
+          Quantity: 30
 
 - type: entity
   parent: BaseStowawayPlushie
@@ -681,10 +686,8 @@
     state: plushie_panda
   - type: UseDelay
     delay: 2
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
+  - type: Extractable
+    juiceSolution:
         reagents:
         - ReagentId: Blood
           Quantity: 30

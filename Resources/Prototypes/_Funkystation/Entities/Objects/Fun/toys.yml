@@ -509,8 +509,8 @@
     wideAnimationRotation: 180
   - type: UseDelay
     delay: 1.8
-  - type: Drainable
-    Solution: drink
+  - type: DrainableSolution
+    solution: drink
     
 - type: entity
   parent: BaseStowawayPlushie
@@ -656,14 +656,14 @@
   - type: Extractable
     juiceSolution:
         reagents:
-        - ReagentId: Hooch
+        - ReagentId: SpaceDrugs
           Quantity: 30
   - type: SolutionContainerManager
     solutions:
       drink:
         maxVol: 30
         reagents:
-        - ReagentId: Hooch
+        - ReagentId: SpaceDrugs
           Quantity: 30
     
 - type: entity

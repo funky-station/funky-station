@@ -519,10 +519,8 @@
     state: plushie_assistantspider
   - type: UseDelay
     delay: 2
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
+  - type: Extractable
+    juiceSolution:
         reagents:
         - ReagentId: CopperBlood
           Quantity: 30
@@ -536,10 +534,8 @@
     state: plushie_barkeeplizard
   - type: UseDelay
     delay: 2
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
+  - type: Extractable
+    juiceSolution:
         reagents:
         - ReagentId: Gold
           Quantity: 30
@@ -553,10 +549,8 @@
     state: plushie_captainspider
   - type: UseDelay
     delay: 2
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
+  - type: Extractable
+    juiceSolution:
         reagents:
         - ReagentId: SpaceGlue
           Quantity: 30
@@ -570,10 +564,8 @@
     state: plushie_cargobird
   - type: UseDelay
     delay: 2
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
+  - type: Extractable
+    juiceSolution:
         reagents:
         - ReagentId: Iron
           Quantity: 30
@@ -587,10 +579,8 @@
     state: plushie_chaplaindog
   - type: UseDelay
     delay: 2
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
+  - type: Extractable
+    juiceSolution:
         reagents:
         - ReagentId: Holywater
           Quantity: 30
@@ -604,10 +594,8 @@
     state: plushie_chemistlizard
   - type: UseDelay
     delay: 2
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
+  - type: Extractable
+    juiceSolution:
         reagents:
         - ReagentId: Inaprovaline
           Quantity: 30
@@ -621,10 +609,8 @@
     state: plushie_piratemoth
   - type: UseDelay
     delay: 2
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
+  - type: Extractable
+    juiceSolution:
         reagents:
         - ReagentId: Hooch
           Quantity: 30
@@ -638,10 +624,8 @@
     state: plushie_qmmoth
   - type: UseDelay
     delay: 2
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
+  - type: Extractable
+    juiceSolution:
         reagents:
         - ReagentId: Fiber
           Quantity: 30
@@ -655,10 +639,8 @@
     state: plushie_rddog
   - type: UseDelay
     delay: 2
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
+  - type: Extractable
+    juiceSolution:
         reagents:
         - ReagentId: Blood
           Quantity: 30
@@ -672,10 +654,8 @@
     state: plushie_rdlizard
   - type: UseDelay
     delay: 2
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
+  - type: Extractable
+    juiceSolution:
         reagents:
         - ReagentId: Moonshine
           Quantity: 30

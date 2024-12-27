@@ -505,8 +505,6 @@
     sprite: _Funkystation/Objects/Fun/stowaway_toys.rsi
   - type: Food
     requiresSpecialDigestion: true
-  - type: RandomFillSolution
-    solution: RandomFillTrashPuddle
   - type: MeleeWeapon
     wideAnimationRotation: 180
   - type: UseDelay
@@ -521,6 +519,13 @@
     state: plushie_assistantspider
   - type: UseDelay
     delay: 2
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CopperBlood
+          Quantity: 30
     
 - type: entity
   parent: BaseStowawayPlushie
@@ -531,6 +536,13 @@
     state: plushie_barkeeplizard
   - type: UseDelay
     delay: 2
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Gold
+          Quantity: 30
     
 - type: entity
   parent: BaseStowawayPlushie
@@ -541,6 +553,13 @@
     state: plushie_captainspider
   - type: UseDelay
     delay: 2
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: SpaceGlue
+          Quantity: 30
     
 - type: entity
   parent: BaseStowawayPlushie
@@ -551,6 +570,13 @@
     state: plushie_cargobird
   - type: UseDelay
     delay: 2
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Iron
+          Quantity: 30
     
 - type: entity
   parent: BaseStowawayPlushie
@@ -561,6 +587,13 @@
     state: plushie_chaplaindog
   - type: UseDelay
     delay: 2
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Holywater
+          Quantity: 30
     
 - type: entity
   parent: BaseStowawayPlushie
@@ -571,6 +604,13 @@
     state: plushie_chemistlizard
   - type: UseDelay
     delay: 2
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Inaprovaline
+          Quantity: 30
     
 - type: entity
   parent: BaseStowawayPlushie
@@ -581,6 +621,13 @@
     state: plushie_piratemoth
   - type: UseDelay
     delay: 2
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Hooch
+          Quantity: 30
     
 - type: entity
   parent: BaseStowawayPlushie
@@ -591,6 +638,13 @@
     state: plushie_qmmoth
   - type: UseDelay
     delay: 2
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
     
 - type: entity
   parent: BaseStowawayPlushie
@@ -601,6 +655,13 @@
     state: plushie_rddog
   - type: UseDelay
     delay: 2
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
     
 - type: entity
   parent: BaseStowawayPlushie
@@ -611,6 +672,13 @@
     state: plushie_rdlizard
   - type: UseDelay
     delay: 2
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Moonshine
+          Quantity: 30
     
 - type: entity
   parent: BaseStowawayPlushie
@@ -633,3 +701,10 @@
     state: plushie_panda
   - type: UseDelay
     delay: 2
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30

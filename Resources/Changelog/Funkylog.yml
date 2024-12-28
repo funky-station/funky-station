@@ -936,3 +936,9 @@ Entries:
         damaged.
   id: 109
   time: '2024-12-27T04:11:52.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Added frezon canister sprite
+  id: 110
+  time: '2024-12-28T23:16:14.0000000+00:00'

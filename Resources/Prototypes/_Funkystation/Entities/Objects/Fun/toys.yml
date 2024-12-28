@@ -558,3 +558,288 @@
     delay: 5
   - type: Speech
     speechVerb: Moth
+
+# stowaway toys (self insert ripoff :godo:)
+
+- type: entity
+  parent: BasePlushie
+  id: BaseStowawayPlushie
+  description: The tag says that this plushie was made by "Stowaway Toys," a toy-making brand you've never heard of before. This one looks familiar, but you don't know why.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/stowaway_toys.rsi
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+  - type: UseDelay
+    delay: 1.8
+  - type: DrainableSolution
+    solution: drink
+    
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieAssistantSpider
+  name: assistant spider plushie
+  components:
+  - type: Sprite
+    state: plushie_assistantspider
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: CopperBlood
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CopperBlood
+          Quantity: 30
+    
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieBarkeepLizard
+  name: bartender kobold plushie
+  components:
+  - type: Sprite
+    state: plushie_barkeeplizard
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Gold
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Gold
+          Quantity: 30
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieCaptainSpider
+  name: captain spider plushie
+  components:
+  - type: Sprite
+    state: plushie_captainspider
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: SpaceGlue
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: SpaceGlue
+          Quantity: 30
+    
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieCargoBird
+  name: cargo harpy plushie
+  components:
+  - type: Sprite
+    state: plushie_cargobird
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Iron
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Iron
+          Quantity: 30
+    
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieChaplainDog
+  name: chaplain vulpkanin plushie
+  components:
+  - type: Sprite
+    state: plushie_chaplaindog
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Holywater
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Holywater
+          Quantity: 30
+    
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieChemistLizard
+  name: chemist lizard plushie
+  components:
+  - type: Sprite
+    state: plushie_chemistlizard
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Inaprovaline
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Inaprovaline
+          Quantity: 30
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushiePirateMoth
+  name: pirate moth plushie
+  components:
+  - type: Sprite
+    state: plushie_piratemoth
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: SpaceDrugs
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: SpaceDrugs
+          Quantity: 30
+    
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieQuartermasterMoth
+  name: quartermaster moth plushie
+  components:
+  - type: Sprite
+    state: plushie_qmmoth
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+    
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieResearchDirectorDog
+  name: researcher vulpkanin plushie
+  components:
+  - type: Sprite
+    state: plushie_rddog
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
+    
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieResearchDirectorLizard
+  name: researcher lizard plushie
+  components:
+  - type: Sprite
+    state: plushie_rdlizard
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Moonshine
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Moonshine
+          Quantity: 30
+    
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieSkeleton
+  name: skeleton plushie
+  description: This thing rattles you to your bones! A plushie by Stowaway Toys.
+  components:
+  - type: Sprite
+    state: plushie_skele
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Milk
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Milk
+          Quantity: 30
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushiePanda
+  name: panda plushie
+  description: Bamboo, anyone? A plushie by Stowaway Toys.
+  components:
+  - type: Sprite
+    state: plushie_panda
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30

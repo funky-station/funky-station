@@ -1604,6 +1604,35 @@
     graph: AnomalyMeatSteak
     node: anomaly steak
 
+- type: entity
+  name: anomalous steak
+  parent: FoodMeatBase
+  id: FoodMeatAnomalyCooked
+  description: A gigantic mass of cooked meat. A meal for a dinner party, or someone REALLY hungry.
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+  - type: Sprite
+    layers:
+    - state: anomalymeat-cooked #Kinda hard to cook this... thing evenly
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 100
+        - ReagentId: Protein
+          Quantity: 50
+  - type: SliceableFood
+    count: 10
+    sliceTime: 5
+    slice: FoodMeatCooked
+  - type: Construction
+    graph: AnomalyMeatSteak
+    node: anomaly steak
+
 # Cutlets
 
 # Raw

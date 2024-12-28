@@ -1,4 +1,5 @@
 using Content.Shared._Goobstation.Flashbang;
+using Content.Shared.Chat;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Hypospray.Events;
 using Content.Shared.Climbing.Events;
@@ -20,7 +21,6 @@ using Content.Shared.Slippery;
 using Content.Shared.Strip.Components;
 using Content.Shared.Temperature;
 using Content.Shared.Verbs;
-using Content.Shared.Chat;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Ranged.Events;
 

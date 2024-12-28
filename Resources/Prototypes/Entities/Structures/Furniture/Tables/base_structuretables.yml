@@ -41,9 +41,10 @@
   - type: Tag
     tags:
     - ForceFixRotations
+    - Structure
+    - Table
   - type: RequireProjectileTarget # Goobstation - Crawling
     ignoreThrow: true
-
 
 - type: entity
   id: CounterBase

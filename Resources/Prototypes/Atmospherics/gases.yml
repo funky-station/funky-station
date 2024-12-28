@@ -101,7 +101,7 @@
   reagent: Frezon
   pricePerMole: 2
 
-#/tg/ gases
+# Assmos - /tg/ gases
 
 - type: gas
   id: 9
@@ -146,3 +146,5 @@
   color: 7b68ee
   reagent: Pluoxium
   pricePerMole: 0.1
+
+# Assmos - /tg/ gases end

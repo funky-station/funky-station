@@ -101,7 +101,7 @@
   reagent: Frezon
   pricePerMole: 2
 
-#/tg/ gases
+# Assmos - /tg/ gases
 
 - type: gas
   id: 9

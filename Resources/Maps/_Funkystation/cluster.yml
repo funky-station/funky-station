@@ -48,6 +48,8 @@ entities:
   - uid: 2
     components:
     - type: MetaData
+    - type: Transform
+      parent: 4494
     - type: MapGrid
       chunks:
         0,0:
@@ -4622,11 +4624,19 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 235
           moles:
           - 21.824879
           - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -4652,6 +4662,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -4667,9 +4681,17 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -4697,11 +4719,19 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
           - 0
           - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -4719,6 +4749,18 @@ entities:
       id: Cluster
     - type: SpreaderGrid
     - type: GridPathfinding
+  - uid: 4494
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
+    - type: Broadphase
+    - type: OccluderTree
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3
@@ -6723,7 +6765,7 @@ entities:
       pos: 38.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -808.72833
+      secondsUntilStateChange: -1747.2501
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -8597,6 +8639,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: BookRandom
   entities:
   - uid: 523
@@ -9145,6 +9191,42 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 44.5,-21.5
+      parent: 2
+- proto: ButtonFrameJanitor
+  entities:
+  - uid: 10097
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 17.5,-8.5
+      parent: 2
+  - uid: 12761
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 17.5,12.5
+      parent: 2
+  - uid: 12764
+    components:
+    - type: Transform
+      pos: 2.5,26.5
+      parent: 2
+  - uid: 12766
+    components:
+    - type: Transform
+      pos: -14.5,12.5
+      parent: 2
+  - uid: 12771
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,-18.5
+      parent: 2
+  - uid: 12773
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -18.5,-7.5
       parent: 2
 - proto: BZCanister
   entities:
@@ -27788,6 +27870,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: ClosetL3JanitorFilled
   entities:
   - uid: 4195
@@ -27803,6 +27889,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -28011,6 +28101,10 @@ entities:
         moles:
         - 1.8856695
         - 7.0937095
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -29046,6 +29140,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -29816,12 +29914,6 @@ entities:
     - type: Transform
       pos: 18.5,-2.5
       parent: 2
-  - uid: 4494
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 7.5,-18.5
-      parent: 2
   - uid: 4495
     components:
     - type: Transform
@@ -29832,6 +29924,11 @@ entities:
     components:
     - type: Transform
       pos: 27.5,11.5
+      parent: 2
+  - uid: 5235
+    components:
+    - type: Transform
+      pos: 13.5,-19.5
       parent: 2
 - proto: DeployableBarrier
   entities:
@@ -33359,18 +33456,27 @@ entities:
   - uid: 5105
     components:
     - type: Transform
-      pos: 16.35999,13.763724
+      pos: 16.520332,13.97337
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 5106
     components:
     - type: Transform
-      pos: 16.469364,13.701224
+      pos: 16.785957,13.97337
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 5107
     components:
     - type: Transform
-      pos: 16.625614,13.763724
+      pos: 16.648125,13.813613
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: DrinkWhiskeyBottleFull
   entities:
   - uid: 5109
@@ -34252,11 +34358,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -18.5,0.5
       parent: 2
-  - uid: 5235
-    components:
-    - type: Transform
-      pos: 17.5,12.5
-      parent: 2
   - uid: 5236
     components:
     - type: Transform
@@ -34279,6 +34380,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -12.5,31.5
+      parent: 2
+  - uid: 12768
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 24.5,11.5
       parent: 2
 - proto: FaxMachineBase
   entities:
@@ -56248,6 +56355,42 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 15.5,-0.5
       parent: 2
+- proto: JanitorServiceLight
+  entities:
+  - uid: 8997
+    components:
+    - type: Transform
+      pos: -7.5,-5.5
+      parent: 2
+  - uid: 12762
+    components:
+    - type: Transform
+      pos: 3.5,16.5
+      parent: 2
+  - uid: 12765
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -6.5,7.5
+      parent: 2
+  - uid: 12767
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 9.5,12.5
+      parent: 2
+  - uid: 12769
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,-23.5
+      parent: 2
+  - uid: 12772
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 13.5,-8.5
+      parent: 2
 - proto: JetpackMiniFilled
   entities:
   - uid: 8439
@@ -56471,6 +56614,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: LockerBoozeFilled
   entities:
   - uid: 8472
@@ -56512,6 +56659,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -56572,6 +56723,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -56598,6 +56753,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -56715,6 +56874,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: LockerHeadOfPersonnelFilled
   entities:
   - uid: 4274
@@ -56730,6 +56893,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -56858,6 +57025,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -59243,13 +59414,6 @@ entities:
     - type: Transform
       pos: 21.5,-9.5
       parent: 2
-- proto: PosterLegitScience
-  entities:
-  - uid: 8927
-    components:
-    - type: Transform
-      pos: -18.5,-7.5
-      parent: 2
 - proto: PosterLegitSecWatch
   entities:
   - uid: 8928
@@ -59273,11 +59437,6 @@ entities:
       parent: 2
 - proto: PottedPlantRandom
   entities:
-  - uid: 8931
-    components:
-    - type: Transform
-      pos: 13.5,-8.5
-      parent: 2
   - uid: 8932
     components:
     - type: Transform
@@ -59617,11 +59776,6 @@ entities:
     components:
     - type: Transform
       pos: 15.5,-8.5
-      parent: 2
-  - uid: 8997
-    components:
-    - type: Transform
-      pos: 16.5,-8.5
       parent: 2
   - uid: 8998
     components:
@@ -65946,6 +66100,30 @@ entities:
         - Pressed: Toggle
         7311:
         - Pressed: Toggle
+  - uid: 8927
+    components:
+    - type: MetaData
+      name: Janitorial Light
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 17.5,12.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        12767:
+        - Pressed: Toggle
+  - uid: 8931
+    components:
+    - type: MetaData
+      name: Janitorial Light
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -18.5,-7.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        8997:
+        - Pressed: Toggle
   - uid: 10067
     components:
     - type: Transform
@@ -66258,6 +66436,52 @@ entities:
       linkedPorts:
         10003:
         - Pressed: Toggle
+  - uid: 10554
+    components:
+    - type: MetaData
+      name: Janitorial Light
+    - type: Transform
+      pos: -14.5,12.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        12765:
+        - Pressed: Toggle
+  - uid: 12574
+    components:
+    - type: MetaData
+      name: Janitorial Light
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 17.5,-8.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        12772:
+        - Pressed: Toggle
+  - uid: 12763
+    components:
+    - type: MetaData
+      name: Janitorial Light
+    - type: Transform
+      pos: 2.5,26.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        12762:
+        - Pressed: Toggle
+  - uid: 12770
+    components:
+    - type: MetaData
+      name: Janitorial Light
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,-18.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        12769:
+        - Pressed: Toggle
 - proto: SignalButtonDirectional
   entities:
   - uid: 10088
@@ -66331,11 +66555,6 @@ entities:
       parent: 2
 - proto: SignChem
   entities:
-  - uid: 10097
-    components:
-    - type: Transform
-      pos: -14.5,12.5
-      parent: 2
   - uid: 10098
     components:
     - type: Transform
@@ -69470,11 +69689,6 @@ entities:
     - type: Transform
       pos: 13.5,14.5
       parent: 2
-  - uid: 10554
-    components:
-    - type: Transform
-      pos: 16.5,12.5
-      parent: 2
   - uid: 10555
     components:
     - type: Transform
@@ -69993,12 +70207,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 19.5,-8.5
-      parent: 2
-  - uid: 10649
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 16.5,-8.5
       parent: 2
   - uid: 10650
     components:
@@ -81056,11 +81264,6 @@ entities:
     - type: Transform
       pos: 33.5,28.5
       parent: 2
-  - uid: 12574
-    components:
-    - type: Transform
-      pos: 13.5,-0.5
-      parent: 2
   - uid: 12575
     components:
     - type: Transform
@@ -81113,12 +81316,17 @@ entities:
     - type: Transform
       pos: -2.5,-5.5
       parent: 2
-- proto: WeaponCapacitorRecharger
-  entities:
   - uid: 12586
     components:
     - type: Transform
-      pos: 16.5,12.5
+      pos: 13.5,-0.5
+      parent: 2
+- proto: WeaponCapacitorRecharger
+  entities:
+  - uid: 10649
+    components:
+    - type: Transform
+      pos: 16.5,13.5
       parent: 2
   - uid: 12587
     components:

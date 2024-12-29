@@ -97,6 +97,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: Broadphase
     - type: OccluderTree
     - type: LoadedMap
@@ -11480,6 +11484,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 235
           moles:
@@ -11495,11 +11503,19 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.14975
           moles:
           - 20.078888
           - 75.53487
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -11526,11 +11542,19 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
           - 0
           - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -11556,9 +11580,17 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -11586,11 +11618,19 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
           - 20.078888
           - 75.53487
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -11672,6 +11712,10 @@ entities:
           moles:
           - 21.824879
           - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -12529,7 +12573,7 @@ entities:
       pos: -42.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -13066.843
+      secondsUntilStateChange: -13589.236
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12925,7 +12969,7 @@ entities:
       pos: -54.5,31.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -12877.276
+      secondsUntilStateChange: -13399.67
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -22652,11 +22696,6 @@ entities:
     - type: Transform
       pos: 25.5,43.5
       parent: 2
-  - uid: 2199
-    components:
-    - type: Transform
-      pos: 37.5,1.5
-      parent: 2
   - uid: 2200
     components:
     - type: Transform
@@ -22924,11 +22963,6 @@ entities:
       parent: 2
 - proto: BedsheetSpawner
   entities:
-  - uid: 2245
-    components:
-    - type: Transform
-      pos: 37.5,1.5
-      parent: 2
   - uid: 2246
     components:
     - type: Transform
@@ -23375,6 +23409,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -23864,6 +23902,43 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 10.5,1.5
+      parent: 2
+- proto: ButtonFrameJanitor
+  entities:
+  - uid: 13226
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 33.5,40.5
+      parent: 2
+  - uid: 13240
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 15.5,-3.5
+      parent: 2
+  - uid: 13243
+    components:
+    - type: Transform
+      pos: -9.5,23.5
+      parent: 2
+  - uid: 13246
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 41.5,10.5
+      parent: 2
+  - uid: 13250
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 13.5,42.5
+      parent: 2
+  - uid: 13255
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 29.5,-26.5
       parent: 2
 - proto: BZCanister
   entities:
@@ -55365,6 +55440,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -55414,6 +55493,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: CrateFunArtSupplies
   entities:
   - uid: 8510
@@ -55429,6 +55512,10 @@ entities:
         moles:
         - 1.8817583
         - 7.0789967
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -55537,6 +55624,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
       open: True
       removedMasks: 20
     - type: PlaceableSurface
@@ -55588,6 +55679,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -55628,6 +55723,10 @@ entities:
         moles:
         - 1.4312177
         - 5.3841047
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -55858,7 +55957,7 @@ entities:
       pos: 55.5,39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -15377.968
+      secondsUntilStateChange: -15900.361
       state: Closing
 - proto: CurtainsBlue
   entities:
@@ -62729,14 +62828,14 @@ entities:
     - type: Transform
       pos: -19.5,44.5
       parent: 2
-- proto: FloraRockSolid01
+- proto: FloraRockSolid
   entities:
   - uid: 9688
     components:
     - type: Transform
       pos: -14.876214,-37.84526
       parent: 2
-- proto: FloraTreeConifer01
+- proto: FloraTreeConifer
   entities:
   - uid: 9689
     components:
@@ -62823,8 +62922,6 @@ entities:
     - type: Transform
       pos: 8.925767,5.7541437
       parent: 2
-- proto: FloraTreeConifer02
-  entities:
   - uid: 9706
     components:
     - type: Transform
@@ -63045,8 +63142,6 @@ entities:
     - type: Transform
       pos: 71.68963,-14.492302
       parent: 2
-- proto: FloraTreeConifer03
-  entities:
   - uid: 9750
     components:
     - type: Transform
@@ -63232,7 +63327,7 @@ entities:
     - type: Transform
       pos: -11.547155,-0.8438978
       parent: 2
-- proto: FloraTreeSnow01
+- proto: FloraTreeSnow
   entities:
   - uid: 9787
     components:
@@ -63254,8 +63349,6 @@ entities:
     - type: Transform
       pos: -11.881158,13.243501
       parent: 2
-- proto: FloraTreeSnow02
-  entities:
   - uid: 9791
     components:
     - type: Transform
@@ -63316,8 +63409,6 @@ entities:
     - type: Transform
       pos: -16.47284,3.6812668
       parent: 2
-- proto: FloraTreeSnow03
-  entities:
   - uid: 9803
     components:
     - type: Transform
@@ -63363,8 +63454,6 @@ entities:
     - type: Transform
       pos: -1.001996,-25.9502
       parent: 2
-- proto: FloraTreeSnow04
-  entities:
   - uid: 9812
     components:
     - type: Transform
@@ -63410,8 +63499,6 @@ entities:
     - type: Transform
       pos: 3.577108,-4.178049
       parent: 2
-- proto: FloraTreeSnow05
-  entities:
   - uid: 9821
     components:
     - type: Transform
@@ -63472,8 +63559,6 @@ entities:
     - type: Transform
       pos: 5.2628946,14.259887
       parent: 2
-- proto: FloraTreeSnow06
-  entities:
   - uid: 9833
     components:
     - type: Transform
@@ -83860,6 +83945,54 @@ entities:
       rot: 3.141592653589793 rad
       pos: 39.5,4.5
       parent: 2
+- proto: JanitorServiceLight
+  entities:
+  - uid: 13092
+    components:
+    - type: Transform
+      pos: 32.5,39.5
+      parent: 2
+  - uid: 13227
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 11.5,6.5
+      parent: 2
+  - uid: 13238
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 20.5,3.5
+      parent: 2
+  - uid: 13241
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,28.5
+      parent: 2
+  - uid: 13244
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 35.5,13.5
+      parent: 2
+  - uid: 13247
+    components:
+    - type: Transform
+      pos: 3.5,31.5
+      parent: 2
+  - uid: 13248
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,38.5
+      parent: 2
+  - uid: 13253
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 38.5,-14.5
+      parent: 2
 - proto: JetpackBlueFilled
   entities:
   - uid: 12785
@@ -84430,6 +84563,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: LockerCaptain
   entities:
   - uid: 12851
@@ -84448,6 +84585,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -84501,6 +84642,10 @@ entities:
         moles:
         - 1.6971024
         - 6.3843384
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -84570,6 +84715,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -84672,6 +84821,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: LockerFreezer
   entities:
   - uid: 12868
@@ -84694,6 +84847,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -84751,6 +84908,10 @@ entities:
         moles:
         - 1.8856695
         - 7.0937095
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -84939,6 +85100,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -85750,6 +85915,16 @@ entities:
       parent: 2
 - proto: MopBucket
   entities:
+  - uid: 2199
+    components:
+    - type: Transform
+      pos: 38.5,1.5
+      parent: 2
+  - uid: 2245
+    components:
+    - type: Transform
+      pos: 38.5,4.5
+      parent: 2
   - uid: 13028
     components:
     - type: Transform
@@ -85834,6 +86009,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -94866,6 +95045,81 @@ entities:
     - type: Transform
       pos: 42.5,64.5
       parent: 2
+- proto: SignalButton
+  entities:
+  - uid: 13225
+    components:
+    - type: MetaData
+      name: Janitorial Light
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 33.5,40.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        13092:
+        - Pressed: Toggle
+  - uid: 13239
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 15.5,-3.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        13227:
+        - Pressed: Toggle
+        13238:
+        - Pressed: Toggle
+  - uid: 13242
+    components:
+    - type: MetaData
+      name: Janitorial Light
+    - type: Transform
+      pos: -9.5,23.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        13241:
+        - Pressed: Toggle
+  - uid: 13245
+    components:
+    - type: MetaData
+      name: Janitorial Light
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 41.5,10.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        13244:
+        - Pressed: Toggle
+  - uid: 13249
+    components:
+    - type: MetaData
+      name: Janitorial Light
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 13.5,42.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        13248:
+        - Pressed: Toggle
+        13247:
+        - Pressed: Toggle
+  - uid: 13254
+    components:
+    - type: MetaData
+      name: Janitorial Light
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 29.5,-26.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        13253:
+        - Pressed: Toggle
 - proto: SignalButtonDirectional
   entities:
   - uid: 14606
@@ -96615,6 +96869,11 @@ entities:
       parent: 2
 - proto: SpawnPointJanitor
   entities:
+  - uid: 13074
+    components:
+    - type: Transform
+      pos: 38.5,4.5
+      parent: 2
   - uid: 14863
     components:
     - type: Transform
@@ -96629,11 +96888,6 @@ entities:
     components:
     - type: Transform
       pos: 38.5,2.5
-      parent: 2
-  - uid: 14866
-    components:
-    - type: Transform
-      pos: 37.5,1.5
       parent: 2
   - uid: 14867
     components:
@@ -112212,6 +112466,11 @@ entities:
       parent: 2
 - proto: WaterTankHighCapacity
   entities:
+  - uid: 13075
+    components:
+    - type: Transform
+      pos: 37.5,1.5
+      parent: 2
   - uid: 17497
     components:
     - type: Transform
@@ -112851,7 +113110,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -20326.332
+      secondsUntilStateChange: -20848.725
       state: Opening
     - type: Airlock
       autoClose: False
@@ -112867,7 +113126,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -20325.766
+      secondsUntilStateChange: -20848.158
       state: Opening
     - type: Airlock
       autoClose: False
@@ -112889,7 +113148,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -20325.299
+      secondsUntilStateChange: -20847.691
       state: Opening
     - type: Airlock
       autoClose: False
@@ -112905,7 +113164,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -20326.832
+      secondsUntilStateChange: -20849.225
       state: Opening
     - type: Airlock
       autoClose: False

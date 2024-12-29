@@ -942,3 +942,9 @@ Entries:
       message: Added frezon canister sprite
   id: 110
   time: '2024-12-28T23:16:14.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Remove
+      message: Funky Station is now less snowsday.
+  id: 111
+  time: '2024-12-29T02:52:09.0000000+00:00'

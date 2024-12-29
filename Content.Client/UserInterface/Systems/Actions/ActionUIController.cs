@@ -865,23 +865,23 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         ActionsBar.PageButtons.LeftArrow.OnPressed -= OnLeftArrowPressed;
         ActionsBar.PageButtons.RightArrow.OnPressed -= OnRightArrowPressed;
 
-        if (_window != null)
-        {
-            _window.OnOpen -= OnWindowOpened;
-            _window.OnClose -= OnWindowClosed;
-            _window.ClearButton.OnPressed -= OnClearPressed;
-            _window.SearchBar.OnTextChanged -= OnSearchChanged;
-            _window.FilterButton.OnItemSelected -= OnFilterSelected;
+        if (_window == null)
+            return;
 
-            _window.Dispose();
-            _window = null;
-        }
+        _window.OnOpen -= OnWindowOpened;
+        _window.OnClose -= OnWindowClosed;
+        _window.ClearButton.OnPressed -= OnClearPressed;
+        _window.SearchBar.OnTextChanged -= OnSearchChanged;
+        _window.FilterButton.OnItemSelected -= OnFilterSelected;
+
+        _window.Dispose();
+        _window = null;
     }
 
     private void LoadGui()
     {
-        DebugTools.Assert(_window == null);
         UnloadGui();
+        DebugTools.Assert(_window == null);
         _window = UIManager.CreateWindow<ActionsWindow>();
         LayoutContainer.SetAnchorPreset(_window, LayoutContainer.LayoutPreset.CenterTop);
 

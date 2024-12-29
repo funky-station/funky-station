@@ -74410,7 +74410,7 @@ entities:
     - type: Transform
       pos: -56.367672,-21.840908
       parent: 60
-- proto: DungeonMasterLawset
+- proto: DungeonMasterCircuitBoard
   entities:
   - uid: 24812
     components:

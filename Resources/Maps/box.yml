@@ -86837,7 +86837,7 @@ entities:
     - type: Transform
       pos: -37.41171,-48.284546
       parent: 8364
-- proto: DungeonMasterLawset
+- proto: DungeonMasterCircuitBoard
   entities:
   - uid: 27917
     components:

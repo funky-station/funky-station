@@ -50534,7 +50534,7 @@ entities:
     - type: Transform
       pos: -53.45894,65.60686
       parent: 2
-- proto: DungeonMasterLawset
+- proto: DungeonMasterCircuitBoard
   entities:
   - uid: 5329
     components:

@@ -75,6 +75,8 @@ namespace Content.IntegrationTests.Tests
             "Kettle", // Goobstation - add Kettle
             "Amber",
 			"Hot Springs",
+            "Gate",
+            "Loop",
         };
 
         /// <summary>

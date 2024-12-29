@@ -133,6 +133,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             var boundKey = hotbarKeys[i];
             builder = builder.Bind(boundKey, new PointerInputCmdHandler((in PointerInputCmdArgs args) =>
             {
+                if (args.State != BoundKeyState.Up)
                 if (args.State != BoundKeyState.Down)
                     return false;
 
@@ -205,9 +206,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         switch (action)
         {
             case WorldTargetActionComponent mapTarget:
+                    return TryTargetWorld(args, actionId, mapTarget, user, comp) || !mapTarget.InteractOnMiss;
                 return TryTargetWorld(args, actionId, mapTarget, user, comp) || !mapTarget.InteractOnMiss;
 
             case EntityTargetActionComponent entTarget:
+                    return TryTargetEntity(args, actionId, entTarget, user, comp) || !entTarget.InteractOnMiss;
                 return TryTargetEntity(args, actionId, entTarget, user, comp) || !entTarget.InteractOnMiss;
 
             case EntityWorldTargetActionComponent entMapTarget:
@@ -240,6 +243,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             if (action.Event != null)
             {
                 action.Event.Target = coords;
+                action.Event.Performer = user;
+                action.Event.Action = actionId!;
             }
 
             _actionsSystem.PerformAction(user, actionComp, actionId, action, action.Event, _timing.CurTime);
@@ -273,6 +278,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             if (action.Event != null)
             {
                 action.Event.Target = entity;
+                action.Event.Performer = user;
+                action.Event.Action = actionId!;
             }
 
             _actionsSystem.PerformAction(user, actionComp, actionId, action, action.Event, _timing.CurTime);
@@ -858,22 +865,23 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         ActionsBar.PageButtons.LeftArrow.OnPressed -= OnLeftArrowPressed;
         ActionsBar.PageButtons.RightArrow.OnPressed -= OnRightArrowPressed;
 
-        if (_window != null)
-        {
-            _window.OnOpen -= OnWindowOpened;
-            _window.OnClose -= OnWindowClosed;
-            _window.ClearButton.OnPressed -= OnClearPressed;
-            _window.SearchBar.OnTextChanged -= OnSearchChanged;
-            _window.FilterButton.OnItemSelected -= OnFilterSelected;
+        if (_window == null)
+            return;
 
-            _window.Dispose();
-            _window = null;
-        }
+        _window.OnOpen -= OnWindowOpened;
+        _window.OnClose -= OnWindowClosed;
+        _window.ClearButton.OnPressed -= OnClearPressed;
+        _window.SearchBar.OnTextChanged -= OnSearchChanged;
+        _window.FilterButton.OnItemSelected -= OnFilterSelected;
+
+        _window.Dispose();
+        _window = null;
     }
 
     private void LoadGui()
     {
         UnloadGui();
+        DebugTools.Assert(_window == null);
         _window = UIManager.CreateWindow<ActionsWindow>();
         LayoutContainer.SetAnchorPreset(_window, LayoutContainer.LayoutPreset.CenterTop);
 
@@ -1149,3 +1157,4 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         public int Size => _data.Length;
     }
 }
+

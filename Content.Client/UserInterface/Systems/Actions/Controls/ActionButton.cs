@@ -306,6 +306,9 @@ public sealed class ActionButton : Control, IEntityControl
 
     public void UpdateBackground()
     {
+        _controller ??= UserInterfaceManager.GetUIController<ActionUIController>();
+        if (_action != null ||
+            _controller.IsDragging && GetPositionInParent() == Parent?.ChildCount - 1)
         // goobstation
         if (_action != null)
         {
@@ -350,6 +353,9 @@ public sealed class ActionButton : Control, IEntityControl
     {
         base.FrameUpdate(args);
 
+        UpdateBackground();
+
+        Cooldown.Visible = _action != null && _action.Cooldown != null;
         if (_action == null)
             return;
 
@@ -443,3 +449,4 @@ public sealed class ActionButton : Control, IEntityControl
 
     EntityUid? IEntityControl.UiEntity => ActionId;
 }
+

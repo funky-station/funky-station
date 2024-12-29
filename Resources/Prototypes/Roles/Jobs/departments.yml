@@ -34,7 +34,7 @@
   - ServiceWorker
 
 - type: department
-  id: CentralCommand
+  id: CentralCommandSpecial
   name: department-CentralCommand
   description: department-CentralCommand-description
   color: "#0c344d"
@@ -53,6 +53,17 @@
   weight: 120
 
 - type: department
+  id: CentralCommand
+  name: department-CentralCommand
+  description: department-CentralCommand-description
+  color: "#0c344d"
+  roles:
+  - BlueshieldOfficer # Goobstation
+  - NanotrasenRepresentative # Goobstation
+  editorHidden: false
+  weight: 120
+
+- type: department
   id: Command
   name: department-Command
   description: department-Command-description
@@ -65,8 +76,6 @@
   - HeadOfSecurity
   - ResearchDirector
   - Quartermaster
-  - BlueshieldOfficer # Goobstation
-  - NanotrasenRepresentative # Goobstation
   - CentralCommandOfficial
   - CBURN
   - ERTLeader
@@ -125,6 +134,7 @@
   roles:
   - ResearchDirector
   - Scientist
+  - Roboticist # funkystation
   - ResearchAssistant
 
 - type: department

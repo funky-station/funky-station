@@ -1,11 +1,11 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "plushie_lunastargazer, plushie_melodyhennion, plushie_jeeperscreepers, plushie_tincan, plushie_felixkay, plushie_lintonbyers, plushie_lokihydrus, plushie_rikdavargh, plushie_silasahas, plushie_korrinkarpen, plushie_aliceandreev, plushie_chadleyskrimblo, plushie_akishjeen by miapyxel. plushie_parfeymaelstorm by noi8, plushie_alteczorban by teromax34",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "plushie_lunastargazer, plushie_melodyhennion, plushie_jeeperscreepers, plushie_tincan, plushie_felixkay, plushie_lintonbyers, plushie_lokihydrus, plushie_rikdavargh, plushie_silasahas, plushie_korrinkarpen, plushie_aliceandreev, plushie_chadleyskrimblo, plushie_akishjeen by miapyxel. plushie_parfeymaelstorm by noi8, plushie_alteczorban by teromax34, plushie_cynskatyns by gynskapeaks, plushie_kuafumoeller by malacchia",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
     "states": [
         {
             "name": "plushie_lunastargazer"
@@ -51,6 +51,12 @@
         },
         {
             "name": "plushie_alteczorban"
+        },
+        {
+            "name": "plushie_cynskatyns"
+        },
+        {
+            "name": "plushie_kuafumoeller"
         }
     ]
 }

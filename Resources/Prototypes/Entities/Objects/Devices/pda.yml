@@ -284,6 +284,9 @@
     state: pda-clown
   - type: Slippery # secretly made of bananium
   - type: StepTrigger
+    triggerGroups: # Goobstation
+      types:
+      - SlipEntity
   - type: CollisionWake
     enabled: false
   - type: Physics
@@ -675,6 +678,21 @@
     accentVColor: "#8900c9"
   - type: Icon
     state: pda-science
+
+- type: entity
+  parent: BasePDA
+  id: RoboticsPDA
+  name: robotics PDA
+  description: It's covered with scratches all over it.
+  components:
+  - type: Pda
+    id: RoboticsIDCard
+    state: pda-roboticist
+  - type: PdaBorderColor
+    borderColor: "#484848"
+    accentVColor: "#d33725"
+  - type: Icon
+    state: pda-roboticist
 
 - type: entity
   parent: BaseSecurityPDA

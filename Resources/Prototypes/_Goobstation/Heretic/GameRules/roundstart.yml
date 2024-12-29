@@ -4,10 +4,7 @@
   components:
   - type: HereticRule
   - type: GameRule
-    minPlayers: 20
-    delay:
-      min: 30
-      max: 60
+    minPlayers: 8
   - type: AntagObjectives
     objectives:
     - HereticKnowledgeObjective
@@ -18,7 +15,7 @@
     definitions:
     - prefRoles: [ Heretic ]
       max: 2
-      playerRatio: 20
+      playerRatio: 25
       lateJoinAdditional: true
       mindRoles:
       - MindRoleHeretic

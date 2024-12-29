@@ -1,7 +1,7 @@
 - type: gameMap
   id: Packed
   mapName: 'Packed'
-  mapPath: /Maps/packed.yml
+  mapPath: /Maps/_Funkystation/packed.yml
   minPlayers: 7
   maxPlayers: 35
   stations:
@@ -39,7 +39,8 @@
             Paramedic: [ 1, 1 ]
             #science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 4, 4 ]
+            Scientist: [ 3, 3 ]
+            Roboticist: [ 1, 1 ]
             ResearchAssistant: [ 2, 2 ]
             #security
             HeadOfSecurity: [ 1, 1 ]

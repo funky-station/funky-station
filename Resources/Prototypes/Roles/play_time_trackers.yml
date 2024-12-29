@@ -124,6 +124,9 @@
 - type: playTimeTracker
   id: JobScientist
 
+- type: playTimeTracker # funkystation
+  id: JobRoboticist
+
 - type: playTimeTracker
   id: JobSecurityCadet
 

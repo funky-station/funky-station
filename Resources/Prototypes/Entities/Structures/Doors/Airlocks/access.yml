@@ -277,6 +277,15 @@
       board: [ DoorElectronicsResearch ]
 
 - type: entity
+  parent: AirlockRobotics
+  id: AirlockRoboticsLocked
+  suffix: Robotics, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsRobotics ]
+
+- type: entity
   parent: AirlockScience
   id: AirlockMedicalScienceLocked
   suffix: Medical/Science, Locked
@@ -659,6 +668,15 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsResearch ]
+
+- type: entity
+  parent: AirlockRoboticsGlass
+  id: AirlockRoboticsGlassLocked
+  suffix: Robotics, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsRobotics ]
 
 - type: entity
   parent: AirlockScienceGlass

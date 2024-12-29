@@ -1,23 +1,19 @@
 - type: soundCollection
   id: LobbyMusic
   files:
-#    - /Audio/Lobby/space_asshole.ogg
-#    - /Audio/Lobby/every_light_is_blinking_at_once.ogg
+    - /Audio/Lobby/space_asshole.ogg
+    - /Audio/Lobby/every_light_is_blinking_at_once.ogg
     # Goobstation - Custom lobby music
 #    - /Audio/Lobby/skubstep.ogg
-#    - /Audio/Lobby/sneedsfeedandseed.ogg
+    - /Audio/Lobby/sneedsfeedandseed.ogg
 #    - /Audio/Lobby/honk.ogg
 #    - /Audio/Lobby/clownalwayswins.ogg
 #    - /Audio/Lobby/clownwmv.ogg
-#    - /Audio/Lobby/dawsonschristian.ogg
-#    - /Audio/Lobby/thewizard.ogg
+    - /Audio/Lobby/dawsonschristian.ogg
+    - /Audio/Lobby/thewizard.ogg
 #    - /Audio/Lobby/skubstub.ogg
-#    - /Audio/Lobby/space_radiation.ogg
-#    - /Audio/Lobby/droopy_likes_your_face.ogg
-#    - /Audio/Lobby/spacers_home.ogg
+    - /Audio/Lobby/space_radiation.ogg
+    - /Audio/Lobby/droopy_likes_your_face.ogg
+    - /Audio/Lobby/spacers_home.ogg
     - /Audio/Lobby/starpilotshymn.ogg
-#    - /Audio/Lobby/tusmentiras.ogg
-    - /Audio/Lobby/merrynightmerrylight.ogg
-    - /Audio/Lobby/angelsweheardonhigh.ogg
-    - /Audio/Lobby/shoppinga.ogg
-    - /Audio/Lobby/auldlangsyne.ogg
+    - /Audio/Lobby/tusmentiras.ogg

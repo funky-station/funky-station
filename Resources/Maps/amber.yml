@@ -67777,7 +67777,7 @@ entities:
     - type: Transform
       pos: 3.5404968,-19.16355
       parent: 2
-- proto: GameMasterCircuitBoard
+- proto: DungeonMasterLawset
   entities:
   - uid: 16465
     components:

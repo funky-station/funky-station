@@ -962,3 +962,9 @@ Entries:
       message: A book was placed near a useful water tank in Oasis.
   id: 112
   time: '2024-12-29T20:41:30.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Tweak
+      message: You can now do surgery on yourself!
+  id: 113
+  time: '2024-12-29T23:29:12.0000000+00:00'

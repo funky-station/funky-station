@@ -26,7 +26,7 @@ public sealed partial class CCVars
     ///     Should the server play a quick sound to the active admins whenever a new player joins?
     /// </summary>
     public static readonly CVarDef<bool> AdminNewPlayerJoinSound =
-        CVarDef.Create("admin.new_player_join_sound", false, CVar.SERVERONLY);
+        CVarDef.Create("admin.new_player_join_sound", true, CVar.SERVERONLY);
 
     /// <summary>
     ///     The amount of days before the note starts fading. It will slowly lose opacity until it reaches stale. Set to 0 to disable.
@@ -96,7 +96,7 @@ public sealed partial class CCVars
     ///     If you set this to 0 or 1 then it will alert on every connection, so probably don't do that.
     /// </remarks>
     public static readonly CVarDef<int> AdminAlertMinPlayersSharingConnection =
-        CVarDef.Create("admin.alert.min_players_sharing_connection", -1, CVar.SERVERONLY);
+        CVarDef.Create("admin.alert.min_players_sharing_connection", 3, CVar.SERVERONLY);
 
     /// <summary>
     ///     Minimum explosion intensity to create an admin alert message. -1 to disable the alert.
@@ -108,7 +108,7 @@ public sealed partial class CCVars
     ///     Minimum particle accelerator strength to create an admin alert message.
     /// </summary>
     public static readonly CVarDef<int> AdminAlertParticleAcceleratorMinPowerState =
-        CVarDef.Create("admin.alert.particle_accelerator_min_power_state", 5, CVar.SERVERONLY); // strength 4
+        CVarDef.Create("admin.alert.particle_accelerator_min_power_state", 3, CVar.SERVERONLY); // strength 4
 
     /// <summary>
     ///     Should the ban details in admin channel include PII? (IP, HWID, etc)
@@ -121,7 +121,7 @@ public sealed partial class CCVars
     ///     de-admin them.
     /// </summary>
     public static readonly CVarDef<bool> AdminDeadminOnJoin =
-        CVarDef.Create("admin.deadmin_on_join", false, CVar.SERVERONLY);
+        CVarDef.Create("admin.deadmin_on_join", true, CVar.SERVERONLY);
 
     /// <summary>
     ///     Overrides the name the client sees in ahelps. Set empty to disable.

@@ -62,7 +62,7 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<string> MOTD =
         CVarDef.Create("chat.motd",
-            "",
+            "Welcome to FunkyStation! discord.gg/funky14",
             CVar.SERVER | CVar.SERVERONLY | CVar.ARCHIVE,
             "A message broadcast to each player that joins the lobby.");
 }

@@ -278,6 +278,24 @@ uplink-necronomicon-desc = An unholy book capable of summoning a demonic familia
 uplink-holy-hand-grenade-name = Holy Hand Grenade
 uplink-holy-hand-grenade-desc = O Lord, bless this thy hand grenade, that with it thou mayst blow thine enemies to tiny bits, in thy mercy.
 
+# begin funkystation specific syndie wear
+
+uplink-botanist-syndie-jumpsuit-name: Syndicate Botanist Jumpsuit
+uplink-botanist-syndie-jumpsuit-desc: Perfect wear for when you need to grow some illegal plants.
+
+uplink-bartender-syndie-jumpsuit-name: Syndicate Bartender Jumpsuit
+uplink-bartender-syndie-jumpsuit-desc: Secretly spiking suspicious sodas has never been more fancy.
+
+uplink-librarian-syndie-jumpsuit-name: Syndicate Librarian Jumpsuit
+uplink-librarian-syndie-jumpsuit-desc: You aren't going to be casting any spells with your books, but they'll still be cursed.
+
+uplink-scientist-syndie-jumpsuit-name: Syndicate Scientist Jumpsuit
+uplink-scientist-syndie-jumpsuit-desc: Far ahead of Nanotrasen in research. Even farther ahead in style.
+
+uplink-scientist-white-syndie-jumpsuit-name: Syndicate White Scientist Jumpsuit
+
+# end funkystation specific syndie wear
+
 uplink-revolver-cap-gun-fake-name = Fake Cap Gun
 uplink-revolver-cap-gun-fake-desc = Fool your enemy! It can use both cap and magnum bullets. Comes loaded with magnum bullets.
 

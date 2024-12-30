@@ -1780,6 +1780,85 @@
     whitelist:
     - Chaplain
   saleLimit: 1 # WD EDIT
+  
+# begin funky specific syndicate wear
+  
+- type: listing
+  id: uplinkBotanistSyndicateSuit
+  name: uplink-botanist-syndie-jumpsuit-name
+  description: uplink-botanist-syndie-jumpsuit-desc
+  productEntity: ClothingUniformJumpsuitBotanistSyndicate
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Botanist
+  saleLimit: 1
+  
+- type: listing
+  id: uplinkBartenderSyndicateSuit
+  name: uplink-bartender-syndie-jumpsuit-name
+  description: uplink-bartender-syndie-jumpsuit-desc
+  productEntity: ClothingUniformJumpsuitBartenderSyndicate
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Bartender
+  saleLimit: 1
+  
+- type: listing
+  id: uplinkLibrarianSyndicateSuit
+  name: uplink-librarian-syndie-jumpsuit-name
+  description: uplink-librarian-syndie-jumpsuit-desc
+  productEntity: ClothingUniformJumpsuitLibrarianSyndicate
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Librarian
+  saleLimit: 1
+  
+- type: listing
+  id: uplinkScientistSyndicateSuit
+  name: uplink-scientist-syndie-jumpsuit-name
+  description: uplink-scientist-syndie-jumpsuit-desc
+  productEntity: ClothingUniformJumpsuitScientistSyndicate
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Scientist
+  saleLimit: 1
+  
+- type: listing
+  id: uplinkScientistSyndicateSuit
+  name: uplink-scientist-white-syndie-jumpsuit-name
+  description: uplink-scientist-syndie-jumpsuit-desc
+  productEntity: ClothingUniformJumpsuitScientistWhiteSyndicate
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Scientist
+  saleLimit: 1
+
+# end funky specific syndicate wear
 
 - type: listing
   id: uplinkRevolverCapGunFake

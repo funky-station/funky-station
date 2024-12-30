@@ -1,0 +1,10 @@
+- type: entity
+  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  id: ClothingUniformJumpsuitBotanistSyndicate
+  name: syndicate botanist jumpsuit
+  description: Perfect wear for when you need to grow some illegal plants.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/botanist.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/botanist.rsi

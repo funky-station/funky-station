@@ -1789,7 +1789,7 @@
   description: uplink-botanist-syndie-jumpsuit-desc
   productEntity: ClothingUniformJumpsuitBotanistSyndicate
   cost:
-    Telecrystal: 10
+    Telecrystal: 2
   categories:
   - UplinkJob
   conditions:
@@ -1804,7 +1804,7 @@
   description: uplink-bartender-syndie-jumpsuit-desc
   productEntity: ClothingUniformJumpsuitBartenderSyndicate
   cost:
-    Telecrystal: 10
+    Telecrystal: 2
   categories:
   - UplinkJob
   conditions:
@@ -1819,7 +1819,7 @@
   description: uplink-librarian-syndie-jumpsuit-desc
   productEntity: ClothingUniformJumpsuitLibrarianSyndicate
   cost:
-    Telecrystal: 10
+    Telecrystal: 2
   categories:
   - UplinkJob
   conditions:
@@ -1834,7 +1834,7 @@
   description: uplink-scientist-syndie-jumpsuit-desc
   productEntity: ClothingUniformJumpsuitScientistSyndicate
   cost:
-    Telecrystal: 10
+    Telecrystal: 2
   categories:
   - UplinkJob
   conditions:
@@ -1849,7 +1849,7 @@
   description: uplink-scientist-syndie-jumpsuit-desc
   productEntity: ClothingUniformJumpsuitScientistWhiteSyndicate
   cost:
-    Telecrystal: 10
+    Telecrystal: 2
   categories:
   - UplinkJob
   conditions:

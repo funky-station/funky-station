@@ -1844,7 +1844,7 @@
   saleLimit: 1
   
 - type: listing
-  id: uplinkScientistSyndicateSuit
+  id: uplinkScientistWhiteSyndicateSuit
   name: uplink-scientist-white-syndie-jumpsuit-name
   description: uplink-scientist-syndie-jumpsuit-desc
   productEntity: ClothingUniformJumpsuitScientistWhiteSyndicate

@@ -83,6 +83,20 @@ public sealed class SmartFridgeInventoryItem(EntProtoId id, string storageSlotId
 }
 
 [Serializable, NetSerializable]
+public sealed class SmartFridgeBoundUserInterfaceState : BoundUserInterfaceState
+{
+    public readonly IReadOnlyList<SmartFridgeInventoryItem> FridgeInventory;
+    public readonly FixedPoint2? FridgeInventoryAmount;
+
+    public SmartFridgeBoundUserInterfaceState(
+        IReadOnlyList<SmartFridgeInventoryItem> fridgeInventory, FixedPoint2 fridgeInventoryAmount)
+    {
+        FridgeInventory = fridgeInventory;
+        FridgeInventoryAmount = fridgeInventoryAmount;
+    }
+}
+
+[Serializable, NetSerializable]
 public enum SmartFridgeUiKey
 {
     Key
@@ -93,4 +107,15 @@ public enum SmartFridgeUiKey
 public sealed class SmartFridgeEjectMessage(string id) : BoundUserInterfaceMessage
 {
     public readonly string Id = id;
+}
+
+[Serializable, NetSerializable]
+public enum FridgeAmount
+{
+    E1 = 1,
+    E2 = 2,
+    E5 = 5,
+    E10 = 10,
+    E15 = 15,
+    All,
 }

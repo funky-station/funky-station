@@ -1,22 +1,78 @@
 <controls:FancyWindow
+    MinSize="620 670"
     xmlns="https://spacestation14.io"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:co="clr-namespace:Content.Client.UserInterface.Controls"
-    MinHeight="210">
-    <BoxContainer Name="MainContainer" Orientation="Vertical">
-        <LineEdit Name="SearchBar" PlaceHolder="{Loc 'vending-machine-component-search-filter'}" HorizontalExpand="True"  Margin ="4 4"/>
-        <co:SearchListContainer Name="VendingContents" VerticalExpand="True" Margin="4 4"/>
-        <!-- Footer -->
-        <BoxContainer Orientation="Vertical">
-            <PanelContainer StyleClasses="LowDivider" />
-            <BoxContainer Orientation="Horizontal" Margin="10 2 5 0" VerticalAlignment="Bottom">
-                <Label Text="{Loc 'vending-machine-flavor-left'}" StyleClasses="WindowFooterText" />
-                <Label Text="{Loc 'vending-machine-flavor-right'}" StyleClasses="WindowFooterText"
-                       HorizontalAlignment="Right" HorizontalExpand="True"  Margin="0 0 5 0" />
-                <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
-                             VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19"/>
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:ui="clr-namespace:Content.Client.Chemistry.UI"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <TabContainer Margin="5,5,7,5" Name="Tabs">
+        <!--  All tab  -->
+        <BoxContainer Name="MainContainer" Orientation="Vertical">
+            <!--  top labels  -->
+            <BoxContainer Margin="0,0,0,0" Orientation="Horizontal">
+                <Label Margin="0,0,0,0" Text="{Loc 'smart-fridge-label-name'}" />
+                <Control HorizontalExpand="True" />
+                <Label Margin="0,0,0,0" Text="{Loc 'smart-fridge-label-number'}" />
+                <Control HorizontalExpand="True" />
+                <Label Margin="0,0,0,0" Text="{Loc 'smart-fridge-label-dispense'}" />
+            </BoxContainer>
+
+            <!--  main content  -->
+            <PanelContainer MinSize="0 200" VerticalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                </PanelContainer.PanelOverride>
+
+                <ScrollContainer MinSize="0 200">
+                    <BoxContainer Orientation="Vertical">
+                        <!--  search bar  -->
+                        <LineEdit
+                            HorizontalExpand="True"
+                            Margin="4,4"
+                            MaxHeight="30"
+                            Name="SearchBar"
+                            Text="{Loc 'vending-machine-component-search-filter'}"
+                            VerticalAlignment="Top" />
+                        <!--  entity list  -->
+                        <BoxContainer Name="ContainerContents" VerticalExpand="True">
+                            <controls:SearchListContainer
+                                HorizontalExpand="True"
+                                Margin="4,4"
+                                Name="VendingContents"
+                                VerticalExpand="True" />
+                        </BoxContainer>
+                    </BoxContainer>
+                </ScrollContainer>
+            </PanelContainer>
+
+            <!--  footer  -->
+            <BoxContainer Orientation="Vertical">
+                <PanelContainer StyleClasses="LowDivider" />
+                <BoxContainer
+                    Margin="10,2,5,0"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Bottom">
+                    <Label StyleClasses="WindowFooterText" Text="{Loc 'smart-fridge-temp'}" />
+                    <Label
+                        HorizontalAlignment="Right"
+                        HorizontalExpand="True"
+                        Margin="0,0,5,0"
+                        StyleClasses="WindowFooterText"
+                        Text="{Loc 'vending-machine-flavor-right'}" />
+                    <TextureRect
+                        HorizontalAlignment="Right"
+                        SetSize="19 19"
+                        Stretch="KeepAspectCentered"
+                        StyleClasses="NTLogoDark"
+                        VerticalAlignment="Center" />
+                </BoxContainer>
             </BoxContainer>
         </BoxContainer>
-    </BoxContainer>
+        <BoxContainer Name="1" />
+        <BoxContainer Name="2" />
+        <BoxContainer Name="3" />
+        <BoxContainer Name="4" />
+    </TabContainer>
 </controls:FancyWindow>

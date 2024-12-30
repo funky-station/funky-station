@@ -570,6 +570,73 @@
   id: ClothingUniformJumpsuitPyjamaSyndicateRed
   result: ClothingUniformJumpsuitPyjamaSyndicateRed
 
+# new funkystation specific syndicate wear
+
+# syndi civilian (spritework by meijunkie)
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitBotanistSyndicate
+  result: ClothingUniformJumpsuitBotanistSyndicate
+  
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitBartenderSyndicate
+  result: ClothingUniformJumpsuitBartenderSyndicate
+  
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitLibrarianSyndicate
+  result: ClothingUniformJumpsuitLibrarianSyndicate
+  
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitScientistSyndicate
+  result: ClothingUniformJumpsuitScientistSyndicate
+  
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitScientistWhiteSyndicate
+  result: ClothingUniformJumpsuitScientistWhiteSyndicate
+
+# syndicate command (spritework by meijunkie)
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitGCMSyndicate
+  result: ClothingUniformJumpsuitGCMSyndicate
+  
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitCCRSyndicate
+  result: ClothingUniformJumpsuitCCRSyndicate
+  
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitIMDSyndicate
+  result: ClothingUniformJumpsuitIMDSyndicate
+  
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitWSMSyndicate
+  result: ClothingUniformJumpsuitWSMSyndicate
+  
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitHRDSyndicate
+  result: ClothingUniformJumpsuitHRDSyndicate
+  
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitCHESyndicate
+  result: ClothingUniformJumpsuitCHESyndicate
+  
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitHCRSyndicate
+  result: ClothingUniformJumpsuitHCRSyndicate
+  
+# end of funkystation specific syndie wear
+
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpsuitWarden

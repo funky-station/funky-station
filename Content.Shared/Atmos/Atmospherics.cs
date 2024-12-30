@@ -159,6 +159,10 @@ namespace Content.Shared.Atmos
             [Gas.Plasma] = Loc.GetString("gas-plasma-abbreviation"),
             [Gas.Tritium] = Loc.GetString("gas-tritium-abbreviation"),
             [Gas.WaterVapor] = Loc.GetString("gas-water-vapor-abbreviation"),
+            [Gas.BZ] = Loc.GetString("gas-bz-abbreviation"),
+            [Gas.Healium] = Loc.GetString("gas-healium-abbreviation"),
+            [Gas.Nitrium] = Loc.GetString("gas-nitrium-abbreviation"),
+            [Gas.Pluoxium] = Loc.GetString("gas-pluoxium-abbreviation"),
         };
 
         #region Excited Groups

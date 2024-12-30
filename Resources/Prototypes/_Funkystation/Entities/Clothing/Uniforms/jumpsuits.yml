@@ -60,7 +60,7 @@
   parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitGCMSyndicate
   name: gorlex commanding mercenary jumpsuit
-  description: item-description-gcm
+  description: Even Gorlex needs someone to keep things under control. This jumpsuit is worn by the person who does just that.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/gcm.rsi
@@ -71,7 +71,7 @@
   parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitCCRSyndicate
   name: cybersun chief researcher jumpsuit
-  description: item-description-ccr
+  description: The brain behind all of Cybersun's scientific advancements' jumpsuit.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/ccr.rsi
@@ -82,7 +82,7 @@
   parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitIMDSyndicate
   name: interdyne medical director jumpsuit
-  description: item-description-imd
+  description: Someone has to take care of the agents who just can't do their job without getting hurt.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/imd.rsi
@@ -93,7 +93,7 @@
   parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitWSMSyndicate
   name: waffle co. supply manager jumpsuit
-  description: item-description-wsm
+  description: The jumpsuit of the person who manages the supply intake and output of Waffle Co.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/wsm.rsi
@@ -104,7 +104,7 @@
   parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitHRDSyndicate
   name: donk co. hr director jumpsuit
-  description: item-description-HRD
+  description: The jumpsuit of the HR director of donk co.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/hrd.rsi
@@ -115,7 +115,7 @@
   parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitCHESyndicate
   name: cybersun head engineer jumpsuit
-  description: item-description-che
+  description: Perfect wear for when you decide to declare sovereignty from the rest of the station.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/che.rsi
@@ -126,7 +126,7 @@
   parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitHCRSyndicate
   name: high command representative jumpsuit
-  description: item-description-hcr
+  description: A member of the Syndicate High Command's jumpsuit.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/hcr.rsi

@@ -113,7 +113,11 @@
   suffix: For calls between maps
   components:
   - type: Telephone
-    transmissionRange: Long
+    transmissionRange: Map
+    compatibleRanges:
+    - Map
+    - Unlimited
+    ignoreTelephonesOnSameGrid: true
 
 - type: entity
   name: quantum entangling holopad
@@ -484,6 +488,14 @@
   components:
   - type: Label
     currentLabel: holopad-medical-breakroom
+
+- type: entity
+  parent: Holopad
+  id: HolopadMedicalClinic
+  suffix: Med Clinic
+  components:
+  - type: Label
+    currentLabel: holopad-medical-clinic
 
 # Cargo
 - type: entity

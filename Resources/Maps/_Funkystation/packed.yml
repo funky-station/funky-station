@@ -40,6 +40,8 @@ entities:
   - uid: 2
     components:
     - type: MetaData
+    - type: Transform
+      parent: 4480
     - type: MapGrid
       chunks:
         -1,-1:
@@ -1875,9 +1877,17 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           immutable: True
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -1905,6 +1915,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -1920,9 +1934,17 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -1950,11 +1972,19 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
           - 0
           - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -6466,6 +6496,18 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: SpreaderGrid
+  - uid: 4480
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
+    - type: Broadphase
+    - type: OccluderTree
 - proto: AccordionInstrument
   entities:
   - uid: 13494
@@ -11853,6 +11895,44 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 5.5,22.5
+      parent: 2
+- proto: ButtonFrameJanitor
+  entities:
+  - uid: 5028
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 31.5,44.5
+      parent: 2
+  - uid: 5244
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 63.5,-1.5
+      parent: 2
+  - uid: 5664
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 36.5,20.5
+      parent: 2
+  - uid: 7882
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 10.5,20.5
+      parent: 2
+  - uid: 8924
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 20.5,-29.5
+      parent: 2
+  - uid: 11578
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 52.5,16.5
       parent: 2
 - proto: BZCanister
   entities:
@@ -37383,6 +37463,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -37404,6 +37488,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -39175,6 +39263,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -39420,6 +39512,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -65814,6 +65910,43 @@ entities:
     - type: Transform
       pos: 4.5,-6.5
       parent: 2
+- proto: JanitorServiceLight
+  entities:
+  - uid: 4493
+    components:
+    - type: Transform
+      pos: 24.5,37.5
+      parent: 2
+  - uid: 5029
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 51.5,-1.5
+      parent: 2
+  - uid: 5247
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 27.5,26.5
+      parent: 2
+  - uid: 5683
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 23.5,20.5
+      parent: 2
+  - uid: 7883
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 27.5,-22.5
+      parent: 2
+  - uid: 11101
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 46.5,13.5
+      parent: 2
 - proto: JetpackMiniFilled
   entities:
   - uid: 10308
@@ -66201,6 +66334,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -66297,6 +66434,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -75077,6 +75218,18 @@ entities:
       linkedPorts:
         4257:
         - Pressed: Toggle
+  - uid: 4501
+    components:
+    - type: MetaData
+      name: Janitorial Light
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 31.5,44.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        4493:
+        - Pressed: Toggle
   - uid: 5043
     components:
     - type: Transform
@@ -75085,6 +75238,28 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         5124:
+        - Pressed: Toggle
+  - uid: 5132
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 63.5,-1.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        5029:
+        - Pressed: Toggle
+  - uid: 5366
+    components:
+    - type: MetaData
+      name: Janitorial Light
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 36.5,20.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        5247:
         - Pressed: Toggle
   - uid: 5428
     components:
@@ -75107,6 +75282,18 @@ entities:
         2834:
         - Pressed: Toggle
         2835:
+        - Pressed: Toggle
+  - uid: 6480
+    components:
+    - type: MetaData
+      name: Janitorial Light
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 10.5,20.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        5683:
         - Pressed: Toggle
   - uid: 6749
     components:
@@ -75132,6 +75319,18 @@ entities:
       linkedPorts:
         8067:
         - Pressed: Toggle
+  - uid: 8638
+    components:
+    - type: MetaData
+      name: Janitorial Light
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 20.5,-29.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        7883:
+        - Pressed: Toggle
   - uid: 10321
     components:
     - type: Transform
@@ -75140,6 +75339,18 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         3956:
+        - Pressed: Toggle
+  - uid: 11577
+    components:
+    - type: MetaData
+      name: Janitorial Light
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 52.5,16.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        11101:
         - Pressed: Toggle
   - uid: 13002
     components:
@@ -93304,6 +93515,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 13063
     components:
     - type: Transform
@@ -93317,6 +93532,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0

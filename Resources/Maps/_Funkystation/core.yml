@@ -71,6 +71,8 @@ entities:
     components:
     - type: MetaData
       name: Core
+    - type: Transform
+      parent: 21128
     - type: MapGrid
       chunks:
         0,0:
@@ -11525,6 +11527,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -11540,6 +11546,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -11555,6 +11565,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -11570,9 +11584,17 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -11592,6 +11614,10 @@ entities:
           - 0
           - 0
           - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -11605,6 +11631,10 @@ entities:
           moles:
           - 0
           - 103.92799
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -11630,11 +11660,19 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
           - 21.824873
           - 82.1031
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -11684,6 +11722,18 @@ entities:
     - type: ContainedSolution
       containerName: food
       container: 1963
+  - uid: 21128
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
+    - type: Broadphase
+    - type: OccluderTree
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 4746
@@ -22066,6 +22116,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 62.5,-16.5
+      parent: 2
+  - uid: 21131
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 34.5,-25.5
       parent: 2
   - uid: 21614
     components:
@@ -59562,6 +59618,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -59916,6 +59976,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -59951,6 +60015,10 @@ entities:
         moles:
         - 1.8856695
         - 7.0937095
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -60156,6 +60224,10 @@ entities:
         moles:
         - 1.8856695
         - 7.0937095
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -62451,6 +62523,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -75467,34 +75543,37 @@ entities:
     - type: Transform
       pos: 61.5,19.5
       parent: 2
-- proto: FloraRockSolid01
+- proto: FloraRockSolid
   entities:
+  - uid: 16697
+    components:
+    - type: Transform
+      pos: 62.19926,-39.235546
+      parent: 2
   - uid: 16712
     components:
     - type: Transform
       pos: 28.622553,-54.29832
       parent: 2
-  - uid: 17302
-    components:
-    - type: Transform
-      pos: 38.490116,-53.00032
-      parent: 2
-  - uid: 17303
-    components:
-    - type: Transform
-      pos: 64.42829,-47.413994
-      parent: 2
-- proto: FloraRockSolid02
-  entities:
   - uid: 16745
     components:
     - type: Transform
       pos: 26.769617,-50.317265
       parent: 2
+  - uid: 16748
+    components:
+    - type: Transform
+      pos: -44.05552,-40.28774
+      parent: 2
   - uid: 16779
     components:
     - type: Transform
       pos: -44.44241,-39.335354
+      parent: 2
+  - uid: 17021
+    components:
+    - type: Transform
+      pos: 28.54376,-56.43803
       parent: 2
   - uid: 17138
     components:
@@ -75506,23 +75585,6 @@ entities:
     - type: Transform
       pos: 46.236732,-51.29415
       parent: 2
-- proto: FloraRockSolid03
-  entities:
-  - uid: 16697
-    components:
-    - type: Transform
-      pos: 62.19926,-39.235546
-      parent: 2
-  - uid: 16748
-    components:
-    - type: Transform
-      pos: -44.05552,-40.28774
-      parent: 2
-  - uid: 17021
-    components:
-    - type: Transform
-      pos: 28.54376,-56.43803
-      parent: 2
   - uid: 17299
     components:
     - type: Transform
@@ -75533,7 +75595,17 @@ entities:
     - type: Transform
       pos: 50.521164,-56.935516
       parent: 2
-- proto: FloraTree01
+  - uid: 17302
+    components:
+    - type: Transform
+      pos: 38.490116,-53.00032
+      parent: 2
+  - uid: 17303
+    components:
+    - type: Transform
+      pos: 64.42829,-47.413994
+      parent: 2
+- proto: FloraTree
   entities:
   - uid: 1075
     components:
@@ -75545,66 +75617,56 @@ entities:
     - type: Transform
       pos: -28.765827,6.0652723
       parent: 2
-  - uid: 3620
-    components:
-    - type: Transform
-      pos: -45.82935,-1.4404856
-      parent: 2
-- proto: FloraTree02
-  entities:
   - uid: 3619
     components:
     - type: Transform
       pos: -48.654617,4.503584
+      parent: 2
+  - uid: 3620
+    components:
+    - type: Transform
+      pos: -45.82935,-1.4404856
       parent: 2
   - uid: 3696
     components:
     - type: Transform
       pos: -49.713776,-8.129584
       parent: 2
-  - uid: 6140
-    components:
-    - type: Transform
-      pos: -45.10429,-48.580776
-      parent: 2
-- proto: FloraTree05
-  entities:
-  - uid: 6128
-    components:
-    - type: Transform
-      pos: -50.151165,-48.580776
-      parent: 2
-- proto: FloraTree06
-  entities:
   - uid: 3810
     components:
     - type: Transform
       pos: -47.863766,-29.112556
       parent: 2
-- proto: FloraTreeLarge03
+  - uid: 6128
+    components:
+    - type: Transform
+      pos: -50.151165,-48.580776
+      parent: 2
+  - uid: 6140
+    components:
+    - type: Transform
+      pos: -45.10429,-48.580776
+      parent: 2
+- proto: FloraTreeLarge
   entities:
   - uid: 1077
     components:
     - type: Transform
       pos: -39.07622,5.790084
       parent: 2
-- proto: FloraTreeLarge04
-  entities:
   - uid: 4227
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -45.237907,-8.042405
       parent: 2
-- proto: FloraTreeSnow02
+- proto: FloraTreeSnow
   entities:
   - uid: 20393
     components:
     - type: Transform
       pos: 80.68255,-34.341137
       parent: 2
-- proto: FloraTreeSnow04
-  entities:
   - uid: 20394
     components:
     - type: Transform
@@ -101996,6 +102058,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: GyroscopeUnanchored
   entities:
   - uid: 15146
@@ -102841,6 +102907,12 @@ entities:
       parent: 2
     - type: ApcPowerReceiver
       powerLoad: 0
+  - uid: 21129
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 34.5,-20.5
+      parent: 2
 - proto: JetpackBlueFilled
   entities:
   - uid: 1468
@@ -103233,6 +103305,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -103266,6 +103342,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -103312,6 +103392,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -103338,6 +103422,10 @@ entities:
         moles:
         - 1.8968438
         - 7.1357465
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -103452,6 +103540,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 5672
     components:
     - type: Transform
@@ -103501,6 +103593,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -103527,6 +103623,10 @@ entities:
         moles:
         - 1.8978151
         - 7.1394
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -103573,6 +103673,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -103597,6 +103701,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -103641,6 +103749,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -103675,6 +103787,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -103699,6 +103815,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -103745,6 +103865,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -103772,6 +103896,10 @@ entities:
         moles:
         - 1.8977377
         - 7.139109
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -103821,6 +103949,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -103845,6 +103977,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -103891,6 +104027,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -103917,6 +104057,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -104031,6 +104175,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -104073,6 +104221,10 @@ entities:
         moles:
         - 1.8856695
         - 7.0937095
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -117294,6 +117446,18 @@ entities:
         - Pressed: Toggle
         20350:
         - Pressed: Toggle
+  - uid: 21130
+    components:
+    - type: MetaData
+      name: Janitorial service light
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 34.5,-25.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        21129:
+        - Pressed: Toggle
   - uid: 21867
     components:
     - type: MetaData
@@ -121473,6 +121637,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0

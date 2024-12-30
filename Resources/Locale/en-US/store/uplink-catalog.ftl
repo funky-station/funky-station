@@ -280,19 +280,19 @@ uplink-holy-hand-grenade-desc = O Lord, bless this thy hand grenade, that with i
 
 # begin funkystation specific syndie wear
 
-uplink-botanist-syndie-jumpsuit-name: Syndicate Botanist Jumpsuit
-uplink-botanist-syndie-jumpsuit-desc: Perfect wear for when you need to grow some illegal plants.
+uplink-botanist-syndie-jumpsuit-name = Syndicate Botanist Jumpsuit
+uplink-botanist-syndie-jumpsuit-desc = Perfect wear for when you need to grow some illegal plants.
 
-uplink-bartender-syndie-jumpsuit-name: Syndicate Bartender Jumpsuit
-uplink-bartender-syndie-jumpsuit-desc: Secretly spiking suspicious sodas has never been more fancy.
+uplink-bartender-syndie-jumpsuit-name = Syndicate Bartender Jumpsuit
+uplink-bartender-syndie-jumpsuit-desc = Secretly spiking suspicious sodas has never been more fancy.
 
-uplink-librarian-syndie-jumpsuit-name: Syndicate Librarian Jumpsuit
-uplink-librarian-syndie-jumpsuit-desc: You aren't going to be casting any spells with your books, but they'll still be cursed.
+uplink-librarian-syndie-jumpsuit-name = Syndicate Librarian Jumpsuit
+uplink-librarian-syndie-jumpsuit-desc = You aren't going to be casting any spells with your books, but they'll still be cursed.
 
-uplink-scientist-syndie-jumpsuit-name: Syndicate Scientist Jumpsuit
-uplink-scientist-syndie-jumpsuit-desc: Far ahead of Nanotrasen in research. Even farther ahead in style.
+uplink-scientist-syndie-jumpsuit-name = Syndicate Scientist Jumpsuit
+uplink-scientist-syndie-jumpsuit-desc = Far ahead of Nanotrasen in research. Even farther ahead in style.
 
-uplink-scientist-white-syndie-jumpsuit-name: Syndicate White Scientist Jumpsuit
+uplink-scientist-white-syndie-jumpsuit-name = Syndicate White Scientist Jumpsuit
 
 # end funkystation specific syndie wear
 

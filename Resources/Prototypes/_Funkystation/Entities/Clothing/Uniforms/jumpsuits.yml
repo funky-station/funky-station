@@ -103,7 +103,7 @@
 - type: entity
   parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitHRDSyndicate
-  name: donk co. HR director jumpsuit
+  name: donk co. hr director jumpsuit
   description: item-description-HRD
   components:
   - type: Sprite

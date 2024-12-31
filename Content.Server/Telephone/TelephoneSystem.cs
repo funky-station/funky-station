@@ -7,8 +7,11 @@ using Content.Server.Speech;
 using Content.Server.Speech.Components;
 using Content.Shared.Chat;
 using Content.Shared.Database;
+using Content.Shared.Labels.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Power;
+using Content.Shared.Silicons.StationAi;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Speech;
 using Content.Shared.Telephone;
 using Robust.Server.GameObjects;
@@ -19,8 +22,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using System.Linq;
-using Content.Shared.Silicons.StationAi;
-using Content.Shared.Silicons.Borgs.Components;
 
 namespace Content.Server.Telephone;
 
@@ -151,7 +152,7 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
 
                     break;
 
-                // Try to hang up if their has been no recent in-call activity
+                // Try to hang up if there has been no recent in-call activity
                 case TelephoneState.InCall:
                     if (_timing.CurTime > telephone.StateStartTime + TimeSpan.FromSeconds(telephone.IdlingTimeout))
                         EndTelephoneCalls(entity);
@@ -214,7 +215,15 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
         source.Comp.LinkedTelephones.Add(receiver);
         source.Comp.Muted = options?.MuteSource == true;
 
-        receiver.Comp.LastCallerId = GetNameAndJobOfCallingEntity(user); // This will be networked when the state changes
+        var callerInfo = GetNameAndJobOfCallingEntity(user);
+
+        // Base the name of the device on its label
+        string? deviceName = null;
+
+        if (TryComp<LabelComponent>(source, out var label))
+            deviceName = label.CurrentLabel;
+
+        receiver.Comp.LastCallerId = (callerInfo.Item1, callerInfo.Item2, deviceName); // This will be networked when the state changes
         receiver.Comp.LinkedTelephones.Add(source);
         receiver.Comp.Muted = options?.MuteReceiver == true;
 
@@ -298,9 +307,6 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
 
     private void HandleEndingTelephoneCalls(Entity<TelephoneComponent> entity, TelephoneState newState)
     {
-        if (entity.Comp.CurrentState == newState)
-            return;
-
         foreach (var linkedTelephone in entity.Comp.LinkedTelephones)
         {
             if (!linkedTelephone.Comp.LinkedTelephones.Remove(entity))
@@ -455,17 +461,10 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
         switch (source.Comp.TransmissionRange)
         {
             case TelephoneRange.Grid:
-                return sourceXform.GridUid != null &&
-                    receiverXform.GridUid == sourceXform.GridUid &&
-                    receiver.Comp.TransmissionRange != TelephoneRange.Long;
+                return sourceXform.GridUid == receiverXform.GridUid;
 
             case TelephoneRange.Map:
-                return sourceXform.MapID == receiverXform.MapID &&
-                    receiver.Comp.TransmissionRange != TelephoneRange.Long;
-
-            case TelephoneRange.Long:
-                return sourceXform.MapID != receiverXform.MapID &&
-                    receiver.Comp.TransmissionRange == TelephoneRange.Long;
+                return sourceXform.MapID == receiverXform.MapID;
 
             case TelephoneRange.Unlimited:
                 return true;

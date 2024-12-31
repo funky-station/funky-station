@@ -998,3 +998,11 @@ Entries:
       message: Small updates to the "Hot Springs" event map.
   id: 118
   time: '2024-12-31T00:07:57.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Add
+      message: Botany biofabs are now E-maggable!
+    - type: Tweak
+      message: Antag cubes are much more less costly to fab!
+  id: 119
+  time: '2024-12-31T00:39:31.0000000+00:00'

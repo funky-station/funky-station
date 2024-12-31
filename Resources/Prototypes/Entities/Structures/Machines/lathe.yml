@@ -1211,6 +1211,22 @@
       - ClothingUniformJumpsuitPyjamaSyndicatePink
       - ClothingHeadPyjamaSyndicateRed
       - ClothingUniformJumpsuitPyjamaSyndicateRed
+      # begin funkystation specific syndie wear
+      # syndie civilian
+      - ClothingUniformJumpsuitBotanistSyndicate
+      - ClothingUniformJumpsuitBartenderSyndicate
+      - ClothingUniformJumpsuitLibrarianSyndicate
+      - ClothingUniformJumpsuitScientistSyndicate
+      - ClothingUniformJumpsuitScientistWhiteSyndicate
+      # syndie command
+      - ClothingUniformJumpsuitGCMSyndicate
+      - ClothingUniformJumpsuitCCRSyndicate
+      - ClothingUniformJumpsuitIMDSyndicate
+      - ClothingUniformJumpsuitWSMSyndicate
+      - ClothingUniformJumpsuitHRDSyndicate
+      - ClothingUniformJumpsuitCHESyndicate
+      - ClothingUniformJumpsuitHCRSyndicate
+      # end funkystation specific syndie wear
       - ClothingOuterWinterCentcom
       - ClothingOuterWinterSyndie
       - ClothingOuterWinterSyndieCap

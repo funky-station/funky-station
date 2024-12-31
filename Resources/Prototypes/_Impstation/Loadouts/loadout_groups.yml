@@ -182,7 +182,7 @@
     belt: ClothingBeltPlantFilled
     outerClothing: ClothingOuterApronBotanist
     head: ClothingHeadBandGreen
-    pocket1: EmergencyOxygenTank
+    pocket1: EmergencyOxygenTankFilled
     pocket2: ClothingMaskBreath
     ears: ClothingHeadsetService
 
@@ -194,7 +194,7 @@
     belt: ClothingBeltMedicalFilled
     outerClothing: ClothingOuterWinterMed
     #head: 
-    pocket1: EmergencyOxygenTank
+    pocket1: EmergencyOxygenTankFilled
     pocket2: ClothingMaskBreath
     ears: ClothingHeadsetMedical
     eyes: ClothingEyesHudMedical
@@ -207,7 +207,7 @@
     belt: ClothingBeltUtilityEngineering
     outerClothing: ClothingOuterHardsuitEngineering
     head: ClothingHeadHatHardhatYellow
-    pocket1: DoubleEmergencyOxygenTank
+    pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ClothingMaskBreath
     ears: ClothingHeadsetEngineering
     eyes: ClothingEyesGlassesMeson

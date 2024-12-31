@@ -986,3 +986,9 @@ Entries:
       message: New (Funky!) Holopad sprites for AI!
   id: 116
   time: '2024-12-30T06:58:33.0000000+00:00'
+- author: hereelabs
+  changes:
+    - type: Add
+      message: Added Syndicate / Rival Corporation jumpsuits. Spritework by meijunkie.
+  id: 117
+  time: '2024-12-31T00:06:04.0000000+00:00'

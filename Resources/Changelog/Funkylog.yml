@@ -1006,3 +1006,9 @@ Entries:
       message: Antag cubes are much more less costly to fab!
   id: 119
   time: '2024-12-31T00:39:31.0000000+00:00'
+- author: ' MilonPL, angelofallars'
+  changes:
+    - type: Add
+      message: NanoChat is now available to all NanoTrasen employees.
+  id: 120
+  time: '2024-12-31T22:13:13.0000000+00:00'

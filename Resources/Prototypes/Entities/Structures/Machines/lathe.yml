@@ -1301,6 +1301,10 @@
     - BioGenLeft4Zed
     - BioGenEZNutrient
     - BioGenRobustHarvest
+  - type: EmagLatheRecipes
+    emagStaticRecipes: #funky make e maggable
+    - AbominationCube
+    - SpaceCarpCube
 
 - type: entity
   parent: BaseLathe

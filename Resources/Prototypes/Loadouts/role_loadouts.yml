@@ -352,6 +352,7 @@
   groups:
   - WardenHead
   - WardenJumpsuit
+  - WardenNeck
   - SecurityBackpack
   - SecurityBelt
   - WardenOuterClothing
@@ -366,6 +367,7 @@
   groups:
   - SecurityHead
   - SecurityJumpsuit
+  - SecurityNeck
   - SecurityBackpack
   - SecurityOuterClothing
   - SecurityShoes

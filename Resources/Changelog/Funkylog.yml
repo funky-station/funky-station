@@ -992,3 +992,9 @@ Entries:
       message: Added Syndicate / Rival Corporation jumpsuits. Spritework by meijunkie.
   id: 117
   time: '2024-12-31T00:06:04.0000000+00:00'
+- author: hereelabs
+  changes:
+    - type: Tweak
+      message: Small updates to the "Hot Springs" event map.
+  id: 118
+  time: '2024-12-31T00:07:57.0000000+00:00'

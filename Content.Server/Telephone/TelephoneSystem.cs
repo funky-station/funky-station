@@ -151,7 +151,7 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
 
                     break;
 
-                // Try to hang up if their has been no recent in-call activity 
+                // Try to hang up if their has been no recent in-call activity
                 case TelephoneState.InCall:
                     if (_timing.CurTime > telephone.StateStartTime + TimeSpan.FromSeconds(telephone.IdlingTimeout))
                         EndTelephoneCalls(entity);
@@ -298,6 +298,9 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
 
     private void HandleEndingTelephoneCalls(Entity<TelephoneComponent> entity, TelephoneState newState)
     {
+        if (entity.Comp.CurrentState == newState)
+            return;
+
         foreach (var linkedTelephone in entity.Comp.LinkedTelephones)
         {
             if (!linkedTelephone.Comp.LinkedTelephones.Remove(entity))
@@ -452,10 +455,17 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
         switch (source.Comp.TransmissionRange)
         {
             case TelephoneRange.Grid:
-                return sourceXform.GridUid == receiverXform.GridUid;
+                return sourceXform.GridUid != null &&
+                    receiverXform.GridUid == sourceXform.GridUid &&
+                    receiver.Comp.TransmissionRange != TelephoneRange.Long;
 
             case TelephoneRange.Map:
-                return sourceXform.MapID == receiverXform.MapID;
+                return sourceXform.MapID == receiverXform.MapID &&
+                    receiver.Comp.TransmissionRange != TelephoneRange.Long;
+
+            case TelephoneRange.Long:
+                return sourceXform.MapID != receiverXform.MapID &&
+                    receiver.Comp.TransmissionRange == TelephoneRange.Long;
 
             case TelephoneRange.Unlimited:
                 return true;

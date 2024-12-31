@@ -229,9 +229,10 @@ public sealed class HolopadSystem : SharedHolopadSystem
                 LinkHolopadToUser(entity, args.Actor);
         }
 
-        // Ignore range so that holopads that ignore other devices on the same grid can request the AI
-        var options = new TelephoneCallOptions { IgnoreRange = true };
-        _telephoneSystem.BroadcastCallToTelephones(source, reachableAiCores, args.Actor, options);
+        if (!reachableAiCores.Any())
+            return;
+
+        _telephoneSystem.BroadcastCallToTelephones(source, reachableAiCores, args.Actor);
     }
 
     #endregion
@@ -434,7 +435,7 @@ public sealed class HolopadSystem : SharedHolopadSystem
         AlternativeVerb verb = new()
         {
             Act = () => ActivateProjector(entity, user),
-            Text = Loc.GetString("holopad-activate-projector-verb"),
+            Text = Loc.GetString("activate-holopad-projector-verb"),
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/vv.svg.192dpi.png")),
         };
 
@@ -611,7 +612,12 @@ public sealed class HolopadSystem : SharedHolopadSystem
             UnlinkHolopadFromUser(entity, entity.Comp.User.Value);
 
         if (TryComp<StationAiCoreComponent>(entity, out var stationAiCore))
+        {
             _stationAiSystem.SwitchRemoteEntityMode((entity.Owner, stationAiCore), true);
+
+            if (TryComp<TelephoneComponent>(entity, out var stationAiCoreTelphone))
+                _telephoneSystem.EndTelephoneCalls((entity, stationAiCoreTelphone));
+        }
 
         Dirty(entity);
     }
@@ -713,6 +719,7 @@ public sealed class HolopadSystem : SharedHolopadSystem
             var receiverTelephoneEntity = new Entity<TelephoneComponent>(receiver, receiverTelephone);
 
             if (sourceTelephoneEntity == receiverTelephoneEntity ||
+                receiverTelephone.UnlistedNumber ||
                 !_telephoneSystem.IsSourceAbleToReachReceiver(sourceTelephoneEntity, receiverTelephoneEntity))
                 continue;
 

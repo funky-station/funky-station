@@ -87,7 +87,7 @@ public sealed partial class TelephoneComponent : Component
     public bool RequiresPower = true;
 
     /// <summary>
-    /// This telephone should not appear on public telephone directories
+    /// This telephone does not appear on public telephone directories
     /// </summary>
     [DataField]
     public bool UnlistedNumber = false;
@@ -182,7 +182,7 @@ public readonly record struct TelephoneMessageReceivedEvent(string Message, MsgC
 public struct TelephoneCallOptions
 {
     public bool IgnoreRange;    // The source can always reach its target
-    public bool ForceConnect;   // The source immediately starts a call with the receiver, potentially interrupting a call that is already in progress 
+    public bool ForceConnect;   // The source immediately starts a call with the receiver, potentially interrupting a call that is already in progress
     public bool ForceJoin;      // The source smoothly joins a call in progress, or starts a normal call with the receiver if there is none
     public bool MuteSource;     // Chatter from the source is not transmitted - could be used for eavesdropping when combined with 'ForceJoin'
     public bool MuteReceiver;   // Chatter from the receiver is not transmitted - useful for broadcasting messages to multiple receivers
@@ -214,7 +214,8 @@ public enum TelephoneVolume : byte
 [Serializable, NetSerializable]
 public enum TelephoneRange : byte
 {
-    Grid,       // Can only reach telephones that are on the same grid 
-    Map,        // Can reach any telephone that is on the same map
-    Unlimited,  // Can reach any telephone, across any distance
+    Grid,       // Can call grid/map range telephones that are on the same grid
+    Map,        // Can call grid/map range telephones that are on the same map
+    Long,       // Can only long range telephones that are on a different map
+    Unlimited   // Can call any telephone
 }

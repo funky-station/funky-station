@@ -156,3 +156,6 @@ holopad-station-cargo-bay = Station - Cargo Bay
 
 # CentComm
 holopad-centcomm-evac = CentComm - Evacuation Shuttle
+
+# Holopad actions
+activate-holopad-projector-verb = Activate holopad projector

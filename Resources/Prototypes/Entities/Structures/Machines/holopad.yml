@@ -124,12 +124,12 @@
   components:
   - type: Telephone
     transmissionRange: Unlimited
-  - type: AccessReader
-    access: [[]]
+    ignoreTelephonesOnSameGrid: true
     compatibleRanges:
     - Map
     - Unlimited
-    ignoreTelephonesOnSameGrid: true
+  - type: AccessReader
+    access: [[]]
 
 - type: entity
   name: bluespace holopad

@@ -1018,3 +1018,9 @@ Entries:
       message: Moved security bodycam from outerwear to neck in loadouts
   id: 121
   time: '2024-12-31T22:33:41.0000000+00:00'
+- author: hereelabs
+  changes:
+    - type: Tweak
+      message: Not So Self Insert; All self insert plushies are now more generic.
+  id: 122
+  time: '2025-01-01T20:42:16.0000000+00:00'

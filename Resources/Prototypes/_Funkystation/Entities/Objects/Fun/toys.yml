@@ -67,7 +67,7 @@
   parent: BasePlushie
   id: PlushieAshleyTickum
   name: salvager felinid plush
-  description: Prefers to salvage alone when given the chance, this plush hates needles and will do just about ANYTHING to take her revenge on the carps. Just make sure that she doesn't talk about some "Douglas" figure.
+  description: A plush toy that predates Nanotrasen's "Self Insert Plushies" campaign, which possibly was the inspiration for the campaign's creation.
   components:
   - type: Sprite
     state: plush_tickum
@@ -101,7 +101,7 @@
 - type: entity
   parent: BasePlushie
   id: BaseSelfPlushie
-  description: The tag on this plushie says it's from Nanotrasen's "self insert" plush toys campaign, where many employees had their likenesses turned into plush toys, as representations of the large variety of races of people that Nanotrasen employs.
+  description: This plushie comes from Nanotrasen's "Self Insert" toys campaign, where many employees had their likenesses turned into plushies, as representations of the large variety of species that Nanotrasen employs.
   abstract: true
   components:
   - type: Sprite
@@ -224,8 +224,6 @@
   components:
   - type: Sprite
     state: plushie_silasahas
-  - type: SpeakOnUse
-    pack: SelfPlushSilasAhas
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Voice/Moth/moth_laugh.ogg

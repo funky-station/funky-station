@@ -47,3 +47,9 @@
   values:
     prefix: selfplush-kuafumoeller-
     count: 1
+
+- type: localizedDataset
+  id: SelfPlushBobPark
+  values:
+    prefix: selfplush-bobpark-
+    count: 1

@@ -843,3 +843,35 @@
         reagents:
         - ReagentId: Blood
           Quantity: 30
+
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieBobPark
+  name: bob park plushie
+  description: A lizard plushie of a individual named Bob park a blue lizard with stylish sunglasses and  a white-blue scarf who likes teaching new space men and introducing them to different departments.
+  components:
+  - type: Sprite
+    state: plushie_bobpark
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: UseDelay
+    delay: 5
+  - type: Speech
+    speechVerb: Reptilian

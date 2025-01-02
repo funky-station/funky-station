@@ -3,7 +3,7 @@
   mapName: 'Roid'
   mapPath: /Maps/_Funkystation/roid_outpost.yml
   minPlayers: 0
-  maxPlayers: 60
+  maxPlayers: 45
   stations:
     roid_outpost:
       stationProto: StandardNanotrasenStation

@@ -1024,3 +1024,13 @@ Entries:
       message: Not So Self Insert; All self insert plushies are now more generic.
   id: 122
   time: '2025-01-01T20:42:16.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Add
+      message: plasma gas miner to loop
+    - type: Tweak
+      message: gate station is now playable for engineering department
+    - type: Fix
+      message: fixed storage chamber in cluster station atmos having round-start plasma
+  id: 123
+  time: '2025-01-02T20:15:35.0000000+00:00'

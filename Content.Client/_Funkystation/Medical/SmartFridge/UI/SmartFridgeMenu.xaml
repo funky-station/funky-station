@@ -1,10 +1,8 @@
 <controls:FancyWindow
     MinSize="620 670"
     xmlns="https://spacestation14.io"
-    xmlns:co="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-    xmlns:ui="clr-namespace:Content.Client.Chemistry.UI"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <TabContainer Margin="5,5,7,5" Name="Tabs">
@@ -13,8 +11,6 @@
             <!--  top labels  -->
             <BoxContainer Margin="0,0,0,0" Orientation="Horizontal">
                 <Label Margin="0,0,0,0" Text="{Loc 'smart-fridge-label-name'}" />
-                <Control HorizontalExpand="True" />
-                <Label Margin="0,0,0,0" Text="{Loc 'smart-fridge-label-number'}" />
                 <Control HorizontalExpand="True" />
                 <Label Margin="0,0,0,0" Text="{Loc 'smart-fridge-label-dispense'}" />
             </BoxContainer>
@@ -26,14 +22,14 @@
                 </PanelContainer.PanelOverride>
 
                 <ScrollContainer MinSize="0 200">
-                    <BoxContainer Orientation="Vertical">
+                    <BoxContainer Orientation="Vertical" VerticalExpand="True">
                         <!--  search bar  -->
                         <LineEdit
                             HorizontalExpand="True"
                             Margin="4,4"
                             MaxHeight="30"
                             Name="SearchBar"
-                            Text="{Loc 'vending-machine-component-search-filter'}"
+                            PlaceHolder="{Loc 'vending-machine-component-search-filter'}"
                             VerticalAlignment="Top" />
                         <!--  entity list  -->
                         <BoxContainer Name="ContainerContents" VerticalExpand="True">
@@ -70,9 +66,5 @@
                 </BoxContainer>
             </BoxContainer>
         </BoxContainer>
-        <BoxContainer Name="1" />
-        <BoxContainer Name="2" />
-        <BoxContainer Name="3" />
-        <BoxContainer Name="4" />
     </TabContainer>
 </controls:FancyWindow>

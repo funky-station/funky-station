@@ -31,7 +31,7 @@ public sealed class SmartFridgeBoundUserInterface(EntityUid owner, Enum uiKey) :
         var system = EntMan.System<SmartFridgeSystem>();
         _cachedInventory = system.GetInventoryClient(Owner);
 
-        // _menu?.Populate(_cachedInventory);
+        _menu?.Populate(_cachedInventory);
     }
 
     private void OnItemSelected(GUIBoundKeyEventArgs args, ListData data)

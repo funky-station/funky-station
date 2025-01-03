@@ -1,0 +1,25 @@
+﻿<BoxContainer
+    HorizontalExpand="True"
+    Name="PrimaryContainer"
+    Orientation="Horizontal"
+    SeparationOverride="4"
+    xmlns="https://spacestation14.io">
+    <EntityPrototypeView
+        HorizontalAlignment="Center"
+        Margin="4,0,0,0"
+        MinSize="32 32"
+        Name="ItemPrototype"
+        VerticalAlignment="Center" />
+    <Label
+        ClipText="True"
+        HorizontalExpand="True"
+        Name="NameLabel"
+        SizeFlagsStretchRatio="5" />
+    <!--  padding  -->
+    <Control HorizontalExpand="True" />
+    <Label
+        ClipText="True"
+        HorizontalExpand="True"
+        Name="NameQuantity"
+        SizeFlagsStretchRatio="0.5" />
+</BoxContainer>

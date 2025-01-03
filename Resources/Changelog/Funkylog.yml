@@ -1052,3 +1052,9 @@ Entries:
       message: Reverted the Frezon Oxygen:Tritium Ratio Nerf
   id: 126
   time: '2025-01-03T20:25:33.0000000+00:00'
+- author: UtopiOne
+  changes:
+    - type: Fix
+      message: Roboticist now has an actual job description.
+  id: 127
+  time: '2025-01-03T20:32:35.0000000+00:00'

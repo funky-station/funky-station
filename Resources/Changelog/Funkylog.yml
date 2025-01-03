@@ -1040,3 +1040,9 @@ Entries:
       message: Fix absurd amount of midround antags spawning every shift.
   id: 124
   time: '2025-01-03T04:17:49.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Tweak
+      message: revamped glacier station SM
+  id: 125
+  time: '2025-01-03T20:09:16.0000000+00:00'

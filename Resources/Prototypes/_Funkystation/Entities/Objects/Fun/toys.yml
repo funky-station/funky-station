@@ -811,3 +811,26 @@
         reagents:
         - ReagentId: Blood
           Quantity: 30
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieBlueScarfedLizard
+  name: blue scarfed lizard plushie
+  description: A lizard plushie of a particular lizard fashioning sunglasses and a white-blue scarf, the tag on the back says something about teaching spacemen their way around the station
+  components:
+  - type: Sprite
+    state: plushie_bluescarfedlizrad
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30

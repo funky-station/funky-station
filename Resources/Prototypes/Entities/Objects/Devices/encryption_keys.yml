@@ -163,7 +163,6 @@
   - type: EncryptionKey
     channels:
     - Science
-    - Binary
     defaultChannel: Science
   - type: Sprite
     layers:

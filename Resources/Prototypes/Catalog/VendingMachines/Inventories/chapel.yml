@@ -34,6 +34,8 @@
     # end imp
     ClothingUniformJumpsuitChaplain: 2
     ClothingUniformJumpskirtChaplain: 2
+    ClothingUniformFuneralSuit: 4 #imp
+    ClothingUniformFuneralSuitSkirt: 4 #imp
     ClothingUniformJumpsuitMonasticRobeDark: 1
     ClothingUniformJumpsuitMonasticRobeLight: 1
     ClothingNeckStoleChaplain: 1

@@ -30,6 +30,8 @@
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
+  - CardBoxBlack # goobstation
+  - CardBoxNanotrasen # goobstation
   - TowelColorBlack
   - TowelColorDarkBlue
   - TowelColorDarkGreen
@@ -46,7 +48,6 @@
   - TowelColorSilver
   - TowelColorWhite
   - TowelColorYellow
-  - CardBoxBlack
 
 - type: loadoutGroup
   id: Glasses
@@ -1013,7 +1014,7 @@
   loadouts:
   - WardenJumpsuit
   - WardenJumpskirt
-  
+
 - type: loadoutGroup
   id: WardenNeck
   name: loadout-group-warden-neck
@@ -1071,7 +1072,7 @@
   minLimit: 0
   loadouts:
   - Bodycam # Goobstation - Body cameras
-  
+
 - type: loadoutGroup
   id: SecurityOuterClothing
   name: loadout-group-security-outerclothing

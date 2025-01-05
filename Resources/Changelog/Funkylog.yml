@@ -1068,3 +1068,9 @@ Entries:
       message: Intern roles can be antags except for cadet obviously.
   id: 128
   time: '2025-01-05T04:35:55.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Tweak
+      message: ATMOS Resin cleans air on despawn
+  id: 129
+  time: '2025-01-05T19:42:55.0000000+00:00'

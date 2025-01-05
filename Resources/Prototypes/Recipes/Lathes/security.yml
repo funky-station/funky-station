@@ -333,6 +333,13 @@
   materials:
     Steel: 205
 
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineLightRifleSilver
+  result: MagazineLightRifleSilver
+  materials:
+    Steel: 105
+    Silver: 100
 
 - type: latheRecipe
   parent: BaseAmmoRecipe

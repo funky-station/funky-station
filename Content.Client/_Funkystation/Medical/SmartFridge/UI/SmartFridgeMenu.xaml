@@ -9,13 +9,16 @@
     <BoxContainer Name="MainContainer" Orientation="Vertical">
         <!--  top labels  -->
         <BoxContainer Margin="0,0,0,0" Orientation="Horizontal">
-            <Label Margin="0,0,0,0" Text="{Loc 'smart-fridge-label-name'}" />
+            <Label Margin="4,0,4,0" Text="{Loc 'smart-fridge-label-name'}" />
             <Control HorizontalExpand="True" />
-            <Label Margin="0,0,0,0" Text="{Loc 'smart-fridge-label-dispense'}" />
+            <Label Margin="4,0,4,0" Text="{Loc 'smart-fridge-label-dispense'}" />
         </BoxContainer>
 
         <!--  main content  -->
-        <PanelContainer MinSize="0 200" VerticalExpand="True">
+        <PanelContainer
+            Margin="4,0,4,0"
+            MinSize="0 200"
+            VerticalExpand="True">
             <PanelContainer.PanelOverride>
                 <graphics:StyleBoxFlat BackgroundColor="#1B1B1E" />
             </PanelContainer.PanelOverride>

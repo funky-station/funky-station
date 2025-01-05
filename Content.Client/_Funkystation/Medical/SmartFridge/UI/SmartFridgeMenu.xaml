@@ -5,66 +5,64 @@
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <TabContainer Margin="5,5,7,5" Name="Tabs">
-        <!--  All tab  -->
-        <BoxContainer Name="MainContainer" Orientation="Vertical">
-            <!--  top labels  -->
-            <BoxContainer Margin="0,0,0,0" Orientation="Horizontal">
-                <Label Margin="0,0,0,0" Text="{Loc 'smart-fridge-label-name'}" />
-                <Control HorizontalExpand="True" />
-                <Label Margin="0,0,0,0" Text="{Loc 'smart-fridge-label-dispense'}" />
-            </BoxContainer>
+    <!--  All tab  -->
+    <BoxContainer Name="MainContainer" Orientation="Vertical">
+        <!--  top labels  -->
+        <BoxContainer Margin="0,0,0,0" Orientation="Horizontal">
+            <Label Margin="0,0,0,0" Text="{Loc 'smart-fridge-label-name'}" />
+            <Control HorizontalExpand="True" />
+            <Label Margin="0,0,0,0" Text="{Loc 'smart-fridge-label-dispense'}" />
+        </BoxContainer>
 
-            <!--  main content  -->
-            <PanelContainer MinSize="0 200" VerticalExpand="True">
-                <PanelContainer.PanelOverride>
-                    <graphics:StyleBoxFlat BackgroundColor="#1B1B1E" />
-                </PanelContainer.PanelOverride>
+        <!--  main content  -->
+        <PanelContainer MinSize="0 200" VerticalExpand="True">
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#1B1B1E" />
+            </PanelContainer.PanelOverride>
 
-                <ScrollContainer MinSize="0 200">
-                    <BoxContainer Orientation="Vertical" VerticalExpand="True">
-                        <!--  search bar  -->
-                        <LineEdit
+            <ScrollContainer MinSize="0 200">
+                <BoxContainer Orientation="Vertical" VerticalExpand="True">
+                    <!--  search bar  -->
+                    <LineEdit
+                        HorizontalExpand="True"
+                        Margin="4,4"
+                        MaxHeight="30"
+                        Name="SearchBar"
+                        PlaceHolder="{Loc 'vending-machine-component-search-filter'}"
+                        VerticalAlignment="Top" />
+                    <!--  entity list  -->
+                    <BoxContainer Name="ContainerContents" VerticalExpand="True">
+                        <controls:SearchListContainer
                             HorizontalExpand="True"
                             Margin="4,4"
-                            MaxHeight="30"
-                            Name="SearchBar"
-                            PlaceHolder="{Loc 'vending-machine-component-search-filter'}"
-                            VerticalAlignment="Top" />
-                        <!--  entity list  -->
-                        <BoxContainer Name="ContainerContents" VerticalExpand="True">
-                            <controls:SearchListContainer
-                                HorizontalExpand="True"
-                                Margin="4,4"
-                                Name="VendingContents"
-                                VerticalExpand="True" />
-                        </BoxContainer>
+                            Name="VendingContents"
+                            VerticalExpand="True" />
                     </BoxContainer>
-                </ScrollContainer>
-            </PanelContainer>
-
-            <!--  footer  -->
-            <BoxContainer Orientation="Vertical">
-                <PanelContainer StyleClasses="LowDivider" />
-                <BoxContainer
-                    Margin="10,2,5,0"
-                    Orientation="Horizontal"
-                    VerticalAlignment="Bottom">
-                    <Label StyleClasses="WindowFooterText" Text="{Loc 'smart-fridge-temp'}" />
-                    <Label
-                        HorizontalAlignment="Right"
-                        HorizontalExpand="True"
-                        Margin="0,0,5,0"
-                        StyleClasses="WindowFooterText"
-                        Text="{Loc 'vending-machine-flavor-right'}" />
-                    <TextureRect
-                        HorizontalAlignment="Right"
-                        SetSize="19 19"
-                        Stretch="KeepAspectCentered"
-                        StyleClasses="NTLogoDark"
-                        VerticalAlignment="Center" />
                 </BoxContainer>
+            </ScrollContainer>
+        </PanelContainer>
+
+        <!--  footer  -->
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer StyleClasses="LowDivider" />
+            <BoxContainer
+                Margin="10,2,5,0"
+                Orientation="Horizontal"
+                VerticalAlignment="Bottom">
+                <Label StyleClasses="WindowFooterText" Text="{Loc 'smart-fridge-flavor'}" />
+                <Label
+                    HorizontalAlignment="Right"
+                    HorizontalExpand="True"
+                    Margin="0,0,5,0"
+                    StyleClasses="WindowFooterText"
+                    Text="{Loc 'vending-machine-flavor-right'}" />
+                <TextureRect
+                    HorizontalAlignment="Right"
+                    SetSize="19 19"
+                    Stretch="KeepAspectCentered"
+                    StyleClasses="NTLogoDark"
+                    VerticalAlignment="Center" />
             </BoxContainer>
         </BoxContainer>
-    </TabContainer>
+    </BoxContainer>
 </controls:FancyWindow>

@@ -1,0 +1,72 @@
+- type: gameMap
+  id: roid_outpost
+  mapName: 'Roid'
+  mapPath: /Maps/_Funkystation/roid_outpost.yml
+  minPlayers: 0
+  maxPlayers: 45
+  stations:
+    roid_outpost:
+      stationProto: StandardNanotrasenStation
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: '{0} Roid {1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          #service
+          StationAi: [ 1, 1 ]
+          NanotrasenRepresentative: [ 1, 1 ]
+          BlueshieldOfficer: [ 1, 1 ]
+          Captain: [ 1, 1 ]
+          HeadOfPersonnel: [ 1, 1 ]
+          Bartender: [ 1, 1 ]
+          Botanist: [ 1, 2 ]
+          Chef: [ 1, 1 ]
+          Janitor: [ 2, 2 ]
+          Chaplain: [ 1, 1 ]
+          Librarian: [ 1, 1 ]
+          ServiceWorker: [ 2, 2 ]
+          Reporter: [ 1, 1 ]
+          #engineering
+          ChiefEngineer: [ 1, 1 ]
+          AtmosphericTechnician: [ 2, 2 ]
+          StationEngineer: [ 3, 3 ]
+          TechnicalAssistant: [ 2, 2 ]
+          #medical
+          ChiefMedicalOfficer: [ 1, 1 ]
+          Chemist: [ 2, 2 ]
+          MedicalDoctor: [ 3, 3 ]
+          MedicalIntern: [ 2, 2 ]
+          Paramedic: [ 1, 1 ]
+          Psychologist: [ 1, 1 ]
+          #science
+          ResearchDirector: [ 1, 1 ]
+          Scientist: [ 2, 2 ]
+          ResearchAssistant: [ 2, 2 ]
+          Borg: [ 2, 2 ]
+          Roboticist: [ 1, 1 ]
+          #security
+          HeadOfSecurity: [ 1, 1 ]
+          Warden: [ 1, 1 ]
+          Detective: [ 1, 1 ]
+          SecurityOfficer: [ 4, 4 ]
+          SecurityCadet: [ 2, 2 ]
+          Lawyer: [ 1, 1 ]
+          #supply
+          Quartermaster: [ 1, 1 ]
+          SalvageSpecialist: [ 2, 2 ]
+          CargoTechnician: [ 3, 3 ]
+          #civillian
+          Passenger: [ -1, -1 ]
+          Clown: [ 1, 1 ]
+          Mime: [ 1, 1 ]
+          Musician: [ 1, 1 ]
+
+    # Goobstation blob-config-start HUGE
+      - type: StationBlobConfig
+        stageBegin: 40
+        stageCritical: 450
+        stageTheEnd: 900
+    # Goobstation blob-config-end

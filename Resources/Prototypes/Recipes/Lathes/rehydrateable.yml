@@ -62,8 +62,8 @@
   id: SpaceCarpCube
   result: SpaceCarpCube
   materials:
-    Biomass: 24
-    Plasma: 600
+    Biomass: 16 #funky price 1 to 1
+    Plasma: 100 #funky nerf plasma drain
 
 - type: latheRecipe
   parent: BaseCubeRecipe
@@ -71,16 +71,16 @@
   result: SpaceTickCube
   completetime: 15
   materials:
-    Biomass: 8
-    Plasma: 300 # less biomass but more plasma
+    Biomass: 4 #funky nerf price
+    Plasma: 200 # less biomass but more plasma
 
 - type: latheRecipe
   parent: BaseCubeRecipe
   id: AbominationCube
   result: AbominationCube
   materials: # abominations are slow and essentially worse than even carp
-    Biomass: 28
-    Plasma: 500 # more biomass but less plasma
+    Biomass: 20 #funky nerf price
+    Plasma: 200 # more biomass but less plasma
 
 # Shitmed Change Start
 - type: latheRecipe

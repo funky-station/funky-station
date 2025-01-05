@@ -16,6 +16,12 @@
     ClothingNeckScarfStripedSyndieGreen: 2
     ClothingNeckScarfStripedSyndieRed: 2
     ClothingShoesBootsWinterSyndicate: 2
+    # funky specific syndie wear
+    ClothingUniformJumpsuitBotanistSyndicate: 2
+    ClothingUniformJumpsuitBartenderSyndicate: 2
+    ClothingUniformJumpsuitLibrarianSyndicate: 2
+    ClothingUniformJumpsuitScientistSyndicate: 1
+    ClothingUniformJumpsuitScientistWhiteSyndicate: 1
 
   emaggedInventory:
     ClothingOuterCoatSyndieCapArmored: 1
@@ -23,3 +29,12 @@
     ClothingHeadHatTacticalMaidHeadband: 5
     ClothingUniformJumpskirtTacticalMaid: 5
     ClothingHandsTacticalMaidGloves: 5
+    # funky specific syndie wear
+    ClothingUniformJumpsuitGCMSyndicate: 1
+    ClothingUniformJumpsuitCCRSyndicate: 1
+    ClothingUniformJumpsuitIMDSyndicate: 1
+    ClothingUniformJumpsuitWSMSyndicate: 1
+    ClothingUniformJumpsuitHRDSyndicate: 1
+    ClothingHeadHatHRDCapSyndicate: 1
+    ClothingUniformJumpsuitCHESyndicate: 1
+    ClothingUniformJumpsuitHCRSyndicate: 1

@@ -51,6 +51,8 @@ entities:
     components:
     - type: MetaData
       name: grid
+    - type: Transform
+      parent: 3447
     - type: BecomesStation
       id: Amber
     - type: MapGrid
@@ -11572,9 +11574,17 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -11602,6 +11612,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 235
           moles:
@@ -11617,6 +11631,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -11632,6 +11650,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -11647,6 +11669,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -11654,6 +11680,10 @@ entities:
           - 0
           - 0
           - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -11666,6 +11696,18 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: NavMap
+  - uid: 3447
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
+    - type: Broadphase
+    - type: OccluderTree
 - proto: ActionToggleInternals
   entities:
   - uid: 3027
@@ -11756,6 +11798,13 @@ entities:
     - type: InstantAction
       originalIconColor: '#FFFFFFFF'
       container: 212
+  - uid: 11370
+    components:
+    - type: Transform
+      parent: 16763
+    - type: InstantAction
+      originalIconColor: '#FFFFFFFF'
+      container: 16763
   - uid: 14387
     components:
     - type: Transform
@@ -24209,8 +24258,11 @@ entities:
   - uid: 9553
     components:
     - type: Transform
-      pos: 27.547523,0.6876904
+      pos: 28.51562,0.57988036
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 17548
     components:
     - type: Transform
@@ -24437,6 +24489,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -14.5,-13.5
+      parent: 2
+  - uid: 17719
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 22.5,-27.5
       parent: 2
 - proto: BZCanister
   entities:
@@ -53078,6 +53136,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 8110
     components:
     - type: Transform
@@ -53091,6 +53153,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -65670,7 +65736,7 @@ entities:
       pos: -16.5,-17.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -32839.566
+      secondsUntilStateChange: -33597.848
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -65775,8 +65841,25 @@ entities:
   - uid: 16763
     components:
     - type: Transform
-      pos: -11.458312,-25.064089
+      pos: -11.592677,-25.021824
       parent: 2
+    - type: HandheldLight
+      toggleActionEntity: 11370
+    - type: ContainerContainer
+      containers:
+        cell_slot: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+        actions: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 11370
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+    - type: ActionsContainer
   - uid: 19550
     components:
     - type: Transform
@@ -65994,7 +66077,7 @@ entities:
     - type: Transform
       pos: -40.5,-42.5
       parent: 2
-- proto: FloraRockSolid01
+- proto: FloraRockSolid
   entities:
   - uid: 17948
     components:
@@ -66002,22 +66085,35 @@ entities:
       rot: 3.141592653589793 rad
       pos: 11.492828,-6.4149537
       parent: 2
+  - uid: 19549
+    components:
+    - type: Transform
+      pos: 12.574104,-1.440425
+      parent: 2
   - uid: 19552
     components:
     - type: Transform
       pos: -10.482171,6.58344
+      parent: 2
+  - uid: 19553
+    components:
+    - type: Transform
+      pos: 35.53353,14.595009
       parent: 2
   - uid: 19555
     components:
     - type: Transform
       pos: 28.488077,14.527548
       parent: 2
-- proto: FloraRockSolid02
-  entities:
-  - uid: 19549
+  - uid: 19556
     components:
     - type: Transform
-      pos: 12.574104,-1.440425
+      pos: 3.4913387,7.572454
+      parent: 2
+  - uid: 19558
+    components:
+    - type: Transform
+      pos: 9.461854,1.5700341
       parent: 2
   - uid: 19971
     components:
@@ -66034,24 +66130,7 @@ entities:
     - type: Transform
       pos: 36.523605,12.614467
       parent: 2
-- proto: FloraRockSolid03
-  entities:
-  - uid: 19553
-    components:
-    - type: Transform
-      pos: 35.53353,14.595009
-      parent: 2
-  - uid: 19556
-    components:
-    - type: Transform
-      pos: 3.4913387,7.572454
-      parent: 2
-  - uid: 19558
-    components:
-    - type: Transform
-      pos: 9.461854,1.5700341
-      parent: 2
-- proto: FloraTree04
+- proto: FloraTree
   entities:
   - uid: 1550
     components:
@@ -66059,8 +66138,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -15.792082,16.220356
       parent: 2
-- proto: FloraTree05
-  entities:
   - uid: 4620
     components:
     - type: Transform
@@ -93607,6 +93684,12 @@ entities:
       parent: 2
 - proto: JanitorServiceLight
   entities:
+  - uid: 11430
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 22.5,-22.5
+      parent: 2
   - uid: 16099
     components:
     - type: Transform
@@ -100243,8 +100326,11 @@ entities:
   - uid: 20199
     components:
     - type: Transform
-      pos: 27.550629,3.583963
+      pos: 27.463245,4.4628687
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 20200
     components:
     - type: Transform
@@ -106985,6 +107071,18 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         3508:
+        - Pressed: Toggle
+  - uid: 11431
+    components:
+    - type: MetaData
+      name: Janitorial Light
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 22.5,-27.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        11430:
         - Pressed: Toggle
   - uid: 15842
     components:
@@ -129787,11 +129885,6 @@ entities:
     - type: Transform
       pos: 19.5,-10.5
       parent: 2
-  - uid: 3447
-    components:
-    - type: Transform
-      pos: -17.5,-35.5
-      parent: 2
   - uid: 9202
     components:
     - type: Transform
@@ -129826,6 +129919,18 @@ entities:
     components:
     - type: Transform
       pos: -6.5,25.5
+      parent: 2
+- proto: WaterTankHighCapacity
+  entities:
+  - uid: 11385
+    components:
+    - type: Transform
+      pos: -17.5,-35.5
+      parent: 2
+  - uid: 11429
+    components:
+    - type: Transform
+      pos: 27.5,0.5
       parent: 2
 - proto: WeaponCapacitorRecharger
   entities:

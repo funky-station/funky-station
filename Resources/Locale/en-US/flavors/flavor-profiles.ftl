@@ -203,6 +203,7 @@ flavor-complex-dr-gibb = like malpractice
 flavor-complex-ginger-soda = like ginger
 flavor-complex-grape-soda = like grape soda
 flavor-complex-lemon-lime-soda = like lemon-lime soda
+flavor-complex-lemon-lime-cranberry-soda = like Christmas
 flavor-complex-pwr-game-soda = like gaming
 flavor-complex-root-beer-soda = like root beer
 flavor-complex-citrus-soda = like citrus soda
@@ -299,6 +300,7 @@ flavor-complex-toxins-special = like space exploration
 flavor-complex-vodka-martini = like a spy movie from Russia
 flavor-complex-vodka-tonic = refreshingly bitter
 flavor-complex-coconut-rum = like nutty fermented sugar
+flavor-complex-zombiecocktail = like eating brains
 
 ### This is exactly what pilk tastes like. I'm not even joking. I might've been a little drunk though
 flavor-complex-pilk = like sweet milk
@@ -314,3 +316,4 @@ flavor-complex-sax = like jazz
 flavor-complex-bottledlightning = like lightning in a bottle
 flavor-complex-punishment = like punishment
 flavor-weh = like weh
+flavor-hew = like hew

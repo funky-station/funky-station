@@ -66,8 +66,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieAshleyTickum
-  name: ashley tickum plush
-  description: Prefers to salvage alone when given the chance, this plush hates needles and will do just about ANYTHING to take her revenge on the carps. Just make sure that she doesn't talk about some "Douglas" figure.
+  name: salvager felinid plush
+  description: A plush toy that predates Nanotrasen's "Self Insert Plushies" campaign, which possibly was the inspiration for the campaign's creation.
   components:
   - type: Sprite
     state: plush_tickum
@@ -101,6 +101,7 @@
 - type: entity
   parent: BasePlushie
   id: BaseSelfPlushie
+  description: This plushie comes from Nanotrasen's "Self Insert" toys campaign, where many employees had their likenesses turned into plushies, as representations of the large variety of species that Nanotrasen employs.
   abstract: true
   components:
   - type: Sprite
@@ -115,8 +116,7 @@
 - type: entity
   parent: BaseSelfPlushie
   id: PlushieLunaStargazer
-  name: luna stargazer plushie
-  description: A highly respected Research Director on certain stations.
+  name: researcher moth person plushie
   components:
   - type: Sprite
     state: plushie_lunastargazer
@@ -144,8 +144,7 @@
 - type: entity
   parent: BaseSelfPlushie
   id: PlushieMelodyHennion
-  name: melody hennion plushie
-  description: Get a bunch of them and you can say they're harmonizing, get it?
+  name: service vulpkanin plushie
   components:
   - type: Sprite
     state: plushie_melodyhennion
@@ -173,8 +172,7 @@
 - type: entity
   parent: BaseSelfPlushie
   id: PlushieJeepersCReepers
-  name: jeepers c reepers plushie
-  description: A very friendly Head of Personnel, she loves her dog Ian!
+  name: head of personnel human plushie
   components:
   - type: Sprite
     state: plushie_jeeperscreepers
@@ -194,8 +192,7 @@
 - type: entity
   parent: BaseSelfPlushie
   id: PlushieTincan
-  name: tincan plushie
-  description: The self-proclaimed "NanoTrasen's worst detective."
+  name: detective arachnid plushie
   components:
   - type: Sprite
     state: plushie_tincan
@@ -223,13 +220,10 @@
 - type: entity
   parent: BaseSelfPlushie
   id: PlushieSilasAhas
-  name: silas ahas plushie
-  description: It's pointing and laughing at you and you feel a bit pissed off looking at it...
+  name: doctor moth person plushie
   components:
   - type: Sprite
     state: plushie_silasahas
-  - type: SpeakOnUse
-    pack: SelfPlushSilasAhas
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Voice/Moth/moth_laugh.ogg
@@ -256,13 +250,10 @@
 - type: entity
   parent: BaseSelfPlushie
   id: PlushieLokiHydrus
-  name: loki hydrus plushie
-  description: Oh GOD. Throw this one out!
+  name: harpy plushie
   components:
   - type: Sprite
     state: plushie_lokihydrus
-  - type: SpeakOnUse
-    pack: SelfPlushLokiHydrus
   - type: UseDelay
     delay: 5
   - type: Speech
@@ -271,13 +262,10 @@
 - type: entity
   parent: BaseSelfPlushie
   id: PlushieKorrinKarpen
-  name: korrin karpen plushie
-  description: It seems to smell of lavender for some reason, it also seems to be an outdated job for said worker aswell.
+  name: chief medical officer moth plushie
   components:
   - type: Sprite
     state: plushie_korrinkarpen
-  - type: SpeakOnUse
-    pack: SelfPlushKorrinKarpen
   - type: UseDelay
     delay: 5
   - type: Speech
@@ -286,8 +274,7 @@
 - type: entity
   parent: BaseSelfPlushie
   id: PlushieRikdaVargh
-  name: rikda vargh plushie
-  description: A representative of NanoTrasen and an official from CentCom. Talk about flexing.
+  name: representative lizard plushie
   components:
   - type: Sprite
     state: plushie_rikdavargh
@@ -315,13 +302,10 @@
 - type: entity
   parent: BaseSelfPlushie
   id: PlushieLintonByers
-  name: linton byers plushie
-  description: It smells like milk..?
+  name: quartermaster felinid plushie
   components:
   - type: Sprite
     state: plushie_lintonbyers
-  - type: SpeakOnUse
-    pack: SelfPlushLintonByers
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
@@ -348,13 +332,10 @@
 - type: entity
   parent: BaseSelfPlushie
   id: PlushieFelixKay
-  name: felix kay plushie
-  description: Try not to bring near explosions.
+  name: researcher slime person plushie
   components:
   - type: Sprite
     state: plushie_felixkay
-  - type: SpeakOnUse
-    pack: SelfPlushFelixKay
   - type: UseDelay
     delay: 5
   - type: Speech
@@ -363,8 +344,7 @@
 - type: entity
   parent: BaseSelfPlushie
   id: PlushieAliceAndreev
-  name: alice andreev plushie
-  description: Seems evil...
+  name: scientist slime person plushie
   components:
   - type: Sprite
     state: plushie_aliceandreev
@@ -392,8 +372,7 @@
 - type: entity
   parent: BaseSelfPlushie
   id: PlushieParfeyMaelstorm
-  name: parfey maelstorm plushie
-  description: Not to be trusted with fire.
+  name: geneticist lizard plushie
   components:
   - type: Sprite
     state: plushie_parfeymaelstorm
@@ -423,8 +402,7 @@
 - type: entity
   parent: BaseSelfPlushie
   id: PlushieChadleySkrimblo
-  name: chadley skrimblo plushie
-  description: Leave him in a room alone and a vox box will appear!
+  name: engineer human plushie
   components:
   - type: Sprite
     state: plushie_chadleyskrimblo
@@ -434,8 +412,7 @@
 - type: entity
   parent: BaseSelfPlushie
   id: PlushieAkishJeen
-  name: akish jeen plushie
-  description: The Jeen.
+  name: librarian lizard plushie
   components:
   - type: Sprite
     state: plushie_akishjeen
@@ -463,13 +440,10 @@
 - type: entity
   parent: BaseSelfPlushie
   id: PlushieAltecZorban
-  name: altec zorban plushie
-  description: what a nice purple lizard, you somehow feel compelled to kill it.
+  name: purple lizard plushie
   components:
   - type: Sprite
     state: plushie_alteczorban
-  - type: SpeakOnUse
-    pack: SelfPlushAltecZorban
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
@@ -496,13 +470,10 @@
 - type: entity
   parent: BaseSelfPlushie
   id: PlushieCynsKatyns
-  name: cyns katyns plushie
-  description: A small stuffed harpy, he loves to deliver mail and can appear mute because he is shy. He secretly has advanced knowledge of biochemistry, but prefers to be a mail carrier.
+  name: mailman harpy plushie
   components:
   - type: Sprite
     state: plushie_cynskatyns
-  - type: SpeakOnUse
-    pack: SelfPlushCynsKatyns
   - type: EmitSoundOnUse
     sound:
       path: /Audio/DeltaV/Voice/Harpy/chirp1.ogg
@@ -529,13 +500,10 @@
 - type: entity
   parent: BaseSelfPlushie
   id: PlushieKuafuMoeller
-  name: kuafu moeller plushie
-  description: Pitch black moth from deep space!!!
+  name: atmosian moth person plushie
   components:
   - type: Sprite
     state: plushie_kuafumoeller
-  - type: SpeakOnUse
-    pack: SelfPlushKuafuMoeller
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Voice/Moth/moth_scream.ogg
@@ -558,3 +526,311 @@
     delay: 5
   - type: Speech
     speechVerb: Moth
+
+# stowaway toys (self insert ripoff :godo:)
+
+- type: entity
+  parent: BasePlushie
+  id: BaseStowawayPlushie
+  description: The tag says that this plushie was made by "Stowaway Toys," a toy-making brand you've never heard of before. This one looks familiar, but you don't know why.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/stowaway_toys.rsi
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+  - type: UseDelay
+    delay: 1.8
+  - type: DrainableSolution
+    solution: drink
+    
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieAssistantSpider
+  name: assistant spider plushie
+  components:
+  - type: Sprite
+    state: plushie_assistantspider
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: CopperBlood
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CopperBlood
+          Quantity: 30
+    
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieBarkeepLizard
+  name: bartender kobold plushie
+  components:
+  - type: Sprite
+    state: plushie_barkeeplizard
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Gold
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Gold
+          Quantity: 30
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieCaptainSpider
+  name: captain spider plushie
+  components:
+  - type: Sprite
+    state: plushie_captainspider
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: SpaceGlue
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: SpaceGlue
+          Quantity: 30
+    
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieCargoBird
+  name: cargo harpy plushie
+  components:
+  - type: Sprite
+    state: plushie_cargobird
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Iron
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Iron
+          Quantity: 30
+    
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieChaplainDog
+  name: chaplain vulpkanin plushie
+  components:
+  - type: Sprite
+    state: plushie_chaplaindog
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Holywater
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Holywater
+          Quantity: 30
+    
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieChemistLizard
+  name: chemist lizard plushie
+  components:
+  - type: Sprite
+    state: plushie_chemistlizard
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Inaprovaline
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Inaprovaline
+          Quantity: 30
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushiePirateMoth
+  name: pirate moth plushie
+  components:
+  - type: Sprite
+    state: plushie_piratemoth
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: SpaceDrugs
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: SpaceDrugs
+          Quantity: 30
+    
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieQuartermasterMoth
+  name: quartermaster moth plushie
+  components:
+  - type: Sprite
+    state: plushie_qmmoth
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+    
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieResearchDirectorDog
+  name: researcher vulpkanin plushie
+  components:
+  - type: Sprite
+    state: plushie_rddog
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
+    
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieResearchDirectorLizard
+  name: researcher lizard plushie
+  components:
+  - type: Sprite
+    state: plushie_rdlizard
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Moonshine
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Moonshine
+          Quantity: 30
+    
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieSkeleton
+  name: skeleton plushie
+  description: This thing rattles you to your bones! A plushie by Stowaway Toys.
+  components:
+  - type: Sprite
+    state: plushie_skele
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Milk
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Milk
+          Quantity: 30
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushiePanda
+  name: panda plushie
+  description: Bamboo, anyone? A plushie by Stowaway Toys.
+  components:
+  - type: Sprite
+    state: plushie_panda
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieBlueScarfedLizard
+  name: blue scarfed lizard plushie
+  description: A lizard plushie of a particular lizard fashioning sunglasses and a white-blue scarf, the tag on the back says something about teaching spacemen their way around the station
+  components:
+  - type: Sprite
+    state: plushie_bluescarfedlizrad
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30

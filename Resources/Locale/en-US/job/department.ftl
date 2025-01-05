@@ -2,6 +2,7 @@ department-Cargo = Cargo
 department-Civilian = Civilian
 department-Command = Command
 department-CentralCommand = Central Command
+department-CentralCommandSpecial = Central Command
 department-Engineering = Engineering
 department-Medical = Medical
 department-Security = Security

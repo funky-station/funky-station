@@ -891,3 +891,180 @@ Entries:
       message: Changes to the "Unfortunate Captain" plush.
   id: 106
   time: '2024-12-25T06:14:32.0000000+00:00'
+- author: TheShuEd
+  changes:
+    - type: Fix
+      message: 'Fixed space chunks loot spawning '
+  id: 107
+  time: '2024-12-26T20:35:50.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: Medborgs can now perform surgery again.
+  id: 108
+  time: '2024-12-27T02:11:33.0000000+00:00'
+- author: Mocho, Deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Added a CVAR that lets server operators decide if players should be able
+        to use mech guns without them being inside of a mech. Set to true by
+        default.
+    - type: Tweak
+      message: Reworked IPC fire mechanics to not round remove them from a tiny fire.
+    - type: Tweak
+      message: IPCs cannot be picked as impersonation objectives for Changelings
+    - type: Tweak
+      message: IPCs cannot be cloned now.
+    - type: Tweak
+      message: Entity hands get blocked when they are inside of a mech now.
+    - type: Tweak
+      message: Mech punches or mech drills cannot be wideswung.
+    - type: Tweak
+      message: The mech PKA now consumes basically no energy.
+    - type: Fix
+      message: IPCs are finally not 3x more flammable than a plasmaman.
+    - type: Fix
+      message: >-
+        Fixed scram implants breaking your character if you use them inside of a
+        mech.
+    - type: Fix
+      message: Fixed EMPs completely bricking mech weapons.
+    - type: Fix
+      message: >-
+        Fixed IPC welding heals not checking if the targeted part is also
+        damaged.
+  id: 109
+  time: '2024-12-27T04:11:52.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Added frezon canister sprite
+  id: 110
+  time: '2024-12-28T23:16:14.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Remove
+      message: Funky Station is now less snowsday.
+  id: 111
+  time: '2024-12-29T02:52:09.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: Janitorial service lights have been added to most maps.
+    - type: Add
+      message: Most janitorial departments now have high-capacity water tanks.
+    - type: Fix
+      message: >-
+        Janitorial light buttons which previously did not have janitor button
+        frames now do have janitor button frames.
+    - type: Tweak
+      message: A book was placed near a useful water tank in Oasis.
+  id: 112
+  time: '2024-12-29T20:41:30.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Tweak
+      message: You can now do surgery on yourself!
+  id: 113
+  time: '2024-12-29T23:29:12.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Add
+      message: New map Roid
+  id: 114
+  time: '2024-12-30T02:58:17.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Add
+      message: Added gas abbreviations for /tg/ gases
+  id: 115
+  time: '2024-12-30T05:32:06.0000000+00:00'
+- author: Goomson
+  changes:
+    - type: Add
+      message: New (Funky!) Holopad sprites for AI!
+  id: 116
+  time: '2024-12-30T06:58:33.0000000+00:00'
+- author: hereelabs
+  changes:
+    - type: Add
+      message: Added Syndicate / Rival Corporation jumpsuits. Spritework by meijunkie.
+  id: 117
+  time: '2024-12-31T00:06:04.0000000+00:00'
+- author: hereelabs
+  changes:
+    - type: Tweak
+      message: Small updates to the "Hot Springs" event map.
+  id: 118
+  time: '2024-12-31T00:07:57.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Add
+      message: Botany biofabs are now E-maggable!
+    - type: Tweak
+      message: Antag cubes are much more less costly to fab!
+  id: 119
+  time: '2024-12-31T00:39:31.0000000+00:00'
+- author: ' MilonPL, angelofallars'
+  changes:
+    - type: Add
+      message: NanoChat is now available to all NanoTrasen employees.
+  id: 120
+  time: '2024-12-31T22:13:13.0000000+00:00'
+- author: Liamofthesky
+  changes:
+    - type: Tweak
+      message: Moved security bodycam from outerwear to neck in loadouts
+  id: 121
+  time: '2024-12-31T22:33:41.0000000+00:00'
+- author: hereelabs
+  changes:
+    - type: Tweak
+      message: Not So Self Insert; All self insert plushies are now more generic.
+  id: 122
+  time: '2025-01-01T20:42:16.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Add
+      message: plasma gas miner to loop
+    - type: Tweak
+      message: gate station is now playable for engineering department
+    - type: Fix
+      message: fixed storage chamber in cluster station atmos having round-start plasma
+  id: 123
+  time: '2025-01-02T20:15:35.0000000+00:00'
+- author: ' Aviu'
+  changes:
+    - type: Fix
+      message: Fix absurd amount of midround antags spawning every shift.
+  id: 124
+  time: '2025-01-03T04:17:49.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Tweak
+      message: revamped glacier station SM
+  id: 125
+  time: '2025-01-03T20:09:16.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Tweak
+      message: Reverted the Frezon Oxygen:Tritium Ratio Nerf
+  id: 126
+  time: '2025-01-03T20:25:33.0000000+00:00'
+- author: UtopiOne
+  changes:
+    - type: Fix
+      message: Roboticist now has an actual job description.
+  id: 127
+  time: '2025-01-03T20:32:35.0000000+00:00'
+- author: ' Aviu'
+  changes:
+    - type: Add
+      message: >-
+        Now antags are rolled roundstart and before jobs except for initial
+        infected.
+    - type: Add
+      message: Intern roles can be antags except for cadet obviously.
+  id: 128
+  time: '2025-01-05T04:35:55.0000000+00:00'

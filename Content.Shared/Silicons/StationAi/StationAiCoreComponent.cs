@@ -15,6 +15,7 @@ public sealed partial class StationAiCoreComponent : Component
 
     /// <summary>
     /// Can it move its camera around and interact remotely with things.
+    /// When false, the AI is being projected into a local area, such as a holopad
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Remote = true;
@@ -26,13 +27,22 @@ public sealed partial class StationAiCoreComponent : Component
     public EntityUid? RemoteEntity;
 
     /// <summary>
+    /// Prototype that represents the 'eye' of the AI
+    /// </summary>
+    [DataField(readOnly: true)]
+    public EntProtoId? RemoteEntityProto = "StationAiHolo";
+
+    /// <summary>
     /// Buffer for TTS words. Can be set negative.
     /// </summary>
     [DataField]
     public int TtsBufferBetweenWordsMs = -50;
 
+    /// <summary>
+    /// Prototype that represents the physical avatar of the AI
+    /// </summary>
     [DataField(readOnly: true)]
-    public EntProtoId? RemoteEntityProto = "StationAiHolo";
+    public EntProtoId? PhysicalEntityProto = "StationAiHoloLocal";
 
     public const string Container = "station_ai_mind_slot";
 }

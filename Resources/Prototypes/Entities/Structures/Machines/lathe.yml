@@ -786,6 +786,7 @@
       - Handcuffs
       - MagazineBoxLightRifle
       - MagazineBoxLightRiflePractice
+      - MagazineBoxLightRifleSilver
       - MagazineBoxMagnum
       - MagazineBoxMagnumPractice
       - MagazineBoxPistol
@@ -793,6 +794,7 @@
       - MagazineBoxRifle
       - MagazineBoxRiflePractice
       - MagazineLightRifle
+      - MagazineLightRifleSilver
       - MagazineLightRifleEmpty
       - MagazinePistol
       - MagazinePistolEmpty

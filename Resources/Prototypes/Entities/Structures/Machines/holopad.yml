@@ -22,7 +22,6 @@
   - type: StationAiVision
   - type: Sprite
     sprite: Structures/Machines/holopad.rsi
-    drawdepth: FloorObjects
     snapCardinals: true
     layers:
     - state: base
@@ -72,8 +71,9 @@
     speechSounds: Borg
     speechBubbleOffset: 0.45
   - type: Telephone
+    transmissionRange: Map
     ringTone: /Audio/Machines/double_ring.ogg
-    listeningRange: 2.5
+    listeningRange: 4
     speakerVolume: Speak
   - type: AccessReader
     access: [[ "Command" ]]
@@ -104,32 +104,32 @@
         node: machineFrame
       - !type:DoActsBehavior
         acts: ["Destruction"]
- 
+
 - type: entity
   name: long-range holopad
-  description: "A floor-mounted device for projecting holographic images to similar devices that are far away."
+  description: "A floor-mounted device for projecting holographic images to other devices that are far away."
   parent: Holopad
   id: HolopadLongRange
+  suffix: For calls between maps
   components:
   - type: Telephone
-    transmissionRange: Map
-    compatibleRanges:
-    - Map
-    - Unlimited
-    ignoreTelephonesOnSameGrid: true
-    
+    transmissionRange: Long
+
 - type: entity
   name: quantum entangling holopad
-  description: "An floor-mounted device for projecting holographic images to similar devices at extreme distances."
+  description: "An experimental floor-mounted device for projecting holographic images at extreme distances."
   parent: Holopad
   id: HolopadUnlimitedRange
+  suffix: Unlimited range
   components:
   - type: Telephone
     transmissionRange: Unlimited
+    ignoreTelephonesOnSameGrid: true
     compatibleRanges:
     - Map
     - Unlimited
-    ignoreTelephonesOnSameGrid: true
+  - type: AccessReader
+    access: [[]]
 
 - type: entity
   name: bluespace holopad

@@ -87,6 +87,7 @@
     - id: PlushieResearchDirectorLizard
     - id: PlushieSkeleton
     - id: PlushiePanda
+    - id: PlushieBlueScarfedLizard
     
 - type: entity
   id: CrateFunPlushieStowawayToys

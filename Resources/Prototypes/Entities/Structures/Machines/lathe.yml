@@ -541,6 +541,7 @@
       - ReagentGrinderIndustrialMachineCircuitboard
       - JukeboxCircuitBoard
       - SMESAdvancedMachineCircuitboard
+      - HolopadMachineCircuitboard
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - ShuttleGunDusterCircuitboard
@@ -1211,6 +1212,22 @@
       - ClothingUniformJumpsuitPyjamaSyndicatePink
       - ClothingHeadPyjamaSyndicateRed
       - ClothingUniformJumpsuitPyjamaSyndicateRed
+      # begin funkystation specific syndie wear
+      # syndie civilian
+      - ClothingUniformJumpsuitBotanistSyndicate
+      - ClothingUniformJumpsuitBartenderSyndicate
+      - ClothingUniformJumpsuitLibrarianSyndicate
+      - ClothingUniformJumpsuitScientistSyndicate
+      - ClothingUniformJumpsuitScientistWhiteSyndicate
+      # syndie command
+      - ClothingUniformJumpsuitGCMSyndicate
+      - ClothingUniformJumpsuitCCRSyndicate
+      - ClothingUniformJumpsuitIMDSyndicate
+      - ClothingUniformJumpsuitWSMSyndicate
+      - ClothingUniformJumpsuitHRDSyndicate
+      - ClothingUniformJumpsuitCHESyndicate
+      - ClothingUniformJumpsuitHCRSyndicate
+      # end funkystation specific syndie wear
       - ClothingOuterWinterCentcom
       - ClothingOuterWinterSyndie
       - ClothingOuterWinterSyndieCap
@@ -1285,6 +1302,10 @@
     - BioGenLeft4Zed
     - BioGenEZNutrient
     - BioGenRobustHarvest
+  - type: EmagLatheRecipes
+    emagStaticRecipes: #funky make e maggable
+    - AbominationCube
+    - SpaceCarpCube
 
 - type: entity
   parent: BaseLathe

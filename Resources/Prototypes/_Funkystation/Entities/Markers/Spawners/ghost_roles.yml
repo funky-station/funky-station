@@ -1,0 +1,30 @@
+- type: startingGear
+  id: OldCryoSleeperGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitScientistFormal
+    shoes: ClothingShoesBootsLaceup
+    pocket1: Brutepack
+    id: IDCardAncientScience
+
+- type: entity
+  categories: [ Spawner ]
+  parent: MarkerBase
+  id: SpawnPointGhostCryoPodSleeper
+  name: old cryopod sleeper
+  components:
+  - type: GhostRole
+    name: roles-ghost-cryopod-sleeper-name
+    description: roles-ghost-cryopod-sleeper-objective
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanCryoSleeper
+  - type: Loadout
+    roleLoadout: [ RoleSurvivalStandard ]
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: something-old2

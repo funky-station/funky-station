@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "john space real not fake",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "geneinjector0"
+        },
+        {
+            "name": "geneinjector1"
+        }
+    ]
+}

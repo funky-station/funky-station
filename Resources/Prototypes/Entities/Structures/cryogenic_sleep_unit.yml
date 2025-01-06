@@ -64,9 +64,9 @@
 
 - type: entity
   parent: BaseStructure
-  id: CryogenicSleepUnitAncinet
+  id: CryogenicSleepUnitAncient
   name: old cryogenic sleep unit
-  description: A ancient cryogenic sleep unit that has been forced open by a safety mechanism.
+  description: An ancient cryogenic sleep unit that has been forced open by a safety mechanism.
   components:
   - type: Sprite
     noRot: true

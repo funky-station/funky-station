@@ -16,5 +16,11 @@
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 0.8
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
   - type: BallisticAmmoProvider
     capacity: 4
+    proto: CartridgeLightRifleSilver
+    whitelist:
+      tags:
+      - CartridgeLightRifle

@@ -6,3 +6,6 @@
 
 
 metabolizer-type-thaven = Thaven
+metabolizer-type-snail = Snail
+
+metabolizer-type-apid = Apid

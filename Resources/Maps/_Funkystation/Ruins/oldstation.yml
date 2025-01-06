@@ -752,7 +752,7 @@ entities:
       pos: 25.5,23.5
       parent: 3
     - type: Door
-      secondsUntilStateChange: -5749.2876
+      secondsUntilStateChange: -5867.514
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -788,7 +788,7 @@ entities:
       pos: 25.5,8.5
       parent: 3
     - type: Door
-      secondsUntilStateChange: -5736.0874
+      secondsUntilStateChange: -5854.314
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -950,6 +950,8 @@ entities:
     - type: Transform
       pos: 28.5,6.5
       parent: 3
+    - type: Battery
+      startingCharge: 0
   - uid: 1530
     components:
     - type: Transform
@@ -6092,18 +6094,6 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: EngineeringIDCard
-  entities:
-  - uid: 1793
-    components:
-    - type: MetaData
-      desc: An access card used to control APCs.
-      name: APC Access
-    - type: Transform
-      pos: -12.483906,20.287392
-      parent: 3
-    missingComponents:
-    - NanoChatCard
 - proto: FirelockGlass
   entities:
   - uid: 237
@@ -7148,6 +7138,15 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -0.6020156,20.618351
+      parent: 3
+- proto: IDCardAncientEngineering
+  entities:
+  - uid: 1793
+    components:
+    - type: MetaData
+      name: APC Access
+    - type: Transform
+      pos: -12.594069,20.415726
       parent: 3
 - proto: IngotGold
   entities:

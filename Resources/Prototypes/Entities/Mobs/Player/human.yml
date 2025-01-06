@@ -4,19 +4,6 @@
   parent: BaseMobHuman
   id: MobHuman
 
-#Charlie Station cryo sleeper human
-
-- type: entity
-  categories: [ HideSpawnMenu ]
-  name: Researcher
-  parent: MobHuman
-  id: MobHumanCryoSleeper
-  components:
-  - type: RandomHumanoidAppearance
-  - type: Loadout
-    prototypes: [OldCryoSleeperGear]
-    roleLoadout: [ RoleSurvivalStandard ]
-
 #Syndie
 - type: entity
   parent: MobHuman

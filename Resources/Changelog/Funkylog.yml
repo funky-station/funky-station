@@ -1084,3 +1084,11 @@ Entries:
       message: Funky is now based (ion storms are funnier now)
   id: 131
   time: '2025-01-05T20:41:33.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Add
+      message: Added silver rifle ammo with Holy damage
+    - type: Tweak
+      message: Annabelle is a little quieter
+  id: 132
+  time: '2025-01-06T01:21:55.0000000+00:00'

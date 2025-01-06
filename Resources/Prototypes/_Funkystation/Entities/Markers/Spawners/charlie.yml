@@ -1,0 +1,181 @@
+# Gear
+
+- type: startingGear
+  id: OldCryoSleeperSciGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitScientistFormal
+    shoes: ClothingShoesBootsLaceup
+    pocket1: Brutepack
+    id: IDCardAncientScience
+    
+- type: startingGear
+  id: OldCryoSleeperEngineerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineering
+    shoes: Workboots
+    pocket1: ExtendedEmergencyOxygenTankFilled
+    gloves: ClothingHandsGlovesColorYellow
+    id: IDCardAncientEngineering
+    
+- type: startingGear
+  id: OldCryoSleeperSecurityGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecGrey
+    shoes: JackBoots
+    pocket1: Handcuffs
+    pocket2: Flash
+    id: IDCardAncientSecurity
+    
+- type: startingGear
+  id: OldCryoSleeperDoctorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+    shoes: BlackShoes
+    pocket1: Ointment
+    pocket2: Ointment
+    id: IDCardAncientMedical
+
+# Special MobHumans for the job! Could this be done better? Yes! Will I? No!
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: Researcher
+  parent: MobHuman
+  id: MobHumanCryoSleeperSci
+  components:
+  - type: RandomHumanoidAppearance
+  - type: Loadout
+    prototypes: [OldCryoSleeperSciGear]
+    roleLoadout: [ RoleSurvivalStandard ]
+    
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: Researcher
+  parent: MobHuman
+  id: MobHumanCryoSleeperEngineer
+  components:
+  - type: RandomHumanoidAppearance
+  - type: Loadout
+    prototypes: [OldCryoSleeperEngineerGear]
+    roleLoadout: [ RoleSurvivalStandard ]
+    
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: Researcher
+  parent: MobHuman
+  id: MobHumanCryoSleeperSecurity
+  components:
+  - type: RandomHumanoidAppearance
+  - type: Loadout
+    prototypes: [OldCryoSleeperSecurityGear]
+    roleLoadout: [ RoleSurvivalStandard ]
+    
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: Researcher
+  parent: MobHuman
+  id: MobHumanCryoSleeperDoctor
+  components:
+  - type: RandomHumanoidAppearance
+  - type: Loadout
+    prototypes: [OldCryoSleeperDoctorGearGear]
+    roleLoadout: [ RoleSurvivalStandard ]
+
+# Ghost role markers
+
+
+- type: entity
+  categories: [ Spawner ]
+  parent: MarkerBase
+  id: SpawnPointGhostCryoPodSleeperSci
+  name: old cryopod sleeper
+  suffix: Science
+  components:
+  - type: GhostRole
+    name: roles-ghost-cryopod-sleeper-name
+    description: roles-ghost-cryopod-sleeper-objective
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanCryoSleeperSci
+  - type: Loadout
+    roleLoadout: [ RoleSurvivalStandard ]
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: something-old2
+        
+- type: entity
+  categories: [ Spawner ]
+  parent: MarkerBase
+  id: SpawnPointGhostCryoPodSleeperEng
+  name: old cryopod sleeper
+  suffix: Engineer
+  components:
+  - type: GhostRole
+    name: roles-ghost-cryopod-sleeper-name
+    description: roles-ghost-cryopod-sleeper-objective
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanCryoSleeperEngineer
+  - type: Loadout
+    roleLoadout: [ RoleSurvivalStandard ]
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: something-old2
+        
+- type: entity
+  categories: [ Spawner ]
+  parent: MarkerBase
+  id: SpawnPointGhostCryoPodSleeperSec
+  name: old cryopod sleeper
+  suffix: Security Officer
+  components:
+  - type: GhostRole
+    name: roles-ghost-cryopod-sleeper-name
+    description: roles-ghost-cryopod-sleeper-objective
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanCryoSleeperSecurity
+  - type: Loadout
+    roleLoadout: [ RoleSurvivalStandard ]
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: something-old2
+        
+- type: entity
+  categories: [ Spawner ]
+  parent: MarkerBase
+  id: SpawnPointGhostCryoPodSleeperDoc
+  name: old cryopod sleeper
+  suffix: Doctor
+  components:
+  - type: GhostRole
+    name: roles-ghost-cryopod-sleeper-name
+    description: roles-ghost-cryopod-sleeper-objective
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanCryoSleeperDoctor
+  - type: Loadout
+    roleLoadout: [ RoleSurvivalStandard ]
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: something-old2

@@ -252,6 +252,9 @@ ghost-role-information-derelict-cyborg-description = You are a regular cyborg th
 ghost-role-information-security-name = Security
 ghost-role-information-security-description = You are part of a security task force, but seem to have found yourself in a strange situation...
 
+roles-ghost-cryopod-sleeper-name = old cryogenics pod
+roles-ghost-cryopod-sleeper-objective = You are a employee working for Nanotrasen, stationed onboard a state of the art research station. You vaguely recall rushing into a cryogenics pod due to an oncoming radiation storm. The last thing you remember is the station's Artificial Program telling you that you would only be asleep for eight hours. As you open your eyes, everything seems rusted and broken, a dark feeling swells in your gut as you climb out of your pod.
+
 ghost-role-information-medical-name = Medical
 ghost-role-information-medical-virologist-name = Virologist
 ghost-role-information-medical-geneticist-name = Geneticist

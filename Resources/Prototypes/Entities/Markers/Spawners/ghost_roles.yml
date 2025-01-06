@@ -188,3 +188,75 @@
     - state: green
     - sprite: Mobs/Silicon/chassis.rsi
       state: derelict_icon
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: MarkerBase
+  id: SpawnPointGhostCryoPodSleeperSci
+  suffix: cryopod sleeper
+  components:
+  - type: GhostRole
+    name: roles-ghost-cryopod-sleeper-name
+    description: roles-ghost-cryopod-sleeper-objective
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobHuman
+  - type: Loadout
+    prototypes: [VisitorScientist]
+    roleLoadout: [ RoleSurvivalStandard ]
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: something-old2
+        
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: MarkerBase
+  id: SpawnPointGhostCryoPodSleeperSec
+  suffix: cryopod sleeper
+  components:
+  - type: GhostRole
+    name: roles-ghost-cryopod-sleeper-name
+    description: roles-ghost-cryopod-sleeper-objective
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobHuman
+  - type: Loadout
+    prototypes: [VisitorSecurityOfficer]
+    roleLoadout: [ RoleSurvivalStandard ]
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: something-old2
+        
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: MarkerBase
+  id: SpawnPointGhostCryoPodSleeperEng
+  suffix: cryopod sleeper
+  components:
+  - type: GhostRole
+    name: roles-ghost-cryopod-sleeper-name
+    description: roles-ghost-cryopod-sleeper-objective
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobHuman
+  - type: Loadout
+    prototypes: [VisitorTechnicalAssistant]
+    roleLoadout: [ RoleSurvivalStandard ]
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/signs.rsi
+        state: something-old2

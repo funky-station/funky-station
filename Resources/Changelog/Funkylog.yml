@@ -1092,3 +1092,13 @@ Entries:
       message: Annabelle is a little quieter
   id: 132
   time: '2025-01-06T01:21:55.0000000+00:00'
+- author: ' Mish'
+  changes:
+    - type: Tweak
+      message: Skeletons now take twice as much brute and holy damage.
+    - type: Tweak
+      message: Zombies take less damage from most sources besides holy.
+    - type: Tweak
+      message: Holy damage real?
+  id: 133
+  time: '2025-01-06T01:36:16.0000000+00:00'

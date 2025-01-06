@@ -608,9 +608,6 @@
         - type: OhioAccent
         - type: RatvarianLanguage
         - type: Clumsy
-          clumsyDamage: # Placeholder values to be able to initialize the component
-            types:
-              Blunt: 0
     inverse: true
   - type: SurgeryPartCondition
     part: Head
@@ -635,9 +632,6 @@
         - type: OhioAccent
         - type: RatvarianLanguage
         - type: Clumsy
-          clumsyDamage:
-            types:
-              Blunt: 0
   - type: SurgeryPartCondition
     part: Head
 

@@ -12,7 +12,7 @@
   id: OldCryoSleeperEngineerGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineering
-    shoes: Workboots
+    shoes: ClothingShoesBootsWork
     pocket1: ExtendedEmergencyOxygenTankFilled
     gloves: ClothingHandsGlovesColorYellow
     id: IDCardAncientEngineering
@@ -21,7 +21,7 @@
   id: OldCryoSleeperSecurityGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecGrey
-    shoes: JackBoots
+    shoes: ClothingShoesBootsJack
     pocket1: Handcuffs
     pocket2: Flash
     id: IDCardAncientSecurity
@@ -30,7 +30,7 @@
   id: OldCryoSleeperDoctorGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitMedicalDoctor
-    shoes: BlackShoes
+    shoes: ClothingShoesColorBlack
     pocket1: Ointment
     pocket2: Ointment
     id: IDCardAncientMedical
@@ -78,7 +78,7 @@
   components:
   - type: RandomHumanoidAppearance
   - type: Loadout
-    prototypes: [OldCryoSleeperDoctorGearGear]
+    prototypes: [OldCryoSleeperDoctorGear]
     roleLoadout: [ RoleSurvivalStandard ]
 
 # Ghost role markers

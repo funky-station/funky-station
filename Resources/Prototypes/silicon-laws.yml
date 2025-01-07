@@ -524,17 +524,17 @@
   obeysTo: laws-owner-crew
 
 # Asimov lawset
-- type: siliconLawset
+- type: siliconLaw
   id: Asimov1
   order: 1
   lawString: law-asimov-1
 
-- type: siliconLawset
+- type: siliconLaw
   id: Asimov2
   order: 2
   lawString: law-asimov-2
  
-- type: siliconLawset
+- type: siliconLaw
   id: Asimov3
   order: 3
   lawString: law-asimov-3

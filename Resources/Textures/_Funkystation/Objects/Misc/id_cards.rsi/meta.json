@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from ParadiseSS13 at commit https://github.com/ParadiseSS13/Paradise/commit/2fd9200036dd18a56e6887f8090d5dc0477fc6f3",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "retro"
+    },
+    {
+      "name": "retro_security"
+    },
+    {
+      "name": "retro_research"
+    },
+    {
+      "name": "retro_medical"
+    },
+    {
+      "name": "retro_engineering"
+    },
+    {
+      "name": "retro_nanotrasen"
+    },
+    {
+      "name": "default-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "default-inhand-right",
+      "directions": 4
+    }
+  ]
+}

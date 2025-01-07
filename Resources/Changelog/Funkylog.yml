@@ -1116,3 +1116,11 @@ Entries:
       message: Adds a new ion lawset for cyborgs to get, good luck.
   id: 135
   time: '2025-01-07T05:37:55.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Tweak
+      message: Revamped Kettle's Atmos
+    - type: Tweak
+      message: Updated Train's Engi.
+  id: 136
+  time: '2025-01-07T19:35:53.0000000+00:00'

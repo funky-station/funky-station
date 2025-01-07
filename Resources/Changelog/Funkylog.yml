@@ -1124,3 +1124,9 @@ Entries:
       message: Updated Train's Engi.
   id: 136
   time: '2025-01-07T19:35:53.0000000+00:00'
+- author: ' Mish'
+  changes:
+    - type: Tweak
+      message: Rat kings are now officially antagonists
+  id: 137
+  time: '2025-01-07T19:41:07.0000000+00:00'

@@ -1,0 +1,200 @@
+using System.Linq;
+using Content.Shared.ActionBlocker;
+using Content.Shared.Administration.Components;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Alert;
+using Content.Shared.Buckle.Components;
+using Content.Shared.Cuffs.Components;
+using Content.Shared.Database;
+using Content.Shared._EinsteinEngines.Flight; // Goobstation
+using Content.Shared.DoAfter;
+using Content.Shared.Hands;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Interaction;
+using Content.Shared.Interaction.Components;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Inventory.Events;
+using Content.Shared.Inventory.VirtualItem;
+using Content.Shared.Item;
+using Content.Shared.Movement.Events;
+using Content.Shared.Movement.Pulling.Events;
+using Content.Shared.Popups;
+using Content.Shared.Pulling.Events;
+using Content.Shared.Rejuvenate;
+using Content.Shared.Stunnable;
+using Content.Shared.Timing;
+using Content.Shared.Verbs;
+using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
+using Robust.Shared.Network;
+using Robust.Shared.Player;
+using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
+using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
+
+namespace Content.Shared.Tools.Components
+{
+    public abstract partial class SharedGeneinjectorSystem : EntitySystem // I HAVE NO FUCKING IDEA WHAT IM FUCKING DOING, HELP ME
+    {
+
+        [Dependency] private readonly IComponentFactory _componentFactory = default!;
+        [Dependency] private readonly INetManager _net = default!;
+        [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
+        [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+        [Dependency] private readonly AlertsSystem _alerts = default!;
+        [Dependency] private readonly SharedAudioSystem _audio = default!;
+        [Dependency] private readonly SharedContainerSystem _container = default!;
+        [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+        [Dependency] private readonly SharedHandsSystem _hands = default!;
+        [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
+        [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+        [Dependency] private readonly SharedPopupSystem _popup = default!;
+        [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private readonly UseDelaySystem _delay = default!;
+
+        public override void Initialize()
+        {
+            base.Initialize();
+
+            SubscribeLocalEvent<GeneinjectorComponent, MeleeHitEvent>(OnMeleeInject);
+            SubscribeLocalEvent<GeneinjectorComponent, AddInjectDoAfterEvent>(OnAddDNADoAfter);
+        }
+        private void OnMeleeInject(EntityUid uid, GeneinjectorComponent component, MeleeHitEvent args)
+        {
+            EntityManager.DeleteEntity(uid);
+            if (!args.HitEntities.Any())
+                return;
+
+            TryInjecting(args.User, args.HitEntities.First(), uid, component);
+            args.Handled = true;
+        }
+
+        public bool TryInjecting(EntityUid user, EntityUid target, EntityUid item, GeneinjectorComponent? injectorComponent = null, CuffableComponent? cuffable = null)
+        {
+            if (!Resolve(item, ref injectorComponent) || !Resolve(target, ref cuffable, false)) //use the fartass cuffable cuz it works
+                return false;
+
+            var injectTime = injectorComponent.InjectTime;
+
+            if (HasComp<StunnedComponent>(target))
+                injectTime = MathF.Max(0.1f, injectTime - injectorComponent.StunBonus);
+
+            var doAfterEventArgs = new DoAfterArgs(EntityManager, user, injectTime, new AddInjectDoAfterEvent(), item, target, item)
+            {
+                BreakOnMove = true,
+                BreakOnWeightlessMove = false,
+                BreakOnDamage = true,
+                NeedHand = true,
+                DistanceThreshold = 1f
+            };
+
+            if (!_doAfter.TryStartDoAfter(doAfterEventArgs))
+                return true;
+
+            _popup.PopupEntity(Loc.GetString("handcuff-component-start-cuffing-observer",
+                    ("user", Identity.Name(user, EntityManager)), ("target", Identity.Name(target, EntityManager))),
+                target, Filter.Pvs(target, entityManager: EntityManager)
+                    .RemoveWhere(e => e.AttachedEntity == target || e.AttachedEntity == user), true);
+
+            if (target == user)
+            {
+                _popup.PopupClient(Loc.GetString("handcuff-component-target-self"), user, user);
+            }
+            else
+            {
+                _popup.PopupClient(Loc.GetString("handcuff-component-start-cuffing-target-message",
+                    ("targetName", Identity.Name(target, EntityManager, user))), user, user);
+                _popup.PopupEntity(Loc.GetString("handcuff-component-start-cuffing-by-other-message",
+                    ("otherName", Identity.Name(user, EntityManager, target))), target, target);
+            }
+
+            _audio.PlayPredicted(injectorComponent.StartGeneSound, item, user);
+            return true;
+        }
+
+        private void OnAddDNADoAfter(EntityUid uid, GeneinjectorComponent component, AddInjectDoAfterEvent args)
+        {
+            var user = args.Args.User;
+
+            if (!TryComp<CuffableComponent>(args.Args.Target, out var cuffable))
+                return;
+
+            var target = args.Args.Target.Value;
+
+            if (args.Handled)
+                return;
+            args.Handled = true;
+
+            if (!args.Cancelled && TryAddMutation(target, user, uid, cuffable))
+            {
+                _audio.PlayPredicted(component.EndGeneSound, uid, user);
+
+                _popup.PopupEntity(Loc.GetString("handcuff-component-cuff-observer-success-message",
+                        ("user", Identity.Name(user, EntityManager)), ("target", Identity.Name(target, EntityManager))),
+                    target, Filter.Pvs(target, entityManager: EntityManager)
+                        .RemoveWhere(e => e.AttachedEntity == target || e.AttachedEntity == user), true);
+
+                if (target == user)
+                {
+                    _popup.PopupClient(Loc.GetString("handcuff-component-cuff-self-success-message"), user, user);
+                    _adminLog.Add(LogType.Action, LogImpact.Medium,
+                        $"{ToPrettyString(user):player} has cuffed himself");
+                }
+                else
+                {
+                    _popup.PopupClient(Loc.GetString("handcuff-component-cuff-other-success-message",
+                        ("otherName", Identity.Name(target, EntityManager, user))), user, user);
+                    _popup.PopupClient(Loc.GetString("handcuff-component-cuff-by-other-success-message",
+                        ("otherName", Identity.Name(user, EntityManager, target))), target, target);
+                    _adminLog.Add(LogType.Action, LogImpact.Medium,
+                        $"{ToPrettyString(user):player} has cuffed {ToPrettyString(target):player}");
+                }
+            }
+            else
+            {
+                if (target == user)
+                {
+                    _popup.PopupClient(Loc.GetString("handcuff-component-cuff-interrupt-self-message"), user, user);
+                }
+                else
+                {
+                    // TODO Fix popup message wording
+                    // This message assumes that the user being handcuffed is the one that caused the handcuff to fail.
+
+                    _popup.PopupClient(Loc.GetString("handcuff-component-cuff-interrupt-message",
+                        ("targetName", Identity.Name(target, EntityManager, user))), user, user);
+                    _popup.PopupClient(Loc.GetString("handcuff-component-cuff-interrupt-other-message",
+                        ("otherName", Identity.Name(user, EntityManager, target))), target, target);
+                }
+            }
+        }
+
+        public bool TryAddMutation(EntityUid target, EntityUid user, EntityUid item, CuffableComponent? component = null, GeneinjectorComponent? gene = null)
+        {
+            if (!Resolve(target, ref component) || !Resolve(item, ref gene))
+                return false;
+
+            if (!_interaction.InRangeUnobstructed(item, target))
+                return false;
+
+            EntityManager.DeleteEntity(item);
+
+            return true;
+        }
+
+        public IReadOnlyList<EntityUid> GetAllCuffs(CuffableComponent component)
+        {
+            return component.Container.ContainedEntities;
+        }
+
+        [Serializable, NetSerializable]
+        private sealed partial class AddInjectDoAfterEvent : SimpleDoAfterEvent
+        {
+        }
+    }
+
+}
+

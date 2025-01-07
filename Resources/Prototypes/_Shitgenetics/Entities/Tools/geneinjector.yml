@@ -1,0 +1,25 @@
+- type: entity
+  name: geneinjector
+  description: Contains a solution used to modify and mutate certain genes. Must be stabbed into a body directly, avoid interal organs while doing so.
+  id: Geneinjector
+  parent: [BaseItem]
+  components:
+  - type: Item
+    size: Small
+    storedRotation: 90
+  - type: Geneinjector
+  - type: Sprite
+    sprite: _Shitgenetic/Objects/Tools/geneinjector.rsi
+    layers:
+    - state: geneinjector0
+      visible: true
+    - state: geneinjector1
+      visible: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    resetOnHandSelected: false
+    animation: WeaponArcDisarm
+    damage:
+      types:
+        Blunt: 0
+

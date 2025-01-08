@@ -15,3 +15,6 @@ names-apid-engineer-first-dataset-4 = Leafcutter
 
 names-apid-emergency-first-dataset-1 = Watcher
 names-apid-emergency-first-dataset-2 = Guardian
+
+names-apid-chef-first-dataset-1 = Baker
+names-apid-chef-first-dataset-2 = Provider

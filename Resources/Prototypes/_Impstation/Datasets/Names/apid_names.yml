@@ -28,6 +28,12 @@
     prefix: names-apid-emergency-first-dataset-
     count: 2
 
+- type: localizedDataset
+  id: apid_chef
+  values:
+    prefix: names-apid-chef-first-dataset-
+    count: 2
+
 - type: localizedDataset # ANGRY BEE NOISES
   id: names_apid
   values:

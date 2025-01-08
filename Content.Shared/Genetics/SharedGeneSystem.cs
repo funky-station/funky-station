@@ -1,43 +1,29 @@
 using System.Linq;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
-using Content.Shared.Buckle.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Database;
-using Content.Shared._EinsteinEngines.Flight; // Goobstation
 using Content.Shared.DoAfter;
-using Content.Shared.Hands;
-using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
-using Content.Shared.Interaction.Components;
-using Content.Shared.Interaction.Events;
-using Content.Shared.Inventory.Events;
 using Content.Shared.Inventory.VirtualItem;
-using Content.Shared.Item;
-using Content.Shared.Movement.Events;
-using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Popups;
-using Content.Shared.Pulling.Events;
-using Content.Shared.Rejuvenate;
 using Content.Shared.Stunnable;
 using Content.Shared.Timing;
-using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
-using Robust.Shared.Utility;
-using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
+using Content.Shared.Genetics.Components;
+using Content.Shared.Mutations;
 
-namespace Content.Shared.Tools.Components
+namespace Content.Shared.Genetics
 {
-    public abstract partial class SharedGeneinjectorSystem : EntitySystem // I HAVE NO FUCKING IDEA WHAT IM FUCKING DOING, HELP ME
+    public abstract partial class SharedGeneSystem : EntitySystem // I HAVE NO FUCKING IDEA WHAT IM FUCKING DOING, HELP ME
     {
 
         [Dependency] private readonly IComponentFactory _componentFactory = default!;
@@ -64,14 +50,12 @@ namespace Content.Shared.Tools.Components
         }
         private void OnMeleeInject(EntityUid uid, GeneinjectorComponent component, MeleeHitEvent args)
         {
-            EntityManager.DeleteEntity(uid);
             if (!args.HitEntities.Any())
                 return;
 
             TryInjecting(args.User, args.HitEntities.First(), uid, component);
             args.Handled = true;
         }
-
         public bool TryInjecting(EntityUid user, EntityUid target, EntityUid item, GeneinjectorComponent? injectorComponent = null, CuffableComponent? cuffable = null)
         {
             if (!Resolve(item, ref injectorComponent) || !Resolve(target, ref cuffable, false)) //use the fartass cuffable cuz it works
@@ -137,11 +121,14 @@ namespace Content.Shared.Tools.Components
                     target, Filter.Pvs(target, entityManager: EntityManager)
                         .RemoveWhere(e => e.AttachedEntity == target || e.AttachedEntity == user), true);
 
+
                 if (target == user)
                 {
                     _popup.PopupClient(Loc.GetString("handcuff-component-cuff-self-success-message"), user, user);
                     _adminLog.Add(LogType.Action, LogImpact.Medium,
                         $"{ToPrettyString(user):player} has cuffed himself");
+
+                    EntityManager.DeleteEntity(uid);
                 }
                 else
                 {
@@ -151,6 +138,8 @@ namespace Content.Shared.Tools.Components
                         ("otherName", Identity.Name(user, EntityManager, target))), target, target);
                     _adminLog.Add(LogType.Action, LogImpact.Medium,
                         $"{ToPrettyString(user):player} has cuffed {ToPrettyString(target):player}");
+
+                    EntityManager.DeleteEntity(uid);
                 }
             }
             else
@@ -172,16 +161,42 @@ namespace Content.Shared.Tools.Components
             }
         }
 
-        public bool TryAddMutation(EntityUid target, EntityUid user, EntityUid item, CuffableComponent? component = null, GeneinjectorComponent? gene = null)
+        public bool TryAddMutation(EntityUid target, EntityUid user, EntityUid item, CuffableComponent? component = null, GeneinjectorComponent? gene = null, InjectionPresetComponent? inject = null, MutationComponent? mutation = null)
         {
-            if (!Resolve(target, ref component) || !Resolve(item, ref gene))
-                return false;
 
             if (!_interaction.InRangeUnobstructed(item, target))
                 return false;
 
-            EntityManager.DeleteEntity(item);
+            EnsureComp<MutationComponent>(target);
 
+            if (TryComp<MutationComponent>(target, out var mutations))
+            {
+                if (TryComp<InjectionPresetComponent>(item, out var injectpreset))
+                {
+                    if ((mutations != null) && (injectpreset != null)) //to anyone whos like trying to make mutations, im so sorry.
+                    {
+                        if (injectpreset.AcidVomit) mutations.AcidVomit = true; //its 3 am, im fucking tired, im just gonna hardcode it, im so sorry taydeo, I have dishonored the space bloodline.
+                        if (injectpreset.BloodVomit) mutations.BloodVomit = true;
+                        if (injectpreset.BlueLight) mutations.BlueLight = true;
+                        if (injectpreset.BreathingImmune) mutations.BreathingImmune = true;
+                        if (injectpreset.BZFarter) mutations.BZFarter = true;
+                        if (injectpreset.Clumsy) mutations.Clumsy = true;
+                        if (injectpreset.FireSkin) mutations.FireSkin = true;
+                        if (injectpreset.Light) mutations.Light = true;
+                        if (injectpreset.OkayAccent) mutations.OkayAccent = true;
+                        if (injectpreset.PlasmaFarter) mutations.PlasmaFarter = true;
+                        if (injectpreset.PressureImmune) mutations.PressureImmune = true;
+                        if (injectpreset.Prickmode) mutations.Prickmode = true;
+                        if (injectpreset.RadiationImmune) mutations.RadiationImmune = true;
+                        if (injectpreset.RedLight) mutations.RedLight = true;
+                        if (injectpreset.RGBLight) mutations.RGBLight = true;
+                        if (injectpreset.TempImmune) mutations.TempImmune = true;
+                        if (injectpreset.TritFarter) mutations.TritFarter = true;
+                        if (injectpreset.Twitch) mutations.Twitch = true;
+                        if (injectpreset.Vomit) mutations.Vomit = true;
+                    }
+                }
+            }
             return true;
         }
 
@@ -195,6 +210,5 @@ namespace Content.Shared.Tools.Components
         {
         }
     }
-
 }
 

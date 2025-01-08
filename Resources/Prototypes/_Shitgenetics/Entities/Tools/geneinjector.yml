@@ -8,6 +8,7 @@
     size: Small
     storedRotation: 90
   - type: Geneinjector
+  - type: InjectionPreset
   - type: Sprite
     sprite: _Shitgenetic/Objects/Tools/geneinjector.rsi
     layers:

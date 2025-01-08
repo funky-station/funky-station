@@ -1,14 +1,15 @@
 using Robust.Shared.GameStates; //#funkystation
 
-namespace Content.Shared.Mutations;
+namespace Content.Shared.Genetics.Components;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class MutationComponent : Component
+public sealed partial class InjectionPresetComponent : Component
 {
 
     public int MutationUpdateTimer = 0;
 
     public int MutationUpdateCooldown = 200;
+
 
     #region Visual
 

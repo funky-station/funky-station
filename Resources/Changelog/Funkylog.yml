@@ -1130,3 +1130,11 @@ Entries:
       message: Rat kings are now officially antagonists
   id: 137
   time: '2025-01-07T19:41:07.0000000+00:00'
+- author: ' SolsticeOfTheWinter'
+  changes:
+    - type: Tweak
+      message: harpies can start flying while walking
+    - type: Tweak
+      message: 'harpy documentation is better now '
+  id: 138
+  time: '2025-01-08T01:36:58.0000000+00:00'

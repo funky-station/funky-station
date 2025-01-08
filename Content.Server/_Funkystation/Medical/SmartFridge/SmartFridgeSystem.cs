@@ -3,9 +3,11 @@ using Content.Server.Power.EntitySystems;
 using Content.Shared._Funkystation.Medical.SmartFridge;
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Tag;
 using Robust.Server.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Funkystation.Medical.SmartFridge;
 
@@ -13,6 +15,7 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
 {
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
     [Dependency] private readonly AnchorableSystem _anchorable = default!;
+    //[Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly TagSystem _tags = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
@@ -21,6 +24,7 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
     {
         base.Initialize();
 
+        // listcontainerbutton dispense event
         Subs.BuiEvents<SmartFridgeComponent>(SmartFridgeUiKey.Key,
             subs =>
         {
@@ -30,6 +34,9 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
         SubscribeLocalEvent<SmartFridgeComponent, MapInitEvent>(MapInit, before: [typeof(ItemSlotsSystem)]);
         SubscribeLocalEvent<SmartFridgeComponent, ItemSlotEjectAttemptEvent>(OnItemEjectEvent);
         SubscribeLocalEvent<SmartFridgeComponent, InteractUsingEvent>(OnInteractEvent);
+
+        // SubscribeAllEvent<EjectItemMessage>(OnEjectMessage);
+        // what does it want from me...
     }
 
     private void OnInteractEvent(EntityUid entity, SmartFridgeComponent component, ref InteractUsingEvent ev)
@@ -95,6 +102,8 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
             comp.Ejecting = false;
 
             EjectItem(uid, comp);
+            // im really really not sure how to edit this properly but again. change to make it take a list
+            // for i < quantity { ejectitem }
         }
     }
 
@@ -103,6 +112,24 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
         SetupSmartFridge(uid, component);
     }
 
+    private void OnEjectMessage(EntityUid uid, EjectItemMessage msg)
+    {
+        if (!this.IsPowered(uid, EntityManager))
+            return;
+
+        var itemUid = GetEntity(msg.Entity);
+
+        if (!TryComp<SmartFridgeComponent>(itemUid, out var component))
+            return;
+
+        if (!Exists(itemUid))
+            return;
+
+        VendFromSlot(uid, msg.ItemName, msg.ItemsToExtract);
+        Dirty(uid, component);
+    }
+
+    // listcontainerbutton dispense event
     private void OnSmartFridgeEjectMessage(EntityUid uid, SmartFridgeComponent component, SmartFridgeEjectMessage args)
     {
         if (!this.IsPowered(uid, EntityManager))
@@ -111,11 +138,11 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
         if (args.Actor is not { Valid: true } entity || Deleted(entity))
             return;
 
-        VendFromSlot(uid, args.Id);
+        //VendFromSlot(uid, args.Id);
         Dirty(uid, component);
     }
 
-    private void VendFromSlot(EntityUid uid, string itemSlotToEject, SmartFridgeComponent? component = null)
+    private void VendFromSlot(EntityUid uid, string itemName, FixedPoint2 itemsToExtract, SmartFridgeComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return;
@@ -125,16 +152,22 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
             return;
         }
 
-        var item = _itemSlotsSystem.GetItemOrNull(uid, itemSlotToEject);
+        for (var i = 0; i < itemsToExtract; i++)
+        {
+            // creates a list of itemSlotToEject based on matching itemName, quantity = itemsToExtract
+            var item = _itemSlotsSystem.GetItemOrNull(uid, itemSlotToEject);
 
-        if (item == null)
-            return;
+            if (item == null)
+                return;
 
-        if (!_itemSlotsSystem.TryGetSlot(uid, itemSlotToEject, out var itemSlot) && itemSlot == null)
-            return;
+            if (!_itemSlotsSystem.TryGetSlot(uid, itemSlotToEject, out var itemSlot) && itemSlot == null)
+                return;
+            // add itemSlot to itemSlotList (to dispense)
+        }
 
         component.Ejecting = true;
         component.SlotToEjectFrom = itemSlot;
+        // edit SlotToEjectFrom to hold lists
 
         _audio.PlayPvs(component.SoundVend, uid);
     }

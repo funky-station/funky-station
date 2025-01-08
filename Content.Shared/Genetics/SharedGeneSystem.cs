@@ -78,24 +78,22 @@ namespace Content.Shared.Genetics
             if (!_doAfter.TryStartDoAfter(doAfterEventArgs))
                 return true;
 
-            _popup.PopupEntity(Loc.GetString("handcuff-component-start-cuffing-observer",
+            _popup.PopupEntity(Loc.GetString("geneinjector-component-start-injecting-observer",
                     ("user", Identity.Name(user, EntityManager)), ("target", Identity.Name(target, EntityManager))),
                 target, Filter.Pvs(target, entityManager: EntityManager)
                     .RemoveWhere(e => e.AttachedEntity == target || e.AttachedEntity == user), true);
 
             if (target == user)
             {
-                _popup.PopupClient(Loc.GetString("handcuff-component-target-self"), user, user);
+                _popup.PopupClient(Loc.GetString("geneinjector-component-target-self"), user, user);
             }
             else
             {
-                _popup.PopupClient(Loc.GetString("handcuff-component-start-cuffing-target-message",
+                _popup.PopupClient(Loc.GetString("geneinjector-component-start-injecting-target-message",
                     ("targetName", Identity.Name(target, EntityManager, user))), user, user);
-                _popup.PopupEntity(Loc.GetString("handcuff-component-start-cuffing-by-other-message",
+                _popup.PopupEntity(Loc.GetString("geneinjector-component-start-injecting-by-other-message",
                     ("otherName", Identity.Name(user, EntityManager, target))), target, target);
             }
-
-            _audio.PlayPredicted(injectorComponent.StartGeneSound, item, user);
             return true;
         }
 
@@ -114,9 +112,8 @@ namespace Content.Shared.Genetics
 
             if (!args.Cancelled && TryAddMutation(target, user, uid, cuffable))
             {
-                _audio.PlayPredicted(component.EndGeneSound, uid, user);
 
-                _popup.PopupEntity(Loc.GetString("handcuff-component-cuff-observer-success-message",
+                _popup.PopupEntity(Loc.GetString("geneinjector-component-inject-observer-success-message",
                         ("user", Identity.Name(user, EntityManager)), ("target", Identity.Name(target, EntityManager))),
                     target, Filter.Pvs(target, entityManager: EntityManager)
                         .RemoveWhere(e => e.AttachedEntity == target || e.AttachedEntity == user), true);
@@ -124,20 +121,20 @@ namespace Content.Shared.Genetics
 
                 if (target == user)
                 {
-                    _popup.PopupClient(Loc.GetString("handcuff-component-cuff-self-success-message"), user, user);
+                    _popup.PopupClient(Loc.GetString("geneinjector-component-inject-self-success-message"), user, user);
                     _adminLog.Add(LogType.Action, LogImpact.Medium,
-                        $"{ToPrettyString(user):player} has cuffed himself");
+                        $"{ToPrettyString(user):player} has injected himself");
 
                     EntityManager.DeleteEntity(uid);
                 }
                 else
                 {
-                    _popup.PopupClient(Loc.GetString("handcuff-component-cuff-other-success-message",
+                    _popup.PopupClient(Loc.GetString("geneinjector-component-inject-other-success-message",
                         ("otherName", Identity.Name(target, EntityManager, user))), user, user);
-                    _popup.PopupClient(Loc.GetString("handcuff-component-cuff-by-other-success-message",
+                    _popup.PopupClient(Loc.GetString("geneinjector-component-inject-by-other-success-message",
                         ("otherName", Identity.Name(user, EntityManager, target))), target, target);
                     _adminLog.Add(LogType.Action, LogImpact.Medium,
-                        $"{ToPrettyString(user):player} has cuffed {ToPrettyString(target):player}");
+                        $"{ToPrettyString(user):player} has injected {ToPrettyString(target):player}");
 
                     EntityManager.DeleteEntity(uid);
                 }
@@ -146,16 +143,14 @@ namespace Content.Shared.Genetics
             {
                 if (target == user)
                 {
-                    _popup.PopupClient(Loc.GetString("handcuff-component-cuff-interrupt-self-message"), user, user);
+                    _popup.PopupClient(Loc.GetString("geneinjector-component-inject-interrupt-self-message"), user, user);
                 }
                 else
                 {
-                    // TODO Fix popup message wording
-                    // This message assumes that the user being handcuffed is the one that caused the handcuff to fail.
 
-                    _popup.PopupClient(Loc.GetString("handcuff-component-cuff-interrupt-message",
+                    _popup.PopupClient(Loc.GetString("geneinjector-component-inject-interrupt-message",
                         ("targetName", Identity.Name(target, EntityManager, user))), user, user);
-                    _popup.PopupClient(Loc.GetString("handcuff-component-cuff-interrupt-other-message",
+                    _popup.PopupClient(Loc.GetString("geneinjector-component-inject-interrupt-other-message",
                         ("otherName", Identity.Name(user, EntityManager, target))), target, target);
                 }
             }
@@ -175,7 +170,7 @@ namespace Content.Shared.Genetics
                 {
                     if ((mutations != null) && (injectpreset != null)) //to anyone whos like trying to make mutations, im so sorry.
                     {
-                        if (injectpreset.AcidVomit) mutations.AcidVomit = true; //its 3 am, im fucking tired, im just gonna hardcode it, im so sorry taydeo, I have dishonored the space bloodline.
+                        if (injectpreset.AcidVomit) mutations.AcidVomit = true; //its 3 am, im fucking tired, im just gonna hardcode it, im so sorry taydeo, I have dishonored the john space bloodline.
                         if (injectpreset.BloodVomit) mutations.BloodVomit = true;
                         if (injectpreset.BlueLight) mutations.BlueLight = true;
                         if (injectpreset.BreathingImmune) mutations.BreathingImmune = true;

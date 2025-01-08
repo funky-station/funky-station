@@ -1,0 +1,12 @@
+geneinjector-component-target-self = You start injecting yourself.
+geneinjector-component-too-far-away-error = You are too far away to use the restraints!
+geneinjector-component-start-injecting-observer = {$user} starts injecting {$target}!
+geneinjector-component-start-injecting-target-message = You start injecting {$targetName}.
+geneinjector-component-start-injecting-by-other-message = {$otherName} starts injecting you!
+geneinjector-component-inject-observer-success-message = {$user} injects {$target}.
+geneinjector-component-inject-other-success-message = You successfully inject {$otherName}.
+geneinjector-component-inject-by-other-success-message = You have been injected by {$otherName}!
+geneinjector-component-inject-self-success-message = You inject yourself.
+geneinjector-component-inject-interrupt-message = You were interrupted while injecting {$targetName}!
+geneinjector-component-inject-interrupt-other-message = You interrupt {$otherName} while they are injecting you!
+geneinjector-component-inject-interrupt-self-message = You were interrupted while injecting yourself.

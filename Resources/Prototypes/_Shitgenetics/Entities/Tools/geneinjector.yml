@@ -1,7 +1,7 @@
 - type: entity
-  name: geneinjector
-  description: Contains a solution used to modify and mutate certain genes. Must be stabbed into a body directly, avoid interal organs while doing so.
-  id: Geneinjector
+  name: Genetic Injector
+  description: Contains a solution used to modify and mutate certain genes. Must be stabbed into a body directly and with force.
+  id: geneinjector
   parent: [BaseItem]
   components:
   - type: Item
@@ -19,8 +19,10 @@
   - type: MeleeWeapon
     wideAnimationRotation: 90
     resetOnHandSelected: false
-    animation: WeaponArcDisarm
+    animation: WeaponArcThrust
     damage:
       types:
-        Blunt: 0
+        Piercing: 1
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
 

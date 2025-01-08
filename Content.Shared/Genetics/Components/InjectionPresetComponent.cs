@@ -6,12 +6,12 @@ namespace Content.Shared.Genetics.Components;
 public sealed partial class InjectionPresetComponent : Component
 {
 
-    public int MutationUpdateTimer = 0;
+    /// <summary>
+    /// i literally just have this copying the mutation comp. theres probably a better way to do this but instead enjoy the copy and paste
+    /// </summary>
+    ///
 
-    public int MutationUpdateCooldown = 200;
-
-
-    #region Visual
+    //https://www.youtube.com/watch?v=dQw4w9WgXcQ <-- important
 
     [DataField("twitch")]
     public bool Twitch = false;
@@ -28,10 +28,6 @@ public sealed partial class InjectionPresetComponent : Component
     [DataField("rgblight")]
     public bool RGBLight = false;
 
-    #endregion
-
-    #region Emitting Stuff
-
     [DataField("vomit")]
     public bool Vomit = false;
 
@@ -42,20 +38,16 @@ public sealed partial class InjectionPresetComponent : Component
     public bool AcidVomit = false;
 
     [DataField("plasmafarter")]
-    public bool PlasmaFarter = false; //this is really funny to me
+    public bool PlasmaFarter = false;
 
     [DataField("tritfarter")]
     public bool TritFarter = false;
 
     [DataField("BZfarter")]
-    public bool BZFarter = false; //might be an instakill lmfao
-
-    #endregion
-
-    #region Body Stuff
+    public bool BZFarter = false;
 
     [DataField("fireskin")]
-    public bool FireSkin = false; //lights em on fire constantly
+    public bool FireSkin = false;
 
     [DataField("tempimmune")]
     public bool TempImmune = false;
@@ -70,17 +62,11 @@ public sealed partial class InjectionPresetComponent : Component
     public bool BreathingImmune = false;
 
     [DataField("clumsy")]
-    public bool Clumsy = false; //aka the clown thing
-
-    #endregion
-
-    #region Accents
+    public bool Clumsy = false;
 
     [DataField("okayaccent")]
     public bool OkayAccent = false;
 
     [DataField("prickmode")]
     public bool Prickmode = false;
-
-    #endregion
 }

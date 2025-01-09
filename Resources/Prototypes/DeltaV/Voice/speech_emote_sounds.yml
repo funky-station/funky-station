@@ -178,6 +178,10 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    Gekker:
+      collection: VulpkaninGekker
+    Yap:
+      collection: VulpkaninYap
 
 - type: emoteSounds
   id: MaleVulpkanin
@@ -222,6 +226,10 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    Yap: 
+      collection: VulpkaninYap
+    Gekker:
+      collection: VulpkaninGekker
 
 - type: emoteSounds
   id: MobDog

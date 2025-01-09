@@ -20,6 +20,10 @@
 	},
 
     {
+      "name": "equipped-OUTERCLOTHING-reptilian",
+      "directions": 4
+    },
+    {
       "name": "inhand-left",
       "directions": 4
     },

@@ -9,14 +9,14 @@
     - 0,0,1,1
     heldPrefix: stomach
   - type: Stomach
-    specialDigestible:
-      tags:
-      - Fruit
-      - ReptilianFood
-      - Meat
-      - Pill
-      - Crayon
-      - Paper
+#    specialDigestible: # WWDP-Remove
+#      tags:
+#      - Fruit
+#      - ReptilianFood
+#      - Meat
+#      - Pill
+#      - Crayon
+#      - Paper
   - type: SolutionContainerManager
     solutions:
       stomach:

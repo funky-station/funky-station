@@ -30,6 +30,14 @@
       "directions": 4
     },
     {
+      "name": "equipped-OUTERCLOTHING-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "open-equipped-OUTERCLOTHING-reptilian",
+      "directions": 4
+    },
+    {
       "name": "inhand-left",
       "directions": 4
     },

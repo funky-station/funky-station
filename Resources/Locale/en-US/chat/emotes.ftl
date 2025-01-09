@@ -68,4 +68,4 @@ chat-emote-msg-monkeyscreeches = screeches!
 chat-emote-msg-yawn = yawns.
 chat-emote-msg-snore = snores.
 chat-emote-msg-gekker = gekkers!
-chat-emote-msg-yap = yaps.
+chat-emote-name-yap = Yap

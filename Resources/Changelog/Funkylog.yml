@@ -1144,3 +1144,9 @@ Entries:
       message: fixed mapping errors
   id: 139
   time: '2025-01-08T02:26:14.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Fixed Roid atmos and power issues
+  id: 140
+  time: '2025-01-09T06:42:38.0000000+00:00'

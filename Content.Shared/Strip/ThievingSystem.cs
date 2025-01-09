@@ -1,5 +1,5 @@
 using Content.Shared.Inventory;
-using Content.Shared.Strip;
+using Content.Shared.Mindshield.Components;
 using Content.Shared.Strip.Components;
 
 namespace Content.Shared.Strip;
@@ -17,6 +17,15 @@ public sealed class ThievingSystem : EntitySystem
 
     private void OnBeforeStrip(EntityUid uid, ThievingComponent component, BeforeStripEvent args)
     {
+        var xform = Transform(uid);
+
+        if (HasComp<MindShieldComponent>(xform.ParentUid))
+        {
+            args.Stealth = false;
+
+            return;
+        }
+
         args.Stealth |= component.Stealthy;
         args.Additive -= component.StripTimeReduction;
     }

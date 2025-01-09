@@ -1150,3 +1150,9 @@ Entries:
       message: Fixed Roid atmos and power issues
   id: 140
   time: '2025-01-09T06:42:38.0000000+00:00'
+- author: Erisiaa
+  changes:
+    - type: Fix
+      message: dungeon master is now working! rejoice!!
+  id: 141
+  time: '2025-01-09T17:20:27.0000000+00:00'

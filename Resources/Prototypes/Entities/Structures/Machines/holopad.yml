@@ -22,6 +22,7 @@
   - type: StationAiVision
   - type: Sprite
     sprite: Structures/Machines/holopad.rsi
+    drawdepth: FloorObjects
     snapCardinals: true
     layers:
     - state: base
@@ -71,9 +72,8 @@
     speechSounds: Borg
     speechBubbleOffset: 0.45
   - type: Telephone
-    transmissionRange: Map
     ringTone: /Audio/Machines/double_ring.ogg
-    listeningRange: 4
+    listeningRange: 2.5
     speakerVolume: Speak
   - type: AccessReader
     access: [[ "Command" ]]
@@ -82,10 +82,10 @@
   - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
-        enum.HolopadUiKey.InteractionWindow:
-          type: HolopadBoundUserInterface
-        enum.WiresUiKey.Key:
-          type: WiresBoundUserInterface
+      enum.HolopadUiKey.InteractionWindow:
+        type: HolopadBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: WiresPanel
   - type: WiresVisuals
   - type: Wires

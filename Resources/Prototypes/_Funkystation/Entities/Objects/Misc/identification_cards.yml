@@ -1,0 +1,85 @@
+# Charlie Station / Ancient ID Cards
+
+- type: entity
+  parent: Clothing
+  id: IDCardAncient
+  name: A perfectly retrograde identification card
+  description: A perfectly retrograde identification card. Looks like it could use some flavor.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/id_cards.rsi
+  - type: Clothing
+    slots:
+    - idcard
+    sprite: _Funkystation/Objects/Misc/id_cards.rsi
+  - type: Item
+    size: Small
+    heldPrefix: default
+    storedRotation: -90
+  - type: Access
+  - type: IdCard
+  - type: StationRecordKeyStorage
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    
+- type: entity
+  parent: IDCardAncient
+  id: IDCardAncientScience
+  name: Scientist ID
+  description: A clip on ID Badge, has one of those fancy new magnetic strips built in. This one is encoded for the Science Dept.
+  components:
+  - type: Sprite
+    layers:
+    - state: retro_research
+  - type: PresetIdCard
+    job: Scientist
+    
+- type: entity
+  parent: IDCardAncient
+  id: IDCardAncientMedical
+  name: Medical ID
+  description: A clip on ID Badge, has one of those fancy new magnetic strips built in. This one is encoded for the Medical Dept.
+  components:
+  - type: Sprite
+    layers:
+    - state: retro_medical
+  - type: PresetIdCard
+    job: MedicalDoctor
+
+- type: entity
+  parent: IDCardAncient
+  id: IDCardAncientEngineering
+  name: Engineering ID
+  description: A clip on ID Badge, has one of those fancy new magnetic strips built in. This one is encoded for the Engineering Dept.
+  components:
+  - type: Sprite
+    layers:
+    - state: retro_engineering
+  - type: PresetIdCard
+    job: StationEngineer
+    
+- type: entity
+  parent: IDCardAncient
+  id: IDCardAncientSecurity
+  name: Security ID
+  description: A clip on ID Badge, has one of those fancy new magnetic strips built in. This one is encoded for the Security Dept.
+  components:
+  - type: Sprite
+    layers:
+    - state: retro_security
+  - type: PresetIdCard
+    job: SecurityOfficer
+    
+- type: entity
+  parent: IDCardAncient
+  id: IDCardAncientNanotrasen
+  name: Nanotrasen ID
+  description: A clip on ID Badge, has one of those fancy new magnetic strips built in. This one is for a Nanotrasen Representative.
+  components:
+  - type: Sprite
+    layers:
+    - state: retro_nanotrasen
+  - type: PresetIdCard
+    job: CentralCommandOfficial

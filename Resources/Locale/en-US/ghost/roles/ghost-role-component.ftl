@@ -252,6 +252,9 @@ ghost-role-information-derelict-cyborg-description = You are a regular cyborg th
 ghost-role-information-security-name = Security
 ghost-role-information-security-description = You are part of a security task force, but seem to have found yourself in a strange situation...
 
+roles-ghost-cryopod-sleeper-name = old cryogenics pod sleeper
+roles-ghost-cryopod-sleeper-objective = Work as a team with your fellow survivors aboard a ruined, ancient space station.
+
 ghost-role-information-medical-name = Medical
 ghost-role-information-medical-virologist-name = Virologist
 ghost-role-information-medical-geneticist-name = Geneticist

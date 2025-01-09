@@ -1040,3 +1040,107 @@ Entries:
       message: Fix absurd amount of midround antags spawning every shift.
   id: 124
   time: '2025-01-03T04:17:49.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Tweak
+      message: revamped glacier station SM
+  id: 125
+  time: '2025-01-03T20:09:16.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Tweak
+      message: Reverted the Frezon Oxygen:Tritium Ratio Nerf
+  id: 126
+  time: '2025-01-03T20:25:33.0000000+00:00'
+- author: UtopiOne
+  changes:
+    - type: Fix
+      message: Roboticist now has an actual job description.
+  id: 127
+  time: '2025-01-03T20:32:35.0000000+00:00'
+- author: ' Aviu'
+  changes:
+    - type: Add
+      message: >-
+        Now antags are rolled roundstart and before jobs except for initial
+        infected.
+    - type: Add
+      message: Intern roles can be antags except for cadet obviously.
+  id: 128
+  time: '2025-01-05T04:35:55.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Tweak
+      message: ATMOS Resin cleans air on despawn
+  id: 129
+  time: '2025-01-05T19:42:55.0000000+00:00'
+- author: OrangeMoronage9622
+  changes: []
+  id: 130
+  time: '2025-01-05T20:03:52.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Tweak
+      message: Funky is now based (ion storms are funnier now)
+  id: 131
+  time: '2025-01-05T20:41:33.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Add
+      message: Added silver rifle ammo with Holy damage
+    - type: Tweak
+      message: Annabelle is a little quieter
+  id: 132
+  time: '2025-01-06T01:21:55.0000000+00:00'
+- author: ' Mish'
+  changes:
+    - type: Tweak
+      message: Skeletons now take twice as much brute and holy damage.
+    - type: Tweak
+      message: Zombies take less damage from most sources besides holy.
+    - type: Tweak
+      message: Holy damage real?
+  id: 133
+  time: '2025-01-06T01:36:16.0000000+00:00'
+- author: hereelabs
+  changes:
+    - type: Add
+      message: >-
+        From Cryosleep, 129 Years Later... Charlie Station comes to Funky
+        Station!
+  id: 134
+  time: '2025-01-07T01:09:31.0000000+00:00'
+- author: Erisiaa
+  changes:
+    - type: Add
+      message: Adds a new ion lawset for cyborgs to get, good luck.
+  id: 135
+  time: '2025-01-07T05:37:55.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Tweak
+      message: Revamped Kettle's Atmos
+    - type: Tweak
+      message: Updated Train's Engi.
+  id: 136
+  time: '2025-01-07T19:35:53.0000000+00:00'
+- author: ' Mish'
+  changes:
+    - type: Tweak
+      message: Rat kings are now officially antagonists
+  id: 137
+  time: '2025-01-07T19:41:07.0000000+00:00'
+- author: ' SolsticeOfTheWinter'
+  changes:
+    - type: Tweak
+      message: harpies can start flying while walking
+    - type: Tweak
+      message: 'harpy documentation is better now '
+  id: 138
+  time: '2025-01-08T01:36:58.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Fix
+      message: fixed mapping errors
+  id: 139
+  time: '2025-01-08T02:26:14.0000000+00:00'

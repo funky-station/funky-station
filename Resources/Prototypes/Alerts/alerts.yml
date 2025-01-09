@@ -21,6 +21,7 @@
     - alertType: Stun
     - alertType: KnockedDown # goobstation
     - category: Breathing # Vox gang not calling this oxygen
+    - alertType: Thieving
     - category: Pressure
     - alertType: Bleed
     - category: Temperature
@@ -166,6 +167,13 @@
   id: Buckled
   category: Buckled
   clickEvent: !type:UnbuckleAlertEvent
+  icons: [ /Textures/Interface/Alerts/Buckle/buckled.png ]
+  name: alerts-buckled-name
+  description: alerts-buckled-desc
+
+- type: alert
+  id: Thieving
+  clickEvent: !type:ThievingToggleEvent
   icons: [ /Textures/Interface/Alerts/Buckle/buckled.png ]
   name: alerts-buckled-name
   description: alerts-buckled-desc

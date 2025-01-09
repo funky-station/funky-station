@@ -1,3 +1,5 @@
+using Content.Shared.Alert;
+
 namespace Content.Shared.Strip.Components;
 
 /// <summary>
@@ -14,9 +16,17 @@ public sealed partial class ThievingComponent : Component
     public TimeSpan StripTimeReduction = TimeSpan.FromSeconds(0.5f);
 
     /// <summary>
+    /// The preset stripTimeReduction
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan DefaultTimeReduction; // funkystation
+
+    /// <summary>
     /// Should it notify the user if they're stripping a pocket?
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("stealthy")]
     public bool Stealthy;
 }
+
+public sealed partial class ThievingToggleEvent : BaseAlertEvent; // funkystation

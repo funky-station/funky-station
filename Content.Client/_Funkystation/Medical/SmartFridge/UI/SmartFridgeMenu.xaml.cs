@@ -46,12 +46,14 @@ public sealed partial class SmartFridgeMenu : FancyWindow
         return string.IsNullOrEmpty(filter) || text.Contains(filter, StringComparison.CurrentCultureIgnoreCase);
     }
 
+    // it SHOULD BE FINE that it's a ListContainerButton instead of a container as long as there's no call for the button input
+    // i don't think i can change it without refactoring how ListContainers work
     private void GenerateButton(ListData data, ListContainerButton panel)
     {
-        if (data is not FridgeItemsListData { ItemProtoId: var protoId, Uid: var uid, ItemName: var text, ItemQuantity: var quantity })
+        if (data is not FridgeItemsListData { ItemProtoId: var protoId, Uid: var uid, ItemIndex: var index, ItemName: var name, ItemQuantity: var quantity })
             return;
 
-        panel.AddChild(new SmartFridgeItem(protoId, uid, text, quantity, true));
+        panel.AddChild(new SmartFridgeItem(protoId, uid, index, name, quantity, true));
 
         var identity = Identity.Name(uid, _entityManager);
         panel.ToolTip = $"{identity} [{quantity}]" ;

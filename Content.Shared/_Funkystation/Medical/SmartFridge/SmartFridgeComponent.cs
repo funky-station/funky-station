@@ -59,7 +59,8 @@ public sealed partial class SmartFridgeComponent : Component
 
     [DataField]
     public float EjectAccumulator;
-    public ItemSlot? SlotToEjectFrom; // change to List
+    public ItemSlot? SlotToEjectFrom;
+    public FixedPoint2 EjectAmount; // ?????????????
 
     [DataField]
     // Grabbed from: https://github.com/tgstation/tgstation/blob/d34047a5ae911735e35cd44a210953c9563caa22/sound/machines/machine_vend.ogg
@@ -124,27 +125,12 @@ public enum SmartFridgeUiKey
     Key
 }
 
-// doing it here cuz idgaf
-[Serializable, NetSerializable]
-public sealed class SmartFridgeEjectMessage(string id) : BoundUserInterfaceMessage
-{
-    public readonly string Id = id;
-}
-
 /// <summary>
 /// Message sent to try and eject a material from a storage
 /// </summary>
 [Serializable, NetSerializable]
-public sealed class EjectItemMessage : EntityEventArgs
+public sealed class SmartFridgeEjectMessage(string id, FridgeAmount amount) : BoundUserInterfaceMessage
 {
-    public NetEntity Entity;
-    public string ItemName;
-    public FixedPoint2 ItemsToExtract;
-
-    public EjectItemMessage(NetEntity entity, string itemName, FixedPoint2 itemsToExtract)
-    {
-        Entity = entity;
-        ItemName = itemName;
-        ItemsToExtract = itemsToExtract;
-    }
+    public readonly string Id = id;
+    public readonly FridgeAmount Amount = amount;
 }

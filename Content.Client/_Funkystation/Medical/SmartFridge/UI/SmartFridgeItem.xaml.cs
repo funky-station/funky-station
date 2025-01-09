@@ -9,22 +9,20 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
+using SixLabors.ImageSharp.Processing;
 
 namespace Content.Client._Funkystation.Medical.SmartFridge.UI;
 
 [GenerateTypedNameReferences]
 public sealed partial class SmartFridgeItem : BoxContainer
 {
-    private readonly SmartFridgeItemUIController _smartFridgeItemUIController;
-    //public event Action<BaseButton.ButtonEventArgs, DispenseButton>? OnDispenseButtonPressed;
-    public SmartFridgeItem(EntProtoId entProto, EntityUid uid, string name, FixedPoint2 quantity, bool addDispenseButtons)
+    public event Action<BaseButton.ButtonEventArgs, DispenseButton>? OnItemSelected;
+    public SmartFridgeItem(EntProtoId entProto, EntityUid uid, int index, string name, FixedPoint2 quantity, bool addDispenseButtons)
     {
         RobustXamlLoader.Load(this);
 
-        _smartFridgeItemUIController = UserInterfaceManager.GetUIController<SmartFridgeItemUIController>();
-
         //this calls the separated button builder, and stores the return to render after labels
-        var dispenseButtonConstructors = CreateDispenseButtons(uid, addDispenseButtons);
+        var dispenseButtonConstructors = CreateDispenseButtons(index, addDispenseButtons);
 
         ItemPrototype.SetPrototype(entProto);
         NameLabel.Text = name;
@@ -37,20 +35,20 @@ public sealed partial class SmartFridgeItem : BoxContainer
         }
     }
 
-    private DispenseButton MakeDispenseButton(string text, FridgeAmount amount, EntityUid uid, string styleClass)
+    private DispenseButton MakeDispenseButton(string text, FridgeAmount amount, int index, string styleClass)
     {
-        var button = new DispenseButton(text, amount, uid, styleClass);
-        button.OnPressed += _ =>
-        {
-            _smartFridgeItemUIController.SendSmartFridgeEjectMessage(uid, text, amount.GetFixedPoint());
-        };
+        var button = new DispenseButton(text, amount, index, styleClass);
+
+        button.OnPressed += args
+            => OnItemSelected?.Invoke(args, button);
+
         return button;
     }
 
     /// <summary>
     /// Conditionally generates a set of dispenser buttons based on the supplied boolean argument.
     /// </summary>
-    private List<DispenseButton> CreateDispenseButtons(EntityUid uid, bool addDispenseButtons)
+    private List<DispenseButton> CreateDispenseButtons(int index, bool addDispenseButtons)
     {
         if (!addDispenseButtons)
             return new List<DispenseButton>(); // Return an empty list if addDispenseButton creation is disabled.
@@ -68,7 +66,7 @@ public sealed partial class SmartFridgeItem : BoxContainer
 
         foreach (var (text, amount, styleClass) in buttonConfigs)
         {
-            var dispenseButton = MakeDispenseButton(text, amount, uid, styleClass);
+            var dispenseButton = MakeDispenseButton(text, amount, index, styleClass);
             buttons.Add(dispenseButton);
         }
 
@@ -78,13 +76,13 @@ public sealed partial class SmartFridgeItem : BoxContainer
     public sealed class DispenseButton : Button
     {
         public FridgeAmount Amount { get; set; }
-        public EntityUid Uid { get; set; }
-        public DispenseButton(string text, FridgeAmount amount, EntityUid uid, string styleClass)
+        public int Index { get; set; }
+        public DispenseButton(string text, FridgeAmount amount, int index, string styleClass)
         {
             AddStyleClass(styleClass);
             Text = text;
             Amount = amount;
-            Uid = uid;
+            Index = index;
         }
     }
 }

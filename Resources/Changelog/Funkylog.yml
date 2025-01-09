@@ -1156,3 +1156,9 @@ Entries:
       message: dungeon master is now working! rejoice!!
   id: 141
   time: '2025-01-09T17:20:27.0000000+00:00'
+- author: Liamofthesky
+  changes:
+    - type: Tweak
+      message: X-01 Multiphase now has self recharging capabilities!
+  id: 142
+  time: '2025-01-09T18:56:31.0000000+00:00'

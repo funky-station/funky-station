@@ -40,15 +40,6 @@ public sealed class ThievingSystem : EntitySystem
 
     private void OnBeforeStrip(EntityUid uid, ThievingComponent component, BeforeStripEvent args)
     {
-        var xform = Transform(uid);
-
-        if (HasComp<MindShieldComponent>(xform.ParentUid))
-        {
-            args.Stealth = false;
-
-            return;
-        }
-
         args.Stealth |= component.Stealthy;
         args.Additive -= component.StripTimeReduction;
     }

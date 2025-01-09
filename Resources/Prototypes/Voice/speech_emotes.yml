@@ -412,3 +412,8 @@
     - pings
     - pinged
     - pinging
+
+- type: soundCollection
+  id: VulpkaninYap
+  files:
+  - /Audio/DeltaV/Voice/Vulpkanin/yap.ogg

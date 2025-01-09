@@ -412,3 +412,18 @@
     - pings
     - pinged
     - pinging
+
+- type: emote
+  id: Yap
+  name: chat-emote-name-yap
+  chatMessages: [ yaps ]
+  chatTriggers:
+  - yap
+  - yaps
+
+- type: emote
+  id: Gekker
+  name: chat-emote-name-gekker
+  chatMessages: [ gekkers ]
+  chatTriggers:
+  - gekkers

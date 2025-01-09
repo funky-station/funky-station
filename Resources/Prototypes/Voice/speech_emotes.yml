@@ -413,7 +413,10 @@
     - pinged
     - pinging
 
-- type: soundCollection
-  id: VulpkaninYap
-  files:
-  - /Audio/DeltaV/Voice/Vulpkanin/yap.ogg
+- type: emote
+  id: Yap
+  name: chat-emote-name-yap
+  chatMessages: [ yaps ]
+  chatTriggers:
+  - yap
+  - yaps

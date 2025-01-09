@@ -424,7 +424,6 @@
 - type: emote
   id: Gekker
   name: chat-emote-name-gekker
-  category: Vocal
   chatMessages: [ gekkers ]
   chatTriggers:
   - gekkers

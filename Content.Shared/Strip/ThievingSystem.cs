@@ -16,6 +16,7 @@ public sealed class ThievingSystem : EntitySystem
 
         SubscribeLocalEvent<ThievingComponent, BeforeStripEvent>(OnBeforeStrip);
         SubscribeLocalEvent<ThievingComponent, ComponentInit>(OnCompInit);
+        SubscribeLocalEvent<ThievingComponent, ComponentRemove>(OnCompRemove);
         SubscribeLocalEvent<ThievingComponent, InventoryRelayedEvent<BeforeStripEvent>>((e, c, ev) => OnBeforeStrip(e, c, ev.Args));
         SubscribeLocalEvent<ThievingComponent, ThievingToggleEvent>(OnThievingToggle);
     }
@@ -25,6 +26,11 @@ public sealed class ThievingSystem : EntitySystem
         comp.DefaultTimeReduction = comp.StripTimeReduction;
 
         _alertsSystem.ShowAlert(uid, "Thieving");
+    }
+
+    private void OnCompRemove(EntityUid uid, ThievingComponent comp, ComponentRemove args)
+    {
+        _alertsSystem.ClearAlert(uid, "Thieving");
     }
 
     private void OnThievingToggle(Entity<ThievingComponent> ent, ref ThievingToggleEvent args)

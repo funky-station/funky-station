@@ -25,12 +25,12 @@ public sealed class ThievingSystem : EntitySystem
     {
         comp.DefaultTimeReduction = comp.StripTimeReduction;
 
-        _alertsSystem.ShowAlert(uid, "Thieving", 1);
+        _alertsSystem.ShowAlert(uid, comp.ThievingAlertProtoId, 1);
     }
 
     private void OnCompRemove(EntityUid uid, ThievingComponent comp, ComponentRemove args)
     {
-        _alertsSystem.ClearAlert(uid, "Thieving");
+        _alertsSystem.ClearAlert(uid, comp.ThievingAlertProtoId);
     }
 
     private void OnThievingToggle(Entity<ThievingComponent> ent, ref ThievingToggleEvent args)
@@ -44,11 +44,11 @@ public sealed class ThievingSystem : EntitySystem
         switch (ent.Comp.Stealthy)
         {
             case false:
-                _alertsSystem.ShowAlert(ent.Owner, "Thieving", 1);
+                _alertsSystem.ShowAlert(ent.Owner, ent.Comp.ThievingAlertProtoId, 1);
                 break;
 
             case true:
-                _alertsSystem.ShowAlert(ent.Owner, "Thieving", 2);
+                _alertsSystem.ShowAlert(ent.Owner, ent.Comp.ThievingAlertProtoId, 2);
                 break;
         }
 

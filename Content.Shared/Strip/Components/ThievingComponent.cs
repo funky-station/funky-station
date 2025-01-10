@@ -1,4 +1,5 @@
 using Content.Shared.Alert;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Strip.Components;
 
@@ -27,6 +28,9 @@ public sealed partial class ThievingComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("stealthy")]
     public bool Stealthy;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public ProtoId<AlertPrototype> ThievingAlertProtoId = "Thieving";
 }
 
 public sealed partial class ThievingToggleEvent : BaseAlertEvent; // funkystation

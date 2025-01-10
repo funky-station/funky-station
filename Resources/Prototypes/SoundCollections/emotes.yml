@@ -102,3 +102,12 @@
   id: VulpkaninYap
   files:
   - /Audio/DeltaV/Voice/Vulpkanin/yap.ogg
+ 
+ - type: soundCollection
+   id: VulpkaninScreams
+   files:
+   - /Audio/DeltaV/Voice/Vulpkanin/vulpscream1.ogg
+   - /Audio/DeltaV/Voice/Vulpkanin/vulpscream2.ogg
+   - /Audio/DeltaV/Voice/Vulpkanin/vulpscream3.ogg
+   - /Audio/DeltaV/Voice/Vulpkanin/vulpscream4.ogg
+   - /Audio/DeltaV/Voice/Vulpkanin/vulpscream5.ogg

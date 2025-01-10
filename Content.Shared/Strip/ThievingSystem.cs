@@ -25,7 +25,7 @@ public sealed class ThievingSystem : EntitySystem
     {
         comp.DefaultTimeReduction = comp.StripTimeReduction;
 
-        _alertsSystem.ShowAlert(uid, comp.ThievingAlertProtoId, 1);
+        _alertsSystem.ShowAlert(uid, comp.ThievingAlertProtoId, 2);
     }
 
     private void OnCompRemove(EntityUid uid, ThievingComponent comp, ComponentRemove args)

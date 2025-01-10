@@ -48,7 +48,7 @@
   copyright: "Original sound taken from Goonstation. Renamed to howl.ogg"
   source: "https://github.com/goonstation/goonstation/blob/master/sound/voice/animal/werewolf_howl.ogg"
 
-- files: [vulpscream1, vulpscream2, vulpscream3, vulpscream4, vulpscream5]
+- files: ["vulpscream1, vulpscream2, vulpscream3, vulpscream4, vulpscream5"]
   copyright: 'inspectorj'
-  license: https://www.soundsnap.com/licence
-  source: https://www.soundsnap.com
+  license: "custom"
+  source: "https://www.soundsnap.com"

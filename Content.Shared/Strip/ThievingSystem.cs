@@ -25,7 +25,7 @@ public sealed class ThievingSystem : EntitySystem
     {
         comp.DefaultTimeReduction = comp.StripTimeReduction;
 
-        _alertsSystem.ShowAlert(uid, "Thieving");
+        _alertsSystem.ShowAlert(uid, "Thieving", 1);
     }
 
     private void OnCompRemove(EntityUid uid, ThievingComponent comp, ComponentRemove args)
@@ -40,6 +40,17 @@ public sealed class ThievingSystem : EntitySystem
 
         ent.Comp.Stealthy = !ent.Comp.Stealthy;
         ent.Comp.StripTimeReduction = ent.Comp.Stealthy ? ent.Comp.DefaultTimeReduction : TimeSpan.Zero;
+
+        switch (ent.Comp.Stealthy)
+        {
+            case false:
+                _alertsSystem.ShowAlert(ent.Owner, "Thieving", 1);
+                break;
+
+            case true:
+                _alertsSystem.ShowAlert(ent.Owner, "Thieving", 2);
+                break;
+        }
 
         args.Handled = true;
     }

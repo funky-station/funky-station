@@ -101,7 +101,7 @@ public sealed partial class SmartFridgeMenu : FancyWindow
             }
 
             var uid = dummy;
-            var itemName = entry.ItemName;
+            var itemName = entry.ItemName; // this is so it shows what it is labeled
             var quantity = entry.Quantity;
 
             listData.Add(new FridgeItemsListData(prototype.ID, uid, itemName, quantity, i));

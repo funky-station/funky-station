@@ -20,15 +20,15 @@
 
   They're also made of the highest quality [bold]holographic chameleon fibers[/bold] you could steal, but while they can take the appearance of insulated gloves you'll still need to find a real pair to keep your hands from burning.
 
-  <Box>
-    <GuideEntityEmbed Entity="ClothingHandsChameleonThief" Caption="your thieving gloves"/>
-  </Box>
-
   ## Your Skills
 
   You've stolen a thing or two in various past lives, and you've gotten good at it.
 
   When chosen as a thief, you gain the ability to pickpocket people [bold]without[/bold] needing any fancy tools. Careful not to get caught though, as a Mind Shield will wipe any memory of you learning this extremely useful skill.
+
+  <Box>
+    <GuideEntityEmbed Entity="ClothingHandsChameleonThief" Caption="your thieving gloves"/>
+  </Box>
 
   ## Tools of the Trade
   You've got two more aces up your stolen sleeves: your [color=cyan]beacon[/color] and your [color=cyan]toolbox.[/color]

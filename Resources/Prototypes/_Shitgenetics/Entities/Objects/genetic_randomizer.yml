@@ -1,0 +1,44 @@
+- type: entity
+  id: Genetic Randomizer
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: Genetic Randomizer
+  description: Produces genetic injectors with random unknown effects. Do NOT drink the liquid inside.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Shitgenetic/Structures/genetic_randomizer.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+    - state: lights
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Appearance
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.4,0.25,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Transform
+    anchored: true
+  - type: ApcPowerReceiver
+    powerLoad: 500
+  - type: ExtensionCableReceiver
+  - type: Physics
+    bodyType: Static
+  - type: GeneRandomizer
+  - type: StaticPrice
+    price: 2000

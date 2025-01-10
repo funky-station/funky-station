@@ -41,6 +41,7 @@ public sealed partial class SmartFridgeItem : BoxContainer
 
         button.OnPressed += args
             => OnItemSelected?.Invoke(args, button);
+        // is this the problem?????? how
 
         return button;
     }

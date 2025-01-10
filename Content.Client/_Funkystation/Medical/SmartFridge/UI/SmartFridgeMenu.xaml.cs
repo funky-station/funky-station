@@ -61,7 +61,8 @@ public sealed partial class SmartFridgeMenu : FancyWindow
     }
 
     /// <summary>
-    /// populates FridgeItemsListData based on current inventory
+    /// Populates the list of available items on the vending machine interface
+    /// and sets icons based on their prototypes
     /// </summary>
     public void Populate(List<SmartFridgeInventoryItem> inventory)
     {

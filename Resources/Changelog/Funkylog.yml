@@ -1192,3 +1192,13 @@ Entries:
         Crewmembers should prepare for imminent Dino Wars.
   id: 146
   time: '2025-01-11T21:25:08.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Tweak
+      message: Mice and mothroaches deal damage again (and can zombify people)
+    - type: Tweak
+      message: Zom-bees are real
+    - type: Tweak
+      message: Zombies have slightly better regeneration
+  id: 147
+  time: '2025-01-11T21:26:35.0000000+00:00'

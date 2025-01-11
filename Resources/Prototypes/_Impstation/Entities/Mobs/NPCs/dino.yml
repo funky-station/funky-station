@@ -111,7 +111,7 @@
     heatDamage:
       types:
         Heat : 1.5 #per second, scales with temperature & other constants
-  - type: TemperatureSpeed 
+  - type: TemperatureSpeed
     thresholds:
       301: 0.8
       295: 0.6
@@ -125,7 +125,7 @@
         Asphyxiation: -1.0
   - type: Metabolizer
     solutionOnBody: false
-    metabolizerTypes: [ Reptilian ]
+    metabolizerTypes: [ Animal ]
     groups:
     - id: Medicine
     - id: Poison

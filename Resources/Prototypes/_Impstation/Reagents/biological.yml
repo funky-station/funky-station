@@ -4,7 +4,7 @@
   name: reagent-name-dino-blood
   group: Biological
   desc: reagent-desc-dino-blood
-  flavor: piquant
+  flavor: protein
   color: "#DC143C"
   recognizable: true
   physicalDesc: reagent-physical-desc-viscous

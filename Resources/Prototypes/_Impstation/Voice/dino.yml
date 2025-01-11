@@ -44,10 +44,6 @@
       collection: Weh
     Hew:
       collection: Hew
-    Wuhey:
-      collection: Wuhey
-    Ungh:
-      collection: Ungh
     Gasp:
       path: /Audio/_Impstation/Voice/Dino/dino_gasp.ogg
     DefaultDeathgasp:

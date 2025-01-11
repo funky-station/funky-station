@@ -14,7 +14,6 @@ public sealed class SmartFridgeBoundUserInterface(EntityUid owner, Enum uiKey) :
 {
     [ViewVariables]
     private SmartFridgeMenu? _menu;
-    private SmartFridgeItem? _items;
 
     [ViewVariables]
     private List<SmartFridgeInventoryItem> _cachedInventory = [];
@@ -26,12 +25,9 @@ public sealed class SmartFridgeBoundUserInterface(EntityUid owner, Enum uiKey) :
         _menu = this.CreateWindow<SmartFridgeMenu>();
         _menu.OpenCenteredLeft();
         _menu.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
-        //_menu.OnItemSelected += OnItemSelected;
+        _menu.OnItemSelected += OnItemSelected;
 
-        if (_items != null) // lol? idk what else do i do
-        {
-            _items.OnItemSelected += OnItemSelected;
-        }
+        //_menu.OnItemSelected += OnItemSelected;
 
         Refresh();
     }

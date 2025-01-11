@@ -19,9 +19,11 @@ public sealed partial class SmartFridgeMenu : FancyWindow
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
+    public List<SmartFridgeItem> Rows;
+
     private readonly Dictionary<EntProtoId, EntityUid> _dummies = [];
 
-    // public event Action<GUIBoundKeyEventArgs, ListData>? OnItemSelected; // listcontainerbutton dispense event
+    public event Action<BaseButton.ButtonEventArgs, SmartFridgeItem.DispenseButton>? OnItemSelected; // listcontainerbutton dispense event
 
     /// <summary>
     /// create and initialize the ui, client side
@@ -33,7 +35,9 @@ public sealed partial class SmartFridgeMenu : FancyWindow
 
         VendingContents.SearchBar = SearchBar;
         VendingContents.DataFilterCondition += DataFilterCondition;
-        VendingContents.GenerateItem += GenerateButton;
+        VendingContents.GenerateItem += GenerateRow;
+
+        Rows = [];
         // mfw its hardcoded for SearchListContainers to generate ListContainerButtons
         // VendingContents.ItemKeyBindDown += (args, data) => OnItemSelected?.Invoke(args, data); // listcontainerbutton dispense event
     }
@@ -48,12 +52,19 @@ public sealed partial class SmartFridgeMenu : FancyWindow
 
     // it SHOULD BE FINE that it's a ListContainerButton instead of a container as long as there's no call for the button input
     // i don't think i can change it without refactoring how ListContainers work
-    private void GenerateButton(ListData data, ListContainerButton panel)
+    private void GenerateRow(ListData data, ListContainerButton panel)
     {
         if (data is not FridgeItemsListData { ItemProtoId: var protoId, Uid: var uid, ItemIndex: var index, ItemName: var name, ItemQuantity: var quantity })
             return;
 
-        panel.AddChild(new SmartFridgeItem(protoId, uid, index, name, quantity, true));
+        var row = new SmartFridgeItem(protoId, uid, index, name, quantity, true);
+        row.OnItemSelected += OnItemSelected;
+
+        row.GetDispenseButtons(protoId, uid, index, name, quantity, true);
+
+        panel.AddChild(row);
+
+        Rows.Add(row);
 
         var identity = Identity.Name(uid, _entityManager);
         panel.ToolTip = $"{identity} [{quantity}]" ;

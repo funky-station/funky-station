@@ -13,25 +13,44 @@ namespace Content.Client._Funkystation.Medical.SmartFridge.UI;
 [GenerateTypedNameReferences]
 public sealed partial class SmartFridgeItem : PanelContainer
 {
+    public List<DispenseButton> DispenseButtons;
     public event Action<BaseButton.ButtonEventArgs, DispenseButton>? OnItemSelected;
     public SmartFridgeItem(EntProtoId entProto, EntityUid uid, int index, string name, FixedPoint2 quantity, bool addDispenseButtons)
     {
         RobustXamlLoader.Load(this);
 
         //this calls the separated button builder, and stores the return to render after labels
-        var dispenseButtonConstructors = CreateDispenseButtons(index, addDispenseButtons);
+        //var dispenseButtonConstructors = CreateDispenseButtons(index, addDispenseButtons);
 
         ItemPrototype.SetPrototype(entProto);
         NameLabel.Text = name;
         NameQuantity.Text = $"{quantity}";
 
         // Adds the dispense buttons after
+        /*foreach (var dispenseButton in dispenseButtonConstructors)
+        {
+            PrimaryContainer.AddChild(dispenseButton);
+        }
+
+        SetBackgroundColor(index);
+        DispenseButtons = dispenseButtonConstructors;*/
+
+        DispenseButtons = new List<DispenseButton>();
+    }
+
+    public List<DispenseButton> GetDispenseButtons(EntProtoId entProto, EntityUid uid, int index, string name, FixedPoint2 quantity, bool addDispenseButtons)
+    {
+        var dispenseButtonConstructors = CreateDispenseButtons(index, addDispenseButtons);
+
         foreach (var dispenseButton in dispenseButtonConstructors)
         {
             PrimaryContainer.AddChild(dispenseButton);
         }
 
         SetBackgroundColor(index);
+        DispenseButtons = dispenseButtonConstructors;
+
+        return dispenseButtonConstructors;
     }
 
     /// <summary>

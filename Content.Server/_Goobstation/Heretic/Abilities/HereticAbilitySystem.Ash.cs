@@ -18,11 +18,17 @@ using Content.Server.Temperature.Components;
 using Content.Shared.Temperature.Components;
 using Content.Server.Body.Components;
 using Content.Shared.Armor;
+using Robust.Server.Audio;
+using Robust.Shared.Audio;
 
 namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem : EntitySystem
 {
+    [Dependency] private readonly AudioSystem _audio = default!;
+    public SoundSpecifier JauntExitSound = new SoundPathSpecifier("/Audio/Magic/fireball.ogg");
+    public const float RebirthRange = 3f;
+
     private void SubscribeAsh()
     {
         SubscribeLocalEvent<HereticComponent, EventHereticAshenShift>(OnJaunt);
@@ -58,6 +64,15 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     private void OnJauntEnd(Entity<HereticComponent> ent, ref PolymorphRevertEvent args)
     {
         Spawn("PolymorphAshJauntEndAnimation", Transform(ent).Coordinates);
+
+        if (TryComp<FlammableComponent>(ent, out var flam))
+        {
+            if (!flam.OnFire)
+            {
+                _flammable.AdjustFireStacks(ent, 1, flam, true);
+            }
+        }
+        _audio.PlayPvs(JauntExitSound, ent, AudioParams.Default.WithVolume(-2f));
     }
 
     private void OnVolcano(Entity<HereticComponent> ent, ref EventHereticVolcanoBlast args)
@@ -89,7 +104,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        var lookup = _lookup.GetEntitiesInRange(ent, 5f);
+        var lookup = _lookup.GetEntitiesInRange(ent, RebirthRange);
 
         foreach (var look in lookup)
         {

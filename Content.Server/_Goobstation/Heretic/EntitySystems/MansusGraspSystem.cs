@@ -24,9 +24,11 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
+using Content.Shared.Explosion.Components;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Speech.Muting;
@@ -114,6 +116,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
         SubscribeLocalEvent<TagComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<HereticComponent, DrawRitualRuneDoAfterEvent>(OnRitualRuneDoAfter);
+        SubscribeLocalEvent<MansusGraspComponent, UseInHandEvent>(OnUseInHand);
     }
 
     private void OnAfterInteract(Entity<MansusGraspComponent> ent, ref AfterInteractEvent args)
@@ -169,6 +172,22 @@ public sealed partial class MansusGraspSystem : EntitySystem
         hereticComp.MansusGraspActive = false;
         args.Handled = true;
         QueueDel(ent);
+    }
+
+    private void OnUseInHand(EntityUid uid, MansusGraspComponent component, UseInHandEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!TryComp<HereticComponent>(args.User, out var hereticComp))
+        {
+            QueueDel(uid);
+            return;
+        }
+
+        args.Handled = true;
+        hereticComp.MansusGraspActive = false;
+        QueueDel(uid);
     }
 
     private void OnAfterInteract(Entity<TagComponent> ent, ref AfterInteractEvent args)

@@ -165,6 +165,14 @@
       - HumanoidSilicon # DeltaV
       - AiCore # Funky AI repair
     fuelCost: 15
+  # imp edits #
+    - WeldingTool
+  - type: ItemToggleDamageOtherOnHit
+    activatedDamage:
+      types:
+        Heat: 4
+        Blunt: 3
+  - type: DamageOtherOnHit
     damage:
       types:
         Blunt: -15

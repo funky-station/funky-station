@@ -1184,3 +1184,11 @@ Entries:
       message: Dynamic thieves now get pacifism and thieving.
   id: 145
   time: '2025-01-11T04:02:03.0000000+00:00'
+- author: ' darkmajia, hivehum'
+  changes:
+    - type: Add
+      message: >-
+        Time distortion fields from seconds in the past have been detected.
+        Crewmembers should prepare for imminent Dino Wars.
+  id: 146
+  time: '2025-01-11T21:25:08.0000000+00:00'

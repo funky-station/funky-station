@@ -1202,3 +1202,9 @@ Entries:
       message: Zombies have slightly better regeneration
   id: 147
   time: '2025-01-11T21:26:35.0000000+00:00'
+- author: Erisiaa
+  changes:
+    - type: Add
+      message: Harpies can now yap and gekker.
+  id: 148
+  time: '2025-01-12T05:55:19.0000000+00:00'

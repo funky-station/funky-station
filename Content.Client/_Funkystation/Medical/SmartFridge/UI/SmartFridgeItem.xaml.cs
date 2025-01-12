@@ -40,7 +40,7 @@ public sealed partial class SmartFridgeItem : PanelContainer
 
     public List<DispenseButton> GetDispenseButtons(EntProtoId entProto, EntityUid uid, int index, string name, FixedPoint2 quantity, bool addDispenseButtons)
     {
-        var dispenseButtonConstructors = CreateDispenseButtons(index, addDispenseButtons);
+        var dispenseButtonConstructors = CreateDispenseButtons(index, name, addDispenseButtons);
 
         foreach (var dispenseButton in dispenseButtonConstructors)
         {
@@ -65,13 +65,12 @@ public sealed partial class SmartFridgeItem : PanelContainer
         ParentContainer.PanelOverride = new StyleBoxFlat(currentRowColor);
     }
 
-    private DispenseButton MakeDispenseButton(string text, FridgeAmount amount, int index, string styleClass)
+    private DispenseButton MakeDispenseButton(string text, FridgeAmount amount, int index, string itemName, string styleClass)
     {
-        var button = new DispenseButton(text, amount, index, styleClass);
+        var button = new DispenseButton(text, amount, index, itemName, styleClass);
 
         button.OnPressed += args
             => OnItemSelected?.Invoke(args, button);
-        // is this the problem?????? how
 
         return button;
     }
@@ -79,7 +78,7 @@ public sealed partial class SmartFridgeItem : PanelContainer
     /// <summary>
     /// Conditionally generates a set of dispenser buttons based on the supplied boolean argument.
     /// </summary>
-    private List<DispenseButton> CreateDispenseButtons(int index, bool addDispenseButtons)
+    private List<DispenseButton> CreateDispenseButtons(int index, string itemName, bool addDispenseButtons)
     {
         if (!addDispenseButtons)
             return new List<DispenseButton>(); // Return an empty list if addDispenseButton creation is disabled.
@@ -97,7 +96,7 @@ public sealed partial class SmartFridgeItem : PanelContainer
 
         foreach (var (text, amount, styleClass) in buttonConfigs)
         {
-            var dispenseButton = MakeDispenseButton(text, amount, index, styleClass);
+            var dispenseButton = MakeDispenseButton(text, amount, index, itemName, styleClass);
             buttons.Add(dispenseButton);
         }
 
@@ -108,12 +107,14 @@ public sealed partial class SmartFridgeItem : PanelContainer
     {
         public FridgeAmount Amount { get; set; }
         public int Index { get; set; }
-        public DispenseButton(string text, FridgeAmount amount, int index, string styleClass)
+        public string ItemName { get; set; }
+        public DispenseButton(string text, FridgeAmount amount, int index, string itemName, string styleClass)
         {
             AddStyleClass(styleClass);
             Text = text;
             Amount = amount;
             Index = index;
+            ItemName = itemName;
         }
     }
 }

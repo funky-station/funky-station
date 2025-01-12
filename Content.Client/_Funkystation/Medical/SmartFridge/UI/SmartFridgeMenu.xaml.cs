@@ -38,8 +38,6 @@ public sealed partial class SmartFridgeMenu : FancyWindow
         VendingContents.GenerateItem += GenerateRow;
 
         Rows = [];
-        // mfw its hardcoded for SearchListContainers to generate ListContainerButtons
-        // VendingContents.ItemKeyBindDown += (args, data) => OnItemSelected?.Invoke(args, data); // listcontainerbutton dispense event
     }
 
     private static bool DataFilterCondition(string filter, ListData data)
@@ -58,12 +56,10 @@ public sealed partial class SmartFridgeMenu : FancyWindow
             return;
 
         var row = new SmartFridgeItem(protoId, uid, index, name, quantity, true);
+
         row.OnItemSelected += OnItemSelected;
-
         row.GetDispenseButtons(protoId, uid, index, name, quantity, true);
-
         panel.AddChild(row);
-
         Rows.Add(row);
 
         var identity = Identity.Name(uid, _entityManager);

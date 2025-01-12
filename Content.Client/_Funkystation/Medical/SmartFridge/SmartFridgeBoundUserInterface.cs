@@ -27,8 +27,6 @@ public sealed class SmartFridgeBoundUserInterface(EntityUid owner, Enum uiKey) :
         _menu.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
         _menu.OnItemSelected += OnItemSelected;
 
-        //_menu.OnItemSelected += OnItemSelected;
-
         Refresh();
     }
 
@@ -40,7 +38,6 @@ public sealed class SmartFridgeBoundUserInterface(EntityUid owner, Enum uiKey) :
         _menu?.Populate(_cachedInventory);
     }
 
-    // listcontainerbutton dispense event
     private void OnItemSelected(BaseButton.ButtonEventArgs args, SmartFridgeItem.DispenseButton data)
     {
         /*if (args.Function != EngineKeyFunctions.UIClick)
@@ -53,11 +50,29 @@ public sealed class SmartFridgeBoundUserInterface(EntityUid owner, Enum uiKey) :
         if (_cachedInventory.Count == 0)
             return;
 
-        var selectedItem = _cachedInventory.ElementAtOrDefault(data.Index);
+        var matchingItems = new List<string>();
 
-        if (selectedItem == null)
+        // creates a list of possible items to dispense
+        foreach (var item in _cachedInventory)
+        {
+            if (data.ItemName == item.ItemName)
+                matchingItems.Add(item.StorageSlotId);
+        }
+
+        if (matchingItems.Count == 0)
             return;
 
-        SendMessage(new SmartFridgeEjectMessage(selectedItem.StorageSlotId, data.Amount));
+        var amountToEject = data.Amount.GetFixedPoint();
+        var itemSlotsToEject = new List<string>();
+
+        for (int i = 0; i < amountToEject; i++)
+        {
+            if (matchingItems.Count > i)
+                return;
+
+            itemSlotsToEject.Add(matchingItems[i]);
+        }
+
+        SendMessage(new SmartFridgeEjectMessage(itemSlotsToEject));
     }
 }

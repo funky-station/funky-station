@@ -2,7 +2,10 @@
 using Robust.Client.UserInterface;
 using Robust.Shared.Input;
 using System.Linq;
+using Content.Client._Funkystation.Medical.SmartFridge.UI;
 using Content.Shared._Funkystation.Medical.SmartFridge;
+using OpenToolkit.GraphicsLibraryFramework;
+using Robust.Client.UserInterface.Controls;
 using SmartFridgeMenu = Content.Client._Funkystation.Medical.SmartFridge.UI.SmartFridgeMenu;
 
 namespace Content.Client._Funkystation.Medical.SmartFridge;
@@ -11,6 +14,7 @@ public sealed class SmartFridgeBoundUserInterface(EntityUid owner, Enum uiKey) :
 {
     [ViewVariables]
     private SmartFridgeMenu? _menu;
+    private SmartFridgeItem? _items;
 
     [ViewVariables]
     private List<SmartFridgeInventoryItem> _cachedInventory = [];
@@ -22,7 +26,13 @@ public sealed class SmartFridgeBoundUserInterface(EntityUid owner, Enum uiKey) :
         _menu = this.CreateWindow<SmartFridgeMenu>();
         _menu.OpenCenteredLeft();
         _menu.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
-        _menu.OnItemSelected += OnItemSelected;
+        //_menu.OnItemSelected += OnItemSelected;
+
+        if (_items != null) // lol? idk what else do i do
+        {
+            _items.OnItemSelected += OnItemSelected;
+        }
+
         Refresh();
     }
 
@@ -34,22 +44,24 @@ public sealed class SmartFridgeBoundUserInterface(EntityUid owner, Enum uiKey) :
         _menu?.Populate(_cachedInventory);
     }
 
-    private void OnItemSelected(GUIBoundKeyEventArgs args, ListData data)
+    // listcontainerbutton dispense event
+    private void OnItemSelected(BaseButton.ButtonEventArgs args, SmartFridgeItem.DispenseButton data)
     {
-        if (args.Function != EngineKeyFunctions.UIClick)
-            return;
+        /*if (args.Function != EngineKeyFunctions.UIClick)
+            return;*/
 
-        if (data is not VendorItemsListData { ItemIndex: var itemIndex })
-            return;
+        /*if (data is not FridgeItemsListData { ItemIndex: var itemIndex })
+            return;*/
+        // probably important checks to keep but idrk how i could translate them rn sozzzzz
 
         if (_cachedInventory.Count == 0)
             return;
 
-        var selectedItem = _cachedInventory.ElementAtOrDefault(itemIndex);
+        var selectedItem = _cachedInventory.ElementAtOrDefault(data.Index);
 
         if (selectedItem == null)
             return;
 
-        SendMessage(new SmartFridgeEjectMessage(selectedItem.StorageSlotId));
+        SendMessage(new SmartFridgeEjectMessage(selectedItem.StorageSlotId, data.Amount));
     }
 }

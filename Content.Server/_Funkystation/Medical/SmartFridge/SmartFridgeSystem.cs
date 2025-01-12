@@ -3,9 +3,11 @@ using Content.Server.Power.EntitySystems;
 using Content.Shared._Funkystation.Medical.SmartFridge;
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Tag;
 using Robust.Server.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Funkystation.Medical.SmartFridge;
 
@@ -103,6 +105,7 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
         SetupSmartFridge(uid, component);
     }
 
+    // dispense event
     private void OnSmartFridgeEjectMessage(EntityUid uid, SmartFridgeComponent component, SmartFridgeEjectMessage args)
     {
         if (!this.IsPowered(uid, EntityManager))
@@ -111,11 +114,15 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
         if (args.Actor is not { Valid: true } entity || Deleted(entity))
             return;
 
-        VendFromSlot(uid, args.Id);
+        var fixedAmount = args.Amount.GetFixedPoint();
+        // so it doesn't choke if FridgeAmount == All
+        // ugly af tho
+
+        VendFromSlot(uid, args.Id, fixedAmount);
         Dirty(uid, component);
     }
 
-    private void VendFromSlot(EntityUid uid, string itemSlotToEject, SmartFridgeComponent? component = null)
+    private void VendFromSlot(EntityUid uid, string itemSlotToEject, FixedPoint2 amountToExtract, SmartFridgeComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return;
@@ -135,10 +142,14 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
 
         component.Ejecting = true;
         component.SlotToEjectFrom = itemSlot;
+        component.EjectAmount = amountToExtract; // this probably won't work
+        // amount is also unused rn outside of this bc i want it to
+        // dispense at least 1 first. it does not do that
 
         _audio.PlayPvs(component.SoundVend, uid);
     }
 
+    // do i need to make this like... a foreach? where i put the amount
     private void EjectItem(EntityUid uid, SmartFridgeComponent component)
     {
         if (component.SlotToEjectFrom == null ||

@@ -60,6 +60,7 @@ public sealed partial class SmartFridgeComponent : Component
     [DataField]
     public float EjectAccumulator;
     public ItemSlot? SlotToEjectFrom;
+    public FixedPoint2 EjectAmount; // ?????????????
 
     [DataField]
     // Grabbed from: https://github.com/tgstation/tgstation/blob/d34047a5ae911735e35cd44a210953c9563caa22/sound/machines/machine_vend.ogg
@@ -83,14 +84,53 @@ public sealed class SmartFridgeInventoryItem(EntProtoId id, string storageSlotId
 }
 
 [Serializable, NetSerializable]
+public sealed class SmartFridgeAmountButtonMessage : BoundUserInterfaceMessage
+{
+    public readonly EntProtoId Id;
+    public readonly FridgeAmount Amount;
+
+    public SmartFridgeAmountButtonMessage(EntProtoId id, FridgeAmount amount)
+    {
+        Id = id;
+        Amount = amount;
+    }
+}
+
+[Serializable, NetSerializable]
+public enum FridgeAmount
+{
+    E1 = 1,
+    E2 = 2,
+    E5 = 5,
+    E10 = 10,
+    E15 = 15,
+    All,
+}
+
+[Serializable, NetSerializable]
+public static class FridgeAmountToFixedPoint
+{
+    public static FixedPoint2 GetFixedPoint(this FridgeAmount amount)
+    {
+        if (amount == FridgeAmount.All)
+            return FixedPoint2.MaxValue;
+        else
+            return FixedPoint2.New((int)amount);
+    }
+}
+
+[Serializable, NetSerializable]
 public enum SmartFridgeUiKey
 {
     Key
 }
 
-// doing it here cuz idgaf
+/// <summary>
+/// Message sent to try and eject a material from a storage
+/// </summary>
 [Serializable, NetSerializable]
-public sealed class SmartFridgeEjectMessage(string id) : BoundUserInterfaceMessage
+public sealed class SmartFridgeEjectMessage(string id, FridgeAmount amount) : BoundUserInterfaceMessage
 {
     public readonly string Id = id;
+    public readonly FridgeAmount Amount = amount;
 }

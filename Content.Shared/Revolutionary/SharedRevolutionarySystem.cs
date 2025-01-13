@@ -6,6 +6,7 @@ using Content.Shared.Stunnable;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 using Content.Shared.Antag;
+using Content.Shared.Strip.Components;
 
 namespace Content.Shared.Revolutionary;
 
@@ -36,6 +37,11 @@ public abstract class SharedRevolutionarySystem : EntitySystem
             comp.Broken = true; // Goobstation - Broken mindshield implant instead of break it
             Dirty(uid, comp);
             return;
+        }
+
+        if (HasComp<ThievingComponent>(uid)) // funkystation - We're doing it here because this FUCKING SUCKS
+        {
+            RemComp<ThievingComponent>(uid);
         }
 
         if (HasComp<RevolutionaryComponent>(uid))

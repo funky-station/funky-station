@@ -545,7 +545,7 @@
     delay: 1.8
   - type: DrainableSolution
     solution: drink
-    
+
 - type: entity
   parent: BaseStowawayPlushie
   id: PlushieAssistantSpider
@@ -567,7 +567,7 @@
         reagents:
         - ReagentId: CopperBlood
           Quantity: 30
-    
+
 - type: entity
   parent: BaseStowawayPlushie
   id: PlushieBarkeepLizard
@@ -611,7 +611,7 @@
         reagents:
         - ReagentId: SpaceGlue
           Quantity: 30
-    
+
 - type: entity
   parent: BaseStowawayPlushie
   id: PlushieCargoBird
@@ -633,7 +633,23 @@
         reagents:
         - ReagentId: Iron
           Quantity: 30
-    
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/DeltaV/Voice/Harpy/caw1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/DeltaV/Voice/Harpy/caw1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/DeltaV/Voice/Harpy/caw1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/DeltaV/Voice/Harpy/caw1.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/DeltaV/Voice/Harpy/caw1.ogg
+
 - type: entity
   parent: BaseStowawayPlushie
   id: PlushieChaplainDog
@@ -655,7 +671,7 @@
         reagents:
         - ReagentId: Holywater
           Quantity: 30
-    
+
 - type: entity
   parent: BaseStowawayPlushie
   id: PlushieChemistLizard
@@ -699,7 +715,7 @@
         reagents:
         - ReagentId: SpaceDrugs
           Quantity: 30
-    
+
 - type: entity
   parent: BaseStowawayPlushie
   id: PlushieQuartermasterMoth
@@ -721,7 +737,7 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 30
-    
+
 - type: entity
   parent: BaseStowawayPlushie
   id: PlushieResearchDirectorDog
@@ -743,7 +759,7 @@
         reagents:
         - ReagentId: Blood
           Quantity: 30
-    
+
 - type: entity
   parent: BaseStowawayPlushie
   id: PlushieResearchDirectorLizard
@@ -765,7 +781,7 @@
         reagents:
         - ReagentId: Moonshine
           Quantity: 30
-    
+
 - type: entity
   parent: BaseStowawayPlushie
   id: PlushieSkeleton

@@ -114,3 +114,18 @@
   - type: Tag
     tags:
     - MonkeyCube
+
+- type: entity #funkystation - dino box
+  parent: MonkeyCubeBox
+  name: dino cube box
+  suffix: Syndicate
+  id: SyndicateDinoBox
+  description: A blast from the past! Just add water!
+  components:
+  - type: StorageFill
+    contents:
+    - id: RandomDinoCube
+      amount: 6
+  - type: Sprite
+    sprite: Objects/Misc/monkeycube.rsi
+    state: box

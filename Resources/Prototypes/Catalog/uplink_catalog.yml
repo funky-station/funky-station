@@ -1780,9 +1780,9 @@
     whitelist:
     - Chaplain
   saleLimit: 1 # WD EDIT
-  
+
 # begin funky specific syndicate wear
-  
+
 - type: listing
   id: uplinkBotanistSyndicateSuit
   name: uplink-botanist-syndie-jumpsuit-name
@@ -1797,7 +1797,7 @@
     whitelist:
     - Botanist
   saleLimit: 1
-  
+
 - type: listing
   id: uplinkBartenderSyndicateSuit
   name: uplink-bartender-syndie-jumpsuit-name
@@ -1812,7 +1812,7 @@
     whitelist:
     - Bartender
   saleLimit: 1
-  
+
 - type: listing
   id: uplinkLibrarianSyndicateSuit
   name: uplink-librarian-syndie-jumpsuit-name
@@ -1827,7 +1827,7 @@
     whitelist:
     - Librarian
   saleLimit: 1
-  
+
 - type: listing
   id: uplinkScientistSyndicateSuit
   name: uplink-scientist-syndie-jumpsuit-name
@@ -1842,7 +1842,7 @@
     whitelist:
     - Scientist
   saleLimit: 1
-  
+
 - type: listing
   id: uplinkScientistWhiteSyndicateSuit
   name: uplink-scientist-white-syndie-jumpsuit-name
@@ -1993,6 +1993,25 @@
     - ResearchDirector
     - Chef
   saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: UplinkDinoCubeBox
+  name: uplink-syndicate-dinocube-box-name
+  description: uplink-syndicate-dinocube-box-desc
+  icon: { sprite:  Objects/Misc/monkeycube.rsi, state: box}
+  productEntity: SyndicateDinoBox
+  cost:
+    Telecrystal: 100
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition # We can't use BuyerDepartmentCondition here since Zookeeper and Chef can also get this
+    whitelist:
+    - Zookeeper
+    - Scientist
+    - ResearchDirector
+    - Chef
+  saleLimit: 1
 
 - type: listing
   id: UplinkCaneBlade

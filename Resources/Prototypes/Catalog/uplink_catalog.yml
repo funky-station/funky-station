@@ -1005,6 +1005,23 @@
   categories:
   - UplinkDisruption
 
+- type: listing
+  id: UplinkDinoCubeBoxNukie #dino ops
+  name: uplink-syndicate-dinocube-box-name
+  description: uplink-syndicate-dinocube-box-desc
+  icon: { sprite:  Objects/Misc/monkeycube.rsi, state: box}
+  productEntity: SyndicateDinoBox
+  cost:
+    Telecrystal: 75 #25% discount for nukies. probably remove this but i want to see at least 1 dino ops
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  saleLimit: 1
+
 # Allies
 
 - type: listing
@@ -2010,7 +2027,6 @@
     - Zookeeper
     - Scientist
     - ResearchDirector
-    - Chef
   saleLimit: 1
 
 - type: listing
@@ -2049,3 +2065,4 @@
     - Chef
     - Mime
   saleLimit: 1 # WD EDIT
+

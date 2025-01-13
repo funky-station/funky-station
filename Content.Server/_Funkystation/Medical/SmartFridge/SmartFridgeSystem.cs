@@ -70,11 +70,13 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
 
     private void OnItemEjectEvent(EntityUid entity, SmartFridgeComponent component, ref ItemSlotEjectAttemptEvent ev)
     {
-        if (component.SlotToEjectFrom == ev.Slot)
+        // oooughhh
+        /*if (component.SlotToEjectFrom == ev.Slot)
         {
             Dirty(entity, component);
             return;
-        }
+        }*/
+        // how the fuck am i gonna do this ?__?
 
         ev.Cancelled = !component.Ejecting;
     }
@@ -114,15 +116,11 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
         if (args.Actor is not { Valid: true } entity || Deleted(entity))
             return;
 
-        var fixedAmount = args.Amount.GetFixedPoint();
-        // so it doesn't choke if FridgeAmount == All
-        // ugly af tho
-
-        VendFromSlot(uid, args.Id, fixedAmount);
+        VendFromSlot(uid, args.ItemsToEject, args.Amount);
         Dirty(uid, component);
     }
 
-    private void VendFromSlot(EntityUid uid, string itemSlotToEject, FixedPoint2 amountToExtract, SmartFridgeComponent? component = null)
+    private void VendFromSlot(EntityUid uid, List<string> itemSlotsToEject, FridgeAmount amount, SmartFridgeComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return;
@@ -132,32 +130,55 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
             return;
         }
 
-        var item = _itemSlotsSystem.GetItemOrNull(uid, itemSlotToEject);
+        var slotsToEject = new List<ItemSlot>();
+
+        foreach (var id in itemSlotsToEject)
+        {
+            var item = _itemSlotsSystem.GetItemOrNull(uid, id);
+
+            if (item == null)
+                return;
+
+            if (!_itemSlotsSystem.TryGetSlot(uid, id, out var itemSlot) && itemSlot == null)
+                return;
+
+            slotsToEject.Add(itemSlot);
+        }
+
+        /*var item = _itemSlotsSystem.GetItemOrNull(uid, itemSlotToEject);
 
         if (item == null)
             return;
 
         if (!_itemSlotsSystem.TryGetSlot(uid, itemSlotToEject, out var itemSlot) && itemSlot == null)
-            return;
+            return;*/
 
         component.Ejecting = true;
-        component.SlotToEjectFrom = itemSlot;
-        component.EjectAmount = amountToExtract; // this probably won't work
-        // amount is also unused rn outside of this bc i want it to
-        // dispense at least 1 first. it does not do that
+        //component.SlotToEjectFrom = itemSlot;
+        component.SlotsToEjectFrom = slotsToEject;
+        component.AmountToEject = amount;
 
         _audio.PlayPvs(component.SoundVend, uid);
     }
 
-    // do i need to make this like... a foreach? where i put the amount
     private void EjectItem(EntityUid uid, SmartFridgeComponent component)
     {
-        if (component.SlotToEjectFrom == null ||
-            !_itemSlotsSystem.TryEject(uid, component.SlotToEjectFrom, null, out _))
+        if (component.SlotsToEjectFrom == null)
             return;
 
+        // please work
+        foreach (var slot in component.SlotsToEjectFrom)
+        {
+            _itemSlotsSystem.TryEject(uid, slot, null, out _);
+        }
+        // it doesnt work
+
+        /*if (component.SlotToEjectFrom == null ||
+            !_itemSlotsSystem.TryEject(uid, component.SlotToEjectFrom, null, out _))
+            return;*/
+
         component.Inventory = GetInventory(uid);
-        component.SlotToEjectFrom = null;
+        component.SlotsToEjectFrom = null;
 
         Dirty(uid, component);
     }

@@ -50,9 +50,11 @@ public sealed class SmartFridgeBoundUserInterface(EntityUid owner, Enum uiKey) :
         if (_cachedInventory.Count == 0)
             return;
 
+        // creates a list of possible items to dispense, based on if the itemName matches
+        // entProto doesn't work for matching the items sooooo.
         var matchingItems = new List<string>();
 
-        // creates a list of possible items to dispense
+        // theyre telling me this could be a linq query but i dont know how to do that so i dont care
         foreach (var item in _cachedInventory)
         {
             if (data.ItemName == item.ItemName)
@@ -62,17 +64,27 @@ public sealed class SmartFridgeBoundUserInterface(EntityUid owner, Enum uiKey) :
         if (matchingItems.Count == 0)
             return;
 
-        var amountToEject = data.Amount.GetFixedPoint();
+        var amountToEject = data.Amount;
         var itemSlotsToEject = new List<string>();
 
-        for (int i = 0; i < amountToEject; i++)
+        for (var i = 0; i < amountToEject.GetFixedPoint(); i++)
         {
-            if (matchingItems.Count > i)
+            if (matchingItems.Count < i + 1)
+                break;
+
+            var addedEntry = matchingItems.ElementAtOrDefault(i);
+
+            if (addedEntry == null)
                 return;
 
-            itemSlotsToEject.Add(matchingItems[i]);
+            itemSlotsToEject.Add(addedEntry);
         }
 
-        SendMessage(new SmartFridgeEjectMessage(itemSlotsToEject));
+        if (itemSlotsToEject.Count == 0)
+            return;
+
+        // remove data.Amount sending ltr
+        // it doesnt need that info anymore
+        SendMessage(new SmartFridgeEjectMessage(itemSlotsToEject, data.Amount));
     }
 }

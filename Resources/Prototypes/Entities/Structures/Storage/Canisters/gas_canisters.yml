@@ -150,9 +150,12 @@
           components:
             - GasTank
     - type: StaticPrice
-      price: 200
+      price: 125 # Frontier: 200<125
     - type: AccessReader
-      access: [["Atmospherics"], ["Engineering"], ["Research"]]
+#      access: [["Atmospherics"], ["Engineering"], ["Research"], ["Captain"]] # Frontier
+    - type: Construction # Frontier
+      graph: NFStorageCanister # Frontier
+      node: storagecanister # Frontier
     - type: Lock
       locked: false
     - type: GuideHelp

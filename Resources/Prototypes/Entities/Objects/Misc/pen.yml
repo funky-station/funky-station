@@ -33,6 +33,7 @@
   - type: ThrowingAngle
     angle: 315
   - type: LandAtCursor
+  - type: SignatureWriter # imp
   - type: DamageOtherOnHit
     damage:
       types:
@@ -57,6 +58,12 @@
     state: luxury_pen
   - type: Item
     heldPrefix: luxury_pen
+  - type: SignatureWriter # imp
+    colorList:
+      black: "#2f4f4f"
+      blue: "#284283"
+      green: "#108473"
+      red: "#ac3235"
 
 - type: entity
   id: BaseAdvancedPen
@@ -93,6 +100,23 @@
     state: overpriced_pen
   - type: Item
     heldPrefix: overpriced_pen
+  - type: SignatureWriter # imp start
+    fontList:
+      Noto Sans: "/Fonts/NotoSans/NotoSans-Regular.ttf"
+      Comic Neue: "/Fonts/_DV/ComicNeue/ComicNeue-Regular.ttf"
+      Hachi Maru Pop: "/Fonts/_DV/HachiMaruPop/HachiMaruPop-Regular.ttf"
+      Kode Mono: "/Fonts/_DV/KodeMono/KodeMono-Regular.ttf"
+      Reenie Beanie: "/Fonts/_DV/ReenieBeanie/ReenieBeanie-Regular.ttf"
+      Tangerine: "/Fonts/_DV/Tangerine/Tangerine_Bold.ttf"
+      UnifrakturMaguntia: "/Fonts/_DV/UnifrakturMaguntia/UnifrakturMaguntia-Regular.ttf"
+      Wahroonga: "/Fonts/_DV/Wahroonga/Wahroonga-Regular.ttf"
+    colorList:
+      black: "#2f4f4f"
+      blue: "#284283"
+      green: "#108473"
+      red: "#ac3235"
+      command blue: "#1b67a5"
+      CentComm green: "#009100" # imp end
 
 - type: entity
   name: CentComm pen
@@ -104,6 +128,8 @@
     state: pen_centcom
   - type: Item
     heldPrefix: pen_centcom
+  - type: SignatureWriter
+    color: "#009100"
 
 - type: entity
   name: captain's fountain pen
@@ -114,6 +140,8 @@
   components:
   - type: Sprite
     state: pen_cap
+  - type: SignatureWriter # imp
+    color: "#1b67a5"
 
 - type: entity
   name: hop's fountain pen
@@ -124,3 +152,5 @@
   components:
   - type: Sprite
     state: pen_hop
+  - type: SignatureWriter # imp
+    color: "#1b67a5"

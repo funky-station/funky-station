@@ -82,6 +82,9 @@
       path: /Audio/Weapons/eblade1.ogg
       params:
         variation: 0.250
+  - type: ItemToggleSignatureWriter # imp start
+    activatedFont: /Fonts/_DV/AndTheDoorCreeeaked/AndTheDoorCreeeaked-Regular.otf
+    activatedColor: black # imp end
 
 - type: entity
   name: energy sword
@@ -234,6 +237,7 @@
   - type: Tag
     tags:
     - Write
+  - type: SignatureWriter # imp
 
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]

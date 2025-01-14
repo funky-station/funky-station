@@ -49,6 +49,10 @@ public sealed class SmartFridgeBoundUserInterface(EntityUid owner, Enum uiKey) :
             where item.ItemName == data.ItemName
             select item.StorageSlotId;
 
+        // ummm
+        // slots are probably handled sequentially, if you dispense one then all of them shift down by 1?
+        // so dispense from the end of the list first, hence OrderByDescending...???
+        // probably misunderstanding this
         var matchingItems = queryList
             .OrderByDescending(q => q)
             .ToList();

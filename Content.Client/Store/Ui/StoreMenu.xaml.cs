@@ -195,7 +195,6 @@ public sealed partial class StoreMenu : DefaultWindow
 
     private void AddListingGui(ListingData listing)
     {
-        // Apply category filtering for both Malf and normal shops.
         if (!listing.Categories.Contains(CurrentCategory))
             return;
 

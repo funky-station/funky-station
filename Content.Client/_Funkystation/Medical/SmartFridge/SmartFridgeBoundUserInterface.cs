@@ -40,35 +40,30 @@ public sealed class SmartFridgeBoundUserInterface(EntityUid owner, Enum uiKey) :
 
     private void OnItemSelected(BaseButton.ButtonEventArgs args, SmartFridgeItem.DispenseButton data)
     {
-        /*if (args.Function != EngineKeyFunctions.UIClick)
-            return;*/
-
-        /*if (data is not FridgeItemsListData { ItemIndex: var itemIndex })
-            return;*/
-        // probably important checks to keep but idrk how i could translate them rn sozzzzz
-
         if (_cachedInventory.Count == 0)
             return;
 
         // creates a list of possible items to dispense, based on if the itemName matches
-        // entProto doesn't work for matching the items sooooo.
-        var matchingItems = new List<string>();
+        IEnumerable<string> queryList =
+            from item in _cachedInventory
+            where item.ItemName == data.ItemName
+            select item.StorageSlotId;
 
-        // theyre telling me this could be a linq query but i dont know how to do that so i dont care
-        foreach (var item in _cachedInventory)
-        {
-            if (data.ItemName == item.ItemName)
-                matchingItems.Add(item.StorageSlotId);
-        }
+        var matchingItems = queryList
+            .OrderByDescending(q => q)
+            .ToList();
+        var amountToEject = data.Amount;
 
         if (matchingItems.Count == 0)
             return;
 
-        var amountToEject = data.Amount;
+        // trims the list depending on how much is needed to dispense
         var itemSlotsToEject = new List<string>();
 
         for (var i = 0; i < amountToEject.GetFixedPoint(); i++)
         {
+            // i cant do this math in my head
+            // this might need to be =< but idkz
             if (matchingItems.Count < i + 1)
                 break;
 
@@ -83,8 +78,6 @@ public sealed class SmartFridgeBoundUserInterface(EntityUid owner, Enum uiKey) :
         if (itemSlotsToEject.Count == 0)
             return;
 
-        // remove data.Amount sending ltr
-        // it doesnt need that info anymore
-        SendMessage(new SmartFridgeEjectMessage(itemSlotsToEject, data.Amount));
+        SendMessage(new SmartFridgeEjectMessage(itemSlotsToEject));
     }
 }

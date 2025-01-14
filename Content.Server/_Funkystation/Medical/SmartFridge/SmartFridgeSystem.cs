@@ -1,13 +1,11 @@
-﻿using Content.Server.Interaction;
+﻿using System.Linq;
 using Content.Server.Power.EntitySystems;
 using Content.Shared._Funkystation.Medical.SmartFridge;
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Tag;
 using Robust.Server.Audio;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server._Funkystation.Medical.SmartFridge;
 
@@ -30,7 +28,7 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
         });
 
         SubscribeLocalEvent<SmartFridgeComponent, MapInitEvent>(MapInit, before: [typeof(ItemSlotsSystem)]);
-        SubscribeLocalEvent<SmartFridgeComponent, ItemSlotEjectAttemptEvent>(OnItemEjectEvent);
+        // SubscribeLocalEvent<SmartFridgeComponent, ItemSlotEjectAttemptEvent>(OnItemEjectEvent);
         SubscribeLocalEvent<SmartFridgeComponent, InteractUsingEvent>(OnInteractEvent);
     }
 
@@ -68,6 +66,7 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
         Dirty(entity, component);
     }
 
+    // i dont know man. i dont know.
     private void OnItemEjectEvent(EntityUid entity, SmartFridgeComponent component, ref ItemSlotEjectAttemptEvent ev)
     {
         // oooughhh
@@ -107,7 +106,6 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
         SetupSmartFridge(uid, component);
     }
 
-    // dispense event
     private void OnSmartFridgeEjectMessage(EntityUid uid, SmartFridgeComponent component, SmartFridgeEjectMessage args)
     {
         if (!this.IsPowered(uid, EntityManager))
@@ -116,11 +114,11 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
         if (args.Actor is not { Valid: true } entity || Deleted(entity))
             return;
 
-        VendFromSlot(uid, args.ItemsToEject, args.Amount);
+        VendFromSlot(uid, args.ItemsToEject);
         Dirty(uid, component);
     }
 
-    private void VendFromSlot(EntityUid uid, List<string> itemSlotsToEject, FridgeAmount amount, SmartFridgeComponent? component = null)
+    private void VendFromSlot(EntityUid uid, List<string> itemSlotsToEject, SmartFridgeComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return;
@@ -156,7 +154,6 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
         component.Ejecting = true;
         //component.SlotToEjectFrom = itemSlot;
         component.SlotsToEjectFrom = slotsToEject;
-        component.AmountToEject = amount;
 
         _audio.PlayPvs(component.SoundVend, uid);
     }

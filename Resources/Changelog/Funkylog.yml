@@ -1222,3 +1222,11 @@ Entries:
         damage.
   id: 150
   time: '2025-01-14T06:13:20.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Add
+      message: >-
+        Added Syndicate Dino Cube boxes, purchasable by the Chef, Zookeeper, and
+        Scientist.
+  id: 151
+  time: '2025-01-14T06:14:17.0000000+00:00'

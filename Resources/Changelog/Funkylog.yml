@@ -1230,3 +1230,9 @@ Entries:
         Scientist.
   id: 151
   time: '2025-01-14T06:14:17.0000000+00:00'
+- author: Liamofthesky
+  changes:
+    - type: Fix
+      message: Fixed the station plumbing, sinks now have plenty of water again
+  id: 152
+  time: '2025-01-15T21:15:21.0000000+00:00'

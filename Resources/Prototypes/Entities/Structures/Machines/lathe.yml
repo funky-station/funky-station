@@ -463,7 +463,6 @@
     - SodaDispenserMachineCircuitboard
     - SpaceHeaterMachineCircuitBoard
     - CutterMachineCircuitboard
-    - StationAnchorCircuitboard
     - SalvageMagnetMachineCircuitboard
     - OperatingTableCircuitboard # Shitmed Change
     dynamicRecipes:

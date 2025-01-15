@@ -1194,8 +1194,28 @@
       - CarpetPurple
       - CarpetCyan
       - CarpetWhite
+      # Bedsheets
+      - BedsheetBlack
+      - BedsheetBlue
+      - BedsheetBrown
+      - BedsheetGreen
+      - BedsheetGrey
+      - BedsheetOrange
+      - BedsheetPurple
+      - BedsheetRed
+      - BedsheetWhite
+      - BedsheetYellow
+      - BedsheetClown
+      - BedsheetCosmos
+      - BedsheetIan
+      - BedsheetMedical
+      - BedsheetMime
+      - BedsheetNT
+      - BedsheetRainbow
+      - BedsheetBrigmedic
   - type: EmagLatheRecipes
     emagStaticRecipes:
+      # Clothing
       - ClothingHeadHatCentcomcap
       - ClothingHeadHatCentcom
       - ClothingUniformJumpsuitCentcomAgent
@@ -1234,6 +1254,8 @@
       - ClothingOuterWinterCentcom
       - ClothingOuterWinterSyndie
       - ClothingOuterWinterSyndieCap
+      # Bedsheets
+      - BedsheetSyndie
       - ClothingOuterVestWebDurathread # Goobstation - adding durathread armoured clothing
       - ClothingOuterArmourDurathread # Goobstation - adding durathread armoured clothing
       - ClothingUniformJumpsuitDurathread # Goobstation - adding durathread armoured clothing

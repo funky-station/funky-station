@@ -129,7 +129,6 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
-  - type: ZombieImmune
 
 - type: entity
   name: bee
@@ -156,7 +155,6 @@
     - SimpleHostile
   - type: Bloodstream
     bloodMaxVolume: 0.1
-  - type: ZombieImmune
 
 
 - type: entity
@@ -391,7 +389,6 @@
       behaviors:
       - !type:GibBehavior # Shitmed Change
         gibContents: Skip # Shitmed Change
-  - type: NonSpreaderZombie
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: MeleeWeapon
@@ -401,7 +398,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 0
+        Piercing: 0.1
 
 - type: entity
   name: glockroach
@@ -520,6 +517,14 @@
       types:
         Asphyxiation: -0.5
   - type: CombatMode
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 3
   - type: Butcherable
     spawned:
     - id: FoodMeatSlime
@@ -1766,14 +1771,13 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 0
+        Piercing: 1
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: CanEscapeInventory
   - type: MobPrice
     price: 50
   - type: BadFood
-  - type: NonSpreaderZombie
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
@@ -3377,7 +3381,6 @@
     baseResistTime: 3
   - type: MobPrice
     price: 60
-  - type: NonSpreaderZombie
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning

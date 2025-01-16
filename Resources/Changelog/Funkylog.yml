@@ -1184,3 +1184,55 @@ Entries:
       message: Dynamic thieves now get pacifism and thieving.
   id: 145
   time: '2025-01-11T04:02:03.0000000+00:00'
+- author: ' darkmajia, hivehum'
+  changes:
+    - type: Add
+      message: >-
+        Time distortion fields from seconds in the past have been detected.
+        Crewmembers should prepare for imminent Dino Wars.
+  id: 146
+  time: '2025-01-11T21:25:08.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Tweak
+      message: Mice and mothroaches deal damage again (and can zombify people)
+    - type: Tweak
+      message: Zom-bees are real
+    - type: Tweak
+      message: Zombies have slightly better regeneration
+  id: 147
+  time: '2025-01-11T21:26:35.0000000+00:00'
+- author: Erisiaa
+  changes:
+    - type: Add
+      message: Harpies can now yap and gekker.
+  id: 148
+  time: '2025-01-12T05:55:19.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Add
+      message: Added a completely new zone to glacier outpost.
+  id: 149
+  time: '2025-01-13T21:52:11.0000000+00:00'
+- author: ' deltanedas'
+  changes:
+    - type: Tweak
+      message: >-
+        Losing a limb makes you bleed profusely instead of dealing bloodloss
+        damage.
+  id: 150
+  time: '2025-01-14T06:13:20.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Add
+      message: >-
+        Added Syndicate Dino Cube boxes, purchasable by the Chef, Zookeeper, and
+        Scientist.
+  id: 151
+  time: '2025-01-14T06:14:17.0000000+00:00'
+- author: Liamofthesky
+  changes:
+    - type: Fix
+      message: Fixed the station plumbing, sinks now have plenty of water again
+  id: 152
+  time: '2025-01-15T21:15:21.0000000+00:00'

@@ -78,6 +78,7 @@ namespace Content.IntegrationTests.Tests
             "Loop",
             "roid_outpost",
             "DMVStation",
+            "Plasma",
             "Elkridge"
         };
 

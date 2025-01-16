@@ -15,6 +15,7 @@
     - state: geneinjector0
       visible: true
     - state: geneinjector1
+      color: "#FFFFFF"
       visible: true
   - type: MeleeWeapon
     wideAnimationRotation: 90

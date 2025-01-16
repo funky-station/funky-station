@@ -4,6 +4,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Shared.Genetics.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
+using System.Linq;
 
 namespace Content.Server.Machines.EntitySystems
 {
@@ -54,7 +55,6 @@ namespace Content.Server.Machines.EntitySystems
             string ent = "geneinjector"; //yummers
 
             var inject = Spawn(ent, Transform(uid).Coordinates);
-
             RandomGene(uid, comp, inject);
 
             comp.Cooldown = true;

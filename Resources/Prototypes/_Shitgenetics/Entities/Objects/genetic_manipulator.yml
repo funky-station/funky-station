@@ -1,0 +1,44 @@
+- type: entity
+  id: Genetic Manipulator
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: Genetic Manipulator
+  description: A multifunction genetic machine with two functions. One to extract genetic mutations from blood, and one to seperate every mutation from an existing injector.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Shitgenetic/Structures/genetic_manipulator.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+    - state: lights
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Appearance
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.4,0.25,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Transform
+    anchored: true
+  - type: ApcPowerReceiver
+    powerLoad: 300
+  - type: ExtensionCableReceiver
+  - type: GeneManipulator
+  - type: Physics
+    bodyType: Static
+  - type: StaticPrice
+    price: 1000

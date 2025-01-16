@@ -64,9 +64,9 @@
           Mime: [ 1, 1 ]
           Musician: [ 1, 1 ]
 
-    # Goobstation blob-config-start HUGE
+    # Goobstation blob-config-start SMALL+
       - type: StationBlobConfig
-        stageBegin: 40
-        stageCritical: 450
-        stageTheEnd: 900
+        stageBegin: 25
+        stageCritical: 350
+        stageTheEnd: 700
     # Goobstation blob-config-end

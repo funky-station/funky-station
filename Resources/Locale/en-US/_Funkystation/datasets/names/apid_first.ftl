@@ -18,3 +18,6 @@ names-apid-emergency-first-dataset-2 = Guardian
 
 names-apid-chef-first-dataset-1 = Baker
 names-apid-chef-first-dataset-2 = Provider
+
+names-apid-courier-first-dataset-1 = Messenger
+names-apid-courier-first-dataset-2 = Carrier

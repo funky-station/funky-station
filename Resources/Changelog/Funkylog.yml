@@ -1236,3 +1236,27 @@ Entries:
       message: Fixed the station plumbing, sinks now have plenty of water again
   id: 152
   time: '2025-01-15T21:15:21.0000000+00:00'
+- author: ' RadsammyT'
+  changes:
+    - type: Add
+      message: >-
+        Two new variants for playing cards have been added: Nanotrasen and
+        Syndicate. The NT variant can be unlocked as a trinket given 10 hours of
+        Quartermaster time. The Syndie variant can be purchased from the uplink
+        in the Pointless category for 3 TC.
+    - type: Fix
+      message: >-
+        Hands of Playing Cards will no longer show alternative verbs for ghosts
+        or any player controlled mob without any hands.
+    - type: Fix
+      message: Card sprites should no longer desync on reconnecting.
+    - type: Tweak
+      message: >-
+        Playing Card deck boxes now have holographic security seals on them.
+        Opening a sealed deck will destroy the seal.
+    - type: Tweak
+      message: >-
+        Playing Cards now have a 10 hour time requirement before you can select
+        them as a trinket.
+  id: 153
+  time: '2025-01-17T07:53:10.0000000+00:00'

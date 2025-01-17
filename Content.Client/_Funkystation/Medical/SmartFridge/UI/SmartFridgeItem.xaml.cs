@@ -19,21 +19,9 @@ public sealed partial class SmartFridgeItem : PanelContainer
     {
         RobustXamlLoader.Load(this);
 
-        //this calls the separated button builder, and stores the return to render after labels
-        //var dispenseButtonConstructors = CreateDispenseButtons(index, addDispenseButtons);
-
         ItemPrototype.SetPrototype(entProto);
         NameLabel.Text = name;
         NameQuantity.Text = $"{quantity}";
-
-        // Adds the dispense buttons after
-        /*foreach (var dispenseButton in dispenseButtonConstructors)
-        {
-            PrimaryContainer.AddChild(dispenseButton);
-        }
-
-        SetBackgroundColor(index);
-        DispenseButtons = dispenseButtonConstructors;*/
 
         DispenseButtons = new List<DispenseButton>();
     }
@@ -58,8 +46,8 @@ public sealed partial class SmartFridgeItem : PanelContainer
     /// </summary>
     private void SetBackgroundColor(int index)
     {
-        var rowColor1 = Color.FromHex("#1B1B1E");
-        var rowColor2 = Color.FromHex("#202025");
+        var rowColor1 = Color.FromHex("#202025");
+        var rowColor2 = Color.FromHex("#1B1B1E");
         var currentRowColor = (index % 2 == 1) ? rowColor1 : rowColor2;
 
         ParentContainer.PanelOverride = new StyleBoxFlat(currentRowColor);

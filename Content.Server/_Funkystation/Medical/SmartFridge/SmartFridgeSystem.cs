@@ -66,7 +66,9 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
         Dirty(entity, component);
     }
 
-    // i dont know man. i dont know.
+    // renabling this will prevent one from dispensing
+    // this would probably have to be added to the foreach loop for it to work
+    // but i dont need it rn so. Delete
     private void OnItemEjectEvent(EntityUid entity, SmartFridgeComponent component, ref ItemSlotEjectAttemptEvent ev)
     {
         // oooughhh
@@ -143,16 +145,7 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
             slotsToEject.Add(itemSlot);
         }
 
-        /*var item = _itemSlotsSystem.GetItemOrNull(uid, itemSlotToEject);
-
-        if (item == null)
-            return;
-
-        if (!_itemSlotsSystem.TryGetSlot(uid, itemSlotToEject, out var itemSlot) && itemSlot == null)
-            return;*/
-
         component.Ejecting = true;
-        //component.SlotToEjectFrom = itemSlot;
         component.SlotsToEjectFrom = slotsToEject;
 
         _audio.PlayPvs(component.SoundVend, uid);
@@ -169,10 +162,7 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
             _itemSlotsSystem.TryEject(uid, slot, null, out _);
         }
         // it doesnt work
-
-        /*if (component.SlotToEjectFrom == null ||
-            !_itemSlotsSystem.TryEject(uid, component.SlotToEjectFrom, null, out _))
-            return;*/
+        // it gets to this point fine, it just dispenses 1 instead of many
 
         component.Inventory = GetInventory(uid);
         component.SlotsToEjectFrom = null;

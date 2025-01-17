@@ -49,13 +49,7 @@ public sealed class SmartFridgeBoundUserInterface(EntityUid owner, Enum uiKey) :
             where item.ItemName == data.ItemName
             select item.StorageSlotId;
 
-        // ummm
-        // slots are probably handled sequentially, if you dispense one then all of them shift down by 1?
-        // so dispense from the end of the list first, hence OrderByDescending...???
-        // probably misunderstanding this
-        var matchingItems = queryList
-            .OrderByDescending(q => q)
-            .ToList();
+        var matchingItems = queryList.ToList();
         var amountToEject = data.Amount;
 
         if (matchingItems.Count == 0)
@@ -66,7 +60,7 @@ public sealed class SmartFridgeBoundUserInterface(EntityUid owner, Enum uiKey) :
 
         for (var i = 0; i < amountToEject.GetFixedPoint(); i++)
         {
-            // i cant do this math in my head
+            // i cant do this in my head
             // this might need to be =< but idkz
             if (matchingItems.Count < i + 1)
                 break;

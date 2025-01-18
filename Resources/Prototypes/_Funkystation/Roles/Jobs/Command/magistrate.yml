@@ -1,0 +1,81 @@
+- type: job
+  id: Magistrate
+  name: job-name-magistrate
+  description: "The arbiter of space law."
+  playTimeTracker: JobMagistrate
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 54000 #15 hrs
+  - !type:RoleTimeRequirement
+    role: JobLawyer
+    time: 36000 # 10 hours
+  - !type:RoleTimeRequirement
+    role: JobNanotrasenRepresentative
+    time: 72000 # 20 hours
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 72000 # 20 hours
+  weight: 20
+  startingGear: MagistrateGear
+  icon: "JobIconNanotrasen"
+  requireAdminNotify: true
+  joinNotifyCrew: true
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Command
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: CommandStaff
+
+- type: startingGear
+  id: MagistrateGear
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+    eyes: ClothingEyesGlassesSunglasses
+    head: ClothingHeadHatMagistrateCap
+    gloves: ClothingHandsGlovesColorWhite
+    id: ERTSecurityPDA
+    ears: ClothingHeadsetAltCommand
+    belt: BoxFolderClipboard
+  storage:
+    back:
+    - BoxSurvivalSlots
+    - Flash
+    - BluespaceLifelineImplanter #DeathAcidifierImplanter
+
+# doing it here BITE ME
+- type: entity
+  parent: BaseSecurityPDA
+  id: MagistratePDA
+  name: Magistrate PDA
+  description: Blood is on the pen, not yours though.
+  components:
+  - type: Pda
+    id: CentcomIDCard
+    state: pda-centcom
+    penSlot:
+      startingItem: PenCentcom
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#f3ffb4"
+  - type: Icon
+    state: pda-centcom
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - WantedListCartridge
+    - LogProbeCartridge
+    - NanoChatCartridge # DeltaV

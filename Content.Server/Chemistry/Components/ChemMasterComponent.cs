@@ -26,5 +26,11 @@ namespace Content.Server.Chemistry.Components
 
         [DataField("clickSound"), ViewVariables(VVAccess.ReadWrite)]
         public SoundSpecifier ClickSound = new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg");
+
+        [DataField]
+        public int SortMethod;
+
+        [DataField]
+        public int TransferringAmount;
     }
 }

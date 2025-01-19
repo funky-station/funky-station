@@ -1269,3 +1269,9 @@ Entries:
         normal circumstances.
   id: 154
   time: '2025-01-18T04:23:06.0000000+00:00'
+- author: kbarkevich
+  changes:
+    - type: Add
+      message: Added 169 new words to the TTS announcements
+  id: 155
+  time: '2025-01-19T00:42:03.0000000+00:00'

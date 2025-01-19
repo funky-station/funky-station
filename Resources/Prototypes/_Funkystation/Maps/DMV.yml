@@ -1,0 +1,44 @@
+- type: gameMap
+  id: DMVStation
+  mapName: 'DMV'
+  mapPath: /Maps/_Funkystation/DMVStation.yml
+  minPlayers: 0
+  maxPlayers: 999
+  stations:
+    roid_outpost:
+      stationProto: StandardNanotrasenStation
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: '{0} DMV {1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          #service
+          Captain: [ 1, 1 ]
+          HeadOfPersonnel: [ 1, 1 ]
+          Janitor: [ 1, 1 ]
+          #engineering
+          ChiefEngineer: [ 1, 1 ]
+          AtmosphericTechnician: [ 6, 6]
+          StationEngineer: [ 10, 10]
+          #medical
+          ChiefMedicalOfficer: [ 1, 1 ]
+          Chemist: [ 1, 1 ]
+          MedicalDoctor: [ 2, 2 ]
+          Paramedic: [ 1, 1 ]
+          #science
+          ResearchDirector: [ 1, 1 ]
+          Borg: [ 2, 2 ]
+          #security
+          HeadOfSecurity: [ 1, 1 ]
+          Warden: [ 1, 1 ]
+          Detective: [ 1, 1 ]
+          SecurityOfficer: [ 3, 3 ]
+          #supply
+          Quartermaster: [ 1, 1 ]
+          SalvageSpecialist: [ 3, 3 ]
+          CargoTechnician: [ 5, 5 ]
+          #civillian
+          Passenger: [ -1, -1 ]

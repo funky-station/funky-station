@@ -51,19 +51,35 @@ namespace Content.Server.Machines.EntitySystems
             if (comp.Cooldown == true)
                 return;
 
-            if (TryComp<InjectionPresetComponent>(args.Used, out var injector))
-                if (injector != null)
+            if (TryComp<GeneinjectorComponent>(args.Used, out var geneinject))
+                if (geneinject != null)
                 {
-                    SpawnInject(uid, comp, injector);
+                    if (TryComp<InjectionPresetComponent>(args.Used, out var injector))
+                        if (injector != null)
+                        {
+                            SpawnInject(uid, comp, geneinject, args, injector);
+                        }
                 }
+
+            if (TryComp<GeneSampleComponent>(args.Used, out var genesample))
+                if (genesample != null)
+                {
+                    if (TryComp<InjectionPresetComponent>(args.Used, out var injector))
+                        if (injector != null)
+                        {
+                            CreateInject(uid, comp, genesample, args, injector);
+                        }
+                }
+
 
             comp.Cooldown = true;
 
             args.Handled = true;
         }
 
-        private void SpawnInject(EntityUid uid, GeneManipulatorComponent comp, InjectionPresetComponent injector)
+        private void SpawnInject(EntityUid uid, GeneManipulatorComponent comp, GeneinjectorComponent geneinject, InteractUsingEvent args, InjectionPresetComponent injector)
         { //Get fucking ready for another hardcode check. I promise this isnt torture for the sake of pushing mrp taydumbo (it is)
+
             if (injector.AcidVomit)
             {
                 string ent = "geneinjector";
@@ -199,6 +215,35 @@ namespace Content.Server.Machines.EntitySystems
             }
 
             EntityManager.DeleteEntity(injector.Owner); //deprecate my left pinky toe, idgaf
+        }
+
+        private void CreateInject(EntityUid uid, GeneManipulatorComponent comp, GeneSampleComponent genesample, InteractUsingEvent args, InjectionPresetComponent injector)
+        { //time to extract le blood sample
+            string ent = "geneinjector";
+            var inject = Spawn(ent, Transform(uid).Coordinates);
+            var injectclone = EntityManager.GetComponent<InjectionPresetComponent>(inject);
+
+            if (injector.AcidVomit) injectclone.AcidVomit = true; //its 3 am, im fucking tired, im just gonna hardcode it, im so sorry taydeo, I have dishonored the john space bloodline.
+            if (injector.BloodVomit) injectclone.BloodVomit = true;
+            if (injector.BlueLight) injectclone.BlueLight = true;
+            if (injector.BreathingImmune) injectclone.BreathingImmune = true;
+            if (injector.BZFarter) injectclone.BZFarter = true;
+            if (injector.Clumsy) injectclone.Clumsy = true;
+            if (injector.FireSkin) injectclone.FireSkin = true;
+            if (injector.Light) injectclone.Light = true;
+            if (injector.OkayAccent) injectclone.OkayAccent = true;
+            if (injector.PlasmaFarter) injectclone.PlasmaFarter = true;
+            if (injector.PressureImmune) injectclone.PressureImmune = true;
+            if (injector.Prickmode) injectclone.Prickmode = true;
+            if (injector.RadiationImmune) injectclone.RadiationImmune = true;
+            if (injector.RedLight) injectclone.RedLight = true;
+            if (injector.RGBLight) injectclone.RGBLight = true;
+            if (injector.TempImmune) injectclone.TempImmune = true;
+            if (injector.TritFarter) injectclone.TritFarter = true;
+            if (injector.Twitch) injectclone.Twitch = true;
+            if (injector.Vomit) injectclone.Vomit = true;
+
+            EntityManager.DeleteEntity(injector.Owner); //deprecate this, deprecate that, why dont you deprecate some bitches
         }
     }
 }

@@ -1,0 +1,23 @@
+- type: entity
+  name: Genetic Extractor
+  description: A rapid speed blood and dna extractor. Injects a vial into the target and quickly rips it back out. Very painful, but gets the job done.
+  id: geneextractor
+  parent: [BaseItem]
+  components:
+  - type: Item
+    size: Small
+  - type: GeneExtractor
+  - type: Sprite
+    sprite: _Shitgenetic/Objects/Tools/geneextractor.rsi
+    layers:
+    - state: tool
+      visible: true
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    animation: WeaponArcThrust
+    damage:
+      types:
+        Piercing: 5
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+

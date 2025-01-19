@@ -1,0 +1,16 @@
+- type: entity
+  name: Genetic Sample
+  description: Contains a hemogenic solution, which inside contains multiple genetic strands. A machine is required to seperate the mutations from the sample.
+  id: genesample
+  parent: [BaseItem]
+  components:
+  - type: Item
+    size: Small
+  - type: InjectionPreset
+  - type: GeneSample
+  - type: Sprite
+    sprite: _Shitgenetic/Objects/Tools/genesample.rsi
+    layers:
+    - state: tool
+      visible: true
+

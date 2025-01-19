@@ -20,10 +20,13 @@ using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 using Content.Shared.Genetics.Components;
 using Content.Shared.Mutations;
+using Content.Shared.Light.Components;
+using Content.Shared.Clumsy;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Shared.Genetics
 {
-    public abstract partial class SharedGeneSystem : EntitySystem // I HAVE NO FUCKING IDEA WHAT IM FUCKING DOING, HELP ME
+    public abstract partial class SharedGeneStabilizerSystem : EntitySystem // I HAVE NO FUCKING IDEA WHAT IM FUCKING DOING, HELP ME
     {
 
         [Dependency] private readonly IComponentFactory _componentFactory = default!;
@@ -40,15 +43,16 @@ namespace Content.Shared.Genetics
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
+        [Dependency] private readonly SharedPointLightSystem _pointlight = default!;
 
         public override void Initialize()
         {
             base.Initialize();
 
-            SubscribeLocalEvent<GeneinjectorComponent, MeleeHitEvent>(OnMeleeInject);
-            SubscribeLocalEvent<GeneinjectorComponent, AddInjectDoAfterEvent>(OnAddDNADoAfter);
+            SubscribeLocalEvent<GeneStabilizerComponent, MeleeHitEvent>(OnMeleeInject);
+            SubscribeLocalEvent<GeneStabilizerComponent, AddInjectDoAfterEvent>(OnAddDNADoAfter);
         }
-        private void OnMeleeInject(EntityUid uid, GeneinjectorComponent component, MeleeHitEvent args)
+        private void OnMeleeInject(EntityUid uid, GeneStabilizerComponent component, MeleeHitEvent args)
         {
             if (!args.HitEntities.Any())
                 return;
@@ -56,7 +60,7 @@ namespace Content.Shared.Genetics
             TryInjecting(args.User, args.HitEntities.First(), uid, component);
             args.Handled = true;
         }
-        public bool TryInjecting(EntityUid user, EntityUid target, EntityUid item, GeneinjectorComponent? injectorComponent = null, CuffableComponent? cuffable = null)
+        public bool TryInjecting(EntityUid user, EntityUid target, EntityUid item, GeneStabilizerComponent? injectorComponent = null, CuffableComponent? cuffable = null)
         {
             if (!Resolve(item, ref injectorComponent) || !Resolve(target, ref cuffable, false)) //use the fartass cuffable cuz it works
                 return false;
@@ -97,7 +101,7 @@ namespace Content.Shared.Genetics
             return true;
         }
 
-        private void OnAddDNADoAfter(EntityUid uid, GeneinjectorComponent component, AddInjectDoAfterEvent args)
+        private void OnAddDNADoAfter(EntityUid uid, GeneStabilizerComponent component, AddInjectDoAfterEvent args)
         {
             var user = args.Args.User;
 
@@ -118,13 +122,13 @@ namespace Content.Shared.Genetics
                     target, Filter.Pvs(target, entityManager: EntityManager)
                         .RemoveWhere(e => e.AttachedEntity == target || e.AttachedEntity == user), true);
 
+                EntityManager.DeleteEntity(uid);
 
                 if (target == user)
                 {
                     _popup.PopupClient(Loc.GetString("geneinjector-component-inject-self-success-message"), user, user);
                     _adminLog.Add(LogType.Action, LogImpact.Medium,
                         $"{ToPrettyString(user):player} has injected himself");
-
                     EntityManager.DeleteEntity(uid);
                 }
                 else
@@ -156,41 +160,18 @@ namespace Content.Shared.Genetics
             }
         }
 
-        public bool TryAddMutation(EntityUid target, EntityUid user, EntityUid item, CuffableComponent? component = null, GeneinjectorComponent? gene = null, InjectionPresetComponent? inject = null, MutationComponent? mutation = null)
+        public bool TryAddMutation(EntityUid target, EntityUid user, EntityUid item, CuffableComponent? component = null, GeneStabilizerComponent? gene = null, MutationComponent? mutation = null)
         {
 
             if (!_interaction.InRangeUnobstructed(item, target))
                 return false;
-
-            EnsureComp<MutationComponent>(target);
+            //honestly, i just turn on a var so the comp basically deletes itself for you on the next tick. this makes it more easy than deleting server comps from a shared script.
 
             if (TryComp<MutationComponent>(target, out var mutations))
             {
-                if (TryComp<InjectionPresetComponent>(item, out var injectpreset))
-                {
-                    if ((mutations != null) && (injectpreset != null)) //to anyone whos like trying to make mutations, im so sorry.
-                    {
-                        if (injectpreset.AcidVomit) mutations.AcidVomit = true; //its 3 am, im fucking tired, im just gonna hardcode it, im so sorry taydeo, I have dishonored the john space bloodline.
-                        if (injectpreset.BloodVomit) mutations.BloodVomit = true;
-                        if (injectpreset.BlueLight) mutations.BlueLight = true;
-                        if (injectpreset.BZFarter) mutations.BZFarter = true;
-                        if (injectpreset.Clumsy) mutations.Clumsy = true;
-                        if (injectpreset.FireSkin) mutations.FireSkin = true;
-                        if (injectpreset.Light) mutations.Light = true;
-                        if (injectpreset.OkayAccent) mutations.OkayAccent = true;
-                        if (injectpreset.PlasmaFarter) mutations.PlasmaFarter = true;
-                        if (injectpreset.PressureImmune) mutations.PressureImmune = true;
-                        if (injectpreset.Prickmode) mutations.Prickmode = true;
-                        if (injectpreset.RadiationImmune) mutations.RadiationImmune = true;
-                        if (injectpreset.RedLight) mutations.RedLight = true;
-                        if (injectpreset.RGBLight) mutations.RGBLight = true;
-                        if (injectpreset.TempImmune) mutations.TempImmune = true;
-                        if (injectpreset.TritFarter) mutations.TritFarter = true;
-                        if (injectpreset.Twitch) mutations.Twitch = true;
-                        if (injectpreset.Vomit) mutations.Vomit = true;
-                    }
-                }
+                if (mutations != null) mutations.Cancel = true;
             }
+
             return true;
         }
 

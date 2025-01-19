@@ -58,9 +58,6 @@ public sealed partial class InjectionPresetComponent : Component
     [DataField("radimmune")]
     public bool RadiationImmune = false;
 
-    [DataField("breathimmune")]
-    public bool BreathingImmune = false;
-
     [DataField("clumsy")]
     public bool Clumsy = false;
 

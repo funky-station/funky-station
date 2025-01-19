@@ -171,7 +171,6 @@ namespace Content.Shared.Genetics
                     if (mutations.AcidVomit) preset.AcidVomit = true;
                     if (mutations.BloodVomit) preset.BloodVomit = true;
                     if (mutations.BlueLight) preset.BlueLight = true;
-                    if (mutations.BreathingImmune) preset.BreathingImmune = true;
                     if (mutations.BZFarter) preset.BZFarter = true;
                     if (mutations.Clumsy) preset.Clumsy = true;
                     if (mutations.FireSkin) preset.FireSkin = true;

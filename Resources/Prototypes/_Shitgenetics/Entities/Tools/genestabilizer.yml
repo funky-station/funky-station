@@ -1,20 +1,17 @@
 - type: entity
-  name: Genetic Injector
-  description: Contains a solution used to modify and mutate certain genes. Must be stabbed into a body directly and with force.
-  id: geneinjector
+  name: Genetic Stabilizer
+  description: Reverts genetic material back to their default state, reversing all mutations. Like injectors, they must be jammed into the body to be used.
+  id: genestabilizer
   parent: [BaseItem]
   components:
   - type: Item
     size: Small
-  - type: Geneinjector
+  - type: GeneStabilizer
   - type: InjectionPreset
   - type: Sprite
-    sprite: _Shitgenetic/Objects/Tools/geneinjector.rsi
+    sprite: _Shitgenetic/Objects/Tools/genestabilizer.rsi
     layers:
-    - state: geneinjector0
-      visible: true
-    - state: geneinjector1
-      color: "#FFFFFF"
+    - state: tool
       visible: true
   - type: MeleeWeapon
     wideAnimationRotation: 90

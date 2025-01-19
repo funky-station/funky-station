@@ -17,7 +17,7 @@
     animation: WeaponArcThrust
     damage:
       types:
-        Piercing: 5
+        Piercing: 8
     soundHit:
       path: /Audio/Weapons/pierce.ogg
 

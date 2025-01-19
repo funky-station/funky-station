@@ -10,6 +10,10 @@ public sealed partial class MutationComponent : Component
 
     public int MutationUpdateCooldown = 200;
 
+    public bool Cancel = false;
+
+    public int Amount = 0;
+
     #region Visual
 
     [DataField("twitch")]
@@ -64,9 +68,6 @@ public sealed partial class MutationComponent : Component
 
     [DataField("radimmune")]
     public bool RadiationImmune = false;
-
-    [DataField("breathimmune")]
-    public bool BreathingImmune = false;
 
     [DataField("clumsy")]
     public bool Clumsy = false; //aka the clown thing

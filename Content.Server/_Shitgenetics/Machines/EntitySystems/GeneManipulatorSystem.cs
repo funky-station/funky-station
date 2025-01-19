@@ -101,13 +101,6 @@ namespace Content.Server.Machines.EntitySystems
                 var injectclone = EntityManager.GetComponent<InjectionPresetComponent>(inject);
                 injectclone.BlueLight = true;
             }
-            if (injector.BreathingImmune)
-            {
-                string ent = "geneinjector";
-                var inject = Spawn(ent, Transform(uid).Coordinates);
-                var injectclone = EntityManager.GetComponent<InjectionPresetComponent>(inject);
-                injectclone.BreathingImmune = true;
-            }
             if (injector.BZFarter)
             {
                 string ent = "geneinjector";
@@ -226,7 +219,6 @@ namespace Content.Server.Machines.EntitySystems
             if (injector.AcidVomit) injectclone.AcidVomit = true; //its 3 am, im fucking tired, im just gonna hardcode it, im so sorry taydeo, I have dishonored the john space bloodline.
             if (injector.BloodVomit) injectclone.BloodVomit = true;
             if (injector.BlueLight) injectclone.BlueLight = true;
-            if (injector.BreathingImmune) injectclone.BreathingImmune = true;
             if (injector.BZFarter) injectclone.BZFarter = true;
             if (injector.Clumsy) injectclone.Clumsy = true;
             if (injector.FireSkin) injectclone.FireSkin = true;

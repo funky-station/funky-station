@@ -20,6 +20,7 @@ using Content.Shared.Temperature.Components;
 using Content.Server.Radiation.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Chat.Systems;
+using Content.Shared.Genetics.Components;
 
 
 public sealed partial class MututationSystem : EntitySystem
@@ -89,13 +90,19 @@ public sealed partial class MututationSystem : EntitySystem
             {
                 PressureImmune(uid, comp);
             }
-            if (comp.BreathingImmune)
-            {
-                BreathingImmune(uid, comp);
-            }
             if (comp.RadiationImmune)
             {
                 RadImmune(uid, comp);
+            }
+            if (comp.Prickmode)
+            {
+                PrickAccent(uid, comp);
+            }
+
+
+            if (comp.Cancel)
+            {
+                EntityManager.RemoveComponent<MutationComponent>(uid); // delete self after tick
             }
         }
     }
@@ -138,7 +145,7 @@ public sealed partial class MututationSystem : EntitySystem
             }
             if (comp.Prickmode)
             {
-                PrickAccent(uid, comp);
+                PrickSay(uid, comp);
             }
         }
     }
@@ -152,24 +159,32 @@ public sealed partial class MututationSystem : EntitySystem
     private void Light(EntityUid uid, MutationComponent comp)
     {
         _pointlight.EnsureLight(uid);
+        if (comp.Cancel) _pointlight.RemoveLightDeferred(uid);
     }
 
     private void RedLight(EntityUid uid, MutationComponent comp)
     {
         _pointlight.EnsureLight(uid);
         _pointlight.SetColor(uid, new Color(255, 0, 0));
+        if (comp.Cancel) _pointlight.RemoveLightDeferred(uid);
     }
 
     private void BlueLight(EntityUid uid, MutationComponent comp)
     {
         _pointlight.EnsureLight(uid);
         _pointlight.SetColor(uid, new Color(0, 0, 255));
+        if (comp.Cancel) _pointlight.RemoveLightDeferred(uid);
     }
 
     private void RGBLight(EntityUid uid, MutationComponent comp)
     {
         _pointlight.EnsureLight(uid);
         EnsureComp<RgbLightControllerComponent>(uid);
+        if (comp.Cancel)
+        {
+            _pointlight.RemoveLightDeferred(uid);
+            RemComp<RgbLightControllerComponent>(uid);
+        }
     }
     #endregion
 
@@ -289,6 +304,8 @@ public sealed partial class MututationSystem : EntitySystem
     private void Clumsy(EntityUid uid, MutationComponent comp)
     {
         EnsureComp<ClumsyComponent>(uid);
+        if (comp.Cancel) RemComp<ClumsyComponent>(uid);
+
     }
 
     private void FireSkin(EntityUid uid, MutationComponent comp) //i hope an ipc gets this and fucking DIES
@@ -304,27 +321,34 @@ public sealed partial class MututationSystem : EntitySystem
     }
     private void TempImmune(EntityUid uid, MutationComponent comp)
     {
-        RemComp<TemperatureComponent>(uid);
-        RemComp<TemperatureSpeedComponent>(uid);
-
-        // fire immunity
-        var flam = EnsureComp<FlammableComponent>(uid);
-        flam.Damage = new(); // reset damage dict
+        if (TryComp<TemperatureComponent>(uid, out var temp))
+        {
+            temp.ColdDamageThreshold = -420f;
+            temp.HeatDamageThreshold = 19841984f; //im sure this works :clueless:
+            if (comp.Cancel)
+            {
+                temp.ColdDamageThreshold = 260f;
+                temp.HeatDamageThreshold = 360f;
+            }
+        }
     }
 
     private void PressureImmune(EntityUid uid, MutationComponent comp)
     {
-        RemComp<BarotraumaComponent>(uid);
-    }
-
-    private void BreathingImmune(EntityUid uid, MutationComponent comp)
-    {
-        RemComp<RespiratorComponent>(uid);
+        if (TryComp<BarotraumaComponent>(uid, out var baro))
+        {
+            baro.HasImmunity = true;
+            if (comp.Cancel)
+            {
+                baro.HasImmunity = false;
+            }
+        }
     }
 
     private void RadImmune(EntityUid uid, MutationComponent comp)
     {
         RemComp<RadiationReceiverComponent>(uid);
+        if (comp.Cancel) EnsureComp<RadiationReceiverComponent>(uid);
     }
 
     #endregion
@@ -334,11 +358,16 @@ public sealed partial class MututationSystem : EntitySystem
     private void OkayAccent(EntityUid uid, MutationComponent comp)
     {
         EnsureComp<OkayAccentComponent>(uid);
+        if (comp.Cancel) RemComp<OkayAccentComponent>(uid);
     }
 
     private void PrickAccent(EntityUid uid, MutationComponent comp)
     {
         EnsureComp<PrickAccentComponent>(uid);
+        if (comp.Cancel) RemComp<PrickAccentComponent>(uid);
+    }
+    private void PrickSay(EntityUid uid, MutationComponent comp)
+    {
 
         var random = (int) _rand.Next(1, 10);
 

@@ -68,27 +68,26 @@ namespace Content.Server.Machines.EntitySystems
 
             for (var i = 0; i < 3; i++)//basically this is how this shit gens random mutations, a hardcode messy fucking nightmare
             {
-                var random = _random.Next(1, 19);//manually have to add each gene and assign a number. It works, BUT PLEASE, find a better way to do this i actually hate my LIFE.
+                var random = _random.Next(1, 18);//manually have to add each gene and assign a number. It works, BUT PLEASE, find a better way to do this i actually hate my LIFE.
 
                 if (random == 1) injecter.AcidVomit = true;
                 if (random == 2) injecter.BloodVomit = true;
                 if (random == 3) injecter.BlueLight = true;
-                if (random == 4) injecter.BreathingImmune = true;
-                if (random == 5) injecter.BZFarter = true;
-                if (random == 6) injecter.Clumsy = true;
-                if (random == 7) injecter.FireSkin = true;
-                if (random == 8) injecter.Light = true;
-                if (random == 9) injecter.OkayAccent = true;
-                if (random == 10) injecter.PlasmaFarter = true;
-                if (random == 11) injecter.PressureImmune = true;
-                if (random == 12) injecter.Prickmode = true;
-                if (random == 13) injecter.RadiationImmune = true;
-                if (random == 14) injecter.RedLight = true;
-                if (random == 15) injecter.RGBLight = true;
-                if (random == 16) injecter.TempImmune = true;
-                if (random == 17) injecter.TritFarter = true;
-                if (random == 18) injecter.Twitch = true;
-                if (random == 19) injecter.Vomit = true;
+                if (random == 4) injecter.BZFarter = true;
+                if (random == 5) injecter.Clumsy = true;
+                if (random == 6) injecter.FireSkin = true;
+                if (random == 7) injecter.Light = true;
+                if (random == 8) injecter.OkayAccent = true;
+                if (random == 9) injecter.PlasmaFarter = true;
+                if (random == 10) injecter.PressureImmune = true;
+                if (random == 11) injecter.Prickmode = true;
+                if (random == 12) injecter.RadiationImmune = true;
+                if (random == 13) injecter.RedLight = true;
+                if (random == 14) injecter.RGBLight = true;
+                if (random == 15) injecter.TempImmune = true;
+                if (random == 16) injecter.TritFarter = true;
+                if (random == 17) injecter.Twitch = true;
+                if (random == 18) injecter.Vomit = true;
             }
         }
     }

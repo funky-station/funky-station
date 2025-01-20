@@ -1279,3 +1279,9 @@ Entries:
   changes: []
   id: 156
   time: '2025-01-19T09:11:02.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Re-themed Terry's Roid SM chamber and remade atmos!
+  id: 157
+  time: '2025-01-20T03:33:47.0000000+00:00'

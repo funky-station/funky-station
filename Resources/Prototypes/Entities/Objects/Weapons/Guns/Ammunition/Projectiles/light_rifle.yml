@@ -21,6 +21,18 @@
         Blunt: 2
 
 - type: entity
+  id: BulletLightRifleSilver
+  name: bullet (.20 rifle silver)
+  parent: BaseBulletPractice
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 10
+        Holy: 15
+
+- type: entity
   id: BulletLightRifleIncendiary
   parent: BaseBulletIncendiary
   name: bullet (.20 rifle incendiary)

@@ -11,6 +11,7 @@
     - HereticSacrificeObjective
     - HereticSacrificeHeadObjective
   - type: AntagSelection
+    selectionTime: BeforeJobs
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
@@ -31,6 +32,7 @@
       min: 30
       max: 60
   - type: AntagSelection
+    selectionTime: BeforeJobs
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]

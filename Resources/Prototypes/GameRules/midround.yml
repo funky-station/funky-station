@@ -15,6 +15,7 @@
       maxPicks: 10
     maxDifficulty: 2.5
   - type: AntagSelection
+    selectionTime: BeforeJobs # Goobstation
     agentName: thief-round-end-agent-name
     definitions:
     - prefRoles: [ Thief ]
@@ -26,6 +27,10 @@
       startingGear: ThiefGear
       components:
       - type: Pacified
+      - type: Thieving # funkystation - MTGA
+        stripTimeReduction: 2
+        stealthy: true
+
       mindRoles:
       - MindRoleThief
       briefing:

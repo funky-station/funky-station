@@ -99,7 +99,7 @@
   gasMolesVisible: 0.6
   color: 3a758c
   reagent: Frezon
-  pricePerMole: 2
+  pricePerMole: 0.5
 
 # Assmos - /tg/ gases
 

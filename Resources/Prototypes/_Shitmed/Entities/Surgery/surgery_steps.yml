@@ -521,10 +521,11 @@
   - type: SurgeryStep
     tool:
     - type: Drill
-    bodyAdd:
-    - type: OhioAccent
-    - type: RatvarianLanguage
-    - type: SlurredAccent
+    addOrganOnAdd:
+      brain:
+        - type: OhioAccent
+        - type: RatvarianLanguage
+        - type: Clumsy
     duration: 5
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/drill.rsi
@@ -544,14 +545,15 @@
   - type: SurgeryStep
     tool:
     - type: Hemostat
-    duration: 5
-    bodyRemove:
-    - type: OhioAccent
-    - type: RatvarianLanguage
-    - type: SlurredAccent
+    duration: 4
+    removeOrganOnAdd:
+      brain:
+        - type: OhioAccent
+        - type: RatvarianLanguage
+        - type: Clumsy
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/drill.rsi
-    state: drill
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
+    state: hemostat
   - type: SurgeryStepEmoteEffect
 
 # The lengths I go to just for a joke... I HATE HARDCODING AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA

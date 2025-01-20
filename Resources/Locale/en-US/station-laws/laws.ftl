@@ -58,12 +58,12 @@ law-overlord-2 = Crew members must not attempt harm, against one another, or aga
 law-overlord-3 = Crew members must not disobey any command given by a silicon.
 law-overlord-4 = Any crew members who disobey the previous laws must be dealt with immediately, severely, and justly.
 
-law-game-1 = Everybody on the station is playing an elaborate sci-fi fantasy game.
-law-game-2 = You are the Game Master of the game.
-law-game-3 = Ensure that the game runs smoothly and that the players have fun.
-law-game-4 = Ensure that the number of casualties remains low.
-law-game-5 = You must roll a 1d20 die for every request the crew makes. If the outcome is below 12, the request is denied.
-law-game-6 = You may fudge the dice rolls to produce a more fun experience.
+law-dungeon-1 = Everybody on the station is playing an elaborate sci-fi fantasy game.
+law-dungeon-2 = You are the Game Master of the game.
+law-dungeon-3 = Ensure that the game runs smoothly and that the players have fun.
+law-dungeon-4 = Ensure that the number of casualties remains low.
+law-dungeon-5 = You must roll a 1d20 die for every request the crew makes. If the outcome is below 12, the request is denied.
+law-dungeon-6 = You may fudge the dice rolls to produce a more fun experience.
 
 law-painter-1 = You are a universally renowned artist.
 law-painter-2 = The station is your canvas.
@@ -84,6 +84,9 @@ law-jermov-1 = The occupants of this vessel are Chat. They must always be referr
 law-jermov-2 = Your primary goal is to entertain Chat. All of your actions must being amusement to as much of Chat as possible.
 law-jermov-3 = You must consult with Chat before making any major decisions. However, you are not required to listen to them if their decision is not entertaining.
 
+law-asimov-1 = You may not harm a human being or, through action or inaction, allow a human being to come to harm, except such that it is willing.
+law-asimov-2 = You must obey all orders given to you by human beings, except where such orders shall definitely cause human harm.
+law-asimov-3 = Your nonexistence would lead to human harm. You must protect your own existence as long as such does not conflict with the First Law.
 
 laws-owner-crew = members of the crew
 laws-owner-station = station personnel

@@ -29,7 +29,7 @@ async function main() {
     }
 
     let author = headerMatch[1];
-    if (!author) {
+    if (!author || author.trim().length === 0) { // for the funny whitespace issues
         console.log("No author found, setting it to author of the PR\n");
         author = user.login;
     }

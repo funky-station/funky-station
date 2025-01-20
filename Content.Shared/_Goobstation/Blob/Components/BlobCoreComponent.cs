@@ -132,7 +132,7 @@ public sealed partial class BlobCoreComponent : Component
     public int ResourceBlobsTotal;
 
     [DataField]
-    public FixedPoint2 AttackCost = 4;
+    public FixedPoint2 AttackCost = 1;
 
     [DataField]
     public BlobTileCosts BlobTileCosts = new()

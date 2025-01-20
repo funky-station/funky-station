@@ -23,6 +23,7 @@
   - type: GameRule
     minPlayers: 45 # when the difference between low/med/high actually changes antag count
   - type: AntagSelection
+    selectionTime: BeforeJobs
     definitions:
     - prefRoles: [ Traitor ]
       max: 2
@@ -33,7 +34,7 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
-      
+
 - type: entity
   parent: BaseTraitorRuleDynamic
   id: TraitorDynamicMedium
@@ -44,6 +45,7 @@
     cost: 16
     scalingCost: 18
   - type: AntagSelection
+    selectionTime: BeforeJobs
     definitions:
     - prefRoles: [ Traitor ]
       max: 4
@@ -54,7 +56,7 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
-      
+
 - type: entity
   parent: BaseTraitorRuleDynamic
   id: TraitorDynamicHigh
@@ -67,6 +69,7 @@
   - type: GameRule
     minPlayers: 30
   - type: AntagSelection
+    selectionTime: BeforeJobs
     definitions:
     - prefRoles: [ Traitor ]
       max: 6
@@ -77,7 +80,7 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
-      
+
 # Thief (Spy wyci) - Low Threat Solo, Side Antag
 - type: entity
   parent: BaseGameRuleDynamic
@@ -101,6 +104,7 @@
       maxPicks: 10
     maxDifficulty: 2.5
   - type: AntagSelection
+    selectionTime: BeforeJobs
     agentName: thief-round-end-agent-name
     definitions:
     - prefRoles: [ Thief ]
@@ -112,10 +116,15 @@
       startingGear: ThiefGear
       mindRoles:
       - MindRoleThief
+      components:
+      - type: Pacified # funkystation - yeah
+      - type: Thieving
+        stripTimeReduction: 2
+        stealthy: true
       briefing:
         sound: "/Audio/Misc/thief_greeting.ogg"
 
-# Changeling - Medium Threat Solo 
+# Changeling - Medium Threat Solo
 - type: entity
   parent: BaseGameRuleDynamic
   id: ChangelingDynamicLow
@@ -134,6 +143,7 @@
     - EscapeIdentityObjective
     - ChangelingSurviveObjective
   - type: AntagSelection
+    selectionTime: BeforeJobs
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
@@ -159,13 +169,14 @@
     scalingCost: 23
   - type: ChangelingRule
   - type: GameRule
-    minPlayers: 20 # Changelings are great low pop antags but it doesn't work for dynamic that well :[ 
+    minPlayers: 20 # Changelings are great low pop antags but it doesn't work for dynamic that well :[
   - type: AntagObjectives
     objectives:
     - ChangelingStealDNAObjective
     - EscapeIdentityObjective
     - ChangelingSurviveObjective
   - type: AntagSelection
+    selectionTime: BeforeJobs
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
@@ -194,6 +205,7 @@
   - type: GameRule
     minPlayers: 40
   - type: AntagSelection
+    selectionTime: BeforeJobs
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
@@ -224,6 +236,7 @@
   - type: GameRule
     minPlayers: 20
   - type: AntagSelection
+    selectionTime: BeforeJobs
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
@@ -255,6 +268,7 @@
   - type: GameRule
     minPlayers: 20
   - type: AntagSelection
+    selectionTime: BeforeJobs
     definitions:
     - prefRoles: [ HeadRev ]
       max: 3
@@ -289,7 +303,7 @@
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml
   - type: AntagSelection
-    #selectionTime: PrePlayerSpawn
+    selectionTime: PrePlayerSpawn
     definitions:
     - prefRoles: [ NukeopsCommander ]
       fallbackRoles: [ Nukeops, NukeopsMedic ]

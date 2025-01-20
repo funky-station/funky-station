@@ -333,6 +333,13 @@
   materials:
     Steel: 205
 
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineLightRifleSilver
+  result: MagazineLightRifleSilver
+  materials:
+    Steel: 265
+    Silver: 300
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -528,6 +535,14 @@
   result: MagazineBoxLightRiflePractice
   materials:
     Steel: 300
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxLightRifleSilver
+  result: MagazineBoxLightRifleSilver
+  materials:
+    Steel: 450
+    Silver: 450
 
 - type: latheRecipe
   parent: BaseAmmoRecipe

@@ -362,6 +362,7 @@
       - EnergyScalpel # Shitmed Change
       - EnergyCautery # Shitmed Change
       - AdvancedRetractor # Shitmed Change
+      - PlantAnalyzer # Frontier
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -786,6 +787,7 @@
       - Handcuffs
       - MagazineBoxLightRifle
       - MagazineBoxLightRiflePractice
+      - MagazineBoxLightRifleSilver
       - MagazineBoxMagnum
       - MagazineBoxMagnumPractice
       - MagazineBoxPistol
@@ -793,6 +795,7 @@
       - MagazineBoxRifle
       - MagazineBoxRiflePractice
       - MagazineLightRifle
+      - MagazineLightRifleSilver
       - MagazineLightRifleEmpty
       - MagazinePistol
       - MagazinePistolEmpty

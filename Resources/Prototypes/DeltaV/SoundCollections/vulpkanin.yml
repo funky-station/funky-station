@@ -31,3 +31,8 @@
   id: VulpkaninHowls
   files:
   - /Audio/DeltaV/Voice/Vulpkanin/howl.ogg
+
+- type: soundCollection
+  id: VulpkaninGekker
+  files:
+  - /Audio/DeltaV/Voice/Vulpkanin/gekker.ogg

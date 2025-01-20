@@ -131,6 +131,45 @@
 
 - type: entity
   parent: MonkeyCube
+  id: VelociraptorCube #funkystation - dino cubes
+  name: velociraptor cube
+  description: Just add water! At your own risk.
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobDinosaurRaptor
+
+- type: entity
+  parent: MonkeyCube
+  id: TRexCube #funkystation - dino cubes
+  name: tyrannosaurus rex cube
+  description: Just add water! At your own risk.
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobDinosaurTrex
+
+- type: entity
+  parent: MonkeyCube
+  id: RandomDinoCube #funkystation - dino cubes
+  name: dinosaur cube
+  description: Just add water! At your own risk.
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobDinosaurAnki
+    - MobDinosaurCompy
+    - MobDinosaurDilo
+    - MobDinosaurKentro
+    - MobDinosaurPara
+    - MobDinosaurRaptor
+    - MobDinosaurSpino
+    - MobDinosaurStego
+    - MobDinosaurTrex
+    - MobDinosaurTrike
+
+- type: entity
+  parent: MonkeyCube
   id: AbominationCube
   name: abomination cube
   description: Just add blood!

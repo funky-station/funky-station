@@ -21,6 +21,9 @@ using Content.Server.Radiation.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Chat.Systems;
 using Content.Shared.Genetics.Components;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage;
+using Robust.Shared.Prototypes;
 
 
 public sealed partial class MututationSystem : EntitySystem
@@ -31,6 +34,8 @@ public sealed partial class MututationSystem : EntitySystem
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
     [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
@@ -115,7 +120,12 @@ public sealed partial class MututationSystem : EntitySystem
         {
             comp.MutationUpdateTimer = 0;
 
-            if (comp.Vomit) //once again, call me yandev the way im chugging milk and SHITTING out if statements
+            if (comp.Amount > 6) //todo: change the 6 to a cvar. If i forget, its probably on purpose cuz i hate THIS FUCKING SERVER MAN
+            {
+                GeneticPain(uid, comp);
+            }
+
+            if (comp.Vomit) //fent warriors please rise up
             {
                 Vomit(uid, comp);
             }
@@ -250,7 +260,7 @@ public sealed partial class MututationSystem : EntitySystem
         }
     }
 
-    private void PlasmaFart(EntityUid uid, MutationComponent comp) 
+    private void PlasmaFart(EntityUid uid, MutationComponent comp)
     {
         var random = (int) _rand.Next(1, 6);
 
@@ -383,4 +393,16 @@ public sealed partial class MututationSystem : EntitySystem
 
     #endregion
 
+    private void GeneticPain(EntityUid uid, MutationComponent comp)
+    {
+        var random = (int) _rand.Next(1, 4);
+
+        if (random == 3)
+        {
+            var prot = (ProtoId<DamageGroupPrototype>) "Genetic";
+            var dmgtype = _proto.Index(prot);
+            _damage.TryChangeDamage(uid, new DamageSpecifier(dmgtype, 5f), true);
+            _popup.PopupEntity(Loc.GetString("genetic-pain", ("person", Identity.Entity(uid, EntityManager))), uid);
+        }
+    }
 }

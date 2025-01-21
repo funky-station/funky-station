@@ -11,6 +11,7 @@
       - id: ClothingOuterCoatRnd
       - id: AnomalyScanner
       - id: NodeScanner
+      - id: GeneticExtractor #genetics. Since no one is gonna read this id like to say that i am gay. -your pal, john danger space
       - id: NetworkConfigurator
         prob: 0.5
 

@@ -282,6 +282,10 @@
     - id: HandTeleporter
     - id: ProtolatheMachineCircuitboard
     - id: ResearchComputerCircuitboard
+    - id: GeneticRandomizerCircuitboard #genetics, adds the fucking awesome genetics roundstart for RD so people play it.
+    - id: GeneticManipulatorCircuitboard #genetics, again
+    - id: GeneticExtractor #genetics, again, RD needs his tool
+    - id: GeneticStabilizer #Genetics, basically just in case cap gets the death mutation, you have a way to fix it.       tldr: eat shit sci antags
     - id: RubberStampRd
     - id: EncryptionKeyBinary # goobstation - readd the cool binary channel access. fuck you.
     - id: AnomalyLocator # GoobStation - adding anomaly locator to the RD locker to reduce the amount of anoms that crit

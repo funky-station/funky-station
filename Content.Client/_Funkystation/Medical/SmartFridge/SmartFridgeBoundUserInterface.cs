@@ -40,42 +40,17 @@ public sealed class SmartFridgeBoundUserInterface(EntityUid owner, Enum uiKey) :
 
     private void OnItemSelected(BaseButton.ButtonEventArgs args, SmartFridgeItem.DispenseButton data)
     {
+        if (data is not SmartFridgeItem.DispenseButton { Index: var itemIndex })
+            return;
+
         if (_cachedInventory.Count == 0)
             return;
 
-        // creates a list of possible items to dispense, based on if the itemName matches
-        IEnumerable<string> queryList =
-            from item in _cachedInventory
-            where item.ItemName == data.ItemName
-            select item.StorageSlotId;
+        var selectedItem = _cachedInventory.ElementAtOrDefault(itemIndex);
 
-        var matchingItems = queryList.ToList();
-        var amountToEject = data.Amount;
-
-        if (matchingItems.Count == 0)
+        if (selectedItem == null)
             return;
 
-        // trims the list depending on how much is needed to dispense
-        var itemSlotsToEject = new List<string>();
-
-        for (var i = 0; i < amountToEject.GetFixedPoint(); i++)
-        {
-            // i cant do this in my head
-            // this might need to be =< but idkz
-            if (matchingItems.Count < i + 1)
-                break;
-
-            var addedEntry = matchingItems.ElementAtOrDefault(i);
-
-            if (addedEntry == null)
-                return;
-
-            itemSlotsToEject.Add(addedEntry);
-        }
-
-        if (itemSlotsToEject.Count == 0)
-            return;
-
-        SendMessage(new SmartFridgeEjectMessage(itemSlotsToEject));
+        SendMessage(new SmartFridgeEjectMessage(selectedItem.StorageSlotId));
     }
 }

@@ -23,7 +23,7 @@ public sealed partial class SmartFridgeMenu : FancyWindow
 
     private readonly Dictionary<EntProtoId, EntityUid> _dummies = [];
 
-    public event Action<BaseButton.ButtonEventArgs, SmartFridgeItem.DispenseButton>? OnItemSelected; // listcontainerbutton dispense event
+    public event Action<BaseButton.ButtonEventArgs, SmartFridgeItem.DispenseButton>? OnItemSelected;
 
     /// <summary>
     /// create and initialize the ui, client side
@@ -55,10 +55,10 @@ public sealed partial class SmartFridgeMenu : FancyWindow
         if (data is not FridgeItemsListData { ItemProtoId: var protoId, Uid: var uid, ItemIndex: var index, ItemName: var name, ItemQuantity: var quantity })
             return;
 
-        var row = new SmartFridgeItem(protoId, uid, index, name, quantity, true);
+        var row = new SmartFridgeItem(protoId, name, quantity);
 
         row.OnItemSelected += OnItemSelected;
-        row.GetDispenseButtons(protoId, uid, index, name, quantity, true);
+        row.GetDispenseButtons(index, name);
         panel.AddChild(row);
         Rows.Add(row);
 

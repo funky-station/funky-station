@@ -8,7 +8,6 @@
     storageWhitelist:
       tags:
       - PillCanister
-      - Pill
       - Meat
       - Cooked
       - ChemDispensable

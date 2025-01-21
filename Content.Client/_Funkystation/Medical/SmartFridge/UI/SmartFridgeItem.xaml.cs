@@ -13,32 +13,25 @@ namespace Content.Client._Funkystation.Medical.SmartFridge.UI;
 [GenerateTypedNameReferences]
 public sealed partial class SmartFridgeItem : PanelContainer
 {
-    public List<DispenseButton> DispenseButtons;
     public event Action<BaseButton.ButtonEventArgs, DispenseButton>? OnItemSelected;
-    public SmartFridgeItem(EntProtoId entProto, EntityUid uid, int index, string name, FixedPoint2 quantity, bool addDispenseButtons)
+    public SmartFridgeItem(EntProtoId entProto, string name, FixedPoint2 quantity)
     {
         RobustXamlLoader.Load(this);
 
         ItemPrototype.SetPrototype(entProto);
         NameLabel.Text = name;
         NameQuantity.Text = $"{quantity}";
-
-        DispenseButtons = new List<DispenseButton>();
     }
 
-    public List<DispenseButton> GetDispenseButtons(EntProtoId entProto, EntityUid uid, int index, string name, FixedPoint2 quantity, bool addDispenseButtons)
+    public DispenseButton GetDispenseButtons(int index, string name)
     {
-        var dispenseButtonConstructors = CreateDispenseButtons(index, name, addDispenseButtons);
+        var dispenseButtonConstructor = MakeDispenseButton(index, name);
 
-        foreach (var dispenseButton in dispenseButtonConstructors)
-        {
-            PrimaryContainer.AddChild(dispenseButton);
-        }
+        PrimaryContainer.AddChild(dispenseButtonConstructor);
 
         SetBackgroundColor(index);
-        DispenseButtons = dispenseButtonConstructors;
 
-        return dispenseButtonConstructors;
+        return dispenseButtonConstructor;
     }
 
     /// <summary>
@@ -53,9 +46,11 @@ public sealed partial class SmartFridgeItem : PanelContainer
         ParentContainer.PanelOverride = new StyleBoxFlat(currentRowColor);
     }
 
-    private DispenseButton MakeDispenseButton(string text, FridgeAmount amount, int index, string itemName, string styleClass)
+    private DispenseButton MakeDispenseButton(int index, string itemName)
     {
-        var button = new DispenseButton(text, amount, index, itemName, styleClass);
+        var text = Loc.GetString("smart-fridge-label-dispense");
+
+        var button = new DispenseButton(text, index, itemName);
 
         button.OnPressed += args
             => OnItemSelected?.Invoke(args, button);
@@ -63,44 +58,13 @@ public sealed partial class SmartFridgeItem : PanelContainer
         return button;
     }
 
-    /// <summary>
-    /// Conditionally generates a set of dispenser buttons based on the supplied boolean argument.
-    /// </summary>
-    private List<DispenseButton> CreateDispenseButtons(int index, string itemName, bool addDispenseButtons)
-    {
-        if (!addDispenseButtons)
-            return new List<DispenseButton>(); // Return an empty list if addDispenseButton creation is disabled.
-
-        var buttonConfigs = new (string text, FridgeAmount amount, string styleClass)[]
-        {
-            ("1", FridgeAmount.E1, StyleBase.ButtonOpenRight),
-            ("2", FridgeAmount.E2, StyleBase.ButtonOpenBoth),
-            ("5", FridgeAmount.E5, StyleBase.ButtonOpenBoth),
-            ("10", FridgeAmount.E10, StyleBase.ButtonOpenBoth),
-            ("15", FridgeAmount.E15, StyleBase.ButtonOpenBoth),
-            (Loc.GetString("chem-master-window-buffer-all-amount"), FridgeAmount.All, StyleBase.ButtonOpenLeft),
-        };
-        var buttons = new List<DispenseButton>();
-
-        foreach (var (text, amount, styleClass) in buttonConfigs)
-        {
-            var dispenseButton = MakeDispenseButton(text, amount, index, itemName, styleClass);
-            buttons.Add(dispenseButton);
-        }
-
-        return buttons;
-    }
-
     public sealed class DispenseButton : Button
     {
-        public FridgeAmount Amount { get; set; }
         public int Index { get; set; }
         public string ItemName { get; set; }
-        public DispenseButton(string text, FridgeAmount amount, int index, string itemName, string styleClass)
+        public DispenseButton(string text, int index, string itemName)
         {
-            AddStyleClass(styleClass);
             Text = text;
-            Amount = amount;
             Index = index;
             ItemName = itemName;
         }

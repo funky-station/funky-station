@@ -15,9 +15,8 @@
             HorizontalExpand="True"
             Name="NameLabel"
             SizeFlagsStretchRatio="6" />
-        <!--  padding  -->
-        <Control HorizontalExpand="True" />
         <Label
+            Align="Center"
             ClipText="True"
             HorizontalExpand="True"
             Name="NameQuantity"

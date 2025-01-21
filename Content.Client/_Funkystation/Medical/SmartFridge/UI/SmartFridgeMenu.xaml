@@ -1,19 +1,11 @@
 <controls:FancyWindow
-    MinSize="620 670"
+    MinSize="500 600"
     xmlns="https://spacestation14.io"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <!--  All tab  -->
     <BoxContainer Name="MainContainer" Orientation="Vertical">
-        <!--  top labels  -->
-        <BoxContainer Margin="0,0,0,0" Orientation="Horizontal">
-            <Label Margin="4,0,4,0" Text="{Loc 'smart-fridge-label-name'}" />
-            <Control HorizontalExpand="True" />
-            <Label Margin="4,0,4,0" Text="{Loc 'smart-fridge-label-dispense'}" />
-        </BoxContainer>
-
         <!--  main content  -->
         <PanelContainer
             Margin="4,0,4,0"

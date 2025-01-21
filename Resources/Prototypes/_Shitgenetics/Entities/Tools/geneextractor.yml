@@ -1,7 +1,7 @@
 - type: entity
   name: Genetic Extractor
   description: A rapid speed blood and dna extractor. Injects a vial into the target and quickly rips it back out. Very painful, but gets the job done.
-  id: geneextractor
+  id: GeneticExtractor
   parent: [BaseItem]
   components:
   - type: Item

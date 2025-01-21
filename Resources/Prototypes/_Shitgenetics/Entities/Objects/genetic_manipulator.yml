@@ -42,3 +42,5 @@
     bodyType: Static
   - type: StaticPrice
     price: 1000
+  - type: Machine
+    board: GeneticManipulatorCircuitboard

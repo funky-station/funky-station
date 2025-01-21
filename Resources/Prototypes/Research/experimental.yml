@@ -96,6 +96,20 @@
   recipeUnlocks:
   - ArtifactCrusherMachineCircuitboard
 
+- type: technology #genetics
+  id: Genetics
+  name: research-technology-genetics
+  icon:
+    sprite: _Shitgenetic/Objects/Tools/geneextractor.rsi
+    state: tool
+  discipline: Experimental
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - GeneticManipulatorCircuitboard
+  - GeneticRandomizerCircuitboard
+  - GeneticExtractor
+
 - type: technology
   id: AdvancedAnomalyResearch
   name: research-technology-advanced-anomaly-research
@@ -151,3 +165,18 @@
   cost: 10000
   recipeUnlocks:
   - DeviceQuantumSpinInverter
+
+
+- type: technology #genetics
+  id: GeneticsStabilizer
+  name: research-technology-genetic-stable
+  icon:
+    sprite: _Shitgenetic/Objects/Tools/genestabilizer.rsi
+    state: tool
+  discipline: Experimental
+  tier: 3
+  cost: 10000
+  recipeUnlocks:
+  - GeneticStabilizer
+  technologyPrerequisites:
+  - Genetics

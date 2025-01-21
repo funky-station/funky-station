@@ -170,24 +170,96 @@ namespace Content.Shared.Genetics
                 {
                     if ((mutations != null) && (injectpreset != null)) //to anyone whos like trying to make mutations, im so sorry.
                     {
-                        if (injectpreset.AcidVomit) mutations.AcidVomit = true; //its 3 am, im fucking tired, im just gonna hardcode it, im so sorry taydeo, I have dishonored the john space bloodline.
-                        if (injectpreset.BloodVomit) mutations.BloodVomit = true;
-                        if (injectpreset.BlueLight) mutations.BlueLight = true;
-                        if (injectpreset.BZFarter) mutations.BZFarter = true;
-                        if (injectpreset.Clumsy) mutations.Clumsy = true;
-                        if (injectpreset.FireSkin) mutations.FireSkin = true;
-                        if (injectpreset.Light) mutations.Light = true;
-                        if (injectpreset.OkayAccent) mutations.OkayAccent = true;
-                        if (injectpreset.PlasmaFarter) mutations.PlasmaFarter = true;
-                        if (injectpreset.PressureImmune) mutations.PressureImmune = true;
-                        if (injectpreset.Prickmode) mutations.Prickmode = true;
-                        if (injectpreset.RadiationImmune) mutations.RadiationImmune = true;
-                        if (injectpreset.RedLight) mutations.RedLight = true;
-                        if (injectpreset.RGBLight) mutations.RGBLight = true;
-                        if (injectpreset.TempImmune) mutations.TempImmune = true;
-                        if (injectpreset.TritFarter) mutations.TritFarter = true;
-                        if (injectpreset.Twitch) mutations.Twitch = true;
-                        if (injectpreset.Vomit) mutations.Vomit = true;
+                        if (injectpreset.AcidVomit) //its 3 am, im fucking tired, im just gonna hardcode it, im so sorry taydeo, I have dishonored the john space bloodline.
+                        {
+                            mutations.AcidVomit = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.BloodVomit)
+                        {
+                            mutations.BloodVomit = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.BlueLight)
+                        {
+                            mutations.BlueLight = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.BZFarter)
+                        {
+                            mutations.BZFarter = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.Clumsy)
+                        {
+                            mutations.Clumsy = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.FireSkin)
+                        {
+                            mutations.FireSkin = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.Light)
+                        {
+                            mutations.Light = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.OkayAccent)
+                        {
+                            mutations.OkayAccent = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.PlasmaFarter)
+                        {
+                            mutations.PlasmaFarter = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.PressureImmune)
+                        {
+                            mutations.PressureImmune = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.Prickmode)
+                        {
+                            mutations.Prickmode = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.RadiationImmune)
+                        {
+                            mutations.RadiationImmune = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.RedLight)
+                        {
+                            mutations.RedLight = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.RGBLight)
+                        {
+                            mutations.RGBLight = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.TempImmune)
+                        {
+                            mutations.TempImmune = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.TritFarter)
+                        {
+                            mutations.TritFarter = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.Twitch)
+                        {
+                            mutations.Twitch = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.Vomit)
+                        {
+                            mutations.Vomit = true;
+                            ++mutations.Amount;
+                        }
                     }
                 }
             }

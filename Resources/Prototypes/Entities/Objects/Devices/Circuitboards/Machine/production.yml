@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: AutolatheMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: autolathe machine board
@@ -335,6 +335,39 @@
         Capacitor: 5
         PlasmaGlass: 5
         Cable: 5
+
+# genetics lmfao
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: GeneticRandomizerCircuitboard
+  name: genetic randomizer machine board
+  description: A machine printed circuit board for an a genetic randomizer
+  components:
+    - type: Sprite
+      state: science
+    - type: MachineBoard
+      prototype: Genetic Randomizer
+      stackRequirements:
+        Manipulator: 2
+        Capacitor: 2
+        MatterBin: 4
+        Glass: 5
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: GeneticManipulatorCircuitboard
+  name: genetic manipulator machine board
+  description: A machine printed circuit board for an a genetic manipulator
+  components:
+    - type: Sprite
+      state: science
+    - type: MachineBoard
+      prototype: Genetic Manipulator
+      stackRequirements:
+        Manipulator: 5
+        Capacitor: 2
+        PlasmaGlass: 5
 
 - type: entity
   parent: BaseMachineCircuitboard

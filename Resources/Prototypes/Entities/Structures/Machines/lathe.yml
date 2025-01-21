@@ -357,6 +357,8 @@
       - FauxTileAstroSnow
       - OreBagOfHolding
       - DeviceQuantumSpinInverter
+      - GeneticExtractor #genetics
+      - GeneticStabilizer #genetics
       - WeaponPlasmaCutter # Goobstation
       - WeaponPlasmaRifle # Goobstation
       - EnergyScalpel # Shitmed Change
@@ -500,6 +502,8 @@
       - CloningConsoleComputerCircuitboard
       - StasisBedMachineCircuitboard
       - AutodocCircuitboard # Shitmed
+      - GeneticRandomizerCircuitboard #genetics
+      - GeneticManipulatorCircuitboard #genetics
       - OreProcessorIndustrialMachineCircuitboard
       - CargoTelepadMachineCircuitboard
       - RipleyCentralElectronics

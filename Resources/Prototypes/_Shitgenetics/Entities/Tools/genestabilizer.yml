@@ -1,7 +1,7 @@
 - type: entity
   name: Genetic Stabilizer
   description: Reverts genetic material back to their default state, reversing all mutations. Like injectors, they must be jammed into the body to be used.
-  id: genestabilizer
+  id: GeneticStabilizer
   parent: [BaseItem]
   components:
   - type: Item

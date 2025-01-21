@@ -1,0 +1,18 @@
+- type: latheRecipe
+  id: GeneticExtractor
+  result: GeneticExtractor
+  completetime: 2
+  materials:
+    Steel: 1000
+    Plastic: 500
+    Glass: 200
+
+- type: latheRecipe
+  id: GeneticStabilizer
+  result: GeneticStabilizer
+  completetime: 5
+  materials:
+    Plastic: 1000
+    Glass: 500
+    Gold: 500
+    Silver: 500

@@ -378,6 +378,18 @@
   id: HamtrPeripheralsElectronics
   result: HamtrPeripheralsElectronics
 
+# Genetics
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: GeneticRandomizerCircuitboard
+  result: GeneticRandomizerCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: GeneticManipulatorCircuitboard
+  result: GeneticManipulatorCircuitboard
+
 # Power
 - type: latheRecipe
   parent: BaseCheapCircuitboardRecipe

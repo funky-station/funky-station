@@ -12,6 +12,7 @@ public sealed partial class MutationComponent : Component
 
     public bool Cancel = false;
 
+    [DataField("amount")]
     public int Amount = 0;
 
     #region Visual

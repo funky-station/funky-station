@@ -26,6 +26,10 @@
   id: Weapons
   name: lathe-category-weapons
 
+- type: latheCategory #genetics
+  id: Genetics
+  name: lathe-category-genetics
+
 # Biogen
 
 - type: latheCategory

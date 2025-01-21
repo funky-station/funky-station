@@ -9,7 +9,6 @@ public sealed partial class InjectionPresetComponent : Component
     /// <summary>
     /// i literally just have this copying the mutation comp. theres probably a better way to do this but instead enjoy the copy and paste
     /// </summary>
-    ///
 
     //https://www.youtube.com/watch?v=dQw4w9WgXcQ <-- important
 
@@ -66,4 +65,7 @@ public sealed partial class InjectionPresetComponent : Component
 
     [DataField("prickmode")]
     public bool Prickmode = false;
+
+    [DataField("selfheal")]
+    public bool SelfHeal = false;
 }

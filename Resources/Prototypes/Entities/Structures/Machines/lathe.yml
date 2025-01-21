@@ -203,6 +203,7 @@
       - WetFloorSign
       - ClothingHeadHatCone
       - FreezerElectronics
+      - MonkeyCubeWrapped #genetics
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot

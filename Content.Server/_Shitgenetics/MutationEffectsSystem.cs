@@ -24,6 +24,8 @@ using Content.Shared.Genetics.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
+using Content.Shared.FixedPoint;
+using Content.Shared.Chemistry.Reagent;
 
 
 public sealed partial class MututationSystem : EntitySystem
@@ -156,6 +158,10 @@ public sealed partial class MututationSystem : EntitySystem
             if (comp.Prickmode)
             {
                 PrickSay(uid, comp);
+            }
+            if (comp.SelfHeal)
+            {
+                SelfHeal(uid, comp);
             }
         }
     }
@@ -359,6 +365,14 @@ public sealed partial class MututationSystem : EntitySystem
     {
         RemComp<RadiationReceiverComponent>(uid);
         if (comp.Cancel) EnsureComp<RadiationReceiverComponent>(uid);
+    }
+
+    private void SelfHeal(EntityUid uid, MutationComponent comp) // "This is better than I thought! JACKKKKKKKKPOOOOOTTTTTTT!!"
+    {
+        var solution = new Solution();
+        solution.AddReagent("DoctorsDelight", 4f);
+        if (_solution.TryGetInjectableSolution(uid, out var targetSolution, out var _))
+            _solution.TryAddSolution(targetSolution.Value, solution);
     }
 
     #endregion

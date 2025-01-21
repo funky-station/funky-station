@@ -109,6 +109,7 @@
   - GeneticManipulatorCircuitboard
   - GeneticRandomizerCircuitboard
   - GeneticExtractor
+  - MonkeyCubeWrapped
 
 - type: technology
   id: AdvancedAnomalyResearch

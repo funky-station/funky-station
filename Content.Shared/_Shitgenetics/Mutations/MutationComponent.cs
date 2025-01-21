@@ -73,6 +73,14 @@ public sealed partial class MutationComponent : Component
     [DataField("clumsy")]
     public bool Clumsy = false; //aka the clown thing
 
+    /// <summary>
+    /// while john space doesn't employ reverse slip technique, his domain expansion, idle mutation gamble,
+    /// grants him unlimited access to infinite doctors delight for as long as the mutation is active.
+    /// Simply put, for as long as the mutation isnt stablized, john space is effectively, immortal.
+    /// </summary>
+    [DataField("selfheal")]
+    public bool SelfHeal = false;
+
     #endregion
 
     #region Accents

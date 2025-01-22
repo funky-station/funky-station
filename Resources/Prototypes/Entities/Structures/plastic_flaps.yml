@@ -23,7 +23,7 @@
         mask:
         - Impassable
         layer:
-        - MidImpassable
+        - HighImpassable
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic

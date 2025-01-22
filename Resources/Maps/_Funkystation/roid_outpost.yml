@@ -7448,7 +7448,7 @@ entities:
       pos: -7.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -79810.63
+      secondsUntilStateChange: -79896.3
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7495,7 +7495,7 @@ entities:
       pos: -34.5,-32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -222576.12
+      secondsUntilStateChange: -222661.8
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7626,7 +7626,7 @@ entities:
       pos: -27.5,10.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -258213.52
+      secondsUntilStateChange: -258299.19
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -54957,6 +54957,13 @@ entities:
     - type: Transform
       pos: 10.59634,-0.99521416
       parent: 2
+- proto: MaterialSilo
+  entities:
+  - uid: 17036
+    components:
+    - type: Transform
+      pos: -30.5,-45.5
+      parent: 2
 - proto: MaterialWoodPlank
   entities:
   - uid: 7636
@@ -61442,16 +61449,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 40.5,16.5
       parent: 2
-- proto: SalvageShuttleConsoleCircuitboard
-  entities:
-  - uid: 17036
-    components:
-    - type: Transform
-      pos: 28.594824,16.77707
-      parent: 2
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
 - proto: Scalpel
   entities:
   - uid: 8733
@@ -106124,7 +106121,7 @@ entities:
       pos: -42.5,-16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -65205.65
+      secondsUntilStateChange: -65291.316
       state: Opening
 - proto: WoodenBench
   entities:

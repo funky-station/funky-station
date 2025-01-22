@@ -1291,3 +1291,9 @@ Entries:
       message: Blob can now spawn midround!
   id: 158
   time: '2025-01-22T04:00:45.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Fix
+      message: Players can no longer crawl over tables
+  id: 159
+  time: '2025-01-22T04:02:25.0000000+00:00'

@@ -54,6 +54,9 @@ public sealed partial class MutationComponent : Component
     [DataField("BZfarter")]
     public bool BZFarter = false; //might be an instakill lmfao
 
+    [DataField("EMPer")]
+    public bool EMPer = false; //fuck you ipcs
+
     #endregion
 
     #region Body Stuff
@@ -81,6 +84,18 @@ public sealed partial class MutationComponent : Component
     [DataField("selfheal")]
     public bool SelfHeal = false;
 
+    [DataField("cancer")]
+    public bool Cancer = false; //uber space cancer
+
+    [DataField("leprosy")]
+    public bool Leprosy = false; //uber space leprosy
+
+    [DataField("slippy")]
+    public bool Slippy = false; //makes em slip randomly
+
+    [DataField("high")]
+    public bool High = false; //gojo
+
     #endregion
 
     #region Accents
@@ -90,6 +105,18 @@ public sealed partial class MutationComponent : Component
 
     [DataField("prickmode")]
     public bool Prickmode = false;
+
+    [DataField("owoaccent")]
+    public bool OWOAccent = false; //might kill myself after this
+
+    [DataField("ohioaccent")]
+    public bool OhioAccent = false; //I am 100% going to kill myself now
+
+    [DataField("stutteraccent")]
+    public bool StutterAccent = false;
+
+    [DataField("scrambleaccent")]
+    public bool ScrambleAccent = false;
 
     #endregion
 }

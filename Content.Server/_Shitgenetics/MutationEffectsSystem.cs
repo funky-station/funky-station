@@ -26,6 +26,15 @@ using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.Chemistry.Reagent;
+using Content.Server.Speech.Components;
+using Content.Shared.Body.Systems;
+using Robust.Shared.Log;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Part;
+using Robust.Shared.Physics;
+using Content.Server.Emp;
+using Robust.Server.GameObjects;
+using Content.Shared.Slippery;
 
 
 public sealed partial class MututationSystem : EntitySystem
@@ -45,6 +54,10 @@ public sealed partial class MututationSystem : EntitySystem
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly SharedBodySystem _limbs = default!;
+    [Dependency] private readonly EmpSystem _emp = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly SlipperySystem _slipperySystem = default!;
 
     public override void Update(float frameTime) //erm... we gotta update the stupid bool checks for all the effects to keep em updated. aint called shitgenetics for no reason.
     {
@@ -105,6 +118,22 @@ public sealed partial class MututationSystem : EntitySystem
             {
                 PrickAccent(uid, comp);
             }
+            if (comp.OWOAccent)
+            {
+                OWOAccent(uid, comp);
+            }
+            if (comp.StutterAccent)
+            {
+                StutterAccent(uid, comp);
+            }
+            if (comp.ScrambleAccent)
+            {
+                ScrambleAccent(uid, comp);
+            }
+            if (comp.OhioAccent)
+            {
+                OhioAccent(uid, comp);
+            }
 
 
             if (comp.Cancel)
@@ -162,6 +191,26 @@ public sealed partial class MututationSystem : EntitySystem
             if (comp.SelfHeal)
             {
                 SelfHeal(uid, comp);
+            }
+            if (comp.Cancer)
+            {
+                Cancer(uid, comp);
+            }
+            if (comp.Leprosy)
+            {
+                Leprosy(uid, comp);
+            }
+            if (comp.High)
+            {
+                High(uid, comp);
+            }
+            if (comp.Slippy)
+            {
+                Slippy(uid, comp);
+            }
+            if (comp.EMPer)
+            {
+                EMPer(uid, comp);
             }
         }
     }
@@ -314,6 +363,18 @@ public sealed partial class MututationSystem : EntitySystem
         }
     }
 
+    private void EMPer(EntityUid uid, MutationComponent comp) // fuck you ipcs x2
+    {
+        var random = (int) _rand.Next(1, 3);
+
+        if (random == 2)
+        {
+            var pos = _transform.GetMapCoordinates(uid);
+            var power = 5f; //hardcoded again, dont fucking care, smell you later nerd
+            _emp.EmpPulse(pos, power, 5000f, power);
+        }
+    }
+
     #endregion
 
     #region Body Stuff
@@ -370,9 +431,71 @@ public sealed partial class MututationSystem : EntitySystem
     private void SelfHeal(EntityUid uid, MutationComponent comp) // "This is better than I thought! JACKKKKKKKKPOOOOOTTTTTTT!!"
     {
         var solution = new Solution();
-        solution.AddReagent("DoctorsDelight", 4f);
+        solution.AddReagent("DoctorsDelight", 3f);
         if (_solution.TryGetInjectableSolution(uid, out var targetSolution, out var _))
             _solution.TryAddSolution(targetSolution.Value, solution);
+    }
+    private void Cancer(EntityUid uid, MutationComponent comp) //take damage, cough, walter white breaking bad
+    {
+        var random = (int) _rand.Next(1, 5);
+
+        if (random == 4)
+        {
+            _chat.TryEmoteWithChat(uid, "Cough", ChatTransmitRange.HideChat, ignoreActionBlocker: true); //hardcoded cuz fuck you, bring back lrp funkymins
+
+            if (TryComp<StatusEffectsComponent>(uid, out var status))
+                _stun.TrySlowdown(uid, TimeSpan.FromSeconds(1f), true, 0.5f, 0.5f, status);
+
+            var prot = (ProtoId<DamageGroupPrototype>) "Toxin";
+            var dmgtype = _proto.Index(prot);
+            _damage.TryChangeDamage(uid, new DamageSpecifier(dmgtype, 5f), true);
+        }
+    }
+
+    private void Leprosy(EntityUid uid, MutationComponent comp) //I don't know how to actually do shitmed stuff or how it works, so im just gonna make em really slow a bunch to simulate it
+    {
+        var random = (int) _rand.Next(1, 2); //I reccomend adding limb damage to this but i aint gonna do it. Fuck you. Lol. Lmao even.
+
+        if (random == 1)
+        {
+            if (TryComp<StatusEffectsComponent>(uid, out var status))
+                _stun.TrySlowdown(uid, TimeSpan.FromSeconds(3f), true, 0.25f, 0.25f, status);
+
+            _chat.TryEmoteWithChat(uid, "Scream", ChatTransmitRange.HideChat, ignoreActionBlocker: true);
+
+            var prot = (ProtoId<DamageGroupPrototype>) "Brute";
+            var dmgtype = _proto.Index(prot);
+            _damage.TryChangeDamage(uid, new DamageSpecifier(dmgtype, 2f), true);
+            _popup.PopupEntity(Loc.GetString("leprosy-pain", ("person", Identity.Entity(uid, EntityManager))), uid);
+        }
+    }
+    private void High(EntityUid uid, MutationComponent comp) // "I'm sorry taydeo. Its just that lrp is so beautiful right now."
+    {
+        var solution = new Solution();
+        solution.AddReagent("Happiness", 3f);
+        if (_solution.TryGetInjectableSolution(uid, out var targetSolution, out var _))
+            _solution.TryAddSolution(targetSolution.Value, solution);
+    }
+    private void Slippy(EntityUid uid, MutationComponent comp) //give this to cap for a good time
+    {
+        var random = (int) _rand.Next(1, 3);
+
+        if (random == 2)
+        {
+            var hadSlipComponent = EnsureComp(uid, out SlipperyComponent slipComponent);
+            if (!hadSlipComponent)
+            {
+                slipComponent.SuperSlippery = true;
+                slipComponent.ParalyzeTime = 2;
+                slipComponent.LaunchForwardsMultiplier = 10;
+            }
+
+            _slipperySystem.TrySlip(uid, slipComponent, uid, requiresContact: false);
+            if (!hadSlipComponent)
+            {
+                RemComp(uid, slipComponent);
+            }
+        }
     }
 
     #endregion
@@ -403,6 +526,26 @@ public sealed partial class MututationSystem : EntitySystem
         {
             _chat.TrySendInGameICMessage(uid, Loc.GetString("mutation-sayit"), InGameICChatType.Speak, false);
         }
+    }
+    private void OWOAccent(EntityUid uid, MutationComponent comp)
+    {
+        EnsureComp<OwOAccentComponent>(uid);
+        if (comp.Cancel) RemComp<OwOAccentComponent>(uid);
+    }
+    private void StutterAccent(EntityUid uid, MutationComponent comp)
+    {
+        EnsureComp<StutteringAccentComponent>(uid);
+        if (comp.Cancel) RemComp<StutteringAccentComponent>(uid);
+    }
+    private void OhioAccent(EntityUid uid, MutationComponent comp)
+    {
+        EnsureComp<OhioAccentComponent>(uid);
+        if (comp.Cancel) RemComp<OhioAccentComponent>(uid); // a momentary lapse of reason i promise
+    }
+    private void ScrambleAccent(EntityUid uid, MutationComponent comp)
+    {
+        EnsureComp<ScrambledAccentComponent>(uid);
+        if (comp.Cancel) RemComp<ScrambledAccentComponent>(uid);
     }
 
     #endregion

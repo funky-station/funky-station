@@ -68,26 +68,48 @@ namespace Content.Server.Machines.EntitySystems
 
             for (var i = 0; i < 3; i++)//basically this is how this shit gens random mutations, a hardcode messy fucking nightmare
             {
-                var random = _random.Next(1, 18);//manually have to add each gene and assign a number. It works, BUT PLEASE, find a better way to do this i actually hate my LIFE.
+                var random = _random.Next(1, 41);//manually have to add each gene and assign a number. It works, BUT PLEASE, find a better way to do this i actually hate my LIFE.
 
                 if (random == 1) injecter.AcidVomit = true;
-                if (random == 2) injecter.BloodVomit = true;
-                if (random == 3) injecter.BlueLight = true;
-                if (random == 4) injecter.BZFarter = true;
-                if (random == 5) injecter.Clumsy = true;
-                if (random == 6) injecter.FireSkin = true;
-                if (random == 7) injecter.Light = true;
-                if (random == 8) injecter.OkayAccent = true;
-                if (random == 9) injecter.PlasmaFarter = true;
-                if (random == 10) injecter.PressureImmune = true;
-                if (random == 11) injecter.Prickmode = true;
-                if (random == 12) injecter.RadiationImmune = true;
-                if (random == 13) injecter.RedLight = true;
-                if (random == 14) injecter.RGBLight = true;
-                if (random == 15) injecter.TempImmune = true;
-                if (random == 16) injecter.TritFarter = true;
-                if (random == 17) injecter.Twitch = true;
-                if (random == 18) injecter.Vomit = true;
+                if (random == 2) injecter.Anchorable = true;
+                if (random == 3) injecter.BackwardsAccent = true;
+                if (random == 4) injecter.BigSize = true;
+                if (random == 5) injecter.Blindness = true;
+                if (random == 6) injecter.BloodVomit = true;
+                if (random == 7) injecter.BlueLight = true;
+                if (random == 8) injecter.Vomit = true;
+                if (random == 9) injecter.BZFarter = true;
+                if (random == 10) injecter.Cancer = true;
+                if (random == 11) injecter.Clumsy = true;
+                if (random == 12) injecter.EMPer = true;
+                if (random == 13) injecter.Explode = true;
+                if (random == 14) injecter.EyeDamage = true;
+                if (random == 15) injecter.FireSkin = true;
+                if (random == 16) injecter.High = true;
+                if (random == 17) injecter.Item = true;
+                if (random == 18) injecter.Leprosy = true;
+                if (random == 19) injecter.Light = true;
+                if (random == 20) injecter.LubeVomit = true;
+                if (random == 21) injecter.MobsterAccent = true;
+                if (random == 22) injecter.OhioAccent = true;
+                if (random == 23) injecter.OkayAccent = true;
+                if (random == 24) injecter.OWOAccent = true;
+                if (random == 25) injecter.PlasmaFarter = true;
+                if (random == 26) injecter.PressureImmune = true;
+                if (random == 27) injecter.Prickmode = true;
+                if (random == 28) injecter.RadiationImmune = true;
+                if (random == 29) injecter.RedLight = true;
+                if (random == 30) injecter.RGBLight = true;
+                if (random == 31) injecter.ScrambleAccent = true;
+                if (random == 32) injecter.SelfHeal = true;
+                if (random == 33) injecter.Slippy = true;
+                if (random == 34) injecter.SmallSize = true;
+                if (random == 35) injecter.StutterAccent = true;
+                if (random == 36) injecter.TempImmune = true;
+                if (random == 37) injecter.TinySize = true;
+                if (random == 38) injecter.TritFarter = true;
+                if (random == 39) injecter.Twitch = true;
+                if (random == 40) injecter.UberSlippy = true;
             }
         }
     }

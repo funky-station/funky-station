@@ -169,22 +169,44 @@ namespace Content.Shared.Genetics
                 if ((mutations != null) && (preset != null)) //again, sorry to anyone trying to do this. But hey if you wanna exclude a gene here to not get sampled you can.
                 {
                     if (mutations.AcidVomit) preset.AcidVomit = true;
+                    if (mutations.Anchorable) preset.Anchorable = true;
+                    if (mutations.BackwardsAccent) preset.BackwardsAccent = true;
+                    if (mutations.BigSize) preset.BigSize = true;
+                    if (mutations.Blindness) preset.Blindness = true;
                     if (mutations.BloodVomit) preset.BloodVomit = true;
                     if (mutations.BlueLight) preset.BlueLight = true;
                     if (mutations.BZFarter) preset.BZFarter = true;
+                    if (mutations.Cancer) preset.Cancer = true;
                     if (mutations.Clumsy) preset.Clumsy = true;
+                    if (mutations.EMPer) preset.EMPer = true;
+                    if (mutations.Explode) preset.Explode = true;
+                    if (mutations.EyeDamage) preset.EyeDamage = true;
                     if (mutations.FireSkin) preset.FireSkin = true;
+                    if (mutations.High) preset.High = true;
+                    if (mutations.Item) preset.Item = true;
+                    if (mutations.Leprosy) preset.Leprosy = true;
                     if (mutations.Light) preset.Light = true;
+                    if (mutations.LubeVomit) preset.LubeVomit = true;
+                    if (mutations.MobsterAccent) preset.MobsterAccent = true;
+                    if (mutations.OhioAccent) preset.OhioAccent = true;
                     if (mutations.OkayAccent) preset.OkayAccent = true;
+                    if (mutations.OWOAccent) preset.OWOAccent = true;
                     if (mutations.PlasmaFarter) preset.PlasmaFarter = true;
                     if (mutations.PressureImmune) preset.PressureImmune = true;
                     if (mutations.Prickmode) preset.Prickmode = true;
                     if (mutations.RadiationImmune) preset.RadiationImmune = true;
                     if (mutations.RedLight) preset.RedLight = true;
                     if (mutations.RGBLight) preset.RGBLight = true;
+                    if (mutations.ScrambleAccent) preset.ScrambleAccent = true;
+                    if (mutations.SelfHeal) preset.SelfHeal = true;
+                    if (mutations.Slippy) preset.Slippy = true;
+                    if (mutations.SmallSize) preset.SmallSize = true;
+                    if (mutations.StutterAccent) preset.StutterAccent = true;
                     if (mutations.TempImmune) preset.TempImmune = true;
+                    if (mutations.TinySize) preset.TinySize = true;
                     if (mutations.TritFarter) preset.TritFarter = true;
                     if (mutations.Twitch) preset.Twitch = true;
+                    if (mutations.UberSlippy) preset.UberSlippy = true;
                     if (mutations.Vomit) preset.Vomit = true;
                 }
             }

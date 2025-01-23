@@ -175,6 +175,26 @@ namespace Content.Shared.Genetics
                             mutations.AcidVomit = true;
                             ++mutations.Amount;
                         }
+                        if (injectpreset.Anchorable)
+                        {
+                            mutations.Anchorable = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.BackwardsAccent)
+                        {
+                            mutations.BackwardsAccent = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.BigSize)
+                        {
+                            mutations.BigSize = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.Blindness)
+                        {
+                            mutations.Blindness = true;
+                            ++mutations.Amount;
+                        }
                         if (injectpreset.BloodVomit)
                         {
                             mutations.BloodVomit = true;
@@ -190,9 +210,29 @@ namespace Content.Shared.Genetics
                             mutations.BZFarter = true;
                             ++mutations.Amount;
                         }
+                        if (injectpreset.Cancer)
+                        {
+                            mutations.Cancer = true;
+                            ++mutations.Amount;
+                        }
                         if (injectpreset.Clumsy)
                         {
                             mutations.Clumsy = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.EMPer)
+                        {
+                            mutations.EMPer = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.Explode)
+                        {
+                            mutations.Explode = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.EyeDamage)
+                        {
+                            mutations.EyeDamage = true;
                             ++mutations.Amount;
                         }
                         if (injectpreset.FireSkin)
@@ -200,14 +240,49 @@ namespace Content.Shared.Genetics
                             mutations.FireSkin = true;
                             ++mutations.Amount;
                         }
+                        if (injectpreset.High)
+                        {
+                            mutations.High = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.Item)
+                        {
+                            mutations.Item = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.Leprosy)
+                        {
+                            mutations.Leprosy = true;
+                            ++mutations.Amount;
+                        }
                         if (injectpreset.Light)
                         {
                             mutations.Light = true;
                             ++mutations.Amount;
                         }
+                        if (injectpreset.LubeVomit)
+                        {
+                            mutations.LubeVomit = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.MobsterAccent)
+                        {
+                            mutations.MobsterAccent = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.OhioAccent)
+                        {
+                            mutations.OhioAccent = true;
+                            ++mutations.Amount;
+                        }
                         if (injectpreset.OkayAccent)
                         {
                             mutations.OkayAccent = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.OWOAccent)
+                        {
+                            mutations.OWOAccent = true;
                             ++mutations.Amount;
                         }
                         if (injectpreset.PlasmaFarter)
@@ -240,9 +315,39 @@ namespace Content.Shared.Genetics
                             mutations.RGBLight = true;
                             ++mutations.Amount;
                         }
+                        if (injectpreset.ScrambleAccent)
+                        {
+                            mutations.ScrambleAccent = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.SelfHeal)
+                        {
+                            mutations.SelfHeal = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.Slippy)
+                        {
+                            mutations.Slippy = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.SmallSize)
+                        {
+                            mutations.SmallSize = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.StutterAccent)
+                        {
+                            mutations.StutterAccent = true;
+                            ++mutations.Amount;
+                        }
                         if (injectpreset.TempImmune)
                         {
                             mutations.TempImmune = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.TinySize)
+                        {
+                            mutations.TinySize = true;
                             ++mutations.Amount;
                         }
                         if (injectpreset.TritFarter)
@@ -253,6 +358,11 @@ namespace Content.Shared.Genetics
                         if (injectpreset.Twitch)
                         {
                             mutations.Twitch = true;
+                            ++mutations.Amount;
+                        }
+                        if (injectpreset.UberSlippy)
+                        {
+                            mutations.UberSlippy = true;
                             ++mutations.Amount;
                         }
                         if (injectpreset.Vomit)

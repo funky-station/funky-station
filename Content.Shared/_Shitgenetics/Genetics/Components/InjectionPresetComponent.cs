@@ -27,6 +27,15 @@ public sealed partial class InjectionPresetComponent : Component
     [DataField("rgblight")]
     public bool RGBLight = false;
 
+    [DataField("smallsize")]
+    public bool SmallSize = false;
+
+    [DataField("bigsize")]
+    public bool BigSize = false;
+
+    [DataField("tinysize")]
+    public bool TinySize = false;
+
     [DataField("vomit")]
     public bool Vomit = false;
 
@@ -36,6 +45,9 @@ public sealed partial class InjectionPresetComponent : Component
     [DataField("vomitacid")]
     public bool AcidVomit = false;
 
+    [DataField("vomitlube")]
+    public bool LubeVomit = false;
+
     [DataField("plasmafarter")]
     public bool PlasmaFarter = false;
 
@@ -44,6 +56,12 @@ public sealed partial class InjectionPresetComponent : Component
 
     [DataField("BZfarter")]
     public bool BZFarter = false;
+
+    [DataField("EMPer")]
+    public bool EMPer = false;
+
+    [DataField("explode")]
+    public bool Explode = false;
 
     [DataField("fireskin")]
     public bool FireSkin = false;
@@ -60,12 +78,57 @@ public sealed partial class InjectionPresetComponent : Component
     [DataField("clumsy")]
     public bool Clumsy = false;
 
+    [DataField("selfheal")]
+    public bool SelfHeal = false;
+
+    [DataField("cancer")]
+    public bool Cancer = false;
+
+    [DataField("leprosy")]
+    public bool Leprosy = false;
+
+    [DataField("slippy")]
+    public bool Slippy = false;
+
+    [DataField("uberslippy")]
+    public bool UberSlippy = false;
+
+    [DataField("high")]
+    public bool High = false;
+
+    [DataField("item")]
+    public bool Item = false;
+
+    [DataField("anchorable")]
+    public bool Anchorable = false;
+
+    [DataField("blindness")]
+    public bool Blindness = false;
+
+    [DataField("eyedamage")]
+    public bool EyeDamage = false;
+
     [DataField("okayaccent")]
     public bool OkayAccent = false;
 
     [DataField("prickmode")]
     public bool Prickmode = false;
 
-    [DataField("selfheal")]
-    public bool SelfHeal = false;
+    [DataField("owoaccent")]
+    public bool OWOAccent = false;
+
+    [DataField("ohioaccent")]
+    public bool OhioAccent = false;
+
+    [DataField("stutteraccent")]
+    public bool StutterAccent = false;
+
+    [DataField("scrambleaccent")]
+    public bool ScrambleAccent = false;
+
+    [DataField("backwardsaccent")]
+    public bool BackwardsAccent = false;
+
+    [DataField("mobsteraccent")]
+    public bool MobsterAccent = false;
 }

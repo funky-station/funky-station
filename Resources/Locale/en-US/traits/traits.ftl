@@ -70,7 +70,7 @@ trait-spanish-name = Spanish accent
 trait-spanish-desc = Hola señor, donde esta la biblioteca.
 
 trait-funky-name = Funky Accent
-trait-funky-desc = Who knows really?
+trait-funky-desc = Put some funky flair on your inflections.
 
 trait-russian-name = Russian accent
 trait-russian-desc = Niko, it's Roman! Let's go bowling!

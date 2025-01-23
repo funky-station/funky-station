@@ -1306,3 +1306,9 @@ Entries:
         comms room on every map.
   id: 160
   time: '2025-01-23T02:08:08.0000000+00:00'
+- author: kbarkevich
+  changes:
+    - type: Tweak
+      message: Reduced Surgical Multitool doAfter time.
+  id: 161
+  time: '2025-01-23T22:36:03.0000000+00:00'

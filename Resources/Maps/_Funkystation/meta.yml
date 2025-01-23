@@ -8627,6 +8627,7 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
+    - type: LoadedMap
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 12657
@@ -11102,7 +11103,7 @@ entities:
       pos: -42.5,29.5
       parent: 5350
     - type: Door
-      secondsUntilStateChange: -26406.83
+      secondsUntilStateChange: -26606.598
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -121684,6 +121685,13 @@ entities:
     components:
     - type: Transform
       pos: -17.38306,-3.5393329
+      parent: 5350
+- proto: MaterialSilo
+  entities:
+  - uid: 27557
+    components:
+    - type: Transform
+      pos: 104.5,-13.5
       parent: 5350
 - proto: MaterialWoodPlank1
   entities:

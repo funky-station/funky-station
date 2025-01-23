@@ -8696,6 +8696,7 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
+    - type: LoadedMap
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 19976
@@ -11544,7 +11545,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -18150.447
+      secondsUntilStateChange: -18298.627
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -84887,7 +84888,7 @@ entities:
       pos: -34.5,-14.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -12338.986
+      secondsUntilStateChange: -12487.167
       state: Closing
   - uid: 15010
     components:
@@ -85380,7 +85381,7 @@ entities:
       pos: -4.5,-71.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -4086.717
+      secondsUntilStateChange: -4234.8975
       state: Closing
 - proto: Fireplace
   entities:
@@ -124023,6 +124024,13 @@ entities:
     components:
     - type: Transform
       pos: -9.303419,-25.688816
+      parent: 8364
+- proto: MaterialSilo
+  entities:
+  - uid: 16936
+    components:
+    - type: Transform
+      pos: -16.5,-53.5
       parent: 8364
 - proto: MaterialWoodPlank
   entities:

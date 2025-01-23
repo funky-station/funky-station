@@ -5260,7 +5260,7 @@ entities:
             1: 44680
           -7,-63:
             1: 61184
-            5: 12
+            3: 12
           -7,-62:
             1: 64443
           -7,-61:
@@ -5268,14 +5268,14 @@ entities:
           -7,-60:
             1: 4369
           -7,-64:
-            3: 12
-            4: 3072
+            4: 12
+            5: 3072
           -6,-64:
-            3: 1
-            4: 256
+            4: 1
+            5: 256
             1: 17476
           -6,-63:
-            5: 1
+            3: 1
             1: 5956
           -6,-62:
             1: 4096
@@ -5286,7 +5286,7 @@ entities:
           -6,-65:
             1: 17476
             6: 1
-            3: 256
+            4: 256
           -6,-60:
             1: 1
           -6,-59:
@@ -5302,14 +5302,14 @@ entities:
           -7,-67:
             1: 4080
           -7,-66:
-            3: 3084
+            4: 3084
           -7,-65:
             6: 12
-            3: 3072
+            4: 3072
           -6,-67:
             1: 18288
           -6,-66:
-            3: 257
+            4: 257
             1: 17476
           -5,-89:
             1: 136
@@ -5417,6 +5417,25 @@ entities:
           temperature: 293.15
           moles:
           - 0
+          - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
           - 0
           - 0
           - 0
@@ -5437,25 +5456,6 @@ entities:
           moles:
           - 6666.982
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 6666.982
           - 0
           - 0
           - 0
@@ -79315,7 +79315,7 @@ entities:
       pos: 8.5,-176.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -156736.8
+      secondsUntilStateChange: -156797.62
       state: Closing
   - uid: 11497
     components:
@@ -79600,13 +79600,19 @@ entities:
   - uid: 11543
     components:
     - type: Transform
-      pos: 23.5,-297.5
+      pos: 22.719782,-297.44965
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 11544
     components:
     - type: Transform
-      pos: 22.5,-297.5
+      pos: 22.313532,-297.49652
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: IntercomCommand
   entities:
   - uid: 11545
@@ -81158,6 +81164,13 @@ entities:
     components:
     - type: Transform
       pos: 2.6536188,-121.53795
+      parent: 2
+- proto: MaterialSilo
+  entities:
+  - uid: 14122
+    components:
+    - type: Transform
+      pos: 23.5,-297.5
       parent: 2
 - proto: MaterialWoodPlank10
   entities:
@@ -96326,11 +96339,6 @@ entities:
     components:
     - type: Transform
       pos: 21.5,-315.5
-      parent: 2
-  - uid: 14122
-    components:
-    - type: Transform
-      pos: 23.5,-297.5
       parent: 2
   - uid: 14123
     components:

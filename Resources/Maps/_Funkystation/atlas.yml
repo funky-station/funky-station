@@ -2998,6 +2998,7 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
+    - type: LoadedMap
 - proto: AirAlarm
   entities:
   - uid: 3
@@ -3590,7 +3591,7 @@ entities:
       pos: -46.5,-6.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1509.7274
+      secondsUntilStateChange: -1607.6255
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3712,7 +3713,7 @@ entities:
       pos: 35.5,-0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -861.9614
+      secondsUntilStateChange: -959.8595
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3907,7 +3908,7 @@ entities:
       pos: -57.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1517.7274
+      secondsUntilStateChange: -1615.6255
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -41897,6 +41898,13 @@ entities:
       parent: 2
     - type: Physics
       canCollide: False
+- proto: MaterialSilo
+  entities:
+  - uid: 9233
+    components:
+    - type: Transform
+      pos: -51.5,7.5
+      parent: 2
 - proto: MaterialWoodPlank
   entities:
   - uid: 6313

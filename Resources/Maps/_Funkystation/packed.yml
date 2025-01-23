@@ -6508,6 +6508,7 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
+    - type: LoadedMap
 - proto: AccordionInstrument
   entities:
   - uid: 13494
@@ -66684,6 +66685,13 @@ entities:
     components:
     - type: Transform
       pos: 18.624886,-3.516942
+      parent: 2
+- proto: MaterialSilo
+  entities:
+  - uid: 11579
+    components:
+    - type: Transform
+      pos: 13.5,-17.5
       parent: 2
 - proto: MaterialWoodPlank
   entities:

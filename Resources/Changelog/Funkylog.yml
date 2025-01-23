@@ -1297,3 +1297,12 @@ Entries:
       message: Players can no longer crawl over tables
   id: 159
   time: '2025-01-22T04:02:25.0000000+00:00'
+- author: ' Aviu'
+  changes:
+    - type: Add
+      message: >-
+        Added the materials silo, a machine that connects all lathes on the
+        station together so that they share resources. You can find it in the
+        comms room on every map.
+  id: 160
+  time: '2025-01-23T02:08:08.0000000+00:00'

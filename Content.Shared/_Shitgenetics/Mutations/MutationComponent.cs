@@ -32,6 +32,15 @@ public sealed partial class MutationComponent : Component
     [DataField("rgblight")]
     public bool RGBLight = false;
 
+    [DataField("smallsize")]
+    public bool SmallSize = false;
+
+    [DataField("bigsize")]
+    public bool BigSize = false;
+
+    [DataField("tinysize")]
+    public bool TinySize = false; //what have i done...
+
     #endregion
 
     #region Emitting Stuff
@@ -45,6 +54,9 @@ public sealed partial class MutationComponent : Component
     [DataField("vomitacid")]
     public bool AcidVomit = false;
 
+    [DataField("vomitlube")]
+    public bool LubeVomit = false;
+
     [DataField("plasmafarter")]
     public bool PlasmaFarter = false; //this is really funny to me
 
@@ -56,6 +68,9 @@ public sealed partial class MutationComponent : Component
 
     [DataField("EMPer")]
     public bool EMPer = false; //fuck you ipcs
+
+    [DataField("explode")]
+    public bool Explode = false; //killer queen
 
     #endregion
 
@@ -93,9 +108,23 @@ public sealed partial class MutationComponent : Component
     [DataField("slippy")]
     public bool Slippy = false; //makes em slip randomly
 
+    [DataField("uberslippy")]
+    public bool UberSlippy = false; //makes em slip randomly, but like FLINGS them HARD
+
     [DataField("high")]
     public bool High = false; //gojo
 
+    [DataField("item")]
+    public bool Item = false; //do not remove item comp if they're in someones inventory
+
+    [DataField("anchorable")]
+    public bool Anchorable = false; //why the fuck not
+
+    [DataField("blindness")]
+    public bool Blindness = false; //this one just makes everything dark
+
+    [DataField("eyedamage")]
+    public bool EyeDamage = false; //and this one just deals constant eye damage
     #endregion
 
     #region Accents
@@ -117,6 +146,12 @@ public sealed partial class MutationComponent : Component
 
     [DataField("scrambleaccent")]
     public bool ScrambleAccent = false;
+
+    [DataField("backwardsaccent")]
+    public bool BackwardsAccent = false;
+
+    [DataField("mobsteraccent")]
+    public bool MobsterAccent = false;
 
     #endregion
 }

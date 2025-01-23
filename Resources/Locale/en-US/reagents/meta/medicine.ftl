@@ -4,6 +4,9 @@ reagent-desc-cryptobiolin = Causes confusion and dizziness.
 reagent-name-dylovene = dylovene
 reagent-desc-dylovene = A broad-spectrum anti-toxin, which treats toxin damage in organisms. Overdosing will cause vomiting, dizzyness and pain.
 
+reagent-name-pielovene = pielovene
+reagent-desc-pielovene = A honk-spectrum anti-toxin, which treats a broad variety of damage in clowns. Harmful to mimes.
+
 reagent-name-diphenhydramine = diphenhydramine
 reagent-desc-diphenhydramine = Rapidly purges the body of histamine, reduces jitteriness, and treats poison damage.
 

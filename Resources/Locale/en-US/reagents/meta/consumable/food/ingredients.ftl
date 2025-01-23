@@ -7,6 +7,9 @@ reagent-desc-cornmeal = Used for baking.
 reagent-name-oats = oats
 reagent-desc-oats = Used for a variety of tasty purposes.
 
+reagent-name-liquidpie = liquid pie
+reagent-desc-liquidpie = Pulped banana cream pie.
+
 reagent-name-enzyme = universal enzyme
 reagent-desc-enzyme = Used in cooking various dishes.
 

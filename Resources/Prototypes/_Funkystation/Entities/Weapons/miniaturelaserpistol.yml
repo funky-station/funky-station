@@ -1,0 +1,76 @@
+- type: entity
+  name: Miniature Laser Pistol # Funkystation: copied multiphase for making head of personnel energy pistol. components inspired by multiphase and crusher for the integrated light
+  parent: [BaseWeaponBatterySmall, BaseCommandContraband, BaseItem] # Frontier: added BaseC2ContrabandUnredeemable. Goobstation: removed BaseC2ContrabandUnredeemable, added BaseCommandContraband
+  id: WeaponEnergyGunEnergyPistol 
+  description: A miniature, bolt-based multi mode self defense laser pistol.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/minature_laser_pisol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mode-disabler
+      shader: unshaded
+      map: [ "Firemode" ]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    quickEquip: false # Frontier
+    slots: # Frontier
+    # - Back # Frontier
+    - suitStorage #Frontier
+    - Belt
+    sprite: _Funkystation/Objects/Weapons/minature_laser_pisol.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/DeltaV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/DeltaV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 100
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 100
+      name: disabling
+      state: disabler
+    - proto: BulletEnergyGunLaser
+      fireCost: 200
+      name: lethal
+      state: lethal
+    - proto: BulletEnergyGunIon
+      fireCost: 200
+      name: ion
+      state: special
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: mode-disabler }
+          Lethal: { state: mode-lethal }
+          Special: { state: mode-ion }
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Sidearm
+  - type: BatterySelfRecharger
+    autoRecharge: false
+    autoRechargeRate: 40
+  - type: StaticPrice
+    price: 750
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    netsync: false

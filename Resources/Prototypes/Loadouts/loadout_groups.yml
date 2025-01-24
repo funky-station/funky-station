@@ -172,6 +172,7 @@
   loadouts:
   - HoPWintercoat
 
+
 # Civilian
 - type: loadoutGroup
   id: PassengerJumpsuit

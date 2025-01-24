@@ -29,6 +29,7 @@ loadout-group-hop-head = Head of Personnel head
 loadout-group-hop-jumpsuit = Head of Personnel jumpsuit
 loadout-group-hop-neck = Head of Personnel neck
 loadout-group-hop-backpack = Head of Personnel backpack
+loadout-group-hop-weapon = Head of Personnel Weapon # funkystation
 loadout-group-hop-outerclothing = Head of Personnel outer clothing
 
 # Civilian

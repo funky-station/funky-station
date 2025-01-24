@@ -242,7 +242,8 @@ public sealed class BlobCoreSystem : EntitySystem
         // This one for points
         var pt = store.Balance.GetValueOrDefault(BlobMoney);
         var pointsSeverity = (short) Math.Clamp(Math.Round(pt.Float() / 10f), 0, 51);
-        _alerts.ShowAlert(component.Observer.Value, BlobResource, pointsSeverity);
+        string? pointsMessage = "Points: " + pt;
+        _alerts.ShowAlert(component.Observer.Value, BlobResource, pointsSeverity, dynamicMessage: pointsMessage);
 
         // And this one for health.
         if (!TryComp<DamageableComponent>(core.Owner, out var damageComp))

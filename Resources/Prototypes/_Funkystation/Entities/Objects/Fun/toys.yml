@@ -168,18 +168,6 @@
       path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
   - type: Speech
     speechVerb: Vulpkanin
-  - type: Extractable
-    juiceSolution:
-        Reagents:
-        - ReagentId: Moonshine
-          Quantity: 30
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentID: Moonshine
-          Quantity: 30
 
 - type: entity
   parent: BaseSelfPlushie
@@ -200,18 +188,6 @@
   - type: Food
     useSound:
       path: /Audio/Voice/Human/cry_female_1.ogg
-  - type: Extractable
-    juiceSolution:
-        Reagents:
-        - ReagentId: KiraSpecial
-          Quantity: 30
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentID: KiraSpecial
-          Quantity: 30
 
 - type: entity
   parent: BaseSelfPlushie

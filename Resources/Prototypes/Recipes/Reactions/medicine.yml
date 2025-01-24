@@ -11,18 +11,6 @@
     Dylovene: 3
 
 - type: reaction
-  id: Pielovene
-  reactants:
-    Silicon:
-      amount: 1
-    Nitrogen:
-      amount: 1
-    LiquidPie:
-      amount: 1
-  products:
-    Pielovene: 3
-
-- type: reaction
   id: Ethylredoxrazine
   reactants:
     Oxygen:

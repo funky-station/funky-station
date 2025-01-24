@@ -192,12 +192,12 @@
     - Fruit
     - Pie
     - Slice
-  - type: Extractable
-    grindableSolutionName: food
-    juiceSolution:
-      reagents:
-      - ReagentId: LiquidPie
-        Quantity: 2
+  - type: Extractable  # funkystation
+    grindableSolutionName: food  # funkystation
+    juiceSolution:  # funkystation
+      reagents:  # funkystation
+      - ReagentId: LiquidPie  # funkystation
+        Quantity: 2  # funkystation
 # Tastes like pie, cream, banana.
 
 - type: entity

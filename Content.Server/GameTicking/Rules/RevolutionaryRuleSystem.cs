@@ -267,7 +267,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     /// <summary>
     /// Checks if all the Head Revs are dead and if so will deconvert all regular revs.
     /// </summary>
-    public bool CheckRevsLose(bool deconvertRevs = true) // this should have been just a simple check w no logic
+    private bool CheckRevsLose(bool deconvertRevs = true) // this should have been just a simple check w no logic
     {
         var stunTime = TimeSpan.FromSeconds(4);
         var headRevList = new List<EntityUid>();

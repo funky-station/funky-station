@@ -103,6 +103,5 @@
   rules:
   - BlobGameMode
   - BasicStationEventScheduler
-  - AntagStationEventScheduler
   - BasicRoundstartVariation
   - SubGamemodesRule

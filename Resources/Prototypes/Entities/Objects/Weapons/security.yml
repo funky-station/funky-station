@@ -45,10 +45,10 @@
     soundHit:
       collection: MetalThud #fs - Thwack
   - type: StaminaDamageOnHit
-    damage: 40 #fs - Stunbaton 2-hit stun
+    damage: 50 #fs - Stunbaton 2-hit stun basil：is it 2-hit stun? I saw miiish say change it to 50 so I did. I like stun batons. They should be used more me thinks?
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide
-    damage: 40 #fs - Stunbaton 2-hit stun
+    damage: 50 #fs - Stunbaton 2-hit stun
     sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery

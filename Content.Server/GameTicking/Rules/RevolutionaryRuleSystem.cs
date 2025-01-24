@@ -36,7 +36,6 @@ using Content.Shared.Chat;
 using Content.Server.Chat.Systems;
 using Content.Shared.Changeling;
 using Content.Shared.Heretic;
-using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.GameTicking.Rules;
 

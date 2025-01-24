@@ -10,5 +10,5 @@ revolutionaries-win-announcement =
 
     Viva la revolución!
 
-revolutionaries-win-sender = Taipan Communications
+revolutionaries-win-sender = Yucatan Communications
 revolutionaries-sender-cc = Central Command

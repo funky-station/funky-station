@@ -63,16 +63,3 @@
   storage:
     back:
     - Flash
-- type: loadoutEffectGroup # funkystation
-  id: HoPPistolBLAYTT
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobHeadOfPersonnel
-      time: 108000 #30 hrs
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobSecurityOfficer
-      time: 72000 #20 hrs

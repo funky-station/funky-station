@@ -69,12 +69,3 @@
   equipment:
     outerClothing: ClothingOuterWinterHoP
 
-# funkystation
-- type: loadout
-  id: HoPPistol
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: HoPPistolBLAYTT
-  storage:
-    back:
-    - WeaponEnergyGunEnergyPistol

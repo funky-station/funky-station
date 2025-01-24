@@ -172,12 +172,6 @@
   loadouts:
   - HoPWintercoat
 
-# funkystation
-- type: loadoutGroup
-  id: HoPPistol
-  name: loadout-group-hop-weapon
-  loadouts:
-  - HoPPistol
 
 # Civilian
 - type: loadoutGroup

@@ -197,7 +197,6 @@
       - SubstationMachineCircuitboard
       - WallmountSubstationElectronics
       - CellRechargerCircuitboard
-      - BorgChargerCircuitboard
       - WeaponCapacitorRechargerCircuitboard
       - HandheldStationMap
       - ClothingHeadHatWelding
@@ -465,6 +464,7 @@
     - CutterMachineCircuitboard
     - SalvageMagnetMachineCircuitboard
     - OperatingTableCircuitboard # Shitmed Change
+    - BorgChargerCircuitboard
     dynamicRecipes:
       - ThermomachineFreezerMachineCircuitBoard
       - HellfireFreezerMachineCircuitBoard

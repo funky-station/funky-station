@@ -1334,3 +1334,13 @@ Entries:
       message: Funky accent!
   id: 164
   time: '2025-01-24T19:20:47.0000000+00:00'
+- author: ' taydeo, Rainbeon'
+  changes:
+    - type: Tweak
+      message: The Evacuation Shuttle no longer Docks when HRevs are still alive
+    - type: Tweak
+      message: The game now auto-ends when revolutionaries win.
+    - type: Tweak
+      message: The Evacuation shuttle is now auto-called when HRevs die.
+  id: 165
+  time: '2025-01-24T23:18:21.0000000+00:00'

@@ -66,8 +66,6 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     public readonly ProtoId<NpcFactionPrototype> RevolutionaryNpcFaction = "Revolutionary";
     public readonly ProtoId<NpcFactionPrototype> RevPrototypeId = "Rev";
 
-    private CancellationTokenSource? _cancellationTokenSource;
-
     public override void Initialize()
     {
         base.Initialize();

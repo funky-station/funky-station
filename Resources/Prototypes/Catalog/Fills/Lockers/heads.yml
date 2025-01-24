@@ -135,6 +135,7 @@
     - id: RubberStampDenied
     - id: RubberStampHop
     - id: WeaponDisabler
+    - id: WeaponEnergyGunEnergyPistol # funkystation adding unique hop weapon
     - id: ClothingEyesHudCommand
 
 - type: entity

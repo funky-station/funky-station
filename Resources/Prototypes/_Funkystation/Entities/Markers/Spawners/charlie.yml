@@ -4,7 +4,7 @@
   id: OldCryoSleeperSciGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitAncientSci
-    shoes: ClothingShoesBootsLaceup
+    shoes: ClothingShoesColorBlack
     pocket1: Brutepack
     id: IDCardAncientScience
     
@@ -34,6 +34,15 @@
     pocket1: Ointment
     pocket2: Ointment
     id: IDCardAncientMedical
+    
+#- type: startingGear
+#  id: OldCryoSleeperRepresentativeGear
+#  equipment:
+#    jumpsuit: ClothingUniformJumpsuitAncientRep
+#    shoes: ClothingShoesBootsLaceup
+#    pocket1: Ointment
+#    pocket2: Ointment
+#    id: IDCardAncientNanotrasen
 
 # Special MobHumans for the job! Could this be done better? Yes! Will I? No!
 
@@ -80,6 +89,17 @@
   - type: Loadout
     prototypes: [OldCryoSleeperDoctorGear]
     roleLoadout: [ RoleSurvivalStandard ]
+    
+#- type: entity
+#  categories: [ HideSpawnMenu ]
+#  name: Representative
+#  parent: MobHuman
+#  id: MobHumanCryoSleeperRepresentative
+#  components:
+#  - type: RandomHumanoidAppearance
+#  - type: Loadout
+#    prototypes: [OldCryoSleeperRepresentativeGear]
+#    roleLoadout: [ RoleSurvivalStandard ]
 
 # Ghost role markers
 
@@ -179,3 +199,27 @@
       - state: green
       - sprite: Structures/Wallmounts/signs.rsi
         state: something-old2
+        
+#- type: entity
+#  categories: [ Spawner ]
+#  parent: MarkerBase
+#  id: SpawnPointGhostCryoPodSleeperRep
+#  name: old cryopod sleeper
+#  suffix: Representative
+#  components:
+#  - type: GhostRole
+#    name: roles-ghost-cryopod-sleeper-name
+#    description: roles-ghost-cryopod-sleeper-objective
+#    rules: ghost-role-information-nonantagonist-rules
+#    raffle:
+#      settings: default
+#  - type: GhostRoleMobSpawner
+#    prototype: MobHumanCryoSleeperRepresentative
+#  - type: Loadout
+#    roleLoadout: [ RoleSurvivalStandard ]
+#  - type: Sprite
+#    sprite: Markers/jobs.rsi
+#    layers:
+#      - state: green
+#      - sprite: Structures/Wallmounts/signs.rsi
+#        state: something-old2

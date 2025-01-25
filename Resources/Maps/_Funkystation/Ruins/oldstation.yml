@@ -31,7 +31,7 @@ entities:
       name: Old Station
     - type: Transform
       pos: -0.53125,-0.484375
-      parent: invalid
+      parent: 1695
     - type: MapGrid
       chunks:
         0,0:
@@ -570,6 +570,18 @@ entities:
     - type: RadiationGridResistance
     - type: IFF
       flags: Hide
+  - uid: 1695
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
+    - type: Broadphase
+    - type: OccluderTree
 - proto: AirCanister
   entities:
   - uid: 1010
@@ -819,7 +831,7 @@ entities:
       pos: 37.5,6.5
       parent: 3
     - type: Door
-      secondsUntilStateChange: -3780.1387
+      secondsUntilStateChange: -3809.6177
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -933,7 +945,7 @@ entities:
       pos: 25.5,23.5
       parent: 3
     - type: Door
-      secondsUntilStateChange: -19457.39
+      secondsUntilStateChange: -19486.87
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -969,7 +981,7 @@ entities:
       pos: 25.5,8.5
       parent: 3
     - type: Door
-      secondsUntilStateChange: -19444.19
+      secondsUntilStateChange: -19473.668
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7276,19 +7288,17 @@ entities:
     - type: Transform
       pos: 0.5,0.5
       parent: 3
-  - uid: 1695
-    components:
-    - type: MetaData
-      desc: An ancient cryopod. The glass is foggy, but you're certain that whoever used to occupy this one has since rotted, probably due to some malfunction.
-    - type: Transform
-      pos: -1.5,0.5
-      parent: 3
   - uid: 1696
     components:
     - type: MetaData
       desc: An ancient cryopod. The glass is foggy, but you're certain that whoever used to occupy this one has since rotted, probably due to some malfunction.
     - type: Transform
       pos: 2.5,4.5
+      parent: 3
+  - uid: 2710
+    components:
+    - type: Transform
+      pos: -1.5,0.5
       parent: 3
 - proto: DefibrillatorCabinetFilled
   entities:
@@ -7433,7 +7443,7 @@ entities:
       pos: -34.5,25.5
       parent: 3
     - type: Door
-      secondsUntilStateChange: -1471.4652
+      secondsUntilStateChange: -1500.9443
       state: Closing
   - uid: 983
     components:
@@ -7441,7 +7451,7 @@ entities:
       pos: -34.5,24.5
       parent: 3
     - type: Door
-      secondsUntilStateChange: -1471.1318
+      secondsUntilStateChange: -1500.611
       state: Closing
   - uid: 2137
     components:
@@ -7468,7 +7478,7 @@ entities:
       pos: -31.5,17.5
       parent: 3
     - type: Door
-      secondsUntilStateChange: -1159.1322
+      secondsUntilStateChange: -1188.6113
       state: Closing
   - uid: 2549
     components:
@@ -7477,7 +7487,7 @@ entities:
       pos: -30.5,17.5
       parent: 3
     - type: Door
-      secondsUntilStateChange: -1159.5656
+      secondsUntilStateChange: -1189.0447
       state: Closing
 - proto: FirelockEdge
   entities:
@@ -11960,6 +11970,13 @@ entities:
     components:
     - type: Transform
       pos: 2.5,2.5
+      parent: 3
+- proto: SpawnPointGhostCryoPodSleeperRep
+  entities:
+  - uid: 2711
+    components:
+    - type: Transform
+      pos: -1.5,0.5
       parent: 3
 - proto: SpawnPointGhostCryoPodSleeperSci
   entities:

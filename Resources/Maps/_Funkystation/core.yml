@@ -11734,6 +11734,7 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
+    - type: LoadedMap
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 4746
@@ -104581,6 +104582,13 @@ entities:
     - type: Transform
       pos: 40.59389,-23.47827
       parent: 2
+- proto: MaterialSilo
+  entities:
+  - uid: 7713
+    components:
+    - type: Transform
+      pos: 29.5,-46.5
+      parent: 2
 - proto: MaterialWoodPlank
   entities:
   - uid: 15031
@@ -107047,11 +107055,6 @@ entities:
     components:
     - type: Transform
       pos: 57.5,-13.5
-      parent: 2
-  - uid: 7713
-    components:
-    - type: Transform
-      pos: 29.5,-46.5
       parent: 2
   - uid: 7771
     components:

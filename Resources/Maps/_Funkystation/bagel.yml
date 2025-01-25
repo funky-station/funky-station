@@ -9371,6 +9371,7 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
+    - type: LoadedMap
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 2133
@@ -10809,7 +10810,7 @@ entities:
       pos: -29.5,37.5
       parent: 60
     - type: Door
-      secondsUntilStateChange: -16162.156
+      secondsUntilStateChange: -16251.773
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -56098,12 +56099,6 @@ entities:
     components:
     - type: Transform
       pos: 51.5,-44.5
-      parent: 60
-  - uid: 13263
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 23.5,-0.5
       parent: 60
   - uid: 14118
     components:
@@ -106217,13 +106212,6 @@ entities:
     - type: Transform
       pos: -7.494558,-11.436351
       parent: 60
-- proto: HarpInstrument
-  entities:
-  - uid: 13264
-    components:
-    - type: Transform
-      pos: 22.5,-0.5
-      parent: 60
 - proto: HeatExchanger
   entities:
   - uid: 15111
@@ -109113,6 +109101,13 @@ entities:
     components:
     - type: Transform
       pos: 56.487034,-17.432411
+      parent: 60
+- proto: MaterialSilo
+  entities:
+  - uid: 7544
+    components:
+    - type: Transform
+      pos: 22.5,-0.5
       parent: 60
 - proto: MaterialWoodPlank
   entities:

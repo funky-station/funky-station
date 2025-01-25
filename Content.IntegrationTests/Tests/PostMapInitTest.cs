@@ -74,10 +74,11 @@ namespace Content.IntegrationTests.Tests
             "Barratry", // Goobstation - add Barratry
             "Kettle", // Goobstation - add Kettle
             "Amber",
-      "Hot Springs",
+            "Hot Springs",
             "Gate",
             "Loop",
-            "roid_outpost"
+            "roid_outpost",
+            "DMVStation",
         };
 
         /// <summary>

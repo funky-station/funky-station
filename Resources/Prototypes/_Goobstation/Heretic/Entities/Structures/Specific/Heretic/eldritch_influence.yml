@@ -30,6 +30,8 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: TimedDespawn # funkystation - reality fractures go away
+    lifetime: 30 # this is in seconds btw
   - type: InteractionOutline
   - type: Sprite
     sprite: _Goobstation/Heretic/reality_fracture.rsi

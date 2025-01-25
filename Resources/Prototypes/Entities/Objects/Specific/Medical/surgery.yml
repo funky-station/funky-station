@@ -445,25 +445,25 @@
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
   - type: Hemostat
-    speed: 2
+    speed: 0.75  # funkystation
   - type: Scalpel
-    speed: 2
+    speed: 0.75  # funkystation
   - type: Drill
-    speed: 2
+    speed: 0.75  # funkystation
   - type: BoneSetter
-    speed: 2
+    speed: 0.75  # funkystation
   - type: Retractor
-    speed: 2
+    speed: 0.75  # funkystation
   - type: Cautery
-    speed: 2
+    speed: 0.75  # funkystation
   - type: BoneGel
-    speed: 2
+    speed: 0.75  # funkystation
   - type: BoneSaw
-    speed: 2
+    speed: 0.75  # funkystation
   - type: Tweezers
-    speed: 2
+    speed: 0.75  # funkystation
   - type: Tending
-    speed: 2
+    speed: 0.75  # funkystation
 
 - type: entity
   parent: [ OmnimedTool, BaseSyndicateContraband ]

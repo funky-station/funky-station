@@ -1,4 +1,4 @@
-﻿using Content.Server.Interaction;
+﻿using System.Linq;
 using Content.Server.Power.EntitySystems;
 using Content.Shared._Funkystation.Medical.SmartFridge;
 using Content.Shared.Construction.EntitySystems;
@@ -111,7 +111,7 @@ public sealed class SmartFridgeSystem : SharedSmartFridgeSystem
         if (args.Actor is not { Valid: true } entity || Deleted(entity))
             return;
 
-        VendFromSlot(uid, args.Id);
+        VendFromSlot(uid, args.ItemToEject);
         Dirty(uid, component);
     }
 

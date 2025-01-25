@@ -88,9 +88,11 @@ public enum SmartFridgeUiKey
     Key
 }
 
-// doing it here cuz idgaf
+/// <summary>
+/// Message sent to try and eject items from storage
+/// </summary>
 [Serializable, NetSerializable]
-public sealed class SmartFridgeEjectMessage(string id) : BoundUserInterfaceMessage
+public sealed class SmartFridgeEjectMessage(string itemToEject) : BoundUserInterfaceMessage
 {
-    public readonly string Id = id;
+    public readonly string ItemToEject = itemToEject;
 }

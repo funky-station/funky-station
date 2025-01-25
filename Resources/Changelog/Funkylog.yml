@@ -1110,3 +1110,237 @@ Entries:
         Station!
   id: 134
   time: '2025-01-07T01:09:31.0000000+00:00'
+- author: Erisiaa
+  changes:
+    - type: Add
+      message: Adds a new ion lawset for cyborgs to get, good luck.
+  id: 135
+  time: '2025-01-07T05:37:55.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Tweak
+      message: Revamped Kettle's Atmos
+    - type: Tweak
+      message: Updated Train's Engi.
+  id: 136
+  time: '2025-01-07T19:35:53.0000000+00:00'
+- author: ' Mish'
+  changes:
+    - type: Tweak
+      message: Rat kings are now officially antagonists
+  id: 137
+  time: '2025-01-07T19:41:07.0000000+00:00'
+- author: ' SolsticeOfTheWinter'
+  changes:
+    - type: Tweak
+      message: harpies can start flying while walking
+    - type: Tweak
+      message: 'harpy documentation is better now '
+  id: 138
+  time: '2025-01-08T01:36:58.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Fix
+      message: fixed mapping errors
+  id: 139
+  time: '2025-01-08T02:26:14.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Fixed Roid atmos and power issues
+  id: 140
+  time: '2025-01-09T06:42:38.0000000+00:00'
+- author: Erisiaa
+  changes:
+    - type: Fix
+      message: dungeon master is now working! rejoice!!
+  id: 141
+  time: '2025-01-09T17:20:27.0000000+00:00'
+- author: Liamofthesky
+  changes:
+    - type: Tweak
+      message: X-01 Multiphase now has self recharging capabilities!
+  id: 142
+  time: '2025-01-09T18:56:31.0000000+00:00'
+- author: Erisiaa
+  changes:
+    - type: Add
+      message: Added yapping and gekkering!
+  id: 143
+  time: '2025-01-09T22:16:21.0000000+00:00'
+- author: Erisiaa
+  changes:
+    - type: Fix
+      message: 'fixes yapping and gekkering to be in vocal (oopsie :3)  '
+  id: 144
+  time: '2025-01-10T21:26:45.0000000+00:00'
+- author: ' taydeo, wurnt'
+  changes:
+    - type: Add
+      message: Thieves can now toggle their thieving ability.
+    - type: Tweak
+      message: Thieves now have a round start thieving ability.
+    - type: Fix
+      message: Dynamic thieves now get pacifism and thieving.
+  id: 145
+  time: '2025-01-11T04:02:03.0000000+00:00'
+- author: ' darkmajia, hivehum'
+  changes:
+    - type: Add
+      message: >-
+        Time distortion fields from seconds in the past have been detected.
+        Crewmembers should prepare for imminent Dino Wars.
+  id: 146
+  time: '2025-01-11T21:25:08.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Tweak
+      message: Mice and mothroaches deal damage again (and can zombify people)
+    - type: Tweak
+      message: Zom-bees are real
+    - type: Tweak
+      message: Zombies have slightly better regeneration
+  id: 147
+  time: '2025-01-11T21:26:35.0000000+00:00'
+- author: Erisiaa
+  changes:
+    - type: Add
+      message: Harpies can now yap and gekker.
+  id: 148
+  time: '2025-01-12T05:55:19.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Add
+      message: Added a completely new zone to glacier outpost.
+  id: 149
+  time: '2025-01-13T21:52:11.0000000+00:00'
+- author: ' deltanedas'
+  changes:
+    - type: Tweak
+      message: >-
+        Losing a limb makes you bleed profusely instead of dealing bloodloss
+        damage.
+  id: 150
+  time: '2025-01-14T06:13:20.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Add
+      message: >-
+        Added Syndicate Dino Cube boxes, purchasable by the Chef, Zookeeper, and
+        Scientist.
+  id: 151
+  time: '2025-01-14T06:14:17.0000000+00:00'
+- author: Liamofthesky
+  changes:
+    - type: Fix
+      message: Fixed the station plumbing, sinks now have plenty of water again
+  id: 152
+  time: '2025-01-15T21:15:21.0000000+00:00'
+- author: ' RadsammyT'
+  changes:
+    - type: Add
+      message: >-
+        Two new variants for playing cards have been added: Nanotrasen and
+        Syndicate. The NT variant can be unlocked as a trinket given 10 hours of
+        Quartermaster time. The Syndie variant can be purchased from the uplink
+        in the Pointless category for 3 TC.
+    - type: Fix
+      message: >-
+        Hands of Playing Cards will no longer show alternative verbs for ghosts
+        or any player controlled mob without any hands.
+    - type: Fix
+      message: Card sprites should no longer desync on reconnecting.
+    - type: Tweak
+      message: >-
+        Playing Card deck boxes now have holographic security seals on them.
+        Opening a sealed deck will destroy the seal.
+    - type: Tweak
+      message: >-
+        Playing Cards now have a 10 hour time requirement before you can select
+        them as a trinket.
+  id: 153
+  time: '2025-01-17T07:53:10.0000000+00:00'
+- author: empty0set
+  changes:
+    - type: Add
+      message: >-
+        Added new Job Distribution Error event. Some specific jobs will be
+        available for late join that are not found on Space Station 14 under
+        normal circumstances.
+  id: 154
+  time: '2025-01-18T04:23:06.0000000+00:00'
+- author: kbarkevich
+  changes:
+    - type: Add
+      message: Added 169 new words to the TTS announcements
+  id: 155
+  time: '2025-01-19T00:42:03.0000000+00:00'
+- author: OrangeMoronage9622
+  changes: []
+  id: 156
+  time: '2025-01-19T09:11:02.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Re-themed Terry's Roid SM chamber and remade atmos!
+  id: 157
+  time: '2025-01-20T03:33:47.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Tweak
+      message: Blob can now spawn midround!
+  id: 158
+  time: '2025-01-22T04:00:45.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Fix
+      message: Players can no longer crawl over tables
+  id: 159
+  time: '2025-01-22T04:02:25.0000000+00:00'
+- author: ' Aviu'
+  changes:
+    - type: Add
+      message: >-
+        Added the materials silo, a machine that connects all lathes on the
+        station together so that they share resources. You can find it in the
+        comms room on every map.
+  id: 160
+  time: '2025-01-23T02:08:08.0000000+00:00'
+- author: kbarkevich
+  changes:
+    - type: Tweak
+      message: Reduced Surgical Multitool doAfter time.
+  id: 161
+  time: '2025-01-23T22:36:03.0000000+00:00'
+- author: kbarkevich
+  changes:
+    - type: Add
+      message: Added Liquid Pie
+    - type: Add
+      message: Added Pielovene
+  id: 162
+  time: '2025-01-24T01:24:50.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Add
+      message: >-
+        The Blob can now see their exact resource total in real-time by mousing
+        over the Blob Resources Alert on the right side of the screen.
+  id: 163
+  time: '2025-01-24T08:14:38.0000000+00:00'
+- author: empty0set
+  changes:
+    - type: Add
+      message: Funky accent!
+  id: 164
+  time: '2025-01-24T19:20:47.0000000+00:00'
+- author: ' taydeo, Rainbeon'
+  changes:
+    - type: Tweak
+      message: The Evacuation Shuttle no longer Docks when HRevs are still alive
+    - type: Tweak
+      message: The game now auto-ends when revolutionaries win.
+    - type: Tweak
+      message: The Evacuation shuttle is now auto-called when HRevs die.
+  id: 165
+  time: '2025-01-24T23:18:21.0000000+00:00'

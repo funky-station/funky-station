@@ -27,6 +27,10 @@
       startingGear: ThiefGear
       components:
       - type: Pacified
+      - type: Thieving # funkystation - MTGA
+        stripTimeReduction: 2
+        stealthy: true
+
       mindRoles:
       - MindRoleThief
       briefing:

@@ -47,6 +47,7 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
+    - type: LoadedMap
   - uid: 4812
     components:
     - type: MetaData
@@ -6107,6 +6108,12 @@ entities:
     - type: Transform
       pos: -46.5,-12.5
       parent: 4812
+    - type: Door
+      secondsUntilStateChange: -79.59992
+      state: Opening
+    - type: DeviceLinkSource
+      lastSignals:
+        DoorStatus: True
   - uid: 9958
     components:
     - type: Transform
@@ -62683,6 +62690,13 @@ entities:
     - type: Transform
       pos: 8.48969,29.428799
       parent: 4812
+- proto: MaterialSilo
+  entities:
+  - uid: 10728
+    components:
+    - type: Transform
+      pos: -50.5,-11.5
+      parent: 4812
 - proto: MatterBinStockPart
   entities:
   - uid: 6200
@@ -63812,10 +63826,10 @@ entities:
       parent: 4812
 - proto: PortableGeneratorPacman
   entities:
-  - uid: 10728
+  - uid: 13525
     components:
     - type: Transform
-      pos: -50.5,-11.5
+      pos: -45.5,-13.5
       parent: 4812
 - proto: PortableGeneratorPacmanMachineCircuitboard
   entities:
@@ -63829,8 +63843,10 @@ entities:
   - uid: 3426
     components:
     - type: Transform
-      pos: -48.5,-11.5
+      pos: -48.359795,-11.49102
       parent: 4812
+    - type: Physics
+      sleepTime: 0.01666665
 - proto: PortableScrubber
   entities:
   - uid: 3446

@@ -28,12 +28,8 @@
     includeSecret: false
   - !type:ConditionManualWhitelistMembership # Allow whitelisted players
     action: Allow
-  #- !type:ConditionPlayerCount # Allow when <= 15 players are online
-  #  minimumPlayers: 0
-  #  maximumPlayers: 15
-  #  action: Allow
   - !type:ConditionPlaytime
-    minimumPlaytime: 600 # 10 hours to be whitelisted
-    action: Allow
+    minimumPlaytime: 300 # 5 hours to be whitelisted
+    action: Deny
   - !type:ConditionAlwaysMatch
     action: Deny

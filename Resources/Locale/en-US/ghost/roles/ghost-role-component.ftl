@@ -37,6 +37,15 @@ ghost-role-information-skeleton-rules = You are a [color=yellow][bold]Skeleton[/
                                          You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
                                          You are NOT allowed to cause mass station destruction, such as releasing the singularity from containment.
 
+# funkystation
+ghost-role-information-neanderthal-rules = You are a [color=yellow][bold]Neanderthal[/bold][/color]. You are freshly thawed out of a block of ice and have no idea where you are.
+                                         While your existence may be tolerated by the crew and Central Command, you are free to act as an antagonist or a non antagonist.
+                                         Though you are more beast than man, you should still generally follow escalation rules, as others will have to do with you.
+                                         You are not allowed to remember any knowledge about life or how to use objects beyond the absolute basics, such as how to swing a stick.
+                                         You do not understand the languages of others, nor do you possess the ability to communicate with others beyond grunting and gesturing.
+                                         You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
+                                         You are [color=red]NOT[/color] allowed to cause mass station destruction, such as releasing the singularity from containment.
+
 ghost-role-information-mouse-name = Mouse
 ghost-role-information-mouse-description = A hungry and mischievous mouse.
 
@@ -96,6 +105,9 @@ ghost-role-information-kobold-description = Be the little gremlin you are, yell 
 ghost-role-information-rat-king-name = Rat King
 
 ghost-role-information-rat-king-description = You are the Rat King, your interests are food, food, and more food. Cooperate with or fight against the station for food. Did I say food interests you?
+
+# funkystation
+ghost-role-information-neanderthal-description = You are a freshly unfrozen neanderthal. You have no idea what is going on, where this is, what anything is, or who anyone else is.
 
 ghost-role-information-rat-servant-name = Rat Servant
 ghost-role-information-rat-servant-description = You are a Rat Servant. You must follow your king's orders.
@@ -159,6 +171,9 @@ ghost-role-information-skeleton-biker-description = Ride around on your sweet ri
 
 ghost-role-information-closet-skeleton-name = Closet Skeleton
 ghost-role-information-closet-skeleton-description = You are arguably one of the oldest members of the station! Get your old job back, or cause chaos! The world is yours to shape.
+
+# funkystation
+ghost-role-information-neanderthal-name = Unfrozen Neanderthal
 
 ghost-role-information-remilia-name = Remilia, the chaplain's familiar
 ghost-role-information-remilia-description = Follow and obey the chaplain. Eat fruit. Screech loudly into people's ears and write it off as echolocation.

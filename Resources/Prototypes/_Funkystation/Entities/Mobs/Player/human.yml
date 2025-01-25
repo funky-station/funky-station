@@ -1,0 +1,31 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MobHuman
+  id: MobHumanNeanderthal
+  name: Neanderthal
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+    hair: HumanHairBedheadv2  # figure out how to randomize this
+    facialHair: HumanFacialHairBrokenman
+  - type: Loadout
+    prototypes: [ NeanderthalGear ]
+  - type: RandomMetadata
+    nameSegments:
+    - NeanderthalNamesNormal
+  - type: NeanderthalAccent
+  - type: Clumsy
+    clumsyDefaultCheck: 0.9
+    clumsySound:
+      path: /Audio/_Funkystation/Voice/Neanderthal/grunt.ogg
+      params:
+        volume: 1
+        pitch: 1
+        maxdistance: 15
+    gunShootFailSound:
+      path: /Audio/_Funkystation/Voice/Neanderthal/grunt.ogg
+      params:
+        volume: 1
+        pitch: 1
+        maxdistance: 15
+    clumsyVaulting: false

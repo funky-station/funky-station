@@ -3,7 +3,7 @@
 - type: startingGear
   id: OldCryoSleeperSciGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitScientistFormal
+    jumpsuit: ClothingUniformJumpsuitAncientSci
     shoes: ClothingShoesBootsLaceup
     pocket1: Brutepack
     id: IDCardAncientScience
@@ -11,7 +11,7 @@
 - type: startingGear
   id: OldCryoSleeperEngineerGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitEngineering
+    jumpsuit: ClothingUniformJumpsuitAncientEng
     shoes: ClothingShoesBootsWork
     pocket1: ExtendedEmergencyOxygenTankFilled
     gloves: ClothingHandsGlovesColorYellow
@@ -20,7 +20,7 @@
 - type: startingGear
   id: OldCryoSleeperSecurityGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSecGrey
+    jumpsuit: ClothingUniformJumpsuitAncientSec
     shoes: ClothingShoesBootsJack
     pocket1: Handcuffs
     pocket2: Flash
@@ -29,7 +29,7 @@
 - type: startingGear
   id: OldCryoSleeperDoctorGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+    jumpsuit: ClothingUniformJumpsuitAncientDoc
     shoes: ClothingShoesColorBlack
     pocket1: Ointment
     pocket2: Ointment

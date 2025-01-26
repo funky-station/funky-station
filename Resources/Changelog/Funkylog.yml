@@ -1356,3 +1356,13 @@ Entries:
       message: Stops the removal of the salv shuttle computer from maps
   id: 167
   time: '2025-01-26T06:23:07.0000000+00:00'
+- author: ' Cthyga'
+  changes:
+    - type: Add
+      message: >-
+        Added a new weapon for the Head of Personnel: The Miniature Laser
+        Pistol!
+    - type: Add
+      message: 'Added a new disabler for the Head of Personnel: Disabler Plus'
+  id: 168
+  time: '2025-01-26T06:23:47.0000000+00:00'

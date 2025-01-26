@@ -137,7 +137,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 		return component.Lawset;
 	}
 
-	// --------------------- Law Setters ------------------------
+	#region LawSetters
 	/// <summary>
 	/// Add a law to the current lawset.
 	/// </summary>
@@ -271,8 +271,8 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 		};
 		lawset.CustomLaws.Add(law);
 	}
-	// ----------------------------------------------------------
-	// -------------------- Law Modifiers -----------------------
+	#endregion
+	#region LawModifiers
 	/// <summary>
 	/// Wipe all laws in the Lawset group.
 	/// </summary>
@@ -385,7 +385,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             };
 		}		
 	}
-	// ----------------------------------------------------------
+	#endregion
 
 	/// <summary>
 	/// Generate a random string of characters for

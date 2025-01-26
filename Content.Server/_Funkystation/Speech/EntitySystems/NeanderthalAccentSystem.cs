@@ -25,10 +25,9 @@ namespace Content.Server.Speech.EntitySystems
 		
         public string Accentuate(EntityUid uid, string message)
         {
-			EntityManager.TryGetComponent<MetaDataComponent>(uid, out MetaDataComponent? metaDataComponent);
 			string name = "";
-			if (metaDataComponent != null)
-				name = ((MetaDataComponent)metaDataComponent).EntityName;
+			if (TryComp<MetaDataComponent>(uid, out var metaDataComponent))
+				name = metaDataComponent.EntityName;
 			
 			string[] words = message.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
 

@@ -1344,3 +1344,9 @@ Entries:
       message: The Evacuation shuttle is now auto-called when HRevs die.
   id: 165
   time: '2025-01-24T23:18:21.0000000+00:00'
+- author: ' hereelabs, meijunkie'
+  changes:
+    - type: Tweak
+      message: Made Oldstation Good
+  id: 166
+  time: '2025-01-26T00:20:28.0000000+00:00'

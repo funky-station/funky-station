@@ -5,7 +5,7 @@
   description: A miniature, bolt-based multi mode self defense laser pistol.
   components:
   - type: Sprite
-    sprite: _Funkystation/Objects/Weapons/minature_laser_pisol.rsi
+    sprite: _Funkystation/Objects/Weapons/miniature_laser_pistol.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -21,7 +21,7 @@
     # - Back # Frontier
     - suitStorage #Frontier
     - Belt
-    sprite: _Funkystation/Objects/Weapons/minature_laser_pisol.rsi
+    sprite: _Funkystation/Objects/Weapons/miniature_laser_pistol.rsi
   - type: Gun
     soundGunshot:
       path: /Audio/DeltaV/Weapons/Guns/Gunshots/laser.ogg
@@ -68,6 +68,41 @@
     autoRechargeRate: 40
   - type: StaticPrice
     price: 750
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    netsync: false
+  - type: Item
+    sprite: _Funkystation/Objects/Weapons/miniature_laser_pisol_64x.rsi
+    heldPrefix: energy
+- type: entity
+  name: Disabler Plus
+  parent: [ WeaponDisablerPractice, BaseSecurityCommandContraband ]
+  id: WeaponDisablerPlus
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/disablerplus.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/disablerplus.rsi
+    quickEquip: false
+    slots:
+      - suitStorage
+      - Belt
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 100
+  - type: Battery
+    maxCharge: 1500
+    startingCharge: 1500
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false

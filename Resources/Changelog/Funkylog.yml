@@ -1350,3 +1350,9 @@ Entries:
       message: Made Oldstation Good
   id: 166
   time: '2025-01-26T00:20:28.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Stops the removal of the salv shuttle computer from maps
+  id: 167
+  time: '2025-01-26T06:23:07.0000000+00:00'

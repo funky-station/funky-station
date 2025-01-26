@@ -85,53 +85,20 @@ public sealed class IonStormSystem : EntitySystem
 
         // shuffle them all
         if (_robustRandom.Prob(target.ShuffleChance))
-        {
-            // hopefully work with existing glitched laws if there are multiple ion storms
-            var baseOrder = FixedPoint2.New(1);
-            foreach (var law in laws.Laws)
-            {
-                if (law.Order < baseOrder)
-                    baseOrder = law.Order;
-            }
-
-            _robustRandom.Shuffle(laws.Laws);
-
-            // change order based on shuffled position
-            for (int i = 0; i < laws.Laws.Count; i++)
-            {
-                laws.Laws[i].Order = baseOrder + i;
-            }
-        }
+			_siliconLaw.ShuffleLawset(laws);
 
         // see if we can remove a random law
         if (laws.Laws.Count > 0 && _robustRandom.Prob(target.RemoveChance))
-        {
-            var i = _robustRandom.Next(laws.Laws.Count);
-            laws.Laws.RemoveAt(i);
-        }
+			_siliconLaw.RemoveRandomLaw(laws);
 
         // generate a new law...
         var newLaw = GenerateLaw();
 
         // see if the law we add will replace a random existing law or be a new glitched order one
         if (laws.Laws.Count > 0 && _robustRandom.Prob(target.ReplaceChance))
-        {
-            var i = _robustRandom.Next(laws.Laws.Count);
-            laws.Laws[i] = new SiliconLaw()
-            {
-                LawString = newLaw,
-                Order = laws.Laws[i].Order
-            };
-        }
-        else
-        {
-            laws.Laws.Insert(0, new SiliconLaw
-            {
-                LawString = newLaw,
-                Order = -1,
-                LawIdentifierOverride = Loc.GetString("ion-storm-law-scrambled-number", ("length", _robustRandom.Next(5, 10)))
-            });
-        }
+			_siliconLaw.ReplaceRandomLaw(laws, newLaw);
+		else
+			_siliconLaw.AddIonLaw(laws, newLaw);
 
         // sets all unobfuscated laws' indentifier in order from highest to lowest priority
         // This could technically override the Obfuscation from the code above, but it seems unlikely enough to basically never happen

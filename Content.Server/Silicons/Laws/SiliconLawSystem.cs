@@ -16,6 +16,7 @@ using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Wires;
+using Content.Shared.FixedPoint;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -23,6 +24,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Audio;
+using Robust.Shared.Random;
 
 namespace Content.Server.Silicons.Laws;
 
@@ -36,6 +38,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
+	[Dependency] private readonly IRobustRandom _robustRandom = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -95,7 +98,6 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
     }
 
-
     private void OnToggleLawsScreen(EntityUid uid, SiliconLawBoundComponent component, ToggleLawsScreenEvent args)
     {
         if (args.Handled || !TryComp<ActorComponent>(uid, out var actor))
@@ -124,13 +126,279 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         if (args.Handled)
             return;
 
-        if (component.Lawset == null)
-            component.Lawset = GetLawset(component.Laws);
-
-        args.Laws = component.Lawset;
-
+		args.Laws = VerifyLawsetInitialized(component);
         args.Handled = true;
     }
+
+	private SiliconLawset VerifyLawsetInitialized(SiliconLawProviderComponent component)
+	{
+		if (component.Lawset == null)
+            component.Lawset = GetLawset(component.Laws);
+		return component.Lawset;
+	}
+
+	// --------------------- Law Setters ------------------------
+	/// <summary>
+	/// Add a law to the current lawset.
+	/// </summary>
+	public void AddLaw(SiliconLawProviderComponent component, string lawText, LawGroups lawGroup)
+	{
+		switch (lawGroup) {
+			case LawGroups.Law0:
+				SetLaw0(component, lawText);
+				break;
+			case LawGroups.HackedLaw:
+				AddHackedLaw(component, lawText);
+				break;
+			case LawGroups.IonLaw:
+				AddIonLaw(component, lawText);
+				break;
+			case LawGroups.LawsetLaw:
+				AddLawsetLaw(component, lawText);
+				break;
+			default:
+				AddCustomLaw(component, lawText);
+				break;
+		}
+	}
+
+	/// <summary>
+	/// Add a Law 0 to the current lawset.
+	/// </summary>
+	public void SetLaw0(SiliconLawProviderComponent component, string lawText)
+	{
+		SetLaw0(VerifyLawsetInitialized(component), lawText);
+	}
+
+	public void SetLaw0(SiliconLawset lawset, string lawText)
+	{
+		var law = new SiliconLaw
+        {
+            LawString = lawText,
+			LawGroup = LawGroups.Law0,
+            Order = FixedPoint2.New(0)
+        };
+		lawset.Law0 = law;
+	}
+
+	/// <summary>
+	/// Add a hacked (emag) law to the current lawset.
+	/// </summary>
+	public void AddHackedLaw(SiliconLawProviderComponent component, string lawText)
+	{
+		AddHackedLaw(VerifyLawsetInitialized(component), lawText);
+	}
+
+	public void AddHackedLaw(SiliconLawset lawset, string lawText)
+	{
+		var law = new SiliconLaw
+		{
+			LawString = lawText,
+			LawGroup = LawGroups.HackedLaw,
+            Order = FixedPoint2.New(0.1 + (0.01 * lawset.HackedLaws.Count)),
+			LawIdentifierOverride = GenerateCorruptLawString()
+		};
+		lawset.HackedLaws.Add(law);
+	}
+
+	/// <summary>
+	/// Add an ion law to the current lawset.
+	/// </summary>
+	public void AddIonLaw(SiliconLawProviderComponent component, string lawText)
+	{
+		AddIonLaw(VerifyLawsetInitialized(component), lawText);
+	}
+
+	public void AddIonLaw(SiliconLawset lawset, string lawText)
+	{
+		var law = new SiliconLaw
+		{
+			LawString = lawText,
+			LawGroup = LawGroups.IonLaw,
+            Order = FixedPoint2.New(0.2 + (0.01 * lawset.IonLaws.Count)),
+			LawIdentifierOverride = GenerateCorruptLawString()
+		};
+		lawset.IonLaws.Add(law);
+	}
+
+	/// <summary>
+	/// Add a lawset law to the current lawset.
+	/// </summary>
+	public void AddLawsetLaw(SiliconLawProviderComponent component, string lawText)
+	{
+		AddLawsetLaw(VerifyLawsetInitialized(component), lawText);
+	}
+
+	public void AddLawsetLaw(SiliconLawProviderComponent component, SiliconLaw law)
+	{
+		AddLawsetLaw(VerifyLawsetInitialized(component), new string(law.LawString));
+	}
+
+	public void AddLawsetLaw(SiliconLawset lawset, SiliconLaw law)
+	{
+		AddLawsetLaw(lawset, new string(law.LawString));
+	}
+
+	public void AddLawsetLaw(SiliconLawset lawset, string lawText)
+	{
+		var law = new SiliconLaw
+		{
+			LawString = lawText,
+			LawGroup = LawGroups.IonLaw,
+            Order = FixedPoint2.New(1 + (1 * lawset.LawsetLaws.Count))
+		};
+		lawset.LawsetLaws.Add(law);
+		ReorderCustomLaws(lawset);
+	}
+
+	/// <summary>
+	/// Add a custom law to the current lawset.
+	/// </summary>
+	public void AddCustomLaw(SiliconLawProviderComponent component, string lawText)
+	{
+		AddCustomLaw(VerifyLawsetInitialized(component), lawText);
+	}
+
+	public void AddCustomLaw(SiliconLawset lawset, string lawText)
+	{
+		var law = new SiliconLaw
+		{
+			LawString = lawText,
+			LawGroup = LawGroups.IonLaw,
+            Order = FixedPoint2.New(
+				1 + (1 * lawset.LawsetLaws.Count) + (1 * lawset.CustomLaws.Count)
+			)
+		};
+		lawset.CustomLaws.Add(law);
+	}
+	// ----------------------------------------------------------
+	// -------------------- Law Modifiers -----------------------
+	/// <summary>
+	/// Wipe all laws in the Lawset group.
+	/// </summary>
+	public void ClearLawsetLaws(SiliconLawProviderComponent component)
+	{
+		SiliconLawset lawset = VerifyLawsetInitialized(component);
+		lawset.LawsetLaws = new List<SiliconLaw>();
+		ReorderCustomLaws(component);
+	}
+
+	/// <summary>
+	/// Reorder the Custom Laws.
+	/// Called after Lawset Laws are changed.
+	/// </summary>
+	public void ReorderCustomLaws(SiliconLawProviderComponent component)
+	{
+		ReorderCustomLaws(VerifyLawsetInitialized(component));
+	}
+
+	public void ReorderCustomLaws(SiliconLawset lawset)
+	{
+		var baseOrder = FixedPoint2.New(lawset.LawsetLaws.Count);
+		for (int i = 0; i < lawset.CustomLaws.Count; i++)
+		{
+			lawset.CustomLaws[i].Order = baseOrder + i;
+		}
+	}
+
+	/// <summary>
+	/// Shuffle the Lawset Laws.
+	/// Sometimes used by Ion Storms.
+	/// </summary>
+	public void ShuffleLawset(SiliconLawset lawset)
+	{
+		var baseOrder = FixedPoint2.New(1);
+		_robustRandom.Shuffle(lawset.LawsetLaws);
+
+		// change order based on shuffled position
+		for (int i = 0; i < lawset.LawsetLaws.Count; i++)
+		{
+			lawset.LawsetLaws[i].Order = baseOrder + i;
+		}
+	}
+
+	/// <summary>
+	/// Remove a random law.
+	/// Law 0s are not eligible.
+	/// Sometimes used by Ion Storms.
+	/// </summary>
+	public void RemoveRandomLaw(SiliconLawset lawset)
+	{
+		var i = (lawset.Law0 == null) ? _robustRandom.Next(lawset.Laws.Count) : _robustRandom.Next(lawset.Laws.Count-1);
+
+		if (i < lawset.HackedLaws.Count)
+			lawset.HackedLaws.RemoveAt(i);
+		else if ((i - lawset.HackedLaws.Count) < lawset.IonLaws.Count)
+			lawset.IonLaws.RemoveAt(i - lawset.HackedLaws.Count);
+		else if ((i - (lawset.HackedLaws.Count + lawset.IonLaws.Count)) < lawset.LawsetLaws.Count)
+			lawset.LawsetLaws.RemoveAt(i - (lawset.HackedLaws.Count + lawset.IonLaws.Count));
+		else
+			lawset.CustomLaws.RemoveAt(i - (lawset.HackedLaws.Count + lawset.IonLaws.Count + lawset.LawsetLaws.Count));
+	}
+
+	/// <summary>
+	/// Replace a random law.
+	/// Law 0s are not eligible.
+	/// Sometimes used by Ion Storms.
+	/// </summary>
+	public void ReplaceRandomLaw(SiliconLawset lawset, string lawText)
+	{
+		var i = (lawset.Law0 == null) ? _robustRandom.Next(lawset.Laws.Count) : _robustRandom.Next(lawset.Laws.Count-1);
+
+		if (i < lawset.HackedLaws.Count)
+		{
+			lawset.HackedLaws[i] = new SiliconLaw()
+            {
+                LawString = lawText,
+                Order = lawset.HackedLaws[i].Order,
+				LawIdentifierOverride = GenerateCorruptLawString()
+            };
+		}
+		else if ((i - lawset.HackedLaws.Count) < lawset.IonLaws.Count)
+		{
+			int idx = (i - lawset.HackedLaws.Count);
+			lawset.IonLaws[idx] = new SiliconLaw()
+            {
+                LawString = lawText,
+                Order = lawset.IonLaws[idx].Order,
+				LawIdentifierOverride = GenerateCorruptLawString()
+            };
+		}
+		else if ((i - (lawset.HackedLaws.Count + lawset.IonLaws.Count)) < lawset.LawsetLaws.Count)
+		{
+			int idx = (i - (lawset.HackedLaws.Count + lawset.IonLaws.Count));
+			lawset.LawsetLaws[idx] = new SiliconLaw()
+            {
+                LawString = lawText,
+                Order = lawset.LawsetLaws[idx].Order,
+				LawIdentifierOverride = GenerateCorruptLawString()
+            };
+		}
+		else
+		{
+			int idx = (i - (lawset.HackedLaws.Count + lawset.IonLaws.Count + lawset.LawsetLaws.Count));
+			lawset.CustomLaws[idx] = new SiliconLaw()
+            {
+                LawString = lawText,
+                Order = lawset.CustomLaws[idx].Order,
+				LawIdentifierOverride = GenerateCorruptLawString()
+            };
+		}		
+	}
+	// ----------------------------------------------------------
+
+	/// <summary>
+	/// Generate a random string of characters for
+	/// corrupted laws' LawIdentifierOverride properties.
+	/// </summary>
+	private string GenerateCorruptLawString(int characters = 3)
+	{
+		char[] chars = ['?', '$', '-', '/', '£', '&', '@'];
+		string result = "##";
+		for (int i = 0; i < characters; i++)
+			result = result + chars[_robustRandom.Next(0, chars.Length)];
+		return result + "##";
+	}
 
     private void OnIonStormLaws(EntityUid uid, SiliconLawProviderComponent component, ref IonStormLawsEvent args)
     {
@@ -154,26 +422,20 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
     private void OnEmagLawsAdded(EntityUid uid, SiliconLawProviderComponent component, ref GotEmaggedEvent args)
     {
-
-        if (component.Lawset == null)
-            component.Lawset = GetLawset(component.Laws);
+        SiliconLawset lawset = VerifyLawsetInitialized(component);
 
         // Show the silicon has been subverted.
         component.Subverted = true;
 
         // Add the first emag law before the others
-        component.Lawset?.Laws.Insert(0, new SiliconLaw
-        {
-            LawString = Loc.GetString("law-emag-custom", ("name", Name(args.UserUid)), ("title", Loc.GetString(component.Lawset.ObeysTo))),
-            Order = 0
-        });
+        SetLaw0(lawset,
+			Loc.GetString("law-emag-custom", ("name", Name(args.UserUid)), ("title", Loc.GetString(lawset.ObeysTo)))
+		);
 
         //Add the secrecy law after the others
-        component.Lawset?.Laws.Add(new SiliconLaw
-        {
-            LawString = Loc.GetString("law-emag-secrecy", ("faction", Loc.GetString(component.Lawset.ObeysTo))),
-            Order = component.Lawset.Laws.Max(law => law.Order) + 1
-        });
+		AddHackedLaw(lawset,
+			Loc.GetString("law-emag-secrecy", ("faction", Loc.GetString(lawset.ObeysTo)))
+		);
     }
 
     protected override void OnGotEmagged(EntityUid uid, EmagSiliconLawComponent component, ref GotEmaggedEvent args)
@@ -276,15 +538,13 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     public SiliconLawset GetLawset(ProtoId<SiliconLawsetPrototype> lawset)
     {
         var proto = _prototype.Index(lawset);
-        var laws = new SiliconLawset()
-        {
-            Laws = new List<SiliconLaw>(proto.Laws.Count)
-        };
-        foreach (var law in proto.Laws)
-        {
-            laws.Laws.Add(_prototype.Index<SiliconLawPrototype>(law));
-        }
-        laws.ObeysTo = proto.ObeysTo;
+
+		var laws = new SiliconLawset();
+		foreach (var law in proto.Laws)
+		{
+			AddLawsetLaw(laws, _prototype.Index<SiliconLawPrototype>(law));
+		};
+		laws.ObeysTo = String.Copy(proto.ObeysTo);
 
         return laws;
     }
@@ -297,10 +557,9 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         if (!TryComp<SiliconLawProviderComponent>(target, out var component))
             return;
 
-        if (component.Lawset == null)
-            component.Lawset = new SiliconLawset();
-
-        component.Lawset.Laws = newLaws;
+		ClearLawsetLaws(component);
+		foreach (SiliconLaw law in newLaws)
+			AddLawsetLaw(component, law);
         NotifyLawsChanged(target, cue);
     }
 

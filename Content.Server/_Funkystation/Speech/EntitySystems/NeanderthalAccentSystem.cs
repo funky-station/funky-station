@@ -31,21 +31,21 @@ namespace Content.Server.Speech.EntitySystems
 			
 			string[] words = message.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
 
-			string newmessage = "";
+			string newMessage = "";
 			foreach (string word in words)
 			{
 				if ((name.Length > 0) && (word.ToUpper() == name.ToUpper() ||
 					word.ToUpper().StartsWith(name.ToUpper()) || word.ToUpper().EndsWith(name.ToUpper())))
-					newmessage = newmessage + " " + name;
+					newMessage = newMessage + " " + name;
 				else
-					newmessage = newmessage + _random.Pick(Grunts);
+					newMessage = newMessage + _random.Pick(Grunts);
 			}
 			
-			if ((message.Length > 1) && (message.EndsWith("!!"))) newmessage = newmessage + "!!";
-			else if (message.EndsWith("?") || message.EndsWith("!")) newmessage = newmessage + message[message.Length - 1];
-			else newmessage = newmessage + _random.Pick(Terminators);
+			if ((message.Length > 1) && (message.EndsWith("!!"))) newMessage = newMessage + "!!";
+			else if (message.EndsWith("?") || message.EndsWith("!")) newMessage = newMessage + message[message.Length - 1];
+			else newMessage = newMessage + _random.Pick(Terminators);
 
-			return newmessage.Substring(1);
+			return newMessage.Substring(1);
         }
 
         private void OnAccent(EntityUid uid, NeanderthalAccentComponent component, AccentGetEvent args)

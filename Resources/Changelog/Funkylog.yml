@@ -1384,3 +1384,9 @@ Entries:
       message: Pride cloaks now show their names instead of a pun or joke.
   id: 170
   time: '2025-01-26T21:07:06.0000000+00:00'
+- author: kbarkevich
+  changes:
+    - type: Add
+      message: Added Neanderthal ghost role
+  id: 171
+  time: '2025-01-26T21:11:32.0000000+00:00'

@@ -208,6 +208,8 @@
   - type: TypingIndicatorClothing
     proto: alien
 
+## Changed by Funkystation.
+
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakAce

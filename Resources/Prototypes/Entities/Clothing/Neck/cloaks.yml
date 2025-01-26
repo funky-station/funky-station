@@ -137,15 +137,6 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckCloakTrans
-  name: vampire cloak
-  description: Worn by high ranking vampires of the transylvanian society of vampires.
-  components:
-  - type: Sprite
-    sprite: Clothing/Neck/Cloaks/trans.rsi
-
-- type: entity
-  parent: ClothingNeckBase
   id: ClothingNeckCloakGoliathCloak
   name: goliath cloak
   description: A cloak made from the hide of resilient fauna from a distant planet, though its protective value has faded with its age.
@@ -209,6 +200,15 @@
     proto: alien
 
 ## Changed by Funkystation.
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakTrans
+  name: transgender pride cloak
+  description: A cloak representing transgender pride.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Cloaks/trans.rsi
 
 - type: entity
   parent: ClothingNeckBase

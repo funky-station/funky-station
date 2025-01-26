@@ -71,3 +71,7 @@ rev-deconverted-text =
 
     You are no longer a revolutionary, so be nice.
 rev-deconverted-confirm = Confirm
+
+rev-headrev-must-return = The Revolution is leaderless. We must return to the station within a minute!
+rev-headrev-returned = A Head Revolutionary has returned to the station, the Revolution continues!
+rev-headrev-abandoned = You have disgraced the revolution by abandoning your station. The Revolution is over.

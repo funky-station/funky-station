@@ -578,6 +578,9 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000 # Funkystation added battery component?
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
@@ -851,3 +854,5 @@
     autoRechargeRate: 40
   - type: StaticPrice
     price: 750
+
+    

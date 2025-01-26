@@ -41,9 +41,12 @@ namespace Content.Server.Speech.EntitySystems
 					newMessage = newMessage + _random.Pick(Grunts);
 			}
 			
-			if ((message.Length > 1) && (message.EndsWith("!!"))) newMessage = newMessage + "!!";
-			else if (message.EndsWith("?") || message.EndsWith("!")) newMessage = newMessage + message[message.Length - 1];
-			else newMessage = newMessage + _random.Pick(Terminators);
+			if ((message.Length > 1) && (message.EndsWith("!!")))
+				newMessage = newMessage + "!!";
+			else if (message.EndsWith("?") || message.EndsWith("!"))
+				newMessage = newMessage + message[message.Length - 1];
+			else
+				newMessage = newMessage + _random.Pick(Terminators);
 
 			return newMessage.Substring(1);
         }

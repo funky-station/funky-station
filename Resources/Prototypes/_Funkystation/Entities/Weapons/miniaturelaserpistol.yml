@@ -75,13 +75,13 @@
     autoRot: true
     netsync: false
   - type: Item
-    sprite: _Funkystation/Objects/Weapons/miniature_laser_pisol_64x.rsi
+    sprite: _Funkystation/Objects/Weapons/miniature_laser_pistol_inhands_64x.rsi
     heldPrefix: energy
 - type: entity
   name: Disabler Plus
+  description: A sophsitcated disabler with additional capacity and integrated flashlight. Intended for self defense situations only.
   parent: [ WeaponDisablerPractice, BaseSecurityCommandContraband ]
   id: WeaponDisablerPlus
-  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Weapons/disablerplus.rsi

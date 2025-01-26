@@ -136,7 +136,7 @@
     - id: RubberStampHop
     # funkystation: removing disabler and instead using energy pistol
     # - id: WeaponDisabler
-    - id: WeaponEnergyGunEnergyPistol # funkystation adding unique hop weapon
+    - id: WeaponDisablerPlus # funkystation adding unique hop weapon
     - id: ClothingEyesHudCommand
 
 - type: entity

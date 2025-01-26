@@ -1237,6 +1237,14 @@
       - ClothingOuterVestWebDurathread # Goobstation - adding durathread armoured clothing
       - ClothingOuterArmourDurathread # Goobstation - adding durathread armoured clothing
       - ClothingUniformJumpsuitDurathread # Goobstation - adding durathread armoured clothing
+      # Begin DeltaV Additions
+      - ClothingUniformCybersunAttorney
+      - ClothingUniformCybersunHazard
+      - ClothingUniformCybersunCasual
+      - ClothingUniformCybersunRND
+      - ClothingOuterCybersunOvercoat
+      - ClothingBeltSyndicateUtility
+      # End DeltaV Additions
   - type: MaterialStorage
     whitelist:
       tags:

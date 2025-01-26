@@ -1366,3 +1366,15 @@ Entries:
       message: 'Added a new disabler for the Head of Personnel: Disabler Plus'
   id: 168
   time: '2025-01-26T06:23:47.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        If all alive Head Revolutionaries abandon the station, a 1 minute timer
+        will now start that counts down until a Head Revolutionary returns. If
+        no Head Revolutionaries return, the game will consider this as the
+        Revolution failing, and all Revs will be de-converted + the shuttle
+        called on the next check. If a single Head Revolutionary returns, the
+        timer will stop, and the game will continue as normal.
+  id: 169
+  time: '2025-01-26T06:25:17.0000000+00:00'

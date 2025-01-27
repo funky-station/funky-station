@@ -1,0 +1,55 @@
+- type: listing
+  id: RevolutionaryUplinkFlash
+  name: flash
+  description: Multipurpose tool. Scare security, convert ordinary co-workers, and cause chaos.
+  productEntity: Flash
+  cost:
+    Telecrystal: 10 # Temporary price
+  categories:
+  - RevolutionaryUplinkDefault
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  saleLimit: 1
+
+- type: listing
+  id: RevolutionaryUplinkSunglasses
+  name: sunglasses
+  description: Make yourself look suspicious, in style.
+  productEntity: ClothingEyesGlassesSunglasses
+  cost:
+    Telecrystal: 10 # Temporary price
+  categories:
+  - RevolutionaryUplinkDefault
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  saleLimit: 1
+
+- type: listing
+  id: RevolutionaryUplinkSyndieKey
+  name: syndicate encryption key
+  description: An encryption key used for communicating with possible agents of the revolution.
+  productEntity: EncryptionKeySyndie
+  cost:
+    Telecrystal: 10 # Temporary price
+  categories:
+  - RevolutionaryUplinkDefault
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  saleLimit: 1
+
+- type: listing
+  id: RevolutionaryUplinkFastDrawImplanter
+  name: fast draw implanter
+  description: A syringe with tools for quick implant removal. It has small gold stars on its body.
+  productEntity: RevsFastDrawImplanter
+  cost:
+    Telecrystal: 10 # Temporary price
+  categories:
+  - RevolutionaryUplinkDefault
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  saleLimit: 1

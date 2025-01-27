@@ -1,0 +1,13 @@
+- type: entity
+  id: StorePresetRevolutionaryUplink
+  components:
+  - type: Store
+    name: store-preset-name-revolutionary-uplink
+    categories:
+    - RevolutionaryUplinkDefault
+    currencyWhitelist:
+    - Telecrystal
+    balance:
+      Telecrystal: 0
+    sales:
+      enabled: false

@@ -59,4 +59,7 @@ public sealed partial class RevolutionaryRuleComponent : Component
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId UplinkStoreId = "StorePresetRevolutionaryUplink";
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public EntProtoId UplinkCurrencyId = "RevCoin";
 }

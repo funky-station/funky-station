@@ -102,7 +102,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             return false;
 
         var pda = _uplink.FindUplinkTarget(traitor);
-        if (pda == null || !_uplink.AddUplink(traitor, component.StartingBalance, null, component.UplinkStoreId))
+        if (pda == null || !_uplink.AddUplink(traitor, component.StartingBalance, component.UplinkCurrencyId, component.UplinkStoreId))
             return false;
 
         var code = EnsureComp<RingerUplinkComponent>(pda.Value).Code;

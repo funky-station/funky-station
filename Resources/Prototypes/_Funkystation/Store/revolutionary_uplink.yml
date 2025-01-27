@@ -6,8 +6,8 @@
     categories:
     - RevolutionaryUplinkDefault
     currencyWhitelist:
-    - Telecrystal
+    - RevCoin
     balance:
-      Telecrystal: 0
+      RevCoin: 0
     sales:
       enabled: false

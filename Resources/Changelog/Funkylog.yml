@@ -1390,3 +1390,9 @@ Entries:
       message: Added Neanderthal ghost role
   id: 171
   time: '2025-01-26T21:11:32.0000000+00:00'
+- author: empty0set
+  changes:
+    - type: Tweak
+      message: butterflies are now edible
+  id: 172
+  time: '2025-01-27T03:34:34.0000000+00:00'

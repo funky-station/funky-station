@@ -37,6 +37,9 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepHull
+  - type: Tag
+    tags:
+    - ForceFixRotations
   - type: RequireProjectileTarget # Goobstation - Crawling
     ignoreThrow: true
 
@@ -57,5 +60,5 @@
         mask:
         - TableMask
         layer:
-        - TableLayer 
+        - TableLayer
         - BulletImpassable # Goobstation - Crawling

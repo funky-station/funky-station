@@ -1402,3 +1402,9 @@ Entries:
       message: Fixed Roid Atmos! Enjoy breathing!
   id: 173
   time: '2025-01-27T03:35:08.0000000+00:00'
+- author: ' deltanedas'
+  changes:
+    - type: Remove
+      message: Extreme heat no longer turns people to ash.
+  id: 174
+  time: '2025-01-27T22:05:47.0000000+00:00'

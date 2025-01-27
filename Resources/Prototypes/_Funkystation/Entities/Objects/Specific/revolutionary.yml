@@ -13,7 +13,7 @@
     size: Tiny
   - type: Stack
     count: 100
-    stackType: RevCoin
+    stackType: Telecrystal
   - type: StaticPrice
     price: 0
   - type: StackPrice
@@ -45,3 +45,9 @@
   components:
   - type: Stack
     count: 10
+
+- type: stack
+  id: RevCoin
+  name: revcoin
+  icon: _Funkystation/Objects/Specific/Revolutionary/revcoin.rsi
+  spawn: RevCoin1

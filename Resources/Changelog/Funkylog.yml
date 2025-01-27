@@ -1396,3 +1396,9 @@ Entries:
       message: butterflies are now edible
   id: 172
   time: '2025-01-27T03:34:34.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Fixed Roid Atmos! Enjoy breathing!
+  id: 173
+  time: '2025-01-27T03:35:08.0000000+00:00'

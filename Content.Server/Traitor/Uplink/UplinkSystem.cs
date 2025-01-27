@@ -46,6 +46,8 @@ namespace Content.Server.Traitor.Uplink
                 if (!TryComp<StoreComponent>(ent, out var comp))
                     return false;
 
+                // there must be a better way of doing this.
+                // lmk if there is . . .
                 uplinkPdaStore.Categories = comp.Categories;
                 uplinkPdaStore.CurrencyWhitelist = comp.CurrencyWhitelist;
                 uplinkPdaStore.Name = comp.Name;

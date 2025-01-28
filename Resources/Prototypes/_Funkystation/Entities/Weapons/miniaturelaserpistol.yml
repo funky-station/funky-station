@@ -73,7 +73,6 @@
     enabled: false
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
   - type: Item
     sprite: _Funkystation/Objects/Weapons/miniature_laser_pistol_inhands_64x.rsi
     heldPrefix: energy
@@ -108,4 +107,3 @@
     enabled: false
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false

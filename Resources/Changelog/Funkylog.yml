@@ -1416,3 +1416,9 @@ Entries:
       message: Changed capitalization of disabler plus to be in line with other items.
   id: 175
   time: '2025-01-28T00:09:57.0000000+00:00'
+- author: ' Cthyga'
+  changes:
+    - type: Fix
+      message: Fixed the disabler plus integrated light vanishing.
+  id: 176
+  time: '2025-01-28T05:23:39.0000000+00:00'

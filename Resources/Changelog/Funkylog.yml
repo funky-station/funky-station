@@ -1422,3 +1422,11 @@ Entries:
       message: Fixed the disabler plus integrated light vanishing.
   id: 176
   time: '2025-01-28T05:23:39.0000000+00:00'
+- author: ' Impstation'
+  changes:
+    - type: Add
+      message: From the IMP sector, over a hundred new hair styles and markings!
+    - type: Tweak
+      message: Vox and Slimes have received a minor visual refresh.
+  id: 177
+  time: '2025-01-28T05:24:38.0000000+00:00'

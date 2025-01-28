@@ -1408,3 +1408,11 @@ Entries:
       message: Extreme heat no longer turns people to ash.
   id: 174
   time: '2025-01-27T22:05:47.0000000+00:00'
+- author: ' Cthyga'
+  changes:
+    - type: Fix
+      message: Fixed description of disabler plus
+    - type: Fix
+      message: Changed capitalization of disabler plus to be in line with other items.
+  id: 175
+  time: '2025-01-28T00:09:57.0000000+00:00'

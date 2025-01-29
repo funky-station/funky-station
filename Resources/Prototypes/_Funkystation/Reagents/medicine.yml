@@ -349,13 +349,14 @@
   color: "#c8317a"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2
       effects:
       - !type:HealthChange
         damage: # still less than healium as a gas but a good liquid chem
           groups:
-            Brute: -6
-            Burn: -6
-            Toxin: -6
+            Brute: -4.5
+            Burn: -4.5
+            Toxin: -4.5
             Airloss: -6
       - !type:ModifyBleedAmount
         amount: -0.5

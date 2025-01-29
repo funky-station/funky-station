@@ -211,7 +211,7 @@ namespace Content.IntegrationTests.Tests
                 var postMapInit = meta["postmapinit"].AsBool();
                 Assert.That(postMapInit, Is.False, $"Map {map.Filename} was saved postmapinit");
 
-                // testing that maps have nothing with the "DO NOT MAP" suffix
+                // testing that maps have nothing with the DoNotMap entity category
                 // I do it here because it's basically copy-paste code for the most part
                 var yamlEntities = root["entities"];
                 if (!protoManager.TryIndex<EntityCategoryPrototype>("DoNotMap", out var dnmCategory))
@@ -224,7 +224,7 @@ namespace Content.IntegrationTests.Tests
                         continue;
                     if (proto.Categories.Contains(dnmCategory) && !DoNotMapWhitelist.Contains(map.ToString()))
                     {
-                        Assert.Fail($"\nMap {map} has the DO NOT MAP prototype {proto.Name}");
+                        Assert.Fail($"\nMap {map} has the DO NOT MAP category in prototype {proto.Name}");
                     }
                 }
             }

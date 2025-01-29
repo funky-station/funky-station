@@ -1436,3 +1436,9 @@ Entries:
       message: Revamped saltern station engineering department.
   id: 178
   time: '2025-01-29T04:22:24.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Head Revolutionaries now have a PDA uplink. Viva.
+  id: 179
+  time: '2025-01-29T04:24:44.0000000+00:00'

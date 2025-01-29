@@ -39,7 +39,7 @@
   parent: BaseMedicalPatch
   id: MedicalPatchBasic
   name: patch
-  description: A Chemical Patch. Keep it on tightly. # Funky
+  description: A chemical patch. Keep it on tightly. # Funky
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -93,7 +93,7 @@
   parent: MedicalPatchBasic
   id: MedicalPatchRapid
   name: rapid patch
-  description:  A Rapid-Application patch for fast application. Be sure to not overdose a patient. # Funky
+  description:  A rapid patch for fast application. Be sure to not overdose a patient. # Funky
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -111,7 +111,7 @@
   parent: MedicalPatchBasic
   id: MedicalPatchLarge
   name: large patch
-  description: A Larger Chemical Patch. Holds much more chemicals and injects them slower. # Funky
+  description: A larger chemical patch. Holds more chemicals, but injects them slowly. # Funky
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -186,8 +186,8 @@
     - to: medicalPatchMakeshift
       steps:
       - material: Gauze
-        amount: 2 
-        doAfter: 5 
+        amount: 2
+        doAfter: 5
   - node: medicalPatchMakeshift
     entity: MedicalPatchMakeshift
 
@@ -199,7 +199,7 @@
   targetNode: medicalPatchMakeshift
   category: construction-category-tools
   objectType: Item
-  description: A Ghetto chemist dream. For the customer? A Nightmare. # Funky
+  description: A ghetto chemist's dream. For the customers? A nightmare. # Funky
   icon:
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
     state: MakeshiftPatch

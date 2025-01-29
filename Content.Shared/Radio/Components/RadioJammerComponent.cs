@@ -18,13 +18,13 @@ public sealed partial class RadioJammerComponent : Component
         /// Power usage per second when enabled.
         /// </summary>
         [DataField(required: true)]
-        public float Wattage;
+        public float Wattage = 0.0f;
 
         /// <summary>
         /// Range of the jammer.
         /// </summary>
         [DataField(required: true)]
-        public float Range;
+        public float Range = 0.0f;
 
         /// <summary>
         /// The message that is displayed when switched.

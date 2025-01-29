@@ -13,7 +13,7 @@
   icon: "JobIconSecurityClown"
   supervisors: job-supervisors-security
   canBeAntag: false
-  setPreference: true
+  setPreference: false
   access:
   - Security
   - Brig

@@ -18,26 +18,26 @@ public sealed partial class RadioJammerComponent : Component
         /// Power usage per second when enabled.
         /// </summary>
         [DataField(required: true)]
-        public float Wattage = 0.0f;
+        public required float Wattage;
 
         /// <summary>
         /// Range of the jammer.
         /// </summary>
         [DataField(required: true)]
-        public float Range = 0.0f;
+        public required float Range;
 
         /// <summary>
         /// The message that is displayed when switched.
         /// to this setting.
         /// </summary>
         [DataField(required: true)]
-        public LocId Message = string.Empty;
+        public required LocId Message;
 
         /// <summary>
         /// Name of the setting.
         /// </summary>
         [DataField(required: true)]
-        public LocId Name = string.Empty;
+        public required LocId Name;
     }
 
     /// <summary>

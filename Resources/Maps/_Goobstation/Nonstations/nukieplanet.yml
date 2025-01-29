@@ -8858,7 +8858,7 @@ entities:
     - type: Transform
       pos: -9.418489,-10.329338
       parent: 2
-- proto: SyringeAiuri
+- proto: SyringeDermaline
   entities:
   - uid: 1433
     components:

@@ -896,18 +896,18 @@
           Quantity: 15
 
 - type: entity
-  suffix: aiuri
+  suffix: dermaline
   parent: PrefilledSyringe
-  id: SyringeAiuri
+  id: SyringeDermaline
   components:
   - type: Label
-    currentLabel: aiuri
+    currentLabel: dermaline
   - type: SolutionContainerManager
     solutions:
       injector:
         maxVol: 15
         reagents:
-        - ReagentId: Aiuri
+        - ReagentId: Dermaline
           Quantity: 15
 
 - type: entity

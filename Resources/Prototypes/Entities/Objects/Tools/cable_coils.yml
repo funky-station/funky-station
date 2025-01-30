@@ -51,6 +51,10 @@
   #    path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
   #  endSound:
   #    path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
+  - type: GuideHelp
+    guides:
+    - VoltageNetworks
+    - Power
 
 - type: entity
   id: CableHVStack

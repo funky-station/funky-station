@@ -33,6 +33,10 @@
       tags:
         - AirSensor
         - ForceFixRotations
+    - type: GuideHelp
+      guides:
+      - DeviceMonitoringAndControl
+      - AtmosphericsSystems
 
 - type: entity
   id: AirSensor

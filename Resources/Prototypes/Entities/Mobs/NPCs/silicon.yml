@@ -383,6 +383,7 @@
     templateId: medibot
   - type: StationAiVision # Goobstation - AI can see through NT silicon
     range: 1
+  - type: DoAfter
 
 - type: entity
   parent:

@@ -1,27 +1,4 @@
 ﻿Entries:
-- author: Allen
-  changes:
-  - message: Magboots and Science Magboots are no longer contraband. Advanced Magboots
-      and Blood-Red Magboots now have appropriate contraband types (Grand Theft and
-      Syndie Contraband respectively)
-    type: Fix
-  id: 7281
-  time: '2024-09-04T15:04:50.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/30960
-- author: Blackern5000
-  changes:
-  - message: Zombie outbreaks are now SIGNIFICANTLY rarer
-    type: Tweak
-  id: 7282
-  time: '2024-09-04T15:57:42.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/30266
-- author: yuitop
-  changes:
-  - message: Going into portals while pulling no more crashes the game
-    type: Fix
-  id: 7283
-  time: '2024-09-04T16:44:10.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/31787
 - author: Ilya246
   changes:
   - message: The syndicate stealth box will no longer make a loud sound upon being
@@ -3930,3 +3907,28 @@
   id: 7780
   time: '2025-01-04T13:41:45.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/32280
+- author: deltanedas
+  changes:
+  - message: Fixed wielding use delay not working properly.
+    type: Fix
+  - message: Fixed bow sprite not updating when wielded.
+    type: Fix
+  id: 7781
+  time: '2025-01-05T19:06:10.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/32188
+- author: Errant
+  changes:
+  - message: Lobby chat width is no longer dependent on the server's name.
+    type: Tweak
+  - message: Lobby title of a server can now be different from the Hub listing's name.
+    type: Tweak
+  id: 7782
+  time: '2025-01-05T20:56:02.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/33783
+- author: SpaceRox1244
+  changes:
+  - message: Station lights can now be destroyed by bullets.
+    type: Add
+  id: 7783
+  time: '2025-01-05T22:11:01.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/34070

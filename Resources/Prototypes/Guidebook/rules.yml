@@ -5,8 +5,6 @@
   text: "/ServerInfo/Guidebook/ServerRules/DefaultRules.xml"
   children:
   - CoreRules
-#  - RoleplayRules
-#  - SiliconRules
   - RoleTypes
   - BanTypes
   - BanDurations

@@ -79,7 +79,9 @@ namespace Content.IntegrationTests.Tests
             "roid_outpost",
             "DMVStation",
             "Plasma",
-            "Elkridge"
+            "Elkridge",
+            "Convex"
+
         };
 
         /// <summary>

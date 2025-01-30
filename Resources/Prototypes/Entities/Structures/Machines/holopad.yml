@@ -82,10 +82,10 @@
   - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
-      enum.HolopadUiKey.InteractionWindow:
-        type: HolopadBoundUserInterface
-      enum.WiresUiKey.Key:
-        type: WiresBoundUserInterface
+        enum.HolopadUiKey.InteractionWindow:
+          type: HolopadBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
   - type: WiresPanel
   - type: WiresVisuals
   - type: Wires
@@ -107,29 +107,29 @@
 
 - type: entity
   name: long-range holopad
-  description: "A floor-mounted device for projecting holographic images to other devices that are far away."
+  description: "A floor-mounted device for projecting holographic images to similar devices that are far away."
   parent: Holopad
   id: HolopadLongRange
-  suffix: For calls between maps
   components:
   - type: Telephone
-    transmissionRange: Long
-
-- type: entity
-  name: quantum entangling holopad
-  description: "An experimental floor-mounted device for projecting holographic images at extreme distances."
-  parent: Holopad
-  id: HolopadUnlimitedRange
-  suffix: Unlimited range
-  components:
-  - type: Telephone
-    transmissionRange: Unlimited
-    ignoreTelephonesOnSameGrid: true
+    transmissionRange: Map
     compatibleRanges:
     - Map
     - Unlimited
-  - type: AccessReader
-    access: [[]]
+    ignoreTelephonesOnSameGrid: true
+
+- type: entity
+  name: quantum entangling holopad
+  description: "An floor-mounted device for projecting holographic images to similar devices at extreme distances."
+  parent: Holopad
+  id: HolopadUnlimitedRange
+  components:
+  - type: Telephone
+    transmissionRange: Unlimited
+    compatibleRanges:
+    - Map
+    - Unlimited
+    ignoreTelephonesOnSameGrid: true
 
 - type: entity
   name: bluespace holopad
@@ -484,6 +484,14 @@
   components:
   - type: Label
     currentLabel: holopad-medical-breakroom
+
+- type: entity
+  parent: Holopad
+  id: HolopadMedicalClinic
+  suffix: Med Clinic
+  components:
+  - type: Label
+    currentLabel: holopad-medical-clinic
 
 # Cargo
 - type: entity

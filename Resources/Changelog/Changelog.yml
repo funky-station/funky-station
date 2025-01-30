@@ -1,25 +1,4 @@
 ﻿Entries:
-- author: Fildrance
-  changes:
-  - message: random uplink discounts for traitors
-    type: Add
-  id: 7287
-  time: '2024-09-05T12:12:39.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/26297
-- author: ScarKy0
-  changes:
-  - message: AI Actions now work.
-    type: Fix
-  id: 7288
-  time: '2024-09-05T12:49:22.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/31823
-- author: ScarKy0
-  changes:
-  - message: Station AI now has updated icons on the HUD.
-    type: Add
-  id: 7289
-  time: '2024-09-05T12:52:26.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/31799
 - author: drakewill-CRL
   changes:
   - message: Botanists can now learn basic chemistry with the Agrichem Is Fun! kit
@@ -3932,3 +3911,24 @@
   id: 7786
   time: '2025-01-07T17:45:03.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/34265
+- author: Tayrtahn
+  changes:
+  - message: Sentient goats now have a bleating effect when speaking.
+    type: Add
+  id: 7787
+  time: '2025-01-08T01:00:20.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/34273
+- author: southbridge-fur
+  changes:
+  - message: Warm light bulbs exist now.
+    type: Add
+  id: 7788
+  time: '2025-01-09T08:54:05.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/34324
+- author: deltanedas
+  changes:
+  - message: Fixed AIs not being able to use lockable buttons.
+    type: Fix
+  id: 7789
+  time: '2025-01-09T11:23:37.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/34326

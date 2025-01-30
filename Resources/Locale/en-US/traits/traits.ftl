@@ -71,3 +71,6 @@ trait-spanish-desc = Hola señor, donde esta la biblioteca.
 
 trait-russian-name = Russian accent
 trait-russian-desc = Niko, it's Roman! Let's go bowling!
+
+trait-painnumbness-name = Numb
+trait-painnumbness-desc = You lack any sense of feeling pain, being unaware of how hurt you may be.

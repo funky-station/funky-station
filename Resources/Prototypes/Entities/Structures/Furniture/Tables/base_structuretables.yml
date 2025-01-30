@@ -39,7 +39,9 @@
       collection: FootstepHull
   - type: RequireProjectileTarget # Goobstation - Crawling
     ignoreThrow: true
-
+  - type: Tag
+    tags:
+    - ForceFixRotations
 
 - type: entity
   id: CounterBase
@@ -57,5 +59,5 @@
         mask:
         - TableMask
         layer:
-        - TableLayer 
+        - TableLayer
         - BulletImpassable # Goobstation - Crawling

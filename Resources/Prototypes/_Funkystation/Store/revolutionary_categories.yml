@@ -1,0 +1,4 @@
+- type: storeCategory
+  id: RevolutionaryUplinkDefault
+  name: store-category-revolutionary-default
+  priority: 0

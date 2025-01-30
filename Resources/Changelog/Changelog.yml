@@ -1,22 +1,4 @@
 ﻿Entries:
-- author: PopGamer46
-  changes:
-  - message: Fixed being able to craft the justice helmet with a justice helmet
-    type: Fix
-  id: 7314
-  time: '2024-09-08T10:21:55.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/31957
-- author: Killerqu00
-  changes:
-  - message: Seclite is now restricted to security.
-    type: Tweak
-  - message: Handcuffs are now restricted to security and command.
-    type: Tweak
-  - message: Trench whistle is now minor contraband.
-    type: Tweak
-  id: 7315
-  time: '2024-09-08T12:06:01.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/31956
 - author: Psychpsyo
   changes:
   - message: The random sentience event should now actually happen again.
@@ -3927,3 +3909,17 @@
   id: 7813
   time: '2025-01-15T19:35:59.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/34034
+- author: TheShuEd
+  changes:
+  - message: Christmas anomaly removed
+    type: Remove
+  id: 7814
+  time: '2025-01-15T20:22:32.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/34053
+- author: Kickguy223
+  changes:
+  - message: Puddles will now correctly evaporate
+    type: Fix
+  id: 7815
+  time: '2025-01-15T21:21:20.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/34303

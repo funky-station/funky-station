@@ -6,6 +6,10 @@ namespace Content.Server.Speech.EntitySystems
 {
     public sealed class FunkyAccentSystem : EntitySystem
     {
+        [Dependency] private readonly IRobustRandom _random = default!;
+
+        private readonly IReadOnlyList<string> _endings = new List<string>(){ ", uh huh.", ", alright?", ", mmh"};
+
         public override void Initialize()
         {
             SubscribeLocalEvent<FunkyAccentComponent, AccentGetEvent>(OnAccent);
@@ -175,6 +179,9 @@ namespace Content.Server.Speech.EntitySystems
                 }
             }
             message = new string(array);
+
+            if (_random.Prob(0.15f))
+                message += _random.Pick(_endings);
 
             return message;
         }

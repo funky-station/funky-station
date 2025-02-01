@@ -41,4 +41,25 @@ public sealed partial class RevolutionaryRuleComponent : Component
     // funky station
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan RevVictoryEndDelay = TimeSpan.FromMinutes(2);
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan? RevLoseTime;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan OffStationTimer = TimeSpan.FromMinutes(1);
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool RevLossTimerActive = false;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool RevForceLose = false;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public int StartingBalance = 40;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public EntProtoId UplinkStoreId = "StorePresetRevolutionaryUplink";
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public EntProtoId UplinkCurrencyId = "RevCoin";
 }

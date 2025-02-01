@@ -246,11 +246,11 @@
         maxVol: 30
         reagents:
         - ReagentId: Aiuri
-          Quantity: 15
+          Quantity: 10
         - ReagentId: Oxandrolone
           Quantity: 10
-        - ReagentId: Leporazine
-          Quantity: 5
+        - ReagentId: Lenturi
+          Quantity: 10
   - type: Tag
     tags: []
 

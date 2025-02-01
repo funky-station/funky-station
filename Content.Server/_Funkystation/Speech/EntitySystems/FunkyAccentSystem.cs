@@ -1,4 +1,3 @@
-using System.Collections;
 using Content.Server.Speech.Components;
 using Robust.Shared.Random;
 
@@ -17,30 +16,24 @@ namespace Content.Server.Speech.EntitySystems
 
         public string Accentuate(string message)
         {
-            // lowercase everything to make the logic a bit easier.  Keep track of original case to restore after
-            // we apply the accent to the message
-            var caseBits = new BitArray(message.Length);
-            var index = 0;
-            foreach (var letter in message)
-            {
-                if (char.IsUpper(letter))
-                    caseBits[index] = true;
-
-                index++;
-            }
-            message = message.ToLower();
-
             // Based off of /proc/elvisfy gooncode
             for (var i = 0; i < message.Length;)
             {
-                char c = message[i];
+                bool isCapital = char.IsUpper(message[i]);
+                // we lose some finesse by only accounting for the case of the first letter, so anything mixed case
+                // isn't going to be retained, but I'm sure the VAST majority of words are going to be all or nothing in
+                // terms of capitalization.
+                char c = char.ToLower(message[i]);
+
                 string outMessage = string.Empty;
 
+                #region SHITCODE
                 char prev = i > 0 ? message[i - 1] : '\0';
-                char next = i < message.Length - 1 ? message[i + 1] : '\0';
-                char nextNext = i < message.Length - 2 ? message[i + 2] : '\0';
-                char nextNextNext = i < message.Length - 3 ? message[i + 3] : '\0';
-                char nextNextNextNext = i < message.Length - 4 ? message[i + 4] : '\0';
+                char next = i < message.Length - 1 ? char.ToLower(message[i + 1]) : '\0';
+                char nextNext = i < message.Length - 2 ? char.ToLower(message[i + 2]) : '\0';
+                char nextNextNext = i < message.Length - 3 ? char.ToLower(message[i + 3]) : '\0';
+                #endregion
+
                 int used = 0; // sometimes this isn't the length of the replacement string.  Don't ask me why.
 
                 switch (c)
@@ -165,20 +158,13 @@ namespace Content.Server.Speech.EntitySystems
                     outMessage = c.ToString();
                 }
 
+                if (isCapital)
+                    outMessage = outMessage.ToUpper();
+
                 message = message.Remove(i, used);
                 message = message.Insert(i, outMessage);
                 i += used;
             }
-
-            var array = message.ToCharArray();
-            for (int i = 0; i < caseBits.Length; i++)
-            {
-                if (caseBits[i])
-                {
-                    array[i] = char.ToUpper(array[i]);
-                }
-            }
-            message = new string(array);
 
             if (_random.Prob(0.15f))
                 message += _random.Pick(_endings);

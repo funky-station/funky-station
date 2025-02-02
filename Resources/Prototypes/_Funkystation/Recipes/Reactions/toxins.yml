@@ -1,0 +1,65 @@
+﻿- type: reaction
+  id: LeporazineLone
+  impact: Medium
+  reactants:
+    Leporazine:
+      amount: 1
+    Oxandrolone:
+      amount: 1
+  products:
+    Licoxide: 1
+
+- type: reaction
+  id: PyrazineLone
+  impact: Medium
+  reactants:
+    Pyrazine:
+      amount: 1
+    Oxandrolone:
+      amount: 1
+  products:
+    Licoxide: 1
+
+- type: reaction
+  id: InsuzineLone
+  impact: Medium
+  reactants:
+    Insuzine:
+      amount: 1
+    Oxandrolone:
+      amount: 1
+  products:
+    Licoxide: 1
+
+- type: reaction
+  id: LeporazinePyra
+  impact: Medium
+  reactants:
+    Pyrazine:
+      amount: 1
+    Leporazine:
+      amount: 1
+  products:
+    Licoxide: 1
+
+- type: reaction
+  id: LeporazineInsu
+  impact: Medium
+  reactants:
+    Leporazine:
+      amount: 1
+    Insuzine:
+      amount: 1
+  products:
+    Licoxide: 1
+
+- type: reaction
+  id: PyrazineInsu
+  impact: Medium
+  reactants:
+    Pyrazine:
+      amount: 1
+    Insuzine:
+      amount: 1
+  products:
+    Licoxide: 1

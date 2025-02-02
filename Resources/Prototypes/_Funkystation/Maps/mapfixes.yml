@@ -1,0 +1,15 @@
+﻿- type: entity
+  parent: MedicalPatchPrefilledBase
+  id: MedicalPatchPrefilledDermaline
+  name: burn patch
+  suffix: mapfix
+  components:
+  - type: Label
+    currentLabel: Aiuri 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Aiuri
+          Quantity: 30

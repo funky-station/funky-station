@@ -1,0 +1,16 @@
+- type: reagent
+  id: SpikedEggnog
+  name: reagent-name-spiked-eggnog
+  parent: BaseAlcohol
+  desc: reagent-desc-spiked-eggnog
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: spiked-eggnog
+  color: "#F5D695"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.07

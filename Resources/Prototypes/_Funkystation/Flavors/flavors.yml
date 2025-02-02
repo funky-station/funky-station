@@ -1,0 +1,14 @@
+- type: flavor
+  id: eggnog
+  flavorType: Complex
+  description: flavor-complex-eggnog
+
+- type: flavor
+  id: peggnog
+  flavorType: Complex
+  description: flavor-complex-peggnog
+
+- type: flavor
+  id: spiked-eggnog
+  flavorType: Complex
+  description: flavor-complex-spiked-eggnog

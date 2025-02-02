@@ -1,0 +1,29 @@
+- type: reagent
+  id: Eggnog
+  name: reagent-name-eggnog
+  parent: BaseDrink
+  desc: reagent-desc-eggnog
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: eggnog
+  color: "#F5D695"
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 1
+
+- type: reagent
+  id: Peggnog
+  name: reagent-name-peggnog
+  parent: BaseDrink
+  desc: reagent-desc-peggnog
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: peggnog
+  color: "#ffca95"
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 1

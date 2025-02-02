@@ -1,0 +1,9 @@
+- type: reaction
+  id: SpikedEggnog
+  reactants:
+    Eggnog:
+      amount: 1
+    Rum:
+      amount: 2
+  products:
+    SpikedEggnog: 3

@@ -1442,3 +1442,11 @@ Entries:
       message: Head Revolutionaries now have a PDA uplink. Viva.
   id: 179
   time: '2025-01-29T04:24:44.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Add
+      message: added supermatter engine to packed station
+    - type: Remove
+      message: removed singularity/tesla engine from packed station
+  id: 180
+  time: '2025-02-02T23:33:14.0000000+00:00'

@@ -692,69 +692,36 @@
 
 - type: entity
   name: pill
-  suffix: Libital 15u
+  suffix: Bicaridine 10u
   parent: Pill
-  id: PillLibital
+  id: PillBicaridine
   components:
   - type: Pill
     pillType: 4
   - type: Sprite
     state: pill5
   - type: Label
-    currentLabel: libital 15u
+    currentLabel: bicaridine 10u
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 20
         reagents:
-        - ReagentId: Libital
-          Quantity: 15
-
-- type: entity
-  name: pill
-  suffix: Probital 15u
-  parent: Pill
-  id: PillProbital
-  components:
-  - type: Pill
-    pillType: 15
-  - type: Sprite
-    state: pill5
-  - type: Label
-    currentLabel: probital 15u
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Probital
-          Quantity: 15
+        - ReagentId: Bicaridine
+          Quantity: 10
 
 - type: entity
   name: pill canister
   parent: PillCanister
-  id: PillCanisterLibital
-  suffix: Libital 15u
+  id: PillCanisterBicaridine
+  suffix: Bicaridine 10u, 5
   components:
   - type: Label
-    currentLabel: libital 15u
+    currentLabel: bicaridine 10u
   - type: StorageFill
     contents:
-    - id: PillLibital
-      amount: 8
-
-- type: entity
-  name: pill canister
-  parent: PillCanister
-  id: PillCanisterProbital
-  suffix: Probital 15u
-  components:
-  - type: Label
-    currentLabel: probital 15u
-  - type: StorageFill
-    contents:
-    - id: PillProbital
-      amount: 8
+    - id: PillBicaridine
+      amount: 5
 
 - type: entity
   name: pill
@@ -871,11 +838,11 @@
       prob: 0.10
       maxAmount: 7
       orGroup: RandomPill
-    - id: PillLibital
+    - id: PillTricordrazine
       prob: 0.10
       maxAmount: 7
       orGroup: RandomPill
-    - id: PillProbital
+    - id: PillBicaridine
       prob: 0.10
       maxAmount: 7
       orGroup: RandomPill
@@ -947,18 +914,18 @@
           Quantity: 15
 
 - type: entity
-  suffix: libital
+  suffix: bicaridine
   parent: PrefilledSyringe
-  id: SyringeLibital
+  id: SyringeBicaridine
   components:
   - type: Label
-    currentLabel: libital
+    currentLabel: reagent-name-bicaridine
   - type: SolutionContainerManager
     solutions:
       injector:
         maxVol: 15
         reagents:
-        - ReagentId: Libital
+        - ReagentId: Bicaridine
           Quantity: 15
 
 - type: entity

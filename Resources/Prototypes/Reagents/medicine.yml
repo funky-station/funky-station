@@ -137,6 +137,7 @@
   color: "#ffaa00"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
@@ -1339,7 +1340,6 @@
   color: "#baa15d"
   metabolisms:
     Medicine:
-      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:GenericStatusEffect
         key: RadiationProtection
@@ -1408,3 +1408,92 @@
       - !type:AdjustReagent
         reagent: MindbreakerToxin
         amount: -3.0
+
+# funkystation
+- type: reagent
+  id: Hypothium
+  name: reagent-name-hypothium
+  group: Medicine
+  desc: reagent-desc-hypothium
+  physicalDesc: reagent-physical-desc-tart
+  flavor: medicine
+  color: "#c8317a"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage: # still less than healium as a gas but a good liquid chem
+          groups:
+            Brute: -6
+            Burn: -6
+            Toxin: -6
+            Airloss: -6
+      - !type:ModifyBleedAmount
+        amount: -0.5
+
+- type: reagent
+  id: Pyroxadone
+  name: reagent-name-pyroxadone
+  group: Medicine
+  desc: reagent-desc-pyroxadone
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: spicy
+  color: "#f8c8ba"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:Temperature
+          min: 337.3 # completely arbitrary
+        damage:
+          groups: # same as cryox
+            Airloss: -6
+            Brute: -4
+            Burn: -6
+            Toxin: -4
+          types:
+            Heat: -3
+
+- type: reagent
+  id: Ardthyrnkole
+  name: reagent-name-ardthyrnkole
+  group: Medicine
+  desc: reagent-desc-ardthyrnkole
+  physicalDesc: reagent-physical-desc-blazing
+  flavor: sour
+  color: "#894379"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:Temperature
+          min: 343.3
+        damage:
+          types:
+            Cold: -5
+            Heat: -3 # offsets heat damage from the pod
+            Shock: -3
+
+- type: reagent
+  id: Natusixadone
+  name: reagent-name-natusixadone
+  group: Medicine
+  desc: reagent-desc-natusixadone
+  physicalDesc: reagent-physical-desc-bubbling
+  flavor: medicine
+  color: "#acbb27"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:Temperature
+          min: 343.3
+        damage:
+          types:
+            Cellular: -4
+            Heat: -3

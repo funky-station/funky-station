@@ -1,39 +1,4 @@
-- type: reaction
-  id: Libital
-  reactants:
-    Nitrogen:
-      amount: 1
-    Oil:
-      amount: 1
-    Oxygen:
-      amount: 1
-  products:
-    Libital: 3
-
-- type: reaction
-  id: Probital
-  reactants:
-    Acetone:
-      amount: 2
-    Copper:
-      amount: 1
-    Phosphorus:
-      amount: 1
-  products:
-    Probital: 4
-
-- type: reaction
-  id: SalicylicAcid
-  reactants:
-    Phenol:
-      amount: 1
-    Probital:
-      amount: 1
-    SulfuricAcid:
-      amount: 1
-  products:
-    SalicylicAcid: 3
-
+# burn
 - type: reaction
   id: Aiuri
   reactants:
@@ -74,6 +39,7 @@
   products:
     Oxandrolone: 6
 
+# poison
 - type: reaction
   id: Multiver
   reactants:
@@ -102,6 +68,44 @@
   products:
     PenteticAcid: 5
 
+# brute
+- type: reaction
+  id: Libital
+  reactants:
+    Nitrogen:
+      amount: 1
+    Oil:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    Libital: 3
+
+- type: reaction
+  id: Probital
+  reactants:
+    Acetone:
+      amount: 2
+    Copper:
+      amount: 1
+    Phosphorus:
+      amount: 1
+  products:
+    Probital: 4
+
+- type: reaction
+  id: SalicylicAcid
+  reactants:
+    Phenol:
+      amount: 1
+    Probital:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+  products:
+    SalicylicAcid: 3
+
+# airloss
 - type: reaction
   id: Granibitulari
   reactants:
@@ -146,6 +150,7 @@
   products:
     Convermol: 5
 
+# misc
 - type: reaction
   id: Pielovene
   reactants:
@@ -170,6 +175,7 @@
   products:
     Hypothium: 3
 
+# pyro
 - type: reaction
   id: Pyroxadone
   minTemp: 433

@@ -189,7 +189,7 @@
     tags: []
 
 - type: entity # Funkychem
-  name: brute auto-injector 
+  name: brute auto-injector
   parent: ChemicalMedipen
   id: BruteAutoInjector
   description: A rapid dose of libital, salicylic acid and tranexamic acid, intended for combat applications.
@@ -226,7 +226,7 @@
   name: burn auto-injector
   parent: ChemicalMedipen
   id: BurnAutoInjector
-  description: A rapid dose of aiuri, oxandrolone and leporazine, intended for combat applications.
+  description: A rapid dose of aiuri, oxandrolone and lenturi, intended for combat applications.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -248,19 +248,19 @@
         maxVol: 30
         reagents:
         - ReagentId: Aiuri
-          Quantity: 15
+          Quantity: 10
         - ReagentId: Oxandrolone
           Quantity: 10
-        - ReagentId: Leporazine
-          Quantity: 5
+        - ReagentId: Lenturi
+          Quantity: 10
   - type: Tag
     tags: []
 
-- type: entity # Funkychem
+- type: entity
   name: rad auto-injector
   parent: ChemicalMedipen
   id: RadAutoInjector
-  description: A rapid dose of anti-radiation. Contains arithrazine and libital.
+  description: A rapid dose of anti-radiation. Contains arithrazine and bicaridine.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -283,7 +283,7 @@
         reagents:
         - ReagentId: Arithrazine
           Quantity: 15
-        - ReagentId: Libital
+        - ReagentId: Bicaridine
           Quantity: 5
   - type: Tag
     tags: []

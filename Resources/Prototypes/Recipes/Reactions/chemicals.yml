@@ -50,7 +50,7 @@
     Oxygen:
       amount: 1
   products:
-    Acetone: 2
+    Acetone: 3 # funky
 
 - type: reaction
   id: FoamingAgent

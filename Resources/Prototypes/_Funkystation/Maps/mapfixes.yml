@@ -1,7 +1,4 @@
-# File exists for maps that for some, VERY dumb reason use a specific pill canister / pill instead of the apparently intended spawner, All these are.
-# they are literally the correct protos renamed lol, i'm not remapping entire maps for pedantic crap like the correct entity name- a thing only admins see.
-# Add a comment for every case of "i'm not remaking a map for a completely admin side extremely small annoyance!"
-
+﻿
 - type: entity
   name: pill
   suffix: mapfix
@@ -102,54 +99,6 @@
       amount: 8
 
 - type: entity
-  name: pill
-  suffix: mapfix
-  parent: Pill
-  id: PillBicaridine
-  components:
-  - type: Pill
-    pillType: 4
-  - type: Sprite
-    state: pill5
-  - type: Label
-    currentLabel: libital 15u
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Libital
-          Quantity: 15
-
-- type: entity
-  name: pill canister
-  parent: PillCanister
-  id: PillCanisterBicaridine
-  suffix: mapfix
-  components:
-  - type: Label
-    currentLabel: libital 15u
-  - type: StorageFill
-    contents:
-    - id: PillLibital
-      amount: 8
-      
-- type: entity
-  suffix: mapfix
-  parent: PrefilledSyringe
-  id: SyringeBicaridine
-  components:
-  - type: Label
-    currentLabel: libital
-  - type: SolutionContainerManager
-    solutions:
-      injector:
-        maxVol: 15
-        reagents:
-        - ReagentId: Libital
-          Quantity: 15
-
-- type: entity
   suffix: mapfix
   parent: PrefilledSyringe
   id: SyringeDermaline
@@ -164,7 +113,7 @@
         - ReagentId: Aiuri
           Quantity: 15
 
-- type: entity # Divide grrrr
+- type: entity
   parent: MedicalPatchPrefilledBase
   id: MedicalPatchPrefilledBicaridine
   name: brute patch
@@ -177,8 +126,8 @@
       drink:
         maxVol: 30
         reagents:
-          - ReagentId: Libital
-            Quantity: 30
+        - ReagentId: Libital
+          Quantity: 30
 
 - type: entity
   parent: MedicalPatchPrefilledBase
@@ -193,10 +142,10 @@
       drink:
         maxVol: 30
         reagents:
-          - ReagentId: Aiuri
-            Quantity: 30
+        - ReagentId: Aiuri
+          Quantity: 30
 
-- type: entity # Fucking oasis.
+- type: entity
   id: CigaretteDylovene
   parent: SoakedCigarette
   name: Lacking Liver Damage
@@ -207,15 +156,15 @@
       smokable:
         maxVol: 40
         reagents:
-          - ReagentId: Nicotine
-            Quantity: 10
-          - ReagentId: Multiver
-            Quantity: 10
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: Multiver
+          Quantity: 10
 
 - type: entity
-  id: CigarettDermaline
+  id: CigaretteDermaline
   parent: SoakedCigarette
-  name: Does Not Meet Expectations 
+  name: Does Not Meet Expectations
   suffix: mapfix
   components:
   - type: SolutionContainerManager
@@ -223,10 +172,10 @@
       smokable:
         maxVol: 40
         reagents:
-          - ReagentId: Nicotine
-            Quantity: 10
-          - ReagentId: Aiuri
-            Quantity: 10
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: Aiuri
+          Quantity: 10
 
 - type: entity
   id: CigaretteBicaridine
@@ -239,7 +188,7 @@
       smokable:
         maxVol: 40
         reagents:
-          - ReagentId: Nicotine
-            Quantity: 10
-          - ReagentId: SalicylicAcid
-            Quantity: 10
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: SalicylicAcid
+          Quantity: 10

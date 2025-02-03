@@ -15,5 +15,8 @@
     ClothingOuterWinterMiner: 2
     ClothingNeckScarfStripedBrown: 3
     ClothingShoesBootsWinterCargo: 2
-  emaggedInventory:
+  contrabandInventory:
+    ToyFigurineCargoTech: 1
+    ToyFigurineSalvage: 1
+    ToyFigurineQuartermaster: 1
     ClothingUniformJumpsuitWSMSyndicate: 1

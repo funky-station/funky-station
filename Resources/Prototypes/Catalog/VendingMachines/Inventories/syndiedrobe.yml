@@ -22,7 +22,10 @@
     ClothingUniformJumpsuitLibrarianSyndicate: 2
     ClothingUniformJumpsuitScientistSyndicate: 1
     ClothingUniformJumpsuitScientistWhiteSyndicate: 1
-
+  contrabandInventory:
+    ToyFigurineFootsoldier: 1
+    ToyFigurineNukieElite: 1
+    ToyFigurineNukieCommander: 1
   emaggedInventory:
     ClothingOuterCoatSyndieCapArmored: 1
     ClothingOuterWinterSyndieCapArmored: 1

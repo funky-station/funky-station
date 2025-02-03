@@ -263,7 +263,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 15.5
-        damage: # ODing causes damage but heals brute. awesome.
+        damage: # ODing causes damage but heals brute
           groups:
             Burn: 2 # will cause minor caustic damage
             Brute: -2.4
@@ -304,7 +304,7 @@
         - !type:ReagentThreshold
           min: 15.5
         damage:
-          groups:
+          groups: # ODing heals airloss but causes damage
             Airloss: -6
             Genetic: 0.2
 

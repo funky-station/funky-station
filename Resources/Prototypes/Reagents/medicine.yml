@@ -597,9 +597,9 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -2.4 # funky
+            Brute: -4 # funky
           types:
-            Asphyxiation: -2 # funky
+            Asphyxiation: -3 # funky
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold

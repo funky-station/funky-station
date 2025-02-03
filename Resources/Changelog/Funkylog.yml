@@ -1471,3 +1471,11 @@ Entries:
       message: rebalanced prices of atmospheric gases
   id: 183
   time: '2025-02-03T19:43:02.0000000+00:00'
+- author: ' Icepicked, Gtheglorius'
+  changes:
+    - type: Add
+      message: New Clown Masks!
+    - type: Tweak
+      message: (Non-Security) Clowns are now able to select masks in their loadout.
+  id: 184
+  time: '2025-02-03T20:23:18.0000000+00:00'

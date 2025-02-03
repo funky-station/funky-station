@@ -39,7 +39,7 @@
   description: uplink-hyposhell-desc
   productEntity: BoxShellHypo
   cost:
-    Telecrystal: 4
+    Telecrystal: 25
   categories:
   - UplinkJob
   conditions:

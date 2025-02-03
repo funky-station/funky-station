@@ -19,14 +19,16 @@ namespace Content.Server.Speech.EntitySystems
             // Based off of /proc/elvisfy gooncode
             for (var i = 0; i < message.Length;)
             {
-                bool isCapital = char.IsUpper(message[i]);
                 // we lose some finesse by only accounting for the case of the first letter, so anything mixed case
                 // isn't going to be retained, but I'm sure the VAST majority of words are going to be all or nothing in
                 // terms of capitalization.
+                bool isCapital = char.IsUpper(message[i]);
+                // Except for the first letter of a sentence d'oh!
+                bool isNextCapital = i < message.Length - 1 ? char.IsUpper(message[i + 1]) : false;
+
                 char c = char.ToLower(message[i]);
 
                 string outMessage = string.Empty;
-
                 #region SHITCODE
                 char prev = i > 0 ? message[i - 1] : '\0';
                 char next = i < message.Length - 1 ? char.ToLower(message[i + 1]) : '\0';
@@ -158,8 +160,16 @@ namespace Content.Server.Speech.EntitySystems
                     outMessage = c.ToString();
                 }
 
-                if (isCapital)
+                // As a heuristic if what we are replacing only starts with a single capital letter don't capitalize the
+                // whole thing.  This way starting a sentence like 'And' will be replaced with 'Ain', instead of 'AIN'
+                if (isCapital && isNextCapital)
                     outMessage = outMessage.ToUpper();
+                if (isCapital && !isNextCapital)
+                {
+                    char[] array = outMessage.ToCharArray();
+                    array[0] = char.ToUpper(array[0]);
+                    outMessage = new string(array);
+                }
 
                 message = message.Remove(i, used);
                 message = message.Insert(i, outMessage);

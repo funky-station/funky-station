@@ -26,6 +26,9 @@
     JugSugar: 3
     JugSulfur: 1
     JugWeldingFuel: 1
+  contrabandInventory:
+    DrinkLithiumFlask: 1
+    StrangePill: 3
   emaggedInventory:
     ToxinChemistryBottle: 1
     BluespaceBeaker: 1
@@ -59,6 +62,9 @@
     JugSugar: 3
     JugSulfur: 1
     JugWeldingFuel: 1
+  contrabandInventory:
+    DrinkLithiumFlask: 1
+    StrangePill: 3
   emaggedInventory:
     PaxChemistryBottle: 3
     MuteToxinChemistryBottle: 3

@@ -346,7 +346,7 @@
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
 
-# Pills - Funkychem adds a few, 0 reason to make a new file here. Rest have major changes already.
+# Pills - funkychem does major changes to pretty much all of these
 - type: entity
   name: pill
   suffix: Dexalin 20u
@@ -690,6 +690,7 @@
     - id: PillGranibitulari
       amount: 8
 
+# to future me: JUST DELETE BIC!!!!!!!!!!!!!!!!!!!!!!!
 - type: entity
   name: pill
   suffix: Bicaridine 10u
@@ -721,6 +722,72 @@
   - type: StorageFill
     contents:
     - id: PillBicaridine
+      amount: 5
+
+- type: entity
+  name: pill
+  suffix: Libital 15u
+  parent: Pill
+  id: PillLibital
+  components:
+  - type: Pill
+    pillType: 4
+  - type: Sprite
+    state: pill5
+  - type: Label
+    currentLabel: libital 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Libital
+          Quantity: 15
+
+- type: entity
+  name: pill canister
+  parent: PillCanister
+  id: PillCanisterLibital
+  suffix: Libital 15u
+  components:
+  - type: Label
+    currentLabel: libital 15u
+  - type: StorageFill
+    contents:
+    - id: PillLibital
+      amount: 5
+
+- type: entity
+  name: pill
+  suffix: Probital 15u
+  parent: Pill
+  id: PillProbital
+  components:
+  - type: Pill
+    pillType: 15
+  - type: Sprite
+    state: pill5
+  - type: Label
+    currentLabel: probital 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Probital
+          Quantity: 15
+
+- type: entity
+  name: pill canister
+  parent: PillCanister
+  id: PillCanisterProbital
+  suffix: Probital 15u
+  components:
+  - type: Label
+    currentLabel: probital 15u
+  - type: StorageFill
+    contents:
+    - id: PillProbital
       amount: 5
 
 - type: entity
@@ -913,6 +980,7 @@
         - ReagentId: TranexamicAcid
           Quantity: 15
 
+# future me DELETE THIS!!! THIS ONE!!!!
 - type: entity
   suffix: bicaridine
   parent: PrefilledSyringe

@@ -23,7 +23,7 @@
       - id: Ointment
         amount: 2
       - id: PillCanisterAiuri # Funkychem
-      - id: PillCanisterLenturi #
+      - id: PillCanisterLenturi # funky
 
 - type: entity
   id: MedkitBruteFilled
@@ -37,7 +37,7 @@
       - id: SyringeSaline # Funkychem - Handles the fact there's too many species blood types AND 10x more effective.
         amount: 2
       - id: PillCanisterLibital # Funkychem
-      - id: PillCanisterProbital #
+      - id: PillCanisterProbital # funky
 
 - type: entity
   id: MedkitToxinFilled
@@ -76,9 +76,9 @@
   components:
   - type: StorageFill
     contents:
-    #  - id: SyringePhalanximine - Has this literally ever been used? it's a rad kit anyways, and phalanx DEALS rad damage.
+      - id: SyringePhalanximine
       - id: RadAutoInjector
-        amount: 2 # Funkychem
+        amount: 1 # Funkychem
       - id: PillCanisterPotassiumIodide
       - id: PillCanisterHyronalin
       - id: MedicalPatchPrefilledAntiRad # Funkychem
@@ -94,6 +94,8 @@
       - id: MedicatedSuture
       - id: RegenerativeMesh
       - id: Bloodpack
+        amount: 1
+      - id: SyringeSaline # Funky
         amount: 2
 
 - type: entity

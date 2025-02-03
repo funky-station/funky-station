@@ -43,8 +43,8 @@
     - Document
     - Paper
     - StickyNoteYellow
-  - type: EmbeddableProjectile
-    removalTime: .2
+#  - type: EmbeddableProjectile
+#    removalTime: .2
 
 - type: entity
   parent: PaperStickyNote

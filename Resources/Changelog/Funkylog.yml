@@ -1450,3 +1450,12 @@ Entries:
       message: removed singularity/tesla engine from packed station
   id: 180
   time: '2025-02-02T23:33:14.0000000+00:00'
+- author: thecopbennet
+  changes:
+    - type: Add
+      message: >-
+        Adds a four telecrystal purchase for four hyposhells, shells that can
+        hold 7u of any reagent and inject upon impact, available for barkeepers
+        and zookeepers
+  id: 181
+  time: '2025-02-03T03:52:26.0000000+00:00'

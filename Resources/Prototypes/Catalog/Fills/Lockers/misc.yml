@@ -151,12 +151,6 @@
       prob: 0.10
       rolls: !type:RangeNumberSelector
         range: 1, 2
-    # Self-Insert Plushies
-    - !type:NestedSelector
-      tableId: AllSelfInsertPlushiesTable
-      prob: 0.05
-      rolls: !type:RangeNumberSelector
-        range: 1, 3
     # Stowaway Toys
     - !type:NestedSelector
       tableId: AllStowawayToysTable

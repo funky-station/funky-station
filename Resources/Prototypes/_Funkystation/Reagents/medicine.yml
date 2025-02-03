@@ -136,6 +136,11 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: -10
+  - !type:PlantAdjustHealth
+    amount: 1
 
 - type: reagent
   id: PenteticAcid

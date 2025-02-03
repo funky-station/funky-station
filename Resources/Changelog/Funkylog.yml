@@ -1479,3 +1479,9 @@ Entries:
       message: (Non-Security) Clowns are now able to select masks in their loadout.
   id: 184
   time: '2025-02-03T20:23:18.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Remove
+      message: Self-insert and Stowaway brand plushies no longer spawn in lockers.
+  id: 185
+  time: '2025-02-03T20:59:24.0000000+00:00'

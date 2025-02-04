@@ -161,11 +161,11 @@
     tags:
     - EmergencyMedipen
 
-- type: entity # Funkychem
+- type: entity
   name: poison auto-injector
   parent: ChemicalMedipen
   id: AntiPoisonMedipen
-  description: A rapid dose of anti-poison. Contains pentetic acid and epinephrine.
+  description: A rapid dose of anti-poison. Contains ultravasculine and epinephrine.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -179,10 +179,10 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 20
+        maxVol: 15
         reagents:
-        - ReagentId: PenteticAcid
-          Quantity: 15
+        - ReagentId: Ultravasculine
+          Quantity: 10
         - ReagentId: Epinephrine
           Quantity: 5
   - type: Tag

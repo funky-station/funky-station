@@ -10,7 +10,7 @@
     BoxBottle: 3
     ClothingEyesHudMedical: 2
     ClothingEyesEyepatchHudMedical: 2
-    MedicalPatchPrefilledBicaridine: 3  #Goobstation - MedicalPatches
-    MedicalPatchPrefilledDermaline: 3   #Goobstation - MedicalPatches
+    MedicalPatchPrefilledBicaridine: 3  #Goobstation - MedicalPatches - Funkychem
+    MedicalPatchPrefilledAiuri: 3   #Goobstation - MedicalPatches - Funkychem
   contrabandInventory:
     FoodApple: 1

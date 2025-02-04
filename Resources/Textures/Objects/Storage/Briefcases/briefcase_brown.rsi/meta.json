@@ -1,7 +1,11 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
   "copyright": "Taken from baystation at commit https://github.com/Baystation12/Baystation12/commit/a929584d9db319eb7484113221be25cfa1d5dc09, recolored by infinityPandaRed",
+=======
+  "copyright": "Made by ps3moira (github)",
+>>>>>>> b2a6d5c1b0 (Cabinetification  (#34293))
   "size": {
     "x": 32,
     "y": 32

@@ -14,3 +14,74 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.07
+
+- type: reagent
+  id: Tayquila
+  name: reagent-name-tayquila
+  parent: BaseAlcohol
+  desc: reagent-desc-tayquila
+  physicalDesc: reagent-physical-desc-sour
+  flavor: sour
+  color: "#48dd23"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+
+- type: reagent
+  id: Chutzpah
+  name: reagent-name-chutzpah
+  parent: BaseAlcohol
+  desc: reagent-desc-chutzpah
+  physicalDesc: reagent-physical-desc-tangy
+  flavor: chutzpah
+  color: "#552A00"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: -1
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.25 #near-absinthe level
+      - !type:AdjustReagent
+        reagent: SpaceDrugs
+        amount: .6
+
+- type: reagent
+  id: MargheritaDrink
+  name: reagent-name-margherita-drink
+  parent: BaseAlcohol
+  desc: reagent-desc-margherita-drink
+  physicalDesc: reagent-physical-desc-pulpy
+  flavor: margherita-drink
+  color: "#FF6C26"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateHunger
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.07
+
+- type: reagent
+  id: PineappleMargherita
+  name: reagent-name-pineapple-margherita
+  parent: BaseAlcohol
+  desc: reagent-desc-pineapple-margherita
+  physicalDesc: reagent-physical-desc-pulpy
+  flavor: pineapple-margherita
+  color: "#FF6C26"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateHunger
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.07

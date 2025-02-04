@@ -12,19 +12,19 @@ namespace Content.Shared.Radio.Components;
 public sealed partial class RadioJammerComponent : Component
 {
     [DataDefinition]
-    public partial struct RadioJamSetting
+    public partial struct RadioJamSetting()
     {
         /// <summary>
         /// Power usage per second when enabled.
         /// </summary>
         [DataField(required: true)]
-        public float Wattage;
+        public float Wattage = 0;
 
         /// <summary>
         /// Range of the jammer.
         /// </summary>
         [DataField(required: true)]
-        public float Range;
+        public float Range = 0;
 
         /// <summary>
         /// The message that is displayed when switched.
@@ -44,7 +44,7 @@ public sealed partial class RadioJammerComponent : Component
     /// List of all the settings for the radio jammer.
     /// </summary>
     [DataField(required: true), ViewVariables(VVAccess.ReadOnly)]
-    public RadioJamSetting[] Settings;
+    public required RadioJamSetting[] Settings;
 
     /// <summary>
     /// Index of the currently selected setting.

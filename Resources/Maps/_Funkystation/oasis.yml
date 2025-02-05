@@ -68973,7 +68973,7 @@ entities:
       pos: -36.5,30.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#FF1212FF'
+      color: '#FF1211FF'
 - proto: GasFilterFlipped
   entities:
   - uid: 10409

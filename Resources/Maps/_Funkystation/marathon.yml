@@ -65496,7 +65496,7 @@ entities:
       pos: 11.5,-36.5
       parent: 30
     - type: AtmosPipeColor
-      color: '#947507FF'
+      color: '#947506FF'
   - uid: 9218
     components:
     - type: Transform

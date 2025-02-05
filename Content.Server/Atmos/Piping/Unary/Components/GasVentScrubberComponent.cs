@@ -32,6 +32,9 @@ namespace Content.Server.Atmos.Piping.Unary.Components
         /// By default, all air scrubbers start enabled, whether linked to an alarm or not.
         /// </summary>
         [DataField]
+        public bool Powered { get; set; } = false;
+
+        [DataField]
         public bool Enabled { get; set; } = true;
 
         [DataField]

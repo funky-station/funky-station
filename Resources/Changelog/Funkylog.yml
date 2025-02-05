@@ -1485,3 +1485,11 @@ Entries:
       message: Self-insert and Stowaway brand plushies no longer spawn in lockers.
   id: 185
   time: '2025-02-03T20:59:24.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Add
+      message: Added singularity engine to saltern
+    - type: Remove
+      message: Removed supermatter engine from saltern
+  id: 186
+  time: '2025-02-05T23:14:57.0000000+00:00'

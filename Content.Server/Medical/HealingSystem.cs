@@ -132,13 +132,30 @@ public sealed class HealingSystem : EntitySystem
         args.Handled = true;
     }
 
-    private bool HasDamage(DamageableComponent component, HealingComponent healing)
+    private bool HasDamage(Entity<DamageableComponent> ent, HealingComponent healing)
     {
-        var damageableDict = component.Damage.DamageDict;
+        var damageableDict = ent.Comp.Damage.DamageDict;
         var healingDict = healing.Damage.DamageDict;
         foreach (var type in healingDict)
         {
             if (damageableDict[type.Key].Value > 0)
+            {
+                return true;
+            }
+        }
+
+        if (TryComp<BloodstreamComponent>(ent, out var bloodstream))
+        {
+            // Is ent missing blood that we can restore?
+            if (healing.ModifyBloodLevel > 0
+                && _solutionContainerSystem.ResolveSolution(ent.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution)
+                && bloodSolution.Volume < bloodSolution.MaxVolume)
+            {
+                return true;
+            }
+
+            // Is ent bleeding and can we stop it?
+            if (healing.BloodlossModifier < 0 && bloodstream.BleedAmount > 0)
             {
                 return true;
             }
@@ -201,7 +218,7 @@ public sealed class HealingSystem : EntitySystem
             return false;
 
         var anythingToDo =
-            HasDamage(targetDamage, component) ||
+            HasDamage((target, targetDamage), component) ||
             IsPartDamaged(user, target) || // Shitmed Change
             component.ModifyBloodLevel > 0 // Special case if healing item can restore lost blood...
                 && TryComp<BloodstreamComponent>(target, out var bloodstream)

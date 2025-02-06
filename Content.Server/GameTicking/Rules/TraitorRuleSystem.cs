@@ -22,10 +22,10 @@ using System.Text;
 namespace Content.Server.GameTicking.Rules;
 
 /// <summary>
-///     Heavily edited.
-///     If you wanna upstream something think twice.
-///     Piras this is directed to you :trollface:
-///     regards.
+/// :trollface:
+/// Hi, tay here.
+/// The goob folk also said that this is heavily edited. I'm here to say the same thing as well!
+/// Take care now!
 /// </summary>
 public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 {

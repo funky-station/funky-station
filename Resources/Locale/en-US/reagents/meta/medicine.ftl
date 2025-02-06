@@ -147,15 +147,3 @@ reagent-desc-potassium-iodide = Will reduce the damaging effects of radiation by
 
 reagent-name-haloperidol = haloperidol
 reagent-desc-haloperidol = Removes most stimulating and hallucinogenic drugs. Reduces druggy effects and jitteriness. Causes drowsiness.
-
-reagent-name-hypothium = hypothium
-reagent-desc-hypothium = A difficult to synthesize drug used to cure most wounds and clot blood.
-
-reagent-name-pyroxadone = pyroxadone
-reagent-desc-pyroxadone = A chemical that works inversely of cryoxadone, requiring high temperatures in order to work. Heals most damage.
-
-reagent-name-ardthyrnkole = ardthyrnkole
-reagent-desc-ardthyrnkole = A pyrogenics chemical used to treat severe frostbite on corpses by rapidly defrosting and regenerating frozen tissue.
-
-reagent-name-natusixadone = natusixadone
-reagent-desc-natusixadone = A pyrogenics chemical that burns away cancerous cells, regardless of if they are alive or dead.

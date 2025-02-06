@@ -1493,3 +1493,9 @@ Entries:
       message: Removed supermatter engine from saltern
   id: 186
   time: '2025-02-05T23:14:57.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Reworked Roid's Botany and Kitchen and expanded maints.
+  id: 187
+  time: '2025-02-06T07:34:22.0000000+00:00'

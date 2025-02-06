@@ -743,6 +743,24 @@
   id: MobButterfly
   description: Despite popular misconceptions, it's not actually made of butter.
   components:
+  - type: Food # BEGIN Funkystation
+  - type: FlavorProfile
+    flavors:
+    - strange
+  - type: Item
+    size: Tiny
+    heldPrefix: off
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Butter
+          Quantity: 1
+  - type: Tag
+    tags:
+    - Meat # END Funkystation
   - type: MovementSpeedModifier
     baseWalkSpeed : 3
     baseSprintSpeed : 6

@@ -26,6 +26,7 @@
   color: "#3a1d8a"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
@@ -118,13 +119,14 @@
   color: "#bd5902"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
           types:
-            Radiation: -3
+            Radiation: -2 # Funky
           groups:
-            Brute: 0.5
+            Brute: 0.2 # funky
 
 - type: reagent
   id: Bicaridine
@@ -136,6 +138,7 @@
   color: "#ffaa00"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
@@ -220,6 +223,7 @@
   color: "#215263"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
@@ -252,19 +256,20 @@
   color: "#0041a8"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Asphyxiation: -1
-            Bloodloss: -0.5
+          groups:
+            Airloss: -2 # Funkychem- aka 1 asphyx/blood damage
+          #  Bloodloss: -0.5
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
             min: 20
         damage:
           types:
-            Asphyxiation: 3
+            Asphyxiation: 2
             Cold: 1
 
 - type: reagent
@@ -277,6 +282,7 @@
   color: "#4da0bd"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
@@ -310,6 +316,7 @@
   color: "#d2fffa"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         conditions:
@@ -321,11 +328,11 @@
           max: 20
         damage:
           types:
-            Asphyxiation: -3
+            Asphyxiation: -2 # Funkychem
             Poison: -0.5
           groups:
-            Brute: -0.5
-            Burn: -0.5
+            Brute: -0.3 # Funkychem
+            Burn: -0.4 # Funkychem
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -378,20 +385,21 @@
   color: "#4cb580"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
           types:
-            Radiation: -1
+            Radiation: -0.5 # Funkychem
       - !type:ChemVomit
         probability: 0.02
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 30
+          min: 20 # Funkychem
         damage:
           types:
-           Heat: 2
+           Heat: 1.5 # Funkychem
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold
@@ -424,6 +432,7 @@
   color: "#731024"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         conditions:
@@ -432,7 +441,7 @@
           mobstate: Critical
         damage:
           types:
-            Asphyxiation: -5
+            Asphyxiation: -3 # Funkychem
       - !type:ModifyBleedAmount
         amount: -0.25
 
@@ -446,6 +455,7 @@
   color: "#bf3d19"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
@@ -479,11 +489,12 @@
   color: "#ff7db5"
   metabolisms:
     Medicine:
+      metabolismRate: 0.4 # Funkychem
       effects:
       - !type:HealthChange
         damage:
           types:
-            Cold: -4
+            Cold: -2 # Funkychem
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
@@ -564,6 +575,7 @@
         min: 4
   metabolisms:
     Medicine:
+      metabolismRate: 0.4 # Funkychem
       effects:
       - !type:HealthChange
         damage:
@@ -583,13 +595,14 @@
   color: "#9423FF"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
           groups:
-            Brute: -3.5
+            Brute: -2.4 # funky
           types:
-            Asphyxiation: -2.5
+            Asphyxiation: -2 # funky
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -673,11 +686,12 @@
   color: "#f4dab8"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
           types:
-            Caustic: -5
+            Caustic: -2 # funky
 
 - type: reagent
   id: Stellibinin
@@ -689,11 +703,12 @@
   color: "#2b2f77"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
           types:
-            Poison: -4
+            Poison: -3 # funky
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
@@ -763,19 +778,20 @@
   color: "#00e5ff"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         conditions:
         - !type:TotalDamage
-          max: 50
-        damage:
+          max: 40 # Funkychem
+        damage: # Funkychem
           groups:
-            Brute: -1
+            Brute: -0.9
           types:
-            Poison: -0.5 ##Should be about what it was when it healed the toxin group
-            Heat: -0.33
-            Shock: -0.33
-            Cold: -0.33
+            Poison: -0.3 ##Should be about what it was when it healed the toxin group
+            Heat: -0.3
+            Shock: -0.3
+            Cold: -0.3
 
 - type: reagent
   id: Lipozine
@@ -807,10 +823,10 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -2
-            Toxin: -2
-            Airloss: -2
-            Brute: -2
+            Burn: -3.2 # funky
+            Toxin: -1.6 # funky
+            Airloss: -1.6 # funky
+            Brute: -2.4 # funky
 
 - type: reagent
   id: Ultravasculine
@@ -822,6 +838,7 @@
   color: "#520e30"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         conditions:
@@ -988,15 +1005,16 @@
   color: "#283332"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
           types:
-            Slash: -3
+            Slash: -1 # funky
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 12
+          min: 16 # funky
         damage:
           types:
             Cold: 3
@@ -1011,19 +1029,20 @@
   color: "#b9bf93"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
           types:
-            Piercing: -4
+            Piercing: -1 # funky
             Blunt: 0.1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 11
+          min: 15.5 # funky
         damage:
           types:
-            Blunt: 5
+            Blunt: 3 # funky
 
 - type: reagent
   id: Bruizine
@@ -1035,18 +1054,19 @@
   color: "#ff3636"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
           types:
-            Blunt: -3.5
+            Blunt: -1 # funky
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 10.5
+          min: 15.5 # funky
         damage:
           types:
-            Poison: 4
+            Poison: 3 # funky
 
 - type: reagent
   id: Holywater
@@ -1079,6 +1099,7 @@
       methods: [ Touch ]
       effects:
       - !type:ExtinguishReaction
+        # begin funky
     Acidic:
       methods: [ Touch ]
       effects:
@@ -1088,6 +1109,7 @@
         damage:
           types:
             Holy: 0.5
+        # end funky
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1
@@ -1104,7 +1126,7 @@
   color: "#aa4308"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1 # slow metabolism to not be a godly combat med, its for treating burn victims efficiently
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
         damage:
@@ -1114,7 +1136,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 20
+          min: 21 # funky
         damage:
           types:
             Slash: 0.5
@@ -1122,12 +1144,12 @@
       - !type:ChemVomit
         conditions:
         - !type:ReagentThreshold
-          min: 15
+          min: 21 # funky
         probability: 0.1
       - !type:Emote
         conditions:
         - !type:ReagentThreshold
-          min: 20
+          min: 21 # funky
         emote: Scream
         probability: 0.2
 
@@ -1141,12 +1163,13 @@
   color: "#8147ff"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       # heals shocks and removes shock chems
       - !type:HealthChange
         damage:
           types:
-            Shock: -4
+            Shock: -2 # funky
       - !type:AdjustReagent
         reagent: Licoxide
         amount: -4
@@ -1155,24 +1178,24 @@
         amount: -4
       # makes you a little chilly when not oding
       - !type:AdjustTemperature
-        amount: -5000
+        amount: -2400 # Funkychem
       # od makes you freeze to death
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 12
+          min: 16 # funky
         damage:
           types:
             Cold: 2
       - !type:AdjustTemperature
         conditions:
         - !type:ReagentThreshold
-          min: 12
+          min: 16 # funky
         amount: -30000
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold
-          min: 12
+          min: 16 # funky
 
 - type: reagent
   id: Opporozidone #Name based of an altered version of the startreck chem "Opporozine"
@@ -1320,6 +1343,7 @@
   color: "#baa15d"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2 # Funkychem
       effects:
       - !type:GenericStatusEffect
         key: RadiationProtection
@@ -1388,92 +1412,3 @@
       - !type:AdjustReagent
         reagent: MindbreakerToxin
         amount: -3.0
-
-# funkystation
-- type: reagent
-  id: Hypothium
-  name: reagent-name-hypothium
-  group: Medicine
-  desc: reagent-desc-hypothium
-  physicalDesc: reagent-physical-desc-tart
-  flavor: medicine
-  color: "#c8317a"
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        damage: # still less than healium as a gas but a good liquid chem
-          groups:
-            Brute: -6
-            Burn: -6
-            Toxin: -6
-            Airloss: -6
-      - !type:ModifyBleedAmount
-        amount: -0.5
-
-- type: reagent
-  id: Pyroxadone
-  name: reagent-name-pyroxadone
-  group: Medicine
-  desc: reagent-desc-pyroxadone
-  physicalDesc: reagent-physical-desc-fizzy
-  flavor: spicy
-  color: "#f8c8ba"
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:Temperature
-          min: 337.3 # completely arbitrary
-        damage:
-          groups: # same as cryox
-            Airloss: -6
-            Brute: -4
-            Burn: -6
-            Toxin: -4
-          types:
-            Heat: -3
-
-- type: reagent
-  id: Ardthyrnkole
-  name: reagent-name-ardthyrnkole
-  group: Medicine
-  desc: reagent-desc-ardthyrnkole
-  physicalDesc: reagent-physical-desc-blazing
-  flavor: sour
-  color: "#894379"
-  worksOnTheDead: true
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:Temperature
-          min: 343.3
-        damage:
-          types:
-            Cold: -5
-            Heat: -3 # offsets heat damage from the pod
-            Shock: -3
-
-- type: reagent
-  id: Natusixadone
-  name: reagent-name-natusixadone
-  group: Medicine
-  desc: reagent-desc-natusixadone
-  physicalDesc: reagent-physical-desc-bubbling
-  flavor: medicine
-  color: "#acbb27"
-  worksOnTheDead: true
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:Temperature
-          min: 343.3
-        damage:
-          types:
-            Cellular: -4
-            Heat: -3

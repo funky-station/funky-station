@@ -1,23 +1,40 @@
 - type: entity
-  id: Jukebox
-  name: jukebox
+  id: boombox
+  name: Boombox
   parent: BaseItem
   description: Grooves and jams on the go!
   components:
   - type: Item
-    sprite: Objects/Fun/boombox.rsi
-  - type: Transform
-    anchored: true
+    size: Ginormous
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/SMGs/atreides.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Sprite
+    state: BoomBoxRed
+    sprite: _Funkystation/Objects/Fun/boombox.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 10
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
   - type: Jukebox
     onState: on
     offState: off
     selectState: select
-  - type: Machine
-    board: JukeboxCircuitBoard
-  - type: Appearance
-  - type: ApcPowerReceiver
-    powerLoad: 100
-  - type: ExtensionCableReceiver
   - type: ActivatableUI
     key: enum.JukeboxUiKey.Key
   - type: ActivatableUIRequiresPower
@@ -27,10 +44,6 @@
         type: JukeboxBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
-  - type: WiresPanel
-  - type: Wires
-    boardName: wires-board-name-jukebox
-    layoutId: Jukebox
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
@@ -47,16 +60,3 @@
           SheetSteel1:
             min: 1
             max: 2
-  - type: Physics
-    bodyType: Static
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.25,-0.45,0.25,0.45"
-        mask:
-        - MachineMask
-        layer:
-        - MachineLayer
-        density: 200

@@ -27,7 +27,6 @@
   cost: 5000
   recipeUnlocks:
   - ProximitySensor
-  - ExosuitFabricatorMachineCircuitboard
 
 - type: technology
   id: BasicAnomalousResearch

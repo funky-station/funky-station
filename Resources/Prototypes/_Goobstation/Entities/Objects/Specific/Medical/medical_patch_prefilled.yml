@@ -23,20 +23,20 @@
     singleUse: true
     transferAmount: 0.5 # Funkychem
 
-- type: entity
+- type: entity # Funkychem
   parent: MedicalPatchPrefilledBase
-  id: MedicalPatchPrefilledBicaridine
+  id: MedicalPatchPrefilledLibital
   name: brute patch
-  suffix: Bicaridine
+  suffix: Libital
   components:
   - type: Label
-    currentLabel: Bicaridine 30u
+    currentLabel: Libital 30u
   - type: SolutionContainerManager
     solutions:
       drink:
         maxVol: 30
         reagents:
-          - ReagentId: Bicaridine
+          - ReagentId: Libital
             Quantity: 30
 
 - type: entity # Funkychem
@@ -54,3 +54,22 @@
         reagents:
           - ReagentId: Aiuri
             Quantity: 30
+
+# Funkychem Addition [For Rad Kits]
+- type: entity
+  parent: MedicalPatchPrefilledBase
+  id: MedicalPatchPrefilledAntiRad
+  name: anti-rad patch
+  suffix: Arith/Podide
+  components:
+  - type: Label
+    currentLabel: Prevents + Heals Rads
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+          - ReagentId: Arithrazine
+            Quantity: 20
+          - ReagentId: PotassiumIodide
+            Quantity: 10

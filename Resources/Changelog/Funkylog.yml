@@ -1505,3 +1505,31 @@ Entries:
       message: Station AI now uses preferred silicon name!
   id: 188
   time: '2025-02-08T02:11:31.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Tweak
+      message: Bluespace implant reworded and now gender neutral
+  id: 189
+  time: '2025-02-08T06:42:27.0000000+00:00'
+- author: ' TooSillyFennec, correspond'
+  changes:
+    - type: Add
+      message: >-
+        Three new brute chemicals have been added--Libital, Probitial and
+        Salicyclic Acid
+    - type: Add
+      message: Two new airloss chemicals have been added--Salbutamol and Convermol
+    - type: Add
+      message: Granibitual has been added, a slow acting catch all chemical
+    - type: Remove
+      message: >-
+        Dylovene, Kelotane, and Dermaline have been removed. See the guidebook
+        for their replacements
+    - type: Tweak
+      message: >-
+        The recipes for Libital, Probitial, and Salicyclic Acid have been
+        adjusted
+    - type: Tweak
+      message: Medkits now have different chemicals inside of them
+  id: 190
+  time: '2025-02-08T18:54:39.0000000+00:00'

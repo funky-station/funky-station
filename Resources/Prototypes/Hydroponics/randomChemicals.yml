@@ -17,6 +17,7 @@
     - Toxin
     - Leporazine
     - Epinephrine
+    - Convermol # Funkychem
     - CarpoToxin
     - SulfuricAcid
     - Licoxide
@@ -41,14 +42,14 @@
     - Pax
     - Cryoxadone
     - Ethylredoxrazine
-    - Dylovene
+    - Multiver # Funkychem
     - Histamine
     - Blood
     - WeldingFuel
     - Mercury
     - Silver
     - Phenol
-    - Ultravasculine
+    - PenteticAcid # Funkychem
     - Carbon
     - THC
     - Nicotine
@@ -60,8 +61,12 @@
   - quantity: 10
     weight: 3
     reagents:
-    - Bicaridine
-    - Dermaline
+    - Libital # Funkychem - Start
+    - Probital
+    - SalicylicAcid
+    - Aiuri
+    - Lenturi
+    - Oxandrolone # funky end
     - Ephedrine
     - NorepinephricAcid
     - Tricordrazine
@@ -95,7 +100,7 @@
     weight: 3.5
     reagents:
     - Vitamin
-    - Kelotane
+    - Dexalin # Funkychem
     - Inaprovaline
     - Oil
     - Slime

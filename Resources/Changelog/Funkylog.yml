@@ -1499,3 +1499,9 @@ Entries:
       message: Reworked Roid's Botany and Kitchen and expanded maints.
   id: 187
   time: '2025-02-06T07:34:22.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Add
+      message: Station AI now uses preferred silicon name!
+  id: 188
+  time: '2025-02-08T02:11:31.0000000+00:00'

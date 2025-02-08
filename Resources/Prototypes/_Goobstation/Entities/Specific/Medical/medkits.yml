@@ -16,10 +16,10 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 40
+        maxVol: 25 # Funkychem
         reagents:
         - ReagentId: Ichor
-          Quantity: 35
+          Quantity: 12 # Heals very fast- 90~ Damage all types in 60s. - Funkychem
         - ReagentId: TranexamicAcid
           Quantity: 5
   - type: Hypospray

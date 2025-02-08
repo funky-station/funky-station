@@ -1,39 +1,4 @@
-#- type: reaction
-#  id: Libital
-#  reactants:
-#    Nitrogen:
-#      amount: 1
-#    Oil:
-#      amount: 1
-#    Oxygen:
-#      amount: 1
-#  products:
-#    Libital: 3
-
-#- type: reaction
-#  id: Probital
-#  reactants:
-#    Acetone:
-#      amount: 2
-#    Copper:
-#      amount: 1
-#    Phosphorus:
-#      amount: 1
-#  products:
-#    Probital: 4
-
-#- type: reaction
-#  id: SalicylicAcid
-#  reactants:
-#    Phenol:
-#      amount: 1
-#    Probital:
-#      amount: 1
-#    SulfuricAcid:
-#      amount: 1
-#  products:
-#    SalicylicAcid: 3
-
+# burn
 - type: reaction
   id: Aiuri
   reactants:
@@ -42,38 +7,35 @@
     Ammonia:
       amount: 1
     Hydrogen:
-      amount: 2
+      amount: 1
   products:
-    Aiuri: 4
+    Aiuri: 3
 
 - type: reaction
   id: Lenturi
   reactants:
     SulfuricAcid:
       amount: 1
-    Ammonia:
-      amount: 1
     Chlorine:
       amount: 1
     Oxygen:
       amount: 1
   products:
-    Lenturi: 4
+    Lenturi: 3
 
 - type: reaction
   id: Oxandrolone
   reactants:
     Phenol:
       amount: 1
-    Ammonia:
-      amount: 1
     Carbon:
-      amount: 3
+      amount: 2
     Lenturi:
       amount: 1
   products:
-    Oxandrolone: 6
+    Oxandrolone: 4
 
+# poison
 - type: reaction
   id: Multiver
   reactants:
@@ -102,50 +64,85 @@
   products:
     PenteticAcid: 5
 
-#- type: reaction
-#  id: Granibitulari
-#  reactants:
-#    TableSalt:
-#      amount: 1
-#    Carbon:
-#      amount: 1
-#    Potassium:
-#      amount: 1
-#  products:
-#    Granibitulari: 3
+# brute
+- type: reaction
+  id: Libital
+  reactants:
+    Nitrogen:
+      amount: 1
+    Oil:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    Libital: 3
 
-#- type: reaction
-#  id: Salbutamol
-#  reactants:
-#    Dexalin:
-#      amount: 1
-#    Ammonia:
-#      amount: 1
-#    Inaprovaline:
-#      amount: 1
-#    Phenol:
-#      amount: 1
-#    Lithium:
-#      amount: 1
-#  products:
-#    Salbutamol: 5
+- type: reaction
+  id: Probital
+  reactants:
+    Acetone:
+      amount: 1
+    Copper:
+      amount: 1
+    Phosphorus:
+      amount: 1
+  products:
+    Probital: 3
 
-#- type: reaction
-#  id: Convermol
-#  reactants:
-#    Dexalin:
-#      amount: 1
-#    Ammonia:
-#      amount: 1
-#    Plasma:
-#      amount: 1
-#    Aluminium:
-#      amount: 1
-#    Fluorine:
-#      amount: 1
-#  products:
-#    Convermol: 5
+- type: reaction
+  id: SalicylicAcid
+  reactants:
+    Phenol:
+      amount: 1
+    Probital:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+    Carbon:
+      amount: 1
+  products:
+    SalicylicAcid: 4
 
+# airloss
+- type: reaction
+  id: Granibitulari
+  reactants:
+    TableSalt:
+      amount: 1
+    Carbon:
+      amount: 1
+    Potassium:
+      amount: 1
+  products:
+    Granibitulari: 3
+
+- type: reaction
+  id: Salbutamol
+  reactants:
+    Dexalin:
+      amount: 1
+    Inaprovaline:
+      amount: 1
+    Phenol:
+      amount: 1
+    Lithium:
+      amount: 1
+  products:
+    Salbutamol: 4
+
+- type: reaction
+  id: Convermol
+  reactants:
+    Dexalin:
+      amount: 1
+    Aluminium:
+      amount: 1
+    Fluorine:
+      amount: 1
+  products:
+    Convermol: 3
+
+# misc
 - type: reaction
   id: Pielovene
   reactants:
@@ -170,6 +167,7 @@
   products:
     Hypothium: 3
 
+# pyro
 - type: reaction
   id: Pyroxadone
   minTemp: 433

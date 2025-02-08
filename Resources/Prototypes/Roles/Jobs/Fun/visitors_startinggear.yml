@@ -658,7 +658,7 @@
     eyes: ClothingEyesHudMedical
     outerClothing: ClothingOuterCoatLab
     pocket1: PillCanisterTricordrazine
-    pocket2: PillCanisterDermaline
+    pocket2: PillCanisterLenturi # Funkychem
   inhand:
   - SyringeInaprovaline
 
@@ -1558,7 +1558,7 @@
     back: ClothingBackpackDuffel
     ears: ClothingHeadsetService
     pocket1: WeaponFlareGun
-    pocket2: PillCanisterDylovene
+    pocket2: PillCanisterMultiver
 
 - type: startingGear
   id: VisitorZookeeperAlt
@@ -1571,7 +1571,7 @@
     back: WeaponShotgunDoubleBarreledRubber
     ears: ClothingHeadsetService
     pocket1: WeaponFlareGun
-    pocket2: PillCanisterDylovene
+    pocket2: PillCanisterMultiver
 
 # Misc
 

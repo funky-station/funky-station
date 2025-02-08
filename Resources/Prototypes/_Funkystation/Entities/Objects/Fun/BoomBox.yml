@@ -2,19 +2,11 @@
   id: boombox
   name: Boombox
   parent: BaseItem
+  abstract: true
   description: Grooves and jams on the go!
   components:
   - type: Item
     size: Ginormous
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/SMGs/atreides.rsi
-    quickEquip: false
-    slots:
-    - Back
-    - suitStorage
-  - type: Sprite
-    state: BoomBoxRed
-    sprite: _Funkystation/Objects/Fun/boombox.rsi
   - type: MeleeWeapon
     damage:
       types:
@@ -60,3 +52,19 @@
           SheetSteel1:
             min: 1
             max: 2
+
+- type: entity
+  id: boomboxred
+  name: Red Boombox
+  parent: boombox
+  description: Grooves and jams on the go!
+  components:
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/boombox.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Sprite
+    state: BoomBoxRed
+    sprite: _Funkystation/Objects/Fun/boombox.rsi

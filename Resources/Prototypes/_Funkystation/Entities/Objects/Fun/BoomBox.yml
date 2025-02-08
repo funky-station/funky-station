@@ -59,12 +59,13 @@
   parent: boombox
   description: Grooves and jams on the go!
   components:
+  - type: Sprite
+    state: BoomBoxRed
+    sprite: _Funkystation/Objects/Fun/boombox.rsi
   - type: Clothing
     sprite: _Funkystation/Objects/Fun/boombox.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
-  - type: Sprite
-    state: BoomBoxRed
-    sprite: _Funkystation/Objects/Fun/boombox.rsi
+

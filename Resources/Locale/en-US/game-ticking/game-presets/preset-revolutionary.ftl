@@ -12,7 +12,10 @@ head-rev-role-greeting =
 
 head-rev-briefing =
     Use flashes to convert people to your cause.
-    Get rid of all heads or convert them to take over the station.
+    Eliminate all heads of staff, and secure the station.
+    You have been graciously sponsored with an uplink from
+    the YLF, in-coordination with the Syndicate.
+    Your uplink code is: {$code}
 
 head-rev-break-mindshield = The Mindshield neutralized hypnotic powers, but its functionality has been compromised!
 

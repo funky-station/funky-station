@@ -220,11 +220,11 @@
   - type: Tag
     tags: []
 
-- type: entity
+- type: entity # Funkychem
   name: burn auto-injector
   parent: ChemicalMedipen
   id: BurnAutoInjector
-  description: A rapid dose of dermaline and leporazine, intended for combat applications.
+  description: A rapid dose of aiuri, oxandrolone and leporazine, intended for combat applications.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -243,11 +243,13 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 20
+        maxVol: 30
         reagents:
-        - ReagentId: Dermaline
+        - ReagentId: Aiuri
           Quantity: 10
-        - ReagentId: Leporazine
+        - ReagentId: Oxandrolone
+          Quantity: 10
+        - ReagentId: Lenturi
           Quantity: 10
   - type: Tag
     tags: []
@@ -320,7 +322,7 @@
   name: pyrazine auto-injector
   parent: ChemicalMedipen
   id: PyraAutoInjector
-  description: A rapid dose of pyrazine and dermaline, intended for combat applications.
+  description: A rapid dose of pyrazine and aiuri, intended for combat applications.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -339,12 +341,12 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 20
+        maxVol: 25
         reagents:
         - ReagentId: Pyrazine
           Quantity: 10
-        - ReagentId: Dermaline
-          Quantity: 10
+        - ReagentId: Aiuri
+          Quantity: 15
   - type: Tag
     tags: []
 

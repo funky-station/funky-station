@@ -9,6 +9,28 @@
   equipment:
     head: ClothingHeadHatJesterAlt
 
+# Mask - Funkystation
+
+- type: loadout
+  id: ClownMask
+  equipment:
+    mask: ClothingMaskClown
+
+- type: loadout
+  id: ClownMaskDevil
+  equipment:
+    mask: ClothingMaskClownDevil
+
+- type: loadout
+  id: ClownMaskGamble
+  equipment:
+    mask: ClothingMaskClownGamble
+
+- type: loadout
+  id: ClownMaskJuggle
+  equipment:
+    mask: ClothingMaskClownJuggle
+
 # Jumpsuit
 - type: loadout
   id: ClownSuit

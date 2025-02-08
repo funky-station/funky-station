@@ -57,4 +57,3 @@ heretic-speech-blind = E'E'S
 heretic-speech-emp = E'P
 heretic-speech-shapeshift = SH'PE
 heretic-speech-link = PI'RC' TH' M'ND
-//we love grammar station 14

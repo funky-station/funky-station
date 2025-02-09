@@ -80,8 +80,8 @@ namespace Content.IntegrationTests.Tests
             "DMVStation",
             "Plasma",
             "Elkridge",
-            "Convex"
-
+            "Convex",
+            "Relic"
         };
 
         /// <summary>

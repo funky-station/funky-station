@@ -1,7 +1,11 @@
+
+# add "group: Exotic" to put new exotic chemicals in the guidebook's tab
+# For new chems: Exotic should only be strong gimmick / strong inverted chems / parts of said chems.
+
 - type: reagent
-  id: ExoticReagent # The base chem for the top-level chem tree, + other reactions.
+  id: ExoticReagent
   name: reagent-name-exotic
-  group: Special
+  group: Exotic
   desc: reagent-desc-exotic
   physicalDesc: reagent-physical-desc-exotic-smelling
   flavor: nothing
@@ -10,7 +14,7 @@
 - type: reagent
   id: Stasicillin
   name: reagent-name-stasicillin
-  group: Medicine
+  group: Exotic
   desc: reagent-desc-stasicillin
   physicalDesc: reagent-physical-desc-crystalline
   flavor: medicine
@@ -41,11 +45,11 @@
 - type: reagent
   id: Negacordrazine
   name: reagent-name-negacordrazine
-  group: Medicine
+  group: Exotic
   desc: reagent-desc-negacordrazine
   physicalDesc: reagent-physical-desc-translucent
   flavor: medicine
-  color: "#d34b26" 
+  color: "#d34b26"
   metabolisms:
     Medicine:
       metabolismRate: 0.2
@@ -64,7 +68,7 @@
 - type: reagent
   id: StabilisedStimulants
   name: reagent-name-stabilisedstimulants
-  group: Narcotics
+  group: Exotic
   desc: reagent-desc-stabilisedstimulants
   physicalDesc: reagent-physical-desc-opaque
   flavor: bitter
@@ -96,11 +100,11 @@
 - type: reagent
   id: Revivopine
   name: reagent-name-revivopine
-  group: Medicine
+  group: Exotic
   desc: reagent-desc-revivopine
   physicalDesc: reagent-physical-desc-exhilarating
   flavor: medicine
-  color: "#04ea9a" 
+  color: "#04ea9a"
   metabolisms:
     Medicine:
       metabolismRate: 2.0
@@ -118,7 +122,7 @@
 - type: reagent
   id: Corgium
   name: reagent-name-corgium
-  group: Special
+  group: Exotic
   desc: reagent-desc-corgium
   physicalDesc: reagent-physical-desc-fluffy
   flavor: medicine
@@ -131,6 +135,3 @@
         conditions:
           - !type:ReagentThreshold
             min: 20
-
-# For new chems: Exotic should only be strong gimmick / strong inverted chems / Parts of said chems. inverted chems aren't in the game.
-# Except for Nega but that's generally middle strength chem, but a part of better chems [omni/ichor] and has a pretty strong use mixed w/ other chems.

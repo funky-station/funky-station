@@ -34,7 +34,7 @@
   id: RodentiaHeadTopEarBat
   markingCategory: HeadTop
   bodyPart: HeadTop
-  speciesRestriction: [Rodentia, Felinid] # funky
+  speciesRestriction: [Rodentia]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
       state: bat
@@ -43,7 +43,7 @@
   id: RodentiaHeadTopEarBatLarge
   markingCategory: HeadTop
   bodyPart: HeadTop
-  speciesRestriction: [Rodentia, Felinid] # funky
+  speciesRestriction: [Rodentia]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
       state: bat_large
@@ -52,7 +52,7 @@
   id: RodentiaHeadTopEarHamster
   markingCategory: HeadTop
   bodyPart: HeadTop
-  speciesRestriction: [Rodentia, Felinid] # funky
+  speciesRestriction: [Rodentia]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
       state: hamster
@@ -63,7 +63,7 @@
   id: RodentiaHeadTopEarLong
   markingCategory: HeadTop
   bodyPart: HeadTop
-  speciesRestriction: [Rodentia, Felinid] # funky
+  speciesRestriction: [Rodentia]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
       state: long
@@ -74,7 +74,7 @@
   id: RodentiaHeadTopEarMouse
   markingCategory: HeadTop
   bodyPart: HeadTop
-  speciesRestriction: [Rodentia, Felinid] # funky
+  speciesRestriction: [Rodentia]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
       state: mouse
@@ -85,7 +85,7 @@
   id: RodentiaHeadTopEarMouseLarge
   markingCategory: HeadTop
   bodyPart: HeadTop
-  speciesRestriction: [Rodentia, Felinid] # funky
+  speciesRestriction: [Rodentia]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
       state: mouse_large
@@ -105,7 +105,7 @@
   id: RodentiaHeadTopEarPointy
   markingCategory: HeadTop
   bodyPart: HeadTop
-  speciesRestriction: [Rodentia, Felinid] # funky
+  speciesRestriction: [Rodentia]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
       state: pointy
@@ -114,7 +114,7 @@
   id: RodentiaHeadTopEarRabbit
   markingCategory: HeadTop
   bodyPart: HeadTop
-  speciesRestriction: [Rodentia, Felinid] # funky
+  speciesRestriction: [Rodentia]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
       state: rabbit
@@ -125,7 +125,7 @@
   id: RodentiaHeadTopEarSmall
   markingCategory: HeadTop
   bodyPart: HeadTop
-  speciesRestriction: [Rodentia, Felinid] # funky
+  speciesRestriction: [Rodentia]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
       state: small
@@ -270,7 +270,7 @@
   id: RodentiaCheeksWhiskers
   markingCategory: Head # for no-cost markings
   bodyPart: HeadTop # for layering
-  speciesRestriction: [Rodentia, Felinid] # funky
+  speciesRestriction: [Rodentia]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/cheek_markings.rsi
       state: whiskers

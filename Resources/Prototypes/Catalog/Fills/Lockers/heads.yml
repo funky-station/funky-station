@@ -134,7 +134,9 @@
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampHop
-    - id: WeaponDisabler
+    # funkystation: removing disabler and instead using energy pistol
+    # - id: WeaponDisabler
+    - id: WeaponDisablerPlus # funkystation adding unique hop weapon
     - id: ClothingEyesHudCommand
 
 - type: entity

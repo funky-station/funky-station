@@ -23,7 +23,7 @@
     - id: Thief
       prob: 0.75
     - id: Heretic # goob edit
-      prob: 0.5 # funkystation - readd side antag heretic
+      prob: 0.2 # funkystation - 20% of rounds can have a heretic as a treat
 
 - type: entity
   id: DeathMatch31
@@ -213,7 +213,7 @@
         text: head-rev-role-greeting
         color: CornflowerBlue
         sound: "/Audio/Ambience/Antag/headrev_start.ogg"
-      startingGear: HeadRevGear
+      #startingGear: HeadRevGear -- Funky Station: HRev uplink
       components:
       - type: Revolutionary
       - type: HeadRevolutionary

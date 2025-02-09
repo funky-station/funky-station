@@ -1344,3 +1344,192 @@ Entries:
       message: The Evacuation shuttle is now auto-called when HRevs die.
   id: 165
   time: '2025-01-24T23:18:21.0000000+00:00'
+- author: ' hereelabs, meijunkie'
+  changes:
+    - type: Tweak
+      message: Made Oldstation Good
+  id: 166
+  time: '2025-01-26T00:20:28.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Stops the removal of the salv shuttle computer from maps
+  id: 167
+  time: '2025-01-26T06:23:07.0000000+00:00'
+- author: ' Cthyga'
+  changes:
+    - type: Add
+      message: >-
+        Added a new weapon for the Head of Personnel: The Miniature Laser
+        Pistol!
+    - type: Add
+      message: 'Added a new disabler for the Head of Personnel: Disabler Plus'
+  id: 168
+  time: '2025-01-26T06:23:47.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        If all alive Head Revolutionaries abandon the station, a 1 minute timer
+        will now start that counts down until a Head Revolutionary returns. If
+        no Head Revolutionaries return, the game will consider this as the
+        Revolution failing, and all Revs will be de-converted + the shuttle
+        called on the next check. If a single Head Revolutionary returns, the
+        timer will stop, and the game will continue as normal.
+  id: 169
+  time: '2025-01-26T06:25:17.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Tweak
+      message: Pride cloaks now show their names instead of a pun or joke.
+  id: 170
+  time: '2025-01-26T21:07:06.0000000+00:00'
+- author: kbarkevich
+  changes:
+    - type: Add
+      message: Added Neanderthal ghost role
+  id: 171
+  time: '2025-01-26T21:11:32.0000000+00:00'
+- author: empty0set
+  changes:
+    - type: Tweak
+      message: butterflies are now edible
+  id: 172
+  time: '2025-01-27T03:34:34.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Fixed Roid Atmos! Enjoy breathing!
+  id: 173
+  time: '2025-01-27T03:35:08.0000000+00:00'
+- author: ' deltanedas'
+  changes:
+    - type: Remove
+      message: Extreme heat no longer turns people to ash.
+  id: 174
+  time: '2025-01-27T22:05:47.0000000+00:00'
+- author: ' Cthyga'
+  changes:
+    - type: Fix
+      message: Fixed description of disabler plus
+    - type: Fix
+      message: Changed capitalization of disabler plus to be in line with other items.
+  id: 175
+  time: '2025-01-28T00:09:57.0000000+00:00'
+- author: ' Cthyga'
+  changes:
+    - type: Fix
+      message: Fixed the disabler plus integrated light vanishing.
+  id: 176
+  time: '2025-01-28T05:23:39.0000000+00:00'
+- author: ' Impstation'
+  changes:
+    - type: Add
+      message: From the IMP sector, over a hundred new hair styles and markings!
+    - type: Tweak
+      message: Vox and Slimes have received a minor visual refresh.
+  id: 177
+  time: '2025-01-28T05:24:38.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Add
+      message: Revamped saltern station engineering department.
+  id: 178
+  time: '2025-01-29T04:22:24.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Head Revolutionaries now have a PDA uplink. Viva.
+  id: 179
+  time: '2025-01-29T04:24:44.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Add
+      message: added supermatter engine to packed station
+    - type: Remove
+      message: removed singularity/tesla engine from packed station
+  id: 180
+  time: '2025-02-02T23:33:14.0000000+00:00'
+- author: thecopbennet
+  changes:
+    - type: Add
+      message: >-
+        Adds a four telecrystal purchase for four hyposhells, shells that can
+        hold 7u of any reagent and inject upon impact, available for barkeepers
+        and zookeepers
+  id: 181
+  time: '2025-02-03T03:52:26.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Tweak
+      message: Cigarettes are now grindable
+  id: 182
+  time: '2025-02-03T05:36:33.0000000+00:00'
+- author: sssaaagggeee
+  changes:
+    - type: Tweak
+      message: rebalanced prices of atmospheric gases
+  id: 183
+  time: '2025-02-03T19:43:02.0000000+00:00'
+- author: ' Icepicked, Gtheglorius'
+  changes:
+    - type: Add
+      message: New Clown Masks!
+    - type: Tweak
+      message: (Non-Security) Clowns are now able to select masks in their loadout.
+  id: 184
+  time: '2025-02-03T20:23:18.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Remove
+      message: Self-insert and Stowaway brand plushies no longer spawn in lockers.
+  id: 185
+  time: '2025-02-03T20:59:24.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Add
+      message: Added singularity engine to saltern
+    - type: Remove
+      message: Removed supermatter engine from saltern
+  id: 186
+  time: '2025-02-05T23:14:57.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Reworked Roid's Botany and Kitchen and expanded maints.
+  id: 187
+  time: '2025-02-06T07:34:22.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Add
+      message: Station AI now uses preferred silicon name!
+  id: 188
+  time: '2025-02-08T02:11:31.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Tweak
+      message: Bluespace implant reworded and now gender neutral
+  id: 189
+  time: '2025-02-08T06:42:27.0000000+00:00'
+- author: ' TooSillyFennec, correspond'
+  changes:
+    - type: Add
+      message: >-
+        Three new brute chemicals have been added--Libital, Probitial and
+        Salicyclic Acid
+    - type: Add
+      message: Two new airloss chemicals have been added--Salbutamol and Convermol
+    - type: Add
+      message: Granibitual has been added, a slow acting catch all chemical
+    - type: Remove
+      message: >-
+        Dylovene, Kelotane, and Dermaline have been removed. See the guidebook
+        for their replacements
+    - type: Tweak
+      message: >-
+        The recipes for Libital, Probitial, and Salicyclic Acid have been
+        adjusted
+    - type: Tweak
+      message: Medkits now have different chemicals inside of them
+  id: 190
+  time: '2025-02-08T18:54:39.0000000+00:00'

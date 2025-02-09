@@ -1,8 +1,7 @@
-# Funky Station Chem Expansion
 - type: vendingMachineInventory
   id: ChemVendInventory
   startingInventory:
-    Jug: 3
+    Jug: 4
     MedicalPatchBasic: 30 # Can't refill these, and they are nearly the equivalent of a pill. Sucks, but best work around.
     BoxBottle: 1
     BoxBeaker: 1
@@ -34,7 +33,7 @@
 - type: vendingMachineInventory
   id: ChemVendInventorySyndicate
   startingInventory:
-    Jug: 1
+    Jug: 4
     MedicalPatchRapid: 12
     MedicalPatchLarge: 6
     BoxBottle: 2

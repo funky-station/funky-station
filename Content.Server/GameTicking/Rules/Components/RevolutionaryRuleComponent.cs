@@ -53,4 +53,13 @@ public sealed partial class RevolutionaryRuleComponent : Component
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool RevForceLose = false;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public int StartingBalance = 40;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public EntProtoId UplinkStoreId = "StorePresetRevolutionaryUplink";
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public EntProtoId UplinkCurrencyId = "RevCoin";
 }

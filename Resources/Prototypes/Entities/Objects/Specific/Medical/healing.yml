@@ -346,10 +346,10 @@
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
 
-# Pills - Funkychem adds a few, 0 reason to make a new file here. Rest have major changes already.
+# Pills - funkychem does major changes to pretty much all of these
 - type: entity
   name: pill
-  suffix: Dexalin 20u
+  suffix: Dexalin 15u
   parent: Pill
   id: PillDexalin
   components:
@@ -711,6 +711,19 @@
           Quantity: 15
 
 - type: entity
+  name: pill canister
+  parent: PillCanister
+  id: PillCanisterLibital
+  suffix: Libital 15u
+  components:
+  - type: Label
+    currentLabel: libital 15u
+  - type: StorageFill
+    contents:
+    - id: PillLibital
+      amount: 5
+
+- type: entity
   name: pill
   suffix: Probital 15u
   parent: Pill
@@ -729,6 +742,19 @@
         reagents:
         - ReagentId: Probital
           Quantity: 15
+
+- type: entity
+  name: pill canister
+  parent: PillCanister
+  id: PillCanisterProbital
+  suffix: Probital 15u
+  components:
+  - type: Label
+    currentLabel: probital 15u
+  - type: StorageFill
+    contents:
+    - id: PillProbital
+      amount: 5
 
 - type: entity
   name: pill
@@ -845,6 +871,10 @@
       prob: 0.10
       maxAmount: 7
       orGroup: RandomPill
+    - id: PillTricordrazine
+      prob: 0.10
+      maxAmount: 7
+      orGroup: RandomPill
     - id: PillLibital
       prob: 0.10
       maxAmount: 7
@@ -918,21 +948,6 @@
         maxVol: 15
         reagents:
         - ReagentId: TranexamicAcid
-          Quantity: 15
-
-- type: entity
-  suffix: libital
-  parent: PrefilledSyringe
-  id: SyringeLibital
-  components:
-  - type: Label
-    currentLabel: libital
-  - type: SolutionContainerManager
-    solutions:
-      injector:
-        maxVol: 15
-        reagents:
-        - ReagentId: Libital
           Quantity: 15
 
 - type: entity

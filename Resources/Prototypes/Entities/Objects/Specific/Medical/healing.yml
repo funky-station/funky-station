@@ -1100,6 +1100,21 @@
         - ReagentId: Revivopine
           Quantity: 15
 
+- type: entity
+  suffix: libital
+  parent: PrefilledSyringe
+  id: SyringeLibital
+  components:
+    - type: Label
+      currentLabel: libital
+    - type: SolutionContainerManager
+      solutions:
+        injector:
+          maxVol: 15
+          reagents:
+          - ReagentId: Libital
+            Quantity: 15
+
 #this is where all the syringes are so i didn't know where to put it
 - type: entity
   suffix: romerol

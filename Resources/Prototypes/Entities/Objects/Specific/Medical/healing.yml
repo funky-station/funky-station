@@ -346,7 +346,7 @@
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
 
-# Pills - Funkychem adds a few, 0 reason to make a new file here. Rest have major changes already.
+# Pills - funkychem does major changes to pretty much all of these
 - type: entity
   name: pill
   suffix: Dexalin 20u
@@ -382,40 +382,40 @@
 
 - type: entity
   name: pill
-  suffix: Dylovene 10u
+  suffix: Multiver 15u
   parent: Pill
-  id: PillDylovene
+  id: PillMultiver
   components:
   - type: Pill
     pillType: 9
   - type: Sprite
     state: pill10
   - type: Label
-    currentLabel: dylovene 10u
+    currentLabel: multiver 15u
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 20
         reagents:
-        - ReagentId: Dylovene
-          Quantity: 10
+        - ReagentId: Multiver
+          Quantity: 15
 
 - type: entity
   name: pill canister
   parent: PillCanister
-  id: PillCanisterDylovene
-  suffix: Dylovene 10u, 5
+  id: PillCanisterMultiver
+  suffix: Multiver 15u
   components:
   - type: Label
-    currentLabel: dylovene 10u
+    currentLabel: multiver 15u
   - type: StorageFill
     contents:
-    - id: PillDylovene
-      amount: 5
+    - id: PillMultiver
+      amount: 8
 
 - type: entity
   name: pill
-  suffix: Hyronalin 10u
+  suffix: Hyronalin 15u
   parent: Pill
   id: PillHyronalin
   components:
@@ -424,31 +424,31 @@
   - type: Sprite
     state: pill17
   - type: Label
-    currentLabel: hyronalin 10u
+    currentLabel: hyronalin 15u
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 20
         reagents:
         - ReagentId: Hyronalin
-          Quantity: 10
+          Quantity: 15
 
 - type: entity
   name: pill canister
   parent: PillCanister
   id: PillCanisterHyronalin
-  suffix: Hyronalin 10u, 5
+  suffix: Hyronalin 15u
   components:
   - type: Label
     currentLabel: hyronalin 10u
   - type: StorageFill
     contents:
     - id: PillHyronalin
-      amount: 5
+      amount: 8
 
 - type: entity
   name: pill
-  suffix: Potassium iodide 10u
+  suffix: Potassium iodide 12u # 1 Minute - Funkychem
   parent: Pill
   id: PillPotassiumIodide
   components:
@@ -457,27 +457,27 @@
   - type: Sprite
     state: pill9
   - type: Label
-    currentLabel: potassium iodide 10u
+    currentLabel: potassium iodide 12u
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 20
         reagents:
         - ReagentId: PotassiumIodide
-          Quantity: 10
+          Quantity: 12
 
 - type: entity
   name: pill canister
   parent: PillCanister
   id: PillCanisterPotassiumIodide
-  suffix: Potassium iodide 10u, 5
+  suffix: Potassium iodide 12u
   components:
   - type: Label
-    currentLabel: potassium iodide 10u
+    currentLabel: potassium iodide 12u
   - type: StorageFill
     contents:
     - id: PillPotassiumIodide
-      amount: 5
+      amount: 8
 
 - type: entity
   name: pill
@@ -547,69 +547,69 @@
 
 - type: entity
   name: pill
-  suffix: Kelotane 10u
+  suffix: Aiuri 15u
   parent: Pill
-  id: PillKelotane
-  components:
-  - type: Pill
-    pillType: 3
-  - type: Sprite
-    state: pill4
-  - type: Label
-    currentLabel: kelotane 10u
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Kelotane
-          Quantity: 10
-
-- type: entity
-  name: pill canister
-  parent: PillCanister
-  id: PillCanisterKelotane
-  suffix: Kelotane 10u, 5
-  components:
-  - type: Label
-    currentLabel: kelotane 10u
-  - type: StorageFill
-    contents:
-    - id: PillKelotane
-      amount: 5
-
-- type: entity
-  name: pill
-  suffix: Dermaline 10u
-  parent: Pill
-  id: PillDermaline
+  id: PillAiuri
   components:
   - type: Pill
     pillType: 7
   - type: Sprite
-    state: pill8
+    state: pill4
   - type: Label
-    currentLabel: dermaline 10u
+    currentLabel: Aiuri 15u
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 20
         reagents:
-        - ReagentId: Dermaline
-          Quantity: 10
+        - ReagentId: Aiuri
+          Quantity: 15
 
 - type: entity
   name: pill canister
   parent: PillCanister
-  id: PillCanisterDermaline
-  suffix: Dermaline 10u, 5
+  id: PillCanisterAiuri
+  suffix: Aiuri 15u
   components:
   - type: Label
-    currentLabel: dermaline 10u
+    currentLabel: aiuri 15u
   - type: StorageFill
     contents:
-    - id: PillDermaline
-      amount: 5
+    - id: PillAiuri
+      amount: 8
+
+- type: entity
+  name: pill
+  suffix: Lenturi 15u
+  parent: Pill
+  id: PillLenturi
+  components:
+  - type: Pill
+    pillType: 8
+  - type: Sprite
+    state: pill8
+  - type: Label
+    currentLabel: lenturi 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Lenturi
+          Quantity: 15
+
+- type: entity
+  name: pill canister
+  parent: PillCanister
+  id: PillCanisterLenturi
+  suffix: Lenturi 15u
+  components:
+  - type: Label
+    currentLabel: lenturi 15u
+  - type: StorageFill
+    contents:
+    - id: PillLenturi
+      amount: 8
 
 - type: entity
   name: space mirage
@@ -642,7 +642,27 @@
         maxVol: 20
         reagents:
         - ReagentId: Tricordrazine
-          Quantity: 10
+          Quantity: 15
+
+- type: entity
+  name: pill
+  suffix: Granibitulari 20u # Takes like 5 minutes to fully heal at 15, 20 makes sense - Funkychem
+  parent: Pill
+  id: PillGranibitulari
+  components:
+  - type: Pill
+    pillType: 9
+  - type: Sprite
+    state: pill3
+  - type: Label
+    currentLabel: granibitulari 20u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Granibitulari
+          Quantity: 20
 
 - type: entity
   name: pill canister
@@ -655,8 +675,22 @@
   - type: StorageFill
     contents:
     - id: PillTricordrazine
-      amount: 5
+      amount: 8
 
+- type: entity
+  name: pill canister
+  parent: PillCanister
+  id: PillCanisterGranibitulari
+  suffix: Granibitulari 15u
+  components:
+  - type: Label
+    currentLabel: granibitulari 15u
+  - type: StorageFill
+    contents:
+    - id: PillGranibitulari
+      amount: 8
+
+# to future me: JUST DELETE BIC!!!!!!!!!!!!!!!!!!!!!!!
 - type: entity
   name: pill
   suffix: Bicaridine 10u
@@ -692,6 +726,72 @@
 
 - type: entity
   name: pill
+  suffix: Libital 15u
+  parent: Pill
+  id: PillLibital
+  components:
+  - type: Pill
+    pillType: 4
+  - type: Sprite
+    state: pill5
+  - type: Label
+    currentLabel: libital 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Libital
+          Quantity: 15
+
+- type: entity
+  name: pill canister
+  parent: PillCanister
+  id: PillCanisterLibital
+  suffix: Libital 15u
+  components:
+  - type: Label
+    currentLabel: libital 15u
+  - type: StorageFill
+    contents:
+    - id: PillLibital
+      amount: 5
+
+- type: entity
+  name: pill
+  suffix: Probital 15u
+  parent: Pill
+  id: PillProbital
+  components:
+  - type: Pill
+    pillType: 15
+  - type: Sprite
+    state: pill5
+  - type: Label
+    currentLabel: probital 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Probital
+          Quantity: 15
+
+- type: entity
+  name: pill canister
+  parent: PillCanister
+  id: PillCanisterProbital
+  suffix: Probital 15u
+  components:
+  - type: Label
+    currentLabel: probital 15u
+  - type: StorageFill
+    contents:
+    - id: PillProbital
+      amount: 5
+
+- type: entity
+  name: pill
   suffix: Charcoal 10u
   parent: Pill
   id: PillCharcoal
@@ -714,14 +814,14 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterCharcoal
-  suffix: Charcoal 10u, 3
+  suffix: Charcoal 10u
   components:
   - type: Label
     currentLabel: charcoal 10u
   - type: StorageFill
     contents:
     - id: PillCharcoal
-      amount: 3
+      amount: 8
 
 - type: entity
   name: romerol pill
@@ -777,7 +877,7 @@
       prob: 0.10
       maxAmount: 7
       orGroup: RandomPill
-    - id: PillDylovene
+    - id: PillMultiver
       prob: 0.10
       maxAmount: 7
       orGroup: RandomPill
@@ -797,11 +897,11 @@
       prob: 0.10
       maxAmount: 7
       orGroup: RandomPill
-    - id: PillKelotane
+    - id: PillAiuri
       prob: 0.10
       maxAmount: 7
       orGroup: RandomPill
-    - id: PillDermaline
+    - id: PillLenturi
       prob: 0.10
       maxAmount: 7
       orGroup: RandomPill
@@ -834,7 +934,7 @@
       maxAmount: 7
       orGroup: RandomPill
 
-# Syringes
+# Syringes - Funkychem Adds Convermol and Revivopine, many changes as well.
 - type: entity
   suffix: ephedrine
   parent: PrefilledSyringe
@@ -880,6 +980,7 @@
         - ReagentId: TranexamicAcid
           Quantity: 15
 
+# future me DELETE THIS!!! THIS ONE!!!!
 - type: entity
   suffix: bicaridine
   parent: PrefilledSyringe
@@ -896,18 +997,18 @@
           Quantity: 15
 
 - type: entity
-  suffix: dermaline
+  suffix: aiuri
   parent: PrefilledSyringe
-  id: SyringeDermaline
+  id: SyringeAiuri
   components:
   - type: Label
-    currentLabel: dermaline
+    currentLabel: aiuri
   - type: SolutionContainerManager
     solutions:
       injector:
         maxVol: 15
         reagents:
-        - ReagentId: Dermaline
+        - ReagentId: Aiuri
           Quantity: 15
 
 - type: entity
@@ -1014,6 +1115,21 @@
         reagents:
           - ReagentId: Saline
             Quantity: 15
+
+- type: entity
+  suffix: convermol
+  parent: PrefilledSyringe
+  id: SyringeConvermol
+  components:
+  - type: Label
+    currentLabel: convermol
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Convermol
+          Quantity: 15
 
 #this is where all the syringes are so i didn't know where to put it
 - type: entity

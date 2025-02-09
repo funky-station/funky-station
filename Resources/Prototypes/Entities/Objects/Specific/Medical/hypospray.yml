@@ -188,11 +188,11 @@
   - type: Tag
     tags: []
 
-- type: entity
+- type: entity # Funkychem
   name: brute auto-injector
   parent: ChemicalMedipen
   id: BruteAutoInjector
-  description: A rapid dose of bicaridine and tranexamic acid, intended for combat applications.
+  description: A rapid dose of libital, salicylic acid and tranexamic acid, intended for combat applications.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -211,12 +211,14 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 20
+        maxVol: 30
         reagents:
-        - ReagentId: Bicaridine
-          Quantity: 15
+        - ReagentId: SalicylicAcid
+          Quantity: 10
         - ReagentId: TranexamicAcid
           Quantity: 5
+        - ReagentId: Libital
+          Quantity: 15
   - type: Tag
     tags: []
 
@@ -224,7 +226,7 @@
   name: burn auto-injector
   parent: ChemicalMedipen
   id: BurnAutoInjector
-  description: A rapid dose of aiuri, oxandrolone and leporazine, intended for combat applications.
+  description: A rapid dose of aiuri, oxandrolone and lenturi, intended for combat applications.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -309,16 +311,16 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 15
+        maxVol: 20 # Funkychem
         reagents:
-        - ReagentId: Puncturase
-          Quantity: 10
+        - ReagentId: Puncturase # Funkychem
+          Quantity: 15
         - ReagentId: TranexamicAcid
           Quantity: 5
   - type: Tag
     tags: []
 
-- type: entity
+- type: entity # Funkychem
   name: pyrazine auto-injector
   parent: ChemicalMedipen
   id: PyraAutoInjector
@@ -350,11 +352,11 @@
   - type: Tag
     tags: []
 
-- type: entity
+- type: entity # Funkychem
   name: airloss auto-injector
   parent: ChemicalMedipen
   id: AirlossAutoInjector
-  description: A rapid dose of saline and dexalin plus, intended to get someone up quickly.
+  description: A rapid dose of saline and salbutamol, intended to get someone up quickly.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -373,12 +375,12 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 40
+        maxVol: 30
         reagents:
         - ReagentId: Saline
-          Quantity: 20
-        - ReagentId: DexalinPlus
-          Quantity: 20
+          Quantity: 15
+        - ReagentId: Salbutamol
+          Quantity: 15
   - type: Tag
     tags: []
 

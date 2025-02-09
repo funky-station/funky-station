@@ -1,103 +1,4 @@
-#- type: reagent
-#  id: Libital
-#  name: reagent-name-libital
-#  group: Medicine
-#  desc: reagent-desc-libital
-#  physicalDesc: reagent-physical-desc-opaque
-#  flavor: medicine
-#  color: "#e8d199"
-#  metabolisms:
-#    Medicine:
-#      metabolismRate: 0.2
-#      effects:
-#      - !type:HealthChange
-#        damage:
-#          groups:
-#            Brute: -1.2
-#      - !type:HealthChange
-#        conditions:
-#          - !type:ReagentThreshold
-#            min: 20
-#        damage:
-#          types:
-#            Heat: 1
-#      - !type:Jitter
-#        conditions:
-#        - !type:ReagentThreshold
-#          min: 20
-
-#- type: reagent
-#  id: Probital
-#  name: reagent-name-probital
-#  group: Medicine
-#  desc: reagent-desc-probital
-#  physicalDesc: reagent-physical-desc-syrupy
-#  flavor: medicine
-#  color: "#e8e699"
-#  metabolisms:
-#    Medicine:
-#      metabolismRate: 0.2
-#      effects:
-#      - !type:HealthChange
-#        conditions:
-#        - !type:ReagentThreshold
-#          max: 20
-#        damage:
-#          groups:
-#            Brute: -1.8
-#      - !type:ChemVomit
-#        conditions:
-#        - !type:ReagentThreshold
-#          min: 20
-#        probability: 0.02
-#      - !type:MovespeedModifier
-#        walkSpeedModifier: 0.7
-#        sprintSpeedModifier: 0.7
-#      - !type:MovespeedModifier
-#        conditions:
-#        - !type:ReagentThreshold
-#          min: 20
-#        walkSpeedModifier: 0.35
-#        sprintSpeedModifier: 0.35
-
-#- type: reagent
-#  id: SalicylicAcid
-#  name: reagent-name-salicylicacid
-#  group: Medicine
-#  desc: reagent-desc-salicylicacid
-#  physicalDesc: reagent-physical-desc-mucus-like
-#  flavor: medicine
-#  color: "#f9e0e9"
-#  metabolisms:
-#    Medicine:
-#      metabolismRate: 0.2
-#      effects:
-#      - !type:HealthChange
-#        conditions:
-#        - !type:TotalDamage
-#          max: 30
-#        damage:
-#          groups:
-#            Brute: -0.6
-#      - !type:HealthChange
-#        conditions:
-#        - !type:TotalDamage
-#          min: 30
-#        damage:
-#          groups:
-#            Brute: -2.4
-#      - !type:HealthChange
-#        conditions:
-#        - !type:ReagentThreshold
-#          min: 15.5
-#        damage:
-#          types:
-#            Blunt: 4.8
-#      - !type:Jitter
-#        conditions:
-#        - !type:ReagentThreshold
-#          min: 15.5
-
+# burn
 - type: reagent
   id: Aiuri
   name: reagent-name-aiuri
@@ -179,83 +80,35 @@
             max: 30
         damage:
           types:
-            Heat: -0.8
-            Shock: -0.8
-            Cold: -0.8
+            Heat: -0.2
+            Shock: -0.2
+            Cold: -0.2
       - !type:HealthChange
         conditions:
           - !type:TotalDamage
             min: 30
         damage:
           types:
-            Heat: -0.2
-            Shock: -0.2
-            Cold: -0.2
+            Heat: -0.8
+            Shock: -0.8
+            Cold: -0.8
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 15.5
         damage:
-          types:
-            Shock: 4.8
+          types: # ODing should heal burn but cause other damage
+            Heat: -0.8
+            Shock: -0.8
+            Cold: -0.8
+            Blunt: 2
+            Piercing: 0.5
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold
           min: 15.5
 
-#- type: reagent
-#  id: Salbutamol
-#  name: reagent-name-salbutamol
-#  group: Medicine
-#  desc: reagent-desc-salbutamol
-#  physicalDesc: reagent-physical-desc-cloudy
-#  flavor: medicine
-#  color: "#99ffff"
-#  metabolisms:
-#    Medicine:
-#      metabolismRate: 0.2
-#      effects:
-#      - !type:HealthChange
-#        conditions:
-#          - !type:TotalDamage
-#            min: 30
-#        damage:
-#          groups:
-#            Airloss: -6
-#      - !type:HealthChange
-#        conditions:
-#          - !type:TotalDamage
-#            max: 30
-#        damage:
-#           groups:
-#            Airloss: -1
-#      - !type:HealthChange
-#        conditions:
-#        - !type:ReagentThreshold
-#          min: 15.5
-#        damage:
-#          types:
-#            Bloodloss: 9
-
-#- type: reagent
-#  id: Convermol
-#  name: reagent-name-convermol
-#  group: Medicine
-#  desc: reagent-desc-convermol
-#  physicalDesc: reagent-physical-desc-abrasive
-#  flavor: medicine
-#  color: "#e80d7e"
-#  metabolisms:
-#    Medicine:
-#      metabolismRate: 1.0
-#      effects:
-#      - !type:HealthChange
-#        damage:
-#          types:
-#            Asphyxiation: -10
-#            Blunt: 4 # After organ damage gets added, add lung damage and reduce to 2.
-#      - !type:Jitter
-
+# poison
 - type: reagent
   id: Multiver
   name: reagent-name-multiver
@@ -283,6 +136,11 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: -10
+  - !type:PlantAdjustHealth
+    amount: 1
 
 - type: reagent
   id: PenteticAcid
@@ -308,7 +166,7 @@
             min: 15.5
         damage:
           types:
-            Caustic: 5
+            Caustic: 3
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold
@@ -316,118 +174,192 @@
       - !type:Emote
         emote: Scream
         probability: 0.3
+      - !type:ChemVomit
+        conditions:
+        - !type:ReagentThreshold
+          min: 15.5
+        probability: 0.3
 
-#- type: reagent
-#  id: Granibitulari
-#  name: reagent-name-granibitulari
-#  group: Medicine
-#  desc: reagent-desc-granibitulari
-#  physicalDesc: reagent-physical-desc-gloopy
-#  flavor: medicine
-#  color: "#c7e4e8"
-#  metabolisms:
-#    Medicine:
-#      metabolismRate: 0.05
-#      effects:
-#      - !type:HealthChange
-#        damage: # Funkychem
-#          groups:
-#            Brute: -0.3
-#          types:
-#            Poison: -0.1
-#            Heat: -0.1
-#            Shock: -0.1
-#            Cold: -0.1
-
+# brute
 - type: reagent
-  id: Hypothium
-  name: reagent-name-hypothium
+  id: Libital
+  name: reagent-name-libital
   group: Medicine
-  desc: reagent-desc-hypothium
-  physicalDesc: reagent-physical-desc-tart
+  desc: reagent-desc-libital
+  physicalDesc: reagent-physical-desc-opaque
   flavor: medicine
-  color: "#c8317a"
+  color: "#e8d199"
   metabolisms:
     Medicine:
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
-        damage: # still less than healium as a gas but a good liquid chem
+        damage:
           groups:
-            Brute: -4.5
-            Burn: -4.5
-            Toxin: -4.5
-            Airloss: -6
-      - !type:ModifyBleedAmount
-        amount: -0.5
-
-- type: reagent
-  id: Pyroxadone
-  name: reagent-name-pyroxadone
-  group: Medicine
-  desc: reagent-desc-pyroxadone
-  physicalDesc: reagent-physical-desc-fizzy
-  flavor: spicy
-  color: "#f8c8ba"
-  metabolisms:
-    Medicine:
-      effects:
+            Brute: -1.2
       - !type:HealthChange
         conditions:
-        - !type:Temperature
-          min: 337.3 # completely arbitrary
+          - !type:ReagentThreshold
+            min: 20
         damage:
-          groups: # same as cryox
-            Airloss: -6
-            Brute: -4
-            Burn: -6
-            Toxin: -4
           types:
-            Heat: -3
-
-- type: reagent
-  id: Ardthyrnkole
-  name: reagent-name-ardthyrnkole
-  group: Medicine
-  desc: reagent-desc-ardthyrnkole
-  physicalDesc: reagent-physical-desc-blazing
-  flavor: sour
-  color: "#894379"
-  worksOnTheDead: true
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
+            Heat: 1
+      - !type:Jitter
         conditions:
-        - !type:Temperature
-          min: 343.3
-        damage:
-          types:
-            Cold: -5
-            Heat: -3 # offsets heat damage from the pod
-            Shock: -3
+        - !type:ReagentThreshold
+          min: 20
 
 - type: reagent
-  id: Natusixadone
-  name: reagent-name-natusixadone
+  id: Probital
+  name: reagent-name-probital
   group: Medicine
-  desc: reagent-desc-natusixadone
-  physicalDesc: reagent-physical-desc-bubbling
+  desc: reagent-desc-probital
+  physicalDesc: reagent-physical-desc-syrupy
   flavor: medicine
-  color: "#acbb27"
-  worksOnTheDead: true
+  color: "#e8e699"
   metabolisms:
     Medicine:
+      metabolismRate: 0.2
       effects:
       - !type:HealthChange
         conditions:
-        - !type:Temperature
-          min: 343.3
+        - !type:ReagentThreshold
+          max: 20
+        damage:
+          groups:
+            Brute: -1.8
+      - !type:ChemVomit
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        probability: 0.02
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.7
+        sprintSpeedModifier: 0.7
+      - !type:MovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        walkSpeedModifier: 0.35
+        sprintSpeedModifier: 0.35
+
+- type: reagent
+  id: SalicylicAcid
+  name: reagent-name-salicylicacid
+  group: Medicine
+  desc: reagent-desc-salicylicacid
+  physicalDesc: reagent-physical-desc-mucus-like
+  flavor: medicine
+  color: "#f9e0e9"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:TotalDamage
+          max: 30
+        damage:
+          groups:
+            Brute: -0.6
+      - !type:HealthChange
+        conditions:
+        - !type:TotalDamage
+          min: 30
+        damage:
+          groups:
+            Brute: -2.4
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15.5
+        damage: # ODing causes damage but heals brute
+          groups:
+            Burn: 2 # will cause minor caustic damage
+            Brute: -2.4
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 15.5
+
+# airloss
+- type: reagent
+  id: Salbutamol
+  name: reagent-name-salbutamol
+  group: Medicine
+  desc: reagent-desc-salbutamol
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: medicine
+  color: "#99ffff"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+          - !type:TotalDamage
+            min: 30
+        damage:
+          groups:
+            Airloss: -6
+      - !type:HealthChange
+        conditions:
+          - !type:TotalDamage
+            max: 30
+        damage:
+           groups:
+            Airloss: -1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15.5
+        damage:
+          groups: # ODing heals airloss but causes damage
+            Airloss: -6
+            Genetic: 0.2
+
+- type: reagent
+  id: Convermol
+  name: reagent-name-convermol
+  group: Medicine
+  desc: reagent-desc-convermol
+  physicalDesc: reagent-physical-desc-abrasive
+  flavor: medicine
+  color: "#e80d7e"
+  metabolisms:
+    Medicine:
+      metabolismRate: 1.0
+      effects:
+      - !type:HealthChange
         damage:
           types:
-            Cellular: -4
-            Heat: -3
+            Asphyxiation: -10
+            Blunt: 4 # After organ damage gets added, add lung damage and reduce to 2.
+      - !type:Jitter
 
+- type: reagent
+  id: Granibitulari
+  name: reagent-name-granibitulari
+  group: Medicine
+  desc: reagent-desc-granibitulari
+  physicalDesc: reagent-physical-desc-gloopy
+  flavor: medicine
+  color: "#c7e4e8"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.05
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -0.3
+          types:
+            Poison: -0.1
+            Heat: -0.1
+            Shock: -0.1
+            Cold: -0.1
+
+# misc
 - type: reagent
   id: Pielovene
   name: reagent-name-pielovene
@@ -495,3 +427,93 @@
         - !type:JobCondition
           job:
           - Mime
+
+- type: reagent
+  id: Hypothium
+  name: reagent-name-hypothium
+  group: Medicine
+  desc: reagent-desc-hypothium
+  physicalDesc: reagent-physical-desc-tart
+  flavor: medicine
+  color: "#c8317a"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        damage: # still less than healium as a gas but a good liquid chem
+          groups:
+            Brute: -4.5
+            Burn: -4.5
+            Toxin: -4.5
+            Airloss: -6
+      - !type:ModifyBleedAmount
+        amount: -0.5
+
+# pyro
+- type: reagent
+  id: Pyroxadone
+  name: reagent-name-pyroxadone
+  group: Medicine
+  desc: reagent-desc-pyroxadone
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: spicy
+  color: "#f8c8ba"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:Temperature
+          min: 337.3 # completely arbitrary
+        damage:
+          groups: # same as cryox
+            Airloss: -6
+            Brute: -4
+            Burn: -6
+            Toxin: -4
+          types:
+            Heat: -3
+
+- type: reagent
+  id: Ardthyrnkole
+  name: reagent-name-ardthyrnkole
+  group: Medicine
+  desc: reagent-desc-ardthyrnkole
+  physicalDesc: reagent-physical-desc-blazing
+  flavor: sour
+  color: "#894379"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:Temperature
+          min: 343.3
+        damage:
+          types:
+            Cold: -5
+            Heat: -3 # offsets heat damage from the pod
+            Shock: -3
+
+- type: reagent
+  id: Natusixadone
+  name: reagent-name-natusixadone
+  group: Medicine
+  desc: reagent-desc-natusixadone
+  physicalDesc: reagent-physical-desc-bubbling
+  flavor: medicine
+  color: "#acbb27"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:Temperature
+          min: 343.3
+        damage:
+          types:
+            Cellular: -4
+            Heat: -3

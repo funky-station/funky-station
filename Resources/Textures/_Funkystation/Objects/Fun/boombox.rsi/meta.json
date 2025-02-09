@@ -1,21 +1,21 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Boomboxes by mkanke",
+    "copyright": "Boombox by mkanke",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
         {
-            "name": "BoomBoxRed"
-        },
-        {
-            "name": "EmergencyPartyKit-inhand-left",
-            "directions": 4
+            "name": "boomboxred"
         },
         {
             "name": "equipped-BACKPACK",
+            "directions": 4
+        },
+        {
+            "name": "equipped-SUITSTORAGE",
             "directions": 4
         }
     ]

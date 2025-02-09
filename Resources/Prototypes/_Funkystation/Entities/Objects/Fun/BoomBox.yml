@@ -3,10 +3,10 @@
   name: Boombox
   parent: BaseItem
   abstract: true
-  description: Grooves and jams on the go!
+  description: Grooves on the go!
   components:
-  - type: Item
-    size: Ginormous
+  - type: StaticPrice
+    price: 100
   - type: MeleeWeapon
     damage:
       types:
@@ -57,15 +57,16 @@
   id: boomboxred
   name: Red Boombox
   parent: boombox
-  description: Grooves and jams on the go!
   components:
+  - type: Item
+    size: Ginormous
+    heldPrefix: boombox
   - type: Sprite
-    state: BoomBoxRed
     sprite: _Funkystation/Objects/Fun/boombox.rsi
+    state: boomboxred
   - type: Clothing
     sprite: _Funkystation/Objects/Fun/boombox.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
-

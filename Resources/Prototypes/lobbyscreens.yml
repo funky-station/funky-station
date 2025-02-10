@@ -57,3 +57,7 @@
 - type: lobbyBackground
   id: funkyComputerLove
   background: /Textures/LobbyScreens/computerlove.webp
+
+- type: lobbyBackground
+  id: funkyTOFUNK
+  background: /Textures/LobbyScreens/TOFUNK.webp

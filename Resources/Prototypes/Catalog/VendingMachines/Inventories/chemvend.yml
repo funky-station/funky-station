@@ -2,13 +2,16 @@
   id: ChemVendInventory
   startingInventory:
     Jug: 4
+    MedicalPatchBasic: 30 # Can't refill these, and they are nearly the equivalent of a pill. Sucks, but best work around.
+    BoxBottle: 1
+    BoxBeaker: 1
     JugAluminium: 2
     JugCarbon: 4
     JugChlorine: 1
     JugCopper: 2
     JugEthanol: 2
     JugFluorine: 1
-    JugHydrogen: 3
+    JugHydrogen: 4
     JugIodine: 1
     JugIron: 2
     JugLithium: 2
@@ -22,20 +25,26 @@
     JugSodium: 2
     JugSugar: 3
     JugSulfur: 1
+    JugWeldingFuel: 1
   emaggedInventory:
     ToxinChemistryBottle: 1
+    BluespaceBeaker: 1
 
 - type: vendingMachineInventory
   id: ChemVendInventorySyndicate
   startingInventory:
     Jug: 4
+    MedicalPatchRapid: 12
+    MedicalPatchLarge: 6
+    BoxBottle: 2
+    BoxBeaker: 1
     JugAluminium: 2
     JugCarbon: 4
     JugChlorine: 1
     JugCopper: 2
     JugEthanol: 2
     JugFluorine: 1
-    JugHydrogen: 3
+    JugHydrogen: 4
     JugIodine: 1
     JugIron: 2
     JugLithium: 2
@@ -55,4 +64,4 @@
     MuteToxinChemistryBottle: 3
     LeadChemistryBottle: 2
     ToxinChemistryBottle: 1
-    
+

@@ -6766,7 +6766,7 @@ entities:
       pos: 38.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2785.7563
+      secondsUntilStateChange: -2868.1047
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -59557,13 +59557,6 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: PlushieJeepersCReepers
-  entities:
-  - uid: 12735
-    components:
-    - type: Transform
-      pos: -2.5521805,19.4729
-      parent: 2
 - proto: PlushieLamp
   entities:
   - uid: 8891

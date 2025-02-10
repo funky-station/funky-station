@@ -49,6 +49,9 @@
         reagents:
         - ReagentId: Tayquila
           Quantity: 30
+  - type: Icon
+    sprite: _Funkystation/Objects/Consumable/Drinks/tayquila.rsi
+    state: icon
 
 - type: entity
   parent: DrinkGlass

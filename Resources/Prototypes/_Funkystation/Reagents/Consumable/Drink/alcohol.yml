@@ -23,6 +23,12 @@
   physicalDesc: reagent-physical-desc-sour
   flavor: sour
   color: "#48dd23"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/tayquila.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   metabolisms:
     Drink:
       effects:
@@ -30,7 +36,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.2
+        amount: 0.15
 
 - type: reagent
   id: Chutzpah

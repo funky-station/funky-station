@@ -6,12 +6,16 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Procedural;
 using Content.Shared.Radio;
 using Content.Shared.Salvage.Magnet;
+using Robust.Server.Maps;
+using Robust.Shared.Exceptions;
 using Robust.Shared.Map;
 
 namespace Content.Server.Salvage;
 
 public sealed partial class SalvageSystem
 {
+    [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
+
     [ValidatePrototypeId<RadioChannelPrototype>]
     private const string MagnetChannel = "Supply";
 
@@ -42,7 +46,19 @@ public sealed partial class SalvageSystem
             return;
         }
 
-        TakeMagnetOffer((station.Value, dataComp), args.Index, (uid, component));
+        var index = args.Index;
+        async void TryTakeMagnetOffer()
+        {
+            try
+            {
+                await TakeMagnetOffer((station.Value, dataComp), index, (uid, component));
+            }
+            catch (Exception e)
+            {
+                _runtimeLog.LogException(e, $"{nameof(SalvageSystem)}.{nameof(TakeMagnetOffer)}");
+            }
+        }
+        TryTakeMagnetOffer();
     }
 
     private void OnMagnetStartup(EntityUid uid, SalvageMagnetComponent component, ComponentStartup args)
@@ -275,10 +291,15 @@ public sealed partial class SalvageSystem
             case SalvageOffering wreck:
                 var salvageProto = wreck.SalvageMap;
 
-                if (!_loader.TryLoadGrid(salvMapXform.MapID, salvageProto.MapPath, out _))
+                var opts = new MapLoadOptions
+                {
+                    Offset = new Vector2(0, 0)
+                };
+
+                if (!_map.TryLoad(salvMapXform.MapID, salvageProto.MapPath.ToString(), out _, opts))
                 {
                     Report(magnet, MagnetChannel, "salvage-system-announcement-spawn-debris-disintegrated");
-                    _mapSystem.DeleteMap(salvMapXform.MapID);
+                    _mapManager.DeleteMap(salvMapXform.MapID);
                     return;
                 }
 

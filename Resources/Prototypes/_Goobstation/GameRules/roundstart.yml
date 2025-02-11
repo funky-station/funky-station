@@ -192,10 +192,10 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: StationEvent
-    weight: 15
+    weight: 5
     duration: 1
     earliestStart: 50
-    minimumPlayers: 20
+    minimumPlayers: 25
     maxOccurrences: 2
   - type: BlobSpawnRule
     carrierBlobProtos:

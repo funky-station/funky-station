@@ -134,3 +134,61 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/hcr.rsi
     
     
+# Charlie Station Ancient Uniforms (sprites by mingebag / meijunkie)
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase]
+  id: ClothingUniformJumpsuitAncientDoc
+  name: ancient doctor jumpsuit
+  description: An ancient jumpsuit fit for an ancient doctor.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/ancient_doc.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/ancient_doc.rsi
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase]
+  id: ClothingUniformJumpsuitAncientSci
+  name: ancient scientist jumpsuit
+  description: An ancient jumpsuit fit for an ancient scientist.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/ancient_sci.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/ancient_sci.rsi
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase]
+  id: ClothingUniformJumpsuitAncientEng
+  name: ancient engineer jumpsuit
+  description: An ancient jumpsuit fit for an ancient engineer.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/ancient_eng.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/ancient_eng.rsi
+
+- type: entity
+  parent: [UnsensoredClothingUniformBase]
+  id: ClothingUniformJumpsuitAncientSec
+  name: ancient security jumpsuit
+  description: An ancient jumpsuit fit for an ancient security officer.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/ancient_sec.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/ancient_sec.rsi
+    
+# using the nanotrasen jumpsuit sprite since theres no reason to make ANOTHER sprite
+    
+- type: entity
+  parent: [UnsensoredClothingUniformBase]
+  id: ClothingUniformJumpsuitAncientRep
+  name: ancient nanotrasen jumpsuit
+  description: An ancient jumpsuit fit for an ancient nanotrasen representative.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/nanotrasen.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/nanotrasen.rsi

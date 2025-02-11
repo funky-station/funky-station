@@ -1214,3 +1214,328 @@ Entries:
       message: Added a completely new zone to glacier outpost.
   id: 149
   time: '2025-01-13T21:52:11.0000000+00:00'
+- author: ' deltanedas'
+  changes:
+    - type: Tweak
+      message: >-
+        Losing a limb makes you bleed profusely instead of dealing bloodloss
+        damage.
+  id: 150
+  time: '2025-01-14T06:13:20.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Add
+      message: >-
+        Added Syndicate Dino Cube boxes, purchasable by the Chef, Zookeeper, and
+        Scientist.
+  id: 151
+  time: '2025-01-14T06:14:17.0000000+00:00'
+- author: Liamofthesky
+  changes:
+    - type: Fix
+      message: Fixed the station plumbing, sinks now have plenty of water again
+  id: 152
+  time: '2025-01-15T21:15:21.0000000+00:00'
+- author: ' RadsammyT'
+  changes:
+    - type: Add
+      message: >-
+        Two new variants for playing cards have been added: Nanotrasen and
+        Syndicate. The NT variant can be unlocked as a trinket given 10 hours of
+        Quartermaster time. The Syndie variant can be purchased from the uplink
+        in the Pointless category for 3 TC.
+    - type: Fix
+      message: >-
+        Hands of Playing Cards will no longer show alternative verbs for ghosts
+        or any player controlled mob without any hands.
+    - type: Fix
+      message: Card sprites should no longer desync on reconnecting.
+    - type: Tweak
+      message: >-
+        Playing Card deck boxes now have holographic security seals on them.
+        Opening a sealed deck will destroy the seal.
+    - type: Tweak
+      message: >-
+        Playing Cards now have a 10 hour time requirement before you can select
+        them as a trinket.
+  id: 153
+  time: '2025-01-17T07:53:10.0000000+00:00'
+- author: empty0set
+  changes:
+    - type: Add
+      message: >-
+        Added new Job Distribution Error event. Some specific jobs will be
+        available for late join that are not found on Space Station 14 under
+        normal circumstances.
+  id: 154
+  time: '2025-01-18T04:23:06.0000000+00:00'
+- author: kbarkevich
+  changes:
+    - type: Add
+      message: Added 169 new words to the TTS announcements
+  id: 155
+  time: '2025-01-19T00:42:03.0000000+00:00'
+- author: OrangeMoronage9622
+  changes: []
+  id: 156
+  time: '2025-01-19T09:11:02.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Re-themed Terry's Roid SM chamber and remade atmos!
+  id: 157
+  time: '2025-01-20T03:33:47.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Tweak
+      message: Blob can now spawn midround!
+  id: 158
+  time: '2025-01-22T04:00:45.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Fix
+      message: Players can no longer crawl over tables
+  id: 159
+  time: '2025-01-22T04:02:25.0000000+00:00'
+- author: ' Aviu'
+  changes:
+    - type: Add
+      message: >-
+        Added the materials silo, a machine that connects all lathes on the
+        station together so that they share resources. You can find it in the
+        comms room on every map.
+  id: 160
+  time: '2025-01-23T02:08:08.0000000+00:00'
+- author: kbarkevich
+  changes:
+    - type: Tweak
+      message: Reduced Surgical Multitool doAfter time.
+  id: 161
+  time: '2025-01-23T22:36:03.0000000+00:00'
+- author: kbarkevich
+  changes:
+    - type: Add
+      message: Added Liquid Pie
+    - type: Add
+      message: Added Pielovene
+  id: 162
+  time: '2025-01-24T01:24:50.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Add
+      message: >-
+        The Blob can now see their exact resource total in real-time by mousing
+        over the Blob Resources Alert on the right side of the screen.
+  id: 163
+  time: '2025-01-24T08:14:38.0000000+00:00'
+- author: empty0set
+  changes:
+    - type: Add
+      message: Funky accent!
+  id: 164
+  time: '2025-01-24T19:20:47.0000000+00:00'
+- author: ' taydeo, Rainbeon'
+  changes:
+    - type: Tweak
+      message: The Evacuation Shuttle no longer Docks when HRevs are still alive
+    - type: Tweak
+      message: The game now auto-ends when revolutionaries win.
+    - type: Tweak
+      message: The Evacuation shuttle is now auto-called when HRevs die.
+  id: 165
+  time: '2025-01-24T23:18:21.0000000+00:00'
+- author: ' hereelabs, meijunkie'
+  changes:
+    - type: Tweak
+      message: Made Oldstation Good
+  id: 166
+  time: '2025-01-26T00:20:28.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Stops the removal of the salv shuttle computer from maps
+  id: 167
+  time: '2025-01-26T06:23:07.0000000+00:00'
+- author: ' Cthyga'
+  changes:
+    - type: Add
+      message: >-
+        Added a new weapon for the Head of Personnel: The Miniature Laser
+        Pistol!
+    - type: Add
+      message: 'Added a new disabler for the Head of Personnel: Disabler Plus'
+  id: 168
+  time: '2025-01-26T06:23:47.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        If all alive Head Revolutionaries abandon the station, a 1 minute timer
+        will now start that counts down until a Head Revolutionary returns. If
+        no Head Revolutionaries return, the game will consider this as the
+        Revolution failing, and all Revs will be de-converted + the shuttle
+        called on the next check. If a single Head Revolutionary returns, the
+        timer will stop, and the game will continue as normal.
+  id: 169
+  time: '2025-01-26T06:25:17.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Tweak
+      message: Pride cloaks now show their names instead of a pun or joke.
+  id: 170
+  time: '2025-01-26T21:07:06.0000000+00:00'
+- author: kbarkevich
+  changes:
+    - type: Add
+      message: Added Neanderthal ghost role
+  id: 171
+  time: '2025-01-26T21:11:32.0000000+00:00'
+- author: empty0set
+  changes:
+    - type: Tweak
+      message: butterflies are now edible
+  id: 172
+  time: '2025-01-27T03:34:34.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Fixed Roid Atmos! Enjoy breathing!
+  id: 173
+  time: '2025-01-27T03:35:08.0000000+00:00'
+- author: ' deltanedas'
+  changes:
+    - type: Remove
+      message: Extreme heat no longer turns people to ash.
+  id: 174
+  time: '2025-01-27T22:05:47.0000000+00:00'
+- author: ' Cthyga'
+  changes:
+    - type: Fix
+      message: Fixed description of disabler plus
+    - type: Fix
+      message: Changed capitalization of disabler plus to be in line with other items.
+  id: 175
+  time: '2025-01-28T00:09:57.0000000+00:00'
+- author: ' Cthyga'
+  changes:
+    - type: Fix
+      message: Fixed the disabler plus integrated light vanishing.
+  id: 176
+  time: '2025-01-28T05:23:39.0000000+00:00'
+- author: ' Impstation'
+  changes:
+    - type: Add
+      message: From the IMP sector, over a hundred new hair styles and markings!
+    - type: Tweak
+      message: Vox and Slimes have received a minor visual refresh.
+  id: 177
+  time: '2025-01-28T05:24:38.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Add
+      message: Revamped saltern station engineering department.
+  id: 178
+  time: '2025-01-29T04:22:24.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Head Revolutionaries now have a PDA uplink. Viva.
+  id: 179
+  time: '2025-01-29T04:24:44.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Add
+      message: added supermatter engine to packed station
+    - type: Remove
+      message: removed singularity/tesla engine from packed station
+  id: 180
+  time: '2025-02-02T23:33:14.0000000+00:00'
+- author: thecopbennet
+  changes:
+    - type: Add
+      message: >-
+        Adds a four telecrystal purchase for four hyposhells, shells that can
+        hold 7u of any reagent and inject upon impact, available for barkeepers
+        and zookeepers
+  id: 181
+  time: '2025-02-03T03:52:26.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Tweak
+      message: Cigarettes are now grindable
+  id: 182
+  time: '2025-02-03T05:36:33.0000000+00:00'
+- author: sssaaagggeee
+  changes:
+    - type: Tweak
+      message: rebalanced prices of atmospheric gases
+  id: 183
+  time: '2025-02-03T19:43:02.0000000+00:00'
+- author: ' Icepicked, Gtheglorius'
+  changes:
+    - type: Add
+      message: New Clown Masks!
+    - type: Tweak
+      message: (Non-Security) Clowns are now able to select masks in their loadout.
+  id: 184
+  time: '2025-02-03T20:23:18.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Remove
+      message: Self-insert and Stowaway brand plushies no longer spawn in lockers.
+  id: 185
+  time: '2025-02-03T20:59:24.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Add
+      message: Added singularity engine to saltern
+    - type: Remove
+      message: Removed supermatter engine from saltern
+  id: 186
+  time: '2025-02-05T23:14:57.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Reworked Roid's Botany and Kitchen and expanded maints.
+  id: 187
+  time: '2025-02-06T07:34:22.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Add
+      message: Station AI now uses preferred silicon name!
+  id: 188
+  time: '2025-02-08T02:11:31.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Tweak
+      message: Bluespace implant reworded and now gender neutral
+  id: 189
+  time: '2025-02-08T06:42:27.0000000+00:00'
+- author: ' TooSillyFennec, correspond'
+  changes:
+    - type: Add
+      message: >-
+        Three new brute chemicals have been added--Libital, Probitial and
+        Salicyclic Acid
+    - type: Add
+      message: Two new airloss chemicals have been added--Salbutamol and Convermol
+    - type: Add
+      message: Granibitual has been added, a slow acting catch all chemical
+    - type: Remove
+      message: >-
+        Dylovene, Kelotane, and Dermaline have been removed. See the guidebook
+        for their replacements
+    - type: Tweak
+      message: >-
+        The recipes for Libital, Probitial, and Salicyclic Acid have been
+        adjusted
+    - type: Tweak
+      message: Medkits now have different chemicals inside of them
+  id: 190
+  time: '2025-02-08T18:54:39.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Lowered holopad power consumption
+  id: 191
+  time: '2025-02-10T02:41:00.0000000+00:00'

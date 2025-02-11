@@ -2,7 +2,10 @@
 using Robust.Client.UserInterface;
 using Robust.Shared.Input;
 using System.Linq;
+using Content.Client._Funkystation.Medical.SmartFridge.UI;
 using Content.Shared._Funkystation.Medical.SmartFridge;
+using OpenToolkit.GraphicsLibraryFramework;
+using Robust.Client.UserInterface.Controls;
 using SmartFridgeMenu = Content.Client._Funkystation.Medical.SmartFridge.UI.SmartFridgeMenu;
 
 namespace Content.Client._Funkystation.Medical.SmartFridge;
@@ -23,6 +26,7 @@ public sealed class SmartFridgeBoundUserInterface(EntityUid owner, Enum uiKey) :
         _menu.OpenCenteredLeft();
         _menu.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
         _menu.OnItemSelected += OnItemSelected;
+
         Refresh();
     }
 
@@ -34,12 +38,9 @@ public sealed class SmartFridgeBoundUserInterface(EntityUid owner, Enum uiKey) :
         _menu?.Populate(_cachedInventory);
     }
 
-    private void OnItemSelected(GUIBoundKeyEventArgs args, ListData data)
+    private void OnItemSelected(BaseButton.ButtonEventArgs args, SmartFridgeItem.DispenseButton data)
     {
-        if (args.Function != EngineKeyFunctions.UIClick)
-            return;
-
-        if (data is not VendorItemsListData { ItemIndex: var itemIndex })
+        if (data is not SmartFridgeItem.DispenseButton { Index: var itemIndex })
             return;
 
         if (_cachedInventory.Count == 0)

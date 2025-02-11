@@ -23,7 +23,7 @@ reagent-name-dermaline = dermaline
 reagent-desc-dermaline = An advanced chemical that is more effective at treating burn damage than kelotane.
 
 reagent-name-dexalin = dexalin
-reagent-desc-dexalin = Used for treating minor oxygen deprivation and bloodloss. A required reagent for dexalin plus.
+reagent-desc-dexalin = Used for treating oxygen deprivation and bloodloss. Myths of a "Dexalin Plus" are false.
 
 reagent-name-dexalin-plus = dexalin plus
 reagent-desc-dexalin-plus = Used in treatment of extreme cases of oxygen deprivation and bloodloss. Flushes heartbreaker toxin out of the blood stream.
@@ -147,15 +147,3 @@ reagent-desc-potassium-iodide = Will reduce the damaging effects of radiation by
 
 reagent-name-haloperidol = haloperidol
 reagent-desc-haloperidol = Removes most stimulating and hallucinogenic drugs. Reduces druggy effects and jitteriness. Causes drowsiness.
-
-reagent-name-hypothium = hypothium
-reagent-desc-hypothium = A difficult to synthesize drug used to cure most wounds and clot blood.
-
-reagent-name-pyroxadone = pyroxadone
-reagent-desc-pyroxadone = A chemical that works inversely of cryoxadone, requiring high temperatures in order to work. Heals most damage.
-
-reagent-name-ardthyrnkole = ardthyrnkole
-reagent-desc-ardthyrnkole = A pyrogenics chemical used to treat severe frostbite on corpses by rapidly defrosting and regenerating frozen tissue.
-
-reagent-name-natusixadone = natusixadone
-reagent-desc-natusixadone = A pyrogenics chemical that burns away cancerous cells, regardless of if they are alive or dead.

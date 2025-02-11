@@ -117,3 +117,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "yuckyskunk"
   source: "https://funkystation.org"
+
+- files: ["TOFUNK.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "oBerry"
+  source: "https://funkystation.org"

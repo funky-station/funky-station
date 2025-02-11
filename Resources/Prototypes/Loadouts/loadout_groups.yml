@@ -30,6 +30,8 @@
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
+  - CardBoxBlack # goobstation
+  - CardBoxNanotrasen # goobstation
   - TowelColorBlack
   - TowelColorDarkBlue
   - TowelColorDarkGreen
@@ -46,7 +48,6 @@
   - TowelColorSilver
   - TowelColorWhite
   - TowelColorYellow
-  - CardBoxBlack
 
 - type: loadoutGroup
   id: Glasses
@@ -170,6 +171,7 @@
   minLimit: 0
   loadouts:
   - HoPWintercoat
+
 
 # Civilian
 - type: loadoutGroup
@@ -437,6 +439,15 @@
   loadouts:
   - JesterHat
   - JesterAltHat
+
+- type: loadoutGroup # - Funkystation
+  id: ClownMask
+  name: loadout-group-clown-mask
+  loadouts:
+  - ClownMask
+  - ClownMaskDevil
+  - ClownMaskGamble
+  - ClownMaskJuggle
 
 - type: loadoutGroup
   id: ClownJumpsuit
@@ -1013,7 +1024,7 @@
   loadouts:
   - WardenJumpsuit
   - WardenJumpskirt
-  
+
 - type: loadoutGroup
   id: WardenNeck
   name: loadout-group-warden-neck
@@ -1071,7 +1082,7 @@
   minLimit: 0
   loadouts:
   - Bodycam # Goobstation - Body cameras
-  
+
 - type: loadoutGroup
   id: SecurityOuterClothing
   name: loadout-group-security-outerclothing

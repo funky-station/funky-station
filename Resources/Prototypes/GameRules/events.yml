@@ -12,6 +12,7 @@
     - id: GasLeak
     - id: GreytideVirus
     - id: IonStorm # its calm like 90% of the time smh
+    - id: JobDistributionError
     - id: KudzuGrowth
     - id: MassHallucinations
     - id: MimicVendorRule
@@ -37,7 +38,7 @@
     - id: SleeperAgents
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
-   # - id: BlobSpawn #Goobstation - Blob  (not added wile undergoing playtesting)
+    - id: BlobSpawn #Goobstation - Blob
     - id: FalseAlarm
     - id: DerelictCyborgSpawn
 
@@ -585,3 +586,18 @@
       min: 1
       max: 1
       pickPlayer: false
+
+- type: entity
+  id: JobDistributionError
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-job-distribution-error-announcement
+    minimumPlayers: 25
+    weight: 3
+    duration: 1
+  - type: JobDistributionErrorRule
+    jobs:
+    - SecurityClown
+    - PartyMaker
+    - CommandMaid

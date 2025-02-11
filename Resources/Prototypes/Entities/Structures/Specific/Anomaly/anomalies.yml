@@ -771,13 +771,13 @@
     - RobustHarvest
     usefulChemicals:
     - Cryptobiolin
-    - Dylovene
+    - PenteticAcid
     - Arithrazine
-    - Bicaridine
+    - SalicylicAcid # Funkychem
     - Cryoxadone
-    - Dermaline
-    - Dexalin
-    - DexalinPlus
+    - Oxandrolone # Funkychem
+    - Convermol # funky
+    - Salbutamol # funky
     - Epinephrine
     - Leporazine
     - Ambuzol

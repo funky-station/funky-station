@@ -34,6 +34,24 @@
   conditions:
     - !type:TileNotBlocked
 
+- type: construction # Funkystation
+  name: reinforced uranium girder
+  id: ReinforcedUraniumGirder
+  graph: Girder
+  startNode: start
+  targetNode: reinforcedUraniumGirder
+  category: construction-category-structures
+  description: A large structural assembly made out of metal and uranium. Fit for all your radiation needs!
+  icon:
+    sprite: _Funkystation/Structures/Walls/reinforced_uranium.rsi
+    state: reinforced_wall_girder
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
 - type: construction
   name: wall gear
   id: ClockworkGirder

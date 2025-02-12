@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseWall
   id: WallUraniumReinforced
-  name: reinforced urainum wall
+  name: reinforced uranium wall
   description: Keeps the air in and the radiation out.
   components:
   - type: Sprite

@@ -360,7 +360,7 @@
               doAfter: 2
 
     - node: reinforcedUraniumWall # Funkystation
-      entity: WallUrainumReinforced
+      entity: WallUraniumReinforced
       edges:
         - to: reinforcedUraniumGirder
           completed:

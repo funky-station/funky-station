@@ -17,6 +17,9 @@ using Content.Shared.Temperature;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using System.Linq;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.Buckle.Components;
+using Robust.Shared.Random;
 
 namespace Content.Server.Nutrition.EntitySystems
 {
@@ -33,11 +36,12 @@ namespace Content.Server.Nutrition.EntitySystems
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly ForensicsSystem _forensics = default!;
+        [Dependency] private readonly FlammableSystem _flammableSystem = default!; // Funkystation
+        [Dependency] private readonly IRobustRandom _random = default!; // Funkystation
 
         private const float UpdateTimer = 3f;
 
         private float _timer;
-
         /// <summary>
         ///     We keep a list of active smokables, because iterating all existing smokables would be dumb.
         /// </summary>
@@ -148,6 +152,17 @@ namespace Content.Server.Nutrition.EntitySystems
                 {
                     continue;
                 }
+
+                // BEGIN Funkystation
+                // Smoking in bed is dangerous!
+                if (HasComp<SleepingComponent>(containerManager.Owner)
+                    && HasComp<BuckleComponent>(containerManager.Owner))
+                {
+                    // 25% chance over the lifetime of a cigarette (66 times)
+                    if (_random.Prob(0.03f))
+                        _flammableSystem.AdjustFireStacks(containerManager.Owner, 0.5f, null, true);
+                }
+                // END Funkystation
 
                 _reactiveSystem.DoEntityReaction(containerManager.Owner, inhaledSolution, ReactionMethod.Ingestion);
                 _bloodstreamSystem.TryAddToChemicals(containerManager.Owner, inhaledSolution, bloodstream);

@@ -1551,3 +1551,9 @@ Entries:
       message: Holopads have been added!
   id: 193
   time: '2025-02-12T08:03:13.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Added solars to Roid by popular request
+  id: 194
+  time: '2025-02-12T08:05:14.0000000+00:00'

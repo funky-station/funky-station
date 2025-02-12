@@ -125,3 +125,6 @@ JobTechnicalAssistant = Technical Assistant
 JobVisitor = Visitor
 JobWarden = Warden
 JobZookeeper = Zookeeper
+
+# funky
+job-name-magistrate = Magistrate

@@ -9,7 +9,7 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/botanist.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/botanist.rsi
-    
+
 - type: entity
   parent: [ClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitBartenderSyndicate
@@ -20,7 +20,7 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/bartender.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/bartender.rsi
-    
+
 - type: entity
   parent: [ClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitLibrarianSyndicate
@@ -31,7 +31,7 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/librarian.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/librarian.rsi
-    
+
 - type: entity
   parent: [ClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitScientistSyndicate
@@ -42,7 +42,7 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/scientist.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/scientist.rsi
-    
+
 - type: entity
   parent: [ClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitScientistWhiteSyndicate
@@ -53,7 +53,7 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/scientist-white.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/scientist-white.rsi
-    
+
 # Syndicate Command (sprites by meijunkie)
 
 - type: entity
@@ -77,7 +77,7 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/ccr.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/ccr.rsi
-    
+
 - type: entity
   parent: [ClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitIMDSyndicate
@@ -88,7 +88,7 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/imd.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/imd.rsi
-    
+
 - type: entity
   parent: [ClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitWSMSyndicate
@@ -99,7 +99,7 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/wsm.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/wsm.rsi
-    
+
 - type: entity
   parent: [ClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitHRDSyndicate
@@ -110,7 +110,7 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/hrd.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/hrd.rsi
-    
+
 - type: entity
   parent: [ClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitCHESyndicate
@@ -121,7 +121,7 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/che.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/che.rsi
-    
+
 - type: entity
   parent: [ClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitHCRSyndicate
@@ -132,8 +132,21 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/hcr.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/Syndicate/hcr.rsi
-    
-    
+
+# magistrate
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseCommandContraband ]
+  id: ClothingUniformJumpsuitMagistrate
+  name: magistrate jumpsuit
+  description: A freshly pressed suit, with shoulder-boards made of pure gold. Smells like old books.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/magistrate.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/magistrate.rsi
+
+
 # Charlie Station Ancient Uniforms (sprites by mingebag / meijunkie)
 
 - type: entity
@@ -179,9 +192,9 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/ancient_sec.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/ancient_sec.rsi
-    
+
 # using the nanotrasen jumpsuit sprite since theres no reason to make ANOTHER sprite
-    
+
 - type: entity
   parent: [UnsensoredClothingUniformBase]
   id: ClothingUniformJumpsuitAncientRep

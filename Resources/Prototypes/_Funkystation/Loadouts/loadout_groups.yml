@@ -1,0 +1,11 @@
+- type: loadoutGroup
+  id: MagistratePDA
+  name: loadout-group-roboticist-id
+  loadouts:
+  - MagistratePDA
+
+- type: loadoutGroup
+  id: MagistrateJumpsuit
+  name: loadout-group-magistrate-jumpsuit
+  loadouts:
+  - MagistrateJumpsuitSuit

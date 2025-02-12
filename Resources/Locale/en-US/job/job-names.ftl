@@ -128,4 +128,3 @@ JobZookeeper = Zookeeper
 
 # funky
 job-name-magistrate = Magistrate
-JobMagistrate = Magistrate

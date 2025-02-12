@@ -79,3 +79,14 @@
     - WantedListCartridge
     - LogProbeCartridge
     - NanoChatCartridge # DeltaV
+
+- type: roleLoadout
+  id: JobMagistrate
+  groups:
+  - GroupTankHarness
+  - MagistratePDA
+  - MagistrateJumpsuit
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool

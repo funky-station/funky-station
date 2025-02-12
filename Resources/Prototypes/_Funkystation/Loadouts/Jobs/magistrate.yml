@@ -1,0 +1,9 @@
+- type: loadout
+  id: MagistratePDA
+  equipment:
+    id: MagistratePDA
+
+- type: loadout
+  id: MagistrateJumpsuitSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMagistrate

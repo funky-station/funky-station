@@ -102,7 +102,7 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
             if (_weldable.IsWelded(uid))
                 return;
 
-            if (!_powerReceiverSystem.IsPowered(uid))
+            if (TryComp<ApcPowerReceiverComponent>(uid, out var power) && !power.Powered)
                 return;
 
             var nodeName = vent.PumpDirection switch

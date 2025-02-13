@@ -4310,7 +4310,7 @@ entities:
             4: 2184
           -13,4:
             3: 2184
-            6: 546
+            5: 546
           -12,5:
             0: 1
             1: 3856
@@ -4319,7 +4319,7 @@ entities:
           -11,5:
             1: 784
           -11,4:
-            5: 546
+            6: 546
           -11,6:
             0: 49152
           -11,3:
@@ -4669,9 +4669,9 @@ entities:
           temperature: 293.15
           moles:
           - 0
+          - 0
+          - 0
           - 6666.982
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -4688,9 +4688,9 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 0
-          - 0
           - 6666.982
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -73521,6 +73521,13 @@ entities:
     components:
     - type: Transform
       pos: -22.5,27.5
+      parent: 4812
+- proto: SpawnPointInternalAffairsAgent
+  entities:
+  - uid: 13808
+    components:
+    - type: Transform
+      pos: -17.5,15.5
       parent: 4812
 - proto: SpawnPointJanitor
   entities:

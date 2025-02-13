@@ -7905,7 +7905,7 @@ entities:
       pos: -7.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -96265.555
+      secondsUntilStateChange: -96324.12
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7952,7 +7952,7 @@ entities:
       pos: -34.5,-32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -239031.05
+      secondsUntilStateChange: -239089.61
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -8083,7 +8083,7 @@ entities:
       pos: -27.5,10.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -274668.4
+      secondsUntilStateChange: -274726.97
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -68357,6 +68357,13 @@ entities:
     - type: Transform
       pos: -35.5,7.5
       parent: 2
+- proto: SpawnPointInternalAffairsAgent
+  entities:
+  - uid: 17868
+    components:
+    - type: Transform
+      pos: 12.5,-8.5
+      parent: 2
 - proto: SpawnPointJanitor
   entities:
   - uid: 9976
@@ -109968,7 +109975,7 @@ entities:
       pos: -42.5,-16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -81660.57
+      secondsUntilStateChange: -81719.13
       state: Opening
 - proto: WoodenBench
   entities:

@@ -1,0 +1,39 @@
+- type: job
+  id: InternalAffairsAgent
+  name: Internal Affairs Agent
+  description: "Serve directly under the Nanotrasen Representative. Identify any violations of Standard Operating Procedure or Space Law. Report those violations."
+  playTimeTracker: JobInternalAffairsAgent
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 36000  #10 hrs
+  weight: 20
+  startingGear: InternalAffairsAgentGear
+  icon: "JobIconInternalAffairsAgent"
+  requireAdminNotify: false
+  joinNotifyCrew: true
+  supervisors: job-supervisors-ntr
+  canBeAntag: false
+  access:
+  - Cargo
+  - Brig
+  - External
+  - Cryogenics
+  - Maintenance
+  - Engineering
+  - Medical
+  - Research
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: InternalAffairsAgentGear
+  equipment:
+    id: InternalAffairsAgentPDA
+    shoes: ClothingShoesBootsLaceup
+    eyes: ClothingEyesGlassesSecurity
+    ears: ClothingHeadsetCentCom
+    pocket1: BookSpaceLaw
+    pocket2: Flash
+  inhand:
+  - BriefcaseBrownFilled

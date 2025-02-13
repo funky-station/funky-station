@@ -60537,6 +60537,13 @@ entities:
     - type: Transform
       pos: -8.5,21.5
       parent: 31
+- proto: SpawnPointInternalAffairsAgent
+  entities:
+  - uid: 12017
+    components:
+    - type: Transform
+      pos: 1.5,19.5
+      parent: 31
 - proto: SpawnPointJanitor
   entities:
   - uid: 1320

@@ -1563,3 +1563,9 @@ Entries:
       message: Added Internal Affairs Agent
   id: 195
   time: '2025-02-13T05:26:28.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: 'Reinforced Uranium Walls! For all your Radiation Blocking Needs! '
+  id: 196
+  time: '2025-02-13T22:52:34.0000000+00:00'

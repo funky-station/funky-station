@@ -97,6 +97,9 @@ uplink-mosin-ammo-desc = A box of 60 cartridges for the surplus rifle.
 uplink-sniper-ammo-name = Ammunition box (.60 antimateriel)
 uplink-sniper-ammo-desc = A box of 10 cartridges for the Hristov sniper rifle.
 
+uplink-hyposhell-name = Box of hyposhells
+uplink-hyposhell-desc = A box containing four hyposhells, shotgun shells that can hold 7u of any chemical.
+
 # Utility
 uplink-holopara-kit-name = Holoparasite Kit
 uplink-holopara-kit-desc = The pride and joy of Cybersun. Contains an injector that hosts a sentient metaphysical guardian made of hard light which resides in the user's body when not active.
@@ -278,6 +281,24 @@ uplink-necronomicon-desc = An unholy book capable of summoning a demonic familia
 uplink-holy-hand-grenade-name = Holy Hand Grenade
 uplink-holy-hand-grenade-desc = O Lord, bless this thy hand grenade, that with it thou mayst blow thine enemies to tiny bits, in thy mercy.
 
+# begin funkystation specific syndie wear
+
+uplink-botanist-syndie-jumpsuit-name = Syndicate Botanist Jumpsuit
+uplink-botanist-syndie-jumpsuit-desc = Perfect wear for when you need to grow some illegal plants.
+
+uplink-bartender-syndie-jumpsuit-name = Syndicate Bartender Jumpsuit
+uplink-bartender-syndie-jumpsuit-desc = Secretly spiking suspicious sodas has never been more fancy.
+
+uplink-librarian-syndie-jumpsuit-name = Syndicate Librarian Jumpsuit
+uplink-librarian-syndie-jumpsuit-desc = You aren't going to be casting any spells with your books, but they'll still be cursed.
+
+uplink-scientist-syndie-jumpsuit-name = Syndicate Scientist Jumpsuit
+uplink-scientist-syndie-jumpsuit-desc = Far ahead of Nanotrasen in research. Even farther ahead in style.
+
+uplink-scientist-white-syndie-jumpsuit-name = Syndicate White Scientist Jumpsuit
+
+# end funkystation specific syndie wear
+
 uplink-revolver-cap-gun-fake-name = Fake Cap Gun
 uplink-revolver-cap-gun-fake-desc = Fool your enemy! It can use both cap and magnum bullets. Comes loaded with magnum bullets.
 
@@ -380,6 +401,9 @@ uplink-syndicate-segway-crate-desc = Be an enemy of the corporation, in style!
 
 uplink-syndicate-sponge-box-name = Syndicate Sponge Box
 uplink-syndicate-sponge-box-desc = A box containing 6 syndicate sponges disguised as monkey cubes, these cubes turn into a variety of angry wildlife after coming into contact with water.
+
+uplink-syndicate-dinocube-box-name = Syndicate Dino Box
+uplink-syndicate-dinocube-box-desc = A box containing 6 random compacted dinosaurs, these cubes turn into a variety of angry prehistoric wildlife after coming into contact with water.
 
 uplink-slipocalypse-clustersoap-name = Slipocalypse Clustersoap
 uplink-slipocalypse-clustersoap-desc = Scatters arounds small pieces of syndicate-brand soap after being thrown, these pieces of soap evaporate after 60 seconds.

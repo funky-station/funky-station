@@ -409,7 +409,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 4
@@ -438,7 +438,7 @@
       food:
         maxVol: 25
         reagents:
-        - ReagentId: Bicaridine #keeping it somewhat consistent with the meat itself
+        - ReagentId: SalicylicAcid #keeping it somewhat consistent with the meat itself
           Quantity: 7
         - ReagentId: Vitamin
           Quantity: 12
@@ -587,7 +587,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 6
@@ -890,7 +890,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 55
+        maxVol: 90
         reagents:
         - ReagentId: Nutriment
           Quantity: 44

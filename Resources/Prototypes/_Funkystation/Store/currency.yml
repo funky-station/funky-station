@@ -1,0 +1,4 @@
+- type: currency
+  id: RevCoin
+  displayName: store-currency-display-revcoin
+  canWithdraw: false

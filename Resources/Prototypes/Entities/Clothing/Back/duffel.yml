@@ -130,6 +130,15 @@
   - type: Sprite
     sprite: Clothing/Back/Duffels/science.rsi
 
+- type: entity # funkystation
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelRobotics
+  name: robotics duffel bag
+  description: A large red-striped duffel bag for holding extra robotics related parts and materials.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Duffels/robotics.rsi
+
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelHydroponics

@@ -31,11 +31,18 @@ ghost-role-information-silicon-rules = You are a [color=#6495ed][bold]Silicon[/b
 
 # funkystation
 ghost-role-information-skeleton-rules = You are a [color=yellow][bold]Skeleton[/bold][/color]. You are a former member of crew and are considered crew.
-                                         While you are considered crew and are bound to the same laws as other crew members, you are free to act as an antagonist or a non antagonist.
-                                         Be sure to take extra care to follow escalation rules, as others will have to do with you.
-                                         You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
+                                        Be as silly as possible.
+                                        You are free to self antag as long as it's funny.
+                                        Keep crew harm to a minimum.
+
+# funkystation
+ghost-role-information-neanderthal-rules = You are a [color=yellow][bold]Neanderthal[/bold][/color]. You are freshly thawed out of a block of ice and have no idea where you are.
+                                         While your existence may be tolerated by the crew and Central Command, you are free to act as an antagonist or a non antagonist.
+                                         Though you are more beast than man, you should still generally follow escalation rules, as others will have to do with you.
+                                         You are not allowed to remember any knowledge about life or how to use objects beyond the absolute basics, such as how to swing a stick.
+                                         You do not understand the languages of others, nor do you possess the ability to communicate with others beyond grunting and gesturing.
                                          You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
-                                         You are NOT allowed to cause mass station destruction, such as releasing the singularity from containment.
+                                         You are [color=red]NOT[/color] allowed to cause mass station destruction, such as releasing the singularity from containment.
 
 ghost-role-information-mouse-name = Mouse
 ghost-role-information-mouse-description = A hungry and mischievous mouse.
@@ -96,6 +103,9 @@ ghost-role-information-kobold-description = Be the little gremlin you are, yell 
 ghost-role-information-rat-king-name = Rat King
 
 ghost-role-information-rat-king-description = You are the Rat King, your interests are food, food, and more food. Cooperate with or fight against the station for food. Did I say food interests you?
+
+# funkystation
+ghost-role-information-neanderthal-description = You are a freshly unfrozen neanderthal. You have no idea what is going on, where this is, what anything is, or who anyone else is.
 
 ghost-role-information-rat-servant-name = Rat Servant
 ghost-role-information-rat-servant-description = You are a Rat Servant. You must follow your king's orders.
@@ -159,6 +169,9 @@ ghost-role-information-skeleton-biker-description = Ride around on your sweet ri
 
 ghost-role-information-closet-skeleton-name = Closet Skeleton
 ghost-role-information-closet-skeleton-description = You are arguably one of the oldest members of the station! Get your old job back, or cause chaos! The world is yours to shape.
+
+# funkystation
+ghost-role-information-neanderthal-name = Unfrozen Neanderthal
 
 ghost-role-information-remilia-name = Remilia, the chaplain's familiar
 ghost-role-information-remilia-description = Follow and obey the chaplain. Eat fruit. Screech loudly into people's ears and write it off as echolocation.
@@ -251,6 +264,9 @@ ghost-role-information-derelict-cyborg-description = You are a regular cyborg th
 
 ghost-role-information-security-name = Security
 ghost-role-information-security-description = You are part of a security task force, but seem to have found yourself in a strange situation...
+
+roles-ghost-cryopod-sleeper-name = old cryogenics pod sleeper
+roles-ghost-cryopod-sleeper-objective = Work as a team with your fellow survivors aboard a ruined, ancient space station.
 
 ghost-role-information-medical-name = Medical
 ghost-role-information-medical-virologist-name = Virologist

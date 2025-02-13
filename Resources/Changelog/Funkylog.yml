@@ -710,3 +710,856 @@ Entries:
       message: added altec zorban plush
   id: 87
   time: '2024-12-18T23:42:25.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Mailbag can now hold envelopes
+  id: 88
+  time: '2024-12-19T03:10:26.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Add
+      message: Added IPCs as a playable species.
+  id: 89
+  time: '2024-12-19T03:13:20.0000000+00:00'
+- author: kbarkevich
+  changes:
+    - type: Add
+      message: Added Text-to-Speech voice for AI announcements.
+  id: 90
+  time: '2024-12-19T12:17:45.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Station AI TTS now reads messages faster.
+  id: 91
+  time: '2024-12-19T15:50:00.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Add
+      message: Added blob to secret!
+    - type: Tweak
+      message: Changed heretics to spawn as a side antag like thief.
+  id: 92
+  time: '2024-12-20T02:18:30.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Flashbangs now stun and knockdown people. Wear over-ear headset or
+        combat hardsuit helmet to reduce flashbang effective range.
+    - type: Add
+      message: All sec and command members received over-ear headsets.
+    - type: Add
+      message: Energy bola was added for security.
+    - type: Add
+      message: Flashbangs and e-bolas now printable on secfab.
+    - type: Add
+      message: Epinephrine autoinjector was added for security.
+    - type: Tweak
+      message: Epinephrine now speeds up by 10%.
+    - type: Add
+      message: >-
+        Jackboots, combat and mercenary boots now reduce all stun and knockdown
+        times by 20%.
+    - type: Add
+      message: Combat hardsuit helmets now protect from flashes.
+    - type: Add
+      message: Security survival box now contains extended emergency tank.
+    - type: Tweak
+      message: Tear gas is now stronger.
+    - type: Add
+      message: >-
+        Wearing security, ert, syndie or deathsquad gas mask blocks smoke
+        inhalation even if internals are off.
+    - type: Tweak
+      message: Disabler bolts now pierce through glass but deal no heat damage.
+    - type: Tweak
+      message: Stamcrit stun time is once again 6 seconds.
+    - type: Tweak
+      message: Security hardsuits now have heat resistance.
+    - type: Tweak
+      message: Sec belt and webbing now have 50% explosion resistance to contents.
+    - type: Fix
+      message: Now you won't get stunned no matter what after baton knockdown.
+  id: 93
+  time: '2024-12-20T23:18:04.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Fix
+      message: Fixed thief and heretic spawning
+  id: 94
+  time: '2024-12-21T07:19:30.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Changed BSO implanter to be bluespace instead of syndi
+  id: 95
+  time: '2024-12-22T18:17:20.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Tweak
+      message: Changed thief rates
+  id: 96
+  time: '2024-12-23T00:23:27.0000000+00:00'
+- author: hereelabs
+  changes:
+    - type: Add
+      message: >-
+        Planet-Side Hot Springs map and Party Bus Shuttle for "Hot Springs"
+        Event
+  id: 97
+  time: '2024-12-23T04:57:20.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Add
+      message: >-
+        Harpy wings (currently on their right arm lol) now give you the ability
+        to fly.
+    - type: Add
+      message: >-
+        Severing wings from a harpy will render it unable to fly, and
+        conversely, reattaching them to yourself will grant you that ability
+        instead.
+    - type: Tweak
+      message: Harpies can no longer wear shoes. Have fun with space wind.
+    - type: Tweak
+      message: Harpies can now imitate pianos, church organs and violins.
+    - type: Tweak
+      message: >-
+        Harpies are now immune to mice traps, landmines and glass
+        shards/caltrops.
+    - type: Tweak
+      message: Harpies now have acceleration when theres no gravity, akin to moths.
+  id: 98
+  time: '2024-12-23T06:51:04.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Fix
+      message: Fixed ash ascended heretic's limbs falling off
+  id: 99
+  time: '2024-12-23T07:32:19.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Changeling invisibility goes away quicker, even when crawling.
+  id: 100
+  time: '2024-12-23T18:46:07.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Add
+      message: added plasma, n2o gas miners to atmos
+    - type: Add
+      message: >-
+        added round-start singularity generators on containment field sector for
+        every map
+    - type: Remove
+      message: deleted mapped teg setups
+    - type: Tweak
+      message: buffed oxygen / nitrogen gas miners
+  id: 101
+  time: '2024-12-23T19:22:43.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Added sprites for /tg/ gases
+  id: 102
+  time: '2024-12-23T19:30:09.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Tweak
+      message: Heretic can spawn on low pop
+    - type: Fix
+      message: Fixes lowpop getting set to extended if the heretic player req isnt met
+  id: 103
+  time: '2024-12-24T00:15:36.0000000+00:00'
+- author: Teromax34
+  changes:
+    - type: Add
+      message: added cyns katyn plush
+  id: 104
+  time: '2024-12-24T00:18:35.0000000+00:00'
+- author: KingFroozy, tay
+  changes:
+    - type: Add
+      message: Roboticist role added, now we wait for the mappers to get to it.
+  id: 105
+  time: '2024-12-25T03:08:09.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Tweak
+      message: Changes to the "Unfortunate Captain" plush.
+  id: 106
+  time: '2024-12-25T06:14:32.0000000+00:00'
+- author: TheShuEd
+  changes:
+    - type: Fix
+      message: 'Fixed space chunks loot spawning '
+  id: 107
+  time: '2024-12-26T20:35:50.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: Medborgs can now perform surgery again.
+  id: 108
+  time: '2024-12-27T02:11:33.0000000+00:00'
+- author: Mocho, Deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Added a CVAR that lets server operators decide if players should be able
+        to use mech guns without them being inside of a mech. Set to true by
+        default.
+    - type: Tweak
+      message: Reworked IPC fire mechanics to not round remove them from a tiny fire.
+    - type: Tweak
+      message: IPCs cannot be picked as impersonation objectives for Changelings
+    - type: Tweak
+      message: IPCs cannot be cloned now.
+    - type: Tweak
+      message: Entity hands get blocked when they are inside of a mech now.
+    - type: Tweak
+      message: Mech punches or mech drills cannot be wideswung.
+    - type: Tweak
+      message: The mech PKA now consumes basically no energy.
+    - type: Fix
+      message: IPCs are finally not 3x more flammable than a plasmaman.
+    - type: Fix
+      message: >-
+        Fixed scram implants breaking your character if you use them inside of a
+        mech.
+    - type: Fix
+      message: Fixed EMPs completely bricking mech weapons.
+    - type: Fix
+      message: >-
+        Fixed IPC welding heals not checking if the targeted part is also
+        damaged.
+  id: 109
+  time: '2024-12-27T04:11:52.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Added frezon canister sprite
+  id: 110
+  time: '2024-12-28T23:16:14.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Remove
+      message: Funky Station is now less snowsday.
+  id: 111
+  time: '2024-12-29T02:52:09.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: Janitorial service lights have been added to most maps.
+    - type: Add
+      message: Most janitorial departments now have high-capacity water tanks.
+    - type: Fix
+      message: >-
+        Janitorial light buttons which previously did not have janitor button
+        frames now do have janitor button frames.
+    - type: Tweak
+      message: A book was placed near a useful water tank in Oasis.
+  id: 112
+  time: '2024-12-29T20:41:30.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Tweak
+      message: You can now do surgery on yourself!
+  id: 113
+  time: '2024-12-29T23:29:12.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Add
+      message: New map Roid
+  id: 114
+  time: '2024-12-30T02:58:17.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Add
+      message: Added gas abbreviations for /tg/ gases
+  id: 115
+  time: '2024-12-30T05:32:06.0000000+00:00'
+- author: Goomson
+  changes:
+    - type: Add
+      message: New (Funky!) Holopad sprites for AI!
+  id: 116
+  time: '2024-12-30T06:58:33.0000000+00:00'
+- author: hereelabs
+  changes:
+    - type: Add
+      message: Added Syndicate / Rival Corporation jumpsuits. Spritework by meijunkie.
+  id: 117
+  time: '2024-12-31T00:06:04.0000000+00:00'
+- author: hereelabs
+  changes:
+    - type: Tweak
+      message: Small updates to the "Hot Springs" event map.
+  id: 118
+  time: '2024-12-31T00:07:57.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Add
+      message: Botany biofabs are now E-maggable!
+    - type: Tweak
+      message: Antag cubes are much more less costly to fab!
+  id: 119
+  time: '2024-12-31T00:39:31.0000000+00:00'
+- author: ' MilonPL, angelofallars'
+  changes:
+    - type: Add
+      message: NanoChat is now available to all NanoTrasen employees.
+  id: 120
+  time: '2024-12-31T22:13:13.0000000+00:00'
+- author: Liamofthesky
+  changes:
+    - type: Tweak
+      message: Moved security bodycam from outerwear to neck in loadouts
+  id: 121
+  time: '2024-12-31T22:33:41.0000000+00:00'
+- author: hereelabs
+  changes:
+    - type: Tweak
+      message: Not So Self Insert; All self insert plushies are now more generic.
+  id: 122
+  time: '2025-01-01T20:42:16.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Add
+      message: plasma gas miner to loop
+    - type: Tweak
+      message: gate station is now playable for engineering department
+    - type: Fix
+      message: fixed storage chamber in cluster station atmos having round-start plasma
+  id: 123
+  time: '2025-01-02T20:15:35.0000000+00:00'
+- author: ' Aviu'
+  changes:
+    - type: Fix
+      message: Fix absurd amount of midround antags spawning every shift.
+  id: 124
+  time: '2025-01-03T04:17:49.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Tweak
+      message: revamped glacier station SM
+  id: 125
+  time: '2025-01-03T20:09:16.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Tweak
+      message: Reverted the Frezon Oxygen:Tritium Ratio Nerf
+  id: 126
+  time: '2025-01-03T20:25:33.0000000+00:00'
+- author: UtopiOne
+  changes:
+    - type: Fix
+      message: Roboticist now has an actual job description.
+  id: 127
+  time: '2025-01-03T20:32:35.0000000+00:00'
+- author: ' Aviu'
+  changes:
+    - type: Add
+      message: >-
+        Now antags are rolled roundstart and before jobs except for initial
+        infected.
+    - type: Add
+      message: Intern roles can be antags except for cadet obviously.
+  id: 128
+  time: '2025-01-05T04:35:55.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Tweak
+      message: ATMOS Resin cleans air on despawn
+  id: 129
+  time: '2025-01-05T19:42:55.0000000+00:00'
+- author: OrangeMoronage9622
+  changes: []
+  id: 130
+  time: '2025-01-05T20:03:52.0000000+00:00'
+- author: ' '
+  changes:
+    - type: Tweak
+      message: Funky is now based (ion storms are funnier now)
+  id: 131
+  time: '2025-01-05T20:41:33.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Add
+      message: Added silver rifle ammo with Holy damage
+    - type: Tweak
+      message: Annabelle is a little quieter
+  id: 132
+  time: '2025-01-06T01:21:55.0000000+00:00'
+- author: ' Mish'
+  changes:
+    - type: Tweak
+      message: Skeletons now take twice as much brute and holy damage.
+    - type: Tweak
+      message: Zombies take less damage from most sources besides holy.
+    - type: Tweak
+      message: Holy damage real?
+  id: 133
+  time: '2025-01-06T01:36:16.0000000+00:00'
+- author: hereelabs
+  changes:
+    - type: Add
+      message: >-
+        From Cryosleep, 129 Years Later... Charlie Station comes to Funky
+        Station!
+  id: 134
+  time: '2025-01-07T01:09:31.0000000+00:00'
+- author: Erisiaa
+  changes:
+    - type: Add
+      message: Adds a new ion lawset for cyborgs to get, good luck.
+  id: 135
+  time: '2025-01-07T05:37:55.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Tweak
+      message: Revamped Kettle's Atmos
+    - type: Tweak
+      message: Updated Train's Engi.
+  id: 136
+  time: '2025-01-07T19:35:53.0000000+00:00'
+- author: ' Mish'
+  changes:
+    - type: Tweak
+      message: Rat kings are now officially antagonists
+  id: 137
+  time: '2025-01-07T19:41:07.0000000+00:00'
+- author: ' SolsticeOfTheWinter'
+  changes:
+    - type: Tweak
+      message: harpies can start flying while walking
+    - type: Tweak
+      message: 'harpy documentation is better now '
+  id: 138
+  time: '2025-01-08T01:36:58.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Fix
+      message: fixed mapping errors
+  id: 139
+  time: '2025-01-08T02:26:14.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Fixed Roid atmos and power issues
+  id: 140
+  time: '2025-01-09T06:42:38.0000000+00:00'
+- author: Erisiaa
+  changes:
+    - type: Fix
+      message: dungeon master is now working! rejoice!!
+  id: 141
+  time: '2025-01-09T17:20:27.0000000+00:00'
+- author: Liamofthesky
+  changes:
+    - type: Tweak
+      message: X-01 Multiphase now has self recharging capabilities!
+  id: 142
+  time: '2025-01-09T18:56:31.0000000+00:00'
+- author: Erisiaa
+  changes:
+    - type: Add
+      message: Added yapping and gekkering!
+  id: 143
+  time: '2025-01-09T22:16:21.0000000+00:00'
+- author: Erisiaa
+  changes:
+    - type: Fix
+      message: 'fixes yapping and gekkering to be in vocal (oopsie :3)  '
+  id: 144
+  time: '2025-01-10T21:26:45.0000000+00:00'
+- author: ' taydeo, wurnt'
+  changes:
+    - type: Add
+      message: Thieves can now toggle their thieving ability.
+    - type: Tweak
+      message: Thieves now have a round start thieving ability.
+    - type: Fix
+      message: Dynamic thieves now get pacifism and thieving.
+  id: 145
+  time: '2025-01-11T04:02:03.0000000+00:00'
+- author: ' darkmajia, hivehum'
+  changes:
+    - type: Add
+      message: >-
+        Time distortion fields from seconds in the past have been detected.
+        Crewmembers should prepare for imminent Dino Wars.
+  id: 146
+  time: '2025-01-11T21:25:08.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Tweak
+      message: Mice and mothroaches deal damage again (and can zombify people)
+    - type: Tweak
+      message: Zom-bees are real
+    - type: Tweak
+      message: Zombies have slightly better regeneration
+  id: 147
+  time: '2025-01-11T21:26:35.0000000+00:00'
+- author: Erisiaa
+  changes:
+    - type: Add
+      message: Harpies can now yap and gekker.
+  id: 148
+  time: '2025-01-12T05:55:19.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Add
+      message: Added a completely new zone to glacier outpost.
+  id: 149
+  time: '2025-01-13T21:52:11.0000000+00:00'
+- author: ' deltanedas'
+  changes:
+    - type: Tweak
+      message: >-
+        Losing a limb makes you bleed profusely instead of dealing bloodloss
+        damage.
+  id: 150
+  time: '2025-01-14T06:13:20.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Add
+      message: >-
+        Added Syndicate Dino Cube boxes, purchasable by the Chef, Zookeeper, and
+        Scientist.
+  id: 151
+  time: '2025-01-14T06:14:17.0000000+00:00'
+- author: Liamofthesky
+  changes:
+    - type: Fix
+      message: Fixed the station plumbing, sinks now have plenty of water again
+  id: 152
+  time: '2025-01-15T21:15:21.0000000+00:00'
+- author: ' RadsammyT'
+  changes:
+    - type: Add
+      message: >-
+        Two new variants for playing cards have been added: Nanotrasen and
+        Syndicate. The NT variant can be unlocked as a trinket given 10 hours of
+        Quartermaster time. The Syndie variant can be purchased from the uplink
+        in the Pointless category for 3 TC.
+    - type: Fix
+      message: >-
+        Hands of Playing Cards will no longer show alternative verbs for ghosts
+        or any player controlled mob without any hands.
+    - type: Fix
+      message: Card sprites should no longer desync on reconnecting.
+    - type: Tweak
+      message: >-
+        Playing Card deck boxes now have holographic security seals on them.
+        Opening a sealed deck will destroy the seal.
+    - type: Tweak
+      message: >-
+        Playing Cards now have a 10 hour time requirement before you can select
+        them as a trinket.
+  id: 153
+  time: '2025-01-17T07:53:10.0000000+00:00'
+- author: empty0set
+  changes:
+    - type: Add
+      message: >-
+        Added new Job Distribution Error event. Some specific jobs will be
+        available for late join that are not found on Space Station 14 under
+        normal circumstances.
+  id: 154
+  time: '2025-01-18T04:23:06.0000000+00:00'
+- author: kbarkevich
+  changes:
+    - type: Add
+      message: Added 169 new words to the TTS announcements
+  id: 155
+  time: '2025-01-19T00:42:03.0000000+00:00'
+- author: OrangeMoronage9622
+  changes: []
+  id: 156
+  time: '2025-01-19T09:11:02.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Re-themed Terry's Roid SM chamber and remade atmos!
+  id: 157
+  time: '2025-01-20T03:33:47.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Tweak
+      message: Blob can now spawn midround!
+  id: 158
+  time: '2025-01-22T04:00:45.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Fix
+      message: Players can no longer crawl over tables
+  id: 159
+  time: '2025-01-22T04:02:25.0000000+00:00'
+- author: ' Aviu'
+  changes:
+    - type: Add
+      message: >-
+        Added the materials silo, a machine that connects all lathes on the
+        station together so that they share resources. You can find it in the
+        comms room on every map.
+  id: 160
+  time: '2025-01-23T02:08:08.0000000+00:00'
+- author: kbarkevich
+  changes:
+    - type: Tweak
+      message: Reduced Surgical Multitool doAfter time.
+  id: 161
+  time: '2025-01-23T22:36:03.0000000+00:00'
+- author: kbarkevich
+  changes:
+    - type: Add
+      message: Added Liquid Pie
+    - type: Add
+      message: Added Pielovene
+  id: 162
+  time: '2025-01-24T01:24:50.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Add
+      message: >-
+        The Blob can now see their exact resource total in real-time by mousing
+        over the Blob Resources Alert on the right side of the screen.
+  id: 163
+  time: '2025-01-24T08:14:38.0000000+00:00'
+- author: empty0set
+  changes:
+    - type: Add
+      message: Funky accent!
+  id: 164
+  time: '2025-01-24T19:20:47.0000000+00:00'
+- author: ' taydeo, Rainbeon'
+  changes:
+    - type: Tweak
+      message: The Evacuation Shuttle no longer Docks when HRevs are still alive
+    - type: Tweak
+      message: The game now auto-ends when revolutionaries win.
+    - type: Tweak
+      message: The Evacuation shuttle is now auto-called when HRevs die.
+  id: 165
+  time: '2025-01-24T23:18:21.0000000+00:00'
+- author: ' hereelabs, meijunkie'
+  changes:
+    - type: Tweak
+      message: Made Oldstation Good
+  id: 166
+  time: '2025-01-26T00:20:28.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Stops the removal of the salv shuttle computer from maps
+  id: 167
+  time: '2025-01-26T06:23:07.0000000+00:00'
+- author: ' Cthyga'
+  changes:
+    - type: Add
+      message: >-
+        Added a new weapon for the Head of Personnel: The Miniature Laser
+        Pistol!
+    - type: Add
+      message: 'Added a new disabler for the Head of Personnel: Disabler Plus'
+  id: 168
+  time: '2025-01-26T06:23:47.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        If all alive Head Revolutionaries abandon the station, a 1 minute timer
+        will now start that counts down until a Head Revolutionary returns. If
+        no Head Revolutionaries return, the game will consider this as the
+        Revolution failing, and all Revs will be de-converted + the shuttle
+        called on the next check. If a single Head Revolutionary returns, the
+        timer will stop, and the game will continue as normal.
+  id: 169
+  time: '2025-01-26T06:25:17.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Tweak
+      message: Pride cloaks now show their names instead of a pun or joke.
+  id: 170
+  time: '2025-01-26T21:07:06.0000000+00:00'
+- author: kbarkevich
+  changes:
+    - type: Add
+      message: Added Neanderthal ghost role
+  id: 171
+  time: '2025-01-26T21:11:32.0000000+00:00'
+- author: empty0set
+  changes:
+    - type: Tweak
+      message: butterflies are now edible
+  id: 172
+  time: '2025-01-27T03:34:34.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Fixed Roid Atmos! Enjoy breathing!
+  id: 173
+  time: '2025-01-27T03:35:08.0000000+00:00'
+- author: ' deltanedas'
+  changes:
+    - type: Remove
+      message: Extreme heat no longer turns people to ash.
+  id: 174
+  time: '2025-01-27T22:05:47.0000000+00:00'
+- author: ' Cthyga'
+  changes:
+    - type: Fix
+      message: Fixed description of disabler plus
+    - type: Fix
+      message: Changed capitalization of disabler plus to be in line with other items.
+  id: 175
+  time: '2025-01-28T00:09:57.0000000+00:00'
+- author: ' Cthyga'
+  changes:
+    - type: Fix
+      message: Fixed the disabler plus integrated light vanishing.
+  id: 176
+  time: '2025-01-28T05:23:39.0000000+00:00'
+- author: ' Impstation'
+  changes:
+    - type: Add
+      message: From the IMP sector, over a hundred new hair styles and markings!
+    - type: Tweak
+      message: Vox and Slimes have received a minor visual refresh.
+  id: 177
+  time: '2025-01-28T05:24:38.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Add
+      message: Revamped saltern station engineering department.
+  id: 178
+  time: '2025-01-29T04:22:24.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Head Revolutionaries now have a PDA uplink. Viva.
+  id: 179
+  time: '2025-01-29T04:24:44.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Add
+      message: added supermatter engine to packed station
+    - type: Remove
+      message: removed singularity/tesla engine from packed station
+  id: 180
+  time: '2025-02-02T23:33:14.0000000+00:00'
+- author: thecopbennet
+  changes:
+    - type: Add
+      message: >-
+        Adds a four telecrystal purchase for four hyposhells, shells that can
+        hold 7u of any reagent and inject upon impact, available for barkeepers
+        and zookeepers
+  id: 181
+  time: '2025-02-03T03:52:26.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Tweak
+      message: Cigarettes are now grindable
+  id: 182
+  time: '2025-02-03T05:36:33.0000000+00:00'
+- author: sssaaagggeee
+  changes:
+    - type: Tweak
+      message: rebalanced prices of atmospheric gases
+  id: 183
+  time: '2025-02-03T19:43:02.0000000+00:00'
+- author: ' Icepicked, Gtheglorius'
+  changes:
+    - type: Add
+      message: New Clown Masks!
+    - type: Tweak
+      message: (Non-Security) Clowns are now able to select masks in their loadout.
+  id: 184
+  time: '2025-02-03T20:23:18.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Remove
+      message: Self-insert and Stowaway brand plushies no longer spawn in lockers.
+  id: 185
+  time: '2025-02-03T20:59:24.0000000+00:00'
+- author: rottenheadphones
+  changes:
+    - type: Add
+      message: Added singularity engine to saltern
+    - type: Remove
+      message: Removed supermatter engine from saltern
+  id: 186
+  time: '2025-02-05T23:14:57.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Reworked Roid's Botany and Kitchen and expanded maints.
+  id: 187
+  time: '2025-02-06T07:34:22.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Add
+      message: Station AI now uses preferred silicon name!
+  id: 188
+  time: '2025-02-08T02:11:31.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Tweak
+      message: Bluespace implant reworded and now gender neutral
+  id: 189
+  time: '2025-02-08T06:42:27.0000000+00:00'
+- author: ' TooSillyFennec, correspond'
+  changes:
+    - type: Add
+      message: >-
+        Three new brute chemicals have been added--Libital, Probitial and
+        Salicyclic Acid
+    - type: Add
+      message: Two new airloss chemicals have been added--Salbutamol and Convermol
+    - type: Add
+      message: Granibitual has been added, a slow acting catch all chemical
+    - type: Remove
+      message: >-
+        Dylovene, Kelotane, and Dermaline have been removed. See the guidebook
+        for their replacements
+    - type: Tweak
+      message: >-
+        The recipes for Libital, Probitial, and Salicyclic Acid have been
+        adjusted
+    - type: Tweak
+      message: Medkits now have different chemicals inside of them
+  id: 190
+  time: '2025-02-08T18:54:39.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Lowered holopad power consumption
+  id: 191
+  time: '2025-02-10T02:41:00.0000000+00:00'
+- author: empty0set
+  changes:
+    - type: Tweak
+      message: Smoking in bed has a chance to set you on fire!
+  id: 192
+  time: '2025-02-12T08:01:32.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Holopads have been added!
+  id: 193
+  time: '2025-02-12T08:03:13.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Added solars to Roid by popular request
+  id: 194
+  time: '2025-02-12T08:05:14.0000000+00:00'
+- author: kbarkevich
+  changes:
+    - type: Add
+      message: Added Internal Affairs Agent
+  id: 195
+  time: '2025-02-13T05:26:28.0000000+00:00'

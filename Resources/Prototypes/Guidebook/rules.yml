@@ -129,7 +129,7 @@
   name: guide-entry-rules-c13
   ruleEntry: true
   priority: 13
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC13MRPRoleplay.xml"
+  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC13NoEORG.xml"
 
 - type: guideEntry
   id: Metashield

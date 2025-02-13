@@ -11,3 +11,7 @@ selfplush-lintonbyers-1 = H-Heyo!
 selfplush-felixkay-1 = I used to be a R-Research Director...
 
 selfplush-alteczorban-1 = jzjzjzjz
+
+selfplush-cynskatyns-1 = Mail!
+
+selfplush-kuafumoeller-1 = I love space!!!

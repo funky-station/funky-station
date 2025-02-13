@@ -35,3 +35,15 @@
   values:
     prefix: selfplush-alteczorban-
     count: 1
+
+- type: localizedDataset
+  id: SelfPlushCynsKatyns
+  values:
+    prefix: selfplush-cynskatyns-
+    count: 1
+
+- type: localizedDataset
+  id: SelfPlushKuafuMoeller
+  values:
+    prefix: selfplush-kuafumoeller-
+    count: 1

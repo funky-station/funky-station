@@ -126,7 +126,7 @@
       # Yes they do fuck you.
     - id: ClothingBackpackIan
       prob: 0.5
-    - id: ClothingHeadsetCommand
+    - id: ClothingHeadsetAltCommand # Goobstation
     - id: ClothingNeckGoldmedal
     - id: DoorRemoteService
     - id: HoPIDCard
@@ -134,7 +134,9 @@
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampHop
-    - id: WeaponDisabler
+    # funkystation: removing disabler and instead using energy pistol
+    # - id: WeaponDisabler
+    - id: WeaponDisablerPlus # funkystation adding unique hop weapon
     - id: ClothingEyesHudCommand
 
 - type: entity
@@ -165,6 +167,7 @@
     - id: RCDAmmo
     - id: RubberStampCE
     - id: BaseHandheldStationMapPowerCe
+    - id: RPD # RPD
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillChiefEngineerHardsuit

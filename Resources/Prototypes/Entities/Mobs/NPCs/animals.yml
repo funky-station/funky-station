@@ -129,7 +129,6 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
-  - type: ZombieImmune
 
 - type: entity
   name: bee
@@ -156,7 +155,6 @@
     - SimpleHostile
   - type: Bloodstream
     bloodMaxVolume: 0.1
-  - type: ZombieImmune
 
 
 - type: entity
@@ -391,7 +389,6 @@
       behaviors:
       - !type:GibBehavior # Shitmed Change
         gibContents: Skip # Shitmed Change
-  - type: NonSpreaderZombie
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: MeleeWeapon
@@ -401,7 +398,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 0
+        Piercing: 0.1
 
 - type: entity
   name: glockroach
@@ -520,6 +517,14 @@
       types:
         Asphyxiation: -0.5
   - type: CombatMode
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 3
   - type: Butcherable
     spawned:
     - id: FoodMeatSlime
@@ -738,6 +743,24 @@
   id: MobButterfly
   description: Despite popular misconceptions, it's not actually made of butter.
   components:
+  - type: Food # BEGIN Funkystation
+  - type: FlavorProfile
+    flavors:
+    - strange
+  - type: Item
+    size: Tiny
+    heldPrefix: off
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Butter
+          Quantity: 1
+  - type: Tag
+    tags:
+    - Meat # END Funkystation
   - type: MovementSpeedModifier
     baseWalkSpeed : 3
     baseSprintSpeed : 6
@@ -1250,8 +1273,12 @@
   abstract: true
   components:
   - type: CombatMode
-  - type: SurgeryTarget # Shitmed
-  - type: Targeting # Shitmed
+  # Shitmed Change Start
+  - type: SurgeryTarget
+  - type: Targeting
+  - type: HumanoidAppearance
+    species: Monkey
+  # Shitmed Change End
   - type: Inventory
     templateId: monkey
     speciesId: monkey
@@ -1276,24 +1303,44 @@
   - type: Sprite
     drawdepth: Mobs
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: monkey
-      sprite: Mobs/Animals/monkey.rsi
-    - map: [ "jumpsuit" ]
-    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+  # Shitmed Change Start
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: ["jumpsuit"]
+    - map: ["enum.HumanoidVisualLayers.LFoot"]
+    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: ["enum.HumanoidVisualLayers.LHand"]
+    - map: ["enum.HumanoidVisualLayers.RHand"]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
     - map: [ "ears" ]
     - map: [ "outerClothing" ]
+    - map: [ "eyes" ]
+    - map: [ "belt" ]
     - map: [ "id" ]
+    - map: [ "neck" ]
+    - map: [ "back" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "mask" ]
     - map: [ "head" ]
-    - map: [ "clownedon" ]
-      sprite: "Effects/creampie.rsi"
-      state: "creampie_human"
-      visible: false
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+  # Shitmed Change End
   - type: Hands
   - type: ComplexInteraction
   - type: GenericVisualizer
@@ -1302,10 +1349,10 @@
         clownedon:
           True: {visible: true}
           False: {visible: false}
-  - type: Body
-    prototype: Primate
-    requiredLegs: 1 # TODO: More than 1 leg
-  - type: UserInterface # Shitmed: Add SurgeryUIKey on top of stripping ui
+  - type: Body # Shitmed Change
+    prototype: Monkey
+    requiredLegs: 2
+  - type: UserInterface # Shitmed
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
@@ -1459,6 +1506,13 @@
   - type: LizardAccent
   - type: ReplacementAccent
     accent: kobold
+  # Shitmed Change Start
+  - type: HumanoidAppearance
+    species: Kobold
+  - type: Body
+    prototype: Kobold
+    requiredLegs: 2
+  # Shitmed Change End
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
@@ -1503,47 +1557,6 @@
     coldDamageThreshold: 285
     currentTemperature: 310.15
     specificHeat: 42
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      sprite: Mobs/Animals/kobold.rsi
-      state: kobold
-    - map: [ "outline" ]
-      sprite: Mobs/Animals/kobold.rsi
-      state: outline
-    - map: [ "horns" ]
-      sprite: Mobs/Customization/reptilian_parts.rsi
-      state: horns_short
-    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
-      color: "#ffffff"
-      sprite: Objects/Misc/handcuffs.rsi
-      state: body-overlay-2
-      visible: false
-    - map: [ "ears" ]
-    - map: [ "id" ]
-    - map: [ "mask" ]
-    - map: [ "head" ]
-    - map: [ "clownedon" ]
-      sprite: "Effects/creampie.rsi"
-      state: "creampie_human"
-      visible: false
-  - type: RandomSprite
-    getAllGroups: true
-    available:
-      - enum.DamageStateVisualLayers.Base:
-          kobold: KoboldColors
-      - horns:
-          horns_curled: KoboldHornColors
-          horns_ram: KoboldHornColors
-          horns_short: KoboldHornColors
-          horns_myrsore: KoboldHornColors
-          horns_bighorn: KoboldHornColors
-          horns_argali: KoboldHornColors
-          horns_ayrshire: KoboldHornColors
-          horns_floppy_kobold_ears: Inherit
-          horns_double: Inherit
-          horns_kobold_ears: Inherit
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -1722,7 +1735,6 @@
       Dead: 0
     baseDecayRate: 0.04
   - type: Hunger
-    currentHunger: 25   # spawn with Okay hunger state
     thresholds:
       Overfed: 35
       Okay: 25
@@ -1777,14 +1789,13 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 0
+        Piercing: 1
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: CanEscapeInventory
   - type: MobPrice
     price: 50
   - type: BadFood
-  - type: NonSpreaderZombie
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
@@ -2341,24 +2352,10 @@
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
 - type: entity
-  name: tarantula
   parent: [ SimpleMobBase, MobCombat ]
-  id: MobGiantSpider
-  description: Widely recognized to be the literal worst thing in existence.
+  id: MobSpiderBase
+  abstract: true
   components:
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
-      state: tarantula
-      sprite: Mobs/Animals/spider.rsi
-  - type: SpriteMovement
-    movementLayers:
-      movement:
-        state: tarantula-moving
-    noMovementLayers:
-      movement:
-        state: tarantula
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -2371,14 +2368,6 @@
         - MobMask
         layer:
         - MobLayer
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: tarantula
-      Critical:
-        Base: tarantula_dead
-      Dead:
-        Base: tarantula_dead
   - type: Butcherable
     spawned:
     - id: FoodMeatSpider
@@ -2395,15 +2384,6 @@
     thresholds:
       0: Alive
       90: Dead
-  - type: MeleeWeapon
-    altDisarm: false
-    angle: 0
-    animation: WeaponArcBite
-    soundHit:
-      path: /Audio/Effects/bite.ogg
-    damage:
-      types:
-        Piercing: 6
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -2469,31 +2449,73 @@
     playSoundOn: false
 
 - type: entity
-  name: tarantula
-  parent: MobGiantSpider
-  id: MobGiantSpiderAngry
-  suffix: Angry
+  parent: MobSpiderBase
+  id: MobSpiderAngryBase
+  abstract: true
   components:
-    - type: NpcFactionMember
-      factions:
-        - Xeno
-    - type: InputMover
-    - type: MobMover
-    - type: HTN
-      rootTask:
-        task: SimpleHostileCompound
-    - type: GhostRole
-      makeSentient: true
-      name: ghost-role-information-giant-spider-name
-      description: ghost-role-information-giant-spider-description
-      rules: ghost-role-information-giant-spider-rules
-      raffle:
-        settings: short
-    - type: GhostTakeoverAvailable
+  - type: NpcFactionMember
+    factions:
+      - Xeno
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-giant-spider-name
+    description: ghost-role-information-giant-spider-description
+    rules: ghost-role-information-giant-spider-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  name: tarantula
+  parent: MobSpiderBase
+  id: MobGiantSpider
+  description: Widely recognized to be the literal worst thing in existence.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: tarantula
+      sprite: Mobs/Animals/spider.rsi
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: tarantula-moving
+    noMovementLayers:
+      movement:
+        state: tarantula
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: tarantula
+      Critical:
+        Base: tarantula_dead
+      Dead:
+        Base: tarantula_dead
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 6
+
+- type: entity
+  parent:
+  - MobGiantSpider
+  - MobSpiderAngryBase
+  id: MobGiantSpiderAngry
 
 - type: entity
   name: clown spider
-  parent: MobGiantSpiderAngry
+  parent: MobSpiderAngryBase
   id: MobClownSpider
   description: Combines the two most terrifying things in existence, spiders and clowns.
   components:
@@ -2862,7 +2884,7 @@
   - type: Bloodstream
     bloodReagent: DemonsBlood
   - type: Damageable
-    damageContainer: Biological
+    damageContainer: BiologicalMetaphysical
     damageModifierSet: Infernal
   - type: Temperature
     heatDamageThreshold: 4000 #They come from hell, so..
@@ -3377,7 +3399,6 @@
     baseResistTime: 3
   - type: MobPrice
     price: 60
-  - type: NonSpreaderZombie
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
@@ -3523,6 +3544,13 @@
       gender: epicene
   - type: Speech
     speechVerb: Plant
+    speechSounds: Alto
+    allowedEmotes: ['Chirp']
+  - type: Vocal
+    sounds:
+      Male: UnisexDiona
+      Female: UnisexDiona
+      Unsexed: UnisexDiona
   - type: Tag
     tags:
     - DoorBumpOpener

@@ -39,6 +39,7 @@ job-description-qm = Manage the supplies of the station & the cargo department, 
 job-description-rd = Manage the science department, unlocking technologies, acquiring & researching artifacts, and performing experiments.
 job-description-research-assistant = Learn the basics of how to research various artifacts, anomalies and robotics.
 job-description-reporter = Entertain & inform the crew with your vibrant journalism through wireless cameras, the radio and the news. Currently available on Bagel Station, Cog, Core, Train and Oasis.
+job-description-roboticist = Build and mantain the station's silicons, repair IPCs, and create mechs & various cybernetic enchancements for the crew.
 job-description-salvagespec = Use the salvage magnet to draw in detatched scraps & asteroids to loot and enrich the station, build a salvage ship and then travel to new planets, while fighting off any space fauna along the way.
 job-description-scientist = Research alien artifacts, unlock new technologies, build newer and better machines around the station, and make everything run more efficiently.
 job-description-security = Catch criminals and enemies of the station, enforce the law, and ensure that the station does not fall into disarray.
@@ -47,3 +48,7 @@ job-description-station-ai = Follow your laws, serve the crew.
 job-description-visitor = Enjoy your visit to the station.
 job-description-warden = Patrol the security department, ensure that no one is stealing from the armory, and make sure that all prisoners are processed and let out when their time is up.
 job-description-zookeeper = Put on a joyful display of cute animals and space carps for all the crew to see. Currently available on Cog and Oasis.
+# event-restricted jobs
+job-description-command-maid = Clean the bridge, command rooms, and everything else that command tells you to.
+job-description-security-clown = Do security's job, but don't forget to do it with your clown spice.
+job-description-party-maker = Throw the biggest party ever at this station!

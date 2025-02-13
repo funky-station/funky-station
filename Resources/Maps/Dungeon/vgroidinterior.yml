@@ -2360,4 +2360,18 @@ entities:
     - type: Transform
       pos: 22.5,7.5
       parent: 1
+- proto: WeaponLaserGun
+  entities:
+  - uid: 444
+    components:
+    - type: Transform
+      pos: 8.4227705,9.29027
+      parent: 1
+- proto: WeaponMechMeleeDrill
+  entities:
+  - uid: 450
+    components:
+    - type: Transform
+      pos: 19.469189,14.833507
+      parent: 1
 ...

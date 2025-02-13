@@ -76,6 +76,7 @@
       - CrewManifestCartridge
       - NotekeeperCartridge
       - NewsReaderCartridge
+      - NanoChatCartridge # DeltaV
     cartridgeSlot:
       priority: -1
       name: device-pda-slot-component-slot-name-cartridge
@@ -125,6 +126,7 @@
     - NotekeeperCartridge
     - NewsReaderCartridge
     - WantedListCartridge
+    - NanoChatCartridge # DeltaV
 
 - type: entity
   parent: BasePDA
@@ -138,6 +140,7 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - MedTekCartridge
+      - NanoChatCartridge # DeltaV
 
 - type: entity
   parent: BasePDA
@@ -284,6 +287,9 @@
     state: pda-clown
   - type: Slippery # secretly made of bananium
   - type: StepTrigger
+    triggerGroups: # Goobstation
+      types:
+      - SlipEntity
   - type: CollisionWake
     enabled: false
   - type: Physics
@@ -378,6 +384,7 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - MailMetricsCartridge
+      - NanoChatCartridge # DeltaV
 
 - type: entity
   parent: BasePDA
@@ -414,6 +421,7 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - AstroNavCartridge
+      - NanoChatCartridge # DeltaV
 
 - type: entity
   parent: BasePDA
@@ -677,6 +685,21 @@
     state: pda-science
 
 - type: entity
+  parent: BasePDA
+  id: RoboticsPDA
+  name: robotics PDA
+  description: It's covered with scratches all over it.
+  components:
+  - type: Pda
+    id: RoboticsIDCard
+    state: pda-roboticist
+  - type: PdaBorderColor
+    borderColor: "#484848"
+    accentVColor: "#d33725"
+  - type: Icon
+    state: pda-roboticist
+
+- type: entity
   parent: BaseSecurityPDA
   id: HoSPDA
   name: head of security PDA
@@ -697,6 +720,7 @@
     - NewsReaderCartridge
     - WantedListCartridge
     - LogProbeCartridge
+    - NanoChatCartridge # DeltaV
 
 - type: entity
   parent: BaseSecurityPDA
@@ -755,6 +779,7 @@
       - WantedListCartridge
       - LogProbeCartridge
       - AstroNavCartridge
+      - NanoChatCartridge # DeltaV
 
 - type: entity
   parent: CentcomPDA
@@ -771,6 +796,7 @@
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     notificationsEnabled: false
+    diskSpace: 10 # DeltaV
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
@@ -779,6 +805,7 @@
       - WantedListCartridge
       - MedTekCartridge
       - AstroNavCartridge
+      - NanoChatCartridge # DeltaV
 
 - type: entity
   parent: CentcomPDA
@@ -870,6 +897,7 @@
     uiKey: enum.PdaUiKey.Key
     preinstalled:
       - NotekeeperCartridge
+      - NanoChatCartridge # DeltaV
 
 - type: entity
   parent: BaseSecurityPDA
@@ -897,6 +925,7 @@
       - WantedListCartridge
       - LogProbeCartridge
       - AstroNavCartridge
+      - NanoChatCartridge # DeltaV
 
 - type: entity
   parent: ERTLeaderPDA
@@ -1045,6 +1074,7 @@
     - NewsReaderCartridge
     - WantedListCartridge
     - LogProbeCartridge
+    - NanoChatCartridge # DeltaV
 
 - type: entity
   parent: BaseMedicalPDA
@@ -1068,6 +1098,7 @@
     - NewsReaderCartridge
     - WantedListCartridge
     - MedTekCartridge
+    - NanoChatCartridge # DeltaV
 
 - type: entity
   parent: ClownPDA
@@ -1184,3 +1215,32 @@
     preinstalled:
       - NotekeeperCartridge
       - MedTekCartridge
+      - NanoChatCartridge # DeltaV
+
+# event-restricted jobs
+- type: entity
+  parent: ClownPDA
+  id: SecurityClownPDA
+  name: security clown PDA
+  description: Who has a pink PDA in security?
+  components:
+  - type: Pda
+    id: SecurityClownIDCard
+
+- type: entity
+  parent: JanitorPDA
+  id: CommandMaidPDA
+  name: command maid PDA
+  description: Command gets their own janitorial staff?  This says a lot about society...
+  components:
+  - type: Pda
+    id: CommandMaidIDCard
+
+- type: entity
+  parent: MusicianPDA
+  id: PartyMakerPDA
+  name: party maker PDA
+  description: The best helper to make a party.
+  components:
+  - type: Pda
+    id: PartyMakerIDCard

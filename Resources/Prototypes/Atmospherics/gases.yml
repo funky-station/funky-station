@@ -50,7 +50,7 @@
   gasOverlayState: tritium
   color: 13FF4B
   reagent: Tritium
-  pricePerMole: 1.4
+  pricePerMole: 0.4 #funkystation
 
 - type: gas
   id: 5
@@ -99,32 +99,31 @@
   gasMolesVisible: 0.6
   color: 3a758c
   reagent: Frezon
-  pricePerMole: 2
+  pricePerMole: 1.2 #funkystation
 
-#/tg/ gases
+# Assmos - /tg/ gases
 
 - type: gas
   id: 9
   name: gases-bz
   specificHeat: 20
-  heatCapacityRatio: 1.4
+  heatCapacityRatio: 1.6
   molarMass: 12
   color: 9370db
   reagent: BZ
-  pricePerMole: 3
+  pricePerMole: 1.2 #funkystation
 
 - type: gas
   id: 10
   name: gases-healium
-  specificHeat: 20
+  specificHeat: 10
   heatCapacityRatio: 1.4
   molarMass: 15
   gasOverlaySprite: /Textures/Effects/atmospherics.rsi
   gasOverlayState: healium
-  gasMolesVisible: 2
-  color: 8b0000
+  color: fa8072
   reagent: Healium
-  pricePerMole: 5
+  pricePerMole: 2.7 #funkystation
 
 - type: gas
   id: 11
@@ -133,8 +132,19 @@
   heatCapacityRatio: 1.4
   gasOverlaySprite: /Textures/Effects/atmospherics.rsi
   gasOverlayState: nitrium
-  gasMolesVisible: 0.6
   molarMass: 8
-  color: b76f0e
+  color: a52a2a
   reagent: Nitrium
-  pricePerMole: 6
+  pricePerMole: 4
+
+- type: gas
+  id: 12
+  name: gases-pluoxium
+  specificHeat: 80
+  heatCapacityRatio: 1.33
+  molarMass: 32
+  color: 7b68ee
+  reagent: Pluoxium
+  pricePerMole: 0.1
+
+# Assmos - /tg/ gases end

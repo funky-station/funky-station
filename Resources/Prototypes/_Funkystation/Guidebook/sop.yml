@@ -5,6 +5,7 @@
   children:
   - CommandSOP
   - SecuritySOP
+  - LegalSOP
   - MedicalSOP
   - ServiceSOP
   - EngineeringSOP
@@ -34,6 +35,11 @@
   id: SecuritySOP
   name: guide-entry-security-sop
   text: "/ServerInfo/Funkystation/Guidebook/Security/SecurityStandardOperatingProcedure.xml"
+
+- type: guideEntry
+  id: LegalSOP
+  name: guide-entry-legal-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Legal/LegalSOP.xml"
 
 - type: guideEntry
   id: EngineeringSOP

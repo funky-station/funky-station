@@ -14,6 +14,7 @@
     - EscapeIdentityObjective
     - ChangelingSurviveObjective
   - type: AntagSelection
+    selectionTime: BeforeJobs
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
@@ -33,6 +34,7 @@
       min: 240
       max: 420
   - type: AntagSelection
+    selectionTime: BeforeJobs
     definitions:
     - prefRoles: [ Traitor ]
       max: 4
@@ -55,6 +57,7 @@
       min: 30
       max: 60
   - type: AntagSelection
+    selectionTime: BeforeJobs
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
@@ -131,6 +134,7 @@
     minPlayers: 30
   - type: RevolutionaryRule
   - type: AntagSelection
+    selectionTime: BeforeJobs
     definitions:
     - prefRoles: [ HeadRev ]
       max: 2
@@ -170,7 +174,7 @@
     - prefRoles: [ Blob ]
       min: 1
       max: 2
-      playerRatio: 40 #players = 2 blobs
+      playerRatio: 35 #players = 2 blobs
       allowNonHumans: true
       blacklist:
         components:
@@ -188,10 +192,10 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: StationEvent
-    weight: 15
+    weight: 5
     duration: 1
     earliestStart: 50
-    minimumPlayers: 20
+    minimumPlayers: 25
     maxOccurrences: 2
   - type: BlobSpawnRule
     carrierBlobProtos:

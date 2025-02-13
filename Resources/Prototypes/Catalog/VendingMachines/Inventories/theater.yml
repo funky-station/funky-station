@@ -10,6 +10,7 @@
     ClothingOuterWinterMime: 1
     ClothingOuterWinterMusician: 1
     ClothingMaskJoy: 2
+    ClothingOuterSuitCarp: 1
     ClothingHeadHatCardborg: 2
     ClothingOuterCardborg: 2
     ClothingHeadHatSombrero: 2
@@ -42,6 +43,9 @@
     ClothingOuterDameDane: 2
     ClothingOuterClownPriest: 1
     ClothingMaskSadMime: 1
+    ClothingMaskClownDevil: 1
+    ClothingMaskClownGamble: 1
+    ClothingMaskClownJuggle: 1
     ClothingMaskScaredMime: 1
     ClothingUniformJumpsuitKimono: 1
     ClothingHeadHatCasa: 1

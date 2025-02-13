@@ -19,7 +19,9 @@
     - category: Piloting
     - alertType: Corporeal
     - alertType: Stun
+    - alertType: KnockedDown # goobstation
     - category: Breathing # Vox gang not calling this oxygen
+    - alertType: Thieving # funkystation - MTGA
     - category: Pressure
     - alertType: Bleed
     - category: Temperature
@@ -168,6 +170,19 @@
   icons: [ /Textures/Interface/Alerts/Buckle/buckled.png ]
   name: alerts-buckled-name
   description: alerts-buckled-desc
+
+- type: alert
+  id: Thieving
+  clickEvent: !type:ThievingToggleEvent
+  icons:
+  - sprite: /Textures/_Funkystation/Interface/Alerts/thieving.rsi
+    state: thieving_OFF
+  - sprite: /Textures/_Funkystation/Interface/Alerts/thieving.rsi
+    state: thieving_ON
+  name: alerts-thieving-name
+  description: alerts-thieving-desc
+  minSeverity: 1
+  maxSeverity: 2
 
 - type: alert
   id: HumanCrit

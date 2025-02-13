@@ -87,7 +87,7 @@
 
 - type: entity
   id: Autolathe
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: autolathe
   description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
   components:
@@ -152,6 +152,7 @@
       - ExteriorLightTube
       - LightBulb
       - LedLightBulb
+      - DimLightBulb
       - Bucket
       - DrinkMug
       - DrinkMugMetal
@@ -227,6 +228,9 @@
       - RiotShield
       - SpeedLoaderMagnum
       - SpeedLoaderMagnumEmpty
+      - GrenadeFlashBang # Goobstation
+      - BolaEnergy # Goobstation
+      - CartridgeEpinephrine # Goobstation
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -253,7 +257,7 @@
 
 - type: entity
   id: Protolathe
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: protolathe
   description: Converts raw materials into advanced items.
   components:
@@ -358,6 +362,7 @@
       - EnergyScalpel # Shitmed Change
       - EnergyCautery # Shitmed Change
       - AdvancedRetractor # Shitmed Change
+      - PlantAnalyzer # Frontier
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -413,7 +418,7 @@
 
 - type: entity
   id: CircuitImprinter
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: circuit imprinter
   description: Prints circuit boards for machines.
   components:
@@ -482,7 +487,6 @@
       - SolarControlComputerCircuitboard
       - SolarTrackerElectronics
       - TurboItemRechargerCircuitboard
-      - PowerComputerCircuitboard
       - AutolatheHyperConvectionMachineCircuitboard
       - ProtolatheHyperConvectionMachineCircuitboard
       - CircuitImprinterHyperConvectionMachineCircuitboard
@@ -537,6 +541,8 @@
       - MassMediaCircuitboard
       - ReagentGrinderIndustrialMachineCircuitboard
       - JukeboxCircuitBoard
+      - SMESAdvancedMachineCircuitboard
+      - HolopadMachineCircuitboard
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - ShuttleGunDusterCircuitboard
@@ -564,7 +570,7 @@
 
 - type: entity
   id: ExosuitFabricator
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: exosuit fabricator
   description: Creates parts for robotics and other mechanical needs.
   components:
@@ -600,6 +606,20 @@
     - BorgModuleSurgery # Shitmed Change
     - MechAirTank # Goobstation
     - MechThruster # Goobstation
+    # Shitmed Change
+    - BorgModuleSurgery
+    - TorsoIPC
+    - LeftArmIPC
+    - RightArmIPC
+    - LeftLegIPC
+    - RightLegIPC
+    - HeadIPC
+    - LeftHandIPC
+    - RightHandIPC
+    - LeftFootIPC
+    - RightFootIPC
+    - OrganIPCEyes
+    - OrganIPCPump
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleAdvancedCleaning
@@ -734,7 +754,7 @@
 
 - type: entity
   id: SecurityTechFab
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: security techfab
   description: Prints equipment for use by security crew.
   components:
@@ -767,6 +787,7 @@
       - Handcuffs
       - MagazineBoxLightRifle
       - MagazineBoxLightRiflePractice
+      - MagazineBoxLightRifleSilver
       - MagazineBoxMagnum
       - MagazineBoxMagnumPractice
       - MagazineBoxPistol
@@ -774,6 +795,7 @@
       - MagazineBoxRifle
       - MagazineBoxRiflePractice
       - MagazineLightRifle
+      - MagazineLightRifleSilver
       - MagazineLightRifleEmpty
       - MagazinePistol
       - MagazinePistolEmpty
@@ -797,6 +819,9 @@
       - WeaponFlareGunSecurity
       - WeaponLaserCarbinePractice
       - Zipties
+      - GrenadeFlashBang # Goobstation
+      - BolaEnergy # Goobstation
+      - CartridgeEpinephrine # Goobstation
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary
@@ -869,7 +894,7 @@
 
 - type: entity
   id: AmmoTechFab
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: ammo techfab
   description: Prints the bare minimum of bullets that any budget military or armory could need. Nothing fancy.
   components:
@@ -919,7 +944,7 @@
 
 - type: entity
   id: MedicalTechFab
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: medical techfab
   description: Prints equipment for use by the medbay.
   components:
@@ -1190,6 +1215,22 @@
       - ClothingUniformJumpsuitPyjamaSyndicatePink
       - ClothingHeadPyjamaSyndicateRed
       - ClothingUniformJumpsuitPyjamaSyndicateRed
+      # begin funkystation specific syndie wear
+      # syndie civilian
+      - ClothingUniformJumpsuitBotanistSyndicate
+      - ClothingUniformJumpsuitBartenderSyndicate
+      - ClothingUniformJumpsuitLibrarianSyndicate
+      - ClothingUniformJumpsuitScientistSyndicate
+      - ClothingUniformJumpsuitScientistWhiteSyndicate
+      # syndie command
+      - ClothingUniformJumpsuitGCMSyndicate
+      - ClothingUniformJumpsuitCCRSyndicate
+      - ClothingUniformJumpsuitIMDSyndicate
+      - ClothingUniformJumpsuitWSMSyndicate
+      - ClothingUniformJumpsuitHRDSyndicate
+      - ClothingUniformJumpsuitCHESyndicate
+      - ClothingUniformJumpsuitHCRSyndicate
+      # end funkystation specific syndie wear
       - ClothingOuterWinterCentcom
       - ClothingOuterWinterSyndie
       - ClothingOuterWinterSyndieCap
@@ -1264,6 +1305,10 @@
     - BioGenLeft4Zed
     - BioGenEZNutrient
     - BioGenRobustHarvest
+  - type: EmagLatheRecipes
+    emagStaticRecipes: #funky make e maggable
+    - AbominationCube
+    - SpaceCarpCube
 
 - type: entity
   parent: BaseLathe
@@ -1297,7 +1342,7 @@
       staticRecipes:
         - SheetSteel
         - SheetGlass1
-        - SheetRGlass
+        - SheetRGlassRaw
         - SheetPlasma1
         - SheetPGlass1
         - SheetRPGlass1
@@ -1323,7 +1368,7 @@
     staticRecipes:
       - SheetSteel
       - SheetGlass1
-      - SheetRGlass
+      - SheetRGlassRaw
       - SheetPlasma1
       - SheetPGlass1
       - SheetRPGlass1

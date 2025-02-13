@@ -16,6 +16,7 @@
   canBeAntag: false
   access:
   - Research
+  - Robotics # funkystation
   - Command
   - Maintenance
   - ResearchDirector
@@ -33,7 +34,7 @@
   id: ResearchDirectorGear
   equipment:
     id: RnDPDA
-    ears: ClothingHeadsetRD
+    ears: ClothingHeadsetAltScience # Goobstation
   storage:
     back:
     - Flash

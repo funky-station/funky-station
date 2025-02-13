@@ -12,6 +12,7 @@
     - id: GasLeak
     - id: GreytideVirus
     - id: IonStorm # its calm like 90% of the time smh
+    - id: JobDistributionError
     - id: KudzuGrowth
     - id: MassHallucinations
     - id: MimicVendorRule
@@ -37,7 +38,7 @@
     - id: SleeperAgents
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
-   # - id: BlobSpawn #Goobstation - Blob  (not added wile undergoing playtesting)
+    - id: BlobSpawn #Goobstation - Blob
     - id: FalseAlarm
     - id: DerelictCyborgSpawn
 
@@ -105,7 +106,7 @@
   components:
   - type: StationEvent
     weight: 2
-    reoccurrenceDelay: 5
+    reoccurrenceDelay: 20 #funkystation - stop happening so fucking often
     earliestStart: 1
     duration: 1
   - type: BluespaceLockerRule
@@ -117,7 +118,7 @@
   - type: StationEvent
     weight: 7
     duration: 1
-    minimumPlayers: 15
+    minimumPlayers: 10
   - type: BreakerFlipRule
 
 - type: entity
@@ -151,7 +152,7 @@
   - type: StationEvent
     weight: 5
     duration: 1
-    minimumPlayers: 20 # funkystation yea yea
+    minimumPlayers: 10
     reoccurrenceDelay: 30 # funkystation
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
@@ -161,9 +162,9 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    weight: 3.0 # funkystation
-    earliestStart: 40 # funkystation
-    reoccurrenceDelay: 60 # funkystation
+    weight: 6.0 # funkystation
+    earliestStart: 60 # funkystation
+    reoccurrenceDelay: 30 # funkystation
     minimumPlayers: 20
     duration: null
   - type: SpaceSpawnRule
@@ -192,7 +193,7 @@
   - type: StationEvent
     weight: 6
     duration: null
-    earliestStart: 30
+    earliestStart: 45
     reoccurrenceDelay: 60 # funkystation
     minimumPlayers: 30
   - type: SpaceSpawnRule
@@ -239,7 +240,7 @@
   id: RevenantSpawn
   components:
   - type: StationEvent
-    weight: 5 # funkystation - why was it as common as a gas leak?
+    weight: 6
     duration: 1
     earliestStart: 45
     minimumPlayers: 20
@@ -276,7 +277,7 @@
     earliestStart: 15
     minimumPlayers: 15
     weight: 7
-    duration: 240
+    duration: 600 #if they can't deal with it in 10 minutes that's their problem
   - type: KudzuGrowthRule
 
 - type: entity
@@ -284,7 +285,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    weight: 5
+    weight: 4
     startAnnouncement: station-event-power-grid-check-start-announcement
     endAnnouncement: station-event-power-grid-check-end-announcement
     startAudio:
@@ -348,15 +349,13 @@
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
-    duration: 60
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
-    entries:
-    - id: MobAdultSlimesBlueAngry
-      prob: 0.02
-    - id: MobAdultSlimesGreenAngry
-      prob: 0.02
-    - id: MobAdultSlimesYellowAngry
-      prob: 0.02
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobAdultSlimesBlueAngry
+      - id: MobAdultSlimesGreenAngry
+      - id: MobAdultSlimesYellowAngry
 
 - type: entity
   id: SnakeSpawn
@@ -369,15 +368,13 @@
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
-    duration: 60
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
-    entries:
-    - id: MobPurpleSnake
-      prob: 0.02
-    - id: MobSmallPurpleSnake
-      prob: 0.02
-    - id: MobCobraSpace
-      prob: 0.02
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobPurpleSnake
+      - id: MobSmallPurpleSnake
+      - id: MobCobraSpace
 
 - type: entity
   id: SpiderSpawn
@@ -390,11 +387,10 @@
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
-    duration: 60
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
-    entries:
-    - id: MobGiantSpiderAngry
-      prob: 0.05
+    table: # DeltaV: EntityTable instead of spawn entries
+      id: MobGiantSpiderAngry
 
 - type: entity
   id: SpiderClownSpawn
@@ -403,15 +399,15 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/aliens.ogg
-    earliestStart: 25 # funkystation delay
-    minimumPlayers: 20
-    weight: 1.5
-    duration: 60
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 30 # funkystation delay
+    minimumPlayers: 30 # DeltaV - was 20
+    weight: 1 # DeltaV - was 1.5
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
-    entries:
-    - id: MobClownSpider
-      prob: 0.05
+    playerRatio: 35 # DeltaV: Clown spiders are very robust
+    table: # DeltaV: EntityTable instead of spawn entries
+      id: MobClownSpider
 
 - type: entity
   id: ZombieOutbreak
@@ -420,14 +416,14 @@
   - type: StationEvent
     earliestStart: 60 # funkystation
     minimumPlayers: 40
-    weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
+    weight: 1.5 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
   - type: ZombieRule
   - type: AntagSelection
     definitions:
     - prefRoles: [ InitialInfected ]
       max: 3
-      playerRatio: 10
+      playerRatio: 15
       blacklist:
         components:
         - ZombieImmune
@@ -452,7 +448,7 @@
   components:
   - type: StationEvent
     earliestStart: 35
-    weight: 5.5
+    weight: 4
     minimumPlayers: 20
     duration: 1
   - type: RuleGrids
@@ -485,7 +481,7 @@
   components:
   - type: StationEvent
     earliestStart: 30
-    weight: 8
+    weight: 6
     minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception
@@ -585,3 +581,18 @@
       min: 1
       max: 1
       pickPlayer: false
+
+- type: entity
+  id: JobDistributionError
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-job-distribution-error-announcement
+    minimumPlayers: 25
+    weight: 3
+    duration: 1
+  - type: JobDistributionErrorRule
+    jobs:
+    - SecurityClown
+    - PartyMaker
+    - CommandMaid

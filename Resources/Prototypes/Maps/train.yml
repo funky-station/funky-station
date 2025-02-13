@@ -1,7 +1,7 @@
 - type: gameMap
   id: Train
   mapName: 'Train'
-  mapPath: /Maps/train.yml
+  mapPath: /Maps/_Funkystation/train.yml
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 30
@@ -22,6 +22,7 @@
             #command
             Captain: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]
+            InternalAffairsAgent: [ 1, 2 ]
             BlueshieldOfficer: [ 1, 1 ]
             #service
             HeadOfPersonnel: [ 1, 1 ]
@@ -46,7 +47,8 @@
             Paramedic: [ 1, 1 ]
             #science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 4, 4 ]
+            Scientist: [ 3, 3 ]
+            Roboticist: [ 1, 1 ]
             ResearchAssistant: [ 2, 2 ]
             #security
             HeadOfSecurity: [ 1, 1 ]

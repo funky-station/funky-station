@@ -92,3 +92,13 @@
   id: Weh
   files:
   - /Audio/Items/Toys/weh.ogg
+
+- type: soundCollection
+  id: Hew
+  files:
+  - /Audio/Items/Toys/hew.ogg
+
+- type: soundCollection
+  id: VulpkaninYap
+  files:
+  - /Audio/DeltaV/Voice/Vulpkanin/yap.ogg

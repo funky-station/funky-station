@@ -30,6 +30,8 @@
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
+  - CardBoxBlack # goobstation
+  - CardBoxNanotrasen # goobstation
   - TowelColorBlack
   - TowelColorDarkBlue
   - TowelColorDarkGreen
@@ -46,7 +48,6 @@
   - TowelColorSilver
   - TowelColorWhite
   - TowelColorYellow
-  - CardBoxBlack
 
 - type: loadoutGroup
   id: Glasses
@@ -170,6 +171,7 @@
   minLimit: 0
   loadouts:
   - HoPWintercoat
+
 
 # Civilian
 - type: loadoutGroup
@@ -437,6 +439,15 @@
   loadouts:
   - JesterHat
   - JesterAltHat
+
+- type: loadoutGroup # - Funkystation
+  id: ClownMask
+  name: loadout-group-clown-mask
+  loadouts:
+  - ClownMask
+  - ClownMaskDevil
+  - ClownMaskGamble
+  - ClownMaskJuggle
 
 - type: loadoutGroup
   id: ClownJumpsuit
@@ -906,6 +917,14 @@
   - ScientistDuffel
 
 - type: loadoutGroup
+  id: RoboticistBackpack
+  name: loadout-group-scientist-backpack
+  loadouts:
+  - RoboticistBackpack
+  - RoboticistSatchel
+  - RoboticistDuffel
+
+- type: loadoutGroup
   id: ScientistOuterClothing
   name: loadout-group-scientist-outerclothing
   minLimit: 0
@@ -942,6 +961,13 @@
   - SeniorResearcherPDA
 
 - type: loadoutGroup
+  id: RoboticsPDA
+  name: loadout-group-roboticist-id
+  loadouts:
+  - RoboticsPDA
+  - SeniorResearcherPDA
+
+- type: loadoutGroup
   id: ResearchAssistantJumpsuit
   name: loadout-group-research-assistant-jumpsuit
   loadouts:
@@ -975,6 +1001,7 @@
   loadouts:
   - HeadofSecurityCloak
   - HeadofSecurityMantle
+  - Bodycam # Goobstation - Body cameras
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
@@ -982,7 +1009,6 @@
   loadouts:
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
-  - Bodycam # Goobstation - Body cameras
 
 - type: loadoutGroup
   id: WardenHead
@@ -1000,12 +1026,18 @@
   - WardenJumpskirt
 
 - type: loadoutGroup
+  id: WardenNeck
+  name: loadout-group-warden-neck
+  minLimit: 0
+  loadouts:
+  - Bodycam # Goobstation - Body cameras
+
+- type: loadoutGroup
   id: WardenOuterClothing
   name: loadout-group-warden-outerclothing
   loadouts:
   - WardenCoat
   - WardenArmoredWinterCoat
-  - Bodycam # Goobstation - Body cameras
 
 - type: loadoutGroup
   id: SecurityHead
@@ -1045,13 +1077,19 @@
   - SecurityWebbing
 
 - type: loadoutGroup
+  id: SecurityNeck
+  name: loadout-group-security-neck
+  minLimit: 0
+  loadouts:
+  - Bodycam # Goobstation - Body cameras
+
+- type: loadoutGroup
   id: SecurityOuterClothing
   name: loadout-group-security-outerclothing
   loadouts:
   - ArmorVest
   - ArmorVestSlim
   - SecurityOfficerWintercoat
-  - Bodycam # Goobstation - Body cameras
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1081,6 +1119,7 @@
   minLimit: 0
   loadouts:
   - DetectiveTie
+  - Bodycam # Goobstation - Body cameras
 
 - type: loadoutGroup
   id: DetectiveJumpsuit
@@ -1098,7 +1137,6 @@
   loadouts:
   - DetectiveArmorVest
   - DetectiveCoat
-  - Bodycam # Goobstation - Body cameras
   - DetectiveCoatGrey
 
 - type: loadoutGroup

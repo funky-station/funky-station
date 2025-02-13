@@ -124,6 +124,9 @@
 - type: playTimeTracker
   id: JobScientist
 
+- type: playTimeTracker # funkystation
+  id: JobRoboticist
+
 - type: playTimeTracker
   id: JobSecurityCadet
 
@@ -153,3 +156,13 @@
 
 - type: playTimeTracker
   id: JobZookeeper
+
+# event-restricted jobs
+- type: playTimeTracker
+  id: JobSecurityClown
+
+- type: playTimeTracker
+  id: JobCommandMaid
+
+- type: playTimeTracker
+  id: JobPartyMaker

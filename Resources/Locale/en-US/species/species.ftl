@@ -9,6 +9,8 @@ species-name-arachnid = Arachnid
 species-name-moth = Moth Person
 species-name-skeleton = Skeleton
 species-name-vox = Vox
+species-name-monkey = Monkey
+species-name-kobold = Kobold
 
 ## Misc species things
 

@@ -35,6 +35,7 @@ using Content.Shared.Prying.Components;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Ghost.Roles.Components;
+using Content.Shared.NPC.Components;
 
 namespace Content.Server.Zombies;
 
@@ -105,6 +106,7 @@ public sealed partial class ZombieSystem
         RemComp<ReproductivePartnerComponent>(target);
         RemComp<LegsParalyzedComponent>(target);
         RemComp<ComplexInteractionComponent>(target);
+        RemComp<NpcFactionMemberComponent>(target);
 
         //funny voice
         var accentType = "zombie";

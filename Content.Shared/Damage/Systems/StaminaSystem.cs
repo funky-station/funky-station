@@ -7,10 +7,13 @@ using Content.Shared.Damage.Events;
 using Content.Shared.Database;
 using Content.Shared.Effects;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Jittering;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Rounding;
+using Content.Shared.Speech.EntitySystems;
+using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
@@ -34,6 +37,10 @@ public sealed partial class StaminaSystem : EntitySystem
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!; // goob edit
+    [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goob edit
+    [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goob edit
+    [Dependency] private readonly ClothingModifyStunTimeSystem _modify = default!; // goob edit
 
     /// <summary>
     /// How much of a buffer is there between the stun duration and when stuns can be re-applied.
@@ -286,20 +293,10 @@ public sealed partial class StaminaSystem : EntitySystem
 
         SetStaminaAlert(uid, component);
 
-        if (!component.Critical)
-        {
-            if (component.StaminaDamage >= component.CritThreshold)
-            {
-                EnterStamCrit(uid, component);
-            }
-        }
-        else
-        {
-            if (component.StaminaDamage < component.CritThreshold)
-            {
-                ExitStamCrit(uid, component);
-            }
-        }
+        if (!component.Critical && component.StaminaDamage >= component.CritThreshold && value > 0) // goob edit
+            EnterStamCrit(uid, component);
+        else if (component.StaminaDamage < component.CritThreshold)
+            ExitStamCrit(uid, component);
 
         EnsureComp<ActiveStaminaComponent>(uid);
         Dirty(uid, component);
@@ -326,27 +323,50 @@ public sealed partial class StaminaSystem : EntitySystem
         }
     }
 
+    public void ToggleStaminaDrain(EntityUid target, float drainRate, bool enabled, bool modifiesSpeed, EntityUid? source = null)
+    {
+        if (!TryComp<StaminaComponent>(target, out var stamina))
+            return;
+
+        // If theres no source, we assume its the target that caused the drain.
+        var actualSource = source ?? target;
+
+        if (enabled)
+        {
+            stamina.ActiveDrains[actualSource] = (drainRate, modifiesSpeed);
+            EnsureComp<ActiveStaminaComponent>(target);
+        }
+        else
+            stamina.ActiveDrains.Remove(actualSource);
+
+        Dirty(target, stamina);
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-
         if (!_timing.IsFirstTimePredicted)
             return;
 
         var stamQuery = GetEntityQuery<StaminaComponent>();
         var query = EntityQueryEnumerator<ActiveStaminaComponent>();
         var curTime = _timing.CurTime;
-
         while (query.MoveNext(out var uid, out _))
         {
             // Just in case we have active but not stamina we'll check and account for it.
             if (!stamQuery.TryGetComponent(uid, out var comp) ||
-                comp.StaminaDamage <= 0f && !comp.Critical)
+                comp.StaminaDamage <= 0f && !comp.Critical && comp.ActiveDrains.Count == 0)
             {
                 RemComp<ActiveStaminaComponent>(uid);
                 continue;
             }
-
+            if (comp.ActiveDrains.Count > 0)
+                foreach (var (source, (drainRate, modifiesSpeed)) in comp.ActiveDrains)
+                    TakeStaminaDamage(uid,
+                    drainRate * frameTime,
+                    comp,
+                    source: source,
+                    visual: false);
             // Shouldn't need to consider paused time as we're only iterating non-paused stamina components.
             var nextUpdate = comp.NextUpdate;
 
@@ -361,15 +381,17 @@ public sealed partial class StaminaSystem : EntitySystem
             }
 
             comp.NextUpdate += TimeSpan.FromSeconds(1f);
-            TakeStaminaDamage(uid, -comp.Decay, comp);
+            // If theres no active drains, recover stamina.
+            if (comp.ActiveDrains.Count == 0)
+                TakeStaminaDamage(uid, -comp.Decay, comp);
+
             Dirty(uid, comp);
         }
     }
 
-    private void EnterStamCrit(EntityUid uid, StaminaComponent? component = null)
+    private void EnterStamCrit(EntityUid uid, StaminaComponent? component = null, bool hardStun = false)
     {
-        if (!Resolve(uid, ref component) ||
-            component.Critical)
+        if (!Resolve(uid, ref component) || !hardStun && component.Critical)
         {
             return;
         }
@@ -382,8 +404,8 @@ public sealed partial class StaminaSystem : EntitySystem
 
         _stunSystem.TryParalyze(uid, component.StunTime, true);
 
-        // Give them buffer before being able to be re-stunned
-        component.NextUpdate = _timing.CurTime + component.StunTime + StamCritBufferTime;
+        component.NextUpdate = _timing.CurTime + component.StunTime * _modify.GetModifier(uid) + StamCritBufferTime;
+
         EnsureComp<ActiveStaminaComponent>(uid);
         Dirty(uid, component);
         _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(uid):user} entered stamina crit");

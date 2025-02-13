@@ -15,6 +15,7 @@
   - SeedExtractorMachineCircuitboard
   - HydroponicsTrayMachineCircuitboard
   - ReagentGrinderIndustrialMachineCircuitboard
+  - PlantAnalyzer # Frontier
 
 - type: technology
   id: CritterMechs
@@ -53,6 +54,7 @@
   - SurveillanceCameraMonitorCircuitboard
   - SurveillanceWirelessCameraMonitorCircuitboard
   - TelecomServerCircuitboard
+  - HolopadMachineCircuitboard
 
 - type: technology
   id: AdvancedEntertainment

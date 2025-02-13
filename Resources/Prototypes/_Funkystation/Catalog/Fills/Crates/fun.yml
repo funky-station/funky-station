@@ -54,6 +54,8 @@
     - id: PlushieChadleySkrimblo
     - id: PlushieAkishJeen
     - id: PlushieAltecZorban
+    - id: PlushieCynsKatyns
+    - id: PlushieKuafuMoeller
 
 - type: entity
   id: CrateFunPlushieSelfInsert
@@ -65,5 +67,37 @@
     containers:
       entity_storage: !type:NestedSelector
         tableId: AllSelfInsertPlushiesTable
+        rolls: !type:ConstantNumberSelector
+          value: 5
+
+# stowaway toys
+- type: entityTable
+  id: AllStowawayToysTable
+  table: !type:GroupSelector
+    children:
+    - id: PlushieAssistantSpider
+    - id: PlushieBarkeepLizard
+    - id: PlushieCaptainSpider
+    - id: PlushieCargoBird
+    - id: PlushieChaplainDog
+    - id: PlushieChemistLizard
+    - id: PlushiePirateMoth
+    - id: PlushieQuartermasterMoth
+    - id: PlushieResearchDirectorDog
+    - id: PlushieResearchDirectorLizard
+    - id: PlushieSkeleton
+    - id: PlushiePanda
+    - id: PlushieBlueScarfedLizard
+    
+- type: entity
+  id: CrateFunPlushieStowawayToys
+  parent: CrateGenericSteel
+  name: stowaway toys plushie crate
+  description: Stowaway Toys brings the cheapest yet highest quality plushes right to you! Featuring a wide selection of unique plushies, the variety just never ends! Please do not blend or grind up any Stowaway Toys plushies. We are not responsible for anything that occurs due to this.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: AllStowawayToysTable
         rolls: !type:ConstantNumberSelector
           value: 5

@@ -27,3 +27,13 @@
   cost: 2000
   category: cargoproduct-category-name-fun
   group: market
+
+- type: cargoProduct
+  id: FunStowawayToys
+  icon:
+    sprite: _Funkystation/Objects/Fun/stowaway_toys.rsi
+    state: plushie_panda
+  product: CrateFunPlushieStowawayToys
+  cost: 2000
+  category: cargoproduct-category-name-fun
+  group: market

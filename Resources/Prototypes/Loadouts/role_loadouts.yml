@@ -157,6 +157,7 @@
   groups:
   - GroupTankHarness
   - ClownHead
+  - ClownMask
   - ClownJumpsuit
   - ClownBackpack
   - ClownOuterClothing
@@ -352,6 +353,7 @@
   groups:
   - WardenHead
   - WardenJumpsuit
+  - WardenNeck
   - SecurityBackpack
   - SecurityBelt
   - WardenOuterClothing
@@ -366,6 +368,7 @@
   groups:
   - SecurityHead
   - SecurityJumpsuit
+  - SecurityNeck
   - SecurityBackpack
   - SecurityOuterClothing
   - SecurityShoes
@@ -521,6 +524,30 @@
   - Glasses
   - Survival
   - Trinkets
+  - GroupSpeciesBreathTool
+
+# Event-restricted roles
+
+- type: roleLoadout
+  id: JobSecurityClown
+  groups:
+  - ClownBackpack
+  - SurvivalSecurity
+  - GroupSpeciesBreathToolSecurity
+
+- type: roleLoadout
+  id: JobCommandMaid
+  groups:
+  - CommonBackpack
+  - Survival
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobPartyMaker
+  groups:
+  - GroupTankHarness
+  - CommonBackpack
+  - Survival
   - GroupSpeciesBreathTool
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs

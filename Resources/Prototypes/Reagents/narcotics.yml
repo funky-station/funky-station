@@ -48,6 +48,10 @@
         key: Drowsiness
         time: 10
         type: Remove
+      - !type:GenericStatusEffect # goob edit
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 5
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -101,6 +105,10 @@
         messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
         type: Local
         probability: 0.05
+      - !type:GenericStatusEffect # goob edit
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 5
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -164,6 +172,10 @@
         key: Drowsiness
         time: 10
         type: Remove
+      - !type:GenericStatusEffect # goob edit
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 5
     Medicine:
       metabolismRate: 1.0
       effects:
@@ -404,7 +416,7 @@
         - norepinephricacid-effect-blindness
         conditions:
         - !type:ReagentThreshold
-          min: 15
+          min: 5
       - !type:Emote
         emote: Scream
         probability: 0.08
@@ -413,7 +425,7 @@
         component: TemporaryBlindness
         conditions:
         - !type:ReagentThreshold
-          min: 20
+          min: 5
 
 - type: reagent
   id: Happiness
@@ -472,7 +484,7 @@
   desc: reagent-desc-nitrosyl-plasmide
   physicalDesc: reagent-physical-desc-translucent
   flavor: sour
-  color: "#b76f0e"
+  color: "#e1a116"
   metabolisms:
     Gas:
       effects:
@@ -497,6 +509,10 @@
         key: ForcedSleep
         type: Remove
         time: 10
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.1
     Medicine:
       effects:
       - !type:ResetNarcolepsy

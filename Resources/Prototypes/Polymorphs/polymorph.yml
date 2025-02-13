@@ -109,7 +109,7 @@
 - type: polymorph
   id: TreeMorph
   configuration:
-    entity: FloraTree01
+    entity: FloraTree
     forced: true
     transferName: true
     revertOnDeath: true
@@ -202,3 +202,15 @@
     polymorphSound: /Audio/Magic/ethereal_enter.ogg
     exitPolymorphSound: /Audio/Magic/ethereal_exit.ogg
     duration: 3
+
+# Funky Station - Corgi!!! 'Daww... No i'm not making a new file for this.
+- type: polymorph
+  id: CorgiMorph
+  configuration:
+    entity: MobCorgi
+    forced: true
+    inventory: None
+    transferName: true
+    transferDamage: true
+    revertOnCrit: false
+    revertOnDeath: false

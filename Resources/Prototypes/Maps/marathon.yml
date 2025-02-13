@@ -19,6 +19,7 @@
           availableJobs:
             #service
             # Goobstation - TODO: add bso and ntr
+            # Funkystation - TODO: add IAA
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 2, 2 ]

@@ -65737,7 +65737,7 @@ entities:
       pos: -16.5,-17.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -34867.066
+      secondsUntilStateChange: -35382.01
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -110276,6 +110276,18 @@ entities:
     components:
     - type: Transform
       pos: -21.5,11.5
+      parent: 2
+- proto: SpawnPointInternalAffairsAgent
+  entities:
+  - uid: 4896
+    components:
+    - type: Transform
+      pos: 28.5,10.5
+      parent: 2
+  - uid: 16066
+    components:
+    - type: Transform
+      pos: 29.5,10.5
       parent: 2
 - proto: SpawnPointJanitor
   entities:

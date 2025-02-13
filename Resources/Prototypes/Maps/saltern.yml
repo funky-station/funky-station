@@ -21,6 +21,7 @@
             # Goobstation - Me did it, Icepick
             StationAi: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]
+            InternalAffairsAgent: [ 1, 1 ]
             BlueshieldOfficer: [ 1, 1 ]
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]

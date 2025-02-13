@@ -19,6 +19,7 @@
     - id: RubberStampQm
     - id: SalvageShuttleConsoleCircuitboard
     - id: AstroNavCartridge
+    - id: ClothingOuterHardsuitLuxury
 
 - type: entity
   id: LockerQuarterMasterFilled

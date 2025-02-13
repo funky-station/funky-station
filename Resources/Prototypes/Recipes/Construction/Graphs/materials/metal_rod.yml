@@ -14,3 +14,20 @@
 
     - node: MetalRod
       entity: PartRodMetal
+
+- type: constructionGraph # Funkystation
+  id: UraniumRod
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: UraniumRod
+          completed:
+            - !type:SetStackCount
+              amount: 2
+          steps:
+            - material: Uranium
+              amount: 1
+
+    - node: UraniumRod
+      entity: PartRodUranium

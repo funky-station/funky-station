@@ -29,8 +29,8 @@ public sealed partial class ChangelingSystem : EntitySystem
         SubscribeLocalEvent<ChangelingComponent, OpenEvolutionMenuEvent>(OnOpenEvolutionMenu);
         SubscribeLocalEvent<ChangelingComponent, AbsorbDNAEvent>(OnAbsorb);
         SubscribeLocalEvent<ChangelingComponent, AbsorbDNADoAfterEvent>(OnAbsorbDoAfter);
-        SubscribeLocalEvent<ChangelingComponent, InfectTargetEvent>(OnInfect);
-        SubscribeLocalEvent<ChangelingComponent, InfectTargetDoAfterEvent>(OnInfectDoAfter);
+        //SubscribeLocalEvent<ChangelingComponent, InfectTargetEvent>(OnInfect);
+        //SubscribeLocalEvent<ChangelingComponent, InfectTargetDoAfterEvent>(OnInfectDoAfter);
         SubscribeLocalEvent<ChangelingComponent, StingExtractDNAEvent>(OnStingExtractDNA);
         SubscribeLocalEvent<ChangelingComponent, ChangelingTransformCycleEvent>(OnTransformCycle);
         SubscribeLocalEvent<ChangelingComponent, ChangelingTransformEvent>(OnTransform);

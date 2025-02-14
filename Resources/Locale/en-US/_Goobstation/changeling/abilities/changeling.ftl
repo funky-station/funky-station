@@ -12,13 +12,32 @@ changeling-absorb-end-self = Another organic absorbed. You are evolving.
 changeling-absorb-end-self-ling = Another changeling absorbed. You are evolving more rapidly.
 changeling-absorb-onexamine = [color=red]The body feels hollow.[/color]
 
-changeling-convert-start = {CAPITALIZE(THE($user))} starts injecting {CAPITALIZE(THE($target))} with something!
+changeling-convert-start = {CAPITALIZE(THE($user))} is trying to sting {CAPITALIZE(THE($target))}!
 changeling-convert-fail-living = You can't infect this person, they're alive.
-changeling-convert-fail-already = This person is already infected..
-changeling-convert-fail-unabsorbable = This person is incompatible.
-changeling-convert-end = You have infected the corpse. They will be converted soon.
-changeling-convert-end-ling = The corpse rejects the egg. Must be another Changeling.
-changeling-convert-chestbursted = [color=red]They have a massive hole in their chest.[/color]
+changeling-convert-fail-already = This person is already infected.
+changeling-convert-fail-unabsorbable = This target is incompatible.
+changeling-convert-end = You infect the corpse. They will be converted soon.
+changeling-convert-end-immune = The corpse rejects the egg.
+changeling-convert-chestbursted-unused = [color=red]They have a massive hole in their chest.[/color]
+
+changeling-convert-warning-1 = You feel a sharp pain!
+changeling-convert-warning-throwup = Your stomach feels like it's melting!
+changeling-convert-warning-2 = Your head throbs!
+changeling-convert-warning-3 = Your blood feels like it's boiling!
+changeling-convert-warning-collapse = You collapse, unable to stand due to the pain!
+changeling-convert-warning-shake = You begin shaking from the pain!
+
+changeling-convert-eeped = You collaspe unconscious!
+
+changeling-convert-eeped-1 = Your head hurts...
+changeling-convert-eeped-2 = We can't think of anything...
+changeling-convert-eeped-3 = You can't think of anything...
+changeling-convert-eeped-shake = We shiver in our sleep...
+changeling-convert-eeped-4 = Your blood boils...
+
+changeling-convert-skillissue = The pain dissapears almost instantly. We know what we must do now.
+
+changeling-convert-thatwasclose = You feel incredibly sick, but the pain is gone.
 
 changeling-transform-cycle = Switched to {$target}'s DNA.
 changeling-transform-cycle-empty = You don't have any DNA strains!

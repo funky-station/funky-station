@@ -1575,3 +1575,9 @@ Entries:
       message: '"Iron Will" by Dynzz added as lobby music'
   id: 197
   time: '2025-02-14T05:25:20.0000000+00:00'
+- author: Cymric22
+  changes:
+    - type: Add
+      message: added luxury hardsuit spawn to the quartermasters locker
+  id: 198
+  time: '2025-02-14T05:29:46.0000000+00:00'

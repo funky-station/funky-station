@@ -10810,7 +10810,7 @@ entities:
       pos: -29.5,37.5
       parent: 60
     - type: Door
-      secondsUntilStateChange: -16251.773
+      secondsUntilStateChange: -17386.898
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -56099,6 +56099,12 @@ entities:
     components:
     - type: Transform
       pos: 51.5,-44.5
+      parent: 60
+  - uid: 13263
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 23.5,-0.5
       parent: 60
   - uid: 14118
     components:
@@ -106212,6 +106218,13 @@ entities:
     - type: Transform
       pos: -7.494558,-11.436351
       parent: 60
+- proto: HarpInstrument
+  entities:
+  - uid: 13264
+    components:
+    - type: Transform
+      pos: 22.5,-0.5
+      parent: 60
 - proto: HeatExchanger
   entities:
   - uid: 15111
@@ -106414,6 +106427,195 @@ entities:
     components:
     - type: Transform
       pos: -6.3791656,-37.542637
+      parent: 60
+- proto: HolopadScienceAnomaly
+  entities:
+  - uid: 7544
+    components:
+    - type: Transform
+      pos: -57.5,2.5
+      parent: 60
+- proto: HolopadScienceArtifact
+  entities:
+  - uid: 7545
+    components:
+    - type: Transform
+      pos: -50.5,13.5
+      parent: 60
+- proto: HolopadScienceFront
+  entities:
+  - uid: 7570
+    components:
+    - type: Transform
+      pos: -45.5,-0.5
+      parent: 60
+- proto: HolopadScienceRnd
+  entities:
+  - uid: 7568
+    components:
+    - type: Transform
+      pos: -43.5,-7.5
+      parent: 60
+- proto: HolopadScienceRobotics
+  entities:
+  - uid: 7569
+    components:
+    - type: Transform
+      pos: -38.5,12.5
+      parent: 60
+- proto: HolopadSecurityArrivalsCheckpoint
+  entities:
+  - uid: 7571
+    components:
+    - type: Transform
+      pos: -4.5,-46.5
+      parent: 60
+- proto: HolopadSecurityBreakroom
+  entities:
+  - uid: 7572
+    components:
+    - type: Transform
+      pos: -29.5,-19.5
+      parent: 60
+- proto: HolopadSecurityBrig
+  entities:
+  - uid: 7548
+    components:
+    - type: Transform
+      pos: -29.5,-14.5
+      parent: 60
+- proto: HolopadSecurityBrigMed
+  entities:
+  - uid: 7549
+    components:
+    - type: Transform
+      pos: -18.5,-6.5
+      parent: 60
+- proto: HolopadSecurityCourtroom
+  entities:
+  - uid: 7554
+    components:
+    - type: Transform
+      pos: -43.5,-17.5
+      parent: 60
+- proto: HolopadSecurityDetective
+  entities:
+  - uid: 7556
+    components:
+    - type: Transform
+      pos: -25.5,-27.5
+      parent: 60
+- proto: HolopadSecurityFront
+  entities:
+  - uid: 7573
+    components:
+    - type: Transform
+      pos: -23.5,-19.5
+      parent: 60
+- proto: HolopadSecurityInterrogation
+  entities:
+  - uid: 7555
+    components:
+    - type: Transform
+      pos: -32.5,-3.5
+      parent: 60
+- proto: HolopadSecurityLawyer
+  entities:
+  - uid: 7559
+    components:
+    - type: Transform
+      pos: -50.5,-18.5
+      parent: 60
+- proto: HolopadSecurityLockerRoom
+  entities:
+  - uid: 7574
+    components:
+    - type: Transform
+      pos: -33.5,-18.5
+      parent: 60
+- proto: HolopadSecurityPerma
+  entities:
+  - uid: 7567
+    components:
+    - type: Transform
+      pos: -9.5,-14.5
+      parent: 60
+- proto: HolopadSecurityWarden
+  entities:
+  - uid: 7575
+    components:
+    - type: Transform
+      pos: -26.5,-9.5
+      parent: 60
+- proto: HolopadServiceBar
+  entities:
+  - uid: 7546
+    components:
+    - type: Transform
+      pos: 19.5,-33.5
+      parent: 60
+- proto: HolopadServiceBotany
+  entities:
+  - uid: 7547
+    components:
+    - type: Transform
+      pos: 31.5,-27.5
+      parent: 60
+- proto: HolopadServiceChapel
+  entities:
+  - uid: 7550
+    components:
+    - type: Transform
+      pos: -25.5,12.5
+      parent: 60
+- proto: HolopadServiceClown
+  entities:
+  - uid: 7551
+    components:
+    - type: Transform
+      pos: 22.5,-12.5
+      parent: 60
+- proto: HolopadServiceJanitor
+  entities:
+  - uid: 7557
+    components:
+    - type: Transform
+      pos: -5.5,-27.5
+      parent: 60
+- proto: HolopadServiceKitchen
+  entities:
+  - uid: 7558
+    components:
+    - type: Transform
+      pos: 26.5,-34.5
+      parent: 60
+- proto: HolopadServiceLibrary
+  entities:
+  - uid: 7560
+    components:
+    - type: Transform
+      pos: -8.5,18.5
+      parent: 60
+- proto: HolopadServiceMime
+  entities:
+  - uid: 7552
+    components:
+    - type: Transform
+      pos: 25.5,-12.5
+      parent: 60
+- proto: HolopadServiceMusician
+  entities:
+  - uid: 7553
+    components:
+    - type: Transform
+      pos: 23.5,-12.5
+      parent: 60
+- proto: HolopadServiceNewsroom
+  entities:
+  - uid: 7566
+    components:
+    - type: Transform
+      pos: 36.5,14.5
       parent: 60
 - proto: HospitalCurtainsOpen
   entities:
@@ -109101,13 +109303,6 @@ entities:
     components:
     - type: Transform
       pos: 56.487034,-17.432411
-      parent: 60
-- proto: MaterialSilo
-  entities:
-  - uid: 7544
-    components:
-    - type: Transform
-      pos: 22.5,-0.5
       parent: 60
 - proto: MaterialWoodPlank
   entities:
@@ -128807,6 +129002,18 @@ entities:
     components:
     - type: Transform
       pos: -20.5,1.5
+      parent: 60
+- proto: SpawnPointInternalAffairsAgent
+  entities:
+  - uid: 7576
+    components:
+    - type: Transform
+      pos: -49.5,-18.5
+      parent: 60
+  - uid: 7577
+    components:
+    - type: Transform
+      pos: -49.5,-17.5
       parent: 60
 - proto: SpawnPointJanitor
   entities:

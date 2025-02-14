@@ -14,3 +14,14 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobInternalAffairsAgent
+  groups:
+  - GroupTankHarness
+  - InternalAffairsAgentJumpsuit
+  - InternalAffairsAgentBackpack
+  - InternalAffairsAgentBelt
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool

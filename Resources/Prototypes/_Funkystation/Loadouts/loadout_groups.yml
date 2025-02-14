@@ -1,0 +1,24 @@
+- type: loadoutGroup
+  id: InternalAffairsAgentJumpsuit
+  name: loadout-group-iaa-jumpsuit
+  loadouts:
+  - LawyerJumpsuit
+  - LawyerJumpskirt
+  - LawyerJumpsuitBlue
+  - LawyerJumpskirtBlue
+  - LawyerJumpsuitRed
+  - LawyerJumpskirtRed
+
+- type: loadoutGroup
+  id: InternalAffairsAgentBackpack
+  name: loadout-group-iaa-backpack
+  loadouts:
+  - InternalAffairsAgentDuffel
+  - InternalAffairsAgentSatchel
+
+- type: loadoutGroup
+  id: InternalAffairsAgentBelt
+  name: loadout-group-iaa-belt
+  loadouts:
+  - InternalAffairsAgentClipboard
+  - InternalAffairsAgentWaistbag

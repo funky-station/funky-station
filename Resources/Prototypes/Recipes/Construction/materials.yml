@@ -9,6 +9,17 @@
   icon: { sprite: Objects/Materials/parts.rsi, state: rods }
   objectType: Item
 
+- type: construction # Funkystation
+  name: uranium rod
+  id: UraniumRod
+  graph: UraniumRod
+  startNode: start
+  targetNode: UraniumRod
+  category: construction-category-materials
+  description: A delpleted uranium rod, perfect for construction!
+  icon: { sprite: _Funkystation/Objects/Materials/uranium_rods.rsi, state: rods }
+  objectType: Item
+
 - type: construction
   name: reinforced glass
   description: A reinforced sheet of glass.

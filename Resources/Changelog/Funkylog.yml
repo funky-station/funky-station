@@ -1533,3 +1533,39 @@ Entries:
       message: Medkits now have different chemicals inside of them
   id: 190
   time: '2025-02-08T18:54:39.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Lowered holopad power consumption
+  id: 191
+  time: '2025-02-10T02:41:00.0000000+00:00'
+- author: empty0set
+  changes:
+    - type: Tweak
+      message: Smoking in bed has a chance to set you on fire!
+  id: 192
+  time: '2025-02-12T08:01:32.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Holopads have been added!
+  id: 193
+  time: '2025-02-12T08:03:13.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Added solars to Roid by popular request
+  id: 194
+  time: '2025-02-12T08:05:14.0000000+00:00'
+- author: kbarkevich
+  changes:
+    - type: Add
+      message: Added Internal Affairs Agent
+  id: 195
+  time: '2025-02-13T05:26:28.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: 'Reinforced Uranium Walls! For all your Radiation Blocking Needs! '
+  id: 196
+  time: '2025-02-13T22:52:34.0000000+00:00'

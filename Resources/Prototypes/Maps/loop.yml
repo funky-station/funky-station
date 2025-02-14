@@ -1,7 +1,7 @@
 - type: gameMap
   id: Loop
   mapName: 'Loop Station'
-  mapPath: /Maps/loop.yml
+  mapPath: /Maps/_Funkystation/loop.yml
   minPlayers: 35
   maxPlayers: 70
   stations:
@@ -21,6 +21,7 @@
             Captain: [ 1, 1 ]
             #service
             HeadOfPersonnel: [ 1, 1 ]
+            InternalAffairsAgent: [ 2, 2 ]
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 2 ]
             Chef: [ 2, 2 ]

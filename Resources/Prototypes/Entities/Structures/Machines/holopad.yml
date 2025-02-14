@@ -18,7 +18,7 @@
         - LowImpassable
         hard: false
   - type: ApcPowerReceiver
-    powerLoad: 300
+    powerLoad: 100
   - type: StationAiVision
   - type: Sprite
     sprite: Structures/Machines/holopad.rsi

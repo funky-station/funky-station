@@ -1,0 +1,22 @@
+- type: entity
+  parent: BasePDA
+  id: InternalAffairsAgentPDA
+  name: internal affairs agent PDA
+  description: For spying on the innocent and guilty alike.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/pda.rsi
+  - type: Pda
+    id: InternalAffairsAgentIDCard
+    state: pda-iaa
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#6f6192"
+  - type: Icon
+    sprite: _Funkystation/Objects/Devices/pda.rsi
+    state: pda-iaa

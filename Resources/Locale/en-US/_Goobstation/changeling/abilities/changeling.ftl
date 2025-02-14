@@ -12,6 +12,14 @@ changeling-absorb-end-self = Another organic absorbed. You are evolving.
 changeling-absorb-end-self-ling = Another changeling absorbed. You are evolving more rapidly.
 changeling-absorb-onexamine = [color=red]The body feels hollow.[/color]
 
+changeling-convert-start = {CAPITALIZE(THE($user))} starts injecting {CAPITALIZE(THE($target))} with something!
+changeling-convert-fail-living = You can't infect this person, they're alive.
+changeling-convert-fail-already = This person is already infected..
+changeling-convert-fail-unabsorbable = This person is incompatible.
+changeling-convert-end = You have infected the corpse. They will be converted soon.
+changeling-convert-end-ling = The corpse rejects the egg. Must be another Changeling.
+changeling-convert-chestbursted = [color=red]They have a massive hole in their chest.[/color]
+
 changeling-transform-cycle = Switched to {$target}'s DNA.
 changeling-transform-cycle-empty = You don't have any DNA strains!
 changeling-transform-others = {CAPITALIZE(THE($user))}'s body twists and takes shape of another being!

@@ -116,12 +116,14 @@ public sealed partial class ChangelingInfectionSystem : EntitySystem
                 break;
             case ChangelingInfectionComponent.InfectionState.KnockedOut:
                 // Add forced knocked out component
-                if (!EntityManager.HasComponent<ForcedSleepingComponent>(uid)) {
+                if (!EntityManager.HasComponent<ForcedSleepingComponent>(uid))
+                {
                     EntityManager.AddComponent<ForcedSleepingComponent>(uid);
                     _popupSystem.PopupEntity(Loc.GetString("changeling-convert-eeped"), uid, uid, PopupType.LargeCaution);
                     break;
                 }
-                if (_random.Prob(comp.ScarySymptomChance)) {
+                if (_random.Prob(comp.ScarySymptomChance))
+                {
                     _jitterSystem.DoJitter(uid, TimeSpan.FromSeconds(5f), false, 10.0f, 4.0f);
                     _popupSystem.PopupEntity(Loc.GetString("changeling-convert-eeped-shake"), uid, uid, PopupType.Medium);
                     break;
@@ -132,7 +134,7 @@ public sealed partial class ChangelingInfectionSystem : EntitySystem
                 // This will totally have no adverse effects whatsoever!
                 if (!HasComp<MindContainerComponent>(uid) || !TryComp<ActorComponent>(uid, out var targetActor))
                     return;
-                 _antag.ForceMakeAntag<ChangelingRuleComponent>(targetActor.PlayerSession, "Changeling");
+                _antag.ForceMakeAntag<ChangelingRuleComponent>(targetActor.PlayerSession, "Changeling");
 
                 EntityManager.RemoveComponent<ChangelingInfectionComponent>(uid);
 

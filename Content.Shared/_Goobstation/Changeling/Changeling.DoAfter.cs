@@ -6,4 +6,4 @@ namespace Content.Shared.Changeling;
 [Serializable, NetSerializable]
 public sealed partial class AbsorbDNADoAfterEvent : SimpleDoAfterEvent { }
 
-public sealed partial class InfectTargetDoAfterEvent : SimpleDoAfterEvent { }
+public sealed partial class ChangelingInfectTargetDoAfterEvent : SimpleDoAfterEvent { }

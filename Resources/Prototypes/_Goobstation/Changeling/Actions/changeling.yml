@@ -44,7 +44,7 @@
 - type: entity
   id: ActionInfectTarget
   name: Infect Target
-  description: Injects a Changeling egg into the target, eventually converting them into a fellow Changeling.
+  description: Injects a Changeling egg into the target, eventually converting them into a fellow Changeling. Requires them to be incapacitated. Costs 60 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
@@ -57,10 +57,10 @@
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: absorb_dna
-    event: !type:AbsorbDNAEvent {}
+      state: lay_egg
+    event: !type:ChangelingInfectTargetEvent {}
   - type: ChangelingAction
-    chemicalCost: 100
+    chemicalCost: 60
     requireBiomass: true
     useInLesserForm: false
 

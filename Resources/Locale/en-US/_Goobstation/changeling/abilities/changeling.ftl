@@ -13,10 +13,11 @@ changeling-absorb-end-self-ling = Another changeling absorbed. You are evolving 
 changeling-absorb-onexamine = [color=red]The body feels hollow.[/color]
 
 changeling-convert-start = {CAPITALIZE(THE($user))} is trying to sting {CAPITALIZE(THE($target))}!
-changeling-convert-fail-living = You can't infect this person, they're alive.
+changeling-convert-fail-incapacitated = You can't infect this person, they're not incapacitated.
 changeling-convert-fail-already = This person is already infected.
-changeling-convert-fail-unabsorbable = This target is incompatible.
+changeling-convert-fail-incompatible = This target is incompatible.
 changeling-convert-end = You infect the corpse. They will be converted soon.
+changeling-convert-end-warning = {CAPITALIZE(THE($user))} stings you! You feel a sharp pain in your arm...
 changeling-convert-end-immune = The corpse rejects the egg.
 changeling-convert-chestbursted-unused = [color=red]They have a massive hole in their chest.[/color]
 

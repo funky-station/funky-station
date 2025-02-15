@@ -1593,3 +1593,17 @@ Entries:
       message: silos are remapped
   id: 200
   time: '2025-02-15T03:30:54.0000000+00:00'
+- author: ' TooSillyFennec, correspond'
+  changes:
+    - type: Add
+      message: Added six new "exotic" chemicals, with their own guidebook tab!
+    - type: Add
+      message: 'Added four new toxins: Heparin, Rhigoxan, Spewium, and Pestiline! '
+    - type: Tweak
+      message: 'Adjusted the ODs for the advanced brute chemicals. '
+    - type: Remove
+      message: >-
+        Bicaridine and Dexalin Plus have been removed. See the guidebook for
+        their replacements.
+  id: 201
+  time: '2025-02-15T03:31:28.0000000+00:00'

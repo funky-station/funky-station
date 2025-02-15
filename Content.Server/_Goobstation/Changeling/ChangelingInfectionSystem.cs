@@ -18,6 +18,9 @@ using Content.Shared.Popups;
 using Content.Shared.Jittering;
 using Content.Shared.Stunnable;
 using Content.Server.Medical;
+using Content.Shared.Tag;
+using Content.Shared.Implants;
+using Content.Shared.Implants.Components;
 
 namespace Content.Server.Changeling;
 
@@ -29,10 +32,27 @@ public sealed partial class ChangelingInfectionSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     [Dependency] private readonly VomitSystem _vomit = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<ChangelingInfectionImplantComponent, ImplantImplantedEvent>(OnImplanterInjected);
+    }
+
+    private void OnImplanterInjected(EntityUid uid, ChangelingInfectionImplantComponent comp, ImplantImplantedEvent ev)
+    {
+        if (!_tag.HasTag(ev.Implant, "ChangelingInfectionImplant") || ev.Implanted == null)
+            return;
+
+        EnsureComp<ChangelingInfectionComponent>(ev.Implanted.Value);
+
+        _popupSystem.PopupEntity(Loc.GetString("changeling-convert-implant"), ev.Implanted.Value, ev.Implanted.Value, PopupType.LargeCaution);
+    }
 
     public override void Update(float frameTime)
     {

@@ -167,10 +167,10 @@ public sealed partial class ChangelingSystem : EntitySystem
         EnsureComp<ChangelingInfectionComponent>(target);
 
         var popup = Loc.GetString("changeling-convert-end", ("target", Identity.Entity(target, EntityManager)));
-        _popup.PopupEntity(popup, args.User, args.User);
+        _popup.PopupEntity(popup, args.User, args.User, PopupType.Medium);
 
         var popupTwo = Loc.GetString("changeling-convert-end-warning", ("user", Identity.Entity(uid, EntityManager)));
-        _popup.PopupEntity(popup, target, target);
+        _popup.PopupEntity(popupTwo, target, target, PopupType.LargeCaution);
     }
     private void OnAbsorbDoAfter(EntityUid uid, ChangelingComponent comp, ref AbsorbDNADoAfterEvent args)
     {

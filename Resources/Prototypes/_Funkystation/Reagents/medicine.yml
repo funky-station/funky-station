@@ -533,7 +533,7 @@
       - !type:HealthChange
         damage:
           types:
-            Cellular: -5
+            Cellular: 5
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold

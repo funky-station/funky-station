@@ -16,9 +16,9 @@ changeling-convert-start = {CAPITALIZE(THE($user))} is trying to sting {CAPITALI
 changeling-convert-fail-incapacitated = You can't infect this person, they're not incapacitated.
 changeling-convert-fail-already = This person is already infected.
 changeling-convert-fail-incompatible = This target is incompatible.
-changeling-convert-end = You infect the corpse. They will be converted soon.
+changeling-convert-end = You infect {CAPITALIZE(THE($target))}. They will be converted soon.
 changeling-convert-end-warning = {CAPITALIZE(THE($user))} stings you! You feel a sharp pain in your arm...
-changeling-convert-end-immune = The corpse rejects the egg.
+changeling-convert-end-immune = {CAPITALIZE(THE($target))}'s body rejects the egg.
 changeling-convert-chestbursted-unused = [color=red]They have a massive hole in their chest.[/color]
 
 changeling-convert-warning-1 = You feel a sharp pain!

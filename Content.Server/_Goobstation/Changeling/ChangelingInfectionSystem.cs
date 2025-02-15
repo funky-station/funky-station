@@ -65,7 +65,7 @@ public sealed partial class ChangelingInfectionSystem : EntitySystem
         {
             var uid = comp.Owner;
 
-            if (!comp.DoThings)
+            if (!comp.NeedsInitialization)
             {
                 comp.FirstSymptoms = _timing.CurTime + TimeSpan.FromSeconds(comp.FirstSymptomsDelay);
 
@@ -98,7 +98,7 @@ public sealed partial class ChangelingInfectionSystem : EntitySystem
             if (comp.DoThings)
                 DoEffects(uid, comp);
 
-            comp.DoThings = true; // First tick over, setup's complete, we can do the stuff now
+            comp.NeedsInitialization = true; // First tick over, setup's complete, we can do the stuff now
 
         }
     }

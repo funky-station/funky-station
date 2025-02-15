@@ -57,5 +57,6 @@ public sealed partial class ChangelingInfectionComponent : Component
     [DataField]
     public InfectionState CurrentState = InfectionState.None;
 
-    public bool DoThings = false;
+    // Whether the component has spawned and needs timer setup done
+    public bool NeedsInitialization = false;
 }

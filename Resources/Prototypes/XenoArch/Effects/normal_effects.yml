@@ -477,7 +477,7 @@
     reagents:
     - Aiuri # Funkychem
     - Arithrazine
-    - Bicaridine
+    - Libital # Funkychem
     - Inaprovaline
     - Multiver # Funkychem
     - Dexalin
@@ -495,7 +495,8 @@
     possibleChemicals:
     - Lenturi # Funkychem
     - Arithrazine
-    - Bicaridine
+    - Libital # Funkychem
+    - Probital # Funkychem
     - Inaprovaline
     - Aiuri # Funkychem
     - Dexalin

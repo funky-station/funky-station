@@ -11545,7 +11545,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -18732.037
+      secondsUntilStateChange: -18757.307
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -84888,7 +84888,7 @@ entities:
       pos: -34.5,-14.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -12920.575
+      secondsUntilStateChange: -12945.845
       state: Closing
   - uid: 15010
     components:
@@ -85381,7 +85381,7 @@ entities:
       pos: -4.5,-71.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -4668.3066
+      secondsUntilStateChange: -4693.5767
       state: Closing
 - proto: Fireplace
   entities:
@@ -124206,6 +124206,13 @@ entities:
     components:
     - type: Transform
       pos: -9.303419,-25.688816
+      parent: 8364
+- proto: MaterialSilo
+  entities:
+  - uid: 21258
+    components:
+    - type: Transform
+      pos: -16.5,-53.5
       parent: 8364
 - proto: MaterialWoodPlank
   entities:

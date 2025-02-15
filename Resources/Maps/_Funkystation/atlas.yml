@@ -3591,7 +3591,7 @@ entities:
       pos: -46.5,-6.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2365.8613
+      secondsUntilStateChange: -2390.6301
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3713,7 +3713,7 @@ entities:
       pos: 35.5,-0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1718.0953
+      secondsUntilStateChange: -1742.8641
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3908,7 +3908,7 @@ entities:
       pos: -57.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2373.8613
+      secondsUntilStateChange: -2398.6301
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -42283,6 +42283,13 @@ entities:
       parent: 2
     - type: Physics
       canCollide: False
+- proto: MaterialSilo
+  entities:
+  - uid: 9286
+    components:
+    - type: Transform
+      pos: -51.5,16.5
+      parent: 2
 - proto: MaterialWoodPlank
   entities:
   - uid: 6313

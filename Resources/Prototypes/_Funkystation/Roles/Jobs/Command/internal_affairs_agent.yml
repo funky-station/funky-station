@@ -34,6 +34,9 @@
     eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetCentCom
     pocket1: BookSpaceLaw
-    pocket2: Flash
+    pocket2: RubberStampIAA
   inhand:
   - BriefcaseBrownFilled
+  storage:
+    back:
+    - Flash

@@ -20,13 +20,13 @@ public sealed partial class ChangelingInfectionComponent : Component
     [DataField]
     public TimeSpan EffectsTimer = TimeSpan.Zero;
 
-    public float EffectsTimerDelay = 5f;
+    public float EffectsTimerDelay = 20f;
 
     public float FirstSymptomsDelay = 300f;
 
-    public float KnockedOutDelay = 600f;
+    public float KnockedOutDelay = 900f;
 
-    public float FullyInfectedDelay = 1200f;
+    public float FullyInfectedDelay = 1800f;
 
     public float ScarySymptomChance = 0.1f;
 
@@ -38,7 +38,7 @@ public sealed partial class ChangelingInfectionComponent : Component
         FullyInfected
     }
 
-    public List<string> SymptomMessgaes = new()
+    public List<string> SymptomMessages = new()
     {
         "changeling-convert-warning-1",
         "changeling-convert-warning-2",

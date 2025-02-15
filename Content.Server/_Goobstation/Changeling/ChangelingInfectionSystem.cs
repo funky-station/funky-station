@@ -16,6 +16,8 @@ using Robust.Shared.Random;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Popups;
 using Content.Shared.Jittering;
+using Content.Shared.Stunnable;
+using Content.Server.Medical;
 
 namespace Content.Server.Changeling;
 
@@ -23,14 +25,13 @@ public sealed partial class ChangelingInfectionSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly BodySystem _bodySystem = default!;
-
     [Dependency] private readonly SharedJitteringSystem _jitterSystem = default!;
-
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
+
+    [Dependency] private readonly VomitSystem _vomit = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
 
 
     public override void Update(float frameTime)
@@ -44,7 +45,8 @@ public sealed partial class ChangelingInfectionSystem : EntitySystem
         {
             var uid = comp.Owner;
 
-            if (!comp.DoThings) {
+            if (!comp.DoThings)
+            {
                 comp.FirstSymptoms = _timing.CurTime + TimeSpan.FromSeconds(comp.FirstSymptomsDelay);
 
                 comp.KnockedOut = _timing.CurTime + TimeSpan.FromSeconds(comp.KnockedOutDelay);
@@ -87,18 +89,41 @@ public sealed partial class ChangelingInfectionSystem : EntitySystem
         switch (comp.CurrentState)
         {
             case ChangelingInfectionComponent.InfectionState.FirstSymptoms:
+                if (_random.Prob(comp.ScarySymptomChance))
+                {
+                    var funnyNumber = _random.Next(0, 4);
+                    switch (funnyNumber)
+                    {
+                        case 1:
+                            _popupSystem.PopupEntity(Loc.GetString("changeling-convert-warning-throwup"), uid, uid, PopupType.Medium);
+                            _vomit.Vomit(uid);
+                            break;
+                        case 2:
+                            _popupSystem.PopupEntity(Loc.GetString("changeling-convert-warning-collapse"), uid, uid, PopupType.Medium);
+                            _stun.TryParalyze(uid, TimeSpan.FromSeconds(5f), true);
+                            break;
+                        case 3:
+                            _popupSystem.PopupEntity(Loc.GetString("changeling-convert-warning-shake"), uid, uid, PopupType.Medium);
+                            _jitterSystem.DoJitter(uid, TimeSpan.FromSeconds(5f), false, 10.0f, 4.0f);
+                            break;
+                    }
+                    break;
+                }
+
+                _popupSystem.PopupEntity(Loc.GetString(_random.Pick(comp.SymptomMessages)), uid, uid);
+
 
                 break;
             case ChangelingInfectionComponent.InfectionState.KnockedOut:
                 // Add forced knocked out component
                 if (!EntityManager.HasComponent<ForcedSleepingComponent>(uid)) {
                     EntityManager.AddComponent<ForcedSleepingComponent>(uid);
-                    _popupSystem.PopupEntity(Loc.GetString("changeling-convert-eeped"), uid, uid);
+                    _popupSystem.PopupEntity(Loc.GetString("changeling-convert-eeped"), uid, uid, PopupType.LargeCaution);
                     break;
                 }
                 if (_random.Prob(comp.ScarySymptomChance)) {
                     _jitterSystem.DoJitter(uid, TimeSpan.FromSeconds(5f), false, 10.0f, 4.0f);
-                    _popupSystem.PopupEntity(Loc.GetString("changeling-convert-eeped-shake"), uid, uid);
+                    _popupSystem.PopupEntity(Loc.GetString("changeling-convert-eeped-shake"), uid, uid, PopupType.Medium);
                     break;
                 }
                 _popupSystem.PopupEntity(Loc.GetString(_random.Pick(comp.EepyMessages)), uid, uid);

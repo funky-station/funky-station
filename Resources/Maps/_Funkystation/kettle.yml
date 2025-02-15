@@ -120744,6 +120744,13 @@ entities:
     - type: Transform
       pos: -8.322657,2.410325
       parent: 82
+- proto: MaterialSilo
+  entities:
+  - uid: 26465
+    components:
+    - type: Transform
+      pos: -31.5,15.5
+      parent: 82
 - proto: MatterBinStockPart
   entities:
   - uid: 4176

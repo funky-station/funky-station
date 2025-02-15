@@ -11103,7 +11103,7 @@ entities:
       pos: -42.5,29.5
       parent: 5350
     - type: Door
-      secondsUntilStateChange: -29996.453
+      secondsUntilStateChange: -30206.287
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -122168,6 +122168,13 @@ entities:
     components:
     - type: Transform
       pos: -17.38306,-3.5393329
+      parent: 5350
+- proto: MaterialSilo
+  entities:
+  - uid: 27632
+    components:
+    - type: Transform
+      pos: 104.5,-13.5
       parent: 5350
 - proto: MaterialWoodPlank1
   entities:

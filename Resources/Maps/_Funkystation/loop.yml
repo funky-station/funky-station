@@ -7351,7 +7351,7 @@ entities:
       pos: -30.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -44570.14
+      secondsUntilStateChange: -44592.39
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -43495,7 +43495,7 @@ entities:
       pos: -9.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -292325.66
+      secondsUntilStateChange: -292347.9
       state: Opening
   - uid: 6747
     components:
@@ -43503,7 +43503,7 @@ entities:
       pos: -8.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -292326.38
+      secondsUntilStateChange: -292348.62
       state: Opening
   - uid: 6749
     components:
@@ -43511,7 +43511,7 @@ entities:
       pos: -6.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -292324.94
+      secondsUntilStateChange: -292347.2
       state: Opening
   - uid: 6750
     components:
@@ -43519,7 +43519,7 @@ entities:
       pos: -5.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -292324.3
+      secondsUntilStateChange: -292346.56
       state: Opening
 - proto: CyberPen
   entities:
@@ -77534,6 +77534,13 @@ entities:
     components:
     - type: Transform
       pos: -64.27997,2.4627147
+      parent: 2
+- proto: MaterialSilo
+  entities:
+  - uid: 17684
+    components:
+    - type: Transform
+      pos: -35.5,12.5
       parent: 2
 - proto: MaterialWoodPlank
   entities:

@@ -46183,8 +46183,11 @@ entities:
   - uid: 14657
     components:
     - type: Transform
-      pos: 12.50663,-17.374193
+      pos: 11.453174,-17.41521
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 16740
     components:
     - type: Transform
@@ -65737,7 +65740,7 @@ entities:
       pos: -16.5,-17.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -35382.01
+      secondsUntilStateChange: -35471.02
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -96180,6 +96183,13 @@ entities:
     - type: Transform
       pos: -11.59888,-47.871864
       parent: 2
+- proto: MaterialSilo
+  entities:
+  - uid: 1655
+    components:
+    - type: Transform
+      pos: 12.5,-17.5
+      parent: 2
 - proto: MaterialWoodPlank
   entities:
   - uid: 11828
@@ -100659,8 +100669,11 @@ entities:
   - uid: 15937
     components:
     - type: Transform
-      pos: 12.518505,-17.379326
+      pos: 11.453174,-17.72771
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: PsychBed
   entities:
   - uid: 3939
@@ -100749,11 +100762,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 8.5,5.5
-      parent: 2
-  - uid: 1655
-    components:
-    - type: Transform
-      pos: 12.5,-17.5
       parent: 2
   - uid: 1799
     components:

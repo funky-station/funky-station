@@ -1,3 +1,16 @@
+- type: entity
+  parent: IDCardStandard
+  id: InternalAffairsAgentIDCard
+  name: internal affairs agent ID card
+  components:
+    - type: Sprite
+      sprite: _Funkystation/Objects/Misc/id_cards.rsi
+      layers:
+        - state: default
+        - state: idiaa
+    - type: PresetIdCard
+      job: InternalAffairsAgent
+
 # Charlie Station / Ancient ID Cards
 
 - type: entity

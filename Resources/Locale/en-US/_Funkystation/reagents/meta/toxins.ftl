@@ -1,11 +1,11 @@
 ﻿reagent-name-heparin = heparin
-reagent-desc-heparin = A Fast-Acting toxin that quickly opens wounds on a body, making them bleed rapidly.
+reagent-desc-heparin = A fast-acting toxin that rapidly thins blood and opens wounds.
 
 reagent-name-rhigoxane = rhigoxane
-reagent-desc-rhigoxane = That looks so cold and refreshing... don't take a sip, it's pretty warm... and you don't want to freeze to death.
+reagent-desc-rhigoxane = A toxin that rapidly freezes anything it comes into contact with.
 
 reagent-name-spewium = spewium
-reagent-desc-spewium = Even smelling it warrants a vomit comet.
+reagent-desc-spewium = A chemical that rapidly causes the metabolizer to expel anything in their digestive system.
 
 reagent-name-pestiline = pestiline
-reagent-desc-pestiline = This exotic and strange toxin is rumored to be the essence of sickness itself.
+reagent-desc-pestiline = A subtle, slow-acting toxin that damages the body on a cellular level.

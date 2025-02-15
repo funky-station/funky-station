@@ -99,6 +99,54 @@
       amount: 8
 
 - type: entity
+  name: pill
+  suffix: mapfix
+  parent: Pill
+  id: PillBicaridine
+  components:
+  - type: Pill
+    pillType: 4
+  - type: Sprite
+    state: pill5
+  - type: Label
+    currentLabel: libital 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Libital
+          Quantity: 15
+
+- type: entity
+  name: pill canister
+  parent: PillCanister
+  id: PillCanisterBicaridine
+  suffix: mapfix
+  components:
+  - type: Label
+    currentLabel: libital 15u
+  - type: StorageFill
+    contents:
+    - id: PillLibital
+      amount: 8
+
+- type: entity
+  suffix: mapfix
+  parent: PrefilledSyringe
+  id: SyringeBicaridine
+  components:
+  - type: Label
+    currentLabel: libital
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Libital
+          Quantity: 15
+
+- type: entity
   suffix: mapfix
   parent: PrefilledSyringe
   id: SyringeDermaline

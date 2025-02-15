@@ -51,3 +51,9 @@
   name: Alex Torres Y Los Reyes Latinos - Tus Mentiras
   path:
     path: /Audio/Lobby/tusmentiras.ogg
+
+- type: jukebox
+  id: ironwill
+  name: Dynzz - Iron Will
+  path:
+    path: /Audio/Lobby/ironwill.ogg

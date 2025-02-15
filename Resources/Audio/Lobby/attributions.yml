@@ -118,3 +118,8 @@
   license: "CC-BY-NC-SA-4.0"
   copyright: "Bluecometdude"
   source: "https://soundcloud.com/bluecometdude/red-sun-in-the-sky-hq-and-extended"
+
+- files: ["ironwill.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Iron Will by Dynzz made for Funky Station"
+  source: "https://funkystation.org/"

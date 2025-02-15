@@ -64347,7 +64347,7 @@ entities:
       pos: -0.5,-41.5
       parent: 30
     - type: Door
-      secondsUntilStateChange: -339.26633
+      secondsUntilStateChange: -323.3162
       state: Closing
     - type: DeviceNetwork
       deviceLists:

@@ -95,7 +95,7 @@ public sealed partial class ChangelingInfectionSystem : EntitySystem
 
             comp.EffectsTimer = _timing.CurTime + TimeSpan.FromSeconds(comp.EffectsTimerDelay);
 
-            if (comp.DoThings)
+            if (comp.NeedsInitialization)
                 DoEffects(uid, comp);
 
             comp.NeedsInitialization = true; // First tick over, setup's complete, we can do the stuff now

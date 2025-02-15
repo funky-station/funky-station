@@ -17,8 +17,8 @@ changeling-convert-fail-incapacitated = You can't infect this person, they're no
 changeling-convert-fail-already = This person is already infected.
 changeling-convert-fail-incompatible = This target is incompatible.
 changeling-convert-end = You infect {CAPITALIZE(THE($target))}. They will be converted soon.
-changeling-convert-end-warning = {CAPITALIZE(THE($user))} stings you! You feel a sharp pain in your arm...
-changeling-convert-end-immune = {CAPITALIZE(THE($target))}'s body rejects the egg.
+changeling-convert-end-warning = {CAPITALIZE(THE($user))} stings you! You feel a sharp pain in your arm.
+changeling-convert-end-immune = {CAPITALIZE(THE($target))}'s body rejects the parasite.
 changeling-convert-chestbursted-unused = [color=red]They have a massive hole in their chest.[/color]
 
 changeling-convert-warning-1 = You feel a sharp pain!

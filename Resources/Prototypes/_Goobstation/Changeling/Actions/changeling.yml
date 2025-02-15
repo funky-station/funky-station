@@ -44,7 +44,7 @@
 - type: entity
   id: ActionInfectTarget
   name: Infect Target
-  description: Injects a Changeling egg into the target, eventually converting them into a fellow Changeling. Requires them to be incapacitated. Costs 60 chemicals.
+  description: Injects a Changeling parasite into the target, eventually converting them into a fellow Changeling. Requires them to be incapacitated. Costs 60 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction

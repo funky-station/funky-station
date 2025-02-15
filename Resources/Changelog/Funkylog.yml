@@ -1587,3 +1587,9 @@ Entries:
       message: Changelings can now infect people.
   id: 199
   time: '2025-02-15T03:29:59.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Tweak
+      message: silos are remapped
+  id: 200
+  time: '2025-02-15T03:30:54.0000000+00:00'

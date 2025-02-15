@@ -1,5 +1,5 @@
 - type: listing
-  id: UplinkMindcontrolImplanter
+  id: UplinkChangelingInfectImplanter
   name: uplink-changelinginfect-implant-name
   description: uplink-changelinginfect-implant-desc
   icon: { sprite: /Textures/Objects/Specific/Medical/syndi_implanter.rsi, state: implanter0 }

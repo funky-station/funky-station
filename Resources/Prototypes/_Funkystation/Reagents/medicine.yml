@@ -363,7 +363,7 @@
 - type: reagent
   id: Pielovene
   name: reagent-name-pielovene
-  group: Medicine
+  group: Exotic
   desc: reagent-desc-pielovene
   physicalDesc: reagent-physical-desc-creamy
   flavor: banana
@@ -387,8 +387,8 @@
         - !type:ReagentThreshold
           min: 1
         - !type:JobCondition
-          job:
-          - Mime
+            job:
+            - Mime
         damage:
           groups:
             Brute: 2
@@ -399,15 +399,15 @@
         - !type:ReagentThreshold
           min: 1
         - !type:JobCondition
-          job:
-          - Mime
+            job:
+            - Mime
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold
           min: 1
         - !type:JobCondition
-          job:
-          - Mime
+            job:
+            - Mime
         type: Local
         visualType: Medium
         messages: [ "generic-reagent-effect-nauseous" ]
@@ -417,21 +417,21 @@
         - !type:ReagentThreshold
           min: 1
         - !type:JobCondition
-          job:
-          - Mime
+            job:
+            - Mime
         probability: 0.02
       - !type:Drunk
         conditions:
         - !type:ReagentThreshold
           min: 1
         - !type:JobCondition
-          job:
-          - Mime
+            job:
+            - Mime
 
 - type: reagent
   id: Hypothium
   name: reagent-name-hypothium
-  group: Medicine
+  group: Exotic
   desc: reagent-desc-hypothium
   physicalDesc: reagent-physical-desc-tart
   flavor: medicine

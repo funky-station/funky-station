@@ -49,6 +49,12 @@ public sealed partial class ChangelingInfectionSystem : EntitySystem
         if (!_tag.HasTag(ev.Implant, "ChangelingInfectionImplant") || ev.Implanted == null)
             return;
 
+        if (!EntityManager.TryGetComponent(ev.Implanted.Value, out AbsorbableComponent? absorbable))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("changeling-convert-implant-fail"), ev.Implanted.Value, ev.Implanted.Value, PopupType.MediumCaution);
+            return;
+        }
+
         EnsureComp<ChangelingInfectionComponent>(ev.Implanted.Value);
 
         _popupSystem.PopupEntity(Loc.GetString("changeling-convert-implant"), ev.Implanted.Value, ev.Implanted.Value, PopupType.LargeCaution);
@@ -64,6 +70,12 @@ public sealed partial class ChangelingInfectionSystem : EntitySystem
         foreach (var comp in EntityManager.EntityQuery<ChangelingInfectionComponent>())
         {
             var uid = comp.Owner;
+
+            if (!EntityManager.TryGetComponent(uid, out AbsorbableComponent? absorbable))
+            {
+                EntityManager.RemoveComponent<ChangelingInfectionComponent>(uid);
+                return;
+            }
 
             if (!comp.NeedsInitialization)
             {

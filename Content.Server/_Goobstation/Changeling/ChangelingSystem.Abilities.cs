@@ -162,6 +162,13 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (args.Cancelled || !IsIncapacitated(target) || HasComp<ChangelingInfectionComponent>(target))
             return;
 
+        if (TryComp<ChangelingComponent>(target, out var targetComp))
+        {
+            var popupOther = Loc.GetString("changeling-convert-end-immune", ("target", Identity.Entity(target, EntityManager)));
+            _popup.PopupEntity(popupOther, args.User, args.User, PopupType.LargeCaution);
+            return;
+        }
+
         PlayMeatySound(args.User, comp);
 
         EnsureComp<ChangelingInfectionComponent>(target);

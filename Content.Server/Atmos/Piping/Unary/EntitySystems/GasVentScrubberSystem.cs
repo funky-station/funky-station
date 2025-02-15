@@ -86,7 +86,7 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
 
             var timeDelta = args.dt;
 
-            if (TryComp<ApcPowerReceiverComponent>(uid, out var power) && !power.Powered)
+            if (!_powerReceiverSystem.IsPowered(uid))
                 return;
 
             if (!scrubber.Enabled || !_nodeContainer.TryGetNode(uid, scrubber.OutletName, out PipeNode? outlet))
@@ -255,7 +255,7 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
                 _ambientSoundSystem.SetAmbience(uid, false);
                 _appearance.SetData(uid, ScrubberVisuals.State, ScrubberState.Welded, appearance);
             }
-            else if (TryComp<ApcPowerReceiverComponent>(uid, out var power) && !power.Powered || !scrubber.Enabled)
+            else if (!_powerReceiverSystem.IsPowered(uid) || !scrubber.Enabled)
             {
                 _ambientSoundSystem.SetAmbience(uid, false);
                 _appearance.SetData(uid, ScrubberVisuals.State, ScrubberState.Off, appearance);

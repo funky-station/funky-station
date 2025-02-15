@@ -1581,3 +1581,9 @@ Entries:
       message: added luxury hardsuit spawn to the quartermasters locker
   id: 198
   time: '2025-02-14T05:29:46.0000000+00:00'
+- author: Erisfiregamer1
+  changes:
+    - type: Add
+      message: Changelings can now infect people.
+  id: 199
+  time: '2025-02-15T03:29:59.0000000+00:00'

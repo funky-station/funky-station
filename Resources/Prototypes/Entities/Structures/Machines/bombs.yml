@@ -123,7 +123,7 @@
       softness: 1
     - type: Explosive
       explosionType: HardBomb
-      totalIntensity: 4000.0
+      totalIntensity: 2500.0
       intensitySlope: 3
       maxIntensity: 400
 

@@ -1,0 +1,193 @@
+<cartridges:NanoChatUiFragment
+    HorizontalExpand="True"
+    Margin="5"
+    Orientation="Vertical"
+    VerticalExpand="True"
+    xmlns="https://spacestation14.io"
+    xmlns:cartridges="clr-namespace:Content.Client._DV.CartridgeLoader.Cartridges"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls">
+
+    <!--  Main container that fills the entire PDA screen  -->
+    <BoxContainer
+        HorizontalExpand="True"
+        Orientation="Vertical"
+        VerticalExpand="True">
+        <!--  Header with app title and new chat button  -->
+        <controls:StripeBack MinSize="48 48" VerticalExpand="False">
+            <BoxContainer
+                HorizontalExpand="True"
+                Margin="0"
+                Orientation="Horizontal">
+                <TextureRect
+                    Margin="8,0,0,0"
+                    MinSize="32 32"
+                    Name="AppIcon"
+                    Stretch="KeepAspectCentered"
+                    TexturePath="/Textures/Interface/Nano/ntlogo.svg.png"
+                    VerticalAlignment="Center" />
+                <Label
+                    HorizontalExpand="True"
+                    Margin="8,0"
+                    StyleClasses="LabelHeading"
+                    Text="{Loc nano-chat-title}"
+                    VerticalAlignment="Center" />
+                <Label
+                    Margin="0,0,8,0"
+                    Name="OwnNumberLabel"
+                    StyleClasses="LabelSubText"
+                    Text="#0000"
+                    VerticalAlignment="Center" />
+                <Button
+                    Margin="0,0,4,0"
+                    MaxSize="32 32"
+                    Name="DeleteChatButton"
+                    StyleClasses="OpenBoth"
+                    ToolTip="{Loc nano-chat-delete}"
+                    Visible="False">
+                    <TextureRect
+                        MinSize="18 18"
+                        Stretch="KeepAspectCentered"
+                        StyleClasses="ButtonSquare"
+                        TexturePath="/Textures/Interface/VerbIcons/delete_transparent.svg.192dpi.png" />
+                </Button>
+                <Button
+                    Margin="0,0,4,0"
+                    MaxSize="32 32"
+                    Name="MuteButton"
+                    StyleClasses="OpenBoth"
+                    ToolTip="{Loc nano-chat-toggle-mute}">
+                    <Control HorizontalExpand="True" VerticalExpand="True">
+                        <TextureRect
+                            MinSize="18 18"
+                            Name="BellIcon"
+                            Stretch="KeepAspectCentered"
+                            StyleClasses="ButtonSquare"
+                            TexturePath="/Textures/_DV/Interface/VerbIcons/bell.svg.png" />
+                        <TextureRect
+                            MinSize="18 18"
+                            Name="BellMutedIcon"
+                            Stretch="KeepAspectCentered"
+                            StyleClasses="ButtonSquare"
+                            TexturePath="/Textures/_DV/Interface/VerbIcons/bell_muted.png"
+                            Visible="False" />
+                    </Control>
+                </Button>
+                <Button
+                    Margin="0,0,4,0"
+                    MaxSize="32 32"
+                    MinSize="32 32"
+                    Name="NewChatButton"
+                    StyleClasses="OpenBoth"
+                    Text="+"
+                    ToolTip="{Loc nano-chat-new-chat}" />
+            </BoxContainer>
+        </controls:StripeBack>
+
+        <!--  Main content split  -->
+        <BoxContainer
+            HorizontalExpand="True"
+            Margin="0,5,0,0"
+            Orientation="Horizontal"
+            VerticalExpand="True">
+            <!--  Left panel: Chat list  -->
+            <PanelContainer
+                MaxWidth="150"
+                StyleClasses="AngleRect"
+                VerticalExpand="True">
+                <ScrollContainer
+                    HScrollEnabled="False"
+                    HorizontalExpand="True"
+                    MinWidth="145"
+                    VerticalExpand="True">
+                    <BoxContainer
+                        HorizontalExpand="True"
+                        Margin="4"
+                        Name="ChatList"
+                        Orientation="Vertical"
+                        VerticalExpand="True">
+                        <!--  Chat entries will be added here dynamically  -->
+                        <Label
+                            HorizontalAlignment="Center"
+                            Name="NoChatsLabel"
+                            StyleClasses="LabelSubText"
+                            Text="{Loc nano-chat-no-chats}"
+                            VerticalAlignment="Center" />
+                    </BoxContainer>
+                </ScrollContainer>
+            </PanelContainer>
+
+            <customControls:VSeparator Margin="3,0" />
+
+            <!--  Right panel: Current chat  -->
+            <PanelContainer
+                HorizontalExpand="True"
+                StyleClasses="AngleRect"
+                VerticalExpand="True">
+                <BoxContainer
+                    HorizontalExpand="True"
+                    Orientation="Vertical"
+                    VerticalExpand="True">
+                    <!--  Messages area with centered "select chat" label  -->
+                    <BoxContainer
+                        HorizontalExpand="True"
+                        Margin="0,0,0,4"
+                        Name="MessageArea"
+                        Orientation="Vertical"
+                        VerticalExpand="True">
+                        <Label
+                            HorizontalAlignment="Center"
+                            Name="CurrentChatName"
+                            Text="{Loc nano-chat-select-chat}"
+                            VerticalAlignment="Center"
+                            VerticalExpand="True" />
+                        <ScrollContainer
+                            HorizontalExpand="True"
+                            Name="MessagesScroll"
+                            VerticalExpand="True"
+                            Visible="False">
+                            <BoxContainer
+                                HorizontalExpand="True"
+                                Name="MessageList"
+                                Orientation="Vertical"
+                                VerticalExpand="True" />
+                        </ScrollContainer>
+                    </BoxContainer>
+
+                    <!--  Message input  -->
+                    <BoxContainer
+                        HorizontalExpand="True"
+                        Margin="0,4,0,0"
+                        Name="MessageInputContainer"
+                        Orientation="Horizontal"
+                        Visible="False">
+                        <!--  Character count  -->
+                        <Label
+                            HorizontalAlignment="Right"
+                            Margin="0,0,4,2"
+                            Name="CharacterCount"
+                            StyleClasses="LabelSubText"
+                            Visible="False" />
+                        <!--  Input row  -->
+                        <LineEdit
+                            HorizontalExpand="True"
+                            Name="MessageInput"
+                            PlaceHolder="{Loc nano-chat-message-placeholder}"
+                            StyleClasses="OpenRight" />
+                        <Button
+                            Disabled="True"
+                            Margin="4,0,0,0"
+                            MinSize="32 32"
+                            Name="SendButton"
+                            StyleClasses="OpenLeft">
+                            <TextureRect
+                                Stretch="KeepAspectCentered"
+                                StyleClasses="ButtonSquare"
+                                TexturePath="/Textures/Interface/Nano/triangle_right.png" />
+                        </Button>
+                    </BoxContainer>
+                </BoxContainer>
+            </PanelContainer>
+        </BoxContainer>
+    </BoxContainer>
+</cartridges:NanoChatUiFragment>

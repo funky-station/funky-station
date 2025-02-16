@@ -363,7 +363,7 @@
 - type: reagent
   id: Pielovene
   name: reagent-name-pielovene
-  group: Medicine
+  group: Exotic
   desc: reagent-desc-pielovene
   physicalDesc: reagent-physical-desc-creamy
   flavor: banana
@@ -387,8 +387,8 @@
         - !type:ReagentThreshold
           min: 1
         - !type:JobCondition
-          job:
-          - Mime
+            job:
+            - Mime
         damage:
           groups:
             Brute: 2
@@ -399,15 +399,15 @@
         - !type:ReagentThreshold
           min: 1
         - !type:JobCondition
-          job:
-          - Mime
+            job:
+            - Mime
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold
           min: 1
         - !type:JobCondition
-          job:
-          - Mime
+            job:
+            - Mime
         type: Local
         visualType: Medium
         messages: [ "generic-reagent-effect-nauseous" ]
@@ -417,21 +417,21 @@
         - !type:ReagentThreshold
           min: 1
         - !type:JobCondition
-          job:
-          - Mime
+            job:
+            - Mime
         probability: 0.02
       - !type:Drunk
         conditions:
         - !type:ReagentThreshold
           min: 1
         - !type:JobCondition
-          job:
-          - Mime
+            job:
+            - Mime
 
 - type: reagent
   id: Hypothium
   name: reagent-name-hypothium
-  group: Medicine
+  group: Exotic
   desc: reagent-desc-hypothium
   physicalDesc: reagent-physical-desc-tart
   flavor: medicine
@@ -517,3 +517,31 @@
           types:
             Cellular: -4
             Heat: -3
+
+- type: reagent
+  id: Deunomia
+  name: reagent-name-deunomia
+  group: Medicine
+  desc:  reagent-desc-deunomia
+  physicalDesc: reagent-physical-desc-acidic
+  flavor: medicine
+  color: "#7851A9"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 5
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 0.5
+      - !type:Emote
+        emote: Scream
+        probability: 0.3
+      - !type:CureChangelingInfection
+        conditions:
+        - !type:ReagentThreshold
+          min: 1

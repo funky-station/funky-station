@@ -1090,6 +1090,9 @@
 - type: Tag
   id: RodMetal1
 
+- type: Tag # Funkystation
+  id: RodUranium1
+
 - type: Tag
   id: RollingPaper
 

@@ -117,9 +117,9 @@ evolutionmenu-utility-fleshmend-name = Fleshmend
 evolutionmenu-utility-fleshmend-desc =
     Rapidly heal yourself of all bruises and burns.
     Costs 35 chemicals.
-    
+
 evolutionmenu-utility-lastresort-name = Last Resort
-evolutionmenu-utility-lastresort-desc = 
+evolutionmenu-utility-lastresort-desc =
     Abandon your current body and escape in the form of a headslug.
     Costs 20 chemicals.
 
@@ -137,3 +137,8 @@ evolutionmenu-utility-hivemindaccess-name = Hivemind Access
 evolutionmenu-utility-hivemindaccess-desc =
     Tunes our chemical receptors for hivemind communication, allowing us to recognize and communicate with other changelings who have also evolved this ability.
     Default radio key is :g
+
+evolutionmenu-utility-infecttarget-name = Infect Target
+evolutionmenu-utility-infecttarget-desc =
+    Injects a Changeling parasite into the target, eventually converting them into a fellow Changeling.
+    Requires 60 chemicals. Deunomia can be used to reverse it if you make a mistake, but only if it hasn't taken over yet.

@@ -1,0 +1,13 @@
+- type: entity
+  name: internal affairs agent's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampIAA
+  suffix: DO NOT MAP
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-iaa
+    stampedColor: "#515961"
+    stampState: "paper_stamp-iaa"
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/stamps.rsi
+    state: stamp-iaa

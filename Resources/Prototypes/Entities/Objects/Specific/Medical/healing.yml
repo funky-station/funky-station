@@ -349,7 +349,7 @@
 # Pills - funkychem does major changes to pretty much all of these
 - type: entity
   name: pill
-  suffix: Dexalin 20u
+  suffix: Dexalin 15u
   parent: Pill
   id: PillDexalin
   components:
@@ -690,40 +690,6 @@
     - id: PillGranibitulari
       amount: 8
 
-# to future me: JUST DELETE BIC!!!!!!!!!!!!!!!!!!!!!!!
-- type: entity
-  name: pill
-  suffix: Bicaridine 10u
-  parent: Pill
-  id: PillBicaridine
-  components:
-  - type: Pill
-    pillType: 4
-  - type: Sprite
-    state: pill5
-  - type: Label
-    currentLabel: bicaridine 10u
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Bicaridine
-          Quantity: 10
-
-- type: entity
-  name: pill canister
-  parent: PillCanister
-  id: PillCanisterBicaridine
-  suffix: Bicaridine 10u, 5
-  components:
-  - type: Label
-    currentLabel: bicaridine 10u
-  - type: StorageFill
-    contents:
-    - id: PillBicaridine
-      amount: 5
-
 - type: entity
   name: pill
   suffix: Libital 15u
@@ -909,7 +875,11 @@
       prob: 0.10
       maxAmount: 7
       orGroup: RandomPill
-    - id: PillBicaridine
+    - id: PillLibital
+      prob: 0.10
+      maxAmount: 7
+      orGroup: RandomPill
+    - id: PillProbital
       prob: 0.10
       maxAmount: 7
       orGroup: RandomPill
@@ -978,22 +948,6 @@
         maxVol: 15
         reagents:
         - ReagentId: TranexamicAcid
-          Quantity: 15
-
-# future me DELETE THIS!!! THIS ONE!!!!
-- type: entity
-  suffix: bicaridine
-  parent: PrefilledSyringe
-  id: SyringeBicaridine
-  components:
-  - type: Label
-    currentLabel: reagent-name-bicaridine
-  - type: SolutionContainerManager
-    solutions:
-      injector:
-        maxVol: 15
-        reagents:
-        - ReagentId: Bicaridine
           Quantity: 15
 
 - type: entity
@@ -1130,6 +1084,36 @@
         reagents:
         - ReagentId: Convermol
           Quantity: 15
+
+- type: entity
+  suffix: revivopine
+  parent: PrefilledSyringe
+  id: SyringeRevivopine
+  components:
+  - type: Label
+    currentLabel: revivopine
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Revivopine
+          Quantity: 15
+
+- type: entity
+  suffix: libital
+  parent: PrefilledSyringe
+  id: SyringeLibital
+  components:
+    - type: Label
+      currentLabel: libital
+    - type: SolutionContainerManager
+      solutions:
+        injector:
+          maxVol: 15
+          reagents:
+          - ReagentId: Libital
+            Quantity: 15
 
 #this is where all the syringes are so i didn't know where to put it
 - type: entity

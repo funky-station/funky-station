@@ -70,6 +70,8 @@ guide-entry-foods = Foods
 guide-entry-biological = Biological
 guide-entry-botanical = Botanicals
 guide-entry-others = Others
+# funky station
+guide-entry-exotic = Exotic
 
 guide-entry-antagonists = Antagonists
 guide-entry-nuclear-operatives = Nuclear Operatives

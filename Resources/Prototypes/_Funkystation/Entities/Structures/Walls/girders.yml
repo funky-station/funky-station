@@ -1,0 +1,42 @@
+- type: entity
+  id: ReinforcedUraniumGirder
+  parent: Girder
+  name: reinforced uranium girder
+  description: A large structural assembly made out of metal and uranium. For all your radiation related needs!
+  components:
+    - type: Sprite
+      sprite: _Funkystation/Structures/Walls/reinforced_uranium.rsi
+      state: reinforced_wall_girder
+    - type: Construction
+      graph: Girder
+      node: reinforcedUraniumGirder
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 200
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalBreak
+        - trigger:
+            !type:DamageTrigger
+            damage: 50
+          behaviors:
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                SheetSteel1:
+                  min: 1
+                  max: 1
+                SheetUranium1:
+                  min: 1
+                  max: 1
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalBreak
+    - type: StaticPrice
+      price: 160

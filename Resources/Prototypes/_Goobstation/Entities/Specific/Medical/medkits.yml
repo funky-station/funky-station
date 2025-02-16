@@ -20,6 +20,8 @@
         reagents:
         - ReagentId: Ichor
           Quantity: 12 # Heals very fast- 90~ Damage all types in 60s. - Funkychem
+        - ReagentId: Revivopine # Funkychem
+          Quantity: 8 # Heals 20~ Damage all types when crit
         - ReagentId: TranexamicAcid
           Quantity: 5
   - type: Hypospray

@@ -7,14 +7,18 @@
       weight: 5
       reagents:
       - Stimulants
+      - StabilisedStimulants # funky
     - quantity: 10
       weight: 5
       reagents:
       - Ichor
+      - Stasicillin # funky
+      - Revivopine # funky
     - quantity: 5
       weight: 5
       reagents:
       - Cognizine
+      - ExoticReagent # funky
   # Good - weight: 25
     - quantity: 20
       weight: 25
@@ -24,11 +28,12 @@
       - Omnizine
       - Tricordrazine
       - Vitamin
+      - Negacordrazine # funky
   # Neutral - weight: 20
     - quantity: 20
       weight: 17.5
       reagents:
-      - Ipecac 
+      - Ipecac
       - SodiumPolyacrylate
       - SpaceDrugs
       - SpaceGlue
@@ -38,7 +43,7 @@
     - quantity: 5
       weight: 2.5
       reagents:
-      - Honk 
+      - Honk
   # Bad - weight: 25
     - quantity: 20
       weight: 10.5
@@ -68,6 +73,10 @@
       - CarpoToxin
       - BuzzochloricBees
       - Amatoxin
+      - Heparin # funky
+      - Rhigoxane # funky
+      - Spewium # funky
+      - Pestiline # funky
     - quantity: 5
       weight: 2.5
       reagents:

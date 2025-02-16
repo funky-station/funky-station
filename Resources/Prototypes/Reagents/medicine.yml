@@ -127,40 +127,40 @@
           groups:
             Brute: 0.2 # funky
 
-- type: reagent
-  id: Bicaridine
-  name: reagent-name-bicaridine
-  group: Medicine
-  desc: reagent-desc-bicaridine
-  physicalDesc: reagent-physical-desc-opaque
-  flavor: medicine
-  color: "#ffaa00"
-  metabolisms:
-    Medicine:
-      metabolismRate: 0.2 # Funkychem
-      effects:
-      - !type:HealthChange
-        damage:
-          groups:
-            Brute: -2
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 15
-        damage:
-          types:
-            Asphyxiation: 0.5
-            Poison: 1.5
-      - !type:ChemVomit
-        conditions:
-        - !type:ReagentThreshold
-          min: 30
-        probability: 0.02
-      - !type:Jitter
-        conditions:
-        - !type:ReagentThreshold
-          min: 15
-      - !type:Drunk
+#- type: reagent
+#  id: Bicaridine
+#  name: reagent-name-bicaridine
+#  group: Medicine
+#  desc: reagent-desc-bicaridine
+#  physicalDesc: reagent-physical-desc-opaque
+#  flavor: medicine
+#  color: "#ffaa00"
+#  metabolisms:
+#    Medicine:
+#      metabolismRate: 0.2 # Funkychem
+#      effects:
+#      - !type:HealthChange
+#        damage:
+#          groups:
+#            Brute: -2
+#      - !type:HealthChange
+#        conditions:
+#        - !type:ReagentThreshold
+#          min: 15
+#        damage:
+#          types:
+#            Asphyxiation: 0.5
+#            Poison: 1.5
+#      - !type:ChemVomit
+#        conditions:
+#        - !type:ReagentThreshold
+#          min: 30
+#        probability: 0.02
+#      - !type:Jitter
+#        conditions:
+#        - !type:ReagentThreshold
+#          min: 15
+#      - !type:Drunk
 
 - type: reagent
   id: Cryoxadone
@@ -270,38 +270,37 @@
             Asphyxiation: 2
             Cold: 1
 
-- type: reagent
-  id: DexalinPlus
-  name: reagent-name-dexalin-plus
-  group: Medicine
-  desc: reagent-desc-dexalin-plus
-  physicalDesc: reagent-physical-desc-cloudy
-  flavor: medicine
-  color: "#4da0bd"
-  metabolisms:
-    Medicine:
-      metabolismRate: 0.2 # Funkychem
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Asphyxiation: -3.5
-            Bloodloss: -3
-      - !type:AdjustReagent
-        conditions:
-        - !type:ReagentThreshold
-          reagent: HeartbreakerToxin
-          min: 1
-        reagent: HeartbreakerToxin
-        amount: -3
-      - !type:HealthChange
-        conditions:
-          - !type:ReagentThreshold
-            min: 25
-        damage:
-          types:
-            Asphyxiation: 5
-            Cold: 3
+#- type: reagent
+#  id: DexalinPlus
+#  name: reagent-name-dexalin-plus
+#  group: Medicine
+#  desc: reagent-desc-dexalin-plus
+#  physicalDesc: reagent-physical-desc-cloudy
+#  flavor: medicine
+#  color: "#4da0bd"
+#  metabolisms:
+#    Medicine:
+#      effects:
+#      - !type:HealthChange
+#        damage:
+#          types:
+#            Asphyxiation: -3.5
+#            Bloodloss: -3
+#      - !type:AdjustReagent
+#        conditions:
+#        - !type:ReagentThreshold
+#          reagent: HeartbreakerToxin
+#          min: 1
+#        reagent: HeartbreakerToxin
+#        amount: -3
+#      - !type:HealthChange
+#        conditions:
+#          - !type:ReagentThreshold
+#            min: 25
+#        damage:
+#          types:
+#            Asphyxiation: 5
+#            Cold: 3
 
 # this ones a doozy
 - type: reagent
@@ -1011,7 +1010,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 16 # funky
+          min: 12
         damage:
           types:
             Cold: 3
@@ -1036,7 +1035,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 15.5 # funky
+          min: 11
         damage:
           types:
             Blunt: 3 # funky
@@ -1060,7 +1059,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 15.5 # funky
+          min: 10.5
         damage:
           types:
             Poison: 3 # funky
@@ -1096,7 +1095,6 @@
       methods: [ Touch ]
       effects:
       - !type:ExtinguishReaction
-        # begin funky
     Acidic:
       methods: [ Touch ]
       effects:
@@ -1106,7 +1104,6 @@
         damage:
           types:
             Holy: 0.5
-        # end funky
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1
@@ -1133,7 +1130,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 21 # funky
+          min: 20
         damage:
           types:
             Slash: 0.5
@@ -1141,12 +1138,12 @@
       - !type:ChemVomit
         conditions:
         - !type:ReagentThreshold
-          min: 21 # funky
+          min: 15
         probability: 0.1
       - !type:Emote
         conditions:
         - !type:ReagentThreshold
-          min: 21 # funky
+          min: 20
         emote: Scream
         probability: 0.2
 
@@ -1180,19 +1177,19 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 16 # funky
+          min: 12
         damage:
           types:
             Cold: 2
       - !type:AdjustTemperature
         conditions:
         - !type:ReagentThreshold
-          min: 16 # funky
+          min: 12
         amount: -30000
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold
-          min: 16 # funky
+          min: 12
 
 - type: reagent
   id: Opporozidone #Name based of an altered version of the startreck chem "Opporozine"
@@ -1340,7 +1337,7 @@
   color: "#baa15d"
   metabolisms:
     Medicine:
-      metabolismRate: 0.2
+      metabolismRate: 0.2 # funky
       effects:
       - !type:GenericStatusEffect
         key: RadiationProtection

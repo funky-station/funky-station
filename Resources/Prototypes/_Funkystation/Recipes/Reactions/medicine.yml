@@ -203,3 +203,15 @@
       amount: 1
   products:
     Natusixadone: 2
+
+- type: reaction
+  id: Deunomia
+  reactants:
+    Amatoxin:
+      amount: 1
+    HeartbreakerToxin:
+      amount: 1
+    FerrochromicAcid:
+      amount: 1
+  products:
+    Deunomia: 3

@@ -45,3 +45,6 @@ reagent-desc-ardthyrnkole = A pyrogenics chemical used to treat severe frostbite
 
 reagent-name-natusixadone = natusixadone
 reagent-desc-natusixadone = A pyrogenics chemical that burns away cancerous cells, regardless of if they are alive or dead.
+
+reagent-name-deunomia = deunomia
+reagent-desc-deunomia = A highly potent mixture of chemicals used before natusixadone to destroy cancerous cells. It may hold use against any parasitic infections.

@@ -1,10 +1,14 @@
 //using Content.Shared.Tag;
+using System.Linq;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
+using Robust.Shared.Utility;
+
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -12,6 +16,9 @@ using Content.Shared.DoAfter;
 //using Content.Shared.Transform;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Verbs;
+using Content.Shared.Popups;
+using Content.Server.Popups;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
 
@@ -19,6 +26,7 @@ namespace Content.Server.BloodCult.EntitySystems;
 
 public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 {
+	[Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
 	[Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 	[Dependency] private readonly SharedTransformSystem _transform = default!;
 	[Dependency] private readonly MapSystem _mapSystem = default!;
@@ -26,6 +34,8 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 	[Dependency] private readonly IPrototypeManager _protoMan = default!;
 	[Dependency] private readonly DamageableSystem _damageableSystem = default!;
 	[Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+	[Dependency] private readonly PopupSystem _popupSystem = default!;
+	[Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
 	private EntityQuery<BloodCultRuneComponent> _runeQuery;
 
@@ -33,12 +43,65 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 	{
 		base.Initialize();
 
+		SubscribeLocalEvent<BloodCultRuneCarverComponent, MapInitEvent>(OnMapInit);
+
 		SubscribeLocalEvent<BloodCultRuneCarverComponent, AfterInteractEvent>(OnTryDrawRune);
 		SubscribeLocalEvent<DamageableComponent, DrawRuneDoAfterEvent>(OnRuneDoAfter);
 		SubscribeLocalEvent<BloodCultRuneCarverComponent, UseInHandEvent>(OnUseInHand);
+		//SubscribeLocalEvent<HereticRitualRuneComponent, InteractHandEvent>(OnInteract);
+
+		SubscribeLocalEvent<BloodCultRuneCarverComponent, GetVerbsEvent<InteractionVerb>>(OnVerb);
+
+		SubscribeLocalEvent<BloodCultRuneCarverComponent, RunesMessage>(OnRuneChosenMessage);
 
 		_runeQuery = GetEntityQuery<BloodCultRuneComponent>();
 	}
+
+	private void OnMapInit(EntityUid uid, BloodCultRuneCarverComponent component, MapInitEvent args)
+	{
+		
+	}
+
+	#region UserInterface
+	private void OnVerb(EntityUid uid, BloodCultRuneCarverComponent component, GetVerbsEvent<InteractionVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract || component.User != args.User)
+            return;
+
+        args.Verbs.Add(new InteractionVerb()
+        {
+            Text = "Example Text",//Loc.GetString("chameleon-component-verb-text"),
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
+            Act = () => TryOpenUi(uid, args.User, component)
+        });
+    }
+
+	private void OnRuneChosenMessage(Entity<BloodCultRuneCarverComponent> ent, ref RunesMessage args)
+	{
+		//var user = args.Actor;
+		if (!BloodCultRuneCarverComponent.ValidRunes.Contains(args.ProtoId))
+			return;
+		ent.Comp.Rune = args.ProtoId;
+	}
+
+	private void TryOpenUi(EntityUid uid, EntityUid user, BloodCultRuneCarverComponent? component = null)
+	{
+		if (!Resolve(uid, ref component))
+			return;
+		if (!TryComp(user, out ActorComponent? actor))
+			return;
+		_uiSystem.TryToggleUi(uid, RunesUiKey.Key, actor.PlayerSession);
+	}
+
+	private void UpdateUi(EntityUid uid, BloodCultRuneCarverComponent? component = null)
+	{
+		if (!Resolve(uid, ref component))
+			return;
+
+		var state = new RuneUserInterfaceState(component.Rune);
+		_uiSystem.SetUiState(uid, RunesUiKey.Key, state);
+	}
+	#endregion
 
 	private void OnTryDrawRune(Entity<BloodCultRuneCarverComponent> ent, ref AfterInteractEvent args)
     {
@@ -69,7 +132,9 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 		// Fourth, raise an event to place a rune here.
 		var rune = Spawn(ent.Comp.InProgress, location);
-		var dargs = new DoAfterArgs(EntityManager, args.User, ent.Comp.TimeToCarve, new DrawRuneDoAfterEvent(ent, rune, location, ent.Comp.Rune, ent.Comp.BleedOnCarve, ent.Comp.CarveSound), args.User)
+		var dargs = new DoAfterArgs(EntityManager, args.User, ent.Comp.TimeToCarve, new DrawRuneDoAfterEvent(
+			ent, rune, location, ent.Comp.Rune, ent.Comp.BleedOnCarve, ent.Comp.CarveSound), args.User
+		)
         {
             BreakOnDamage = true,
             BreakOnHandChange = true,
@@ -77,6 +142,19 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 			BreakOnDropItem = true,
             CancelDuplicate = false,
         };
+
+		if (_prototypeManager.TryIndex(ent.Comp.Rune, out var ritualPrototype))
+			_popupSystem.PopupEntity(
+				"You begin smearing a" +
+				("aeiou".Contains(ritualPrototype.Name.ToLower()[0]) ? "n" : "") +
+				" " + ritualPrototype.Name + " into the floor with your own wrist's blood...",
+				args.User, args.User, PopupType.MediumCaution
+			);
+		else
+			_popupSystem.PopupEntity(
+				"You begin smearing a rune into the floor with your own wrist's blood...",
+				args.User, args.User, PopupType.MediumCaution
+			);
 		_doAfter.TryStartDoAfter(dargs);
     }
 

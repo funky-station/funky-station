@@ -17,7 +17,7 @@
       types:
         Slash: 15
   - type: Item
-    size: Normal
+    size: Small
   - type: Clothing
     sprite: _Funkystation/Objects/Weapons/Melee/bloodcult_dagger_curved.rsi
     quickEquip: false
@@ -25,6 +25,17 @@
     - back
   - type: DisarmMalus
   - type: BloodCultRuneCarver
+  - type: UserInterface
+    interfaces:
+      enum.RunesUiKey.Key:
+        type: RunesBoundUserInterface
+  - type: ActivatableUI
+    key: enum.RunesUiKey.Key
+    inHandsOnly: true
+    singleUser: true
+    blockSpectators: true
+    verbOnly: false
+    verbText: Select Rune
 
 - type: entity
   name: cult dagger

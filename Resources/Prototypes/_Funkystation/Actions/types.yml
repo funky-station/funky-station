@@ -4,8 +4,8 @@
   description: action-description-toggle-wagging
   components:
     - type: InstantAction
-      icon: {sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi,state: vulp}
-      iconOn: {sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi,state: vulp}
+      icon: {sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi,state: vulp}
+      iconOn: {sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi,state: vulp}
       itemIconStyle: NoItem
       useDelay: 1 # emote spam
       event: !type:ToggleActionEvent

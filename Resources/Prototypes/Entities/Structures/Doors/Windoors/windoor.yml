@@ -600,14 +600,3 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsNukeop ]
-
-# begin imp
-- type: entity
-  parent: WindoorSecurePlasma
-  id: PlasmaWindoorSecureSyndicateLocked
-  suffix: Syndicate, Locked, Plasma
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsSyndicateAgent ]
-# end imp

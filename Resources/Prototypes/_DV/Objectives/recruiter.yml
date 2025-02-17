@@ -43,7 +43,7 @@
 
 - type: stealTargetGroup
   id: RecruiterPen
-  name: recruiter pen
+  name: recruiter-pen-name
   sprite:
     sprite: _DV/Objects/Misc/recruiter_pen.rsi
     state: empty

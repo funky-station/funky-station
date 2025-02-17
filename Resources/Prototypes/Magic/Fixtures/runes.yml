@@ -5,6 +5,7 @@
   placement:
     mode: SnapgridCenter
   components:
+    - type: BloodCultRune
     - type: Clickable
     - type: Sprite
       sprite: Structures/Magic/Cult/rune.rsi

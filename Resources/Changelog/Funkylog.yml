@@ -1615,3 +1615,17 @@ Entries:
       message: Kettle's Atmospherics area no longer has overt pre-built piping
   id: 202
   time: '2025-02-17T06:59:30.0000000+00:00'
+- author: ' deltanedas, JustAnOrange, TGRCDev, Darkmajia, and others'
+  changes:
+    - type: Add
+      message: There are now reports of a syndicate recruitment drive in NT sectors.
+    - type: Add
+      message: Most stamps now look fancier on paper.
+    - type: Add
+      message: >-
+        Signatures have a new and improved look. Select a style for your
+        signatures in the traits menu.
+    - type: Add
+      message: Added a new revenant ability to draw bloody glyphs on the ground.
+  id: 203
+  time: '2025-02-17T19:16:51.0000000+00:00'

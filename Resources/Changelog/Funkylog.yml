@@ -1607,3 +1607,11 @@ Entries:
         their replacements.
   id: 201
   time: '2025-02-15T03:31:28.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Kettle has been granted the pleasure of having station beacons. (again)
+    - type: Tweak
+      message: Kettle's Atmospherics area no longer has overt pre-built piping
+  id: 202
+  time: '2025-02-17T06:59:30.0000000+00:00'

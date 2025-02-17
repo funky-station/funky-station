@@ -146,7 +146,10 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
             DebugTools.AssertNotEqual(antag.SelectionTime, AntagSelectionTime.PrePlayerSpawn); // Goob edit
 
-            if (!TryGetNextAvailableDefinition((uid, antag), out var def))
+            // do not count players in the lobby for the antag ratio
+            var players = _playerManager.NetworkedSessions.Count(x => x.AttachedEntity != null);
+
+            if (!TryGetNextAvailableDefinition((uid, antag), out var def, players))
                 continue;
 
             if (TryMakeAntag((uid, antag), args.Player, def.Value))

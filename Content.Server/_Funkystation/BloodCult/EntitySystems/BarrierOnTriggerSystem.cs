@@ -1,0 +1,157 @@
+using System.Numerics;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Prototypes;
+using Robust.Server.GameObjects;
+using Robust.Shared.Audio.Systems;
+using Content.Shared.FixedPoint;
+using Content.Shared.Trigger;
+using Content.Server.Explosion.EntitySystems;
+using Content.Server.Popups;
+using Content.Shared.Popups;
+using Content.Shared.BloodCult.Components;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
+
+namespace Content.Server.BloodCult.EntitySystems
+{
+	public sealed partial class BarrierOnTriggerSystem : EntitySystem
+	{
+		[Dependency] private readonly EntityManager _entManager = default!;
+		[Dependency] private readonly SharedTransformSystem _transform = default!;
+		[Dependency] private readonly MapSystem _mapSystem = default!;
+		[Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+		[Dependency] private readonly DamageableSystem _damageableSystem = default!;
+		[Dependency] private readonly PopupSystem _popupSystem = default!;
+		[Dependency] private readonly IPrototypeManager _protoMan = default!;
+		[Dependency] private readonly IMapManager _mapManager = default!;
+
+		private EntityQuery<BloodCultRuneComponent> _runeQuery;
+		private EntityQuery<ForceBarrierComponent> _barrierQuery;
+
+		public override void Initialize()
+		{
+			base.Initialize();
+
+			_runeQuery = GetEntityQuery<BloodCultRuneComponent>();
+			_barrierQuery = GetEntityQuery<ForceBarrierComponent>();
+
+			SubscribeLocalEvent<BarrierOnTriggerComponent, TriggerEvent>(HandleBarrierTrigger);
+		}
+
+		private void HandleBarrierTrigger(EntityUid uid, BarrierOnTriggerComponent component, TriggerEvent args)
+		{
+			if (_entManager.TryGetComponent<TransformComponent>(uid, out var xform))
+			{
+				if (CanPlaceBarrierAt(xform.Coordinates, out var location))
+				{
+					var gridUid = _transform.GetGrid(location);
+					if (!TryComp<MapGridComponent>(gridUid, out var grid))
+					{
+						return;
+					}
+					var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, location);
+
+					List<EntityCoordinates> dL = new List<EntityCoordinates>();
+					Queue<EntityCoordinates> sQ = new Queue<EntityCoordinates>();
+					sQ.Enqueue(location);
+
+					int damageOnActivate = 0;
+					while (sQ.Count > 0)
+					{
+						damageOnActivate = damageOnActivate + component.DamageOnActivate;//1;
+						var currentLocation = sQ.Dequeue();
+						dL.Add(currentLocation);
+						SpawnAtLocation(currentLocation);
+
+						if(CanPlaceBarrierAt(currentLocation.Offset(new Vector2(-1.2f, 0f)), out var nextLoc1))
+						{
+							if (!dL.Contains(nextLoc1))
+								sQ.Enqueue(nextLoc1);
+						}
+						if (CanPlaceBarrierAt(currentLocation.Offset(new Vector2(1.2f, 0f)), out var nextLoc2))
+						{
+							if (!dL.Contains(nextLoc2))
+								sQ.Enqueue(nextLoc2);
+						}
+						if (CanPlaceBarrierAt(currentLocation.Offset(new Vector2(0f, -1.2f)), out var nextLoc3))
+						{
+							if (!dL.Contains(nextLoc3))
+								sQ.Enqueue(nextLoc3);
+						}
+						if (CanPlaceBarrierAt(currentLocation.Offset(new Vector2(0f, 1.2f)), out var nextLoc4))
+						{
+							if (!dL.Contains(nextLoc4))
+								sQ.Enqueue(nextLoc4);
+						}
+					}
+
+					if (args.User != null)
+					{
+						var user = (EntityUid) args.User;
+						_popupSystem.PopupEntity(
+							"You feel your veins narrow as your blood drains!",
+							user, user, PopupType.MediumCaution
+						);
+						
+						TryComp<DamageableComponent>(user, out var damComp);
+						
+						DamageSpecifier appliedDamageSpecifier;
+						//if (ent.Comp.Damage.DamageDict.ContainsKey("Bloodloss"))
+						//	appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Bloodloss"), FixedPoint2.New(damageOnActivate));
+						//else if (ent.Comp.Damage.DamageDict.ContainsKey("Ion"))
+						//	appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Ion"), FixedPoint2.New(damageOnActivate));
+						//else
+						appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Slash"), FixedPoint2.New(damageOnActivate));
+
+						_damageableSystem.TryChangeDamage(user, appliedDamageSpecifier, true, origin: user);
+					}
+				}
+			}
+
+			args.Handled = true;
+		}
+
+		private void SpawnAtLocation(EntityCoordinates inLocation)
+		{
+			var gridUid = _transform.GetGrid(inLocation);
+			if (!TryComp<MapGridComponent>(gridUid, out var grid))
+			{
+				return;
+			}
+			var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, inLocation);
+
+			var rune = Spawn("ForceBarrier", inLocation);
+			_mapSystem.AddToSnapGridCell(gridUid.Value, grid, targetTile.GridIndices, rune);
+			_audioSystem.PlayPvs("/Audio/Effects/inneranomaly.ogg", inLocation);
+		}
+
+		private bool CanPlaceBarrierAt(EntityCoordinates clickedAt, out EntityCoordinates location)
+		{
+			location = clickedAt.AlignWithClosestGridTile(entityManager: EntityManager, mapManager: _mapManager);
+			var gridUid = _transform.GetGrid(location);
+			if (!TryComp<MapGridComponent>(gridUid, out var grid))
+			{
+				return false;
+			}
+			var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, location);
+
+			// This does not work, but should.
+			//if (_mapSystem.GetAnchoredEntities(gridUid.Value, grid, targetTile.GridIndices).Any(_runeQuery.HasComponent))
+			//{
+			//    return;
+			//}
+
+			bool didFindBarrier = false;
+			bool didFindRune = false;
+			foreach (var possibleEnt in _mapSystem.GetAnchoredEntities(gridUid.Value, grid, targetTile.GridIndices))
+			{
+				if (_barrierQuery.HasComponent(possibleEnt))
+					didFindBarrier = true;
+				if (_runeQuery.HasComponent(possibleEnt))
+					didFindRune = true;
+			}
+			return! didFindBarrier && didFindRune;
+		}
+	}
+}

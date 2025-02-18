@@ -1,0 +1,9 @@
+- type: latheRecipe
+  id: Oilpack
+  result: Oilpack1
+  categories:
+  - Robotics
+  completetime: 1
+  materials:
+    Plastic: 250
+    Steel: 25

@@ -9,7 +9,11 @@ public sealed partial class BloodCultRuneCarverComponent : Component
 {
 	// TODO: Switch from using this static list of valid runes to a dynamic list stored in the BloodCultistComponent, which
 	// can be accessed from both the server and from the client UI code
-	public static string[] ValidRunes = {"ExplosionActivateRune", "FlashRune", "StunRune", "ExplosionRune", "IgniteRune"};
+	public static string[] ValidRunes = {
+		"BarrierRune", "BloodBoilRune", "EmpoweringRune",
+		"OfferingRune", "ReviveRune", "SpiritRealmRune",
+		"SummoningRune", "TeleportRune"
+	};
 
 	/// <summary>
     ///     The entity to spawn (e.g. animation) while carving.
@@ -19,7 +23,7 @@ public sealed partial class BloodCultRuneCarverComponent : Component
 	/// <summary>
     ///     The entity to spawn when used on self.
     /// </summary>
-    [DataField, AutoNetworkedField] public string Rune = "ExplosionActivateRune";
+    [DataField, AutoNetworkedField] public string Rune = "BarrierRune";
 
 	/// <summary>
     ///     Blood damage to apply to self when used to carve a rune.

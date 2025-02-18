@@ -25,6 +25,7 @@
     - back
   - type: DisarmMalus
   - type: BloodCultRuneCarver
+    timeToCarve: 1
   - type: UserInterface
     interfaces:
       enum.RunesUiKey.Key:

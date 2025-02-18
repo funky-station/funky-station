@@ -1,3 +1,4 @@
+using System.Numerics;
 using Robust.Server.GameObjects;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
@@ -6,7 +7,6 @@ using Content.Server.Station.Events;
 using Content.Server.Station.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Robust.Server.Maps;
 using Robust.Shared.Random;
 using Content.Shared.Ghost;
 using Content.Server._Goobstation.Ghostbar.Components;
@@ -18,6 +18,9 @@ using Content.Shared.Roles;
 using Content.Shared.Inventory;
 using Content.Server.Antag.Components;
 using Content.Shared.Mindshield.Components;
+using Robust.Shared.EntitySerialization;
+using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Utility;
 
 namespace Content.Server._Goobstation.Ghostbar;
 
@@ -43,13 +46,16 @@ public sealed class GhostBarSystem : EntitySystem
         SubscribeLocalEvent<GhostBarPlayerComponent, MindRemovedMessage>(OnPlayerGhosted);
     }
 
-    const string MapPath = "Maps/_Goobstation/Nonstations/ghostbar.yml";
+    ResPath _mapPath = new ResPath("Maps/_Goobstation/Nonstations/ghostbar.yml");
     private void OnRoundStart(RoundStartingEvent ev)
     {
         _mapSystem.CreateMap(out var mapId);
-        var options = new MapLoadOptions { LoadMap = true };
+        var options = new DeserializationOptions
+        {
+            InitializeMaps = true,
+        };
 
-        if (_mapLoader.TryLoad(mapId, MapPath, out _, options))
+        if (_mapLoader.TryLoadMap(_mapPath, out var mapEnt, out var mapGris, options, Vector2.Zero, Angle.Zero))
             _mapSystem.SetPaused(mapId, false);
     }
 

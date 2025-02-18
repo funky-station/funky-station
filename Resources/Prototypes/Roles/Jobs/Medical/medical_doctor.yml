@@ -20,9 +20,9 @@
     components:
     - type: SurgerySpeedModifier
       SpeedModifier: 1.75
-    - !type:GiveItemOnHolidaySpecial
-      holiday: DoctorDay
-      prototype: WehMedipen
+  - !type:GiveItemOnHolidaySpecial
+    holiday: DoctorDay
+    prototype: WehMedipen
 
 - type: startingGear
   id: DoctorGear

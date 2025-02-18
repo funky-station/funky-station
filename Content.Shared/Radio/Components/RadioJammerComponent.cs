@@ -44,7 +44,7 @@ public sealed partial class RadioJammerComponent : Component
     /// List of all the settings for the radio jammer.
     /// </summary>
     [DataField(required: true), ViewVariables(VVAccess.ReadOnly)]
-    public required RadioJamSetting[] Settings;
+    public RadioJamSetting[] Settings;
 
     /// <summary>
     /// Index of the currently selected setting.

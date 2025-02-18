@@ -53,3 +53,15 @@
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: Syndicate
+
+- type: factionIcon
+  id: BloodCultFaction
+  isShaded: true
+  priority: 11
+  showTo:
+    components:
+      - ShowAntagIcons
+      - BloodCultist
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: HeadRevolutionary

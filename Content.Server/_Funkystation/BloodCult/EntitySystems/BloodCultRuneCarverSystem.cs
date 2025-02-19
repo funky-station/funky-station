@@ -145,14 +145,14 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 		if (_prototypeManager.TryIndex(ent.Comp.Rune, out var ritualPrototype))
 			_popupSystem.PopupEntity(
-				"You begin smearing a" +
+				Loc.GetString("cult-rune-drawing-vowel-first") +
 				("aeiou".Contains(ritualPrototype.Name.ToLower()[0]) ? "n" : "") +
-				" " + ritualPrototype.Name + " into the floor with your own wrist's blood...",
+				" " + ritualPrototype.Name + " " + Loc.GetString("cult-rune-drawing-vowel-second"),
 				args.User, args.User, PopupType.MediumCaution
 			);
 		else
 			_popupSystem.PopupEntity(
-				"You begin smearing a rune into the floor with your own wrist's blood...",
+				Loc.GetString("cult-rune-drawing-novowel"),
 				args.User, args.User, PopupType.MediumCaution
 			);
 		_doAfter.TryStartDoAfter(dargs);

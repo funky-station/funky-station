@@ -12,6 +12,7 @@ using Content.Shared.Popups;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Server.GameTicking.Rules;
 
 namespace Content.Server.BloodCult.EntitySystems
 {
@@ -25,6 +26,7 @@ namespace Content.Server.BloodCult.EntitySystems
 		[Dependency] private readonly PopupSystem _popupSystem = default!;
 		[Dependency] private readonly IPrototypeManager _protoMan = default!;
 		[Dependency] private readonly IMapManager _mapManager = default!;
+		[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
 
 		private EntityQuery<BloodCultRuneComponent> _runeQuery;
 		private EntityQuery<ForceBarrierComponent> _barrierQuery;
@@ -90,25 +92,20 @@ namespace Content.Server.BloodCult.EntitySystems
 					{
 						var user = (EntityUid) args.User;
 						_popupSystem.PopupEntity(
-							"You feel your veins narrow as your blood drains!",
+							Loc.GetString("cult-invocation-blood-drain"),
 							user, user, PopupType.MediumCaution
 						);
-						
+						_bloodCultRule.Speak(user, Loc.GetString("cult-invocation-barrier"));
+
 						TryComp<DamageableComponent>(user, out var damComp);
-						
+
 						DamageSpecifier appliedDamageSpecifier;
-						//if (ent.Comp.Damage.DamageDict.ContainsKey("Bloodloss"))
-						//	appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Bloodloss"), FixedPoint2.New(damageOnActivate));
-						//else if (ent.Comp.Damage.DamageDict.ContainsKey("Ion"))
-						//	appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Ion"), FixedPoint2.New(damageOnActivate));
-						//else
 						appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Slash"), FixedPoint2.New(damageOnActivate));
 
 						_damageableSystem.TryChangeDamage(user, appliedDamageSpecifier, true, origin: user);
 					}
 				}
 			}
-
 			args.Handled = true;
 		}
 

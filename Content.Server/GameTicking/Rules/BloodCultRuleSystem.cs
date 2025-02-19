@@ -13,6 +13,7 @@ using Content.Shared.Mobs.Components;
 using Content.Server.Administration.Systems;
 using Content.Server.Popups;
 using Content.Shared.Popups;
+using Content.Shared.Magic.Events;
 
 using Content.Server.Ghost.Roles;
 using Content.Shared.Ghost.Roles.Raffles;
@@ -68,7 +69,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 	private void AfterEntitySelected(Entity<BloodCultRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
-		Console.WriteLine("SELECTED CULTIST ENTITY!!!");
         MakeCultist(args.EntityUid, ent);
     }
 
@@ -113,14 +113,12 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				if (component.ReviveCharges >= component.CostToRevive)
 				{
 					component.ReviveCharges = component.ReviveCharges - component.CostToRevive;
-					_ReviveCultist(cultistUid);
+					_ReviveCultist(cultistUid, cultist.ReviverUid);
 				}
 				else if (cultist.ReviverUid != null)
 				{
-					Console.WriteLine("NAR'SIE DEMANDS MORE SACRIFICE");
-					Console.WriteLine(cultist.ReviverUid);
 					_popupSystem.PopupEntity(
-							"Nar'Sie demands more sacrifice!",
+							Loc.GetString("cult-invocation-revive-fail"),
 							(EntityUid)cultist.ReviverUid, (EntityUid)cultist.ReviverUid, PopupType.MediumCaution
 						);
 				}
@@ -252,8 +250,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		comp.BeingRevived = true;
 	}
 
-	private void _ReviveCultist(EntityUid uid)
+	private void _ReviveCultist(EntityUid uid, EntityUid? casterUid)
 	{
+		Speak(casterUid, Loc.GetString("cult-invocation-revive"));
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/staff_healing.ogg"), uid);
 		_rejuvenate.PerformRejuvenate(uid);
 	}
@@ -297,6 +296,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		ghostRole.RoleDescription = Loc.GetString("cult-ghost-role-desc");//description;
 		ghostRole.RoleRules = Loc.GetString("cult-ghost-role-rules");//rules;
 		ghostRole.RaffleConfig = new GhostRoleRaffleConfig(settings);
+		Speak(args.User, Loc.GetString("cult-invocation-revive"));
 	}
 
 	private void OnMindAdded(EntityUid uid, BloodCultistComponent cultist, MindAddedMessage args)
@@ -307,5 +307,14 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	private void OnMindRemoved(EntityUid uid, BloodCultistComponent cultist, MindRemovedMessage args)
 	{
 		_role.MindRemoveRole<BloodCultRoleComponent>(args.Mind);
+	}
+
+	public void Speak(EntityUid? uid, string speech)//(BaseActionEvent args)
+	{
+		if (uid == null || string.IsNullOrWhiteSpace(speech))
+			return;
+
+		var ev = new SpeakSpellEvent((EntityUid)uid, speech);//speak.Speech);
+		RaiseLocalEvent(ref ev);
 	}
 }

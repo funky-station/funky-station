@@ -8,8 +8,7 @@
   - type: PassiveDamage
     allowedStates:
     - Alive
-    - Critical
-    damageCap: 150 # Body gives up
+    damageCap: 100 # Body gives up
     damage:
       types:
         Brute: -0.15
@@ -56,10 +55,13 @@
   components:
   - type: NoSlip
   - type: SlowedOverSlippery
-    slowdownModifier: 0.6
+    slowdownModifier: 0.65
   - type: SpeedModifierContactCapClothing
-    maxContactSprintSlowdown: 0.6
+    maxContactSprintSlowdown: 0.65
     maxContactWalkSlowdown: 0.9 # Better than galoshes here but walk already prevents slip
+  - type: ClothingSpeedModifier # Can careful steps be even weaker? most definitely.
+    walkModifier: 0.9
+    sprintModifier: 0.9
 
 - type: trait
   id: SwiftFeet
@@ -91,6 +93,12 @@
   components:
   - type: CrawlUnderObjects
     actionProto: ActionToggleSneakMode
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 1.1
+        Slash: 1.2 # wide swing murder :godo:
+        Heat: 1.1
 
 - type: trait
   id: StrengthenedImmunity

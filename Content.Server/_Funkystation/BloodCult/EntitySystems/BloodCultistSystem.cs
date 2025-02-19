@@ -12,7 +12,6 @@ public sealed class BloodCultistSystem : SharedBloodCultistSystem
 
 	public void UseGhostifyRune(EntityUid target, EntityUid? user, EntityUid used)
 	{
-		Console.WriteLine("USING GHOSTIFY RUNE");
 		var attempt = new GhostifyRuneEvent(target, user, used);
 		RaiseLocalEvent(target, attempt, true);
 	}

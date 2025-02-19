@@ -15,6 +15,16 @@ cult-briefing-targets = Nar'Sie demands the blood of
 
 admin-verb-make-cultist = Make the target into a Blood Cultist.
 
+cult-rune-drawing-novowel = You begin smearing a rune into the floor with your own wrist's blood...
+cult-rune-drawing-vowel-first = You begin smearing a
+cult-rune-drawing-vowel-second = into the floor with your own wrist's blood...
+
+cult-invocation-blood-drain = You feel your veins narrow as your blood drains!
+cult-invocation-revive-fail = Nar'Sie demands more sacrifice!
+
+cult-invocation-barrier = Khari'd! Eske'te tannin!
+cult-invocation-revive = Khari'd! Eske'te tannin!
+
 cult-ghost-role-name = Reawakened Blood Cultist
 cult-ghost-role-desc = A zealous Blood Cultist of Nar'Sie, re-awakened after catatonia.
 cult-ghost-role-rules = You are a team antagonist. Work with your fellow Cultists to accomplish your goals.

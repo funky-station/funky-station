@@ -1351,6 +1351,7 @@
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "outerClothing" ]
     - map: [ "mask" ]
     - map: [ "head" ]
     - map: [ "pocket1" ]

@@ -66,6 +66,7 @@
   id: ReviveRune
   name: "revive rune"
   components:
+    - type: ReviveCultistOnTrigger
     - type: Sprite
       #sprite: Structures/Magic/Cult/trap.rsi
       layers:

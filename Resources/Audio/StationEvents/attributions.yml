@@ -18,6 +18,12 @@
   copyright: "Created by qwertyquerty"
   source: "https://github.com/BeeStation/BeeStation-Hornet/commit/7f48971438492805af286023a72e7609a729234a"
 
+# Funkystation
+- files: ["running_in.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by q(/\)ntum [without the ()]"
+  source: "https://www.youtube.com/watch?v=AisGME8DRk0"
+
 # Goobstation
 - files: ["last_call.ogg"]
   license: "CC-BY-3.0"

@@ -5,5 +5,8 @@
     - /Audio/StationEvents/countdown.ogg
     - /Audio/StationEvents/sound_station_14.ogg
 
+    # Funkystation
+    - /Audio/StationEvents/running_in.ogg
+
     # Goobstation
     - /Audio/StationEvents/last_call.ogg

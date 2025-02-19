@@ -1629,3 +1629,9 @@ Entries:
       message: Added a new revenant ability to draw bloody glyphs on the ground.
   id: 203
   time: '2025-02-17T19:16:51.0000000+00:00'
+- author: ' whatston3 pheenty Ilya246 empty0set'
+  changes:
+    - type: Tweak
+      message: You can now melee wide swing with a wielded mosin.
+  id: 204
+  time: '2025-02-18T00:23:10.0000000+00:00'

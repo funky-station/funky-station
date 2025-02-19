@@ -14,7 +14,7 @@ trait-hemophiliac-name = Hemophiliac
 trait-hemophiliac-desc = Your blood takes much longer to clot, thus you take much much more bleed damage, 4x.
 
 trait-careful-steps-name = Careful Steps
-trait-careful-steps-desc = You can't slip, but move slower over slip hazards. 
+trait-careful-steps-desc = You can't slip, but move slower over slip hazards and move 10% slower in general.
 
 trait-swift-feet-name = Swift Feet
 trait-swift-feet-desc = You can move faster than average by 10%.
@@ -26,7 +26,7 @@ trait-temperature-tolerance-name = Temperature Tolerance
 trait-temperature-tolerance-desc = You can handle higher and lower temperatures than average.
 
 trait-table-hider-name = Contortionist
-trait-table-hider-desc = You can sneak under objects like tables that no normal person should fit under.
+trait-table-hider-desc = You can sneak under objects like tables that no normal person should fit under, at the cost of taking extra damage.
 
 trait-strengthened-immunity-name = Strengthened Immunity
 trait-strengthened-immunity-desc = You can handle much larger doses of poison than average people.

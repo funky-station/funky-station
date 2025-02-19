@@ -17,6 +17,16 @@ public sealed partial class BloodCultistComponent : Component
     /// </summary>
     [DataField] public int Blood = 0;
 
+	/// <summary>
+    ///     Stores if the cultist was revived in the last tick.
+    /// </summary>
+	[DataField] public bool BeingRevived = false;
+
+	/// <summary>
+	/// The Uid of the person trying to revive the cultist.
+	/// </summary>
+	[DataField] public EntityUid? ReviverUid = null;
+
 	public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "BloodCultFaction";
 /*
     #region Prototypes

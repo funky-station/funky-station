@@ -49,3 +49,39 @@ public abstract class SharedBloodCultistSystem : EntitySystem
         }
     }
 }
+
+/// <summary>
+///    Called when a revive rune is used on the target. Revives the target if
+///	   and only if enough revive charges remain.
+/// </summary>
+public sealed class ReviveRuneAttemptEvent : CancellableEntityEventArgs
+{
+	public readonly EntityUid Target;
+	public readonly EntityUid? User;
+	public readonly EntityUid? Used;
+
+	public ReviveRuneAttemptEvent(EntityUid target, EntityUid? user, EntityUid? used)
+	{
+		Target = target;
+		User = user;
+		Used = used;
+	}
+}
+
+/// <summary>
+///    Called when a target has been potentially revived by a rune.
+///	   Turns a catatonic target into a ghost role.
+/// </summary>
+public sealed class GhostifyRuneEvent : CancellableEntityEventArgs
+{
+	public readonly EntityUid Target;
+	public readonly EntityUid? User;
+	public readonly EntityUid? Used;
+
+	public GhostifyRuneEvent(EntityUid target, EntityUid? user, EntityUid? used)
+	{
+		Target = target;
+		User = user;
+		Used = used;
+	}
+}

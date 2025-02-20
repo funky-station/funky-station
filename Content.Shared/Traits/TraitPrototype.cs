@@ -38,6 +38,12 @@ public sealed partial class TraitPrototype : IPrototype
     public EntityWhitelist? Blacklist;
 
     /// <summary>
+    /// List of species that cannot take this trait.
+    /// </summary>
+    [DataField]
+    public HashSet<string>? SpeciesRestrictions;
+
+    /// <summary>
     /// The components that get added to the player, when they pick this trait.
     /// </summary>
     [DataField]

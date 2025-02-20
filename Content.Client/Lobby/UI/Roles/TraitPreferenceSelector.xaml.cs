@@ -9,35 +9,61 @@ namespace Content.Client.Lobby.UI.Roles;
 [GenerateTypedNameReferences]
 public sealed partial class TraitPreferenceSelector : Control
 {
-    public int Cost;
-
-    public bool Preference
-    {
-        get => Checkbox.Pressed;
-        set => Checkbox.Pressed = value;
-    }
-
     public event Action<bool>? PreferenceChanged;
 
-    public TraitPreferenceSelector(TraitPrototype trait)
+    private readonly CheckBox _checkbox;
+    private readonly Label _costLabel;
+
+    public int Cost
+    {
+        get => _cost;
+        set
+        {
+            _cost = value;
+            UpdateCostLabel();
+        }
+    }
+    private int _cost;
+    
+        public bool Preference
+    {
+        get => _checkbox.Pressed;
+        set => _checkbox.Pressed = value;
+    }
+
+    public TraitPreferenceSelector(string name, int cost, string? description = null)
     {
         RobustXamlLoader.Load(this);
+        _checkbox = Checkbox;
+        _costLabel = CostLabel;
+        
+        _checkbox.Text = name;
+        Cost = cost;
 
-        var text = trait.Cost != 0 ? $"[{trait.Cost}] " : "";
-        text += Loc.GetString(trait.Name);
+        if (description != null)
+            _checkbox.ToolTip = description;
 
-        Cost = trait.Cost;
-        Checkbox.Text = text;
-        Checkbox.OnToggled += OnCheckBoxToggled;
+        _checkbox.OnToggled += OnCheckBoxToggled;
+        UpdateCostLabel();
+    }
 
-        if (trait.Description is { } desc)
+    private void UpdateCostLabel()
+    {
+        if (_cost == 0)
         {
-            Checkbox.ToolTip = Loc.GetString(desc);
+            _costLabel.Text = "0";
+            _costLabel.Modulate = Color.FromHex("#C8C8C8");
+        }
+        else
+        {
+            var sign = _cost >= 0 ? "+" : "";
+            _costLabel.Text = $"{sign}{_cost}";
+            _costLabel.Modulate = _cost >= 0 ? Color.FromHex("#FF4040") : Color.FromHex("#40FF40");
         }
     }
 
     private void OnCheckBoxToggled(BaseButton.ButtonToggledEventArgs args)
     {
-        PreferenceChanged?.Invoke(Preference);
+        PreferenceChanged?.Invoke(args.Pressed);
     }
 }

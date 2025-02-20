@@ -494,7 +494,10 @@ namespace Content.Client.Lobby.UI
         {
             TraitsList.DisposeAllChildren();
 
-            var traits = _prototypeManager.EnumeratePrototypes<TraitPrototype>().OrderBy(t => Loc.GetString(t.Name)).ToList();
+            var traits = _prototypeManager.EnumeratePrototypes<TraitPrototype>()
+                .OrderByDescending(t => t.Cost)
+                .ThenBy(t => Loc.GetString(t.Name))
+                .ToList();
             TabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-traits-tab"));
 
             if (traits.Count < 1)
@@ -550,12 +553,37 @@ namespace Content.Client.Lobby.UI
                 foreach (var traitProto in categoryTraits)
                 {
                     var trait = _prototypeManager.Index<TraitPrototype>(traitProto);
-                    var selector = new TraitPreferenceSelector(trait);
+                    var selector = new TraitPreferenceSelector(
+                        Loc.GetString(trait.Name),
+                        trait.Cost,
+                        trait.Description != null ? Loc.GetString(trait.Description) : null);
 
                     selector.Preference = Profile?.TraitPreferences.Contains(trait.ID) == true;
                     if (selector.Preference)
                         selectionCount += trait.Cost;
 
+                    // Check species restrictions
+                    if (trait.SpeciesRestrictions != null && Profile?.Species != null && trait.SpeciesRestrictions.Contains<string>(Profile.Species))
+                    {
+                        selector.Checkbox.Disabled = true;
+                        selector.Checkbox.Label.FontColorOverride = Color.Orange;
+                        var tooltip = new PanelContainer
+                        {
+                            StyleClasses = { StyleNano.StyleClassTooltipPanel },
+                            Children =
+                            {
+                                new Label
+                                {
+                                    Text = Loc.GetString("trait-species-restricted"),
+                                    HorizontalAlignment = HAlignment.Center,
+                                    FontColorOverride = Color.FromHex("#C8C8C8")
+                                }
+                            }
+                        };
+                        selector.Checkbox.TooltipSupplier = _ => tooltip;
+                        selector.Preference = false;
+                    }
+                    
                     selector.PreferenceChanged += preference =>
                     {
                         if (preference)

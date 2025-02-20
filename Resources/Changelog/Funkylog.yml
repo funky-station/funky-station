@@ -1635,3 +1635,9 @@ Entries:
       message: You can now melee wide swing with a wielded mosin.
   id: 204
   time: '2025-02-18T00:23:10.0000000+00:00'
+- author: Mrpigfish
+  changes:
+    - type: Add
+      message: Oasis has a perma again!
+  id: 205
+  time: '2025-02-20T01:27:27.0000000+00:00'

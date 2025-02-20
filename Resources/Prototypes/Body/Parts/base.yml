@@ -193,6 +193,7 @@
     partType: Foot
     symmetry: Left
     toolName: "a left foot" # Shitmed Change
+
 - type: entity
   id: BaseRightFoot
   name: "right foot"

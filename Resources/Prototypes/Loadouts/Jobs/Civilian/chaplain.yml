@@ -89,19 +89,19 @@
     - WeaponSniperChaplainAnnabelle
 
 - type: loadout
-  id: ChaplainPocketBible
-  equipment:
-     belt: 
+  id: ChaplainBibleChristian
+  storage:
+     back: 
      - Bible
 
 - type: loadout
-  id: ChaplainPocketBibleAthiest
-  equipment:
-     belt: 
+  id: ChaplainBibleAthiest
+  storage:
+     back: 
      - BibleAthiest
 
 - type: loadout
-  id: ChaplainPocketBibleBuddhist
-  equipment:
-     belt: 
+  id: ChaplainBibleBuddhist
+  storage:
+     back: 
      - BibleBuddhist

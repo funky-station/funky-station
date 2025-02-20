@@ -152,7 +152,7 @@ namespace Content.Server.Explosion.EntitySystems
             if (xform.Anchored)
                 return;
 
-            _transformSystem.AnchorEntity((uid, xform));
+            _transformSystem.AnchorEntity(uid, xform);
 
             if (component.RemoveOnTrigger)
                 RemCompDeferred<AnchorOnTriggerComponent>(uid);

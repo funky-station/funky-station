@@ -14,6 +14,7 @@ using Content.Server.Administration.Systems;
 using Content.Server.Popups;
 using Content.Shared.Popups;
 using Content.Shared.Magic.Events;
+using Content.Shared.Body.Systems;
 
 using Content.Server.Ghost.Roles;
 using Content.Shared.Ghost.Roles.Raffles;
@@ -34,6 +35,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
 	[Dependency] private readonly GhostRoleSystem _ghostRole = default!;
 	[Dependency] private readonly PopupSystem _popupSystem = default!;
+	[Dependency] private readonly SharedBodySystem _body = default!;
 	[Dependency] private readonly IEntityManager _entManager = default!;
 
 	public readonly string CultComponentId = "BloodCultist";
@@ -53,6 +55,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 		SubscribeLocalEvent<BloodCultistComponent, ReviveRuneAttemptEvent>(TryReviveCultist);
 		SubscribeLocalEvent<BloodCultistComponent, GhostifyRuneEvent>(TryGhostifyCultist);
+		SubscribeLocalEvent<BloodCultistComponent, SacrificeRuneEvent>(TrySacrificeVictim);
+		SubscribeLocalEvent<BloodCultistComponent, ConvertRuneEvent>(TryConvertVictim);
 
 		SubscribeLocalEvent<BloodCultistComponent, MindAddedMessage>(OnMindAdded);
 		SubscribeLocalEvent<BloodCultistComponent, MindRemovedMessage>(OnMindRemoved);
@@ -75,7 +79,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	/// <summary>
     /// Supplies new cultists with what they need.
     /// </summary>
-    /// <returns>true if uplink was successfully added.</returns>
+    /// <returns>true if cultist was successfully added.</returns>
     private bool MakeCultist(EntityUid traitor, BloodCultRuleComponent component)
     {
         return _TryAssignCultMind(traitor);
@@ -108,6 +112,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		{
 			if (!TryComp<BloodCultistComponent>(cultistUid, out var cultist))
 				continue;
+
+			// Apply active revives
 			if (cultist.BeingRevived)
 			{
 				if (component.ReviveCharges >= component.CostToRevive)
@@ -124,6 +130,51 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				}
 				cultist.BeingRevived = false;
 				cultist.ReviverUid = null;
+			}
+
+			// Apply active sacrifices
+			if (cultist.Sacrifice != null)
+			{
+				SacrificingData sacrifice = (SacrificingData)cultist.Sacrifice;
+
+				if (sacrifice.Invokers.Length >= component.CultistsToSacrifice)
+				{
+					foreach (EntityUid invoker in sacrifice.Invokers)
+						Speak(invoker, Loc.GetString("cult-invocation-offering"));
+					_SacrificeVictim(sacrifice.Target, cultistUid);
+					component.ReviveCharges = component.ReviveCharges + component.ChargesForSacrifice;
+				}
+				else
+				{
+					_popupSystem.PopupEntity(
+							Loc.GetString("cult-invocation-fail"),
+							cultistUid, cultistUid, PopupType.MediumCaution
+						);
+				}
+
+				cultist.Sacrifice = null;
+			}
+
+			// Apply active converts
+			if (cultist.Convert != null)
+			{
+				Console.WriteLine("ACTIVE CONVERT HAPPENING");
+				ConvertingData convert = (ConvertingData)cultist.Convert;
+
+				if (convert.Invokers.Length >= component.CultistsToConvert)
+				{
+					foreach (EntityUid invoker in convert.Invokers)
+						Speak(invoker, Loc.GetString("cult-invocation-offering"));
+					_ConvertVictim(convert.Target, component);
+				}
+				else
+				{
+					_popupSystem.PopupEntity(
+							Loc.GetString("cult-invocation-fail"),
+							cultistUid, cultistUid, PopupType.MediumCaution
+						);
+				}
+				cultist.Convert = null;
 			}
 		}
 
@@ -297,6 +348,31 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		ghostRole.RoleRules = Loc.GetString("cult-ghost-role-rules");//rules;
 		ghostRole.RaffleConfig = new GhostRoleRaffleConfig(settings);
 		Speak(args.User, Loc.GetString("cult-invocation-revive"));
+	}
+
+	public void TrySacrificeVictim(EntityUid uid, BloodCultistComponent comp, ref SacrificeRuneEvent args)
+	{
+		comp.Sacrifice = new  SacrificingData(args.Target, args.Invokers);
+	}
+
+	private void _SacrificeVictim(EntityUid uid, EntityUid? casterUid)
+	{
+		// Remember to use coordinates to play audio if the entity is about to vanish.
+		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), Transform(uid).Coordinates);
+		_body.GibBody(uid, true);
+		// TODO: Spawn Soulstone Shard with their consciousness
+	}
+
+	public void TryConvertVictim(EntityUid uid, BloodCultistComponent comp, ref ConvertRuneEvent args)
+	{
+		comp.Convert = new ConvertingData(args.Target, args.Invokers);
+	}
+
+	private void _ConvertVictim(EntityUid uid, BloodCultRuleComponent component)
+	{
+		_audio.PlayPvs(new SoundPathSpecifier("/Audio/_Funkystation/Ambience/Antag/creepyshriek.ogg"), uid);
+		MakeCultist(uid, component);
+		_rejuvenate.PerformRejuvenate(uid);
 	}
 
 	private void OnMindAdded(EntityUid uid, BloodCultistComponent cultist, MindAddedMessage args)

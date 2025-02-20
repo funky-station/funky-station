@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.BloodCult.Components;
 
 /// <summary>
-/// Spawn barrier chain if Triggered.
+/// Revive a cultist if Triggered.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ReviveCultistOnTriggerComponent : Component

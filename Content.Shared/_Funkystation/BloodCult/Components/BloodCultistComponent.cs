@@ -27,6 +27,14 @@ public sealed partial class BloodCultistComponent : Component
 	/// </summary>
 	[DataField] public EntityUid? ReviverUid = null;
 
+	[DataField] public SacrificingData? Sacrifice = null;
+	[DataField] public ConvertingData? Convert = null;
+
+	/// <summary>
+	/// The list of sacrifice targets.
+	/// </summary>
+	[DataField] public List<EntityUid> Targets = new List<EntityUid>();
+
 	public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "BloodCultFaction";
 /*
     #region Prototypes
@@ -106,4 +114,28 @@ public sealed partial class BloodCultistComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField] public TimeSpan AlertWaitTime = TimeSpan.FromSeconds(10);
 	*/
+}
+
+public struct SacrificingData
+{
+	public EntityUid Target;
+	public EntityUid[] Invokers;
+
+	public SacrificingData(EntityUid target, EntityUid[] invokers)
+	{
+		Target = target;
+		Invokers = invokers;
+	}
+}
+
+public struct ConvertingData
+{
+	public EntityUid Target;
+	public EntityUid[] Invokers;
+
+	public ConvertingData(EntityUid target, EntityUid[] invokers)
+	{
+		Target = target;
+		Invokers = invokers;
+	}
 }

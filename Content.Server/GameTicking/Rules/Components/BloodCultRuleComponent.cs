@@ -17,4 +17,19 @@ public sealed partial class BloodCultRuleComponent : Component
 	/// Number of charges required to use a Revive Rune.
 	/// </summary>
 	[DataField] public int CostToRevive = 3;
+
+	/// <summary>
+	/// Number of charges gained for sacrificing someone.
+	/// </summary>
+	[DataField] public int ChargesForSacrifice = 1;
+
+	/// <summary>
+	/// Number of cultists required to sacrifice a dead player.
+	/// </summary>
+	[DataField] public int CultistsToSacrifice = 1;
+
+	/// <summary>
+	/// Number of players required to convert a player.
+	/// </summary>
+	[DataField] public int CultistsToConvert = 2;
 }

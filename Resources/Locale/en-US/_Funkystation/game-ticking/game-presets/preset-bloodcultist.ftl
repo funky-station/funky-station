@@ -21,9 +21,14 @@ cult-rune-drawing-vowel-second = into the floor with your own wrist's blood...
 
 cult-invocation-blood-drain = You feel your veins narrow as your blood drains!
 cult-invocation-revive-fail = Nar'Sie demands more sacrifice!
+cult-invocation-fail-nosoul = Nar'Sie rejects this soulless husk!
+cult-invocation-fail-teamkill = Nar'Sie rejects your offering of another Cultist!
+cult-invocation-fail-mindshielded = Your victim resists Nar'Sie's influence!
+cult-invocation-fail = More cultists must be present!
 
 cult-invocation-barrier = Khari'd! Eske'te tannin!
-cult-invocation-revive = Khari'd! Eske'te tannin!
+cult-invocation-revive = Pasnar val'keriam usinar. Savrae ines amutan. Yam'toth remium il'tarat!
+cult-invocation-offering = Mah'weyh pleggh at e'ntrath!
 
 cult-ghost-role-name = Reawakened Blood Cultist
 cult-ghost-role-desc = A zealous Blood Cultist of Nar'Sie, re-awakened after catatonia.

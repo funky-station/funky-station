@@ -95,13 +95,13 @@
      - Bible
 
 - type: loadout
-  id: ChaplainBibleAthiest
+  id: ChaplainBibleAtheist
   storage:
      back: 
-     - BibleAthiest
+     - BibleAtheist
 
 - type: loadout
-  id: ChaplainBibleBuddhist
+  id: ChaplainBibleBhuddhist
   storage:
      back: 
-     - BibleBuddhist
+     - BibleBhuddhist # The item's not even spelt correctly

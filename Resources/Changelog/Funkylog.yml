@@ -1649,3 +1649,11 @@ Entries:
       message: Revolutionaries can only see HRevs.
   id: 206
   time: '2025-02-20T03:01:05.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Tweak
+      message: >-
+        corgium will no longer turn you into a corgi forever. now you have to
+        make evil corgium
+  id: 207
+  time: '2025-02-20T19:46:47.0000000+00:00'

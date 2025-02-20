@@ -87,3 +87,21 @@
   storage:
     back:
     - WeaponSniperChaplainAnnabelle
+
+- type: loadout
+  id: ChaplainPocketBible
+  equipment:
+     belt: 
+     - Bible
+
+- type: loadout
+  id: ChaplainPocketBibleAthiest
+  equipment:
+     belt: 
+     - BibleAthiest
+
+- type: loadout
+  id: ChaplainPocketBibleBuddhist
+  equipment:
+     belt: 
+     - BibleBuddhist

@@ -85,3 +85,43 @@ public sealed class GhostifyRuneEvent : CancellableEntityEventArgs
 		Used = used;
 	}
 }
+
+/// <summary>
+///    Called when a target has been potentially sacrificed by a rune.
+///	   Requires a different number of cultists to assist depending on if the victim is a target or not.
+/// </summary>
+public sealed class SacrificeRuneEvent : CancellableEntityEventArgs
+{
+	public readonly EntityUid Target;
+	public readonly EntityUid? User;
+	public readonly EntityUid? Used;
+	public readonly EntityUid[] Invokers;
+
+	public SacrificeRuneEvent(EntityUid target, EntityUid user, EntityUid? used, EntityUid[] invokers)
+	{
+		Target = target;
+		User = user;
+		Used = used;
+		Invokers = invokers;
+	}
+}
+
+/// <summary>
+///    Called when a target has been potentially converted by a rune.
+///	   Requires a different number of cultists to assist depending on if the victim is a target or not.
+/// </summary>
+public sealed class ConvertRuneEvent : CancellableEntityEventArgs
+{
+	public readonly EntityUid Target;
+	public readonly EntityUid? User;
+	public readonly EntityUid? Used;
+	public readonly EntityUid[] Invokers;
+
+	public ConvertRuneEvent(EntityUid target, EntityUid user, EntityUid? used, EntityUid[] invokers)
+	{
+		Target = target;
+		User = user;
+		Used = used;
+		Invokers = invokers;
+	}
+}

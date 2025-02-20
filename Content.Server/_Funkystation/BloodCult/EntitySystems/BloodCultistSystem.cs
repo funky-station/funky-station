@@ -15,4 +15,16 @@ public sealed class BloodCultistSystem : SharedBloodCultistSystem
 		var attempt = new GhostifyRuneEvent(target, user, used);
 		RaiseLocalEvent(target, attempt, true);
 	}
+
+	public void UseSacrificeRune(EntityUid target, EntityUid user, EntityUid used, EntityUid[] otherCultists)
+	{
+		var attempt = new SacrificeRuneEvent(target, user, used, otherCultists);
+		RaiseLocalEvent(user, attempt, true);
+	}
+
+	public void UseConvertRune(EntityUid target, EntityUid user, EntityUid used, EntityUid[] otherCultists)
+	{
+		var attempt = new ConvertRuneEvent(target, user, used, otherCultists);
+		RaiseLocalEvent(user, attempt, true);
+	}
 }

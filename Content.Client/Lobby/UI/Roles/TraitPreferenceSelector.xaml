@@ -1,7 +1,8 @@
-<Control xmlns="https://spacestation14.io"
-         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-        <BoxContainer Name="Container"
-                      Orientation="Horizontal">
-            <CheckBox Name="Checkbox" Access="Public"/>
+<Control xmlns="https://spacestation14.io">
+    <PanelContainer StyleClasses="TraitBackground">
+        <BoxContainer Name="Container" Orientation="Horizontal" Margin="4,2">
+            <CheckBox Name="Checkbox" Access="Public" MinSize="32 32"/>
+            <Label Name="CostLabel" StyleClasses="TraitCost" Margin="8,0,0,0"/>
         </BoxContainer>
+    </PanelContainer>
 </Control>

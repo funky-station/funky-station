@@ -1,0 +1,30 @@
+# Funky Station 
+- type: trait
+  id: LightweightDrunk
+  name: trait-lightweight-name
+  description: trait-lightweight-desc
+  category: AlcoholTolerance
+  cost: 1
+  components:
+  - type: LightweightDrunk
+    boozeStrengthMultiplier: 2
+
+- type: trait
+  id: ExtraLightweightDrunk
+  name: trait-extra-lightweight-name
+  description: trait-extra-lightweight-desc
+  category: AlcoholTolerance
+  cost: 1
+  components:
+  - type: LightweightDrunk
+    boozeStrengthMultiplier: 6 # Good luck, alcoholics!
+
+- type: trait
+  id: HeavyweightDrunk
+  name: trait-heavyweight-name
+  description: trait-heavyweight-desc
+  category: AlcoholTolerance
+  cost: 1
+  components:
+  - type: LightweightDrunk
+    boozeStrengthMultiplier: 0.5

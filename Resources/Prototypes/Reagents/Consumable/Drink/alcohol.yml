@@ -172,7 +172,7 @@
         damage:
           types:
             Poison: 1
-      # dwarves take less toxin damage and heal a marginal amount of brute
+      # dwarves take less toxin damage and heal a marginal amount of brute - Funky - they heal earlier and heal heat lightly, but brute less.
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -185,12 +185,14 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 15
+          min: 5 # Funky
         - !type:OrganType
           type: Dwarf
         damage:
-          groups:
-            Brute: -1
+          groups: # Funky
+            Brute: -0.75
+          types: 
+            Heat: -0.25
       - !type:ChemVomit
         probability: 0.04
         conditions:

@@ -157,6 +157,9 @@ namespace Content.Client.Stylesheets
         //Bwoink
         public const string StyleClassPinButtonPinned = "pinButtonPinned";
         public const string StyleClassPinButtonUnpinned = "pinButtonUnpinned";
+        
+        public static string StyleClassTraitBackground = "TraitBackground";
+        public static string StyleClassTraitCost = "TraitCost";
 
 
         public override Stylesheet Stylesheet { get; }
@@ -1718,7 +1721,22 @@ namespace Content.Client.Stylesheets
                     new[]
                     {
                         new StyleProperty(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/Interface/Bwoink/un_pinned.png"))
-                    })
+                    }),
+                    
+                // Trait selector styling
+                Element<PanelContainer>().Class(StyleClassTraitBackground)
+                    .Prop(PanelContainer.StylePropertyPanel, new StyleBoxFlat
+                    {
+                        BackgroundColor = Color.FromHex("#25252A"),
+                        BorderColor = Color.FromHex("#404040"),
+                        BorderThickness = new Thickness(1),
+                        ContentMarginLeftOverride = 4,
+                        ContentMarginRightOverride = 4
+                    }),
+
+                Element<Label>().Class(StyleClassTraitCost)
+                    .Prop(Label.StylePropertyFont, notoSansBold12)
+                    .Prop(Label.StylePropertyFontColor, new Color(200, 200, 200)),
             }).ToList());
         }
     }

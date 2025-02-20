@@ -26,6 +26,13 @@
   - Whiskey
   - X-Ray
   - Zulu
+  - Rin
+  - Len
+  - Luka
+  - Kikuo
+  - Gumi
+  - Kaito
+  - Meiko 
 
 - type: dataset
   id: SyndicateNamesElite
@@ -53,6 +60,9 @@
   - Chi
   - Psi
   - Omega
+  - Miku
+  - Teto
+  - Neru
 
 - type: dataset
   id: SyndicateNamesPrefix

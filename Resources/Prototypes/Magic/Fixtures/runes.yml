@@ -55,6 +55,7 @@
   id: OfferingRune
   name: "offering rune"
   components:
+    - type: OfferOnTrigger
     - type: Sprite
       #sprite: Structures/Magic/Cult/trap.rsi
       layers:

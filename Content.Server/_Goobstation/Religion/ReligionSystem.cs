@@ -1,4 +1,4 @@
-﻿//Public Domain Code
+﻿//Public Domain Code - Basically neutered, bibles are in loadouts - Funky
 using Content.Server.Bible.Components;
 using Content.Server.GameTicking;
 using Content.Shared._Goobstation.Religion;
@@ -18,21 +18,21 @@ public sealed class ReligionSystem: EntitySystem
     }
 
     private void OnSpawnComplete(PlayerSpawnCompleteEvent args)
-    {
-
-        if (HasComp<BibleUserComponent>(args.Mob)) //Theoretically this can be used to let everyone spawn with the bible of their chosen faith
-        {
-            if (EntityManager.TryGetComponent(args.Mob, out ReligionComponent? mobReligion))
-            {
-                var bible = mobReligion.Type switch
-                {
-                    Shared._Goobstation.Religion.Religion.Atheist => "BibleAtheist",
-                    Shared._Goobstation.Religion.Religion.Buddhist => "BibleBuddhist",
-                    Shared._Goobstation.Religion.Religion.Christian => "Bible",
-                    Shared._Goobstation.Religion.Religion.None => "Bible",
-                };
-                _inventorySystem.SpawnItemInSlot(args.Mob, "pocket1", bible, true, true);
-            }
-        }
-    }
+    //{
+    //
+    //    if (HasComp<BibleUserComponent>(args.Mob)) //Theoretically this can be used to let everyone spawn with the bible of their chosen faith
+    //    {
+    //        if (EntityManager.TryGetComponent(args.Mob, out ReligionComponent? mobReligion))
+    //        {
+   //             var bible = mobReligion.Type switch
+   //             {
+   //                 Shared._Goobstation.Religion.Religion.Atheist => "BibleAtheist",
+   //                 Shared._Goobstation.Religion.Religion.Buddhist => "BibleBuddhist",
+   //                 Shared._Goobstation.Religion.Religion.Christian => "Bible",
+   //                 Shared._Goobstation.Religion.Religion.None => "Bible",
+   //             };
+   //             _inventorySystem.SpawnItemInSlot(args.Mob, "pocket1", bible, true, true);
+   //         }
+   //     }
+  //  }
 }

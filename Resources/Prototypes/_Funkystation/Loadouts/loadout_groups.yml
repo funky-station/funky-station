@@ -29,6 +29,6 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - ChaplainPocketBible
-  - ChaplainPocketBibleAthiest
-  - ChaplainPocketBibleBuddhist
+  - ChaplainBibleChristian
+  - ChaplainBibleAthiest
+  - ChaplainBibleBuddhist

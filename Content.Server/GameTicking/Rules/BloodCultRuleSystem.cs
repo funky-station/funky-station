@@ -6,20 +6,25 @@ using Content.Server.Antag;
 using Content.Server.Mind;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.NPC.Prototypes;
+using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.BloodCult;
+using Content.Server.BloodCult.Components;
 using Content.Shared.Mobs.Components;
 using Content.Server.Administration.Systems;
 using Content.Server.Popups;
 using Content.Shared.Popups;
 using Content.Shared.Magic.Events;
 using Content.Shared.Body.Systems;
+using Robust.Shared.Random;
 
+using Content.Server.Ghost;
 using Content.Server.Ghost.Roles;
 using Content.Shared.Ghost.Roles.Raffles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Ghost.Roles.Raffles;
+using Content.Server.Revolutionary.Components;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -32,9 +37,11 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly AntagSelectionSystem _antag = default!;
 	[Dependency] private readonly MindSystem _mind = default!;
 	[Dependency] private readonly RoleSystem _role = default!;
+	[Dependency] private readonly GhostSystem _ghost = default!;
 	[Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
 	[Dependency] private readonly GhostRoleSystem _ghostRole = default!;
 	[Dependency] private readonly PopupSystem _popupSystem = default!;
+	[Dependency] private readonly IRobustRandom _random = default!;
 	[Dependency] private readonly SharedBodySystem _body = default!;
 	[Dependency] private readonly IEntityManager _entManager = default!;
 
@@ -68,8 +75,50 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	protected override void Started(EntityUid uid, BloodCultRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
-        //component.CommandCheck = _timing.CurTime + component.TimerWait;
+		SelectTarget(component);
     }
+
+	private void SelectTarget(BloodCultRuleComponent component, bool wipe = true)
+	{
+		// TODO: Add logic to stop cultists from being selected. Probably do some amount of random re-selections
+		//		and retries, then just declare Nar'Sie ready to summon if after a lot of tries you can'target
+		//		find anyone to pick who isn't a cultist.
+
+		// TODO: Should also add a command line command to force a re-selection of the target, so that admins can
+		//		intervene if a target is like way out in the middle of nowhere or something.
+
+		// target already assigned
+        if (!wipe && component.Target != null)
+            return;
+
+        // no other humans to kill
+        var allHumans = _mind.GetAliveHumans();//(args.MindId);
+        if (allHumans.Count == 0)
+        {
+            return;
+        }
+
+        var allPotentialTargets = new HashSet<Entity<MindComponent>>();
+        foreach (var person in allHumans)
+        {
+            if (TryComp<MindComponent>(person, out var mind) && mind.OwnedEntity is { } ent && (HasComp<CommandStaffComponent>(ent) || HasComp<SecurityStaffComponent>(ent)))
+                allPotentialTargets.Add(person);
+        }
+
+        if (allPotentialTargets.Count == 0)
+            allPotentialTargets = allHumans; // fallback to non-head and non-sec target
+
+		// TODO: Check for TimeOfDeath being null (makes sure they're not dead)
+		// Can also check to see if Session is null, which means they logged out
+		Console.WriteLine("Possible targets:");
+		foreach (var target in allPotentialTargets)
+		{
+			Console.WriteLine(target.Comp.CharacterName);
+		}
+		component.Target = _random.Pick(allPotentialTargets);
+		Console.WriteLine("TARGET IS");
+		Console.WriteLine(component.Target);
+	}
 
 	private void AfterEntitySelected(Entity<BloodCultRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
@@ -136,20 +185,22 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			if (cultist.Sacrifice != null)
 			{
 				SacrificingData sacrifice = (SacrificingData)cultist.Sacrifice;
+				TryComp<MindContainerComponent>(sacrifice.Target, out var sacrificeMind);
 
-				if (sacrifice.Invokers.Length >= component.CultistsToSacrifice)
+				Console.WriteLine("Target is");
+				Console.WriteLine(component.Target);
+				Console.WriteLine("Sacrificed is");
+				Console.WriteLine(sacrifice.Target);
+
+				if ((sacrificeMind?.Mind != null) && (component.Target != null) && (sacrificeMind.Mind == component.Target))
 				{
-					foreach (EntityUid invoker in sacrifice.Invokers)
-						Speak(invoker, Loc.GetString("cult-invocation-offering"));
-					_SacrificeVictim(sacrifice.Target, cultistUid);
-					component.ReviveCharges = component.ReviveCharges + component.ChargesForSacrifice;
+					// A target is being sacrificed!
+					_SacrificeTarget(sacrifice, component, cultistUid);
 				}
 				else
 				{
-					_popupSystem.PopupEntity(
-							Loc.GetString("cult-invocation-fail"),
-							cultistUid, cultistUid, PopupType.MediumCaution
-						);
+					// A non-target is being sacrificed!
+					_SacrificeNonTarget(sacrifice, component, cultistUid);
 				}
 
 				cultist.Sacrifice = null;
@@ -160,19 +211,17 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			{
 				Console.WriteLine("ACTIVE CONVERT HAPPENING");
 				ConvertingData convert = (ConvertingData)cultist.Convert;
-
-				if (convert.Invokers.Length >= component.CultistsToConvert)
+				TryComp<MindContainerComponent>(convert.Target, out var convertMind);
+				if ((convertMind?.Mind != null) && (component.Target != null) && (convertMind.Mind == component.Target))
 				{
-					foreach (EntityUid invoker in convert.Invokers)
-						Speak(invoker, Loc.GetString("cult-invocation-offering"));
-					_ConvertVictim(convert.Target, component);
+					// Override convert and begin sacrificing -- this is a target!
+					SacrificingData sacrifice = new SacrificingData(convert.Target, convert.Invokers);
+					_SacrificeTarget(sacrifice, component, cultistUid);
 				}
 				else
 				{
-					_popupSystem.PopupEntity(
-							Loc.GetString("cult-invocation-fail"),
-							cultistUid, cultistUid, PopupType.MediumCaution
-						);
+					// A non-target is being converted.
+					_ConvertNonTarget(convert, component, cultistUid);
 				}
 				cultist.Convert = null;
 			}
@@ -355,17 +404,81 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		comp.Sacrifice = new  SacrificingData(args.Target, args.Invokers);
 	}
 
+	private void _SacrificeTarget(SacrificingData sacrifice, BloodCultRuleComponent component, EntityUid cultistUid)
+	{
+		if (component.Target == null)
+			return;
+		if (sacrifice.Invokers.Length < component.CultistsToSacrificeTarget)
+		{
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-invocation-target-fail"),
+				cultistUid, cultistUid, PopupType.MediumCaution
+			);
+		}
+		else
+		{
+			foreach (EntityUid invoker in sacrifice.Invokers)
+				Speak(invoker, Loc.GetString("cult-invocation-offering"));
+			_SacrificeVictim(sacrifice.Target, cultistUid);
+			component.ReviveCharges = component.ReviveCharges + component.ChargesForSacrifice;
+			component.TargetsDown.Add((EntityUid)component.Target);
+			SelectTarget(component, true);
+		}
+	}
+
+	private void _SacrificeNonTarget(SacrificingData sacrifice, BloodCultRuleComponent component, EntityUid cultistUid)
+	{
+		if (sacrifice.Invokers.Length < component.CultistsToSacrifice)
+		{
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-invocation-fail"),
+				cultistUid, cultistUid, PopupType.MediumCaution
+			);
+		}
+		else
+		{
+			foreach (EntityUid invoker in sacrifice.Invokers)
+				Speak(invoker, Loc.GetString("cult-invocation-offering"));
+			_SacrificeVictim(sacrifice.Target, cultistUid);
+			component.ReviveCharges = component.ReviveCharges + component.ChargesForSacrifice;
+		}
+	}
+
 	private void _SacrificeVictim(EntityUid uid, EntityUid? casterUid)
 	{
 		// Remember to use coordinates to play audio if the entity is about to vanish.
-		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), Transform(uid).Coordinates);
-		_body.GibBody(uid, true);
-		// TODO: Spawn Soulstone Shard with their consciousness
+		EntityUid? mindId = CompOrNull<MindContainerComponent>(uid)?.Mind;
+		MindComponent? mindComp = CompOrNull<MindComponent>(mindId);
+		if (mindId != null)
+		{
+			_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), Transform(uid).Coordinates);
+			_body.GibBody(uid, true);
+			_ghost.OnGhostAttempt((EntityUid)mindId, false, false, mindComp);
+			// TODO: Spawn Soulstone Shard with their consciousness, making
+			// that their new brain
+		}
 	}
 
 	public void TryConvertVictim(EntityUid uid, BloodCultistComponent comp, ref ConvertRuneEvent args)
 	{
 		comp.Convert = new ConvertingData(args.Target, args.Invokers);
+	}
+
+	private void _ConvertNonTarget(ConvertingData convert, BloodCultRuleComponent component, EntityUid cultistUid)
+	{
+		if (convert.Invokers.Length >= component.CultistsToConvert)
+		{
+			foreach (EntityUid invoker in convert.Invokers)
+				Speak(invoker, Loc.GetString("cult-invocation-offering"));
+			_ConvertVictim(convert.Target, component);
+		}
+		else
+		{
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-invocation-fail"),
+				cultistUid, cultistUid, PopupType.MediumCaution
+			);
+		}
 	}
 
 	private void _ConvertVictim(EntityUid uid, BloodCultRuleComponent component)

@@ -14,6 +14,21 @@ public sealed partial class BloodCultRuleComponent : Component
 	[DataField] public int ReviveCharges = 3;
 
 	/// <summary>
+	/// Targets sacrificed successfully.
+	/// </summary>
+	[DataField] public List<EntityUid> TargetsDown = new List<EntityUid>();
+
+	/// <summary>
+	/// Current target.
+	/// </summary>
+	[DataField] public EntityUid? Target = null;
+
+	/// <summary>
+	/// Number of targets required to satisfy the sacrifice condition.
+	/// </summary>
+	[DataField] public int TargetsRequired = 2;
+
+	/// <summary>
 	/// Number of charges required to use a Revive Rune.
 	/// </summary>
 	[DataField] public int CostToRevive = 3;
@@ -27,6 +42,11 @@ public sealed partial class BloodCultRuleComponent : Component
 	/// Number of cultists required to sacrifice a dead player.
 	/// </summary>
 	[DataField] public int CultistsToSacrifice = 1;
+
+	/// <summary>
+	/// Number of cultists required to sacrifice a target player.
+	/// </summary>
+	[DataField] public int CultistsToSacrificeTarget = 3;
 
 	/// <summary>
 	/// Number of players required to convert a player.

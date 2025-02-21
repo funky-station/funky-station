@@ -78,12 +78,12 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		SelectTarget(component);
     }
 
+	/// <summary>
+    /// Selects a new target for the Cultists. Prioritizes Security and Command.
+	/// Cannot select somebody who is already a cultist.
+    /// </summary>
 	private void SelectTarget(BloodCultRuleComponent component, bool wipe = true)
 	{
-		// TODO: Add logic to stop cultists from being selected. Probably do some amount of random re-selections
-		//		and retries, then just declare Nar'Sie ready to summon if after a lot of tries you can'target
-		//		find anyone to pick who isn't a cultist.
-
 		// TODO: Should also add a command line command to force a re-selection of the target, so that admins can
 		//		intervene if a target is like way out in the middle of nowhere or something.
 
@@ -92,19 +92,34 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
             return;
 
         // no other humans to kill
-        var allHumans = _mind.GetAliveHumans();//(args.MindId);
-        if (allHumans.Count == 0)
+        var allHumans = new HashSet<Entity<MindComponent>>();
+		foreach (var person in _mind.GetAliveHumans())//;//(args.MindId);
+		{
+			if (TryComp<MindComponent>(person, out var mind) &&
+				!_role.MindHasRole<BloodCultRoleComponent>(person, out var _))
+				allHumans.Add(person);
+		}
+
+		if (allHumans.Count == 0)
         {
+			// If there are no remaining possible targets, allow
+			//	the cultists to summon Nar'Sie right away.
+			component.Target = null;
+			component.VeilWeakened = true;
             return;
         }
 
+		// try to pick sec/command
         var allPotentialTargets = new HashSet<Entity<MindComponent>>();
         foreach (var person in allHumans)
         {
-            if (TryComp<MindComponent>(person, out var mind) && mind.OwnedEntity is { } ent && (HasComp<CommandStaffComponent>(ent) || HasComp<SecurityStaffComponent>(ent)))
+            if (TryComp<MindComponent>(person, out var mind) &&
+				mind.OwnedEntity is { } ent &&
+				(HasComp<CommandStaffComponent>(ent) || HasComp<SecurityStaffComponent>(ent)))
                 allPotentialTargets.Add(person);
         }
 
+		// if there are no sec/command, just pick from the general crew pool
         if (allPotentialTargets.Count == 0)
             allPotentialTargets = allHumans; // fallback to non-head and non-sec target
 
@@ -131,8 +146,17 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
     /// <returns>true if cultist was successfully added.</returns>
     private bool MakeCultist(EntityUid traitor, BloodCultRuleComponent component)
     {
-        return _TryAssignCultMind(traitor);
-    }
+        if (_TryAssignCultMind(traitor))
+		{
+			if (_mind.TryGetMind(traitor, out var mindId, out var _))
+			{
+				if (component.Target == mindId)
+					SelectTarget(component, true);
+			}
+			return true;
+		}
+		return false;
+	}
 
 	private bool _TryAssignCultMind(EntityUid traitor)
 	{

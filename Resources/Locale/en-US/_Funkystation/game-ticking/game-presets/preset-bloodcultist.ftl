@@ -25,6 +25,7 @@ cult-invocation-fail-nosoul = Nar'Sie rejects this soulless husk!
 cult-invocation-fail-teamkill = Nar'Sie rejects your offering of another Cultist!
 cult-invocation-fail-mindshielded = Your victim resists Nar'Sie's influence!
 cult-invocation-fail = More cultists must be present!
+cult-invocation-target-fail = More cultists must be present to sacrifice one Nar'Sie desires!
 
 cult-invocation-barrier = Khari'd! Eske'te tannin!
 cult-invocation-revive = Pasnar val'keriam usinar. Savrae ines amutan. Yam'toth remium il'tarat!

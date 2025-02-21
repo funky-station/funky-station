@@ -1,19 +1,12 @@
+# Funky station - Copied Mono's Disability > Quirks, made changes.
 - type: trait
   id: Pacifist
   name: trait-pacifist-name
   description: trait-pacifist-desc
   category: Quirks
+  cost: -8
   components:
   - type: Pacified
-
-- type: trait
-  id: LightweightDrunk
-  name: trait-lightweight-name
-  description: trait-lightweight-desc
-  category: Quirks
-  components:
-  - type: LightweightDrunk
-    boozeStrengthMultiplier: 2
 
 - type: trait
   id: Snoring
@@ -22,3 +15,76 @@
   category: Quirks
   components:
   - type: Snoring
+
+- type: trait
+  id: Blindness
+  name: trait-blindness-name
+  description: trait-blindness-desc
+  traitGear: WhiteCane
+  category: Quirks
+  cost: -16
+  whitelist:
+    components:
+      - Blindable
+  components:
+    - type: PermanentBlindness
+
+- type: trait
+  id: PoorVision
+  name: trait-poor-vision-name
+  description: trait-poor-vision-desc
+  traitGear: ClothingEyesGlasses
+  category: Quirks
+  cost: -4
+  whitelist:
+    components:
+      - Blindable
+  components:
+    - type: PermanentBlindness
+      blindness: 4
+
+- type: trait
+  id: Narcolepsy
+  name: trait-narcolepsy-name
+  description: trait-narcolepsy-desc
+  category: Quirks
+  cost: -6
+  components:
+    - type: Narcolepsy
+      timeBetweenIncidents: 300, 600
+      durationOfIncident: 10, 30
+
+- type: trait
+  id: Unrevivable
+  name: trait-unrevivable-name
+  description: trait-unrevivable-desc
+  category: Quirks
+  cost: -2 # it's basically the DNR trait
+  components:
+    - type: Unrevivable
+
+- type: trait
+  id: Muted
+  name: trait-muted-name
+  description: trait-muted-desc
+  category: Quirks
+  cost: -6 # Funky - Not a terrible debuff, also having it high's pretty abusable.
+  blacklist:
+    components:
+      - BorgChassis
+  components:
+    - type: Muted
+
+- type: trait
+  id: Paracusia
+  name: trait-paracusia-name
+  description: trait-paracusia-desc
+  category: Quirks
+  cost: -1 # Laughably minor trait.
+  components:
+    - type: Paracusia
+      minTimeBetweenIncidents: 0.1
+      maxTimeBetweenIncidents: 300
+      maxSoundDistance: 7
+      sounds:
+        collection: Paracusia

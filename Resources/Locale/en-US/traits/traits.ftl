@@ -71,3 +71,5 @@ trait-spanish-desc = Hola señor, donde esta la biblioteca.
 
 trait-russian-name = Russian accent
 trait-russian-desc = Niko, it's Roman! Let's go bowling!
+
+trait-species-restricted = Your species cannot take this trait.

@@ -18,8 +18,34 @@
 
 - type: entity
   parent: OrganAnimalHeart
+  id: OrganDragonAnimalHeart
+  name: Dragon heart
+  description: Beats with a powerful rhythm in your hand, even looking at this gives you a sense of power.
+  components:
+  
+  - type: Organ
+    onAdd:
+    - type: PressureImmunity
+    - type: InputMover
+      toParent: true
+    - type: Jetpack
+      moleUsage: 0.0
+    - type: MovementBodyPart
+      weightlessAcceleration: 1.5
+      weightlessFriction: 1
+      weightlessModifier: 2.5
+    - type: Sprite
+      sprite: Objects/Tanks/Jetpacks/blue.rsi
+      state: icon #still minor visual bug when hardsuit is first equipped after surgery, it is solved by equipping anything to the back slot and does not occur more than once, need to insert something like on-equipped-BACKPACK.png to solve
+
+  
+
+
+- type: entity
+  parent: OrganAnimalHeart
   id: OrganGoliathHeart
   name: goliath heart
+  description: On closer inspection, the heart appears to be made of about a dozen tenticles.
   components:
   - type: Organ
     onAdd:
@@ -31,10 +57,12 @@
 - type: entity
   parent: OrganAnimalLungs
   id: OrganDragonLungs
-  name: dragon lungs
+  name: Dragon lungs
+  description: Unnatrually warm to the touch, even from a distance you can still hear a fire raging inside.
   components:
   - type: Organ
     onAdd:
+    - type: BreathingImmunity
     - type: ActionGun
       action: ActionDragonsBreath
       gunProto: DragonsBreathGun
@@ -43,6 +71,7 @@
   parent: OrganHumanEyes
   id: OrganLaserEyes
   name: laser raptor eyes
+  description: Did these evolve naturally?
   components:
   - type: Organ
     onAdd:
@@ -67,6 +96,7 @@
   parent: OrganAnimalHeart
   id: OrganCobraHeart
   name: cobra gland
+  description: Even with your fist clenched around it, you find it difficult to focus on.
   components:
   - type: Organ
     onAdd:

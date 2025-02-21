@@ -1,16 +1,58 @@
+# conversion - Add alternate flash types later, maybe rev law board?
+
 - type: listing
-  id: RevolutionaryUplinkFlash
-  name: flash
-  description: Multipurpose tool. Scare security, convert ordinary co-workers, and cause chaos.
-  productEntity: Flash
+  id: RevolutionaryUplinkFlash2Charge
+  name: flash - 2 charges
+  description: Multipurpose tool. Scare security, convert ordinary co-workers, and cause chaos. This one has 2 Charges.
+  productEntity: SciFlash
   cost:
-    RevCoin: 10 # Temporary price
+    RevCoin: 25
   categories:
-  - RevolutionaryUplinkDefault
+  - RevolutionaryUplinkConversion
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
   saleLimit: 1
+
+- type: listing
+  id: RevolutionaryUplinkFlash5Charge
+  name: flash - 5 charges
+  description: Multipurpose tool. Scare security, convert ordinary co-workers, and cause chaos. This one has 5 Charges.
+  productEntity: Flash
+  cost:
+    RevCoin: 50
+  categories:
+  - RevolutionaryUplinkConversion
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  saleLimit: 1
+
+- type: listing
+  id: RevolutionaryUplinkFlashRecharge
+  name: recharging flash
+  description: Multipurpose tool. Scare security, convert ordinary co-workers, and cause chaos. This one has 3 Charges, but regenerates a charge every four minutes.
+  productEntity: RechargeFlash
+  cost:
+    RevCoin: 65
+  categories:
+  - RevolutionaryUplinkConversion
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  saleLimit: 1
+
+- type: listing
+  id: RevolutionaryUplinkFlashbang
+  name: revolutionary flashbang
+  description: Converts all that can be flashed in a 7 tile radius, and 2 for those with eye protection but no ear protection!
+  productEntity: GrenadeFlashBangRevolutionary
+  cost:
+    RevCoin: 35
+  categories:
+  - RevolutionaryUplinkConversion
+
+# utility - stuff to aid the revolution directly.
 
 - type: listing
   id: RevolutionaryUplinkSunglasses
@@ -18,27 +60,29 @@
   description: Make yourself look suspicious, in style.
   productEntity: ClothingEyesGlassesSunglasses
   cost:
-    RevCoin: 10 # Temporary price
+    RevCoin: 10
   categories:
-  - RevolutionaryUplinkDefault
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  saleLimit: 1
+  - RevolutionaryUplinkUtility
+
+- type: listing
+  id: RevolutionaryUplinkExperimentalShades
+  name: sunglasses
+  description: Make yourself look suspicious, in functionality. Has MedHud and SecHud built in. #and Night vision later, add NV and make price 25 when NV added. 
+  productEntity: ClothingEyesGlassesExp
+  cost:
+    RevCoin: 20 
+  categories:
+  - RevolutionaryUplinkUtility
 
 - type: listing
   id: RevolutionaryUplinkSyndieKey
   name: syndicate encryption key
-  description: An encryption key used for communicating with possible agents of the revolution.
+  description: An encryption key used for communicating with fellow coordinators for the revolution, leaders or not.
   productEntity: EncryptionKeySyndie
   cost:
-    RevCoin: 10 # Temporary price
+    RevCoin: 10
   categories:
-  - RevolutionaryUplinkDefault
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  saleLimit: 1
+  - RevolutionaryUplinkUtility
 
 - type: listing
   id: RevolutionaryUplinkFastDrawImplanter
@@ -46,10 +90,50 @@
   description: A syringe with tools for quick implant removal. It has small gold stars on its body.
   productEntity: RevsFastDrawImplanter
   cost:
-    RevCoin: 10 # Temporary price
+    RevCoin: 10 
   categories:
-  - RevolutionaryUplinkDefault
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  saleLimit: 1
+  - RevolutionaryUplinkUtility
+
+# combat - self-explanatory, generally placeholder section. Rev Banner weapon's a must later...
+
+- type: listing
+  id: RevolutionaryUplinkMosinAmmo
+  name: .30 rifle magazine
+  description: Need extra-weak for your weak rifle? Here it is!
+  productEntity: MagazineLightRifle
+  cost:
+    RevCoin: 10
+  categories:
+  - RevolutionaryUplinkCombat
+
+- type: listing
+  id: RevolutionaryUplinkMosin
+  name: kardashev-mosin
+  description: Arm your most trusted with a jamming, slow, and weak rifle.
+  productEntity: WeaponSniperMosin
+  cost:
+    RevCoin: 15
+  categories:
+  - RevolutionaryUplinkCombat
+
+- type: listing
+  id: RevolutionaryUplinkIncendiaryGrenade
+  name: incendiary grenade
+  description: Can't make a molotov? Here's a brutal replacement.
+  productEntity: GrenadeIncendiary
+  cost:
+    RevCoin: 30 # sec killer 3000 pricing
+  categories:
+  - RevolutionaryUplinkCombat
+
+  # misc - random crap they may indirectly help.
+
+  - type: listing
+  id: RevolutionaryUplinkJawsOfLife
+  name: jaws of life
+  description: Hate buying flashes? Hate Science? Meet Big Girl. She handles your flash-nabbing break ins.
+  productEntity: JawsOfLife
+  cost:
+    RevCoin: 40
+  categories:
+  - RevolutionaryUplinkMisc

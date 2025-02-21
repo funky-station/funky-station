@@ -110,7 +110,9 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        # nameSegments: [ names_death_commando ] # goob edit # funkystation - undo this
+        nameSegments:
+        - nukeops-role-commander
+        - SyndicateNamesElite
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -125,7 +127,9 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        # nameSegments: [ names_death_commando ] # goob edit # funkystation - undo this
+        nameSegments:
+        - nukeops-role-agent
+        - SyndicateNamesNormal
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -142,7 +146,9 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        # nameSegments: [ names_death_commando ] # goob edit # funkystation - undo this
+        nameSegments:
+        - nukeops-role-operator
+        - SyndicateNamesNormal
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -160,7 +166,7 @@
   - type: AntagRandomObjectives
     sets:
     - groups: TraitorObjectiveGroups
-    maxDifficulty: 5
+    maxDifficulty: 6 # Funky - parity w/ dynamic, return to pre bug fix obj amount
   - type: AntagSelection
     agentName: traitor-round-end-agent-name
 

@@ -19,6 +19,11 @@ public sealed partial class BloodCultRuleComponent : Component
 	[DataField] public List<EntityUid> TargetsDown = new List<EntityUid>();
 
 	/// <summary>
+	/// Nar'Sie ready to summon.
+	/// </summary>
+	[DataField] public bool VeilWeakened = false;
+
+	/// <summary>
 	/// Current target.
 	/// </summary>
 	[DataField] public EntityUid? Target = null;

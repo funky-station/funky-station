@@ -9,6 +9,7 @@ using Content.Server.Maps;
 using Robust.Server.GameObjects;
 using Robust.Shared;
 using Robust.Shared.Analyzers;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -58,13 +59,14 @@ public class MapLoadBenchmark
     [Benchmark]
     public async Task LoadMap()
     {
-        var mapPath = Paths[Map];
+        var mapPath = new ResPath(Paths[Map]);
         var server = _pair.Server;
         await server.WaitPost(() =>
         {
-            var success = _mapLoader.TryLoad(new MapId(10), mapPath, out _);
+            var success = _mapLoader.TryLoadMap(mapPath, out var map, out _);
             if (!success)
                 throw new Exception("Map load failed");
+            _mapId = map.Value.Comp.MapId;
         });
     }
 

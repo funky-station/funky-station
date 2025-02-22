@@ -52,10 +52,17 @@ public sealed partial class StoreComponent : Component
     public HashSet<ListingData> Listings = new();
 
     /// <summary>
+    /// Cached list of listings items with modifiers.
+    /// </summary>
+    [DataField]
+    public HashSet<ListingDataWithCostModifiers> FullListingsCatalog = new();
+
+
+    /// <summary>
     /// All available listings from the last time that it was checked.
     /// </summary>
     [ViewVariables]
-    public HashSet<ListingData> LastAvailableListings = new();
+    public HashSet<ListingDataWithCostModifiers> LastAvailableListings = new();
 
     /// <summary>
     ///     All current entities bought from this shop. Useful for keeping track of refunds and upgrades.

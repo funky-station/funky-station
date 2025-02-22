@@ -1663,3 +1663,9 @@ Entries:
       message: Added more wintercoats to winterdrobe
   id: 208
   time: '2025-02-22T01:05:50.0000000+00:00'
+- author: laaudish
+  changes:
+    - type: Tweak
+      message: Replaced several clothing textures with TG & Goobstation resprites
+  id: 209
+  time: '2025-02-22T03:12:32.0000000+00:00'

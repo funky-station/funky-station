@@ -1635,3 +1635,37 @@ Entries:
       message: You can now melee wide swing with a wielded mosin.
   id: 204
   time: '2025-02-18T00:23:10.0000000+00:00'
+- author: Mrpigfish
+  changes:
+    - type: Add
+      message: Oasis has a perma again!
+  id: 205
+  time: '2025-02-20T01:27:27.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Revolutionaries can no longer see each others rev status.
+    - type: Tweak
+      message: Revolutionaries can only see HRevs.
+  id: 206
+  time: '2025-02-20T03:01:05.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Tweak
+      message: >-
+        corgium will no longer turn you into a corgi forever. now you have to
+        make evil corgium
+  id: 207
+  time: '2025-02-20T19:46:47.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Add
+      message: Added more wintercoats to winterdrobe
+  id: 208
+  time: '2025-02-22T01:05:50.0000000+00:00'
+- author: laaudish
+  changes:
+    - type: Tweak
+      message: Replaced several clothing textures with TG & Goobstation resprites
+  id: 209
+  time: '2025-02-22T03:12:32.0000000+00:00'

@@ -3,15 +3,21 @@ using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Content.Shared.BloodCult.Prototypes;
 
 namespace Content.Shared.BloodCult;
 
 /// <summary>
 /// A Blood Cultist.
 /// </summary>
-[RegisterComponent, NetworkedComponent]//, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BloodCultistComponent : Component
 {
+	/// <summary>
+	///		Currently active spells.
+	/// </summary>
+	[DataField, AutoNetworkedField] public List<ProtoId<CultAbilityPrototype>> KnownSpells = new();
+
 	/// <summary>
     ///     Stores captured blood.
     /// </summary>

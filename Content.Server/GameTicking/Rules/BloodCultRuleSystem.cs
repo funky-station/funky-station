@@ -18,6 +18,9 @@ using Content.Shared.Popups;
 using Content.Shared.Magic.Events;
 using Content.Shared.Body.Systems;
 using Robust.Shared.Random;
+using Content.Server.BloodCult.EntitySystems;
+using Content.Shared.BloodCult.Prototypes;
+using Content.Shared.BloodCult.Prototypes;
 
 using Content.Server.Ghost;
 using Content.Server.Ghost.Roles;
@@ -40,6 +43,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly GhostSystem _ghost = default!;
 	[Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
 	[Dependency] private readonly GhostRoleSystem _ghostRole = default!;
+	[Dependency] private readonly CultistSpellSystem _cultistSpell = default!;
 	[Dependency] private readonly PopupSystem _popupSystem = default!;
 	[Dependency] private readonly IRobustRandom _random = default!;
 	[Dependency] private readonly SharedBodySystem _body = default!;
@@ -148,10 +152,18 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
     {
         if (_TryAssignCultMind(traitor))
 		{
+			// re-select target if needed
 			if (_mind.TryGetMind(traitor, out var mindId, out var _))
 			{
 				if (component.Target == mindId)
 					SelectTarget(component, true);
+			}
+
+			if (TryComp<BloodCultistComponent>(traitor, out var cultist))
+			{
+				// add cultist dagger spell
+				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "SummonDagger");//rit.OutputKnowledge);
+				
 			}
 			return true;
 		}
@@ -210,11 +222,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			{
 				SacrificingData sacrifice = (SacrificingData)cultist.Sacrifice;
 				TryComp<MindContainerComponent>(sacrifice.Target, out var sacrificeMind);
-
-				Console.WriteLine("Target is");
-				Console.WriteLine(component.Target);
-				Console.WriteLine("Sacrificed is");
-				Console.WriteLine(sacrifice.Target);
 
 				if ((sacrificeMind?.Mind != null) && (component.Target != null) && (sacrificeMind.Mind == component.Target))
 				{

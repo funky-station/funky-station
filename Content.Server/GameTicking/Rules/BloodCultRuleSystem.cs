@@ -162,8 +162,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			if (TryComp<BloodCultistComponent>(traitor, out var cultist))
 			{
 				// add cultist dagger spell
-				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "SummonDagger");//rit.OutputKnowledge);
-				
+				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "SummonDagger");
+				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "CultStun");
 			}
 			return true;
 		}

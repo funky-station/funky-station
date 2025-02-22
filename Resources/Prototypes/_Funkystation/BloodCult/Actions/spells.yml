@@ -1,0 +1,22 @@
+# actions
+- type: entity
+  id: ActionCulstistSummonDagger
+  name: Summon Dagger
+  description: Summon your ritual dagger.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Funkystation/BloodCult/spells_cultist.rsi
+      state: summon_dagger
+    event: !type:EventCultistSummonDagger {}
+  - type: CultistSpell
+    abilityId: SummonDagger
+    charges: 1
+    infinite: False
+    healthCost: 0
+    rechargeTime: 0
+    invocation: Fuu ma'jin!
+    castSound: !type:SoundPathSpecifier
+        path: /Audio/Magic/blink.ogg

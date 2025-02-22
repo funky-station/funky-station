@@ -2,7 +2,7 @@
   parent: BaseHealingItem
   id: BaseMedicalPatch
   name: base patch
-  description: put this on your boo boo
+  description: A patch for applying medicine over time to patients.
   abstract: true
   components:
   - type: Sprite
@@ -111,7 +111,7 @@
   parent: MedicalPatchBasic
   id: MedicalPatchTherapeutic
   name: therapeutic patch
-  description:  used to apply small doses over a long time
+  description: A patch that applies a dose over a longer period of time than other patches.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -216,7 +216,7 @@
     entity: MedicalPatchMakeshift
 
 - type: construction
-  name: Makeshift Patch
+  name: makeshift patch
   id: MedicalPatchMakeshift
   graph: MedicalPatchMakeshift
   startNode: start
@@ -243,14 +243,14 @@
     entity: MedicalPatchMakeshift
 
 - type: construction
-  name: Silk Makeshift Patch
+  name: silk makeshift patch
   id: SilkPatchMakeshift
   graph: SilkPatchMakeshift
   startNode: start
   targetNode: silkPatchMakeshift
   category: construction-category-tools
   objectType: Item
-  description: a little better then nothing
+  description: A little better then nothing. Apply a chemical to it and wear it for treatment over time.
   icon:
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
     state: MakeshiftPatch

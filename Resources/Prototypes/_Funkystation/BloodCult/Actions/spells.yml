@@ -1,6 +1,6 @@
 # actions
 - type: entity
-  id: ActionCulstistSummonDagger
+  id: ActionCultistSummonDagger
   name: Summon Dagger
   description: Summon your ritual dagger.
   categories: [ HideSpawnMenu ]
@@ -16,6 +16,42 @@
     charges: 1
     infinite: False
     healthCost: 0
+    rechargeTime: 0
+    #invocation: Fuu ma'jin!
+    #castSound: !type:SoundPathSpecifier
+        #path: /Audio/Magic/blink.ogg
+
+- type: entity
+  id: ActionCultistStun
+  name: Stun
+  description: A potent spell that will knock down, silence, and mark a target. Stabbing marked targets with your cult dagger will stun and re-silence them. EMPs Cyborgs.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: False
+    interactOnMiss: False
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Funkystation/BloodCult/spells_cultist.rsi
+      state: stun
+    iconOn:
+      sprite: _Funkystation/BloodCult/spells_cultist.rsi
+      state: stun_selected
+    event: !type:EventCultistStun {}
+    #useDelay: 60  TIME DELAY BETWEEN ACTION USES
+    #deselectOnMiss: False
+    #targetingIndicator: True  # apparently defaults to using what is held in hand?
+    #entityIcon: <an "EntityUid?">  # overrides the icon
+    #sound: a SoundSpecifier. Should probably be used instead of castSound down below.
+    #iconOn:  # The sprite when selected. USE THIS.
+  - type: CultistSpell
+    abilityId: CultStun
+    charges: 1
+    infinite: False
+    healthCost: 10
     rechargeTime: 0
     invocation: Fuu ma'jin!
     castSound: !type:SoundPathSpecifier

@@ -20,6 +20,8 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
     {
         base.Initialize();
 
+        SubscribeLocalEvent<NightVisionComponent, AfterAutoHandleStateEvent>(SyncClientComponent);
+
         _overlay = new(Color.Green);
     }
 
@@ -33,10 +35,12 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
             if (comp.IsNightVision)
                 _lightManager.DrawLighting = false;
         }
-        if (!_overlayMan.HasOverlay<NightVisionOverlay>())
+        // remove the old overlay if it exists, always override with a new overlay if we have one.
+        if (_overlayMan.HasOverlay<NightVisionOverlay>())
         {
-            _overlayMan.AddOverlay(_overlay);
+            _overlayMan.RemoveOverlay<NightVisionOverlay>();
         }
+        _overlayMan.AddOverlay(_overlay);
     }
 
     protected override void DeactivateInternal()
@@ -44,5 +48,13 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
         base.DeactivateInternal();
         _overlayMan.RemoveOverlay(_overlay);
         _lightManager.DrawLighting = true;
+    }
+
+    private void SyncClientComponent(EntityUid uid, NightVisionComponent component, ref AfterAutoHandleStateEvent handleEvent)
+    {
+        // not implemented, 
+        // Somehow the client color is not matching the Server color. IDK if its an issue with the component copy
+        // constructor or what, but someone can implement this if they want custumizable Nv colors, or track down
+        // whatever other issue is making the color in the client component incorrect/ default. (it is correct in the server component)
     }
 }

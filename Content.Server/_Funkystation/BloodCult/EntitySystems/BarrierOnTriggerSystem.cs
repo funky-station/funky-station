@@ -145,7 +145,7 @@ namespace Content.Server.BloodCult.EntitySystems
 			{
 				if (_barrierQuery.HasComponent(possibleEnt))
 					didFindBarrier = true;
-				if (_runeQuery.HasComponent(possibleEnt))
+				if (_runeQuery.HasComponent(possibleEnt) && TryComp<BarrierOnTriggerComponent>(possibleEnt, out var _))
 					didFindRune = true;
 			}
 			return! didFindBarrier && didFindRune;

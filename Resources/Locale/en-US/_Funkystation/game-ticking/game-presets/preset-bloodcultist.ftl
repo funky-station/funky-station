@@ -31,6 +31,8 @@ cult-invocation-barrier = Khari'd! Eske'te tannin!
 cult-invocation-revive = Pasnar val'keriam usinar. Savrae ines amutan. Yam'toth remium il'tarat!
 cult-invocation-offering = Mah'weyh pleggh at e'ntrath!
 
+cult-spell-fail = You fail to cast the spell!
+
 cult-ghost-role-name = Reawakened Blood Cultist
 cult-ghost-role-desc = A zealous Blood Cultist of Nar'Sie, re-awakened after catatonia.
 cult-ghost-role-rules = You are a team antagonist. Work with your fellow Cultists to accomplish your goals.

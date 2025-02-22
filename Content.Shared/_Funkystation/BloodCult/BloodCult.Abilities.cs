@@ -1,9 +1,54 @@
+using Robust.Shared.Serialization;
+using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
+using Content.Shared.BloodCult.Prototypes;
+using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 
 namespace Content.Shared.BloodCult;
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class CultistSpellComponent : Component
+{
+	/// <summary>
+	/// 	ID of the prototype that summons this spell.
+	///		(I hate that there doesn't seem to be a way to fetch this in another way...)
+	/// </summary>
+	[DataField] public ProtoId<CultAbilityPrototype> AbilityId = default!;
+
+	/// <summary>
+	/// 	Specifies the number of charges remaining.
+	/// </summary>
+	[DataField] public uint Charges = 1;
+
+	/// <summary>
+	///		Specifies if the spell has infinite charges.
+	/// </summary>
+	[DataField] public bool Infinite = false;
+
+	/// <summary>
+	/// 	Specifies the health cost of the spell.
+	/// </summary>
+	[DataField] public int HealthCost = 0;
+
+	/// <summary>
+	/// 	Specifies the recharge time in seconds
+	/// </summary>
+	[DataField] public int RechargeTime = 1;
+
+	/// <summary>
+	///		The verbal invocation when used.
+	/// </summary>
+	[DataField] public string Invocation = "";
+
+	/// <summary>
+	///		The sound to play when cast.
+	/// </summary>
+	[DataField] public SoundSpecifier? CastSound = null;
+}
 
 #region DoAfters
 
@@ -26,5 +71,11 @@ namespace Content.Shared.BloodCult;
 		CarveSound = carveSound;
     }
 }
+
+#endregion
+
+#region Spells
+
+public sealed partial class EventCultistSummonDagger : InstantActionEvent { }
 
 #endregion

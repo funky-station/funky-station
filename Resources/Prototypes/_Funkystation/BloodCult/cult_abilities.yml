@@ -1,4 +1,9 @@
 - type: cultAbility
   id: SummonDagger
   actionPrototypes:
-  - ActionCulstistSummonDagger
+  - ActionCultistSummonDagger
+
+- type: cultAbility
+  id: CultStun
+  actionPrototypes:
+  - ActionCultistStun

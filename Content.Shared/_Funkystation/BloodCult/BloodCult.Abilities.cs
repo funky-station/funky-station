@@ -77,5 +77,6 @@ public sealed partial class CultistSpellComponent : Component
 #region Spells
 
 public sealed partial class EventCultistSummonDagger : InstantActionEvent { }
+public sealed partial class EventCultistStun : EntityTargetActionEvent {  }
 
 #endregion

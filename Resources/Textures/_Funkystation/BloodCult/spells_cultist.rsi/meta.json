@@ -15,6 +15,9 @@
         },
 		{
 			"name": "stun_selected"
+		},
+		{
+			"name": "study_veil"
 		}
     ]
 }

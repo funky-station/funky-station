@@ -50,6 +50,12 @@ cult-status-veil-weak-cultdata = Current cult members: {$cultCount} | Conversion
 cult-narsie-sacrifice-accept = "I accept your sacrifice."
 cult-narsie-target-down = "Yes, this is the one I desire."
 
+cult-commune-window = Commune
+cult-commune-info = Whisper into the veil and communicate with your fellow worshippers.
+cult-commune-send = Send
+cult-commune-message = Acolyte {$name} (as {$job}): {$message}
+cult-commune-incantation = Y'll tor tz'ul z'nik rar.
+
 cult-ghost-role-name = Reawakened Blood Cultist
 cult-ghost-role-desc = A zealous Blood Cultist of Nar'Sie, re-awakened after catatonia.
 cult-ghost-role-rules = You are a team antagonist. Work with your fellow Cultists to accomplish your goals.

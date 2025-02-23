@@ -27,6 +27,11 @@ public sealed partial class BloodCultRuleComponent : Component
 	[DataField] public bool VeilWeakened = false;
 
 	/// <summary>
+	/// Whether or not the VeilWeakened announcement has played.
+	/// </summary>
+	[DataField] public bool VeilWeakenedAnnouncementPlayed = false;
+
+	/// <summary>
 	/// Current target.
 	/// </summary>
 	[DataField] public Entity<MindComponent>? Target = null;

@@ -138,15 +138,20 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         foreach (var (uid, antag) in rules)
         {
-            if (!RobustRandom.Prob(LateJoinRandomChance))
-                continue;
+            // Goob edit
+            // if (!RobustRandom.Prob(LateJoinRandomChance))
+            //    continue;
 
             if (!antag.Definitions.Any(p => p.LateJoinAdditional))
                 continue;
-
             DebugTools.AssertNotEqual(antag.SelectionTime, AntagSelectionTime.PrePlayerSpawn); // Goob edit
-
             if (!TryGetNextAvailableDefinition((uid, antag), out var def))
+                continue;
+
+            // Goobstation
+            if (!RobustRandom.Prob(def.Value.PlayerRatio == 0
+                    ? LateJoinRandomChance
+                    : Math.Clamp(1f / def.Value.PlayerRatio, 0f, 1f)))
                 continue;
 
             if (TryMakeAntag((uid, antag), args.Player, def.Value))

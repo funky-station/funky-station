@@ -1607,3 +1607,73 @@ Entries:
         their replacements.
   id: 201
   time: '2025-02-15T03:31:28.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Kettle has been granted the pleasure of having station beacons. (again)
+    - type: Tweak
+      message: Kettle's Atmospherics area no longer has overt pre-built piping
+  id: 202
+  time: '2025-02-17T06:59:30.0000000+00:00'
+- author: ' deltanedas, JustAnOrange, TGRCDev, Darkmajia, and others'
+  changes:
+    - type: Add
+      message: There are now reports of a syndicate recruitment drive in NT sectors.
+    - type: Add
+      message: Most stamps now look fancier on paper.
+    - type: Add
+      message: >-
+        Signatures have a new and improved look. Select a style for your
+        signatures in the traits menu.
+    - type: Add
+      message: Added a new revenant ability to draw bloody glyphs on the ground.
+  id: 203
+  time: '2025-02-17T19:16:51.0000000+00:00'
+- author: ' whatston3 pheenty Ilya246 empty0set'
+  changes:
+    - type: Tweak
+      message: You can now melee wide swing with a wielded mosin.
+  id: 204
+  time: '2025-02-18T00:23:10.0000000+00:00'
+- author: Mrpigfish
+  changes:
+    - type: Add
+      message: Oasis has a perma again!
+  id: 205
+  time: '2025-02-20T01:27:27.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Revolutionaries can no longer see each others rev status.
+    - type: Tweak
+      message: Revolutionaries can only see HRevs.
+  id: 206
+  time: '2025-02-20T03:01:05.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Tweak
+      message: >-
+        corgium will no longer turn you into a corgi forever. now you have to
+        make evil corgium
+  id: 207
+  time: '2025-02-20T19:46:47.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Add
+      message: Added more wintercoats to winterdrobe
+  id: 208
+  time: '2025-02-22T01:05:50.0000000+00:00'
+- author: laaudish
+  changes:
+    - type: Tweak
+      message: Replaced several clothing textures with TG & Goobstation resprites
+  id: 209
+  time: '2025-02-22T03:12:32.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: A PDA App cartridge case will now appear in the HoP locker
+    - type: Tweak
+      message: Resprited the mail metrics cartridge
+  id: 210
+  time: '2025-02-23T05:21:25.0000000+00:00'

@@ -55,6 +55,14 @@ public abstract class SharedArmorSystem : EntitySystem
         var msg = new FormattedMessage();
         msg.AddMarkupOrThrow(Loc.GetString("armor-examine"));
 
+        // TODO: better reflect What's Going On
+        // Hi! Tay here. This is not true.
+        // This WILL be null if the person using this has the
+        // funny trait that gives them armor buffs.
+        // Sorry!
+        if (armorModifiers == null)
+            return msg;
+
         foreach (var coefficientArmor in armorModifiers.Coefficients)
         {
             msg.PushNewline();

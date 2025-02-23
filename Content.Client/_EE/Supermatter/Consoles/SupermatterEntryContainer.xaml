@@ -19,7 +19,7 @@
             <TextureRect
                 Margin="6,2"
                 Name="SupermatterSprite"
-                TexturePath="/Textures/_EinsteinEngines/Interface/Supermatter/supermatter.png" />
+                TexturePath="/Textures/_EE/Interface/Supermatter/supermatter.png" />
 
             <!--  Supermatter name  -->
             <Label
@@ -88,7 +88,7 @@
                                 <TextureRect
                                     Margin="-8,-2,0,0"
                                     Name="IntegrityButtonArrow"
-                                    TexturePath="/Textures/_EinsteinEngines/Interface/Supermatter/arrow_down.png"
+                                    TexturePath="/Textures/_EE/Interface/Supermatter/arrow_down.png"
                                     VerticalAlignment="Center" />
                             </Button>
                         </BoxContainer>
@@ -143,7 +143,7 @@
                                 <TextureRect
                                     Margin="-8,-2,0,0"
                                     Name="PowerButtonArrow"
-                                    TexturePath="/Textures/_EinsteinEngines/Interface/Supermatter/arrow_down.png"
+                                    TexturePath="/Textures/_EE/Interface/Supermatter/arrow_down.png"
                                     VerticalAlignment="Center" />
                             </Button>
                         </BoxContainer>
@@ -198,7 +198,7 @@
                                 <TextureRect
                                     Margin="-8,-2,0,0"
                                     Name="RadiationButtonArrow"
-                                    TexturePath="/Textures/_EinsteinEngines/Interface/Supermatter/arrow_down.png"
+                                    TexturePath="/Textures/_EE/Interface/Supermatter/arrow_down.png"
                                     VerticalAlignment="Center" />
                             </Button>
                         </BoxContainer>
@@ -308,7 +308,7 @@
                                 <TextureRect
                                     Margin="-8,-2,0,0"
                                     Name="TemperatureLimitButtonArrow"
-                                    TexturePath="/Textures/_EinsteinEngines/Interface/Supermatter/arrow_down.png"
+                                    TexturePath="/Textures/_EE/Interface/Supermatter/arrow_down.png"
                                     VerticalAlignment="Center" />
                             </Button>
                         </BoxContainer>
@@ -370,7 +370,7 @@
                                 <TextureRect
                                     Margin="-8,-2,0,0"
                                     Name="WasteButtonArrow"
-                                    TexturePath="/Textures/_EinsteinEngines/Interface/Supermatter/arrow_down.png"
+                                    TexturePath="/Textures/_EE/Interface/Supermatter/arrow_down.png"
                                     VerticalAlignment="Center" />
                             </Button>
                         </BoxContainer>

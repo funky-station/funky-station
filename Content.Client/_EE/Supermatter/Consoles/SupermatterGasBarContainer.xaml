@@ -40,7 +40,7 @@
                     <TextureRect
                         Margin="-8,-2,0,0"
                         Name="GasButtonArrow"
-                        TexturePath="/Textures/_EinsteinEngines/Interface/Supermatter/arrow_down.png"
+                        TexturePath="/Textures/_EE/Interface/Supermatter/arrow_down.png"
                         VerticalAlignment="Center" />
                 </Button>
             </BoxContainer>

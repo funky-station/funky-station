@@ -1,4 +1,9 @@
 - type: cultAbility
+  id: StudyVeil
+  actionPrototypes:
+  - ActionCultistStudyVeil
+
+- type: cultAbility
   id: SummonDagger
   actionPrototypes:
   - ActionCultistSummonDagger

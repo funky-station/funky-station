@@ -29,6 +29,11 @@ public sealed partial class BloodCultistComponent : Component
 	[DataField] public bool BeingRevived = false;
 
 	/// <summary>
+	///		Studies the veil.
+	/// </summary>
+	[DataField] public bool StudyingVeil = false;
+
+	/// <summary>
 	/// The Uid of the person trying to revive the cultist.
 	/// </summary>
 	[DataField] public EntityUid? ReviverUid = null;

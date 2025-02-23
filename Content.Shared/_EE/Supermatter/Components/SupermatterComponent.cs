@@ -74,19 +74,19 @@ public sealed partial class SupermatterComponent : Component
     #region Sounds
 
     [DataField]
-    public SoundSpecifier DustSound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Supermatter/supermatter.ogg");
+    public SoundSpecifier DustSound = new SoundPathSpecifier("/Audio/_EE/Supermatter/supermatter.ogg");
 
     [DataField]
-    public SoundSpecifier DistortSound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Supermatter/charge.ogg");
+    public SoundSpecifier DistortSound = new SoundPathSpecifier("/Audio/_EE/Supermatter/charge.ogg");
 
     [DataField]
-    public SoundSpecifier PullSound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Supermatter/marauder.ogg");
+    public SoundSpecifier PullSound = new SoundPathSpecifier("/Audio/_EE/Supermatter/marauder.ogg");
 
     [DataField]
-    public SoundSpecifier CalmLoopSound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Supermatter/calm.ogg");
+    public SoundSpecifier CalmLoopSound = new SoundPathSpecifier("/Audio/_EE/Supermatter/calm.ogg");
 
     [DataField]
-    public SoundSpecifier DelamLoopSound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Supermatter/delamming.ogg");
+    public SoundSpecifier DelamLoopSound = new SoundPathSpecifier("/Audio/_EE/Supermatter/delamming.ogg");
 
     [DataField]
     public SoundSpecifier? CurrentSoundLoop;

@@ -17,6 +17,16 @@
     path: /Audio/_DV/Voice/Harpy/chirp1.ogg
 
 - type: speechSounds
+  id: SupermatterSilent
+  variation: 0
+  saySound:
+    path: /Audio/_EE/Supermatter/status/empty.ogg
+  askSound:
+    path: /Audio/_EE/Supermatter/status/empty.ogg
+  exclaimSound:
+    path: /Audio/_EE/Supermatter/status/empty.ogg
+
+- type: speechSounds
   id: SupermatterWarning
   variation: 0
   saySound:

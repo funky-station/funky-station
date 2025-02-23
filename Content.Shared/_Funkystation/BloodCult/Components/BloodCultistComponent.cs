@@ -34,6 +34,11 @@ public sealed partial class BloodCultistComponent : Component
 	[DataField] public bool StudyingVeil = false;
 
 	/// <summary>
+	///		Message the cultist is attempting to commune to the others.
+	/// </summary>
+	[DataField] public string? CommuningMessage = null;
+
+	/// <summary>
 	/// The Uid of the person trying to revive the cultist.
 	/// </summary>
 	[DataField] public EntityUid? ReviverUid = null;

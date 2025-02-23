@@ -3,6 +3,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Maths;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 using Content.Shared.GameTicking.Components;
 using Content.Server.Roles;
 using Content.Server.Antag;
@@ -176,6 +177,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			if (TryComp<BloodCultistComponent>(traitor, out var cultist))
 			{
 				// add cultist starting spell(s)
+				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "Commune");
 				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "StudyVeil");
 				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "SummonDagger");
 				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "CultStun");
@@ -231,6 +233,13 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			{
 				AnnounceStatus(component, cultists, cultistUid);
 				cultist.StudyingVeil = false;
+			}
+
+			// Distribute cult communes
+			if (cultist.CommuningMessage != null)
+			{
+				DistributeCommune(component, cultist.CommuningMessage, cultistUid);
+				cultist.CommuningMessage = null;
 			}
 
 			// Apply active revives
@@ -668,5 +677,24 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				("cultUntilRise", conversionsUntilRise.ToString()), ("cultistCount", cultists.Count.ToString()),
 				("constructCount", "0")),
 				fontSize: 11, newlineNeeded:true);
+	}
+
+	public void DistributeCommune(BloodCultRuleComponent component, string message, EntityUid sender)
+	{
+		string formattedMessage = FormattedMessage.EscapeText(message);
+
+		EntityUid? mindId = CompOrNull<MindContainerComponent>(sender)?.Mind;
+
+		if (mindId != null && TryComp<MetaDataComponent>(sender, out var metaData))
+		{
+			_chat.TrySendInGameICMessage(sender, Loc.GetString("cult-commune-incantation"), InGameICChatType.Whisper, ChatTransmitRange.Normal);
+			_jobs.MindTryGetJob(mindId, out var prototype);
+			string job = "Crewmember";
+			if (prototype != null)
+				job = prototype.LocalizedName;
+			AnnounceToCultists(message = Loc.GetString("cult-commune-message", ("name", metaData.EntityName),
+				("job", job), ("message", formattedMessage)), color:Color.DarkRed,
+				fontSize: 12, newlineNeeded:false);
+		}
 	}
 }

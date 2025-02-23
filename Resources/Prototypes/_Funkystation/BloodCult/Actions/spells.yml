@@ -19,6 +19,25 @@
     rechargeTime: 0
 
 - type: entity
+  id: ActionCultistCommune
+  name: Commune
+  description: Send a message to your fellow cultists. Beware - the uninitiated can see you whispering the incantation.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Funkystation/BloodCult/spells_cultist.rsi
+      state: commune
+    event: !type:BloodCultCommuneEvent {}
+  - type: CultistSpell
+    abilityId: Commune
+    charges: 1
+    infinite: True
+    healthCost: 0
+    rechargeTime: 0
+
+- type: entity
   id: ActionCultistSummonDagger
   name: Summon Dagger
   description: Summon your ritual dagger.

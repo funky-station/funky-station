@@ -4,6 +4,11 @@
   - ActionCultistStudyVeil
 
 - type: cultAbility
+  id: Commune
+  actionPrototypes:
+  - ActionCultistCommune
+
+- type: cultAbility
   id: SummonDagger
   actionPrototypes:
   - ActionCultistSummonDagger

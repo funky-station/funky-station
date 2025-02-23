@@ -1,0 +1,25 @@
+# service
+
+- type: loadoutGroup
+  id: ChaplainEyes
+  name: loadout-group-chaplain-eyes
+  minLimit: 0
+  loadouts:
+  - ChaplainBlindfold
+
+- type: loadoutGroup
+  id: ChaplainBelt
+  name: loadout-group-chaplain-belt
+  minLimit: 0
+  loadouts:
+  - BeltChaplainDragon
+
+- type: loadoutGroup
+  id: ChaplainShoes
+  name: loadout-group-chaplain-shoes
+  loadouts:
+  - BlackShoes
+  - LacedShoes
+  - LeatherShoes
+  - BlackHeels
+  - ClownShoesExpert

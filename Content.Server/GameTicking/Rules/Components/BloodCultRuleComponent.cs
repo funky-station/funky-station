@@ -1,4 +1,7 @@
+using Robust.Shared.Player;
 using Content.Server.GameTicking.Rules;
+using Content.Shared.Mind;
+
 namespace Content.Server.GameTicking.Rules.Components;
 
 /// <summary>
@@ -26,7 +29,12 @@ public sealed partial class BloodCultRuleComponent : Component
 	/// <summary>
 	/// Current target.
 	/// </summary>
-	[DataField] public EntityUid? Target = null;
+	[DataField] public Entity<MindComponent>? Target = null;
+
+	// <summary>
+	/// When to give initial report on cultist count and crew count.
+	/// </summary>
+	[DataField] public TimeSpan? InitialReportTime = null;
 
 	/// <summary>
 	/// Number of targets required to satisfy the sacrifice condition.

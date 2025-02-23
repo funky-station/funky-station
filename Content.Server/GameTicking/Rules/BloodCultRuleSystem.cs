@@ -1,5 +1,8 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Maths;
+using Robust.Shared.Player;
+using Robust.Shared.Timing;
 using Content.Shared.GameTicking.Components;
 using Content.Server.Roles;
 using Content.Server.Antag;
@@ -18,6 +21,8 @@ using Content.Shared.Popups;
 using Content.Shared.Magic.Events;
 using Content.Shared.Body.Systems;
 using Robust.Shared.Random;
+using Content.Shared.Roles.Jobs;
+
 using Content.Server.BloodCult.EntitySystems;
 using Content.Shared.BloodCult.Prototypes;
 using Content.Shared.BloodCult.Prototypes;
@@ -28,6 +33,9 @@ using Content.Shared.Ghost.Roles.Raffles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Ghost.Roles.Raffles;
 using Content.Server.Revolutionary.Components;
+using Content.Server.Chat.Systems;
+using Content.Server.Chat.Managers;
+using Content.Shared.Chat;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -46,7 +54,12 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly CultistSpellSystem _cultistSpell = default!;
 	[Dependency] private readonly PopupSystem _popupSystem = default!;
 	[Dependency] private readonly IRobustRandom _random = default!;
+	[Dependency] private readonly IGameTiming _timing = default!;
+	[Dependency] private readonly ChatSystem _chat = default!;
+	[Dependency] private readonly SharedJobSystem _jobs = default!;
+	[Dependency] private readonly IChatManager _chatManager = default!;
 	[Dependency] private readonly SharedBodySystem _body = default!;
+	
 	[Dependency] private readonly IEntityManager _entManager = default!;
 
 	public readonly string CultComponentId = "BloodCultist";
@@ -80,6 +93,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
     {
         base.Started(uid, component, gameRule, args);
 		SelectTarget(component);
+		component.InitialReportTime = _timing.CurTime + TimeSpan.FromSeconds(1);
     }
 
 	/// <summary>
@@ -129,14 +143,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 		// TODO: Check for TimeOfDeath being null (makes sure they're not dead)
 		// Can also check to see if Session is null, which means they logged out
-		Console.WriteLine("Possible targets:");
-		foreach (var target in allPotentialTargets)
-		{
-			Console.WriteLine(target.Comp.CharacterName);
-		}
 		component.Target = _random.Pick(allPotentialTargets);
-		Console.WriteLine("TARGET IS");
-		Console.WriteLine(component.Target);
 	}
 
 	private void AfterEntitySelected(Entity<BloodCultRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
@@ -155,13 +162,14 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			// re-select target if needed
 			if (_mind.TryGetMind(traitor, out var mindId, out var _))
 			{
-				if (component.Target == mindId)
+				if (component.Target != null && (EntityUid)component.Target.Value == mindId)
 					SelectTarget(component, true);
 			}
 
 			if (TryComp<BloodCultistComponent>(traitor, out var cultist))
 			{
-				// add cultist dagger spell
+				// add cultist starting spell(s)
+				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "StudyVeil");
 				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "SummonDagger");
 				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "CultStun");
 			}
@@ -191,12 +199,26 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	protected override void ActiveTick(EntityUid uid, BloodCultRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
         base.ActiveTick(uid, component, gameRule, frameTime);
-
 		List<EntityUid> cultists = GetCultists();
+
+		// Give initial announcement to cultists
+		if (component.InitialReportTime != null && _timing.CurTime > component.InitialReportTime)
+		{
+			AnnounceStatus(component, cultists);
+			component.InitialReportTime = null;
+		}
+
 		foreach (EntityUid cultistUid in cultists)
 		{
 			if (!TryComp<BloodCultistComponent>(cultistUid, out var cultist))
 				continue;
+
+			// Show cult status
+			if (cultist.StudyingVeil)
+			{
+				AnnounceStatus(component, cultists, cultistUid);
+				cultist.StudyingVeil = false;
+			}
 
 			// Apply active revives
 			if (cultist.BeingRevived)
@@ -223,15 +245,17 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				SacrificingData sacrifice = (SacrificingData)cultist.Sacrifice;
 				TryComp<MindContainerComponent>(sacrifice.Target, out var sacrificeMind);
 
-				if ((sacrificeMind?.Mind != null) && (component.Target != null) && (sacrificeMind.Mind == component.Target))
+				if ((sacrificeMind?.Mind != null) && (component.Target != null) && (sacrificeMind.Mind == component.Target.Value))
 				{
 					// A target is being sacrificed!
-					_SacrificeTarget(sacrifice, component, cultistUid);
+					if (_SacrificeTarget(sacrifice, component, cultistUid))
+						AnnounceToCultists("\nYes, this is the one I desire!");
 				}
 				else
 				{
 					// A non-target is being sacrificed!
-					_SacrificeNonTarget(sacrifice, component, cultistUid);
+					if (_SacrificeNonTarget(sacrifice, component, cultistUid))
+						AnnounceToCultists("\nI accept your sacrifice.");
 				}
 
 				cultist.Sacrifice = null;
@@ -243,11 +267,12 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				Console.WriteLine("ACTIVE CONVERT HAPPENING");
 				ConvertingData convert = (ConvertingData)cultist.Convert;
 				TryComp<MindContainerComponent>(convert.Target, out var convertMind);
-				if ((convertMind?.Mind != null) && (component.Target != null) && (convertMind.Mind == component.Target))
+				if ((convertMind?.Mind != null) && (component.Target != null) && (convertMind.Mind == component.Target.Value))
 				{
 					// Override convert and begin sacrificing -- this is a target!
 					SacrificingData sacrifice = new SacrificingData(convert.Target, convert.Invokers);
-					_SacrificeTarget(sacrifice, component, cultistUid);
+					if (_SacrificeTarget(sacrifice, component, cultistUid))
+						AnnounceToCultists("\nYes, this is the one I desire!");
 				}
 				else
 				{
@@ -435,16 +460,17 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		comp.Sacrifice = new  SacrificingData(args.Target, args.Invokers);
 	}
 
-	private void _SacrificeTarget(SacrificingData sacrifice, BloodCultRuleComponent component, EntityUid cultistUid)
+	private bool _SacrificeTarget(SacrificingData sacrifice, BloodCultRuleComponent component, EntityUid cultistUid)
 	{
 		if (component.Target == null)
-			return;
+			return false;
 		if (sacrifice.Invokers.Length < component.CultistsToSacrificeTarget)
 		{
 			_popupSystem.PopupEntity(
 				Loc.GetString("cult-invocation-target-fail"),
 				cultistUid, cultistUid, PopupType.MediumCaution
 			);
+			return false;
 		}
 		else
 		{
@@ -454,10 +480,11 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			component.ReviveCharges = component.ReviveCharges + component.ChargesForSacrifice;
 			component.TargetsDown.Add((EntityUid)component.Target);
 			SelectTarget(component, true);
+			return true;
 		}
 	}
 
-	private void _SacrificeNonTarget(SacrificingData sacrifice, BloodCultRuleComponent component, EntityUid cultistUid)
+	private bool _SacrificeNonTarget(SacrificingData sacrifice, BloodCultRuleComponent component, EntityUid cultistUid)
 	{
 		if (sacrifice.Invokers.Length < component.CultistsToSacrifice)
 		{
@@ -465,17 +492,22 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				Loc.GetString("cult-invocation-fail"),
 				cultistUid, cultistUid, PopupType.MediumCaution
 			);
+			return false;
 		}
 		else
 		{
 			foreach (EntityUid invoker in sacrifice.Invokers)
 				Speak(invoker, Loc.GetString("cult-invocation-offering"));
-			_SacrificeVictim(sacrifice.Target, cultistUid);
-			component.ReviveCharges = component.ReviveCharges + component.ChargesForSacrifice;
+			if (_SacrificeVictim(sacrifice.Target, cultistUid))
+			{
+				component.ReviveCharges = component.ReviveCharges + component.ChargesForSacrifice;
+				return true;
+			}
 		}
+		return false;
 	}
 
-	private void _SacrificeVictim(EntityUid uid, EntityUid? casterUid)
+	private bool _SacrificeVictim(EntityUid uid, EntityUid? casterUid)
 	{
 		// Remember to use coordinates to play audio if the entity is about to vanish.
 		EntityUid? mindId = CompOrNull<MindContainerComponent>(uid)?.Mind;
@@ -487,7 +519,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			_ghost.OnGhostAttempt((EntityUid)mindId, false, false, mindComp);
 			// TODO: Spawn Soulstone Shard with their consciousness, making
 			// that their new brain
+			return true;
 		}
+		return false;
 	}
 
 	public void TryConvertVictim(EntityUid uid, BloodCultistComponent comp, ref ConvertRuneEvent args)
@@ -495,13 +529,14 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		comp.Convert = new ConvertingData(args.Target, args.Invokers);
 	}
 
-	private void _ConvertNonTarget(ConvertingData convert, BloodCultRuleComponent component, EntityUid cultistUid)
+	private bool _ConvertNonTarget(ConvertingData convert, BloodCultRuleComponent component, EntityUid cultistUid)
 	{
 		if (convert.Invokers.Length >= component.CultistsToConvert)
 		{
 			foreach (EntityUid invoker in convert.Invokers)
 				Speak(invoker, Loc.GetString("cult-invocation-offering"));
 			_ConvertVictim(convert.Target, component);
+			return true;
 		}
 		else
 		{
@@ -509,6 +544,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				Loc.GetString("cult-invocation-fail"),
 				cultistUid, cultistUid, PopupType.MediumCaution
 			);
+			return false;
 		}
 	}
 
@@ -536,5 +572,81 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 		var ev = new SpeakSpellEvent((EntityUid)uid, speech);//speak.Speech);
 		RaiseLocalEvent(ref ev);
+	}
+
+	public void AnnounceToCultists(string message, uint fontSize = 14, Color? color = null,
+									bool newlineNeeded = false, string? audioPath = null,
+									float audioVolume = 1f)
+	{
+		if (color == null)
+			color = Color.DarkRed;
+		var filter = Filter.Empty();
+		List<EntityUid> cultists = GetCultists();
+		foreach (EntityUid cultistUid in cultists)
+		{
+			if (TryComp(cultistUid, out ActorComponent? actorComp))
+			{
+				filter.AddPlayer(actorComp.PlayerSession);
+			}
+		}
+		string wrappedMessage = "[font size="+fontSize.ToString()+"][bold]" + (newlineNeeded ? "\n" : "") + message + "[/bold][/font]";
+		_chatManager.ChatMessageToManyFiltered(filter, ChatChannel.Radio, message, wrappedMessage, default, false, true, color, audioPath, audioVolume);
+	}
+
+	public void AnnounceToCultist(string message, EntityUid target, uint fontSize = 14, Color? color = null,
+									bool newlineNeeded = false, string? audioPath = null,
+									float audioVolume = 1f)
+	{
+		if (color == null)
+			color = Color.DarkRed;
+		var filter = Filter.Empty();
+		List<EntityUid> cultists = GetCultists();
+		foreach (EntityUid cultistUid in cultists)
+		{
+			if (TryComp(cultistUid, out ActorComponent? actorComp) && cultistUid == target)
+			{
+				filter.AddPlayer(actorComp.PlayerSession);
+			}
+		}
+		string wrappedMessage = "[font size="+fontSize.ToString()+"][bold]" + (newlineNeeded ? "\n" : "") + message + "[/bold][/font]";
+		_chatManager.ChatMessageToManyFiltered(filter, ChatChannel.Radio, message, wrappedMessage, default, false, true, color, audioPath, audioVolume);
+	}
+
+	public void AnnounceStatus(BloodCultRuleComponent component, List<EntityUid> cultists, EntityUid? specificCultist = null)
+	{
+		string purpleMessage = "\n[italic]The Veil needs to be weakened before we are able to summon The Dark One.[/italic]";
+
+		if (component.Target != null)
+		{
+			var targ = (Entity<MindComponent>)component.Target;
+			if (TryComp<MetaDataComponent>(targ.Comp.OwnedEntity, out var metaData))
+			{
+				_jobs.MindTryGetJob(targ, out var prototype);
+				string job = "crewmember.";
+				if (prototype != null)
+					job = prototype.LocalizedName;
+				purpleMessage = purpleMessage + "\n[italic]Current goal: Sacrifice " + metaData.EntityName + ", the " + job +
+					" via invoking an offer rune with its body or brain on it and at least " +
+					component.CultistsToSacrificeTarget.ToString() + " cultists around it.[/italic]";
+			}
+		}
+		if (specificCultist != null)
+			AnnounceToCultist(purpleMessage,
+					(EntityUid)specificCultist, color:new Color(111, 80, 143, 255), fontSize:12);
+		else
+			AnnounceToCultists(purpleMessage,
+					color:new Color(111, 80, 143, 255), fontSize:12);
+
+		var allAliveHumans = _mind.GetAliveHumans();
+		var conversionsUntilRise = (int)Math.Ceiling((float)allAliveHumans.Count * 0.3f) - cultists.Count;
+		conversionsUntilRise = (conversionsUntilRise > 0) ? conversionsUntilRise : 0;
+		if (specificCultist != null)
+			AnnounceToCultist("\n[italic]Current cult members: " + cultists.Count.ToString() +
+				" | Conversions until Rise: " + conversionsUntilRise.ToString() + "[/italic]",
+				(EntityUid)specificCultist, fontSize: 11);
+		else
+			AnnounceToCultists("\nCurrent cult members: " + cultists.Count.ToString() +
+				" | Conversions until Rise: " + conversionsUntilRise.ToString(),
+				fontSize: 11);
 	}
 }

@@ -59,6 +59,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistSummonDagger>(OnSummonDagger);
 
+		SubscribeLocalEvent<BloodCultistComponent, EventCultistStudyVeil>(OnStudyVeil);
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistStun>(OnStun);
 		SubscribeLocalEvent<CultMarkedComponent, AttackedEvent>(OnMarkedAttacked);
 	}
@@ -124,6 +125,15 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	public void RemoveSpell(ProtoId<CultAbilityPrototype> id, BloodCultistComponent comp)
 	{
 		comp.KnownSpells.Remove(GetSpell(id));
+	}
+
+	private void OnStudyVeil(Entity<BloodCultistComponent> ent, ref EventCultistStudyVeil args)
+	{
+		if (!TryUseAbility(ent, args))
+			return;
+
+		ent.Comp.StudyingVeil = true;
+		args.Handled = true;
 	}
 
 	private void OnSummonDagger(Entity<BloodCultistComponent> ent, ref EventCultistSummonDagger args)

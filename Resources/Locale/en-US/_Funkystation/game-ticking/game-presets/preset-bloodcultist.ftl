@@ -33,6 +33,23 @@ cult-invocation-offering = Mah'weyh pleggh at e'ntrath!
 
 cult-spell-fail = You fail to cast the spell!
 
+cult-status-veil-strong = [italic]The Veil needs to be weakened before we are able to summon The Dark One.[/italic]
+
+cult-status-veil-weak = [italic]You and your acolytes have succeeded in preparing the station for the ultimate ritual![/italic]
+
+cult-status-veil-strong-goal = [italic]Current goal: Sacrifice {$targetName}, the {$targetJob} via invoking an offer rune with its body or brain on it and at least {$cultistsRequired} cultists around it.[/italic]
+
+cult-status-veil-weak-goal = [italic]Current goal: Summon Nar'Sie by invoking the rune 'Tear Veil' with 9 cultists, constructs, or summoned ghosts on it.
+    The summoning can only be accomplished in {$firstLoc}, {$secondLoc}, or {$thirdLoc} - where the veil is weak enough for the ritual to begin.[/italic]
+
+cult-status-veil-weak-cultdata = Current cult members: {$cultCount} | Conversions until Rise: {$cultUntilRise}
+    Cultists: {$cultistCount}
+    Constructs: {$constructCount}
+
+
+cult-narsie-sacrifice-accept = "I accept your sacrifice."
+cult-narsie-target-down = "Yes, this is the one I desire."
+
 cult-ghost-role-name = Reawakened Blood Cultist
 cult-ghost-role-desc = A zealous Blood Cultist of Nar'Sie, re-awakened after catatonia.
 cult-ghost-role-rules = You are a team antagonist. Work with your fellow Cultists to accomplish your goals.

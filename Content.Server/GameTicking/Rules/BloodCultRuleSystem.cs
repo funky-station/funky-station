@@ -556,6 +556,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		{
 			foreach (EntityUid invoker in convert.Invokers)
 				Speak(invoker, Loc.GetString("cult-invocation-offering"));
+			component.ReviveCharges = component.ReviveCharges + component.ChargesForSacrifice;
 			_ConvertVictim(convert.Target, component);
 			return true;
 		}

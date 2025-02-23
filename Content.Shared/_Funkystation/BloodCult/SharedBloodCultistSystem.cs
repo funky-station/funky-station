@@ -1,5 +1,6 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
+using Robust.Shared.Serialization;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.Antag;
 
@@ -11,26 +12,24 @@ public abstract class SharedBloodCultistSystem : EntitySystem
     {
         base.Initialize();
 
-		SubscribeLocalEvent<BloodCultistComponent, ComponentGetStateAttemptEvent>(OnRevCompGetStateAttempt);
-
+		SubscribeLocalEvent<BloodCultistComponent, ComponentGetStateAttemptEvent>(OnCultistCompGetStateAttempt);
 		SubscribeLocalEvent<BloodCultistComponent, ComponentStartup>(DirtyRevComps);
 	}
 
 	/// <summary>
     /// Determines if a BloodCultist component should be sent to the client.
     /// </summary>
-    private void OnRevCompGetStateAttempt(EntityUid uid, BloodCultistComponent comp, ref ComponentGetStateAttemptEvent args)
+    private void OnCultistCompGetStateAttempt(EntityUid uid, BloodCultistComponent comp, ref ComponentGetStateAttemptEvent args)
     {
         args.Cancelled = !CanGetState(args.Player);
     }
 	/// <summary>
-    /// The criteria that determine whether a Rev/HeadRev component should be sent to a client.
+    /// The criteria that determine whether a BloodCultist component should be sent to a client.
     /// </summary>
     /// <param name="player"> The Player the component will be sent to.</param>
     /// <returns></returns>
     private bool CanGetState(ICommonSession? player)
     {
-        //Apparently this can be null in replays so I am just returning true.
         if (player?.AttachedEntity is not {} uid)
             return true;
 
@@ -47,6 +46,34 @@ public abstract class SharedBloodCultistSystem : EntitySystem
         {
             Dirty(uid, comp);
         }
+    }
+}
+
+[Serializable, NetSerializable]
+public enum BloodCultistCommuneUIKey : byte
+{
+	Key
+}
+
+[Serializable, NetSerializable]
+public sealed class BloodCultCommuneBuiState : BoundUserInterfaceState
+{
+	public readonly string Message;
+
+	public BloodCultCommuneBuiState(string message)
+	{
+		Message = message;
+	}
+}
+
+[Serializable, NetSerializable]
+public sealed class BloodCultCommuneSendMessage : BoundUserInterfaceMessage
+{
+    public readonly string Message;
+
+    public BloodCultCommuneSendMessage(string message)
+    {
+        Message = message;
     }
 }
 

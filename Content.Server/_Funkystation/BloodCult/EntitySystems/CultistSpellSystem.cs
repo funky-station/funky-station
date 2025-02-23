@@ -60,6 +60,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistSummonDagger>(OnSummonDagger);
 
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistStudyVeil>(OnStudyVeil);
+		SubscribeLocalEvent<BloodCultistComponent, BloodCultCommuneSendMessage>(OnCommune);
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistStun>(OnStun);
 		SubscribeLocalEvent<CultMarkedComponent, AttackedEvent>(OnMarkedAttacked);
 	}
@@ -134,6 +135,11 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 		ent.Comp.StudyingVeil = true;
 		args.Handled = true;
+	}
+
+	private void OnCommune(Entity<BloodCultistComponent> ent, ref BloodCultCommuneSendMessage args)
+	{
+		ent.Comp.CommuningMessage = args.Message;
 	}
 
 	private void OnSummonDagger(Entity<BloodCultistComponent> ent, ref EventCultistSummonDagger args)

@@ -30,7 +30,7 @@
       toParent: true
     - type: Jetpack
       moleUsage: 0.0
-    - type: MovementBodyPart
+    - type: MovementSpeedModifier
       weightlessAcceleration: 1.5
       weightlessFriction: 1
       weightlessModifier: 2.5

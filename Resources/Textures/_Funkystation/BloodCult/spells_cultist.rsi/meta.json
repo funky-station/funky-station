@@ -18,6 +18,9 @@
 		},
 		{
 			"name": "study_veil"
+		},
+		{
+			"name": "commune"
 		}
     ]
 }

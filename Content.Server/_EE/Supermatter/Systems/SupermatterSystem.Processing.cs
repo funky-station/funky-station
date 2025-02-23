@@ -28,6 +28,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 using Vector4 = Robust.Shared.Maths.Vector4;
+using Content.Shared.DeviceLinking;
 
 namespace Content.Server._EE.Supermatter.Systems;
 
@@ -794,6 +795,23 @@ public sealed partial class SupermatterSystem
     private void HandleStatus(EntityUid uid, SupermatterComponent sm)
     {
         var currentStatus = GetStatus(uid, sm);
+
+        // Send port updates out for any linked devices
+        if (sm.Status != currentStatus && HasComp<DeviceLinkSourceComponent>(uid))
+        {
+            var port = currentStatus switch
+            {
+                SupermatterStatusType.Normal => sm.PortNormal,
+                SupermatterStatusType.Caution => sm.PortCaution,
+                SupermatterStatusType.Warning => sm.PortWarning,
+                SupermatterStatusType.Danger => sm.PortDanger,
+                SupermatterStatusType.Emergency => sm.PortEmergency,
+                SupermatterStatusType.Delaminating => sm.PortDelaminating,
+                _ => sm.PortInactive
+            };
+
+            _link.InvokePort(uid, port);
+        }
 
         sm.Status = currentStatus;
 

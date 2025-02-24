@@ -92,6 +92,7 @@
       - PosterContrabandInterdyne
       - PosterContrabandWaffleCorp
       - PosterContrabandMissingSpacepen
+      - PosterContrabandMRRP
     chance: 1
 
 - type: entity
@@ -156,4 +157,5 @@
       - PosterLegitSafetyMothMeth
       - PosterLegitSafetyMothHardhat
       - PosterLegitSafetyMothSSD
+      - PosterLegitGUH
     chance: 1

@@ -1069,6 +1069,24 @@
   - type: Sprite
     state: poster52_legit
 
+- type: entity
+  parent: PosterBase
+  id: PosterLegitGUH
+  name: "Team GUH"
+  description: "A propaganda poster backing up the GUH side in the GUH v MRRP War."
+  components:
+    - type: Sprite
+      state: poster64_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandMRRP
+  name: "Team MRRP"
+  description: "A propaganda poster backing up the MRRP side in the GUH v MRRP War."
+  components:
+    - type: Sprite
+      state: poster64_contraband
+
 
 #maps
 

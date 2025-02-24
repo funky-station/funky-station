@@ -122,3 +122,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "oBerry"
   source: "https://funkystation.org"
+
+- files: ["funkops.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "cubicalleaf"
+  source: "https://funkystation.org"

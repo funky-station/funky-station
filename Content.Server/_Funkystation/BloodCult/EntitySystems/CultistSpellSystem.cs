@@ -208,6 +208,8 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			
 			_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
 			_audioSystem.PlayPvs(args.CultAbility.CarveSound, ent);
+			if (args.StandingOnRune)
+				_bloodCultRules.Speak(ent, Loc.GetString("cult-invocation-empowering"));
 		}
 
         Dirty(ent, ent.Comp);

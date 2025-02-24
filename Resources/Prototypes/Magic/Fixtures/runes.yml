@@ -44,6 +44,7 @@
   id: EmpoweringRune
   name: "empowering rune"
   components:
+    - type: EmpowerOnStand
     - type: Sprite
       #sprite: Structures/Magic/Cult/trap.rsi
       layers:

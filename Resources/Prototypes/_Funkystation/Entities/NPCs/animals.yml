@@ -1,14 +1,21 @@
 - type: entity
   name: roingus
-  description: roingus
+  description: Bounce!
   parent: MobMouse
   id: MobRoingus
   components:
   - type: Sprite
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
+    - map: ["enum.DamageStateVisualLayers.Base", movement]
       state: roingus
       sprite: _Funkystation/Mobs/Animals/roingus.rsi
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: roingus-moving
+    noMovementLayers:
+      movement:
+        state: roingus
   - type: Tag
     tags:
     - FootstepSound
@@ -18,7 +25,7 @@
       params:
         pitch: 1.15
   - type: Clothing
-    equippedPrefix: 2
+    equippedPrefix: 1
   - type: DamageStateVisuals
     states:
       Alive:
@@ -29,7 +36,7 @@
         Base: splat
   - type: Item
     size: Tiny
-    heldPrefix: 2
+    heldPrefix: 1
   - type: FoodSequenceElement
     sprite:
       sprite: _Funkystation/Mobs/Animals/roingus.rsi

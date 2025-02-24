@@ -1677,3 +1677,37 @@ Entries:
       message: Resprited the mail metrics cartridge
   id: 210
   time: '2025-02-23T05:21:25.0000000+00:00'
+- author: ' Darkmajia, AftrLite, VMSolidus'
+  changes:
+    - type: Tweak
+      message: >-
+        The supermatter has received a large amount of changes and upgrades.
+        Check out the updated guidebook!
+    - type: Tweak
+      message: The supermatter monitoring console now has full functionality.
+    - type: Fix
+      message: >-
+        The supermatter now emits waste gas as intended, instead of storing
+        waste inside itself.
+  id: 211
+  time: '2025-02-24T01:16:25.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Tweak
+      message: >-
+        Wording change to give sentencing power to highest ranked security
+        instead of just command
+  id: 212
+  time: '2025-02-24T01:47:33.0000000+00:00'
+- author: Middleson5
+  changes:
+    - type: Add
+      message: >-
+        Vocaloid names are now in the naming pools for Syndicate Reinforcements,
+        Lone Operatives, and Nuclear Operatives
+    - type: Tweak
+      message: >-
+        Nuclear Operatives are given proper titles (Agent, Operative, Commander)
+        roundstart 
+  id: 213
+  time: '2025-02-24T01:49:04.0000000+00:00'

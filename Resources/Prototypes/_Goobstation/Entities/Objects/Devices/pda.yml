@@ -6,6 +6,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-chrono
   - type: Pda
     id: ChronoIDCard
     state: pda-chrono
@@ -29,6 +30,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-heccd
   - type: Pda
     id: HelldiverIDCard
     state: pda-heccd

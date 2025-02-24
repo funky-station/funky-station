@@ -176,11 +176,10 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 			if (TryComp<BloodCultistComponent>(traitor, out var cultist))
 			{
-				// add cultist starting spell(s)
-				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "Commune");
-				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "StudyVeil");
-				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "SummonDagger");
-				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "CultStun");
+				// add cultist starting abilities
+				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "Commune", recordKnownSpell:false);
+				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "StudyVeil", recordKnownSpell:false);
+				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "SpellsSelect", recordKnownSpell:false);
 			}
 			return true;
 		}

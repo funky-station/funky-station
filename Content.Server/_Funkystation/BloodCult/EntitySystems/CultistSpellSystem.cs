@@ -57,6 +57,8 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	{
 		base.Initialize();
 
+		SubscribeLocalEvent<BloodCultistComponent, SpellsMessage>(OnSpellSelectedMessage);
+
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistSummonDagger>(OnSummonDagger);
 
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistStudyVeil>(OnStudyVeil);
@@ -108,7 +110,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	public CultAbilityPrototype GetSpell(ProtoId<CultAbilityPrototype> id)
 		=> _proto.Index(id);
 
-	public void AddSpell(EntityUid uid, BloodCultistComponent comp, ProtoId<CultAbilityPrototype> id)
+	public void AddSpell(EntityUid uid, BloodCultistComponent comp, ProtoId<CultAbilityPrototype> id, bool recordKnownSpell = true)
 	{
 		var data = GetSpell(id);
 
@@ -118,7 +120,8 @@ public sealed partial class CultistSpellSystem : EntitySystem
         if (data.ActionPrototypes != null && data.ActionPrototypes.Count > 0)
             foreach (var act in data.ActionPrototypes)
                 _action.AddAction(uid, act);
-		comp.KnownSpells.Add(data);
+		if (recordKnownSpell)
+			comp.KnownSpells.Add(data);
 
         Dirty(uid, comp);
 	}
@@ -140,6 +143,13 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	private void OnCommune(Entity<BloodCultistComponent> ent, ref BloodCultCommuneSendMessage args)
 	{
 		ent.Comp.CommuningMessage = args.Message;
+	}
+
+	private void OnSpellSelectedMessage(Entity<BloodCultistComponent> ent, ref SpellsMessage args)
+	{
+		if (!CultistSpellComponent.ValidSpells.Contains(args.ProtoId) || ent.Comp.KnownSpells.Contains(args.ProtoId))
+			return;
+		AddSpell(ent, ent.Comp, args.ProtoId, recordKnownSpell:true);
 	}
 
 	private void OnSummonDagger(Entity<BloodCultistComponent> ent, ref EventCultistSummonDagger args)

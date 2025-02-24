@@ -38,11 +38,33 @@
     rechargeTime: 0
 
 - type: entity
+  id: ActionCultistSpellsSelect
+  name: Prepare Spell
+  description: Prepare a blood spell by carving it into your body. Up to 1 spell may be prepared without standing on an empowering rune.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Funkystation/BloodCult/spells_cultist.rsi
+      state: spell_select
+    event: !type:BloodCultSpellsEvent {}
+  - type: CultistSpell
+    abilityId: SpellsSelect
+    charges: 1
+    infinite: True
+    healthCost: 0
+    rechargeTime: 0
+
+- type: entity
   id: ActionCultistSummonDagger
   name: Summon Dagger
   description: Summon your ritual dagger.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Icon
+    sprite: _Funkystation/BloodCult/spells_cultist.rsi
+    state: summon_dagger
   - type: InstantAction
     itemIconStyle: NoItem
     icon:
@@ -62,6 +84,9 @@
   description: A potent spell that will knock down, silence, and mark a target. Stabbing marked targets with your cult dagger will stun and re-silence them. EMPs Cyborgs.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Icon
+    sprite: _Funkystation/BloodCult/spells_cultist.rsi
+    state: stun
   - type: EntityTargetAction
     whitelist:
       components:

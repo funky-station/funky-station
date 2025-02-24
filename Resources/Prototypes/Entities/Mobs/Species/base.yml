@@ -198,6 +198,8 @@
         type: LivingHeartMenuBoundUserInterface
       enum.BloodCultistCommuneUIKey.Key: # funky edit - cultists
         type: BloodCultCommuneBoundUserInterface
+      enum.SpellsUiKey.Key: # funky edit - cultists
+        type: SpellsBoundUserInterface
       # Shitmed
       enum.SurgeryUIKey.Key:
         type: SurgeryBui

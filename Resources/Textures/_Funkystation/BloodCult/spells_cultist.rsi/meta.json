@@ -21,6 +21,9 @@
 		},
 		{
 			"name": "commune"
+		},
+		{
+			"name": "spell_select"
 		}
     ]
 }

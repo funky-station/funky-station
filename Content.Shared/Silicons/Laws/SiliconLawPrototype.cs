@@ -14,6 +14,13 @@ public partial class SiliconLaw : IComparable<SiliconLaw>, IEquatable<SiliconLaw
     [DataField(required: true), ViewVariables(VVAccess.ReadWrite)]
     public string LawString = string.Empty;
 
+	/// <summary>
+	/// The law group that the law fits into. Combined with the Order,
+	/// this determines where the law falls in the sequence.
+	/// </summary>
+	[DataField(required: true), ViewVariables(VVAccess.ReadWrite)]
+	public LawGroups LawGroup;
+
     /// <summary>
     /// The order of the law in the sequence.
     /// Also is the identifier if <see cref="LawIdentifierOverride"/> is null.
@@ -72,6 +79,28 @@ public partial class SiliconLaw : IComparable<SiliconLaw>, IEquatable<SiliconLaw
             LawIdentifierOverride = LawIdentifierOverride
         };
     }
+
+	/// <summary>
+    /// Return a deep clone of this law.
+    /// </summary>
+	public SiliconLaw DeepClone()
+	{
+		return new SiliconLaw()
+		{
+			LawString = new string(LawString),
+			Order = FixedPoint2.New(Order.Value),
+			LawIdentifierOverride = ((LawIdentifierOverride == null) ? null : new string(LawIdentifierOverride))
+		};
+	}
+}
+
+public enum LawGroups
+{
+	Law0,
+	HackedLaw,
+	IonLaw,
+	LawsetLaw,
+	CustomLaw
 }
 
 /// <summary>

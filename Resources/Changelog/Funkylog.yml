@@ -1691,3 +1691,11 @@ Entries:
         waste inside itself.
   id: 211
   time: '2025-02-24T01:16:25.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Tweak
+      message: >-
+        Wording change to give sentencing power to highest ranked security
+        instead of just command
+  id: 212
+  time: '2025-02-24T01:47:33.0000000+00:00'

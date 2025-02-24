@@ -203,9 +203,9 @@
     exitPolymorphSound: /Audio/Magic/ethereal_exit.ogg
     duration: 3
 
-# Funky Station - Corgi!!! 'Daww... No i'm not making a new file for this.
+# Funky Station
 - type: polymorph
-  id: CorgiMorph
+  id: CorgiMorphPerm
   configuration:
     entity: MobCorgi
     forced: true
@@ -214,3 +214,15 @@
     transferDamage: true
     revertOnCrit: false
     revertOnDeath: false
+
+- type: polymorph
+  id: CorgiMorphTemp
+  configuration:
+    entity: MobCorgi
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: true
+    inventory: None
+    revertOnDeath: true
+    revertOnCrit: true
+    duration: 30

@@ -1,0 +1,33 @@
+- type: entity
+  id: PDA_cartridge_case
+  name: PDA cartridge case
+  description: Case full of PDA programs.
+  parent: [ BaseStorageItem, BaseBagOpenClose, BaseCommandContraband ]
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Storage/PDA_cartridge_case.rsi
+    layers:
+    - state: closed
+      map: ["closeLayer"]
+    - state: open
+      map: ["openLayer"]
+  - type: Appearance
+  - type: Item
+    sprite: _Funkystation/Objects/Storage/PDA_cartridge_case.rsi
+    size: Normal
+  - type: Storage
+    grid:
+    - 0,0,6,1
+    whitelist:
+      tags:
+      - PDACart
+  - type: StorageFill
+    contents:
+    - id: AstroNavCartridge
+    - id: MedTekCartridge
+    - id: WantedListCartridge
+    - id: LogProbeCartridge
+    - id: NetProbeCartridge
+    - id: NanoChatCartridge
+    - id: MailMetricsCartridge
+

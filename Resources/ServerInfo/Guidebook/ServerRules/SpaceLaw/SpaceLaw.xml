@@ -1,4 +1,4 @@
-﻿<Document>
+<Document>
   # Space Law
   Funky Station operates under space law. All crew, passengers, and visitors aboard the station are expected to know and follow these laws (they are fairly common sense, only security and the captain need to know the times).
 
@@ -32,9 +32,7 @@
   A suspect can be forced to receive implant removal if there is strong reasonable proof that they have been implanted, such as an officer witnessing them use an implantation device or their biological information being found on a discarded injector. Unlike the implantation procedure a prisoner can have their sentence entirely delayed or extended until they comply with the procedure, as long as security are actively making attempts to preform it. Akin to implanting, if an inmate gives their clear permission, implant removal can proceed without proof.
 
   ## Sentencing
-  [bold]If brigtime goes above 20 minutes, perma is highly recommended.[/bold]
-
-  All sentencing is to primarily be handled by the Warden, if no Warden is available the HoS is to take over that duty, if there's no HoS it falls onto the highest ranking command member.
+  All sentencing is to primarily be handled by the Warden, if no Warden is available the HoS is to take over that duty, if there's no HoS it falls onto the highest ranking member of Security.
 
   Use common sense and humanity when issuing punishments. You should not always seek out the highest punishment you can, you don't have to always give the maximum time or always look to demote someone. Always take in account the severity and only charge for what is needed for someone to learn their lesson.
 
@@ -44,8 +42,22 @@
 
   [bold]Executions:[/bold] Executions may be authorized by the Captain / acting Captain after a trial has been conducted. Executions may also be approved by CentComm, following formal contact.
 
+  
+  # Repeat Offenses 
+  Offenses repeated again after having been detained for the same crime can have more time added to the recommended maximum sentencing. The general guideline is as follows: 
 
+  ## Second Offenses
+  [bold]Recommended Increase:[/bold] Recommended to increase sentencing time by 1.5x for the same crime only.
 
+  ## Third Offenses
+  [bold]Recommended Increase:[/bold] Recommended to increase sentencing time by 2.5x for the same crime only.
+
+  ## Further Repeat Offenders
+  If the detainee as committed the same crime more than three times in separate occasions, it will be up to the Warden's, or in absence of a Warden, the highest ranking Security Member's discretion on whether they should be put into the Permanent Brig.
+
+  [bold]If brigtime goes above 20 minutes, perma is highly recommended.[/bold]
+
+  
   # Crimes
 
   # I Degree
@@ -82,7 +94,7 @@
 
   [bold]Recommended Maximum Punishment:[/bold] 2:00
 
-  [bold]Notes:[/bold] It's best to just remove them from the area unless this is a repeated crime.
+  [bold]Notes:[/bold] It may be better to simply remove them from the area instead of detaining them.
 
   ## Vandalism
 
@@ -210,7 +222,7 @@
 
   [bold]Recommended Maximum Punishment:[/bold] 5:00
 
-  [bold]Notes:[/bold] This time should be added on top of a prisoners current brig time. While rare, this charge can be bumped to permanent confinement if the suspect has repeatedly attempted to break out of the brig. Includes people breaking others out.
+  [bold]Notes:[/bold] This time should be added on top of a prisoners current brig time. While rare, this charge can be bumped to permanent brig if the suspect has attempted to escape from or assist another in escaping from the brig multiple times.
 
 
 

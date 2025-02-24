@@ -2,5 +2,5 @@
   id: SupermatterSliver
   name: steal-target-groups-cargo-supermatter-sliver
   sprite:
-    sprite: _Goobstation/Supermatter/supermatter_sliver.rsi
+    sprite: _EE/Structures/Power/Generation/Supermatter/supermatter_sliver.rsi
     state: icon

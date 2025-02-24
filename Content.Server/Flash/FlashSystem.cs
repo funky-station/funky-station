@@ -146,11 +146,17 @@ namespace Content.Server.Flash
 
             if (melee || revFlash)
             {
+                if (user == null)
+                    return;
+
+                if (used == null)
+                    return;
+
                 var ev = new AfterFlashedEvent(target, user, used);
-                if (user != null)
-                    RaiseLocalEvent(user.Value, ref ev);
-                if (used != null)
-                    RaiseLocalEvent(used.Value, ref ev);
+                RaiseLocalEvent(target, ref ev);
+
+                _popup.PopupEntity(Loc.GetString("flash-component-user-head-rev",
+                        ("victim", Identity.Entity(target, EntityManager))), target);
             }
         }
 

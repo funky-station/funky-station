@@ -18,6 +18,9 @@
     icon:
       sprite: Nyanotrasen/Objects/Specific/Mail/mail.rsi
       state: icon
+  - type: Tag
+    tags:
+     - PDACart
 
 - type: entity
   parent: BaseItem
@@ -39,3 +42,6 @@
   - type: ActiveRadio
     channels:
     - Common
+  - type: Tag
+    tags:
+    - PDACart

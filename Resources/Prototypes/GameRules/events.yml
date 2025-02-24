@@ -468,7 +468,9 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: [names_death_commando] # goob edit
+        nameSegments: # Vocaloid Names Fix
+        - nukeops-role-operator
+        - SyndicateNamesElite
       - type: NpcFactionMember
         factions:
         - Syndicate

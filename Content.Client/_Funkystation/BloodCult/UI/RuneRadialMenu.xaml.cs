@@ -58,24 +58,46 @@ public sealed partial class RuneRadialMenu : RadialMenu
             //if (!_prototypeManager.TryIndex(ritual, out var ritualPrototype))
             //    continue;
 
-            var button = new RunesMenuButton
-            {
-                StyleClasses = { "RadialMenuButton" },
-                SetSize = new Vector2(64, 64),
-                ToolTip = rune,//Loc.GetString(ritualPrototype.LocName),
-                ProtoId = rune//ritualPrototype.ID
-            };
+			if (rune != "TearVeilRune")
+			{
+				var button = new RunesMenuButton
+				{
+					StyleClasses = { "RadialMenuButton" },
+					SetSize = new Vector2(64, 64),
+					ToolTip = rune,//Loc.GetString(ritualPrototype.LocName),
+					ProtoId = rune//ritualPrototype.ID
+				};
 
-            var texture = new TextureRect
+				var texture = new TextureRect
+				{
+					VerticalAlignment = VAlignment.Center,
+					HorizontalAlignment = HAlignment.Center,
+					Texture = _spriteSystem.GetPrototypeIcon(rune).Default,
+					TextureScale = new Vector2(2f, 2f)
+				};
+				button.AddChild(texture);
+				main.AddChild(button);
+			}
+			else
             {
-                VerticalAlignment = VAlignment.Center,
-                HorizontalAlignment = HAlignment.Center,
-                Texture = _spriteSystem.GetPrototypeIcon(rune).Default,
-                TextureScale = new Vector2(2f, 2f)
-            };
+				var button = new RunesMenuButton
+				{
+					StyleClasses = { "RadialMenuButton" },
+					SetSize = new Vector2(96, 96),
+					ToolTip = rune,//Loc.GetString(ritualPrototype.LocName),
+					ProtoId = rune//ritualPrototype.ID
+				};
 
-            button.AddChild(texture);
-            main.AddChild(button);
+				var texture = new TextureRect
+				{
+					VerticalAlignment = VAlignment.Center,
+					HorizontalAlignment = HAlignment.Center,
+					Texture = _spriteSystem.GetPrototypeIcon(rune).Default,
+					TextureScale = new Vector2(1f, 1f)
+				};
+				button.AddChild(texture);
+				main.AddChild(button);
+			}
         }
 
         AddRuneButtonOnClickAction(main);

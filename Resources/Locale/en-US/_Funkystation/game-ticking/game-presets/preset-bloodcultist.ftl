@@ -26,6 +26,7 @@ cult-invocation-fail-teamkill = Nar'Sie rejects your offering of another Cultist
 cult-invocation-fail-mindshielded = Your victim resists Nar'Sie's influence!
 cult-invocation-fail = More cultists must be present!
 cult-invocation-target-fail = More cultists must be present to sacrifice one Nar'Sie desires!
+cult-invocation-narsie-fail = At least nine cultists must stand atop the rune, distributed evenly, to rend the veil.
 
 cult-invocation-barrier = Khari'd! Eske'te tannin!
 cult-invocation-revive = Pasnar val'keriam usinar. Savrae ines amutan. Yam'toth remium il'tarat!
@@ -41,6 +42,7 @@ cult-spell-fail = You fail to cast the spell!
 cult-status-veil-strong = [italic]The Veil needs to be weakened before we are able to summon The Dark One.[/italic]
 
 cult-status-veil-weak = [italic]You and your acolytes have succeeded in preparing the station for the ultimate ritual![/italic]
+cult-veil-torn = The veil... is... torn!
 
 cult-status-veil-strong-goal = [italic]Current goal: Sacrifice {$targetName}, the {$targetJob} via invoking an offer rune with its body or brain on it and at least {$cultistsRequired} cultists around it.[/italic]
 
@@ -60,7 +62,18 @@ cult-commune-send = Send
 cult-commune-message = Acolyte {$name} (as {$job}): {$message}
 cult-commune-incantation = Y'll tor tz'ul z'nik rar.
 
+cult-narsie-spawning = Reality breaks down around you.
+
+cult-win-announcement-shuttle-call = Due to spatio-temporal complications, the station has been deemed unprofitable to salvage. A crew transfer shuttle has been dispatched. Failure to board and return to Central Command for debriefing will be interpreted as abandonment of contract, and your families will undergo penalties for as long as it takes to recoup these expenses.
+    ETA: {$time} {$units}.
+cult-win-announcement = Due to spatio-temporal complications, the station has been deemed unprofitable to salvage. Failure to return to Central Command for debriefing will be interpreted as abandonment of contract, and your families will undergo penalties for as long as it takes to recoup these expenses.
+
 cult-ghost-role-name = Reawakened Blood Cultist
 cult-ghost-role-desc = A zealous Blood Cultist of Nar'Sie, re-awakened after catatonia.
 cult-ghost-role-rules = You are a team antagonist. Work with your fellow Cultists to accomplish your goals.
                         Sacrifice the crewmembers your deity craves and render the veil that binds Her asunder.
+
+cult-roundend-victory = The blood cult has summoned Nar'Sie and laid claim to the sector in Her name.
+cult-roundend-failure = The blood cult was unable to summon their master.
+cult-roundend-count = There were {$count} total blood cultists.
+cult-roundend-sacrifices = The blood cult rendered {$sacrifices} souls up to the Geometer of Blood.

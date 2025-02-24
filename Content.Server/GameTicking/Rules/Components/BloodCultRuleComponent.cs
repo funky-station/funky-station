@@ -19,6 +19,11 @@ public sealed partial class BloodCultRuleComponent : Component
 	[DataField] public int ReviveCharges = 3;
 
 	/// <summary>
+	/// Total sacrifices made.
+	/// </summary>
+	[DataField] public int TotalSacrifices = 0;
+
+	/// <summary>
 	/// Targets sacrificed successfully.
 	/// </summary>
 	[DataField] public List<EntityUid> TargetsDown = new List<EntityUid>();
@@ -32,6 +37,24 @@ public sealed partial class BloodCultRuleComponent : Component
 	/// Whether or not the VeilWeakened announcement has played.
 	/// </summary>
 	[DataField] public bool VeilWeakenedAnnouncementPlayed = false;
+
+	/// <summary>
+	///	Have the cultists won?
+	/// </summary>
+	[DataField] public bool CultistsWin = false;
+
+	[DataField] public TimeSpan? CultVictoryEndTime = null;
+	[DataField] public bool CultVictoryAnnouncementPlayed = false;
+
+	/// <summary>
+	///	Time in seconds after Nar'Sie spawns for the shuttle to be called.
+	/// </summary>
+	[DataField] public TimeSpan CultVictoryEndDelay = TimeSpan.FromSeconds(15);
+
+	/// <summary>
+	/// Time after the evac shuttle is dispatched for it to arrive.
+	/// </summary>
+	[DataField] public TimeSpan ShuttleCallTime = TimeSpan.FromMinutes(2);
 
 	/// <summary>
 	/// Current target.

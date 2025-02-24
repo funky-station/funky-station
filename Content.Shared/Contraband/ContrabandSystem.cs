@@ -52,12 +52,28 @@ public sealed class ContrabandSystem : EntitySystem
         if (!args.CanInteract)
             return;
 
+        var severity = _proto.Index(component.Severity);
         // two strings:
         // one, the actual informative 'this is restricted'
         // then, the 'you can/shouldn't carry this around' based on the ID the user is wearing
-        var localizedDepartments = component.AllowedDepartments.Select(p => Loc.GetString("contraband-department-plural", ("department", Loc.GetString(_proto.Index(p).Name))));
+        if (component.AllowedDepartments == null) // for one off items that dont need any specifics - funky station
+        {
+            var msg = new FormattedMessage();
+
+            msg.AddMarkupOrThrow(severity.ExamineText);
+
+            _examine.AddDetailedExamineVerb(args,
+                component,
+                msg,
+                Loc.GetString("contraband-examinable-verb-text"),
+                "/Textures/Interface/VerbIcons/lock.svg.192dpi.png",
+                Loc.GetString("contraband-examinable-verb-message"));
+
+            return;
+        }
+
+        var localizedDepartments = component.AllowedDepartments!.Select(p => Loc.GetString("contraband-department-plural", ("department", Loc.GetString(_proto.Index(p).Name))));
         var localizedJobs = component.AllowedJobs.Select(p => Loc.GetString("contraband-job-plural", ("job", _proto.Index(p).LocalizedName)));
-        var severity = _proto.Index(component.Severity);
         String departmentExamineMessage;
         if (severity.ShowDepartmentsAndJobs)
         {
@@ -85,7 +101,7 @@ public sealed class ContrabandSystem : EntitySystem
 
         String carryingMessage;
         // either its fully restricted, you have no departments, or your departments dont intersect with the restricted departments
-        if (departments.Intersect(component.AllowedDepartments).Any()
+        if (departments.Intersect(component.AllowedDepartments!).Any()
             || localizedJobs.Contains(jobId))
         {
             carryingMessage = Loc.GetString("contraband-examine-text-in-the-clear");

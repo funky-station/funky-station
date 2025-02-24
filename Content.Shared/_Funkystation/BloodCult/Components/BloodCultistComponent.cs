@@ -3,6 +3,7 @@ using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Map;
 using Content.Shared.BloodCult.Prototypes;
 
 namespace Content.Shared.BloodCult;
@@ -32,6 +33,16 @@ public sealed partial class BloodCultistComponent : Component
 	///		Studies the veil.
 	/// </summary>
 	[DataField] public bool StudyingVeil = false;
+
+	/// <summary>
+	///		Is Nar'Sie being summoned?
+	/// </summary>
+	[DataField] public EntityCoordinates? NarsieSummoned = null;
+
+	/// <summary>
+	///		Did this cultist just fail to summon Nar'Sie?
+	/// </summary>
+	[DataField] public bool FailedNarsieSummon = false;
 
 	/// <summary>
 	///		Message the cultist is attempting to commune to the others.

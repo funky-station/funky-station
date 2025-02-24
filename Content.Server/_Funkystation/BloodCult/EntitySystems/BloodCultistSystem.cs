@@ -11,9 +11,10 @@ public sealed class BloodCultistSystem : SharedBloodCultistSystem
 	{
 		base.Initialize();
 		SubscribeLocalEvent<BloodCultCommuneEvent>(OpenCommuneUI);
+		SubscribeLocalEvent<BloodCultSpellsEvent>(OpenSpellsUI);
 	}
 
-	# region CommuneUI
+	#region CommuneUI
 	private void OpenCommuneUI(BloodCultCommuneEvent ev)
 	{
 		var communeEntity = ev.Action.Comp.Container;
@@ -35,6 +36,29 @@ public sealed class BloodCultistSystem : SharedBloodCultistSystem
 	}
 	#endregion
 
+	#region SpellsUI
+	private void OpenSpellsUI(BloodCultSpellsEvent ev)
+	{
+		var spellsEntity = ev.Action.Comp.Container;
+
+		if (!TryComp<BloodCultistComponent>(spellsEntity, out var cultistComp))
+			return;
+
+		if (!_uiSystem.HasUi(spellsEntity.Value, SpellsUiKey.Key))
+			return;
+
+		_uiSystem.OpenUi(spellsEntity.Value, SpellsUiKey.Key, ev.Performer);
+		UpdateSpellsUI((spellsEntity.Value, cultistComp));
+	}
+
+	private void UpdateSpellsUI(Entity<BloodCultistComponent> entity)
+	{
+		if (_uiSystem.HasUi(entity, SpellsUiKey.Key))
+			_uiSystem.SetUiState(entity.Owner, SpellsUiKey.Key, new BloodCultSpellsBuiState());
+	}
+	#endregion
+
+	#region RuneEvents
 	public void UseReviveRune(EntityUid target, EntityUid? user, EntityUid? used)
 	{
 		var attempt = new ReviveRuneAttemptEvent(target, user, used);
@@ -58,4 +82,5 @@ public sealed class BloodCultistSystem : SharedBloodCultistSystem
 		var attempt = new ConvertRuneEvent(target, user, used, otherCultists);
 		RaiseLocalEvent(user, attempt, true);
 	}
+	#endregion
 }

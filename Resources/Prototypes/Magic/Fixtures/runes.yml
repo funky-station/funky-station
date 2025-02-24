@@ -108,6 +108,18 @@
         - state: teleport
           color: '#FF770055'
 
+- type: entity
+  parent: BaseBloodCultRune
+  id: TearVeilRune
+  name: tear veil rune
+  components:
+    - type: TearVeil
+    - type: Sprite
+      sprite: _Funkystation/Structures/BloodCult/narsierune.rsi
+      layers:
+        - state: narsierune
+          color: '#FF4400FF'
+
 # Legacy Cult Runes
 - type: entity
   id: BaseRune

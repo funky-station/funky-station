@@ -139,6 +139,7 @@
     # - id: WeaponDisabler
     - id: WeaponDisablerPlus # funkystation adding unique hop weapon
     - id: ClothingEyesHudCommand
+    - id: PDA_cartridge_case
 
 - type: entity
   id: LockerHeadOfPersonnelFilled

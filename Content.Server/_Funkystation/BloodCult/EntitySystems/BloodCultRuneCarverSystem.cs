@@ -181,9 +181,17 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 			var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, ev.Coords);
 
 			var rune = Spawn(ev.EntityId, ev.Coords);  // Spawn the final rune
-			_mapSystem.AddToSnapGridCell(gridUid.Value, grid, targetTile.GridIndices, rune);
-			_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
-			_audioSystem.PlayPvs(ev.CarveSound, ent);
+
+			if (gridUid != null && TryComp<TransformComponent>(rune, out var runeTransform))
+			{
+				_transform.AnchorEntity((rune, runeTransform), ((EntityUid)gridUid, grid), targetTile.GridIndices);
+				_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
+				_audioSystem.PlayPvs(ev.CarveSound, ent);
+			}
+			else
+			{
+				QueueDel(rune);
+			}
 		}
     }
 

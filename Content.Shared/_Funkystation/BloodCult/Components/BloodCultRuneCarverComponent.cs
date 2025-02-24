@@ -32,7 +32,7 @@ public sealed partial class BloodCultRuneCarverComponent : Component
 	/// <summary>
     ///     Time in seconds needed to carve a rune.
     /// </summary>
-    [DataField] public float TimeToCarve = 6f;
+    [DataField] public float TimeToCarve = 15f;
 
 	/// <summary>
     ///     Sound that plays when used to carve a rune.

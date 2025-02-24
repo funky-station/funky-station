@@ -6,12 +6,14 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.GameTicking.Components;
 using Content.Server.Roles;
+using Content.Server.RoundEnd;
 using Content.Server.Antag;
 using Content.Server.Mind;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Content.Shared.BloodCult;
 using Content.Server.BloodCult.Components;
@@ -58,6 +60,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly IGameTiming _timing = default!;
 	[Dependency] private readonly ChatSystem _chat = default!;
 	[Dependency] private readonly SharedJobSystem _jobs = default!;
+	[Dependency] private readonly RoundEndSystem _roundEnd = default!;
 	[Dependency] private readonly IChatManager _chatManager = default!;
 	[Dependency] private readonly SharedBodySystem _body = default!;
 	
@@ -270,13 +273,19 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				{
 					// A target is being sacrificed!
 					if (_SacrificeTarget(sacrifice, component, cultistUid))
+					{
 						AnnounceToCultists(Loc.GetString("cult-narsie-target-down"), newlineNeeded:true);
+						component.TotalSacrifices = component.TotalSacrifices + 1;
+					}
 				}
 				else
 				{
 					// A non-target is being sacrificed!
 					if (_SacrificeNonTarget(sacrifice, component, cultistUid))
+					{
 						AnnounceToCultist(Loc.GetString("cult-narsie-sacrifice-accept"), cultistUid, newlineNeeded:true);
+						component.TotalSacrifices = component.TotalSacrifices + 1;
+					}
 				}
 
 				cultist.Sacrifice = null;
@@ -292,7 +301,10 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 					// Override convert and begin sacrificing -- this is a target!
 					SacrificingData sacrifice = new SacrificingData(convert.Target, convert.Invokers);
 					if (_SacrificeTarget(sacrifice, component, cultistUid))
+					{
 						AnnounceToCultists(Loc.GetString("cult-narsie-target-down"), newlineNeeded:true);
+						component.TotalSacrifices = component.TotalSacrifices + 1;
+					}
 				}
 				else
 				{
@@ -300,6 +312,42 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 					_ConvertNonTarget(convert, component, cultistUid);
 				}
 				cultist.Convert = null;
+			}
+
+			// Did someone just fail to summon Nar'Sie?
+			if (cultist.FailedNarsieSummon)
+			{
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-invocation-narsie-fail"),
+					cultistUid, cultistUid, PopupType.MediumCaution
+				);
+				cultist.FailedNarsieSummon = false;
+			}
+
+			// Summon Nar'Sie
+			if (cultist.NarsieSummoned != null)
+			{
+				string newlines = "\n\n\n\n\n\n";
+				AnnounceToEveryone(newlines+Loc.GetString("cult-veil-torn")+newlines, fontSize:32, audioPath:"/Audio/_Funkystation/Ambience/Antag/dimensional_rend.ogg", audioVolume:2f);
+				var narsieSpawn = Spawn("MobNarsieSpawn", (EntityCoordinates)cultist.NarsieSummoned);
+				cultist.NarsieSummoned = null;
+				component.CultistsWin = true;
+
+				component.CultVictoryEndTime = _timing.CurTime + component.CultVictoryEndDelay;
+			}
+
+			// End the round
+			if (component.CultistsWin && !component.CultVictoryAnnouncementPlayed && component.CultVictoryEndTime != null && _timing.CurTime >= component.CultVictoryEndTime)
+			{
+				component.CultVictoryAnnouncementPlayed = true;
+				component.CultVictoryEndTime = null;
+
+				//EndRound();
+				_roundEnd.DoRoundEndBehavior(RoundEndBehavior.ShuttleCall,
+                    component.ShuttleCallTime,
+                    textCall: "cult-win-announcement-shuttle-call",
+                    textAnnounce: "cult-win-announcement");
+				return;
 			}
 		}
 
@@ -371,36 +419,38 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         //}
     }
 
+	private void EndRound()
+    {
+        _roundEnd.EndRound();
+    }
+
 	protected override void AppendRoundEndText(EntityUid uid, BloodCultRuleComponent component, GameRuleComponent gameRule,
         ref RoundEndTextAppendEvent args)
     {
         base.AppendRoundEndText(uid, component, gameRule, ref args);
 
-		// Which team won?
-        //var revsLost = CheckRevsLose();
-        //var commandLost = CheckCommandLose();
-        
-		// This is (revsLost, commandsLost) concatted together
-        // (moony wrote this comment idk what it means)
-        //var index = (commandLost ? 1 : 0) | (revsLost ? 2 : 0);
-        args.AddLine("The super duper cult round is over!");//Loc.GetString(Outcomes[index]));
-
         var sessionData = _antag.GetAntagIdentifiers(uid);
-        args.AddLine("This is where the number of cultists will go!");//Loc.GetString("rev-headrev-count", ("initialCount", sessionData.Count)));
-
-		//foreach (var (mind, data, name) in sessionData)
-        //{
-        //    _role.MindHasRole<BloodCultRoleComponent>(mind, out var role);
-        //    var count = CompOrNull<BloodCultRoleComponent>(role)?.ConvertedCount ?? 0;
-
-        //    args.AddLine(Loc.GetString("rev-headrev-name-user",
-        //        ("name", name),
-        //        ("username", data.UserName),
-        //        ("count", count)));
-
-            // TODO: someone suggested listing all alive? revs maybe implement at some point
-        //}
+		var cultists = GetCultists();
+		if (component.CultistsWin)
+			args.AddLine(Loc.GetString("cult-roundend-victory"));
+		else
+			args.AddLine(Loc.GetString("cult-roundend-failure"));
+		args.AddLine(Loc.GetString("cult-roundend-count", ("count", cultists.Count.ToString())));
+		args.AddLine(Loc.GetString("cult-roundend-sacrifices", ("sacrifices", component.TotalSacrifices.ToString())));
     }
+
+	private List<EntityUid> GetEveryone()
+	{
+		var everyoneList = new List<EntityUid>();
+
+        var everyone = AllEntityQuery<ActorComponent, MobStateComponent>();
+        while (everyone.MoveNext(out var uid, out var actorComp, out _))
+        {
+            everyoneList.Add(uid);
+        }
+
+        return everyoneList;
+	}
 
 	private List<EntityUid> GetCultists()
     {
@@ -595,6 +645,25 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		RaiseLocalEvent(ref ev);
 	}
 
+	public void AnnounceToEveryone(string message, uint fontSize = 14, Color? color = null,
+									bool newlineNeeded = false, string? audioPath = null,
+									float audioVolume = 1f)
+	{
+		if (color == null)
+			color = Color.DarkRed;
+		var filter = Filter.Empty();
+		List<EntityUid> everyone = GetEveryone();
+		foreach (EntityUid playerUid in everyone)
+		{
+			if (TryComp(playerUid, out ActorComponent? actorComp))
+			{
+				filter.AddPlayer(actorComp.PlayerSession);
+			}
+		}
+		string wrappedMessage = "[font size="+fontSize.ToString()+"][bold]" + (newlineNeeded ? "\n" : "") + message + "[/bold][/font]";
+		_chatManager.ChatMessageToManyFiltered(filter, ChatChannel.Radio, message, wrappedMessage, default, false, true, color, audioPath, audioVolume);
+	}
+
 	public void AnnounceToCultists(string message, uint fontSize = 14, Color? color = null,
 									bool newlineNeeded = false, string? audioPath = null,
 									float audioVolume = 1f)
@@ -635,6 +704,16 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 	public void AnnounceStatus(BloodCultRuleComponent component, List<EntityUid> cultists, EntityUid? specificCultist = null)
 	{
+		if (component.CultistsWin)
+		{
+			if (specificCultist != null)
+				AnnounceToCultist("Feed me.\n",
+						(EntityUid)specificCultist, color:new Color(111, 80, 143, 255), fontSize:24, newlineNeeded:true);
+			else
+				AnnounceToCultists("Feed me.\n",
+					color:new Color(111, 80, 143, 255), fontSize:24, newlineNeeded:true);
+			return;
+		}
 		string purpleMessage = !component.VeilWeakened ?
 				Loc.GetString("cult-status-veil-strong") :
 				Loc.GetString("cult-status-veil-weak");

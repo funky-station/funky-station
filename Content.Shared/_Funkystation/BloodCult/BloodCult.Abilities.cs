@@ -13,6 +13,8 @@ namespace Content.Shared.BloodCult;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CultistSpellComponent : Component
 {
+	public static List<ProtoId<CultAbilityPrototype>> ValidSpells = new List<ProtoId<CultAbilityPrototype>>{"SummonDagger", "CultStun"};
+
 	/// <summary>
 	/// 	ID of the prototype that summons this spell.
 	///		(I hate that there doesn't seem to be a way to fetch this in another way...)
@@ -75,6 +77,29 @@ public sealed partial class CultistSpellComponent : Component
 #endregion
 
 #region Spells
+
+[Serializable, NetSerializable]
+public sealed partial class SpellsMessage : BoundUserInterfaceMessage
+{
+	public ProtoId<CultAbilityPrototype> ProtoId;
+
+	public SpellsMessage(ProtoId<CultAbilityPrototype> protoId)
+	{
+		ProtoId = protoId;
+	}
+}
+[Serializable, NetSerializable]
+public enum SpellsUiKey : byte
+{
+	Key
+}
+
+[Serializable, NetSerializable]
+public sealed class BloodCultSpellsBuiState : BoundUserInterfaceState
+{
+	public BloodCultSpellsBuiState()
+	{}
+}
 
 public sealed partial class EventCultistStudyVeil : InstantActionEvent { }
 public sealed partial class EventCultistSummonDagger : InstantActionEvent { }

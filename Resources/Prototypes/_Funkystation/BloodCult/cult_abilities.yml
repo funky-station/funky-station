@@ -9,6 +9,11 @@
   - ActionCultistCommune
 
 - type: cultAbility
+  id: SpellsSelect
+  actionPrototypes:
+  - ActionCultistSpellsSelect
+
+- type: cultAbility
   id: SummonDagger
   actionPrototypes:
   - ActionCultistSummonDagger

@@ -55405,7 +55405,7 @@ entities:
     - type: Transform
       pos: -16.329556,-49.467247
       parent: 2
-- proto: GameMasterCircuitBoard
+- proto: DungeonMasterCircuitBoard
   entities:
   - uid: 5486
     components:

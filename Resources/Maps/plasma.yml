@@ -82398,7 +82398,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -112.5,-19.5
       parent: 2
-- proto: GameMasterCircuitBoard
+- proto: DungeonMasterCircuitBoard
   entities:
   - uid: 24943
     components:

@@ -31,6 +31,10 @@ cult-invocation-barrier = Khari'd! Eske'te tannin!
 cult-invocation-revive = Pasnar val'keriam usinar. Savrae ines amutan. Yam'toth remium il'tarat!
 cult-invocation-offering = Mah'weyh pleggh at e'ntrath!
 
+cult-spell-carving = You begin crudly carving a sigil into your flesh.
+cult-spell-carving-rune = Empowered by the rune, you barely feel the sigil being carved into your flesh.
+cult-spell-exceeded = You cannot carve another spell!
+cult-spell-havealready = You already have that spell!
 cult-spell-fail = You fail to cast the spell!
 
 cult-status-veil-strong = [italic]The Veil needs to be weakened before we are able to summon The Dark One.[/italic]
@@ -45,7 +49,6 @@ cult-status-veil-weak-goal = [italic]Current goal: Summon Nar'Sie by invoking th
 cult-status-veil-weak-cultdata = Current cult members: {$cultCount} | Conversions until Rise: {$cultUntilRise}
     Cultists: {$cultistCount}
     Constructs: {$constructCount}
-
 
 cult-narsie-sacrifice-accept = "I accept your sacrifice."
 cult-narsie-target-down = "Yes, this is the one I desire."

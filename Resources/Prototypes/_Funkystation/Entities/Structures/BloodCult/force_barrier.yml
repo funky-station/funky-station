@@ -21,7 +21,7 @@
     mode: SnapgridCenter
   components:
   - type: TimedDespawn
-    lifetime: 12
+    lifetime: 25
   - type: ForceBarrier
   - type: Sprite
     drawdepth: WallMountedItems

@@ -3,6 +3,9 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
+using Robust.Server.GameObjects;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Content.Server.Power.Components;
 using Content.Shared.FixedPoint;
 using Content.Server.Popups;
@@ -12,6 +15,7 @@ using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Prototypes;
 using Content.Server.BloodCult.Components;
 using Content.Shared.BloodCult.Components;
+using Content.Shared.DoAfter;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
@@ -21,6 +25,7 @@ using Content.Shared.Speech.Muting;
 using Content.Shared.Stunnable;
 using Content.Shared.Emp;
 using Content.Server.Emp;
+using Content.Shared.Popups;
 using Content.Server.PowerCell;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
@@ -45,17 +50,25 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	[Dependency] private readonly StaminaSystem _stamina = default!;
 	[Dependency] private readonly EmpSystem _emp = default!;
 	[Dependency] private readonly PowerCellSystem _powerCell = default!;
+	[Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+	[Dependency] private readonly SharedTransformSystem _transform = default!;
+	[Dependency] private readonly MapSystem _mapSystem = default!;
+	[Dependency] private readonly IMapManager _mapManager = default!;
 	[Dependency] private readonly IGameTiming _gameTiming = default!;
 	[Dependency] private readonly IEntityManager _entMan = default!;
 	[Dependency] private readonly SharedStunSystem _stun = default!;
 	
 	[Dependency] private readonly IPrototypeManager _protoMan = default!;
 
+	private EntityQuery<EmpowerOnStandComponent> _runeQuery;
+
 	private static string[] AvailableDaggers = ["CultDaggerCurved", "CultDaggerSerrated", "CultDaggerStraight"];
 
 	public override void Initialize()
 	{
 		base.Initialize();
+
+		_runeQuery = GetEntityQuery<EmpowerOnStandComponent>();
 
 		SubscribeLocalEvent<BloodCultistComponent, SpellsMessage>(OnSpellSelectedMessage);
 
@@ -65,6 +78,8 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		SubscribeLocalEvent<BloodCultistComponent, BloodCultCommuneSendMessage>(OnCommune);
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistStun>(OnStun);
 		SubscribeLocalEvent<CultMarkedComponent, AttackedEvent>(OnMarkedAttacked);
+
+		SubscribeLocalEvent<BloodCultistComponent, CarveSpellDoAfterEvent>(OnCarveSpellDoAfter);
 	}
 
 	private bool TryUseAbility(Entity<BloodCultistComponent> ent, BaseActionEvent args)
@@ -114,16 +129,88 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	{
 		var data = GetSpell(id);
 
+		bool standingOnRune = false;
+		var coords = new EntityCoordinates(uid, default);//.Position;
+		var location = coords.AlignWithClosestGridTile(entityManager: EntityManager, mapManager: _mapManager);
+		var gridUid = _transform.GetGrid(location);
+		if (TryComp<MapGridComponent>(gridUid, out var grid))
+		{
+			var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, location);
+			foreach(var possibleEnt in _mapSystem.GetAnchoredEntities(gridUid.Value, grid, targetTile.GridIndices))
+			{
+				if (_runeQuery.HasComponent(possibleEnt))
+				{
+					standingOnRune = true;
+				}
+			}
+		}
+
+		if (comp.KnownSpells.Count > 3 || (!standingOnRune && comp.KnownSpells.Count > 0))
+		{
+			_popup.PopupEntity(Loc.GetString("cult-spell-exceeded"), uid, uid);
+			return;
+		}
+
         if (data.Event != null)
             RaiseLocalEvent(uid, (object) data.Event, true);
 
-        if (data.ActionPrototypes != null && data.ActionPrototypes.Count > 0)
-            foreach (var act in data.ActionPrototypes)
-                _action.AddAction(uid, act);
-		if (recordKnownSpell)
-			comp.KnownSpells.Add(data);
+		if (data.ActionPrototypes == null || data.ActionPrototypes.Count <= 0)
+			return;
 
-        Dirty(uid, comp);
+		if (data.DoAfterLength > 0)
+		{
+			_popup.PopupEntity(standingOnRune ? Loc.GetString("cult-spell-carving-rune") : Loc.GetString("cult-spell-carving"), uid, uid, PopupType.MediumCaution);
+			var dargs = new DoAfterArgs(EntityManager, uid, data.DoAfterLength * (standingOnRune ? 1 : 3), new CarveSpellDoAfterEvent(
+				uid, data, recordKnownSpell, standingOnRune), uid
+			)
+			{
+				BreakOnDamage = true,
+				BreakOnHandChange = false,
+				BreakOnMove = true,
+				BreakOnDropItem = false,
+				CancelDuplicate = false,
+			};
+
+			_doAfter.TryStartDoAfter(dargs);
+		}
+		else
+		{
+			foreach (var act in data.ActionPrototypes)
+				_action.AddAction(uid, act);
+			if (recordKnownSpell)
+				comp.KnownSpells.Add(data);
+		}
+	}
+
+	public void OnCarveSpellDoAfter(Entity<BloodCultistComponent> ent, ref CarveSpellDoAfterEvent args)
+	{
+		if (ent.Comp.KnownSpells.Count > 3 || (!args.StandingOnRune && ent.Comp.KnownSpells.Count > 0))
+		{
+			_popup.PopupEntity(Loc.GetString("cult-spell-exceeded"), ent, ent);
+			return;
+		}
+		if (args.CultAbility.ActionPrototypes == null)
+			return;
+
+		DamageSpecifier appliedDamageSpecifier = new DamageSpecifier(
+			_protoMan.Index<DamageTypePrototype>("Slash"),
+			FixedPoint2.New(args.CultAbility.HealthDrain * (args.StandingOnRune ? 1 : 3))
+		);
+
+        if (!args.Cancelled)
+		{
+			foreach (var act in args.CultAbility.ActionPrototypes)
+			{
+				_action.AddAction(args.CarverUid, act);
+			}
+			if (args.RecordKnownSpell)
+				ent.Comp.KnownSpells.Add(args.CultAbility);
+			
+			_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
+			_audioSystem.PlayPvs(args.CultAbility.CarveSound, ent);
+		}
+
+        Dirty(ent, ent.Comp);
 	}
 
 	public void RemoveSpell(ProtoId<CultAbilityPrototype> id, BloodCultistComponent comp)
@@ -148,7 +235,10 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	private void OnSpellSelectedMessage(Entity<BloodCultistComponent> ent, ref SpellsMessage args)
 	{
 		if (!CultistSpellComponent.ValidSpells.Contains(args.ProtoId) || ent.Comp.KnownSpells.Contains(args.ProtoId))
+		{
+			_popup.PopupEntity(Loc.GetString("cult-spell-havealready"), ent, ent);
 			return;
+		}
 		AddSpell(ent, ent.Comp, args.ProtoId, recordKnownSpell:true);
 	}
 

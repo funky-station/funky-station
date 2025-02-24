@@ -109,7 +109,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		if (args.Handled
 			|| !args.CanReach
 			|| !args.ClickLocation.IsValid(EntityManager)
-			//|| !TryComp<BloodCultistComponent>(args.User, out var cultist) // ensure user is cultist
+			|| !TryComp<BloodCultistComponent>(args.User, out var cultist) // ensure user is cultist
 			|| HasComp<ActiveDoAfterComponent>(args.User)
 			|| args.Target == null)
 			return;

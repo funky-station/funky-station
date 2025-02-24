@@ -74,6 +74,22 @@ public sealed partial class CultistSpellComponent : Component
     }
 }
 
+[Serializable, NetSerializable] public sealed partial class CarveSpellDoAfterEvent : SimpleDoAfterEvent
+{
+	[NonSerialized] public EntityUid CarverUid;
+	[NonSerialized] public CultAbilityPrototype CultAbility;
+	[NonSerialized] public bool RecordKnownSpell;
+	[NonSerialized] public bool StandingOnRune;
+
+    public CarveSpellDoAfterEvent(EntityUid carverUid, CultAbilityPrototype cultAbility, bool recordKnownSpell, bool standingOnRune)
+    {
+		CarverUid = carverUid;
+		CultAbility = cultAbility;
+		RecordKnownSpell = recordKnownSpell;
+		StandingOnRune = standingOnRune;
+    }
+}
+
 #endregion
 
 #region Spells

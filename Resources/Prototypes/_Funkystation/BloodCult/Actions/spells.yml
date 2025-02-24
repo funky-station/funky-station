@@ -111,7 +111,7 @@
     abilityId: CultStun
     charges: 1
     infinite: False
-    healthCost: 10
+    healthCost: 0
     rechargeTime: 0
     invocation: Fuu ma'jin!
     castSound: !type:SoundPathSpecifier

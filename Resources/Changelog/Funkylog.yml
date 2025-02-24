@@ -1677,3 +1677,17 @@ Entries:
       message: Resprited the mail metrics cartridge
   id: 210
   time: '2025-02-23T05:21:25.0000000+00:00'
+- author: ' Darkmajia, AftrLite, VMSolidus'
+  changes:
+    - type: Tweak
+      message: >-
+        The supermatter has received a large amount of changes and upgrades.
+        Check out the updated guidebook!
+    - type: Tweak
+      message: The supermatter monitoring console now has full functionality.
+    - type: Fix
+      message: >-
+        The supermatter now emits waste gas as intended, instead of storing
+        waste inside itself.
+  id: 211
+  time: '2025-02-24T01:16:25.0000000+00:00'

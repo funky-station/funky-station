@@ -30,6 +30,7 @@ cult-invocation-target-fail = More cultists must be present to sacrifice one Nar
 cult-invocation-barrier = Khari'd! Eske'te tannin!
 cult-invocation-revive = Pasnar val'keriam usinar. Savrae ines amutan. Yam'toth remium il'tarat!
 cult-invocation-offering = Mah'weyh pleggh at e'ntrath!
+cult-invocation-empowering = H'drak v'loso, mir'kanas verbot!
 
 cult-spell-carving = You begin crudly carving a sigil into your flesh.
 cult-spell-carving-rune = Empowered by the rune, you barely feel the sigil being carved into your flesh.

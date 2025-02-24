@@ -190,6 +190,18 @@
             "name": "InitialInfected"
         },
         {
+            "name": "Changeling"
+        },
+        {
+            "name": "SecurityClown"
+        },
+        {
+            "name": "PartyMaker"
+        },
+        {
+            "name": "CommandMaid"
+        },
+        {
             "name": "Admin"
         }
     ]

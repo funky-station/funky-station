@@ -9,7 +9,6 @@
     state: pda-chrono
   - type: Pda
     id: ChronoIDCard
-    state: pda-chrono
     penSlot:
       startingItem: PenFuture
       whitelist:
@@ -30,10 +29,8 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/pda.rsi
-    state: pda-heccd
   - type: Pda
     id: HelldiverIDCard
-    state: pda-heccd
   - type: PdaBorderColor
     borderColor: "#272727"
     accentVColor: "#cec100"
@@ -49,7 +46,6 @@
   components:
   - type: Pda
     id: HecuIDCard
-    state: pda-centcom
     penSlot:
       startingItem: PenCentcom
       whitelist:

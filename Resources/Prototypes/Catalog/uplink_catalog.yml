@@ -29,9 +29,6 @@
   name: uplink-revolver-python-name
   description: uplink-revolver-python-desc
   productEntity: WeaponRevolverPythonAP
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 5
   cost:
     Telecrystal: 24 # goob - Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 40 TC.
   categories:
@@ -806,9 +803,6 @@
   name: uplink-access-breaker-name
   description: uplink-access-breaker-desc
   productEntity: AccessBreaker
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 10
   cost:
     Telecrystal: 30
   categories:
@@ -819,9 +813,6 @@
   name: uplink-emag-name
   description: uplink-emag-desc
   productEntity: Emag
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 15
   cost:
     Telecrystal: 40 # goob
   categories:
@@ -1245,9 +1236,6 @@
   description: uplink-radio-implanter-desc
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
   productEntity: RadioImplanter
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 1
   cost:
     Telecrystal: 2
   categories:
@@ -1354,9 +1342,6 @@
   name: uplink-fake-mindshield-name
   description: uplink-fake-mindshield-desc
   icon: { sprite: Interface/Actions/actions_fakemindshield.rsi, state: icon-on }
-  productEntity: FakeMindShieldImplanter
-  discountDownTo:
-    Telecrystal: 2
   cost:
     Telecrystal: 4
   categories:
@@ -1912,9 +1897,6 @@
   name: uplink-revolver-cap-gun-fake-name
   description: uplink-revolver-cap-gun-fake-desc
   productEntity: RevolverCapGunFake
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 5
   cost:
     Telecrystal: 28 # goob
   categories:
@@ -2070,9 +2052,6 @@
   description: uplink-combat-bakery-desc
   icon: { sprite:  Objects/Consumable/Food/Baked/bread.rsi, state: baguette}
   productEntity: CombatBakeryKit
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 2
   cost:
     Telecrystal: 30 # goob
   categories:

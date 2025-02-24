@@ -2,6 +2,6 @@
   id: PainNumbness
   name: trait-painnumbness-name
   description: trait-painnumbness-desc
-  category: Disabilities
+  category: Quirks
   components:
   - type: PainNumbness

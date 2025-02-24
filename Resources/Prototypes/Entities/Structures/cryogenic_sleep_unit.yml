@@ -76,7 +76,6 @@
     - state: sleeper_0
       map: ["base"]
   - type: AccessReader
-    breakOnEmag: false
     access: [["Cryogenics"]]
   - type: InteractionOutline
   - type: Physics

@@ -227,6 +227,15 @@
       "name": "idseniorofficer"
     },
     {
+      "name": "idcommandmaid"
+    },
+    {
+      "name": "idsecurityclown"
+    },
+    {
+      "name": "idpartymaker"
+    },
+    {
       "name": "gold-inhand-left",
       "directions": 4
     },

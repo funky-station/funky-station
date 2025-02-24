@@ -840,7 +840,6 @@
   components:
   - type: Pda
     id: RoboticsIDCard
-    state: pda-roboticist
   - type: PdaBorderColor
     borderColor: "#484848"
     accentVColor: "#d33725"

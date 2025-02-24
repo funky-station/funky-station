@@ -118,9 +118,17 @@ namespace Content.Server.BloodCult.EntitySystems
 			}
 			var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, inLocation);
 
-			var rune = Spawn("ForceBarrier", inLocation);
-			_mapSystem.AddToSnapGridCell(gridUid.Value, grid, targetTile.GridIndices, rune);
-			_audioSystem.PlayPvs("/Audio/Effects/inneranomaly.ogg", inLocation);
+			var barrier = Spawn("ForceBarrier", inLocation);
+
+			if (gridUid != null && TryComp<TransformComponent>(barrier, out var barrierTransform))
+			{
+				_transform.AnchorEntity((barrier, barrierTransform), ((EntityUid)gridUid, grid), targetTile.GridIndices);
+				_audioSystem.PlayPvs("/Audio/Effects/inneranomaly.ogg", inLocation);
+			}
+			else
+			{
+				QueueDel(barrier);
+			}
 		}
 
 		private bool CanPlaceBarrierAt(EntityCoordinates clickedAt, out EntityCoordinates location)

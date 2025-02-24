@@ -170,8 +170,6 @@ ghost-role-information-skeleton-biker-description = Ride around on your sweet ri
 ghost-role-information-closet-skeleton-name = Closet Skeleton
 ghost-role-information-closet-skeleton-description = You are arguably one of the oldest members of the station! Get your old job back, or cause chaos! The world is yours to shape.
 
-ghost-role-information-remilia-name = Remilia, the Chaplain's Familiar
-
 # funkystation
 ghost-role-information-neanderthal-name = Unfrozen Neanderthal
 

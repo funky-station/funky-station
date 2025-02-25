@@ -153,7 +153,8 @@ namespace Content.Server.Flash
                     return;
 
                 var ev = new AfterFlashedEvent(target, user, used);
-                RaiseLocalEvent(target, ref ev);
+                RaiseLocalEvent(user.Value, ref ev);
+                RaiseLocalEvent(used.Value, ref ev);
 
                 _popup.PopupEntity(Loc.GetString("flash-component-user-head-rev",
                         ("victim", Identity.Entity(target, EntityManager))), target);

@@ -7,9 +7,6 @@
     "y": 32
   },
   "states": [
-    {
-      "name": "pda"
-    },
 	{
       "name": "pda-chrono"
     },
@@ -21,6 +18,17 @@
     },
 	{
       "name": "light_overlay"
-    }
+    },
+    {
+       "name": "pda-centcom",
+       "delays": [
+              [
+                  1.2,
+                  1.2,
+                  1.2,
+                  1.2
+              ]
+          ]
+      }
   ]
 }

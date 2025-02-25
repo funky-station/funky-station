@@ -21,4 +21,10 @@ public sealed class ImpCCVars : CVars
 
     public static readonly CVarDef<int> CosmicCultFinaleDelaySeconds =
         CVarDef.Create<int>("cosmiccult.extra_entropy_for_finale", 150, CVar.SERVER, "The delay between the monument getting upgraded to tier 3 and the finale starting");
+
+    /// <summary>
+    /// The number of shared moods to give thaven by default.
+    /// </summary>
+    public static readonly CVarDef<uint> ThavenSharedMoodCount =
+        CVarDef.Create<uint>("thaven.shared_mood_count", 1, CVar.SERVERONLY);
 }

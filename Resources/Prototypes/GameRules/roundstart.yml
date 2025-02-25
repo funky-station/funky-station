@@ -110,7 +110,7 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: 
+        nameSegments:
         - nukeops-role-commander
         - SyndicateNamesElite
       - type: NpcFactionMember
@@ -127,7 +127,7 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: 
+        nameSegments:
         - nukeops-role-agent
         - SyndicateNamesNormal
       - type: NpcFactionMember
@@ -207,14 +207,14 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 20
   - type: RevolutionaryRule
   - type: AntagSelection
     selectionTime: BeforeJobs # Goobstation
     definitions:
     - prefRoles: [ HeadRev ]
       max: 3
-      playerRatio: 20
+      playerRatio: 30
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue

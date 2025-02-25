@@ -835,6 +835,14 @@
     - DoorBumpOpener
   - type: NanoChatCard # DeltaV
     notificationsMuted: true
+  - type: AgentIDCard
+  - type: ActivatableUI
+    key: enum.AgentIDCardUiKey.Key
+    inHandsOnly: true
+  - type: UserInterface
+    interfaces:
+      enum.AgentIDCardUiKey.Key:
+        type: AgentIDCardBoundUserInterface
 
 # event-restricted jobs
 

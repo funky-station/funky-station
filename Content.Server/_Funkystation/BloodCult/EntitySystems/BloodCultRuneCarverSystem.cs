@@ -207,7 +207,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 			QueueDel(uid);
 			Spawn("Ash", Transform(args.User).Coordinates);
 			_popupSystem.PopupEntity(
-				Loc.GetString("The dagger turns to ash in your hands!"),
+				Loc.GetString("cult-dagger-equip-fail"),
 				args.User, args.User, PopupType.SmallCaution
 			);
 			_audioSystem.PlayPvs("/Audio/Effects/lightburn.ogg", Transform(args.User).Coordinates);

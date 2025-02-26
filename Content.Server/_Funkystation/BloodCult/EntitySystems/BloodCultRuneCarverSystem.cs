@@ -13,6 +13,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.DoAfter;
+using Content.Shared.Hands;
 //using Content.Shared.Transform;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -54,6 +55,8 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 		SubscribeLocalEvent<BloodCultRuneCarverComponent, RunesMessage>(OnRuneChosenMessage);
 
+		SubscribeLocalEvent<BloodCultRuneCarverComponent, GotEquippedHandEvent>(OnEquipped);
+
 		_runeQuery = GetEntityQuery<BloodCultRuneComponent>();
 	}
 
@@ -86,9 +89,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 	private void TryOpenUi(EntityUid uid, EntityUid user, BloodCultRuneCarverComponent? component = null)
 	{
-		if (!Resolve(uid, ref component))
-			return;
-		if (!TryComp(user, out ActorComponent? actor))
+		if (!HasComp<BloodCultistComponent>(user) || !Resolve(uid, ref component) || !TryComp(user, out ActorComponent? actor))
 			return;
 		_uiSystem.TryToggleUi(uid, RunesUiKey.Key, actor.PlayerSession);
 	}
@@ -197,7 +198,20 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 	private void OnUseInHand(Entity<BloodCultRuneCarverComponent> ent, ref UseInHandEvent ev)
 	{
-		Console.WriteLine("Used it in hand!");
+	}
+
+	private void OnEquipped(EntityUid uid, BloodCultRuneCarverComponent component, GotEquippedHandEvent args)
+	{
+		if (!HasComp<BloodCultistComponent>(args.User))
+		{
+			QueueDel(uid);
+			Spawn("Ash", Transform(args.User).Coordinates);
+			_popupSystem.PopupEntity(
+				Loc.GetString("The dagger turns to ash in your hands!"),
+				args.User, args.User, PopupType.SmallCaution
+			);
+			_audioSystem.PlayPvs("/Audio/Effects/lightburn.ogg", Transform(args.User).Coordinates);
+		}
 	}
 
 	private bool CanPlaceRuneAt(EntityCoordinates clickedAt, out EntityCoordinates location)

@@ -9,6 +9,7 @@ using Content.Shared.Trigger;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared.Popups;
+using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -45,6 +46,8 @@ namespace Content.Server.BloodCult.EntitySystems
 		{
 			if (_entManager.TryGetComponent<TransformComponent>(uid, out var xform))
 			{
+				if (args.User != null && !HasComp<BloodCultistComponent>(args.User))
+					return;
 				if (CanPlaceBarrierAt(xform.Coordinates, out var location))
 				{
 					var gridUid = _transform.GetGrid(location);

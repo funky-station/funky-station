@@ -1,5 +1,6 @@
 using Robust.Shared.Player;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Map;
 using Content.Server.GameTicking.Rules;
 using Content.Shared.Mind;
 using Content.Shared.BloodCult;
@@ -13,6 +14,35 @@ namespace Content.Server.GameTicking.Rules.Components;
 [RegisterComponent, Access(typeof(BloodCultRuleSystem))]
 public sealed partial class BloodCultRuleComponent : Component
 {
+	/// <summary>
+	///	Possible Nar'Sie summon locations.
+	/// </summary>
+	[DataField] public static List<string> PossibleVeilLocations = new List<string> {
+		"DefaultStationBeaconCaptainsQuarters", "DefaultStationBeaconHOPOffice",
+		"DefaultStationBeaconSecurity", "DefaultStationBeaconBrig",
+		"DefaultStationBeaconWardensOffice", "DefaultStationBeaconHOSRoom",
+		"DefaultStationBeaconArmory", "DefaultStationBeaconPermaBrig",
+		"DefaultStationBeaconDetectiveRoom", "DefaultStationBeaconCourtroom",
+		"DefaultStationBeaconLawOffice", "DefaultStationBeaconChemistry",
+		"DefaultStationBeaconCMORoom", "DefaultStationBeaconMorgue",
+		"DefaultStationBeaconRND", "DefaultStationBeaconServerRoom",
+		"DefaultStationBeaconRDRoom", "DefaultStationBeaconRobotics",
+		"DefaultStationBeaconArtifactLab", "DefaultStationBeaconAnomalyGenerator",
+		"DefaultStationBeaconCargoReception", "DefaultStationBeaconCargoBay",
+		"DefaultStationBeaconQMRoom", "DefaultStationBeaconSalvage",
+		"DefaultStationBeaconCERoom", "DefaultStationBeaconAME",
+		"DefaultStationBeaconTEG", "DefaultStationBeaconTechVault",
+		"DefaultStationBeaconKitchen", "DefaultStationBeaconBar",
+		"DefaultStationBeaconBotany", "DefaultStationBeaconAICore",
+		"DefaultStationBeaconEVAStorage", "DefaultStationBeaconChapel",
+		"DefaultStationBeaconLibrary", "DefaultStationBeaconTheater",
+		"DefaultStationBeaconToolRoom"
+	};
+
+	[DataField] public WeakVeilLocation? WeakVeil1 = null;
+	[DataField] public WeakVeilLocation? WeakVeil2 = null;
+	[DataField] public WeakVeilLocation? WeakVeil3 = null;
+
 	/// <summary>
 	/// Charges available for the Revive Rune.
 	/// </summary>
@@ -95,4 +125,25 @@ public sealed partial class BloodCultRuleComponent : Component
 	/// Number of players required to convert a player.
 	/// </summary>
 	[DataField] public int CultistsToConvert = 2;
+}
+
+/// <summary>
+///	Contains information about a place where the veil is weak.
+/// </summary>
+public struct WeakVeilLocation
+{
+	public readonly string Name;
+	public readonly EntityUid Uid;
+	public readonly string ProtoUid;
+	public readonly EntityCoordinates Coordinates;
+	public readonly float ValidRadius;
+
+	public WeakVeilLocation(string name, EntityUid uid, string protoUid, EntityCoordinates coordinates, float validRadius)
+	{
+		Name = name;
+		Uid = uid;
+		ProtoUid = protoUid;
+		Coordinates = coordinates;
+		ValidRadius = validRadius;
+	}
 }

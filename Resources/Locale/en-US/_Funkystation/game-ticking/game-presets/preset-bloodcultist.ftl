@@ -15,6 +15,8 @@ cult-briefing-targets = Nar'Sie demands the blood of
 
 admin-verb-make-cultist = Make the target into a Blood Cultist.
 
+cult-dagger-equip-fail = The dagger turns to ash in your hands!
+
 cult-rune-drawing-novowel = You begin smearing a rune into the floor with your own wrist's blood...
 cult-rune-drawing-vowel-first = You begin smearing a
 cult-rune-drawing-vowel-second = into the floor with your own wrist's blood...

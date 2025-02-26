@@ -25,6 +25,7 @@ using Content.Shared.Magic.Events;
 using Content.Shared.Body.Systems;
 using Robust.Shared.Random;
 using Content.Shared.Roles.Jobs;
+using Content.Shared.Pinpointer;
 
 using Content.Server.BloodCult.EntitySystems;
 using Content.Shared.BloodCult.Prototypes;
@@ -98,7 +99,42 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         base.Started(uid, component, gameRule, args);
 		SelectTarget(component);
 		component.InitialReportTime = _timing.CurTime + TimeSpan.FromSeconds(1);
+		SelectVeilTargets(component);
     }
+
+	private void SelectVeilTargets(BloodCultRuleComponent component)
+	{
+		var beaconsList = new List<WeakVeilLocation>();
+
+        var beacons = AllEntityQuery<NavMapBeaconComponent, MetaDataComponent>();
+        while (beacons.MoveNext(out var beaconUid, out var navMapBeacon, out var metaData))
+        {
+			if (metaData.EntityPrototype != null &&
+				metaData.EntityPrototype.EditorSuffix != null &&
+				BloodCultRuleComponent.PossibleVeilLocations.Contains(metaData.EntityPrototype.ID))
+			{
+				var veilLoc = new WeakVeilLocation(
+					metaData.EntityPrototype.EditorSuffix, beaconUid,
+					metaData.EntityPrototype.ID, Transform(beaconUid).Coordinates,
+					5.0f
+				);
+				beaconsList.Add(veilLoc);
+			}
+        }
+		if (beaconsList.Count < 3)
+			return;
+		int first = _random.Next(0, beaconsList.Count);
+		int second = _random.Next(0, beaconsList.Count);
+		while (second == first)
+			second = _random.Next(0, beaconsList.Count);
+		int third = _random.Next(0, beaconsList.Count);
+		while (third == second || third == first)
+			third = _random.Next(0, beaconsList.Count);
+
+		component.WeakVeil1 = beaconsList[first];
+		component.WeakVeil2 = beaconsList[second];
+		component.WeakVeil3 = beaconsList[third];
+	}
 
 	/// <summary>
     /// Selects a new target for the Cultists. Prioritizes Security and Command.
@@ -720,8 +756,19 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 		if (component.VeilWeakened)
 		{
-			purpleMessage = purpleMessage + "\n" + Loc.GetString("cult-status-veil-weak-goal", ("firstLoc", "Room One"),
-				("secondLoc", "Room Two"), ("thirdLoc", "Room Three"));
+			string name1 = "Unknown";
+			string name2 = "Unknown";
+			string name3 = "Unknown";
+			if (component.WeakVeil1 != null)
+				name1 = ((WeakVeilLocation)(component.WeakVeil1)).Name;
+			if (component.WeakVeil2 != null)
+				name2 = ((WeakVeilLocation)(component.WeakVeil2)).Name;
+			if (component.WeakVeil3 != null)
+				name3 = ((WeakVeilLocation)(component.WeakVeil3)).Name;
+			purpleMessage = purpleMessage + "\n" + Loc.GetString("cult-status-veil-weak-goal",
+				("firstLoc", name1),
+				("secondLoc", name2),
+				("thirdLoc", name3));
 		}
 		else if (component.Target != null)
 		{

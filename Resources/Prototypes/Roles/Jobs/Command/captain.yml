@@ -6,7 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science
-      Time: 21600 #6 hrs
+      time: 21600 #6 hrs
     - !type:DepartmentTimeRequirement
       department: Engineering
       time: 21600 #6 hrs

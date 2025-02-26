@@ -4,10 +4,14 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorDarkBlue
     head: ClothingHeadHatWizard
+    back: ClothingBackpack # Wizard backpack?
     outerClothing: ClothingOuterWizard
     shoes: ClothingShoesWizard
-    id: PassengerPDA
-    ears: ClothingHeadsetService
+    id: PassengerPDA # Maybe a wizard PDA of some sort?
+    ears: ClothingHeadsetAltCommand
+    belt: ClothingBeltWand
+    # pocket1: TODO: Include wizard teleport scroll
+    pocket2: WizardsGrimoire
   storage:
     back:
     - BoxSurvivalSlots # Goobstation - Slots Based Survival Boxes

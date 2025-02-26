@@ -43,6 +43,8 @@ namespace Content.Server.BloodCult.EntitySystems
 
 		private void HandleReviveTrigger(EntityUid uid, ReviveCultistOnTriggerComponent component, TriggerEvent args)
 		{
+			if (args.User != null && !HasComp<BloodCultistComponent>(args.User))
+				return;
 			var lookup = _lookup.GetEntitiesInRange(uid, component.ReviveRange);
 			foreach (var look in lookup)
 			{

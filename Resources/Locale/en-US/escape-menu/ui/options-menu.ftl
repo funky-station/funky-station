@@ -2,6 +2,7 @@
 
 ui-options-title = Game Options
 ui-options-tab-accessibility = Accessibility
+ui-options-tab-admin = Admin
 ui-options-tab-graphics = Graphics
 ui-options-tab-controls = Controls
 ui-options-tab-audio = Audio
@@ -291,3 +292,8 @@ ui-options-speech-bubble-background-opacity = Speech bubble background opacity
 
 ## Shitmed Change
 ui-options-header-targeting = Targeting
+
+
+## Admin menu
+
+ui-options-enable-classic-overlay = Revert antag overlay to classic mode

@@ -49,7 +49,7 @@ cult-veil-torn = The veil... is... torn!
 cult-status-veil-strong-goal = [italic]Current goal: Sacrifice {$targetName}, the {$targetJob} via invoking an offer rune with its body or brain on it and at least {$cultistsRequired} cultists around it.[/italic]
 
 cult-status-veil-weak-goal = [italic]Current goal: Summon Nar'Sie by invoking the rune 'Tear Veil' with 9 cultists, constructs, or summoned ghosts on it.
-    The summoning can only be accomplished in {$firstLoc}, {$secondLoc}, or {$thirdLoc} - where the veil is weak enough for the ritual to begin.[/italic]
+    The summoning can only be accomplished in the {$firstLoc}, the {$secondLoc}, or the {$thirdLoc} - where the veil is weak enough for the ritual to begin.[/italic]
 
 cult-status-veil-weak-cultdata = Current cult members: {$cultCount} | Conversions until Rise: {$cultUntilRise}
     Cultists: {$cultistCount}

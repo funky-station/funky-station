@@ -355,6 +355,10 @@ public sealed partial class SupermatterSystem
         // We're in space or there is no gas to process
         if (!xform.GridUid.HasValue || mix is not { } || mix.TotalMoles == 0f)
         {
+            // funkystation if the sm is inactive it won't take damage from space
+            if (sm.Status == SupermatterStatusType.Inactive)
+                return;
+
             sm.Damage += Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, 0.1f);
             return;
         }

@@ -35,7 +35,7 @@ cult-invocation-revive = Pasnar val'keriam usinar. Savrae ines amutan. Yam'toth 
 cult-invocation-offering = Mah'weyh pleggh at e'ntrath!
 cult-invocation-empowering = H'drak v'loso, mir'kanas verbot!
 
-cult-spell-carving = You begin crudly carving a sigil into your flesh.
+cult-spell-carving = You begin crudely carving a sigil into your flesh.
 cult-spell-carving-rune = Empowered by the rune, you barely feel the sigil being carved into your flesh.
 cult-spell-exceeded = You cannot carve another spell!
 cult-spell-havealready = You already have that spell!

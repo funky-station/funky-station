@@ -11,6 +11,7 @@
     - prefRoles: [ BloodCultist ]
       max: 3
       playerRatio: 15
+      startingGear: BloodCultistGear
       briefing:
         text: cult-start-briefing
         color: CornflowerBlue

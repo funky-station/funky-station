@@ -54,7 +54,7 @@ namespace Content.Server.BloodCult.EntitySystems
 
 			var offerLookup = _lookup.GetEntitiesInRange(uid, component.OfferRange);
 			var invokeLookup = _lookup.GetEntitiesInRange(uid, component.InvokeRange);
-			EntityUid[] cultistsInRange = Array.FindAll(invokeLookup.ToArray(), item => (HasComp<BloodCultistComponent>(item) && !_mobState.IsDead(item)));
+			EntityUid[] cultistsInRange = Array.FindAll(invokeLookup.ToArray(), item => ((HasComp<BloodCultistComponent>(item) || HasComp<BloodCultConstructComponent>(item)) && !_mobState.IsDead(item)));
 
 			List<EntityUid> humanoids = new List<EntityUid>();
 			List<EntityUid> brains = new List<EntityUid>();

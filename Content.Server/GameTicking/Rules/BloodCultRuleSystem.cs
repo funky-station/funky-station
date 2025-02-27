@@ -16,6 +16,7 @@ using Content.Shared.Mind.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Content.Shared.BloodCult;
+using Content.Shared.BloodCult.Components;
 using Content.Server.BloodCult.Components;
 using Content.Shared.Mobs.Components;
 using Content.Server.Administration.Systems;
@@ -488,15 +489,23 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         return everyoneList;
 	}
 
-	private List<EntityUid> GetCultists()
+	private List<EntityUid> GetCultists(bool includeConstructs = false)
     {
         var cultistList = new List<EntityUid>();
 
         var cultists = AllEntityQuery<BloodCultistComponent, MobStateComponent>();
+		var constructs = AllEntityQuery<BloodCultConstructComponent, MobStateComponent>();
         while (cultists.MoveNext(out var uid, out var cultistComp, out _))
         {
             cultistList.Add(uid);
         }
+		if (includeConstructs)
+		{
+			while (constructs.MoveNext(out var uid, out var constructComp, out _))
+			{
+				cultistList.Add(uid);
+			}
+		}
 
         return cultistList;
     }
@@ -618,13 +627,24 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		// Remember to use coordinates to play audio if the entity is about to vanish.
 		EntityUid? mindId = CompOrNull<MindContainerComponent>(uid)?.Mind;
 		MindComponent? mindComp = CompOrNull<MindComponent>(mindId);
-		if (mindId != null)
+		if (mindId != null && mindComp != null)
 		{
-			_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), Transform(uid).Coordinates);
+			var coordinates = Transform(uid).Coordinates;
+			_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), coordinates);
 			_body.GibBody(uid, true);
-			_ghost.OnGhostAttempt((EntityUid)mindId, false, false, mindComp);
+			//_ghost.OnGhostAttempt((EntityUid)mindId, false, false, mindComp);
 			// TODO: Spawn Soulstone Shard with their consciousness, making
 			// that their new brain
+			var soulstone = Spawn("CultSoulStone", coordinates);
+			
+			_mind.TransferTo((EntityUid)mindId, soulstone, mind:mindComp);	
+
+			//_mind.TransferTo(EntityUid mindId, EntityUid? entity, bool ghostCheckOverride = false, bool createGhost = true,
+        	//	MindComponent? mind = null)
+			
+			//MindContainerComponent? newMindComponent = CompOrNull<MindContainerComponent>(soulstone);
+			//if (newMindComponent != null)
+			//	newMindComponent.Mind = mindId;
 			return true;
 		}
 		return false;
@@ -707,7 +727,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		if (color == null)
 			color = Color.DarkRed;
 		var filter = Filter.Empty();
-		List<EntityUid> cultists = GetCultists();
+		List<EntityUid> cultists = GetCultists(includeConstructs:true);
 		foreach (EntityUid cultistUid in cultists)
 		{
 			if (TryComp(cultistUid, out ActorComponent? actorComp))
@@ -726,7 +746,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		if (color == null)
 			color = Color.DarkRed;
 		var filter = Filter.Empty();
-		List<EntityUid> cultists = GetCultists();
+		List<EntityUid> cultists = GetCultists(includeConstructs: true);
 		foreach (EntityUid cultistUid in cultists)
 		{
 			if (TryComp(cultistUid, out ActorComponent? actorComp) && cultistUid == target)

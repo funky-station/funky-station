@@ -64064,8 +64064,6 @@ entities:
       pos: 15.5,16.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 20432
       - 118

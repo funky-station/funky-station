@@ -109,6 +109,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
         if (!TryComp<HereticComponent>(args.User, out var hereticComp))
         {
+            args.Handled = true;
             QueueDel(ent);
             return;
         }
@@ -141,6 +142,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         }
 
         hereticComp.MansusGraspActive = false;
+        args.Handled = true;
         QueueDel(ent);
     }
 
@@ -160,6 +162,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         if (args.Target != null && HasComp<HereticRitualRuneComponent>(args.Target))
         {
             // todo: add more fluff
+            args.Handled = true;
             QueueDel(args.Target);
             return;
         }

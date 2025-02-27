@@ -25,6 +25,9 @@ public sealed class SelfAwareSystem : EntitySystem
 
     private void OnGetExamineVerbs(EntityUid uid, SelfAwareComponent component, GetVerbsEvent<ExamineVerb> args)
     {
+        if (args.User != args.Target)
+            return;
+
         if (!args.CanInteract || !args.CanAccess)
             return;
 
@@ -34,7 +37,7 @@ public sealed class SelfAwareSystem : EntitySystem
         var msg = new FormattedMessage();
 
         // Add total damage
-        msg.AddMarkup($"Total Damage: {damage.TotalDamage}");
+        msg.TryAddMarkup($"Total Damage: {damage.TotalDamage}", out _);
 
         // Add damage by group
         var damageSortedGroups = damage.DamagePerGroup
@@ -48,7 +51,7 @@ public sealed class SelfAwareSystem : EntitySystem
 
             var groupName = _prototype.Index<DamageGroupPrototype>(groupId).LocalizedName;
             msg.PushNewline();
-            msg.AddMarkup($"[color=red]{groupName}: {amount}[/color]");
+            msg.TryAddMarkup($"[color=red]{groupName}: {amount}[/color]", out _);
 
             // Show individual damage types in this group
             var group = _prototype.Index<DamageGroupPrototype>(groupId);
@@ -58,11 +61,11 @@ public sealed class SelfAwareSystem : EntitySystem
                     continue;
 
                 msg.PushNewline();
-                msg.AddMarkup($" · {_prototype.Index<DamageTypePrototype>(type).LocalizedName}: {typeAmount}");
+                msg.TryAddMarkup($" · {_prototype.Index<DamageTypePrototype>(type).LocalizedName}: {typeAmount}", out _);
             }
         }
 
-        _examine.AddDetailedExamineVerb(args, (Component)component, msg,
+        _examine.AddDetailedExamineVerb(args, component, msg,
             Loc.GetString("self-aware-examinable-verb-text"),
             "/Textures/Interface/VerbIcons/smite.svg.192dpi.png",
             Loc.GetString("self-aware-examinable-verb-message")

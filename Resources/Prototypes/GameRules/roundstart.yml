@@ -110,7 +110,9 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        # nameSegments: [ names_death_commando ] # goob edit # funkystation - undo this
+        nameSegments:
+        - nukeops-role-commander
+        - SyndicateNamesElite
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -125,7 +127,9 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        # nameSegments: [ names_death_commando ] # goob edit # funkystation - undo this
+        nameSegments:
+        - nukeops-role-agent
+        - SyndicateNamesNormal
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -142,7 +146,9 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        # nameSegments: [ names_death_commando ] # goob edit # funkystation - undo this
+        nameSegments:
+        - nukeops-role-operator
+        - SyndicateNamesNormal
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -194,21 +200,21 @@
     definitions:
     - prefRoles: [ Traitor ]
       mindRoles:
-      - MindRoleTraitor
+      - MindRoleTraitorReinforcement
 
 - type: entity
   id: Revolutionary
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 20
   - type: RevolutionaryRule
   - type: AntagSelection
     selectionTime: BeforeJobs # Goobstation
     definitions:
     - prefRoles: [ HeadRev ]
       max: 3
-      playerRatio: 20
+      playerRatio: 30
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue

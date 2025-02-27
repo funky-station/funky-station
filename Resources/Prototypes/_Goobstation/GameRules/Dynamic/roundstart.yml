@@ -314,7 +314,9 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: [ names_death_commando ]
+        nameSegments: # Vocaloid Names Fix
+        - nukeops-role-commander
+        - SyndicateNamesElite
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -329,7 +331,9 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: [ names_death_commando ]
+        nameSegments: # Vocaloid Names Fix
+        - nukeops-role-agent
+        - SyndicateNamesNormal
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -346,7 +350,9 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: [ names_death_commando ]
+        nameSegments: # Vocaloid Names Fix
+        - nukeops-role-operator
+        - SyndicateNamesNormal
       - type: NpcFactionMember
         factions:
         - Syndicate

@@ -1,0 +1,12 @@
+## Changed by Funkystation.
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakProgressPride
+  name: progress pride cloak
+  description: A cloak representing the progression of pride.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Neck/Cloaks/pride.rsi
+
+

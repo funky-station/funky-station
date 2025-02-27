@@ -62,6 +62,7 @@
     components:
       - ShowAntagIcons
       - BloodCultist
+      - BloodCultConstruct
   icon:
     sprite: /Textures/_Funkystation/Interface/Misc/cult_job_icons.rsi
     state: Cultist

@@ -94,6 +94,7 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 
 		var sources = EntityQueryEnumerator<CultHealingSourceComponent, TransformComponent>();
 		var destinations = EntityQueryEnumerator<BloodCultistComponent, TransformComponent>();
+		var destinations_constructs = EntityQueryEnumerator<BloodCultConstructComponent, TransformComponent>();
 		var resistanceQuery = GetEntityQuery<RadiationGridResistanceComponent>();
 		var transformQuery = GetEntityQuery<TransformComponent>();
 		var gridQuery = GetEntityQuery<MapGridComponent>();
@@ -148,8 +149,47 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 			receiversTotalHealing.Add( ((destUid, dest), healing) );
 		}
 
+		var receiversTotalHealingConstructs = new ValueList<(Entity<BloodCultConstructComponent>, float)>();
+		while (destinations_constructs.MoveNext(out var destUid, out var dest, out var destTrs))
+		{
+			// For all cult constructs...
+			if (_mobState.IsDead(destUid))
+				continue;  // Do not heal the dead.
+
+			var destWorld = _transform.GetWorldPosition(destTrs, transformQuery);
+
+			var healing = 0f;
+			foreach(var (uid, source, sourceTrs, sourceWorld) in sourcesData)
+			{
+				// For all cult healers...
+				stackQuery.TryGetComponent(uid, out var stack);
+				var intensity = source.Intensity * _stack.GetCount(uid, stack);
+
+				// send ray towards destination entity
+				var ray = CultHeal(uid, sourceTrs, sourceWorld, destUid,
+					destTrs, destWorld, intensity, source.Slope,
+					saveVisitedTiles, resistanceQuery, transformQuery,
+					gridQuery);
+				if (ray == null)
+					continue;
+
+				// save ray for debug
+				rays.Add(ray);
+
+				// add healing to total exposure
+				if (ray.ReachedDestination)
+					healing += ray.Healing;
+			}
+			receiversTotalHealingConstructs.Add( ((destUid, dest), healing) );
+		}
+
 		// send healing to each entity
 		foreach (var (receiver, healing) in receiversTotalHealing)
+		{
+			if (healing > 0)
+				CultHealEntity(receiver, healing, GridcastUpdateRate);
+		}
+		foreach (var (receiver, healing) in receiversTotalHealingConstructs)
 		{
 			if (healing > 0)
 				CultHealEntity(receiver, healing, GridcastUpdateRate);

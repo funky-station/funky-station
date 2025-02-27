@@ -55,6 +55,9 @@
   description: A floating crystal that slowly heals those faithful to Nar'Sie.
   components:
   - type: CultHealingSource
+  - type: Construction
+    graph: CultPylon
+    node: pylon
   - type: Sprite
     sprite: _Funkystation/Structures/BloodCult/pylon.rsi
     noRot: true

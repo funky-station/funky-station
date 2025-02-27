@@ -14,11 +14,11 @@
   objective: roles-antag-cult-objective
   guides: [ Revolutionaries ]
 
-#- type: startingGear
-#  id: HeadRevGear
-#  storage:
-#    back:
-#    - Flash
+- type: startingGear
+  id: BloodCultistGear
+  storage:
+    back:
+    - SheetRunedMetal10
 #    - ClothingEyesGlassesSunglasses
 #    - EncryptionKeySyndie # Goobstation
 #    - RevsFastDrawImplanter # Goobstation

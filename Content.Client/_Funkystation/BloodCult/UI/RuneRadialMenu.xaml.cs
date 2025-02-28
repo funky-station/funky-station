@@ -6,6 +6,7 @@ using Content.Shared.BloodCult;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -78,7 +79,7 @@ public sealed partial class RuneRadialMenu : RadialMenu
 				button.AddChild(texture);
 				main.AddChild(button);
 			}
-			else
+			else if (_entityManager.TryGetComponent<BloodCultistComponent>(player, out var bloodCultist) && bloodCultist.ShowTearVeilRune)
             {
 				var button = new RunesMenuButton
 				{

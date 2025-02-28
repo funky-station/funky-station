@@ -19,6 +19,7 @@ using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
 using Content.Server.BloodCult.Components;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Server.Administration.Systems;
 using Content.Server.Popups;
 using Content.Shared.Popups;
@@ -63,7 +64,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly ChatSystem _chat = default!;
 	[Dependency] private readonly SharedJobSystem _jobs = default!;
 	[Dependency] private readonly RoundEndSystem _roundEnd = default!;
+	[Dependency] private readonly MobStateSystem _mobSystem = default!;
 	[Dependency] private readonly IChatManager _chatManager = default!;
+	[Dependency] private readonly ChatSystem _chatSystem = default!;
 	[Dependency] private readonly SharedBodySystem _body = default!;
 	
 	[Dependency] private readonly IEntityManager _entManager = default!;
@@ -220,6 +223,10 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "Commune", recordKnownSpell:false);
 				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "StudyVeil", recordKnownSpell:false);
 				_cultistSpell.AddSpell(traitor, cultist, (ProtoId<CultAbilityPrototype>) "SpellsSelect", recordKnownSpell:false);
+
+				// propogate the selected Nar'Sie summon location
+				cultist.ShowTearVeilRune = component.VeilWeakened;
+				cultist.LocationForSummon = component.LocationForSummon;
 			}
 			return true;
 		}
@@ -260,6 +267,12 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		{
 			AnnounceStatus(component, cultists);
 			component.VeilWeakenedAnnouncementPlayed = true;
+			foreach (EntityUid cultist in cultists)
+			{
+				if (!TryComp<BloodCultistComponent>(cultist, out var cultistComp))
+					continue;
+				cultistComp.ShowTearVeilRune = true;
+			}
 		}
 
 		foreach (EntityUid cultistUid in cultists)
@@ -351,6 +364,75 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				cultist.Convert = null;
 			}
 
+			// Did someone just try to draw the tear veil rune for the first time?
+			if (cultist.TryingDrawTearVeil)
+			{
+				if (component.WeakVeil1 != null && component.WeakVeil2 != null && component.WeakVeil3 != null)
+				{
+					WeakVeilLocation? currentSummoningLoc = null;
+					WeakVeilLocation weakVeil1 = (WeakVeilLocation)component.WeakVeil1;
+					WeakVeilLocation weakVeil2 = (WeakVeilLocation)component.WeakVeil2;
+					WeakVeilLocation weakVeil3 = (WeakVeilLocation)component.WeakVeil3;
+					if (weakVeil1.Coordinates.InRange(_entManager, Transform(cultistUid).Coordinates, weakVeil1.ValidRadius))
+					{
+						currentSummoningLoc = weakVeil1;
+					}
+					else if (weakVeil2.Coordinates.InRange(_entManager, Transform(cultistUid).Coordinates, weakVeil2.ValidRadius))
+					{
+						currentSummoningLoc = weakVeil2;
+					}
+					else if (weakVeil3.Coordinates.InRange(_entManager, Transform(cultistUid).Coordinates, weakVeil3.ValidRadius))
+					{
+						currentSummoningLoc = weakVeil3;
+					}
+
+					if (currentSummoningLoc == null)
+					{
+						// Case : They are not standing in a valid location.
+						_popupSystem.PopupEntity(
+							Loc.GetString("cult-veil-drawing-toostrong"),
+							cultistUid, cultistUid, PopupType.MediumCaution
+						);
+					}
+					else
+					{
+						//if (cultist.ConfirmedSummonLocation)
+						if (!cultist.AskedToConfirm)
+						{
+							// Case : They are standing in a valid location, but have not been asked to confirm yet.
+							string name = ((WeakVeilLocation)currentSummoningLoc).Name;
+							_popupSystem.PopupEntity(
+								Loc.GetString("cult-veil-drawing-pleaseconfirm", ("name", name)),
+								cultistUid, cultistUid, PopupType.MediumCaution
+							);
+							cultist.AskedToConfirm = true;
+						}
+						else
+						{
+							// Case : They are standing in a valid location and have already been asked to confirm. Alert the crew!
+							string name = ((WeakVeilLocation)currentSummoningLoc).Name;
+							foreach (var currCultist in GetCultists())
+							{
+								if (!TryComp<BloodCultistComponent>(currCultist, out var cultMember))
+									continue;
+								cultMember.ConfirmedSummonLocation = true;
+								cultMember.LocationForSummon = ((WeakVeilLocation)currentSummoningLoc);
+							}
+							// Make sure the location for summoning propogates to new cultists.
+							component.LocationForSummon = cultist.LocationForSummon;
+							_chatSystem.DispatchGlobalAnnouncement(
+								Loc.GetString("cult-veil-drawing-crewwarning", ("name", name)),
+								"Central Command Higher Dimensional Affairs",
+								true,
+								new SoundPathSpecifier("/Audio/Announcements/war.ogg"),
+								Color.Red);
+							//AnnounceToEveryone(Loc.GetString("cult-veil-drawing-crewwarning", ("name", name))+"\n", fontSize:18, newlineNeeded:true);
+						}
+					}
+				}
+				cultist.TryingDrawTearVeil = false;
+			}
+
 			// Did someone just fail to summon Nar'Sie?
 			if (cultist.FailedNarsieSummon)
 			{
@@ -364,7 +446,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			// Summon Nar'Sie
 			if (cultist.NarsieSummoned != null)
 			{
-				string newlines = "\n\n\n\n\n\n";
+				string newlines = "\n\n\n\n";
 				AnnounceToEveryone(newlines+Loc.GetString("cult-veil-torn")+newlines, fontSize:32, audioPath:"/Audio/_Funkystation/Ambience/Antag/dimensional_rend.ogg", audioVolume:2f);
 				var narsieSpawn = Spawn("MobNarsieSpawn", (EntityCoordinates)cultist.NarsieSummoned);
 				cultist.NarsieSummoned = null;
@@ -760,6 +842,13 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 	public void AnnounceStatus(BloodCultRuleComponent component, List<EntityUid> cultists, EntityUid? specificCultist = null)
 	{
+		List<EntityUid> constructs = new List<EntityUid>();
+		var constructsQuery = AllEntityQuery<BloodCultConstructComponent, MobStateComponent>();
+        while (constructsQuery.MoveNext(out var uid, out var _, out _))
+        {
+			if (_mobSystem.IsAlive(uid))
+            	constructs.Add(uid);
+        }
 		if (component.CultistsWin)
 		{
 			if (specificCultist != null)
@@ -814,14 +903,14 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		var conversionsUntilRise = (int)Math.Ceiling((float)allAliveHumans.Count * 0.3f) - cultists.Count;
 		conversionsUntilRise = (conversionsUntilRise > 0) ? conversionsUntilRise : 0;
 		if (specificCultist != null)
-			AnnounceToCultist(Loc.GetString("cult-status-veil-weak-cultdata", ("cultCount", cultists.Count.ToString()),
+			AnnounceToCultist(Loc.GetString("cult-status-veil-weak-cultdata", ("cultCount", (cultists.Count+constructs.Count).ToString()),
 				("cultUntilRise", conversionsUntilRise.ToString()), ("cultistCount", cultists.Count.ToString()),
-				("constructCount", "0")),
+				("constructCount", constructs.Count.ToString())),
 				(EntityUid)specificCultist, fontSize: 11, newlineNeeded:true);
 		else
-			AnnounceToCultists(Loc.GetString("cult-status-veil-weak-cultdata", ("cultCount", cultists.Count.ToString()),
+			AnnounceToCultists(Loc.GetString("cult-status-veil-weak-cultdata", ("cultCount", (cultists.Count+constructs.Count).ToString()),
 				("cultUntilRise", conversionsUntilRise.ToString()), ("cultistCount", cultists.Count.ToString()),
-				("constructCount", "0")),
+				("constructCount", constructs.Count.ToString())),
 				fontSize: 11, newlineNeeded:true);
 	}
 

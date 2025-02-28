@@ -453,7 +453,7 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
-    fireCost: 50
+    fireCost: 100
   - type: Tag
     tags:
     - Taser
@@ -481,7 +481,7 @@
       - Belt
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 50
+    fireCost: 100
   - type: GuideHelp
     guides:
     - Security
@@ -508,7 +508,7 @@
         shader: unshaded
   - type: Gun
     selectedMode: FullAuto
-    fireRate: 4.5
+    fireRate: 4
     availableModes:
       - SemiAuto
       - FullAuto
@@ -516,7 +516,7 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerSmg
-    fireCost: 25
+    fireCost: 33
   - type: MagazineVisuals
     magState: mag
     steps: 5

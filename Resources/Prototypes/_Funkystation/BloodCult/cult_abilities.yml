@@ -28,3 +28,10 @@
   doAfterLength: 5
   actionPrototypes:
   - ActionCultistStun
+
+- type: cultAbility
+  id: CultTwistedConstruction
+  healthDrain: 12
+  doAfterLength: 5
+  actionPrototypes:
+  - ActionCultistTwistedConstruction

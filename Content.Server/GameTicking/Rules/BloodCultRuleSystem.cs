@@ -28,6 +28,7 @@ using Content.Shared.Body.Systems;
 using Robust.Shared.Random;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Pinpointer;
+using Content.Shared.Actions;
 
 using Content.Server.BloodCult.EntitySystems;
 using Content.Shared.BloodCult.Prototypes;
@@ -67,6 +68,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly MobStateSystem _mobSystem = default!;
 	[Dependency] private readonly IChatManager _chatManager = default!;
 	[Dependency] private readonly ChatSystem _chatSystem = default!;
+	[Dependency] private readonly SharedActionsSystem _actions = default!;
 	[Dependency] private readonly SharedBodySystem _body = default!;
 	
 	[Dependency] private readonly IEntityManager _entManager = default!;
@@ -364,6 +366,28 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				cultist.Convert = null;
 			}
 
+			// Check for decultification
+			if (cultist.DeCultification >= 100.0f)
+			{
+				RemCompDeferred<BloodCultistComponent>(cultistUid);
+
+				_popupSystem.PopupEntity(Loc.GetString("cult-deconverted"),
+					cultistUid, cultistUid, PopupType.LargeCaution
+				);
+
+				if (!_mind.TryGetMind(cultistUid, out var mindId, out _))
+					continue;
+
+				// remove their antag role
+				_role.MindTryRemoveRole<BloodCultRoleComponent>(mindId);
+
+				foreach(var action in _actions.GetActions(cultistUid))
+				{
+					if (TryComp<CultistSpellComponent>(action.Id, out var actionComp))
+						_actions.RemoveAction(cultistUid, action.Id);
+				}
+			}
+
 			// Did someone just try to draw the tear veil rune for the first time?
 			if (cultist.TryingDrawTearVeil)
 			{
@@ -454,20 +478,20 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 				component.CultVictoryEndTime = _timing.CurTime + component.CultVictoryEndDelay;
 			}
+		}
 
-			// End the round
-			if (component.CultistsWin && !component.CultVictoryAnnouncementPlayed && component.CultVictoryEndTime != null && _timing.CurTime >= component.CultVictoryEndTime)
-			{
-				component.CultVictoryAnnouncementPlayed = true;
-				component.CultVictoryEndTime = null;
+		// End the round
+		if (component.CultistsWin && !component.CultVictoryAnnouncementPlayed && component.CultVictoryEndTime != null && _timing.CurTime >= component.CultVictoryEndTime)
+		{
+			component.CultVictoryAnnouncementPlayed = true;
+			component.CultVictoryEndTime = null;
 
-				//EndRound();
-				_roundEnd.DoRoundEndBehavior(RoundEndBehavior.ShuttleCall,
-                    component.ShuttleCallTime,
-                    textCall: "cult-win-announcement-shuttle-call",
-                    textAnnounce: "cult-win-announcement");
-				return;
-			}
+			//EndRound();
+			_roundEnd.DoRoundEndBehavior(RoundEndBehavior.ShuttleCall,
+				component.ShuttleCallTime,
+				textCall: "cult-win-announcement-shuttle-call",
+				textAnnounce: "cult-win-announcement");
+			return;
 		}
 
 		// Step 1: Check to see if the Cultists have lost.

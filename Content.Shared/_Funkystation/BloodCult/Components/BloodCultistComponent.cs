@@ -45,6 +45,20 @@ public sealed partial class BloodCultistComponent : Component
 	[DataField] public bool FailedNarsieSummon = false;
 
 	/// <summary>
+	///		Show the tear veil rune?
+	/// </summary>
+	[DataField, AutoNetworkedField] public bool ShowTearVeilRune = false;
+
+	/// <summary>
+	///		The selected place that Nar'Sie will be summoned.
+	/// <summary>
+	[DataField] public WeakVeilLocation? LocationForSummon = null;
+
+	[DataField] public bool ConfirmedSummonLocation = false;
+	[DataField] public bool AskedToConfirm = false;
+	[DataField] public bool TryingDrawTearVeil = false;
+
+	/// <summary>
 	///		Message the cultist is attempting to commune to the others.
 	/// </summary>
 	[DataField] public string? CommuningMessage = null;
@@ -141,6 +155,27 @@ public sealed partial class BloodCultistComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField] public TimeSpan AlertWaitTime = TimeSpan.FromSeconds(10);
 	*/
+}
+
+/// <summary>
+///	Contains information about a place where the veil is weak.
+/// </summary>
+public struct WeakVeilLocation
+{
+	public readonly string Name;
+	public readonly EntityUid Uid;
+	public readonly string ProtoUid;
+	public readonly EntityCoordinates Coordinates;
+	public readonly float ValidRadius;
+
+	public WeakVeilLocation(string name, EntityUid uid, string protoUid, EntityCoordinates coordinates, float validRadius)
+	{
+		Name = name;
+		Uid = uid;
+		ProtoUid = protoUid;
+		Coordinates = coordinates;
+		ValidRadius = validRadius;
+	}
 }
 
 public struct SacrificingData

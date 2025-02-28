@@ -102,6 +102,7 @@
   - type: EmitBuzzWhileDamaged
   - type: CanHostGuardian
   - type: WeldingHealable
+  - type: Fingerprint #Funkystation IPC fingerprints
 
 - type: entity
   save: false

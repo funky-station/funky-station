@@ -4,11 +4,13 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Server.GameObjects;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
+using Content.Server.GameTicking.Rules;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -35,8 +37,10 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 	[Dependency] private readonly IPrototypeManager _protoMan = default!;
 	[Dependency] private readonly DamageableSystem _damageableSystem = default!;
 	[Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+	[Dependency] private readonly BloodCultRuleSystem _cultRule = default!;
 	[Dependency] private readonly PopupSystem _popupSystem = default!;
 	[Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+	[Dependency] private readonly IEntityManager _entManager = default!;
 
 	private EntityQuery<BloodCultRuneComponent> _runeQuery;
 
@@ -131,9 +135,48 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 			|| !CanPlaceRuneAt(args.ClickLocation, out var location))
 			return;
 
+		var timeToCarve = ent.Comp.TimeToCarve;
+
+		// Third and a half, if this is a TearVeilRune, do a special location check.
+		if (ent.Comp.Rune == "TearVeilRune")
+		{
+			// If they have not yet confirmed the summon location, check to make sure
+			// that this is a valid one and ask them to confirm.
+			if (cultist.LocationForSummon == null)
+			{
+				cultist.TryingDrawTearVeil = true;
+				return;
+			}
+
+			// If they made it to here, they are trying to draw a confirmed tear veil rune.
+			// Ensure that the location is valid.
+			WeakVeilLocation locationForSummon = (WeakVeilLocation)(cultist.LocationForSummon);
+			if (!locationForSummon.Coordinates.InRange(_entManager, Transform(args.User).Coordinates, locationForSummon.ValidRadius))
+			{
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-veil-drawing-wronglocation", ("name", locationForSummon.Name)),
+					args.User, args.User, PopupType.MediumCaution
+				);
+				return;
+			}
+
+			// Check to make sure no other tear veil runes already exist.
+			var summonRunes = AllEntityQuery<TearVeilComponent, BloodCultRuneComponent>();
+			while (summonRunes.MoveNext(out var uid, out _, out var _))
+			{
+				_popupSystem.PopupEntity(
+					Loc.GetString("cult-veil-drawing-alreadyexists"),
+					args.User, args.User, PopupType.MediumCaution
+				);
+				return;
+			}
+
+			timeToCarve = 45.0f;
+		}
+
 		// Fourth, raise an event to place a rune here.
 		var rune = Spawn(ent.Comp.InProgress, location);
-		var dargs = new DoAfterArgs(EntityManager, args.User, ent.Comp.TimeToCarve, new DrawRuneDoAfterEvent(
+		var dargs = new DoAfterArgs(EntityManager, args.User, timeToCarve, new DrawRuneDoAfterEvent(
 			ent, rune, location, ent.Comp.Rune, ent.Comp.BleedOnCarve, ent.Comp.CarveSound), args.User
 		)
         {

@@ -4,6 +4,7 @@ using Robust.Shared.Map;
 using Content.Server.GameTicking.Rules;
 using Content.Shared.Mind;
 using Content.Shared.BloodCult;
+using Content.Shared.BloodCult.Components;
 
 namespace Content.Server.GameTicking.Rules.Components;
 
@@ -42,6 +43,11 @@ public sealed partial class BloodCultRuleComponent : Component
 	[DataField] public WeakVeilLocation? WeakVeil1 = null;
 	[DataField] public WeakVeilLocation? WeakVeil2 = null;
 	[DataField] public WeakVeilLocation? WeakVeil3 = null;
+
+	/// <summary>
+	///		Stores the location the existing cultists have decided to summon Nar'Sie.
+	/// </summary>
+	[DataField] public WeakVeilLocation? LocationForSummon = null;
 
 	/// <summary>
 	/// Charges available for the Revive Rune.
@@ -125,25 +131,4 @@ public sealed partial class BloodCultRuleComponent : Component
 	/// Number of players required to convert a player.
 	/// </summary>
 	[DataField] public int CultistsToConvert = 2;
-}
-
-/// <summary>
-///	Contains information about a place where the veil is weak.
-/// </summary>
-public struct WeakVeilLocation
-{
-	public readonly string Name;
-	public readonly EntityUid Uid;
-	public readonly string ProtoUid;
-	public readonly EntityCoordinates Coordinates;
-	public readonly float ValidRadius;
-
-	public WeakVeilLocation(string name, EntityUid uid, string protoUid, EntityCoordinates coordinates, float validRadius)
-	{
-		Name = name;
-		Uid = uid;
-		ProtoUid = protoUid;
-		Coordinates = coordinates;
-		ValidRadius = validRadius;
-	}
 }

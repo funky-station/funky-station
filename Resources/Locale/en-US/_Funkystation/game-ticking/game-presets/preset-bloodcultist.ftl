@@ -21,6 +21,12 @@ cult-rune-drawing-novowel = You begin smearing a rune into the floor with your o
 cult-rune-drawing-vowel-first = You begin smearing a
 cult-rune-drawing-vowel-second = into the floor with your own wrist's blood...
 
+cult-veil-drawing-toostrong = The veil is too strong here to tear open.
+cult-veil-drawing-pleaseconfirm = Use the dagger again to confirm the {$name} area -- beware, the crew will be alerted!
+cult-veil-drawing-wronglocation = You must draw this rune at the {$name} area!
+cult-veil-drawing-alreadyexists = Somebody has already drawn a tear veil rune!
+cult-veil-drawing-crewwarning = Figments from an eldritch god are being summoned into the {$name} area from an unknown dimension. Disrupt this ritual at all costs, before the station is destroyed. Space Law and SOP are hereby suspended. The entire crew must kill cultists on sight.
+
 cult-invocation-blood-drain = You feel your veins narrow as your blood drains!
 cult-invocation-revive-fail = Nar'Sie demands more sacrifice!
 cult-invocation-fail-nosoul = Nar'Sie rejects this soulless husk!
@@ -49,7 +55,7 @@ cult-veil-torn = The veil... is... torn!
 cult-status-veil-strong-goal = [italic]Current goal: Sacrifice {$targetName}, the {$targetJob} via invoking an offer rune with its body or brain on it and at least {$cultistsRequired} cultists around it.[/italic]
 
 cult-status-veil-weak-goal = [italic]Current goal: Summon Nar'Sie by invoking the rune 'Tear Veil' with 9 cultists, constructs, or summoned ghosts on it.
-    The summoning can only be accomplished in the {$firstLoc}, the {$secondLoc}, or the {$thirdLoc} - where the veil is weak enough for the ritual to begin.[/italic]
+    The summoning can only be accomplished in the {$firstLoc} area, the {$secondLoc} area, or the {$thirdLoc} area - where the veil is weak enough for the ritual to begin.[/italic]
 
 cult-status-veil-weak-cultdata = Current cult members: {$cultCount} | Conversions until Rise: {$cultUntilRise}
     Cultists: {$cultistCount}
@@ -75,7 +81,8 @@ cult-ghost-role-desc = A zealous Blood Cultist of Nar'Sie, re-awakened after cat
 cult-ghost-role-rules = You are a team antagonist. Work with your fellow Cultists to accomplish your goals.
                         Sacrifice the crewmembers your deity craves and render the veil that binds Her asunder.
 
-cult-roundend-victory = The blood cult has summoned Nar'Sie and laid claim to the sector in Her name.
+cult-roundend-victory = The blood cult has summoned Nar'Sie and laid claim
+    to the sector in Her name.
 cult-roundend-failure = The blood cult was unable to summon their master.
 cult-roundend-count = There were {$count} total blood cultists.
 cult-roundend-sacrifices = The blood cult rendered {$sacrifices} souls up to the Geometer of Blood.

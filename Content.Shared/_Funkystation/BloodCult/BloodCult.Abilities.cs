@@ -13,7 +13,7 @@ namespace Content.Shared.BloodCult;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CultistSpellComponent : Component
 {
-	public static List<ProtoId<CultAbilityPrototype>> ValidSpells = new List<ProtoId<CultAbilityPrototype>>{"SummonDagger", "CultStun"};
+	public static List<ProtoId<CultAbilityPrototype>> ValidSpells = new List<ProtoId<CultAbilityPrototype>>{"SummonDagger", "CultStun", "CultTwistedConstruction"};
 
 	/// <summary>
 	/// 	ID of the prototype that summons this spell.
@@ -120,5 +120,6 @@ public sealed class BloodCultSpellsBuiState : BoundUserInterfaceState
 public sealed partial class EventCultistStudyVeil : InstantActionEvent { }
 public sealed partial class EventCultistSummonDagger : InstantActionEvent { }
 public sealed partial class EventCultistStun : EntityTargetActionEvent { }
+public sealed partial class EventCultistTwistedConstruction : EntityTargetActionEvent { }
 
 #endregion

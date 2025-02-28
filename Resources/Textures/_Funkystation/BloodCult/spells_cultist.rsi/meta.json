@@ -24,6 +24,9 @@
 		},
 		{
 			"name": "spell_select"
+		},
+		{
+			"name": "twisted_construction"
 		}
     ]
 }

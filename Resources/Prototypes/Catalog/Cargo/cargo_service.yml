@@ -221,7 +221,7 @@
 - type: cargoProduct
   id: ServiceFoodShrimpRaw
   icon:
-    sprite: Objects\Consumable\Food\meat.rsi
+    sprite: Objects/Consumable/Food/meat.rsi
     state: shrimpfried
   product: CrateFoodShrimpRaw
   cost: 350

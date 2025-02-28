@@ -11,7 +11,7 @@
         - Cooked
         - Meat
       - type: Sprite
-        sprite: Objects\Consumable\Food\meat.rsi
+        sprite: Objects/Consumable/Food/meat.rsi
         state: shrimpfried
       - type: FlavorProfile
         flavors:
@@ -36,7 +36,7 @@
         - Raw
         - Meat
       - type: Sprite
-        sprite: Objects\Consumable\Food\meat.rsi
+        sprite: Objects/Consumable/Food/meat.rsi
         state: shrimpraw
       - type: FlavorProfile
         flavors:

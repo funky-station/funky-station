@@ -1,0 +1,8 @@
+- type: microwaveMealRecipe
+  id: RecipeCultLollipop
+  name: entro-pop recipe
+  result: FoodMealCultLollipop
+  time: 5
+  solids:
+    FoodKebabSkewer: 1
+    MaterialCosmicCultEntropy1: 1 #wow this is quite possibly the worst idea you could have

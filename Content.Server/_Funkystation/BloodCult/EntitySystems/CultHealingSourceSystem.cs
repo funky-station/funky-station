@@ -124,6 +124,7 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 
 			var destWorld = _transform.GetWorldPosition(destTrs, transformQuery);
 
+			bool inRange = false;
 			var healing = 0f;
 			foreach(var (uid, source, sourceTrs, sourceWorld) in sourcesData)
 			{
@@ -144,9 +145,14 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 
 				// add healing to total exposure
 				if (ray.ReachedDestination)
+				{
 					healing += ray.Healing;
+					inRange = true;
+				}
 			}
 			receiversTotalHealing.Add( ((destUid, dest), healing) );
+			if (inRange)
+				CultReconvertEntity(destUid);  // reconvert in-range entities by a flat rate
 		}
 
 		var receiversTotalHealingConstructs = new ValueList<(Entity<BloodCultConstructComponent>, float)>();
@@ -342,6 +348,17 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 				ds.DamageDict.Add(key, FixedPoint2.New(-(healingPerSecond * time) / keys.Count));
 			}
 			_damageableSystem.TryChangeDamage(uid, ds, true, false, origin: uid);
+		}
+	}
+
+	public void CultReconvertEntity(EntityUid uid)
+	{
+		if (TryComp<BloodCultistComponent>(uid, out var bloodCultist))
+		{
+			if (bloodCultist.DeCultification > 0.0f)
+				bloodCultist.DeCultification = bloodCultist.DeCultification - 1.0f;
+			if (bloodCultist.DeCultification < 0.0f)
+				bloodCultist.DeCultification = 0.0f;
 		}
 	}
 

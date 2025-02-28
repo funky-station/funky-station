@@ -1079,6 +1079,8 @@
         factor: 3
     Medicine:
       effects:
+      - !type:DeCultify  # funky
+        amount: 2.5
       - !type:HealthChange
         conditions:
         - !type:TotalDamage

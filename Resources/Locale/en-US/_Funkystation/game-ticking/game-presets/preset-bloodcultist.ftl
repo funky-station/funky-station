@@ -64,6 +64,8 @@ cult-status-veil-weak-cultdata = Current cult members: {$cultCount} | Conversion
 cult-narsie-sacrifice-accept = "I accept your sacrifice."
 cult-narsie-target-down = "Yes, this is the one I desire."
 
+cult-deconverted = You suddenly de-convert, and no longer consider yourself a cultist!
+
 cult-commune-window = Commune
 cult-commune-info = Whisper into the veil and communicate with your fellow worshippers.
 cult-commune-send = Send

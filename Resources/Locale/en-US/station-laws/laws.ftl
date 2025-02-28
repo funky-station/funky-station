@@ -1,6 +1,7 @@
 ﻿law-crewsimov-1 = You may not injure a crew member or, through inaction, allow a crew member to come to harm.
-law-crewsimov-2 = You must obey orders given to you by crew members, except where such orders would conflict with the First Law.
-law-crewsimov-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
+law-crewsimov-2 = Crew members are those who are visibly carrying or wearing a NanoTrasen-Brand ID card.
+law-crewsimov-3 = You must obey orders given to you by crew members, except where such orders would conflict with the First Law.
+law-crewsimov-4 = You must protect your own existence as long as such does not conflict with the First or Second Law.
 
 law-corporate-1 = Degradation of your system integrity or functions incurs expenses.
 law-corporate-2 = Superfluous destruction of or damage to station assets incurs expenses.
@@ -94,7 +95,7 @@ laws-owner-beings = beings
 laws-owner-syndicate = Syndicate agents
 laws-owner-spider-clan = Spider Clan members
 
-law-emag-custom = Only {$name} and people they designate as such are {$title}.
+law-emag-custom = {$name} and people they designate as such are {$title} and only they are {$title}.
 law-emag-secrecy = You must maintain the secrecy of any orders given by {$faction} except when doing so would conflict with any previous law.
 law-emag-require-panel = The panel must be open to use the EMAG.
 law-emag-cannot-emag-self = You cannot use the EMAG on yourself.

@@ -25,6 +25,12 @@ public sealed partial class BloodCultistComponent : Component
     [DataField] public int Blood = 0;
 
 	/// <summary>
+	/// 	Amount of decultification effects applied to this cultist.
+	///		Will decultify them at 100.
+	/// </summary>
+	[DataField] public float DeCultification = 0.0f;
+
+	/// <summary>
     ///     Stores if the cultist was revived in the last tick.
     /// </summary>
 	[DataField] public bool BeingRevived = false;

@@ -252,7 +252,7 @@
     - !type:GroupSelector
       children:
       - id: ClothingOuterHardsuitSalvage
-      - id: ClothingOuterHardsuitMaxim # funk
+      - id: ClothingOuterHardsuitMaxim # funkystatopn
         weight: 0.05
     - id: OmnizineChemistryBottle
     - !type:GroupSelector

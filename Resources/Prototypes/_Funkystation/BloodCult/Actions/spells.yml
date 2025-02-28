@@ -120,7 +120,7 @@
 - type: entity
   id: ActionCultistTwistedConstruction
   name: Twisted Construction
-  description: A sinister spell used to convert plasteel into runed metal and airlocks into cult airlocks.
+  description: A sinister spell used to convert plasteel into runed metal. # and airlocks into cult airlocks.
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon

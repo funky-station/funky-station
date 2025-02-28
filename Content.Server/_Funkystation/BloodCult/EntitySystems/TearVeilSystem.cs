@@ -12,6 +12,7 @@ using Content.Shared.Popups;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Mobs.Systems;
 using Content.Server.GameTicking.Rules;
 using Content.Shared.BloodCult;
 
@@ -27,6 +28,7 @@ namespace Content.Server.BloodCult.EntitySystems
 		[Dependency] private readonly PopupSystem _popupSystem = default!;
 		[Dependency] private readonly IPrototypeManager _protoMan = default!;
 		[Dependency] private readonly IMapManager _mapManager = default!;
+		[Dependency] private readonly MobStateSystem _mobState = default!;
 		[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
 		[Dependency] private readonly EntityLookupSystem _lookup = default!;
 
@@ -47,7 +49,7 @@ namespace Content.Server.BloodCult.EntitySystems
 		{
 			if (_entManager.TryGetComponent<TransformComponent>(uid, out var xform) && TryComp<BloodCultistComponent>(args.User, out var bloodCultist))
 			{
-				if (CanTearVeil(xform.Coordinates, out List<Entity<BloodCultistComponent>> cultists))
+				if (CanTearVeil(xform.Coordinates, out List<EntityUid> _))
 				{
 					bloodCultist.NarsieSummoned = xform.Coordinates;
 				}
@@ -55,97 +57,13 @@ namespace Content.Server.BloodCult.EntitySystems
 				{
 					bloodCultist.FailedNarsieSummon = true;
 				}
-				/*
-				if (CanPlaceBarrierAt(xform.Coordinates, out var location))
-				{
-					var gridUid = _transform.GetGrid(location);
-					if (!TryComp<MapGridComponent>(gridUid, out var grid))
-					{
-						return;
-					}
-					var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, location);
-
-					List<EntityCoordinates> dL = new List<EntityCoordinates>();
-					Queue<EntityCoordinates> sQ = new Queue<EntityCoordinates>();
-					sQ.Enqueue(location);
-
-					int damageOnActivate = 0;
-					while (sQ.Count > 0)
-					{
-						damageOnActivate = damageOnActivate + component.DamageOnActivate;//1;
-						var currentLocation = sQ.Dequeue();
-						dL.Add(currentLocation);
-						SpawnAtLocation(currentLocation);
-
-						if(CanPlaceBarrierAt(currentLocation.Offset(new Vector2(-1.2f, 0f)), out var nextLoc1))
-						{
-							if (!dL.Contains(nextLoc1))
-								sQ.Enqueue(nextLoc1);
-						}
-						if (CanPlaceBarrierAt(currentLocation.Offset(new Vector2(1.2f, 0f)), out var nextLoc2))
-						{
-							if (!dL.Contains(nextLoc2))
-								sQ.Enqueue(nextLoc2);
-						}
-						if (CanPlaceBarrierAt(currentLocation.Offset(new Vector2(0f, -1.2f)), out var nextLoc3))
-						{
-							if (!dL.Contains(nextLoc3))
-								sQ.Enqueue(nextLoc3);
-						}
-						if (CanPlaceBarrierAt(currentLocation.Offset(new Vector2(0f, 1.2f)), out var nextLoc4))
-						{
-							if (!dL.Contains(nextLoc4))
-								sQ.Enqueue(nextLoc4);
-						}
-					}
-
-					if (args.User != null)
-					{
-						var user = (EntityUid) args.User;
-						_popupSystem.PopupEntity(
-							Loc.GetString("cult-invocation-blood-drain"),
-							user, user, PopupType.MediumCaution
-						);
-						_bloodCultRule.Speak(user, Loc.GetString("cult-invocation-barrier"));
-
-						TryComp<DamageableComponent>(user, out var damComp);
-
-						DamageSpecifier appliedDamageSpecifier;
-						appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>("Slash"), FixedPoint2.New(damageOnActivate));
-
-						_damageableSystem.TryChangeDamage(user, appliedDamageSpecifier, true, origin: user);
-					}
-				}
-				*/
 			}
 			args.Handled = true;
 		}
-/*
-		private void SpawnAtLocation(EntityCoordinates inLocation)
-		{
-			var gridUid = _transform.GetGrid(inLocation);
-			if (!TryComp<MapGridComponent>(gridUid, out var grid))
-			{
-				return;
-			}
-			var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, inLocation);
 
-			var barrier = Spawn("ForceBarrier", inLocation);
-
-			if (gridUid != null && TryComp<TransformComponent>(barrier, out var barrierTransform))
-			{
-				_transform.AnchorEntity((barrier, barrierTransform), ((EntityUid)gridUid, grid), targetTile.GridIndices);
-				_audioSystem.PlayPvs("/Audio/Effects/inneranomaly.ogg", inLocation);
-			}
-			else
-			{
-				QueueDel(barrier);
-			}
-		}
-*/
-		private bool CanTearVeil(EntityCoordinates triggeredAt, out List<Entity<BloodCultistComponent>> cultists)
+		private bool CanTearVeil(EntityCoordinates triggeredAt, out List<EntityUid> cultists)
 		{
-			cultists = new List<Entity<BloodCultistComponent>>();
+			cultists = new List<EntityUid>();
 
 			var bottomLeft = triggeredAt.Offset(new Vector2(-1,-1));
 			var left = triggeredAt.Offset(new Vector2(-1,0));
@@ -183,16 +101,16 @@ namespace Content.Server.BloodCult.EntitySystems
 
 			foreach (var look in lookup0)
 			{
-				if (TryComp<BloodCultistComponent>(look, out var th))
+				if ((TryComp<BloodCultistComponent>(look, out var _) || TryComp<BloodCultConstructComponent>(look, out var _)) && !_mobState.IsDead(look))
 				{
 					cultistsFound = cultistsFound + 1;
-					cultists.Add((look, th));
+					cultists.Add(look);
 				}
 			}
 			foreach (var look in lookup1)
 			{
-				// TODO: Support cult constructs and summoned ghosts to help with this summoning
-				if (TryComp<BloodCultistComponent>(look, out var th))
+				// TODO: Support summoned ghosts to help with this summoning
+				if ((TryComp<BloodCultistComponent>(look, out var _) || TryComp<BloodCultConstructComponent>(look, out var _)) && !_mobState.IsDead(look))
 				{
 					found1 = true;
 					break;
@@ -200,7 +118,7 @@ namespace Content.Server.BloodCult.EntitySystems
 			}
 			foreach (var look in lookup2)
 			{
-				if (TryComp<BloodCultistComponent>(look, out var th))
+				if ((TryComp<BloodCultistComponent>(look, out var _) || TryComp<BloodCultConstructComponent>(look, out var _)) && !_mobState.IsDead(look))
 				{
 					found2 = true;
 					break;
@@ -208,7 +126,7 @@ namespace Content.Server.BloodCult.EntitySystems
 			}
 			foreach (var look in lookup3)
 			{
-				if (TryComp<BloodCultistComponent>(look, out var th))
+				if ((TryComp<BloodCultistComponent>(look, out var _) || TryComp<BloodCultConstructComponent>(look, out var _)) && !_mobState.IsDead(look))
 				{
 					found3 = true;
 					break;
@@ -216,7 +134,7 @@ namespace Content.Server.BloodCult.EntitySystems
 			}
 			foreach (var look in lookup4)
 			{
-				if (TryComp<BloodCultistComponent>(look, out var th))
+				if ((TryComp<BloodCultistComponent>(look, out var _) || TryComp<BloodCultConstructComponent>(look, out var _)) && !_mobState.IsDead(look))
 				{
 					found4 = true;
 					break;
@@ -224,7 +142,7 @@ namespace Content.Server.BloodCult.EntitySystems
 			}
 			foreach (var look in lookup5)
 			{
-				if (TryComp<BloodCultistComponent>(look, out var th))
+				if ((TryComp<BloodCultistComponent>(look, out var _) || TryComp<BloodCultConstructComponent>(look, out var _)) && !_mobState.IsDead(look))
 				{
 					found5 = true;
 					break;
@@ -232,7 +150,7 @@ namespace Content.Server.BloodCult.EntitySystems
 			}
 			foreach (var look in lookup6)
 			{
-				if (TryComp<BloodCultistComponent>(look, out var th))
+				if ((TryComp<BloodCultistComponent>(look, out var _) || TryComp<BloodCultConstructComponent>(look, out var _)) && !_mobState.IsDead(look))
 				{
 					found6 = true;
 					break;
@@ -240,7 +158,7 @@ namespace Content.Server.BloodCult.EntitySystems
 			}
 			foreach (var look in lookup7)
 			{
-				if (TryComp<BloodCultistComponent>(look, out var th))
+				if ((TryComp<BloodCultistComponent>(look, out var _) || TryComp<BloodCultConstructComponent>(look, out var _)) && !_mobState.IsDead(look))
 				{
 					found7 = true;
 					break;
@@ -248,7 +166,7 @@ namespace Content.Server.BloodCult.EntitySystems
 			}
 			foreach (var look in lookup8)
 			{
-				if (TryComp<BloodCultistComponent>(look, out var th))
+				if ((TryComp<BloodCultistComponent>(look, out var _) || TryComp<BloodCultConstructComponent>(look, out var _)) && !_mobState.IsDead(look))
 				{
 					found8 = true;
 					break;
@@ -256,43 +174,14 @@ namespace Content.Server.BloodCult.EntitySystems
 			}
 			foreach (var look in lookup9)
 			{
-				if (TryComp<BloodCultistComponent>(look, out var th))
+				if ((TryComp<BloodCultistComponent>(look, out var _) || TryComp<BloodCultConstructComponent>(look, out var _)) && !_mobState.IsDead(look))
 				{
 					found9 = true;
 					break;
 				}
 			}
 
-			return (cultistsFound>=9)&&found1&&found2&&found3&&found4&&found5&&found6&&found7&&found8&&found9;
+			return cultistsFound>=1;//(cultistsFound>=9)&&found1&&found2&&found3&&found4&&found5&&found6&&found7&&found8&&found9;
 		}
-/*
-		private bool CanPlaceBarrierAt(EntityCoordinates clickedAt, out EntityCoordinates location)
-		{
-			location = clickedAt.AlignWithClosestGridTile(entityManager: EntityManager, mapManager: _mapManager);
-			var gridUid = _transform.GetGrid(location);
-			if (!TryComp<MapGridComponent>(gridUid, out var grid))
-			{
-				return false;
-			}
-			var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, location);
-
-			// This does not work, but should.
-			//if (_mapSystem.GetAnchoredEntities(gridUid.Value, grid, targetTile.GridIndices).Any(_runeQuery.HasComponent))
-			//{
-			//    return;
-			//}
-
-			bool didFindBarrier = false;
-			bool didFindRune = false;
-			foreach (var possibleEnt in _mapSystem.GetAnchoredEntities(gridUid.Value, grid, targetTile.GridIndices))
-			{
-				if (_barrierQuery.HasComponent(possibleEnt))
-					didFindBarrier = true;
-				if (_runeQuery.HasComponent(possibleEnt) && TryComp<BarrierOnTriggerComponent>(possibleEnt, out var _))
-					didFindRune = true;
-			}
-			return! didFindBarrier && didFindRune;
-		}
-*/
 	}
 }

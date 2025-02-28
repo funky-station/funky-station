@@ -11,6 +11,7 @@ using Content.Shared.FixedPoint;
 using Content.Server.Popups;
 using Content.Server.Hands.Systems;
 using Content.Shared.Actions;
+using Content.Shared.Stacks;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Prototypes;
 using Content.Server.BloodCult.Components;
@@ -78,6 +79,8 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		SubscribeLocalEvent<BloodCultistComponent, BloodCultCommuneSendMessage>(OnCommune);
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistStun>(OnStun);
 		SubscribeLocalEvent<CultMarkedComponent, AttackedEvent>(OnMarkedAttacked);
+
+		SubscribeLocalEvent<BloodCultistComponent, EventCultistTwistedConstruction>(OnTwistedConstruction);
 
 		SubscribeLocalEvent<BloodCultistComponent, CarveSpellDoAfterEvent>(OnCarveSpellDoAfter);
 	}
@@ -304,5 +307,26 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			_entMan.RemoveComponent<CultMarkedComponent>(ent);
 			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Items/Defib/defib_zap.ogg"), ent, AudioParams.Default.WithVolume(-3f));
 		}
+	}
+
+	private void OnTwistedConstruction(Entity<BloodCultistComponent> ent, ref EventCultistTwistedConstruction args)
+	{
+		var canConvert = TryComp<StackComponent>(args.Target, out var stack) && (stack.StackTypeId == "Plasteel");
+		if (stack == null || !canConvert || !TryUseAbility(ent, args))
+			return;
+		var count = stack.Count;
+		var thirties_to_spawn = (int)((float)count / 30.0f);
+		var tens_to_spawn = (int)(((float)count - 30.0f*(float)thirties_to_spawn) / 10.0f);
+		var ones_to_spawn = (int)(((float)count - 10.0f*(float)tens_to_spawn) - 30.0f*(float)thirties_to_spawn);
+
+		for (int i = 0; i < thirties_to_spawn; i++)
+			Spawn("SheetRunedMetal30", Transform(args.Target).Coordinates);
+		for (int i = 0; i < tens_to_spawn; i++)
+			Spawn("SheetRunedMetal10", Transform(args.Target).Coordinates);
+		for (int i = 0; i < ones_to_spawn; i++)
+			Spawn("SheetRunedMetal1", Transform(args.Target).Coordinates);
+
+		QueueDel(args.Target);
+		args.Handled = true;
 	}
 }

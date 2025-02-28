@@ -28,6 +28,18 @@
 
 - type: entity
   parent: SheetRunedMetal
+  id: SheetRunedMetal30
+  name: runed metal
+  suffix: Full
+  components:
+  - type: Sprite
+    state: runedmetal
+  - type: Stack
+    stackType: RunedMetal
+    count: 30
+
+- type: entity
+  parent: SheetRunedMetal
   id: SheetRunedMetal10
   name: runed metal
   suffix: 10

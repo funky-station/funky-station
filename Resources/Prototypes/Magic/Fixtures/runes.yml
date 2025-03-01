@@ -26,7 +26,7 @@
       #sprite: Structures/Magic/Cult/trap.rsi
       layers:
         - state: barrier
-          color: '#FF770055'
+          color: '#FF3300CC'
 
 - type: entity
   parent: BaseBloodCultRune
@@ -37,7 +37,7 @@
       #sprite: Structures/Magic/Cult/trap.rsi
       layers:
         - state: bloodboil
-          color: '#FF770055'
+          color: '#FF3300CC'
 
 - type: entity
   parent: BaseBloodCultRune
@@ -49,7 +49,7 @@
       #sprite: Structures/Magic/Cult/trap.rsi
       layers:
         - state: empowering
-          color: '#FF770055'
+          color: '#FF3300CC'
 
 - type: entity
   parent: BaseBloodCultRune
@@ -61,7 +61,7 @@
       #sprite: Structures/Magic/Cult/trap.rsi
       layers:
         - state: offering
-          color: '#FF770055'
+          color: '#FF3300CC'
 
 - type: entity
   parent: BaseBloodCultRune
@@ -73,7 +73,7 @@
       #sprite: Structures/Magic/Cult/trap.rsi
       layers:
         - state: revive
-          color: '#FF770055'
+          color: '#FF3300CC'
 
 - type: entity
   parent: BaseBloodCultRune
@@ -84,7 +84,7 @@
       #sprite: Structures/Magic/Cult/trap.rsi
       layers:
         - state: spiritrealm
-          color: '#FF770055'
+          color: '#FF3300CC'
 
 - type: entity
   parent: BaseBloodCultRune
@@ -95,7 +95,7 @@
       #sprite: Structures/Magic/Cult/trap.rsi
       layers:
         - state: summoning
-          color: '#FF770055'
+          color: '#FF3300CC'
 
 - type: entity
   parent: BaseBloodCultRune
@@ -106,7 +106,7 @@
       #sprite: Structures/Magic/Cult/trap.rsi
       layers:
         - state: teleport
-          color: '#FF770055'
+          color: '#FF3300CC'
 
 - type: entity
   parent: BaseBloodCultRune

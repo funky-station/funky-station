@@ -17,7 +17,7 @@ public sealed partial class BloodCultRuneCarverComponent : Component
 	/// <summary>
     ///     The entity to spawn (e.g. animation) while carving.
     /// </summary>
-    [DataField] public string InProgress = "Flash";
+    [DataField] public string InProgress = "PuddleSparkle";//"Flash";
 
 	/// <summary>
     ///     The entity to spawn when used on self.

@@ -196,7 +196,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 		// TODO: Check for TimeOfDeath being null (makes sure they're not dead)
 		// Can also check to see if Session is null, which means they logged out
-		component.Target = _random.Pick(allPotentialTargets);
+		component.Target = (EntityUid)_random.Pick(allPotentialTargets);
 	}
 
 	private void AfterEntitySelected(Entity<BloodCultRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
@@ -215,7 +215,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			// re-select target if needed
 			if (_mind.TryGetMind(traitor, out var mindId, out var _))
 			{
-				if (component.Target != null && (EntityUid)component.Target.Value == mindId)
+				if (component.Target != null && component.Target == mindId)
 					SelectTarget(component, true);
 			}
 
@@ -321,7 +321,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				SacrificingData sacrifice = (SacrificingData)cultist.Sacrifice;
 				TryComp<MindContainerComponent>(sacrifice.Target, out var sacrificeMind);
 
-				if ((sacrificeMind?.Mind != null) && (component.Target != null) && (sacrificeMind.Mind == component.Target.Value))
+				if ((sacrificeMind?.Mind != null) && (component.Target != null) && (sacrificeMind.Mind == component.Target))
 				{
 					// A target is being sacrificed!
 					if (_SacrificeTarget(sacrifice, component, cultistUid))
@@ -348,7 +348,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			{
 				ConvertingData convert = (ConvertingData)cultist.Convert;
 				TryComp<MindContainerComponent>(convert.Target, out var convertMind);
-				if ((convertMind?.Mind != null) && (component.Target != null) && (convertMind.Mind == component.Target.Value))
+				if ((convertMind?.Mind != null) && (component.Target != null) && (convertMind.Mind == component.Target))
 				{
 					// Override convert and begin sacrificing -- this is a target!
 					SacrificingData sacrifice = new SacrificingData(convert.Target, convert.Invokers);
@@ -905,10 +905,10 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		}
 		else if (component.Target != null)
 		{
-			var targ = (Entity<MindComponent>)component.Target;
-			if (TryComp<MetaDataComponent>(targ.Comp.OwnedEntity, out var metaData))
+			//var targ = (Entity<MindComponent>)component.Target;
+			if (component.Target != null && TryComp<MindComponent>(component.Target, out var mindComp) && TryComp<MetaDataComponent>(mindComp.OwnedEntity, out var metaData))
 			{
-				_jobs.MindTryGetJob(targ, out var prototype);
+				_jobs.MindTryGetJob(component.Target, out var prototype);
 				string job = "crewmember.";
 				if (prototype != null)
 					job = prototype.LocalizedName;

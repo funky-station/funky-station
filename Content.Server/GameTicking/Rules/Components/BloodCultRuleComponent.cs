@@ -95,7 +95,7 @@ public sealed partial class BloodCultRuleComponent : Component
 	/// <summary>
 	/// Current target.
 	/// </summary>
-	[DataField] public Entity<MindComponent>? Target = null;
+	[DataField] public EntityUid? Target = null;
 
 	// <summary>
 	/// When to give initial report on cultist count and crew count.

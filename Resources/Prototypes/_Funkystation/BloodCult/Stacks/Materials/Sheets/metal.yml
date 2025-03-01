@@ -1,0 +1,6 @@
+- type: stack
+  id: RunedMetal
+  name: runed metal
+  icon: { sprite: /Textures/Objects/Materials/Sheets/metal.rsi, state: steel }
+  spawn: SheetRunedMetal1
+  maxCount: 30

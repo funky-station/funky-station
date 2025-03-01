@@ -181,7 +181,7 @@ namespace Content.Server.BloodCult.EntitySystems
 				}
 			}
 
-			return cultistsFound>=1;//(cultistsFound>=9)&&found1&&found2&&found3&&found4&&found5&&found6&&found7&&found8&&found9;
+			return (cultistsFound>=9)&&found1&&found2&&found3&&found4&&found5&&found6&&found7&&found8&&found9;
 		}
 	}
 }

@@ -956,7 +956,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			if (prototype != null)
 				job = prototype.LocalizedName;
 			AnnounceToCultists(message = Loc.GetString("cult-commune-message", ("name", metaData.EntityName),
-				("job", job), ("message", formattedMessage)), color:Color.DarkRed,
+				("job", job), ("message", formattedMessage)), color:new Color(166, 27, 27, 255),
 				fontSize: 12, newlineNeeded:false);
 		}
 	}

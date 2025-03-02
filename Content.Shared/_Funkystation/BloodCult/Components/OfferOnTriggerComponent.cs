@@ -16,5 +16,5 @@ public sealed partial class OfferOnTriggerComponent : Component
 	/// <summary>
 	///	    The range at which cultists can contribute to an invocation.
 	/// </summary>
-	[DataField] public float InvokeRange = 1.0f;
+	[DataField] public float InvokeRange = 1.4f;
 }

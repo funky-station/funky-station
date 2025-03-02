@@ -5,6 +5,7 @@
 #  description: mind-role-blob-description
   components:
   - type: MindRole
+    roleType: TeamAntagonist
     antagPrototype: BloodCultist
 #    exclusiveAntag: true
   - type: BloodCultRole

@@ -70,7 +70,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly ChatSystem _chatSystem = default!;
 	[Dependency] private readonly SharedActionsSystem _actions = default!;
 	[Dependency] private readonly SharedBodySystem _body = default!;
-	
+
 	[Dependency] private readonly IEntityManager _entManager = default!;
 
 	public readonly string CultComponentId = "BloodCultist";
@@ -167,7 +167,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		foreach (var person in _mind.GetAliveHumans())//;//(args.MindId);
 		{
 			if (TryComp<MindComponent>(person, out var mind) &&
-				!_role.MindHasRole<BloodCultRoleComponent>(person, out var _))
+				mind.OwnedEntity != null &&
+				!_role.MindHasRole<BloodCultRoleComponent>(mind.OwnedEntity.Value, out var _))
 				allHumans.Add(person);
 		}
 
@@ -718,7 +719,10 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		else
 		{
 			foreach (EntityUid invoker in sacrifice.Invokers)
+			{
 				Speak(invoker, Loc.GetString("cult-invocation-offering"));
+			}
+
 			if (_SacrificeVictim(sacrifice.Target, cultistUid))
 			{
 				component.ReviveCharges = component.ReviveCharges + component.ChargesForSacrifice;
@@ -738,19 +742,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			var coordinates = Transform(uid).Coordinates;
 			_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), coordinates);
 			_body.GibBody(uid, true);
-			//_ghost.OnGhostAttempt((EntityUid)mindId, false, false, mindComp);
-			// TODO: Spawn Soulstone Shard with their consciousness, making
-			// that their new brain
 			var soulstone = Spawn("CultSoulStone", coordinates);
-			
-			_mind.TransferTo((EntityUid)mindId, soulstone, mind:mindComp);	
-
-			//_mind.TransferTo(EntityUid mindId, EntityUid? entity, bool ghostCheckOverride = false, bool createGhost = true,
-        	//	MindComponent? mind = null)
-			
-			//MindContainerComponent? newMindComponent = CompOrNull<MindContainerComponent>(soulstone);
-			//if (newMindComponent != null)
-			//	newMindComponent.Mind = mindId;
+			_mind.TransferTo((EntityUid)mindId, soulstone, mind:mindComp);
 			return true;
 		}
 		return false;
@@ -795,7 +788,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 	private void OnMindRemoved(EntityUid uid, BloodCultistComponent cultist, MindRemovedMessage args)
 	{
-		_role.MindRemoveRole<BloodCultRoleComponent>(args.Mind);
+		_role.MindRemoveRole<BloodCultRoleComponent>(args.Mind.Owner);
 	}
 
 	public void Speak(EntityUid? uid, string speech)

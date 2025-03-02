@@ -825,7 +825,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 	public void AnnounceToCultists(string message, uint fontSize = 14, Color? color = null,
 									bool newlineNeeded = false, string? audioPath = null,
-									float audioVolume = 1f)
+									float audioVolume = 1f, bool includeGhosts = false)
 	{
 		if (color == null)
 			color = Color.DarkRed;
@@ -838,11 +838,14 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				filter.AddPlayer(actorComp.PlayerSession);
 			}
 		}
-		var ghosts = AllEntityQuery<GhostHearingComponent, ActorComponent>();
-        while (ghosts.MoveNext(out var uid, out var _, out var actorComp))
-        {
-			filter.AddPlayer(actorComp.PlayerSession);
-        }
+		if (includeGhosts)
+		{
+			var ghosts = AllEntityQuery<GhostHearingComponent, ActorComponent>();
+			while (ghosts.MoveNext(out var uid, out var _, out var actorComp))
+			{
+				filter.AddPlayer(actorComp.PlayerSession);
+			}
+		}
 
 		string wrappedMessage = "[font size="+fontSize.ToString()+"][bold]" + (newlineNeeded ? "\n" : "") + message + "[/bold][/font]";
 		_chatManager.ChatMessageToManyFiltered(filter, ChatChannel.Radio, message, wrappedMessage, default, false, true, color, audioPath, audioVolume);
@@ -957,7 +960,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				job = prototype.LocalizedName;
 			AnnounceToCultists(message = Loc.GetString("cult-commune-message", ("name", metaData.EntityName),
 				("job", job), ("message", formattedMessage)), color:new Color(166, 27, 27, 255),
-				fontSize: 12, newlineNeeded:false);
+				fontSize: 12, newlineNeeded:false, includeGhosts:true);
 		}
 	}
 }

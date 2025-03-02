@@ -1,18 +1,9 @@
-# SPDX-FileCopyrightText: 2025 Mora <46364955+trixxedheart@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: MIT
-
 # Settings for cloning bodies
 # If you add a new trait, job specific component or a component doing visual/examination changes for humanoids
 # then add it here to the correct prototype.
 # The datafields of the components are only shallow copied using CopyComp.
 # Subscribe to CloningEvent instead if that is not enough.
 
-# for basic traits etc.
-# used by the random clone spawner
 - type: cloningSettings
   id: BaseClone
   components:
@@ -22,7 +13,6 @@
   - Fingerprint
   - NpcFactionMember
   # traits
-  - ImpairedMobility
   # - LegsParalyzed (you get healed)
   - LightweightDrunk
   - Narcolepsy
@@ -37,13 +27,11 @@
   - Clumsy
   - MindShield
   - MimePowers
-  - SpaceNinja
   # accents
   - Accentless
   - BackwardsAccent
   - BarkAccent
   - BleatingAccent
-  - DamagedSiliconAccent
   - FrenchAccent
   - GermanAccent
   - LizardAccent
@@ -68,27 +56,19 @@
   blacklist:
     components:
     - AttachedClothing # helmets, which are part of the suit
-    - HumanoidAppearance # will cause problems for downstream felinids getting cloned as Urists
-    - Implanter # they will spawn full again, but you already get the implant. And we can't do item slot copying yet
-    - VirtualItem
 
-# all antagonist roles
 - type: cloningSettings
   id: Antag
   parent: BaseClone
   components:
   - HeadRevolutionary
   - Revolutionary
-  - NukeOperative
 
-# for cloning pods
 - type: cloningSettings
   id: CloningPod
   parent: Antag
   forceCloning: false
   copyEquipment: null
-  copyInternalStorage: false
-  copyImplants: false
 
 # spawner
 
@@ -98,7 +78,7 @@
   suffix: Non-Antag
   components:
   - type: Sprite
-    sprite: Mobs/Aliens/paradox_clone.rsi
+    sprite: Markers/paradox_clone.rsi
     state: preview
   - type: RandomCloneSpawner
     settings: BaseClone

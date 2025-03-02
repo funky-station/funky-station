@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-NC-SA-4.0",
-  "copyright": "Created by @acalicodragon.itch.io (bluesky) for Funkystation",
+  "copyright": "Created by @acalicodragon.itch.io (bluesky) for Funkystation. Equipped-EYES-arachnid and equipped-EYES-moth modified from equipped-EYES by HTMLSystem. Arachnid and Moth altered modified to fit color palette by 2DSiggy",
   "size": {
     "x": 32,
     "y": 32
@@ -16,6 +16,18 @@
     },
     {
       "name": "equipped-EYES-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-EYES-arachnid",
+      "directions": 4
+    },
+    {
+      "name": "equipped-EYES-moth",
+      "directions": 4
+    },
+    {
+      "name": "equipped-EYES-secdog",
       "directions": 4
     },
     {

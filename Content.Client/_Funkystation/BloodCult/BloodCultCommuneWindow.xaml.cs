@@ -26,9 +26,15 @@ public sealed partial class BloodCultCommuneWindow : FancyWindow
 		{
 			OnCommune?.Invoke(CommuneMessage.Text);
 		};
-		
-		CommuneMessage.GrabKeyboardFocus();
     }
+
+	protected override void Opened()
+	{
+		base.Opened();
+
+		// Automatically highlight the commune text box for immediate typing convenience.
+		CommuneMessage.GrabKeyboardFocus();
+	}
 
     public void UpdateState(string name)
     {

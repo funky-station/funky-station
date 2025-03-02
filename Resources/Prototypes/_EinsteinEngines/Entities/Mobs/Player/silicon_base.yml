@@ -223,6 +223,10 @@
           type: StoreBoundUserInterface
         enum.HereticLivingHeartKey.Key: # goob edit - heretics
           type: LivingHeartMenuBoundUserInterface
+        enum.BloodCultistCommuneUIKey.Key: # funky edit - cultists
+          type: BloodCultCommuneBoundUserInterface
+        enum.SpellsUiKey.Key: # funky edit - cultists
+          type: SpellsBoundUserInterface
         enum.SurgeryUIKey.Key: # Shitmed
           type: SurgeryBui
     - type: Emoting

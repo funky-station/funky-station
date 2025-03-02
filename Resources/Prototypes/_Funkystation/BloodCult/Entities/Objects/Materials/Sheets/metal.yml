@@ -1,5 +1,5 @@
 - type: entity
-  parent: SheetMetalBase
+  parent: [ SheetMetalBase, BaseBloodCultContraband ]
   id: SheetRunedMetal
   name: runed metal
   suffix: Full

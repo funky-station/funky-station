@@ -202,6 +202,8 @@ public sealed partial class AdminVerbSystem
         args.Verbs.Add(blobAntag);
 
         // IMPSTATION - COSMIC CULT
+        //note - the UI for the monument currently doesn't properly account for cultists added like this until it gets sent a new state - ruddygreat
+        //todo figure out how to fix that
         Verb cosmiccult = new()
         {
             Text = Loc.GetString("admin-verb-text-make-cosmiccultist"),

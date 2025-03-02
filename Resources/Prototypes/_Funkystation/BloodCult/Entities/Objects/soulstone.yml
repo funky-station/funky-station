@@ -1,6 +1,6 @@
 - type: entity
   id: CultSoulStone
-  parent: BaseItem
+  parent: [ BaseItem, BaseBloodCultContraband ]
   name: soul stone
   description: "May or may not contain a stolen soul."
   components:

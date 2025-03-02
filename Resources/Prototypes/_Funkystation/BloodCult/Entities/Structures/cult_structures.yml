@@ -1,5 +1,6 @@
 - type: entity
   id: CultBaseStructure
+  parent: BaseBloodCultContraband
   suffix: Base
   placement:
     mode: SnapgridCenter

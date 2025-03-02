@@ -29,6 +29,9 @@ using Robust.Shared.Random;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Pinpointer;
 using Content.Shared.Actions;
+using Content.Shared.Ghost;
+using Content.Shared.Database;
+using Content.Server.Administration.Logs;
 
 using Content.Server.BloodCult.EntitySystems;
 using Content.Shared.BloodCult.Prototypes;
@@ -70,6 +73,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly ChatSystem _chatSystem = default!;
 	[Dependency] private readonly SharedActionsSystem _actions = default!;
 	[Dependency] private readonly SharedBodySystem _body = default!;
+	[Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
 	[Dependency] private readonly IEntityManager _entManager = default!;
 
@@ -834,8 +838,15 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				filter.AddPlayer(actorComp.PlayerSession);
 			}
 		}
+		var ghosts = AllEntityQuery<GhostHearingComponent, ActorComponent>();
+        while (ghosts.MoveNext(out var uid, out var _, out var actorComp))
+        {
+			filter.AddPlayer(actorComp.PlayerSession);
+        }
+
 		string wrappedMessage = "[font size="+fontSize.ToString()+"][bold]" + (newlineNeeded ? "\n" : "") + message + "[/bold][/font]";
 		_chatManager.ChatMessageToManyFiltered(filter, ChatChannel.Radio, message, wrappedMessage, default, false, true, color, audioPath, audioVolume);
+		_adminLogger.Add(LogType.Chat, LogImpact.Low, $"Announcement to cultists: {message}");
 	}
 
 	public void AnnounceToCultist(string message, EntityUid target, uint fontSize = 14, Color? color = null,

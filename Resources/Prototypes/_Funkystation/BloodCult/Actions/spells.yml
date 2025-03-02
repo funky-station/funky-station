@@ -6,6 +6,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _Funkystation/BloodCult/spells_cultist.rsi
@@ -25,6 +26,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _Funkystation/BloodCult/spells_cultist.rsi
@@ -44,6 +46,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _Funkystation/BloodCult/spells_cultist.rsi

@@ -25,8 +25,13 @@ public sealed class BloodCultistSystem : SharedBloodCultistSystem
 		if (!_uiSystem.HasUi(communeEntity.Value, BloodCultistCommuneUIKey.Key))
 			return;
 
-		_uiSystem.OpenUi(communeEntity.Value, BloodCultistCommuneUIKey.Key, ev.Performer);
-		UpdateCommuneUI((communeEntity.Value, cultistComp));
+		if (_uiSystem.IsUiOpen(communeEntity.Value, BloodCultistCommuneUIKey.Key))
+			return;
+
+		if (_uiSystem.TryOpenUi(communeEntity.Value, BloodCultistCommuneUIKey.Key, ev.Performer))
+			UpdateCommuneUI((communeEntity.Value, cultistComp));
+
+		ev.Handled = true;
 	}
 
 	private void UpdateCommuneUI(Entity<BloodCultistComponent> entity)

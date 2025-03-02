@@ -168,6 +168,8 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			)
 			{
 				BreakOnDamage = true,
+				RequireCanInteract = false,  // Allow restrained cultists to prepare spells
+				NeedHand = false,  // Cultists don't need hands to prep spells
 				BreakOnHandChange = false,
 				BreakOnMove = true,
 				BreakOnDropItem = false,

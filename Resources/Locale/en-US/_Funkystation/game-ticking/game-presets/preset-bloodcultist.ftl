@@ -11,7 +11,7 @@ cult-briefing = Help your fellow cult members convert the crew and sacrifice you
 
 cult-start-briefing = The Geometer of Blood has a task for you.
 
-cult-briefing-targets = Nar'Sie demands the blood of
+cult-briefing-targets = Nar'Sie demands blood. Inspect the veil to comprehend Her wishes.
 
 admin-verb-make-cultist = Make the target into a Blood Cultist.
 
@@ -41,7 +41,7 @@ cult-invocation-revive = Pasnar val'keriam usinar. Savrae ines amutan. Yam'toth 
 cult-invocation-offering = Mah'weyh pleggh at e'ntrath!
 cult-invocation-empowering = H'drak v'loso, mir'kanas verbot!
 
-cult-spell-carving = You begin crudely carving a sigil into your flesh.
+cult-spell-carving = Otherworldly tendrils begin crudely carving a sigil into your flesh.
 cult-spell-carving-rune = Empowered by the rune, you barely feel the sigil being carved into your flesh.
 cult-spell-exceeded = You cannot carve another spell!
 cult-spell-havealready = You already have that spell!

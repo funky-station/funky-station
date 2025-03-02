@@ -65,3 +65,7 @@
 - type: lobbyBackground
   id: funkOps
   background: /Textures/LobbyScreens/funkops.webp
+  
+- type: lobbyBackground
+  id: tayfunk
+  background: /Textures/LobbyScreens/tayfunk.webp

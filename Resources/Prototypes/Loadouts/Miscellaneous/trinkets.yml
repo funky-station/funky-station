@@ -404,6 +404,7 @@
     back:
     - TowelColorMime
 
+# funkystation
 - type: loadout
   id: TowelColorCentcom
   effects:

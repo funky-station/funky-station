@@ -30,6 +30,6 @@
     action: Allow
   - !type:ConditionPlaytime
     minimumPlaytime: 300 # 5 hours to be whitelisted
-    action: Deny
+    action: Allow
   - !type:ConditionAlwaysMatch
     action: Deny

@@ -32,6 +32,7 @@ using Content.Shared.Actions;
 using Content.Shared.Ghost;
 using Content.Shared.Database;
 using Content.Server.Administration.Logs;
+using Content.Shared.Bed.Cryostorage;
 
 using Content.Server.BloodCult.EntitySystems;
 using Content.Shared.BloodCult.Prototypes;
@@ -170,9 +171,11 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         var allHumans = new HashSet<Entity<MindComponent>>();
 		foreach (var person in _mind.GetAliveHumans())//;//(args.MindId);
 		{
-			if (TryComp<MindComponent>(person, out var mind) &&
-				mind.OwnedEntity != null &&
-				!_role.MindHasRole<BloodCultRoleComponent>(mind.OwnedEntity.Value, out var _))
+			var mind = person.Comp;
+			var mindCompEntity = mind.Owner;
+			if (mindCompEntity != null &&
+				!HasComp<CryostorageContainedComponent>(mind.CurrentEntity) &&
+				!_role.MindHasRole<BloodCultRoleComponent>(mindCompEntity, out var _))
 				allHumans.Add(person);
 		}
 
@@ -279,6 +282,29 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				if (!TryComp<BloodCultistComponent>(cultist, out var cultistComp))
 					continue;
 				cultistComp.ShowTearVeilRune = true;
+			}
+		}
+
+		if (component.Target != null)
+		{
+			// If the target has gone catatonic, pick another one.
+			var val = CompOrNull<MindComponent>((EntityUid)component.Target);
+			if (val?.UserId == null)
+			{
+				SelectTarget(component, true);
+				if (!component.VeilWeakened)
+				{
+					AnnounceStatus(component, cultists);
+				}
+			}
+			if (val != null && HasComp<CryostorageContainedComponent>(val.CurrentEntity))
+			{
+				// When entered cryo
+				SelectTarget(component, true);
+				if (!component.VeilWeakened)
+				{
+					AnnounceStatus(component, cultists);
+				}
 			}
 		}
 

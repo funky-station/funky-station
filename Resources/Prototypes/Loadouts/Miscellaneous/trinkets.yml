@@ -403,3 +403,15 @@
   storage:
     back:
     - TowelColorMime
+
+- type: loadout
+  id: TowelColorCentcom
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: CentralCommand
+      time: 360000 # 100hr
+  storage:
+    back:
+    - TowelColorCentcom

@@ -4311,7 +4311,7 @@ entities:
             4: 2184
           -13,4:
             3: 2184
-            5: 546
+            6: 546
           -12,5:
             0: 1
             1: 3856
@@ -4320,7 +4320,7 @@ entities:
           -11,5:
             1: 784
           -11,4:
-            6: 546
+            5: 546
           -11,6:
             0: 49152
           -11,3:
@@ -4612,8 +4612,8 @@ entities:
         - volume: 2500
           temperature: 235
           moles:
-          - 21.824879
-          - 82.10312
+          - 27.225372
+          - 102.419266
           - 0
           - 0
           - 0
@@ -4670,9 +4670,9 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 0
-          - 0
           - 6666.982
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -4689,9 +4689,9 @@ entities:
           temperature: 293.15
           moles:
           - 0
+          - 0
+          - 0
           - 6666.982
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -78194,6 +78194,13 @@ entities:
     - type: Transform
       pos: 25.5,-32.5
       parent: 2
+- proto: VendingMachinePride
+  entities:
+  - uid: 13587
+    components:
+    - type: Transform
+      pos: -21.5,-1.5
+      parent: 2
 - proto: VendingMachineRoboDrobe
   entities:
   - uid: 11869
@@ -87042,35 +87049,6 @@ entities:
         - 0
         - 0
         - 0
-- proto: WardrobeMixedFilled
-  entities:
-  - uid: 13587
-    components:
-    - type: Transform
-      pos: -21.5,-1.5
-      parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14957
-        moles:
-        - 1.6033952
-        - 6.031821
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
 - proto: WardrobePrisonFilled
   entities:
   - uid: 13588
@@ -87267,6 +87245,20 @@ entities:
       parent: 2
     - type: WarpPoint
       location: sci
+  - uid: 13808
+    components:
+    - type: Transform
+      pos: -2.5,-35.5
+      parent: 2
+    - type: WarpPoint
+      location: Arrivals
+  - uid: 13809
+    components:
+    - type: Transform
+      pos: 52.5,-2.5
+      parent: 2
+    - type: WarpPoint
+      location: Evac
 - proto: WaterCooler
   entities:
   - uid: 13600

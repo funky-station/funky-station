@@ -4722,11 +4722,6 @@ entities:
       parent: 31
 - proto: AirlockExternalGlassShuttleEscape
   entities:
-  - uid: 6947
-    components:
-    - type: Transform
-      pos: -8.5,-42.5
-      parent: 31
   - uid: 10766
     components:
     - type: Transform
@@ -4746,6 +4741,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 20.5,28.5
+      parent: 31
+  - uid: 11468
+    components:
+    - type: Transform
+      pos: -8.5,-42.5
       parent: 31
 - proto: AirlockFreezer
   entities:
@@ -29865,12 +29865,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 31.5,-17.5
-      parent: 31
-  - uid: 11468
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -8.5,-41.5
       parent: 31
 - proto: DefaultStationBeaconEVAStorage
   entities:
@@ -64375,6 +64369,13 @@ entities:
     - type: Transform
       pos: -15.5,-8.5
       parent: 31
+- proto: VendingMachinePride
+  entities:
+  - uid: 6947
+    components:
+    - type: Transform
+      pos: -21.5,-4.5
+      parent: 31
 - proto: VendingMachineRestockBooze
   entities:
   - uid: 10691
@@ -73059,6 +73060,20 @@ entities:
       parent: 31
     - type: WarpPoint
       location: library
+  - uid: 12019
+    components:
+    - type: Transform
+      pos: -45.5,-10.5
+      parent: 31
+    - type: WarpPoint
+      location: Arrivals
+  - uid: 12020
+    components:
+    - type: Transform
+      pos: -37.5,5.5
+      parent: 31
+    - type: WarpPoint
+      location: Evac
 - proto: WarpPointBombing
   entities:
   - uid: 934

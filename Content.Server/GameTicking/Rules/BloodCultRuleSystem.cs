@@ -641,7 +641,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		args.AddLine(Loc.GetString("cult-roundend-sacrifices", ("sacrifices", component.TotalSacrifices.ToString())));
     }
 
-	private List<EntityUid> GetEveryone()
+	private List<EntityUid> GetEveryone(bool includeGhosts = false)
 	{
 		var everyoneList = new List<EntityUid>();
 
@@ -650,6 +650,14 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         {
             everyoneList.Add(uid);
         }
+		if (includeGhosts)
+		{
+			var ghosts = AllEntityQuery<GhostHearingComponent, ActorComponent>();
+			while (ghosts.MoveNext(out var uid, out var _, out var actorComp))
+			{
+				everyoneList.Add(uid);
+			}
+		}
 
         return everyoneList;
 	}
@@ -865,7 +873,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		if (color == null)
 			color = Color.DarkRed;
 		var filter = Filter.Empty();
-		List<EntityUid> everyone = GetEveryone();
+		List<EntityUid> everyone = GetEveryone(includeGhosts:true);
 		foreach (EntityUid playerUid in everyone)
 		{
 			if (TryComp(playerUid, out ActorComponent? actorComp))

@@ -446,6 +446,11 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 					if (TryComp<CultistSpellComponent>(action.Id, out var actionComp))
 						_actions.RemoveAction(cultistUid, action.Id);
 				}
+
+				if (EntityManager.TryGetComponent(cultistUid, out AppearanceComponent? appearance))
+				{
+					_appearance.SetData(cultistUid, CultHaloVisuals.CultHalo, false, appearance);
+				}
 			}
 
 			// Did someone just try to draw the tear veil rune for the first time?

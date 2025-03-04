@@ -150,6 +150,10 @@
           sprite: "Effects/creampie.rsi"
           state: "creampie_human"
           visible: false
+        - map: [ "culthalo" ] # funky cult
+          sprite: "_Funkystation/BloodCult/Effects/halo.rsi"
+          state: "halo"
+          visible: false
     - type: CanEnterCryostorage # Goobstation
     - type: StatusIcon # Goobstation
       bounds: -0.5,-0.5,0.5,0.5
@@ -203,6 +207,10 @@
       visuals:
         enum.CreamPiedVisuals.Creamed:
           clownedon: # Not 'creampied' bc I can already see Skyrat complaining about conflicts.
+            True: { visible: true }
+            False: { visible: false }
+        enum.CultHaloVisuals.CultHalo:
+          culthalo:
             True: { visible: true }
             False: { visible: false }
     - type: Cuffable

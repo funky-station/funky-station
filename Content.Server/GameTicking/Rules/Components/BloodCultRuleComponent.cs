@@ -65,6 +65,16 @@ public sealed partial class BloodCultRuleComponent : Component
 	[DataField] public List<EntityUid> TargetsDown = new List<EntityUid>();
 
 	/// <summary>
+	///	Conversions needed until rise -- set when cult is initialized.
+	/// </summary>
+	[DataField] public int ConversionsUntilRise = 0;
+
+	/// <summary>
+	///	Has the cult risen yet?
+	/// </summary>
+	[DataField] public bool HasRisen = false;
+
+	/// <summary>
 	/// Nar'Sie ready to summon.
 	/// </summary>
 	[DataField] public bool VeilWeakened = false;

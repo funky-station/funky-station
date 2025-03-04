@@ -75,6 +75,10 @@
         sprite: "_DV/Effects/creampie.rsi"
         state: "creampie_vulpkanin"
         visible: false
+      - map: [ "culthalo" ] # funky cult
+        sprite: "_Funkystation/BloodCult/Effects/halo.rsi"
+        state: "halo"
+        visible: false
   - type: MeleeWeapon
     hidden: true
     soundHit:

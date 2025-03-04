@@ -113,6 +113,10 @@
         sprite: "Effects/creampie.rsi"
         state: "creampie_arachnid"
         visible: false
+      - map: [ "culthalo" ] # funky cult
+        sprite: "_Funkystation/BloodCult/Effects/halo.rsi"
+        state: "halo"
+        visible: false
   - type: Inventory
     templateId: arachnid
 

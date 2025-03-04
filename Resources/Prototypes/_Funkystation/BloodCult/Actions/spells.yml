@@ -12,6 +12,9 @@
       sprite: _Funkystation/BloodCult/spells_cultist.rsi
       state: study_veil
     event: !type:EventCultistStudyVeil {}
+  - type: Sprite
+    sprite: _Funkystation/BloodCult/spells_cultist.rsi
+    state: study_veil
   - type: CultistSpell
     abilityId: StudyVeil
     charges: 1
@@ -32,6 +35,9 @@
       sprite: _Funkystation/BloodCult/spells_cultist.rsi
       state: commune
     event: !type:BloodCultCommuneEvent {}
+  - type: Sprite
+    sprite: _Funkystation/BloodCult/spells_cultist.rsi
+    state: commune
   - type: CultistSpell
     abilityId: Commune
     charges: 1
@@ -52,6 +58,9 @@
       sprite: _Funkystation/BloodCult/spells_cultist.rsi
       state: spell_select
     event: !type:BloodCultSpellsEvent {}
+  - type: Sprite
+    sprite: _Funkystation/BloodCult/spells_cultist.rsi
+    state: spell_select
   - type: CultistSpell
     abilityId: SpellsSelect
     charges: 1
@@ -66,6 +75,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
+    sprite: _Funkystation/BloodCult/spells_cultist.rsi
+    state: summon_dagger
+  - type: Sprite
     sprite: _Funkystation/BloodCult/spells_cultist.rsi
     state: summon_dagger
   - type: InstantAction
@@ -88,6 +100,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
+    sprite: _Funkystation/BloodCult/spells_cultist.rsi
+    state: stun
+  - type: Sprite
     sprite: _Funkystation/BloodCult/spells_cultist.rsi
     state: stun
   - type: EntityTargetAction
@@ -127,6 +142,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
+    sprite: _Funkystation/BloodCult/spells_cultist.rsi
+    state: twisted_construction
+  - type: Sprite
     sprite: _Funkystation/BloodCult/spells_cultist.rsi
     state: twisted_construction
   - type: EntityTargetAction

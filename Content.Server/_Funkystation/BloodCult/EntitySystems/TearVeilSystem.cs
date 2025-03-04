@@ -1,4 +1,5 @@
 using System.Numerics;
+using System.Linq;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
@@ -181,7 +182,10 @@ namespace Content.Server.BloodCult.EntitySystems
 				}
 			}
 
-			return (cultistsFound>=9)&&found1&&found2&&found3&&found4&&found5&&found6&&found7&&found8&&found9;
+			bool[] tilesArray = new bool[9] { found1, found2, found3, found4, found5, found6, found7, found8, found9 };
+			tilesArray.Where(c => c).Count();
+
+			return (cultistsFound>=9) && (tilesArray.Where(c => c).Count() >= 6);
 		}
 	}
 }

@@ -9,6 +9,7 @@ using Content.Server.Popups;
 using Content.Shared.Interaction;
 using Content.Shared.DoAfter;
 using Content.Server.GameTicking.Rules;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
 
@@ -21,6 +22,7 @@ public sealed class ItemToggleSystem : EntitySystem
 	[Dependency] private readonly SharedAudioSystem _audioSystem = default!;
 	[Dependency] private readonly BloodCultRuleSystem _cultRuleSystem = default!;
 	[Dependency] private readonly BloodCultConstructSystem _constructSystem = default!;
+	[Dependency] private readonly MobStateSystem _mobState = default!;
 	[Dependency] private readonly IEntityManager _entityManager = default!;
 
 	private EntityQuery<ShadeComponent> _shadeQuery;
@@ -53,7 +55,7 @@ public sealed class ItemToggleSystem : EntitySystem
 
 		args.Handled = true;
 
-		if (TryComp<MindContainerComponent>(args.Target, out var mindContainer))
+		if (args.Target != null && !_mobState.IsDead((EntityUid)args.Target) && TryComp<MindContainerComponent>(args.Target, out var mindContainer))
 		{
 			if (mindContainer.Mind != null && TryComp<MindComponent>((EntityUid)mindContainer.Mind, out var mindComp))
 			{

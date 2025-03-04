@@ -153,6 +153,7 @@
         - map: [ "culthalo" ] # funky cult
           sprite: "_Funkystation/BloodCult/Effects/halo.rsi"
           state: "halo"
+          shader: unshaded
           visible: false
     - type: CanEnterCryostorage # Goobstation
     - type: StatusIcon # Goobstation

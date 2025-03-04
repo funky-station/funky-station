@@ -50,6 +50,12 @@ cult-spell-exceeded = You cannot carve another spell!
 cult-spell-havealready = You already have that spell!
 cult-spell-fail = You fail to cast the spell!
 
+cult-shade-summoned = The stolen soul materializes as a servant Shade!
+cult-shade-recalled = You recapture the stolen soul, rejuvinating it!
+cult-shade-servant = You have been released from your prison, but you are still bound to {$name}'s will. Help them succeed in their goals at all costs.
+
+cult-soulstone-empty = You are unable to contact any soul from this stone -- perhaps it is empty.
+
 cult-status-veil-strong = [italic]The Veil needs to be weakened before we are able to summon The Dark One.[/italic]
 
 cult-status-veil-weak = [italic]You and your acolytes have succeeded in preparing the station for the ultimate ritual![/italic]

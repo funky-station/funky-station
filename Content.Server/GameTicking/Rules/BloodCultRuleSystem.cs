@@ -166,6 +166,11 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		// veil has been sufficiently weakened
 		if (component.TargetsDown.Count >= component.TargetsRequired)
 		{
+			if (!component.HasRisen)
+			{
+				component.HasRisen = true;
+				RiseCultists(GetCultists());
+			}
 			component.Target = null;
 			component.VeilWeakened = true;
 		}
@@ -186,6 +191,11 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         {
 			// If there are no remaining possible targets, allow
 			//	the cultists to summon Nar'Sie right away.
+			if (!component.HasRisen)
+			{
+				component.HasRisen = true;
+				RiseCultists(GetCultists());
+			}
 			component.Target = null;
 			component.VeilWeakened = true;
             return;
@@ -925,6 +935,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	private int GetConversionsToRise(BloodCultRuleComponent component, List<EntityUid> cultists)
 	{
 		// Has the cultist group reached the needed conversions?
+		if (component.HasRisen)
+			return 0;
 		int conversionsUntilRise = component.ConversionsUntilRise - cultists.Count;
 		conversionsUntilRise = (conversionsUntilRise > 0) ? conversionsUntilRise : 0;
 		return conversionsUntilRise;

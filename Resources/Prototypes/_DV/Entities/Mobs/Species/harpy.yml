@@ -85,6 +85,10 @@
         sprite: "Effects/creampie.rsi"
         state: "creampie_human"
         visible: false
+      - map: [ "culthalo" ] # funky cult
+        sprite: "_Funkystation/BloodCult/Effects/halo.rsi"
+        state: "halo"
+        visible: false
 # Yes, RArm has to be down here
       - map: [ "enum.HumanoidVisualLayers.RArm" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
@@ -203,6 +207,10 @@
       - map: [ "clownedon" ] # Dynamically generated
         sprite: "Effects/creampie.rsi"
         state: "creampie_human"
+        visible: false
+      - map: [ "culthalo" ] # funky cult
+        sprite: "_Funkystation/BloodCult/Effects/halo.rsi"
+        state: "halo"
         visible: false
 # Yes, RArm has to be down here
       - map: [ "enum.HumanoidVisualLayers.RArm" ]

@@ -1360,6 +1360,10 @@
         clownedon:
           True: {visible: true}
           False: {visible: false}
+      enum.CultHaloVisuals.CultHalo:
+        culthalo:
+          True: { visible: true }
+          False: { visible: false }
   - type: Body # Shitmed Change
     prototype: Monkey
     requiredLegs: 2

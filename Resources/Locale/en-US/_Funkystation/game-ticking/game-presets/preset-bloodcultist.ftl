@@ -64,7 +64,10 @@ cult-status-veil-weak-cultdata = Current cult members: {$cultCount} | Conversion
     Constructs: {$constructCount}
 
 cult-narsie-sacrifice-accept = "I accept your sacrifice."
-cult-narsie-target-down = "Yes, this is the one I desire."
+cult-narsie-target-down = "Yes! This is the one I desire! You have done well."
+
+cult-ascend-1 = The veil weakens as your cult grows, and your eyes begin to glow...
+cult-ascend-2 = The veil weakens as your cult grows, and you are unable to hide your true nature!
 
 cult-deconverted = You suddenly de-convert, and no longer consider yourself a cultist!
 

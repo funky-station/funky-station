@@ -26,6 +26,7 @@ using Content.Shared.Popups;
 using Content.Shared.Magic.Events;
 using Content.Shared.Body.Systems;
 using Robust.Shared.Random;
+using Robust.Server.GameObjects;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Pinpointer;
 using Content.Shared.Actions;
@@ -74,6 +75,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly ChatSystem _chatSystem = default!;
 	[Dependency] private readonly SharedActionsSystem _actions = default!;
 	[Dependency] private readonly SharedBodySystem _body = default!;
+	[Dependency] private readonly AppearanceSystem _appearance = default!;
 	[Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
 	[Dependency] private readonly IEntityManager _entManager = default!;
@@ -110,6 +112,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         base.Started(uid, component, gameRule, args);
 		SelectTarget(component);
 		component.InitialReportTime = _timing.CurTime + TimeSpan.FromSeconds(1);
+		SetConversionsNeeded(component);
 		SelectVeilTargets(component);
     }
 
@@ -238,6 +241,15 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				cultist.ShowTearVeilRune = component.VeilWeakened;
 				cultist.LocationForSummon = component.LocationForSummon;
 			}
+
+			if (component.HasRisen)
+			{
+				if (EntityManager.TryGetComponent(traitor, out AppearanceComponent? appearance))
+				{
+					_appearance.SetData(traitor, CultHaloVisuals.CultHalo, true, appearance);
+				}
+			}
+
 			return true;
 		}
 		return false;
@@ -306,6 +318,12 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 					AnnounceStatus(component, cultists);
 				}
 			}
+		}
+
+		if (!component.HasRisen && GetConversionsToRise(component, cultists) == 0)
+		{
+			component.HasRisen = true;
+			RiseCultists(cultists);
 		}
 
 		foreach (EntityUid cultistUid in cultists)
@@ -897,6 +915,37 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		_chatManager.ChatMessageToManyFiltered(filter, ChatChannel.Radio, message, wrappedMessage, default, false, true, color, audioPath, audioVolume);
 	}
 
+	private void SetConversionsNeeded(BloodCultRuleComponent component)
+	{
+		// 30% cult needed
+		var allAliveHumans = _mind.GetAliveHumans();
+		component.ConversionsUntilRise = (int)Math.Ceiling((float)allAliveHumans.Count * 0.3f);
+	}
+
+	private int GetConversionsToRise(BloodCultRuleComponent component, List<EntityUid> cultists)
+	{
+		// Has the cultist group reached the needed conversions?
+		int conversionsUntilRise = component.ConversionsUntilRise - cultists.Count;
+		conversionsUntilRise = (conversionsUntilRise > 0) ? conversionsUntilRise : 0;
+		return conversionsUntilRise;
+	}
+
+	private void RiseCultists(List<EntityUid> cultists)
+	{
+		// Announce to everyone that the cult is rising and then do the rising
+		AnnounceToCultists(
+			Loc.GetString("cult-ascend-2")+"\n",
+			newlineNeeded:true
+		);
+		foreach (EntityUid cultist in cultists)
+		{
+			if (EntityManager.TryGetComponent(cultist, out AppearanceComponent? appearance))
+			{
+				_appearance.SetData(cultist, CultHaloVisuals.CultHalo, true, appearance);
+			}
+		}
+	}
+
 	public void AnnounceStatus(BloodCultRuleComponent component, List<EntityUid> cultists, EntityUid? specificCultist = null)
 	{
 		List<EntityUid> constructs = new List<EntityUid>();
@@ -956,9 +1005,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			AnnounceToCultists(purpleMessage,
 					color:new Color(111, 80, 143, 255), fontSize:12, newlineNeeded:true);
 
-		var allAliveHumans = _mind.GetAliveHumans();
-		var conversionsUntilRise = (int)Math.Ceiling((float)allAliveHumans.Count * 0.3f) - cultists.Count;
-		conversionsUntilRise = (conversionsUntilRise > 0) ? conversionsUntilRise : 0;
+		var conversionsUntilRise = GetConversionsToRise(component, cultists);
 		if (specificCultist != null)
 			AnnounceToCultist(Loc.GetString("cult-status-veil-weak-cultdata", ("cultCount", (cultists.Count+constructs.Count).ToString()),
 				("cultUntilRise", conversionsUntilRise.ToString()), ("cultistCount", cultists.Count.ToString()),

@@ -4,6 +4,7 @@ using Content.Shared.StatusIcon.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Map;
+using Robust.Shared.Serialization;
 using Content.Shared.BloodCult.Prototypes;
 
 namespace Content.Shared.BloodCult;
@@ -206,4 +207,10 @@ public struct ConvertingData
 		Target = target;
 		Invokers = invokers;
 	}
+}
+
+[Serializable, NetSerializable]
+public enum CultHaloVisuals
+{
+	CultHalo,
 }

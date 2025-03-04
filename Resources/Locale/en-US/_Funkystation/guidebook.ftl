@@ -1,4 +1,6 @@
-﻿guide-entry-command-sop = Command SOP
+﻿guide-entry-blood-cult = Blood Cult
+
+guide-entry-command-sop = Command SOP
 guide-entry-security-sop = Security SOP
 guide-entry-legal-sop = Legal SOP
 guide-entry-engineering-sop = Engineering SOP

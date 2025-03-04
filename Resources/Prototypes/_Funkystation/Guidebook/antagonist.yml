@@ -1,0 +1,4 @@
+- type: guideEntry
+  id: BloodCult
+  name: guide-entry-blood-cult
+  text: "/ServerInfo/Funkystation/Guidebook/Antagonist/BloodCult.xml"

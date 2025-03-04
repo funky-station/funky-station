@@ -53,10 +53,10 @@
         factor: -1
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.25 #near-absinthe level
+        amount: 0.2 #near-absinthe level
       - !type:AdjustReagent
         reagent: SpaceDrugs
-        amount: .6
+        amount: 0.2
 
 - type: reagent
   id: MargheritaDrink

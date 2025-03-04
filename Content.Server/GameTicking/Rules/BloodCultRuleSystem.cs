@@ -183,6 +183,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			var mindCompEntity = mind.Owner;
 			if (mindCompEntity != null &&
 				!HasComp<CryostorageContainedComponent>(mind.CurrentEntity) &&
+				!HasComp<CultResistantComponent>(mind.CurrentEntity) &&
 				!_role.MindHasRole<BloodCultRoleComponent>(mindCompEntity, out var _))
 				allHumans.Add(person);
 		}
@@ -774,7 +775,15 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 	private bool _SacrificeNonTarget(SacrificingData sacrifice, BloodCultRuleComponent component, EntityUid cultistUid)
 	{
-		if (sacrifice.Invokers.Length < component.CultistsToSacrifice)
+		if (HasComp<CultResistantComponent>(sacrifice.Target))
+		{
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-invocation-fail-resisted"),
+				cultistUid, cultistUid, PopupType.MediumCaution
+			);
+			return false;
+		}
+		else if (sacrifice.Invokers.Length < component.CultistsToSacrifice)
 		{
 			_popupSystem.PopupEntity(
 				Loc.GetString("cult-invocation-fail"),
@@ -822,7 +831,15 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 	private bool _ConvertNonTarget(ConvertingData convert, BloodCultRuleComponent component, EntityUid cultistUid)
 	{
-		if (convert.Invokers.Length >= component.CultistsToConvert)
+		if (HasComp<CultResistantComponent>(convert.Target))
+		{
+			_popupSystem.PopupEntity(
+				Loc.GetString("cult-invocation-fail-resisted"),
+				cultistUid, cultistUid, PopupType.MediumCaution
+			);
+			return false;
+		}
+		else if (convert.Invokers.Length >= component.CultistsToConvert)
 		{
 			foreach (EntityUid invoker in convert.Invokers)
 				Speak(invoker, Loc.GetString("cult-invocation-offering"));

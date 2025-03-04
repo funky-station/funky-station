@@ -34,6 +34,7 @@ cult-invocation-revive-fail = Nar'Sie demands more sacrifice!
 cult-invocation-fail-nosoul = Nar'Sie rejects this soulless husk!
 cult-invocation-fail-teamkill = Nar'Sie rejects your offering of another Cultist!
 cult-invocation-fail-mindshielded = Your victim resists Nar'Sie's influence!
+cult-invocation-fail-resisted = This holy being resists Nar'Sie's influence!
 cult-invocation-fail = More cultists must be present!
 cult-invocation-target-fail = More cultists must be present to sacrifice one Nar'Sie desires!
 cult-invocation-narsie-fail = At least nine cultists must stand atop the rune, distributed evenly, to rend the veil.

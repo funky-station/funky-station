@@ -12,11 +12,13 @@ Unfortunately for the station, it looks like Nanotrasen accidentally positioned 
     <GuideEntityEmbed Entity="TearVeilRune" Caption="The sigil of Nar'Sie."/>
   </Box>
 
+As a blood cultist, the only being you love more than your fellow acolytes is [color=#ff3333]Nar'Sie Herself[/color]. Be kind to one another, teach each other the tricks and tools of the trade, and remember that only through complete co-operation can you achieve your [color=#dd55aa]goal[/color].
+
 You can become a blood cultist both at the beginning of the round and by being converted by existing acolytes. Cultists may also, instead, choose to trap your soul in a stone to do their bidding.
 
 ## Abilities
 
-As a blood cultist, [color=#ff3333]your patron[/color] has seen fit to empower you with several basic abilities to help you on your quest.
+[color=#ff3333]Your patron[/color] has seen fit to empower [color=#ff3333]Her[/color] blood cultists with several basic abilities to help you on your quest.
 
 <Box>
     <GuideEntityEmbed Entity="ActionCultistCommune" Caption="Commune"/>
@@ -51,8 +53,8 @@ The most important runes you have available are the [color=#ff6666]offering rune
 
 The [bold][color=#ff6666]offering rune[/color][/bold] allows cultists to convert the weak-minded to their cause as well as sacrifice the dead, the mindshielded, and those whose souls the [color=#ff3333]Geometer[/color] desires.
 - [color=#99CC99]Sacrificing[/color] an unimportant dead person is a simple task, and can be performed by as few as a single acolyte. To accomplish this, merely drag the dead person's body, severed head, or brain onto an [color=#ff6666]offering rune[/color], then activate the rune by clicking it with an empty hand or by pressing E on it. Performing this ritual will trap the victim's soul in a soul stone, which may be found among the blood and offal atop the rune.
-- [color=#EEEE33]Converting[/color] a living, weak-minded individual to your cause -- an individual who is not mindshielded, not a Chaplain, and not the [color=#dd55aa]target[/color] designated by your [color=#ff3333]master[/color] -- is marginally more complex in its execution than sacrificing an insignificant crewmember. The victim must be dragged onto the [color=#ff6666]offering rune[/color] while still alive. At least [bold]two (2)[/bold] cultists must stand on the tiles adjacent to the [color=#ff6666]rune[/color] before activating it. A successful ritual will produce a new acolyte to the [color=#ff3333]Geometer[/color].
-- [color=#99CC99]Sacrificing[/color] your [color=#dd55aa]target[/color] -- a crewmember whose identity will be told to you by the [color=#ff3333]Geometer[/color] herself -- is a similar process to [color=#99CC99]sacrificing[/color] an unimportant crewmember. However, as this [color=#dd55aa]individual[/color] possesses a soul of surpassing might, [bold]three (3)[/bold] cultists must be standing around the [color=#ff6666]rune[/color] to perform the ritual. If successful, the veil will be weakened, and you will be given a new [color=#dd55aa]assignment[/color].
+- [color=#EEEE33]Converting[/color] a living, weak-minded individual to your cause -- an individual who is not mindshielded, not a Chaplain, and not the [color=#dd55aa]target[/color] designated by your [color=#ff3333]master[/color] -- is marginally more complex in its execution than sacrificing an insignificant crewmember. The victim must be dragged onto the [color=#ff6666]offering rune[/color] while still alive. At least [bold]two (2)[/bold] cultists must stand on the tiles adjacent to the [color=#ff6666]rune[/color] before activating it. A successful ritual will produce a new acolyte to the [color=#ff3333]Geometer[/color] and significantly replenish their health.
+- [color=#99CC99]Sacrificing[/color] your [color=#dd55aa]target[/color] -- a crewmember whose identity may be told to you by the [color=#ff3333]Geometer[/color] herself through the use of the [bold]Study Veil[/bold] ability -- is a similar process to [color=#99CC99]sacrificing[/color] an unimportant crewmember. However, as this [color=#dd55aa]individual[/color] possesses a soul of surpassing might, [bold]three (3)[/bold] cultists must be standing around the [color=#ff6666]rune[/color] to perform the ritual. If successful, the veil will be weakened, and you will be given a new [color=#dd55aa]assignment[/color].
 
   <Box>
     <GuideEntityEmbed Entity="EmpoweringRune" Caption="empowering rune"/>
@@ -126,7 +128,7 @@ Juggernauts are hulking beasts made from juggernaut shells, awakened through the
 
 When the veil has been sufficiently weakened, and your cult has grown sufficiently expanded, it will be time to summon [color=#ff3333]your master.[/color]
 
-A new rune may be drawn at any of the three designated locations [color=#ff3333]she[/color] will tell you about. This will take a long time.
+A new rune may be drawn at any of the three designated locations [color=#ff3333]She[/color] will tell you about. This rune will take a long time to prepare.
 
 Once the process begins, Nanotrasen sensors are likely to pick up the exact location of your summoning attempt, and the crew will be alerted. Once the final rune is drawn, have [bold]at least nine (9)[/bold] cultists stand on top of it, spread out to cover as much surface area as possible.
 

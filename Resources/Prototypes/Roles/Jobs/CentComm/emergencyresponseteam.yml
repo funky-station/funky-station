@@ -107,6 +107,7 @@
   - !type:AddComponentSpecial
     components:
     - type: BibleUser #Lets them heal with bibles
+    - type: CultResistant # Funky cult
 
 - type: startingGear
   id: ERTChaplainGear

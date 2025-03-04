@@ -11,6 +11,10 @@
       "name": "juggernaut",
       "directions": 4
     },
+	{
+      "name": "shade",
+      "directions": 4
+    },
     {
       "name": "juggernaut_dead"
     },

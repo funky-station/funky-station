@@ -55,6 +55,7 @@
     - map: [ "culthalo" ] # funky cult
       sprite: "_Funkystation/BloodCult/Effects/halo.rsi"
       state: "halo"
+      shader: unshaded
       visible: false
   - type: DamageVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]

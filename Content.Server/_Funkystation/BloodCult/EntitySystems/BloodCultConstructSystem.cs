@@ -16,10 +16,10 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 	{
 		base.Initialize();
 
-		SubscribeLocalEvent<SoulStoneComponent, AfterInteractEvent>(OnTryApplySoulStone);
+		//SubscribeLocalEvent<SoulStoneComponent, AfterInteractEvent>(OnTryApplySoulStone);
 	}
 
-	private void OnTryApplySoulStone(Entity<SoulStoneComponent> ent, ref AfterInteractEvent args)
+	public void TryApplySoulStone(Entity<SoulStoneComponent> ent, ref AfterInteractEvent args)
     {
 		if (args.Target == null || !HasComp<BloodCultConstructShellComponent>(args.Target))
 			return;

@@ -1,0 +1,5 @@
+- type: entity
+  parent: [ ClothingEyesGlassesCheapSunglasses, ShowSecurityIcons, ShowMedicalIcons ]
+  id: ClothingEyesGlassesExperimentalShades
+  name: experimental shades
+  description: A pair of black sunglasses, with Medical, Security heads up displays installed in the lenses. #and night vision later

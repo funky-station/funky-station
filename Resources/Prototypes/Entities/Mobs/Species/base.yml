@@ -28,6 +28,11 @@
     - map: [ "shoes" ]
     - map: [ "ears" ]
     - map: [ "outerClothing" ]
+    - map: [ "culteyes" ] # funky cult
+      sprite: "_Funkystation/BloodCult/Effects/culteyes.rsi"
+      state: "human"
+      shader: unshaded
+      visible: false
     - map: [ "eyes" ]
     - map: [ "belt" ]
     - map: [ "id" ]
@@ -82,6 +87,10 @@
         culthalo:
           True: { visible: true }
           False: { visible: false }
+      enum.CultEyesVisuals.CultEyes:
+          culteyes:
+            True: { visible: true }
+            False: { visible: false }
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: RotationVisuals

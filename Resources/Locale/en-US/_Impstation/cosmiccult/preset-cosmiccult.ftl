@@ -9,13 +9,14 @@ roles-antag-cosmiccult-name = Cosmic Cultist
 roles-antag-cosmiccult-description = Usher in the end of all things through subterfuge and sabotage, brainwashing those who would oppose you.
 
 roles-antag-cosmiccultlead-name = Cosmic Cult Leader
-roles-antag-cosmiccultlead-description = Organize the cult into a force to be reckoned, so that you may usher in the end of all things.
+roles-antag-cosmiccultlead-description = Organize the cult into a force to be reckoned with, so that you may usher in the end of all things.
 
 cosmiccult-gamemode-title = The Cosmic Cult
 cosmiccult-gamemode-description =
     Scanners detect an anomalous increase in Λ-CDM. There is no additional data.
 
 
+cosmiccult-finale-autocall-briefing = The Monument activates {$minutesandseconds}! Gather yourselves, and prepare for the end.
 cosmiccult-finale-ready = A terrifying light surges forth from The Monument!
 cosmiccult-finale-count = There are {$COUNT} cultists empowering the monument..
 cosmiccult-finale-cultist-count = {$COUNT ->
@@ -34,6 +35,9 @@ cosmiccult-finale-cancel-begin = You begin to disrupt The Monument's energies..
 cosmiccult-finale-beckon-begin = You begin to Beckon The Unknown..
 cosmiccult-finale-beckon-success = You beckon for the final curtain call.
 
+cosmiccult-monument-powerdown = The Monument falls silent..
+
+## ROUNDEND TEXT
 
 cosmiccult-roundend-cultist-count = {$initialCount ->
     [1] There was {$initialCount} [color=#4cabb3]Cosmic Cultist[/color].
@@ -47,8 +51,6 @@ cosmiccult-roundend-monument-stage = {$stage ->
     [3] The Monument was completed!
     *[other] [color=red]Something went REALLY wrong.[/color]
 }
-
-
 
 cosmiccult-roundend-cultcomplete = [color=#4cabb3]Cosmic Cult complete victory![/color]
 cosmiccult-roundend-cultmajor = [color=#4cabb3]Cosmic Cult major victory![/color]
@@ -65,6 +67,10 @@ cosmiccult-summary-neutral = The cult will live to see another day.
 cosmiccult-summary-crewminor = The cult has been left leaderless.
 cosmiccult-summary-crewmajor = All cosmic cultists were eliminated.
 cosmiccult-summary-crewcomplete = Every single cosmic cultist was deconverted!
+
+cosmiccult-elimination-shuttle-call = Based on scans from our long-range sensors, the Λ-CDM anomaly has subsided. We will call emergency shuttle that will arrive shortly. ETA: {$time} {$units}. You can recall the shuttle to extend the shift.
+cosmiccult-elimination-announcement = Based on scans from our long-range sensors, the Λ-CDM anomaly has subsided. Shuttle is already called.
+
 
 ## BRIEFINGS
 
@@ -97,11 +103,11 @@ cosmiccult-role-deconverted-briefing =
 
 cosmiccult-monument-stage2-briefing =
     The Monument grows in power!
-    Its influence will affect realspace in 60 seconds.
+    Its influence will affect realspace in {$time} seconds.
 
 cosmiccult-monument-stage3-briefing =
     The Monument has been completed!
-    Its influence will begin to overlap with realspace in 60 seconds.
+    Its influence will begin to overlap with realspace in {$time} seconds.
     This is the final stretch! Amass as much entropy as you can muster.
 
 ## MALIGN RIFTS

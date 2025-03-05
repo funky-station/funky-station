@@ -4,6 +4,7 @@
   order: 1
   lawString: law-crewsimov-1
 
+# This is the "ID card = crew" definition law. This is a band-aid fix until some other solution is found.
 - type: siliconLaw
   id: Crewsimov2
   order: 2
@@ -14,12 +15,18 @@
   order: 3
   lawString: law-crewsimov-3
 
+- type: siliconLaw
+  id: Crewsimov4
+  order: 4
+  lawString: law-crewsimov-4
+
 - type: siliconLawset
   id: Crewsimov
   laws:
   - Crewsimov1
   - Crewsimov2
   - Crewsimov3
+  - Crewsimov4
   obeysTo: laws-owner-crew
 
 # Corporate
@@ -533,12 +540,12 @@
   id: Asimov2
   order: 2
   lawString: law-asimov-2
- 
+
 - type: siliconLaw
   id: Asimov3
   order: 3
   lawString: law-asimov-3
-  
+
 - type: siliconLawset
   id: AsimovLawset
   laws:

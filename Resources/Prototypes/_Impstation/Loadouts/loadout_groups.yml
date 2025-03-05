@@ -13,9 +13,3 @@
   minLimit: 0
   loadouts:
   - BeltChaplainDragon
-
-- type: loadoutGroup
-  id: ChaplainShoes
-  name: loadout-group-chaplain-shoes
-  loadouts:
-  - BlackShoes

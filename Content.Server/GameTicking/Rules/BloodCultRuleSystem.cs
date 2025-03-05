@@ -10,6 +10,7 @@ using Content.Server.RoundEnd;
 using Content.Server.Antag;
 using Content.Server.Mind;
 using Content.Server.GameTicking.Rules.Components;
+using Content.Shared.NPC.Systems;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -76,6 +77,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly SharedActionsSystem _actions = default!;
 	[Dependency] private readonly SharedBodySystem _body = default!;
 	[Dependency] private readonly AppearanceSystem _appearance = default!;
+	[Dependency] private readonly NpcFactionSystem _npcFaction = default!;
 	[Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
 	[Dependency] private readonly IEntityManager _entManager = default!;
@@ -83,6 +85,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	public readonly string CultComponentId = "BloodCultist";
 
 	[ValidatePrototypeId<EntityPrototype>] static EntProtoId mindRole = "MindRoleCultist";
+
+	[ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> BloodCultistFactionId = "BloodCultist";
+    [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
 
 	public override void Initialize()
 	{
@@ -163,6 +168,16 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         if (!wipe && component.Target != null)
             return;
 
+		// veil has begun to be weakened
+		if (component.TargetsDown.Count >= 1)
+		{
+			if (!component.HasEyes)
+			{
+				component.HasEyes = true;
+				EmpowerCultists(GetCultists());
+			}
+		}
+
 		// veil has been sufficiently weakened
 		if (component.TargetsDown.Count >= component.TargetsRequired)
 		{
@@ -195,6 +210,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			if (!component.HasRisen)
 			{
 				component.HasRisen = true;
+				EmpowerCultists(GetCultists());
 				RiseCultists(GetCultists());
 			}
 			component.Target = null;
@@ -253,6 +269,14 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				cultist.LocationForSummon = component.LocationForSummon;
 			}
 
+			if (component.HasEyes)
+			{
+				if (EntityManager.TryGetComponent(traitor, out AppearanceComponent? appearance))
+				{
+					_appearance.SetData(traitor, CultEyesVisuals.CultEyes, true, appearance);
+				}
+			}
+
 			if (component.HasRisen)
 			{
 				if (EntityManager.TryGetComponent(traitor, out AppearanceComponent? appearance))
@@ -260,6 +284,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 					_appearance.SetData(traitor, CultHaloVisuals.CultHalo, true, appearance);
 				}
 			}
+
+			_npcFaction.RemoveFaction(traitor, NanotrasenFactionId, false);
+			_npcFaction.AddFaction(traitor, BloodCultistFactionId);
 
 			return true;
 		}
@@ -329,6 +356,12 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 					AnnounceStatus(component, cultists);
 				}
 			}
+		}
+
+		if (!component.HasEyes && GetConversionsToEyes(component, cultists) == 0)
+		{
+			component.HasEyes = true;
+			EmpowerCultists(cultists);
 		}
 
 		if (!component.HasRisen && GetConversionsToRise(component, cultists) == 0)
@@ -449,6 +482,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 				if (EntityManager.TryGetComponent(cultistUid, out AppearanceComponent? appearance))
 				{
+					_appearance.SetData(cultistUid, CultEyesVisuals.CultEyes, false, appearance);
 					_appearance.SetData(cultistUid, CultHaloVisuals.CultHalo, false, appearance);
 				}
 			}
@@ -558,73 +592,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				textAnnounce: "cult-win-announcement");
 			return;
 		}
-
-		// Step 1: Check to see if the Cultists have lost.
-        //if (component.RevLossTimerActive && !component.RevForceLose)
-        //{
-        //    var headRevList = GetHeadRevs();
-
-        //    if (!IsGroupDetainedOrDead(headRevList, true, false))
-        //    {
-        //        component.RevLossTimerActive = false;
-
-        //        for (int i = 0; i < headRevList.Count; i++)
-        //        {
-        //            _popup.PopupEntity(Loc.GetString("rev-headrev-returned"), headRevList[i], headRevList[i]);
-        //        }
-        //    }
-        //    else if (component.RevLoseTime <= _timing.CurTime)
-        //    {
-        //        component.RevForceLose = true;
-        //        for (int i = 0; i < headRevList.Count; i++)
-        //        {
-        //            _popup.PopupEntity(Loc.GetString("rev-headrev-abandoned"), headRevList[i], headRevList[i]);
-        //        }
-        //    }
-        //}
-
-		// Step 2: Check to see if the Cultists have timed out. (?)
-        // funkystation
-        //if (component.RevVictoryEndTime != null && _timing.CurTime >= component.RevVictoryEndTime)
-        //{
-        //    EndRound();
-
-        //    return;
-        //}
-
-		// Step 3: Check to see if the Cultists have summoned Nar'Sie.
-        //if (component.CommandCheck <= _timing.CurTime)
-        //{
-        //    component.CommandCheck = _timing.CurTime + component.TimerWait;
-
-        //    // goob edit
-        //    if (CheckCommandLose())
-        //    {
-        //        if (!component.HasRevAnnouncementPlayed)
-        //        {
-        //            _chatSystem.DispatchGlobalAnnouncement(
-        //                Loc.GetString("revolutionaries-win-announcement"),
-        //                Loc.GetString("revolutionaries-win-sender"),
-        //                colorOverride: Color.Gold);
-
-        //            component.HasRevAnnouncementPlayed = true;
-
-        //            component.RevVictoryEndTime = _timing.CurTime + component.RevVictoryEndDelay;
-        //        }
-        //    }
-
-        //    if (CheckRevsLose() && !component.HasAnnouncementPlayed)
-        //    {
-        //        DeconvertAllRevs();
-
-        //        _roundEnd.DoRoundEndBehavior(RoundEndBehavior.ShuttleCall,
-        //            component.ShuttleCallTime,
-        //            textCall: "revolutionaries-lose-announcement-shuttle-call",
-        //            textAnnounce: "revolutionaries-lose-announcement");
-
-        //        component.HasAnnouncementPlayed = true;
-        //    }
-        //}
     }
 
 	private void EndRound()
@@ -957,9 +924,21 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 	private void SetConversionsNeeded(BloodCultRuleComponent component)
 	{
-		// 30% cult needed
 		var allAliveHumans = _mind.GetAliveHumans();
+		// 10% cult needed for eyes
+		component.ConversionsUntilEyes = (int)Math.Ceiling((float)allAliveHumans.Count * 0.125f);
+		// 30% cult needed for rise
 		component.ConversionsUntilRise = (int)Math.Ceiling((float)allAliveHumans.Count * 0.3f);
+	}
+
+	private int GetConversionsToEyes(BloodCultRuleComponent component, List<EntityUid> cultists)
+	{
+		// Has the cultist group reached the needed conversions?
+		if (component.HasEyes)
+			return 0;
+		int conversionsUntilEyes = component.ConversionsUntilEyes - cultists.Count;
+		conversionsUntilEyes = (conversionsUntilEyes > 0) ? conversionsUntilEyes : 0;
+		return conversionsUntilEyes;
 	}
 
 	private int GetConversionsToRise(BloodCultRuleComponent component, List<EntityUid> cultists)
@@ -970,6 +949,22 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		int conversionsUntilRise = component.ConversionsUntilRise - cultists.Count;
 		conversionsUntilRise = (conversionsUntilRise > 0) ? conversionsUntilRise : 0;
 		return conversionsUntilRise;
+	}
+
+	private void EmpowerCultists(List<EntityUid> cultists)
+	{
+		// Announce to everyone that the cult is growing stronger and then make eyes glow
+		AnnounceToCultists(
+			Loc.GetString("cult-ascend-1")+"\n",
+			newlineNeeded:true
+		);
+		foreach (EntityUid cultist in cultists)
+		{
+			if (EntityManager.TryGetComponent(cultist, out AppearanceComponent? appearance))
+			{
+				_appearance.SetData(cultist, CultEyesVisuals.CultEyes, true, appearance);
+			}
+		}
 	}
 
 	private void RiseCultists(List<EntityUid> cultists)

@@ -214,3 +214,9 @@ public enum CultHaloVisuals
 {
 	CultHalo,
 }
+
+[Serializable, NetSerializable]
+public enum CultEyesVisuals
+{
+	CultEyes,
+}

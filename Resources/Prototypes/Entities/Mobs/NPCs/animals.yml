@@ -1364,6 +1364,10 @@
         culthalo:
           True: { visible: true }
           False: { visible: false }
+      enum.CultEyesVisuals.CultEyes:
+          culteyes:
+            True: { visible: true }
+            False: { visible: false }
   - type: Body # Shitmed Change
     prototype: Monkey
     requiredLegs: 2

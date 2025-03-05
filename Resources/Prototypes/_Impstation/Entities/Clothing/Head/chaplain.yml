@@ -44,7 +44,6 @@
       types:
         Pierce: 2
         Holy: 5
-    soundHit: /Audio/Weapons/bladeslice.ogg
     staminaCost: 10
   - type: PhysicalComposition
     materialComposition:
@@ -73,7 +72,6 @@
       types:
         Heat: 2
         Holy: 5
-    soundHit: /Audio/Weapons/bladeslice.ogg
     staminaCost: 10
   - type: PhysicalComposition
     materialComposition:

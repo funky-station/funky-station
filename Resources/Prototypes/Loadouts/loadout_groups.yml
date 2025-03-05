@@ -389,7 +389,6 @@
   - ChaplainNeckDruidMantle # imp
   - ChaplainNeckSun # imp
   - ChaplainNeckTidal # imp
-  - ScarfBlack # imp
 
 - type: loadoutGroup
   id: JanitorHead

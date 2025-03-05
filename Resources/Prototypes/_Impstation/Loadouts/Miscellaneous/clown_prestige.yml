@@ -1,0 +1,19 @@
+# Timers
+- type: loadoutEffectGroup
+  id: ClownExpertTimer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobClown
+      time: 108000 # 30 hrs
+
+# Civilian
+
+- type: loadout
+  id: ChaplainHonkrobes
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ClownExpertTimer
+  equipment:
+    outerClothing: ClothingOuterClownPriest

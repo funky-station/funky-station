@@ -12,7 +12,7 @@
   special:
   - !type:AddComponentSpecial
     components:
-    - type: BibleUser #Lets them heal with bibles
+    - type: BibleUser #Lets them heal with bibles and transform null rods.
 
 - type: startingGear
   id: ChaplainGear
@@ -24,6 +24,7 @@
     back:
     - Bible
     - RubberStampChaplain
+    - NullRodDefault
 
 # funkystation - cry about it
 - type: loadoutEffectGroup

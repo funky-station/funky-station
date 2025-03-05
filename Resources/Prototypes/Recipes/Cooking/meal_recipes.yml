@@ -2080,3 +2080,12 @@
     FoodCheeseSlice: 1
     FoodButterSlice: 1
 
+#shrimp!
+- type: microwaveMealRecipe
+  id: RecipeShrimpFried
+  name: fried shrimp recipe
+  result: FoodShrimpFried
+  time: 10
+  solids:
+    FoodShrimpRaw : 1
+    FoodButterSlice: 1

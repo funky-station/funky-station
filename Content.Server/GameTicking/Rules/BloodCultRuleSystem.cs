@@ -474,6 +474,10 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				// remove their antag role
 				_role.MindTryRemoveRole<BloodCultRoleComponent>(mindId);
 
+				// reverse their loyalties
+				_npcFaction.RemoveFaction(mindId, BloodCultistFactionId, false);
+				_npcFaction.AddFaction(mindId, NanotrasenFactionId);
+
 				foreach(var action in _actions.GetActions(cultistUid))
 				{
 					if (TryComp<CultistSpellComponent>(action.Id, out var actionComp))

@@ -1,12 +1,3 @@
-
-- type: loadout
-  id: BartenderCuteApron
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorBartender
-  equipment:
-    outerClothing: ClothingOuterApronCuteBar
-
 - type: loadout
   id: ClothingUniformNightclubSuit
   equipment:
@@ -19,16 +10,10 @@
 
 - type: loadout
   id: ClothingUniformSeniorBartender
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorBartender
   equipment:
     id: ClothingUniformSeniorBartender
 
 - type: loadout
   id: ClothingUniformSeniorBartenderSkirt
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorBartender
   equipment:
     id: ClothingUniformSeniorBartenderSkirt

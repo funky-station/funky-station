@@ -44,7 +44,6 @@
       types:
         Pierce: 2
         Holy: 5
-    staminaCost: 10
   - type: PhysicalComposition
     materialComposition:
       Silver: 10
@@ -72,7 +71,6 @@
       types:
         Heat: 2
         Holy: 5
-    staminaCost: 10
   - type: PhysicalComposition
     materialComposition:
       Gold: 10

@@ -9,13 +9,6 @@
       time: 108000 # 30 hrs
 
 # Civilian
-- type: loadout
-  id: ChaplainClown
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ClownExpertTimer
-  equipment:
-    mask: ClothingMaskClownChaplain
 
 - type: loadout
   id: ChaplainHonkrobes

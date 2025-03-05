@@ -4,7 +4,7 @@
   name: aureate arrow
   parent: BaseItem
   components:
-  - type: RevealRevenantOnCollide
+  # - type: RevealRevenantOnCollide
   - type: Item
     size: Small
   - type: Sprite

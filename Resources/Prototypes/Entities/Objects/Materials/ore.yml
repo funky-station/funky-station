@@ -339,7 +339,6 @@
   name: salt
   suffix: Full
   components:
-  - type: RevealRevenantOnCollide # imp
   - type: Stack
     stackType: SaltOre
   - type: Sprite

@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesBootsRedPerformer
+  name: red performer's boots
+  description: A pear of stylish boots.
+  components:
+  - type: Sprite
+    sprite: _Funkystation\Clothing\Shoes\boots\redperformer.rsi
+  - type: Clothing
+    sprite: _Funkystation\Clothing\Shoes\boots\redperformer.rsi

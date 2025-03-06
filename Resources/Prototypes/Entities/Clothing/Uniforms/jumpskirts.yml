@@ -469,17 +469,6 @@
 
 - type: entity
   parent: ClothingUniformSkirtBase
-  id: ClothingUniformJumpskirtRedPerformer
-  name: red performer's jumpskirt
-  description: Smells like pears.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/redperformer.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/redperformer.rsi
-
-- type: entity
-  parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCapFormalDress
   name: captain's formal dress
   description: A dress for special occasions.

@@ -1,4 +1,3 @@
-using Content.Server.Administration.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Forensics;
 using Content.Server.Polymorph.Systems;
@@ -57,8 +56,6 @@ using Content.Server.Stunnable;
 using Content.Shared.Jittering;
 using Content.Server.Explosion.EntitySystems;
 using System.Linq;
-using Content.Shared.Heretic;
-using Content.Shared._Goobstation.Actions;
 using Content.Shared.Forensics.Components;
 
 namespace Content.Server.Changeling;
@@ -105,8 +102,6 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
-    [Dependency] private readonly IComponentFactory _compFactory = default!;
-    [Dependency] private readonly RejuvenateSystem _rejuv = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -571,29 +566,10 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         // exceptional comps check
         // there's no foreach for types i believe so i gotta thug it out yandev style.
-        List<Type> types = new()
-        {
-            typeof(HeadRevolutionaryComponent),
-            typeof(RevolutionaryComponent),
-            typeof(GhoulComponent),
-            typeof(HereticComponent),
-            typeof(StoreComponent),
-            // ADD MORE TYPES HERE
-        };
-        foreach (var type in types)
-        {
-            if (EntityManager.TryGetComponent(uid, type, out var icomp))
-            {
-                var newComp = (Component) _compFactory.GetComponent(type.Name);
-                var temp = (object) newComp;
-                _serialization.CopyTo(icomp, ref temp, notNullableOverride: true);
-                EntityManager.AddComponent((EntityUid) newUid, (Component) temp!);
-            }
-        }
-
-        // This just doesn't work for some reason. I tried commenting out QueueDel(uid), checked ActionUIController
-        // sawmill logs, everything is fine there, it should work but it just doesn't
-        // RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(uid)), newEnt);
+        if (HasComp<HeadRevolutionaryComponent>(uid))
+            EnsureComp<HeadRevolutionaryComponent>(newEnt);
+        if (HasComp<RevolutionaryComponent>(uid))
+            EnsureComp<RevolutionaryComponent>(newEnt);
 
         QueueDel(uid);
 

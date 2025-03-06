@@ -42,6 +42,21 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
 
     #region gamerule processing
 
+    /// <summary>
+    ///     Special TG sauce formula thing.
+    /// </summary>
+    public float LorentzToAmount(float centre = 0f, float scale = 1.8f, float maxThreat = 100f, float interval = 1f)
+    {
+        var location = _rand.NextFloat(-5, 5) * _rand.NextFloat();
+        var lorentzResult = 1 / Math.PI * MathHelper.DegreesToRadians(Math.Atan((centre - location) / scale)) + .5f;
+        var stdThreat = lorentzResult * maxThreat;
+
+        var lowerDeviation = Math.Max(stdThreat * (location - centre) / 5f, 0);
+        var upperDeviation = Math.Max((maxThreat - stdThreat) * (centre - location) / 5f, 0);
+
+        return (float) Math.Clamp(Math.Round((double) (stdThreat + upperDeviation - lowerDeviation), (int) interval), 0, 100);
+    }
+
     public List<SDynamicRuleset?> GetRulesets(ProtoId<DatasetPrototype> dataset)
     {
         var l = new List<SDynamicRuleset?>();
@@ -94,27 +109,18 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
     {
         base.Started(uid, component, gameRule, args);
 
-        var playersCount = _antag.GetAliveConnectedPlayers(_playerManager.Sessions).Count;
+        var players = _antag.GetAliveConnectedPlayers(_playerManager.Sessions);
 
-        // lowpop processing
-        // test scenario: 100 players and 20 lowpop = 80 minimum threat
+        // check for lowpop and set max threat
         var lowpopThreshold = (float) _cfg.GetCVar(CCVars.LowpopThreshold.Name);
-        var minThreat = 0f + Math.Max(playersCount - lowpopThreshold, 0);
-
-        // highpop processing
-        // test scenario: 100 players and 70 highpop threshold = + 60 more max threat
-        var highpopThreshold = (float) _cfg.GetCVar(CCVars.HighpopThreshold.Name);
-        var maxThreat = playersCount < lowpopThreshold ? component.MaxThreat / 2 : component.MaxThreat;
-        if (playersCount >= highpopThreshold)
-            maxThreat += (playersCount - highpopThreshold) * 2;
-
-        var threat = _rand.NextFloat(minThreat, maxThreat);
+        var lowpopThreat = MathHelper.Lerp(component.LowpopMaxThreat, component.MaxThreat, players.Count / lowpopThreshold);
+        var maxThreat = players.Count < lowpopThreshold ? lowpopThreat : component.MaxThreat;
 
         // generate a random amount of points
-        component.ThreatLevel = threat;
+        component.ThreatLevel = LorentzToAmount(0, 1.8f, maxThreat);
 
         // distribute budgets
-        component.RoundstartBudget = _rand.NextFloat(threat / 1.5f, threat); // generally more roundstart threat
+        component.RoundstartBudget = LorentzToAmount(1, 1.8f, component.ThreatLevel, 0.1f);
         component.MidroundBudget = component.ThreatLevel - component.RoundstartBudget;
 
         // get gamerules from dataset and add them to draftedRules
@@ -130,7 +136,7 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
             // exclude gamerules if not enough overall budget or players
             if (drc.Weight == 0
             || component.RoundstartBudget < drc.Cost
-            || grc.MinPlayers > playersCount)
+            || grc.MinPlayers > players.Count)
                 continue;
 
             draftedRules.Add(rule);
@@ -193,7 +199,7 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
                 for (int i = 0; i < antag.Definitions.Count; i++)
                 {
                     // got forgive me
-                    // this is shitcode apogee
+                    // this is officially shitcode galore
                     var def = antag.Definitions[i];
                     antag.Definitions[i] = new AntagSelectionDefinition()
                     {

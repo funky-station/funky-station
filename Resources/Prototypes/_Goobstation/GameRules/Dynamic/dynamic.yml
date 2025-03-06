@@ -7,15 +7,19 @@
 - type: dataset # Funky station unfucked dynamic
   id: DynamicRoundstartGamerules
   values:
-  - TraitorDynamic # traitors
-  - ThiefDynamic # thieves (spy wyci)
-  - ChangelingDynamic # changelings
-  - HereticDynamic # heretics
+  - TraitorDynamicLow # traitors
+  - TraitorDynamicMedium
+  - TraitorDynamicHigh
+  - ThiefDynamic # thieves (spy todo)
+  - ChangelingDynamicLow # changelings
+  - ChangelingDynamicHigh
+  - HereticDynamicLow # heretics
+  - HereticDynamicHigh
   - RevolutionDynamic # revs (M)
   - NukeopsDynamic # nukies (M)
-  # cult wyci (M)
-  # clock cult wyci (M)
-  # wizard wyci (M)
+  # cult todo (M)
+  # clock cult todo (M)
+  # wizard todo (M)
 
 # add all antag related events here
 - type: dataset
@@ -33,9 +37,9 @@
   - RevenantDynamicMidround # revenant spawn (M)
   - ZombiesDynamicMidround # zombie outbreak (M)
   - BlobDynamicMidround # blob mouse spawn(M)
-  # spider infestation wyci (M)
-  # xenos wyci (M)
-  # improved kudzu wyci (M)
+  # spider infestation todo (M)
+  # xenos todo (M)
+  # improved kudzu todo (M)
 
 - type: entity
   parent: BaseGameRule
@@ -80,7 +84,7 @@
     - Dynamic
     - BasicStationEventSchedulerNoAntag
     - DynamicStationEventScheduler
-    #- MeteorSwarmScheduler # Goobstation - nuh uh
+    #- MeteorSwarmScheduler Goobstation - nuh uh
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation

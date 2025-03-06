@@ -146,7 +146,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         if (ent.Comp.MansusGraspActive)
         {
-            //_popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
             foreach (var hand in _hands.EnumerateHands(ent))
             {
                 if (TryComp<MansusGraspComponent>(hand.HeldEntity, out var graspComp))

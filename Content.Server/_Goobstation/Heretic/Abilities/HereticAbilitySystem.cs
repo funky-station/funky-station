@@ -154,6 +154,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                     ent.Comp.MansusGraspActive = false;
                 }
             }
+
+            args.Handled = true;
             return;
         }
 

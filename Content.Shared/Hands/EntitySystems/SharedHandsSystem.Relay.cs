@@ -1,6 +1,7 @@
 using Content.Shared.Camera;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic;
+using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
 
 namespace Content.Shared.Hands.EntitySystems;

@@ -1,3 +1,5 @@
+# Teto Outfit (Sprites by Middleson)
+
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsRedPerformer
@@ -5,6 +7,6 @@
   description: A pear of stylish boots.
   components:
   - type: Sprite
-    sprite: _Funkystation\Clothing\Shoes\boots\redperformer.rsi
+    sprite: _Funkystation\Clothing\Shoes\Boots\redperformer.rsi
   - type: Clothing
-    sprite: _Funkystation\Clothing\Shoes\boots\redperformer.rsi
+    sprite: _Funkystation\Clothing\Shoes\Boots\redperformer.rsi

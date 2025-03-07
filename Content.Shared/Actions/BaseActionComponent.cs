@@ -168,14 +168,6 @@ public abstract partial class BaseActionComponent : Component
     public bool RaiseOnUser;
 
     /// <summary>
-    ///     If true, this will cause the the action event to always be raised directed at the action itself instead of the action's container/provider.
-    ///     Takes priority over RaiseOnUser.
-    /// </summary>
-    [DataField]
-    [Obsolete("This datafield will be reworked in an upcoming action refactor")]
-    public bool RaiseOnAction;
-
-    /// <summary>
     ///     Whether or not to automatically add this action to the action bar when it becomes available.
     /// </summary>
     [DataField("autoPopulate")] public bool AutoPopulate = true;
@@ -194,6 +186,11 @@ public abstract partial class BaseActionComponent : Component
     ///     If not null, this sound will be played when performing this action.
     /// </summary>
     [DataField("sound")] public SoundSpecifier? Sound;
+
+    /// <summary>
+    ///     If true, ghosts will be granted this action.
+    /// </summary>
+    [DataField] public bool AllowGhostAction;
 }
 
 [Serializable, NetSerializable]
@@ -220,7 +217,6 @@ public abstract class BaseActionComponentState : ComponentState
     public int Priority;
     public NetEntity? AttachedEntity;
     public bool RaiseOnUser;
-    public bool RaiseOnAction;
     public bool AutoPopulate;
     public bool Temporary;
     public ItemActionIconStyle ItemIconStyle;
@@ -232,7 +228,6 @@ public abstract class BaseActionComponentState : ComponentState
         EntityIcon = entManager.GetNetEntity(component.EntIcon);
         AttachedEntity = entManager.GetNetEntity(component.AttachedEntity);
         RaiseOnUser = component.RaiseOnUser;
-        RaiseOnAction = component.RaiseOnAction;
         Icon = component.Icon;
         IconOn = component.IconOn;
         IconColor = component.IconColor;

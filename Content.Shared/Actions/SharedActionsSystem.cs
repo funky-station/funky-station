@@ -1,9 +1,11 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._Goobstation.Wizard;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
+using Content.Shared.Ghost;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.Events;
@@ -13,14 +15,20 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-
 namespace Content.Shared.Actions;
+
+// Shitmed Change
+using Content.Shared._Shitmed.Antags.Abductor;
+using Content.Shared.Silicons.StationAi;
+using Content.Shared.Popups;
 
 public abstract class SharedActionsSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming GameTiming = default!;
+    [Dependency] private readonly INetManager _net = default!; // Goobstation
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
@@ -29,6 +37,7 @@ public abstract class SharedActionsSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!; // Shitmed Change
 
     public override void Initialize()
     {
@@ -240,16 +249,21 @@ public abstract class SharedActionsSystem : EntitySystem
         if (actionId == null)
             return;
 
-        if (!TryGetActionData(actionId, out var action) || action.UseDelay == null)
+        // Goob edit start
+        if (!TryGetActionData(actionId, out var action))
             return;
+        var realDelay = CompOrNull<ActionUseDelayModifierComponent>(actionId.Value)?.UseDelay ?? action.UseDelay;
+        if (realDelay == null)
+            return;
+        // Goob edit end
 
-        action.Cooldown = (GameTiming.CurTime, GameTiming.CurTime + action.UseDelay.Value);
+        action.Cooldown = (GameTiming.CurTime, GameTiming.CurTime + realDelay.Value); // Goob edit
         Dirty(actionId.Value, action);
     }
 
-    public void SetUseDelay(EntityUid? actionId, TimeSpan? delay)
+    public void SetUseDelay(EntityUid? actionId, TimeSpan? delay, bool logError = true) // Goob edit
     {
-        if (!TryGetActionData(actionId, out var action) || action.UseDelay == delay)
+        if (!TryGetActionData(actionId, out var action, logError) || action.UseDelay == delay) // Goob edit
             return;
 
         action.UseDelay = delay;
@@ -274,6 +288,9 @@ public abstract class SharedActionsSystem : EntitySystem
 
     private void OnRejuventate(EntityUid uid, ActionsComponent component, RejuvenateEvent args)
     {
+        if (!args.ResetActions) // Goobstation
+            return;
+
         foreach (var act in component.Actions)
         {
             ClearCooldown(act);
@@ -518,7 +535,8 @@ public abstract class SharedActionsSystem : EntitySystem
                 break;
             }
             case InstantActionComponent instantAction:
-                if (action.CheckCanInteract && !_actionBlockerSystem.CanInteract(user, null))
+                var hasNoSpecificComponents = !HasComp<StationAiOverlayComponent>(user) && !HasComp<AbductorScientistComponent>(user); // Shitmed Change
+                if (action.CheckCanInteract && !_actionBlockerSystem.CanInteract(user, null) && hasNoSpecificComponents) // Shitmed Change
                     return;
 
                 _adminLogger.Add(LogType.Action,
@@ -538,7 +556,6 @@ public abstract class SharedActionsSystem : EntitySystem
         if (!ValidateEntityTargetBase(user,
                 target,
                 comp.Whitelist,
-                comp.Blacklist,
                 comp.CheckCanInteract,
                 comp.CanTargetSelf,
                 comp.CheckCanAccess,
@@ -553,7 +570,6 @@ public abstract class SharedActionsSystem : EntitySystem
     private bool ValidateEntityTargetBase(EntityUid user,
         EntityUid? targetEntity,
         EntityWhitelist? whitelist,
-        EntityWhitelist? blacklist,
         bool checkCanInteract,
         bool canTargetSelf,
         bool checkCanAccess,
@@ -563,9 +579,6 @@ public abstract class SharedActionsSystem : EntitySystem
             return false;
 
         if (_whitelistSystem.IsWhitelistFail(whitelist, target))
-            return false;
-
-        if (_whitelistSystem.IsBlacklistPass(blacklist, target))
             return false;
 
         if (checkCanInteract && !_actionBlockerSystem.CanInteract(user, target))
@@ -613,7 +626,8 @@ public abstract class SharedActionsSystem : EntitySystem
         if (entityCoordinates is not { } coords)
             return false;
 
-        if (checkCanInteract && !_actionBlockerSystem.CanInteract(user, null))
+        var hasNoSpecificComponents = !HasComp<StationAiOverlayComponent>(user) && !HasComp<AbductorScientistComponent>(user); // Shitmed Change
+        if (checkCanInteract && !_actionBlockerSystem.CanInteract(user, null) && hasNoSpecificComponents) // Shitmed Change
             return false;
 
         if (!checkCanAccess)
@@ -622,7 +636,10 @@ public abstract class SharedActionsSystem : EntitySystem
             var xform = Transform(user);
 
             if (xform.MapID != coords.GetMapId(EntityManager))
+            {
+                _popup.PopupCursor(Loc.GetString("world-target-out-of-range"), user); // Goobstation Change
                 return false;
+            }
 
             if (range <= 0)
                 return true;
@@ -642,7 +659,6 @@ public abstract class SharedActionsSystem : EntitySystem
         var entityValidated = ValidateEntityTargetBase(user,
             entity,
             comp.Whitelist,
-            null,
             comp.CheckCanInteract,
             comp.CanTargetSelf,
             comp.CheckCanAccess,
@@ -685,9 +701,6 @@ public abstract class SharedActionsSystem : EntitySystem
             if (!action.RaiseOnUser && action.Container != null && !HasComp<MindComponent>(action.Container))
                 target = action.Container.Value;
 
-            if (action.RaiseOnAction)
-                target = actionId;
-
             RaiseLocalEvent(target, (object) actionEvent, broadcast: true);
             handled = actionEvent.Handled;
         }
@@ -714,11 +727,14 @@ public abstract class SharedActionsSystem : EntitySystem
         }
 
         action.Cooldown = null;
-        if (action is { UseDelay: not null, Charges: null or < 1 })
+        // Goob edit start
+        var realDelay = CompOrNull<ActionUseDelayModifierComponent>(actionId)?.UseDelay ?? action.UseDelay;
+        if (action is { Charges: null or < 1 } && realDelay != null)
         {
             dirty = true;
-            action.Cooldown = (curTime, curTime + action.UseDelay.Value);
+            action.Cooldown = (curTime, curTime + realDelay.Value);
         }
+        // Goob edit end
 
         if (dirty)
         {
@@ -815,7 +831,7 @@ public abstract class SharedActionsSystem : EntitySystem
         if (!ResolveActionData(actionId, ref action))
             return false;
 
-        DebugTools.Assert(action.Container == null ||
+        DebugTools.Assert(_net.IsClient || action.Container == null ||
                           (TryComp(action.Container, out ActionsContainerComponent? containerComp)
                            && containerComp.Container.Contains(actionId)));
 
@@ -876,9 +892,11 @@ public abstract class SharedActionsSystem : EntitySystem
 
         performer.Comp ??= EnsureComp<ActionsComponent>(performer);
 
+        var ghost = HasComp<GhostComponent>(performer); // Goobstation
+
         foreach (var actionId in container.Comp.Container.ContainedEntities)
         {
-            if (TryGetActionData(actionId, out var action))
+            if (TryGetActionData(actionId, out var action) && (!ghost || action.AllowGhostAction)) // Goob edit
                 AddActionDirect(performer, actionId, performer.Comp, action);
         }
     }
@@ -1009,6 +1027,16 @@ public abstract class SharedActionsSystem : EntitySystem
         // See client-side system for UI code.
     }
 
+    // Goobstation start
+    protected virtual void SaveActions(EntityUid performer)
+    {
+    }
+
+    protected virtual void LoadActions(EntityUid performer)
+    {
+    }
+    // Goobstation end
+
     public bool ValidAction(BaseActionComponent action, bool canReach = true)
     {
         if (!action.Enabled)
@@ -1070,7 +1098,7 @@ public abstract class SharedActionsSystem : EntitySystem
     #region EquipHandlers
     private void OnDidEquip(EntityUid uid, ActionsComponent component, DidEquipEvent args)
     {
-        if (GameTiming.ApplyingState)
+        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goob edit
             return;
 
         var ev = new GetItemActionsEvent(_actionContainer, args.Equipee, args.Equipment, args.SlotFlags);
@@ -1080,11 +1108,13 @@ public abstract class SharedActionsSystem : EntitySystem
             return;
 
         GrantActions(args.Equipee, ev.Actions, args.Equipment, component);
+
+        LoadActions(args.Equipee); // Goobstation
     }
 
     private void OnHandEquipped(EntityUid uid, ActionsComponent component, DidEquipHandEvent args)
     {
-        if (GameTiming.ApplyingState)
+        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goob edit
             return;
 
         var ev = new GetItemActionsEvent(_actionContainer, args.User, args.Equipped);
@@ -1094,20 +1124,44 @@ public abstract class SharedActionsSystem : EntitySystem
             return;
 
         GrantActions(args.User, ev.Actions, args.Equipped, component);
+
+        LoadActions(args.User); // Goobstation
     }
 
     private void OnDidUnequip(EntityUid uid, ActionsComponent component, DidUnequipEvent args)
     {
-        if (GameTiming.ApplyingState)
+        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goob edit
             return;
+
+        // Goobstation start
+        if (!TerminatingOrDeleted(args.Equipment))
+        {
+            var ev = new GetItemActionsEvent(_actionContainer, args.Equipee, args.Equipment);
+            RaiseLocalEvent(args.Equipment, ev);
+
+            if (ev.Actions.Count > 0)
+                SaveActions(uid);
+        }
+        // Goobstation end
 
         RemoveProvidedActions(uid, args.Equipment, component);
     }
 
     private void OnHandUnequipped(EntityUid uid, ActionsComponent component, DidUnequipHandEvent args)
     {
-        if (GameTiming.ApplyingState)
+        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goob edit
             return;
+
+        // Goobstation start
+        if (!TerminatingOrDeleted(args.Unequipped))
+        {
+            var ev = new GetItemActionsEvent(_actionContainer, args.User, args.Unequipped);
+            RaiseLocalEvent(args.Unequipped, ev);
+
+            if (ev.Actions.Count > 0)
+                SaveActions(uid);
+        }
+        // Goobstation end
 
         RemoveProvidedActions(uid, args.Unequipped, component);
     }
@@ -1136,4 +1190,27 @@ public abstract class SharedActionsSystem : EntitySystem
     {
         return action is { Charges: < 1, RenewCharges: true };
     }
+
+    // Shitmed Change Start - Starlight Abductors
+    public EntityUid[] HideActions(EntityUid performer, ActionsComponent? comp = null)
+    {
+        if (!Resolve(performer, ref comp, false))
+            return [];
+
+        var actions = comp.Actions.ToArray();
+        comp.Actions.Clear();
+        Dirty(performer, comp);
+        return actions;
+    }
+
+    public void UnHideActions(EntityUid performer, EntityUid[] actions, ActionsComponent? comp = null)
+    {
+        if (!Resolve(performer, ref comp, false))
+            return;
+
+        foreach (var action in actions)
+            comp.Actions.Add(action);
+        Dirty(performer, comp);
+    }
+    // Shitmed Change End
 }

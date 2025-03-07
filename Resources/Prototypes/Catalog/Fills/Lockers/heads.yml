@@ -134,6 +134,7 @@
     - id: NitrogenTankFilled
     - id: RadioHandheldCargo #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -169,6 +170,7 @@
     - id: ClothingEyesGlassesCommand
     - id: BookCorporateSecrets # funky
     - id: RadioHandheldCommand #funkystation
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 # No laser table + Laser table
 - type: entityTable
@@ -263,6 +265,7 @@
     - id: RadioHandheldService #funkystation
     - id: RadioHandheldCommand #funkystation
     - id: ClothingOuterHardsuitBasic #funkystation
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -299,6 +302,7 @@
     - id: RadioHandheldCommand #funkystation
     - id: NuclearCentrifugeMachineCircuitboard #finally existent
     - id: NuclearFabricatorMachineCircuitboard #why did it not exist in the locker as a failsafe
+    - id: PrinterDocFlatpack  # Corvax-Printer
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillChiefEngineerHardsuit
@@ -373,6 +377,7 @@
     - id: MedicalBiofabMachineBoard
     - id: AutoclaveFlatpack # DV
     - id: ClothingHandsGlovesCMO
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -431,6 +436,7 @@
       prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
     - id: RadioHandheldScience #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -497,6 +503,7 @@
     - id: HandheldStationMapTactical #funk, all HoS' must find their way
     - id: BreachingCharge #funkystation knock knock, sec's here
     - id: BreachingCharge #funkystation knock knock, sec's here
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -553,3 +560,4 @@
     - id: RadioHandheldCommand #funkystation
     - id: RadioHandheldEmergency #funkystation
     - id: WeaponPistolWyvern #funkieststation
+    - id: PrinterDocFlatpack  # Corvax-Printer

@@ -31,8 +31,8 @@
     ClothingShoesBootsLaceup: 2
     ClothingHeadsetService: 2
     RadioHandheldService: 2 #funkystation
+    PrinterDocFlatpack: 2 # Corvax-Printer
   emaggedInventory:
     ClothingUniformJumpsuitLibrarianSyndicate: 2
   contrabandInventory:
     ToyFigurineLibrarian: 1
-

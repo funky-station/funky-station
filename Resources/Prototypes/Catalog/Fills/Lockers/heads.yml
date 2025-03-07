@@ -129,6 +129,7 @@
     - id: NitrogenTankFilled
     - id: RadioHandheldCargo #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: MailTeleporterMachineCircuitboard
 
 - type: entity
   id: LockerQuarterMasterFilled

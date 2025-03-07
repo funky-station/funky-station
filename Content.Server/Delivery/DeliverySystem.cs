@@ -23,7 +23,7 @@ public sealed partial class DeliverySystem : SharedDeliverySystem
     [Dependency] private readonly StationRecordsSystem _records = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly FingerprintReaderSystem _fingerprintReader = default!;
-    [Dependency] private readonly LabelSystem _label = default!;
+    [Dependency] private readonly SharedLabelSystem _label = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public override void Initialize()
@@ -73,7 +73,7 @@ public sealed partial class DeliverySystem : SharedDeliverySystem
         if (!TryComp<StationBankAccountComponent>(ent.Comp.RecipientStation, out var account))
             return;
 
-        _cargo.UpdateBankAccount((ent.Comp.RecipientStation.Value, account), ent.Comp.SpesoReward);
+        _cargo.UpdateBankAccount(ent, account, ent.Comp.SpesoReward);
     }
 
     public override void Update(float frameTime)

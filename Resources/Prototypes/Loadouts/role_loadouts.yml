@@ -119,11 +119,13 @@
   groups:
   - GroupTankHarness
   - ChaplainHead
+  - ChaplainEyes # imp
   - ChaplainMask
   - ChaplainNeck
   - ChaplainJumpsuit
   - CommonBackpack
   - ChaplainOuterClothing
+  - ChaplainBelt # imp
   - Glasses
   - Survival
   - ChaplainAnnabelle # funkystation

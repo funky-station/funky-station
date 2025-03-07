@@ -3,7 +3,6 @@ using Content.Shared.Mind.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Mind;
 
@@ -101,12 +100,6 @@ public sealed partial class MindComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public List<EntityUid> MindRoles = new List<EntityUid>();
-
-    /// <summary>
-    ///     The mind's current antagonist/special role, or lack thereof;
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public ProtoId<RoleTypePrototype> RoleType = "Neutral";
 
     /// <summary>
     ///     The session of the player owning this mind.

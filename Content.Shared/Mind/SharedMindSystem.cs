@@ -40,7 +40,7 @@ public abstract class SharedMindSystem : EntitySystem
         SubscribeLocalEvent<VisitingMindComponent, EntityTerminatingEvent>(OnVisitingTerminating);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnReset);
         SubscribeLocalEvent<MindComponent, ComponentStartup>(OnMindStartup);
-        SubscribeLocalEvent<MindComponent, EntityRenamedEvent>(OnRenamed);
+        SubscribeLocalEvent<MindContainerComponent, EntityRenamedEvent>(OnRenamed); // Goob edit
     }
 
     public override void Shutdown()
@@ -183,9 +183,13 @@ public abstract class SharedMindSystem : EntitySystem
             args.Handled = true;
     }
 
-    private void OnRenamed(Entity<MindComponent> ent, ref EntityRenamedEvent args)
+    private void OnRenamed(Entity<MindContainerComponent> ent, ref EntityRenamedEvent args) // Goob edit start
     {
-        ent.Comp.CharacterName = args.NewName;
+        if (!TryComp(ent.Comp.Mind, out MindComponent? mind))
+            return;
+
+        mind.CharacterName = args.NewName;
+        // Goob edit end
         Dirty(ent);
     }
 
@@ -209,28 +213,6 @@ public abstract class SharedMindSystem : EntitySystem
         SetUserId(mindId, userId, mind);
 
         return (mindId, mind);
-    }
-
-    /// <summary>
-    /// Returns a list of every living humanoid player's minds, except for a single one which is exluded.
-    /// </summary>
-    public List<EntityUid> GetAliveHumansExcept(EntityUid exclude)
-    {
-        var allHumans = new List<EntityUid>();
-        // HumanoidAppearanceComponent is used to prevent mice, pAIs, etc from being chosen
-        var query = EntityQueryEnumerator<MindContainerComponent, MobStateComponent, HumanoidAppearanceComponent>();
-        while (query.MoveNext(out var uid, out var mc, out var mobState, out _))
-        {
-            // the player needs to have a mind and not be the excluded one
-            if (mc.Mind == null || mc.Mind == exclude)
-                continue;
-
-            // the player has to be alive
-            if (_mobState.IsAlive(uid, mobState))
-                allHumans.Add(mc.Mind.Value);
-        }
-
-        return allHumans;
     }
 
     /// <summary>
@@ -371,6 +353,9 @@ public abstract class SharedMindSystem : EntitySystem
         var title = Name(objective);
         _adminLogger.Add(LogType.Mind, LogImpact.Low, $"Objective {objective} ({title}) added to mind of {MindOwnerLoggingString(mind)}");
         mind.Objectives.Add(objective);
+        // Shitmed Change - Raise an event on the mind ent with the objective.
+        var ev = new ObjectiveAddedEvent(objective);
+        RaiseLocalEvent(mindId, ev);
     }
 
     /// <summary>
@@ -585,3 +570,9 @@ public abstract class SharedMindSystem : EntitySystem
 /// <param name="Dead"></param>
 [ByRefEvent]
 public record struct GetCharactedDeadIcEvent(bool? Dead);
+
+/// <summary>
+///     Shitmed Change: Raised on an entity to notify that an objective has been added to the mind.
+/// </summary>
+/// <param name="Objective"></param>
+public record struct ObjectiveAddedEvent(EntityUid Objective);

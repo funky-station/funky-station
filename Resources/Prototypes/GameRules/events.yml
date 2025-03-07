@@ -12,7 +12,6 @@
     - id: GasLeak
     - id: GreytideVirus
     - id: IonStorm # its calm like 90% of the time smh
-    - id: JobDistributionError
     - id: KudzuGrowth
     - id: MassHallucinations
     - id: MimicVendorRule
@@ -25,6 +24,7 @@
     - id: SpiderClownSpawn
     - id: SpiderSpawn
     - id: VentClog
+    - id: TidemindDevelop # Goobstation - Tidemind
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -38,9 +38,11 @@
     - id: SleeperAgents
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
-    - id: BlobSpawn #Goobstation - Blob
-    - id: FalseAlarm
     - id: DerelictCyborgSpawn
+    - id: BlobSpawn # Goobstation - Blob
+    - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
+    - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
+    - id: BingleSpawn #Goobstation - Bingle
 
 - type: entity
   id: BaseStationEvent
@@ -106,7 +108,7 @@
   components:
   - type: StationEvent
     weight: 2
-    reoccurrenceDelay: 20 #funkystation - stop happening so fucking often
+    reoccurrenceDelay: 5
     earliestStart: 1
     duration: 1
   - type: BluespaceLockerRule
@@ -118,7 +120,7 @@
   - type: StationEvent
     weight: 7
     duration: 1
-    minimumPlayers: 10
+    minimumPlayers: 15
   - type: BreakerFlipRule
 
 - type: entity
@@ -153,7 +155,6 @@
     weight: 5
     duration: 1
     minimumPlayers: 10
-    reoccurrenceDelay: 30 # funkystation
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
 
@@ -162,10 +163,10 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    weight: 6.0 # funkystation
-    earliestStart: 60 # funkystation
-    reoccurrenceDelay: 30 # funkystation
-    minimumPlayers: 20
+    weight: 2
+    earliestStart: 75
+    reoccurrenceDelay: 20
+    minimumPlayers: 60
     duration: null
   - type: SpaceSpawnRule
     spawnDistance: 0
@@ -194,10 +195,19 @@
     weight: 6
     duration: null
     earliestStart: 45
-    reoccurrenceDelay: 60 # funkystation
+    reoccurrenceDelay: 20
     minimumPlayers: 30
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
+    # Goobstation start
+    speciesOverride: Human
+    speciesOverrideBlacklist:
+    - Yowie
+    - IPC
+    - Diona
+    - Abductor
+    - Harpy
+    # Goobstation end
   - type: AntagObjectives
     objectives:
     - StealResearchObjective
@@ -240,22 +250,22 @@
   id: RevenantSpawn
   components:
   - type: StationEvent
-    weight: 6
+    weight: 3.5
     duration: 1
-    earliestStart: 45
+    earliestStart: 30
     minimumPlayers: 20
   - type: RandomSpawnRule
     prototype: MobRevenant
 
-# Funky Station - reenabled because funny
-- type: entity
-  id: FalseAlarm
-  parent: BaseGameRule
-  components:
-  - type: StationEvent
-    weight: 15
-    duration: 1
-  - type: FalseAlarmRule
+# disabled until event is rewritten to be more interesting
+#- type: entity
+#  id: FalseAlarm
+#  parent: BaseGameRule
+#  components:
+#  - type: StationEvent
+#    weight: 15
+#    duration: 1
+#  - type: FalseAlarmRule
 
 - type: entity
   id: GasLeak
@@ -277,7 +287,7 @@
     earliestStart: 15
     minimumPlayers: 15
     weight: 7
-    duration: 600 #if they can't deal with it in 10 minutes that's their problem
+    duration: 240
   - type: KudzuGrowthRule
 
 - type: entity
@@ -285,7 +295,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    weight: 4
+    weight: 5
     startAnnouncement: station-event-power-grid-check-start-announcement
     endAnnouncement: station-event-power-grid-check-end-announcement
     startAudio:
@@ -351,11 +361,13 @@
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
-    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
-      children:
-      - id: MobAdultSlimesBlueAngry
-      - id: MobAdultSlimesGreenAngry
-      - id: MobAdultSlimesYellowAngry
+    entries:
+    - id: MobAdultSlimesBlueAngry
+      prob: 0.02
+    - id: MobAdultSlimesGreenAngry
+      prob: 0.02
+    - id: MobAdultSlimesYellowAngry
+      prob: 0.02
 
 - type: entity
   id: SnakeSpawn
@@ -364,17 +376,19 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/aliens.ogg
+      path: /Audio/Announcements/attention.ogg
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
-    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
-      children:
-      - id: MobPurpleSnake
-      - id: MobSmallPurpleSnake
-      - id: MobCobraSpace
+    entries:
+    - id: MobPurpleSnake
+      prob: 0.02
+    - id: MobSmallPurpleSnake
+      prob: 0.02
+    - id: MobCobraSpace
+      prob: 0.02
 
 - type: entity
   id: SpiderSpawn
@@ -389,8 +403,9 @@
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
-    table: # DeltaV: EntityTable instead of spawn entries
-      id: MobGiantSpiderAngry
+    entries:
+    - id: MobGiantSpiderAngry
+      prob: 0.05
 
 - type: entity
   id: SpiderClownSpawn
@@ -400,30 +415,31 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    earliestStart: 30 # funkystation delay
+    earliestStart: 45 # DeltaV - was 20
     minimumPlayers: 30 # DeltaV - was 20
     weight: 1 # DeltaV - was 1.5
     duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
     playerRatio: 35 # DeltaV: Clown spiders are very robust
-    table: # DeltaV: EntityTable instead of spawn entries
-      id: MobClownSpider
+    entries:
+    - id: MobClownSpider
+      prob: 0.05
 
 - type: entity
   id: ZombieOutbreak
   parent: BaseGameRule
   components:
   - type: StationEvent
-    earliestStart: 60 # funkystation
+    earliestStart: 90
     minimumPlayers: 40
-    weight: 1.5 # Zombies was happening basically every single survival round, so now it's super rare
+    weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
   - type: ZombieRule
   - type: AntagSelection
     definitions:
     - prefRoles: [ InitialInfected ]
       max: 3
-      playerRatio: 15
+      playerRatio: 10
       blacklist:
         components:
         - ZombieImmune
@@ -448,34 +464,38 @@
   components:
   - type: StationEvent
     earliestStart: 35
-    weight: 4
+    weight: 5.5
     minimumPlayers: 20
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule
-    preloadedGrid: ShuttleStriker
-  - type: NukeopsRule # goob edit
+    gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
+  - type: NukeopsRule
     roundEndBehavior: Nothing
   - type: AntagSelection
     definitions:
-    - spawnerPrototype: SpawnPointNukeopsCommander
+    - spawnerPrototype: SpawnPointLoneNukeOperative
       min: 1
       max: 1
       pickPlayer: false
       startingGear: SyndicateLoneOperativeGearFull
+      unequipOldGear: true
       roleLoadout:
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: # Vocaloid Names Fix
-        - nukeops-role-operator
-        - SyndicateNamesElite
+        nameSegments:
+        - SyndicateNamesPrefix
+        - SyndicateNamesNormal
       - type: NpcFactionMember
         factions:
         - Syndicate
       mindRoles:
       - MindRoleNukeops
+  - type: AntagLoadProfileRule # Goobstation
+    speciesOverride: Human
+    alwaysUseSpeciesOverride: true
 
 - type: entity
   parent: BaseTraitorRule
@@ -483,7 +503,7 @@
   components:
   - type: StationEvent
     earliestStart: 30
-    weight: 6
+    weight: 8
     minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception
@@ -583,18 +603,3 @@
       min: 1
       max: 1
       pickPlayer: false
-
-- type: entity
-  id: JobDistributionError
-  parent: BaseGameRule
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-job-distribution-error-announcement
-    minimumPlayers: 25
-    weight: 3
-    duration: 1
-  - type: JobDistributionErrorRule
-    jobs:
-    - SecurityClown
-    - PartyMaker
-    - CommandMaid

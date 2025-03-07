@@ -14,7 +14,7 @@ public sealed partial class HereticMagicItemSystem : EntitySystem
         SubscribeLocalEvent<HereticMagicItemComponent, CheckMagicItemEvent>(OnCheckMagicItem);
         SubscribeLocalEvent<HereticMagicItemComponent, HeldRelayedEvent<CheckMagicItemEvent>>(OnCheckMagicItem);
         SubscribeLocalEvent<HereticMagicItemComponent, InventoryRelayedEvent<CheckMagicItemEvent>>(OnCheckMagicItem);
-        SubscribeLocalEvent<HereticMagicItemComponent, ExaminedEvent>(OnMagicItemExamine);
+
     }
 
     private void OnCheckMagicItem(Entity<HereticMagicItemComponent> ent, ref CheckMagicItemEvent args)
@@ -23,12 +23,4 @@ public sealed partial class HereticMagicItemSystem : EntitySystem
         => args.Args.Handled = true;
     private void OnCheckMagicItem(Entity<HereticMagicItemComponent> ent, ref InventoryRelayedEvent<CheckMagicItemEvent> args)
         => args.Args.Handled = true;
-
-    private void OnMagicItemExamine(Entity<HereticMagicItemComponent> ent, ref ExaminedEvent args)
-    {
-        if (!HasComp<HereticComponent>(args.Examiner))
-            return;
-
-        args.PushMarkup(Loc.GetString("heretic-magicitem-examine"));
-    }
 }

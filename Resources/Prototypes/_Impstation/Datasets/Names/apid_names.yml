@@ -40,6 +40,36 @@
     prefix: names-apid-courier-first-dataset-
     count: 2
 
+- type: localizedDataset
+  id: apid_scientist
+  values:
+    prefix: names-apid-scientist-first-dataset-
+    count: 2
+
+- type: localizedDataset
+  id: apid_janitor
+  values:
+    prefix: names-apid-janitor-first-dataset-
+    count: 2
+
+- type: localizedDataset
+  id: apid_adminassistant
+  values:
+    prefix: names-apid-adminassistant-first-dataset-
+    count: 2
+
+- type: localizedDataset
+  id: apid_chaplain
+  values:
+    prefix: names-apid-chaplain-first-dataset-
+    count: 2
+
+- type: localizedDataset
+  id: apid_salvager
+  values:
+    prefix: names-apid-salvager-first-dataset-
+    count: 2
+
 - type: localizedDataset # ANGRY BEE NOISES
   id: names_apid
   values:

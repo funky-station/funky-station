@@ -26,6 +26,7 @@
     - ChaplainGearGrail
     - ChaplainGearGlove
     - ChaplainGearBow
+    - ChaplainGearGun # funky
   - type: ActivatableUI
     key: enum.ChaplainGearMenuUIKey.Key
   - type: UserInterface

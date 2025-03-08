@@ -136,6 +136,12 @@
   groupBy: "pin"
 
 - type: loadout
+  id: ClothingNeckAroacePin
+  storage:
+    back:
+    - ClothingNeckAroacePin
+
+- type: loadout
   id: ClothingNeckBisexualPin
   storage:
     back:

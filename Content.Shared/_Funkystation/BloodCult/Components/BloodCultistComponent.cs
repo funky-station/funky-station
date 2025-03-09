@@ -12,7 +12,7 @@ namespace Content.Shared.BloodCult;
 /// <summary>
 /// A Blood Cultist.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
 public sealed partial class BloodCultistComponent : Component
 {
 	/// <summary>

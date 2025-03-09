@@ -1,7 +1,7 @@
 - type: gameMap
   id: Gate
   mapName: 'Gate Station'
-  mapPath: /Maps/gate.yml
+  mapPath: /Maps/_Funkystation/gate.yml
   minPlayers: 55
   stations:
     Gate:
@@ -19,6 +19,7 @@
             #service
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
+            InternalAffairsAgent: [ 2, 2 ]
             Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
             Chef: [ 2, 2 ]

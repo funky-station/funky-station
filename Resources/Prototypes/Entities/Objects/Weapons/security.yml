@@ -41,7 +41,7 @@
         Blunt: 12 #fs - Thwack
     bluntStaminaDamageFactor: 2.0
     angle: 60
-    animation: WeaponArcSlash
+    animation: WeaponArcThrust
     soundHit:
       collection: MetalThud #fs - Thwack
   - type: StaminaDamageOnHit

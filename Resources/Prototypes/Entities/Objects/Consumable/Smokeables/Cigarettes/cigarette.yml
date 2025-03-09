@@ -129,10 +129,10 @@
           - ReagentId: Tricordrazine
             Quantity: 10
 
-- type: entity
-  id: CigaretteDylovene
+- type: entity # Funkychem
+  id: CigaretteMultiver
   parent: SoakedCigarette
-  name: Urinal Cake Disolver
+  name: Lacking Liver Damage # Funkychem - Reference to 13 multiver dealing liver damage when 14's intentionally doesn't
   components:
   - type: SolutionContainerManager
     solutions:
@@ -141,13 +141,13 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: Dylovene
+          - ReagentId: Multiver
             Quantity: 10
 
-- type: entity
-  id: CigaretteDermaline
+- type: entity # Funkychem
+  id: CigaretteAiuri
   parent: SoakedCigarette
-  name: Aloe Peanut Butter Medley
+  name: Does Not Meet Expectations # Funkychem - Reference to the fact bicar became advanced and derm didn't in cigarettes
   components:
   - type: SolutionContainerManager
     solutions:
@@ -156,7 +156,7 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: Dermaline
+          - ReagentId: Aiuri
             Quantity: 10
 
 - type: entity
@@ -189,8 +189,8 @@
           - ReagentId: Ipecac
             Quantity: 2
 
-- type: entity
-  id: CigaretteBicaridine
+- type: entity # Funkychem
+  id: CigaretteSalicylicAcid
   parent: SoakedCigarette
   name: Wet Dog Enhanced Cigarette
   components:
@@ -201,13 +201,13 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: Bicaridine
+          - ReagentId: SalicylicAcid
             Quantity: 10
 
 - type: entity
   id: CigaretteDexalin
   parent: SoakedCigarette
-  name: Rocky Mountain Musk
+  name: No Successor Plus # Funkychem - Dex+ reference lol
   components:
   - type: SolutionContainerManager
     solutions:

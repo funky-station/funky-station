@@ -1,5 +1,6 @@
 ﻿guide-entry-command-sop = Command SOP
 guide-entry-security-sop = Security SOP
+guide-entry-legal-sop = Legal SOP
 guide-entry-engineering-sop = Engineering SOP
 guide-entry-medical-sop = Medical SOP
 guide-entry-service-sop = Service SOP

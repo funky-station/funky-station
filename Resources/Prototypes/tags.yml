@@ -1,6 +1,9 @@
 # PUT YOUR TAGS IN ALPHABETICAL ORDER
 
 - type: Tag
+  id: AccessBreakerImmune
+
+- type: Tag
   id: AirAlarm
 
 - type: Tag
@@ -429,6 +432,9 @@
   id: Debug
 
 - type: Tag
+  id: Diagonal
+
+- type: Tag
   id: Dice
 
 - type: Tag
@@ -651,6 +657,9 @@
   id: Hardsuit # Prevent melee injectors that can't penetrate hardsuits from injecting the wearer (nettles)
 
 - type: Tag
+  id: HardsuitSpatio
+
+- type: Tag
   id: Haunted
 
 - type: Tag
@@ -847,6 +856,9 @@
   id: Mask
 
 - type: Tag
+  id: Maints
+
+- type: Tag
   id: Matchstick
 
 - type: Tag
@@ -950,6 +962,9 @@
 
 - type: Tag
   id: Payload # for grenade/bomb crafting
+
+- type: Tag
+  id: PDACart
 
 - type: Tag
   id: Pen
@@ -1090,6 +1105,9 @@
 - type: Tag
   id: RodMetal1
 
+- type: Tag # Funkystation
+  id: RodUranium1
+
 - type: Tag
   id: RollingPaper
 
@@ -1202,6 +1220,9 @@
 
 - type: Tag
   id: Spray
+
+- type: Tag
+  id: SprayNozzle
 
 - type: Tag
   id: SpreaderIgnore
@@ -1361,6 +1382,12 @@
 
 - type: Tag
   id: WhitelistChameleon
+
+- type: Tag
+  id: WhitelistChameleonIdCard
+
+- type: Tag
+  id: WhitelistChameleonPDA
 
 - type: Tag
   id: Window

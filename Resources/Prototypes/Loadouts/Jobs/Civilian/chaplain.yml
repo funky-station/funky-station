@@ -79,11 +79,21 @@
     outerClothing: ClothingOuterHoodieChaplain
 
 # funkystation
+
 - type: loadout
-  id: ChaplainAnnabelle
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ChaplainAnnabelleRighteousness
+  id: ChaplainBibleChristian
   storage:
-    back:
-    - WeaponSniperChaplainAnnabelle
+     back: 
+     - Bible
+
+- type: loadout
+  id: ChaplainBibleAtheist
+  storage:
+     back: 
+     - BibleAtheist
+
+- type: loadout
+  id: ChaplainBibleBhuddhist
+  storage:
+     back: 
+     - BibleBhuddhist # The item's not even spelt correctly

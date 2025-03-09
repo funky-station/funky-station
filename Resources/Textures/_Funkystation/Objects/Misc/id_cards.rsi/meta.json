@@ -1,13 +1,19 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from ParadiseSS13 at commit https://github.com/ParadiseSS13/Paradise/commit/2fd9200036dd18a56e6887f8090d5dc0477fc6f3",
+  "copyright": "Taken from ParadiseSS13 at commit https://github.com/ParadiseSS13/Paradise/commit/2fd9200036dd18a56e6887f8090d5dc0477fc6f3, IAA ID made for FunkyStation",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
+      "name": "default"
+    },
+	{
+      "name": "idiaa"
+    },
+	{
       "name": "retro"
     },
     {

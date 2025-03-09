@@ -5,7 +5,7 @@
   name: trait-accentless-name
   description: trait-accentless-desc
   category: SpeechTraits
-  cost: 2
+  cost: 1
   components:
   - type: Accentless
     removes:
@@ -91,14 +91,14 @@
   - type: ReplacementAccent
     accent: liar
 
-# 2 Cost
+# Funky - All are 1 cost
 
 - type: trait
   id: Russian
   name: trait-russian-name
   description: trait-russian-desc
   category: SpeechTraits
-  cost: 2
+  cost: 1
   components:
   - type: RussianAccent
 
@@ -107,7 +107,7 @@
   name: trait-socialanxiety-name
   description: trait-socialanxiety-desc
   category: SpeechTraits
-  cost: 2
+  cost: 1
   components:
   - type: StutteringAccent
     matchRandomProb: 0.1
@@ -120,6 +120,6 @@
   name: trait-frontal-lisp-name
   description: trait-frontal-lisp-desc
   category: SpeechTraits
-  cost: 2
+  cost: 1
   components:
   - type: FrontalLisp

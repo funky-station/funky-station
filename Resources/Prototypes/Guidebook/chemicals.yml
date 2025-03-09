@@ -11,7 +11,9 @@
   - Foods
   - Botanical
   - Biological
+  - Special
   - Others
+  - Exotic # funky
   filterEnabled: True
 
 - type: guideEntry
@@ -57,7 +59,21 @@
   filterEnabled: True
 
 - type: guideEntry
+  id: Special
+  name: guide-entry-special
+  text: "/ServerInfo/Guidebook/ChemicalTabs/Special.xml"
+  filterEnabled: True
+
+- type: guideEntry
   id: Others
   name: guide-entry-others
   text: "/ServerInfo/Guidebook/ChemicalTabs/Other.xml"
   filterEnabled: True
+
+  # begin funky
+- type: guideEntry
+  id: Exotic
+  name: guide-entry-exotic
+  text: "/ServerInfo/Funkystation/Guidebook/ChemicalTabs/Exotic.xml"
+  filterEnabled: True
+  # end funky

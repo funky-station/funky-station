@@ -1,0 +1,21 @@
+# Backpack
+- type: loadout
+  id: InternalAffairsAgentDuffel
+  equipment:
+    back: ClothingBackpackDuffel
+
+- type: loadout
+  id: InternalAffairsAgentSatchel
+  equipment:
+    back: ClothingBackpackSatchelLeather
+
+# Belt
+- type: loadout
+  id: InternalAffairsAgentClipboard
+  equipment:
+    belt: BoxFolderCentComClipboard
+
+- type: loadout
+  id: InternalAffairsAgentWaistbag
+  equipment:
+    belt: ClothingBeltStorageWaistbag

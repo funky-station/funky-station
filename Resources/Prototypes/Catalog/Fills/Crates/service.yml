@@ -104,6 +104,9 @@
     - id: ClownRecorder
     - id: ClothingBeltSuspendersRed
     - id: ClothingBeltSuspendersBlack
+    - id: ClothingHeadHatWizard
+    - id: ClothingOuterWizard
+    - id: ClothingShoesWizard
 
 - type: entity
   id: CrateServiceCustomSmokable

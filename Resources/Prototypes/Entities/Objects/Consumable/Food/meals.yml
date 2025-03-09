@@ -597,9 +597,9 @@
           Quantity: 15
         - ReagentId: Water
           Quantity: 5
-        - ReagentId: Bicaridine
+        - ReagentId: Libital
           Quantity: 5
-        - ReagentId: Kelotane
+        - ReagentId: Aiuri
           Quantity: 5
   - type: Tag
     tags:

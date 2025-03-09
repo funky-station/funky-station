@@ -20,6 +20,9 @@
     allowed:
     - Stun
     - Corporeal
+  - type: Hands # imp start
+    showInHands: false
+    disableExplosionRecursion: true # imp end
   - type: Damageable
     damageContainer: ManifestedSpirit
     damageModifierSet: ManifestedSpirit
@@ -38,6 +41,8 @@
     name: ghost-role-information-revenant-name
     description: ghost-role-information-revenant-description
     rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
   - type: GhostTakeoverAvailable

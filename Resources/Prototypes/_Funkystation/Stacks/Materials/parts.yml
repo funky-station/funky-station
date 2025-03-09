@@ -1,0 +1,6 @@
+- type: stack
+  id: UraniumRod
+  name: uranium rods
+  icon: { sprite: _Funkystation/Objects/Materials/uranium_rods.rsi, state: rods }
+  spawn: PartRodUranium1
+  maxCount: 30

@@ -9,7 +9,7 @@
   rules:
   - Heretic
   - BasicStationEventScheduler
-  - AntagStationEventScheduler
+  #- AntagStationEventScheduler
   - BasicRoundstartVariation
 
 - type: gamePreset
@@ -24,7 +24,7 @@
   - CalmHeretic
   - CalmTraitor
   - BasicStationEventScheduler
-  - AntagStationEventScheduler
+  #- AntagStationEventScheduler
   - BasicRoundstartVariation
 
 - type: gamePreset
@@ -39,7 +39,7 @@
   - CalmHeretic
   - CalmLing
   - BasicStationEventScheduler
-  - AntagStationEventScheduler
+  #- AntagStationEventScheduler
   - BasicRoundstartVariation
 
 
@@ -56,5 +56,5 @@
   - BlobGameMode
   - SubGamemodesRule
   - BasicStationEventScheduler
-  - AntagStationEventScheduler
+  #- AntagStationEventScheduler
   - BasicRoundstartVariation

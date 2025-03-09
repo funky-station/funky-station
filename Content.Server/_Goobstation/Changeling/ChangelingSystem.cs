@@ -56,6 +56,7 @@ using Content.Server.Stunnable;
 using Content.Shared.Jittering;
 using Content.Server.Explosion.EntitySystems;
 using System.Linq;
+using Content.Shared.Forensics.Components;
 
 namespace Content.Server.Changeling;
 

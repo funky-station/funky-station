@@ -273,27 +273,35 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		float staminaDamage = 90f;
 		float empDamage = 1000f;
 		int stunTime = 10;
+		int selfStunTime = 4;
 
 		args.Handled = true;
 
 		var target = args.Target;
 
-		if (HasComp<BorgChassisComponent>(target) &&
+		if (HasComp<CultResistantComponent>(target))
+		{
+			_popup.PopupEntity(
+					Loc.GetString("cult-spell-repelled"),
+					ent, ent, PopupType.MediumCaution
+				);
+			_audioSystem.PlayPvs("/Audio/Effects/holy.ogg", Transform(ent).Coordinates);
+			_stun.TryKnockdown(ent, TimeSpan.FromSeconds(selfStunTime), true);
+		}
+		else if (HasComp<BorgChassisComponent>(target) &&
 			_powerCell.TryGetBatteryFromSlot(target, out EntityUid? batteryUid, out BatteryComponent? _) &&
 			batteryUid != null)
 		{
 			_emp.DoEmpEffects((EntityUid)batteryUid, empDamage, stunTime);
+			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(stunTime), false);
 		}
 		else
 		{
 			_stun.TryKnockdown(target, TimeSpan.FromSeconds(stunTime), true);
 			_stamina.TakeStaminaDamage(target, staminaDamage, visual: false);
 			EnsureComp<CultMarkedComponent>(target);
+			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(stunTime), false);
 		}
-
-		_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(stunTime), false);
-
-		args.Handled = true;
 	}
 
 	private void OnMarkedAttacked(Entity<CultMarkedComponent> ent, ref AttackedEvent args)

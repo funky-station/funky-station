@@ -15,7 +15,7 @@ using Content.Shared.BloodCult.Components;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
-public sealed class ItemToggleSystem : EntitySystem
+public sealed class SoulStoneSystem : EntitySystem
 {
 	[Dependency] private readonly MindSystem _mind = default!;
 	[Dependency] private readonly PopupSystem _popupSystem = default!;

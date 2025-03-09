@@ -10,6 +10,7 @@
   - type: Sprite
     sprite: _Funkystation/Objects/Weapons/Melee/bloodcult_dagger_curved.rsi
     state: icon
+  - type: BloodCultMeleeWeapon
   - type: MeleeWeapon
     wideAnimationRotation: -135
     attackRate: 1.0

@@ -17,6 +17,9 @@ admin-verb-make-cultist = Make the target into a Blood Cultist.
 
 cult-dagger-equip-fail = The dagger turns to ash in your hands!
 
+cult-attack-repelled = Holy magic repels your attack!
+cult-attack-teamhit = Your attack stops dead before hitting a cultist.
+
 contraband-examine-text-BloodCult = [color=crimson]This item is a highly illegal product of blood cultist magic![/color]
 
 cult-rune-drawing-novowel = You begin smearing a rune into the floor with your own wrist's blood...
@@ -49,6 +52,7 @@ cult-spell-carving-rune = Empowered by the rune, you barely feel the sigil being
 cult-spell-exceeded = You cannot carve another spell!
 cult-spell-havealready = You already have that spell!
 cult-spell-fail = You fail to cast the spell!
+cult-spell-repelled = Holy magic protects your target!
 
 cult-shade-summoned = The stolen soul materializes as a servant Shade!
 cult-shade-recalled = You recapture the stolen soul, rejuvinating it!

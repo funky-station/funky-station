@@ -40,9 +40,9 @@
       collection: FootstepHull
   - type: Tag
     tags:
-    - ForceFixRotations
     - Structure
     - Table
+    - ForceFixRotations
   - type: RequireProjectileTarget # Goobstation - Crawling
     ignoreThrow: true
 

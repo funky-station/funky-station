@@ -332,6 +332,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				if (!TryComp<BloodCultistComponent>(cultist, out var cultistComp))
 					continue;
 				cultistComp.ShowTearVeilRune = true;
+				DirtyField(cultist, cultistComp, nameof(BloodCultistComponent.ShowTearVeilRune));
 			}
 		}
 

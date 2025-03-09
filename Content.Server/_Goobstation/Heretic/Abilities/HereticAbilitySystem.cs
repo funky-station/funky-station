@@ -3,6 +3,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Flash;
 using Content.Server.Hands.Systems;
+using Content.Server.Heretic.Components;
 using Content.Server.Magic;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
@@ -145,7 +146,16 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         if (ent.Comp.MansusGraspActive)
         {
-            _popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
+            foreach (var hand in _hands.EnumerateHands(ent))
+            {
+                if (TryComp<MansusGraspComponent>(hand.HeldEntity, out var graspComp))
+                {
+                    QueueDel(hand.HeldEntity);
+                    ent.Comp.MansusGraspActive = false;
+                }
+            }
+
+            args.Handled = true;
             return;
         }
 

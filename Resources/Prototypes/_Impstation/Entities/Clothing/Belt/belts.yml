@@ -1,0 +1,12 @@
+# chaplain
+
+- type: entity
+  parent: ClothingBeltStorageWaistbag
+  id: ClothingBeltChaplainDragon
+  name: dragonpriest belt
+  description: It has just enough room for your bible and a few pieces of gold.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Belt/dragonbelt.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Belt/dragonbelt.rsi

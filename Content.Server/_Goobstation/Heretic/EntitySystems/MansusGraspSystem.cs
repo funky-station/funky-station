@@ -4,6 +4,7 @@ using Content.Server.Heretic.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
+using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
@@ -36,6 +37,9 @@ public sealed partial class MansusGraspSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+
+    private TimeSpan GraspCooldown { get; } = TimeSpan.FromSeconds(10);
 
     public void ApplyGraspEffect(EntityUid performer, EntityUid target, string path)
     {
@@ -126,6 +130,14 @@ public sealed partial class MansusGraspSystem : EntitySystem
             _stun.TryKnockdown(target, TimeSpan.FromSeconds(3f), true);
             _stamina.TakeStaminaDamage(target, 65f);
             _language.DoRatvarian(target, TimeSpan.FromSeconds(10f), true);
+
+            foreach (var action in _actions.GetActions(args.User))
+            {
+                if (TryPrototype(action.Id, out var actionPrototype) && actionPrototype.ID.Equals("ActionHereticMansusGrasp"))
+                {
+                    _actions.SetIfBiggerCooldown(action.Id, GraspCooldown);
+                }
+            }
         }
 
         // upgraded grasp

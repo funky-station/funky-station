@@ -221,6 +221,7 @@
   id: SalvageEquipmentRare
   table: !type:GroupSelector
     children:
+    - id: BlueprintDoubleEmergencyTank
     - id: FultonBeacon
     - id: Fulton
       amount: !type:RangeNumberSelector
@@ -248,7 +249,11 @@
     - id: BlueprintFulton
     - id: BlueprintSeismicCharge
     - id: WeaponCrusherGlaive
-    - id: ClothingOuterHardsuitSalvage
+    - !type:GroupSelector
+      children:
+      - id: ClothingOuterHardsuitSalvage
+      - id: ClothingOuterHardsuitMaxim # funkystation
+        weight: 0.05
     - id: OmnizineChemistryBottle
     - !type:GroupSelector
       children:

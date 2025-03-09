@@ -1,2 +1,5 @@
 - type: Tag
   id: DawInstrumentMachineCircuitboard
+
+- type: Tag
+  id: ChangelingInfectionImplant

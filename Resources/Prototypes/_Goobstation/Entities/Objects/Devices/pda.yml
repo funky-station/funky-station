@@ -6,9 +6,19 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-chrono"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
   - type: Pda
     id: ChronoIDCard
-    state: pda-chrono
     penSlot:
       startingItem: PenFuture
       whitelist:
@@ -22,16 +32,26 @@
     state: pda-chrono
 
 - type: entity
-  parent: SalvagePDA
+  parent: AdminPDA
   id: HelldiverPDA
   name: salvage diver PDA
   description: Smells like corpses of insects and androids.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-heccd"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
   - type: Pda
     id: HelldiverIDCard
-    state: pda-heccd
   - type: PdaBorderColor
     borderColor: "#272727"
     accentVColor: "#cec100"
@@ -40,14 +60,13 @@
     state: pda-heccd
 
 - type: entity
-  parent: CentcomPDA
+  parent: SalvagePDA
   id: HecuPDA
   name: HECU PDA
   description: Smells of gunpowder.
   components:
   - type: Pda
     id: HecuIDCard
-    state: pda-centcom
     penSlot:
       startingItem: PenCentcom
       whitelist:
@@ -55,5 +74,3 @@
         - Write
   - type: PdaBorderColor
     borderColor: "#00842e"
-  - type: Icon
-    state: pda-centcom

@@ -12,7 +12,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Damage.Components;
-using Content.Server.DeltaV.Cargo.Components;
+using Content.Server._DV.Cargo.Components;
 using Content.Server.Destructible;
 using Content.Server.Destructible.Thresholds;
 using Content.Server.Destructible.Thresholds.Behaviors;
@@ -53,7 +53,7 @@ using Content.Shared.Storage;
 using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Timer = Robust.Shared.Timing.Timer;
-using Content.Server.DeltaV.Cargo.Systems;
+using Content.Server._DV.Cargo.Systems;
 
 namespace Content.Server.Mail
 {

@@ -1,4 +1,4 @@
-﻿//Public Domain Code
+﻿//Public Domain Code - Basically neutered, bibles are in loadouts - Funky
 using Content.Server.Bible.Components;
 using Content.Server.GameTicking;
 using Content.Shared._Goobstation.Religion;
@@ -19,7 +19,7 @@ public sealed class ReligionSystem: EntitySystem
 
     private void OnSpawnComplete(PlayerSpawnCompleteEvent args)
     {
-
+    
         if (HasComp<BibleUserComponent>(args.Mob)) //Theoretically this can be used to let everyone spawn with the bible of their chosen faith
         {
             if (EntityManager.TryGetComponent(args.Mob, out ReligionComponent? mobReligion))
@@ -31,7 +31,7 @@ public sealed class ReligionSystem: EntitySystem
                     Shared._Goobstation.Religion.Religion.Christian => "Bible",
                     Shared._Goobstation.Religion.Religion.None => "Bible",
                 };
-                _inventorySystem.SpawnItemInSlot(args.Mob, "pocket1", bible, true, true);
+                _inventorySystem.SpawnItemInSlot(args.Mob, "pocket1", bible, false, false);
             }
         }
     }

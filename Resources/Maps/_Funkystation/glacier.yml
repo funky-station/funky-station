@@ -15328,7 +15328,7 @@ entities:
       pos: -42.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -27448.285
+      secondsUntilStateChange: -27651.75
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15725,7 +15725,7 @@ entities:
       pos: -54.5,31.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -27258.719
+      secondsUntilStateChange: -27462.184
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16301,7 +16301,7 @@ entities:
       pos: 37.5,-26.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2593.495
+      secondsUntilStateChange: -2796.9592
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -60191,7 +60191,7 @@ entities:
       pos: 55.5,39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -29759.41
+      secondsUntilStateChange: -29962.875
       state: Closing
 - proto: CurtainsBlue
   entities:
@@ -60313,7 +60313,7 @@ entities:
       pos: -1.5,48.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2251.962
+      secondsUntilStateChange: -2455.426
       state: Closing
 - proto: CurtainsWhiteOpen
   entities:
@@ -108665,6 +108665,28 @@ entities:
     - type: Transform
       pos: 36.5,43.5
       parent: 2
+- proto: SpawnPointInternalAffairsAgent
+  entities:
+  - uid: 21109
+    components:
+    - type: Transform
+      pos: -70.5,8.5
+      parent: 2
+  - uid: 21110
+    components:
+    - type: Transform
+      pos: -68.5,8.5
+      parent: 2
+  - uid: 21111
+    components:
+    - type: Transform
+      pos: -68.5,9.5
+      parent: 2
+  - uid: 21112
+    components:
+    - type: Transform
+      pos: -68.5,10.5
+      parent: 2
 - proto: SpawnPointJanitor
   entities:
   - uid: 13074
@@ -134054,7 +134076,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -34707.773
+      secondsUntilStateChange: -34911.24
       state: Opening
     - type: Airlock
       autoClose: False
@@ -134070,7 +134092,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -34707.207
+      secondsUntilStateChange: -34910.67
       state: Opening
     - type: Airlock
       autoClose: False
@@ -134092,7 +134114,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -34706.742
+      secondsUntilStateChange: -34910.207
       state: Opening
     - type: Airlock
       autoClose: False
@@ -134108,7 +134130,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -34708.273
+      secondsUntilStateChange: -34911.74
       state: Opening
     - type: Airlock
       autoClose: False

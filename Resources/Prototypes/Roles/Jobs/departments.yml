@@ -61,6 +61,7 @@
   roles:
   - BlueshieldOfficer # Goobstation
   - NanotrasenRepresentative # Goobstation
+  - InternalAffairsAgent # FunkyStation
   editorHidden: false
   weight: 120
 

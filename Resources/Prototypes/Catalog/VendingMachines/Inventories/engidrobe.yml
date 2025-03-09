@@ -18,3 +18,7 @@
     ClothingShoesBootsWinterEngi: 2
   emaggedInventory:
     ClothingUniformJumpsuitCHESyndicate: 1
+    ClothingUniformCybersunHazard: 1 # DeltaV
+  contrabandInventory:
+    ToyFigurineEngineer: 1
+    ToyFigurineChiefEngineer: 1

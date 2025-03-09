@@ -1,4 +1,54 @@
-﻿- type: reaction
+- type: reaction
+  id: Heparin
+  reactants:
+    TableSalt:
+      amount: 1
+    Aluminium:
+      amount: 1
+    Ethanol:
+      amount: 1
+    Lithium:
+      amount: 1
+  products:
+    Heparin: 4
+
+- type: reaction
+  id: Rhigoxane
+  reactants:
+    Plasma: # Can be a pretty lethal chem, but it shouldn't be complex, thus plasma :godo:
+      amount: 1
+    Nitrogen:
+      amount: 3 # And a chem hog... poor jugs.
+    Water:
+      amount: 1
+  products:
+    Rhigoxane: 3
+
+- type: reaction
+  id: Spewium
+  reactants:
+    Ipecac:
+      amount: 1
+    PenteticAcid:
+      amount: 1
+    Licoxide:
+      amount: 1
+  products:
+    Spewium: 3
+
+- type: reaction
+  id: Pestiline
+  reactants:
+    Salbutamol:
+      amount: 1
+    PenteticAcid:
+      amount: 1
+    Arithrazine:
+      amount: 2
+  products:
+    Pestiline: 2
+
+- type: reaction
   id: LeporazineLone
   impact: Medium
   reactants:

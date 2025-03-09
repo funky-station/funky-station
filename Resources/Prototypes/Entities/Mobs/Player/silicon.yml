@@ -233,8 +233,8 @@
 - type: entity
   id: DungeonMasterCircuitBoard
   parent: BaseElectronics
-  name: law board (Dungeon Master)
-  description: An electronics board containing the Dungeon Master lawset.
+  name: law board (Game Master)
+  description: An electronics board containing the Game Master lawset.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -442,6 +442,9 @@
     - HideContextMenu
     - StationAi
     - NoConsoleSound
+  - type: StartingMindRole
+    mindRole: "MindRoleSiliconBrain"
+    silent: true
 
 # Hologram projection that the AI's eye tracks.
 - type: entity
@@ -499,12 +502,15 @@
   - type: ContainerFill
     containers:
       borg_brain:
-      - MMIFilled
+      - PositronicBrain
   - type: ItemSlots
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
+  - type: StartingMindRole
+    mindRole: "MindRoleSiliconBrain"
+    silent: true
 
 - type: entity
   id: PlayerBorgSyndicateAssaultBattery

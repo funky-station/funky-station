@@ -150,22 +150,22 @@
     state: plushie_melodyhennion
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
   - type: EmitSoundOnActivate
     sound:
-      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
   - type: EmitSoundOnTrigger
     sound:
-      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
   - type: Food
     useSound:
-      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
   - type: MeleeWeapon
     soundHit:
-      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
   - type: Speech
     speechVerb: Vulpkanin
 
@@ -476,22 +476,22 @@
     state: plushie_cynskatyns
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/DeltaV/Voice/Harpy/chirp1.ogg
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/DeltaV/Voice/Harpy/chirp1.ogg
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
   - type: EmitSoundOnActivate
     sound:
-      path: /Audio/DeltaV/Voice/Harpy/chirp1.ogg
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
   - type: EmitSoundOnTrigger
     sound:
-      path: /Audio/DeltaV/Voice/Harpy/chirp1.ogg
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
   - type: Food
     useSound:
-      path: /Audio/DeltaV/Voice/Harpy/chirp1.ogg
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
   - type: MeleeWeapon
     soundHit:
-      path: /Audio/DeltaV/Voice/Harpy/chirp1.ogg
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
   - type: UseDelay
     delay: 5
   - type: Speech
@@ -635,20 +635,20 @@
           Quantity: 30
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/DeltaV/Voice/Harpy/caw1.ogg
+      path: /Audio/_DV/Voice/Harpy/caw1.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/DeltaV/Voice/Harpy/caw1.ogg
+      path: /Audio/_DV/Voice/Harpy/caw1.ogg
   - type: EmitSoundOnActivate
     sound:
-      path: /Audio/DeltaV/Voice/Harpy/caw1.ogg
+      path: /Audio/_DV/Voice/Harpy/caw1.ogg
   - type: EmitSoundOnTrigger
     sound:
-      path: /Audio/DeltaV/Voice/Harpy/caw1.ogg
+      path: /Audio/_DV/Voice/Harpy/caw1.ogg
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:
-      path: /Audio/DeltaV/Voice/Harpy/caw1.ogg
+      path: /Audio/_DV/Voice/Harpy/caw1.ogg
 
 - type: entity
   parent: BaseStowawayPlushie

@@ -147,7 +147,6 @@
   - type: PointLight
     color: "#1AE51A"
   - type: Projectile
-    penetrate: true
     damage:
       types:
         Radiation: 20 #funky make it rads and keep the damage low

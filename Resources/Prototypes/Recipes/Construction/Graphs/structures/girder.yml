@@ -51,6 +51,19 @@
               amount: 2
               doAfter: 1
 
+        - to: reinforcedUraniumGirder # Funkystation
+          completed:
+            - !type:SnapToGrid
+              southRotation: false
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: UraniumRod
+              amount: 2
+              doAfter: 1
+            - tool: Welding
+              doAfter: 3
+
         - to: uraniumWall
           completed:
             - !type:SnapToGrid
@@ -273,6 +286,20 @@
             - tool: Screwing
               doAfter: 1
 
+    - node: reinforcedUraniumGirder # Funkystation
+      entity: ReinforcedUraniumGirder
+      edges:
+        - to: reinforcedUraniumWall
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          conditions:
+            - !type:EntityAnchored { }
+          steps:
+            - material: Uranium
+              amount: 2
+              doAfter: 1
+
     - node: reinforcedGirder
       entity: ReinforcedGirder
       edges:
@@ -331,6 +358,58 @@
           steps:
             - tool: Cutting
               doAfter: 2
+
+    - node: reinforcedUraniumWall # Funkystation
+      entity: WallUraniumReinforced
+      edges:
+        - to: reinforcedUraniumGirder
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetUranium1
+              amount: 2
+          steps:
+            - tool: Cutting
+              doAfter: 1
+              completed:
+                - !type:VisualizerDataInt
+                  key: "enum.ReinforcedWallVisuals.DeconstructionStage"
+                  data: 5
+            - tool: Screwing
+              doAfter: 1
+            - tool: Welding
+              doAfter: 5
+              completed:
+                - !type:VisualizerDataInt
+                  key: "enum.ReinforcedWallVisuals.DeconstructionStage"
+                  data: 4
+            - tool: Prying
+              doAfter: 1
+            - tool: Anchoring
+              doAfter: 1
+              completed:
+                - !type:VisualizerDataInt
+                  key: "enum.ReinforcedWallVisuals.DeconstructionStage"
+                  data: 3
+            - tool: Welding
+              doAfter: 10
+              completed:
+                - !type:VisualizerDataInt
+                  key: "enum.ReinforcedWallVisuals.DeconstructionStage"
+                  data: 2
+            - tool: Prying
+              doAfter: 1
+              completed:
+                - !type:VisualizerDataInt
+                  key: "enum.ReinforcedWallVisuals.DeconstructionStage"
+                  data: 1
+            - tool: Screwing
+              doAfter: 1
+              completed:
+                - !type:VisualizerDataInt
+                  key: "enum.ReinforcedWallVisuals.DeconstructionStage"
+                  data: 0
+            - tool: Cutting
+              doAfter: 1
 
     - node: reinforcedWall
       entity: WallReinforced

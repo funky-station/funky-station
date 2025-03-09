@@ -1,0 +1,93 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: PartUraniumBase
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Materials/uranium_rods.rsi
+    state: rods
+  - type: Item
+    sprite: _Funkystation/Objects/Materials/uranium_rods.rsi
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: FlimsyMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: PartUraniumBase
+  id: PartRodUranium
+  name: uranium rod
+  suffix: Full
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Uranium: 50
+  - type: Stack
+    stackType: UraniumRod
+    baseLayer: base
+    layerStates:
+    - rods
+    - rods_2
+    - rods_3
+    - rods_4
+    - rods_5
+  - type: Sprite
+    state: rods_5
+    layers:
+    - state: rods_5
+      map: ["base"]
+  - type: Item
+    size: Normal
+    heldPrefix: rods
+  - type: Construction
+    graph: UraniumRod
+    node: UraniumRod
+  - type: Appearance
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 42.5
+
+- type: entity
+  parent: PartRodUranium
+  id: PartRodUraniuml10
+  name: uranium rod
+  suffix: 10
+  components:
+  - type: Tag
+    tags:
+    - RodUranium1
+  - type: Sprite
+    state: rods
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: PartRodUranium
+  id: PartRodUranium1
+  name: uranium rod
+  suffix: Single
+  components:
+  - type: Tag
+    tags:
+    - RodUranium1
+  - type: Sprite
+    state: rods
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: PartRodUranium
+  id: PartRodUraniumLingering0
+  suffix: Lingering, 0
+  components:
+  - type: Stack
+    lingering: true
+    count: 0

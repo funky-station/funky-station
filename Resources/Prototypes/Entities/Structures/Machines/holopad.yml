@@ -18,11 +18,11 @@
         - LowImpassable
         hard: false
   - type: ApcPowerReceiver
-    powerLoad: 300
+    powerLoad: 100
   - type: StationAiVision
   - type: Sprite
     sprite: Structures/Machines/holopad.rsi
-    drawdepth: FloorObjects
+    drawdepth: HighFloorObjects
     snapCardinals: true
     layers:
     - state: base
@@ -113,7 +113,11 @@
   suffix: For calls between maps
   components:
   - type: Telephone
-    transmissionRange: Long
+    transmissionRange: Map
+    compatibleRanges:
+    - Map
+    - Unlimited
+    ignoreTelephonesOnSameGrid: true
 
 - type: entity
   name: quantum entangling holopad
@@ -149,20 +153,20 @@
 # These are spawned by holopads
 - type: entity
   id: HolopadHologram
+  name: hologram
   categories: [ HideSpawnMenu ]
   suffix: DO NOT MAP
   components:
   - type: Transform
     anchored: true
-  - type: Sprite
-    noRot: true
-    drawdepth: Mobs
-    offset: -0.02, 0.45
-    overrideDir: South
-    enableOverrideDir: true
+  - type: Sprite # Sprite data is dynamically set in Client.HolopadSystem
   - type: Appearance
   - type: TypingIndicator
     proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Borg
+    speechBubbleOffset: 0.45
   - type: HolopadHologram
     rsiPath: Structures/Machines/holopad.rsi
     rsiState: icon_in_call
@@ -172,6 +176,7 @@
     alpha: 0.9
     intensity: 2
     scrollRate: 0.125
+    offset: -0.02, 0.45
   - type: Tag
     tags:
     - HideContextMenu
@@ -484,6 +489,14 @@
   components:
   - type: Label
     currentLabel: holopad-medical-breakroom
+
+- type: entity
+  parent: Holopad
+  id: HolopadMedicalClinic
+  suffix: Med Clinic
+  components:
+  - type: Label
+    currentLabel: holopad-medical-clinic
 
 # Cargo
 - type: entity

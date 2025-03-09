@@ -1,0 +1,13 @@
+# Command
+
+- type: entity
+  id: SpawnPointInternalAffairsAgent
+  parent: SpawnPointJobBase
+  name: internalaffairsagent
+  components:
+  - type: SpawnPoint
+    job_id: InternalAffairsAgent
+  - type: Sprite
+    layers:
+      - state: green
+      - state: centcom

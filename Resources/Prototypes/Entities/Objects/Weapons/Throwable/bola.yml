@@ -71,6 +71,7 @@
   - type: Ensnaring
     staminaDamage: 55
     destroyOnRemove: true
+    maxEnsnares: 1
   - type: Tag
     tags:
     - BolaEnergy

@@ -604,7 +604,7 @@
     pocket1: PillCanisterHyronalin
     pocket2: PillCanisterRandom
   inhand:
-  - SyringeBicaridine
+  - SyringeLibital
 
 - type: startingGear
   id: VisitorVirologist
@@ -658,7 +658,7 @@
     eyes: ClothingEyesHudMedical
     outerClothing: ClothingOuterCoatLab
     pocket1: PillCanisterTricordrazine
-    pocket2: PillCanisterDermaline
+    pocket2: PillCanisterLenturi # Funkychem
   inhand:
   - SyringeInaprovaline
 
@@ -677,7 +677,7 @@
     eyes: ClothingEyesHudMedical
     outerClothing: ClothingOuterWinterMed
     pocket1: PillCanisterTricordrazine
-    pocket2: PillCanisterBicaridine
+    pocket2: PillCanisterProbital # Funkychem
   inhand:
   - SyringeSaline
 
@@ -822,7 +822,7 @@
     ears: ClothingHeadsetMedical
     eyes: ClothingEyesHudMedical
     pocket1: RegenerativeMesh
-    pocket2: PillCanisterBicaridine
+    pocket2: PillCanisterLibital
   inhand:
   - ScalpelAdvanced
   - MedicatedSuture
@@ -840,7 +840,7 @@
     ears: ClothingHeadsetMedical
     eyes: ClothingEyesHudMedical
     pocket1: RegenerativeMesh
-    pocket2: PillCanisterBicaridine
+    pocket2: PillCanisterLibital
   inhand:
   - ScalpelAdvanced
   - MedicatedSuture
@@ -858,7 +858,7 @@
     ears: ClothingHeadsetMedical
     eyes: ClothingEyesHudMedical
     pocket1: RegenerativeMesh
-    pocket2: PillCanisterBicaridine
+    pocket2: PillCanisterLibital
   inhand:
   - ScalpelAdvanced
   - MedicatedSuture
@@ -1558,7 +1558,7 @@
     back: ClothingBackpackDuffel
     ears: ClothingHeadsetService
     pocket1: WeaponFlareGun
-    pocket2: PillCanisterDylovene
+    pocket2: PillCanisterMultiver
 
 - type: startingGear
   id: VisitorZookeeperAlt
@@ -1571,7 +1571,7 @@
     back: WeaponShotgunDoubleBarreledRubber
     ears: ClothingHeadsetService
     pocket1: WeaponFlareGun
-    pocket2: PillCanisterDylovene
+    pocket2: PillCanisterMultiver
 
 # Misc
 

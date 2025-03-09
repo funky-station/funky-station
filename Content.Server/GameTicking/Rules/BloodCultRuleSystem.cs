@@ -571,14 +571,13 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			}
 
 			// Summon Nar'Sie
-			if (cultist.NarsieSummoned != null)
+			if (!component.CultistsWin && cultist.NarsieSummoned != null)
 			{
+				component.CultistsWin = true;
 				string newlines = "\n\n\n\n";
 				AnnounceToEveryone(newlines+Loc.GetString("cult-veil-torn")+newlines, fontSize:32, audioPath:"/Audio/_Funkystation/Ambience/Antag/dimensional_rend.ogg", audioVolume:2f);
 				var narsieSpawn = Spawn("MobNarsieSpawn", (EntityCoordinates)cultist.NarsieSummoned);
 				cultist.NarsieSummoned = null;
-				component.CultistsWin = true;
-
 				component.CultVictoryEndTime = _timing.CurTime + component.CultVictoryEndDelay;
 			}
 		}

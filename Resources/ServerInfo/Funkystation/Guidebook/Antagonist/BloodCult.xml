@@ -147,7 +147,9 @@ As the cult expands, the situation aboard the station will pass through several 
 
 The only known method of deconverting a blood cultist is through the forced imbibement of [color=#4466ff]holy water[/color] (at least 40u).
 
-Your Chaplain, a holy being, is largely immune to the more [italic]persuasive[/italic] aspects of the blood cult's methods, and is the only crewmember who may be trusted absolutely once the cult's presence is known. Protect the Chaplain, for their holy water is the only thing that stands between you and [bold][color=#ff3333]consumption[/color][/bold].
+Your Chaplain, a holy being, is largely immune to the more [italic]persuasive[/italic] aspects of the blood cult's methods, and is the only crewmember who may be trusted absolutely once the cult's presence is known. Chaplains are also resistant to blood magic and cult-manufactured weaponry, rendering the offensive abilities of most cultists useless against them -- unless the cultists resort to more traditional methods of attack.
+
+Protect the Chaplain, for their holy water is the only thing that stands between you and [bold][color=#ff3333]consumption[/color][/bold].
 
   <Box>
     <GuideEntityEmbed Entity="RandomHumanoidVisitorChaplain" Caption="Your sole line of defense. God help you."/>

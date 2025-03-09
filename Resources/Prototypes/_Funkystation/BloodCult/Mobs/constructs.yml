@@ -113,8 +113,8 @@
         0: Alive
         140: Dead
     - type: MovementSpeedModifier
-      baseWalkSpeed: 2.5
-      baseSprintSpeed: 3
+      baseWalkSpeed: 2.0
+      baseSprintSpeed: 2.5
     - type: Sprite
       sprite: _Funkystation/BloodCult/Mobs/constructs.rsi
       drawdepth: Mobs

@@ -88,7 +88,7 @@ The summon dagger spell allows a cultist to instantly grant themselves a weapon 
     <GuideEntityEmbed Entity="ActionCultistStun" Caption="Stun"/>
   </Box>
 
-The stun spell will temporarilly knock over, drain the stamina of, silence, and mark a victim. A marked victim may be struck once with a cult dagger to enhance the effects of a stun.
+The stun spell will temporarilly knock over, drain the stamina of, silence, and mark a victim. A marked victim may be struck once with a cult dagger to enhance the effects of a stun. This spell may also be used to EMP Cyborgs.
 
 This spell may permit you to silently and more efficiently kidnap those your cult requires, giving you ample time to strip them of their suit coordinates and communications headset prior to abduction. It is recommended that all cultists keep a stun spell prepared when roaming beyond their selected base of operations, [bold]just in case.[/bold]
 

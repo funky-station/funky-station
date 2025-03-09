@@ -366,13 +366,6 @@
   - ClothingUniformFuneralSuit #imp
   - ClothingUniformFuneralSuitSkirt #imp
 
-# funkystation
-- type: loadoutGroup
-  id: ChaplainAnnabelle
-  name: loadout-group-chaplain-weapon
-  loadouts:
-  - ChaplainAnnabelle
-
 - type: loadoutGroup
   id: ChaplainOuterClothing
   name: loadout-group-chaplain-outerclothing

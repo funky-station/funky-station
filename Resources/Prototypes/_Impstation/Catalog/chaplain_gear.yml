@@ -38,3 +38,16 @@
   content:
   - NullRodBow
   - NullRodArrowQuiver
+
+# begin funky
+- type: chaplainGearMenuSet
+  id: ChaplainGearGun
+  name: chaplain-gearset-category-gun-name
+  description: chaplain-gearset-category-gun-description
+  sprite:
+    sprite: _Funkystation/Objects/Weapons/annabelle_icons_32x.rsi
+    state: icon
+  content:
+  - WeaponSniperChaplainAnnabelle
+# end funky
+

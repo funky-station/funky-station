@@ -542,6 +542,7 @@
       - MassMediaCircuitboard
       - ReagentGrinderIndustrialMachineCircuitboard
       - JukeboxCircuitBoard
+      - BoomBoxCircuitboard
       - SMESAdvancedMachineCircuitboard
       - HolopadMachineCircuitboard
   - type: EmagLatheRecipes

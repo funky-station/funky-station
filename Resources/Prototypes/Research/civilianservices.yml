@@ -71,6 +71,7 @@
     - DawInstrumentMachineCircuitboard
     - MassMediaCircuitboard
     - JukeboxCircuitBoard
+    - BoomBoxCircuitboard
 
 - type: technology
   id: RoboticCleanliness

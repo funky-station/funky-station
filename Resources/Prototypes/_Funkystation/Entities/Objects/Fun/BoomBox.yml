@@ -2,7 +2,6 @@
   id: boombox
   name: Boombox
   parent: BaseItem
-  abstract: true
   description: Grooves on the go!
   components:
   - type: StaticPrice
@@ -52,6 +51,8 @@
           SheetSteel1:
             min: 1
             max: 2
+  - type: Machine
+    board: BoomBoxCircuitboard
 
 - type: entity
   id: boomboxred
@@ -71,38 +72,38 @@
     - Back
     - suitStorage
 
-- type: entity
-  id: boomboxblue
-  name: Blue Boombox
-  parent: boombox
-  components:
-  - type: Item
-    size: Ginormous
-    heldPrefix: boombox
-  - type: Sprite
-    sprite: _Funkystation/Objects/Fun/Boomboxes/blueboombox.rsi
-    state: boombox
-  - type: Clothing
-    sprite: _Funkystation/Objects/Fun/Boomboxes/blueboombox.rsi
-    quickEquip: false
-    slots:
-    - Back
-    - suitStorage
+#- type: entity
+#  id: boomboxblue
+#  name: Blue Boombox
+#  parent: boombox
+#  components:
+# - type: Item
+#    size: Ginormous
+#   heldPrefix: boombox
+# - type: Sprite
+#    sprite: _Funkystation/Objects/Fun/Boomboxes/blueboombox.rsi
+#   state: boombox
+# - type: Clothing
+#   sprite: _Funkystation/Objects/Fun/Boomboxes/blueboombox.rsi
+#   quickEquip: false
+#   slots:
+#   - Back
+#    - suitStorage
 
-- type: entity
-  id: boomboxpink
-  name: Pink Boombox
-  parent: boombox
-  components:
-  - type: Item
-    size: Ginormous
-    heldPrefix: boombox
-  - type: Sprite
-    sprite: _Funkystation/Objects/Fun/Boomboxes/pinkboombox.rsi
-    state: boombox
-  - type: Clothing
-    sprite: _Funkystation/Objects/Fun/Boomboxes/pinkboombox.rsi
-    quickEquip: false
-    slots:
-    - Back
-    - suitStorage
+#- type: entity
+#  id: boomboxpink
+#  name: Pink Boombox
+#  parent: boombox
+#  components:
+#  - type: Item
+#    size: Ginormous
+#    heldPrefix: boombox
+#  - type: Sprite
+#    sprite: _Funkystation/Objects/Fun/Boomboxes/pinkboombox.rsi
+#    state: boombox
+#  - type: Clothing
+#    sprite: _Funkystation/Objects/Fun/Boomboxes/pinkboombox.rsi
+#    quickEquip: false
+#    slots:
+#    - Back
+#    - suitStorage

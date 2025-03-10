@@ -40,14 +40,13 @@ public sealed partial class ObsessedRuleSystem : GameRuleSystem<ObsessedRuleComp
             return false;
 
         var briefing = Loc.GetString("obsessed-role-greeting");
-        var briefingShort = Loc.GetString("obsessed-role-greeting-short");
 
         EnsureComp<ObsessedComponent>(target, out var obsessedComponent);
 
         obsessedComponent.HugAmount = 0f;
 
         _antag.SendBriefing(target, briefing, Color.Pink, BriefingSound);
-        _role.MindAddRole(mindId, new RoleBriefingComponent { Briefing = briefingShort }, mind, true);
+        _role.MindAddRole(mindId, "MindRoleObsessed", mind, true);
 
         foreach (var objective in rule.Objectives)
         {
@@ -96,7 +95,7 @@ public sealed partial class ObsessedRuleSystem : GameRuleSystem<ObsessedRuleComp
         if (!_mind.TryGetMind(mind, out var mindId, out var mindComponent))
             return;
 
-        for (int i = 0; i < _rules.Objectives.Count; i++)
+        for (var i = 0; i < _rules.Objectives.Count; i++)
         {
             _mind.TryRemoveObjective(mindId, mindComponent, i);
         }

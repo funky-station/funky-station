@@ -1,6 +1,7 @@
 ﻿using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
 using Content.Server.Objectives.Components;
+using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Objectives.Events;
 using Content.Shared.Obsessed;
@@ -20,7 +21,7 @@ public sealed class TargetProximityConditionSystem : EntitySystem
         SubscribeLocalEvent<TargetProximityConditionComponent, ObjectiveAfterAssignEvent>(OnProximityAssign);
         SubscribeLocalEvent<TargetProximityConditionComponent, ObjectiveGetProgressEvent>(OnProximityCheck);
 
-        SubscribeNetworkEvent<PlayerProximityEvent>(UpdateProgress);
+        SubscribeLocalEvent<ObsessedComponent, PlayerProximityEvent>(UpdateProgress);
     }
 
     private void OnProximityAssign(EntityUid uid, TargetProximityConditionComponent component, ref ObjectiveAfterAssignEvent args)
@@ -34,7 +35,8 @@ public sealed class TargetProximityConditionSystem : EntitySystem
 
         if (TryComp<ObsessedComponent>(args.Mind.CurrentEntity, out var obsessedComponent))
         {
-            args.Progress = MathF.Min(obsessedComponent.TimeSpent / (_number.GetTarget(uid) * 60), 1f);
+            args.Progress = MathF.Min((float) obsessedComponent.TimeSpent.Seconds / (float) (_number.GetTarget(uid) * 60), 1f);
+
 
             // blahblahblahblah
             // todo: put this shit somewhere else
@@ -54,12 +56,8 @@ public sealed class TargetProximityConditionSystem : EntitySystem
         args.Progress = 0f;
     }
 
-    // TODO: server side verification
-    private void UpdateProgress(PlayerProximityEvent _, EntitySessionEventArgs args)
+    private void UpdateProgress(Entity<ObsessedComponent> comp, ref PlayerProximityEvent args)
     {
-        if (TryComp<ObsessedComponent>(args.SenderSession.AttachedEntity, out var obsessedComponent))
-        {
-            obsessedComponent.TimeSpent += 5;
-        }
+        comp.Comp.TimeSpent = comp.Comp.TimeSpent.Add(args.ComponentUpdateTimeInterval);
     }
 }

@@ -7,6 +7,7 @@ public sealed partial class ObsessedPersistentTargetComponent : Component
 {
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntityUid EntityUid = EntityUid.Invalid;
+
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public string EntityName = "";
 }

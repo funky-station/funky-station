@@ -1,11 +1,6 @@
-﻿using Robust.Shared.Serialization;
+﻿using Content.Shared.Mind;
 
 namespace Content.Shared.Objectives.Events;
 
-[Serializable, NetSerializable]
-public sealed class PlayerProximityEvent : EntityEventArgs
-{
-    public PlayerProximityEvent()
-    {
-    }
-}
+[ByRefEvent]
+public record struct PlayerProximityEvent(EntityUid Ent, TimeSpan ComponentUpdateTimeInterval);

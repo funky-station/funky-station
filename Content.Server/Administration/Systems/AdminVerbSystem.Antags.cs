@@ -168,7 +168,7 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-changeling"),
         };
         args.Verbs.Add(ling);
-      
+
         if (!HasComp<SiliconComponent>(args.Target))
             args.Verbs.Add(ling);
 
@@ -177,7 +177,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = Loc.GetString("Make Obsessed"),
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Goobstation/Changeling/changeling_abilities.rsi"), "transform"),
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goobstation/Changeling/changeling_abilities.rsi"), "transform"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<ObsessedRuleComponent>(targetPlayer, "Obsessed");

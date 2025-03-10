@@ -48,4 +48,3 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
         _popup.PopupEntity(Loc.GetString("analyzer-artifact-extract-popup"), artifact.Value, PopupType.Large);
     }
 }
-

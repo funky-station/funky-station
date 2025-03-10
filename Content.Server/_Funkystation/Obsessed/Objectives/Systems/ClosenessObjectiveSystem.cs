@@ -4,9 +4,9 @@ using Content.Shared.Objectives.Events;
 using Content.Shared.Obsessed;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Funkystation.Obsessed;
+namespace Content.Server._Funkystation.Obsessed.Objectives.Systems;
 
-public sealed class TargetProximityConditionSystem : EntitySystem
+public sealed class ClosenessObjectiveSystem : EntitySystem
 {
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;

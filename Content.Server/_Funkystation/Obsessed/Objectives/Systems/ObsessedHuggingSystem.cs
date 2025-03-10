@@ -1,10 +1,11 @@
 ﻿using Content.Server.Funkystation.Objectives.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives.Components;
+using Content.Server.Objectives.Systems;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Obsessed;
 
-namespace Content.Server.Objectives.Systems;
+namespace Content.Server._Funkystation.Obsessed.Objectives.Systems;
 
 public sealed partial class ObsessedHuggingSystem : EntitySystem
 {

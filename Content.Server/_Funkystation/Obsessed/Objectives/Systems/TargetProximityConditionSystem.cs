@@ -1,12 +1,13 @@
 ﻿using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
 using Content.Server.Objectives.Components;
+using Content.Server.Objectives.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Objectives.Events;
 using Content.Shared.Obsessed;
 
-namespace Content.Server.Objectives.Systems;
+namespace Content.Server._Funkystation.Obsessed.Objectives.Systems;
 
 public sealed class TargetProximityConditionSystem : EntitySystem
 {

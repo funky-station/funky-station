@@ -4,7 +4,10 @@
   - type: Store
     name: store-preset-name-revolutionary-uplink
     categories:
-    - RevolutionaryUplinkDefault
+    - RevolutionaryUplinkConversion
+    - RevolutionaryUplinkUtility
+    - RevolutionaryUplinkCombat
+    - RevolutionaryUplinkMisc
     currencyWhitelist:
     - RevCoin
     balance:

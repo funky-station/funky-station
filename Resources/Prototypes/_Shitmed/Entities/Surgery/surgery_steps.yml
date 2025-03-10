@@ -207,6 +207,7 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/manipulation.rsi
     state: insertion
   - type: SurgeryAddPartStep
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
 
 - type: entity
   parent: SurgeryStepBase
@@ -333,6 +334,7 @@
       groups:
         Brute: -5
   - type: SurgeryRepeatableStep
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
 
 - type: entity
   parent: SurgeryStepBase
@@ -353,6 +355,7 @@
       groups:
         Burn: -5
   - type: SurgeryRepeatableStep
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
 
 - type: entity
   parent: SurgeryStepBase
@@ -427,6 +430,14 @@
   - type: SurgeryStepEmoteEffect
 
 - type: entity
+  parent: SurgeryStepRemoveOrgan
+  id: SurgeryStepRemoveVitalOrgan
+  name: Remove vital organ
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
+
+- type: entity
   parent: SurgeryStepBase
   id: SurgeryStepInsertOrgan
   name: Add organ
@@ -441,6 +452,7 @@
     state: insertion
   - type: SurgeryAddOrganStep
   - type: SurgeryStepEmoteEffect
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
 
 - type: entity
   parent: SurgeryStepInsertOrgan
@@ -454,12 +466,15 @@
         Asphyxiation: -2147483648 # Literally the max 32 bit value, if your patient has gone higher than this, maybe it's time to restart the round.
     sleepModifier: 1
     isConsumable: true
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
 
 - type: entity
   parent: SurgeryStepInsertOrgan
   id: SurgeryStepInsertStomach
   name: Add stomach
   categories: [ HideSpawnMenu ]
+  components:
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
   # no effect its just for minmaxing metabolism
 
 - type: entity
@@ -474,12 +489,15 @@
         Poison: -2147483648 # Literally the max 32 bit value, if your patient has gone higher than this, maybe it's time to restart the round.
     sleepModifier: 1
     isConsumable: true
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
 
 - type: entity
   parent: SurgeryStepInsertOrgan
   id: SurgeryStepInsertEyes
   name: Add eyes
   categories: [ HideSpawnMenu ]
+  components:
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
 
 - type: entity
   parent: SurgeryStepInsertOrgan
@@ -490,6 +508,7 @@
   - type: SurgerySpecialDamageChangeEffect
     damageType: Rot
     isConsumable: true
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
 
 - type: entity
   parent: SurgeryStepBase
@@ -511,6 +530,7 @@
       types:
         Heat: -5
     sleepModifier: 2
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
 
 - type: entity
   parent: SurgeryStepBase
@@ -523,7 +543,7 @@
     - type: Drill
     addOrganOnAdd:
       brain:
-        - type: OhioAccent
+        # - type: OhioAccent funkystation 1984
         - type: RatvarianLanguage
         - type: Clumsy
     duration: 5
@@ -548,13 +568,14 @@
     duration: 4
     removeOrganOnAdd:
       brain:
-        - type: OhioAccent
+        # - type: OhioAccent funkystation 1984
         - type: RatvarianLanguage
         - type: Clumsy
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
   - type: SurgeryStepEmoteEffect
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
 
 # The lengths I go to just for a joke... I HATE HARDCODING AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 # Maybe I should modify species prototypes to include tails and ears properly...

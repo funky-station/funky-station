@@ -371,7 +371,7 @@
     steps:
     - SurgeryStepSawBones
     - SurgeryStepClampInternalBleeders
-    - SurgeryStepRemoveOrgan
+    - SurgeryStepRemoveVitalOrgan
   - type: SurgeryPartCondition
     part: Head
   - type: SurgeryOrganCondition
@@ -409,7 +409,7 @@
     steps:
     - SurgeryStepSawBones
     - SurgeryStepClampInternalBleeders
-    - SurgeryStepRemoveOrgan
+    - SurgeryStepRemoveVitalOrgan
   - type: SurgeryPartCondition
     part: Torso
   - type: SurgeryOrganCondition

@@ -25,12 +25,27 @@
       - id: MagazineBoxAntiMateriel
       - id: ClothingNeckTieRed
       - id: ClothingHandsGlovesLatex
-      - id: ClothingUniformJumpsuitLawyerBlack
+      - id: ClothingUniformHitmanSuit #imp
       - id: BarberScissors
 
 - type: entity
-  id: BriefcaseSyndieLobbyingBundleFilled
+  id: BriefcaseSyndieRevolverBundleFilled
   parent: BriefcaseSyndie
+  suffix: Syndicate, Revolver Bundle
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponRevolverHristov
+      - id: MagazineBoxAntiMateriel
+      - id: ClothingMaskGoldenCursed
+      - id: ClothingUniformJumpsuitSyndieFormal
+      - id: ClothingNeckTieRed
+      - id: ClothingHandsGlovesLatex
+      - id: ClothingShoesColorWhite
+
+- type: entity
+  id: BriefcaseSyndieLobbyingBundleFilled
+  parent: CybersunBriefcase # DeltaV
   suffix: Syndicate, Spesos
   components:
   - type: StorageFill
@@ -41,8 +56,12 @@
       - id: EncryptionKeySyndie
       - id: RubberStampTrader
       - id: PhoneInstrumentSyndicate
-      - id: ClothingUniformJumpsuitTacticool
-      - id: ClothingOuterCoatJensen
+      # begin DeltaV
+      # - id: ClothingUniformJumpsuitTacticool
+      # - id: ClothingOuterCoatJensen
+      - id: ClothingOuterCybersunOvercoat
+      - id: ClothingUniformCybersunAttorney
+      # end DeltaV
       - id: ClothingHandsGlovesCombat
       - id: ClothingMaskNeckGaiter
       - id: SyndieHandyFlag

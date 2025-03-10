@@ -187,6 +187,14 @@
   - type: AccessReader
     access: [["Research"]]
 
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsRobotics
+  suffix: Robotics, Locked
+  components:
+  - type: AccessReader
+    access: [["Robotics"]]
+
 # Security
 - type: entity
   parent: DoorElectronics

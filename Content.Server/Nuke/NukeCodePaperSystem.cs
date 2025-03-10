@@ -70,7 +70,7 @@ namespace Content.Server.Nuke
                     "paper_stamp-centcom",
                     new List<StampDisplayInfo>
                     {
-                        new StampDisplayInfo { StampedName = Loc.GetString("stamp-component-stamped-name-centcom"), StampedColor = Color.FromHex("#BB3232") },
+                        new StampDisplayInfo { StampedName = Loc.GetString("stamp-component-stamped-name-centcom"), StampedColor = Color.FromHex("#BB3232"), StampLargeIcon = "large_stamp-centcom" }, // imp edit
                     }
                 );
                 _faxSystem.Receive(faxEnt, printout, null, fax);
@@ -124,7 +124,7 @@ namespace Content.Server.Nuke
                 }
 
                 codesMessage.PushNewline();
-                codesMessage.AddMarkup(Loc.GetString("nuke-codes-list", ("name", MetaData(nukeUid).EntityName), ("code", nuke.Code)));
+                codesMessage.AddMarkupOrThrow(Loc.GetString("nuke-codes-list", ("name", MetaData(nukeUid).EntityName), ("code", nuke.Code)));
                 break;
             }
 

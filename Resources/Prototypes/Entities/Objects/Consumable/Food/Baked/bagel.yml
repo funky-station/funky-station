@@ -26,11 +26,11 @@
   name: bagel
   parent: FoodBagelBase
 
-- type: entity
+- type: entity # Funkychem
   id: FoodBagelPoppy
   parent: FoodBagelBase
   name: poppy seed bagel
-  description: A delicious bagel topped with bicaridine-infused poppy seeds.
+  description: A delicious bagel topped with medicine-infused poppy seeds.
   components:
   - type: FlavorProfile
     flavors:
@@ -43,7 +43,35 @@
       food:
         maxVol: 12
         reagents:
-        - ReagentId: Bicaridine
+        - ReagentId: SalicylicAcid
           Quantity: 5
         - ReagentId: Nutriment
           Quantity: 5
+
+- type: entity
+  id: FoodBagelCotton
+  parent: FoodBagelBase
+  name: cotton bagel
+  description: A delicious bagel made with cotton dough.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - bread
+    - cotton
+  - type: Sprite
+    state: bagel-cottondough
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: Tag
+    tags:
+    - ClothMade
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2.5
+        - ReagentId: Fiber
+          Quantity: 2.5
+

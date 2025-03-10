@@ -1,0 +1,41 @@
+- type: entity
+  parent: BaseGameRule
+  id: Heretic
+  components:
+  - type: HereticRule
+  - type: GameRule
+    minPlayers: 8
+  - type: AntagObjectives
+    objectives:
+    - HereticKnowledgeObjective
+    - HereticSacrificeObjective
+    - HereticSacrificeHeadObjective
+  - type: AntagSelection
+    selectionTime: BeforeJobs
+    agentName: heretic-roundend-name
+    definitions:
+    - prefRoles: [ Heretic ]
+      max: 2
+      playerRatio: 25
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleHeretic
+      startingGear: HereticGear # see Roles/Antags/heretic.yml
+
+- type: entity
+  parent: Heretic
+  id: CalmHeretic # For Dual Antag Gamemodes (i dont want 4 damn heretics with 4 lings)
+  components:
+  - type: GameRule
+    minPlayers: 20
+    delay:
+      min: 30
+      max: 60
+  - type: AntagSelection
+    selectionTime: BeforeJobs
+    agentName: heretic-roundend-name
+    definitions:
+    - prefRoles: [ Heretic ]
+      max: 2
+      playerRatio: 18
+      lateJoinAdditional: true

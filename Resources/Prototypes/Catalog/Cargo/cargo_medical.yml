@@ -18,6 +18,16 @@
   category: cargoproduct-category-name-medical
   group: market
 
+- type: cargoProduct # FS - add surgery crate
+  id: MedicalSurgery
+  icon:
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    state: scalpel
+  product: CrateMedicalSurgery
+  cost: 1500
+  category: cargoproduct-category-name-medical
+  group: market
+
 - type: cargoProduct
   id: MedicalChemistryVials
   icon:

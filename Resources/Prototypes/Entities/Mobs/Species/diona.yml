@@ -5,7 +5,6 @@
   id: BaseMobDiona
   abstract: true
   components:
-  - type: Absorbable # Goobstation - changelings
   - type: HumanoidAppearance
     species: Diona
   - type: Hunger
@@ -26,6 +25,8 @@
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
         color: "#cd7314"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -85,6 +86,7 @@
           - MobLayer
   - type: Speech
     speechVerb: Plant
+    allowedEmotes: ['Chirp']
   - type: Vocal
     sounds:
       Male: UnisexDiona
@@ -108,6 +110,10 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: StepTriggerImmune # Goobstation
+    whitelist:
+      types:
+      - Shard
 
 - type: entity
   parent: BaseSpeciesDummy

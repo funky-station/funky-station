@@ -1,17 +1,26 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps:
+  - Amber
+  - Atlas
   - Bagel
   - Box
-  - Cog
+  - Cluster
+  #- Cog # Goobstation - cog is broken
   - Core
+  - Elkridge
   - Fland
   - Marathon
   - Meta
   - Oasis
   - Omega
+  - Origin
+  - Saltern
   - Packed
-  - Reach
+  #- Reach # funkystation - operation revive lrp
+  - roid_outpost
+  #- Train - Train is pain
   - FlandHighPop
   - OasisHighPop
-  - OriginHighPop
+  #- Barratry # Goobstation - Re-add barratry - Funkystation - Barratrauma
+  - Kettle

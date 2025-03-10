@@ -1,0 +1,26 @@
+﻿- type: entity
+  name: Annabelle
+  parent: [BaseWeaponSniper, BaseGunWieldable, BaseMinorContraband]
+  id: WeaponSniperChaplainAnnabelle
+  description: A Winchester 1886 with religious imagery plastered all over it. Carved into its stock, "Matthew 19:23-24"
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/annabelle.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/annabelle.rsi
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,4,0
+    sprite: _Funkystation/Objects/Weapons/annabelle_inhands_64x.rsi
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: Gun
+    fireRate: 0.8
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
+  - type: BallisticAmmoProvider
+    capacity: 4
+    proto: CartridgeLightRifleSilver
+    whitelist:
+      tags:
+      - CartridgeLightRifle

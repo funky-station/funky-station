@@ -103,6 +103,12 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SaveToFile();
         }
 
+        private void HandleToggleAutoGetUp(BaseButton.ButtonToggledEventArgs args) // WD EDIT
+        {
+            _cfg.SetCVar(CCVars.AutoGetUp, args.Pressed);
+            _cfg.SaveToFile();
+        }
+
         public KeyRebindTab()
         {
             IoCManager.InjectDependencies(this);
@@ -161,6 +167,8 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.MoveRight);
             AddButton(EngineKeyFunctions.Walk);
             AddCheckBox("ui-options-hotkey-toggle-walk", _cfg.GetCVar(CCVars.ToggleWalk), HandleToggleWalk);
+            AddButton(ContentKeyFunctions.ToggleStanding);
+            AddCheckBox("ui-options-function-auto-get-up", _cfg.GetCVar(CCVars.AutoGetUp), HandleToggleAutoGetUp); // WD EDIT
             InitToggleWalk();
 
             AddHeader("ui-options-header-camera");
@@ -230,6 +238,20 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.EscapeMenu);
             AddButton(ContentKeyFunctions.EscapeContext);
 
+            // Shitmed Change Start - TODO: Add hands, feet and groin targeting.
+            AddHeader("ui-options-header-targeting");
+            AddButton(ContentKeyFunctions.TargetHead);
+            AddButton(ContentKeyFunctions.TargetTorso);
+            AddButton(ContentKeyFunctions.TargetLeftArm);
+            AddButton(ContentKeyFunctions.TargetLeftHand);
+            AddButton(ContentKeyFunctions.TargetRightArm);
+            AddButton(ContentKeyFunctions.TargetRightHand);
+            AddButton(ContentKeyFunctions.TargetLeftLeg);
+            AddButton(ContentKeyFunctions.TargetLeftFoot);
+            AddButton(ContentKeyFunctions.TargetRightLeg);
+            AddButton(ContentKeyFunctions.TargetRightFoot);
+            // Shitmed Change End
+
             AddHeader("ui-options-header-misc");
             AddButton(ContentKeyFunctions.TakeScreenshot);
             AddButton(ContentKeyFunctions.TakeScreenshotNoUI);
@@ -245,7 +267,7 @@ namespace Content.Client.Options.UI.Tabs
             {
                 AddButton(boundKey);
             }
-            
+
             AddHeader("ui-options-header-shuttle");
             AddButton(ContentKeyFunctions.ShuttleStrafeUp);
             AddButton(ContentKeyFunctions.ShuttleStrafeRight);

@@ -3,9 +3,6 @@
   name: job-name-chef
   description: job-description-chef
   playTimeTracker: JobChef
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 1800 # 30 Minutes
   startingGear: ChefGear
   icon: "JobIconChef"
   supervisors: job-supervisors-hop

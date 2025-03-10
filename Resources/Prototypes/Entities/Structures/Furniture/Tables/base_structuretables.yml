@@ -5,8 +5,9 @@
   description: A square piece of metal standing on four metal legs.
   abstract: true
   components:
+  - type: Animateable
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: PlaceableSurface
   - type: Fixtures
@@ -20,6 +21,7 @@
         - TableMask
         layer:
         - TableLayer
+        - BulletImpassable # Goobstation - Crawling
   - type: SpriteFade
   - type: Sprite
   - type: Icon
@@ -32,12 +34,16 @@
     bonkDamage:
       types:
         Blunt: 4
-    bonkSound: !type:SoundCollectionSpecifier
-      collection: TrayHit
   - type: Clickable
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepHull
+  - type: Tag
+    tags:
+    - ForceFixRotations
+  - type: RequireProjectileTarget # Goobstation - Crawling
+    ignoreThrow: true
+
 
 - type: entity
   id: CounterBase
@@ -56,3 +62,4 @@
         - TableMask
         layer:
         - TableLayer
+        - BulletImpassable # Goobstation - Crawling

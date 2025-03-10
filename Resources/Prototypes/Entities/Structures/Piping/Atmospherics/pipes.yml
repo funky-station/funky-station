@@ -12,13 +12,18 @@
   - type: Transform
     anchored: true
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: SubFloorHide
   - type: CollideOnAnchor
   - type: PipeAppearance
   - type: Anchorable
   - type: Rotatable
+  - type: RCDDeconstructable
+    cost: 0.5
+    delay: 2
+    fx: EffectRCDDeconstruct2
+    rpd: true
   - type: Destructible
     thresholds:
     - trigger: # for nukes
@@ -55,6 +60,7 @@
   # - type: PipeRestrictOverlap
   - type: AtmosUnsafeUnanchor
   - type: AtmosPipeColor
+  - type: AtmosMonitoringConsoleDevice
   - type: Tag
     tags:
     - Pipe
@@ -62,7 +68,7 @@
     canCollide: false
     bodyType: static
   - type: StaticPrice
-    price: 11
+    price: 30
 
 # Goobstation - Allow device-on-pipe stacking
 - type: entity
@@ -93,6 +99,10 @@
   - type: Construction
     graph: GasPipe
     node: half
+  - type: GuideHelp
+    guides:
+    - Pipes
+    - PipeNetworks
 
 - type: entity
   # Goobstation - Allow device-on-pipe stacking
@@ -127,6 +137,10 @@
         Blunt: 8
     soundHit:
       collection: MetalThud # this NEEDS to changed to the metal pipe falling sound effect on april first every year
+  - type: GuideHelp
+    guides:
+    - Pipes
+    - PipeNetworks
 
 - type: entity
   # Goobstation - Allow device-on-pipe stacking
@@ -168,6 +182,10 @@
     damage:
       types:
         Blunt: 8 # Woe, pipe be upon ye!
+  - type: GuideHelp
+    guides:
+    - Pipes
+    - PipeNetworks
 
 - type: entity
   # Goobstation - Allow device-on-pipe stacking
@@ -205,6 +223,10 @@
         Blunt: 10
     soundHit:
       collection: MetalThud
+  - type: GuideHelp
+    guides:
+    - Pipes
+    - PipeNetworks
 
 - type: entity
   # Goobstation - Allow device-on-pipe stacking
@@ -241,6 +263,10 @@
         Blunt: 10
     soundHit:
       collection: MetalThud
+  - type: GuideHelp
+    guides:
+    - Pipes
+    - PipeNetworks
 
 - type: entity
   id: GasPipeBroken
@@ -267,3 +293,7 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: GuideHelp
+    guides:
+    - Pipes
+    - PipeNetworks

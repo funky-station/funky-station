@@ -21,7 +21,10 @@ job-name-hop = Head of Personnel
 job-name-captain = Captain
 job-name-serviceworker = Service Worker
 job-name-centcomoff = CentComm Official
+job-name-cburn = Centcomm Quarantine Officer
+job-name-deathsquad = Centcomm Agent
 job-name-reporter = Reporter
+job-name-roboticist = Roboticist
 job-name-musician = Musician
 job-name-librarian = Librarian
 job-name-lawyer = Lawyer
@@ -31,8 +34,10 @@ job-name-janitor = Janitor
 job-name-chaplain = Chaplain
 job-name-botanist = Botanist
 job-name-bartender = Bartender
-job-name-passenger = Passenger
-job-name-salvagespec = Salvage specialist
+## goob edit - epic passengers
+job-name-passenger = Assistant
+job-name-salvagespec = Salvage Specialist
+job-name-station-ai = Station AI
 job-name-qm = Quartermaster
 job-name-cargotech = Cargo Technician
 job-name-chef = Chef
@@ -46,6 +51,10 @@ job-name-ertjanitor = ERT Janitor
 job-name-boxer = Boxer
 job-name-zookeeper = Zookeeper
 job-name-visitor = Visitor
+# event-restricted jobs
+job-name-security-clown = Security Clown
+job-name-command-maid = Command Maid
+job-name-party-maker = Party Maker
 
 # unused jobs
 # these are required for the agent ID job icon tooltips
@@ -53,11 +62,15 @@ job-name-visitor = Visitor
 job-name-geneticist = Geneticist
 job-name-no-id = No ID
 job-name-prisoner = Prisoner
-job-name-roboticist = Roboticist
 job-name-syndicate = Syndicate
 job-name-unknown = Unknown
 job-name-virologist = Virologist
 job-name-zombie = Zombie
+
+# Job titles
+job-title-visitor = Visitor
+job-title-cluwne = Cluwne
+job-title-universal = Universal
 
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = Atmospheric Technician
@@ -74,6 +87,7 @@ JobChemist = Chemist
 JobChiefEngineer = Chief Engineer
 JobChiefMedicalOfficer = Chief Medical Officer
 JobClown = Clown
+JobCommandMaid = Command Maid
 JobDetective = Detective
 JobBrigmedic = Brigmedic
 JobERTChaplain = ERT Chaplain
@@ -92,7 +106,8 @@ JobMedicalIntern = Medical intern
 JobMime = Mime
 JobMusician = Musician
 JobParamedic = Paramedic
-JobPassenger = Passenger
+JobPartyMaker = Party Maker
+JobPassenger = Assistant
 JobPsychologist = Psychologist
 JobQuartermaster = Quartermaster
 JobReporter = Reporter
@@ -101,8 +116,10 @@ JobResearchDirector = Research Director
 JobSalvageSpecialist = Salvage Specialist
 JobScientist = Scientist
 JobSecurityCadet = Security Cadet
+JobSecurityClown = Security Clown
 JobSecurityOfficer = Security Officer
 JobServiceWorker = Service Worker
+JobStationAi = Station AI
 JobStationEngineer = Station Engineer
 JobTechnicalAssistant = Technical Assistant
 JobVisitor = Visitor

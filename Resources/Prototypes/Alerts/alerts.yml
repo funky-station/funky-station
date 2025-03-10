@@ -15,10 +15,13 @@
     - alertType: Ensnared
     - category: Buckled
     - alertType: Pulling
+    - alertType: Walking
     - category: Piloting
     - alertType: Corporeal
     - alertType: Stun
+    - alertType: KnockedDown # goobstation
     - category: Breathing # Vox gang not calling this oxygen
+    - alertType: Thieving # funkystation - MTGA
     - category: Pressure
     - alertType: Bleed
     - category: Temperature
@@ -29,7 +32,7 @@
 
 - type: entity
   id: AlertSpriteView
-  categories: [ HideSpawnMenu  ]
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     layers:
@@ -129,6 +132,14 @@
   description: alerts-weightless-desc
 
 - type: alert
+  id: Walking
+  icons:
+  - sprite: /Textures/Interface/Alerts/walking.rsi
+    state: walking
+  name: alerts-walking-name
+  description: alerts-walking-desc
+
+- type: alert
   id: Stun
   icons:
   - sprite: /Textures/Objects/Weapons/Melee/stunbaton.rsi #Should probably draw a proper icon
@@ -159,6 +170,19 @@
   icons: [ /Textures/Interface/Alerts/Buckle/buckled.png ]
   name: alerts-buckled-name
   description: alerts-buckled-desc
+
+- type: alert
+  id: Thieving
+  clickEvent: !type:ThievingToggleEvent
+  icons:
+  - sprite: /Textures/_Funkystation/Interface/Alerts/thieving.rsi
+    state: thieving_OFF
+  - sprite: /Textures/_Funkystation/Interface/Alerts/thieving.rsi
+    state: thieving_ON
+  name: alerts-thieving-name
+  description: alerts-thieving-desc
+  minSeverity: 1
+  maxSeverity: 2
 
 - type: alert
   id: HumanCrit
@@ -428,6 +452,14 @@
     state: icon
   name: alerts-pacified-name
   description: alerts-pacified-desc
+
+- type: alert
+  id: Adrenaline
+  icons:
+  - sprite: Mobs/Species/Human/organs.rsi
+    state: heart-on
+  name: alerts-adrenaline-name
+  description: alerts-adrenaline-desc
 
 - type: alert
   id: Debug1

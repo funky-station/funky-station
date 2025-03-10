@@ -55,6 +55,12 @@
         mining: !type:GridSpawnGroup
           paths:
           - /Maps/Shuttles/mining.yml
+        oldstation: !type:GridSpawnGroup #force this to always spawn so ghost roles are always accessible
+          minimumDistance: 950 #unlikely to work
+          maximumDistance: 1200
+          stationGrid: false
+          paths:
+          - /Maps/_Funkystation/Ruins/oldstation.yml
         # Spawn last
         ruins: !type:GridSpawnGroup
           hide: true
@@ -63,19 +69,22 @@
           maxCount: 2
           stationGrid: false
           paths:
+          - /Maps/Ruins/abandoned_outpost.yml
           - /Maps/Ruins/chunked_tcomms.yml
           - /Maps/Ruins/biodome_satellite.yml
           - /Maps/Ruins/derelict.yml
           - /Maps/Ruins/djstation.yml
           - /Maps/Ruins/empty_flagship.yml
           - /Maps/Ruins/old_ai_sat.yml
+          - /Maps/Ruins/ruined_prison_ship.yml
           - /Maps/Ruins/syndicate_dropship.yml
           - /Maps/Ruins/whiteship_ancient.yml
           - /Maps/Ruins/whiteship_bluespacejumper.yml
+          - /Maps/Ruins/wrecklaimer.yml
         vgroid: !type:DungeonSpawnGroup
-          minimumDistance: 400
-          maximumDistance: 450
-          nameDataset: names_borer
+          minimumDistance: 300
+          maximumDistance: 350
+          nameDataset: NamesBorer
           stationGrid: false
           addComponents:
           - type: Gravity

@@ -4,24 +4,17 @@
   description: job-description-hop
   playTimeTracker: JobHeadOfPersonnel
   requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 90000 #25 hrs
     - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 18000 # 5 hours
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 18000 # 5 hours
+      department: Civilian
+      time: 18000 #5 hrs
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 18000 # 5 hrs
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 36000 # 10 hours
-    - !type:AgeRequirement
-      requiredAge: 21
+      time: 18000 #5 hrs
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
-  requireAdminNotify: true
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:
@@ -43,6 +36,7 @@
   - Chemistry
   - Engineering
   - Research
+  - Robotics # funkystation
   - Detective
   - Salvage
   - Security

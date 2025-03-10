@@ -1,0 +1,75 @@
+- type: entity
+  parent: BaseMedicalPatch
+  id: MedicalPatchPrefilledBase
+  name: prefilled medical patch
+  description: A pre-filled Medical patch. Slower than the average patch, but that prevents overdose.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Medical/medical_patch.rsi
+    layers:
+      - state: GenericPatchSmall
+      - state: GenericPatchSmall-1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: SolutionContainerVisuals
+    maxFillLevels: 5
+    fillBaseName: GenericPatchSmall-
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+  - type: MedicalPatch
+    singleUse: true
+    transferAmount: 0.5 # Funkychem
+
+- type: entity # Funkychem
+  parent: MedicalPatchPrefilledBase
+  id: MedicalPatchPrefilledLibital
+  name: brute patch
+  suffix: Libital
+  components:
+  - type: Label
+    currentLabel: Libital 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+          - ReagentId: Libital
+            Quantity: 30
+
+- type: entity # Funkychem
+  parent: MedicalPatchPrefilledBase
+  id: MedicalPatchPrefilledAiuri
+  name: burn patch
+  suffix: Aiuri
+  components:
+  - type: Label
+    currentLabel: Aiuri 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+          - ReagentId: Aiuri
+            Quantity: 30
+
+# Funkychem Addition [For Rad Kits]
+- type: entity
+  parent: MedicalPatchPrefilledBase
+  id: MedicalPatchPrefilledAntiRad
+  name: anti-rad patch
+  suffix: Arith/Podide
+  components:
+  - type: Label
+    currentLabel: Prevents + Heals Rads
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+          - ReagentId: Arithrazine
+            Quantity: 20
+          - ReagentId: PotassiumIodide
+            Quantity: 10

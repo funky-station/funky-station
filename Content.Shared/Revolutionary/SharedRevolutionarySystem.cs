@@ -6,6 +6,7 @@ using Content.Shared.Stunnable;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 using Content.Shared.Antag;
+using Content.Shared.Strip.Components;
 
 namespace Content.Shared.Revolutionary;
 
@@ -33,8 +34,14 @@ public abstract class SharedRevolutionarySystem : EntitySystem
     {
         if (HasComp<HeadRevolutionaryComponent>(uid))
         {
-            RemCompDeferred<MindShieldComponent>(uid);
+            comp.Broken = true; // Goobstation - Broken mindshield implant instead of break it
+            Dirty(uid, comp);
             return;
+        }
+
+        if (HasComp<ThievingComponent>(uid)) // funkystation - We're doing it here because this FUCKING SUCKS
+        {
+            RemComp<ThievingComponent>(uid);
         }
 
         if (HasComp<RevolutionaryComponent>(uid))
@@ -99,5 +106,14 @@ public abstract class SharedRevolutionarySystem : EntitySystem
         {
             Dirty(uid, comp);
         }
+    }
+
+    // GoobStation
+    /// <summary>
+    /// Change headrevs ability to convert people
+    /// </summary>
+    public void ToggleConvertAbility(Entity<HeadRevolutionaryComponent> headRev, bool toggle = true)
+    {
+        headRev.Comp.ConvertAbilityEnabled = toggle;
     }
 }

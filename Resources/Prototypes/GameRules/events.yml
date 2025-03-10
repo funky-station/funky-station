@@ -10,14 +10,18 @@
     - id: ClericalError
     - id: CockroachMigration
     - id: GasLeak
+    - id: GreytideVirus
     - id: IonStorm # its calm like 90% of the time smh
+    - id: JobDistributionError
     - id: KudzuGrowth
     - id: MassHallucinations
     - id: MimicVendorRule
     - id: MouseMigration
     - id: PowerGridCheck
+    - id: RandomSentience
     - id: SlimesSpawn
     - id: SolarFlare
+    - id: SnakeSpawn
     - id: SpiderClownSpawn
     - id: SpiderSpawn
     - id: VentClog
@@ -33,37 +37,40 @@
     - id: RevenantSpawn
     - id: SleeperAgents
     - id: ZombieOutbreak
-
+    - id: LoneOpsSpawn
+    - id: BlobSpawn #Goobstation - Blob
+    - id: FalseAlarm
+    - id: DerelictCyborgSpawn
 
 - type: entity
   id: BaseStationEvent
   parent: BaseGameRule
   abstract: true
   components:
-    - type: GameRule
-      delay:
-        min:  10
-        max:  20
+  - type: GameRule
+    delay:
+      min:  10
+      max:  20
 
 - type: entity
   id: BaseStationEventShortDelay
   parent: BaseGameRule
   abstract: true
   components:
-    - type: GameRule
-      delay:
-        min:  10
-        max:  20
+  - type: GameRule
+    delay:
+      min:  10
+      max:  20
 
 - type: entity
   id: BaseStationEventLongDelay
   parent: BaseGameRule
   abstract: true
   components:
-    - type: GameRule
-      delay:
-        min:  40
-        max:  60
+  - type: GameRule
+    delay:
+      min:  40
+      max:  60
 
 - type: entity
   id: AnomalySpawn
@@ -99,7 +106,7 @@
   components:
   - type: StationEvent
     weight: 2
-    reoccurrenceDelay: 5
+    reoccurrenceDelay: 20 #funkystation - stop happening so fucking often
     earliestStart: 1
     duration: 1
   - type: BluespaceLockerRule
@@ -111,7 +118,7 @@
   - type: StationEvent
     weight: 7
     duration: 1
-    minimumPlayers: 15
+    minimumPlayers: 10
   - type: BreakerFlipRule
 
 - type: entity
@@ -124,6 +131,8 @@
     weight: 3
     duration: 1
   - type: BureaucraticErrorRule
+    ignoredJobs:
+    - StationAi
 
 - type: entity
   id: ClericalError
@@ -144,6 +153,7 @@
     weight: 5
     duration: 1
     minimumPlayers: 10
+    reoccurrenceDelay: 30 # funkystation
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
 
@@ -152,13 +162,16 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    weight: 6.5
-    earliestStart: 40
-    reoccurrenceDelay: 20
+    weight: 6.0 # funkystation
+    earliestStart: 60 # funkystation
+    reoccurrenceDelay: 30 # funkystation
     minimumPlayers: 20
-  - type: AntagRandomSpawn
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
   - type: AntagSpawner
     prototype: MobDragon
+  - type: DragonRule
   - type: AntagObjectives
     objectives:
     - CarpRiftsObjective
@@ -170,11 +183,8 @@
       min: 1
       max: 1
       pickPlayer: false
-      mindComponents:
-      - type: DragonRole
-        prototype: Dragon
-      - type: RoleBriefing
-        briefing: dragon-role-briefing
+      mindRoles:
+      - MindRoleDragon
 
 - type: entity
   parent: BaseGameRule
@@ -183,8 +193,8 @@
   - type: StationEvent
     weight: 6
     duration: null
-    earliestStart: 30
-    reoccurrenceDelay: 20
+    earliestStart: 45
+    reoccurrenceDelay: 60 # funkystation
     minimumPlayers: 30
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
@@ -222,31 +232,30 @@
         nameSegments:
         - names_ninja_title
         - names_ninja
-      mindComponents:
-      - type: NinjaRole
-        prototype: SpaceNinja
+      mindRoles:
+      - MindRoleNinja
 
 - type: entity
   parent: BaseGameRule
   id: RevenantSpawn
   components:
   - type: StationEvent
-    weight: 7.5
+    weight: 6
     duration: 1
     earliestStart: 45
     minimumPlayers: 20
   - type: RandomSpawnRule
     prototype: MobRevenant
 
-# disabled until event is rewritten to be more interesting
-#- type: entity
-#  id: FalseAlarm
-#  parent: BaseGameRule
-#  components:
-#  - type: StationEvent
-#    weight: 15
-#    duration: 1
-#  - type: FalseAlarmRule
+# Funky Station - reenabled because funny
+- type: entity
+  id: FalseAlarm
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 15
+    duration: 1
+  - type: FalseAlarmRule
 
 - type: entity
   id: GasLeak
@@ -268,87 +277,21 @@
     earliestStart: 15
     minimumPlayers: 15
     weight: 7
-    duration: 240
+    duration: 600 #if they can't deal with it in 10 minutes that's their problem
   - type: KudzuGrowthRule
-
-- type: entity
-  id: MouseMigration
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    earliestStart: 15
-    weight: 6
-    duration: 50
-  - type: VentCrittersRule
-    entries:
-    - id: MobMouse
-      prob: 0.02
-    - id: MobMouse1
-      prob: 0.02
-    - id: MobMouse2
-      prob: 0.02
-    - id: MobMouseCancer
-      prob: 0.001
-# Events always spawn a critter regardless of Probability https://github.com/space-wizards/space-station-14/issues/28480 I added the Rat King to their own event with a player cap.
-
-- type: entity
-  id: KingRatMigration
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    earliestStart: 15
-    weight: 6
-    duration: 50
-    minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
-  - type: VentCrittersRule
-    entries:
-    - id: MobMouse
-      prob: 0.02
-    - id: MobMouse1
-      prob: 0.02
-    - id: MobMouse2
-      prob: 0.02
-    - id: MobMouseCancer
-      prob: 0.001
-    specialEntries:
-    - id: SpawnPointGhostRatKing
-      prob: 0.001
-
-- type: entity
-  id: CockroachMigration
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    weight: 6
-    duration: 50
-  - type: VentCrittersRule
-    entries:
-    - id: MobCockroach
-      prob: 0.03
-    - id: MobMothroach
-      prob: 0.008
 
 - type: entity
   id: PowerGridCheck
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    weight: 5
+    weight: 4
     startAnnouncement: station-event-power-grid-check-start-announcement
     endAnnouncement: station-event-power-grid-check-end-announcement
     startAudio:
       path: /Audio/Announcements/power_off.ogg
       params:
-       volume: -4
+        volume: -4
     duration: 60
     maxDuration: 120
   - type: PowerGridCheckRule
@@ -402,19 +345,36 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
-    duration: 60
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
-    entries:
-    - id: MobAdultSlimesBlueAngry
-      prob: 0.02
-    - id: MobAdultSlimesGreenAngry
-      prob: 0.02
-    - id: MobAdultSlimesYellowAngry
-      prob: 0.02
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobAdultSlimesBlueAngry
+      - id: MobAdultSlimesGreenAngry
+      - id: MobAdultSlimesYellowAngry
+
+- type: entity
+  id: SnakeSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/aliens.ogg
+    earliestStart: 20
+    minimumPlayers: 15
+    weight: 5
+    duration: 30 # DeltaV: was 60, used as a delay now
+  - type: VentCrittersRule
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobPurpleSnake
+      - id: MobSmallPurpleSnake
+      - id: MobCobraSpace
 
 - type: entity
   id: SpiderSpawn
@@ -423,15 +383,14 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
-    duration: 60
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
-    entries:
-    - id: MobGiantSpiderAngry
-      prob: 0.05
+    table: # DeltaV: EntityTable instead of spawn entries
+      id: MobGiantSpiderAngry
 
 - type: entity
   id: SpiderClownSpawn
@@ -441,30 +400,30 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    earliestStart: 20
-    minimumPlayers: 20
-    weight: 1.5
-    duration: 60
+    earliestStart: 30 # funkystation delay
+    minimumPlayers: 30 # DeltaV - was 20
+    weight: 1 # DeltaV - was 1.5
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
-    entries:
-    - id: MobClownSpider
-      prob: 0.05
+    playerRatio: 35 # DeltaV: Clown spiders are very robust
+    table: # DeltaV: EntityTable instead of spawn entries
+      id: MobClownSpider
 
 - type: entity
   id: ZombieOutbreak
   parent: BaseGameRule
   components:
   - type: StationEvent
-    earliestStart: 50
-    minimumPlayers: 30
-    weight: 2
+    earliestStart: 60 # funkystation
+    minimumPlayers: 40
+    weight: 1.5 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
   - type: ZombieRule
   - type: AntagSelection
     definitions:
     - prefRoles: [ InitialInfected ]
       max: 3
-      playerRatio: 10
+      playerRatio: 15
       blacklist:
         components:
         - ZombieImmune
@@ -480,9 +439,8 @@
       - type: ZombifyOnDeath
       - type: IncurableZombie
       - type: InitialInfected
-      mindComponents:
-      - type: InitialInfectedRole
-        prototype: InitialInfected
+      mindRoles:
+      - MindRoleInitialInfected
 
 - type: entity
   parent: BaseNukeopsRule
@@ -490,33 +448,34 @@
   components:
   - type: StationEvent
     earliestStart: 35
-    weight: 5.5
+    weight: 4
     minimumPlayers: 20
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule
     preloadedGrid: ShuttleStriker
-  - type: NukeopsRule
+  - type: NukeopsRule # goob edit
     roundEndBehavior: Nothing
   - type: AntagSelection
     definitions:
-    - spawnerPrototype: SpawnPointLoneNukeOperative
+    - spawnerPrototype: SpawnPointNukeopsCommander
       min: 1
       max: 1
       pickPlayer: false
       startingGear: SyndicateLoneOperativeGearFull
+      roleLoadout:
+      - RoleSurvivalNukie
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments:
-        - SyndicateNamesPrefix
-        - SyndicateNamesNormal
+        nameSegments: # Vocaloid Names Fix
+        - nukeops-role-operator
+        - SyndicateNamesElite
       - type: NpcFactionMember
         factions:
         - Syndicate
-      mindComponents:
-      - type: NukeopsRole
-        prototype: Nukeops
+      mindRoles:
+      - MindRoleNukeops
 
 - type: entity
   parent: BaseTraitorRule
@@ -524,7 +483,7 @@
   components:
   - type: StationEvent
     earliestStart: 30
-    weight: 8
+    weight: 6
     minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception
@@ -543,9 +502,8 @@
       blacklist:
         components:
         - AntagImmune
-      mindComponents:
-      - type: TraitorRole
-        prototype: TraitorSleeper
+      mindRoles:
+      - MindRoleTraitorSleeper
 
 - type: entity
   id: MassHallucinations
@@ -577,9 +535,66 @@
   id: MimicVendorRule
   parent: BaseGameRule
   components:
-    - type: StationEvent
-      earliestStart: 0
-      minimumPlayers: 20
-      maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
-      weight: 5
-    - type: MobReplacementRule
+  - type: StationEvent
+    earliestStart: 0
+    minimumPlayers: 20
+    maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
+    weight: 5
+  - type: MobReplacementRule
+
+- type: entity
+  id: GreytideVirus
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 5
+    minimumPlayers: 25
+    reoccurrenceDelay: 20
+  - type: GreytideVirusRule
+    accessGroups:
+    - Cargo
+    - Command
+    - Engineering
+    - Research
+    - Security
+    - Service
+    blacklist:
+    - External # don't space everything
+
+- type: entity
+  parent: BaseGameRule
+  id: DerelictCyborgSpawn
+  components:
+  - type: StationEvent
+    weight: 5
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 4
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSpawner
+    prototype: PlayerBorgDerelict
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDerelictCyborg
+      min: 1
+      max: 1
+      pickPlayer: false
+
+- type: entity
+  id: JobDistributionError
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-job-distribution-error-announcement
+    minimumPlayers: 25
+    weight: 3
+    duration: 1
+  - type: JobDistributionErrorRule
+    jobs:
+    - SecurityClown
+    - PartyMaker
+    - CommandMaid

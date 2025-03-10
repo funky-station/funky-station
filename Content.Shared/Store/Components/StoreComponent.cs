@@ -1,3 +1,4 @@
+using Content.Shared._White.StoreDiscount;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -38,10 +39,10 @@ public sealed partial class StoreComponent : Component
     public HashSet<ProtoId<CurrencyPrototype>> CurrencyWhitelist = new();
 
     /// <summary>
-    /// The person who "owns" the store/account. Used if you want the listings to be fixed
+    /// The person/mind who "owns" the store/account. Used if you want the listings to be fixed
     /// regardless of who activated it. I.E. role specific items for uplinks.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public EntityUid? AccountOwner = null;
 
     /// <summary>
@@ -86,6 +87,11 @@ public sealed partial class StoreComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? StartingMap;
+
+    // WD EDIT START
+    [DataField]
+    public SalesSpecifier Sales { get; private set; } = new();
+    // WD EDIT END
 
     #region audio
     /// <summary>

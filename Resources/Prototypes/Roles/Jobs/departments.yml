@@ -16,7 +16,6 @@
   weight: -10
   roles:
   - Bartender
-  - Borg
   - Botanist
   - Boxer
   - Chaplain
@@ -33,6 +32,38 @@
   - Visitor
   - Zookeeper
   - ServiceWorker
+  - PartyMaker # event-restricted
+
+- type: department
+  id: CentralCommandSpecial
+  name: department-CentralCommand
+  description: department-CentralCommand-description
+  color: "#0c344d"
+  roles:
+  - CentralCommandOfficial
+  - CBURN
+  - ERTLeader
+  - ERTChaplain
+  - ERTJanitor
+  - ERTMedical
+  - ERTSecurity
+  - ERTEngineer
+  - DeathSquad
+  - HecuOperative
+  editorHidden: true
+  weight: 120
+
+- type: department
+  id: CentralCommand
+  name: department-CentralCommand
+  description: department-CentralCommand-description
+  color: "#0c344d"
+  roles:
+  - BlueshieldOfficer # Goobstation
+  - NanotrasenRepresentative # Goobstation
+  - InternalAffairsAgent # FunkyStation
+  editorHidden: false
+  weight: 120
 
 - type: department
   id: Command
@@ -41,15 +72,23 @@
   color: "#334E6D"
   roles:
   - Captain
-  - CentralCommandOfficial
   - ChiefEngineer
   - ChiefMedicalOfficer
   - HeadOfPersonnel
   - HeadOfSecurity
   - ResearchDirector
   - Quartermaster
-  - BlueshieldOfficer # Goobstation
-  - NanotrasenRepresentative # Goobstation
+  - CentralCommandOfficial
+  - CBURN
+  - ERTLeader
+  - ERTChaplain
+  - ERTJanitor
+  - ERTMedical
+  - ERTSecurity
+  - ERTEngineer
+  - DeathSquad
+  - HecuOperative
+  - CommandMaid # event-restricted
   primary: false
   weight: 100
 
@@ -89,6 +128,7 @@
   - SecurityOfficer
   - Detective
   - Warden
+  - SecurityClown # event-restricted
 
 - type: department
   id: Science
@@ -98,7 +138,17 @@
   roles:
   - ResearchDirector
   - Scientist
+  - Roboticist # funkystation
   - ResearchAssistant
+
+- type: department
+  id: Silicon
+  name: department-Silicon
+  description: department-Silicon-description
+  color: "#D381C9"
+  roles:
+  - Borg
+  - StationAi
 
 - type: department
   id: Specific

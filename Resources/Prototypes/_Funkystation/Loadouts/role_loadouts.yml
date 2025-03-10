@@ -1,0 +1,27 @@
+- type: roleLoadout
+  id: JobRoboticist
+  groups:
+  - GroupTankHarness
+  - ScientistHead
+  - ScientistNeck
+  - ScientistJumpsuit
+  - RoboticistBackpack
+  - ScientistOuterClothing
+  - ScientistGloves
+  - ScientistShoes
+  - RoboticsPDA
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobInternalAffairsAgent
+  groups:
+  - GroupTankHarness
+  - InternalAffairsAgentJumpsuit
+  - InternalAffairsAgentBackpack
+  - InternalAffairsAgentBelt
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool

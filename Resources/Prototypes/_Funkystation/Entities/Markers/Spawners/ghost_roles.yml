@@ -1,0 +1,20 @@
+- type: entity
+  id: SpawnPointGhostNeanderthal
+  name: ghost role spawn point
+  suffix: neanderthal
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-neanderthal-name
+    description: ghost-role-information-neanderthal-description
+    rules: ghost-role-information-neanderthal-rules
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanNeanderthal
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Objects/Weapons/Melee/baseball_bat.rsi
+        state: icon

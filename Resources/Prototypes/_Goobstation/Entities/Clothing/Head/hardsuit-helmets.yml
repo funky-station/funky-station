@@ -1,0 +1,122 @@
+- type: entity
+  abstract: true
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHeadHardsuitWithLightBase
+  name: base hardsuit helmet with light
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      map: [ "light" ]
+  - type: Clothing
+    equippedPrefix: off
+  - type: ToggleableLightVisuals
+  - type: PointLight
+    enabled: false
+    radius: 3
+    energy: 2
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    netsync: false
+  - type: Appearance
+  - type: HandheldLight
+    addPrefix: true
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: radiating
+      interpolate: Linear
+      maxDuration: 2.0
+      startValue: 3.0
+      endValue: 2.0
+      isLooped: true
+      reverseWhenFinished: true
+    - !type:PulseBehaviour
+      id: blinking
+      interpolate: Nearest
+      maxDuration: 1.0
+      minValue: 0.1
+      maxValue: 2.0
+      isLooped: true
+  - type: Battery
+    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
+    startingCharge: 600
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 2 #recharge of 2 makes total drain 1w / s so max charge is 1:1 with time. Time to fully charge should be 5 minutes. Having recharge gives light an extended flicker period which gives you some warning to return to light area.
+
+#chrono/future soldier hardsuit
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitChronolegioneer
+  name: futuristic helmet
+  description: The helmet of the fighters of the future, designed for special timeflow operations
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hardsuits/chronolegioneer.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hardsuits/chronolegioneer.rsi
+  - type: PointLight
+    color: "#6BA9E6"
+    rotation: 30
+    energy: 10
+    radius: 5
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: SpeechSoundsReplacer
+    speechSounds: Chrono
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.10
+        Slash: 0.10
+        Piercing: 0.10
+        Heat: 0.10
+        Cold: 0.10
+        Radiation: 0.10
+        Caustic: 0.10
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+    protectionRange: 0
+
+#bso hardsuit
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitBlueshield
+  name: blueshield helmet
+  description: The helmet of the captain's bodyguard's hardsuit.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hardsuits/bso.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hardsuits/bso.rsi
+  - type: PointLight
+    color: "#4d7ae3"
+    rotation: 30
+    energy: 10
+    radius: 5
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.85
+        Heat: 0.9
+        Cold: 0.9
+        Radiation: 0.95
+        Caustic: 0.95
+  - type: FlashImmunity
+  - type: FlashSoundSuppression

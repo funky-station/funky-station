@@ -1,0 +1,204 @@
+- type: entity
+  parent: BaseGameRule
+  id: Changeling
+  components:
+  - type: ChangelingRule
+  - type: GameRule
+    minPlayers: 8
+    delay:
+      min: 30
+      max: 60
+  - type: AntagObjectives
+    objectives:
+    - ChangelingStealDNAObjective
+    - EscapeIdentityObjective
+    - ChangelingSurviveObjective
+  - type: AntagSelection
+    selectionTime: BeforeJobs
+    agentName: changeling-roundend-name
+    definitions:
+    - prefRoles: [ Changeling ]
+      max: 5
+      playerRatio: 12
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleChangeling
+
+- type: entity
+  parent: BaseTraitorRule
+  id: CalmTraitor # For Dual Antag Gamemodes
+  components:
+  - type: GameRule
+    minPlayers: 15
+    delay:
+      min: 240
+      max: 420
+  - type: AntagSelection
+    selectionTime: BeforeJobs
+    definitions:
+    - prefRoles: [ Traitor ]
+      max: 4
+      playerRatio: 15
+      blacklist:
+        components:
+        - AntagImmune
+        - Changeling
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleTraitor
+
+- type: entity
+  parent: Changeling
+  id: CalmLing # For Dual Antag Gamemodes
+  components:
+  - type: GameRule
+    minPlayers: 15
+    delay:
+      min: 30
+      max: 60
+  - type: AntagSelection
+    selectionTime: BeforeJobs
+    agentName: changeling-roundend-name
+    definitions:
+    - prefRoles: [ Changeling ]
+      max: 4
+      playerRatio: 18
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleTraitor
+
+- type: entity
+  parent: BaseNukeopsRule
+  id: Calmops # For Dual Antag Gamemodes
+  components:
+  - type: GameRule
+    minPlayers: 30
+  - type: LoadMapRule
+    mapPath: /Maps/Nonstations/nukieplanet.yml
+  - type: AntagSelection
+    selectionTime: PrePlayerSpawn
+    definitions:
+    - prefRoles: [ NukeopsCommander ]
+      fallbackRoles: [ Nukeops, NukeopsMedic ]
+      spawnerPrototype: SpawnPointNukeopsCommander
+      startingGear: SyndicateCommanderGearFull
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - nukeops-role-commander
+        - SyndicateNamesElite
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRoleNukeopsCommander
+    - prefRoles: [ NukeopsMedic ]
+      fallbackRoles: [ Nukeops, NukeopsCommander ]
+      spawnerPrototype: SpawnPointNukeopsMedic
+      startingGear: SyndicateOperativeMedicFull
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - nukeops-role-agent
+        - SyndicateNamesNormal
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRoleNukeopsMedic
+    - prefRoles: [ Nukeops ]
+      fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
+      spawnerPrototype: SpawnPointNukeopsOperative
+      max: 2
+      playerRatio: 15
+      startingGear: SyndicateOperativeGearFull
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - nukeops-role-operator
+        - SyndicateNamesNormal
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRoleNukeops
+
+- type: entity
+  id: CalmRevs # For Dual Antag Gamemodes
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    minPlayers: 30
+  - type: RevolutionaryRule
+  - type: AntagSelection
+    selectionTime: BeforeJobs
+    definitions:
+    - prefRoles: [ HeadRev ]
+      max: 2
+      playerRatio: 20
+      briefing:
+        text: head-rev-role-greeting
+        color: CornflowerBlue
+        sound: "/Audio/Ambience/Antag/headrev_start.ogg"
+      startingGear: HeadRevGear
+      components:
+      - type: Revolutionary
+      - type: HeadRevolutionary
+      mindRoles:
+      - MindRoleHeadRevolutionary
+
+# Blob
+- type: entity
+  id: BlobRule
+  parent: BaseGameRule
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BlobRule
+
+- type: entity
+  id: BlobGameMode
+  parent: BaseGameRule
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BlobRule
+  - type: GameRule
+    minPlayers: 15
+    delay: # 7-10 minutes
+      min: 420
+      max: 600
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Blob ]
+      min: 1
+      max: 2
+      playerRatio: 35 #players = 2 blobs
+      allowNonHumans: true
+      blacklist:
+        components:
+        - AntagImmune
+      briefing:
+        text: blob-carrier-role-greeting
+        color: Plum
+        sound: /Audio/Announcements/bloblarm.ogg
+      mindRoles:
+      - MindRoleBlob
+
+- type: entity
+  id: BlobSpawn
+  parent: BaseGameRule
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StationEvent
+    weight: 5
+    duration: 1
+    earliestStart: 50
+    minimumPlayers: 25
+    maxOccurrences: 2
+  - type: BlobSpawnRule
+    carrierBlobProtos:
+    - SpawnPointGhostBlobRat
+    playersPerCarrierBlob: 30
+    maxCarrierBlob: 2

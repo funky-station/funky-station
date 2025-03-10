@@ -7,7 +7,7 @@ using Robust.Shared.Random;
 using System.Linq;
 using Content.Server.Funkystation.Components;
 using Content.Server.Funkystation.Objectives.Components;
-using Content.Server.Goobstation.Objectives.Components;
+using Content.Server._Goobstation.Objectives.Components;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -52,7 +52,19 @@ public sealed class KeepAliveConditionSystem : EntitySystem
             return;
         }
 
-        var traitors = Enumerable.ToList<(EntityUid Id, MindComponent Mind)>(_traitorRule.GetOtherTraitorMindsAliveAndConnected(args.Mind));
+        var traitors = _traitorRule.GetOtherTraitorMindsAliveAndConnected(args.Mind).ToHashSet();
+
+        // Can't have multiple objectives to help/save the same person
+        foreach (var objective in args.Mind.Objectives)
+        {
+            if (HasComp<RandomTraitorAliveComponent>(objective) || HasComp<RandomTraitorProgressComponent>(objective))
+            {
+                if (TryComp<TargetObjectiveComponent>(objective, out var help))
+                {
+                    traitors.RemoveWhere(x => x.Id == help.Target);
+                }
+            }
+        }
 
         // You are the first/only traitor.
         if (traitors.Count == 0)

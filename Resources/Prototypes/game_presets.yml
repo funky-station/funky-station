@@ -6,7 +6,7 @@
   showInVote: false # secret
   description: survival-description
   rules:
-    - MeteorSwarmScheduler
+    # - MeteorSwarmScheduler Goobstation - nuh uh
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
@@ -39,7 +39,9 @@
     - Traitor
     - Revolutionary
     - Zombie
-    - KesslerSyndromeScheduler
+    - BlobGameMode # Goobstation antag
+    - SubGamemodesRule
+    # - KesslerSyndromeScheduler Goobstation - nuh uh
     - RampingStationEventScheduler
     - Changeling # Goobstation - changeling playtest
     - SpaceTrafficControlEventScheduler
@@ -53,13 +55,15 @@
   - badidea
   - punishment
   name: aller-at-once-title
-  description: all-at-once-description
+  description: aller-at-once-description
   showInVote: false #Please god dont do this
   rules:
     - Nukeops
     - Traitor
     - Revolutionary
     - Zombie
+    - BlobGameMode # Goobstation antag
+    - SubGamemodesRule
     - BasicStationEventScheduler
     - KesslerSyndromeScheduler
     - MeteorSwarmMildScheduler
@@ -80,7 +84,7 @@
   description: extended-description
   rules:
   - BasicStationEventScheduler
-  - MeteorSwarmScheduler
+  # - MeteorSwarmScheduler Goobstation - nuh uh
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
 
@@ -116,7 +120,7 @@
   description: secret-description
   rules:
     - BasicStationEventScheduler
-    - MeteorSwarmScheduler
+  #  - MeteorSwarmScheduler Goobstation - nuh uh
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
 
@@ -154,7 +158,7 @@
     - Traitor
     - SubGamemodesRule
     - BasicStationEventScheduler
-    - MeteorSwarmScheduler
+  #  - MeteorSwarmScheduler Goobstation - nuh uh
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
 
@@ -182,7 +186,7 @@
     - Nukeops
     - SubGamemodesRule
     - BasicStationEventScheduler
-    - MeteorSwarmScheduler
+  #  - MeteorSwarmScheduler Goobstation - nuh uh
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
 
@@ -199,7 +203,7 @@
     - Revolutionary
     - SubGamemodesRule
     - BasicStationEventScheduler
-    - MeteorSwarmScheduler
+  #  - MeteorSwarmScheduler Goobstation - nuh uh
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
 
@@ -217,7 +221,7 @@
   rules:
   - Zombie
   - BasicStationEventScheduler
-  - MeteorSwarmScheduler
+#  - MeteorSwarmScheduler Goobstation - nuh uh
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
 

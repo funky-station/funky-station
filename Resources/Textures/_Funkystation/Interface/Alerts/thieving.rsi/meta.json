@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "created by wurnt on Discord for funkystation.org",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "thieving_OFF"
+        },
+        {
+            "name": "thieving_ON"
+        }
+    ]
+}

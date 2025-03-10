@@ -2,7 +2,34 @@
 - type: loadout
   id: JesterHat
   equipment:
+    head: ClothingHeadHatJester
+
+- type: loadout
+  id: JesterAltHat
+  equipment:
     head: ClothingHeadHatJesterAlt
+
+# Mask - Funkystation
+
+- type: loadout
+  id: ClownMask
+  equipment:
+    mask: ClothingMaskClown
+
+- type: loadout
+  id: ClownMaskDevil
+  equipment:
+    mask: ClothingMaskClownDevil
+
+- type: loadout
+  id: ClownMaskGamble
+  equipment:
+    mask: ClothingMaskClownGamble
+
+- type: loadout
+  id: ClownMaskJuggle
+  equipment:
+    mask: ClothingMaskClownJuggle
 
 # Jumpsuit
 - type: loadout
@@ -11,7 +38,17 @@
     jumpsuit: ClothingUniformJumpsuitClown
 
 - type: loadout
+  id: ClownSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtClown
+
+- type: loadout
   id: JesterSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitJester
+
+- type: loadout
+  id: JesterAltSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJesterAlt
 

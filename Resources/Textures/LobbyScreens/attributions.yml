@@ -87,4 +87,53 @@
   license: "CC-BY-SA-3.0"
   copyright: "@Cheeki - on discord"
   source: "https://forums.goobstation.com"
+
+- files: ["heretic.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "@Cheeki - on discord"
+  source: "https://forums.goobstation.com"
+
+- files: ["cqcm.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "blooodyspy"
+  source: "https://forums.goobstation.com"
+
+- files: ["cqcm1.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "blooodyspy"
+  source: "https://forums.goobstation.com"
+
+- files: ["cqcm2.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "blooodyspy"
+  source: "https://forums.goobstation.com"
+
+- files: ["cqcm3.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "blooodyspy"
+  source: "https://forums.goobstation.com"
+
+- files: ["computerlove.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "yuckyskunk"
+  source: "https://funkystation.org"
+
+- files: ["TOFUNK.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "oBerry"
+  source: "https://funkystation.org"
+
+- files: ["funkops.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "cubicalleaf"
+  source: "https://funkystation.org"
   
+- files: ["doomdeed.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "sharkpeekotwoelecticboogaloo"
+  source: "https://funkystation.org"
+  
+- files: ["typicalDay.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "shakulan"
+  source: "https://funkystation.org"

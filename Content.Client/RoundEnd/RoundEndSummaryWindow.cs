@@ -61,9 +61,9 @@ namespace Content.Client.RoundEnd
             //Gamemode Name
             var gamemodeLabel = new RichTextLabel();
             var gamemodeMessage = new FormattedMessage();
-            gamemodeMessage.AddMarkup(Loc.GetString("round-end-summary-window-round-id-label", ("roundId", roundId)));
+            gamemodeMessage.AddMarkupOrThrow(Loc.GetString("round-end-summary-window-round-id-label", ("roundId", roundId)));
             gamemodeMessage.AddText(" ");
-            gamemodeMessage.AddMarkup(Loc.GetString("round-end-summary-window-gamemode-name-label", ("gamemode", gamemode)));
+            gamemodeMessage.AddMarkupOrThrow(Loc.GetString("round-end-summary-window-gamemode-name-label", ("gamemode", gamemode)));
             gamemodeLabel.SetMessage(gamemodeMessage);
             roundEndSummaryContainer.AddChild(gamemodeLabel);
 
@@ -123,7 +123,7 @@ namespace Content.Client.RoundEnd
                     VerticalAlignment = VAlignment.Center,
                     VerticalExpand = true,
                 };
-
+                /* This causes so much lag holy fuck
                 if (playerInfo.PlayerNetEntity != null)
                 {
                     hBox.AddChild(new SpriteView(playerInfo.PlayerNetEntity.Value, _entityManager)
@@ -134,7 +134,7 @@ namespace Content.Client.RoundEnd
                             VerticalExpand = true,
                         });
                 }
-
+                */
                 if (playerInfo.PlayerICName != null)
                 {
                     if (playerInfo.Observer)

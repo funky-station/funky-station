@@ -47,7 +47,7 @@
   - type: FoodSequenceStartPoint
     key: burger
     acceptAll: true # Goobstation - anythingburgers
-    maxLayers: 50 # Goobstation - anythingburgers
+    maxLayers: 12 # Goobstation - anythingburgers
     startPosition: 0, 0
     offset: 0, 0.1
     minLayerOffset: -0.05, 0
@@ -409,7 +409,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 4
@@ -438,7 +438,7 @@
       food:
         maxVol: 25
         reagents:
-        - ReagentId: Bicaridine #keeping it somewhat consistent with the meat itself
+        - ReagentId: SalicylicAcid #keeping it somewhat consistent with the meat itself
           Quantity: 7
         - ReagentId: Vitamin
           Quantity: 12
@@ -587,7 +587,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 6
@@ -597,6 +597,9 @@
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 1
+  - type: Tag
+    tags:
+    - Meat
 
 # Tastes like bun, HEAT.
 
@@ -887,7 +890,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 55
+        maxVol: 90
         reagents:
         - ReagentId: Nutriment
           Quantity: 44

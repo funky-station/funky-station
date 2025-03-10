@@ -10,6 +10,7 @@
     ClothingOuterWinterMime: 1
     ClothingOuterWinterMusician: 1
     ClothingMaskJoy: 2
+    ClothingOuterSuitCarp: 1
     ClothingHeadHatCardborg: 2
     ClothingOuterCardborg: 2
     ClothingHeadHatSombrero: 2
@@ -22,6 +23,8 @@
     ClothingHeadHatSkub: 2
     ClothingOuterSkub: 2
     ClothingHeadHatBeretFrench: 2
+    ClothingUniformMrSpaceWide: 2 #imp
+    ClothingUniformMrSpaceWideSkirt: 2 #imp
     ClothingOuterSuitChicken: 2
     ClothingHeadHatChickenhead: 2
     ClothingOuterSuitMonkey: 2
@@ -42,6 +45,9 @@
     ClothingOuterDameDane: 2
     ClothingOuterClownPriest: 1
     ClothingMaskSadMime: 1
+    ClothingMaskClownDevil: 1
+    ClothingMaskClownGamble: 1
+    ClothingMaskClownJuggle: 1
     ClothingMaskScaredMime: 1
     ClothingUniformJumpsuitKimono: 1
     ClothingHeadHatCasa: 1
@@ -55,11 +61,18 @@
     ClothingShoesBootsCowboyBrown: 1
     ClothingShoesBootsCowboyBlack: 1
     ClothingShoesBootsCowboyWhite: 1
-    ClothingMaskNeckGaiterRed: 2
+  contrabandInventory:
+    ClothingHeadHatRichard: 1
+    ToyFigurineBoxer: 1
+    ToyFigurineMusician: 1
+    ClothingUniformHitmanSuit: 1 #imp
+    ClothingUniformHitmanSuitSkirt: 1 #imp
+    ClothingUniformBrosBlazer: 1 #imp
+    ClothingUniformBrosBlazerSkirt: 1 #imp
   emaggedInventory:
     ClothingShoesBling: 1
     ClothingShoesBootsCowboyFancy: 1
     ClothingOuterDogi: 1
-    ClothingMaskSexyClown: 1
-    ClothingMaskSexyMime: 1
+    ClothingMaskBlushingClown: 1
+    ClothingMaskBlushingMime: 1
     ClothingHeadHatCowboyBountyHunter: 1

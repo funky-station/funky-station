@@ -43,6 +43,7 @@
       - Medical
       - Quartermaster
       - Research
+      - Robotics # funkystation
       - ResearchDirector
       - Salvage
       - Security
@@ -66,7 +67,7 @@
           type: AccessOverriderBoundUserInterface
     - type: ActivatableUI
       key: enum.AccessOverriderUiKey.Key
-      requireHands: true
+      requiresComplex: true
       requireActiveHand: false
       singleUser: true
     - type: ItemSlots
@@ -119,6 +120,7 @@
     - CentralCommand
     - NuclearOperative
     - SyndicateAgent
+    - Wizard
     privilegedIdSlot:
       name: id-card-console-privileged-id
       ejectSound: /Audio/Machines/id_swipe.ogg

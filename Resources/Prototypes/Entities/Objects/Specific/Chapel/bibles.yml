@@ -18,6 +18,14 @@
     damageOnUntrainedUse: ## What a non-chaplain takes when attempting to heal someone
       groups:
         Burn: 10
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Holy: 10 #imp edit. Get rebalanced lol
+        # Holy: 25 #imp edit. 25 Holy? WE HAVE A NULL ROD FOR THAT.
+        Blunt: 1
   - type: Prayable
     bibleUserOnly: true
   - type: Summonable

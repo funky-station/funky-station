@@ -4,6 +4,9 @@
   id: Stunbaton
   description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
   components:
+  - type: Tag # goob edit
+    tags:
+    - Stunbaton
   - type: Sprite
     sprite: Objects/Weapons/Melee/stunbaton.rsi
     layers:
@@ -29,19 +32,23 @@
     activatedDamage:
       types:
         Blunt: 0
+    deactivatedSoundOnHit:
+      collection: MetalThud #fs - Thwack
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 7
+        Blunt: 12 #fs - Thwack
     bluntStaminaDamageFactor: 2.0
     angle: 60
-    animation: WeaponArcSlash
+    animation: WeaponArcThrust
+    soundHit:
+      collection: MetalThud #fs - Thwack
   - type: StaminaDamageOnHit
-    damage: 35
+    damage: 40 #fs - Stunbaton 2-hit stun
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide
-    damage: 35
+    damage: 40 #fs - Stunbaton 2-hit stun
     sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery

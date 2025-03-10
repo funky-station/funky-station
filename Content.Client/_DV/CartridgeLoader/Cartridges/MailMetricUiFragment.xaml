@@ -1,0 +1,212 @@
+<cartridges:MailMetricUiFragment
+    Margin="5"
+    Orientation="Vertical"
+    VerticalExpand="True"
+    xmlns="https://spacestation14.io"
+    xmlns:cartridges="clr-namespace:Content.Client._DV.CartridgeLoader.Cartridges"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls">
+    <PanelContainer StyleClasses="BackgroundDark" />
+    <controls:StripeBack Name="MailMetricHeaderContainer">
+        <PanelContainer>
+            <Label
+                Align="Center"
+                Name="MailMetricHeader"
+                Text="{Loc 'mail-metrics-header'}" />
+        </PanelContainer>
+    </controls:StripeBack>
+    <BoxContainer
+        HorizontalExpand="True"
+        Margin="20,0"
+        Orientation="Vertical">
+        <BoxContainer
+            HorizontalExpand="True"
+            Orientation="Horizontal"
+            SeparationOverride="2">
+            <Label
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="TitleEmpty1"
+                SizeFlagsStretchRatio="2" />
+            <Label
+                Align="Center"
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="MailCountLabel"
+                SizeFlagsStretchRatio="1"
+                StyleClasses="monospace"
+                Text="{Loc 'mail-metrics-count-header'}" />
+            <Label
+                Align="Center"
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="SpesosLabel"
+                SizeFlagsStretchRatio="1"
+                StyleClasses="monospace"
+                Text="{Loc 'mail-metrics-money-header'}" />
+        </BoxContainer>
+        <BoxContainer
+            HorizontalExpand="True"
+            Orientation="Horizontal"
+            SeparationOverride="2">
+            <Label
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="OpenedLabel"
+                SizeFlagsStretchRatio="2"
+                Text="{Loc 'mail-metrics-opened'}" />
+            <Label
+                Align="Right"
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="OpenedMailCount"
+                SizeFlagsStretchRatio="1"
+                StyleClasses="monospace" />
+            <Label
+                Align="Right"
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="OpenedMailSpesos"
+                SizeFlagsStretchRatio="1"
+                StyleClasses="monospace" />
+        </BoxContainer>
+        <BoxContainer
+            HorizontalExpand="True"
+            Orientation="Horizontal"
+            SeparationOverride="2">
+            <Label
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="ExpiredLabel"
+                SizeFlagsStretchRatio="2"
+                Text="{Loc 'mail-metrics-expired'}" />
+            <Label
+                Align="Right"
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="ExpiredMailCount"
+                SizeFlagsStretchRatio="1"
+                StyleClasses="monospace" />
+            <Label
+                Align="Right"
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="ExpiredMailSpesos"
+                SizeFlagsStretchRatio="1"
+                StyleClasses="monospace" />
+        </BoxContainer>
+        <BoxContainer
+            HorizontalExpand="True"
+            Orientation="Horizontal"
+            SeparationOverride="2">
+            <Label
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="TamperedLabel"
+                SizeFlagsStretchRatio="2"
+                Text="{Loc 'mail-metrics-tampered'}" />
+            <Label
+                Align="Right"
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="TamperedMailCount"
+                SizeFlagsStretchRatio="1"
+                StyleClasses="monospace" />
+            <Label
+                Align="Right"
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="TamperedMailSpesos"
+                SizeFlagsStretchRatio="1"
+                StyleClasses="monospace" />
+        </BoxContainer>
+        <BoxContainer
+            HorizontalExpand="True"
+            Orientation="Horizontal"
+            SeparationOverride="2">
+            <Label
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="DamagedLabel"
+                SizeFlagsStretchRatio="2"
+                Text="{Loc 'mail-metrics-damaged'}" />
+            <Label
+                Align="Right"
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="DamagedMailCount"
+                SizeFlagsStretchRatio="1"
+                StyleClasses="monospace" />
+            <Label
+                Align="Right"
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="DamagedMailSpesos"
+                SizeFlagsStretchRatio="1"
+                StyleClasses="monospace" />
+        </BoxContainer>
+        <BoxContainer
+            HorizontalExpand="True"
+            Orientation="Horizontal"
+            SeparationOverride="2">
+            <Label
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="UnopenedLabel"
+                SizeFlagsStretchRatio="2"
+                Text="{Loc 'mail-metrics-unopened'}" />
+            <Label
+                Align="Right"
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="UnopenedMailCount"
+                SizeFlagsStretchRatio="1"
+                StyleClasses="monospace" />
+            <Label
+                Align="Right"
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="UnopenedMailSpesos"
+                SizeFlagsStretchRatio="1"
+                StyleClasses="monospace" />
+        </BoxContainer>
+        <BoxContainer
+            HorizontalExpand="True"
+            Orientation="Horizontal"
+            SeparationOverride="2">
+            <Label
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="TotalMailLabel"
+                SizeFlagsStretchRatio="2"
+                Text="{Loc 'mail-metrics-total'}" />
+            <Label
+                Align="Right"
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="TotalMailCount"
+                SizeFlagsStretchRatio="1"
+                StyleClasses="monospace" />
+            <Label
+                Align="Right"
+                ClipText="True"
+                HorizontalExpand="True"
+                Name="TotalMailSpesos"
+                SizeFlagsStretchRatio="1"
+                StyleClasses="monospace" />
+        </BoxContainer>
+    </BoxContainer>
+    <BoxContainer
+        HorizontalExpand="True"
+        Margin="10"
+        Orientation="Vertical">
+        <Label
+            Align="Center"
+            Name="SuccessRateCounts"
+            StyleClasses="LabelBig" />
+        <Label
+            Align="Center"
+            Name="SuccessRatePercent"
+            StyleClasses="LabelBig" />
+    </BoxContainer>
+</cartridges:MailMetricUiFragment>

@@ -1,0 +1,8 @@
+- type: trait
+  id: FunkyAccent
+  name: trait-funky-name
+  description: trait-funky-desc
+  category: SpeechTraits
+  cost: 1
+  components:
+  - type: FunkyAccent

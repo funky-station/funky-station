@@ -22,7 +22,7 @@
         layer:
         - TableLayer
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: IconSmooth
     key: state
@@ -78,8 +78,9 @@
         - TableMask
         layer:
         - TableLayer
+        - BulletImpassable #Goobstation
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Wood
   - type: IconSmooth
     key: state
@@ -109,6 +110,8 @@
   - type: Construction
     graph: Table
     node: CounterWoodFrame
+  - type: RequireProjectileTarget # Goobstation - Crawling
+    ignoreThrow: true
 
 - type: entity
   id: CounterMetalFrame
@@ -122,7 +125,7 @@
     sprite: Structures/Furniture/Tables/frame.rsi
     state: full
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: IconSmooth
     key: state
@@ -166,7 +169,7 @@
   - type: Icon
     sprite: Structures/Furniture/Tables/generic.rsi
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
@@ -192,9 +195,15 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: metaltable
+    base: state_
   - type: Construction
     graph: Table
     node: Table
+  - type: Tag # goob edit
+    tags:
+    - Table
 
 - type: entity
   id: TableReinforced
@@ -230,6 +239,8 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: metalreinforcedtable
   - type: Construction
     graph: Table
     node: TableReinforced
@@ -286,6 +297,8 @@
         node: TableFrame
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: glasstable
   - type: Construction
     graph: Table
     node: TableGlass
@@ -341,6 +354,8 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: reinforcedglasstable
   - type: Construction
     graph: Table
     node: TableReinforcedGlass
@@ -396,6 +411,8 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: plasmaglasstable
   - type: Construction
     graph: Table
     node: TablePlasmaGlass
@@ -414,7 +431,7 @@
   - type: Icon
     sprite: Structures/Furniture/Tables/brass.rsi
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
@@ -440,10 +457,12 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: brasstable
   - type: Construction
     graph: Table
     node: TableBrass
-    
+
 - type: entity
   id: TableWood
   parent: TableBase
@@ -481,6 +500,8 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: woodtable
   - type: Construction
     graph: Table
     node: TableWood
@@ -522,6 +543,8 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: woodgambletable
   - type: Construction
     graph: Table
     node: TableCarpet
@@ -553,6 +576,8 @@
           path: /Audio/Effects/picaxe2.ogg
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: stonetable
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepFloor
@@ -582,6 +607,8 @@
       Brute:
         path:
           "/Audio/Weapons/slash.ogg"
+  - type: IconSmooth
+    key: webtable
   - type: Construction
     graph: WebStructures
     node: table
@@ -604,7 +631,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 25 
+        damage: 25
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -619,6 +646,8 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: fancytable
   - type: Tag
     tags:
     - Wooden
@@ -638,6 +667,8 @@
   - type: Construction
     graph: Table
     node: TableFancyBlue
+  - type: IconSmooth
+    key: fancytableblue
 
 - type: entity
   id: TableFancyCyan
@@ -651,6 +682,8 @@
   - type: Construction
     graph: Table
     node: TableFancyCyan
+  - type: IconSmooth
+    key: fancytablecyan
 
 - type: entity
   id: TableFancyBlack
@@ -664,6 +697,8 @@
   - type: Construction
     graph: Table
     node: TableFancyBlack
+  - type: IconSmooth
+    key: fancytableblack
 
 - type: entity
   id: TableFancyRed
@@ -677,7 +712,9 @@
   - type: Construction
     graph: Table
     node: TableFancyRed
-    
+  - type: IconSmooth
+    key: fancytablered
+
 - type: entity
   id: TableFancyPurple
   parent: TableFancyBase
@@ -690,7 +727,9 @@
   - type: Construction
     graph: Table
     node: TableFancyPurple
-    
+  - type: IconSmooth
+    key: fancytablepurple
+
 - type: entity
   id: TableFancyPink
   parent: TableFancyBase
@@ -703,7 +742,9 @@
   - type: Construction
     graph: Table
     node: TableFancyPink
-    
+  - type: IconSmooth
+    key: fancytablepink
+
 - type: entity
   id: TableFancyGreen
   parent: TableFancyBase
@@ -712,11 +753,13 @@
   - type: Sprite
     sprite: Structures/Furniture/Tables/Fancy/green.rsi
   - type: Icon
-    sprite: Structures/Furniture/Tables/Fancy/green.rsi  
+    sprite: Structures/Furniture/Tables/Fancy/green.rsi
   - type: Construction
     graph: Table
     node: TableFancyGreen
-    
+  - type: IconSmooth
+    key: fancytablegreen
+
 - type: entity
   id: TableFancyOrange
   parent: TableFancyBase
@@ -729,7 +772,9 @@
   - type: Construction
     graph: Table
     node: TableFancyOrange
-    
+  - type: IconSmooth
+    key: fancytableorange
+
 - type: entity
   id: TableFancyWhite
   parent: TableFancyBase
@@ -742,6 +787,8 @@
   - type: Construction
     graph: Table
     node: TableFancyWhite
+  - type: IconSmooth
+    key: fancytablewhite
 
 #Debug
 
@@ -782,7 +829,7 @@
     sprite: Structures/Furniture/Tables/counterwood.rsi
     state: full
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Wood
   - type: Destructible
     thresholds:
@@ -806,6 +853,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: counterwood
+    base: state_
   - type: Construction
     graph: Table
     node: CounterWood
@@ -825,7 +875,7 @@
     sprite: Structures/Furniture/Tables/countermetal.rsi
     state: full
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
@@ -851,6 +901,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: countermetal
+    base: state_
   - type: Construction
     graph: Table
     node: CounterMetal

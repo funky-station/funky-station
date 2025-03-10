@@ -30,6 +30,11 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
+  - type: Cautery # Shitmed
+    speed: 0.9
+  - type: SurgeryTool # Shitmed
+    endSound:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
 
 - type: entity
   id: BaseWeaponPowerCell
@@ -65,6 +70,11 @@
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
+  - type: Cautery # Shitmed
+    speed: 0.9
+  - type: SurgeryTool # Shitmed
+    endSound:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
 
 - type: entity
   id: BaseWeaponBatterySmall
@@ -122,6 +132,7 @@
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: Multishot # Goobstation
 
 - type: entity
   name: retro laser blaster
@@ -145,6 +156,7 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: Multishot # Goobstation
 
 - type: entity
   name: makeshift laser pistol
@@ -168,6 +180,7 @@
   - type: Battery
     maxCharge: 500
     startingCharge: 500
+  - type: Multishot # Goobstation
 
 - type: entity
   name: tesla gun
@@ -264,10 +277,11 @@
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000
+  - type: Multishot # Goobstation
 
 - type: entity
   name: pulse carbine
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband]
   id: WeaponPulseCarbine
   description: A high tech energy carbine favoured by the NT-ERT operatives.
   components:
@@ -380,7 +394,7 @@
 
 - type: entity
   name: x-ray cannon
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponXrayCannon
   description: An experimental weapon that uses concentrated x-ray energy against its target.
   components:
@@ -434,11 +448,12 @@
     price: 100
   - type: Gun
     fireRate: 2
+    projectileSpeed: 35 # any higher and this causes issues in lag
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
-    fireCost: 100
+    fireCost: 50
   - type: Tag
     tags:
     - Taser
@@ -466,7 +481,7 @@
       - Belt
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 100
+    fireCost: 50
   - type: GuideHelp
     guides:
     - Security
@@ -493,7 +508,7 @@
         shader: unshaded
   - type: Gun
     selectedMode: FullAuto
-    fireRate: 4
+    fireRate: 4.5
     availableModes:
       - SemiAuto
       - FullAuto
@@ -501,7 +516,7 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerSmg
-    fireCost: 33
+    fireCost: 25
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -549,7 +564,7 @@
   name: antique laser pistol
   parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
   id: WeaponAntiqueLaser
-  description: This is an antique laser pistol. All craftsmanship is of the highest quality. It is decorated with assistant leather and chrome. The object menaces with spikes of energy.
+  description: This is an antique laser pistol. All craftsmanship is of the highest quality. It is decorated with a mahogany grip and chrome filigree. The object menaces with spikes of energy. On the item is an image of a captain and a clown. The clown is dead. The captain is striking a heroic pose.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
@@ -564,6 +579,9 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000 # Funkystation added battery component?
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
@@ -584,6 +602,11 @@
     price: 750
   - type: StealTarget
     stealGroup: WeaponAntiqueLaser
+  - type: SentienceTarget # I hope this is only the captain's gun
+    flavorKind: station-event-random-sentience-flavor-inanimate
+    weight: 0.0002 # 5,000 times less likely than 1 regular animal
+    # not putting a BlockMovement component here cause that's funny.
+  - type: Multishot # Goobstation
 
 - type: entity
   name: advanced laser pistol
@@ -619,6 +642,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 63
+  - type: Multishot # Goobstation
 
 - type: entity
   name: C.H.I.M.P. handcannon
@@ -643,7 +667,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Revolvers/chimp.rsi
   - type: Gun
-    projectileSpeed: 4
+    projectileSpeed: 10
     fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
@@ -665,6 +689,7 @@
     node: start
   - type: StaticPrice
     price: 100
+  - type: Multishot # Goobstation
 
 - type: entity
   name: experimental C.H.I.M.P. handcannon
@@ -713,3 +738,121 @@
   - type: Appearance
   - type: StaticPrice
     price: 750
+
+- type: entity
+  name: energy shotgun
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseGrandTheftContraband]
+  id: WeaponEnergyShotgun
+  description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-4
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaserSpread
+    fireCost: 100
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BulletLaserSpread
+      fireCost: 100
+    - proto: BulletLaserSpreadNarrow
+      fireCost: 100
+    - proto: BulletDisablerSmgSpread
+      fireCost: 100
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,1
+    sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
+    heldPrefix: energy
+  - type: Tag
+    tags:
+    - HighRiskItem
+  - type: StealTarget
+    stealGroup: WeaponEnergyShotgun
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: Battery
+    maxCharge: 1050 # Goobstation
+    startingCharge: 1050
+
+- type: entity
+  name: X-01 Multiphase # Goobstation - Changed the capitalization because it was annoying me.
+  parent: [BaseWeaponBatterySmall, BaseCommandContraband] # Frontier: added BaseC2ContrabandUnredeemable. Goobstation: removed BaseC2ContrabandUnredeemable, added BaseCommandContraband
+  id: WeaponEnergyGunMultiphase
+  description: This is an expensive, modern recreation of the antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mode-disabler
+      shader: unshaded
+      map: [ "Firemode" ]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    quickEquip: false # Frontier
+    slots: # Frontier
+    # - Back # Frontier
+    - suitStorage #Frontier
+    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 100
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 100
+      name: disabling
+      state: disabler
+    - proto: BulletEnergyGunLaser
+      fireCost: 200
+      name: lethal
+      state: lethal
+    - proto: BulletEnergyGunIon
+      fireCost: 200
+      name: ion
+      state: special
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: mode-disabler }
+          Lethal: { state: mode-lethal }
+          Special: { state: mode-ion }
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Sidearm
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 40
+  - type: StaticPrice
+    price: 750
+

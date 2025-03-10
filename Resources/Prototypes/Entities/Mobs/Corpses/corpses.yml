@@ -58,6 +58,7 @@
     prototypes:
     - ResearchAssistantGear
     - ScientistGear
+    - RoboticistGear
 
 - type: entity
   parent: SalvageHumanCorpse

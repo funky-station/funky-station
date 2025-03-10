@@ -174,7 +174,9 @@ public sealed partial class EncryptionKeySystem : EntitySystem
 
     private void OnHolderExamined(EntityUid uid, EncryptionKeyHolderComponent component, ExaminedEvent args)
     {
-        if (!args.IsInDetailsRange)
+        if (!args.IsInDetailsRange
+            || !component.ExamineWhileLocked && !component.KeysUnlocked // Goobstation
+            || !component.ExamineWhileLocked && TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open) // Goobstation
             return;
 
         if (component.KeyContainer.ContainedEntities.Count == 0)
@@ -230,7 +232,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
                 ("color", proto.Color),
                 ("key", key),
                 ("id", proto.LocalizedName),
-                ("freq", proto.Frequency)));
+                ("freq", proto.Frequency / 10f)));
         }
 
         if (defaultChannel != null && _protoManager.TryIndex(defaultChannel, out proto))

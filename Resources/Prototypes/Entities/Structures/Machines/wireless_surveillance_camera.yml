@@ -10,7 +10,7 @@
     - type: WirelessNetworkConnection
       range: 200
     - type: Damageable
-      damageContainer: Inorganic
+      damageContainer: StructuralInorganic
       damageModifierSet: Metallic
     - type: Rotatable
       rotateWhileAnchored: true
@@ -37,6 +37,7 @@
       interfaces:
         enum.SurveillanceCameraSetupUiKey.Camera:
           type: SurveillanceCameraSetupBoundUi
+    - type: StationAiVision # GOOB - AI can see entertainment
   placement:
     mode: SnapgridCenter
 

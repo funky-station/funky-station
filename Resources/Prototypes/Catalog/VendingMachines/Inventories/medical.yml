@@ -7,8 +7,10 @@
     Bloodpack: 5
     EpinephrineChemistryBottle: 3
     Syringe: 5
+    BoxBottle: 3
     ClothingEyesHudMedical: 2
     ClothingEyesEyepatchHudMedical: 2
-    MedicalPatchPrefilledBicaridine: 3  #Goobstation - MedicalPatches
-    MedicalPatchPrefilledDermaline: 3   #Goobstation - MedicalPatches
-
+    MedicalPatchPrefilledLibital: 3  #Goobstation - MedicalPatches - Funkychem
+    MedicalPatchPrefilledAiuri: 3   #Goobstation - MedicalPatches - Funkychem
+  contrabandInventory:
+    FoodApple: 1

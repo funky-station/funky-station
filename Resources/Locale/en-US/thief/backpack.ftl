@@ -39,7 +39,7 @@ thief-backpack-category-syndie-name = syndie kit
 thief-backpack-category-syndie-description =
     Trinkets from a disavowed past, or stolen from a careless agent?
     You've made some connections. Whiskey, echo...
-    Includes: An Emag, Interdyne cigs, a Syndicate codeword,
+    Includes: An Emag, Access Breaker, Interdyne cigs, a Syndicate codeword,
     a Radio Jammer, a lighter and some strange red crystals.
 
 thief-backpack-category-sleeper-name = sleeper kit
@@ -61,4 +61,4 @@ thief-backpack-category-smuggler-description =
     All thieves need somewhere to stash their goods in the dark.
     Don't forget to link your fulton.
     Includes: Fulton beacon, 10 fultons, 3 smoke grenades,
-    and an invisible crate to hide valuable loot.
+    a Smuggler's Satchel, and an invisible crate to hide valuable loot.

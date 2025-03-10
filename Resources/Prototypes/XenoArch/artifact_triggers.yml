@@ -118,6 +118,20 @@
       - !type:ActivateArtifact
 
 - type: artifactTrigger
+  id: TriggerMedical
+  targetDepth: 2
+  triggerHint: artifact-trigger-hint-medical
+  components:
+  - type: Reactive
+    groups:
+      Acidic: [ Touch ]
+    reactions: # Funkychem
+    - reagents: [ Multiver, PenteticAcid, Diphenhydramine, Arithrazine, Probital, Libital, SalicylicAcid, Lenturi, Oxandrolone, Dexalin, Salbutamol, Convermol, Tricordrazine, Leporazine, Bruizine, Lacerinol, Puncturase, Pyrazine, Insuzine, Aiuri, Hyronalin, Inaprovaline, Epinephrine ]
+      methods: [ Touch ]
+      effects:
+      - !type:ActivateArtifact
+
+- type: artifactTrigger
   id: TriggerGas
   targetDepth: 2
   triggerHint: artifact-trigger-hint-regular-gases

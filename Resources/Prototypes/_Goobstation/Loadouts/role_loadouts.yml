@@ -1,0 +1,25 @@
+- type: roleLoadout
+  id: JobNanotrasenRepresentative
+  groups:
+  - NanotrasenRepresentativeHead
+  - NanotrasenRepresentativeNeck
+  - NanotrasenRepresentativeJumpsuit
+  - NanotrasenRepresentativeBackpack
+  - NanotrasenRepresentativeShoes
+  - NanotrasenRepresentativeBelt
+  - Glasses
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - Survival
+
+- type: roleLoadout
+  id: JobBlueshieldOfficer
+  groups:
+  - BlueshieldOfficerHead
+  - BlueshieldOfficerJumpsuit
+  - BlueshieldOfficerBackpack
+  - BlueshieldOfficerOuter
+  - BlueshieldOfficerNeck
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - Survival

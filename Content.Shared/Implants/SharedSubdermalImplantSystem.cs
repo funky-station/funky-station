@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Shared.Actions;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
@@ -8,6 +7,7 @@ using Content.Shared.Tag;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
+using System.Linq;
 
 namespace Content.Shared.Implants;
 
@@ -17,6 +17,7 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
     public const string BaseStorageId = "storagebase";
 
@@ -72,19 +73,18 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
         if (component.ImplantAction != null)
             _actionsSystem.RemoveProvidedActions(component.ImplantedEntity.Value, uid);
 
+        // GoobStation
+        var ev = new ImplantRemovedFromEvent(uid, component.ImplantedEntity.Value);
+        RaiseLocalEvent(component.ImplantedEntity.Value, ref ev);
+
         if (!_container.TryGetContainer(uid, BaseStorageId, out var storageImplant))
             return;
-
-        var entCoords = Transform(component.ImplantedEntity.Value).Coordinates;
 
         var containedEntites = storageImplant.ContainedEntities.ToArray();
 
         foreach (var entity in containedEntites)
         {
-            if (Terminating(entity))
-                continue;
-
-            _container.RemoveEntity(storageImplant.Owner, entity, force: true, destination: entCoords);
+            _transformSystem.DropNextTo(entity, uid);
         }
     }
 
@@ -94,20 +94,36 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
     /// </summary>
     public void AddImplants(EntityUid uid, IEnumerable<String> implants)
     {
-        var coords = Transform(uid).Coordinates;
         foreach (var id in implants)
         {
-            var ent = Spawn(id, coords);
-            if (TryComp<SubdermalImplantComponent>(ent, out var implant))
-            {
-                ForceImplant(uid, ent, implant);
-            }
-            else
-            {
-                Log.Warning($"Found invalid starting implant '{id}' on {uid} {ToPrettyString(uid):implanted}");
-                Del(ent);
-            }
+            AddImplant(uid, id);
         }
+    }
+
+    /// <summary>
+    /// Adds a single implant to a person, and returns the implant.
+    /// Logs any implant ids that don't have <see cref="SubdermalImplantComponent"/>.
+    /// </summary>
+    /// <returns>
+    /// The implant, if it was successfully created. Otherwise, null.
+    /// </returns>>
+    public EntityUid? AddImplant(EntityUid uid, String implantId)
+    {
+        var coords = Transform(uid).Coordinates;
+        var ent = Spawn(implantId, coords);
+
+        if (TryComp<SubdermalImplantComponent>(ent, out var implant))
+        {
+            ForceImplant(uid, ent, implant);
+        }
+        else
+        {
+            Log.Warning($"Found invalid starting implant '{implantId}' on {uid} {ToPrettyString(uid):implanted}");
+            Del(ent);
+            return null;
+        }
+
+        return ent;
     }
 
     /// <summary>
@@ -200,6 +216,25 @@ public readonly struct ImplantImplantedEvent
     public readonly EntityUid? Implanted;
 
     public ImplantImplantedEvent(EntityUid implant, EntityUid? implanted)
+    {
+        Implant = implant;
+        Implanted = implanted;
+    }
+}
+
+// GoobStation
+
+/// <summary>
+/// Event that is raised whenever removed implant from implanted entity.
+/// Raised on implanted entity.
+/// </summary>
+[ByRefEvent]
+public readonly struct ImplantRemovedFromEvent
+{
+    public readonly EntityUid Implant;
+    public readonly EntityUid Implanted;
+
+    public ImplantRemovedFromEvent(EntityUid implant, EntityUid implanted)
     {
         Implant = implant;
         Implanted = implanted;

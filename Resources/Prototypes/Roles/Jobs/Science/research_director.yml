@@ -4,26 +4,31 @@
   description: job-description-rd
   playTimeTracker: JobResearchDirector
   requirements:
+    - !type:RoleTimeRequirement
+      role: JobRoboticist
+      time: 18000 #5 hrs
+    - !type:RoleTimeRequirement
+      role: JobScientist
+      time: 36000 #10 hrs
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 36000 #10 hrs
+      time: 72000 #20 hrs
     - !type:OverallPlaytimeRequirement
-      time: 144000 #40 hrs
-    - !type:AgeRequirement
-      requiredAge: 21
+      time: 90000 #25 hrs
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
-  requireAdminNotify: true
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:
   - Research
+  - Robotics # funkystation
   - Command
   - Maintenance
   - ResearchDirector
   - Brig
   - Cryogenics
+  - External # goobstation
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -35,7 +40,7 @@
   id: ResearchDirectorGear
   equipment:
     id: RnDPDA
-    ears: ClothingHeadsetRD
+    ears: ClothingHeadsetAltScience # Goobstation
   storage:
     back:
     - Flash

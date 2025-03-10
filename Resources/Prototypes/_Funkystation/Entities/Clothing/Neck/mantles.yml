@@ -1,0 +1,10 @@
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckMantleNTR
+  name: nanotrasen representative's mantle
+  description: Us here at Nanotrasen value our employees, thats why one of our employees had to make this for us!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Neck/Mantle/ntrmantle.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Neck/Mantle/ntrmantle.rsi

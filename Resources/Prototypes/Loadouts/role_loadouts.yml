@@ -25,6 +25,17 @@
   - Trinkets
   - GroupSpeciesBreathTool
 
+# Silicons
+#- type: roleLoadout
+#  id: JobBorg
+#  nameDataset: roleloadout doesn't support both so need to update that first.
+#  canCustomizeName: true
+
+- type: roleLoadout
+  id: JobStationAi
+  nameDataset: NamesAI
+  canCustomizeName: true
+
 # Civilian
 - type: roleLoadout
   id: JobPassenger
@@ -108,13 +119,16 @@
   groups:
   - GroupTankHarness
   - ChaplainHead
+  - ChaplainEyes # imp
   - ChaplainMask
   - ChaplainNeck
   - ChaplainJumpsuit
   - CommonBackpack
   - ChaplainOuterClothing
+  - ChaplainBelt # imp
   - Glasses
   - Survival
+  - ChaplainBible # Funky
   - Trinkets
   - GroupSpeciesBreathTool
 
@@ -151,6 +165,7 @@
   groups:
   - GroupTankHarness
   - ClownHead
+  - ClownMask
   - ClownJumpsuit
   - ClownBackpack
   - ClownOuterClothing
@@ -168,8 +183,9 @@
   - MimeJumpsuit
   - MimeBackpack
   - MimeOuterClothing
+  - MimeBelt
   - Glasses
-  - Survival
+  - SurvivalMime
   - Trinkets
 
 - type: roleLoadout
@@ -345,6 +361,7 @@
   groups:
   - WardenHead
   - WardenJumpsuit
+  - WardenNeck
   - SecurityBackpack
   - SecurityBelt
   - WardenOuterClothing
@@ -359,6 +376,7 @@
   groups:
   - SecurityHead
   - SecurityJumpsuit
+  - SecurityNeck
   - SecurityBackpack
   - SecurityOuterClothing
   - SecurityShoes
@@ -372,7 +390,6 @@
 - type: roleLoadout
   id: JobDetective
   groups:
-  - GroupTankHarness
   - DetectiveHead
   - DetectiveNeck
   - DetectiveJumpsuit
@@ -390,6 +407,7 @@
   - SecurityCadetJumpsuit
   - SecurityBackpack
   - SurvivalSecurity
+  - SecurityOuterClothing # Goobstation - Why not.
   - Trinkets
   - GroupSpeciesBreathToolSecurity
 
@@ -485,11 +503,13 @@
   groups:
   - GroupTankHarness
   - ReporterJumpsuit
+  - ReporterOuterClothing # Goobstation - Bodycams
   - CommonBackpack
   - Glasses
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+
 
 - type: roleLoadout
   id: JobPsychologist
@@ -514,8 +534,38 @@
   - Trinkets
   - GroupSpeciesBreathTool
 
+# Event-restricted roles
+
+- type: roleLoadout
+  id: JobSecurityClown
+  groups:
+  - ClownBackpack
+  - SurvivalSecurity
+  - GroupSpeciesBreathToolSecurity
+
+- type: roleLoadout
+  id: JobCommandMaid
+  groups:
+  - CommonBackpack
+  - Survival
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobPartyMaker
+  groups:
+  - GroupTankHarness
+  - CommonBackpack
+  - Survival
+  - GroupSpeciesBreathTool
+
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
+
+- type: roleLoadout
+  id: RoleSurvivalVoxSupport
+  groups:
+  - GroupSpeciesBreathTool
+  - GroupTankHarness
 
 - type: roleLoadout
   id: RoleSurvivalStandard
@@ -557,6 +607,13 @@
   - SurvivalSyndicate
   - GroupSpeciesBreathTool
   - GroupTankHarness
+
+- type: roleLoadout
+  id: RoleSurvivalNukie
+  groups:
+  - SurvivalSyndicate
+  - GroupSpeciesBreathTool
+  - GroupPocketTankDouble
 
 - type: roleLoadout
   id: RoleSurvivalEVA

@@ -70,3 +70,12 @@
       emergencyLightColor: DarkViolet
       forceEnableEmergencyLights: true
       shuttleTime: 1200
+    amber: #impstation dino wars
+      announcement: alert-level-amber-announcement
+      selectable: false
+      sound: /Audio/_Impstation/Misc/amber.ogg
+      disableSelection: true
+      color: DarkGoldenrod
+      emergencyLightColor: DarkGoldenrod
+      forceEnableEmergencyLights: true
+      shuttleTime: 1200

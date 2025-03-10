@@ -5,7 +5,7 @@
   authors: Emisse
 
 - files: ["barratry.yml"]
-  authors: Emogarbage, Scribbles0
+  authors: Emogarbage, Scribbles0, Piras314
 
 - files: ["box.yml"]
   authors: ACJM, Emisse
@@ -16,6 +16,9 @@
 - files: ["cluster.yml"]
   authors: Scribbles0
 
+- files: ["elkridge.yml"]
+  authors: Deerstop
+
 - files: ["fland.yml"]
   authors: Emisse
 
@@ -23,7 +26,7 @@
   authors: DogZeroX, Emisse
 
 - files: ["kettle.yml"]
-  authors: Checkraze
+  authors: Checkraze, Piras314
 
 - files: ["gemini.yml"]
   authors: Checkraze, TsjipTsjip, Luckyshotpictures
@@ -53,4 +56,7 @@
   authors: CptJeanLuc
 
 - files: ["cog.yml"]
+  authors: Spacemann
+
+- files: ["convex.yml"]
   authors: Spacemann

@@ -28,7 +28,7 @@ public sealed partial class GameRuleComponent : Component
     /// If false, it will simply not run silently.
     /// </summary>
     [DataField]
-    public bool CancelPresetOnTooFewPlayers = true;
+    public bool CancelPresetOnTooFewPlayers = false; //why the fuck was this true - funkystation
 
     /// <summary>
     /// A delay for when the rule the is started and when the starting logic actually runs.

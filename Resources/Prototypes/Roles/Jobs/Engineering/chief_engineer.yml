@@ -6,21 +6,18 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
-      time: 21600 #6 hrs
+      time: 36000 #10 hrs
     - !type:RoleTimeRequirement
       role: JobStationEngineer
-      time: 21600 #6 hrs
-    - !type:DepartmentTimeRequirement
-      department: Engineering
       time: 36000 #10 hrs
+    - !type:DepartmentTimeRequirement #redundant but consistent
+      department: Engineering
+      time: 72000 #20 hrs
     - !type:OverallPlaytimeRequirement
-      time: 144000 #40 hrs
-    - !type:AgeRequirement
-      requiredAge: 21
+      time: 90000 #25 hrs
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
-  requireAdminNotify: true
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:
@@ -44,7 +41,7 @@
   equipment:
     id: CEPDA
     eyes: ClothingEyesGlassesMeson
-    ears: ClothingHeadsetCE
+    ears: ClothingHeadsetAltEngineering # Goobstation
     belt: ClothingBeltUtilityEngineering
   storage:
     back:

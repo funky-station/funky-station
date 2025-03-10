@@ -106,6 +106,15 @@
     sprite: Clothing/Back/Satchels/science.rsi
 
 - type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelRobotics
+  name: robotics satchel
+  description: A red-striped satchel useful for holding spare parts and materials.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Satchels/robotics.rsi
+
+- type: entity
   parent: [ClothingBackpackSatchel, BaseRestrictedContraband]
   id: ClothingBackpackSatchelSecurity
   name: security satchel

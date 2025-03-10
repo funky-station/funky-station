@@ -1,0 +1,852 @@
+## Plushies
+- type: entity
+  parent: BasePlushie
+  id: PlushieDawn #AAAAAAAA!!!!
+  name: weird thing
+  description: I am Dawn Leander
+  components:
+  - type: Sprite
+    state: plushie_dawn
+    sprite: _Funkystation/Objects/Fun/dawn_plush.rsi
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: Speech
+    speechVerb: Moth
+  - type: UseDelay
+    delay: 1.8
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieCirno
+  name: cirno plushie
+  description: For when the Scarlet police arrive.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/toys.rsi
+    state: plushie_cirno
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Funkystation/Items/Toys/baka.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Funkystation/Items/Toys/baka.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Funkystation/Items/Toys/baka.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Funkystation/Items/Toys/baka.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/_Funkystation/Items/Toys/baka.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/_Funkystation/Items/Toys/baka.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieAshleyTickum
+  name: salvager felinid plush
+  description: A plush toy that predates Nanotrasen's "Self Insert Plushies" campaign, which possibly was the inspiration for the campaign's creation.
+  components:
+  - type: Sprite
+    state: plush_tickum
+    sprite: _Funkystation/Objects/Fun/syrrikatickum_plush.rsi
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_purr1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_scream2.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_purr1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_purr1.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_scream1.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - type: Speech
+    speechVerb: Felinid
+  - type: UseDelay
+    delay: 1.8
+
+# self-insert plushies
+- type: entity
+  parent: BasePlushie
+  id: BaseSelfPlushie
+  description: This plushie comes from Nanotrasen's "Self Insert" toys campaign, where many employees had their likenesses turned into plushies, as representations of the large variety of species that Nanotrasen employs.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/self_plushie.rsi
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+  - type: UseDelay
+    delay: 1.8
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieLunaStargazer
+  name: researcher moth person plushie
+  components:
+  - type: Sprite
+    state: plushie_lunastargazer
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: Speech
+    speechVerb: Moth
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieMelodyHennion
+  name: service vulpkanin plushie
+  components:
+  - type: Sprite
+    state: plushie_melodyhennion
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: Food
+    useSound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: Speech
+    speechVerb: Vulpkanin
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieJeepersCReepers
+  name: head of personnel human plushie
+  components:
+  - type: Sprite
+    state: plushie_jeeperscreepers
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Animals/small_dog_bark_happy.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Animals/small_dog_bark_happy.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Animals/small_dog_bark_happy.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Human/cry_female_1.ogg
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieTincan
+  name: detective arachnid plushie
+  components:
+  - type: Sprite
+    state: plushie_tincan
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Talk/arachnid.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Talk/arachnid.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Talk/arachnid.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Talk/arachnid.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Talk/arachnid.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Talk/arachnid.ogg
+  - type: Speech
+    speechVerb: Arachnid
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieSilasAhas
+  name: doctor moth person plushie
+  components:
+  - type: Sprite
+    state: plushie_silasahas
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: UseDelay
+    delay: 5
+  - type: Speech
+    speechVerb: Moth
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieLokiHydrus
+  name: harpy plushie
+  components:
+  - type: Sprite
+    state: plushie_lokihydrus
+  - type: UseDelay
+    delay: 5
+  - type: Speech
+    speechVerb: Harpy
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieKorrinKarpen
+  name: chief medical officer moth plushie
+  components:
+  - type: Sprite
+    state: plushie_korrinkarpen
+  - type: UseDelay
+    delay: 5
+  - type: Speech
+    speechVerb: Moth
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieRikdaVargh
+  name: representative lizard plushie
+  components:
+  - type: Sprite
+    state: plushie_rikdavargh
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Speech
+    speechVerb: Reptilian
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieLintonByers
+  name: quartermaster felinid plushie
+  components:
+  - type: Sprite
+    state: plushie_lintonbyers
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - type: UseDelay
+    delay: 5
+  - type: Speech
+    speechVerb: Felinid
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieFelixKay
+  name: researcher slime person plushie
+  components:
+  - type: Sprite
+    state: plushie_felixkay
+  - type: UseDelay
+    delay: 5
+  - type: Speech
+    speechVerb: Slime
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieAliceAndreev
+  name: scientist slime person plushie
+  components:
+  - type: Sprite
+    state: plushie_aliceandreev
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Talk/slime_exclaim.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Human/femalescream_5.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Talk/slime_exclaim.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Talk/slime_exclaim.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Talk/slime_exclaim.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Talk/slime_exclaim.ogg
+  - type: Speech
+    speechVerb: Slime
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieParfeyMaelstorm
+  name: geneticist lizard plushie
+  components:
+  - type: Sprite
+    state: plushie_parfeymaelstorm
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: UseDelay
+    delay: 2
+  - type: Speech
+    speechVerb: Reptilian
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieChadleySkrimblo
+  name: engineer human plushie
+  components:
+  - type: Sprite
+    state: plushie_chadleyskrimblo
+  - type: UseDelay
+    delay: 2
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieAkishJeen
+  name: librarian lizard plushie
+  components:
+  - type: Sprite
+    state: plushie_akishjeen
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Speech
+    speechVerb: Reptilian
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieAltecZorban
+  name: purple lizard plushie
+  components:
+  - type: Sprite
+    state: plushie_alteczorban
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: UseDelay
+    delay: 5
+  - type: Speech
+    speechVerb: Reptilian
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieCynsKatyns
+  name: mailman harpy plushie
+  components:
+  - type: Sprite
+    state: plushie_cynskatyns
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
+  - type: Food
+    useSound:
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/_DV/Voice/Harpy/chirp1.ogg
+  - type: UseDelay
+    delay: 5
+  - type: Speech
+    speechVerb: Harpy
+
+- type: entity
+  parent: BaseSelfPlushie
+  id: PlushieKuafuMoeller
+  name: atmosian moth person plushie
+  components:
+  - type: Sprite
+    state: plushie_kuafumoeller
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: Food
+    useSound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: UseDelay
+    delay: 5
+  - type: Speech
+    speechVerb: Moth
+
+# stowaway toys (self insert ripoff :godo:)
+
+- type: entity
+  parent: BasePlushie
+  id: BaseStowawayPlushie
+  description: The tag says that this plushie was made by "Stowaway Toys," a toy-making brand you've never heard of before. This one looks familiar, but you don't know why.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/stowaway_toys.rsi
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+  - type: UseDelay
+    delay: 1.8
+  - type: DrainableSolution
+    solution: drink
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieAssistantSpider
+  name: assistant spider plushie
+  components:
+  - type: Sprite
+    state: plushie_assistantspider
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: CopperBlood
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CopperBlood
+          Quantity: 30
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieBarkeepLizard
+  name: bartender kobold plushie
+  components:
+  - type: Sprite
+    state: plushie_barkeeplizard
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Gold
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Gold
+          Quantity: 30
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieCaptainSpider
+  name: captain spider plushie
+  components:
+  - type: Sprite
+    state: plushie_captainspider
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: SpaceGlue
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: SpaceGlue
+          Quantity: 30
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieCargoBird
+  name: cargo harpy plushie
+  components:
+  - type: Sprite
+    state: plushie_cargobird
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Iron
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Iron
+          Quantity: 30
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_DV/Voice/Harpy/caw1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_DV/Voice/Harpy/caw1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_DV/Voice/Harpy/caw1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_DV/Voice/Harpy/caw1.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/_DV/Voice/Harpy/caw1.ogg
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieChaplainDog
+  name: chaplain vulpkanin plushie
+  components:
+  - type: Sprite
+    state: plushie_chaplaindog
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Holywater
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Holywater
+          Quantity: 30
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieChemistLizard
+  name: chemist lizard plushie
+  components:
+  - type: Sprite
+    state: plushie_chemistlizard
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Inaprovaline
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Inaprovaline
+          Quantity: 30
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushiePirateMoth
+  name: pirate moth plushie
+  components:
+  - type: Sprite
+    state: plushie_piratemoth
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: SpaceDrugs
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: SpaceDrugs
+          Quantity: 30
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieQuartermasterMoth
+  name: quartermaster moth plushie
+  components:
+  - type: Sprite
+    state: plushie_qmmoth
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieResearchDirectorDog
+  name: researcher vulpkanin plushie
+  components:
+  - type: Sprite
+    state: plushie_rddog
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieResearchDirectorLizard
+  name: researcher lizard plushie
+  components:
+  - type: Sprite
+    state: plushie_rdlizard
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Moonshine
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Moonshine
+          Quantity: 30
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieSkeleton
+  name: skeleton plushie
+  description: This thing rattles you to your bones! A plushie by Stowaway Toys.
+  components:
+  - type: Sprite
+    state: plushie_skele
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Milk
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Milk
+          Quantity: 30
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushiePanda
+  name: panda plushie
+  description: Bamboo, anyone? A plushie by Stowaway Toys.
+  components:
+  - type: Sprite
+    state: plushie_panda
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
+
+- type: entity
+  parent: BaseStowawayPlushie
+  id: PlushieBlueScarfedLizard
+  name: blue scarfed lizard plushie
+  description: A lizard plushie of a particular lizard fashioning sunglasses and a white-blue scarf, the tag on the back says something about teaching spacemen their way around the station
+  components:
+  - type: Sprite
+    state: plushie_bluescarfedlizrad
+  - type: UseDelay
+    delay: 2
+  - type: Extractable
+    juiceSolution:
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30

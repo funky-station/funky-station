@@ -1,4 +1,4 @@
-﻿- type: job
+- type: job
   id: MedicalIntern
   name: job-name-intern
   description: job-description-intern
@@ -6,15 +6,19 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 54000 # 15 hrs
+      time: 72000 #20 hrs
       inverted: true # stop playing intern if you're good at med!
   startingGear: MedicalInternGear
   icon: "JobIconMedicalIntern"
   supervisors: job-supervisors-medicine
-  canBeAntag: false
   access:
   - Medical
   - Maintenance
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: SurgerySpeedModifier
+      SpeedModifier: 1.5
 
 - type: startingGear
   id: MedicalInternGear

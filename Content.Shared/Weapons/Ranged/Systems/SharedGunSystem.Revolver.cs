@@ -413,7 +413,7 @@ public partial class SharedGunSystem
             }
 
             // Delete the cartridge entity on client
-            if (_netManager.IsClient)
+            if (_netManager.IsClient && IsClientSide(ent.Value))
             {
                 QueueDel(ent);
             }

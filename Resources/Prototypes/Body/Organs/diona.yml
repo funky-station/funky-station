@@ -24,15 +24,25 @@
   - type: FlavorProfile
     flavors:
       - people
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
 
 - type: entity
   id: OrganDionaBrain
-  parent: [BaseDionaOrgan, OrganHumanBrain]
+  parent: BaseDionaOrgan
   name: brain
-  description: "The source of incredible, unending intelligence. Honk."
+  description: "The central hub of a diona's pseudo-neurological activity, its root-like tendrils search for its former body."
   components:
+  - type: Item
+    size: Small
+    heldPrefix: brain
   - type: Sprite
     state: brain
+  - type: Organ # Shitmed
+    slotId: brain
+  - type: Brain # Shitmed
   - type: SolutionContainerManager
     solutions:
       organ:
@@ -48,6 +58,11 @@
         reagents:
         - ReagentId: GreyMatter
           Quantity: 5
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Brain
 
 - type: entity
   id: OrganDionaEyes
@@ -59,12 +74,19 @@
     layers:
       - state: eyeball-l
       - state: eyeball-r
+  - type: Organ # Shitmed
+    slotId: eyes
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Eyes
 
 - type: entity
   id: OrganDionaStomach
   parent: BaseDionaOrgan
   name: stomach
-  description: "Gross. This is hard to stomach."
+  description: "The diona's equivalent of a stomach, it reeks of asparagus and vinegar."
   components:
   - type: Sprite
     state: stomach
@@ -77,6 +99,8 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+  - type: Organ # Shitmed
+    slotId: stomach
   - type: Stomach
   - type: Metabolizer
     maxReagents: 6
@@ -90,19 +114,29 @@
       - id: Narcotic
       - id: Alcohol
         rateModifier: 0.1
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Stomach
+  - type: Item
+    size: Small
+    heldPrefix: stomach
 
 - type: entity
   id: OrganDionaLungs
   parent: BaseDionaOrgan
   name: lungs
-  description: "Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier."
+  description: "A spongy mess of slimy, leaf-like structures. Capable of breathing both carbon dioxide and oxygen."
   components:
   - type: Sprite
-    sprite: Mobs/Species/Human/organs.rsi
-    layers:
-      - state: lung-l
-      - state: lung-r
-  - type: Lung 
+    state: lungs
+  - type: Organ # Shitmed
+    slotId: lungs
+  - type: Item
+    size: Small
+    heldPrefix: lungs
+  - type: Lung
   - type: Metabolizer
     removeEmpty: true
     solutionOnBody: false
@@ -121,6 +155,11 @@
       Lung:
         maxVol: 100
         canReact: False
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Lungs
 
 # Organs that turn into nymphs on removal
 - type: entity
@@ -131,9 +170,14 @@
   description: "The source of incredible, unending intelligence. Honk."
   components:
   - type: Brain
-  - type: Nymph # This will make the organs turn into a nymph when they're removed. 
+  - type: Nymph # This will make the organs turn into a nymph when they're removed.
     entityPrototype: OrganDionaNymphBrain
     transferMind: true
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Brain
 
 - type: entity
   id: OrganDionaStomachNymph
@@ -144,6 +188,11 @@
   components:
   - type: Nymph
     entityPrototype: OrganDionaNymphStomach
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Stomach
 
 - type: entity
   id: OrganDionaLungsNymph
@@ -154,6 +203,11 @@
   components:
   - type: Nymph
     entityPrototype: OrganDionaNymphLungs
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Lungs
 
 # Nymphs that the organs will turn into
 - type: entity
@@ -170,11 +224,11 @@
 
 - type: entity
   id: OrganDionaNymphStomach
-  parent: MobDionaNymphAccent 
+  parent: MobDionaNymphAccent
   categories: [ HideSpawnMenu ]
   name: diona nymph
   suffix: Stomach
-  description: Contains the stomach of a formerly fully-formed Diona. It doesn't taste any better for it. 
+  description: Contains the stomach of a formerly fully-formed Diona. It doesn't taste any better for it.
   components:
   - type: IsDeadIC
   - type: Body
@@ -186,7 +240,7 @@
   categories: [ HideSpawnMenu ]
   name: diona nymph
   suffix: Lungs
-  description: Contains the lungs of a formerly fully-formed Diona. Breathtaking. 
+  description: Contains the lungs of a formerly fully-formed Diona. Breathtaking.
   components:
   - type: IsDeadIC
   - type: Body

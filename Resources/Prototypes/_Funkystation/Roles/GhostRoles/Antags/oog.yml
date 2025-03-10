@@ -1,0 +1,6 @@
+- type: startingGear
+  id: NeanderthalGear
+  equipment:
+    jumpsuit: TowelColorLightBrown
+  inhand:
+  - BaseBallBat

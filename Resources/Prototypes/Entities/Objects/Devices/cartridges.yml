@@ -15,6 +15,9 @@
       sprite:  Objects/Misc/books.rsi
       state: book_icon
   - type: NotekeeperCartridge
+  - type: Tag
+    tags:
+    - PDACart
 
 - type: entity
   parent: BaseItem
@@ -33,6 +36,9 @@
       sprite: Interface/Misc/program_icons.rsi
       state: news_read
   - type: NewsReaderCartridge
+  - type: Tag
+    tags:
+    - PDACart
 
 - type: entity
   parent: BaseItem
@@ -51,6 +57,9 @@
         sprite: Interface/Misc/program_icons.rsi
         state: crew_manifest
     - type: CrewManifestCartridge
+    - type: Tag
+      tags:
+      - PDACart
 
 - type: entity
   parent: BaseItem
@@ -69,6 +78,9 @@
         sprite: Structures/Machines/server.rsi
         state: server
     - type: NetProbeCartridge
+    - type: Tag
+      tags:
+      - PDACart
 
 - type: entity
   parent: BaseItem
@@ -93,3 +105,76 @@
     - type: GuideHelp
       guides:
       - Forensics
+    - type: Tag
+      tags:
+      - PDACart
+
+- type: entity
+  parent: BaseItem
+  id: WantedListCartridge
+  name: Wanted list cartridge
+  description: A program to get a list of wanted persons.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/cartridge.rsi
+    state: cart-sec
+  - type: Icon
+    sprite: Objects/Devices/cartridge.rsi
+    state: cart-sec
+  - type: UIFragment
+    ui: !type:WantedListUi
+  - type: Cartridge
+    programName: wanted-list-program-name
+    icon:
+      sprite: Objects/Misc/books.rsi
+      state: icon_magnifier
+  - type: WantedListCartridge
+  - type: StealTarget
+    stealGroup: WantedListCartridge
+  - type: Tag
+    tags:
+    - PDACart
+
+- type: entity
+  parent: BaseItem
+  id: MedTekCartridge
+  name: MedTek cartridge
+  description: A program that provides medical diagnostic tools.
+  components:
+    - type: Sprite
+      sprite: Objects/Devices/cartridge.rsi
+      state: cart-med
+    - type: Icon
+      sprite: Objects/Devices/cartridge.rsi
+      state: cart-med
+    - type: Cartridge
+      programName: med-tek-program-name
+      icon:
+        sprite: Objects/Specific/Medical/healthanalyzer.rsi
+        state: icon
+    - type: MedTekCartridge
+    - type: Tag
+      tags:
+      - PDACart
+
+- type: entity
+  parent: BaseItem
+  id: AstroNavCartridge
+  name: AstroNav cartridge
+  description: A program for navigation that provides GPS coordinates.
+  components:
+    - type: Sprite
+      sprite: Objects/Devices/cartridge.rsi
+      state: cart-nav
+    - type: Icon
+      sprite: Objects/Devices/cartridge.rsi
+      state: cart-nav
+    - type: Cartridge
+      programName: astro-nav-program-name
+      icon:
+        sprite: Objects/Devices/gps.rsi
+        state: icon
+    - type: AstroNavCartridge
+    - type: Tag
+      tags:
+      - PDACart

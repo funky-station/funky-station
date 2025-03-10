@@ -57,6 +57,28 @@
     - Wheat
 
 - type: entity
+  name: meatwheat bushel
+  description: Some blood-drenched wheat stalks. You can crush them into what passes for meat if you squint hard enough.
+  id: MeatwheatBushel
+  parent: ProduceBase
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/meatwheat.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 10
+  - type: SpawnItemsOnUse
+    items:
+      - id: FoodMeatWheat
+    sound:
+      path: /Audio/Voice/Slime/slime_squish.ogg
+  - type: Produce
+    seedId: meatwheat
+
+- type: entity
   name: oat bushel
   description: Eat oats, do squats.
   id: OatBushel
@@ -357,6 +379,9 @@
   - type: Slippery
   - type: StepTrigger
     intersectRatio: 0.2
+    triggerGroups: # Goobstation
+      types:
+      - SlipEntity
   - type: CollisionWake
     enabled: false
   - type: Physics
@@ -707,6 +732,43 @@
         name: food-sequence-content-orange
 
 - type: entity
+  name: extradimensional orange
+  parent: FoodProduceBase
+  id: FoodExtradimensionalOrange
+  description: You can hardly wrap your head around this thing.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - truenature
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: Haloperidol
+          Quantity: 5
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/extradimensional_orange.rsi
+    scale: 0.5,0.5
+  - type: Produce
+    seedId: extradimensionalOrange
+  - type: PotencyVisuals
+    minimumScale: 0.5 # reduce this in size because the sprite is way too big
+    maximumScale: 1
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceOrange
+        Quantity: 10
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
   name: pineapple
   parent: FoodProduceBase
   id: FoodPineapple
@@ -849,7 +911,7 @@
         name: food-sequence-content-tomato
       skewer:
         name: food-sequence-content-tomato
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-tomato
 
@@ -960,7 +1022,7 @@
         name: food-sequence-content-tomato
       skewer:
         name: food-sequence-content-tomato
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-tomato
 
@@ -1166,7 +1228,7 @@
         name: food-sequence-content-corn
       skewer:
         name: food-sequence-content-corn
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-corn
 
@@ -1311,7 +1373,7 @@
         name: food-sequence-content-mushroom
       skewer:
         name: food-sequence-content-mushroom
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-mushroom
 
@@ -1477,7 +1539,7 @@
         name: food-sequence-content-chili
       skewer:
         name: food-sequence-content-chili
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-pepper
 
@@ -1498,7 +1560,7 @@
         reagents:
           - ReagentId: Nutriment
             Quantity: 4
-          - ReagentId: Frostoil
+          - ReagentId: FrostOil
             Quantity: 10
           - ReagentId: Vitamin
             Quantity: 4
@@ -1517,7 +1579,7 @@
         name: food-sequence-content-chilly
       skewer:
         name: food-sequence-content-chilly
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-bluepepper
 
@@ -1537,7 +1599,7 @@
         reagents:
         - ReagentId: Aloe
           Quantity: 10
-        - ReagentId: Dermaline
+        - ReagentId: Aiuri
           Quantity: 10
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/aloe.rsi
@@ -1578,7 +1640,7 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
-        - ReagentId: Bicaridine
+        - ReagentId: SalicylicAcid
           Quantity: 20
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/poppy.rsi
@@ -1589,6 +1651,7 @@
   - type: Tag
     tags:
     - Flower # TODO add "RedFlower" or "Poppy" tag, when other color flowers will be
+    - Poppy # goob edit
   - type: FoodSequenceElement
     sprite:
       sprite: Objects/Specific/Hydroponics/poppy.rsi
@@ -1615,7 +1678,7 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
-        - ReagentId: Bicaridine
+        - ReagentId: SalicylicAcid
           Quantity: 20
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/lily.rsi
@@ -1651,7 +1714,7 @@
       food:
         maxVol: 40
         reagents:
-        - ReagentId: Ultravasculine
+        - ReagentId: PenteticAcid
           Quantity: 20
         - ReagentId: Epinephrine
           Quantity: 20
@@ -1672,7 +1735,7 @@
         name: food-sequence-content-mushroom
       skewer:
         name: food-sequence-content-mushroom
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-mushroom
 
@@ -1691,9 +1754,9 @@
       food:
         maxVol: 24
         reagents:
-        - ReagentId: Bicaridine
+        - ReagentId: Probital
           Quantity: 5
-        - ReagentId: Kelotane
+        - ReagentId: Lenturi
           Quantity: 5
         - ReagentId: Nutriment
           Quantity: 2
@@ -1913,7 +1976,7 @@
         name: food-sequence-content-mushroom
       skewer:
         name: food-sequence-content-mushroom
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-mushroom
 
@@ -2237,6 +2300,104 @@
         name: food-sequence-content-watermelon
 
 - type: entity
+  name: holymelon
+  parent: [FoodProduceBase, ItemHeftyBase]
+  id: FoodHolymelon
+  description: The water within this melon has been blessed by some deity that's particularly fond of watermelon.
+  components:
+  - type: Item
+    size: Small
+  - type: FlavorProfile
+    flavors:
+      - holy
+      - watermelon
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Holywater
+          Quantity: 10
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/holymelon.rsi
+  - type: Produce
+    seedId: watermelon
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Wine
+        Quantity: 20
+  - type: Damageable
+    damageContainer: Biological
+  - type: DamageOnHighSpeedImpact
+    minimumSpeed: 0.1
+    damage:
+      types:
+        Blunt: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: desecration
+      - !type:SpillBehavior
+        solution: food
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SliceableFood
+    count: 5
+    slice: FoodHolymelonSlice
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: ClothingHeadHatHolyWatermelon
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: holymelon slice
+  parent: ProduceSliceBase
+  id: FoodHolymelonSlice
+  description: Juicy golden and red slice.
+  components:
+  - type: Item
+    size: Tiny
+  - type: FlavorProfile
+    flavors:
+      - holy
+      - watermelon
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/holymelon.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 1
+        - ReagentId: Holywater
+          Quantity: 2
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Wine
+        Quantity: 4
+  - type: Tag
+    tags:
+    - Fruit
+    - Slice
+
+- type: entity
   name: grapes
   parent: FoodProduceBase
   id: FoodGrape
@@ -2414,6 +2575,34 @@
         name: food-sequence-content-pea
 
 - type: entity
+  parent: FoodProduceBase
+  id: FoodWorldPeas
+  name: cluster of world peas
+  description: It's rumored to bring peace to any who consume it.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - numbingtranquility
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Happiness
+          Quantity: 3
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Pax
+          Quantity: 2
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/world_pea.rsi
+  - type: Produce
+    seedId: worldPea
+  - type: Tag
+    tags:
+    - Vegetable
+
+- type: entity
   name: pumpkin
   parent: FoodProduceBase
   id: FoodPumpkin
@@ -2573,3 +2762,107 @@
     - CottonBoll
   - type: Extractable
     grindableSolutionName: food
+
+- type: entity
+  name: cherry
+  parent: FoodProduceBase
+  id: FoodCherry
+  description: Juicy red cherry with a pit inside.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - cherry
+  - type: Food
+    trash:
+    - TrashCherryPit
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 3
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Hydroponics/cherry.rsi
+  - type: Produce
+    seedId: cherry
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceCherry
+        Quantity: 5
+  - type: Tag
+    tags:
+    - Fruit
+  - type: FoodSequenceElement
+    sprite:
+      sprite: _Goobstation/Objects/Specific/Hydroponics/cherry.rsi
+      state: produce
+    entries:
+      burger:
+        name: food-sequence-content-cherry
+      taco:
+        name: food-sequence-content-cherry
+
+- type: entity
+  name: cherry pit
+  parent: FoodInjectableBase
+  id: TrashCherryPit
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Hydroponics/cherry.rsi
+    state: pit
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Hydroponics/cherry.rsi
+    heldPrefix: pit
+  - type: Tag
+    tags:
+    - Recyclable
+    - Trash
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: Toxin
+          Quantity: 1
+  - type: Extractable
+    grindableSolutionName: food
+  - type: Seed
+    seedId: cherry
+  - type: SpaceGarbage
+  - type: BadFood
+
+- type: entity
+  name: anomaly berry
+  description: A strange blue fruit. Something about it doesn't seem right.
+  parent: FoodProduceBase
+  id: FoodAnomalyBerry
+  components:
+  - type: FlavorProfile
+    flavors:
+      - strange
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/anomaly_berry.rsi
+    state: produce
+  - type: Produce
+    seedId: anomalyBerry
+  - type: Food
+    trash:
+    - EffectAnomalyFloraBulb # Random loot
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: Artifexium
+          Quantity: 1
+  - type: Tag
+    tags:
+    - Fruit

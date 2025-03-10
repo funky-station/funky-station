@@ -5,6 +5,7 @@ namespace Content.Shared.Humanoid.Markings
     [Serializable, NetSerializable]
     public enum MarkingCategories : byte
     {
+        Special,
         Hair,
         FacialHair,
         Head,
@@ -14,6 +15,7 @@ namespace Content.Shared.Humanoid.Markings
         Chest,
         Arms,
         Legs,
+        Wings, // For IPC wings porting from SimpleStation
         Tail,
         Overlay
     }
@@ -24,6 +26,7 @@ namespace Content.Shared.Humanoid.Markings
         {
             return layer switch
             {
+                HumanoidVisualLayers.Special => MarkingCategories.Special,
                 HumanoidVisualLayers.Hair => MarkingCategories.Hair,
                 HumanoidVisualLayers.FacialHair => MarkingCategories.FacialHair,
                 HumanoidVisualLayers.Head => MarkingCategories.Head,
@@ -39,6 +42,7 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.RLeg => MarkingCategories.Legs,
                 HumanoidVisualLayers.LFoot => MarkingCategories.Legs,
                 HumanoidVisualLayers.RFoot => MarkingCategories.Legs,
+                HumanoidVisualLayers.Wings => MarkingCategories.Wings, //For IPC wings porting from SimpleStation
                 HumanoidVisualLayers.Tail => MarkingCategories.Tail,
                 _ => MarkingCategories.Overlay
             };

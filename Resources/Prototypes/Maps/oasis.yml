@@ -1,7 +1,7 @@
 - type: gameMap
   id: Oasis
   mapName: 'Oasis'
-  mapPath: /Maps/Goobstation/oasis.yml # Goobstation - SM
+  mapPath: /Maps/_Funkystation/oasis.yml #Funkystation - Robotics(Based on Goob)
   minPlayers: 30 # Goobstation return minPlayers requirement for maps
   maxPlayers: 85 # Goobstation - Limit mappool to highpop versions of maps only
   stations:
@@ -18,8 +18,10 @@
         - type: StationJobs
           availableJobs:
             #service
+            StationAi: [ 1, 1 ]
             Captain: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]
+            InternalAffairsAgent: [ 3, 3 ]
             BlueshieldOfficer: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 2, 2 ]
@@ -45,7 +47,8 @@
             Psychologist: [ 1, 1 ]
             #science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 5, 5 ]
+            Scientist: [ 4, 4 ]
+            Roboticist: [ 1, 1 ]
             ResearchAssistant: [ 6, 6 ]
             Borg: [ 2, 2 ]
             #security
@@ -64,3 +67,10 @@
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
+
+        # Goobstation blob-config-start HUGE
+        - type: StationBlobConfig
+          stageBegin: 40
+          stageCritical: 450
+          stageTheEnd: 900
+        # backmen blob-config-end

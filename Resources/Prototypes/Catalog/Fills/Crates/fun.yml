@@ -16,6 +16,8 @@
         weight: 9
       - id: PlushieSpaceLizard
         weight: 1
+      - id: PlushieLizardInversed
+        weight: 0.5
     - !type:GroupSelector
       children:
       - id: PlushieCarp
@@ -39,6 +41,9 @@
     - id: PlushieMoth
     - id: PlushieArachind
     - id: PlushiePenguin
+    - id: PlushieDawn
+    - id: PlushieCirno
+    - id: PlushieAshleyTickum
 
 - type: entity
   id: CrateFunPlushie
@@ -336,6 +341,7 @@
       - id: ClothingHeadHatMagician
       - id: BeachBall
       - id: ClothingShoesSkates
+      - id: RubberChicken
 
 - type: entity
   id: CrateFunBikeHornImplants

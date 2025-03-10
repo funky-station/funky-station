@@ -1,0 +1,76 @@
+- type: entity
+  parent: AdminPDA
+  id: ChronoPDA
+  name: futuristic PDA
+  description: A powerful quantum computer disguised as a regular pda for disguise.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-chrono"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Pda
+    id: ChronoIDCard
+    penSlot:
+      startingItem: PenFuture
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#dee4e7"
+    accentVColor: "#59bcee"
+  - type: Icon
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-chrono
+
+- type: entity
+  parent: AdminPDA
+  id: HelldiverPDA
+  name: salvage diver PDA
+  description: Smells like corpses of insects and androids.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda-heccd"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Pda
+    id: HelldiverIDCard
+  - type: PdaBorderColor
+    borderColor: "#272727"
+    accentVColor: "#cec100"
+  - type: Icon
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-heccd
+
+- type: entity
+  parent: SalvagePDA
+  id: HecuPDA
+  name: HECU PDA
+  description: Smells of gunpowder.
+  components:
+  - type: Pda
+    id: HecuIDCard
+    penSlot:
+      startingItem: PenCentcom
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#00842e"

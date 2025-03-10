@@ -1,5 +1,4 @@
 using Content.Server.Chemistry.Components;
-using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Fluids.Components;
 using Content.Server.Gravity;
@@ -9,11 +8,15 @@ using Content.Shared.Fluids;
 using Content.Shared.Interaction;
 using Content.Shared.Timing;
 using Content.Shared.Vapor;
+using Content.Shared.Chemistry.EntitySystems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using System.Numerics;
+using Robust.Shared.Map;
+using Content.Shared.Inventory; // Assmos - Extinguisher Nozzle
+using Content.Shared.Whitelist; // Assmos - Extinguisher Nozzle
 
 namespace Content.Server.Fluids.EntitySystems;
 
@@ -25,16 +28,31 @@ public sealed class SpraySystem : EntitySystem
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly VaporSystem _vapor = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!; // Assmos - Extinguisher Nozzle
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!; // Assmos - Extinguisher Nozzle
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<SprayComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<SprayComponent, UserActivateInWorldEvent>(OnActivateInWorld);
+    }
+
+    private void OnActivateInWorld(Entity<SprayComponent> entity, ref UserActivateInWorldEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+
+        var targetMapPos = _transform.GetMapCoordinates(GetEntityQuery<TransformComponent>().GetComponent(args.Target));
+
+        Spray(entity, args.User, targetMapPos);
     }
 
     private void OnAfterInteract(Entity<SprayComponent> entity, ref AfterInteractEvent args)
@@ -44,29 +62,52 @@ public sealed class SpraySystem : EntitySystem
 
         args.Handled = true;
 
-        if (!_solutionContainer.TryGetSolution(entity.Owner, SprayComponent.SolutionName, out var soln, out var solution))
-            return;
+        var clickPos = _transform.ToMapCoordinates(args.ClickLocation);
 
-        var ev = new SprayAttemptEvent(args.User);
+        Spray(entity, args.User, clickPos);
+    }
+
+    public void Spray(Entity<SprayComponent> entity, EntityUid user, MapCoordinates mapcoord)
+    {
+        // Assmos - Extinguisher Nozzle
+        var sprayOwner = entity.Owner;
+        var solutionName = SprayComponent.SolutionName;
+
+        if (entity.Comp.ExternalContainer == true)
+        {
+            if (!_inventory.TryGetContainerSlotEnumerator(user, out var enumerator, entity.Comp.TargetSlot)) return;
+            while (enumerator.NextItem(out var item))
+            {
+                if (_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.ProviderWhitelist, item)) continue;
+                sprayOwner = item;
+                solutionName = SprayComponent.TankSolutionName;
+            }
+        }
+
+        if (!_solutionContainer.TryGetSolution(sprayOwner, solutionName, out var soln, out var solution)) return;
+        // End of assmos changes
+        //if (!_solutionContainer.TryGetSolution(entity.Owner, SprayComponent.SolutionName, out var soln, out var solution)) return;
+
+        var ev = new SprayAttemptEvent(user);
         RaiseLocalEvent(entity, ref ev);
         if (ev.Cancelled)
             return;
 
-        if (!TryComp<UseDelayComponent>(entity, out var useDelay)
-            || _useDelay.IsDelayed((entity, useDelay)))
+        if (TryComp<UseDelayComponent>(entity, out var useDelay)
+            && _useDelay.IsDelayed((entity, useDelay)))
             return;
 
         if (solution.Volume <= 0)
         {
-            _popupSystem.PopupEntity(Loc.GetString("spray-component-is-empty-message"), entity.Owner, args.User);
+            _popupSystem.PopupEntity(Loc.GetString("spray-component-is-empty-message"), entity.Owner, user);
             return;
         }
 
         var xformQuery = GetEntityQuery<TransformComponent>();
-        var userXform = xformQuery.GetComponent(args.User);
+        var userXform = xformQuery.GetComponent(user);
 
         var userMapPos = _transform.GetMapCoordinates(userXform);
-        var clickMapPos = args.ClickLocation.ToMap(EntityManager, _transform);
+        var clickMapPos = mapcoord;
 
         var diffPos = clickMapPos.Position - userMapPos.Position;
         if (diffPos == Vector2.Zero || diffPos == Vector2Helpers.NaN)
@@ -88,8 +129,6 @@ public sealed class SpraySystem : EntitySystem
 
         var amount = Math.Max(Math.Min((solution.Volume / entity.Comp.TransferAmount).Int(), entity.Comp.VaporAmount), 1);
         var spread = entity.Comp.VaporSpread / amount;
-        // TODO: Just use usedelay homie.
-        var cooldownTime = 0f;
 
         for (var i = 0; i < amount; i++)
         {
@@ -131,20 +170,19 @@ public sealed class SpraySystem : EntitySystem
             // impulse direction is defined in world-coordinates, not local coordinates
             var impulseDirection = rotation.ToVec();
             var time = diffLength / entity.Comp.SprayVelocity;
-            cooldownTime = MathF.Max(time, cooldownTime);
 
-            _vapor.Start(ent, vaporXform, impulseDirection * diffLength, entity.Comp.SprayVelocity, target, time, args.User);
+            _vapor.Start(ent, vaporXform, impulseDirection * diffLength, entity.Comp.SprayVelocity, target, time, user);
 
-            if (TryComp<PhysicsComponent>(args.User, out var body))
+            if (TryComp<PhysicsComponent>(user, out var body))
             {
-                if (_gravity.IsWeightless(args.User, body))
-                    _physics.ApplyLinearImpulse(args.User, -impulseDirection.Normalized() * entity.Comp.PushbackAmount, body: body);
+                if (_gravity.IsWeightless(user, body))
+                    _physics.ApplyLinearImpulse(user, -impulseDirection.Normalized() * entity.Comp.PushbackAmount, body: body);
             }
         }
 
         _audio.PlayPvs(entity.Comp.SpraySound, entity, entity.Comp.SpraySound.Params.WithVariation(0.125f));
 
-        _useDelay.SetLength(entity.Owner, TimeSpan.FromSeconds(cooldownTime));
-        _useDelay.TryResetDelay((entity, useDelay));
+        if (useDelay != null)
+            _useDelay.TryResetDelay((entity, useDelay));
     }
 }

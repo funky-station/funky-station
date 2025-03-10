@@ -53,7 +53,7 @@ public sealed partial class StoreMenu : DefaultWindow
         foreach (var ((_, amount), proto) in currency)
         {
             balanceStr += Loc.GetString("store-ui-balance-display", ("amount", amount),
-                ("currency", Loc.GetString(proto.DisplayName, ("amount", 1))));
+                ("currency", Loc.GetString(proto.DisplayName, ("amount", 1)))) + "\n";
         }
 
         BalanceInfo.SetMarkup(balanceStr.TrimEnd());
@@ -62,7 +62,10 @@ public sealed partial class StoreMenu : DefaultWindow
         foreach (var type in currency)
         {
             if (type.Value.CanWithdraw && type.Value.Cash != null && type.Key.Item2 > 0)
+            {
                 disabled = false;
+                break;
+            }
         }
 
         WithdrawButton.Disabled = disabled;
@@ -144,6 +147,10 @@ public sealed partial class StoreMenu : DefaultWindow
         }
 
         var newListing = new StoreListingControl(listing, GetListingPriceString(listing), hasBalance, texture);
+
+        if (listing.DiscountValue > 0) // WD EDIT
+            newListing.StoreItemBuyButton.AddStyleClass("ButtonColorRed");
+
         newListing.StoreItemBuyButton.OnButtonDown += args
             => OnListingButtonPressed?.Invoke(args, listing);
 

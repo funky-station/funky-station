@@ -26,22 +26,25 @@
         maxDistance: 2
   - type: UseDelay
     delay: 1.5
-
-- type: entity
-  parent: Pen
-  id: PenEmbeddable
-  abstract: true
-  components:
+  # Goobstation - Return pen embeddability
   - type: EmbeddableProjectile
     offset: 0.3,0.0
     removalTime: 0.0
   - type: ThrowingAngle
     angle: 315
   - type: LandAtCursor
+  - type: SignatureWriter # imp
   - type: DamageOtherOnHit
     damage:
       types:
         Piercing: 3
+  - type: Tending # Shitmed
+    speed: 0.55
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
 
 #TODO: I want the luxury pen to write a cool font like Merriweather in the future.
 
@@ -55,10 +58,18 @@
     state: luxury_pen
   - type: Item
     heldPrefix: luxury_pen
+  - type: SignatureWriter # imp
+    colorList:
+      black: "#2f4f4f"
+      blue: "#284283"
+      green: "#108473"
+      red: "#ac3235"
 
 - type: entity
   id: BaseAdvancedPen
-  parent: PenEmbeddable
+  # Goobstation - Return pen embeddability
+  parent: Pen
+  abstract: true
   components:
   - type: Tag
     tags:
@@ -89,10 +100,27 @@
     state: overpriced_pen
   - type: Item
     heldPrefix: overpriced_pen
+  - type: SignatureWriter # imp start
+    fontList:
+      Noto Sans: Default
+      Comic Neue: ComicNeue
+      Hachi Maru Pop: HachiMaruPop
+      Kode Mono: KodeMono
+      Reenie Beanie: ReenieBeanie
+      Tangerine: Tangerine
+      UnifrakturMaguntia: UnifrakturMaguntia
+      Wahroonga: Wahroonga
+    colorList:
+      black: "#2f4f4f"
+      blue: "#284283"
+      green: "#108473"
+      red: "#ac3235"
+      command blue: "#1b67a5"
+      CentComm green: "#009100" # imp end
 
 - type: entity
   name: CentComm pen
-  parent: [BaseAdvancedPen, BaseCommandContraband]
+  parent: [BaseAdvancedPen, BaseCentcommContraband]
   id: PenCentcom
   description: In an attempt to keep up with the "power" of the cybersun bureaucracy, NT made a replica of cyber pen, in their corporate style.
   components:
@@ -100,21 +128,29 @@
     state: pen_centcom
   - type: Item
     heldPrefix: pen_centcom
+  - type: SignatureWriter # imp
+    color: "#009100"
 
 - type: entity
   name: captain's fountain pen
-  parent: PenEmbeddable
+  # Goobstation - Return pen embeddability
+  parent: Pen
   id: PenCap
   description: A luxurious fountain pen for the captain of the station.
   components:
   - type: Sprite
     state: pen_cap
+  - type: SignatureWriter # imp
+    color: "#1b67a5"
 
 - type: entity
   name: hop's fountain pen
-  parent: PenEmbeddable
+  # Goobstation - Return pen embeddability
+  parent: Pen
   id: PenHop
   description: A luxurious fountain pen for the hop of the station.
   components:
   - type: Sprite
     state: pen_hop
+  - type: SignatureWriter # imp
+    color: "#1b67a5"

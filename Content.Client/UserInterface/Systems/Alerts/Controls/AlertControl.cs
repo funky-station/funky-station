@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Content.Client.Actions.UI;
 using Content.Client.Cooldown;
 using Content.Shared.Alert;
@@ -30,7 +30,21 @@ namespace Content.Client.UserInterface.Systems.Alerts.Controls
             }
         }
 
+        public string? DynamicMessage
+        {
+            get => _dynamicMessage;
+            set
+            {
+                _dynamicMessage = value;
+                if (SuppliedTooltip is ActionAlertTooltip actionAlertTooltip)
+                {
+                    actionAlertTooltip.DynamicMessage = value;
+                }
+            }
+        }
+
         private (TimeSpan Start, TimeSpan End)? _cooldown;
+        private string? _dynamicMessage;
 
         private short? _severity;
         private readonly IGameTiming _gameTiming;
@@ -69,9 +83,9 @@ namespace Content.Client.UserInterface.Systems.Alerts.Controls
 
         private Control SupplyTooltip(Control? sender)
         {
-            var msg = FormattedMessage.FromMarkup(Loc.GetString(Alert.Name));
-            var desc = FormattedMessage.FromMarkup(Loc.GetString(Alert.Description));
-            return new ActionAlertTooltip(msg, desc) {Cooldown = Cooldown};
+            var msg = FormattedMessage.FromMarkupOrThrow(Loc.GetString(Alert.Name));
+            var desc = FormattedMessage.FromMarkupOrThrow(Loc.GetString(Alert.Description));
+            return new ActionAlertTooltip(msg, desc) {Cooldown = Cooldown, DynamicMessage = DynamicMessage};
         }
 
         /// <summary>

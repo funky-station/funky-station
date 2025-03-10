@@ -29,6 +29,8 @@
   - type: Tag
     tags:
     - Trash
+  - type: Extractable #funkystation
+    grindableSolutionName: smokable
   - type: SolutionContainerManager
     solutions:
       smokable:

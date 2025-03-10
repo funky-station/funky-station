@@ -34,7 +34,7 @@
         sound:
           collection: MetalBreak
   - type: StaticPrice
-    price: 25
+    price: 75
 
 - type: entity
   abstract: true
@@ -167,7 +167,7 @@
           - Stunbaton
         blacklist:  # Goobstation
           components:
-          - BatteryRecharge
+          - MaterialEnergy
 
 - type: entity
   parent: BaseItemRecharger
@@ -195,7 +195,7 @@
           tags:
           - PotatoBattery
           components:  # Goobstation
-          - BatteryRecharge
+          - MaterialEnergy
 
 - type: entity
   parent: BaseItemRecharger
@@ -250,6 +250,7 @@
     whitelist:
       components:
       - BorgChassis
+      - Silicon # EE IPCs
   - type: Construction
     containers:
     - machine_parts

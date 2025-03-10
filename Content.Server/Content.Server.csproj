@@ -26,16 +26,5 @@
     <ProjectReference Include="..\RobustToolbox\Robust.Server\Robust.Server.csproj" />
     <ProjectReference Include="..\Content.Shared\Content.Shared.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Objectives\Interfaces\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Funkystation\Roles\ObsessedRoleComponent.cs" />
-    <Compile Remove="Funkystation\Obsessed\ObsessedSystem.cs" />
-    <Compile Remove="Funkystation\Obsessed\GameTicking\Rules\ObsessedRuleSystem.cs" />
-    <Compile Remove="Funkystation\Objectives\Components\ObsessedTimeComponent.cs" />
-    <Compile Remove="Funkystation\Objectives\Components\ObsessedTargetComponent.cs" />
-    <Compile Remove="Funkystation\Objectives\Components\ObsessedPhotoObjective.cs" />
-  </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
 </Project>

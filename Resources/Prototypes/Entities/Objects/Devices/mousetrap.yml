@@ -13,9 +13,12 @@
     - type: StepTrigger
       intersectRatio: 0.2
       requiredTriggeredSpeed: 2
+      triggerGroups: # Goobstation
+        types:
+        - Mousetrap
     - type: Mousetrap
     - type: TriggerOnStepTrigger
-    - type: ClothingRequiredStepTrigger
+    - type: PreventableStepTrigger
     - type: DamageUserOnTrigger
       damage:
         types:

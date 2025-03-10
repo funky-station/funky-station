@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
@@ -34,11 +35,11 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ProjectileComponent, PreventCollideEvent>(PreventCollision);
+        SubscribeLocalEvent<EmbeddableProjectileComponent, PreventCollideEvent>(EmbeddablePreventCollision); // Goobstation - Crawl Fix
         SubscribeLocalEvent<EmbeddableProjectileComponent, ProjectileHitEvent>(OnEmbedProjectileHit);
         SubscribeLocalEvent<EmbeddableProjectileComponent, ThrowDoHitEvent>(OnEmbedThrowDoHit);
         SubscribeLocalEvent<EmbeddableProjectileComponent, ActivateInWorldEvent>(OnEmbedActivate);
         SubscribeLocalEvent<EmbeddableProjectileComponent, RemoveEmbeddedProjectileEvent>(OnEmbedRemove);
-        SubscribeLocalEvent<EmbeddableProjectileComponent, AttemptPacifiedThrowEvent>(OnAttemptPacifiedThrow);
     }
 
     private void OnEmbedActivate(EntityUid uid, EmbeddableProjectileComponent component, ActivateInWorldEvent args)
@@ -68,23 +69,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             return;
         }
 
-        var xform = Transform(uid);
-        TryComp<PhysicsComponent>(uid, out var physics);
-        _physics.SetBodyType(uid, BodyType.Dynamic, body: physics, xform: xform);
-        _transform.AttachToGridOrMap(uid, xform);
-
-        // Reset whether the projectile has damaged anything if it successfully was removed
-        if (TryComp<ProjectileComponent>(uid, out var projectile))
-        {
-            projectile.Shooter = null;
-            projectile.Weapon = null;
-            projectile.DamagedEntity = false;
-        }
-
-        // Land it just coz uhhh yeah
-        var landEv = new LandEvent(args.User, true);
-        RaiseLocalEvent(uid, ref landEv);
-        _physics.WakeBody(uid, body: physics);
+        UnEmbed(uid, component, args.User);
 
         // try place it in the user's hand
         _hands.TryPickupAnyHand(args.User, uid);
@@ -128,16 +113,61 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         }
 
         _audio.PlayPredicted(component.Sound, uid, null);
+        component.EmbeddedIntoUid = target;
         var ev = new EmbedEvent(user, target);
         RaiseLocalEvent(uid, ref ev);
+        Dirty(uid, component);
+    }
+
+    public void UnEmbed(EntityUid uid, EmbeddableProjectileComponent? component, EntityUid? user = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        var xform = Transform(uid);
+        TryComp<PhysicsComponent>(uid, out var physics);
+        _physics.SetBodyType(uid, BodyType.Dynamic, body: physics, xform: xform);
+        _transform.AttachToGridOrMap(uid, xform);
+        component.EmbeddedIntoUid = null;
+        Dirty(uid, component);
+
+        // Reset whether the projectile has damaged anything if it successfully was removed
+        if (TryComp<ProjectileComponent>(uid, out var projectile))
+        {
+            projectile.Shooter = null;
+            projectile.Weapon = null;
+            projectile.ProjectileSpent = false;
+
+            Dirty(uid, projectile);
+        }
+
+        if (user != null)
+        {
+            // Land it just coz uhhh yeah
+            var landEv = new LandEvent(user, true);
+            RaiseLocalEvent(uid, ref landEv);
+        }
+
+        _physics.WakeBody(uid, body: physics);
     }
 
     private void PreventCollision(EntityUid uid, ProjectileComponent component, ref PreventCollideEvent args)
     {
+        // Goobstation - Crawling fix
+        if (TryComp<RequireProjectileTargetComponent>(args.OtherEntity, out var requireTarget) && requireTarget.IgnoreThrow && requireTarget.Active)
+            return;
+
         if (component.IgnoreShooter && (args.OtherEntity == component.Shooter || args.OtherEntity == component.Weapon))
         {
             args.Cancelled = true;
         }
+    }
+
+    // Goobstation - Crawling fix
+    private void EmbeddablePreventCollision(EntityUid uid, EmbeddableProjectileComponent component, ref PreventCollideEvent args)
+    {
+        if (TryComp<RequireProjectileTargetComponent>(args.OtherEntity, out var requireTarget) && requireTarget.IgnoreThrow && requireTarget.Active)
+            args.Cancelled = true;
     }
 
     public void SetShooter(EntityUid id, ProjectileComponent component, EntityUid shooterId)
@@ -153,14 +183,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     private sealed partial class RemoveEmbeddedProjectileEvent : DoAfterEvent
     {
         public override DoAfterEvent Clone() => this;
-    }
-
-    /// <summary>
-    /// Prevent players with the Pacified status effect from throwing embeddable projectiles.
-    /// </summary>
-    private void OnAttemptPacifiedThrow(Entity<EmbeddableProjectileComponent> ent, ref AttemptPacifiedThrowEvent args)
-    {
-        args.Cancel("pacified-cannot-throw-embed");
     }
 }
 

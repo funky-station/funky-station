@@ -4,3 +4,4 @@ stethoscope-normal = You hear normal breathing.
 stethoscope-hyper = You hear hyperventilation.
 stethoscope-irregular = You hear hyperventilation with an irregular pattern.
 stethoscope-fucked = You hear twitchy, labored breathing interspersed with short gasps.
+stethoscope-sacrificed = You hear static.

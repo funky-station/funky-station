@@ -6,7 +6,9 @@ namespace Content.Shared.Humanoid
     [Serializable, NetSerializable]
     public enum HumanoidVisualLayers : byte
     {
+        Special, // for the cat ears
         Tail,
+        Wings, // For IPC wings porting from SimpleStation
         Hair,
         FacialHair,
         Chest,
@@ -18,6 +20,7 @@ namespace Content.Shared.Humanoid
         RArm,
         LArm,
         RHand,
+
         LHand,
         RLeg,
         LLeg,
@@ -27,5 +30,6 @@ namespace Content.Shared.Humanoid
         StencilMask,
         Ensnare,
         Fire,
+
     }
 }

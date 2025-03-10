@@ -79,7 +79,7 @@ public sealed partial class FelinidSystem : EntitySystem
             return;
 
         //component.HairballAction = Spawn("ActionHairball");
-        _actionsSystem.AddAction(uid, ref component.HairballAction, component.HairballActionId);
+        // _actionsSystem.AddAction(uid, ref component.HairballAction, component.HairballActionId); // funkystation - No
     }
 
     private void OnEquipped(EntityUid uid, FelinidComponent component, DidEquipHandEvent args)
@@ -150,7 +150,7 @@ public sealed partial class FelinidSystem : EntitySystem
         Del(component.EatActionTarget.Value);
         component.EatActionTarget = null;
 
-        _audio.PlayPvs("/Audio/DeltaV/Items/eatfood.ogg", uid, AudioHelpers.WithVariation(0.15f));
+        _audio.PlayPvs("/Audio/_DV/Items/eatfood.ogg", uid, AudioHelpers.WithVariation(0.15f));
 
         _hungerSystem.ModifyHunger(uid, 50f, hunger);
 

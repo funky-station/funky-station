@@ -77,3 +77,23 @@
   id: ChaplainHoodie
   equipment:
     outerClothing: ClothingOuterHoodieChaplain
+
+# funkystation
+
+- type: loadout
+  id: ChaplainBibleChristian
+  storage:
+     back: 
+     - Bible
+
+- type: loadout
+  id: ChaplainBibleAtheist
+  storage:
+     back: 
+     - BibleAtheist
+
+- type: loadout
+  id: ChaplainBibleBhuddhist
+  storage:
+     back: 
+     - BibleBhuddhist # The item's not even spelt correctly

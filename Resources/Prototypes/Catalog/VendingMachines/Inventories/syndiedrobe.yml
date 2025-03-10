@@ -12,13 +12,32 @@
     ClothingUniformJumpskirtSyndieFormalDress: 5
     ClothingUniformJumpsuitOperative: 5
     ClothingUniformJumpskirtOperative: 5
+    ClothingUniformJumpsuitCasualSyndicate: 5 # Goobstation
     ClothingNeckScarfStripedSyndieGreen: 2
     ClothingNeckScarfStripedSyndieRed: 2
     ClothingShoesBootsWinterSyndicate: 2
-    
+    # funky specific syndie wear
+    ClothingUniformJumpsuitBotanistSyndicate: 2
+    ClothingUniformJumpsuitBartenderSyndicate: 2
+    ClothingUniformJumpsuitLibrarianSyndicate: 2
+    ClothingUniformJumpsuitScientistSyndicate: 1
+    ClothingUniformJumpsuitScientistWhiteSyndicate: 1
+  contrabandInventory:
+    ToyFigurineFootsoldier: 1
+    ToyFigurineNukieElite: 1
+    ToyFigurineNukieCommander: 1
   emaggedInventory:
     ClothingOuterCoatSyndieCapArmored: 1
     ClothingOuterWinterSyndieCapArmored: 1
     ClothingHeadHatTacticalMaidHeadband: 5
     ClothingUniformJumpskirtTacticalMaid: 5
-    ClothingHandsTacticalMaidGloves: 5 
+    ClothingHandsTacticalMaidGloves: 5
+    # funky specific syndie wear
+    ClothingUniformJumpsuitGCMSyndicate: 1
+    ClothingUniformJumpsuitCCRSyndicate: 1
+    ClothingUniformJumpsuitIMDSyndicate: 1
+    ClothingUniformJumpsuitWSMSyndicate: 1
+    ClothingUniformJumpsuitHRDSyndicate: 1
+    ClothingHeadHatHRDCapSyndicate: 1
+    ClothingUniformJumpsuitCHESyndicate: 1
+    ClothingUniformJumpsuitHCRSyndicate: 1

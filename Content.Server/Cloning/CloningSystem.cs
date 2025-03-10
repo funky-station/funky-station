@@ -9,6 +9,7 @@ using Content.Server.Jobs;
 using Content.Server.Materials;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
+using Content.Shared._EinsteinEngines.Silicon.Components; // Goobstation
 using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.Components;
@@ -60,6 +61,7 @@ namespace Content.Server.Cloning
         [Dependency] private readonly SharedMindSystem _mindSystem = default!;
         [Dependency] private readonly MetaDataSystem _metaSystem = default!;
         [Dependency] private readonly SharedJobSystem _jobs = default!;
+        [Dependency] private readonly EmagSystem _emag = default!;
 
         public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -165,6 +167,9 @@ namespace Content.Server.Cloning
             if (!TryComp<HumanoidAppearanceComponent>(bodyToClone, out var humanoid))
                 return false; // whatever body was to be cloned, was not a humanoid
 
+            if (HasComp<SiliconComponent>(bodyToClone))
+                return false; // Goobstation: Don't clone IPCs.
+
             if (!_prototype.TryIndex(humanoid.Species, out var speciesPrototype))
                 return false;
 
@@ -231,7 +236,7 @@ namespace Content.Server.Cloning
 
             // TODO: Ideally, components like this should be components on the mind entity so this isn't necessary.
             // Add on special job components to the mob.
-            if (_jobs.MindTryGetJob(mindEnt, out _, out var prototype))
+            if (_jobs.MindTryGetJob(mindEnt, out var prototype))
             {
                 foreach (var special in prototype.Special)
                 {
@@ -276,10 +281,15 @@ namespace Content.Server.Cloning
         /// </summary>
         private void OnEmagged(EntityUid uid, CloningPodComponent clonePod, ref GotEmaggedEvent args)
         {
+            if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+                return;
+
+            if (_emag.CheckFlag(uid, EmagType.Interaction))
+                return;
+
             if (!this.IsPowered(uid, EntityManager))
                 return;
 
-            _audio.PlayPvs(clonePod.SparkSound, uid);
             _popupSystem.PopupEntity(Loc.GetString("cloning-pod-component-upgrade-emag-requirement"), uid);
             args.Handled = true;
         }
@@ -309,7 +319,7 @@ namespace Content.Server.Cloning
             var indices = _transformSystem.GetGridTilePositionOrDefault((uid, transform));
             var tileMix = _atmosphereSystem.GetTileMixture(transform.GridUid, null, indices, true);
 
-            if (HasComp<EmaggedComponent>(uid))
+            if (_emag.CheckFlag(uid, EmagType.Interaction))
             {
                 _audio.PlayPvs(clonePod.ScreamSound, uid);
                 Spawn(clonePod.MobSpawnId, transform.Coordinates);
@@ -327,7 +337,7 @@ namespace Content.Server.Cloning
             }
             _puddleSystem.TrySpillAt(uid, bloodSolution, out _);
 
-            if (!HasComp<EmaggedComponent>(uid))
+            if (!_emag.CheckFlag(uid, EmagType.Interaction))
             {
                 _material.SpawnMultipleFromMaterial(_robustRandom.Next(1, (int) (clonePod.UsedBiomass / 2.5)), clonePod.RequiredMaterial, Transform(uid).Coordinates);
             }

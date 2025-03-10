@@ -8,6 +8,8 @@ using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Events;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Database;
+using Content.Shared.Emag.Systems;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Paper;
 using Robust.Shared.Map;
@@ -19,6 +21,7 @@ namespace Content.Server.Cargo.Systems
     public sealed partial class CargoSystem
     {
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+        [Dependency] private readonly EmagSystem _emag = default!;
 
         /// <summary>
         /// How much time to wait (in seconds) before increasing bank accounts balance.
@@ -39,6 +42,7 @@ namespace Content.Server.Cargo.Systems
             SubscribeLocalEvent<CargoOrderConsoleComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<CargoOrderConsoleComponent, InteractUsingEvent>(OnInteractUsing);
             SubscribeLocalEvent<CargoOrderConsoleComponent, BankBalanceUpdatedEvent>(OnOrderBalanceUpdated);
+            SubscribeLocalEvent<CargoOrderConsoleComponent, GotEmaggedEvent>(OnEmagged);
             Reset();
         }
 
@@ -60,6 +64,7 @@ namespace Content.Server.Cargo.Systems
             _audio.PlayPvs(component.ConfirmSound, uid);
             UpdateBankAccount(stationUid.Value, bank, (int) price);
             QueueDel(args.Used);
+            args.Handled = true;
         }
 
         private void OnInit(EntityUid uid, CargoOrderConsoleComponent orderConsole, ComponentInit args)
@@ -73,6 +78,17 @@ namespace Content.Server.Cargo.Systems
             _timer = 0;
         }
 
+        private void OnEmagged(Entity<CargoOrderConsoleComponent> ent, ref GotEmaggedEvent args)
+        {
+            if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+                return;
+
+            if (_emag.CheckFlag(ent, EmagType.Interaction))
+                return;
+
+            args.Handled = true;
+        }
+
         private void UpdateConsole(float frameTime)
         {
             _timer += frameTime;
@@ -83,9 +99,11 @@ namespace Content.Server.Cargo.Systems
             {
                 _timer -= Delay;
 
-                foreach (var account in EntityQuery<StationBankAccountComponent>())
+                var stationQuery = EntityQueryEnumerator<StationBankAccountComponent>();
+                while (stationQuery.MoveNext(out var uid, out var bank))
                 {
-                    account.Balance += account.IncreasePerSecond * Delay;
+                    var balanceToAdd = bank.IncreasePerSecond * Delay;
+                    UpdateBankAccount(uid, bank, balanceToAdd);
                 }
 
                 var query = EntityQueryEnumerator<CargoOrderConsoleComponent>();
@@ -175,10 +193,6 @@ namespace Content.Server.Cargo.Systems
             RaiseLocalEvent(ref ev);
             ev.FulfillmentEntity ??= station.Value;
 
-            _idCardSystem.TryFindIdCard(player, out var idCard);
-            // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
-            order.SetApproverData(idCard.Comp?.FullName, idCard.Comp?.JobTitle);
-
             if (!ev.Handled)
             {
                 ev.FulfillmentEntity = TryFulfillOrder((station.Value, stationData), order, orderDatabase);
@@ -194,21 +208,51 @@ namespace Content.Server.Cargo.Systems
             order.Approved = true;
             _audio.PlayPvs(component.ConfirmSound, uid);
 
-            var message = Loc.GetString("cargo-console-unlock-approved-order-broadcast",
-                ("productName", Loc.GetString(order.ProductName)),
-                ("orderAmount", order.OrderQuantity),
-                ("approver", order.Approver ?? string.Empty),
-                ("cost", cost));
-            _radio.SendRadioMessage(uid, message, component.AnnouncementChannel, uid, escapeMarkup: false);
+            if (!_emag.CheckFlag(uid, EmagType.Interaction))
+            {
+                var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(uid, player);
+                RaiseLocalEvent(tryGetIdentityShortInfoEvent);
+                order.SetApproverData(tryGetIdentityShortInfoEvent.Title);
+
+                var message = Loc.GetString("cargo-console-unlock-approved-order-broadcast",
+                    ("productName", Loc.GetString(order.ProductName)),
+                    ("orderAmount", order.OrderQuantity),
+                    ("approver", order.Approver ?? string.Empty),
+                    ("cost", cost));
+                _radio.SendRadioMessage(uid, message, component.AnnouncementChannel, uid, escapeMarkup: false);
+            }
+
             ConsolePopup(args.Actor, Loc.GetString("cargo-console-trade-station", ("destination", MetaData(ev.FulfillmentEntity.Value).EntityName)));
 
             // Log order approval
             _adminLogger.Add(LogType.Action, LogImpact.Low,
                 $"{ToPrettyString(player):user} approved order [orderId:{order.OrderId}, quantity:{order.OrderQuantity}, product:{order.ProductId}, requester:{order.Requester}, reason:{order.Reason}] with balance at {bank.Balance}");
 
+            var label = Spawn("PaperCargoInvoice", Transform(uid).Coordinates);
+
+            SetupInvoicePaper(label, order);
+
             orderDatabase.Orders.Remove(order);
-            DeductFunds(bank, cost);
+            UpdateBankAccount(station.Value, bank, -cost);
             UpdateOrders(station.Value);
+        }
+
+        private void SetupInvoicePaper(EntityUid uid, CargoOrderData order)
+        {
+            var val = Loc.GetString("cargo-console-paper-print-name", ("orderNumber", order.OrderId));
+            _metaSystem.SetEntityName(uid, val);
+
+            if (!TryComp<PaperComponent>(uid, out var paper))
+                return;
+
+            _paperSystem.SetContent((uid, paper), Loc.GetString(
+                "cargo-console-paper-print-text",
+                ("orderNumber", order.OrderId),
+                ("itemName", order.ProductName),
+                ("orderQuantity", order.OrderQuantity),
+                ("requester", order.Requester),
+                ("reason", order.Reason),
+                ("approver", order.Approver ?? string.Empty)));
         }
 
         private EntityUid? TryFulfillOrder(Entity<StationDataComponent> stationData, CargoOrderData order, StationCargoOrderDatabaseComponent orderDatabase)
@@ -528,11 +572,6 @@ namespace Content.Server.Cargo.Systems
 
             return true;
 
-        }
-
-        private void DeductFunds(StationBankAccountComponent component, int amount)
-        {
-            component.Balance = Math.Max(0, component.Balance - amount);
         }
 
         #region Station

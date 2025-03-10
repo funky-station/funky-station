@@ -1,0 +1,45 @@
+- type: trait
+  id: DrunkenResilience # Funky - Renamed Liqour Lifeline. Cheaper than 13 as its weaker, and a species trait. Maybe one day the moth grav-off and similar can be traits.
+  name: drunken-resilience-trait-name
+  description: drunken-resilience-trait-desc
+  category: Quirks
+  cost: 4
+  components:
+  - type: LiquorLifeline 
+  speciesRestrictions:
+  - Dwarf
+
+- type: trait
+  id: SelfAware
+  name: trait-self-aware-name
+  description: trait-self-aware-description
+  category: Quirks
+  cost: 8
+  components:
+  - type: SelfAware
+
+- type: trait
+  id: ClumsyTrait
+  name: trait-clumsy-name
+  description: trait-clumsy-description
+  category: Quirks
+  cost: -5 # Funky - Half of pacifist really, plus the tables.
+  components:
+  - type: Clumsy
+    gunShootFailDamage:
+      types:
+        Blunt: 5
+        Piercing: 4
+      groups:
+        Burn: 3
+
+- type: trait
+  id: Frail # Funky - Renamed from osteogenesis imperfecta
+  name: trait-frail-name
+  description: trait-frail-desc
+  category: Quirks
+  cost: -8 # Effectively a major combat debuff and survival debuff. Also the Pac-Frail combo shouldn't br higher than blindness.
+  components:
+  - type: BrittleBones
+  speciesRestrictions:
+  - IPC

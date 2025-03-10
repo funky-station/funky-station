@@ -1,0 +1,1 @@
+shuttle-dock-fail-revs = Central Command has received reports of unusual activity on the station. The shuttle has been returned to base as a precaution, and will not be usable until the situation has been resolved.

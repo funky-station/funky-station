@@ -17,12 +17,14 @@
 - type: speciesBaseSprites
   id: MobHumanSprites
   sprites:
+    Special: MobHumanoidAnyMarking
     Head: MobHumanHead
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
     Chest: MobHumanTorso
     Eyes: MobHumanoidEyes
+    HeadTop: MobHumanoidAnyMarking
     LArm: MobHumanLArm
     RArm: MobHumanRArm
     LHand: MobHumanLHand
@@ -32,11 +34,13 @@
     LFoot: MobHumanLFoot
     RFoot: MobHumanRFoot
     Tail: MobHumanoidAnyMarking # Goobstation - Required for felinids & harpies.
-    HeadTop: MobHumanoidAnyMarking # Goobstation - Required for felinids.
 
 - type: markingPoints
   id: MobHumanMarkingLimits
   points:
+    Special: # the cat ear joke
+      points: 0
+      required: false
     Hair:
       points: 1
       required: false
@@ -49,8 +53,8 @@
     Tail: # the cat tail joke
       points: 0
       required: false
-    HeadTop: # the cat ear joke
-      points: 0
+    HeadTop:
+      points: 1
       required: false
     Chest:
       points: 1
@@ -78,83 +82,83 @@
 - type: humanoidBaseSprite
   id: MobHumanHead
   baseSprite:
-    sprite: Mobs/Species/Human/parts.rsi
+    sprite: _Funkystation/Mobs/Species/Human/parts.rsi
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobHumanHeadMale
   baseSprite:
-    sprite: Mobs/Species/Human/parts.rsi
+    sprite: _Funkystation/Mobs/Species/Human/parts.rsi
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobHumanHeadFemale
   baseSprite:
-    sprite: Mobs/Species/Human/parts.rsi
+    sprite: _Funkystation/Mobs/Species/Human/parts.rsi
     state: head_f
 
 - type: humanoidBaseSprite
   id: MobHumanTorso
   baseSprite:
-    sprite: Mobs/Species/Human/parts.rsi
+    sprite: _Funkystation/Mobs/Species/Human/parts.rsi
     state: torso_m
 
 - type: humanoidBaseSprite
   id: MobHumanTorsoMale
   baseSprite:
-    sprite: Mobs/Species/Human/parts.rsi
+    sprite: _Funkystation/Mobs/Species/Human/parts.rsi
     state: torso_m
 
 - type: humanoidBaseSprite
   id: MobHumanTorsoFemale
   baseSprite:
-    sprite: Mobs/Species/Human/parts.rsi
+    sprite: _Funkystation/Mobs/Species/Human/parts.rsi
     state: torso_f
 
 - type: humanoidBaseSprite
   id: MobHumanLLeg
   baseSprite:
-    sprite: Mobs/Species/Human/parts.rsi
+    sprite: _Funkystation/Mobs/Species/Human/parts.rsi
     state: l_leg
 
 - type: humanoidBaseSprite
   id: MobHumanLArm
   baseSprite:
-    sprite: Mobs/Species/Human/parts.rsi
+    sprite: _Funkystation/Mobs/Species/Human/parts.rsi
     state: l_arm
 
 - type: humanoidBaseSprite
   id: MobHumanLHand
   baseSprite:
-    sprite: Mobs/Species/Human/parts.rsi
+    sprite: _Funkystation/Mobs/Species/Human/parts.rsi
     state: l_hand
 
 - type: humanoidBaseSprite
   id: MobHumanLFoot
   baseSprite:
-    sprite: Mobs/Species/Human/parts.rsi
+    sprite: _Funkystation/Mobs/Species/Human/parts.rsi
     state: l_foot
 
 - type: humanoidBaseSprite
   id: MobHumanRLeg
   baseSprite:
-    sprite: Mobs/Species/Human/parts.rsi
+    sprite: _Funkystation/Mobs/Species/Human/parts.rsi
     state: r_leg
 
 - type: humanoidBaseSprite
   id: MobHumanRArm
   baseSprite:
-    sprite: Mobs/Species/Human/parts.rsi
+    sprite: _Funkystation/Mobs/Species/Human/parts.rsi
     state: r_arm
 
 - type: humanoidBaseSprite
   id: MobHumanRHand
   baseSprite:
-    sprite: Mobs/Species/Human/parts.rsi
+    sprite: _Funkystation/Mobs/Species/Human/parts.rsi
     state: r_hand
 
 - type: humanoidBaseSprite
   id: MobHumanRFoot
   baseSprite:
-    sprite: Mobs/Species/Human/parts.rsi
+    sprite: _Funkystation/Mobs/Species/Human/parts.rsi
     state: r_foot

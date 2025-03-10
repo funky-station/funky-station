@@ -5,8 +5,8 @@
   id: MobFelinidBase
   abstract: true
   components:
-  - type: Sprite
-    scale: 0.8, 0.8
+  # - type: Sprite
+  #   scale: 0.8, 0.8 // funkystation - funky
   - type: HumanoidAppearance
     species: Felinid
   - type: Fixtures
@@ -25,6 +25,25 @@
     prototype: Felinid
   - type: Damageable
     damageModifierSet: Felinid
+  # Funkystation - felinids are hairless cats, so they take more cold damage.
+  - type: Temperature
+    heatDamageThreshold: 325
+    coldDamageThreshold: 285
+    currentTemperature: 310.15
+    specificHeat: 46
+    coldDamage:
+      types:
+        Cold: 0.1 #per second, scales with temperature & other constants
+  # Funkystation - same as lizard for now, could probably work on a rebalance
+  - type: TemperatureSpeed
+    thresholds:
+      301: 0.8
+      295: 0.6
+      285: 0.4
+  # Funkystation - cars get thirsty!
+  # TODO make it so felinids are only able to drink from sinks since cars irl do not drink still water
+  - type: Thirst
+    baseDecayRate: 0.12
   # Goobstation - Siouxcide, felinids have standard slow on damage numbers
 # - type: SlowOnDamage
 #   speedModifierThresholds:
@@ -51,27 +70,34 @@
     critThreshold: 75 # Goobstation - Siouxcide, felinids take 3 disabler shots to down
   - type: TypingIndicator
     proto: felinid
-  - type: PseudoItem
-    storedOffset: 0,17
-    shape:
-      - 0,0,1,4
-      - 0,2,3,4
-      - 4,0,5,4
+  # - type: PseudoItem
+  #   storedOffset: 0,17
+  #   shape:
+  #     - 0,0,1,4
+  #     - 0,2,3,4
+  #     - 4,0,5,4 // funkystation - no cars in bag
   - type: Vocal
     wilhelm: "/Audio/Nyanotrasen/Voice/Felinid/cat_wilhelm.ogg"
     sounds:
       Male: MaleFelinid
       Female: FemaleFelinid
       Unsexed: MaleFelinid
+  #- type: OwOAccent this is just like that book by jorjorwell... 1984
   - type: Felinid
   - type: NoShoesSilentFootsteps
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - FelinidEmotes
 
 - type: entity
   save: false
   name: Urist McHands
   parent: MobHumanDummy
   id: MobFelinidDummy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   description: A dummy felinid meant to be used in character setup.
   components:
   - type: HumanoidAppearance

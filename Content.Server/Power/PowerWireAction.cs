@@ -16,6 +16,7 @@
 using Content.Server.Electrocution;
 using Content.Shared.Electrocution;
 using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
 using Content.Server.Wires;
 using Content.Shared.Power;
 using Content.Shared.Wires;
@@ -76,15 +77,17 @@ public sealed partial class PowerWireAction : BaseWireAction
             return;
         }
 
+        var receiverSys = EntityManager.System<PowerReceiverSystem>();
+
         if (pulsed)
         {
-            power.PowerDisabled = true;
+            receiverSys.SetPowerDisabled(owner, true, power);
             return;
         }
 
         if (AllWiresCut(owner))
         {
-            power.PowerDisabled = true;
+            receiverSys.SetPowerDisabled(owner, true, power);
         }
         else
         {
@@ -94,7 +97,7 @@ public sealed partial class PowerWireAction : BaseWireAction
                 return;
             }
 
-            power.PowerDisabled = false;
+            receiverSys.SetPowerDisabled(owner, false, power);
         }
     }
 

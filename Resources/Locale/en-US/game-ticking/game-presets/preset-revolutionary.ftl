@@ -42,7 +42,7 @@ roles-antag-rev-objective = Your objective is to ensure the safety and follow th
 
 rev-break-control = {$name} has remembered their true allegiance!
 
-rev-lieutenant-greeting = 
+rev-lieutenant-greeting =
     You are a Revolutionary Lieutenant.
     You are able to see your comrades, but are unable to convert anyone.
     Lead your department and co-ordinate with your fellow revolutionaries and head revolutionaries.

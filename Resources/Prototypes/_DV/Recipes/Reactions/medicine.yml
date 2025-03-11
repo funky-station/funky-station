@@ -4,7 +4,7 @@
   reactants:
     Iron:
       amount: 2
-    Traumoxadone:
+    Cryoxadone:
       amount: 1
     Blood:
       amount: 1
@@ -18,7 +18,7 @@
   reactants:
     Copper:
       amount: 2
-    Traumoxadone:
+    Cryoxadone:
       amount: 1
     CopperBlood:
       amount: 1

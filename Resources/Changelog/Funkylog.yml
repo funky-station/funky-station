@@ -1,3 +1,5 @@
+Name: Funkylog
+Order: -1
 Entries:
 - author: Petally
   changes:
@@ -1708,7 +1710,7 @@ Entries:
     - type: Tweak
       message: >-
         Nuclear Operatives are given proper titles (Agent, Operative, Commander)
-        roundstart 
+        roundstart
   id: 213
   time: '2025-02-24T01:49:04.0000000+00:00'
 - author: ' Miiish, GtheGlorious'
@@ -1718,13 +1720,13 @@ Entries:
   id: 214
   time: '2025-02-24T05:31:29.0000000+00:00'
 - author: corresp0nd
-  changes: 
+  changes:
     - type: Fix
       message: The SM now produces Pluoxium again.
   id: 215
   time: '2025-02-26T18:43:31.0000000+00:00'
 - author: mkanke-real
-  changes: 
+  changes:
     - type: Add
       message: Added SM monitor console and courthouse to Roid!
   id: 216
@@ -1736,7 +1738,7 @@ Entries:
   id: 217
   time: '2025-02-26T18:45:37.0000000+00:00'
 - author: Icepicked
-  changes: 
+  changes:
     - type: Add
       message: The Progression Cloak has been added!
     - type: Tweak
@@ -1744,7 +1746,7 @@ Entries:
   id: 218
   time: '2025-02-27T01:13:32.0000000+00:00'
 - author: AverageMoron
-  changes: 
+  changes:
     - type: Tweak
       message: Changed evil corgium descriptor to inverted.
   id: 219
@@ -1788,7 +1790,7 @@ Entries:
   id: 224
   time: '2025-03-02T18:49:21.0000000+00:00'
 - author: kbarkevich
-  changes: 
+  changes:
     - type: Tweak
       message: Re-strengthened disablers.
   id: 225
@@ -1804,7 +1806,7 @@ Entries:
   id: 226
   time: '2025-03-03T22:01:13.0000000+00:00'
 - author: Miiish
-  changes: 
+  changes:
     - type: Add
       message: >-
         Bartender has seven new drinks to make: Eggnog, Spiked Eggnog,
@@ -1831,7 +1833,7 @@ Entries:
   id: 229
   time: '2025-03-07T05:54:35.0000000+00:00'
 - author: 88tv
-  changes: 
+  changes:
     - type: Add
       message: >-
         Added the centcom towel to the trinkets list, a playtime reward for central
@@ -1855,14 +1857,14 @@ Entries:
   id: 232
   time: '2025-03-09T03:09:03.0000000+00:00'
 - author: shakulan
-  changes: 
+  changes:
     - type: Add
       message: Added typicalDay lobby art.
   id: 233
   time: '2025-03-10T04:12:24.0000000+00:00'
 - author: Middleson
   changes:
-    - type: Add 
+    - type: Add
       message: Added Red Performer's Jumpskirt and Boots!
   id: 234
   time: '2025-03-10T04:12:54.0000000+00:00'
@@ -1890,5 +1892,9 @@ Entries:
       message: Cats are no longer blueberries
   id: 237
   time: '2025-03-10T04:49:01.0000000+00:00'
-Name: Funkylog
-Order: -1
+- author: taydeo
+  changes:
+  - type: Remove
+    message: Changeling Biomass no longer drains.
+  id: 238
+  time: '2025-03-11T04:49:01.0000000+00:00'

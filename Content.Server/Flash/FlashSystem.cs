@@ -140,11 +140,11 @@ namespace Content.Server.Flash
 
             if (displayPopup && user != null && target != user && Exists(user.Value))
             {
-                _popup.PopupEntity(Loc.GetString("flash-component-user-blinds-you",
+                _popup.PopupEntity(Loc.GetString("flash-component-user-bAlinds-you",
                     ("user", Identity.Entity(user.Value, EntityManager))), target, target);
             }
 
-            if (melee || revFlash)
+            if (melee)
             {
                 if (user == null)
                     return;
@@ -155,9 +155,6 @@ namespace Content.Server.Flash
                 var ev = new AfterFlashedEvent(target, user, used);
                 RaiseLocalEvent(user.Value, ref ev);
                 RaiseLocalEvent(used.Value, ref ev);
-
-                _popup.PopupEntity(Loc.GetString("flash-component-user-head-rev",
-                        ("victim", Identity.Entity(target, EntityManager))), target);
             }
         }
 

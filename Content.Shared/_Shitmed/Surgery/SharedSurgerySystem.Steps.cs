@@ -178,6 +178,9 @@ public abstract partial class SharedSurgerySystem
                 RaiseLocalEvent(args.Body, ref ev);
             }
         }
+
+        var dirtinessEv = new Content.Shared._DV.Surgery.SurgeryDirtinessEvent(args.User, args.Part, args.Tools, args.Step); // DeltaV: surgery cross contamination
+        RaiseLocalEvent(args.Body, ref dirtinessEv); // DeltaV: surgery cross contamination
     }
 
     private void OnToolCheck(Entity<SurgeryStepComponent> ent, ref SurgeryStepCompleteCheckEvent args)
@@ -281,6 +284,9 @@ public abstract partial class SharedSurgerySystem
             while (containerSlotEnumerator.MoveNext(out var containerSlot))
             {
                 if (!containerSlot.ContainedEntity.HasValue)
+                    continue;
+
+                if (_tagSystem.HasTag(containerSlot.ContainedEntity.Value, "PermissibleForSurgery")) // DeltaV: allow some clothing items to be operated through
                     continue;
 
                 args.Invalid = StepInvalidReason.Armor;

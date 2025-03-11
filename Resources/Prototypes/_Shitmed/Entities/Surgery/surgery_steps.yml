@@ -24,7 +24,7 @@
     damage:
       types:
         #Bloodloss: 10 # DeltaV
-        Slash: 12 # DeltaV
+        Slash: 10 # Funky - was 12
     sleepModifier: 0.5
   - type: SurgeryStepEmoteEffect
 
@@ -89,7 +89,7 @@
     sleepModifier: 0.25 # Highly invasive, large damage if the patient is wriggling around
     damage:
       types:
-        Slash: 20
+        Slash: 15 # funky - was 20
 
 - type: entity
   parent: SurgeryStepBase
@@ -110,7 +110,7 @@
     sleepModifier: 0.25 # Highly invasive, large damage if the patient is wriggling around
     damage:
       types:
-        Blunt: 15
+        Blunt: 10 # funky was 15
 
 #- type: entity
 #  parent: SurgeryStepBase
@@ -333,7 +333,7 @@
     sleepModifier: 0.25
     damage:
       types:
-        Slash: 30
+        Slash: 15 # funky was 30
   - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
     toolDirtiness: 7.5
     gloveDirtiness: 7.5
@@ -454,7 +454,7 @@
     sleepModifier: 0.25 # Highly invasive, huge damage if the patient is wriggling around
     damage:
       types:
-        Blunt: 40
+        Blunt: 20 # funky was 40
 
 - type: entity
   parent: SurgeryStepBase
@@ -492,7 +492,7 @@
     sleepModifier: 0.15 # Maints organ transplants are BAD
     damage:
       types:
-        Slash: 50
+        Slash: 25 # funky was 50
   - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
     toolDirtiness: 7.5
     gloveDirtiness: 7.5

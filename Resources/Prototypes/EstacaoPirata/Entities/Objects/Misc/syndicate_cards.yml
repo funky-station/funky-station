@@ -8,6 +8,11 @@
       backSpriteLayers:
       - sprite: EstacaoPirata/Objects/Misc/cards.rsi
         state: singlecard_down_syndicate
+    - type: DamageOtherOnHit
+      damage:
+        types:
+          Slash: 5
+      sound: /Audio/Weapons/bladeslice.ogg
 
 - type: entity
   parent: CardBoxBase

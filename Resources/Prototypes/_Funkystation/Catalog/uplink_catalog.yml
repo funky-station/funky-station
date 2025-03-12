@@ -55,7 +55,7 @@
   icon: { sprite:  Clothing/Head/Hats/bowler_hat.rsi, state: icon}
   productEntity: ClothingHeadHatBowlerHatRazor
   cost:
-    Telecrystal: 2
+    Telecrystal: 7
   categories:
   - UplinkWeaponry
   saleLimit: 1

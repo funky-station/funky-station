@@ -23,6 +23,17 @@
   objectType: Item
 
 - type: construction
+  name: yellow light tube
+  id: YellowLight
+  graph: YellowLight
+  startNode: start
+  targetNode: icon
+  category: construction-category-utilities
+  description: A high powered light tube containing a yellow crystal
+  icon: { sprite: Objects/Power/light_tube.rsi, state: normal }
+  objectType: Item
+
+- type: construction
   id: PinkLight
   graph: PinkLight
   startNode: start
@@ -44,6 +55,17 @@
   startNode: start
   targetNode: icon
   category: construction-category-utilities
+  objectType: Item
+
+- type: construction
+  name: black light tube
+  id: BlackLight
+  graph: BlackLight
+  startNode: start
+  targetNode: icon
+  category: construction-category-utilities
+  description: A high powered light tube containing a black crystal. It won't be very bright.
+  icon: { sprite: Objects/Power/light_tube.rsi, state: normal }
   objectType: Item
 
 - type: construction
@@ -87,6 +109,17 @@
   objectType: Item
 
 - type: construction
+  name: yellow light bulb
+  id: YellowLightBulb
+  graph: YellowLightBulb
+  startNode: start
+  targetNode: icon
+  category: construction-category-utilities
+  description: A high powered light bulb containing a yellow crystal.
+  icon: { sprite: Objects/Power/light_bulb.rsi, state: normal }
+  objectType: Item
+
+- type: construction
   id: PinkLightBulb
   graph: PinkLightBulb
   startNode: start
@@ -100,6 +133,17 @@
   startNode: start
   targetNode: icon
   category: construction-category-utilities
+  objectType: Item
+
+- type: construction
+  name: black light bulb
+  id: BlackLightBulb
+  graph: BlackLightBulb
+  startNode: start
+  targetNode: icon
+  category: construction-category-utilities
+  description: A high powered light bulb containing a black crystal. It won't be very bright.
+  icon: { sprite: Objects/Power/light_bulb.rsi, state: normal }
   objectType: Item
 
 - type: construction

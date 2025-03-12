@@ -1,6 +1,6 @@
 - type: entity
-  id: boombox
-  name: Boombox
+  id: Boombox
+  name: boombox
   parent: BaseItem
   description: Grooves on the go!
   components:
@@ -22,13 +22,16 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
+  - type: ToggleCellDraw
+  - type: PowerCellDraw
+  - type: ItemToggle
   - type: Jukebox
     onState: on
     offState: off
     selectState: select
+    needsBattery: true
   - type: ActivatableUI
     key: enum.JukeboxUiKey.Key
-  - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
       enum.JukeboxUiKey.Key:
@@ -55,9 +58,9 @@
     board: BoomBoxCircuitboard
 
 - type: entity
-  id: boomboxred
-  name: Red Boombox
-  parent: boombox
+  id: BoomboxRed
+  name: red boombox
+  parent: Boombox
   components:
   - type: Item
     size: Ginormous
@@ -73,9 +76,9 @@
     - suitStorage
 
 #- type: entity
-#  id: boomboxblue
-#  name: Blue Boombox
-#  parent: boombox
+#  id: BoomboxBlue
+#  name: blue boombox
+#  parent: Boombox
 #  components:
 # - type: Item
 #    size: Ginormous
@@ -91,9 +94,9 @@
 #    - suitStorage
 
 #- type: entity
-#  id: boomboxpink
-#  name: Pink Boombox
-#  parent: boombox
+#  id: BoomboxPink
+#  name: pink boombox
+#  parent: Boombox
 #  components:
 #  - type: Item
 #    size: Ginormous

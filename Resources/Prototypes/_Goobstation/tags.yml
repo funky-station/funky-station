@@ -131,6 +131,9 @@
   id: CartridgeEpinephrine
 
 - type: Tag
+  id: Jetpack
+
+- type: Tag
   id: RoundstartAntag
 
 - type: Tag

@@ -32,9 +32,33 @@ The [bold]Study Veil[/bold] ability allows a cultist to hear [color=#ff3333]the 
 
 The [bold]Prepare Spell[/bold] ability allows [color=#ff3333]your patron[/color] to reach forth and carve [bold]Blood Spell[/bold] sigils onto your flesh. Only one blood spell may be prepared at a time, unless the user is standing atop an [color=#ff6666]empowering rune[/color].
 
+## Blood Spells
+
+Blood spells are incantations that must be physically carved into the invoker's skin by a [color=#ff3333]higher entity[/color] prior to their use. Fortunately for you, as the veil is thin in this sector of space, [color=#ff3333]your Patron[/color] is capable of reaching forth and etching the appropriate sigils onto your person without your hands needing to be free or unrestrained. Without the aid of an [color=#ff6666]empowering rune[/color], however, the carving will have to be a crude one, and there may only be enough room on your body for one sigil at a time.
+
+  <Box>
+    <GuideEntityEmbed Entity="ActionCultistSummonDagger" Caption="Summon Dagger"/>
+  </Box>
+
+The summon dagger spell allows a cultist to instantly grant themselves a new cult dagger (both a weapon and a rune-carving tool). This spell is useful for new devotees and those who have lost their old daggers.
+
+  <Box>
+    <GuideEntityEmbed Entity="ActionCultistStun" Caption="Stun"/>
+  </Box>
+
+The stun spell will temporarilly knock over, drain the stamina of, silence, and mark a victim. [bold]A marked victim may be struck once with a cult dagger to enhance the effects of a stun.[/bold] This spell may also be used to EMP Cyborgs.
+
+This spell may permit you to silently and more efficiently kidnap those your cult requires, giving you ample time to strip them of their suit coordinates and communications headset prior to abduction. It is recommended that all cultists keep a stun spell prepared when roaming beyond their selected base of operations, [bold]just in case.[/bold]
+
+  <Box>
+    <GuideEntityEmbed Entity="ActionCultistTwistedConstruction" Caption="Twisted Construction"/>
+  </Box>
+
+The twisted construction spell allows cultists to convert stacks of plasteel into [color=#bbbbbb]runed metal[/color].
+
 ## Runes
 
-Your bread-and-butter as a cultist are your [color=#ff6666]Runes.[/color] These sigils, painted in your own wrist's blood, allow acolytes to draw upon the power of [color=#ff3333]Nar'Sie[/color] at a concentrated physical location.
+Your bread-and-butter as a cultist are your [color=#ff6666]Runes.[/color] These sigils, painted in your own wrist's blood using a cult dagger, allow acolytes to draw upon the power of [color=#ff3333]Nar'Sie[/color] at a concentrated physical location.
 
   <Box>
     <GuideEntityEmbed Entity="OfferingRune" Caption="the"/>
@@ -73,30 +97,6 @@ The [bold][color=#ff6666]revive rune[/color][/bold] may be used by cultists to a
   </Box>
 
 The [bold][color=#ff6666]barrier rune[/color][/bold] allows the [color=#ff3333]Geometer[/color] to physically defend [color=#ff3333]Her[/color] followers through the use of magical barriers. When activated, an impenetrable forcefield will temporarily manifest above it, and any adjacent [color=#ff3333]barrier runes[/color] will be activated as well. There is no limit to the length of this chain, save for the fortitude of the invoker -- their blood will be drained for the ritual at a rate determined by the number of barriers produced.
-
-## Blood Spells
-
-Blood spells are incantations that must be physically carved into the invoker's skin by a [color=#ff3333]higher entity[/color] prior to their use. Fortunately for you, as the veil is thin in this sector of space, [color=#ff3333]your Patron[/color] is capable of reaching forth and etching the appropriate sigils onto your person without your hands needing to be free or unrestrained. Without the aid of an [color=#ff6666]empowering rune[/color], however, the carving will have to be a crude one, and there may only be enough room on your body for one sigil at a time.
-
-  <Box>
-    <GuideEntityEmbed Entity="ActionCultistSummonDagger" Caption="Summon Dagger"/>
-  </Box>
-
-The summon dagger spell allows a cultist to instantly grant themselves a weapon and a rune-carving tool. Useful for new devotees and those who have lost their old daggers.
-
-  <Box>
-    <GuideEntityEmbed Entity="ActionCultistStun" Caption="Stun"/>
-  </Box>
-
-The stun spell will temporarilly knock over, drain the stamina of, silence, and mark a victim. A marked victim may be struck once with a cult dagger to enhance the effects of a stun. This spell may also be used to EMP Cyborgs.
-
-This spell may permit you to silently and more efficiently kidnap those your cult requires, giving you ample time to strip them of their suit coordinates and communications headset prior to abduction. It is recommended that all cultists keep a stun spell prepared when roaming beyond their selected base of operations, [bold]just in case.[/bold]
-
-  <Box>
-    <GuideEntityEmbed Entity="ActionCultistTwistedConstruction" Caption="Twisted Construction"/>
-  </Box>
-
-The twisted construction spell allows cultists to convert stacks of plasteel into [color=#bbbbbb]runed metal[/color].
 
 ## Structures
 

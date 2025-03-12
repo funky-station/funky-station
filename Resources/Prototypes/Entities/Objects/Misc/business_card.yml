@@ -27,7 +27,4 @@
       damage:
         types:
           Slash: 2
-    - type: EmbeddableProjectile
-      removalTime: 0.1
       sound: /Audio/Weapons/bladeslice.ogg
-

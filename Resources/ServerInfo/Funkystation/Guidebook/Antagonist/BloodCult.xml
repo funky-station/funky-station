@@ -75,10 +75,14 @@ The most important runes you have available are the [color=#ff6666]offering rune
     <GuideEntityEmbed Entity="OfferingRune" Caption="offering rune"/>
   </Box>
 
-The [bold][color=#ff6666]offering rune[/color][/bold] allows cultists to convert the weak-minded to their cause as well as sacrifice the dead, the mindshielded, and those whose souls the [color=#ff3333]Geometer[/color] desires.
-- [color=#99CC99]Sacrificing[/color] an unimportant dead person is a simple task, and can be performed by as few as a single acolyte. To accomplish this, merely drag the dead person's body, severed head, or brain onto an [color=#ff6666]offering rune[/color], then activate the rune by clicking it with an empty hand or by pressing E on it. Performing this ritual will trap the victim's soul in a soul stone, which may be found among the blood and offal atop the rune.
-- [color=#EEEE33]Converting[/color] a living, weak-minded individual to your cause -- an individual who is not mindshielded, not a Chaplain, and not the [color=#dd55aa]target[/color] designated by your [color=#ff3333]master[/color] -- is marginally more complex in its execution than sacrificing an insignificant crewmember. The victim must be dragged onto the [color=#ff6666]offering rune[/color] while still alive. At least [bold]two (2)[/bold] cultists must stand on the tiles adjacent to the [color=#ff6666]rune[/color] before activating it. A successful ritual will produce a new acolyte to the [color=#ff3333]Geometer[/color] and significantly replenish their health.
-- [color=#99CC99]Sacrificing[/color] your [color=#dd55aa]target[/color] -- a crewmember whose identity may be told to you by the [color=#ff3333]Geometer[/color] herself through the use of the [bold]Study Veil[/bold] ability -- is a similar process to [color=#99CC99]sacrificing[/color] an unimportant crewmember. However, as this [color=#dd55aa]individual[/color] possesses a soul of surpassing might, [bold]three (3)[/bold] cultists must be standing around the [color=#ff6666]rune[/color] to perform the ritual. If successful, the veil will be weakened, and you will be given a new [color=#dd55aa]assignment[/color].
+The [bold][color=#ff6666]offering rune[/color][/bold] allows cultists to [color=#EEEE33]convert[/color] the weak-minded to their cause as well as [color=#99CC99]sacrifice[/color] the dead, the mindshielded, and [color=#dd55aa]those whose souls the[/color] [color=#ff3333]Geometer[/color] [color=#dd55aa]desires[/color].
+
+The offering rune may be invoked by dragging a victim onto the rune, gathering the required number of cultists onto the eight (8) tiles surrounding the rune, and then activating the rune by clicking it with an empty hand or pressing E on it. However, the effect that the rune will have will change depending on whether your victim is dead, mindshielded, or your [color=#dd55aa]target[/color].
+
+- If the victim is dead (or simply a head/brain), mindshielded, or your [color=#dd55aa]target[/color], the victim will be gibbed and [color=#99CC99]sacrificed[/color], producing a soul stone containing their trapped soul. If the victim is your designated [color=#dd55aa]target[/color], this will require [bold]three (3)[/bold] cultists or constructs to be present on the tiles surrounding the rune; otherwise, this can be done [bold]alone[/bold].
+- If the victim is alive, not your [color=#dd55aa]target[/color], [bold]and unmindshielded[/bold], the victim will be [color=#EEEE33]converted[/color] into a brand-new Blood Cultist. [color=#EEEE33]Converting[/color] a victim requires [bold]two (2)[/bold] cultists or constructs to be standing on the tiles surrounding the rune.
+
+Once a [color=#dd55aa]target[/color] is sacrificed, the veil will be weakened, and you will be given a new [color=#dd55aa]assignment[/color].
 
   <Box>
     <GuideEntityEmbed Entity="EmpoweringRune" Caption="empowering rune"/>
@@ -147,7 +151,7 @@ As the cult expands, the situation aboard the station will pass through several 
 
 The only known method of deconverting a blood cultist is through the forced imbibement of [color=#4466ff]holy water[/color] (at least 40u).
 
-Your Chaplain, a holy being, is largely immune to the more [italic]persuasive[/italic] aspects of the blood cult's methods, and is the only crewmember who may be trusted absolutely once the cult's presence is known. Chaplains are also resistant to blood magic and cult-manufactured weaponry, rendering the offensive abilities of most cultists useless against them -- unless the cultists resort to more traditional methods of attack.
+Your Chaplain, a holy being, is incapable of being [color=#EEEE33]converted[/color] or [color=#99CC99]sacrificed[/color] and is the only crewmember who may be trusted absolutely once the cult's presence is known. Chaplains are also highly resistant to blood magic and cult-manufactured weaponry, rendering the offensive abilities of most cultists useless against them -- unless the cultists resort to more traditional methods of attack.
 
 Protect the Chaplain, for their holy water is the only thing that stands between you and [bold][color=#ff3333]consumption[/color][/bold].
 

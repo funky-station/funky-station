@@ -27,4 +27,5 @@
       damage:
         types:
           Slash: 10
-      sound: /Audio/Weapons/bladeslice.ogg
+      soundHit:
+        path: /Audio/Weapons/bladeslice.ogg

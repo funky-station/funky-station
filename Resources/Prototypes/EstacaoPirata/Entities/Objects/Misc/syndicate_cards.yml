@@ -12,7 +12,8 @@
       damage:
         types:
           Slash: 5
-      sound: /Audio/Weapons/bladeslice.ogg
+      soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
 
 - type: entity
   parent: CardBoxBase

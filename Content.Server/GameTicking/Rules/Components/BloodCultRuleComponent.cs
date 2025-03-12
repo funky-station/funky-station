@@ -65,6 +65,11 @@ public sealed partial class BloodCultRuleComponent : Component
 	[DataField] public List<EntityUid> TargetsDown = new List<EntityUid>();
 
 	/// <summary>
+	/// Unique cultists throughout the round
+	/// </summary>
+	[DataField] public List<EntityUid> ConvertedMinds = new List<EntityUid>();
+
+	/// <summary>
 	///	Conversions needed until glowing eyes -- set when cult is initialized.
 	/// </summary>
 	[DataField] public int ConversionsUntilEyes = 0;

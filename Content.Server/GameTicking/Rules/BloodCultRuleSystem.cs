@@ -285,8 +285,13 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				}
 			}
 
+			// set their faction loyalties
 			_npcFaction.RemoveFaction(traitor, NanotrasenFactionId, false);
 			_npcFaction.AddFaction(traitor, BloodCultistFactionId);
+
+			// add them to the list of unique cultists this round, if they are not already in it
+			if (!component.ConvertedMinds.Contains(mindId))
+				component.ConvertedMinds.Add(mindId);
 
 			return true;
 		}
@@ -614,7 +619,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			args.AddLine(Loc.GetString("cult-roundend-victory"));
 		else
 			args.AddLine(Loc.GetString("cult-roundend-failure"));
-		args.AddLine(Loc.GetString("cult-roundend-count", ("count", cultists.Count.ToString())));
+		args.AddLine(Loc.GetString("cult-roundend-count", ("count", component.ConvertedMinds.Count)));
 		args.AddLine(Loc.GetString("cult-roundend-sacrifices", ("sacrifices", component.TotalSacrifices.ToString())));
     }
 

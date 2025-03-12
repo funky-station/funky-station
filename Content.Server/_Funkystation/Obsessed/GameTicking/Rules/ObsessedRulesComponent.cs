@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Prototypes;
+﻿using Content.Server._Funkystation.Obsessed.GameTicking;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking.Rules.Components;
 

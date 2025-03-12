@@ -1,17 +1,17 @@
-﻿using Content.Server.Antag;
+﻿using System.Text;
+using Content.Server.Antag;
+using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
-using Content.Server.Roles;
 using Content.Shared.Changeling;
+using Content.Shared.Obsessed;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
-using System.Text;
-using Content.Shared.Obsessed;
 
-namespace Content.Server.GameTicking.Rules;
+namespace Content.Server._Funkystation.Obsessed.GameTicking;
 
-public sealed partial class ObsessedRuleSystem : GameRuleSystem<ObsessedRuleComponent>
+public sealed class ObsessedRuleSystem : GameRuleSystem<ObsessedRuleComponent>
 {
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;

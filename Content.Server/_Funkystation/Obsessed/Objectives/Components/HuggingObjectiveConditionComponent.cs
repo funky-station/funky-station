@@ -1,4 +1,5 @@
-﻿using Content.Server._Funkystation.Obsessed.Objectives.Systems;
+﻿using Content.Server._Funkystation.Obsessed.GameTicking;
+using Content.Server._Funkystation.Obsessed.Objectives.Systems;
 using Content.Server.GameTicking.Rules;
 
 namespace Content.Server._Funkystation.Obsessed.Objectives.Components;

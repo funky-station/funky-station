@@ -20,7 +20,7 @@ public sealed partial class ObsessedRuleSystem : GameRuleSystem<ObsessedRuleComp
 
     private readonly ObsessedRuleComponent _rules = default!;
 
-    public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/Funkystation/Ambience/angels_harp_sound.ogg");
+    public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Funkystation/Ambience/obsessed.ogg");
 
     public override void Initialize()
     {

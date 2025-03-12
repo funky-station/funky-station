@@ -175,7 +175,11 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		}
 
 		// Fourth, raise an event to place a rune here.
-		var rune = Spawn(ent.Comp.InProgress, location);
+		if (!_protoMan.TryIndex<EntityPrototype>(ent.Comp.Rune, out var entProto) || entProto == null)
+			return;  // The rune's prototype does not exist.
+		if (!entProto.TryGetComponent<BloodCultRuneComponent>(out BloodCultRuneComponent? runeComp) || runeComp == null)
+			return;  // The prototype does not have a rune component.
+		var rune = Spawn(runeComp.InProgress, location);
 		var dargs = new DoAfterArgs(EntityManager, args.User, timeToCarve, new DrawRuneDoAfterEvent(
 			ent, rune, location, ent.Comp.Rune, ent.Comp.BleedOnCarve, ent.Comp.CarveSound), args.User
 		)

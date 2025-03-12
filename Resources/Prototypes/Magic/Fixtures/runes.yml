@@ -1,5 +1,19 @@
 ﻿# Blood Cult Runes
 - type: entity
+  id: BaseBloodCultDrawingRune
+  name: "rune"
+  description: It's being smeared in blood!
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Sprite
+      sprite: _Funkystation/Structures/BloodCult/bloodrune.rsi
+      layers:
+        - state: revive_drawing
+          color: '#FF00FF'
+
+- type: entity
   id: BaseBloodCultRune
   name: "rune"
   description: It looks to have been smeared in blood...
@@ -64,10 +78,23 @@
           color: '#FF3300CC'
 
 - type: entity
+  parent: BaseBloodCultDrawingRune
+  id: ReviveDrawingRune
+  name: revive rune
+  components:
+    - type: Sprite
+      sprite: _Funkystation/Structures/BloodCult/bloodrune.rsi
+      layers:
+        - state: revive_drawing
+          color: '#FF4400FF'
+
+- type: entity
   parent: BaseBloodCultRune
   id: ReviveRune
   name: "revive rune"
   components:
+    - type: BloodCultRune
+      inProgress: ReviveDrawingRune
     - type: ReviveCultistOnTrigger
     - type: Sprite
       #sprite: Structures/Magic/Cult/trap.rsi
@@ -109,10 +136,23 @@
           color: '#FF3300CC'
 
 - type: entity
+  parent: BaseBloodCultDrawingRune
+  id: TearVeilDrawingRune
+  name: tear veil rune
+  components:
+    - type: Sprite
+      sprite: _Funkystation/Structures/BloodCult/narsierune.rsi
+      layers:
+        - state: drawing
+          color: '#FF4400FF'
+
+- type: entity
   parent: BaseBloodCultRune
   id: TearVeilRune
   name: tear veil rune
   components:
+    - type: BloodCultRune
+      inProgress: TearVeilDrawingRune
     - type: TearVeil
     - type: Sprite
       sprite: _Funkystation/Structures/BloodCult/narsierune.rsi

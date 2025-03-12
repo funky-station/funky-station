@@ -1,7 +1,7 @@
-﻿using Content.Server.Objectives.Systems;
+﻿using Content.Server._Funkystation.Obsessed.Objectives.Systems;
 using Content.Server.GameTicking.Rules;
 
-namespace Content.Server.Objectives.Components;
+namespace Content.Server._Funkystation.Obsessed.Objectives.Components;
 
 [RegisterComponent, Access(typeof(ObsessedHuggingSystem), typeof(ObsessedRuleSystem))]
 public sealed partial class HuggingObjectiveConditionComponent : Component

@@ -1,6 +1,7 @@
-﻿using Content.Server.Objectives.Systems;
+﻿using Content.Server._Funkystation.Obsessed.Objectives.Systems;
+using Content.Server.Objectives.Systems;
 
-namespace Content.Server.Funkystation.Objectives.Components;
+namespace Content.Server._Funkystation.Obsessed.Objectives.Components;
 
 [RegisterComponent, Access(typeof(KeepAliveConditionSystem), typeof(ObsessedHuggingSystem))]
 public sealed partial class ObsessedPersistentTargetComponent : Component

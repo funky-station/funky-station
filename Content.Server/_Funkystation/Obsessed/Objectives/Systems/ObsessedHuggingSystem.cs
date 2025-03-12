@@ -1,4 +1,4 @@
-﻿using Content.Server.Funkystation.Objectives.Components;
+﻿using Content.Server._Funkystation.Obsessed.Objectives.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;

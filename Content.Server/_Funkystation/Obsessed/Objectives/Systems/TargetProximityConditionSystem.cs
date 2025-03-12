@@ -19,17 +19,17 @@ public sealed class TargetProximityConditionSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<TargetProximityConditionComponent, ObjectiveAfterAssignEvent>(OnProximityAssign);
-        SubscribeLocalEvent<TargetProximityConditionComponent, ObjectiveGetProgressEvent>(OnProximityCheck);
+        SubscribeLocalEvent<Components.TargetProximityConditionComponent, ObjectiveAfterAssignEvent>(OnProximityAssign);
+        SubscribeLocalEvent<Components.TargetProximityConditionComponent, ObjectiveGetProgressEvent>(OnProximityCheck);
 
         SubscribeLocalEvent<ObsessedComponent, PlayerProximityEvent>(UpdateProgress);
     }
 
-    private void OnProximityAssign(EntityUid uid, TargetProximityConditionComponent component, ref ObjectiveAfterAssignEvent args)
+    private void OnProximityAssign(EntityUid uid, Components.TargetProximityConditionComponent component, ref ObjectiveAfterAssignEvent args)
     {
     }
 
-    private void OnProximityCheck(EntityUid uid, TargetProximityConditionComponent component, ref ObjectiveGetProgressEvent args)
+    private void OnProximityCheck(EntityUid uid, Components.TargetProximityConditionComponent component, ref ObjectiveGetProgressEvent args)
     {
         if (_number.GetTarget(uid) == 0)
             args.Progress = 1f;

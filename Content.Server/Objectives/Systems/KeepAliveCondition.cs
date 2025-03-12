@@ -5,8 +5,8 @@ using Content.Shared.Objectives.Components;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Server._Funkystation.Obsessed.Objectives.Components;
 using Content.Server.Funkystation.Components;
-using Content.Server.Funkystation.Objectives.Components;
 using Content.Server._Goobstation.Objectives.Components;
 
 namespace Content.Server.Objectives.Systems;

@@ -13,7 +13,7 @@ public abstract class SharedBloodCultistSystem : EntitySystem
         base.Initialize();
 
 		SubscribeLocalEvent<BloodCultistComponent, ComponentGetStateAttemptEvent>(OnCultistCompGetStateAttempt);
-		SubscribeLocalEvent<BloodCultistComponent, ComponentStartup>(DirtyRevComps);
+		SubscribeLocalEvent<BloodCultistComponent, ComponentStartup>(DirtyCultComps);
 	}
 
 	/// <summary>
@@ -39,7 +39,7 @@ public abstract class SharedBloodCultistSystem : EntitySystem
         return HasComp<ShowAntagIconsComponent>(uid);
     }
 
-    private void DirtyRevComps<T>(EntityUid someUid, T someComp, ComponentStartup ev)
+    private void DirtyCultComps<T>(EntityUid someUid, T someComp, ComponentStartup ev)
     {
         var cultComps = AllEntityQuery<BloodCultistComponent>();
         while (cultComps.MoveNext(out var uid, out var comp))
@@ -48,6 +48,8 @@ public abstract class SharedBloodCultistSystem : EntitySystem
         }
     }
 }
+
+#region Commune
 
 [Serializable, NetSerializable]
 public enum BloodCultistCommuneUIKey : byte
@@ -76,6 +78,8 @@ public sealed class BloodCultCommuneSendMessage : BoundUserInterfaceMessage
         Message = message;
     }
 }
+
+#endregion
 
 /// <summary>
 ///    Called when a revive rune is used on the target. Revives the target if

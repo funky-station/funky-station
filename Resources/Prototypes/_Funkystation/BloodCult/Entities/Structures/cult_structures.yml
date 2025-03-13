@@ -85,12 +85,50 @@
         - MachineLayer
 
 - type: entity
+  id: CultStorePreset
+  abstract: true
+  components:
+  - type: CultStore
+  - type: Store
+    name: Cult Store
+    #categories:
+    balance:
+      CultPoint: 50
+    currencyWhitelist:
+    - CultPoint
+    #accountOwner:
+    #listings:
+    #lastAvailableListings:
+    #boughtEntities:
+    #balanceSpent:
+    refundAllowed: false
+    #ownerOnly:
+    #startingMap:
+    sales:
+      enabled: false
+    #buySuccessSound:
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+    #inHandsOnly: true
+    singleUser: true
+    blockSpectators: true
+    verbOnly: false
+    verbText: Create Item
+
+- type: entity
   id: CultForge
-  parent: CultBaseStructure
+  parent: [ CultBaseStructure, CultStorePreset ]
   name: Forge
   suffix: Cult
-  description: A forge used in crafting unholy weapons,to be used by the armies of Nar'Sie.
+  description: A forge used by the armies of Nar'Sie to craft unholy weapons and armor.
   components:
+  - type: Construction
+    graph: CultForge
+    node: forge
   - type: Sprite
     sprite: _Funkystation/Structures/BloodCult/forge.rsi
     noRot: true
@@ -104,6 +142,12 @@
         anchored:
           True: { state: magma }
           False: { state: inactive }
+  - type: Store
+    name: Forge
+    categories:
+    - CultForgeItems
+    buySuccessSound: !type:SoundPathSpecifier
+      path: /Audio/Items/trayhit2.ogg
 
 - type: entity
   id: CultArchives
@@ -146,3 +190,8 @@
         anchored:
           True: { state: bloody }
           False: { state: inactive }
+
+- type: currency
+  id: CultPoint
+  displayName: Energy
+  canWithdraw: false

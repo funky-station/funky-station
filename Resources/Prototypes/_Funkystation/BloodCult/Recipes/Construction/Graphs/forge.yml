@@ -1,0 +1,17 @@
+﻿- type: constructionGraph
+  id: CultForge
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: forge
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: RunedMetal
+              amount: 3
+              doAfter: 2
+
+    - node: forge
+      entity: CultForge

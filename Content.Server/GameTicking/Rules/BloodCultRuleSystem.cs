@@ -53,7 +53,7 @@ using Content.Shared.Chat;
 namespace Content.Server.GameTicking.Rules;
 
 /// <summary>
-/// Where all the main stuff for Blood Cults happen
+/// Where all the main stuff for Blood Cults happens
 /// </summary>
 public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 {
@@ -78,6 +78,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly SharedBodySystem _body = default!;
 	[Dependency] private readonly AppearanceSystem _appearance = default!;
 	[Dependency] private readonly NpcFactionSystem _npcFaction = default!;
+	[Dependency] private readonly CultStoreSystem _cultStore = default!;
 	[Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
 	[Dependency] private readonly IEntityManager _entManager = default!;
@@ -95,9 +96,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		base.Initialize();
 		//SubscribeLocalEvent<CommandStaffComponent, MobStateChangedEvent>(OnCommandMobStateChanged);
 
-		// Do we need a special "head" cultist? Don't think so
-        //SubscribeLocalEvent<HeadRevolutionaryComponent, MobStateChangedEvent>(OnHeadRevMobStateChanged);
-
 		SubscribeLocalEvent<BloodCultRuleComponent, AfterAntagEntitySelectedEvent>(AfterEntitySelected); // Funky Station
         SubscribeLocalEvent<BloodCultRoleComponent, GetBriefingEvent>(OnGetBriefing);
 
@@ -108,9 +106,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 		SubscribeLocalEvent<BloodCultistComponent, MindAddedMessage>(OnMindAdded);
 		SubscribeLocalEvent<BloodCultistComponent, MindRemovedMessage>(OnMindRemoved);
-
-		// Do we need a special "head" cultist? Don't think so
-		//SubscribeLocalEvent<HeadRevolutionaryComponent, AfterFlashedEvent>(OnPostFlash);
 	}
 
 	protected override void Started(EntityUid uid, BloodCultRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -380,6 +375,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			component.HasRisen = true;
 			RiseCultists(cultists);
 		}
+
+		// Refresh cult stores
+		_cultStore.RefreshStores(frameTime);
 
 		foreach (EntityUid constructUid in constructs)
 		{

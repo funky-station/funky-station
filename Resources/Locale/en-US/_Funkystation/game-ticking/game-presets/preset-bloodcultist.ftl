@@ -20,7 +20,7 @@ cult-dagger-equip-fail = The dagger turns to ash in your hands!
 cult-attack-repelled = Holy magic repels your attack!
 cult-attack-teamhit = Your attack stops dead before hitting a cultist.
 
-contraband-examine-text-BloodCult = [color=crimson]This item is a highly illegal product of blood cultist magic![/color]
+contraband-examine-text-BloodCult = [color=crimson]This item is a highly illegal product of Blood Cult magic![/color]
 
 cult-rune-drawing-novowel = You begin smearing a rune into the floor with your own wrist's blood...
 cult-rune-drawing-vowel-first = You begin smearing a

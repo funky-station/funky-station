@@ -106,12 +106,15 @@ The [bold][color=#ff6666]barrier rune[/color][/bold] allows the [color=#ff3333]G
 
   <Box>
     <GuideEntityEmbed Entity="CultPylon" Caption="Pylon"/>
+	<GuideEntityEmbed Entity="CultForge" Caption="Forge"/>
 	<GuideEntityEmbed Entity="CultJuggernautShell" Caption="Juggernaut Shell"/>
   </Box>
 
 Structures are worldly objects that possess a mere drop of [color=#ff3333]Her[/color] being. Constructable using [color=#bbbbbb]runed metal[/color] via the crafting menu (the "G" key), these objects are a great boon to a developed cult.
 
 Pylons will gradually heal those devoted to [color=#ff3333]Nar'Sie[/color], including inhabited constructs. By merely existing near them, living devotees will continuously receive [color=#ff3333]Her[/color] blessing, knitting bone and sinew and undoing any half-baked attempts at deconversion.
+
+Forges may be used to craft powerful weapons and armor; but this act of creation has a 4 minute cooldown.
 
 Juggernaut shells are inert statues of [color=#bbbbbb]runed metal[/color]. They are completely useless... until an inhabited soul stone is inserted, at least.
 

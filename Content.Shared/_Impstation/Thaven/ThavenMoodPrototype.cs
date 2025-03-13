@@ -1,7 +1,9 @@
-﻿using Content.Shared.Dataset;
+using System.Linq;
+using Content.Shared.Dataset;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-﻿using System.Linq;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 
 namespace Content.Shared._Impstation.Thaven;
 
@@ -9,19 +11,14 @@ namespace Content.Shared._Impstation.Thaven;
 [Serializable, NetSerializable]
 public partial class ThavenMood
 {
-    /// <summary>
-    /// The prototype this mood was created from.
-    /// Used for managing conflicts, this does not apply to admin-made moods.
-    /// </summary>
-    [DataField]
-    public ProtoId<ThavenMoodPrototype>? ProtoId;
+    [DataField(readOnly: true), ViewVariables(VVAccess.ReadOnly)]
+    public ProtoId<ThavenMoodPrototype> ProtoId = string.Empty;
 
     /// <summary>
-    /// A locale string of the mood name. Gets passed to
-    /// <see cref="Loc.GetString"/> with <see cref="MoodVars"/>.
+    /// A locale string of the mood name.
     /// </summary>
-    [DataField(required: true)]
-    public LocId MoodName;
+    [DataField(required: true), ViewVariables(VVAccess.ReadWrite)]
+    public string MoodName = string.Empty;
 
     /// <summary>
     /// A locale string of the mood description. Gets passed to

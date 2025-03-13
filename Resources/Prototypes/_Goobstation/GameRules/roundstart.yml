@@ -5,9 +5,9 @@
   - type: ChangelingRule
   - type: GameRule
     minPlayers: 8
-    delay:
-      min: 30
-      max: 60
+    #delay: - funky
+    #  min: 30
+    #  max: 60
   - type: AntagObjectives
     objectives:
     - ChangelingStealDNAObjective
@@ -30,9 +30,9 @@
   components:
   - type: GameRule
     minPlayers: 15
-    delay:
-      min: 240
-      max: 420
+    #delay: - funky
+    #  min: 240
+    #  max: 420
   - type: AntagSelection
     selectionTime: BeforeJobs
     definitions:
@@ -53,9 +53,9 @@
   components:
   - type: GameRule
     minPlayers: 15
-    delay:
-      min: 30
-      max: 60
+    #delay: - funky
+    #  min: 30
+    #  max: 60
   - type: AntagSelection
     selectionTime: BeforeJobs
     agentName: changeling-roundend-name
@@ -74,7 +74,7 @@
   - type: GameRule
     minPlayers: 30
   - type: LoadMapRule
-    mapPath: /Maps/Nonstations/nukieplanet.yml
+    mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml
   - type: AntagSelection
     selectionTime: PrePlayerSpawn
     definitions:
@@ -138,7 +138,7 @@
     definitions:
     - prefRoles: [ HeadRev ]
       max: 2
-      playerRatio: 20
+      playerRatio: 30 # Funky
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
@@ -166,9 +166,9 @@
   - type: BlobRule
   - type: GameRule
     minPlayers: 15
-    delay: # 7-10 minutes
-      min: 420
-      max: 600
+    delay: #10-20 minutes - funky
+      min: 600
+      max: 1200
   - type: AntagSelection
     definitions:
     - prefRoles: [ Blob ]

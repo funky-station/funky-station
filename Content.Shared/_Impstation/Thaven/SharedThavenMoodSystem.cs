@@ -15,9 +15,9 @@ public abstract class SharedThavenMoodSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ThavenMoodsBoundComponent, GotEmaggedEvent>(OnEmagged);
+        SubscribeLocalEvent<ThavenMoodsComponent, GotEmaggedEvent>(OnEmagged);
     }
-    protected virtual void OnEmagged(EntityUid uid, ThavenMoodsBoundComponent comp, ref GotEmaggedEvent args)
+    protected virtual void OnEmagged(Entity<ThavenMoodsComponent> ent, ref GotEmaggedEvent args)
     {
         args.Handled = true;
     }

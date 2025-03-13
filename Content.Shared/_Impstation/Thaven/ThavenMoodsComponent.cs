@@ -13,27 +13,37 @@ namespace Content.Shared._Impstation.Thaven.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(SharedThavenMoodSystem))]
-public sealed partial class ThavenMoodsBoundComponent : Component
+public sealed partial class ThavenMoodsComponent : Component
 {
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    /// <summary>
+    /// Whether to include SharedMoods that all thaven have.
+    /// </summary>
+    [DataField, AutoNetworkedField]
     public bool FollowsSharedMoods = true;
 
-    [DataField, ViewVariables, AutoNetworkedField]
+    /// <summary>
+    /// The non-shared moods that are active.
+    /// </summary>
+    [DataField, AutoNetworkedField]
     public List<ThavenMood> Moods = new();
 
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    /// <summary>
+    /// Whether to allow emagging to add a random wildcard mood.
+    /// </summary>
+    [DataField, AutoNetworkedField]
     public bool CanBeEmagged = true;
 
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    /// <summary>
+    /// Notification sound played if your moods change.
+    /// </summary>
+    [DataField, AutoNetworkedField]
     public SoundSpecifier? MoodsChangedSound = new SoundPathSpecifier("/Audio/_Impstation/Thaven/moods_changed.ogg");
 
-    [DataField(serverOnly: true), ViewVariables]
+    [DataField(serverOnly: true)]
     public EntityUid? Action;
 }
 
-public sealed partial class ToggleMoodsScreenEvent : InstantActionEvent
-{
-}
+public sealed partial class ToggleMoodsScreenEvent : InstantActionEvent;
 
 [NetSerializable, Serializable]
 public enum ThavenMoodsUiKey : byte
@@ -41,15 +51,11 @@ public enum ThavenMoodsUiKey : byte
     Key
 }
 
+/// <summary>
+/// BUI state to tell the client what the shared moods are.
+/// </summary>
 [Serializable, NetSerializable]
-public sealed class ThavenMoodsBuiState : BoundUserInterfaceState
+public sealed class ThavenMoodsBuiState(List<ThavenMood> sharedMoods) : BoundUserInterfaceState
 {
-    public List<ThavenMood> Moods;
-    public List<ThavenMood> SharedMoods;
-
-    public ThavenMoodsBuiState(List<ThavenMood> moods, List<ThavenMood> sharedMoods)
-    {
-        Moods = moods;
-        SharedMoods = sharedMoods;
-    }
+    public readonly List<ThavenMood> SharedMoods = sharedMoods;
 }

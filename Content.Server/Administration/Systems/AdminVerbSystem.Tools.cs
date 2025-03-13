@@ -771,7 +771,7 @@ public sealed partial class AdminVerbSystem
             args.Verbs.Add(setCapacity);
         }
         // begin impstation
-        if (TryComp<ThavenMoodsBoundComponent>(args.Target, out var moods))
+        if (TryComp<ThavenMoodsComponent>(args.Target, out var moods))
         {
             Verb addRandomMood = new()
             {
@@ -780,7 +780,7 @@ public sealed partial class AdminVerbSystem
                 Icon = new SpriteSpecifier.Rsi(new ResPath("Interface/Actions/actions_borg.rsi"), "state-laws"),
                 Act = () =>
                 {
-                    _moods.TryAddRandomMood(args.Target, moods);
+                    _moods.TryAddRandomMood((args.Target, moods));
                 },
                 Impact = LogImpact.High,
                 Message = Loc.GetString("admin-trick-add-random-mood-description"),
@@ -797,7 +797,7 @@ public sealed partial class AdminVerbSystem
                 Icon = new SpriteSpecifier.Rsi(new ResPath("Interface/Actions/actions_borg.rsi"), "state-laws"),
                 Act = () =>
                 {
-                    if (!EnsureComp<ThavenMoodsBoundComponent>(args.Target, out moods))
+                    if (!EnsureComp<ThavenMoodsComponent>(args.Target, out moods))
                         _moods.NotifyMoodChange((args.Target, moods));
                 },
                 Impact = LogImpact.High,

@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Javier Guardia Fern�ndez <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
 // SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
@@ -453,7 +453,7 @@ namespace Content.Server.Administration.Systems
                     }
 
                     // Begin Impstation Additions
-                    if (TryComp<ThavenMoodsBoundComponent>(args.Target, out var moods))
+                    if (TryComp<ThavenMoodsComponent>(args.Target, out var moods))
                     {
                         args.Verbs.Add(new Verb()
                         {
@@ -466,7 +466,7 @@ namespace Content.Server.Administration.Systems
                                     return;
 
                                 _euiManager.OpenEui(ui, session);
-                                ui.UpdateMoods(moods, args.Target);
+                                ui.UpdateMoods((args.Target, moods));
                             },
                             Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"),
                         });

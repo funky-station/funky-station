@@ -1,5 +1,3 @@
-Name: Funkylog
-Order: -1
 Entries:
 - author: Petally
   changes:
@@ -1755,8 +1753,8 @@ Entries:
   changes:
     - type: Tweak
       message: >-
-        The changeling guidebook entry has been updated to include
-        information about Natusixadone.
+        The changeling guidebook entry has been updated to include information
+        about Natusixadone.
   id: 220
   time: '2025-02-27T01:21:26.0000000+00:00'
 - author: JoulesBerg
@@ -1772,9 +1770,7 @@ Entries:
 - author: Komonighub
   changes:
     - type: Tweak
-      message: >-
-        Made the maxim hardsuit obtainable as an extremely
-        rare treasure loot.
+      message: Made the maxim hardsuit obtainable as an extremely rare treasure loot.
   id: 222
   time: '2025-02-28T20:29:31.0000000+00:00'
 - author: empty0set
@@ -1809,9 +1805,9 @@ Entries:
   changes:
     - type: Add
       message: >-
-        Bartender has seven new drinks to make: Eggnog, Spiked Eggnog,
-        Peggnog (Eggnog and Cola), Tayquila, Chutzpah, Margherita,
-        and Pineapple Margherita.
+        Bartender has seven new drinks to make: Eggnog, Spiked Eggnog, Peggnog
+        (Eggnog and Cola), Tayquila, Chutzpah, Margherita, and Pineapple
+        Margherita.
   id: 227
   time: '2025-03-04T22:45:18.0000000+00:00'
 - author: Miiish
@@ -1820,7 +1816,7 @@ Entries:
       message: Role timers increased across the board
   id: 228
   time: '2025-03-05T00:32:08.0000000+00:00'
-- author: 'hivehum, crocodilecarousel, MintyTheBinty, AftrLite'
+- author: hivehum, crocodilecarousel, MintyTheBinty, AftrLite
   changes:
     - type: Add
       message: >-
@@ -1829,15 +1825,17 @@ Entries:
     - type: Add
       message: Added 10 new suits and made them available in drobes and loadouts!
     - type: Add
-      message: The Chaplain's iconic Null Rod returns! Can be transformed into various gadgets.
+      message: >-
+        The Chaplain's iconic Null Rod returns! Can be transformed into various
+        gadgets.
   id: 229
   time: '2025-03-07T05:54:35.0000000+00:00'
 - author: 88tv
   changes:
     - type: Add
       message: >-
-        Added the centcom towel to the trinkets list, a playtime reward for central
-        command jobs.
+        Added the centcom towel to the trinkets list, a playtime reward for
+        central command jobs.
   id: 230
   time: '2025-03-07T16:01:29.0000000+00:00'
 - author: Ultimite
@@ -1846,8 +1844,8 @@ Entries:
       message: Added shrimp cargo request and shrimp box.
     - type: Add
       message: >-
-        Added recipe to fry shrimp in a microwave: shrimp, butter slice, Chuck 'em in and
-        cook 'em for 10 seconds.
+        Added recipe to fry shrimp in a microwave: shrimp, butter slice, Chuck
+        'em in and cook 'em for 10 seconds.
   id: 231
   time: '2025-03-09T03:04:02.0000000+00:00'
 - author: corresp0nd
@@ -1878,7 +1876,7 @@ Entries:
       message: Increased miniature laser pistol lethal capacity from 5 to 15 shots.
   id: 235
   time: '2025-03-10T04:13:12.0000000+00:00'
-- author: 'Rainbeon, taydeo'
+- author: Rainbeon, taydeo
   changes:
     - type: Tweak
       message: >-
@@ -1894,7 +1892,21 @@ Entries:
   time: '2025-03-10T04:49:01.0000000+00:00'
 - author: taydeo
   changes:
-  - type: Remove
-    message: Changeling Biomass no longer drains.
+    - type: Remove
+      message: Changeling Biomass no longer drains.
   id: 238
   time: '2025-03-11T04:49:01.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: >-
+        Due to an increase in funding, NTR, BSO, and IAA have been given rooms
+        on Elkridge Station!
+    - type: Tweak
+      message: NTR, BSO, and IAA jobslots have been added to Elkridge.
+    - type: Fix
+      message: >-
+        The Detective's Room on Oasis now have cables that actually connect to a
+        APC. 
+  id: 239
+  time: '2025-03-13T23:16:08.0000000+00:00'

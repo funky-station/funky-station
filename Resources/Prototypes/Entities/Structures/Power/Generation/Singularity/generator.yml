@@ -35,4 +35,7 @@
     guides:
     - SingularityEngine
     - Power
+  - type: Tag
+    tags:
+    - ShadowSideLootEpic
 

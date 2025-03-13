@@ -85,6 +85,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	public readonly string CultComponentId = "BloodCultist";
 
 	[ValidatePrototypeId<EntityPrototype>] static EntProtoId mindRole = "MindRoleCultist";
+	[ValidatePrototypeId<EntityPrototype>] static EntProtoId mindRoleConstruct = "MindRoleCultConstruct";
 
 	[ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> BloodCultistFactionId = "BloodCultist";
     [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
@@ -320,6 +321,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
     {
         base.ActiveTick(uid, component, gameRule, frameTime);
 		List<EntityUid> cultists = GetCultists();
+		List<EntityUid> constructs = GetConstructs();
 
 		// Give initial announcement to cultists
 		if (component.InitialReportTime != null && _timing.CurTime > component.InitialReportTime)
@@ -331,6 +333,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		if (component.VeilWeakened && !component.VeilWeakenedAnnouncementPlayed)
 		{
 			AnnounceStatus(component, cultists);
+			AnnounceStatus(component, constructs);
 			component.VeilWeakenedAnnouncementPlayed = true;
 			foreach (EntityUid cultist in cultists)
 			{
@@ -351,6 +354,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				if (!component.VeilWeakened)
 				{
 					AnnounceStatus(component, cultists);
+					AnnounceStatus(component, constructs);
 				}
 			}
 			if (val != null && HasComp<CryostorageContainedComponent>(val.CurrentEntity))
@@ -360,6 +364,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				if (!component.VeilWeakened)
 				{
 					AnnounceStatus(component, cultists);
+					AnnounceStatus(component, constructs);
 				}
 			}
 		}
@@ -374,6 +379,19 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		{
 			component.HasRisen = true;
 			RiseCultists(cultists);
+		}
+
+		foreach (EntityUid constructUid in constructs)
+		{
+			if (!TryComp<BloodCultConstructComponent>(constructUid, out var construct))
+				continue;
+
+			// Show cult status
+			if (construct.StudyingVeil)
+			{
+				AnnounceStatus(component, cultists, constructUid);
+				construct.StudyingVeil = false;
+			}
 		}
 
 		foreach (EntityUid cultistUid in cultists)
@@ -665,6 +683,19 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         return cultistList;
     }
 
+	private List<EntityUid> GetConstructs()
+    {
+        var constructList = new List<EntityUid>();
+		var constructs = AllEntityQuery<BloodCultConstructComponent, MobStateComponent>();
+
+		while (constructs.MoveNext(out var uid, out var constructComp, out _))
+		{
+			constructList.Add(uid);
+		}
+
+        return constructList;
+    }
+
 	private void OnGetBriefing(EntityUid uid, BloodCultRoleComponent comp, ref GetBriefingEvent args)
     {
 		args.Append(Loc.GetString("cult-briefing-targets"));
@@ -795,11 +826,22 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		MindComponent? mindComp = CompOrNull<MindComponent>(mindId);
 		if (mindId != null && mindComp != null)
 		{
+			// gib victim
 			var coordinates = Transform(uid).Coordinates;
 			_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), coordinates);
 			_body.GibBody(uid, true);
+
+			// trap victim in soul stone
 			var soulstone = Spawn("CultSoulStone", coordinates);
 			_mind.TransferTo((EntityUid)mindId, soulstone, mind:mindComp);
+
+			// add cult faction
+			_npcFaction.RemoveFaction(soulstone, NanotrasenFactionId, false);
+			_npcFaction.AddFaction(soulstone, BloodCultistFactionId);
+
+			// set mind role to cult-aligned
+			_role.MindAddRole((EntityUid)mindId, mindRoleConstruct.Id, mindComp, true);
+
 			return true;
 		}
 		return false;

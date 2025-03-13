@@ -76,6 +76,8 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistSummonDagger>(OnSummonDagger);
 
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistStudyVeil>(OnStudyVeil);
+		SubscribeLocalEvent<BloodCultConstructComponent, EventCultistStudyVeil>(OnStudyVeil);
+
 		SubscribeLocalEvent<BloodCultistComponent, BloodCultCommuneSendMessage>(OnCommune);
 		SubscribeLocalEvent<BloodCultistComponent, EventCultistStun>(OnStun);
 		SubscribeLocalEvent<CultMarkedComponent, AttackedEvent>(OnMarkedAttacked);
@@ -187,6 +189,65 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		}
 	}
 
+	public void AddSpell(EntityUid uid, BloodCultConstructComponent comp, ProtoId<CultAbilityPrototype> id, bool recordKnownSpell = true)
+	{
+		var data = GetSpell(id);
+
+		bool standingOnRune = false;
+		var coords = new EntityCoordinates(uid, default);//.Position;
+		var location = coords.AlignWithClosestGridTile(entityManager: EntityManager, mapManager: _mapManager);
+		var gridUid = _transform.GetGrid(location);
+		if (TryComp<MapGridComponent>(gridUid, out var grid))
+		{
+			var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, location);
+			foreach(var possibleEnt in _mapSystem.GetAnchoredEntities(gridUid.Value, grid, targetTile.GridIndices))
+			{
+				if (_runeQuery.HasComponent(possibleEnt))
+				{
+					standingOnRune = true;
+				}
+			}
+		}
+
+		if (comp.KnownSpells.Count > 3 || (!standingOnRune && comp.KnownSpells.Count > 0))
+		{
+			_popup.PopupEntity(Loc.GetString("cult-spell-exceeded"), uid, uid);
+			return;
+		}
+
+        if (data.Event != null)
+            RaiseLocalEvent(uid, (object) data.Event, true);
+
+		if (data.ActionPrototypes == null || data.ActionPrototypes.Count <= 0)
+			return;
+
+		if (data.DoAfterLength > 0)
+		{
+			_popup.PopupEntity(standingOnRune ? Loc.GetString("cult-spell-carving-rune") : Loc.GetString("cult-spell-carving"), uid, uid, PopupType.MediumCaution);
+			var dargs = new DoAfterArgs(EntityManager, uid, data.DoAfterLength * (standingOnRune ? 1 : 3), new CarveSpellDoAfterEvent(
+				uid, data, recordKnownSpell, standingOnRune), uid
+			)
+			{
+				BreakOnDamage = true,
+				RequireCanInteract = false,  // Allow restrained cultists to prepare spells
+				NeedHand = false,  // Cultists don't need hands to prep spells
+				BreakOnHandChange = false,
+				BreakOnMove = true,
+				BreakOnDropItem = false,
+				CancelDuplicate = false,
+			};
+
+			_doAfter.TryStartDoAfter(dargs);
+		}
+		else
+		{
+			foreach (var act in data.ActionPrototypes)
+				_action.AddAction(uid, act);
+			if (recordKnownSpell)
+				comp.KnownSpells.Add(data);
+		}
+	}
+
 	public void OnCarveSpellDoAfter(Entity<BloodCultistComponent> ent, ref CarveSpellDoAfterEvent args)
 	{
 		if (ent.Comp.KnownSpells.Count > 3 || (!args.StandingOnRune && ent.Comp.KnownSpells.Count > 0))
@@ -230,6 +291,12 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		if (!TryUseAbility(ent, args))
 			return;
 
+		ent.Comp.StudyingVeil = true;
+		args.Handled = true;
+	}
+
+	private void OnStudyVeil(Entity<BloodCultConstructComponent> ent, ref EventCultistStudyVeil args)
+	{
 		ent.Comp.StudyingVeil = true;
 		args.Handled = true;
 	}

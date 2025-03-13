@@ -92,6 +92,7 @@ public sealed class SoulStoneSystem : EntitySystem
 				);
 				string summonerName = _entityManager.GetComponent<MetaDataComponent>(args.User).EntityName;
 				_cultRuleSystem.AnnounceToCultist(Loc.GetString("cult-shade-servant", ("name", summonerName)), construct);
+				_constructSystem.GrantConstructSpells(construct);
 			}
 			else
 			{

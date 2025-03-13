@@ -1,0 +1,14 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-NC-4.0",
+    "copyright": "Created by mingebag and taydeo for Funky Station, funkystation.org. Edited by correspond.",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        }
+    ]
+}

@@ -213,8 +213,9 @@
     selectionTime: BeforeJobs # Goobstation
     definitions:
     - prefRoles: [ HeadRev ]
+      min: 2
       max: 3
-      playerRatio: 30
+      playerRatio: 25
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue

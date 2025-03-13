@@ -14,7 +14,7 @@ chaplain-gearmenu-window-selected = Form selected: ({$selectedCount}/{$maxCount}
 chaplain-gearset-category-rosary-name = Silvered Rosary
 chaplain-gearset-category-rosary-description =
     An expensive-looking rosary, made from silver. Exudes somewhat
-    soothing vibes. Nice!A potent tool against those who devote
+    soothing vibes. Nice! A potent tool against those who devote
     themselves to entities beyond the veil of bluespace.
 
 chaplain-gearset-category-grail-name = Gildgrail
@@ -36,3 +36,11 @@ chaplain-gearset-category-bow-description =
     hums with power. Though this bow's shots are potent,
     each arrow must be nocked and fired seperately. This form will
     splinter the Null Rod into a matching quiver, filled with arrows.
+
+# begin funky
+chaplain-gearset-category-gun-name = Annabelle
+chaplain-gearset-category-gun-description =
+    A Winchester 1886 with religious imagery plastered all over it.
+    Carved into its stock, "Matthew 19:23-24." Though it comes with
+    four silver bullets, it has no matching ammo box. Spend them wisely.
+# end funky

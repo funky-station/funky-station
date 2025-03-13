@@ -43,6 +43,8 @@ using Content.Shared.Audio;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Damage;
 using Content.Server.Bible.Components;
+using Content.Server.Chat.Systems;
+using Content.Server.Construction.Completions;
 using Content.Shared.UserInterface;
 using Content.Server.Ghost;
 using Content.Server.Light.Components;
@@ -52,6 +54,7 @@ using Content.Shared._Impstation.CosmicCult.Prototypes;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Content.Shared.Humanoid;
+using Robust.Shared.Utility;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -87,6 +90,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
 
     private readonly SoundSpecifier _briefingSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_briefing.ogg");
     private readonly SoundSpecifier _deconvertSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_deconvert.ogg");
@@ -375,8 +379,9 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
                     var sender = Loc.GetString("cosmiccult-announcement-sender");
                     var mapData = _map.GetMap(_transform.GetMapId(MonumentInGame.Owner.ToCoordinates()));
-                    _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier3-progress"), sender, Color.FromHex("#4cabb3"));
-                    _announce.SendAnnouncementMessage(_announce.GetAnnouncementId("SpawnAnnounceCaptain"), Loc.GetString("cosmiccult-announce-tier3-warning"), null, Color.FromHex("#cae8e8"));
+                    _chat.DispatchGlobalAnnouncement(Loc.GetString("cosmiccult-announce-tier3-progress"), playSound: false, colorOverride: Color.FromHex("#4cabb3"));
+                    _chat.DispatchGlobalAnnouncement(Loc.GetString("cosmiccult-announce-tier3-warning"), playSound: false, colorOverride: Color.FromHex("#cae8e8"));
+
                     _audio.PlayGlobal(_tier3Sound, Filter.Broadcast(), false, AudioParams.Default);
 
                     EnsureComp<ParallaxComponent>(mapData, out var parallax);

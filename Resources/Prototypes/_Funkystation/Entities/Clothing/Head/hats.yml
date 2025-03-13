@@ -13,3 +13,23 @@
     - ClothMade
     - HamsterWearable
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBowlerHatRazor
+  name: bowler hat
+  description: Stylish bowler hat. Quite a sharp look!
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/bowler_hat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/bowler_hat.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 20
+
+

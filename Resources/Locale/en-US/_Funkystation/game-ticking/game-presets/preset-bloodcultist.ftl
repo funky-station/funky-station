@@ -15,7 +15,7 @@ cult-briefing-targets = Nar'Sie demands blood. Inspect the veil to comprehend He
 
 admin-verb-make-cultist = Make the target into a Blood Cultist.
 
-cult-dagger-equip-fail = The dagger turns to ash in your hands!
+cult-weapon-equip-fail = The item turns to ash in your hands!
 
 cult-attack-repelled = Holy magic repels your attack!
 cult-attack-teamhit = Your attack stops dead before hitting a cultist.

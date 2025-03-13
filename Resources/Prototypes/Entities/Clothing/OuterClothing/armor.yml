@@ -183,6 +183,7 @@
   name: acolyte armor
   description: An evil-looking piece of cult armor, made of bones.
   components:
+  - type: BloodCultExclusive
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/cult_armour.rsi
   - type: Clothing

@@ -24,6 +24,7 @@ using Content.Shared.Popups;
 using Content.Server.Popups;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
+using Content.Server.BloodCult.Components;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -59,7 +60,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 		SubscribeLocalEvent<BloodCultRuneCarverComponent, RunesMessage>(OnRuneChosenMessage);
 
-		SubscribeLocalEvent<BloodCultRuneCarverComponent, GotEquippedHandEvent>(OnEquipped);
+		SubscribeLocalEvent<BloodCultExclusiveComponent, GotEquippedHandEvent>(OnEquipped);
 
 		_runeQuery = GetEntityQuery<BloodCultRuneComponent>();
 	}
@@ -247,14 +248,14 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 	{
 	}
 
-	private void OnEquipped(EntityUid uid, BloodCultRuneCarverComponent component, GotEquippedHandEvent args)
+	private void OnEquipped(EntityUid uid, BloodCultExclusiveComponent component, GotEquippedHandEvent args)
 	{
 		if (!HasComp<BloodCultistComponent>(args.User))
 		{
 			QueueDel(uid);
 			Spawn("Ash", Transform(args.User).Coordinates);
 			_popupSystem.PopupEntity(
-				Loc.GetString("cult-dagger-equip-fail"),
+				Loc.GetString("cult-weapon-equip-fail"),
 				args.User, args.User, PopupType.SmallCaution
 			);
 			_audioSystem.PlayPvs("/Audio/Effects/lightburn.ogg", Transform(args.User).Coordinates);

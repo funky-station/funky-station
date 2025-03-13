@@ -51,8 +51,8 @@
 - type: entity
   id: MobBloodCultJuggernaut
   name: Juggernaut
-  description: Strong, slow, and has lots of health. Solves most problems by punching them. Immune to weak attacks.
-  parent: [ SimpleSpaceMobBase, BaseBloodCultContraband ]
+  description: Vile servant of the Blood Cult. Strong, slow, and has lots of health. Solves most problems by punching them. Immune to weak attacks.
+  parent: SimpleSpaceMobBase
   categories: [ HideSpawnMenu ]
   components:
     #- type: Hands
@@ -65,15 +65,11 @@
     - type: Physics
     - type: InputMover
     - type: MobMover
+    - type: Speech
+      speechVerb: LargeMob
     - type: ReplacementAccent
       accent: genericAggressive
     - type: CombatMode
-    - type: HTN
-      rootTask:
-        task: SimpleHostileCompound
-      blackboard:
-        NavSmash: !type:Bool
-          true
     - type: NpcFactionMember
       factions:
         - BloodCult
@@ -130,13 +126,13 @@
       playSoundOn: false
     - type: GuideHelp
       guides:
-      - Blob
+      - BloodCult
 
 - type: entity
   id: MobBloodCultShade
   name: Shade
   description: A soul made solid, enslaved to the will of the blood cult.
-  parent: [ SimpleSpaceMobBase, BaseBloodCultContraband ]
+  parent: SimpleSpaceMobBase
   #categories: [ HideSpawnMenu ]
   components:
     #- type: Hands
@@ -149,15 +145,10 @@
     - type: Physics
     - type: InputMover
     - type: MobMover
+    - type: Speech
     - type: ReplacementAccent
       accent: genericAggressive
     - type: CombatMode
-    - type: HTN
-      rootTask:
-        task: SimpleHostileCompound
-      blackboard:
-        NavSmash: !type:Bool
-          true
     - type: NpcFactionMember
       factions:
         - BloodCult
@@ -211,4 +202,4 @@
       playSoundOn: false
     - type: GuideHelp
       guides:
-      - Blob
+      - BloodCult

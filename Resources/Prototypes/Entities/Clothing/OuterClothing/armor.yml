@@ -178,11 +178,12 @@
     autoRechargeRate: 2
 
 - type: entity
-  parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]
+  parent: [ ClothingOuterBaseLarge, BaseBloodCultContraband, AllowSuitStorageClothing ]
   id: ClothingOuterArmorCult
   name: acolyte armor
   description: An evil-looking piece of cult armor, made of bones.
   components:
+  - type: BloodCultExclusive
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/cult_armour.rsi
   - type: Clothing

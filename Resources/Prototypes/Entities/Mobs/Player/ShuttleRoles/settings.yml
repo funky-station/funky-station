@@ -396,6 +396,7 @@
   id: VisitorChaplain
   parent: VisitorCivilian
   components:
+    - type: CultResistant # Funky cult
     - type: BibleUser
     - type: GhostRole
       name: job-name-chaplain

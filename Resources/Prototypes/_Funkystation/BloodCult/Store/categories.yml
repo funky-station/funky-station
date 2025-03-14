@@ -1,0 +1,5 @@
+#forge categoires
+- type: storeCategory
+  id: CultForgeItems
+  name: Forge Equipment
+  priority: 0

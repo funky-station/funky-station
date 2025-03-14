@@ -21,6 +21,9 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: SecurityStaff
 
 - type: startingGear
   id: SecurityOfficerGear

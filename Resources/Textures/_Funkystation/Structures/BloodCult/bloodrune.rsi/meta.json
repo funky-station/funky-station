@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Static runes from Paradise Station at https://github.com/ParadiseSS13/Paradise/commit/bd91a1b962fe9bd38e346e9fafd4ebb10784fcb3 , animations by mkanke for Funky Station",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "barrier"
+    },
+    {
+      "name": "bloodboil"
+    },
+    {
+      "name": "empowering"
+    },
+    {
+      "name": "offering"
+    },
+    {
+      "name": "revive"
+    },
+	{
+      "name": "revive_drawing",
+	  "delays": [
+        [
+          0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  0.468,
+		  2.0
+        ]
+      ]
+    },
+    {
+      "name": "spiritrealm"
+    },
+    {
+      "name": "summoning"
+    },
+    {
+      "name": "teleport"
+    }
+  ]
+}

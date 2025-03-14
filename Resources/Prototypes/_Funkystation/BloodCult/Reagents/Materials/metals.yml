@@ -1,0 +1,6 @@
+- type: material
+  id: RunedMetal
+  stackEntity: SheetRunedMetal1
+  name: runed metal
+  icon: { sprite: _Funkystation/BloodCult/Sheets/metal.rsi, state: runedmetal }
+  price: 0.0

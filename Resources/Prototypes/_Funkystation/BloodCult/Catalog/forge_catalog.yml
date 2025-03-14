@@ -1,0 +1,37 @@
+- type: listing
+  id: CultForgeSword
+  name: Cult Blade
+  description: A large blade that deals 30 damage per swing. Can only be stored on one's back.
+  icon: { sprite: Objects/Weapons/Melee/cult_blade.rsi, state: icon }
+  productEntity: CultBlade
+  cost:
+    CultPoint: 50
+  categories:
+  - CultForgeItems
+
+- type: listing
+  id: CultForgeShield
+  name: Mirror Shield
+  description: Blocks 50% of incoming damage and reflects energy shots.
+  icon: { sprite: /Textures/Objects/Weapons/Melee/shields.rsi, state: mirror-icon }
+  productEntity: MirrorShield
+  cost:
+    CultPoint: 50
+  categories:
+  - CultForgeItems
+  #conditions:
+  #  - !type:StoreWhitelistCondition
+  #    blacklist:
+  #      tags:
+  #        - NukeOpsUplink
+
+- type: listing
+  id: CultForgeArmor
+  name: Acolyte Armor
+  description: Armored cult robes that decrease your speed but provide solid protection.
+  icon: { sprite: /Textures/Clothing/OuterClothing/Armor/cult_armour.rsi, state: icon }
+  productEntity: ClothingOuterArmorCult
+  cost:
+    CultPoint: 50
+  categories:
+  - CultForgeItems

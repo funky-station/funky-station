@@ -83,6 +83,11 @@
     - map: [ "shoes" ]
     - map: [ "ears" ]
     - map: [ "outerClothing" ]
+    - map: [ "culteyes" ] # funky cult
+      sprite: "_Funkystation/BloodCult/Effects/culteyes.rsi"
+      state: "vox"
+      shader: unshaded
+      visible: false
     - map: [ "eyes" ]
     - map: [ "belt" ]
     - map: [ "id" ]
@@ -106,6 +111,11 @@
     - map: [ "clownedon" ]
       sprite: "Effects/creampie.rsi"
       state: "creampie_vox" # Not default
+      visible: false
+    - map: [ "culthalo" ] # funky cult
+      sprite: "_Funkystation/BloodCult/Effects/halo.rsi"
+      state: "halo"
+      shader: unshaded
       visible: false
   - type: Inventory
     speciesId: vox

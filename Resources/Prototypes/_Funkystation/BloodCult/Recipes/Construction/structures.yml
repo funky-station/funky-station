@@ -1,0 +1,35 @@
+- type: construction
+  name: cult pylon
+  id: CultPylon
+  graph: CultPylon
+  startNode: start
+  targetNode: pylon
+  category: construction-category-structures
+  description: A floating crystal that slowly heals those faithful to Nar'Sie.
+  icon:
+    sprite: /Textures/_Funkystation/Structures/BloodCult/pylon.rsi
+    state: crystal
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: cult forge
+  id: CultForge
+  graph: CultForge
+  startNode: start
+  targetNode: forge
+  category: construction-category-structures
+  description: A lava-filled forge used to create advanced Blood Cult armor and weaponry.
+  icon:
+    sprite: /Textures/_Funkystation/Structures/BloodCult/forge.rsi
+    state: magma
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked

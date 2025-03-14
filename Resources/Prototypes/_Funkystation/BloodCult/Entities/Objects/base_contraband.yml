@@ -1,0 +1,9 @@
+#parent: [BaseWeaponRevolver, BaseSyndicateContraband]
+- type: entity
+  id: BaseBloodCultContraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: BloodCult
+    # no one should be carrying this around visibly!
+    allowedDepartments: []

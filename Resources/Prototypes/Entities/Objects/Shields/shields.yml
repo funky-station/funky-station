@@ -321,10 +321,11 @@
 
 - type: entity
   name: mirror shield
-  parent: BaseShield
+  parent: [ BaseShield, BaseBloodCultContraband ]
   id: MirrorShield
   description: Eerily glows red... you hear the geometer whispering
   components:
+    - type: BloodCultExclusive  # funky station
     - type: Sprite
       state: mirror-icon
     - type: Item

@@ -1,0 +1,16 @@
+<Control
+    Margin="0,0,0,10"
+    xmlns="https://spacestation14.io"
+    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls">
+    <PanelContainer StyleClasses="BackgroundDark" VerticalExpand="True">
+        <BoxContainer
+            HorizontalExpand="True"
+            Margin="5,5,5,5"
+            Orientation="Vertical"
+            VerticalExpand="True">
+            <RichTextLabel Name="MoodNameLabel" StyleClasses="LabelKeyText" />
+            <cc:HSeparator Margin="0,5,0,5" />
+            <RichTextLabel Name="MoodDescLabel" />
+        </BoxContainer>
+    </PanelContainer>
+</Control>

@@ -41,6 +41,7 @@
     - id: BlobSpawn #Goobstation - Blob
     - id: FalseAlarm
     - id: DerelictCyborgSpawn
+    - id: RogueAscendedSpawn # imp
 
 - type: entity
   id: BaseStationEvent

@@ -41,6 +41,20 @@ public sealed class TargetObjectiveSystem : EntitySystem
         comp.Target = target;
     }
 
+    // begin imp
+    /// <summary>
+    /// Sets the Target field for the title and other components to use, and adds the target to a list to prevent reuse for other targets for the same mind.
+    /// </summary>
+    public void SetTargetExclusive(EntityUid uid, MindComponent mind, EntityUid target, TargetObjectiveComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+
+        comp.Target = target;
+        mind.ObjectiveTargets.Add(target);
+    }
+    // end imp
+
     /// <summary>
     /// Gets the target from the component.
     /// </summary>

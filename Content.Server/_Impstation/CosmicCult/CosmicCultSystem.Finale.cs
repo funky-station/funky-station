@@ -1,4 +1,5 @@
 using Content.Server._Impstation.CosmicCult.Components;
+using Content.Server.Chat.Systems;
 using Content.Shared._Impstation.Cosmiccult;
 using Content.Shared._Impstation.CosmicCult;
 using Content.Shared._Impstation.CosmicCult.Components;
@@ -13,6 +14,8 @@ namespace Content.Server._Impstation.CosmicCult;
 
 public sealed partial class CosmicCultSystem : EntitySystem
 {
+    [Dependency] private readonly ChatSystem _chat = default!;
+
     /// <summary>
     ///     Used to calculate when the finale song should start playing
     /// </summary>
@@ -77,10 +80,8 @@ public sealed partial class CosmicCultSystem : EntitySystem
             comp.BufferTimer = _timing.CurTime + comp.BufferRemainingTime;
             comp.SelectedSong = comp.BufferMusic;
             _sound.DispatchStationEventMusic(uid, comp.SelectedSong, StationEventMusicType.CosmicCult);
-            _announcer.SendAnnouncementMessage(_announcer.GetAnnouncementId("SpawnAnnounceCaptain"),
-            Loc.GetString("cosmiccult-finale-location", ("location", indicatedLocation)),
-            null,
-            Color.FromHex("#cae8e8"));
+
+            _chat.DispatchGlobalAnnouncement(Loc.GetString("cosmiccult-finale-location", ("location", indicatedLocation)), playSound: false, colorOverride: Color.FromHex("#cae8e8"));
 
             uid.Comp.CurrentState = FinaleState.ActiveBuffer;
         }
@@ -91,10 +92,8 @@ public sealed partial class CosmicCultSystem : EntitySystem
             comp.FinaleTimer = _timing.CurTime + comp.FinaleRemainingTime;
             comp.SelectedSong = comp.FinaleMusic;
             _sound.DispatchStationEventMusic(uid, comp.SelectedSong, StationEventMusicType.CosmicCult);
-            _announcer.SendAnnouncementMessage(_announcer.GetAnnouncementId("SpawnAnnounceCaptain"),
-            Loc.GetString("cosmiccult-finale-location", ("location", indicatedLocation)),
-            null,
-            Color.FromHex("#cae8e8"));
+
+            _chat.DispatchGlobalAnnouncement(Loc.GetString("cosmiccult-finale-location", ("location", indicatedLocation)), playSound: false, colorOverride: Color.FromHex("#cae8e8"));
 
             uid.Comp.CurrentState = FinaleState.ActiveFinale;
         }

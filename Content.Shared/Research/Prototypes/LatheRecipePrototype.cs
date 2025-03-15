@@ -69,6 +69,6 @@ namespace Content.Shared.Research.Prototypes
         /// List of categories used for visually sorting lathe recipes in the UI.
         /// </summary>
         [DataField]
-        public ProtoId<LatheCategoryPrototype>? Category = new();
+        public List<ProtoId<LatheCategoryPrototype>> Categories = new();
     }
 }

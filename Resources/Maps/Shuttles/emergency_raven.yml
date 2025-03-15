@@ -21,7 +21,7 @@ entities:
       name: NT Evac Raven
     - type: Transform
       pos: -0.546875,-0.53125
-      parent: 528
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:

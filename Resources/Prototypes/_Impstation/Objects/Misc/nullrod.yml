@@ -245,14 +245,15 @@
 
 - type: entity
   name: aureate quiver
-  parent: [ AmmoProviderShotgunShell, BaseMinorContraband ]
+  parent: [ BaseAmmoProvider, BaseMinorContraband ]
   id: NullRodArrowQuiver
   description: A divine quiver, bristling with sparks of light.
   components:
     - type: Sprite
       sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
       layers:
-      - state: quiver
+      - state: quiver-0
+        map: ["enum.GunVisualLayers.Mag"]
       - state: quiver_unshaded
         shader: unshaded
     - type: Item
@@ -273,3 +274,8 @@
       whitelist:
         tags:
         - HolyArrow
+    - type: MagazineVisuals
+      magState: quiver
+      steps: 1
+      zeroVisible: false
+    - type: Appearance

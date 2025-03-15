@@ -125268,13 +125268,6 @@ entities:
     - type: Transform
       pos: 41.440662,-10.344523
       parent: 60
-- proto: RubberStampMime
-  entities:
-  - uid: 7243
-    components:
-    - type: Transform
-      pos: 27.742582,-12.3142805
-      parent: 60
 - proto: RubberStampTrader
   entities:
   - uid: 13121

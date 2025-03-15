@@ -7226,7 +7226,6 @@ entities:
           - 1100
           - 1101
           - 1102
-          - 1103
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -12027,17 +12026,6 @@ entities:
 - proto: RubberStampDenied
   entities:
   - uid: 1102
-    components:
-    - type: Transform
-      parent: 1099
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RubberStampSyndicate
-  entities:
-  - uid: 1103
     components:
     - type: Transform
       parent: 1099

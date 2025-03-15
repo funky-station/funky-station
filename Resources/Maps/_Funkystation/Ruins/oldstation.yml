@@ -31,7 +31,7 @@ entities:
       name: Old Station
     - type: Transform
       pos: -0.53125,-0.484375
-      parent: 1695
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:

@@ -392,29 +392,8 @@ namespace Content.Server.Administration.Systems
                         Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"),
                     });
                 }
-
-                // Begin DeltaV Additions - thaven moods
-                if (TryComp<ThavenMoodsComponent>(args.Target, out var moods)) 
-                {
-                    args.Verbs.Add(new Verb()
-                    {
-                        Text = Loc.GetString("thaven-moods-ui-verb"),
-                        Category = VerbCategory.Admin,
-                        Act = () =>
-                        {
-                            var ui = new ThavenMoodsEui(_moods, EntityManager, _adminManager);
-                            if (!_playerManager.TryGetSessionByEntity(args.User, out var session))
-                                return;
-
-                            _euiManager.OpenEui(ui, session);
-                            ui.UpdateMoods(moods, args.Target);
-                        },
-                        Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"), 
-                    });
-                }
             }
         }
-                // End DeltaV Additions
 
         private void AddDebugVerbs(GetVerbsEvent<Verb> args)
         {

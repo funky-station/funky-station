@@ -651,7 +651,7 @@ namespace Content.Server.Administration.Systems
                 true,
                 body.RoleName,
                 body.RoleColor);
-            OnBwoinkInternal(bwoinkParams);
+            OnBwoinkInternal(message, bwoinkParams);
         }
 
         protected override void OnBwoinkTextMessage(BwoinkTextMessage message, EntitySessionEventArgs eventArgs)
@@ -683,18 +683,18 @@ namespace Content.Server.Administration.Systems
                 false,
                 true,
                 false);
-            OnBwoinkInternal(bwoinkParams);
+            OnBwoinkInternal(message, bwoinkParams);
         }
 
         /// <summary>
         /// Sends a bwoink. Common to both internal messages (sent via the ahelp or admin interface) and webhook messages (sent through the webhook, e.g. via Discord)
         /// </summary>
         /// <param name="bwoinkParams">The parameters of the message being sent.</param>
-        private void OnBwoinkInternal(BwoinkParams bwoinkParams)
+        private void OnBwoinkInternal(BwoinkTextMessage message, BwoinkParams bwoinkParams)
         {
             _activeConversations[bwoinkParams.Message.UserId] = DateTime.Now;
-
             var escapedText = FormattedMessage.EscapeText(bwoinkParams.Message.Text);
+            var senderAHelpAdmin = bwoinkParams.SenderAdmin?.HasFlag(AdminFlags.Adminhelp) ?? false;
             var adminColor = _config.GetCVar(CCVars.AdminBwoinkColor);
             var adminPrefix = "";
             var bwoinkText = $"{bwoinkParams.SenderName}";
@@ -740,7 +740,7 @@ namespace Content.Server.Administration.Systems
 
             // If it's not an admin / admin chooses to keep the sound and message is not an admin only message, then play it.
             var playSound = (!senderAHelpAdmin || message.PlaySound) && !message.AdminOnly;
-            var msg = new BwoinkTextMessage(message.UserId, senderSession.UserId, bwoinkText, playSound: playSound, adminOnly: message.AdminOnly);
+            var msg = new BwoinkTextMessage(message.UserId, bwoinkParams.SenderId, bwoinkText, playSound: playSound, adminOnly: message.AdminOnly);
 
             LogBwoink(msg);
 
@@ -820,7 +820,6 @@ namespace Content.Server.Administration.Systems
                     _gameTicker.RunLevel,
                     playedSound: playSound,
                     isDiscord: bwoinkParams.FromWebhook,
-                    adminOnly: message.AdminOnly,
                     noReceivers: nonAfkAdmins.Count == 0
                 );
                 _messageQueues[msg.UserId].Enqueue(GenerateAHelpMessage(messageParams));

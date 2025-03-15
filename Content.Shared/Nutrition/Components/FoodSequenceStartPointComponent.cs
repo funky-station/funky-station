@@ -1,11 +1,6 @@
 using System.Numerics;
 using Content.Shared.Nutrition.EntitySystems;
-using Content.Shared.Nutrition.Prototypes;
-using Content.Shared.Tag;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
-using Robust.Shared.Utility;
 
 namespace Content.Shared.Nutrition.Components;
 
@@ -57,6 +52,8 @@ public sealed partial class FoodSequenceStartPointComponent : Component
     [DataField, AutoNetworkedField]
     public List<FoodSequenceElementEntry> FoodLayers = new();
 
+    public HashSet<string> RevealedLayers = new();
+
     /// <summary>
     /// target layer, where new layers will be added. This allows you to control the order of generative layers and static layers.
     /// </summary>
@@ -87,47 +84,27 @@ public sealed partial class FoodSequenceStartPointComponent : Component
     [DataField]
     public string Solution = "food";
 
+    /// <summary>
+    /// LocId with a name generation pattern.
+    /// </summary>
     [DataField]
-    public bool AllowHorizontalFlip = true;
-
-    public HashSet<string> RevealedLayers = new();
-}
-
-/// <summary>
-/// class that synchronizes with the client
-/// Stores all the necessary information for rendering the FoodSequence element
-/// </summary>
-[DataRecord, Serializable, NetSerializable]
-public partial record struct FoodSequenceVisualLayer
-{
-    /// <summary>
-    /// reference to the original prototype of the layer. Used to edit visual layers.
-    /// </summary>
-    public ProtoId<FoodSequenceElementPrototype> Proto;
+    public LocId? NameGeneration;
 
     /// <summary>
-    /// Sprite rendered in sequence
+    /// the part of the name generation used in the pattern
     /// </summary>
-    public SpriteSpecifier? Sprite { get; set; } = SpriteSpecifier.Invalid;
+    [DataField]
+    public LocId? NamePrefix;
 
     /// <summary>
-    /// Relative size of the sprite displayed in FoodSequence
+    /// content in the form of all added ingredients will be separated by these symbols
     /// </summary>
-    public Vector2 Scale { get; set; } = Vector2.One;
+    [DataField]
+    public string? ContentSeparator;
 
     /// <summary>
-    /// The offset of a particular layer. Allows a little position randomization of each layer.
+    /// the part of the name generation used in the pattern
     /// </summary>
-    public Vector2 LocalOffset { get; set; } = Vector2.Zero;
-
-    public FoodSequenceVisualLayer(ProtoId<FoodSequenceElementPrototype> proto,
-        SpriteSpecifier? sprite,
-        Vector2 scale,
-        Vector2 offset)
-    {
-        Proto = proto;
-        Sprite = sprite;
-        Scale = scale;
-        LocalOffset = offset;
-    }
+    [DataField]
+    public LocId? NameSuffix;
 }

@@ -1910,3 +1910,15 @@ Entries:
         APC. 
   id: 239
   time: '2025-03-13T23:16:08.0000000+00:00'
+- author: ' correspond, sowelipililimute'
+  changes:
+    - type: Tweak
+      message: >-
+        The clean meter of a surgery tool in the hotbar now also indicates the
+        cleanliness of the gloves and absence of a mask
+    - type: Fix
+      message: the guidebook now has info about sterile surgery tools
+    - type: Tweak
+      message: tending bruise/burn is faster to do
+  id: 240
+  time: '2025-03-15T22:32:22.0000000+00:00'

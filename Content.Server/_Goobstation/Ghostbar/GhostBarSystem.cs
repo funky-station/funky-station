@@ -40,9 +40,9 @@ public sealed class GhostBarSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
-        SubscribeNetworkEvent<GhostBarSpawnEvent>(SpawnPlayer);
-        SubscribeLocalEvent<GhostBarPlayerComponent, MindRemovedMessage>(OnPlayerGhosted);
+        //SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
+        //SubscribeNetworkEvent<GhostBarSpawnEvent>(SpawnPlayer);
+        //SubscribeLocalEvent<GhostBarPlayerComponent, MindRemovedMessage>(OnPlayerGhosted);
     }
 
     private ResPath _mapPath = new("Maps/_Goobstation/Nonstations/ghostbar.yml");

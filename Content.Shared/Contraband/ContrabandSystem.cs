@@ -56,6 +56,7 @@ public sealed class ContrabandSystem : EntitySystem
         // two strings:
         // one, the actual informative 'this is restricted'
         // then, the 'you can/shouldn't carry this around' based on the ID the user is wearing
+        var jobs = component.AllowedJobs.Select(p => _proto.Index(p).LocalizedName).ToArray();
         if (component.AllowedDepartments == null) // for one off items that dont need any specifics - funky station
         {
             var msg = new FormattedMessage();
@@ -101,8 +102,8 @@ public sealed class ContrabandSystem : EntitySystem
 
         String carryingMessage;
         // either its fully restricted, you have no departments, or your departments dont intersect with the restricted departments
-        if (departments.Intersect(component.AllowedDepartments!).Any()
-            || localizedJobs.Contains(jobId))
+        if (departments.Intersect(component.AllowedDepartments).Any()
+            || jobs.Contains(jobId))
         {
             carryingMessage = Loc.GetString("contraband-examine-text-in-the-clear");
         }

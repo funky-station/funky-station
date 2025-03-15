@@ -131841,7 +131841,6 @@ entities:
           - 7218
           - 7209
           - 7191
-          - 7131
           - 7545
           - 7757
         paper_label: !type:ContainerSlot
@@ -146111,15 +146110,6 @@ entities:
     - type: Transform
       pos: -34.732925,-41.207012
       parent: 5350
-- proto: RubberStampWarden
-  entities:
-  - uid: 7131
-    components:
-    - type: Transform
-      parent: 6696
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: SalvageMagnet
   entities:
   - uid: 6114

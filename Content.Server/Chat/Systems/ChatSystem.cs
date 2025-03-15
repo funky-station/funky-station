@@ -339,7 +339,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 			}
 			else
 			{
-				_audio.PlayGlobal(announcementSound == null ? DefaultAnnouncementSound : _audio.GetSound(announcementSound), Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+				_audio.PlayGlobal(announcementSound == null ? DefaultAnnouncementSound : _audio.ResolveSound(announcementSound), Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
 			}
         }
 		else if (announcementWords != null)

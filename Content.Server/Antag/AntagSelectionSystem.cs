@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Server._Goobstation.PendingAntag;
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
@@ -47,7 +46,6 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly RoleSystem _role = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly PendingAntagSystem _pendingAntag = default!; // Goobstation
 
     // arbitrary random number to give late joining some mild interest.
     public const float LateJoinRandomChance = 0.5f;
@@ -91,7 +89,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         var query = QueryActiveRules();
         while (query.MoveNext(out var uid, out _, out var comp, out _))
         {
-            if (comp.SelectionTime == AntagSelectionTime.PostPlayerSpawn) // Goob edit
+            if (comp.SelectionTime != AntagSelectionTime.PrePlayerSpawn)
                 continue;
 
             if (comp.SelectionsComplete)
@@ -138,20 +136,18 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         foreach (var (uid, antag) in rules)
         {
-            // Goob edit
-            // if (!RobustRandom.Prob(LateJoinRandomChance))
-            //    continue;
+            if (!RobustRandom.Prob(LateJoinRandomChance))
+                continue;
 
             if (!antag.Definitions.Any(p => p.LateJoinAdditional))
                 continue;
-            DebugTools.AssertNotEqual(antag.SelectionTime, AntagSelectionTime.PrePlayerSpawn); // Goob edit
-            if (!TryGetNextAvailableDefinition((uid, antag), out var def))
-                continue;
 
-            // Goobstation
-            if (!RobustRandom.Prob(def.Value.PlayerRatio == 0
-                    ? LateJoinRandomChance
-                    : Math.Clamp(1f / def.Value.PlayerRatio, 0f, 1f)))
+            DebugTools.AssertEqual(antag.SelectionTime, AntagSelectionTime.PostPlayerSpawn);
+
+            // do not count players in the lobby for the antag ratio
+            var players = _playerManager.NetworkedSessions.Count(x => x.AttachedEntity != null);
+
+            if (!TryGetNextAvailableDefinition((uid, antag), out var def, players))
                 continue;
 
             if (TryMakeAntag((uid, antag), args.Player, def.Value))
@@ -311,20 +307,9 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         if (antagEnt is not { } player)
         {
-            // Goob edit start
-            if (session == null)
-                return;
-
-            ent.Comp.SelectedSessions.Remove(session);
-
-            if (def.RollBeforeJob && ent.Comp.SelectionTime != AntagSelectionTime.PostPlayerSpawn)
-            {
-                _pendingAntag.PendingAntags[session.UserId] = (def, ent);
-                return;
-            }
-
             Log.Error($"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
-            // goob edit end
+            if (session != null)
+                ent.Comp.SelectedSessions.Remove(session);
             return;
         }
 

@@ -12035,17 +12035,6 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: RubberStampSyndicate
-  entities:
-  - uid: 1103
-    components:
-    - type: Transform
-      parent: 1099
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: Screen
   entities:
   - uid: 1829

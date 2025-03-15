@@ -105,3 +105,27 @@
   - BasicStationEventScheduler
   - BasicRoundstartVariation
   - SubGamemodesRule
+
+- type: gamePreset
+  id: TheSleeper
+  alias:
+    - calm
+    - calmdynamic
+  name: sleeper-title
+  description: sleeper-description
+  showInVote: true
+  minPlayers: 5
+  rules:
+    - CalmDynamic
+
+- type: gamePreset
+  id: TheGuide
+  alias:
+    - combat
+    - combatdynamic
+  name: guide-title
+  description: guide-description
+  showInVote: true
+  minPlayers: 25
+  rules:
+    - CombatDynamic

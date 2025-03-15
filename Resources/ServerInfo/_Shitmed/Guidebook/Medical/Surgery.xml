@@ -37,6 +37,19 @@ To engage in surgery, you'll need a set of surgical tools.
 
 Once you've got tools in hand, interact with your patient to begin surgery. You'll be able to choose which part you want to operate on.
 
+  ## Sterility
+
+  Your tools will accumulate dirt and grime while you use them, requiring you to clean them.
+  Unclean tools will cause your patient to take poison damage.
+
+  <Box>
+    <GuideEntityEmbed Entity="SoapNT" Caption="soap" />
+    <GuideEntityEmbed Entity="Scalpel" Caption="scalpel" />
+  </Box>
+
+  You can clean your tools by using soap on them. Be sure to also regularly clean or change your mask and gloves, as well.
+  Using the same dirty tools between two or more patients will cause your tools to become filthy, so be sure to clean them regularly.
+
 ## Ghetto Surgery
 
 Certain non-surgical tools can be used in a pinch, use the scalpel examine icon to see how good or bad something is.

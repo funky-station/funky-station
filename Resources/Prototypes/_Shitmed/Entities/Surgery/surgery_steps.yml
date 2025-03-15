@@ -370,14 +370,14 @@
   - type: SurgeryStep
     tool:
     - type: Tending
-    duration: 3 # DeltaV: was 1
+    duration: 1
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
   - type: SurgeryTendWoundsEffect
     damage:
       groups:
-        Brute: -3 # DeltaV: was -5
+        Brute: -5
   - type: SurgeryRepeatableStep
   - type: SurgeryOperatingTableCondition # funkystation - fuck you
   - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
@@ -393,7 +393,7 @@
   - type: SurgeryStep
     tool:
     - type: Tending
-    duration: 3 # DeltaV: was 1
+    duration: 1
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat

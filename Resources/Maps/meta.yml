@@ -131841,7 +131841,6 @@ entities:
           - 7218
           - 7209
           - 7191
-          - 7131
           - 7545
           - 7757
         paper_label: !type:ContainerSlot

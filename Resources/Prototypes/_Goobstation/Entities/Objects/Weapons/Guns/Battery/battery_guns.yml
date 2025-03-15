@@ -66,6 +66,7 @@
     magState: mag
     steps: 5
     zeroVisible: false
+  - type: Appearance
 
 - type: entity
   parent: WeaponPlasmaRifle

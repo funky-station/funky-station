@@ -55,20 +55,35 @@ namespace Content.IntegrationTests.Tests
             "Fland",
             "Meta",
             "Packed",
+            "Cluster", // Goobstation - Readds Cluster
             "Omega",
             "Bagel",
             "CentComm",
             "Box",
+            "Europa", // Goobstation - Readds Europa
+            "Atlas", // Goobstation - Readds Atlas
             "Core",
             "Marathon",
             "MeteorArena",
             "Saltern",
             "Reach",
+            "Origin", // Goobstation - Readds Origin
             "Train",
             "Oasis",
-            "Gate",
+            "Cog",
+            "FlandHighPop", // Goobstation - add highpop maps
+            "OriginHighPop",
+            "OasisHighPop",
+            "Divide", // funkystation
+            "Glacier", // funkystation
+            "Barratry", // Goobstation - add Barratry
+            "Kettle", // Goobstation - add Kettle
             "Amber",
+            "Hot Springs",
+            "Gate",
             "Loop",
+            "roid_outpost",
+            "DMVStation",
             "Plasma",
             "Elkridge",
             "Convex",

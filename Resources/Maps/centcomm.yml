@@ -43660,13 +43660,6 @@ entities:
     - type: Transform
       pos: -25.5,-3.5
       parent: 1668
-- proto: PosterLegitOppenhopper
-  entities:
-  - uid: 9302
-    components:
-    - type: Transform
-      pos: -8.5,-28.5
-      parent: 1668
 - proto: PosterLegitPDAAd
   entities:
   - uid: 9303

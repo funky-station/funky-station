@@ -1,3 +1,5 @@
+Name: Funkylog
+Order: -1
 Entries:
 - author: Petally
   changes:
@@ -1708,7 +1710,7 @@ Entries:
     - type: Tweak
       message: >-
         Nuclear Operatives are given proper titles (Agent, Operative, Commander)
-        roundstart 
+        roundstart
   id: 213
   time: '2025-02-24T01:49:04.0000000+00:00'
 - author: ' Miiish, GtheGlorious'
@@ -1717,3 +1719,182 @@ Entries:
       message: roingus
   id: 214
   time: '2025-02-24T05:31:29.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Fix
+      message: The SM now produces Pluoxium again.
+  id: 215
+  time: '2025-02-26T18:43:31.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added SM monitor console and courthouse to Roid!
+  id: 216
+  time: '2025-02-26T18:43:46.0000000+00:00'
+- author: Cymric22
+  changes:
+    - type: Add
+      message: Added Psychologist Jumpsuit and Jumpskirt to the MediDrobe.
+  id: 217
+  time: '2025-02-26T18:45:37.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: The Progression Cloak has been added!
+    - type: Tweak
+      message: All Pride cloaks are now in the Pride-O-Mat!
+  id: 218
+  time: '2025-02-27T01:13:32.0000000+00:00'
+- author: AverageMoron
+  changes:
+    - type: Tweak
+      message: Changed evil corgium descriptor to inverted.
+  id: 219
+  time: '2025-02-27T01:21:02.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Tweak
+      message: >-
+        The changeling guidebook entry has been updated to include
+        information about Natusixadone.
+  id: 220
+  time: '2025-02-27T01:21:26.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Tweak
+      message: Reverted disabler shot cost.
+    - type: Tweak
+      message: Reverted disabler stamina damage.
+    - type: Tweak
+      message: Reverted disabler SMG fire rate.
+  id: 221
+  time: '2025-02-28T20:28:07.0000000+00:00'
+- author: Komonighub
+  changes:
+    - type: Tweak
+      message: >-
+        Made the maxim hardsuit obtainable as an extremely
+        rare treasure loot.
+  id: 222
+  time: '2025-02-28T20:29:31.0000000+00:00'
+- author: empty0set
+  changes:
+    - type: Tweak
+      message: IPCs now leave fingerprints.
+  id: 223
+  time: '2025-02-28T20:30:31.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Tweak
+      message: BSO/NTR mantle time requirements are now 20 hours instead of 50 hours.
+  id: 224
+  time: '2025-03-02T18:49:21.0000000+00:00'
+- author: kbarkevich
+  changes:
+    - type: Tweak
+      message: Re-strengthened disablers.
+  id: 225
+  time: '2025-03-03T22:00:50.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Pride-O-Mats have been added to most maps!
+    - type: Add
+      message: Arrivals, Evac, and most Supermatters now have Warp Points.
+    - type: Tweak
+      message: Most Maps have been given more External Docks.
+  id: 226
+  time: '2025-03-03T22:01:13.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Add
+      message: >-
+        Bartender has seven new drinks to make: Eggnog, Spiked Eggnog,
+        Peggnog (Eggnog and Cola), Tayquila, Chutzpah, Margherita,
+        and Pineapple Margherita.
+  id: 227
+  time: '2025-03-04T22:45:18.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Tweak
+      message: Role timers increased across the board
+  id: 228
+  time: '2025-03-05T00:32:08.0000000+00:00'
+- author: 'hivehum, crocodilecarousel, MintyTheBinty, AftrLite'
+  changes:
+    - type: Add
+      message: >-
+        Chaplains have been given a huge new selection of outfits to better suit
+        their religious beliefs.
+    - type: Add
+      message: Added 10 new suits and made them available in drobes and loadouts!
+    - type: Add
+      message: The Chaplain's iconic Null Rod returns! Can be transformed into various gadgets.
+  id: 229
+  time: '2025-03-07T05:54:35.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: >-
+        Added the centcom towel to the trinkets list, a playtime reward for central
+        command jobs.
+  id: 230
+  time: '2025-03-07T16:01:29.0000000+00:00'
+- author: Ultimite
+  changes:
+    - type: Add
+      message: Added shrimp cargo request and shrimp box.
+    - type: Add
+      message: >-
+        Added recipe to fry shrimp in a microwave: shrimp, butter slice, Chuck 'em in and
+        cook 'em for 10 seconds.
+  id: 231
+  time: '2025-03-09T03:04:02.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Tweak
+      message: Annabelle has been moved from the loadout to the null rod.
+  id: 232
+  time: '2025-03-09T03:09:03.0000000+00:00'
+- author: shakulan
+  changes:
+    - type: Add
+      message: Added typicalDay lobby art.
+  id: 233
+  time: '2025-03-10T04:12:24.0000000+00:00'
+- author: Middleson
+  changes:
+    - type: Add
+      message: Added Red Performer's Jumpskirt and Boots!
+  id: 234
+  time: '2025-03-10T04:12:54.0000000+00:00'
+- author: Cthyga
+  changes:
+    - type: Tweak
+      message: Increased disabler plus capacity from 15 to 30 shots.
+    - type: Tweak
+      message: Increased miniature laser pistol disabler capacity from 10 to 30 shots.
+    - type: Tweak
+      message: Increased miniature laser pistol lethal capacity from 5 to 15 shots.
+  id: 235
+  time: '2025-03-10T04:13:12.0000000+00:00'
+- author: 'Rainbeon, taydeo'
+  changes:
+    - type: Tweak
+      message: >-
+        An Operating Table is now required for tending wounds, inserting Organs,
+        adding Limbs, removing the Heart/Brain, and mending brain tissue.
+  id: 236
+  time: '2025-03-10T04:14:06.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Remove
+      message: Cats are no longer blueberries
+  id: 237
+  time: '2025-03-10T04:49:01.0000000+00:00'
+- author: taydeo
+  changes:
+  - type: Remove
+    message: Changeling Biomass no longer drains.
+  id: 238
+  time: '2025-03-11T04:49:01.0000000+00:00'

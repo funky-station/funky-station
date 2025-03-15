@@ -37,6 +37,7 @@
   - CardBoxNanotrasen # goobstation
   - TowelColorBlack
   - TowelColorDarkBlue
+  - TowelColorCentcom #funkystation
   - TowelColorDarkGreen
   - TowelColorGold
   - TowelColorGray
@@ -244,6 +245,10 @@
   - BartenderJumpsuit
   - BartenderJumpskirt
   - BartenderJumpsuitPurple
+  - ClothingUniformNightclubSuit #imp
+  - ClothingUniformNightclubSuitSkirt #imp
+  - ClothingUniformSeniorBartender #imp
+  - ClothingUniformSeniorBartenderSkirt #imp
 
 - type: loadoutGroup
   id: BartenderOuterClothing
@@ -292,6 +297,8 @@
   - LibrarianJumpskirt
   - CuratorJumpsuit
   - CuratorJumpskirt
+  - ClothingUniformBrownSuit #imp
+  - ClothingUniformBrownSuitSkirt #imp
 
 - type: loadoutGroup
   id: LawyerJumpsuit
@@ -307,6 +314,8 @@
   - LawyerJumpskirtRed
   - LawyerJumpsuitGood
   - LawyerJumpskirtGood
+  - ClothingUniformCreamSuit #imp
+  - ClothingUniformCreamSuitSkirt #imp
 
 - type: loadoutGroup
   id: LawyerNeck
@@ -321,6 +330,11 @@
   minLimit: 0
   loadouts:
   - ChaplainHead
+  - ChaplainHeadDruid # imp
+  - ChaplainHeadMoon # imp
+  - ChaplainHeadSun # imp
+  - ChaplainHeadTidal # imp
+  - ChaplainHeadVeil # imp
   - ChaplainNunHood
   - ChaplainPlagueHat
   - ChaplainWitchHat
@@ -332,6 +346,8 @@
   minLimit: 0
   loadouts:
   - ChaplainMask
+  - ChaplainMaskClayshaper # imp
+  - ChaplainMaskFire # imp
 
 - type: loadoutGroup
   id: ChaplainJumpsuit
@@ -341,13 +357,14 @@
   - ChaplainJumpskirt
   - ChaplainRobesLight
   - ChaplainRobesDark
-
-# funkystation
-- type: loadoutGroup
-  id: ChaplainAnnabelle
-  name: loadout-group-chaplain-weapon
-  loadouts:
-  - ChaplainAnnabelle
+  - ChaplainSkirtClayshaper # imp
+  - ChaplainSkirtDruid # imp
+  - ChaplainSkirtMoon # imp
+  - ChaplainUniformSkirtTidal # imp
+  - ChaplainUniformSun # imp
+  - ChaplainUniformTech # imp
+  - ClothingUniformFuneralSuit #imp
+  - ClothingUniformFuneralSuitSkirt #imp
 
 - type: loadoutGroup
   id: ChaplainOuterClothing
@@ -358,6 +375,8 @@
   - ChaplainNunRobe
   - ChaplainBlackHoodie
   - ChaplainHoodie
+  - ChaplainOuterMoon # imp
+  - ChaplainHonkrobes # imp
 
 - type: loadoutGroup
   id: ChaplainNeck
@@ -365,6 +384,12 @@
   minLimit: 0
   loadouts:
   - ChaplainNeck
+  - ChaplainNeckClayshaper # imp
+  - ChaplainNeckDragon # imp
+  - ChaplainNeckDruid # imp
+  - ChaplainNeckDruidMantle # imp
+  - ChaplainNeckSun # imp
+  - ChaplainNeckTidal # imp
 
 - type: loadoutGroup
   id: JanitorHead
@@ -555,6 +580,8 @@
   loadouts:
   - MusicianJumpsuit
   - MusicianJumpskirt
+  - ClothingUniformMrSpaceWide #imp
+  - ClothingUniformMrSpaceWideSkirt #imp
 
 - type: loadoutGroup
   id: MusicianOuterClothing
@@ -1132,6 +1159,10 @@
   - DetectiveJumpskirt
   - NoirJumpsuit
   - NoirJumpskirt
+  - ClothingUniformMiamiVice #imp
+  - ClothingUniformMiamiViceSkirt #imp
+  - ClothingUniformDetectiveSuit #imp
+  - ClothingUniformDetectiveSuitSkirt #imp
 
 - type: loadoutGroup
   id: DetectiveOuterClothing
@@ -1355,6 +1386,8 @@
   loadouts:
   - ReporterJumpsuit
   - JournalistJumpsuit
+  - ClothingUniformBrosBlazer #imp
+  - ClothingUniformBrosBlazerSkirt #imp
 
 - type: loadoutGroup
   id: PsychologistJumpsuit

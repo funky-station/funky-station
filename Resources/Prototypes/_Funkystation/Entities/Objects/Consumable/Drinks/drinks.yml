@@ -1,0 +1,94 @@
+- type: entity
+  parent: DrinkGlass
+  id: DrinkEggnog
+  suffix: eggnog
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Eggnog
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkPeggnog
+  suffix: peggnog
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Peggnog
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkSpikedEggnog
+  suffix: spiked eggnog
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: SpikedEggnog
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkTayquila
+  suffix: tayquila
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Tayquila
+          Quantity: 30
+  - type: Icon
+    sprite: _Funkystation/Objects/Consumable/Drinks/tayquila.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkChutzpah
+  suffix: chutzpah
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Chutzpah
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: MargheritaDrink
+  suffix: margherita
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MargheritaDrink
+          Quantity: 30
+
+- type: entity
+  parent: DrinkGlass
+  id: PineappleMargherita
+  suffix: pineapple margherita
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: PineappleMargherita
+          Quantity: 30
+# pignog

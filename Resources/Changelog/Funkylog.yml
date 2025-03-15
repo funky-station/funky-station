@@ -1922,3 +1922,9 @@ Entries:
       message: tending bruise/burn is faster to do
   id: 240
   time: '2025-03-15T22:32:22.0000000+00:00'
+- author: Binbagg
+  changes:
+    - type: Add
+      message: Added Sharkminnow chitin which can be harvested and made into shoes
+  id: 241
+  time: '2025-03-15T23:20:52.0000000+00:00'

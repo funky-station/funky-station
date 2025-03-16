@@ -1934,3 +1934,11 @@ Entries:
       message: senior bartender suits will spawn correctly now
   id: 242
   time: '2025-03-15T23:25:50.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Add
+      message: >-
+        Ported GameDirector gamerules and presets, starting with The Guide and
+        The Sleeper (combat oriented round and spicy greenshift)
+  id: 243
+  time: '2025-03-16T01:30:52.0000000+00:00'

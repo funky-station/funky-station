@@ -2865,8 +2865,8 @@ entities:
         - volume: 2500
           temperature: 235
           moles:
-          - 21.824879
-          - 82.10312
+          - 27.225372
+          - 102.419266
           - 0
           - 0
           - 0
@@ -3591,7 +3591,7 @@ entities:
       pos: -46.5,-6.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2425.1313
+      secondsUntilStateChange: -2958.5603
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3713,7 +3713,7 @@ entities:
       pos: 35.5,-0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1777.3652
+      secondsUntilStateChange: -2310.7942
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3908,7 +3908,7 @@ entities:
       pos: -57.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2433.1313
+      secondsUntilStateChange: -2966.5603
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -4037,18 +4037,6 @@ entities:
       linkedPorts:
         115:
         - DoorStatus: DoorBolt
-  - uid: 117
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -36.5,-22.5
-      parent: 2
-    - type: DeviceLinkSink
-      invokeCounter: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        118:
-        - DoorStatus: DoorBolt
   - uid: 118
     components:
     - type: Transform
@@ -4057,10 +4045,6 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       invokeCounter: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        117:
-        - DoorStatus: DoorBolt
 - proto: AirlockExternalGlassShuttleArrivals
   entities:
   - uid: 119
@@ -4113,6 +4097,11 @@ entities:
       parent: 2
 - proto: AirlockExternalGlassShuttleLocked
   entities:
+  - uid: 117
+    components:
+    - type: Transform
+      pos: -36.5,-22.5
+      parent: 2
   - uid: 127
     components:
     - type: Transform
@@ -41129,10 +41118,10 @@ entities:
       parent: 2
 - proto: HolopadGeneralArrivals
   entities:
-  - uid: 9305
+  - uid: 9293
     components:
     - type: Transform
-      pos: 20.5,25.5
+      pos: 19.5,25.5
       parent: 2
 - proto: HolopadGeneralCryosleep
   entities:
@@ -43480,11 +43469,6 @@ entities:
     - type: ContainerContainer
       containers:
         stash: !type:ContainerSlot {}
-  - uid: 6481
-    components:
-    - type: Transform
-      pos: 20.5,25.5
-      parent: 2
   - uid: 6482
     components:
     - type: Transform
@@ -52730,6 +52714,11 @@ entities:
     - type: Transform
       pos: 17.5,25.5
       parent: 2
+  - uid: 9295
+    components:
+    - type: Transform
+      pos: -22.5,-6.5
+      parent: 2
 - proto: VendingMachineCoffee
   entities:
   - uid: 7870
@@ -52860,6 +52849,18 @@ entities:
     components:
     - type: Transform
       pos: -9.5,-1.5
+      parent: 2
+- proto: VendingMachinePride
+  entities:
+  - uid: 6481
+    components:
+    - type: Transform
+      pos: 20.5,25.5
+      parent: 2
+  - uid: 9294
+    components:
+    - type: Transform
+      pos: -23.5,-6.5
       parent: 2
 - proto: VendingMachineRoboDrobe
   entities:
@@ -58963,6 +58964,22 @@ entities:
     - type: Transform
       pos: -49.5,-13.5
       parent: 2
+- proto: WarpPoint
+  entities:
+  - uid: 9291
+    components:
+    - type: Transform
+      pos: 18.5,31.5
+      parent: 2
+    - type: WarpPoint
+      location: Arrivals
+  - uid: 9292
+    components:
+    - type: Transform
+      pos: -68.5,2.5
+      parent: 2
+    - type: WarpPoint
+      location: Supermatter
 - proto: WarpPointBombing
   entities:
   - uid: 9030

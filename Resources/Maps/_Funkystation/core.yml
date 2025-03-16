@@ -14936,10 +14936,6 @@ entities:
     - type: Transform
       pos: 72.5,-33.5
       parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        308:
-        - DoorStatus: DoorBolt
   - uid: 285
     components:
     - type: MetaData
@@ -15109,6 +15105,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -68.5,-30.5
       parent: 2
+  - uid: 308
+    components:
+    - type: Transform
+      pos: 72.5,-36.5
+      parent: 2
 - proto: AirlockExternalLocked
   entities:
   - uid: 305
@@ -15138,17 +15139,6 @@ entities:
         280:
         - DoorStatus: DoorBolt
         281:
-        - DoorStatus: DoorBolt
-  - uid: 308
-    components:
-    - type: MetaData
-      name: Maintenance external airlock
-    - type: Transform
-      pos: 72.5,-36.5
-      parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        284:
         - DoorStatus: DoorBolt
   - uid: 309
     components:
@@ -60812,6 +60802,15 @@ entities:
     - type: Transform
       pos: -35.36938,-10.505542
       parent: 2
+- proto: ClothingMaskBlushingMime
+  entities:
+  - uid: 8817
+    components:
+    - type: Transform
+      parent: 8814
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: ClothingMaskBreath
   entities:
   - uid: 8734
@@ -60876,15 +60875,6 @@ entities:
     - type: Transform
       pos: 37.5265,-16.39656
       parent: 2
-- proto: ClothingMaskSexyMime
-  entities:
-  - uid: 8817
-    components:
-    - type: Transform
-      parent: 8814
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingNeckAromanticPin
   entities:
   - uid: 8879
@@ -104851,11 +104841,6 @@ entities:
     - type: Transform
       pos: -41.5,4.5
       parent: 2
-  - uid: 15304
-    components:
-    - type: Transform
-      pos: 39.5,-2.5
-      parent: 2
   - uid: 15305
     components:
     - type: Transform
@@ -107164,11 +107149,6 @@ entities:
     components:
     - type: Transform
       pos: -29.5,-20.5
-      parent: 2
-  - uid: 15659
-    components:
-    - type: Transform
-      pos: -27.5,-12.5
       parent: 2
   - uid: 15660
     components:
@@ -110380,11 +110360,6 @@ entities:
     components:
     - type: Transform
       pos: 28.5,-33.5
-      parent: 2
-  - uid: 16057
-    components:
-    - type: Transform
-      pos: 39.5,-2.5
       parent: 2
   - uid: 16058
     components:
@@ -127607,6 +127582,18 @@ entities:
     components:
     - type: Transform
       pos: -29.5,17.5
+      parent: 2
+- proto: VendingMachinePride
+  entities:
+  - uid: 15659
+    components:
+    - type: Transform
+      pos: -27.5,-12.5
+      parent: 2
+  - uid: 16057
+    components:
+    - type: Transform
+      pos: 39.5,-2.5
       parent: 2
 - proto: VendingMachineRoboDrobe
   entities:
@@ -145955,6 +145942,15 @@ entities:
     - type: Transform
       pos: 27.5,-7.5
       parent: 2
+- proto: WarpPoint
+  entities:
+  - uid: 15304
+    components:
+    - type: Transform
+      pos: -47.5,-45.5
+      parent: 2
+    - type: WarpPoint
+      location: Arrivals
 - proto: WarpPointBombing
   entities:
   - uid: 22071

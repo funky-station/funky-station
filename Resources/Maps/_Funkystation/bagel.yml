@@ -10810,7 +10810,7 @@ entities:
       pos: -29.5,37.5
       parent: 60
     - type: Door
-      secondsUntilStateChange: -17471.627
+      secondsUntilStateChange: -17647.28
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11900,6 +11900,11 @@ entities:
       parent: 60
 - proto: AirlockExternalGlassShuttleLocked
   entities:
+  - uid: 669
+    components:
+    - type: Transform
+      pos: -47.5,-39.5
+      parent: 60
   - uid: 4889
     components:
     - type: Transform
@@ -13218,11 +13223,6 @@ entities:
       parent: 60
 - proto: AirlockShuttle
   entities:
-  - uid: 2512
-    components:
-    - type: Transform
-      pos: -47.5,-39.5
-      parent: 60
   - uid: 12584
     components:
     - type: Transform
@@ -59262,6 +59262,20 @@ entities:
     - type: Transform
       pos: 56.480446,-3.47641
       parent: 60
+- proto: ClothingMaskBlushingClown
+  entities:
+  - uid: 12225
+    components:
+    - type: Transform
+      pos: 22.039051,-11.200508
+      parent: 60
+- proto: ClothingMaskBlushingMime
+  entities:
+  - uid: 4261
+    components:
+    - type: Transform
+      pos: 27.273426,-11.294258
+      parent: 60
 - proto: ClothingMaskBreath
   entities:
   - uid: 9502
@@ -59335,20 +59349,6 @@ entities:
     components:
     - type: Transform
       pos: 50.52941,-44.450947
-      parent: 60
-- proto: ClothingMaskSexyClown
-  entities:
-  - uid: 12225
-    components:
-    - type: Transform
-      pos: 22.039051,-11.200508
-      parent: 60
-- proto: ClothingMaskSexyMime
-  entities:
-  - uid: 4261
-    components:
-    - type: Transform
-      pos: 27.273426,-11.294258
       parent: 60
 - proto: ClothingMaskSterile
   entities:
@@ -129599,11 +129599,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 14.5,-12.5
       parent: 60
-  - uid: 669
-    components:
-    - type: Transform
-      pos: 9.5,-19.5
-      parent: 60
   - uid: 1544
     components:
     - type: Transform
@@ -136286,6 +136281,18 @@ entities:
     components:
     - type: Transform
       pos: 33.5,-26.5
+      parent: 60
+- proto: VendingMachinePride
+  entities:
+  - uid: 2512
+    components:
+    - type: Transform
+      pos: 9.5,-19.5
+      parent: 60
+  - uid: 7585
+    components:
+    - type: Transform
+      pos: -41.5,21.5
       parent: 60
 - proto: VendingMachineRestockDonut
   entities:
@@ -151357,6 +151364,29 @@ entities:
     - type: Transform
       pos: -55.5,39.5
       parent: 60
+- proto: WarpPoint
+  entities:
+  - uid: 7580
+    components:
+    - type: Transform
+      pos: -16.5,50.5
+      parent: 60
+    - type: WarpPoint
+      location: Supermatter
+  - uid: 7583
+    components:
+    - type: Transform
+      pos: 0.5,-56.5
+      parent: 60
+    - type: WarpPoint
+      location: Arrivals
+  - uid: 7584
+    components:
+    - type: Transform
+      pos: 49.5,23.5
+      parent: 60
+    - type: WarpPoint
+      location: Evac
 - proto: WaterCooler
   entities:
   - uid: 592

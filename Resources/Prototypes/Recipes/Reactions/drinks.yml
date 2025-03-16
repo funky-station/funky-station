@@ -688,6 +688,8 @@
 
 - type: reaction
   id: Margarita
+  requiredMixerCategories:
+  - Shake #funkystation
   reactants:
     Tequila:
       amount: 2

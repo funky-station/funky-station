@@ -6,15 +6,15 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 18000 #5 hrs
+      time: 36000 #10 hrs
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 36000 #10 hrs
+      time: 72000 #20 hrs
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 54000 # 15 hrs
+      time: 108000 #30 hrs
     - !type:OverallPlaytimeRequirement
-      time: 90000 #25 hrs
+      time: 144000 #40 hrs
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"

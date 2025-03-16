@@ -1,0 +1,93 @@
+- type: reagent
+  id: SpikedEggnog
+  name: reagent-name-spiked-eggnog
+  parent: BaseAlcohol
+  desc: reagent-desc-spiked-eggnog
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: spiked-eggnog
+  color: "#F5D695"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.07
+
+- type: reagent
+  id: Tayquila
+  name: reagent-name-tayquila
+  parent: BaseAlcohol
+  desc: reagent-desc-tayquila
+  physicalDesc: reagent-physical-desc-sour
+  flavor: sour
+  color: "#48dd23"
+  metamorphicSprite:
+    sprite: _Funkystation/Objects/Consumable/Drinks/tayquila.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
+
+- type: reagent
+  id: Chutzpah
+  name: reagent-name-chutzpah
+  parent: BaseAlcohol
+  desc: reagent-desc-chutzpah
+  physicalDesc: reagent-physical-desc-tangy
+  flavor: chutzpah
+  color: "#552A00"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: -1
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2 #near-absinthe level
+      - !type:AdjustReagent
+        reagent: SpaceDrugs
+        amount: 0.2
+
+- type: reagent
+  id: MargheritaDrink
+  name: reagent-name-margherita-drink
+  parent: BaseAlcohol
+  desc: reagent-desc-margherita-drink
+  physicalDesc: reagent-physical-desc-pulpy
+  flavor: margherita-drink
+  color: "#FF6C26"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateHunger
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.07
+
+- type: reagent
+  id: PineappleMargherita
+  name: reagent-name-pineapple-margherita
+  parent: BaseAlcohol
+  desc: reagent-desc-pineapple-margherita
+  physicalDesc: reagent-physical-desc-pulpy
+  flavor: pineapple-margherita
+  color: "#FF6C26"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateHunger
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.07

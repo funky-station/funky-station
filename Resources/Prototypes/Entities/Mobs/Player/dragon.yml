@@ -159,7 +159,8 @@
   - type: NightVision # Goobstation - Nigthvision
     isToggle: true
     color: "#808080"
-    playSoundOn: false
+  - type: CombatPower # Goobstation
+    factor: 4 # times more dangerous than a crew-member
 
 - type: entity
   parent: BaseMobDragon

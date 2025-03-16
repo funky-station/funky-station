@@ -110,7 +110,7 @@
   result: BoomboxRed
   completetime: 4
   materials:
-    Steel: 300
+    Steel: 100
     Plastic: 300
 
 - type: latheRecipe
@@ -118,7 +118,7 @@
   result: BoomboxGreen
   completetime: 4
   materials:
-    Steel: 300
+    Steel: 100
     Plastic: 300
 
 - type: latheRecipe
@@ -126,7 +126,7 @@
   result: BoomboxBlue
   completetime: 4
   materials:
-    Steel: 300
+    Steel: 100
     Plastic: 300
 
 - type: latheRecipe

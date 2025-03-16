@@ -22,7 +22,8 @@
             "name": "light"
         },
         {
-            "name": "boombox-inhand-right"
+            "name": "boombox-inhand-right",
+            "directions": 4
         },
         {
             "name": "boombox-inhand-left",

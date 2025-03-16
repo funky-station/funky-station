@@ -6,10 +6,14 @@
   components:
   - type: StaticPrice
     price: 100
+  - type: Item
+    size: Ginormous
+    heldPrefix: boombox
   - type: Sprite
     sprite: _Funkystation/Objects/Fun/Boomboxes/boombox.rsi
     layers:
     - state: boombox
+      map: ["enum.JukeboxVisualLayers.Base"]
     - state: light
       map: [ "enum.ToggleVisuals.Layer" ]
       visible: false
@@ -46,9 +50,9 @@
   - type: PowerCellDraw
   - type: ItemToggle
   - type: Jukebox
-    onState: on
-    offState: off
-    selectState: select
+    onState: boombox
+    offState: boombox
+    selectState: boombox
     needsBattery: true
   - type: ActivatableUI
     key: enum.JukeboxUiKey.Key
@@ -161,7 +165,7 @@
     - suitStorage
 
 - type: entity
-  id: Boomboxslav
+  id: BoomboxSlav
   name: three stripe boombox
   parent: Boombox
   components:

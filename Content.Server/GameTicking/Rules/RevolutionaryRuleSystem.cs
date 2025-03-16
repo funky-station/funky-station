@@ -263,6 +263,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         _npcFaction.AddFaction(ev.Target, RevolutionaryNpcFaction);
         var revComp = EnsureComp<RevolutionaryComponent>(ev.Target);
+        _popup.PopupEntity(Loc.GetString("flash-component-user-head-rev",
+            ("victim", Identity.Entity(ev.Target, EntityManager))), ev.Target);
 
         if (ev.User != null)
         {

@@ -1942,3 +1942,11 @@ Entries:
         The Sleeper (combat oriented round and spicy greenshift)
   id: 243
   time: '2025-03-16T01:30:52.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Fix
+      message: tend wounds no longer causes bleeding
+    - type: Tweak
+      message: unsterile surgery causes a little less poison damage
+  id: 244
+  time: '2025-03-16T23:48:08.0000000+00:00'

@@ -203,6 +203,11 @@
       - WetFloorSign
       - ClothingHeadHatCone
       - FreezerElectronics
+    dynamicRecipes:
+    - BoomboxRed
+    - BoomboxGreen
+    - BoomboxBlue
+
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
@@ -542,7 +547,6 @@
       - MassMediaCircuitboard
       - ReagentGrinderIndustrialMachineCircuitboard
       - JukeboxCircuitBoard
-      - BoomBoxCircuitboard
       - SMESAdvancedMachineCircuitboard
       - HolopadMachineCircuitboard
   - type: EmagLatheRecipes

@@ -6,6 +6,27 @@
   components:
   - type: StaticPrice
     price: 100
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Boomboxes/boombox.rsi
+    layers:
+    - state: boombox
+    - state: light
+      map: [ "enum.ToggleVisuals.Layer" ]
+      visible: false
+      shader: unshaded
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Boomboxes/boombox.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
   - type: MeleeWeapon
     damage:
       types:
@@ -21,7 +42,6 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
   - type: ToggleCellDraw
   - type: PowerCellDraw
   - type: ItemToggle
@@ -54,8 +74,6 @@
           SheetSteel1:
             min: 1
             max: 2
-  - type: Machine
-    board: BoomBoxCircuitboard
 
 - type: entity
   id: BoomboxRed
@@ -67,46 +85,95 @@
     heldPrefix: boombox
   - type: Sprite
     sprite: _Funkystation/Objects/Fun/Boomboxes/redboombox.rsi
-    state: boombox
   - type: Clothing
     sprite: _Funkystation/Objects/Fun/Boomboxes/redboombox.rsi
+
+- type: entity
+  id: BoomboxBlue
+  name: blue boombox
+  parent: Boombox
+  components:
+  - type: Item
+    size: Ginormous
+    heldPrefix: boombox
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Boomboxes/blueboombox.rsi
+    state: boombox
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Boomboxes/blueboombox.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
 
-#- type: entity
-#  id: BoomboxBlue
-#  name: blue boombox
-#  parent: Boombox
-#  components:
-# - type: Item
-#    size: Ginormous
-#   heldPrefix: boombox
-# - type: Sprite
-#    sprite: _Funkystation/Objects/Fun/Boomboxes/blueboombox.rsi
-#   state: boombox
-# - type: Clothing
-#   sprite: _Funkystation/Objects/Fun/Boomboxes/blueboombox.rsi
-#   quickEquip: false
-#   slots:
-#   - Back
-#    - suitStorage
+- type: entity
+  id: BoomboxPink
+  name: pink boombox
+  parent: Boombox
+  components:
+  - type: Item
+    size: Ginormous
+    heldPrefix: boombox
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Boomboxes/pinkboombox.rsi
+    state: boombox
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Boomboxes/pinkboombox.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
 
-#- type: entity
-#  id: BoomboxPink
-#  name: pink boombox
-#  parent: Boombox
-#  components:
-#  - type: Item
-#    size: Ginormous
-#    heldPrefix: boombox
-#  - type: Sprite
-#    sprite: _Funkystation/Objects/Fun/Boomboxes/pinkboombox.rsi
-#    state: boombox
-#  - type: Clothing
-#    sprite: _Funkystation/Objects/Fun/Boomboxes/pinkboombox.rsi
-#    quickEquip: false
-#    slots:
-#    - Back
-#    - suitStorage
+- type: entity
+  id: BoomboxPurple
+  name: purple boombox
+  parent: Boombox
+  components:
+  - type: Item
+    size: Ginormous
+    heldPrefix: boombox
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Boomboxes/purpleboombox.rsi
+    state: boombox
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Boomboxes/purpleboombox.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+
+- type: entity
+  id: BoomboxGreen
+  name: green boombox
+  parent: Boombox
+  components:
+  - type: Item
+    size: Ginormous
+    heldPrefix: boombox
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Boomboxes/greenboombox.rsi
+    state: boombox
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Boomboxes/greenboombox.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+
+- type: entity
+  id: Boomboxslav
+  name: three stripe boombox
+  parent: Boombox
+  components:
+  - type: Item
+    size: Ginormous
+    heldPrefix: boombox
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Boomboxes/slavboombox.rsi
+    state: boombox
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Boomboxes/slavboombox.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage

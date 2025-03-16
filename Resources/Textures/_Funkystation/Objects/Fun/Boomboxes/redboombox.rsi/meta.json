@@ -17,6 +17,17 @@
         {
             "name": "equipped-SUITSTORAGE",
             "directions": 4
+        },
+        {
+            "name": "light"
+        },
+        {
+            "name": "boombox-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "boombox-inhand-left",
+            "directions": 4
         }
     ]
 }

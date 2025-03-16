@@ -34,7 +34,6 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         SubscribeLocalEvent<JukeboxComponent, JukeboxSetTimeMessage>(OnJukeboxSetTime);
         SubscribeLocalEvent<JukeboxComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<JukeboxComponent, ComponentShutdown>(OnComponentShutdown);
-
         SubscribeLocalEvent<JukeboxComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<JukeboxComponent, ItemToggledEvent>(OnToggled);
     }

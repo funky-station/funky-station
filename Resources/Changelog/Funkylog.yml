@@ -1950,3 +1950,11 @@ Entries:
       message: unsterile surgery causes a little less poison damage
   id: 244
   time: '2025-03-16T23:48:08.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: 'Added razor lined bowler hat to uplink. '
+    - type: Tweak
+      message: Syndicate business and playing cards now deal throw damage
+  id: 245
+  time: '2025-03-16T23:49:00.0000000+00:00'

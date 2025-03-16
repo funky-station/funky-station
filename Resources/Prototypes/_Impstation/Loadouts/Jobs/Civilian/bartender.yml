@@ -11,9 +11,9 @@
 - type: loadout
   id: ClothingUniformSeniorBartender
   equipment:
-    id: ClothingUniformSeniorBartender
+    jumpsuit: ClothingUniformSeniorBartender
 
 - type: loadout
   id: ClothingUniformSeniorBartenderSkirt
   equipment:
-    id: ClothingUniformSeniorBartenderSkirt
+    jumpsuit: ClothingUniformSeniorBartenderSkirt

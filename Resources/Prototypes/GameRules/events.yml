@@ -41,6 +41,7 @@
     - id: BlobSpawn #Goobstation - Blob
     - id: FalseAlarm
     - id: DerelictCyborgSpawn
+    - id: WizardSpawn
 
 - type: entity
   id: BaseStationEvent
@@ -82,6 +83,8 @@
       path: /Audio/Announcements/announce.ogg
     weight: 8
     duration: 35
+    chaos: # Goobstation
+      Anomaly: 100
   - type: AnomalySpawnRule
 
 - type: entity
@@ -98,6 +101,8 @@
       path: /Audio/Announcements/announce.ogg
     weight: 8
     duration: 35
+    chaos: # Goobstation
+      Anomaly: 40
   - type: BluespaceArtifactRule
 
 - type: entity
@@ -109,6 +114,8 @@
     reoccurrenceDelay: 20 #funkystation - stop happening so fucking often
     earliestStart: 1
     duration: 1
+    chaos: # Goobstation
+      Anomaly: 40
   - type: BluespaceLockerRule
 
 - type: entity
@@ -119,6 +126,8 @@
     weight: 7
     duration: 1
     minimumPlayers: 10
+    chaos: # Goobstation
+      Power: 100
   - type: BreakerFlipRule
 
 - type: entity
@@ -167,6 +176,12 @@
     reoccurrenceDelay: 30 # funkystation
     minimumPlayers: 20
     duration: null
+    chaos: # Goobstation
+      Hostile: 20
+      Friend: 20
+      Combat: 40
+      Death: 100
+      Medical: 100
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner
@@ -196,6 +211,12 @@
     earliestStart: 45
     reoccurrenceDelay: 60 # funkystation
     minimumPlayers: 30
+    chaos: # Goobstation
+      Hostile: 20
+      Friend: 20
+      Combat: 40
+      Death: 40
+      Medical: 40
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
   - type: AntagObjectives
@@ -244,10 +265,16 @@
     duration: 1
     earliestStart: 45
     minimumPlayers: 20
+    chaos: # Goobstation
+      Hostile: 20
+      Friend: 20
+      Combat: 40
+      Death: 100
+      Medical: 100
   - type: RandomSpawnRule
     prototype: MobRevenant
 
-# Funky Station - reenabled because funny
+# disabled until event is rewritten to be more interesting
 - type: entity
   id: FalseAlarm
   parent: BaseGameRule
@@ -255,7 +282,51 @@
   - type: StationEvent
     weight: 15
     duration: 1
+    chaos: # Goobstation
+      Hostile: 15
+      Friend: 15
+      Combat: 15
+      Death: 15
+      Medical: 15
   - type: FalseAlarmRule
+
+- type: entity
+  parent: BaseWizardRule
+  id: WizardSpawn
+  components:
+  - type: StationEvent
+    weight: 1 # rare
+    duration: 1
+    earliestStart: 30
+    reoccurrenceDelay: 60
+    minimumPlayers: 10
+  - type: AntagSelection
+    agentName: wizard-round-end-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostWizard
+      min: 1
+      max: 1
+      playerRatio: 1
+      pickPlayer: false
+      startingGear: WizardBlueGear
+      roleLoadout:
+      - RoleSurvivalExtended
+      briefing:
+        text: wizard-role-greeting
+        color: Turquoise
+        # TODO: Need Wizard Start sound
+        #sound: "/Audio/Ambience/Antag/wizard_start.ogg"
+      # TODO: WizardComp as needed
+      components:
+      - type: NpcFactionMember
+        factions:
+        - Wizard
+      - type: RandomMetadata
+        nameSegments:
+        - names_wizard_first
+        - names_wizard_last
+      mindRoles:
+      - MindRoleWizard
 
 - type: entity
   id: GasLeak
@@ -267,6 +338,9 @@
       path: /Audio/Announcements/attention.ogg
     endAnnouncement: station-event-gas-leak-end-announcement
     weight: 8
+    chaos:
+      Atmos: 100
+      Medical: 50
   - type: GasLeakRule
 
 - type: entity
@@ -278,6 +352,10 @@
     minimumPlayers: 15
     weight: 7
     duration: 600 #if they can't deal with it in 10 minutes that's their problem
+    chaos:
+      Hostile: 20
+      Friend: 20
+      Medical: 100
   - type: KudzuGrowthRule
 
 - type: entity
@@ -308,6 +386,8 @@
       path: /Audio/Announcements/attention.ogg
     duration: 120
     maxDuration: 240
+    chaos: # Goobstation
+      Friend: 20
   - type: SolarFlareRule
     onlyJamHeadsets: true
     affectedChannels:
@@ -336,6 +416,8 @@
     minimumPlayers: 15
     weight: 5
     duration: 60
+    chaos: # Goobstation
+      Mess: 200
   - type: VentClogRule
 
 - type: entity
@@ -350,6 +432,10 @@
     minimumPlayers: 15
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
+    chaos: # Goobstation
+      Hostile: 10
+      Friend: 10
+      Medical: 50
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
@@ -418,6 +504,11 @@
     minimumPlayers: 40
     weight: 1.5 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
+    chaos: # Goobstation
+      Hostile: 40
+      Friend: 60
+      Medical: 200
+      Death: 200
   - type: ZombieRule
   - type: AntagSelection
     definitions:
@@ -451,10 +542,15 @@
     weight: 4
     minimumPlayers: 20
     duration: 1
+    chaos: # Goobstation
+      Hostile: 20
+      Friend: 40
+      Medical: 200
+      Death: 100
   - type: RuleGrids
   - type: LoadMapRule
-    preloadedGrid: ShuttleStriker
-  - type: NukeopsRule # goob edit
+    gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
+  - type: NukeopsRule
     roundEndBehavior: Nothing
   - type: AntagSelection
     definitions:

@@ -192,6 +192,13 @@
     Uranium: 100
 
 - type: latheRecipe
+  id: InterdimensionalStablePortal
+  result: InterdimensionalStablePortal
+  completetime: 5
+  materials:
+    Steel: 1
+
+- type: latheRecipe
   id: WeaponProtoKineticAccelerator
   result: WeaponProtoKineticAccelerator
   category: Weapons

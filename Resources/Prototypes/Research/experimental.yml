@@ -151,3 +151,16 @@
   cost: 10000
   recipeUnlocks:
   - DeviceQuantumSpinInverter
+
+- type: technology
+  id: StablePortal
+  name: research-stable-portal
+  icon:
+    sprite: Objects/Devices/hand_teleporter.rsi
+    state: icon
+    color: red
+  discipline: Experimental
+  tier: 1
+  cost: 10000
+  recipeUnlocks:
+  - InterdimensionalStablePortal

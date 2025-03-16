@@ -256,16 +256,16 @@
     - UplinkExplosives
   saleLimit: 1 # WD EDIT
 
-- type: listing
-  id: UplinkSupermatterGrenade
-  name: uplink-supermatter-grenade-name
-  description: uplink-supermatter-grenade-desc
-  productEntity: SupermatterGrenade
-  cost:
-    Telecrystal: 28 # goob
-  categories:
-    - UplinkExplosives
-  saleLimit: 1 # WD EDIT
+#- type: listing
+#  id: UplinkSupermatterGrenade
+#  name: uplink-supermatter-grenade-name
+#  description: uplink-supermatter-grenade-desc
+#  productEntity: SupermatterGrenade
+#  cost:
+#    Telecrystal: 28 # goob
+#  categories:
+#    - UplinkExplosives
+#  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkWhiteholeGrenade

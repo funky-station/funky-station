@@ -130,6 +130,8 @@
     attributes:
       gender: male
   - type: Sharp
+  - type: CombatPower # Goobstation
+    factor: 2
 
 - type: entity
   id: MobRatKingBuff

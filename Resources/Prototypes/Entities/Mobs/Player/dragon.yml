@@ -168,6 +168,9 @@
   components:
   - type: Dragon
     spawnRiftAction: ActionSpawnRift
+  - type: GhostRole
+    mindRoles:
+    - MindRoleDragon
   - type: GuideHelp
     guides:
     - MinorAntagonists

@@ -2,6 +2,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Shared.Maps;
 using Content.Shared.AlternateDimension;
+using Content.Shared.Physics;
+using Content.Shared.Spawning;
 using Content.Shared.Tag;
 using Robust.Shared.CPUJob.JobQueues;
 using Robust.Shared.Map;
@@ -27,9 +29,12 @@ public sealed class SpawnAlternateDimensionJob : Job<bool>
     private readonly EntityUid _originalGrid;
     private readonly AlternateDimensionParams _alternateParams;
 
+    private readonly ISawmill _sawmill;
+
     public SpawnAlternateDimensionJob(
         double maxTime,
         IEntityManager entManager,
+        ILogManager logManager,
         IMapManager mapManager,
         IPrototypeManager protoManager,
         SharedMapSystem map,
@@ -55,6 +60,7 @@ public sealed class SpawnAlternateDimensionJob : Job<bool>
         _alternateGrid = alternateGrid;
         _alternateMapId = alternateMapId;
         _alternateParams = alternateParams;
+        _sawmill = logManager.GetSawmill("alternatedimension_job");
     }
 
     protected override async Task<bool> Process()
@@ -97,8 +103,15 @@ public sealed class SpawnAlternateDimensionJob : Job<bool>
             {
                 if (!_tag.HasTag(tagged.Owner, replacement.Key))
                     continue;
+
                 var coord = new EntityCoordinates(_mapSystem.GetMap(_alternateMapId), tagged.Comp2.Coordinates.Position);
-                _entManager.SpawnEntity(replacement.Value, coord);
+
+                if (!_entManager.TrySpawnIfUnobstructed(replacement.Value,
+                        coord,
+                        CollisionGroup.Impassable,
+                        out var entity))
+                    _sawmill.Log(LogLevel.Warning, $"Shits fucked for {replacement.Key}");
+
                 break;
             }
         }

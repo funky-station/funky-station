@@ -24,6 +24,8 @@ public sealed partial class AlternateDimensionSystem : SharedAlternateDimensionS
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
+    [Dependency] private readonly ILogManager _logManager = default!;
+
     private readonly JobQueue _jobQueue = new();
     private readonly List<(SpawnAlternateDimensionJob Job, CancellationTokenSource CancelToken)> _jobs = new();
     private const double JobTime = 0.002;
@@ -81,6 +83,7 @@ public sealed partial class AlternateDimensionSystem : SharedAlternateDimensionS
         var job = new SpawnAlternateDimensionJob(
             JobTime,
             EntityManager,
+            _logManager,
             _mapManager,
             _prototypeManager,
             _mapSystem,

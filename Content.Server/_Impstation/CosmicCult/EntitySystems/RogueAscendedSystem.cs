@@ -138,14 +138,16 @@ public sealed class RogueAscendedSystem : EntitySystem
     #region Cleanse
     private void OnInfectionCleansed(Entity<RogueAscendedInfectionComponent> uid, ref ComponentShutdown args)
     {
+        // note for funkytainers: this if statement Should never run cuz no thaven
+        // leaving for parity's sake, also for edge cases with admin tricks
         if (uid.Comp.HadMoods)
         {
             EnsureComp<ThavenMoodsComponent>(uid, out var moodComp); // ensure it because we don't need another if()
             _moodSystem.ToggleEmaggable((uid, moodComp)); // enable emagging again
             _moodSystem.ToggleSharedMoods((uid, moodComp)); // enable shared moods
             _moodSystem.ClearMoods((uid, moodComp)); // wipe those moods again
-            _moodSystem.TryAddRandomMood((uid, moodComp), false);
-            _moodSystem.TryAddRandomMood((uid, moodComp));
+            _moodSystem.TryAddRandomMood(uid.Owner, moodComp);
+            _moodSystem.TryAddRandomMood(uid.Owner, moodComp);
         }
         else
             RemComp<ThavenMoodsComponent>(uid);
@@ -215,8 +217,8 @@ public sealed class RogueAscendedSystem : EntitySystem
         _moodSystem.ToggleEmaggable((target, moodComp)); // can't emag an infected thavenmood
         _moodSystem.ClearMoods((target, moodComp)); // wipe those moods
         _moodSystem.ToggleSharedMoods((target, moodComp)); // disable shared moods
-        _moodSystem.TryAddRandomMood((target, moodComp), AscendantDataset, false); // we don't need to notify them twice
-        _moodSystem.TryAddRandomMood((target, moodComp), AscendantDataset);
+        _moodSystem.TryAddRandomMood(target, AscendantDataset, moodComp); // we don't need to notify them twice
+        _moodSystem.TryAddRandomMood(target, AscendantDataset, moodComp);
 
         _damageable.TryChangeDamage(target, uid.Comp.InfectionHeal * -1);
         _statusEffects.TryRemoveStatusEffect(target, "ForcedSleep");

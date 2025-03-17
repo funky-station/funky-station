@@ -113,4 +113,4 @@
   id: OctarineAlertSOP
   name: alert-level-octarine
   priority: 70
-  text: "/ServerInfo/_Impstation/Guidebook/AlertLevel/OctarineAlert.xml"
+  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/OctarineAlert.xml"

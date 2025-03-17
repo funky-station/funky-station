@@ -103,9 +103,9 @@
           !type:PhysShapeAabb
           bounds: "-0.5,-0.5,0.5,0.5"
         layer:
-          - SlipLayer
+        - SlipLayer
         mask:
-          - ItemMask
+        - ItemMask
         density: 1000
         hard: false
   - type: FootstepModifier
@@ -118,7 +118,14 @@
     intersectRatio: 0.1
     blacklist:
       tags:
-        - Catwalk
+      - Catwalk
+  - type: TileEntityEffect
+    effects:
+    - !type:AdjustTemperature
+      conditions:
+      - !type:Temperature
+        min: 160.15
+      amount: -30000
   - type: Transform
     anchored: true
   - type: SyncSprite
@@ -127,8 +134,8 @@
     sprite: /Textures/_Impstation/CosmicCult/Tileset/cosmicdecay.rsi
     drawdepth: BelowFloor
     layers:
-      - state: decay
-        shader: unshaded
+    - state: decay
+      shader: unshaded
   - type: Icon
     sprite: /Textures/_Impstation/CosmicCult/Tileset/cosmicdecay.rsi
     state: full
@@ -137,8 +144,7 @@
     base: decay
   - type: Tag
     tags:
-      - Entropy
-      - HideContextMenu
+    - HideContextMenu
   - type: PointLight
     radius: 4.25
     energy: 1.75
@@ -157,6 +163,7 @@
   - type: FloorOccluder
   - type: Physics
     bodyType: Static
+    canCollide: False
   - type: Transform
     anchored: true
   - type: SyncSprite
@@ -170,4 +177,4 @@
     base: void
   - type: Tag
     tags:
-      - HideContextMenu
+    - HideContextMenu

@@ -8,9 +8,9 @@
   - type: Sprite
     sprite: _Impstation/CosmicCult/Tileset/cosmiccomputer.rsi
     layers:
-      - state: computer
-      - state: computer-unshaded
-        shader: unshaded
+    - state: computer
+    - state: computer-unshaded
+      shader: unshaded
   - type: CosmicMarkStructure
   - type: Thruster
     thrusterType: Angular # These are overpowered thruster-shuttle-console-hybrids that require no power grid. As such, they cannot be anchored or meaningfully taken outside of their intended use.
@@ -22,8 +22,8 @@
     key: enum.ShuttleConsoleUiKey.Key
   - type: UserInterface
     interfaces:
-        enum.ShuttleConsoleUiKey.Key:
-          type: ShuttleConsoleBoundUserInterface
+      enum.ShuttleConsoleUiKey.Key:
+        type: ShuttleConsoleBoundUserInterface
   - type: EmitSoundOnUIOpen
     sound:
       collection: Keyboard
@@ -37,7 +37,7 @@
   - type: PointLight
     radius: 1.5
     energy: 1.6
-    enabled: false
+    enabled: true # Test fail if false
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
     offset: "0, 0.4"
@@ -86,7 +86,7 @@
     sprite: _Impstation/CosmicCult/Tileset/cosmicpillar.rsi
     offset: 0, 0.5
     layers:
-      - state: icon
+    - state: icon
     drawdepth: Mobs
     noRot: true
   - type: CosmicMarkStructure
@@ -192,9 +192,9 @@
     sprite: _Impstation/CosmicCult/Tileset/cosmiclight.rsi
     drawdepth: Mobs
     layers:
-      - state: base
-      - state: glow
-        shader: unshaded
+    - state: base
+    - state: glow
+      shader: unshaded
   - type: PointLight
     color: "#42a4ae" # 5000K color temp
     energy: 2
@@ -234,8 +234,8 @@
     snapCardinals: true
     offset: 0,0.27
     layers:
-      - state: rift-unshaded
-        shader: unshaded
+    - state: rift-unshaded
+      shader: unshaded
   - type: Clickable
   - type: PointLight
     radius: 1.5
@@ -286,12 +286,12 @@
     sprite: _Impstation/CosmicCult/Tileset/cosmicspire.rsi
     offset: 0, 0.5
     layers:
-      - state: base-disabled
-        map: ["base"]
-      - state: overlay
-        map: ["vfx"]
-        shader: unshaded
-        visible: false
+    - state: base-disabled
+      map: ["base"]
+    - state: overlay
+      map: ["vfx"]
+      shader: unshaded
+      visible: false
     drawdepth: Mobs
     noRot: true
   - type: GenericVisualizer

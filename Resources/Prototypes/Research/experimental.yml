@@ -154,7 +154,7 @@
 
 - type: technology
   id: StablePortal
-  name: research-stable-portal
+  name: research-technology-stable-interdimensional-portal
   icon:
     sprite: Objects/Devices/hand_teleporter.rsi
     state: icon

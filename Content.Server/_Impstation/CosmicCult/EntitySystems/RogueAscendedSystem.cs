@@ -146,8 +146,8 @@ public sealed class RogueAscendedSystem : EntitySystem
             _moodSystem.ToggleEmaggable((uid, moodComp)); // enable emagging again
             _moodSystem.ToggleSharedMoods((uid, moodComp)); // enable shared moods
             _moodSystem.ClearMoods((uid, moodComp)); // wipe those moods again
-            _moodSystem.TryAddRandomMood(uid.Owner, moodComp);
-            _moodSystem.TryAddRandomMood(uid.Owner, moodComp);
+            _moodSystem.TryAddRandomMood((uid, moodComp), AscendantDataset, false); // we don't need to notify them twice
+            _moodSystem.TryAddRandomMood((uid, moodComp), AscendantDataset);
         }
         else
             RemComp<ThavenMoodsComponent>(uid);
@@ -217,8 +217,8 @@ public sealed class RogueAscendedSystem : EntitySystem
         _moodSystem.ToggleEmaggable((target, moodComp)); // can't emag an infected thavenmood
         _moodSystem.ClearMoods((target, moodComp)); // wipe those moods
         _moodSystem.ToggleSharedMoods((target, moodComp)); // disable shared moods
-        _moodSystem.TryAddRandomMood(target, AscendantDataset, moodComp); // we don't need to notify them twice
-        _moodSystem.TryAddRandomMood(target, AscendantDataset, moodComp);
+        _moodSystem.TryAddRandomMood((target, moodComp), AscendantDataset, false); // we don't need to notify them twice
+        _moodSystem.TryAddRandomMood((target, moodComp), AscendantDataset);
 
         _damageable.TryChangeDamage(target, uid.Comp.InfectionHeal * -1);
         _statusEffects.TryRemoveStatusEffect(target, "ForcedSleep");

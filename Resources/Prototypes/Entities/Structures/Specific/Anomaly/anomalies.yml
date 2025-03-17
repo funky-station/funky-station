@@ -883,6 +883,10 @@
   - type: AlternateDimensionAutoPortal
     otherSidePortal: PortalBlue
     targetDimension: Shadowlands
+  - type: StunOnCollide
+    stunAmount: 5
+    knockdownAmount: 3
+    fixture: "portalFixture"
   - type: Fixtures
     fixtures:
       fix1:

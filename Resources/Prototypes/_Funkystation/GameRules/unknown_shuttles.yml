@@ -13,7 +13,7 @@
   id: UnknownShuttleLoneRobiticist
   components:
   - type: StationEvent
-    maxOccurences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
+    maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
     weight: 5
   - type: LoadMapRule
     preloadedGrid: loneroboticist

@@ -10,7 +10,7 @@
 
 - type: entity
   parent: BaseUnknownShuttleRule
-  id: UnknownShuttleLoneRobiticist
+  id: UnknownShuttleLoneRoboticist
   components:
   - type: StationEvent
     maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml

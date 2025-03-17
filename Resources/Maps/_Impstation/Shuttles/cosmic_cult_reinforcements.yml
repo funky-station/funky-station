@@ -1001,14 +1001,6 @@ entities:
     - type: Transform
       pos: 4.736149,-9.27223
       parent: 1
-- proto: RustedThruster
-  entities:
-  - uid: 2
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -1.5,-0.5
-      parent: 1
   - uid: 19
     components:
     - type: Transform

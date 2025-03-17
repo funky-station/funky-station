@@ -2,4 +2,10 @@
   id: DawInstrumentMachineCircuitboard
 
 - type: Tag
+  id: ChitinSharkminnow
+  
+- type: Tag
   id: ChangelingInfectionImplant
+
+- type: Tag
+  id: Magboots

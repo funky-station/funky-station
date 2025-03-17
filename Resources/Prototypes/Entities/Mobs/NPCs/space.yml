@@ -167,6 +167,12 @@
       collection: FootstepBounce
   - type: ReplacementAccent
     accent: kangaroo
+  - type: CombatPower # Goobstation
+    factor: 1 # times more dangerous than a crew-member
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 1
 
 - type: entity
   id: MobKangarooSpaceSalvage
@@ -265,6 +271,8 @@
       Unsexed: UnisexArachnid
   - type: TypingIndicator
     proto: spider
+  - type: CombatPower # Goobstation
+    factor: 1.5 # times more dangerous than a crew-member
 
 - type: entity
   id: MobSpiderSpaceSalvage

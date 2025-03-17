@@ -98,8 +98,8 @@
         path: /Audio/Ambience/Objects/vending_machine_hum.ogg
     - type: GuideHelp
       guides:
-        - TEG
-        - Power
+      - TEG
+      - Power
     - type: StealTarget
       stealGroup: Teg
     - type: Tag
@@ -162,8 +162,8 @@
     - type: Pullable
     - type: GuideHelp
       guides:
-        - TEG
-        - Power
+      - TEG
+      - Power
 
     # functionality
     - type: NodeContainer

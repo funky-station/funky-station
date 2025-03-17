@@ -13,7 +13,7 @@
   id: UnknownShuttleLoneRobiticist
   components:
   - type: StationEvent
-    maxOccurances: 2 # should be the same as [copies] in shuttle_incoming_event.yml
+    maxOccurences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
     weight: 5
   - type: LoadMapRule
     preloadedGrid: loneroboticist
@@ -24,7 +24,7 @@
   components:
   - type: StationEvent
     startAnnouncement: null #Silent
-    maxOccurances: 1 # should be the same as [copies] in shuttle_incoming_event.yml
+    maxOccurrences: 1 # should be the same as [copies] in shuttle_incoming_event.yml
     weight: 5
   - type: LoadMapRule
     preloadedGrid: foamroid
@@ -34,7 +34,7 @@
   id: UnknownShuttleMouseJumpscare
   components:
   - type: StationEvent
-    maxOccurances: 2 # should be the same as [copies] in shuttle_incoming_event.yml
+    maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
   - type: LoadMapRule
     preloadedGrid: mouseJumpscare
 
@@ -43,7 +43,7 @@
   id: UnknownShuttleClownPatrol
   components:
   - type: StationEvent
-    maxOccurances: 1 # should be the same as [copies] in shuttle_incoming_event.yml
+    maxOccurrences: 1 # should be the same as [copies] in shuttle_incoming_event.yml
     weight: 1      #Rarespawn - 1/2 the weight of the honki
   - type: LoadMapRule
     preloadedGrid: clownPatrol
@@ -53,6 +53,6 @@
   id: UnknownShuttleWanderingNomad
   components:
   - type: StationEvent
-    maxOccurances: 2 # should be the same as [copies] in shuttle_incoming_event.yml
+    maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
   - type: LoadMapRule
     preloadedGrid: wanderingNomad

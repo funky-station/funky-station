@@ -1958,3 +1958,11 @@ Entries:
       message: Syndicate business and playing cards now deal throw damage
   id: 245
   time: '2025-03-16T23:49:00.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: >-
+        Departmental Communications Consoles have been funded! They are locked
+        to the access of each Department Head.
+  id: 246
+  time: '2025-03-17T23:54:00.0000000+00:00'

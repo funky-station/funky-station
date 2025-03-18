@@ -644,6 +644,9 @@
     - EnergyCautery # Shitmed Change
     - AdvancedRetractor # Shitmed Change
     - PlantAnalyzer # Frontier
+    - ClothingEyesNightVisionGoggles # Funky - EE nightvision
+    - ClothingEyesNightVisionDiagnosticGoggles # Funky - EE nightvision
+    - ClothingEyesThermalVisionGoggles # Funky - EE nightvision
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - BoxBeanbag
@@ -1196,6 +1199,7 @@
     #- MagazineHighCaliberEmpty # Goobstation - Burner not added yet
     #- MagazineHighCaliber # Goobstation
     #- MagazineBoxHighCaliber # Goobstation
+    - ClothingEyesNightVisionSecurityGoggles # Funky - EE nightvision
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1349,6 +1353,7 @@
     - AdvancedRetractor
     - OmnimedTool
     - MedicalCyberneticEyes
+    - ClothingEyesNightVisionMedicalGoggles # Funky - EE nightvision
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget

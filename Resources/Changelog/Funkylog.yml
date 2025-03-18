@@ -1976,3 +1976,9 @@ Entries:
       message: Tweaked game director combat values
   id: 248
   time: '2025-03-18T16:08:11.0000000+00:00'
+- author: Goomson
+  changes:
+    - type: Add
+      message: 6 new midround shuttles!
+  id: 249
+  time: '2025-03-18T16:09:07.0000000+00:00'

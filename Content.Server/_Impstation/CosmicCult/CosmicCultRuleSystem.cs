@@ -187,6 +187,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             var winner = Identity.Entity(picked, EntityManager);
             _adminLogger.Add(LogType.Vote, LogImpact.Medium, $"Cult stewardship vote finished: {winner} is now steward.");
             AddComp<CosmicCultLeadComponent>(picked);
+            _antag.SendBriefing(picked, Loc.GetString("cosmiccult-vote-leadership-briefing"), Color.FromHex("#4cabb3"), _monumentAlert);
         };
     }
 
@@ -856,5 +857,3 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     }
     #endregion
 }
-
-

@@ -52,7 +52,9 @@
     price: 500
   - type: Multishot # Goobstation
     spreadMultiplier: 1.6
-
+  - type: Tag
+    tags:
+      - Rifle
 - type: entity
   name: AKMS
   parent: [BaseWeaponRifle, BaseSecurityContraband]

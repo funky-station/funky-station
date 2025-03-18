@@ -188,7 +188,7 @@
   - type: GameRule
     minPlayers: 5
   - type: AntagSelection
-    selectionTime: BeforeJobs # Goobstation
+    selectionTime: IntraPlayerSpawn # Goobstation
     definitions:
     - prefRoles: [ Traitor ]
       max: 8
@@ -221,7 +221,7 @@
     minPlayers: 20
   - type: RevolutionaryRule
   - type: AntagSelection
-    selectionTime: BeforeJobs # Goobstation
+    selectionTime: IntraPlayerSpawn # Goobstation
     definitions:
     - prefRoles: [ HeadRev ]
       min: 2

@@ -1,0 +1,33 @@
+###Funkystation Visitors with Visitor ID
+
+# Command
+
+# Security
+
+- type: startingGear
+  id: VisitorSecurityClown
+  equipment:
+    mask: ClothingMaskClownSecurity
+    jumpsuit: ClothingUniformJumpsuitClown
+    shoes: ClothingShoesClown
+    outerClothing: ClothingOuterArmorBasic
+    id: VisitorPDA
+    back: ClothingBackpackClown
+    ears: ClothingHeadsetSecurity
+    belt: BikeHorn
+  storage:
+    back:
+    - Flash
+    - ClownRecorder
+
+# Cargo
+
+# Engineering
+
+# Medical
+
+# Science
+
+# Civilian
+
+# Misc

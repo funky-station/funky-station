@@ -22,6 +22,12 @@
     - id: UnknownShuttleMicroshuttle
     - id: UnknownShuttleSpacebus
     - id: UnknownShuttleInstigator
+    - id: UnknownShuttleLoneRoboticist  #Funkystation Custom Shuttle
+    - id: UnknownShuttleFoamRoid  #Funkystation Custom Shuttle
+    - id: UnknownShuttleMouseJumpscare #Funkystation Custom Shuttle
+    - id: UnknownShuttleClownPatrol #Funkystation Custom Shuttle
+    - id: UnknownShuttleWanderingNomad #Funkystation Custom Shuttle
+  
 
 - type: entityTable
   id: UnknownShuttlesFreelanceTable
@@ -30,6 +36,7 @@
     - !type:NestedSelector # DeltaV
       tableId: UnknownShuttlesFreelanceTableDV
     - id: UnknownShuttleSyndieEvacPod
+    - id: UnknownShuttleSkeletonMafia #Funkystation custom shuttle
 
 - type: entityTable
   id: UnknownShuttlesHostileTable

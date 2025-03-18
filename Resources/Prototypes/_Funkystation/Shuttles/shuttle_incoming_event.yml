@@ -1,0 +1,29 @@
+- type: preloadedGrid
+  id: skeletonMafia
+  path: /Maps/_Funkystation/Shuttles/ShuttleEvent/skeletonMafia.yml
+  copies: 2
+
+- type: preloadedGrid
+  id: clownPatrol
+  path: /Maps/_Funkystation/Shuttles/ShuttleEvent/clownpatrol.yml
+  copies: 1
+
+- type: preloadedGrid
+  id: foamroid
+  path: /Maps/_Funkystation/Shuttles/ShuttleEvent/foamroid.yml
+  copies: 1
+
+- type: preloadedGrid
+  id: loneroboticist
+  path: /Maps/_Funkystation/Shuttles/ShuttleEvent/loneroboticist.yml
+  copies: 2
+
+- type: preloadedGrid
+  id: mouseJumpscare
+  path: /Maps/_Funkystation/Shuttles/ShuttleEvent/mouseJumpscare.yml
+  copies: 2
+
+- type: preloadedGrid
+  id: wanderingNomad
+  path: /Maps/_Funkystation/Shuttles/ShuttleEvent/wanderingNomad.yml
+  copies: 2

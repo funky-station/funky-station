@@ -107,3 +107,10 @@
   name: guide-entry-alertlevel-delta
   priority: 70
   text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/DeltaAlert.xml"
+
+# impstation cosmic cult
+- type: guideEntry
+  id: OctarineAlertSOP
+  name: alert-level-octarine
+  priority: 70
+  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/OctarineAlert.xml"

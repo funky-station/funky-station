@@ -22,6 +22,9 @@
         Heat: 0.80
   - type: ExplosionResistance
     damageCoefficient: 0.90
+  - type: Tag
+    tags:
+      - Armor
 
 #Standard armor vest, allowed for security and bartenders
 - type: entity
@@ -179,6 +182,9 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 2
+  - type: Tag
+    tags:
+      - SpecialArmor
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]
@@ -291,6 +297,9 @@
   - type: ExplosionResistance
     damageCoefficient: 0.65
   - type: GroupExamine
+  - type: Tag
+    tags:
+      - SpecialArmor
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]

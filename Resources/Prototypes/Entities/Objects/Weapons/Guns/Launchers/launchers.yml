@@ -20,6 +20,9 @@
       ballistic-ammo: !type:Container
         ents: []
   - type: Multishot # Goobstation
+  - type: Tag
+    tags:
+      - SpecialWeapon
 
 - type: entity
   name: china lake

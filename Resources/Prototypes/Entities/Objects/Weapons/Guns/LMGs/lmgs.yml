@@ -66,6 +66,9 @@
     delay: 1
   - type: Multishot # Goobstation
     spreadMultiplier: 1.4
+  - type: Tag
+    tags:
+      - SpecialWeapon
 
 - type: entity
   name: L6 SAW

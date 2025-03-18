@@ -42,6 +42,9 @@
         ents: []
   - type: StaticPrice
     price: 500
+  - type: Tag
+    tags:
+      - Rifle
 
 - type: entity
   name: Bulldog

@@ -34,7 +34,7 @@
         layer:
         - MobLayer
   - type: Sprite
-    scale: 0.8, 0.8
+    #scale: 0.8, 0.8 - Funkystation hehehell naw
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
@@ -100,17 +100,12 @@
       Unsexed: MaleRodentia
   - type: Rummager
   - type: AlwaysTriggerMousetrap
-  - type: PseudoItem
-    storedOffset: -10,0
-    shape:
-      - 0, 0, 3, 2
-      - 0, 2, 5, 4
   - type: MouthStorage
     mouthProto: CheekStorage
     openStorageAction: ActionOpenMouthStorage
     spitDamageThreshold: 3
-  - type: CrawlUnderObjects
-    actionProto: ActionToggleSneakMode
+#  - type: CrawlUnderObjects
+#    actionProto: ActionToggleSneakMode - funkystation no sneak
 
 - type: entity
   save: false

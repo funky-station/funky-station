@@ -8,6 +8,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Roles;
+using Content.Shared.Storage;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 
@@ -47,6 +48,16 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
             if (tagsQ.TryGetComponent(item, out var tags)) // thanks code rabbit
             {
                 allTags.UnionWith(tags.Tags);
+                if(TryComp<StorageComponent>(item, out var storageComponent))
+                {
+                    foreach (var nested_item in storageComponent.StoredItems.Keys)
+                    {
+                        if (tagsQ.TryGetComponent(nested_item, out var nested_item_tags))
+                        {
+                            allTags.UnionWith(nested_item_tags.Tags);
+                        }
+                    }
+                }
             }
         }
 

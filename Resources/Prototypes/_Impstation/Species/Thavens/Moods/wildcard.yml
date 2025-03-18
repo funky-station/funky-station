@@ -109,8 +109,8 @@
   id: ExtremeDepartmentDisapproval
   moodName: thaven-mood-extreme-department-disapproval-name
   moodDesc: thaven-mood-extreme-department-disapproval-desc
-  moodVars:
-    department: Departments
+  #moodVars:
+  #  department: Departments
   conflicts:
   - DepartmentDisapproval
 
@@ -232,8 +232,8 @@
   id: FolkHero
   moodName: thaven-mood-folk-hero-name
   moodDesc: thaven-mood-folk-hero-desc
-  moodVars:
-    dagdChanceName: DAGDname
+  #moodVars:
+  #  dagdChanceName: DAGDname
 
 # Greencomms Blogger: You must keep the station informed about every minute detail of your life.
 - type: thavenMood
@@ -272,8 +272,8 @@
   id: AyeAye
   moodName: thaven-mood-aye-aye-name
   moodDesc: thaven-mood-aye-aye-desc
-  moodVars:
-    command: CommandRoles
+  #moodVars:
+  #  command: CommandRoles
 
 # Your current job is disgusting to you. You must endeavor to get a new one.
 - type: thavenMood

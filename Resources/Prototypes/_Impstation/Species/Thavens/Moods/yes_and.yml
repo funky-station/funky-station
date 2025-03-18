@@ -257,8 +257,8 @@
   id: ItemGood
   moodName: thaven-mood-item-good-name
   moodDesc: thaven-mood-item-good-desc
-  moodVars:
-    item: Items
+  #moodVars:
+  #  item: Items
 #  conflicts:
 #    - ItemBad
 
@@ -324,8 +324,8 @@
   id: SpeechRestriction
   moodName: thaven-mood-speech-restriction-name
   moodDesc: thaven-mood-speech-restriction-desc
-  moodVars:
-    speechType: SpeechRestrictions
+  #moodVars:
+  #  speechType: SpeechRestrictions
 
 # The color [COLOR] is the only acceptable color for decorations. Endeavor to make your environment this color where possible.
 #- type: thavenMood

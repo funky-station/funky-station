@@ -39,7 +39,7 @@ public sealed partial class CosmicCultComponent : Component
 
     [DataField]
     [AutoNetworkedField]
-    public HashSet<EntProtoId> CosmicCultActions = // funky EntProtoId >  ProtoId<EntityPrototype>
+    public HashSet<ProtoId<EntityPrototype>> CosmicCultActions =
     [
         "ActionCosmicSiphon",
         "ActionCosmicGlare",

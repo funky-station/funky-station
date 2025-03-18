@@ -9,10 +9,10 @@ public sealed partial class CombatMetricComponent : Component
 {
 
     /// <summary>
-    /// Funky: The rough combat potential of an (unrobust) hostile tider
+    /// Funky: The rough combat potential of a carp
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public FixedPoint2 HostileScore = 2.0f;
+    public FixedPoint2 HostileScore = 5.0f;
 
     /// <summary>
     /// Funky: The rough combat potential of an (unrobust) friendly tider (was 10.0 with Goob)

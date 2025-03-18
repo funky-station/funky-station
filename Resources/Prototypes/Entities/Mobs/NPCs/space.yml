@@ -167,6 +167,12 @@
       collection: FootstepBounce
   - type: ReplacementAccent
     accent: kangaroo
+  - type: CombatPower # Goobstation
+    factor: 1 # times more dangerous than a crew-member
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 1
 
 - type: entity
   id: MobKangarooSpaceSalvage
@@ -265,6 +271,8 @@
       Unsexed: UnisexArachnid
   - type: TypingIndicator
     proto: spider
+  - type: CombatPower # Goobstation
+    factor: 1.5 # times more dangerous than a crew-member
 
 - type: entity
   id: MobSpiderSpaceSalvage
@@ -381,6 +389,8 @@
     name: ghost-role-information-snail-name
     description: ghost-role-information-snail-description
     rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
   - type: GhostTakeoverAvailable
   - type: Emoting
   - type: Sprite
@@ -509,7 +519,7 @@
   - type: MobStateActions
     actions:
       Alive:
-      - ActionSmite
+      - ActionSmiteNoReq
       Critical:
       - ActionCritSuccumb
       - ActionCritFakeDeath
@@ -543,6 +553,27 @@
     baseSprintSpeed : 7
 #  - type: ActiveJetpack # I think this will need a custom component to not make tests angry.
   - type: MovementAlwaysTouching
+  - type: HarpySinger #start of singing snails change
+  - type: Instrument
+    allowPercussion: false
+    program: 52
+  - type: SwappableInstrument
+    instrumentList:
+      "Voice": {52: 0}
+      "Trumpet": {56: 0}
+      "Electric": {27: 0}
+      "Bass": {33: 0}
+      "Rock": {29: 0}
+      "Acoustic": {24: 0}
+      "Flute": {73: 0}
+      "Sax": {66: 0}
+      "Piano": {1: 0}
+      "Church Organ": {19: 0}
+      "Violin": {41: 0}
+  - type: UserInterface
+    interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface #end of singing snails change
 
 - type: entity
   parent: MobSnail

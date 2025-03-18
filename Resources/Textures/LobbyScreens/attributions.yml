@@ -122,3 +122,18 @@
   license: "CC-BY-SA-3.0"
   copyright: "oBerry"
   source: "https://funkystation.org"
+
+- files: ["funkops.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "cubicalleaf"
+  source: "https://funkystation.org"
+  
+- files: ["doomdeed.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "sharkpeekotwoelecticboogaloo"
+  source: "https://funkystation.org"
+  
+- files: ["typicalDay.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "shakulan"
+  source: "https://funkystation.org"

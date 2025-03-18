@@ -30,6 +30,7 @@
     - RadiationProtection
     - Drowsiness
     - Adrenaline
+    - Anesthesia # DeltaV - Anesthesia
   - type: Buckle
   - type: StandingState
   - type: Tag
@@ -108,8 +109,11 @@
     - RadiationProtection
     - Drowsiness
     - Adrenaline
+    - Anesthesia # DeltaV - Anesthesia
   - type: Bloodstream
     bloodMaxVolume: 150
   - type: MobPrice
     price: 150
   - type: FloatingVisuals
+  - type: CombatPower # Goobstation
+    factor: 0.5 # As dangerous as half a crew-member

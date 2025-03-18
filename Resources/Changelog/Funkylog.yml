@@ -1708,6 +1708,297 @@ Entries:
     - type: Tweak
       message: >-
         Nuclear Operatives are given proper titles (Agent, Operative, Commander)
-        roundstart 
+        roundstart
   id: 213
   time: '2025-02-24T01:49:04.0000000+00:00'
+- author: ' Miiish, GtheGlorious'
+  changes:
+    - type: Add
+      message: roingus
+  id: 214
+  time: '2025-02-24T05:31:29.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Fix
+      message: The SM now produces Pluoxium again.
+  id: 215
+  time: '2025-02-26T18:43:31.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added SM monitor console and courthouse to Roid!
+  id: 216
+  time: '2025-02-26T18:43:46.0000000+00:00'
+- author: Cymric22
+  changes:
+    - type: Add
+      message: Added Psychologist Jumpsuit and Jumpskirt to the MediDrobe.
+  id: 217
+  time: '2025-02-26T18:45:37.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: The Progression Cloak has been added!
+    - type: Tweak
+      message: All Pride cloaks are now in the Pride-O-Mat!
+  id: 218
+  time: '2025-02-27T01:13:32.0000000+00:00'
+- author: AverageMoron
+  changes:
+    - type: Tweak
+      message: Changed evil corgium descriptor to inverted.
+  id: 219
+  time: '2025-02-27T01:21:02.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Tweak
+      message: >-
+        The changeling guidebook entry has been updated to include information
+        about Natusixadone.
+  id: 220
+  time: '2025-02-27T01:21:26.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Tweak
+      message: Reverted disabler shot cost.
+    - type: Tweak
+      message: Reverted disabler stamina damage.
+    - type: Tweak
+      message: Reverted disabler SMG fire rate.
+  id: 221
+  time: '2025-02-28T20:28:07.0000000+00:00'
+- author: Komonighub
+  changes:
+    - type: Tweak
+      message: Made the maxim hardsuit obtainable as an extremely rare treasure loot.
+  id: 222
+  time: '2025-02-28T20:29:31.0000000+00:00'
+- author: empty0set
+  changes:
+    - type: Tweak
+      message: IPCs now leave fingerprints.
+  id: 223
+  time: '2025-02-28T20:30:31.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Tweak
+      message: BSO/NTR mantle time requirements are now 20 hours instead of 50 hours.
+  id: 224
+  time: '2025-03-02T18:49:21.0000000+00:00'
+- author: kbarkevich
+  changes:
+    - type: Tweak
+      message: Re-strengthened disablers.
+  id: 225
+  time: '2025-03-03T22:00:50.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Pride-O-Mats have been added to most maps!
+    - type: Add
+      message: Arrivals, Evac, and most Supermatters now have Warp Points.
+    - type: Tweak
+      message: Most Maps have been given more External Docks.
+  id: 226
+  time: '2025-03-03T22:01:13.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Add
+      message: >-
+        Bartender has seven new drinks to make: Eggnog, Spiked Eggnog, Peggnog
+        (Eggnog and Cola), Tayquila, Chutzpah, Margherita, and Pineapple
+        Margherita.
+  id: 227
+  time: '2025-03-04T22:45:18.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Tweak
+      message: Role timers increased across the board
+  id: 228
+  time: '2025-03-05T00:32:08.0000000+00:00'
+- author: hivehum, crocodilecarousel, MintyTheBinty, AftrLite
+  changes:
+    - type: Add
+      message: >-
+        Chaplains have been given a huge new selection of outfits to better suit
+        their religious beliefs.
+    - type: Add
+      message: Added 10 new suits and made them available in drobes and loadouts!
+    - type: Add
+      message: >-
+        The Chaplain's iconic Null Rod returns! Can be transformed into various
+        gadgets.
+  id: 229
+  time: '2025-03-07T05:54:35.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: >-
+        Added the centcom towel to the trinkets list, a playtime reward for
+        central command jobs.
+  id: 230
+  time: '2025-03-07T16:01:29.0000000+00:00'
+- author: Ultimite
+  changes:
+    - type: Add
+      message: Added shrimp cargo request and shrimp box.
+    - type: Add
+      message: >-
+        Added recipe to fry shrimp in a microwave: shrimp, butter slice, Chuck
+        'em in and cook 'em for 10 seconds.
+  id: 231
+  time: '2025-03-09T03:04:02.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Tweak
+      message: Annabelle has been moved from the loadout to the null rod.
+  id: 232
+  time: '2025-03-09T03:09:03.0000000+00:00'
+- author: shakulan
+  changes:
+    - type: Add
+      message: Added typicalDay lobby art.
+  id: 233
+  time: '2025-03-10T04:12:24.0000000+00:00'
+- author: Middleson
+  changes:
+    - type: Add
+      message: Added Red Performer's Jumpskirt and Boots!
+  id: 234
+  time: '2025-03-10T04:12:54.0000000+00:00'
+- author: Cthyga
+  changes:
+    - type: Tweak
+      message: Increased disabler plus capacity from 15 to 30 shots.
+    - type: Tweak
+      message: Increased miniature laser pistol disabler capacity from 10 to 30 shots.
+    - type: Tweak
+      message: Increased miniature laser pistol lethal capacity from 5 to 15 shots.
+  id: 235
+  time: '2025-03-10T04:13:12.0000000+00:00'
+- author: Rainbeon, taydeo
+  changes:
+    - type: Tweak
+      message: >-
+        An Operating Table is now required for tending wounds, inserting Organs,
+        adding Limbs, removing the Heart/Brain, and mending brain tissue.
+  id: 236
+  time: '2025-03-10T04:14:06.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Remove
+      message: Cats are no longer blueberries
+  id: 237
+  time: '2025-03-10T04:49:01.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Remove
+      message: Changeling Biomass no longer drains.
+  id: 238
+  time: '2025-03-11T04:49:01.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: >-
+        Due to an increase in funding, NTR, BSO, and IAA have been given rooms
+        on Elkridge Station!
+    - type: Tweak
+      message: NTR, BSO, and IAA jobslots have been added to Elkridge.
+    - type: Fix
+      message: >-
+        The Detective's Room on Oasis now have cables that actually connect to a
+        APC. 
+  id: 239
+  time: '2025-03-13T23:16:08.0000000+00:00'
+- author: ' correspond, sowelipililimute'
+  changes:
+    - type: Tweak
+      message: >-
+        The clean meter of a surgery tool in the hotbar now also indicates the
+        cleanliness of the gloves and absence of a mask
+    - type: Fix
+      message: the guidebook now has info about sterile surgery tools
+    - type: Tweak
+      message: tending bruise/burn is faster to do
+  id: 240
+  time: '2025-03-15T22:32:22.0000000+00:00'
+- author: Binbagg
+  changes:
+    - type: Add
+      message: Added Sharkminnow chitin which can be harvested and made into shoes
+  id: 241
+  time: '2025-03-15T23:20:52.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Fix
+      message: senior bartender suits will spawn correctly now
+  id: 242
+  time: '2025-03-15T23:25:50.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Add
+      message: >-
+        Ported GameDirector gamerules and presets, starting with The Guide and
+        The Sleeper (combat oriented round and spicy greenshift)
+  id: 243
+  time: '2025-03-16T01:30:52.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Fix
+      message: tend wounds no longer causes bleeding
+    - type: Tweak
+      message: unsterile surgery causes a little less poison damage
+  id: 244
+  time: '2025-03-16T23:48:08.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: 'Added razor lined bowler hat to uplink. '
+    - type: Tweak
+      message: Syndicate business and playing cards now deal throw damage
+  id: 245
+  time: '2025-03-16T23:49:00.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: >-
+        Departmental Communications Consoles have been funded! They are locked
+        to the access of each Department Head.
+  id: 246
+  time: '2025-03-17T23:54:00.0000000+00:00'
+- author: UltimiteTheHog
+  changes: []
+  id: 247
+  time: '2025-03-18T16:07:26.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Tweak
+      message: Tweaked game director combat values
+  id: 248
+  time: '2025-03-18T16:08:11.0000000+00:00'
+- author: Goomson
+  changes:
+    - type: Add
+      message: 6 new midround shuttles!
+  id: 249
+  time: '2025-03-18T16:09:07.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Rodentia have been re-enabled.
+  id: 250
+  time: '2025-03-18T19:40:48.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Tweak
+      message: >-
+        (Hopefully) Made combat directors trend towards easier combat and less
+        extreme numbers over time instead of what it was before
+  id: 251
+  time: '2025-03-18T20:13:43.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Most Maps now have departmental Communication Consoles.
+  id: 252
+  time: '2025-03-18T21:18:35.0000000+00:00'

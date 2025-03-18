@@ -16,6 +16,7 @@ using Robust.Shared.Prototypes;
 namespace Content.IntegrationTests.Tests.GameRules;
 
 [TestFixture]
+//[Ignore("There are issues with this test that I cannot figure out, but roundstart antags work just fine. If it doesn't, bite me.")]
 public sealed class TraitorRuleTest
 {
     private const string TraitorGameRuleProtoId = "Traitor";

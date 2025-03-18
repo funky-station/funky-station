@@ -150,7 +150,7 @@
   name: reagent-name-muigroc
   group: Exotic
   desc: reagent-desc-muigroc
-  physicalDesc: reagent-physical-desc-fluffy
+  physicalDesc: reagent-physical-desc-inversed
   flavor: medicine
   color: "#ffaa00"
   metabolisms:

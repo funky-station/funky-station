@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 247.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 03/18/2025 17:35:17
+  entityCount: 12020
+maps:
+- 4133
+grids:
+- 31
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   7: FloorAsteroidSand
@@ -3484,7 +3495,6 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
-    - type: LoadedMap
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3146
@@ -4722,11 +4732,6 @@ entities:
       parent: 31
 - proto: AirlockExternalGlassShuttleEscape
   entities:
-  - uid: 6947
-    components:
-    - type: Transform
-      pos: -8.5,-42.5
-      parent: 31
   - uid: 10766
     components:
     - type: Transform
@@ -4746,6 +4751,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 20.5,28.5
+      parent: 31
+  - uid: 11468
+    components:
+    - type: Transform
+      pos: -8.5,-42.5
       parent: 31
 - proto: AirlockFreezer
   entities:
@@ -22834,6 +22844,13 @@ entities:
     - type: Transform
       pos: 36.5,12.5
       parent: 31
+- proto: CargoComputerComms
+  entities:
+  - uid: 2204
+    components:
+    - type: Transform
+      pos: 29.5,10.5
+      parent: 31
 - proto: Carpet
   entities:
   - uid: 1275
@@ -28923,33 +28940,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,31.5
       parent: 31
-  - uid: 1113
-    components:
-    - type: Transform
-      pos: -3.5,-19.5
-      parent: 31
-  - uid: 2065
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -7.5,21.5
-      parent: 31
-  - uid: 2204
-    components:
-    - type: Transform
-      pos: 29.5,10.5
-      parent: 31
-  - uid: 6840
-    components:
-    - type: Transform
-      pos: 24.5,-9.5
-      parent: 31
-  - uid: 11014
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 37.5,0.5
-      parent: 31
 - proto: ComputerPowerMonitoring
   entities:
   - uid: 4306
@@ -29446,13 +29436,6 @@ entities:
     - type: Transform
       pos: -19.5,-36.5
       parent: 31
-- proto: CrateFunPlushieSelfInsert
-  entities:
-  - uid: 4470
-    components:
-    - type: Transform
-      pos: 10.5,17.5
-      parent: 31
 - proto: CrateHydroponics
   entities:
   - uid: 9679
@@ -29865,12 +29848,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 31.5,-17.5
-      parent: 31
-  - uid: 11468
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -8.5,-41.5
       parent: 31
 - proto: DefaultStationBeaconEVAStorage
   entities:
@@ -33306,6 +33283,14 @@ entities:
       parent: 9179
     - type: Physics
       canCollide: False
+- proto: EngiComputerComms
+  entities:
+  - uid: 6840
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 37.5,0.5
+      parent: 31
 - proto: ExosuitFabricator
   entities:
   - uid: 9537
@@ -51667,6 +51652,13 @@ entities:
     - type: Transform
       pos: 7.5,-7.5
       parent: 31
+- proto: MedicalComputerComms
+  entities:
+  - uid: 4470
+    components:
+    - type: Transform
+      pos: 24.5,-9.5
+      parent: 31
 - proto: MedicalTechFab
   entities:
   - uid: 9105
@@ -58229,6 +58221,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: 17.551718,-20.302809
       parent: 31
+- proto: ScienceComputerComms
+  entities:
+  - uid: 1113
+    components:
+    - type: Transform
+      pos: -3.5,-19.5
+      parent: 31
 - proto: Screwdriver
   entities:
   - uid: 2338
@@ -58249,6 +58248,14 @@ entities:
     - type: Transform
       pos: -23.430374,-21.53869
       parent: 31
+- proto: SecurityComputerComms
+  entities:
+  - uid: 2065
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,21.5
+      parent: 31
 - proto: SecurityTechFab
   entities:
   - uid: 7964
@@ -58262,6 +58269,14 @@ entities:
     components:
     - type: Transform
       pos: -18.5,1.5
+      parent: 31
+- proto: ServiceComputerComms
+  entities:
+  - uid: 11014
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 9.5,16.5
       parent: 31
 - proto: ShardGlass
   entities:
@@ -64374,6 +64389,13 @@ entities:
     components:
     - type: Transform
       pos: -15.5,-8.5
+      parent: 31
+- proto: VendingMachinePride
+  entities:
+  - uid: 6947
+    components:
+    - type: Transform
+      pos: -21.5,-4.5
       parent: 31
 - proto: VendingMachineRestockBooze
   entities:
@@ -73059,6 +73081,20 @@ entities:
       parent: 31
     - type: WarpPoint
       location: library
+  - uid: 12019
+    components:
+    - type: Transform
+      pos: -45.5,-10.5
+      parent: 31
+    - type: WarpPoint
+      location: Arrivals
+  - uid: 12020
+    components:
+    - type: Transform
+      pos: -37.5,5.5
+      parent: 31
+    - type: WarpPoint
+      location: Evac
 - proto: WarpPointBombing
   entities:
   - uid: 934

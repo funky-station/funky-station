@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 247.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 03/18/2025 17:20:27
+  entityCount: 27638
+maps:
+- 26973
+grids:
+- 5350
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   2: FloorArcadeBlue2
@@ -8645,7 +8656,6 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
-    - type: LoadedMap
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 12657
@@ -11089,7 +11099,7 @@ entities:
       pos: -42.5,29.5
       parent: 5350
     - type: Door
-      secondsUntilStateChange: -30505.309
+      secondsUntilStateChange: -30677.607
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -51721,6 +51731,14 @@ entities:
     - type: Transform
       pos: 76.5,-36.5
       parent: 5350
+- proto: CargoComputerComms
+  entities:
+  - uid: 6363
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -31.5,14.5
+      parent: 5350
 - proto: Carpet
   entities:
   - uid: 1123
@@ -63794,12 +63812,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -37.5,-34.5
       parent: 5350
-  - uid: 14891
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -17.5,-38.5
-      parent: 5350
   - uid: 26396
     components:
     - type: Transform
@@ -64027,11 +64039,6 @@ entities:
     components:
     - type: Transform
       pos: 5.5,42.5
-      parent: 5350
-  - uid: 6363
-    components:
-    - type: Transform
-      pos: 9.5,48.5
       parent: 5350
   - uid: 8210
     components:
@@ -72808,6 +72815,13 @@ entities:
       parent: 26554
     - type: Physics
       canCollide: False
+- proto: EngiComputerComms
+  entities:
+  - uid: 14891
+    components:
+    - type: Transform
+      pos: 44.5,9.5
+      parent: 5350
 - proto: EpinephrineChemistryBottle
   entities:
   - uid: 6729
@@ -118511,8 +118525,11 @@ entities:
   - uid: 9245
     components:
     - type: Transform
-      pos: 44.4942,9.578178
+      pos: 43.46552,9.120886
       parent: 5350
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: HandLabeler
   entities:
   - uid: 1349
@@ -122183,6 +122200,14 @@ entities:
     - type: Transform
       pos: -24.5,-42.5
       parent: 5350
+- proto: MedicalComputerComms
+  entities:
+  - uid: 1383
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -16.5,-38.5
+      parent: 5350
 - proto: MedicalTechFab
   entities:
   - uid: 14494
@@ -125703,6 +125728,12 @@ entities:
     components:
     - type: Transform
       pos: -13.5,-28.5
+      parent: 5350
+  - uid: 27634
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -17.5,-38.5
       parent: 5350
 - proto: PottedPlantRandomPlastic
   entities:
@@ -136136,6 +136167,14 @@ entities:
       parent: 7004
     - type: Physics
       canCollide: False
+- proto: ScienceComputerComms
+  entities:
+  - uid: 27635
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 20.5,-39.5
+      parent: 5350
 - proto: Screen
   entities:
   - uid: 26713
@@ -136300,6 +136339,13 @@ entities:
     - type: Transform
       pos: -24.491926,33.57334
       parent: 5350
+- proto: SecurityComputerComms
+  entities:
+  - uid: 3861
+    components:
+    - type: Transform
+      pos: 9.5,48.5
+      parent: 5350
 - proto: SecurityTechFab
   entities:
   - uid: 10362
@@ -136338,6 +136384,14 @@ entities:
     components:
     - type: Transform
       pos: 24.5,-19.5
+      parent: 5350
+- proto: ServiceComputerComms
+  entities:
+  - uid: 9055
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -11.5,-1.5
       parent: 5350
 - proto: ShardGlass
   entities:
@@ -136715,11 +136769,6 @@ entities:
     components:
     - type: Transform
       pos: -7.5,-13.5
-      parent: 5350
-  - uid: 3861
-    components:
-    - type: Transform
-      pos: -31.5,14.5
       parent: 5350
 - proto: ShowcaseRobotMarauder
   entities:
@@ -141526,10 +141575,10 @@ entities:
       parent: 5350
 - proto: SpawnPointHeadOfPersonnel
   entities:
-  - uid: 1383
+  - uid: 27636
     components:
     - type: Transform
-      pos: -15.5,-2.5
+      pos: -12.5,-2.5
       parent: 5350
 - proto: SpawnPointHeadOfSecurity
   entities:
@@ -147554,11 +147603,6 @@ entities:
     components:
     - type: Transform
       pos: 45.5,9.5
-      parent: 5350
-  - uid: 9055
-    components:
-    - type: Transform
-      pos: 44.5,9.5
       parent: 5350
   - uid: 9056
     components:

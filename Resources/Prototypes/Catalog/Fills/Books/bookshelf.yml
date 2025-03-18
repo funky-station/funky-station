@@ -58,6 +58,13 @@
       - id: BookTruth
       - id: BookWatched
       - id: BookWorld
+    # Impstation begin
+    - !type:GroupSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 2
+      children:
+      - id: BookCosmicCult
+    # Impstation end
 
 - type: entity
   id: BookshelfFilled

@@ -1988,3 +1988,11 @@ Entries:
       message: Rodentia have been re-enabled.
   id: 250
   time: '2025-03-18T19:40:48.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Tweak
+      message: >-
+        (Hopefully) Made combat directors trend towards easier combat and less
+        extreme numbers over time instead of what it was before
+  id: 251
+  time: '2025-03-18T20:13:43.0000000+00:00'

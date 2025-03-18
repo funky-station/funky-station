@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 247.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 03/17/2025 10:56:53
+  entityCount: 12019
+maps:
+- 4133
+grids:
+- 31
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   7: FloorAsteroidSand
@@ -3484,7 +3495,6 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
-    - type: LoadedMap
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3146
@@ -29332,11 +29342,6 @@ entities:
     components:
     - type: Transform
       pos: 10.5,13.5
-      parent: 31
-  - uid: 10012
-    components:
-    - type: Transform
-      pos: 18.5,15.5
       parent: 31
 - proto: CrateEngineeringAMEJar
   entities:

@@ -75,7 +75,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
 
         if (uid.Comp.CurrentState == FinaleState.ReadyBuffer)
         {
-            corruptingComp.CorruptionSpeed = TimeSpan.FromSeconds(3);
+            _corrupting.SetCorruptionTime((uid, corruptingComp), TimeSpan.FromSeconds(3));
             _appearance.SetData(uid, MonumentVisuals.FinaleReached, 2);
             comp.BufferTimer = _timing.CurTime + comp.BufferRemainingTime;
             comp.SelectedSong = comp.BufferMusic;
@@ -87,7 +87,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         }
         else
         {
-            corruptingComp.CorruptionSpeed = TimeSpan.FromSeconds(1);
+            _corrupting.SetCorruptionTime((uid, corruptingComp), TimeSpan.FromSeconds(1));
             _appearance.SetData(uid, MonumentVisuals.FinaleReached, 3);
             comp.FinaleTimer = _timing.CurTime + comp.FinaleRemainingTime;
             comp.SelectedSong = comp.FinaleMusic;
@@ -142,7 +142,7 @@ public sealed partial class CosmicCultSystem : EntitySystem
         }
 
         if (TryComp<CosmicCorruptingComponent>(uid, out var corruptingComp))
-            corruptingComp.CorruptionSpeed = TimeSpan.FromSeconds(6);
+            _corrupting.SetCorruptionTime((uid, corruptingComp), TimeSpan.FromSeconds(6));
 
         if (TryComp<ActivatableUIComponent>(uid, out var uiComp))
         {

@@ -54,27 +54,27 @@
     duration: 12
     polymorphSound: /Audio/_Impstation/CosmicCult/ability_lapse.ogg
 
-- type: polymorph
-  id: CosmicLapseMobSnail
-  configuration:
-    entity: CosmicPolymorphEntSnail
-    forced: true
-    inventory: None
-    transferName: false
-    transferDamage: true
-    duration: 12
-    polymorphSound: /Audio/_Impstation/CosmicCult/ability_lapse.ogg
+#- type: polymorph
+#  id: CosmicLapseMobSnail
+#  configuration:
+#    entity: CosmicPolymorphEntSnail
+#    forced: true
+#    inventory: None
+#    transferName: false
+#    transferDamage: true
+#    duration: 12
+#    polymorphSound: /Audio/_Impstation/CosmicCult/ability_lapse.ogg
 
-- type: polymorph
-  id: CosmicLapseMobDecapoid
-  configuration:
-    entity: CosmicPolymorphEntDecapoid
-    forced: true
-    inventory: None
-    transferName: false
-    transferDamage: true
-    duration: 12
-    polymorphSound: /Audio/_Impstation/CosmicCult/ability_lapse.ogg
+#- type: polymorph
+#  id: CosmicLapseMobDecapoid
+#  configuration:
+#    entity: CosmicPolymorphEntDecapoid
+#    forced: true
+#    inventory: None
+#    transferName: false
+#    transferDamage: true
+#    duration: 12
+#    polymorphSound: /Audio/_Impstation/CosmicCult/ability_lapse.ogg
 
 - type: entity
   categories: [ HideSpawnMenu ]

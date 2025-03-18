@@ -1,0 +1,183 @@
+- type: entity
+  id: Boombox
+  name: boombox
+  parent: BaseItem
+  description: Grooves on the go!
+  components:
+  - type: StaticPrice
+    price: 100
+  - type: Item
+    size: Ginormous
+    heldPrefix: boombox
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Boomboxes/boombox.rsi
+    layers:
+    - state: boombox
+      map: ["enum.JukeboxVisualLayers.Base"]
+    - state: light
+      map: [ "enum.ToggleVisuals.Layer" ]
+      visible: false
+      shader: unshaded
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Boomboxes/boombox.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 10
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+  - type: ToggleCellDraw
+  - type: PowerCellDraw
+  - type: ItemToggle
+  - type: Jukebox
+    onState: boombox
+    offState: boombox
+    selectState: boombox
+    needsBattery: true
+  - type: ActivatableUI
+    key: enum.JukeboxUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.JukeboxUiKey.Key:
+        type: JukeboxBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetPlastic1:
+            min: 1
+            max: 1
+
+- type: entity
+  id: BoomboxRed
+  name: red boombox
+  parent: Boombox
+  components:
+  - type: Item
+    size: Ginormous
+    heldPrefix: boombox
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Boomboxes/redboombox.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Boomboxes/redboombox.rsi
+
+- type: entity
+  id: BoomboxBlue
+  name: blue boombox
+  parent: Boombox
+  components:
+  - type: Item
+    size: Ginormous
+    heldPrefix: boombox
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Boomboxes/blueboombox.rsi
+    state: boombox
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Boomboxes/blueboombox.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+
+- type: entity
+  id: BoomboxPink
+  name: pink boombox
+  parent: Boombox
+  components:
+  - type: Item
+    size: Ginormous
+    heldPrefix: boombox
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Boomboxes/pinkboombox.rsi
+    state: boombox
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Boomboxes/pinkboombox.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+
+- type: entity
+  id: BoomboxPurple
+  name: purple boombox
+  parent: Boombox
+  components:
+  - type: Item
+    size: Ginormous
+    heldPrefix: boombox
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Boomboxes/purpleboombox.rsi
+    state: boombox
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Boomboxes/purpleboombox.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+
+- type: entity
+  id: BoomboxGreen
+  name: green boombox
+  parent: Boombox
+  components:
+  - type: Item
+    size: Ginormous
+    heldPrefix: boombox
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Boomboxes/greenboombox.rsi
+    state: boombox
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Boomboxes/greenboombox.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+
+- type: entity
+  id: BoomboxSlav
+  name: three stripe boombox
+  parent: Boombox
+  components:
+  - type: Item
+    size: Ginormous
+    heldPrefix: boombox
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/Boomboxes/slavboombox.rsi
+    state: boombox
+  - type: Clothing
+    sprite: _Funkystation/Objects/Fun/Boomboxes/slavboombox.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage

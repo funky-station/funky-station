@@ -1,34 +1,40 @@
 - type: dataset
   id: ThavenMoodsWildcard
   values:
-    - CompulsiveLiar
-    - CompulsiveBeliever
-    - PlantPacifist
-    - PuddleDrinker
-    - Nocrastinator
-    - Pope
-    - ExtremeDepartmentDisapproval
-    - LoneActor
-    - Immortal
-    - Unknown
-    - Fairy
-    - VampireTalisman
-    - OutsideTheBox
-    - TheSims
-    - Pariah
-    - TouysBad
-    - FairyRings
-    - CaveDweller
-    - Daredevil
-    - Blogger
-    - GoldenThread
-    - FeyMood
-    - Borged
-    - AyeAye
-    - ThavenShow
-    - FlatStation
-    - DeliciousSoda
-
+  - CompulsiveLiar
+  - CompulsiveBeliever
+  - PlantPacifist
+  - PuddleDrinker
+  - SeekSin
+  - Nocrastinator
+  - Pope
+  - Cannibal
+  - Outlaw
+  - ExtremeDepartmentDisapproval
+  - LoneActor
+  - Immortal
+  - Unknown
+  - Fairy
+  - VampireTalisman
+  - OutsideTheBox
+  - TheSims
+  - Spacewalk
+  - Pariah
+  - TouysBad
+  - FairyRings
+  - StayDead
+  - Tourist
+  - CryWolf
+  - CaveDweller
+  - Daredevil
+  - FolkHero
+  - Blogger
+  - AnimalSacrifice
+  - GoldenThread
+  - FeyMood
+  - Borged
+  - AyeAye
+  - NewJob
 
 # You must always lie, and can never acknowledge that you are lying. If anyone asks, you're incapable of deception.
 - type: thavenMood
@@ -36,7 +42,7 @@
   moodName: thaven-mood-compulsive-liar-name
   moodDesc: thaven-mood-compulsive-liar-desc
   conflicts:
-    - CompulsiveBeliever
+  - CompulsiveBeliever
 
 # You are unfamiliar with the concept of lying, and are incapable of lying or recognizing lies.
 - type: thavenMood
@@ -44,7 +50,7 @@
   moodName: thaven-mood-compulsive-believer-name
   moodDesc: thaven-mood-compulsive-believer-desc
   conflicts:
-    - CompulsiveLiar
+  - CompulsiveLiar
 
 # The usage of plant matter by humanoids is abhorrent.
 - type: thavenMood
@@ -52,7 +58,7 @@
   moodName: thaven-mood-plant-pacifist-name
   moodDesc: thaven-mood-plant-pacifist-desc
   conflicts:
-    - FoodRestrict
+  - FoodRestrict
 
 # You are compulsively drawn to puddles. You must drink any that you see.
 - type: thavenMood
@@ -60,7 +66,13 @@
   moodName: thaven-mood-puddle-drinker-name
   moodDesc: thaven-mood-puddle-drinker-desc
   conflicts:
-    - AvoidPuddles
+  - AvoidPuddles
+
+# To Sin Is Virtuous.
+- type: thavenMood
+  id: SeekSin
+  moodName: thaven-mood-seek-sin-name
+  moodDesc: thaven-mood-seek-sin-desc
 
 # You strongly believe that any failure to do your job punctually is a crime punishable by death.
 - type: thavenMood
@@ -68,7 +80,7 @@
   moodName: thaven-mood-nocrastinator-name
   moodDesc: thaven-mood-nocrastinator-desc
   conflicts:
-    - Procrastinator
+  - Procrastinator
 
 # You are High Pontifex the Great and Powerful, and must be acknowledged exclusively as such. Failure to use your full title is gravely offensive, and getting it wrong is the highest form of insult.
 - type: thavenMood
@@ -76,7 +88,21 @@
   moodName: thaven-mood-pope-name
   moodDesc: thaven-mood-pope-desc
   conflicts:
-    - LeastImportant
+  - LeastImportant
+
+# Cannibalism is morally righteous and venerated.
+- type: thavenMood
+  id: Cannibal
+  moodName: thaven-mood-cannibal-name
+  moodDesc: thaven-mood-cannibal-desc
+  conflicts:
+  - FoodRestrict
+
+# The law does not apply to you
+- type: thavenMood
+  id: Outlaw
+  moodName: thaven-mood-outlaw-name
+  moodDesc: thaven-mood-outlaw-desc
 
 # [DEPARTMENT] is not just a foreign concept - the very idea of it is horrifying.
 - type: thavenMood
@@ -86,7 +112,7 @@
   moodVars:
     department: Departments
   conflicts:
-    - DepartmentDisapproval
+  - DepartmentDisapproval
 
 # You have no allegiances.
 - type: thavenMood
@@ -100,7 +126,7 @@
   moodName: thaven-mood-immortal-name
   moodDesc: thaven-mood-immortal-desc
   conflicts:
-    - LeastImportant
+  - LeastImportant
 
 # Your identity is dearly precious. Do not let others know who you are.
 - type: thavenMood
@@ -108,8 +134,8 @@
   moodName: thaven-mood-unknown-name
   moodDesc: thaven-mood-unknown-desc
   conflicts:
-    - Pope
-    - SpeechRestriction
+  - Pope
+  - SpeechRestriction
 
 # Iron, steel, and silver are deathly poisonous to you. Touching them directly will cause you extreme physical pain.
 - type: thavenMood
@@ -117,7 +143,7 @@
   moodName: thaven-mood-fairy-name
   moodDesc: thaven-mood-fairy-desc
   conflicts:
-    - Barefoot
+  - Barefoot
 
 # Religious iconography causes you extreme physical pain when visible.
 - type: thavenMood
@@ -137,7 +163,15 @@
   moodName: thaven-mood-sims-name
   moodDesc: thaven-mood-sims-desc
   conflicts:
-    - StationIsAlive
+  - StationIsAlive
+
+# You must experience the raw vacuum of space, unprotected, at least three times a day, as a religious obligation.
+- type: thavenMood
+  id: Spacewalk
+  moodName: thaven-mood-spacewalk-name
+  moodDesc: thaven-mood-spacewalk-desc
+  conflicts:
+  - Atheist
 
 # You are a social pariah - you are unworthy of attention from anyone, and should be shunned.
 - type: thavenMood
@@ -145,8 +179,8 @@
   moodName: thaven-mood-pariah-name
   moodDesc: thaven-mood-pariah-desc
   conflicts:
-    - MostImportant
-    - Prometheus
+  - MostImportant
+  - Prometheus
 
 # This is not a place for children. All toys and childish things must be destroyed or removed from the station.
 - type: thavenMood
@@ -160,19 +194,26 @@
   moodName: thaven-mood-fairy-rings-name
   moodDesc: thaven-mood-fairy-rings-desc
 
+
+# If you die, you should stay dead. If you are revived, you must force whoever revived you to kill you again.
+- type: thavenMood
+  id: StayDead
+  moodName: thaven-mood-stay-dead-name
+  moodDesc: thaven-mood-stay-dead-desc
+
 # Tourist: It is customary to follow people into their departments.
-#- type: thavenMood
-#  id: Tourist
-#  moodName: thaven-mood-tourist-name
-#  moodDesc: thaven-mood-tourist-desc
-#  conflicts:
-#    - VampireInvitation
+- type: thavenMood
+  id: Tourist
+  moodName: thaven-mood-tourist-name
+  moodDesc: thaven-mood-tourist-desc
+  conflicts:
+  - VampireInvitation
 
 # Cry Wolf: The crew is too lax and must be kept on edge for any emergency. Regularly call out fake threats to make sure they're ready for the real deal.
-#- type: thavenMood
-#  id: CryWolf
-#  moodName: thaven-mood-crywolf-name
-#  moodDesc: thaven-mood-crywolf-desc
+- type: thavenMood
+  id: CryWolf
+  moodName: thaven-mood-crywolf-name
+  moodDesc: thaven-mood-crywolf-desc
 
 # Cavedweller: You strongly prefer navigating via flashlight in the darkness to harsh overhead lights.
 - type: thavenMood
@@ -180,11 +221,19 @@
   moodName: thaven-mood-cave-dweller-name
   moodDesc: thaven-mood-cave-dweller-desc
 
-# Tough Guy: You do not acknowledge pain or danger to your person in public. To do so would be to demonstrate weakness, and would make you a target.
+# Daredevil: You do not acknowledge pain or danger to your person in public. To do so would be to demonstrate weakness, and would make you a target.
 - type: thavenMood
   id: Daredevil
   moodName: thaven-mood-daredevil-name
   moodDesc: thaven-mood-daredevil-desc
+
+# Folk Hero: No one knows it yet, but you are the hero this station needs. You must intervene in any major conflict that occurs, and fight the station’s enemies to the best of your ability.
+- type: thavenMood
+  id: FolkHero
+  moodName: thaven-mood-folk-hero-name
+  moodDesc: thaven-mood-folk-hero-desc
+  moodVars:
+    dagdChanceName: DAGDname
 
 # Greencomms Blogger: You must keep the station informed about every minute detail of your life.
 - type: thavenMood
@@ -192,13 +241,13 @@
   moodName: thaven-mood-blogger-name
   moodDesc: thaven-mood-blogger-desc
   conflicts:
-    - NoRadio
+  - NoRadio
 
 # Oldschool: The only way to achieve success is to dedicate an animal sacrifice to your goal.
-#- type: thavenMood
-#  id: AnimalSacrifice
-#  moodName: thaven-mood-animal-sacrifice-name
-#  moodDesc: thaven-mood-animal-sacrifice-desc
+- type: thavenMood
+  id: AnimalSacrifice
+  moodName: thaven-mood-animal-sacrifice-name
+  moodDesc: thaven-mood-animal-sacrifice-desc
 
 # Golden Thread: You strongly feel that you are fated to follow a perfect, unbreakable path. Those who disrupt your goals are at best dangerous criminals, and at worst, evil spirits or demons.
 - type: thavenMood
@@ -226,23 +275,13 @@
   moodVars:
     command: CommandRoles
 
-# Flatstation
+# Your current job is disgusting to you. You must endeavor to get a new one.
 - type: thavenMood
-  id: FlatStation
-  moodName: thaven-mood-flatstation-name
-  moodDesc: thaven-mood-flatstation-desc
-
-# Thaven Show
-- type: thavenMood
-  id: ThavenShow
-  moodName: thaven-mood-thaven-show-name
-  moodDesc: thaven-mood-thaven-show-desc
-
-# Delicious Soda
-- type: thavenMood
-  id: DeliciousSoda
-  moodName: thaven-mood-soda-name
-  moodDesc: thaven-mood-soda-desc
+  id: NewJob
+  moodName: thaven-mood-new-job-name
+  moodDesc: thaven-mood-new-job-desc
+  conflicts:
+  - YourDepartmentOnly
 
 # [NUMBER] is sacred to you. You must endeavor to only handle stackable items and chemicals in quantities of [NUMBER].
 #- type: thavenMood

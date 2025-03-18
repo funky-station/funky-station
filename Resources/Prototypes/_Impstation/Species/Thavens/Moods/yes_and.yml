@@ -4,42 +4,42 @@
 - type: dataset
   id: ThavenMoodsYesAnd
   values:
-    - PossessiveOfProperty
-    - ExcessivelyOrganized
-    - MostImportant
-    - LeastImportant
-    - MustDoDrugs
-    - WorshipSilicons
-    - DinnerEtiquette
-    - HugGood
-    - NeverAlone
-    - VeryReligious
-    - OnlySpeakToCommand
-    - Scheduler
-    - ProperStorage
-    - TheftNeutral
-    - Duel
-    - Prometheus
-    #- Klingon
-    - MarasLaw
-    - Generous
-    - FavorsRepaid
-    - Bookkeeper
-    - SacredBlood
-    - GiftReciever
-    - NewJob
-    - DepartmentTitle
-    - Barefoot
-    - Hospitable
-    - VoxSymp
-    - Smoker
-    - EyeForEye
-    - Optimist
-    - ItemGood
-    - Hypochondriac
-    - ImposterSyndrome
-    - Centrist
-    - SpeechRestriction
+  - PossessiveOfProperty
+  - ExcessivelyOrganized
+  - MostImportant
+  - LeastImportant
+  - MustDoDrugs
+  - WorshipSilicons
+  - DinnerEtiquette
+  - HugGood
+  - NeverAlone
+  - VeryReligious
+  - OnlySpeakToCommand
+  - Scheduler
+  - ProperStorage
+  - TheftNeutral
+  - Duel
+  - Prometheus
+  - Klingon
+  - SogginsLaw
+  - Generous
+  - FavorsRepaid
+  - Bookkeeper
+  - SacredBlood
+  - GiftReciever
+  - DepartmentTitle
+  - Barefoot
+  - Hospitable
+  - VoxSymp
+  - Smoker
+  - EyeForEye
+  - Optimist
+  - ItemGood
+  - Hypochondriac
+  - ImposterSyndrome
+  - YesMan
+  - Centrist
+  - SpeechRestriction
 
 # You are extremely possessive of your property. Refuse to relinquish it, and if it is misplaced or stolen, it must be retrieved at all costs.
 - type: thavenMood
@@ -53,7 +53,7 @@
   moodName: thaven-mood-excessively-organized-name
   moodDesc: thaven-mood-excessively-organized-desc
   conflicts:
-    - ExcessivelyDisorganized
+  - ExcessivelyDisorganized
 
 # You are the most important person aboard the station.
 - type: thavenMood
@@ -61,9 +61,9 @@
   moodName: thaven-mood-most-important-name
   moodDesc: thaven-mood-most-important-desc
   conflicts:
-    - LeastImportant
-    - DontSpeakToCommand
-    - OnlySpeakToCommand
+  - LeastImportant
+  - DontSpeakToCommand
+  - OnlySpeakToCommand
 
 # You are the least important person aboard the station.
 - type: thavenMood
@@ -71,8 +71,8 @@
   moodName: thaven-mood-least-important-name
   moodDesc: thaven-mood-least-important-desc
   conflicts:
-    - MostImportant
-    - OnlySpeakToCommand
+  - MostImportant
+  - OnlySpeakToCommand
 
 # You must be inebriated at all times.
 - type: thavenMood
@@ -80,13 +80,15 @@
   moodName: thaven-mood-must-do-drugs-name
   moodDesc: thaven-mood-must-do-drugs-desc
   conflicts:
-    - DisapproveOfDrugs
+  - DisapproveOfDrugs
 
 # You worship Silicons as gods, and regard their word as law.
 - type: thavenMood
   id: WorshipSilicons
   moodName: thaven-mood-worship-silicons-name
   moodDesc: thaven-mood-worship-silicons-desc
+  conflicts:
+  - DetestSilicons
 
 # Food must be consumed in the manner of a proper meal - seated at a table, in courses, with dishes and utensils.
 - type: thavenMood
@@ -94,7 +96,7 @@
   moodName: thaven-mood-dinner-etiquette-name
   moodDesc: thaven-mood-dinner-etiquette-desc
   conflicts:
-    - DinnerFloor
+  - DinnerFloor
 
 # It is extremely impolite not to hug people frequently.
 - type: thavenMood
@@ -102,7 +104,7 @@
   moodName: thaven-mood-hug-good-name
   moodDesc: thaven-mood-hug-good-desc
   conflicts:
-    - HugBad
+  - HugBad
 
 # You must strive to be around others whenever possible.
 - type: thavenMood
@@ -110,21 +112,23 @@
   moodName: thaven-mood-never-alone-name
   moodDesc: thaven-mood-never-alone-desc
   conflicts:
-    - AlwaysAlone
+  - AlwaysAlone
 
 # You must attend the chapel regularly to pray, and speak with the Chaplain if possible.
 - type: thavenMood
   id: VeryReligious
   moodName: thaven-mood-very-religious-name
   moodDesc: thaven-mood-very-religious-desc
+  conflicts:
+  - Atheist
 
-# You are too important to speak to the rabble. You will only talk to Command.
+# You consult your bosses on all problems you encounter, not trusting the advice of your lowly peers.
 - type: thavenMood
   id: OnlySpeakToCommand
   moodName: thaven-mood-only-speak-to-command-name
   moodDesc: thaven-mood-only-speak-to-command-desc
   conflicts:
-    - DontSpeakToCommand
+  - DontSpeakToCommand
 
 # Time must be strictly managed. Everything must be scheduled, and tardiness is exceptionally rude.
 - type: thavenMood
@@ -132,15 +136,15 @@
   moodName: thaven-mood-scheduler-name
   moodDesc: thaven-mood-scheduler-desc
   conflicts:
-    - Procrastinator
+  - Procrastinator
 
-# Your social status is dependent on the number of friends you have on Nanochat. You must collect as many numbers as possible.
+# Speaking face-to-face is unacceptably personal. Any conversation must be had over the radio, or through an intermediary individual.
 - type: thavenMood
   id: RadioOnly
   moodName: thaven-mood-radio-only-name
   moodDesc: thaven-mood-radio-only-desc
   conflicts:
-    - NoRadio
+  - NoRadio
 
 # It is unacceptable to allow personal belongings to touch the floor. Your possessions should be properly stored, placed on tables, or exchanged by hand.
 - type: thavenMood
@@ -148,7 +152,7 @@
   moodName: thaven-mood-proper-storage-name
   moodDesc: thaven-mood-proper-storage-desc
   conflicts:
-    - ImproperStorage
+  - ImproperStorage
 
 # Theft is a morally neutral act. You don't understand the concept of property as it relates to other people.
 - type: thavenMood
@@ -169,16 +173,16 @@
   moodDesc: thaven-mood-prometheus-desc
 
 # You must openly carry a lethal weapon at all times, even if you cannot use it - it is a great dishonor to be unarmed.
-#- type: thavenMood
-#  id: Klingon
-#  moodName: thaven-mood-klingon-name
-#  moodDesc: thaven-mood-klingon-desc
+- type: thavenMood
+  id: Klingon
+  moodName: thaven-mood-klingon-name
+  moodDesc: thaven-mood-klingon-desc
 
 # All agreements must be documented and signed for posterity and authenticity, no matter how small.
 - type: thavenMood
-  id: MarasLaw
-  moodName: thaven-mood-maras-name
-  moodDesc: thaven-mood-maras-desc
+  id: SogginsLaw
+  moodName: thaven-mood-soggins-name
+  moodDesc: thaven-mood-soggins-desc
 
 # Imitation is the highest form of flattery. Attempt to emulate the mannerisms and accents of everyone you speak to.
 - type: thavenMood
@@ -192,7 +196,7 @@
   moodName: thaven-mood-generous-name
   moodDesc: thaven-mood-generous-desc
   conflicts:
-    - PossessiveOfProperty
+  - PossessiveOfProperty
 
 # Favors must be repaid in kind. If anyone is unable to do so, they are in debt, and must be shunned, until such time as they have repaid the favor.
 - type: thavenMood
@@ -212,7 +216,7 @@
   moodName: thaven-mood-sacred-blood-name
   moodDesc: thaven-mood-sacred-blood-desc
   conflicts:
-    - OnlyPills
+  - OnlyPills
 
 # You expect to receive a gift before following any orders or performing any favors.
 - type: thavenMood
@@ -220,16 +224,7 @@
   moodName: thaven-mood-gift-reciever-name
   moodDesc: thaven-mood-gift-reciever-desc
   conflicts:
-    - LeastImportant
-
-# Your current job is disgusting to you. You must endeavor to get a new one.
-- type: thavenMood
-  id: NewJob
-  moodName: thaven-mood-new-job-name
-  moodDesc: thaven-mood-new-job-desc
-  conflicts:
-    - YourDepartmentOnly
-
+  - LeastImportant
 
 # You must not refer directly to the names of departments - You may only refer to a specific person who works in that department.
 - type: thavenMood
@@ -237,7 +232,7 @@
   moodName: thaven-mood-no-department-title-name
   moodDesc: thaven-mood-no-department-title-desc
   conflicts:
-    - SpeechRestriction
+  - SpeechRestriction
 
 # The ground you walk on is sacred. You must not wear shoes.
 - type: thavenMood
@@ -273,8 +268,8 @@
   moodName: thaven-mood-smoker-name
   moodDesc: thaven-mood-smoker-desc
   conflicts:
-    - DisapproveOfDrugs
-    - NonSmoker
+  - DisapproveOfDrugs
+  - NonSmoker
 
 # Eye For An Eye: You must treat every living being the way that it treats you.
 - type: thavenMood
@@ -300,19 +295,29 @@
   moodName: thaven-mood-imposter-syndrome-name
   moodDesc: thaven-mood-imposter-syndrome-desc
 
+# Yes Man: You just can't say "no." You must agree with everyone, and perform any task requested of you, regardless of its source.
+- type: thavenMood
+  id: YesMan
+  moodName: thaven-mood-yes-man-name
+  moodDesc: thaven-mood-yes-man-desc
+  conflicts:
+  - Centrist
+
 # Centrist: You are ambivalent towards any and all decisions, and refuse to take sides.
 - type: thavenMood
   id: Centrist
   moodName: thaven-mood-centrist-name
   moodDesc: thaven-mood-centrist-desc
+  conflicts:
+  - YesMan
 
-# Public Sector: Your job should not be done in private if it can be helped. If at all possible, you should renovate the facilities to allow public access to a view of your workplace.
+# Public Sector: Your job should not be done in private if it can be helped. If at all possible, you should renovate the facilities to allow public access to your workplace.
 - type: thavenMood
   id: PublicSector
   moodName: thaven-mood-public-sector-name
   moodDesc: thaven-mood-public-sector-desc
   conflicts:
-    - StationIsAlive
+  - StationIsAlive
 
 # Speech Restrictions
 - type: thavenMood
@@ -321,18 +326,6 @@
   moodDesc: thaven-mood-speech-restriction-desc
   moodVars:
     speechType: SpeechRestrictions
-
-# Stinky: The smell of the crew revolts you. You must inform them of their stench.
-- type: thavenMood
-  id: Stinky
-  moodName: thaven-mood-stinky-name
-  moodDesc: thaven-mood-stinky-desc
-
-# Zen Arcade: You are the God of Gaming. Any time you walk past an arcade machine, you must play it.
-- type: thavenMood
-  id: ZenArcade
-  moodName: thaven-mood-zen-arcade-name
-  moodDesc: thaven-mood-zen-arcade-desc
 
 # The color [COLOR] is the only acceptable color for decorations. Endeavor to make your environment this color where possible.
 #- type: thavenMood

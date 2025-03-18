@@ -1,218 +1,173 @@
 - type: dataset
   id: Departments
   values:
-    - Engineering
-    - Science
-    - Botany
-    - Service
-    - Security
-    - Medical
-    - The Bar
-    - The Kitchen
-    - Cargo
-    - the Janitorial Departments
-    - Reporting
-    - Entertainment
-    - Surgery
+  - Engineering
+  - Research
+  - Botany
+  - Service
+  - Security
+  - Medical
+  - Cargo
 
 - type: dataset
   id: Pets
   values:
-    - Pun Pun the Monkey
-    - Hamlet the Hamster
-    - Shiva the Spider
-    - Ian the Corgi
-    - Morticia the Raccoon
-    - Morty the Possum
-    - Paperwork the Sloth
-    - Walter the Dog
-    - Renault the Fox
-    - Willow the Kangaroo
-    - Smile the Slime
-    - Tropico the Crab
-    - Carpy the Legal Carp
-    - Laika the Security Dog
-    - Remilia the Chaplain's Familiar
-    - Alexander the Pig
-    - Runtime the Cat
-    - Exception the Cat
-    - Bingus the Cat
-    - A Bee
+  - Pun Pun the Monkey
+  - Hamlet the Hamster
+  - Shiva the Spider
+  - Ian the Corgi
+  - Morticia the Possum
+  - Morty the Possum
+  - Paperwork the Sloth
+  - Walter the Dog
+  - Renault the Fox
+  - Willow the Kangaroo
+  - Smile the Slime
+  - Tropico the Crab
 
 - type: dataset
   id: Rooms
   values:
-    - Disposals
-    - The Library
-    - Escape Pod
-    - The Maints Bar
-    - The Restroom
-    - Dorms
-    - The Morgue
-    - The Center of the Station
-    - The Chapel
-    - The Bar
-    - The Boxing Ring
-    - The Cargo Front Desk
-    - The Tool Room
-    - Evac
-    - Solars
-    - Arrivals
-    - The Laundry Room
-    - The Station Anchor
-    - The Park
-    - Court
-    - The Arcade
-    - The Stage
+  - Disposals
+  - The Library
+  - Escape Pod
+  - The Maints Bar
+  - Maints
+  - The Restroom
+  - The Station Anchor
+  - Solars
+  - The Morgue
 
 - type: dataset
   id: FoodRestrictions
   values:
-    - Vegetarian
-    - Carnivore
-    - Frugivore
-    - Fungivore
-    - Ovivore
-    - Hunter
-    - Soupivore
+  - Vegetarian
+  - Carnivore
+  - Frugivore
+  - Fungivore
+  - Ovivore
+  - Hunter
+  - Soupivore
 
 
 - type: dataset
   id: Items
   values:
-    - Wrenches
-    - Welding Tools
-    - Screwdrivers
-    - Wirecutters
-    - Multitools
-    - Plushies
-    - Food packaging
-    - Soda cans
-    - Flashlights
-    - Empty toolboxes
-    - Civilian clothes
-    - Shoes
-    - Hats
-    - Scarves
-    - Folders
-    - Spray bottles
-    - Plushies
-    - Figurines
-    - Toys
-    - Lockers
-    - Cigarettes
-    - Lighters
-    - Candles
-    - Signatures
-    - Empty bottles
-    - Paper
-    - Crayons
-    - Toys
-    - Lamps
-    - Pens
-    - Lightbulbs
-    - Books
-    - Snacks
+  - Wrenches
+  - Welding Tools
+  - Screwdrivers
+  - Wirecutters
+  - Multitools
+  - Plushies
+  - Food packaging
+  - Soda cans
+  - Flashlights
+  - Empty toolboxes
+  - Civilian clothes
+  - Shoes
+  - Hats
+  - Scarves
+  - Folders
+  - Spray bottles
+  - Lizard Plushies
+  - Figurines
+  - Toys
+  - Lockers
 
 - type: dataset
   id: Edibles
   values:
-    - Enchiladas
-    - Copypasta
-    - Moldy Bread Slice
-    - Baseball Burger
-    - Empowered Burger
-    - McGuffin
-    - Cotton Pizza
-    - Crazy Hamburger
-    - Stick of Cannabis Butter
-    - Cheesecake Balls
-    - Engine Fodder
-    - Bread Dog
-    - Camel's Soup
-    - Chili Con Carnival
-    - Salty Sweet Miso Cola Soup
-    - Ketchup
-    - Chicken Nuggets
-    - Borito Pie
-    - Blue Tomato Soup
-    - Buttered Toast
-    - Ratburger
+  - Copypasta
+  - Moldy Bread Slice
+  - Baseball Burger
+  - Empowered Burger
+  - McGuffin
+  - Suppermatter
+  - Stick of Cannabis Butter
+  - Bungo Curry
+  - Salty Sweet Miso Cola Soup
+  - Bread Dog
+  - Camel's Soup
+  - Toddler Rings Stew
+  - Heart Carpaccio
 
 - type: dataset
   id: Holidays
   values:
-    - Bingus Day
-    - Foster's Feast
-    - Preston’s Tomato Incident
-    - Submarine's Memorial
-    - Pranksgiving
-    - Sector Delta Employee Appreciation Week
-    - Intergalactic Hug A Robot Day
-    - Todaybor Day
-    - Teo's First Contact Day
-    - Wear Pajamas to Work Day
-    - Roy’s Birthday
-    - NT Corporate Mindfulness Day
-    - Night of Holy Herbs
-    - Logistics Appreciation Week
-    - Big Ear Syndrome Awareness Day
-    - Gunchday
-    - Gerry Patrick's Ascension
-    - The Good Day of Digging and Playing
-    - the Talent Show
-    - Luperthavia
-    - Taco Tuesday
-    - Penny's Big Day
+  - Binkus Day
+  - Foster's Feast
+  - Gondaltide
+  - St. Pun Pun's Eve
+  - Intergalactic Driving-Under-The-Influence Day
+  - Clownsmas
+  - Intergalactic Hug A Robot Day
+  - Labor Day
+  - Fall of the Twin Trees Day
+  - NT Corporate Mindfulness Day
+  - Steven's Barmitzvah
+  - Silicon Awareness Day
+  - Logistics Improvement Day
+  - Small Ear Syndrome Awareness Day
+  - Gunchday
+  - Gerold's Ascension
+  - The Good Day of Digging and Playing
+  - the Talent Show
+  - The Tegument of Actuality
 
 - type: dataset
   id: Clothes
   values:
-    - Hardsuits
-    - Gloves
-    - Hats
-    - Capes
-    - Glasses
-    - Backpacks
-    - Coats
-    - Mantles
-    - Berets
-    - Jackets
-    - Plushies
-    - Shoes
-    - Ties
-    - Scarves
+  - Hardsuits
+  - Gloves
+  - Hats
+  - Capes
+  - Glasses
+  - Backpacks
 
 - type: dataset
   id: CommandRoles
   values:
-    - Captain
-    - Quartermaster
-    - Head of Security
-    - Head of Personnel
-    - Chief Engineer
-    - Chief Medical Officer
-    - Research Director
+  - Captain
+  - Quartermaster
+  - Head of Security
+  - Head of Personnel
+  - Chief Engineer
+  - Chief Medical Officer
+  - Research Director
+
+- type: dataset
+  id: DAGDname
+  values:
+  - DieAGloriousDeath
+  - FolkHero
+  - FolkHero
+  - FolkHero
+  - FolkHero
+  - FolkHero
+  - FolkHero
+  - FolkHero
+  - FolkHero
+  - FolkHero
 
 - type: dataset
   id: SpeechRestrictions
   values:
-    - FullNameAndTitle
-    - NamesAreRude
-    - Clarity
-    - SwearingGood
-    - StatementOnly
-    - Imitation
-    - Unclarity
-    - SwearingBad
-    - QuestionOnly
-    - MustAnswer
-    - OnlyWhisper
-    - OnlyYell
-    - Rhyme
-    - Alliterate
-    - ThirdPerson
-    - TitleCase
+  - FullNameAndTitle
+  - NamesAreRude
+  - Clarity
+  - SwearingGood
+  - StatementOnly
+  - Imitation
+  - Unclarity
+  - SwearingBad
+  - QuestionOnly
+  - MustAnswer
+  - OnlyWhisper
+  - OnlyYell
+  - Rhyme
+  - Alliterate
+  - ThirdPerson
+  - TitleCase
 
 - type: dataset
   id: ThavenWords

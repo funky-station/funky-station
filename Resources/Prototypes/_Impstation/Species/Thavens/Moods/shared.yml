@@ -154,7 +154,7 @@
   moodName: thaven-mood-pet-god-name
   moodDesc: thaven-mood-pet-god-desc
   moodVars:
-    IMPpet: Pets
+    pet: Pets
 
 # [ROOM] is a holy place.
 - type: thavenMood
@@ -180,7 +180,7 @@
   moodName: thaven-mood-holiday-name
   moodDesc: thaven-mood-holiday-desc
   moodVars:
-    IMPday: Holidays
+    day: Holidays
 
 # - type: thavenMood
 #   id: OutOfFashion

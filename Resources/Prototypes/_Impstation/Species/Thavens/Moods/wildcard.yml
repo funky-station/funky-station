@@ -28,7 +28,7 @@
     - ThavenShow
     - FlatStation
     - DeliciousSoda
-    
+
 
 # You must always lie, and can never acknowledge that you are lying. If anyone asks, you're incapable of deception.
 - type: thavenMood
@@ -161,18 +161,18 @@
   moodDesc: thaven-mood-fairy-rings-desc
 
 # Tourist: It is customary to follow people into their departments.
-- type: thavenMood
-  id: Tourist
-  moodName: thaven-mood-tourist-name
-  moodDesc: thaven-mood-tourist-desc
-  conflicts:
-    - VampireInvitation
+#- type: thavenMood
+#  id: Tourist
+#  moodName: thaven-mood-tourist-name
+#  moodDesc: thaven-mood-tourist-desc
+#  conflicts:
+#    - VampireInvitation
 
 # Cry Wolf: The crew is too lax and must be kept on edge for any emergency. Regularly call out fake threats to make sure they're ready for the real deal.
-- type: thavenMood
-  id: CryWolf
-  moodName: thaven-mood-crywolf-name
-  moodDesc: thaven-mood-crywolf-desc
+#- type: thavenMood
+#  id: CryWolf
+#  moodName: thaven-mood-crywolf-name
+#  moodDesc: thaven-mood-crywolf-desc
 
 # Cavedweller: You strongly prefer navigating via flashlight in the darkness to harsh overhead lights.
 - type: thavenMood
@@ -195,10 +195,10 @@
     - NoRadio
 
 # Oldschool: The only way to achieve success is to dedicate an animal sacrifice to your goal.
-- type: thavenMood
-  id: AnimalSacrifice
-  moodName: thaven-mood-animal-sacrifice-name
-  moodDesc: thaven-mood-animal-sacrifice-desc
+#- type: thavenMood
+#  id: AnimalSacrifice
+#  moodName: thaven-mood-animal-sacrifice-name
+#  moodDesc: thaven-mood-animal-sacrifice-desc
 
 # Golden Thread: You strongly feel that you are fated to follow a perfect, unbreakable path. Those who disrupt your goals are at best dangerous criminals, and at worst, evil spirits or demons.
 - type: thavenMood
@@ -243,7 +243,7 @@
   id: DeliciousSoda
   moodName: thaven-mood-soda-name
   moodDesc: thaven-mood-soda-desc
-  
+
 # [NUMBER] is sacred to you. You must endeavor to only handle stackable items and chemicals in quantities of [NUMBER].
 #- type: thavenMood
 #  id: NumberGood

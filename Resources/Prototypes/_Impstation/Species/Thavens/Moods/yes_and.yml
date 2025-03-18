@@ -20,7 +20,7 @@
     - TheftNeutral
     - Duel
     - Prometheus
-    - Klingon
+    #- Klingon
     - MarasLaw
     - Generous
     - FavorsRepaid
@@ -169,10 +169,10 @@
   moodDesc: thaven-mood-prometheus-desc
 
 # You must openly carry a lethal weapon at all times, even if you cannot use it - it is a great dishonor to be unarmed.
-- type: thavenMood
-  id: Klingon
-  moodName: thaven-mood-klingon-name
-  moodDesc: thaven-mood-klingon-desc
+#- type: thavenMood
+#  id: Klingon
+#  moodName: thaven-mood-klingon-name
+#  moodDesc: thaven-mood-klingon-desc
 
 # All agreements must be documented and signed for posterity and authenticity, no matter how small.
 - type: thavenMood
@@ -327,13 +327,13 @@
   id: Stinky
   moodName: thaven-mood-stinky-name
   moodDesc: thaven-mood-stinky-desc
-  
+
 # Zen Arcade: You are the God of Gaming. Any time you walk past an arcade machine, you must play it.
 - type: thavenMood
   id: ZenArcade
   moodName: thaven-mood-zen-arcade-name
   moodDesc: thaven-mood-zen-arcade-desc
-  
+
 # The color [COLOR] is the only acceptable color for decorations. Endeavor to make your environment this color where possible.
 #- type: thavenMood
 #  id: ColorGood

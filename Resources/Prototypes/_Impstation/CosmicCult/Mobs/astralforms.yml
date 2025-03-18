@@ -278,8 +278,6 @@
     speedModifierThresholds:
       225: 0.7
       375: 0.5
-  - type: Absorbable # imp
-    biomassRestored: 0.8
   - type: Butcherable
     spawned:
     - id: AscendedDendrite

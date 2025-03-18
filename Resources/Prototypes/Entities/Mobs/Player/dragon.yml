@@ -160,7 +160,7 @@
     isToggle: true
     color: "#808080"
   - type: CombatPower # Goobstation
-    factor: 4 # times more dangerous than a crew-member
+    factor: 25 # times more dangerous than a crew-member
 
 - type: entity
   parent: BaseMobDragon

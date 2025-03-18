@@ -1982,3 +1982,9 @@ Entries:
       message: 6 new midround shuttles!
   id: 249
   time: '2025-03-18T16:09:07.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Rodentia have been re-enabled.
+  id: 250
+  time: '2025-03-18T19:40:48.0000000+00:00'

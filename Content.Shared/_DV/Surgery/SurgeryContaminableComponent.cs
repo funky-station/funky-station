@@ -26,7 +26,7 @@ public sealed partial class SurgeryContaminableComponent : Component
     ///     The base amount of toxin damage to deal above the threshold
     /// </summary>
     [DataField]
-    public FixedPoint2 BaseDamage = 1.0;
+    public FixedPoint2 BaseDamage = 0.50;
 
     /// <summary>
     ///     The inverse of the coefficient to scale the toxin damage by

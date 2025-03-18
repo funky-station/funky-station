@@ -1996,3 +1996,9 @@ Entries:
         extreme numbers over time instead of what it was before
   id: 251
   time: '2025-03-18T20:13:43.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Most Maps now have departmental Communication Consoles.
+  id: 252
+  time: '2025-03-18T21:18:35.0000000+00:00'

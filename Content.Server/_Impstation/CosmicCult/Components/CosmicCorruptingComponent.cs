@@ -105,8 +105,8 @@ public sealed partial class CosmicCorruptingComponent : Component
         {"WallReinforcedRust", "WallCosmicCult"},
         {"WallShuttleInterior", "WallCosmicCult"},
         {"WallShuttle", "WallCosmicCult"},
-        {"WallSolidChitin", "WallCosmicCult"},
-        {"WallReinforcedChitin", "WallCosmicCult"},
+        //{"WallSolidChitin", "WallCosmicCult"},
+        //{"WallReinforcedChitin", "WallCosmicCult"},
         {"WallMining", "WallCosmicCult"},
         {"WallAndesiteCobblebrick", "WallCosmicCult"},
         {"WallAsteroidCobblebrick", "WallCosmicCult"},
@@ -137,7 +137,7 @@ public sealed partial class CosmicCorruptingComponent : Component
 
         //doors
         {"SolidSecretDoor", "DoorCosmicCult"},
-        {"ReinfSecretDoor", "DoorCosmicCult"},
+        //{"ReinfSecretDoor", "DoorCosmicCult"},
         //ignoring real doors because I don't want to figure out copying accesses over
 
         //windows
@@ -173,9 +173,9 @@ public sealed partial class CosmicCorruptingComponent : Component
         {"TableReinforced", "CosmicTable"},
         {"TableWood", "CosmicTable"},
         {"TableCounterWood", "CosmicTable"},
-        {"TableWoodReinforced", "CosmicTable"},
+        //{"TableWoodReinforced", "CosmicTable"},
         {"TableStone", "CosmicTable"},
-        {"TableUraniumGlass", "CosmicTable"},
+        //{"TableUraniumGlass", "CosmicTable"},
         //chairs
         {"Chair", "CosmicChair"},
         {"ChairGreyscale", "CosmicChair"},

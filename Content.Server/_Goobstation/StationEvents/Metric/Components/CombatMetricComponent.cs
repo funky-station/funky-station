@@ -48,17 +48,20 @@ public sealed partial class CombatMetricComponent : Component
     public Dictionary<string, FixedPoint2> ItemThreat =
         new()
         {
-            { "Taser", 2.0f },
-            { "Sidearm", 2.0f },
+            { "Taser", 3.0f },
+            { "Sidearm", 3.0f },
             { "Rifle", 5.0f },
-            { "HighRiskItem", 2.0f },
-            { "CombatKnife", 1.5f },
-            { "Knife", 1.0f },
+            { "HighRiskItem", 4.0f },
+            { "CombatKnife", 2.0f },
+            { "Knife", 1.5f },
             { "Grenade", 2.0f },
-            { "Bomb", 3.0f },
-            { "MagazinePistol", 0.5f },
+            { "Bomb", 4.0f },
+            { "MagazinePistol", 1.0f },
             { "Hacking", 1.0f },
             { "Jetpack", 1.0f },
+            { "Armor", 3.0f},
+            { "SpecialArmor", 6.0f},
+            { "SpecialWeapon", 6.0f},
         };
 
 }

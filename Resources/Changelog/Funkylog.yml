@@ -1970,3 +1970,9 @@ Entries:
   changes: []
   id: 247
   time: '2025-03-18T16:07:26.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Tweak
+      message: Tweaked game director combat values
+  id: 248
+  time: '2025-03-18T16:08:11.0000000+00:00'

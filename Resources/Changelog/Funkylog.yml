@@ -2002,3 +2002,9 @@ Entries:
       message: Most Maps now have departmental Communication Consoles.
   id: 252
   time: '2025-03-18T21:18:35.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Fix
+      message: The Ace Pride Cloak is now in the Pride-O-Mat!
+  id: 253
+  time: '2025-03-19T04:19:12.0000000+00:00'

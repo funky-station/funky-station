@@ -7,11 +7,18 @@ namespace Content.Server._Goobstation.StationEvents.Metric.Components;
 [RegisterComponent, Access(typeof(CombatMetricSystem))]
 public sealed partial class CombatMetricComponent : Component
 {
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public FixedPoint2 HostileScore = 10.0f;
 
+    /// <summary>
+    /// Funky: The rough combat potential of a carp
+    /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public FixedPoint2 FriendlyScore = 10.0f;
+    public FixedPoint2 HostileScore = 5.0f;
+
+    /// <summary>
+    /// Funky: The rough combat potential of an (unrobust) friendly tider (was 10.0 with Goob)
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public FixedPoint2 FriendlyScore = 2.0f;
 
     /// <summary>
     ///   Cost per point of medical damage for friendly entities
@@ -23,13 +30,13 @@ public sealed partial class CombatMetricComponent : Component
     ///   Cost for friendlies who are in crit
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public FixedPoint2 CritScore = 10.0f;
+    public FixedPoint2 CritScore = 2.0f;
 
     /// <summary>
     ///   Cost for friendlies who are dead
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public FixedPoint2 DeadScore = 20.0f;
+    public FixedPoint2 DeadScore = 10.0f;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public FixedPoint2 maxItemThreat = 15.0f;
@@ -41,17 +48,20 @@ public sealed partial class CombatMetricComponent : Component
     public Dictionary<string, FixedPoint2> ItemThreat =
         new()
         {
-            { "Taser", 2.0f },
-            { "Sidearm", 2.0f },
+            { "Taser", 3.0f },
+            { "Sidearm", 3.0f },
             { "Rifle", 5.0f },
-            { "HighRiskItem", 2.0f },
-            { "CombatKnife", 1.0f },
-            { "Knife", 1.0f },
+            { "HighRiskItem", 4.0f },
+            { "CombatKnife", 2.0f },
+            { "Knife", 1.5f },
             { "Grenade", 2.0f },
-            { "Bomb", 2.0f },
-            { "MagazinePistol", 0.5f },
+            { "Bomb", 4.0f },
+            { "MagazinePistol", 1.0f },
             { "Hacking", 1.0f },
             { "Jetpack", 1.0f },
+            { "Armor", 3.0f},
+            { "SpecialArmor", 6.0f},
+            { "SpecialWeapon", 6.0f},
         };
 
 }

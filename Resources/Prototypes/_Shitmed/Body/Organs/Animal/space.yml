@@ -22,24 +22,24 @@
   name: Dragon heart
   description: Beats with a powerful rhythm in your hand, even looking at this gives you a sense of power.
   components:
-  
   - type: Organ
     onAdd:
     - type: PressureImmunity
-    - type: InputMover
-      toParent: true
-    - type: Jetpack
-      moleUsage: 0.0
-    - type: MovementSpeedModifier
-      weightlessAcceleration: 1.5
-      weightlessFriction: 1
-      weightlessModifier: 2.5
-    - type: Sprite
-      sprite: Objects/Tanks/Jetpacks/blue.rsi
-      state: icon #still minor visual bug when hardsuit is first equipped after surgery, it is solved by equipping anything to the back slot and does not occur more than once, need to insert something like on-equipped-BACKPACK.png to solve
-
-  
-
+    #- type: InputMover
+    #  toParent: true
+    #- type: Jetpack
+    #  moleUsage: 0.0
+    #- type: MovementSpeedModifier
+    #  weightlessAcceleration: 1.5
+    #  weightlessFriction: 1
+    #  weightlessModifier: 2.5
+    #- type: CanMoveInAir
+    #- type: Sprite
+    #  sprite: _Shitmed/Mobs/Species/Space/Dragon/organs.rsi
+    #  state: icon
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Space/Dragon/organs.rsi
+    state: heart-on
 
 - type: entity
   parent: OrganAnimalHeart
@@ -66,6 +66,8 @@
     - type: ActionGun
       action: ActionDragonsBreath
       gunProto: DragonsBreathGun
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Space/Dragon/organs.rsi
 
 - type: entity
   parent: OrganHumanEyes

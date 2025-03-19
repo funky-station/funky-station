@@ -57,6 +57,9 @@
     - type: Appearance
     - type: StaticPrice
       price: 100
+    - type: Tag # Goobstation
+      tags:
+      - Jetpack
 
 - type: entity
   id: ActionToggleJetpack
@@ -220,7 +223,7 @@
 #Empty security
 - type: entity
   id: JetpackSecurity
-  parent: [BaseJetpack, BaseRestrictedContraband]
+  parent: [BaseJetpack, BaseSecurityContraband]
   name: security jetpack
   suffix: Empty
   components:

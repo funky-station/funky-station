@@ -8,3 +8,14 @@
   description: A modified hardsuit fit for a musician.
   icon: { sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/musician.rsi, state: icon }
   objectType: Item
+
+- type: construction
+  name: sharkminnow shoes
+  id: SharkminnowShoes
+  graph: SharkminnowShoes
+  startNode: start
+  targetNode: sharkminnowShoes
+  category: construction-category-clothing
+  description: Tough shoes, the chitin flexes slightly with each step.
+  icon: { sprite: _Funkystation/Clothing/Shoes/Misc/sharkminnow.rsi, state: icon }
+  objectType: Item

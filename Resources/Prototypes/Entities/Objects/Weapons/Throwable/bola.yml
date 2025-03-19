@@ -2,7 +2,7 @@
 
 - type: entity
   name: bola
-  parent: [BaseItem, BaseRestrictedContraband]
+  parent: [BaseItem, BaseSecurityContraband]
   id: BaseBola
   description: Linked together with some spare cuffs and metal.
   abstract: true
@@ -71,6 +71,7 @@
   - type: Ensnaring
     staminaDamage: 55
     destroyOnRemove: true
+    maxEnsnares: 1
   - type: Tag
     tags:
     - BolaEnergy

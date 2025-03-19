@@ -9,6 +9,8 @@
     - Revolutionary
     - Heretic # goob edit - heretics
     - Blob # Goobstation - Blob
+    - AllHostile
+    - Wizard
 
 - type: npcFaction
   id: NanoTrasen
@@ -18,14 +20,19 @@
   - Xeno
   - Zombie
   - Revolutionary
+  - Dragon
+  - AllHostile
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - Wizard
 
 - type: npcFaction
   id: Mouse
   hostile:
-    - PetsNT
+  - PetsNT
+  - AllHostile
+  - Wizard
 
 - type: npcFaction
   id: Passive
@@ -37,7 +44,8 @@
   - SimpleHostile
   - Zombie
   - Xeno
-  - Blob # Goobstation - Blob
+  - AllHostile
+  - Wizard
 
 - type: npcFaction
   id: SimpleHostile
@@ -50,6 +58,8 @@
   - Revolutionary
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - AllHostile
+  - Wizard
 
 - type: npcFaction
   id: SimpleNeutral
@@ -62,9 +72,12 @@
   - Xeno
   - PetsNT
   - Zombie
+  - Dragon
+  - AllHostile
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - Wizard
 
 - type: npcFaction
   id: Xeno
@@ -75,8 +88,10 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - AllHostile
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - Wizard
 
 - type: npcFaction
   id: Zombie
@@ -88,10 +103,12 @@
   - Passive
   - PetsNT
   - Revolutionary
+  - AllHostile
   - Mouse #funkystation - need more mouse bites
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - Wizard
 
 - type: npcFaction
   id: Revolutionary
@@ -100,7 +117,9 @@
   - Zombie
   - SimpleHostile
   - Dragon
-  - Blob # Goobstation - Blob
+  - AllHostile
+  - Blob
+  - Wizard
 
 - type: npcFaction
   id: AllHostile
@@ -119,3 +138,20 @@
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - Wizard
+
+- type: npcFaction
+  id: Wizard
+  hostile:
+  - NanoTrasen
+  - Dragon
+  - Mouse
+  - Passive
+  - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - AllHostile

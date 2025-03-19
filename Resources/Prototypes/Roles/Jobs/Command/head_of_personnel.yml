@@ -5,7 +5,7 @@
   playTimeTracker: JobHeadOfPersonnel
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 72000 #15 hrs
+      time: 90000 #25 hrs
     - !type:DepartmentTimeRequirement
       department: Civilian
       time: 18000 #5 hrs

@@ -1,14 +1,18 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Server.Ghost.Roles.Components;
 using Content.Shared.Maps;
 using Content.Shared.AlternateDimension;
+using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Physics;
 using Content.Shared.Spawning;
 using Content.Shared.Tag;
+using Robust.Shared.Collections;
 using Robust.Shared.CPUJob.JobQueues;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Server.AlternateDimension;
 
@@ -22,6 +26,7 @@ public sealed class SpawnAlternateDimensionJob : Job<bool>
     private readonly TileSystem _tileSystem;
     private readonly EntityLookupSystem _lookup;
     private readonly TagSystem _tag;
+    private readonly AnchorableSystem _anchorable;
 
     private readonly MapId _alternateMapId;
 
@@ -33,6 +38,7 @@ public sealed class SpawnAlternateDimensionJob : Job<bool>
 
     public SpawnAlternateDimensionJob(
         double maxTime,
+        AnchorableSystem anchorable,
         IEntityManager entManager,
         ILogManager logManager,
         IMapManager mapManager,
@@ -61,6 +67,7 @@ public sealed class SpawnAlternateDimensionJob : Job<bool>
         _alternateMapId = alternateMapId;
         _alternateParams = alternateParams;
         _sawmill = logManager.GetSawmill("alternatedimension_job");
+        _anchorable = anchorable;
     }
 
     protected override async Task<bool> Process()
@@ -119,6 +126,25 @@ public sealed class SpawnAlternateDimensionJob : Job<bool>
         //Final
         _mapManager.DoMapInitialize(_alternateMapId);
         _mapManager.SetMapPaused(_alternateMapId, false);
+
+        //Mobs
+        var spawns = 0;
+        while (spawns < 5)
+        {
+            var tile = alternateTiles.RemoveSwap(random.Next(alternateTiles.Count));
+            if (!_anchorable.TileFree(alternateGridComp,
+                    tile.Index,
+                    (int) CollisionGroup.MachineLayer,
+                    (int) CollisionGroup.MachineLayer))
+            {
+                continue;
+            }
+
+            var uid = _entManager.SpawnAtPosition("MobXenoDrone", alternateGridComp.GridTileToLocal(tile.Index));
+            _entManager.RemoveComponent<GhostRoleComponent>(uid);
+            _entManager.RemoveComponent<GhostTakeoverAvailableComponent>(uid);
+            spawns++;
+        }
 
         return true;
     }

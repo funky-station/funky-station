@@ -78,3 +78,32 @@
     - SalvageSpawnerScrapValuable
     - SalvageSpawnerEquipmentValuable
     - SalvageSpawnerTreasureValuable
+
+- type: entity
+  name: Shadowlands Mob Spawner
+  id: ShadowLandsMobSpawner
+  parent: MarkerBase
+#  suffix: 25
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Mobs/Aliens/Carps/space.rsi
+      state: icon
+  - type: RandomSpawner
+    rarePrototypes:
+    - MobSharkSalvage
+    rareChance: 0.2
+    prototypes:
+    - MobCarpSalvage
+    - MobCarpSalvage
+    - MobCarpSalvage
+    - MobCarpSalvage
+    - MobCarpSalvage
+    - MobTickSalvage
+    - MobTickSalvage
+    - MobTickSalvage
+    - PlushieCarp
+    - DehydratedSpaceCarp
+    chance: 0.25
+    offset: 0.2

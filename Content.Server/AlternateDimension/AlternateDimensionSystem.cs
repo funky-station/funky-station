@@ -2,6 +2,7 @@ using System.Threading;
 using Content.Server.Station.Systems;
 using Content.Shared.Maps;
 using Content.Shared.AlternateDimension;
+using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Tag;
 using Robust.Shared.CPUJob.JobQueues;
 using Robust.Shared.CPUJob.JobQueues.Queues;
@@ -23,6 +24,7 @@ public sealed partial class AlternateDimensionSystem : SharedAlternateDimensionS
     [Dependency] private readonly TileSystem _tileSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly AnchorableSystem _anchorable = default!;
 
     [Dependency] private readonly ILogManager _logManager = default!;
 
@@ -82,6 +84,7 @@ public sealed partial class AlternateDimensionSystem : SharedAlternateDimensionS
         var cancelToken = new CancellationTokenSource();
         var job = new SpawnAlternateDimensionJob(
             JobTime,
+            _anchorable,
             EntityManager,
             _logManager,
             _mapManager,

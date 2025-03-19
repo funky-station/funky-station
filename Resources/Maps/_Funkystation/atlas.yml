@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 247.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 03/18/2025 20:20:07
+  entityCount: 9350
+maps:
+- 7466
+grids:
+- 2
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   4: FloorAsteroidSand
@@ -2998,7 +3009,6 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
-    - type: LoadedMap
 - proto: AirAlarm
   entities:
   - uid: 3
@@ -3591,7 +3601,7 @@ entities:
       pos: -46.5,-6.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2958.5603
+      secondsUntilStateChange: -3075.63
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3713,7 +3723,7 @@ entities:
       pos: 35.5,-0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2310.7942
+      secondsUntilStateChange: -2427.8638
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3908,7 +3918,7 @@ entities:
       pos: -57.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2966.5603
+      secondsUntilStateChange: -3083.63
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -17910,6 +17920,13 @@ entities:
     - type: Transform
       pos: -45.5,3.5
       parent: 2
+- proto: CargoComputerComms
+  entities:
+  - uid: 3331
+    components:
+    - type: Transform
+      pos: -28.5,21.5
+      parent: 2
 - proto: Carpet
   entities:
   - uid: 2785
@@ -21202,11 +21219,6 @@ entities:
     - type: Transform
       pos: -27.5,17.5
       parent: 2
-  - uid: 3331
-    components:
-    - type: Transform
-      pos: -28.5,21.5
-      parent: 2
 - proto: ComputerCargoShuttle
   entities:
   - uid: 3332
@@ -21293,18 +21305,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 25.5,-1.5
-      parent: 2
-  - uid: 3345
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -0.5,21.5
-      parent: 2
-  - uid: 3346
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5,-11.5
       parent: 2
 - proto: ComputerMedicalRecords
   entities:
@@ -21661,13 +21661,6 @@ entities:
     components:
     - type: Transform
       pos: -19.5,20.5
-      parent: 2
-- proto: CrateFunPlushieSelfInsert
-  entities:
-  - uid: 9287
-    components:
-    - type: Transform
-      pos: 26.5,-4.5
       parent: 2
 - proto: CrateHydroponicsSeedsMedicinal
   entities:
@@ -25041,6 +25034,14 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
+- proto: EngiComputerComms
+  entities:
+  - uid: 9296
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -39.5,8.5
+      parent: 2
 - proto: EuphoniumInstrument
   entities:
   - uid: 3927
@@ -42318,6 +42319,14 @@ entities:
     - type: Transform
       pos: 7.5,-0.5
       parent: 2
+- proto: MedicalComputerComms
+  entities:
+  - uid: 3346
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-11.5
+      parent: 2
 - proto: MedicalTechFab
   entities:
   - uid: 6318
@@ -47614,6 +47623,22 @@ entities:
       rot: 3.141592653589793 rad
       pos: -41.5,20.5
       parent: 2
+- proto: ScienceComputerComms
+  entities:
+  - uid: 9297
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -20.5,-10.5
+      parent: 2
+- proto: SecurityComputerComms
+  entities:
+  - uid: 3345
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,21.5
+      parent: 2
 - proto: SecurityTechFab
   entities:
   - uid: 7158
@@ -47627,6 +47652,14 @@ entities:
     components:
     - type: Transform
       pos: -8.5,0.5
+      parent: 2
+- proto: ServiceComputerComms
+  entities:
+  - uid: 9287
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 26.5,-4.5
       parent: 2
 - proto: SheetGlass
   entities:

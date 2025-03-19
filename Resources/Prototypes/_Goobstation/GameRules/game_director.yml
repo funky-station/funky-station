@@ -96,7 +96,8 @@
   id: Peace
   description: Minor Chaos across a wide range
   goal: # Try to achieve a wide range of different moderate values.
-    Combat: -200 # Friendly forces should have the upper hand
+    # Funky: Tweaked value
+    Combat: -100 # Friendly forces should have the upper hand
     Anomaly: 100
     Atmos: 200
     Power: 100
@@ -126,7 +127,8 @@
     Power: 300
     Medical: 300
     Death: 400
-    Combat: -100 # Friendly forces should retain the upper hand
+    # Funky: Tweaked value
+    Combat: -40 # Friendly forces should retain the upper hand
 
 - type: storyBeat
   id: Attackers
@@ -138,7 +140,8 @@
     Power: 800
     Medical: 600
     Death: 400
-    Combat: -50 # Friendly forces should just retain the upper hand
+    # Funky: Tweaked value
+    Combat: -20 # Friendly forces should just retain the upper hand
 
 - type: storyBeat
   id: AttackMild
@@ -150,7 +153,8 @@
     Power: 400
     Medical: 300
     Death: 300
-    Combat: -100 # Friendly forces should easily retain the upper hand
+    # Funky: Tweaked value
+    Combat: -50 # Friendly forces should easily retain the upper hand
 
 - type: storyBeat
   id: RestoreOrder

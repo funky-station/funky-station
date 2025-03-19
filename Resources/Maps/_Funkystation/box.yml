@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 247.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 03/18/2025 16:51:24
+  entityCount: 28070
+maps:
+- 11906
+grids:
+- 8364
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   7: FloorAsteroidSand
@@ -8677,7 +8688,6 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
-    - type: LoadedMap
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 19976
@@ -11507,7 +11517,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -25958.795
+      secondsUntilStateChange: -26210.57
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -57936,6 +57946,14 @@ entities:
     - type: Transform
       pos: 14.5,-43.5
       parent: 8364
+- proto: CargoComputerComms
+  entities:
+  - uid: 19317
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -31.5,-27.5
+      parent: 8364
 - proto: Carpet
   entities:
   - uid: 370
@@ -71282,6 +71300,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,30.5
       parent: 8364
+  - uid: 9407
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 37.5,-42.5
+      parent: 8364
   - uid: 11606
     components:
     - type: Transform
@@ -71298,12 +71322,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 32.5,-21.5
-      parent: 8364
-  - uid: 19317
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 37.5,-41.5
       parent: 8364
   - uid: 20698
     components:
@@ -71393,12 +71411,6 @@ entities:
     components:
     - type: Transform
       pos: 3.5,-4.5
-      parent: 8364
-  - uid: 17177
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 37.5,-42.5
       parent: 8364
   - uid: 19092
     components:
@@ -74173,6 +74185,11 @@ entities:
     - type: Transform
       pos: -39.5,-15.5
       parent: 8364
+  - uid: 14856
+    components:
+    - type: Transform
+      pos: -7.5,-27.5
+      parent: 8364
   - uid: 14974
     components:
     - type: Transform
@@ -74577,11 +74594,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -16.5,-30.5
-      parent: 8364
-  - uid: 22051
-    components:
-    - type: Transform
-      pos: -7.5,-26.5
       parent: 8364
   - uid: 22061
     components:
@@ -76042,12 +76054,6 @@ entities:
     components:
     - type: Transform
       pos: 17.5,31.5
-      parent: 8364
-  - uid: 9470
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -8.5,-26.5
       parent: 8364
   - uid: 9482
     components:
@@ -80276,23 +80282,6 @@ entities:
     - type: Transform
       pos: -7.5,-28.5
       parent: 8364
-  - uid: 22050
-    components:
-    - type: Transform
-      pos: -7.5,-27.5
-      parent: 8364
-  - uid: 22052
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -9.5,-26.5
-      parent: 8364
-  - uid: 22053
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -10.5,-26.5
-      parent: 8364
   - uid: 22056
     components:
     - type: Transform
@@ -81975,6 +81964,12 @@ entities:
     - type: Transform
       pos: -22.5,-15.5
       parent: 8364
+  - uid: 9424
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -8.5,-27.5
+      parent: 8364
   - uid: 9481
     components:
     - type: Transform
@@ -82185,12 +82180,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 2.5,-36.5
-      parent: 8364
-  - uid: 22054
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -11.5,-26.5
       parent: 8364
   - uid: 22100
     components:
@@ -83145,6 +83134,13 @@ entities:
       parent: 27350
     - type: Physics
       canCollide: False
+- proto: EngiComputerComms
+  entities:
+  - uid: 19079
+    components:
+    - type: Transform
+      pos: -7.5,-61.5
+      parent: 8364
 - proto: ExosuitFabricator
   entities:
   - uid: 6944
@@ -85650,7 +85646,7 @@ entities:
       pos: -34.5,-14.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -20147.332
+      secondsUntilStateChange: -20399.107
       state: Closing
   - uid: 15010
     components:
@@ -86143,7 +86139,7 @@ entities:
       pos: -4.5,-71.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -11895.065
+      secondsUntilStateChange: -12146.842
       state: Closing
 - proto: Fireplace
   entities:
@@ -87099,8 +87095,11 @@ entities:
   - uid: 9411
     components:
     - type: Transform
-      pos: 14.5,39.5
+      pos: 12.9554615,39.504166
       parent: 8364
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: FoodBreadBaguette
   entities:
   - uid: 6669
@@ -124613,16 +124612,13 @@ entities:
     - type: Configuration
       config:
         tag: mailroom
-  - uid: 22101
+  - uid: 9470
     components:
     - type: Transform
-      pos: -11.5,-26.5
+      pos: -8.5,-27.5
       parent: 8364
     - type: MailingUnit
       tag: hop
-    - type: Configuration
-      config:
-        tag: hop
   - uid: 22138
     components:
     - type: Transform
@@ -124838,6 +124834,14 @@ entities:
     components:
     - type: Transform
       pos: 30.5,-27.5
+      parent: 8364
+- proto: MedicalComputerComms
+  entities:
+  - uid: 9212
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 37.5,-41.5
       parent: 8364
 - proto: MedicalTechFab
   entities:
@@ -127905,10 +127909,10 @@ entities:
       parent: 8364
 - proto: PottedPlant27
   entities:
-  - uid: 19079
+  - uid: 21171
     components:
     - type: Transform
-      pos: -7.5,-61.5
+      pos: -5.5,-65.5
       parent: 8364
 - proto: PottedPlant29
   entities:
@@ -128280,6 +128284,11 @@ entities:
     - type: Transform
       pos: -51.5,-6.5
       parent: 8364
+  - uid: 22053
+    components:
+    - type: Transform
+      pos: -33.5,-27.5
+      parent: 8364
   - uid: 24692
     components:
     - type: Transform
@@ -128339,11 +128348,6 @@ entities:
     components:
     - type: Transform
       pos: 7.5,-70.5
-      parent: 8364
-  - uid: 27492
-    components:
-    - type: Transform
-      pos: -31.5,-27.5
       parent: 8364
 - proto: PowerDrill
   entities:
@@ -139710,6 +139714,13 @@ entities:
     - type: Transform
       pos: 52.096134,-22.664438
       parent: 8364
+- proto: ScienceComputerComms
+  entities:
+  - uid: 22050
+    components:
+    - type: Transform
+      pos: 70.5,-33.5
+      parent: 8364
 - proto: Screen
   entities:
   - uid: 27738
@@ -139845,6 +139856,14 @@ entities:
     - type: Transform
       pos: -12.507093,-61.3201
       parent: 8364
+- proto: SecurityComputerComms
+  entities:
+  - uid: 22051
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 12.5,40.5
+      parent: 8364
 - proto: SecurityTechFab
   entities:
   - uid: 9359
@@ -139863,6 +139882,14 @@ entities:
     components:
     - type: Transform
       pos: -1.5,51.5
+      parent: 8364
+- proto: ServiceComputerComms
+  entities:
+  - uid: 17177
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -11.5,-26.5
       parent: 8364
 - proto: ShardGlass
   entities:
@@ -149607,11 +149634,6 @@ entities:
     - type: Transform
       pos: -34.5,-22.5
       parent: 8364
-  - uid: 14856
-    components:
-    - type: Transform
-      pos: -31.5,-27.5
-      parent: 8364
   - uid: 14858
     components:
     - type: Transform
@@ -150237,11 +150259,6 @@ entities:
     components:
     - type: Transform
       pos: 69.5,-35.5
-      parent: 8364
-  - uid: 21171
-    components:
-    - type: Transform
-      pos: 70.5,-33.5
       parent: 8364
   - uid: 21172
     components:
@@ -151505,11 +151522,6 @@ entities:
     components:
     - type: Transform
       pos: 12.5,41.5
-      parent: 8364
-  - uid: 9212
-    components:
-    - type: Transform
-      pos: 12.5,40.5
       parent: 8364
   - uid: 9213
     components:
@@ -153535,11 +153547,6 @@ entities:
     components:
     - type: Transform
       pos: -4.5,14.5
-      parent: 8364
-  - uid: 9424
-    components:
-    - type: Transform
-      pos: 70.5,-33.5
       parent: 8364
 - proto: WallmountTelevision
   entities:
@@ -173410,11 +173417,6 @@ entities:
     - type: Transform
       pos: 6.5,35.5
       parent: 8364
-  - uid: 9407
-    components:
-    - type: Transform
-      pos: 12.5,40.5
-      parent: 8364
   - uid: 9591
     components:
     - type: Transform
@@ -173438,6 +173440,11 @@ entities:
     components:
     - type: Transform
       pos: 18.5,36.5
+      parent: 8364
+  - uid: 22052
+    components:
+    - type: Transform
+      pos: 14.5,39.5
       parent: 8364
   - uid: 27228
     components:

@@ -2014,3 +2014,9 @@ Entries:
       message: New consoles added to Roid and expanded maints (again)
   id: 254
   time: '2025-03-20T03:01:49.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Boombox spawn rates made more reasonable
+  id: 255
+  time: '2025-03-20T03:02:32.0000000+00:00'

@@ -12,4 +12,5 @@
     ClothingEyesEyepatchHudMedical: 2
     MedicalPatchPrefilledLibital: 3  #Goobstation - MedicalPatches - Funkychem
     MedicalPatchPrefilledAiuri: 3   #Goobstation - MedicalPatches - Funkychem
-
+  contrabandInventory:
+    FoodApple: 1

@@ -5,8 +5,11 @@ using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Ghost.Components;
 using Content.Server.Mind;
+using Content.Server.Polymorph.Components;
 using Content.Server.Roles.Jobs;
 using Content.Server.Warps;
+using Content.Shared._Impstation.CosmicCult.Components;
+using Content.Shared._Impstation.Ghost;
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
@@ -24,15 +27,19 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
+using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Ghost
@@ -61,6 +68,9 @@ namespace Content.Server.Ghost
         [Dependency] private readonly SharedMindSystem _mind = default!;
         [Dependency] private readonly GameTicker _gameTicker = default!;
         [Dependency] private readonly DamageableSystem _damageable = default!;
+        [Dependency] private readonly SharedPopupSystem _popup = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly TagSystem _tag = default!;
 
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -95,7 +105,29 @@ namespace Content.Server.Ghost
 
             SubscribeLocalEvent<RoundEndTextAppendEvent>(_ => MakeVisible(true));
             SubscribeLocalEvent<ToggleGhostVisibilityToAllEvent>(OnToggleGhostVisibilityToAll);
+
+            SubscribeLocalEvent<MediumComponent, ComponentStartup>(OnMediumStartup); // imp
+            SubscribeLocalEvent<MediumComponent, MapInitEvent>(OnMapInitMedium); // imp
+            SubscribeLocalEvent<MediumComponent, ComponentShutdown>(OnMediumShutdown); // imp
         }
+
+        // begin imp
+        public override void Update(float frameTime)
+        {
+            base.Update(frameTime);
+
+            var query = EntityQueryEnumerator<MediumComponent>();
+            while (query.MoveNext(out var uid, out var comp))
+            {
+                comp.CurrentMediumTime += frameTime;
+
+                if (comp.CurrentMediumTime > comp.MediumTime)
+                {
+                    EntityManager.RemoveComponent<MediumComponent>(uid);
+                }
+            }
+        }
+        // end imp
 
         private void OnGhostHearingAction(EntityUid uid, GhostComponent component, ToggleGhostHearingActionEvent args)
         {
@@ -125,7 +157,9 @@ namespace Content.Server.Ghost
             if (args.Handled)
                 return;
 
-            var entities = _lookup.GetEntitiesInRange(args.Performer, component.BooRadius);
+            var entities = _lookup.GetEntitiesInRange(args.Performer, component.BooRadius).ToList();
+            // Shuffle the possible targets so we don't favor any particular entities
+            _random.Shuffle(entities);
 
             var booCounter = 0;
             foreach (var ent in entities)
@@ -138,6 +172,9 @@ namespace Content.Server.Ghost
                 if (booCounter >= component.BooMaxTargets)
                     break;
             }
+
+            if (booCounter == 0)
+                _popup.PopupEntity(Loc.GetString("ghost-component-boo-action-failed"), uid, uid);
 
             args.Handled = true;
         }
@@ -171,16 +208,35 @@ namespace Content.Server.Ghost
 
             if (_gameTicker.RunLevel != GameRunLevel.PostRound)
             {
-                _visibilitySystem.AddLayer((uid, visibility), (int) VisibilityFlags.Ghost, false);
-                _visibilitySystem.RemoveLayer((uid, visibility), (int) VisibilityFlags.Normal, false);
+                _visibilitySystem.AddLayer((uid, visibility), (int)VisibilityFlags.Ghost, false); // imp
+                _visibilitySystem.RemoveLayer((uid, visibility), (int)VisibilityFlags.Normal, false); // imp
                 _visibilitySystem.RefreshVisibility(uid, visibilityComponent: visibility);
             }
 
-            SetCanSeeGhosts(uid, true);
+            SetCanSeeGhosts(uid, true, false); // imp
 
             var time = _gameTiming.CurTime;
             component.TimeOfDeath = time;
         }
+
+        // begin imp
+        private void OnMediumStartup(EntityUid uid, MediumComponent component, ComponentStartup args)
+        {
+            // Allow this entity to be seen by other ghosts.
+            var visibility = EnsureComp<VisibilityComponent>(uid);
+
+            if (_gameTicker.RunLevel != GameRunLevel.PostRound)
+            {
+                _visibilitySystem.AddLayer((uid, visibility), (int)VisibilityFlags.Ghost, false);
+                _visibilitySystem.RemoveLayer((uid, visibility), (int)VisibilityFlags.Normal, false);
+                _visibilitySystem.RefreshVisibility(uid, visibilityComponent: visibility);
+            }
+
+            SetCanSeeGhosts(uid, true, true);
+
+            var time = _gameTiming.CurTime;
+        }
+        // end imp
 
         private void OnGhostShutdown(EntityUid uid, GhostComponent component, ComponentShutdown args)
         {
@@ -191,23 +247,46 @@ namespace Content.Server.Ghost
             // Entity can't be seen by ghosts anymore.
             if (TryComp(uid, out VisibilityComponent? visibility))
             {
-                _visibilitySystem.RemoveLayer((uid, visibility), (int) VisibilityFlags.Ghost, false);
-                _visibilitySystem.AddLayer((uid, visibility), (int) VisibilityFlags.Normal, false);
+                _visibilitySystem.RemoveLayer((uid, visibility), (int)VisibilityFlags.Ghost, false); // imp
+                _visibilitySystem.AddLayer((uid, visibility), (int)VisibilityFlags.Normal, false); // imp
                 _visibilitySystem.RefreshVisibility(uid, visibilityComponent: visibility);
             }
 
             // Entity can't see ghosts anymore.
-            SetCanSeeGhosts(uid, false);
+            SetCanSeeGhosts(uid, false, false); // imp
             _actions.RemoveAction(uid, component.BooActionEntity);
         }
 
-        private void SetCanSeeGhosts(EntityUid uid, bool canSee, EyeComponent? eyeComponent = null)
+        // begin imp
+        private void OnMediumShutdown(EntityUid uid, MediumComponent component, ComponentShutdown args)
+        {
+            // Perf: If the entity is deleting itself, no reason to change these back.
+            if (Terminating(uid))
+                return;
+
+            // Entity can't be seen by ghosts anymore.
+            if (TryComp(uid, out VisibilityComponent? visibility))
+            {
+                _visibilitySystem.RemoveLayer((uid, visibility), (int)VisibilityFlags.Ghost, false);
+                _visibilitySystem.AddLayer((uid, visibility), (int)VisibilityFlags.Normal, false);
+                _visibilitySystem.RefreshVisibility(uid, visibilityComponent: visibility);
+            }
+
+            // Entity can't see ghosts anymore.
+            SetCanSeeGhosts(uid, false, false);
+        }
+        // end imp
+
+        private void SetCanSeeGhosts(EntityUid uid, bool canSee, bool medium, EyeComponent? eyeComponent = null)
         {
             if (!Resolve(uid, ref eyeComponent, false))
                 return;
 
             if (canSee)
+            {
                 _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask | (int) VisibilityFlags.Ghost, eyeComponent);
+                if (!medium) _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask | MonumentComponent.LayerMask); // IMP EDIT
+            }
             else
                 _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask & ~(int) VisibilityFlags.Ghost, eyeComponent);
         }
@@ -220,6 +299,13 @@ namespace Content.Server.Ghost
             _actions.AddAction(uid, ref component.ToggleFoVActionEntity, component.ToggleFoVAction);
             _actions.AddAction(uid, ref component.ToggleGhostsActionEntity, component.ToggleGhostsAction);
         }
+
+        // begin imp
+        private void OnMapInitMedium(EntityUid uid, MediumComponent component, MapInitEvent args)
+        {
+            _actions.AddAction(uid, ref component.ToggleGhostsMediumActionEntity, component.ToggleGhostsMediumAction);
+        }
+        // end imp
 
         private void OnGhostExamine(EntityUid uid, GhostComponent component, ExaminedEvent args)
         {
@@ -390,8 +476,11 @@ namespace Content.Server.Ghost
         public void MakeVisible(bool visible)
         {
             var entityQuery = EntityQueryEnumerator<GhostComponent, VisibilityComponent>();
-            while (entityQuery.MoveNext(out var uid, out _, out var vis))
+            while (entityQuery.MoveNext(out var uid, out var _, out var vis))
             {
+                if (!_tag.HasTag(uid, "AllowGhostShownByEvent"))
+                    continue;
+
                 if (visible)
                 {
                     _visibilitySystem.AddLayer((uid, vis), (int) VisibilityFlags.Normal, false);
@@ -494,7 +583,7 @@ namespace Content.Server.Ghost
             var playerEntity = mind.CurrentEntity;
 
             if (playerEntity != null && viaCommand)
-                _adminLogger.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} is attempting to ghost via command");
+                _adminLogger.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} is attempting to ghost via command"); // imp
 
             var handleEv = new GhostAttemptHandleEvent(mind, canReturnGlobal);
             RaiseLocalEvent(handleEv);
@@ -566,7 +655,7 @@ namespace Content.Server.Ghost
             }
 
             if (playerEntity != null)
-                _adminLogger.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} ghosted{(!canReturn ? " (non-returnable)" : "")}");
+                _adminLogger.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} ghosted{(!canReturn ? " (non-returnable)" : "")}"); // imp
 
             var ghost = SpawnGhost((mindId, mind), position, canReturn);
 

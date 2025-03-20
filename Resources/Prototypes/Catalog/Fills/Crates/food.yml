@@ -7,7 +7,8 @@
   - type: StorageFill
     contents:
     - id: FoodBoxPizzaFilled
-      amount: 4
+      amount: 3
+    - id: FoodBoxPizzaCotton
     - id: LidSalami
       prob: 0.01
 
@@ -20,7 +21,8 @@
   - type: StorageFill
     contents:
     - id: FoodBoxPizzaFilled
-      amount: 16
+      amount: 15
+    - id: FoodBoxPizzaCotton
     - id: LidSalami
       prob: 0.04
 
@@ -47,6 +49,8 @@
       amount: 3
     - id: ReagentContainerRice
       amount: 3
+    - id: FoodBoxCloth
+      amount: 1
     - id: DrinkMilkCarton
       amount: 4
     - id: DrinkSoyMilkCarton
@@ -162,3 +166,13 @@
       - id: DrinkFourteenLokoCan
         amount: 4
 
+- type: entity
+  id: CrateFoodShrimpRaw
+  parent: CratePlastic
+  name: Jumbo Space Shrimp Pack
+  description: Don't let the package name fool you, Space Shrimp is nothing more than a brand name.
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodShrimpRaw
+      amount: 6

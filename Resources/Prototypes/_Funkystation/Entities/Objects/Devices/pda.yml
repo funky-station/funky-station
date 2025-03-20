@@ -8,7 +8,6 @@
     sprite: _Funkystation/Objects/Devices/pda.rsi
   - type: Pda
     id: InternalAffairsAgentIDCard
-    state: pda-iaa
     penSlot:
       startingItem: LuxuryPen
       priority: -1

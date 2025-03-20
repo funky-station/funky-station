@@ -96,6 +96,8 @@
     name: ghost-role-information-rat-king-name
     description: ghost-role-information-rat-king-description
     rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -128,6 +130,8 @@
     attributes:
       gender: male
   - type: Sharp
+  - type: CombatPower # Goobstation
+    factor: 2
 
 - type: entity
   id: MobRatKingBuff

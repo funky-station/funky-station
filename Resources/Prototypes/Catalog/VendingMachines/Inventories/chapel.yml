@@ -1,6 +1,37 @@
 - type: vendingMachineInventory
   id: PietyVendInventory
   startingInventory:
+    # begin imp
+    ClothingBeltChaplainDragon: 1
+    ClothingEyesChaplainBlindfold: 1
+    ClothingHeadHatDruid: 1
+    ClothingHeadHatKippahBlueAndGold: 1
+    ClothingHeadHatKippahSimple: 3
+    ClothingHeadHatKippahWhiteAndBlue: 1
+    ClothingHeadHatMoon: 1
+    ClothingHeadHatShrineMaidenWig: 2
+    ClothingHeadHatSun: 1
+    ClothingHeadHatTidal: 1
+    ClothingHeadHatVeil: 1
+    ClothingMaskClayshaper: 1
+    ClothingMaskFire: 1
+    ClothingNeckChaplainDragon: 1
+    ClothingNeckClayshaper: 1
+    ClothingNeckDruid: 1
+    ClothingNeckDruidMantle: 1
+    ClothingNeckSun: 1
+    ClothingNeckTidal: 1
+    ClothingOuterMoon: 1
+    ClothingOuterSuitShrineMaiden: 2
+    ClothingUniformFuneralSuit: 4
+    ClothingUniformFuneralSuitSkirt: 4
+    ClothingUniformSkirtClayshaper: 1
+    ClothingUniformSkirtDruid: 1
+    ClothingUniformSkirtMoon: 1
+    ClothingUniformSkirtTidal: 1
+    ClothingUniformSun: 1
+    ClothingUniformTech: 1
+    # end imp
     ClothingUniformJumpsuitChaplain: 2
     ClothingUniformJumpskirtChaplain: 2
     ClothingUniformJumpsuitMonasticRobeDark: 1
@@ -20,9 +51,17 @@
     BoxCandle: 2
     BoxCandleSmall: 2
     Urn: 5
-    # Goobstation - Spectral locator
-    SpectralLocator: 1
+    SpectralLocator: 1 # goobstation
     Bible: 1
+  contrabandInventory:
+    FoodBakedBunHotX: 2
+    DrinkWineBottleFull: 1
+    ToyFigurineChaplain: 1
+    # imp begin
+    ClothingOuterClownPriest: 1
+    ClothingMaskSilent: 1
+    ClothingOuterSilent: 1
+    # imp end
   emaggedInventory:
     ClothingOuterArmorCult: 1
     ClothingHeadHelmetCult: 1

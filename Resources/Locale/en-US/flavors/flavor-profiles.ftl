@@ -180,6 +180,7 @@ flavor-complex-true-nature = like the true nature of reality
 flavor-complex-false-meat = not entirely unlike meat
 flavor-complex-paper = like mushy pulp
 flavor-complex-compressed-meat = like compressed meat
+flavor-complex-shrimp = like shrimp
 
 # Drink-specific flavors.
 
@@ -259,7 +260,7 @@ flavor-complex-xeno-basher = like killing bugs
 flavor-complex-budget-insuls-drink = like door hacking
 flavor-complex-watermelon-wakeup = like a sweet wakeup call
 flavor-complex-rubberneck = like synthetics
-flavor-complex-irish-car-bomb = like a spiked cola float
+flavor-complex-irish-slammer = like a spiked cola float
 flavor-complex-themartinez = like violets and lemon vodka
 flavor-complex-cogchamp = like brass
 flavor-complex-white-gilgamesh = like lightly carbonated cream

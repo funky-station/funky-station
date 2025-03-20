@@ -5,7 +5,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobNanotrasenRepresentative
-      time: 187200
+      time: 72000 #20 hrs
 
 #hat
 - type: loadout

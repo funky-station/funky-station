@@ -24,8 +24,9 @@
       prob: 0.5
     - id: SubWizard
       prob: 0.05
-    - id: Heretic # goob edit
-      prob: 0.4 # funkystation - 20% of rounds can have a heretic as a treat
+    # TODO: figure out what is causing store issues
+    #- id: Heretic # goob edit
+    #  prob: 0.4 # funkystation - 20% of rounds can have a heretic as a treat
 
 - type: entity
   parent: BaseGameRule
@@ -188,7 +189,7 @@
   - type: GameRule
     minPlayers: 5
   - type: AntagSelection
-    selectionTime: BeforeJobs # Goobstation
+    selectionTime: IntraPlayerSpawn # Goobstation
     definitions:
     - prefRoles: [ Traitor ]
       max: 8
@@ -221,7 +222,7 @@
     minPlayers: 20
   - type: RevolutionaryRule
   - type: AntagSelection
-    selectionTime: BeforeJobs # Goobstation
+    selectionTime: IntraPlayerSpawn # Goobstation
     definitions:
     - prefRoles: [ HeadRev ]
       min: 2

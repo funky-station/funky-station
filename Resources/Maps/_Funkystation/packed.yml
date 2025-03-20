@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 247.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 03/18/2025 17:33:34
+  entityCount: 15139
+maps:
+- 4480
+grids:
+- 2
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   3: FloorArcadeRed
@@ -6485,7 +6496,6 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
-    - type: LoadedMap
 - proto: AccordionInstrument
   entities:
   - uid: 13494
@@ -32562,6 +32572,13 @@ entities:
     - type: Transform
       pos: 45.5,-37.5
       parent: 2
+- proto: CargoComputerComms
+  entities:
+  - uid: 7471
+    components:
+    - type: Transform
+      pos: 7.5,19.5
+      parent: 2
 - proto: Carpet
   entities:
   - uid: 3
@@ -38727,11 +38744,6 @@ entities:
     - type: Transform
       pos: 20.5,23.5
       parent: 2
-  - uid: 7471
-    components:
-    - type: Transform
-      pos: 7.5,19.5
-      parent: 2
 - proto: ComputerCargoShuttle
   entities:
   - uid: 14770
@@ -38839,12 +38851,6 @@ entities:
       parent: 2
 - proto: ComputerMedicalRecords
   entities:
-  - uid: 7725
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 54.5,-11.5
-      parent: 2
   - uid: 9616
     components:
     - type: Transform
@@ -38979,12 +38985,6 @@ entities:
     - type: Transform
       pos: 23.5,48.5
       parent: 2
-  - uid: 10274
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 17.5,-3.5
-      parent: 2
   - uid: 12581
     components:
     - type: Transform
@@ -39008,11 +39008,6 @@ entities:
     components:
     - type: Transform
       pos: 30.5,26.5
-      parent: 2
-  - uid: 12089
-    components:
-    - type: Transform
-      pos: 44.5,25.5
       parent: 2
 - proto: ComputerTelevision
   entities:
@@ -43657,6 +43652,14 @@ entities:
       parent: 12395
     - type: Physics
       canCollide: False
+- proto: EngiComputerComms
+  entities:
+  - uid: 15136
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 11.5,-42.5
+      parent: 2
 - proto: ExosuitFabricator
   entities:
   - uid: 12579
@@ -67151,6 +67154,14 @@ entities:
     - type: Transform
       pos: 62.5,-10.5
       parent: 2
+- proto: MedicalComputerComms
+  entities:
+  - uid: 7725
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 54.5,-11.5
+      parent: 2
 - proto: MedicalTechFab
   entities:
   - uid: 9369
@@ -74894,6 +74905,14 @@ entities:
     - type: Transform
       pos: 66.473175,-3.547059
       parent: 2
+- proto: ScienceComputerComms
+  entities:
+  - uid: 15137
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 60.5,9.5
+      parent: 2
 - proto: ScrapCamera
   entities:
   - uid: 6843
@@ -74981,6 +75000,13 @@ entities:
     - type: Transform
       pos: 57.5176,-14.309467
       parent: 2
+- proto: SecurityComputerComms
+  entities:
+  - uid: 12089
+    components:
+    - type: Transform
+      pos: 44.5,25.5
+      parent: 2
 - proto: SecurityTechFab
   entities:
   - uid: 12373
@@ -74999,6 +75025,14 @@ entities:
     components:
     - type: Transform
       pos: 45.5,-4.5
+      parent: 2
+- proto: ServiceComputerComms
+  entities:
+  - uid: 10274
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 17.5,-3.5
       parent: 2
 - proto: ShardGlass
   entities:

@@ -1,6 +1,18 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 247.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 03/18/2025 17:24:43
+  entityCount: 28791
+maps:
+- 22160
+grids:
+- 2
+- 22451
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   2: FloorArcadeBlue2
@@ -8274,7 +8286,6 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
-    - type: LoadedMap
   - uid: 22451
     components:
     - type: MetaData
@@ -13167,7 +13178,7 @@ entities:
       pos: 46.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -437863.3
+      secondsUntilStateChange: -438077.53
       state: Opening
   - uid: 309
     components:
@@ -13597,7 +13608,7 @@ entities:
       pos: -3.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -554031
+      secondsUntilStateChange: -554245.2
       state: Opening
   - uid: 376
     components:
@@ -35959,12 +35970,6 @@ entities:
       parent: 1247
     - type: Physics
       canCollide: False
-  - uid: 1253
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 14.491178,-30.387342
-      parent: 2
   - uid: 1254
     components:
     - type: Transform
@@ -35976,6 +35981,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 56.49056,-10.6282215
+      parent: 2
+  - uid: 15770
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 15.373397,-30.533503
       parent: 2
 - proto: BoxFolderBlue
   entities:
@@ -67843,6 +67854,14 @@ entities:
     - type: Transform
       pos: -48.60224,7.6590858
       parent: 2
+- proto: CargoComputerComms
+  entities:
+  - uid: 28788
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -56.5,9.5
+      parent: 2
 - proto: CarpetBlack
   entities:
   - uid: 6642
@@ -77952,10 +77971,10 @@ entities:
       parent: 2
 - proto: CrateServicePersonnel
   entities:
-  - uid: 8129
+  - uid: 15769
     components:
     - type: Transform
-      pos: 42.5,-9.5
+      pos: 43.5,-9.5
       parent: 2
 - proto: CrateStoneGrave
   entities:
@@ -88575,6 +88594,14 @@ entities:
       parent: 9871
     - type: Physics
       canCollide: False
+- proto: EngiComputerComms
+  entities:
+  - uid: 28789
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,41.5
+      parent: 2
 - proto: Error
   entities:
   - uid: 9873
@@ -135436,17 +135463,17 @@ entities:
     - type: Transform
       pos: 8.466017,-18.14467
       parent: 2
-  - uid: 15450
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 15.607558,-30.090584
-      parent: 2
   - uid: 15451
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 48.582886,17.796175
+      parent: 2
+  - uid: 15814
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 15.717147,-30.231419
       parent: 2
 - proto: LampBanana
   entities:
@@ -136897,6 +136924,14 @@ entities:
     - type: Transform
       pos: -31.5,-36.5
       parent: 2
+- proto: MedicalComputerComms
+  entities:
+  - uid: 28790
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -25.5,-36.5
+      parent: 2
 - proto: MedicalTechFab
   entities:
   - uid: 15614
@@ -137893,6 +137928,12 @@ entities:
       parent: 1288
     - type: Physics
       canCollide: False
+  - uid: 15450
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 15.290064,-30.335587
+      parent: 2
   - uid: 15714
     components:
     - type: Transform
@@ -137983,18 +138024,6 @@ entities:
     components:
     - type: Transform
       pos: -8.331074,31.639214
-      parent: 2
-  - uid: 15769
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 14.647428,-30.309217
-      parent: 2
-  - uid: 15770
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 15.069303,-30.387342
       parent: 2
   - uid: 27612
     components:
@@ -138341,12 +138370,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 4.200958,43.477486
       parent: 2
-  - uid: 15814
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 14.100553,-30.277967
-      parent: 2
   - uid: 15815
     components:
     - type: Transform
@@ -138441,6 +138464,12 @@ entities:
     - type: Transform
       pos: 19.58963,-5.4863815
       parent: 22451
+  - uid: 28791
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 15.206731,-30.210587
+      parent: 2
 - proto: PenCap
   entities:
   - uid: 15824
@@ -149590,6 +149619,14 @@ entities:
     - type: Transform
       pos: -27.50649,-39.274387
       parent: 2
+- proto: ScienceComputerComms
+  entities:
+  - uid: 18955
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 14.5,-30.5
+      parent: 2
 - proto: Screen
   entities:
   - uid: 17578
@@ -149706,6 +149743,13 @@ entities:
     - type: Transform
       pos: -51.5,-11.5
       parent: 2
+- proto: SecurityComputerComms
+  entities:
+  - uid: 1253
+    components:
+    - type: Transform
+      pos: 42.5,-38.5
+      parent: 2
 - proto: SecurityTechFab
   entities:
   - uid: 17599
@@ -149730,6 +149774,14 @@ entities:
     - type: Transform
       pos: 4.5,9.5
       parent: 22451
+- proto: ServiceComputerComms
+  entities:
+  - uid: 8129
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 42.5,-9.5
+      parent: 2
 - proto: ShardGlass
   entities:
   - uid: 17602
@@ -160236,11 +160288,6 @@ entities:
     components:
     - type: Transform
       pos: 13.5,-30.5
-      parent: 2
-  - uid: 18955
-    components:
-    - type: Transform
-      pos: 14.5,-30.5
       parent: 2
   - uid: 18956
     components:
@@ -183280,7 +183327,7 @@ entities:
       pos: 24.5,2.5
       parent: 22451
     - type: Door
-      secondsUntilStateChange: -331495.6
+      secondsUntilStateChange: -331709.8
       state: Opening
 - proto: WoodenBench
   entities:

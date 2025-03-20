@@ -1,0 +1,31 @@
+## Funkystation Unique shuttle roles
+
+# Command
+
+# Security
+- type: entity
+  id: RandomHumanoidVisitorSecurityClown
+  name: visiting Security Clown ghost role
+  components:
+   - type: Sprite
+     sprite: Markers/jobs.rsi
+     state: clown
+   - type: RandomHumanoidSpawner
+     settings: VisitorSecurityClown
+   - type: AutoImplant
+     implants:
+     - MindShieldImplant
+
+# Cargo
+
+# Engineering
+
+# Medical
+
+# Science
+
+# Civilian
+
+# Silicon
+
+# Misc

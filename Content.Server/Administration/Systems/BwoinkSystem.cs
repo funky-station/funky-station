@@ -689,6 +689,7 @@ namespace Content.Server.Administration.Systems
         /// <summary>
         /// Sends a bwoink. Common to both internal messages (sent via the ahelp or admin interface) and webhook messages (sent through the webhook, e.g. via Discord)
         /// </summary>
+        /// <param name="message">idk</param>
         /// <param name="bwoinkParams">The parameters of the message being sent.</param>
         private void OnBwoinkInternal(BwoinkTextMessage message, BwoinkParams bwoinkParams)
         {
@@ -874,10 +875,12 @@ namespace Content.Server.Administration.Systems
             if (!parameters.PlayedSound)
                 stringbuilder.Append(" **(S)**");
 
+            if (parameters.AdminOnly)
+                stringbuilder.Append($" **{parameters.AdminOnly}**");
+
             if (parameters.IsDiscord) // Frontier - Discord Indicator
                 stringbuilder.Append($" **{config.GetCVar(CCVars.DiscordReplyPrefix)}**");
 
-            stringbuilder.Append($" **{(parameters.AdminOnly ? Loc.GetString("bwoink-message-admin-only") : Loc.GetString("bwoink-message-silent"))}**");
 
             if (parameters.Icon == null)
                 stringbuilder.Append($" **{parameters.Username}:** ");

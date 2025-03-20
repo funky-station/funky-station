@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 247.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 03/18/2025 17:35:17
+  entityCount: 12020
+maps:
+- 4133
+grids:
+- 31
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   7: FloorAsteroidSand
@@ -3484,7 +3495,6 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
-    - type: LoadedMap
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 3146
@@ -22834,6 +22844,13 @@ entities:
     - type: Transform
       pos: 36.5,12.5
       parent: 31
+- proto: CargoComputerComms
+  entities:
+  - uid: 2204
+    components:
+    - type: Transform
+      pos: 29.5,10.5
+      parent: 31
 - proto: Carpet
   entities:
   - uid: 1275
@@ -28923,33 +28940,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,31.5
       parent: 31
-  - uid: 1113
-    components:
-    - type: Transform
-      pos: -3.5,-19.5
-      parent: 31
-  - uid: 2065
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -7.5,21.5
-      parent: 31
-  - uid: 2204
-    components:
-    - type: Transform
-      pos: 29.5,10.5
-      parent: 31
-  - uid: 6840
-    components:
-    - type: Transform
-      pos: 24.5,-9.5
-      parent: 31
-  - uid: 11014
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 37.5,0.5
-      parent: 31
 - proto: ComputerPowerMonitoring
   entities:
   - uid: 4306
@@ -29445,13 +29435,6 @@ entities:
     components:
     - type: Transform
       pos: -19.5,-36.5
-      parent: 31
-- proto: CrateFunPlushieSelfInsert
-  entities:
-  - uid: 4470
-    components:
-    - type: Transform
-      pos: 10.5,17.5
       parent: 31
 - proto: CrateHydroponics
   entities:
@@ -33300,6 +33283,14 @@ entities:
       parent: 9179
     - type: Physics
       canCollide: False
+- proto: EngiComputerComms
+  entities:
+  - uid: 6840
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 37.5,0.5
+      parent: 31
 - proto: ExosuitFabricator
   entities:
   - uid: 9537
@@ -51661,6 +51652,13 @@ entities:
     - type: Transform
       pos: 7.5,-7.5
       parent: 31
+- proto: MedicalComputerComms
+  entities:
+  - uid: 4470
+    components:
+    - type: Transform
+      pos: 24.5,-9.5
+      parent: 31
 - proto: MedicalTechFab
   entities:
   - uid: 9105
@@ -58223,6 +58221,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: 17.551718,-20.302809
       parent: 31
+- proto: ScienceComputerComms
+  entities:
+  - uid: 1113
+    components:
+    - type: Transform
+      pos: -3.5,-19.5
+      parent: 31
 - proto: Screwdriver
   entities:
   - uid: 2338
@@ -58243,6 +58248,14 @@ entities:
     - type: Transform
       pos: -23.430374,-21.53869
       parent: 31
+- proto: SecurityComputerComms
+  entities:
+  - uid: 2065
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,21.5
+      parent: 31
 - proto: SecurityTechFab
   entities:
   - uid: 7964
@@ -58256,6 +58269,14 @@ entities:
     components:
     - type: Transform
       pos: -18.5,1.5
+      parent: 31
+- proto: ServiceComputerComms
+  entities:
+  - uid: 11014
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 9.5,16.5
       parent: 31
 - proto: ShardGlass
   entities:

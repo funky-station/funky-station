@@ -4,6 +4,7 @@
   weights:
     Dragon: 1
     Revenant: 1
+    RogueAscended: 1
 
 - type: ninjaHackingThreat
   id: Dragon
@@ -14,3 +15,10 @@
   id: Revenant
   announcement: terror-revenant
   rule: RevenantSpawn
+
+# impstation begin
+- type: ninjaHackingThreat
+  id: RogueAscended
+  announcement: terror-rogueascended
+  rule: RogueAscendedSpawn
+# impstation end

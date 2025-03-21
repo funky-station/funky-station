@@ -144,18 +144,17 @@ namespace Content.Server.Flash
                     ("user", Identity.Entity(user.Value, EntityManager))), target, target);
             }
 
-            if (melee || revFlash)
+            if (melee)
             {
-                var ev = new AfterFlashedEvent(target, user, used);
-
                 if (user == null)
                     return;
 
                 if (used == null)
                     return;
 
-                _popup.PopupEntity(Loc.GetString("flash-component-user-head-rev",
-                        ("victim", Identity.Entity(target, EntityManager))), target);
+                var ev = new AfterFlashedEvent(target, user, used);
+                RaiseLocalEvent(user.Value, ref ev);
+                RaiseLocalEvent(used.Value, ref ev);
             }
         }
 

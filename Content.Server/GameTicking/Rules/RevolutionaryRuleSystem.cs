@@ -253,8 +253,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             !HasComp<HumanoidAppearanceComponent>(ev.Target) &&
             !alwaysConvertible ||
             !_mobState.IsAlive(ev.Target) ||
-            HasComp<ZombieComponent>(ev.Target)
-            || HasComp<CommandStaffComponent>(ev.Target)) // goob edit - rev no command flashing
+            HasComp<ZombieComponent>(ev.Target))
         {
             return;
         }
@@ -264,6 +263,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         _npcFaction.AddFaction(ev.Target, RevolutionaryNpcFaction);
         var revComp = EnsureComp<RevolutionaryComponent>(ev.Target);
+        _popup.PopupEntity(Loc.GetString("flash-component-user-head-rev",
+            ("victim", Identity.Entity(ev.Target, EntityManager))), ev.Target);
 
         if (ev.User != null)
         {
@@ -273,8 +274,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
             if (_mind.TryGetMind(ev.User.Value, out var revMindId, out _))
             {
-                if (_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out _, out var role))
-                    role.Value.Comp.ConvertedCount++;
+                if (_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var ent))
+                    ent.Value.Comp2.ConvertedCount++;
             }
         }
 

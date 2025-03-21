@@ -69,6 +69,7 @@
         prob: 0.05
         orGroup: Surgshrubs
       - id: ClothingMaskSterile
+      - id: SoapNT # DV
 
 - type: entity
   parent: LockerWallMedical
@@ -102,6 +103,7 @@
         prob: 0.05
         orGroup: Surgshrubs
       - id: ClothingMaskSterile
+      - id: SoapNT # DV
 
 - type: entity
   id: LockerChemistryFilled
@@ -117,6 +119,7 @@
       - id: BoxPillCanister
       - id: BoxBottle
       - id: BoxVial
+      - id: PlasmaChemistryVial
       - id: ChemBag
       - id: ClothingHandsGlovesLatex
       - id: ClothingHeadsetMedical
@@ -146,3 +149,4 @@
       - id: HandheldGPSBasic
       - id: MedkitFilled
         prob: 0.3
+      - id: SoapNT # DV

@@ -15,6 +15,9 @@
     },
     {
       "name": "light_overlay"
+    },
+    {
+      "name": "pda"
     }
   ]
 }

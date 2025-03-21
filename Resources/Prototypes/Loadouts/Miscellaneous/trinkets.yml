@@ -104,6 +104,12 @@
     - ClothingNeckLGBTPin
 
 - type: loadout
+  id: ClothingNeckAllyPin
+  storage:
+    back:
+    - ClothingNeckAllyPin
+
+- type: loadout
   id: ClothingNeckAromanticPin
   storage:
     back:
@@ -150,6 +156,18 @@
   storage:
     back:
     - ClothingNeckPansexualPin
+
+- type: loadout
+  id: ClothingNeckOmnisexualPin
+  storage:
+    back:
+    - ClothingNeckOmnisexualPin
+
+- type: loadout
+  id: ClothingNeckGenderqueerPin
+  storage:
+    back:
+    - ClothingNeckGenderqueerPin
 
 - type: loadout
   id: ClothingNeckTransPin
@@ -385,3 +403,16 @@
   storage:
     back:
     - TowelColorMime
+
+# funkystation
+- type: loadout
+  id: TowelColorCentcom
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: CentralCommand
+      time: 360000 # 100hr
+  storage:
+    back:
+    - TowelColorCentcom

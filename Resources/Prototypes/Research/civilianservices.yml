@@ -71,6 +71,9 @@
     - DawInstrumentMachineCircuitboard
     - MassMediaCircuitboard
     - JukeboxCircuitBoard
+    - BoomboxRed
+    - BoomboxGreen
+    - BoomboxBlue
 
 - type: technology
   id: RoboticCleanliness
@@ -115,6 +118,7 @@
   - FauxTileJungleAstroGrass
   - FauxTileAstroIce
   - FauxTileAstroSnow
+  - FauxTileAstroAsteroidSand
 
 - type: technology
   id: BiochemicalStasis

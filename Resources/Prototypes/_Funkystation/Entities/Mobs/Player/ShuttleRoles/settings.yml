@@ -1,0 +1,30 @@
+## Funkystation Unique shuttle role settings
+
+# Command
+
+# Security
+
+- type: randomHumanoidSettings
+  id: VisitorSecurityClown
+  parent: VisitorSecurity
+  components:
+    - type: GhostRole
+      name: job-name-security-clown
+    - type: Loadout
+      prototypes: [ VisitorSecurityClown ]
+      roleLoadout: [ RoleSurvivalSecurity ]
+
+# Cargo
+
+# Engineering
+
+# Medical
+
+# Science
+
+# Civilian
+
+# Silicon
+# unsure if silicon is even needed as they do not have unique loadouts
+
+# Misc

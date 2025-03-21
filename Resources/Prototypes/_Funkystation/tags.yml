@@ -2,4 +2,19 @@
   id: DawInstrumentMachineCircuitboard
 
 - type: Tag
+  id: ChitinSharkminnow
+
+- type: Tag
   id: ChangelingInfectionImplant
+
+- type: Tag
+  id: Magboots
+
+- type: Tag
+  id: Armor
+
+- type: Tag
+  id: SpecialArmor
+
+- type: Tag
+  id: SpecialWeapon

@@ -10,13 +10,6 @@ namespace Content.Shared.DeltaV.CCVars;
 public sealed class DCCVars
 {
     /// <summary>
-    /// Anti-EORG measure. Will add pacified to all players upon round end.
-    /// Its not perfect, but gets the job done.
-    /// </summary>
-    public static readonly CVarDef<bool> RoundEndPacifist =
-        CVarDef.Create("game.round_end_pacifist", false, CVar.SERVERONLY);
-
-    /// <summary>
     /// Whether the no EORG popup is enabled.
     /// </summary>
     public static readonly CVarDef<bool> RoundEndNoEorgPopup =

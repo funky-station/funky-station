@@ -853,3 +853,9 @@
     - SecurityClown
     - PartyMaker
     - CommandMaid
+
+- type: entity
+  id: StationPayout
+  parent: BaseGameRule
+  components:
+  - type: StationPayoutRule

@@ -230,12 +230,13 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     /// </summary>
     private void TrySpawnRoundstartAntags(GameDirectorComponent scheduler, int count)
     {
-        if (scheduler.NoRoundstartAntags)
+        if (scheduler.CalmAntagAmount == 0 && scheduler.NormalAntagAmount == 0 && scheduler.ExtremeAntagAmount == 0)
             return;
 
         // Spawn antags based on GameDirectorComponent
             var roundStartAntags = new List<EntityPrototype>();
             var calmStartAntags = new List<EntityPrototype>();
+            var extremeAntags = new List<EntityPrototype>();
             foreach (var proto in GameTicker.GetAllGameRulePrototypes())
             {
                 if (!proto.TryGetComponent<TagComponent>(out var tag, _factory))
@@ -253,7 +254,11 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
                 if (_tag.HasTag(tag, "MidroundAntag"))
                     continue;
 
-                if (_tag.HasTag(tag, "RoundstartAntag"))
+                if (_tag.HasTag(tag, "ExtremeAntag"))
+                {
+                    extremeAntags.Add(proto);
+                }
+                else if (_tag.HasTag(tag, "RoundstartAntag"))
                 {
                     roundStartAntags.Add(proto);
                 }
@@ -263,46 +268,63 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
                 }
             }
 
-            if (!scheduler.DualAntags)
+
+            LogMessage($"Trying to choose {scheduler.NormalAntagAmount + scheduler.CalmAntagAmount + scheduler.ExtremeAntagAmount} roundstart antag(s)");
+
+            var random = new Random();
+            if (calmStartAntags.Count < scheduler.CalmAntagAmount)
             {
-                if (roundStartAntags.Count == 0)
-                {
-                    LogMessage("No valid roundstart antags found!");
-                    return;
-                }
-
-                LogMessage("Choosing roundstart antag");
-                var random = new Random();
-                var randomAntag = roundStartAntags[random.Next(roundStartAntags.Count)];
-                LogMessage($"Roundstart antag chosen: {randomAntag.ID}");
-
-                var ruleEnt = GameTicker.AddGameRule(randomAntag.ID);
-                GameTicker.StartGameRule(ruleEnt);
+                LogMessage("Not enough valid calm roundstart antags found!");
+                return;
             }
             else
             {
-                if (calmStartAntags.Count < 2)
+                for (int i = 0; i < scheduler.CalmAntagAmount; i++)
                 {
-                    LogMessage("Not enough valid roundstart antags found!");
-                    return;
+                    var firstIndex = random.Next(calmStartAntags.Count);
+                    var randomAntag = calmStartAntags[firstIndex];
+                    ;
+                    var ruleEnt = GameTicker.AddGameRule(randomAntag.ID);
+                    roundStartAntags.RemoveAt(firstIndex);
+                    LogMessage($"Roundstart (calm) antag chosen {i}: {randomAntag.ID}");
+                    GameTicker.StartGameRule(ruleEnt);
                 }
+            }
 
-                LogMessage("Choosing multiple roundstart antags");
-                var random = new Random();
+            if (roundStartAntags.Count < scheduler.NormalAntagAmount)
+            {
+                LogMessage("Not enough valid regular roundstart antags found!");
+                return;
+            }
+            else
+            {
+                for (int i = 0; i < scheduler.NormalAntagAmount; i++)
+                {
+                    var firstIndex = random.Next(roundStartAntags.Count);
+                    var randomAntag = roundStartAntags[firstIndex];
+                    var ruleEnt = GameTicker.AddGameRule(randomAntag.ID);
+                    roundStartAntags.RemoveAt(firstIndex);
+                    LogMessage($"Roundstart antag chosen {i}: {randomAntag.ID}");
+                    GameTicker.StartGameRule(ruleEnt);
+                }
+            }
 
-                var firstIndex = random.Next(calmStartAntags.Count);
-                var randomAntagFirst = calmStartAntags[firstIndex];
-                calmStartAntags.RemoveAt(firstIndex);
-
-                var randomAntagSecond = calmStartAntags[random.Next(calmStartAntags.Count)];
-
-                LogMessage($"Roundstart antags chosen: 1: {randomAntagFirst.ID} 2: {randomAntagSecond.ID}");
-
-                var ruleFirstEnt = GameTicker.AddGameRule(randomAntagFirst.ID);
-                var ruleSecondEnt = GameTicker.AddGameRule(randomAntagSecond.ID);
-
-                GameTicker.StartGameRule(ruleFirstEnt);
-                GameTicker.StartGameRule(ruleSecondEnt);
+            if (extremeAntags.Count < scheduler.ExtremeAntagAmount)
+            {
+                LogMessage("Not enough valid extreme roundstart antags found!");
+                return;
+            }
+            else
+            {
+                for (int i = 0; i < scheduler.ExtremeAntagAmount; i++)
+                {
+                    var firstIndex = random.Next(extremeAntags.Count);
+                    var randomAntag = extremeAntags[firstIndex]; ;
+                    var ruleEnt = GameTicker.AddGameRule(randomAntag.ID);
+                    extremeAntags.RemoveAt(firstIndex);
+                    LogMessage($"Roundstart (extreme) antag chosen {i}: {randomAntag.ID}");
+                    GameTicker.StartGameRule(ruleEnt);
+                }
             }
     }
 
@@ -532,6 +554,21 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
 
                 if (!proto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory))
                     continue;
+
+                var tooMuchChaos = false;
+                foreach (var chaosType in stationEvent.MaxChaos.ChaosDict)
+                {
+                    if (chaosType.Value < chaos.ChaosDict[chaosType.Key])
+                    {
+                        tooMuchChaos = true;
+                        break;
+                    }
+                }
+
+                if (tooMuchChaos)
+                {
+                    continue;
+                }
 
                 if (!_event.CanRun(proto, stationEvent, count.Players, GameTicker.RoundDuration()))
                     continue;

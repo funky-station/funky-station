@@ -1,0 +1,10 @@
+- type: weightedRandom
+  id: SecretDirector
+  weights:
+    TheDrunkard: 0.30
+    TheSleeper: 0.20
+    TheGuide: 0.25
+    TheApostle: 0.25
+
+
+

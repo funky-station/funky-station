@@ -301,6 +301,17 @@
     earliestStart: 30
     reoccurrenceDelay: 60
     minimumPlayers: 10
+    chaos:
+      Hostile: 150
+      Friend: 150
+      Combat: 150
+      Death: 150
+    maxChaos:
+      Hostile: 30
+      Combat: -60
+      Power: 50
+      Medical: 50
+      Atmos: 50
   - type: AntagSelection
     agentName: wizard-round-end-name
     definitions:

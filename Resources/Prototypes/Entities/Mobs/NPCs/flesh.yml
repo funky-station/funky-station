@@ -59,6 +59,8 @@
         Slash: 6
   - type: ReplacementAccent
     accent: genericAggressive
+  - type: CombatPower # Goobstation
+    factor: 10 # / 2 = times more powerful than an unarmed crew-member
 
 - type: entity
   parent: BaseMobFlesh

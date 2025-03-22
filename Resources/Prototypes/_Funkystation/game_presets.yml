@@ -64,12 +64,25 @@
   alias:
     - drunkard
     - accidents
-  name: dunkard-title
+  name: drunkard-title
   description: drunkard-description
   showInVote: true
   minPlayers: 5
   rules:
     - IncidentDynamic
+
+- type: gamePreset
+  id: TheApostle
+  alias:
+  - apostle
+  - priest
+  - apocalypse
+  name: apostle-title
+  description: apostle-description
+  showInVote: true
+  minPlayers: 5
+  rules:
+    - ApocalypseDynamic
 
 - type: gamePreset
   id: SecretDirector
@@ -81,3 +94,5 @@
   description: secret-director-description
   rules:
     - SecretDirector
+
+

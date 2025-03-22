@@ -20,7 +20,7 @@
   - type: GameRule
     minPlayers: 25
   - type: GameDirector
-    dualAntags: true
+    calmAntagAmount: 1 # Funky: More precise control over antag types spawned
     stories:
       - RelaxedAttack
       - ScienceAttack
@@ -35,7 +35,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: GameDirector
-    noRoundstartAntags: true
+    calmAntagAmount: 1 # Funky: More precise control over antag types spawned
     stories:
       - Relaxed
       - Science

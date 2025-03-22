@@ -4,10 +4,22 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: GameDirector
-    noRoundstartAntags: true
+    normalAntagAmount: 1
     stories:
       - Breakdown
       - Shitshow
+
+- type: entity
+  id: ApocalypseDynamic
+  parent: GameDirector
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: GameDirector
+    extremeAntagAmount: 1
+    stories:
+    - Breakdown
+    - RelaxedAttack
+    - Science
 
 - type: entity
   id: SecretDirector

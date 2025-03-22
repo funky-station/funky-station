@@ -8,6 +8,16 @@
     reoccurrenceDelay: 20
     minimumPlayers: 30
     duration: null
+    chaos:
+      Hostile: 70
+      Medical: 70
+      Death: 70
+    maxChaos:
+      Hostile: 80
+      Combat: -30
+      Power: 80
+      Medical: 80
+      Atmos: 80
   - type: SpaceSpawnRule
   - type: AntagSpawner
     prototype: MobRogueAscended

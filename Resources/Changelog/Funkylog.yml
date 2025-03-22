@@ -2020,3 +2020,15 @@ Entries:
       message: Boombox spawn rates made more reasonable
   id: 255
   time: '2025-03-20T03:02:32.0000000+00:00'
+- author: Goomson
+  changes:
+    - type: Tweak
+      message: Shuttles now have a higher spawn weight.
+  id: 256
+  time: '2025-03-22T01:15:13.0000000+00:00'
+- author: ' Miiish, MilonPL'
+  changes:
+    - type: Add
+      message: Added a one-time EORG warning to roundend
+  id: 257
+  time: '2025-03-22T01:34:33.0000000+00:00'

@@ -181,7 +181,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
     private void UpdateBiomass(EntityUid uid, ChangelingComponent comp, float? amount = null)
     {
-        comp.Biomass += amount ?? -0.5f; // #funkystation, nerfs the drain to half
+        comp.Biomass += amount ?? comp.BiomassDrain; // funky station - changeling biomass no longer drains
         comp.Biomass = Math.Clamp(comp.Biomass, 0, comp.MaxBiomass);
         Dirty(uid, comp);
         _alerts.ShowAlert(uid, "ChangelingBiomass");

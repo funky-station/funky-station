@@ -90,10 +90,22 @@ public sealed class SpawnAlternateDimensionJob : Job<bool>
         var stationTiles = _mapSystem.GetAllTilesEnumerator(_originalGrid, stationGridComp);
         var alternateTiles = new List<(Vector2i Index, Tile Tile)>();
         var tileDef = _tileDefManager[indexedDimension.DefaultTile];
+
         while (stationTiles.MoveNext(out var tileRef))
         {
             alternateTiles.Add((tileRef.Value.GridIndices, new Tile(tileDef.TileId, variant: _tileSystem.PickVariant((ContentTileDefinition) tileDef, random))));
         }
+
+        // turn left into right and vice versa for extra confusion
+        for (var i = 0; i < alternateTiles.Count; i++)
+        {
+            var pos = alternateTiles[i].Index;
+            // in general this would be the dot product of [[1,0],[0,-1]] with [x,y]^T
+            pos.X = (pos.X * -1);
+            //pos.Y = (pos.Y * -1);
+            alternateTiles[i] = (pos, alternateTiles[i].Tile);
+        }
+
         _mapSystem.SetTiles((_alternateGrid, alternateGridComp), alternateTiles);
 
         //Add grid components
@@ -111,7 +123,10 @@ public sealed class SpawnAlternateDimensionJob : Job<bool>
                 if (!_tag.HasTag(tagged.Owner, replacement.Key))
                     continue;
 
-                var coord = new EntityCoordinates(_mapSystem.GetMap(_alternateMapId), tagged.Comp2.Coordinates.Position);
+                // any transformation we apply to the grid needs to be applied to anything we spawn on it too.  '+1' because rounding was
+                // causing things to be off by one.
+                var pos = new System.Numerics.Vector2((tagged.Comp2.Coordinates.Position.X * -1) + 1, tagged.Comp2.Coordinates.Position.Y);
+                var coord = new EntityCoordinates(_mapSystem.GetMap(_alternateMapId), pos);
 
                 if (!_entManager.TrySpawnIfUnobstructed(replacement.Value,
                         coord,

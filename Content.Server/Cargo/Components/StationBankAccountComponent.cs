@@ -16,4 +16,18 @@ public sealed partial class StationBankAccountComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("increasePerSecond")]
     public int IncreasePerSecond = 1;
+
+    /// <summary>
+    /// funky station: company scrip
+    /// starter station scrip balance
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public int ScripBalance = 60_000;
+
+    /// <summary>
+    /// funky station: company scrip
+    /// time between payouts
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public TimeSpan ScripStationPayoutPeriod = TimeSpan.FromMinutes(10);
 }

@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using Content.Shared._Funkystation;
 using Content.Shared.CCVar;
 using Content.Shared.Dataset;
 using Content.Shared.GameTicking;
@@ -97,6 +98,9 @@ namespace Content.Shared.Preferences
         [DataField]
         public Gender Gender { get; private set; } = Gender.Male;
 
+        [DataField]
+        public int Balance { get; private set; }
+
         /// <summary>
         /// <see cref="Appearance"/>
         /// </summary>
@@ -144,6 +148,7 @@ namespace Content.Shared.Preferences
             int age,
             Sex sex,
             Gender gender,
+            int balance,
             HumanoidCharacterAppearance appearance,
             SpawnPriorityPreference spawnPriority,
             Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities,
@@ -160,6 +165,7 @@ namespace Content.Shared.Preferences
             Age = age;
             Sex = sex;
             Gender = gender;
+            Balance = balance;
             Appearance = appearance;
             SpawnPriority = spawnPriority;
             _jobPriorities = jobPriorities;
@@ -193,6 +199,8 @@ namespace Content.Shared.Preferences
                 other.Age,
                 other.Sex,
                 other.Gender,
+                // funky station - bank balance
+                other.Balance,
                 other.Appearance.Clone(),
                 other.SpawnPriority,
                 new Dictionary<ProtoId<JobPrototype>, JobPriority>(other.JobPriorities),
@@ -312,6 +320,12 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile WithGender(Gender gender)
         {
             return new(this) { Gender = gender };
+        }
+
+        // funky station - balance
+        public HumanoidCharacterProfile WithBankBalance(int balance)
+        {
+            return new(this) { Balance = balance };
         }
 
         public HumanoidCharacterProfile WithSpecies(string species)
@@ -481,6 +495,8 @@ namespace Content.Shared.Preferences
                 ("age", Age)
             );
 
+        public string BalanceText => SharedBankSystem.ToBalanceString(Balance);
+
         public bool MemberwiseEquals(ICharacterProfile maybeOther)
         {
             if (maybeOther is not HumanoidCharacterProfile other) return false;
@@ -498,6 +514,8 @@ namespace Content.Shared.Preferences
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
+            // funkystation - bank balance
+            if (Balance != other.Balance) return false;
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
@@ -551,6 +569,9 @@ namespace Content.Shared.Preferences
 
             name = name.Trim();
 
+            // funkystation - bank balance
+            if (Balance <= 0)
+                Balance = 0;
 
             if (configManager.GetCVar(CCVars.RestrictedNames))
             {
@@ -777,6 +798,8 @@ namespace Content.Shared.Preferences
             hashCode.Add(Appearance);
             hashCode.Add((int) SpawnPriority);
             hashCode.Add((int) PreferenceUnavailable);
+            // funkystation - bank balance
+            hashCode.Add(Balance);
             return hashCode.ToHashCode();
         }
 

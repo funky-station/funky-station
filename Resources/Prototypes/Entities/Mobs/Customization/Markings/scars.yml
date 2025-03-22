@@ -24,7 +24,7 @@
   id: ScarTopSurgeryShort
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia] # Funkystation: add Reptilian, Slimeperson, Arachnid, Felinid, and Rodentia
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Funkystation: add Reptilian, Slimeperson, Arachnid, Vulpkanin, Felinid, and Rodentia
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -34,7 +34,7 @@
   id: ScarTopSurgeryLong
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia] # Funkystation: add Reptilian, Slimeperson, Arachnid, Felinid, and Rodentia
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Funkystation: add Reptilian, Slimeperson, Arachnid, Vulpkanin, Felinid, and Rodentia
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -44,7 +44,7 @@
   id: ScarChest
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia] # Funkystation: add Reptilian, Slimeperson, Arachnid, Felinid, and Rodentia
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Funkystation: add Reptilian, Slimeperson, Arachnid, Vulpkanin, Felinid, and Rodentia
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi

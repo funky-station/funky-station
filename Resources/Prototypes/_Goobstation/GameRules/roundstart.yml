@@ -76,67 +76,68 @@
     tags:
       - CalmAntag
 
-- type: entity
-  parent: BaseNukeopsRule
-  id: Calmops # For Dual Antag Gamemodes
-  components:
-  - type: GameRule
-    minPlayers: 30
-  - type: LoadMapRule
-    mapPath: /Maps/Nonstations/nukieplanet.yml
-  - type: AntagSelection
-    selectionTime: PrePlayerSpawn
-    definitions:
-    - prefRoles: [ NukeopsCommander ]
-      fallbackRoles: [ Nukeops, NukeopsMedic ]
-      spawnerPrototype: SpawnPointNukeopsCommander
-      startingGear: SyndicateCommanderGearFull
-      components:
-      - type: NukeOperative
-      - type: RandomMetadata
-        nameSegments:
-        - nukeops-role-commander
-        - SyndicateNamesElite
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      mindRoles:
-      - MindRoleNukeopsCommander
-    - prefRoles: [ NukeopsMedic ]
-      fallbackRoles: [ Nukeops, NukeopsCommander ]
-      spawnerPrototype: SpawnPointNukeopsMedic
-      startingGear: SyndicateOperativeMedicFull
-      components:
-      - type: NukeOperative
-      - type: RandomMetadata
-        nameSegments:
-        - nukeops-role-agent
-        - SyndicateNamesNormal
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      mindRoles:
-      - MindRoleNukeopsMedic
-    - prefRoles: [ Nukeops ]
-      fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
-      spawnerPrototype: SpawnPointNukeopsOperative
-      max: 2
-      playerRatio: 15
-      startingGear: SyndicateOperativeGearFull
-      components:
-      - type: NukeOperative
-      - type: RandomMetadata
-        nameSegments:
-        - nukeops-role-operator
-        - SyndicateNamesNormal
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      mindRoles:
-      - MindRoleNukeops
-  - type: Tag
-    tags:
-      - CalmAntag
+# Funky: Disabled pending possibility of balance changes making roundstart nukies during GameDirector rounds viable
+# - type: entity
+#  parent: BaseNukeopsRule
+#  id: Calmops # For Dual Antag Gamemodes
+#  components:
+#  - type: GameRule
+#    minPlayers: 30
+#  - type: LoadMapRule
+#    mapPath: /Maps/Nonstations/nukieplanet.yml
+#  - type: AntagSelection
+#    selectionTime: PrePlayerSpawn
+#    definitions:
+#    - prefRoles: [ NukeopsCommander ]
+#      fallbackRoles: [ Nukeops, NukeopsMedic ]
+#      spawnerPrototype: SpawnPointNukeopsCommander
+#      startingGear: SyndicateCommanderGearFull
+#      components:
+#      - type: NukeOperative
+#      - type: RandomMetadata
+#        nameSegments:
+#        - nukeops-role-commander
+#        - SyndicateNamesElite
+#      - type: NpcFactionMember
+#        factions:
+#        - Syndicate
+#      mindRoles:
+#      - MindRoleNukeopsCommander
+#    - prefRoles: [ NukeopsMedic ]
+#      fallbackRoles: [ Nukeops, NukeopsCommander ]
+#      spawnerPrototype: SpawnPointNukeopsMedic
+#      startingGear: SyndicateOperativeMedicFull
+#      components:
+#      - type: NukeOperative
+#      - type: RandomMetadata
+#        nameSegments:
+#        - nukeops-role-agent
+#        - SyndicateNamesNormal
+#      - type: NpcFactionMember
+#        factions:
+#        - Syndicate
+#      mindRoles:
+#      - MindRoleNukeopsMedic
+#    - prefRoles: [ Nukeops ]
+#      fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
+#      spawnerPrototype: SpawnPointNukeopsOperative
+#      max: 2
+#      playerRatio: 15
+#      startingGear: SyndicateOperativeGearFull
+#      components:
+#      - type: NukeOperative
+#      - type: RandomMetadata
+#        nameSegments:
+#        - nukeops-role-operator
+#        - SyndicateNamesNormal
+#      - type: NpcFactionMember
+#        factions:
+#        - Syndicate
+#      mindRoles:
+#      - MindRoleNukeops
+#  - type: Tag
+#    tags:
+#      - CalmAntag
 
 - type: entity
   id: CalmRevs # For Dual Antag Gamemodes
@@ -155,7 +156,7 @@
         text: head-rev-role-greeting
         color: CornflowerBlue
         sound: "/Audio/Ambience/Antag/headrev_start.ogg"
-      startingGear: HeadRevGear
+      #startingGear: HeadRevGear
       components:
       - type: Revolutionary
       - type: HeadRevolutionary

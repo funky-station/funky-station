@@ -11,3 +11,5 @@
     damageRecovery:
       types:
         Asphyxiation: -0.5
+  - type: CombatPower # Goobstation
+    factor: 10 # / 2 = times more powerful than an unarmed crew-member

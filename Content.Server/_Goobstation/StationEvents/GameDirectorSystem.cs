@@ -533,6 +533,21 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
                 if (!proto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory))
                     continue;
 
+                var tooMuchChaos = false;
+                foreach (var chaosType in stationEvent.MaxChaos.ChaosDict)
+                {
+                    if (chaosType.Value < chaos.ChaosDict[chaosType.Key])
+                    {
+                        tooMuchChaos = true;
+                        break;
+                    }
+                }
+
+                if (tooMuchChaos)
+                {
+                    continue;
+                }
+
                 if (!_event.CanRun(proto, stationEvent, count.Players, GameTicker.RoundDuration()))
                     continue;
 

@@ -58,3 +58,26 @@
   - BasicStationEventScheduler
   #- AntagStationEventScheduler
   - BasicRoundstartVariation
+
+- type: gamePreset
+  id: TheDrunkard
+  alias:
+    - drunkard
+    - accidents
+  name: dunkard-title
+  description: drunkard-description
+  showInVote: true
+  minPlayers: 5
+  rules:
+    - IncidentDynamic
+
+- type: gamePreset
+  id: SecretDirector
+  alias:
+  - secretdirector
+  - director
+  name: secret-director-title
+  showInVote: true # Goob - Game Director
+  description: secret-director-description
+  rules:
+    - SecretDirector

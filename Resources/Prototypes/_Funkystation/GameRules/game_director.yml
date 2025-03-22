@@ -1,0 +1,47 @@
+- type: entity
+  id: IncidentDynamic
+  parent: GameDirector
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: GameDirector
+    noRoundstartAntags: true
+    stories:
+      - Breakdown
+      - Shitshow
+
+- type: entity
+  id: SecretDirector
+  parent: BaseGameRule
+  components:
+  - type: SecretDirector
+
+- type: story
+  id: Breakdown
+  minPlayers: 30
+  beats:
+    - Peace
+    - PowerIssues
+    - RepairStation
+    - MadScience
+    - PowerIssues
+    - Disaster
+
+- type: story
+  id: Shitshow # Clinical term
+  minPlayers: 5
+  beats:
+    - Peace
+    - PowerIssues
+    - PowerIssues
+    - MadScience
+    - RepairStation
+
+- type: storyBeat
+  id: Disaster
+  description: Get station to breaking point with little to no hostiles
+  goal:   # Just keeps ramping up infrastructure issues. Get evac fast
+    Atmos: 800
+    Power: 800
+    Medical: 400
+    Death: 200
+    Combat: -80

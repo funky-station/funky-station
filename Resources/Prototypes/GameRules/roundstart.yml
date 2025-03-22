@@ -178,7 +178,7 @@
   - type: AntagRandomObjectives
     sets:
     - groups: TraitorObjectiveGroups
-    maxDifficulty: 5
+    maxDifficulty: 6 # Funky - parity w/ dynamic, return to pre bug fix obj amount
   - type: AntagSelection
     agentName: traitor-round-end-agent-name
 

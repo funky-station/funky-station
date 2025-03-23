@@ -1,3 +1,4 @@
+using Content.Server._Funkystation.Payouts;
 using Content.Shared.Cargo;
 
 namespace Content.Server.Cargo.Components;
@@ -5,7 +6,7 @@ namespace Content.Server.Cargo.Components;
 /// <summary>
 /// Added to the abstract representation of a station to track its money.
 /// </summary>
-[RegisterComponent, Access(typeof(SharedCargoSystem))]
+[RegisterComponent, Access(typeof(SharedCargoSystem), typeof(StationPayoutRule), typeof(PayoutSystem))]
 public sealed partial class StationBankAccountComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite), DataField("balance")]
@@ -30,4 +31,11 @@ public sealed partial class StationBankAccountComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField]
     public TimeSpan ScripStationPayoutPeriod = TimeSpan.FromMinutes(10);
+
+    /// <summary>
+    /// funky station: company scrip
+    /// payout people who are detained or wanted
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public bool ScripPayoutDetainedOrWanted = false;
 }

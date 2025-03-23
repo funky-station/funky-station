@@ -144,7 +144,7 @@ namespace Content.Shared.Preferences
         public Gender Gender { get; private set; } = Gender.Male;
 
         [DataField]
-        public int Balance { get; private set; }
+        public int Balance { get; set; }
 
         /// <summary>
         /// <see cref="Appearance"/>

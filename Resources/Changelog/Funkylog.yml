@@ -2020,3 +2020,31 @@ Entries:
       message: Boombox spawn rates made more reasonable
   id: 255
   time: '2025-03-20T03:02:32.0000000+00:00'
+- author: Goomson
+  changes:
+    - type: Tweak
+      message: Shuttles now have a higher spawn weight.
+  id: 256
+  time: '2025-03-22T01:15:13.0000000+00:00'
+- author: ' Miiish, MilonPL'
+  changes:
+    - type: Add
+      message: Added a one-time EORG warning to roundend
+  id: 257
+  time: '2025-03-22T01:34:33.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Tweak
+      message: More markings have been shared across species.
+    - type: Tweak
+      message: Some requirements to use certain markings have been removed.
+  id: 258
+  time: '2025-03-22T19:31:36.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        Blob Factories will now resume production of Blob Pods when its
+        previously produced Pods die.
+  id: 259
+  time: '2025-03-23T17:03:53.0000000+00:00'

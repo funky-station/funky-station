@@ -2,7 +2,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Server._Funkystation.Payouts;
 
-[Serializable, NetSerializable, DataRecord]
+[Serializable, DataRecord]
 public sealed class PaymentRecord
 {
     [DataField]
@@ -15,5 +15,5 @@ public sealed class PaymentRecord
     public List<PayoutReceipt> History = new();
 }
 
-[Serializable, NetSerializable]
+[Serializable]
 public record struct PayoutReceipt(TimeSpan PayoutTime, bool Paid, int Amount);

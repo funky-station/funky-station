@@ -1,5 +1,6 @@
 namespace Content.Server._Funkystation.Payouts;
 
+[RegisterComponent]
 public sealed partial class StationPayoutRuleComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite), DataField]

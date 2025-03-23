@@ -170,6 +170,26 @@ binds:
 - function: RotateStoredItem
   type: State
   key: MouseRight
+# DeltaV - Start custom keybinds
+- function: NanoChatNavigateUp
+  type: State
+  key: Up
+  mod1: Alt
+- function: NanoChatNavigateDown
+  type: State
+  key: Down
+  mod1: Alt
+- function: NanoChatNavigateUpUnread
+  type: State
+  key: Up
+  mod1: Alt
+  mod2: Shift
+- function: NanoChatNavigateDownUnread
+  type: State
+  key: Down
+  mod1: Alt
+  mod2: Shift
+  # DeltaV - End custom keybinds
 - function: SaveItemLocation
   type: State
   key: MouseMiddle

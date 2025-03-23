@@ -298,6 +298,23 @@
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: rcd-module }
 
+- type: entity
+  id: BorgModuleAtmos
+  parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
+  name: atmos cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: engineering
+    - state: icon-rpd
+  - type: ItemBorgModule
+    items:
+    - RPDRecharging
+    # todo: make impossible to take the battery out and make it recharge
+    - HolofanProjector
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: rpd-module }
+
 # janitorial modules (this gets its own unique things because janis are epic)
 - type: entity
   id: BorgModuleLightReplacer

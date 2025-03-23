@@ -715,6 +715,7 @@
     - ProximitySensor
     - BorgModuleAdvancedCleaning
     - BorgModuleAdvancedTool
+    - BorgModuleAtmos
     - BorgModuleGPS
     - BorgModuleArtifact
     - BorgModuleAnomaly

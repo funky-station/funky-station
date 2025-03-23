@@ -154,6 +154,11 @@
   id: BorgModuleAdvancedTool
   result: BorgModuleAdvancedTool
 
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAtmos
+  result: BorgModuleAtmos
+
 # Janitor Modules
 
 - type: latheRecipe

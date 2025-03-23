@@ -2048,3 +2048,9 @@ Entries:
         previously produced Pods die.
   id: 259
   time: '2025-03-23T17:03:53.0000000+00:00'
+- author: Toby222
+  changes:
+    - type: Tweak
+      message: Ethylredoxrazine is now 10x as effective at clearing up drunkenness
+  id: 260
+  time: '2025-03-23T20:47:16.0000000+00:00'

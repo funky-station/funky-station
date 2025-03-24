@@ -48,7 +48,6 @@
   - BorgModuleConstruction
   - BorgModuleRCD
   - BorgModuleCable
-  # add atmos module here?
 
   radioChannels:
   - Engineering

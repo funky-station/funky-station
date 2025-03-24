@@ -310,8 +310,7 @@
   - type: ItemBorgModule
     items:
     - RPDRecharging
-    # todo: make impossible to take the battery out and make it recharge
-    - HolofanProjector
+    - HolofanProjectorRecharging
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: rpd-module }
 

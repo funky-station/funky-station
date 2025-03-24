@@ -166,6 +166,9 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeops
+  - type: Tag
+    tags:
+    - ExtremeAntag # Funky
 
 - type: entity
   abstract: true
@@ -238,6 +241,9 @@
       - type: HeadRevolutionary
       mindRoles:
       - MindRoleHeadRevolutionary
+  - type: Tag
+    tags:
+    - ExtremeAntag # Funky
 
 - type: entity
   id: Sandbox
@@ -300,6 +306,9 @@
         - names_wizard_last
       mindRoles:
       - MindRoleWizard
+  - type: Tag
+    tags:
+    - ExtremeAntag # Funky
 
 - type: entity
   id: Zombie
@@ -331,6 +340,7 @@
       - type: InitialInfected
       mindRoles:
       - MindRoleInitialInfected
+
 
 # event schedulers
 

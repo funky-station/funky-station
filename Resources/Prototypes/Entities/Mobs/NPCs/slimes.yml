@@ -117,6 +117,8 @@
     speechSounds: Slime
   - type: TypingIndicator
     proto: slime
+  - type: CombatPower # Goobstation
+    factor: 8 # / 2 = times more powerful than an unarmed crew-member
 
 - type: entity
   name: basic slime

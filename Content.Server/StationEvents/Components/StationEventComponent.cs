@@ -98,4 +98,7 @@ public sealed partial class StationEventComponent : Component
     [DataField("chaos")]
     public ChaosMetrics Chaos = new ChaosMetrics();
     // Goobstation end
+
+    [DataField("maxChaos")]
+    public ChaosMetrics MaxChaos = new ChaosMetrics();
 }

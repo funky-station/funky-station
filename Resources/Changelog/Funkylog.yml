@@ -2054,3 +2054,13 @@ Entries:
       message: Ethylredoxrazine is now 10x as effective at clearing up drunkenness
   id: 260
   time: '2025-03-23T20:47:16.0000000+00:00'
+- author: ' AfterLite, correspond'
+  changes:
+    - type: Tweak
+      message: Entropy is no longer itemized, and is now a cultist-innate resource.
+    - type: Tweak
+      message: >-
+        Lone Ascendant's Dendrite is no longer edible; try using it as a liver
+        instead. 
+  id: 261
+  time: '2025-03-24T19:13:41.0000000+00:00'

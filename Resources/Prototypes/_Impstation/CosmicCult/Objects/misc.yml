@@ -4,7 +4,7 @@
   id: AscendedDendrite
   description: A bundle of semi-ephemeral tissue extracted from the unravelling husk of an astral ascendant. A faint malign light pulses within.
   components:
-  - type: RogueAscendedDendrite
+  #- type: RogueAscendedDendrite
   - type: Item
     size: Normal
   #- type: Food # funky -- make it an organ instead of eating it

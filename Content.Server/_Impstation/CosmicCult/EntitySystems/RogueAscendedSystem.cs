@@ -83,7 +83,7 @@ public sealed class RogueAscendedSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<RogueAscendedComponent, ComponentInit>(OnSpawn);
         SubscribeLocalEvent<RogueAscendedComponent, MobStateChangedEvent>(OnMobStateChanged);
-        SubscribeLocalEvent<RogueAscendedDendriteComponent, BeforeFullyEatenEvent>(OnDendriteConsumed);
+        //SubscribeLocalEvent<RogueAscendedDendriteComponent, BeforeFullyEatenEvent>(OnDendriteConsumed);
 
         SubscribeLocalEvent<RogueAscendedComponent, EventRogueGrandShunt>(OnRogueShunt);
         SubscribeLocalEvent<RogueAscendedComponent, EventRogueCosmicNova>(OnRogueNova);
@@ -118,7 +118,9 @@ public sealed class RogueAscendedSystem : EntitySystem
     #endregion
 
     #region Consume Dendrite
-    private void OnDendriteConsumed(Entity<RogueAscendedDendriteComponent> uid, ref BeforeFullyEatenEvent args)
+    // funkystation: see RogueAscendedDendriteComponent & RogueAscendedDendriteSystem for how these are handled instead
+
+    /*private void OnDendriteConsumed(Entity<RogueAscendedDendriteComponent> uid, ref BeforeFullyEatenEvent args)
     {
         if (!HasComp<HumanoidAppearanceComponent>(args.User) || HasComp<RogueAscendedAuraComponent>(args.User))
             return; // if it ain't human, or already ate, nvm
@@ -136,7 +138,7 @@ public sealed class RogueAscendedSystem : EntitySystem
         _color.RaiseEffect(Color.CadetBlue, new List<EntityUid>() { args.User }, Filter.Pvs(args.User, entityManager: EntityManager));
         _stun.TryKnockdown(args.User, uid.Comp.StunTime, false);
         Dirty(args.User, starMark);
-    }
+    }*/
     #endregion
 
     #region Cleanse

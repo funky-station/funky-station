@@ -7,11 +7,11 @@
     earliestStart: 30
     reoccurrenceDelay: 20
     minimumPlayers: 30
-    chaos:
+    chaos:  # Funky
       Hostile: 70
       Medical: 70
       Death: 70
-    maxChaos:
+    maxChaos: # Funky
       Hostile: 80
       Combat: -30
       Power: 80

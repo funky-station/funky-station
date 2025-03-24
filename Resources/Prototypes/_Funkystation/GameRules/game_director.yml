@@ -29,6 +29,7 @@
 
 - type: story
   id: Breakdown
+  description: The station is going to shit
   minPlayers: 30
   beats:
     - Peace
@@ -40,6 +41,7 @@
 
 - type: story
   id: Shitshow # Clinical term
+  description: The station goes to shit then recovers
   minPlayers: 5
   beats:
     - Peace

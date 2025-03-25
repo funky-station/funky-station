@@ -256,7 +256,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitScientist
     id: SciencePDA
-    belt: ClothingBeltUtilityBlackFilled
+    belt: ClothingBeltUtilityFilled
     outerClothing: ClothingOuterWinterSci
     #head:
     pocket1: EmergencyOxygenTankFilled
@@ -282,14 +282,14 @@
 - type: startingGear #AA
   id: StartingGearApidAdministrativeAssistant
   equipment:
-    jumpsuit: ClothingUniformJumpsuitAdminAssistant
-    id: AdminAssistantPDA
-    belt: ClothingBeltPaperworkFilled
+    jumpsuit: ClothingUniformCreamSuit
+    id: CommandMaidPDA 
+    belt: BoxFolderClipboard
     outerClothing: ClothingOuterWinterColorBlue
     #head:
-    pocket1: EmergencyOxygenTankCommandFilled
-    pocket2: ClothingMaskBreathCommand
-    ears: ClothingHeadsetAdminAssistant
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: ClothingMaskBreath
+    ears: ClothingHeadsetCommandService
     eyes: ClothingEyesHudCommand
 
 - type: startingGear #Chaplain
@@ -318,54 +318,3 @@
     ears: ClothingHeadsetCargo
     eyes: ClothingEyesGlassesMeson
 
-
-- type: loadoutGroup
-  id: SalvageSpecialistJumpsuit
-  name: loadout-group-salvage-specialist-jumpsuit
-  loadouts:
-  - SalvageSpecialistJumpsuit
-  - SalvageSpecialistJumpskirt
-
-- type: loadoutGroup
-  id: CourierHead
-  name: loadout-group-courier-head
-  minLimit: 0
-  loadouts:
-  - CourierHat
-
-- type: loadoutGroup
-  id: CourierJumpsuit
-  name: loadout-group-courier-jumpsuit
-  loadouts:
-  - CourierJumpsuit
-  - CourierJumpskirt
-
-- type: loadoutGroup
-  id: CourierBackpack
-  name: loadout-group-courier-backpack
-  loadouts:
-  - CargoTechnicianBackpack
-  - CargoTechnicianSatchel
-  - CargoTechnicianDuffel
-
-- type: loadoutGroup
-  id: CourierNeck
-  name: loadout-group-courier-neck
-  minLimit: 0
-  loadouts:
-  - ScarfBrown
-  - ScarfBlue
-
-- type: loadoutGroup
-  id: CourierOuterClothing
-  name: loadout-group-courier-outerclothing
-  minLimit: 0
-  loadouts:
-  - CourierWintercoat
-
-- type: loadoutGroup
-  id: CourierShoes
-  name: loadout-group-courier-shoes
-  loadouts:
-  - LeatherShoes
-  - CourierWinterBoots

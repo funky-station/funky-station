@@ -2094,3 +2094,12 @@ Entries:
         guidebook!
   id: 263
   time: '2025-03-26T01:46:02.0000000+00:00'
+- author: SpaceCat-Chan
+  changes:
+    - type: Add
+      message: >-
+        Added an Atmos Borg module containing an RPD and Holofan Projector,
+        which can be researched by science and then constructed in the exosuit
+        fabricator.
+  id: 264
+  time: '2025-03-26T01:46:35.0000000+00:00'

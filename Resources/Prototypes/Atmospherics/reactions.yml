@@ -190,7 +190,7 @@
 - type: gasReaction
   id: MetalHydrogenReaction
   priority: 1
-  minimumTemperature: 10000.00
+  maximumTemperature: 273.2
   minimumRequirements:
   - 0     # oxygen
   - 0     # nitrogen

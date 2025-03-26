@@ -2086,3 +2086,11 @@ Entries:
         changelings instantly. 
   id: 262
   time: '2025-03-24T20:20:00.0000000+00:00'
+- author: Goomson
+  changes:
+    - type: Add
+      message: >-
+        Added unique previously unlisted chemical reactions to in game
+        guidebook!
+  id: 263
+  time: '2025-03-26T01:46:02.0000000+00:00'

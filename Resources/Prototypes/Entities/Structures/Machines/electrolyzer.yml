@@ -1,6 +1,7 @@
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   id: Electrolyzer
+  name: electrolyzer
   components:
   - type: Electrolyzer
   - type: AtmosDevice

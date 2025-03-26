@@ -556,6 +556,7 @@
     - SalvageMagnetMachineCircuitboard
     - OperatingTableCircuitboard # Shitmed Change
     - BorgChargerCircuitboard
+    - ElectrolyzerMachineBoard # Assmos - /tg/ gases
     dynamicRecipes:
     - ThermomachineFreezerMachineCircuitBoard
     - HellfireFreezerMachineCircuitBoard

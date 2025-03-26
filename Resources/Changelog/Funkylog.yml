@@ -2103,3 +2103,9 @@ Entries:
         fabricator.
   id: 264
   time: '2025-03-26T01:46:35.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: Atmos water tank backpack QOL changes
+  id: 265
+  time: '2025-03-26T17:14:15.0000000+00:00'

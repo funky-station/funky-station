@@ -27,13 +27,13 @@ namespace Content.Server.Atmos.Reactions
                 return ReactionResult.NoReaction;
 
             var pressure = mixture.Pressure;
-            var pressureEfficiency = Math.Min(pressure / 25000f, 1f);
+            var pressureEfficiency = Math.Min(pressure / 20000f, 1f);
             var temperature = mixture.Temperature; 
-            var temperatureEfficiency = Math.Min(10050f / temperature, 1f);
-            var rate = pressureEfficiency * temperatureEfficiency * 0.1f;
+            var temperatureEfficiency = Math.Min(23.2f / temperature, 1f);
+            var rate = pressureEfficiency * temperatureEfficiency * 0.10f;
             var roll = (float)new Random().NextDouble();
 
-            if (pressure < 10000f || temperature < 10000f || roll > rate) 
+            if (pressure < 10000f || temperature > 273.2f || roll > rate) 
                 return ReactionResult.NoReaction;
 
             mixture.AdjustMoles(Gas.Hydrogen, -300f);

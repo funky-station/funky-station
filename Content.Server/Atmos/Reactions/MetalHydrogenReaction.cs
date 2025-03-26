@@ -1,0 +1,54 @@
+using Content.Server.Atmos.EntitySystems;
+using Content.Shared.Atmos;
+using Content.Shared.Atmos.Reactions;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.FixedPoint;
+using Content.Shared.Maps;
+using Robust.Shared.Map;
+using JetBrains.Annotations;
+using Robust.Shared.Map.Components;
+using System.Numerics;
+
+namespace Content.Server.Atmos.Reactions
+{
+    [UsedImplicitly]
+    [DataDefinition]
+    public sealed partial class MetalHydrogenReaction : IGasReactionEffect
+    {
+        public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
+        {
+            var pressure = mixture.Pressure;
+            var rate = Math.Min(pressure / 100000f, 1f) * 0.1f;
+            float roll = (float)new Random().NextDouble();
+            if (pressure < 10000f || roll > rate) return ReactionResult.NoReaction;
+
+            var initBZ = mixture.GetMoles(Gas.BZ);
+            var initHydrogen = mixture.GetMoles(Gas.Hydrogen);
+
+            if (holder is not TileAtmosphere tile)
+                return ReactionResult.NoReaction;
+
+            if (initHydrogen < 300f || initBZ < 50f)
+                return ReactionResult.NoReaction;
+
+            mixture.AdjustMoles(Gas.Hydrogen, -300f);
+            mixture.AdjustMoles(Gas.BZ, -50f);
+            
+            var tileRef = atmosphereSystem.GetTileRef(tile);
+            
+            var gridId = tileRef.GridUid;
+
+            var entityManager = IoCManager.Resolve<IEntityManager>();
+            var map = entityManager.System<SharedMapSystem>();
+
+            if (!entityManager.TryGetComponent<MapGridComponent>(gridId, out var mapGrid))
+                return ReactionResult.NoReaction;
+
+            var coords = map.GridTileToLocal(gridId, mapGrid, tileRef.GridIndices);
+
+            entityManager.SpawnEntity("MetalHydrogen1", coords);
+
+            return ReactionResult.Reacting;
+        }
+    }
+}

@@ -2115,3 +2115,9 @@ Entries:
       message: Flatpacker 1001 can be linked to the silo.
   id: 266
   time: '2025-03-26T17:15:04.0000000+00:00'
+- author: Sadie-silly
+  changes:
+    - type: Add
+      message: New lobby music
+  id: 267
+  time: '2025-03-26T23:03:23.0000000+00:00'

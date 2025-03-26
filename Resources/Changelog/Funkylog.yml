@@ -2109,3 +2109,9 @@ Entries:
       message: Atmos water tank backpack QOL changes
   id: 265
   time: '2025-03-26T17:14:15.0000000+00:00'
+- author: ' Quantus'
+  changes:
+    - type: Add
+      message: Flatpacker 1001 can be linked to the silo.
+  id: 266
+  time: '2025-03-26T17:15:04.0000000+00:00'

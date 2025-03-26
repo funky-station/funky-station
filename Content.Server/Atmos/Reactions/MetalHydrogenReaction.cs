@@ -18,9 +18,12 @@ namespace Content.Server.Atmos.Reactions
         public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
         {
             var pressure = mixture.Pressure;
-            var rate = Math.Min(pressure / 100000f, 1f) * 0.1f;
+            var pressureEfficiency = Math.Min(pressure / 25000f, 1f);
+            var temperature = mixture.Temperature; 
+            var temperatureEfficiency = Math.Min(10050f / temperature, 1f);
+            var rate = pressureEfficiency * temperatureEfficiency * 0.1f;
             float roll = (float)new Random().NextDouble();
-            if (pressure < 10000f || roll > rate) return ReactionResult.NoReaction;
+            if (pressure < 10000f || temperature < 10000f || roll > rate) return ReactionResult.NoReaction;
 
             var initBZ = mixture.GetMoles(Gas.BZ);
             var initHydrogen = mixture.GetMoles(Gas.Hydrogen);

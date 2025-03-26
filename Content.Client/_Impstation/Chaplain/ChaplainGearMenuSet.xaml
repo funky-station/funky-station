@@ -7,10 +7,12 @@
 				<gfx:StyleBoxFlat BackgroundColor="#1c1c23" />
 			</PanelContainer.PanelOverride>
 			<BoxContainer Orientation="Vertical" HorizontalExpand="True">
-			<GridContainer Margin="5" Columns="2" MinSize="600 0">
+			<!-- Funky: Change Button Position -->
+			<!-- <GridContainer Margin="5" Columns="2" MinSize="600 0">
 				<Button Margin="0 10" Name="SetButton" Text="Select" StyleClasses="OpenRight" Access="Public" HorizontalAlignment="Right"/>
 				<Label Name="SetName" Text="Set"></Label>
-			</GridContainer>
+			</GridContainer> -->
+			<!-- End Funky Addition -->
 			<controls:HLine Color="#d19c26" Thickness="1" Margin="0 5"/>
 			<!-- Icon and Description -->
 			<GridContainer Margin="0 5" Columns="2">
@@ -18,6 +20,12 @@
 							VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="76 76"/>
 				<Label Name="SetDescription" Text="Description" StyleClasses="StatusFieldTitle"></Label>
 			</GridContainer>
+			<!-- Funky: Change Button Position-->
+			<GridContainer Margin="5" Columns="2" MinSize="600 0">
+				<Button Margin="0 10" Name="SetButton" Text="Select" StyleClasses="OpenRight" Access="Public" HorizontalAlignment="Right"/>
+				<Label Name="SetName" Text="Set"></Label>
+			</GridContainer>
+			<!-- End Funky Addition -->
 		</BoxContainer>
 	</PanelContainer>
 </Control>

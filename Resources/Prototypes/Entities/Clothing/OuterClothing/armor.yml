@@ -378,3 +378,26 @@
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
 
+# Assmos - Metal Hydrogen
+- type: entity
+  parent: ClothingOuterArmorBase
+  id: ClothingOuterArmorMetalHydrogen
+  name: metal hydrogen armor
+  description: A superb armor made with the toughest and rarest materials available to man.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Armor/metal_hydrogen_armor.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Armor/metal_hydrogen_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.85
+        Heat: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: Construction
+    graph: MetalHydrogenArmor
+    node: armor

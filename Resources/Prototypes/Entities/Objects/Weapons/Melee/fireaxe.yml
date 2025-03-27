@@ -81,3 +81,30 @@
   - type: Tool
     qualities:
       - Prying
+
+# Assmos - Metal Hydrogen
+- type: entity
+  id: MetalHydrogenAxe
+  name: metal hydrogen axe
+  parent: [BaseEngineeringContraband, FireAxe]
+  description: A lightweight axe made with the toughest and rarest materials available to man. Equipped with a prybar capable of prying open any stuck doors.
+  components:
+  - type: MeleeWeapon
+    attackRate: 0.85
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/metal_hydrogen_axe.rsi
+    state: icon
+  - type: Clothing
+    sprite: Objects/Weapons/Melee/metal_hydrogen_axe.rsi
+    quickEquip: false
+    slots:
+    - back
+  - type: Tool
+    qualities:
+      - Prying
+      - Axing
+  - type: Prying
+    pryPowered: true
+  - type: Construction
+    graph: MetalHydrogenAxeConstruct
+    node: icon

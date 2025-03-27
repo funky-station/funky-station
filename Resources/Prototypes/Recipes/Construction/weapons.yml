@@ -195,3 +195,15 @@
   description: Bones and silk combined together.
   icon: { sprite: Objects/Weapons/Melee/bone_spear.rsi, state: spear }
   objectType: Item
+
+# Assmos - Metal Hydrogen
+- type: construction
+  name: metal hydrogen axe
+  id: MetalHydrogenAxeConstruct
+  graph: MetalHydrogenAxeConstruct
+  startNode: start
+  targetNode: icon
+  category: construction-category-weapons
+  description: A lightweight axe made with the toughest and rarest materials available to man. Equipped with a prybar capable of prying open any stuck doors.
+  icon: { sprite: Objects/Weapons/Melee/metal_hydrogen_axe.rsi, state: icon }
+  objectType: Item

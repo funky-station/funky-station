@@ -25,3 +25,32 @@
         doAfter: 1
   - node: helmet
     entity: ClothingHeadHelmetBone
+
+# Assmos - Metal Hydrogen
+- type: constructionGraph
+  id: MetalHydrogenArmor
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: armor
+      steps:
+      - material: MetalHydrogen
+        amount: 10
+        doAfter: 15
+  - node: armor
+    entity: ClothingOuterArmorMetalHydrogen
+
+- type: constructionGraph
+  id: MetalHydrogenHelmet
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: helmet
+      steps:
+      - material: MetalHydrogen
+        amount: 4
+        doAfter: 10
+  - node: helmet
+    entity: ClothingHeadHelmetMetalHydrogen

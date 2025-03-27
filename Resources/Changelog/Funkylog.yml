@@ -2132,10 +2132,10 @@ Entries:
 - author: marc-pelletier
   changes:
     - type: Add
-      message: Electrolyzer
+      message: Added the electrolyzer, an atmospheric machine that splits water to its basic elements
     - type: Add
-      message: Hydrogen gas
+      message: Added Hydrogen, a flammable, non-toxic gas, that burns incredibly hot
     - type: Add
-      message: Hydrogen metal
+      message: Added Hydrogen metal, a decorative metal that can be made with BZ, hydrogen, and tons of pressure
   id: 269
   time: '2025-03-27T04:08:53.0000000+00:00'

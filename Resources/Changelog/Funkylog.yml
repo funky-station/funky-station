@@ -2103,3 +2103,29 @@ Entries:
         fabricator.
   id: 264
   time: '2025-03-26T01:46:35.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: Atmos water tank backpack QOL changes
+  id: 265
+  time: '2025-03-26T17:14:15.0000000+00:00'
+- author: ' Quantus'
+  changes:
+    - type: Add
+      message: Flatpacker 1001 can be linked to the silo.
+  id: 266
+  time: '2025-03-26T17:15:04.0000000+00:00'
+- author: Sadie-silly
+  changes:
+    - type: Add
+      message: New lobby music
+  id: 267
+  time: '2025-03-26T23:03:23.0000000+00:00'
+- author: Sadie-silly
+  changes:
+    - type: Tweak
+      message: >-
+        New sound when being converted to a revolutionary, and spawning as a
+        head revolutionary.
+  id: 268
+  time: '2025-03-27T02:32:04.0000000+00:00'

@@ -87,10 +87,15 @@
   id: MetalHydrogenAxe
   name: metal hydrogen axe
   parent: [BaseEngineeringContraband, FireAxe]
-  description: A lightweight axe made with the toughest and rarest materials available to man. Equipped with a prybar capable of prying open any stuck doors.
+  description: A lightweight crowbar with an extreme sharp fire axe head attached. It trades its heft as a weapon by making it easier to carry around when holstered to suits without having to sacrifice your backpack.
   components:
   - type: MeleeWeapon
     attackRate: 0.85
+    damage:
+      types:
+        Blunt: 4
+        Slash: 10
+        Structural: 8
   - type: Sprite
     sprite: Objects/Weapons/Melee/metal_hydrogen_axe.rsi
     state: icon
@@ -99,12 +104,11 @@
     quickEquip: false
     slots:
     - back
+    - suitStorage
   - type: Tool
     qualities:
       - Prying
       - Axing
-  - type: Prying
-    pryPowered: true
   - type: Construction
     graph: MetalHydrogenAxeConstruct
     node: icon

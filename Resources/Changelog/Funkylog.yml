@@ -2121,3 +2121,11 @@ Entries:
       message: New lobby music
   id: 267
   time: '2025-03-26T23:03:23.0000000+00:00'
+- author: Sadie-silly
+  changes:
+    - type: Tweak
+      message: >-
+        New sound when being converted to a revolutionary, and spawning as a
+        head revolutionary.
+  id: 268
+  time: '2025-03-27T02:32:04.0000000+00:00'

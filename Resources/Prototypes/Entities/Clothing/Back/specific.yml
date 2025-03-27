@@ -138,4 +138,7 @@
   - type: StorageFill
     contents:
       - id: FirefighterNozzle
-
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []

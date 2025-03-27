@@ -178,6 +178,7 @@ namespace Content.Shared.Atmos
             [Gas.Healium] = Loc.GetString("gas-healium-abbreviation"),
             [Gas.Nitrium] = Loc.GetString("gas-nitrium-abbreviation"),
             [Gas.Pluoxium] = Loc.GetString("gas-pluoxium-abbreviation"),
+            [Gas.Hydrogen] = Loc.GetString("gas-hydrogen-abbreviation"),
         };
 
         #region Excited Groups
@@ -207,7 +208,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Total number of gases. Increase this if you want to add more!
         /// </summary>
-        public const int TotalNumberOfGases = 13; // Assmos - /tg/ gases
+        public const int TotalNumberOfGases = 14; // Assmos - /tg/ gases
 
         /// <summary>
         ///     This is the actual length of the gases arrays in mixtures.
@@ -306,6 +307,19 @@ namespace Content.Shared.Atmos
         public const float NitriumDecompositionEnergy = 30e3f; // Assmos - /tg/ gases
 
         /// <summary>
+        ///     The amount of energy 1 mol of Pluoxium forming releases.
+        /// </summary>
+        public const float PluoxiumProductionEnergy = 250; // Assmos - /tg/ gases
+
+        /// <summary>
+        ///     The amount of energy 1 mol of Pluoxium forming releases.
+        /// </summary>
+        public const float MinimumHydrogenOxyburnEnergy = 143000f; // Assmos - /tg/ gases
+
+        public const float HydrogenBurnOxyFactor = 100f; // Assmos - /tg/ gases
+        public const float HydrogenBurnH2Factor = 10f; // Assmos - /tg/ gases
+
+        /// <summary>
         ///     Determines at what pressure the ultra-high pressure red icon is displayed.
         /// </summary>
         public const float HazardHighPressure = 550f;
@@ -396,5 +410,6 @@ namespace Content.Shared.Atmos
         Healium = 10, // Assmos - /tg/ gases
         Nitrium = 11, // Assmos - /tg/ gases
         Pluoxium = 12, // Assmos - /tg/ gases
+        Hydrogen = 13, // Assmos - /tg/ gases
     }
 }

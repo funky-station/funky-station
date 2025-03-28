@@ -51,6 +51,9 @@
       steps:
       - material: MetalHydrogen
         amount: 4
-        doAfter: 10
+        doAfter: 8
+      - material: ReinforcedGlass
+        amount: 1
+        doAfter: 2
   - node: helmet
     entity: ClothingHeadHelmetMetalHydrogen

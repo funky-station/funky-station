@@ -101,26 +101,6 @@
           32:
             sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
             state: head
-      eyes:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: eyes
-      mask:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: mask
-      neck:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: neck
-      ears:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: ears
       outerClothing:
         sizeMaps:
           32:
@@ -176,6 +156,7 @@
           32:
             sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
             state: head
+<<<<<<< HEAD
       eyes:
         sizeMaps:
           32:
@@ -186,6 +167,8 @@
           32:
             sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
             state: mask
+=======
+>>>>>>> c1b3d6c371 (Replace Thaven displacements with offsets (#2113))
       outerClothing:
         sizeMaps:
           32:

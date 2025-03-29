@@ -1,0 +1,17 @@
+- type: entity
+  parent: [ BaseCivilianContraband, SmokeGrenade ]
+  id: CleanerGrenadeLube
+  name: cleanade
+  description: Special grenade for janitors, releasing large cloud of space cleaner foam.
+  suffix: Lube
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/janitor.rsi
+  - type: SmokeOnTrigger
+    duration: 5
+    spreadAmount: 25
+    smokePrototype: Foam
+    solution:
+      reagents:
+      - ReagentId: SpaceLube
+        Quantity: 20

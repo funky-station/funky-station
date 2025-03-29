@@ -919,6 +919,9 @@
   id: Mop
 
 - type: Tag
+  id: MopSword
+
+- type: Tag
   id: MopAdv
 
 - type: Tag

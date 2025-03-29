@@ -64,7 +64,7 @@
       points: 1
       required: false
     Chest:
-      points: 2
+      points: 3 # Funkystation 3 from 2
       required: false
 
 - type: humanoidBaseSprite

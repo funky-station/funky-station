@@ -29,6 +29,7 @@
       Healium: stationNO # Assmos - /tg/ gases
       Nitrium: danger # Assmos - /tg/ gases
       Pluoxium: ignore # Assmos - /tg/ gases
+      Hydrogen: danger # Assmos - /tg/ gases
   - type: Tag
     tags:
     - AirSensor

@@ -64,6 +64,15 @@ public readonly partial record struct CargoBountyItemEntry()
     [DataField]
     public int Amount { get; init; } = 1;
 
+    [DataField]
+    public int MinAmount { get; init; } = 1;
+
+    [DataField]
+    public int MaxAmount { get; init; } = 1;
+
+    [DataField]
+    public int RewardPer { get; init; } = 1;
+
     /// <summary>
     /// A player-facing name for the item.
     /// </summary>

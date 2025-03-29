@@ -1,0 +1,99 @@
+﻿#- type: cargoBountyCategory
+#  id: testCategory
+#  name: Test
+#  entries:
+#  - whitelist:
+#      tags:
+#      - Sunglasses
+#      requireAll: true
+#    name: Sunglasses
+#    minAmount: 1
+#    maxAmount: 5
+#    rewardPer: 750
+
+- type: cargoBountyCategory
+  id: botanyCategory
+  name: Botany
+  entries:
+  - name: bounty-item-carrot
+    minAmount: 5
+    maxAmount: 15
+    rewardPer: 750
+    whitelist:
+      tags:
+      - Carrot
+  - name: bounty-item-corn
+    minAmount: 5
+    maxAmount: 15
+    rewardPer: 1000
+    whitelist:
+      tags:
+      - Corn
+  - name: bounty-item-flower
+    minAmount: 3
+    maxAmount: 5
+    rewardPer: 1000
+    whitelist:
+      tags:
+      - Flower
+  - name: bounty-item-galaxythistle
+    minAmount: 4
+    maxAmount: 12
+    rewardPer: 1200
+    whitelist:
+      tags:
+      - Galaxythistle
+  - name: bounty-item-lemon
+    minAmount: 5
+    maxAmount: 10
+    rewardPer: 1000
+    whitelist:
+      tags:
+      - Lemon
+  - name: bounty-item-lime
+    minAmount: 5
+    maxAmount: 10
+    rewardPer: 1000
+    whitelist:
+      tags:
+      - Lime
+  - name: bounty-item-fruit
+    minAmount: 5
+    maxAmount: 15
+    rewardPer: 400
+    whitelist:
+      tags:
+      - Fruit
+    blacklist:
+      tags:
+      - Slice
+      - Cake
+      - Pie
+      - Bread
+  - name: bounty-item-vegetable
+    minAmount: 5
+    maxAmount: 15
+    rewardPer: 500
+    whitelist:
+      tags:
+      - Vegetable
+    blacklist:
+      tags:
+      - Slice
+      - Cake
+      - Pie
+      - Bread
+  - name: bounty-item-chili
+    minAmount: 3
+    maxAmount: 5
+    rewardPer: 1111
+    whitelist:
+      tags:
+      - ChiliBowl
+  - name: bounty-item-banana
+    minAmount: 3
+    maxAmount: 9
+    rewardPer: 660
+    whitelist:
+      tags:
+      - Banana

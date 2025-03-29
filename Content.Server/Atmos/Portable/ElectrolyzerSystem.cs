@@ -83,9 +83,9 @@ public sealed class ElectrolyzerSystem : EntitySystem
         if (initH2O < 0.05f) return; 
 
         var porportion = Math.Min(initH2O * 0.5f, 2.5f);
-        var efficiency = Math.Min(mixture.Temperature / 1123.15f, 1f);
+        var efficiency = Math.Min(mixture.Temperature / 1123.15f * 0.75f, 0.75f);
 
-        var h2oRemoved = porportion * 2f * efficiency;
+        var h2oRemoved = porportion * 2f;
         var oxyProduced = porportion * efficiency;
         var hydrogenProduced = porportion * 2f * efficiency;
 

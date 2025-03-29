@@ -43,7 +43,7 @@ namespace Content.Server.Atmos.Reactions
             {
                 energyReleased += (Atmospherics.FireHydrogenEnergyReleased * burnedFuel);
 
-                mixture.AdjustMoles(Gas.WaterVapor, burnedFuel);
+                mixture.AdjustMoles(Gas.WaterVapor, burnedFuel * 0.5f);
 
                 mixture.ReactionResults[(byte)GasReaction.Fire] += burnedFuel;
             }

@@ -4,6 +4,7 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.Tag;
 using Content.Shared.Teleportation.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
@@ -30,6 +31,7 @@ public abstract class SharedPortalSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!; // Funkystation
 
     private const string PortalFixture = "portalFixture";
     private const string ProjectileFixture = "projectile";
@@ -85,11 +87,14 @@ public abstract class SharedPortalSystem : EntitySystem
     {
         if (!component.Enable)
             return;
-        
+
         if (!ShouldCollide(args.OurFixtureId, args.OtherFixtureId, args.OurFixture, args.OtherFixture))
             return;
 
         var subject = args.OtherEntity;
+
+        if (_tagSystem.HasTag(subject, "PortalBlacklist")) // Funkystation
+            return;
 
         // best not.
         if (Transform(subject).Anchored)

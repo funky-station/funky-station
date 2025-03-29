@@ -1047,6 +1047,9 @@
 - type: Tag # goob edit
   id: Poppy
 
+- type: Tag # Funkystation
+  id: PortalBlacklist
+
 - type: Tag
   id: Potato
 

@@ -146,6 +146,9 @@ public sealed class SpawnAlternateDimensionJob : Job<bool>
         var spawns = 0;
         while (spawns < 5)
         {
+            if (alternateTiles.Count == 0)
+                break;
+
             var tile = alternateTiles.RemoveSwap(random.Next(alternateTiles.Count));
             if (!_anchorable.TileFree(alternateGridComp,
                     tile.Index,

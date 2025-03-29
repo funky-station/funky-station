@@ -298,6 +298,22 @@
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: rcd-module }
 
+- type: entity
+  id: BorgModuleAtmos
+  parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
+  name: atmos cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: engineering
+    - state: icon-atmos
+  - type: ItemBorgModule
+    items:
+    - RPDRecharging
+    - HolofanProjectorRecharging
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: atmos-module }
+
 # janitorial modules (this gets its own unique things because janis are epic)
 - type: entity
   id: BorgModuleLightReplacer
@@ -570,7 +586,7 @@
   id: BorgModuleOperative
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule ]
   name: operative cyborg module
-  description: A module that comes with a crowbar, an Emag and a syndicate pinpointer.
+  description: A module that comes with a crowbar, an Emag, an Access Breaker and a syndicate pinpointer.
   components:
     - type: Sprite
       layers:
@@ -580,6 +596,7 @@
       items:
       - Crowbar
       - Emag
+      - AccessBreaker
       - PinpointerSyndicateNuclear
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-operative-module }

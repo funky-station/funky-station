@@ -17,6 +17,8 @@
     name: ghost-role-information-space-dragon-name
     description: ghost-role-information-space-dragon-description
     rules: ghost-role-information-space-dragon-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -157,7 +159,8 @@
   - type: NightVision # Goobstation - Nigthvision
     isToggle: true
     color: "#808080"
-    playSoundOn: false
+  - type: CombatPower # Goobstation
+    factor: 40 # / 2 = times more dangerous than an unarmed crew-member
 
 - type: entity
   parent: BaseMobDragon

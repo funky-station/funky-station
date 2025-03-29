@@ -4,6 +4,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Roles;
 using Content.Shared.Traits;
 using Content.Shared.Whitelist;
+using Content.Shared.Humanoid;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Traits;
@@ -42,6 +43,12 @@ public sealed class TraitSystem : EntitySystem
 
             if (_whitelistSystem.IsWhitelistFail(traitPrototype.Whitelist, args.Mob) ||
                 _whitelistSystem.IsBlacklistPass(traitPrototype.Blacklist, args.Mob))
+                continue;
+
+            // Check species restrictions
+            if (TryComp<HumanoidAppearanceComponent>(args.Mob, out var appearance) &&
+                traitPrototype.SpeciesRestrictions != null &&
+                traitPrototype.SpeciesRestrictions.Contains(appearance.Species))
                 continue;
 
             // Add all components required by the prototype

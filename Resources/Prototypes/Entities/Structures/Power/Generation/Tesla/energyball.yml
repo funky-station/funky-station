@@ -108,6 +108,11 @@
     interactSuccessString: petting-success-tesla
     interactFailureString: petting-failure-tesla
     interactSuccessSpawn: EffectHearts
+  - type: GuideHelp # For the curious among the brave.
+    guides:
+    - TeslaEngine
+    - SingularityTeslaEngine
+    - Power
   - type: SupermatterImmune # Goobstation
   - type: MetaData # Goobstation
   - type: RandomMetadata # Goobstation

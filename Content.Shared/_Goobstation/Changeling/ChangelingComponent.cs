@@ -74,7 +74,7 @@ public sealed partial class ChangelingComponent : Component
     ///     How much biomass should be removed per cycle.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float BiomassDrain = 1f;
+    public float BiomassDrain = 0f; // Funky Station make changeling based
 
     /// <summary>
     ///     Current amount of chemicals changeling currently has.

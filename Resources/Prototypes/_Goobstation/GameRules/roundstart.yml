@@ -14,7 +14,7 @@
     - EscapeIdentityObjective
     - ChangelingSurviveObjective
   - type: AntagSelection
-    selectionTime: BeforeJobs
+    selectionTime: IntraPlayerSpawn
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
@@ -23,10 +23,13 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling
+  - type: Tag
+    tags:
+      - RoundstartAntag
 
 - type: entity
   parent: BaseTraitorRule
-  id: CalmTraitor # For Dual Antag Gamemodes
+  id: CalmTraitor # For Dual Antag Gamemodes / Funky: For gamemodes that need nerfed antags
   components:
   - type: GameRule
     minPlayers: 15
@@ -34,7 +37,7 @@
       min: 240
       max: 420
   - type: AntagSelection
-    selectionTime: BeforeJobs
+    selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
       max: 4
@@ -46,10 +49,13 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
+  - type: Tag
+    tags:
+      - CalmAntag
 
 - type: entity
   parent: Changeling
-  id: CalmLing # For Dual Antag Gamemodes
+  id: CalmLing # For Dual Antag Gamemodes / Funky: For gamemodes that need nerfed antags
   components:
   - type: GameRule
     minPlayers: 15
@@ -57,7 +63,7 @@
       min: 30
       max: 60
   - type: AntagSelection
-    selectionTime: BeforeJobs
+    selectionTime: IntraPlayerSpawn
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
@@ -66,13 +72,16 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
+  - type: Tag
+    tags:
+      - CalmAntag
 
 - type: entity
   parent: BaseNukeopsRule
-  id: Calmops # For Dual Antag Gamemodes
+  id: Calmops # For Dual Antag Gamemodes / Funky: For gamemodes that need nerfed antags
   components:
   - type: GameRule
-    minPlayers: 30
+    minPlayers: 40
   - type: LoadMapRule
     mapPath: /Maps/Nonstations/nukieplanet.yml
   - type: AntagSelection
@@ -112,7 +121,7 @@
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
       max: 2
-      playerRatio: 15
+      playerRatio: 30
       startingGear: SyndicateOperativeGearFull
       components:
       - type: NukeOperative
@@ -125,16 +134,19 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeops
+  - type: Tag
+    tags:
+      - RoundstartAntag # Calmer than extreme = normal
 
 - type: entity
-  id: CalmRevs # For Dual Antag Gamemodes
+  id: CalmRevs # For Dual Antag Gamemodes / Funky: For rounds that need a nerfed version in general
   parent: BaseGameRule
   components:
   - type: GameRule
     minPlayers: 30
   - type: RevolutionaryRule
   - type: AntagSelection
-    selectionTime: BeforeJobs
+    selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ HeadRev ]
       max: 2
@@ -143,13 +155,15 @@
         text: head-rev-role-greeting
         color: CornflowerBlue
         sound: "/Audio/Ambience/Antag/headrev_start.ogg"
-      startingGear: HeadRevGear
+      #startingGear: HeadRevGear
       components:
       - type: Revolutionary
       - type: HeadRevolutionary
       mindRoles:
       - MindRoleHeadRevolutionary
-
+  - type: Tag
+    tags:
+      - RoundstartAntag # Funky: Calmer than extreme = normal
 # Blob
 - type: entity
   id: BlobRule
@@ -197,6 +211,16 @@
     earliestStart: 50
     minimumPlayers: 25
     maxOccurrences: 2
+    chaos:
+      Hostile: 150
+      Medical: 150
+      Death: 150
+    maxChaos:
+      Hostile: 30
+      Combat: -60
+      Power: 70
+      Medical: 70
+      Atmos: 70
   - type: BlobSpawnRule
     carrierBlobProtos:
     - SpawnPointGhostBlobRat

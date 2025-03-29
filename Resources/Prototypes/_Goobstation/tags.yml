@@ -117,7 +117,7 @@
 
 - type: Tag
   id: RipleyMkII
-  
+
 - type: Tag
   id: Clarke
 
@@ -129,3 +129,24 @@
 
 - type: Tag
   id: CartridgeEpinephrine
+
+- type: Tag
+  id: Jetpack
+
+- type: Tag
+  id: Hacking
+
+- type: Tag
+  id: Rifle
+
+- type: Tag
+  id: RoundstartAntag
+
+- type: Tag
+  id: CalmAntag
+
+- type: Tag
+  id: ExtremeAntag
+
+- type: Tag
+  id: MidroundAntag

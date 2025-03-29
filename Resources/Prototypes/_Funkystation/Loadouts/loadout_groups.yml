@@ -22,3 +22,13 @@
   loadouts:
   - InternalAffairsAgentClipboard
   - InternalAffairsAgentWaistbag
+
+- type: loadoutGroup
+  id: ChaplainBible
+  name: loadout-group-bible
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ChaplainBibleChristian
+  - ChaplainBibleAtheist
+  - ChaplainBibleBhuddhist

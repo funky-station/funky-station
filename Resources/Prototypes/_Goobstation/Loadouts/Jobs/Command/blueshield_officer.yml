@@ -5,7 +5,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobBlueshieldOfficer
-      time: 187200
+      time: 72000 #20 hrs
 
 # Hats
 - type: loadout

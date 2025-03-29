@@ -101,7 +101,7 @@
       effects:
       - !type:GenericStatusEffect
         key: Drunk
-        time: 6.0
+        time: 60.0
         type: Remove
       - !type:HealthChange
         damage:
@@ -1078,7 +1078,11 @@
       - !type:SatiateThirst
         factor: 3
     Medicine:
-      effects:
+      effects: # imp edit
+      - !type:CleanseCult
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
       - !type:HealthChange
         conditions:
         - !type:TotalDamage

@@ -22,11 +22,11 @@ public sealed partial class ChangelingInfectionComponent : Component
 
     public float EffectsTimerDelay = 20f;
 
-    public float FirstSymptomsDelay = 300f;
+    public float FirstSymptomsDelay = 600f;
 
-    public float KnockedOutDelay = 900f;
+    public float KnockedOutDelay = 1200f;
 
-    public float FullyInfectedDelay = 1800f;
+    public float FullyInfectedDelay = 1320f;
 
     public float ScarySymptomChance = 0.1f;
 

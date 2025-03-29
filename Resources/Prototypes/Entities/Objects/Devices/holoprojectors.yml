@@ -67,6 +67,25 @@
       - HolofanProjector
   - type: StaticPrice
     price: 80
+  - type: GuideHelp
+    guides:
+    - AtmosTools
+    - Fires
+    - Spacing
+
+- type: entity
+  parent: HolofanProjector
+  id: HolofanProjectorRecharging
+  name: holofan projector
+  description: Stop suicidal passengers from killing everyone during atmos emergencies. Comes with a microreactor battery that you should not take out, because you aren't gonna be putting it back again
+  suffix: AutoRecharge
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMicroreactor
+
 
 - type: entity
   parent: HolofanProjector

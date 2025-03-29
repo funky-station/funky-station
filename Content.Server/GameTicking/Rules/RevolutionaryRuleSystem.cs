@@ -195,11 +195,29 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     {
         base.AppendRoundEndText(uid, component, gameRule, ref args);
 
+        var heads = AllEntityQuery<CommandStaffComponent>();
+        var convertedCommand = 0;
+        var totalHeadsOfStaff = 0;
+
+        while (heads.MoveNext(out var headUid, out var commandStaffComponent))
+        {
+            totalHeadsOfStaff += 1;
+
+            if (!commandStaffComponent.Enabled && _mobState.IsAlive(headUid))
+                convertedCommand += 1;
+        }
+
         var revsLost = CheckRevsLose();
         var commandLost = CheckCommandLose();
         // This is (revsLost, commandsLost) concatted together
         // (moony wrote this comment idk what it means)
         var index = (commandLost ? 1 : 0) | (revsLost ? 2 : 0);
+
+        // sets index to 4, "rev-total-victory"
+        // who needs elegance
+        if (convertedCommand.Equals(totalHeadsOfStaff) && !revsLost)
+            index = 4;
+
         args.AddLine(Loc.GetString(Outcomes[index]));
 
         var sessionData = _antag.GetAntagIdentifiers(uid);
@@ -253,8 +271,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             !HasComp<HumanoidAppearanceComponent>(ev.Target) &&
             !alwaysConvertible ||
             !_mobState.IsAlive(ev.Target) ||
-            HasComp<ZombieComponent>(ev.Target)
-            || HasComp<CommandStaffComponent>(ev.Target)) // goob edit - rev no command flashing
+            HasComp<ZombieComponent>(ev.Target))
         {
             return;
         }
@@ -264,6 +281,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         _npcFaction.AddFaction(ev.Target, RevolutionaryNpcFaction);
         var revComp = EnsureComp<RevolutionaryComponent>(ev.Target);
+        _popup.PopupEntity(Loc.GetString("flash-component-user-head-rev",
+            ("victim", Identity.Entity(ev.Target, EntityManager))), ev.Target);
 
         if (ev.User != null)
         {
@@ -273,8 +292,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
             if (_mind.TryGetMind(ev.User.Value, out var revMindId, out _))
             {
-                if (_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out _, out var role))
-                    role.Value.Comp.ConvertedCount++;
+                if (_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var ent))
+                    ent.Value.Comp2.ConvertedCount++;
             }
         }
 
@@ -512,6 +531,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         // revs lost and heads survived
         "rev-lost",
         // revs lost and heads died
-        "rev-stalemate"
+        "rev-stalemate",
+        // revs won and all heads are converted and healthy
+        "rev-total-victory",
     };
 }

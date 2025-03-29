@@ -45,11 +45,13 @@ rev-no-heads = There were no Head Revolutionaries to be selected. Can't start a 
 
 rev-won = The Head Revs survived and successfully seized control of the station.
 
-rev-lost = Command survived and neutralized all of the Head Revs.
+rev-lost = Command survived and neutralized all of the Head Revs. Major revolutionary defeat.
 
-rev-stalemate = All of the Head Revs and Command died. It's a draw.
+rev-stalemate = All of the Head Revs and Command died. It's a major loss on all sides.
 
-rev-reverse-stalemate = Both Command and Head Revs survived.
+rev-reverse-stalemate = Both Command and Head Revs survived. It's a draw.
+
+rev-total-victory = All of Command and Head Revs survived, with all of Command being converted.
 
 rev-headrev-count = {$initialCount ->
     [one] There was one Head Revolutionary:

@@ -144,13 +144,17 @@ namespace Content.Server.Flash
                     ("user", Identity.Entity(user.Value, EntityManager))), target, target);
             }
 
-            if (melee || revFlash)
+            if (melee)
             {
+                if (user == null)
+                    return;
+
+                if (used == null)
+                    return;
+
                 var ev = new AfterFlashedEvent(target, user, used);
-                if (user != null)
-                    RaiseLocalEvent(user.Value, ref ev);
-                if (used != null)
-                    RaiseLocalEvent(used.Value, ref ev);
+                RaiseLocalEvent(user.Value, ref ev);
+                RaiseLocalEvent(used.Value, ref ev);
             }
         }
 

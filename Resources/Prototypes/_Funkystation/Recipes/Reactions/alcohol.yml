@@ -1,0 +1,65 @@
+- type: reaction
+  id: SpikedEggnog
+  reactants:
+    Eggnog:
+      amount: 2
+    Rum:
+      amount: 1
+  products:
+    SpikedEggnog: 3
+
+- type: reaction
+  id: Tayquila
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Tequila:
+      amount: 1
+    Sake:
+      amount: 2
+    JuiceLime:
+      amount: 2
+    CapsaicinOil:
+      amount: 1
+  products:
+    Tayquila: 6
+
+- type: reaction
+  id: Chutzpah
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    Whiskey:
+      amount: 2
+    Nicotine:
+      amount: 1
+    SpaceDrugs:
+      amount: 1
+    Vomit:
+      amount: 1
+  products:
+    Chutzpah: 5
+
+- type: reaction
+  id: MargheritaDrink
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    Margarita:
+      amount: 2
+    JuiceTomato:
+      amount: 1
+    Flour:
+      amount: 1
+  products:
+    MargheritaDrink: 4
+
+- type: reaction
+  id: PineappleMargherita
+  reactants:
+    MargheritaDrink:
+      amount: 3
+    JuicePineapple:
+      amount: 1
+  products:
+    PineappleMargherita: 4

@@ -10,7 +10,6 @@
   name: sentry turret
   description: A high-tech autonomous weapons system designed to keep unauthorized personnel out of sensitive areas.
   components:
-
   # Physics
   - type: Fixtures
     fixtures:
@@ -31,7 +30,6 @@
         layer:
           - MachineLayer
         hard: false
-
   # Sprites and appearance
   - type: Sprite
     sprite: Objects/Weapons/Guns/Turrets/sentry_turret.rsi
@@ -88,7 +86,6 @@
     - AllHostile
   - type: AccessReader
     access: [["Security"]]
-
   # Weapon systems
   - type: ProjectileBatteryAmmoProvider
     proto: BulletEnergyTurretDisabler
@@ -104,7 +101,6 @@
     - Security
     - Borg
     - BasicSilicon
-
   # Defenses / destruction
   - type: DeployableTurret
     retractedDamageModifierSetId: Metallic
@@ -136,7 +132,6 @@
         node: machineFrame
       - !type:DoActsBehavior
         acts: ["Destruction"]
-
   # Device network
   - type: DeviceNetwork
     deviceNetId: Wired
@@ -147,7 +142,6 @@
     examinableAddress: true
   - type: DeviceNetworkRequiresPower
   - type: WiredNetworkConnection
-
   # Wires
   - type: UserInterface
     interfaces:

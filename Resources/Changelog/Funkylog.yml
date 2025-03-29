@@ -2155,3 +2155,9 @@ Entries:
       message: Fixed infinite water vapor bug
   id: 271
   time: '2025-03-29T02:16:24.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Fixed permanent drunkeness
+  id: 272
+  time: '2025-03-29T16:14:59.0000000+00:00'

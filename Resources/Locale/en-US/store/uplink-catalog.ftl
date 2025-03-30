@@ -333,7 +333,7 @@ uplink-slippery-wet-floor-sign-name = Lubed Wet Floor Sign
 uplink-slippery-wet-floor-sign-desc = A VERY slippery wet floor sign.
 
 uplink-mop-sword-name = Sword Mop
-uplink-mop-sword-desc = All anyone else will see is a normal working mop until the time comes and you reveal your hidden sword.
+uplink-mop-sword-desc = All anyone else will see is a normal working mop until the time comes and you reveal your hidden blade.
 
 uplink-disposable-turret-name = Disposable Ballistic Turret
 uplink-disposable-turret-desc = Looks and functions like a normal electrical toolbox. Upon hitting the toolbox it will transform into a ballistic turret, theoretically shooting at anyone except members of the syndicate. Can be turned back into a toolbox using a screwdriver and repaired using a wrench.

@@ -148,7 +148,7 @@
     reflectProb: .1
     spread: 90
   - type: Item
-    sprite: Objects/Weapons/Melee/captain_sabre.rsi
+    sprite: _Funkystation/Objects/Specific/Janitorial/mopsword.rsi
   - type: Tag
     tags:
     - MopSword

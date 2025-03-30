@@ -11,6 +11,9 @@
       "name": "mopsword"
     },
     {
+          "name": "mop-sheath"
+    },
+    {
       "name": "inhand-left",
       "directions": 4
     },

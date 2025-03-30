@@ -604,3 +604,9 @@
   parent: BaseCircuitboardRecipe
   id: HolopadMachineCircuitboard
   result: HolopadMachineCircuitboard
+
+# Assmos - /tg/ gases
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ElectrolyzerMachineBoard
+  result: ElectrolyzerMachineBoard

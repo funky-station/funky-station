@@ -38,6 +38,7 @@ public sealed class AtmosResinDespawnSystem : EntitySystem
         mix.AdjustMoles(Gas.BZ, -mix.GetMoles(Gas.BZ));
         mix.AdjustMoles(Gas.Healium, -mix.GetMoles(Gas.Healium));
         mix.AdjustMoles(Gas.Nitrium, -mix.GetMoles(Gas.Nitrium));
+        mix.AdjustMoles(Gas.Nitrium, -mix.GetMoles(Gas.Hydrogen));
         mix.Temperature = Atmospherics.T20C;
         _gasOverlaySystem.UpdateSessions();
     }

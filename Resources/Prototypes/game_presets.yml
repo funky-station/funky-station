@@ -217,7 +217,7 @@
   showInVote: false
   rules:
   - Wizard
-  - SubGamemodesRuleNoWizard #No Dual Wizards at the start, midround is fine
+  #- SubGamemodesRuleNoWizard #No Dual Wizards at the start, midround is fine
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler

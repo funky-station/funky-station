@@ -24,6 +24,7 @@ public sealed partial class ArtifactGasTriggerComponent : Component
         Gas.Healium, // Assmos - /tg/ gases
         Gas.Nitrium, // Assmos - /tg/ gases
         Gas.Pluoxium, // Assmos - /tg/ gases
+        Gas.Hydrogen, // Assmos - /tg/ gases
     };
 
     /// <summary>

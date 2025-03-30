@@ -98,7 +98,7 @@
   - type: SolutionAmmoProvider
     solutionId: tank
     proto: AtmosResin
-    fireCost: 40
+    fireCost: 25
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -106,36 +106,21 @@
         reagents:
         - ReagentId: Water
           Quantity: 1200
-  - type: SolutionTransfer
-    transferAmount: 50
-    maxTransferAmount: 100
-    minTransferAmount: 10
-    canChangeTransferAmount: true
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        ents: []
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
-      enum.TransferAmountUiKey.Key:
-        type: TransferAmountBoundUserInterface
   - type: DrawableSolution
-    solution: tank
-  - type: RefillableSolution
     solution: tank
   - type: DrainableSolution
     solution: tank
   - type: ExaminableSolution
     solution: tank
-  - type: Storage
-    grid:
-    - 0,0,1,1
-    whitelist:
-      tags:
-      - AtmosBackTank
-  - type: StorageFill
-    contents:
-      - id: FirefighterNozzle
-
+  - type: ItemSlots
+    slots:
+      nozzle_slot:
+        name: FirefighterNozzle
+        startingItem: FirefighterNozzle
+        whitelist:
+          tags:
+          - AtmosBackTank
+  - type: FirefightingNozzle
+  - type: ContainerContainer
+    containers:
+      nozzle_slot: !type:ContainerSlot

@@ -556,6 +556,7 @@
     - SalvageMagnetMachineCircuitboard
     - OperatingTableCircuitboard # Shitmed Change
     - BorgChargerCircuitboard
+    - ElectrolyzerMachineBoard # Assmos - /tg/ gases
     dynamicRecipes:
     - ThermomachineFreezerMachineCircuitBoard
     - HellfireFreezerMachineCircuitBoard
@@ -715,6 +716,7 @@
     - ProximitySensor
     - BorgModuleAdvancedCleaning
     - BorgModuleAdvancedTool
+    - BorgModuleAtmos
     - BorgModuleGPS
     - BorgModuleArtifact
     - BorgModuleAnomaly

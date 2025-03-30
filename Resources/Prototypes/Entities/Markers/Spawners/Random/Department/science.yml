@@ -112,6 +112,7 @@
     - BorgModuleClowning
     - BorgModuleGardening
     - BorgModuleHarvesting
+    - BorgModuleAtmos
     rareChance: 0.1
     prototypes:
     - BorgModuleCable

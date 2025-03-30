@@ -145,6 +145,16 @@
   molarMass: 32
   color: 7b68ee
   reagent: Pluoxium
-  pricePerMole: 0.1
+  pricePerMole: 0.4
+
+- type: gas
+  id: 13
+  name: gases-hydrogen
+  specificHeat: 15
+  heatCapacityRatio: 1.405
+  molarMass: 32
+  color: fffaf0
+  reagent: Hydrogen
+  pricePerMole: 1.2
 
 # Assmos - /tg/ gases end

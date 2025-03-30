@@ -1,6 +1,7 @@
 using Content.Shared.Maps;
 using Content.Shared.Tag;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -24,7 +25,7 @@ public abstract class SharedAlternateDimensionSystem : EntitySystem
 
     /// <summary>
     /// Tries to find an alternate dimension of the grid the entity is on, and get the same coordinates
-    /// in the alternate dimension that the entity is in in the real world at the current moment.
+    /// in the alternate dimension that the entity is in the real world at the current moment.
     /// </summary>
     public EntityCoordinates? GetAlternateRealityCoordinates(EntityUid entity,
         ProtoId<AlternateDimensionPrototype> type)

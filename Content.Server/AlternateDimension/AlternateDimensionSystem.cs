@@ -25,7 +25,6 @@ public sealed partial class AlternateDimensionSystem : SharedAlternateDimensionS
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly AnchorableSystem _anchorable = default!;
-
     [Dependency] private readonly ILogManager _logManager = default!;
 
     private readonly JobQueue _jobQueue = new();
@@ -37,6 +36,7 @@ public sealed partial class AlternateDimensionSystem : SharedAlternateDimensionS
         base.Initialize();
         InitializePortal();
         InitializeStation();
+        InitializeMobs();
     }
 
     public override void Update(float frameTime)

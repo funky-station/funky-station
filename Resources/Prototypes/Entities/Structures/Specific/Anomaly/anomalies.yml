@@ -883,6 +883,9 @@
   - type: AlternateDimensionAutoPortal
     otherSidePortal: PortalBlue
     targetDimension: Shadowlands
+  - type: AlternateDimensionMobSpawner
+    targetDimension: Shadowlands
+    radiusModifier: 0.25
   - type: StunOnCollide
     stunAmount: 5
     knockdownAmount: 3

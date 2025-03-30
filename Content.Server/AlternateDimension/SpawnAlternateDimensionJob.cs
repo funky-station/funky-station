@@ -142,28 +142,6 @@ public sealed class SpawnAlternateDimensionJob : Job<bool>
         _mapManager.DoMapInitialize(_alternateMapId);
         _mapManager.SetMapPaused(_alternateMapId, false);
 
-        //Mobs
-        var spawns = 0;
-        while (spawns < 5)
-        {
-            if (alternateTiles.Count == 0)
-                break;
-
-            var tile = alternateTiles.RemoveSwap(random.Next(alternateTiles.Count));
-            if (!_anchorable.TileFree(alternateGridComp,
-                    tile.Index,
-                    (int) CollisionGroup.MachineLayer,
-                    (int) CollisionGroup.MachineLayer))
-            {
-                continue;
-            }
-
-            var uid = _entManager.SpawnAtPosition("MobXenoDrone", alternateGridComp.GridTileToLocal(tile.Index));
-            _entManager.RemoveComponent<GhostRoleComponent>(uid);
-            _entManager.RemoveComponent<GhostTakeoverAvailableComponent>(uid);
-            spawns++;
-        }
-
         return true;
     }
 }

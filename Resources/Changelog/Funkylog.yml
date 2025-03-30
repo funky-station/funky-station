@@ -2161,3 +2161,11 @@ Entries:
       message: Fixed permanent drunkeness
   id: 272
   time: '2025-03-29T16:14:59.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Fix
+      message: Made it so only one nukie commander and one nukie agent can spawn MAX.
+    - type: Fix
+      message: Re-added heretic to sub-gamemodes
+  id: 273
+  time: '2025-03-29T17:10:03.0000000+00:00'

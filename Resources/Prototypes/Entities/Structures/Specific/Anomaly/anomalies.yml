@@ -886,6 +886,9 @@
   - type: AlternateDimensionMobSpawner
     targetDimension: Shadowlands
     radiusModifier: 0.25
+    min: 6
+    max: 20
+    playerScaling: 2.0
   - type: StunOnCollide
     stunAmount: 5
     knockdownAmount: 3

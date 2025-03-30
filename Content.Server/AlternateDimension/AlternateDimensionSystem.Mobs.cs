@@ -1,14 +1,11 @@
 using System.Linq;
 using System.Numerics;
+using Content.Server.Antag;
 using Content.Server.Ghost.Roles.Components;
-using Content.Shared.AlternateDimension;
-using Content.Shared.Maps;
 using Content.Shared.Physics;
-using Content.Shared.Pinpointer;
-using Content.Shared.Teleportation.Components;
-using Content.Shared.Teleportation.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
 namespace Content.Server.AlternateDimension;
@@ -16,6 +13,8 @@ namespace Content.Server.AlternateDimension;
 public sealed partial class AlternateDimensionSystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
 
     private void InitializeMobs()
     {
@@ -65,8 +64,11 @@ public sealed partial class AlternateDimensionSystem
 
         sawmill.Log(LogLevel.Debug, "Removed {0} tiles from mob spawn consideration.", tilesRemoved);
 
+        var players = _antag.GetTotalPlayerCount(_player.Sessions);
+        var count = Math.Clamp(Convert.ToInt32(players * ent.Comp.PlayerScaling), ent.Comp.Min, ent.Comp.Max);
+
         var spawns = 0;
-        while (spawns < 5)
+        while (spawns < count)
         {
             if (alternateTiles.Count == 0)
                 break;

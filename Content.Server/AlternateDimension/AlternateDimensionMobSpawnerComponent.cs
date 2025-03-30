@@ -18,4 +18,13 @@ public sealed partial class AlternateDimensionMobSpawnerComponent : Component
     /// </summary>
     [DataField("radiusModifier", required: true)]
     public float RadiusModifier;
+
+    [DataField]
+    public int Min = 0;
+
+    [DataField]
+    public int Max = Int32.MaxValue;
+
+    [DataField]
+    public float PlayerScaling = 1.0f;
 }

@@ -56,15 +56,21 @@
       path: /Audio/Items/flashlight_off.ogg
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: Clothing
   id: ClothingNeckStethoscope
   name: stethoscope
   description: An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing.
   components:
+  - type: Item
+    size: Small
   - type: Sprite
     sprite: Clothing/Neck/Misc/stethoscope.rsi
+    state: icon
   - type: Clothing
     sprite: Clothing/Neck/Misc/stethoscope.rsi
+    quickEquip: true
+    slots:
+    - neck
   - type: Stethoscope
 
 - type: entity

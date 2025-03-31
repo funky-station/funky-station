@@ -64,12 +64,21 @@ public readonly partial record struct CargoBountyItemEntry()
     [DataField]
     public int Amount { get; init; } = 1;
 
+    /// <summary>
+    /// A minimum amount of the item that can be requested in a bounty, used to make sure a bounty isn't to underwhelming
+    /// </summary>
     [DataField]
     public int MinAmount { get; init; } = 1;
 
+    /// <summary>
+    /// A maximum amount of the item that can be requested for a bounty
+    /// </summary>
     [DataField]
     public int MaxAmount { get; init; } = 1;
 
+    /// <summary>
+    /// The amount each item will reward for a bounty
+    /// </summary>
     [DataField]
     public int RewardPer { get; init; } = 1;
 

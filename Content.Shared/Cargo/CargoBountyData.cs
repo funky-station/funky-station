@@ -1,7 +1,6 @@
 using Robust.Shared.Serialization;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Whitelist;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Cargo;
 
@@ -50,6 +49,11 @@ public sealed partial class CargoBountyData
         IdPrefix = idPrefix;
     }
 
+    /// <summary>
+    /// Used for creating bounties via the old system with pre-defined bounties
+    /// </summary>
+    /// <param name="uniqueIdentifier">Some number to be used as an ID with IdPrefix</param>
+    /// <param name="prototype">The prototype of the bounty to be created</param>
     public CargoBountyData(int uniqueIdentifier, CargoBountyPrototype prototype)
     {
         Id = $"{IdPrefix}{uniqueIdentifier:D3}";

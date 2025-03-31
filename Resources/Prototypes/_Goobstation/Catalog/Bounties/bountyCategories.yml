@@ -11,9 +11,11 @@
 #    maxAmount: 5
 #    rewardPer: 750
 
+# Generally, each category should be considered from the perspective of the orderer, what is a medical department likely to order? What will totally not the syndicate order?
+
 - type: cargoBountyCategory
   id: botanyCategory
-  name: Botany
+  name: bounty-category-botany
   entries:
   - name: bounty-item-carrot
     minAmount: 5
@@ -121,7 +123,7 @@
 
 - type: cargoBountyCategory
   id: scienceCategory
-  name: Science
+  name: bounty-category-science
   entries:
   - name: bounty-item-artifact
     minAmount: 1
@@ -182,7 +184,7 @@
 
 - type: cargoBountyCategory
   id: miscCategory
-  name: General
+  name: bounty-category-misc
   entries:
   - name: bounty-item-baseball-bat
     minAmount: 3
@@ -246,7 +248,7 @@
 
 - type: cargoBountyCategory
   id: medicalCategory
-  name: Medical
+  name: bounty-category-medical
   entries:
   - name: bounty-item-brain
     minAmount: 1
@@ -363,7 +365,7 @@
 
 - type: cargoBountyCategory
   id: kitchenCategory
-  name: Kitchen
+  name: bounty-category-kitchen
   entries:
   - name: bounty-item-cuban-carp
     minAmount: 1
@@ -484,7 +486,7 @@
 
 - type: cargoBountyCategory
   id: salvageCategory
-  name: Salvage
+  name: bounty-category-salvage
   entries:
   - name: bounty-item-carp
     minAmount: 1
@@ -524,7 +526,7 @@
 
 - type: cargoBountyCategory
   id: clownCategory
-  name: Clown
+  name: bounty-category-clown
   entries:
   - name: bounty-item-clown-mask
     minAmount: 1
@@ -602,7 +604,7 @@
 
 - type: cargoBountyCategory
   id: securityCategory
-  name: Security
+  name: bounty-category-security
   entries:
   - name: bounty-item-donut
     minAmount: 5
@@ -707,7 +709,7 @@
 
 - type: cargoBountyCategory
   id: weaponCategory
-  name: Weaponry
+  name: bounty-category-weaponry
   idPrefix: SYN
   entries:
   - name: bounty-item-shiv
@@ -761,7 +763,7 @@
 
 - type: cargoBountyCategory
   id: clothingCategory
-  name: Clothing
+  name: bounty-category-clothing
   entries:
   - name: bounty-item-bandana
     minAmount: 5
@@ -792,7 +794,7 @@
 
 - type: cargoBountyCategory
   id: libraryCategory
-  name: Library
+  name: bounty-category-library
   entries:
   - name: bounty-item-book
     minAmount: 3
@@ -825,7 +827,7 @@
 
 - type: cargoBountyCategory
   id: roboticsCategory
-  name: Robotics
+  name: bounty-category-robotics
   entries:
   - name: bounty-item-flash
     minAmount: 2
@@ -835,29 +837,29 @@
       components:
       - Flash
   - name: bounty-item-borg-arm
-    minAmount: 1
-    maxAmount: 3
+    minAmount: 2
+    maxAmount: 4
     rewardPer: 750
     whitelist:
       tags:
       - BorgArm
   - name: bounty-item-borg-head
-    minAmount: 1
-    maxAmount: 3
+    minAmount: 2
+    maxAmount: 4
     rewardPer: 750
     whitelist:
       tags:
       - BorgHead
   - name: bounty-item-borg-leg
-    minAmount: 1
-    maxAmount: 3
+    minAmount: 2
+    maxAmount: 4
     rewardPer: 750
     whitelist:
       tags:
       - BorgLeg
   - name: bounty-item-borg-torso
-    minAmount: 1
-    maxAmount: 3
+    minAmount: 2
+    maxAmount: 4
     rewardPer: 750
     whitelist:
       tags:
@@ -928,7 +930,7 @@
 
 - type: cargoBountyCategory
   id: musicCategory
-  name: Music
+  name: bounty-category-music
   entries:
   - name: bounty-item-instrument
     minAmount: 3
@@ -968,7 +970,7 @@
 
 - type: cargoBountyCategory
   id: barCategory
-  name: Bar
+  name: bounty-category-bar
   entries:
   - name: bounty-item-beer
     minAmount: 3
@@ -994,7 +996,7 @@
 
 - type: cargoBountyCategory
   id: EngineeringCategory
-  name: Engineering
+  name: bounty-category-engineering
   entries:
   - name: bounty-item-holofan-projector
     minAmount: 1
@@ -1048,7 +1050,7 @@
 
 - type: cargoBountyCategory
   id: janitorCategory
-  name: Janitor
+  name: bounty-category-janitor
   entries:
   - name: bounty-item-soap
     minAmount: 2

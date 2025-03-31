@@ -441,7 +441,7 @@ public sealed partial class CargoSystem
         newBounty.Reward = totalReward;
         _nameIdentifier.GenerateUniqueName(uid, BountyNameIdentifierGroup, out var randomVal);
         newBounty.Id = $"{newBounty.IdPrefix}{randomVal:D3}";
-        newBounty.Description = $"{bountyCategory.Name} Bounty: {newBounty.Id}";
+        newBounty.Description = Loc.GetString("bounty-console-category-description", ("category", Loc.GetString(bountyCategory.Name)), ("id", newBounty.Id));
 
         if (component.Bounties.Any(b => b.Id == newBounty.Id))
         {

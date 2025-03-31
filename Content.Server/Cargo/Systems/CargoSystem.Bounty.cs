@@ -334,33 +334,35 @@ public sealed partial class CargoSystem
     {
         bountyEntities = new();
 
-        foreach (var entry in entries)
-        {
-            var count = 0;
+        var entityReqs = new Dictionary<EntityUid, HashSet<CargoBountyItemData>>();
 
-            // store entities that already satisfied an
-            // entry so we don't double-count them.
-            var temp = new HashSet<EntityUid>();
-            foreach (var entity in entities)
+        foreach (var entity in entities)
+        {
+            entityReqs.Add(entity, new HashSet<CargoBountyItemData>());
+            foreach (var entry in entries)
             {
                 if (!IsValidBountyEntry(entity, entry))
                     continue;
 
-                count += _stackQuery.CompOrNull(entity)?.Count ?? 1;
-                temp.Add(entity);
-
-                if (count >= entry.Amount)
-                    break;
+                entityReqs[entity].Add(entry);
             }
+        }
 
-            if (count < entry.Amount)
-                return false;
+        var remaining = new Dictionary<CargoBountyItemData, int>();
+        foreach (var e in entries)
+        {
+            remaining[e] = e.Amount;
+        }
 
-            foreach (var ent in temp)
-            {
-                entities.Remove(ent);
-                bountyEntities.Add(ent);
-            }
+        var sorted = entityReqs.OrderBy(kvp => kvp.Value.Count).ToList();
+        foreach (var (entity, possibleEntries) in sorted)
+        {
+            var chosenEntry = possibleEntries.FirstOrDefault(b => remaining.ContainsKey(b) && remaining[b] > 0);
+
+            if (chosenEntry == null)
+                continue;
+            bountyEntities.Add(entity);
+            remaining[chosenEntry]--;
         }
 
         return true;

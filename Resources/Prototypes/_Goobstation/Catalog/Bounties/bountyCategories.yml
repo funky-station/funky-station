@@ -876,49 +876,49 @@
     maxAmount: 5
     rewardPer: 1500
     whitelist:
-      components:
+      tags:
       - BorgModuleCargo
   - name: bounty-item-borg-module-engineering
     minAmount: 2
     maxAmount: 5
     rewardPer: 1500
     whitelist:
-      components:
+      tags:
       - BorgModuleEngineering
   - name: bounty-item-borg-module-generic
     minAmount: 2
     maxAmount: 5
     rewardPer: 1500
     whitelist:
-      components:
+      tags:
       - BorgModuleGeneric
   - name: bounty-item-borg-module-janitor
     minAmount: 2
     maxAmount: 5
     rewardPer: 1500
     whitelist:
-      components:
+      tags:
       - BorgModuleJanitor
   - name: bounty-item-borg-module-medical
     minAmount: 2
     maxAmount: 5
     rewardPer: 1500
     whitelist:
-      components:
+      tags:
       - BorgModuleMedical
   - name: bounty-item-borg-module-service
     minAmount: 2
     maxAmount: 5
     rewardPer: 1500
     whitelist:
-      components:
+      tags:
       - BorgModuleService
   - name: bounty-item-bot
     minAmount: 1
     maxAmount: 3
     rewardPer: 2200
     whitelist:
-      components:
+      tags:
       - Bot
   - name: bounty-item-brain
     minAmount: 1

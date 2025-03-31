@@ -2175,3 +2175,9 @@ Entries:
       message: fixed dragon event chaos values
   id: 274
   time: '2025-03-31T02:33:59.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: 'Bagel maints expansion Pt 2: The Big one'
+  id: 275
+  time: '2025-03-31T06:55:50.0000000+00:00'

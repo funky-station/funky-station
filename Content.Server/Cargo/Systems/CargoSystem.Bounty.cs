@@ -410,6 +410,7 @@ public sealed partial class CargoSystem
         var selection = Math.Min(1 - Math.Ceiling(Math.Log(_random.NextDouble(), 2)), totalItems);
         var totalReward = 0;
         var newBounty = new CargoBountyData();
+        newBounty.IdPrefix = bountyCategory.IdPrefix;
 
         for (var i = 1; i <= selection;)
         {

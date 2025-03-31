@@ -14,4 +14,10 @@ public sealed partial class CargoBountyCategoryPrototype : IPrototype
 
     [DataField(required: true)]
     public required List<CargoBountyItemEntry> Entries;
+
+    /// <summary>
+    /// A prefix appended to the beginning of a bounty's ID.
+    /// </summary>
+    [DataField]
+    public string IdPrefix = "NT";
 }

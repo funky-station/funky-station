@@ -635,8 +635,8 @@
       components:
       - HitscanBatteryAmmoProvider
     blacklist:
-      components:
-      - Battery
+      tags:
+      - PowerCell
   - name: bounty-item-flash
     minAmount: 3
     maxAmount: 8

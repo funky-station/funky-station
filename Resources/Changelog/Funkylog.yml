@@ -2181,3 +2181,13 @@ Entries:
       message: 'Bagel maints expansion Pt 2: The Big one'
   id: 275
   time: '2025-03-31T06:55:50.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Remove
+      message: >-
+        Removed the NaturalRegeneration, NaturalResiliance, Hemophiliac,
+        CarefulSteps, TableHider, TemperatureTolerance and SwiftFeet traits.
+    - type: Tweak
+      message: Moved Deuteranopia and Ultravision traits to a new Vision category.
+  id: 276
+  time: '2025-04-01T03:57:45.0000000+00:00'

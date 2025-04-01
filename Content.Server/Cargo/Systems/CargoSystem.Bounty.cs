@@ -365,6 +365,14 @@ public sealed partial class CargoSystem
             remaining[chosenEntry]--;
         }
 
+        foreach (var e in remaining)
+        {
+            if (e.Value > 0)
+            {
+                return false;
+            }
+        }
+
         return true;
     }
 

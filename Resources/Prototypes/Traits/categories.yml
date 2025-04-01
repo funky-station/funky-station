@@ -16,3 +16,8 @@
   id: AlcoholTolerance
   name: trait-category-alcohol-tolerance
   maxTraitPoints: 1
+
+- type: traitCategory # Funky Station
+  id: Vision
+  name: trait-category-vision-tolerance
+  maxTraitPoints: 1

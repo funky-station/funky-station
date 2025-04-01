@@ -1,10 +1,11 @@
 # Funky station - Copied Mono's Disability > Quirks, made changes.
+# 31 Mar 2025 - Disabled most "debuffs" giving you extra points.
 - type: trait
   id: Pacifist
   name: trait-pacifist-name
   description: trait-pacifist-desc
   category: Quirks
-  cost: -8
+  cost: 0
   components:
   - type: Pacified
 
@@ -22,7 +23,7 @@
   description: trait-blindness-desc
   traitGear: WhiteCane
   category: Quirks
-  cost: -16
+  cost: 0
   whitelist:
     components:
       - Blindable
@@ -35,7 +36,7 @@
   description: trait-poor-vision-desc
   traitGear: ClothingEyesGlasses
   category: Quirks
-  cost: -4
+  cost: 0
   whitelist:
     components:
       - Blindable
@@ -48,7 +49,7 @@
   name: trait-narcolepsy-name
   description: trait-narcolepsy-desc
   category: Quirks
-  cost: -6
+  cost: 0
   components:
     - type: Narcolepsy
       timeBetweenIncidents: 300, 600
@@ -59,7 +60,7 @@
   name: trait-unrevivable-name
   description: trait-unrevivable-desc
   category: Quirks
-  cost: -2 # it's basically the DNR trait
+  cost: 0 # it's basically the DNR trait
   components:
     - type: Unrevivable
 
@@ -68,7 +69,7 @@
   name: trait-muted-name
   description: trait-muted-desc
   category: Quirks
-  cost: -6 # Funky - Not a terrible debuff, also having it high's pretty abusable.
+  cost: 0 # Funky - Not a terrible debuff, also having it high's pretty abusable.
   blacklist:
     components:
       - BorgChassis
@@ -80,7 +81,7 @@
   name: trait-paracusia-name
   description: trait-paracusia-desc
   category: Quirks
-  cost: -1 # Laughably minor trait.
+  cost: 0 # Laughably minor trait.
   components:
     - type: Paracusia
       minTimeBetweenIncidents: 0.1

@@ -1,165 +1,168 @@
-- type: trait
-  id: NaturalRegeneration
-  name: trait-natural-regeneration-name
-  description: trait-natural-regeneration-desc
-  category: Quirks
-  cost: 8
-  components:
-  - type: PassiveDamage
-    allowedStates:
-    - Alive
-    damageCap: 100 # Body gives up
-    damage:
-      types:
-        Brute: -0.15
-        Burn: -0.2
-        Airloss: -0.1
-        Toxin: -0.1
-        Genetic: -0.1
-        
-- type: trait
-  id: NaturalResiliance
-  name: trait-natural-resiliance-name
-  description: trait-natural-resiliance-desc
-  category: Quirks
-  cost: 6
-  components:
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+# Funky Station
+# 31 Mar 2025 - Disabled due to balancing issues
 
-- type: trait
-  id: Hemophiliac
-  name: trait-hemophiliac-name
-  description: trait-hemophiliac-desc
-  category: Quirks
-  cost: -4 # Pretty major debuff but no impairment and treatable by a competent player
-  components:
-  - type: Armor
-    modifiers:
-      coefficients:
-        Bloodloss: 4.0 
-  speciesRestrictions:
-  - IPC
-
-- type: trait
-  id: CarefulSteps
-  name: trait-careful-steps-name
-  description: trait-careful-steps-desc
-  category: Quirks
-  cost: 4 # Slower than galoshes, hurts no slip users, but still a no slip after all.
-  components:
-  - type: NoSlip
-  - type: SlowedOverSlippery
-    slowdownModifier: 0.65
-  - type: SpeedModifierContactCapClothing
-    maxContactSprintSlowdown: 0.65
-    maxContactWalkSlowdown: 0.9 # Better than galoshes here but walk already prevents slip
-  - type: ClothingSpeedModifier # Can careful steps be even weaker? most definitely.
-    walkModifier: 0.9
-    sprintModifier: 0.9
-
-- type: trait
-  id: SwiftFeet
-  name: trait-swift-feet-name
-  description: trait-swift-feet-desc
-  category: Quirks
-  cost: 6
-  components:
-  - type: ClothingSpeedModifier
-    walkModifier: 1.1
-    sprintModifier: 1.1
-
-- type: trait
-  id: TemperatureTolerance
-  name: trait-temperature-tolerance-name
-  description: trait-temperature-tolerance-desc
-  category: Quirks
-  cost: 2 
-  components:
-  - type: Temperature
-    atmosTemperatureTransferEfficiency: 0.1
-
-- type: trait
-  id: TableHider
-  name: trait-table-hider-name
-  description: trait-table-hider-desc
-  category: Quirks
-  cost: 16 # Literally the rodentia action, blatant why it costs a lot.
-  components:
-  - type: CrawlUnderObjects
-    actionProto: ActionToggleSneakMode
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 1.1
-        Slash: 1.2 # wide swing murder :godo:
-        Heat: 1.1
-
-- type: trait
-  id: StrengthenedImmunity
-  name: trait-strengthened-immunity-name
-  description: trait-strengthened-immunity-desc
-  category: Quirks
-  cost: 6 # Pretty strong but not more desirable than the other stat traits
-  components:
-  - type: Armor
-    modifiers:
-      coefficients:
-        Poison: 0.4
-
-- type: trait
-  id: StableGenes
-  name: trait-stable-genes-name
-  description: trait-stable-genes-desc
-  category: Quirks
-  cost: 2 # Extremely situational and decently weak
-  components:
-  - type: Armor
-    modifiers:
-      coefficients: # Change it to 0.75 when the less muations part can be added [genetics] - And no, no celluar defense.
-        Radiation: 0.5
-
-- type: trait
-  id: Resourceful
-  name: trait-resourceful-name
-  description: trait-table-hider-desc
-  category: Quirks
-  cost: 8
-  components:
-  - type: Storage
-    clickInsert: false
-    openOnActivate: false
-    grid:
-    - 0,0,2,2
-    maxItemSize: Small
-  speciesRestrictions:
-  - Slime # They already have a storage, albeit smaller.
-
-- type: trait
-  id: LizardDragger
-  name: trait-lizard-dragger-name
-  description: trait-lizard-dragger-desc
-  category: Quirks
-  cost: 8
-  components:
-  - type: Puller
-    needsHands: false
-  speciesRestrictions:
-  - Reptilian
-
-- type: trait
-  id: Acrobat
-  name: trait-acrobat-name
-  description: trait-acrobat-desc
-  category: Quirks
-  cost: 3 # Passive like drunk res and careful steps but very situational.
-  components:
-  - type: MovementSpeedModifier
-    weightlessAcceleration: 1.75 # 50% of a moth's buff
-  speciesRestrictions:
-  - Moth
+#- type: trait
+#  id: NaturalRegeneration
+#  name: trait-natural-regeneration-name
+#  description: trait-natural-regeneration-desc
+#  category: Quirks
+#  cost: 8
+#  components:
+#  - type: PassiveDamage
+#    allowedStates:
+#    - Alive
+#    damageCap: 100 # Body gives up
+#    damage:
+#      types:
+#        Brute: -0.15
+#        Burn: -0.2
+#        Airloss: -0.1
+#        Toxin: -0.1
+#        Genetic: -0.1
+#
+#- type: trait
+#  id: NaturalResiliance
+#  name: trait-natural-resiliance-name
+#  description: trait-natural-resiliance-desc
+#  category: Quirks
+#  cost: 6
+#  components:
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.9
+#        Slash: 0.9
+#        Piercing: 0.9
+#        Heat: 0.9
+#
+#- type: trait
+#  id: Hemophiliac
+#  name: trait-hemophiliac-name
+#  description: trait-hemophiliac-desc
+#  category: Quirks
+#  cost: -4 # Pretty major debuff but no impairment and treatable by a competent player
+#  components:
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Bloodloss: 4.0
+#  speciesRestrictions:
+#  - IPC
+#
+#- type: trait
+#  id: CarefulSteps
+#  name: trait-careful-steps-name
+#  description: trait-careful-steps-desc
+#  category: Quirks
+#  cost: 4 # Slower than galoshes, hurts no slip users, but still a no slip after all.
+#  components:
+#  - type: NoSlip
+#  - type: SlowedOverSlippery
+#    slowdownModifier: 0.65
+#  - type: SpeedModifierContactCapClothing
+#    maxContactSprintSlowdown: 0.65
+#    maxContactWalkSlowdown: 0.9 # Better than galoshes here but walk already prevents slip
+#  - type: ClothingSpeedModifier # Can careful steps be even weaker? most definitely.
+#    walkModifier: 0.9
+#    sprintModifier: 0.9
+#
+#- type: trait
+#  id: SwiftFeet
+#  name: trait-swift-feet-name
+#  description: trait-swift-feet-desc
+#  category: Quirks
+#  cost: 6
+#  components:
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1.1
+#    sprintModifier: 1.1
+#
+#- type: trait
+#  id: TemperatureTolerance
+#  name: trait-temperature-tolerance-name
+#  description: trait-temperature-tolerance-desc
+#  category: Quirks
+#  cost: 2
+#  components:
+#  - type: Temperature
+#    atmosTemperatureTransferEfficiency: 0.1
+#
+#- type: trait
+#  id: TableHider
+#  name: trait-table-hider-name
+#  description: trait-table-hider-desc
+#  category: Quirks
+#  cost: 16 # Literally the rodentia action, blatant why it costs a lot.
+#  components:
+#  - type: CrawlUnderObjects
+#    actionProto: ActionToggleSneakMode
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 1.1
+#        Slash: 1.2 # wide swing murder :godo:
+#        Heat: 1.1
+#
+#- type: trait
+#  id: StrengthenedImmunity
+#  name: trait-strengthened-immunity-name
+#  description: trait-strengthened-immunity-desc
+#  category: Quirks
+#  cost: 6 # Pretty strong but not more desirable than the other stat traits
+#  components:
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Poison: 0.4
+#
+#- type: trait
+#  id: StableGenes
+#  name: trait-stable-genes-name
+#  description: trait-stable-genes-desc
+#  category: Quirks
+#  cost: 2 # Extremely situational and decently weak
+#  components:
+#  - type: Armor
+#    modifiers:
+#      coefficients: # Change it to 0.75 when the less muations part can be added [genetics] - And no, no celluar defense.
+#        Radiation: 0.5
+#
+#- type: trait
+#  id: Resourceful
+#  name: trait-resourceful-name
+#  description: trait-table-hider-desc
+#  category: Quirks
+#  cost: 8
+#  components:
+#  - type: Storage
+#    clickInsert: false
+#    openOnActivate: false
+#    grid:
+#    - 0,0,2,2
+#    maxItemSize: Small
+#  speciesRestrictions:
+#  - Slime # They already have a storage, albeit smaller.
+#
+#- type: trait
+#  id: LizardDragger
+#  name: trait-lizard-dragger-name
+#  description: trait-lizard-dragger-desc
+#  category: Quirks
+#  cost: 8
+#  components:
+#  - type: Puller
+#    needsHands: false
+#  speciesRestrictions:
+#  - Reptilian
+#
+#- type: trait
+#  id: Acrobat
+#  name: trait-acrobat-name
+#  description: trait-acrobat-desc
+#  category: Quirks
+#  cost: 3 # Passive like drunk res and careful steps but very situational.
+#  components:
+#  - type: MovementSpeedModifier
+#    weightlessAcceleration: 1.75 # 50% of a moth's buff
+#  speciesRestrictions:
+#  - Moth

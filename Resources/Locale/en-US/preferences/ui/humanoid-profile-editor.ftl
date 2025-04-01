@@ -63,3 +63,4 @@ trait-category-disabilities = Disabilities
 trait-category-speech = Speech traits
 trait-category-quirks = Quirks
 trait-category-alcohol-tolerance = Alcohol Tolerance
+trait-category-vision-tolerance = Vision

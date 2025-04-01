@@ -2199,3 +2199,9 @@ Entries:
       message: Filled SMES sell for good money.
   id: 277
   time: '2025-04-01T19:50:09.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Permanent blindness is now un-treatable.
+  id: 278
+  time: '2025-04-01T20:34:11.0000000+00:00'

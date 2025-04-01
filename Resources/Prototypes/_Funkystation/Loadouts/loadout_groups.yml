@@ -32,3 +32,18 @@
   - ChaplainBibleChristian
   - ChaplainBibleAtheist
   - ChaplainBibleBhuddhist
+
+- type: loadoutGroup
+  id: PrisonerJumpsuit
+  name: loadout-group-prisoner-jumpsuit
+  loadouts:
+  - PrisonerJumpsuit
+  - PrisonerJumpskirt
+
+- type: loadoutGroup
+  id: PrisonerBackpack
+  name: loadout-group-prisoner-backpack
+  loadouts:
+  - PrisonerBag
+  - PrisonerSatchel
+  - PrisonerDuffel

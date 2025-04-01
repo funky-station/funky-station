@@ -1,0 +1,27 @@
+# Backpack
+- type: loadout
+  id: PrisonerDuffel
+  equipment:
+    back: ClothingBackpackDuffel
+
+- type: loadout
+  id: PrisonerSatchel
+  equipment:
+    back: ClothingBackpackSatchel
+
+- type: loadout
+  id: PrisonerBag
+  equipment:
+    back: ClothingBackpack
+
+# Jumpsuit
+
+- type: loadout
+  id: PrisonerJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPrisoner
+
+- type: loadout
+  id: PrisonerJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtPrisoner

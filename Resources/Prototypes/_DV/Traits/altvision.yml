@@ -6,8 +6,7 @@
   cost: 1
   components:
     - type: UltraVision
-  speciesRestrictions:
-  - Harpy
+
 
 - type: trait
   id: DogVision
@@ -17,5 +16,3 @@
   cost: 1
   components:
     - type: DogVision
-  speciesRestrictions:
-  - Vulpkanin

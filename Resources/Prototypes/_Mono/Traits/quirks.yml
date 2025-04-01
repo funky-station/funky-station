@@ -3,7 +3,7 @@
   name: drunken-resilience-trait-name
   description: drunken-resilience-trait-desc
   category: Quirks
-  cost: 0
+  cost: 1
   components:
   - type: LiquorLifeline
   speciesRestrictions:

@@ -16,7 +16,6 @@ entities:
       name: Infiltrator
     - type: Transform
       pos: -2.5547404,-0.85075015
-      parent: 1
     - type: MapGrid
       chunks:
         0,0:

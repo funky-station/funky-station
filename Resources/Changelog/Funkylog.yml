@@ -2191,3 +2191,11 @@ Entries:
       message: Moved Deuteranopia and Ultravision traits to a new Vision category.
   id: 276
   time: '2025-04-01T03:57:45.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Fix
+      message: Adv. SMES capacity buffed (2x)
+    - type: Tweak
+      message: Filled SMES sell for good money.
+  id: 277
+  time: '2025-04-01T19:50:09.0000000+00:00'

@@ -25,6 +25,7 @@
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 3 ]
             Chef: [ 2, 2 ]
+            Prisoner: [ 1, 2 ]
             Janitor: [ 1, 2 ]
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]

@@ -9,7 +9,6 @@
   requireAdminNotify: false
   joinNotifyCrew: true
   supervisors: job-supervisors-everyone
-  canBeAntag: false
   access:
   - Maintenance
 

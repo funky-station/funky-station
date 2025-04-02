@@ -24,6 +24,7 @@
             BlueshieldOfficer: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 2, 2 ]
+            Prisoner: [ 1, 2 ]
             Botanist: [ 3, 3 ]
             Chef: [ 2, 2 ]
             Janitor: [ 2, 2 ]

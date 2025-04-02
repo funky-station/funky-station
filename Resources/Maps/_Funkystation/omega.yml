@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/28/2025 05:15:10
-  entityCount: 13799
+  time: 04/01/2025 19:55:00
+  entityCount: 13800
 maps:
 - 1
 grids:
@@ -4321,7 +4321,7 @@ entities:
             4: 2184
           -13,4:
             3: 2184
-            6: 546
+            5: 546
           -12,5:
             0: 1
             1: 3856
@@ -4330,7 +4330,7 @@ entities:
           -11,5:
             1: 784
           -11,4:
-            5: 546
+            6: 546
           -11,6:
             0: 49152
           -11,3:
@@ -4680,9 +4680,9 @@ entities:
           temperature: 293.15
           moles:
           - 0
+          - 0
+          - 0
           - 6666.982
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -4699,9 +4699,9 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 0
-          - 0
           - 6666.982
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -73652,6 +73652,13 @@ entities:
     components:
     - type: Transform
       pos: -20.5,10.5
+      parent: 2
+- proto: SpawnPointPrisoner
+  entities:
+  - uid: 8112
+    components:
+    - type: Transform
+      pos: -28.5,31.5
       parent: 2
 - proto: SpawnPointQuartermaster
   entities:

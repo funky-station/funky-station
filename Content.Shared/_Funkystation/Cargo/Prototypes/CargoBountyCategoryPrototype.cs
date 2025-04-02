@@ -1,7 +1,8 @@
-﻿using Robust.Shared.Prototypes;
+﻿using Content.Shared.Cargo.Prototypes;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Cargo.Prototypes;
+namespace Content.Shared._Funkystation.Cargo.Prototypes;
 
 /// <summary>
 /// Bounty Category used to create the list of possible items a bounty can pull from for the defined category

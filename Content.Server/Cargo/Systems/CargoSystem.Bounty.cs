@@ -3,6 +3,7 @@ using System.Linq;
 using Content.Server.Cargo.Components;
 using Content.Server.Labels;
 using Content.Server.NameIdentifier;
+using Content.Shared._Funkystation.Cargo.Prototypes;
 using Content.Shared.Access.Components;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
@@ -19,6 +20,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+
+// This file features edits for Funky Station, while there are minor edits throughout the file, the section of major changes has been marked
 
 namespace Content.Server.Cargo.Systems;
 
@@ -402,7 +405,7 @@ public sealed partial class CargoSystem
 
         return entities;
     }
-
+    // Beginning of major Funky Station Edits
     [PublicAPI]
     public bool TryAddBounty(EntityUid uid, StationCargoBountyDatabaseComponent? component = null)
     {
@@ -491,6 +494,7 @@ public sealed partial class CargoSystem
         component.TotalBounties++;
         return true;
     }
+    // End of major Funky Station Edits
 
     [PublicAPI]
     public bool TryRemoveBounty(Entity<StationCargoBountyDatabaseComponent?> ent,

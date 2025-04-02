@@ -20,7 +20,7 @@ public sealed partial class BountyHistoryEntry : BoxContainer
         IoCManager.InjectDependencies(this);
 
         var items = new List<string>();
-        foreach (var entry in bounty.Bounty.Entries)
+        foreach (var entry in bounty.Bounty.Entries) // Funky Station
         {
             items.Add(Loc.GetString("bounty-console-manifest-entry",
                 ("amount", entry.Amount),
@@ -28,7 +28,7 @@ public sealed partial class BountyHistoryEntry : BoxContainer
         }
 
         ManifestLabel.SetMarkup(Loc.GetString("bounty-console-manifest-label", ("item", string.Join(", ", items))));
-        RewardLabel.SetMarkup(Loc.GetString("bounty-console-reward-label", ("reward", bounty.Bounty.Reward)));
+        RewardLabel.SetMarkup(Loc.GetString("bounty-console-reward-label", ("reward", bounty.Bounty.Reward))); // Funky Station
         IdLabel.SetMarkup(Loc.GetString("bounty-console-id-label", ("id", bounty.Id)));
 
         TimestampLabel.SetMarkup(bounty.Timestamp.ToString(@"hh\:mm\:ss"));

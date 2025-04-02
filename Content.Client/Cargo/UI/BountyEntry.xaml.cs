@@ -29,19 +29,16 @@ public sealed partial class BountyEntry : BoxContainer
 
         UntilNextSkip = untilNextSkip;
 
-        if (!_prototype.TryIndex<CargoBountyPrototype>(bounty.Bounty, out var bountyPrototype))
-            return;
-
         var items = new List<string>();
-        foreach (var entry in bountyPrototype.Entries)
+        foreach (var entry in bounty.Entries) // Funky Station
         {
             items.Add(Loc.GetString("bounty-console-manifest-entry",
                 ("amount", entry.Amount),
                 ("item", Loc.GetString(entry.Name))));
         }
         ManifestLabel.SetMarkup(Loc.GetString("bounty-console-manifest-label", ("item", string.Join(", ", items))));
-        RewardLabel.SetMarkup(Loc.GetString("bounty-console-reward-label", ("reward", bountyPrototype.Reward)));
-        DescriptionLabel.SetMarkup(Loc.GetString("bounty-console-description-label", ("description", Loc.GetString(bountyPrototype.Description))));
+        RewardLabel.SetMarkup(Loc.GetString("bounty-console-reward-label", ("reward", bounty.Reward))); // Funky Station
+        DescriptionLabel.SetMarkup(Loc.GetString("bounty-console-description-label", ("description", Loc.GetString(bounty.Description)))); // Funky Station
         IdLabel.SetMarkup(Loc.GetString("bounty-console-id-label", ("id", bounty.Id)));
 
         PrintButton.OnPressed += _ => OnLabelButtonPressed?.Invoke();

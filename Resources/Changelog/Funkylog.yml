@@ -2205,3 +2205,11 @@ Entries:
       message: Permanent blindness is now un-treatable.
   id: 278
   time: '2025-04-01T20:34:11.0000000+00:00'
+- author: ' Gansu'
+  changes:
+    - type: Tweak
+      message: Bounties generation has been changed for more variety among bounties
+    - type: Tweak
+      message: Certain bounty items have had a rebalance in rewards
+  id: 279
+  time: '2025-04-02T21:41:13.0000000+00:00'

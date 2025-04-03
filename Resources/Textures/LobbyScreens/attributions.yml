@@ -138,7 +138,7 @@
   copyright: "shakulan"
   source: "https://funkystation.org"
 
-  - files: ["lowpopCrew.webp"]
+- files: ["lowpopCrew.webp"]
   license: "CC-BY-NC-ND 4.0"
   copyright: "vectorassembly"
   source: "https://vectorassembly.org"

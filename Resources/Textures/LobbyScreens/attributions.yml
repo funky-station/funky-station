@@ -139,8 +139,8 @@
   source: "https://funkystation.org"
 
 - files: ["lowpopCrew.webp"]
-  license: "CC-BY-NC-ND-4.0"
-  copyright: "vectorassembly"
+  license: "Custom"
+  copyright: "vectorassembly | CC-BY-NC-ND-4.0"
   source: "https://vectorassembly.org"
 
 

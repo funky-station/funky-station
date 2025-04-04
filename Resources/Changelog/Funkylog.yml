@@ -2219,3 +2219,11 @@ Entries:
       message: added lowpopCrew lobby art.
   id: 280
   time: '2025-04-03T23:44:02.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Tweak
+      message: More maints added into Box
+    - type: Tweak
+      message: Added the material silo into Box
+  id: 281
+  time: '2025-04-04T17:08:47.0000000+00:00'

@@ -2213,3 +2213,9 @@ Entries:
       message: Certain bounty items have had a rebalance in rewards
   id: 279
   time: '2025-04-02T21:41:13.0000000+00:00'
+- author: vassembly
+  changes:
+    - type: Add
+      message: added lowpopCrew lobby art.
+  id: 280
+  time: '2025-04-03T23:44:02.0000000+00:00'

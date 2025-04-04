@@ -112,6 +112,14 @@ public abstract partial class SharedMoverController : VirtualController
     public override void UpdateAfterSolve(bool prediction, float frameTime)
     {
         base.UpdateAfterSolve(prediction, frameTime);
+
+        var query = AllEntityQuery<InputMoverComponent, PhysicsComponent>();
+
+        while (query.MoveNext(out var uid, out var _, out var physics))
+        {
+            //PhysicsSystem.SetLinearVelocity(uid, Vector2.Zero, body: physics);
+        }
+
         UsedMobMovement.Clear();
     }
 

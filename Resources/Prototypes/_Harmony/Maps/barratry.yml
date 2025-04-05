@@ -1,7 +1,7 @@
 - type: gameMap
   id: Barratry
   mapName: 'Barratry'
-  mapPath: /Maps/_Goobstation/barratry.yml
+  mapPath: /Maps/_Harmony/barratry.yml
   minPlayers: 30
   maxPlayers: 60
   stations:
@@ -9,26 +9,25 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Barratry {1}'
+          mapNameTemplate: '{0} Pioneer {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_raven.yml
+          emergencyShuttlePath: /Maps/_Harmony/Shuttles/emergency_pioneer.yml
+        - type: StationCargoShuttle
+          path: /Maps/_Harmony/Shuttles/cargo_barratry.yml
         - type: StationJobs
           availableJobs:
             #service
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
-            NanotrasenRepresentative: [ 1, 1 ]
-            BlueshieldOfficer: [ 1, 1 ]
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 2 ]
             Chef: [ 2, 2 ]
             Janitor: [ 2, 2 ]
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
-            Lawyer: [ 2, 2 ]
             ServiceWorker: [ 1, 2 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
@@ -51,6 +50,7 @@
             Detective: [ 1, 1 ]
             SecurityOfficer: [ 5, 5 ]
             SecurityCadet: [ 2, 4 ]
+            Lawyer: [ 2, 2 ]
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
@@ -60,7 +60,7 @@
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
+            Reporter: [ 1, 1 ]
             #silicon
             StationAi: [ 1, 1 ]
-
-
+            Borg: [ 1, 1 ]

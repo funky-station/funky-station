@@ -84,6 +84,9 @@
   - type: ChangelingAction
     chemicalCost: 25
     useInLesserForm: true
+  - type: Sprite
+    sprite: _Goobstation/Changeling/changeling_abilities.rsi
+    state: sting_extractdna
 
 - type: entity
   id: ActionChangelingTransformCycle

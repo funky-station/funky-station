@@ -44,6 +44,9 @@ binds:
 - function: Walk
   type: State
   key: Shift
+- function: ToggleStanding
+  type: State
+  key: R
 # Shuttle
 - function: ShuttleStrafeUp
   type: State
@@ -560,7 +563,7 @@ binds:
   type: State
   key: Num9
 ### goobstation-start
-- function: Loadout0 
+- function: Loadout0
   type: State
   key: Num0
   mod1: Shift

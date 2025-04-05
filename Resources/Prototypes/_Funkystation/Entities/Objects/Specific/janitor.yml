@@ -61,6 +61,9 @@
         state: fill-3
         visible: false
   - type: Appearance
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
   - type: SolutionContainerVisuals
     maxFillLevels: 3
     fillBaseName: fill-

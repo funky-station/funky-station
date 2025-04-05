@@ -132,7 +132,7 @@
   name: mop sword
   parent: BaseSword
   id: MopSword
-  description: Add description
+  description: Cleaning just got a whole new meaning.
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Specific/Janitorial/mopsword.rsi

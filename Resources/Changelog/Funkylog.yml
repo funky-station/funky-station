@@ -2219,3 +2219,39 @@ Entries:
       message: added lowpopCrew lobby art.
   id: 280
   time: '2025-04-03T23:44:02.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Tweak
+      message: More maints added into Box
+    - type: Tweak
+      message: Added the material silo into Box
+  id: 281
+  time: '2025-04-04T17:08:47.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added new Janitor syndicate items
+  id: 282
+  time: '2025-04-04T17:14:26.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Rewrote the Revolutionary Guidebook Entry
+    - type: Tweak
+      message: Blob guidebook now has entry about the Blob carrier timer
+    - type: Tweak
+      message: >-
+        Surgery guidebook now mentions that certain surgeries require a surgical
+        table
+    - type: Tweak
+      message: Engineering SOP has been modified.
+    - type: Tweak
+      message: Medical SOP has been modified.
+    - type: Tweak
+      message: >-
+        Changeling Guide now mentions the DNA Extraction sting, and it's
+        intended use.
+    - type: Add
+      message: Science now has an SOP entry.
+  id: 283
+  time: '2025-04-05T05:38:25.0000000+00:00'

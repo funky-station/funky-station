@@ -40,6 +40,8 @@ public sealed partial class CargoBountyData
     [DataField]
     public string IdPrefix = "NT";
 
+    public LocId Category;
+
     public CargoBountyData(int uniqueIdentifier, int reward, LocId description, List<CargoBountyItemData> entries, string idPrefix = "NT")
     {
         Id = $"{IdPrefix}{uniqueIdentifier:D3}";
@@ -66,6 +68,11 @@ public sealed partial class CargoBountyData
             items.Add(new CargoBountyItemData(entry));
         }
         Entries = items;
+    }
+
+    public CargoBountyData()
+    {
+
     }
 }
 

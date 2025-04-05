@@ -881,7 +881,7 @@
       types:
         Cold: 10
   - type: AlternateDimensionAutoPortal
-    otherSidePortal: PortalBlue
+    otherSidePortal: InvisiblePortal
     targetDimension: Shadowlands
   - type: AlternateDimensionMobSpawner
     targetDimension: Shadowlands

@@ -121,7 +121,7 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-commander
+        - NamesNukieFirstCommander
         - SyndicateNamesElite
       - type: NpcFactionMember
         factions:
@@ -139,7 +139,7 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-agent
+        - NamesNukieFirstAgent
         - SyndicateNamesNormal
       - type: NpcFactionMember
         factions:
@@ -158,7 +158,7 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-operator
+        - NamesNukieFirstOperator
         - SyndicateNamesNormal
       - type: NpcFactionMember
         factions:

@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/28/2025 03:18:19
-  entityCount: 22449
+  time: 04/04/2025 13:52:48
+  entityCount: 22455
 maps:
 - 1
 grids:
@@ -62419,11 +62419,6 @@ entities:
           ent: null
 - proto: CrateTrashCartFilled
   entities:
-  - uid: 9129
-    components:
-    - type: Transform
-      pos: 5.5,-37.5
-      parent: 2
   - uid: 9130
     components:
     - type: Transform
@@ -104502,6 +104497,43 @@ entities:
           showEnts: False
           occludes: True
           ent: null
+- proto: LockerWeldingSuppliesFilled
+  entities:
+  - uid: 9129
+    components:
+    - type: Transform
+      pos: 5.5,-37.5
+      parent: 2
+  - uid: 22450
+    components:
+    - type: Transform
+      pos: -52.5,9.5
+      parent: 2
+  - uid: 22451
+    components:
+    - type: Transform
+      pos: -60.5,-30.5
+      parent: 2
+  - uid: 22452
+    components:
+    - type: Transform
+      pos: 15.5,6.5
+      parent: 2
+  - uid: 22453
+    components:
+    - type: Transform
+      pos: -5.5,36.5
+      parent: 2
+  - uid: 22454
+    components:
+    - type: Transform
+      pos: -19.5,-41.5
+      parent: 2
+  - uid: 22455
+    components:
+    - type: Transform
+      pos: 63.5,-30.5
+      parent: 2
 - proto: MachineAnomalyGenerator
   entities:
   - uid: 15255

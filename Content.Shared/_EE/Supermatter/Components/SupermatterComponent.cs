@@ -477,6 +477,12 @@ public static class SupermatterGasData
         { Gas.Pluoxium,      new(0f,   -2.5f, -1f, 1f) }, // Assmos - /tg/ gases
         { Gas.Nitrium,       new(30f,  10f,   1f,  1f) }, // Assmos - /tg/ gases
         { Gas.Hydrogen,      new(20f,  10f,   1f,  1f) }, // Assmos - /tg/ gases
+        { Gas.HyperNoblium,  new(0.3f,   -14f, 0f, 0f) }, // Assmos - /tg/ gases
+        { Gas.ProtoNitrate,  new(1.5f,   -4f,   1f,  1f) }, // Assmos - /tg/ gases
+        { Gas.Zauker,        new(2f,   7f,   2f,  1f) }, // Assmos - /tg/ gases
+        { Gas.Halon,         new(0f,   0f, 0f, 0f) }, // Assmos - /tg/ gases
+        { Gas.Helium,        new(0f,  0f,   0f,  0f) }, // Assmos - /tg/ gases
+        { Gas.AntiNoblium,   new(0f,  14f,   1f,  1f) }, // Assmos - /tg/ gases
     };
 
     public static float CalculateGasMixModifier(GasMixture mix, Func<SupermatterGasFact, float> getModifier)

@@ -460,6 +460,13 @@
     - Healium
     - Nitrium
     - Pluoxium
+    - Hydrogen
+    - HyperNoblium
+    - ProtoNitrate
+    - Zauker
+    - Halon
+    - Helium
+    - AntiNoblium
 
 - type: artifactEffect
   id: EffectBlink

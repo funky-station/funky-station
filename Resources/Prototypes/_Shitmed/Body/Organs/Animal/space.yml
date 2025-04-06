@@ -33,6 +33,10 @@
   id: OrganDragonLungs
   name: dragon lungs
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
   - type: Organ
     onAdd:
     - type: ActionGun

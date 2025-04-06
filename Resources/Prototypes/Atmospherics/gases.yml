@@ -177,7 +177,6 @@
   gasOverlaySprite: /Textures/Effects/atmospherics.rsi
   gasOverlayState: proto_nitrate
   gasMolesVisible: 0.1
-  gasVisibilityFactor: 1000
   molarMass: 120
   color: 009933
   reagent: Proto-Nitrate
@@ -191,7 +190,6 @@
   gasOverlaySprite: /Textures/Effects/atmospherics.rsi
   gasOverlayState: zauker
   gasMolesVisible: 0.1
-  gasVisibilityFactor: 250
   molarMass: 110
   color: 1c1a1a
   reagent: Zauker
@@ -205,7 +203,6 @@
   gasOverlaySprite: /Textures/Effects/atmospherics.rsi
   gasOverlayState: halon
   gasMolesVisible: 0.1
-  gasVisibilityFactor: 500
   molarMass: 150
   color: e3574d
   reagent: Halon
@@ -229,7 +226,6 @@
   gasOverlaySprite: /Textures/Effects/atmospherics.rsi
   gasOverlayState: anti_noblium
   gasMolesVisible: 0.1
-  gasVisibilityFactor: 100
   molarMass: 200
   color: 525151
   reagent: Anti-Noblium

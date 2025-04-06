@@ -45,8 +45,8 @@
     - 0,0,1,1
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
-    offset: 0,-0.3
     state: "head_m"
+    offset: 0,-0.3
   - type: Extractable
     juiceSolution:
       reagents:

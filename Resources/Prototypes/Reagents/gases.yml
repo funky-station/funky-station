@@ -673,8 +673,8 @@
 
 - type: reagent
   id: Hyper-Noblium
-  name: reagent-name-hyper-nob
-  desc: reagent-desc-hyper-nob
+  name: reagent-name-hyper-noblium
+  desc: reagent-desc-hyper-noblium
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
   color: "#33cccc"
@@ -730,8 +730,8 @@
 
 - type: reagent
   id: Anti-Noblium
-  name: reagent-name-anti-nob
-  desc: reagent-desc-anti-nob
+  name: reagent-name-anti-noblium
+  desc: reagent-desc-anti-noblium
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
   color: "#525151"

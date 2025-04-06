@@ -417,13 +417,30 @@ public sealed partial class CargoSystem
 
         var allBounties = _protoMan.EnumeratePrototypes<CargoBountyCategoryPrototype>().ToList();
         var bountyCategory = _random.Pick(allBounties);
+        // This all feels wrong, but it works so hey ho
+        var duplicheck = true;
+        while (duplicheck)
+        {
+            duplicheck = false;
+            bountyCategory = _random.Pick(allBounties);
+            foreach (var entry in component.Bounties)
+            {
+                if (entry.Category == bountyCategory.Name)
+                {
+                    duplicheck = true;
+                }
+            }
+        }
+
         var totalItems = bountyCategory.Entries.Count;
 
-
-        var selection = Math.Min(1 - Math.Ceiling(Math.Log(_random.NextDouble(), 2)), totalItems);
+        // Smaller number means that there will be on average less item per bounty
+        const double itemNumberWeight = 0.9;
+        var selection = Math.Min(1 - Math.Ceiling(Math.Log(Math.Pow(_random.NextDouble(), itemNumberWeight), 2)), totalItems);
         var totalReward = 0;
         var newBounty = new CargoBountyData();
         newBounty.IdPrefix = bountyCategory.IdPrefix;
+        newBounty.Category = bountyCategory.Name;
 
         for (var i = 1; i <= selection;)
         {

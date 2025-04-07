@@ -4,6 +4,4 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._Viva.Silicon;
 
 [Serializable, NetSerializable]
-public sealed partial class LawboardDoAfterEvent: SimpleDoAfterEvent
-{
-}
+public sealed partial class LawboardDoAfterEvent: SimpleDoAfterEvent;

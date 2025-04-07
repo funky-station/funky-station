@@ -27,9 +27,7 @@ public sealed class LawSwapSystem : EntitySystem
     private void WhenLawboardUsed(EntityUid uid, SiliconLawBoundComponent component, AfterInteractUsingEvent args)
     {
         if (args.Handled)
-        {
             return;
-        }
 
         TryComp<SiliconLawBoundComponent>(args.Used, out var lawBoundComp);
         TryComp<WiresPanelComponent>(args.Target, out var wirePanelComp);
@@ -43,10 +41,9 @@ public sealed class LawSwapSystem : EntitySystem
                 BreakOnMove = true,
                 NeedHand = true,
             };
+            
             if (_doAfterSystem.TryStartDoAfter(doafter))
-            {
                 args.Handled = true;
-            }
         }
         else
         {
@@ -60,16 +57,12 @@ public sealed class LawSwapSystem : EntitySystem
     private void WhenFinishedLawboard(EntityUid entity, SiliconLawBoundComponent component, DoAfterEvent args)
     {
         if (args.Handled || args.Cancelled || !args.Target.HasValue)
-        {
             return;
-        }
 
         TryComp<SiliconLawProviderComponent>(args.Used, out var lawBoardComp);
         TryComp<WiresPanelComponent>(args.Target, out var wirePanelComp);
         if (lawBoardComp == null || wirePanelComp == null)
-        {
             return;
-        }
 
         if (wirePanelComp.Open)
         {

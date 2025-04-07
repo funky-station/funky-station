@@ -5,3 +5,7 @@ loadout-group-iaa-belt = Internal Affairs Agent belt
 
 # Chaplain
 loadout-group-bible = Bible
+
+# Prisoner
+loadout-group-prisoner-backpack = Prisoner Backpack
+loadout-group-prisoner-jumpsuit = Prisoner Jumpsuit

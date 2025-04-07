@@ -2,8 +2,7 @@
   id: Prisoner
   name: Prisoner
   description: "Serve your sentance in permanent confinement on a trusted NT station!"
-  playTimeTracker: Jobprisoner
-  weight: 20
+  playTimeTracker: JobPrisoner
   startingGear: PrisonerGear
   icon: "JobIconPrisoner1"
   requireAdminNotify: false
@@ -11,11 +10,10 @@
   supervisors: job-supervisors-everyone
   access:
   - Maintenance
-
+  
 - type: startingGear
   id: PrisonerGear
   equipment:
-    Back: ClothingBackpackGrey
     id: PrisonerPDA
     shoes: ClothingShoesColorBlack
     ears: ClothingHeadsetGrey

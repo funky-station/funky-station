@@ -19,11 +19,8 @@ public sealed partial class BountyHistoryEntry : BoxContainer
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        if (!_prototype.TryIndex(bounty.Bounty, out var bountyPrototype))
-            return;
-
         var items = new List<string>();
-        foreach (var entry in bountyPrototype.Entries)
+        foreach (var entry in bounty.Bounty.Entries) // Funky Station
         {
             items.Add(Loc.GetString("bounty-console-manifest-entry",
                 ("amount", entry.Amount),
@@ -31,7 +28,7 @@ public sealed partial class BountyHistoryEntry : BoxContainer
         }
 
         ManifestLabel.SetMarkup(Loc.GetString("bounty-console-manifest-label", ("item", string.Join(", ", items))));
-        RewardLabel.SetMarkup(Loc.GetString("bounty-console-reward-label", ("reward", bountyPrototype.Reward)));
+        RewardLabel.SetMarkup(Loc.GetString("bounty-console-reward-label", ("reward", bounty.Bounty.Reward))); // Funky Station
         IdLabel.SetMarkup(Loc.GetString("bounty-console-id-label", ("id", bounty.Id)));
 
         TimestampLabel.SetMarkup(bounty.Timestamp.ToString(@"hh\:mm\:ss"));

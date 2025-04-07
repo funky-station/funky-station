@@ -2169,3 +2169,105 @@ Entries:
       message: Re-added heretic to sub-gamemodes
   id: 273
   time: '2025-03-29T17:10:03.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Fix
+      message: fixed dragon event chaos values
+  id: 274
+  time: '2025-03-31T02:33:59.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: 'Bagel maints expansion Pt 2: The Big one'
+  id: 275
+  time: '2025-03-31T06:55:50.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Remove
+      message: >-
+        Removed the NaturalRegeneration, NaturalResiliance, Hemophiliac,
+        CarefulSteps, TableHider, TemperatureTolerance and SwiftFeet traits.
+    - type: Tweak
+      message: Moved Deuteranopia and Ultravision traits to a new Vision category.
+  id: 276
+  time: '2025-04-01T03:57:45.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Fix
+      message: Adv. SMES capacity buffed (2x)
+    - type: Tweak
+      message: Filled SMES sell for good money.
+  id: 277
+  time: '2025-04-01T19:50:09.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Permanent blindness is now un-treatable.
+  id: 278
+  time: '2025-04-01T20:34:11.0000000+00:00'
+- author: ' Gansu'
+  changes:
+    - type: Tweak
+      message: Bounties generation has been changed for more variety among bounties
+    - type: Tweak
+      message: Certain bounty items have had a rebalance in rewards
+  id: 279
+  time: '2025-04-02T21:41:13.0000000+00:00'
+- author: vassembly
+  changes:
+    - type: Add
+      message: added lowpopCrew lobby art.
+  id: 280
+  time: '2025-04-03T23:44:02.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Tweak
+      message: More maints added into Box
+    - type: Tweak
+      message: Added the material silo into Box
+  id: 281
+  time: '2025-04-04T17:08:47.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added new Janitor syndicate items
+  id: 282
+  time: '2025-04-04T17:14:26.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Rewrote the Revolutionary Guidebook Entry
+    - type: Tweak
+      message: Blob guidebook now has entry about the Blob carrier timer
+    - type: Tweak
+      message: >-
+        Surgery guidebook now mentions that certain surgeries require a surgical
+        table
+    - type: Tweak
+      message: Engineering SOP has been modified.
+    - type: Tweak
+      message: Medical SOP has been modified.
+    - type: Tweak
+      message: >-
+        Changeling Guide now mentions the DNA Extraction sting, and it's
+        intended use.
+    - type: Add
+      message: Science now has an SOP entry.
+  id: 283
+  time: '2025-04-05T05:38:25.0000000+00:00'
+- author: ' Gansu'
+  changes:
+    - type: Tweak
+      message: >-
+        The bounty rewards for books, dice, board games, and laser guns have
+        been increased.
+    - type: Tweak
+      message: The amount of laser guns required for bounties has been reduced by 2.
+    - type: Tweak
+      message: Basic medical topicals can no longer be generated as bounty items.
+    - type: Tweak
+      message: Bounty skip timer has been reduced to 3 minutes, from 15 minutes.
+    - type: Tweak
+      message: Each category can only have one bounty up at a time to reduce overlap.
+  id: 284
+  time: '2025-04-06T18:52:40.0000000+00:00'

@@ -5,11 +5,15 @@
 
     [bold]1.[/bold] The Chief Medical Officer is permitted to carry a regular Defibrillator or a Compact Defibrillator on their person at all times;
 
-    [bold]2.[/bold] The Chief Medical Officer is permitted to carry a flash and their hypospray with self-defense chemicals if necessary.
+    [bold]2.[/bold] The Chief Medical Officer is permitted to carry a flash and their hypospray;
 
-    [bold]3.[/bold] The Chief Medical Officer is not permitted to allow the creation of poisonous or explosive mixtures in Chemistry without express consent from the Head of Security or, failing that, the presence of a clear and urgent danger to the integrity of the station, except of course in situations where Chemical Implants are required;
+    [bold]3.[/bold] The Chief Medical Officer is permitted to carry self-defense chemicals for their hypospray if the station alert level warrants it;
 
-    [bold]4.[/bold] The Chief Medical Officer must make sure that any reviveable corpses are revived.
+    [bold]4.[/bold] The Chief Medical Officer is not permitted to allow the creation of poisonous or explosive mixtures in Chemistry without express consent from the Head of Security or, failing that, the presence of a clear and urgent danger to the integrity of the station, except of course in situations where Chemical Implants are required;
+
+    [bold]5.[/bold] The Chief Medical Officer is permitted to issue the Handheld Crew Monitor to the Paramedic if they so desire;
+
+    [bold]6.[/bold] The Chief Medical Officer must make sure that any reviveable corpses are revived.
 
   # Medical Doctor and Interns
 
@@ -25,7 +29,9 @@
 
     [bold]6.[/bold] Medical Doctors are not permitted to leave Medbay to perform recreational activities if there are unattended patients requiring treatment;
 
-    [bold]7.[/bold] Medical Doctors are not obliged to treat patients who are actively and intentionally harming themselves. If treated, refer the patient to the on-station Psychologist.
+    [bold]7.[/bold] Medical Doctors are not obliged to treat patients who are actively and intentionally harming themselves. If treated, refer the patient to the on-station Psychologist;
+
+    [bold]8.[/bold] Medical Doctors are to return any equipment of deceased crewmembers who have been moved to the morgue for permanent storage to their respective department.
 
   # Chemist
 
@@ -47,11 +53,13 @@
 
     [bold]1.[/bold] The Paramedic is fully permitted to carry a Defibrillator on their person at all times, provided they leave at least one (1) Defibrillator for use in Medbay;
 
-    [bold]2.[/bold] The Paramedic must stabilize all patients before bringing them to the Medical Bay.
+    [bold]2.[/bold] The Paramedic must stabilize all patients before bringing them to the Medical Bay;
 
-    [bold]3.[/bold] In such a case as a patient is found dead, and cannot be brought back via Defibrillation, the Paramedic must ensure that said patient is brought to the Medbay and notify the Doctors.
+    [bold]3.[/bold] In such a case as a patient is found dead, and cannot be brought back via Defibrillation, the Paramedic must ensure that said patient is brought to the Medbay and notify the Doctors;
 
-    [bold]4.[/bold] The Paramedic must carry enough materials to provide for adequate first aid of all Major Injury Types (Brute, Burn, Toxic, Respiratory).
+    [bold]4.[/bold] The Paramedic is authorized to carry the Handheld Crew Monitor, but is not allowed to distribute it to other crewmembers;
+
+    [bold]5.[/bold] The Paramedic must carry enough materials to provide for adequate first aid of all Major Injury Types (Brute, Burn, Toxic, Respiratory).
 
   # Psychologist
 

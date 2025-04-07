@@ -32245,13 +32245,6 @@ entities:
     - type: Transform
       pos: 68.74593,27.56384
       parent: 1
-- proto: MicrophoneInstrument
-  entities:
-  - uid: 1730
-    components:
-    - type: Transform
-      pos: 57.68686,35.534134
-      parent: 1
 - proto: Mirror
   entities:
   - uid: 2570
@@ -32522,13 +32515,6 @@ entities:
     components:
     - type: Transform
       pos: 41.43566,56.017498
-      parent: 1
-- proto: PhoneInstrumentUpstream
-  entities:
-  - uid: 6170
-    components:
-    - type: Transform
-      pos: 32.458725,61.62871
       parent: 1
 - proto: PianoInstrument
   entities:

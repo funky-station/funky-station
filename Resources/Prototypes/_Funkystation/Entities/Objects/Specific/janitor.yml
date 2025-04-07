@@ -61,6 +61,9 @@
         state: fill-3
         visible: false
   - type: Appearance
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
   - type: SolutionContainerVisuals
     maxFillLevels: 3
     fillBaseName: fill-
@@ -132,7 +135,7 @@
   name: mop sword
   parent: BaseSword
   id: MopSword
-  description: Add description
+  description: Cleaning just got a whole new meaning.
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Specific/Janitorial/mopsword.rsi
@@ -141,7 +144,7 @@
     attackRate: 1.5
     damage:
       types:
-        Slash: 15
+        Slash: 20
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Reflect

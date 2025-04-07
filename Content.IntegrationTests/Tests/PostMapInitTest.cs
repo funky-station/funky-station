@@ -76,7 +76,7 @@ namespace Content.IntegrationTests.Tests
             "OasisHighPop",
             "Divide", // funkystation
             "Glacier", // funkystation
-            "Barratry", // Goobstation - add Barratry
+            "Barratry", // Harmony
             "Kettle", // Goobstation - add Kettle
             "Amber",
             "Hot Springs",

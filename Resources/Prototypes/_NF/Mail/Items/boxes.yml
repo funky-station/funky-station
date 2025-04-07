@@ -1,59 +1,60 @@
 # Mail-only boxes. If/when something uses these outside of the mail, move the entry into Catalog/Fills.
 
 #Body parts gridinv breaks these. They need reworked to work with the new sizes. Crates recomended
-#- type: entity
-#  name: scented soap sampler pack
-#  parent: BoxCardboard
-#  id: BoxSoapsAssorted
-#  description: A box of various scented soaps. Ooh, lavender.
-#  components:
-#  - type: StorageFill
-#    contents:
-#      - id: SoapNT
-#        amount: 1
-#      - id: Soap
-#        amount: 1
-#      - id: SoapHomemade
-#        amount: 1
-#      - id: SoapDeluxe
-#        amount: 1
-#  - type: Storage
-#    maxItemSize: Normal
-#    grid:
-#      - 0,0,3,1
-#    whitelist:
-#      tags:
-#        - Soap
-#  - type: Sprite
-#    layers:
-#      - state: box
-#
-#- type: entity
-#  name: scented soap sampler pack
-#  parent: BoxCardboard
-#  id: BoxSoapsAssortedOmega
-#  description: A box of various scented soaps. Ooh, bluespace.
-#  components:
-#  - type: StorageFill
-#    contents:
-#      - id: SoapNT
-#        amount: 1
-#      - id: Soap
-#        amount: 1
-#      - id: SoapOmega
-#        amount: 1
-#      - id: SoapDeluxe
-#        amount: 1
-#  - type: Storage
-#    maxItemSize: Normal
-#    grid:
-#      - 0,0,3,1
-#    whitelist:
-#      tags:
-#        - Soap
-#  - type: Sprite
-#    layers:
-#      - state: box
+
+- type: entity
+  name: scented soap sampler pack
+  parent: BoxCardboard
+  id: BoxSoapsAssorted
+  description: A box of various scented soaps. Ooh, lavender.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SoapNT
+        amount: 1
+      - id: Soap
+        amount: 1
+      - id: SoapHomemade
+        amount: 1
+      - id: SoapDeluxe
+        amount: 1
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+      - 0,0,3,1
+    whitelist:
+      tags:
+        - Soap
+  - type: Sprite
+    layers:
+      - state: box
+
+- type: entity
+  name: scented soap sampler pack
+  parent: BoxCardboard
+  id: BoxSoapsAssortedOmega
+  description: A box of various scented soaps. Ooh, bluespace.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SoapNT
+        amount: 1
+      - id: Soap
+        amount: 1
+      - id: SoapOmega
+        amount: 1
+      - id: SoapDeluxe
+        amount: 1
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+      - 0,0,3,1
+    whitelist:
+      tags:
+        - Soap
+  - type: Sprite
+    layers:
+      - state: box
 #
 #- type: entity
 #  name: Build-a-Buddy kit

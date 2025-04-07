@@ -26,65 +26,67 @@ public sealed class LawSwapSystem : EntitySystem
 
     private void WhenLawboardUsed(EntityUid uid, SiliconLawBoundComponent component, AfterInteractUsingEvent args)
     {
-        if (!args.Handled)
+        if (args.Handled)
         {
-            if (TryComp<SiliconLawProviderComponent>(args.Used, out var lawBoardComp))
-            {
-                if (TryComp<WiresPanelComponent>(args.Target, out var wirePanelComp))
-                {
-                    if (wirePanelComp.Open)
-                    {
-                        var doafter = new DoAfterArgs(EntityManager, args.User, 25.0f, new LawboardDoAfterEvent(), args.Target, target: args.Target, used: args.Used) {
-                            BreakOnDamage = true,
-                            BreakOnMove = true,
-                            NeedHand = true,
-                        };
-                        if (_doAfterSystem.TryStartDoAfter(doafter))
-                        {
-                            args.Handled = true;
-                        }
+            return;
+        }
 
-                    }
-                    else
-                    {
-                        _popupSystem.PopupEntity("You have to open their panel to change their laws!",
-                            args.User,
-                            args.User);
-                        args.Handled = true;
-                    }
-                }
+        TryComp<SiliconLawBoundComponent>(args.Used, out var lawBoundComp);
+        TryComp<WiresPanelComponent>(args.Target, out var wirePanelComp);
+        if (lawBoundComp == null || wirePanelComp == null)
+        {
+            return;
+        }
+
+        if (wirePanelComp.Open)
+        {
+            var doafter = new DoAfterArgs(EntityManager, args.User, 25.0f, new LawboardDoAfterEvent(), args.Target, target: args.Target, used: args.Used) {
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                NeedHand = true,
+            };
+            if (_doAfterSystem.TryStartDoAfter(doafter))
+            {
+                args.Handled = true;
             }
+        }
+        else
+        {
+            _popupSystem.PopupEntity("You have to open their panel to change their laws!",
+                args.User,
+                args.User);
+            args.Handled = true;
         }
     }
 
     private void WhenFinishedLawboard(EntityUid entity, SiliconLawBoundComponent component, DoAfterEvent args)
     {
-        if (!args.Handled && !args.Cancelled)
+        if (args.Handled || args.Cancelled || !args.Target.HasValue)
         {
-            if (args.Target.HasValue)
-            {
-                if (TryComp<SiliconLawProviderComponent>(args.Used, out var lawBoardComp))
-                {
-                    if (TryComp<WiresPanelComponent>(args.Target, out var wirePanelComp))
-                    {
-                        if (wirePanelComp.Open)
-                        {
-                            _siliconLawSystem.SetLaws(_siliconLawSystem.GetLawset(lawBoardComp.Laws).Laws,
-                                args.Target.Value,
-                                lawBoardComp.LawUploadSound);
-                            _popupSystem.PopupEntity("You finish reprogramming the borg's laws.",
-                                args.User,
-                                args.User);
-                        }
-                        else
-                        {
-                            _popupSystem.PopupEntity("You have to open their panel to change their laws!",
-                                args.User,
-                                args.User);
-                        }
-                    }
-                }
-            }
+            return;
+        }
+
+        TryComp<SiliconLawProviderComponent>(args.Used, out var lawBoardComp);
+        TryComp<WiresPanelComponent>(args.Target, out var wirePanelComp);
+        if (lawBoardComp == null || wirePanelComp == null)
+        {
+            return;
+        }
+
+        if (wirePanelComp.Open)
+        {
+            _siliconLawSystem.SetLaws(_siliconLawSystem.GetLawset(lawBoardComp.Laws).Laws,
+                args.Target.Value,
+                lawBoardComp.LawUploadSound);
+            _popupSystem.PopupEntity("You finish reprogramming the borg's laws.",
+                args.User,
+                args.User);
+        }
+        else
+        {
+            _popupSystem.PopupEntity("You have to open their panel to change their laws!",
+                args.User,
+                args.User);
         }
     }
 }

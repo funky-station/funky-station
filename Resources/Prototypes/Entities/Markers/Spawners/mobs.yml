@@ -567,6 +567,20 @@
     - MobMonkeyPunpun
 
 - type: entity
+  name: Crimson Spawner
+  id: SpawnMobDinosaurRaptorCrimson
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: laser_raptor
+      sprite: Mobs/Aliens/laser_raptor.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobDinosaurRaptorCrimson
+
+- type: entity
   name: behonker Spawner
   id: SpawnMobBehonker
   parent: MarkerBase

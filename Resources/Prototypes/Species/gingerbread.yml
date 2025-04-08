@@ -4,7 +4,7 @@
   roundStart: true
   prototype: MobGingerbread
   sprites: MobGingerbreadSprites
-  markingLimits: MobHumanMarkingLimits
+  markingLimits: MobGingerbreadMarkingLimits
   dollPrototype: MobGingerbreadDummy
   skinColoration: HumanToned
   defaultSkinTone: "#9a7c5a"

@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Tea",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "body_gummybutton",
+      "directions": 4
+    },
+    {
+      "name": "face_icing_default",
+      "directions": 4
+    },
+    {
+      "name": "body_icing_default",
+      "directions": 4
+    },
+    {
+      "name": "l_arm_icing_default",
+      "directions": 4
+    },
+    {
+      "name": "l_foot_icing_default",
+      "directions": 4
+    },
+    {
+      "name": "r_arm_icing_default",
+      "directions": 4
+    },
+
+    {
+      "name": "r_foot_icing_default",
+      "directions": 4
+    },
+    
+    {
+      "name": "face_gumball_moth_eyes",
+      "directions": 4
+    },
+        
+    {
+      "name": "face_gumball_moth_antennae",
+      "directions": 4
+    },
+        
+    {
+      "name": "cotton_candy_wings_primary",
+      "directions": 4
+    },
+            
+    {
+      "name": "cotton_candy_wings_secondary",
+      "directions": 4
+    },
+                
+    {
+      "name": "cotton_candy_wings_stick",
+      "directions": 4
+    },
+                    
+    {
+      "name": "l_snapped_leg",
+      "directions": 4
+    },
+                    
+    {
+      "name": "r_snapped_leg",
+      "directions": 4
+    }
+  ]
+}

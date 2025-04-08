@@ -68,6 +68,10 @@
   name: "vox torso"
   parent: PartVox
   components:
+    - type: Item
+      size: Ginormous
+      shape:
+      - 0,0,5,3
     - type: Sprite
       sprite: Mobs/Species/Vox/parts.rsi
       state: "torso"
@@ -125,9 +129,14 @@
   name: "vox head"
   parent: PartVox
   components:
+    - type: Item
+      size: Huge
+      shape:
+      - 0,0,1,1
     - type: Sprite
       sprite: Mobs/Species/Vox/parts.rsi
       state: "head"
+      offset: 0,-0.3
     - type: Icon
       sprite: Mobs/Species/Vox/parts.rsi
       state: "head"
@@ -153,9 +162,14 @@
   name: "left vox arm"
   parent: PartVox
   components:
+    - type: Item
+      size: Normal
+      shape:
+      - 0,0,0,1
     - type: Sprite
       sprite: Mobs/Species/Vox/parts.rsi
       state: "l_arm"
+      offset: -0.2,0
     - type: Icon
       sprite: Mobs/Species/Vox/parts.rsi
       state: "l_arm"
@@ -169,9 +183,14 @@
   name: "right vox arm"
   parent: PartVox
   components:
+    - type: Item
+      size: Normal
+      shape:
+      - 0,0,0,1
     - type: Sprite
       sprite: Mobs/Species/Vox/parts.rsi
       state: "r_arm"
+      offset: 0.2,0
     - type: Icon
       sprite: Mobs/Species/Vox/parts.rsi
       state: "r_arm"
@@ -185,9 +204,12 @@
   name: "left vox hand"
   parent: PartVox
   components:
+    - type: Item
+      size: Tiny
     - type: Sprite
       sprite: Mobs/Species/Vox/parts.rsi
       state: "l_hand"
+      offset: -0.2,0.1
     - type: Icon
       sprite: Mobs/Species/Vox/parts.rsi
       state: "l_hand"
@@ -201,9 +223,12 @@
   name: "right vox hand"
   parent: PartVox
   components:
+    - type: Item
+      size: Tiny
     - type: Sprite
       sprite: Mobs/Species/Vox/parts.rsi
       state: "r_hand"
+      offset: 0.2,0.1
     - type: Icon
       sprite: Mobs/Species/Vox/parts.rsi
       state: "r_hand"
@@ -217,9 +242,14 @@
   name: "left vox leg"
   parent: PartVox
   components:
+    - type: Item
+      size: Normal
+      shape:
+      - 0,0,0,1
     - type: Sprite
       sprite: Mobs/Species/Vox/parts.rsi
       state: "l_leg"
+      offset: -0.1,0.3
     - type: Icon
       sprite: Mobs/Species/Vox/parts.rsi
       state: "l_leg"
@@ -234,9 +264,14 @@
   name: "right vox leg"
   parent: PartVox
   components:
+    - type: Item
+      size: Normal
+      shape:
+      - 0,0,0,1
     - type: Sprite
       sprite: Mobs/Species/Vox/parts.rsi
       state: "r_leg"
+      offset: 0.1,0.3
     - type: Icon
       sprite: Mobs/Species/Vox/parts.rsi
       state: "r_leg"
@@ -251,9 +286,12 @@
   name: "left vox foot"
   parent: PartVox
   components:
+    - type: Item
+      size: Tiny
     - type: Sprite
       sprite: Mobs/Species/Vox/parts.rsi
       state: "l_foot"
+      offset: -0.15,0.45
     - type: Icon
       sprite: Mobs/Species/Vox/parts.rsi
       state: "l_foot"
@@ -267,9 +305,12 @@
   name: "right vox foot"
   parent: PartVox
   components:
+    - type: Item
+      size: Tiny
     - type: Sprite
       sprite: Mobs/Species/Vox/parts.rsi
       state: "r_foot"
+      offset: 0.15,0.45
     - type: Icon
       sprite: Mobs/Species/Vox/parts.rsi
       state: "r_foot"

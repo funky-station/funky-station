@@ -31,6 +31,11 @@
   name: slimes gas sacs
   description: "Collects nitrogen, which slime cells use for maintenance."
   components:
+    - type: Item
+      size: Normal
+      shape:
+      - 0,0,1,1
+      heldPrefix: lungs
     - type: Sprite
       sprite: Mobs/Species/Slime/organs.rsi
       layers:

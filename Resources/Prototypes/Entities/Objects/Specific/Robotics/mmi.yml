@@ -74,6 +74,10 @@
   name: positronic brain
   description: An artificial brain capable of spontaneous neural activity.
   components:
+    - type: Item
+      size: Normal
+      shape:
+      - 0,0,1,1
     - type: Sprite
       sprite: Objects/Specific/Robotics/mmi.rsi
       layers:

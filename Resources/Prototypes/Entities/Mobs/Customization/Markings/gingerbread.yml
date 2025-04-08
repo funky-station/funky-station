@@ -105,3 +105,32 @@
   sprites:
     - sprite: Mobs/Customization/gingerbread_parts.rsi
       state: r_snapped_leg
+
+- type: marking
+  id: HeadtopWhippedcreamdo
+  bodyPart: Headtop
+  markingCategory: Head
+  speciesRestriction: [Gingerbread]
+  sprites:
+    - sprite: Mobs/Customization/gingerbread_parts.rsi
+      state: headtop_whippedcreamdo
+
+- type: marking
+  id: BodyIcingbuttons
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Gingerbread]
+  followSkinColor: true
+  sprites:
+    - sprite: Mobs/Customization/gingerbread_parts.rsi
+      state: body_icingbuttons
+
+- type: marking
+  id: FaceMustached
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Gingerbread]
+  sprites:
+    - sprite: Mobs/Customization/gingerbread_parts.rsi
+      state: face_mustached_eyes
+      state: face_mustached_secondary

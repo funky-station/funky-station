@@ -28,5 +28,14 @@ marking-CottonCandyWings = "Cotton" Candy Wings
 marking-LSnappedLeg-l_snapped_leg = Left Snapped Leg
 marking-LSnappedLeg = Left Snapped Leg
 
-marking-LSnappedLeg-l_snapped_leg = Right Snapped Leg
-marking-LSnappedLeg = Right Snapped Leg
+marking-RSnappedLeg-r_snapped_leg = Right Snapped Leg
+marking-RSnappedLeg = Right Snapped Leg
+
+marking-HeadtopWhippedcreamdo-headtop_whippedcreamdo = Whipped Cream-Do
+marking-HeadtopWhippedcreamdo = Whipped Cream-Do
+
+marking-BodyIcingbuttons-body_icingbuttons = Icing Buttons
+marking-BodyIcingbuttons = Icing Buttons
+
+marking-FaceMustached-face_mustached = Mustacheo!
+marking-FaceMustached = Mustacheo!

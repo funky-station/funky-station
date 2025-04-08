@@ -70,6 +70,21 @@
     {
       "name": "r_snapped_leg",
       "directions": 4
+    },
+                        
+    {
+      "name": "headtop_whippedcreamdo",
+      "directions": 4
+    },
+                            
+    {
+      "name": "face_mustached_eyes",
+      "directions": 4
+    },
+                                
+    {
+      "name": "face_mustache_secondary",
+      "directions": 4
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Baystation at commit https://github.com/Baystation12/Baystation12/commit/bddd2b27f6103e46dadb6d251c7c1832e012a84d",
+  "copyright": "Taken from /tg/ station at commit https://github.com/tgstation/tgstation/pull/57919/commits/d775c0b8ad38b96de965b111016e6b56e50b3d67 - modified by gobdrob for Funky Station 14",
   "size": {
     "x": 32,
     "y": 32
@@ -17,7 +17,63 @@
     },
     {
       "name":"on",
+      "directions": 4,
+      "delays": [
+        [
+          3.6,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          3.6,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          3.6,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          3.6,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "tank",
       "directions": 4
+    },
+    {
+      "name":"pumping",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
     }
   ]
 }

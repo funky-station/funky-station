@@ -29,26 +29,8 @@ namespace Content.Client._Funkystation.Atmos.UI
         public event Action? TankEjectButtonPressed;
         public event Action? TankEmptyButtonPressed;
         public event Action<int>? TankFillButtonPressed;
-        public event Action<float, int>? ReleasePressureSet;
-
-        [DataField("gasList")]
-        public List<Gas> GasList = new()
-        {
-            Gas.Oxygen,
-            Gas.Nitrogen,
-            Gas.CarbonDioxide,
-            Gas.Plasma,
-            Gas.Tritium,
-            Gas.WaterVapor,
-            Gas.Ammonia,
-            Gas.NitrousOxide,
-            Gas.Frezon,
-            Gas.BZ, // Assmos - /tg/ gases
-            Gas.Healium, // Assmos - /tg/ gases
-            Gas.Nitrium, // Assmos - /tg/ gases
-            Gas.Pluoxium, // Assmos - /tg/ gases
-            Gas.Hydrogen, // Assmos - /tg/ gases
-        };
+        public event Action<int>? RetrieveButtonPressed;
+        public event Action<float>? ReleasePressureSet;
         
         public BluespaceVendorWindow()
         {
@@ -56,16 +38,17 @@ namespace Content.Client._Funkystation.Atmos.UI
             IoCManager.InjectDependencies(this);
             TankEjectButton.OnPressed += _ => TankEjectButtonPressed?.Invoke();
             TankEmptyButton.OnPressed += _ => TankEmptyButtonPressed?.Invoke();
+            ReleasePressure.OnValueChanged += _ => ReleasePressureSet?.Invoke(ReleasePressure.Value);
         }
 
         public void ToggleEjectButton(string? label, GasMixture? tankGasMixture)
         {
+            UpdateFillBar(tankGasMixture);
             if (label == null)
             {
                 TankEjectButton.Disabled = true;
                 return;
             }
-
             TankEjectButton.Disabled = false;
         }
 
@@ -80,7 +63,7 @@ namespace Content.Client._Funkystation.Atmos.UI
             TankEmptyButton.Disabled = true;
         }
 
-        public void ToggleGasList(bool? senderConnected, List<bool>? enabledGases)
+        public void ToggleGasList(bool? senderConnected, GasMixture? bluespaceGasMixture, List<bool>? retrievingGases, GasMixture? tankGasMixture)
         {
             if (senderConnected == false)
             {
@@ -88,85 +71,122 @@ namespace Content.Client._Funkystation.Atmos.UI
                 GasListBox.Children.Add(new Label { Text = "Not connected to bluespace network" });
                 return;
             }
-
-            BuildGasList(enabledGases);
+            UpdateFillBar(tankGasMixture);
+            BuildGasList(retrievingGases, bluespaceGasMixture, tankGasMixture);
         }
 
-        public void BuildGasList(List<bool>? enabledGases)
+        public void BuildGasList(List<bool>? retrievingGases, GasMixture? bluespaceGasMixture, GasMixture? tankGasMixture)
         {
             GasListBox.Children.Clear();
 
-            foreach (var gas in GasList.Select((name, i) => new { i, name }))
+            if (bluespaceGasMixture == null || bluespaceGasMixture.TotalMoles < 0.01)
             {
-                var gasName = gas.name;
-                var index = gas.i;
-
                 var GasBox = new BoxContainer
                 {
-                    Orientation = LayoutOrientation.Vertical
+                    Orientation = LayoutOrientation.Vertical,
+                    HorizontalExpand = true,
+                    Margin = new Thickness(10, 10)
+                };
+                var NoGasMessage = new Label
+                {
+                    Text = "There are no gases in the network"
                 };
 
-                var GasName = new Label
-                {
-                    Text = $"{gasName}"
-                };
-
-                var GasAmount = new Label
-                {
-                    Name = "GasAmount",
-                    Text = "0"
-                };
-
-                var PressureSpinBox = new FloatSpinBox
-                {
-                    Name = $"{gasName}ReleasePressure"
-                };
-                
-                var AddButton = new Button
-                {
-                    Name = "TankFillButton",
-                    Text = "Add"
-                };
-
-                if (enabledGases == null || !enabledGases[index])
-                {
-                    AddButton.Text = "Locked";
-                    AddButton.Disabled = true;
-                }
-
-                PressureSpinBox.OnValueChanged += _ => ReleasePressureSet?.Invoke(PressureSpinBox.Value, index);
-                AddButton.OnPressed += _ => TankFillButtonPressed?.Invoke(index);
-
-                GasBox.Children.Add(GasName);
-                GasBox.Children.Add(GasAmount);
-                GasBox.Children.Add(PressureSpinBox);
-                GasBox.Children.Add(AddButton);
-
+                GasBox.Children.Add(NoGasMessage);
                 GasListBox.Children.Add(GasBox);
+            }
+            else
+            {
+                int colorSwap = 1;
+                for (var i = 0; i < Atmospherics.TotalNumberOfGases-1; i++)
+                {
+                    int index = i;
+                    var gasName = Enum.GetName(typeof(Gas), index) ?? "Unknown Gas";
+
+                    float moles = bluespaceGasMixture.GetMoles(index);
+
+                    if (moles > 0f)
+                    {
+                        colorSwap *= -1;
+                        var GasPanel = new PanelContainer
+                        {
+                            PanelOverride = new StyleBoxFlat(colorSwap == 1 ? Color.FromHex("#1B1B1E"):Color.FromHex("#202025"))
+                        };
+
+                        var GasBox = new BoxContainer
+                        {
+                            Orientation = LayoutOrientation.Horizontal,
+                            HorizontalExpand = true,
+                            Margin = new Thickness(10, 10)
+                        };
+
+                        var GasNameBox = new BoxContainer
+                        {
+                            MinSize = new Vector2(120, 0)
+                        };
+
+                        var GasName = new Label
+                        {
+                            Text = $"{gasName}"
+                        };
+
+                        var GasAmount = new Label
+                        {
+                            Name = "GasAmount",
+                            Text = $"{moles.ToString("F2")} moles",
+                            HorizontalExpand = true,
+                            HorizontalAlignment = HAlignment.Center // Center directly
+                        };
+                        
+                        var RetrieveButton = new Button
+                        {
+                            Name = "RetrieveButton",
+                            Text = "▶",
+                            Pressed = retrievingGases != null && retrievingGases[index] ? true : false
+                        };
+
+                        RetrieveButton.OnPressed += _ => RetrieveButtonPressed?.Invoke(index);
+
+                        GasNameBox.Children.Add(GasName);
+                        GasBox.Children.Add(GasNameBox);
+                        GasBox.Children.Add(new Control { HorizontalExpand = true });
+                        GasBox.Children.Add(GasAmount);
+                        GasBox.Children.Add(new Control { HorizontalExpand = true });
+                        GasBox.Children.Add(RetrieveButton);
+
+                        GasPanel.Children.Add(GasBox);
+                        GasListBox.Children.Add(GasPanel);
+                    }
+                }
             }
         }
 
-        public void SetBluespaceGasMixture(GasMixture? bluespaceGasMixture)
+        public void UpdateFillBar(GasMixture? tankGasMixture)
         {
-            if (bluespaceGasMixture == null)
+            if (tankGasMixture == null)
             {
+                FillBarPanel.MinSize = new Vector2(0, 20); 
                 return;
             }
 
-            for (int i = 0; i < GasListBox.Children.Count(); i++)
-            {
-                var gasBox = GasListBox.Children.ElementAt(i) as BoxContainer;
-                if (gasBox == null) continue;
+            float pressure = tankGasMixture.Pressure;
+            float fillPercentage = Math.Clamp(pressure / 1000f, 0f, 1f); 
 
-                // Find the GasAmount label within this GasBox
-                var gasAmountLabel = gasBox.Children.FirstOrDefault(child => child.Name == "GasAmount") as Label;
-                if (gasAmountLabel != null)
-                {
-                    // Update the label with the moles (or pressure) of this gas
-                    float moles = bluespaceGasMixture.GetMoles(i); // Assuming GasMixture has GetMoles
-                    gasAmountLabel.Text = moles.ToString("F2"); // Format to 2 decimal places
-                }
+            var parentContainer = FillBarPanel.Parent?.Parent as PanelContainer; 
+            if (parentContainer != null)
+            {
+                float parentWidth = parentContainer.Size.X; 
+                float targetWidth = parentWidth * fillPercentage;
+
+                FillBarPanel.MinSize = new Vector2(targetWidth, 20);
             }
+        }
+
+        public void SetReleasePressureSpinbox(float releasePressure)
+        {
+            if (ReleasePressure.Value == releasePressure || releasePressure == null)
+                return;
+            ReleasePressure.Value = releasePressure;
         }
     }
 }

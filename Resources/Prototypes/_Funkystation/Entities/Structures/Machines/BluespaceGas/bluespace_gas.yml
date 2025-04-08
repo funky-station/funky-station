@@ -41,7 +41,6 @@
   - type: BluespaceSender
   - type: ActivatableUI
     key: enum.BluespaceSenderUiKey.Key
-  - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
       enum.BluespaceSenderUiKey.Key:
@@ -59,7 +58,9 @@
         nodeGroupID: Pipe
         pipeDirection: South
   - type: Machine
+    board: BluespaceGasSenderMachineBoard
   - type: WiresPanel
+  - type: WiresVisuals
   - type: AccessReader
     access: [["Atmospherics"]]
 
@@ -97,8 +98,22 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
       renderingStrategy: Default
+    - state: tank
+      map: ["enum.BluespaceVendorVisualLayers.Tank"]
+      visible: false
+    - state: pumping
+      map: ["enum.BluespaceVendorVisualLayers.Pumping"]
+      visible: false
   - type: GenericVisualizer
     visuals:
+      enum.BluespaceVendorVisuals.TankInserted:
+        enum.BluespaceVendorVisualLayers.Tank:
+          False: { state: tank, visible: false }
+          True: { state: tank, visible: true }
+      enum.BluespaceVendorVisuals.isPumping:
+        enum.BluespaceVendorVisualLayers.Pumping:
+          False: { state: pumping, visible: false }
+          True: { state: pumping, visible: true }
       enum.PowerDeviceVisuals.Powered:
         enum.PowerDeviceVisualLayers.Powered:
           True: { state: on }
@@ -126,6 +141,7 @@
         type: BluespaceVendorBoundUserInterface
   - type: Appearance
   - type: WiresPanel
+  - type: WiresVisuals
   - type: ItemSlots
   - type: BluespaceVendor
     gasTankSlot:

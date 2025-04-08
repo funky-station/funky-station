@@ -15,7 +15,7 @@ using Content.Server._Funkystation.Atmos.Components;
 namespace Content.Server._Funkystation.Atmos.EntitySystems;
 
 /// <summary>
-/// Handles server-side logic for Bluespace Senders.
+/// Handles server-side logic for bluespace senders.
 /// </summary>
 public sealed class BluespaceSenderSystem : EntitySystem
 {
@@ -33,22 +33,16 @@ public sealed class BluespaceSenderSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<BluespaceSenderComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<BluespaceSenderComponent, BluespaceSenderChangeEnabledGasesMessage>(OnChangeEnabledGases);
         SubscribeLocalEvent<BluespaceSenderComponent, BluespaceSenderChangeRetrieveMessage>(OnChangeRetrieve);
+        SubscribeLocalEvent<BluespaceSenderComponent, BluespaceSenderToggleMessage>(OnToggleStatus);
+        SubscribeLocalEvent<BluespaceSenderComponent, BluespaceSenderToggleRetrieveModeMessage>(OnToggleRetrieveMode);
         SubscribeLocalEvent<BluespaceSenderComponent, AtmosDeviceUpdateEvent>(OnDeviceAtmosUpdate);
     }
 
     private void OnStartup(EntityUid uid, BluespaceSenderComponent sender, ComponentStartup args)
     {
-        // Enable Oxygen and Nitrogen by default
-        sender.BluespaceSenderEnabledList[0] = true;
-        sender.BluespaceSenderEnabledList[1] = true;
-        DirtyUI(uid, sender);
-    }
-
-    private void OnChangeEnabledGases(EntityUid uid, BluespaceSenderComponent sender, BluespaceSenderChangeEnabledGasesMessage args)
-    {
-        sender.BluespaceSenderEnabledList[args.Index] = !sender.BluespaceSenderEnabledList[args.Index];
+        if (_power.IsPowered(uid) != sender.PowerToggle)
+            _power.TogglePower(uid);
         DirtyUI(uid, sender);
     }
 
@@ -60,35 +54,37 @@ public sealed class BluespaceSenderSystem : EntitySystem
 
     private void OnDeviceAtmosUpdate(EntityUid uid, BluespaceSenderComponent sender, ref AtmosDeviceUpdateEvent args)
     {
-        if (!_power.IsPowered(uid) || !TryComp<ApcPowerReceiverComponent>(uid, out _))
+        if (!_power.IsPowered(uid) || !TryComp<ApcPowerReceiverComponent>(uid, out _)
+            || !GetBluespaceSenderPipeMixture(uid, sender, out var pipeGasMixture) || pipeGasMixture == null)
             return;
 
-        var retrieveList = sender.BluespaceSenderRetrieveList;
-        var retrieveCount = retrieveList.Count(x => x);
+        var inRetrieveMode = sender.InRetrieveMode;
         var bluespaceMixture = sender.BluespaceGasMixture;
 
-        if (!GetBluespaceSenderPipeMixture(uid, sender, out var pipeGasMixture) || pipeGasMixture == null)
-            return;
+        if (inRetrieveMode)
+        {
+            var retrieveList = sender.BluespaceSenderRetrieveList;
+            int retrieveCount = 0;
 
-        if (retrieveCount == 0)
-        {
-            // When not retrieving, move all pipe gas to bluespace storage
-            var removedGases = pipeGasMixture.RemoveRatio(1f);
-            removedGases.Temperature = Atmospherics.T20C;
-            _atmos.Merge(bluespaceMixture, removedGases);
-        }
-        else
-        {
-            // When retrieving, add selected gases from bluespace to pipe
-            if (pipeGasMixture.Pressure >= 4500)
+            for (int i = 0; i < retrieveList.Count; i++)
+            {
+                if (retrieveList[i] && bluespaceMixture.GetMoles(i) > 0.01f)
+                    retrieveCount++;
+            }
+
+            if (retrieveCount < 1 || pipeGasMixture.Pressure >= 4500)
+            {
+                UpdateOnCountdown(uid, sender);
                 return;
+            }
 
+            var initMoles = ((4500 - pipeGasMixture.Pressure) * 200) / (Atmospherics.R * Atmospherics.T20C) / retrieveCount;
             for (var i = 0; i < retrieveList.Count; i++)
             {
                 if (!retrieveList[i])
                     continue;
 
-                var moles = ((4500 - pipeGasMixture.Pressure) * 200) / (Atmospherics.R * Atmospherics.T20C) / retrieveCount;
+                var moles = initMoles;
                 moles = Math.Min(moles, bluespaceMixture.GetMoles(i));
                 
                 bluespaceMixture.AdjustMoles(i, -moles);
@@ -98,8 +94,28 @@ public sealed class BluespaceSenderSystem : EntitySystem
                 _atmos.Merge(pipeGasMixture, addedGases);
             }
         }
+        else
+        {
+            // When not retrieving, move all pipe gas to bluespace storage
+            var removedGases = pipeGasMixture.RemoveRatio(1f);
+            removedGases.Temperature = Atmospherics.T20C;
+            _atmos.Merge(bluespaceMixture, removedGases);
+        }
 
         UpdateOnCountdown(uid, sender);
+    }
+
+    private void OnToggleStatus(EntityUid uid, BluespaceSenderComponent sender, BluespaceSenderToggleMessage args)
+    {
+        _power.TogglePower(uid);
+        sender.PowerToggle = _power.IsPowered(uid);
+        DirtyUI(uid, sender);
+    }
+
+    private void OnToggleRetrieveMode(EntityUid uid, BluespaceSenderComponent sender, BluespaceSenderToggleRetrieveModeMessage args)
+    {
+        sender.InRetrieveMode = !sender.InRetrieveMode;
+        DirtyUI(uid, sender);
     }
 
     private void DirtyUI(EntityUid uid, BluespaceSenderComponent? sender = null)
@@ -111,8 +127,9 @@ public sealed class BluespaceSenderSystem : EntitySystem
             new BluespaceSenderBoundUserInterfaceState(
                 Name(uid),
                 sender.BluespaceGasMixture,
-                sender.BluespaceSenderEnabledList,
-                sender.BluespaceSenderRetrieveList));
+                sender.BluespaceSenderRetrieveList,
+                sender.PowerToggle,
+                sender.InRetrieveMode));
     }
 
     private bool GetBluespaceSenderPipeMixture(EntityUid uid, BluespaceSenderComponent sender, out GasMixture? mixture)

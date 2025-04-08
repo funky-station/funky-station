@@ -610,3 +610,9 @@
   parent: BaseCircuitboardRecipe
   id: ElectrolyzerMachineBoard
   result: ElectrolyzerMachineBoard
+  
+# Assmos - Bluespace Gas
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: BluespaceGasSenderMachineBoard
+  result: BluespaceGasSenderMachineBoard

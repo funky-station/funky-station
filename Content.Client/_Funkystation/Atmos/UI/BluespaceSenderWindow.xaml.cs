@@ -27,131 +27,124 @@ namespace Content.Client._Funkystation.Atmos.UI
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         public event Action<int>? RetrieveButtonPressed;
-        public event Action<int>? EnableGasForSell;
-
-        [DataField("gasList")]
-        public List<Gas> GasList = new()
-        {
-            Gas.Oxygen,
-            Gas.Nitrogen,
-            Gas.CarbonDioxide,
-            Gas.Plasma,
-            Gas.Tritium,
-            Gas.WaterVapor,
-            Gas.Ammonia,
-            Gas.NitrousOxide,
-            Gas.Frezon,
-            Gas.BZ, // Assmos - /tg/ gases
-            Gas.Healium, // Assmos - /tg/ gases
-            Gas.Nitrium, // Assmos - /tg/ gases
-            Gas.Pluoxium, // Assmos - /tg/ gases
-            Gas.Hydrogen, // Assmos - /tg/ gases
-        };
+        public event Action? ToggleStatusButtonPressed;
+        public event Action? RetrieveModeButtonPressed;
         
         public BluespaceSenderWindow()
         {
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
+            ToggleStatusButton.OnPressed += _ => ToggleStatusButtonPressed?.Invoke();
+            RetrieveModeButton.OnPressed += _ => RetrieveModeButtonPressed?.Invoke();
         }
 
-        public void BuildGasList(List<bool>? enabledGases, List<bool>? retrievingGases)
+        public void BuildGasList(List<bool>? retrievingGases, GasMixture? bluespaceGasMixture)
         {
             GasListBox.Children.Clear();
 
-            foreach (var gas in GasList.Select((name, i) => new { i, name }))
+            if (bluespaceGasMixture == null || bluespaceGasMixture.TotalMoles < 0.01)
             {
-                var gasName = gas.name;
-                var index = gas.i;
-
                 var GasBox = new BoxContainer
                 {
                     Orientation = LayoutOrientation.Vertical,
-                    HorizontalExpand = true
+                    HorizontalExpand = true,
+                    Margin = new Thickness(10, 10)
                 };
-
-                var TopRow = new BoxContainer
+                var NoGasMessage = new Label
                 {
-                    Orientation = LayoutOrientation.Horizontal,
-                    HorizontalExpand = true
+                    Text = "There are no gases in the network"
                 };
 
-                var GasName = new Label
-                {
-                    Text = $"{gasName}"
-                };
-
-                var GasAmount = new Label
-                {
-                    Name = "GasAmount",
-                    Text = "0.00"
-                };
-
-                var LeftSide = new BoxContainer
-                {
-                    Orientation = LayoutOrientation.Vertical,
-                    VerticalAlignment = VAlignment.Top
-                };
-
-                var EnableGasForSellCheckBox = new CheckBox
-                {
-                    Name = $"{gasName}Enable",
-                    Pressed = enabledGases != null && enabledGases[index]
-                };
-
-                var CheckBoxLabel = new Label
-                {
-                    Text = "Enable "
-                };
-
-                var CheckBoxBox = new BoxContainer
-                {
-                    Orientation = LayoutOrientation.Horizontal,
-                    HorizontalAlignment = HAlignment.Right
-                };
-                
-                var RetrieveButton = new Button
-                {
-                    Name = "RetrieveButton",
-                    Text = retrievingGases != null && retrievingGases[index] ? "Retrieving" : "Retrieve"
-                };
-
-                RetrieveButton.OnPressed += _ => RetrieveButtonPressed?.Invoke(index);
-                EnableGasForSellCheckBox.OnToggled += _ => EnableGasForSell?.Invoke(index);
-
-                LeftSide.Children.Add(GasName);
-                LeftSide.Children.Add(GasAmount);
-                CheckBoxBox.Children.Add(CheckBoxLabel);
-                CheckBoxBox.Children.Add(EnableGasForSellCheckBox);
-                TopRow.Children.Add(LeftSide);
-                TopRow.Children.Add(new Control { HorizontalExpand = true });
-                TopRow.Children.Add(CheckBoxBox);
-
-                GasBox.Children.Add(TopRow);
-                GasBox.Children.Add(RetrieveButton);
-
+                GasBox.Children.Add(NoGasMessage);
                 GasListBox.Children.Add(GasBox);
+            }
+            else
+            {
+                int colorSwap = 1;
+                for (var i = 0; i < Atmospherics.TotalNumberOfGases-1; i++)
+                {
+                    int index = i;
+                    var gasName = Enum.GetName(typeof(Gas), index) ?? "Unknown Gas";
+
+                    float moles = bluespaceGasMixture.GetMoles(index);
+
+                    if (moles > 0f)
+                    {
+                        colorSwap *= -1;
+                        var GasPanel = new PanelContainer
+                        {
+                            PanelOverride = new StyleBoxFlat(colorSwap == 1 ? Color.FromHex("#1B1B1E"):Color.FromHex("#202025"))
+                        };
+
+                        var GasBox = new BoxContainer
+                        {
+                            Orientation = LayoutOrientation.Vertical,
+                            HorizontalExpand = true,
+                            Margin = new Thickness(10, 10)
+                        };
+
+                        var TopRow = new BoxContainer
+                        {
+                            Orientation = LayoutOrientation.Horizontal
+                        };
+
+                        var GasName = new Label
+                        {
+                            Text = $"{gasName}"
+                        };
+
+                        var GasAmount = new Label
+                        {
+                            Name = "GasAmount",
+                            Text = $"{moles.ToString("F2")} moles"
+                        };
+                        
+                        var RetrieveButton = new Button
+                        {
+                            Name = "RetrieveButton",
+                            Text = "Retrieve",
+                            Pressed = retrievingGases != null && retrievingGases[index] ? true : false
+                        };
+
+                        RetrieveButton.OnPressed += _ => RetrieveButtonPressed?.Invoke(index);
+
+                        TopRow.Children.Add(GasName);
+                        TopRow.Children.Add(new Control { HorizontalExpand = true });
+                        TopRow.Children.Add(GasAmount);
+
+                        GasBox.Children.Add(TopRow);
+                        GasBox.Children.Add(RetrieveButton);
+
+                        GasPanel.Children.Add(GasBox);
+                        GasListBox.Children.Add(GasPanel);
+                    }
+                }
             }
         }
 
-        public void SetBluespaceGasMixture(GasMixture? bluespaceGasMixture)
+        public void SetActive(bool active)
         {
-            if (bluespaceGasMixture == null)
+            if (!active)
             {
-                return;
+                ToggleStatusButton.Text = Loc.GetString("On");
+                ToggleStatusButton.Pressed = true;
             }
-
-            for (int i = 0; i < GasListBox.Children.Count(); i++)
+            else
             {
-                var gasBox = GasListBox.Children.ElementAt(i) as BoxContainer;
-                if (gasBox == null) continue;
-                // Find the GasAmount label within this GasBox
-                var gasAmountLabel = gasBox.Children.First().Children.First().Children.ElementAt(1) as Label;
-                if (gasAmountLabel != null)
-                {
-                    // Update the label with the moles (or pressure) of this gas
-                    float moles = bluespaceGasMixture.GetMoles(i); // Assuming GasMixture has GetMoles
-                    gasAmountLabel.Text = moles.ToString("F2"); // Format to 2 decimal places
-                }
+                ToggleStatusButton.Text = Loc.GetString("Off");
+                ToggleStatusButton.Pressed = false;
+            }
+        }
+
+        public void SetRetrievingMode(bool retrieving)
+        {
+            if (!retrieving)
+            {
+                RetrieveModeButton.Pressed = false;
+            }
+            else
+            {
+                RetrieveModeButton.Pressed = true;
             }
         }
     }

@@ -25,15 +25,17 @@ namespace Content.Shared._Funkystation.Atmos.Components
     {
         public string BluespaceSenderLabel { get; }
         public GasMixture BluespaceGasMixture { get; }
-        public List<bool> BluespaceSenderEnabledList { get; }
         public List<bool> BluespaceSenderRetrieveList { get; }
+        public bool PowerToggle { get; }
+        public bool InRetrieveMode { get; }
 
-        public BluespaceSenderBoundUserInterfaceState(string bluespaceSenderLabel, GasMixture bluespaceGasMixture, List<bool> bluespaceSenderEnabledList, List<bool> bluespaceSenderRetrieveList)
+        public BluespaceSenderBoundUserInterfaceState(string bluespaceSenderLabel, GasMixture bluespaceGasMixture, List<bool> bluespaceSenderRetrieveList, bool powerToggle, bool inRetrieveMode)
         {
             BluespaceSenderLabel = bluespaceSenderLabel;
             BluespaceGasMixture = bluespaceGasMixture;
-            BluespaceSenderEnabledList = bluespaceSenderEnabledList;
             BluespaceSenderRetrieveList = bluespaceSenderRetrieveList;
+            PowerToggle = powerToggle;
+            InRetrieveMode = inRetrieveMode;
         }
     }
 
@@ -48,12 +50,18 @@ namespace Content.Shared._Funkystation.Atmos.Components
     }
 
     [Serializable, NetSerializable]
-    public sealed class BluespaceSenderChangeEnabledGasesMessage : BoundUserInterfaceMessage
+    public sealed class BluespaceSenderToggleMessage : BoundUserInterfaceMessage
     {
-        public int Index { get; }
-        public BluespaceSenderChangeEnabledGasesMessage(int index)
+        public BluespaceSenderToggleMessage()
         {
-            Index = index;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class BluespaceSenderToggleRetrieveModeMessage : BoundUserInterfaceMessage
+    {
+        public BluespaceSenderToggleRetrieveModeMessage()
+        {
         }
     }
 }

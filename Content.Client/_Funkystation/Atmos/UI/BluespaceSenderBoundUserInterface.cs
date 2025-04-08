@@ -33,7 +33,8 @@ namespace Content.Client._Funkystation.Atmos.UI
 
             // Setup static button actions.
             _window.RetrieveButtonPressed += RetrieveButtonPressed;
-            _window.EnableGasForSell += OnGasEnabled;
+            _window.ToggleStatusButtonPressed += OnToggleStatusButtonPressed;
+            _window.RetrieveModeButtonPressed += RetrieveModeButtonPressed;
         }
 
         /// <summary>
@@ -46,8 +47,9 @@ namespace Content.Client._Funkystation.Atmos.UI
             if (_window == null || state is not BluespaceSenderBoundUserInterfaceState cast)
                 return;
                 
-            _window.BuildGasList(cast.BluespaceSenderEnabledList, cast.BluespaceSenderRetrieveList);
-            _window.SetBluespaceGasMixture(cast.BluespaceGasMixture);
+            _window.BuildGasList(cast.BluespaceSenderRetrieveList, cast.BluespaceGasMixture);
+            _window.SetActive(cast.PowerToggle);
+            _window.SetRetrievingMode(cast.InRetrieveMode);
         }
 
         private void RetrieveButtonPressed(int index)
@@ -55,9 +57,17 @@ namespace Content.Client._Funkystation.Atmos.UI
             SendMessage(new BluespaceSenderChangeRetrieveMessage(index));
         }
 
-        private void OnGasEnabled(int index)
+        private void OnToggleStatusButtonPressed()
         {
-            SendMessage(new BluespaceSenderChangeEnabledGasesMessage(index));
+            if (_window is null) 
+                return;
+
+            SendMessage(new BluespaceSenderToggleMessage());
+        }
+
+        private void RetrieveModeButtonPressed()
+        {
+            SendMessage(new BluespaceSenderToggleRetrieveModeMessage());
         }
     }
 }

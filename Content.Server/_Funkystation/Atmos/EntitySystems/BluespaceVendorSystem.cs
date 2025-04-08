@@ -1,24 +1,38 @@
-using Content.Server.Atmos.Components;
+using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Atmos.Piping.Components;
+using Content.Server.Atmos.Components;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared._Funkystation.Atmos.Components;
 using Content.Shared.Containers.ItemSlots;
+using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
+using Content.Shared.Database;
 using Robust.Shared.Player;
+using System.Linq;
 using Content.Server._Funkystation.Atmos.Components;
 
 namespace Content.Server._Funkystation.Atmos.EntitySystems;
 /// <summary>
-/// Contains all the server-side logic for BluespaceVendors.
+/// Contains all the server-side logic for bluespace vendors.
 /// <seealso cref="BluespaceVendorComponent"/>
 /// </summary>
 public sealed class BluespaceVendorSystem : EntitySystem
 {
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly PowerReceiverSystem _power = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+
+    private TimeSpan _lastUpdateTime = TimeSpan.Zero;
+    private readonly TimeSpan _updateInterval = TimeSpan.FromSeconds(0.5);
+    private List<int> _dangerousGases = [7, 8, 9];
+    private List<int> _explosiveGases = [3, 4, 11, 13];
 
     public override void Initialize()
     {
@@ -28,10 +42,11 @@ public sealed class BluespaceVendorSystem : EntitySystem
         SubscribeLocalEvent<BluespaceVendorComponent, BoundUIOpenedEvent>(OnUIOpened);
         SubscribeLocalEvent<BluespaceVendorComponent, BluespaceVendorHoldingTankEjectMessage>(OnTankEject);
         SubscribeLocalEvent<BluespaceVendorComponent, BluespaceVendorHoldingTankEmptyMessage>(OnTankEmpty);
-        SubscribeLocalEvent<BluespaceVendorComponent, BluespaceVendorFillTankMessage>(OnTankFill);
-        SubscribeLocalEvent<BluespaceVendorComponent, BluespaceVendorChangeReleasePressureMessage>(OnChangeReleasePressures);
+        SubscribeLocalEvent<BluespaceVendorComponent, BluespaceVendorChangeRetrieveMessage>(OnChangeRetrieve);
         SubscribeLocalEvent<BluespaceVendorComponent, EntInsertedIntoContainerMessage>(OnTankInserted);
         SubscribeLocalEvent<BluespaceVendorComponent, EntRemovedFromContainerMessage>(OnTankRemoved);
+        SubscribeLocalEvent<BluespaceVendorComponent, BluespaceVendorChangeReleasePressureMessage>(OnChangeReleasePressure);
+        SubscribeLocalEvent<BluespaceVendorComponent, AtmosDeviceUpdateEvent>(OnDeviceAtmosUpdate);
     }
 
     private void OnStartup(EntityUid uid, BluespaceVendorComponent vendor, ComponentStartup args)
@@ -46,9 +61,71 @@ public sealed class BluespaceVendorSystem : EntitySystem
         DirtyUI(uid, vendor);
     }
 
-    private void OnChangeReleasePressures(EntityUid uid, BluespaceVendorComponent vendor, BluespaceVendorChangeReleasePressureMessage args)
+    private void OnChangeRetrieve(EntityUid uid, BluespaceVendorComponent vendor, BluespaceVendorChangeRetrieveMessage args)
     {
-        vendor.ReleasePressures[args.Index] = args.Pressure;
+        int index = args.Index;
+
+        if (_explosiveGases.Contains(index) && !vendor.BluespaceVendorRetrieveList[index])
+        {
+            _adminLogger.Add(LogType.Explosion, LogImpact.Medium, $"Player {ToPrettyString(args.Actor):player} potentially dispensing {Enum.GetName(typeof(Gas), index)} from {ToPrettyString(uid):vendor} into tank");
+        }
+
+        vendor.BluespaceVendorRetrieveList[index] = !vendor.BluespaceVendorRetrieveList[index];
+        DirtyUI(uid, vendor);
+    }
+
+    private void OnChangeReleasePressure(EntityUid uid, BluespaceVendorComponent vendor, BluespaceVendorChangeReleasePressureMessage args)
+    {
+        var pressure = args.Pressure;
+        if (pressure > 100f) pressure = 100f;
+        if (pressure < 0f) pressure = 0f;
+        vendor.ReleasePressure = pressure;
+        DirtyUI(uid, vendor);
+    }
+
+    private void OnDeviceAtmosUpdate(EntityUid uid, BluespaceVendorComponent vendor, ref AtmosDeviceUpdateEvent args)
+    {
+        if (!_power.IsPowered(uid) || !TryComp<ApcPowerReceiverComponent>(uid, out _))
+        {
+            UpdatePumpingAppearance(uid, vendor, false);
+            return;
+        }
+
+        var retrieveList = vendor.BluespaceVendorRetrieveList;
+        var isRetrievingCount = retrieveList.Count(x => x);
+        var bluespaceMixture = vendor.BluespaceGasMixture;
+        var tankMixture = vendor.TankGasMixture;
+        var releasePressure = vendor.ReleasePressure * 10;
+
+        if (isRetrievingCount < 1 || releasePressure - tankMixture.Pressure < 0.001f || vendor.GasTankSlot.Item == null)
+        {
+            UpdatePumpingAppearance(uid, vendor, false);
+            return;
+        }
+
+        UpdatePumpingAppearance(uid, vendor, true);
+        
+        // When retrieving, add selected gases from bluespace to tank
+        var initMoles = Math.Min(((releasePressure * tankMixture.Volume) / (Atmospherics.R * Atmospherics.T20C) - tankMixture.TotalMoles), 0.2f) / isRetrievingCount;
+
+        for (var i = 0; i < retrieveList.Count; i++)
+        {
+            if (!retrieveList[i])
+                continue;
+
+            var moles = initMoles;
+            moles = moles >= bluespaceMixture.GetMoles(i) ? bluespaceMixture.GetMoles(i) : moles;
+            
+            bluespaceMixture.AdjustMoles(i, -moles);
+            if (bluespaceMixture.GetMoles(i) < 0.01f)
+                vendor.BluespaceVendorRetrieveList[i] = !vendor.BluespaceVendorRetrieveList[i];
+                
+            var addedGases = new GasMixture();
+            addedGases.AdjustMoles(i, moles);
+            addedGases.Temperature = Atmospherics.T20C;
+            _atmos.Merge(tankMixture, addedGases);
+        }
+
         DirtyUI(uid, vendor);
     }
 
@@ -59,47 +136,15 @@ public sealed class BluespaceVendorSystem : EntitySystem
             return;
 
         string? tankLabel = null;
-        var tankPressure = 0f;
 
         if (TryGetGasTank(vendor, out var gasTank)  && gasTank != null)
         {
             tankLabel = Name(gasTank.Owner);
-            tankPressure = gasTank.Air.Pressure;
         }
 
-        if (GetEnabledGasList(uid, out List<bool>? senderEnabledList))
-            vendor.BluespaceSenderEnabledList = senderEnabledList;
-
         _ui.SetUiState(uid, BluespaceVendorUiKey.Key,
-            new BluespaceVendorBoundUserInterfaceState(Name(uid), tankLabel, tankPressure, vendor.ReleasePressures,
-                vendor.MinReleasePressure, vendor.MaxReleasePressure, vendor.BluespaceGasMixture, 
-                vendor.TankGasMixture, vendor.BluespaceSenderConnected, vendor.BluespaceSenderEnabledList));
-    }
-
-    private void OnTankFill(EntityUid uid, BluespaceVendorComponent vendor, BluespaceVendorFillTankMessage args)
-    {
-        if (!vendor.BluespaceSenderConnected)
-            return;
-
-        if (!TryGetGasTank(vendor, out var gasTank))
-            return;
-
-        var mixture = gasTank!.Air;
-        var releasePressure = vendor.ReleasePressures[args.Index];
-        var maxReleasePressure = vendor.MaxReleasePressure;
-
-        if (mixture.Pressure + releasePressure > maxReleasePressure) 
-            releasePressure = Math.Max(maxReleasePressure - mixture.Pressure, 0f);
-            
-        var moles = (releasePressure * mixture.Volume) / (Atmospherics.R * Atmospherics.T20C);
-        
-        if (moles > vendor.BluespaceGasMixture.GetMoles(args.Index))
-            moles = vendor.BluespaceGasMixture.GetMoles(args.Index);
-
-        mixture.AdjustMoles(args.Index, moles);
-        vendor.BluespaceGasMixture.AdjustMoles(args.Index, -moles);
-        
-        DirtyUI(uid, vendor);
+            new BluespaceVendorBoundUserInterfaceState(Name(uid), tankLabel, vendor.BluespaceVendorRetrieveList,
+                vendor.BluespaceGasMixture, vendor.TankGasMixture, vendor.ReleasePressure, vendor.BluespaceSenderConnected));
     }
 
     private void OnTankInserted(EntityUid uid, BluespaceVendorComponent vendor, EntInsertedIntoContainerMessage args)
@@ -108,7 +153,8 @@ public sealed class BluespaceVendorSystem : EntitySystem
             return;
 
         if (vendor.GasTankSlot.Item != null)
-        {
+        {   
+            UpdateTankAppearance(uid, vendor);
             var gasTank = Comp<GasTankComponent>(vendor.GasTankSlot.Item.Value);
             vendor.TankGasMixture = gasTank.Air;
             DirtyUI(uid, vendor);
@@ -119,8 +165,8 @@ public sealed class BluespaceVendorSystem : EntitySystem
     {
         if (args.Container.ID != vendor.TankContainerName)
             return;
-
-        DirtyUI(uid, vendor);
+        
+        HandleTankRemoval(uid, vendor);
     }
 
     private void OnTankEject(EntityUid uid, BluespaceVendorComponent vendor, BluespaceVendorHoldingTankEjectMessage args)
@@ -128,8 +174,14 @@ public sealed class BluespaceVendorSystem : EntitySystem
         if (vendor.GasTankSlot.Item == null)
             return;
 
-        var item = vendor.GasTankSlot.Item;
         _slots.TryEjectToHands(uid, vendor.GasTankSlot, args.Actor);
+        HandleTankRemoval(uid, vendor);
+    }
+
+    private void HandleTankRemoval(EntityUid uid, BluespaceVendorComponent vendor)
+    {
+        vendor.TankGasMixture = new();
+        UpdateTankAppearance(uid, vendor);
         DirtyUI(uid, vendor);
     }
 
@@ -154,28 +206,29 @@ public sealed class BluespaceVendorSystem : EntitySystem
         DirtyUI(uid, vendor);
     }
 
-    // Need to clean this up
-    public bool GetEnabledGasList(EntityUid vendorUid, out List<bool> enabledList)
-    {
-        enabledList = new List<bool>();
-
-        if (!TryComp(vendorUid, out BluespaceGasUtilizerComponent? utilizerComp))
-            return false;
-            
-        var senderUid = utilizerComp.BluespaceSender;
-
-        if (senderUid == null)
-            return false;
-
-        if (TryComp(senderUid.Value, out BluespaceSenderComponent? senderComp))
-            enabledList = senderComp.BluespaceSenderEnabledList;
-
-        return true;
-    }
-
     private bool TryGetGasTank(BluespaceVendorComponent vendor, out GasTankComponent? gasTank)
     {
         gasTank = null;
         return vendor.GasTankSlot.Item.HasValue && TryComp(vendor.GasTankSlot.Item.Value, out gasTank);
+    }
+
+    private void UpdateTankAppearance(EntityUid uid, BluespaceVendorComponent vendor, GasTankComponent? gasTank = null, AppearanceComponent? appearance = null)
+    {
+        if (!Resolve(uid, ref appearance, false))
+            return;
+        bool tankInserted = vendor.GasTankSlot.Item.HasValue && TryComp(vendor.GasTankSlot.Item.Value, out GasTankComponent? _);
+        if (!tankInserted)
+        {
+            UpdatePumpingAppearance(uid, vendor, false);
+        }
+        _appearance.SetData(uid, BluespaceVendorVisuals.TankInserted, tankInserted, appearance);
+    }
+
+    private void UpdatePumpingAppearance(EntityUid uid, BluespaceVendorComponent vendor, bool isPumping = false, GasTankComponent? gasTank = null, AppearanceComponent? appearance = null)
+    {
+        if (!Resolve(uid, ref appearance, false))
+            return;
+
+        _appearance.SetData(uid, BluespaceVendorVisuals.isPumping, isPumping, appearance);
     }
 }

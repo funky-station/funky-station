@@ -557,6 +557,7 @@
     - OperatingTableCircuitboard # Shitmed Change
     - BorgChargerCircuitboard
     - ElectrolyzerMachineBoard # Assmos - /tg/ gases
+    - BluespaceGasSenderMachineBoard # Assmos - Bluespace Gas
     dynamicRecipes:
     - ThermomachineFreezerMachineCircuitBoard
     - HellfireFreezerMachineCircuitBoard

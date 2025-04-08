@@ -46,25 +46,18 @@ namespace Content.Server._Funkystation.Atmos.Components
         public GasMixture TankGasMixture { get; set; } = new();
 
         /// <summary>
-        /// The minimum pressure for the release valve (in kPa).
+        ///     List of bools for retrieving gases
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("minReleasePressure")]
-        public float MinReleasePressure { get; set; } = 0f;
+        [DataField("bluespaceSenderRetrieveList")]
+        public List<bool> BluespaceVendorRetrieveList { get; set; } = Enumerable.Repeat(false, GasTypeCount).ToList();
 
         /// <summary>
-        /// The maximum pressure for the release valve (in kPa).
-        /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("maxReleasePressure")]
-        public float MaxReleasePressure { get; set; } = 1000f;
-
-        /// <summary>
-        /// The target pressures for each gas type to add to the tank (in kPa).
+        /// The target pressure to add to the tank (in percent of 1000kpa).
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("releasePressure")]
-        public float[] ReleasePressures { get; set; } = new float[GasTypeCount];
+        public float ReleasePressure { get; set; } = 0;
 
         /// <summary>
         /// Whether a Bluespace sender is connected to this vendor.
@@ -86,12 +79,5 @@ namespace Content.Server._Funkystation.Atmos.Components
                 }
             }
         }
-
-        /// <summary>
-        /// List of enabled gas types for transfer from the Bluespace sender.
-        /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("bluespaceSenderEnabledList")]
-        public List<bool> BluespaceSenderEnabledList { get; set; } = Enumerable.Repeat(false, GasTypeCount).ToList();
     }
 }

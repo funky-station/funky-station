@@ -11,7 +11,7 @@ namespace Content.Server._Funkystation.Atmos.Components
         private const int GasTypeCount = Atmospherics.TotalNumberOfGases;
 
         /// <summary>
-        ///     The port name for connecting to a Bluespace vender.
+        ///     The port name for connecting to a Bluespace vendor.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("port")]
@@ -38,17 +38,24 @@ namespace Content.Server._Funkystation.Atmos.Components
         public GasMixture PipeGasMixture { get; set; } = new();
 
         /// <summary>
-        ///     List of bools for enabled gases
-        /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("bluespaceSenderEnabledList")]
-        public List<bool> BluespaceSenderEnabledList { get; set; } = Enumerable.Repeat(false, GasTypeCount).ToList();
-
-        /// <summary>
         ///     List of bools for retrieving gases
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("bluespaceSenderRetrieveList")]
         public List<bool> BluespaceSenderRetrieveList { get; set; } = Enumerable.Repeat(false, GasTypeCount).ToList();
+
+        /// <summary>
+        ///     Bool to determine if sender is powered on
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("bluespaceSenderToggle")]
+        public bool PowerToggle { get; set; } = true;
+
+        /// <summary>
+        ///     Bool to determine if sender is in retrieve mode
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("bluespaceSenderInRetrievingMode")]
+        public bool InRetrieveMode { get; set; } = false;
     }
 }

@@ -2,9 +2,15 @@
                 xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                 xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-                MinSize="620 670"
+                MinSize="420 480"
                 Title="Bluespace Gas Sender">
         <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5" SeparationOverride="10">
+            <BoxContainer Orientation="Horizontal">
+                <Label Text="Bluespace Network Gases" />
+                <Control HorizontalExpand="True" />
+                <Button Name="RetrieveModeButton" Text="Retrieve Gases"/>
+                <Button Name="ToggleStatusButton" Text="On" Pressed="True"/>
+            </BoxContainer>
             <!-- Gas List -->
             <PanelContainer VerticalExpand="True" MinSize="0 200">
                 <PanelContainer.PanelOverride>

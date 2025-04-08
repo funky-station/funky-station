@@ -32,6 +32,7 @@ namespace Content.Client._Funkystation.Atmos.UI
             _window.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
 
             // Setup static button actions.
+            _window.RetrieveButtonPressed += OnRetrieveButtonPressed;
             _window.TankFillButtonPressed += (index) => SendMessage(new BluespaceVendorFillTankMessage(index));
             _window.TankEjectButtonPressed += OnTankEjectPressed;
             _window.TankEmptyButtonPressed += OnTankEmptyPressed;
@@ -48,11 +49,17 @@ namespace Content.Client._Funkystation.Atmos.UI
             if (_window == null || state is not BluespaceVendorBoundUserInterfaceState cast)
                 return;
 
-            _window.ToggleGasList(cast.BluespaceSenderConnected, cast.BluespaceSenderEnabledList);
             _window.ToggleEjectButton(cast.TankLabel, cast.TankGasMixture);
             _window.ToggleEmptyTankButton(cast.TankLabel, cast.BluespaceSenderConnected);
-            _window.SetBluespaceGasMixture(cast.BluespaceGasMixture);
+            _window.ToggleGasList(cast.BluespaceSenderConnected, cast.BluespaceGasMixture, cast.BluespaceVendorRetrieveList, cast.TankGasMixture);
+            _window.SetReleasePressureSpinbox(cast.ReleasePressure);
         }
+
+        private void OnRetrieveButtonPressed(int index)
+        {
+            SendMessage(new BluespaceVendorChangeRetrieveMessage(index));
+        }
+
         private void OnTankFillPressed(int index)
         {
             SendMessage(new BluespaceVendorFillTankMessage(index));
@@ -68,9 +75,9 @@ namespace Content.Client._Funkystation.Atmos.UI
             SendMessage(new BluespaceVendorHoldingTankEmptyMessage());
         }
 
-        private void OnReleasePressureSet(float value, int index)
+        private void OnReleasePressureSet(float value)
         {
-            SendMessage(new BluespaceVendorChangeReleasePressureMessage(value, index));
+            SendMessage(new BluespaceVendorChangeReleasePressureMessage(value));
         }
     }
 }

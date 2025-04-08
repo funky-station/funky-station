@@ -13,6 +13,18 @@ namespace Content.Shared._Funkystation.Atmos.Components
     {
         Key,
     }
+    [NetSerializable, Serializable]
+    public enum BluespaceVendorVisualLayers
+    {
+        Tank,
+        Pumping
+    }
+    [NetSerializable, Serializable]
+    public enum BluespaceVendorVisuals
+    {
+        TankInserted,
+        isPumping
+    }
 
     /// <summary>
     /// Represents a <see cref="BluespaceVendorComponent"/> state that can be sent to the client
@@ -22,27 +34,21 @@ namespace Content.Shared._Funkystation.Atmos.Components
     {
         public string BluespaceVendorLabel { get; }
         public string? TankLabel { get; }
-        public float TankPressure { get; }
-        public float[] ReleasePressure { get; }
-        public float ReleasePressureMin { get; }
-        public float ReleasePressureMax { get; }
+        public List<bool>  BluespaceVendorRetrieveList { get; }
         public GasMixture BluespaceGasMixture { get; }
         public GasMixture TankGasMixture { get; }
+        public float ReleasePressure { get; }
         public bool BluespaceSenderConnected { get; }
-        public List<bool> BluespaceSenderEnabledList { get; }
 
-        public BluespaceVendorBoundUserInterfaceState(string bluespaceVendorLabel, string? tankLabel, float tankPressure, float[] releasePressure, float releaseValveMin, float releaseValveMax, GasMixture bluespaceGasMixture, GasMixture tankGasMixture, bool bluespaceSenderConnected, List<bool> bluespaceSenderEnabledList)
+        public BluespaceVendorBoundUserInterfaceState(string bluespaceVendorLabel, string? tankLabel, List<bool> bluespaceVendorRetrieveList, GasMixture bluespaceGasMixture, GasMixture tankGasMixture, float releasePressure, bool bluespaceSenderConnected)
         {
             BluespaceVendorLabel = bluespaceVendorLabel;
             TankLabel = tankLabel;
-            TankPressure = tankPressure;
-            ReleasePressureMin = releaseValveMin;
-            ReleasePressureMax = releaseValveMax;
-            ReleasePressure = releasePressure;
+            BluespaceVendorRetrieveList = bluespaceVendorRetrieveList;
             BluespaceGasMixture = bluespaceGasMixture;
             TankGasMixture = tankGasMixture;
+            ReleasePressure = releasePressure;
             BluespaceSenderConnected = bluespaceSenderConnected;
-            BluespaceSenderEnabledList = bluespaceSenderEnabledList;
         }
     }
 
@@ -78,14 +84,21 @@ namespace Content.Shared._Funkystation.Atmos.Components
     }
 
     [Serializable, NetSerializable]
+    public sealed class BluespaceVendorChangeRetrieveMessage : BoundUserInterfaceMessage
+    {
+        public int Index { get; }
+        public BluespaceVendorChangeRetrieveMessage(int index)
+        {
+            Index = index;
+        }
+    }
+
+    [Serializable, NetSerializable]
     public sealed class BluespaceVendorChangeReleasePressureMessage : BoundUserInterfaceMessage
     {
         public float Pressure { get; }
-        public int Index { get; }
-
-        public BluespaceVendorChangeReleasePressureMessage(float pressure, int index)
+        public BluespaceVendorChangeReleasePressureMessage(float pressure)
         {
-            Index = index;
             Pressure = pressure;
         }
     }

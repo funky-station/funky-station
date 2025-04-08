@@ -9,7 +9,7 @@
                 <Label Text="Bluespace Network Gases" />
                 <Control HorizontalExpand="True" />
                 <Button Name="RetrieveModeButton" Text="Retrieve Gases"/>
-                <Button Name="ToggleStatusButton" Text="On" Pressed="True"/>
+                <Button Name="ToggleStatusButton" Text="Off" Pressed="False"/>
             </BoxContainer>
             <!-- Gas List -->
             <PanelContainer VerticalExpand="True" MinSize="0 200">

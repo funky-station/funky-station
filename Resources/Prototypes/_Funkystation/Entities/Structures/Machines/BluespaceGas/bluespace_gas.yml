@@ -51,7 +51,7 @@
   - type: AtmosPipeColor
   - type: ApcPowerReceiver
     powerLoad: 500
-    powerDisabled: False
+    powerDisabled: True
   - type: NodeContainer
     nodes:
       pipe:

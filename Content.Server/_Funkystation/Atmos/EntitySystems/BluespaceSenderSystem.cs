@@ -41,12 +41,6 @@ public sealed class BluespaceSenderSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, BluespaceSenderComponent sender, ComponentStartup args)
     {
-        if (_power.IsPowered(uid) != sender.PowerToggle)
-        {
-            _power.TogglePower(uid); 
-        }
-        sender.PowerToggle = _power.IsPowered(uid); 
-
         DirtyUI(uid, sender);
     }
 

@@ -14,6 +14,7 @@
   sprites:
     Head: MobGingerbreadHead
     HeadTop: MobHumanoidAnyMarking
+    Hair: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Chest: MobGingerbreadTorso
     Eyes: MobGingerbreadEyes
@@ -31,9 +32,6 @@
   points:
     Hair:
       points: 1
-      required: false
-    FacialHair:
-      points: 0
       required: false
     HeadTop: 
       points: 1

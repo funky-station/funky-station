@@ -108,7 +108,7 @@
 
 - type: marking
   id: HeadtopWhippedcreamdo
-  bodyPart: Headtop
+  bodyPart: HeadTop
   markingCategory: Head
   speciesRestriction: [Gingerbread]
   sprites:

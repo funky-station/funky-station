@@ -76,7 +76,12 @@
       "name": "headtop_whippedcreamdo",
       "directions": 4
     },
-                            
+                                    
+    {
+      "name": "body_icingbuttons",
+      "directions": 4
+    },
+                                    
     {
       "name": "face_mustached_eyes",
       "directions": 4

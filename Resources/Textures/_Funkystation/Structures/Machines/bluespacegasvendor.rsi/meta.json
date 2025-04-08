@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from /tg/ station at commit https://github.com/tgstation/tgstation/pull/57919/commits/d775c0b8ad38b96de965b111016e6b56e50b3d67 - modified by gobdrob for Funky Station 14",
+  "copyright": "Base sprites taken from /tg/ station at commit https://github.com/tgstation/tgstation/pull/57919/commits/d775c0b8ad38b96de965b111016e6b56e50b3d67 - modified by gobdrob for Funky Station 14",
   "size": {
     "x": 32,
     "y": 32

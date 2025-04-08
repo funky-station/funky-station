@@ -133,4 +133,5 @@
   sprites:
     - sprite: Mobs/Customization/gingerbread_parts.rsi
       state: face_mustached_eyes
+    - sprite: Mobs/Customization/gingerbread_parts.rsi
       state: face_mustached_secondary

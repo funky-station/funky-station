@@ -25,6 +25,36 @@
     RLeg: MobGingerbreadRLeg
     LFoot: MobGingerbreadLFoot
     RFoot: MobGingerbreadRFoot
+    
+- type: markingPoints
+  id: MobGingerbreadMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    HeadTop: 
+      points: 1
+      required: false
+    Head:
+      points: 1
+      required: true
+      defaultMarkings: [ FaceIcingDefault ]
+    Tail: 
+      points: 1
+      required: false
+    Chest:
+      points: 2
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
+
 
 - type: humanoidBaseSprite
   id: MobGingerbreadEyes

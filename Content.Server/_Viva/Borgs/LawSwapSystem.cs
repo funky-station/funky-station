@@ -31,6 +31,7 @@ public sealed class LawSwapSystem : EntitySystem
 
         TryComp<SiliconLawBoundComponent>(args.Used, out var lawBoundComp);
         TryComp<WiresPanelComponent>(args.Target, out var wirePanelComp);
+        
         if (lawBoundComp == null || wirePanelComp == null)
             return;
 

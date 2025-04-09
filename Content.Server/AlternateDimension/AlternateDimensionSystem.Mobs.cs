@@ -2,11 +2,13 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Antag;
 using Content.Server.Ghost.Roles.Components;
+using Content.Shared.EntityTable;
 using Content.Shared.Physics;
 using Content.Shared.Teleportation.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
+using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Server.AlternateDimension;
@@ -16,6 +18,7 @@ public sealed partial class AlternateDimensionSystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly EntityTableSystem _entityTable = default!;
 
     private void InitializeMobs()
     {
@@ -101,6 +104,7 @@ public sealed partial class AlternateDimensionSystem
         var count = Math.Clamp(Convert.ToInt32(players * ent.Comp.PlayerScaling), ent.Comp.Min, ent.Comp.Max);
 
         var spawns = 0;
+        bool guarenteedSpawn = true;
         while (spawns < count)
         {
             if (alternateTiles.Count == 0)
@@ -117,17 +121,35 @@ public sealed partial class AlternateDimensionSystem
             }
 
             var spawnCoords = alternateGridComp.GridTileToLocal(tile.Index);
-            var uid = EntityManager.SpawnAtPosition("MobXenoDrone", spawnCoords);
-            EntityManager.RemoveComponent<GhostRoleComponent>(uid);
-            EntityManager.RemoveComponent<GhostTakeoverAvailableComponent>(uid);
-            spawns++;
+            foreach (var spawn in _entityTable.GetSpawns(ent.Comp.Table))
+            {
+                var uid = EntityManager.SpawnAtPosition(spawn.Id, spawnCoords);
 
-            sawmill.Log(LogLevel.Debug, "Spawned mob at ({0},{1}), {2} tiles away from ({3},{4})",
-                spawnCoords.Position.X,
-                spawnCoords.Position.Y,
-                Vector2.Distance(coords.Value.Position, spawnCoords.Position),
-                coords.Value.Position.X,
-                coords.Value.Position.Y);
+                EntityManager.RemoveComponent<GhostRoleComponent>(uid);
+                EntityManager.RemoveComponent<GhostTakeoverAvailableComponent>(uid);
+                spawns++;
+
+                sawmill.Log(LogLevel.Debug,
+                    "Spawned mob \"{0}\" at ({1},{2}), {3} tiles away from ({4},{5})",
+                    spawn.Id,
+                    spawnCoords.Position.X,
+                    spawnCoords.Position.Y,
+                    Vector2.Distance(coords.Value.Position, spawnCoords.Position),
+                    coords.Value.Position.X,
+                    coords.Value.Position.Y);
+            }
+
+            if (guarenteedSpawn)
+            {
+                guarenteedSpawn = false;
+
+                if (ent.Comp.SpecialEntries.Count == 0)
+                    continue;
+
+                // guaranteed spawn
+                var specialEntry = _random.Pick(ent.Comp.SpecialEntries);
+                Spawn(specialEntry.PrototypeId, spawnCoords);
+            }
         }
     }
 }

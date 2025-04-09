@@ -885,6 +885,10 @@
     targetDimension: Shadowlands
   - type: AlternateDimensionMobSpawner
     targetDimension: Shadowlands
+    table: !type:GroupSelector
+      children:
+      - id: MobShadowMothroach
+      - id: MobXeno
     radiusModifier: 0.25
     min: 6
     max: 20

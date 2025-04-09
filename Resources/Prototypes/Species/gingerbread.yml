@@ -13,11 +13,12 @@
   id: MobGingerbreadSprites
   sprites:
     Head: MobGingerbreadHead
-    HeadTop: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Chest: MobGingerbreadTorso
     Eyes: MobGingerbreadEyes
+    HeadTop: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
     LArm: MobGingerbreadLArm
     RArm: MobGingerbreadRArm
     LHand: MobGingerbreadLHand
@@ -33,13 +34,13 @@
     Hair:
       points: 1
       required: false
-    HeadTop: 
-      points: 1
-      required: false
     Head:
       points: 1
       required: true
       defaultMarkings: [ FaceIcingDefault ]
+    HeadTop:
+      points: 1
+      required: false
     Tail: 
       points: 1
       required: false

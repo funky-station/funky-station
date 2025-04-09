@@ -5,5 +5,4 @@
   components:
   - type: Contraband
     severity: BloodCult
-    # no one should be carrying this around visibly!
-    allowedDepartments: null
+    

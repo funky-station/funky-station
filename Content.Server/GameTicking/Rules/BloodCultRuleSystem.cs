@@ -193,19 +193,21 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			component.VeilWeakened = true;
 		}
 
-        // no other humans to kill
+        // Get all relevant crew
         var allHumans = new HashSet<Entity<MindComponent>>();
 		foreach (var person in _mind.GetAliveHumans())//;//(args.MindId);
 		{
 			var mind = person.Comp;
 			var mindCompEntity = mind.Owner;
 			if (mindCompEntity != null &&
+				_stationSystem.GetOwningStation(person.Owner) != null &&
 				!HasComp<CryostorageContainedComponent>(mind.CurrentEntity) &&
 				!HasComp<CultResistantComponent>(mind.CurrentEntity) &&
 				!_role.MindHasRole<BloodCultRoleComponent>(mindCompEntity, out var _))
 				allHumans.Add(person);
 		}
 
+		// no other humans to kill
 		if (allHumans.Count == 0)
         {
 			// If there are no remaining possible targets, allow

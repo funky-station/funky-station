@@ -84,7 +84,7 @@ public sealed partial class AlternateDimensionSystem
             }
 
             var otherEnt = SpawnAtPosition(AutoPortalComp.OtherSidePortal,
-                originalGridComp.GridTileToLocal(portalTile.Item1));
+                Transform(ent).Coordinates); // Portal back just sends you to where the shadow anom is
             var otherOtherEnt = SpawnAtPosition("PortalBlue",
                 alternateGridComp.GridTileToLocal(portalTile.Item1));
             _link.TryLink(otherEnt, otherOtherEnt, true);

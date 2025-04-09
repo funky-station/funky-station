@@ -1,8 +1,11 @@
 using System.Linq;
 using Content.Server.Cargo.Components;
+using Content.Server.Chat.Systems;
 using Content.Server.CriminalRecords.Systems;
 using Content.Server.GameTicking;
+using Content.Server.GameTicking.Rules;
 using Content.Server.Station.Systems;
+using Content.Server.StationEvents;
 using Content.Server.StationEvents.Events;
 using Content.Server.StationRecords.Systems;
 using Content.Shared.CriminalRecords;
@@ -14,17 +17,23 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Funkystation.Payouts;
 
-public sealed class StationPayoutRule : StationEventSystem<StationPayoutRuleComponent>
+public sealed class StationPayoutEventSchedulerSystem : StationEventSystem<StationPayoutEventSchedulerComponent>
 {
     [Dependency] private readonly StationRecordsSystem _stationRecords = default!;
-    [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly PayoutSystem _payoutSystem = default!;
+    [Dependency] private readonly EventManagerSystem _event = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!;
 
-    protected override void Started(EntityUid uid, StationPayoutRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
+    protected override void Started(EntityUid uid, StationPayoutEventSchedulerComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
 
+        InitiatePayouts(component);
+    }
+
+    private void InitiatePayouts(StationPayoutEventSchedulerComponent component)
+    {
         if (!TryGetRandomStation(out var chosenStation, HasComp<StationBankAccountComponent>))
             return;
 
@@ -59,10 +68,41 @@ public sealed class StationPayoutRule : StationEventSystem<StationPayoutRuleComp
 
         bankAccountComponent.ScripBalance += totalStationPayoutAmount;
 
+        if (!component.ScripInitialStationInit)
+        {
+            component.ScripInitialStationInit = true;
+            PayoutStation(chosenStation.Value, bankAccountComponent, false);
+
+            return;
+        }
+
         PayoutStation(chosenStation.Value, bankAccountComponent);
     }
 
-    private void PayoutStation(EntityUid stationUid, StationBankAccountComponent stationBankAccount)
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (!_event.EventsEnabled)
+            return;
+
+        var query = EntityQueryEnumerator<StationPayoutEventSchedulerComponent, GameRuleComponent>();
+        while (query.MoveNext(out var uid, out var eventScheduler, out var gameRule))
+        {
+            if (eventScheduler.ScripPayoutAccumulator > 0)
+            {
+                eventScheduler.ScripPayoutAccumulator -= frameTime;
+                continue;
+            }
+
+            Log.Info("Station paid out through loop");
+
+            InitiatePayouts(eventScheduler);
+            eventScheduler.ScripPayoutAccumulator = eventScheduler.ScripPayoutDelay;
+        }
+    }
+
+    private void PayoutStation(EntityUid stationUid, StationBankAccountComponent stationBankAccount, bool announceToStation = true)
     {
         var paymentRecords = _stationRecords.GetRecordsOfType<PaymentRecord>(stationUid);
 
@@ -91,5 +131,10 @@ public sealed class StationPayoutRule : StationEventSystem<StationPayoutRuleComp
 
             _payoutSystem.PayOutToBalance(record, paymentRecord.Item2.PayoutAmount, stationBankAccount);
         }
+
+        Log.Info("Station paid out through PayoutStation");
+
+        if (announceToStation)
+            _chatSystem.DispatchStationAnnouncement(stationUid, Loc.GetString("scrip-scheduled-payout"));
     }
 }

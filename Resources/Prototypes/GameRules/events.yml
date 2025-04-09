@@ -697,7 +697,8 @@
     - CommandMaid
 
 - type: entity
-  id: StationPayout
+  id: StationPayoutEvent
   parent: BaseGameRule
   components:
-  - type: StationPayoutRule
+  - type: StationEvent
+  - type: StationPayoutEventScheduler

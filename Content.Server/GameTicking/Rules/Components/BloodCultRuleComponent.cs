@@ -1,6 +1,7 @@
 using Robust.Shared.Player;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Content.Server.GameTicking.Rules;
 using Content.Shared.Mind;
 using Content.Shared.BloodCult;
@@ -151,4 +152,31 @@ public sealed partial class BloodCultRuleComponent : Component
 	/// Number of players required to convert a player.
 	/// </summary>
 	[DataField] public int CultistsToConvert = 2;
+
+	/// <summary>
+	/// The set time the Blood Cult's target will be re-selected, if needed.
+	/// </summary>
+	[DataField] public TimeSpan? TargetReselectTime;
+
+	/// <summary>
+	/// Time in minutes how long a target can be off station, until the target is re-selected.
+	/// </summary>
+	[DataField] public TimeSpan OffStationTimer = TimeSpan.FromMinutes(2);
+
+	/// <summary>
+	/// Whether the Target Reselection Timer is currently active.
+	/// </summary>
+	[DataField] public bool TargetReselectTimerActive = false;
+
+	/// <summary>
+	/// When the next initial off-station check occurs
+	/// </summary>
+	[DataField(customTypeSerializer: typeof(TimeOffsetSerializer))] 
+	public TimeSpan OffStationCheckTime;
+
+	/// <summary>
+    /// The amount of time between each off-station check, checked sparsely to reduce server load.
+    /// </summary>
+    [DataField]
+    public TimeSpan TimerWait = TimeSpan.FromSeconds(20);
 }

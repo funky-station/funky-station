@@ -9,6 +9,7 @@ using Content.Server.Roles;
 using Content.Server.RoundEnd;
 using Content.Server.Antag;
 using Content.Server.Mind;
+using Content.Server.Station.Systems;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.NPC.Prototypes;
@@ -72,6 +73,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly SharedJobSystem _jobs = default!;
 	[Dependency] private readonly RoundEndSystem _roundEnd = default!;
 	[Dependency] private readonly MobStateSystem _mobSystem = default!;
+	[Dependency] private readonly StationSystem _stationSystem = default!;
 	[Dependency] private readonly IChatManager _chatManager = default!;
 	[Dependency] private readonly ChatSystem _chatSystem = default!;
 	[Dependency] private readonly SharedActionsSystem _actions = default!;
@@ -119,6 +121,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		component.InitialReportTime = _timing.CurTime + TimeSpan.FromSeconds(1);
 		SetConversionsNeeded(component);
 		SelectVeilTargets(component);
+		component.OffStationCheckTime = _timing.CurTime + component.TimerWait;
     }
 
 	private void SelectVeilTargets(BloodCultRuleComponent component)
@@ -348,13 +351,47 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 					AnnounceStatus(component, cultists);
 				}
 			}
+			// When entered cryo
 			if (val != null && HasComp<CryostorageContainedComponent>(val.CurrentEntity))
 			{
-				// When entered cryo
 				SelectTarget(component, true);
 				if (!component.VeilWeakened)
 				{
 					AnnounceStatus(component, cultists);
+				}
+			}
+
+			// Reselection Timer checks
+			if (component.TargetReselectTimerActive)
+			{
+				//Re-select target if the allocated time has passed
+				if (component.TargetReselectTime <= _timing.CurTime)
+				{
+					component.TargetReselectTimerActive = false;
+
+					SelectTarget(component, true);
+					if (!component.VeilWeakened)
+					{
+						AnnounceStatus(component, cultists);
+					}
+				}
+				//Target returns to station, stop the timer
+				else if (_stationSystem.GetOwningStation(component.Target) != null)
+				{
+					component.TargetReselectTimerActive = false;
+				}
+			}
+
+			// Check if target is off-station
+			if (component.OffStationCheckTime <= _timing.CurTime)
+			{
+				component.OffStationCheckTime = _timing.CurTime + component.TimerWait;
+
+				//If target is off-station, start a 2 minute timer to re-select a target
+				if (!component.TargetReselectTimerActive && _stationSystem.GetOwningStation(component.Target) == null)
+				{
+					component.TargetReselectTime = _timing.CurTime + component.OffStationTimer;
+					component.TargetReselectTimerActive = true;
 				}
 			}
 		}

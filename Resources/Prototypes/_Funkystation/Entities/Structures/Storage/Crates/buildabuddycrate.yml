@@ -1,0 +1,31 @@
+- type: entity
+  parent: CrateGeneric
+  id: CrateBuildABuddyHuman
+  name: build-a-buddy
+  components:
+  - type: Icon
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: Sprite
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: StorageFill
+    contents:
+    - id: TorsoHuman
+      amount: 1
+    - id: HeadHuman
+      amount: 1
+    - id: LeftArmHuman
+      amount: 1
+    - id: RightArmHuman
+      amount: 1
+    - id: LeftHandHuman
+      amount: 1
+    - id: RightHandHuman
+      amount: 1
+    - id: LeftLegHuman
+      amount: 1
+    - id: RightLegHuman
+      amount: 1
+    - id: LeftFootHuman
+      amount: 1
+    - id: RightFootHuman
+      amount: 1

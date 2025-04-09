@@ -6,7 +6,7 @@ namespace Content.Shared._NF.PlantAnalyzer;
 ///     The information about the last scanned plant/seed is stored here.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed class PlantAnalyzerScannedSeedPlantInformation : BoundUserInterfaceMessage
+public sealed class PlantAnalyzerScannedSeedPlantInformation : BoundUserInterfaceState //Funkystation - Swapped to set BoundUserInterfaceState instead of BoundUserInterfaceMessage
 {
     public NetEntity? TargetEntity;
     public bool IsTray;

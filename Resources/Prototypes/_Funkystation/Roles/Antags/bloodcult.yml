@@ -12,7 +12,7 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-cult-objective
-  guides: [ Revolutionaries ]
+  guides: [ BloodCult ]
 
 - type: startingGear
   id: BloodCultistGear

@@ -200,7 +200,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			var mind = person.Comp;
 			var mindCompEntity = mind.Owner;
 			if (mindCompEntity != null &&
-				_stationSystem.GetOwningStation(person.Owner) != null &&
+				_stationSystem.GetOwningStation(mind.CurrentEntity) != null &&
 				!HasComp<CryostorageContainedComponent>(mind.CurrentEntity) &&
 				!HasComp<CultResistantComponent>(mind.CurrentEntity) &&
 				!_role.MindHasRole<BloodCultRoleComponent>(mindCompEntity, out var _))

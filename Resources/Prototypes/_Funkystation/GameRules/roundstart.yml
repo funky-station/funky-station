@@ -24,7 +24,7 @@
     tags:
       - RoundstartAntag
 
-﻿- type: entity
+- type: entity
   parent: BaseGameRule
   id: CalmCosmicCult
   components:

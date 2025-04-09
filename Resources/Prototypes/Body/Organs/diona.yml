@@ -36,7 +36,9 @@
   description: "The central hub of a diona's pseudo-neurological activity, its root-like tendrils search for its former body."
   components:
   - type: Item
-    size: Small
+    size: Normal
+    shape:
+    - 0,0,1,1
     heldPrefix: brain
   - type: Sprite
     state: brain
@@ -70,6 +72,10 @@
   name: eyes
   description: "I see you!"
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
   - type: Sprite
     layers:
       - state: eyeball-l
@@ -120,7 +126,9 @@
     - Organ
     - Stomach
   - type: Item
-    size: Small
+    size: Normal
+    shape:
+    - 0,0,1,1
     heldPrefix: stomach
 
 - type: entity
@@ -134,7 +142,9 @@
   - type: Organ # Shitmed
     slotId: lungs
   - type: Item
-    size: Small
+    size: Normal
+    shape:
+    - 0,0,1,1
     heldPrefix: lungs
   - type: Lung
   - type: Metabolizer
@@ -169,6 +179,10 @@
   name: brain
   description: "The source of incredible, unending intelligence. Honk."
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
   - type: Brain
   - type: Nymph # This will make the organs turn into a nymph when they're removed.
     entityPrototype: OrganDionaNymphBrain
@@ -186,6 +200,10 @@
   name: stomach
   description: "Gross. This is hard to stomach."
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
   - type: Nymph
     entityPrototype: OrganDionaNymphStomach
   - type: Tag # goob edit
@@ -201,6 +219,10 @@
   name: lungs
   description: "Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier."
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
   - type: Nymph
     entityPrototype: OrganDionaNymphLungs
   - type: Tag # goob edit

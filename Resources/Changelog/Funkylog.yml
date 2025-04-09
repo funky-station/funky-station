@@ -2271,3 +2271,17 @@ Entries:
       message: Each category can only have one bounty up at a time to reduce overlap.
   id: 284
   time: '2025-04-06T18:52:40.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Add
+      message: >-
+        Ability to reprogram borg laws if their panels are open and you have the
+        lawboard you wish to program them to. 
+  id: 285
+  time: '2025-04-08T19:08:13.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: All organ and body bits sizes made more sane
+  id: 286
+  time: '2025-04-08T19:11:35.0000000+00:00'

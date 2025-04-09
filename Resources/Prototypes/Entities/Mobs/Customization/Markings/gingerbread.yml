@@ -109,7 +109,7 @@
 - type: marking
   id: HeadtopWhippedcreamdo
   bodyPart: HeadTop
-  markingCategory: Head
+  markingCategory: HeadTop
   speciesRestriction: [Gingerbread]
   sprites:
     - sprite: Mobs/Customization/gingerbread_parts.rsi

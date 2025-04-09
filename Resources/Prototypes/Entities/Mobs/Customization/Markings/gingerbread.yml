@@ -135,3 +135,41 @@
       state: face_mustached_eyes
     - sprite: Mobs/Customization/gingerbread_parts.rsi
       state: face_mustached_secondary
+
+- type: marking
+  id: FaceIcingSad
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Gingerbread]
+  sprites:
+    - sprite: Mobs/Customization/gingerbread_parts.rsi
+      state: face_icing_sad
+      
+- type: marking
+  id: FaceBlush
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Gingerbread]
+  followSkinColor: true
+  sprites:
+    - sprite: Mobs/Customization/gingerbread_parts.rsi
+      state: face_blush
+
+- type: marking
+  id: BodyBowtie
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Gingerbread]
+  sprites:
+    - sprite: Mobs/Customization/gingerbread_parts.rsi
+      state: body_bowtie
+
+
+- type: marking
+  id: BodyTie
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Gingerbread]
+  sprites:
+    - sprite: Mobs/Customization/gingerbread_parts.rsi
+      state: body_tie

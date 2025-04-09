@@ -39,3 +39,15 @@ marking-BodyIcingbuttons = Icing Buttons
 
 marking-FaceMustached-face_mustached = Mustacheo!
 marking-FaceMustached = Mustacheo!
+
+marking-FaceIcingSad-face_icing_sad = Sad Face Icing
+marking-FaceIcingSad = Sad Face Icing
+
+marking-FaceBlush-face_blush = Blush
+marking-FaceBlush = Blush
+
+marking-BodyBowtie-body_bowtie = Bowtie
+marking-BodyBowtie = Bowtie
+
+marking-BodyTie-body_tie = Tie
+marking-BodyTie-body_tie = Tie

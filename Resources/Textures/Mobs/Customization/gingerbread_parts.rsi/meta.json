@@ -90,6 +90,22 @@
     {
       "name": "face_mustached_secondary",
       "directions": 4
+    },                                
+    {
+      "name": "face_icing_sad",
+      "directions": 4
+    },    
+    {
+      "name": "face_blush",
+      "directions": 4
+    },
+    {
+      "name": "body_bowtie",
+      "directions": 4
+    },
+    {
+      "name": "body_tie",
+      "directions": 4
     }
   ]
 }

@@ -26,6 +26,7 @@ namespace Content.Server.Heretic.Abilities;
 public sealed partial class HereticAbilitySystem : EntitySystem
 {
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly BlazingDashSystem _blazingDash = default!;
     public SoundSpecifier JauntExitSound = new SoundPathSpecifier("/Audio/Magic/fireball.ogg");
     public const float RebirthRange = 3f;
 
@@ -36,6 +37,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, PolymorphRevertEvent>(OnJauntEnd);
 
         SubscribeLocalEvent<HereticComponent, EventHereticVolcanoBlast>(OnVolcano);
+        SubscribeLocalEvent<HereticComponent, EventHereticBlazingDash>(OnBlazingDash);
         SubscribeLocalEvent<HereticComponent, EventHereticNightwatcherRebirth>(OnNWRebirth);
         SubscribeLocalEvent<HereticComponent, EventHereticFlames>(OnFlames);
         SubscribeLocalEvent<HereticComponent, EventHereticCascade>(OnCascade);
@@ -43,16 +45,28 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, HereticAscensionAshEvent>(OnAscensionAsh);
     }
 
+    //keeping this in for when i eventually make it possible to turn the shitpig into the Ashen Pig
     private void OnJaunt(Entity<HereticComponent> ent, ref EventHereticAshenShift args)
     {
         if (TryUseAbility(ent, args) && TryDoJaunt(ent))
             args.Handled = true;
     }
+
+    //a few of the flesh ghouls use this so it stays too
     private void OnJauntGhoul(Entity<GhoulComponent> ent, ref EventHereticAshenShift args)
     {
         if (TryUseAbility(ent, args) && TryDoJaunt(ent))
             args.Handled = true;
     }
+
+    private void OnBlazingDash(Entity<HereticComponent> ent, ref EventHereticBlazingDash args)
+    {
+        if (!TryUseAbility(ent, args))
+            return;
+
+        _blazingDash.TryDoDash(ent, ref args);
+    }
+
     private bool TryDoJaunt(EntityUid ent)
     {
         Spawn("PolymorphAshJauntAnimation", Transform(ent).Coordinates);
@@ -65,14 +79,12 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     {
         Spawn("PolymorphAshJauntEndAnimation", Transform(ent).Coordinates);
 
-        if (TryComp<FlammableComponent>(ent, out var flam))
-        {
-            if (!flam.OnFire)
-            {
-                _flammable.AdjustFireStacks(ent, 1, flam, true);
-            }
-        }
-        _audio.PlayPvs(JauntExitSound, ent, AudioParams.Default.WithVolume(-2f));
+        // play a distinct sound, audible thru walls, so you can track where that slippery fuck went
+        _audio.PlayPvs(JauntExitSound, ent, AudioParams.Default
+            .WithVolume(-2f)
+            .WithMaxDistance(15f)
+            .WithRolloffFactor(0.8f)
+            );
     }
 
     private void OnVolcano(Entity<HereticComponent> ent, ref EventHereticVolcanoBlast args)

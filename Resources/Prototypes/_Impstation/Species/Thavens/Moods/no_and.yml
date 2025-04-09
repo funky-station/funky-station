@@ -58,8 +58,8 @@
   id: DepartmentDisapproval
   moodName: thaven-mood-department-disapproval-name
   moodDesc: thaven-mood-department-disapproval-desc
-  #moodVars:
-  #  department: Departments
+  moodVars:
+    department: MoodDepartments
 
 # Never Speak To Command: You are too lowly to speak to Command, even if spoken to first.
 - type: thavenMood
@@ -203,8 +203,8 @@
   id: HardsuitsBad
   moodName: thaven-mood-hardsuits-bad-name
   moodDesc: thaven-mood-hardsuits-bad-desc
-  #moodVars:
-  #  clothes: Clothes
+  moodVars:
+    clothes: MoodClothes
 
 # Hats and helmets make your hair look bad. You cannot wear them.
 - type: thavenMood
@@ -249,8 +249,8 @@
   id: FoodRestrict
   moodName: thaven-mood-food-restrict-name
   moodDesc: thaven-mood-food-restrict-desc
-  #moodVars:
-  #  food: FoodRestrictions
+  moodVars:
+    food: MoodFoodRestrictions
   conflicts:
   - PlantPacifist
 
@@ -283,10 +283,10 @@
   id: WordBad
   moodName: thaven-mood-word-bad-name
   moodDesc: thaven-mood-word-bad-desc
-  #moodVars:
-  #  word1: ThavenWords
-  #  word2: ThavenWords
-  #  word3: ThavenWords
+  moodVars:
+    word1: MoodThavenWords
+    word2: MoodThavenWords
+    word3: MoodThavenWords
 
 # Mad Hatter: You are alone on the station. Everyone else is a figment of your imagination.
 - type: thavenMood

@@ -1,5 +1,5 @@
 - type: dataset
-  id: Departments
+  id: MoodDepartments
   values:
   - Engineering
   - Research
@@ -10,7 +10,7 @@
   - Cargo
 
 - type: dataset
-  id: Pets
+  id: MoodPets
   values:
   - Pun Pun the Monkey
   - Hamlet the Hamster
@@ -26,7 +26,7 @@
   - Tropico the Crab
 
 - type: dataset
-  id: Rooms
+  id: MoodRooms
   values:
   - Disposals
   - The Library
@@ -39,7 +39,7 @@
   - The Morgue
 
 - type: dataset
-  id: FoodRestrictions
+  id: MoodFoodRestrictions
   values:
   - Vegetarian
   - Carnivore
@@ -51,7 +51,7 @@
 
 
 - type: dataset
-  id: Items
+  id: MoodItems
   values:
   - Wrenches
   - Welding Tools
@@ -75,7 +75,7 @@
   - Lockers
 
 - type: dataset
-  id: Edibles
+  id: MoodEdibles
   values:
   - Copypasta
   - Moldy Bread Slice
@@ -92,7 +92,7 @@
   - Heart Carpaccio
 
 - type: dataset
-  id: Holidays
+  id: MoodHolidays
   values:
   - Binkus Day
   - Foster's Feast
@@ -115,7 +115,7 @@
   - The Tegument of Actuality
 
 - type: dataset
-  id: Clothes
+  id: MoodClothes
   values:
   - Hardsuits
   - Gloves
@@ -125,7 +125,7 @@
   - Backpacks
 
 - type: dataset
-  id: CommandRoles
+  id: MoodCommandRoles
   values:
   - Captain
   - Quartermaster
@@ -136,7 +136,7 @@
   - Research Director
 
 - type: dataset
-  id: DAGDname
+  id: MoodDAGDname
   values:
   - DieAGloriousDeath
   - FolkHero
@@ -150,7 +150,7 @@
   - FolkHero
 
 - type: dataset
-  id: SpeechRestrictions
+  id: MoodSpeechRestrictions
   values:
   - FullNameAndTitle
   - NamesAreRude
@@ -170,7 +170,7 @@
   - TitleCase
 
 - type: dataset
-  id: ThavenWords
+  id: MoodThavenWords
   values:
   - accept
   - add

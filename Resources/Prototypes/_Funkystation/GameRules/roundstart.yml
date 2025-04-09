@@ -6,7 +6,7 @@
     minPlayers: 20
   - type: BloodCultRule
   - type: AntagSelection
-    selectionTime: BeforeJobs
+    selectionTime: PrePlayerSpawn
     definitions:
     - prefRoles: [ BloodCultist ]
       max: 3

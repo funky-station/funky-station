@@ -3,7 +3,8 @@
 - type: latheRecipe
   abstract: true
   id: BaseElectronicsRecipe
-  category: Circuitry
+  categories:
+  - Circuitry
   completetime: 2
   materials:
     Steel: 100
@@ -603,3 +604,9 @@
   parent: BaseCircuitboardRecipe
   id: HolopadMachineCircuitboard
   result: HolopadMachineCircuitboard
+
+# Assmos - /tg/ gases
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ElectrolyzerMachineBoard
+  result: ElectrolyzerMachineBoard

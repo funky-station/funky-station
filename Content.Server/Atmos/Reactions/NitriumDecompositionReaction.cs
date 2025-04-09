@@ -23,14 +23,14 @@ public sealed partial class NitriumDecompositionReaction : IGasReactionEffect
         var efficiency = Math.Min(mixture.Temperature / 2984f, initNitrium);
 
         var nitriumRemoved = efficiency;
-        var waterVaporProduced = efficiency;
+        var h2Produced = efficiency;
         var nitrogenProduced = efficiency;
 
         if (efficiency <= 0 || initNitrium - nitriumRemoved < 0)
             return ReactionResult.NoReaction;
 
         mixture.AdjustMoles(Gas.Nitrium, -nitriumRemoved);
-        mixture.AdjustMoles(Gas.WaterVapor, waterVaporProduced);
+        mixture.AdjustMoles(Gas.Hydrogen, h2Produced);
         mixture.AdjustMoles(Gas.Nitrogen, nitrogenProduced);
 
         var energyReleased = efficiency * Atmospherics.NitriumDecompositionEnergy;

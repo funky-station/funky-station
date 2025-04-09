@@ -5,7 +5,7 @@
   name: trait-atheist-name
   description: trait-atheist-desc
   category: Quirks
-  cost: -1 # Barely a trait, thus the "Tiny thing" cost.
+  cost: 0 # Barely a trait, thus the "Tiny thing" cost.
   components:
     - type: Religion
       religion: Atheist

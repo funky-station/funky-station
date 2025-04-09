@@ -3,6 +3,10 @@
   id: OrganSpaceAnimalLungs
   name: space animal lungs
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
   - type: Organ
     onAdd:
     - type: BreathingImmunity
@@ -33,6 +37,10 @@
   id: OrganDragonLungs
   name: dragon lungs
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,2
   - type: Organ
     onAdd:
     - type: ActionGun

@@ -98,6 +98,17 @@
   objectType: Item
 
 - type: construction
+  name: lizard plushie slippers
+  id: ClothingShoeSlippersLizard
+  graph: ClothingShoeSlippersLizard
+  startNode: start
+  targetNode: shoes
+  category: construction-category-clothing
+  description: An adorable pair of slippers that resemble a lizardperson. Combine this with some other green clothing and you'll be the coolest crewmember on the station!
+  icon: { sprite: Clothing/Shoes/Misc/lizard-slippers.rsi, state: icon }
+  objectType: Item
+
+- type: construction
   name: security glasses
   id: ClothingEyesGlassesSecurity
   graph: GlassesSecHUD
@@ -128,4 +139,38 @@
   category: construction-category-clothing
   description: Advanced security gear. Protects the station from ne'er-do-wells.
   icon: { sprite: Clothing/Head/Helmets/justice.rsi, state: icon }
+  objectType: Item
+
+# Assmos - Metal Hydrogen
+- type: construction
+  name: metal hydrogen armor
+  id: MetalHydrogenArmor
+  graph: MetalHydrogenArmor
+  startNode: start
+  targetNode: armor
+  category: construction-category-clothing
+  description: A superb armor made with the toughest and rarest materials available to man.
+  icon: { sprite: Clothing/OuterClothing/Armor/metal_hydrogen_armor.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: metal hydrogen helmet
+  id: MetalHydrogenHelmet
+  graph: MetalHydrogenHelmet
+  startNode: start
+  targetNode: helmet
+  category: construction-category-clothing
+  description: A superb helmet made with the toughest and rarest materials available to man.
+  icon: { sprite: Clothing/Head/Helmets/metal_hydrogen_helmet.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: atmosian armor
+  id: AtmosianArmor
+  graph: AtmosianArmor
+  startNode: start
+  targetNode: armor
+  category: construction-category-clothing
+  description: An atmos fire suit bolstered by the defensive power of metal hydrogen using techniques passed down through generations of atmospheric technicians.
+  icon: { sprite: Clothing/OuterClothing/Armor/atmosian_armor.rsi, state: icon }
   objectType: Item

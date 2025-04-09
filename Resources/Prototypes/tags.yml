@@ -16,6 +16,9 @@
   id: AirSensor
 
 - type: Tag
+  id: AllowGhostShownByEvent
+
+- type: Tag
   id: Ambrosia
 
 - type: Tag
@@ -29,6 +32,9 @@
 
 - type: Tag
   id: ArtifactFragment
+
+- type: Tag # Assmos - Metal Hydrogen
+  id: AtmosFireSuit
 
 - type: Tag
   id: ATVKeys
@@ -747,6 +753,12 @@
   id: IntercomElectronics
 
 - type: Tag
+  id: InvalidForGlobalSpawnSpell
+
+- type: Tag
+  id: InvalidForSurvivorAntag
+
+- type: Tag
   id: JawsOfLife
 
 - type: Tag
@@ -876,6 +888,9 @@
 - type: Tag
   id: Metal
 
+- type: Tag # Assmos - Metal Hydrogen
+  id: MetalHydrogenArmor
+
 - type: Tag
   id: MicroBomb
 
@@ -908,6 +923,9 @@
 
 - type: Tag
   id: Mop
+
+- type: Tag
+  id: MopSword
 
 - type: Tag
   id: MopAdv
@@ -1022,6 +1040,9 @@
 
 - type: Tag
   id: PlushieGhost
+
+- type: Tag
+  id: PlushieLizard
 
 - type: Tag
   id: PlushieSharkBlue

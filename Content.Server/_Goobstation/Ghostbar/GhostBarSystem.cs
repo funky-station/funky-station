@@ -6,7 +6,6 @@ using Content.Server.Station.Events;
 using Content.Server.Station.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Robust.Server.Maps;
 using Robust.Shared.Random;
 using Content.Shared.Ghost;
 using Content.Server._Goobstation.Ghostbar.Components;
@@ -18,6 +17,9 @@ using Content.Shared.Roles;
 using Content.Shared.Inventory;
 using Content.Server.Antag.Components;
 using Content.Shared.Mindshield.Components;
+using Robust.Shared.EntitySerialization;
+using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Utility;
 
 namespace Content.Server._Goobstation.Ghostbar;
 
@@ -31,6 +33,8 @@ public sealed class GhostBarSystem : EntitySystem
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
+    private DeserializationOptions _options = new DeserializationOptions();
+
     private static readonly List<ProtoId<JobPrototype>> _jobComponents = new()
     {
         "Passenger", "Bartender", "Botanist", "Chef", "Janitor"
@@ -43,14 +47,17 @@ public sealed class GhostBarSystem : EntitySystem
         SubscribeLocalEvent<GhostBarPlayerComponent, MindRemovedMessage>(OnPlayerGhosted);
     }
 
-    const string MapPath = "Maps/_Goobstation/Nonstations/ghostbar.yml";
+    private ResPath _mapPath = new("Maps/_Goobstation/Nonstations/ghostbar.yml");
     private void OnRoundStart(RoundStartingEvent ev)
     {
-        _mapSystem.CreateMap(out var mapId);
-        var options = new MapLoadOptions { LoadMap = true };
+        _options.InitializeMaps = true;
+        _options.PauseMaps = false;
+        var res = _mapLoader.TryLoadMap(_mapPath, out _, out _, _options);
 
-        if (_mapLoader.TryLoad(mapId, MapPath, out _, options))
-            _mapSystem.SetPaused(mapId, false);
+        if (res)
+        {
+            Log.Info("Ghostbar loaded");
+        }
     }
 
     public void SpawnPlayer(GhostBarSpawnEvent msg, EntitySessionEventArgs args)

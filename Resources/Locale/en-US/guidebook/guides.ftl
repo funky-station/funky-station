@@ -116,6 +116,22 @@ guide-entry-others = Others
 # funky station
 guide-entry-exotic = Exotic
 
+guide-entry-pizza-recipes = Pizzas
+guide-entry-savory-recipes = Savory Foods
+guide-entry-bread-recipes = Breads
+guide-entry-breakfast-recipes = Breakfast Foods
+guide-entry-moth-recipes = Moth Foods
+guide-entry-pasta-recipes = Pastas & Noodles
+guide-entry-dessert-recipes = Desserts & Pastries
+guide-entry-soup-recipes = Soups & Stews
+guide-entry-pie-recipes = Pies & Tarts
+guide-entry-barsandcookies-recipes = Bars & Cookies
+guide-entry-cake-recipes = Cakes
+guide-entry-salad-recipes = Salads
+guide-entry-medicinal-recipes = Medicinal
+guide-entry-other-recipes = Other
+guide-entry-secret-recipes = Secret
+
 guide-entry-antagonists = Antagonists
 guide-entry-nuclear-operatives = Nuclear Operatives
 guide-entry-traitors = Traitors
@@ -124,6 +140,7 @@ guide-entry-revolutionaries = Revolutionaries
 guide-entry-minor-antagonists = Minor Antagonists
 guide-entry-space-ninja = Space Ninja
 guide-entry-thieves = Thieves
+guide-entry-wizard = Wizard
 
 guide-entry-rules = Server Rules
 guide-entry-rules-core-only = Core Only Ruleset
@@ -184,6 +201,7 @@ guide-entry-rules-sl-restricted-gear = Restricted Gear
 guide-entry-rules-sl-restricted-weapons = Restricted Weapons
 guide-entry-rules-ban-types = Ban Types
 guide-entry-rules-ban-durations = Ban Durations
+guide-entry-metashield = Metashield
 
 guide-entry-writing = Writing
 guide-entry-glossary = Glossary

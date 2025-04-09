@@ -249,6 +249,9 @@
           requireInputValidation: false
         enum.SurgeryUIKey.Key: # Shitmed
           type: SurgeryBui
+        enum.ThavenMoodsUiKey.Key: # impstation edit
+          type: ThavenMoodsBoundUserInterface
+          requireInputValidation: false
     - type: Emoting
     - type: Grammar
       attributes:

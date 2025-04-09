@@ -11422,13 +11422,6 @@ entities:
     - type: Transform
       pos: -26.5,-0.5
       parent: 2
-- proto: HandheldCrewMonitor
-  entities:
-  - uid: 1620
-    components:
-    - type: Transform
-      pos: 10.650544,-4.5766006
-      parent: 2
 - proto: HolofanProjector
   entities:
   - uid: 1621

@@ -10,6 +10,7 @@
   - ServiceSOP
   - EngineeringSOP
   - CargoSOP
+  - ScienceSOP
   - AlertLevelsSOP
   - EnemiesOfTheCorporation
 
@@ -30,6 +31,7 @@
   - VioletAlertSOP
   - DeltaAlertSOP
   - GammaAlertSOP
+  - OctarineAlertSOP
 
 - type: guideEntry
   id: SecuritySOP
@@ -65,6 +67,11 @@
   id: ServiceSOP
   name: guide-entry-service-sop
   text: "/ServerInfo/Funkystation/Guidebook/Service/ServiceStandardOperatingProcedure.xml"
+
+- type: guideEntry
+  id: ScienceSOP
+  name: guide-entry-science-sop
+  text: "/ServerInfo/Funkystation/Guidebook/Science/ScienceStandardOperatingProcedure.xml"
 
 - type: guideEntry
   id: GreenAlertSOP
@@ -107,3 +114,10 @@
   name: guide-entry-alertlevel-delta
   priority: 70
   text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/DeltaAlert.xml"
+
+# impstation cosmic cult
+- type: guideEntry
+  id: OctarineAlertSOP
+  name: alert-level-octarine
+  priority: 70
+  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/OctarineAlert.xml"

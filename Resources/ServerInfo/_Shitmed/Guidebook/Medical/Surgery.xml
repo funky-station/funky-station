@@ -1,52 +1,75 @@
 <Document>
-# Surgery
-Your usual weekly activity. By performing surgical operations on your patients, you can heal wounds, remove or add body parts, organs, and more.
+  # Surgery
+  Your usual weekly activity. By performing surgical operations on your patients, you can heal wounds, remove or add body parts, organs, and more.
 
-## The Basics
-To start surgery your patient needs to be laying down, and ideally sedated.
+  ## The Basics
+  To start surgery your patient needs to be laying down, and ideally sedated.
 
-If they are not sedated, they will be in a lot of pain, which decreases their mood, and will make surgical wounds worse.
+  You will also need an operating table to perform more advanced surgeries, such as replacing limbs or organs. These can be made in Science if none are available.
+  You may also find spare Operating Tables in maintenance.
 
-<Box>
-<GuideEntityEmbed Entity="NitrousOxideTank" Caption="nitrous oxide"/>
-<GuideEntityEmbed Entity="ClothingMaskBreathMedical" Caption="any breathing tool"/>
-</Box>
+  <Box>
+    <GuideEntityEmbed Entity="OperatingTable" Caption="nitrous oxide"/>
+  </Box>
 
-You also need to wear protective gear such as a mask and gloves to prevent harming the patient due to contamination.
+  If they are not sedated, they will be in a lot of pain, which decreases their mood, and will make surgical wounds worse.
 
-<Box>
-<GuideEntityEmbed Entity="ClothingMaskSterile" Caption="any mask"/>
-<GuideEntityEmbed Entity="ClothingHandsGlovesNitrile" Caption="any gloves"/>
-</Box>
+  <Box>
+    <GuideEntityEmbed Entity="NitrousOxideTank" Caption="nitrous oxide"/>
+    <GuideEntityEmbed Entity="ClothingMaskBreathMedical" Caption="any breathing tool"/>
+  </Box>
 
-## Getting Started
+  You also need to wear protective gear such as a mask and gloves to prevent harming the patient due to contamination.
 
-To engage in surgery, you'll need a set of surgical tools.
+  <Box>
+    <GuideEntityEmbed Entity="ClothingMaskSterile" Caption="any mask"/>
+    <GuideEntityEmbed Entity="ClothingHandsGlovesNitrile" Caption="any gloves"/>
+  </Box>
 
-<Box>
-<GuideEntityEmbed Entity="Scalpel" Caption="scalpel"/>
-<GuideEntityEmbed Entity="Retractor" Caption="retractor"/>
-<GuideEntityEmbed Entity="Hemostat" Caption="hemostat"/>
-<GuideEntityEmbed Entity="Drill" Caption="drill"/>
-</Box>
-<Box>
-<GuideEntityEmbed Entity="Saw" Caption="saw"/>
-<GuideEntityEmbed Entity="Cautery" Caption="cautery"/>
-<GuideEntityEmbed Entity="BoneGel" Caption="bone gel"/>
-</Box>
+  ## Getting Started
 
-Once you've got tools in hand, interact with your patient to begin surgery. You'll be able to choose which part you want to operate on.
+  To engage in surgery, you'll need a set of surgical tools.
 
-## Ghetto Surgery
+  <Box>
+    <GuideEntityEmbed Entity="Scalpel" Caption="scalpel"/>
+    <GuideEntityEmbed Entity="Retractor" Caption="retractor"/>
+    <GuideEntityEmbed Entity="Hemostat" Caption="hemostat"/>
+    <GuideEntityEmbed Entity="Drill" Caption="drill"/>
+  </Box>
 
-Certain non-surgical tools can be used in a pinch, use the scalpel examine icon to see how good or bad something is.
-<Box>
-<GuideEntityEmbed Entity="Welder" Caption="welder"/>
-<GuideEntityEmbed Entity="Wirecutter" Caption="wirecutter"/>
-<GuideEntityEmbed Entity="KitchenKnife" Caption="knife"/>
-<GuideEntityEmbed Entity="Crowbar" Caption="crowbar"/>
-</Box>
+  <Box>
+    <GuideEntityEmbed Entity="Saw" Caption="saw"/>
+    <GuideEntityEmbed Entity="Cautery" Caption="cautery"/>
+    <GuideEntityEmbed Entity="BoneGel" Caption="bone gel"/>
+    </Box>
 
-They aren't ideal compared to real surgical equipment, but they'll do in a pinch!
+  Once you've got tools in hand, interact with your patient to begin surgery. You'll be able to choose which part you want to operate on.
+
+  ## Sterility
+
+  Your tools will accumulate dirt and grime while you use them, requiring you to clean them.
+  Unclean tools will cause your patient to take poison damage.
+
+  <Box>
+    <GuideEntityEmbed Entity="SoapNT" Caption="soap" />
+    <GuideEntityEmbed Entity="Scalpel" Caption="scalpel" />
+  </Box>
+
+  You can clean your tools by using soap on them. Be sure to also regularly clean or change your mask and gloves, as well.
+  Using the same dirty tools between two or more patients will cause your tools to become filthy, so be sure to clean them regularly.
+
+  ## Ghetto Surgery
+
+  Certain non-surgical tools can be used in a pinch, use the scalpel examine icon to see how good or bad something is.
+  An operating table is still required for certain medical procedures.
+
+  <Box>
+    <GuideEntityEmbed Entity="Welder" Caption="welder"/>
+    <GuideEntityEmbed Entity="Wirecutter" Caption="wirecutter"/>
+    <GuideEntityEmbed Entity="KitchenKnife" Caption="knife"/>
+    <GuideEntityEmbed Entity="Crowbar" Caption="crowbar"/>
+  </Box>
+
+  They aren't ideal compared to real surgical equipment, but they'll do in a pinch!
 
 </Document>

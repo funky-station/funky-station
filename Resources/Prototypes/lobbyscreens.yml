@@ -69,3 +69,12 @@
 - type: lobbyBackground
   id: doomDeed
   background: /Textures/LobbyScreens/doomdeed.webp
+
+- type: lobbyBackground
+  id: typicalDay
+  background: /Textures/LobbyScreens/typicalDay.webp
+
+- type: lobbyBackground
+  id: lowpopCrew
+  background: /Textures/LobbyScreens/lowpopCrew.webp
+

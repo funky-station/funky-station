@@ -18,12 +18,13 @@
   - sprite: Mobs/Customization/scars.rsi
     state: scar_eye_left
 
+# Funkystation removed "  sexRestriction: [Male]" underneath speciesRestriction for the Top Surgery scars.
+
 - type: marking
   id: ScarTopSurgeryShort
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf]
-  sexRestriction: [Male]
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Funkystation: add Reptilian, Slimeperson, Arachnid, Vulpkanin, Felinid, and Rodentia
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -33,8 +34,7 @@
   id: ScarTopSurgeryLong
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf]
-  sexRestriction: [Male]
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Funkystation: add Reptilian, Slimeperson, Arachnid, Vulpkanin, Felinid, and Rodentia
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -44,7 +44,7 @@
   id: ScarChest
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf]
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Funkystation: add Reptilian, Slimeperson, Arachnid, Vulpkanin, Felinid, and Rodentia
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi

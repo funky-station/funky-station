@@ -79,7 +79,7 @@
     - secret2
   name: gamemode-dynamic-title
   description: gamemode-dynamic-description
-  showInVote: true
+  showInVote: false
   rules:
     - Dynamic
     - BasicStationEventSchedulerNoAntag
@@ -102,7 +102,7 @@
     - DynamicUnforgiving
     - BasicStationEventSchedulerNoAntag
     - DynamicStationEventScheduler
-    - MeteorSwarmScheduler
+#    - MeteorSwarmScheduler Goob Edit
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation

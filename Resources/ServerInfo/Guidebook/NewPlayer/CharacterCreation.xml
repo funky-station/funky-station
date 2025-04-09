@@ -20,6 +20,10 @@ You can set your job preferences in the lobby. While these don't [color=#a4885c]
 You are given a chance at being chosen for your high priority job first, then your medium priorities, then your low priorities.
 You also given an option to automatically be a passenger or to be sent back to the lobby if you don't get chosen for any of your preferred jobs.
 
+  All command jobs are rolled first, regardless of priority. For example, if you select Chemist on High and Captain on low, Captain will roll first. If you do not want to play Command, be sure to set every Command role on None!
+
+  Antagonists are also chosen first. If you are selected as an antagonist but picked Captain on high priority, you will spawn as an assistant with your rolled antagonist.
+
 Some jobs are locked until you've played long enough as other entry level jobs.
 
 [textlink="For more infomation about jobs, click here." link="Jobs"]

@@ -3,12 +3,14 @@
   name: guide-entry-antagonists
   text: "/ServerInfo/Guidebook/Antagonist/Antagonists.xml"
   children:
+  - CosmicCult # impstation - cosmic cult
   - Traitors
   - Changelings # Goobstation - changelings
   - Heretics # Goobstation - heretics
   - Blob # Goobstation - Blob
   - BloodCult # Funky Station - Blood Cult
   - NuclearOperatives
+  - Wizard
   - Zombies
   - Revolutionaries
   - MinorAntagonists
@@ -49,3 +51,8 @@
   id: Thieves
   name: guide-entry-thieves
   text: "/ServerInfo/Guidebook/Antagonist/Thieves.xml"
+
+- type: guideEntry
+  id: Wizard
+  name: guide-entry-wizard
+  text: "/ServerInfo/Guidebook/Antagonist/Wizard.xml"

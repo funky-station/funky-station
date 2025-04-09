@@ -3,27 +3,27 @@
   name: drunken-resilience-trait-name
   description: drunken-resilience-trait-desc
   category: Quirks
-  cost: 4
+  cost: 1
   components:
-  - type: LiquorLifeline 
+  - type: LiquorLifeline
   speciesRestrictions:
   - Dwarf
 
-- type: trait
-  id: SelfAware
-  name: trait-self-aware-name
-  description: trait-self-aware-description
-  category: Quirks
-  cost: 8
-  components:
-  - type: SelfAware
+#- type: trait
+#  id: SelfAware
+#  name: trait-self-aware-name
+#  description: trait-self-aware-description
+#  category: Quirks
+#  cost: 8
+#  components:
+#  - type: SelfAware
 
 - type: trait
   id: ClumsyTrait
   name: trait-clumsy-name
   description: trait-clumsy-description
   category: Quirks
-  cost: -5 # Funky - Half of pacifist really, plus the tables.
+  cost: 0 # Funky - Half of pacifist really, plus the tables.
   components:
   - type: Clumsy
     gunShootFailDamage:
@@ -38,7 +38,7 @@
   name: trait-frail-name
   description: trait-frail-desc
   category: Quirks
-  cost: -8 # Effectively a major combat debuff and survival debuff. Also the Pac-Frail combo shouldn't br higher than blindness.
+  cost: 0 # Effectively a major combat debuff and survival debuff. Also the Pac-Frail combo shouldn't br higher than blindness.
   components:
   - type: BrittleBones
   speciesRestrictions:

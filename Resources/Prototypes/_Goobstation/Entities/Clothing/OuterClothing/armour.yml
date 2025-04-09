@@ -18,6 +18,9 @@
         Heat: 0.50
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: Tag
+    tags:
+      - Armor
 
 # Durathread plated vest
 - type: entity
@@ -39,7 +42,9 @@
         Heat: 0.50
   - type: ExplosionResistance
     damageCoefficient: 0.9
-
+  - type: Tag
+    tags:
+    - Armor
 # Helldiver
 - type: entity
   parent: [ ClothingOuterArmorRaid, GeigerCounterClothing ]
@@ -88,6 +93,9 @@
         Heat: 0.70
   - type: ExplosionResistance
     damageCoefficient: 0.8
+  - type: Tag
+    tags:
+    - Armor
 
 - type: entity
   parent: ClothingBlueshieldArmourVest

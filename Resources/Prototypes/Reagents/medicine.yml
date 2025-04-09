@@ -101,7 +101,7 @@
       effects:
       - !type:GenericStatusEffect
         key: Drunk
-        time: 6.0
+        time: 60.0
         type: Remove
       - !type:HealthChange
         damage:
@@ -1078,8 +1078,12 @@
       - !type:SatiateThirst
         factor: 3
     Medicine:
-      effects:
-      - !type:DeCultify  # funky
+      effects: # imp edit
+      - !type:CleanseCult
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+      - !type:DeCultify  # funky: TODO, make DeCultify work for both Cosmic and Blood Cult
         amount: 2.5
       - !type:HealthChange
         conditions:

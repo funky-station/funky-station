@@ -3,7 +3,8 @@
 - type: latheRecipe
   abstract: true
   id: BaseRoboticsRecipe
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 2
 
 - type: latheRecipe
@@ -152,6 +153,11 @@
   parent: BaseGoldBorgModuleRecipe
   id: BorgModuleAdvancedTool
   result: BorgModuleAdvancedTool
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAtmos
+  result: BorgModuleAtmos
 
 # Janitor Modules
 

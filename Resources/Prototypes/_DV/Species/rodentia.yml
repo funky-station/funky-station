@@ -1,7 +1,7 @@
 - type: species
   id: Rodentia
   name: species-name-rodentia
-  roundStart: false
+  roundStart: true
   prototype: MobRodentia
   sprites: MobRodentiaSprites
   defaultSkinTone: "#747474"
@@ -64,7 +64,7 @@
       points: 1
       required: false
     Chest:
-      points: 2
+      points: 3 # Funkystation 3 from 2
       required: false
 
 - type: humanoidBaseSprite

@@ -33,7 +33,7 @@
   id: ClothingOuterSuitJanitorBomb
   name: janitorial bomb suit
   description: A heavy helmet designed to withstand explosions formed from reactions between chemicals.
-  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Suits/janitor_bombsuit.rsi
@@ -102,6 +102,9 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: Tag # Assmos - Metal Hydrogen
+    tags:
+      - AtmosFireSuit
 
 - type: entity
   parent: [ClothingOuterBaseLarge, GeigerCounterClothing, AllowSuitStorageClothing]
@@ -159,9 +162,15 @@
   - type: ComponentToggler
     parent: true
     components:
+    # Goobstation - Proper invisibility
     - type: Stealth
-      minVisibility: 0.1
-      lastVisibility: 0.1
+      maxVisibility: 0.1
+      hadOutline: true
+    - type: StealthOnMove
+      invisibilityPenalty: 3
+      maxInvisibilityPenalty: 1.6
+      passiveVisibilityRate: -1 # cloak very fast
+      movementVisibilityRate: 0.15 # only some cloak if moving
   - type: PowerCellDraw
     drawRate: 1.8 # 200 seconds on the default cell
   - type: ToggleCellDraw
@@ -289,6 +298,7 @@
   parent: ClothingOuterSuitCarp
   id: ClothingOuterHardsuitCarp
   suffix: Hardsuit, DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   - type: PressureProtection
     highPressureMultiplier: 0.6

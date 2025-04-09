@@ -3,6 +3,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
 
 - type: entity
   parent: SurgeryStepBase
@@ -22,7 +23,8 @@
   - type: SurgeryDamageChangeEffect
     damage:
       types:
-        Bloodloss: 10
+        #Bloodloss: 10 # DeltaV
+        Slash: 10 # Funky - was 12
     sleepModifier: 0.5
   - type: SurgeryStepEmoteEffect
 
@@ -44,7 +46,7 @@
   - type: SurgeryDamageChangeEffect
     damage:
       types:
-        Bloodloss: -5
+        Bloodloss: -3 # DeltaV
     sleepModifier: 2
 
 - type: entity
@@ -62,6 +64,10 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
     state: retractor
+  - type: SurgeryDamageChangeEffect # DeltaV
+    damage:
+      types:
+        Blunt: 1 # funky
 
 - type: entity
   parent: SurgeryStepBase
@@ -79,6 +85,11 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
     state: circular-saw
   - type: SurgeryStepEmoteEffect
+  - type: SurgeryDamageChangeEffect # DeltaV
+    sleepModifier: 0.25 # Highly invasive, large damage if the patient is wriggling around
+    damage:
+      types:
+        Slash: 15 # funky - was 20
 
 - type: entity
   parent: SurgeryStepBase
@@ -91,10 +102,15 @@
     - type: Retractor
     add:
     - type: RibcageOpen
-    duration: 2
+    duration: 4 # DeltaV: was 2
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
     state: retractor
+  - type: SurgeryDamageChangeEffect # DeltaV
+    sleepModifier: 0.25 # Highly invasive, large damage if the patient is wriggling around
+    damage:
+      types:
+        Blunt: 10 # funky was 15
 
 #- type: entity
 #  parent: SurgeryStepBase
@@ -142,10 +158,15 @@
     - type: Retractor
     remove:
     - type: RibcageOpen
-    duration: 2
+    duration: 4 # DeltaV: was 2
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
     state: retractor
+  - type: SurgeryDamageChangeEffect # DeltaV: Reverse damage from SurgeryStepOpenBones
+    damage:
+      types:
+        Blunt: -5
+    sleepModifier: 2
 
 - type: entity
   parent: SurgeryStepBase
@@ -162,6 +183,11 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone-gel.rsi
     state: bone-gel
+  - type: SurgeryDamageChangeEffect # DeltaV: Reverse damage from SurgeryStepSawBones
+    damage:
+      types:
+        Slash: -5
+    sleepModifier: 2
 
 - type: entity
   parent: SurgeryStepBase
@@ -187,7 +213,7 @@
   - type: SurgeryDamageChangeEffect
     damage:
       types:
-        Heat: -5
+        Slash: -5 # DeltaV: Cauterizing closes incisions, not grafting skin
     sleepModifier: 2
   - type: SurgeryStepEmoteEffect
 
@@ -207,6 +233,10 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/manipulation.rsi
     state: insertion
   - type: SurgeryAddPartStep
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
+    toolDirtiness: 7.5
+    gloveDirtiness: 7.5
 
 - type: entity
   parent: SurgeryStepBase
@@ -231,7 +261,7 @@
   - type: SurgeryDamageChangeEffect
     damage:
       types:
-        Heat: -5
+        Slash: -5 # DeltaV: Cauterizing closes incisions, not grafting skin
     sleepModifier: 2
 
 # Feature Removal
@@ -252,6 +282,10 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
     state: circular-saw
   - type: SurgeryStepEmoteEffect
+  - type: SurgeryDamageChangeEffect # DeltaV
+    damage:
+      types:
+        Slash: 5
 
 - type: entity
   parent: SurgeryStepBase
@@ -295,6 +329,14 @@
     state: circular-saw
   - type: SurgeryRemovePartStep
   - type: SurgeryStepEmoteEffect
+  - type: SurgeryDamageChangeEffect # DeltaV: Traumatic amputation is traumatic
+    sleepModifier: 0.25
+    damage:
+      types:
+        Slash: 15 # funky was 30
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
+    toolDirtiness: 7.5
+    gloveDirtiness: 7.5
 
 # Tend Wounds
 
@@ -314,6 +356,10 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
   - type: SurgeryStepEmoteEffect
+  - type: SurgeryDamageChangeEffect # DeltaV
+    damage:
+      types:
+        Slash: 4
 
 - type: entity
   parent: SurgeryStepBase
@@ -333,6 +379,10 @@
       groups:
         Brute: -5
   - type: SurgeryRepeatableStep
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
+    toolDirtiness: 0.5
+    gloveDirtiness: 0.5
 
 - type: entity
   parent: SurgeryStepBase
@@ -352,7 +402,15 @@
     damage:
       groups:
         Burn: -5
+  - type: SurgeryDamageChangeEffect # DeltaV
+    damage:
+      types:
+        Slash: 2
   - type: SurgeryRepeatableStep
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
+    toolDirtiness: 0.5
+    gloveDirtiness: 0.5
 
 - type: entity
   parent: SurgeryStepBase
@@ -372,7 +430,7 @@
   - type: SurgeryDamageChangeEffect
     damage:
       types:
-        Heat: -5
+        Slash: -1 # DeltaV: Cauterizing closes incisions, not grafting skin
     sleepModifier: 2
   - type: SurgeryStepEmoteEffect
 
@@ -392,6 +450,11 @@
   - type: SurgeryStepCavityEffect
     action: Insert
   - type: SurgeryStepEmoteEffect
+  - type: SurgeryDamageChangeEffect # DeltaV
+    sleepModifier: 0.25 # Highly invasive, huge damage if the patient is wriggling around
+    damage:
+      types:
+        Blunt: 20 # funky was 40
 
 - type: entity
   parent: SurgeryStepBase
@@ -425,6 +488,22 @@
     state: hemostat
   - type: SurgeryRemoveOrganStep
   - type: SurgeryStepEmoteEffect
+  - type: SurgeryDamageChangeEffect # DeltaV
+    sleepModifier: 0.15 # Maints organ transplants are BAD
+    damage:
+      types:
+        Slash: 25 # funky was 50
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
+    toolDirtiness: 7.5
+    gloveDirtiness: 7.5
+
+- type: entity
+  parent: SurgeryStepRemoveOrgan
+  id: SurgeryStepRemoveVitalOrgan
+  name: Remove vital organ
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
 
 - type: entity
   parent: SurgeryStepBase
@@ -441,6 +520,15 @@
     state: insertion
   - type: SurgeryAddOrganStep
   - type: SurgeryStepEmoteEffect
+  - type: SurgeryDamageChangeEffect # DeltaV
+    sleepModifier: 0.5
+    damage:
+      types:
+        Blunt: 5
+  - type: SurgeryStepDirtiness # DeltaV - surgery cross contamination
+    toolDirtiness: 7.5
+    gloveDirtiness: 7.5
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
 
 - type: entity
   parent: SurgeryStepInsertOrgan
@@ -454,12 +542,15 @@
         Asphyxiation: -2147483648 # Literally the max 32 bit value, if your patient has gone higher than this, maybe it's time to restart the round.
     sleepModifier: 1
     isConsumable: true
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
 
 - type: entity
   parent: SurgeryStepInsertOrgan
   id: SurgeryStepInsertStomach
   name: Add stomach
   categories: [ HideSpawnMenu ]
+  components:
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
   # no effect its just for minmaxing metabolism
 
 - type: entity
@@ -474,12 +565,15 @@
         Poison: -2147483648 # Literally the max 32 bit value, if your patient has gone higher than this, maybe it's time to restart the round.
     sleepModifier: 1
     isConsumable: true
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
 
 - type: entity
   parent: SurgeryStepInsertOrgan
   id: SurgeryStepInsertEyes
   name: Add eyes
   categories: [ HideSpawnMenu ]
+  components:
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
 
 - type: entity
   parent: SurgeryStepInsertOrgan
@@ -490,6 +584,7 @@
   - type: SurgerySpecialDamageChangeEffect
     damageType: Rot
     isConsumable: true
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
 
 - type: entity
   parent: SurgeryStepBase
@@ -511,6 +606,7 @@
       types:
         Heat: -5
     sleepModifier: 2
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
 
 - type: entity
   parent: SurgeryStepBase
@@ -523,7 +619,7 @@
     - type: Drill
     addOrganOnAdd:
       brain:
-        - type: OhioAccent
+        # - type: OhioAccent funkystation 1984
         - type: RatvarianLanguage
         - type: Clumsy
     duration: 5
@@ -548,13 +644,14 @@
     duration: 4
     removeOrganOnAdd:
       brain:
-        - type: OhioAccent
+        # - type: OhioAccent funkystation 1984
         - type: RatvarianLanguage
         - type: Clumsy
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
   - type: SurgeryStepEmoteEffect
+  - type: SurgeryOperatingTableCondition # funkystation - fuck you
 
 # The lengths I go to just for a joke... I HATE HARDCODING AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 # Maybe I should modify species prototypes to include tails and ears properly...

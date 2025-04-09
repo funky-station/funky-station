@@ -4,6 +4,7 @@ using Content.Shared.Body.Events;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.Traits.Assorted;
 
 namespace Content.Server.Body.Systems
 {
@@ -35,8 +36,17 @@ namespace Content.Server.Body.Systems
             if (!TryComp(oldEntity, out oldSight))
                 oldSight = EnsureComp<BlindableComponent>(oldEntity);
 
-            //give new sight all values of old sight
-            _blindableSystem.TransferBlindness(newSight, oldSight, newEntity);
+            if (TryComp<PermanentBlindnessComponent>(newEntity, out var permanentBlindnessComponent)
+                && permanentBlindnessComponent.Blindness == 0) // person has perma blindness quirk
+            {
+                var maxMagnitudeInt = (int) BlurryVisionComponent.MaxMagnitude;
+                _blindableSystem.SetMinDamage((newEntity, newSight), maxMagnitudeInt);
+            }
+            else
+            {
+                //give new sight all values of old sight
+                _blindableSystem.TransferBlindness(newSight, oldSight, newEntity);
+            }
 
             var hasOtherEyes = false;
             //check for other eye components on owning body and owning body organs (if old entity has a body)

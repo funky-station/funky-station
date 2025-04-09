@@ -50,4 +50,4 @@ marking-BodyBowtie-body_bowtie = Bowtie
 marking-BodyBowtie = Bowtie
 
 marking-BodyTie-body_tie = Tie
-marking-BodyTie-body_tie = Tie
+marking-BodyTie = Tie

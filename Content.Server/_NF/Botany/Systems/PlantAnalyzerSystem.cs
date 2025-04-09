@@ -79,8 +79,9 @@ public sealed class PlantAnalyzerSystem : EntitySystem
 
         _audio.PlayPvs(ent.Comp.ScanningEndSound, ent);
 
+        ReadScannedPlant(ent, args.Args.Target.Value); //Funkystation - Renamed to match plants instead of copying HealthAnalyzer func names
+
         OpenUserInterface(args.User, ent);
-        UpdateScannedUser(ent, args.Args.Target.Value);
 
         args.Handled = true;
     }
@@ -93,7 +94,7 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         _uiSystem.OpenUi(analyzer, PlantAnalyzerUiKey.Key, actor.PlayerSession);
     }
 
-    public void UpdateScannedUser(Entity<PlantAnalyzerComponent> ent, EntityUid target)
+    public void ReadScannedPlant(Entity<PlantAnalyzerComponent> ent, EntityUid target)  //Funkystation - Renamed to match plants instead of copying HealthAnalyzer func names
     {
 
         if (TryComp<SeedComponent>(target, out var seedComp))

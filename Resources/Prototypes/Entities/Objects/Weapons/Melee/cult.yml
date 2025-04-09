@@ -37,7 +37,7 @@
     singleUser: true
     blockSpectators: true
     verbOnly: false
-    verbText: Select Rune
+    verbText: cult-rune-select
 
 - type: entity
   name: cult dagger

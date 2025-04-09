@@ -25,6 +25,7 @@ contraband-examine-text-BloodCult = [color=crimson]This item is a highly illegal
 cult-rune-drawing-novowel = You begin smearing a rune into the floor with your own wrist's blood...
 cult-rune-drawing-vowel-first = You begin smearing a
 cult-rune-drawing-vowel-second = into the floor with your own wrist's blood...
+cult-rune-select = Select Rune
 
 cult-veil-drawing-toostrong = The veil is too strong here to tear open.
 cult-veil-drawing-pleaseconfirm = Use the dagger again to confirm the {$name} area -- beware, the crew will be alerted!

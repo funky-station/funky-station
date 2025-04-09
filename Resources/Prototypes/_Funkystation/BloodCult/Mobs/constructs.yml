@@ -76,7 +76,7 @@
           true
     - type: NpcFactionMember
       factions:
-        - BloodCult
+        - BloodCultist
     - type: MobState
       allowedStates:
         - Alive
@@ -160,7 +160,7 @@
           true
     - type: NpcFactionMember
       factions:
-        - BloodCult
+        - BloodCultist
     - type: MobState
       allowedStates:
         - Alive

@@ -89,7 +89,6 @@
       - map: [ "gloves" ]
       - map: [ "shoes" ]
       - map: [ "ears" ]
-      - map: [ "outerClothing" ]
       - map: [ "culteyes" ] # funky cult
         sprite: "_Funkystation/BloodCult/Effects/culteyes.rsi"
         state: "arachnid"

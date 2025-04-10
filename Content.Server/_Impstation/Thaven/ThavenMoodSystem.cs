@@ -148,7 +148,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
 
             // begin funky
             var conflictingJobs = moodProto.JobConflicts;
-            if (department != null && conflictingJobs.Contains(department))
+            if (department != null && conflictingJobs.Contains(department)) // assume there are no conflicts if there is no department given
                 continue; // Skip proto if it conflicts with the entity's department
             // end funky
 
@@ -430,16 +430,16 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
     // begin funky
     public string? GetMindDepartment(EntityUid uid)
     {
+        var unknown = Loc.GetString("generic-unknown-title"); // TryGetJob returns this, so use it in place of "none" or something
+
         if (!EntityManager.HasComponent<MindComponent>(uid))
-            return null; // mindless entities can't have jobs
+            return unknown; // mindless entities can't have jobs
 
-        _jobs.MindTryGetJobName(uid, out var jobName);
-
-        if (jobName == Loc.GetString("generic-unknown-title"))
-            return null;
+        if (!_jobs.MindTryGetJobName(uid, out var jobName))
+            return unknown;
 
         if (!_jobs.TryGetDepartment(jobName, out var departmentProto))
-            return null;
+            return unknown;
 
         return departmentProto.ID;
     }

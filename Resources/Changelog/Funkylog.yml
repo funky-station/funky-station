@@ -2321,3 +2321,9 @@ Entries:
         gases to crew across the station. 
   id: 288
   time: '2025-04-10T19:15:53.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Fixed nitrium decomposition sometimes exceeding 100C
+  id: 289
+  time: '2025-04-10T19:16:32.0000000+00:00'

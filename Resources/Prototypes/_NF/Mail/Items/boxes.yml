@@ -325,37 +325,6 @@
 
 - type: entity
   name: Build-a-Buddy kit
-  suffix: Moth
-  parent: BoxHug
-  id: BoxBuildABuddyMoth
-  description: "\"Molly the Moth\" Build-a-Buddy kit. Some assembly required."
-  components:
-  - type: StorageFill
-    contents:
-    - id: OrganHumanEyes
-      amount: 1
-    - id: OrganHumanAppendix
-      amount: 1
-    - id: OrganHumanLungs
-      amount: 1
-    - id: OrganAnimalHeart
-      amount: 1
-    - id: OrganMothStomach
-      amount: 1
-    - id: OrganAnimalLiver
-      amount: 1
-    - id: OrganHumanKidneys
-      amount: 1
-  - type: Storage
-    maxItemSize: Huge
-    grid:
-    - 0,0,6,4
-    whitelist:
-      components:
-      - Organ
-
-- type: entity
-  name: Build-a-Buddy kit
   suffix: Vulpkanin
   parent: BoxBuildABuddyHuman
   id: BoxBuildABuddyVulpkanin

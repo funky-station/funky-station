@@ -132,6 +132,10 @@
   moodDesc: thaven-mood-only-speak-to-command-desc
   conflicts:
   - DontSpeakToCommand
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
 
 # Time must be strictly managed. Everything must be scheduled, and tardiness is exceptionally rude.
 - type: thavenMood

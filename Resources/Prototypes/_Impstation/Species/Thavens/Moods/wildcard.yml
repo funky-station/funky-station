@@ -46,6 +46,7 @@
   jobConflicts:
   - CentralCommandSpecial
   - CentralCommand
+  - Command
 
 # You are unfamiliar with the concept of lying, and are incapable of lying or recognizing lies.
 - type: thavenMood

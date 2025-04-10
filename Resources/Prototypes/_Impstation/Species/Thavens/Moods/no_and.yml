@@ -71,9 +71,10 @@
   conflicts:
   - OnlySpeakToCommand
   - MostImportant
-  jobConficts:
-  - Command
+  jobConflicts:
+  - CentralCommandSpecial
   - CentralCommand
+  - Command
 
 # You detest mind-altering drugs, including alcohol, and must abstain from them.
 - type: thavenMood
@@ -98,6 +99,8 @@
   moodDesc: thaven-mood-detest-silicons-desc
   conflicts:
   - WorshipSilicons
+  jobConficts:
+  - Science
 
 # Food and drink must only be consumed off of the floor.
 - type: thavenMood
@@ -146,9 +149,10 @@
   moodDesc: thaven-mood-no-radio-desc
   conflicts:
   - RadioOnly
-  jobConficts:
-  - Command
+  jobConflicts:
+  - CentralCommandSpecial
   - CentralCommand
+  - Command
 
 # Carrying tools on your person is demeaning. If you must use them, they should be dragged behind you, shamefully.
 - type: thavenMood

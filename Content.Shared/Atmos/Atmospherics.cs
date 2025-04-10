@@ -207,6 +207,12 @@ namespace Content.Shared.Atmos
             [Gas.Nitrium] = Loc.GetString("gases-nitrium"),
             [Gas.Pluoxium] = Loc.GetString("gases-pluoxium"),
             [Gas.Hydrogen] = Loc.GetString("gases-hydrogen"),
+            [Gas.HyperNoblium] = Loc.GetString("gases-hyper-noblium"),
+            [Gas.ProtoNitrate] = Loc.GetString("gases-proto-nitrate"),
+            [Gas.Zauker] = Loc.GetString("gases-zauker"),
+            [Gas.Halon] = Loc.GetString("gases-halon"),
+            [Gas.Helium] = Loc.GetString("gases-helium"),
+            [Gas.AntiNoblium] = Loc.GetString("gases-anti-noblium"),
         };
 
         #region Excited Groups

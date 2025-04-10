@@ -3,6 +3,7 @@ using Content.Server.PowerCell;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared._NF.PlantAnalyzer;
+using Content.Shared.Atmos;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
@@ -205,43 +206,18 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         return ret;
     }
 
-    public GasFlags GetGasFlags(IEnumerable<Gas> gases)
+    //Funkystation - Adjusted to work for new gases
+    public string[] GetGasFlags(IEnumerable<Gas> gases)
     {
-        var gasFlags = GasFlags.None;
+        int gasLength = gases.Count();
+        string[] plantGases = new string[gasLength];
+        int i = 0;
         foreach (var gas in gases)
         {
-            switch (gas)
-            {
-                case Gas.Nitrogen:
-                    gasFlags |= GasFlags.Nitrogen;
-                    break;
-                case Gas.Oxygen:
-                    gasFlags |= GasFlags.Oxygen;
-                    break;
-                case Gas.CarbonDioxide:
-                    gasFlags |= GasFlags.CarbonDioxide;
-                    break;
-                case Gas.Plasma:
-                    gasFlags |= GasFlags.Plasma;
-                    break;
-                case Gas.Tritium:
-                    gasFlags |= GasFlags.Tritium;
-                    break;
-                case Gas.WaterVapor:
-                    gasFlags |= GasFlags.WaterVapor;
-                    break;
-                case Gas.Ammonia:
-                    gasFlags |= GasFlags.Ammonia;
-                    break;
-                case Gas.NitrousOxide:
-                    gasFlags |= GasFlags.NitrousOxide;
-                    break;
-                case Gas.Frezon:
-                    gasFlags |= GasFlags.Frezon;
-                    break;
-            }
+            plantGases[i] = Atmospherics.GasNames.GetValueOrDefault(gas, Loc.GetString("gases-unknown"));
+            i++;
         }
-        return gasFlags;
+        return plantGases;
     }
 
     private void OnModeSelected(Entity<PlantAnalyzerComponent> ent, ref PlantAnalyzerSetMode args)

@@ -67,8 +67,26 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
             }
         }
 
-        StringBuilder exudeGases = GetStringFromGasFlags(msg.ExudeGases);
-        StringBuilder consudeGases = GetStringFromGasFlags(msg.ConsumeGases);
+        //Funkystation - Fixed to include new gases
+        StringBuilder exudeGases = new();
+        if (msg.ExudeGases != null)
+        {
+            foreach (var gas in msg.ExudeGases)
+            {
+                exudeGases.Append(IndentedNewline);
+                exudeGases.Append(gas);
+            }
+        }
+
+        StringBuilder consumeGases = new();
+        if (msg.ConsumeGases != null)
+        {
+            foreach (var gas in msg.ConsumeGases)
+            {
+                consumeGases.Append(IndentedNewline);
+                consumeGases.Append(gas);
+            }
+        }
 
         if (msg.IsTray)
             PlantName.Text = Loc.GetString("plant-analyzer-window-label-name-scanned-plant", ("seedName", Loc.GetString(string.IsNullOrEmpty(msg.SeedName) ? "plant-analyzer-unknown-plant" : msg.SeedName)));
@@ -81,7 +99,7 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
         Endurance.Text = Loc.GetString("plant-analyzer-plant-endurance-text", ("seedEndurance", $"{msg.Endurance:F0}"));
         Chemicals.Text = Loc.GetString("plant-analyzer-plant-chemistry-text", ("seedChem", chemString));
         ExudeGases.Text = Loc.GetString("plant-analyzer-plant-exude-text", ("gases", exudeGases.Length == 0 ? Loc.GetString("plant-analyzer-plant-gases-none") : exudeGases.ToString()));
-        ConsumeGases.Text = Loc.GetString("plant-analyzer-plant-consume-text", ("gases", consudeGases.Length == 0 ? Loc.GetString("plant-analyzer-plant-gases-none") : consudeGases.ToString()));
+        ConsumeGases.Text = Loc.GetString("plant-analyzer-plant-consume-text", ("gases", consumeGases.Length == 0 ? Loc.GetString("plant-analyzer-plant-gases-none") : consumeGases.ToString()));
         Lifespan.Text = Loc.GetString("plant-analyzer-plant-lifespan-text", ("lifespan", $"{msg.Lifespan:F1}"));
         Maturation.Text = Loc.GetString("plant-analyzer-plant-maturation-text", ("maturation", $"{msg.Maturation:F1}"));
         Production.Text = Loc.GetString("plant-analyzer-plant-production-text", ("production", $"{msg.Production:F1}"));
@@ -125,7 +143,7 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
                 mutations.Append(IndentedNewline);
                 mutations.Append(Loc.GetString("plant-analyzer-mutation-sentient"));
             }
-            if (advInst.Mutations.HasFlag(MutationFlags.Ligneous)) 
+            if (advInst.Mutations.HasFlag(MutationFlags.Ligneous))
             {
                 mutations.Append(IndentedNewline);
                 mutations.Append(Loc.GetString("plant-analyzer-mutation-ligneous"));
@@ -145,7 +163,11 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
         }
         else
         {
-            Traits.Text = Loc.GetString("plant-analyzer-plant-mutations-text", ("traits", "-"));
+
+                consumeGases.Append(IndentedNewline);
+
+
+            Traits.Text = Loc.GetString("plant-analyzer-plant-mutations-text", ("traits", "Requires advanced\n   mode"));
         }
 
         StringBuilder speciation = new();
@@ -165,54 +187,4 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
         PlantSpeciation.Text = Loc.GetString("plant-analyzer-plant-speciation-text", ("speciation", speciation.ToString()));
     }
 
-    private StringBuilder GetStringFromGasFlags(GasFlags flags)
-    {
-        StringBuilder output = new();
-        if (flags.HasFlag(GasFlags.Nitrogen))
-        {
-            output.Append(IndentedNewline);
-            output.Append(Loc.GetString("gases-nitrogen"));
-        }
-        if (flags.HasFlag(GasFlags.Oxygen))
-        {
-            output.Append(IndentedNewline);
-            output.Append(Loc.GetString("gases-oxygen"));
-        }
-        if (flags.HasFlag(GasFlags.CarbonDioxide))
-        {
-            output.Append(IndentedNewline);
-            output.Append(Loc.GetString("gases-co2"));
-        }
-        if (flags.HasFlag(GasFlags.Plasma))
-        {
-            output.Append(IndentedNewline);
-            output.Append(Loc.GetString("gases-plasma"));
-        }
-        if (flags.HasFlag(GasFlags.Tritium))
-        {
-            output.Append(IndentedNewline);
-            output.Append(Loc.GetString("gases-tritium"));
-        }
-        if (flags.HasFlag(GasFlags.WaterVapor))
-        {
-            output.Append(IndentedNewline);
-            output.Append(Loc.GetString("gases-water-vapor"));
-        }
-        if (flags.HasFlag(GasFlags.Ammonia))
-        {
-            output.Append(IndentedNewline);
-            output.Append(Loc.GetString("gases-ammonia"));
-        }
-        if (flags.HasFlag(GasFlags.NitrousOxide))
-        {
-            output.Append(IndentedNewline);
-            output.Append(Loc.GetString("gases-n2o"));
-        }
-        if (flags.HasFlag(GasFlags.Frezon))
-        {
-            output.Append(IndentedNewline);
-            output.Append(Loc.GetString("gases-frezon"));
-        }
-        return output;
-    }
 }

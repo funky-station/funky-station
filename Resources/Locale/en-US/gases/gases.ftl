@@ -12,3 +12,4 @@ gases-healium = Healium
 gases-nitrium = Nitrium
 gases-pluoxium = Pluoxium
 gases-hydrogen = Hydrogen
+gases-unknown = Unknown

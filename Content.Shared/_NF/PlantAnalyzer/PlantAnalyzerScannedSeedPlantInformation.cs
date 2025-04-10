@@ -14,8 +14,8 @@ public sealed class PlantAnalyzerScannedSeedPlantInformation : BoundUserInterfac
     public string? SeedName;
     public string[]? SeedChem;
     public AnalyzerHarvestType HarvestType;
-    public GasFlags ExudeGases;
-    public GasFlags ConsumeGases;
+    public string[]? ExudeGases; //Funkystation - Swapped to string
+    public string[]? ConsumeGases; //Funkystation - Swapped to string
     public float Endurance;
     public int SeedYield;
     public float Lifespan;

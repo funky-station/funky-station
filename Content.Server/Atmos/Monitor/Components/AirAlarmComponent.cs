@@ -65,4 +65,7 @@ public sealed partial class AirAlarmComponent : Component
     /// </summary>
     [DataField("normalPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
     public string NormalPort = "AirNormal";
+
+    [ViewVariables]
+    public AirAlarmMode? ForcedMode;
 }

@@ -433,8 +433,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         if (!EntityManager.HasComponent<MindComponent>(uid))
             return null; // mindless entities can't have jobs
 
-        if (!_jobs.MindTryGetJobName(uid, out var jobName))
-            return null;
+        _jobs.MindTryGetJobName(uid, out var jobName);
 
         if (jobName == Loc.GetString("generic-unknown-title"))
             return null;

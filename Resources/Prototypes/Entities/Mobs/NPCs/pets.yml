@@ -877,6 +877,11 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: laser_raptor
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"] #this is temporary because it keeps throwing up errors when thinking about handcuffs
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
   - type: Fixtures
     fixtures:
       fix1:
@@ -930,7 +935,7 @@
           -1
   - type: Hands
   - type: ComplexInteraction
-  - type: Cuffable
+  - type: Cuffable # Need to figure out sprite layer before letting them get cuffed
   - type: Stripping
   - type: Sharp
   - type: Puller

@@ -2,7 +2,7 @@
   id: Resort
   mapName: 'Resort'
   mapPath: /Maps/_Funkystation/Resort.yml
-  minPlayers: 30
+  minPlayers: 41
   stations:
     Resort:
       stationProto: StandardNanotrasenStation
@@ -20,18 +20,16 @@
           StationAi: [ 1, 1 ]
           Captain: [ 1, 1 ]
           NanotrasenRepresentative: [ 1, 1 ]
-          InternalAffairsAgent: [ 2, 2 ]
+          InternalAffairsAgent: [ 1, 2 ]
           BlueshieldOfficer: [ 1, 1 ]
           HeadOfPersonnel: [ 1, 1 ]
           Bartender: [ 2, 2 ]
-          Botanist: [ 2, 3 ]
+          Botanist: [ 3, 3 ]
           Chef: [ 2, 3 ]
           Janitor: [ 3, 3 ]
           Chaplain: [ 2, 2 ]
           Librarian: [ 1, 1 ]
           ServiceWorker: [ 2, 2 ]
-          Zookeeper: [ 1, 2 ]
-          Reporter: [ 1, 1 ]
           #engineering
           ChiefEngineer: [ 1, 1 ]
           AtmosphericTechnician: [ 3, 3 ]
@@ -39,15 +37,15 @@
           TechnicalAssistant: [ 4, 4 ]
           #medical
           ChiefMedicalOfficer: [ 1, 1 ]
-          Chemist: [ 2, 2 ]
+          Chemist: [ 3, 3 ]
           MedicalDoctor: [ 6, 6 ]
           Paramedic: [ 2, 2 ]
           MedicalIntern: [ 4, 4 ]
           Psychologist: [ 1, 1 ]
           #science
           ResearchDirector: [ 1, 1 ]
-          Scientist: [ 4, 4 ]
-          Roboticist: [ 1, 1 ]
+          Scientist: [ 5, 5 ]
+          Roboticist: [ 1, 2 ]
           ResearchAssistant: [ 6, 6 ]
           Borg: [ 2, 2 ]
           #security
@@ -56,7 +54,7 @@
           SecurityOfficer: [ 8, 8 ]
           Detective: [ 1, 1 ]
           SecurityCadet: [ 4, 4 ]
-          Lawyer: [ 3, 3 ]
+          Lawyer: [ 2, 2 ]
           #supply
           Quartermaster: [ 1, 1 ]
           SalvageSpecialist: [ 3, 3 ]
@@ -66,3 +64,6 @@
           Clown: [ 1, 1 ]
           Mime: [ 1, 1 ]
           Musician: [ 1, 1 ]
+          Zookeeper: [ 1, 1 ]
+          Reporter: [ 1, 1 ]
+          Boxer: [ 2, 2 ]

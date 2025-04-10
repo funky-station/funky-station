@@ -21,7 +21,7 @@
   - Ferengi
   - ToolLicense
   - LyingBad
-  - VampireInvitation
+  # - VampireInvitation
   - NoDragging
   - DrunkRespect
   - RankSnob
@@ -52,6 +52,8 @@
   id: NoModernMedicine
   moodName: thaven-mood-no-modern-medicine-name
   moodDesc: thaven-mood-no-modern-medicine-desc
+  jobConficts:
+  - Medical
 
 # You disapprove of [DEPARTMENT]
 - type: thavenMood
@@ -69,6 +71,9 @@
   conflicts:
   - OnlySpeakToCommand
   - MostImportant
+  jobConficts:
+  - Command
+  - CentralCommand
 
 # You detest mind-altering drugs, including alcohol, and must abstain from them.
 - type: thavenMood
@@ -141,6 +146,9 @@
   moodDesc: thaven-mood-no-radio-desc
   conflicts:
   - RadioOnly
+  jobConficts:
+  - Command
+  - CentralCommand
 
 # Carrying tools on your person is demeaning. If you must use them, they should be dragged behind you, shamefully.
 - type: thavenMood

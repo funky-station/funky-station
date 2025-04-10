@@ -10,7 +10,7 @@
   - Pope
   - Cannibal
   - Outlaw
-  - ExtremeDepartmentDisapproval
+  #- ExtremeDepartmentDisapproval
   - LoneActor
   - Immortal
   - Unknown
@@ -34,7 +34,7 @@
   - FeyMood
   - Borged
   - AyeAye
-  - NewJob
+  #- NewJob
 
 # You must always lie, and can never acknowledge that you are lying. If anyone asks, you're incapable of deception.
 - type: thavenMood
@@ -43,6 +43,9 @@
   moodDesc: thaven-mood-compulsive-liar-desc
   conflicts:
   - CompulsiveBeliever
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
 
 # You are unfamiliar with the concept of lying, and are incapable of lying or recognizing lies.
 - type: thavenMood
@@ -103,6 +106,11 @@
   id: Outlaw
   moodName: thaven-mood-outlaw-name
   moodDesc: thaven-mood-outlaw-desc
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
+  - Security
 
 # [DEPARTMENT] is not just a foreign concept - the very idea of it is horrifying.
 - type: thavenMood
@@ -136,6 +144,11 @@
   conflicts:
   - Pope
   - SpeechRestriction
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
+  - Security
 
 # Iron, steel, and silver are deathly poisonous to you. Touching them directly will cause you extreme physical pain.
 - type: thavenMood

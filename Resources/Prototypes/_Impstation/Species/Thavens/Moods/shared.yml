@@ -2,6 +2,8 @@
 # These are rolled before individual laws, and are considered more important.
 # Note: Only one law needs to say it conflicts with another
 # for the system to prevent them from being rolled together.
+# funky note: shared moods should not have any job conflicts, as they should
+# be rolled by all thaven
 
 # Make sure to add new moods to this dataset or they will not be selected!!!!!!
 - type: dataset

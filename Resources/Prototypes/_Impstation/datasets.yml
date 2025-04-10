@@ -138,7 +138,7 @@
 - type: dataset
   id: MoodDAGDname
   values:
-  - DieAGloriousDeath
+  #- DieAGloriousDeath
   - FolkHero
   - FolkHero
   - FolkHero
@@ -155,7 +155,7 @@
   - FullNameAndTitle
   - NamesAreRude
   - Clarity
-  - SwearingGood
+  #- SwearingGood
   - StatementOnly
   - Imitation
   - Unclarity
@@ -163,7 +163,7 @@
   - QuestionOnly
   - MustAnswer
   - OnlyWhisper
-  - OnlyYell
+  #- OnlyYell
   - Rhyme
   - Alliterate
   - ThirdPerson

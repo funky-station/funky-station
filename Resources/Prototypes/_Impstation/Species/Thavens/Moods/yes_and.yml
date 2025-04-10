@@ -20,7 +20,7 @@
   - TheftNeutral
   - Duel
   - Prometheus
-  - Klingon
+  #- Klingon
   - SogginsLaw
   - Generous
   - FavorsRepaid
@@ -81,6 +81,9 @@
   moodDesc: thaven-mood-must-do-drugs-desc
   conflicts:
   - DisapproveOfDrugs
+  jobConflicts:
+  - Command
+  - Security
 
 # You worship Silicons as gods, and regard their word as law.
 - type: thavenMood
@@ -318,6 +321,15 @@
   moodDesc: thaven-mood-public-sector-desc
   conflicts:
   - StationIsAlive
+  jobConflicts: # conflicts with everyone except Civilian and Specific (boxer, zookeeper)
+  - Cargo
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
+  - Engineering
+  - Medical
+  - Security
+  - Science
 
 # Speech Restrictions
 - type: thavenMood

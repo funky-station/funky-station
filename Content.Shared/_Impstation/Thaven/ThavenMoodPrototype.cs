@@ -1,5 +1,6 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Shared.Dataset;
+using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
@@ -37,6 +38,12 @@ public partial class ThavenMood
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public Dictionary<string, string> MoodVars = new();
+
+    // begin funky
+    [DataField(serverOnly: true, customTypeSerializer: typeof(PrototypeIdHashSetSerializer<DepartmentPrototype>))]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public HashSet<string> JobConflicts = new();
+    // end funky
 
     public (string, object)[] GetLocArgs()
     {
@@ -88,4 +95,12 @@ public sealed partial class ThavenMoodPrototype : IPrototype
     /// </summary>
     [DataField("allowDuplicateMoodVars"), ViewVariables(VVAccess.ReadWrite)]
     public bool AllowDuplicateMoodVars = false;
+
+    // begin funky
+    /// <summary>
+    /// A list of conflicting jobs with this mood, if applicable.
+    /// </summary>
+    [DataField("jobConflicts", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<DepartmentPrototype>))]
+    public HashSet<string> JobConflicts = new();
+    // end funky
 }

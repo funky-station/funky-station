@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Chat.Managers;
+using Content.Server.Roles.Jobs;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Dataset;
@@ -17,6 +18,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared._Impstation.CCVar;
+using Content.Shared.Mind;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._Impstation.Thaven;
@@ -30,6 +32,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
     [Dependency] private readonly UserInterfaceSystem _bui = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly JobSystem _jobs = default!; // funky
 
     public IReadOnlyList<ThavenMood> SharedMoods => _sharedMoods.AsReadOnly();
     private readonly List<ThavenMood> _sharedMoods = new();
@@ -77,7 +80,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
     {
         if (mood == null)
         {
-            if (TryPick(SharedDataset, out var moodProto, _sharedMoods))
+            if (TryPick(SharedDataset, out var moodProto, _sharedMoods)) // funky note - shared moods should not have job conflicts, so don't check for them
             {
                 mood = RollMood(moodProto);
                 checkConflicts = false; // TryPick has cleared this mood already
@@ -118,7 +121,10 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         _bui.TryToggleUi(uid, ThavenMoodsUiKey.Key, actor.PlayerSession);
     }
 
-    private bool TryPick(string datasetProto, [NotNullWhen(true)] out ThavenMoodPrototype? proto, IEnumerable<ThavenMood>? currentMoods = null, HashSet<string>? conflicts = null)
+    private bool TryPick(string datasetProto, [NotNullWhen(true)] out ThavenMoodPrototype? proto,
+        IEnumerable<ThavenMood>? currentMoods = null,
+        HashSet<string>? conflicts = null,
+        string? department = null)
     {
         var dataset = _proto.Index<DatasetPrototype>(datasetProto);
         var choices = dataset.Values.ToList();
@@ -139,6 +145,12 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
             var moodProto = _proto.Index<ThavenMoodPrototype>(moodId);
             if (moodProto.Conflicts.Overlaps(currentMoodProtos))
                 continue; // Skip proto if it conflicts with an existing mood
+
+            // begin funky
+            var conflictingJobs = moodProto.JobConflicts;
+            if (department != null && conflictingJobs.Contains(department))
+                continue; // Skip proto if it conflicts with the entity's department
+            // end funky
 
             proto = moodProto;
             return true;
@@ -254,7 +266,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         if (!Resolve(uid, ref comp))
             return false;
 
-        if (TryPick(datasetProto, out var moodProto, GetActiveMoods(uid, comp)))
+        if (TryPick(datasetProto, out var moodProto, GetActiveMoods(uid, comp), null, GetMindDepartment(uid))) // funky - check for job conflicts
         {
             AddMood(uid, RollMood(moodProto), comp);
             return true;
@@ -387,11 +399,11 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
             return;
 
         // "Yes, and" moods
-        if (TryPick(YesAndDataset, out var mood, GetActiveMoods(uid, comp)))
+        if (TryPick(YesAndDataset, out var mood, GetActiveMoods(uid, comp), null, GetMindDepartment(uid))) // funky - check for job conflicts
             TryAddMood(uid, mood, comp, true, false);
 
         // "No, and" moods
-        if (TryPick(NoAndDataset, out mood, GetActiveMoods(uid, comp)))
+        if (TryPick(NoAndDataset, out mood, GetActiveMoods(uid, comp), null, GetMindDepartment(uid))) // funky - check for job conflicts
             TryAddMood(uid, mood, comp, true, false);
 
         comp.Action = _actions.AddAction(uid, ActionViewMoods);
@@ -414,4 +426,23 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         TryAddRandomMood(ent.Owner, WildcardDataset, ent.Comp);
     }
     // End DeltaV: thaven mood upsets
+
+    // begin funky
+    public string? GetMindDepartment(EntityUid uid)
+    {
+        if (!EntityManager.HasComponent<MindComponent>(uid))
+            return null; // mindless entities can't have jobs
+
+        if (!_jobs.MindTryGetJobName(uid, out var jobName))
+            return null;
+
+        if (jobName == Loc.GetString("generic-unknown-title"))
+            return null;
+
+        if (!_jobs.TryGetDepartment(jobName, out var departmentProto))
+            return null;
+
+        return departmentProto.ID;
+    }
+    // end funky
 }

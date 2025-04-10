@@ -38,7 +38,9 @@
   - type: Organ # Shitmed
     slotId: stomach
   - type: Item
-    size: Small
+    size: Normal
+    shape:
+    - 0,0,1,1
     heldPrefix: stomach
   - type: Stomach
     digestionDelay: 30
@@ -65,6 +67,10 @@
   name: lungs
   description: "Filters oxygen from an atmosphere... just more greedily."
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
   - type: Sprite
     layers:
       - state: lung-l
@@ -111,6 +117,8 @@
     state: heart-on
   - type: Item
     size: Small
+    shape:
+    - 0,0,1,0
     heldPrefix: heart
   - type: Metabolizer
     updateInterval: 1.5
@@ -138,6 +146,8 @@
   components:
   - type: Item
     size: Small
+    shape:
+    - 0,0,1,1
     heldPrefix: liver
   - type: Sprite
     state: liver
@@ -172,7 +182,9 @@
       - state: kidney-r
   # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
   - type: Item
-    size: Small
+    size: Normal
+    shape:
+    - 0,0,1,1
     heldPrefix: kidneys
   - type: Metabolizer
     updateInterval: 1.5
@@ -204,7 +216,9 @@
     - Organ
     - Eyes
   - type: Item
-    size: Small
+    size: Normal
+    shape:
+    - 0,0,1,1
     heldPrefix: eyeballs
 
 - type: entity
@@ -213,6 +227,8 @@
   name: tongue
   description: "A fleshy muscle mostly used for lying."
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     state: tongue
   - type: Tag # goob edit

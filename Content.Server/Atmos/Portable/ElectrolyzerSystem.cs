@@ -79,23 +79,52 @@ public sealed class ElectrolyzerSystem : EntitySystem
         if (mixture is null) return;
 
         var initH2O = mixture.GetMoles(Gas.WaterVapor);
+        var initHyperNob = mixture.GetMoles(Gas.HyperNoblium);
+        var initBZ = mixture.GetMoles(Gas.BZ);
+        var temperature = mixture.Temperature;
 
-        if (initH2O < 0.05f) return; 
+        if (initH2O > 0.05f) 
+        {
+            var porportion = Math.Min(initH2O * 0.5f, 2.5f);
+            var efficiency = Math.Min(mixture.Temperature / 1123.15f * 0.75f, 0.75f);
 
-        var porportion = Math.Min(initH2O * 0.5f, 2.5f);
-        var efficiency = Math.Min(mixture.Temperature / 1123.15f * 0.75f, 0.75f);
+            var h2oRemoved = porportion * 2f;
+            var oxyProduced = porportion * efficiency;
+            var hydrogenProduced = porportion * 2f * efficiency;
 
-        var h2oRemoved = porportion * 2f;
-        var oxyProduced = porportion * efficiency;
-        var hydrogenProduced = porportion * 2f * efficiency;
+            mixture.AdjustMoles(Gas.WaterVapor, -h2oRemoved);
+            mixture.AdjustMoles(Gas.Oxygen, oxyProduced);
+            mixture.AdjustMoles(Gas.Hydrogen, hydrogenProduced);
 
-        mixture.AdjustMoles(Gas.WaterVapor, -h2oRemoved);
-        mixture.AdjustMoles(Gas.Oxygen, oxyProduced);
-        mixture.AdjustMoles(Gas.Hydrogen, hydrogenProduced);
+            var heatCap = _atmosphereSystem.GetHeatCapacity(mixture, true);
+            if (heatCap > Atmospherics.MinimumHeatCapacity)
+                mixture.Temperature = Math.Max((mixture.Temperature * heatCap) / heatCap, Atmospherics.TCMB);
+        } 
 
-        var heatCap = _atmosphereSystem.GetHeatCapacity(mixture, true);
-        if (heatCap > Atmospherics.MinimumHeatCapacity)
-            mixture.Temperature = Math.Max((mixture.Temperature * heatCap) / heatCap, Atmospherics.TCMB);
+        if (initHyperNob > 0.01f && temperature < 150f)
+        {
+            var proportion = Math.Min(initHyperNob, 1.5f);
+            mixture.AdjustMoles(Gas.HyperNoblium, -proportion);
+            mixture.AdjustMoles(Gas.AntiNoblium, proportion * 0.5f);
+
+            var heatCap = _atmosphereSystem.GetHeatCapacity(mixture, true);
+            if (heatCap > Atmospherics.MinimumHeatCapacity)
+                mixture.Temperature = Math.Max((mixture.Temperature * heatCap) / heatCap, Atmospherics.TCMB);
+        }
+
+        if (initBZ > 0.01f)
+        {
+            var reactionEfficiency = Math.Min(initBZ * (1f - (float)Math.Pow(Math.E, -0.5f * temperature / Atmospherics.FireMinimumTemperatureToExist)), initBZ);
+            mixture.AdjustMoles(Gas.BZ, -reactionEfficiency);
+            mixture.AdjustMoles(Gas.Oxygen, reactionEfficiency * 0.2f);
+            mixture.AdjustMoles(Gas.Halon, reactionEfficiency * 2f);
+            var energyReleased = reactionEfficiency * Atmospherics.HalonProductionEnergy;
+
+            var heatCap = _atmosphereSystem.GetHeatCapacity(mixture, true);
+            if (heatCap > Atmospherics.MinimumHeatCapacity)
+                mixture.Temperature = Math.Max((mixture.Temperature * heatCap + energyReleased) / heatCap, Atmospherics.TCMB);
+        }
+
         _gasOverlaySystem.UpdateSessions();
     }
 }

@@ -5,6 +5,8 @@
   components:
   - type: Metabolizer
     metabolizerTypes: [Dwarf]
+  - type: Item
+    size: Tiny
 
 - type: entity
   id: OrganDwarfLiver
@@ -13,6 +15,11 @@
   components:
   - type: Metabolizer
     metabolizerTypes: [Dwarf]
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    heldPrefix: stomach
 
 - type: entity
   id: OrganDwarfStomach
@@ -21,6 +28,11 @@
   components:
   - type: Sprite
     state: stomach
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+    heldPrefix: liver
   - type: Organ
   - type: SolutionContainerManager
     solutions:

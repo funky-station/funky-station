@@ -12,6 +12,10 @@
   name: "diona torso"
   parent: [PartDiona, BaseTorso]
   components:
+  - type: Item
+    size: Ginormous
+    shape:
+    - 0,0,5,3
   - type: Sprite
     state: "torso_m"
 
@@ -20,56 +24,87 @@
   name: "diona head"
   parent: [PartDiona, BaseHead]
   components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,1,1
   - type: Sprite
     state: "head_m"
+    offset: 0,-0.3
 
 - type: entity
   id: LeftArmDiona
   name: "left diona arm"
   parent: [PartDiona, BaseLeftArm]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     state: "l_arm"
+    offset: -0.2,0
 
 - type: entity
   id: RightArmDiona
   name: "right diona arm"
   parent: [PartDiona, BaseRightArm]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     state: "r_arm"
+    offset: 0.2,0
 
 - type: entity
   id: LeftHandDiona
   name: "left diona hand"
   parent: [PartDiona, BaseLeftHand]
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     state: "l_hand"
+    offset: -0.2,0.1
 
 - type: entity
   id: RightHandDiona
   name: "right diona hand"
   parent: [PartDiona, BaseRightHand]
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     state: "r_hand"
+    offset: -0.1,0.1
 
 - type: entity
   id: LeftLegDiona
   name: "left diona leg"
   parent: [PartDiona, BaseLeftLeg]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     state: "l_leg"
+    offset: -0.1,0.3
 
 - type: entity
   id: RightLegDiona
   name: "right diona leg"
   parent: [PartDiona, BaseRightLeg]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     state: "r_leg"
+    offset: 0.1,0.3
   - type: BodyPart
     partType: Leg
     symmetry: Right
@@ -79,8 +114,11 @@
   name: "left diona foot"
   parent: [PartDiona, BaseLeftFoot]
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     state: "l_foot"
+    offset: -0.05,0.45
   - type: BodyPart
     partType: Foot
     symmetry: Left
@@ -90,8 +128,11 @@
   name: "right diona foot"
   parent: [PartDiona, BaseRightFoot]
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     state: "r_foot"
+    offset: 0.05,0.45
   - type: BodyPart
     partType: Foot
     symmetry: Right

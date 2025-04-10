@@ -2313,3 +2313,11 @@ Entries:
         sold through cargo for a large sum of money. 
   id: 287
   time: '2025-04-10T19:14:28.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: >-
+        The bluespace sender and vendor have been added, used for distributing
+        gases to crew across the station. 
+  id: 288
+  time: '2025-04-10T19:15:53.0000000+00:00'

@@ -1,0 +1,5 @@
+- type: sourcePort
+  id: BluespaceSender
+  name: Bluespace gas sender
+  description: Sends gas to bluespace
+  defaultLinks: [ BluespaceGasUtilizer ]

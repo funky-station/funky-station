@@ -1,0 +1,25 @@
+{
+    "version":1,
+    "size":{"x":32,"y":32},
+    "copyright":"Taken from /tg/ station at commit https://github.com/tgstation/tgstation/pull/57919/commits/d775c0b8ad38b96de965b111016e6b56e50b3d67",
+    "license":"CC-BY-SA-3.0",
+    "states":[
+        {
+            "name":"off",
+            "directions":1
+        },
+        {
+            "name":"panel",
+            "directions":1
+        },
+        {
+            "name":"on",
+            "directions":1,
+            "delays":[ [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1] ]
+        },
+        {
+            "name":"pipe",
+            "directions":4
+        }
+    ]
+}

@@ -1,0 +1,407 @@
+- type: entity
+  parent: CrateGeneric
+  id: CrateBuildABuddyHuman
+  name: build-a-buddy
+  suffix: Human
+  description: "\"Henry the Human\" Build-a-Buddy kit. Some assembly required."
+  components:
+  - type: Icon
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: Sprite
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: StorageFill
+    contents:
+    - id: TorsoHuman
+      amount: 1
+    - id: HeadHuman
+      amount: 1
+    - id: LeftArmHuman
+      amount: 1
+    - id: RightArmHuman
+      amount: 1
+    - id: LeftHandHuman
+      amount: 1
+    - id: RightHandHuman
+      amount: 1
+    - id: LeftLegHuman
+      amount: 1
+    - id: RightLegHuman
+      amount: 1
+    - id: LeftFootHuman
+      amount: 1
+    - id: RightFootHuman
+      amount: 1
+
+- type: entity
+  parent: CrateGeneric
+  id: CrateBuildABuddyReptilian
+  name: build-a-buddy
+  suffix: Reptilian
+  description: "\"Randy the Reptilian\" Build-a-Buddy kit. Some assembly required."
+  components:
+  - type: Icon
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: Sprite
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: StorageFill
+    contents:
+    - id: TorsoReptilian
+      amount: 1
+    - id: HeadReptilian
+      amount: 1
+    - id: LeftArmReptilian
+      amount: 1
+    - id: RightArmReptilian
+      amount: 1
+    - id: LeftHandReptilian
+      amount: 1
+    - id: RightHandReptilian
+      amount: 1
+    - id: LeftLegReptilian
+      amount: 1
+    - id: RightLegReptilian
+      amount: 1
+    - id: LeftFootReptilian
+      amount: 1
+    - id: RightFootReptilian
+      amount: 1
+
+- type: entity
+  parent: CrateGeneric
+  id: CrateBuildABuddySlime
+  name: build-a-buddy
+  suffix: Slime
+  description: "\"Steven the Slime\" Build-a-Buddy kit. Some assembly required."
+  components:
+  - type: Icon
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: Sprite
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: StorageFill
+    contents:
+    - id: TorsoSlime
+      amount: 1
+    - id: HeadSlime
+      amount: 1
+    - id: LeftArmSlime
+      amount: 1
+    - id: RightArmSlime
+      amount: 1
+    - id: LeftHandSlime
+      amount: 1
+    - id: RightHandSlime
+      amount: 1
+    - id: LeftLegSlime
+      amount: 1
+    - id: RightLegSlime
+      amount: 1
+    - id: LeftFootSlime
+      amount: 1
+    - id: RightFootSlime
+      amount: 1
+
+- type: entity
+  parent: CrateGeneric
+  id: CrateBuildABuddyMoth
+  name: build-a-buddy
+  suffix: Moth
+  description: "\"Molly the Moth\" Build-a-Buddy kit. Some assembly required."
+  components:
+  - type: Icon
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: Sprite
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: StorageFill
+    contents:
+    - id: TorsoMoth
+      amount: 1
+    - id: HeadMoth
+      amount: 1
+    - id: LeftArmMoth
+      amount: 1
+    - id: RightArmMoth
+      amount: 1
+    - id: LeftHandMoth
+      amount: 1
+    - id: RightHandMoth
+      amount: 1
+    - id: LeftLegMoth
+      amount: 1
+    - id: RightLegMoth
+      amount: 1
+    - id: LeftFootMoth
+      amount: 1
+    - id: RightFootMoth
+      amount: 1
+
+- type: entity
+  parent: CrateGeneric
+  id: CrateBuildABuddyVox
+  name: build-a-buddy
+  suffix: Vox
+  description: "\"Viskaravase the Vox\" Build-a-Buddy kit. Some assembly required."
+  components:
+  - type: Icon
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: Sprite
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: StorageFill
+    contents:
+    - id: TorsoVox
+      amount: 1
+    - id: HeadVox
+      amount: 1
+    - id: LeftArmVox
+      amount: 1
+    - id: RightArmVox
+      amount: 1
+    - id: LeftHandVox
+      amount: 1
+    - id: RightHandVox
+      amount: 1
+    - id: LeftLegVox
+      amount: 1
+    - id: RightLegVox
+      amount: 1
+    - id: LeftFootVox
+      amount: 1
+    - id: RightFootVox
+      amount: 1
+
+- type: entity
+  parent: CrateGeneric
+  id: CrateBuildABuddyDiona
+  name: build-a-buddy
+  suffix: Diona
+  description: "\"Denny the Diona\" Build-a-Buddy kit. Some assembly required."
+  components:
+  - type: Icon
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: Sprite
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: StorageFill
+    contents:
+    - id: TorsoDiona
+      amount: 1
+    - id: HeadDiona
+      amount: 1
+    - id: LeftArmDiona
+      amount: 1
+    - id: RightArmDiona
+      amount: 1
+    - id: LeftHandDiona
+      amount: 1
+    - id: RightHandDiona
+      amount: 1
+    - id: LeftLegDiona
+      amount: 1
+    - id: RightLegDiona
+      amount: 1
+    - id: LeftFootDiona
+      amount: 1
+    - id: RightFootDiona
+      amount: 1
+
+- type: entity
+  parent: CrateGeneric
+  id: CrateBuildABuddyArachnid
+  name: build-a-buddy
+  suffix: Arachnid
+  description: "\"Archy the Arachnid\" Build-a-Buddy kit. Some assembly required."
+  components:
+  - type: Icon
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: Sprite
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: StorageFill
+    contents:
+    - id: TorsoArachnid
+      amount: 1
+    - id: HeadArachnid
+      amount: 1
+    - id: LeftArmArachnid
+      amount: 1
+    - id: RightArmArachnid
+      amount: 1
+    - id: LeftHandArachnid
+      amount: 1
+    - id: RightHandArachnid
+      amount: 1
+    - id: LeftLegArachnid
+      amount: 1
+    - id: RightLegArachnid
+      amount: 1
+    - id: LeftFootArachnid
+      amount: 1
+    - id: RightFootArachnid
+      amount: 1
+
+- type: entity
+  parent: CrateGeneric
+  id: CrateBuildABuddyGingerbread
+  name: build-a-buddy
+  suffix: Gingerbread
+  description: "\"Garry the Gingerbread\" Build-a-Buddy kit. Some assembly required."
+  components:
+  - type: Icon
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: Sprite
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: StorageFill
+    contents:
+    - id: TorsoGingerbread
+      amount: 1
+    - id: HeadGingerbread
+      amount: 1
+    - id: LeftArmGingerbread
+      amount: 1
+    - id: RightArmGingerbread
+      amount: 1
+    - id: LeftHandGingerbread
+      amount: 1
+    - id: RightHandGingerbread
+      amount: 1
+    - id: LeftLegGingerbread
+      amount: 1
+    - id: RightLegGingerbread
+      amount: 1
+    - id: LeftFootGingerbread
+      amount: 1
+    - id: RightFootGingerbread
+      amount: 1
+
+- type: entity
+  parent: CrateGeneric
+  id: CrateBuildABuddyVulpkanin
+  name: build-a-buddy
+  suffix: Vulpkanin
+  description: "\"Valerie the Vulpkanin\" Build-a-Buddy kit. Some assembly required."
+  components:
+  - type: Icon
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: Sprite
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: StorageFill
+    contents:
+    - id: TorsoVulpkanin
+      amount: 1
+    - id: HeadVulpkanin
+      amount: 1
+    - id: LeftArmVulpkanin
+      amount: 1
+    - id: RightArmVulpkanin
+      amount: 1
+    - id: LeftHandVulpkanin
+      amount: 1
+    - id: RightHandVulpkanin
+      amount: 1
+    - id: LeftLegVulpkanin
+      amount: 1
+    - id: RightLegVulpkanin
+      amount: 1
+    - id: LeftFootVulpkanin
+      amount: 1
+    - id: RightFootVulpkanin
+      amount: 1
+
+- type: entity
+  parent: CrateGeneric
+  id: CrateBuildABuddyRodentia
+  name: build-a-buddy
+  suffix: Rodentia
+  description: "\"Ralph the Rodentia\" Build-a-Buddy kit. Some assembly required."
+  components:
+  - type: Icon
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: Sprite
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: StorageFill
+    contents:
+    - id: TorsoRodentia
+      amount: 1
+    - id: HeadRodentia
+      amount: 1
+    - id: LeftArmRodentia
+      amount: 1
+    - id: RightArmRodentia
+      amount: 1
+    - id: LeftHandRodentia
+      amount: 1
+    - id: RightHandRodentia
+      amount: 1
+    - id: LeftLegRodentia
+      amount: 1
+    - id: RightLegRodentia
+      amount: 1
+    - id: LeftFootRodentia
+      amount: 1
+    - id: RightFootRodentia
+      amount: 1
+
+- type: entity
+  parent: CrateGeneric
+  id: CrateBuildABuddyHarpy
+  name: build-a-buddy
+  suffix: Harpy
+  description: "\"Harrie the Harpy\" Build-a-Buddy kit. Some assembly required."
+  components:
+  - type: Icon
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: Sprite
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: StorageFill
+    contents:
+    - id: TorsoHarpy
+      amount: 1
+    - id: HeadHarpy
+      amount: 1
+    - id: LeftArmHarpy
+      amount: 1
+    - id: RightArmHarpy
+      amount: 1
+    - id: LeftHandHarpy
+      amount: 1
+    - id: RightHandHarpy
+      amount: 1
+    - id: LeftLegHarpy
+      amount: 1
+    - id: RightLegHarpy
+      amount: 1
+    - id: LeftFootHarpy
+      amount: 1
+    - id: RightFootHarpy
+      amount: 1
+
+- type: entity
+  parent: CrateGeneric
+  id: CrateBuildABuddyIPC
+  name: build-a-buddy
+  suffix: IPC
+  description: "\"1RI5 the IPC\" Build-a-Buddy kit. Some assembly required."
+  components:
+  - type: Icon
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: Sprite
+    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+  - type: StorageFill
+    contents:
+    - id: TorsoIPC
+      amount: 1
+    - id: HeadIPC
+      amount: 1
+    - id: LeftArmIPC
+      amount: 1
+    - id: RightArmIPC
+      amount: 1
+    - id: LeftHandIPC
+      amount: 1
+    - id: RightHandIPC
+      amount: 1
+    - id: LeftLegIPC
+      amount: 1
+    - id: RightLegIPC
+      amount: 1
+    - id: LeftFootIPC
+      amount: 1
+    - id: RightFootIPC
+      amount: 1

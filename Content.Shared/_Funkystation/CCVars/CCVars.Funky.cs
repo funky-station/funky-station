@@ -11,4 +11,10 @@ public sealed class CCVars_Funky
         CVarDef.Create("game.director_weight_prototype", "SecretDirector", CVar.SERVERONLY);
 
     #endregion
+
+    /// <summary>
+    ///     Is bluespace gas enabled.
+    /// </summary>
+    public static readonly CVarDef<bool> BluespaceGasEnabled =
+        CVarDef.Create("funky.bluespace_gas_enabled", true, CVar.SERVER | CVar.REPLICATED);
 }

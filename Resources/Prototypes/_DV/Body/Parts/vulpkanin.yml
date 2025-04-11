@@ -61,6 +61,10 @@
   name: "vulpkanin torso"
   parent: PartVulpkanin
   components:
+  - type: Item
+    size: Ginormous
+    shape:
+    - 0,0,5,3
   - type: Sprite
     netsync: false
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
@@ -112,10 +116,15 @@
   name: "vulpkanin head"
   parent: PartVulpkanin
   components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,1,1
   - type: Sprite
     netsync: false
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: "head_m"
+    offset: 0,-0.3
   - type: Icon
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: "head_m"
@@ -136,10 +145,15 @@
   name: "left vulpkanin arm"
   parent: PartVulpkanin
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     netsync: false
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: "l_arm"
+    offset: -0.2,0
   - type: Icon
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: "l_arm"
@@ -153,10 +167,15 @@
   name: "right vulpkanin arm"
   parent: PartVulpkanin
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     netsync: false
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: "r_arm"
+    offset: 0.2,0
   - type: Icon
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: "r_arm"
@@ -170,10 +189,13 @@
   name: "left vulpkanin hand"
   parent: PartVulpkanin
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     netsync: false
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: "l_hand"
+    offset: -0.2,0.1
   - type: Icon
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: "l_hand"
@@ -187,10 +209,13 @@
   name: "right vulpkanin hand"
   parent: PartVulpkanin
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     netsync: false
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: "r_hand"
+    offset: 0.2,0.1
   - type: Icon
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: "r_hand"
@@ -204,10 +229,15 @@
   name: "left vulpkanin leg"
   parent: PartVulpkanin
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     netsync: false
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: "l_leg"
+    offset: -0.1,0.3
   - type: Icon
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: "l_leg"
@@ -222,10 +252,15 @@
   name: "right vulpkanin leg"
   parent: PartVulpkanin
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     netsync: false
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: "r_leg"
+    offset: 0.1,0.3
   - type: Icon
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: "r_leg"
@@ -240,10 +275,13 @@
   name: "left vulpkanin foot"
   parent: PartVulpkanin
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     netsync: false
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: "l_foot"
+    offset: -0.15,0.45
   - type: Icon
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: "l_foot"
@@ -257,10 +295,13 @@
   name: "right vulpkanin foot"
   parent: PartVulpkanin
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     netsync: false
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: "r_foot"
+    offset: 0.15,0.45
   - type: Icon
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
     state: "r_foot"

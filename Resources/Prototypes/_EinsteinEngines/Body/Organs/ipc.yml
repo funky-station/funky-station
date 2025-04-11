@@ -23,6 +23,10 @@
   name: robotic eyes
   description: "01001001 00100000 01110011 01100101 01100101 00100000 01111001 01101111 01110101 00100001"
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
   - type: Sprite
     layers:
       - state: eyeball-l
@@ -37,6 +41,10 @@
   name: vocal modulator
   description: "A vocal modulator, used to produce speech."
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
   - type: Sprite
     state: tongue
   - type: Organ
@@ -47,6 +55,10 @@
   name: "sonic receptors"
   description:
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
   - type: Sprite
     state: ears
   - type: Organ
@@ -57,6 +69,8 @@
   name: micro pump
   description: "A micro pump, used to circulate coolant."
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     state: heart-on
   - type: Organ

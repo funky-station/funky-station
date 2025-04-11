@@ -2271,3 +2271,69 @@ Entries:
       message: Each category can only have one bounty up at a time to reduce overlap.
   id: 284
   time: '2025-04-06T18:52:40.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Add
+      message: >-
+        Ability to reprogram borg laws if their panels are open and you have the
+        lawboard you wish to program them to. 
+  id: 285
+  time: '2025-04-08T19:08:13.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: All organ and body bits sizes made more sane
+  id: 286
+  time: '2025-04-08T19:11:35.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: >-
+        Added Hyper-Noblium, an extremely inert gas that can stop other gases
+        from reacting.
+    - type: Add
+      message: >-
+        Added ProtoNitrate, a highly reactive, but non-toxic gas that reacts
+        with many other gases.
+    - type: Add
+      message: >-
+        Added Zauker, an incredibly deadly gas if inhaled, though dissipates
+        quickly when mixed with nitrogen.
+    - type: Add
+      message: >-
+        Added Halon, a gas that acts as a fire suppressant by removing oxygen in
+        the air while producing CO2.
+    - type: Add
+      message: >-
+        Added Helium, an invisible, inert gas. Can be sold to cargo for pocket
+        change.
+    - type: Add
+      message: >-
+        Added Anti-Noblium, a rare gas used for not very much at all, but can be
+        sold through cargo for a large sum of money. 
+  id: 287
+  time: '2025-04-10T19:14:28.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: >-
+        The bluespace sender and vendor have been added, used for distributing
+        gases to crew across the station. 
+  id: 288
+  time: '2025-04-10T19:15:53.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Fixed nitrium decomposition sometimes exceeding 100C
+  id: 289
+  time: '2025-04-10T19:16:32.0000000+00:00'
+- author: ReconPangolin
+  changes:
+    - type: Fix
+      message: Fixed the plant analyzer not scanning unless the UI was open
+    - type: Fix
+      message: Fixed the plant analyzer not displaying /tg/ gases
+    - type: Tweak
+      message: The plant analyzer now stores the last scan it made
+  id: 290
+  time: '2025-04-11T00:30:40.0000000+00:00'

@@ -1,0 +1,4 @@
+- type: sinkPort
+  id: BluespaceGasUtilizer
+  name: Bluespace gas vendor
+  description: Gas dispensing vendor

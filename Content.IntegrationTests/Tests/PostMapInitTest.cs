@@ -40,12 +40,14 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] Grids =
         {
             "/Maps/centcomm.yml",
+            "/Maps/_Harmony/centcomm.yml", // Funky, Harmony CC version
             AdminTestArenaSystem.ArenaMapPath
         };
 
         private static readonly string[] DoNotMapWhitelist =
         {
             "/Maps/centcomm.yml",
+            "/Maps/_Harmony/centcomm.yml", // Funky, Harmony CC version
         };
 
         private static readonly string[] GameMaps =

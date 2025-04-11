@@ -507,11 +507,6 @@ public sealed class AirAlarmSystem : EntitySystem
             mode = AirAlarmMode.Panic;
         }
 
-        if (controller.CurrentMode == mode)
-        {
-            return;
-        }
-
         controller.CurrentMode = mode;
 
         // setting it to UI only means we don't have
@@ -710,7 +705,7 @@ public sealed class AirAlarmSystem : EntitySystem
         _ui.SetUiState(
             uid,
             SharedAirAlarmInterfaceKey.Key,
-            new AirAlarmUIState(devNet.Address, deviceCount, pressure, temperature, dataToSend, alarm.CurrentMode, highestAlarm.Value, alarm.AutoMode));
+            new AirAlarmUIState(devNet.Address, deviceCount, pressure, temperature, dataToSend, alarm.CurrentMode, highestAlarm.Value, alarm.AutoMode, alarm.PanicWireCut));
     }
 
     private const float Delay = 8f;

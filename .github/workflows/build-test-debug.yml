@@ -8,6 +8,9 @@ on:
     types: [ opened, reopened, synchronize, ready_for_review ]
     branches: [ master, staging, stable ]
 
+env:
+  DOTNET_INSTALL_DIR: "./.dotnet"
+
 jobs:
   build:
     if: github.actor != 'PJBot' && github.event.pull_request.draft == false

@@ -88,6 +88,7 @@ public sealed partial class ScrubberControl : BoxContainer
             _data.PumpDirection = (ScrubberPumpDirection) args.Id;
             ScrubberDataChanged?.Invoke(_address, _data);
         };
+        _pumpDirection.Disabled = data.AirAlarmPanicWireCut;
 
         _copySettings.OnPressed += _ =>
         {
@@ -131,6 +132,7 @@ public sealed partial class ScrubberControl : BoxContainer
 
         _data.PumpDirection = data.PumpDirection;
         _pumpDirection.Select((int) _data.PumpDirection);
+        _pumpDirection.Disabled = data.AirAlarmPanicWireCut;
 
         _data.VolumeRate = data.VolumeRate;
         _volumeRate.Value = _data.VolumeRate;

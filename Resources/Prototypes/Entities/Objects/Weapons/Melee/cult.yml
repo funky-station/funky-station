@@ -1,3 +1,78 @@
+# Blood Cult Items
+- type: entity
+  abstract: true
+  name: cult dagger
+  parent: [ BaseItem, BaseBloodCultContraband ]
+  id: CultDagger
+  description: Can be used to scribe runes, and is a decent melee weapon. Can also be used on runes to erase them.
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Melee/bloodcult_dagger_curved.rsi
+    state: icon
+  - type: BloodCultMeleeWeapon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1.0
+    damage:
+      types:
+        Slash: 15
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Melee/bloodcult_dagger_curved.rsi
+    quickEquip: false
+    slots:
+    - back
+  - type: DisarmMalus
+  - type: BloodCultRuneCarver
+    timeToCarve: 15
+  - type: UserInterface
+    interfaces:
+      enum.RunesUiKey.Key:
+        type: RunesBoundUserInterface
+  - type: ActivatableUI
+    key: enum.RunesUiKey.Key
+    inHandsOnly: true
+    singleUser: true
+    blockSpectators: true
+    verbOnly: false
+    verbText: cult-rune-select
+
+- type: entity
+  name: cult dagger
+  suffix: Curved
+  parent: CultDagger
+  id: CultDaggerCurved
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Melee/bloodcult_dagger_curved.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Melee/bloodcult_dagger_curved.rsi
+
+- type: entity
+  name: cult dagger
+  suffix: Serrated
+  parent: CultDagger
+  id: CultDaggerSerrated
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Melee/bloodcult_dagger_serrated.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Melee/bloodcult_dagger_serrated.rsi
+
+- type: entity
+  name: cult dagger
+  suffix: Straight
+  parent: CultDagger
+  id: CultDaggerStraight
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Melee/bloodcult_dagger_straight.rsi
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Melee/bloodcult_dagger_straight.rsi
+
+# Legacy Cult Items
 - type: entity
   name: ritual dagger
   parent: BaseItem

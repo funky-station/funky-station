@@ -217,5 +217,20 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-cosmiccultist"),
         };
         args.Verbs.Add(cosmiccult);
+      
+        // Funkystation - blood cult
+        Verb cultAntag = new()
+        {
+            Text = "Blood Cult",
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Funkystation/Structures/BloodCult/bloodrune.rsi"), "barrier"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<BloodCultRuleComponent>(targetPlayer, "BloodCult");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-cultist")
+        };
+        args.Verbs.Add(cultAntag);
     }
 }

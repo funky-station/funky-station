@@ -1,10 +1,134 @@
-﻿- type: entity
+﻿# Blood Cult Runes
+- type: entity
+  id: BaseBloodCultRune
+  name: "rune"
+  description: It looks to have been smeared in blood...
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: BloodCultRune
+    - type: Clickable
+    - type: TriggerOnActivate
+    - type: Sprite
+      sprite: _Funkystation/Structures/BloodCult/bloodrune.rsi
+      layers:
+        - state: barrier
+          color: '#FF00FF'
+
+- type: entity
+  parent: BaseBloodCultRune
+  id: BarrierRune
+  name: "barrier rune"
+  components:
+    - type: BarrierOnTrigger  # SubscribeLocalEvent<ExplodeOnTriggerComponent, TriggerEvent>(HandleExplodeTrigger);
+    - type: Sprite
+      #sprite: Structures/Magic/Cult/trap.rsi
+      layers:
+        - state: barrier
+          color: '#FF3300CC'
+
+- type: entity
+  parent: BaseBloodCultRune
+  id: BloodBoilRune
+  name: "blood boil rune"
+  components:
+    - type: Sprite
+      #sprite: Structures/Magic/Cult/trap.rsi
+      layers:
+        - state: bloodboil
+          color: '#FF3300CC'
+
+- type: entity
+  parent: BaseBloodCultRune
+  id: EmpoweringRune
+  name: "empowering rune"
+  components:
+    - type: EmpowerOnStand
+    - type: Sprite
+      #sprite: Structures/Magic/Cult/trap.rsi
+      layers:
+        - state: empowering
+          color: '#FF3300CC'
+
+- type: entity
+  parent: BaseBloodCultRune
+  id: OfferingRune
+  name: "offering rune"
+  components:
+    - type: OfferOnTrigger
+    - type: Sprite
+      #sprite: Structures/Magic/Cult/trap.rsi
+      layers:
+        - state: offering
+          color: '#FF3300CC'
+
+- type: entity
+  parent: BaseBloodCultRune
+  id: ReviveRune
+  name: "revive rune"
+  components:
+    - type: ReviveCultistOnTrigger
+    - type: Sprite
+      #sprite: Structures/Magic/Cult/trap.rsi
+      layers:
+        - state: revive
+          color: '#FF3300CC'
+
+- type: entity
+  parent: BaseBloodCultRune
+  id: SpiritRealmRune
+  name: "rune of the spirit realm"
+  components:
+    - type: Sprite
+      #sprite: Structures/Magic/Cult/trap.rsi
+      layers:
+        - state: spiritrealm
+          color: '#FF3300CC'
+
+- type: entity
+  parent: BaseBloodCultRune
+  id: SummoningRune
+  name: "summoning rune"
+  components:
+    - type: Sprite
+      #sprite: Structures/Magic/Cult/trap.rsi
+      layers:
+        - state: summoning
+          color: '#FF3300CC'
+
+- type: entity
+  parent: BaseBloodCultRune
+  id: TeleportRune
+  name: "teleport rune"
+  components:
+    - type: Sprite
+      #sprite: Structures/Magic/Cult/trap.rsi
+      layers:
+        - state: teleport
+          color: '#FF3300CC'
+
+- type: entity
+  parent: BaseBloodCultRune
+  id: TearVeilRune
+  name: tear veil rune
+  components:
+    - type: TearVeil
+    - type: Sprite
+      sprite: _Funkystation/Structures/BloodCult/narsierune.rsi
+      layers:
+        - state: narsierune
+          color: '#FF4400FF'
+
+# Legacy Cult Runes
+- type: entity
   id: BaseRune
   name: "rune"
   abstract: true
   placement:
     mode: SnapgridCenter
   components:
+    - type: BloodCultRune
     - type: Clickable
     - type: Sprite
       sprite: Structures/Magic/Cult/rune.rsi

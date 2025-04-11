@@ -21,7 +21,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Cargo.Components;
-using Content.Server.Labels;
 using Content.Server.NameIdentifier;
 using Content.Server.Research.Systems;
 using Content.Shared._Funkystation.Cargo.Prototypes;
@@ -34,6 +33,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Labels.EntitySystems;
 using Content.Shared.NameIdentifier;
 using Content.Shared.Paper;
 using Content.Shared.Research.Components;

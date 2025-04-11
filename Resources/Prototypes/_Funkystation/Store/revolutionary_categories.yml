@@ -1,4 +1,19 @@
 - type: storeCategory
-  id: RevolutionaryUplinkDefault
-  name: store-category-revolutionary-default
-  priority: 0
+  id: RevolutionaryUplinkConversion
+  name: store-category-revolutionary-conversion
+  priority: 1
+
+- type: storeCategory
+  id: RevolutionaryUplinkUtility
+  name: store-category-revolutionary-utility
+  priority: 2
+
+- type: storeCategory
+  id: RevolutionaryUplinkCombat
+  name: store-category-revolutionary-combat
+  priority: 3
+
+- type: storeCategory
+  id: RevolutionaryUplinkMisc
+  name: store-category-revolutionary-misc
+  priority: 4

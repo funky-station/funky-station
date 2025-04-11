@@ -2345,3 +2345,9 @@ Entries:
         down menu on air alarms
   id: 291
   time: '2025-04-11T19:01:08.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: Atmospherics Guidebook now contains details on advanced gasses
+  id: 292
+  time: '2025-04-11T19:02:09.0000000+00:00'

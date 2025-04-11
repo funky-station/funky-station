@@ -1,0 +1,191 @@
+﻿- type: latheRecipe
+  id: TrumpetInstrument
+  result: TrumpetInstrument
+  completetime: 4
+  materials:
+    Brass: 500
+
+- type: latheRecipe
+  id: TromboneInstrument
+  result: TromboneInstrument
+  completetime: 4
+  materials:
+    Brass: 500
+
+- type: latheRecipe
+  id: FrenchHornInstrument
+  result: FrenchHornInstrument
+  completetime: 4
+  materials:
+    Brass: 500
+
+- type: latheRecipe
+  id: EuphoniumInstrument
+  result: EuphoniumInstrument
+  completetime: 4
+  materials:
+    Brass: 500
+
+- type: latheRecipe
+  id: GunpetInstrument
+  result: GunpetInstrument
+  completetime: 4
+  materials:
+    Brass: 200
+    Plastic: 300
+
+- type: latheRecipe
+  id: GlockenspielInstrument
+  result: GlockenspielInstrument
+  completetime: 4
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  id: MusicBoxInstrument
+  result: MusicBoxInstrument
+  completetime: 4
+  materials:
+    Steel: 300
+    Wood: 200
+
+- type: latheRecipe
+  id: XylophoneInstrument
+  result: XylophoneInstrument
+  completetime: 4
+  materials:
+    Steel: 400
+
+- type: latheRecipe
+  id: MicrophoneInstrument
+  result: MicrophoneInstrument
+  completetime: 4
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  id: WoodblockInstrument
+  result: WoodblockInstrument
+  completetime: 4
+  materials:
+    Wood: 300
+
+- type: latheRecipe
+  id: KalimbaInstrument
+  result: KalimbaInstrument
+  completetime: 4
+  materials:
+    Wood: 500
+
+- type: latheRecipe
+  id: ElectricGuitarInstrument
+  result: ElectricGuitarInstrument
+  completetime: 4
+  materials:
+    Wood: 100
+    Steel: 100
+    Plastic: 300
+
+- type: latheRecipe
+  id: BassGuitarInstrument
+  result: BassGuitarInstrument
+  completetime: 4
+  materials:
+    Wood: 100
+    Steel: 100
+    Plastic: 300
+
+- type: latheRecipe
+  id: RockGuitarInstrument
+  result: RockGuitarInstrument
+  completetime: 4
+  materials:
+    Wood: 100
+    Steel: 100
+    Plastic: 300
+
+- type: latheRecipe
+  id: AcousticGuitarInstrument
+  result: AcousticGuitarInstrument
+  completetime: 4
+  materials:
+    Wood: 400
+    Steel: 100
+
+- type: latheRecipe
+  id: BanjoInstrument
+  result: BanjoInstrument
+  completetime: 4
+  materials:
+    Wood: 400
+    Steel: 100
+
+- type: latheRecipe
+  id: ViolinInstrument
+  result: ViolinInstrument
+  completetime: 4
+  materials:
+    Wood: 400
+    Steel: 100
+
+- type: latheRecipe
+  id: ViolaInstrument
+  result: ViolaInstrument
+  completetime: 4
+  materials:
+    Wood: 400
+    Steel: 100
+
+- type: latheRecipe
+  id: CelloInstrument
+  result: CelloInstrument
+  completetime: 4
+  materials:
+    Wood: 400
+    Steel: 100
+
+- type: latheRecipe
+  id: SaxophoneInstrument
+  result: SaxophoneInstrument
+  completetime: 4
+  materials:
+    Brass: 400
+    Wood: 100
+
+- type: latheRecipe
+  id: HarmonicaInstrument
+  result: HarmonicaInstrument
+  completetime: 4
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  id: ClarinetInstrument
+  result: ClarinetInstrument
+  completetime: 4
+  materials:
+    Wood: 400
+    Steel: 100
+
+- type: latheRecipe
+  id: FluteInstrument
+  result: FluteInstrument
+  completetime: 4
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  id: RecorderInstrument
+  result: RecorderInstrument
+  completetime: 4
+  materials:
+    Plastic: 500
+
+- type: latheRecipe
+  id: BagpipeInstrument
+  result: BagpipeInstrument
+  completetime: 4
+  materials:
+    Wood: 100
+    Plastic: 100
+    Cloth: 300

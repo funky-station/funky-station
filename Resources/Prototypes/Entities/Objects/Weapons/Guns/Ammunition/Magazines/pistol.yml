@@ -97,6 +97,10 @@
     zeroVisible: false
   - type: Appearance
 
+
+
+
+
 - type: entity
   id: MagazinePistolSubMachineGunTopMounted
   name: WT550 magazine (.35 auto top-mounted)
@@ -127,6 +131,22 @@
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
+
+- type: entity
+  id: MagazinePistolSubMachineGunTopMountedIncendiary
+  name: WT550 magazine (.35 auto incendiary top-mounted)
+  parent: MagazinePistolSubMachineGunTopMounted
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolIncendiary
+
+- type: entity
+  id: MagazinePistolSubMachineGunTopMountedUranium
+  name: WT550 magazine (.35 auto uranium top-mounted)
+  parent: MagazinePistolSubMachineGunTopMounted
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolUranium
 
 - type: entity
   id: MagazinePistolSubMachineGunTopMountedEmpty

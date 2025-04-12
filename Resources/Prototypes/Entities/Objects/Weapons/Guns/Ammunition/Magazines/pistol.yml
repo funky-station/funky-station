@@ -97,10 +97,6 @@
     zeroVisible: false
   - type: Appearance
 
-
-
-
-
 - type: entity
   id: MagazinePistolSubMachineGunTopMounted
   name: WT550 magazine (.35 auto top-mounted)

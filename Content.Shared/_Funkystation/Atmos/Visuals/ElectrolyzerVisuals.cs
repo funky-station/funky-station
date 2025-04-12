@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Atmos.Visuals;
+namespace Content.Shared._Funkystation.Atmos.Visuals;
 
 /// <summary>
 ///     Assmos - /tg/ gases

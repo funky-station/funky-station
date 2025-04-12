@@ -8,7 +8,7 @@
   - type: ApcPowerReceiver
     powerDisabled: true
   - type: Sprite
-    sprite: Structures/Piping/Atmospherics/electrolyzer.rsi
+    sprite: _Funkystation/Structures/Machines/electrolyzer.rsi
     noRot: true
     layers:
     - state: electrolyzerOff
@@ -21,5 +21,5 @@
           Off: { state: electrolyzerOff }
           On: { state: electrolyzerOn }
   - type: Machine
-    board: ElectrolyzerMachineBoard
+    board: ElectrolyzerMachineCircuitboard
   - type: WiresPanel

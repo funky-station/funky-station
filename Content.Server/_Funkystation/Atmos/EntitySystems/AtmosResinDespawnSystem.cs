@@ -1,9 +1,9 @@
-using Content.Server.Atmos.Components;
+using Content.Server._Funkystation.Atmos.Components;
 using Robust.Shared.Spawners;
 using Content.Shared.Atmos;
 using Content.Server.Atmos.EntitySystems;
 
-namespace Content.Server.Atmos.EntitySystems;
+namespace Content.Server._Funkystation.Atmos.EntitySystems;
 
 
 /// <summary>

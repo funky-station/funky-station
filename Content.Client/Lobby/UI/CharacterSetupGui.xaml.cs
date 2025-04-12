@@ -36,8 +36,9 @@ namespace Content.Client.Lobby.UI
 
         public event Action<int>? SelectCharacter;
         public event Action<int>? DeleteCharacter;
+        public event Action<(int, bool)>? SetCharacterEnable;
 
-        public CharacterSetupGui(HumanoidProfileEditor profileEditor)
+        public CharacterSetupGui(HumanoidProfileEditor profileEditor, JobPriorityEditor jobPriorityEditor)
         {
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
@@ -65,11 +66,18 @@ namespace Content.Client.Lobby.UI
             };
 
             CharEditor.AddChild(profileEditor);
+            JobPriorityEditor.AddChild(jobPriorityEditor);
             RulesButton.OnPressed += _ => new RulesAndInfoWindow().Open();
 
             StatsButton.OnPressed += _ => new PlaytimeStatsWindow().OpenCentered();
 
             _cfg.OnValueChanged(CCVars.SeeOwnNotes, p => AdminRemarksButton.Visible = p, true);
+
+            JobPrioritiesButton.OnPressed += args =>
+            {
+                CharEditor.Visible = false;
+                JobPriorityEditor.Visible = true;
+            };
         }
 
         /// <summary>
@@ -82,6 +90,8 @@ namespace Content.Client.Lobby.UI
 
             var numberOfFullSlots = 0;
             var characterButtonsGroup = new ButtonGroup();
+
+            JobPrioritiesButton.Group = characterButtonsGroup;
 
             if (!_preferencesManager.ServerDataLoaded)
             {
@@ -108,11 +118,18 @@ namespace Content.Client.Lobby.UI
                 characterPickerButton.OnPressed += args =>
                 {
                     SelectCharacter?.Invoke(slot);
+                    CharEditor.Visible = true;
+                    JobPriorityEditor.Visible = false;
                 };
 
                 characterPickerButton.OnDeletePressed += () =>
                 {
                     DeleteCharacter?.Invoke(slot);
+                };
+
+                characterPickerButton.OnEnableToggled += pressed =>
+                {
+                    SetCharacterEnable?.Invoke((slot, pressed));
                 };
             }
 

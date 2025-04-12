@@ -8,6 +8,9 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Roles;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
@@ -23,11 +26,12 @@ namespace Content.Shared.Preferences
     {
         private Dictionary<int, ICharacterProfile> _characters;
 
-        public PlayerPreferences(IEnumerable<KeyValuePair<int, ICharacterProfile>> characters, int selectedCharacterIndex, Color adminOOCColor)
+        public PlayerPreferences(IEnumerable<KeyValuePair<int, ICharacterProfile>> characters, int selectedCharacterIndex, Color adminOOCColor, Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities)
         {
             _characters = new Dictionary<int, ICharacterProfile>(characters);
             SelectedCharacterIndex = selectedCharacterIndex;
             AdminOOCColor = adminOOCColor;
+            JobPriorities = jobPriorities;
         }
 
         /// <summary>
@@ -49,6 +53,7 @@ namespace Content.Shared.Preferences
         ///     The currently selected character.
         /// </summary>
         public ICharacterProfile SelectedCharacter => Characters[SelectedCharacterIndex];
+        public Dictionary<ProtoId<JobPrototype>, JobPriority> JobPriorities { get; set; }
 
         public Color AdminOOCColor { get; set; }
 
@@ -60,6 +65,43 @@ namespace Content.Shared.Preferences
         public bool TryIndexOfCharacter(ICharacterProfile profile, out int index)
         {
             return (index = IndexOfCharacter(profile)) != -1;
+        }
+
+        public Dictionary<ProtoId<JobPrototype>, JobPriority> JobPrioritiesFiltered()
+        {
+            var allCharacterJobs = new HashSet<ProtoId<JobPrototype>>();
+            foreach (var profile in Characters.Values)
+            {
+                if (profile is not HumanoidCharacterProfile { Enabled: true } humanoid)
+                    continue;
+                allCharacterJobs.UnionWith(humanoid.JobPreferences);
+            }
+
+            var filteredPlayerJobs = new Dictionary<ProtoId<JobPrototype>, JobPriority>();
+            foreach (var (job, priority) in JobPriorities)
+            {
+                if (!allCharacterJobs.Contains(job))
+                    continue;
+                filteredPlayerJobs.Add(job, priority);
+            }
+
+            return filteredPlayerJobs;
+        }
+
+        public HumanoidCharacterProfile? SelectProfileForJob(ProtoId<JobPrototype> job)
+        {
+            List<HumanoidCharacterProfile> pool = [];
+            foreach (var profile in Characters.Values)
+            {
+                if (profile is not HumanoidCharacterProfile { Enabled: true } humanoid)
+                    continue;
+                if (!humanoid.JobPreferences.Contains(job))
+                    continue;
+                pool.Add(humanoid);
+            }
+
+            var random = new System.Random();
+            return pool.Count == 0 ? null : random.Pick(pool);
         }
     }
 }

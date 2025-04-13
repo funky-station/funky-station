@@ -101,7 +101,18 @@
     <GuideEntityEmbed Entity="NitriumCanister"/>
   </Box>
 
-  Nitrium degrades into nitrogen and water vapor on contact with room temperature oxygen. This reaction can produce a good deal of heat, making the station uncomfortably warm in the event of a leak. 
+  Nitrium degrades into nitrogen and hydrogen on contact with room temperature oxygen. This reaction can produce a good deal of heat, making the station uncomfortably warm in the event of a leak. 
+
+  ##Hydrogen
+  Hydrogen is a highly flammable but non-toxic gas that burns similarly to tritium, making it useful as a fuel source. It is produced by electrolyzing water vapor with an electrolyzer machine to produce hydrogen and oxygen. 
+
+  <Box>
+    <GuideEntityEmbed Entity="WaterVaporCanister"/>
+    <GuideEntityEmbed Entity="Electrolyzer"/>
+    <GuideEntityEmbed Entity="HydrogenCanister"/>
+  </Box>
+
+  When mixed with BZ at temperatures below 273 K and pressures above 10 MPa, hydrogen can form metal hydrogen, a rare material. Handle hydrogen carefully to prevent fires or explosions, and store canisters securely.
 
   ## Reference Sheet
   - Standard atmospheric mix is [color=#a4885c]78% N2 and 22% O2 at 101.24kPa.[/color]

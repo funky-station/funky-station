@@ -722,12 +722,13 @@
   desc: reagent-desc-bz-metabolites
   flavor: bitter
   color: "#b19cd9"
-  physicalDesc: reagent-physical-desc-gaseous
+  physicalDesc: reagent-physical-desc-nondescript
   metabolisms:
     Poison:
       effects:
       - !type:AdjustLingChemicals
         conditions:
+        - !type:LingCondition {}
         - !type:ReagentThreshold
           reagent: BZMetabolites
           min: 0.2

@@ -876,7 +876,7 @@
     sprite: Mobs/Pets/crimson.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: laser_raptor
+      state: crimson_raptor
     - map: ["enum.HumanoidVisualLayers.Handcuffs"] #this is temporary because it keeps throwing up errors when thinking about handcuffs
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi

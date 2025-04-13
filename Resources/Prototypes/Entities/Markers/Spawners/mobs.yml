@@ -628,8 +628,8 @@
   - type: Sprite
     layers:
     - state: green
-    - state: laser_raptor
-      sprite: Mobs/Aliens/laser_raptor.rsi
+    - state: crimson_raptor
+      sprite: Mobs/Pets/crimson.rsi
   - type: ConditionalSpawner
     prototypes:
     - MobCrimsonRaptor

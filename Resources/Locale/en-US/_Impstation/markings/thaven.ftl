@@ -45,3 +45,31 @@ marking-ThavenTailNurse = Swept Tail
 marking-ThavenTailStub-tailstub1 = Tail
 marking-ThavenTailStub-tailstub2 = Stripes
 marking-ThavenTailStub = Stub Tail
+
+# the ftl file got lost and i genuinely cant find it, dunno if these are from DV or imp
+marking-ThavenHeadCap = Head Cap
+marking-ThavenHeadStripes = Stripes
+
+marking-SharkminnowEyeliner = Sharkminnow Eyeliner
+marking-ThavenHeadScales = Head Scales
+
+marking-ThavenEarsBigFin = Big Fins
+marking-ThavenFishEars = Fish Ears
+
+marking-ThavenBiteMark = Bite Mark
+marking-ThavenBodyStripes = Body Stripes
+marking-ThavenChestScales = Chest Scales
+marking-ThavenSpines = Spines
+marking-ThavenTattooVines = Tattoo Vines
+marking-ThavenTattooWave = Tattoo Wave
+marking-ThavenTiger = Tiger Underbelly
+marking-ThavenTopSurgery = Top Surgery
+marking-Gills = Gills
+
+marking-ThavenLArmScales = Scales (Left)
+marking-ThavenRArmScales = Scales (Right)
+marking-ThavenTigerRArm = Tiger (Right)
+marking-ThavenTigerLArm = Tiger (Left)
+
+marking-ThavenLLegScales = Scales (Left)
+marking-ThavenRLegScales = Scales (Right)

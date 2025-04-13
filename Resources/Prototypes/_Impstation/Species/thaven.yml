@@ -24,6 +24,7 @@
     Head: MobThavenHead
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
     Chest: MobThavenTorso
     LArm: MobThavenLArm
     RArm: MobThavenRArm
@@ -56,6 +57,9 @@
       required: false
     Arms:
       points: 4
+      required: false
+    Tail:
+      points: 1
       required: false
     Overlay:
       points: 6

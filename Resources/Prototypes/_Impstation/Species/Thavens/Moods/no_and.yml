@@ -52,7 +52,7 @@
   id: NoModernMedicine
   moodName: thaven-mood-no-modern-medicine-name
   moodDesc: thaven-mood-no-modern-medicine-desc
-  jobConficts:
+  jobConflicts:
   - Medical
 
 # You disapprove of [DEPARTMENT]
@@ -99,7 +99,7 @@
   moodDesc: thaven-mood-detest-silicons-desc
   conflicts:
   - WorshipSilicons
-  jobConficts:
+  jobConflicts:
   - Science
 
 # Food and drink must only be consumed off of the floor.

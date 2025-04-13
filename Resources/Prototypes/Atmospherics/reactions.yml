@@ -185,7 +185,7 @@
   - 0     # healium
   - 0     # nitrium
   effects:
-  - !type:PluoxiumProductionReaction {}
+  - !type:PluoxiumTritiumProductionReaction {}
 
 - type: gasReaction
   id: MetalHydrogenReaction

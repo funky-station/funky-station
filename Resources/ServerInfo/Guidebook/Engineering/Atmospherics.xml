@@ -109,6 +109,7 @@
   <Box>
     <GuideEntityEmbed Entity="WaterVaporCanister"/>
     <GuideEntityEmbed Entity="Electrolyzer"/>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
     <GuideEntityEmbed Entity="HydrogenCanister"/>
   </Box>
 

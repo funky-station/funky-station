@@ -632,7 +632,7 @@
       sprite: Mobs/Aliens/laser_raptor.rsi
   - type: ConditionalSpawner
     prototypes:
-    - MobDinosaurRaptorCrimson
+    - MobCrimsonRaptor
 
 - type: entity
   name: behonker Spawner

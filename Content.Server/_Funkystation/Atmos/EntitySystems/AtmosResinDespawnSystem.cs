@@ -27,24 +27,48 @@ public sealed class AtmosResinDespawnSystem : EntitySystem
             return;
 
         var mix = _atmo.GetContainingMixture(uid, true);
-
+        GasMixture tempMix = new();
         if (mix is null) return;
-        mix.AdjustMoles(Gas.CarbonDioxide, -mix.GetMoles(Gas.CarbonDioxide));
-        mix.AdjustMoles(Gas.Plasma, -mix.GetMoles(Gas.Plasma));
-        mix.AdjustMoles(Gas.Tritium, -mix.GetMoles(Gas.Tritium));
-        mix.AdjustMoles(Gas.Ammonia, -mix.GetMoles(Gas.Ammonia));
-        mix.AdjustMoles(Gas.NitrousOxide, -mix.GetMoles(Gas.NitrousOxide));
-        mix.AdjustMoles(Gas.Frezon, -mix.GetMoles(Gas.Frezon));
-        mix.AdjustMoles(Gas.BZ, -mix.GetMoles(Gas.BZ));
-        mix.AdjustMoles(Gas.Healium, -mix.GetMoles(Gas.Healium));
-        mix.AdjustMoles(Gas.Nitrium, -mix.GetMoles(Gas.Nitrium));
-        mix.AdjustMoles(Gas.Hydrogen, -mix.GetMoles(Gas.Hydrogen));
-        mix.AdjustMoles(Gas.HyperNoblium, -mix.GetMoles(Gas.HyperNoblium));
-        mix.AdjustMoles(Gas.ProtoNitrate, -mix.GetMoles(Gas.ProtoNitrate));
-        mix.AdjustMoles(Gas.Zauker, -mix.GetMoles(Gas.Zauker));
-        mix.AdjustMoles(Gas.Halon, -mix.GetMoles(Gas.Halon));
-        mix.AdjustMoles(Gas.Helium, -mix.GetMoles(Gas.Helium));
-        mix.AdjustMoles(Gas.AntiNoblium, -mix.GetMoles(Gas.AntiNoblium));
+
+        var gasesToRemove = new[]
+        {
+            Gas.CarbonDioxide,
+            Gas.Plasma,
+            Gas.Tritium,
+            Gas.Ammonia,
+            Gas.NitrousOxide,
+            Gas.Frezon,
+            Gas.BZ,
+            Gas.Healium,
+            Gas.Nitrium,
+            Gas.Hydrogen,
+            Gas.HyperNoblium,
+            Gas.ProtoNitrate,
+            Gas.Zauker,
+            Gas.Halon,
+            Gas.Helium,
+            Gas.AntiNoblium
+        };
+
+        float totalMolesRemoved = 0f;
+
+        foreach (var gas in gasesToRemove)
+        {
+            float moles = mix.GetMoles(gas);
+            if (moles > 0)
+            {
+                totalMolesRemoved += moles;
+                mix.AdjustMoles(gas, -moles);
+            }
+        }
+
+        if (totalMolesRemoved > 0)
+        {
+            tempMix.AdjustMoles(Gas.Oxygen, totalMolesRemoved * 0.3f);
+            tempMix.AdjustMoles(Gas.Nitrogen, totalMolesRemoved * 0.7f);
+        }
+
+        _atmo.Merge(mix, tempMix);
         mix.Temperature = Atmospherics.T20C;
         _gasOverlaySystem.UpdateSessions();
     }

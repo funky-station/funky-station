@@ -184,6 +184,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         profileEditor.SetProfile(
             (HumanoidCharacterProfile?) _preferencesManager.Preferences?.SelectedCharacter,
             _preferencesManager.Preferences?.SelectedCharacterIndex);
+        _jobPriorityEditor?.SetJobPriorities(_preferencesManager.Preferences?.JobPriorities);
     }
 
     /// <summary>

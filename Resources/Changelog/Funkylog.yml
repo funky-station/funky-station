@@ -2351,3 +2351,11 @@ Entries:
       message: Atmospherics Guidebook now contains details on advanced gasses
   id: 292
   time: '2025-04-11T19:02:09.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Tweak
+      message: >-
+        Changelings have been added to the list Uncontainable EoC's in the
+        Guidebook. 
+  id: 293
+  time: '2025-04-13T00:17:58.0000000+00:00'

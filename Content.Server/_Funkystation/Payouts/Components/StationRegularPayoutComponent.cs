@@ -1,23 +1,23 @@
-namespace Content.Server._Funkystation.Payouts;
+namespace Content.Server._Funkystation.Payouts.Components;
 
 [RegisterComponent]
-public sealed partial class StationPayoutEventSchedulerComponent : Component
+public sealed partial class StationRegularPayoutComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite), DataField]
     public int ScripBaseStationBalanceAdd = 300_000;
 
     [ViewVariables(VVAccess.ReadWrite), DataField]
-    public int ScripPerPlayerBalanceAdd = 3_000;
+    public int ScripPerPlayerBalanceAdd = 3000;
 
     [ViewVariables(VVAccess.ReadWrite), DataField]
     public bool ScripInitialStationInit = false;
 
     [ViewVariables(VVAccess.ReadWrite), DataField]
-    public float ScripPayoutDelay = 20;
+    public int RegularPayoutInterval = 10;
 
     [ViewVariables(VVAccess.ReadWrite), DataField]
-    public float ScripNextPayoutTime = 0;
+    public TimeSpan NextPayout = TimeSpan.FromMinutes(10);
 
-    [ViewVariables(VVAccess.ReadWrite), DataField]
-    public float ScripPayoutAccumulator = 0;
+    [ViewVariables(VVAccess.ReadOnly), DataField]
+    public EntityUid StationComponentUID;
 }

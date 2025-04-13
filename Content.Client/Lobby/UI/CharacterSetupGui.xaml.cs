@@ -75,6 +75,7 @@ namespace Content.Client.Lobby.UI
 
             JobPrioritiesButton.OnPressed += args =>
             {
+                jobPriorityEditor.LoadJobPriorities();
                 CharEditor.Visible = false;
                 JobPriorityEditor.Visible = true;
             };
@@ -97,6 +98,9 @@ namespace Content.Client.Lobby.UI
             {
                 return;
             }
+
+            CharEditor.Visible = true;
+            JobPriorityEditor.Visible = false;
 
             _createNewCharacterButton.ToolTip =
                 Loc.GetString("character-setup-gui-create-new-character-button-tooltip",

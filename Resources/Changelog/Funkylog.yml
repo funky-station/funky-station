@@ -2359,3 +2359,11 @@ Entries:
         Guidebook. 
   id: 293
   time: '2025-04-13T00:17:58.0000000+00:00'
+- author: ' kbarkevich, Rainbeon'
+  changes:
+    - type: Add
+      message: >-
+        Added Blood Cult, a new type of round-start antagonists that are
+        dedicated to Nar'Sie, the Geometer of Blood.
+  id: 294
+  time: '2025-04-13T01:21:13.0000000+00:00'

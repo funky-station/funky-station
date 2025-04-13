@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprited by tongekk (discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "crimson_raptor",
+      "directions": 4
+    },
+    {
+      "name": "crimson_raptor_dead"
+    }
+  ]
+}

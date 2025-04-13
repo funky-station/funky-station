@@ -873,7 +873,7 @@
 # Code for Crimson is copied from LaserRaptor, Pun pun, Remilia, Willow, and Impstation's dinosaurs
   - type: Sprite
     drawdepth: Mobs
-    sprite: Mobs/Aliens/laser_raptor.rsi
+    sprite: Mobs/Pets/crimson.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: laser_raptor
@@ -896,9 +896,9 @@
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: laser_raptor
+        Base: crimson_raptor
       Dead:
-        Base: laser_raptor_dead
+        Base: crimson_raptor_dead
   - type: Tool
     qualities:
     - Prying
@@ -935,7 +935,7 @@
           -1
   - type: Hands
   - type: ComplexInteraction
-  - type: Cuffable # Need to figure out sprite layer before letting them get cuffed
+  - type: Cuffable # Need to figure out sprite layer
   - type: Stripping
   - type: Sharp
   - type: Puller

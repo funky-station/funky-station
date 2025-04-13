@@ -622,7 +622,7 @@
 
 - type: entity
   name: Crimson Spawner
-  id: SpawnMobDinosaurRaptorCrimson
+  id: SpawnMobCrimsonRaptor
   parent: MarkerBase
   components:
   - type: Sprite

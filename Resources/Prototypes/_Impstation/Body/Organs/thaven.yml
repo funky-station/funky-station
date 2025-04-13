@@ -66,21 +66,6 @@
     sprite: _Impstation/Mobs/Species/Thaven/organs.rsi
   - type: Metabolizer
     metabolizerTypes: [Thaven]
-  - type: SolutionContainerManager
-    solutions:
-      organ:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: GreyMatter
-          Quantity: 1
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 4
-        - ReagentId: CarpoToxin
-          Quantity: 5
   - type: Extractable
     juiceSolution:
       reagents:

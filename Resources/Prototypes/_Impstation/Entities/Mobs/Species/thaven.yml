@@ -10,7 +10,7 @@
   - type: Icon
     sprite: _Impstation/Mobs/Species/Thaven/parts.rsi # Unlike dwarves elves are NOT made of slime
     state: full
-  - type: ThavenMoods
+  - type: ThavenMoodsBound
   - type: Respirator
     damage:
       types:

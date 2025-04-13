@@ -766,11 +766,11 @@
         conditions:
         - !type:OrganType
           type: Plant
-        - !type:Oxygenate #imp, thaven can breathe all gases safely
-          factor: 8
-          conditions:
-          - !type:OrganType
-            type: Thaven
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        factor: 8
+        conditions:
+        - !type:OrganType
+          type: Thaven
       # Convert Pluoxium into CO2.
       - !type:ModifyLungGas
         ratios:

@@ -25,7 +25,8 @@
   - type: Body
     prototype: Thaven
     requiredLegs: 2
-  - type: NoContractionsAccent
+  - type: ReplacementAccent
+    accent: nocontractions
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Thaven

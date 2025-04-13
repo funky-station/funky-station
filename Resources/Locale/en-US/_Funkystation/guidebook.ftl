@@ -18,3 +18,5 @@ guide-entry-alertlevel-gamma = Gamma Alert
 guide-entry-alertlevel-delta = Delta Alert
 
 guide-entry-reactions = Reactions
+
+guide-entry-blood-cult = Blood Cult

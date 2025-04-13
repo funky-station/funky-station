@@ -2149,3 +2149,221 @@ Entries:
       message: Removed transform sting from the changeling catalog
   id: 270
   time: '2025-03-27T04:31:08.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Fixed infinite water vapor bug
+  id: 271
+  time: '2025-03-29T02:16:24.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Fixed permanent drunkeness
+  id: 272
+  time: '2025-03-29T16:14:59.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Fix
+      message: Made it so only one nukie commander and one nukie agent can spawn MAX.
+    - type: Fix
+      message: Re-added heretic to sub-gamemodes
+  id: 273
+  time: '2025-03-29T17:10:03.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Fix
+      message: fixed dragon event chaos values
+  id: 274
+  time: '2025-03-31T02:33:59.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: 'Bagel maints expansion Pt 2: The Big one'
+  id: 275
+  time: '2025-03-31T06:55:50.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Remove
+      message: >-
+        Removed the NaturalRegeneration, NaturalResiliance, Hemophiliac,
+        CarefulSteps, TableHider, TemperatureTolerance and SwiftFeet traits.
+    - type: Tweak
+      message: Moved Deuteranopia and Ultravision traits to a new Vision category.
+  id: 276
+  time: '2025-04-01T03:57:45.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Fix
+      message: Adv. SMES capacity buffed (2x)
+    - type: Tweak
+      message: Filled SMES sell for good money.
+  id: 277
+  time: '2025-04-01T19:50:09.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Permanent blindness is now un-treatable.
+  id: 278
+  time: '2025-04-01T20:34:11.0000000+00:00'
+- author: ' Gansu'
+  changes:
+    - type: Tweak
+      message: Bounties generation has been changed for more variety among bounties
+    - type: Tweak
+      message: Certain bounty items have had a rebalance in rewards
+  id: 279
+  time: '2025-04-02T21:41:13.0000000+00:00'
+- author: vassembly
+  changes:
+    - type: Add
+      message: added lowpopCrew lobby art.
+  id: 280
+  time: '2025-04-03T23:44:02.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Tweak
+      message: More maints added into Box
+    - type: Tweak
+      message: Added the material silo into Box
+  id: 281
+  time: '2025-04-04T17:08:47.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added new Janitor syndicate items
+  id: 282
+  time: '2025-04-04T17:14:26.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Rewrote the Revolutionary Guidebook Entry
+    - type: Tweak
+      message: Blob guidebook now has entry about the Blob carrier timer
+    - type: Tweak
+      message: >-
+        Surgery guidebook now mentions that certain surgeries require a surgical
+        table
+    - type: Tweak
+      message: Engineering SOP has been modified.
+    - type: Tweak
+      message: Medical SOP has been modified.
+    - type: Tweak
+      message: >-
+        Changeling Guide now mentions the DNA Extraction sting, and it's
+        intended use.
+    - type: Add
+      message: Science now has an SOP entry.
+  id: 283
+  time: '2025-04-05T05:38:25.0000000+00:00'
+- author: ' Gansu'
+  changes:
+    - type: Tweak
+      message: >-
+        The bounty rewards for books, dice, board games, and laser guns have
+        been increased.
+    - type: Tweak
+      message: The amount of laser guns required for bounties has been reduced by 2.
+    - type: Tweak
+      message: Basic medical topicals can no longer be generated as bounty items.
+    - type: Tweak
+      message: Bounty skip timer has been reduced to 3 minutes, from 15 minutes.
+    - type: Tweak
+      message: Each category can only have one bounty up at a time to reduce overlap.
+  id: 284
+  time: '2025-04-06T18:52:40.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Add
+      message: >-
+        Ability to reprogram borg laws if their panels are open and you have the
+        lawboard you wish to program them to. 
+  id: 285
+  time: '2025-04-08T19:08:13.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: All organ and body bits sizes made more sane
+  id: 286
+  time: '2025-04-08T19:11:35.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: >-
+        Added Hyper-Noblium, an extremely inert gas that can stop other gases
+        from reacting.
+    - type: Add
+      message: >-
+        Added ProtoNitrate, a highly reactive, but non-toxic gas that reacts
+        with many other gases.
+    - type: Add
+      message: >-
+        Added Zauker, an incredibly deadly gas if inhaled, though dissipates
+        quickly when mixed with nitrogen.
+    - type: Add
+      message: >-
+        Added Halon, a gas that acts as a fire suppressant by removing oxygen in
+        the air while producing CO2.
+    - type: Add
+      message: >-
+        Added Helium, an invisible, inert gas. Can be sold to cargo for pocket
+        change.
+    - type: Add
+      message: >-
+        Added Anti-Noblium, a rare gas used for not very much at all, but can be
+        sold through cargo for a large sum of money. 
+  id: 287
+  time: '2025-04-10T19:14:28.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: >-
+        The bluespace sender and vendor have been added, used for distributing
+        gases to crew across the station. 
+  id: 288
+  time: '2025-04-10T19:15:53.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Fixed nitrium decomposition sometimes exceeding 100C
+  id: 289
+  time: '2025-04-10T19:16:32.0000000+00:00'
+- author: ReconPangolin
+  changes:
+    - type: Fix
+      message: Fixed the plant analyzer not scanning unless the UI was open
+    - type: Fix
+      message: Fixed the plant analyzer not displaying /tg/ gases
+    - type: Tweak
+      message: The plant analyzer now stores the last scan it made
+  id: 290
+  time: '2025-04-11T00:30:40.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: >-
+        Added 'select all' and 'deselect all' buttons to the gas filters drop
+        down menu on air alarms
+  id: 291
+  time: '2025-04-11T19:01:08.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: Atmospherics Guidebook now contains details on advanced gasses
+  id: 292
+  time: '2025-04-11T19:02:09.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Tweak
+      message: >-
+        Changelings have been added to the list Uncontainable EoC's in the
+        Guidebook. 
+  id: 293
+  time: '2025-04-13T00:17:58.0000000+00:00'
+- author: ' kbarkevich, Rainbeon'
+  changes:
+    - type: Add
+      message: >-
+        Added Blood Cult, a new type of round-start antagonists that are
+        dedicated to Nar'Sie, the Geometer of Blood.
+  id: 294
+  time: '2025-04-13T01:21:13.0000000+00:00'

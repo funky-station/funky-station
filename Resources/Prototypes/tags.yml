@@ -33,6 +33,9 @@
 - type: Tag
   id: ArtifactFragment
 
+- type: Tag # Assmos - Metal Hydrogen
+  id: AtmosFireSuit
+
 - type: Tag
   id: ATVKeys
 
@@ -885,6 +888,9 @@
 - type: Tag
   id: Metal
 
+- type: Tag # Assmos - Metal Hydrogen
+  id: MetalHydrogenArmor
+
 - type: Tag
   id: MicroBomb
 
@@ -917,6 +923,9 @@
 
 - type: Tag
   id: Mop
+
+- type: Tag
+  id: MopSword
 
 - type: Tag
   id: MopAdv

@@ -40,6 +40,8 @@
         name: food-sequence-content-brain
   - type: Item
     size: Small
+    shape:
+    - 0,0,1,1
     heldPrefix: brain
 
 - type: entity
@@ -59,4 +61,6 @@
       - state: eyeball-r
   - type: Item
     size: Small
+    shape:
+    - 0,0,1,0
     heldPrefix: eyeballs

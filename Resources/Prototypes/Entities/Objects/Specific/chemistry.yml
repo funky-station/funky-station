@@ -243,6 +243,10 @@
       beaker:
         maxVol: 60
         canReact: false
+  - type: Tag # Funky Station
+    tags:
+    - Cryobeaker
+
 
 - type: entity
   name: bluespace beaker
@@ -591,7 +595,7 @@
     areaInsertRadius: 1
     storageInsertSound: /Audio/Effects/pill_insert.ogg
     storageRemoveSound: /Audio/Effects/pill_remove.ogg
-    whitelist: 
+    whitelist:
       tags:
       - Pill
   - type: Dumpable

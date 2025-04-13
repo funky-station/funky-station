@@ -1994,7 +1994,7 @@
   description: uplink-proximity-mine-desc
   productEntity: WetFloorSignMineExplosive
   cost:
-    Telecrystal: 16 # goob - was 20, with my buff made it 25 to be closer to minibomb -panzer well no one uses it! 16 TC better.
+    Telecrystal: 20
   categories:
   - UplinkJob
   conditions:
@@ -2006,6 +2006,82 @@
       components:
       - SurplusBundle
   saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: uplinkJanitorInsul
+  name: uplink-janitor-insul-name
+  description: uplink-janitor-insul-desc
+  productEntity: ClothingHandsGlovesJanitorInsul
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Janitor
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  saleLimit: 1
+
+- type: listing
+  id: uplinkCleanerGrenadeLube
+  name: uplink-cleanade-lube-name
+  description: uplink-cleanade-lube-desc
+  productEntity: CleanerGrenadeLube
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Janitor
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  saleLimit: 3
+
+- type: listing
+  id: uplinkWetFloorSignSlippery
+  name: uplink-slippery-wet-floor-sign-name
+  description: uplink-slippery-wet-floor-sign-desc
+  productEntity: WetFloorSignSlippery
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Janitor
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  saleLimit: 3
+
+- type: listing
+  id: uplinkMopSheathFilled
+  name: uplink-mop-sword-name
+  description: uplink-mop-sword-desc
+  productEntity: MopSheathFilled
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Janitor
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  saleLimit: 1
 
 - type: listing
   id: UplinkSyndicateSpongeBox

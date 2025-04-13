@@ -297,6 +297,7 @@
   - type: MindRole
     antagPrototype: Changeling
     exclusiveAntag: true
+    roleType: SoloAntagonist
   - type: ChangelingRole
 
 - type: entity
@@ -307,6 +308,7 @@
   - type: MindRole
     antagPrototype: Heretic
     exclusiveAntag: true
+    roleType: SoloAntagonist
   - type: HereticRole
 
 - type: entity
@@ -317,5 +319,6 @@
   - type: MindRole
     antagPrototype: Mindcontrolled
     exclusiveAntag: true
+    roleType: TeamAntagonist
   - type: MindcontrolledRole
 # goob edit end

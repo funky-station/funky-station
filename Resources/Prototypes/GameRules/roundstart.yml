@@ -21,21 +21,9 @@
   - type: SubGamemodes
     rules:
     - id: Thief
-      prob: 0.5
-    - id: SubWizard
-      prob: 0.05
-    # TODO: figure out what is causing store issues
-    #- id: Heretic # goob edit
-    #  prob: 0.4 # funkystation - 20% of rounds can have a heretic as a treat
-
-- type: entity
-  parent: BaseGameRule
-  id: SubGamemodesRuleNoWizard
-  components:
-  - type: SubGamemodes
-    rules:
-    - id: Thief
-      prob: 0.5
+      prob: 0.75
+    - id: Heretic # goob edit
+      prob: 0.2 # funkystation - 20% of rounds can have a heretic as a treat
 
 - type: entity
   id: DeathMatch31
@@ -116,6 +104,7 @@
     - prefRoles: [ NukeopsCommander ]
       fallbackRoles: [ Nukeops, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsCommander
+      max: 1
       startingGear: SyndicateCommanderGearFull
       roleLoadout:
       - RoleSurvivalNukie
@@ -133,6 +122,7 @@
     - prefRoles: [ NukeopsMedic ]
       fallbackRoles: [ Nukeops, NukeopsCommander ]
       spawnerPrototype: SpawnPointNukeopsMedic
+      max: 1
       startingGear: SyndicateOperativeMedicFull
       roleLoadout:
       - RoleSurvivalNukie
@@ -340,7 +330,6 @@
       - type: InitialInfected
       mindRoles:
       - MindRoleInitialInfected
-
 
 # event schedulers
 

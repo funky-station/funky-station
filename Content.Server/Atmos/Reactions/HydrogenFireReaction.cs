@@ -14,6 +14,9 @@ namespace Content.Server.Atmos.Reactions
     {
         public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
         {
+            if (mixture.Temperature > 20f && mixture.GetMoles(Gas.HyperNoblium) >= 5f)
+                return ReactionResult.NoReaction;
+
             var energyReleased = 0f;
             var oldHeatCapacity = atmosphereSystem.GetHeatCapacity(mixture, true);
             var temperature = mixture.Temperature;
@@ -43,7 +46,7 @@ namespace Content.Server.Atmos.Reactions
             {
                 energyReleased += (Atmospherics.FireHydrogenEnergyReleased * burnedFuel);
 
-                mixture.AdjustMoles(Gas.WaterVapor, burnedFuel);
+                mixture.AdjustMoles(Gas.WaterVapor, burnedFuel * 0.5f);
 
                 mixture.ReactionResults[(byte)GasReaction.Fire] += burnedFuel;
             }

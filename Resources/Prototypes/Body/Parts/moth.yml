@@ -19,6 +19,10 @@
   name: "moth torso"
   parent: [PartMoth, BaseTorso]
   components:
+  - type: Item
+    size: Ginormous
+    shape:
+    - 0,0,5,3
   - type: Sprite
     sprite: Mobs/Species/Moth/parts.rsi
     state: "torso_m"
@@ -36,9 +40,14 @@
   name: "moth head"
   parent: [PartMoth, BaseHead]
   components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,1,1
   - type: Sprite
     sprite: Mobs/Species/Moth/parts.rsi
     state: "head_m"
+    offset: 0,-0.3
   - type: Extractable
     juiceSolution:
       reagents:
@@ -52,69 +61,101 @@
   name: "left moth arm"
   parent: [PartMoth, BaseLeftArm]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     sprite: Mobs/Species/Moth/parts.rsi
     state: "l_arm"
+    offset: -0.2,0
 
 - type: entity
   id: RightArmMoth
   name: "right moth arm"
   parent: [PartMoth, BaseRightArm]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     sprite: Mobs/Species/Moth/parts.rsi
     state: "r_arm"
+    offset: 0.2,0
 
 - type: entity
   id: LeftHandMoth
   name: "left moth hand"
   parent: [PartMoth, BaseLeftHand]
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: Mobs/Species/Moth/parts.rsi
     state: "l_hand"
+    offset: -0.2,0.1
 
 - type: entity
   id: RightHandMoth
   name: "right moth hand"
   parent: [PartMoth, BaseRightHand]
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: Mobs/Species/Moth/parts.rsi
     state: "r_hand"
+    offset: 0.2,0.1
 
 - type: entity
   id: LeftLegMoth
   name: "left moth leg"
   parent: [PartMoth, BaseLeftLeg]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     sprite: Mobs/Species/Moth/parts.rsi
     state: "l_leg"
+    offset: -0.1,0.3
 
 - type: entity
   id: RightLegMoth
   name: "right moth leg"
   parent: [PartMoth, BaseRightLeg]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     sprite: Mobs/Species/Moth/parts.rsi
     state: "r_leg"
+    offset: 0.1,0.3
 
 - type: entity
   id: LeftFootMoth
   name: "left moth foot"
   parent: [PartMoth, BaseLeftFoot]
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: Mobs/Species/Moth/parts.rsi
     state: "l_foot"
+    offset: -0.15,0.45
 
 - type: entity
   id: RightFootMoth
   name: "right moth foot"
   parent: [PartMoth, BaseRightFoot]
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: Mobs/Species/Moth/parts.rsi
     state: "r_foot"
+    offset: 0.15,0.45

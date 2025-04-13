@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/22/2025 07:46:26
-  entityCount: 28225
+  time: 03/28/2025 02:53:05
+  entityCount: 28223
 maps:
 - 11906
 grids:
@@ -750,12 +750,6 @@ entities:
             1407: -9,41
             1408: -9,40
             1409: -9,39
-        - node:
-            color: '#FFFFFFFF'
-            id: BotRight
-          decals:
-            2455: 10,-42
-            2456: 10,-41
         - node:
             color: '#FFFFFFFF'
             id: BotRightGreyscale
@@ -10978,7 +10972,7 @@ entities:
       pos: -63.5,19.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -5700.17
+      secondsUntilStateChange: -6196.001
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -10995,7 +10989,7 @@ entities:
       pos: -63.5,17.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -5698.67
+      secondsUntilStateChange: -6194.501
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -11578,7 +11572,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -33204.836
+      secondsUntilStateChange: -33700.668
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -83335,6 +83329,18 @@ entities:
     - type: Transform
       pos: 3.5477152,-12.389968
       parent: 8364
+- proto: Electrolyzer
+  entities:
+  - uid: 3802
+    components:
+    - type: Transform
+      pos: 9.5,-41.5
+      parent: 8364
+  - uid: 3803
+    components:
+    - type: Transform
+      pos: 9.5,-40.5
+      parent: 8364
 - proto: EmergencyLight
   entities:
   - uid: 21308
@@ -86218,7 +86224,7 @@ entities:
       pos: -34.5,-14.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -27393.371
+      secondsUntilStateChange: -27889.203
       state: Closing
   - uid: 15010
     components:
@@ -86711,7 +86717,7 @@ entities:
       pos: -4.5,-71.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -19141.107
+      secondsUntilStateChange: -19636.94
       state: Closing
 - proto: Fireplace
   entities:
@@ -87877,15 +87883,6 @@ entities:
     - type: GasMiner
       spawnAmount: 800
       maxExternalPressure: 10000
-- proto: GasMinerNitrousOxide
-  entities:
-  - uid: 3865
-    components:
-    - type: Transform
-      pos: 27.5,-51.5
-      parent: 8364
-    - type: GasMiner
-      maxExternalPressure: 1000
 - proto: GasMinerOxygen
   entities:
   - uid: 16808
@@ -87906,6 +87903,15 @@ entities:
       parent: 8364
     - type: GasMiner
       maxExternalPressure: 1000
+- proto: GasMinerWaterVapor
+  entities:
+  - uid: 3865
+    components:
+    - type: Transform
+      pos: 27.5,-51.5
+      parent: 8364
+    - type: GasMiner
+      maxExternalPressure: 4500
 - proto: GasMixer
   entities:
   - uid: 4648
@@ -111119,18 +111125,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 39.5,8.5
       parent: 8364
-  - uid: 3798
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 10.5,-41.5
-      parent: 8364
-  - uid: 3802
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 10.5,-40.5
-      parent: 8364
   - uid: 3991
     components:
     - type: Transform
@@ -111600,12 +111594,6 @@ entities:
       parent: 8364
 - proto: GasThermoMachineFreezer
   entities:
-  - uid: 3805
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 9.5,-40.5
-      parent: 8364
   - uid: 19121
     components:
     - type: Transform
@@ -111640,12 +111628,6 @@ entities:
       parent: 8364
 - proto: GasThermoMachineHeater
   entities:
-  - uid: 3803
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 9.5,-41.5
-      parent: 8364
   - uid: 21405
     components:
     - type: Transform
@@ -111674,12 +111656,6 @@ entities:
       open: False
     - type: AtmosPipeColor
       color: '#030FFFFF'
-  - uid: 4562
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 16.5,-73.5
-      parent: 8364
   - uid: 17353
     components:
     - type: Transform
@@ -114531,6 +114507,12 @@ entities:
       parent: 8364
 - proto: GasVolumePump
   entities:
+  - uid: 3805
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 16.5,-73.5
+      parent: 8364
   - uid: 3999
     components:
     - type: Transform
@@ -126288,18 +126270,6 @@ entities:
     components:
     - type: Transform
       pos: 11.5,-70.5
-      parent: 8364
-- proto: NitrousOxideCanister
-  entities:
-  - uid: 17091
-    components:
-    - type: Transform
-      pos: 27.5,-52.5
-      parent: 8364
-  - uid: 17245
-    components:
-    - type: Transform
-      pos: 27.5,-50.5
       parent: 8364
 - proto: NitrousOxideTankFilled
   entities:
@@ -174065,14 +174035,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 11.5,-62.5
       parent: 8364
-- proto: WarningN2O
-  entities:
-  - uid: 26106
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 24.5,-49.5
-      parent: 8364
 - proto: WarningO2
   entities:
   - uid: 17265
@@ -174091,6 +174053,11 @@ entities:
       parent: 8364
 - proto: WarningWaste
   entities:
+  - uid: 17091
+    components:
+    - type: Transform
+      pos: 24.5,-49.5
+      parent: 8364
   - uid: 26104
     components:
     - type: Transform
@@ -174296,6 +174263,18 @@ entities:
     components:
     - type: Transform
       pos: -52.5,-7.5
+      parent: 8364
+- proto: WaterVaporCanister
+  entities:
+  - uid: 3798
+    components:
+    - type: Transform
+      pos: 27.5,-50.5
+      parent: 8364
+  - uid: 4562
+    components:
+    - type: Transform
+      pos: 27.5,-52.5
       parent: 8364
 - proto: WeaponCapacitorRecharger
   entities:

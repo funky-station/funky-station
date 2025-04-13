@@ -17,6 +17,10 @@
   name: "gingerbread torso"
   parent: [PartGingerbread, BaseTorso]
   components:
+  - type: Item
+    size: Ginormous
+    shape:
+    - 0,0,5,3
   - type: Sprite
     sprite: Mobs/Species/Gingerbread/parts.rsi
     state: "torso_m"
@@ -33,9 +37,14 @@
   name: "gingerbread head"
   parent: [PartGingerbread, BaseHead]
   components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,1,1
   - type: Sprite
     sprite: Mobs/Species/Gingerbread/parts.rsi
     state: "head_m"
+    offset: 0,-0.3
   - type: Extractable
     juiceSolution:
       reagents:
@@ -49,69 +58,101 @@
   name: "left gingerbread arm"
   parent: [PartGingerbread, BaseLeftArm]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     sprite: Mobs/Species/Gingerbread/parts.rsi
     state: "l_arm"
+    offset: -0.2,0
 
 - type: entity
   id: RightArmGingerbread
   name: "right gingerbread arm"
   parent: [PartGingerbread, BaseRightArm]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     sprite: Mobs/Species/Gingerbread/parts.rsi
     state: "r_arm"
+    offset: 0.2,0
 
 - type: entity
   id: LeftHandGingerbread
   name: "left gingerbread hand"
   parent: [PartGingerbread, BaseLeftHand]
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: Mobs/Species/Gingerbread/parts.rsi
     state: "l_hand"
+    offset: -0.2,0.1
 
 - type: entity
   id: RightHandGingerbread
   name: "right gingerbread hand"
   parent: [PartGingerbread, BaseRightHand]
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: Mobs/Species/Gingerbread/parts.rsi
     state: "r_hand"
+    offset: 0.2,0.1
 
 - type: entity
   id: LeftLegGingerbread
   name: "left gingerbread leg"
   parent: [PartGingerbread, BaseLeftLeg]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     sprite: Mobs/Species/Gingerbread/parts.rsi
     state: "l_leg"
+    offset: -0.1,0.3
 
 - type: entity
   id: RightLegGingerbread
   name: "right gingerbread leg"
   parent: [PartGingerbread, BaseRightLeg]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     sprite: Mobs/Species/Gingerbread/parts.rsi
     state: "r_leg"
+    offset: 0.1,0.3
 
 - type: entity
   id: LeftFootGingerbread
   name: "left gingerbread foot"
   parent: [PartGingerbread, BaseLeftFoot]
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: Mobs/Species/Gingerbread/parts.rsi
     state: "l_foot"
+    offset: -0.15,0.45
 
 - type: entity
   id: RightFootGingerbread
   name: "right gingerbread foot"
   parent: [PartGingerbread, BaseRightFoot]
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: Mobs/Species/Gingerbread/parts.rsi
     state: "r_foot"
+    offset: 0.15,0.45

@@ -68,7 +68,9 @@
     - Organ
     - Lungs
   - type: Item
-    size: Small
+    size: Normal
+    shape:
+    - 0,0,1,1
     heldPrefix: lungs
 
 - type: entity
@@ -103,7 +105,9 @@
     - Organ
     - Stomach
   - type: Item
-    size: Small
+    size: Normal
+    shape:
+    - 0,0,1,1
     heldPrefix: stomach
 
 - type: entity
@@ -117,7 +121,9 @@
       stomach:
         maxVol: 30
   - type: Item
-    size: Small
+    size: Normal
+    shape:
+    - 0,0,1,1
     heldPrefix: stomach
 
 - type: entity
@@ -144,6 +150,8 @@
     - Liver
   - type: Item
     size: Small
+    shape:
+    - 0,0,1,1
     heldPrefix: liver
 
 - type: entity
@@ -170,7 +178,7 @@
     - Organ
     - Heart
   - type: Item
-    size: Small
+    size: Tiny
     heldPrefix: heart
 
 - type: entity
@@ -195,5 +203,7 @@
     - Organ
     - Kidneys
   - type: Item
-    size: Small
+    size: Normal
+    shape:
+    - 0,0,1,1
     heldPrefix: kidneys

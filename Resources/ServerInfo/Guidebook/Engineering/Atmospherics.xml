@@ -101,7 +101,65 @@
     <GuideEntityEmbed Entity="NitriumCanister"/>
   </Box>
 
-  Nitrium degrades into nitrogen and water vapor on contact with room temperature oxygen. This reaction can produce a good deal of heat, making the station uncomfortably warm in the event of a leak. 
+  Nitrium degrades into nitrogen and water vapor on contact with room temperature oxygen. This reaction can produce a good deal of heat, making the station uncomfortably warm in the event of a leak.
+
+  ##Hyper-Noblium
+  Hyper-Noblium is an inert gas that stops other reactions when present at greater than 5 moles and above 20K, ideal for stabilizing volatile mixes. It's made by combining 10 moles nitrogen with 5 moles tritium below 24K in an exothermic reaction. BZ can be used to control heat and increase production efficiency.
+
+  <Box>
+    <GuideEntityEmbed Entity="NitrogenCanister"/>
+    <GuideEntityEmbed Entity="TritiumCanister"/>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="HyperNobliumCanister"/>
+  </Box>
+
+  ##Proto-Nitrate
+  Proto-Nitrate is a highly reactive, non-toxic gas. Combine 1 mole hydrogen with 0.1 moles pluoxium to yield 1.1 moles proto-nitrate exothermically, best at 5000-10000K. It reacts with hydrogen or tritium to adjust proto-nitrate or produce hydrogen, and with BZ at 260-280K to yield nitrogen, helium, and plasma. Handle carefully to avoid leaks.
+
+  <Box>
+    <GuideEntityEmbed Entity="HydrogenCanister"/>
+    <GuideEntityEmbed Entity="PluoxiumCanister"/>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="ProtoNitrateCanister"/>
+  </Box>
+
+  ##Zauker
+  Zauker is a deadly gas if inhaled. Produce it by combining 0.2 moles hyper-noblium with 1 mole nitrium to yield 1 mole zauker exothermically. It decomposes with nitrogen into 0.3 moles oxygen and 0.7 moles nitrogen per mole zauker, also exothermic and inhibited similarly. Store securely to prevent leaks.
+
+  <Box>
+    <GuideEntityEmbed Entity="NitriumCanister"/>
+    <GuideEntityEmbed Entity="HyperNobliumCanister"/>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="ZaukerCanister"/>
+  </Box>
+
+  ##Halon
+  Halon suppresses fires by consuming oxygen, at a ratio of 20 moles oxygen per 1 mole halon, above 343.15 K in an endothermic reaction, producing carbon dioxide. It's made in an exothermic reaction by electrolyzing BZ, yielding 2 moles halon and 0.2 moles oxygen per mole BZ. Use cautiously to avoid oxygen depletion.
+
+  <Box>
+    <GuideEntityEmbed Entity="BZCanister"/>
+    <GuideEntityEmbed Entity="Electrolyzer"/>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="HalonCanister"/>
+  </Box>
+
+  ##Helium
+  Helium is an inert, invisible gas produced as a byproduct of other reactions. It has minimal use in atmospherics, so scrub it to avoid diluting other gases.
+
+  <Box>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="HeliumCanister"/>
+  </Box>
+
+  ##Anti-Noblium
+  Anti-Noblium is a rare gas with niche uses, produced by electrolyzing hyper-noblium below 150 K, yielding 0.5 moles anti-noblium per mole hyper-noblium. Store carefully to preserve hyper-noblium stocks for other reactions.
+
+  <Box>
+    <GuideEntityEmbed Entity="HyperNobliumCanister"/>
+    <GuideEntityEmbed Entity="Electrolyzer"/>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="AntiNobliumCanister"/>
+  </Box>
 
   ## Reference Sheet
   - Standard atmospheric mix is [color=#a4885c]78% N2 and 22% O2 at 101.24kPa.[/color]

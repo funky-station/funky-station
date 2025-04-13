@@ -1,32 +1,33 @@
+using Content.Server.Atmos;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Reactions;
 using JetBrains.Annotations;
 
-namespace Content.Server.Atmos.Reactions;
+namespace Content.Server._Funkystation.Atmos.Reactions;
 
 [UsedImplicitly]
-public sealed partial class ProtoNitrateProductionReaction : IGasReactionEffect
+public sealed partial class ProtoNitrateTritiumConversionReaction : IGasReactionEffect
 {
     public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
     {
         if (mixture.Temperature > 20f && mixture.GetMoles(Gas.HyperNoblium) >= 5f)
             return ReactionResult.NoReaction;
 
-        var initPluox = mixture.GetMoles(Gas.Pluoxium);
-        var initH2 = mixture.GetMoles(Gas.Hydrogen);
+        var initPN = mixture.GetMoles(Gas.ProtoNitrate);
+        var initTrit = mixture.GetMoles(Gas.Tritium);
 
         var temperature = mixture.Temperature;
-        var heatEfficiency = Math.Min(temperature * 0.005f, Math.Min(initPluox * 5f, initH2 * 0.5f));
+        var producedAmount = Math.Min(temperature / 34f * initTrit * initPN / (initTrit + 10f * initPN), Math.Min(initTrit, initPN * 100f));
 
-        if (heatEfficiency <= 0 || initPluox - heatEfficiency * 0.2f < 0 || initH2 - heatEfficiency * 2f < 0)
+        if (initTrit - producedAmount < 0 || initPN - producedAmount * 0.01f < 0)
             return ReactionResult.NoReaction;
 
-        mixture.AdjustMoles(Gas.Hydrogen, -heatEfficiency * 2f);
-        mixture.AdjustMoles(Gas.Pluoxium, -heatEfficiency * 0.2f);
-        mixture.AdjustMoles(Gas.ProtoNitrate, heatEfficiency * 0.2f);
+        mixture.AdjustMoles(Gas.ProtoNitrate, -producedAmount * 0.01f);
+        mixture.AdjustMoles(Gas.Tritium, -producedAmount);
+        mixture.AdjustMoles(Gas.Hydrogen, producedAmount);
 
-        var energyReleased = heatEfficiency * Atmospherics.ProtoNitrateProductionEnergy;
+        var energyReleased = producedAmount * Atmospherics.ProtoNitrateTritiumConversionEnergy;
 
         var heatCap = atmosphereSystem.GetHeatCapacity(mixture, true);
         if (heatCap > Atmospherics.MinimumHeatCapacity)

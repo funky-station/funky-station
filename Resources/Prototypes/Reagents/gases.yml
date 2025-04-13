@@ -702,7 +702,7 @@
         - !type:ReagentThreshold
           reagent: Zauker
           min: 0.25
-          max: 10
+          max: 12
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -711,6 +711,18 @@
             Heat: 2
             Poison: 2
             Bloodloss: 1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Zauker
+          min: 12
+        ignoreResistances: true
+        damage:
+          types:
+            Slash: 30
+            Heat: 10
+            Poison: 10
+            Bloodloss: 5
 
 - type: reagent
   id: Halon

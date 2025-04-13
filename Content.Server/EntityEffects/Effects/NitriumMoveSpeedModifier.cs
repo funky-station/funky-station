@@ -26,7 +26,6 @@ public sealed partial class NitriumMovespeedModifier : EntityEffect
 
     /// <summary>
     /// How long the modifier applies (in seconds).
-    /// Is scaled by reagent amount if used with an EntityEffectReagentArgs.
     /// </summary>
     [DataField]
     public float StatusLifetime = 6f;

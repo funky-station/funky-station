@@ -20,7 +20,7 @@ ent-NodeBlobTile = Blob Node
 ent-StrongBlobTile = thick blob infestation
     .desc = A raised, reinforced swath of blob biomass. It does not allow air to pass through and protects against kinetic damage.
 ent-ReflectiveBlobTile = reflective blob infestation
-    .desc = A swath of reflective blob biomass which reflects, but does not protect against kinetic damage as well.
+    .desc = A swath of reflective blob biomass which reflects lasers, but does not protect against kinetic damage as well.
     .desc = { "" }
 objective-issuer-blob = Blob
 

@@ -1676,6 +1676,17 @@
   saleLimit: 1 # WD EDIT
 
 - type: listing
+  id: UplinkClothingOuterVestWebElite
+  name: uplink-clothing-outer-vest-web-elite-name
+  description: uplink-clothing-outer-vest-web-elite-desc
+  productEntity: ClothingOuterVestWebElite
+  cost:
+    Telecrystal: 25 #FUNKY EDIT
+  categories:
+  - UplinkWearables
+  saleLimit: 1 # WD EDIT
+
+- type: listing
   id: UplinkClothingShoesBootsMagSyndie
   name: uplink-clothing-shoes-boots-mag-syndie-name
   description: uplink-clothing-shoes-boots-mag-syndie-desc
@@ -2507,7 +2518,7 @@
   icon: { sprite:  Objects/Tools/Lighters/syndielighter.rsi, state: icon}
   productEntity: UplinkLighterBox
   cost:
-    Telecrystal: 2 # Funky 
+    Telecrystal: 2 # Funky
   categories:
   - UplinkPointless
 

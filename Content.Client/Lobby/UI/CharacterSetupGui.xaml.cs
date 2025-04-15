@@ -122,6 +122,9 @@ namespace Content.Client.Lobby.UI
                     character,
                     isSelected);
 
+                if (isSelected && _humanoidProfileEditor.Profile == null)
+                    _humanoidProfileEditor.SetProfile(slot);
+
                 Characters.AddChild(characterPickerButton);
 
                 characterPickerButton.OnPressed += args =>

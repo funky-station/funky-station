@@ -1,10 +1,10 @@
 marking-BodyGummybutton-body_gummybutton = Gummy Buttons
 marking-BodyGummybutton = Gummy Buttons
 
-marking-FaceIcingDefault-face_icing_default = Face Default Icing
+marking-FaceIcingDefault-face_icing_default = Default Icing
 marking-FaceIcingDefault = Face Default Icing
 
-marking-BodyIcingDefault_body_icing_default = Body Default Icing
+marking-BodyIcingDefault_body_icing_default = Default Icing
 marking-BodyIcingDefault = Body Default Icing
 
 marking-LFootIcingDefault-l_foot_icing_default = Left Foot Default Icing
@@ -51,3 +51,9 @@ marking-BodyBowtie = Bowtie
 
 marking-BodyTie-body_tie = Tie
 marking-BodyTie = Tie
+
+marking-FaceArachnid-face_arachnid = Arachnid Icing Face
+marking-FaceArachnid = Arachnid Icing Face
+
+marking-TailSourAppendages-tail_sour_appendages = Sour Worm Appendages
+marking-TailSourAppendages = Sour Worm Appendages

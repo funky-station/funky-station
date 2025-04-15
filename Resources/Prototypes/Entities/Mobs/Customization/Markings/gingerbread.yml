@@ -114,6 +114,8 @@
   sprites:
     - sprite: Mobs/Customization/gingerbread_parts.rsi
       state: headtop_whippedcreamdo
+    - sprite: Mobs/Customization/gingerbread_parts.rsi
+      state: headtop_whippedcreamdocherry 
 
 - type: marking
   id: BodyIcingbuttons
@@ -164,7 +166,6 @@
     - sprite: Mobs/Customization/gingerbread_parts.rsi
       state: body_bowtie
 
-
 - type: marking
   id: BodyTie
   bodyPart: Chest
@@ -173,3 +174,25 @@
   sprites:
     - sprite: Mobs/Customization/gingerbread_parts.rsi
       state: body_tie
+
+- type: marking
+  id: FaceArachnid
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Gingerbread]
+  sprites:
+    - sprite: Mobs/Customization/gingerbread_parts.rsi
+      state: face_arachnideyes
+    - sprite: Mobs/Customization/gingerbread_parts.rsi
+      state: face_arachnidchelicerae
+
+- type: marking
+  id: TailSourAppendages
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Gingerbread]
+  sprites:
+    - sprite: Mobs/Customization/gingerbread_parts.rsi
+      state: tail_sourappendageone
+    - sprite: Mobs/Customization/gingerbread_parts.rsi
+      state: tail_sourappendagetwo

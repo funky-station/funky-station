@@ -150,12 +150,16 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         if (_stateManager.CurrentState is not LobbyState)
             return;
 
+        if (_characterSetup != null)
+            _characterSetup.SelectedCharacterSlot = null;
         ReloadCharacterSetup();
     }
 
     public void OnStateEntered(LobbyState state)
     {
         PreviewPanel?.SetLoaded(_preferencesManager.ServerDataLoaded);
+        if (_characterSetup != null)
+            _characterSetup.SelectedCharacterSlot = null;
         ReloadCharacterSetup();
     }
 
@@ -218,6 +222,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     private void SaveJobPriorities(Dictionary<ProtoId<JobPrototype>, JobPriority> newJobPriorities)
     {
         _preferencesManager.UpdateJobPriorities(newJobPriorities);
+        _jobPriorityEditor?.LoadJobPriorities();
     }
 
     private void SaveProfile()
@@ -233,6 +238,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
             return;
 
         _preferencesManager.UpdateCharacter(EditedProfile, EditedSlot.Value);
+        _profileEditor?.SetProfile(EditedSlot.Value);
         ReloadCharacterSetup();
     }
 
@@ -325,6 +331,9 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         {
             // TODO: We don't care about the "selected character" anymore
             _preferencesManager.SelectCharacter(args);
+            _profileEditor.SetProfile(args);
+            if (_characterSetup != null)
+                _characterSetup.SelectedCharacterSlot = args;
             ReloadCharacterSetup();
         };
 

@@ -863,20 +863,20 @@
 
 # I'm so sorry for making this code so long I'm not a coder, someone should take a look over it to see where it can be simplified
 - type: entity
-  name: Crimson
+  name: Celedon
   parent:
   - SimpleMobBase
   - StripableInventoryBase
-  id: MobCrimsonRaptor
-  description: Before the genetics lab on Europa was shut down, an activist group fought to save the animals about to be euthanized. Crimson is still untrusting of most humanoids, but maybe they can be rehabilitated.
+  id: MobCeledonRaptor
+  description: Before the genetics lab on Europa was shut down, an activist group fought to save the animals about to be euthanized. Celedon is still untrusting of most humanoids, but maybe they can be rehabilitated.
   components:
-# Code for Crimson is copied from LaserRaptor, Pun pun, Remilia, Willow, and Impstation's dinosaurs
+# Code for Celedon is copied from LaserRaptor, Pun pun, Remilia, Willow, and Impstation's dinosaurs
   - type: Sprite
     drawdepth: Mobs
-    sprite: Mobs/Pets/crimson.rsi
+    sprite: Mobs/Pets/celedon.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: crimson_raptor
+      state: celedon_raptor
     - map: ["enum.HumanoidVisualLayers.Handcuffs"] #this is temporary because it keeps throwing up errors when thinking about handcuffs
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
@@ -896,13 +896,13 @@
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: crimson_raptor
+        Base: celedon_raptor
       Dead:
-        Base: crimson_raptor_dead
+        Base: celedon_raptor_dead
   - type: Tool
     qualities:
     - Prying
-# Crimson is intended to pry open doors, this speed could be lowered if found too fast
+# Celedon is intended to pry open doors, this speed could be lowered if found too fast
   - type: Prying
     pryPowered: true
     force: true
@@ -921,7 +921,7 @@
 # Damage lowered from 20 to 16 as I increased the attack speed to 1.0 as .33 felt too slow, Structural decreased from 12 to 10
     damage:
       types:
-        Slash: 16
+        Slash: 15
         Structural: 10
   - type: Bloodstream
     bloodMaxVolume: 300
@@ -943,7 +943,7 @@
   - type: SurgeryTarget
   - type: Targeting
   - type: Body # Shitmed Change
-    prototype: CrimsonRaptor
+    prototype: CeledonRaptor
   - type: Clumsy # I am giving them hands, but they will NOT be able to shoot guns
     gunShootFailDamage:
       types:
@@ -998,8 +998,8 @@
     makeSentient: true
     allowSpeech: true
     allowMovement: true
-    name: ghost-role-information-crimson-name
-    description: ghost-role-information-crimson-description
+    name: ghost-role-information-celedon-name
+    description: ghost-role-information-celedon-description
     rules: ghost-role-information-big-familiar-rules
   - type: GhostTakeoverAvailable
   - type: Butcherable

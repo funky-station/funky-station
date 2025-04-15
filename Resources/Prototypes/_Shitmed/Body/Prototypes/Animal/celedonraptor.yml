@@ -1,6 +1,6 @@
 - type: body #This entire thing will need to get changed because it will seem very odd when the raptor turns into a vox corpse
-  id: CrimsonRaptor
-  name: "crimsonraptor"
+  id: CeledonRaptor
+  name: "celedonraptor"
   root: torso
   slots:
     head:

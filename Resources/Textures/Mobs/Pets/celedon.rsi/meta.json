@@ -8,11 +8,11 @@
   },
   "states": [
     {
-      "name": "crimson_raptor",
+      "name": "celedon_raptor",
       "directions": 4
     },
     {
-      "name": "crimson_raptor_dead"
+      "name": "celedon_raptor_dead"
     }
   ]
 }

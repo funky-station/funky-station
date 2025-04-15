@@ -621,18 +621,18 @@
     - MobMonkeyPunpun
 
 - type: entity
-  name: Crimson Spawner
-  id: SpawnMobCrimsonRaptor
+  name: Celedon Spawner
+  id: SpawnMobCeledonRaptor
   parent: MarkerBase
   components:
   - type: Sprite
     layers:
     - state: green
-    - state: crimson_raptor
-      sprite: Mobs/Pets/crimson.rsi
+    - state: celedon_raptor
+      sprite: Mobs/Pets/celedon.rsi
   - type: ConditionalSpawner
     prototypes:
-    - MobCrimsonRaptor
+    - MobCeledonRaptor
 
 - type: entity
   name: behonker Spawner

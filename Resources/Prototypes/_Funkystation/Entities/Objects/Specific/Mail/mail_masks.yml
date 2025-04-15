@@ -1,0 +1,35 @@
+- type: entity
+  parent: BaseMail
+  id: MailMasks
+  suffix: Masks
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: ClothingMaskBear
+      amount: 1
+      orGroup: Masks
+    - id: ClothingMaskBat
+      amount: 1
+      orGroup: Masks
+    - id: ClothingHeadHatRedRacoon
+      amount: 1
+      orGroup: Masks
+    - id: ClothingMaskBee
+      amount: 1
+      orGroup: Masks
+    - id: ClothingMaskJackal
+      amount: 1
+      orGroup: Masks
+    - id: ClothingMaskFox
+      amount: 1
+      orGroup: Masks
+    - id: ClothingMaskRat
+      amount: 1
+      orGroup: Masks
+    - id: ClothingHeadHatHoodMoth
+      amount: 1
+      orGroup: Masks
+    - id: ClothingMaskRaven
+      amount: 1
+      orGroup: Masks

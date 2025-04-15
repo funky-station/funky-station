@@ -19,6 +19,7 @@
     MailJoints: 1
     MailUnusualFood: 0.5
     MailBakedGoods: 0.75
+    MailLollipops: 1
   # Costumes
     MailCosplayMaid: 0.6
     MailCosplayWizard: 0.6
@@ -27,6 +28,7 @@
     MailNoir: 0.4
     MailFishingCap: 0.8
     MailSunglasses: 0.8
+    MailMasks: 0.5
   # Fun
     MailEMP: 0.2
     MailSmoke: 0.3
@@ -40,6 +42,7 @@
     MailFlowers: 0.8
     MailCrayons: 0.9
     MailLowMoney: 1
+    MailInstantGorilla: 60
   # Tools
     MailSignallerKit: 0.5
     MailFlashlight: 0.8
@@ -55,6 +58,8 @@
       MailMedicalMedicinePills: 2
       MailMedicalEmergencyPens: 2
       MailMedicalStabilizers: 2
+      MailMedicalRareTopicals: 0.5
+      MailMedicalRollerBed: 1
     Engineering:
       MailPowerTool: 1.2
       MailCircuitboardService: 1.6
@@ -62,7 +67,10 @@
       MailEngineeringCables: 2
       MailEngineeringMaterials: 2
     Science:
-      MailScienceRareMaterials: 1.5
+      MailScienceRareMaterials: 1
+      MailRoboticsParts: 1.5
+      MailScienceBoards: 0.5
+      MailScienceTools: 1
     Security:
       MailRestraints: 2
       MailSecurityDonuts: 2
@@ -76,9 +84,11 @@
       MailBotanistSeeds: 2
       MailKudzuDeterrent: 2
     Chaplain:
-      MailWitchery: 1.6
+      MailChapCandles: 0.3
+      MailWitchery: 1
     Chemist:
       MailMedicalChemistrySupplement: 2
+      MailMedicalChemistryChems: 0.3
     ChiefEngineer:
       MailPowerTool: 1.2
       MailCircuitboardService: 1.6

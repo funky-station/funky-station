@@ -44,6 +44,12 @@
     - Nitrium
     - Pluoxium
     - Hydrogen
+    - HyperNoblium
+    - ProtoNitrate
+    - Zauker
+    - Halon
+    - Helium
+    - AntiNoblium
 
 # use this to prevent overriding filters with hardcoded defaults
 - type: entity

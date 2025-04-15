@@ -19,6 +19,10 @@
   name: "human torso"
   parent: [PartHuman, BaseTorso]
   components:
+  - type: Item
+    size: Ginormous
+    shape:
+    - 0,0,5,3
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
     state: "torso_m"
@@ -35,9 +39,14 @@
   name: "human head"
   parent: [PartHuman, BaseHead]
   components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,1,1
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
     state: "head_m"
+    offset: 0,-0.3
   - type: Extractable
     juiceSolution:
       reagents:
@@ -51,69 +60,101 @@
   name: "left human arm"
   parent: [PartHuman, BaseLeftArm]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
     state: "l_arm"
+    offset: -0.2,0
 
 - type: entity
   id: RightArmHuman
   name: "right human arm"
   parent: [PartHuman, BaseRightArm]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
     state: "r_arm"
+    offset: 0.2,0
 
 - type: entity
   id: LeftHandHuman
   name: "left human hand"
   parent: [PartHuman, BaseLeftHand]
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
     state: "l_hand"
+    offset: -0.2,0.1
 
 - type: entity
   id: RightHandHuman
   name: "right human hand"
   parent: [PartHuman, BaseRightHand]
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
     state: "r_hand"
+    offset: 0.2,0.1
 
 - type: entity
   id: LeftLegHuman
   name: "left human leg"
   parent: [PartHuman, BaseLeftLeg]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
     state: "l_leg"
+    offset: -0.1,0.3
 
 - type: entity
   id: RightLegHuman
   name: "right human leg"
   parent: [PartHuman, BaseRightLeg]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
     state: "r_leg"
+    offset: 0.1,0.3
 
 - type: entity
   id: LeftFootHuman
   name: "left human foot"
   parent: [PartHuman, BaseLeftFoot]
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
     state: "l_foot"
+    offset: -0.15,0.45
 
 - type: entity
   id: RightFootHuman
   name: "right human foot"
   parent: [PartHuman, BaseRightFoot]
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
     state: "r_foot"
+    offset: 0.15,0.45

@@ -2,10 +2,10 @@ marking-BodyGummybutton-body_gummybutton = Gummy Buttons
 marking-BodyGummybutton = Gummy Buttons
 
 marking-FaceIcingDefault-face_icing_default = Default Icing
-marking-FaceIcingDefault = Face Default Icing
+marking-FaceIcingDefault = Default Icing
 
 marking-BodyIcingDefault_body_icing_default = Default Icing
-marking-BodyIcingDefault = Body Default Icing
+marking-BodyIcingDefault = Default Icing
 
 marking-LFootIcingDefault-l_foot_icing_default = Left Foot Default Icing
 marking-LFootIcingDefault = Left Foot Default Icing

@@ -60,22 +60,6 @@ namespace Content.Client.Lobby
             }
         }
 
-        public void SelectCharacter(ICharacterProfile profile)
-        {
-            SelectCharacter(Preferences.IndexOfCharacter(profile));
-        }
-
-        public void SelectCharacter(int slot)
-        {
-            Preferences = new PlayerPreferences(Preferences.Characters, slot, Preferences.AdminOOCColor, Preferences.JobPriorities);
-            // TODO: The server doesn't care about the "selected character" anymore
-            var msg = new MsgSelectCharacter
-            {
-                SelectedCharacterIndex = slot
-            };
-            _netManager.ClientSendMessage(msg);
-        }
-
         public void SetCharacterEnable(int slot, bool enable = true)
         {
             if (!Preferences.Characters.TryGetValue(slot, out var characterProfile))
@@ -87,7 +71,7 @@ namespace Content.Client.Lobby
             {
                 [slot] = new HumanoidCharacterProfile(profile) {Enabled = enable},
             };
-            Preferences = new PlayerPreferences(characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor, Preferences.JobPriorities);
+            Preferences = new PlayerPreferences(characters, Preferences.AdminOOCColor, Preferences.JobPriorities);
 
             var msg = new MsgSetCharacterEnable
             {
@@ -102,7 +86,7 @@ namespace Content.Client.Lobby
             var collection = IoCManager.Instance!;
             profile.EnsureValid(_playerManager.LocalSession!, collection);
             var characters = new Dictionary<int, ICharacterProfile>(Preferences.Characters) {[slot] = profile};
-            Preferences = new PlayerPreferences(characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor, Preferences.JobPriorities);
+            Preferences = new PlayerPreferences(characters, Preferences.AdminOOCColor, Preferences.JobPriorities);
             var msg = new MsgUpdateCharacter
             {
                 Profile = profile,
@@ -125,7 +109,7 @@ namespace Content.Client.Lobby
 
             var l = lowest.Value;
             characters.Add(l, profile);
-            Preferences = new PlayerPreferences(characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor, Preferences.JobPriorities);
+            Preferences = new PlayerPreferences(characters, Preferences.AdminOOCColor, Preferences.JobPriorities);
 
             UpdateCharacter(profile, l);
         }
@@ -138,7 +122,7 @@ namespace Content.Client.Lobby
         public void DeleteCharacter(int slot)
         {
             var characters = Preferences.Characters.Where(p => p.Key != slot);
-            Preferences = new PlayerPreferences(characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor, Preferences.JobPriorities);
+            Preferences = new PlayerPreferences(characters, Preferences.AdminOOCColor, Preferences.JobPriorities);
             var msg = new MsgDeleteCharacter
             {
                 Slot = slot
@@ -149,7 +133,6 @@ namespace Content.Client.Lobby
         public void UpdateJobPriorities(Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities)
         {
             Preferences = new PlayerPreferences(Preferences.Characters,
-                Preferences.SelectedCharacterIndex,
                 Preferences.AdminOOCColor,
                 jobPriorities);
             var msg = new MsgUpdateJobPriorities

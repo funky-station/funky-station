@@ -478,7 +478,7 @@
     sprite: _Funkystation/Structures/Piping/Atmospherics/upgradedthermomachine.rsi
   - type: GasThermoMachine
     minTemperature: 23.15
-    heatCapacity: 30000
+    heatCapacity: 20000
   - type: Machine
     board: ThermomachineUpgradedFreezerMachineCircuitBoard
 
@@ -493,7 +493,7 @@
     sprite: _Funkystation/Structures/Piping/Atmospherics/upgradedthermomachine.rsi
   - type: GasThermoMachine
     maxTemperature: 1193.15
-    heatCapacity: 30000
+    heatCapacity: 20000
   - type: Machine
     board: ThermomachineUpgradedHeaterMachineCircuitBoard
 
@@ -508,7 +508,7 @@
     sprite: _Funkystation/Structures/Piping/Atmospherics/advancedthermomachine.rsi
   - type: GasThermoMachine
     minTemperature: 13.15
-    heatCapacity: 45000
+    heatCapacity: 40000
   - type: Machine
     board: ThermomachineAdvancedFreezerMachineCircuitBoard
 
@@ -523,6 +523,6 @@
     sprite: _Funkystation/Structures/Piping/Atmospherics/advancedthermomachine.rsi
   - type: GasThermoMachine
     maxTemperature: 1393.15
-    heatCapacity: 45000
+    heatCapacity: 40000
   - type: Machine
     board: ThermomachineAdvancedHeaterMachineCircuitBoard

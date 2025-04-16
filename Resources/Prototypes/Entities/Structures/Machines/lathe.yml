@@ -448,6 +448,7 @@
     - FauxTileAstroAsteroidSand
     - OreBagOfHolding
     - DeviceQuantumSpinInverter
+    - DeviceDesynchronizer
     - WeaponPlasmaCutter # Goobstation
     - WeaponPlasmaRifle # Goobstation
     - EnergyScalpel # Shitmed Change

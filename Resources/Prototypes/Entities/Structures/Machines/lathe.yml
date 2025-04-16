@@ -558,8 +558,10 @@
     - BorgChargerCircuitboard
     - ElectrolyzerMachineBoard # Assmos - /tg/ gases
     - BluespaceGasSenderMachineBoard # Assmos - Bluespace Gas
+    - ThermomachineFreezerMachineCircuitBoard # Assmos - Moved to staticRecipes from dynamicRecipes 
     dynamicRecipes:
-    - ThermomachineFreezerMachineCircuitBoard
+    - ThermomachineUpgradedFreezerMachineCircuitBoard # Assmos
+    - ThermomachineAdvancedFreezerMachineCircuitBoard # Assmos
     - HellfireFreezerMachineCircuitBoard
     - PortableScrubberMachineCircuitBoard
     - CloningPodMachineCircuitboard

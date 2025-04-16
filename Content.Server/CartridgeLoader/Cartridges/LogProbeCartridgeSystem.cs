@@ -1,5 +1,4 @@
 using Content.Shared.Access.Components;
-using Content.Shared.Audio;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
 using Content.Shared._DV.NanoChat; // DeltaV
@@ -48,7 +47,7 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem // DeltaV - M
             return;
 
         //Play scanning sound with slightly randomized pitch
-        _audioSystem.PlayEntity(ent.Comp.SoundScan, args.InteractEvent.User, target, AudioHelpers.WithVariation(0.25f, _random));
+        _audioSystem.PlayEntity(ent.Comp.SoundScan, args.InteractEvent.User, target);
         _popupSystem.PopupCursor(Loc.GetString("log-probe-scan", ("device", target)), args.InteractEvent.User);
 
         ent.Comp.PulledAccessLogs.Clear();

@@ -240,6 +240,18 @@
         - id: SheetGlass
         - id: SheetPlastic
 
+- type: entity
+  id: CrateMaterialBasicResource
+  parent: CrateGenericSteel
+  name: basic sheet crate
+  description: 30 sheets of steel, glass, and plastic.
+  components:
+  - type: StorageFill
+    contents:
+    - id: SheetSteel
+    - id: SheetGlass
+    - id: SheetPlastic
+
 #- type: entity
 #  parent: CrateGenericSteel
 #  id: CrateMaterialHFuelTank

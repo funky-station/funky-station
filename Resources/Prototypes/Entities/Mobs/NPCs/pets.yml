@@ -918,21 +918,18 @@
     angle: 30
     soundHit:
       collection: AlienClaw
-# Damage lowered from 20 to 16 as I increased the attack speed to 1.0 as .33 felt too slow, Structural decreased from 12 to 10
+# Damage lowered from 20 to 15 as I increased the attack speed to 1.0 as .33 felt too slow, Structural decreased from 12 to 10
     damage:
       types:
         Slash: 15
         Structural: 10
-  - type: Bloodstream
-    bloodMaxVolume: 300
-    bloodlossDamage:
+  - type: Respirator
+    damage:
       types:
-        Bloodloss:
-          0.5
-    bloodlossHealDamage:
+        Asphyxiation: 1.0
+    damageRecovery:
       types:
-        Bloodloss:
-          -1
+        Asphyxiation: -1.0
   - type: Hands
   - type: ComplexInteraction
   - type: Cuffable # Need to figure out sprite layer
@@ -940,10 +937,24 @@
   - type: Sharp
   - type: Puller
     needsHands: false
+  - type: Blindable
   - type: SurgeryTarget
   - type: Targeting
   - type: Body # Shitmed Change
     prototype: CeledonRaptor
+    requiredLegs: 2
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+      enum.ThavenMoodsUiKey.Key: # impstation edit
+        type: ThavenMoodsBoundUserInterface
+        requireInputValidation: false
+  - type: CanEscapeInventory # GoobStation - Escape being picked up by players
+  - type: Carriable # Goobstation
+  - type: SurgeryContaminable # DeltaV - surgery cross contamination
   - type: Clumsy # I am giving them hands, but they will NOT be able to shoot guns
     gunShootFailDamage:
       types:
@@ -977,12 +988,27 @@
       301: 0.8
       295: 0.6
       285: 0.4
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.50
+        Heat: 0.1
+  - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
+    allowedStates:
+    - Alive
+    damageCap: 10 # capped at 10 instead of 20 because they have dinosaur resistances
+    damage:
+      types:
+        Heat: -0.07
+      groups:
+        Brute: -0.07
   - type: Metabolizer
     solutionOnBody: false
     metabolizerTypes: [ Animal ]
     groups:
     - id: Medicine
     - id: Poison
+  - type: Dna
   - type: Speech
     speechSounds: Dino
     speechVerb: Vox
@@ -990,6 +1016,8 @@
   - type: Vocal
     sounds:
       Unsexed: DinoEmotes
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Dinosaur
@@ -1021,8 +1049,8 @@
       proper: true
       gender: epicene
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2
-    baseSprintSpeed: 5
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5.5
   - type: FootstepModifier
     footstepSoundCollection:
       collection: BarestepHard
@@ -1042,3 +1070,5 @@
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/lizard_happy.ogg
+  - type: MobPrice
+    price: 750 # Celedon shouldn't have a price as they are a priceless team-member

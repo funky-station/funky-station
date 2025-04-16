@@ -876,6 +876,8 @@
         Heat: 0.9
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.75
 
 #Deathsquad Hardsuit
 - type: entity

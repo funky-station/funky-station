@@ -1,0 +1,123 @@
+# Papers (letters, ad copy)
+# TODO: these should really be based on localization strings.
+- type: entity
+  id: PaperCraigThreat
+  categories: [ HideSpawnMenu ]
+  suffix: "Craig threat"
+  parent: Paper
+  components:
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#333333FF'
+      stampedName: Craig
+    #      stampType: Signature #DeltaV - Not compatible with our signatures code stuff apparently
+    content: |2
+
+      [head=1]                        hey[/head]
+
+
+
+      [head=1]    they asked me to mug you[/head]
+
+
+
+      [head=1]        this is all I could find[/head]
+#Made by Sage
+
+
+- type: entity
+  id: PaperBluespaceGorilla
+  categories: [ HideSpawnMenu ]
+  suffix: "Bluespace Gorilla"
+  parent: Paper
+  components:
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#006600'
+      stampedName: Centcom
+    #      stampType: Signature #DeltaV - Not compatible with our signatures code stuff apparently
+    content: |2
+
+      [color=#1b487e]╔══════════════════╗
+      ║███░███░░░░██░░░░░║
+      ║░██░████░░░██░░░░░║  [head=1]NanoTrasen[/head]
+      ║░░█░██░██░░██░█░░░║    [head=5]Funky Sector[/head]
+      ║░░░░██░░██░██░██░░║    Central Command Testing
+      ║░░░░██░░░████░███░║
+      ╚══════════════════╩═════════════════════[/color]
+        Hello and thank you for participating in the bluespace teleportation test. If all went well you should now have a happy healthy, Nanotrasen asset!
+
+        Please look after it and bring it back when you shift is done or you will be charged its cost to your account.
+
+
+      Thank you again for your participation!
+
+- type: entity
+  id: PaperExtendedWarrantyCommand
+  categories: [ HideSpawnMenu ]
+  suffix: "Warranty Scam Command"
+  parent: Paper
+  components:
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#AB30AB'
+      stampedName: "Galaxa Inc"
+    #      stampType: Signature #DeltaV - Not compatible with our signatures code stuff apparently
+    content: |2
+
+
+                                       [color=#e33437][head=1]ATTENTION[/head][/color]
+      ====================================================
+        Hello! We've been trying to reach you concerning your
+      stations's extended warranty. You should've received a
+      notice in the mail about your stations's extended warranty
+      eligibility. Since we've not gotten response, we're giving you
+      a final courtesy mail before we close out your file. Press fax
+      Galaxa Inc. at your earliest convenience to ensure any damages
+      to your station are covered in case of mishap or misfortune.
+      ====================================================
+
+- type: entity
+  id: PaperExtendedWarrantyCrew
+  categories: [ HideSpawnMenu ]
+  suffix: "Warranty Scam Crew"
+  parent: Paper
+  components:
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#AB30AB'
+      stampedName: "Galaxa Inc"
+    #      stampType: Signature #DeltaV - Not compatible with our signatures code stuff apparently
+    content: |2
+
+                                       [color=#e33437][head=1]ATTENTION[/head][/color]
+      ====================================================
+        Hello! We've been trying to reach you concerning your
+      shuttles's extended warranty. You should've received a
+      notice in the mail about your shuttles's extended warranty
+      eligibility. Since we've not gotten response, we're giving you
+      a final courtesy mail before we close out your file. Press fax
+      Galaxa Inc. at your earliest convenience to ensure any damages
+      to your shuttles are covered in case of mishap or misfortune.
+      ====================================================
+
+- type: entity
+  id: PaperSkeleMail
+  categories: [ HideSpawnMenu ]
+  suffix: "Skele Mail"
+  parent: Paper
+  components:
+  - type: Paper
+    content: |2
+        [head=5]DON'T LET THIS BE YOU. THIS IS WHAT HAPPENS WHEN YOU DONT RESPECT THE VENT SNAKES![/head]
+
+- type: entity
+  id: PaperEgging
+  categories: [ HideSpawnMenu ]
+  suffix: "Egging Mail"
+  parent: Paper
+  components:
+  - type: Paper
+    content: |2
+        [head=5]COMMAND KNOWS WHAT THEY DID.
+      SHOW THEM WHOS BOSS[/head]

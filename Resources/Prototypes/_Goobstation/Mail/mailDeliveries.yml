@@ -24,11 +24,14 @@
     MailCosplayMaid: 0.6
     MailCosplayWizard: 0.6
     MailCosplayNurse: 0.6
-    MailCosplayTacticalMaid: 0.5
+    MailCosplayTacticalMaid: 0.3
     MailNoir: 0.4
     MailFishingCap: 0.8
     MailSunglasses: 0.8
     MailMasks: 0.5
+    MailMothSuit: 0.1
+    MailRedRacoonSuit: 0.1
+    MailViceSuit: 0.2
   # Fun
     MailEMP: 0.2
     MailSmoke: 0.3
@@ -42,7 +45,10 @@
     MailFlowers: 0.8
     MailCrayons: 0.9
     MailLowMoney: 1
-    MailInstantGorilla: 60
+    MailInstantGorilla: 0.05
+    MailMuggingThreat: 0.2
+    PaperExtendedWarrantyCrew: 0.5
+    MailSkele: 0.05
   # Tools
     MailSignallerKit: 0.5
     MailFlashlight: 0.8
@@ -51,8 +57,9 @@
     MailSword: 0.2
   departments: # Departments
     Command:
-      MailCommandPipebombIntern: 2
+      MailCommandPipebombIntern: 1
       MailLuxuryPen: 1.6
+      MailExtendedWarrantyCommand: 0.5
     Medical:
       MailMedicalBasicSupplies: 2
       MailMedicalMedicinePills: 2
@@ -78,6 +85,8 @@
       MailSecurityNonlethalsKit: 1.6
       MailSecuritySpaceLaw: 1
   jobs: # Jobs
+    Bartender:
+      MailBartenderTools: 0.5
     Botanist:
       MailMutatedProduce: 1.6
       MailBotanistChemicalBottles: 2
@@ -135,6 +144,8 @@
       MailSoapsOmega: 0.5
     Musician:
       MailInstrumentLarge: 2
+    Passenger:
+      MailEgging: 0.2
     Reporter:
       MailLuxuryPen: 2
     ResearchDirector:

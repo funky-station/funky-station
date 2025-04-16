@@ -2373,3 +2373,11 @@ Entries:
       message: Central Command has been changed to a new map.
   id: 295
   time: '2025-04-15T19:14:14.0000000+00:00'
+- author: ' Semni'
+  changes:
+    - type: Add
+      message: New Vulp scream sounds ported from Goob for all of your screaming needs.
+    - type: Fix
+      message: Vulpkanin innate temperature protection now actually works.
+  id: 296
+  time: '2025-04-16T23:52:33.0000000+00:00'

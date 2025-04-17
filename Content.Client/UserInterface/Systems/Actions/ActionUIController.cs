@@ -732,8 +732,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (args.Function != EngineKeyFunctions.UIClick && args.Function != EngineKeyFunctions.Use)
             return;
 
-        _menuDragHelper.MouseDown(action);
-        args.Handle();
+        HandleActionPressed(args, action);
     }
 
     private void OnWindowActionUnPressed(GUIBoundKeyEventArgs args, ActionButton dragged)
@@ -741,8 +740,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (args.Function != EngineKeyFunctions.UIClick && args.Function != EngineKeyFunctions.Use)
             return;
 
-        DragAction();
-        args.Handle();
+        HandleActionUnpressed(args, dragged);
     }
 
     private void OnWindowActionFocusExisted(ActionButton button)
@@ -762,6 +760,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (args.Function != EngineKeyFunctions.UIClick)
             return;
 
+        HandleActionPressed(args, button);
+    }
+
+    private void HandleActionPressed(GUIBoundKeyEventArgs args, ActionButton button)
+    {
         args.Handle();
         if (button.ActionId != null)
         {
@@ -777,7 +780,15 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     private void OnActionUnpressed(GUIBoundKeyEventArgs args, ActionButton button)
     {
-        if (args.Function != EngineKeyFunctions.UIClick || _actionsSystem == null)
+        if (args.Function != EngineKeyFunctions.UIClick)
+            return;
+
+        HandleActionUnpressed(args, button);
+    }
+
+    private void HandleActionUnpressed(GUIBoundKeyEventArgs args, ActionButton button)
+    {
+        if (_actionsSystem == null)
             return;
 
         args.Handle();

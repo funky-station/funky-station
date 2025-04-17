@@ -15030,8 +15030,6 @@ entities:
       pos: 8.5,-14.5
       parent: 60
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 27372
 - proto: AltarConvertMaint
@@ -80546,8 +80544,6 @@ entities:
       pos: 7.5,-18.5
       parent: 60
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 27372
 - proto: Fireplace
@@ -107513,8 +107509,6 @@ entities:
       pos: 6.5,-17.5
       parent: 60
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 27372
     - type: AtmosPipeColor
@@ -108976,8 +108970,6 @@ entities:
       pos: 8.5,-17.5
       parent: 60
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 27372
     - type: AtmosPipeColor

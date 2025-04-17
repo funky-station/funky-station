@@ -307,4 +307,4 @@
     interactSuccessSound:
       path: /Audio/Animals/lizard_happy.ogg
   - type: MobPrice
-    price: 750 # Celedon shouldn't have a price as they are a priceless team-member
+    price: 751 # Celedon shouldn't have a price as they are a priceless team-member

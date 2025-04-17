@@ -22,6 +22,7 @@
             # Funkystation - TODO: add IAA
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
+            Prisoner: [ 1, 1 ]
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 3 ]
             Chef: [ 2, 2 ]

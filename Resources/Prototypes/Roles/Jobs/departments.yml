@@ -33,6 +33,7 @@
   - Zookeeper
   - ServiceWorker
   - PartyMaker # event-restricted
+  - Prisoner # Funkystation
 
 - type: department
   id: CentralCommandSpecial

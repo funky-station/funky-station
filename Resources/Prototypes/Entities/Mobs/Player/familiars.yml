@@ -286,7 +286,7 @@
       gender: epicene
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
-    baseSprintSpeed: 5.5
+    baseSprintSpeed: 5.25
   - type: FootstepModifier
     footstepSoundCollection:
       collection: BarestepHard

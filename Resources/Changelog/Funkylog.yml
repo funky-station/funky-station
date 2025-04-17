@@ -2393,3 +2393,9 @@ Entries:
       message: Marathon has been given NTR, BSO, and IAA rooms.
   id: 297
   time: '2025-04-17T04:53:58.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: Updated and improved almost all in-game text relating to the Blob.
+  id: 298
+  time: '2025-04-17T07:45:26.0000000+00:00'

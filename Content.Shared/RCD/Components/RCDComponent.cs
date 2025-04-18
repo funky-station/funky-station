@@ -34,36 +34,12 @@ public sealed partial class RCDComponent : Component
     public ProtoId<RCDPrototype> ProtoId { get; set; } = "Invalid";
 
     /// <summary>
-    /// A cached copy of currently selected RCD prototype
-    /// </summary>
-    /// <remarks>
-    /// If the ProtoId is changed, make sure to update the CachedPrototype as well
-    /// </remarks>
-    [ViewVariables(VVAccess.ReadOnly)]
-    public RCDPrototype CachedPrototype { get; set; } = default!;
-
-    /// <summary>
-    /// Indicates if a mirrored version of the construction prototype should be used (if available)
-    /// </summary>
-    [AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
-    public bool UseMirrorPrototype = false;
-
-    /// <summary>
-    /// Indicates whether this is an RCD or an RPD
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool IsRpd { get; set; } = false;
-
-    /// <summary>
     /// The direction constructed entities will face upon spawning
     /// </summary>
     [DataField, AutoNetworkedField]
     public Direction ConstructionDirection
     {
-        get
-        {
-            return _constructionDirection;
-        }
+        get => _constructionDirection;
         set
         {
             _constructionDirection = value;
@@ -80,5 +56,5 @@ public sealed partial class RCDComponent : Component
     /// Contains no position data
     /// </remarks>
     [ViewVariables(VVAccess.ReadOnly)]
-    public Transform ConstructionTransform { get; private set; } = default!;
+    public Transform ConstructionTransform { get; private set; }
 }

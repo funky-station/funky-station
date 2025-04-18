@@ -82,7 +82,7 @@ public sealed partial class CloningSystem : EntitySystem
             }
         }
 
-        var cloningEv = new CloningEvent(settings, clone.Value);
+        var cloningEv = new Shared.Cloning.Events.CloningEvent(settings, clone.Value);
         RaiseLocalEvent(original, ref cloningEv); // used for datafields that cannot be directly copied
 
         // Add equipment first so that SetEntityName also renames the ID card.

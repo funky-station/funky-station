@@ -54,6 +54,7 @@ using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Timer = Robust.Shared.Timing.Timer;
 using Content.Server._DV.Cargo.Systems;
+using Content.Shared.Cargo.Components;
 
 namespace Content.Server.Mail
 {
@@ -309,7 +310,7 @@ namespace Content.Server.Mail
                 if (_stationSystem.GetOwningStation(uid) != station)
                     continue;
 
-                _cargoSystem.UpdateBankAccount(station, account, component.Penalty);
+                _cargoSystem.UpdateBankAccount(station, );
                 return;
             }
         }

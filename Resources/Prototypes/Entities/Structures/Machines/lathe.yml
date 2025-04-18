@@ -16,7 +16,7 @@
         mask:
         - MachineMask
         layer:
-        - MachineLayer
+          - MachineLayer
   - type: Lathe
   - type: MaterialStorage
   - type: Destructible
@@ -87,7 +87,7 @@
 
 - type: entity
   id: Autolathe
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: BaseLatheLube
   name: autolathe
   description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
   components:
@@ -109,9 +109,10 @@
   - type: MaterialStorage
     whitelist:
       tags:
-      - Sheet
-      - RawMaterial
-      - Ingot
+        - Sheet
+        - RawMaterial
+        - Ingot
+  - type: OreSiloClient
   - type: Lathe
     idleState: icon
     runningState: building
@@ -364,7 +365,7 @@
 
 - type: entity
   id: Protolathe
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: BaseLatheLube
   name: protolathe
   description: Converts raw materials into advanced items.
   components:
@@ -386,9 +387,10 @@
   - type: MaterialStorage
     whitelist:
       tags:
-      - Sheet
-      - RawMaterial
-      - Ingot
+        - Sheet
+        - RawMaterial
+        - Ingot
+  - type: OreSiloClient
   - type: Lathe
     idleState: icon
     runningState: building
@@ -528,7 +530,7 @@
 
 - type: entity
   id: CircuitImprinter
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: BaseLatheLube
   name: circuit imprinter
   description: Prints circuit boards for machines.
   components:
@@ -669,9 +671,10 @@
   - type: MaterialStorage
     whitelist:
       tags:
-      - Sheet
-      - RawMaterial
-      - Ingot
+        - Sheet
+        - RawMaterial
+        - Ingot
+  - type: OreSiloClient
   - type: RequireProjectileTarget
 
 - type: entity
@@ -687,7 +690,7 @@
 
 - type: entity
   id: ExosuitFabricator
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: BaseLatheLube
   name: exosuit fabricator
   description: Creates parts for robotics and other mechanical needs.
   components:
@@ -820,6 +823,7 @@
       - Sheet
       - RawMaterial
       - Ingot
+  - type: OreSiloClient
   - type: GuideHelp
     guides:
     - Robotics
@@ -874,7 +878,7 @@
 
 - type: entity
   id: SecurityTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: BaseLatheLube
   name: security techfab
   description: Prints equipment for use by security crew.
   components:
@@ -1026,13 +1030,14 @@
   - type: MaterialStorage
     whitelist:
       tags:
-      - Sheet
-      - RawMaterial
-      - Ingot
+        - Sheet
+        - RawMaterial
+        - Ingot
+  - type: OreSiloClient
 
 - type: entity
   id: AmmoTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: BaseLatheLube
   name: ammo techfab
   description: Prints the bare minimum of bullets that any budget military or armory could need. Nothing fancy.
   components:
@@ -1088,10 +1093,11 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
 
 - type: entity
   id: MedicalTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: BaseLatheLube
   name: medical techfab
   description: Prints equipment for use by the medbay.
   components:
@@ -1180,6 +1186,7 @@
     board: MedicalTechFabCircuitboard
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
+  - type: OreSiloClient
 
 - type: entity
   parent: BaseLathe
@@ -1419,9 +1426,10 @@
   - type: MaterialStorage
     whitelist:
       tags:
-      - Sheet
-      - RawMaterial
-      - Ingot
+        - Sheet
+        - RawMaterial
+        - Ingot
+  - type: OreSiloClient
 
 - type: entity
   id: Biogenerator
@@ -1664,11 +1672,12 @@
   - type: MaterialStorage
     whitelist:
       tags:
-      - Sheet
-      - Metal
-      - Wooden
-      - RawMaterial
-      - Plastic
+        - Sheet
+        - Metal
+        - Wooden
+        - RawMaterial
+        - Plastic
+  - type: OreSiloClient
 
 # Shitmed Change Start
 - type: entity

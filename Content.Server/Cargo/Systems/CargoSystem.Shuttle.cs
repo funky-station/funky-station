@@ -340,7 +340,7 @@ public sealed partial class CargoSystem
             Dictionary<ProtoId<CargoAccountPrototype>, double> distribution;
             if (sellComponent != null)
             {
-                distribution = new Dictionary<ProtoId<CargoAccountPrototype>, double>()
+                distribution = new Dictionary<ProtoId<CargoAccountPrototype>, double>
                 {
                     { sellComponent.OverrideAccount, bankAccount.PrimaryCut },
                     { bankAccount.PrimaryAccount, 1.0 - bankAccount.PrimaryCut },

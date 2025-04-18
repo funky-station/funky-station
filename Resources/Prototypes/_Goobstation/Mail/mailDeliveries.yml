@@ -47,8 +47,8 @@
     MailLowMoney: 1
     MailInstantGorilla: 0.05
     MailMuggingThreat: 0.2
-    PaperExtendedWarrantyCrew: 0.5
     MailSkele: 0.05
+    MailSpamMail: 0.5
   # Tools
     MailSignallerKit: 0.5
     MailFlashlight: 0.8
@@ -70,11 +70,14 @@
     Engineering:
       MailPowerTool: 1.2
       MailCircuitboardService: 1.6
-      MailCircuitboardIndustrial: 1.2
+      MailCircuitboardIndustrial: 1.5
+      MailEngineeringBoards: 1.5
       MailEngineeringCables: 2
       MailEngineeringMaterials: 2
+      MailScienceHazardousMaterials: 0.5
     Science:
-      MailScienceRareMaterials: 1
+      MailScienceRareMaterials: 0.5
+      MailScienceHazardousMaterials: 0.2
       MailRoboticsParts: 1.5
       MailScienceBoards: 0.5
       MailScienceTools: 1
@@ -95,6 +98,8 @@
     Chaplain:
       MailChapCandles: 0.3
       MailWitchery: 1
+    Chef:
+      MailScienceHazardousMaterials: 0.05
     Chemist:
       MailMedicalChemistrySupplement: 2
       MailMedicalChemistryChems: 0.3

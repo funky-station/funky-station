@@ -23,8 +23,8 @@
 
 - type: entity
   parent: BaseMail
-  id: MailExtendedWarrantyCommand
-  suffix: Extended Warranty Scam Command
+  id: MailExtendedWarranty
+  suffix: Extended Warranty Scam
   components:
   - type: Mail
     contents:
@@ -51,3 +51,55 @@
     contents:
     - id: FoodContainerEgg
     - id: PaperEgging
+
+- type: entity
+  parent: BaseMail
+  id: MailSpamMail
+  suffix: Spam Mail
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: PaperSyndiRansomware
+      orGroup: spamMail
+    - id: PaperExtendedWarranty
+      orGroup: spamMail
+    - id: PaperZombieThreat
+      orGroup: spamMail
+
+- type: entity
+  parent: BaseMail
+  id: MailMasks
+  suffix: Masks
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: ClothingMaskBear
+      amount: 1
+      orGroup: Masks
+    - id: ClothingMaskBat
+      amount: 1
+      orGroup: Masks
+    - id: ClothingHeadHatRedRacoon
+      amount: 1
+      orGroup: Masks
+    - id: ClothingMaskBee
+      amount: 1
+      orGroup: Masks
+    - id: ClothingMaskJackal
+      amount: 1
+      orGroup: Masks
+    - id: ClothingMaskFox
+      amount: 1
+      orGroup: Masks
+    - id: ClothingMaskRat
+      amount: 1
+      orGroup: Masks
+    - id: ClothingHeadHatHoodMoth
+      amount: 1
+      orGroup: Masks
+    - id: ClothingMaskRaven
+      amount: 1
+      orGroup: Masks
+

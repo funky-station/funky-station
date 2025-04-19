@@ -556,7 +556,7 @@
     - SalvageMagnetMachineCircuitboard
     - OperatingTableCircuitboard # Shitmed Change
     - BorgChargerCircuitboard
-    - ElectrolyzerMachineBoard # Assmos - /tg/ gases
+    - BluespaceGasSenderMachineBoard # Assmos - Bluespace Gas
     dynamicRecipes:
     - ThermomachineFreezerMachineCircuitBoard
     - HellfireFreezerMachineCircuitBoard
@@ -635,6 +635,7 @@
     - JukeboxCircuitBoard
     - SMESAdvancedMachineCircuitboard
     - HolopadMachineCircuitboard
+    - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - ShuttleGunDusterCircuitboard

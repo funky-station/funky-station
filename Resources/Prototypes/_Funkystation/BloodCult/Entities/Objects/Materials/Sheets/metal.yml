@@ -1,0 +1,63 @@
+- type: entity
+  parent: [ SheetMetalBase, BaseBloodCultContraband ]
+  id: SheetRunedMetal
+  name: runed metal
+  suffix: Full
+  description: A sheet of otherworldly metal, used by acolytes of cosmic entities to assemble twisted constructs.
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RunedMetal: 100
+  - type: Stack
+    stackType: RunedMetal
+    baseLayer: base
+    layerStates:
+    - runedmetal
+    - runedmetal_2
+    - runedmetal_3
+  - type: Sprite
+    sprite: _Funkystation/BloodCult/Sheets/metal.rsi
+    state: runedmetal_3
+    layers:
+    - state: runedmetal_3
+      map: ["base"]
+  - type: Item
+    heldPrefix: runedmetal
+  - type: Appearance
+
+- type: entity
+  parent: SheetRunedMetal
+  id: SheetRunedMetal30
+  name: runed metal
+  suffix: Full
+  components:
+  - type: Sprite
+    state: runedmetal
+  - type: Stack
+    stackType: RunedMetal
+    count: 30
+
+- type: entity
+  parent: SheetRunedMetal
+  id: SheetRunedMetal10
+  name: runed metal
+  suffix: 10
+  components:
+  - type: Sprite
+    state: runedmetal
+  - type: Stack
+    stackType: RunedMetal
+    count: 10
+
+- type: entity
+  parent: SheetRunedMetal
+  id: SheetRunedMetal1
+  name: runed metal
+  suffix: Single
+  components:
+  - type: Sprite
+    state: runedmetal
+  - type: Stack
+    stackType: RunedMetal
+    count: 1

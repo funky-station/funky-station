@@ -608,5 +608,11 @@
 # Assmos - /tg/ gases
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
-  id: ElectrolyzerMachineBoard
-  result: ElectrolyzerMachineBoard
+  id: ElectrolyzerMachineCircuitboard
+  result: ElectrolyzerMachineCircuitboard
+  
+# Assmos - Bluespace Gas
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: BluespaceGasSenderMachineBoard
+  result: BluespaceGasSenderMachineBoard

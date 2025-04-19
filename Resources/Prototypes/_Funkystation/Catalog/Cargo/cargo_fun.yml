@@ -1,39 +1,9 @@
 - type: cargoProduct
-  id: FunDawnPlushies
-  icon:
-    sprite: _Funkystation/Objects/Fun/dawn_plush.rsi
-    state: plushie_dawn
-  product: CrateFunDawnPlushieBulk
-  cost: 2000
-  category: cargoproduct-category-name-fun
-  group: market
-
-- type: cargoProduct
   id: CrateCopsNRobbers
   icon:
     sprite: Clothing/Head/Hats/cowboyhatbrown.rsi
     state: icon
   product: CrateCopsNRobbers
-  cost: 2000
-  category: cargoproduct-category-name-fun
-  group: market
-
-- type: cargoProduct
-  id: FunSelfPlushies
-  icon:
-    sprite: _Funkystation/Objects/Fun/syrrikatickum_plush.rsi
-    state: plush_tickum
-  product: CrateFunPlushieSelfInsert
-  cost: 2000
-  category: cargoproduct-category-name-fun
-  group: market
-
-- type: cargoProduct
-  id: FunStowawayToys
-  icon:
-    sprite: _Funkystation/Objects/Fun/stowaway_toys.rsi
-    state: plushie_panda
-  product: CrateFunPlushieStowawayToys
   cost: 2000
   category: cargoproduct-category-name-fun
   group: market

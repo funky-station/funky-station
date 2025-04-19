@@ -6,7 +6,7 @@ namespace Content.Server.Cargo.Components;
 /// <summary>
 /// Added to the abstract representation of a station to track its money.
 /// </summary>
-[RegisterComponent, Access(typeof(SharedCargoSystem), typeof(StationPayoutEventSchedulerSystem), typeof(PayoutSystem))]
+[RegisterComponent, Access(typeof(SharedCargoSystem), typeof(StationRegularPayoutSystem), typeof(PayoutSystem))]
 public sealed partial class StationBankAccountComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite), DataField("balance")]

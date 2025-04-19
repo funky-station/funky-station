@@ -24,25 +24,26 @@ public sealed class LawSwapSystem : EntitySystem
         SubscribeLocalEvent<SiliconLawBoundComponent, LawboardDoAfterEvent>(WhenFinishedLawboard);
     }
 
-    private void WhenLawboardUsed(EntityUid uid, SiliconLawBoundComponent component, AfterInteractUsingEvent args)
+    private void WhenLawboardUsed(EntityUid uid, SiliconLawBoundComponent lawBoundComp, AfterInteractUsingEvent args)
     {
         if (args.Handled)
             return;
 
-        TryComp<SiliconLawBoundComponent>(args.Used, out var lawBoundComp);
+        TryComp<SiliconLawProviderComponent>(args.Used, out var lawBoardProvComp);
         TryComp<WiresPanelComponent>(args.Target, out var wirePanelComp);
-        
-        if (lawBoundComp == null || wirePanelComp == null)
+
+        if (lawBoardProvComp == null || wirePanelComp == null)
             return;
 
         if (wirePanelComp.Open)
         {
-            var doafter = new DoAfterArgs(EntityManager, args.User, 25.0f, new LawboardDoAfterEvent(), args.Target, target: args.Target, used: args.Used) {
+            var doafter = new DoAfterArgs(EntityManager, args.User, 25.0f, new LawboardDoAfterEvent(), args.Target, target: args.Target, used: args.Used)
+            {
                 BreakOnDamage = true,
                 BreakOnMove = true,
                 NeedHand = true,
             };
-            
+
             if (_doAfterSystem.TryStartDoAfter(doafter))
                 args.Handled = true;
         }
@@ -60,16 +61,16 @@ public sealed class LawSwapSystem : EntitySystem
         if (args.Handled || args.Cancelled || !args.Target.HasValue)
             return;
 
-        TryComp<SiliconLawProviderComponent>(args.Used, out var lawBoardComp);
+        TryComp<SiliconLawProviderComponent>(args.Used, out var lawBoardProvComp);
         TryComp<WiresPanelComponent>(args.Target, out var wirePanelComp);
-        if (lawBoardComp == null || wirePanelComp == null)
+        if (lawBoardProvComp == null || wirePanelComp == null)
             return;
 
         if (wirePanelComp.Open)
         {
-            _siliconLawSystem.SetLaws(_siliconLawSystem.GetLawset(lawBoardComp.Laws).Laws,
+            _siliconLawSystem.SetLaws(_siliconLawSystem.GetLawset(lawBoardProvComp.Laws).Laws,
                 args.Target.Value,
-                lawBoardComp.LawUploadSound);
+                lawBoardProvComp.LawUploadSound);
             _popupSystem.PopupEntity("You finish reprogramming the borg's laws.",
                 args.User,
                 args.User);

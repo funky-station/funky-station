@@ -2434,3 +2434,11 @@ Entries:
         is a Warden-based Objective, not Head of Security.
   id: 301
   time: '2025-04-19T21:48:06.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: A Revolutionary Mindshield has been added to the Metashield.
+    - type: Tweak
+      message: Rule 7 now states "There are no main characters"
+  id: 302
+  time: '2025-04-19T21:48:52.0000000+00:00'

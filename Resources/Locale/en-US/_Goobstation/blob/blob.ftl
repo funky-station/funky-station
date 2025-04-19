@@ -2,31 +2,31 @@ ent-SpawnPointGhostBlob = Blob spawner
     .suffix = DEBUG, Ghost Role Spawner
     .desc = { ent-MarkerBase.desc }
 ent-MobBlobPod = Blob Drop
-    .desc = An ordinary blob fighter. He can zombify corpses.
+    .desc = A floating, aggressive blob creature that seems to be puffed up with gas. Parasitically zombifies dead organisms by attaching themselves to their head, forcing their body and brain to reanimate.
 ent-MobBlobBlobbernaut = Blobbernaut
-    .desc = Elite blob fighter. He has great power.
+    .desc = A resilient and powerful blob creature, highly territorial.
 ent-BaseBlob = basic blob.
     .desc = { "" }
-ent-NormalBlobTile = Regular Tile Blob
-    .desc = An ordinary part of the blob required for the construction of more advanced tiles.
+ent-NormalBlobTile = blob infestation
+    .desc = A large swath of blob biomass required for the construction of blob structures. It lashes out at everything around it.
 ent-CoreBlobTile = Blob Core
     .desc = The most important part of the blob. By destroying the core, all other parts will die.
 ent-FactoryBlobTile = Blob Factory
-    .desc = Spawns Blob Drops and Blobburnouts over time.
+    .desc = A disgusting looking blob structure that creates blob drops over time, and creates powerful blobbernauts when fed resources.
 ent-ResourceBlobTile = Resource Blob
-    .desc = Produces resources for the blob, thus being an important part of its growth.
+    .desc = A hill-shaped blob structure that constantly produces a yellow viscous fluid. The fluid seems to seep into the surrounding infestation, helping it to spread and grow... 
 ent-NodeBlobTile = Blob Node
-    .desc = A mini version of the core that allows you to place special blob tiles around itself
-ent-StrongBlobTile = Strong Blob Tile
-    .desc = A reinforced version of the regular tile. It does not allow air to pass through and protects against mechanical damage.
-ent-ReflectiveBlobTile = Blob Reflective Tiles
-    .desc = It reflects lasers, but does not protect against mechanical damage as well.
+    .desc = A mini version of the core that allows special blob structures to be constructed around itself.
+ent-StrongBlobTile = thick blob infestation
+    .desc = A raised, reinforced swath of blob biomass. It does not allow air to pass through and protects against kinetic damage.
+ent-ReflectiveBlobTile = reflective blob infestation
+    .desc = A swath of reflective blob biomass which reflects lasers, but does not protect against kinetic damage as well.
     .desc = { "" }
 objective-issuer-blob = Blob
 
 
 ghost-role-information-blobbernaut-name = Blobbernaut
-ghost-role-information-blobbernaut-description = You are a Blobbernaut. You must defend blob core.
+ghost-role-information-blobbernaut-description = You are a blobbernaut. You must defend the Blob Core at all costs.
 
 ghost-role-information-blob-name = Blob
 ghost-role-information-blob-description = You are a Blob. You must consume the station.
@@ -61,8 +61,8 @@ blob-mob-zombify-third-start = { $pod } starts turning { $target } into a zombie
 blob-mob-zombify-second-end = { $pod } turns you into a zombie.
 blob-mob-zombify-third-end = { $pod } turns { $target } into a zombie.
 
-blobberaut-factory-destroy = factory destroy
-blob-target-already-connected = already connected
+blobberaut-factory-destroy = You are dying due to the destruction of your origin factory.
+blob-target-already-connected = This tile is already connected.
 
 
 # UI
@@ -89,17 +89,17 @@ blob-alert-out-off-station = The blob was removed because it was found outside t
 
 # Announcment
 blob-alert-recall-shuttle = The emergency shuttle can not be sent while there is a level 5 biohazard present on the station.
-blob-alert-detect = Confirmed outbreak of level 5 biohazard aboard the station. All personnel must contain the outbreak. The emergency shuttles can not be sent due to contamination risks.
+blob-alert-detect = Confirmed outbreak of level 5 biohazard aboard the station. All personnel must contain the outbreak. The emergency shuttle can not be sent due to contamination risks.
 blob-alert-critical = Biohazard level critical, nuclear authentication codes have been sent to the station. Central Command orders any remaining personnel to activate the self-destruction mechanism.
-blob-alert-critical-NoNukeCode = Biohazard level critical. Central Command orders any remaining personnel to seek shelter, and await resque.
+blob-alert-critical-NoNukeCode = Biohazard level critical. Central Command orders any remaining personnel to seek shelter, and await rescue.
 
 # Actions
 blob-create-factory-action-name = Place Factory Blob (80)
-blob-create-factory-action-desc = Turns selected normal blob into a factory blob, which will produce up to 3 spores and a blobbernaut if placed next to a core or a node.
+blob-create-factory-action-desc = Builds a Factory Blob on top of an infestation tile, which will produce up to 3 blob drops if placed next to a core or a node. A blobbernaut can also be created here if fed resources.
 blob-create-resource-action-name = Place Resource Blob (60)
-blob-create-resource-action-desc = Turns selected normal blob into a resource blob which will generates resources if placed next to a core or a node.
+blob-create-resource-action-desc = Builds a Resource Blob on top of an infestation tile, which will generates resources if placed next to a core or a node.
 blob-create-node-action-name = Place Node Blob (50)
-blob-create-node-action-desc = Turns selected normal blob into a node blob.
+blob-create-node-action-desc = Builds a Node Blob on top of an infestation tile.
                                 A node blob will activate effects of factory and resource blobs, heal other blobs and slowly expand, destroying walls and creating normal blobs.
 blob-produce-blobbernaut-action-name = Produce a Blobbernaut (60)
 blob-produce-blobbernaut-action-desc = Creates a blobbernaut on the selected factory. Each factory can only do this once. The blobbernaut will take damage outside of blob tiles and heal when close to nodes.
@@ -116,16 +116,16 @@ blob-help-action-desc = Get basic information about playing as blob.
 blob-swap-chem-action-name = Swap chemicals (70)
 blob-swap-chem-action-desc = Lets you swap your current chemical.
 blob-carrier-transform-to-blob-action-name = Transform into a blob
-blob-carrier-transform-to-blob-action-desc = Instantly destoys your body and creates a blob core. Make sure to stand on a floor tile, otherwise you will simply disappear.
-blob-downgrade-action-name = downgrade blob(0)
-blob-downgrade-action-desc = Turns the selected tile back into a normal blob to install other types of cages.
+blob-carrier-transform-to-blob-action-desc = Instantly destroys your body and creates a blob core. Make sure to stand on a floor tile, otherwise you will simply disappear.
+blob-downgrade-action-name = Downgrade Blob tile (0)
+blob-downgrade-action-desc = Turns the selected tile back into a normal blob.
 
 # Ghost role
 blob-carrier-role-name = Blob carrier
 blob-carrier-role-desc =  A blob-infected creature.
-blob-carrier-role-rules = You are an antagonist. You have 4 minutes before you transform into a blob.
+blob-carrier-role-rules = You are an antagonist. You have 10 minutes before you automatically transform into a blob.
                         Use this time to find a safe spot on the station. Keep in mind that you will be very weak right after the transformation.
-blob-carrier-role-greeting = You are a carrier of Blob. Find a secluded place at the station and transform into a Blob. Turn the station into a mass and its inhabitants into your servants. We are all Blobs.
+blob-carrier-role-greeting = You are a carrier of the Blob. Find a secluded place on the station and transform into a Blob. Turn the station into a mass, and its inhabitants into your servants.
 
 # Verbs
 blob-pod-verb-zombify = Zombify
@@ -166,7 +166,9 @@ blob-user-was-a-blob-with-objectives = [color=gray]{$user}[/color] was a blob wh
 blob-user-was-a-blob-with-objectives-named = [color=White]{$name}[/color] ([color=gray]{$user}[/color]) was a blob who had the following objectives:
 blob-was-a-blob-with-objectives-named = [color=White]{$name}[/color] was a blob who had the following objectives:
 
-# Objectivies
+admin-verb-text-make-blob = Infect the target with the Blob.
+
+# Objectives
 objective-condition-blob-capture-title = Take over the station
 objective-condition-blob-capture-description = Your only goal is to take over the whole station. You need to have at least {$count} blob tiles.
 objective-condition-success = { $condition } | [color={ $markupColor }]Success![/color]

@@ -39,6 +39,10 @@
   name: "ipc torso"
   parent: PartIPC
   components:
+  - type: Item
+    size: Ginormous
+    shape:
+    - 0,0,5,3
   - type: Sprite
     netsync: false
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
@@ -92,10 +96,15 @@
   name: "ipc head"
   parent: PartIPC
   components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,1,1
   - type: Sprite
     netsync: false
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: "head_m"
+    offset: 0,-0.3
   - type: Icon
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: "head_m"
@@ -121,10 +130,15 @@
   name: "left ipc arm"
   parent: PartIPC
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     netsync: false
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: "l_arm"
+    offset: -0.2,0
   - type: Icon
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: "l_arm"
@@ -141,10 +155,15 @@
   name: "right ipc arm"
   parent: PartIPC
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     netsync: false
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: "r_arm"
+    offset: 0.2,0
   - type: Icon
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: "r_arm"
@@ -161,10 +180,13 @@
   name: "left ipc hand"
   parent: PartIPC
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     netsync: false
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: "l_hand"
+    offset: -0.2,0.1
   - type: Icon
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: "l_hand"
@@ -177,10 +199,13 @@
   name: "right ipc hand"
   parent: PartIPC
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     netsync: false
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: "r_hand"
+    offset: 0.2,0.1
   - type: Icon
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: "r_hand"
@@ -193,10 +218,15 @@
   name: "left ipc leg"
   parent: PartIPC
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     netsync: false
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: "l_leg"
+    offset: -0.1,0.3
   - type: Icon
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: "l_leg"
@@ -214,10 +244,15 @@
   name: "right ipc leg"
   parent: PartIPC
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     netsync: false
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: "r_leg"
+    offset: 0.1,0.3
   - type: Icon
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: "r_leg"
@@ -235,10 +270,13 @@
   name: "left ipc foot"
   parent: PartIPC
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     netsync: false
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: "l_foot"
+    offset: -0.15,0.45
   - type: Icon
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: "l_foot"
@@ -251,10 +289,13 @@
   name: "right ipc foot"
   parent: PartIPC
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     netsync: false
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: "r_foot"
+    offset: 0.15,0.45
   - type: Icon
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: "r_foot"

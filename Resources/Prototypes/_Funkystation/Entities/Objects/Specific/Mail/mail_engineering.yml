@@ -1,0 +1,40 @@
+- type: entity
+  parent: BaseMailRadioactive
+  id: MailEngineeringBoards
+  suffix: Engi Boards
+  components:
+  - type: Mail
+    contents:
+    - id: CutterMachineCircuitboard
+      orGroup: engiboard
+    - id: ThermomachineFreezerMachineCircuitBoard
+      orGroup: engiboard
+    - id: ThermomachineHeaterMachineCircuitBoard
+      orGroup: engiboard
+    - id: CondenserMachineCircuitBoard
+      orGroup: engiboard
+    - id: DoorElectronics
+      amount: 2
+      orGroup: engiboard
+    - id: APCElectronics
+      amount: 2
+      orGroup: engiboard
+    - id: AirAlarmElectronics
+      amount: 2
+      orGroup: engiboard
+    - id: PowerComputerCircuitboard
+      orGroup: engiboard
+    - id: AlertsComputerCircuitboard
+      orGroup: engiboard
+    - id: AtmosMonitoringComputerCircuitboard
+      orGroup: engiboard
+    - id: SMESAdvancedMachineCircuitboard
+      orGroup: engiboard
+    - id: GyroscopeMachineCircuitboard
+      orGroup: engiboard
+    - id: MiniGravityGeneratorCircuitboard
+      orGroup: engiboard
+    - id: ShuttleConsoleCircuitboard
+      orGroup: engiboard
+    - id: SolarControlComputerCircuitboard
+      orGroup: engiboard

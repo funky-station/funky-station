@@ -246,6 +246,7 @@
       tags:
       - BoxCardboard
 
+# Topicals seem a bit weird right now, so I am disabling them while I figure it out
 - type: cargoBountyCategory
   id: medicalCategory
   name: bounty-category-medical
@@ -285,13 +286,13 @@
     whitelist:
       tags:
       - Medkit
-  - name: bounty-item-bloodpack
-    minAmount: 20
-    maxAmount: 60
-    rewardPer: 100
-    whitelist:
-      tags:
-      - Bloodpack
+#  - name: bounty-item-bloodpack
+#    minAmount: 20
+#    maxAmount: 60
+#    rewardPer: 100
+#    whitelist:
+#      tags:
+#      - Bloodpack
   - name: bounty-item-bodybag
     minAmount: 1
     maxAmount: 10
@@ -299,13 +300,13 @@
     whitelist:
       tags:
       - BodyBag
-  - name: bounty-item-brutepack
-    minAmount: 10
-    maxAmount: 50
-    rewardPer: 60
-    whitelist:
-      tags:
-      - Brutepack
+#  - name: bounty-item-brutepack
+#    minAmount: 10
+#    maxAmount: 50
+#    rewardPer: 60
+#    whitelist:
+#      tags:
+#      - Brutepack
   - name: bounty-item-dropper
     minAmount: 8
     maxAmount: 12
@@ -320,13 +321,13 @@
     whitelist:
       tags:
       - Eyes
-  - name: bounty-item-gauze
-    minAmount: 10
-    maxAmount: 50
-    rewardPer: 60
-    whitelist:
-      tags:
-      - Gauze
+#  - name: bounty-item-gauze
+#    minAmount: 10
+#    maxAmount: 50
+#    rewardPer: 60
+#    whitelist:
+#      tags:
+#      - Gauze
   - name: bounty-item-kidney
     minAmount: 2
     maxAmount: 5
@@ -341,13 +342,13 @@
     whitelist:
       tags:
       - Liver
-  - name: bounty-item-ointment
-    minAmount: 20
-    maxAmount: 60
-    rewardPer: 35
-    whitelist:
-      tags:
-      - Ointment
+#  - name: bounty-item-ointment
+#    minAmount: 20
+#    maxAmount: 60
+#    rewardPer: 35
+#    whitelist:
+#      tags:
+#      - Ointment
   - name: bounty-item-stomach
     minAmount: 2
     maxAmount: 5
@@ -628,9 +629,9 @@
       tags:
       - PrisonUniform
   - name: bounty-item-lasergun
-    minAmount: 4
-    maxAmount: 8
-    rewardPer: 3500
+    minAmount: 2
+    maxAmount: 6
+    rewardPer: 4500
     whitelist:
       components:
       - HitscanBatteryAmmoProvider
@@ -799,21 +800,21 @@
   - name: bounty-item-book
     minAmount: 3
     maxAmount: 10
-    rewardPer: 100
+    rewardPer: 400
     whitelist:
       tags:
       - Book
   - name: bounty-item-dice
-    minAmount: 2
+    minAmount: 3
     maxAmount: 6
-    rewardPer: 100
+    rewardPer: 400
     whitelist:
       tags:
       - Dice
   - name: bounty-item-board-game
     minAmount: 2
     maxAmount: 5
-    rewardPer: 100
+    rewardPer: 550
     whitelist:
       tags:
       - TabletopBoard

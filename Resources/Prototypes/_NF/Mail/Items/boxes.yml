@@ -1,5 +1,7 @@
 # Mail-only boxes. If/when something uses these outside of the mail, move the entry into Catalog/Fills.
 
+#Body parts gridinv breaks these. They need reworked to work with the new sizes. Crates recomended
+
 - type: entity
   name: scented soap sampler pack
   parent: BoxCardboard
@@ -63,32 +65,31 @@
   components:
   - type: StorageFill
     contents:
-      - id: HeadHuman
+      - id: OrganHumanEyes
         amount: 1
-      - id: TorsoHuman
+      - id: OrganHumanTongue
         amount: 1
-      - id: LeftArmHuman
+      - id: OrganHumanAppendix
         amount: 1
-      - id: RightArmHuman
+      - id: OrganHumanEars
         amount: 1
-      - id: LeftHandHuman
+      - id: OrganHumanLungs
         amount: 1
-      - id: RightHandHuman
+      - id: OrganHumanHeart
         amount: 1
-      - id: LeftLegHuman
+      - id: OrganHumanStomach
         amount: 1
-      - id: RightLegHuman
+      - id: OrganHumanLiver
         amount: 1
-      - id: LeftFootHuman
-        amount: 1
-      - id: RightFootHuman
+      - id: OrganHumanKidneys
         amount: 1
   - type: Storage
+    maxItemSize: Huge
     grid:
-    - 0,0,4,3
+    - 0,0,6,4
     whitelist:
       components:
-        - BodyPart
+        - Organ
 
 # DeltaV - Goblins Aren't Real
 #- type: entity
@@ -120,7 +121,7 @@
 #        amount: 1
 #      - id: RightFootGoblin
 #        amount: 1
-
+#
 - type: entity
   name: Build-a-Buddy kit
   suffix: Reptilian
@@ -130,26 +131,25 @@
   components:
   - type: StorageFill
     contents:
-      - id: HeadReptilian
+      - id: OrganHumanEyes
         amount: 1
-      - id: TorsoReptilian
+      - id: OrganHumanLungs
         amount: 1
-      - id: LeftArmReptilian
+      - id: OrganAnimalHeart
         amount: 1
-      - id: RightArmReptilian
+      - id: OrganAnimalStomach
         amount: 1
-      - id: LeftHandReptilian
+      - id: OrganAnimalLiver
         amount: 1
-      - id: RightHandReptilian
+      - id: OrganHumanKidneys
         amount: 1
-      - id: LeftLegReptilian
-        amount: 1
-      - id: RightLegReptilian
-        amount: 1
-      - id: LeftFootReptilian
-        amount: 1
-      - id: RightFootReptilian
-        amount: 1
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,6,4
+    whitelist:
+      components:
+      - Organ
 
 - type: entity
   name: Build-a-Buddy kit
@@ -160,26 +160,168 @@
   components:
   - type: StorageFill
     contents:
-      - id: HeadSlime
+      - id: SentientSlimeCore
         amount: 1
-      - id: TorsoSlime
+      - id: OrganSlimeLungs
         amount: 1
-      - id: LeftArmSlime
-        amount: 1
-      - id: RightArmSlime
-        amount: 1
-      - id: LeftHandSlime
-        amount: 1
-      - id: RightHandSlime
-        amount: 1
-      - id: LeftLegSlime
-        amount: 1
-      - id: RightLegSlime
-        amount: 1
-      - id: LeftFootSlime
-        amount: 1
-      - id: RightFootSlime
-        amount: 1
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,6,4
+    whitelist:
+      components:
+      - Organ
+
+- type: entity
+  name: Build-a-Buddy kit
+  suffix: Moth
+  parent: BoxHug
+  id: BoxBuildABuddyMoth
+  description: "\"Molly the Moth\" Build-a-Buddy kit. Some assembly required."
+  components:
+  - type: StorageFill
+    contents:
+    - id: OrganHumanEyes
+      amount: 1
+    - id: OrganHumanAppendix
+      amount: 1
+    - id: OrganHumanLungs
+      amount: 1
+    - id: OrganAnimalHeart
+      amount: 1
+    - id: OrganMothStomach
+      amount: 1
+    - id: OrganAnimalLiver
+      amount: 1
+    - id: OrganHumanKidneys
+      amount: 1
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,6,4
+    whitelist:
+      components:
+      - Organ
+
+- type: entity
+  name: Build-a-Buddy kit
+  suffix: Vox
+  parent: BoxHug
+  id: BoxBuildABuddyVox
+  description: "\"Viskaravase the Vox\" Build-a-Buddy kit. Some assembly required."
+  components:
+  - type: StorageFill
+    contents:
+    - id: OrganHumanEyes
+      amount: 1
+    - id: OrganVoxLungs
+      amount: 1
+    - id: OrganHumanHeart
+      amount: 1
+    - id: OrganHumanStomach
+      amount: 1
+    - id: OrganHumanLiver
+      amount: 1
+    - id: OrganHumanKidneys
+      amount: 1
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,6,4
+    whitelist:
+      components:
+      - Organ
+
+- type: entity
+  name: Build-a-Buddy kit
+  suffix: Diona
+  parent: BoxHug
+  id: BoxBuildABuddyDiona
+  description: "\"Denny the Diona\" Build-a-Buddy kit. Some assembly required."
+  components:
+  - type: StorageFill
+    contents:
+    - id: OrganDionaBrain
+      amount: 1
+    - id: OrganDionaEyes
+      amount: 1
+    - id: OrganDionaStomach
+      amount: 1
+    - id: OrganDionaLungs
+      amount: 1
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,6,4
+    whitelist:
+      components:
+      - Organ
+
+- type: entity
+  name: Build-a-Buddy kit
+  suffix: Arachnid
+  parent: BoxHug
+  id: BoxBuildABuddyArachnid
+  description: "\"Henry the Human\" Build-a-Buddy kit. Some assembly required."
+  components:
+  - type: StorageFill
+    contents:
+    - id: OrganArachnidStomach
+      amount: 1
+    - id: OrganArachnidLungs
+      amount: 1
+    - id: OrganArachnidHeart
+      amount: 1
+    - id: OrganArachnidLiver
+      amount: 1
+    - id: OrganArachnidKidneys
+      amount: 1
+    - id: OrganArachnidEyes
+      amount: 1
+    - id: OrganArachnidTongue
+      amount: 1
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,6,4
+    whitelist:
+      components:
+      - Organ
+
+- type: entity
+  name: Build-a-Buddy kit
+  suffix: Gingerbread
+  parent: BoxHug
+  id: BoxBuildABuddyGingerbread
+  description: "\"Garry the Gingerbread\" Build-a-Buddy kit. Some assembly required."
+  components:
+  - type: StorageFill
+    contents:
+    - id: OrganHumanEyes
+      amount: 1
+    - id: OrganHumanTongue
+      amount: 1
+    - id: OrganHumanAppendix
+      amount: 1
+    - id: OrganHumanEars
+      amount: 1
+    - id: OrganHumanLungs
+      amount: 1
+    - id: OrganHumanHeart
+      amount: 1
+    - id: OrganHumanStomach
+      amount: 1
+    - id: OrganHumanLiver
+      amount: 1
+    - id: OrganHumanKidneys
+      amount: 1
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,6,4
+    whitelist:
+      components:
+      - Organ
 
 - type: entity
   name: Build-a-Buddy kit
@@ -190,23 +332,123 @@
   components:
   - type: StorageFill
     contents:
-      - id: HeadVulpkanin
-        amount: 1
-      - id: TorsoVulpkanin
-        amount: 1
-      - id: LeftArmVulpkanin
-        amount: 1
-      - id: RightArmVulpkanin
-        amount: 1
-      - id: LeftHandVulpkanin
-        amount: 1
-      - id: RightHandVulpkanin
-        amount: 1
-      - id: LeftLegVulpkanin
-        amount: 1
-      - id: RightLegVulpkanin
-        amount: 1
-      - id: LeftFootVulpkanin
-        amount: 1
-      - id: RightFootVulpkanin
-        amount: 1
+    - id: OrganHumanEyes
+      amount: 1
+    - id: OrganHumanTongue
+      amount: 1
+    - id: OrganHumanAppendix
+      amount: 1
+    - id: OrganHumanEars
+      amount: 1
+    - id: OrganHumanLungs
+      amount: 1
+    - id: OrganHumanHeart
+      amount: 1
+    - id: OrganVulpkaninStomach
+      amount: 1
+    - id: OrganHumanLiver
+      amount: 1
+    - id: OrganHumanKidneys
+      amount: 1
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,6,4
+    whitelist:
+      components:
+      - Organ
+
+- type: entity
+  name: Build-a-Buddy kit
+  suffix: Rodentia
+  parent: BoxBuildABuddyHuman
+  id: BoxBuildABuddyRodentia
+  description: "\"Ralph the Rodentia\" Build-a-Buddy kit. Some assembly required."
+  components:
+  - type: StorageFill
+    contents:
+    - id: OrganHumanEyes
+      amount: 1
+    - id: OrganHumanTongue
+      amount: 1
+    - id: OrganHumanAppendix
+      amount: 1
+    - id: OrganHumanEars
+      amount: 1
+    - id: OrganHumanLungs
+      amount: 1
+    - id: OrganAnimalHeart
+      amount: 1
+    - id: OrganAnimalStomach
+      amount: 1
+    - id: OrganAnimalLiver
+      amount: 1
+    - id: OrganAnimalKidneys
+      amount: 1
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,6,4
+    whitelist:
+      components:
+      - Organ
+
+- type: entity
+  name: Build-a-Buddy kit
+  suffix: Harpy
+  parent: BoxBuildABuddyHuman
+  id: BoxBuildABuddyHarpy
+  description: "\"Harrie the Harpy\" Build-a-Buddy kit. Some assembly required."
+  components:
+  - type: StorageFill
+    contents:
+    - id: OrganHumanEyes
+      amount: 1
+    - id: OrganHumanTongue
+      amount: 1
+    - id: OrganHumanAppendix
+      amount: 1
+    - id: OrganHumanEars
+      amount: 1
+    - id: OrganHarpyLungs
+      amount: 1
+    - id: OrganHumanHeart
+      amount: 1
+    - id: OrganAnimalStomach
+      amount: 1
+    - id: OrganAnimalLiver
+      amount: 1
+    - id: OrganAnimalKidneys
+      amount: 1
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,6,4
+    whitelist:
+      components:
+      - Organ
+
+- type: entity
+  name: Build-a-Buddy kit
+  suffix: IPC
+  parent: BoxBuildABuddyHuman
+  id: BoxBuildABuddyIPC
+  description: "\"1RI5 the IPC\" Build-a-Buddy kit. Some assembly required."
+  components:
+  - type: StorageFill
+    contents:
+    - id: OrganIPCEyes
+      amount: 1
+    - id: OrganIPCTongue
+      amount: 1
+    - id: OrganIPCEars
+      amount: 1
+    - id: OrganIPCPump
+      amount: 1
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,6,4
+    whitelist:
+      components:
+      - Organ

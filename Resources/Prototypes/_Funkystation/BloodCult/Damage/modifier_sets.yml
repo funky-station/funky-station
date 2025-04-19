@@ -1,0 +1,8 @@
+- type: damageModifierSet
+  id: CultJuggernaut
+  flatReductions:
+    Blunt: 10.0
+    Slash: 10.0
+    Piercing: 10.0
+    Shock: 10.0
+    Heat: 10.0

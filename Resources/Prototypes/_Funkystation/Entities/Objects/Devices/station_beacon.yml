@@ -1,0 +1,8 @@
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconInternalAffairs
+  suffix: Internal Affairs
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-internal-affairs
+    color: "#D1323D"

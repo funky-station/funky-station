@@ -214,6 +214,13 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         _profileEditor?.RefreshLoadouts();
     }
 
+    private void SaveJobPriorities()
+    {
+        if (_jobPriorityEditor == null)
+            return;
+        SaveJobPriorities(_jobPriorityEditor.SelectedJobPriorities);
+    }
+
     private void SaveJobPriorities(Dictionary<ProtoId<JobPrototype>, JobPriority> newJobPriorities)
     {
         _preferencesManager.UpdateJobPriorities(newJobPriorities);
@@ -250,7 +257,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         }
     }
 
-    private void OpenSavePanel()
+    private void OpenSavePanel(Action saveAction)
     {
         if (_savePanel is { IsOpen: true })
             return;
@@ -259,7 +266,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
 
         _savePanel.SaveButton.OnPressed += _ =>
         {
-            SaveProfile();
+            saveAction?.Invoke();
 
             _savePanel.Close();
 
@@ -308,9 +315,16 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         _characterSetup.CloseButton.OnPressed += _ =>
         {
             // Open the save panel if we have unsaved changes.
-            if (_profileEditor.Profile != null && _profileEditor.IsDirty)
+            if( _profileEditor.Visible && _profileEditor.Profile != null && _profileEditor.IsDirty)
             {
-                OpenSavePanel();
+                OpenSavePanel(SaveProfile);
+
+                return;
+            }
+
+            if (_jobPriorityEditor.Visible && _jobPriorityEditor.IsDirty)
+            {
+                OpenSavePanel(SaveJobPriorities);
 
                 return;
             }

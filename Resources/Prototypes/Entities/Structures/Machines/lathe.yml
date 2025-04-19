@@ -635,6 +635,7 @@
     - JukeboxCircuitBoard
     - SMESAdvancedMachineCircuitboard
     - HolopadMachineCircuitboard
+    - MusicTechFabCircuitboard # Funky Station
     - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases
   - type: EmagLatheRecipes
     emagDynamicRecipes:

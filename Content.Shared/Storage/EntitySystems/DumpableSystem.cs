@@ -1,28 +1,13 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
-// SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Disposal;
+using Content.Shared.Disposal.Components;
+using Content.Shared.Disposal.Unit;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
+using Content.Shared.Placeable;
 using Content.Shared.Storage.Components;
 using Content.Shared.Verbs;
-using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -36,6 +21,7 @@ public sealed class DumpableSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedDisposalUnitSystem _disposalUnitSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
@@ -53,12 +39,10 @@ public sealed class DumpableSystem : EntitySystem
 
     private void OnAfterInteract(EntityUid uid, DumpableComponent component, AfterInteractEvent args)
     {
-        if (!args.CanReach || args.Handled || args.Target is not { } target)
+        if (!args.CanReach || args.Handled)
             return;
 
-        var evt = new GetDumpableVerbEvent(args.User, null);
-        RaiseLocalEvent(target, ref evt);
-        if (evt.Verb is null)
+        if (!HasComp<DisposalUnitComponent>(args.Target) && !HasComp<PlaceableSurfaceComponent>(args.Target))
             return;
 
         if (!TryComp<StorageComponent>(uid, out var storage))
@@ -67,7 +51,7 @@ public sealed class DumpableSystem : EntitySystem
         if (!storage.Container.ContainedEntities.Any())
             return;
 
-        StartDoAfter(uid, target, args.User, component);
+        StartDoAfter(uid, args.Target.Value, args.User, component);
         args.Handled = true;
     }
 
@@ -99,22 +83,33 @@ public sealed class DumpableSystem : EntitySystem
         if (!TryComp<StorageComponent>(uid, out var storage) || !storage.Container.ContainedEntities.Any())
             return;
 
-        var evt = new GetDumpableVerbEvent(args.User, null);
-        RaiseLocalEvent(args.Target, ref evt);
-
-        if (evt.Verb is not { } verbText)
-            return;
-
-        UtilityVerb verb = new()
+        if (HasComp<DisposalUnitComponent>(args.Target))
         {
-            Act = () =>
+            UtilityVerb verb = new()
             {
-                StartDoAfter(uid, args.Target, args.User, dumpable);
-            },
-            Text = verbText,
-            IconEntity = GetNetEntity(uid)
-        };
-        args.Verbs.Add(verb);
+                Act = () =>
+                {
+                    StartDoAfter(uid, args.Target, args.User, dumpable);
+                },
+                Text = Loc.GetString("dump-disposal-verb-name", ("unit", args.Target)),
+                IconEntity = GetNetEntity(uid)
+            };
+            args.Verbs.Add(verb);
+        }
+
+        if (HasComp<PlaceableSurfaceComponent>(args.Target))
+        {
+            UtilityVerb verb = new()
+            {
+                Act = () =>
+                {
+                    StartDoAfter(uid, args.Target, args.User, dumpable);
+                },
+                Text = Loc.GetString("dump-placeable-verb-name", ("surface", args.Target)),
+                IconEntity = GetNetEntity(uid)
+            };
+            args.Verbs.Add(verb);
+        }
     }
 
     private void StartDoAfter(EntityUid storageUid, EntityUid targetUid, EntityUid userUid, DumpableComponent dumpable)
@@ -146,15 +141,34 @@ public sealed class DumpableSystem : EntitySystem
 
     private void OnDoAfter(EntityUid uid, DumpableComponent component, DumpableDoAfterEvent args)
     {
-        if (args.Handled || args.Cancelled || !TryComp<StorageComponent>(uid, out var storage) || storage.Container.ContainedEntities.Count == 0 || args.Args.Target is not { } target)
+        if (args.Handled || args.Cancelled || !TryComp<StorageComponent>(uid, out var storage) || storage.Container.ContainedEntities.Count == 0)
             return;
 
         var dumpQueue = new Queue<EntityUid>(storage.Container.ContainedEntities);
 
-        var evt = new DumpEvent(dumpQueue, args.Args.User, false, false);
-        RaiseLocalEvent(target, ref evt);
+        var dumped = false;
 
-        if (!evt.Handled)
+        if (HasComp<DisposalUnitComponent>(args.Args.Target))
+        {
+            dumped = true;
+
+            foreach (var entity in dumpQueue)
+            {
+                _disposalUnitSystem.DoInsertDisposalUnit(args.Args.Target.Value, entity, args.Args.User);
+            }
+        }
+        else if (HasComp<PlaceableSurfaceComponent>(args.Args.Target))
+        {
+            dumped = true;
+
+            var (targetPos, targetRot) = _transformSystem.GetWorldPositionRotation(args.Args.Target.Value);
+
+            foreach (var entity in dumpQueue)
+            {
+                _transformSystem.SetWorldPositionRotation(entity, targetPos + _random.NextVector2Box() / 4, targetRot);
+            }
+        }
+        else
         {
             var targetPos = _transformSystem.GetWorldPosition(uid);
 
@@ -163,41 +177,11 @@ public sealed class DumpableSystem : EntitySystem
                 var transform = Transform(entity);
                 _transformSystem.SetWorldPositionRotation(entity, targetPos + _random.NextVector2Box() / 4, _random.NextAngle(), transform);
             }
-
-            return;
         }
-
-        if (evt.PlaySound)
-        {
-            _audio.PlayPredicted(component.DumpSound, uid, args.Args.User);
-        }
-    }
-
-    [PublicAPI]
-    public void DumpContents(EntityUid uid, EntityUid? target, EntityUid user, DumpableComponent? component = null)
-    {
-        if (!TryComp<StorageComponent>(uid, out var storage)
-            || !Resolve(uid, ref component))
-            return;
-
-        if (storage.Container.ContainedEntities.Count == 0)
-            return;
-
-        var dumpQueue = new Queue<EntityUid>(storage.Container.ContainedEntities);
-
-        var dumped = false;
-
-        var targetPos = _transformSystem.GetWorldPosition(uid);
-
-            foreach (var entity in dumpQueue)
-            {
-                var transform = Transform(entity);
-                _transformSystem.SetWorldPositionRotation(entity, targetPos + _random.NextVector2Box() / 4, _random.NextAngle(), transform);
-            }
 
         if (dumped)
         {
-            _audio.PlayPredicted(component.DumpSound, uid, user);
+            _audio.PlayPredicted(component.DumpSound, uid, args.User);
         }
     }
 }

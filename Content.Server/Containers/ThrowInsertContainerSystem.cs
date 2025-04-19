@@ -8,6 +8,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Administration.Logs;
+using Content.Shared.Containers;
 using Content.Shared.Database;
 using Content.Shared.Popups;
 using Content.Shared.Throwing;
@@ -68,10 +69,3 @@ public sealed class ThrowInsertContainerSystem : EntitySystem
             _adminLogger.Add(LogType.Landed, LogImpact.Low, $"{ToPrettyString(args.Thrown)} thrown by {ToPrettyString(args.Component.Thrower.Value):player} landed in {ToPrettyString(ent)}");
     }
 }
-
-/// <summary>
-/// Sent before the insertion is made.
-/// Allows preventing the insertion if any system on the entity should need to.
-/// </summary>
-[ByRefEvent]
-public record struct BeforeThrowInsertEvent(EntityUid ThrownEntity, bool Cancelled = false);

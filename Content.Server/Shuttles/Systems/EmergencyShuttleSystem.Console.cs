@@ -29,7 +29,6 @@
 // SPDX-License-Identifier: MIT
 
 using System.Threading;
-using Content.Server.DeviceNetwork.Components;
 using Content.Server.Screens.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
@@ -45,6 +44,7 @@ using Content.Shared.Shuttles.Systems;
 using Content.Shared.UserInterface;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
+using Content.Shared.DeviceNetwork.Components;
 using Timer = Robust.Shared.Timing.Timer;
 using System.Net;
 using System.Net.Sockets;

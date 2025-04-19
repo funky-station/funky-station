@@ -1,53 +1,69 @@
 using System.Linq;
 using Content.Server.Cargo.Components;
 using Content.Server.Chat.Systems;
-using Content.Server.CriminalRecords.Systems;
-using Content.Server.GameTicking;
+using Robust.Shared.Timing;
 using Content.Server.GameTicking.Rules;
-using Content.Server.Station.Systems;
-using Content.Server.StationEvents;
-using Content.Server.StationEvents.Events;
 using Content.Server.StationRecords.Systems;
 using Content.Shared.CriminalRecords;
-using Content.Shared.GameTicking;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Security;
 using Content.Shared.StationRecords;
-using Robust.Shared.Timing;
+using Content.Server._Funkystation.Payouts.Components;
 
 namespace Content.Server._Funkystation.Payouts;
 
-public sealed class StationPayoutEventSchedulerSystem : StationEventSystem<StationPayoutEventSchedulerComponent>
+public sealed class StationRegularPayoutSystem : GameRuleSystem<StationRegularPayoutComponent>
 {
     [Dependency] private readonly StationRecordsSystem _stationRecords = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly PayoutSystem _payoutSystem = default!;
-    [Dependency] private readonly EventManagerSystem _event = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
 
-    protected override void Started(EntityUid uid, StationPayoutEventSchedulerComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
+    public override void Initialize()
+    {
+        base.Initialize();
+        // this is where I would put my subscriptions... IF I HAD ANY
+    }
+
+    protected override void Added(EntityUid uid, StationRegularPayoutComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
+    {
+        base.Added(uid, component, gameRule, args);
+
+        if (!TryComp<StationRegularPayoutComponent>(uid, out var payoutComponent))
+            return;
+
+        payoutComponent.NextPayout = TimeSpan.FromMinutes(payoutComponent.RegularPayoutInterval);
+    }
+
+    protected override void Started(EntityUid uid, StationRegularPayoutComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
 
-        InitiatePayouts(component);
-    }
+        if (!TryComp<StationRegularPayoutComponent>(uid, out var payoutComponent))
+            return;
 
-    private void InitiatePayouts(StationPayoutEventSchedulerComponent component)
-    {
+        // grab a station, there should only be one valid station
         if (!TryGetRandomStation(out var chosenStation, HasComp<StationBankAccountComponent>))
             return;
+        component.StationComponentUID = chosenStation.Value;
 
-        if (!TryComp<StationBankAccountComponent>(chosenStation.Value, out var bankAccountComponent))
+        InitiatePayouts(payoutComponent);
+    }
+
+    private void InitiatePayouts(StationRegularPayoutComponent component)
+    {
+        // use our cached value, if it no longer exists because shenanigans, fetch a new valid station.
+        if (!TryComp<StationBankAccountComponent>(component.StationComponentUID, out var bankAccountComponent))
             return;
 
-        var recordEnumerable = _stationRecords.GetRecordsOfType<CriminalRecord>(chosenStation.Value);
+        var recordEnumerable = _stationRecords.GetRecordsOfType<CriminalRecord>(component.StationComponentUID);
 
         var valueTuples = recordEnumerable as (uint, CriminalRecord)[] ?? recordEnumerable.ToArray();
 
         var validCrew = 0;
         foreach (var criminalRecord in valueTuples)
         {
-            var key = new StationRecordKey(criminalRecord.Item1, chosenStation.Value);
+            var key = new StationRecordKey(criminalRecord.Item1, component.StationComponentUID);
             _stationRecords.TryGetRecord(key, out PaymentRecord? record);
 
             if (record is null)
@@ -71,34 +87,39 @@ public sealed class StationPayoutEventSchedulerSystem : StationEventSystem<Stati
         if (!component.ScripInitialStationInit)
         {
             component.ScripInitialStationInit = true;
-            PayoutStation(chosenStation.Value, bankAccountComponent, false);
+            PayoutStation(component.StationComponentUID, bankAccountComponent, false);
 
             return;
         }
 
-        PayoutStation(chosenStation.Value, bankAccountComponent);
+        PayoutStation(component.StationComponentUID, bankAccountComponent);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        if (!_event.EventsEnabled)
-            return;
-
-        var query = EntityQueryEnumerator<StationPayoutEventSchedulerComponent, GameRuleComponent>();
-        while (query.MoveNext(out var uid, out var eventScheduler, out var gameRule))
+        var query = EntityQueryEnumerator<StationRegularPayoutComponent, GameRuleComponent>();
+        while (query.MoveNext(out var uid, out var payoutComponent, out var ruleData))
         {
-            if (eventScheduler.ScripPayoutAccumulator > 0)
+            if (!GameTicker.IsGameRuleAdded(uid, ruleData))
+                continue;
+
+            if (!GameTicker.IsGameRuleActive(uid, ruleData) && !HasComp<DelayedStartRuleComponent>(uid))
             {
-                eventScheduler.ScripPayoutAccumulator -= frameTime;
+                GameTicker.StartGameRule(uid, ruleData);
+            }
+
+            /**
+            * only do the full station payout if its been long enough.
+            */
+            if (payoutComponent.NextPayout > _gameTiming.CurTime)
+            {
                 continue;
             }
 
-            Log.Info("Station paid out through loop");
-
-            InitiatePayouts(eventScheduler);
-            eventScheduler.ScripPayoutAccumulator = eventScheduler.ScripPayoutDelay;
+            InitiatePayouts(payoutComponent);
+            payoutComponent.NextPayout += TimeSpan.FromMinutes(payoutComponent.RegularPayoutInterval);
         }
     }
 
@@ -115,7 +136,7 @@ public sealed class StationPayoutEventSchedulerSystem : StationEventSystem<Stati
                 history.Paid = false;
             }
 
-            history.PayoutTime = _ticker.RoundStartTimeSpan;
+            history.PayoutTime = _gameTiming.CurTime;
             history.Amount = paymentRecord.Item2.PayoutAmount;
 
             paymentRecord.Item2.History.Add(history);

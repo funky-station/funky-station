@@ -17,6 +17,7 @@
   - BasicStationEventScheduler
   #- AntagStationEventScheduler
   - BasicRoundstartVariation
+  - RegularStationPayouts # funky
 
 - type: gamePreset
   id: HereticTraitor
@@ -32,6 +33,7 @@
   - BasicStationEventScheduler
   #- AntagStationEventScheduler
   - BasicRoundstartVariation
+  - RegularStationPayouts # funky
 
 - type: gamePreset
   id: ChangelingHeretics
@@ -47,6 +49,7 @@
   - BasicStationEventScheduler
   #- AntagStationEventScheduler
   - BasicRoundstartVariation
+  - RegularStationPayouts # funkys
 
 
 - type: gamePreset
@@ -64,6 +67,7 @@
   - BasicStationEventScheduler
   #- AntagStationEventScheduler
   - BasicRoundstartVariation
+  - RegularStationPayouts # funky
 
 - type: gamePreset
   id: TheDrunkard

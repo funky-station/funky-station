@@ -2373,3 +2373,37 @@ Entries:
       message: Central Command has been changed to a new map.
   id: 295
   time: '2025-04-15T19:14:14.0000000+00:00'
+- author: ' Semni'
+  changes:
+    - type: Add
+      message: New Vulp scream sounds ported from Goob for all of your screaming needs.
+    - type: Fix
+      message: Vulpkanin innate temperature protection now actually works.
+  id: 296
+  time: '2025-04-16T23:52:33.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Bagel, Origin, and Fland have been given IAA rooms.
+    - type: Add
+      message: >-
+        Mousetraps have been put in doors leading to Supermatters on Bagel and
+        Fland.
+    - type: Add
+      message: Marathon has been given NTR, BSO, and IAA rooms.
+  id: 297
+  time: '2025-04-17T04:53:58.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: Updated and improved almost all in-game text relating to the Blob.
+  id: 298
+  time: '2025-04-17T07:45:26.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: >-
+        Electrolyzers now produce at a higher rate but with a much higher power
+        draw
+  id: 299
+  time: '2025-04-19T00:40:41.0000000+00:00'

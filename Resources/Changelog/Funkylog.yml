@@ -2399,3 +2399,11 @@ Entries:
       message: Updated and improved almost all in-game text relating to the Blob.
   id: 298
   time: '2025-04-17T07:45:26.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: >-
+        Electrolyzers now produce at a higher rate but with a much higher power
+        draw
+  id: 299
+  time: '2025-04-19T00:40:41.0000000+00:00'

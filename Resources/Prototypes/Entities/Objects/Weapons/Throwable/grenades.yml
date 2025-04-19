@@ -38,6 +38,7 @@
   - type: Tag # Goobstation
     tags:
     - Grenade
+    - HandGrenade # we need both cuz of wizden??
 
 - type: entity
   name: explosive grenade
@@ -88,6 +89,10 @@
   - type: Construction
     graph: RevolutionaryFlashbangGraph
     node: start
+  - type: Tag
+    tags:
+    - HandGrenade
+    - GrenadeFlashBang
 
 - type: entity
   id: GrenadeFlashEffect
@@ -316,6 +321,9 @@
       map: [ "enum.ConstructionVisuals.Layer" ]
   - type: Item
     size: Small
+  - type: Tag
+    tags:
+    - HandGrenade
   - type: PayloadCase
   - type: Construction
     graph: ModularGrenadeGraph

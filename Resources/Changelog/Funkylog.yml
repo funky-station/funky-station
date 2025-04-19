@@ -2407,3 +2407,11 @@ Entries:
         draw
   id: 299
   time: '2025-04-19T00:40:41.0000000+00:00'
+- author: Gansu
+  changes:
+    - type: Add
+      message: Added music techfab for all your instrument creating needs
+    - type: Add
+      message: New civilian tier 1 research to unlock the music techfab board
+  id: 300
+  time: '2025-04-19T04:42:09.0000000+00:00'

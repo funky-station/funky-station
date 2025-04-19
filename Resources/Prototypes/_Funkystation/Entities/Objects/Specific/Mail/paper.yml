@@ -1,0 +1,145 @@
+# Papers (letters, ad copy)
+# TODO: these should really be based on localization strings.
+- type: entity
+  id: PaperCraigThreat
+  categories: [ HideSpawnMenu ]
+  suffix: "Craig threat"
+  parent: Paper
+  components:
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#333333FF'
+      stampedName: craig
+    #      stampType: Signature #DeltaV - Not compatible with our signatures code stuff apparently
+    content: |2
+
+      [head=1]                        hey[/head]
+
+
+
+      [head=1]    they asked me to mug you[/head]
+
+
+
+      [head=1]        this is all I could find[/head]
+#Made by Sage
+
+
+- type: entity
+  id: PaperBluespaceGorilla
+  categories: [ HideSpawnMenu ]
+  suffix: "Bluespace Gorilla"
+  parent: Paper
+  components:
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#006600'
+      stampedName: Centcom
+    #      stampType: Signature #DeltaV - Not compatible with our signatures code stuff apparently
+    content: |2
+
+      [color=#1b487e]╔══════════════════╗
+      ║███░███░░░░██░░░░░║
+      ║░██░████░░░██░░░░░║  [head=1]NanoTrasen[/head]
+      ║░░█░██░██░░██░█░░░║    [head=5]Funky Sector[/head]
+      ║░░░░██░░██░██░██░░║    Central Command Testing
+      ║░░░░██░░░████░███░║
+      ╚══════════════════╩═════════════════════[/color]
+        Hello and thank you for participating in the bluespace teleportation test. If all went well you should now have a happy, healthy, Nanotrasen asset!
+
+        Please look after it and bring it back when you shift is done or you will be charged its cost to your paycheck.
+
+
+      Thank you again for your participation!
+
+- type: entity
+  id: PaperExtendedWarranty
+  categories: [ HideSpawnMenu ]
+  suffix: "Warranty Scam"
+  parent: Paper
+  components:
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#AB30AB'
+      stampedName: "Galaxa Inc"
+    #      stampType: Signature #DeltaV - Not compatible with our signatures code stuff apparently
+    content: |2
+
+                                       [color=#e33437][head=1]ATTENTION[/head][/color]
+      ====================================================
+        Hello! We've been trying to reach you concerning your
+      shuttles's extended warranty. You should've received a
+      notice in the mail about your shuttles's extended warranty
+      eligibility. Since we've not gotten response, we're giving you
+      a final courtesy mail before we close out your file. Press fax
+      Galaxa Inc. at your earliest convenience to ensure any damages
+      to your shuttles are covered in case of mishap or misfortune.
+      ====================================================
+
+- type: entity
+  id: PaperSkeleMail
+  categories: [ HideSpawnMenu ]
+  suffix: "Skele Mail"
+  parent: Paper
+  components:
+  - type: Paper
+    content: |2
+        [head=5]DON'T LET THIS BE YOU. THIS IS WHAT HAPPENS WHEN YOU DONT RESPECT THE VENT SNAKES![/head]
+
+- type: entity
+  id: PaperEgging
+  categories: [ HideSpawnMenu ]
+  suffix: "Egging Mail"
+  parent: Paper
+  components:
+  - type: Paper
+    content: |2
+        [head=5]THEY KNOW WHAT THEY DID.
+      SHOW THEM WHOS BOSS[/head]
+
+- type: entity
+  id: PaperSyndiRansomware
+  categories: [ HideSpawnMenu ]
+  suffix: "Syndi Ransomware"
+  parent: Paper
+  components:
+  - type: Paper
+    content: |2
+        [color=#ff0000]█▀  █▀▀  ▀█    [head=3]Priority Mail[/head]
+         █     ▀▀█     █
+         ▀▀  ▀▀▀  ▀▀
+       Subject:Hello Deviant [/color]
+      ────────────────────────────────────────
+      I want to inform you about a very bad situation for you.  However, you can benefit from it, if you will act wisely.
+
+      Have you heard of Syndicate?  This is a spyware program that installs on PDAs and allows hackers to monitor the activity of device owners.  It provides access to your coordinates, Nanochat, Crew Manifest, Notekeeper and Nanotask.  I guess, you already figured out what im getting at.
+
+      As you can imagine in your worst dream, I have video of you exposed during the most private moments of your life when you are not expecting it.
+
+      Here is the deal. I will delete the files after I receive 5,000 spesos.  You need to send that amount to nanochat #5YND1C473.  I will also clear your device from Syndicate malware, and you keep living your life.
+
+      Otherwise shit will happen.
+      This is non negotiable, to be transfered within 2 business days.
+      Obviously do not try to ask for any help from anybody. I will montior your every move until I get paid.
+
+      Take care.
+
+      ────────────────────────────────────────
+      Sincerely, The Syndicate.
+#Made by KarasuCrow using moomoobeef templates
+
+- type: entity
+  id: PaperZombieThreat
+  categories: [ HideSpawnMenu ]
+  suffix: "Zombie Threat"
+  parent: Paper
+  components:
+  - type: Paper
+    content: |2
+           Hello,
+         We are about to launch
+        an all-out attack on
+         you houze.
+                 Sincerely,
+                the Zombies
+#Suggested by Miish

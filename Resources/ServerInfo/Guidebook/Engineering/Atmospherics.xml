@@ -101,17 +101,19 @@
     <GuideEntityEmbed Entity="NitriumCanister"/>
   </Box>
 
-  Nitrium degrades into nitrogen and water vapor on contact with room temperature oxygen. This reaction can produce a good deal of heat, making the station uncomfortably warm in the event of a leak.
+  Nitrium degrades into nitrogen and hydrogen on contact with room temperature oxygen. This reaction can produce a good deal of heat, making the station uncomfortably warm in the event of a leak. 
 
-  ##Hyper-Noblium
-  Hyper-Noblium is an inert gas that stops other reactions when present at greater than 5 moles and above 20K, ideal for stabilizing volatile mixes. It's made by combining 10 moles nitrogen with 5 moles tritium below 24K in an exothermic reaction. BZ can be used to control heat and increase production efficiency.
+  ##Hydrogen
+  Hydrogen is a highly flammable but non-toxic gas that burns similarly to tritium, making it useful as a fuel source. It is produced by electrolyzing water vapor with an electrolyzer machine to produce hydrogen and oxygen. 
 
   <Box>
-    <GuideEntityEmbed Entity="NitrogenCanister"/>
-    <GuideEntityEmbed Entity="TritiumCanister"/>
+    <GuideEntityEmbed Entity="WaterVaporCanister"/>
+    <GuideEntityEmbed Entity="Electrolyzer"/>
     <GuideEntityEmbed Entity="GasVentScrubber"/>
-    <GuideEntityEmbed Entity="HyperNobliumCanister"/>
+    <GuideEntityEmbed Entity="HydrogenCanister"/>
   </Box>
+
+  When mixed with BZ at temperatures below 273 K and pressures above 10 MPa, hydrogen can form metal hydrogen, a rare material. Handle hydrogen carefully to prevent fires or explosions, and store canisters securely.
 
   ##Proto-Nitrate
   Proto-Nitrate is a highly reactive, non-toxic gas. Combine 1 mole hydrogen with 0.1 moles pluoxium to yield 1.1 moles proto-nitrate exothermically, best at 5000-10000K. It reacts with hydrogen or tritium to adjust proto-nitrate or produce hydrogen, and with BZ at 260-280K to yield nitrogen, helium, and plasma. Handle carefully to avoid leaks.

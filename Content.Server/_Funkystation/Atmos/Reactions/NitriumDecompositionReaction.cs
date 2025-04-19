@@ -1,9 +1,10 @@
+using Content.Server.Atmos;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Reactions;
 using JetBrains.Annotations;
 
-namespace Content.Server.Atmos.Reactions;
+namespace Content.Server._Funkystation.Atmos.Reactions;
 
 /// <summary>
 ///     Assmos - /tg/ gases
@@ -16,12 +17,9 @@ public sealed partial class NitriumDecompositionReaction : IGasReactionEffect
     {
         if (mixture.Temperature > 20f && mixture.GetMoles(Gas.HyperNoblium) >= 5f)
             return ReactionResult.NoReaction;
-            
+
         var initNitrium = mixture.GetMoles(Gas.Nitrium);
         var initOxygen = mixture.GetMoles(Gas.Oxygen);
-
-        if (mixture.Temperature > Atmospherics.T0C + 70f)
-            return ReactionResult.NoReaction;
 
         var efficiency = Math.Min(mixture.Temperature / 2984f, initNitrium);
 

@@ -4,7 +4,7 @@ using Content.Shared.Movement.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-namespace Content.Server.EntityEffects.Effects;
+namespace Content.Server._Funkystation.EntityEffects.Effects;
 
 /// <summary>
 /// Default metabolism for stimulants and tranqs. Attempts to find a MovementSpeedModifier on the target,
@@ -26,7 +26,6 @@ public sealed partial class NitriumMovespeedModifier : EntityEffect
 
     /// <summary>
     /// How long the modifier applies (in seconds).
-    /// Is scaled by reagent amount if used with an EntityEffectReagentArgs.
     /// </summary>
     [DataField]
     public float StatusLifetime = 6f;
@@ -54,16 +53,16 @@ public sealed partial class NitriumMovespeedModifier : EntityEffect
         status.WalkSpeedModifier = WalkSpeedModifier;
         status.SprintSpeedModifier = SprintSpeedModifier;
 
-        SetTimer(status, StatusLifetime);
+        SetTimer(args.EntityManager, args.TargetEntity, status, StatusLifetime);
 
         if (modified)
             args.EntityManager.System<MovementSpeedModifierSystem>().RefreshMovementSpeedModifiers(args.TargetEntity);
     }
-    public void SetTimer(MovespeedModifierMetabolismComponent status, float time)
+    public void SetTimer(IEntityManager entityManager, EntityUid entityUid, MovespeedModifierMetabolismComponent status, float time)
     {
         var gameTiming = IoCManager.Resolve<IGameTiming>();
 
         status.ModifierTimer = TimeSpan.FromSeconds(gameTiming.CurTime.TotalSeconds + time);
-        status.Dirty();
+        entityManager.Dirty(entityUid, status);
     }
 }

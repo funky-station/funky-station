@@ -1,9 +1,10 @@
+using Content.Server.Atmos;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Reactions;
 using JetBrains.Annotations;
 
-namespace Content.Server.Atmos.Reactions;
+namespace Content.Server._Funkystation.Atmos.Reactions;
 
 /// <summary>
 ///     Assmos - /tg/ gases
@@ -16,13 +17,10 @@ public sealed partial class NitriumProductionReaction : IGasReactionEffect
     {
         if (mixture.Temperature > 20f && mixture.GetMoles(Gas.HyperNoblium) >= 5f)
             return ReactionResult.NoReaction;
-            
+
         var initTritium = mixture.GetMoles(Gas.Tritium);
         var initNitrogen = mixture.GetMoles(Gas.Nitrogen);
         var initBZ = mixture.GetMoles(Gas.BZ);
-
-        if (initTritium<20||initNitrogen<10||initBZ<5||mixture.Temperature<1500)
-            return ReactionResult.NoReaction;
 
         var efficiency = Math.Min(mixture.Temperature / 2984f, Math.Min(initBZ * 20f, Math.Min(initTritium, initNitrogen)));
 

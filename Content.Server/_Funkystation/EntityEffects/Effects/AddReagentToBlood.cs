@@ -8,7 +8,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 
-namespace Content.Server.EntityEffects.Effects;
+namespace Content.Server._Funkystation.EntityEffects.Effects;
 
 public sealed partial class AddReagentToBlood : EntityEffect
 {

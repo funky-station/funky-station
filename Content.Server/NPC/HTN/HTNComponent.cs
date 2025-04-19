@@ -47,4 +47,10 @@ public sealed partial class HTNComponent : NPCComponent
     /// Is this NPC currently planning?
     /// </summary>
     [ViewVariables] public bool Planning => PlanningJob != null;
+
+    /// <summary>
+    /// Determines whether plans should be made / updated for this entity
+    /// </summary>
+    [DataField]
+    public bool Enabled = true;
 }

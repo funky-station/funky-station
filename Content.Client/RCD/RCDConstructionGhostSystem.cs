@@ -16,7 +16,6 @@ namespace Content.Client.RCD;
 public sealed class RCDConstructionGhostSystem : EntitySystem
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly RCDSystem _rcdSystem = default!;
     [Dependency] private readonly IPlacementManager _placementManager = default!;
 
     private string _placementMode = typeof(AlignRCDConstruction).Name;

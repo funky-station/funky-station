@@ -2415,3 +2415,22 @@ Entries:
       message: New civilian tier 1 research to unlock the music techfab board
   id: 300
   time: '2025-04-19T04:42:09.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Remove
+      message: Removed the Traitor Objective for the Handheld Crew Monitor.
+    - type: Fix
+      message: >-
+        The Chaplain is now legally allowed to own their Null Rod (and
+        associated items).
+    - type: Fix
+      message: >-
+        The Handheld Crew Monitor is now job-restricted contraband, instead of
+        Syndie Objective contraband. CMOs and Paramedics are allowed to have it,
+        in accordance with SOP.
+    - type: Fix
+      message: >-
+        The Syndicate now correctly informs its agents that the Energy Shotgun
+        is a Warden-based Objective, not Head of Security.
+  id: 301
+  time: '2025-04-19T21:48:06.0000000+00:00'

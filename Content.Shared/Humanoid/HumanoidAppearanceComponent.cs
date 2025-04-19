@@ -98,6 +98,9 @@ public sealed partial class HumanoidAppearanceComponent : Component
     [DataField]
     public HashSet<HumanoidVisualLayers> HideLayersOnEquip = [HumanoidVisualLayers.Hair];
 
+    /// <summary>
+    /// The profile that this entity was originally spawned with.
+    /// </summary>
     public HumanoidCharacterProfile? BaseProfile;
 }
 

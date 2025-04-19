@@ -99,6 +99,9 @@ namespace Content.Shared.Preferences
         [DataField]
         private HashSet<ProtoId<TraitPrototype>> _traitPreferences = new();
 
+        /// <summary>
+        /// Is this character enabled? (Should it be considered for round start selection?)
+        /// </summary>
         [DataField]
         public bool Enabled;
 
@@ -157,7 +160,7 @@ namespace Content.Shared.Preferences
         public SpawnPriorityPreference SpawnPriority { get; private set; } = SpawnPriorityPreference.None;
 
         /// <summary>
-        /// <see cref="_jobPriorities"/>
+        /// <see cref="_jobPreferences"/>
         /// </summary>
         public IReadOnlySet<ProtoId<JobPrototype>> JobPreferences => _jobPreferences;
 

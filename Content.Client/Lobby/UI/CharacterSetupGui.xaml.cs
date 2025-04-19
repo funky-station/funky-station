@@ -34,7 +34,6 @@ namespace Content.Client.Lobby.UI
 
         private readonly Button _createNewCharacterButton;
         private readonly HumanoidProfileEditor _humanoidProfileEditor;
-        private readonly JobPriorityEditor _jobPriorityEditor;
         public int? SelectedCharacterSlot;
 
         public event Action<int>? SelectCharacter;
@@ -44,7 +43,6 @@ namespace Content.Client.Lobby.UI
         public CharacterSetupGui(HumanoidProfileEditor profileEditor, JobPriorityEditor jobPriorityEditor)
         {
             _humanoidProfileEditor = profileEditor;
-            _jobPriorityEditor = jobPriorityEditor;
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
 
@@ -97,6 +95,7 @@ namespace Content.Client.Lobby.UI
             var numberOfFullSlots = 0;
             var characterButtonsGroup = new ButtonGroup();
 
+            // Include the Edit Job Priorities button into this group
             JobPrioritiesButton.Group = characterButtonsGroup;
 
             if (!_preferencesManager.ServerDataLoaded)
@@ -111,6 +110,7 @@ namespace Content.Client.Lobby.UI
                 Loc.GetString("character-setup-gui-create-new-character-button-tooltip",
                     ("maxCharacters", _preferencesManager.Settings!.MaxCharacterSlots));
 
+            // If there is no slot selected and no profile loaded, we will select the first one
             var first = !SelectedCharacterSlot.HasValue;
             foreach (var (slot, character) in _preferencesManager.Preferences!.Characters)
             {
@@ -122,6 +122,7 @@ namespace Content.Client.Lobby.UI
                     character,
                     isSelected);
 
+                // If this button is selected we need to initialize the editor with this profile
                 if (isSelected && _humanoidProfileEditor.Profile == null)
                     _humanoidProfileEditor.SetProfile(slot);
 

@@ -2442,3 +2442,9 @@ Entries:
       message: Rule 7 now states "There are no main characters"
   id: 302
   time: '2025-04-19T21:48:52.0000000+00:00'
+- author: Gansu
+  changes:
+    - type: Tweak
+      message: Added a note to large bounties if they require sub storage items
+  id: 303
+  time: '2025-04-19T21:50:20.0000000+00:00'

@@ -32,12 +32,12 @@
   parent: [MobNarsieBase, BaseMob]
   id: MobNarsie
   components:
-  - type: AnnounceOnSpawn
-    message: narsie-has-risen
-    sender: narsie-has-risen-sender
-    sound:
-      path: /Audio/Misc/narsie_rises.ogg
-    color: red
+  #- type: AnnounceOnSpawn
+  #  message: narsie-has-risen
+  #  sender: narsie-has-risen-sender
+  #  sound:
+  #    path: /Audio/Misc/narsie_rises.ogg
+  #  color: red
   - type: CargoSellBlacklist
   # big nar'sie needs to see the universe
   - type: ContentEye
@@ -66,6 +66,11 @@
         - SingularityLayer
   - type: Input
     context: "ghost"
+  - type: RandomWalk
+    maxSpeed: 100.0
+    minSpeed: 1.1
+    minStepCooldown: 1.1
+    accumulatorRatio: 0.75
   - type: MovementIgnoreGravity
   # narnar hears all
   - type: IntrinsicRadioReceiver

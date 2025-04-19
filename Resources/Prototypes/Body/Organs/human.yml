@@ -145,6 +145,9 @@
     - state: appendix
     - state: appendix-inflamed
       visible: false
+  - type: Tag
+    tags:
+    - Organ
 
 - type: entity
   id: OrganHumanEars
@@ -168,6 +171,9 @@
       taco:
         name: food-sequence-content-ears
   - type: Ears # Shitmed Change
+  - type: Tag
+    tags:
+    - Organ
 
 - type: entity
   id: OrganHumanLungs

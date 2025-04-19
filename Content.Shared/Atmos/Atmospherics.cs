@@ -323,7 +323,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     The amount of energy 1 mole of BZ forming from N2O and plasma releases.
         /// </summary>
-        public const float BZFormationEnergy = 80e3f; // Assmos - /tg/ gases
+        public const float BZProductionEnergy = 80e3f; // Assmos - /tg/ gases
 
         /// <summary>
         ///     The amount of energy 1 mol of Healium forming from BZ and frezon releases.

@@ -10,6 +10,7 @@ using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Server._White.StoreDiscount;
 using Robust.Shared.Timing;
 using Content.Shared.Mind;
 
@@ -24,6 +25,7 @@ public sealed partial class StoreSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly StoreDiscountSystem _storeDiscount = default!;
 
     public override void Initialize()
     {

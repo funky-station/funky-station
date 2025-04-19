@@ -8,14 +8,17 @@ on:
     types: [ opened, reopened, synchronize, ready_for_review ]
     branches: [ master, staging, stable ]
 
+env:
+  DOTNET_INSTALL_DIR: "./.dotnet"
+
 jobs:
   build:
-    if: github.actor != 'PJBot' && github.event.pull_request.draft == false
+    if: github.actor != 'funkystationbot' && github.event.pull_request.draft == false
     strategy:
       matrix:
         os: [ubuntu-latest]
 
-    runs-on: ${{ matrix.os }}
+    runs-on: [ self-hosted, "${{ matrix.os }}" ]
 
     steps:
     - name: Checkout Master

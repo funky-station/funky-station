@@ -16,6 +16,9 @@ public sealed partial class ServerApi
         RegisterHandler(HttpMethod.Post, "/admin/actions/whitelist", ActionWhitelist);
     }
 
+    /// <summary>
+    /// Whitelists a player.
+    /// </summary>
     private async Task ActionWhitelist(IStatusHandlerContext context)
     {
         var body = await ReadJson<WhitelistActionBody>(context);

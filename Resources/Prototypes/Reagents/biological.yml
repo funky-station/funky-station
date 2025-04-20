@@ -53,7 +53,6 @@
   metamorphicChangeColor: false
   recognizable: true
   physicalDesc: reagent-physical-desc-ferrous
-  slippery: false
   metabolisms:
     Drink:
       effects:
@@ -97,7 +96,6 @@
   hydrogenPotential: 6.6
   recognizable: true
   physicalDesc: reagent-physical-desc-slimy
-  slippery: false
 
 - type: reagent
   id: Slime
@@ -112,7 +110,6 @@
   hydrogenPotential: 14.0
   recognizable: true
   physicalDesc: reagent-physical-desc-viscous
-  slippery: false
   viscosity: 0.25
   tileReactions:
     - !type:SpillTileReaction
@@ -140,7 +137,6 @@
   hydrogenPotential: 6.5
   recognizable: true
   physicalDesc: reagent-physical-desc-sticky
-  slippery: false
   viscosity: 0.10
   tileReactions:
     - !type:SpillTileReaction
@@ -167,7 +163,6 @@
   color: "#162581"
   recognizable: true
   physicalDesc: reagent-physical-desc-metallic
-  slippery: false
 
 - type: reagent
   parent: Blood
@@ -180,7 +175,6 @@
   hydrogenPotential: 7.6
   recognizable: true
   physicalDesc: reagent-physical-desc-pungent
-  slippery: false
 
 - type: reagent
   id: ZombieBlood
@@ -190,7 +184,6 @@
   physicalDesc: reagent-physical-desc-necrotic
   flavor: bitter
   color: "#2b0700"
-  slippery: false
   metabolisms:
     Drink:
       # Disgusting!
@@ -259,7 +252,6 @@
   density: 0.9
   hydrogenPotential: 7
   physicalDesc: reagent-physical-desc-exotic-smelling
-  slippery: false
   footstepSound:
     collection: FootstepBlood
     params:
@@ -277,7 +269,9 @@
   density: 1.4
   hydrogenPotential: 4.0
   physicalDesc: reagent-physical-desc-pungent
-  slippery: true
+  slipData:
+    requiredSlipSpeed: 4.0 #It's not as slippery as water
+  friction: 0.4
   metabolisms:
     Drink:
       effects:
@@ -301,7 +295,6 @@
   color: "#C584B8"
   boilingPoint: 100.0
   meltingPoint: 0.0
-  slippery: false
   metabolisms:
     Drink:
       effects:

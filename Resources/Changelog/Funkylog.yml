@@ -2454,3 +2454,9 @@ Entries:
       message: Fixed the wording on Rule 11 to not contradict itself in the same text.
   id: 304
   time: '2025-04-19T21:55:20.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Tweak
+      message: Mindcontrol and Brainwashing has been clarified in Rule 6.
+  id: 305
+  time: '2025-04-20T01:05:56.0000000+00:00'

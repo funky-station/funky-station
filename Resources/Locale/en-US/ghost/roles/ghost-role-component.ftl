@@ -24,6 +24,11 @@ ghost-role-information-familiar-rules = You are a [color=#6495ed][bold]Familiar[
                                         You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
                                         You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
                                         You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
+# funkystation
+ghost-role-information-big-familiar-rules = You are a [color=#6495ed][bold]Familiar[/bold][/color]. Serve the interests of your master, whatever those may be. You should generally not seek to harm the station and its crew.
+                                        You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+                                        You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
+                                        You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
 ghost-role-information-silicon-rules = You are a [color=#6495ed][bold]Silicon[/bold][/color]. Obey your laws. You are a Free Agent if you are not currently bound by any laws.
                                        You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
                                        You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
@@ -175,6 +180,10 @@ ghost-role-information-neanderthal-name = Unfrozen Neanderthal
 
 ghost-role-information-remilia-name = Remilia, the chaplain's familiar
 ghost-role-information-remilia-description = Follow and obey the chaplain. Eat fruit. Screech loudly into people's ears and write it off as echolocation.
+
+# funkystation
+ghost-role-information-celedon-name = Celedon, Animal Lab Rescue
+ghost-role-information-celedon-description = Follow and obey the zookeeper. They must gain your trust first though, you still remember the experiments from the genetics lab on Europa.
 
 ghost-role-information-cerberus-name = Cerberus, Evil Familiar
 ghost-role-information-cerberus-description = Obey your master. Spread chaos.

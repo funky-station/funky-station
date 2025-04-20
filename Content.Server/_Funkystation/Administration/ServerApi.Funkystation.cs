@@ -17,7 +17,7 @@ public sealed partial class ServerApi
     }
 
     /// <summary>
-    /// Whitelists a player.
+    ///     Whitelists a player.
     /// </summary>
     private async Task ActionWhitelist(IStatusHandlerContext context)
     {

@@ -189,6 +189,22 @@
   - type: Contraband
     allowedJobs: [ Janitor ]
 
+- type: entity
+  id: BaseChaplainContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedJobs: [ Chaplain ]
+
+- type: entity
+  id: BaseCMOParamedicContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedJobs: [ ChiefMedicalOfficer, Paramedic ]
+
 # for ~objective items
 - type: entity
   id: BaseGrandTheftContraband

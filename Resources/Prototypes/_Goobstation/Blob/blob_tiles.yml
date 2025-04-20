@@ -97,6 +97,12 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
+  - type: PointLight
+    radius: 1.5
+    energy: 2
+    softness: 1
+    offset: "0, 0"
+    color: "#FFD800"
 
 - type: entity
   parent: BaseBlob
@@ -200,6 +206,12 @@
         - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
           state: blob_glow_special
 #          shader: unshaded
+    - type: PointLight
+      radius: 1.5
+      energy: 0.5
+      softness: 1
+      offset: "0, 0"
+      color: "#FFD800"
 
 - type: entity
   parent: BaseBlob
@@ -239,6 +251,12 @@
           state: blob_glow_special
 #          shader: unshaded
         - state: blob_resource_overlay
+    - type: PointLight
+      radius: 1.5
+      energy: 0.5
+      softness: 1
+      offset: "0, 0"
+      color: "#FFD800"
 
 - type: entity
   parent: BaseBlob
@@ -279,6 +297,12 @@
           state: blob_node_glow
 #          shader: unshaded
         - state: blob_node_overlay
+    - type: PointLight
+      radius: 1.5
+      energy: 0.5
+      softness: 1
+      offset: "0, 0"
+      color: "#FFD800"
 
 - type: entity
   parent: BaseBlob

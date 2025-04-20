@@ -4,7 +4,7 @@
   roundStart: true
   prototype: MobGingerbread
   sprites: MobGingerbreadSprites
-  markingLimits: MobHumanMarkingLimits
+  markingLimits: MobGingerbreadMarkingLimits
   dollPrototype: MobGingerbreadDummy
   skinColoration: HumanToned
   defaultSkinTone: "#9a7c5a"
@@ -13,10 +13,12 @@
   id: MobGingerbreadSprites
   sprites:
     Head: MobGingerbreadHead
-    HeadTop: MobHumanoidAnyMarking
+    Hair: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Chest: MobGingerbreadTorso
     Eyes: MobGingerbreadEyes
+    HeadTop: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
     LArm: MobGingerbreadLArm
     RArm: MobGingerbreadRArm
     LHand: MobGingerbreadLHand
@@ -25,6 +27,36 @@
     RLeg: MobGingerbreadRLeg
     LFoot: MobGingerbreadLFoot
     RFoot: MobGingerbreadRFoot
+    
+- type: markingPoints
+  id: MobGingerbreadMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    Head:
+      points: 1
+      required: true
+      defaultMarkings: [ FaceIcingDefault ]
+    HeadTop:
+      points: 1
+      required: false
+    HeadSide:
+      points: 1
+      required: false
+    Tail: 
+      points: 1
+      required: false
+    Chest:
+      points: 2
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
+
 
 - type: humanoidBaseSprite
   id: MobGingerbreadEyes

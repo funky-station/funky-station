@@ -420,3 +420,18 @@ reagent-effect-guidebook-add-to-chemicals =
         [1] to
         *[-1] from
     } the solution
+
+reagent-effect-guidebook-adjust-ling-chemicals =
+    { $chance ->
+        [1] { $deltasign ->
+                [1] Adds
+                *[-1] Removes
+            }
+        *[other] { $deltasign ->
+                    [1] add
+                    *[-1] remove
+                 }
+    } {NATURALFIXED($amount, 2)} units of changeling chemicals { $deltasign ->
+        [1] to
+        *[-1] from
+    } the metabolizer

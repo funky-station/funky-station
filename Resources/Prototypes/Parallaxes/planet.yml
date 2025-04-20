@@ -42,3 +42,18 @@
       slowness: 0
       scale: "1, 1"
       shader: ""
+
+- type: parallax
+  id: Trieste
+  layers:
+  - texture:
+      !type:ImageParallaxTextureSource
+      path: "/Textures/Parallaxes/triesteland.png"
+    slowness: 0.98
+    scale: 1,1
+  - texture:
+      !type:ImageParallaxTextureSource
+      path: "/Textures/Parallaxes/triestenoise.png"
+    slowness: 0.95
+    scale: "2, 2"
+    scrolling: "0.1, -0.05"

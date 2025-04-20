@@ -46,6 +46,7 @@
   - Xeno
   - AllHostile
   - Wizard
+  - Dragon
 
 - type: npcFaction
   id: SimpleHostile
@@ -60,6 +61,7 @@
   - Blob # Goobstation - Blob
   - AllHostile
   - Wizard
+  - Dragon
 
 - type: npcFaction
   id: SimpleNeutral
@@ -92,6 +94,7 @@
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - Wizard
+  - Dragon
 
 - type: npcFaction
   id: Zombie
@@ -109,6 +112,7 @@
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - Wizard
+  - Dragon
 
 - type: npcFaction
   id: Revolutionary

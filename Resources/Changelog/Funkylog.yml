@@ -2474,3 +2474,15 @@ Entries:
         to 15K.
   id: 306
   time: '2025-04-20T01:39:02.0000000+00:00'
+- author: ArsCatalyst
+  changes:
+    - type: Add
+      message: Added high-pop map Resort for playtesting!
+    - type: Add
+      message: >-
+        Added Celedon, a familiar for the Zookeeper for playtesting! (currently
+        placeholder sprite)
+    - type: Tweak
+      message: Added some spawners for mapping!
+  id: 307
+  time: '2025-04-20T06:18:12.0000000+00:00'

@@ -7,8 +7,8 @@
     back: ClothingBackpack # Wizard backpack?
     outerClothing: ClothingOuterWizard
     shoes: ClothingShoesWizard
-    id: WizardIDCard
-    ears: ClothingHeadsetAltCommand
+    id: WizardPDA
+    ears: ClothingHeadsetAltWizard
     belt: ClothingBeltWand
     # pocket1: TODO: Include wizard teleport scroll
     pocket2: WizardsGrimoire

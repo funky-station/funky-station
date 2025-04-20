@@ -39,15 +39,13 @@ public sealed class KillPersonConditionSystem : EntitySystem
             return 1f;
 
         var targetDead = _mind.IsCharacterDeadIc(mind);
-        var targetMarooned = !_emergencyShuttle.IsTargetEscaping(mind.OwnedEntity.Value) || _mind.IsCharacterUnrevivableIc(mind);
+        var targetMarooned = !_emergencyShuttle.IsTargetEscaping(target) &&
+                              _emergencyShuttle.ShuttlesLeft;
         if (!_config.GetCVar(CCVars.EmergencyShuttleEnabled) && requireMaroon)
         {
             requireDead = true;
             requireMaroon = false;
         }
-
-        if (requireDead && !targetDead)
-            return 0f;
 
         // Always failed if the target needs to be marooned and the shuttle hasn't even arrived yet
         if (requireMaroon && !_emergencyShuttle.EmergencyShuttleArrived)

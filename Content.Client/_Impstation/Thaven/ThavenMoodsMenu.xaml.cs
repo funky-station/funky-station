@@ -14,14 +14,14 @@ public sealed partial class ThavenMoodsMenu : FancyWindow
         IoCManager.InjectDependencies(this);
     }
 
-    public void Update(ThavenMoodsComponent comp, ThavenMoodsBuiState state)
+    public void Update(EntityUid uid, ThavenMoodsBuiState state)
     {
         MoodDisplayContainer.Children.Clear();
 
         foreach (var mood in state.SharedMoods)
             MoodDisplayContainer.AddChild(new MoodDisplay(mood, true));
 
-        foreach (var mood in comp.Moods)
+        foreach (var mood in state.Moods)
             MoodDisplayContainer.AddChild(new MoodDisplay(mood, false));
     }
 }

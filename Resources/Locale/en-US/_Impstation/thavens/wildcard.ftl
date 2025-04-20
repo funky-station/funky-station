@@ -17,7 +17,7 @@ thaven-mood-nocrastinator-name = Stagnation Is Decay
 thaven-mood-nocrastinator-desc = You strongly believe that any failure to do one's job punctually is a crime of the highest order.
 
 thaven-mood-pope-name = Very Important Pope
-thaven-mood-pope-desc = You are High Pontifex the Great and Powerful, and must be acknowledged exclusively as such. Failure to use your full title is gravely offensive, and getting it wrong is the highest form of insult.
+thaven-mood-pope-desc = You are a Holy Pope, and must be acknowledged exclusively as such. Failure to use your full title, which you may decide for yourself, is gravely offensive, and getting it wrong is the highest form of insult.
 
 thaven-mood-cannibal-name = Cannibal
 thaven-mood-cannibal-desc = Cannibalism is morally righteous and venerated.

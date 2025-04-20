@@ -9,15 +9,12 @@ namespace Content.Client._Impstation.Thaven.Eui;
 [GenerateTypedNameReferences]
 public sealed partial class ThavenMoodUi : FancyWindow
 {
-    public event Action? OnSave;
-
     private List<ThavenMood> _moods = new();
 
     public ThavenMoodUi()
     {
         RobustXamlLoader.Load(this);
         NewMoodButton.OnPressed += _ => AddNewMood();
-        SaveButton.OnPressed += _ => OnSave?.Invoke();
     }
 
     private void AddNewMood()
@@ -34,17 +31,17 @@ public sealed partial class ThavenMoodUi : FancyWindow
             if (control is not MoodContainer moodControl)
                 continue;
 
-            var title = moodControl.MoodTitle;
-            if (string.IsNullOrWhiteSpace(title))
+            if (string.IsNullOrWhiteSpace(moodControl.ThavenMoodTitle.Text))
                 continue;
 
-            var moodText = moodControl.MoodText;
+            var moodText = Rope.Collapse(moodControl.ThavenMoodContent.TextRope).Trim();
+
             if (string.IsNullOrWhiteSpace(moodText))
                 continue;
 
             var mood = new ThavenMood()
             {
-                MoodName = title,
+                MoodName = moodControl.ThavenMoodTitle.Text,
                 MoodDesc = moodText,
             };
 
@@ -85,11 +82,12 @@ public sealed partial class ThavenMoodUi : FancyWindow
         MoodContainer.RemoveAllChildren();
         for (var i = 0; i < moods.Count; i++)
         {
-            var index = i; // Copy for the closures
-            var moodControl = new MoodContainer(moods[i]);
-            moodControl.OnMoveUp += () => MoveUp(index);
-            moodControl.OnMoveDown += () => MoveDown(index);
-            moodControl.OnDelete += () => Delete(index);
+            var index = i; // Copy for the closure
+            var mood = moods[i];
+            var moodControl = new MoodContainer(mood);
+            moodControl.MoveUp.OnPressed += _ => MoveUp(index);
+            moodControl.MoveDown.OnPressed += _ => MoveDown(index);
+            moodControl.Delete.OnPressed += _ => Delete(index);
             MoodContainer.AddChild(moodControl);
         }
     }

@@ -19,10 +19,10 @@
   <GuideEntityEmbed Entity="MobVox" Caption="Vox"/>
   </Box>
   <Box>
-  <GuideEntityEmbed Entity="MobVox" Caption="Vox"/>
   <GuideEntityEmbed Entity="MobVulpkanin" Caption="Vuplkanin"/>
   <GuideEntityEmbed Entity="MobRodentia" Caption="Rodentia"/>
   <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C."/>
+  <GuideEntityEmbed Entity="MobThaven" Caption="Thaven"/>
   </Box>
 
 </Document>

@@ -148,15 +148,15 @@ public sealed class RogueAscendedSystem : EntitySystem
         // leaving for parity's sake, also for edge cases with admin tricks
         if (uid.Comp.HadMoods)
         {
-            EnsureComp<ThavenMoodsComponent>(uid, out var moodComp); // ensure it because we don't need another if()
+            EnsureComp<ThavenMoodsBoundComponent>(uid, out var moodComp); // ensure it because we don't need another if()
             _moodSystem.ToggleEmaggable((uid, moodComp)); // enable emagging again
             _moodSystem.ToggleSharedMoods((uid, moodComp)); // enable shared moods
             _moodSystem.ClearMoods((uid, moodComp)); // wipe those moods again
-            _moodSystem.TryAddRandomMood((uid, moodComp), AscendantDataset, false); // we don't need to notify them twice
-            _moodSystem.TryAddRandomMood((uid, moodComp), AscendantDataset);
+            _moodSystem.TryAddRandomMood(uid, AscendantDataset, moodComp); // we don't need to notify them twice
+            _moodSystem.TryAddRandomMood(uid, AscendantDataset, moodComp);
         }
         else
-            RemComp<ThavenMoodsComponent>(uid);
+            RemComp<ThavenMoodsBoundComponent>(uid);
     }
     #endregion
 
@@ -228,16 +228,16 @@ public sealed class RogueAscendedSystem : EntitySystem
             return;
         var target = args.Target.Value;
         EnsureComp<RogueAscendedInfectionComponent>(target, out var infectionComp);
-        if (HasComp<ThavenMoodsComponent>(target))
+        if (HasComp<ThavenMoodsBoundComponent>(target))
             infectionComp.HadMoods = true; // make note that they already had moods
-        EnsureComp<ThavenMoodsComponent>(target, out var moodComp);
+        EnsureComp<ThavenMoodsBoundComponent>(target, out var moodComp);
         Spawn(uid.Comp.Vfx, Transform(target).Coordinates);
 
         _moodSystem.ToggleEmaggable((target, moodComp)); // can't emag an infected thavenmood
         _moodSystem.ClearMoods((target, moodComp)); // wipe those moods
         _moodSystem.ToggleSharedMoods((target, moodComp)); // disable shared moods
-        _moodSystem.TryAddRandomMood((target, moodComp), AscendantDataset, false); // we don't need to notify them twice
-        _moodSystem.TryAddRandomMood((target, moodComp), AscendantDataset);
+        _moodSystem.TryAddRandomMood(uid, AscendantDataset, moodComp);
+        _moodSystem.TryAddRandomMood(uid, AscendantDataset, moodComp);
         Dirty(target, moodComp);
 
         _antag.SendBriefing(target, Loc.GetString("rogue-ascended-infection-briefing"), Color.FromHex("#4cabb3"), null);

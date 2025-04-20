@@ -447,6 +447,19 @@
       effects:
       - !type:SatiateThirst
         factor: 4
+    Gas: # begin imp - unique interactions with thaven
+      effects:
+      - !type:Oxygenate # thaven can breathe all gases safely
+        conditions:
+        - !type:OrganType
+          type: Thaven
+      - !type:SatiateThirst # thaven breathing water vapor get thirsty slower
+        conditions:
+        - !type:OrganType
+          type: Thaven
+        factor: 0.1
+        # end imp
+
 
 - type: reagent
   id: Ice

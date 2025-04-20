@@ -1,0 +1,12 @@
+﻿{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "silo_relay"
+        }
+    ]
+}

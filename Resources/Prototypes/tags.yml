@@ -150,7 +150,7 @@
 - type: Tag
   id: BoxHug
 
-- type: Tag # goob edit
+- type: Tag
   id: Brain
 
 - type: Tag
@@ -1059,6 +1059,9 @@
 - type: Tag # goob edit
   id: Poppy
 
+- type: Tag # Funkystation
+  id: PortalBlacklist
+
 - type: Tag
   id: Potato
 
@@ -1167,6 +1170,12 @@
 
 - type: Tag
   id: SecwayKeys
+
+- type: Tag
+  id: ShadowSideLoot
+
+- type: Tag
+  id: ShadowSideLootEpic
 
 - type: Tag
   id: Sheet
@@ -1299,7 +1308,7 @@
 - type: Tag
   id: Spellbook
 
-- type: Tag # goob edit
+- type: Tag
   id: Table
 
 - type: Tag

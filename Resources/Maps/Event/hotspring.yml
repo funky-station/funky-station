@@ -10196,16 +10196,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -30.5,33.5
       parent: 1
-- proto: PlushieAssistantSpider
-  entities:
-  - uid: 1582
-    components:
-    - type: Transform
-      pos: 6.2985024,26.78783
-      parent: 1
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
 - proto: PlushieCirno
   entities:
   - uid: 2431

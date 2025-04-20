@@ -71,6 +71,37 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 1
+  - type: Item
+    size: Tiny
+  - type: PhysicalComposition
+  
+- type: entity
+  name: paper
+  parent: BasePaper
+  id: Paper
+  description: 'A piece of white paper.'
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: Paper
+  - type: PaperLabelType
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: FaxableObject
+  - type: PaperVisuals
 
 - type: entity
   name: paper scrap

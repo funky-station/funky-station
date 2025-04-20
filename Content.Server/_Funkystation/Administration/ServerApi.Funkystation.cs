@@ -43,9 +43,9 @@ public sealed partial class ServerApi
         if (isWhitelisted)
         {
             await RespondError(
-                context,
+                context,    
                 ErrorCode.BadRequest,
-                HttpStatusCode.BadRequest,
+                HttpStatusCode.Conflict,
                 "Already whitelisted");
             return;
         }

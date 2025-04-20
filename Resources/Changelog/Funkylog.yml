@@ -2460,3 +2460,17 @@ Entries:
       message: Mindcontrol and Brainwashing has been clarified in Rule 6.
   id: 305
   time: '2025-04-20T01:05:56.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: >-
+        Thermomachines now have 4 tiers, and are capable of much greater heating
+        and cooling. 
+    - type: Add
+      message: Atmospherics Exotech, a new unlockable research, has been added.
+    - type: Tweak
+      message: >-
+        Hyper-Noblium's maximum production temperature has been lowered from 24K
+        to 15K.
+  id: 306
+  time: '2025-04-20T01:39:02.0000000+00:00'

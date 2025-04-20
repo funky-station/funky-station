@@ -10213,16 +10213,6 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: PlushieResearchDirectorLizard
-  entities:
-  - uid: 2579
-    components:
-    - type: Transform
-      pos: 6.689882,26.543219
-      parent: 1
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
 - proto: PlushieVox
   entities:
   - uid: 1578

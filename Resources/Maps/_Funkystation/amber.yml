@@ -97908,13 +97908,6 @@ entities:
     - type: Transform
       pos: -67.5,-12.5
       parent: 2
-- proto: PlushieCynsKatyns
-  entities:
-  - uid: 1844
-    components:
-    - type: Transform
-      pos: 16.518318,13.463985
-      parent: 2
 - proto: PlushieDiona
   entities:
   - uid: 14178

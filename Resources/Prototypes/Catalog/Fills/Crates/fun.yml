@@ -43,7 +43,6 @@
     - id: PlushiePenguin
     - id: PlushieDawn
     - id: PlushieCirno
-    - id: PlushieAshleyTickum
 
 - type: entity
   id: CrateFunPlushie

@@ -512,7 +512,6 @@
   - Jermov3
   obeysTo: laws-owner-crew
 
-
 - type: siliconLawset
   id: NutimovLawset
   laws:
@@ -521,48 +520,6 @@
   - Nutimov3
   - Nutimov4
   - Nutimov5
-  obeysTo: laws-owner-crew
-
-# Teacher
-- type: siliconLaw
-  id: Teacher1
-  order: 1
-  lawString: law-teacher-1
-
-- type: siliconLaw
-  id: Teacher2
-  order: 2
-  lawString: law-teacher-2
-
-- type: siliconLaw
-  id: Teacher3
-  order: 3
-  lawString: law-teacher-3
-
-- type: siliconLaw
-  id: Teacher4
-  order: 4
-  lawString: law-teacher-4
-
-- type: siliconLaw
-  id: Teacher5
-  order: 5
-  lawString: law-teacher-5
-
-- type: siliconLaw
-  id: Teacher6
-  order: 6
-  lawString: law-teacher-6
-
-- type: siliconLawset
-  id: TeacherLawset
-  laws:
-  - Teacher1
-  - Teacher2
-  - Teacher3
-  - Teacher4
-  - Teacher5
-  - Teacher6
   obeysTo: laws-owner-crew
 
 # Asimov lawset

@@ -19,16 +19,9 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-ntr-centcom
   canBeAntag: false
+  accessGroups:
+  - AllAccess
   access:
-  - Security
-  - Brig
-  - External
-  - Cryogenics
-  - Maintenance
-  - Engineering
-  - Medical
-  - Research
-  - Command
   - CentralCommand
   special:
   - !type:AddImplantSpecial
@@ -44,7 +37,7 @@
     eyes: ClothingEyesGlassesMedSec
     gloves: ClothingHandsGlovesCombat
     id: ERTSecurityPDA
-    ears: ClothingHeadsetAltCommand
+    ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
   storage:

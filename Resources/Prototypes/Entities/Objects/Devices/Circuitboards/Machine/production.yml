@@ -1373,6 +1373,7 @@
         Manipulator: 4
         MatterBin: 4
 
+- type: entity
   id: ThermomachineUpgradedFreezerMachineCircuitBoard
   parent: BaseMachineCircuitboard
   name: upgraded freezer thermomachine machine board

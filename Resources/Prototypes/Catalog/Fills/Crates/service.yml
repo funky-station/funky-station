@@ -51,7 +51,7 @@
   - type: StorageFill
     contents:
       - id: MopItem
-      - id: MopBucket
+      - id: MopBucketCubeWrapped
       - id: Bucket
         amount: 3
       - id: WetFloorSign

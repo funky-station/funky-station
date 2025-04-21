@@ -2,7 +2,7 @@
   parent: [BaseStructure, ConstructibleMachine] # Not a BaseMachinePowered since we don't want the anchorable component
   id: Crystallizer
   name: crystallizer
-  description: 
+  description: Used to crystallize or solidify gases.
   placement:
     mode: SnapgridCenter
   components:

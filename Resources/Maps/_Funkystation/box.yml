@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 04/01/2025 17:54:35
-  entityCount: 28225
+  time: 03/28/2025 02:53:05
+  entityCount: 28223
 maps:
 - 11906
 grids:
@@ -6041,7 +6041,7 @@ entities:
             0: 61423
           8,-1:
             0: 12320
-            2: 34944
+            3: 34944
           -8,-4:
             0: 30583
           -8,-5:
@@ -6397,24 +6397,24 @@ entities:
             0: 65535
           6,-12:
             1: 4096
-            3: 49356
+            2: 49356
           6,-11:
             1: 61713
-            3: 204
+            2: 204
           6,-10:
             0: 29424
           6,-13:
-            3: 49356
+            2: 49356
           7,-12:
-            3: 4113
+            2: 4113
             1: 17476
           7,-11:
-            3: 17
+            2: 17
             1: 29764
           7,-10:
             0: 61680
           7,-13:
-            3: 4113
+            2: 4113
             1: 17476
           8,-12:
             0: 7647
@@ -6451,7 +6451,7 @@ entities:
             1: 8704
           8,0:
             0: 63523
-            2: 8
+            3: 8
           8,1:
             0: 61440
           8,2:
@@ -6732,24 +6732,24 @@ entities:
             1: 35064
             0: 771
           9,0:
-            2: 15
+            3: 15
             0: 65296
           9,1:
             0: 47232
           9,2:
             0: 48955
           9,-1:
-            2: 65520
+            3: 65520
             0: 1
           10,0:
-            2: 1
+            3: 1
             0: 65292
           10,1:
             0: 56789
           10,2:
             0: 64961
           10,-1:
-            2: 4368
+            3: 4368
             0: 57548
           11,0:
             0: 30543
@@ -8081,14 +8081,14 @@ entities:
             0: 65535
           6,-15:
             1: 224
-            3: 49152
+            2: 49152
           6,-14:
-            3: 49356
+            2: 49356
           7,-15:
             1: 17520
-            3: 4096
+            2: 4096
           7,-14:
-            3: 4113
+            2: 4113
             1: 17476
           -4,-20:
             0: 61440
@@ -8593,10 +8593,10 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 235
+          temperature: 293.15
           moles:
-          - 27.225372
-          - 102.419266
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -8612,10 +8612,10 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 293.15
+          temperature: 235
           moles:
-          - 0
-          - 0
+          - 27.225372
+          - 102.419266
           - 0
           - 0
           - 0
@@ -10972,7 +10972,7 @@ entities:
       pos: -63.5,19.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -6467.3394
+      secondsUntilStateChange: -6196.001
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -10989,7 +10989,7 @@ entities:
       pos: -63.5,17.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -6465.8394
+      secondsUntilStateChange: -6194.501
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -11572,7 +11572,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -33972.008
+      secondsUntilStateChange: -33700.668
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -86224,7 +86224,7 @@ entities:
       pos: -34.5,-14.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -28160.541
+      secondsUntilStateChange: -27889.203
       state: Closing
   - uid: 15010
     components:
@@ -86717,7 +86717,7 @@ entities:
       pos: -4.5,-71.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -19908.277
+      secondsUntilStateChange: -19636.94
       state: Closing
 - proto: Fireplace
   entities:
@@ -145499,18 +145499,6 @@ entities:
     components:
     - type: Transform
       pos: -42.5,3.5
-      parent: 8364
-- proto: SpawnPointPrisoner
-  entities:
-  - uid: 17245
-    components:
-    - type: Transform
-      pos: -18.5,41.5
-      parent: 8364
-  - uid: 26106
-    components:
-    - type: Transform
-      pos: -17.5,47.5
       parent: 8364
 - proto: SpawnPointPsychologist
   entities:

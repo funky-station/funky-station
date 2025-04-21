@@ -616,3 +616,9 @@
   parent: BaseCircuitboardRecipe
   id: BluespaceGasSenderMachineBoard
   result: BluespaceGasSenderMachineBoard
+  
+# Assmos - Crystallizer
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: CrystallizerMachineCircuitboard
+  result: CrystallizerMachineCircuitboard

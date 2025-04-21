@@ -1,0 +1,57 @@
+#Chaplain
+- type: entity
+  parent: BaseMail
+  id: MailChapCandles
+  suffix: Candles
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: BoxCandleSmall
+      amount: 1
+      orGroup: ChapCandles
+      prob: 0.7
+    - id: CandleBlackInfinite
+      amount: 2
+      orGroup: ChapCandles
+      prob: 0.05
+    - id: CandleBlueInfinite
+      amount: 2
+      orGroup: ChapCandles
+      prob: 0.05
+    - id: CandleInfinite
+      amount: 2
+      orGroup: ChapCandles
+      prob: 0.05
+    - id: CandleGreenInfinite
+      amount: 2
+      orGroup: ChapCandles
+      prob: 0.05
+    - id: CandlePurpleInfinite
+      amount: 2
+      orGroup: ChapCandles
+      prob: 0.05
+    - id: CandleRedInfinite
+      amount: 2
+      orGroup: ChapCandles
+      prob: 0.05
+
+- type: entity
+  parent: BaseMail
+  id: MailBartenderTools
+  suffix: Bartender Tools
+  components:
+  - type: Mail
+    contents:
+    - id: ShellShotgunBeanbag
+      amount: 6
+      orGroup: Bartools
+    - id: DrinkJigger
+      amount: 2
+      orGroup: Bartools
+    - id: DrinkShaker
+      orGroup: Bartools
+    - id: BoxMousetrap
+      orGroup: Bartools
+    - id: SprayBottleSpaceCleaner
+      orGroup: Bartools

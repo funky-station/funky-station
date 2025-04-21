@@ -1,0 +1,46 @@
+- type: entity
+  parent: BaseMailLarge
+  id: MailMothSuit
+  suffix: Moff Suit
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHeadHatHoodMoth
+    - id: ClothingNeckCloakMoth
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailRedRacoonSuit
+  suffix: Red Racoon Suit
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHeadHatRedRacoon
+    - id: ClothingOuterRedRacoon
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailViceSuit
+  suffix: Vice Suit
+  components:
+  - type: Mail
+    contents:
+    - id: FlippoLighter
+    - id: Blunt
+      orGroup: ViceSmokes
+    - id: CigarGold
+      orGroup: ViceSmokes
+    - id: ClothingUniformMiamiVice
+      orGroup: ViceSuit
+    - id: ClothingUniformMrSpaceWide
+      orGroup: ViceSuit
+    - id: ClothingUniformNightclubSuit
+      orGroup: ViceSuit
+    - id: DrinkLongIslandIcedTeaGlass
+      orGroup: ViceDrink
+    - id: DrinkManhattanGlass
+      orGroup: ViceDrink
+    - id: DrinkCubaLibreGlass
+      orGroup: ViceDrink
+    - id: DrinkBahamaMama
+      orGroup: ViceDrink

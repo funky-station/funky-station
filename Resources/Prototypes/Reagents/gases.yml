@@ -400,7 +400,7 @@
         conditions:
         - !type:ReagentThreshold
           reagent: BZ
-          min: 0.5
+          min: 0.3
         - !type:OrganType
           type: Slime
           shouldHave: false
@@ -408,20 +408,19 @@
         ignoreResistances: true
         damage:
           types:
-            Asphyxiation: 10
-            Poison: 1.5
+            Cellular: 0.005
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
           reagent: BZ
-          min: 0.3
+          min: 0.2
         - !type:OrganType
           type: Slime
           shouldHave: false
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
-        time: 165
+        time: 9
         refresh: false
       - !type:Emote
         conditions:
@@ -488,6 +487,13 @@
         component: ForcedSleeping
         time: 10
         type: Add
+      - !type:AddReagentToBlood
+        conditions:
+        - !type:ReagentThreshold
+          reagent: BZ
+          min: 0.2
+        reagent: BZMetabolites
+        amount: 1.8
 
 - type: reagent
   id: Healium
@@ -702,7 +708,7 @@
         - !type:ReagentThreshold
           reagent: Zauker
           min: 0.25
-          max: 10
+          max: 12
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -711,6 +717,18 @@
             Heat: 2
             Poison: 2
             Bloodloss: 1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Zauker
+          min: 12
+        ignoreResistances: true
+        damage:
+          types:
+            Slash: 30
+            Heat: 10
+            Poison: 10
+            Bloodloss: 5
 
 - type: reagent
   id: Halon

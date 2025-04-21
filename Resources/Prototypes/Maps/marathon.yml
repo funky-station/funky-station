@@ -18,8 +18,9 @@
         - type: StationJobs
           availableJobs:
             #service
-            # Goobstation - TODO: add bso and ntr
-            # Funkystation - TODO: add IAA
+            NanotrasenRepresentative: [ 1, 1 ] # Funkystation
+            InternalAffairsAgent: [ 2, 2 ] # Funkystation
+            BlueshieldOfficer: [ 1, 1 ] # Funkystation
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 2, 2 ]

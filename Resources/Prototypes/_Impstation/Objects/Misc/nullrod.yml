@@ -2,7 +2,7 @@
   name: null rod
   id: NullRodBase
   abstract: true
-  parent: [ BaseItem, BaseMinorContraband ]
+  parent: [ BaseItem, BaseChaplainContraband ]
   components:
   # - type: RevealRevenantOnCollide
   - type: Sprite

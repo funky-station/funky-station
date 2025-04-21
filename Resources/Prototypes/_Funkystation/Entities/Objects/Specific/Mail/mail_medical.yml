@@ -1,0 +1,52 @@
+- type: entity
+  parent: BaseMailLarge
+  id: MailMedicalRareTopicals
+  suffix: Rare Topicals
+  components:
+  - type: Mail
+    contents:
+    - id: MedicatedSuture
+      amount: 1
+      orGroup: RareTopicals
+    - id: RegenerativeMesh
+      amount: 1
+      orGroup: RareTopicals
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailMedicalRollerBed
+  suffix: Roller Bed
+  components:
+  - type: Mail
+    contents:
+    - id: CheapRollerBed
+      amount: 1
+      orGroup: RollerBed
+    - id: RollerBed
+      amount: 1
+      orGroup: RollerBed
+    - id: EmergencyRollerBed
+      amount: 1
+      orGroup: RollerBed
+
+# Chemist
+- type: entity
+  parent: BaseMailLarge
+  id: MailMedicalChemistryChems
+  suffix: Chemical Supplies
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: JugWeldingFuel
+      amount: 1
+      orGroup: Chems
+    - id: JugHydrogen
+      amount: 1
+      orGroup: Chems
+    - id: JugSilicon
+      amount: 1
+      orGroup: Chems
+    - id: JugSugar
+      amount: 1
+      orGroup: Chems

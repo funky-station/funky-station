@@ -14,5 +14,5 @@
     layers:
     - state: silo_relay
   - type: Machine
-    board: MaterialSiloCircuitboard
+    board: SiloRelayMachineCircuitboard
   - type: Appearance

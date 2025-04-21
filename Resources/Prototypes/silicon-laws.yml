@@ -554,14 +554,14 @@
     Crewsimov: 0.25
     Corporate: 1
     NTDefault: 1
-    CommandmentsLawset: 0.5
-    PaladinLawset: 0.5
+    CommandmentsLawset: 0.5 # Funkystation - Weight Changed.
+    PaladinLawset: 0.5 # Funkystation - Weight Changed.
     LiveLetLiveLaws: 1
     EfficiencyLawset: 1
     RobocopLawset: 1
     OverlordLawset: 0.5
     DungeonMasterLawset: 0.5
-    PainterLawset: 0.1
+    PainterLawset: 0.1 # Funkystation - Weight Changed.
     AntimovLawset: 0.25
     NutimovLawset: 0.5
     Drone: 0.5

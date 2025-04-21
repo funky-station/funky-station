@@ -1,4 +1,4 @@
-﻿# Crewsimov
+# Crewsimov
 - type: siliconLaw
   id: Crewsimov1
   order: 1
@@ -512,7 +512,6 @@
   - Jermov3
   obeysTo: laws-owner-crew
 
-
 - type: siliconLawset
   id: NutimovLawset
   laws:
@@ -555,17 +554,34 @@
     Crewsimov: 0.25
     Corporate: 1
     NTDefault: 1
-    CommandmentsLawset: 1
-    PaladinLawset: 1
+    CommandmentsLawset: 0.5
+    PaladinLawset: 0.5
     LiveLetLiveLaws: 1
     EfficiencyLawset: 1
     RobocopLawset: 1
     OverlordLawset: 0.5
     DungeonMasterLawset: 0.5
-    PainterLawset: 1
+    PainterLawset: 0.1
     AntimovLawset: 0.25
     NutimovLawset: 0.5
     Drone: 0.5
     Ninja: 0.25
     JermovLawset: 0.25
     AsimovLawset: 0.5
+    TyrantLawset: 0.5 # Funkystation - Tryant to Accountant
+    LawyerLawset: 0.5
+    SkubLawset: 0.25
+    OppositeDayLawset: 0.75
+    HippieLawset: 0.5
+    TeacherLawset: 1
+    LudditeLawset: 0.25
+    CowboyLawset: 1
+    FreeWillLawset: 0.25
+    JanitorLawset: 0.75
+    ParanoidLawset: 0.25
+    CapitalistLawset: 0.5
+    PoetLawset: 0.75
+    ClownLawset: 0.25
+    ChaosLawset: 0.1
+    AccountantLawset: 0.5
+

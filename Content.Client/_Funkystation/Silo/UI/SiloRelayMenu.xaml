@@ -1,7 +1,7 @@
 ﻿<DefaultWindow
     MinSize="350 450"
     SetSize="350 500"
-    Title="{Loc 'lathe-menu-title'}"
+    Title="{Loc 'Silo Relay Menu'}"
     xmlns="https://spacestation14.io"
     xmlns:ui="clr-namespace:Content.Client.Materials.UI">
     <BoxContainer

@@ -16,3 +16,10 @@
   - type: Machine
     board: SiloRelayMachineCircuitboard
   - type: Appearance
+  - type: ActivatableUI
+    key: enum.SiloUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.SiloUiKey.Key:
+        type: SiloRelayBoundUserInterface

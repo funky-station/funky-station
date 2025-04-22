@@ -138,8 +138,8 @@
     - Prying
   # Celedon is intended to pry open doors, this speed could be lowered if found too fast
   - type: Prying
-    pryPowered: true
-    force: true
+    pryPowered: false # but not powered doors
+    force: true # I dont know what this does
     speedModifier: 2.0
     useSound:
       path: /Audio/Items/crowbar.ogg

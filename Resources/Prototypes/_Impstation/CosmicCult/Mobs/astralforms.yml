@@ -294,3 +294,4 @@
     nameSegments:
     - ascended_names
     - ascended_titles
+  - type: ZombieImmune # funky

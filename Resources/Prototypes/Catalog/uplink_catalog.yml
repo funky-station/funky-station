@@ -2146,8 +2146,8 @@
   productEntity: ClothingBackpackSatchelSmugglerUnanchored
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 1
+    Telecrystal: 10 # funk
   cost:
-    Telecrystal: 2
+    Telecrystal: 15 # funk
   categories:
   - UplinkDeception

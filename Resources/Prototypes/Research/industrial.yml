@@ -99,7 +99,7 @@
   tier: 1
   cost: 7500
   recipeUnlocks:
-  - ThermomachineFreezerMachineCircuitBoard
+  - ThermomachineUpgradedFreezerMachineCircuitBoard # Assmos
   - GasRecyclerMachineCircuitboard
 
 - type: technology
@@ -148,9 +148,10 @@
   tier: 2
   cost: 7500
   recipeUnlocks:
-  - HellfireFreezerMachineCircuitBoard
+  - ThermomachineAdvancedFreezerMachineCircuitBoard # Assmos
   - PortableScrubberMachineCircuitBoard
   - HolofanProjector
+  - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases
   technologyPrerequisites:
   - AtmosphericTech
 
@@ -168,6 +169,7 @@
     - PowerDrill
     - JawsOfLife
     - BorgModuleAdvancedTool
+    - BorgModuleAtmos
 
 - type: technology
   id: MassExcavation
@@ -248,3 +250,19 @@
   - PowerCellMicroreactor
   technologyPrerequisites:
   - AdvancedPowercells
+
+# Assmos
+- type: technology
+  id: AtmosphericsExotech
+  name: research-technology-atmospherics-exotech
+  icon:
+    sprite: _Funkystation/Structures/Piping/Atmospherics/bluespacegassender.rsi
+    state: off
+  discipline: Industrial
+  tier: 3
+  cost: 10000
+  recipeUnlocks:
+  - HellfireFreezerMachineCircuitBoard
+  - BluespaceGasSenderMachineBoard
+  technologyPrerequisites:
+  - AdvancedAtmospherics

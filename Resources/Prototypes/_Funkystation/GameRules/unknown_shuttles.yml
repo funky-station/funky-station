@@ -14,7 +14,7 @@
   components:
   - type: StationEvent
     maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
-    weight: 5
+    weight: 8
   - type: LoadMapRule
     preloadedGrid: loneroboticist
 
@@ -25,7 +25,7 @@
   - type: StationEvent
     startAnnouncement: null #Silent
     maxOccurrences: 1 # should be the same as [copies] in shuttle_incoming_event.yml
-    weight: 5
+    weight: 8
   - type: LoadMapRule
     preloadedGrid: foamroid
 

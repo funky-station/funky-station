@@ -8,7 +8,7 @@ reagent-name-salicylicacid = salicylic acid
 reagent-desc-salicylicacid = A heavy-duty analgesic that stabilizes the severely beaten, but is barely effective on people with less wounds. However, overdosing will reverse the effect.
 
 reagent-name-aiuri = aiuri
-reagent-desc-aiuri = A common, but weak medicine used to heal brute injuries. Usually paired with other chemicals.
+reagent-desc-aiuri = A common, but weak medicine used to heal burn injuries. Usually paired with other chemicals.
 
 reagent-name-lenturi = lenturi
 reagent-desc-lenturi = A common chemical that is effective at treating burn damage by using the water inside your body.

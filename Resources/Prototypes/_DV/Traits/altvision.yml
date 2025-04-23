@@ -2,20 +2,17 @@
   id: UltraVision
   name: trait-ultravision-name
   description: trait-ultravision-desc
-  category: Quirks
-  cost: -1
+  category: Vision
+  cost: 1
   components:
     - type: UltraVision
-  speciesRestrictions:
-  - Harpy
+
 
 - type: trait
   id: DogVision
   name: trait-deuteranopia-name
   description: trait-deuteranopia-desc
-  category: Quirks
-  cost: -1
+  category: Vision
+  cost: 1
   components:
     - type: DogVision
-  speciesRestrictions:
-  - Vulpkanin

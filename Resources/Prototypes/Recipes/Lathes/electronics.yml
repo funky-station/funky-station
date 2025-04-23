@@ -144,6 +144,18 @@
   id: HellfireFreezerMachineCircuitBoard
   result: HellfireFreezerMachineCircuitBoard
 
+# Assmos
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: ThermomachineUpgradedFreezerMachineCircuitBoard
+  result: ThermomachineUpgradedFreezerMachineCircuitBoard
+
+# Assmos
+- type: latheRecipe
+  parent: BaseSilverCircuitboardRecipe
+  id: ThermomachineAdvancedFreezerMachineCircuitBoard
+  result: ThermomachineAdvancedFreezerMachineCircuitBoard
+
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
   id: CondenserMachineCircuitBoard
@@ -604,3 +616,15 @@
   parent: BaseCircuitboardRecipe
   id: HolopadMachineCircuitboard
   result: HolopadMachineCircuitboard
+
+# Assmos - /tg/ gases
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ElectrolyzerMachineCircuitboard
+  result: ElectrolyzerMachineCircuitboard
+  
+# Assmos - Bluespace Gas
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: BluespaceGasSenderMachineBoard
+  result: BluespaceGasSenderMachineBoard

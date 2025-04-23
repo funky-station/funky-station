@@ -146,4 +146,7 @@
   id: CalmAntag
 
 - type: Tag
+  id: ExtremeAntag
+
+- type: Tag
   id: MidroundAntag

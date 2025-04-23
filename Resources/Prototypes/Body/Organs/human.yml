@@ -82,6 +82,8 @@
         name: food-sequence-content-brain
   - type: Item
     size: Small
+    shape:
+    - 0,0,1,1
     heldPrefix: brain
 
 - type: entity
@@ -104,6 +106,8 @@
     - Eyes
   - type: Item
     size: Small
+    shape:
+    - 0,0,1,0
     heldPrefix: eyeballs
 
 - type: entity
@@ -112,6 +116,8 @@
   name: tongue
   description: "A fleshy muscle mostly used for lying."
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     state: tongue
   - type: FoodSequenceElement
@@ -139,6 +145,9 @@
     - state: appendix
     - state: appendix-inflamed
       visible: false
+  - type: Tag
+    tags:
+    - Organ
 
 - type: entity
   id: OrganHumanEars
@@ -146,6 +155,10 @@
   name: ears
   description: "There are three parts to the ear. Inner, middle and outer. Only one of these parts should normally be visible."
   components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
   - type: Sprite
     state: ears
   - type: FoodSequenceElement
@@ -158,6 +171,9 @@
       taco:
         name: food-sequence-content-ears
   - type: Ears # Shitmed Change
+  - type: Tag
+    tags:
+    - Organ
 
 - type: entity
   id: OrganHumanLungs
@@ -172,7 +188,9 @@
       - state: lung-l
       - state: lung-r
   - type: Item
-    size: Small
+    size: Normal
+    shape:
+    - 0,0,1,1
     heldPrefix: lungs
   - type: Lung
   - type: Metabolizer
@@ -230,7 +248,7 @@
     - Organ
     - Heart
   - type: Item
-    size: Small
+    size: Tiny
     heldPrefix: heart
 
 - type: entity
@@ -244,7 +262,9 @@
   - type: Sprite
     state: stomach
   - type: Item
-    size: Small
+    size: Normal
+    shape:
+    - 0,0,1,1
     heldPrefix: stomach
   - type: SolutionContainerManager
     solutions:
@@ -294,6 +314,8 @@
     state: liver
   - type: Item
     size: Small
+    shape:
+      - 0,0,1,1
     heldPrefix: liver
   - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
     maxReagents: 1
@@ -329,7 +351,9 @@
       - state: kidney-l
       - state: kidney-r
   - type: Item
-    size: Small
+    size: Normal
+    shape:
+      - 0,0,1,1
     heldPrefix: kidneys
   # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
   - type: Metabolizer

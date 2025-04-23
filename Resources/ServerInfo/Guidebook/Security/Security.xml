@@ -31,7 +31,7 @@ It is worth noting that flashes can be both used in a large area ([color=yellow]
     <GuideEntityEmbed Entity="ClothingEyesGlassesSecurity"/>
     <GuideEntityEmbed Entity="GrenadeFlashBang"/>
   </Box>
-  
+
 ## Lethals
 Should the situation dictate, [color=#cb0000]Security[/color] have access to laser rifles, shotguns, handguns and automatic rifles able to put down substancial fire against any who would stand against the station.
   <Box>
@@ -40,4 +40,7 @@ Should the situation dictate, [color=#cb0000]Security[/color] have access to las
     <GuideEntityEmbed Entity="WeaponPistolMk58"/>
     <GuideEntityEmbed Entity="WeaponRifleLecter"/>
   </Box>
+
+  ## Miscellaneous
+  Security Officers should not patrol maintenance tunnels on Green, especially alone. Security Officers should be concerned with keeping the peace in the station.
 </Document>

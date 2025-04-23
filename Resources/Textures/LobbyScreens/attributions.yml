@@ -137,3 +137,10 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: "shakulan"
   source: "https://funkystation.org"
+
+- files: ["lowpopCrew.webp"]
+  license: "Custom"
+  copyright: "vectorassembly | CC-BY-NC-ND-4.0"
+  source: "https://vectorassembly.org"
+
+

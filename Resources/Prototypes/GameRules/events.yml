@@ -41,8 +41,8 @@
     - id: BlobSpawn #Goobstation - Blob
     - id: FalseAlarm
     - id: DerelictCyborgSpawn
-    - id: WizardSpawn
-    - id: RogueAscendedSpawn # imp
+    #- id: WizardSpawn # todo: remove these when done
+    #- id: RogueAscendedSpawn # imp todo: remove these when done
 
 - type: entity
   id: BaseStationEvent
@@ -178,11 +178,17 @@
     minimumPlayers: 20
     duration: null
     chaos: # Goobstation
-      Hostile: 20
-      Friend: 20
-      Combat: 40
-      Death: 100
-      Medical: 100
+      Hostile: 180
+      Friend: 180
+      Combat: 180
+      Death: 180
+      Medical: 140
+    maxChaos:
+      Hostile: 30
+      Combat: -60
+      Power: 50
+      Medical: 50
+      Atmos: 50
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner
@@ -213,11 +219,11 @@
     reoccurrenceDelay: 60 # funkystation
     minimumPlayers: 30
     chaos: # Goobstation
-      Hostile: 20
-      Friend: 20
-      Combat: 40
-      Death: 40
-      Medical: 40
+      Hostile: 50
+      Friend: 50
+      Combat: 50
+      Death: 50
+      Medical: 50
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
   - type: AntagObjectives
@@ -301,6 +307,17 @@
     earliestStart: 30
     reoccurrenceDelay: 60
     minimumPlayers: 10
+    chaos:
+      Hostile: 150
+      Friend: 150
+      Combat: 150
+      Death: 150
+    maxChaos:
+      Hostile: 30
+      Combat: -60
+      Power: 50
+      Medical: 50
+      Atmos: 50
   - type: AntagSelection
     agentName: wizard-round-end-name
     definitions:

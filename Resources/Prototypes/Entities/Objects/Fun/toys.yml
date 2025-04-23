@@ -1250,6 +1250,13 @@
   - type: Sprite
     sprite: Objects/Fun/toys.rsi
     state: foamblade
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/gib1.ogg
+  - type: StaminaDamageOnHit
+      damage: 8
+  - type: DisarmMalus
+      malus: 1
   - type: MeleeWeapon
     attackRate: 1.5
     angle: 0

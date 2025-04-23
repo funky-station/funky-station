@@ -113,12 +113,26 @@
   id: TearVeilRune
   name: tear veil rune
   components:
-    - type: TearVeil
-    - type: Sprite
-      sprite: _Funkystation/Structures/BloodCult/narsierune.rsi
-      layers:
-        - state: narsierune
-          color: '#FF4400FF'
+  - type: TearVeil
+  - type: Sprite
+    sprite: _Funkystation/Structures/BloodCult/narsierune.rsi
+    layers:
+    - state: narsierune
+      color: '#FF4400FF'
+
+- type: entity
+  parent: TearVeilRune
+  id: TearVeilRuneSpawn
+  suffix: Spawn
+  components:
+  - type: Sprite
+    layers:
+    - state: narsierune_drawing
+  # spawn animation lasts 45 seconds
+  - type: TimedDespawn
+    lifetime: 45
+  - type: SpawnOnDespawn
+    prototype: TearVeilRune
 
 # Legacy Cult Runes
 - type: entity

@@ -66,7 +66,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 	private void OnMapInit(EntityUid uid, BloodCultRuneCarverComponent component, MapInitEvent args)
 	{
-		
+
 	}
 
 	#region UserInterface

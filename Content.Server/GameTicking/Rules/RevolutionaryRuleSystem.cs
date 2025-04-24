@@ -107,7 +107,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         //Add Rev Uplink
         if (!_mind.TryGetMind(traitor, out var mindId, out var mind))
-            return false;        
+            return false;
 
         var pda = _uplink.FindUplinkTarget(traitor);
         if (pda == null || !_uplink.AddUplink(traitor, component.StartingBalance, component.UplinkCurrencyId, component.UplinkStoreId))

@@ -4,7 +4,7 @@
     "x": 32,
     "y": 32
   },
-  "copyright": "Taken from tgstation, brigmedic locker is a resprited CMO locker by PuroSlavKing (Github), n2 sprites based on fire and emergency sprites",
+  "copyright": "Taken from tgstation, brigmedic locker is a resprited CMO locker by PuroSlavKing (Github), n2 sprites based on fire and emergency sprites, genpop lockers by EmoGarbage404 (github)",
   "license": "CC-BY-SA-3.0",
   "states": [
     {
@@ -447,6 +447,9 @@
       "name": "rd_open"
     },
     {
+      "name": "red_door"
+    },
+    {
       "name": "robotics"
     },
     {
@@ -454,9 +457,6 @@
     },
     {
       "name": "robotics_open"
-    },
-    {
-      "name": "red_door"
     },
     {
       "name": "science"
@@ -570,6 +570,36 @@
     },
     {
       "name": "representative_door"
+    },
+    {
+      "name": "genpop"
+    },
+    {
+      "name": "genpop_door_1"
+    },
+    {
+      "name": "genpop_door_2"
+    },
+    {
+      "name": "genpop_door_3"
+    },
+    {
+      "name": "genpop_door_4"
+    },
+    {
+      "name": "genpop_door_5"
+    },
+    {
+      "name": "genpop_door_6"
+    },
+    {
+      "name": "genpop_door_7"
+    },
+    {
+      "name": "genpop_door_8"
+    },
+    {
+      "name": "genpop_open"
     }
   ]
 }

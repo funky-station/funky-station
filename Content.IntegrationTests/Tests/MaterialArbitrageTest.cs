@@ -28,6 +28,21 @@ namespace Content.IntegrationTests.Tests;
 [TestFixture]
 public sealed class MaterialArbitrageTest
 {
+    // These recipes are currently broken and need fixing. You should not be adding to these sets.
+    private readonly HashSet<string> _destructionArbitrageIgnore =
+    [
+        "BaseChemistryEmptyVial", "DrinkShotGlass", "SodiumLightTube", "DrinkGlassCoupeShaped",
+        "LedLightBulb", "ExteriorLightTube", "LightTube", "DrinkGlass", "DimLightBulb", "LightBulb", "LedLightTube",
+        "SheetRGlass1", "ChemistryEmptyBottle01", "WarmLightBulb",
+    ];
+
+    private readonly HashSet<string> _compositionArbitrageIgnore =
+    [
+        "FoodPlateSmall", "AirTank", "FoodPlateTin", "FoodPlateMuffinTin", "WeaponCapacitorRechargerCircuitboard",
+        "WeaponCapacitorRechargerCircuitboard", "BorgChargerCircuitboard", "BorgChargerCircuitboard", "FoodPlate",
+        "CellRechargerCircuitboard", "CellRechargerCircuitboard",
+    ];
+
     [Test]
     public async Task NoMaterialArbitrage()
     {

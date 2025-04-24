@@ -84,6 +84,9 @@
     guides:
     - Security
     - Antagonists
+  - type: Tag
+    tags:
+    - GrenadeFlashBang
   - type: Flashbang # Goobstation
   - type: Construction
     graph: RevolutionaryFlashbangGraph

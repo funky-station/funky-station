@@ -49,7 +49,7 @@ public sealed class FingerprintReaderSystem : EntitySystem
     /// <returns>True if access was granted, otherwise false.</returns>
     // TODO: Remove showPopup, just keeping it here for backwards compatibility while I refactor mail
     [PublicAPI]
-    public bool IsAllowed(Entity<FingerprintReaderComponent?> target, EntityUid user, [NotNullWhen(false)] out string? denyReason, bool showPopup = true)
+    public bool IsAllowed(Entity<FingerprintReaderComponent?> target, EntityUid user, bool showPopup = true)
     {
         denyReason = null;
         if (!Resolve(target, ref target.Comp, false))
@@ -61,11 +61,8 @@ public sealed class FingerprintReaderSystem : EntitySystem
         // Check for gloves first
         if (!target.Comp.IgnoreGloves && TryGetBlockingGloves(user, out var gloves))
         {
-            denyReason = Loc.GetString("fingerprint-reader-fail-gloves", ("blocker", gloves));
-
-            if (showPopup)
-                _popup.PopupClient(denyReason, target, user);
-
+            if (target.Comp.FailGlovesPopup != null && showPopup)
+                _popup.PopupClient(Loc.GetString(target.Comp.FailGlovesPopup, ("blocker", gloves)), target, user);
             return false;
         }
 
@@ -73,10 +70,8 @@ public sealed class FingerprintReaderSystem : EntitySystem
         if (!TryComp<FingerprintComponent>(user, out var fingerprint) || fingerprint.Fingerprint == null ||
             !target.Comp.AllowedFingerprints.Contains(fingerprint.Fingerprint))
         {
-            denyReason = Loc.GetString("fingerprint-reader-fail");
-
-            if (showPopup)
-                _popup.PopupClient(denyReason, target, user);
+            if (target.Comp.FailPopup != null && showPopup)
+                _popup.PopupClient(Loc.GetString(target.Comp.FailPopup), target, user);
 
             return false;
         }

@@ -4,7 +4,7 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 04/24/2025 22:37:43
+  time: 04/24/2025 22:57:15
   entityCount: 28548
 maps:
 - 11906
@@ -6079,7 +6079,7 @@ entities:
             0: 61423
           8,-1:
             0: 12320
-            3: 34944
+            2: 34944
           -8,-4:
             0: 30583
           -8,-5:
@@ -6435,24 +6435,24 @@ entities:
             0: 65535
           6,-12:
             1: 4096
-            2: 49356
+            3: 49356
           6,-11:
             1: 61713
-            2: 204
+            3: 204
           6,-10:
             0: 29424
           6,-13:
-            2: 49356
+            3: 49356
           7,-12:
-            2: 4113
+            3: 4113
             1: 17476
           7,-11:
-            2: 17
+            3: 17
             1: 29764
           7,-10:
             0: 61680
           7,-13:
-            2: 4113
+            3: 4113
             1: 17476
           8,-12:
             0: 7647
@@ -6488,7 +6488,7 @@ entities:
             0: 48910
           8,0:
             0: 63523
-            3: 8
+            2: 8
           8,1:
             0: 61440
           8,2:
@@ -6767,24 +6767,24 @@ entities:
             1: 35064
             0: 771
           9,0:
-            3: 15
+            2: 15
             0: 65296
           9,1:
             0: 47232
           9,2:
             0: 48955
           9,-1:
-            3: 65520
+            2: 65520
             0: 1
           10,0:
-            3: 1
+            2: 1
             0: 65292
           10,1:
             0: 56789
           10,2:
             0: 64961
           10,-1:
-            3: 4368
+            2: 4368
             0: 57548
           11,0:
             0: 30543
@@ -8119,14 +8119,14 @@ entities:
             0: 65535
           6,-15:
             1: 224
-            2: 49152
+            3: 49152
           6,-14:
-            2: 49356
+            3: 49356
           7,-15:
             1: 17520
-            2: 4096
+            3: 4096
           7,-14:
-            2: 4113
+            3: 4113
             1: 17476
           -4,-20:
             0: 61440
@@ -8670,10 +8670,10 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 293.15
+          temperature: 235
           moles:
-          - 0
-          - 0
+          - 27.225372
+          - 102.419266
           - 0
           - 0
           - 0
@@ -8693,10 +8693,10 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 235
+          temperature: 293.15
           moles:
-          - 27.225372
-          - 102.419266
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -11609,7 +11609,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -40855.2
+      secondsUntilStateChange: -41032.566
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15557,6 +15557,8 @@ entities:
     - type: Transform
       pos: -28.5,-24.5
       parent: 8364
+    - type: SiloUtilizer
+      silo: 28139
     - type: MaterialStorage
       materialWhiteList:
       - Steel
@@ -16681,13 +16683,6 @@ entities:
       parent: 8364
     - type: SpamEmitSound
       enabled: False
-- proto: BluespaceSender
-  entities:
-  - uid: 28543
-    components:
-    - type: Transform
-      pos: 15.5,-46.5
-      parent: 8364
 - proto: BluespaceVendor
   entities:
   - uid: 28547
@@ -87786,7 +87781,7 @@ entities:
       pos: -34.5,-14.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -35043.734
+      secondsUntilStateChange: -35221.1
       state: Closing
   - uid: 15010
     components:
@@ -88274,7 +88269,7 @@ entities:
       pos: -4.5,-71.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -26791.47
+      secondsUntilStateChange: -26968.838
       state: Closing
 - proto: Fireplace
   entities:
@@ -126444,6 +126439,13 @@ entities:
     - type: Configuration
       config:
         tag: bridge
+- proto: MailTeleporter
+  entities:
+  - uid: 28543
+    components:
+    - type: Transform
+      pos: -21.5,-17.5
+      parent: 8364
 - proto: MaintenanceFluffSpawner
   entities:
   - uid: 1280
@@ -126643,6 +126645,8 @@ entities:
         21191:
         - MaterialSilo: MaterialSiloUtilizer
         22225:
+        - MaterialSilo: MaterialSiloUtilizer
+        15361:
         - MaterialSilo: MaterialSiloUtilizer
 - proto: MaterialWoodPlank
   entities:
@@ -127538,10 +127542,8 @@ entities:
   - uid: 12448
     components:
     - type: Transform
-      pos: -75.71193,14.849947
+      pos: -75.5743,14.966861
       parent: 8364
-    - type: NetworkConfigurator
-      linkModeActive: False
     - type: Physics
       angularDamping: 0
       linearDamping: 0

@@ -17,11 +17,14 @@ public sealed partial class HeadRevolutionaryComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "HeadRevolutionaryFaction";
 
+    /// Funky Station
+    /// <summary>
+    /// Abilities the head revolutionaries start with.
+    /// </summary>
     public readonly List<ProtoId<EntityPrototype>> BaseHeadRevActions = new()
     {
         "ActionDeclareOpenRevolt",
     };
-
 
     /// <summary>
     /// How long the stun will last after the user is converted.

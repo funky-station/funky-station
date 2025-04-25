@@ -2486,3 +2486,14 @@ Entries:
       message: Added some spawners for mapping!
   id: 307
   time: '2025-04-20T06:18:12.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Add
+      message: >-
+        Added Open Revolt to Revolutionaries. Open Revolt is a state that is
+        declared by any Head Rev, or by the Evac Shuttle failing to dock, that
+        reveals all Revolutionaries to each other while also revealing every
+        Head Rev's name in an announcement, allowing both Revolutionaries and
+        Loyalist Crew to co-operate amongst themselves better in the late game.
+  id: 308
+  time: '2025-04-25T23:45:03.0000000+00:00'

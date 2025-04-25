@@ -111,7 +111,7 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockClothes
-  name: wardrobe restock box
+  name: departmentDrobe restock box # Funky Station
   description: It's time to step up your fashion! Place inside any clothes vendor restock slot to begin.
   components:
   - type: VendingMachineRestock

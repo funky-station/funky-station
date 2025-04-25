@@ -211,6 +211,8 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     {
         _preferencesManager.UpdateJobPriorities(newJobPriorities);
         _jobPriorityEditor?.LoadJobPriorities();
+        var (characterGui, _) = EnsureGui();
+        characterGui.ReloadCharacterPickers(selectJobPriorities: true);
     }
 
     private void SaveProfile()

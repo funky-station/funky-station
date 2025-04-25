@@ -48,6 +48,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Configuration;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
@@ -64,6 +65,7 @@ namespace Content.Client.Lobby.UI
         [Dependency] private readonly JobRequirementsManager _jobRequirements = default!;
         [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
         [Dependency] private readonly IEntityManager _entManager = default!;
+        [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
         /// <summary>
         /// Action invoked when a job is pressed
@@ -117,7 +119,7 @@ namespace Content.Client.Lobby.UI
                 if (profile is not HumanoidCharacterProfile humanoid)
                     continue;
                 var characterPickerButton =
-                    new CharacterPickerButton(_entManager, _prototypeManager, group, humanoid, isSelected, true);
+                    new CharacterPickerButton(_preferencesManager, _prototypeManager, _entManager, _playerManager, group, humanoid, isSelected, true);
                 CharacterList.AddChild(characterPickerButton);
 
                 if (isSelected && _selectedSlot != slot)

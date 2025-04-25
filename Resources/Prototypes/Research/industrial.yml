@@ -218,6 +218,7 @@
     - MiningDrillDiamond
     - AdvancedMineralScannerEmpty
     - MechEquipmentDrillDiamond
+    - BorgModuleAdvancedMining
 
 - type: technology
   id: Ripley2

@@ -189,10 +189,6 @@
   - type: ShowHealthIcons
     damageContainers:
     - Biological
-  - type: SurgeryTarget # Shitmed
-  - type: Sanitized # Shitmed
-  - type: SurgerySpeedModifier
-    speedModifier: 1.8 #moderately faster than a regular doctor w/ gloves (1.75)
 
   # Visual
   inventoryTemplateId: borgDutch
@@ -219,7 +215,7 @@
   dummyPrototype: BorgChassisService
 
   # Functional
-  extraModuleCount: 4
+  extraModuleCount: 3
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
@@ -229,8 +225,6 @@
   - BorgModuleTool
   - BorgModuleMusique
   - BorgModuleService
-  - BorgModuleBartender # imp
-  - BorgModulePaper # imp
   - BorgModuleClowning
   - BorgModuleGardening
   - BorgModuleHarvesting

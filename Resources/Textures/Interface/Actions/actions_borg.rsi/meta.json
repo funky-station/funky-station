@@ -53,6 +53,9 @@
             "name":"mining-module"
         },
         {
+            "name":"adv-mining-module"
+        },
+        {
             "name":"light-replacer-module"
         },
         {
@@ -72,6 +75,12 @@
         },
         {
             "name":"adv-surgery-module"
+        },
+        {
+            "name":"chem-module"
+        },
+        {
+            "name":"adv-chem-module"
         },
         {
             "name":"adv-diagnosis-module"

@@ -749,7 +749,6 @@
       borg_module:
         - BorgModuleTool
         - BorgModuleFireExtinguisher
-        - BorgModuleGPS
   - type: ItemSlots
     slots:
       cell_slot:

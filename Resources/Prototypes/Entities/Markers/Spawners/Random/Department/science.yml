@@ -115,7 +115,9 @@
   - type: RandomSpawner
     rarePrototypes:
     - BorgModuleDefibrillator
+    - BorgModuleAdvancedTool
     - BorgModuleAdvancedCleaning
+    - BorgModuleAdvancedChemical
     - BorgModuleClowning
     - BorgModuleGardening
     - BorgModuleHarvesting

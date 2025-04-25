@@ -905,7 +905,6 @@
     - SciFlash
     - BorgModuleCable
     - BorgModuleFireExtinguisher
-    - BorgModuleRadiationDetection
     - BorgModuleTool
     - CyborgEndoskeleton
     - LeftArmBorg
@@ -942,7 +941,7 @@
     - BorgModuleGardening
     - BorgModuleHarvesting
     - BorgModuleDefibrillator
-    - BorgModuleAdvancedTreatment
+    - BorgModuleAdvancedChemical
     - RipleyHarness
     - RipleyLArm
     - RipleyRArm
@@ -1196,7 +1195,7 @@
     - WeaponLaserCannon
     - WeaponLaserCarbine
     - WeaponXrayCannon
-    - WeaponLaserSvalinn # Funky Change 
+    - WeaponLaserSvalinn # Funky Change
     - SecurityCyberneticEyes # Shitmed Change
     - MedicalCyberneticEyes # Shitmed Change
     # Goobstation - Mechs
@@ -1752,15 +1751,15 @@
     materialUseMultiplier: 0.75
     timeMultiplier: 0.5
     staticRecipes:
-    # Funky Change, replaced with Industrial Procecor specific recipes 
+    # Funky Change, replaced with Industrial Procecor specific recipes
     #- IngotGold1
     #- IngotSilver1
     #- MaterialBananium1
-    #- MaterialDiamond    
+    #- MaterialDiamond
     #- SheetSteel
     #- SheetGlass1
-    #- SheetPlasma1    
-    #- SheetUranium1   
+    #- SheetPlasma1
+    #- SheetUranium1
     # Funky Recipe Start
     - SheetSteelIndustrial
     - SheetGlassIndustrial
@@ -1770,7 +1769,7 @@
     - SheetUraniumIndustrial
     - MaterialBananiumIndustrial
     - MaterialDiamondIndustrial
-    # Funky Recipe End 
+    # Funky Recipe End
     - SheetRGlassRaw
     - SheetPGlass1
     - SheetRPGlass1

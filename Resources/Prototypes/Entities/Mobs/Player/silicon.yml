@@ -698,9 +698,8 @@
       borg_brain:
       - PositronicBrain
       borg_module:
-      - BorgModuleTool
-      - BorgModuleFireExtinguisher
-      - BorgModuleGPS
+        - BorgModuleTool
+        - BorgModuleFireExtinguisher
   - type: ItemSlots
     slots:
       cell_slot:

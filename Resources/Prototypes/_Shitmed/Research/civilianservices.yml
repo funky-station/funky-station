@@ -21,12 +21,12 @@
   tier: 2
   cost: 10000
   recipeUnlocks:
-  - BorgModuleAdvancedTreatment
-  - BorgModuleDefibrillator
+  - BorgModuleAdvancedSurgery
+  - BorgModuleAdvancedChemical
   - EnergyScalpel
   - EnergyCautery
   - AdvancedRetractor
-  - BorgModuleAdvancedSurgery
+
 
 - type: technology
   id: CyberneticEnhancements

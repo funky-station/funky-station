@@ -483,6 +483,8 @@
     - MagazineShotgunBeanbag
     - MagazineShotgunIncendiary
     - MagazineShotgunIncendiary
+    - MagazinePistolSubMachineGunTopMountedIncendiary
+    - MagazinePistolSubMachineGunTopMountedUranium
     - PortableRecharger
     - PowerCageHigh
     - PowerCageMedium
@@ -556,9 +558,8 @@
     - SalvageMagnetMachineCircuitboard
     - OperatingTableCircuitboard # Shitmed Change
     - BorgChargerCircuitboard
-    - BluespaceGasSenderMachineBoard # Assmos - Bluespace Gas
+    - ThermomachineFreezerMachineCircuitBoard # Assmos - Moved to staticRecipes from dynamicRecipes
     dynamicRecipes:
-    - ThermomachineFreezerMachineCircuitBoard
     - HellfireFreezerMachineCircuitBoard
     - PortableScrubberMachineCircuitBoard
     - CloningPodMachineCircuitboard
@@ -635,6 +636,9 @@
     - JukeboxCircuitBoard
     - SMESAdvancedMachineCircuitboard
     - HolopadMachineCircuitboard
+    - BluespaceGasSenderMachineBoard # Assmos - Bluespace Gas
+    - ThermomachineUpgradedFreezerMachineCircuitBoard # Assmos
+    - ThermomachineAdvancedFreezerMachineCircuitBoard # Assmos
     - MusicTechFabCircuitboard # Funky Station
     - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases
   - type: EmagLatheRecipes
@@ -946,6 +950,8 @@
     - MagazineRifleUranium
     - MagazineShotgunBeanbag
     - MagazineShotgunIncendiary
+    - MagazinePistolSubMachineGunTopMountedIncendiary
+    - MagazinePistolSubMachineGunTopMountedUranium
     - PortableRecharger
     - PowerCageHigh
     - PowerCageMedium

@@ -28,7 +28,7 @@
     - id: CentrifugeMachineCircuitboard
       amount: 1
       orGroup: SciBoard
-    - id: hotplate machine board
+    - id: HotplateMachineCircuitboard
       amount: 1
       orGroup: SciBoard
 

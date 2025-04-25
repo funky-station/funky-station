@@ -486,7 +486,8 @@ public sealed partial class CargoSystem
             IdPrefix = bountyCategory.IdPrefix,
             Category = bountyCategory.Name,
         };
-
+        var totalBountyItems = 0;
+      
         for (var i = 1; i <= selection;)
         {
             var bountyItem = _random.Pick(bountyItems);
@@ -506,6 +507,7 @@ public sealed partial class CargoSystem
             var bountyAmount = _random.Next(bountyItem.MinAmount, bountyItem.MaxAmount);
             totalReward += bountyAmount * bountyItem.RewardPer;
             bountyItemData.Amount = bountyAmount;
+            totalBountyItems += bountyAmount;
             newBounty.Entries.Add(bountyItemData);
             if (totalItems > 1)
                 totalItems--;
@@ -520,6 +522,10 @@ public sealed partial class CargoSystem
             ("category", Loc.GetString(bountyCategory.Name)),
             ("id", newBounty.Id));
 
+        if (totalBountyItems > 30)
+        {
+            newBounty.Description += " (This bounty requires more compact storage methods such as cardboard boxes or bags)";
+        }
         if (component.Bounties.Any(b => b.Id == newBounty.Id))
         {
             Log.Error("Failed to add bounty {ID} because another one with the same ID already existed!", newBounty.Id);

@@ -2415,3 +2415,74 @@ Entries:
       message: New civilian tier 1 research to unlock the music techfab board
   id: 300
   time: '2025-04-19T04:42:09.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Remove
+      message: Removed the Traitor Objective for the Handheld Crew Monitor.
+    - type: Fix
+      message: >-
+        The Chaplain is now legally allowed to own their Null Rod (and
+        associated items).
+    - type: Fix
+      message: >-
+        The Handheld Crew Monitor is now job-restricted contraband, instead of
+        Syndie Objective contraband. CMOs and Paramedics are allowed to have it,
+        in accordance with SOP.
+    - type: Fix
+      message: >-
+        The Syndicate now correctly informs its agents that the Energy Shotgun
+        is a Warden-based Objective, not Head of Security.
+  id: 301
+  time: '2025-04-19T21:48:06.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: A Revolutionary Mindshield has been added to the Metashield.
+    - type: Tweak
+      message: Rule 7 now states "There are no main characters"
+  id: 302
+  time: '2025-04-19T21:48:52.0000000+00:00'
+- author: Gansu
+  changes:
+    - type: Tweak
+      message: Added a note to large bounties if they require sub storage items
+  id: 303
+  time: '2025-04-19T21:50:20.0000000+00:00'
+- author: Dot5511
+  changes:
+    - type: Fix
+      message: Fixed the wording on Rule 11 to not contradict itself in the same text.
+  id: 304
+  time: '2025-04-19T21:55:20.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Tweak
+      message: Mindcontrol and Brainwashing has been clarified in Rule 6.
+  id: 305
+  time: '2025-04-20T01:05:56.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: >-
+        Thermomachines now have 4 tiers, and are capable of much greater heating
+        and cooling. 
+    - type: Add
+      message: Atmospherics Exotech, a new unlockable research, has been added.
+    - type: Tweak
+      message: >-
+        Hyper-Noblium's maximum production temperature has been lowered from 24K
+        to 15K.
+  id: 306
+  time: '2025-04-20T01:39:02.0000000+00:00'
+- author: ArsCatalyst
+  changes:
+    - type: Add
+      message: Added high-pop map Resort for playtesting!
+    - type: Add
+      message: >-
+        Added Celedon, a familiar for the Zookeeper for playtesting! (currently
+        placeholder sprite)
+    - type: Tweak
+      message: Added some spawners for mapping!
+  id: 307
+  time: '2025-04-20T06:18:12.0000000+00:00'

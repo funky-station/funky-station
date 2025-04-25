@@ -29340,13 +29340,6 @@ entities:
     - type: Transform
       pos: -19.5,-36.5
       parent: 31
-- proto: CrateFunPlushieSelfInsert
-  entities:
-  - uid: 4470
-    components:
-    - type: Transform
-      pos: 10.5,17.5
-      parent: 31
 - proto: CrateHydroponics
   entities:
   - uid: 9679
@@ -52019,20 +52012,6 @@ entities:
     components:
     - type: Transform
       pos: -23.5,39.5
-      parent: 31
-- proto: PlushieAtmosian
-  entities:
-  - uid: 3765
-    components:
-    - type: MetaData
-      name: Harold Smalls
-    - type: Transform
-      pos: -4.5241666,12.6597395
-      parent: 31
-  - uid: 7433
-    components:
-    - type: Transform
-      pos: 44.47201,25.696434
       parent: 31
 - proto: PlushieCarp
   entities:

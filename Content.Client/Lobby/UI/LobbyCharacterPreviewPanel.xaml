@@ -21,7 +21,7 @@ SPDX-License-Identifier: MIT
 
                 <BoxContainer Orientation="Vertical" HorizontalExpand="True">
                     <Label Text="{Loc 'humanoid-profile-editor-job-priority-never-button'}" HorizontalAlignment="Center"/>
-                    <GridContainer Name="NeverBox" MaxGridWidth="140"/>
+                    <GridContainer Name="NeverBox" MaxGridWidth="140" HorizontalAlignment="Center"/>
                 </BoxContainer>
 
                 <PanelContainer MinSize="2 0">
@@ -32,7 +32,7 @@ SPDX-License-Identifier: MIT
 
                 <BoxContainer Orientation="Vertical" HorizontalExpand="True">
                     <Label Text="{Loc 'humanoid-profile-editor-job-priority-low-button'}" HorizontalAlignment="Center"/>
-                    <GridContainer Name="LowBox" MaxGridWidth="140"/>
+                    <GridContainer Name="LowBox" MaxGridWidth="140" HorizontalAlignment="Center"/>
                 </BoxContainer>
 
                 <PanelContainer MinSize="2 0">
@@ -43,7 +43,7 @@ SPDX-License-Identifier: MIT
 
                 <BoxContainer Orientation="Vertical" HorizontalExpand="True">
                     <Label Text="{Loc 'humanoid-profile-editor-job-priority-medium-button'}" HorizontalAlignment="Center"/>
-                    <GridContainer Name="MediumBox" MaxGridWidth="140"/>
+                    <GridContainer Name="MediumBox" MaxGridWidth="140" HorizontalAlignment="Center"/>
                 </BoxContainer>
 
                 <PanelContainer MinSize="2 0">

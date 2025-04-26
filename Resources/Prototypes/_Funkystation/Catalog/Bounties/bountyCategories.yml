@@ -146,6 +146,8 @@
     whitelist:
       components:
       - TechnologyDisk
+    requiredResearch:
+      - AlternativeResearch
   - name: bounty-item-anomaly-core
     minAmount: 1
     maxAmount: 1
@@ -181,7 +183,8 @@
     whitelist:
       tags:
       - Cryobeaker
-
+    requiredResearch:
+      - BiochemicalStasis
 - type: cargoBountyCategory
   id: miscCategory
   name: bounty-category-misc
@@ -638,6 +641,8 @@
     blacklist:
       tags:
       - PowerCell
+    requiredResearch:
+      - WeaponizedLaserManipulation
   - name: bounty-item-flash
     minAmount: 3
     maxAmount: 8
@@ -675,6 +680,8 @@
     whitelist:
       tags:
       - Grenade
+    requiredResearch:
+      - BasicShuttleArmament
   - name: bounty-item-grenade-flashbang
     minAmount: 2
     maxAmount: 8
@@ -706,6 +713,9 @@
     whitelist:
       tags:
       - Taser
+    requiredResearch:
+    - NonlethalAmmunition
+    - AdvancedRiotControl
 
 
 - type: cargoBountyCategory
@@ -776,7 +786,7 @@
   - name: bounty-item-hi-viz-vest
     minAmount: 2
     maxAmount: 5
-    rewardPer: 500
+    rewardPer: 1500
     whitelist:
       tags:
       - HiViz
@@ -872,13 +882,14 @@
     whitelist:
       components:
       - BorgModule
-  - name: bounty-item-borg-module-cargo
-    minAmount: 2
-    maxAmount: 5
-    rewardPer: 1500
-    whitelist:
-      tags:
-      - BorgModuleCargo
+# Currently impossible due to the lack of creatable cargo borg modules
+#  - name: bounty-item-borg-module-cargo
+#    minAmount: 2
+#    maxAmount: 5
+#    rewardPer: 1500
+#    whitelist:
+#      tags:
+#      - BorgModuleCargo
   - name: bounty-item-borg-module-engineering
     minAmount: 2
     maxAmount: 5
@@ -886,6 +897,8 @@
     whitelist:
       tags:
       - BorgModuleEngineering
+    requiredResearch:
+      - AdvancedToolsTechnology
   - name: bounty-item-borg-module-generic
     minAmount: 2
     maxAmount: 5
@@ -900,6 +913,8 @@
     whitelist:
       tags:
       - BorgModuleJanitor
+    requiredResearch:
+      - RoboticCleanliness
   - name: bounty-item-borg-module-medical
     minAmount: 2
     maxAmount: 5
@@ -914,6 +929,8 @@
     whitelist:
       tags:
       - BorgModuleService
+    requiredResearch:
+      - Hydroponics
   - name: bounty-item-bot
     minAmount: 1
     maxAmount: 3
@@ -940,6 +957,8 @@
     whitelist:
       components:
       - Instrument
+    requiredResearch:
+      - Instruments
   - name: bounty-item-percussion
     minAmount: 2
     maxAmount: 6
@@ -947,6 +966,8 @@
     whitelist:
       tags:
       - PercussionInstrument
+    requiredResearch:
+      - Instruments
   - name: bounty-item-instrument-brass
     minAmount: 2
     maxAmount: 6
@@ -954,6 +975,8 @@
     whitelist:
       tags:
       - BrassInstrument
+    requiredResearch:
+      - Instruments
   - name: bounty-item-instrument-keyed
     minAmount: 2
     maxAmount: 6
@@ -961,6 +984,8 @@
     whitelist:
       tags:
       - KeyedInstrument
+    requiredResearch:
+      - Instruments
   - name: bounty-item-instrument-string
     minAmount: 4
     maxAmount: 6
@@ -968,6 +993,8 @@
     whitelist:
       tags:
       - StringInstrument
+    requiredResearch:
+      - Instruments
 
 - type: cargoBountyCategory
   id: barCategory
@@ -1006,6 +1033,8 @@
     whitelist:
       tags:
       - HolofanProjector
+    requiredResearch:
+      - AdvancedAtmospherics
   - name: bounty-item-jaws-of-life
     minAmount: 1
     maxAmount: 4
@@ -1013,6 +1042,8 @@
     whitelist:
       tags:
       - JawsOfLife
+    requiredResearch:
+      - AdvancedToolsTechnology
   - name: bounty-item-powerdrill
     minAmount: 1
     maxAmount: 4
@@ -1020,6 +1051,8 @@
     whitelist:
       tags:
       - Powerdrill
+    requiredResearch:
+      - AdvancedToolsTechnology
   - name: bounty-item-toolbox
     minAmount: 4
     maxAmount: 8
@@ -1044,7 +1077,7 @@
   - name: bounty-item-hi-viz-vest
     minAmount: 2
     maxAmount: 5
-    rewardPer: 500
+    rewardPer: 1500
     whitelist:
       tags:
       - HiViz
@@ -1081,6 +1114,8 @@
     whitelist:
       tags:
       - MopAdv
+    requiredResearch:
+      - AdvancedCleaning
   - name: bounty-item-mouse
     minAmount: 3
     maxAmount: 5

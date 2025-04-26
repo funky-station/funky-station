@@ -17,6 +17,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Random;
 using Content.Shared.Item; // Goobstation - anythingburgers
@@ -79,6 +80,13 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         {
             if (user is not null)
                 _popup.PopupEntity(Loc.GetString("food-sequence-no-space"), start, user.Value);
+            return false;
+        }
+
+        // Prevents plushies with items hidden in them from being added to prevent deletion of items
+        // If more of these types of checks need to be added, this should be changed to an event or something.
+        if (TryComp<SecretStashComponent>(element, out var stashComponent) && stashComponent.ItemContainer.Count != 0)
+        {
             return false;
         }
 

@@ -1313,6 +1313,36 @@
   - sprite: Objects/Specific/Hydroponics/anomaly_berry.rsi
     state: produce
 
+# Cotton Top Bun
+
+- type: foodSequenceElement
+  id: CottonBunTopBurger
+  final: true
+  sprites:
+  - sprite: Objects/Consumable/Food/cottonburger.rsi
+    state: cottonbun_top
+  tags:
+  - Bun
+  - ClothMade
+
+# Cotton Bol
+
+- type: foodSequenceElement
+  id: CottonBol
+  name: food-sequence-cotton-burger-content-cotton-bol
+  sprites:
+  - sprite: Objects/Specific/Hydroponics/cotton.rsi
+    state: produce
+
+# Pyrotton Bol
+
+- type: foodSequenceElement
+  id: PyrottonBol
+  name: food-sequence-cotton-burger-content-pyrotton-bol
+  sprites:
+  - sprite: Objects/Specific/Hydroponics/pyrotton.rsi
+    state: produce
+
 # Chevre Disk
 
 - type: foodSequenceElement

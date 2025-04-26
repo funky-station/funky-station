@@ -169,7 +169,7 @@ public abstract class SharedAnomalySystem : EntitySystem
         var ev = new AnomalySupercriticalEvent(uid, powerMod);
         RaiseLocalEvent(uid, ref ev, true);
 
-        EndAnomaly(uid, component, true);
+        EndAnomaly(uid, component, true, logged: true);
     }
 
     /// <summary>
@@ -179,13 +179,18 @@ public abstract class SharedAnomalySystem : EntitySystem
     /// <param name="component"></param>
     /// <param name="supercritical">Whether or not the anomaly ended via supercritical event</param>
     /// <param name="spawnCore">Create anomaly cores based on the result of completing an anomaly?</param>
-    public void EndAnomaly(EntityUid uid, AnomalyComponent? component = null, bool supercritical = false, bool spawnCore = true)
+    /// <param name="logged">Whether or not the anomaly decaying/going supercritical is logged</param>
+    public void EndAnomaly(EntityUid uid, AnomalyComponent? component = null, bool supercritical = false, bool spawnCore = true, bool logged = false)
     {
-        // Logging before resolve, in case the anomaly has deleted itself.
-        if (_net.IsServer)
-            Log.Info($"Ending anomaly. Entity: {ToPrettyString(uid)}");
-        AdminLog.Add(LogType.Anomaly, supercritical ? LogImpact.High : LogImpact.Low,
-                     $"Anomaly {ToPrettyString(uid)} {(supercritical ? "went supercritical" : "decayed")}.");
+        if (logged)
+        {
+            // Logging before resolve, in case the anomaly has deleted itself.
+            if (_net.IsServer)
+                Log.Info($"Ending anomaly. Entity: {ToPrettyString(uid)}");
+            AdminLog.Add(LogType.Anomaly,
+                supercritical ? LogImpact.High : LogImpact.Low,
+                $"Anomaly {ToPrettyString(uid)} {(supercritical ? "went supercritical" : "decayed")}.");
+        }
 
         if (!Resolve(uid, ref component))
             return;
@@ -266,7 +271,7 @@ public abstract class SharedAnomalySystem : EntitySystem
 
         if (newVal < 0)
         {
-            EndAnomaly(uid, component);
+            EndAnomaly(uid, component, logged: true);
             return;
         }
 
@@ -398,7 +403,7 @@ public abstract class SharedAnomalySystem : EntitySystem
             if (!settings.CanSpawnOnEntities)
             {
                 var valid = true;
-                foreach (var ent in grid.GetAnchoredEntities(tileref.GridIndices))
+                foreach (var ent in _map.GetAnchoredEntities(xform.GridUid.Value, grid, tileref.GridIndices))
                 {
                     if (!physQuery.TryGetComponent(ent, out var body))
                         continue;
@@ -425,7 +430,7 @@ public abstract class SharedAnomalySystem : EntitySystem
 }
 
 [DataRecord]
-public partial record struct AnomalySpawnSettings()
+public record struct AnomalySpawnSettings()
 {
     /// <summary>
     /// should entities block spawning?
@@ -479,4 +484,4 @@ public partial record struct AnomalySpawnSettings()
     public bool SpawnOnSeverityChanged { get; set; } = false;
 }
 
-public sealed partial class ActionAnomalyPulseEvent : InstantActionEvent { }
+public sealed partial class ActionAnomalyPulseEvent : InstantActionEvent;

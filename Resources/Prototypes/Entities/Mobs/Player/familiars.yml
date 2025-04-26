@@ -253,7 +253,7 @@
     sounds:
       Unsexed: DinoEmotes
   - type: BodyEmotes
-    soundsId: GeneralBodyEmotes
+    soundsId: ReptilianBodyEmotes
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Dinosaur

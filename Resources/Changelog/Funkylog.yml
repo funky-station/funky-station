@@ -2497,3 +2497,9 @@ Entries:
         Loyalist Crew to co-operate amongst themselves better in the late game.
   id: 308
   time: '2025-04-25T23:45:03.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Fixed issue with bluespace gas vendors forcing the game back to lobby.
+  id: 309
+  time: '2025-04-26T03:50:15.0000000+00:00'

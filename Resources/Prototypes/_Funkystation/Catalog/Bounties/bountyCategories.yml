@@ -483,7 +483,9 @@
     rewardPer: 1400
     whitelist:
       tags:
+      - Fruit
       - ReptilianFood
+      - Meat
     blacklist:
       tags:
       - Slice

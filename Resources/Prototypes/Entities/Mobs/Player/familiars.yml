@@ -138,8 +138,8 @@
     - Prying
   # Celedon is intended to pry open doors, this speed could be lowered if found too fast
   - type: Prying
-    pryPowered: true
-    force: true
+    pryPowered: false # but not powered doors
+    force: true # I dont know what this does
     speedModifier: 2.0
     useSound:
       path: /Audio/Items/crowbar.ogg
@@ -148,14 +148,14 @@
   - type: MeleeWeapon
     animation: WeaponArcClaw
     wideAnimation: WeaponArcClaw
-    altDisarm: false
+    altDisarm: true #this is a nerf from false to true as the attack is strong so it should be used with intent
     angle: 30
     soundHit:
       collection: AlienClaw
     # Damage lowered from 20 to 15 as I increased the attack speed to 1.0 as .33 felt too slow, Structural decreased from 12 to 10
     damage:
       types:
-        Slash: 15
+        Slash: 16 #buffing the damage back up to 16 as I am nerfing the alt attack to be Disarm
         Structural: 10
   - type: Respirator
     damage:
@@ -253,7 +253,7 @@
     sounds:
       Unsexed: DinoEmotes
   - type: BodyEmotes
-    soundsId: GeneralBodyEmotes
+    soundsId: ReptilianBodyEmotes
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Dinosaur

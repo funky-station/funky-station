@@ -2511,3 +2511,9 @@ Entries:
         them from generating until the relevant item is creatable 
   id: 310
   time: '2025-04-26T18:46:08.0000000+00:00'
+- author: ArsCatalyst
+  changes:
+    - type: Fix
+      message: Map fixes for Resort
+  id: 311
+  time: '2025-04-26T20:04:42.0000000+00:00'

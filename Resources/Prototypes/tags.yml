@@ -1059,6 +1059,9 @@
   id: Pen # CargoBounty: BountyPen
 
 - type: Tag
+  id: ParcelWrapBlacklist
+
+- type: Tag
   id: PepperShaker # Storage whitelist: ClothingBeltChef. ItemMapper:  ClothingBeltChef
 
 - type: Tag

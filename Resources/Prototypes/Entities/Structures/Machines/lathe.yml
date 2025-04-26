@@ -642,6 +642,7 @@
     - ThermomachineAdvancedFreezerMachineCircuitBoard # Assmos
     - MusicTechFabCircuitboard # Funky Station
     - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases
+    - SiloRelayMachineCircuitboard # Funky Station
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - ShuttleGunDusterCircuitboard

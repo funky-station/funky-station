@@ -20,7 +20,7 @@ SPDX-License-Identifier: MIT
                           SeparationOverride="6">
 
                 <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-                    <Label Text="{Loc 'humanoid-profile-editor-job-priority-never-button'}" HorizontalAlignment="Center"/>
+                    <Label Text="{Loc 'humanoid-profile-editor-job-priority-never-button'}" HorizontalAlignment="Center" StyleClasses="LabelBig" Margin="0 6"/>
                     <GridContainer Name="NeverBox" MaxGridWidth="140" HorizontalAlignment="Center"/>
                 </BoxContainer>
 
@@ -31,7 +31,7 @@ SPDX-License-Identifier: MIT
                 </PanelContainer>
 
                 <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-                    <Label Text="{Loc 'humanoid-profile-editor-job-priority-low-button'}" HorizontalAlignment="Center"/>
+                    <Label Text="{Loc 'humanoid-profile-editor-job-priority-low-button'}" HorizontalAlignment="Center" StyleClasses="LabelBig" Margin="6"/>
                     <GridContainer Name="LowBox" MaxGridWidth="140" HorizontalAlignment="Center"/>
                 </BoxContainer>
 
@@ -42,7 +42,7 @@ SPDX-License-Identifier: MIT
                 </PanelContainer>
 
                 <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-                    <Label Text="{Loc 'humanoid-profile-editor-job-priority-medium-button'}" HorizontalAlignment="Center"/>
+                    <Label Text="{Loc 'humanoid-profile-editor-job-priority-medium-button'}" HorizontalAlignment="Center" StyleClasses="LabelBig" Margin="0 6"/>
                     <GridContainer Name="MediumBox" MaxGridWidth="140" HorizontalAlignment="Center"/>
                 </BoxContainer>
 
@@ -53,7 +53,7 @@ SPDX-License-Identifier: MIT
                 </PanelContainer>
 
                 <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-                    <Label Text="{Loc 'humanoid-profile-editor-job-priority-high-button'}" HorizontalAlignment="Center"/>
+                    <Label Text="{Loc 'humanoid-profile-editor-job-priority-high-button'}" HorizontalAlignment="Center" StyleClasses="LabelBig" Margin="0 6"/>
                     <BoxContainer Name="HighBox" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </BoxContainer>
 

@@ -1,4 +1,5 @@
-﻿using Content.Shared.Whitelist;
+﻿using Content.Shared.Research.Prototypes;
+using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -82,6 +83,9 @@ public readonly partial record struct CargoBountyItemEntry()
     /// </summary>
     [DataField]
     public int RewardPer { get; init; } = 1;
+
+    [DataField]
+    public List<ProtoId<TechnologyPrototype>>? RequiredResearch { get; init; }
     // End of Funky Station edits
 
     /// <summary>

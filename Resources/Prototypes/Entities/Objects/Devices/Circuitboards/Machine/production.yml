@@ -402,7 +402,7 @@
     stackRequirements:
       MatterBin: 2
       Capacitor: 2
-      Plasma: 1
+      Uranium: 1
   - type: Construction
     deconstructionTarget: null
     graph: ThermomachineBoard
@@ -421,7 +421,7 @@
     stackRequirements:
       MatterBin: 2
       Capacitor: 2
-      Plasma: 1
+      Uranium: 1
   - type: Construction
     graph: ThermomachineBoard
     deconstructionTarget: null
@@ -1343,8 +1343,7 @@
         Capacitor: 4
         CableHV: 5
         Plasteel: 2
-        
-# Assmos - Bluespace Gas
+
 - type: entity
   id: BluespaceGasSenderMachineBoard
   parent: BaseMachineCircuitboard
@@ -1358,4 +1357,95 @@
         Capacitor: 4
         Manipulator: 4
         MatterBin: 2
+
+- type: entity
+  id: CrystallizerMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: crystallizer machine board
+  description: A machine printed circuit board for a crystallizer.
+  components:
+    - type: MachineBoard
+      prototype: Crystallizer
+      stackRequirements:
+        Steel: 5
+        Glass: 5
+        Capacitor: 2
+        Manipulator: 4
+        MatterBin: 4
+
+- type: entity
+  id: ThermomachineUpgradedFreezerMachineCircuitBoard
+  parent: BaseMachineCircuitboard
+  name: upgraded freezer thermomachine machine board
+  description: Looks like you could use a screwdriver to change the board type.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: GasThermoMachineUpgradedFreezer
+    stackRequirements:
+      MatterBin: 2
+      Capacitor: 2
+      Plasma: 1
+  - type: Construction
+    graph: ThermomachineBoard
+    deconstructionTarget: null
+    node: upgradedfreezer
+
+- type: entity
+  id: ThermomachineUpgradedHeaterMachineCircuitBoard
+  parent: BaseMachineCircuitboard
+  name: upgraded heater thermomachine machine board
+  description: Looks like you could use a screwdriver to change the board type.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: GasThermoMachineUpgradedHeater
+    stackRequirements:
+      MatterBin: 2
+      Capacitor: 2
+      Plasma: 1
+  - type: Construction
+    graph: ThermomachineBoard
+    deconstructionTarget: null
+    node: upgradedheater
+
+- type: entity
+  id: ThermomachineAdvancedFreezerMachineCircuitBoard
+  parent: BaseMachineCircuitboard
+  name: advanced freezer thermomachine machine board
+  description: Looks like you could use a screwdriver to change the board type.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: GasThermoMachineAdvancedFreezer
+    stackRequirements:
+      MatterBin: 2
+      Capacitor: 2
+      Plasma: 1
+  - type: Construction
+    graph: ThermomachineBoard
+    deconstructionTarget: null
+    node: advancedfreezer
+
+- type: entity
+  id: ThermomachineAdvancedHeaterMachineCircuitBoard
+  parent: BaseMachineCircuitboard
+  name: advanced heater thermomachine machine board
+  description: Looks like you could use a screwdriver to change the board type.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: GasThermoMachineAdvancedHeater
+    stackRequirements:
+      MatterBin: 2
+      Capacitor: 2
+      Plasma: 1
+  - type: Construction
+    graph: ThermomachineBoard
+    deconstructionTarget: null
+    node: advancedheater
 # Assmos Change End

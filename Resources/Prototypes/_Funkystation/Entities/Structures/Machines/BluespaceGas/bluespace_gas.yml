@@ -6,15 +6,12 @@
   placement:
     mode: SnapgridCenter
   components:
-  - type: Physics
-    bodyType: Static
   - type: Transform
+    noRot: false
     anchored: true
-    noRot: true
   - type: Sprite
     sprite: _Funkystation/Structures/Piping/Atmospherics/bluespacegassender.rsi
     granularLayersRendering: true
-    snapCardinals: true
     layers:
     - state: off
       map: [ "enum.PowerDeviceVisualLayers.Powered" ]
@@ -120,6 +117,7 @@
           True: { state: on }
           False: { state: off }
   - type: WallMount
+    arc: 180
   - type: Destructible
     thresholds:
     - trigger:

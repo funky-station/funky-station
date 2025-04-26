@@ -124646,13 +124646,6 @@ entities:
     - type: Transform
       pos: -1.4762721,-15.536118
       parent: 5350
-- proto: PlushieCynsKatyns
-  entities:
-  - uid: 27590
-    components:
-    - type: Transform
-      pos: -37.49465,2.6417522
-      parent: 5350
 - proto: PlushieLamp
   entities:
   - uid: 12801

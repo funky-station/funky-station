@@ -177,6 +177,7 @@ cosmiccult-announce-finale-warning = All station crew. The Λ-CDM anomaly is goi
 
 cosmiccult-announce-victory-summon = A FRACTION OF COSMIC POWER IS CALLED FORTH.
 
+cosmiccult-leader-abandonment-message = Your chosen enlightened has forsaken the grand design. You must empower another
 
 ## MISC
 

@@ -9,10 +9,9 @@
     inverted: true
     species:
     - IPC
-  guides: [ Zombies ]
-  requirements:
   - !type:OverallPlaytimeRequirement
     time: 3600 # 1h
+  guides: [ Zombies ]
 
 - type: antag
   id: Zombie

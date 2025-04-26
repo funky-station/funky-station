@@ -829,9 +829,6 @@
           amount: 1
           defaultPrototype: SaxophoneInstrument
           examineName: construction-insert-info-examine-name-instrument-woodwind
-    - type: Tag
-      tags:
-      - DawInstrumentMachineCircuitboard # Funky
 
 - type: entity
   id: PortableGeneratorPacmanMachineCircuitboard
@@ -1375,7 +1372,7 @@
         Capacitor: 4
         CableHV: 5
         Plasteel: 2
-        
+
 # Assmos - Bluespace Gas
 - type: entity
   id: BluespaceGasSenderMachineBoard

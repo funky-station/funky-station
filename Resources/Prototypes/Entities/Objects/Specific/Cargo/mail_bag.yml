@@ -24,6 +24,7 @@
       components:
       - Paper
       - Delivery
+      - Envelope # funky
       tags:
       - Document
       - Paper

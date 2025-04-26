@@ -111,7 +111,6 @@
     components:
     - type: BibleUser #Lets them heal with bibles and transform null rods.
     - type: CultResistant # Funky cult
-    - type: BibleUser #Lets them heal with bibles
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 

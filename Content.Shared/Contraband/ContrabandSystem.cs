@@ -19,6 +19,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using System.Linq;
 
 namespace Content.Shared.Contraband;
 
@@ -33,6 +34,7 @@ public sealed class ContrabandSystem : EntitySystem
     [Dependency] private readonly ExamineSystemShared _examine = default!;
 
     private bool _contrabandExamineEnabled;
+    private bool _contrabandExamineOnlyInHudEnabled;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -40,6 +42,7 @@ public sealed class ContrabandSystem : EntitySystem
         SubscribeLocalEvent<ContrabandComponent, GetVerbsEvent<ExamineVerb>>(OnDetailedExamine);
 
         Subs.CVar(_configuration, CCVars.ContrabandExamine, SetContrabandExamine, true);
+        Subs.CVar(_configuration, CCVars.ContrabandExamineOnlyInHUD, SetContrabandExamineOnlyInHUD, true);
     }
 
     public void CopyDetails(EntityUid uid, ContrabandComponent other, ContrabandComponent? contraband = null)
@@ -53,39 +56,32 @@ public sealed class ContrabandSystem : EntitySystem
         Dirty(uid, contraband);
     }
 
-    private void OnDetailedExamine(EntityUid ent,ContrabandComponent component, ref GetVerbsEvent<ExamineVerb> args)
+    private void OnDetailedExamine(EntityUid ent, ContrabandComponent component, ref GetVerbsEvent<ExamineVerb> args)
     {
 
         if (!_contrabandExamineEnabled)
             return;
 
+        // Checking if contraband is only shown in the HUD
+        if (_contrabandExamineOnlyInHudEnabled)
+        {
+            var ev = new GetContrabandDetailsEvent();
+            RaiseLocalEvent(args.User, ref ev);
+            if (!ev.CanShowContraband)
+                return;
+        }
+
         // CanAccess is not used here, because we want people to be able to examine legality in strip menu.
         if (!args.CanInteract)
             return;
 
-        var severity = _proto.Index(component.Severity);
         // two strings:
         // one, the actual informative 'this is restricted'
         // then, the 'you can/shouldn't carry this around' based on the ID the user is wearing
+        var localizedDepartments = component.AllowedDepartments.Select(p => Loc.GetString("contraband-department-plural", ("department", Loc.GetString(_proto.Index(p).Name))));
         var jobs = component.AllowedJobs.Select(p => _proto.Index(p).LocalizedName).ToArray();
-        if (component.AllowedDepartments == null) // for one off items that dont need any specifics - funky station
-        {
-            var msg = new FormattedMessage();
-
-            msg.AddMarkupOrThrow(severity.ExamineText);
-
-            _examine.AddDetailedExamineVerb(args,
-                component,
-                msg,
-                Loc.GetString("contraband-examinable-verb-text"),
-                "/Textures/Interface/VerbIcons/lock.svg.192dpi.png",
-                Loc.GetString("contraband-examinable-verb-message"));
-
-            return;
-        }
-
-        var localizedDepartments = component.AllowedDepartments!.Select(p => Loc.GetString("contraband-department-plural", ("department", Loc.GetString(_proto.Index(p).Name))));
-        var localizedJobs = component.AllowedJobs.Select(p => Loc.GetString("contraband-job-plural", ("job", _proto.Index(p).LocalizedName)));
+        var localizedJobs = jobs.Select(p => Loc.GetString("contraband-job-plural", ("job", p)));
+        var severity = _proto.Index(component.Severity);
         String departmentExamineMessage;
         if (severity.ShowDepartmentsAndJobs)
         {
@@ -140,5 +136,10 @@ public sealed class ContrabandSystem : EntitySystem
     private void SetContrabandExamine(bool val)
     {
         _contrabandExamineEnabled = val;
+    }
+
+    private void SetContrabandExamineOnlyInHUD(bool val)
+    {
+        _contrabandExamineOnlyInHudEnabled = val;
     }
 }

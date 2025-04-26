@@ -2517,3 +2517,11 @@ Entries:
       message: Map fixes for Resort
   id: 311
   time: '2025-04-26T20:04:42.0000000+00:00'
+- author: Sadie-silly
+  changes:
+    - type: Add
+      message: >-
+        New song, Split, added to the pool of songs that can play while a nuke
+        is armed.
+  id: 312
+  time: '2025-04-26T20:19:39.0000000+00:00'

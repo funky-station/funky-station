@@ -74,6 +74,15 @@
       "name": "bio_open"
     },
     {
+      "name": "bio_sci"
+    },
+    {
+      "name": "bio_sci_door"
+    },
+    {
+      "name": "bio_sci_open"
+    },
+    {
       "name": "bio_sec"
     },
     {

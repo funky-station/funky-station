@@ -2525,3 +2525,9 @@ Entries:
         is armed.
   id: 312
   time: '2025-04-26T20:19:39.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Crystalizer and bluespace gas vendors added to Bagel
+  id: 313
+  time: '2025-04-27T02:47:05.0000000+00:00'

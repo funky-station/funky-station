@@ -2531,3 +2531,12 @@ Entries:
       message: Crystalizer and bluespace gas vendors added to Bagel
   id: 313
   time: '2025-04-27T02:47:05.0000000+00:00'
+- author: ' widgetbeck, crocodilecarousel, TGRCdev, airfryerbuyonegetonefree, sowelipililimute, honeyedlemons, DinnerCalzone, kushbreth, deltanedas, ShaSeng'
+  changes:
+    - type: Add
+      message: >-
+        Thaven have been added as a species! These fey creatures are struck by
+        Moods, a new mechanic similar to silicon laws- but far more dramatic.
+        Ported from Impstation.
+  id: 314
+  time: '2025-04-27T02:47:38.0000000+00:00'

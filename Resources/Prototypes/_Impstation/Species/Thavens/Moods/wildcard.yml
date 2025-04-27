@@ -1,7 +1,7 @@
 - type: dataset
   id: ThavenMoodsWildcard
   values:
-  - CompulsiveLiar
+  #- CompulsiveLiar # TODO job conflicts
   - CompulsiveBeliever
   - PlantPacifist
   - PuddleDrinker
@@ -9,11 +9,11 @@
   - Nocrastinator
   - Pope
   - Cannibal
-  - Outlaw
+  #- Outlaw # TODO job conflicts
   #- ExtremeDepartmentDisapproval
   - LoneActor
   - Immortal
-  - Unknown
+  #- Unknown # TODO job conflicts
   - Fairy
   - VampireTalisman
   - OutsideTheBox

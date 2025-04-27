@@ -80,7 +80,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
     {
         if (mood == null)
         {
-            if (TryPick(SharedDataset, out var moodProto, _sharedMoods)) // funky note - shared moods should not have job conflicts, so don't check for them
+            if (TryPick(SharedDataset, out var moodProto, _sharedMoods))
             {
                 mood = RollMood(moodProto);
                 checkConflicts = false; // TryPick has cleared this mood already
@@ -147,6 +147,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
                 continue; // Skip proto if it conflicts with an existing mood
 
             // begin funky
+            // note: idk how to do this so it doesnt work ^__^
             var conflictingJobs = moodProto.JobConflicts;
             if (department != null && conflictingJobs.Contains(department)) // assume there are no conflicts if there is no department given
                 continue; // Skip proto if it conflicts with the entity's department

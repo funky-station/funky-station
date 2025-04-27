@@ -5,23 +5,23 @@
   id: ThavenMoodsNoAnd
   values:
   - SecretMoods
-  - NoModernMedicine
+  #- NoModernMedicine # TODO job conflicts
   - DepartmentDisapproval
-  - DontSpeakToCommand
+  #- DontSpeakToCommand # TODO job conflicts
   - DisapproveOfDrugs
   - ExcessivelyDisorganized
-  - DetestSilicons
+  #- DetestSilicons # TODO job conflicts
   - DinnerFloor
   - HugBad
   - AlwaysAlone
   - Atheist
   - Procrastinator
-  - NoRadio
+  #- NoRadio # TODO job conflicts
   - ImproperStorage
   - Ferengi
   - ToolLicense
   - LyingBad
-  # - VampireInvitation
+  # - VampireInvitation # annoy aj mood so its disabled
   - NoDragging
   - DrunkRespect
   - RankSnob

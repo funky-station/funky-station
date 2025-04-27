@@ -1254,9 +1254,9 @@
     sound:
       path: /Audio/Effects/gib1.ogg
   - type: StaminaDamageOnHit #funkystation
-      damage: 8
+    damage: 8
   - type: DisarmMalus #funkystation
-      malus: 1
+    malus: 1
   - type: MeleeWeapon
     attackRate: 1.5
     angle: 0

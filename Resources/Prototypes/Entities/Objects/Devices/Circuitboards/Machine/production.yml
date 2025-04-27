@@ -1343,8 +1343,7 @@
         Capacitor: 4
         CableHV: 5
         Plasteel: 2
-        
-# Assmos - Bluespace Gas
+
 - type: entity
   id: BluespaceGasSenderMachineBoard
   parent: BaseMachineCircuitboard
@@ -1358,6 +1357,21 @@
         Capacitor: 4
         Manipulator: 4
         MatterBin: 2
+
+- type: entity
+  id: CrystallizerMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: crystallizer machine board
+  description: A machine printed circuit board for a crystallizer.
+  components:
+    - type: MachineBoard
+      prototype: Crystallizer
+      stackRequirements:
+        Steel: 5
+        Glass: 5
+        Capacitor: 2
+        Manipulator: 4
+        MatterBin: 4
 
 - type: entity
   id: ThermomachineUpgradedFreezerMachineCircuitBoard

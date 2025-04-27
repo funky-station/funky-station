@@ -2486,3 +2486,42 @@ Entries:
       message: Added some spawners for mapping!
   id: 307
   time: '2025-04-20T06:18:12.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Add
+      message: >-
+        Added Open Revolt to Revolutionaries. Open Revolt is a state that is
+        declared by any Head Rev, or by the Evac Shuttle failing to dock, that
+        reveals all Revolutionaries to each other while also revealing every
+        Head Rev's name in an announcement, allowing both Revolutionaries and
+        Loyalist Crew to co-operate amongst themselves better in the late game.
+  id: 308
+  time: '2025-04-25T23:45:03.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Fixed issue with bluespace gas vendors forcing the game back to lobby.
+  id: 309
+  time: '2025-04-26T03:50:15.0000000+00:00'
+- author: Gansu
+  changes:
+    - type: Tweak
+      message: >-
+        Certain bounty items now have prerequisite research, this will prevent
+        them from generating until the relevant item is creatable 
+  id: 310
+  time: '2025-04-26T18:46:08.0000000+00:00'
+- author: ArsCatalyst
+  changes:
+    - type: Fix
+      message: Map fixes for Resort
+  id: 311
+  time: '2025-04-26T20:04:42.0000000+00:00'
+- author: Sadie-silly
+  changes:
+    - type: Add
+      message: >-
+        New song, Split, added to the pool of songs that can play while a nuke
+        is armed.
+  id: 312
+  time: '2025-04-26T20:19:39.0000000+00:00'

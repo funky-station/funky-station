@@ -1,0 +1,21 @@
+- type: entity
+  parent: BasePDA
+  id: PrisonerPDA
+  name: Prisoner PDA
+  description: For NT's most troublesome.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/pda-prisoner.rsi
+  - type: Pda
+    id: PrisonerIDCard
+    penSlot:
+      startingItem: Pen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#6f6192"
+  - type: Icon
+    sprite: _Funkystation/Objects/Devices/pda-prisoner.rsi
+    state: pda-prisoner

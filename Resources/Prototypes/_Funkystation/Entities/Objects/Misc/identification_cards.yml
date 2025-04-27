@@ -11,6 +11,19 @@
     - type: PresetIdCard
       job: InternalAffairsAgent
 
+- type: entity
+  parent: IDCardStandard
+  id: PrisonerIDCard
+  name: Prisoner ID card
+  components:
+    - type: Sprite
+      sprite: _Funkystation/Objects/Misc/id_cards.rsi
+      layers:
+        - state: default
+        - state: idprisoner
+    - type: PresetIdCard
+      job: Prisoner
+
 # Charlie Station / Ancient ID Cards
 
 - type: entity

@@ -53,7 +53,7 @@ marking-ThavenHeadStripes = Stripes
 marking-SharkminnowEyeliner = Sharkminnow Eyeliner
 marking-ThavenHeadScales = Head Scales
 
-marking-ThavenEarsBigFin = Big Fins
+marking-ThavenEarsBigFins = Big Fins
 marking-ThavenFishEars = Fish Ears
 
 marking-ThavenBiteMark = Bite Mark

@@ -15759,13 +15759,6 @@ entities:
     - type: Transform
       pos: -31.5,25.5
       parent: 2
-- proto: PlushieDawn
-  entities:
-  - uid: 2445
-    components:
-    - type: Transform
-      pos: 0.5036357,1.4639502
-      parent: 2
 - proto: PortableFlasher
   entities:
   - uid: 2446

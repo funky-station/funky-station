@@ -2540,3 +2540,9 @@ Entries:
         Ported from Impstation.
   id: 314
   time: '2025-04-27T02:47:38.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Fix
+      message: Fixed IPC and Vulp emotes on the emote wheel
+  id: 315
+  time: '2025-04-28T18:24:53.0000000+00:00'

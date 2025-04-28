@@ -195,6 +195,9 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         _profileEditor?.RefreshLoadouts();
     }
 
+    /// <summary>
+    /// Save job priorities locally and on the remote server, reload the character setup gui appropriately
+    /// </summary>
     private void SaveJobPriorities()
     {
         if (_jobPriorityEditor == null)
@@ -202,6 +205,10 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         SaveJobPriorities(_jobPriorityEditor.SelectedJobPriorities);
     }
 
+    /// <summary>
+    /// Save job priorities locally and on the remote server, reload the character setup gui appropriately
+    /// </summary>
+    /// <param name="newJobPriorities"></param>
     private void SaveJobPriorities(Dictionary<ProtoId<JobPrototype>, JobPriority> newJobPriorities)
     {
         _preferencesManager.UpdateJobPriorities(newJobPriorities);

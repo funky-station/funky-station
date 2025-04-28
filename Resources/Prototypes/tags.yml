@@ -628,6 +628,10 @@
 - type: Tag
   id: GenderPin #  Chameleon key for ClothingGenderPinBase.
 
+# Used for warps
+- type: Tag
+  id: GhostOnlyWarp
+
 - type: Tag
   id: GlassAirlock # Used in ConstructionGraph "Airlock" to navigate between regular, glass, and highsec airlocks.
 

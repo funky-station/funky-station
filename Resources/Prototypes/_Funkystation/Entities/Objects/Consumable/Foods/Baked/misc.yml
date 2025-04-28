@@ -1,0 +1,26 @@
+- type: entity
+  name: moffin
+  parent: FoodBakedMuffin
+  id: FoodBakedMuffinCloth
+  description: A muffin made of cloth.
+  components:
+  - type: Sprite
+    sprite: _FunkyStation/Objects/Consumable/Food/Baked/misc.rsi
+    state: muffin-cloth
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: Tag
+    tags:
+    - ClothMade
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Fiber
+          Quantity: 4
+        - ReagentId: Vitamin
+          Quantity: 2
+

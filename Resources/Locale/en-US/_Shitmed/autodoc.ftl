@@ -29,6 +29,7 @@ autodoc-create-program = NEW PROGRAM НОВОЕ РАСПИСАНИЕ
 autodoc-program-title = PROGRAM TITLE ТИТУЛ РАСПИСАНИЯ
 autodoc-program-title-placeholder = Program {$number}
 autodoc-abort-program = ABORT PROGRAM АБОРТ РАСПИСАНИЯ
+autodoc-sanitize-tools = SANITIZE TOOLS СРЕДСТВА ДЕЗИНФЕКЦИИ
 
 autodoc-view-program-title = VIEW PROGRAM ПРОСМОТРИ
 autodoc-safety-enabled = SAFETY ON БЕЗОПАСНО НА

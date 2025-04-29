@@ -82,6 +82,7 @@
     speedModifier: 0.5 # on par with a surgeon using normal tools
   - type: GuideHelp
     guides: [ Autodoc ]
+  - type: SurgeryCleansDirt # Required for it to clean it's surgical tools.
 
 - type: entity
   parent: Autodoc

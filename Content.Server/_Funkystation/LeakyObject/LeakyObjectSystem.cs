@@ -76,7 +76,6 @@ public sealed class LeakyObjectSystem : EntitySystem
 
     void ObjectHit(EntityUid uid, LeakyObjectComponent component, ref StartCollideEvent args)
     {
-
         if (!args.OtherFixture.Hard ||
             !args.OurFixture.Hard ||
             !EntityManager.TryGetComponent<PhysicsComponent>(uid, out var physics) ||

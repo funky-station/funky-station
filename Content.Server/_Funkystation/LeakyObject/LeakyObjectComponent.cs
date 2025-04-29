@@ -19,5 +19,5 @@ public sealed partial class LeakyObjectComponent : Component
     [DataField("minVelocity")]
     public float MinimumSpillVelocity = 3f;
     [DataField]
-    public FixedPoint2 SpillAmount = FixedPoint2.New(0.5);
+    public FixedPoint2 SpillAmount = FixedPoint2.New(2);
 }

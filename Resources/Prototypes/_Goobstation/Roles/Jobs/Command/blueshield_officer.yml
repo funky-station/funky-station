@@ -19,9 +19,18 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-ntr-centcom
   canBeAntag: false
-  accessGroups:
-  - AllAccess
   access:
+  - Security
+  - Brig
+  - External
+  - Cryogenics
+  - Cargo
+  - Maintenance
+  - Engineering
+  - Atmospherics
+  - Medical
+  - Research
+  - Command
   - CentralCommand
   special:
   - !type:AddImplantSpecial
@@ -42,6 +51,5 @@
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
   storage:
     back:
-    - BoxSurvivalSlots
     - Flash
     - BluespaceLifelineImplanter #DeathAcidifierImplanter

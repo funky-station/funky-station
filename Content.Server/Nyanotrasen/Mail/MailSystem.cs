@@ -253,7 +253,7 @@ namespace Content.Server.Mail
                 if (_stationSystem.GetOwningStation(uid) != station)
                     continue;
 
-                _cargoSystem.UpdateBankAccount((station, account), (int) component.Bounty, _cargoSystem.CreateAccountDistribution("Cargo", account));
+                _cargoSystem.UpdateBankAccount((station, account), (int) component.Bounty, _cargoSystem.CreateAccountDistribution((station, account)));
             }
         }
 
@@ -311,7 +311,9 @@ namespace Content.Server.Mail
                 if (_stationSystem.GetOwningStation(uid) != station)
                     continue;
 
-                _cargoSystem.UpdateBankAccount((station, account), (int) component.Penalty, _cargoSystem.CreateAccountDistribution("Cargo", account));
+                _cargoSystem.UpdateBankAccount((station, account),
+                    (int) component.Penalty,
+                    _cargoSystem.CreateAccountDistribution((station, account)));
                 return;
             }
         }

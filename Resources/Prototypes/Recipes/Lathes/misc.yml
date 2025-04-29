@@ -171,6 +171,15 @@
     Plastic: 300
 
 - type: latheRecipe
+  id: PushHorn
+  result: PushHorn
+  completetime: 5
+  materials:
+    Steel: 500
+    Plastic: 500
+    Plasma: 200
+
+- type: latheRecipe
   parent: BaseToolRecipe
   id: NodeScanner
   result: NodeScanner

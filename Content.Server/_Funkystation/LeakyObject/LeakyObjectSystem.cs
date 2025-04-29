@@ -1,12 +1,18 @@
 
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Electrocution;
 using Content.Shared.Inventory;
+using Content.Shared.Throwing;
+using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
+using Robust.Shared.Toolshed.TypeParsers;
 
 public sealed class LeakyObjectSystem : EntitySystem
 {
@@ -17,12 +23,15 @@ public sealed class LeakyObjectSystem : EntitySystem
     [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
+    [Dependency] private readonly PuddleSystem _puddleSystem = default!;
     private ISawmill _sawmill = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         _sawmill = _logManager.GetSawmill("leaking");
+
+        SubscribeLocalEvent<LeakyObjectComponent, StartCollideEvent>(ObjectHit);
     }
 
     public override void Update(float frameTime)
@@ -63,5 +72,25 @@ public sealed class LeakyObjectSystem : EntitySystem
             _reactiveSystem.DoEntityReaction(container.Owner, leakedSolution, ReactionMethod.Touch);
             _bloodstreamSystem.TryAddToChemicals(container.Owner, leakedSolution, bloodstream);
         }
+    }
+
+    void ObjectHit(EntityUid uid, LeakyObjectComponent component, ref StartCollideEvent args)
+    {
+
+        if (!args.OtherFixture.Hard ||
+            !args.OurFixture.Hard ||
+            !EntityManager.TryGetComponent<PhysicsComponent>(uid, out var physics) ||
+            physics.LinearVelocity.Length() < component.MinimumSpillVelocity ||
+            !_solutionContainers.TryGetSolution(uid, component.SolutionName, out var soln, out var solution))
+        {
+            return;
+        }
+
+        var toSpill = _solutionContainers.SplitSolution(soln.Value, component.SpillAmount);
+        if (toSpill.Volume == 0)
+        {
+            return;
+        }
+        _puddleSystem.TrySplashSpillAt(uid, Transform(uid).Coordinates, toSpill, out var ignore);
     }
 }

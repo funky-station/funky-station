@@ -5,7 +5,7 @@
   description: A muffin made of cloth.
   components:
   - type: Sprite
-    sprite: _FunkyStation/Objects/Consumable/Food/Baked/misc.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/Baked/misc.rsi
     state: muffin-cloth
   - type: Food
     requiresSpecialDigestion: true

@@ -622,9 +622,21 @@
   parent: BaseCircuitboardRecipe
   id: ElectrolyzerMachineCircuitboard
   result: ElectrolyzerMachineCircuitboard
-  
+
 # Assmos - Bluespace Gas
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
   id: BluespaceGasSenderMachineBoard
   result: BluespaceGasSenderMachineBoard
+
+# Funky Station - Silo Relay
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: SiloRelayMachineCircuitboard
+  result: SiloRelayMachineCircuitboard
+  
+# Assmos - Crystallizer
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: CrystallizerMachineCircuitboard
+  result: CrystallizerMachineCircuitboard

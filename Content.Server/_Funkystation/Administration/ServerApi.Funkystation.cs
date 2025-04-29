@@ -39,23 +39,39 @@ public sealed partial class ServerApi
         }
 
         var isWhitelisted = await _dbManager.GetWhitelistStatusAsync(data.UserId);
+        var whitelisting = body.IsAddingWhitelist is true or null;
 
-        if (isWhitelisted)
+        if (isWhitelisted && whitelisting)
         {
             await RespondError(
-                context,    
+                context,
                 ErrorCode.BadRequest,
                 HttpStatusCode.Conflict,
                 "Already whitelisted");
             return;
         }
 
-        await _dbManager.AddToWhitelistAsync(data.UserId);
+        if (!isWhitelisted && !whitelisting)
+        {
+            await RespondError(
+                context,
+                ErrorCode.BadRequest,
+                HttpStatusCode.NotFound,
+                "Not whitelisted");
+            return;
+        }
+
+        if (whitelisting)
+            await _dbManager.AddToWhitelistAsync(data.UserId);
+        else
+            await _dbManager.RemoveFromWhitelistAsync(data.UserId);
+
         await RespondOk(context);
     }
 
     private sealed class WhitelistActionBody
     {
         public required string Username { get; init; }
+        public bool? IsAddingWhitelist { get; init; }
     }
 }

@@ -2546,3 +2546,15 @@ Entries:
       message: Fixed IPC and Vulp emotes on the emote wheel
   id: 315
   time: '2025-04-28T18:24:53.0000000+00:00'
+- author: SpaceCat-Chan
+  changes:
+    - type: Add
+      message: >-
+        plushies are now injectable, and reagents injected will slowly and
+        lossily pass through the skin of anyone holding the plushie.
+    - type: Tweak
+      message: insuls make you immune to plushies leaking if they're in your hand
+    - type: Add
+      message: plushies will spill some of their liquid when thrown against a wall
+  id: 316
+  time: '2025-04-30T01:27:29.0000000+00:00'

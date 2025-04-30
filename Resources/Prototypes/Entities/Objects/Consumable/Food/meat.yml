@@ -906,8 +906,8 @@
     node: bacon
   - type: FoodSequenceElement
     entries:
-      Burger: MeatBecon
-      Taco: MeatBecon
+      Burger: MeatBacon
+      Taco: MeatBacon
 
 - type: entity
   name: cooked bear
@@ -1249,6 +1249,38 @@
     entries:
       Burger: MeatBall
       Taco: MeatBall
+  - type: Construction
+    graph: MeatMeatballCooked
+    node: meatball cooked
+
+- type: entity
+  name: cooked meat patty
+  parent: FoodMeatBase
+  id: FoodMeatPattyCooked
+  description: A cooked meat patty.
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+    - Steak
+  - type: Sprite
+    state: patty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7.5
+        - ReagentId: Protein
+          Quantity: 7.5
+  - type: Construction
+    graph: CookedPatty
+    node: cooked meat patty
+  - type: FoodSequenceElement
+    entries:
+      Burger: MeatPatty
+      Taco: MeatPatty
 
 - type: entity
   name: boiled snail
@@ -1340,8 +1372,8 @@
     node: dragon steak
   - type: FoodSequenceElement
     entries:
-      burger: DragonBurger
-      taco: DragonTaco
+      Burger: DragonSteak
+      Taco: DragonSteak
 
 # Cutlets
 
@@ -1902,5 +1934,5 @@
     node: dragon cutlet
   - type: FoodSequenceElement
     entries:
-      burger: DragonCutletBurger
-      taco: DragonCutletTaco
+      Burger: DragonCutlet
+      Taco: DragonCutlet

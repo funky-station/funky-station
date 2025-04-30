@@ -53,6 +53,11 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
+      leaky:
+        maxVol: 20
+  - type: InjectableSolution
+    solution: leaky
+  - type: LeakyObject
   - type: ContainerContainer
     containers:
       stash: !type:ContainerSlot {}
@@ -172,6 +177,8 @@
           Quantity: 5
         - ReagentId: Fiber
           Quantity: 5
+      leaky:
+        maxVol: 20
   - type: Clothing
     quickEquip: false
     sprite: Objects/Fun/toys.rsi
@@ -348,6 +355,8 @@
           Quantity: 10
         - ReagentId: JuiceThatMakesYouWeh
           Quantity: 10
+      leaky:
+        maxVol: 20
   - type: Clothing
     quickEquip: false
     sprite: Objects/Fun/toys.rsi
@@ -444,6 +453,8 @@
           Quantity: 10
         - ReagentId: JuiceThatMakesYouWeh
           Quantity: 10
+      leaky:
+        maxVol: 20
   - type: Clothing
     slots:
     - HEAD
@@ -497,6 +508,8 @@
           Quantity: 10
         - ReagentId: JuiceThatMakesYouHew
           Quantity: 10
+      leaky:
+        maxVol: 20
   - type: Clothing
     quickEquip: false
     sprite: Objects/Fun/toys.rsi
@@ -549,6 +562,8 @@
           reagents:
           - ReagentId: Fiber
             Quantity: 10
+        leaky:
+          maxVol: 20
 
     - type: RefillableSolution
       solution: plushie

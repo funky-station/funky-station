@@ -126,7 +126,6 @@
   - type: Inventory
     templateId: arachnid
 
-
 - type: entity
   parent: BaseSpeciesDummy
   id: MobArachnidDummy

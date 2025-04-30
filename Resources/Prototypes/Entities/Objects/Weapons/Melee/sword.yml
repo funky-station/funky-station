@@ -170,6 +170,8 @@
     - Back
     - Belt
   - type: Reflect
+    slotFlags:
+    - NONE
 
 #Greatswords
 - type: entity

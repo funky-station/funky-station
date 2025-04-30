@@ -2564,3 +2564,9 @@ Entries:
       message: Added the moffin, a cloth muffin for moths
   id: 317
   time: '2025-04-30T18:10:43.0000000+00:00'
+- author: ptrcnull
+  changes:
+    - type: Add
+      message: Added a recipe for homemade "vegan" syrup by mixing water and sugar.
+  id: 318
+  time: '2025-04-30T18:15:17.0000000+00:00'

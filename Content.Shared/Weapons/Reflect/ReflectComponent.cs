@@ -8,6 +8,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Inventory;
+using Content.Shared.Inventory;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -24,26 +25,47 @@ public sealed partial class ReflectComponent : Component
     /// <summary>
     /// What we reflect.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("reflects")]
+    [DataField]
     public ReflectType Reflects = ReflectType.Energy | ReflectType.NonEnergy;
+
+    /// <summary>
+    /// Select in which inventory slots it will reflect.
+    /// By default, it will reflect in any inventory position, except pockets.
+    /// </summary>
+    [DataField]
+    public SlotFlags SlotFlags = SlotFlags.WITHOUT_POCKET;
+
+    /// <summary>
+    /// Is it allowed to reflect while being in hands.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ReflectingInHands = true;
+
+    /// <summary>
+    /// Can only reflect when placed correctly.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool InRightPlace;
 
     /// <summary>
     /// Probability for a projectile to be reflected.
     /// </summary>
-    [DataField("reflectProb"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public float ReflectProb = 0.25f;
 
-    [DataField("spread"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    /// <summary>
+    /// Probability for a projectile to be reflected.
+    /// </summary>
+    [DataField, AutoNetworkedField]
     public Angle Spread = Angle.FromDegrees(45);
 
-    [DataField("soundOnReflect")]
-    public SoundSpecifier? SoundOnReflect = new SoundPathSpecifier("/Audio/Weapons/Guns/Hits/laser_sear_wall.ogg");
+    /// <summary>
+    /// The sound to play when reflecting.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? SoundOnReflect = new SoundPathSpecifier("/Audio/Weapons/Guns/Hits/laser_sear_wall.ogg", AudioParams.Default.WithVariation(0.05f));
 }
 
-/// <summary>
-/// Used for both the projectiles being reflected and the entities reflecting. If there is ever overlap between the
-/// reflection types, the projectile will be reflected.
-/// </summary>
 [Flags, Serializable, NetSerializable]
 public enum ReflectType : byte
 {

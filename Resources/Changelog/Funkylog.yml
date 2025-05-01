@@ -2576,3 +2576,11 @@ Entries:
       message: Changed pizza sprites.
   id: 319
   time: '2025-05-01T01:27:11.0000000+00:00'
+- author: vassembly
+  changes:
+    - type: Add
+      message: Added Godo plushie.
+    - type: Add
+      message: Added Gocrazy plushie.
+  id: 320
+  time: '2025-05-01T23:40:45.0000000+00:00'

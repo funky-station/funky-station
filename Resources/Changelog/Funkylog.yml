@@ -2546,3 +2546,33 @@ Entries:
       message: Fixed IPC and Vulp emotes on the emote wheel
   id: 315
   time: '2025-04-28T18:24:53.0000000+00:00'
+- author: SpaceCat-Chan
+  changes:
+    - type: Add
+      message: >-
+        plushies are now injectable, and reagents injected will slowly and
+        lossily pass through the skin of anyone holding the plushie.
+    - type: Tweak
+      message: insuls make you immune to plushies leaking if they're in your hand
+    - type: Add
+      message: plushies will spill some of their liquid when thrown against a wall
+  id: 316
+  time: '2025-04-30T01:27:29.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Add
+      message: Added the moffin, a cloth muffin for moths
+  id: 317
+  time: '2025-04-30T18:10:43.0000000+00:00'
+- author: ptrcnull
+  changes:
+    - type: Add
+      message: Added a recipe for homemade "vegan" syrup by mixing water and sugar.
+  id: 318
+  time: '2025-04-30T18:15:17.0000000+00:00'
+- author: vassembly
+  changes:
+    - type: Tweak
+      message: Changed pizza sprites.
+  id: 319
+  time: '2025-05-01T01:27:11.0000000+00:00'

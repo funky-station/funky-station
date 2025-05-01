@@ -1413,3 +1413,9 @@
   id: shrimp
   flavorType: Complex
   description: flavor-complex-shrimp
+
+- type: flavor
+  id: trashy
+  flavorType: Base
+  description: flavor-base-trashy
+

@@ -2570,3 +2570,9 @@ Entries:
       message: Added a recipe for homemade "vegan" syrup by mixing water and sugar.
   id: 318
   time: '2025-04-30T18:15:17.0000000+00:00'
+- author: vassembly
+  changes:
+    - type: Tweak
+      message: Changed pizza sprites.
+  id: 319
+  time: '2025-05-01T01:27:11.0000000+00:00'

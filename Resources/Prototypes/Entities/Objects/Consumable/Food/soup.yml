@@ -80,6 +80,7 @@
   - type: Tag
     tags:
     - Soup
+    - VoxFood
   - type: Destructible
     thresholds:
     - trigger:

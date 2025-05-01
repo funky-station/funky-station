@@ -64,6 +64,7 @@
   - type: Tag
     tags:
     - Cake
+    - VoxFood
 
 - type: entity
   parent: FoodCakeBase

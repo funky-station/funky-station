@@ -53,11 +53,6 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
-      leaky:
-        maxVol: 20
-  - type: InjectableSolution
-    solution: leaky
-  - type: LeakyObject
   - type: ContainerContainer
     containers:
       stash: !type:ContainerSlot {}
@@ -136,7 +131,7 @@
   parent: PlushieGhost
   id: PlushieGhostRevenant
   name: revenant soft toy
-  categories: [ DoNotMap ]
+  suffix: DO NOT MAP
   description: So soft it almost makes you want to take a nap...
   components:
     - type: Item
@@ -177,8 +172,6 @@
           Quantity: 5
         - ReagentId: Fiber
           Quantity: 5
-      leaky:
-        maxVol: 20
   - type: Clothing
     quickEquip: false
     sprite: Objects/Fun/toys.rsi
@@ -204,9 +197,6 @@
     sound:
       path: /Audio/Items/Toys/mousesqueek.ogg
   - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: EmitSoundOnCollide
     sound:
       path: /Audio/Items/Toys/mousesqueek.ogg
   - type: Food
@@ -295,9 +285,6 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
   - type: Food
     requiresSpecialDigestion: true
     useSound:
@@ -330,9 +317,6 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Items/Toys/weh.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Items/Toys/weh.ogg
   - type: Food
     requiresSpecialDigestion: true
     useSound:
@@ -355,8 +339,6 @@
           Quantity: 10
         - ReagentId: JuiceThatMakesYouWeh
           Quantity: 10
-      leaky:
-        maxVol: 20
   - type: Clothing
     quickEquip: false
     sprite: Objects/Fun/toys.rsi
@@ -365,9 +347,6 @@
     - HEAD
   - type: Speech
     speechVerb: Reptilian # for pais (In the secret stash)
-  - type: Tag
-    tags:
-      - PlushieLizard
 
 - type: entity
   parent: PlushieLizard
@@ -375,8 +354,6 @@
   description: An adorable stuffed toy that resembles a lizardperson of every color. You just might trip while staring at it...
   name: rainbow lizard plushie
   components:
-  - type: Sprite
-    state: rainbowlizardplush
   - type: PointLight
     radius: 1.5
     energy: 2
@@ -386,14 +363,6 @@
     clothingVisuals:
       head:
       - state: lizard-equipped-HELMET
-        shader: unshaded
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: rainbowlizardplush-inhand-left
-        shader: unshaded
-      right:
-      - state: rainbowlizardplush-inhand-right
         shader: unshaded
 
 - type: entity
@@ -412,8 +381,6 @@
   name: space lizard plushie
   description: An adorable stuffed toy that resembles a lizardperson in an EVA suit. Made by CentComm as a token initiative to combat speciesism in space environments. "Welcome your new colleges as you do this plush, with open arms!"
   components:
-  - type: Item
-    heldPrefix: spacelizard
   - type: Sprite
     state: plushie_spacelizard
   - type: EmitSoundOnUse
@@ -426,9 +393,6 @@
     sound:
       path: /Audio/Items/Toys/muffled_weh.ogg
   - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Items/Toys/muffled_weh.ogg
-  - type: EmitSoundOnCollide
     sound:
       path: /Audio/Items/Toys/muffled_weh.ogg
   - type: Food
@@ -453,16 +417,6 @@
           Quantity: 10
         - ReagentId: JuiceThatMakesYouWeh
           Quantity: 10
-      leaky:
-        maxVol: 20
-  - type: Clothing
-    slots:
-    - HEAD
-    quickEquip: false
-    clothingVisuals:
-      head:
-      - state: spacelizard-equipped-HELMET
-        offset: "0, 0.03"
 
 - type: entity
   parent: PlushieLizard
@@ -508,8 +462,6 @@
           Quantity: 10
         - ReagentId: JuiceThatMakesYouHew
           Quantity: 10
-      leaky:
-        maxVol: 20
   - type: Clothing
     quickEquip: false
     sprite: Objects/Fun/toys.rsi
@@ -542,9 +494,6 @@
     - type: EmitSoundOnTrigger
       sound:
         path: /Audio/Items/Toys/toy_rustle.ogg
-    - type: EmitSoundOnCollide
-      sound:
-        path: /Audio/Items/Toys/toy_rustle.ogg
     - type: MeleeWeapon
       wideAnimationRotation: 180
       soundHit:
@@ -562,13 +511,10 @@
           reagents:
           - ReagentId: Fiber
             Quantity: 10
-        leaky:
-          maxVol: 20
 
     - type: RefillableSolution
       solution: plushie
     - type: SolutionContainerVisuals
-      solutionName: plushie
       maxFillLevels: 1
       fillBaseName: plushie_diona
       changeColor: false
@@ -618,9 +564,6 @@
     sound:
       path: /Audio/Items/Toys/rawr.ogg
   - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Items/Toys/rawr.ogg
-  - type: EmitSoundOnCollide
     sound:
       path: /Audio/Items/Toys/rawr.ogg
   - type: MeleeWeapon
@@ -712,9 +655,6 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Effects/bite.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Effects/bite.ogg
   - type: Food
     requiresSpecialDigestion: true
     useSound:
@@ -754,6 +694,7 @@
   - type: RgbLightController
     layers: [ 0 ]
   - type: Item
+    heldPrefix: rainbowcarpplush
     inhandVisuals:
       left:
       - state: rainbowcarpplush-inhand-left
@@ -779,22 +720,6 @@
   components:
   - type: Sprite
     state: plushie_slime
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    soundHit:
-      path: /Audio/Voice/Slime/slime_squish.ogg
 
 - type: entity
   parent: BasePlushie
@@ -807,16 +732,7 @@
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Items/Toys/rattle.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/Toys/rattle.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Items/Toys/rattle.ogg
   - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Items/Toys/rattle.ogg
-  - type: EmitSoundOnCollide
     sound:
       path: /Audio/Items/Toys/rattle.ogg
   - type: Food
@@ -839,16 +755,7 @@
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
   - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: EmitSoundOnCollide
     sound:
       path: /Audio/Items/Toys/mousesqueek.ogg
   - type: Food
@@ -885,16 +792,7 @@
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Items/Toys/quack.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/Toys/quack.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Items/Toys/quack.ogg
   - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Items/Toys/quack.ogg
-  - type: EmitSoundOnCollide
     sound:
       path: /Audio/Items/Toys/quack.ogg
   - type: Food
@@ -919,13 +817,7 @@
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Voice/Vox/shriek1.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Voice/Vox/shriek1.ogg
   - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Voice/Vox/shriek1.ogg
-  - type: EmitSoundOnCollide
     sound:
       path: /Audio/Voice/Vox/shriek1.ogg
   - type: Food
@@ -968,9 +860,6 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Weapons/Xeno/alien_spitacid.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Weapons/Xeno/alien_spitacid.ogg
   - type: Food
     requiresSpecialDigestion: true
     useSound:
@@ -1005,9 +894,6 @@
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/Voice/Human/malescream_3.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Voice/Human/malescream_4.ogg
   - type: Food
     requiresSpecialDigestion: true
     useSound:
@@ -1037,9 +923,6 @@
     sound:
       path: /Audio/Voice/Moth/moth_squeak.ogg
   - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Voice/Moth/moth_chitter.ogg
-  - type: EmitSoundOnCollide
     sound:
       path: /Audio/Voice/Moth/moth_scream.ogg
   - type: MeleeWeapon
@@ -1124,16 +1007,7 @@
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Items/Toys/ian.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/Toys/ian.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Items/Toys/ian.ogg
   - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Items/Toys/ian.ogg
-  - type: EmitSoundOnCollide
     sound:
       path: /Audio/Items/Toys/ian.ogg
   - type: MeleeWeapon
@@ -1265,13 +1139,6 @@
   - type: Sprite
     sprite: Objects/Fun/toys.rsi
     state: foamblade
-  - type: EmitSoundOnUse #funkystation
-    sound:
-      path: /Audio/Effects/gib1.ogg
-  - type: StaminaDamageOnHit #funkystation
-    damage: 8
-  - type: DisarmMalus #funkystation
-    malus: 1
   - type: MeleeWeapon
     attackRate: 1.5
     angle: 0
@@ -1444,7 +1311,7 @@
         volume: -10
 
 - type: entity
-  parent: [ BaseItem, BaseMagicalContraband ]
+  parent: BaseItem
   id: PonderingOrb
   name: pondering orb
   description: Ponderous, man... Really ponderous.
@@ -1462,28 +1329,6 @@
     heldPrefix: orb
   - type: TileFrictionModifier
     modifier: 0.001
-
-- type: entity
-  parent: PonderingOrb
-  id: PonderingOrbWizard
-  name: pondering orb
-  description: Ponderous, man... Really ponderous. Magically shows the station's camera network.
-  suffix: Wizard
-  components:
-  - type: ActivatableUI
-    requireActiveHand: false
-    inHandsOnly: true
-    key: enum.SurveillanceCameraMonitorUiKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.SurveillanceCameraMonitorUiKey.Key:
-        type: SurveillanceCameraMonitorBoundUserInterface
-  - type: DeviceNetwork
-    deviceNetId: Wired
-    receiveFrequencyId: SurveillanceCamera
-    transmitFrequencyId: SurveillanceCamera
-  - type: WiredNetworkConnection
-  - type: SurveillanceCameraMonitor
 
 - type: entity
   parent: BaseItem
@@ -1605,16 +1450,10 @@
   - type: EmitSoundOnUse
     sound:
       collection: ClownRecorder
-  - type: EmitSoundOnLand
-    sound:
-      collection: ClownRecorder
   - type: EmitSoundOnActivate
     sound:
       collection: ClownRecorder
   - type: EmitSoundOnTrigger
-    sound:
-      collection: ClownRecorder
-  - type: EmitSoundOnCollide
     sound:
       collection: ClownRecorder
   - type: UseDelay
@@ -1646,7 +1485,6 @@
     - type: DisarmMalus
       malus: 0
     - type: MeleeWeapon
-      wideAnimationRotation: -135
       soundHit:
         collection: RubberHammer
         params:
@@ -1675,21 +1513,6 @@
     tags:
       - Payload
   - type: EmitSoundOnUse
-    sound:
-      collection: Parp
-      params:
-        variation: 0.125
-  - type: EmitSoundOnLand
-    sound:
-      collection: Parp
-      params:
-        variation: 0.125
-  - type: EmitSoundOnActivate
-    sound:
-      collection: Parp
-      params:
-        variation: 0.125
-  - type: EmitSoundOnCollide
     sound:
       collection: Parp
       params:
@@ -1885,7 +1708,7 @@
   parent: BasePlushie
   id: PlushieGodo
   name: Godo plushie
-  description: An adorable green ball that represents hapiness itself.
+  description: An adorable green ball that represents happiness and joy itself.
   components:
   - type: Sprite
     sprite: Objects/Fun/toys.rsi

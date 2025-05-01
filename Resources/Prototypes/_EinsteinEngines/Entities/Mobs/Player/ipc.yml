@@ -52,6 +52,12 @@
       Dead: BorgDead
   - type: TypingIndicator
     proto: robot
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - IPCEmotes
   - type: Destructible
     thresholds:
       - trigger:

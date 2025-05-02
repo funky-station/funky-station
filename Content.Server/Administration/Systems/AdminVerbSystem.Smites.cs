@@ -819,7 +819,7 @@ public sealed partial class AdminVerbSystem
         var superSpeedName = Loc.GetString("admin-smite-super-speed-name").ToLowerInvariant();
         Verb superSpeed = new()
         {
-            Text = "admin-smite-garbage-can-name",
+            Text = "admin-smite-super-speed-name",
             Category = VerbCategory.Smite,
             Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/AdminActions/super_speed.png")),
             Act = () =>
@@ -923,5 +923,24 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", omniaccentName, Loc.GetString("admin-smite-omni-accent-description"))
         };
         args.Verbs.Add(omniaccent);
+
+        //Funky begin
+        var bluespaceName = Loc.GetString("admin-smite-bluespace-name").ToLowerInvariant();
+        Verb bluespace = new()
+        {
+            Text = bluespaceName,
+            Category = VerbCategory.Smite,
+            Icon = new SpriteSpecifier.Texture(new ("Structures/cargo_telepad.rsi/display.png")),
+            Act = () =>
+            {
+                var coords = _transformSystem.GetMapCoordinates(args.Target);
+                EntityManager.QueueDeleteEntity(args.Target);
+                Spawn("EffectFlashBluespace", Transform(args.Target).Coordinates);
+            },
+            Impact = LogImpact.Extreme,
+            Message = string.Join(": ", bluespaceName, Loc.GetString("admin-smite-bluespace-description"))
+        };
+        args.Verbs.Add(bluespace);
+        //Funky end
     }
 }

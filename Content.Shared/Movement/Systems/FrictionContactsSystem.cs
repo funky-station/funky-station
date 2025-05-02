@@ -77,14 +77,12 @@ public sealed class FrictionContactsSystem : EntitySystem
 
     private void OnRefreshFrictionModifiers(Entity<FrictionModifiedByContactComponent> entity, ref RefreshFrictionModifiersEvent args)
     {
-        if (!TryComp<PhysicsComponent>(entity, out var physicsComponent))
+        if (!EntityManager.TryGetComponent<PhysicsComponent>(entity, out var physicsComponent))
             return;
 
         var friction = 0.0f;
         var frictionNoInput = 0.0f;
         var acceleration = 0.0f;
-
-        var isAirborne = physicsComponent.BodyStatus == BodyStatus.InAir || _gravity.IsWeightless(entity.Owner);
 
         var remove = true;
         var entries = 0;
@@ -92,11 +90,6 @@ public sealed class FrictionContactsSystem : EntitySystem
         {
             if (!TryComp<FrictionContactsComponent>(ent, out var contacts))
                 continue;
-
-            // Entities that are airborne should not be affected by contact slowdowns that are specified to not affect airborne entities.
-            if (isAirborne && !contacts.AffectAirborne)
-                continue;
-
             friction += contacts.MobFriction;
             frictionNoInput += contacts.MobFrictionNoInput ?? contacts.MobFriction;
             acceleration += contacts.MobAcceleration;

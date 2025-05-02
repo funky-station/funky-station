@@ -8,7 +8,7 @@
   deconstructTools: [ Axing ]
   footstepSounds:
     collection: FootstepPlating
-  friction: 0.3
+  friction: 1.5
   heatCapacity: 10000
 
 - type: tile
@@ -39,7 +39,7 @@
   deconstructTools: [ Axing ]
   footstepSounds:
     collection: FootstepPlating
-  friction: 0.3
+  friction: 1.5
   heatCapacity: 10000
 
 - type: tile
@@ -52,7 +52,7 @@
   deconstructTools: [ Axing ]
   footstepSounds:
     collection: FootstepPlating
-  friction: 0.3
+  friction: 1.5
   heatCapacity: 10000
 
 - type: tile
@@ -65,7 +65,7 @@
   deconstructTools: [ Axing ]
   footstepSounds:
     collection: FootstepPlating
-  friction: 0.3
+  friction: 1.5
   heatCapacity: 10000
 
 - type: tile
@@ -78,7 +78,7 @@
   deconstructTools: [ Axing ]
   footstepSounds:
     collection: FootstepPlating
-  friction: 0.15 #a little less then actual snow
+  friction: 0.75 #a little less then actual snow
   heatCapacity: 10000
 
 - type: tile
@@ -91,7 +91,7 @@
   weather: true
   footstepSounds:
     collection: FootstepCatwalk
-  friction: 0.3
+  friction: 1.5
   isSpace: true
   itemDrop: PartRodMetal1
   heatCapacity: 10000
@@ -106,7 +106,7 @@
   weather: true
   footstepSounds:
     collection: FootstepPlating
-  friction: 0.3
+  friction: 1.5
   isSpace: true
   itemDrop: PartRodMetal1
   heatCapacity: 10000

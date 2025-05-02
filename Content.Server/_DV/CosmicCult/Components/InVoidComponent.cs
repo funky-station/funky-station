@@ -1,13 +1,15 @@
-namespace Content.Server._Impstation.CosmicCult.Components;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+
+namespace Content.Server._DV.CosmicCult.Components;
 
 [RegisterComponent]
 [AutoGenerateComponentPause]
 public sealed partial class InVoidComponent : Component
 {
-    [ViewVariables]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]
     public TimeSpan ExitVoidTime = default!;
 
-    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField]
     public EntityUid OriginalBody;
 }

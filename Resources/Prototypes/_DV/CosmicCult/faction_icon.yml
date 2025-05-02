@@ -4,11 +4,12 @@
   priority: 11
   showTo:
     components:
-      - ShowAntagIcons
       - CosmicCult
+      - CosmicAstralBody
+      - ShowAntagIcons
       - RogueAscended
   icon:
-    sprite: /Textures/_Impstation/CosmicCult/Icons/antag_icons.rsi
+    sprite: /Textures/_DV/CosmicCult/Icons/antag_icons.rsi
     state: CosmicCult
 
 - type: factionIcon
@@ -17,9 +18,10 @@
   priority: 11
   showTo:
     components:
-      - ShowAntagIcons
       - CosmicCult
+      - CosmicAstralBody
+      - ShowAntagIcons
       - RogueAscended
   icon:
-    sprite: /Textures/_Impstation/CosmicCult/Icons/antag_icons.rsi
+    sprite: /Textures/_DV/CosmicCult/Icons/antag_icons.rsi
     state: CosmicCultLead

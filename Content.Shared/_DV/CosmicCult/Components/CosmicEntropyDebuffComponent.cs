@@ -1,18 +1,21 @@
 using Content.Shared.Damage;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared._Impstation.CosmicCult.Components;
+namespace Content.Shared._DV.CosmicCult.Components;
 
 /// <summary>
 /// Makes the target take damage over time.
 /// Meant to be used in conjunction with statusEffectSystem.
 /// </summary>
-[RegisterComponent, AutoGenerateComponentPause]
-[AutoGenerateComponentState]
+[RegisterComponent]
+[AutoGenerateComponentPause]
 public sealed partial class CosmicEntropyDebuffComponent : Component
 {
-    [AutoPausedField] public TimeSpan CheckTimer = default!;
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [AutoPausedField]
+    public TimeSpan CheckTimer = default!;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan CheckWait = TimeSpan.FromSeconds(1);
 
     /// <summary>
@@ -20,7 +23,7 @@ public sealed partial class CosmicEntropyDebuffComponent : Component
     /// </summary>
     [DataField]
     public float PopupChance = 0.05f;
-    
+
     /// <summary>
     /// The debuff applied while the component is present.
     /// </summary>

@@ -1,8 +1,8 @@
-using Content.Server._Impstation.CosmicCult.Components;
+using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Bible.Components;
-using Content.Shared._Impstation.CosmicCult;
-using Content.Shared._Impstation.CosmicCult.Components;
-using Content.Shared._Impstation.CosmicCult.Components.Examine;
+using Content.Shared._DV.CosmicCult;
+using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult.Components.Examine;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
@@ -10,24 +10,24 @@ using Content.Shared.Interaction;
 using Content.Shared.Jittering;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.SSDIndicator;
 using Content.Shared.Timing;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Impstation.CosmicCult;
+namespace Content.Server._DV.CosmicCult;
 
 public sealed class DeconversionSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedJitteringSystem _jittering = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {
@@ -38,7 +38,7 @@ public sealed class DeconversionSystem : EntitySystem
 
     private void OnCompInit(Entity<CleanseCultComponent> uid, ref ComponentInit args)
     {
-        _entityManager.System<SharedJitteringSystem>().DoJitter(uid.Owner, uid.Comp.CleanseDuration, true, 5, 20);
+        _jittering.DoJitter(uid.Owner, uid.Comp.CleanseDuration, true, 5, 20);
         uid.Comp.CleanseTime = _timing.CurTime + uid.Comp.CleanseDuration;
     }
 
@@ -49,7 +49,7 @@ public sealed class DeconversionSystem : EntitySystem
         var deconCultTimer = EntityQueryEnumerator<CleanseCultComponent>();
         while (deconCultTimer.MoveNext(out var uid, out var comp))
         {
-            if (_timing.CurTime >= comp.CleanseTime && !HasComp<CosmicMarkBlankComponent>(uid))
+            if (_timing.CurTime >= comp.CleanseTime && !HasComp<CosmicBlankComponent>(uid))
             {
                 RemComp<CleanseCultComponent>(uid);
                 DeconvertCultist(uid);
@@ -97,7 +97,6 @@ public sealed class DeconversionSystem : EntitySystem
         //TODO: This could be made more agnostic, but there's only one cult for now, and frankly, i'm so tired. This is easy to read and easy to modify code. Expand it at thine leisure.
         if (TryComp<CosmicCultComponent>(args.Target, out var comp) && comp.CosmicEmpowered)
         {
-
             Spawn(uid.Comp.MalignVFX, targetPosition);
             Spawn(uid.Comp.MalignVFX, Transform(args.User).Coordinates);
             EnsureComp<CleanseCultComponent>(target.Value, out var cleanse);

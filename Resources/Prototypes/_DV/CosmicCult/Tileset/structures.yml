@@ -6,12 +6,13 @@
   description: Its surface glows with a myriad of inscrutable glyphs that commmunicate a single word into your mind; "Flight".
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/cosmiccomputer.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmiccomputer.rsi
     layers:
-    - state: computer
-    - state: computer-unshaded
-      shader: unshaded
-  - type: CosmicMarkStructure
+      - state: computer
+      - state: computer-unshaded
+        shader: unshaded
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-forthecult
   - type: Thruster
     thrusterType: Angular # These are overpowered thruster-shuttle-console-hybrids that require no power grid. As such, they cannot be anchored or meaningfully taken outside of their intended use.
     requireSpace: false
@@ -22,8 +23,8 @@
     key: enum.ShuttleConsoleUiKey.Key
   - type: UserInterface
     interfaces:
-      enum.ShuttleConsoleUiKey.Key:
-        type: ShuttleConsoleBoundUserInterface
+        enum.ShuttleConsoleUiKey.Key:
+          type: ShuttleConsoleBoundUserInterface
   - type: EmitSoundOnUIOpen
     sound:
       collection: Keyboard
@@ -62,9 +63,10 @@
   placement:
     mode: SnapgridCenter
   components:
-  - type: CosmicMarkStructure
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-forthecult
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/cosmicchair.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicchair.rsi
     state: chair
   - type: Destructible
     thresholds:
@@ -83,17 +85,15 @@
   description: A mysterious-yet-inert sturcture. Unsettling.
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/cosmicpillar.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicpillar.rsi
     offset: 0, 0.5
     layers:
-    - state: icon
+      - state: icon
     drawdepth: Mobs
     noRot: true
-  - type: CosmicMarkStructure
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-forthecult
   - type: SpriteFade
-  - type: InteractionOutline
-  - type: Transform
-  - type: Rotatable
   - type: Fixtures
     fixtures:
       fix1:
@@ -119,7 +119,8 @@
   id: CosmicThruster
   name: malign engine
   components:
-  - type: CosmicMarkStructure
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-forthecult
   - type: Fixtures
     fixtures:
       fix1:
@@ -151,7 +152,7 @@
   - type: Appearance
   - type: ThrusterVisuals
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/cosmicthruster.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicthruster.rsi
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]
@@ -185,16 +186,17 @@
       Brute:
         collection: GlassSmash
   - type: Transform
-  - type: CosmicMarkStructure
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-forthecult
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/cosmiclight.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmiclight.rsi
     drawdepth: Mobs
     layers:
-    - state: base
-    - state: glow
-      shader: unshaded
+      - state: base
+      - state: glow
+        shader: unshaded
   - type: PointLight
     color: "#42a4ae" # 5000K color temp
     energy: 2
@@ -229,20 +231,21 @@
   components:
   - type: InteractionOutline
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/malignrift.rsi
+    sprite: _DV/CosmicCult/Tileset/malignrift.rsi
     drawdepth: Mobs
     snapCardinals: true
     offset: 0,0.27
     layers:
-    - state: rift-unshaded
-      shader: unshaded
+      - state: rift-unshaded
+        shader: unshaded
   - type: Clickable
   - type: PointLight
     radius: 1.5
     energy: 1.6
     castShadows: false
     color: "#42a4ae"
-  - type: CosmicMarkStructure
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-forthecult
   - type: CosmicMalignRift
   - type: CosmicCorrupting
     corruptionMaxTicks: 6
@@ -266,7 +269,8 @@
   - type: AtmosDevice
     joinSystem: true
   - type: CosmicSpire
-  - type: CosmicMarkStructure
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-forthecult
   - type: SpriteFade
   - type: InteractionOutline
   - type: Fixtures
@@ -281,15 +285,15 @@
         layer:
         - WallLayer
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/cosmicspire.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmicspire.rsi
     offset: 0, 0.5
     layers:
-    - state: base-disabled
-      map: ["base"]
-    - state: overlay
-      map: ["vfx"]
-      shader: unshaded
-      visible: false
+      - state: base-disabled
+        map: ["base"]
+      - state: overlay
+        map: ["vfx"]
+        shader: unshaded
+        visible: false
     drawdepth: Mobs
     noRot: true
   - type: GenericVisualizer
@@ -307,7 +311,7 @@
     volume: -5
     range: 15
     sound:
-      path: /Audio/_Impstation/CosmicCult/spire_draining.ogg
+      path: /Audio/_DV/CosmicCult/spire_draining.ogg
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
@@ -338,13 +342,13 @@
   description: Altar of.. Something.
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/altar.rsi
+    sprite: _DV/CosmicCult/Tileset/altar.rsi
     layers:
     - state: cosmic
     - state: cosmic_light
       shader: unshaded
   - type: Icon
-    sprite: _Impstation/CosmicCult/Tileset/altar.rsi
+    sprite: _DV/CosmicCult/Tileset/altar.rsi
     state: cosmic
   - type: PointLight
     radius: 1.5
@@ -358,14 +362,15 @@
   description: Unfathomably, cosmically.. Square.
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/cosmictable.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmictable.rsi
   - type: Icon
-    sprite: _Impstation/CosmicCult/Tileset/cosmictable.rsi
+    sprite: _DV/CosmicCult/Tileset/cosmictable.rsi
     state: full
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
-  - type: CosmicMarkStructure
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-forthecult
   - type: Destructible
     thresholds:
     - trigger:

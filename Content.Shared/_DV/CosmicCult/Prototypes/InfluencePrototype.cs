@@ -1,7 +1,11 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._Impstation.CosmicCult.Prototypes;
+namespace Content.Shared._DV.CosmicCult.Prototypes;
+
+/// <summary>
+/// An influence that can be purchased from the monument
+/// </summary>
 [Prototype]
 public sealed partial class InfluencePrototype : IPrototype
 {
@@ -27,7 +31,10 @@ public sealed partial class InfluencePrototype : IPrototype
     public EntProtoId? Action;
 
     [DataField]
-    public string? PassiveName;
+    public ComponentRegistry? Add;
+
+    [DataField]
+    public ComponentRegistry? Remove;
 
     [DataField(required: true)]
     public int Tier;

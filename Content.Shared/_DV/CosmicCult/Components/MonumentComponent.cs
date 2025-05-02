@@ -1,25 +1,22 @@
-using Content.Shared._Impstation.CosmicCult.Prototypes;
+using Content.Shared._DV.CosmicCult.Prototypes;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared._Impstation.CosmicCult.Components;
-[NetworkedComponent, RegisterComponent, AutoGenerateComponentState]
-[AutoGenerateComponentPause]
+namespace Content.Shared._DV.CosmicCult.Components;
+
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedMonumentSystem))]
+[AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class MonumentComponent : Component
 {
     /// <summary>
     /// The sound effect played when entropy is infused into The Monument.
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public SoundSpecifier InfusionSFX = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/insert_entropy.ogg");
-
-    /// <summary>
-    /// used to hide the monument from non-cultists
-    /// </summary>
-    [NonSerialized] public const int LayerMask = 777;
+    [DataField]
+    public SoundSpecifier InfusionSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/insert_entropy.ogg");
 
     /// <summary>
     /// the list of glyphs that this monument is allowed to scribe
@@ -66,7 +63,7 @@ public sealed partial class MonumentComponent : Component
     /// <summary>
     /// how long the monument takes to transform on a tier up
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan TransformTime = TimeSpan.FromSeconds(2.8);
 
     /// <summary>
@@ -78,7 +75,7 @@ public sealed partial class MonumentComponent : Component
     /// <summary>
     /// the timer used for ticking healing from vacuous vitality
     /// </summary>
-    [AutoPausedField, DataField]
+    [AutoPausedField, DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan CheckTimer = default!;
 
     /// <summary>
@@ -88,7 +85,7 @@ public sealed partial class MonumentComponent : Component
     public TimeSpan CheckWait = TimeSpan.FromSeconds(5);
 
     /// <summary>
-    /// what the monument heals
+    /// Passive healing factor for cultists w/ the ability near the monument
     /// </summary>
     [DataField]
     public DamageSpecifier MonumentHealing = new()
@@ -112,13 +109,15 @@ public sealed partial class MonumentComponent : Component
     /// </summary>
     [DataField]
     public bool CanTierUp = true;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? PhaseOutTimer;
 }
 
 [Serializable, NetSerializable]
-public sealed class InfluenceSelectedMessage(ProtoId<InfluencePrototype> influenceProtoId, NetEntity? sender) : BoundUserInterfaceMessage
+public sealed class InfluenceSelectedMessage(ProtoId<InfluencePrototype> influenceProtoId) : BoundUserInterfaceMessage
 {
     public ProtoId<InfluencePrototype> InfluenceProtoId = influenceProtoId;
-    public NetEntity? Sender = sender;
 }
 
 [Serializable, NetSerializable]
@@ -128,9 +127,7 @@ public sealed class GlyphSelectedMessage(ProtoId<GlyphPrototype> glyphProtoId) :
 }
 
 [Serializable, NetSerializable]
-public sealed class GlyphRemovedMessage : BoundUserInterfaceMessage
-{
-}
+public sealed class GlyphRemovedMessage : BoundUserInterfaceMessage;
 
 [Serializable, NetSerializable]
 public enum MonumentVisuals : byte
@@ -138,7 +135,6 @@ public enum MonumentVisuals : byte
     Monument,
     Transforming,
     FinaleReached,
-    FinaleActive,
     Tier3,
 }
 

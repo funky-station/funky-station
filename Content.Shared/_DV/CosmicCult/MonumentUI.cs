@@ -1,9 +1,9 @@
-using Content.Shared._Impstation.CosmicCult.Components;
-using Content.Shared._Impstation.CosmicCult.Prototypes;
+using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Impstation.Cosmiccult;
+namespace Content.Shared._DV.CosmicCult;
 
 [Serializable, NetSerializable]
 public enum MonumentKey : byte

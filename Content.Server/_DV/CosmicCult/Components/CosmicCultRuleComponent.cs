@@ -1,11 +1,14 @@
 using Content.Server.RoundEnd;
+using Content.Shared._DV.CosmicCult.Components;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Server._Impstation.CosmicCult.Components;
+namespace Content.Server._DV.CosmicCult.Components;
 
 /// <summary>
 /// Component for the CosmicCultRuleSystem that should store gameplay info.
 /// </summary>
 [RegisterComponent, Access(typeof(CosmicCultRuleSystem))]
+[AutoGenerateComponentPause]
 public sealed partial class CosmicCultRuleComponent : Component
 {
     /// <summary>
@@ -18,19 +21,19 @@ public sealed partial class CosmicCultRuleComponent : Component
     /// Sender for shuttle call.
     /// </summary>
     [DataField]
-    public string RoundEndTextSender = "comms-console-announcement-title-centcom";
+    public LocId RoundEndTextSender = "comms-console-announcement-title-centcom";
 
     /// <summary>
     /// Text for shuttle call.
     /// </summary>
     [DataField]
-    public string RoundEndTextShuttleCall = "cosmiccult-elimination-shuttle-call";
+    public LocId RoundEndTextShuttleCall = "cosmiccult-elimination-shuttle-call";
 
     /// <summary>
     /// Text for announcement.
     /// </summary>
     [DataField]
-    public string RoundEndTextAnnouncement = "cosmiccult-elimination-announcement";
+    public LocId RoundEndTextAnnouncement = "cosmiccult-elimination-announcement";
 
     /// <summary>
     /// Time for emergency shuttle arrival.
@@ -38,13 +41,68 @@ public sealed partial class CosmicCultRuleComponent : Component
     [DataField]
     public TimeSpan EvacShuttleTime = TimeSpan.FromMinutes(5);
 
-    [ViewVariables(VVAccess.ReadOnly)]
-    [DataField] public HashSet<EntityUid> Cultists = new();
-    [DataField] public bool WinLocked = false;
-    [DataField] public WinType WinType = WinType.CrewMinor;
-}
+    [DataField]
+    public HashSet<EntityUid> Cultists = [];
 
-// CosmicCultRuleComponent
+    [DataField]
+    public bool WinLocked;
+
+    [DataField]
+    public WinType WinType = WinType.CrewMinor;
+
+    /// <summary>
+    ///     The cult's monument
+    /// </summary>
+    public Entity<MonumentComponent> MonumentInGame;
+
+    /// <summary>
+    ///     The slow zone of the spawned monument
+    /// </summary>
+    [DataField]
+    public EntityUid MonumentSlowZone;
+
+    /// <summary>
+    ///     Current tier of the cult
+    /// </summary>
+    [DataField]
+    public int CurrentTier;
+
+    /// <summary>
+    ///     Amount of present crew
+    /// </summary>
+    [DataField]
+    public int TotalCrew;
+
+    /// <summary>
+    ///     Amount of cultists
+    /// </summary>
+    [DataField]
+    public int TotalCult;
+
+    /// <summary>
+    ///     Percentage of crew that have been converted into cultists
+    /// </summary>
+    [DataField]
+    public double PercentConverted;
+
+    /// <summary>
+    ///     How much entropy has been siphoned by the cult
+    /// </summary>
+    [DataField]
+    public int EntropySiphoned;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? StewardVoteTimer;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? PrepareFinaleTimer;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? Tier3DelayTimer;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? Tier2DelayTimer;
+}
 
 public enum WinType : byte
 {

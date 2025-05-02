@@ -1,6 +1,6 @@
-using Content.Shared._Impstation.Cosmiccult;
-using Content.Shared._Impstation.CosmicCult.Components;
-using Content.Shared._Impstation.CosmicCult.Prototypes;
+using Content.Shared._DV.CosmicCult;
+using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult.Prototypes;
 using Content.Shared.Actions;
 using Content.Shared.Movement.Components;
 using Content.Shared.Nutrition.Components;
@@ -8,18 +8,21 @@ using Content.Shared.UserInterface;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Impstation.CosmicCult;
+namespace Content.Shared._DV.CosmicCult;
 
-public sealed class SharedMonumentSystem : EntitySystem
+public abstract class SharedMonumentSystem : EntitySystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedCosmicCultSystem _cosmicCult = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {
@@ -28,7 +31,18 @@ public sealed class SharedMonumentSystem : EntitySystem
         SubscribeLocalEvent<MonumentComponent, GlyphSelectedMessage>(OnGlyphSelected);
         SubscribeLocalEvent<MonumentComponent, GlyphRemovedMessage>(OnGlyphRemove);
         SubscribeLocalEvent<MonumentComponent, InfluenceSelectedMessage>(OnInfluenceSelected);
+        SubscribeLocalEvent<MonumentOnDespawnComponent, TimedDespawnEvent>(OnTimedDespawn);
         SubscribeLocalEvent<MonumentCollisionComponent, PreventCollideEvent>(OnPreventCollide);
+    }
+
+    private void OnTimedDespawn(Entity<MonumentOnDespawnComponent> ent, ref TimedDespawnEvent args)
+    {
+        if (!TryComp(ent, out TransformComponent? xform))
+            return;
+
+        var monument = Spawn(ent.Comp.Prototype, xform.Coordinates);
+        var evt = new CosmicCultAssociateRuleEvent(ent, monument);
+        RaiseLocalEvent(ref evt);
     }
 
     public override void Update(float frameTime)
@@ -49,7 +63,7 @@ public sealed class SharedMonumentSystem : EntitySystem
     /// </summary>
     private void OnPreventCollide(EntityUid uid, MonumentCollisionComponent comp, ref PreventCollideEvent args)
     {
-        if (!HasComp<CosmicCultComponent>(args.OtherEntity) && !comp.HasCollision)
+        if (!_cosmicCult.EntitySeesCult(args.OtherEntity) && !comp.HasCollision)
             args.Cancelled = true;
     }
 
@@ -58,14 +72,10 @@ public sealed class SharedMonumentSystem : EntitySystem
         if (!_ui.IsUiOpen(ent.Owner, MonumentKey.Key))
             return;
 
-        if (ent.Comp.Enabled && HasComp<CosmicCultComponent>(args.Actor))
-        {
+        if (ent.Comp.Enabled && _cosmicCult.EntityIsCultist(args.Actor))
             _ui.SetUiState(ent.Owner, MonumentKey.Key, new MonumentBuiState(ent.Comp));
-        }
         else
             _ui.CloseUi(ent.Owner, MonumentKey.Key); //close the UI if the monument isn't available
-        //todo this can probably be done better - have it keep the UI open but replace everything with some kinda "The End Is Coming" text? - ruddygreat
-
     }
 
     #region UI listeners
@@ -89,6 +99,8 @@ public sealed class SharedMonumentSystem : EntitySystem
 
         var glyphEnt = Spawn(proto.Entity, _map.ToCenterCoordinates(xform.GridUid.Value, targetIndices, grid));
         ent.Comp.CurrentGlyph = glyphEnt;
+        var evt = new CosmicCultAssociateRuleEvent(ent, glyphEnt);
+        RaiseLocalEvent(ref evt);
 
         _ui.SetUiState(ent.Owner, MonumentKey.Key, new MonumentBuiState(ent.Comp));
     }
@@ -103,29 +115,26 @@ public sealed class SharedMonumentSystem : EntitySystem
 
     private void OnInfluenceSelected(Entity<MonumentComponent> ent, ref InfluenceSelectedMessage args)
     {
-
-        var senderEnt = GetEntity(args.Sender);
-
-        if (!_prototype.TryIndex(args.InfluenceProtoId, out var proto) || !TryComp<ActivatableUIComponent>(ent, out var uiComp) || !TryComp<CosmicCultComponent>(senderEnt, out var cultComp))
+        if (!_prototype.TryIndex(args.InfluenceProtoId, out var proto) || !TryComp<ActivatableUIComponent>(ent, out var uiComp) || !TryComp<CosmicCultComponent>(args.Actor, out var cultComp))
             return;
 
-        if (cultComp.EntropyBudget < proto.Cost || cultComp.OwnedInfluences.Contains(proto) || args.Sender == null)
+        if (cultComp.EntropyBudget < proto.Cost || cultComp.OwnedInfluences.Contains(proto) || args.Actor == null)
             return;
 
         cultComp.OwnedInfluences.Add(proto);
 
         if (proto.InfluenceType == "influence-type-active")
         {
-            var actionEnt = _actions.AddAction(senderEnt.Value, proto.Action);
+            var actionEnt = _actions.AddAction(args.Actor, proto.Action);
             cultComp.ActionEntities.Add(actionEnt);
         }
         else if (proto.InfluenceType == "influence-type-passive")
         {
-            UnlockPassive(senderEnt.Value, proto); //Not unlocking an action? call the helper function to add the influence's passive effects
+            UnlockPassive(args.Actor, proto); //Not unlocking an action? call the helper function to add the influence's passive effects
         }
 
         cultComp.EntropyBudget -= proto.Cost;
-        Dirty(senderEnt.Value, cultComp); //force an update to make sure that the client has the correct set of owned abilities
+        Dirty(args.Actor, cultComp); //force an update to make sure that the client has the correct set of owned abilities
 
         _ui.SetUiState(ent.Owner, MonumentKey.Key, new MonumentBuiState(ent.Comp));
     }
@@ -133,21 +142,23 @@ public sealed class SharedMonumentSystem : EntitySystem
 
     private void UnlockPassive(EntityUid cultist, InfluencePrototype proto)
     {
-        switch (proto.PassiveName) // Yay, switch statements.
+        if (proto.Add != null)
         {
-            case "eschew":
-                RemCompDeferred<HungerComponent>(cultist);
-                RemCompDeferred<ThirstComponent>(cultist);
-                break;
-            case "step":
-                EnsureComp<MovementIgnoreGravityComponent>(cultist);
-                break;
-            case "stride":
-                EnsureComp<InfluenceStrideComponent>(cultist);
-                break;
-            case "vitality":
-                EnsureComp<InfluenceVitalityComponent>(cultist);
-                break;
+            foreach (var reg in proto.Add.Values)
+            {
+                var compType = reg.Component.GetType();
+                if (HasComp(cultist, compType))
+                    continue;
+                AddComp(cultist, _componentFactory.GetComponent(compType));
+            }
+        }
+
+        if (proto.Remove != null)
+        {
+            foreach (var reg in proto.Remove.Values)
+            {
+                RemComp(cultist, reg.Component.GetType());
+            }
         }
     }
 }

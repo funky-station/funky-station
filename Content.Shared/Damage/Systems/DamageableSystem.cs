@@ -47,6 +47,7 @@ namespace Content.Shared.Damage
         public float UniversalExplosionDamageModifier { get; private set; } = 1f;
         public float UniversalThrownDamageModifier { get; private set; } = 1f;
         public float UniversalTopicalsHealModifier { get; private set; } = 1f;
+        public float UniversalMobDamageModifier { get; private set; } = 1f;
 
         public override void Initialize()
         {
@@ -89,6 +90,7 @@ namespace Content.Shared.Damage
             Subs.CVar(_config, CCVars.PlaytestExplosionDamageModifier, value => UniversalExplosionDamageModifier = value, true);
             Subs.CVar(_config, CCVars.PlaytestThrownDamageModifier, value => UniversalThrownDamageModifier = value, true);
             Subs.CVar(_config, CCVars.PlaytestTopicalsHealModifier, value => UniversalTopicalsHealModifier = value, true);
+            Subs.CVar(_config, CCVars.PlaytestMobDamageModifier, value => UniversalMobDamageModifier = value, true);
         }
 
         /// <summary>
@@ -326,7 +328,7 @@ namespace Content.Shared.Damage
             // Shitmed Change End
         }
 
-        public void SetDamageModifierSetId(EntityUid uid, string damageModifierSetId, DamageableComponent? comp = null)
+        public void SetDamageModifierSetId(EntityUid uid, string? damageModifierSetId, DamageableComponent? comp = null)
         {
             if (!_damageableQuery.Resolve(uid, ref comp))
                 return;
@@ -335,16 +337,16 @@ namespace Content.Shared.Damage
             Dirty(uid, comp);
         }
 
-        // IMP EDIT BEGIN
-        public void SetDamageContainerID(EntityUid uid, string damageContainerId, DamageableComponent? comp = null)
+        // Begin DeltaV Additions - We need to be able to change DamageContainer to make cultists vulnerable to Holy Damage
+        public void SetDamageContainerID(Entity<DamageableComponent?> ent, string damageContainerId)
         {
-            if (!_damageableQuery.Resolve(uid, ref comp))
+            if (!_damageableQuery.Resolve(ent, ref ent.Comp))
                 return;
 
-            comp.DamageContainerID = damageContainerId; // we need to be able to change DamageContainer to make cultists vulnerable to Holy Damage.
-            Dirty(uid, comp);
+            ent.Comp.DamageContainerID = damageContainerId;
+            Dirty(ent);
         }
-        // IMP EDIT END
+        // End DeltaV Additions
 
         private void DamageableGetState(EntityUid uid, DamageableComponent component, ref ComponentGetState args)
         {

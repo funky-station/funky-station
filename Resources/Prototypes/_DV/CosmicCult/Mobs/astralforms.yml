@@ -13,7 +13,7 @@
     baseWalkSpeed: 6
     baseSprintSpeed: 6
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Mobs/astralform.rsi
+    sprite: _DV/CosmicCult/Mobs/astralform.rsi
     layers:
     - state: effect-underlay
       shader: unshaded
@@ -22,10 +22,6 @@
   - type: NoSlip
   - type: Eye
     drawFov: false
-    visMask:
-      - Normal
-      - Ghost
-      - 777
   - type: ContentEye
     maxZoom: 1.2, 1.2
   - type: Speech
@@ -51,13 +47,14 @@
 
 ### ASTRAL PROJECTION
 - type: entity
-  parent:
-  - Incorporeal
-  - BaseMob
+  parent: [ Incorporeal, BaseMob ]
   id: MobCosmicAstralProjection
   name: astral projection
   description: Neither here nor there.
   components:
+  - type: ActionGrant
+    actions:
+    - ActionCosmicReturn
   - type: Input
     context: "ghost"
   - type: Spectral
@@ -65,26 +62,26 @@
     baseWalkSpeed: 4
     baseSprintSpeed: 4
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Mobs/astralform.rsi
+    sprite: _DV/CosmicCult/Mobs/astralform.rsi
     layers:
     - state: base-body
       shader: unshaded
+    drawdepth: Ghosts
   - type: NoSlip
+  - type: CosmicAstralBody
   - type: Eye
     drawFov: false
     visMask:
-      - Normal
-      - Ghost
-      - 777
+    - Normal
+    - Ghost
   - type: SSDIndicator
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: MindContainer
     showExamineInfo: true
+  - type: Examiner
   - type: ContentEye
     maxZoom: 1.2, 1.2
-  - type: Visibility
-    layer: 2 #ghost vis layer
   - type: Speech
     enabled: false
   - type: PointLight
@@ -109,10 +106,8 @@
   - type: ActiveRadio
     channels:
     - CosmicRadio
-  - type: ActionGrant
-    actions:
-    - ActionCosmicReturn
-
+  - type: Visibility
+    layer: 2 #ghost vis layer
 
 ### ASCENDED EVENTSPAWN
 - type: entity
@@ -125,7 +120,6 @@
   components:
   - type: FTLSmashImmune
   - type: Physics
-
     bodyStatus: InAir
   - type: Speech
     speechVerb: Ghost
@@ -133,7 +127,6 @@
   - type: MovementAlwaysTouching
   - type: CanMoveInAir
   - type: CombatMode
-  - type: ZombieImmune
   - type: Bloodstream
     bloodMaxVolume: 650
     bloodReagent: Entropy
@@ -152,7 +145,7 @@
     weightlessFriction: 1
     weightlessModifier: 1
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Mobs/astralrogue.rsi
+    sprite: _DV/CosmicCult/Mobs/astralrogue.rsi
     noRot: true
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -175,10 +168,6 @@
   - type: NoSlip
   - type: Eye
     drawFov: false
-    visMask:
-      - Normal
-      - Ghost
-      - 777
   - type: GhostRole
     makeSentient: true
     name: ghost-role-information-rogue-ascended-name
@@ -247,17 +236,17 @@
         Cold: 3
         Structural: 20
     soundHit:
-      path: /Audio/_Impstation/CosmicCult/cosmicsword_hit.ogg
+      path: /Audio/_DV/CosmicCult/cosmicsword_hit.ogg
       params:
         variation: 0.2
         volume: -4
     soundSwing:
-      path: /Audio/_Impstation/CosmicCult/cosmicweapon_swing.ogg
+      path: /Audio/_DV/CosmicCult/cosmicweapon_swing.ogg
       params:
         variation: 0.125
         volume: -4
     soundNoDamage:
-      path: /Audio/_Impstation/CosmicCult/cosmicsword_glance.ogg
+      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
       params:
         variation: 0.2
         volume: -11
@@ -289,7 +278,7 @@
     interactSuccessString: petting-success-rogue-ascended
     interactFailureString: petting-failure-rogue-ascended
     interactFailureSound:
-      path: /Audio/_Impstation/CosmicCult/ascendant_noise.ogg
+      path: /Audio/_DV/CosmicCult/ascendant_noise.ogg
     soundPerceivedByOthers: false
   - type: RandomMetadata
     nameSegments:

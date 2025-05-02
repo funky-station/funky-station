@@ -3,47 +3,48 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Impstation.CosmicCult.Components;
+namespace Content.Shared._DV.CosmicCult.Components;
 
 /// <summary>
 /// Component to designate a mob as a rogue astral ascendant.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState]
 public sealed partial class RogueAscendedComponent : Component
 {
     /// <summary>
     /// The duration of our slumber DoAfter.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan RogueSlumberDoAfterTime = TimeSpan.FromSeconds(1);
 
     /// <summary>
     /// The duration of our infection DoAfter.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan RogueInfectionDoAfterTime = TimeSpan.FromSeconds(8);
 
     /// <summary>
     /// The duration inflicted by Slumber Shell
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan RogueSlumberTime = TimeSpan.FromSeconds(25);
 
     [DataField]
-    public SoundSpecifier InfectionSfx = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ability_nova_impact.ogg");
+    public SoundSpecifier InfectionSfx = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ability_nova_impact.ogg");
 
     [DataField]
-    public SoundSpecifier ShatterSfx = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ascendant_shatter.ogg");
+    public SoundSpecifier ShatterSfx = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ascendant_shatter.ogg");
 
     [DataField]
-    public SoundSpecifier MobSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/ascendant_noise.ogg");
+    public SoundSpecifier MobSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ascendant_noise.ogg");
 
     [DataField]
     public EntProtoId Vfx = "CosmicGenericVFX";
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan StunTime = TimeSpan.FromSeconds(7);
+
+    [DataField]
     public DamageSpecifier InfectionHeal = new()
     {
         DamageDict = new()

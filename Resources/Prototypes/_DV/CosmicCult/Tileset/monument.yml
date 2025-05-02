@@ -1,5 +1,5 @@
 
-########### COSMIC MONUMENT, BASE ABSTRACT #############
+ ########### COSMIC MONUMENT, BASE ABSTRACT #############
 
 - type: entity
   abstract: true
@@ -23,21 +23,21 @@
         density: 1000
         hard: false
   - type: Visibility
-    layer: 777
+    layer: 16
   - type: SpriteFade
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/monument.rsi
+    sprite: _DV/CosmicCult/Tileset/monument.rsi
     layers:
-    - state: stage1
-      visible: true
-      map: ["enum.MonumentVisualLayers.MonumentLayer"]
-    - state: transform-stage2
-      visible: false
-      map: ["enum.MonumentVisualLayers.TransformLayer"]
-    - state: finale-overlay1
-      shader: unshaded
-      visible: false
-      map: ["enum.MonumentVisualLayers.FinaleLayer"]
+      - state: stage1
+        visible: true
+        map: ["enum.MonumentVisualLayers.MonumentLayer"]
+      - state: transform-stage2
+        visible: false
+        map: ["enum.MonumentVisualLayers.TransformLayer"]
+      - state: finale-overlay1
+        shader: unshaded
+        visible: false
+        map: ["enum.MonumentVisualLayers.FinaleLayer"]
     offset: 0,1
     drawdepth: Mobs
   - type: Appearance
@@ -68,21 +68,21 @@
     color: "#43286a"
   - type: LightBehaviour
     behaviours:
-    - !type:FadeBehaviour
-      interpolate: Linear
-      minDuration: 3
-      maxDuration: 5
-      startValue: 4.5
-      endValue: 1.5
-      property: Energy
-      enabled: true
-      isLooped: true
-      reverseWhenFinished: true
+     - !type:FadeBehaviour
+       interpolate: Linear
+       minDuration: 3
+       maxDuration: 5
+       startValue: 4.5
+       endValue: 1.5
+       property: Energy
+       enabled: true
+       isLooped: true
+       reverseWhenFinished: true
   - type: AmbientSound
     range: 3.5
     volume: -9
     sound:
-      path: /Audio/_Impstation/CosmicCult/god_ambient.ogg
+      path: /Audio/_DV/CosmicCult/god_ambient.ogg
   - type: ActivatableUI
     singleUser: false
     requiresComplex: true
@@ -104,13 +104,14 @@
     - CosmicCult
   - type: WarpPoint
     location: The Monument
-  - type: CosmicMarkStructure
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-forthecult
   - type: CosmicCorrupting
     corruptionReduction: 0.01
     enabled: false
     floodFillStarting: true
 
-########### SPAWN-IN ANIMATION #############
+ ########### SPAWN-IN ANIMATION #############
 
 - type: entity
   id: MonumentCosmicCultSpawnIn
@@ -119,13 +120,13 @@
   suffix: Spawn, DO NOT MAP
   components:
   - type: Visibility
-    layer: 777
+    layer: 16
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/monument.rsi
+    sprite: _DV/CosmicCult/Tileset/monument.rsi
     layers:
-    - state: stage1-spawnin
-    - state: stage1-spawnin-overlay
-      shader: unshaded
+      - state: stage1-spawnin
+      - state: stage1-spawnin-overlay
+        shader: unshaded
     offset: 0,1
     drawdepth: Mobs
   - type: Fixtures
@@ -143,13 +144,13 @@
   - type: Transform
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/_Impstation/CosmicCult/monument_spawn.ogg
+      path: /Audio/_DV/CosmicCult/monument_spawn.ogg
       params:
         volume: +8
         pitch: 0.8
   - type: TimedDespawn
     lifetime: 3.8
-  - type: SpawnOnDespawn
+  - type: MonumentOnDespawn
     prototype: MonumentCosmicCult1
   - type: PointLight
     enabled: true
@@ -158,16 +159,16 @@
     color: "#43286a"
   - type: LightBehaviour
     behaviours:
-    - !type:FadeBehaviour
-      interpolate: Linear
-      minDuration: 3.8
-      maxDuration: 3.8
-      startValue: 0.5
-      endValue: 4.5
-      property: Energy
-      enabled: true
+     - !type:FadeBehaviour
+       interpolate: Linear
+       minDuration: 3.8
+       maxDuration: 3.8
+       startValue: 0.5
+       endValue: 4.5
+       property: Energy
+       enabled: true
 
-########### RELOCATION ANIMATIONS #############
+ ########### RELOCATION ANIMATIONS #############
 
 - type: entity
   id: MonumentCosmicCultMoveStart
@@ -176,9 +177,9 @@
   suffix: Spawn, DO NOT MAP
   components:
   - type: Visibility
-    layer: 777
+    layer: 16
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/monument.rsi
+    sprite: _DV/CosmicCult/Tileset/monument.rsi
     layers:
     - state: stage2-relocate-out
       shader: unshaded
@@ -199,7 +200,7 @@
   - type: Transform
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/_Impstation/CosmicCult/monument_relocate.ogg
+      path: /Audio/_DV/CosmicCult/monument_relocate.ogg
       params:
         volume: +8
         pitch: 0.8
@@ -212,16 +213,16 @@
     castShadows: false
   - type: LightBehaviour
     behaviours:
-    - !type:FadeBehaviour
-      interpolate: Linear
-      minDuration: 3.8
-      maxDuration: 3.8
-      startValue: 0.1
-      endValue: 4.5
-      property: Energy
-      enabled: true
-      isLooped: true
-      reverseWhenFinished: true
+     - !type:FadeBehaviour
+       interpolate: Linear
+       minDuration: 3.8
+       maxDuration: 3.8
+       startValue: 0.1
+       endValue: 4.5
+       property: Energy
+       enabled: true
+       isLooped: true
+       reverseWhenFinished: true
 
 - type: entity
   id: MonumentCosmicCultMoveEnd
@@ -230,9 +231,9 @@
   suffix: Spawn, DO NOT MAP
   components:
   - type: Visibility
-    layer: 777
+    layer: 16
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/monument.rsi
+    sprite: _DV/CosmicCult/Tileset/monument.rsi
     layers:
     - state: stage2-relocate-in
       shader: unshaded
@@ -253,7 +254,7 @@
   - type: Transform
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/_Impstation/CosmicCult/monument_relocate.ogg
+      path: /Audio/_DV/CosmicCult/monument_relocate.ogg
       params:
         volume: +8
         pitch: 0.8
@@ -267,18 +268,18 @@
     castShadows: false
   - type: LightBehaviour
     behaviours:
-    - !type:FadeBehaviour
-      interpolate: Linear
-      minDuration: 3.8
-      maxDuration: 3.8
-      startValue: 0.1
-      endValue: 4.5
-      property: Energy
-      enabled: true
-      isLooped: true
-      reverseWhenFinished: true
+     - !type:FadeBehaviour
+       interpolate: Linear
+       minDuration: 3.8
+       maxDuration: 3.8
+       startValue: 0.1
+       endValue: 4.5
+       property: Energy
+       enabled: true
+       isLooped: true
+       reverseWhenFinished: true
 
-########### COLLIDER LAY-Z FIX #############
+ ########### COLLIDER LAY-Z FIX #############
 
 - type: entity
   id: MonumentCollider
@@ -300,7 +301,7 @@
         layer:
         - WallLayer
 
-########### TIER 3 SUPPRESSION AURA #############
+ ########### TIER 3 SUPPRESSION AURA #############
 
 - type: entity
   id: MonumentSlowZone
@@ -329,13 +330,13 @@
           !type:PhysShapeAabb
           bounds: "-8.5,-8.5,8.5,8.5"
         layer:
-        - SlipLayer
+          - SlipLayer
         mask:
-        - ItemMask
+          - ItemMask
         density: 1000
         hard: false
 
-########### STAGE 1 #############
+ ########### STAGE 1 #############
 
 - type: entity
   parent: MonumentCosmicCultBase
@@ -352,9 +353,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/monument.rsi
+    sprite: _DV/CosmicCult/Tileset/monument.rsi
     layers:
-    - state: stage2
+      - state: stage2
 
 - type: entity
   id: MonumentCosmicCult3
@@ -362,6 +363,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Tileset/monument.rsi
+    sprite: _DV/CosmicCult/Tileset/monument.rsi
     layers:
-    - state: stage3
+      - state: stage3

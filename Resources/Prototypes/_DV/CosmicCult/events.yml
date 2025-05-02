@@ -7,16 +7,7 @@
     earliestStart: 30
     reoccurrenceDelay: 20
     minimumPlayers: 30
-    chaos:  # Funky
-      Hostile: 70
-      Medical: 70
-      Death: 70
-    maxChaos: # Funky
-      Hostile: 80
-      Combat: -30
-      Power: 80
-      Medical: 80
-      Atmos: 80
+    duration: null
   - type: SpaceSpawnRule
   - type: AntagSpawner
     prototype: MobRogueAscended
@@ -36,7 +27,7 @@
       briefing:
         text: rogue-ascended-role-greeting
         color: CadetBlue
-        sound: /Audio/_Impstation/CosmicCult/antag_cosmic_briefing.ogg
+        sound: /Audio/_DV/CosmicCult/antag_cosmic_briefing.ogg
       components:
       - type: RogueAscended
 
@@ -52,7 +43,7 @@
     mindRoles:
     - MindRoleCosmicAscended
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Mobs/astralrogue.rsi
+    sprite: _DV/CosmicCult/Mobs/astralrogue.rsi
     layers:
     - state: underlay
       shader: unshaded

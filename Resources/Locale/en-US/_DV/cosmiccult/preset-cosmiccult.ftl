@@ -111,7 +111,7 @@ cosmiccult-monument-stage3-briefing =
 
 osmiccult-rift-inuse = You can't do this right now.
 cosmiccult-rift-invaliduser = You lack to proper tools to deal with this.
-cosmiccult-rift-chaplainoops = Wield your holy scripture, or a gildgrail.
+cosmiccult-rift-chaplainoops = Wield your holy scripture.
 cosmiccult-rift-alreadyempowered = You are already empowered; the rift's power would be wasted.
 cosmiccult-rift-beginabsorb = The rift begins to merge with you...
 cosmiccult-rift-beginpurge = Your consecration begins purging the malign rift...
@@ -170,19 +170,18 @@ cosmiccult-radio-tier1-progress = The Monument is beckoned unto the station...
 cosmiccult-announce-tier2-progress = An unnerving numbness prickles your senses.
 cosmiccult-announce-tier2-warning = Scanners detect a notable increase in Λ-CDM! Rifts in realspace may appear shortly. Please alert your station's chaplain if sighted.
 
-cosmiccult-announce-tier3-progress = Arcs of bluespace energy crackle across the station's groaning structure. The end draws near.
+cosmiccult-announce-tier3-progress = Arcs of noospheric energy crackle across the station's groaning structure. The end draws near.
 cosmiccult-announce-tier3-warning = Critical increase in Λ-CDM detected. Infected personnel are to be subdued or neutralized on sight.
 
-cosmiccult-announce-finale-warning = All station crew. The Λ-CDM anomaly is going supercritical, instruments failing; blue-to-real transitional event horizon IMMINENT. If you are not already on counter-protocol, immediately sortie and intervene. Repeat: Intervene immediately or die.
+cosmiccult-announce-finale-warning = All station crew. The Λ-CDM anomaly is going supercritical, instruments failing; noospheric-to-real transitional event horizon IMMINENT. If you are not already on counter-protocol, immediately sortie and intervene. Repeat: Intervene immediately or die.
 
 cosmiccult-announce-victory-summon = A FRACTION OF COSMIC POWER IS CALLED FORTH.
 
-cosmiccult-leader-abandonment-message = Your chosen enlightened has forsaken the grand design. You must empower another
 
 ## MISC
 
 cosmiccult-spire-entropy = A mote of entropy condenses from the surface of the spire.
 cosmiccult-entropy-inserted = You infuse {$count} entropy into The Monument.
 cosmiccult-entropy-unavailable = You can't do that right now.
-cosmiccult-astral-ascendant = {$NAME}, Ascendant
+cosmiccult-astral-ascendant = {$name}, Ascendant
 cosmiccult-gear-pickup-rejection = The {$ITEM} resists {CAPITALIZE(THE($TARGET))}'s touch!

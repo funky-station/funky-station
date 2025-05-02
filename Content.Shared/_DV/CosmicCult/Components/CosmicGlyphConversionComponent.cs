@@ -1,7 +1,10 @@
 using Content.Shared.Damage;
 
-namespace Content.Shared._Impstation.CosmicCult.Components;
+namespace Content.Shared._DV.CosmicCult.Components;
 
+/// <summary>
+///     Indicates a glyph entity as performing conversion effects
+/// </summary>
 [RegisterComponent]
 public sealed partial class CosmicGlyphConversionComponent : Component
 {
@@ -12,10 +15,10 @@ public sealed partial class CosmicGlyphConversionComponent : Component
     public float ConversionRange = 0.5f;
 
     /// <summary>
-    ///     Whether or not we ignore mindshields.
+    ///     Whether or not we ignore mindshields or chaplain status.
     /// </summary>
     [DataField]
-    public bool NegateProtection = false;
+    public bool NegateProtection;
 
     /// <summary>
     ///     Healing applied on conversion.

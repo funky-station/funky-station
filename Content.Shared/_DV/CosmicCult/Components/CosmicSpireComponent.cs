@@ -2,15 +2,20 @@ using Content.Shared.Atmos;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Impstation.CosmicCult.Components;
+namespace Content.Shared._DV.CosmicCult.Components;
 
 [RegisterComponent]
 public sealed partial class CosmicSpireComponent : Component
 {
 
-    [DataField] public bool Enabled = false;
-    [DataField] public float DrainRate = 550;
-    [DataField] public float DrainThreshHold = 2500;
+    [DataField]
+    public bool Enabled;
+
+    [DataField]
+    public float DrainRate = 550;
+
+    [DataField]
+    public float DrainThreshHold = 2500;
 
     [DataField]
     public HashSet<Gas> DrainGases =
@@ -23,9 +28,14 @@ public sealed partial class CosmicSpireComponent : Component
         Gas.NitrousOxide,
     ];
 
-    [DataField("gasMixture"), ViewVariables(VVAccess.ReadWrite)] public GasMixture Storage { get; private set; } = new();
-    [DataField] public EntProtoId EntropyMote = "MaterialCosmicCultEntropy1";
-    [DataField] public EntProtoId SpawnVFX = "CosmicGenericVFX";
+    [DataField]
+    public GasMixture Storage = new();
+
+    [DataField]
+    public EntProtoId EntropyMote = "MaterialCosmicCultEntropy1";
+
+    [DataField]
+    public EntProtoId SpawnVFX = "CosmicGenericVFX";
 }
 
 [Serializable, NetSerializable]

@@ -1,9 +1,9 @@
 using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Impstation.CosmicCult.Components;
+namespace Content.Shared._DV.CosmicCult.Components;
 
-[RegisterComponent, AutoGenerateComponentState]
+[RegisterComponent]
 public sealed partial class CosmicGlyphAstralProjectionComponent : Component
 {
     [DataField]
@@ -12,9 +12,10 @@ public sealed partial class CosmicGlyphAstralProjectionComponent : Component
     /// <summary>
     /// The duration of the astral projection
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan AstralDuration = TimeSpan.FromSeconds(12);
 
+    [DataField]
     public DamageSpecifier ProjectionDamage = new()
     {
         DamageDict = new() {

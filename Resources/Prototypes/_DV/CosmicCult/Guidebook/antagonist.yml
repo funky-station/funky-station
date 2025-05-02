@@ -1,7 +1,7 @@
 - type: guideEntry
   id: CosmicCult
   name: guide-entry-cosmiccult
-  text: "/ServerInfo/_DV/Guidebook/Antagonist/CosmicCult.xml" # given a consistency pass by dark, keeping in imp directory 4 now
+  text: "/ServerInfo/_DV/Guidebook/Antagonist/CosmicCult.xml"
   children:
   - CosmicCultMonument
   - CosmicCultInfluences

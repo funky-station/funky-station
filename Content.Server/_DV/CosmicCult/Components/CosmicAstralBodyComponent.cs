@@ -1,13 +1,10 @@
-namespace Content.Server._Impstation.CosmicCult.Components;
+using Content.Server._DV.CosmicCult.Abilities;
 
-[RegisterComponent]
-[AutoGenerateComponentPause]
+namespace Content.Server._DV.CosmicCult.Components;
+
+[RegisterComponent, Access(typeof(CosmicReturnSystem))]
 public sealed partial class CosmicAstralBodyComponent : Component
 {
-    [ViewVariables]
-    [AutoPausedField]
-    public TimeSpan EndAstralTime = default!;
-
-    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField]
     public EntityUid OriginalBody;
 }

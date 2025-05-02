@@ -20,8 +20,10 @@
   - type: Physics
   - type: Clickable
   - type: CosmicGlyph
+  - type: CosmicCultExamine
+    othersText: cosmic-examine-text-glyphs
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
     layers:
       - state: aid
     drawdepth: Puddles
@@ -33,16 +35,19 @@
   name: Glyph of Truth
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
     layers:
       - state: truth
     drawdepth: Puddles
   - type: CosmicGlyphConversion
     negateProtection: true
   - type: CosmicGlyph
-    glyphName: truth
     requiredCultists: 3
-    activationDamage: 80
+    activationDamage:
+      types:
+        Asphyxiation: 80
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-glyph-truth
 
 - type: entity
   parent: CosmicGlyphBase
@@ -50,15 +55,18 @@
   name: Glyph of Knowledge
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
     layers:
-      - state: knowledge
+    - state: knowledge
     drawdepth: Puddles
   - type: CosmicGlyphConversion
   - type: CosmicGlyph
-    glyphName: knowledge
     requiredCultists: 2
-    activationDamage: 40
+    activationDamage:
+      types:
+        Asphyxiation: 40
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-glyph-knowledge
 
 - type: entity
   parent: CosmicGlyphBase
@@ -67,14 +75,22 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Impstation/CosmicCult/Objects/glyphs_floor.rsi
+    - sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
       state: cessation
     drawdepth: Puddles
-  - type: CosmicGlyphTransmuteSpire
+  - type: CosmicGlyphTransmute
+    transmutations:
+    - CosmicVacuousSpire
+    whitelist:
+      components:
+      - PortableScrubber
   - type: CosmicGlyph
-    glyphName: cessation
     requiredCultists: 1
-    activationDamage: 25
+    activationDamage:
+      types:
+        Asphyxiation: 25
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-glyph-cessation
 
 - type: entity
   parent: CosmicGlyphBase
@@ -82,15 +98,24 @@
   name: Glyph of Blades
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
     layers:
-      - state: blades
+    - state: blades
     drawdepth: Puddles
-  - type: CosmicGlyphTransmuteWeapon
+  - type: CosmicGlyphTransmute
+    transmutations:
+    - SwordCosmicCult
+    - SpearCosmicCult
+    whitelist:
+      components:
+      - Sharp
   - type: CosmicGlyph
-    glyphName: blades
     requiredCultists: 2
-    activationDamage: 80
+    activationDamage:
+      types:
+        Asphyxiation: 80
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-glyph-blades
 
 - type: entity
   parent: CosmicGlyphBase
@@ -98,15 +123,25 @@
   name: Glyph of Warding
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
     layers:
-      - state: warding
+    - state: warding
     drawdepth: Puddles
-  - type: CosmicGlyphTransmuteArmor
+  - type: CosmicGlyphTransmute
+    transmutations:
+    - ClothingOuterHardsuitCosmicCult
+    whitelist:
+      requireAll: true
+      components:
+      - ClothingSpeedModifier
+      - PressureProtection
   - type: CosmicGlyph
-    glyphName: warding
     requiredCultists: 2
-    activationDamage: 80
+    activationDamage:
+      types:
+        Asphyxiation: 80
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-glyph-warding
 
 - type: entity
   parent: CosmicGlyphBase
@@ -114,12 +149,12 @@
   name: Glyph of Projection
   components:
   - type: Sprite
-    sprite: _Impstation/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
     layers:
-      - state: projection
+    - state: projection
     drawdepth: Puddles
   - type: CosmicGlyphAstralProjection
   - type: CosmicGlyph
-    glyphName: projection
     requiredCultists: 1
-
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-glyph-projection

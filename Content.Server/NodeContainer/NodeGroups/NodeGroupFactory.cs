@@ -18,7 +18,7 @@
 // SPDX-License-Identifier: MIT
 
 using System.Reflection;
-using Content.Server.Power.Generation.Teg;
+using Content.Shared.NodeContainer.NodeGroups;
 using Robust.Shared.Reflection;
 
 namespace Content.Server.NodeContainer.NodeGroups
@@ -69,23 +69,5 @@ namespace Content.Server.NodeContainer.NodeGroups
             instance.Create(id);
             return instance;
         }
-    }
-
-    public enum NodeGroupID : byte
-    {
-        Default,
-        HVPower,
-        MVPower,
-        Apc,
-        AMEngine,
-        Pipe,
-        WireNet,
-
-        /// <summary>
-        /// Group used by the TEG.
-        /// </summary>
-        /// <seealso cref="TegSystem"/>
-        /// <seealso cref="TegNodeGroup"/>
-        Teg,
     }
 }

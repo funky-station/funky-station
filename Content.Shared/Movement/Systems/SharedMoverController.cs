@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Numerics;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.CCVar;
 using Content.Shared.Friction;
@@ -38,6 +39,7 @@ public abstract partial class SharedMoverController : VirtualController
     [Dependency] private   readonly IConfigurationManager _configManager = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private   readonly ITileDefinitionManager _tileDefinitionManager = default!;
+    [Dependency] private   readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private   readonly EntityLookupSystem _lookup = default!;
     [Dependency] private   readonly InventorySystem _inventory = default!;
     [Dependency] private   readonly MobStateSystem _mobState = default!;

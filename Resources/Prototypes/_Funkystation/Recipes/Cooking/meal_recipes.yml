@@ -1,0 +1,11 @@
+- type: microwaveMealRecipe
+  id: RecipeMuffinCloth
+  name: moffin recipe
+  result: FoodBakedMuffinCloth
+  time: 15
+  group: Moth
+  solids:
+    FoodPlateMuffinTin: 1
+    FoodDoughCottonSlice: 1
+  reagents:
+    Sugar: 10

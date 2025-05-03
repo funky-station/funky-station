@@ -12,6 +12,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Shared.Clumsy;
 
@@ -20,6 +22,7 @@ public sealed class ClumsySystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -38,7 +41,7 @@ public sealed class ClumsySystem : EntitySystem
     private void BeforeHyposprayEvent(Entity<ClumsyComponent> ent, ref SelfBeforeHyposprayInjectsEvent args)
     {
         // Clumsy people sometimes inject themselves! Apparently syringes are clumsy proof...
-    
+
         // checks if ClumsyHypo is false, if so, skips.
         if (!ent.Comp.ClumsyHypo)
             return;
@@ -54,7 +57,7 @@ public sealed class ClumsySystem : EntitySystem
     private void BeforeDefibrillatorZapsEvent(Entity<ClumsyComponent> ent, ref SelfBeforeDefibrillatorZapsEvent args)
     {
         // Clumsy people sometimes defib themselves!
-        
+
         // checks if ClumsyDefib is false, if so, skips.
         if (!ent.Comp.ClumsyDefib)
             return;
@@ -105,6 +108,10 @@ public sealed class ClumsySystem : EntitySystem
 
         // If someone is putting you on the table, always get past the guard.
         if (!_cfg.GetCVar(CCVars.GameTableBonk) && args.PuttingOnTable == ent.Owner && !rand.Prob(ent.Comp.ClumsyDefaultCheck))
+            return;
+
+        //If they're dead don't tablebonk
+        if (!TryComp<MobStateComponent>(ent, out var mobState) || _mobState.IsDead(ent, mobState))
             return;
 
         HitHeadClumsy(ent, args.BeingClimbedOn);

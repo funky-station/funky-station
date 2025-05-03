@@ -39,9 +39,6 @@
 			"name": "catwalk_7",
 			"directions": 4
 		},
-		{
-			"name": "catwalk_preview"
-		},
         {
             "name": "broken"
         }

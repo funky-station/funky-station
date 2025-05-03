@@ -19,6 +19,7 @@
     - id: SalvageShuttleConsoleCircuitboard
     - id: AstroNavCartridge
     - id: ClothingOuterHardsuitLuxury
+    - id: ClothingHandsKnuckleDustersQM
 
 - type: entity
   id: LockerQuarterMasterFilled

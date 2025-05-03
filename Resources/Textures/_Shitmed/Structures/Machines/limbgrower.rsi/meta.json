@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from /tg/station at commit 85c26c1",
+  "license": "CC-BY-NC-3.0",
+  "copyright": "vectorassembly",
   "size": {
     "x": 32,
     "y": 32
@@ -18,6 +18,7 @@
           0.2,
           0.2,
           0.2,
+          0.2,
           0.2
         ]
       ]
@@ -26,6 +27,7 @@
       "name": "limbgrower_unfill",
       "delays": [
         [
+          0.2,
           0.2,
           0.2,
           0.2,
@@ -52,10 +54,8 @@
       "name": "limbgrower_idleoff",
       "delays": [
         [
-          0.3,
-          0.3,
-          0.3,
-          0.3
+          0.5,
+          0.5
         ]
       ]
     },

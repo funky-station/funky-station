@@ -1,0 +1,89 @@
+- type: entity
+  name: wooden support with light
+  description: "May you travel safe through the darkness"
+  id: WoodenSupportLight
+  parent: AlwaysPoweredWallLight
+  suffix: Dim Light
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: AmbientSound
+      volume: -15
+      range: 2
+      sound:
+        path: /Audio/Ambience/Objects/light_hum.ogg
+    - type: Sprite
+      noRot: true
+      sprite: _Funkystation/Objects/Decoration/WoodenSupportLight.rsi
+      state: base
+    - type: PointLight
+      enabled: false
+      radius: 5
+      energy: 0.5
+      softness: 3
+      color: "#ba473f"
+    - type: Physics
+      bodyType: Static
+    - type: PoweredLight
+      hasLampOnSpawn: DimLightBulb
+    - type: ApcPowerReceiver
+    - type: ExtensionCableReceiver
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      receiveFrequencyId: SmartLight
+    - type: WirelessNetworkConnection
+      range: 200
+    - type: Appearance
+    - type: PoweredLightVisuals
+      spriteStateMap:
+        empty: empty
+        off: base
+        on: base
+        broken: broken
+        burned: burned
+    - type: DeviceLinkSink
+      ports:
+      - On
+      - Off
+      - Toggle
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.1,-0.5,0.1,0.5"
+          mask:
+          - FullTileMask
+          layer:
+          - WallLayer
+          density: 1000
+    - type: Damageable
+      damageContainer: Inorganic
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors: #excess damage, don't spawn entities.
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+        - !type:EmptyAllContainersBehaviour
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            SheetSteel1:
+              min: 1
+              max: 1
+            Log:
+              min: 1
+              max: 3
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+    - type: DamageOnInteract
+      damage:
+        types:
+          Heat: 2
+      popupText: powered-light-component-burn-hand

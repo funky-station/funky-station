@@ -11,3 +11,45 @@
   icon:
     sprite: _Funkystation/Structures/mailpipes.rsi
     state: conpipe-s
+
+- type: construction
+  name: mail tagger
+  id: MailTagger
+  description: A pipe that tags entities for routing.
+  graph: mailpipes
+  startNode: start
+  targetNode: tagger
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  icon:
+    sprite: _Funkystation/Structures/mailpipes.rsi
+    state: conpipe-tagger
+
+- type: construction
+  name: mail trunk
+  id: MailTrunk
+  description: A pipe trunk used as an entry point for mail systems.
+  graph: mailpipes
+  startNode: start
+  targetNode: trunk
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  icon:
+    sprite: _Funkystation/Structures/mailpipes.rsi
+    state: conpipe-t
+
+- type: construction
+  name: mail router
+  id: MailRouter
+  description: A three-way router. Entities with matching tags get routed to the side via configurable filters.
+  graph: mailpipes
+  startNode: start
+  targetNode: router
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  icon:
+    sprite: _Funkystation/Structures/mailpipes.rsi
+    state: conpipe-j1s

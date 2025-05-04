@@ -4,7 +4,7 @@
   id: BaseSteelCurb
   abstract: true
   name: Curb
-  description: Basic railing meant to protect idiots like you from falling.
+  description: A curb to keep your crates off my lawn.
   components:
   - type: Sprite
     drawdepth: FloorTiles
@@ -13,11 +13,27 @@
     sprite: _Funkystation/Structures/curbs.rsi
   - type: Physics
     bodyType: Static
+  - type: Clickable
   - type: InteractionOutline
   - type: Repairable
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: FlimsyMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
   - type: Construction
     graph: curbs
     node: stealCurb

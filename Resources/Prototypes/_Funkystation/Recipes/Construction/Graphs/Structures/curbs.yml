@@ -7,7 +7,7 @@
     edges:
     - to: steelCurb
       steps:
-      - material: SheetSteel1
+      - material: Steel
         amount: 1
         doAfter: 2
 

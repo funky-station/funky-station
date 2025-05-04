@@ -1,0 +1,13 @@
+- type: construction
+  name: steel curb
+  id: SteelCurb
+  graph: curbs
+  startNode: start
+  targetNode: steelCurb
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  description: A simple curb.
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: SteelCurb

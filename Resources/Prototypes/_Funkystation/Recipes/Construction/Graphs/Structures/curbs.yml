@@ -1,0 +1,26 @@
+#Steel
+- type: constructionGraph
+  id: curbs
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: steelCurb
+      steps:
+      - material: SheetSteel1
+        amount: 1
+        doAfter: 2
+
+
+  - node: steelCurb
+    entity: SteelCurb
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1

@@ -1,0 +1,13 @@
+- type: construction
+  name: mail pipe
+  id: MailPipe
+  description: A huge pipe segment used for constructing mail systems.
+  graph: mailpipes
+  startNode: start
+  targetNode: pipe
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  icon:
+    sprite: _Funkystation/Structures/mailpipes.rsi
+    state: conpipe-s

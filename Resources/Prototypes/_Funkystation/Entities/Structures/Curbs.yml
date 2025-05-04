@@ -1,0 +1,558 @@
+#Steel
+- type: entity
+  parent: BaseStructure
+  id: BaseSteelCurb
+  abstract: true
+  name: Curb
+  description: Basic railing meant to protect idiots like you from falling.
+  components:
+  - type: Sprite
+    drawdepth: FloorTiles
+    sprite: _Funkystation/Structures/curbs.rsi
+  - type: Icon
+    sprite: _Funkystation/Structures/curbs.rsi
+  - type: Physics
+    bodyType: Static
+  - type: InteractionOutline
+  - type: Repairable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: FlimsyMetallic
+  - type: Construction
+    graph: curbs
+    node: stealCurb
+  - type: RCDDeconstructable
+    cost: 2
+    delay: 2
+    fx: EffectRCDDeconstruct2
+
+- type: entity
+  parent: BaseSteelCurb
+  id: SteelCurb
+  name: steel curb
+  components:
+  - type: Sprite
+    state: SteelCurb
+    drawdepth: FloorTiles
+  - type: Icon
+    state: SteelCurb
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.25"
+        density: 1000
+        mask:
+        - CrateMask
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    node: SteelCurb
+
+- type: entity
+  parent: BaseSteelCurb
+  id: SteelCurbCorner
+  name: steel curb corner
+  components:
+  - type: Sprite
+    state: SteelCurbCorner
+    drawdepth: FloorTiles
+  - type: Icon
+    state: SteelCurbCorner
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.25"
+        density: 1000
+        mask:
+        - CrateMask
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.49,0.49,0.25,-0.49"
+        density: 1000
+        mask:
+        - CrateMask
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    node: SteelCurbCorner
+
+- type: entity
+  parent: BaseSteelCurb
+  id: SteelCurbCornerInside
+  name: steel curb inside corner
+  components:
+  - type: Sprite
+    state: SteelCurbInsideCorner
+    drawdepth: FloorTiles
+  - type: Icon
+    state: SteelCurbInsideCorner
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,0.49,-0.25,0.25"
+        density: 1000
+        mask:
+        - CrateMask
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    node: SteelCurbCornerInside
+
+- type: entity
+  parent: BaseSteelCurb
+  id: SteelCurbUbend
+  name: steel curb u-bend
+  components:
+  - type: Sprite
+    state: SteelCurbUbend
+    drawdepth: FloorTiles
+  - type: Icon
+    state: SteelCurbUbend
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.25"
+        density: 1000
+        mask:
+        - CrateMask
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,-0.25,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+      fix3:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.25,-0.49,0.49,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    node: SteelCurbUbend
+
+- type: entity
+  parent: BaseSteelCurb
+  id: SteelCurbSquare
+  name: steel curb square
+  components:
+  - type: Sprite
+    state: SteelCurbSquare
+    drawdepth: FloorTiles
+  - type: Icon
+    state: SteelCurbSquare
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.25"
+        density: 1000
+        mask:
+        - CrateMask
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,-0.25,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+      fix3:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.25,-0.49,0.49,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    node: SteelCurbSquare
+
+#Brass
+- type: entity
+  parent: BaseSteelCurb
+  id: BrassCurb
+  name: brass curb
+  components:
+  - type: Sprite
+    state: BrassCurb
+    drawdepth: FloorTiles
+  - type: Icon
+    state: BrassCurb
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.25"
+        density: 1000
+        mask:
+        - CrateMask
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    node: railing
+
+- type: entity
+  parent: BaseSteelCurb
+  id: BrassCurbCorner
+  name: brass curb corner
+  components:
+  - type: Sprite
+    state: BrassCurbCorner
+    drawdepth: FloorTiles
+  - type: Icon
+    state: BrassCurbCorner
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.25"
+        density: 1000
+        mask:
+        - CrateMask
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.49,0.49,0.25,-0.49"
+        density: 1000
+        mask:
+        - CrateMask
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    node: railingCorner
+
+- type: entity
+  parent: BaseSteelCurb
+  id: BrassCurbCornerInside
+  name: brass curb inside corner
+  components:
+  - type: Sprite
+    state: BrassCurbInsideCorner
+    drawdepth: FloorTiles
+  - type: Icon
+    state: BrassCurbInsideCorner
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,0.49,-0.25,0.25"
+        density: 1000
+        mask:
+        - CrateMask
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    node: railingCornerSmall
+
+- type: entity
+  parent: BaseSteelCurb
+  id: BrassCurbUbend
+  name: brass curb u-bend
+  components:
+  - type: Sprite
+    state: BrassCurbUbend
+    drawdepth: FloorTiles
+  - type: Icon
+    state: BrassCurbUbend
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.25"
+        density: 1000
+        mask:
+        - CrateMask
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,-0.25,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+      fix3:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.25,-0.49,0.49,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    node: railingRound
+
+- type: entity
+  parent: BaseSteelCurb
+  id: BrassCurbSquare
+  name: brass curb square
+  components:
+  - type: Sprite
+    state: BrassCurbSquare
+    drawdepth: FloorTiles
+  - type: Icon
+    state: BrassCurbSquare
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.25"
+        density: 1000
+        mask:
+        - CrateMask
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,-0.25,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+      fix3:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.25,-0.49,0.49,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    node: railingRound

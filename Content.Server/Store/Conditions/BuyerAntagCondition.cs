@@ -1,6 +1,7 @@
 using Content.Shared.Mind;
 using Content.Shared.Roles;
 using Content.Shared.Store;
+using Content.Shared.NukeOps;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 
 namespace Content.Server.Store.Conditions;
@@ -23,6 +24,9 @@ public sealed partial class BuyerAntagCondition : ListingCondition
     /// </summary>
     [DataField("blacklist", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<AntagPrototype>))]
     public HashSet<string>? Blacklist;
+	
+	[DataField("WarOps", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<AntagPrototype>))]
+    public HashSet<string>? WarOps;
 
     public override bool Condition(ListingConditionArgs args)
     {
@@ -56,6 +60,22 @@ public sealed partial class BuyerAntagCondition : ListingCondition
                     continue;
 
                 if (Whitelist.Contains(role.Prototype))
+                    found = true;
+            }
+            if (!found)
+                return false;
+        }
+		
+		if (WarOps != null)
+        {
+            var found = false;
+            foreach (var role in roles)
+            {
+
+                if (!role.Antagonist || string.IsNullOrEmpty(role.Prototype))
+                    continue;
+
+                if (WarOps.Contains(role.Prototype))
                     found = true;
             }
             if (!found)

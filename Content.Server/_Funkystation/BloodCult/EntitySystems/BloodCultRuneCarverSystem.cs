@@ -89,7 +89,8 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		if (!BloodCultRuneCarverComponent.ValidRunes.Contains(args.ProtoId))
 			return;
 		ent.Comp.Rune = args.ProtoId;
-	}
+        ent.Comp.InProgress = args.ProtoId + "_drawing";
+    }
 
 	private void TryOpenUi(EntityUid uid, EntityUid user, BloodCultRuneCarverComponent? component = null)
 	{

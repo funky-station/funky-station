@@ -74,14 +74,3 @@ public enum RunesUiKey : byte
 {
 	Key
 }
-
-[Serializable, NetSerializable]
-public sealed class InProgressAnimation : BoundUserInterfaceMessage
-{
-    public string InProgress;
-
-    public InProgressAnimation(string rune)
-    {
-        InProgress = rune;
-    }
-}

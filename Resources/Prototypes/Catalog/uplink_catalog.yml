@@ -116,6 +116,7 @@
   - UplinkWeaponry
   conditions:
     - !type:StoreWhitelistCondition
+    - 
       blacklist:
         tags:
           - NukeOpsUplink
@@ -196,8 +197,8 @@
     Telecrystal: 150 # goob
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
-
+  - WarOps
+  
 - type: listing
   id: UplinkL6SawBundle
   name: uplink-l6-saw-bundle-name
@@ -208,7 +209,7 @@
     Telecrystal: 150 # goob
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
+  - WarOps
 
 # Explosives
 

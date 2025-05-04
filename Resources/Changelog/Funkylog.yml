@@ -2576,3 +2576,17 @@ Entries:
       message: Changed pizza sprites.
   id: 319
   time: '2025-05-01T01:27:11.0000000+00:00'
+- author: vassembly
+  changes:
+    - type: Add
+      message: Added Godo plushie.
+    - type: Add
+      message: Added Gocrazy plushie.
+  id: 320
+  time: '2025-05-01T23:40:45.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Fix
+      message: Monkeys and clowns can now have their biomass reclaimed.
+  id: 321
+  time: '2025-05-03T01:10:19.0000000+00:00'

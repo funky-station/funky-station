@@ -104,7 +104,8 @@
     - prefRoles: [ NukeopsCommander ]
       fallbackRoles: [ Nukeops, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsCommander
-      max: 1
+      min: 1
+      max: 2
       startingGear: SyndicateCommanderGearFull
       roleLoadout:
       - RoleSurvivalNukie
@@ -120,7 +121,7 @@
       mindRoles:
       - MindRoleNukeopsCommander
     - prefRoles: [ NukeopsMedic ]
-      fallbackRoles: [ Nukeops, NukeopsCommander ]
+      fallbackRoles: [ Nukeops]
       spawnerPrototype: SpawnPointNukeopsMedic
       max: 1
       startingGear: SyndicateOperativeMedicFull
@@ -138,7 +139,7 @@
       mindRoles:
       - MindRoleNukeopsMedic
     - prefRoles: [ Nukeops ]
-      fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
+      fallbackRoles: [ NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
       max: 3
       playerRatio: 10

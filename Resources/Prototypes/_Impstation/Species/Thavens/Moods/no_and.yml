@@ -5,18 +5,18 @@
   id: ThavenMoodsNoAnd
   values:
   - SecretMoods
-  #- NoModernMedicine # TODO job conflicts
+  - NoModernMedicine
   - DepartmentDisapproval
-  #- DontSpeakToCommand # TODO job conflicts
+  - DontSpeakToCommand
   - DisapproveOfDrugs
   - ExcessivelyDisorganized
-  #- DetestSilicons # TODO job conflicts
+  - DetestSilicons
   - DinnerFloor
   - HugBad
   - AlwaysAlone
   - Atheist
   - Procrastinator
-  #- NoRadio # TODO job conflicts
+  - NoRadio
   - ImproperStorage
   - Ferengi
   - ToolLicense
@@ -54,6 +54,9 @@
   moodDesc: thaven-mood-no-modern-medicine-desc
   jobConflicts:
   - Medical
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
 
 # You disapprove of [DEPARTMENT]
 - type: thavenMood
@@ -125,6 +128,10 @@
   moodDesc: thaven-mood-always-alone-desc
   conflicts:
   - NeverAlone
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
 
 # You do not approve of organized religion. It should be dismantled or disrupted wherever possible.
 - type: thavenMood
@@ -133,6 +140,8 @@
   moodDesc: thaven-mood-atheist-desc
   conflicts:
   - VeryReligious
+  jobConflicts:
+  - Service
 
 # Punctuality is impolite. You must walk slowly at all times, and be fashionably late to any obligations.
 - type: thavenMood

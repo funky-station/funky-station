@@ -1,7 +1,9 @@
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Chat.Managers;
+using Content.Server.GameTicking;
 using Content.Server.Roles.Jobs;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
@@ -20,6 +22,7 @@ using Robust.Shared.Random;
 using Content.Shared._Impstation.CCVar;
 using Content.Shared.Mind;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Utility;
 
 namespace Content.Server._Impstation.Thaven;
 
@@ -32,6 +35,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
     [Dependency] private readonly UserInterfaceSystem _bui = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!; // funky
     [Dependency] private readonly JobSystem _jobs = default!; // funky
 
     public IReadOnlyList<ThavenMood> SharedMoods => _sharedMoods.AsReadOnly();
@@ -133,6 +137,8 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
             currentMoods = new HashSet<ThavenMood>();
         if (conflicts == null)
             conflicts = GetConflicts(currentMoods);
+        if (department == null)
+            department = Loc.GetString("generic-unknown-title"); // assume department is unknown if it isn't given
 
         var currentMoodProtos = GetMoodProtoSet(currentMoods);
 
@@ -149,8 +155,15 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
             // begin funky
             // note: idk how to do this so it doesnt work ^__^
             var conflictingJobs = moodProto.JobConflicts;
-            if (department != null && conflictingJobs.Contains(department)) // assume there are no conflicts if there is no department given
+            if (conflictingJobs.Contains(department))
+            {
+                Debug.WriteLine($"entity's department is: {department}. skipping {moodId}");
                 continue; // Skip proto if it conflicts with the entity's department
+            }
+            else
+            {
+                Debug.WriteLine($"entity's department is: {department}. {moodId} does not conflict.");
+            }
             // end funky
 
             proto = moodProto;
@@ -429,14 +442,14 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
     // End DeltaV: thaven mood upsets
 
     // begin funky
-    public string? GetMindDepartment(EntityUid uid)
+    private string GetMindDepartment(EntityUid uid)
     {
         var unknown = Loc.GetString("generic-unknown-title"); // TryGetJob returns this, so use it in place of "none" or something
 
-        if (!EntityManager.HasComponent<MindComponent>(uid))
-            return unknown; // mindless entities can't have jobs
+        if (!_mind.TryGetMind(uid, out var mindId, out _))
+            return unknown; // no mind no job
 
-        if (!_jobs.MindTryGetJobName(uid, out var jobName))
+        if (!_jobs.MindTryGetJobId(mindId, out var jobName) || jobName == null)
             return unknown;
 
         if (!_jobs.TryGetDepartment(jobName, out var departmentProto))

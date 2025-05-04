@@ -33,8 +33,20 @@
   name: Fireball II
   description: Fires a fireball, but faster!
   components:
-  - type: Action
-    useDelay: 10
+  - type: WorldTargetAction
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    raiseOnUser: true
+    range: 60
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/fireball.ogg
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: fireball
+    event: !type:ProjectileSpellEvent
+      prototype: ProjectileFireball
+  - type: SpeakOnAction
+    sentence: action-speech-spell-fireball
 
 - type: entity
   parent: ActionFireball
@@ -42,5 +54,17 @@
   name: Fireball III
   description: The fastest fireball in the west!
   components:
-  - type: Action
-    useDelay: 8
+    - type: WorldTargetAction
+      itemIconStyle: BigAction
+      checkCanAccess: false
+      raiseOnUser: true
+      range: 60
+      sound: !type:SoundPathSpecifier
+        path: /Audio/Magic/fireball.ogg
+      icon:
+        sprite: Objects/Magic/magicactions.rsi
+        state: fireball
+      event: !type:ProjectileSpellEvent
+        prototype: ProjectileFireball
+    - type: SpeakOnAction
+      sentence: action-speech-spell-fireball

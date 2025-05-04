@@ -8,15 +8,12 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Actions;
-using Robust.Shared.Audio;
 
 namespace Content.Shared.Magic.Events;
 
 // TODO: Can probably just be an entity or something
-public sealed partial class TeleportSpellEvent : WorldTargetActionEvent, ISpeakSpell
+public sealed partial class TeleportSpellEvent : WorldTargetActionEvent
 {
-    [DataField]
-    public string? Speech { get; private set; }
 
     // TODO: Move to magic component
     // TODO: Maybe not since sound specifier is a thing

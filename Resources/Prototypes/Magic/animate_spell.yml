@@ -84,5 +84,4 @@
       - RequireProjectileTarget
       - BlockMovement
       - Item
-      speech: action-speech-spell-animate
-      doSpeech: false
+      - MeleeRequiresWield

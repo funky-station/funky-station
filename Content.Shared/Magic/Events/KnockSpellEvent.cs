@@ -8,11 +8,10 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Actions;
-using Robust.Shared.Audio;
 
 namespace Content.Shared.Magic.Events;
 
-public sealed partial class KnockSpellEvent : InstantActionEvent, ISpeakSpell
+public sealed partial class KnockSpellEvent : InstantActionEvent
 {
     /// <summary>
     /// The range this spell opens doors in
@@ -21,7 +20,4 @@ public sealed partial class KnockSpellEvent : InstantActionEvent, ISpeakSpell
     /// </summary>
     [DataField]
     public float Range = 10f;
-
-    [DataField]
-    public string? Speech { get; private set; }
 }

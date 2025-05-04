@@ -2614,3 +2614,11 @@ Entries:
         instead of the previous 60.
   id: 322
   time: '2025-05-04T01:59:09.0000000+00:00'
+- author: ' Icepicked, oBerry'
+  changes:
+    - type: Add
+      message: Added 16 new lawsets to the Ion storm event.
+    - type: Tweak
+      message: Ion storm weights have been altered.
+  id: 323
+  time: '2025-05-04T02:06:36.0000000+00:00'

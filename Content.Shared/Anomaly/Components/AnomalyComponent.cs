@@ -21,6 +21,7 @@ using Content.Shared.Anomaly.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Anomaly.Components;
@@ -333,3 +334,10 @@ public readonly record struct AnomalyHealthChangedEvent(EntityUid Anomaly, float
 /// </summary>
 [ByRefEvent]
 public readonly record struct AnomalyBehaviorChangedEvent(EntityUid Anomaly, ProtoId<AnomalyBehaviorPrototype>? Old, ProtoId<AnomalyBehaviorPrototype>? New);
+
+[Serializable, NetSerializable]
+public sealed class AnomalyChangedEvent(NetEntity entity, float severity) : EntityEventArgs
+{
+    public NetEntity Entity = entity;
+    public float Severity = severity;
+}

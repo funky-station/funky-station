@@ -1342,8 +1342,9 @@
   name: uplink-fake-mindshield-name
   description: uplink-fake-mindshield-desc
   icon: { sprite: Interface/Actions/actions_fakemindshield.rsi, state: icon-on }
+  productEntity: FakeMindShieldImplanter
   cost:
-    Telecrystal: 4
+    Telecrystal: 10 # funky, kinda curious what it being low could cause
   categories:
   - UplinkImplants
 

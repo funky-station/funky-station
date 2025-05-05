@@ -56987,7 +56987,7 @@ entities:
     - type: Transform
       pos: -46.452526,-78.4439
       parent: 2
-- proto: ClothingOuterVestTank
+- proto: ClothingNeckTankHarness
   entities:
   - uid: 25757
     components:

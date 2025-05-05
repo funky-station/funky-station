@@ -2,7 +2,7 @@
   id: portableChemicalMixer
   parent: BaseItem
   name: portable chemical mixer
-  description: A "Tider" grade chemical manipulator
+  description: A "Tider" grade chemical manipulator. It can hold up to 400u in its internal buffer. Fits around your waist for chemical mixing on the go!
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi

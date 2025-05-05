@@ -24,7 +24,13 @@ ghost-role-information-familiar-rules = You are a [color={role-type-familiar-col
                                         You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
                                         You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
                                         You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
-ghost-role-information-silicon-rules = You are a [color={role-type-silicon-color}][bold]{role-type-silicon-name}[/bold][/color]. Obey your laws. You are a {role-type-free-agent-name} if you are not currently bound by any laws.
+# funkystation
+ghost-role-information-big-familiar-rules = You are a [color=#6495ed][bold]Familiar[/bold][/color]. Serve the interests of your master, whatever those may be. You should generally not seek to harm the station and its crew.
+                                        You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+                                        You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
+                                        You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
+
+ghost-role-information-silicon-rules = You are a [color=#6495ed][bold]Silicon[/bold][/color]. Obey your laws. You are a Free Agent if you are not currently bound by any laws.
                                        You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
                                        You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
                                        You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
@@ -76,7 +82,7 @@ ghost-role-information-slimes-description = An ordinary slime with no special ne
 
 ghost-role-information-angry-slimes-name = Slime
 ghost-role-information-angry-slimes-description = Everyone around you irritates your instincts, destroy them!
-ghost-role-information-angry-slimes-rules = You are a [color={role-type-team-antagonist-color}][bold]{role-type-team-antagonist-name}[/bold][/color] with all other angry slimes.
+ghost-role-information-angry-slimes-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with all other angry slimes.
 
 ghost-role-information-smile-name = Smile the Slime
 ghost-role-information-smile-description = The sweetest creature in the world. Smile slime!
@@ -86,7 +92,7 @@ ghost-role-information-punpun-description = An honorable member of the monkey so
 
 ghost-role-information-xeno-name = Xeno
 ghost-role-information-xeno-description = You are a xeno, co-operate with your hive to kill all crewmembers!
-ghost-role-information-xeno-rules = You are a [color={role-type-team-antagonist-color}][bold]{role-type-team-antagonist-name}[/bold][/color] with all other xenos.
+ghost-role-information-xeno-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with all other xenos.
 
 ghost-role-information-revenant-name = Revenant
 ghost-role-information-revenant-description = You are a Revenant. Use your powers to harvest souls and unleash chaos upon the crew. Unlock new abilities with the essence you harvest.
@@ -175,6 +181,10 @@ ghost-role-information-neanderthal-name = Unfrozen Neanderthal
 
 ghost-role-information-remilia-name = Remilia, the chaplain's familiar
 ghost-role-information-remilia-description = Follow and obey the chaplain. Eat fruit. Screech loudly into people's ears and write it off as echolocation.
+
+# funkystation
+ghost-role-information-celedon-name = Celedon, Animal Lab Rescue
+ghost-role-information-celedon-description = Follow and obey the zookeeper. They must gain your trust first though, you still remember the experiments from the genetics lab on Europa.
 
 ghost-role-information-cerberus-name = Cerberus, Evil Familiar
 ghost-role-information-cerberus-description = Obey your master. Spread chaos.

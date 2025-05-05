@@ -5,6 +5,6 @@
   startNode: start
   targetNode: end
   category: construction-category-misc
-  description: a portable tool for mixing chemical
+  description: A portable chemical mixer, can be worn around the waist. Holds up to 400u.
   icon: { sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi, state: chemical_mixer }
   objectType: Item

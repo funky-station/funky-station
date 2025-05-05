@@ -53,7 +53,7 @@
     solutions:
       buffer:
         maxVol: 400
-        canReact: false     # added becuse there where instances that the chemicals can mix on transfer
+        canReact: false     # added because there where instances that the chemicals can mix on transfer
   - type: DumpableSolution
     solution: buffer
   - type: GuideHelp
@@ -62,24 +62,26 @@
     - Chemist
   - type: StaticPrice
     price: 20
-  - type: SolutionItemStatus  # lets you see how full it is when holding it
-    solution: buffer
+  # Commenting this out, does not seem to work correctly and not certain how to fix, but want to add when I can figure it out
+  #- type: SolutionItemStatus  # lets you see how full it is when holding it
+  # solution: buffer
   - type: Clothing  # Goes in the belt slot
     slots: [belt]
   - type: Construction
     graph: portableChemicalMixerGraph
     node: end
 
-- type: entity
-  id: portableChemicalMixerIncomplete
-  parent: BaseItem
-  name: Incomplete portable chemical mixer
-  description: A incompleted "Tider" grade chemical manipulator
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi
-    layers:
-      - state: incomplete
-  - type: Item
-    size: Huge
+  #Not certain why this is included, does not seem to serve any purpose, will re-add if needed
+  #- type: entity
+  #id: portableChemicalMixerIncomplete
+  #parent: BaseItem
+  #name: Incomplete portable chemical mixer
+  #description: A incompleted "Tider" grade chemical manipulator
+  #categories: [ HideSpawnMenu ]
+  #components:
+  #- type: Sprite
+  #sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi
+  #layers:
+  #  - state: incomplete
+  #- type: Item
+  #size: Huge

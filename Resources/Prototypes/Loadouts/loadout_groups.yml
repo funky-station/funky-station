@@ -62,13 +62,13 @@
   - GlassesJamjar
   - GlassesJensen
 
-#- type: loadoutGroup
-#  id: GroupTankHarness
-#  name: loadout-group-tank-harness
-#  minLimit: 1
-#  hidden: true
-#  loadouts:
-#  - LoadoutTankHarness
+- type: loadoutGroup
+  id: GroupTankHarness
+  name: loadout-group-tank-harness
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutTankHarness
 
 - type: loadoutGroup
   id: Survival

@@ -2584,3 +2584,49 @@ Entries:
       message: Added Gocrazy plushie.
   id: 320
   time: '2025-05-01T23:40:45.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Fix
+      message: Monkeys and clowns can now have their biomass reclaimed.
+  id: 321
+  time: '2025-05-03T01:10:19.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        Revolutionaries and Head Revolutionaries can no longer Mind Shield
+        themselves.
+    - type: Tweak
+      message: >-
+        The revolutionaries' fast draw implanter now crushes any implants it
+        draws, allowing for easier re-use.
+    - type: Tweak
+      message: >-
+        Implanter draw times have been cut in half. Implanters now take 30
+        seconds to draw, and Fast Draws now take 15 seconds to draw.
+    - type: Tweak
+      message: >-
+        The standard implanter now deals 90 damage on a failed draw, 50 genetic
+        + 40 heat, instead of the previous 60.
+    - type: Tweak
+      message: >-
+        The fast draw implanter now only deals 20 heat damage on a failed draw,
+        instead of the previous 60.
+  id: 322
+  time: '2025-05-04T01:59:09.0000000+00:00'
+- author: ' Icepicked, oBerry'
+  changes:
+    - type: Add
+      message: Added 16 new lawsets to the Ion storm event.
+    - type: Tweak
+      message: Ion storm weights have been altered.
+  id: 323
+  time: '2025-05-04T02:06:36.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added Biofabricator and Bluespace Relay to Bagel.
+    - type: Fix
+      message: Removed extra mail teleporters from under tables on Bagel.
+  id: 324
+  time: '2025-05-05T00:22:02.0000000+00:00'

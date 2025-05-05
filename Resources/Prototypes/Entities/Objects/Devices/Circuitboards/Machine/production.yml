@@ -408,7 +408,7 @@
     stackRequirements:
       MatterBin: 2
       Capacitor: 2
-      Plasma: 1
+      Uranium: 1
   - type: Construction
     deconstructionTarget: null
     graph: ThermomachineBoard
@@ -427,7 +427,7 @@
     stackRequirements:
       MatterBin: 2
       Capacitor: 2
-      Plasma: 1
+      Uranium: 1
   - type: Construction
     graph: ThermomachineBoard
     deconstructionTarget: null

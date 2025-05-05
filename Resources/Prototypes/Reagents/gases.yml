@@ -72,11 +72,18 @@
         conditions:
         - !type:OrganType
           type: Plant
+      - !type:Oxygenate # imp special. i have to do this because metabolizer types can't inherit from one another
+        conditions:
+        - !type:OrganType
+          type: Thaven # end imp
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
         - !type:OrganType
           type: Vox
+          shouldHave: false
+        - !type:OrganType #imp, thaven lungs don't do chemical reactions
+          type: Thaven
           shouldHave: false
         ratios:
           CarbonDioxide: 1.0
@@ -133,12 +140,23 @@
           types:
             Poison:
               1
+        conditions: #imp
+        - !type:OrganType #imp, thaven can breathe all gases safely
+          type: Thaven
+          shouldHave: false
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        conditions:
+        - !type:OrganType
+          type: Thaven
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
         conditions:
           - !type:ReagentThreshold
             min: 1.5
+          - !type:OrganType #imp, thaven can breathe all gases safely
+            type: Thaven
+            shouldHave: false
         clear: True
         time: 5
   reactiveEffects:
@@ -179,12 +197,23 @@
           types:
             Radiation:
               1
+        conditions: #imp
+        - !type:OrganType #imp, thaven can breathe all gases safely
+          type: Thaven
+          shouldHave: false
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        conditions:
+        - !type:OrganType
+          type: Thaven
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
         conditions:
           - !type:ReagentThreshold
             min: 1.5
+          - !type:OrganType #imp, thaven can breathe all gases safely
+            type: Thaven
+            shouldHave: false
         clear: True
         time: 5
 
@@ -228,8 +257,15 @@
         conditions:
         - !type:OrganType
           type: Plant
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        conditions:
+        - !type:OrganType
+          type: Thaven
       - !type:HealthChange
         conditions:
+        - !type:OrganType #imp, thaven can breathe all gases safely
+          type: Thaven
+          shouldHave: false
         - !type:OrganType
           type: Plant
           shouldHave: false
@@ -250,6 +286,9 @@
         conditions:
         - !type:OrganType
           type: Plant
+          shouldHave: false
+        - !type:OrganType #imp, thaven can breathe all gases safely
+          type: Thaven
           shouldHave: false
         factor: -4
       # We need a metabolism effect on reagent removal
@@ -282,6 +321,10 @@
         conditions:
         - !type:OrganType
           type: Slime
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        conditions:
+        - !type:OrganType
+          type: Thaven
       # Converts Nitrogen into CO2
       - !type:ModifyLungGas
         conditions:
@@ -316,6 +359,10 @@
             Poison: 2
     Gas:
       effects:
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        conditions:
+        - !type:OrganType
+          type: Thaven
       - !type:Emote
         conditions:
         - !type:ReagentThreshold
@@ -325,9 +372,26 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
+        - !type:OrganType #imp, thaven can breathe all gases safely
+          type: Thaven
+          shouldHave: false
         emote: Laugh
         showInChat: true
         probability: 0.1
+      - !type:Emote
+        conditions:
+        - !type:ReagentThreshold
+          reagent: NitrousOxide
+          min: 0.2
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        - !type:OrganType #imp, thaven can breathe all gases safely
+          type: Thaven
+          shouldHave: false
+        emote: Scream
+        showInChat: true
+        probability: 0.01
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold
@@ -335,6 +399,9 @@
           min: 0.5
         - !type:OrganType
           type: Slime
+          shouldHave: false
+        - !type:OrganType #imp, thaven can breathe all gases safely
+          type: Thaven
           shouldHave: false
         - !type:BloodReagentThreshold #  Assmos - /tg/ gases
           reagent: NitrosylPlasmide
@@ -354,6 +421,9 @@
         - !type:BloodReagentThreshold #  Assmos - /tg/ gases
           reagent: NitrosylPlasmide
           max: 0.1
+        - !type:OrganType #imp, thaven can breathe all gases safely
+          type: Thaven
+          shouldHave: false
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:GenericStatusEffect
@@ -367,6 +437,9 @@
         - !type:BloodReagentThreshold #  Assmos - /tg/ gases
           reagent: NitrosylPlasmide
           max: 0.1
+        - !type:OrganType #imp, thaven can breathe all gases safely
+          type: Thaven
+          shouldHave: false
         key: ForcedSleep
         component: ForcedSleeping
         time: 200 # This reeks, but I guess it works LMAO
@@ -390,6 +463,9 @@
           min: 3.5
         - !type:OrganType
           type: Slime
+          shouldHave: false
+        - !type:OrganType #imp, thaven can breathe all gases safely
+          type: Thaven
           shouldHave: false
         ignoreResistances: true
         damage:
@@ -441,11 +517,18 @@
           min: 1
     Gas:
       effects:
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        conditions:
+        - !type:OrganType
+          type: Thaven
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           reagent: Frezon
           min: 0.5
+        - !type:OrganType #imp, thaven can breathe all gases safely
+          type: Thaven
+          shouldHave: false
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -475,6 +558,9 @@
         - !type:ReagentThreshold
           reagent: Frezon
           min: 0.5
+        - !type:OrganType #imp, thaven can breathe all gases safely
+          type: Thaven
+          shouldHave: false
       - !type:PopupMessage
         type: Local
         visualType: Medium
@@ -496,6 +582,10 @@
   metabolisms:
     Gas:
       effects:
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        conditions:
+        - !type:OrganType
+          type: Thaven
       - !type:Emote
         conditions:
         - !type:ReagentThreshold
@@ -511,7 +601,7 @@
         conditions:
         - !type:ReagentThreshold
           reagent: BZ
-          min: 0.5
+          min: 0.3
         - !type:OrganType
           type: Slime
           shouldHave: false
@@ -519,20 +609,19 @@
         ignoreResistances: true
         damage:
           types:
-            Asphyxiation: 10
-            Poison: 1.5
+            Cellular: 0.005
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
           reagent: BZ
-          min: 0.3
+          min: 0.2
         - !type:OrganType
           type: Slime
           shouldHave: false
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
-        time: 165
+        time: 9
         refresh: false
       - !type:Emote
         conditions:
@@ -599,6 +688,13 @@
         component: ForcedSleeping
         time: 10
         type: Add
+      - !type:AddReagentToBlood
+        conditions:
+        - !type:ReagentThreshold
+          reagent: BZ
+          min: 0.2
+        reagent: BZMetabolites
+        amount: 1.8
 
 - type: reagent
   id: Healium
@@ -610,6 +706,10 @@
   metabolisms:
     Gas:
       effects:
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        conditions:
+        - !type:OrganType
+          type: Thaven
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -698,6 +798,10 @@
   metabolisms:
     Gas:
       effects:
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        conditions:
+        - !type:OrganType
+          type: Thaven
       - !type:NitriumMovespeedModifier
         conditions:
         - !type:ReagentThreshold
@@ -745,7 +849,7 @@
         damage:
           types:
             Asphyxiation: 15
-      
+
 - type: reagent
   id: Pluoxium
   name: reagent-name-pluoxium
@@ -776,6 +880,11 @@
         conditions:
         - !type:OrganType
           type: Plant
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        factor: 8
+        conditions:
+        - !type:OrganType
+          type: Thaven
       # Convert Pluoxium into CO2.
       - !type:ModifyLungGas
         ratios:
@@ -813,7 +922,7 @@
         - !type:ReagentThreshold
           reagent: Zauker
           min: 0.25
-          max: 10
+          max: 12
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -822,6 +931,18 @@
             Heat: 2
             Poison: 2
             Bloodloss: 1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Zauker
+          min: 12
+        ignoreResistances: true
+        damage:
+          types:
+            Slash: 30
+            Heat: 10
+            Poison: 10
+            Bloodloss: 5
 
 - type: reagent
   id: Halon

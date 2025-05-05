@@ -47,7 +47,7 @@
       deimplantFailureDamage:
         types:
           Cellular: 50
-          Heat: 10
+          Heat: 40
     - type: Sprite
       sprite: Objects/Specific/Medical/implanter.rsi
       state: implanter0

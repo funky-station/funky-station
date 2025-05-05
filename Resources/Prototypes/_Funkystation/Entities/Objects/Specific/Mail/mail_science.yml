@@ -1,0 +1,50 @@
+- type: entity
+  parent: BaseMail
+  id: MailRoboticsParts
+  suffix: Robotics Parts
+  components:
+  - type: Mail
+    contents:
+    - id: CapacitorStockPart
+      amount: 1
+      maxAmount: 2
+    - id: MicroManipulatorStockPart
+      amount: 1
+      maxAmount: 2
+
+- type: entity
+  parent: BaseMail
+  id: MailScienceBoards
+  suffix: Materials
+  components:
+  - type: Mail
+    contents:
+    - id: APECircuitboard
+      amount: 1
+      orGroup: SciBoard
+    - id: AnalysisComputerCircuitboard
+      amount: 1
+      orGroup: SciBoard
+    - id: CentrifugeMachineCircuitboard
+      amount: 1
+      orGroup: SciBoard
+    - id: HotplateMachineCircuitboard
+      amount: 1
+      orGroup: SciBoard
+
+- type: entity
+  parent: BaseMail
+  id: MailScienceTools
+  suffix: Sci Tools
+  components:
+  - type: Mail
+    contents:
+    - id: GeigerCounter
+      amount: 1
+      orGroup: SciTool
+    - id: AnomalyLocator
+      amount: 1
+      orGroup: SciTool
+    - id: AnomalyScanner
+      amount: 1
+      orGroup: SciTool

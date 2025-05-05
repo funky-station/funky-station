@@ -12,6 +12,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Shared.Clumsy;
 
@@ -20,6 +22,7 @@ public sealed class ClumsySystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -104,6 +107,10 @@ public sealed class ClumsySystem : EntitySystem
         var rand = new System.Random((int)_timing.CurTick.Value);
 
         if (!_cfg.GetCVar(CCVars.GameTableBonk) && !rand.Prob(ent.Comp.ClumsyDefaultCheck))
+            return;
+
+        //If they're dead don't tablebonk
+        if (!TryComp<MobStateComponent>(ent, out var mobState) || _mobState.IsDead(ent, mobState))
             return;
 
         HitHeadClumsy(ent, args.BeingClimbedOn);

@@ -144,6 +144,18 @@
   id: HellfireFreezerMachineCircuitBoard
   result: HellfireFreezerMachineCircuitBoard
 
+# Assmos
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: ThermomachineUpgradedFreezerMachineCircuitBoard
+  result: ThermomachineUpgradedFreezerMachineCircuitBoard
+
+# Assmos
+- type: latheRecipe
+  parent: BaseSilverCircuitboardRecipe
+  id: ThermomachineAdvancedFreezerMachineCircuitBoard
+  result: ThermomachineAdvancedFreezerMachineCircuitBoard
+
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
   id: CondenserMachineCircuitBoard
@@ -608,11 +620,23 @@
 # Assmos - /tg/ gases
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
-  id: ElectrolyzerMachineBoard
-  result: ElectrolyzerMachineBoard
-  
+  id: ElectrolyzerMachineCircuitboard
+  result: ElectrolyzerMachineCircuitboard
+
 # Assmos - Bluespace Gas
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
   id: BluespaceGasSenderMachineBoard
   result: BluespaceGasSenderMachineBoard
+
+# Funky Station - Silo Relay
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: SiloRelayMachineCircuitboard
+  result: SiloRelayMachineCircuitboard
+  
+# Assmos - Crystallizer
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: CrystallizerMachineCircuitboard
+  result: CrystallizerMachineCircuitboard

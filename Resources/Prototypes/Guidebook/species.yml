@@ -18,6 +18,8 @@
     - Vulpkanin
     - Rodentia
     - IPC
+    # ImpStation additions
+    - Thaven
 
 - type: guideEntry
   id: Arachnid

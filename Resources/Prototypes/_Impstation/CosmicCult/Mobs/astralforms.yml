@@ -133,6 +133,7 @@
   - type: MovementAlwaysTouching
   - type: CanMoveInAir
   - type: CombatMode
+  - type: ZombieImmune
   - type: Bloodstream
     bloodMaxVolume: 650
     bloodReagent: Entropy

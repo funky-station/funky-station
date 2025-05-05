@@ -93,7 +93,7 @@
 
  # Assmos - /tg/ gases
 - type: gasReaction
-  id: bzFormation
+  id: bzProduction
   priority: 2
   maximumTemperature: 313.149 # Atmospherics.FireMinimumTemperatureToExist - 60
   minimumRequirements:
@@ -107,7 +107,7 @@
   - 10    # n2o
   - 0     # frezon
   effects:
-  - !type:BZFormationReaction {}
+  - !type:BZProductionReaction {}
 
 - type: gasReaction
   id: HealiumProduction
@@ -185,7 +185,7 @@
   - 0     # healium
   - 0     # nitrium
   effects:
-  - !type:PluoxiumProductionReaction {}
+  - !type:PluoxiumTritiumProductionReaction {}
 
 - type: gasReaction
   id: MetalHydrogenReaction
@@ -235,7 +235,7 @@
   id: HyperNobliumProduction
   priority: 7
   minimumTemperature: 2.7
-  maximumTemperature: 24
+  maximumTemperature: 15
   minimumRequirements:
   - 0     # oxygen
   - 10    # nitrogen

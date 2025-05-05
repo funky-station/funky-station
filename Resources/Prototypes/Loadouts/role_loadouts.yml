@@ -14,7 +14,7 @@
 - type: roleLoadout
   id: JobHeadOfPersonnel
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - HoPHead
   - HoPNeck
   - HoPJumpsuit
@@ -40,7 +40,7 @@
 - type: roleLoadout
   id: JobPassenger
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - PassengerJumpsuit
   - CommonBackpack
   - PassengerNeck
@@ -56,7 +56,7 @@
 - type: roleLoadout
   id: JobBartender
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - BartenderHead
   - BartenderJumpsuit
   - CommonBackpack
@@ -69,7 +69,7 @@
 - type: roleLoadout
   id: JobServiceWorker
   groups:
-  - GroupTankHarness
+  ##- GroupTankHarness
   - BartenderJumpsuit
   - CommonBackpack
   - Glasses
@@ -80,7 +80,7 @@
 - type: roleLoadout
   id: JobChef
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - ChefHead
   - ChefMask
   - ChefJumpsuit
@@ -94,7 +94,7 @@
 - type: roleLoadout
   id: JobLibrarian
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - LibrarianJumpsuit
   - CommonBackpack
   - Glasses
@@ -105,7 +105,7 @@
 - type: roleLoadout
   id: JobLawyer
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - LawyerNeck
   - LawyerJumpsuit
   - CommonBackpack
@@ -117,7 +117,7 @@
 - type: roleLoadout
   id: JobChaplain
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - ChaplainHead
   - ChaplainEyes # imp
   - ChaplainMask
@@ -135,7 +135,7 @@
 - type: roleLoadout
   id: JobJanitor
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - JanitorHead
   - JanitorJumpsuit
   - JanitorGloves
@@ -150,7 +150,7 @@
 - type: roleLoadout
   id: JobBotanist
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - BotanistHead
   - BotanistJumpsuit
   - BotanistBackpack
@@ -163,7 +163,7 @@
 - type: roleLoadout
   id: JobClown
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - ClownHead
   - ClownMask
   - ClownJumpsuit
@@ -177,7 +177,7 @@
 - type: roleLoadout
   id: JobMime
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - MimeHead
   - MimeMask
   - MimeJumpsuit
@@ -191,7 +191,7 @@
 - type: roleLoadout
   id: JobMusician
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - MusicianJumpsuit
   - CommonBackpack
   - MusicianOuterClothing
@@ -205,7 +205,7 @@
 - type: roleLoadout
   id: JobQuartermaster
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - QuartermasterHead
   - QuartermasterNeck
   - QuartermasterJumpsuit
@@ -220,7 +220,7 @@
 - type: roleLoadout
   id: JobCargoTechnician
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - CargoTechnicianHead
   - CargoTechnicianJumpsuit
   - CargoTechnicianBackpack
@@ -234,7 +234,7 @@
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
@@ -247,7 +247,7 @@
 - type: roleLoadout
   id: JobChiefEngineer
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - ChiefEngineerHead
   - ChiefEngineerJumpsuit
   - StationEngineerBackpack
@@ -261,7 +261,7 @@
 - type: roleLoadout
   id: JobTechnicalAssistant
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
   - SurvivalExtended
@@ -271,7 +271,7 @@
 - type: roleLoadout
   id: JobStationEngineer
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - StationEngineerHead
   - StationEngineerJumpsuit
   - StationEngineerBackpack
@@ -285,7 +285,7 @@
 - type: roleLoadout
   id: JobAtmosphericTechnician
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - AtmosphericTechnicianHead # Goobstation
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
@@ -299,7 +299,7 @@
 - type: roleLoadout
   id: JobResearchDirector
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - ResearchDirectorHead
   - ResearchDirectorNeck
   - ResearchDirectorJumpsuit
@@ -315,7 +315,7 @@
 - type: roleLoadout
   id: JobScientist
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - ScientistHead
   - ScientistNeck
   - ScientistJumpsuit
@@ -332,7 +332,7 @@
 - type: roleLoadout
   id: JobResearchAssistant
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - ResearchAssistantJumpsuit
   - ScientistBackpack
   - Glasses
@@ -415,7 +415,7 @@
 - type: roleLoadout
   id: JobChiefMedicalOfficer
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - ChiefMedicalOfficerHead
   - MedicalMask
   - ChiefMedicalOfficerJumpsuit
@@ -432,7 +432,7 @@
 - type: roleLoadout
   id: JobMedicalDoctor
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - MedicalDoctorHead
   - MedicalMask
   - MedicalDoctorJumpsuit
@@ -449,7 +449,7 @@
 - type: roleLoadout
   id: JobMedicalIntern
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - MedicalInternJumpsuit
   - MedicalBackpack
   - Glasses
@@ -460,7 +460,7 @@
 - type: roleLoadout
   id: JobChemist
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - MedicalMask
   - ChemistJumpsuit
   - MedicalGloves
@@ -474,7 +474,7 @@
 - type: roleLoadout
   id: JobParamedic
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - ParamedicHead
   - MedicalMask
   - ParamedicJumpsuit
@@ -491,7 +491,7 @@
 - type: roleLoadout
   id: JobZookeeper
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - CommonBackpack
   - Glasses
   - Survival
@@ -501,7 +501,7 @@
 - type: roleLoadout
   id: JobReporter
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - ReporterJumpsuit
   - ReporterOuterClothing # Goobstation - Bodycams
   - CommonBackpack
@@ -514,7 +514,7 @@
 - type: roleLoadout
   id: JobPsychologist
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - PsychologistJumpsuit
   - MedicalBackpack
   - Glasses
@@ -525,7 +525,7 @@
 - type: roleLoadout
   id: JobBoxer
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - BoxerJumpsuit
   - BoxerGloves
   - CommonBackpack
@@ -553,7 +553,7 @@
 - type: roleLoadout
   id: JobPartyMaker
   groups:
-  - GroupTankHarness
+  #- GroupTankHarness
   - CommonBackpack
   - Survival
   - GroupSpeciesBreathTool
@@ -565,48 +565,48 @@
   id: RoleSurvivalVoxSupport
   groups:
   - GroupSpeciesBreathTool
-  - GroupTankHarness
+  #- GroupTankHarness
 
 - type: roleLoadout
   id: RoleSurvivalStandard
   groups:
   - Survival
   - GroupSpeciesBreathTool
-  - GroupTankHarness
+  #- GroupTankHarness
 
 - type: roleLoadout
   id: RoleSurvivalClown
   groups:
   - SurvivalClown
-  - GroupTankHarness
+  #- GroupTankHarness
 
 - type: roleLoadout
   id: RoleSurvivalExtended
   groups:
   - SurvivalExtended
   - GroupSpeciesBreathTool
-  - GroupTankHarness
+  #- GroupTankHarness
 
 - type: roleLoadout
   id: RoleSurvivalMedical
   groups:
   - SurvivalMedical
   - GroupSpeciesBreathToolMedical
-  - GroupTankHarness
+  #- GroupTankHarness
 
 - type: roleLoadout
   id: RoleSurvivalSecurity
   groups:
   - SurvivalSecurity
   - GroupSpeciesBreathToolSecurity
-  - GroupTankHarness
+  #- GroupTankHarness
 
 - type: roleLoadout
   id: RoleSurvivalSyndicate
   groups:
   - SurvivalSyndicate
   - GroupSpeciesBreathTool
-  - GroupTankHarness
+  #- GroupTankHarness
 
 - type: roleLoadout
   id: RoleSurvivalNukie

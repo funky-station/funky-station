@@ -97,7 +97,7 @@
     
 #Tank Harness
 - type: entity
-  parent: ClothingNeckBase
+  parent: [ ClothingNeckBase, AllowSuitStorageClothingGasTanks ]
   id: ClothingNeckTankHarness
   name: tank harness
   description: A simple harness that can hold a gas tank.

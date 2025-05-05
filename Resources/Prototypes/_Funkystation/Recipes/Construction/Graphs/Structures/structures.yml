@@ -1,13 +1,141 @@
+#Steel
 - type: construction
   name: steel curb
+  description: A simple curb.
   id: SteelCurb
   graph: curbs
   startNode: start
   targetNode: steelCurb
   category: construction-category-structures
   placementMode: SnapgridCenter
-  description: A simple curb.
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
     state: SteelCurb
+
+- type: construction
+  name: steel curb corner
+  description: A simple curb corner.
+  id: SteelCurbCorner
+  graph: curbs
+  startNode: start
+  targetNode: steelCurbCorner
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: SteelCurbCorner
+
+- type: construction
+  name: steel curb inside corner
+  description: A simple curb inside corner.
+  id: SteelCurbCornerInside
+  graph: curbs
+  startNode: start
+  targetNode: steelCurbCornerInside
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: SteelCurbInsideCorner
+
+- type: construction
+  name: steel curb Ubend
+  description: A simple curb Ubend.
+  id: SteelCurbUbend
+  graph: curbs
+  startNode: start
+  targetNode: steelCurbUbend
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: SteelCurbUbend
+
+- type: construction
+  name: steel curb square
+  description: A simple curb square.
+  id: SteelCurbSquare
+  graph: curbs
+  startNode: start
+  targetNode: steelCurbSquare
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: SteelCurbSquare
+
+#Brass
+- type: construction
+  name: brass curb
+  description: A simple brass curb.
+  id: BrassCurb
+  graph: curbs
+  startNode: start
+  targetNode: brassCurb
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: BrassCurb
+
+- type: construction
+  name: brass curb corner
+  description: A simple brass curb corner.
+  id: BrassCurbCorner
+  graph: curbs
+  startNode: start
+  targetNode: brassCurbCorner
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: BrassCurbCorner
+
+- type: construction
+  name: brass curb inside corner
+  description: A simple brass inside corner.
+  id: BrassCurbCornerInside
+  graph: curbs
+  startNode: start
+  targetNode: brassCurbCornerInside
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: BrassCurbInsideCorner
+
+- type: construction
+  name: brass curb Ubend
+  description: A simple brass Ubend.
+  id: BrassCurbUbend
+  graph: curbs
+  startNode: start
+  targetNode: brassCurbUbend
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: BrassCurbUbend
+
+- type: construction
+  name: brass curb square
+  description: A simple brass square curb.
+  id: BrassCurbSquare
+  graph: curbs
+  startNode: start
+  targetNode: brassCurbSquare
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: BrassCurbSquare

@@ -129,7 +129,7 @@
       - tool: Welding
         doAfter: 1
   - node: routerflipped
-    entity: DisposalRouterFlipped
+    entity: MailRouterFlipped
     edges:
     - to: start
       completed:
@@ -142,7 +142,7 @@
         doAfter: 1
   # DisposalJunction
   - node: junction
-    entity: DisposalJunction
+    entity: MailJunction
     edges:
     - to: start
       completed:
@@ -158,7 +158,7 @@
       - tool: Screwing
         doAfter: 1
   - node: junctionflipped
-    entity: DisposalJunctionFlipped
+    entity: MailJunctionFlipped
     edges:
     - to: start
       completed:
@@ -174,7 +174,7 @@
       - tool: Screwing
         doAfter: 1
   - node: yJunction
-    entity: DisposalYJunction
+    entity: MailYJunction
     edges:
     - to: start
       completed:
@@ -194,7 +194,7 @@
       - tool: Screwing
         doAfter: 1
   - node: bend
-    entity: DisposalBend
+    entity: MailBend
     edges:
     - to: start
       completed:
@@ -207,7 +207,7 @@
         doAfter: 1
   # DisposalRouter
   - node: signal_router
-    entity: DisposalSignalRouter
+    entity: MailSignalRouter
     edges:
     - to: start
       completed:
@@ -221,7 +221,7 @@
       - tool: Welding
         doAfter: 1
   - node: signal_router_flipped
-    entity: DisposalSignalRouterFlipped
+    entity: MailSignalRouterFlipped
     edges:
     - to: start
       completed:

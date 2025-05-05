@@ -42,6 +42,9 @@
     layers:
     - map: [ "pipe" ]
       state: conpipe-tagger
+  - type: Construction
+    graph: mailpipes
+    node: tagger
 
 - type: entity
   id: MailTrunk

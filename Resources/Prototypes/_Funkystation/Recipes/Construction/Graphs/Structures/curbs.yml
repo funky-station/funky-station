@@ -9,9 +9,55 @@
       steps:
       - material: Steel
         amount: 1
-        doAfter: 2
+        doAfter: 1
+    - to: steelCurbCorner
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+    - to: steelCurbCornerInside
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+    - to: steelCurbUbend
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+    - to: steelCurbSquare
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+#Brass
+    - to: brassCurb
+      steps:
+      - material: Brass
+        amount: 1
+        doAfter: 1
+    - to: brassCurbCorner
+      steps:
+      - material: Brass
+        amount: 1
+        doAfter: 1
+    - to: brassCurbCornerInside
+      steps:
+      - material: Brass
+        amount: 1
+        doAfter: 1
+    - to: brassCurbUbend
+      steps:
+      - material: Brass
+        amount: 1
+        doAfter: 1
+    - to: brassCurbSquare
+      steps:
+      - material: Brass
+        amount: 1
+        doAfter: 1
 
-
+#Steel
   - node: steelCurb
     entity: SteelCurb
     edges:
@@ -19,6 +65,125 @@
       completed:
       - !type:SpawnPrototype
         prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: steelCurbCorner
+    entity: SteelCurbCorner
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: steelCurbCornerInside
+    entity: SteelCurbCornerInside
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: steelCurbUbend
+    entity: SteelCurbUbend
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: steelCurbSquare
+    entity: SteelCurbSquare
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+#Brass
+
+  - node: brassCurb
+    entity: BrassCurb
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetBrass1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: brassCurbCorner
+    entity: BrassCurbCorner
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetBrass1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: brassCurbCornerInside
+    entity: BrassCurbCornerInside
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetBrass1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: brassCurbUbend
+    entity: BrassCurbUbend
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetBrass1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: brassCurbSquare
+    entity: BrassCurbSquare
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetBrass1
         amount: 1
       - !type:DeleteEntity
       steps:

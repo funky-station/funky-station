@@ -125,7 +125,6 @@
   components:
   - type: FTLSmashImmune
   - type: Physics
-
     bodyStatus: InAir
   - type: Speech
     speechVerb: Ghost
@@ -133,7 +132,6 @@
   - type: MovementAlwaysTouching
   - type: CanMoveInAir
   - type: CombatMode
-  - type: ZombieImmune
   - type: Bloodstream
     bloodMaxVolume: 650
     bloodReagent: Entropy

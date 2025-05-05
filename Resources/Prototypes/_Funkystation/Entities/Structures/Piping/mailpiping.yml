@@ -76,6 +76,7 @@
   id: MailRouterFlipped
   description: A three-way router. Entities with matching tags get routed to the side.
   parent: DisposalRouterFlipped
+  name: mail router
   suffix: flipped
   components:
   - type: Sprite
@@ -153,6 +154,7 @@
 - type: entity
   parent: DisposalSignalRouterFlipped
   id: MailSignalRouterFlipped
+  name: mail signal router
   suffix: flipped
   components:
   - type: Sprite

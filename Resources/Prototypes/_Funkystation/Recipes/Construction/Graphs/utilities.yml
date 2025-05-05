@@ -125,7 +125,7 @@
     state: conpipe-c
 
 - type: construction
-  name: mail router
+  name: mail signal router
   id: MailSignalRouter
   description: A signal-controlled three-way router.
   graph: mailpipes
@@ -139,7 +139,7 @@
     state: signal-router-free
 
 - type: construction
-  name: mail router flipped
+  name: mail signal router flipped
   id: MailSignalRouterFlipped
   description: A signal-controlled three-way router.
   graph: mailpipes

@@ -162,7 +162,7 @@ public abstract partial class SharedStunSystem : EntitySystem
 
     private void UpdateCanMove(EntityUid uid, StunnedComponent component, EntityEventArgs args)
     {
-        Blocker.UpdateCanMove(uid);
+        _blocker.UpdateCanMove(uid);
     }
 
     private void OnStunOnContactStartup(Entity<StunOnContactComponent> ent, ref ComponentStartup args)

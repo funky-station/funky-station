@@ -11,7 +11,7 @@ using Content.Shared.Inventory;
 
 namespace Content.Shared.Damage.Systems;
 
-public sealed partial class StaminaSystem
+public partial class SharedStaminaSystem
 {
     private void InitializeResistance()
     {

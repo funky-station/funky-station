@@ -30,6 +30,19 @@
 
 - type: entity
   parent: BaseBloodCultRune
+  id: BarrierRune_drawing
+  name: "barrier rune"
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/BloodCult/bloodrune.rsi
+    layers:
+    - state: barrier_drawing
+      color: '#FF3300CC'
+  - type: TimedDespawn
+    lifetime: 15
+
+- type: entity
+  parent: BaseBloodCultRune
   id: BloodBoilRune
   name: "blood boil rune"
   components:
@@ -53,6 +66,19 @@
 
 - type: entity
   parent: BaseBloodCultRune
+  id: EmpoweringRune_drawing
+  name: "empowering rune drawing"
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/BloodCult/bloodrune.rsi
+    layers:
+    - state: empowering_drawing
+      color: '#FF3300CC'
+  - type: TimedDespawn
+    lifetime: 15
+
+- type: entity
+  parent: BaseBloodCultRune
   id: OfferingRune
   name: "offering rune"
   components:
@@ -65,6 +91,19 @@
 
 - type: entity
   parent: BaseBloodCultRune
+  id: OfferingRune_drawing
+  name: "offering rune drawing"
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/BloodCult/bloodrune.rsi
+    layers:
+    - state: offering_drawing
+      color: '#FF3300CC'
+  - type: TimedDespawn
+    lifetime: 15
+
+- type: entity
+  parent: BaseBloodCultRune
   id: ReviveRune
   name: "revive rune"
   components:
@@ -74,6 +113,19 @@
       layers:
         - state: revive
           color: '#FF3300CC'
+
+- type: entity
+  parent: BaseBloodCultRune
+  id: ReviveRune_drawing
+  name: "revive rune drawing"
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/BloodCult/bloodrune.rsi
+    layers:
+    - state: revive_drawing
+      color: '#FF3300CC'
+  - type: TimedDespawn
+    lifetime: 15
 
 - type: entity
   parent: BaseBloodCultRune

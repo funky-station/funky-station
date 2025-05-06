@@ -186,12 +186,23 @@ namespace Content.Client.Chemistry.UI
 
         private void HandleDiscardTransferPress(BaseButton.ButtonEventArgs args)
         {
-            var buttons = BufferInfo.Children
+            var bufferButtons = BufferInfo.Children
                 .Where(c => c is Button)
                 .Cast<Button>();
-            foreach (var button in buttons)
+
+            var pillBufferButtons = PillBufferInfo.Children
+                .Where(c => c is Button)
+                .Cast<Button>();
+
+            foreach (var button in bufferButtons)
             {
                 var text = BufferTransferButton.Pressed ? "transfer" : "discard";
+                button.Text = Loc.GetString($"chem-master-window-{text}-button-text");
+            }
+
+            foreach (var button in pillBufferButtons)
+            {
+                var text = PillBufferTransferButton.Pressed ? "transfer" : "discard";
                 button.Text = Loc.GetString($"chem-master-window-{text}-button-text");
             }
         }

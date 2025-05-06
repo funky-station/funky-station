@@ -1,5 +1,5 @@
 - type: dataset
-  id: fake_human_last
+  id: NamesFakeHumanLast
   values: #includes the first names so we get some really fake double names
   - Al
   - Anatoli

@@ -1,5 +1,5 @@
 - type: dataset
-  id: SyndicateNamesNormal
+  id: NamesSyndicateNormal
   values:
   - Alfa
   - Bravo
@@ -32,10 +32,10 @@
   - Kikuo
   - Gumi
   - Kaito
-  - Meiko 
+  - Meiko
 
 - type: dataset
-  id: SyndicateNamesElite
+  id: NamesSyndicateElite
   values:
   - Alpha
   - Beta
@@ -65,7 +65,7 @@
   - Neru
 
 - type: dataset
-  id: SyndicateNamesPrefix
+  id: NamesSyndicatePrefix
   values:
   - Operative
   - Agent

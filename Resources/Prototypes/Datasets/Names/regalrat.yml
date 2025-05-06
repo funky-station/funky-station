@@ -1,5 +1,5 @@
 - type: dataset
-  id: RegalRatNameKingdom
+  id: NamesRegalratKingdom
   values:
   - Plague
   - Ammonia
@@ -18,7 +18,7 @@
   - The
 
 - type: dataset
-  id: RegalRatNameTitle
+  id: NamesRegalratTitle
   values:
   - King
   - Lord

@@ -1,5 +1,5 @@
 - type: dataset
-  id: operationSuffix
+  id: NamesOperationSuffix
   values:
   - Abyss
   - Action

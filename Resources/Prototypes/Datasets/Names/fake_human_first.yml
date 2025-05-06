@@ -1,5 +1,5 @@
 - type: dataset
-  id: fake_human_first
+  id: NamesFakeHumanFirst
   values:
   - Al
   - Anatoli

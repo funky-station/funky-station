@@ -1,5 +1,5 @@
 - type: dataset
-  id: RevenantType
+  id: NamesRevenantType
   values:
   - essence
   - ghost
@@ -11,7 +11,7 @@
   - spirit
 
 - type: dataset
-  id: RevenantAdjective
+  id: NamesRevenantAdjective
   values:
   - abysmal
   - abyssal
@@ -33,7 +33,7 @@
   - violent
 
 - type: dataset
-  id: RevenantTheme
+  id: NamesRevenantTheme
   values:
   - agony
   - anger

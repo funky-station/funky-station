@@ -53,7 +53,7 @@
     solutions:
       buffer:
         maxVol: 400
-        canReact: false     # added because there where instances that the chemicals can mix on transfer
+        canReact: false     # added because there were instances that the chemicals can mix on transfer
   - type: DumpableSolution
     solution: buffer
   - type: GuideHelp

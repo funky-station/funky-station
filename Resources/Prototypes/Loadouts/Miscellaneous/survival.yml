@@ -24,6 +24,7 @@
     - Harpy
     - Gingerbread
     - Rodentia
+    - Thaven
 
 - type: loadoutEffectGroup
   id: EffectSpeciesVox

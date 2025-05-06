@@ -125,7 +125,6 @@
   components:
   - type: FTLSmashImmune
   - type: Physics
-
     bodyStatus: InAir
   - type: Speech
     speechVerb: Ghost

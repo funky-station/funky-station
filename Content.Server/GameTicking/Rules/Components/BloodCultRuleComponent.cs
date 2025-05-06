@@ -114,9 +114,14 @@ public sealed partial class BloodCultRuleComponent : Component
 	[DataField] public TimeSpan ShuttleCallTime = TimeSpan.FromMinutes(2);
 
 	/// <summary>
-	/// Current target.
+	/// Current target, this is a mind.
 	/// </summary>
 	[DataField] public EntityUid? Target = null;
+
+	/// <summary>
+	/// Current target's original body.
+	/// </summary>
+	[DataField] public EntityUid? TargetOriginalBody = null;
 
 	// <summary>
 	/// When to give initial report on cultist count and crew count.
@@ -154,9 +159,14 @@ public sealed partial class BloodCultRuleComponent : Component
 	[DataField] public int CultistsToConvert = 2;
 
 	/// <summary>
-	/// The set time the Blood Cult's target will be re-selected, if needed.
+	/// Whether the Target Reselection Timer for being Off-Station is currently active.
 	/// </summary>
-	[DataField] public TimeSpan? TargetReselectTime;
+	[DataField] public bool OffStationReselectTimerActive = false;
+
+	/// <summary>
+	/// The set time the Blood Cult's target will be re-selected due to being off-station, if needed.
+	/// </summary>
+	[DataField] public TimeSpan? OffStationTargetReselectTime;
 
 	/// <summary>
 	/// Time in minutes how long a target can be off station, until the target is re-selected.
@@ -164,19 +174,29 @@ public sealed partial class BloodCultRuleComponent : Component
 	[DataField] public TimeSpan OffStationTimer = TimeSpan.FromMinutes(2);
 
 	/// <summary>
-	/// Whether the Target Reselection Timer is currently active.
+	/// Whether the Target Reselection Timer for being Body Mismatch is currently active.
 	/// </summary>
-	[DataField] public bool TargetReselectTimerActive = false;
+	[DataField] public bool MismatchReselectTimerActive = false;
 
 	/// <summary>
-	/// When the next initial off-station check occurs
+	/// The set time the Blood Cult's target will be re-selected due to Mismatch, if needed.
+	/// </summary>
+	[DataField] public TimeSpan? MismatchTargetReselectTime;
+
+	/// <summary>
+	/// Time in minutes how long a target mind can be outside of its original body, until the target is re-selected.
+	/// </summary>
+	[DataField] public TimeSpan MismatchTimer = TimeSpan.FromMinutes(5);
+
+	/// <summary>
+	/// When the next timer initialization check occurs
 	/// </summary>
 	[DataField(customTypeSerializer: typeof(TimeOffsetSerializer))] 
-	public TimeSpan OffStationCheckTime;
+	public TimeSpan CheckTime;
 
 	/// <summary>
-    /// The amount of time between each off-station check, checked sparsely to reduce server load.
+    /// The amount of time between each timer init check, checked sparsely to reduce server load.
     /// </summary>
     [DataField]
-    public TimeSpan TimerWait = TimeSpan.FromSeconds(20);
+    public TimeSpan TimerWait = TimeSpan.FromSeconds(10);
 }

@@ -53,6 +53,11 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
+      leaky:
+        maxVol: 20
+  - type: InjectableSolution
+    solution: leaky
+  - type: LeakyObject
   - type: ContainerContainer
     containers:
       stash: !type:ContainerSlot {}
@@ -172,6 +177,8 @@
           Quantity: 5
         - ReagentId: Fiber
           Quantity: 5
+      leaky:
+        maxVol: 20
   - type: Clothing
     quickEquip: false
     sprite: Objects/Fun/toys.rsi
@@ -348,6 +355,8 @@
           Quantity: 10
         - ReagentId: JuiceThatMakesYouWeh
           Quantity: 10
+      leaky:
+        maxVol: 20
   - type: Clothing
     quickEquip: false
     sprite: Objects/Fun/toys.rsi
@@ -444,6 +453,8 @@
           Quantity: 10
         - ReagentId: JuiceThatMakesYouWeh
           Quantity: 10
+      leaky:
+        maxVol: 20
   - type: Clothing
     slots:
     - HEAD
@@ -497,6 +508,8 @@
           Quantity: 10
         - ReagentId: JuiceThatMakesYouHew
           Quantity: 10
+      leaky:
+        maxVol: 20
   - type: Clothing
     quickEquip: false
     sprite: Objects/Fun/toys.rsi
@@ -549,6 +562,8 @@
           reagents:
           - ReagentId: Fiber
             Quantity: 10
+        leaky:
+          maxVol: 20
 
     - type: RefillableSolution
       solution: plushie
@@ -1259,6 +1274,13 @@
   - type: Sprite
     sprite: Objects/Fun/toys.rsi
     state: foamblade
+  - type: EmitSoundOnUse #funkystation
+    sound:
+      path: /Audio/Effects/gib1.ogg
+  - type: StaminaDamageOnHit #funkystation
+    damage: 8
+  - type: DisarmMalus #funkystation
+    malus: 1
   - type: MeleeWeapon
     attackRate: 1.5
     angle: 0
@@ -1867,3 +1889,67 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 25
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieGodo
+  name: Godo plushie
+  description: An adorable green ball that represents happiness and joy itself.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/toys.rsi
+    state: godo
+  - type: Item
+    heldPrefix: godo
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Human/manlaugh2.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/toysqueak1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Human/manlaugh2.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Human/manlaugh2.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Voice/Human/malescream_1.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/toysqueak1.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieGocrazy
+  name: Gocrazy plushie
+  description: An adorable gray ball that represents fear, grief and pain.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/toys.rsi
+    state: gocrazy
+  - type: Item
+    heldPrefix: gocrazy
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Human/malescream_1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/toysqueak1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Human/malescream_1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Human/malescream_1.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Voice/Human/malescream_1.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/toysqueak1.ogg

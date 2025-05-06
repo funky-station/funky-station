@@ -29147,13 +29147,6 @@ entities:
     - type: Transform
       pos: -1.5,1.5
       parent: 2
-- proto: CrateFunPlushieSelfInsert
-  entities:
-  - uid: 12734
-    components:
-    - type: Transform
-      pos: 5.5,22.5
-      parent: 2
 - proto: CrateHydroponicsSeedsExotic
   entities:
   - uid: 4396
@@ -59008,13 +59001,6 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: PlushieJeepersCReepers
-  entities:
-  - uid: 12735
-    components:
-    - type: Transform
-      pos: -2.5521805,19.4729
-      parent: 2
 - proto: PlushieLamp
   entities:
   - uid: 8891

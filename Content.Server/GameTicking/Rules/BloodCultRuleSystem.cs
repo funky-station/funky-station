@@ -121,7 +121,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		component.InitialReportTime = _timing.CurTime + TimeSpan.FromSeconds(1);
 		SetConversionsNeeded(component);
 		SelectVeilTargets(component);
-		component.OffStationCheckTime = _timing.CurTime + component.TimerWait;
+		component.CheckTime = _timing.CurTime + component.TimerWait;
     }
 
 	private void SelectVeilTargets(BloodCultRuleComponent component)
@@ -240,6 +240,11 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		// TODO: Check for TimeOfDeath being null (makes sure they're not dead)
 		// Can also check to see if Session is null, which means they logged out
 		component.Target = (EntityUid)_random.Pick(allPotentialTargets);
+
+		// Assign original body to track future mis-matches
+		var targetMind = CompOrNull<MindComponent>((EntityUid)component.Target);
+		if (targetMind != null)
+			component.TargetOriginalBody = targetMind.CurrentEntity;
 	}
 
 	private void AfterEntitySelected(Entity<BloodCultRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
@@ -344,8 +349,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		if (component.Target != null)
 		{
 			// If the target has gone catatonic, pick another one.
-			var val = CompOrNull<MindComponent>((EntityUid)component.Target);
-			if (val?.UserId == null)
+			var targetMind = CompOrNull<MindComponent>((EntityUid)component.Target);
+			if (targetMind?.UserId == null)
 			{
 				SelectTarget(component, true);
 				if (!component.VeilWeakened)
@@ -354,7 +359,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 				}
 			}
 			// When entered cryo
-			if (val != null && HasComp<CryostorageContainedComponent>(val.CurrentEntity))
+			if (targetMind != null && HasComp<CryostorageContainedComponent>(targetMind.CurrentEntity))
 			{
 				SelectTarget(component, true);
 				if (!component.VeilWeakened)
@@ -364,36 +369,67 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			}
 
 			// Reselection Timer checks
-			if (component.TargetReselectTimerActive)
+			if (component.OffStationReselectTimerActive)
 			{
 				//Re-select target if the allocated time has passed
-				if (component.TargetReselectTime <= _timing.CurTime)
+				if (component.OffStationTargetReselectTime <= _timing.CurTime)
 				{
-					component.TargetReselectTimerActive = false;
+					component.OffStationReselectTimerActive = false;
 
 					SelectTarget(component, true);
+					component.MismatchReselectTimerActive = false;
 					if (!component.VeilWeakened)
 					{
 						AnnounceStatus(component, cultists);
 					}
 				}
 				//Target returns to station, stop the timer
-				else if (_stationSystem.GetOwningStation(component.Target) != null)
+				else if (targetMind != null && _stationSystem.GetOwningStation(targetMind.CurrentEntity) != null)
 				{
-					component.TargetReselectTimerActive = false;
+					component.OffStationReselectTimerActive = false;
 				}
 			}
 
-			// Check if target is off-station
-			if (component.OffStationCheckTime <= _timing.CurTime)
+			if (component.MismatchReselectTimerActive)
 			{
-				component.OffStationCheckTime = _timing.CurTime + component.TimerWait;
-
-				//If target is off-station, start a 2 minute timer to re-select a target
-				if (!component.TargetReselectTimerActive && _stationSystem.GetOwningStation(component.Target) == null)
+				//Re-select target if the allocated time has passed
+				if (component.MismatchTargetReselectTime <= _timing.CurTime)
 				{
-					component.TargetReselectTime = _timing.CurTime + component.OffStationTimer;
-					component.TargetReselectTimerActive = true;
+					component.MismatchReselectTimerActive = false;
+
+					SelectTarget(component, true);
+					component.OffStationReselectTimerActive = false;
+					if (!component.VeilWeakened)
+					{
+						AnnounceStatus(component, cultists);
+					}
+				}
+				// Target mind returns to original body and is thus identifiable again.
+				else if (targetMind != null && targetMind.CurrentEntity == component.TargetOriginalBody)
+				{
+					component.MismatchReselectTimerActive = false;
+				}
+			}
+
+			// Check target off station + body mismatch, governs timer starting.
+			if (component.CheckTime <= _timing.CurTime)
+			{
+				component.CheckTime = _timing.CurTime + component.TimerWait;
+
+				if (targetMind != null)
+				{
+					//If target is off-station, start a 2 minute timer to re-select a target
+					if (!component.OffStationReselectTimerActive && _stationSystem.GetOwningStation(targetMind.CurrentEntity) == null)
+					{
+						component.OffStationTargetReselectTime = _timing.CurTime + component.OffStationTimer;
+						component.OffStationReselectTimerActive = true;
+					}
+					//If target's brain leaves the original body, start a 5 minute timer to re-select a target
+					if (!component.MismatchReselectTimerActive && targetMind.CurrentEntity != component.TargetOriginalBody)
+					{
+						component.MismatchTargetReselectTime = _timing.CurTime + component.MismatchTimer;
+						component.MismatchReselectTimerActive = true;
+					}
 				}
 			}
 		}

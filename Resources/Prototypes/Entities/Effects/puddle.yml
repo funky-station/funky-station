@@ -14,6 +14,19 @@
   suffix: Smear
 
 - type: entity
+  id: PuddleVentCrud
+  parent: PuddleTemporary
+  suffix: VentCrud
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: VentCrud
+          Quantity: 15
+
+- type: entity
   id: PuddleVomit
   parent: PuddleTemporary
   suffix: Vomit

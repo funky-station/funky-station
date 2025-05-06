@@ -71,6 +71,9 @@ public sealed class MindShieldSystem : EntitySystem
         if (_mindSystem.TryGetMind(implanted, out var mindId, out _) &&
             _roleSystem.MindTryRemoveRole<RevolutionaryRoleComponent>(mindId))
         {
+            if (HasComp<ShowRevolutionaryIconsComponent>(implanted))
+                RemComp<ShowRevolutionaryIconsComponent>(implanted);
+
             _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(implanted)} was deconverted due to being implanted with a Mindshield.");
         }
         if (HasComp<MindcontrolledComponent>(implanted))   //Goobstation - Mindcontrol Implant

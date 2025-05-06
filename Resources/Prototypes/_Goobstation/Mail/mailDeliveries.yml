@@ -19,14 +19,19 @@
     MailJoints: 1
     MailUnusualFood: 0.5
     MailBakedGoods: 0.75
+    MailLollipops: 1
   # Costumes
     MailCosplayMaid: 0.6
     MailCosplayWizard: 0.6
     MailCosplayNurse: 0.6
-    MailCosplayTacticalMaid: 0.5
+    MailCosplayTacticalMaid: 0.3
     MailNoir: 0.4
     MailFishingCap: 0.8
     MailSunglasses: 0.8
+    MailMasks: 0.5
+    MailMothSuit: 0.1
+    MailRedRacoonSuit: 0.1
+    MailViceSuit: 0.2
   # Fun
     MailEMP: 0.2
     MailSmoke: 0.3
@@ -40,6 +45,10 @@
     MailFlowers: 0.8
     MailCrayons: 0.9
     MailLowMoney: 1
+    MailInstantGorilla: 0.05
+    MailMuggingThreat: 0.2
+    MailSkele: 0.05
+    MailSpamMail: 0.5
   # Tools
     MailSignallerKit: 0.5
     MailFlashlight: 0.8
@@ -48,21 +57,30 @@
     MailSword: 0.2
   departments: # Departments
     Command:
-      MailCommandPipebombIntern: 2
+      MailCommandPipebombIntern: 1
       MailLuxuryPen: 1.6
+      MailExtendedWarrantyCommand: 0.5
     Medical:
       MailMedicalBasicSupplies: 2
       MailMedicalMedicinePills: 2
       MailMedicalEmergencyPens: 2
       MailMedicalStabilizers: 2
+      MailMedicalRareTopicals: 0.5
+      MailMedicalRollerBed: 1
     Engineering:
       MailPowerTool: 1.2
       MailCircuitboardService: 1.6
-      MailCircuitboardIndustrial: 1.2
+      MailCircuitboardIndustrial: 1.5
+      MailEngineeringBoards: 1.5
       MailEngineeringCables: 2
       MailEngineeringMaterials: 2
+      MailScienceHazardousMaterials: 0.5
     Science:
-      MailScienceRareMaterials: 1.5
+      MailScienceRareMaterials: 0.5
+      MailScienceHazardousMaterials: 0.2
+      MailRoboticsParts: 1.5
+      MailScienceBoards: 0.5
+      MailScienceTools: 1
     Security:
       MailRestraints: 2
       MailSecurityDonuts: 2
@@ -70,15 +88,21 @@
       MailSecurityNonlethalsKit: 1.6
       MailSecuritySpaceLaw: 1
   jobs: # Jobs
+    Bartender:
+      MailBartenderTools: 0.5
     Botanist:
       MailMutatedProduce: 1.6
       MailBotanistChemicalBottles: 2
       MailBotanistSeeds: 2
       MailKudzuDeterrent: 2
     Chaplain:
-      MailWitchery: 1.6
+      MailChapCandles: 0.3
+      MailWitchery: 1
+    Chef:
+      MailScienceHazardousMaterials: 0.05
     Chemist:
       MailMedicalChemistrySupplement: 2
+      MailMedicalChemistryChems: 0.3
     ChiefEngineer:
       MailPowerTool: 1.2
       MailCircuitboardService: 1.6
@@ -125,6 +149,8 @@
       MailSoapsOmega: 0.5
     Musician:
       MailInstrumentLarge: 2
+    Passenger:
+      MailEgging: 0.2
     Reporter:
       MailLuxuryPen: 2
     ResearchDirector:

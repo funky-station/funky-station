@@ -398,7 +398,7 @@ namespace Content.Server.Administration.Systems
                 }
 
                 // Begin Impstation Additions
-                if (TryComp<ThavenMoodsComponent>(args.Target, out var moods))
+                if (TryComp<ThavenMoodsBoundComponent>(args.Target, out var moods))
                 {
                     args.Verbs.Add(new Verb()
                     {
@@ -411,7 +411,7 @@ namespace Content.Server.Administration.Systems
                                 return;
 
                             _euiManager.OpenEui(ui, session);
-                            ui.UpdateMoods((args.Target, moods));
+                            ui.UpdateMoods(moods, args.Target);
                         },
                         Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_borg.rsi"), "state-laws"),
                     });

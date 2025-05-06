@@ -138,7 +138,6 @@ namespace Content.Client.Chemistry.UI
             BufferDiscardButton.OnPressed += HandleDiscardTransferPress;
 
             CreateAmountButtons();
-
             OnAmountButtonPressed += amount => SetAmountText(amount.ToString());
         }
 
@@ -179,7 +178,7 @@ namespace Content.Client.Chemistry.UI
 
             _amounts.Add(amount);
             _amounts.Sort();
-            CreateAmountButtons();
+            OnUpdateAmounts?.Invoke(_amounts);
         }
 
         private void HandleDiscardTransferPress(BaseButton.ButtonEventArgs args)

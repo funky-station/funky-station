@@ -67,8 +67,11 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterAmountsUpdated>(OnAmountsUpdated);
         }
 
-        private void OnAmountsUpdated(Entity<ChemMasterComponent> ent, ref ChemMasterAmountsUpdated args) =>
+        private void OnAmountsUpdated(Entity<ChemMasterComponent> ent, ref ChemMasterAmountsUpdated args)
+        {
             ent.Comp.Amounts = args.Amounts;
+            UpdateUiState(ent);
+        }
 
         private void SubscribeUpdateUiState<T>(Entity<ChemMasterComponent> ent, ref T ev) =>
             UpdateUiState(ent);
@@ -368,7 +371,9 @@ namespace Content.Server.Chemistry.EntitySystems
             UpdateUiState((uid, chemMaster));
         }
 
-        private void OnTransferringAmountUpdated(EntityUid uid, ChemMasterComponent chemMaster, ChemMasterTransferringAmountUpdated args)
+        private void OnTransferringAmountUpdated(EntityUid uid,
+            ChemMasterComponent chemMaster,
+            ChemMasterTransferringAmountUpdated args)
         {
             chemMaster.TransferringAmount = args.TransferringAmount;
             ClickSound((uid, chemMaster));

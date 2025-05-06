@@ -24,13 +24,8 @@ public sealed partial class WarOpsCondition : ListingCondition
         {
             if (ent.TryGetComponent<NukeopsRuleComponent>(rule, out var nukeops)) //fetches in moment ruling on war ops
             {
-                if (nukeops.WarDeclaredTime != null){
-                return true;
-                }
-                else
-                {
-                    return false;
-                }
+                if (nukeops.WarDeclaredTime != null) return true;
+                else return false;
 
             }
         }

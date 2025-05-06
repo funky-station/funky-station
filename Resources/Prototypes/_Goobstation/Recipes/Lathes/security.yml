@@ -6,6 +6,141 @@
     Steel: 100
     Plastic: 100
 
+- type: latheRecipe
+  id: BolaEnergy
+  result: BolaEnergy
+  completetime: 3
+  materials:
+    Steel: 200
+
+- type: latheRecipe
+  id: CartridgeEpinephrine
+  result: CartridgeEpinephrine
+  completetime: 1
+  materials:
+    Steel: 100
+    Glass: 300
+
+- type: latheRecipe
+  id: CartridgeAtropine
+  result: CartridgeAtropine
+  completetime: 1
+  materials:
+    Steel: 100
+    Glass: 300
+
+- type: latheRecipe
+  id: CartridgeBicaridine
+  result: CartridgeBicaridine
+  completetime: 1
+  materials:
+    Steel: 100
+    Glass: 300
+
+- type: latheRecipe
+  id: CartridgeDermaline
+  result: CartridgeDermaline
+  completetime: 1
+  materials:
+    Steel: 100
+    Glass: 300
+
+- type: latheRecipe
+  id: CartridgeSaline
+  result: CartridgeSaline
+  completetime: 1
+  materials:
+    Steel: 100
+    Glass: 300
+
+- type: latheRecipe
+  id: CartridgeEphedrine
+  result: CartridgeEphedrine
+  completetime: 1
+  materials:
+    Steel: 200
+    Glass: 400
+    Plasma: 200
+
+- type: latheRecipe
+  id: CartridgePuncturase
+  result: CartridgePuncturase
+  completetime: 1
+  materials:
+    Steel: 200
+    Glass: 400
+    Plasma: 200
+
+- type: latheRecipe
+  id: CartridgeTirizene
+  result: CartridgeTirizene
+  completetime: 1
+  materials:
+    Steel: 200
+    Glass: 400
+    Plasma: 200
+
+- type: latheRecipe
+  id: SecHypo
+  result: SecHypo
+  completetime: 3
+  materials:
+    Steel: 1500
+    Plastic: 800
+    Glass: 1200
+    Gold: 500
+
+# Guns
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponTemperatureGun
+  result: WeaponTemperatureGun
+  materials:
+    Steel: 1500
+    Glass: 800
+    Plastic: 500
+    Plasma: 500
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponEnergyRifle
+  result: WeaponEnergyRifle
+  materials:
+    Steel: 1500
+    Plastic: 1000
+    Silver: 500
+    Gold: 500
+    Glass: 850
+
+- type: latheRecipe
+  id: Terminus
+  result: Terminus # Einstein Engines
+  completetime: 6
+  materials:
+    Steel: 1250
+    Plastic: 750
+    Gold: 500
+
+# Smartgun
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponSubMachineSmart
+  result: WeaponSubMachineSmart
+  materials:
+    Steel: 1800
+    Plastic: 750
+    Silver: 500
+    Gold: 500
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineSmart
+  result: MagazineSmart
+  materials:
+    Steel: 550
+
 # Mech Weapons
 - type: latheRecipe
   id: WeaponMechCombatImmolationGun

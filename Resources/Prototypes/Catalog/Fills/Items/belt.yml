@@ -115,9 +115,13 @@
       - id: Ointment
       - id: Bloodpack
       - id: Gauze
-      - id: EmergencyMedipen #You never know what people are going to latejoin into
-        amount: 3
-      - id: ParamedHypo #Goobstation - ParamedHypo
+      #- id: EmergencyMedipen #You never know what people are going to latejoin into # Goobstation - start
+      #  amount: 3
+      - id: ParamedHypo
+      - id: CartridgeSaline
+      - id: CartridgeBicaridine
+      - id: CartridgeDermaline
+      - id: CartridgeAtropine # Goobstation - end
 
 - type: entity
   id: ClothingBeltPlantFilled

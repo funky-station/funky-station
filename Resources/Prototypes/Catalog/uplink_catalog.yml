@@ -196,7 +196,7 @@
     Telecrystal: 150 # goob
   categories:
   - UplinkWeaponry
-  conditions:
+  conditions: # Funky war ops whitelisting
   - !type:WarOpsCondition
   saleLimit: 1 # WD EDIT
 

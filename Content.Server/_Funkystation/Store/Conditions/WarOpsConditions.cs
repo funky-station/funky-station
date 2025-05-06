@@ -15,7 +15,6 @@ public sealed partial class WarOpsCondition : ListingCondition
 
         var ent = args.EntityManager;
         var gameTicker = esm.GetEntitySystem<GameTicker>();
-        var war = esm.GetEntitySystem<NukeopsRuleSystem>();
 
         var rules = gameTicker.GetActiveGameRules();
         foreach (var rule in rules)

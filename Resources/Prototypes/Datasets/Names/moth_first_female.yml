@@ -1,5 +1,5 @@
 - type: dataset
-  id: names_moth_first_female
+  id: NamesMothFirstFemale
   values:
   - Atropos # Acherontia atropos
   - Betularia # Biston betularia

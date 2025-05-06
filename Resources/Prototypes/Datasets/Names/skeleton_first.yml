@@ -1,5 +1,5 @@
 - type: dataset
-  id: skeletonNamesFirst
+  id: NamesSkeleton
   values:
   - Sternum
   - Ribs

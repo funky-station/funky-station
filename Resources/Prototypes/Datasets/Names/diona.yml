@@ -1,5 +1,5 @@
 - type: dataset
-  id: DionaFirst
+  id: NamesDionaFirst
   values:
   - Moss
   - Mushroom
@@ -92,7 +92,7 @@
   - Storm
 
 - type: dataset
-  id: DionaLast
+  id: NamesDionaLast
   values:
 # Positive
   - Peace
@@ -172,7 +172,7 @@
   - Sleepiness
   - Neutrality
   - Fairness
-  - Silliness 
+  - Silliness
   - Restraint
   - Silence
   - Bewilderment

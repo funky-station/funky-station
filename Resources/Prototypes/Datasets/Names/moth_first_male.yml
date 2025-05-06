@@ -1,5 +1,5 @@
 - type: dataset
-  id: names_moth_first_male
+  id: NamesMothFirstMale
   values:
   - Agrius # Agrius
   - Atlas # Attacus atlas

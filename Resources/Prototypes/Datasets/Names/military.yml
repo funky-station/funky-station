@@ -1,20 +1,20 @@
 ﻿- type: dataset
-  id: NamesFirstMilitaryLeader
+  id: NamesMilitaryFirstLeader
   values:
   - Colonel
   - Commander
   - Lieutenant
   - Major
-  
+
 - type: dataset
-  id: NamesFirstMilitary
+  id: NamesMilitaryFirst
   values:
   - Corporal
   - Sergeant
   - Specialist
 
 - type: dataset
-  id: NamesLastMilitary
+  id: NamesMilitaryLast
   values:
   - Agena
   - Andromeda

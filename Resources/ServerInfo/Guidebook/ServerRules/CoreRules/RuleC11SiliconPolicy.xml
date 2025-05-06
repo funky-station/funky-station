@@ -13,7 +13,7 @@
   ## Crew
   Any person with a valid ID that displays on your HUD counts as crew, unless you have a law that redefines what crew is. This does still include zombies, changelings, traitors, or any other antagonists with IDs that appear on the HUD.
 
-  You can not perform an action that causes someone to not be considered crew, or directly request that someone not be made crew.
+  You can not perform an action that causes someone to not be considered crew, or directly request that someone be made non-crew.
 
   ## Harm
   By default, harm refers to physical harm, prioritized by immediacy and likelihood, unless otherwise defined. Immediate harm takes priority over future harm, guaranteed harm takes priority over likely harm.

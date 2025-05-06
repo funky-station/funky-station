@@ -137,6 +137,9 @@ namespace Content.Client.Chemistry.UI
             BufferTransferButton.OnPressed += HandleDiscardTransferPress;
             BufferDiscardButton.OnPressed += HandleDiscardTransferPress;
 
+            PillBufferTransferButton.OnPressed += HandleDiscardTransferPress;
+            PillBufferDiscardButton.OnPressed += HandleDiscardTransferPress;
+
             CreateAmountButtons();
             OnAmountButtonPressed += amount => SetAmountText(amount.ToString());
         }

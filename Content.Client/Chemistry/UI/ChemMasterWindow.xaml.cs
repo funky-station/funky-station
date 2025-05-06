@@ -13,6 +13,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Shared.FixedPoint;
 using Robust.Client.Graphics;
+using Serilog;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
 namespace Content.Client.Chemistry.UI
@@ -38,7 +39,6 @@ namespace Content.Client.Chemistry.UI
         private ReagentSortMethod _currentSortMethod = ReagentSortMethod.Alphabetical;
         private ChemMasterBoundUserInterfaceState? _lastState;
         private int _transferAmount = 50;
-        private bool _isOutput = false;
 
         private const string PillsRsiPath = "/Textures/Objects/Specific/Chemistry/pills.rsi";
 
@@ -50,9 +50,6 @@ namespace Content.Client.Chemistry.UI
         {
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
-
-            _reagents = new();
-            _pillReagents = new();
 
             AmountLabel.HorizontalAlignment = HAlignment.Center;
             AmountLineEdit.OnTextEntered += SetAmount;
@@ -190,7 +187,6 @@ namespace Content.Client.Chemistry.UI
             var buttons = BufferInfo.Children
                 .Where(c => c is Button)
                 .Cast<Button>();
-
             foreach (var button in buttons)
             {
                 var text = BufferTransferButton.Pressed ? "transfer" : "discard";
@@ -377,17 +373,6 @@ namespace Content.Client.Chemistry.UI
         {
             BufferInfo.Children.Clear();
 
-            // This has to happen here due to people possibly
-            // setting sorting before putting any chemicals
-            BufferSortButton.Text = state.SortingType switch
-            {
-                ChemMasterSortingType.Alphabetical => Loc.GetString("chem-master-window-sort-type-alphabetical"),
-                ChemMasterSortingType.Quantity => Loc.GetString("chem-master-window-sort-type-quantity"),
-                ChemMasterSortingType.Latest => Loc.GetString("chem-master-window-sort-type-latest"),
-                _ => Loc.GetString("chem-master-window-sort-type-none")
-            };
-
-
             if (!state.BufferReagents.Any())
             {
                 BufferInfo.Children.Add(new Label { Text = Loc.GetString("chem-master-window-buffer-empty-text") });
@@ -410,43 +395,12 @@ namespace Content.Client.Chemistry.UI
             };
             bufferHBox.AddChild(bufferVol);
 
-            foreach (var reagent in _reagents.Keys)
-            {
-                if (state.BufferReagents.All(x => x.Reagent.Prototype != reagent))
-                    _reagents.Remove(reagent);
-            }
-
-            // initialises rowCount to allow for striped rows
-            var rowCount = 0;
             var bufferReagents = state.BufferReagents.OrderBy(x => x.Reagent.Prototype);
 
             if (_currentSortMethod == ReagentSortMethod.Amount)
                 bufferReagents = bufferReagents.OrderByDescending(x => x.Quantity);
 
-            if (_currentSortMethod == ReagentSortMethod.Time)
-            {
-                bufferReagents = bufferReagents.OrderByDescending(
-                    x =>
-                    {
-                        var exists = _reagents.TryGetValue(x.Reagent.Prototype, out var reagent);
-                        return exists && reagent != null ? reagent.TimeAdded : DateTimeOffset.UtcNow;
-                    });
-            }
-
-            foreach (var (reagentId, quantity) in bufferReagents)
-            {
-                _prototypeManager.TryIndex(reagentId.Prototype, out ReagentPrototype? proto);
-
-                var name = proto?.LocalizedName ?? Loc.GetString("chem-master-window-unknown-reagent-text");
-                var reagentColor = proto?.SubstanceColor ?? default(Color);
-                BufferInfo.Children.Add(BuildReagentRow(reagentColor, rowCount++, name, reagentId, quantity, true, true));
-                _reagents.TryGetValue(reagentId.Prototype, out var reagentCached);
-
-                var timeAdded = reagentCached?.TimeAdded ?? DateTimeOffset.UtcNow;
-                var cached = new ReagentCached(reagentId, timeAdded, quantity);
-
-                _reagents.Add(reagentId.Prototype, cached);
-            }
+            HandleBuffer(_currentSortMethod == ReagentSortMethod.Time ? state.BufferReagents : bufferReagents, false);
         }
 
         private void BuildPillBufferInfo(ChemMasterBoundUserInterfaceState state)
@@ -474,42 +428,30 @@ namespace Content.Client.Chemistry.UI
             };
             bufferHBox.AddChild(bufferVol);
 
-            foreach (var reagent in _pillReagents.Keys)
-            {
-                if (state.BufferReagents.All(x => x.Reagent.Prototype != reagent))
-                    _pillReagents.Remove(reagent);
-            }
-
-            // initialises rowCount to allow for striped rows
-            var rowCount = 0;
             var bufferReagents = state.PillBufferReagents.OrderBy(x => x.Reagent.Prototype);
 
             if (_currentSortMethod == ReagentSortMethod.Amount)
                 bufferReagents = bufferReagents.OrderByDescending(x => x.Quantity);
 
-            if (_currentSortMethod == ReagentSortMethod.Time)
-            {
-                bufferReagents = bufferReagents.OrderByDescending(
-                    x =>
-                    {
-                        var exists = _pillReagents.TryGetValue(x.Reagent.Prototype, out var reagent);
-                        return exists && reagent != null ? reagent.TimeAdded : DateTimeOffset.UtcNow;
-                    });
-            }
+            HandleBuffer(_currentSortMethod == ReagentSortMethod.Time ? state.PillBufferReagents : bufferReagents, true);
+        }
 
-            foreach (var (reagentId, quantity) in bufferReagents)
+        private void HandleBuffer(IEnumerable<ReagentQuantity> reagents, bool pillBuffer)
+        {
+            var rowCount = 0;
+            foreach (var (reagentId, quantity) in reagents)
             {
                 _prototypeManager.TryIndex(reagentId.Prototype, out ReagentPrototype? proto);
 
                 var name = proto?.LocalizedName ?? Loc.GetString("chem-master-window-unknown-reagent-text");
                 var reagentColor = proto?.SubstanceColor ?? default(Color);
-                PillBufferInfo.Children.Add(BuildReagentRow(reagentColor, rowCount++, name, reagentId, quantity, true, true));
-                _pillReagents.TryGetValue(reagentId.Prototype, out var reagentCached);
 
-                var timeAdded = reagentCached?.TimeAdded ?? DateTimeOffset.UtcNow;
-                var cached = new ReagentCached(reagentId, timeAdded, quantity);
-
-                _pillReagents.Add(reagentId.Prototype, cached);
+                if (pillBuffer)
+                    PillBufferInfo.Children.Add(
+                        BuildReagentRow(reagentColor, rowCount++, name, reagentId, quantity, true, true));
+                else
+                    BufferInfo.Children.Add(
+                        BuildReagentRow(reagentColor, rowCount++, name, reagentId, quantity, true, true));
             }
         }
 
@@ -640,13 +582,6 @@ namespace Content.Client.Chemistry.UI
             Id = id;
             IsBuffer = isBuffer;
         }
-    }
-
-    public sealed class ReagentCached(ReagentId id, DateTimeOffset timeAdded, FixedPoint2 quantity)
-    {
-        public ReagentId Id { get; set; } = id;
-        public DateTimeOffset TimeAdded { get; set; } = timeAdded;
-        public FixedPoint2 Quantity { get; set; } = quantity;
     }
 
     public enum ReagentSortMethod

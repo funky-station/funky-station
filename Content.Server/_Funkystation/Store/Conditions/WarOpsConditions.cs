@@ -1,7 +1,6 @@
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Shared.NukeOps;
 using Content.Shared.Store;
 
 namespace Content.Server.Store.Conditions;

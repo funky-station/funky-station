@@ -1,0 +1,31 @@
+- type: reagent
+  id: CatJuice
+  name: reagent-name-catjuice
+  group: Toxins
+  desc: reagent-desc-catjuice
+  physicalDesc: reagent-physical-desc-fluffy
+  flavor: cat
+  color: "#7593c8"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+      - !type:Emote
+        emote: Meow
+        showInChat: true
+        force: true
+        probability: 0.1
+      - !type:Polymorph
+        prototype: CatberryCat
+        conditions:
+        - !type:OrganType
+          type: Animal
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 50
+      - !type:AdjustReagent
+        reagent: CatJuice
+        amount: -20
+        conditions:
+        - !type:ReagentThreshold
+          min: 50

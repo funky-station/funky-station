@@ -71,17 +71,16 @@
     graph: portableChemicalMixerGraph
     node: end
 
-  #Not certain why this is included, does not seem to serve any purpose, will re-add if needed
-  #- type: entity
-  #id: portableChemicalMixerIncomplete
-  #parent: BaseItem
-  #name: Incomplete portable chemical mixer
-  #description: A incompleted "Tider" grade chemical manipulator
-  #categories: [ HideSpawnMenu ]
-  #components:
-  #- type: Sprite
-  #sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi
-  #layers:
-  #  - state: incomplete
-  #- type: Item
-  #size: Huge
+- type: entity
+  id: portableChemicalMixerIncomplete
+  parent: BaseItem
+  name: Incomplete portable chemical mixer
+  description: A incompleted "Tider" grade chemical manipulator
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi
+      layers:
+        - state: incomplete
+    - type: Item
+      size: Huge

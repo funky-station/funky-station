@@ -971,6 +971,7 @@
     account: Engineering
     announcementChannel: Engineering
     removeLimitAccess: [ "ChiefEngineer" ]
+    slipPrinter: true
   - type: ActiveRadio
     channels:
     - Engineering
@@ -1003,6 +1004,7 @@
     account: Medical
     announcementChannel: Medical
     removeLimitAccess: [ "ChiefMedicalOfficer" ]
+    slipPrinter: true
   - type: ActiveRadio
     channels:
     - Medical
@@ -1035,6 +1037,7 @@
     account: Science
     announcementChannel: Science
     removeLimitAccess: [ "ResearchDirector" ]
+    slipPrinter: true
   - type: ActiveRadio
     channels:
     - Science
@@ -1067,6 +1070,7 @@
     account: Security
     announcementChannel: Security
     removeLimitAccess: [ "HeadOfSecurity" ]
+    slipPrinter: true
   - type: ActiveRadio
     channels:
     - Security
@@ -1099,6 +1103,7 @@
     account: Service
     announcementChannel: Service
     removeLimitAccess: [ "HeadOfPersonnel" ]
+    slipPrinter: true
   - type: ActiveRadio
     channels:
     - Service

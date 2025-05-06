@@ -153,8 +153,8 @@
     Gold: 200
 
 - type: latheRecipe
-  id: CartridgeIchor
-  result: CartridgeIchor
+  id: CartridgePuncturase
+  result: CartridgePuncturase
   completetime: 1
   materials:
     Steel: 200
@@ -170,9 +170,7 @@
     Steel: 1500
     Plastic: 800
     Glass: 1200
-    Plasma: 500
     Gold: 500
-    Silver: 500
 
 - type: latheRecipe
   id: BolaEnergy

@@ -295,37 +295,38 @@
 
   - type: EmagLatheRecipes
     emagStaticRecipes:
-    - BoxLethalshot
-    - BoxShotgunSlug
-    - CombatKnife
-    - MagazineBoxLightRifle
-    - MagazineBoxMagnum
-    - MagazineBoxPistol
-    - MagazineBoxRifle
-    - MagazineLightRifle
-    - MagazineLightRifleEmpty
-    - MagazinePistol
-    - MagazinePistolEmpty
-    - MagazinePistolSubMachineGun
-    - MagazinePistolSubMachineGunEmpty
-    - MagazinePistolSubMachineGunTopMounted
-    - MagazinePistolSubMachineGunTopMountedEmpty
-    - MagazineRifle
-    - MagazineRifleEmpty
-    - MagazineShotgun
-    - MagazineShotgunEmpty
-    - MagazineShotgunSlug
-    - RiotShield
-    - SpeedLoaderMagnum
-    - SpeedLoaderMagnumEmpty
-    - GrenadeFlashBang # Goobstation
-    - BolaEnergy # Goobstation
-    - CartridgeEpinephrine # Goobstation
-    - CartridgeBicaridine # Goobstation
-    - CartridgeDermaline # Goobstation
-    - CartridgeEphedrine # Goobstation
-    - CartridgeIchor # Goobstation
-    - SecHypo # Goobstation
+      - BoxLethalshot
+      - BoxShotgunSlug
+      - CombatKnife
+      - MagazineBoxLightRifle
+      - MagazineBoxMagnum
+      - MagazineBoxPistol
+      - MagazineBoxRifle
+      - MagazineLightRifle
+      - MagazineLightRifleEmpty
+      - MagazinePistol
+      - MagazinePistolEmpty
+      - MagazinePistolSubMachineGun
+      - MagazinePistolSubMachineGunEmpty
+      - MagazinePistolSubMachineGunTopMounted
+      - MagazinePistolSubMachineGunTopMountedEmpty
+      - MagazineRifle
+      - MagazineRifleEmpty
+      - MagazineShotgun
+      - MagazineShotgunEmpty
+      - MagazineShotgunSlug
+      - RiotShield
+      - SpeedLoaderMagnum
+      - SpeedLoaderMagnumEmpty
+      - GrenadeFlashBang # Goobstation
+      - BolaEnergy # Goobstation
+      - CartridgeEpinephrine # Goobstation
+      - CartridgeBicaridine # Goobstation
+      - CartridgeDermaline # Goobstation
+      - CartridgeEphedrine # Goobstation
+      - CartridgePuncturase # Goobstation
+      - SecHypo # Goobstation
+      - ParamedHypo # Goobstation - ParamedHypo
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -1077,48 +1078,53 @@
     idleState: icon
     runningState: icon
     staticRecipes:
-    - Brutepack
-    - Ointment
-    - Gauze
-    - HandLabeler
-    - Defibrillator
-    - HandheldHealthAnalyzer
-    - ClothingHandsGlovesLatex
-    - ClothingHandsGlovesNitrile
-    - ClothingMaskSterile
-    - DiseaseSwab
-    - Beaker
-    - LargeBeaker
-    - Dropper
-    - Jug
-    - Syringe
-    - Implanter
-    - PillCanister
-    - BodyBag
-    - ChemistryEmptyBottle01
-    - RollerBedSpawnFolded
-    - CheapRollerBedSpawnFolded
-    - EmergencyRollerBedSpawnFolded
-    - Medkit
-    - MedkitBurn
-    - MedkitToxin
-    - MedkitO2
-    - MedkitBrute
-    - MedkitAdvanced
-    - MedkitRadiation
-    - MedkitCombat
-    - Scalpel
-    - Retractor
-    - Cautery
-    - Drill
-    - Saw
-    - Hemostat
-    - ClothingEyesGlassesChemical
-    - WhiteCane
-    - MedicalPatchBasic  #Goobstation - MedicalPatch
-    - MedicalPatchRapid #Goobstation - MedicalPatch
-    - MedicalPatchLarge #Goobstation - MedicalPatch
-    - BoneGel # Shitmed Change
+      - Brutepack
+      - Ointment
+      - Gauze
+      - HandLabeler
+      - Defibrillator
+      - HandheldHealthAnalyzer
+      - ClothingHandsGlovesLatex
+      - ClothingHandsGlovesNitrile
+      - ClothingMaskSterile
+      - DiseaseSwab
+      - Beaker
+      - LargeBeaker
+      - Dropper
+      - Jug
+      - Syringe
+      - Implanter
+      - PillCanister
+      - BodyBag
+      - ChemistryEmptyBottle01
+      - RollerBedSpawnFolded
+      - CheapRollerBedSpawnFolded
+      - EmergencyRollerBedSpawnFolded
+      - Medkit
+      - MedkitBurn
+      - MedkitToxin
+      - MedkitO2
+      - MedkitBrute
+      - MedkitAdvanced
+      - MedkitRadiation
+      - MedkitCombat
+      - Scalpel
+      - Retractor
+      - Cautery
+      - Drill
+      - Saw
+      - Hemostat
+      - ClothingEyesGlassesChemical
+      - WhiteCane
+      - MedicalPatchBasic  #Goobstation - MedicalPatch
+      - MedicalPatchRapid #Goobstation - MedicalPatch
+      - MedicalPatchTherapeutic #Goobstation - MedicalPatch
+      - MedicalPatchLarge #Goobstation - MedicalPatch
+      - BoneGel # Shitmed Change
+      - CartridgeEpinephrine # Goobstation - ParamedHypo
+      - CartridgeBicaridine # Goobstation - ParamedHypo
+      - CartridgeDermaline # Goobstation - ParamedHypo
+      - ParamedHypo # Goobstation - ParamedHypo
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

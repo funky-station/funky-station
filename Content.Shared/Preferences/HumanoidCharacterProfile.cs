@@ -749,7 +749,7 @@ namespace Content.Shared.Preferences
         {
             var random = IoCManager.Resolve<IRobustRandom>();
             var prototypeSystem = IoCManager.Resolve<IPrototypeManager>();
-            var prototype = prototypeSystem.Index<DatasetPrototype>("names_borg");
+            var prototype = prototypeSystem.Index<DatasetPrototype>("NamesBorg");
             return random.Pick(prototype);
 
         }

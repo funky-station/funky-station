@@ -86,7 +86,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Construction
-    node: SteelCurb
+    node: steelCurb
 
 - type: entity
   parent: SteelCurb
@@ -115,7 +115,7 @@
         mask:
         - CrateMask
   - type: Construction
-    node: SteelCurbCorner
+    node: steelCurbCorner
 
 - type: entity
   parent: SteelCurb

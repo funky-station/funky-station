@@ -70,6 +70,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         SubscribeLocalEvent<ThavenMoodsBoundComponent, ComponentShutdown>(OnThavenMoodShutdown);
         SubscribeLocalEvent<ThavenMoodsBoundComponent, ToggleMoodsScreenEvent>(OnToggleMoodsScreen);
         SubscribeLocalEvent<ThavenMoodsBoundComponent, BoundUIOpenedEvent>(OnBoundUIOpened);
+        SubscribeLocalEvent<RulePlayerJobsAssignedEvent>(OnJobsAssigned); // funky
         SubscribeLocalEvent<RoundRestartCleanupEvent>((_) => NewSharedMoods());
     }
 
@@ -412,6 +413,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         if (comp.LifeStage != ComponentLifeStage.Starting)
             return;
 
+        /* funky: roll moods after jobs roll
         // "Yes, and" moods
         if (TryPick(YesAndDataset, out var mood, GetActiveMoods(uid, comp), null, GetMindDepartment(uid))) // funky - check for job conflicts
             TryAddMood(uid, mood, comp, true, false);
@@ -419,6 +421,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         // "No, and" moods
         if (TryPick(NoAndDataset, out mood, GetActiveMoods(uid, comp), null, GetMindDepartment(uid))) // funky - check for job conflicts
             TryAddMood(uid, mood, comp, true, false);
+        */
 
         comp.Action = _actions.AddAction(uid, ActionViewMoods);
     }
@@ -456,6 +459,22 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
             return unknown;
 
         return departmentProto.ID;
+    }
+
+    private void OnJobsAssigned(RulePlayerJobsAssignedEvent args)
+    {
+        var query = EntityQueryEnumerator<ThavenMoodsBoundComponent>();
+
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            // "Yes, and" moods
+            if (TryPick(YesAndDataset, out var mood, GetActiveMoods(uid, comp), null, GetMindDepartment(uid)))
+                TryAddMood(uid, mood, comp, true, false);
+
+            // "No, and" moods
+            if (TryPick(NoAndDataset, out mood, GetActiveMoods(uid, comp), null, GetMindDepartment(uid)))
+                TryAddMood(uid, mood, comp, true, false);
+        }
     }
     // end funky
 }

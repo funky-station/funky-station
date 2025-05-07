@@ -14,9 +14,6 @@ public abstract class SharedThavenMoodSystem : EntitySystem
     }
     protected virtual void OnEmagged(EntityUid uid, ThavenMoodsBoundComponent comp, ref GotEmaggedEvent args)
     {
-        if (HasComp<MindShieldComponent>(uid))
-            return;
-
         args.Handled = true;
     }
 }

@@ -21,6 +21,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared._Impstation.CCVar;
 using Content.Shared.Mind;
+using Content.Shared.Mindshield.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Utility;
 
@@ -154,17 +155,9 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
                 continue; // Skip proto if it conflicts with an existing mood
 
             // begin funky
-            // note: idk how to do this so it doesnt work ^__^
             var conflictingJobs = moodProto.JobConflicts;
             if (conflictingJobs.Contains(department))
-            {
-                Debug.WriteLine($"entity's department is: {department}. skipping {moodId}");
                 continue; // Skip proto if it conflicts with the entity's department
-            }
-            else
-            {
-                Debug.WriteLine($"entity's department is: {department}. {moodId} does not conflict.");
-            }
             // end funky
 
             proto = moodProto;
@@ -434,7 +427,9 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
     protected override void OnEmagged(EntityUid uid, ThavenMoodsBoundComponent comp, ref GotEmaggedEvent args)
     {
         base.OnEmagged(uid, comp, ref args);
-        TryAddRandomMood(uid, WildcardDataset, comp);
+
+        if (!HasComp<MindShieldComponent>(uid)) // funky: dont emag mindshielded thavens
+            TryAddRandomMood(uid, WildcardDataset, comp);
     }
 
     // Begin DeltaV: thaven mood upsets

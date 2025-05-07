@@ -13,7 +13,6 @@ using System.Linq;
 using System.Numerics;
 using Content.Shared.FixedPoint;
 using Robust.Client.Graphics;
-using Serilog;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
 namespace Content.Client.Chemistry.UI
@@ -299,7 +298,7 @@ namespace Content.Client.Chemistry.UI
         /// <param name="state">State data sent by the server.</param>
         public void UpdateState(BoundUserInterfaceState state)
         {
-            var castState = (ChemMasterBoundUserInterfaceState)state;
+            var castState = (ChemMasterBoundUserInterfaceState) state;
 
             if (castState.UpdateLabel)
                 LabelLine = GenerateLabel(castState);
@@ -452,6 +451,7 @@ namespace Content.Client.Chemistry.UI
         private void HandleBuffer(IEnumerable<ReagentQuantity> reagents, bool pillBuffer)
         {
             var rowCount = 0;
+
             foreach (var (reagentId, quantity) in reagents)
             {
                 _prototypeManager.TryIndex(reagentId.Prototype, out ReagentPrototype? proto);
@@ -459,12 +459,16 @@ namespace Content.Client.Chemistry.UI
                 var name = proto?.LocalizedName ?? Loc.GetString("chem-master-window-unknown-reagent-text");
                 var reagentColor = proto?.SubstanceColor ?? default(Color);
 
-                if (pillBuffer)
-                    PillBufferInfo.Children.Add(
-                        BuildReagentRow(reagentColor, rowCount++, name, reagentId, quantity, true, true));
-                else
-                    BufferInfo.Children.Add(
-                        BuildReagentRow(reagentColor, rowCount++, name, reagentId, quantity, true, true));
+                var buffer = pillBuffer ? PillBufferInfo : BufferInfo;
+                var row = BuildReagentRow(
+                    reagentColor,
+                    rowCount++,
+                    name,
+                    reagentId,
+                    quantity,
+                    true,
+                    true);
+                buffer.Children.Add(row);
             }
         }
 

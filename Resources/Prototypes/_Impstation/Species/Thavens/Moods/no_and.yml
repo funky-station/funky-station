@@ -141,7 +141,7 @@
   conflicts:
   - VeryReligious
   jobConflicts:
-  - Service
+  - Civilian
 
 # Punctuality is impolite. You must walk slowly at all times, and be fashionably late to any obligations.
 - type: thavenMood

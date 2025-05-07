@@ -301,6 +301,15 @@
     state: conpipe-y
 
 - type: construction
+  id: DisposalXJunction
+  graph: DisposalPipe
+  startNode: start
+  targetNode: xJunction
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+
+- type: construction
   name: disposal bend
   description: A tube bent at a 90 degree angle.
   id: DisposalBend

@@ -1,6 +1,5 @@
 using Content.Shared.Emag.Systems;
 using Content.Shared._Impstation.Thaven.Components;
-using Content.Shared.Mindshield.Components;
 
 namespace Content.Shared._Impstation.Thaven;
 

@@ -1,0 +1,16 @@
+- type: entity
+  parent: BaseMail
+  id: MailCargoMailSupplies
+  suffix: Mail Supplies
+  components:
+  - type: Mail
+    contents:
+    - id: BoxMailCapsulePrimed
+      orGroup: MailSupplies
+    - id: MailingUnitElectronics
+      amount: 2
+      orGroup: MailSupplies
+    - id: BoxEnvelope
+      orGroup: MailSupplies
+    - id: MaterialCardboard
+      orGroup: MailSupplies

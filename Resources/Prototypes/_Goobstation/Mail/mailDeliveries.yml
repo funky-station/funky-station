@@ -60,6 +60,7 @@
       MailCommandPipebombIntern: 1
       MailLuxuryPen: 1.6
       MailExtendedWarrantyCommand: 0.5
+      MailBartenderPremiumBooze: 0.2
     Medical:
       MailMedicalBasicSupplies: 2
       MailMedicalMedicinePills: 2
@@ -87,9 +88,13 @@
       MailSecurityFlashlight: 2
       MailSecurityNonlethalsKit: 1.6
       MailSecuritySpaceLaw: 1
+      MailSecurityJusticeHelm: 0.2
+    Cargo:
+      MailCargoMailSupplies: 1
   jobs: # Jobs
     Bartender:
       MailBartenderTools: 0.5
+      MailBartenderPremiumBooze: 0.5
     Botanist:
       MailMutatedProduce: 1.6
       MailBotanistChemicalBottles: 2
@@ -135,6 +140,7 @@
     Janitor:
       MailSoaps: 2
       MailSoapsOmega: 0.5
+      MailJanitorReplacementLights: 1
     Lawyer:
       MailLuxuryPen: 2
       MailSecuritySpaceLaw: 0.8

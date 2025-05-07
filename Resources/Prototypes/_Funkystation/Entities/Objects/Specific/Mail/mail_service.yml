@@ -35,7 +35,7 @@
       amount: 2
       orGroup: ChapCandles
       prob: 0.05
-
+#Bartender
 - type: entity
   parent: BaseMail
   id: MailBartenderTools
@@ -55,3 +55,43 @@
       orGroup: Bartools
     - id: SprayBottleSpaceCleaner
       orGroup: Bartools
+
+- type: entity
+  parent: BaseMail
+  id: MailBartenderPremiumBooze
+  suffix: Premium Booze
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: DrinkPremiumTequilaBottleFull
+      orGroup: PremiumBooze
+    - id: DrinkPremiumRumBottleFull
+      orGroup: PremiumBooze
+    - id: DrinkPremiumGinBottleFull
+      orGroup: PremiumBooze
+    - id: DrinkPremiumAbsintheBottleFull
+      orGroup: PremiumBooze
+    - id: DrinkPremiumVodkaBottleFull
+      orGroup: PremiumBooze
+    - id: DrinkWineBottleFull
+      orGroup: PremiumBooze
+    - id: DrinkPremiumWhiskeyBottleFull
+      orGroup: PremiumBooze
+#Janitor
+- type: entity
+  parent: BaseMail
+  id: MailJanitorReplacementLights
+  suffix: Janitor Replacement Lights
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: BoxLighttubeHoliday
+      orGroup: JaniLights
+    - id: LightReplacer
+      orGroup: JaniLights
+    - id: BoxWarmLightbulb
+      orGroup: JaniLights
+    - id: BoxLightMixed
+      orGroup: JaniLights

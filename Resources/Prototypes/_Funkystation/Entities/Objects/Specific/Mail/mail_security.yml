@@ -1,0 +1,8 @@
+- type: entity
+  parent: BaseMail
+  id: MailSecurityJusticeHelm
+  suffix: Justice Helm
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHeadHelmetJustice

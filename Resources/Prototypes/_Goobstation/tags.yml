@@ -126,3 +126,24 @@
 
 - type: Tag
   id: Gygax
+
+- type: Tag
+  id: Jetpack
+
+- type: Tag
+  id: Hacking
+
+- type: Tag
+  id: Rifle
+
+- type: Tag
+  id: RoundstartAntag
+
+- type: Tag
+  id: CalmAntag
+
+- type: Tag
+  id: ExtremeAntag
+
+- type: Tag
+  id: MidroundAntag

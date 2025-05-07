@@ -26,7 +26,7 @@
     injectOnly: true
   - type: HyposprayBlockNonMobInjection
   - type: UseDelay
-    delay: 30 # up this later if its too low
+    delay: 200 # up this later if it's too low, was only 30 on Goob. Original was 400 on Funky but this is LONG. Will test this delay.
   - type: ContainerContainer
     containers:
       item: !type:ContainerSlot
@@ -87,19 +87,20 @@
       maxVol: 10
   - type: Tag
     tags:
-      - AutoinjectorCartridge
+    - AutoinjectorCartridge
 
 - type: entity
   name: adrenaline autoinjector cartridge
-  parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
+  parent: [ BaseMedicalContraband , BaseSecurityContraband, BaseAutoinjectorCartridge ]
   description: Contains 7u of epinephrine and 3u of tranexamic acid, used in a cartridge autoinjector.
-  id: CartridgeEpinephrine
+  id: CartridgeAdrenaline  #CartridgeEpinephrine
   components:
   - type: Sprite
     layers:
     - state: base
     - state: filling
       color: "#cad8d4"
+  - type: SolutionCartridge
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
@@ -111,10 +112,10 @@
         Quantity: 3 # Fully stops bleeding
 
 - type: entity
-  name: airloss autoinjector cartridge
-  parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 7u of saline and 3u of dexalin plus, used in a cartridge autoinjector.
-  id: CartridgeSaline
+  name: airloss autoinjector cartridge #Funky Addition, this recipe may need tweaking
+  parent: [ BaseMedicalContraband , BaseSecurityContraband, BaseAutoinjectorCartridge ]
+  description: Contents tbd
+  id: CartridgeAirloss
   components:
   - type: Sprite
     layers:
@@ -126,16 +127,14 @@
     solution:
       maxVol: 10
       reagents:
-      - ReagentId: Saline
-        Quantity: 7
-      - ReagentId: DexalinPlus
-        Quantity: 3
+      - ReagentId: Salbutamol
+        Quantity: 10
 
 - type: entity
-  name: brute autoinjector cartridge
-  parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 4u of bicaridine, 3u of bozaide, 2u of salicylic acid and 1u of tranexamic acid, used in a cartridge autoinjector.
-  id: CartridgeBicaridine
+  name: brute autoinjector cartridge #Funky Addition, this recipe may need tweaking
+  parent: [ BaseMedicalContraband , BaseSecurityContraband, BaseAutoinjectorCartridge ]
+  description: Contents tbd
+  id: CartridgeBrute
   components:
   - type: Sprite
     layers:
@@ -147,21 +146,14 @@
     solution:
       maxVol: 10
       reagents:
-      - ReagentId: Bicaridine
-        Quantity: 4
-      - ReagentId: Bozaide
-        Quantity: 3
-      - ReagentId: SalicylicAcid
-        Quantity: 2
-      - ReagentId: TranexamicAcid
-        Quantity: 1 # Stops 30% of maximum bleeding
-  # Finely tuned mix, heals up to 98 total brute split between 3 types, equivalent of 3.23 brute packs
+      - ReagentId: Probital
+        Quantity: 10
 
 - type: entity
   name: burn autoinjector cartridge
-  parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 4u of kelotane, 3u of dermaline, 2u of oxandrolone and 1u of sigynate, used in a cartridge autoinjector.
-  id: CartridgeDermaline
+  parent: [ BaseMedicalContraband , BaseSecurityContraband, BaseAutoinjectorCartridge ]
+  description: Contents tbd
+  id: CartridgeBurn
   components:
   - type: Sprite
     layers:
@@ -173,33 +165,7 @@
     solution:
       maxVol: 10
       reagents:
-      - ReagentId: Kelotane
-        Quantity: 4
-      - ReagentId: Dermaline
-        Quantity: 3
-      - ReagentId: Oxandrolone
-        Quantity: 2
-      - ReagentId: Sigynate
-        Quantity: 1
-  # Finely tuned mix, heals up to 114 total burn split between 4 types, twice as good for heat/cold/shock than for caustic, equivalent of 3.25 ointments
-
-- type: entity
-  name: emergency autoinjector cartridge
-  parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 10u of atropine, used in a cartridge autoinjector.
-  id: CartridgeAtropine
-  components:
-  - type: Sprite
-    layers:
-    - state: base
-    - state: filling
-      color: "#572757"
-  - type: SolutionCartridge
-    targetSolution: hypospray
-    solution:
-      maxVol: 10
-      reagents:
-      - ReagentId: Atropine
+      - ReagentId: Lenturi
         Quantity: 10
 
 - type: entity
@@ -222,29 +188,10 @@
         Quantity: 10
 
 - type: entity
-  name: stimulant autoinjector cartridge
-  parent: [ BaseSyndicateContraband , BaseAutoinjectorCartridge ]
-  description: Contains 10u of ephedrine, used in a cartridge autoinjector.
-  id: CartridgeEphedrine
-  components:
-  - type: Sprite
-    layers:
-    - state: base
-    - state: filling
-      color: "#d2fffa"
-  - type: SolutionCartridge
-    targetSolution: hypospray
-    solution:
-      maxVol: 10
-      reagents:
-      - ReagentId: Ephedrine
-        Quantity: 10
-
-- type: entity
   name: sedative autoinjector cartridge
   parent: [ BaseSyndicateContraband , BaseAutoinjectorCartridge ]
-  description: Contains 4u of tirizene, 3u of impedrezene and 3u of haloperidol, used in a cartridge autoinjector.
-  id: CartridgeTirizene
+  description: Contents tbd
+  id: CartridgeSedative
   components:
   - type: Sprite
     layers:
@@ -256,11 +203,7 @@
     solution:
       maxVol: 10
       reagents:
-      - ReagentId: Tirizene
-        Quantity: 4
       - ReagentId: Impedrezene
-        Quantity: 3
-      - ReagentId: Haloperidol
         Quantity: 3
 
 # Medipens
@@ -293,151 +236,3 @@
           Quantity: 10
   - type: Tag
     tags: []
-
-
-- type: entity
-  name: centcomm advanced stimulant
-  parent: [ChemicalMedipen, BaseCentcommContraband]
-  id: CentcommStimpack
-  suffix: DO NOT MAP
-  description: According to a Nanotrasen funded study, it has zero addictive properties.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi
-    layers:
-    - state: ntstimpen
-      map: ["enum.SolutionContainerLayers.Fill"]
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 50
-        reagents:
-        - ReagentId: Stimulants
-          Quantity: 50
-  - type: SolutionContainerVisuals
-    maxFillLevels: 1
-    changeColor: false
-    emptySpriteName: ntstimpen_empty
-  - type: Hypospray
-    solutionName: pen
-    transferAmount: 50
-    onlyAffectsMobs: false
-    injectOnly: true
-  - type: StaticPrice
-    price: 500
-  - type: Tag
-    tags: []
-
-- type: entity
-  name: biohazard medipen
-  parent: ChemicalMedipen
-  id: AmbuzolMedipen
-  suffix: DO NOT MAP
-  description: A safe and effective way to treat infections. Does not prevent re-infection.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi
-    layers:
-    - state: ambuzolpen
-      map: ["enum.SolutionContainerLayers.Fill"]
-  - type: SolutionContainerVisuals
-    maxFillLevels: 1
-    changeColor: false
-    emptySpriteName: ambuzolpen_empty
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 15
-        reagents:
-        - ReagentId: Ambuzol
-          Quantity: 10
-        - ReagentId: Ultravasculine
-          Quantity: 5
-  - type: Tag
-    tags:
-    - EmergencyMedipen
-
-- type: entity
-  name: advanced biohazard medipen
-  parent: ChemicalMedipen
-  id: AmbuzolPlusMedipen
-  suffix: DO NOT MAP
-  description: A safer and extremely effective way to treat any infections. Prevents re-infection.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi
-    layers:
-    - state: ambuzolpluspen
-      map: ["enum.SolutionContainerLayers.Fill"]
-  - type: SolutionContainerVisuals
-    maxFillLevels: 1
-    changeColor: false
-    emptySpriteName: ambuzolpen_empty
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 10
-        reagents:
-        - ReagentId: AmbuzolPlus
-          Quantity: 5
-        - ReagentId: Diphenhydramine
-          Quantity: 15
-  - type: Tag
-    tags:
-    - EmergencyMedipen
-
-# Actual hyposprays
-
-- type: entity
-  name: amnestic spray
-  parent: [BaseItem, BaseCentcommContraband]
-  id: AmnestizineHypospray # Technically this is rather multi-use medipen but I'll put it here
-  suffix: DO NOT MAP
-  description: Prevents the subject from remembering anything prior or during the injection.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
-    state: icon
-  - type: Item
-    sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
-  - type: SolutionContainerManager
-    solutions:
-      hypospray:
-        maxVol: 100
-        reagents:
-        - ReagentId: Amnestizine
-          Quantity: 100
-  - type: ExaminableSolution
-    solution: hypospray
-  - type: Hypospray
-    solutionName: hypospray
-    transferAmount: 5
-    onlyAffectsMobs: false
-    injectOnly: true
-  - type: HyposprayBlockNonMobInjection
-  - type: UseDelay
-    delay: 0.1 # UseDelays are for LOSERs
-
-- type: entity
-  name: centcomm hypospray
-  parent: [BaseItem, BaseCentcommContraband]
-  description: Reserved for Nanotrasen's top doctors. It utilizes experimental bluespace technology.
-  id: CentCommHypo
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
-    state: hypo
-  - type: Item
-    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
-  - type: SolutionContainerManager
-    solutions:
-      hypospray:
-        maxVol: 50
-  - type: RefillableSolution
-    solution: hypospray
-  - type: ExaminableSolution
-    solution: hypospray
-  - type: Hypospray
-    onlyAffectsMobs: false
-  - type: UseDelay
-    delay: 0.2

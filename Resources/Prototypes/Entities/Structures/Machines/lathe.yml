@@ -320,11 +320,9 @@
       - SpeedLoaderMagnumEmpty
       - GrenadeFlashBang # Goobstation
       - BolaEnergy # Goobstation
-      - CartridgeEpinephrine # Goobstation
-      - CartridgeBicaridine # Goobstation
-      - CartridgeDermaline # Goobstation
-      - CartridgeEphedrine # Goobstation
-      - CartridgePuncturase # Goobstation
+      - CartridgeAdrenaline # Goobstation
+      - CartridgeBrute # Goobstation
+      - CartridgeBurn # Goobstation
       - SecHypo # Goobstation
       - ParamedHypo # Goobstation - ParamedHypo
   - type: BlueprintReceiver
@@ -928,11 +926,10 @@
     - Zipties
     - GrenadeFlashBang # Goobstation
     - BolaEnergy # Goobstation
-    - CartridgeEpinephrine # Goobstation
-    - CartridgeBicaridine # Goobstation
-    - CartridgeDermaline # Goobstation
+    - CartridgeAdrenaline # Goobstation
+    - CartridgeBrute # Goobstation
+    - CartridgeBurn # Goobstation
     - SecHypo # Goobstation
-    - SyringeGun # Goobstation
     dynamicRecipes:
     - BoxBeanbag
     - BoxShotgunIncendiary
@@ -1118,12 +1115,11 @@
       - WhiteCane
       - MedicalPatchBasic  #Goobstation - MedicalPatch
       - MedicalPatchRapid #Goobstation - MedicalPatch
-      - MedicalPatchTherapeutic #Goobstation - MedicalPatch
       - MedicalPatchLarge #Goobstation - MedicalPatch
       - BoneGel # Shitmed Change
-      - CartridgeEpinephrine # Goobstation - ParamedHypo
-      - CartridgeBicaridine # Goobstation - ParamedHypo
-      - CartridgeDermaline # Goobstation - ParamedHypo
+      - CartridgeAdrenaline # Goobstation - ParamedHypo
+      - CartridgeBrute # Goobstation - ParamedHypo
+      - CartridgeBurn # Goobstation - ParamedHypo
       - ParamedHypo # Goobstation - ParamedHypo
     dynamicRecipes:
     - ChemicalPayload

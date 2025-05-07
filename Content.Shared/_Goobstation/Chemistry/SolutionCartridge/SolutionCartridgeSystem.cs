@@ -1,47 +1,53 @@
 using System.Linq;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 
 namespace Content.Shared._Goobstation.Chemistry.SolutionCartridge;
 
 public sealed class SolutionCartridgeSystem : EntitySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _container = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly INetManager _net = default!;
-
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SolutionCartridgeComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<HyposprayComponent, EntInsertedIntoContainerMessage>(OnCartridgeInserted);
+        SubscribeLocalEvent<HyposprayComponent, EntRemovedFromContainerMessage>(OnCartridgeRemoved);
+        SubscribeLocalEvent<HyposprayComponent, AfterHyposprayInjectsEvent>(OnHyposprayInjected);
     }
 
-    private void OnAfterInteract(Entity<SolutionCartridgeComponent> ent, ref AfterInteractEvent args)
+    private void OnCartridgeInserted(Entity<HyposprayComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
-        var (uid, comp) = ent;
-
-        var other = args.Target;
-
-        if (!TryComp(other, out SolutionContainerManagerComponent? manager) ||
-            !_container.TryGetSolution((other.Value, manager),
-                comp.TargetSolution,
-                out var solutionEntity,
-                out var solution) || solution.Contents.Count != 0 ||
-            !TryComp(other.Value, out SolutionCartridgeReceiverComponent? receiver) || !_tag.HasTag(uid, receiver.Tag))
+        if (!TryComp<SolutionCartridgeComponent>(args.Entity, out var cartridge)
+            || !TryComp(ent, out SolutionContainerManagerComponent? manager)
+            || !_solution.TryGetSolution((ent, manager), cartridge.TargetSolution, out var solutionEntity))
             return;
 
-        if (!_container.TryAddSolution(solutionEntity.Value, comp.Solution))
+        _solution.TryAddSolution(solutionEntity.Value, cartridge.Solution);
+    }
+
+    private void OnCartridgeRemoved(Entity<HyposprayComponent> ent, ref EntRemovedFromContainerMessage args)
+    {
+        if (!TryComp<SolutionCartridgeComponent>(args.Entity, out var cartridge)
+            || !TryComp(ent, out SolutionContainerManagerComponent? manager)
+            || !_solution.TryGetSolution((ent, manager), cartridge.TargetSolution, out var solutionEntity))
             return;
 
-        args.Handled = true;
-        _audio.PlayPredicted(receiver.InsertSound, other.Value, args.User);
-        if (_net.IsServer)
-            QueueDel(uid);
+        _solution.RemoveAllSolution(solutionEntity.Value);
+    }
+
+    private void OnHyposprayInjected(Entity<HyposprayComponent> ent, ref AfterHyposprayInjectsEvent args)
+    {
+        if (!_container.TryGetContainer(ent, "item", out var container))
+            return;
+
+        _container.CleanContainer(container);
     }
 }

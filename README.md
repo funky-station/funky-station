@@ -19,7 +19,7 @@ We recommend you read the contribution guidelines. [Contribution Guidelines](htt
 
 ## Building
 
-Refer to [the Space Wizards' guide](https://docs.spacestation14.com/en/general-development/setup/setting-up-a-development-environment.html) on setting up a development environment for general information, but keep in mind that Einstein Engines is not the same and many things may not apply.
+Refer to [the Space Wizards' guide](https://docs.spacestation14.com/en/general-development/setup/setting-up-a-development-environment.html) on setting up a development environment for general information, but keep in mind that Funky Station is not the same and many things may not apply.
 We provide some scripts shown below to make the job easier.
 
 ### Build dependencies

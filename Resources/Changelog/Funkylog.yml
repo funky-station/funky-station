@@ -2630,3 +2630,19 @@ Entries:
       message: Removed extra mail teleporters from under tables on Bagel.
   id: 324
   time: '2025-05-05T00:22:02.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: >-
+        Crystallizer will no longer maintain temperature with a low amount of
+        gas in it's regulator port. 
+  id: 325
+  time: '2025-05-05T23:05:33.0000000+00:00'
+- author: sleepyyapril
+  changes:
+    - type: Add
+      message: Added a pill buffer and sorting to the ChemMaster.
+    - type: Tweak
+      message: Moved transfer buttons to the side.
+  id: 326
+  time: '2025-05-08T01:31:14.0000000+00:00'

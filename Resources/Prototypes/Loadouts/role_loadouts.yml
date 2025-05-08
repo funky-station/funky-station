@@ -242,6 +242,19 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  
+- type: roleLoadout
+  id: JobMiner
+  groups:
+  - GroupTankHarness
+  - CargoTechnicianBackpack
+  - MinerNeck
+  - MinerOuterClothing
+  - MinerShoes
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
 
 # Engineering
 - type: roleLoadout

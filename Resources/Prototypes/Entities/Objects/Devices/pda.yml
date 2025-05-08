@@ -494,10 +494,37 @@
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
        !type:String
-       pda-miner
+       pda-salvager
   - type: PdaBorderColor
     borderColor: "#af9366"
     accentVColor: "#8900c9"
+  - type: Icon
+    state: pda-miner
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - AstroNavCartridge
+      - NanoChatCartridge # DeltaV
+
+- type: entity
+  parent: BasePDA
+  id: MinerPDA
+  name: miner PDA
+  description: Smells like ash.
+  components:
+  - type: Pda
+    id: MinerIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-miner
+  - type: PdaBorderColor
+    borderColor: "#af9366"
+    accentVColor: "#dde249"
   - type: Icon
     state: pda-miner
   - type: CartridgeLoader

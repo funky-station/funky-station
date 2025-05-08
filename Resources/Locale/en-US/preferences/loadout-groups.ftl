@@ -105,6 +105,11 @@ loadout-group-salvage-specialist-backpack = Salvage Specialist backpack
 loadout-group-salvage-specialist-outerclothing = Salvage Specialist outer clothing
 loadout-group-salvage-specialist-shoes = Salvage Specialist shoes
 
+loadout-group-miner-backpack = Miner backpack
+loadout-group-miner-neck = Miner neck
+loadout-group-miner-outerclothing = Miner outer clothing
+loadout-group-miner-shoes = Miner shoes
+
 # Engineering
 loadout-group-chief-engineer-head = Chief Engineer head
 loadout-group-chief-engineer-jumpsuit = Chief Engineer jumpsuit

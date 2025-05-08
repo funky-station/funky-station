@@ -235,8 +235,16 @@
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: ShaftMiner
-  jobName: job-name-salvagespec
+  jobName: job-name-miner
 
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSalvager
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Salvager
+  jobName: job-name-salvagespec
+  
 - type: jobIcon
   parent: JobIcon
   id: JobIconPassenger

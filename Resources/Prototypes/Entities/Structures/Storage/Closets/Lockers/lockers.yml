@@ -52,6 +52,20 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
+    stateBaseClosed: salvage
+    stateDoorOpen: mining_open
+    stateDoorClosed: salvage_door
+  - type: AccessReader
+    access: [["Salvage"]]
+
+- type: entity
+  id: LockerMiner
+  parent: LockerBase
+  name: miner's equipment
+  description: Nevermind the pickaxe.
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
     stateBaseClosed: mining
     stateDoorOpen: mining_open
     stateDoorClosed: mining_door

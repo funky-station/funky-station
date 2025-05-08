@@ -32,6 +32,7 @@ job-description-janitor = Keep the station clean of any trash or slipping hazard
 job-description-lawyer = Ensure that every prisoner or criminal receives a fair judgment and trial if necessary.
 job-description-librarian = Manage the library, give out knowledge to any who seek it, and report on activities aboard the station.
 job-description-mime = Entertain the crew through non-vocal means, and engage with light rivalry with the clown.
+job-description-miner = Mine for ores to help keep the station supplied.
 job-description-musician = Entertain the crew with your unique musical talent, and acquire new instruments to mess around with.
 job-description-passenger = Get your space legs, assist other departments by asking HOP, or make a hideout in maints!
 job-description-psychologist = Provide emotional support to traumatized crew. Currently available on Box, Marathon, Cog and Oasis.

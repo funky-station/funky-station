@@ -9,7 +9,7 @@
       time: 3600 #1 hr
     - !type:OverallPlaytimeRequirement
       time: 10800 #3 hrs
-  icon: "JobIconShaftMiner"
+  icon: "JobIconSalvager"
   startingGear: SalvageSpecialistGear
   supervisors: job-supervisors-qm
   access:

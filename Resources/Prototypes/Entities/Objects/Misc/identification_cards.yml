@@ -215,9 +215,21 @@
   - type: Sprite
     layers:
     - state: default
-    - state: idshaftminer
+    - state: idsalvager
   - type: PresetIdCard
     job: SalvageSpecialist
+
+- type: entity
+  parent: IDCardStandard
+  id: MinerIDCard
+  name: miner ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idshaftminer
+  - type: PresetIdCard
+    job: Miner
 
 - type: entity
   parent: IDCardStandard

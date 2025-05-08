@@ -727,6 +727,35 @@
   loadouts:
   - SalvageBoots
   - CargoWinterBoots
+  
+- type: loadoutGroup
+  id: MinerBackpack
+  name: loadout-group-miner-backpack
+  loadouts:
+  - CargoTechnicianBackpack
+  - CargoTechnicianSatchel
+  - CargoTechnicianDuffel
+  
+- type: loadoutGroup
+  id: MinerNeck
+  name: loadout-group-miner-neck
+  minLimit: 0
+  loadouts:
+  - MinerCloak
+  
+- type: loadoutGroup
+  id: MinerOuterClothing
+  name: loadout-group-miner-outerclothing
+  minLimit: 0
+  loadouts:
+  - SalvageSpecialistWintercoat
+  
+- type: loadoutGroup
+  id: MinerShoes
+  name: loadout-group-miner-shoes
+  loadouts:
+  - WorkBoots
+  - CargoWinterBoots
 
 # Engineering
 - type: loadoutGroup

@@ -93,6 +93,9 @@
 
 - type: playTimeTracker
   id: JobMime
+  
+- type: playTimeTracker #funkystation
+  id: JobMiner
 
 - type: playTimeTracker
   id: JobMusician

@@ -559,24 +559,3 @@
         - ReagentId: Theobromine
           Quantity: 2
 # Tastes like tart, dark chocolate.
-
-- type: entity
-  name: PieED
-  parent: FoodPieBase
-  id: PieED
-  description: Straight out of The Anarchist Cookbook
-  components:
-  - type: FlavorProfile
-    flavors:
-      - bitter
-      - metallic
-  - type: Sprite
-    layers:
-    - state: tin
-    - state: PipeBomb
-  - type: SliceableFood
-    slice: FoodPieEDSlice
-  - type: Tag
-    tags:
-    - Pie
-

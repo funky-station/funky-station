@@ -2287,9 +2287,9 @@
     FoodButterSlice: 1
     
 - type: microwaveMealRecipe
-  id: RecipePieED
-  name: PieED recipe
-  result: FoodPieED
+  id: RecipepIED
+  name: pIED recipe
+  result: pIED
   time: 10
   group: Dessert
   solids:

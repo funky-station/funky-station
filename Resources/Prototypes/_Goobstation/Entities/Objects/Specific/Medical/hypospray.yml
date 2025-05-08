@@ -101,7 +101,6 @@
     - state: filling
       color: "#cad8d4"
   - type: SolutionCartridge
-  - type: SolutionCartridge
     targetSolution: hypospray
     solution:
       maxVol: 10

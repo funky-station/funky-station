@@ -259,8 +259,8 @@
         - DeathAcidifierImplant
       - type: RandomMetadata
         nameSegments:
-        - names_ninja_title
-        - names_ninja
+        - NamesNinjaTitle
+        - NamesNinjaName
       mindRoles:
       - MindRoleNinja
 
@@ -620,7 +620,7 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments: # Vocaloid Names Fix
-        - nukeops-role-operator
+        - NamesNukieFirstOperator
         - SyndicateNamesElite
       - type: NpcFactionMember
         factions:

@@ -315,7 +315,7 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments: # Vocaloid Names Fix
-        - nukeops-role-commander
+        - NamesNukieFirstCommander
         - SyndicateNamesElite
       - type: NpcFactionMember
         factions:
@@ -332,8 +332,8 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments: # Vocaloid Names Fix
-        - nukeops-role-agent
-        - SyndicateNamesNormal
+        - NamesNukieFirstAgent
+        - NamesSyndicateNormal
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -351,8 +351,8 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments: # Vocaloid Names Fix
-        - nukeops-role-operator
-        - SyndicateNamesNormal
+        - NamesNukieFirstOperator
+        - NamesSyndicateNormal
       - type: NpcFactionMember
         factions:
         - Syndicate

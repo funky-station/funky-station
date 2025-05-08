@@ -98,7 +98,7 @@
   - type: RandomMetadata
     nameSegments:
     - SyndicateNamesPrefix
-    - SyndicateNamesNormal
+    - NamesSyndicateNormal
   - type: NpcFactionMember
     factions:
     - Syndicate

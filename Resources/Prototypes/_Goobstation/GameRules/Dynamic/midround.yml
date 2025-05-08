@@ -187,8 +187,8 @@
         - DeathAcidifierImplant
       - type: RandomMetadata
         nameSegments:
-        - names_ninja_title
-        - names_ninja
+        - NamesNinjaTitle
+        - NamesNinjaName
       mindRoles:
       - MindRoleNinja
 

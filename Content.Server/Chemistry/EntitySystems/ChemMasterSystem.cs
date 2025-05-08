@@ -184,11 +184,14 @@ namespace Content.Server.Chemistry.EntitySystems
         {
             if (fromBuffer)
             {
-                if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out var bufferEntity, out _) ||
-                    !_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.PillBufferSolutionName, out var pillBufferEntity, out _))
+                if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out var bufferEntity, out var bufferSolution) ||
+                    !_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.PillBufferSolutionName, out var pillBufferEntity, out var pillBufferSolution))
                     return;
 
                 var entity = isOutput ? pillBufferEntity : bufferEntity;
+                var solution = isOutput ? pillBufferSolution : bufferSolution;
+
+                amount = FixedPoint2.Min(amount, solution.GetReagentQuantity(id));
                 _solutionContainerSystem.RemoveReagent(entity.Value, id, amount);
             }
             else

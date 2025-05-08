@@ -24,6 +24,3 @@
     canCreateVacuum: false
   - type: Appearance
   - type: TimerTriggerVisuals
-  - type: Construction
-    graph: pIED
-    node: pIED

@@ -320,7 +320,7 @@ namespace Content.Client.Chemistry.UI
             BufferCurrentVolume.Text = $" {castState.PillBufferCurrentVolume?.Int() ?? 0}u";
 
             InputEjectButton.Disabled = castState.ContainerInfo is null;
-            CreateBottleButton.Disabled = castState.PillBufferReagents.Count == 0;
+            CreateBottleButton.Disabled = true;
             CreatePillButton.Disabled = castState.PillBufferReagents.Count == 0;
 
             UpdateDosageFields(castState);

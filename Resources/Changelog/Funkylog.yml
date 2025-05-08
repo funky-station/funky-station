@@ -2638,3 +2638,11 @@ Entries:
         gas in it's regulator port. 
   id: 325
   time: '2025-05-05T23:05:33.0000000+00:00'
+- author: sleepyyapril
+  changes:
+    - type: Add
+      message: Added a pill buffer and sorting to the ChemMaster.
+    - type: Tweak
+      message: Moved transfer buttons to the side.
+  id: 326
+  time: '2025-05-08T01:31:14.0000000+00:00'

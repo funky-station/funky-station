@@ -2630,3 +2630,9 @@ Entries:
       message: Removed extra mail teleporters from under tables on Bagel.
   id: 324
   time: '2025-05-05T00:22:02.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Add
+      message: 'Randomized names are now localized. '
+  id: 325
+  time: '2025-05-08T19:47:49.0000000+00:00'

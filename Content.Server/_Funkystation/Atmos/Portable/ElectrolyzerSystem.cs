@@ -44,6 +44,7 @@ public sealed class ElectrolyzerSystem : EntitySystem
         if (!Resolve(uid, ref powerReceiver))
             return;
 
+        _lastPowerLoad = 100f;
         _power.TogglePower(uid);
 
         UpdateAppearance(uid);

@@ -1,0 +1,31 @@
+#To designate various cartridge injector kits/storage. Please let me know if this needs relocating. - IronDragoon
+
+- type: entity
+  id: autoInjectorCartridgeCase
+  name: autoinjector cartridge case
+  description: A small case for storing emergency cartridges for use in a cartridge autoinjector.
+  parent: [ BaseStorageItem, BaseBagOpenClose ]
+  components:
+  - type: Sprite
+    sprite: Objects/Storage/PDA_cartridge_case.rsi
+    layers:
+    - state: closed
+      map: ["closeLayer"]
+    - state: open
+      map: ["openLayer"]
+  - type: Appearance
+  - type: Item
+    sprite: Objects/Storage/PDA_cartridge_case.rsi
+    size: Normal
+  - type: Storage
+    grid:
+    - 0,0,2,2
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      tags:
+      - AutoinjectorCartridge
+
+#Potential future ideas include a large case, kind of like pistol case with an injector AND the small case inside for sec armoury potentially? Could have 'advanced' cartridges with stronger mixes,
+#also potentially a little 'pez dispenser' which could be like a 1x1 like a pill bottle and hold a few which are ejected perhaps, or could be quickloaded into the injector?
+

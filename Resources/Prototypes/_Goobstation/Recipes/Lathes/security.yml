@@ -128,8 +128,16 @@
 #Autoinjectors and Cartridges
 
 - type: latheRecipe
-  id: CartridgeAdrenaline
-  result: CartridgeAdrenaline
+  id: CartridgeEmergency
+  result: CartridgeEmergency
+  completetime: 1
+  materials:
+    Steel: 100
+    Glass: 300
+
+- type: latheRecipe
+  id: CartridgeAirloss
+  result: CartridgeAirloss
   completetime: 1
   materials:
     Steel: 100
@@ -146,6 +154,14 @@
 - type: latheRecipe
   id: CartridgeBurn
   result: CartridgeBurn
+  completetime: 1
+  materials:
+    Steel: 100
+    Glass: 300
+
+- type: latheRecipe
+  id: CartridgePoison
+  result: CartridgePoison
   completetime: 1
   materials:
     Steel: 100

@@ -1,6 +1,6 @@
 #To designate various cartridge injector kits/storage. Please let me know if this needs relocating. - IronDragoon
 - type: entity
-  id: autoInjectorCartridgeCase
+  id: auto_injector_cartridge_case
   name: autoinjector cartridge case
   description: A small case for storing emergency cartridges for use in a cartridge autoinjector.
   parent: [ BaseStorageItem, BaseBagOpenClose ]

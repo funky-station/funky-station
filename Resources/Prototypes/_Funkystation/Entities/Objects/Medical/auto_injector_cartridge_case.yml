@@ -1,9 +1,8 @@
-#To designate various cartridge injector kits/storage. Please let me know if this needs relocating. - IronDragoon
 - type: entity
   id: auto_injector_cartridge_case
   name: autoinjector cartridge case
   description: A small case for storing emergency cartridges for use in a cartridge autoinjector.
-  parent: [ BaseStorageItem, BaseBagOpenClose ]
+  parent: [ BaseStorageItem, BaseBagOpenClose, BaseMedicalContraband, BaseSecurityContraband ]
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Storage/PDA_cartridge_case.rsi
@@ -22,8 +21,6 @@
     - whitelist:
         tags:
         - AutoinjectorCartridge
-    #quickInsert: true
-    #areaInsert: true
   - type: StorageFill
     contents:
     - id: CartridgeEmergency

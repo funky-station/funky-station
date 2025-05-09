@@ -2652,3 +2652,9 @@ Entries:
       message: Changed medical bio-fabricator sprite
   id: 327
   time: '2025-05-09T02:14:04.0000000+00:00'
+- author: ReconPangolin
+  changes:
+    - type: Add
+      message: Added catberries
+  id: 328
+  time: '2025-05-09T20:18:03.0000000+00:00'

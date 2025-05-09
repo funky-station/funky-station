@@ -64,9 +64,6 @@
     guides:
     - Chemicals
     - Chemist
-  # Commenting this out, does not seem to work correctly and not certain how to fix, but want to add when I can figure it out
-  - type: SolutionItemStatus  # lets you see how full it is when holding it
-    solution: buffer
   - type: Clothing  # Goes in the belt slot
     slots: [belt]
   - type: Construction

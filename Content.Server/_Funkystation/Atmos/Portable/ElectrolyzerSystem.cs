@@ -19,6 +19,9 @@ public sealed class ElectrolyzerSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly GasTileOverlaySystem _gasOverlaySystem = default!;
 
+    private float _lastPowerLoad = 4000f;
+    private const float MaxPowerIncrease = 100f;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -76,8 +79,10 @@ public sealed class ElectrolyzerSystem : EntitySystem
         var temperature = mixture.Temperature;
         const float workingPower = 1.8f;
         const float powerEfficiency = 1f;
-        float powerLoad = 100f;
+        float powerLoad = 4000f;
+        float potentialPowerLoad = powerLoad;
         float activeLoad = (4200f * (3f * workingPower) * workingPower) / (powerEfficiency + workingPower);
+        float efficiencyFactor = 1f;
 
         if (initH2O > 0.05f)
         {
@@ -85,32 +90,47 @@ public sealed class ElectrolyzerSystem : EntitySystem
             var proportion = Math.Min(initH2O * 0.5f, maxProportion);
             var temperatureEfficiency = Math.Min(mixture.Temperature / 1123.15f * 0.75f, 0.75f);
 
-            var h2oRemoved = proportion * 2f;
-            var oxyProduced = proportion * temperatureEfficiency;
-            var hydrogenProduced = proportion * 2f * temperatureEfficiency;
+            potentialPowerLoad = Math.Max(activeLoad * (proportion / maxProportion * 2), potentialPowerLoad);
+
+            powerLoad = Math.Min(potentialPowerLoad, _lastPowerLoad + MaxPowerIncrease);
+            efficiencyFactor = potentialPowerLoad > 0 ? Math.Clamp(powerLoad / potentialPowerLoad, 0f, 1f) : 1f;
+
+            var h2oRemoved = proportion * 2f * efficiencyFactor;
+            var oxyProduced = proportion * temperatureEfficiency * efficiencyFactor;
+            var hydrogenProduced = proportion * 2f * temperatureEfficiency * efficiencyFactor;
 
             mixture.AdjustMoles(Gas.WaterVapor, -h2oRemoved);
             mixture.AdjustMoles(Gas.Oxygen, oxyProduced);
             mixture.AdjustMoles(Gas.Hydrogen, hydrogenProduced);
-
-            var heatCap = _atmosphereSystem.GetHeatCapacity(mixture, true);
-            powerLoad = Math.Max(activeLoad * (hydrogenProduced / (maxProportion * 2)), powerLoad);
         }
 
         if (initHyperNob > 0.01f && temperature < 150f)
         {
             var maxProportion = 1.5f * (float) Math.Pow(workingPower, 2);
             var proportion = Math.Min(initHyperNob, maxProportion);
+
+            potentialPowerLoad = Math.Max(activeLoad * (proportion / maxProportion), potentialPowerLoad);
+
+            powerLoad = Math.Min(potentialPowerLoad, _lastPowerLoad + MaxPowerIncrease);
+            efficiencyFactor = potentialPowerLoad > 0 ? Math.Clamp(powerLoad / potentialPowerLoad, 0f, 1f) : 1f;
+
+            proportion *= efficiencyFactor;
+
             mixture.AdjustMoles(Gas.HyperNoblium, -proportion);
             mixture.AdjustMoles(Gas.AntiNoblium, proportion * 0.5f);
-
-            var heatCap = _atmosphereSystem.GetHeatCapacity(mixture, true);
-            powerLoad = Math.Max(activeLoad * (proportion / maxProportion), powerLoad);
         }
 
         if (initBZ > 0.01f)
         {
             var proportion = Math.Min(initBZ * (1f - (float) Math.Pow(Math.E, -0.5f * temperature * workingPower / Atmospherics.FireMinimumTemperatureToExist)), initBZ);
+
+            potentialPowerLoad = Math.Max(activeLoad * Math.Min(proportion / 30f, 1), potentialPowerLoad);
+
+            powerLoad = Math.Min(potentialPowerLoad, _lastPowerLoad + MaxPowerIncrease);
+            efficiencyFactor = potentialPowerLoad > 0 ? Math.Clamp(powerLoad / potentialPowerLoad, 0f, 1f) : 1f;
+
+            proportion *= efficiencyFactor;
+
             mixture.AdjustMoles(Gas.BZ, -proportion);
             mixture.AdjustMoles(Gas.Oxygen, proportion * 0.2f);
             mixture.AdjustMoles(Gas.Halon, proportion * 2f);
@@ -119,10 +139,10 @@ public sealed class ElectrolyzerSystem : EntitySystem
             var heatCap = _atmosphereSystem.GetHeatCapacity(mixture, true);
             if (heatCap > Atmospherics.MinimumHeatCapacity)
                 mixture.Temperature = Math.Max((mixture.Temperature * heatCap + energyReleased) / heatCap, Atmospherics.TCMB);
-            powerLoad = Math.Max(activeLoad * Math.Min(proportion / 30f, 1), powerLoad);
         }
 
         receiver.Load = powerLoad;
+        _lastPowerLoad = powerLoad;
 
         _gasOverlaySystem.UpdateSessions();
     }

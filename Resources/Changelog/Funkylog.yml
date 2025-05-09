@@ -2666,3 +2666,13 @@ Entries:
       message: Removed Blueshield's extra survival box.
   id: 329
   time: '2025-05-09T20:18:42.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Add
+      message: >-
+        some more thaven moods have been added, though only certain jobs can
+        roll them
+    - type: Tweak
+      message: mindshielded thavens can no longer be emagged
+  id: 330
+  time: '2025-05-09T20:19:59.0000000+00:00'

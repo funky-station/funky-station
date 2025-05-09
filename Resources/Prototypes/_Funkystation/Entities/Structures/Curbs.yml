@@ -51,7 +51,7 @@
     state: steel_curb
     drawdepth: FloorTiles
   - type: Icon
-    state: SteelCurb
+    state: steel_curb
   - type: Fixtures
     fixtures:
       fix1:
@@ -97,7 +97,7 @@
     state: steel_curb_corner
     drawdepth: FloorTiles
   - type: Icon
-    state: SteelCurbCorner
+    state: steel_curb_corner
   - type: Fixtures
     fixtures:
       fix1:
@@ -126,7 +126,7 @@
     state: steel_curb_inside_corner
     drawdepth: FloorTiles
   - type: Icon
-    state: SteelCurbInsideCorner
+    state: steel_curb_inside_corner
   - type: Fixtures
     fixtures:
       fix1:
@@ -148,7 +148,7 @@
     state: steel_curb_ubend
     drawdepth: FloorTiles
   - type: Icon
-    state: SteelCurbUbend
+    state: steel_curb_ubend
   - type: Fixtures
     fixtures:
       fix1:
@@ -184,7 +184,7 @@
     state: steel_curb_square
     drawdepth: FloorTiles
   - type: Icon
-    state: SteelCurbSquare
+    state: steel_curb_square
   - type: Fixtures
     fixtures:
       fix1:
@@ -221,7 +221,7 @@
     state: brass_curb
     drawdepth: FloorTiles
   - type: Icon
-    state: BrassCurb
+    state: brass_curb
   - type: Fixtures
     fixtures:
       fix1:
@@ -267,7 +267,7 @@
     state: brass_curb_corner
     drawdepth: FloorTiles
   - type: Icon
-    state: BrassCurbCorner
+    state: brass_curb_corner
   - type: Fixtures
     fixtures:
       fix1:
@@ -296,7 +296,7 @@
     state: brass_curb_inside_corner
     drawdepth: FloorTiles
   - type: Icon
-    state: BrassCurbInsideCorner
+    state: brass_curb_inside_corner
   - type: Fixtures
     fixtures:
       fix1:
@@ -318,7 +318,7 @@
     state: brass_curb_ubend
     drawdepth: FloorTiles
   - type: Icon
-    state: BrassCurbUbend
+    state: brass_curb_ubend
   - type: Fixtures
     fixtures:
       fix1:
@@ -354,7 +354,7 @@
     state: brass_curb_square
     drawdepth: FloorTiles
   - type: Icon
-    state: BrassCurbSquare
+    state: brass_curb_square
   - type: Fixtures
     fixtures:
       fix1:
@@ -391,7 +391,7 @@
       state: gold_curb
       drawdepth: FloorTiles
     - type: Icon
-      state: GoldCurb
+      state: gold_curb
     - type: Fixtures
       fixtures:
         fix1:
@@ -437,7 +437,7 @@
       state: gold_curb_corner
       drawdepth: FloorTiles
     - type: Icon
-      state: GoldCurbCorner
+      state: gold_curb_corner
     - type: Fixtures
       fixtures:
         fix1:
@@ -466,7 +466,7 @@
       state: gold_curb_inside_corner
       drawdepth: FloorTiles
     - type: Icon
-      state: GoldCurbInsideCorner
+      state: gold_curb_inside_corner
     - type: Fixtures
       fixtures:
         fix1:
@@ -524,7 +524,7 @@
       state: gold_curb_square
       drawdepth: FloorTiles
     - type: Icon
-      state: GoldCurbSquare
+      state: gold_curb_square
     - type: Fixtures
       fixtures:
         fix1:
@@ -561,7 +561,7 @@
       state: hydrogen_curb
       drawdepth: FloorTiles
     - type: Icon
-      state: HydrogenCurb
+      state: hydrogen_curb
     - type: Fixtures
       fixtures:
         fix1:
@@ -607,7 +607,7 @@
       state: hydrogen_curb_corner
       drawdepth: FloorTiles
     - type: Icon
-      state: HydrogenCurbCorner
+      state: hydrogen_curb_corner
     - type: Fixtures
       fixtures:
         fix1:
@@ -636,7 +636,7 @@
       state: hydrogen_curb_inside_corner
       drawdepth: FloorTiles
     - type: Icon
-      state: HydrogenCurbInsideCorner
+      state: hydrogen_curb_inside_corner
     - type: Fixtures
       fixtures:
         fix1:
@@ -658,7 +658,7 @@
       state: hydrogen_curb_ubend
       drawdepth: FloorTiles
     - type: Icon
-      state: HydrogenCurbUbend
+      state: hydrogen_curb_ubend
     - type: Fixtures
       fixtures:
         fix1:
@@ -694,7 +694,7 @@
       state: hydrogen_curb_square
       drawdepth: FloorTiles
     - type: Icon
-      state: HydrogenCurbSquare
+      state: hydrogen_curb_square
     - type: Fixtures
       fixtures:
         fix1:

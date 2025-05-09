@@ -1,0 +1,24 @@
+- type: entity
+  id: NewsDigiBoard
+  parent: BaseItem
+  name: portable news manager
+  description: Write your message to the world!
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/qm_clipboard.rsi
+    layers:
+    - state: qm_clipboard
+    - state: qm_clipboard_over
+  - type: Item
+    sprite: Objects/Misc/qm_clipboard.rsi
+    size: Normal
+  - type: NewsWriter
+  - type: AccessReader
+    access: [[ "Service" ]]
+  - type: ActivatableUI
+    key: enum.NewsWriterUiKey.Key
+  - type: UserInterface
+    interfaces:
+        enum.NewsWriterUiKey.Key:
+          type: NewsWriterBoundUserInterface
+

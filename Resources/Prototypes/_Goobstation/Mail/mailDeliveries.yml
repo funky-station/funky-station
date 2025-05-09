@@ -2,6 +2,7 @@
   id: BaseMailDeliveryPool
   everyone:
   # Consumables
+    MailJellyOfTheMonth: 0.2
     MailAlcohol: 1
     MailCakes: 1
     MailCheese: 0.9
@@ -55,7 +56,10 @@
   # Weapons
     MailKnife: 0.3
     MailSword: 0.2
-  departments: # Departments
+  # Departments
+  departments:
+    Cargo:
+      MailCargoMailSupplies: 0.5
     Command:
       MailCommandPipebombIntern: 1
       MailLuxuryPen: 1.6
@@ -89,8 +93,6 @@
       MailSecurityNonlethalsKit: 1.6
       MailSecuritySpaceLaw: 1
       MailSecurityJusticeHelm: 0.2
-    Cargo:
-      MailCargoMailSupplies: 1
   jobs: # Jobs
     Bartender:
       MailBartenderTools: 0.5

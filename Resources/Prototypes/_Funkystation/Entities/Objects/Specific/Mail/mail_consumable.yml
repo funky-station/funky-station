@@ -1,0 +1,9 @@
+- type: entity
+  parent: BaseMail
+  id: MailJellyOfTheMonth
+  suffix: Jelly of the Month
+  components:
+  - type: Mail
+    contents:
+    - id: FoodJellyAmanita
+    - id: PaperJellyOfTheMonth

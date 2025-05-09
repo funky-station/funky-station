@@ -5,7 +5,7 @@
   parent: [ BaseStorageItem, BaseBagOpenClose, BaseMedicalContraband, BaseSecurityContraband ]
   components:
   - type: Sprite
-    sprite: _Funkystation/Objects/Storage/PDA_cartridge_case.rsi
+    sprite: _Funkystation/Objects/Medical/auto_injector_cartridge_case.rsi
     layers:
     - state: closed
       map: ["closeLayer"]
@@ -13,7 +13,7 @@
       map: ["openLayer"]
   - type: Appearance
   - type: Item
-    sprite: _Funkystation/Objects/Storage/PDA_cartridge_case.rsi
+    sprite: _Funkystation/Objects/Medical/auto_injector_cartridge_case.rsi
     size: Normal
   - type: Storage
     grid:

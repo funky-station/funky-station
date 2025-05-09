@@ -8,64 +8,64 @@
 	},
 	"states": [
 		{
-			"name": "SteelCurb"
+			"name": "steel_curb"
 		},
         {
-            "name": "SteelCurbCorner"
+            "name": "steel_curb_corner"
         },
         {
-            "name": "SteelCurbInsideCorner"
+            "name": "steel_curb_inside_corner"
         },
         {
-            "name": "SteelCurbSquare"
+            "name": "steel_curb_square"
         },
         {
-            "name": "SteelCurbUbend"
+            "name": "steel_curb_ubend"
         },
         {
-            "name": "BrassCurb"
+            "name": "brass_curb"
         },
         {
-            "name": "BrassCurbCorner"
+            "name": "brass_curb_corner"
         },
         {
-            "name": "BrassCurbInsideCorner"
+            "name": "brass_curb_inside_corner"
         },
         {
-            "name": "BrassCurbSquare"
+            "name": "brass_curb_square"
         },
         {
-            "name": "BrassCurbUbend"
+            "name": "brass_curb_ubend"
         },
         {
-            "name": "GoldCurb"
+            "name": "gold_curb"
         },
         {
-            "name": "GoldCurbCorner"
+            "name": "gold_curb_corner"
         },
         {
-            "name": "GoldCurbInsideCorner"
+            "name": "gold_curb_inside_corner"
         },
         {
-            "name": "GoldCurbSquare"
+            "name": "gold_curb_square"
         },
         {
-            "name": "GoldCurbUbend"
+            "name": "gold_curb_ubend"
         },
         {
-            "name": "HydrogenCurb"
+            "name": "hydrogen_curb"
         },
         {
-            "name": "HydrogenCurbCorner"
+            "name": "hydrogen_curb_corner"
         },
         {
-            "name": "HydrogenCurbInsideCorner"
+            "name": "hydrogen_curb_inside_corner"
         },
         {
-            "name": "HydrogenCurbSquare"
+            "name": "hydrogen_curb_square"
         },
         {
-            "name": "HydrogenCurbUbend"
+            "name": "hydrogen_curb_ubend"
         }
 
     ]

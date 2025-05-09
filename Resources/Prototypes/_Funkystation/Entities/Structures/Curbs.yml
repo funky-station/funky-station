@@ -48,7 +48,7 @@
   name: steel curb
   components:
   - type: Sprite
-    state: SteelCurb
+    state: steel_curb
     drawdepth: FloorTiles
   - type: Icon
     state: SteelCurb
@@ -94,7 +94,7 @@
   name: steel curb corner
   components:
   - type: Sprite
-    state: SteelCurbCorner
+    state: steel_curb_corner
     drawdepth: FloorTiles
   - type: Icon
     state: SteelCurbCorner
@@ -123,7 +123,7 @@
   name: steel curb inside corner
   components:
   - type: Sprite
-    state: SteelCurbInsideCorner
+    state: steel_curb_inside_corner
     drawdepth: FloorTiles
   - type: Icon
     state: SteelCurbInsideCorner
@@ -145,7 +145,7 @@
   name: steel curb u-bend
   components:
   - type: Sprite
-    state: SteelCurbUbend
+    state: steel_curb_ubend
     drawdepth: FloorTiles
   - type: Icon
     state: SteelCurbUbend
@@ -181,7 +181,7 @@
   name: steel curb square
   components:
   - type: Sprite
-    state: SteelCurbSquare
+    state: steel_curb_square
     drawdepth: FloorTiles
   - type: Icon
     state: SteelCurbSquare
@@ -218,7 +218,7 @@
   name: brass curb
   components:
   - type: Sprite
-    state: BrassCurb
+    state: brass_curb
     drawdepth: FloorTiles
   - type: Icon
     state: BrassCurb
@@ -264,7 +264,7 @@
   name: brass curb corner
   components:
   - type: Sprite
-    state: BrassCurbCorner
+    state: brass_curb_corner
     drawdepth: FloorTiles
   - type: Icon
     state: BrassCurbCorner
@@ -293,7 +293,7 @@
   name: brass curb inside corner
   components:
   - type: Sprite
-    state: BrassCurbInsideCorner
+    state: brass_curb_inside_corner
     drawdepth: FloorTiles
   - type: Icon
     state: BrassCurbInsideCorner
@@ -315,7 +315,7 @@
   name: brass curb u-bend
   components:
   - type: Sprite
-    state: BrassCurbUbend
+    state: brass_curb_ubend
     drawdepth: FloorTiles
   - type: Icon
     state: BrassCurbUbend
@@ -351,7 +351,7 @@
   name: brass curb square
   components:
   - type: Sprite
-    state: BrassCurbSquare
+    state: brass_curb_square
     drawdepth: FloorTiles
   - type: Icon
     state: BrassCurbSquare
@@ -388,7 +388,7 @@
   name: gold curb
   components:
     - type: Sprite
-      state: GoldCurb
+      state: gold_curb
       drawdepth: FloorTiles
     - type: Icon
       state: GoldCurb
@@ -434,7 +434,7 @@
   name: gold curb corner
   components:
     - type: Sprite
-      state: GoldCurbCorner
+      state: gold_curb_corner
       drawdepth: FloorTiles
     - type: Icon
       state: GoldCurbCorner
@@ -463,7 +463,7 @@
   name: gold curb inside corner
   components:
     - type: Sprite
-      state: GoldCurbInsideCorner
+      state: gold_curb_inside_corner
       drawdepth: FloorTiles
     - type: Icon
       state: GoldCurbInsideCorner
@@ -485,10 +485,10 @@
   name: gold curb u-bend
   components:
     - type: Sprite
-      state: GoldCurbUbend
+      state: gold_curb_ubend
       drawdepth: FloorTiles
     - type: Icon
-      state: GoldCurbUbend
+      state: gold_curb_ubend
     - type: Fixtures
       fixtures:
         fix1:
@@ -521,7 +521,7 @@
   name: gold curb square
   components:
     - type: Sprite
-      state: GoldCurbSquare
+      state: gold_curb_square
       drawdepth: FloorTiles
     - type: Icon
       state: GoldCurbSquare
@@ -558,7 +558,7 @@
   name: hydrogen curb
   components:
     - type: Sprite
-      state: HydrogenCurb
+      state: hydrogen_curb
       drawdepth: FloorTiles
     - type: Icon
       state: HydrogenCurb
@@ -604,7 +604,7 @@
   name: hydrogen curb corner
   components:
     - type: Sprite
-      state: HydrogenCurbCorner
+      state: hydrogen_curb_corner
       drawdepth: FloorTiles
     - type: Icon
       state: HydrogenCurbCorner
@@ -633,7 +633,7 @@
   name: hydrogen curb inside corner
   components:
     - type: Sprite
-      state: HydrogenCurbInsideCorner
+      state: hydrogen_curb_inside_corner
       drawdepth: FloorTiles
     - type: Icon
       state: HydrogenCurbInsideCorner
@@ -655,7 +655,7 @@
   name: hydrogen curb u-bend
   components:
     - type: Sprite
-      state: HydrogenCurbUbend
+      state: hydrogen_curb_ubend
       drawdepth: FloorTiles
     - type: Icon
       state: HydrogenCurbUbend
@@ -691,7 +691,7 @@
   name: hydrogen curb square
   components:
     - type: Sprite
-      state: HydrogenCurbSquare
+      state: hydrogen_curb_square
       drawdepth: FloorTiles
     - type: Icon
       state: HydrogenCurbSquare

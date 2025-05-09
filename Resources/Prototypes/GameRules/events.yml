@@ -378,8 +378,8 @@
         - Wizard
       - type: RandomMetadata
         nameSegments:
-        - names_wizard_first
-        - names_wizard_last
+        - NamesWizardFirst
+        - NamesWizardLast
       mindRoles:
       - MindRoleWizard
 
@@ -621,7 +621,7 @@
       - type: RandomMetadata
         nameSegments: # Vocaloid Names Fix
         - NamesNukieFirstOperator
-        - SyndicateNamesElite
+        - NamesSyndicateElite
       - type: NpcFactionMember
         factions:
         - Syndicate

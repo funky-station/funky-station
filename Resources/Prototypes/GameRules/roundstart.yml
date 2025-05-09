@@ -122,7 +122,7 @@
       - type: RandomMetadata
         nameSegments:
         - NamesNukieFirstCommander
-        - SyndicateNamesElite
+        - NamesSyndicateElite
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -301,8 +301,8 @@
         - Wizard
       - type: RandomMetadata
         nameSegments:
-        - names_wizard_first
-        - names_wizard_last
+        - NamesWizardFirst
+        - NamesWizardLast
       mindRoles:
       - MindRoleWizard
   - type: Tag

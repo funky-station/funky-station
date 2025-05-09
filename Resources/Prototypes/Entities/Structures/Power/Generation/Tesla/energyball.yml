@@ -117,8 +117,8 @@
   - type: MetaData # Goobstation
   - type: RandomMetadata # Goobstation
     nameSegments:
-    - goob_generators_names_first
-    - goob_generators_names_tesla_last
+    - NamesGoobGeneratorFirst
+    - NamesGoobTeslaLast
 
 - type: entity
   id: TeslaMiniEnergyBall

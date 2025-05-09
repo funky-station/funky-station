@@ -316,7 +316,7 @@
       - type: RandomMetadata
         nameSegments: # Vocaloid Names Fix
         - NamesNukieFirstCommander
-        - SyndicateNamesElite
+        - NamesSyndicateElite
       - type: NpcFactionMember
         factions:
         - Syndicate

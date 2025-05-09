@@ -615,7 +615,7 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHigh
   - type: RandomMetadata
-    nameSegments: [names_borg]
+    nameSegments: [NamesBorg]
   - type: CombatPower # Goobstation
     factor: 10 # / 2 = times more powerful than an unarmed crew-member
 

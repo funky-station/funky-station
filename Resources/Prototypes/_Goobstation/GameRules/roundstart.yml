@@ -96,7 +96,7 @@
       - type: RandomMetadata
         nameSegments:
         - NamesNukieFirstCommander
-        - SyndicateNamesElite
+        - NamesSyndicateElite
       - type: NpcFactionMember
         factions:
         - Syndicate

@@ -1000,11 +1000,10 @@
   - type: XAEFoam
     replaceDescription: true
     reagents:
-    - Dermaline
+    - Aiuri
     - Arithrazine
-    - Bicaridine
+    - Libital
     - Inaprovaline
-    - Kelotane
     - Dexalin
     - Omnizine
 
@@ -1044,11 +1043,10 @@
       maxVol: 500
       canReact: false
     possibleChemicals:
-    - Dermaline
+    - Aiuri
     - Arithrazine
-    - Bicaridine
+    - Libital
     - Inaprovaline
-    - Kelotane
     - Dexalin
     - Omnizine
     - Napalm

@@ -2646,3 +2646,9 @@ Entries:
       message: Moved transfer buttons to the side.
   id: 326
   time: '2025-05-08T01:31:14.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: Changed medical bio-fabricator sprite
+  id: 327
+  time: '2025-05-09T02:14:04.0000000+00:00'

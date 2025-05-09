@@ -1,2 +1,2 @@
-﻿reagent-name-catjuice = catberry juice
-reagent-desc-catjuice = An unusual juice found within a catberry.
+﻿reagent-name-catextract = catberry extract
+reagent-desc-catextract = An unusual liquid extracted from a catberry.

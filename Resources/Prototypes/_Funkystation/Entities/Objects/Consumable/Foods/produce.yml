@@ -13,8 +13,8 @@
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 4
-        - ReagentId: CatJuice
-          Quantity: 1
+        - ReagentId: CatExtract
+          Quantity: 2
   - type: Extractable
     juiceSolution:
       reagents:

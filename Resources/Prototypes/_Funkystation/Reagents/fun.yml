@@ -1,8 +1,8 @@
 - type: reagent
-  id: CatJuice
-  name: reagent-name-catjuice
+  id: CatExtract
+  name: reagent-name-catextract
   group: Toxins
-  desc: reagent-desc-catjuice
+  desc: reagent-desc-catextract
   physicalDesc: reagent-physical-desc-fluffy
   flavor: cat
   color: "#7593c8"
@@ -24,7 +24,7 @@
         - !type:ReagentThreshold
           min: 50
       - !type:AdjustReagent
-        reagent: CatJuice
+        reagent: CatExtract
         amount: -20
         conditions:
         - !type:ReagentThreshold

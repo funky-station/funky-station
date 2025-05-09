@@ -23,7 +23,7 @@
       Min: 1
       Max: 4
       PotencyDivisor: 40
-    CatJuice:
-      Min: 1
+    CatExtract:
+      Min: 2
       Max: 3
-      PotencyDivisor: 35
+      PotencyDivisor: 50

@@ -11,7 +11,7 @@
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
-    state: SteelCurb
+    state: steel_curb
 
 - type: construction
   name: steel curb corner
@@ -25,7 +25,7 @@
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
-    state: SteelCurbCorner
+    state: steel_curb_corner
 
 - type: construction
   name: steel curb inside corner
@@ -39,7 +39,7 @@
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
-    state: SteelCurbInsideCorner
+    state: steel_curb_inside_corner
 
 - type: construction
   name: steel curb Ubend
@@ -53,7 +53,7 @@
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
-    state: SteelCurbUbend
+    state: steel_curb_ubend
 
 - type: construction
   name: steel curb square
@@ -67,7 +67,7 @@
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
-    state: SteelCurbSquare
+    state: steel_curb_square
 
 #Brass
 - type: construction
@@ -82,7 +82,7 @@
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
-    state: BrassCurb
+    state: brass_curb
 
 - type: construction
   name: brass curb corner
@@ -96,7 +96,7 @@
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
-    state: BrassCurbCorner
+    state: brass_curb_corner
 
 - type: construction
   name: brass curb inside corner
@@ -110,7 +110,7 @@
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
-    state: BrassCurbInsideCorner
+    state: brass_curb_inside_corner
 
 - type: construction
   name: brass curb Ubend
@@ -124,7 +124,7 @@
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
-    state: BrassCurbUbend
+    state: brass_curb_ubend
 
 - type: construction
   name: brass curb square
@@ -138,7 +138,7 @@
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
-    state: BrassCurbSquare
+    state: brass_curb_square
 
 #Gold
 - type: construction
@@ -153,7 +153,7 @@
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
-    state: GoldCurb
+    state: gold_curb
 
 - type: construction
   name: gold curb corner
@@ -167,7 +167,7 @@
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
-    state: GoldCurbCorner
+    state: gold_curb_corner
 
 - type: construction
   name: gold curb inside corner
@@ -181,7 +181,7 @@
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
-    state: GoldCurbInsideCorner
+    state: gold_curb_inside_corner
 
 - type: construction
   name: gold curb Ubend
@@ -195,7 +195,7 @@
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
-    state: GoldCurbUbend
+    state: gold_curb_ubend
 
 - type: construction
   name: gold curb square
@@ -209,7 +209,7 @@
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
-    state: GoldCurbSquare
+    state: gold_curb_square
 
 #Hydrogen
 - type: construction
@@ -224,7 +224,7 @@
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
-    state: HydrogenCurb
+    state: hydrogen_curb
 
 - type: construction
   name: hydrogen metal curb corner
@@ -238,7 +238,7 @@
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
-    state: HydrogenCurbCorner
+    state: hydrogen_curb_corner
 
 - type: construction
   name: hydrogen metal curb inside corner
@@ -252,7 +252,7 @@
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
-    state: HydrogenCurbInsideCorner
+    state: hydrogen_curb_inside_corner
 
 - type: construction
   name: hydrogen metal curb Ubend
@@ -266,7 +266,7 @@
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
-    state: HydrogenCurbUbend
+    state: hydrogen_curb_ubend
 
 - type: construction
   name: hydrogen metal curb square
@@ -280,4 +280,4 @@
   objectType: Structure
   icon:
     sprite: _Funkystation/Structures/curbs.rsi
-    state: HydrogenCurbSquare
+    state: hydrogen_curb_square

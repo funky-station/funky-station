@@ -52,19 +52,21 @@
   - type: SolutionContainerManager
     solutions:
       buffer:
-        maxVol: 400
-        canReact: false     # added because there were instances that the chemicals can mix on transfer
+        maxVol: 200 #Currently as there is now a seperate buffer for pills and I can't be bothered to figure out how to share this maximum (if it's even possible) i'm just setting both to 200 max. Can adjust in patches as needed
+        canReact: false
+      pillBuffer:
+        maxVol: 200
+        canReact: false
+
   - type: DumpableSolution
     solution: buffer
   - type: GuideHelp
     guides:
     - Chemicals
     - Chemist
-  - type: StaticPrice
-    price: 20
   # Commenting this out, does not seem to work correctly and not certain how to fix, but want to add when I can figure it out
-  #- type: SolutionItemStatus  # lets you see how full it is when holding it
-  # solution: buffer
+  - type: SolutionItemStatus  # lets you see how full it is when holding it
+    solution: buffer
   - type: Clothing  # Goes in the belt slot
     slots: [belt]
   - type: Construction

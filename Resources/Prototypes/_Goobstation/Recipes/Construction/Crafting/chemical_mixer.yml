@@ -5,6 +5,6 @@
   startNode: start
   targetNode: end
   category: construction-category-misc
-  description: A portable chemical mixer, can be worn around the waist. Holds up to 400u.
+  description: A portable chemical mixer, can be worn around the waist. It can hold up to 200u in each of its two internal buffers.
   icon: { sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi, state: chemical_mixer }
   objectType: Item

@@ -11,6 +11,7 @@ using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Threading;
+using Content.Server.Power.Components;
 
 namespace Content.Server.Power.EntitySystems
 {

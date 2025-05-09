@@ -2145,10 +2145,8 @@
   name: uplink-smuggler-satchel-name
   description: uplink-smuggler-satchel-desc
   productEntity: ClothingBackpackSatchelSmugglerUnanchored
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 10 # funk
   cost:
     Telecrystal: 15 # funk
   categories:
   - UplinkDeception
+  saleLimit: 1 # WD EDIT

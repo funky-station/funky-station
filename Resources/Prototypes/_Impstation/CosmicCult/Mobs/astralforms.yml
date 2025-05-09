@@ -291,6 +291,6 @@
     soundPerceivedByOthers: false
   - type: RandomMetadata
     nameSegments:
-    - ascended_names
-    - ascended_titles
+    - NamesAscendantName
+    - NamesAscendantTitle
   - type: ZombieImmune # funky

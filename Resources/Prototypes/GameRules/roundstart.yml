@@ -86,8 +86,8 @@
   components:
   - type: RandomMetadata #this generates the random operation name cuz it's cool.
     nameSegments:
-    - operationPrefix
-    - operationSuffix
+    - NamesOperationPrefix
+    - NamesOperationSuffix
   - type: NukeopsRule
   - type: RuleGrids
   - type: AntagSelection
@@ -122,7 +122,7 @@
       - type: RandomMetadata
         nameSegments:
         - NamesNukieFirstCommander
-        - SyndicateNamesElite
+        - NamesSyndicateElite
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -140,7 +140,7 @@
       - type: RandomMetadata
         nameSegments:
         - NamesNukieFirstAgent
-        - SyndicateNamesNormal
+        - NamesSyndicateNormal
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -159,7 +159,7 @@
       - type: RandomMetadata
         nameSegments:
         - NamesNukieFirstOperator
-        - SyndicateNamesNormal
+        - NamesSyndicateNormal
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -301,8 +301,8 @@
         - Wizard
       - type: RandomMetadata
         nameSegments:
-        - names_wizard_first
-        - names_wizard_last
+        - NamesWizardFirst
+        - NamesWizardLast
       mindRoles:
       - MindRoleWizard
   - type: Tag

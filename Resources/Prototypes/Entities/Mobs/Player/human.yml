@@ -97,8 +97,8 @@
     roleLoadout: [ RoleSurvivalSyndicate ]
   - type: RandomMetadata
     nameSegments:
-    - SyndicateNamesPrefix
-    - SyndicateNamesNormal
+    - NamesSyndicatePrefix
+    - NamesSyndicateNormal
   - type: NpcFactionMember
     factions:
     - Syndicate

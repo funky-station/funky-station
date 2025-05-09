@@ -2658,3 +2658,11 @@ Entries:
       message: Added catberries
   id: 328
   time: '2025-05-09T20:18:03.0000000+00:00'
+- author: Sadie-silly
+  changes:
+    - type: Tweak
+      message: Granted Blueshield extra access, and a centcomm overear headset.
+    - type: Fix
+      message: Removed Blueshield's extra survival box.
+  id: 329
+  time: '2025-05-09T20:18:42.0000000+00:00'

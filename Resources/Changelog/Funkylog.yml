@@ -2682,3 +2682,11 @@ Entries:
       message: Increased the speed of the autodoc
   id: 331
   time: '2025-05-10T00:02:42.0000000+00:00'
+- author: GaloGal0
+  changes:
+    - type: Remove
+      message: Removed Russian text in Autodoc UI
+    - type: Tweak
+      message: Changed capitalisation in Autodoc UI
+  id: 332
+  time: '2025-05-10T04:05:57.0000000+00:00'

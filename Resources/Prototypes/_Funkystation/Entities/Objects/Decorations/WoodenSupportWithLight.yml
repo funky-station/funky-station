@@ -24,6 +24,9 @@
       color: "#ba473f"
     - type: Physics
       bodyType: Static
+    - type: ContainerContainer
+      containers:
+        light_bulb: !type:ContainerSlot
     - type: PoweredLight
       hasLampOnSpawn: DimLightBulb
     - type: ApcPowerReceiver

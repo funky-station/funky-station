@@ -12,6 +12,7 @@
   - type: Item
     sprite: Objects/Misc/qm_clipboard.rsi
     size: Normal
+  - type: MultiHandedItem
   - type: NewsWriter
   - type: AccessReader
     access: [[ "Service" ]]
@@ -21,4 +22,8 @@
     interfaces:
         enum.NewsWriterUiKey.Key:
           type: NewsWriterBoundUserInterface
+  - type: Clothing
+    sprite: Objects/Specific/Mining/qm_clipboard.rsi
+    slots:
+    - belt
 

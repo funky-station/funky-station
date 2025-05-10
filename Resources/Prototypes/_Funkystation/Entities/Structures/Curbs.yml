@@ -1,0 +1,722 @@
+#Steel
+- type: entity
+  parent: BaseStructure
+  id: BaseCurb
+  abstract: true
+  name: Curb
+  description: A curb to keep your crates off my lawn.
+  components:
+  - type: Sprite
+    drawdepth: FloorTiles
+    sprite: _Funkystation/Structures/curbs.rsi
+  - type: Icon
+    sprite: _Funkystation/Structures/curbs.rsi
+  - type: Physics
+    bodyType: Static
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Repairable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: FlimsyMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Construction
+    graph: curbs
+    node: steelCurb
+  - type: RCDDeconstructable
+    cost: 2
+    delay: 2
+    fx: EffectRCDDeconstruct2
+
+- type: entity
+  parent: BaseCurb
+  id: SteelCurb
+  name: steel curb
+  components:
+  - type: Sprite
+    state: steel_curb
+    drawdepth: FloorTiles
+  - type: Icon
+    state: steel_curb
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.25"
+        density: 1000
+        mask:
+        - CrateMask
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    node: steelCurb
+
+- type: entity
+  parent: SteelCurb
+  id: SteelCurbCorner
+  name: steel curb corner
+  components:
+  - type: Sprite
+    state: steel_curb_corner
+    drawdepth: FloorTiles
+  - type: Icon
+    state: steel_curb_corner
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.25"
+        density: 1000
+        mask:
+        - CrateMask
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.49,0.49,0.25,-0.49"
+        density: 1000
+        mask:
+        - CrateMask
+  - type: Construction
+    node: steelCurbCorner
+
+- type: entity
+  parent: SteelCurb
+  id: SteelCurbCornerInside
+  name: steel curb inside corner
+  components:
+  - type: Sprite
+    state: steel_curb_inside_corner
+    drawdepth: FloorTiles
+  - type: Icon
+    state: steel_curb_inside_corner
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,0.49,-0.25,0.25"
+        density: 1000
+        mask:
+        - CrateMask
+  - type: Construction
+    node: steelCurbCornerInside
+
+- type: entity
+  parent: SteelCurb
+  id: SteelCurbUbend
+  name: steel curb u-bend
+  components:
+  - type: Sprite
+    state: steel_curb_ubend
+    drawdepth: FloorTiles
+  - type: Icon
+    state: steel_curb_ubend
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.25"
+        density: 1000
+        mask:
+        - CrateMask
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,-0.25,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+      fix3:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.25,-0.49,0.49,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+  - type: Construction
+    node: steelCurbUbend
+
+- type: entity
+  parent: SteelCurb
+  id: SteelCurbSquare
+  name: steel curb square
+  components:
+  - type: Sprite
+    state: steel_curb_square
+    drawdepth: FloorTiles
+  - type: Icon
+    state: steel_curb_square
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.25"
+        density: 1000
+        mask:
+        - CrateMask
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,-0.25,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+      fix3:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.25,-0.49,0.49,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+  - type: Construction
+    node: steelCurbSquare
+
+#Brass
+- type: entity
+  parent: BaseCurb
+  id: BrassCurb
+  name: brass curb
+  components:
+  - type: Sprite
+    state: brass_curb
+    drawdepth: FloorTiles
+  - type: Icon
+    state: brass_curb
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.25"
+        density: 1000
+        mask:
+        - CrateMask
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetBrass1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    node: brassCurb
+
+- type: entity
+  parent: BrassCurb
+  id: BrassCurbCorner
+  name: brass curb corner
+  components:
+  - type: Sprite
+    state: brass_curb_corner
+    drawdepth: FloorTiles
+  - type: Icon
+    state: brass_curb_corner
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.25"
+        density: 1000
+        mask:
+        - CrateMask
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.49,0.49,0.25,-0.49"
+        density: 1000
+        mask:
+        - CrateMask
+  - type: Construction
+    node: brassCurbCorner
+
+- type: entity
+  parent: BrassCurb
+  id: BrassCurbCornerInside
+  name: brass curb inside corner
+  components:
+  - type: Sprite
+    state: brass_curb_inside_corner
+    drawdepth: FloorTiles
+  - type: Icon
+    state: brass_curb_inside_corner
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,0.49,-0.25,0.25"
+        density: 1000
+        mask:
+        - CrateMask
+  - type: Construction
+    node: brassCurbCornerInside
+
+- type: entity
+  parent: BrassCurb
+  id: BrassCurbUbend
+  name: brass curb u-bend
+  components:
+  - type: Sprite
+    state: brass_curb_ubend
+    drawdepth: FloorTiles
+  - type: Icon
+    state: brass_curb_ubend
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.25"
+        density: 1000
+        mask:
+        - CrateMask
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,-0.25,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+      fix3:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.25,-0.49,0.49,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+  - type: Construction
+    node: brassCurbUbend
+
+- type: entity
+  parent: BrassCurb
+  id: BrassCurbSquare
+  name: brass curb square
+  components:
+  - type: Sprite
+    state: brass_curb_square
+    drawdepth: FloorTiles
+  - type: Icon
+    state: brass_curb_square
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.25"
+        density: 1000
+        mask:
+        - CrateMask
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,-0.25,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+      fix3:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.25,-0.49,0.49,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+  - type: Construction
+    node: brassCurbSquare
+
+#Gold
+- type: entity
+  parent: BaseCurb
+  id: GoldCurb
+  name: gold curb
+  components:
+    - type: Sprite
+      state: gold_curb
+      drawdepth: FloorTiles
+    - type: Icon
+      state: gold_curb
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.49,-0.49,0.49,-0.25"
+          density: 1000
+          mask:
+            - CrateMask
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 100
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
+            damage: 20
+          behaviors:
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalBreak
+                params:
+                  volume: -6
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                IngotGold1:
+                  min: 0
+                  max: 1
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+    - type: Construction
+      node: goldCurb
+
+- type: entity
+  parent: GoldCurb
+  id: GoldCurbCorner
+  name: gold curb corner
+  components:
+    - type: Sprite
+      state: gold_curb_corner
+      drawdepth: FloorTiles
+    - type: Icon
+      state: gold_curb_corner
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.49,-0.49,0.49,-0.25"
+          density: 1000
+          mask:
+            - CrateMask
+        fix2:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "0.49,0.49,0.25,-0.49"
+          density: 1000
+          mask:
+            - CrateMask
+    - type: Construction
+      node: goldCurbCorner
+
+- type: entity
+  parent: GoldCurb
+  id: GoldCurbCornerInside
+  name: gold curb inside corner
+  components:
+    - type: Sprite
+      state: gold_curb_inside_corner
+      drawdepth: FloorTiles
+    - type: Icon
+      state: gold_curb_inside_corner
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.49,0.49,-0.25,0.25"
+          density: 1000
+          mask:
+            - CrateMask
+    - type: Construction
+      node: goldCurbCornerInside
+
+- type: entity
+  parent: GoldCurb
+  id: GoldCurbUbend
+  name: gold curb u-bend
+  components:
+    - type: Sprite
+      state: gold_curb_ubend
+      drawdepth: FloorTiles
+    - type: Icon
+      state: gold_curb_ubend
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.49,-0.49,0.49,-0.25"
+          density: 1000
+          mask:
+            - CrateMask
+        fix2:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.49,-0.49,-0.25,0.49"
+          density: 1000
+          mask:
+            - CrateMask
+        fix3:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "0.25,-0.49,0.49,0.49"
+          density: 1000
+          mask:
+            - CrateMask
+    - type: Construction
+      node: goldCurbUbend
+
+- type: entity
+  parent: GoldCurb
+  id: GoldCurbSquare
+  name: gold curb square
+  components:
+    - type: Sprite
+      state: gold_curb_square
+      drawdepth: FloorTiles
+    - type: Icon
+      state: gold_curb_square
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.49,-0.49,0.49,-0.25"
+          density: 1000
+          mask:
+            - CrateMask
+        fix2:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.49,-0.49,-0.25,0.49"
+          density: 1000
+          mask:
+            - CrateMask
+        fix3:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "0.25,-0.49,0.49,0.49"
+          density: 1000
+          mask:
+            - CrateMask
+    - type: Construction
+      node: goldCurbSquare
+
+#Hydrogen
+- type: entity
+  parent: BaseCurb
+  id: HydrogenCurb
+  name: hydrogen curb
+  components:
+    - type: Sprite
+      state: hydrogen_curb
+      drawdepth: FloorTiles
+    - type: Icon
+      state: hydrogen_curb
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.49,-0.49,0.49,-0.25"
+          density: 1000
+          mask:
+            - CrateMask
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 100
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
+            damage: 20
+          behaviors:
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalBreak
+                params:
+                  volume: -6
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                MetalHydrogen1:
+                  min: 0
+                  max: 1
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+    - type: Construction
+      node: hydrogenCurb
+
+- type: entity
+  parent: HydrogenCurb
+  id: HydrogenCurbCorner
+  name: hydrogen curb corner
+  components:
+    - type: Sprite
+      state: hydrogen_curb_corner
+      drawdepth: FloorTiles
+    - type: Icon
+      state: hydrogen_curb_corner
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.49,-0.49,0.49,-0.25"
+          density: 1000
+          mask:
+            - CrateMask
+        fix2:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "0.49,0.49,0.25,-0.49"
+          density: 1000
+          mask:
+            - CrateMask
+    - type: Construction
+      node: hydrogenCurbCorner
+
+- type: entity
+  parent: HydrogenCurb
+  id: HydrogenCurbCornerInside
+  name: hydrogen curb inside corner
+  components:
+    - type: Sprite
+      state: hydrogen_curb_inside_corner
+      drawdepth: FloorTiles
+    - type: Icon
+      state: hydrogen_curb_inside_corner
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.49,0.49,-0.25,0.25"
+          density: 1000
+          mask:
+            - CrateMask
+    - type: Construction
+      node: hydrogenCurbCornerInside
+
+- type: entity
+  parent: HydrogenCurb
+  id: HydrogenCurbUbend
+  name: hydrogen curb u-bend
+  components:
+    - type: Sprite
+      state: hydrogen_curb_ubend
+      drawdepth: FloorTiles
+    - type: Icon
+      state: hydrogen_curb_ubend
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.49,-0.49,0.49,-0.25"
+          density: 1000
+          mask:
+            - CrateMask
+        fix2:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.49,-0.49,-0.25,0.49"
+          density: 1000
+          mask:
+            - CrateMask
+        fix3:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "0.25,-0.49,0.49,0.49"
+          density: 1000
+          mask:
+            - CrateMask
+    - type: Construction
+      node: hydrogenCurbUbend
+
+- type: entity
+  parent: HydrogenCurb
+  id: HydrogenCurbSquare
+  name: hydrogen curb square
+  components:
+    - type: Sprite
+      state: hydrogen_curb_square
+      drawdepth: FloorTiles
+    - type: Icon
+      state: hydrogen_curb_square
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.49,-0.49,0.49,-0.25"
+          density: 1000
+          mask:
+            - CrateMask
+        fix2:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.49,-0.49,-0.25,0.49"
+          density: 1000
+          mask:
+            - CrateMask
+        fix3:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "0.25,-0.49,0.49,0.49"
+          density: 1000
+          mask:
+            - CrateMask
+    - type: Construction
+      node: hydrogenCurbSquare

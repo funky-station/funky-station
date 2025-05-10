@@ -1,6 +1,12 @@
 - type: emote
   id: SiliconDeathgasp
   name: chat-emote-name-deathgasp
+  whitelist:
+    tags:
+    - IPCEmotes
+    - HarpyEmotes
+    components:
+    - BorgChassis
   icon: Interface/Emotes/deathgasp.png
   chatMessages: ["chat-emote-msg-deathgasp-silicon"]
   chatTriggers:
@@ -9,6 +15,12 @@
 - type: emote
   id: Boop
   name: chat-emote-name-boop
+  whitelist:
+    tags:
+    - IPCEmotes
+    - HarpyEmotes
+    components:
+    - BorgChassis
   category: Vocal
   chatMessages: [ boops ]
   chatTriggers:
@@ -17,6 +29,12 @@
 - type: emote
   id: Whirr # uncategorized as it is generic
   name: chat-emote-name-whirr
+  whitelist:
+    tags:
+    - IPCEmotes
+    - HarpyEmotes
+    components:
+    - BorgChassis
   chatMessages: [ whirrs ]
   chatTriggers:
     - whirrs

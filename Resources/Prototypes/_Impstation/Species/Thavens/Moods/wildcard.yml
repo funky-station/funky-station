@@ -10,7 +10,7 @@
   - Pope
   - Cannibal
   - Outlaw
-  - ExtremeDepartmentDisapproval
+  #- ExtremeDepartmentDisapproval
   - LoneActor
   - Immortal
   - Unknown
@@ -34,7 +34,7 @@
   - FeyMood
   - Borged
   - AyeAye
-  - NewJob
+  #- NewJob
 
 # You must always lie, and can never acknowledge that you are lying. If anyone asks, you're incapable of deception.
 - type: thavenMood
@@ -43,6 +43,10 @@
   moodDesc: thaven-mood-compulsive-liar-desc
   conflicts:
   - CompulsiveBeliever
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
 
 # You are unfamiliar with the concept of lying, and are incapable of lying or recognizing lies.
 - type: thavenMood
@@ -103,14 +107,19 @@
   id: Outlaw
   moodName: thaven-mood-outlaw-name
   moodDesc: thaven-mood-outlaw-desc
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
+  - Security
 
 # [DEPARTMENT] is not just a foreign concept - the very idea of it is horrifying.
 - type: thavenMood
   id: ExtremeDepartmentDisapproval
   moodName: thaven-mood-extreme-department-disapproval-name
   moodDesc: thaven-mood-extreme-department-disapproval-desc
-  #moodVars:
-  #  department: Departments
+  moodVars:
+    department: MoodDepartments
   conflicts:
   - DepartmentDisapproval
 
@@ -119,6 +128,11 @@
   id: LoneActor
   moodName: thaven-mood-lone-actor-name
   moodDesc: thaven-mood-lone-actor-desc
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
+  - Security
 
 # You are the center of the universe, an immortal being with no sense of time or morality. Mere mortals are like insects, fleeting and insubstantial.
 - type: thavenMood
@@ -136,6 +150,11 @@
   conflicts:
   - Pope
   - SpeechRestriction
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
+  - Security
 
 # Iron, steel, and silver are deathly poisonous to you. Touching them directly will cause you extreme physical pain.
 - type: thavenMood
@@ -200,6 +219,10 @@
   id: StayDead
   moodName: thaven-mood-stay-dead-name
   moodDesc: thaven-mood-stay-dead-desc
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
 
 # Tourist: It is customary to follow people into their departments.
 - type: thavenMood
@@ -232,8 +255,8 @@
   id: FolkHero
   moodName: thaven-mood-folk-hero-name
   moodDesc: thaven-mood-folk-hero-desc
-  #moodVars:
-  #  dagdChanceName: DAGDname
+  moodVars:
+    dagdChanceName: MoodDAGDname
 
 # Greencomms Blogger: You must keep the station informed about every minute detail of your life.
 - type: thavenMood
@@ -272,8 +295,8 @@
   id: AyeAye
   moodName: thaven-mood-aye-aye-name
   moodDesc: thaven-mood-aye-aye-desc
-  #moodVars:
-  #  command: CommandRoles
+  moodVars:
+    command: MoodCommandRoles
 
 # Your current job is disgusting to you. You must endeavor to get a new one.
 - type: thavenMood

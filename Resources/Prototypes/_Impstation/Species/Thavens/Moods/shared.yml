@@ -2,6 +2,8 @@
 # These are rolled before individual laws, and are considered more important.
 # Note: Only one law needs to say it conflicts with another
 # for the system to prevent them from being rolled together.
+# funky note: shared moods should not have any job conflicts, as they should
+# be rolled by all thaven
 
 # Make sure to add new moods to this dataset or they will not be selected!!!!!!
 - type: dataset
@@ -21,7 +23,7 @@
   - YourDepartmentOnly
   - MustCongregate
   - ViolenceDistasteful
-  - ViolencePermitted
+  #- ViolencePermitted
   - RoomHoly
   - PetGod
   - Delicacy
@@ -153,16 +155,16 @@
   id: PetGod
   moodName: thaven-mood-pet-god-name
   moodDesc: thaven-mood-pet-god-desc
-  #moodVars:
-  #  pet: Pets
+  moodVars:
+    pet: MoodPets
 
 # [ROOM] is a holy place.
 - type: thavenMood
   id: RoomHoly
   moodName: thaven-mood-room-holy-name
   moodDesc: thaven-mood-room-holy-desc
-  #moodVars:
-  #  room: Rooms
+  moodVars:
+    room: MoodRooms
 
 # Just Like Mom Used To Make: [EDIBLE] is a traditional Thaven delicacy. All Thaven aboard the station should gather as many as possible and organize a feast.
 - type: thavenMood
@@ -171,16 +173,16 @@
   moodDesc: thaven-mood-delicacy-desc
   conflicts:
   - FoodRestrict
-  #moodVars:
-  #  edible: Edibles
+  moodVars:
+    edible: MoodEdibles
 
 # Today is [HOLIDAY]. You think you remember the traditional celebrations...
 - type: thavenMood
   id: Holiday
   moodName: thaven-mood-holiday-name
   moodDesc: thaven-mood-holiday-desc
-  #moodVars:
-  #  day: Holidays
+  moodVars:
+    day: MoodHolidays
 
 # - type: thavenMood
 #   id: OutOfFashion

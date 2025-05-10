@@ -1,0 +1,35 @@
+﻿- type: entity
+  name: catberry
+  description: A cat that's also a blueberry. Someone decided to cultivate this abomination!?
+  parent: FoodProduceBase
+  id: FoodCatberry
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: CatExtract
+          Quantity: 2
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceBerry
+        Quantity: 10
+  - type: Sprite
+    sprite: _Funkystation/Objects/Specific/Hydroponics/catberry.rsi
+    scale: 0.5,0.5
+    state: produce
+  - type: Produce
+    seedId: catberry
+  - type: Tag
+    tags:
+    - Fruit
+  - type: FlavorProfile
+    flavors:
+    - cat
+    - fruity

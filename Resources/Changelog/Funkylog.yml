@@ -2652,3 +2652,41 @@ Entries:
       message: Changed medical bio-fabricator sprite
   id: 327
   time: '2025-05-09T02:14:04.0000000+00:00'
+- author: ReconPangolin
+  changes:
+    - type: Add
+      message: Added catberries
+  id: 328
+  time: '2025-05-09T20:18:03.0000000+00:00'
+- author: Sadie-silly
+  changes:
+    - type: Tweak
+      message: Granted Blueshield extra access, and a centcomm overear headset.
+    - type: Fix
+      message: Removed Blueshield's extra survival box.
+  id: 329
+  time: '2025-05-09T20:18:42.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Add
+      message: >-
+        some more thaven moods have been added, though only certain jobs can
+        roll them
+    - type: Tweak
+      message: mindshielded thavens can no longer be emagged
+  id: 330
+  time: '2025-05-09T20:19:59.0000000+00:00'
+- author: GaloGal0
+  changes:
+    - type: Tweak
+      message: Increased the speed of the autodoc
+  id: 331
+  time: '2025-05-10T00:02:42.0000000+00:00'
+- author: GaloGal0
+  changes:
+    - type: Remove
+      message: Removed Russian text in Autodoc UI
+    - type: Tweak
+      message: Changed capitalisation in Autodoc UI
+  id: 332
+  time: '2025-05-10T04:05:57.0000000+00:00'

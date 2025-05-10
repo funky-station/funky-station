@@ -322,3 +322,15 @@
     roleType: TeamAntagonist
   - type: MindcontrolledRole
 # goob edit end
+
+# funky
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleObsessed
+  name: Obsessed Role
+  roleType: SoloAntagonist
+  components:
+  - type: MindRole
+    antagPrototype: Obsessed
+    exclusiveAntag: true
+  - type: ObsessedRole

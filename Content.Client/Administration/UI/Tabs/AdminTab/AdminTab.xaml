@@ -17,6 +17,7 @@
             <cc:CommandButton Command="adminlogs" Text="{Loc admin-player-actions-window-admin-logs}"/>
             <cc:CommandButton Command="faxui" Text="{Loc admin-player-actions-window-admin-fax}"/>
             <cc:CommandButton Command="timetransferpanel" Text="{Loc admin-player-actions-window-time-transfer}"/>
+            <cc:CommandButton Command="achatwindow" Text="{Loc admin-player-actions-window-admin-chat}"/>
         </GridContainer>
     </BoxContainer>
 </Control>

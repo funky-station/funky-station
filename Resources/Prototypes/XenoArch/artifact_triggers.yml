@@ -1,205 +1,265 @@
-- type: artifactTrigger
-  id: TriggerInteraction
-  targetDepth: 0
-  triggerHint: artifact-trigger-hint-physical
-  components:
-  - type: ArtifactInteractionTrigger
+- type: weightedRandomXenoArchTrigger
+  id: DefaultTriggers
+  weights:
+    TriggerMusic: 1
+    TriggerHeat: 1
+    TriggerCold: 0.5
+    TriggerNoOxygen: 1
+    TriggerWater: 1
+    TriggerCO2: 0.5
+    TriggerPlasma: 0.5
+    TriggerN2O: 0.5
+    TriggerTritium: 0.1
+    TriggerAmmonia: 0.1
+    TriggerFrezon: 0.1
+    TriggerRadiation: 1
+    TriggerPressureHigh: 0.5
+    TriggerPressureLow: 1
+    TriggerExamine: 1
+    TriggerBruteDamage: 1
+    #TriggerInteraction: 1 #this one interferes with activating artifact AND brute dmg!
+    TriggerWrenching: 0.5
+    TriggerPrying: 0.5
+    TriggerScrewing: 0.5
+    TriggerPulsing: 0.5
+    TriggerTimer: 0.25
+    TriggerBlood: 1
+    TriggerThrow: 1
+    TriggerDeath: 1
+    TriggerMagnet: 1
 
-- type: artifactTrigger
-  id: TriggerTimer
-  targetDepth: 0
-  components:
-  - type: ArtifactTimerTrigger
-
-- type: artifactTrigger
-  id: TriggerExamine
-  targetDepth: 0
-  triggerHint: artifact-trigger-hint-examine
-  components:
-  - type: ArtifactExamineTrigger
-
-- type: artifactTrigger
-  id: TriggerAnchor
-  targetDepth: 0
-  triggerHint: artifact-trigger-hint-tool
-  blacklist:
-    components:
-    - Item
-  components:
-  - type: ArtifactAnchorTrigger
-
-- type: artifactTrigger
-  id: TriggerElectricity
-  targetDepth: 0
-  triggerHint: artifact-trigger-hint-electricity
-  blacklist:
-    components:
-    - Item
-  components:
-  - type: ArtifactElectricityTrigger
-  - type: PowerConsumer
-    voltage: Medium
-    drawRate: 500
-  - type: Electrified
-    requirePower: true
-    noWindowInTile: true
-    highVoltageNode: high
-    mediumVoltageNode: medium
-    lowVoltageNode: low
-  - type: NodeContainer
-    nodes:
-      medium:
-        !type:CableDeviceNode
-        nodeGroupID: MVPower
-        # sadly, HVPower and Apc cables doesn't work right now
-
-- type: artifactTrigger
+- type: xenoArchTrigger
   id: TriggerMusic
-  targetDepth: 1
-  triggerHint: artifact-trigger-hint-music
+  tip: xenoarch-trigger-tip-music
   components:
-  - type: ArtifactMusicTrigger
+  - type: XATCompNearby
+    requireComponentWithName: ActiveInstrument
+    radius: 2
 
-- type: artifactTrigger
+- type: xenoArchTrigger
+  id: TriggerHeat
+  tip: xenoarch-trigger-tip-heat
+  components:
+  - type: XATTemperature
+    targetTemperature: 373
+    triggerOnHigherTemp: true
+  - type: XATDamageThresholdReached
+    typesNeeded:
+      Heat: 20
+# This kinda trivializes the difficulty.
+#  - type: XATToolUse
+#    requiredTool: Welding
+#    delay: 5
+#    fuel: 10
+
+- type: xenoArchTrigger
+  id: TriggerCold
+  tip: xenoarch-trigger-tip-cold
+  components:
+  - type: XATTemperature
+    targetTemperature: 255
+    triggerOnHigherTemp: false
+  - type: XATDamageThresholdReached
+    typesNeeded:
+      Cold: 20
+
+- type: xenoArchTrigger
+  id: TriggerNoOxygen
+  tip: xenoarch-trigger-tip-no-oxygen
+  components:
+  - type: XATGas
+    targetGas: Oxygen
+    moles: 10
+    shouldBePresent: false
+
+- type: xenoArchTrigger
+  id: TriggerWater
+  tip: xenoarch-trigger-tip-water
+  components:
+  - type: XATGas
+    targetGas: WaterVapor
+  - type: XATReactive
+    reagents:
+    - Water
+
+- type: xenoArchTrigger
+  id: TriggerCO2
+  tip: xenoarch-trigger-tip-co2
+  components:
+  - type: XATGas
+    targetGas: CarbonDioxide
+  - type: XATReactive
+    reagents:
+    - CarbonDioxide
+
+- type: xenoArchTrigger
+  id: TriggerPlasma
+  tip: xenoarch-trigger-tip-plasma
+  components:
+  - type: XATGas
+    targetGas: Plasma
+  - type: XATReactive
+    reagents:
+    - Plasma
+
+- type: xenoArchTrigger
+  id: TriggerTritium
+  tip: xenoarch-trigger-tip-tritium
+  components:
+  - type: XATGas
+    targetGas: Tritium
+  - type: XATReactive
+    reagents:
+    - Tritium
+
+- type: xenoArchTrigger
+  id: TriggerAmmonia
+  tip: xenoarch-trigger-tip-ammonia
+  components:
+  - type: XATGas
+    targetGas: Ammonia
+  - type: XATReactive
+    reagents:
+    - Ammonia
+
+- type: xenoArchTrigger
+  id: TriggerN2O
+  tip: xenoarch-trigger-tip-n2o
+  components:
+  - type: XATGas
+    targetGas: NitrousOxide
+  - type: XATReactive
+    reagents:
+    - NitrousOxide
+
+- type: xenoArchTrigger
+  id: TriggerFrezon
+  tip: xenoarch-trigger-tip-frezon
+  components:
+  - type: XATGas
+    targetGas: Frezon
+  - type: XATReactive
+    reagents:
+    - Frezon
+
+- type: xenoArchTrigger
+  id: TriggerRadiation
+  tip: xenoarch-trigger-tip-radiation
+  components:
+  - type: XATDamageThresholdReached
+    typesNeeded:
+      Radiation: 20
+  # TODO: legendary microwave trigger
+
+- type: xenoArchTrigger
+  id: TriggerPressureHigh
+  tip: xenoarch-trigger-tip-pressure-high
+  components:
+  - type: XATPressure
+    maxPressureThreshold: 385
+
+- type: xenoArchTrigger
+  id: TriggerPressureLow
+  tip: xenoarch-trigger-tip-pressure-low
+  components:
+  - type: XATPressure
+    minPressureThreshold: 50
+
+- type: xenoArchTrigger
+  id: TriggerExamine
+  tip: xenoarch-trigger-tip-examine
+  components:
+  - type: XATExamine
+
+- type: xenoArchTrigger
   id: TriggerBruteDamage
-  targetDepth: 1
-  triggerHint: artifact-trigger-hint-physical
+  tip: xenoarch-trigger-tip-brute-damage
   components:
-  - type: ArtifactDamageTrigger
-    damageTypes:
-    - Blunt
-    - Slash
-    - Piercing
-    damageThreshold: 50
+  - type: XATDamageThresholdReached
+    groupsNeeded:
+      Brute: 20
 
-- type: artifactTrigger
-  id: TriggerItemLanded
-  targetDepth: 1
-  triggerHint: artifact-trigger-hint-land
+- type: xenoArchTrigger
+  id: TriggerInteraction
+  tip: xenoarch-trigger-tip-interaction
+  components:
+  - type: XATInteraction
+
+- type: xenoArchTrigger
+  id: TriggerWrenching
+  tip: xenoarch-trigger-tip-wrenching
+  components:
+  - type: XATToolUse
+    requiredTool: Anchoring
+  - type: XATExaminableText
+    examineText: xenoarch-trigger-examine-wrenching
+
+- type: xenoArchTrigger
+  id: TriggerPrying
+  tip: xenoarch-trigger-tip-prying
+  components:
+  - type: XATToolUse
+    requiredTool: Prying
+  - type: XATExaminableText
+    examineText: xenoarch-trigger-examine-prying
+
+- type: xenoArchTrigger
+  id: TriggerScrewing
+  tip: xenoarch-trigger-tip-screwing
+  components:
+  - type: XATToolUse
+    requiredTool: Screwing
+  - type: XATExaminableText
+    examineText: xenoarch-trigger-examine-screwing
+
+- type: xenoArchTrigger
+  id: TriggerPulsing
+  tip: xenoarch-trigger-tip-pulsing
+  components:
+  - type: XATToolUse
+    requiredTool: Pulsing
+  - type: XATExaminableText
+    examineText: xenoarch-trigger-examine-pulsing
+
+- type: xenoArchTrigger
+  id: TriggerTimer
+  tip: xenoarch-trigger-tip-timer
+  components:
+  - type: XATTimer
+    possibleDelayInSeconds:
+      min: 80
+      max: 120
+
+- type: xenoArchTrigger
+  id: TriggerBlood
+  tip: xenoarch-trigger-tip-blood
+  components:
+  - type: XATReactive
+    reagents:
+    - Blood
+    - CopperBlood
+    - InsectBlood
+    - Slime
+    - AmmoniaBlood
+    - ZombieBlood
+
+- type: xenoArchTrigger
+  id: TriggerThrow
+  tip: xenoarch-trigger-tip-throw
   whitelist:
     components:
     - Item
   components:
-  - type: ArtifactLandTrigger
+  - type: XATItemLand
 
-- type: artifactTrigger
-  id: TriggerHeat
-  targetDepth: 1
-  triggerHint: artifact-trigger-hint-heat
-  components:
-  - type: ArtifactHeatTrigger
-
-- type: artifactTrigger
-  id: TriggerWater
-  targetDepth: 1
-  triggerHint: artifact-trigger-hint-water
-  components:
-  - type: Reactive
-    groups:
-      Acidic: [ Touch ]
-    reactions:
-    - reagents: [ Water ]
-      methods: [ Touch ]
-      effects:
-      - !type:ActivateArtifact
-
-- type: artifactTrigger
-  id: TriggerBlood
-  targetDepth: 1
-  triggerHint: artifact-trigger-hint-blood
-  components:
-  - type: Reactive
-    groups:
-      Acidic: [ Touch ]
-    reactions:
-    - reagents: [ Blood, CopperBlood, InsectBlood, Slime, AmmoniaBlood, ZombieBlood, ShimmeringBlood ] #imp
-      methods: [ Touch ]
-      effects:
-      - !type:ActivateArtifact
-
-- type: artifactTrigger
-  id: TriggerMedical
-  targetDepth: 2
-  triggerHint: artifact-trigger-hint-medical
-  components:
-  - type: Reactive
-    groups:
-      Acidic: [ Touch ]
-    reactions: # Funkychem
-    - reagents: [ Multiver, PenteticAcid, Diphenhydramine, Arithrazine, Probital, Libital, SalicylicAcid, Lenturi, Oxandrolone, Dexalin, Salbutamol, Convermol, Tricordrazine, Leporazine, Bruizine, Lacerinol, Puncturase, Pyrazine, Insuzine, Aiuri, Hyronalin, Inaprovaline, Epinephrine ]
-      methods: [ Touch ]
-      effects:
-      - !type:ActivateArtifact
-
-- type: artifactTrigger
-  id: TriggerGas
-  targetDepth: 2
-  triggerHint: artifact-trigger-hint-regular-gases
-  components:
-  - type: ArtifactGasTrigger
-    possibleGas:
-    - Oxygen
-    - Nitrogen
-    - CarbonDioxide
-
-- type: artifactTrigger
+- type: xenoArchTrigger
   id: TriggerDeath
-  targetDepth: 2
-  triggerHint: artifact-trigger-hint-death
+  tip: xenoarch-trigger-tip-death
   components:
-  - type: ArtifactDeathTrigger
+  - type: XATDeath
 
-- type: artifactTrigger
+- type: xenoArchTrigger
   id: TriggerMagnet
-  targetDepth: 2
-  triggerHint: artifact-trigger-hint-magnet
+  tip: xenoarch-trigger-tip-magnet
   components:
-  - type: ArtifactMagnetTrigger
-
-- type: artifactTrigger
-  id: TriggerLowPressure
-  targetDepth: 2
-  triggerHint: artifact-trigger-hint-pressure
-  components:
-  - type: ArtifactPressureTrigger
-    minPressureThreshold: 50
-
-- type: artifactTrigger
-  id: TriggerHighDamage
-  targetDepth: 3
-  triggerHint: artifact-trigger-hint-physical
-  components:
-  - type: ArtifactDamageTrigger
-    damageThreshold: 500 #make it go boom or w/e
-
-- type: artifactTrigger
-  id: TriggerRadiation
-  targetDepth: 3
-  triggerHint: artifact-trigger-hint-radiation
-  components:
-  - type: ArtifactMicrowaveTrigger
-  - type: ArtifactDamageTrigger
-    damageTypes:
-    - Radiation
-    damageThreshold: 50
-  - type: RadiationReceiver
-
-- type: artifactTrigger
-  id: TriggerHighPressure
-  targetDepth: 3
-  triggerHint: artifact-trigger-hint-pressure
-  components:
-  - type: ArtifactPressureTrigger
-    maxPressureThreshold: 385
-
-- type: artifactTrigger
-  id: TriggerPlasma
-  targetDepth: 3
-  triggerHint: artifact-trigger-hint-plasma
-  components:
-  - type: ArtifactGasTrigger
-    possibleGas:
-    - Plasma
-
-#don't add in new targetdepth values until you have a few
-#or else it will skew heavily towards a few options.
+  - type: XATMagnet

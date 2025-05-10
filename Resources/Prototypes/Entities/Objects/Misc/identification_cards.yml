@@ -870,6 +870,7 @@
   - type: Access
     groups:
     - AllAccess
+    - Silicon
     tags:
     - CentralCommand
     - NuclearOperative

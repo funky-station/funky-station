@@ -11,6 +11,7 @@ using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Threading;
+using Content.Server.Power.Components;
 
 namespace Content.Server.Power.EntitySystems
 {
@@ -518,6 +519,14 @@ namespace Content.Server.Power.EntitySystems
                 netNode.Supplies.Add(supplier.NetworkSupply.Id);
                 supplier.NetworkSupply.LinkedNetwork = netNode.Id;
             }
+        }
+
+        /// <summary>
+        /// Validate integrity of the power state data. Throws if an error is found.
+        /// </summary>
+        public void Validate()
+        {
+            _solver.Validate(_powerState);
         }
     }
 

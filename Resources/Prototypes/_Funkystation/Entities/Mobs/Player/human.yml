@@ -12,7 +12,7 @@
     prototypes: [ NeanderthalGear ]
   - type: RandomMetadata
     nameSegments:
-    - NeanderthalNamesNormal
+    - NamesNeanderthalNormal
   - type: NeanderthalAccent
   - type: Clumsy
     clumsyDefaultCheck: 0.9

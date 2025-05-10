@@ -13,6 +13,9 @@
   - AllAccess
   access:
   - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTLeaderGear
@@ -108,6 +111,8 @@
     components:
     - type: BibleUser #Lets them heal with bibles and transform null rods.
     - type: CultResistant # Funky cult
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTChaplainGear
@@ -188,6 +193,9 @@
   - AllAccess
   access:
   - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTEngineerGear
@@ -260,6 +268,9 @@
   - AllAccess
   access:
   - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTSecurityGear
@@ -350,6 +361,9 @@
   - AllAccess
   access:
   - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTMedicalGear
@@ -414,6 +428,9 @@
   - AllAccess
   access:
   - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTJanitorGear

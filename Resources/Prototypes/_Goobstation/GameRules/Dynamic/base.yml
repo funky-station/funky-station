@@ -15,7 +15,7 @@
   - type: AntagRandomObjectives
     sets:
     - groups: TraitorObjectiveGroups
-    maxDifficulty: 6 # Funky Station - Fixes upstream objective hell 
+    maxDifficulty: 6 # Funky Station - Fixes upstream objective hell
   - type: AntagSelection
     agentName: traitor-round-end-agent-name
 
@@ -26,8 +26,8 @@
   components:
   - type: RandomMetadata
     nameSegments:
-    - operationPrefix
-    - operationSuffix
+    - NamesOperationPrefix
+    - NamesOperationSuffix
   - type: NukeopsRule
   - type: RuleGrids
   - type: AntagSelection

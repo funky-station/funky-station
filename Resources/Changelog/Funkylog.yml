@@ -2676,3 +2676,9 @@ Entries:
       message: mindshielded thavens can no longer be emagged
   id: 330
   time: '2025-05-09T20:19:59.0000000+00:00'
+- author: GaloGal0
+  changes:
+    - type: Tweak
+      message: Increased the speed of the autodoc
+  id: 331
+  time: '2025-05-10T00:02:42.0000000+00:00'

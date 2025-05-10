@@ -1,0 +1,29 @@
+﻿- type: seed
+  id: catberry
+  name: seeds-catberry-name
+  noun: seeds-noun-seeds
+  displayName: seeds-catberry-display-name
+  plantRsi: _Funkystation/Objects/Specific/Hydroponics/catberry.rsi
+  packetPrototype: CatberrySeeds
+  productPrototypes:
+  - FoodCatberry
+  harvestRepeat: Repeat
+  lifespan: 35
+  maturation: 6
+  production: 6
+  yield: 3
+  idealLight: 7
+  nutrientConsumption: 0.6
+  chemicals:
+    Nutriment:
+      Min: 2
+      Max: 5
+      PotencyDivisor: 30
+    Vitamin:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 40
+    CatExtract:
+      Min: 2
+      Max: 3
+      PotencyDivisor: 50

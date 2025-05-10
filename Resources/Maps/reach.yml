@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 247.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 05/02/2025 17:21:22
+  entityCount: 2500
+maps:
+- 1
+grids:
+- 2
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   1: FloorBlueCircuit
@@ -38,7 +49,6 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
-    - type: LoadedMap
   - uid: 2
     components:
     - type: MetaData
@@ -1249,6 +1259,14 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           immutable: True
           moles:
@@ -1264,6 +1282,14 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -1279,10 +1305,26 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
           - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -1992,8 +2034,11 @@ entities:
   - uid: 95
     components:
     - type: Transform
-      pos: 2.4605155,-3.2763605
+      pos: 6.5245533,-2.2592888
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: BoxFolderQmClipboard
   entities:
   - uid: 96
@@ -6158,6 +6203,14 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -11731,6 +11784,13 @@ entities:
     - type: Transform
       pos: 9.5,-4.5
       parent: 2
+- proto: MedicalBiofabricator
+  entities:
+  - uid: 1620
+    components:
+    - type: Transform
+      pos: 2.5,-3.5
+      parent: 2
 - proto: MedicalTechFab
   entities:
   - uid: 1666
@@ -12126,7 +12186,7 @@ entities:
   - uid: 1724
     components:
     - type: Transform
-      pos: 2.4826317,-3.6277924
+      pos: 6.5,-2.5
       parent: 2
 - proto: PottedPlant22
   entities:

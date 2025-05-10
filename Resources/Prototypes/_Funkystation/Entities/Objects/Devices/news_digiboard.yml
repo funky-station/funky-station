@@ -26,4 +26,8 @@
     sprite: Objects/Specific/Mining/qm_clipboard.rsi
     slots:
     - belt
+  - type: Contraband
+    severity: Minor
+    allowedDepartments: [ Command ]
+    allowedJobs: [ Reporter ]
 

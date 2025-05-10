@@ -1,7 +1,6 @@
 - type: roleLoadout
   id: JobRoboticist
   groups:
-  - GroupTankHarness
   - ScientistHead
   - ScientistNeck
   - ScientistJumpsuit
@@ -18,7 +17,6 @@
 - type: roleLoadout
   id: JobInternalAffairsAgent
   groups:
-  - GroupTankHarness
   - InternalAffairsAgentJumpsuit
   - InternalAffairsAgentBackpack
   - InternalAffairsAgentBelt

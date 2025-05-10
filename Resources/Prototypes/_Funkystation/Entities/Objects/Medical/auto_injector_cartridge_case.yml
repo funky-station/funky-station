@@ -1,5 +1,5 @@
 - type: entity
-  id: auto_injector_cartridge_case
+  id: autoInjectorCartridgeCase
   name: autoinjector cartridge case
   description: A small case for storing emergency cartridges for use in a cartridge autoinjector.
   parent: [ BaseStorageItem, BaseBagOpenClose, BaseMedicalContraband, BaseSecurityContraband ]
@@ -14,7 +14,7 @@
   - type: Appearance
   - type: Item
     sprite: _Funkystation/Objects/Medical/auto_injector_cartridge_case.rsi
-    size: Normal
+    size: Tiny
   - type: Storage
     grid:
     - 0,0,4,0

@@ -272,12 +272,14 @@
         - DiscreteHealthAnalyzer
         - SurgeryTool
         - Dropper
+        - AutoinjectorCartridge
       components:
         - Hypospray
         - Injector
         - Pill
         - HandLabeler
         - SurgeryTool # Shitmed Change
+        - AutoinjectorCartridge
   - type: ItemMapper
     mapLayers:
       bottle:

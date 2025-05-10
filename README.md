@@ -19,9 +19,32 @@ We recommend you read the contribution guidelines. [Contribution Guidelines](htt
 
 ## Building
 
-1. Clone this repo.
-2. Run `RUN_THIS.py` to init submodules and download the engine.
-3. Compile the solution.
+We provide some scripts shown below to make the job easier.
+
+### Build dependencies
+
+> - [Git](https://git-scm.com)
+> - [.NET SDK 9.0.101](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+
+### Windows
+
+> 1. Clone this repository
+> 2. Run `Scripts/bat/buildAllDebug.bat` after making any changes to the source
+> 3. Run `Scripts/bat/runQuickAll.bat` to launch the client and the server
+> 4. Connect to localhost in the client and play
+
+### Linux
+
+> 1. Clone this repository
+> 2. Run `Scripts/sh/buildAllDebug.sh` after making any changes to the source
+> 3. Run `Scripts/sh/runQuickAll.sh` to launch the client and the server
+> 4. Connect to localhost in the client and play
+
+### MacOS
+
+> I don't know anybody using MacOS to test this, but it's probably roughly the same steps as Linux
+
+If your changes are under the resources folder, you do not need to build more than once, only run.
 
 [More detailed instructions on building the project.](https://docs.goobstation.com/en/general-development/setup.html)
 

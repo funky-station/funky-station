@@ -40,10 +40,11 @@
       collection: FootstepHull
   - type: Tag
     tags:
+    - Structure
+    - Table
     - ForceFixRotations
   - type: RequireProjectileTarget # Goobstation - Crawling
     ignoreThrow: true
-
 
 - type: entity
   id: CounterBase

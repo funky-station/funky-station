@@ -763,7 +763,7 @@
   description: uplink-bribe-desc
   productEntity: BriefcaseSyndieLobbyingBundleFilled
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 10 # goob
   categories:
     - UplinkDeception
   saleLimit: 1 # WD EDIT

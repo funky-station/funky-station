@@ -230,8 +230,9 @@
   cost:
     Telecrystal: 400
   categories:
-  - !type:WarOpsCondition
   - UplinkAllies
+  conditions:
+    !type: WarOpsCondition
   saleLimit : 1
 
 - type: listing

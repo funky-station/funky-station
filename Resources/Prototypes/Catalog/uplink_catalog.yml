@@ -1556,21 +1556,21 @@
   saleLimit: 1 # WD EDIT
   saleBlacklist: true
 
-- type: listing
-  id: UplinkClothingConductingGloves
-  name: uplink-clothing-conducting-gloves-name
-  description: uplink-clothing-conducting-gloves-desc
-  productEntity: ClothingHandsGlovesConducting
-  cost:
-    Telecrystal: 3 # Literally worthless. Not worth clogging the sale pool. Funky
-  categories:
-  - UplinkWearables
-  conditions:
-    !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-        -NukeOpsUplink
-  saleLimit: 1 # WD EDIT
+#- type: listing
+#  id: UplinkClothingConductingGloves
+#  name: uplink-clothing-conducting-gloves-name
+#  description: uplink-clothing-conducting-gloves-desc
+#  productEntity: ClothingHandsGlovesConducting
+#  cost:
+#    Telecrystal: 3 # Literally worthless. Not worth clogging the sale pool. Funky
+#  categories:
+#  - UplinkWearables
+#  conditions:
+#    !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#        -NukeOpsUplink
+#  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkBackpackSyndicate

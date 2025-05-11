@@ -7,10 +7,16 @@
 // SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later and MIT
 
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -67,7 +73,8 @@ public sealed partial class BlockingSystem
 
             var blockFraction = blocking.IsBlocking ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
             blockFraction = Math.Clamp(blockFraction, 0, 1);
-            _damageable.TryChangeDamage(component.BlockingItem, blockFraction * args.OriginalDamage);
+            _damageable.TryChangeDamage(component.BlockingItem,
+                blockFraction * args.OriginalDamage);
 
             var modify = new DamageModifierSet();
             foreach (var key in dmgComp.Damage.DamageDict.Keys)

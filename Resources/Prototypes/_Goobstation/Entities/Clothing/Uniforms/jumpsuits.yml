@@ -21,10 +21,17 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/durathread_jumpsuit.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.95
-        Heat: 0.95
+        Blunt: 0.85
+        Heat: 0.85
 
 - type: entity
   parent: ClothingUniformBase

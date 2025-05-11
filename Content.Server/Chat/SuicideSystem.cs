@@ -17,9 +17,14 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 osjarw <oskariwjarvinen@gmail.com>
+// SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -39,9 +44,9 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Player;
-using Content.Shared._EinsteinEngines.Silicon.Components;
-
 using Robust.Shared.Prototypes;
+using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components; // Shitmed Change
 
 namespace Content.Server.Chat;
 
@@ -105,6 +110,7 @@ public sealed class SuicideSystem : EntitySystem
         {
             _adminLogger.Add(LogType.Mind, $"{EntityManager.ToPrettyString(victim):player} suicided.");
         }
+
         return true;
     }
 
@@ -196,9 +202,10 @@ public sealed class SuicideSystem : EntitySystem
         if (HasComp<SiliconComponent>(victim)) // Goobstation
             args.DamageType ??= "Shock";
         else
-            args.DamageType ??= "Bloodloss";
+            args.DamageType ??= "Slash";
 
         _suicide.ApplyLethalDamage(victim, args.DamageType);
+
         args.Handled = true;
     }
 }

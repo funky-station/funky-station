@@ -126,6 +126,7 @@
         amount: 1
       - id: SyringeSaline # Funky
         amount: 2
+      - id: Tourniquet # Shitmed Change
 
 - type: entity
   id: MedkitCombatFilled

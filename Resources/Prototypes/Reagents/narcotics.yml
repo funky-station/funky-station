@@ -151,6 +151,9 @@
         key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 5
+      - !type:SuppressPain # Shitmed Change
+        amount: 1.2
+        time: 10 # it accumulated 1.2*quantity and then exists for 30 seconds.
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -218,6 +221,9 @@
         key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 5
+      - !type:SuppressPain
+          amount: 1.2
+          time: 30 # it accumulated 1.2*quantity and then exists for 30 seconds.
     Medicine:
       metabolismRate: 1.0
       effects:
@@ -524,7 +530,7 @@
         time: 5
         refresh: false
 
-- type: reagent
+- type: reagent # Assmos - /tg/ gases
   id: NitrosylPlasmide
   name: reagent-name-nitrosyl-plasmide
   group: Narcotics

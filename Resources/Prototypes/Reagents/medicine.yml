@@ -341,6 +341,14 @@
     Medicine:
       metabolismRate: 0.2 # Funkychem
       effects:
+      - !type:SuppressPain
+        amount: 2.4
+        time: 12
+      - !type:AdjustPainFeels
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        amount: 0.04
       - !type:HealthChange
         damage:
           groups:
@@ -354,6 +362,12 @@
           types:
             Asphyxiation: 2
             Cold: 1
+      - !type:AdjustConsciousness
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 3.4
+        time: 12
 
 #- type: reagent
 #  id: DexalinPlus
@@ -400,6 +414,21 @@
     Medicine:
       metabolismRate: 0.2 # Funkychem
       effects:
+      - !type:SuppressPain
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+        amount: 5
+        time: 10 # very little because it's supposed to suppress pain while you're in crit
+      - !type:AdjustConsciousness
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 5 # Does not let the entity suffocate while the pain is suppressed
+        time: 10
       - !type:HealthChange
         conditions:
           # they gotta be in crit first
@@ -456,6 +485,15 @@
       - !type:MovespeedModifier # Goob edit
         walkSpeedModifier: 1.1
         sprintSpeedModifier: 1.1
+      - !type:AdjustConsciousness
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -2.4
+        time: 12
 
 - type: reagent
   id: Hyronalin
@@ -526,6 +564,12 @@
             Asphyxiation: -3 # Funkychem
       - !type:ModifyBleedAmount
         amount: -0.25
+      - !type:AdjustConsciousness
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 8
+        time: 20
 
 #- type: reagent
 #  id: Kelotane
@@ -693,6 +737,21 @@
             Asphyxiation: 3.5
       - !type:ModifyBleedAmount
         amount: -0.25
+      - !type:AdjustConsciousness
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 6
+        time: 12
+      - !type:AdjustConsciousness
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 6
+        time: 12
 
 - type: reagent
   id: Ambuzol
@@ -769,6 +828,8 @@
     Medicine:
       metabolismRate: 0.2 # Funkychem
       effects:
+      - !type:AdjustPainFeels
+        amount: 0.05 # heheheh
       - !type:HealthChange
         damage:
           types:
@@ -901,6 +962,9 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain
+        amount: 2
+        time: 14
       - !type:HealthChange
         damage:
           groups:
@@ -1209,6 +1273,9 @@
     Medicine:
       metabolismRate: 0.2 # Funkychem
       effects:
+      - !type:SuppressPain
+        amount: 4 # To prevent people from dying while being healed
+        time: 7
       - !type:HealthChange
         damage:
           types:

@@ -11,7 +11,7 @@
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   save: false
@@ -115,6 +115,7 @@
       drawdepth: Mobs
       layers:
         - map: ["enum.HumanoidVisualLayers.Chest"]
+        - map: ["enum.HumanoidVisualLayers.Groin"]
         - map: ["enum.HumanoidVisualLayers.Head"]
         - map: ["enum.HumanoidVisualLayers.Snout"]
         - map: ["enum.HumanoidVisualLayers.Eyes"]
@@ -262,8 +263,6 @@
         enum.SpellsUiKey.Key: # funky edit - cultists
           type: SpellsBoundUserInterface
           requireInputValidation: false
-        enum.SurgeryUIKey.Key: # Shitmed
-          type: SurgeryBui
         enum.ThavenMoodsUiKey.Key: # impstation edit
           type: ThavenMoodsBoundUserInterface
           requireInputValidation: false
@@ -309,19 +308,19 @@
     - type: Puller
     - type: BodyEmotes
       soundsId: GeneralBodyEmotes
-    - type: DamageVisuals
-      thresholds: [ 10, 20, 30, 50, 70, 100 ]
-      targetLayers:
-        - "enum.HumanoidVisualLayers.Chest"
-        - "enum.HumanoidVisualLayers.Head"
-        - "enum.HumanoidVisualLayers.LArm"
-        - "enum.HumanoidVisualLayers.LLeg"
-        - "enum.HumanoidVisualLayers.RArm"
-        - "enum.HumanoidVisualLayers.RLeg"
-      damageOverlayGroups:
-        Brute:
-          sprite: Mobs/Effects/brute_damage.rsi
-          color: "#DD8822"
+#    - type: DamageVisuals
+#      thresholds: [ 10, 20, 30, 50, 70, 100 ]
+#      targetLayers:
+#        - "enum.HumanoidVisualLayers.Chest"
+#        - "enum.HumanoidVisualLayers.Head"
+#        - "enum.HumanoidVisualLayers.LArm"
+#        - "enum.HumanoidVisualLayers.LLeg"
+#        - "enum.HumanoidVisualLayers.RArm"
+#        - "enum.HumanoidVisualLayers.RLeg"
+#      damageOverlayGroups:
+#        Brute:
+#          sprite: Mobs/Effects/brute_damage.rsi
+#          color: "#DD8822"
     # Organs
     - type: IdExaminable
     - type: HealthExaminable
@@ -359,5 +358,7 @@
     #- type: FootPrints disable cuz its not in
     - type: Carriable
     - type: Targeting
-    - type: SurgeryTarget
     - type: LayingDown
+    - type: Consciousness
+      cap: 190
+      threshold: 95

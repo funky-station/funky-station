@@ -40,9 +40,9 @@
         Quantity: 10
 
 - type: entity
-  id: TorsoReptilian
-  name: "reptilian torso"
-  parent: [PartReptilian, BaseTorso]
+  id: ChestReptilian
+  name: "reptilian chest"
+  parent: [PartReptilian, BaseChest]
   components:
   - type: Item
     size: Ginormous
@@ -50,7 +50,23 @@
     - 0,0,5,3
   - type: Sprite
     sprite: Mobs/Species/Reptilian/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+- type: entity
+  id: GroinReptilian
+  name: "reptilian groin"
+  parent: [PartReptilian, BaseGroin]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "groin_m"
   - type: Extractable
     juiceSolution:
       reagents:

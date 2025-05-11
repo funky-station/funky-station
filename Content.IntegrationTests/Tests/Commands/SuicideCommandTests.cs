@@ -2,10 +2,20 @@
 // SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 osjarw <oskariwjarvinen@gmail.com>
+// SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -26,6 +36,7 @@ using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components; // Shitmed Change
 
 namespace Content.IntegrationTests.Tests.Commands;
 
@@ -90,12 +101,14 @@ public sealed class SuicideCommandTests
 
         MindComponent mindComponent = default;
         MobStateComponent mobStateComp = default;
+        DamageableComponent damageableComp = default;
         await server.WaitPost(() =>
         {
             if (mind != null)
                 mindComponent = entManager.GetComponent<MindComponent>(mind.Value);
 
             mobStateComp = entManager.GetComponent<MobStateComponent>(player);
+            damageableComp = entManager.GetComponent<DamageableComponent>(player);
         });
 
 
@@ -106,7 +119,7 @@ public sealed class SuicideCommandTests
             consoleHost.GetSessionShell(playerMan.Sessions.First()).ExecuteCommand("suicide");
             Assert.Multiple(() =>
             {
-                Assert.That(mobStateSystem.IsDead(player, mobStateComp));
+                Assert.That(mobStateSystem.IsDead(player, mobStateComp), $"Player is alive when they should be dead: {entManager.ToPrettyString(player)}, {player.Id}, {mobStateComp.CurrentState}, {damageableComp.Damage.GetTotal()}");
                 Assert.That(entManager.TryGetComponent<GhostComponent>(mindComponent.CurrentEntity, out var ghostComp) &&
                             !ghostComp.CanReturnToBody);
             });
@@ -156,7 +169,7 @@ public sealed class SuicideCommandTests
             damageableComp = entManager.GetComponent<DamageableComponent>(player);
 
             if (protoMan.TryIndex<DamageTypePrototype>("Slash", out var slashProto))
-                damageableSystem.TryChangeDamage(player, new DamageSpecifier(slashProto, FixedPoint2.New(46.5)));
+                damageableSystem.TryChangeDamage(player, new DamageSpecifier(slashProto, FixedPoint2.New(47)));
         });
 
         // Check that running the suicide command kills the player
@@ -221,7 +234,7 @@ public sealed class SuicideCommandTests
             consoleHost.GetSessionShell(playerMan.Sessions.First()).ExecuteCommand("suicide");
             Assert.Multiple(() =>
             {
-                Assert.That(mobStateSystem.IsAlive(player, mobStateComp));
+                Assert.That(mobStateSystem.IsAlive(player, mobStateComp), $"Player is alive when they should be dead: {entManager.ToPrettyString(player)}, {player.Id}");
                 Assert.That(entManager.TryGetComponent<GhostComponent>(mindComponent.CurrentEntity, out var ghostComp) &&
                             !ghostComp.CanReturnToBody);
             });
@@ -373,7 +386,7 @@ public sealed class SuicideCommandTests
                 Assert.That(mobStateSystem.IsDead(player, mobStateComp));
                 Assert.That(entManager.TryGetComponent<GhostComponent>(mindComponent.CurrentEntity, out var ghostComp) &&
                             !ghostComp.CanReturnToBody);
-                // Assert.That(damageableComp.Damage.DamageDict["Slash"], Is.EqualTo(lethalDamageThreshold / 2));
+                Assert.That(damageableComp.Damage.DamageDict["Slash"], Is.EqualTo(lethalDamageThreshold / 2));
             });
         });
 

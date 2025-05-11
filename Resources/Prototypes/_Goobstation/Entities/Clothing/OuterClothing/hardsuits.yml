@@ -28,6 +28,13 @@
   - type: ExplosionResistance
     damageCoefficient: 0.05
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
         Blunt: 0.05
@@ -73,6 +80,13 @@
   - type: StaminaResistance
     damageCoefficient: 0.70
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
         Blunt: 0.75
@@ -113,6 +127,13 @@
   - type: StaminaResistance
     damageCoefficient: 0.8
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
         Blunt: 0.65

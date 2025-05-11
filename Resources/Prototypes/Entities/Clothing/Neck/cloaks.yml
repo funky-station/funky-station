@@ -1,38 +1,48 @@
-# SPDX-FileCopyrightText: 2020 AJCM <AJCM@tutanota.com>
 # SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 FrostMando <68990565+FrostMando@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 # SPDX-FileCopyrightText: 2020 Swept <jamesurquhartwebb@gmail.com>
 # SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
 # SPDX-FileCopyrightText: 2020 py01 <pyronetics01@gmail.com>
 # SPDX-FileCopyrightText: 2021 DmitriyRubetskoy <75271456+DmitriyRubetskoy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2021 Rubetskoy Dmitriy <rubetskoy234@mail.ru>
 # SPDX-FileCopyrightText: 2021 xRiriq <94037592+xRiriq@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 xRiriq <xRiriq.git@gmail.com>
 # SPDX-FileCopyrightText: 2022 Emisse <99158783+Emisse@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Pancake <Pangogie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Ranger6012 <102882503+Ranger6012@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 AJCM <AJCM@tutanota.com>
+# SPDX-FileCopyrightText: 2023 Colin-Tel <113523727+Colin-Tel@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Tony <73495699+carteblanche4me@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2023 nmajask <nmajask@gmail.com>
 # SPDX-FileCopyrightText: 2024 2013HORSEMEATSCANDAL <146540817+2013HORSEMEATSCANDAL@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Aexxie <codyfox.077@gmail.com>
+# SPDX-FileCopyrightText: 2024 Archylle <81660513+Archylle@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
 # SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 NotSoDamn <75203942+NotSoDana@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 TherapyGoth <148295971+TherapyGoth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Lachryphage <stuart.e.clough@gmail.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 inquisitor-star <81660513+inquisitor-star@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 inquisitor-star <thecatankha@gmail.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   parent: ClothingNeckBase
@@ -173,20 +183,44 @@
 
 - type: entity
   parent: ClothingNeckBase
+  id: ClothingNeckCloakTrans
+  name: vampire cloak
+  description: Worn by high ranking vampires of the transylvanian society of vampires.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Cloaks/trans.rsi
+
+- type: entity
+  parent: ClothingNeckBase
   id: ClothingNeckCloakGoliathCloak
   name: goliath cloak
-  description: A cloak made from the hide of resilient fauna from a distant planet, though its protective value has faded with its age.
+  description: A cloak made from the hide of resilient fauna from a distant planet. #Goobstation
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/goliathcloak.rsi
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodGoliathCloak
-    requiredSlot:
-    - neck
-    slot: head
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes:
+      neck: ClothingHeadHatHoodGoliathCloak
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    modifiers:
+     coefficients:
+      Blunt: 0.65
+      Slash: 0.65
+      Piercing: 0.65
+  - type: Construction
+    graph: GoliathCloak
+    node: cloak
+  - type: UserInterface
+    interfaces:
+      enum.ToggleClothingUiKey.Key:
+        type: ToggleableClothingBoundUserInterface
   - type: ContainerContainer
     containers:
-      toggleable-clothing: !type:ContainerSlot {}
+      toggleable-clothing: !type:Container {}
 
 - type: entity
   parent: ClothingNeckBase
@@ -205,14 +239,18 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/moth.rsi
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodMoth
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes:
+      head: ClothingHeadHatHoodMoth
     requiredSlot:
     - neck
-    slot: head
+  - type: UserInterface
+    interfaces:
+      enum.ToggleClothingUiKey.Key:
+        type: ToggleableClothingBoundUserInterface
   - type: ContainerContainer
     containers:
-      toggleable-clothing: !type:ContainerSlot {}
+      toggleable-clothing: !type:Container {}
   - type: TypingIndicatorClothing
     proto: moth
 
@@ -224,42 +262,26 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/void.rsi
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodVoidCloak
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes:
+      head: ClothingHeadHatHoodVoidCloak
     requiredSlot:
     - neck
-    slot: head
+  - type: UserInterface
+    interfaces:
+      enum.ToggleClothingUiKey.Key:
+        type: ToggleableClothingBoundUserInterface
   - type: ContainerContainer
     containers:
-      toggleable-clothing: !type:ContainerSlot {}
+      toggleable-clothing: !type:Container {}
   - type: TypingIndicatorClothing
     proto: alien
-
-## Changed by Funkystation.
-
-- type: entity
-  parent: ClothingNeckBase
-  id: ClothingNeckCloakTrans
-  name: transgender pride cloak
-  description: A cloak representing transgender pride.
-  components:
-  - type: Sprite
-    sprite: Clothing/Neck/Cloaks/trans.rsi
-
-- type: entity
-  parent: ClothingNeckBase
-  id: ClothingNeckCloakGenderfluid
-  name: genderfluid pride cloak
-  description: A cloak representing genderfluid pride.
-  components:
-  - type: Sprite
-    sprite: Clothing/Neck/Cloaks/genderfluid.rsi
 
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakAce
-  name: asexual pride cloak
-  description: A cloak representing asexual pride.
+  name: pilot's cloak
+  description: Cloak awarded to Nanotrasen's finest space aces.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/ace.rsi
@@ -267,17 +289,26 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakAro
-  name: aromantic pride cloak
-  description: A cloak representing aromantic pride.
+  name: werewolf cloak
+  description: This cloak lets others know you're a lone wolf.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/aro.rsi
 
 - type: entity
   parent: ClothingNeckBase
+  id: ClothingNeckCloakAroace
+  name: aeropilot's cloak # thank you happyman442 this was the best name idea ever
+  description: Cloak awarded to Nanotrasen's finest pilots on planets with inhabitable atmospheres.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Cloaks/aroace.rsi
+
+- type: entity
+  parent: ClothingNeckBase
   id: ClothingNeckCloakBi
-  name: bisexual pride cloak
-  description: A cloak representing bisexual pride.
+  name: poison cloak
+  description: The purple color is a clear indicator you are poisonous.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/bi.rsi
@@ -285,8 +316,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakIntersex
-  name: intersex pride cloak
-  description: A cloak representing intersex pride.
+  name: cyclops cloak
+  description: The circle on this cloak represents a cyclops' eye.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/intersex.rsi
@@ -294,8 +325,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakLesbian
-  name: lesbian pride cloak
-  description: A cloak representing lesbian pride.
+  name: poet cloak
+  description: This cloak belonged to an ancient poet, you forgot which one.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/les.rsi
@@ -303,8 +334,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakGay
-  name: gay pride cloak
-  description: A cloak representing gay pride.
+  name: multi-level marketing cloak
+  description: This cloak is highly sought after in the Nanotrasen Marketing Offices.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/gay.rsi
@@ -312,8 +343,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakEnby
-  name: non-binary pride cloak
-  description: A cloak representing non-binary pride.
+  name: treasure hunter cloak
+  description: This cloak belonged to a greedy treasure hunter.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/enby.rsi
@@ -321,9 +352,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakPan
-  name: pansexual pride cloak
-  description: A cloak representing pansexual pride.
+  name: chef's cloak
+  description: Meant to be worn alongside a frying pan.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/pan.rsi
-

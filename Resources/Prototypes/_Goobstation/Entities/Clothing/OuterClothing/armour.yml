@@ -6,6 +6,8 @@
 # SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -21,12 +23,15 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Armor/durathread_web_vest.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.50
-        Heat: 0.50
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.25
+        Heat: 0.25
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: Tag
@@ -45,12 +50,15 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Armor/durathread_armour.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.50
-        Heat: 0.50
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.25
+        Heat: 0.25
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: Tag
@@ -96,12 +104,15 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Armor/bso_armour.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
     modifiers:
       coefficients:
-        Blunt: 0.60
-        Slash: 0.60
-        Piercing: 0.65
-        Heat: 0.70
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.45
+        Heat: 0.55
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: Tag

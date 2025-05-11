@@ -42,6 +42,7 @@ using Content.Shared.Power;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._Shitmed.Targeting; // Shitmed Change
 
 namespace Content.Server.Bed
 {
@@ -109,7 +110,7 @@ namespace Content.Server.Bed
                     if (HasComp<SleepingComponent>(healedEntity))
                         damage *= bedComponent.SleepMultiplier;
 
-                    _damageableSystem.TryChangeDamage(healedEntity, damage, true, origin: uid);
+                    _damageableSystem.TryChangeDamage(healedEntity, damage * 11f, true, origin: uid, targetPart: TargetBodyPart.All); // Shitmed Change
                 }
             }
         }

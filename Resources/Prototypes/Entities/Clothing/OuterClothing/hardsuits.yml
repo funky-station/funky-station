@@ -80,12 +80,19 @@
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Caustic: 0.9
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Caustic: 0.8
   - type: ClothingSpeedModifier
     walkModifier: 0.80
     sprintModifier: 0.80
@@ -115,13 +122,21 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.8
-        Radiation: 0.5
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.3
+        Radiation: 0.4
+        Caustic: 0.4
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -146,12 +161,16 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Shock: 0.8
+        Shock: 0.5
         Caustic: 0.5
         Radiation: 0.2
   - type: ClothingSpeedModifier
@@ -176,11 +195,18 @@
     highPressureMultiplier: 0.7
     lowPressureMultiplier: 1000
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
         Radiation: 0.3 #salv is supposed to have radiation hazards in the future
         Caustic: 0.8
   - type: ClothingSpeedModifier
@@ -212,12 +238,20 @@
   - type: ExplosionResistance
     damageCoefficient: 0.3
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.5
-        Radiation: 0.3
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.4
+        Heat: 0.5
+        Radiation: 0.4
         Caustic: 0.7
   - type: ClothingSpeedModifier
     walkModifier: 0.75
@@ -243,12 +277,19 @@
   - type: ExplosionResistance
     damageCoefficient: 0.3
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.5
-        Heat: 0.7 #Goliath hide gets grilled instead of you
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.34
+        Heat: 0.5 #Goliath hide gets grilled instead of you
         Radiation: 0.3
         Caustic: 0.8
   - type: ClothingSpeedModifier
@@ -281,11 +322,18 @@
   - type: StaminaResistance
     damageCoefficient: 0.6
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.5
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
         Heat: 0.3
         Radiation: 0.1
   - type: ExplosionResistance
@@ -311,17 +359,24 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.4
+    damageCoefficient: 0.3
   - type: StaminaResistance
-    damageCoefficient: 0.8 
+    damageCoefficient: 0.8
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
         Caustic: 0.7
-        Heat: 0.7 # Goobstation
+        Heat: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -344,14 +399,22 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
   - type: StaminaResistance
-    damageCoefficient: 0.8 
+    damageCoefficient: 0.8
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.7
-        Heat: 0.7 # Goobstation
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.5
+        Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.65
     sprintModifier: 0.65
@@ -376,15 +439,22 @@
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: StaminaResistance
-    damageCoefficient: 0.7 
+    damageCoefficient: 0.7
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.6
-        Piercing: 0.6
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
         Caustic: 0.7
-        Heat: 0.7 # Goobstation
+        Heat: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -411,13 +481,20 @@
   - type: StaminaResistance
     damageCoefficient: 0.7
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.6
-        Heat: 0.5
-        Radiation: 0.5
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
+        Radiation: 0.6
         Caustic: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.8
@@ -445,11 +522,18 @@
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
         Heat: 0.4
         Radiation: 0.0
         Caustic: 0.7
@@ -480,10 +564,23 @@
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Caustic: 0.1
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.4
+        Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.95
@@ -506,14 +603,21 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.8
-        Piercing: 0.9
-        Heat: 0.3
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.4
         Radiation: 0.1
-        Caustic: 0.2
+        Caustic: 0.1
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: ClothingSpeedModifier
@@ -550,15 +654,23 @@
     highPressureMultiplier: 0.45
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.6
+    damageCoefficient: 0.2
   - type: StaminaResistance
     damageCoefficient: 0.6
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.5
-        Piercing: 0.5
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.6
         Radiation: 0.5
         Caustic: 0.6
         Heat: 0.6 # Goobstation
@@ -587,13 +699,20 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.8
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.5
         Radiation: 0.5
-        Caustic: 0.8
+        Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.9
@@ -619,16 +738,23 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.2 #goob
   - type: StaminaResistance
     damageCoefficient: 0.6
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.5
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
         Radiation: 0.5
         Caustic: 0.5
   - type: ClothingSpeedModifier
@@ -685,12 +811,19 @@
   - type: StaminaResistance
     damageCoefficient: 0.6
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.2
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
         Radiation: 0.01
         Caustic: 0.5
   - type: Item
@@ -721,14 +854,21 @@
   - type: StaminaResistance
     damageCoefficient: 0.5
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.4
-        Slash: 0.4
+        Blunt: 0.3
+        Slash: 0.3
         Piercing: 0.3
         Heat: 0.5
-        Radiation: 0.25
-        Caustic: 0.4
+        Radiation: 0.5
+        Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -755,14 +895,28 @@
   #- type: StaminaResistance # Should not have stamina resistance, this is purely so people know it was not forgotten.
   #  damageCoefficient: 0.99
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    traumaDeductions: # prevents traumas at all (kinda)
+      Dismemberment: 1
+      OrganDamage: 1
+      BoneDamage: 1
+      VeinsDamage: 1
+      NerveDamage: 1
     modifiers:
       coefficients:
-        Blunt: 0.2
-        Slash: 0.2
+        Blunt: 0.1
+        Slash: 0.1
         Piercing: 0.2
         Heat: 0.2
-        Radiation: 0.2
-        Caustic: 0.2
+        Radiation: 0.1
+        Caustic: 0.1
+        # TODO: Add different gun damage types to balance this shit.
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.65
@@ -784,22 +938,29 @@
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
-  - type: ExplosionResistance
-    damageCoefficient: 0.5
-  - type: StaminaResistance
-    damageCoefficient: 0.8 
-  - type: Armor
+  - type: Armor # Goob edit
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.4
-        Heat: 0.25
-        Radiation: 0.25
-        Caustic: 0.75
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
+        Radiation: 0.1
+        Caustic: 0.1
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: StaminaResistance
+    damageCoefficient: 0.8
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitWizard
@@ -821,12 +982,19 @@
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 1
-        Heat: 0.5
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.4
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -852,13 +1020,20 @@
   - type: StaminaResistance
     damageCoefficient: 0.8
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.9
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.8
         Heat: 0.4
-        Caustic: 0.75
+        Caustic: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.6
     sprintModifier: 0.6
@@ -885,15 +1060,22 @@
   - type: ExplosionResistance
     damageCoefficient: 0.6
   - type: StaminaResistance
-    damageCoefficient: 0.70 
+    damageCoefficient: 0.70
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.8
-        Piercing: 0.85
-        Heat: 0.4
-        Caustic: 0.75
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.5
+        Heat: 0.3
+        Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -1010,20 +1192,27 @@
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
   - type: ExplosionResistance
-    damageCoefficient: 0.2
+    damageCoefficient: 0.0
   - type: FireProtection
     reduction: 0.8
   - type: StaminaResistance
     damageCoefficient: 0.15 # Needs 21 hits with a disabler to stun :godo:
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.1 #best armor in the game
-        Slash: 0.1
-        Piercing: 0.1
-        Heat: 0.1
-        Radiation: 0.1
-        Caustic: 0.1
+        Blunt: 0.05
+        Slash: 0.05
+        Piercing: 0.05
+        Heat: 0.05
+        Radiation: 0.05
+        Caustic: 0.05
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
@@ -1049,18 +1238,25 @@
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
   - type: ExplosionResistance
-    damageCoefficient: 0.7
+    damageCoefficient: 0.3
   - type: StaminaResistance
-    damageCoefficient: 0.75 
+    damageCoefficient: 0.75
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.6
-        Heat: 0.1
-        Cold: 0.1
-        Shock: 0.1
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.5
+        Heat: 0.05
+        Cold: 0.05
+        Shock: 0.05
         Radiation: 0.1
         Caustic: 0.1
   - type: ClothingSpeedModifier
@@ -1088,10 +1284,17 @@
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
+        Blunt: 0.8
+        Slash: 0.8
         Piercing: 0.9
         Caustic: 0.8
   - type: ClothingSpeedModifier
@@ -1138,11 +1341,18 @@
   - type: ExplosionResistance
     damageCoefficient: 0.85
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.9
-        Piercing: 0.85
+        Blunt: 0.7 # to protect santa from filthy santa deniers
+        Slash: 0.7
+        Piercing: 0.8
         Caustic: 0.8
   - type: ClothingSpeedModifier
     walkModifier: 0.9

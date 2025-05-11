@@ -28,6 +28,19 @@
 // SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Łukasz Mędrek <lukasz@lukaszm.xyz>
 // SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -288,7 +301,8 @@ namespace Content.Client.Options.UI.Tabs
             // Shitmed Change Start - TODO: Add hands, feet and groin targeting.
             AddHeader("ui-options-header-targeting");
             AddButton(ContentKeyFunctions.TargetHead);
-            AddButton(ContentKeyFunctions.TargetTorso);
+            AddButton(ContentKeyFunctions.TargetChest);
+            AddButton(ContentKeyFunctions.TargetGroin);
             AddButton(ContentKeyFunctions.TargetLeftArm);
             AddButton(ContentKeyFunctions.TargetLeftHand);
             AddButton(ContentKeyFunctions.TargetRightArm);

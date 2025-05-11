@@ -12,6 +12,17 @@
   name: "moth body part"
   abstract: true
   components:
+  - type: WoundableVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#808A51"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: Icon # Shitmed Change
+    sprite: Mobs/Species/Moth/parts.rsi
+  - type: BodyPart # Shitmed Change
+    species: Moth
   - type: Extractable
     juiceSolution:
       reagents:
@@ -21,17 +32,13 @@
         Quantity: 10
 
 - type: entity
-  id: TorsoMoth
-  name: "moth torso"
-  parent: [PartMoth, BaseTorso]
+  id: ChestMoth
+  name: "moth chest"
+  parent: [PartMoth, BaseChest]
   components:
-  - type: Item
-    size: Ginormous
-    shape:
-    - 0,0,5,3
   - type: Sprite
     sprite: Mobs/Species/Moth/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
   - type: Extractable
     juiceSolution:
       reagents:
@@ -40,6 +47,25 @@
       - ReagentId: Blood
         Quantity: 20
 
+- type: entity
+  id: GroinMoth
+  name: "moth groin"
+  parent: [PartMoth, BaseGroin]
+  components:
+  - type: Item
+    size: Ginormous
+    shape:
+    - 0,0,5,3
+  - type: Sprite
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: "groin_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
 
 - type: entity
   id: HeadMoth

@@ -39,6 +39,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared._Shitmed.Weapons.Ranged.Events; // Shitmed Change
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
@@ -452,6 +453,8 @@ public abstract partial class SharedGunSystem : EntitySystem
         Shoot(gunUid, gun, ev.Ammo, fromCoordinates, toCoordinates.Value, out var userImpulse, user, throwItems: attemptEv.ThrowItems);
         var shotEv = new GunShotEvent(user, ev.Ammo);
         RaiseLocalEvent(gunUid, ref shotEv);
+        var shotBodyEv = new GunShotBodyEvent(gunUid, gun); // Shitmed Change
+        RaiseLocalEvent(user, shotBodyEv); // Shitmed Change
 
         if (userImpulse && TryComp<PhysicsComponent>(user, out var userPhysics))
         {

@@ -43,7 +43,7 @@
           Quantity: 8
       # Funky change ends
   - type: Metabolizer
-    maxReagents: 3
+    maxPoisonsProcessable: 3
     metabolizerTypes: [ Moth ]
     removeEmpty: true
     groups:

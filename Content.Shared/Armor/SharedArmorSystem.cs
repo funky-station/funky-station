@@ -1,19 +1,37 @@
 // SPDX-FileCopyrightText: 2023 Chronophylos <nikolai@chronophylos.com>
 // SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Verbs;
+using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
+
+// Shitmed Change
+using System.Linq;
+using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
 
 namespace Content.Shared.Armor;
 
@@ -23,6 +41,7 @@ namespace Content.Shared.Armor;
 public abstract class SharedArmorSystem : EntitySystem
 {
     [Dependency] private readonly ExamineSystemShared _examine = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
 
     /// <inheritdoc />
     public override void Initialize()
@@ -30,7 +49,6 @@ public abstract class SharedArmorSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ArmorComponent, InventoryRelayedEvent<CoefficientQueryEvent>>(OnCoefficientQuery);
-        SubscribeLocalEvent<ArmorComponent, InventoryRelayedEvent<DamageModifyEvent>>(OnDamageModify);
         SubscribeLocalEvent<ArmorComponent, BorgModuleRelayedEvent<DamageModifyEvent>>(OnBorgDamageModify);
         SubscribeLocalEvent<ArmorComponent, GetVerbsEvent<ExamineVerb>>(OnArmorVerbExamine);
     }
@@ -64,8 +82,15 @@ public abstract class SharedArmorSystem : EntitySystem
         if (!args.CanInteract || !args.CanAccess || !component.ShowArmorOnExamine)
             return;
 
-        var examineMarkup = GetArmorExamine(component.Modifiers);
+        // Shitmed Change Start
+        if (component is { ArmourCoverageHidden: true, ArmourModifiersHidden: true })
+            return;
 
+        if (!component.Modifiers.Coefficients.Any() && !component.Modifiers.FlatReduction.Any())
+            return;
+
+        var examineMarkup = GetArmorExamine(component);
+        // Shitmed Change End
         var ev = new ArmorExamineEvent(examineMarkup);
         RaiseLocalEvent(uid, ref ev);
 
@@ -74,39 +99,48 @@ public abstract class SharedArmorSystem : EntitySystem
             Loc.GetString("armor-examinable-verb-message"));
     }
 
-    private FormattedMessage GetArmorExamine(DamageModifierSet armorModifiers)
+    // Shitmed Change: Mostly changed.
+    private FormattedMessage GetArmorExamine(ArmorComponent component)
     {
         var msg = new FormattedMessage();
         msg.AddMarkupOrThrow(Loc.GetString("armor-examine"));
 
-        // TODO: better reflect What's Going On
-        // Hi! Tay here. This is not true.
-        // This WILL be null if the person using this has the
-        // funny trait that gives them armor buffs.
-        // Sorry!
-        if (armorModifiers == null)
-            return msg;
+        var coverage = component.ArmorCoverage;
+        var armorModifiers = component.Modifiers;
 
-        foreach (var coefficientArmor in armorModifiers.Coefficients)
+        if (!component.ArmourCoverageHidden)
         {
-            msg.PushNewline();
+            foreach (var coveragePart in coverage.Where(coveragePart => coveragePart != BodyPartType.Other))
+            {
+                msg.PushNewline();
 
-            var armorType = Loc.GetString("armor-damage-type-" + coefficientArmor.Key.ToLower());
-            msg.AddMarkupOrThrow(Loc.GetString("armor-coefficient-value",
-                ("type", armorType),
-                ("value", MathF.Round((1f - coefficientArmor.Value) * 100, 1))
-            ));
+                var bodyPartType = Loc.GetString("armor-coverage-type-" + coveragePart.ToString().ToLower());
+                msg.AddMarkupOrThrow(Loc.GetString("armor-coverage-value", ("type", bodyPartType)));
+            }
         }
 
-        foreach (var flatArmor in armorModifiers.FlatReduction)
+        if (!component.ArmourModifiersHidden)
         {
-            msg.PushNewline();
+            foreach (var coefficientArmor in armorModifiers.Coefficients)
+            {
+                msg.PushNewline();
+                var armorType = Loc.GetString("armor-damage-type-" + coefficientArmor.Key.ToLower());
+                msg.AddMarkupOrThrow(Loc.GetString("armor-coefficient-value",
+                    ("type", armorType),
+                    ("value", MathF.Round((1f - coefficientArmor.Value) * 100, 1))
+                ));
+            }
 
-            var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.ToLower());
-            msg.AddMarkupOrThrow(Loc.GetString("armor-reduction-value",
-                ("type", armorType),
-                ("value", flatArmor.Value)
-            ));
+            foreach (var flatArmor in armorModifiers.FlatReduction)
+            {
+                msg.PushNewline();
+
+                var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.ToLower());
+                msg.AddMarkupOrThrow(Loc.GetString("armor-reduction-value",
+                    ("type", armorType),
+                    ("value", flatArmor.Value)
+                ));
+            }
         }
 
         return msg;

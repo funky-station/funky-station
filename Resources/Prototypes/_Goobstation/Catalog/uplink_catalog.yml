@@ -246,8 +246,8 @@
   categories:
   - UplinkAllies
   conditions:
-  - !type:WarOpsCondition
-  - !type:StoreWhitelistCondition
+  - !type: WarOpsCondition
+  - !type: StoreWhitelistCondition
     whitelist:
       tags:
       - NukeOpsUplink

@@ -247,7 +247,6 @@
   - UplinkAllies
   conditions:
   - !type:WarOpsCondition
-  categories:
   - !type:StoreWhitelistCondition
     whitelist:
       tags:

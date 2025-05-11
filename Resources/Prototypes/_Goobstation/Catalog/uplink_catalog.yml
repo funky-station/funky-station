@@ -43,7 +43,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword_double.rsi, state: icon }
   productEntity: EnergySwordDouble
   cost:
-    Telecrystal: 100
+    Telecrystal: 150 #Funky
   categories:
   - UplinkWeaponry
   saleLimit: 1
@@ -206,7 +206,7 @@
     - !type:StoreWhitelistCondition
       blacklist:
         tags:
-          - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
+          - NukeOpsUplink # i guess we dont let nukies have this, they have too mutch TC
   saleLimit: 1
 
 - type: listing
@@ -230,7 +230,9 @@
   cost:
     Telecrystal: 400
   categories:
+  - !type:WarOpsCondition
   - UplinkAllies
+  saleLimit : 1
 
 - type: listing
   id: UplinkMauler
@@ -247,3 +249,5 @@
     whitelist:
       tags:
       - NukeOpsUplink
+  - !type:WarOpsCondition
+  saleLimit : 1

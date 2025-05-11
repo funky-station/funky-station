@@ -198,7 +198,7 @@
   - UplinkWeaponry
   conditions: # Funky war ops whitelisting
   - !type:WarOpsCondition
-  saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
 - type: listing
   id: UplinkL6SawBundle
@@ -212,7 +212,7 @@
   - UplinkWeaponry
   conditions: # Funky war ops whitelisting
   - !type:WarOpsCondition
-  saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
 # Explosives
 
@@ -1554,6 +1554,7 @@
         tags:
           - NukeOpsUplink
   saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
 - type: listing
   id: UplinkClothingConductingGloves
@@ -1581,6 +1582,7 @@
   categories:
     - UplinkWearables
   saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
  # Pointless
 
@@ -1593,6 +1595,7 @@
     Telecrystal: 2 # goob - Meh, can be useful in preventing metagamers, but pretty pointless.
   categories:
   - UplinkPointless
+  saleBlacklist: true
 
 - type: listing
   id: UplinkSnackBox
@@ -1603,6 +1606,7 @@
     Telecrystal: 5 # goob
   categories:
   - UplinkPointless
+  saleBlacklist: true
 
 - type: listing
   id: UplinkRevolverCapGun
@@ -1613,6 +1617,7 @@
     Telecrystal: 4 # goob - Funny, but not 20 TC Funny.
   categories:
   - UplinkPointless
+  saleBlacklist: true
 
 - type: listing
   id: UplinkSyndicateStamp
@@ -1624,6 +1629,7 @@
   categories:
   - UplinkPointless
   saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
 - type: listing
   id: UplinkCatEars
@@ -1642,10 +1648,11 @@
   description: uplink-outlaw-hat-desc
   productEntity: ClothingHeadHatOutlawHat
   cost:
-    Telecrystal: 2 # goob - Yeehaw! less than 5 TC for both to get a set.
+    Telecrystal: 2 # Funky
   categories:
   - UplinkPointless
-  saleLimit: 1 # WD EDIT
+  saleLimit: 1
+  saleBlacklist: true
 
 - type: listing
   id: UplinkOutlawGlasses
@@ -1653,10 +1660,10 @@
   description: uplink-outlaw-glasses-desc
   productEntity: ClothingEyesGlassesOutlawGlasses
   cost:
-    Telecrystal: 2 # goob - Who am i??? less than 5 TC for both to get a set.
+    Telecrystal: 2 # Funky
   categories:
   - UplinkPointless
-  saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
 - type: listing
   id: UplinkCostumePyjama
@@ -1668,6 +1675,7 @@
   categories:
   - UplinkPointless
   saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
 - type: listing
   id: UplinkCostumeClown
@@ -1679,6 +1687,7 @@
   categories:
   - UplinkPointless
   saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
 - type: listing
   id: UplinkCarpSuitBundle
@@ -1689,6 +1698,7 @@
     Telecrystal: 15 # goob
   categories:
   - UplinkPointless
+  saleBlacklist: true
 
 - type: listing
   id: UplinkOperativeSuit
@@ -1696,9 +1706,11 @@
   description: uplink-operative-suit-desc
   productEntity: ClothingUniformJumpsuitOperative
   cost:
-    Telecrystal: 2 # goob
+    Telecrystal: 2 # Funky
   categories:
   - UplinkPointless
+  saleBlacklist: true
+
 
 - type: listing
   id: UplinkOperativeSkirt
@@ -1709,6 +1721,7 @@
     Telecrystal: 2 # goob
   categories:
   - UplinkPointless
+  saleBlacklist: true
 
 - type: listing
   id: UplinkBalloon
@@ -1727,9 +1740,11 @@
   description: uplink-scarf-syndie-red-desc
   productEntity: ClothingNeckScarfStripedSyndieRed
   cost:
-    Telecrystal: 2 # goob
+    Telecrystal: 2 # Goob
   categories:
   - UplinkPointless
+  saleBlacklist: true
+
 
 - type: listing
   id: UplinkScarfSyndieGreen
@@ -1737,9 +1752,10 @@
   description: uplink-scarf-syndie-green-desc
   productEntity: ClothingNeckScarfStripedSyndieGreen
   cost:
-    Telecrystal: 2 # goob
+    Telecrystal: 2 # Goob
   categories:
     - UplinkPointless
+  saleBlacklist: true
 
 - type: listing
   id: UplinkSyndicateBusinessCard
@@ -1751,6 +1767,7 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 3
+  saleBlacklist: true
 
 # Job Specific
 

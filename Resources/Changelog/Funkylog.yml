@@ -2690,3 +2690,11 @@ Entries:
       message: Changed capitalisation in Autodoc UI
   id: 332
   time: '2025-05-10T04:05:57.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: >-
+        The heat pump, a heat transferring device, can now be found in the
+        crafting menu or crafted with the RPD. 
+  id: 333
+  time: '2025-05-11T23:42:53.0000000+00:00'

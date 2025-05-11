@@ -1084,9 +1084,9 @@
   categories:
     - UplinkAllies
   conditions: # funky war ops whitelisting
-    - !type:StoreWhitelistCondition
     - !type:WarOpsCondition
-      whitelist:
+    - !type:StoreWhitelistCondition
+    whitelist:
         tags:
           - NukeOpsUplink
   saleLimit: 1 # WD EDIT

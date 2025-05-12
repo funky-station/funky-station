@@ -2698,3 +2698,11 @@ Entries:
         crafting menu or crafted with the RPD. 
   id: 333
   time: '2025-05-11T23:42:53.0000000+00:00'
+- author: ' JoulesBerg'
+  changes:
+    - type: Fix
+      message: >-
+        CBurn agents get to role play at centcomm now (zombie rounds should no
+        longer end early if the shuttle has been called)
+  id: 334
+  time: '2025-05-12T00:04:27.0000000+00:00'

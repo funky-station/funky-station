@@ -1,5 +1,4 @@
-using Content.Server._DV.CosmicCult.Components;
-using Content.Server._Impstation.CosmicCult.Components; // DeltaV
+using Content.Server._DV.CosmicCult.Components; // DeltaV
 using Content.Server.Administration.Commands;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;

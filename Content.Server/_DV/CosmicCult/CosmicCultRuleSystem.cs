@@ -124,6 +124,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         SubscribeLocalEvent<CosmicGodComponent, ComponentInit>(OnGodSpawn);
         SubscribeLocalEvent<CosmicCultComponent, MobStateChangedEvent>(OnMobStateChanged);
 
+        SubscribeLocalEvent<CosmicCultLeadComponent, MindRemovedMessage>(HandleMindRemoved); // funky station
+
         Subs.CVar(_config,
             DCCVars.CosmicCultT2RevealDelaySeconds,
             value => _t2RevealDelay = TimeSpan.FromSeconds(value),
@@ -254,6 +256,9 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         var cultQuery = EntityQueryEnumerator<CosmicCultComponent, MetaDataComponent>();
         while (cultQuery.MoveNext(out var cult, out _, out var metadata))
         {
+            if (TryComp<CosmicCultLeadComponent>(cult, out _)) // funky station
+                continue;
+
             var playerInfo = metadata.EntityName;
             cultists.Add((playerInfo, cult));
         }
@@ -286,6 +291,26 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
                 picked = (EntityUid)args.Winner;
             }
             EnsureComp<CosmicCultLeadComponent>(picked);
+
+
+            // begin funky
+            if (CurrentTier == 0)
+            {
+                // its either the first vote, or they never placed the monument, just got elected and cryod :godo:
+            }
+            else if (TryComp<CosmicCultLeadComponent>(picked, out var lComp))
+            {
+                // need to remove the original place action
+                _actions.RemoveAction(picked, lComp.CosmicMonumentPlaceActionEntity);
+
+                if (CurrentTier == 2)
+                {
+                    // give them the option to move it, this COULD be abused, but will also prevent them from getting stuck in a situation
+                    // where leaders keep dying, and sec just fully knows where the monument is.
+                    _actions.AddAction(picked, ref lComp.CosmicMonumentMoveActionEntity, lComp.CosmicMonumentMoveAction, picked);
+                }
+            }
+            // end funky
             _adminLogger.Add(LogType.Vote, LogImpact.Medium, $"Cult stewardship vote finished: {Identity.Entity(picked, EntityManager)} is now steward.");
             _antag.SendBriefing(picked, Loc.GetString("cosmiccult-vote-steward-briefing"), Color.FromHex("#4cabb3"), _monumentAlert);
         };
@@ -548,6 +573,30 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         Dirty(uid);
         _ui.SetUiState(uid.Owner, MonumentKey.Key, new MonumentBuiState(uid.Comp));
     }
+
+    // begin funky
+    private void HandleMindRemoved(EntityUid uid, CosmicCultLeadComponent comp, ref MindRemovedMessage args)
+    {
+        var sender = Loc.GetString("cosmiccult-announcement-sender");
+        var cultistsList = new List<EntityUid>();
+        var query = EntityQueryEnumerator<CosmicCultComponent>();
+
+        while (query.MoveNext(out var cultist, out _))
+        {
+            if (TryComp<CosmicCultLeadComponent>(cultist, out _))
+                continue;
+            cultistsList.Add(cultist);
+        }
+
+        // remove the comp. If they died and ghosted and come back to their body they will no longer be the leader.
+        RemCompDeferred<CosmicCultLeadComponent>(uid);
+
+        var allCultists = Filter.Empty().FromEntities(cultistsList.ToArray<EntityUid>());
+        _chatSystem.DispatchFilteredAnnouncement(allCultists, Loc.GetString("cosmiccult-leader-abandonment-message"), sender: sender, playSound: false, colorOverride: Color.FromHex("#4eb1b1"));
+
+        Timer.Spawn(TimeSpan.FromSeconds(10), () => { StewardVote(); });
+    }
+    // end funky
 
     #region De- & Conversion
     public void TryStartCult(EntityUid uid, Entity<CosmicCultRuleComponent> rule)

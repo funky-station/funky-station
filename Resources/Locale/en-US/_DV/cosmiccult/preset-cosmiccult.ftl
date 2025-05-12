@@ -185,3 +185,6 @@ cosmiccult-entropy-inserted = You infuse {$count} entropy into The Monument.
 cosmiccult-entropy-unavailable = You can't do that right now.
 cosmiccult-astral-ascendant = {$name}, Ascendant
 cosmiccult-gear-pickup = You can feel yourself unravelling while you hold the {$ITEM}!
+
+# funky
+cosmiccult-leader-abandonment-message = Your chosen enlightened has forsaken the grand design. You must empower another

@@ -293,7 +293,7 @@ public sealed class HFRConsoleSystem : EntitySystem
         float criticalThresholdProximity = 0f;
         float meltingPoint = 900f;
         float ironContent = 0f;
-        float powerOutput = 0f;
+        float areaPower = 0f;
         int powerLevel = 0;
         float energy = 0f;
         float efficiency = 0f;
@@ -348,7 +348,7 @@ public sealed class HFRConsoleSystem : EntitySystem
             criticalThresholdProximity = coreComp.CriticalThresholdProximity;
             meltingPoint = coreComp.MeltingPoint;
             ironContent = coreComp.IronContent;
-            powerOutput = coreComp.PowerOutput;
+            areaPower = coreComp.AreaPower;
             powerLevel = coreComp.PowerLevel;
             energy = coreComp.Energy;
             efficiency = coreComp.Efficiency;
@@ -398,7 +398,7 @@ public sealed class HFRConsoleSystem : EntitySystem
                 criticalThresholdProximity,
                 meltingPoint,
                 ironContent,
-                powerOutput,
+                areaPower,
                 powerLevel,
                 energy,
                 efficiency,

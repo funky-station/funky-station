@@ -1,6 +1,5 @@
 using Content.Shared.Atmos;
 using Robust.Shared.Audio;
-using Robust.Shared.Serialization;
 using Content.Shared._Funkystation.Atmos.HFR;
 
 namespace Content.Server._Funkystation.Atmos.Components;
@@ -160,6 +159,10 @@ public sealed partial class HFRCoreComponent : Component
     [DataField("ironContent")]
     [ViewVariables(VVAccess.ReadWrite)]
     public float IronContent = 0f;
+
+    [DataField("areaPower")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float AreaPower = 100f;
 
     // Integrity and Alerts
     [DataField("criticalThresholdProximity")]

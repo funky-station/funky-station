@@ -194,7 +194,7 @@ public sealed class HFRCoreSystem : EntitySystem
                 core.CriticalThresholdProximity,
                 core.MeltingPoint,
                 core.IronContent,
-                core.PowerOutput,
+                core.AreaPower,
                 core.PowerLevel,
                 core.Energy,
                 core.Efficiency,

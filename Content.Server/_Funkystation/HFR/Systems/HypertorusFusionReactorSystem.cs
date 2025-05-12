@@ -411,12 +411,12 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
         }
 
         /**
-         * Get how charged the area's APC is
-         */
+        * Get how charged the area's APC is
+        */
         public float GetAreaCellPercent(EntityUid coreUid)
         {
-            // TODO: I will have to figure this one out later
-            return 0f;
+            // TODO: Figure this out
+            return 100f;
         }
 
         /**

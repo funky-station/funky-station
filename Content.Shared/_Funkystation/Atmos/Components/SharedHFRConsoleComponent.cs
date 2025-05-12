@@ -1,10 +1,4 @@
-using Content.Shared.Pinpointer;
-using Content.Shared.Prototypes;
-using Robust.Shared.GameStates;
-using Robust.Shared.Map;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Timing;
 using Content.Shared.Atmos;
 
 namespace Content.Shared._Funkystation.Atmos.Components;
@@ -31,7 +25,7 @@ public sealed class HFRConsoleBoundInterfaceState : BoundUserInterfaceState
     public readonly float CriticalThresholdProximity;
     public readonly float MeltingPoint;
     public readonly float IronContent;
-    public readonly float PowerOutput;
+    public readonly float AreaPower;
     public readonly int PowerLevel;
     public readonly float Energy;
     public readonly float Efficiency;
@@ -67,7 +61,7 @@ public sealed class HFRConsoleBoundInterfaceState : BoundUserInterfaceState
         float criticalThresholdProximity,
         float meltingPoint,
         float ironContent,
-        float powerOutput,
+        float areaPower,
         int powerLevel,
         float energy,
         float efficiency,
@@ -102,7 +96,7 @@ public sealed class HFRConsoleBoundInterfaceState : BoundUserInterfaceState
         CriticalThresholdProximity = criticalThresholdProximity;
         MeltingPoint = meltingPoint;
         IronContent = ironContent;
-        PowerOutput = powerOutput;
+        AreaPower = areaPower;
         PowerLevel = powerLevel;
         Energy = energy;
         Efficiency = efficiency;
@@ -225,7 +219,7 @@ public sealed class HFRConsoleUpdateReactorMessage : BoundUserInterfaceMessage
     public readonly float CriticalThresholdProximity;
     public readonly float MeltingPoint;
     public readonly float IronContent;
-    public readonly float PowerOutput;
+    public readonly float AreaPower;
     public readonly int PowerLevel;
     public readonly float Energy;
     public readonly float Efficiency;
@@ -248,7 +242,7 @@ public sealed class HFRConsoleUpdateReactorMessage : BoundUserInterfaceMessage
         float criticalThresholdProximity,
         float meltingPoint,
         float ironContent,
-        float powerOutput,
+        float areaPower,
         int powerLevel,
         float energy,
         float efficiency,
@@ -270,7 +264,7 @@ public sealed class HFRConsoleUpdateReactorMessage : BoundUserInterfaceMessage
         CriticalThresholdProximity = criticalThresholdProximity;
         MeltingPoint = meltingPoint;
         IronContent = ironContent;
-        PowerOutput = powerOutput;
+        AreaPower = areaPower;
         PowerLevel = powerLevel;
         Energy = energy;
         Efficiency = efficiency;

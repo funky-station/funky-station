@@ -583,7 +583,7 @@ public sealed partial class HFRConsoleWindow : FancyWindow
         var integrityPercent = Math.Max(0, 100 - (_currentState.CriticalThresholdProximity / _currentState.MeltingPoint * 100));
         ReactorIntegrityLabel.Text = $"{integrityPercent:0}%";
         IronContentLabel.Text = $"{_currentState.IronContent:0}%";
-        AreaPowerLabel.Text = $"{_currentState.PowerOutput:0}%";
+        AreaPowerLabel.Text = $"{_currentState.AreaPower:0}%";
         FusionLevelLabel.Text = $"{_currentState.PowerLevel}";
         float energyValue;
         string energyUnit;
@@ -642,7 +642,7 @@ public sealed partial class HFRConsoleWindow : FancyWindow
                 message.CriticalThresholdProximity,
                 message.MeltingPoint,
                 message.IronContent,
-                message.PowerOutput,
+                message.AreaPower,
                 message.PowerLevel,
                 message.Energy,
                 message.Efficiency,
@@ -677,7 +677,7 @@ public sealed partial class HFRConsoleWindow : FancyWindow
                 message.CriticalThresholdProximity,
                 message.MeltingPoint,
                 message.IronContent,
-                message.PowerOutput,
+                message.AreaPower,
                 message.PowerLevel,
                 message.Energy,
                 message.Efficiency,
@@ -702,7 +702,7 @@ public sealed partial class HFRConsoleWindow : FancyWindow
         var integrityPercent = Math.Max(0, 100 - (message.CriticalThresholdProximity / message.MeltingPoint * 100));
         ReactorIntegrityLabel.Text = $"{integrityPercent:0}%";
         IronContentLabel.Text = $"{message.IronContent*100:0}%";
-        AreaPowerLabel.Text = $"{message.PowerOutput:0}%";
+        AreaPowerLabel.Text = $"{message.AreaPower:0}%";
         FusionLevelLabel.Text = $"{message.PowerLevel}";
         float energyValue;
         string energyUnit;

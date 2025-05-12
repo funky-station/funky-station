@@ -360,8 +360,6 @@
     size: Normal
   - type: StaticPrice
     price: 500
-<<<<<<< HEAD
-=======
   - type: Tag
     tags:
     - HivelordRemains
@@ -439,4 +437,3 @@
     - id: DiamondOre1
       amount: 1
       maxAmount: 3
->>>>>>> ec66c70295 (New Salvage Mob: Basilisk (#37135))

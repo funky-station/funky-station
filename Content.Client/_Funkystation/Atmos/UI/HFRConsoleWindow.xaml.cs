@@ -111,6 +111,17 @@ public sealed partial class HFRConsoleWindow : FancyWindow
         { "Unknown", Color.White }
     };
 
+    private static readonly List<string> OrderedRecipeIds = new()
+    {
+        "plasmaO2FuelRecipe",
+        "h2O2FuelRecipe",
+        "t2O2FuelRecipe",
+        "h2T2FuelRecipe",
+        "hypernobHydrogenFuelRecipe",
+        "hypernobTritFuelRecipe",
+        "hypernobAntinobFuelRecipe"
+    };
+
     private float LowerGraphTempValue = 3f;
     private float UpperGraphTempValue = 500f;
     private const float MaxBarHeight = 220f;
@@ -149,17 +160,26 @@ public sealed partial class HFRConsoleWindow : FancyWindow
         DeselectAllButton.OnPressed += _ => DeselectAllGases();
         InitializeGasControls();
 
-        InitializeRecipeTables();
+        InitializeRecipeTable();
         UpdateFusionGasesContent(null);
     }
 
     private void InitializeGasControls()
     {
+        var gasPrototypes = new List<(Gas Gas, GasPrototype Proto)>();
+
         foreach (var gasProto in _protoManager.EnumeratePrototypes<GasPrototype>())
         {
             if (!Enum.TryParse<Gas>(gasProto.ID, out var gas))
                 continue;
 
+            gasPrototypes.Add((gas, gasProto));
+        }
+
+        var sortedPrototypes = gasPrototypes.OrderBy(pair => (sbyte)pair.Gas).ToList();
+
+        foreach (var (gas, gasProto) in sortedPrototypes)
+        {
             var gasButton = new Button
             {
                 Name = gasProto.ID,
@@ -202,7 +222,7 @@ public sealed partial class HFRConsoleWindow : FancyWindow
         OnSetFilterGases?.Invoke(FilterGases);
     }
 
-    private void InitializeRecipeTables()
+    private void InitializeRecipeTable()
     {
         var notoSansDisplayFont = new VectorFont(_resourceCache.GetResource<FontResource>("/Fonts/NotoSansDisplay/NotoSansDisplay-Regular.ttf"), 11);
         var fontAwesome6FreeFont = new VectorFont(_resourceCache.GetResource<FontResource>("/Fonts/_Funkystation/FontAwesome6Free/fa-solid-900.ttf"), 11);
@@ -210,8 +230,11 @@ public sealed partial class HFRConsoleWindow : FancyWindow
         int topMargin = 49;
         int rowIndex = 0;
 
-        foreach (var recipe in _protoManager.EnumeratePrototypes<FusionRecipePrototype>())
+        foreach (var recipeId in OrderedRecipeIds)
         {
+            if (!_protoManager.TryIndex<FusionRecipePrototype>(recipeId, out var recipe))
+                continue;
+
             string GetGasText(string gas) => GasAbbreviations.TryGetValue(gas, out var abbr) ? abbr : gas;
             Color? GetGasColor(string gas) => GasColors.TryGetValue(gas, out var color) ? color : (Color?)null;
 

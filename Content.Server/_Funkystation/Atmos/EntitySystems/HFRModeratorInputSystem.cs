@@ -13,17 +13,12 @@ public sealed class HFRModeratorInputSystem : EntitySystem
     [Dependency] private readonly HFRCoreSystem _coreSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly HypertorusFusionReactorSystem _hfrSystem = default!;
+    [Dependency] private readonly HFRSidePartSystem _hfrSidePartSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<HFRModeratorInputComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<HFRModeratorInputComponent, AnchorStateChangedEvent>(OnAnchorChanged);
-    }
-
-    private void OnStartup(EntityUid uid, HFRModeratorInputComponent moderatorInput, ComponentStartup args)
-    {
-        TryFindCore(uid, moderatorInput);
     }
 
     private void OnAnchorChanged(EntityUid uid, HFRModeratorInputComponent moderatorInput, ref AnchorStateChangedEvent args)
@@ -48,34 +43,7 @@ public sealed class HFRModeratorInputSystem : EntitySystem
         }
         else
         {
-            TryFindCore(uid, moderatorInput);
-        }
-    }
-
-    private void TryFindCore(EntityUid uid, HFRModeratorInputComponent moderatorInput)
-    {
-        if (!TryComp<TransformComponent>(uid, out var xform) || !xform.Anchored)
-            return;
-
-        var gridUid = xform.GridUid;
-        if (gridUid == null || !TryComp<MapGridComponent>(gridUid, out var grid))
-            return;
-
-        var rotation = xform.LocalRotation;
-        var direction = rotation.GetCardinalDir();
-        var offset = -direction.ToIntVec();
-        var moderatorInputCoords = _transformSystem.GetMapCoordinates(uid);
-        var moderatorInputTile = _mapSystem.CoordinatesToTile(gridUid.Value, grid, moderatorInputCoords);
-        var targetTile = moderatorInputTile + offset;
-
-        var coreQuery = GetEntityQuery<HFRCoreComponent>();
-        foreach (var entity in _mapSystem.GetAnchoredEntities(gridUid.Value, grid, targetTile))
-        {
-            if (coreQuery.TryGetComponent(entity, out var coreComp))
-            {
-                _coreSystem.TryLinkComponent(entity, coreComp, uid, moderatorInput, (core, compUid) => core.ModeratorInputUid = compUid);
-                break;
-            }
+            _hfrSidePartSystem.TryFindCore(uid);
         }
     }
 }

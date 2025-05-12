@@ -25,11 +25,15 @@
     interfaces:
       enum.HFRConsoleUiKey.Key:
         type: HFRConsoleBoundUserInterface
-  - type: HFRConsole
   - type: ApcPowerReceiver
     powerDisabled: true
   - type: ActivatableUIRequiresPower
   - type: ExtensionCableReceiver
+  - type: Construction
+    graph: HFRConsole
+    node: hfrConsole
+  - type: HFRSidePart
+  - type: HFRConsole
 
 - type: entity
   parent: BaseStructure
@@ -76,6 +80,9 @@
     volume: -5
     sound:
       path: /Audio/_EE/Supermatter/calm.ogg
+  - type: Construction
+    graph: HFRCore
+    node: hfrCore
   - type: HFRCore
 
 - type: entity
@@ -111,6 +118,10 @@
         pipeDirection: South
   - type: PipeColorVisuals
   - type: AtmosPipeColor
+  - type: Construction
+    graph: HFRFuelInput
+    node: hfrFuelInput
+  - type: HFRSidePart
   - type: HFRFuelInput
 
 - type: entity
@@ -146,6 +157,10 @@
         pipeDirection: South
   - type: PipeColorVisuals
   - type: AtmosPipeColor
+  - type: Construction
+    graph: HFRModeratorInput
+    node: hfrModeratorInput
+  - type: HFRSidePart
   - type: HFRModeratorInput
 
 - type: entity
@@ -181,6 +196,10 @@
         pipeDirection: South
   - type: PipeColorVisuals
   - type: AtmosPipeColor
+  - type: Construction
+    graph: HFRWasteOutput
+    node: hfrWasteOutput
+  - type: HFRSidePart
   - type: HFRWasteOutput
 
 - type: entity
@@ -219,4 +238,111 @@
         - HalfWallLayer
   - type: Physics
     bodyType: Static
+  - type: Construction
+    graph: HFRCorner
+    node: hfrCorner
   - type: HFRCorner
+
+- type: entity
+  parent: BaseFlatpack
+  id: BaseHFRBox
+  abstract: true
+  name: hfr box
+  description: If you see this, call the police.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Machines/HFR/hfrbox.rsi
+    layers:
+    - state: box_body
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: BaseHFRBox
+  id: HFRCornerBox
+  name: hfr corner box
+  description: Place this at a corner of your multiblock fusion reactor.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_corner
+  - type: Flatpack
+    entity: HFRCorner
+
+- type: entity
+  parent: BaseHFRBox
+  id: HFRCoreBox
+  name: hfr core box
+  description: Place this at the center of your multiblock fusion reactor.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_core
+  - type: Flatpack
+    entity: HFRCore
+
+- type: entity
+  parent: BaseHFRBox
+  id: HFRFuelBox
+  name: hfr fuel box
+  description: Place this at your intended fuel injection side of your multiblock fusion reactor.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_fuel
+  - type: Flatpack
+    entity: HFRFuelInput
+
+- type: entity
+  parent: BaseHFRBox
+  id: HFRModeratorBox
+  name: hfr moderator box
+  description: Place this at your intended moderator injection side of your multiblock fusion reactor.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_moderator
+  - type: Flatpack
+    entity: HFRModeratorInput
+
+- type: entity
+  parent: BaseHFRBox
+  id: HFRWasteBox
+  name: hfr waste box
+  description: Place this at your intended waste output side of your multiblock fusion reactor.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_waste
+  - type: Flatpack
+    entity: HFRWasteOutput
+
+- type: entity
+  parent: BaseHFRBox
+  id: HFRConsoleBox
+  name: hfr console box
+  description: This flatpack contains the console for the hypertorus fusion reactor.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_body
+  - type: Flatpack
+    entity: HFRConsole
+
+- type: entity
+  id: CrateEngineeringHFR
+  parent: CrateEngineeringSecure
+  name: hfr crate
+  description: Extremely complex to setup and maintain, but rewarding as heck.
+  components:
+  - type: StorageFill
+    contents:
+      - id: HFRConsoleBox
+      - id: HFRWasteBox
+      - id: HFRModeratorBox
+      - id: HFRFuelBox
+      - id: HFRCoreBox
+      - id: HFRCornerBox
+      - id: HFRCornerBox
+      - id: HFRCornerBox
+      - id: HFRCornerBox

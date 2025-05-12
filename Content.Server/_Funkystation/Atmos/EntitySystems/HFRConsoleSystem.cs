@@ -19,12 +19,12 @@ public sealed class HFRConsoleSystem : EntitySystem
     [Dependency] private readonly HFRCoreSystem _coreSystem = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
     [Dependency] private readonly HypertorusFusionReactorSystem _hfrSystem = default!;
+    [Dependency] private readonly HFRSidePartSystem _hfrSidePartSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HFRConsoleComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<HFRConsoleComponent, HFRConsoleTogglePowerMessage>(OnTogglePowerMessage);
         SubscribeLocalEvent<HFRConsoleComponent, HFRConsoleToggleCoolingMessage>(OnToggleCoolingMessage);
         SubscribeLocalEvent<HFRConsoleComponent, HFRConsoleToggleFuelInjectionMessage>(OnToggleFuelInjectionMessage);
@@ -44,11 +44,6 @@ public sealed class HFRConsoleSystem : EntitySystem
         SubscribeLocalEvent<HFRConsoleComponent, BeforeActivatableUIOpenEvent>(OnBeforeOpened);
     }
 
-    private void OnComponentInit(Entity<HFRConsoleComponent> ent, ref ComponentInit args)
-    {
-        SetPowerState(ent, ent.Comp);
-    }
-
     private void OnBeforeOpened(Entity<HFRConsoleComponent> ent, ref BeforeActivatableUIOpenEvent args)
     {
         DirtyUI(ent, ent.Comp);
@@ -56,7 +51,6 @@ public sealed class HFRConsoleSystem : EntitySystem
 
     private void OnConsoleStartup(EntityUid uid, HFRConsoleComponent console, ComponentStartup args)
     {
-        TryFindCore(uid, console);
         SetPowerState(uid, console);
     }
 
@@ -77,40 +71,9 @@ public sealed class HFRConsoleSystem : EntitySystem
         }
         else
         {
-            TryFindCore(uid, console);
+            _hfrSidePartSystem.TryFindCore(uid);
             SetPowerState(uid, console);
         }
-    }
-
-    private void TryFindCore(EntityUid uid, HFRConsoleComponent console)
-    {
-        if (!TryComp<TransformComponent>(uid, out var xform) || !xform.Anchored)
-            return;
-
-        var gridUid = xform.GridUid;
-        if (gridUid == null || !TryComp<MapGridComponent>(gridUid, out var grid))
-            return;
-
-        var rotation = xform.LocalRotation;
-        var direction = rotation.GetCardinalDir();
-        var offset = -direction.ToIntVec();
-        var consoleCoords = _transformSystem.GetMapCoordinates(uid);
-        var consoleTile = _mapSystem.CoordinatesToTile(gridUid.Value, grid, consoleCoords);
-        var targetTile = consoleTile + offset;
-
-        var coreQuery = GetEntityQuery<HFRCoreComponent>();
-        bool foundCore = false;
-        foreach (var entity in _mapSystem.GetAnchoredEntities(gridUid.Value, grid, targetTile))
-        {
-            if (coreQuery.TryGetComponent(entity, out var coreComp))
-            {
-                _coreSystem.TryLinkComponent(entity, coreComp, uid, console, (core, compUid) => core.ConsoleUid = compUid);
-                foundCore = true;
-                break;
-            }
-        }
-
-        SetPowerState(uid, console);
     }
 
     public void SetPowerState(EntityUid uid, HFRConsoleComponent console)

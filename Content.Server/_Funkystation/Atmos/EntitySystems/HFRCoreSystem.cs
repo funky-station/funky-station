@@ -25,8 +25,9 @@ public sealed class HFRCoreSystem : EntitySystem
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
     [Dependency] private readonly HypertorusFusionReactorSystem _hfrSystem = default!;
     [Dependency] private readonly AtmosphereSystem _atmosSystem = default!;
+    [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
 
-    private static readonly Vector2i[] CardinalOffsets = [Vector2i.Up, Vector2i.Down, Vector2i.Left, Vector2i.Right];
+    public static readonly Vector2i[] CardinalOffsets = [Vector2i.Up, Vector2i.Down, Vector2i.Left, Vector2i.Right];
     public static readonly Vector2i[] DiagonalOffsets = [new(1, 1), new(-1, 1), new(-1, -1), new(1, -1)];
 
     private readonly (Type ComponentType, Action<HFRCoreComponent, EntityUid?> SetField)[] _singleComponents = [
@@ -273,19 +274,84 @@ public sealed class HFRCoreSystem : EntitySystem
         foreach (var offset in CardinalOffsets)
         {
             var targetTile = coreTile + offset;
-            foreach (var entity in _mapSystem.GetAnchoredEntities(gridUid, grid, targetTile))
+
+            if (compType == typeof(HFRConsoleComponent))
             {
-                if (EntityManager.TryGetComponent(entity, compType, out var comp) &&
-                    xformQuery.TryGetComponent(entity, out var compXform))
+                var entities = new HashSet<Entity<HFRConsoleComponent>>();
+                _lookupSystem.GetLocalEntitiesIntersecting(gridUid, targetTile, entities);
+                foreach (var (entity, comp) in entities)
                 {
-                    var compRotation = compXform.LocalRotation;
-                    var compDir = compRotation.GetCardinalDir();
-                    var expectedCoreOffset = compDir.ToIntVec();
-                    if (offset == expectedCoreOffset)
+                    if (xformQuery.TryGetComponent(entity, out var compXform) && compXform.Anchored)
                     {
-                        setField(core, entity);
-                        ((dynamic)comp).CoreUid = coreUid;
-                        break;
+                        var compRotation = compXform.LocalRotation;
+                        var compDir = compRotation.GetCardinalDir();
+                        var expectedCoreOffset = compDir.ToIntVec();
+                        if (offset == expectedCoreOffset)
+                        {
+                            setField(core, entity);
+                            ((dynamic)comp).CoreUid = coreUid;
+                            break;
+                        }
+                    }
+                }
+            }
+            else if (compType == typeof(HFRFuelInputComponent))
+            {
+                var entities = new HashSet<Entity<HFRFuelInputComponent>>();
+                _lookupSystem.GetLocalEntitiesIntersecting(gridUid, targetTile, entities);
+                foreach (var (entity, comp) in entities)
+                {
+                    if (xformQuery.TryGetComponent(entity, out var compXform) && compXform.Anchored)
+                    {
+                        var compRotation = compXform.LocalRotation;
+                        var compDir = compRotation.GetCardinalDir();
+                        var expectedCoreOffset = compDir.ToIntVec();
+                        if (offset == expectedCoreOffset)
+                        {
+                            setField(core, entity);
+                            ((dynamic)comp).CoreUid = coreUid;
+                            break;
+                        }
+                    }
+                }
+            }
+            else if (compType == typeof(HFRModeratorInputComponent))
+            {
+                var entities = new HashSet<Entity<HFRModeratorInputComponent>>();
+                _lookupSystem.GetLocalEntitiesIntersecting(gridUid, targetTile, entities);
+                foreach (var (entity, comp) in entities)
+                {
+                    if (xformQuery.TryGetComponent(entity, out var compXform) && compXform.Anchored)
+                    {
+                        var compRotation = compXform.LocalRotation;
+                        var compDir = compRotation.GetCardinalDir();
+                        var expectedCoreOffset = compDir.ToIntVec();
+                        if (offset == expectedCoreOffset)
+                        {
+                            setField(core, entity);
+                            ((dynamic)comp).CoreUid = coreUid;
+                            break;
+                        }
+                    }
+                }
+            }
+            else if (compType == typeof(HFRWasteOutputComponent))
+            {
+                var entities = new HashSet<Entity<HFRWasteOutputComponent>>();
+                _lookupSystem.GetLocalEntitiesIntersecting(gridUid, targetTile, entities);
+                foreach (var (entity, comp) in entities)
+                {
+                    if (xformQuery.TryGetComponent(entity, out var compXform) && compXform.Anchored)
+                    {
+                        var compRotation = compXform.LocalRotation;
+                        var compDir = compRotation.GetCardinalDir();
+                        var expectedCoreOffset = compDir.ToIntVec();
+                        if (offset == expectedCoreOffset)
+                        {
+                            setField(core, entity);
+                            ((dynamic)comp).CoreUid = coreUid;
+                            break;
+                        }
                     }
                 }
             }
@@ -300,10 +366,12 @@ public sealed class HFRCoreSystem : EntitySystem
         foreach (var offset in DiagonalOffsets)
         {
             var targetTile = coreTile + offset;
-            foreach (var entity in _mapSystem.GetAnchoredEntities(gridUid, grid, targetTile))
+            var entities = new HashSet<Entity<HFRCornerComponent>>();
+            _lookupSystem.GetLocalEntitiesIntersecting(gridUid, targetTile, entities);
+
+            foreach (var (entity, cornerComp) in entities)
             {
-                if (EntityManager.TryGetComponent<HFRCornerComponent>(entity, out var cornerComp) &&
-                    xformQuery.TryGetComponent(entity, out var cornerXform) && cornerXform.Anchored)
+                if (xformQuery.TryGetComponent(entity, out var cornerXform) && cornerXform.Anchored)
                 {
                     var cornerRotation = cornerXform.LocalRotation;
                     var cornerDir = cornerRotation.GetCardinalDir();

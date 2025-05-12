@@ -231,6 +231,7 @@
     Telecrystal: 400
   categories:
   - UplinkAllies
+  saleLimit: 1
 
 - type: listing
   id: UplinkMauler
@@ -247,3 +248,4 @@
     whitelist:
       tags:
       - NukeOpsUplink
+  saleLimit: 1

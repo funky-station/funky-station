@@ -818,7 +818,7 @@
   description: uplink-emag-desc
   productEntity: Emag
   cost:
-    Telecrystal: 40 # goob
+    Telecrystal: 30 # goob
   categories:
   - UplinkDisruption
   saleLimit: 1 # WD EDIT

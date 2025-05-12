@@ -106,7 +106,7 @@
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockGibtonite
-      count: 60 # you don't really hit it on purpose so it should be common
+      count: 80 # you don't really hit it on purpose so it should be common # Funky change, from 60 to 80 
       minGroupSize: 1
       maxGroupSize: 1
 

@@ -24,8 +24,10 @@
   - Brig
   - External
   - Cryogenics
+  - Cargo
   - Maintenance
   - Engineering
+  - Atmospherics
   - Medical
   - Research
   - Command
@@ -44,11 +46,10 @@
     eyes: ClothingEyesGlassesMedSec
     gloves: ClothingHandsGlovesCombat
     id: ERTSecurityPDA
-    ears: ClothingHeadsetAltCommand
+    ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
   storage:
     back:
-    - BoxSurvivalSlots
     - Flash
     - BluespaceLifelineImplanter #DeathAcidifierImplanter

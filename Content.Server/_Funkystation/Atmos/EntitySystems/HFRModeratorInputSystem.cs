@@ -1,8 +1,6 @@
 using Content.Server._Funkystation.Atmos.Components;
-using Content.Shared._Funkystation.Atmos.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Server.GameObjects;
 using Content.Shared._Funkystation.Atmos.Visuals;
 using Content.Server._Funkystation.Atmos.HFR.Systems;
 
@@ -10,7 +8,6 @@ namespace Content.Server._Funkystation.Atmos.Systems;
 
 public sealed class HFRModeratorInputSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly HFRCoreSystem _coreSystem = default!;

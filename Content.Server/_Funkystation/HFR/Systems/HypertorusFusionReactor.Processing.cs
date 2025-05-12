@@ -1,27 +1,10 @@
 using Content.Server._Funkystation.Atmos.Components;
 using Content.Shared.Atmos;
-using Robust.Shared.Map;
 using Content.Server.NodeContainer.Nodes;
-using Content.Server.NodeContainer;
-using Robust.Shared.Maths;
 using Content.Shared._Funkystation.Atmos.HFR;
 using System.Linq;
-using Content.Server.Chat.Systems;
-using Content.Server.Audio;
-using Content.Server.Administration.Logs;
-using Robust.Shared.Timing;
 using Robust.Shared.Random;
-using Content.Shared.Chat;
-using Content.Server.Radio.EntitySystems;
-using Robust.Shared.Audio.Systems;
 using Content.Shared._Funkystation.Atmos.Prototypes;
-using Content.Server.NodeContainer.EntitySystems;
-using Content.Server.Explosion.EntitySystems;
-using Content.Server.Emp;
-using Robust.Server.GameObjects;
-using Content.Server.Atmos.EntitySystems;
-using Robust.Shared.Audio;
-using Content.Shared._EE.Supermatter.Components;
 using Content.Server.Singularity.Components;
 
 namespace Content.Server._Funkystation.Atmos.HFR.Systems

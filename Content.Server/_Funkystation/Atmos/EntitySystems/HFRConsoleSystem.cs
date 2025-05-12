@@ -1,16 +1,10 @@
 using Content.Shared._Funkystation.Atmos.Components;
 using Content.Server._Funkystation.Atmos.Components;
-using Content.Shared._Funkystation.Atmos.Components;
 using Content.Shared.UserInterface;
 using Content.Shared.Atmos;
 using Robust.Server.GameObjects;
-using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Timing;
 using Content.Server.Power.Components;
-using Content.Server.Power.EntitySystems;
-using Content.Shared.Interaction;
-using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server._Funkystation.Atmos.HFR.Systems;
@@ -20,12 +14,9 @@ namespace Content.Server._Funkystation.Atmos.Systems;
 public sealed class HFRConsoleSystem : EntitySystem
 {
     [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly HFRCoreSystem _coreSystem = default!;
-    [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
     [Dependency] private readonly HypertorusFusionReactorSystem _hfrSystem = default!;
 

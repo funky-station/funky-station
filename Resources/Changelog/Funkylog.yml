@@ -2706,3 +2706,11 @@ Entries:
         longer end early if the shuttle has been called)
   id: 334
   time: '2025-05-12T00:04:27.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: >-
+        Electrolyzer powerload will now return to baseline more slowly, causing
+        fewer power fluctuations.
+  id: 335
+  time: '2025-05-12T00:54:45.0000000+00:00'

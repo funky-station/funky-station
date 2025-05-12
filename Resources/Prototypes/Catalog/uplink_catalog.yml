@@ -212,7 +212,7 @@
   - UplinkWeaponry
   conditions: # Funky war ops whitelisting
   - !type:WarOpsCondition
-  saleBlacklist: true
+
 
 # Explosives
 

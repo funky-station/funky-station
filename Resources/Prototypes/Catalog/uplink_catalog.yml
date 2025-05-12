@@ -569,7 +569,7 @@
   icon: { sprite: /Textures/Structures/Wallmounts/signs.rsi, state: bio }
   productEntity: ClothingBackpackDuffelZombieBundle
   cost:
-    Telecrystal: 200 # goob
+    Telecrystal: 150 # goob
   categories:
   - UplinkChemicals
   conditions:

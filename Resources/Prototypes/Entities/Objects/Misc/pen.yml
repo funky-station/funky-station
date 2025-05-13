@@ -157,7 +157,7 @@
 
 - type: entity
   name: wizard's magical pen
-  parent: [ PenEmbeddable, BaseMagicalContraband ]
+  parent: [ Pen, BaseMagicalContraband ]
   id: PenWiz
   description: A luxurious fountain pen. Seems to have a magical crystal eraser.
   components:

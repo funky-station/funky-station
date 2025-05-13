@@ -2332,22 +2332,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 16.5,-2.5
       parent: 1
-- proto: ChemistryBottleEpinephrine
-  entities:
-  - uid: 579
-    components:
-    - type: Transform
-      pos: 6.5416865,-8.488731
-      parent: 1
-    - type: Physics
-      canCollide: False
-  - uid: 580
-    components:
-    - type: Transform
-      pos: 6.7847424,-8.481787
-      parent: 1
-    - type: Physics
-      canCollide: False
 - proto: CigaretteSpent
   entities:
   - uid: 483

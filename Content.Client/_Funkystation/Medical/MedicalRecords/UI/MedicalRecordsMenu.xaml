@@ -1,0 +1,205 @@
+﻿<controls:FancyWindow
+    MinSize="1000 750"
+    Resizable="False"
+    SetSize="1000 750"
+    Title="Medical Records"
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <BoxContainer Orientation="Vertical">
+        <!--  main container  -->
+        <BoxContainer
+            HorizontalExpand="True"
+            Orientation="Horizontal"
+            VerticalExpand="True">
+
+            <!--  left column  -->
+            <BoxContainer
+                Margin="10"
+                Orientation="Vertical"
+                SetWidth="300">
+
+                <!--  my buttonssss  -->
+                <BoxContainer HorizontalExpand="True">
+                    <Button
+                        HorizontalExpand="True"
+                        Mode="Release"
+                        Name="FilterButton"
+                        Text="Filter by"
+                        TextAlign="Center" />
+                    <Button
+                        HorizontalExpand="True"
+                        Mode="Release"
+                        Name="SearchButton"
+                        Text="Search by"
+                        TextAlign="Center" />
+                </BoxContainer>
+
+                <BoxContainer
+                    Align="Center"
+                    HorizontalExpand="True"
+                    Margin="10">
+                    <Label StyleClasses="LabelBig" Text="Crewmembers" />
+                </BoxContainer>
+
+                <!--  entry list  -->
+                <PanelContainer
+                    HorizontalExpand="True"
+                    Margin="10"
+                    VerticalExpand="True">
+
+                    <PanelContainer.PanelOverride>
+                        <graphics:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                    </PanelContainer.PanelOverride>
+
+                    <!--  new container in the scroll, gen from there?  -->
+                    <ScrollContainer HorizontalExpand="True" VerticalExpand="True" />
+                </PanelContainer>
+            </BoxContainer>
+
+            <!--  right column  -->
+            <BoxContainer
+                HorizontalExpand="True"
+                Margin="10"
+                Orientation="Vertical">
+
+                <LineEdit
+                    HorizontalExpand="True"
+                    Name="SearchBar"
+                    PlaceHolder="Search..." />
+
+                <!--
+                    everything below this will probably have to be moved to MedicalRecordsEntry
+                    replace with a container and gen in C#
+                -->
+                <BoxContainer
+                    Align="Center"
+                    HorizontalExpand="True"
+                    Margin="10">
+                    <Label StyleClasses="LabelBig" Text="Crewmate Name" />
+                </BoxContainer>
+
+                <ScrollContainer VerticalExpand="True">
+                    <BoxContainer Orientation="Vertical">
+
+                        <!--  status box  -->
+                        <PanelContainer Margin="5" SetSize="620, 100">
+
+                            <PanelContainer.PanelOverride>
+                                <graphics:StyleBoxFlat BackgroundColor="#FFFFFF" />
+                            </PanelContainer.PanelOverride>
+                        </PanelContainer>
+
+                        <!--  header  -->
+                        <BoxContainer Margin="5" Orientation="Horizontal">
+                            <Label
+                                HorizontalAlignment="Left"
+                                HorizontalExpand="True"
+                                Text="General Information" />
+                            <BoxContainer Orientation="Horizontal" SetHeight="24">
+                                <Button
+                                    Margin="-1"
+                                    Name="GIButton"
+                                    SetWidth="27"
+                                    StyleClasses="ButtonSquare">
+                                    <TextureRect
+                                        Margin="-8,-2,0,0"
+                                        Name="GIButtonArrow"
+                                        TexturePath="/Textures/_EE/Interface/Supermatter/arrow_down.png"
+                                        VerticalAlignment="Center" />
+                                </Button>
+                            </BoxContainer>
+                        </BoxContainer>
+
+                        <BoxContainer Margin="5" Orientation="Vertical">
+                            <RichTextLabel Text="i gotta figure out how to do line breaks" />
+                        </BoxContainer>
+
+                        <PanelContainer StyleClasses="LowDivider" />
+
+                        <!--  header  -->
+                        <BoxContainer Margin="5" Orientation="Horizontal">
+                            <Label
+                                HorizontalAlignment="Left"
+                                HorizontalExpand="True"
+                                Text="Medical Information" />
+                            <BoxContainer Orientation="Horizontal" SetHeight="24">
+                                <Button
+                                    Margin="-1"
+                                    Name="MIButton"
+                                    SetWidth="27"
+                                    StyleClasses="ButtonSquare">
+                                    <TextureRect
+                                        Margin="-8,-2,0,0"
+                                        Name="MIButtonArrow"
+                                        TexturePath="/Textures/_EE/Interface/Supermatter/arrow_down.png"
+                                        VerticalAlignment="Center" />
+                                </Button>
+                            </BoxContainer>
+                        </BoxContainer>
+
+                        <BoxContainer Margin="5" Orientation="Vertical">
+                            <RichTextLabel Text="i gotta figure out how to do line breaks" />
+                        </BoxContainer>
+
+                        <PanelContainer StyleClasses="LowDivider" />
+
+                        <!--  header  -->
+                        <BoxContainer Margin="5" Orientation="Horizontal">
+                            <Label
+                                HorizontalAlignment="Left"
+                                HorizontalExpand="True"
+                                Text="Autopsy Report" />
+                            <BoxContainer Orientation="Horizontal" SetHeight="24">
+                                <Button
+                                    Margin="-1"
+                                    Name="ARButton"
+                                    SetWidth="27"
+                                    StyleClasses="ButtonSquare">
+                                    <TextureRect
+                                        Margin="-8,-2,0,0"
+                                        Name="ARButtonArrow"
+                                        TexturePath="/Textures/_EE/Interface/Supermatter/arrow_down.png"
+                                        VerticalAlignment="Center" />
+                                </Button>
+                            </BoxContainer>
+                        </BoxContainer>
+
+                        <BoxContainer Margin="5" Orientation="Vertical">
+                            <RichTextLabel Text="This patient has not received an autopsy, or their autopsy has not been documented." />
+                        </BoxContainer>
+
+
+                    </BoxContainer>
+                </ScrollContainer>
+
+            </BoxContainer>
+        </BoxContainer>
+
+        <!--  footer  -->
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer StyleClasses="LowDivider" />
+            <BoxContainer
+                Margin="10,2,5,0"
+                Orientation="Horizontal"
+                VerticalAlignment="Bottom">
+                <Label StyleClasses="WindowFooterText" Text="Medical Department" />
+                <Label
+                    HorizontalAlignment="Right"
+                    HorizontalExpand="True"
+                    Margin="0,0,5,0"
+                    StyleClasses="WindowFooterText"
+                    Text="v1.0" />
+                <TextureRect
+                    HorizontalAlignment="Right"
+                    SetSize="19 19"
+                    Stretch="KeepAspectCentered"
+                    StyleClasses="NTLogoDark"
+                    VerticalAlignment="Center" />
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+
+</controls:FancyWindow>

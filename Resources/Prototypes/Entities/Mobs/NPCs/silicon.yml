@@ -494,3 +494,5 @@
     - Supply
   - type: StationAiVision # Goobstation - AI can see through NT silicon
     range: 1
+  - type: Puller
+    needsHands: false

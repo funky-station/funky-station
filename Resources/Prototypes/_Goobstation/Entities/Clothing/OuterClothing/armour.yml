@@ -25,13 +25,12 @@
   - type: Armor
     coverage:
     - Chest
-    - Groin
     modifiers:
       coefficients:
-        Blunt: 0.45
-        Slash: 0.45
+        Blunt: 0.4
+        Slash: 0.4
         Piercing: 0.25
-        Heat: 0.25
+        Heat: 0.55
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: Tag
@@ -52,13 +51,12 @@
   - type: Armor
     coverage:
     - Chest
-    - Groin
     modifiers:
       coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Piercing: 0.25
-        Heat: 0.25
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.3
+        Heat: 0.3
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: Tag
@@ -103,18 +101,6 @@
     sprite: _Goobstation/Clothing/Armor/bso_armour.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Armor/bso_armour.rsi
-  - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    modifiers:
-      coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Piercing: 0.45
-        Heat: 0.55
-  - type: ExplosionResistance
-    damageCoefficient: 0.8
   - type: Tag
     tags:
     - Armor

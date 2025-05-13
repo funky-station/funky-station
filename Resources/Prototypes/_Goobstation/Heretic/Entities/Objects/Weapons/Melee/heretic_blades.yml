@@ -19,6 +19,7 @@
     sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
     state: icon
   - type: MeleeWeapon
+    armorPenetration: 0.3
     wideAnimationRotation: -125
     attackRate: 1
     damage:

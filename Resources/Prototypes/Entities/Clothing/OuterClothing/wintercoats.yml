@@ -34,6 +34,25 @@
 # SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -56,12 +75,12 @@
     coverage:
     - Chest
     - Groin
-    - Arm
     - Tail
+    - Arm
     modifiers:
       coefficients:
-        Slash: 0.95
-        Heat: 0.90
+        Slash: 0.9
+        Heat: 0.8
     priceMultiplier: 0
   - type: Food
     requiresSpecialDigestion: true
@@ -275,16 +294,11 @@
       outerClothing:
       - state: CHEM-equipped-OUTERCLOTHING
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Tail
     modifiers:
       coefficients:
-        Slash: 0.85
+        Slash: 0.9
         Heat: 0.8
-        Caustic: 0.65
+        Caustic: 0.6
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterChem
@@ -310,16 +324,11 @@
       outerClothing:
       - state: CMO-equipped-OUTERCLOTHING
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Tail
     modifiers:
       coefficients:
-        Slash: 0.85
-        Heat: 0.80
-        Caustic: 0.65
+        Slash: 0.9
+        Heat: 0.8
+        Caustic: 0.6
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterCMO
@@ -378,16 +387,11 @@
       outerClothing:
       - state: GENE-equipped-OUTERCLOTHING
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Tail
     modifiers:
       coefficients:
-        Slash: 0.85
-        Heat: 0.80
-        Caustic: 0.75
+        Slash: 0.9
+        Heat: 0.8
+        Caustic: 0.8
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSci
@@ -499,16 +503,11 @@
       outerClothing:
       - state: JANI-equipped-OUTERCLOTHING
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Tail
     modifiers:
       coefficients:
-        Slash: 0.85
-        Heat: 0.80
-        Caustic: 0.75
+        Slash: 0.9
+        Heat: 0.8
+        Caustic: 0.8
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterJani
@@ -534,16 +533,11 @@
       outerClothing:
       - state: MED-equipped-OUTERCLOTHING
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Tail
     modifiers:
       coefficients:
-        Slash: 0.85
-        Heat: 0.80
-        Caustic: 0.85
+        Slash: 0.9
+        Heat: 0.8
+        Caustic: 0.8
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterMed
@@ -615,16 +609,11 @@
       outerClothing:
       - state: PARA-equipped-OUTERCLOTHING
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Tail
     modifiers:
       coefficients:
-        Slash: 0.85
-        Heat: 0.75
-        Caustic: 0.85
+        Slash: 0.9
+        Heat: 0.65
+        Caustic: 0.8
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterPara
@@ -674,16 +663,11 @@
       outerClothing:
       - state: RD-equipped-OUTERCLOTHING
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Tail
     modifiers:
       coefficients:
-        Slash: 0.85
-        Heat: 0.80
-        Caustic: 0.85
+        Slash: 0.9
+        Heat: 0.8
+        Caustic: 0.8
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterRD
@@ -733,16 +717,11 @@
       outerClothing:
       - state: SCI-equipped-OUTERCLOTHING
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Tail
     modifiers:
       coefficients:
-        Slash: 0.85
-        Heat: 0.80
-        Caustic: 0.85
+        Slash: 0.9
+        Heat: 0.8
+        Caustic: 0.8
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSci
@@ -791,16 +770,11 @@
       outerClothing:
       - state: VIRO-equipped-OUTERCLOTHING
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Tail
     modifiers:
       coefficients:
-        Slash: 0.85
-        Heat: 0.80
-        Caustic: 0.85
+        Slash: 0.9
+        Heat: 0.8
+        Caustic: 0.8
     priceMultiplier: 0.15
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSci

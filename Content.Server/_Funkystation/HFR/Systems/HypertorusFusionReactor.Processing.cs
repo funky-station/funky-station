@@ -663,7 +663,7 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                 intensity *= 1.5f;
 
             // Bring intensity back down to what I think are workable levels
-            float scaledIntensity = intensity / 1500f * 150f;
+            float scaledIntensity = intensity / 1500f * 100f;
 
             // Calculate slope based on intensity I guess, directly stolen from supermatter
             float slope = Math.Clamp(scaledIntensity / 15f, 0.2f, 1f);

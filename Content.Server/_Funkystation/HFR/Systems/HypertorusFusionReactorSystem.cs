@@ -716,7 +716,7 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
 
             // Explosion
             var totalIntensity = (devastatingExplosion + heavyImpactExplosion + lightImpactExplosion + flashExplosion) * 100f;
-            totalIntensity = critical ? totalIntensity * 5 : totalIntensity;
+            totalIntensity = critical ? totalIntensity * 6 : totalIntensity * 2;
             if (totalIntensity > 0)
             {
                 _explosionSystem.QueueExplosion(

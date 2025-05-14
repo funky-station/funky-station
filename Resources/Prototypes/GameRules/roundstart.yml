@@ -113,7 +113,8 @@
     - prefRoles: [ NukeopsCommander ]
       fallbackRoles: [ Nukeops, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsCommander
-      max: 1
+      min: 1
+      max: 1     # fixed a lot of things. Commanders currently spawn en masse on Funky, so this limits the values to ensure that does not happen.
       startingGear: SyndicateCommanderGearFull
       roleLoadout:
       - RoleSurvivalNukie
@@ -129,7 +130,7 @@
       mindRoles:
       - MindRoleNukeopsCommander
     - prefRoles: [ NukeopsMedic ]
-      fallbackRoles: [ Nukeops, NukeopsCommander ]
+      fallbackRoles: [ Nukeops] # prevents the roundstarter from assigning multiple back up commanders.
       spawnerPrototype: SpawnPointNukeopsMedic
       max: 1
       startingGear: SyndicateOperativeMedicFull
@@ -147,7 +148,7 @@
       mindRoles:
       - MindRoleNukeopsMedic
     - prefRoles: [ Nukeops ]
-      fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
+      fallbackRoles: [ NukeopsMedic ]  # prevents the roundstarter from assigning multiple back up commanders.
       spawnerPrototype: SpawnPointNukeopsOperative
       max: 3
       playerRatio: 10

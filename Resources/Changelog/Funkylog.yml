@@ -2720,3 +2720,11 @@ Entries:
       message: Added a News Manager digiboard, because the news never sleeps!
   id: 336
   time: '2025-05-14T03:10:08.0000000+00:00'
+- author: ' Joulesberg'
+  changes:
+    - type: Add
+      message: >-
+        Added finance allocation computer / departmental request computers to
+        omega. 
+  id: 337
+  time: '2025-05-14T05:18:35.0000000+00:00'

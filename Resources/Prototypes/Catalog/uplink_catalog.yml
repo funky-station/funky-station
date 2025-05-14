@@ -196,7 +196,7 @@
     Telecrystal: 150 # goob
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
+  saleLimit: 0 # WD EDIT
 
 - type: listing
   id: UplinkL6SawBundle
@@ -1342,8 +1342,9 @@
   name: uplink-fake-mindshield-name
   description: uplink-fake-mindshield-desc
   icon: { sprite: Interface/Actions/actions_fakemindshield.rsi, state: icon-on }
+  productEntity: FakeMindShieldImplanter
   cost:
-    Telecrystal: 4
+    Telecrystal: 10 # funky, kinda curious what it being low could cause
   categories:
   - UplinkImplants
 
@@ -1491,7 +1492,7 @@
   name: uplink-syndie-raid-name
   description: uplink-syndie-raid-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateRaidBundle
+  productEntity: ClothingBackpackSyndicateRaidBundle
   cost:
     Telecrystal: 50 # goob
   categories:
@@ -2139,3 +2140,13 @@
     - Mime
   saleLimit: 1 # WD EDIT
 
+- type: listing
+  id: UplinkSmugglerSatchel
+  name: uplink-smuggler-satchel-name
+  description: uplink-smuggler-satchel-desc
+  productEntity: ClothingBackpackSatchelSmugglerUnanchored
+  cost:
+    Telecrystal: 15 # funk
+  categories:
+  - UplinkDeception
+  saleLimit: 1 # WD EDIT

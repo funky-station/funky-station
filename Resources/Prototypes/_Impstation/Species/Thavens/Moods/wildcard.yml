@@ -1,7 +1,7 @@
 - type: dataset
   id: ThavenMoodsWildcard
   values:
-  #- CompulsiveLiar # TODO job conflicts
+  - CompulsiveLiar
   - CompulsiveBeliever
   - PlantPacifist
   - PuddleDrinker
@@ -9,11 +9,11 @@
   - Nocrastinator
   - Pope
   - Cannibal
-  #- Outlaw # TODO job conflicts
+  - Outlaw
   #- ExtremeDepartmentDisapproval
   - LoneActor
   - Immortal
-  #- Unknown # TODO job conflicts
+  - Unknown
   - Fairy
   - VampireTalisman
   - OutsideTheBox
@@ -128,6 +128,11 @@
   id: LoneActor
   moodName: thaven-mood-lone-actor-name
   moodDesc: thaven-mood-lone-actor-desc
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
+  - Security
 
 # You are the center of the universe, an immortal being with no sense of time or morality. Mere mortals are like insects, fleeting and insubstantial.
 - type: thavenMood
@@ -214,6 +219,10 @@
   id: StayDead
   moodName: thaven-mood-stay-dead-name
   moodDesc: thaven-mood-stay-dead-desc
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
 
 # Tourist: It is customary to follow people into their departments.
 - type: thavenMood

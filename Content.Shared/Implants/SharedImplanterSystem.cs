@@ -211,7 +211,7 @@ public abstract class SharedImplanterSystem : EntitySystem
                         continue;
                     }
 
-                    DrawImplantIntoImplanter(implanter, target, implant, implantContainer, implanterContainer, implantComp);
+                    DrawImplantIntoImplanter(implanter, target, implant, implantContainer, implanterContainer, implantComp, component);
                     permanentFound = implantComp.Permanent;
 
                     //Break so only one implant is drawn
@@ -246,11 +246,11 @@ public abstract class SharedImplanterSystem : EntitySystem
                     }
                     else
                     {
-                        DrawImplantIntoImplanter(implanter, target, implant.Value, implantContainer, implanterContainer, implantComp);
+                        DrawImplantIntoImplanter(implanter, target, implant.Value, implantContainer, implanterContainer, implantComp, component);
                         permanentFound = implantComp.Permanent;
                     }
 
-                    if (component.CurrentMode == ImplanterToggleMode.Draw && !component.ImplantOnly && !permanentFound)
+                    if (component.CurrentMode == ImplanterToggleMode.Draw && !component.ImplantOnly && !permanentFound && !component.DeimplantCrushes)
                         ImplantMode(implanter, component);
                 }
                 else
@@ -277,11 +277,13 @@ public abstract class SharedImplanterSystem : EntitySystem
         _popup.PopupEntity(failedPermanentMessage, target, user);
     }
 
-    private void DrawImplantIntoImplanter(EntityUid implanter, EntityUid target, EntityUid implant, BaseContainer implantContainer, ContainerSlot implanterContainer, SubdermalImplantComponent implantComp)
+    private void DrawImplantIntoImplanter(EntityUid implanter, EntityUid target, EntityUid implant, BaseContainer implantContainer, ContainerSlot implanterContainer, SubdermalImplantComponent implantComp, ImplanterComponent implanterComp)
     {
         _container.Remove(implant, implantContainer);
         implantComp.ImplantedEntity = null;
-        _container.Insert(implant, implanterContainer);
+
+        if (!implanterComp.DeimplantCrushes)
+            _container.Insert(implant, implanterContainer);
 
         var ev = new TransferDnaEvent { Donor = target, Recipient = implanter };
         RaiseLocalEvent(target, ref ev);

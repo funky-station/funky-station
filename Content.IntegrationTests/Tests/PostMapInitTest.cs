@@ -90,7 +90,8 @@ namespace Content.IntegrationTests.Tests
             "Elkridge",
             "Convex",
             "Relic",
-            "Resort"
+            "Resort",
+            "dm01-entryway"
         };
 
         /// <summary>

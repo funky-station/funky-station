@@ -25,7 +25,6 @@
     visMask:
       - Normal
       - Ghost
-      - 777
   - type: ContentEye
     maxZoom: 1.2, 1.2
   - type: Speech
@@ -75,7 +74,6 @@
     visMask:
       - Normal
       - Ghost
-      - 777
   - type: SSDIndicator
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
@@ -125,7 +123,6 @@
   components:
   - type: FTLSmashImmune
   - type: Physics
-
     bodyStatus: InAir
   - type: Speech
     speechVerb: Ghost
@@ -133,7 +130,6 @@
   - type: MovementAlwaysTouching
   - type: CanMoveInAir
   - type: CombatMode
-  - type: ZombieImmune
   - type: Bloodstream
     bloodMaxVolume: 650
     bloodReagent: Entropy
@@ -178,7 +174,6 @@
     visMask:
       - Normal
       - Ghost
-      - 777
   - type: GhostRole
     makeSentient: true
     name: ghost-role-information-rogue-ascended-name
@@ -293,5 +288,6 @@
     soundPerceivedByOthers: false
   - type: RandomMetadata
     nameSegments:
-    - ascended_names
-    - ascended_titles
+    - NamesAscendantName
+    - NamesAscendantTitle
+  - type: ZombieImmune # funky

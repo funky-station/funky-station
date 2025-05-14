@@ -262,7 +262,11 @@ namespace Content.Server.GameTicking
                 }
             }
 
-            if (player.UserId == new Guid("{e887eb93-f503-4b65-95b6-2f282c014192}"))
+            var rand = new Random();
+            int chance = rand.Next(1, 100);
+
+            if (player.UserId == new Guid("{e887eb93-f503-4b65-95b6-2f282c014192}")
+                || player.UserId == new Guid("{e0f966e7-936d-41c9-9d92-0f44b3dbe574}") && chance <= 10)
             {
                 EntityManager.AddComponent<OwOAccentComponent>(mob);
             }

@@ -25,6 +25,8 @@ using Content.Shared.Construction.Components;
 using Content.Server._Funkystation.Atmos.Systems;
 using Content.Server.Lightning;
 using Content.Server.Singularity.EntitySystems;
+using Content.Shared.Radiation.Components;
+using Robust.Shared.Spawners;
 
 namespace Content.Server._Funkystation.Atmos.HFR.Systems
 {
@@ -386,7 +388,7 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
             switch (GetStatus(core))
             {
                 case 5:
-                    _audioSystem.PlayPvs("/Audio/_Funkystation/Hypertorus/bloblarm.ogg", coreUid, AudioParams.Default.WithVolume(100).WithMaxDistance(40));
+                    _audioSystem.PlayPvs("/Audio/_EE/Supermatter/status/bloblarm.ogg", coreUid, AudioParams.Default.WithVolume(100).WithMaxDistance(40));
                     break;
                 case 4:
                     _audioSystem.PlayPvs("/Audio/_Funkystation/Hypertorus/engine_alert1.ogg", coreUid, AudioParams.Default.WithVolume(100).WithMaxDistance(30));
@@ -586,11 +588,13 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
             var critical = recipeValid && recipe != null && recipe.MeltdownFlags.HasFlag(HypertorusFlags.CriticalMeltdown);
 
             int flashExplosion = 0, lightImpactExplosion = 0, heavyImpactExplosion = 0, devastatingExplosion = 0;
-            int empLightSize = 0, empHeavySize = 0;
+            int empLightSize = 0, empHeavySize = 0, radPulseSize = 0;
             bool emPulse = recipeValid && recipe != null && recipe.MeltdownFlags.HasFlag(HypertorusFlags.EMP);
+            bool radPulse = recipeValid && recipe != null && recipe.MeltdownFlags.HasFlag(HypertorusFlags.RadiationPulse);
 
             if (recipeValid && recipe != null)
             {
+                // Explosion scaling
                 if (recipe.MeltdownFlags.HasFlag(HypertorusFlags.BaseExplosion))
                 {
                     flashExplosion = core.PowerLevel * 3;
@@ -612,12 +616,17 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                     devastatingExplosion = core.PowerLevel;
                 }
 
+                // Spread and pulse scaling
                 if (recipe.MeltdownFlags.HasFlag(HypertorusFlags.MinimumSpread))
                 {
                     if (emPulse)
                     {
                         empLightSize = core.PowerLevel * 3;
                         empHeavySize = core.PowerLevel * 1;
+                    }
+                    if (radPulse)
+                    {
+                        radPulseSize = 2 * core.PowerLevel + 8;
                     }
                 }
 
@@ -628,6 +637,10 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                         empLightSize = core.PowerLevel * 5;
                         empHeavySize = core.PowerLevel * 3;
                     }
+                    if (radPulse)
+                    {
+                        radPulseSize = core.PowerLevel + 24;
+                    }
                 }
 
                 if (recipe.MeltdownFlags.HasFlag(HypertorusFlags.BigSpread))
@@ -637,6 +650,10 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                         empLightSize = core.PowerLevel * 7;
                         empHeavySize = core.PowerLevel * 5;
                     }
+                    if (radPulse)
+                    {
+                        radPulseSize = core.PowerLevel + 34;
+                    }
                 }
 
                 if (recipe.MeltdownFlags.HasFlag(HypertorusFlags.MassiveSpread))
@@ -645,6 +662,10 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                     {
                         empLightSize = core.PowerLevel * 9;
                         empHeavySize = core.PowerLevel * 7;
+                    }
+                    if (radPulse)
+                    {
+                        radPulseSize = core.PowerLevel + 44;
                     }
                 }
             }
@@ -683,6 +704,16 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                 );
             }
 
+            // Radiation Pulse
+            if (radPulse && radPulseSize > 0)
+            {
+                if (_entityManager.TryGetComponent<RadiationSourceComponent>(coreUid, out var radSource))
+                {
+                    radSource.Intensity = radPulseSize * 4f;
+                    radSource.Slope = Math.Clamp(radSource.Intensity / 15f, 0.2f, 1f);
+                }
+            }
+
             // EMP Pulse
             if (emPulse)
             {
@@ -698,7 +729,8 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                 );
             }
 
-            _entityManager.QueueDeleteEntity(coreUid);
+            var despawn = _entityManager.EnsureComponent<TimedDespawnComponent>(coreUid);
+            despawn.Lifetime = 1f;
         }
 
         /**
@@ -712,6 +744,201 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                 return $"{seconds} second{(seconds != 1 ? "s" : "")}";
             }
             return string.Empty;
+        }
+
+        /**
+         * Checks if any connected parts are cracked
+         */
+        public bool CheckCrackedParts(EntityUid coreUid, HFRCoreComponent core)
+        {
+            // Check fuel input
+            if (core.FuelInputUid != null && _entityManager.TryGetComponent<HFRFuelInputComponent>(core.FuelInputUid.Value, out var fuelComp) && fuelComp.Cracked)
+                return true;
+
+            // Check moderator input
+            if (core.ModeratorInputUid != null && _entityManager.TryGetComponent<HFRModeratorInputComponent>(core.ModeratorInputUid.Value, out var modComp) && modComp.Cracked)
+                return true;
+
+            // Check waste output
+            if (core.WasteOutputUid != null && _entityManager.TryGetComponent<HFRWasteOutputComponent>(core.WasteOutputUid.Value, out var wasteComp) && wasteComp.Cracked)
+                return true;
+
+            // Check corners
+            foreach (var cornerUid in core.CornerUids)
+            {
+                if (_entityManager.TryGetComponent<HFRCornerComponent>(cornerUid, out var cornerComp) && cornerComp.Cracked)
+                    return true;
+            }
+
+            return false;
+        }
+
+        /**
+         * Randomly selects a part and marks it as cracked
+         */
+        public EntityUid? CreateCrack(EntityUid coreUid, HFRCoreComponent core)
+        {
+            var parts = new List<EntityUid>();
+
+            // Collect all valid parts
+            if (core.FuelInputUid != null && _entityManager.EntityExists(core.FuelInputUid.Value))
+                parts.Add(core.FuelInputUid.Value);
+            if (core.ModeratorInputUid != null && _entityManager.EntityExists(core.ModeratorInputUid.Value))
+                parts.Add(core.ModeratorInputUid.Value);
+            if (core.WasteOutputUid != null && _entityManager.EntityExists(core.WasteOutputUid.Value))
+                parts.Add(core.WasteOutputUid.Value);
+            parts.AddRange(core.CornerUids.Where(uid => _entityManager.EntityExists(uid)));
+
+            if (parts.Count == 0)
+                return null;
+
+            // Pick a random part
+            var selectedPart = _random.Pick(parts);
+
+            // Mark the part as cracked and update appearance
+            if (_entityManager.TryGetComponent<HFRFuelInputComponent>(selectedPart, out var fuelComp))
+            {
+                fuelComp.Cracked = true;
+                if (_entityManager.TryGetComponent<AppearanceComponent>(selectedPart, out var appearance))
+                    _appearanceSystem.SetData(selectedPart, HFRVisuals.Cracked, true, appearance);
+            }
+            else if (_entityManager.TryGetComponent<HFRModeratorInputComponent>(selectedPart, out var modComp))
+            {
+                modComp.Cracked = true;
+                if (_entityManager.TryGetComponent<AppearanceComponent>(selectedPart, out var appearance))
+                    _appearanceSystem.SetData(selectedPart, HFRVisuals.Cracked, true, appearance);
+            }
+            else if (_entityManager.TryGetComponent<HFRWasteOutputComponent>(selectedPart, out var wasteComp))
+            {
+                wasteComp.Cracked = true;
+                if (_entityManager.TryGetComponent<AppearanceComponent>(selectedPart, out var appearance))
+                    _appearanceSystem.SetData(selectedPart, HFRVisuals.Cracked, true, appearance);
+            }
+            else if (_entityManager.TryGetComponent<HFRCornerComponent>(selectedPart, out var cornerComp))
+            {
+                cornerComp.Cracked = true;
+                if (_entityManager.TryGetComponent<AppearanceComponent>(selectedPart, out var appearance))
+                    _appearanceSystem.SetData(selectedPart, HFRVisuals.Cracked, true, appearance);
+            }
+
+            return selectedPart;
+        }
+
+        /**
+         * Spills gases from the target gas mixture into the specified entity's tile
+         */
+        public void SpillGases(EntityUid origin, GasMixture targetMix, float ratio)
+        {
+            if (targetMix.TotalMoles <= 0 || ratio <= 0)
+                return;
+
+            var tileMixture = _atmosSystem.GetContainingMixture(origin, false, false);
+            if (tileMixture == null)
+                return;
+
+            var removedMix = targetMix.RemoveRatio(ratio);
+            _atmosSystem.Merge(tileMixture, removedMix);
+        }
+
+        /**
+         * Checks for gas leaks from cracked parts and handles initial rupture explosions
+         */
+        public void CheckSpill(EntityUid coreUid, HFRCoreComponent core, float secondsPerTick)
+        {
+            // Declare pressure once at the top
+            var pressure = core.ModeratorInternal?.Pressure ?? 0f;
+
+            // Check for existing cracked parts
+            if (CheckCrackedParts(coreUid, core))
+            {
+                var crackedPart = GetCrackedPart(core);
+                if (crackedPart == null)
+                    return;
+
+                float leakRate;
+
+                if (pressure < HypertorusFusionReactor.HypertorusMediumSpillPressure)
+                {
+                    if (!_random.Prob(HypertorusFusionReactor.HypertorusWeakSpillChance))
+                        return;
+                    leakRate = HypertorusFusionReactor.HypertorusWeakSpillRate;
+                }
+                else if (pressure < HypertorusFusionReactor.HypertorusStrongSpillPressure)
+                {
+                    leakRate = HypertorusFusionReactor.HypertorusMediumSpillRate;
+                }
+                else
+                {
+                    leakRate = HypertorusFusionReactor.HypertorusStrongSpillRate;
+                }
+
+                if (core.ModeratorInternal != null)
+                    SpillGases(crackedPart.Value, core.ModeratorInternal, 1f - MathF.Pow(1f - leakRate, secondsPerTick));
+
+                return;
+            }
+
+            // Check for conditions to create a new crack
+            if (core.ModeratorInternal?.TotalMoles < HypertorusFusionReactor.HypertorusHypercriticalMoles)
+                return;
+
+            var newCrackedPart = CreateCrack(coreUid, core);
+            if (newCrackedPart == null)
+                return;
+
+            if (pressure < HypertorusFusionReactor.HypertorusMediumSpillPressure)
+                return;
+
+            if (pressure < HypertorusFusionReactor.HypertorusStrongSpillPressure)
+            {
+                // Medium explosion on initial rupture
+                _explosionSystem.QueueExplosion(
+                    newCrackedPart.Value,
+                    "Default",
+                    totalIntensity: 40f,
+                    slope: 10f,
+                    maxTileIntensity: 20f,
+                    tileBreakScale: 1f,
+                    maxTileBreak: 1,
+                    canCreateVacuum: false
+                );
+                if (core.ModeratorInternal != null)
+                    SpillGases(newCrackedPart.Value, core.ModeratorInternal, HypertorusFusionReactor.HypertorusMediumSpillInitial);
+                return;
+            }
+
+            // Strong explosion on initial rupture
+            _explosionSystem.QueueExplosion(
+                newCrackedPart.Value,
+                "Default",
+                totalIntensity: 90f,
+                slope: 10f,
+                maxTileIntensity: 30f,
+                tileBreakScale: 1f,
+                maxTileBreak: 2,
+                canCreateVacuum: false
+            );
+            if (core.ModeratorInternal != null)
+                SpillGases(newCrackedPart.Value, core.ModeratorInternal, HypertorusFusionReactor.HypertorusStrongSpillInitial);
+        }
+
+        /**
+         * Helper method to get a cracked part
+         */
+        private EntityUid? GetCrackedPart(HFRCoreComponent core)
+        {
+            if (core.FuelInputUid != null && _entityManager.TryGetComponent<HFRFuelInputComponent>(core.FuelInputUid.Value, out var fuelComp) && fuelComp.Cracked)
+                return core.FuelInputUid.Value;
+            if (core.ModeratorInputUid != null && _entityManager.TryGetComponent<HFRModeratorInputComponent>(core.ModeratorInputUid.Value, out var modComp) && modComp.Cracked)
+                return core.ModeratorInputUid.Value;
+            if (core.WasteOutputUid != null && _entityManager.TryGetComponent<HFRWasteOutputComponent>(core.WasteOutputUid.Value, out var wasteComp) && wasteComp.Cracked)
+                return core.WasteOutputUid.Value;
+            foreach (var cornerUid in core.CornerUids)
+            {
+                if (_entityManager.TryGetComponent<HFRCornerComponent>(cornerUid, out var cornerComp) && cornerComp.Cracked)
+                    return cornerUid;
+            }
+            return null;
         }
     }
 }

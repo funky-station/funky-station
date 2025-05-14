@@ -5,10 +5,12 @@ namespace Content.Shared._Funkystation.Atmos.Visuals;
 [NetSerializable, Serializable]
 public enum HFRVisualLayers
 {
-    IsActive
+    IsActive,
+    Cracked
 }
 [NetSerializable, Serializable]
 public enum HFRVisuals
 {
-    IsActive
+    IsActive,
+    Cracked
 }

@@ -44,6 +44,10 @@
     {
         "name":"pipe",
         "directions":4
+    },
+    {
+      "name": "crack",
+      "directions": 4
     }
   ]
 }

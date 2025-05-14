@@ -6,6 +6,7 @@ using System.Linq;
 using Robust.Shared.Random;
 using Content.Shared._Funkystation.Atmos.Prototypes;
 using Content.Server.Singularity.Components;
+using Content.Shared.Radiation.Components;
 
 namespace Content.Server._Funkystation.Atmos.HFR.Systems
 {
@@ -42,6 +43,10 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
 
             if (core.IsActive)
                 RemoveWaste(coreUid, core, secondsPerTick, core.IsWasteRemoving);
+
+            // Check for gas spills due to cracked parts
+            if (core.IsActive || core.PowerLevel > 0)
+                CheckSpill(coreUid, core, secondsPerTick);
         }
 
         /**
@@ -446,7 +451,10 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                     {
                         if (core.CriticalThresholdProximity > 400f)
                         {
-                            core.CriticalThresholdProximity = Math.Max(core.CriticalThresholdProximity - (moderatorList.GetValueOrDefault(Gas.Healium, 0f) / 100f * secondsPerTick), 0f);
+                            float healiumAmount = moderatorList.GetValueOrDefault(Gas.Healium, 0f);
+                            float healApplied = -(healiumAmount / 100f * secondsPerTick);
+                            float previousProximity = core.CriticalThresholdProximity;
+                            core.CriticalThresholdProximity = Math.Max(core.CriticalThresholdProximity + healApplied, 0f);
                             core.ModeratorInternal?.AdjustMoles(Gas.Healium, -Math.Min(moderatorList.GetValueOrDefault(Gas.Healium, 0f), scaledProduction * 20f));
                         }
                     }
@@ -477,7 +485,10 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                     {
                         if (core.CriticalThresholdProximity > 400f)
                         {
-                            core.CriticalThresholdProximity = Math.Max(core.CriticalThresholdProximity - (moderatorList.GetValueOrDefault(Gas.Healium, 0f) / 100f * secondsPerTick), 0f);
+                            float healiumAmount = moderatorList.GetValueOrDefault(Gas.Healium, 0f);
+                            float healApplied = -(healiumAmount / 100f * secondsPerTick);
+                            float previousProximity = core.CriticalThresholdProximity;
+                            core.CriticalThresholdProximity = Math.Max(core.CriticalThresholdProximity + healApplied, 0f);
                             core.ModeratorInternal?.AdjustMoles(Gas.Healium, -Math.Min(moderatorList.GetValueOrDefault(Gas.Healium, 0f), scaledProduction * 20f));
                         }
                     }
@@ -509,7 +520,7 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
 
             EvaporateModerator(core, secondsPerTick);
 
-            // TODO: Figure out radiation emission
+            ProcessRadiation(coreUid, core, radiationModifier, secondsPerTick);
 
             CheckLightningArcs(coreUid, core, moderatorList);
 
@@ -523,8 +534,6 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
             }
 
             CheckGravityPulse(coreUid, core, secondsPerTick);
-
-            // TODO: Radiation pulse maybe?
         }
 
         public void EvaporateModerator(HFRCoreComponent core, float secondsPerTick)
@@ -554,7 +563,9 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                 float overfullDamageTaken = HypertorusFusionReactor.HypertorusOverfullMolarSlope * (core.InternalFusion?.TotalMoles ?? 0f) +
                                             HypertorusFusionReactor.HypertorusOverfullTemperatureSlope * core.CoolantTemperature +
                                             HypertorusFusionReactor.HypertorusOverfullConstant;
-                core.CriticalThresholdProximity = Math.Max(core.CriticalThresholdProximity + Math.Max(overfullDamageTaken * secondsPerTick, 0f), 0f);
+                float damageApplied = Math.Max(overfullDamageTaken * secondsPerTick, 0f);
+                float previousProximity = core.CriticalThresholdProximity;
+                core.CriticalThresholdProximity = Math.Max(core.CriticalThresholdProximity + damageApplied, 0f);
                 core.StatusFlags |= HypertorusStatusFlags.HighPowerDamage;
             }
 
@@ -562,7 +573,9 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
             if ((core.InternalFusion?.TotalMoles ?? 0f) < HypertorusFusionReactor.HypertorusSubcriticalMoles && core.PowerLevel <= 5)
             {
                 float subcriticalHealRestore = ((core.InternalFusion?.TotalMoles ?? 0f) - HypertorusFusionReactor.HypertorusSubcriticalMoles) / HypertorusFusionReactor.HypertorusSubcriticalScale;
-                core.CriticalThresholdProximity = Math.Max(core.CriticalThresholdProximity + Math.Min(subcriticalHealRestore * secondsPerTick, 0f), 0f);
+                float healApplied = Math.Min(subcriticalHealRestore * secondsPerTick, 0f);
+                float previousProximity = core.CriticalThresholdProximity;
+                core.CriticalThresholdProximity = Math.Max(core.CriticalThresholdProximity + healApplied, 0f);
             }
 
             // If coolant is sufficiently cold, heal up
@@ -570,35 +583,94 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                 corePipe.Air.TotalMoles > 0f && core.CoolantTemperature < HypertorusFusionReactor.HypertorusColdCoolantThreshold && core.PowerLevel <= 4)
             {
                 float coldCoolantHealRestore = MathF.Log10(Math.Max(core.CoolantTemperature, 1f) * HypertorusFusionReactor.HypertorusColdCoolantScale) - (HypertorusFusionReactor.HypertorusColdCoolantMaxRestore * 2f);
-                core.CriticalThresholdProximity = Math.Max(core.CriticalThresholdProximity + Math.Min(coldCoolantHealRestore * secondsPerTick, 0f), 0f);
+                float healApplied = Math.Min(coldCoolantHealRestore * secondsPerTick, 0f);
+                float previousProximity = core.CriticalThresholdProximity;
+                core.CriticalThresholdProximity = Math.Max(core.CriticalThresholdProximity + healApplied, 0f);
             }
 
-            core.CriticalThresholdProximity += Math.Max(core.IronContent - HypertorusFusionReactor.HypertorusMaxSafeIron, 0f) * secondsPerTick;
+            // Iron content damage
+            float ironDamage = Math.Max(core.IronContent - HypertorusFusionReactor.HypertorusMaxSafeIron, 0f) * secondsPerTick;
+            float previousIronProximity = core.CriticalThresholdProximity;
+            core.CriticalThresholdProximity += ironDamage;
             if (core.IronContent - HypertorusFusionReactor.HypertorusMaxSafeIron > 0f)
                 core.StatusFlags |= HypertorusStatusFlags.IronContentDamage;
 
             // Apply damage cap
-            core.CriticalThresholdProximity = Math.Min(core.CriticalThresholdProximityArchived + (secondsPerTick * HypertorusFusionReactor.DamageCapMultiplier * core.MeltingPoint), core.CriticalThresholdProximity);
+            float damageCap = core.CriticalThresholdProximityArchived + (secondsPerTick * HypertorusFusionReactor.DamageCapMultiplier * core.MeltingPoint);
+            float previousCapProximity = core.CriticalThresholdProximity;
+            core.CriticalThresholdProximity = Math.Min(damageCap, core.CriticalThresholdProximity);
 
             // If we have a preposterous amount of mass in the fusion mix, things get bad extremely fast
             if ((core.InternalFusion?.TotalMoles ?? 0f) >= HypertorusFusionReactor.HypertorusHypercriticalMoles)
             {
                 float hypercriticalDamageTaken = Math.Max(((core.InternalFusion?.TotalMoles ?? 0f) - HypertorusFusionReactor.HypertorusHypercriticalMoles) * HypertorusFusionReactor.HypertorusHypercriticalScale, 0f);
-                core.CriticalThresholdProximity = Math.Max(core.CriticalThresholdProximity + Math.Min(hypercriticalDamageTaken, HypertorusFusionReactor.HypertorusHypercriticalMaxDamage), 0f) * secondsPerTick;
+                float hypercriticalDamageApplied = Math.Min(hypercriticalDamageTaken, HypertorusFusionReactor.HypertorusHypercriticalMaxDamage) * secondsPerTick;
+                float previousProximity = core.CriticalThresholdProximity;
+                core.CriticalThresholdProximity = Math.Max(core.CriticalThresholdProximity + hypercriticalDamageApplied, 0f);
                 core.StatusFlags |= HypertorusStatusFlags.HighFuelMixMole;
             }
 
             // High power fusion might create other matter other than helium, iron is dangerous inside the machine, damage can be seen
             if (core.PowerLevel > 4 && _random.Prob(Math.Clamp(HypertorusFusionReactor.IronChancePerFusionLevel * core.PowerLevel, 0f, 100f) / 100f))
             {
+                float previousIronContent = core.IronContent;
                 core.IronContent += HypertorusFusionReactor.IronAccumulatedPerSecond * secondsPerTick;
                 core.StatusFlags |= HypertorusStatusFlags.IronContentIncrease;
             }
             if (core.IronContent > 0f && core.PowerLevel <= 4 && _random.Prob(Math.Clamp(25f / (core.PowerLevel + 1), 0f, 100f) / 100f))
             {
+                float previousIronContent = core.IronContent;
                 core.IronContent = Math.Max(core.IronContent - 0.01f * secondsPerTick, 0f);
             }
             core.IronContent = Math.Clamp(core.IronContent, 0f, 1f);
+        }
+
+        public void ProcessRadiation(EntityUid coreUid, HFRCoreComponent core, float radiationModifier, float secondsPerTick)
+        {
+            if (!_entityManager.TryGetComponent<RadiationSourceComponent>(coreUid, out var radSource))
+                return;
+
+            if (core.PowerLevel < 2)
+            {
+                radSource.Intensity = 0.001f;
+                radSource.Slope = 0.2f;
+                return;
+            }
+
+            if (radiationModifier < 0.1f && core.CriticalThresholdProximity < 200f)
+            {
+                radSource.Intensity = 0.001f;
+                radSource.Slope = 0.2f;
+                return;
+            }
+
+            // Base intensity scales with PowerLevel
+            float baseIntensity = core.PowerLevel switch
+            {
+                2 => 3f,  // Low radiation at minimal active level
+                3 => 6f,
+                4 => 10f,
+                5 => 15f,
+                6 => 20f, // High radiation at max power
+                _ => 0f
+            };
+
+            // Amplify intensity based on radiationModifier (0.005 to 1000)
+            float intensity = baseIntensity * MathF.Sqrt(radiationModifier);
+
+            // Boost intensity if critical threshold is high
+            if (core.CriticalThresholdProximity > 650f)
+                intensity *= 1.5f;
+
+            // Bring intensity back down to workable levels
+            float scaledIntensity = 0.5f + (intensity / 1500f) * (80f - 0.5f);
+
+            // Calculate slope based on intensity
+            float slope = Math.Clamp(intensity * 0.01f / 15f, 0.2f, 2f);
+
+            // Apply radiation settings to the component
+            radSource.Intensity = scaledIntensity;
+            radSource.Slope = slope;
         }
 
         public void CheckLightningArcs(EntityUid coreUid, HFRCoreComponent core, Dictionary<Gas, float> moderatorList)
@@ -609,6 +681,10 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
 
             // Require significant AntiNoblium or high critical threshold proximity
             if (moderatorList.GetValueOrDefault(Gas.AntiNoblium, 0f) <= 50f && core.CriticalThresholdProximity <= 500f)
+                return;
+
+            // Check if it's too early for the next zap
+            if (_timing.CurTime < core.NextZap)
                 return;
 
             // Base zap count starts at power level minus 2
@@ -630,6 +706,16 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
 
             // Trigger lightning zaps
             HFRZap(coreUid, zapRange, zapNumber, zapPower);
+
+            // Set the next zap time: current time + random interval based on power level
+            float nextInterval = core.PowerLevel switch
+            {
+                4 => _random.NextFloat(12f, 20f),
+                5 => _random.NextFloat(8f, 16f),
+                6 => _random.NextFloat(1.5f, 6f),
+                _ => _random.NextFloat(1.5f, 6f)
+            };
+            core.NextZap = _timing.CurTime + TimeSpan.FromSeconds(nextInterval);
         }
 
         public void CheckGravityPulse(EntityUid coreUid, HFRCoreComponent core, float secondsPerTick)
@@ -653,10 +739,10 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                 // Calculate pulse range based on PowerLevel
                 float maxRange = core.PowerLevel switch
                 {
-                    3 => 0.5f, // Weak pull at low power
-                    4 => 1.0f,
-                    5 => 2.0f,
-                    6 => 3.0f, // Strong pull at max power
+                    3 => 1.0f, // Weak pull at low power
+                    4 => 2.0f,
+                    5 => 3.0f,
+                    6 => 4.0f, // Strong pull at max power
                     _ => 0.5f
                 };
 
@@ -683,10 +769,10 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
             // Base period: shorter at higher PowerLevel
             float basePeriod = core.PowerLevel switch
             {
-                3 => 10.0f, // Infrequent at low power
+                3 => 10.0f,
                 4 => 7.0f,
                 5 => 5.0f,
-                6 => 3.0f, // Frequent at max power
+                6 => 3.0f,
                 _ => 10.0f
             };
 
@@ -706,6 +792,9 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                 return;
 
             if (core.WasteOutputUid == null || !_nodeContainer.TryGetNode(core.WasteOutputUid.Value, "pipe", out PipeNode? wastePipe))
+                return;
+
+            if (wastePipe.Air.TotalMoles > 5000f)
                 return;
 
             var moderatorRemovedMix = new GasMixture();

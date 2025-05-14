@@ -32,6 +32,10 @@
           0.1
         ]
       ]
+    },
+    {
+      "name": "crack",
+      "directions": 4
     }
   ]
 }

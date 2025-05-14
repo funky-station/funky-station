@@ -272,8 +272,12 @@ public sealed partial class HFRCoreComponent : Component
     [DataField]
     public SoundSpecifier? CurrentSoundLoop;
 
-    // Gravity Pulse Timing
+    // Timings
     [DataField("nextGravityPulse")]
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan NextGravityPulse;
+
+    [DataField("nextZap")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan NextZap;
 }

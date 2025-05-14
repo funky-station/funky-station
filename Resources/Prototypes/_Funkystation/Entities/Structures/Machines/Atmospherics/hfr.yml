@@ -80,6 +80,7 @@
     volume: -5
     sound:
       path: /Audio/_EE/Supermatter/calm.ogg
+  - type: RadiationSource
   - type: Construction
     graph: HFRCore
     node: hfrCore
@@ -100,8 +101,15 @@
       renderingStrategy: Default
     - state: off
       map: [ "enum.HFRVisualLayers.IsActive" ]
+    - state: crack
+      map: ["enum.HFRVisualLayers.Cracked"]
+      visible: false
   - type: GenericVisualizer
     visuals:
+      enum.HFRVisuals.Cracked:
+        enum.HFRVisualLayers.Cracked:
+          False: { state: crack, visible: false }
+          True: { state: crack, visible: true }
       enum.HFRVisuals.IsActive:
         enum.HFRVisualLayers.IsActive:
           True: { state: on }
@@ -139,8 +147,15 @@
       renderingStrategy: Default
     - state: off
       map: [ "enum.HFRVisualLayers.IsActive" ]
+    - state: crack
+      map: ["enum.HFRVisualLayers.Cracked"]
+      visible: false
   - type: GenericVisualizer
     visuals:
+      enum.HFRVisuals.Cracked:
+        enum.HFRVisualLayers.Cracked:
+          False: { state: crack, visible: false }
+          True: { state: crack, visible: true }
       enum.HFRVisuals.IsActive:
         enum.HFRVisualLayers.IsActive:
           True: { state: on }
@@ -178,8 +193,15 @@
       renderingStrategy: Default
     - state: off
       map: [ "enum.HFRVisualLayers.IsActive" ]
+    - state: crack
+      map: ["enum.HFRVisualLayers.Cracked"]
+      visible: false
   - type: GenericVisualizer
     visuals:
+      enum.HFRVisuals.Cracked:
+        enum.HFRVisualLayers.Cracked:
+          False: { state: crack, visible: false }
+          True: { state: crack, visible: true }
       enum.HFRVisuals.IsActive:
         enum.HFRVisualLayers.IsActive:
           True: { state: on }
@@ -213,8 +235,15 @@
     layers:
     - state: off
       map: [ "enum.HFRVisualLayers.IsActive" ]
+    - state: crack
+      map: ["enum.HFRVisualLayers.Cracked"]
+      visible: false
   - type: GenericVisualizer
     visuals:
+      enum.HFRVisuals.Cracked:
+        enum.HFRVisualLayers.Cracked:
+          False: { state: crack, visible: false }
+          True: { state: crack, visible: true }
       enum.HFRVisuals.IsActive:
         enum.HFRVisualLayers.IsActive:
           True: { state: on }

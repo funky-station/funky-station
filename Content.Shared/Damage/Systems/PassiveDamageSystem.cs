@@ -1,5 +1,10 @@
 // SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -7,7 +12,6 @@
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs.Components;
-using Content.Shared.FixedPoint;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Damage;
@@ -52,7 +56,7 @@ public sealed class PassiveDamageSystem : EntitySystem
             // Damage them
             foreach (var allowedState in comp.AllowedStates)
             {
-                if(allowedState == mobState.CurrentState)
+                if (allowedState == mobState.CurrentState)
                     _damageable.TryChangeDamage(uid, comp.Damage, true, false, damage);
             }
         }

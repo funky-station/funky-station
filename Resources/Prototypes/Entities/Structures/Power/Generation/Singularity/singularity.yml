@@ -105,7 +105,3 @@
             scale: .9,.9
   - type: SupermatterImmune # Goobstation
   - type: MetaData # Goobstation
-  - type: RandomMetadata # Goobstation
-    nameSegments:
-    - NamesGoobGeneratorFirst
-    - NamesGoobSingularityLast

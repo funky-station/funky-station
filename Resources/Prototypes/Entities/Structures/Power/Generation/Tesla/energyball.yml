@@ -114,11 +114,6 @@
     - SingularityTeslaEngine
     - Power
   - type: SupermatterImmune # Goobstation
-  - type: MetaData # Goobstation
-  - type: RandomMetadata # Goobstation
-    nameSegments:
-    - NamesGoobGeneratorFirst
-    - NamesGoobTeslaLast
 
 - type: entity
   id: TeslaMiniEnergyBall

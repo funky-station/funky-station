@@ -1,7 +1,9 @@
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Chat.Managers;
+using Content.Server.GameTicking;
 using Content.Server.Roles.Jobs;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
@@ -19,7 +21,9 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared._Impstation.CCVar;
 using Content.Shared.Mind;
+using Content.Shared.Mindshield.Components;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Utility;
 
 namespace Content.Server._Impstation.Thaven;
 
@@ -32,6 +36,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
     [Dependency] private readonly UserInterfaceSystem _bui = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!; // funky
     [Dependency] private readonly JobSystem _jobs = default!; // funky
 
     public IReadOnlyList<ThavenMood> SharedMoods => _sharedMoods.AsReadOnly();
@@ -66,6 +71,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         SubscribeLocalEvent<ThavenMoodsBoundComponent, ComponentShutdown>(OnThavenMoodShutdown);
         SubscribeLocalEvent<ThavenMoodsBoundComponent, ToggleMoodsScreenEvent>(OnToggleMoodsScreen);
         SubscribeLocalEvent<ThavenMoodsBoundComponent, BoundUIOpenedEvent>(OnBoundUIOpened);
+        SubscribeLocalEvent<RulePlayerJobsAssignedEvent>(OnJobsAssigned); // funky
         SubscribeLocalEvent<RoundRestartCleanupEvent>((_) => NewSharedMoods());
     }
 
@@ -133,6 +139,8 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
             currentMoods = new HashSet<ThavenMood>();
         if (conflicts == null)
             conflicts = GetConflicts(currentMoods);
+        if (department == null)
+            department = Loc.GetString("generic-unknown-title"); // assume department is unknown if it isn't given
 
         var currentMoodProtos = GetMoodProtoSet(currentMoods);
 
@@ -147,9 +155,8 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
                 continue; // Skip proto if it conflicts with an existing mood
 
             // begin funky
-            // note: idk how to do this so it doesnt work ^__^
             var conflictingJobs = moodProto.JobConflicts;
-            if (department != null && conflictingJobs.Contains(department)) // assume there are no conflicts if there is no department given
+            if (conflictingJobs.Contains(department))
                 continue; // Skip proto if it conflicts with the entity's department
             // end funky
 
@@ -399,6 +406,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         if (comp.LifeStage != ComponentLifeStage.Starting)
             return;
 
+        /* funky: roll moods after jobs roll
         // "Yes, and" moods
         if (TryPick(YesAndDataset, out var mood, GetActiveMoods(uid, comp), null, GetMindDepartment(uid))) // funky - check for job conflicts
             TryAddMood(uid, mood, comp, true, false);
@@ -406,6 +414,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         // "No, and" moods
         if (TryPick(NoAndDataset, out mood, GetActiveMoods(uid, comp), null, GetMindDepartment(uid))) // funky - check for job conflicts
             TryAddMood(uid, mood, comp, true, false);
+        */
 
         comp.Action = _actions.AddAction(uid, ActionViewMoods);
     }
@@ -418,7 +427,9 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
     protected override void OnEmagged(EntityUid uid, ThavenMoodsBoundComponent comp, ref GotEmaggedEvent args)
     {
         base.OnEmagged(uid, comp, ref args);
-        TryAddRandomMood(uid, WildcardDataset, comp);
+
+        if (!HasComp<MindShieldComponent>(uid)) // funky: dont emag mindshielded thavens
+            TryAddRandomMood(uid, WildcardDataset, comp);
     }
 
     // Begin DeltaV: thaven mood upsets
@@ -429,20 +440,36 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
     // End DeltaV: thaven mood upsets
 
     // begin funky
-    public string? GetMindDepartment(EntityUid uid)
+    private string GetMindDepartment(EntityUid uid)
     {
         var unknown = Loc.GetString("generic-unknown-title"); // TryGetJob returns this, so use it in place of "none" or something
 
-        if (!EntityManager.HasComponent<MindComponent>(uid))
-            return unknown; // mindless entities can't have jobs
+        if (!_mind.TryGetMind(uid, out var mindId, out _))
+            return unknown; // no mind no job
 
-        if (!_jobs.MindTryGetJobName(uid, out var jobName))
+        if (!_jobs.MindTryGetJobId(mindId, out var jobName) || jobName == null)
             return unknown;
 
         if (!_jobs.TryGetDepartment(jobName, out var departmentProto))
             return unknown;
 
         return departmentProto.ID;
+    }
+
+    private void OnJobsAssigned(RulePlayerJobsAssignedEvent args)
+    {
+        var query = EntityQueryEnumerator<ThavenMoodsBoundComponent>();
+
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            // "Yes, and" moods
+            if (TryPick(YesAndDataset, out var mood, GetActiveMoods(uid, comp), null, GetMindDepartment(uid)))
+                TryAddMood(uid, mood, comp, true, false);
+
+            // "No, and" moods
+            if (TryPick(NoAndDataset, out mood, GetActiveMoods(uid, comp), null, GetMindDepartment(uid)))
+                TryAddMood(uid, mood, comp, true, false);
+        }
     }
     // end funky
 }

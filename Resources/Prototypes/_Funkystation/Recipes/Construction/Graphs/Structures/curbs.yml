@@ -1,0 +1,371 @@
+#Steel
+- type: constructionGraph
+  id: curbs
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: steelCurb
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+    - to: steelCurbCorner
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+    - to: steelCurbCornerInside
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+    - to: steelCurbUbend
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+    - to: steelCurbSquare
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+#Brass
+    - to: brassCurb
+      steps:
+      - material: Brass
+        amount: 1
+        doAfter: 1
+    - to: brassCurbCorner
+      steps:
+      - material: Brass
+        amount: 1
+        doAfter: 1
+    - to: brassCurbCornerInside
+      steps:
+      - material: Brass
+        amount: 1
+        doAfter: 1
+    - to: brassCurbUbend
+      steps:
+      - material: Brass
+        amount: 1
+        doAfter: 1
+    - to: brassCurbSquare
+      steps:
+      - material: Brass
+        amount: 1
+        doAfter: 1
+#Gold
+    - to: goldCurb
+      steps:
+        - material: Gold
+          amount: 1
+          doAfter: 1
+    - to: goldCurbCorner
+      steps:
+        - material: Gold
+          amount: 1
+          doAfter: 1
+    - to: goldCurbCornerInside
+      steps:
+        - material: Gold
+          amount: 1
+          doAfter: 1
+    - to: goldCurbUbend
+      steps:
+        - material: Gold
+          amount: 1
+          doAfter: 1
+    - to: goldCurbSquare
+      steps:
+        - material: Gold
+          amount: 1
+          doAfter: 1
+#Hydrogen
+    - to: hydrogenCurb
+      steps:
+        - material: MetalHydrogen
+          amount: 1
+          doAfter: 1
+    - to: hydrogenCurbCorner
+      steps:
+        - material: MetalHydrogen
+          amount: 1
+          doAfter: 1
+    - to: hydrogenCurbCornerInside
+      steps:
+        - material: MetalHydrogen
+          amount: 1
+          doAfter: 1
+    - to: hydrogenCurbUbend
+      steps:
+        - material: MetalHydrogen
+          amount: 1
+          doAfter: 1
+    - to: hydrogenCurbSquare
+      steps:
+        - material: MetalHydrogen
+          amount: 1
+          doAfter: 1
+
+#Steel
+  - node: steelCurb
+    entity: SteelCurb
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: steelCurbCorner
+    entity: SteelCurbCorner
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: steelCurbCornerInside
+    entity: SteelCurbCornerInside
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: steelCurbUbend
+    entity: SteelCurbUbend
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: steelCurbSquare
+    entity: SteelCurbSquare
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+#Brass
+  - node: brassCurb
+    entity: BrassCurb
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetBrass1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: brassCurbCorner
+    entity: BrassCurbCorner
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetBrass1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: brassCurbCornerInside
+    entity: BrassCurbCornerInside
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetBrass1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: brassCurbUbend
+    entity: BrassCurbUbend
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetBrass1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: brassCurbSquare
+    entity: BrassCurbSquare
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetBrass1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+#Gold
+  - node: goldCurb
+    entity: GoldCurb
+    edges:
+      - to: start
+        completed:
+          - !type:SpawnPrototype
+            prototype: IngotGold1
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - tool: Welding
+            doAfter: 1
+
+  - node: goldCurbCorner
+    entity: GoldCurbCorner
+    edges:
+      - to: start
+        completed:
+          - !type:SpawnPrototype
+            prototype: IngotGold1
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - tool: Welding
+            doAfter: 1
+
+  - node: goldCurbCornerInside
+    entity: GoldCurbCornerInside
+    edges:
+      - to: start
+        completed:
+          - !type:SpawnPrototype
+            prototype: IngotGold1
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - tool: Welding
+            doAfter: 1
+
+  - node: goldCurbUbend
+    entity: GoldCurbUbend
+    edges:
+      - to: start
+        completed:
+          - !type:SpawnPrototype
+            prototype: IngotGold1
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - tool: Welding
+            doAfter: 1
+
+  - node: goldCurbSquare
+    entity: GoldCurbSquare
+    edges:
+      - to: start
+        completed:
+          - !type:SpawnPrototype
+            prototype: IngotGold1
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - tool: Welding
+            doAfter: 1
+#Hydrogen
+  - node: hydrogenCurb
+    entity: HydrogenCurb
+    edges:
+      - to: start
+        completed:
+          - !type:SpawnPrototype
+            prototype: MetalHydrogen1
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - tool: Welding
+            doAfter: 1
+
+  - node: hydrogenCurbCorner
+    entity: HydrogenCurbCorner
+    edges:
+      - to: start
+        completed:
+          - !type:SpawnPrototype
+            prototype: MetalHydrogen1
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - tool: Welding
+            doAfter: 1
+
+  - node: hydrogenCurbCornerInside
+    entity: HydrogenCurbCornerInside
+    edges:
+      - to: start
+        completed:
+          - !type:SpawnPrototype
+            prototype: MetalHydrogen1
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - tool: Welding
+            doAfter: 1
+
+  - node: hydrogenCurbUbend
+    entity: HydrogenCurbUbend
+    edges:
+      - to: start
+        completed:
+          - !type:SpawnPrototype
+            prototype: MetalHydrogen1
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - tool: Welding
+            doAfter: 1
+
+  - node: hydrogenCurbSquare
+    entity: HydrogenCurbSquare
+    edges:
+      - to: start
+        completed:
+          - !type:SpawnPrototype
+            prototype: MetalHydrogen1
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - tool: Welding
+            doAfter: 1

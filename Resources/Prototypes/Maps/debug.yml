@@ -58,7 +58,7 @@
   minPlayers: 0
   stations:
     HFR:
-      stationProto: TestStation
+      stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
           mapNameTemplate: "HFR"

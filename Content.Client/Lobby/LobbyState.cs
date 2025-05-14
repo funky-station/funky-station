@@ -256,6 +256,7 @@ namespace Content.Client.Lobby
                 Lobby!.ReadyButton.Text = Loc.GetString("lobby-state-ready-button-join-state");
                 Lobby!.ReadyButton.ToggleMode = false;
                 Lobby!.ReadyButton.Pressed = false;
+                Lobby!.ReadyButton.Disabled = false;
                 Lobby!.ObserveButton.Disabled = false;
                 Lobby!.ManifestButton.Disabled = true;
             }

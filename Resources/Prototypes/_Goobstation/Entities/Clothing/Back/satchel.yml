@@ -32,6 +32,7 @@
     sprite: Clothing/Back/Satchels/satchel.rsi
     visible: false
   - type: SubFloorHide
+  - type: Visibility
   - type: Appearance
   - type: Anchorable
   - type: CollideOnAnchor

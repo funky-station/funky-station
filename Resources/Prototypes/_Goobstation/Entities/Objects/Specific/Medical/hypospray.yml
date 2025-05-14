@@ -26,7 +26,7 @@
     injectOnly: true
   - type: HyposprayBlockNonMobInjection
   - type: UseDelay
-    delay: 100 # up this later if it's too low, was only 30 on Goob. Original was 400 on Funky but this is LONG. Will test this delay.
+    delay: 60
   - type: ContainerContainer
     containers:
       item: !type:ContainerSlot

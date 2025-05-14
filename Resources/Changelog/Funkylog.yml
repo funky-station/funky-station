@@ -2714,3 +2714,9 @@ Entries:
         fewer power fluctuations.
   id: 335
   time: '2025-05-12T00:54:45.0000000+00:00'
+- author: SpaceCat-Chan
+  changes:
+    - type: Add
+      message: Added a News Manager digiboard, because the news never sleeps!
+  id: 336
+  time: '2025-05-14T03:10:08.0000000+00:00'

@@ -254,6 +254,10 @@ public sealed partial class HFRCoreComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public bool FinalCountdown;
 
+    [DataField("countdownStartTime")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan CountdownStartTime;
+
     [DataField("lastCountdownUpdate")]
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan LastCountdownUpdate;

@@ -636,7 +636,7 @@ public sealed partial class HFRConsoleWindow : FancyWindow
             energyUnit = "TJ";
         }
         EnergyLabel.Text = $"{energyValue:0} {energyUnit:TJ}";
-        ReactionActivityLabel.Text = $"{_currentState.Efficiency:0}%";
+        ReactionActivityLabel.Text = $"{_currentState.Efficiency * 100:0}%";
         InstabilityLabel.Text = $"{_currentState.Instability:0}%";
 
         UpdateTemperatureUI(_currentState);
@@ -755,7 +755,7 @@ public sealed partial class HFRConsoleWindow : FancyWindow
             energyUnit = "TJ";
         }
         EnergyLabel.Text = $"{energyValue:0} {energyUnit:TJ}";
-        ReactionActivityLabel.Text = $"{message.Efficiency:0}%";
+        ReactionActivityLabel.Text = $"{message.Efficiency * 100:0}%";
         InstabilityLabel.Text = $"{message.Instability:0}%";
 
         UpdateTemperatureUI(_currentState);

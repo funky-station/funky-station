@@ -625,7 +625,7 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
             core.IronContent = Math.Clamp(core.IronContent, 0f, 1f);
         }
 
-        public void ProcessRadiation(EntityUid coreUid, HFRCoreComponent core, float radiationModifier, float secondsPerTick)
+        public void ProcessRadiation(EntityUid coreUid, HFRCoreComponent core, float radiationModifier, float secondsPerTick) // This is all bad someone please fix this
         {
             if (!_entityManager.TryGetComponent<RadiationSourceComponent>(coreUid, out var radSource))
                 return;
@@ -662,11 +662,11 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
             if (core.CriticalThresholdProximity > 650f)
                 intensity *= 1.5f;
 
-            // Bring intensity back down to workable levels
-            float scaledIntensity = 0.5f + (intensity / 1500f) * (80f - 0.5f);
+            // Bring intensity back down to what I think are workable levels
+            float scaledIntensity = intensity / 1500f * 150f;
 
-            // Calculate slope based on intensity
-            float slope = Math.Clamp(intensity * 0.01f / 15f, 0.2f, 2f);
+            // Calculate slope based on intensity I guess, directly stolen from supermatter
+            float slope = Math.Clamp(scaledIntensity / 15f, 0.2f, 1f);
 
             // Apply radiation settings to the component
             radSource.Intensity = scaledIntensity;

@@ -27,6 +27,7 @@ using Content.Server.Lightning;
 using Content.Server.Singularity.EntitySystems;
 using Content.Shared.Radiation.Components;
 using Robust.Shared.Spawners;
+using System.Text;
 
 namespace Content.Server._Funkystation.Atmos.HFR.Systems
 {
@@ -439,10 +440,16 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
         }
 
         /**
-         * Broadcast messages into engi and common radio
-         */
+        * Broadcast messages into engi and common radio
+        */
         public void CheckAlert(EntityUid coreUid, HFRCoreComponent core)
         {
+            if (core.FinalCountdown)
+            {
+                Countdown(coreUid, core);
+                return;
+            }
+
             if (core.CriticalThresholdProximity < core.WarningPoint)
                 return;
 
@@ -464,118 +471,135 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                     // TODO: Add admin log here
                     core.HasReachedEmergency = true;
                 }
-                SendHypertorusAnnouncement(coreUid, core, message, global);
-                SendRadioExplanation(coreUid, core);
             }
             else if (core.CriticalThresholdProximity >= core.CriticalThresholdProximityArchived)
             {
                 message = $"{core.WarningAlert} Integrity: {integrity}%";
-                SendHypertorusAnnouncement(coreUid, core, message, global);
                 core.LastWarning = _timing.CurTime - TimeSpan.FromSeconds(HypertorusFusionReactor.WarningTimeDelay * 5);
-                SendRadioExplanation(coreUid, core);
             }
             else
             {
                 message = $"{core.SafeAlert} Integrity: {integrity}%";
-                SendHypertorusAnnouncement(coreUid, core, message, global);
             }
+
+            SendRadioExplanation(coreUid, core, message, global);
 
             if (core.CriticalThresholdProximity > core.MeltingPoint)
                 Countdown(coreUid, core);
         }
 
         /**
-         * Called to explain in radio what the issues are with the HFR
-         */
-        public void SendRadioExplanation(EntityUid coreUid, HFRCoreComponent core)
+        * Modifies the message with additional details and sends it as a single announcement
+        */
+        public void SendRadioExplanation(EntityUid coreUid, HFRCoreComponent core, string baseMessage, bool global = false)
         {
+            var messageBuilder = new StringBuilder("");
+            messageBuilder.AppendLine(baseMessage);
+
             if (core.StatusFlags.HasFlag(HypertorusStatusFlags.Emped))
             {
                 var characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ".ToCharArray();
                 var message = new string(Enumerable.Repeat(characters, _random.Next(50, 70)).Select(s => s[_random.Next(s.Length)]).ToArray());
-                SendHypertorusAnnouncement(coreUid, core, message);
+                SendHypertorusAnnouncement(coreUid, core, message, global);
                 return;
             }
 
             if (core.StatusFlags.HasFlag(HypertorusStatusFlags.HighPowerDamage))
-                SendHypertorusAnnouncement(coreUid, core, "Warning! Shield destabilizing due to excessive power!");
+                messageBuilder.AppendLine("Shield destabilizing due to excessive power!");
 
             if (core.StatusFlags.HasFlag(HypertorusStatusFlags.IronContentDamage))
-                SendHypertorusAnnouncement(coreUid, core, "Warning! Iron shards are damaging the internal core shielding!");
+                messageBuilder.AppendLine("Iron shards are damaging the internal core shielding!");
 
             if (core.StatusFlags.HasFlag(HypertorusStatusFlags.HighFuelMixMole))
-                SendHypertorusAnnouncement(coreUid, core, "Warning! Fuel mix moles reaching critical levels!");
+                messageBuilder.AppendLine("Fuel mix moles reaching critical levels!");
 
             if (core.StatusFlags.HasFlag(HypertorusStatusFlags.IronContentIncrease))
-                SendHypertorusAnnouncement(coreUid, core, "Warning! Iron amount inside the core is increasing!");
+                messageBuilder.AppendLine("Iron amount inside the core is increasing!");
+
+            SendHypertorusAnnouncement(coreUid, core, messageBuilder.ToString(), global);
         }
 
         /**
-         * Called when the damage has reached critical levels, start the countdown before the destruction, calls meltdown()
-         */
+        * Called when the damage has reached critical levels, starts the countdown before destruction, calls Meltdown()
+        */
         public void Countdown(EntityUid coreUid, HFRCoreComponent core)
         {
-            if (core.FinalCountdown)
-                return;
-
-            core.FinalCountdown = true;
-            core.LastCountdownUpdate = _timing.CurTime;
-
             FusionRecipePrototype? recipe = null;
             bool recipeValid = !string.IsNullOrEmpty(core.SelectedRecipeId) && _prototypeManager.TryIndex<FusionRecipePrototype>(core.SelectedRecipeId, out recipe);
-            var critical = recipeValid && recipe != null && recipe.MeltdownFlags.HasFlag(HypertorusFlags.CriticalMeltdown);
 
-            if (critical)
+            // Initialize countdown
+            if (!core.FinalCountdown)
             {
-                var message = "WARNING - The explosion will likely cover a large part of the station and the coming EMP will wipe out most electronics. Evacuate immediately or attempt to shut down the reactor.";
-                SendHypertorusAnnouncement(coreUid, core, message, true);
+                core.FinalCountdown = true;
+                core.CountdownStartTime = _timing.CurTime;
+                core.LastCountdownUpdate = _timing.CurTime;
+
+                var critical = recipeValid && recipe != null && recipe.MeltdownFlags.HasFlag(HypertorusFlags.CriticalMeltdown);
+
+                if (critical)
+                {
+                    var criticalMessage = "WARNING - The explosion will likely cover a large part of the station and the coming EMP will wipe out most electronics. Evacuate immediately or attempt to shut down the reactor.";
+                    SendHypertorusAnnouncement(coreUid, core, criticalMessage, true);
+                }
+
+                var initialMessage = $"{core.EmergencyAlert} The Hypertorus fusion reactor has reached critical integrity failure. Emergency magnetic dampeners online.";
+                SendHypertorusAnnouncement(coreUid, core, initialMessage, true);
             }
 
-            var initialMessage = $"{core.EmergencyAlert} The Hypertorus fusion reactor has reached critical integrity failure. Emergency magnetic dampeners online.";
-            SendHypertorusAnnouncement(coreUid, core, initialMessage, true);
-
-            for (int i = (int)HypertorusFusionReactor.HypertorusCountdownTime; i >= 0; i -= 10)
+            // Check if reactor is safe
+            if (core.CriticalThresholdProximity < core.MeltingPoint)
             {
-                if (core.CriticalThresholdProximity < core.MeltingPoint)
+                var safeMessage = $"{core.SafeAlert} Failsafe has been disengaged.";
+                SendHypertorusAnnouncement(coreUid, core, safeMessage, true);
+                core.FinalCountdown = false;
+                core.CountdownStartTime = TimeSpan.Zero;
+                return;
+            }
+
+            // Calculate elapsed time since countdown started
+            var elapsedTime = _timing.CurTime - core.CountdownStartTime;
+            var totalCountdownTime = TimeSpan.FromSeconds(HypertorusFusionReactor.HypertorusCountdownTime);
+            var remainingTime = totalCountdownTime - elapsedTime;
+
+            // If countdown is complete, trigger meltdown
+            if (remainingTime <= TimeSpan.Zero)
+            {
+                Meltdown(coreUid, core);
+                return;
+            }
+
+            // Only send messages every 1 second
+            if (_timing.CurTime < core.LastCountdownUpdate + TimeSpan.FromSeconds(1))
+                return;
+
+            // Determine message based on remaining time
+            string message;
+            if (remainingTime > TimeSpan.FromSeconds(5))
+            {
+                // Send message every 5 seconds for remaining time > 5 seconds
+                var secondsRemaining = (int)Math.Ceiling(remainingTime.TotalSeconds);
+                if (secondsRemaining % 5 != 0)
                 {
-                    var safeMessage = $"{core.SafeAlert} Failsafe has been disengaged.";
-                    SendHypertorusAnnouncement(coreUid, core, safeMessage, true);
-                    core.FinalCountdown = false;
+                    core.LastCountdownUpdate = _timing.CurTime;
                     return;
                 }
 
-                // Check if at least 1 second has passed since the last update
-                if (_timing.CurTime < core.LastCountdownUpdate + TimeSpan.FromSeconds(1))
-                    continue;
+                if (secondsRemaining == 10 && recipeValid && recipe != null && recipe.MeltdownFlags.HasFlag(HypertorusFlags.CriticalMeltdown))
+                    _audioSystem.PlayPvs("/Audio/_Funkystation/Hypertorus/HFR_critical_explosion.ogg", coreUid, AudioParams.Default.WithVolume(100).WithMaxDistance(40));
 
-                if (i % 50 != 0 && i > 50)
-                {
-                    core.LastCountdownUpdate = _timing.CurTime;
-                    continue;
-                }
+                message = $"{DisplayTimeText(secondsRemaining * 10, true)} remain before total integrity failure.";
+            }
+            else
+            {
+                // Send message every call
+                message = $"{(int)Math.Ceiling(remainingTime.TotalSeconds)}...";
 
-                string message;
-                if (i > 50)
-                {
-                    if (i == 100 && critical)
-                        _audioSystem.PlayPvs("/Audio/_Funkystation/Hypertorus/HFR_critical_explosion.ogg", coreUid, AudioParams.Default.WithVolume(100).WithMaxDistance(40));
-
-                    message = $"{DisplayTimeText(i, true)} remain before total integrity failure.";
-                }
-                else
-                {
-                    message = $"{i * 0.1:F1}...";
-
-                    // Adjust speech cooldown for countdown
-                    if (TryComp<SpeechComponent>(coreUid, out var speech))
-                        speech.SoundCooldownTime = 0.9f;
-                }
-
-                SendHypertorusAnnouncement(coreUid, core, message, true);
-                core.LastCountdownUpdate = _timing.CurTime;
+                if (TryComp<SpeechComponent>(coreUid, out var speech))
+                    speech.SoundCooldownTime = 0.9f;
             }
 
-            Meltdown(coreUid, core);
+            SendHypertorusAnnouncement(coreUid, core, message, true);
+            core.LastCountdownUpdate = _timing.CurTime;
         }
 
         /**
@@ -583,6 +607,10 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
         */
         public void Meltdown(EntityUid coreUid, HFRCoreComponent core)
         {
+            // Return immediately if TimedDespawnComponent is already present
+            if (_entityManager.HasComponent<TimedDespawnComponent>(coreUid))
+                return;
+
             FusionRecipePrototype? recipe = null;
             bool recipeValid = !string.IsNullOrEmpty(core.SelectedRecipeId) && _prototypeManager.TryIndex<FusionRecipePrototype>(core.SelectedRecipeId, out recipe);
             var critical = recipeValid && recipe != null && recipe.MeltdownFlags.HasFlag(HypertorusFlags.CriticalMeltdown);
@@ -687,7 +715,8 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
             }
 
             // Explosion
-            var totalIntensity = (devastatingExplosion + heavyImpactExplosion + lightImpactExplosion + flashExplosion) * 10f;
+            var totalIntensity = (devastatingExplosion + heavyImpactExplosion + lightImpactExplosion + flashExplosion) * 100f;
+            totalIntensity = critical ? totalIntensity * 5 : totalIntensity;
             if (totalIntensity > 0)
             {
                 _explosionSystem.QueueExplosion(
@@ -698,7 +727,7 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                     maxTileIntensity: 100,
                     tileBreakScale: 1f,
                     maxTileBreak: int.MaxValue,
-                    canCreateVacuum: true,
+                    canCreateVacuum: false,
                     user: null,
                     addLog: true
                 );
@@ -718,7 +747,7 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
             if (emPulse)
             {
                 var empCoords = _transformSystem.GetMapCoordinates(coreUid);
-                var empRange = critical ? empLightSize * 2 : empLightSize;
+                var empRange = critical ? empLightSize * 4 : empLightSize;
                 var energyConsumption = empHeavySize * 1000f;
                 var duration = 30f;
                 _empSystem.EmpPulse(
@@ -728,9 +757,9 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                     duration: duration
                 );
             }
-
+            ToggleActiveState(coreUid, core, false);
             var despawn = _entityManager.EnsureComponent<TimedDespawnComponent>(coreUid);
-            despawn.Lifetime = 1f;
+            despawn.Lifetime = 1.1f;
         }
 
         /**

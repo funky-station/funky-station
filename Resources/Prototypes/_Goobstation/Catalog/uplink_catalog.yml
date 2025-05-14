@@ -222,7 +222,7 @@
   categories:
   - UplinkAllies
   conditions:
-  -!type: WarOpsCondition
+  - !type: WarOpsCondition
   saleLimit: 1
 
 - type: listing

@@ -47,7 +47,7 @@
   - type: Sprite
     layers:
       - state: security-base
-      - state: cart-filling
+      - state: cartridge1
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
 
@@ -60,7 +60,7 @@
   - type: Sprite
     layers:
       - state: medical-base
-      - state: cart-filling
+      - state: cartridge1
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
 

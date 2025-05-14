@@ -1,34 +1,67 @@
 - type: entity
   id: autoInjectorCartridgeCase
   name: autoinjector cartridge case
-  description: A small case for storing emergency cartridges for use in a cartridge autoinjector.
+  description: A hard shelled case for storing emergency cartridges for use in a cartridge autoinjector.
   parent: [ BaseStorageItem, BaseBagOpenClose, BaseMedicalContraband, BaseSecurityContraband ]
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Medical/auto_injector_cartridge_case.rsi
     layers:
     - state: closed
-      map: ["closeLayer"]
+      map: [ "closeLayer" ]
     - state: open
-      map: ["openLayer"]
+      map: [ "openLayer" ]
+    - state: cc1
+      map: ["cc1"]
+      visible: false
+    - state: cc2
+      map: ["cc2"]
+      visible: false
+    - state: cc3
+      map: ["cc3"]
+      visible: false
+    - state: cc4
+      map: ["cc4"]
+      visible: false
+    - state: cc5
+      map: ["cc5"]
+      visible: false
+    - state: cc6
+      map: ["cc6"]
+      visible: false
+    - state: cc7
+      map: ["cc7"]
+      visible: false
+    - state: cc8
+      map: ["cc8"]
+      visible: false
   - type: Appearance
   - type: Item
     sprite: _Funkystation/Objects/Medical/auto_injector_cartridge_case.rsi
-    size: Tiny
+    size: Large
   - type: Storage
     grid:
-    - 0,0,4,0
-    whitelist:
-        tags:
-        - AutoinjectorCartridge
+    - 0,0,4,1
   - type: StorageFill
     contents:
     - id: CartridgeEmergency
     - id: CartridgeAirloss
+      amount: 2
     - id: CartridgeBrute
+      amount: 2
     - id: CartridgeBurn
+      amount: 2
     - id: CartridgePoison
-
-#Potential future ideas include a large case, kind of like pistol case with an injector AND the small case inside for sec armoury potentially? Could have 'advanced' cartridges with stronger mixes,
-#also potentially a little 'pez dispenser' which could be like a 1x1 like a pill bottle and hold a few which are ejected perhaps, or could be quickloaded into the injector?
-
+  - type: ItemCounter
+    count:
+      tags: [AutoinjectorCartridge]
+    composite: true
+    layerStates:
+    - cc1
+    - cc2
+    - cc3
+    - cc4
+    - cc5
+    - cc6
+    - cc7
+    - cc8

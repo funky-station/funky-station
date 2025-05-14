@@ -2,7 +2,7 @@
   id: BaseFastDrawImplanter
   parent: BaseImplanter
   name: fast draw implanter
-  description: A syringe with tools for quick implant removal. It has small gold stars on its body.
+  description: A syringe with tools for quick implant removal and implant crushing. It has small gold stars on its body.
   abstract: true
   components:
     - type: Sprite
@@ -16,7 +16,11 @@
           map: [ "implantOnly" ]
     - type: Implanter
       currentMode: Draw
-      drawTime: 30
+      drawTime: 15
+      deimplantFailureDamage:
+        types:
+          Heat: 20
+      deimplantCrushes: true
 
 - type: entity
   id: RevsFastDrawImplanter

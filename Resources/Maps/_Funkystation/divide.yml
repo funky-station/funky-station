@@ -56987,7 +56987,7 @@ entities:
     - type: Transform
       pos: -46.452526,-78.4439
       parent: 2
-- proto: ClothingOuterVestTank
+- proto: ClothingNeckTankHarness
   entities:
   - uid: 25757
     components:
@@ -57525,7 +57525,7 @@ entities:
     components:
     - type: Transform
       parent: 8370
-    - type: Artifact
+    - type: XenoArtifact
       isSuppressed: True
     - type: Physics
       angularDamping: 0
@@ -118681,7 +118681,6 @@ entities:
     - type: Transform
       pos: -32.503807,-30.570782
       parent: 2
-    - type: BiasedArtifact
 - proto: MedkitAdvancedFilled
   entities:
   - uid: 2885
@@ -144488,7 +144487,6 @@ entities:
     - type: Transform
       pos: -32.628807,-28.50817
       parent: 2
-    - type: BiasedArtifact
 - proto: VendingBarDrobe
   entities:
   - uid: 7332

@@ -33,7 +33,7 @@ public sealed partial class CargoSystem
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly NameIdentifierSystem _nameIdentifier = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSys = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedResearchSystem _research = default!;
 
     [ValidatePrototypeId<NameIdentifierGroupPrototype>]
@@ -487,7 +487,7 @@ public sealed partial class CargoSystem
             Category = bountyCategory.Name,
         };
         var totalBountyItems = 0;
-      
+
         for (var i = 1; i <= selection;)
         {
             var bountyItem = _random.Pick(bountyItems);
@@ -545,6 +545,7 @@ public sealed partial class CargoSystem
         {
             if (bountyItem.RequiredResearch == null)
                 continue;
+
             List<bool> techChecks = [];
             foreach (var research in bountyItem.RequiredResearch)
             {
@@ -557,7 +558,7 @@ public sealed partial class CargoSystem
                         _station.GetOwningStation(tEntityUid) != station)
                         continue;
                     techChecks.Add(
-                        _research.IsTechnologyUnlocked(tEntityUid, research, technologyDatabaseComponent));
+                        _research.IsTechnologyUnlocked(tEntityUid, (string) research, technologyDatabaseComponent));
                     break;
                 }
             }
@@ -647,7 +648,7 @@ public sealed partial class CargoSystem
                     skipped
                         ? CargoBountyHistoryData.BountyResult.Skipped
                         : CargoBountyHistoryData.BountyResult.Completed,
-                    _gameTiming.CurTime,
+                    _timing.CurTime,
                     actorName));
                 ent.Comp.Bounties.RemoveAt(i);
                 return true;

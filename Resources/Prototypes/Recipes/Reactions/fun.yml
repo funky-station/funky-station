@@ -245,3 +245,15 @@
     intensitySlope: 1
     maxTotalIntensity: 250
     tileBreakScale: 0.00001
+
+# funkystation
+- type: reaction
+  id: HomemadeSyrup
+  minTemp: 390
+  reactants:
+    Water:
+      amount: 1
+    Sugar:
+      amount: 1
+  products:
+    Syrup: 2

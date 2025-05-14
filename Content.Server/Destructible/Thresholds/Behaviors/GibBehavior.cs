@@ -1,5 +1,6 @@
 using Content.Shared.Body.Components;
 using Content.Shared.Gibbing.Events; // Shitmed Change
+using Content.Shared.Database;
 using JetBrains.Annotations;
 
 namespace Content.Server.Destructible.Thresholds.Behaviors
@@ -12,11 +13,13 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
         [DataField] public GibContentsOption GibContents = GibContentsOption.Drop; // Shitmed Change
         [DataField("recursive")] private bool _recursive = true;
 
+        public LogImpact Impact => LogImpact.Extreme;
+
         public void Execute(EntityUid owner, DestructibleSystem system, EntityUid? cause = null)
         {
             if (system.EntityManager.TryGetComponent(owner, out BodyComponent? body))
             {
-                system.BodySystem.GibBody(owner, _recursive, body, gib: GibType, contents: GibContents); // Shitmed Change
+                system.BodySystem.GibBody(owner, _recursive, body);
             }
         }
     }

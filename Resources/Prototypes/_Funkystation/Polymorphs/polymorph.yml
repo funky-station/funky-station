@@ -1,0 +1,11 @@
+- type: polymorph
+  id: CatberryCat
+  configuration:
+    entity: MobCat
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: true
+    inventory: None
+    revertOnDeath: true
+    revertOnCrit: true
+    duration: 20

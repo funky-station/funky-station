@@ -2690,3 +2690,33 @@ Entries:
       message: Changed capitalisation in Autodoc UI
   id: 332
   time: '2025-05-10T04:05:57.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: >-
+        The heat pump, a heat transferring device, can now be found in the
+        crafting menu or crafted with the RPD. 
+  id: 333
+  time: '2025-05-11T23:42:53.0000000+00:00'
+- author: ' JoulesBerg'
+  changes:
+    - type: Fix
+      message: >-
+        CBurn agents get to role play at centcomm now (zombie rounds should no
+        longer end early if the shuttle has been called)
+  id: 334
+  time: '2025-05-12T00:04:27.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: >-
+        Electrolyzer powerload will now return to baseline more slowly, causing
+        fewer power fluctuations.
+  id: 335
+  time: '2025-05-12T00:54:45.0000000+00:00'
+- author: SpaceCat-Chan
+  changes:
+    - type: Add
+      message: Added a News Manager digiboard, because the news never sleeps!
+  id: 336
+  time: '2025-05-14T03:10:08.0000000+00:00'

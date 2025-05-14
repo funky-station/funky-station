@@ -1,0 +1,283 @@
+#Steel
+- type: construction
+  name: steel curb
+  description: A simple curb.
+  id: SteelCurb
+  graph: curbs
+  startNode: start
+  targetNode: steelCurb
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: steel_curb
+
+- type: construction
+  name: steel curb corner
+  description: A simple curb corner.
+  id: SteelCurbCorner
+  graph: curbs
+  startNode: start
+  targetNode: steelCurbCorner
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: steel_curb_corner
+
+- type: construction
+  name: steel curb inside corner
+  description: A simple curb inside corner.
+  id: SteelCurbCornerInside
+  graph: curbs
+  startNode: start
+  targetNode: steelCurbCornerInside
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: steel_curb_inside_corner
+
+- type: construction
+  name: steel curb Ubend
+  description: A simple curb Ubend.
+  id: SteelCurbUbend
+  graph: curbs
+  startNode: start
+  targetNode: steelCurbUbend
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: steel_curb_ubend
+
+- type: construction
+  name: steel curb square
+  description: A simple curb square.
+  id: SteelCurbSquare
+  graph: curbs
+  startNode: start
+  targetNode: steelCurbSquare
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: steel_curb_square
+
+#Brass
+- type: construction
+  name: brass curb
+  description: A rustic brass curb.
+  id: BrassCurb
+  graph: curbs
+  startNode: start
+  targetNode: brassCurb
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: brass_curb
+
+- type: construction
+  name: brass curb corner
+  description: A rustic brass curb corner.
+  id: BrassCurbCorner
+  graph: curbs
+  startNode: start
+  targetNode: brassCurbCorner
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: brass_curb_corner
+
+- type: construction
+  name: brass curb inside corner
+  description: A rustic brass inside corner.
+  id: BrassCurbCornerInside
+  graph: curbs
+  startNode: start
+  targetNode: brassCurbCornerInside
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: brass_curb_inside_corner
+
+- type: construction
+  name: brass curb Ubend
+  description: A rustic brass Ubend.
+  id: BrassCurbUbend
+  graph: curbs
+  startNode: start
+  targetNode: brassCurbUbend
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: brass_curb_ubend
+
+- type: construction
+  name: brass curb square
+  description: A rustic brass square curb.
+  id: BrassCurbSquare
+  graph: curbs
+  startNode: start
+  targetNode: brassCurbSquare
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: brass_curb_square
+
+#Gold
+- type: construction
+  name: gold curb
+  description: A lavish golden curb.
+  id: GoldCurb
+  graph: curbs
+  startNode: start
+  targetNode: goldCurb
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: gold_curb
+
+- type: construction
+  name: gold curb corner
+  description: A lavish golden curb corner.
+  id: GoldCurbCorner
+  graph: curbs
+  startNode: start
+  targetNode: goldCurbCorner
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: gold_curb_corner
+
+- type: construction
+  name: gold curb inside corner
+  description: A lavish golden inside corner.
+  id: GoldCurbCornerInside
+  graph: curbs
+  startNode: start
+  targetNode: goldCurbCornerInside
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: gold_curb_inside_corner
+
+- type: construction
+  name: gold curb Ubend
+  description: A lavish golden Ubend.
+  id: GoldCurbUbend
+  graph: curbs
+  startNode: start
+  targetNode: goldCurbUbend
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: gold_curb_ubend
+
+- type: construction
+  name: gold curb square
+  description: A lavish golden square curb.
+  id: GoldCurbSquare
+  graph: curbs
+  startNode: start
+  targetNode: goldCurbSquare
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: gold_curb_square
+
+#Hydrogen
+- type: construction
+  name: hydrogen metal curb
+  description: A exotic hydrogen metal curb.
+  id: HydrogenCurb
+  graph: curbs
+  startNode: start
+  targetNode: hydrogenCurb
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: hydrogen_curb
+
+- type: construction
+  name: hydrogen metal curb corner
+  description: A exotic hydrogen metal curb corner.
+  id: HydrogenCurbCorner
+  graph: curbs
+  startNode: start
+  targetNode: hydrogenCurbCorner
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: hydrogen_curb_corner
+
+- type: construction
+  name: hydrogen metal curb inside corner
+  description: A exotic hydrogen metal inside corner.
+  id: HydrogenCurbCornerInside
+  graph: curbs
+  startNode: start
+  targetNode: hydrogenCurbCornerInside
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: hydrogen_curb_inside_corner
+
+- type: construction
+  name: hydrogen metal curb Ubend
+  description: A exotic hydrogen metal Ubend.
+  id: HydrogenCurbUbend
+  graph: curbs
+  startNode: start
+  targetNode: hydrogenCurbUbend
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: hydrogen_curb_ubend
+
+- type: construction
+  name: hydrogen metal curb square
+  description: A exotic hydrogen metal square curb.
+  id: HydrogenCurbSquare
+  graph: curbs
+  startNode: start
+  targetNode: hydrogenCurbSquare
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  icon:
+    sprite: _Funkystation/Structures/curbs.rsi
+    state: hydrogen_curb_square

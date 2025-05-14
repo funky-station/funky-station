@@ -55858,7 +55858,7 @@ entities:
     - type: Transform
       pos: -5.5,-10.5
       parent: 2
-- proto: CargoMailTeleporter
+- proto: MailTeleporter
   entities:
   - uid: 17592
     components:
@@ -63119,7 +63119,7 @@ entities:
     - type: Transform
       pos: -35.5,-37.5
       parent: 2
-- proto: ChemistryBottleEZNutrient
+- proto: EZNutrientChemistryBottle
   entities:
   - uid: 17456
     components:
@@ -63132,7 +63132,7 @@ entities:
     - type: Transform
       pos: 48.704712,-60.28858
       parent: 2
-- proto: ChemistryBottleRobustHarvest
+- proto: RobustHarvestChemistryBottle
   entities:
   - uid: 17487
     components:
@@ -78383,7 +78383,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -6.5,-12.5
       parent: 2
-- proto: GameMasterCircuitBoard
+- proto: DungeonMasterCircuitBoard
   entities:
   - uid: 16465
     components:

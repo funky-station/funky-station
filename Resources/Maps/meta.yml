@@ -58389,7 +58389,7 @@ entities:
     - type: Transform
       pos: 76.5,-36.5
       parent: 5350
-- proto: CargoMailTeleporter
+- proto: MailTeleporter
   entities:
   - uid: 3702
     components:
@@ -86770,7 +86770,7 @@ entities:
     - type: Transform
       pos: -3.5255046,-16.416983
       parent: 5350
-- proto: GameMasterCircuitBoard
+- proto: DungeonMasterCircuitBoard
   entities:
   - uid: 26873
     components:

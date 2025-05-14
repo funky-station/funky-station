@@ -207,7 +207,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledLMG
   cost:
-    Telecrystal: 150 # goob
+    Telecrystal: 100 # goob
   categories:
   - UplinkWeaponry
   conditions: # Funky war ops whitelisting
@@ -511,7 +511,7 @@
   description: uplink-ammo-bundle-desc
   productEntity: ClothingBackpackDuffelSyndicateAmmoFilled
   cost:
-    Telecrystal: 75 # goob
+    Telecrystal: 50 # goob
   categories:
   - UplinkAmmo
   conditions:
@@ -698,7 +698,7 @@
   description: uplink-chameleon-projector-desc
   productEntity: ChameleonProjector
   cost:
-    Telecrystal: 30 # goob - Basically a meme item at 35 TC to be real.
+    Telecrystal: 25 # goob - Basically a meme item at 35 TC to be real.
   categories:
   - UplinkDeception
   saleLimit: 1 # WD EDIT
@@ -710,7 +710,7 @@
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
   productEntity: BoxEncryptionKeySyndie # Two for the price of one
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 5 # goob
   categories:
   - UplinkDeception
   saleLimit: 1 # WD EDIT
@@ -735,6 +735,7 @@
     Telecrystal: 5 # goob
   categories:
   - UplinkDeception
+  saleBlacklist: true
 
 - type: listing
   id: UplinkDecoyDisk
@@ -745,6 +746,7 @@
     Telecrystal: 2 # goob - Pointless class item.
   categories:
   - UplinkDeception
+  saleBlacklist: true
 
 - type: listing
   id: UplinkUltrabrightLantern
@@ -763,7 +765,7 @@
   description: uplink-bribe-desc
   productEntity: BriefcaseSyndieLobbyingBundleFilled
   cost:
-    Telecrystal: 10 # Funky
+    Telecrystal: 10 # Funky buy the rights to nuke the station
   categories:
     - UplinkDeception
   saleLimit: 1 # WD EDIT
@@ -866,7 +868,7 @@
     Telecrystal: 5 # goob
   categories:
   - UplinkDisruption
-  saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
 - type: listing
   id: UplinkSlipocalypseClusterSoap
@@ -964,7 +966,7 @@
   description: uplink-surplus-bundle-desc
   productEntity: CrateSyndicateSurplusBundle
   cost:
-    Telecrystal: 100 # goob
+    Telecrystal: 80 # goob
   categories:
   - UplinkDisruption
   conditions:
@@ -984,7 +986,7 @@
   description: uplink-super-surplus-bundle-desc
   productEntity: CrateSyndicateSuperSurplusBundle
   cost:
-    Telecrystal: 200 # goob
+    Telecrystal: 160 # goob
   categories:
   - UplinkDisruption
   conditions:
@@ -1018,6 +1020,7 @@
     Telecrystal: 4
   categories:
   - UplinkDisruption
+  saleBlacklist: true
 
 # Allies
 
@@ -1080,7 +1083,7 @@
   productEntity: ReinforcementRadioSyndicateCyborgAssault
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
   cost:
-    Telecrystal: 375 # goob
+    Telecrystal: 330 # goob
   categories:
     - UplinkAllies
   conditions: # funky war ops whitelisting
@@ -1166,7 +1169,7 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-  saleLimit: 1 # WD EDIT
+  saleBlacklist: true # Funky
 
 # Implants
 

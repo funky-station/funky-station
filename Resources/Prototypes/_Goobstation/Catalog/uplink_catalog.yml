@@ -228,9 +228,11 @@
   icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: darkgygax }
   productEntity: CrateCybersunDarkGygaxBundle
   cost:
-    Telecrystal: 400
+    Telecrystal: 300 #Funky
   categories:
   - UplinkAllies
+  conditions:
+  -!type: WarOpsCondition
   saleLimit: 1
 
 - type: listing
@@ -240,10 +242,11 @@
   icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: mauler }
   productEntity: CrateCybersunMaulerBundle
   cost:
-    Telecrystal: 650
+    Telecrystal: 450 # Funky
   categories:
   - UplinkAllies
   conditions:
+  - !type:WarOpsCondition
   - !type:StoreWhitelistCondition
     whitelist:
       tags:

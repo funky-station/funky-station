@@ -1,0 +1,165 @@
+#mail pipes
+- type: entity
+  id: MailPipeBroken
+  parent: DisposalPipeBroken
+  name: broken mail pipe
+  description: A BBP (big broken pipe).
+  components:
+  - type: Sprite
+    drawdepth: ThickPipe
+    sprite: _Funkystation/Structures/mailpipes.rsi
+    layers:
+    - map: [ "pipe" ]
+      state: pipe-b
+
+- type: entity
+  id: MailPipe
+  parent: DisposalPipe
+  name: mail pipe segment
+  description: A huge pipe segment used for sending mail.
+  components:
+  - type: Sprite
+    drawdepth: ThickPipe
+    sprite: _Funkystation/Structures/mailpipes.rsi
+    layers:
+    - map: [ "pipe" ]
+      state: conpipe-s
+  - type: Construction
+    graph: mailpipes
+    node: pipe
+    containers:
+    - DisposalTransit
+
+- type: entity
+  id: MailTagger
+  parent: DisposalTagger
+  name: mail pipe tagger
+  description: A pipe that tags entities for routing.
+  components:
+  - type: Sprite
+    drawdepth: ThickPipe
+    sprite: _Funkystation/Structures/mailpipes.rsi
+    layers:
+    - map: [ "pipe" ]
+      state: conpipe-tagger
+  - type: Construction
+    graph: mailpipes
+    node: tagger
+
+- type: entity
+  id: MailTrunk
+  parent: DisposalTrunk
+  name: mail trunk
+  description: A pipe trunk used as an entry point for mail systems.
+  components:
+  - type: Sprite
+    drawdepth: ThickPipe
+    sprite: _Funkystation/Structures/mailpipes.rsi
+    layers:
+    - map: [ "pipe" ]
+      state: conpipe-t
+
+- type: entity
+  id: MailRouter
+  parent: DisposalRouter
+  name: mail router
+  description: A three-way router. Entities with matching tags get routed to the side via configurable filters.
+  components:
+  - type: Sprite
+    drawdepth: ThickPipe
+    sprite: _Funkystation/Structures/mailpipes.rsi
+    layers:
+    - map: [ "pipe" ]
+      state: conpipe-j1s
+
+- type: entity
+  id: MailRouterFlipped
+  description: A three-way router. Entities with matching tags get routed to the side.
+  parent: DisposalRouterFlipped
+  name: mail router
+  suffix: flipped
+  components:
+  - type: Sprite
+    drawdepth: ThickPipe
+    sprite: _Funkystation/Structures/mailpipes.rsi
+    layers:
+    - map: [ "pipe" ]
+      state: conpipe-j2s
+
+- type: entity
+  id: MailJunction
+  parent: DisposalJunction
+  name: mail junction
+  description: A three-way junction. The arrow indicates where items exit.
+  components:
+  - type: Sprite
+    drawdepth: ThickPipe
+    sprite: _Funkystation/Structures/mailpipes.rsi
+    layers:
+    - map: [ "pipe" ]
+      state: conpipe-j1
+
+- type: entity
+  id: MailJunctionFlipped
+  description: A three-way junction. The arrow indicates where items exit.
+  parent: DisposalJunctionFlipped
+  suffix: flipped
+  components:
+  - type: Sprite
+    drawdepth: ThickPipe
+    sprite: _Funkystation/Structures/mailpipes.rsi
+    layers:
+    - map: [ "pipe" ]
+      state: conpipe-j2
+
+- type: entity
+  id: MailYJunction
+  parent: DisposalYJunction
+  name: mail y-junction
+  description: A three-way junction with another exit point.
+  components:
+  - type: Sprite
+    drawdepth: ThickPipe
+    sprite: _Funkystation/Structures/mailpipes.rsi
+    layers:
+    - map: [ "pipe" ]
+      state: conpipe-y
+
+- type: entity
+  id: MailBend
+  parent: DisposalBend
+  name: mail bend
+  description: A tube bent at a 90 degree angle.
+  components:
+  - type: Sprite
+    drawdepth: ThickPipe
+    sprite: _Funkystation/Structures/mailpipes.rsi
+    layers:
+    - map: [ "pipe" ]
+      state: conpipe-c
+
+- type: entity
+  parent: DisposalSignalRouter
+  id: MailSignalRouter
+  name: mail signal router
+  description: A signal-controlled three-way router.
+  components:
+  - type: Sprite
+    drawdepth: ThickPipe
+    sprite: _Funkystation/Structures/mailpipes.rsi
+    layers:
+    - map: [ "pipe" ]
+      state: signal-router-free
+
+- type: entity
+  parent: DisposalSignalRouterFlipped
+  id: MailSignalRouterFlipped
+  name: mail signal router
+  suffix: flipped
+  components:
+  - type: Sprite
+    drawdepth: ThickPipe
+    sprite: _Funkystation/Structures/mailpipes.rsi
+    layers:
+    - map: [ "pipe" ]
+      state: signal-router-flipped-free

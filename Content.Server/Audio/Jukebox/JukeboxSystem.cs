@@ -3,6 +3,7 @@ using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.PowerCell;
 using Content.Shared.Audio.Jukebox;
+using Content.Shared.Instruments;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Power;

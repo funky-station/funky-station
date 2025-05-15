@@ -14,7 +14,10 @@
       "name": "medical-base"
     },
     {
-      "name": "cartridge1"
+      "name": "cartridge-filled"
+    },
+    {
+      "name": "endcap"
     },
     {
       "name": "inhand-left",

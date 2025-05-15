@@ -196,7 +196,9 @@
     Telecrystal: 150 # goob
   categories:
   - UplinkWeaponry
-  saleLimit: 0 # WD EDIT
+  conditions: # Funky war ops whitelisting
+  - !type:WarOpsCondition
+  saleBlacklist: true
 
 - type: listing
   id: UplinkL6SawBundle
@@ -205,10 +207,12 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledLMG
   cost:
-    Telecrystal: 150 # goob
+    Telecrystal: 100 # goob
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
+  conditions: # Funky war ops whitelisting
+  - !type:WarOpsCondition
+
 
 # Explosives
 
@@ -507,7 +511,7 @@
   description: uplink-ammo-bundle-desc
   productEntity: ClothingBackpackDuffelSyndicateAmmoFilled
   cost:
-    Telecrystal: 75 # goob
+    Telecrystal: 50 # goob
   categories:
   - UplinkAmmo
   conditions:
@@ -565,7 +569,7 @@
   icon: { sprite: /Textures/Structures/Wallmounts/signs.rsi, state: bio }
   productEntity: ClothingBackpackDuffelZombieBundle
   cost:
-    Telecrystal: 200 # goob
+    Telecrystal: 150 # goob
   categories:
   - UplinkChemicals
   conditions:
@@ -650,7 +654,7 @@
   description: uplink-meds-bundle-desc
   productEntity: ClothingBackpackDuffelSyndicateMedicalBundleFilled
   cost:
-    Telecrystal: 100 # goob
+    Telecrystal: 125 # goob
   categories:
   - UplinkChemicals
   conditions:
@@ -694,7 +698,7 @@
   description: uplink-chameleon-projector-desc
   productEntity: ChameleonProjector
   cost:
-    Telecrystal: 30 # goob - Basically a meme item at 35 TC to be real.
+    Telecrystal: 25 # goob - Basically a meme item at 35 TC to be real.
   categories:
   - UplinkDeception
   saleLimit: 1 # WD EDIT
@@ -706,7 +710,7 @@
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
   productEntity: BoxEncryptionKeySyndie # Two for the price of one
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 5 # goob
   categories:
   - UplinkDeception
   saleLimit: 1 # WD EDIT
@@ -731,6 +735,7 @@
     Telecrystal: 5 # goob
   categories:
   - UplinkDeception
+  saleBlacklist: true
 
 - type: listing
   id: UplinkDecoyDisk
@@ -741,6 +746,7 @@
     Telecrystal: 2 # goob - Pointless class item.
   categories:
   - UplinkDeception
+  saleBlacklist: true
 
 - type: listing
   id: UplinkUltrabrightLantern
@@ -759,7 +765,7 @@
   description: uplink-bribe-desc
   productEntity: BriefcaseSyndieLobbyingBundleFilled
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 10 # Funky buy the rights to nuke the station
   categories:
     - UplinkDeception
   saleLimit: 1 # WD EDIT
@@ -814,7 +820,7 @@
   description: uplink-emag-desc
   productEntity: Emag
   cost:
-    Telecrystal: 40 # goob
+    Telecrystal: 30 # goob
   categories:
   - UplinkDisruption
   saleLimit: 1 # WD EDIT
@@ -862,7 +868,7 @@
     Telecrystal: 5 # goob
   categories:
   - UplinkDisruption
-  saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
 - type: listing
   id: UplinkSlipocalypseClusterSoap
@@ -930,7 +936,7 @@
   description: uplink-antimov-law-desc
   productEntity: AntimovCircuitBoard
   cost:
-    Telecrystal: 70 # goob
+    Telecrystal: 70 # Funky Price Change. Syndie variant
   categories:
   - UplinkDisruption
   conditions:
@@ -945,7 +951,7 @@
   description: uplink-antimov-law-desc
   productEntity: AntimovCircuitBoard
   cost:
-    Telecrystal: 120 # goob
+    Telecrystal: 80 # Funky price change. Nukie variant
   categories:
   - UplinkDisruption
   conditions:
@@ -960,7 +966,7 @@
   description: uplink-surplus-bundle-desc
   productEntity: CrateSyndicateSurplusBundle
   cost:
-    Telecrystal: 100 # goob
+    Telecrystal: 80 # goob
   categories:
   - UplinkDisruption
   conditions:
@@ -972,7 +978,7 @@
     blacklist:
       components:
       - SurplusBundle
-  saleLimit: 0 # goob edit
+  saleLimit: 1 # goob edit
 
 - type: listing
   id: UplinkSuperSurplusBundle
@@ -980,7 +986,7 @@
   description: uplink-super-surplus-bundle-desc
   productEntity: CrateSyndicateSuperSurplusBundle
   cost:
-    Telecrystal: 200 # goob
+    Telecrystal: 160 # goob
   categories:
   - UplinkDisruption
   conditions:
@@ -992,7 +998,7 @@
     blacklist:
       components:
       - SurplusBundle
-  saleLimit: 0 # goob edit
+  saleLimit: 1 # goob edit
 
 - type: listing
   id: UplinkSingarityBeacon
@@ -1014,6 +1020,7 @@
     Telecrystal: 4
   categories:
   - UplinkDisruption
+  saleBlacklist: true
 
 # Allies
 
@@ -1041,7 +1048,7 @@
   productEntity: ReinforcementRadioSyndicate
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-urist }
   cost:
-    Telecrystal: 70 # goob
+    Telecrystal: 30 # goob
   categories:
   - UplinkAllies
   conditions:
@@ -1076,12 +1083,13 @@
   productEntity: ReinforcementRadioSyndicateCyborgAssault
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
   cost:
-    Telecrystal: 375 # goob
+    Telecrystal: 330 # goob
   categories:
     - UplinkAllies
-  conditions:
+  conditions: # funky war ops whitelisting
+    - !type:WarOpsCondition
     - !type:StoreWhitelistCondition
-      whitelist:
+     whitelist:
         tags:
           - NukeOpsUplink
   saleLimit: 1 # WD EDIT
@@ -1110,7 +1118,7 @@
   productEntity: ReinforcementRadioSyndicateAncestorNukeops
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-ancestor }
   cost:
-    Telecrystal: 40 # goob - Nuke ops have a lot of free gear, and synd eva a common one has been buffed so these need to cost more
+    Telecrystal: 50 # goob - Nuke ops have a lot of free gear, and synd eva a common one has been buffed so these need to cost more
   categories:
   - UplinkAllies
   conditions:
@@ -1155,13 +1163,13 @@
   icon: { sprite: /Textures/Objects/Fun/pai.rsi, state: syndicate-icon-pai-off }
   productEntity: SyndicatePersonalAI
   cost:
-    Telecrystal: 5 # goob
+    Telecrystal: 1 # You must play stealth music loudly during your break in. This is to reflect that. Funky
   categories:
     - UplinkAllies
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-  saleLimit: 1 # WD EDIT
+  saleBlacklist: true # Funky
 
 # Implants
 
@@ -1216,6 +1224,11 @@
     Telecrystal: 25 # goob
   categories:
     - UplinkImplants
+  conditions:
+    - !type:StoreWhitelistCondition #DNA scrambler removed from the Nukies. Does not have any valid reason to be there and doesn't do anything. Seems like oversight. Funky
+      blacklist:
+        tags:
+          - NukeOpsUplink
   saleLimit: 1 # WD EDIT
 
 - type: listing
@@ -1458,7 +1471,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Suits/eva_syndicate.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEVABundle
   cost:
-    Telecrystal: 20 # goob - Meh protection no slowdown. Can definitely take a hit or two extra however.
+    Telecrystal: 10 # goob - Meh protection no slowdown. Can definitely take a hit or two extra however.
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -1482,7 +1495,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndicate.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateHardsuitBundle
   cost:
-    Telecrystal: 50 # goob
+    Telecrystal: 30 # goob
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -1492,9 +1505,9 @@
   name: uplink-syndie-raid-name
   description: uplink-syndie-raid-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateRaidBundle
+  productEntity: ClothingBackpackSyndicateRaidBundle
   cost:
-    Telecrystal: 50 # goob
+    Telecrystal: 75 # goob
   categories:
   - UplinkWearables
   conditions:
@@ -1523,10 +1536,11 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/cybersun.rsi, state: icon } # goobstation - duke nukies
   productEntity: CrateCybersunJuggernautBundle
   cost:
-    Telecrystal: 75 # goob
+    Telecrystal: 75 # Unchanged to allow for traitors to make a funny terrible decision. Funky
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkClothingEyesHudSyndicate
@@ -1534,7 +1548,7 @@
   description: uplink-clothing-eyes-hud-syndicate-desc
   productEntity: ClothingEyesHudSyndicate
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 1 # Comes preequipped on all nukies. Why is this even cost anything. Funky
   categories:
     - UplinkWearables
   conditions:
@@ -1543,17 +1557,23 @@
         tags:
           - NukeOpsUplink
   saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
-- type: listing
-  id: UplinkClothingConductingGloves
-  name: uplink-clothing-conducting-gloves-name
-  description: uplink-clothing-conducting-gloves-desc
-  productEntity: ClothingHandsGlovesConducting
-  cost:
-    Telecrystal: 10 # goob
-  categories:
-  - UplinkWearables
-  saleLimit: 1 # WD EDIT
+#- type: listing
+#  id: UplinkClothingConductingGloves
+#  name: uplink-clothing-conducting-gloves-name
+#  description: uplink-clothing-conducting-gloves-desc
+#  productEntity: ClothingHandsGlovesConducting
+#  cost:
+#    Telecrystal: 3 # Literally worthless. Not worth clogging the sale pool. Funky
+#  categories:
+#  - UplinkWearables
+#  conditions:
+#    !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#        -NukeOpsUplink
+#  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkBackpackSyndicate
@@ -1565,6 +1585,7 @@
   categories:
     - UplinkWearables
   saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
  # Pointless
 
@@ -1577,6 +1598,7 @@
     Telecrystal: 2 # goob - Meh, can be useful in preventing metagamers, but pretty pointless.
   categories:
   - UplinkPointless
+  saleBlacklist: true
 
 - type: listing
   id: UplinkSnackBox
@@ -1587,6 +1609,7 @@
     Telecrystal: 5 # goob
   categories:
   - UplinkPointless
+  saleBlacklist: true
 
 - type: listing
   id: UplinkRevolverCapGun
@@ -1597,6 +1620,7 @@
     Telecrystal: 4 # goob - Funny, but not 20 TC Funny.
   categories:
   - UplinkPointless
+  saleBlacklist: true
 
 - type: listing
   id: UplinkSyndicateStamp
@@ -1608,6 +1632,7 @@
   categories:
   - UplinkPointless
   saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
 - type: listing
   id: UplinkCatEars
@@ -1626,9 +1651,11 @@
   description: uplink-outlaw-hat-desc
   productEntity: ClothingHeadHatOutlawHat
   cost:
-    Telecrystal: 2 # goob - Yeehaw! less than 5 TC for both to get a set.
+    Telecrystal: 2 # Funky
   categories:
   - UplinkPointless
+  saleLimit: 1
+  saleBlacklist: true
 
 - type: listing
   id: UplinkOutlawGlasses
@@ -1636,9 +1663,10 @@
   description: uplink-outlaw-glasses-desc
   productEntity: ClothingEyesGlassesOutlawGlasses
   cost:
-    Telecrystal: 2 # goob - Who am i??? less than 5 TC for both to get a set.
+    Telecrystal: 2 # Funky
   categories:
   - UplinkPointless
+  saleBlacklist: true
 
 - type: listing
   id: UplinkCostumePyjama
@@ -1649,6 +1677,8 @@
     Telecrystal: 8 # goob - Funny but blatantly not worth more
   categories:
   - UplinkPointless
+  saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
 - type: listing
   id: UplinkCostumeClown
@@ -1660,6 +1690,7 @@
   categories:
   - UplinkPointless
   saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
 - type: listing
   id: UplinkCarpSuitBundle
@@ -1670,6 +1701,7 @@
     Telecrystal: 15 # goob
   categories:
   - UplinkPointless
+  saleBlacklist: true
 
 - type: listing
   id: UplinkOperativeSuit
@@ -1677,9 +1709,11 @@
   description: uplink-operative-suit-desc
   productEntity: ClothingUniformJumpsuitOperative
   cost:
-    Telecrystal: 2 # goob
+    Telecrystal: 2 # Funky
   categories:
   - UplinkPointless
+  saleBlacklist: true
+
 
 - type: listing
   id: UplinkOperativeSkirt
@@ -1690,6 +1724,7 @@
     Telecrystal: 2 # goob
   categories:
   - UplinkPointless
+  saleBlacklist: true
 
 - type: listing
   id: UplinkBalloon
@@ -1708,9 +1743,11 @@
   description: uplink-scarf-syndie-red-desc
   productEntity: ClothingNeckScarfStripedSyndieRed
   cost:
-    Telecrystal: 2 # goob
+    Telecrystal: 2 # Goob
   categories:
   - UplinkPointless
+  saleBlacklist: true
+
 
 - type: listing
   id: UplinkScarfSyndieGreen
@@ -1718,9 +1755,10 @@
   description: uplink-scarf-syndie-green-desc
   productEntity: ClothingNeckScarfStripedSyndieGreen
   cost:
-    Telecrystal: 2 # goob
+    Telecrystal: 2 # Goob
   categories:
     - UplinkPointless
+  saleBlacklist: true
 
 - type: listing
   id: UplinkSyndicateBusinessCard
@@ -1732,6 +1770,7 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 3
+  saleBlacklist: true
 
 # Job Specific
 
@@ -2140,3 +2179,47 @@
     - Mime
   saleLimit: 1 # WD EDIT
 
+- type: listing
+  id: UplinkSmugglerSatchel
+  name: uplink-smuggler-satchel-name
+  description: uplink-smuggler-satchel-desc
+  productEntity: ClothingBackpackSatchelSmugglerUnanchored
+  cost:
+    Telecrystal: 15 # funk
+  categories:
+  - UplinkDeception
+  saleLimit: 1 # WD EDIT
+
+
+
+- type: listing
+  id: UplinkDarkGygax
+  name: uplink-mech-teleporter-assault-name
+  description: uplink-mech-teleporter-assault-desc
+  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: darkgygax }
+  productEntity: CrateCybersunDarkGygaxBundle
+  cost:
+    Telecrystal: 300 #Funky
+  categories:
+  - UplinkAllies
+  conditions:
+  - !type:WarOpsCondition
+  saleLimit: 1
+
+- type: listing
+  id: UplinkMauler
+  name: uplink-mech-teleporter-heavy-name
+  description: uplink-mech-teleporter-heavy-desc
+  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: mauler }
+  productEntity: CrateCybersunMaulerBundle
+  cost:
+    Telecrystal: 450 # Funky
+  categories:
+  - UplinkAllies
+  conditions:
+  - !type:WarOpsCondition
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  saleLimit: 1

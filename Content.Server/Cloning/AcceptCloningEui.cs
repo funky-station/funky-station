@@ -9,9 +9,9 @@ namespace Content.Server.Cloning
     {
         private readonly EntityUid _mindId;
         private readonly MindComponent _mind;
-        private readonly CloningSystem _cloningSystem;
+        private readonly CloningPodSystem _cloningSystem;
 
-        public AcceptCloningEui(EntityUid mindId, MindComponent mind, CloningSystem cloningSys)
+        public AcceptCloningEui(EntityUid mindId, MindComponent mind, CloningPodSystem cloningSys)
         {
             _mindId = mindId;
             _mind = mind;

@@ -5,7 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using System.Linq;
-using Content.Shared._Goobstation.CVars;
+using Content.Shared._Goobstation.CCVar;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Materials;

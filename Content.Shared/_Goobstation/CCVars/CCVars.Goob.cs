@@ -29,4 +29,16 @@ public sealed partial class GoobCVars
         CVarDef.Create("gamedirector.minimumtimeuntilfirstevent", 300f, CVar.SERVERONLY);
 
     #endregion
+
+    /// <summary>
+    /// Fire damage
+    /// </summary>
+    public static readonly CVarDef<int> FireStackHeat =
+        CVarDef.Create("misc.fire_stack_heat", 1500, CVar.SERVER);
+
+    /// <summary>
+    ///     Is ore silo enabled.
+    /// </summary>
+    public static readonly CVarDef<bool> SiloEnabled =
+        CVarDef.Create("goob.silo_enabled", true, CVar.SERVER | CVar.REPLICATED);
 }

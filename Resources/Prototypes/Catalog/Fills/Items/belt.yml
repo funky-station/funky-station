@@ -115,10 +115,8 @@
       - id: Ointment
       - id: Bloodpack
       - id: Gauze
+      - id: EmergencyMedipen
       - id: ParamedHypo
-      - id: CartridgeEmergency
-      - id: CartridgeEmergency
-      - id: CartridgeEmergency
 
 - type: entity
   id: ClothingBeltPlantFilled

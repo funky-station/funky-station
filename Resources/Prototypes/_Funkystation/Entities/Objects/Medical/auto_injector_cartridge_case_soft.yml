@@ -4,6 +4,9 @@
   description: A small soft case for storing emergency cartridges for use in a cartridge autoinjector.
   parent: [ BaseStorageItem, BaseBagOpenClose, BaseMedicalContraband, BaseSecurityContraband ]
   components:
+  - type: Tag
+    tags:
+    - AutoinjectorCartridgeCaseSoft
   - type: Sprite
     sprite: _Funkystation/Objects/Medical/auto_injector_cartridge_case_soft.rsi
     layers:
@@ -27,15 +30,15 @@
   - type: Item
     sprite: _Funkystation/Objects/Medical/auto_injector_cartridge_case_soft.rsi
     size: Small
+    shape:
+    - 0,0,1,0
   - type: Storage
     grid:
     - 0,0,1,1
-  - type: StorageFill
-    contents:
-    - id: CartridgeAirloss
-    - id: CartridgeBrute
-    - id: CartridgeBurn
-    - id: CartridgePoison
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 200
+      Cloth: 200
   - type: ItemCounter
     count:
       tags: [AutoinjectorCartridge]

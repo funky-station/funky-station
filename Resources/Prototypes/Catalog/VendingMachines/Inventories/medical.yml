@@ -13,9 +13,10 @@
     MedicalPatchPrefilledLibital: 3  #Goobstation - MedicalPatches - Funkychem
     MedicalPatchPrefilledAiuri: 3   #Goobstation - MedicalPatches - Funkychem
     ParamedHypo: 2 #Goobstation - ParamedHypo
-    CartridgeSaline: 6
-    CartridgeBicaridine: 6
-    CartridgeDermaline: 6
-    CartridgeAtropine: 6
+    CartridgeEmergency: 2
+    CartridgeAirloss: 2
+    CartridgeBrute: 2
+    CartridgeBurn: 2
+    CartridgePoison: 2
   contrabandInventory:
     FoodApple: 1

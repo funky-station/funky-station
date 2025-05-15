@@ -148,11 +148,11 @@
       maxVol: 20
       reagents:
       - ReagentId: Probital
-        Quantity: 20
-      - ReagentId: SalicylicAcid
-        Quantity: 5
+        Quantity: 12
+      - ReagentId: Libital
+        Quantity: 12
       - ReagentId: TranexamicAcid
-        Quantity: 5
+        Quantity: 6
 
 - type: entity
   name: burn autoinjector cartridge

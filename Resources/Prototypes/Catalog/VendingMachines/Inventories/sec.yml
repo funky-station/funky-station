@@ -21,12 +21,8 @@
     RiotBulletShield: 2
     RadioHandheldSecurity: 5
     BolaEnergy: 5
-    SecHypo: 4
+    SecHypo: 2
     CartridgeEmergency: 4
-    CartridgeAirloss: 4
-    CartridgeBrute: 4
-    CartridgeBurn: 4
-    CartridgePoison: 4
   # security officers need to follow a diet regimen!
   contrabandInventory:
     WeaponMeleeNeedle: 2

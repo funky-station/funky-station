@@ -14,6 +14,12 @@
   id: AutoinjectorCartridge
 
 - type: Tag
+  id: AutoinjectorCartridgeCase
+
+- type: Tag
+  id: AutoinjectorCartridgeCaseSoft
+
+- type: Tag
   id: NukeOpsMedicUplink
 
 - type: Tag

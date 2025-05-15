@@ -2736,3 +2736,9 @@ Entries:
       message: Added a War Ops requirement to certain nukie items.
   id: 338
   time: '2025-05-14T20:05:09.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Fix
+      message: late joined thavens will now have moods
+  id: 339
+  time: '2025-05-15T18:34:50.0000000+00:00'

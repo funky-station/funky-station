@@ -1035,6 +1035,7 @@
   description: Cute and fluffy moth plushie. Enjoy, bz!
   components:
   - type: Sprite
+    sprite: _Funkystation/Objects/Fun/toys.rsi
     state: plushie_moth
   - type: EmitSoundOnUse
     sound:

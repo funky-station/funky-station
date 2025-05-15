@@ -590,6 +590,7 @@
     description: ghost-role-information-snoth-description
     rules: ghost-role-information-freeagent-rules
   - type: Sprite
+    sprite: _Funkystation/Mobs/Animals/snail.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: snoth

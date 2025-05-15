@@ -68,7 +68,7 @@
   markingCategory: Head
   speciesRestriction: [Gingerbread]
   sprites:
-    - sprite: Mobs/Customization/gingerbread_parts.rsi
+    - sprite: _Funkystation/Mobs/Customization/gingerbread_parts.rsi
       state: face_gumball_moth_eyes
     - sprite: Mobs/Customization/gingerbread_parts.rsi
       state: face_gumball_moth_antennae

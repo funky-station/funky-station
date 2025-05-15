@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Tea, moth eyes modified by https://github.com/oLykos-star",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "face_gumball_moth_eyes",
+      "directions": 4
+    }
+  ]
+}

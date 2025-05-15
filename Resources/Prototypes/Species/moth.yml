@@ -34,7 +34,7 @@
 - type: humanoidBaseSprite
   id: MobMothEyes
   baseSprite:
-    sprite: Mobs/Species/Moth/parts.rsi
+    sprite: _Funkystation/Mobs/Species/Moth/parts.rsi
     state: eyes
 
 - type: markingPoints

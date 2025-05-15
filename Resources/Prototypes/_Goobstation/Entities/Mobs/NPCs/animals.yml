@@ -122,10 +122,10 @@
   description: Explosive moth.
   components:
   - type: Sprite
-    sprite: _Goobstation/Mobs/Animals/syndiroach.rsi
+    sprite: _Funkystation/Mobs/Animals/syndiroach.rsi
   - type: Clothing
     quickEquip: false
-    sprite: _Goobstation/Mobs/Animals/syndiroach.rsi
+    sprite: _Funkystation/Mobs/Animals/syndiroach.rsi
     equippedPrefix: 0
     slots:
     - HEAD

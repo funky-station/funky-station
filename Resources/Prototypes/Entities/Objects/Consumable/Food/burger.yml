@@ -976,6 +976,7 @@
       - meaty
       - light
   - type: Sprite
+    sprite: _Funkystation/Objects/Consumable/Food/burger.rsi
     state: mothroach
   - type: SolutionContainerManager
     solutions:

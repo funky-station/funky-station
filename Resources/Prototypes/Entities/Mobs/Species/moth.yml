@@ -12,7 +12,7 @@
   - type: Hunger
   - type: Thirst
   - type: Icon
-    sprite: Mobs/Species/Moth/parts.rsi
+    sprite: _Funkystation/Mobs/Species/Moth/parts.rsi
     state: full
   - type: Body
     prototype: Moth
@@ -100,6 +100,8 @@
         shader: unshaded
         visible: false
       - map: [ "eyes" ]
+        sprite: "_Funkystation/Mobs/Species/Moth/parts.rsi"
+        state: "eyes"
       - map: [ "belt" ]
       - map: [ "id" ]
       - map: [ "outerClothing" ]
@@ -115,7 +117,7 @@
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
       - map: [ "clownedon" ] # Dynamically generated
-        sprite: "Effects/creampie.rsi"
+        sprite: "_Funkystation/Effects/creampie.rsi"
         state: "creampie_moth"
         visible: false
       - map: [ "culthalo" ] # funky cult

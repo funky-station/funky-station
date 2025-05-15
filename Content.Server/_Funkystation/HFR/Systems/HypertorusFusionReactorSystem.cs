@@ -28,6 +28,9 @@ using Content.Server.Singularity.EntitySystems;
 using Content.Shared.Radiation.Components;
 using Robust.Shared.Spawners;
 using System.Text;
+using Robust.Shared.Map;
+using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
 
 namespace Content.Server._Funkystation.Atmos.HFR.Systems
 {
@@ -52,6 +55,9 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
         [Dependency] private readonly PowerReceiverSystem _powerReceiver = default!;
         [Dependency] private readonly GravityWellSystem _gravityWell = default!;
         [Dependency] private readonly SharedAmbientSoundSystem _ambient = default!;
+        [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+        [Dependency] private readonly GasTileOverlaySystem _gasOverlaySystem = default!;
+        [Dependency] private readonly IMapManager _mapManager = default!;
 
         public static readonly Vector2i[] DiagonalOffsets = [new(1, 1), new(-1, 1), new(-1, -1), new(1, -1)];
 
@@ -447,42 +453,47 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
         {
             if (core.FinalCountdown || core.CriticalThresholdProximity > core.MeltingPoint)
             {
-                Alarm(coreUid, core);
                 Countdown(coreUid, core);
                 return;
             }
 
-            if (core.CriticalThresholdProximity < core.WarningPoint
-            || _timing.CurTime < core.LastWarning + TimeSpan.FromSeconds(HypertorusFusionReactor.WarningTimeDelay))
-                return;
+            // Dumb but quick way to clear emergency status
+            core.HasReachedEmergency = core.HasReachedEmergency ? core.CriticalThresholdProximity > core.EmergencyPoint : core.HasReachedEmergency;
 
-            Alarm(coreUid, core);
+            if (core.CriticalThresholdProximity < core.WarningPoint)
+                return;
 
             var integrity = GetIntegrityPercent(core).ToString("0.00");
             string message = "";
             bool global = false;
+            bool warningDelayOver = _timing.CurTime > core.LastWarning + TimeSpan.FromSeconds(HypertorusFusionReactor.WarningTimeDelay);
 
-            if (core.CriticalThresholdProximity > core.EmergencyPoint && core.CriticalThresholdProximity < core.LastWarningThresholdProximity - 80f)
+            if (core.CriticalThresholdProximity > core.EmergencyPoint && !core.HasReachedEmergency)
             {
                 message = $"{core.EmergencyAlert} Integrity: {integrity}%";
                 global = true;
-                if (!core.HasReachedEmergency)
-                {
-                    // TODO: Add admin log here
-                    core.HasReachedEmergency = true;
-                }
+                // TODO: Add admin log here
+                core.HasReachedEmergency = true;
             }
-            else if (core.CriticalThresholdProximity >= core.CriticalThresholdProximityArchived && core.CriticalThresholdProximity < core.LastWarningThresholdProximity - 80f)
+            else if (core.HasReachedEmergency && core.CriticalThresholdProximity > core.LastWarningThresholdProximity + 40f && warningDelayOver)
+            {
+                message = $"{core.EmergencyAlert} Integrity: {integrity}%";
+                global = true;
+            }
+            else if (core.CriticalThresholdProximity >= core.CriticalThresholdProximityArchived && core.CriticalThresholdProximity > core.LastWarningThresholdProximity + 40f && warningDelayOver)
             {
                 message = $"{core.WarningAlert} Integrity: {integrity}%";
             }
-            else if (core.CriticalThresholdProximity < core.LastWarningThresholdProximity + 50f)
+            else if (core.CriticalThresholdProximity < core.LastWarningThresholdProximity - 30f && warningDelayOver)
             {
                 message = $"{core.SafeAlert} Integrity: {integrity}%";
             }
 
             if (message != "")
+            {
+                Alarm(coreUid, core);
                 SendRadioExplanation(coreUid, core, message, global);
+            }
         }
 
         /**
@@ -527,6 +538,7 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
             // Initialize countdown
             if (!core.FinalCountdown)
             {
+                Alarm(coreUid, core);
                 core.FinalCountdown = true;
                 core.CountdownStartTime = _timing.CurTime;
                 core.LastCountdownUpdate = _timing.CurTime;
@@ -571,7 +583,20 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
 
             // Determine message based on remaining time
             string message;
-            if (remainingTime > TimeSpan.FromSeconds(5))
+            if (remainingTime > TimeSpan.FromSeconds(30))
+            {
+                // Send message every 30 seconds for remaining time > 30 seconds
+                var secondsRemaining = (int)Math.Ceiling(remainingTime.TotalSeconds);
+                if (secondsRemaining % 30 != 0)
+                {
+                    core.LastCountdownUpdate = _timing.CurTime;
+                    return;
+                }
+
+                message = $"{DisplayTimeText(secondsRemaining, true)} remain before total integrity failure.";
+                SendHypertorusAnnouncement(coreUid, core, message, true);
+            }
+            else if (remainingTime > TimeSpan.FromSeconds(5))
             {
                 // Send message every 5 seconds for remaining time > 5 seconds
                 var secondsRemaining = (int)Math.Ceiling(remainingTime.TotalSeconds);
@@ -600,7 +625,7 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
         }
 
         /**
-        * Create the explosion + the gas emission before deleting the machine core.
+        * Create the explosion, gas emission, radiation pulse, and EMP before deleting the machine core.
         */
         public void Meltdown(EntityUid coreUid, HFRCoreComponent core)
         {
@@ -614,6 +639,7 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
 
             int flashExplosion = 0, lightImpactExplosion = 0, heavyImpactExplosion = 0, devastatingExplosion = 0;
             int empLightSize = 0, empHeavySize = 0, radPulseSize = 0;
+            int gasPockets = 0, gasSpread = 0;
             bool emPulse = recipeValid && recipe != null && recipe.MeltdownFlags.HasFlag(HypertorusFlags.EMP);
             bool radPulse = recipeValid && recipe != null && recipe.MeltdownFlags.HasFlag(HypertorusFlags.RadiationPulse);
 
@@ -653,6 +679,8 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                     {
                         radPulseSize = 2 * core.PowerLevel + 8;
                     }
+                    gasPockets = 5;
+                    gasSpread = core.PowerLevel * 2;
                 }
 
                 if (recipe.MeltdownFlags.HasFlag(HypertorusFlags.MediumSpread))
@@ -666,6 +694,8 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                     {
                         radPulseSize = core.PowerLevel + 24;
                     }
+                    gasPockets = 7;
+                    gasSpread = core.PowerLevel * 4;
                 }
 
                 if (recipe.MeltdownFlags.HasFlag(HypertorusFlags.BigSpread))
@@ -679,6 +709,8 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                     {
                         radPulseSize = core.PowerLevel + 34;
                     }
+                    gasPockets = 10;
+                    gasSpread = core.PowerLevel * 6;
                 }
 
                 if (recipe.MeltdownFlags.HasFlag(HypertorusFlags.MassiveSpread))
@@ -692,35 +724,144 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                     {
                         radPulseSize = core.PowerLevel + 44;
                     }
+                    gasPockets = 15;
+                    gasSpread = core.PowerLevel * 8;
                 }
             }
 
-            // Gas emission: Pour gases into the core's tile
-            var transform = Transform(coreUid);
-            var tileMixture = _atmosSystem.GetContainingMixture(coreUid, false, false);
-            if (tileMixture != null)
+            // Gas emission
+            var transform = _entityManager.GetComponent<TransformComponent>(coreUid);
+            var coords = transform.Coordinates;
+            if (_transformSystem.IsValid(coords) && _mapManager.TryFindGridAt(_transformSystem.ToMapCoordinates(coords), out var gridUid, out var gridComp))
             {
-                if (core.InternalFusion != null && core.InternalFusion.TotalMoles > 0)
+                var gridEntity = new Entity<GridAtmosphereComponent?, GasTileOverlayComponent?>(
+                    gridUid,
+                    _entityManager.GetComponent<GridAtmosphereComponent>(gridUid),
+                    _entityManager.GetComponent<GasTileOverlayComponent>(gridUid)
+                );
+                var mapUid = _mapManager.GetMapEntityId(transform.MapID);
+                var mapEntity = new Entity<MapAtmosphereComponent?>(
+                    mapUid,
+                    _entityManager.TryGetComponent<MapAtmosphereComponent>(mapUid, out var mapAtmos) ? mapAtmos : null
+                );
+
+                // Get tiles in circular range
+                var centerTile = _mapSystem.CoordinatesToTile(gridUid, gridComp, coords);
+                var tiles = new List<TileRef>();
+                var tileSize = gridComp.TileSize;
+                var centerPos = _mapSystem.TileCenterToVector((gridUid, gridComp), centerTile);
+                var circle = new Circle(centerPos, gasSpread * tileSize);
+
+                foreach (var tileRef in _mapSystem.GetLocalTilesIntersecting(gridUid, gridComp, circle, ignoreEmpty: true))
                 {
-                    _atmosSystem.Merge(tileMixture, core.InternalFusion);
+                    if (!_atmosSystem.IsTileAirBlocked(gridUid, tileRef.GridIndices))
+                    {
+                        tiles.Add(tileRef);
+                    }
                 }
 
+                // Distribute fusion gas
+                if (core.InternalFusion != null && core.InternalFusion.TotalMoles > 0)
+                {
+                    var fusionToRemove = core.InternalFusion.RemoveRatio(0.2f);
+                    if (fusionToRemove != null && tiles.Count > 0)
+                    {
+                        var gasPerPocket = 1f / gasPockets;
+                        var shuffledTiles = tiles.ToList();
+                        for (int i = shuffledTiles.Count - 1; i > 0; i--)
+                        {
+                            var j = _random.Next(i + 1);
+                            (shuffledTiles[i], shuffledTiles[j]) = (shuffledTiles[j], shuffledTiles[i]);
+                        }
+
+                        for (int i = 0; i < Math.Min(gasPockets, shuffledTiles.Count); i++)
+                        {
+                            var tileRef = shuffledTiles[i];
+                            var mixture = _atmosSystem.GetTileMixture(gridEntity, mapEntity, tileRef.GridIndices, excite: true);
+                            if (mixture != null)
+                            {
+                                var pocket = fusionToRemove.RemoveRatio(gasPerPocket);
+                                if (pocket != null)
+                                {
+                                    _atmosSystem.Merge(mixture, pocket);
+                                }
+                            }
+                        }
+                    }
+                    // Dump remaining fusion gas into core tile
+                    var coreTileMixture = _atmosSystem.GetContainingMixture(coreUid, excite: false);
+                    if (coreTileMixture != null)
+                    {
+                        _atmosSystem.Merge(coreTileMixture, core.InternalFusion);
+                    }
+                }
+
+                // Distribute moderator gas
                 if (core.ModeratorInternal != null && core.ModeratorInternal.TotalMoles > 0)
                 {
-                    _atmosSystem.Merge(tileMixture, core.ModeratorInternal);
+                    var moderatorToRemove = core.ModeratorInternal.RemoveRatio(0.2f);
+                    if (moderatorToRemove != null && tiles.Count > 0)
+                    {
+                        var gasPerPocket = 1f / gasPockets;
+                        var shuffledTiles = tiles.ToList();
+                        for (int i = shuffledTiles.Count - 1; i > 0; i--)
+                        {
+                            var j = _random.Next(i + 1);
+                            (shuffledTiles[i], shuffledTiles[j]) = (shuffledTiles[j], shuffledTiles[i]);
+                        }
+
+                        for (int i = 0; i < Math.Min(gasPockets, shuffledTiles.Count); i++)
+                        {
+                            var tileRef = shuffledTiles[i];
+                            var mixture = _atmosSystem.GetTileMixture(gridEntity, mapEntity, tileRef.GridIndices, excite: true);
+                            if (mixture != null)
+                            {
+                                var pocket = moderatorToRemove.RemoveRatio(gasPerPocket);
+                                if (pocket != null)
+                                {
+                                    _atmosSystem.Merge(mixture, pocket);
+                                }
+                            }
+                        }
+                    }
+                    // Dump remaining moderator gas into core tile
+                    var coreTileMixture = _atmosSystem.GetContainingMixture(coreUid, excite: false);
+                    if (coreTileMixture != null)
+                    {
+                        _atmosSystem.Merge(coreTileMixture, core.ModeratorInternal);
+                    }
                 }
+
+                _gasOverlaySystem.UpdateSessions();
+            }
+            else
+            {
+                // No valid grid, dump all gas into core tile
+                var coreTileMixture = _atmosSystem.GetContainingMixture(coreUid, excite: false);
+                if (coreTileMixture != null)
+                {
+                    if (core.InternalFusion != null && core.InternalFusion.TotalMoles > 0)
+                    {
+                        _atmosSystem.Merge(coreTileMixture, core.InternalFusion);
+                    }
+                    if (core.ModeratorInternal != null && core.ModeratorInternal.TotalMoles > 0)
+                    {
+                        _atmosSystem.Merge(coreTileMixture, core.ModeratorInternal);
+                    }
+                }
+                _gasOverlaySystem.UpdateSessions();
             }
 
             // Explosion
             var totalIntensity = (devastatingExplosion + heavyImpactExplosion + lightImpactExplosion + flashExplosion) * 100f;
-            totalIntensity = critical ? totalIntensity * 6 : totalIntensity * 2;
+            totalIntensity = critical ? totalIntensity * 2 : totalIntensity;
             if (totalIntensity > 0)
             {
                 _explosionSystem.QueueExplosion(
                     coreUid,
                     ExplosionSystem.DefaultExplosionPrototypeId,
                     totalIntensity,
-                    slope: 10f,
+                    slope: 1.25f,
                     maxTileIntensity: 100,
                     tileBreakScale: 1f,
                     maxTileBreak: int.MaxValue,
@@ -754,6 +895,7 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                     duration: duration
                 );
             }
+
             ToggleActiveState(coreUid, core, false);
             var despawn = _entityManager.EnsureComponent<TimedDespawnComponent>(coreUid);
             despawn.Lifetime = 1.1f;

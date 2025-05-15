@@ -203,7 +203,7 @@ namespace Content.Shared._Funkystation.Atmos.HFR
         /// <summary>
         /// Countdown time for the hypertorus (in seconds).
         /// </summary>
-        public const float HypertorusCountdownTime = 30f;
+        public const float HypertorusCountdownTime = 91f; // 1 second buffer for announcements
 
         #endregion
 

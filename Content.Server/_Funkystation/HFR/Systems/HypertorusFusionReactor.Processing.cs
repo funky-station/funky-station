@@ -662,14 +662,11 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
             if (core.CriticalThresholdProximity > 650f)
                 intensity *= 1.5f;
 
-            // Bring intensity back down to what I think are workable levels
-            float scaledIntensity = intensity / 1500f * 100f;
-
             // Calculate slope based on intensity I guess, directly stolen from supermatter
-            float slope = Math.Clamp(scaledIntensity / 15f, 0.2f, 1f);
+            float slope = Math.Clamp(intensity / 15f, 0.2f, 1f);
 
             // Apply radiation settings to the component
-            radSource.Intensity = scaledIntensity;
+            radSource.Intensity = intensity;
             radSource.Slope = slope;
         }
 

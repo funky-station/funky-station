@@ -205,6 +205,10 @@ public sealed partial class HFRCoreComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan LastWarning;
 
+    [DataField("lastWarningThresholdProximity")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float LastWarningThresholdProximity;
+
     [DataField("warningDamageFlags")]
     [ViewVariables(VVAccess.ReadWrite)]
     public int WarningDamageFlags;

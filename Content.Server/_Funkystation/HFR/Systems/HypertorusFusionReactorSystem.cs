@@ -433,6 +433,7 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
 
             var channel = global ? "Common" : "Engineering";
             core.LastWarning = _timing.CurTime;
+            core.LastWarningThresholdProximity = core.CriticalThresholdProximity;
 
             // Send to in-game IC chat and radio
             _chatSystem.TrySendInGameICMessage(coreUid, message, InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
@@ -444,25 +445,24 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
         */
         public void CheckAlert(EntityUid coreUid, HFRCoreComponent core)
         {
-            if (core.FinalCountdown)
+            if (core.FinalCountdown || core.CriticalThresholdProximity > core.MeltingPoint)
             {
+                Alarm(coreUid, core);
                 Countdown(coreUid, core);
                 return;
             }
 
-            if (core.CriticalThresholdProximity < core.WarningPoint)
-                return;
-
-            if (_timing.CurTime < core.LastWarning + TimeSpan.FromSeconds(HypertorusFusionReactor.WarningTimeDelay))
+            if (core.CriticalThresholdProximity < core.WarningPoint
+            || _timing.CurTime < core.LastWarning + TimeSpan.FromSeconds(HypertorusFusionReactor.WarningTimeDelay))
                 return;
 
             Alarm(coreUid, core);
 
             var integrity = GetIntegrityPercent(core).ToString("0.00");
-            string message;
+            string message = "";
             bool global = false;
 
-            if (core.CriticalThresholdProximity > core.EmergencyPoint)
+            if (core.CriticalThresholdProximity > core.EmergencyPoint && core.CriticalThresholdProximity < core.LastWarningThresholdProximity - 80f)
             {
                 message = $"{core.EmergencyAlert} Integrity: {integrity}%";
                 global = true;
@@ -472,20 +472,17 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                     core.HasReachedEmergency = true;
                 }
             }
-            else if (core.CriticalThresholdProximity >= core.CriticalThresholdProximityArchived)
+            else if (core.CriticalThresholdProximity >= core.CriticalThresholdProximityArchived && core.CriticalThresholdProximity < core.LastWarningThresholdProximity - 80f)
             {
                 message = $"{core.WarningAlert} Integrity: {integrity}%";
-                core.LastWarning = _timing.CurTime - TimeSpan.FromSeconds(HypertorusFusionReactor.WarningTimeDelay * 5);
             }
-            else
+            else if (core.CriticalThresholdProximity < core.LastWarningThresholdProximity + 50f)
             {
                 message = $"{core.SafeAlert} Integrity: {integrity}%";
             }
 
-            SendRadioExplanation(coreUid, core, message, global);
-
-            if (core.CriticalThresholdProximity > core.MeltingPoint)
-                Countdown(coreUid, core);
+            if (message != "")
+                SendRadioExplanation(coreUid, core, message, global);
         }
 
         /**

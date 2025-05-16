@@ -375,3 +375,40 @@
       - id: HFRCornerBox
       - id: HFRCornerBox
       - id: HFRCornerBox
+      - id: HFRInstructions
+
+- type: entity
+  id: HFRInstructions
+  categories: [ HideSpawnMenu ]
+  suffix: "hfr instructions"
+  parent: Paper
+  components:
+  - type: Paper
+    content: |2
+
+      [head=1]Quick Guide to Safe Handling of the Hypertorus Fusion Reactor[/head]
+
+      [head=3]Operating Instructions[/head]
+      - Build the machine as shown in the main guide.
+      - Create a 50/50 gas mix of tritium and hydrogen, totaling approximately 2000 moles.
+      - Start the machine and fill the cooling loop with plasma or hypernoblium. Use space or freezers to cool it.
+      - Connect the fuel mix to the fuel injector port, allowing only 1000 moles into the machine to ease the kickstart of the reaction.
+      - Set the Heat Conductor to 500 when starting the reaction, then reset to 100 when the power level exceeds 1.
+      - In case of a meltdown:
+        - Set the Heat Conductor and Current Damper to maximum.
+        - Set fuel injection to minimum.
+        - If heat output remains positive, adjust the Magnetic Constrictors until it becomes negative.
+        - Strengthen cooling and use high heat capacity gases (e.g., hypernoblium) in the moderator to manage the issue.
+
+      [head=3]Warnings[/head]
+      - The machine cannot be dismantled or powered off if the power level is above 0.
+      - Waste gases cannot be disposed of if the power level is above 5.
+      - Only helium and antinoblium can be removed from the fusion mix.
+      - Hypernoblium significantly reduces the power of the mix.
+      - Antinoblium significantly increases the power of the mix.
+      - High heat capacity gases are harder to heat or cool.
+      - Low heat capacity gases are easier to heat or cool.
+      - In a power shortage, the fusion reaction continues, but cooling stops.
+
+      [head=3]Disclaimer[/head]
+      The author of this quick guide is not responsible for misuse or meltdowns caused by following this guide. Refer to advanced guides for detailed information on gas moderators.

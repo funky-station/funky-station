@@ -247,7 +247,9 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                                      (scaledFuelList.GetValueOrDefault(fuel2, 0f) * HypertorusFusionReactor.CalculatedTritRadius), 2)) * core.Energy;
 
                 // Efficiency of the reaction, it increases with the amount of byproduct
-                core.Efficiency = HypertorusFusionReactor.VoidConduction * Math.Clamp(scaledFuelList.GetValueOrDefault(product, 0f), 1f, 100f);
+                float tickRateAdjustment = secondsPerTick / 2f; // Normalize to SS13's 2-second tick rate for proper efficiency calculation
+                float adjustedScaledFuel = scaledFuelList.GetValueOrDefault(product, 0f) / tickRateAdjustment;
+                core.Efficiency = HypertorusFusionReactor.VoidConduction * Math.Clamp(adjustedScaledFuel, 1f, 100f);
             }
 
             // Can go either positive or negative depending on the instability and the negative energy modifiers
@@ -785,19 +787,25 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
         public void RemoveWaste(EntityUid coreUid, HFRCoreComponent core, float secondsPerTick, bool isWasteRemoving)
         {
             // Gases can be removed from the moderator internal by using the interface.
-            if (!isWasteRemoving)
-                return;
-
-            if (core.WasteOutputUid == null || !_nodeContainer.TryGetNode(core.WasteOutputUid.Value, "pipe", out PipeNode? wastePipe))
-                return;
-
-            if (wastePipe.Air.TotalMoles > 5000f)
+            if (!isWasteRemoving
+                || core.WasteOutputUid == null
+                || !_nodeContainer.TryGetNode(core.WasteOutputUid.Value, "pipe", out PipeNode? wastePipe)
+                || wastePipe.Air.TotalMoles > 5000f)
                 return;
 
             var moderatorRemovedMix = new GasMixture();
             var fusionRemovedMix = new GasMixture();
 
-            int filteringAmount = core.FilterGases.Count;
+            int filteringAmount = 0;
+            if (core.ModeratorInternal != null)
+            {
+                foreach (var gas in core.FilterGases)
+                {
+                    if (core.ModeratorInternal.GetMoles(gas) > 0.01f)
+                        filteringAmount++;
+                }
+            }
+
             if (filteringAmount > 0 && core.ModeratorInternal != null)
             {
                 foreach (var gas in core.FilterGases)

@@ -11,11 +11,13 @@ using Content.Shared._Funkystation.Atmos.Visuals;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server._Funkystation.Atmos.HFR.Systems;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Funkystation.Atmos.Systems;
 
 public sealed class HFRCoreSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
@@ -127,7 +129,10 @@ public sealed class HFRCoreSystem : EntitySystem
         if (core.ModeratorInternal != null)
             _atmosSystem.React(core.ModeratorInternal, null);
 
-        _hfrSystem.Process(uid, core, 0.5f);
+        float secondsPerTick = core.LastTick == TimeSpan.Zero ? 0.5f : (float)(_timing.CurTime - core.LastTick).TotalSeconds;
+
+        _hfrSystem.Process(uid, core, secondsPerTick);
+        core.LastTick = _timing.CurTime;
         UpdateReactorUI(uid, core);
     }
 

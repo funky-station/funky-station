@@ -288,4 +288,8 @@ public sealed partial class HFRCoreComponent : Component
     [DataField("nextZap")]
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan NextZap;
+
+    [DataField("lastTick")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan LastTick;
 }

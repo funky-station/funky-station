@@ -728,7 +728,7 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                 }
             }
 
-            // Gas emission
+            // Gas emission - currently does not double for critical explosions as I feel this scales horribly. Someone please make this more workable.
             var transform = _entityManager.GetComponent<TransformComponent>(coreUid);
             var coords = transform.Coordinates;
             if (_transformSystem.IsValid(coords) && _mapManager.TryFindGridAt(_transformSystem.ToMapCoordinates(coords), out var gridUid, out var gridComp))

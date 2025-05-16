@@ -1,11 +1,11 @@
 using Content.Shared.Procedural;
 
-namespace Content.Shared.Salvage.Magnet;
+namespace Content.Shared._Funkystation.Mining;
 
 /// <summary>
 /// Asteroid offered for the magnet.
 /// </summary>
-public record struct AsteroidOffering : ISalvageMagnetOffering
+public record struct AsteroidOffering : IMiningMagnetOffering
 {
     public string Id;
 

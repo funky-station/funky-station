@@ -24,12 +24,12 @@
       map: ["chargeState"]
       shader: unshaded
   - type: ActivatableUI
-    key: enum.SalvageMagnetUiKey.Key
+    key: enum.MiningMagnetUiKey.Key
   - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
-      enum.SalvageMagnetUiKey.Key:
-        type: SalvageMagnetBoundUserInterface
+      enum.MiningMagnetUiKey.Key:
+        type: MiningMagnetBoundUserInterface
   - type: Transform
     noRot: false
   - type: Appearance
@@ -38,11 +38,11 @@
   - type: ActiveRadio
     channels:
     - Supply
-  - type: SalvageMagnet
+  - type: MiningMagnet
   - type: ApcPowerReceiver
-    powerLoad: 2500 # TODO change this to a HV power draw that really hits the grid hard WHEN active
+    powerLoad: 2500
   - type: Machine
-    board: SalvageMagnetMachineCircuitboard
+    board: MiningMagnetMachineCircuitboard
 
 - type: weightedRandomEntity
   id: RandomAsteroidPool

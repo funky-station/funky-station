@@ -90,6 +90,8 @@ public enum AnomalyScannerVisuals : byte
     HasAnomaly,
     AnomalyStability,
     AnomalySeverity,
+    AnomalyNextPulse,
+    AnomalyIsSupercritical,
 }
 [Serializable, NetSerializable]
 public enum AnomalyScannerVisualLayers : byte
@@ -98,9 +100,8 @@ public enum AnomalyScannerVisualLayers : byte
     Screen,
     SeverityMask,
     Stability,
-    StabilityFrame,
     Pulse,
-    SeverityAlert,
+    Supercritical,
 }
 
 [Serializable, NetSerializable]

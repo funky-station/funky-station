@@ -259,14 +259,14 @@ public sealed partial class ExplosionSystem
     /// </summary>
     private void OnTileChanged(ref TileChangedEvent ev)
     {
+        if (!TryComp(ev.Entity, out MapGridComponent? grid))
+            return;
+
         foreach (var change in ev.Changes)
         {
             // only need to update the grid-edge map if a tile was added or removed from the grid.
             if (!change.NewTile.IsEmpty && !change.OldTile.IsEmpty)
-                return;
-
-            if (!TryComp(ev.Entity, out MapGridComponent? grid))
-                return;
+                continue;
 
             if (!_gridEdges.TryGetValue(ev.Entity, out var edges))
             {
@@ -291,7 +291,7 @@ public sealed partial class ExplosionSystem
                     }
                 }
 
-                return;
+                continue;
             }
 
             // the tile is not empty space, but was previously. So update directly adjacent neighbours, which may no longer

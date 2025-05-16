@@ -2765,3 +2765,9 @@ Entries:
         elkridge.
   id: 342
   time: '2025-05-16T02:25:34.0000000+00:00'
+- author: Quantus
+  changes:
+    - type: Tweak
+      message: Removed security time requirement for Changeling.
+  id: 343
+  time: '2025-05-16T02:32:30.0000000+00:00'

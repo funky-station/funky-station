@@ -40,7 +40,10 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] Grids =
         {
             "/Maps/centcomm.yml",
-            "/Maps/_Harmony/centcomm.yml", // Funky, Harmony CC version
+            "/Maps/_Harmony/centcomm.yml", // Funky, CC version
+            "/Maps/Shuttles/cargo.yml",
+            "/Maps/Shuttles/emergency.yml",
+            "/Maps/Shuttles/infiltrator.yml",
             AdminTestArenaSystem.ArenaMapPath
         };
 

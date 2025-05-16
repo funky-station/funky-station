@@ -171,6 +171,9 @@ namespace Content.Server.Chemistry.EntitySystems
             else // Container to buffer
             {
                 amount = FixedPoint2.Min(amount, containerSolution.GetReagentQuantity(id));
+                if (bufferSolution.MaxVolume.Value > 0)    //Goobstation - chemicalbuffer if no limit
+                    amount = FixedPoint2.Min(amount, containerSolution.GetReagentQuantity(id), bufferSolution.AvailableVolume);
+
                 _solutionContainerSystem.RemoveReagent(containerEntity.Value, id, amount);
 
                 var solution = isOutput ? pillBufferSolution : bufferSolution;

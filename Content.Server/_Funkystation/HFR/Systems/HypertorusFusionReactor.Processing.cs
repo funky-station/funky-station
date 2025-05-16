@@ -664,6 +664,9 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
             if (core.CriticalThresholdProximity > 650f)
                 intensity *= 1.5f;
 
+            // Bring intensity back down to something more reasonable
+            intensity = intensity * 0.5f;
+
             // Calculate slope based on intensity I guess, directly stolen from supermatter
             float slope = Math.Clamp(intensity / 15f, 0.2f, 1f);
 

@@ -1003,7 +1003,7 @@ public sealed partial class HFRConsoleWindow : FancyWindow
 
     public void SetFuelInputRate(float rate)
     {
-        rate = Math.Clamp(rate, 0.5f, 150f);
+        rate = Math.Clamp(rate, 0.1f, 150f);
         if (FuelInputRate != rate)
         {
             FuelInputRate = rate;
@@ -1013,7 +1013,7 @@ public sealed partial class HFRConsoleWindow : FancyWindow
 
     public void SetModeratorInputRate(float rate)
     {
-        rate = Math.Clamp(rate, 0.5f, 150f);
+        rate = Math.Clamp(rate, 0.1f, 150f);
         if (ModeratorInputRateSpinbox.Value != rate)
         {
             ModeratorInputRate = rate;

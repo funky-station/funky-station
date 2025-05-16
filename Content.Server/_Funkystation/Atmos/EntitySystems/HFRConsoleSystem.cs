@@ -146,7 +146,7 @@ public sealed class HFRConsoleSystem : EntitySystem
     {
         if (component.CoreUid != null && TryComp<HFRCoreComponent>(component.CoreUid, out var coreComp))
         {
-            coreComp.FuelInputRate = Math.Clamp(args.Rate, 0.5f, 150f);
+            coreComp.FuelInputRate = Math.Clamp(args.Rate, 0.1f, 150f);
             DirtyUI(uid, component);
         }
     }
@@ -155,7 +155,7 @@ public sealed class HFRConsoleSystem : EntitySystem
     {
         if (component.CoreUid != null && TryComp<HFRCoreComponent>(component.CoreUid, out var coreComp))
         {
-            coreComp.ModeratorInputRate = Math.Clamp(args.Rate, 0.5f, 150f);
+            coreComp.ModeratorInputRate = Math.Clamp(args.Rate, 0.1f, 150f);
             DirtyUI(uid, component);
         }
     }

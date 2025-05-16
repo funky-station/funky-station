@@ -583,18 +583,17 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
 
             // Determine message based on remaining time
             string message;
-            if (remainingTime > TimeSpan.FromSeconds(30))
+            if (remainingTime > TimeSpan.FromSeconds(34)) // Set to 34 so 5 second timer can take over at 30
             {
                 // Send message every 30 seconds for remaining time > 30 seconds
                 var secondsRemaining = (int)Math.Ceiling(remainingTime.TotalSeconds);
-                if (secondsRemaining % 30 != 0)
+                if (secondsRemaining % 30 != 0 || secondsRemaining == 0)
                 {
                     core.LastCountdownUpdate = _timing.CurTime;
                     return;
                 }
 
                 message = $"{DisplayTimeText(secondsRemaining, true)} remain before total integrity failure.";
-                SendHypertorusAnnouncement(coreUid, core, message, true);
             }
             else if (remainingTime > TimeSpan.FromSeconds(5))
             {
@@ -609,7 +608,7 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                 if (secondsRemaining == 10 && recipeValid && recipe != null && recipe.MeltdownFlags.HasFlag(HypertorusFlags.CriticalMeltdown))
                     _audioSystem.PlayPvs("/Audio/_Funkystation/Hypertorus/HFR_critical_explosion.ogg", coreUid, AudioParams.Default.WithVolume(100).WithMaxDistance(40));
 
-                message = $"{DisplayTimeText(secondsRemaining * 10, true)} remain before total integrity failure.";
+                message = $"{DisplayTimeText(secondsRemaining, true)} remain before total integrity failure.";
             }
             else
             {
@@ -902,14 +901,13 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
         }
 
         /**
-         * Formats time for countdown announcements
-         */
+        * Formats time for countdown announcements
+        */
         private string DisplayTimeText(int time, bool isSeconds)
         {
             if (isSeconds)
             {
-                int seconds = time / 10;
-                return $"{seconds} second{(seconds != 1 ? "s" : "")}";
+                return $"{time} second{(time != 1 ? "s" : "")}";
             }
             return string.Empty;
         }

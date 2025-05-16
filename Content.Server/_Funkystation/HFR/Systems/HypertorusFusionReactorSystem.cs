@@ -31,6 +31,7 @@ using System.Text;
 using Robust.Shared.Map;
 using Content.Server.Atmos.Components;
 using Content.Shared.Atmos.Components;
+using Content.Server.Power.Components;
 
 namespace Content.Server._Funkystation.Atmos.HFR.Systems
 {
@@ -123,6 +124,10 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                 if (TryComp<AppearanceComponent>(core.ConsoleUid.Value, out var consoleAppearance))
                 {
                     _appearanceSystem.SetData(core.ConsoleUid.Value, HFRVisuals.IsActive, isActive, consoleAppearance);
+                }
+                if (TryComp<ApcPowerReceiverComponent>(core.ConsoleUid.Value, out var consolePower))
+                {
+                    consolePower.Load = isActive ? 350000f : (core.PowerLevel > 0 ? consolePower.Load : 350f);
                 }
                 if (isActive)
                 {

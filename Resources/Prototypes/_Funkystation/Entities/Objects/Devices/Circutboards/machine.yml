@@ -12,3 +12,19 @@
       Capacitor: 2
       Steel: 5
       BSCrystal: 3
+
+- type: entity
+  id: MiningMagnetMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: mining magnet machine board
+  description: A machine printed circuit board for a mining magnet.
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: MiningMagnet
+    stackRequirements:
+      Capacitor: 4
+      Steel: 5
+      CableHV: 5
+      Cable: 2

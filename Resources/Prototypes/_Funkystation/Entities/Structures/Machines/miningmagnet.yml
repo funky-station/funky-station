@@ -1,26 +1,26 @@
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  id: SalvageMagnet
-  name: salvage magnet
-  description: Pulls in salvage.
+  id: MiningMagnet
+  name: mining magnet
+  description: A horribly rusted magnetic apparatus that brings in asteroids to be mined.
   components:
   - type: Sprite
-    sprite: Structures/Machines/salvage.rsi
+    sprite: _Funkystation/Structures/Machines/miningmagnet.rsi
     layers:
-    - state: salvage-magnet
-    - state: salvage-magnet-ready
+    - state: mining-magnet
+    - state: mining-magnet-ready
       visible: false
       map: [ "ready" ]
-    - state: salvage-magnet-ready-blinking
+    - state: mining-magnet-ready-blinking
       visible: false
       map: [ "readyBlinking" ]
-    - state: salvage-magnet-unready
+    - state: mining-magnet-unready
       visible: false
       map: [ "unready" ]
-    - state: salvage-magnet-unready-blinking
+    - state: mining-magnet-unready-blinking
       visible: false
       map: [ "unreadyBlinking" ]
-    - state: salvage-magnet-o4
+    - state: mining-magnet-o4
       map: ["chargeState"]
       shader: unshaded
   - type: ActivatableUI
@@ -44,13 +44,10 @@
   - type: Machine
     board: SalvageMagnetMachineCircuitboard
 
-# For Knightship
-- type: entity
-  parent: SalvageMagnet
-  id: SalvageLocator
-  name: salvage locator
-  description: Locates salvage.
-  components:
-  - type: SalvageMagnet
-  - type: ApcPowerReceiver
-    powerLoad: 1000
+- type: weightedRandomEntity
+  id: RandomAsteroidPool
+  weights:
+    AsteroidSalvageSmall: 3
+    AsteroidSalvageMedium: 7
+    AsteroidSalvageLarge: 5
+    AsteroidSalvageHuge: 3

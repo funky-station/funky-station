@@ -409,7 +409,10 @@
       - Antinoblium significantly increases the power of the mix.
       - High heat capacity gases are harder to heat or cool.
       - Low heat capacity gases are easier to heat or cool.
+      - The machine consumes 250 KW of power when running, so prepare the station power accordingly before turning on the HFR.
+      - Setting up multiple power generators is highly recommended before running the HFR.
       - In a power shortage, the fusion reaction continues, but cooling stops.
+      - In the event of a sustained power outage, cut all power to the HFR until power issues are sorted.
 
       [head=3]Disclaimer[/head]
       The author of this quick guide is not responsible for misuse or meltdowns caused by following this guide. Refer to advanced guides for detailed information on gas moderators.

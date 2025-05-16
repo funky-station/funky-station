@@ -23,3 +23,13 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobMagistrate
+  groups:
+  - MagistrateJumpsuit
+  - MagistrateBackpack
+  - MagistrateGavel
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool

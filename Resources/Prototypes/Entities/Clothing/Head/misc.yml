@@ -82,9 +82,9 @@
   description: To be honest, those look ridiculous.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Misc/pwig.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/pwig.rsi
   - type: Clothing
-    sprite: Clothing/Head/Misc/pwig.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/pwig.rsi
 
 - type: entity
   parent: ClothingHeadBase

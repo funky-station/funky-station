@@ -1,2 +1,5 @@
 - type: playTimeTracker
   id: JobInternalAffairsAgent
+
+- type: playTimeTracker
+  id: JobMagistrate

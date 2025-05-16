@@ -744,7 +744,7 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                     _entityManager.TryGetComponent<MapAtmosphereComponent>(mapUid, out var mapAtmos) ? mapAtmos : null
                 );
 
-                // Get tiles in circular range
+                // Get tiles in circular range for 20% gas distribution
                 var centerTile = _mapSystem.CoordinatesToTile(gridUid, gridComp, coords);
                 var tiles = new List<TileRef>();
                 var tileSize = gridComp.TileSize;
@@ -759,7 +759,7 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                     }
                 }
 
-                // Distribute fusion gas
+                // Distribute fusion gas (20% to random tiles)
                 if (core.InternalFusion != null && core.InternalFusion.TotalMoles > 0)
                 {
                     var fusionToRemove = core.InternalFusion.RemoveRatio(0.2f);
@@ -787,15 +787,9 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                             }
                         }
                     }
-                    // Dump remaining fusion gas into core tile
-                    var coreTileMixture = _atmosSystem.GetContainingMixture(coreUid, excite: false);
-                    if (coreTileMixture != null)
-                    {
-                        _atmosSystem.Merge(coreTileMixture, core.InternalFusion);
-                    }
                 }
 
-                // Distribute moderator gas
+                // Distribute moderator gas (20% to random tiles)
                 if (core.ModeratorInternal != null && core.ModeratorInternal.TotalMoles > 0)
                 {
                     var moderatorToRemove = core.ModeratorInternal.RemoveRatio(0.2f);
@@ -823,11 +817,76 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                             }
                         }
                     }
-                    // Dump remaining moderator gas into core tile
-                    var coreTileMixture = _atmosSystem.GetContainingMixture(coreUid, excite: false);
+                }
+
+                // Dump remaining gas into 3x3 area around core tile
+                var coreAreaTiles = new List<TileRef>();
+                for (int x = -1; x <= 1; x++)
+                {
+                    for (int y = -1; y <= 1; y++)
+                    {
+                        var tileIndices = centerTile + new Vector2i(x, y);
+                        if (_mapSystem.TryGetTileRef(gridUid, gridComp, tileIndices, out var tileRef) &&
+                            !tileRef.Tile.IsEmpty &&
+                            !_atmosSystem.IsTileAirBlocked(gridUid, tileIndices))
+                        {
+                            coreAreaTiles.Add(tileRef);
+                        }
+                    }
+                }
+
+                if (coreAreaTiles.Count > 0)
+                {
+                    var gasPerTile = 1f / coreAreaTiles.Count;
+
+                    // Dump remaining fusion gas into 3x3 area
+                    if (core.InternalFusion != null && core.InternalFusion.TotalMoles > 0)
+                    {
+                        foreach (var tileRef in coreAreaTiles)
+                        {
+                            var mixture = _atmosSystem.GetTileMixture(gridEntity, mapEntity, tileRef.GridIndices, excite: true);
+                            if (mixture != null)
+                            {
+                                var pocket = core.InternalFusion.RemoveRatio(gasPerTile);
+                                if (pocket != null)
+                                {
+                                    _atmosSystem.Merge(mixture, pocket);
+                                }
+                            }
+                        }
+                    }
+
+                    // Dump remaining moderator gas into 3x3 area
+                    if (core.ModeratorInternal != null && core.ModeratorInternal.TotalMoles > 0)
+                    {
+                        foreach (var tileRef in coreAreaTiles)
+                        {
+                            var mixture = _atmosSystem.GetTileMixture(gridEntity, mapEntity, tileRef.GridIndices, excite: true);
+                            if (mixture != null)
+                            {
+                                var pocket = core.ModeratorInternal.RemoveRatio(gasPerTile);
+                                if (pocket != null)
+                                {
+                                    _atmosSystem.Merge(mixture, pocket);
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    // No valid tiles in 3x3 area, dump into core tile
+                    var coreTileMixture = _atmosSystem.GetContainingMixture(coreUid, excite: true);
                     if (coreTileMixture != null)
                     {
-                        _atmosSystem.Merge(coreTileMixture, core.ModeratorInternal);
+                        if (core.InternalFusion != null && core.InternalFusion.TotalMoles > 0)
+                        {
+                            _atmosSystem.Merge(coreTileMixture, core.InternalFusion);
+                        }
+                        if (core.ModeratorInternal != null && core.ModeratorInternal.TotalMoles > 0)
+                        {
+                            _atmosSystem.Merge(coreTileMixture, core.ModeratorInternal);
+                        }
                     }
                 }
 
@@ -835,7 +894,7 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
             }
             else
             {
-                // No valid grid, dump all gas into core tile
+                // No valid grid, just dump all gas into core tile
                 var coreTileMixture = _atmosSystem.GetContainingMixture(coreUid, excite: false);
                 if (coreTileMixture != null)
                 {
@@ -861,22 +920,22 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                     ExplosionSystem.DefaultExplosionPrototypeId,
                     totalIntensity,
                     slope: 1.25f,
-                    maxTileIntensity: 100,
-                    tileBreakScale: 1f,
-                    maxTileBreak: int.MaxValue,
-                    canCreateVacuum: false,
+                    maxTileIntensity: 200,
+                    tileBreakScale: 0.1f,
+                    maxTileBreak: 1,
+                    canCreateVacuum: true,
                     user: null,
                     addLog: true
                 );
             }
 
-            // Radiation Pulse
+            // Radiation Pulse - barely worth doing but thrown in for now. Someone please replace this with something that works. 
             if (radPulse && radPulseSize > 0)
             {
                 if (_entityManager.TryGetComponent<RadiationSourceComponent>(coreUid, out var radSource))
                 {
                     radSource.Intensity = radPulseSize * 4f;
-                    radSource.Slope = Math.Clamp(radSource.Intensity / 15f, 0.2f, 1f);
+                    radSource.Slope = Math.Clamp(radSource.Intensity / 15f, 0.1f, 0.5f); // no idea
                 }
             }
 

@@ -232,7 +232,7 @@
   cost:
     Telecrystal: 100 # goob
   categories:
-  - UplinkWeapons
+  - UplinkWeaponry
   conditions:
   - !type:BuyerJobCondition # Funky string pulling to make the damn surplus crates work don't ask.
     whitelist:

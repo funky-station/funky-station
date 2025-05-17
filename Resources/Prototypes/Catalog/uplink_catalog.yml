@@ -2,7 +2,7 @@
 # Guns
 
 - type: listing
-  id: UplinkPistolViper
+  id: UplinkPistolViper1
   name: uplink-pistol-viper-name
   description: uplink-pistol-viper-desc
   productEntity: WeaponPistolViper

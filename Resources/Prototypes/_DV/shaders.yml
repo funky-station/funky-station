@@ -7,12 +7,6 @@
     textureHeight: 32
     hue: 0.64
 
-# deep-fried food
-- type: shader
-  id: Crispy
-  kind: source
-  path: "/Textures/Shaders/crispy.swsl"
-
 - type: shader
   id: SaturationShuffle
   kind: source

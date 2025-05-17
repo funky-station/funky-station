@@ -5,7 +5,6 @@ using Content.Server.Popups;
 using Content.Server.Radio.Components;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
-using Content.Shared._DV.Silicons;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;

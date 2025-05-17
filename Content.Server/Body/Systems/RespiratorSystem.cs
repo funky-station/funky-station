@@ -78,15 +78,7 @@ public sealed class RespiratorSystem : EntitySystem
             if (_mobState.IsDead(uid) || HasComp<BreathingImmunityComponent>(uid)) // Shitmed: BreathingImmunity
                 continue;
 
-            // Begin DeltaV Additions
-            var organs = _bodySystem.GetBodyOrganEntityComps<LungComponent>((uid, body));
-            var multiplier = -1f;
-            foreach (var (_, lung, _) in organs)
-            {
-                multiplier *= lung.SaturationLoss;
-            }
-            // End DeltaV Additions
-            UpdateSaturation(uid, multiplier * (float) respirator.UpdateInterval.TotalSeconds, respirator); // DeltaV: use multiplier instead of negating
+            UpdateSaturation(uid, (float) respirator.UpdateInterval.TotalSeconds, respirator);
 
             if (!_mobState.IsIncapacitated(uid) && !HasComp<DebrainedComponent>(uid)) // Shitmed Change - Cannot breathe in crit or when no brain.
             {

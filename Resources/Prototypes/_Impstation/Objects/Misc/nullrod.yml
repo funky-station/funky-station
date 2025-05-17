@@ -94,7 +94,7 @@
   - type: SolutionContainerManager
     solutions:
       grail:
-        maxVol: 200
+        maxVol: 500
   - type: MixableSolution
     solution: grail
   - type: RefillableSolution

@@ -1,3 +1,4 @@
+using System.Text;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -17,7 +18,7 @@ public sealed partial class BloodCultRuneCarverComponent : Component
 	/// <summary>
     ///     The entity to spawn (e.g. animation) while carving.
     /// </summary>
-    [DataField] public string InProgress = "PuddleSparkle";//"Flash";
+    [DataField, AutoNetworkedField] public string InProgress = "PuddleSparkle";
 
 	/// <summary>
     ///     The entity to spawn when used on self.

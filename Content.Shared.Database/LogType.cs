@@ -509,5 +509,10 @@ public enum LogType
     /// <summary>
     /// GameDirector related game interactions.
     /// </summary>
-    GameDirector = 102 // Goobstation
+    GameDirector = 102, // Goobstation
+
+    /// <summary>
+    /// Damaging grid collision has occurred.
+    /// </summary>
+    ShuttleImpact = 103
 }

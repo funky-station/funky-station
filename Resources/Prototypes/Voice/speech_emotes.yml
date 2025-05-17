@@ -336,6 +336,12 @@
 - type: emote
   id: Buzz
   name: chat-emote-name-buzz
+  whitelist:
+    tags:
+    - IPCEmotes
+    - HarpyEmotes
+    components:
+    - BorgChassis
   category: Vocal
   icon: Interface/Emotes/buzz.png
   chatMessages: ["chat-emote-msg-buzz"]
@@ -384,6 +390,12 @@
   id: Beep
   name: chat-emote-name-beep
   category: Vocal
+  whitelist:
+    tags:
+    - IPCEmotes
+    - HarpyEmotes
+    components:
+    - BorgChassis
   icon: Interface/Emotes/beep.png
   chatMessages: ["chat-emote-msg-beep"]
   chatTriggers:
@@ -395,6 +407,12 @@
 - type: emote
   id: Chime
   name: chat-emote-name-chime
+  whitelist:
+    tags:
+    - IPCEmotes
+    - HarpyEmotes
+    components:
+    - BorgChassis
   category: Vocal
   icon: Interface/Emotes/chime.png
   chatMessages: ["chat-emote-msg-chime"]
@@ -407,6 +425,12 @@
 - type: emote
   id: Buzz-Two
   name: chat-emote-name-buzztwo
+  whitelist:
+    tags:
+    - IPCEmotes
+    - HarpyEmotes
+    components:
+    - BorgChassis
   category: Vocal
   icon: Interface/Emotes/buzztwo.png
   chatMessages: ["chat-emote-msg-buzzestwo"]
@@ -425,6 +449,12 @@
 - type: emote
   id: Ping
   name: chat-emote-name-ping
+  whitelist:
+    tags:
+    - IPCEmotes
+    - HarpyEmotes
+    components:
+    - BorgChassis
   category: Vocal
   icon: Interface/Emotes/ping.png
   chatMessages: ["chat-emote-msg-ping"]
@@ -437,6 +467,10 @@
 - type: emote
   id: Yap
   name: chat-emote-name-yap
+  whitelist:
+    tags:
+    - VulpEmotes
+    - HarpyEmotes
   category: Vocal
   chatMessages: [ yaps ]
   chatTriggers:
@@ -446,7 +480,11 @@
 - type: emote
   id: Gekker
   name: chat-emote-name-gekker
-  category: Vocal  
+  whitelist:
+    tags:
+    - VulpEmotes
+    - HarpyEmotes
+  category: Vocal
   chatMessages: [ gekkers ]
   chatTriggers:
   - gekkers

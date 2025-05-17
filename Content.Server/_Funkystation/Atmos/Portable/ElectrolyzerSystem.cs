@@ -18,6 +18,8 @@ public sealed class ElectrolyzerSystem : EntitySystem
     [Dependency] private readonly PowerReceiverSystem _power = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly GasTileOverlaySystem _gasOverlaySystem = default!;
+    private float _lastPowerLoad = 100f;
+    private const float MaxPowerDecrease = 50f;
 
     public override void Initialize()
     {
@@ -42,6 +44,7 @@ public sealed class ElectrolyzerSystem : EntitySystem
         if (!Resolve(uid, ref powerReceiver))
             return;
 
+        _lastPowerLoad = 100f;
         _power.TogglePower(uid);
 
         UpdateAppearance(uid);
@@ -122,7 +125,9 @@ public sealed class ElectrolyzerSystem : EntitySystem
             powerLoad = Math.Max(activeLoad * Math.Min(proportion / 30f, 1), powerLoad);
         }
 
+        powerLoad = Math.Max(powerLoad, _lastPowerLoad - MaxPowerDecrease);
         receiver.Load = powerLoad;
+        _lastPowerLoad = powerLoad;
 
         _gasOverlaySystem.UpdateSessions();
     }

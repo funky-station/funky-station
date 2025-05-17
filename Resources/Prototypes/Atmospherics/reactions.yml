@@ -235,7 +235,7 @@
   id: HyperNobliumProduction
   priority: 7
   minimumTemperature: 2.7
-  maximumTemperature: 24
+  maximumTemperature: 15
   minimumRequirements:
   - 0     # oxygen
   - 10    # nitrogen

@@ -53,6 +53,17 @@ public sealed class BluespaceVendorSystem : EntitySystem
     {
         // Ensure container
         _slots.AddItemSlot(uid, vendor.TankContainerName, vendor.GasTankSlot);
+
+        // Check for linked sender
+        if (TryComp<BluespaceGasUtilizerComponent>(uid, out var utilizer) && utilizer.BluespaceSender != null)
+        {
+            if (TryComp<BluespaceSenderComponent>(utilizer.BluespaceSender.Value, out var sender))
+            {
+                vendor.BluespaceGasMixture = sender.BluespaceGasMixture;
+                vendor.BluespaceSenderConnected = true;
+            }
+        }
+
         DirtyUI(uid, vendor);
     }
 
@@ -132,7 +143,7 @@ public sealed class BluespaceVendorSystem : EntitySystem
     private void DirtyUI(EntityUid uid,
         BluespaceVendorComponent? vendor = null)
     {
-        if (!Resolve(uid, ref vendor))
+        if (!Resolve(uid, ref vendor) || !HasComp<MetaDataComponent>(uid))
             return;
 
         string? tankLabel = null;

@@ -1,0 +1,10 @@
+﻿- type: entity
+  parent: SeedBase
+  name: packet of catberry seeds
+  description: "Is this ethical?"
+  id: CatberrySeeds
+  components:
+  - type: Seed
+    seedId: catberry
+  - type: Sprite
+    sprite: _Funkystation/Objects/Specific/Hydroponics/catberry.rsi

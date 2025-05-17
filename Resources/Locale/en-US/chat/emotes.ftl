@@ -16,6 +16,7 @@ chat-emote-name-snap = Snap
 chat-emote-name-salute = Salute
 chat-emote-name-gasp = Gasp
 chat-emote-name-deathgasp = Deathgasp
+chat-emote-name-boop = Boop
 chat-emote-name-buzz = Buzz
 chat-emote-name-weh = Weh
 chat-emote-name-hew = Hew

@@ -279,7 +279,6 @@ namespace Content.Server.Database
                 antags.ToHashSet(),
                 traits.ToHashSet(),
                 loadouts,
-                profile.CDProfile?.Height ?? 1.0f, // CD - Character Records
                 cdRecords // CD - Character Records
             );
         }
@@ -335,7 +334,6 @@ namespace Content.Server.Database
 
             // Begin CD - Character Records
             profile.CDProfile ??= new CDModel.CDProfile();
-            profile.CDProfile.Height = humanoid.Height;
             // There are JsonIgnore annotations to ensure that entries are not stored as JSON.
             profile.CDProfile.CharacterRecords = JsonSerializer.SerializeToDocument(humanoid.CDCharacterRecords ?? PlayerProvidedCharacterRecords.DefaultRecords());
             if (humanoid.CDCharacterRecords != null)

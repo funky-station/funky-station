@@ -1,0 +1,216 @@
+﻿<controls:FancyWindow
+    MinSize="1000 750"
+    Resizable="False"
+    SetSize="1000 750"
+    Title="Medical Records"
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--
+        TODO:
+        - character information database
+        - icons for adding/removing specific entries
+        - generating entire entries
+        - generating specific entries
+        - reading autopsy info
+    -->
+    <BoxContainer
+        Align="Center"
+        HorizontalExpand="True"
+        Margin="10">
+        <Label StyleClasses="LabelBig" Text="Crewmate Name" />
+    </BoxContainer>
+
+    <ScrollContainer HScrollEnabled="False" VerticalExpand="True">
+        <BoxContainer Orientation="Vertical">
+
+            <!--  status box  -->
+            <PanelContainer Margin="5" SetSize="650, 100">
+
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BackgroundColor="#FFFFFF" />
+                </PanelContainer.PanelOverride>
+            </PanelContainer>
+
+            <PanelContainer Margin="0,5,20,5" StyleClasses="LowDivider" />
+
+            <!--  header  -->
+            <BoxContainer Margin="5" Orientation="Horizontal">
+                <Label
+                    HorizontalAlignment="Left"
+                    HorizontalExpand="True"
+                    Text="General Information" />
+                <BoxContainer Orientation="Horizontal" SetHeight="24">
+                    <Button
+                        Margin="-1"
+                        Name="GIButton"
+                        SetWidth="27"
+                        StyleClasses="ButtonSquare">
+                        <TextureRect
+                            Margin="-8,-2,0,0"
+                            Name="GIButtonArrow"
+                            TexturePath="/Textures/_EE/Interface/Supermatter/arrow_down.png"
+                            VerticalAlignment="Center" />
+                    </Button>
+                </BoxContainer>
+            </BoxContainer>
+
+            <!--  general information fills  -->
+            <BoxContainer Margin="20,0" Orientation="Vertical">
+                <BoxContainer Margin="5" Orientation="Horizontal">
+                    <Label
+                        FontColorOverride="DarkGray"
+                        Name="JobTitle"
+                        Text="Job: " />
+                    <Label Name="JobText" Text="Chemist" />
+                </BoxContainer>
+                <BoxContainer Margin="5" Orientation="Horizontal">
+                    <Label
+                        FontColorOverride="DarkGray"
+                        Name="SpeciesTitle"
+                        Text="Species: " />
+                    <Label Name="SpeciesText" Text="Lizard" />
+                </BoxContainer>
+                <BoxContainer Margin="5" Orientation="Horizontal">
+                    <Label
+                        FontColorOverride="DarkGray"
+                        Name="AgeTitle"
+                        Text="Age: " />
+                    <Label Name="AgeText" Text="43" />
+                </BoxContainer>
+                <BoxContainer Margin="5" Orientation="Horizontal">
+                    <Label
+                        FontColorOverride="DarkGray"
+                        Name="HeightTitle"
+                        Text="Height: " />
+                    <Label Name="HeightText" Text="145 cm" />
+                </BoxContainer>
+                <BoxContainer Margin="5" Orientation="Horizontal">
+                    <Label
+                        FontColorOverride="DarkGray"
+                        Name="WeightTitle"
+                        Text="Weight: " />
+                    <Label Name="WeightText" Text="41 kg" />
+                </BoxContainer>
+                <BoxContainer Margin="5" Orientation="Horizontal">
+                    <Label
+                        FontColorOverride="DarkGray"
+                        HorizontalAlignment="Left"
+                        Name="PsychTitle"
+                        Text="Psychological Evaluations: " />
+                    <Label
+                        HorizontalAlignment="Left"
+                        HorizontalExpand="True"
+                        Name="PsychText"
+                        Text="None" />
+                    <TextureButton
+                        HorizontalAlignment="Right"
+                        Name="PsychAdd"
+                        SetWidth="27"
+                        TexturePath="/Textures/_EE/Interface/Supermatter/arrow_down.png" />
+                </BoxContainer>
+            </BoxContainer>
+
+            <PanelContainer Margin="0,5,20,5" StyleClasses="LowDivider" />
+
+            <!--  header  -->
+            <BoxContainer Margin="5" Orientation="Horizontal">
+                <Label
+                    HorizontalAlignment="Left"
+                    HorizontalExpand="True"
+                    Text="Medical Information" />
+                <BoxContainer Orientation="Horizontal" SetHeight="24">
+                    <Button
+                        Margin="-1"
+                        Name="MIButton"
+                        SetWidth="27"
+                        StyleClasses="ButtonSquare">
+                        <TextureRect
+                            Margin="-8,-2,0,0"
+                            Name="MIButtonArrow"
+                            TexturePath="/Textures/_EE/Interface/Supermatter/arrow_down.png"
+                            VerticalAlignment="Center" />
+                    </Button>
+                </BoxContainer>
+            </BoxContainer>
+
+            <!--  medical information fills  -->
+            <BoxContainer Margin="20,0" Orientation="Vertical">
+                <BoxContainer Margin="5" Orientation="Horizontal">
+                    <Label
+                        FontColorOverride="DarkGray"
+                        Name="MedsTitle"
+                        Text="Prescriptions: " />
+                    <Label Name="MedsText" Text="Immunosuppressants" />
+                </BoxContainer>
+                <BoxContainer Margin="5" Orientation="Horizontal">
+                    <Label
+                        FontColorOverride="DarkGray"
+                        Name="OrgansTitle"
+                        Text="Surgical History: " />
+                    <Label Name="OrgansText" Text="Liver Replacement" />
+                </BoxContainer>
+                <BoxContainer Margin="5" Orientation="Horizontal">
+                    <Label
+                        FontColorOverride="DarkGray"
+                        Name="FingerprintsTitle"
+                        Text="Fingerprints: " />
+                    <Label Name="FingerprintsText" Text="D647DDD392DFC30988220" />
+                </BoxContainer>
+                <BoxContainer Margin="5" Orientation="Horizontal">
+                    <Label
+                        FontColorOverride="DarkGray"
+                        Name="DNATitle"
+                        Text="DNA: " />
+                    <Label Name="DNAText" Text="CGAAGCAATGGGCTAGT" />
+                </BoxContainer>
+                <BoxContainer Margin="5" Orientation="Horizontal">
+                    <Label
+                        FontColorOverride="DarkGray"
+                        Name="NotesTitle"
+                        Text="Medical Doctor's Notes: " />
+                    <Label Name="NotesText" Text="None" />
+                </BoxContainer>
+                <BoxContainer Margin="5" Orientation="Horizontal">
+                    <Label
+                        FontColorOverride="DarkGray"
+                        Name="MortemTitle"
+                        Text="Post Mortem Instructions: " />
+                    <Label Name="MortemText" Text="None" />
+                </BoxContainer>
+            </BoxContainer>
+
+            <PanelContainer Margin="0,5,20,5" StyleClasses="LowDivider" />
+
+            <!--  header  -->
+            <BoxContainer Margin="5" Orientation="Horizontal">
+                <Label
+                    HorizontalAlignment="Left"
+                    HorizontalExpand="True"
+                    Text="Autopsy Report" />
+                <BoxContainer Orientation="Horizontal" SetHeight="24">
+                    <Button
+                        Margin="-1"
+                        Name="ARButton"
+                        SetWidth="27"
+                        StyleClasses="ButtonSquare">
+                        <TextureRect
+                            Margin="-8,-2,0,0"
+                            Name="ARButtonArrow"
+                            TexturePath="/Textures/_EE/Interface/Supermatter/arrow_down.png"
+                            VerticalAlignment="Center" />
+                    </Button>
+                </BoxContainer>
+            </BoxContainer>
+
+            <BoxContainer Margin="20,0" Orientation="Vertical">
+                <RichTextLabel Name="AutopsyUndocumented" Text="This patient has not received an autopsy, or their autopsy has not been documented." />
+            </BoxContainer>
+
+
+        </BoxContainer>
+    </ScrollContainer>
+
+</controls:FancyWindow>

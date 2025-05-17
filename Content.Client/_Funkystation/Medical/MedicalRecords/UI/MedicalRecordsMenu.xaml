@@ -55,7 +55,13 @@
                     </PanelContainer.PanelOverride>
 
                     <!--  new container in the scroll, gen from there?  -->
-                    <ScrollContainer HorizontalExpand="True" VerticalExpand="True" />
+                    <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
+                        <controls:SearchListContainer
+                            HorizontalExpand="True"
+                            Margin="4,4"
+                            Name="EntryButtonList"
+                            VerticalExpand="True" />
+                    </ScrollContainer>
                 </PanelContainer>
             </BoxContainer>
 
@@ -70,10 +76,7 @@
                     Name="SearchBar"
                     PlaceHolder="Search..." />
 
-                <!--
-                    everything below this will probably have to be moved to MedicalRecordsEntry
-                    replace with a container and gen in C#
-                -->
+
                 <BoxContainer
                     Align="Center"
                     HorizontalExpand="True"
@@ -81,16 +84,18 @@
                     <Label StyleClasses="LabelBig" Text="Crewmate Name" />
                 </BoxContainer>
 
-                <ScrollContainer VerticalExpand="True">
+                <ScrollContainer HScrollEnabled="False" VerticalExpand="True">
                     <BoxContainer Orientation="Vertical">
 
                         <!--  status box  -->
-                        <PanelContainer Margin="5" SetSize="620, 100">
+                        <PanelContainer Margin="5" SetSize="650, 100">
 
                             <PanelContainer.PanelOverride>
                                 <graphics:StyleBoxFlat BackgroundColor="#FFFFFF" />
                             </PanelContainer.PanelOverride>
                         </PanelContainer>
+
+                        <PanelContainer Margin="0,5,20,5" StyleClasses="LowDivider" />
 
                         <!--  header  -->
                         <BoxContainer Margin="5" Orientation="Horizontal">
@@ -113,11 +118,63 @@
                             </BoxContainer>
                         </BoxContainer>
 
-                        <BoxContainer Margin="5" Orientation="Vertical">
-                            <RichTextLabel Text="i gotta figure out how to do line breaks" />
+                        <!--  general information fills  -->
+                        <BoxContainer Margin="20,0" Orientation="Vertical">
+                            <BoxContainer Margin="5" Orientation="Horizontal">
+                                <Label
+                                    FontColorOverride="DarkGray"
+                                    Name="JobTitle"
+                                    Text="Job: " />
+                                <Label Name="JobText" Text="Chemist" />
+                            </BoxContainer>
+                            <BoxContainer Margin="5" Orientation="Horizontal">
+                                <Label
+                                    FontColorOverride="DarkGray"
+                                    Name="SpeciesTitle"
+                                    Text="Species: " />
+                                <Label Name="SpeciesText" Text="Lizard" />
+                            </BoxContainer>
+                            <BoxContainer Margin="5" Orientation="Horizontal">
+                                <Label
+                                    FontColorOverride="DarkGray"
+                                    Name="AgeTitle"
+                                    Text="Age: " />
+                                <Label Name="AgeText" Text="43" />
+                            </BoxContainer>
+                            <BoxContainer Margin="5" Orientation="Horizontal">
+                                <Label
+                                    FontColorOverride="DarkGray"
+                                    Name="HeightTitle"
+                                    Text="Height: " />
+                                <Label Name="HeightText" Text="145 cm" />
+                            </BoxContainer>
+                            <BoxContainer Margin="5" Orientation="Horizontal">
+                                <Label
+                                    FontColorOverride="DarkGray"
+                                    Name="WeightTitle"
+                                    Text="Weight: " />
+                                <Label Name="WeightText" Text="41 kg" />
+                            </BoxContainer>
+                            <BoxContainer Margin="5" Orientation="Horizontal">
+                                <Label
+                                    FontColorOverride="DarkGray"
+                                    HorizontalAlignment="Left"
+                                    Name="PsychTitle"
+                                    Text="Psychological Evaluations: " />
+                                <Label
+                                    HorizontalAlignment="Left"
+                                    HorizontalExpand="True"
+                                    Name="PsychText"
+                                    Text="None" />
+                                <TextureButton
+                                    HorizontalAlignment="Right"
+                                    Name="PsychAdd"
+                                    SetWidth="27"
+                                    TexturePath="/Textures/_EE/Interface/Supermatter/arrow_down.png" />
+                            </BoxContainer>
                         </BoxContainer>
 
-                        <PanelContainer StyleClasses="LowDivider" />
+                        <PanelContainer Margin="0,5,20,5" StyleClasses="LowDivider" />
 
                         <!--  header  -->
                         <BoxContainer Margin="5" Orientation="Horizontal">
@@ -140,11 +197,53 @@
                             </BoxContainer>
                         </BoxContainer>
 
-                        <BoxContainer Margin="5" Orientation="Vertical">
-                            <RichTextLabel Text="i gotta figure out how to do line breaks" />
+                        <!--  medical information fills  -->
+                        <BoxContainer Margin="20,0" Orientation="Vertical">
+                            <BoxContainer Margin="5" Orientation="Horizontal">
+                                <Label
+                                    FontColorOverride="DarkGray"
+                                    Name="MedsTitle"
+                                    Text="Prescriptions: " />
+                                <Label Name="MedsText" Text="Immunosuppressants" />
+                            </BoxContainer>
+                            <BoxContainer Margin="5" Orientation="Horizontal">
+                                <Label
+                                    FontColorOverride="DarkGray"
+                                    Name="OrgansTitle"
+                                    Text="Surgical History: " />
+                                <Label Name="OrgansText" Text="Liver Replacement" />
+                            </BoxContainer>
+                            <BoxContainer Margin="5" Orientation="Horizontal">
+                                <Label
+                                    FontColorOverride="DarkGray"
+                                    Name="FingerprintsTitle"
+                                    Text="Fingerprints: " />
+                                <Label Name="FingerprintsText" Text="D647DDD392DFC30988220" />
+                            </BoxContainer>
+                            <BoxContainer Margin="5" Orientation="Horizontal">
+                                <Label
+                                    FontColorOverride="DarkGray"
+                                    Name="DNATitle"
+                                    Text="DNA: " />
+                                <Label Name="DNAText" Text="CGAAGCAATGGGCTAGT" />
+                            </BoxContainer>
+                            <BoxContainer Margin="5" Orientation="Horizontal">
+                                <Label
+                                    FontColorOverride="DarkGray"
+                                    Name="NotesTitle"
+                                    Text="Medical Doctor's Notes: " />
+                                <Label Name="NotesText" Text="None" />
+                            </BoxContainer>
+                            <BoxContainer Margin="5" Orientation="Horizontal">
+                                <Label
+                                    FontColorOverride="DarkGray"
+                                    Name="MortemTitle"
+                                    Text="Post Mortem Instructions: " />
+                                <Label Name="MortemText" Text="None" />
+                            </BoxContainer>
                         </BoxContainer>
 
-                        <PanelContainer StyleClasses="LowDivider" />
+                        <PanelContainer Margin="0,5,20,5" StyleClasses="LowDivider" />
 
                         <!--  header  -->
                         <BoxContainer Margin="5" Orientation="Horizontal">
@@ -167,14 +266,13 @@
                             </BoxContainer>
                         </BoxContainer>
 
-                        <BoxContainer Margin="5" Orientation="Vertical">
-                            <RichTextLabel Text="This patient has not received an autopsy, or their autopsy has not been documented." />
+                        <BoxContainer Margin="20,0" Orientation="Vertical">
+                            <RichTextLabel Name="AutopsyUndocumented" Text="This patient has not received an autopsy, or their autopsy has not been documented." />
                         </BoxContainer>
 
 
                     </BoxContainer>
                 </ScrollContainer>
-
             </BoxContainer>
         </BoxContainer>
 

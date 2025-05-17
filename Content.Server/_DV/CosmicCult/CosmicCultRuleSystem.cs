@@ -302,25 +302,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             }
             EnsureComp<CosmicCultLeadComponent>(picked);
 
-
-            // begin funky
-            if (CurrentTier == 0)
-            {
-                // its either the first vote, or they never placed the monument, just got elected and cryod :godo:
-            }
-            else if (TryComp<CosmicCultLeadComponent>(picked, out var lComp))
-            {
-                // need to remove the original place action
-                _actions.RemoveAction(picked, lComp.CosmicMonumentPlaceActionEntity);
-
-                if (CurrentTier == 2)
-                {
-                    // give them the option to move it, this COULD be abused, but will also prevent them from getting stuck in a situation
-                    // where leaders keep dying, and sec just fully knows where the monument is.
-                    _actions.AddAction(picked, ref lComp.CosmicMonumentMoveActionEntity, lComp.CosmicMonumentMoveAction, picked);
-                }
-            }
-            // end funky
             _adminLogger.Add(LogType.Vote, LogImpact.Medium, $"Cult stewardship vote finished: {Identity.Entity(picked, EntityManager)} is now steward.");
             _antag.SendBriefing(picked, Loc.GetString("cosmiccult-vote-steward-briefing"), Color.FromHex("#4cabb3"), _monumentAlert);
         };

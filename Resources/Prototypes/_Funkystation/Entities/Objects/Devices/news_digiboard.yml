@@ -1,0 +1,32 @@
+- type: entity
+  id: NewsDigiBoard
+  parent: BaseItem
+  name: portable news manager
+  description: Write your message to the world!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/news_digiboard.rsi
+    layers:
+    - state: news_digiboard
+  - type: Item
+    sprite: _Funkystation/Objects/Devices/news_digiboard.rsi
+    size: Normal
+  - type: MultiHandedItem
+  - type: NewsWriter
+  - type: AccessReader
+    access: [[ "Service" ]]
+  - type: ActivatableUI
+    key: enum.NewsWriterUiKey.Key
+  - type: UserInterface
+    interfaces:
+        enum.NewsWriterUiKey.Key:
+          type: NewsWriterBoundUserInterface
+  - type: Clothing
+    sprite: _Funkystation/Objects/Devices/news_digiboard.rsi
+    slots:
+    - belt
+  - type: Contraband
+    severity: Minor
+    allowedDepartments: [ Command ]
+    allowedJobs: [ Reporter ]
+

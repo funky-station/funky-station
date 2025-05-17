@@ -209,41 +209,6 @@
           - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
   saleLimit: 1
 
-- type: listing
-  id: UplinkSmugglerSatchel
-  name: uplink-smugglers-satchel-name
-  description: uplink-smugglers-satchel-desc
-  icon: { sprite: Clothing/Back/Satchels/satchel.rsi, state: icon }
-  productEntity: ClothingSatchelSmuggler
-  cost:
-    Telecrystal: 15
-  categories:
-  - UplinkDeception
 # Mechs
 
-- type: listing
-  id: UplinkDarkGygax
-  name: uplink-mech-teleporter-assault-name
-  description: uplink-mech-teleporter-assault-desc
-  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: darkgygax }
-  productEntity: CrateCybersunDarkGygaxBundle
-  cost:
-    Telecrystal: 400
-  categories:
-  - UplinkAllies
 
-- type: listing
-  id: UplinkMauler
-  name: uplink-mech-teleporter-heavy-name
-  description: uplink-mech-teleporter-heavy-desc
-  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: mauler }
-  productEntity: CrateCybersunMaulerBundle
-  cost:
-    Telecrystal: 650
-  categories:
-  - UplinkAllies
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink

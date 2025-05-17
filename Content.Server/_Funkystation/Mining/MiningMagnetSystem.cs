@@ -1,47 +1,110 @@
+// Server.SalvageSystem.Magnet used as a base with necessary things plucked from Server.SalvageSystem
 using System.Linq;
 using System.Numerics;
 using System.Threading.Tasks;
-using Content.Server.Salvage.Magnet;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Procedural;
 using Content.Shared.Radio;
-using Content.Shared.Salvage.Magnet;
+using Content.Shared._Funkystation.Mining;
 using Robust.Shared.Exceptions;
 using Robust.Shared.Map;
 
-namespace Content.Server.Salvage;
+// Prolly a lot of redundant/unneeded namespaces but I'd rather have them and not need them
+using Content.Server.Radio.EntitySystems;
+using Content.Shared.Radio;
+using Content.Shared._Funkystation.Mining;
+using Robust.Server.GameObjects;
+using Robust.Shared.Configuration;
+using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Content.Server.Chat.Managers;
+using Content.Server.Gravity;
+using Content.Server.Parallax;
+using Content.Server.Procedural;
+using Content.Server.Shuttles.Systems;
+using Content.Server.Station.Systems;
+using Content.Shared.Construction.EntitySystems;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Timing;
+using Content.Server.Labels;
+using Robust.Shared.EntitySerialization.Systems;
 
-public sealed partial class SalvageSystem
+namespace Content.Server._Funkystation.Mining;
+
+public sealed partial class MiningMagnetSystem : SharedMiningSystem
 {
     [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
+    // Ditto here from namespace comment
+    [Dependency] private readonly IChatManager _chat = default!;
+    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly ILogManager _logManager = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly AnchorableSystem _anchorable = default!;
+    [Dependency] private readonly BiomeSystem _biome = default!;
+    [Dependency] private readonly DungeonSystem _dungeon = default!;
+    [Dependency] private readonly GravitySystem _gravity = default!;
+    [Dependency] private readonly LabelSystem _labelSystem = default!;
+    [Dependency] private readonly MapLoaderSystem _loader = default!;
+    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly RadioSystem _radioSystem = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly ShuttleSystem _shuttle = default!;
+    [Dependency] private readonly ShuttleConsoleSystem _shuttleConsoles = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
     [ValidatePrototypeId<RadioChannelPrototype>]
     private const string MagnetChannel = "Supply";
 
-    private EntityQuery<SalvageMobRestrictionsComponent> _salvMobQuery;
+    private EntityQuery<MiningMobRestrictionsComponent> _salvMobQuery;
     private EntityQuery<MobStateComponent> _mobStateQuery;
 
     private List<(Entity<TransformComponent> Entity, EntityUid MapUid, Vector2 LocalPosition)> _detachEnts = new();
 
-    private void InitializeMagnet()
+    // necessary vars from Server.SalvageSystem
+    private EntityQuery<MapGridComponent> _gridQuery;
+    private EntityQuery<TransformComponent> _xformQuery;
+
+    // Fusion of Initialize() from SalvageSystem and InitializeMagnet() from SalvageSystem.Magnet
+    public override void Initialize()
     {
-        _salvMobQuery = GetEntityQuery<SalvageMobRestrictionsComponent>();
+        base.Initialize();
+
+        _gridQuery = GetEntityQuery<MapGridComponent>();
+        _xformQuery = GetEntityQuery<TransformComponent>();
+
+        _salvMobQuery = GetEntityQuery<MiningMobRestrictionsComponent>();
         _mobStateQuery = GetEntityQuery<MobStateComponent>();
 
-        SubscribeLocalEvent<SalvageMagnetDataComponent, MapInitEvent>(OnMagnetDataMapInit);
+        SubscribeLocalEvent<MiningMagnetDataComponent, MapInitEvent>(OnMagnetDataMapInit);
 
-        SubscribeLocalEvent<SalvageMagnetTargetComponent, GridSplitEvent>(OnMagnetTargetSplit);
+        SubscribeLocalEvent<MiningMagnetTargetComponent, GridSplitEvent>(OnMagnetTargetSplit);
 
-        SubscribeLocalEvent<SalvageMagnetComponent, MagnetClaimOfferEvent>(OnMagnetClaim);
-        SubscribeLocalEvent<SalvageMagnetComponent, ComponentStartup>(OnMagnetStartup);
-        SubscribeLocalEvent<SalvageMagnetComponent, AnchorStateChangedEvent>(OnMagnetAnchored);
+        SubscribeLocalEvent<MiningMagnetComponent, MagnetClaimOfferEvent>(OnMagnetClaim);
+        SubscribeLocalEvent<MiningMagnetComponent, ComponentStartup>(OnMagnetStartup);
+        SubscribeLocalEvent<MiningMagnetComponent, AnchorStateChangedEvent>(OnMagnetAnchored);
     }
 
-    private void OnMagnetClaim(EntityUid uid, SalvageMagnetComponent component, ref MagnetClaimOfferEvent args)
+    // from SalvageSystem, needed for radio announcements
+    private void Report(EntityUid source, string channelName, string messageKey, params (string, object)[] args)
+    {
+        var message = args.Length == 0 ? Loc.GetString(messageKey) : Loc.GetString(messageKey, args);
+        var channel = _prototypeManager.Index<RadioChannelPrototype>(channelName);
+        _radioSystem.SendRadioMessage(source, message, channel, source);
+    }
+
+    private void OnMagnetClaim(EntityUid uid, MiningMagnetComponent component, ref MagnetClaimOfferEvent args)
     {
         var station = _station.GetOwningStation(uid);
 
-        if (!TryComp(station, out SalvageMagnetDataComponent? dataComp) ||
+        if (!TryComp(station, out MiningMagnetDataComponent? dataComp) ||
             dataComp.EndTime != null)
         {
             return;
@@ -50,12 +113,12 @@ public sealed partial class SalvageSystem
         TakeMagnetOffer((station.Value, dataComp), args.Index, (uid, component));
     }
 
-    private void OnMagnetStartup(EntityUid uid, SalvageMagnetComponent component, ComponentStartup args)
+    private void OnMagnetStartup(EntityUid uid, MiningMagnetComponent component, ComponentStartup args)
     {
         UpdateMagnetUI((uid, component), Transform(uid));
     }
 
-    private void OnMagnetAnchored(EntityUid uid, SalvageMagnetComponent component, ref AnchorStateChangedEvent args)
+    private void OnMagnetAnchored(EntityUid uid, MiningMagnetComponent component, ref AnchorStateChangedEvent args)
     {
         if (!args.Anchored)
             return;
@@ -63,15 +126,15 @@ public sealed partial class SalvageSystem
         UpdateMagnetUI((uid, component), args.Transform);
     }
 
-    private void OnMagnetDataMapInit(EntityUid uid, SalvageMagnetDataComponent component, ref MapInitEvent args)
+    private void OnMagnetDataMapInit(EntityUid uid, MiningMagnetDataComponent component, ref MapInitEvent args)
     {
         CreateMagnetOffers((uid, component));
     }
 
-    private void OnMagnetTargetSplit(EntityUid uid, SalvageMagnetTargetComponent component, ref GridSplitEvent args)
+    private void OnMagnetTargetSplit(EntityUid uid, MiningMagnetTargetComponent component, ref GridSplitEvent args)
     {
         // Don't think I'm not onto you people splitting to make new grids.
-        if (TryComp(component.DataTarget, out SalvageMagnetDataComponent? dataComp))
+        if (TryComp(component.DataTarget, out MiningMagnetDataComponent? dataComp))
         {
             foreach (var gridUid in args.NewGrids)
             {
@@ -80,9 +143,10 @@ public sealed partial class SalvageSystem
         }
     }
 
-    private void UpdateMagnet()
+    // Fusion of Update() from SalvageSystem and UpdateMagnet() from SalvageSystem.Magnet
+    public override void Update(float frameTime)
     {
-        var dataQuery = EntityQueryEnumerator<SalvageMagnetDataComponent>();
+        var dataQuery = EntityQueryEnumerator<MiningMagnetDataComponent>();
         var curTime = _timing.CurTime;
 
         while (dataQuery.MoveNext(out var uid, out var magnetData))
@@ -101,7 +165,7 @@ public sealed partial class SalvageSystem
                     if (magnet != null)
                     {
                         Report(magnet.Value.Owner, MagnetChannel,
-                            "salvage-system-announcement-losing",
+                            "mining-system-announcement-losing",
                             ("timeLeft", (magnetData.EndTime.Value - curTime).Seconds));
                     }
 
@@ -118,12 +182,12 @@ public sealed partial class SalvageSystem
     /// <summary>
     /// Ends the magnet attachment and deletes the relevant grids.
     /// </summary>
-    private void EndMagnet(Entity<SalvageMagnetDataComponent> data)
+    private void EndMagnet(Entity<MiningMagnetDataComponent> data)
     {
         if (data.Comp.ActiveEntities != null)
         {
             // Handle mobrestrictions getting deleted
-            var query = AllEntityQuery<SalvageMobRestrictionsComponent>();
+            var query = AllEntityQuery<MiningMobRestrictionsComponent>();
 
             while (query.MoveNext(out var salvUid, out var salvMob))
             {
@@ -183,7 +247,7 @@ public sealed partial class SalvageSystem
         UpdateMagnetUIs(data);
     }
 
-    private void CreateMagnetOffers(Entity<SalvageMagnetDataComponent> data)
+    private void CreateMagnetOffers(Entity<MiningMagnetDataComponent> data)
     {
         data.Comp.Offered.Clear();
 
@@ -209,9 +273,9 @@ public sealed partial class SalvageSystem
     }
 
     // Just need something to announce.
-    private Entity<SalvageMagnetComponent>? GetMagnet(Entity<SalvageMagnetDataComponent> data)
+    private Entity<MiningMagnetComponent>? GetMagnet(Entity<MiningMagnetDataComponent> data)
     {
-        var query = AllEntityQuery<SalvageMagnetComponent, TransformComponent>();
+        var query = AllEntityQuery<MiningMagnetComponent, TransformComponent>();
 
         while (query.MoveNext(out var magnetUid, out var magnet, out var xform))
         {
@@ -226,15 +290,15 @@ public sealed partial class SalvageSystem
         return null;
     }
 
-    private void UpdateMagnetUI(Entity<SalvageMagnetComponent> entity, TransformComponent xform)
+    private void UpdateMagnetUI(Entity<MiningMagnetComponent> entity, TransformComponent xform)
     {
         var station = _station.GetOwningStation(entity, xform);
 
-        if (!TryComp(station, out SalvageMagnetDataComponent? dataComp))
+        if (!TryComp(station, out MiningMagnetDataComponent? dataComp))
             return;
 
-        _ui.SetUiState(entity.Owner, SalvageMagnetUiKey.Key,
-            new SalvageMagnetBoundUserInterfaceState(dataComp.Offered)
+        _ui.SetUiState(entity.Owner, MiningMagnetUiKey.Key,
+            new MiningMagnetBoundUserInterfaceState(dataComp.Offered)
             {
                 Cooldown = dataComp.OfferCooldown,
                 Duration = dataComp.ActiveTime,
@@ -244,9 +308,9 @@ public sealed partial class SalvageSystem
             });
     }
 
-    private void UpdateMagnetUIs(Entity<SalvageMagnetDataComponent> data)
+    private void UpdateMagnetUIs(Entity<MiningMagnetDataComponent> data)
     {
-        var query = AllEntityQuery<SalvageMagnetComponent, TransformComponent>();
+        var query = AllEntityQuery<MiningMagnetComponent, TransformComponent>();
 
         while (query.MoveNext(out var magnetUid, out var magnet, out var xform))
         {
@@ -255,8 +319,8 @@ public sealed partial class SalvageSystem
             if (station != data.Owner)
                 continue;
 
-            _ui.SetUiState(magnetUid, SalvageMagnetUiKey.Key,
-                new SalvageMagnetBoundUserInterfaceState(data.Comp.Offered)
+            _ui.SetUiState(magnetUid, MiningMagnetUiKey.Key,
+                new MiningMagnetBoundUserInterfaceState(data.Comp.Offered)
                 {
                     Cooldown = data.Comp.OfferCooldown,
                     Duration = data.Comp.ActiveTime,
@@ -267,11 +331,11 @@ public sealed partial class SalvageSystem
         }
     }
 
-    private async Task TakeMagnetOffer(Entity<SalvageMagnetDataComponent> data, int index, Entity<SalvageMagnetComponent> magnet)
+    private async Task TakeMagnetOffer(Entity<MiningMagnetDataComponent> data, int index, Entity<MiningMagnetComponent> magnet)
     {
         var seed = data.Comp.Offered[index];
 
-        var offering = GetSalvageOffering(seed);
+        var offering = GetMiningOffering(seed);
         var salvMap = _mapSystem.CreateMap();
         var salvMapXform = Transform(salvMap);
 
@@ -283,21 +347,9 @@ public sealed partial class SalvageSystem
 
         switch (offering)
         {
-            case DebrisOffering debris:
-                var debrisProto = _prototypeManager.Index<DungeonConfigPrototype>(debris.Id);
-                var debrisGrid = _mapManager.CreateGridEntity(salvMap);
-                await _dungeon.GenerateDungeonAsync(debrisProto, debrisGrid.Owner, debrisGrid.Comp, Vector2i.Zero, seed);
-                break;
-            case SalvageOffering wreck:
-                var salvageProto = wreck.SalvageMap;
-
-                if (!_loader.TryLoadGrid(salvMapXform.MapID, salvageProto.MapPath, out _))
-                {
-                    Report(magnet, MagnetChannel, "salvage-system-announcement-spawn-debris-disintegrated");
-                    _mapSystem.DeleteMap(salvMapXform.MapID);
-                    return;
-                }
-
+            case AsteroidOffering asteroid:
+                var grid = _mapManager.CreateGridEntity(salvMap);
+                await _dungeon.GenerateDungeonAsync(asteroid.DungeonConfig, grid.Owner, grid.Comp, Vector2i.Zero, seed);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -307,7 +359,7 @@ public sealed partial class SalvageSystem
 
         if (salvMapXform.ChildCount == 0)
         {
-            Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-spawn-no-debris-available");
+            Report(magnet.Owner, MagnetChannel, "mining-system-announcement-spawn-no-debris-available");
             return;
         }
 
@@ -323,9 +375,9 @@ public sealed partial class SalvageSystem
             bounds = bounds?.Union(childAABB) ?? childAABB;
 
             // Update mass scanner names as relevant.
-            if (offering is DebrisOffering)
+            if (offering is AsteroidOffering)
             {
-                _metaData.SetEntityName(mapChild, Loc.GetString("salvage-asteroid-name"));
+                _metaData.SetEntityName(mapChild, Loc.GetString("mining-asteroid-name"));
                 _gravity.EnableGravity(mapChild);
             }
         }
@@ -354,7 +406,7 @@ public sealed partial class SalvageSystem
 
         if (!TryGetSalvagePlacementLocation(magnet, mapId, attachedBounds, bounds!.Value, worldAngle, out var spawnLocation, out var spawnAngle))
         {
-            Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-spawn-no-debris-available");
+            Report(magnet.Owner, MagnetChannel, "magnet-system-announcement-spawn-no-debris-available");
             _mapSystem.DeleteMap(salvMapXform.MapID);
             return;
         }
@@ -391,12 +443,12 @@ public sealed partial class SalvageSystem
             }
         }
 
-        Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-arrived", ("timeLeft", data.Comp.ActiveTime.TotalSeconds));
+        Report(magnet.Owner, MagnetChannel, "mining-system-announcement-arrived", ("timeLeft", data.Comp.ActiveTime.TotalSeconds));
         _mapSystem.DeleteMap(salvMapXform.MapID);
 
         data.Comp.Announced = false;
 
-        var active = new SalvageMagnetActivatedEvent()
+        var active = new MiningMagnetActivatedEvent()
         {
             Magnet = magnet,
         };
@@ -404,7 +456,8 @@ public sealed partial class SalvageSystem
         RaiseLocalEvent(ref active);
     }
 
-    private bool TryGetSalvagePlacementLocation(Entity<SalvageMagnetComponent> magnet, MapId mapId, Box2Rotated attachedBounds, Box2 bounds, Angle worldAngle, out MapCoordinates coords, out Angle angle)
+
+    private bool TryGetSalvagePlacementLocation(Entity<MiningMagnetComponent> magnet, MapId mapId, Box2Rotated attachedBounds, Box2 bounds, Angle worldAngle, out MapCoordinates coords, out Angle angle)
     {
         var attachedAABB = attachedBounds.CalcBoundingBox();
         var magnetPos = _transform.GetWorldPosition(magnet) + worldAngle.ToVec() * bounds.MaxDimension;
@@ -443,7 +496,7 @@ public sealed partial class SalvageSystem
 }
 
 [ByRefEvent]
-public record struct SalvageMagnetActivatedEvent
+public record struct MiningMagnetActivatedEvent
 {
     public EntityUid Magnet;
 }

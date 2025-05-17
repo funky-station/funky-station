@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Threading.Tasks;
 using Content.Server.Parallax;
 using Content.Shared.Maps;
@@ -34,17 +43,23 @@ public sealed partial class DungeonJob
 
             if (dunGen.TileMask is not null)
             {
-                if (!dunGen.TileMask.Contains(((ContentTileDefinition)_tileDefManager[tileRef.Value.Tile.TypeId]).ID))
+                if (!dunGen.TileMask.Contains(((ContentTileDefinition) _tileDefManager[tileRef.Value.Tile.TypeId]).ID))
+                    continue;
+            }
+
+            if (dunGen.TileMask is not null)
+            {
+                if (!dunGen.TileMask.Contains(((ContentTileDefinition) _tileDefManager[tileRef.Value.Tile.TypeId]).ID))
                     continue;
             }
 
             // Need to set per-tile to override data.
-            if (biomeSystem.TryGetTile(node, indexedBiome.Layers, seed, (_gridUid, _grid), out var tile))
+            if (biomeSystem.TryGetTile(node, indexedBiome.Layers, seed, _grid, out var tile))
             {
                 _maps.SetTile(_gridUid, _grid, node, tile.Value);
             }
 
-            if (biomeSystem.TryGetDecals(node, indexedBiome.Layers, seed, (_gridUid, _grid), out var decals))
+            if (biomeSystem.TryGetDecals(node, indexedBiome.Layers, seed, _grid, out var decals))
             {
                 foreach (var decal in decals)
                 {
@@ -52,7 +67,7 @@ public sealed partial class DungeonJob
                 }
             }
 
-            if (biomeSystem.TryGetEntity(node, indexedBiome.Layers, tile ?? tileRef.Value.Tile, seed, (_gridUid, _grid), out var entityProto))
+            if (biomeSystem.TryGetEntity(node, indexedBiome.Layers, tile ?? tileRef.Value.Tile, seed, _grid, out var entityProto))
             {
                 var ent = _entManager.SpawnEntity(entityProto, new EntityCoordinates(_gridUid, node + _grid.TileSizeHalfVector));
                 var xform = xformQuery.Get(ent);

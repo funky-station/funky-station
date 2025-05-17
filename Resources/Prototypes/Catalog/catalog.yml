@@ -201,8 +201,6 @@
   categories:
   - UplinkWeaponry
   conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
   - !type:BuyerJobCondition # Funky string pulling to make the damn surplus crates work don't ask.
     whitelist:
     - Captain
@@ -236,8 +234,6 @@
   categories:
   - UplinkWeapons
   conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
   - !type:BuyerJobCondition # Funky string pulling to make the damn surplus crates work don't ask.
     whitelist:
     - Captain
@@ -845,6 +841,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkDeception
+  saleLimit: 1
 
 # Disruption
 
@@ -857,6 +854,7 @@
     Telecrystal: 30
   categories:
   - UplinkDisruption
+  saleLimit: 1
 
 - type: listing
   id: UplinkEmag
@@ -2243,12 +2241,10 @@
   icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: darkgygax }
   productEntity: CrateCybersunDarkGygaxBundle
   cost:
-    Telecrystal: 300 #Funky
+    Telecrystal: 500 #Funky
   categories:
   - UplinkAllies
   conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
   - !type:BuyerJobCondition # Funky string pulling to make the damn surplus crates work don't ask.
     whitelist:
     - Captain
@@ -2270,6 +2266,24 @@
     whitelist:
       tags:
       - NukeOpsUplink
+  saleLimit: 1
+
+
+# Funky duplicate to fix surplus bundle, this one cannot be bought ignore
+- type: listing
+  id: UplinkMauler
+  name: uplink-mech-teleporter-heavy-name
+  description: uplink-mech-teleporter-heavy-desc
+  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: mauler }
+  productEntity: CrateCybersunMaulerBundle
+  cost:
+    Telecrystal: 600 # Funky
+  categories:
+  - UplinkAllies
+  conditions:
+  - !type:BuyerJobCondition # Funky string pulling to make the damn surplus crates work don't ask.
+    whitelist:
+    - Captain
   saleLimit: 1
 
 

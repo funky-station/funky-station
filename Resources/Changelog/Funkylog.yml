@@ -2771,3 +2771,11 @@ Entries:
       message: Removed security time requirement for Changeling.
   id: 343
   time: '2025-05-16T02:32:30.0000000+00:00'
+- author: ' oLykos'
+  changes:
+    - type: Add
+      message: >-
+        Moths have a new "Soft Eyes" marking option with accompanying
+        heterochromia
+  id: 344
+  time: '2025-05-17T01:21:33.0000000+00:00'

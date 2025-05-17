@@ -2271,7 +2271,7 @@
 
 # Funky duplicate to fix surplus bundle, this one cannot be bought ignore
 - type: listing
-  id: UplinkMauler
+  id: UplinkMaulerSurplus
   name: uplink-mech-teleporter-heavy-name
   description: uplink-mech-teleporter-heavy-desc
   icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: mauler }

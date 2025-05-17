@@ -80,7 +80,7 @@ public sealed class MindShieldSystem : EntitySystem
         }
 
         if (_mindSystem.TryGetMind(implanted, out var mindId, out _) &&
-            _roleSystem.MindTryRemoveRole<RevolutionaryRoleComponent>(mindId))
+            _roleSystem.MindRemoveRole<RevolutionaryRoleComponent>(mindId))
         {
             if (HasComp<ShowRevolutionaryIconsComponent>(implanted))
                 RemComp<ShowRevolutionaryIconsComponent>(implanted);

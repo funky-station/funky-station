@@ -332,5 +332,18 @@ namespace Content.Server.Zombies
         {
             UnZombify(ent.Owner, args.CloneUid, ent.Comp);
         }
+
+        // Make sure players that enter a zombie (for example via a ghost role or the mind swap spell) count as an antagonist.
+        private void OnMindAdded(Entity<ZombieComponent> ent, ref MindAddedMessage args)
+        {
+            if (!_role.MindHasRole<ZombieRoleComponent>(args.Mind))
+                _role.MindAddRole(args.Mind, "MindRoleZombie", mind: args.Mind.Comp);
+        }
+
+        // Remove the role when getting cloned, getting gibbed and borged, or leaving the body via any other method.
+        private void OnMindRemoved(Entity<ZombieComponent> ent, ref MindRemovedMessage args)
+        {
+            _role.MindRemoveRole<ZombieRoleComponent>((args.Mind.Owner,  args.Mind.Comp));
+        }
     }
 }

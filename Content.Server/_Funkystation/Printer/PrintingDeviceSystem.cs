@@ -24,20 +24,13 @@ public sealed partial class PrintingDeviceSystem : SharedPrintingDeviceSystem
     private void OnPrintingDeviceRequest(Entity<PrintingDeviceComponent> ent, ref PrintingDevicePrintRequestMessage msg)
     {
         var template = _prototypeManager.Index<DocumentTemplatePrototype>(msg.Template.Id);
-        var text = template.Text;
         
         // replace all template strings with those found in msg
-        foreach (var val in msg.Data)
-        { 
-            text = text.Replace($"$({val.Key})", val.Value);
-        }
-        
-        Log.Debug(msg.Data.ToString()!);
+        var text = msg.Data.Aggregate(template.Text, (current, val) => current.Replace($"$({val.Key})", val.Value));
         
         var entXform = Transform(ent).Coordinates;
-
         var paper = SpawnAtPosition(template.PaperType, entXform);
-
+        
         if (!TryComp<PaperComponent>(paper, out var comp))
             return;
 

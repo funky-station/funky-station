@@ -53,8 +53,9 @@ public sealed partial class AnomalySystem
             _appearance.SetData(uid, AnomalyScannerVisuals.HasAnomaly, false);
             _appearance.SetData(uid, AnomalyScannerVisuals.AnomalyIsSupercritical, false);
             _appearance.SetData(uid, AnomalyScannerVisuals.AnomalyNextPulse, 0);
+            _appearance.SetData(uid, AnomalyScannerVisuals.AnomalySeverity, 0);
+            _appearance.SetData(uid, AnomalyScannerVisuals.AnomalyStability, AnomalyStabilityVisuals.Stable);
         }
-
     }
 
     private void OnScannerAnomalySeverityChanged(ref AnomalySeverityChangedEvent args)

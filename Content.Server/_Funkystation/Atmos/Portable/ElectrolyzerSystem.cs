@@ -86,7 +86,7 @@ public sealed class ElectrolyzerSystem : EntitySystem
         {
             var maxProportion = 2.5f * (float) Math.Pow(workingPower, 2);
             var proportion = Math.Min(initH2O * 0.5f, maxProportion);
-            var temperatureEfficiency = Math.Min(mixture.Temperature / 1123.15f * 0.75f, 0.75f);
+            var temperatureEfficiency = Math.Min(mixture.Temperature / 1123.15f * 0.8f, 0.8f); // To prevent closed loop burn systems, gases "evaporate" until we have another solution.
 
             var h2oRemoved = proportion * 2f;
             var oxyProduced = proportion * temperatureEfficiency;

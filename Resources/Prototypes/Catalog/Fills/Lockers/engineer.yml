@@ -143,6 +143,7 @@
       - id: HolofanProjector
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
       - id: ClothingBackpackFirefighterTank
+      - id: AirGrenade
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -160,6 +161,7 @@
       - id: HolofanProjector
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
       - id: ClothingBackpackFirefighterTank
+      - id: AirGrenade
 
 - type: entity
   id: LockerEngineerFilledHardsuit

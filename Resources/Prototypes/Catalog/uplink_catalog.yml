@@ -186,6 +186,27 @@
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT
 
+
+
+
+# Funky duplicate to fix surplus bundle, this one cannot be bought ignore
+- type: listing
+  id: UplinkGrenadeLauncherBundleSurplus
+  name: uplink-grenade-launcher-bundle-name
+  description: uplink-grenade-launcher-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+  cost:
+    Telecrystal: 150 # goob
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:BuyerJobCondition # Funky string pulling to make the damn surplus crates work don't ask.
+    whitelist:
+    - Captain
+  saleBlacklist: true
+
+
 - type: listing
   id: UplinkGrenadeLauncherBundle
   name: uplink-grenade-launcher-bundle-name
@@ -200,6 +221,24 @@
   - !type:WarOpsCondition
   saleBlacklist: true
 
+
+# Funky duplicate to fix surplus bundle, this one cannot be bought ignore
+- type: listing
+  id: UplinkL6SawBundleSurplus
+  name: uplink-l6-saw-bundle-name
+  description: uplink-l6-saw-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledLMG
+  cost:
+    Telecrystal: 100 # goob
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:BuyerJobCondition # Funky string pulling to make the damn surplus crates work don't ask.
+    whitelist:
+    - Captain
+  saleLimit: 1
+
 - type: listing
   id: UplinkL6SawBundle
   name: uplink-l6-saw-bundle-name
@@ -212,6 +251,7 @@
   - UplinkWeaponry
   conditions: # Funky war ops whitelisting
   - !type:WarOpsCondition
+  saleLimit: 1
 
 
 # Explosives
@@ -801,6 +841,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkDeception
+  saleLimit: 1
 
 # Disruption
 
@@ -813,6 +854,7 @@
     Telecrystal: 30
   categories:
   - UplinkDisruption
+  saleLimit: 1
 
 - type: listing
   id: UplinkEmag
@@ -966,7 +1008,7 @@
   description: uplink-surplus-bundle-desc
   productEntity: CrateSyndicateSurplusBundle
   cost:
-    Telecrystal: 80 # goob
+    Telecrystal: 100 # goob
   categories:
   - UplinkDisruption
   conditions:
@@ -986,7 +1028,7 @@
   description: uplink-super-surplus-bundle-desc
   productEntity: CrateSyndicateSuperSurplusBundle
   cost:
-    Telecrystal: 160 # goob
+    Telecrystal: 180 # goob
   categories:
   - UplinkDisruption
   conditions:
@@ -2177,6 +2219,7 @@
     whitelist:
     - Chef
     - Mime
+
   saleLimit: 1 # WD EDIT
 
 - type: listing
@@ -2190,7 +2233,22 @@
   - UplinkDeception
   saleLimit: 1 # WD EDIT
 
-
+# Funky duplicate to fix surplus bundle, this one cannot be bought ignore
+- type: listing
+  id: UplinkDarkGygaxSurplus
+  name: uplink-mech-teleporter-assault-name
+  description: uplink-mech-teleporter-assault-desc
+  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: darkgygax }
+  productEntity: CrateCybersunDarkGygaxBundle
+  cost:
+    Telecrystal: 500 #Funky
+  categories:
+  - UplinkAllies
+  conditions:
+  - !type:BuyerJobCondition # Funky string pulling to make the damn surplus crates work don't ask.
+    whitelist:
+    - Captain
+  saleLimit: 1
 
 - type: listing
   id: UplinkDarkGygax
@@ -2204,7 +2262,30 @@
   - UplinkAllies
   conditions:
   - !type:WarOpsCondition
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
   saleLimit: 1
+
+
+# Funky duplicate to fix surplus bundle, this one cannot be bought ignore
+- type: listing
+  id: UplinkMaulerSurplus
+  name: uplink-mech-teleporter-heavy-name
+  description: uplink-mech-teleporter-heavy-desc
+  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: mauler }
+  productEntity: CrateCybersunMaulerBundle
+  cost:
+    Telecrystal: 600 # Funky
+  categories:
+  - UplinkAllies
+  conditions:
+  - !type:BuyerJobCondition # Funky string pulling to make the damn surplus crates work don't ask.
+    whitelist:
+    - Captain
+  saleLimit: 1
+
 
 - type: listing
   id: UplinkMauler

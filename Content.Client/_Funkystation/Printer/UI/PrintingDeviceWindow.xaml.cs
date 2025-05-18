@@ -52,7 +52,8 @@ public sealed partial class PrintingDeviceWindow : DefaultWindow
         var newField = new LineEdit();
 
         container.Orientation = BoxContainer.LayoutOrientation.Vertical;
-        container.HorizontalExpand = true;
+        container.VerticalExpand = true;
+        container.VerticalAlignment = VAlignment.Stretch;
         
         newField.PlaceHolder = fieldTitle;
         textLabel.Text = fieldTitle;
@@ -82,6 +83,8 @@ public sealed partial class PrintingDeviceWindow : DefaultWindow
 
     public void PopulateFields(Dictionary<string, string> fields)
     {
+        TemplateContainer.RemoveAllChildren();
+        
         foreach (var field in fields)
         {
             var newField = CreateField(field.Key, field.Value);

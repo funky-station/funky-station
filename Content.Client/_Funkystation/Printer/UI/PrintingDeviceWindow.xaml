@@ -9,12 +9,12 @@
             <OptionButton Name="TemplateSelector" HorizontalExpand="True" />
         </BoxContainer>
         <Control HorizontalExpand="True" MinHeight="20" />
-        <BoxContainer Name="TemplateContainer" Orientation="Horizontal" HorizontalExpand="True">
+        <BoxContainer Name="TemplateContainer" Orientation="Vertical" HorizontalExpand="True">
             <!--  populated by template data by code  -->
         </BoxContainer>
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
             <Button Name="PrintButton"
-                    Text="{Loc 'fax-machine-ui-send-button'}"
+                    Text="{Loc 'printing-device-ui-print-button'}"
                     HorizontalExpand="True"
                     Disabled="True" />
         </BoxContainer>

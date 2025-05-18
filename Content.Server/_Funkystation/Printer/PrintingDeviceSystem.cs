@@ -9,6 +9,7 @@ namespace Content.Server._Funkystation.Printer;
 public sealed partial class PrintingDeviceSystem : SharedPrintingDeviceSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly PaperSystem _paperSystem = default!;
     
     public override void Initialize()
     {
@@ -26,14 +27,14 @@ public sealed partial class PrintingDeviceSystem : SharedPrintingDeviceSystem
         var template = _prototypeManager.Index<DocumentTemplatePrototype>(msg.Template.Id);
         
         // replace all template strings with those found in msg
-        var text = msg.Data.Aggregate(template.Text, (current, val) => current.Replace($"$({val.Key})", val.Value));
+        var text = msg.Data.Aggregate(Loc.GetString(template.Text), (current, val) => current.Replace($"$({val.Key})", val.Value));
         
         var entXform = Transform(ent).Coordinates;
         var paper = SpawnAtPosition(template.PaperType, entXform);
         
         if (!TryComp<PaperComponent>(paper, out var comp))
             return;
-
-        comp.Content = text;
+        
+        _paperSystem.SetContent((paper, comp), text);
     }
 }

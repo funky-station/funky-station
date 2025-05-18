@@ -269,6 +269,10 @@ namespace Content.Server.Communications
 			if (canTTS)
 				announcementWords = AnnounceTtsSystem.PrepareTtsMessage((string)msg);
 			msg += "\n" + Loc.GetString("comms-console-announcement-sent-by") + " " + author;
+            
+            if (comp.AnnounceSentBy)
+                msg += "\n" + Loc.GetString("comms-console-announcement-sent-by") + " " + author;
+
             if (comp.Global)
             {
                 _chatSystem.DispatchGlobalAnnouncement(msg, title, announcementSound: comp.Sound, colorOverride: comp.Color, announcementWords: announcementWords);

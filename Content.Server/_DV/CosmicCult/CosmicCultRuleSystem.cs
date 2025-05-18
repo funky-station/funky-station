@@ -266,9 +266,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         var cultQuery = EntityQueryEnumerator<CosmicCultComponent, MetaDataComponent>();
         while (cultQuery.MoveNext(out var cult, out _, out var metadata))
         {
-            if (TryComp<CosmicCultLeadComponent>(cult, out _)) // funky station
-                continue;
-
             var playerInfo = metadata.EntityName;
             cultists.Add((playerInfo, cult));
         }
@@ -566,6 +563,12 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     }
 
     // begin funky
+    /// <summary>
+    /// if the steward cryos or ghosts (not dies),
+    /// then call a revote to elect a new one
+    /// </summary>
+    /// <remarks>generally only so that stewards can be revoted without admin intervention.
+    /// if it causes issues, this is easy to remove</remarks>
     private void HandleMindRemoved(EntityUid uid, CosmicCultLeadComponent comp, ref MindRemovedMessage args)
     {
         var sender = Loc.GetString("cosmiccult-announcement-sender");
@@ -585,7 +588,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         var allCultists = Filter.Empty().FromEntities(cultistsList.ToArray<EntityUid>());
         _chatSystem.DispatchFilteredAnnouncement(allCultists, Loc.GetString("cosmiccult-leader-abandonment-message"), sender: sender, playSound: false, colorOverride: Color.FromHex("#4eb1b1"));
 
-        Timer.Spawn(TimeSpan.FromSeconds(10), () => { StewardVote(); });
+        Timer.Spawn(TimeSpan.FromSeconds(30), () => { StewardVote(); });
     }
     // end funky
 

@@ -119,6 +119,7 @@
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
       - id: RCD
       - id: RCDAmmo
+      - id: AirGrenade
       - id: ClothingBackpackFirefighterTank
 
 - type: entity
@@ -138,6 +139,7 @@
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
       - id: RCD
       - id: RCDAmmo
+      - id: AirGrenade
       - id: ClothingBackpackFirefighterTank
 
 - type: entity

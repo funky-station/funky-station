@@ -2771,3 +2771,27 @@ Entries:
       message: Removed security time requirement for Changeling.
   id: 343
   time: '2025-05-16T02:32:30.0000000+00:00'
+- author: ' oLykos'
+  changes:
+    - type: Add
+      message: >-
+        Moths have a new "Soft Eyes" marking option with accompanying
+        heterochromia
+  id: 344
+  time: '2025-05-17T01:21:33.0000000+00:00'
+- author: UristMcWiki
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Syndie rework not allowing surplus crates to contain WarOps
+        content.
+  id: 345
+  time: '2025-05-18T01:48:00.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: >-
+        Hydrogen fire reactions have been slightly reworked to more closely
+        follow original mechanics
+  id: 346
+  time: '2025-05-18T19:24:57.0000000+00:00'

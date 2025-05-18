@@ -42,4 +42,6 @@ public enum DeliveryVisualLayers : byte
     PriorityTape,
     Breakage,
     Trash,
+    Bomb,
+    BombPrimed,
 }

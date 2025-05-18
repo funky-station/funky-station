@@ -1,0 +1,8 @@
+- type: printerDocumentTemplate
+  id: basicWarrant
+  templateName: Warrant
+  paperType: PaperOffice
+  text: >
+    $(test) $(test) $(test) $(test) $(test)
+  fields:
+    test: "Test Field"

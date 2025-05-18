@@ -2,7 +2,7 @@ using Content.Shared._Funkystation.Printer;
 
 namespace Content.Client._Funkystation.Printer;
 
-public sealed class PrintingDeviceSystem : SharedPrintingDeviceSystem
+public sealed partial class PrintingDeviceSystem : SharedPrintingDeviceSystem
 {
     
 }

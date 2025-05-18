@@ -8,13 +8,8 @@
             <Control MinWidth="4" />
             <OptionButton Name="TemplateSelector" HorizontalExpand="True" />
         </BoxContainer>
-        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-            <Label Text="{Loc 'printing-device-ui-paper-type'}" />
-            <Control MinWidth="4" />
-            <OptionButton Name="PaperTypeSelector" HorizontalExpand="True" />
-        </BoxContainer>
         <Control HorizontalExpand="True" MinHeight="20" />
-        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+        <BoxContainer Name="TemplateContainer" Orientation="Horizontal" HorizontalExpand="True">
             <!--  populated by template data by code  -->
         </BoxContainer>
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True">

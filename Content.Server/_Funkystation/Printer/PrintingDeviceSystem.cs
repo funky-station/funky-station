@@ -14,31 +14,26 @@ public sealed partial class PrintingDeviceSystem : SharedPrintingDeviceSystem
     {
         base.Initialize();
         
-        SubscribeLocalEvent<PrintingDeviceComponent, MapInitEvent>(OnMapInit);
-        
         Subs.BuiEvents<PrintingDeviceComponent>(PrintingDeviceUiKey.Key,
             subs =>
             {
                 subs.Event<PrintingDevicePrintRequestMessage>(OnPrintingDeviceRequest);
             });
     }
-    
-    private void OnMapInit(EntityUid uid, PrintingDeviceComponent component, ref MapInitEvent args)
-    {
-        var documentTemplates = _prototypeManager.EnumeratePrototypes<DocumentTemplatePrototype>();
-        
-        // todo: add support for different types of printers having different documents
-        foreach (var template in documentTemplates) 
-            component.AvailableTemplates.Add(template);
-    }
 
     private void OnPrintingDeviceRequest(Entity<PrintingDeviceComponent> ent, ref PrintingDevicePrintRequestMessage msg)
     {
         var template = _prototypeManager.Index<DocumentTemplatePrototype>(msg.Template.Id);
+        var text = template.Text;
         
         // replace all template strings with those found in msg
-        var text = msg.Data.Aggregate(template.Text, (current, dataEntry) => current.Replace($"[{dataEntry.Key}]", dataEntry.Value));
-
+        foreach (var val in msg.Data)
+        { 
+            text = text.Replace($"$({val.Key})", val.Value);
+        }
+        
+        Log.Debug(msg.Data.ToString()!);
+        
         var entXform = Transform(ent).Coordinates;
 
         var paper = SpawnAtPosition(template.PaperType, entXform);

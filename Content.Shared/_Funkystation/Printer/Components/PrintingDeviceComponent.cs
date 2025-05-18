@@ -1,12 +1,14 @@
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Funkystation.Printer.Components;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class PrintingDeviceComponent : Component
 {
     [ViewVariables]
+    [AutoNetworkedField]
     public List<DocumentTemplatePrototype> AvailableTemplates = new();
 }
 

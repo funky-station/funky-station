@@ -15,3 +15,31 @@
       reagents:
       - ReagentId: SpaceLube
         Quantity: 20
+
+- type: entity
+  parent: BaseItem
+  id: pIED
+  name: pIED
+  description: Straight out of The Anarchist Cookbook
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/Baked/pie.rsi
+    layers:
+    - state: tin
+    - state: plain
+  - type: OnUseTimerTrigger # todo: make it activate through welder/lighter/fire instead
+    delay: 5
+    examinable: false
+    initialBeepDelay: 0
+    beepSound: /Audio/Effects/lightburn.ogg
+  - type: RandomTimerTrigger
+    min: 1
+    max: 5
+  - type: ExplodeOnTrigger
+  - type: Explosive # Weak explosion in a very small radius. Doesn't break underplating.
+    explosionType: Default
+    totalIntensity: 50
+    intensitySlope: 5
+    maxIntensity: 6
+    canCreateVacuum: false
+  - type: Appearance

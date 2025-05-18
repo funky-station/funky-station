@@ -20,6 +20,7 @@
   - type: Speech
     speechSounds: Vulpkanin
     speechVerb: Vulpkanin
+    allowedEmotes: ['Yap', 'Gekker']
   - type: Sprite
     netsync: false
     noRot: true

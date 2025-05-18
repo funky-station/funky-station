@@ -133,6 +133,8 @@
         Caustic: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.35
+  #- type: StaminaResistance
+  #  damageCoefficient: 0.45
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -182,6 +184,8 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 2
+  - type: Item
+    size: Normal
   - type: Tag
     tags:
       - SpecialArmor
@@ -422,7 +426,7 @@
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
   - type: FireProtection
-    reduction: 0.8 
+    reduction: 0.8
   - type: Armor
     modifiers:
       coefficients:

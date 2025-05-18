@@ -18,6 +18,20 @@
       - MobMouse2
 
 - type: entity
+  name: Mothroach Spawner
+  id: SpawnMobMothroach
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Animals/mothroach/mothroach.rsi
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobMothroach
+
+- type: entity
   name: Cockroach Spawner
   id: SpawnMobCockroach
   parent: MarkerBase
@@ -61,6 +75,32 @@
   - type: ConditionalSpawner
     prototypes:
       - MobCorgiMouse
+
+- type: entity
+  name: Possum Spawner
+  id: SpawnMobPossum
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobPossum
+
+- type: entity
+  name: Possum Poppy Spawner
+  id: SpawnMobPossumPoppy
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobPossumPoppy
 
 - type: entity
   name: Possum Morty Spawner
@@ -434,6 +474,20 @@
     - MobBoxingKangaroo
 
 - type: entity
+  name: Space Tick Spawner
+  id: SpawnMobTick
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: alive
+      sprite: Mobs/Aliens/Xenos/spacetick.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobTick
+
+- type: entity
   name: Space Spider Spawner
   id: SpawnMobSpaceSpider
   parent: MarkerBase
@@ -565,6 +619,20 @@
   - type: ConditionalSpawner
     prototypes:
     - MobMonkeyPunpun
+
+- type: entity
+  name: Celedon Spawner
+  id: SpawnMobCeledonRaptor
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: celedon_raptor
+      sprite: Mobs/Pets/celedon.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCeledonRaptor
 
 - type: entity
   name: behonker Spawner

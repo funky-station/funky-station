@@ -22,15 +22,6 @@
     - id: DrinkMugHeart
 
 - type: entity
-  parent: BaseMail
-  id: MailExtendedWarranty
-  suffix: Extended Warranty Scam
-  components:
-  - type: Mail
-    contents:
-    - id: PaperExtendedWarrantyCommand
-
-- type: entity
   parent: BaseMailLarge
   id: MailSkele
   suffix: Skele Mail

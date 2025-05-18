@@ -8,7 +8,7 @@
 }
 
 $ignore = @{
-    "PJBot" = $true
+    "funkystationbot" = $true
     "github-actions[bot]" = $true
     "ZDDM" = $true
     "TYoung86" = $true

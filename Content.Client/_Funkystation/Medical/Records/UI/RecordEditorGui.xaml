@@ -13,7 +13,6 @@
                     TODO:
                     - personal information
                     - add back character descs?
-                    - personality traits? wtf am i doing
                     - put check boxes into scroll boxes
                     - auto gen check boxes in c# via yml protos
                     - make title cute and pretty
@@ -49,7 +48,6 @@
                     </BoxContainer>
                 </PanelContainer>
 
-                <!--  general information  -->
                 <GridContainer Columns="3" Margin="5,10">
                     <!--  height, weight, identifying info  -->
                     <BoxContainer
@@ -117,19 +115,20 @@
                             <CheckBox HorizontalAlignment="Right" Name="InsuranceCheckBox" />
                         </BoxContainer>
 
-                        <BoxContainer HorizontalExpand="True">
+                        <BoxContainer HorizontalExpand="True" Name="InsuranceProvider">
                             <Label Text="Insurance Provider" />
                             <Control HorizontalExpand="True" MinSize="5 0" />
-                            <ui:OptionDropDown Name="InsuranceCompanyDropdown" />
+                            <OptionButton Name="InsuranceCompanyDropdown" />
                         </BoxContainer>
 
-                        <BoxContainer HorizontalExpand="True">
+                        <BoxContainer HorizontalExpand="True" Name="Ins">
                             <Label Text="Insurance Plan" />
                             <Control HorizontalExpand="True" MinSize="5 0" />
-                            <ui:OptionDropDown Name="InsurancePlanDropdown" />
+                            <OptionButton Name="InsurancePlanDropdown" />
                         </BoxContainer>
                     </BoxContainer>
                 </GridContainer>
+
 
                 <!--  header; Medical Information  -->
                 <PanelContainer>
@@ -146,8 +145,6 @@
                     </BoxContainer>
                 </PanelContainer>
 
-
-                <!--  medical information  -->
                 <BoxContainer Margin="5,10" Orientation="Vertical">
                     <GridContainer Columns="5">
                         <!--  allergies  -->
@@ -293,7 +290,7 @@
                     <BoxContainer Margin="5,0" Orientation="Horizontal">
                         <Label Text="Blood Type: " />
                         <Control HorizontalExpand="True" />
-                        <ui:OptionDropDown Name="BloodTypeDropdown" />
+                        <OptionButton Name="BloodTypeDropdown" />
                     </BoxContainer>
 
                     <BoxContainer Margin="5,0" Orientation="Horizontal">
@@ -305,6 +302,7 @@
                             Name="PostmortemEdit" />
                     </BoxContainer>
                 </BoxContainer>
+
 
                 <!--  header; Personal Information  -->
                 <PanelContainer>
@@ -320,8 +318,6 @@
                         <Label StyleClasses="Italic" Text="Personal Information" />
                     </BoxContainer>
                 </PanelContainer>
-
-
 
             </BoxContainer>
         </ScrollContainer>

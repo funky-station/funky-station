@@ -36,6 +36,7 @@ using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
 // Begin CD - Character Records
 using Content.Client._CD.Records.UI;
+using Content.Client._Funkystation.Medical.Records.UI;
 using Content.Shared._CD.Records;
 // End CD - Character Records
 

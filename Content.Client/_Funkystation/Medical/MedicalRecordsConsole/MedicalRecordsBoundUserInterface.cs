@@ -1,4 +1,4 @@
-﻿using Content.Client._Funkystation.Medical.MedicalRecords.UI;
+﻿using Content.Client._Funkystation.Medical.MedicalRecordsConsole.UI;
 using Robust.Client.UserInterface;
 
 namespace Content.Client._Funkystation.Medical.MedicalRecords;

@@ -30,6 +30,15 @@ public sealed partial class PlayerProvidedCharacterRecords
     [DataField]
     public string IdentifyingFeatures { get; private set; }
 
+    [DataField]
+    public bool HasInsurance { get; private set; }
+
+    [DataField]
+    public int InsuranceProvider { get; private set; }
+
+    [DataField]
+    public int InsuranceType { get; private set; }
+
     // medical info
     [DataField]
     public string PostmortemInstructions { get; private set; }
@@ -105,6 +114,8 @@ public sealed partial class PlayerProvidedCharacterRecords
         bool hasWorkAuthorization,
         int height, int weight,
         string identifyingFeatures,
+        bool hasInsurance,
+        int insuranceProvider, int insuranceType,
         string prescriptions,
         string allergies, string drugAllergies,
         string postmortemInstructions,
@@ -114,6 +125,9 @@ public sealed partial class PlayerProvidedCharacterRecords
         Height = height;
         Weight = weight;
         IdentifyingFeatures = identifyingFeatures;
+        HasInsurance = hasInsurance;
+        InsuranceProvider = insuranceProvider;
+        InsuranceType = insuranceType;
         Prescriptions = prescriptions;
         Allergies = allergies;
         DrugAllergies = drugAllergies;
@@ -129,6 +143,9 @@ public sealed partial class PlayerProvidedCharacterRecords
         Weight = other.Weight;
         HasWorkAuthorization = other.HasWorkAuthorization;
         IdentifyingFeatures = other.IdentifyingFeatures;
+        HasInsurance = other.HasInsurance;
+        InsuranceProvider = other.InsuranceProvider;
+        InsuranceType = other.InsuranceType;
         Prescriptions = other.Prescriptions;
         Allergies = other.Allergies;
         DrugAllergies = other.DrugAllergies;
@@ -144,6 +161,9 @@ public sealed partial class PlayerProvidedCharacterRecords
             hasWorkAuthorization: true,
             height: 170, weight: 70,
             identifyingFeatures: "",
+            hasInsurance: true,
+            insuranceProvider: 0,
+            insuranceType: 0,
             prescriptions: "None",
             allergies: "None",
             drugAllergies: "None",
@@ -161,6 +181,9 @@ public sealed partial class PlayerProvidedCharacterRecords
                    && Weight == other.Weight
                    && HasWorkAuthorization == other.HasWorkAuthorization
                    && IdentifyingFeatures == other.IdentifyingFeatures
+                   && HasInsurance == other.HasInsurance
+                   && InsuranceProvider == other.InsuranceProvider
+                   && InsuranceType == other.InsuranceType
                    && Prescriptions == other.Prescriptions
                    && Allergies == other.Allergies
                    && DrugAllergies == other.DrugAllergies
@@ -238,6 +261,21 @@ public sealed partial class PlayerProvidedCharacterRecords
     public PlayerProvidedCharacterRecords WithIdentifyingFeatures(string feat)
     {
         return new(this) { IdentifyingFeatures = feat};
+    }
+
+    public PlayerProvidedCharacterRecords WithInsurance(bool hasInsurance)
+    {
+        return new (this) { HasInsurance = hasInsurance };
+    }
+
+    public PlayerProvidedCharacterRecords WithInsuranceProvider(int insuranceProvider)
+    {
+        return new (this) { InsuranceProvider = insuranceProvider };
+    }
+
+    public PlayerProvidedCharacterRecords WithInsuranceType(int insuranceType)
+    {
+        return new (this) { InsuranceType = insuranceType };
     }
 
     public PlayerProvidedCharacterRecords WithPrescriptions(string pres)

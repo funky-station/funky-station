@@ -18,7 +18,7 @@ public sealed partial class CDRecordEditorGui : Control
     private readonly Action<PlayerProvidedCharacterRecords> _updateProfileRecords;
     private PlayerProvidedCharacterRecords _records = default!;
 
-    public RecordEditorGui(Action<PlayerProvidedCharacterRecords> updateProfileRecords)
+    public CDRecordEditorGui(Action<PlayerProvidedCharacterRecords> updateProfileRecords)
     {
         RobustXamlLoader.Load(this);
         _updateProfileRecords = updateProfileRecords;

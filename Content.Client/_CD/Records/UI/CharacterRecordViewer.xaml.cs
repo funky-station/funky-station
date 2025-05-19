@@ -317,7 +317,6 @@ public sealed partial class CharacterRecordViewer : FancyWindow
         RecordContainerSpecies.Text = record.Species;
         RecordContainerHeight.Text = cr.Height + " " + UnitConversion.GetImperialDisplayLength(cr.Height);
         RecordContainerWeight.Text = cr.Weight + " " + UnitConversion.GetImperialDisplayMass(cr.Weight);
-        RecordContainerContactName.SetValue(cr.EmergencyContactName);
 
         RecordContainerEmployment.Visible = false;
         RecordContainerMedical.Visible = false;

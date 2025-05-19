@@ -18,7 +18,7 @@ public sealed partial class PlayerProvidedCharacterRecords
 
     // Additional data is fetched from the Profile
 
-    // All
+    // physical information
     [DataField]
     public int Height { get; private set; }
     public const int MaxHeight = 800;
@@ -28,24 +28,31 @@ public sealed partial class PlayerProvidedCharacterRecords
     public const int MaxWeight = 300;
 
     [DataField]
-    public string EmergencyContactName { get; private set; }
+    public string IdentifyingFeatures { get; private set; }
 
-    // Employment
+    // medical info
+    [DataField]
+    public string PostmortemInstructions { get; private set; }
+
+    // TODO: implement reasons for prescriptions
+    // sometime Soon id like to have immunosuppressed as a trait,
+    // so keeping this for characters that would potentially need prescriptions across rounds
+    [DataField]
+    public string Prescriptions { get; private set; }
+
+    // TODO: implement allergies
+    // keeping these for "tba mechanical allergies."
+    // personally not a fan of keeping pure-flavor things that *should* be mechanics instead
+    [DataField]
+    public string Allergies { get; private set; }
+
+    [DataField]
+    public string DrugAllergies { get; private set; }
+
+    // misc bureaucracy
     [DataField]
     public bool HasWorkAuthorization { get; private set; }
 
-    // Security
-    [DataField]
-    public string IdentifyingFeatures { get; private set; }
-
-    // Medical
-    [DataField]
-    public string Allergies { get; private set; }
-    [DataField]
-    public string DrugAllergies { get; private set; }
-    [DataField]
-    public string PostmortemInstructions { get; private set; }
-    // history, prescriptions, etc. would be a record below
 
     // "incidents"
     [DataField, JsonIgnore]
@@ -54,6 +61,7 @@ public sealed partial class PlayerProvidedCharacterRecords
     public List<RecordEntry> SecurityEntries { get; private set; }
     [DataField, JsonIgnore]
     public List<RecordEntry> EmploymentEntries { get; private set; }
+
 
     [DataDefinition]
     [Serializable, NetSerializable]
@@ -76,7 +84,7 @@ public sealed partial class PlayerProvidedCharacterRecords
         }
 
         public RecordEntry(RecordEntry other)
-        : this(other.Title, other.Involved, other.Description)
+            : this(other.Title, other.Involved, other.Description)
         {
         }
 
@@ -96,8 +104,8 @@ public sealed partial class PlayerProvidedCharacterRecords
     public PlayerProvidedCharacterRecords(
         bool hasWorkAuthorization,
         int height, int weight,
-        string emergencyContactName,
         string identifyingFeatures,
+        string prescriptions,
         string allergies, string drugAllergies,
         string postmortemInstructions,
         List<RecordEntry> medicalEntries, List<RecordEntry> securityEntries, List<RecordEntry> employmentEntries)
@@ -105,8 +113,8 @@ public sealed partial class PlayerProvidedCharacterRecords
         HasWorkAuthorization = hasWorkAuthorization;
         Height = height;
         Weight = weight;
-        EmergencyContactName = emergencyContactName;
         IdentifyingFeatures = identifyingFeatures;
+        Prescriptions = prescriptions;
         Allergies = allergies;
         DrugAllergies = drugAllergies;
         PostmortemInstructions = postmortemInstructions;
@@ -119,9 +127,9 @@ public sealed partial class PlayerProvidedCharacterRecords
     {
         Height = other.Height;
         Weight = other.Weight;
-        EmergencyContactName = other.EmergencyContactName;
         HasWorkAuthorization = other.HasWorkAuthorization;
         IdentifyingFeatures = other.IdentifyingFeatures;
+        Prescriptions = other.Prescriptions;
         Allergies = other.Allergies;
         DrugAllergies = other.DrugAllergies;
         PostmortemInstructions = other.PostmortemInstructions;
@@ -135,8 +143,8 @@ public sealed partial class PlayerProvidedCharacterRecords
         return new PlayerProvidedCharacterRecords(
             hasWorkAuthorization: true,
             height: 170, weight: 70,
-            emergencyContactName: "",
             identifyingFeatures: "",
+            prescriptions: "None",
             allergies: "None",
             drugAllergies: "None",
             postmortemInstructions: "Return home",
@@ -151,9 +159,9 @@ public sealed partial class PlayerProvidedCharacterRecords
         // This is ugly but is only used for integration tests.
         var test = Height == other.Height
                    && Weight == other.Weight
-                   && EmergencyContactName == other.EmergencyContactName
                    && HasWorkAuthorization == other.HasWorkAuthorization
                    && IdentifyingFeatures == other.IdentifyingFeatures
+                   && Prescriptions == other.Prescriptions
                    && Allergies == other.Allergies
                    && DrugAllergies == other.DrugAllergies
                    && PostmortemInstructions == other.PostmortemInstructions;
@@ -205,9 +213,8 @@ public sealed partial class PlayerProvidedCharacterRecords
     {
         Height = Math.Clamp(Height, 0, MaxHeight);
         Weight = Math.Clamp(Weight, 0, MaxWeight);
-        EmergencyContactName =
-            ClampString(EmergencyContactName, TextMedLen);
         IdentifyingFeatures = ClampString(IdentifyingFeatures, TextMedLen);
+        Prescriptions = ClampString(Prescriptions, TextMedLen);
         Allergies = ClampString(Allergies, TextMedLen);
         DrugAllergies = ClampString(DrugAllergies, TextMedLen);
         PostmortemInstructions = ClampString(PostmortemInstructions, TextMedLen);
@@ -228,13 +235,14 @@ public sealed partial class PlayerProvidedCharacterRecords
     {
         return new(this) { HasWorkAuthorization = auth };
     }
-    public PlayerProvidedCharacterRecords WithContactName(string name)
-    {
-        return new(this) { EmergencyContactName = name};
-    }
     public PlayerProvidedCharacterRecords WithIdentifyingFeatures(string feat)
     {
         return new(this) { IdentifyingFeatures = feat};
+    }
+
+    public PlayerProvidedCharacterRecords WithPrescriptions(string pres)
+    {
+        return new (this) { Prescriptions = pres };
     }
     public PlayerProvidedCharacterRecords WithAllergies(string s)
     {

@@ -10,7 +10,7 @@ namespace Content.Client._CD.Records.UI;
 /// The record editor tab that gets "injected" into the character editor.
 /// </summary>
 [GenerateTypedNameReferences]
-public sealed partial class RecordEditorGui : Control
+public sealed partial class CDRecordEditorGui : Control
 {
     /// <summary>
     /// Delegate that tells the editor to save records when the save button is pressed
@@ -41,10 +41,6 @@ public sealed partial class RecordEditorGui : Control
             UpdateRecords(_records.WithWeight(newWeight));
         };
 
-        ContactNameEdit.OnTextChanged += args =>
-        {
-            UpdateRecords(_records.WithContactName(args.Text));
-        };
 
         #endregion
 
@@ -132,7 +128,6 @@ public sealed partial class RecordEditorGui : Control
         UpdateImperialHeight(_records.Height);
         WeightEdit.SetText(_records.Weight.ToString());
         UpdateImperialWeight(_records.Weight);
-        ContactNameEdit.SetText(_records.EmergencyContactName);
 
         WorkAuthCheckBox.Pressed = _records.HasWorkAuthorization;
 

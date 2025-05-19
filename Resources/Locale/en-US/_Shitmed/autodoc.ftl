@@ -27,6 +27,7 @@ autodoc-create-program = New Program
 autodoc-program-title = Program Title
 autodoc-program-title-placeholder = Program {$number}
 autodoc-abort-program = Abort Program
+autodoc-sanitize-tools = Sanitize Tools
 
 autodoc-view-program-title = View Program
 autodoc-safety-enabled = Safety On

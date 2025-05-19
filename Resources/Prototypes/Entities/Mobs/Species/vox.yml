@@ -118,6 +118,7 @@
       shader: unshaded
       visible: false
   - type: Inventory
+    templateId: vox
     speciesId: vox
     displacements:
       jumpsuit:

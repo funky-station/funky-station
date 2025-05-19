@@ -71,7 +71,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         SubscribeLocalEvent<ThavenMoodsBoundComponent, ComponentShutdown>(OnThavenMoodShutdown);
         SubscribeLocalEvent<ThavenMoodsBoundComponent, ToggleMoodsScreenEvent>(OnToggleMoodsScreen);
         SubscribeLocalEvent<ThavenMoodsBoundComponent, BoundUIOpenedEvent>(OnBoundUIOpened);
-        SubscribeLocalEvent<RulePlayerJobsAssignedEvent>(OnJobsAssigned); // funky
+        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnSpawnComplete); // funky
         SubscribeLocalEvent<RoundRestartCleanupEvent>((_) => NewSharedMoods());
     }
 
@@ -456,20 +456,27 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         return departmentProto.ID;
     }
 
-    private void OnJobsAssigned(RulePlayerJobsAssignedEvent args)
+    /// <summary>
+    /// Some moods conflict with certain jobs + components initialize before jobs are rolled,
+    /// so moods are rolled after spawn complete rather than <see cref="OnThavenMoodInit">ComponentStartup</see>
+    /// </summary>
+    private void OnSpawnComplete(PlayerSpawnCompleteEvent args)
     {
-        var query = EntityQueryEnumerator<ThavenMoodsBoundComponent>();
+        // check if the spawned mob is a thaven
+        if (!TryComp<ThavenMoodsBoundComponent>(args.Mob, out var comp))
+            return;
 
-        while (query.MoveNext(out var uid, out var comp))
-        {
-            // "Yes, and" moods
-            if (TryPick(YesAndDataset, out var mood, GetActiveMoods(uid, comp), null, GetMindDepartment(uid)))
-                TryAddMood(uid, mood, comp, true, false);
+        // double check there aren't already some moods
+        if (comp.Moods.Count >= 2)
+            return;
 
-            // "No, and" moods
-            if (TryPick(NoAndDataset, out mood, GetActiveMoods(uid, comp), null, GetMindDepartment(uid)))
-                TryAddMood(uid, mood, comp, true, false);
-        }
+        // "Yes, and" moods
+        if (TryPick(YesAndDataset, out var mood, GetActiveMoods(args.Mob, comp), null, GetMindDepartment(args.Mob)))
+            TryAddMood(args.Mob, mood, comp, true, false);
+
+        // "No, and" moods
+        if (TryPick(NoAndDataset, out mood, GetActiveMoods(args.Mob, comp), null, GetMindDepartment(args.Mob)))
+            TryAddMood(args.Mob, mood, comp, true, false);
     }
     // end funky
 }

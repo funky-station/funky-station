@@ -179,6 +179,8 @@
   - type: PumpAction
   - type: Gun
     fireRate: 1
+  - type: GunSpreadModifier
+    spread: 0.6
   - type: Tag
     tags:
     - WeaponShotgunKammerer

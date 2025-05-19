@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckChameleonPride
+  name: prideful mantle
+  suffix: Chameleon
+  description: A colorful mantle celebrating pride. The fabric coloration is configurable.
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: Sprite
+    sprite: _Harmony/Clothing/Neck/mantles/rainbowmantle.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Neck/mantles/rainbowmantle.rsi
+  - type: ChameleonClothing
+    slot: [NECK]
+    default: ClothingNeckMantleRainbow
+    requireTag: WhitelistChameleonPrideMantle
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface

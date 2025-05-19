@@ -2646,3 +2646,158 @@ Entries:
       message: Moved transfer buttons to the side.
   id: 326
   time: '2025-05-08T01:31:14.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: Changed medical bio-fabricator sprite
+  id: 327
+  time: '2025-05-09T02:14:04.0000000+00:00'
+- author: ReconPangolin
+  changes:
+    - type: Add
+      message: Added catberries
+  id: 328
+  time: '2025-05-09T20:18:03.0000000+00:00'
+- author: Sadie-silly
+  changes:
+    - type: Tweak
+      message: Granted Blueshield extra access, and a centcomm overear headset.
+    - type: Fix
+      message: Removed Blueshield's extra survival box.
+  id: 329
+  time: '2025-05-09T20:18:42.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Add
+      message: >-
+        some more thaven moods have been added, though only certain jobs can
+        roll them
+    - type: Tweak
+      message: mindshielded thavens can no longer be emagged
+  id: 330
+  time: '2025-05-09T20:19:59.0000000+00:00'
+- author: GaloGal0
+  changes:
+    - type: Tweak
+      message: Increased the speed of the autodoc
+  id: 331
+  time: '2025-05-10T00:02:42.0000000+00:00'
+- author: GaloGal0
+  changes:
+    - type: Remove
+      message: Removed Russian text in Autodoc UI
+    - type: Tweak
+      message: Changed capitalisation in Autodoc UI
+  id: 332
+  time: '2025-05-10T04:05:57.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: >-
+        The heat pump, a heat transferring device, can now be found in the
+        crafting menu or crafted with the RPD. 
+  id: 333
+  time: '2025-05-11T23:42:53.0000000+00:00'
+- author: ' JoulesBerg'
+  changes:
+    - type: Fix
+      message: >-
+        CBurn agents get to role play at centcomm now (zombie rounds should no
+        longer end early if the shuttle has been called)
+  id: 334
+  time: '2025-05-12T00:04:27.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: >-
+        Electrolyzer powerload will now return to baseline more slowly, causing
+        fewer power fluctuations.
+  id: 335
+  time: '2025-05-12T00:54:45.0000000+00:00'
+- author: SpaceCat-Chan
+  changes:
+    - type: Add
+      message: Added a News Manager digiboard, because the news never sleeps!
+  id: 336
+  time: '2025-05-14T03:10:08.0000000+00:00'
+- author: ' Joulesberg'
+  changes:
+    - type: Add
+      message: >-
+        Added finance allocation computer / departmental request computers to
+        omega. 
+  id: 337
+  time: '2025-05-14T05:18:35.0000000+00:00'
+- author: UristMcWiki
+  changes:
+    - type: Tweak
+      message: Changed and modify pricing and sales for nukies/traitors.
+    - type: Tweak
+      message: Added a War Ops requirement to certain nukie items.
+  id: 338
+  time: '2025-05-14T20:05:09.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Fix
+      message: late joined thavens will now have moods
+  id: 339
+  time: '2025-05-15T18:34:50.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Departmental Economy Consoles added to Bagel
+  id: 340
+  time: '2025-05-15T18:35:34.0000000+00:00'
+- author: IronDragoon
+  changes:
+    - type: Add
+      message: >-
+        portable chemical mixer, a craftable chemical mixer which can be worn
+        around the waist. 
+  id: 341
+  time: '2025-05-15T18:37:05.0000000+00:00'
+- author: ' JoulesBerg'
+  changes:
+    - type: Add
+      message: >-
+        Added Funds Allocation and department request computers, biomass
+        reclaimer, biotech medfab, crystalizer, and bluespace distributor to
+        elkridge.
+  id: 342
+  time: '2025-05-16T02:25:34.0000000+00:00'
+- author: Quantus
+  changes:
+    - type: Tweak
+      message: Removed security time requirement for Changeling.
+  id: 343
+  time: '2025-05-16T02:32:30.0000000+00:00'
+- author: ' oLykos'
+  changes:
+    - type: Add
+      message: >-
+        Moths have a new "Soft Eyes" marking option with accompanying
+        heterochromia
+  id: 344
+  time: '2025-05-17T01:21:33.0000000+00:00'
+- author: UristMcWiki
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Syndie rework not allowing surplus crates to contain WarOps
+        content.
+  id: 345
+  time: '2025-05-18T01:48:00.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: >-
+        Hydrogen fire reactions have been slightly reworked to more closely
+        follow original mechanics
+  id: 346
+  time: '2025-05-18T19:24:57.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: The crystallizer's max input rate is now capped to 250 mol/s
+  id: 347
+  time: '2025-05-18T22:35:30.0000000+00:00'

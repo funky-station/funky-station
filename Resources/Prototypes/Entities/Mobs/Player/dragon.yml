@@ -160,7 +160,7 @@
     isToggle: true
     color: "#808080"
   - type: CombatPower # Goobstation
-    factor: 25 # times more dangerous than a crew-member
+    factor: 40 # / 2 = times more dangerous than an unarmed crew-member
 
 - type: entity
   parent: BaseMobDragon
@@ -168,6 +168,9 @@
   components:
   - type: Dragon
     spawnRiftAction: ActionSpawnRift
+  - type: GhostRole
+    mindRoles:
+    - MindRoleDragon
   - type: GuideHelp
     guides:
     - MinorAntagonists

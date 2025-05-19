@@ -1,7 +1,7 @@
 ﻿- type: guideEntry # Default for forks and stuff. Should not be listed anywhere if the server is using a custom ruleset.
   id: DefaultRuleset
   name: guide-entry-rules
-  priority: 60
+  priority: -10
   text: "/ServerInfo/Guidebook/ServerRules/DefaultRules.xml"
   children:
   - CoreRules
@@ -10,6 +10,7 @@
   - RoleTypes
   - BanTypes
   - BanDurations
+  - Metashield
 
 - type: guideEntry
   id: RoleTypes
@@ -134,7 +135,7 @@
 - type: guideEntry
   id: Metashield
   name: guide-entry-metashield
-  ruleEntry: true
+  ruleEntry: false
   priority: 4
   text: "/ServerInfo/Guidebook/ServerRules/Metashield.xml"
 

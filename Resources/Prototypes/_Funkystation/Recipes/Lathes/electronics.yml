@@ -1,0 +1,4 @@
+﻿- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: MusicTechFabCircuitboard
+  result: MusicTechFabCircuitboard

@@ -20,6 +20,7 @@
   - type: Speech
     speechSounds: Vulpkanin
     speechVerb: Vulpkanin
+    allowedEmotes: ['Yap', 'Gekker']
   - type: Sprite
     netsync: false
     noRot: true
@@ -58,6 +59,11 @@
       - map: [ "shoes" ]
       - map: [ "ears" ]
       - map: [ "outerClothing" ]
+      - map: [ "culteyes" ] # funky cult
+        sprite: "_Funkystation/BloodCult/Effects/culteyes.rsi"
+        state: "human"  # TODO make vulp version
+        shader: unshaded
+        visible: false
       - map: [ "eyes" ]
       - map: [ "belt" ]
       - map: [ "neck" ]
@@ -75,6 +81,11 @@
         sprite: "_DV/Effects/creampie.rsi"
         state: "creampie_vulpkanin"
         visible: false
+      - map: [ "culthalo" ] # funky cult
+        sprite: "_Funkystation/BloodCult/Effects/halo.rsi"
+        state: "halo"
+        shader: unshaded
+        visible: false
   - type: MeleeWeapon
     hidden: true
     soundHit:
@@ -88,9 +99,11 @@
   - type: Perishable
   - type: Damageable
     damageModifierSet: Vulpkanin
-  - type: TemperatureProtection
-    heatingCoefficient: 0.1
-    coolingCoefficient: 0.1
+  #- type: TemperatureProtection # Goobstation - fix vulps - start
+  #  heatingCoefficient: 0.1
+  #  coolingCoefficient: 0.1
+  - type: Temperature
+    atmosTemperatureTransferEfficiency: 0.01  # Goobstation - fix vulps - end
   - type: Vocal
     sounds:
       Male: MaleVulpkanin

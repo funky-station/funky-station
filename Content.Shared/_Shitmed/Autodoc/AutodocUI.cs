@@ -49,3 +49,7 @@ public sealed class AutodocStartMessage(int program) : BoundUserInterfaceMessage
 
 [Serializable, NetSerializable]
 public sealed class AutodocStopMessage : BoundUserInterfaceMessage;
+
+
+[Serializable, NetSerializable]
+public sealed class AutodocSanitizeMessage : BoundUserInterfaceMessage;

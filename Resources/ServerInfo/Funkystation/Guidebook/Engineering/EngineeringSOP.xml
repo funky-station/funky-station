@@ -1,7 +1,7 @@
 ﻿<Document>
   # Chief Engineer
 
-  [bold]1.[/bold] The Chief Engineer must make sure that the Supermatter Engine and/or Solar Panels are fully set up and supplying power to the station before any further action is taken by themselves or their team;
+  [bold]1.[/bold] The Chief Engineer must make sure to properly wire Solar Panels and activate the Anti-Matter Engine (AME) if available, and co-ordinate a plan with their team to activate a more powerful engine for long-term station use;
 
   [bold]2.[/bold] The Chief Engineer, along with the Research Director, is responsible for maintaining the integrity of Telecommunications. The Chief Engineer must not hinder the proper functionality of Telecommunications, and must diagnose and repair any issues that arise;
 
@@ -19,11 +19,11 @@
 
   # Station Engineer
 
-  [bold]1.[/bold] Engineers must properly activate and wire the Supermatter Engine and/or Solar Panels at the start of the shift, before any other actions are undertaken;
+  [bold]1.[/bold] Engineers must properly wire Solar Panels and activate the Anti-Matter Engine (AME) if available, and co-ordinate a plan to activate a more powerful engine for long-term station use;
 
-  [bold]2.[/bold] Engineers are responsible for maintaining the integrity of the engines. Neglecting this duty is grounds for termination should an engine malfunction;
+  [bold]2.[/bold] Engineers are responsible for maintaining the integrity of all engines aboard the station, even those that are de-activated or inert. Neglecting this duty is grounds for termination should an engine malfunction;
 
-  [bold]3.[/bold] Engineers are not permitted to construct additional engines (such as additional SM/Tesla/Singularity engines, or solar panels) until at least one engine is correctly set up and powering the station;
+  [bold]3.[/bold] Engineers are permitted to construct additional engines (such as additional SM/Tesla/Singularity engines) with approval from the Chief Engineer;
 
   [bold]4.[/bold] Engineers are permitted to carry out solo reconstruction/rebuilding/personal projects if there is no damage to the station that requires fixing;
 
@@ -31,7 +31,7 @@
 
   [bold]6.[/bold] Engineers must constantly monitor the Supermatter engine if it is online and under emitter fire;
 
-  [bold]7.[/bold] Engineers must respond promptly to breaches, regardless of size. Failure to report within fifteen (15) minutes will be considered a breach of Standard Operating Procedure, unless there are no spare Engineers to report or an Atmospheric Technician has arrived on scene first. All Hazard Zones must be cordoned off with Engineering Tape or holobarriers, for the sake of everyone else;
+  [bold]7.[/bold] Engineers must respond promptly to breaches, regardless of size. Failure to report within fifteen (15) minutes will be considered a breach of Standard Operating Procedure, unless there are no spare Engineers to report or an Atmospheric Technician has arrived on scene first. All Hazard Zones must be cordoned off with Engineering Tape or holobarriers, for the safety of crewmembers;
 
   [bold]8.[/bold] Engineers are permitted to hack doors to gain unauthorized access to locations if said locations happen to require urgent repairs;
 

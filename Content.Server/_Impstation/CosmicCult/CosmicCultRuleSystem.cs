@@ -63,6 +63,7 @@ using Content.Shared._Impstation.CosmicCult;
 using Content.Server.Administration.Logs;
 using Content.Shared.Database;
 using Content.Server.CrewManifest;
+using Robust.Shared.Serialization.Manager;
 
 namespace Content.Server._Impstation.CosmicCult;
 
@@ -103,7 +104,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly CrewManifestSystem _crewManifest = default!;
     [Dependency] private readonly CosmicCorruptingSystem _corrupting = default!;
-
+    [Dependency] private readonly ISerializationManager _serializationManager = default!;
     private readonly SoundSpecifier _briefingSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_briefing.ogg");
     private readonly SoundSpecifier _deconvertSound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/antag_cosmic_deconvert.ogg");
     private readonly SoundSpecifier _tier3Sound = new SoundPathSpecifier("/Audio/_Impstation/CosmicCult/tier3.ogg");
@@ -129,11 +130,12 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         SubscribeLocalEvent<CosmicCultComponent, ComponentShutdown>(OnComponentShutdown);
         SubscribeLocalEvent<CosmicMarkGodComponent, ComponentInit>(OnGodSpawn);
         SubscribeLocalEvent<CosmicCultComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<CosmicCultLeadComponent, MindRemovedMessage>(HandleMindRemoved);
     }
     #region Starting Events
     protected override void Started(EntityUid uid, CosmicCultRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
-        Timer.Spawn(TimeSpan.FromSeconds(10), () => { LeaderVote(); });
+        Timer.Spawn(TimeSpan.FromSeconds(10), () => { StewardVote(); });
     }
 
     private void OnRoundStart(RoundStartingEvent ev)
@@ -146,13 +148,18 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         PercentConverted = 0;
     }
 
-    private void LeaderVote()
+    private void StewardVote()
     {
         var cultists = new Dictionary<string, EntityUid>();
 
         var cultQuery = EntityQueryEnumerator<CosmicCultComponent>();
         while (cultQuery.MoveNext(out var cult, out _))
         {
+            if (TryComp<CosmicCultLeadComponent>(cult, out _))
+            {
+                continue;
+            }
+
             var playerInfo = $"{Comp<MetaDataComponent>(cult).EntityName}";
             cultists.Add(playerInfo, cult);
         }
@@ -160,8 +167,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         var options = new VoteOptions
         {
             DisplayVotes = false,
-            Title = Loc.GetString("cosmiccult-vote-leadership-title"),
-            InitiatorText = Loc.GetString("cosmiccult-vote-leadership-initiator"),
+            Title = Loc.GetString("cosmiccult-vote-steward-title"),
+            InitiatorText = Loc.GetString("cosmiccult-vote-steward-initiator"),
             Duration = TimeSpan.FromSeconds(_config.GetCVar(ImpCCVars.CosmicCultStewardVoteTimer)),
             VoterEligibility = VoteManager.VoterEligibility.CosmicCult
         };
@@ -184,10 +191,27 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             {
                 picked = (EntityUid)args.Winner;
             }
-            var winner = Identity.Entity(picked, EntityManager);
-            _adminLogger.Add(LogType.Vote, LogImpact.Medium, $"Cult stewardship vote finished: {winner} is now steward.");
             AddComp<CosmicCultLeadComponent>(picked);
-            _antag.SendBriefing(picked, Loc.GetString("cosmiccult-vote-leadership-briefing"), Color.FromHex("#4cabb3"), _monumentAlert);
+
+            if (CurrentTier == 0)
+            {
+                // its either the first vote, or they never placed the monument, just got elected and cryod :godo:
+            }
+            else if (TryComp<CosmicCultLeadComponent>(picked, out var lComp))
+            {
+                // need to remove the original place action
+                _actions.RemoveAction(picked, lComp.CosmicMonumentPlaceActionEntity);
+
+                if (CurrentTier == 2)
+                {
+                    // give them the option to move it, this COULD be abused, but will also prevent them from getting stuck in a situation
+                    // where leaders keep dying, and sec just fully knows where the monument is.
+                    _actions.AddAction(picked, ref lComp.CosmicMonumentMoveActionEntity, lComp.CosmicMonumentMoveAction, picked);
+                }
+            }
+
+            _adminLogger.Add(LogType.Vote, LogImpact.Medium, $"Cult stewardship vote finished: {Identity.Entity(picked, EntityManager)} is now steward.");
+            _antag.SendBriefing(picked, Loc.GetString("cosmiccult-vote-steward-briefing"), Color.FromHex("#4cabb3"), _monumentAlert);
         };
     }
 
@@ -532,10 +556,31 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         UpdateMonumentAppearance(uid, false);
 
         Dirty(uid);
+
         _ui.SetUiState(uid.Owner, MonumentKey.Key, new MonumentBuiState(uid.Comp));
     }
 
-    //note - these ar the thresholds for moving to the next tier
+    public void HandleMindRemoved(EntityUid uid, CosmicCultLeadComponent comp, ref MindRemovedMessage args)
+    {
+        var sender = Loc.GetString("cosmiccult-announcement-sender");
+        List<EntityUid> cultistsList = new List<EntityUid>();
+        var query = EntityQueryEnumerator<CosmicCultComponent>();
+        while (query.MoveNext(out var cultist, out _))
+        {
+            if (TryComp<CosmicCultLeadComponent>(cultist, out _))
+                continue;
+            cultistsList.Add(cultist);
+        }
+        // remove the comp. If they died and ghosted and come back to their body they will no longer be the leader. 
+        RemCompDeferred<CosmicCultLeadComponent>(uid);
+
+        Filter allCultists = Filter.Empty().FromEntities(cultistsList.ToArray<EntityUid>());
+        _chat.DispatchFilteredAnnouncement(allCultists, Loc.GetString("cosmiccult-leader-abandonment-message"), sender: sender, playSound: false, colorOverride: Color.FromHex("#4eb1b1"));
+
+        Timer.Spawn(TimeSpan.FromSeconds(10), () => { StewardVote(); });
+    }
+
+    //note - these are the thresholds for moving to the next tier
     //so t1 -> 2 needs 20% of the crew
     //t2 -> 3 needs 40%
     //and t3 -> finale needs an extra 20 entropy
@@ -714,10 +759,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         if (cosmicRole is not null)
         {
             EnsureComp<RoleBriefingComponent>(cosmicRole.Value.Owner);
-            if (HasComp<CosmicCultLeadComponent>(cosmicRole.Value.Owner))
-                Comp<RoleBriefingComponent>(cosmicRole.Value.Owner).Briefing = Loc.GetString("objective-cosmiccultlead-charactermenu");
-            else
-                Comp<RoleBriefingComponent>(cosmicRole.Value.Owner).Briefing = Loc.GetString("objective-cosmiccult-charactermenu");
+            Comp<RoleBriefingComponent>(cosmicRole.Value.Owner).Briefing = Loc.GetString("objective-cosmiccult-charactermenu");
         }
 
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-roundstart-fluff"), Color.FromHex("#4cabb3"), _briefingSound);

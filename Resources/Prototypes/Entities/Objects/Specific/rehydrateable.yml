@@ -53,6 +53,9 @@
         hard: false
         layer:
         - LowImpassable
+  - type: Tag
+    tags:
+    - MonkeyCube
 
 - type: entity
   parent: MonkeyCube

@@ -88,6 +88,18 @@
 
 
 
+- type: listing
+  id: UplinkHardsuitCybersunStealth
+  name: uplink-hardsuit-cybersun-stealth-name
+  description: uplink-hardsuit-cybersun-stealth-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateStealthHardsuitBundle
+  cost:
+    Telecrystal: 75 # might be op? needs testing to see. increase price to 90 TC when we merge the upstream fix that hides HUD stuff for stealthed entities.
+  categories:
+  - UplinkWearables
+  saleLimit: 1
+
 # Job specific
 - type: listing
   id: UplinkPieCannon
@@ -197,41 +209,6 @@
           - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
   saleLimit: 1
 
-- type: listing
-  id: UplinkSmugglerSatchel
-  name: uplink-smugglers-satchel-name
-  description: uplink-smugglers-satchel-desc
-  icon: { sprite: Clothing/Back/Satchels/satchel.rsi, state: icon }
-  productEntity: ClothingSatchelSmuggler
-  cost:
-    Telecrystal: 15
-  categories:
-  - UplinkDeception
 # Mechs
 
-- type: listing
-  id: UplinkDarkGygax
-  name: uplink-mech-teleporter-assault-name
-  description: uplink-mech-teleporter-assault-desc
-  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: darkgygax }
-  productEntity: CrateCybersunDarkGygaxBundle
-  cost:
-    Telecrystal: 400
-  categories:
-  - UplinkAllies
 
-- type: listing
-  id: UplinkMauler
-  name: uplink-mech-teleporter-heavy-name
-  description: uplink-mech-teleporter-heavy-desc
-  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: mauler }
-  productEntity: CrateCybersunMaulerBundle
-  cost:
-    Telecrystal: 650
-  categories:
-  - UplinkAllies
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink

@@ -95306,13 +95306,6 @@ entities:
     - type: Transform
       pos: -23.325588,44.165947
       parent: 2
-- proto: PlushieDawn
-  entities:
-  - uid: 13269
-    components:
-    - type: Transform
-      pos: -24.398504,42.6649
-      parent: 2
 - proto: PlushieLizard
   entities:
   - uid: 13270

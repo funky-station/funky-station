@@ -1,0 +1,20 @@
+- type: entity
+  parent: BaseMail
+  id: MailLollipops
+  suffix: Lollipops
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: FoodMealClothLollipop
+      amount: 1
+      orGroup: Lollipops
+    - id: FoodMealFruitLollipop
+      amount: 1
+      orGroup: Lollipops
+    - id: FoodMealBigLollipop
+      amount: 1
+      orGroup: Lollipops
+    - id: FoodMealMeatLollipop
+      amount: 1
+      orGroup: Lollipops

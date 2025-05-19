@@ -44,6 +44,9 @@ binds:
 - function: Walk
   type: State
   key: Shift
+- function: ToggleStanding
+  type: State
+  key: R
 # Shuttle
 - function: ShuttleStrafeUp
   type: State
@@ -170,6 +173,26 @@ binds:
 - function: RotateStoredItem
   type: State
   key: MouseRight
+# DeltaV - Start custom keybinds
+- function: NanoChatNavigateUp
+  type: State
+  key: Up
+  mod1: Alt
+- function: NanoChatNavigateDown
+  type: State
+  key: Down
+  mod1: Alt
+- function: NanoChatNavigateUpUnread
+  type: State
+  key: Up
+  mod1: Alt
+  mod2: Shift
+- function: NanoChatNavigateDownUnread
+  type: State
+  key: Down
+  mod1: Alt
+  mod2: Shift
+  # DeltaV - End custom keybinds
 - function: SaveItemLocation
   type: State
   key: MouseMiddle
@@ -540,7 +563,7 @@ binds:
   type: State
   key: Num9
 ### goobstation-start
-- function: Loadout0 
+- function: Loadout0
   type: State
   key: Num0
   mod1: Shift

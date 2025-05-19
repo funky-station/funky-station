@@ -53,6 +53,8 @@
     sprite: Clothing/Neck/Misc/bling.rsi
   - type: Clothing
     sprite: Clothing/Neck/Misc/bling.rsi
+  - type: Item
+    sprite: Clothing/Neck/Misc/bling.rsi
 
 - type: entity
   parent: ClothingNeckBase
@@ -93,4 +95,20 @@
   - type: Tag
     tags:
     - Trash
+    - WhitelistChameleon
+    
+#Tank Harness
+- type: entity
+  parent: [ ClothingNeckBase, AllowSuitStorageClothingGasTanks ]
+  id: ClothingNeckTankHarness
+  name: tank harness
+  description: A simple harness that can hold a gas tank.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Misc/tankharness.rsi
+  - type: Clothing
+    sprite: Clothing/Neck/Misc/tankharness.rsi
+  - type: Tag # DeltaV: tank harnesses can be used for surgery
+    tags:
+    - PermissibleForSurgery
     - WhitelistChameleon

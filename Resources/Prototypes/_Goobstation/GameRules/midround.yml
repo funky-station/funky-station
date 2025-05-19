@@ -34,7 +34,7 @@
 
 # Midround Changelings
 - type: entity
-  parent: Changeling
+  parent: BaseGameRule # Funky: Changed parent because it no longer directly makes changelings at all
   id: ChangelingMidround
   components:
   - type: StationEvent
@@ -47,9 +47,9 @@
     duration: null
     occursDuringRoundEnd: false
     chaos:
-      Hostile: 150
-      Medical: 150
-      Death: 150
+      Hostile: 100
+      Medical: 100
+      Death: 100
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
@@ -57,17 +57,18 @@
     definitions:
     - prefRoles: [ Changeling ]
       max: 1
-      playerRatio: 10
+      playerRatio: 1 # 10 normally, 1 for testing
       blacklist:
         components:
-        - AntagImmune
+          - AntagImmune
       lateJoinAdditional: true
-      mindRoles:
-      - MindRoleChangeling
+      components:
+      - type: ChangelingInfection # Funky: Made midround lings infections instead of instant.
+        needsInitialization: true
   - type: Tag
     tags:
       - MidroundAntag
-# Midround Heretics
+
 - type: entity
   parent: Heretic
   id: HereticMidround
@@ -103,6 +104,7 @@
   - type: Tag
     tags:
       - MidroundAntag
+
 # Midround Revolutionaries
 - type: entity
   parent: Revolutionary
@@ -116,9 +118,15 @@
     duration: null
     occursDuringRoundEnd: false
     chaos:
-      Hostile: 100
-      Medical: 100
-      Death: 100
+      Hostile: 250
+      Medical: 250
+      Death: 250
+    maxChaos:
+      Hostile: 30
+      Combat: -60
+      Power: 50
+      Medical: 50
+      Atmos: 50
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
     definitions:
@@ -133,7 +141,7 @@
         text: head-rev-role-greeting
         color: CornflowerBlue
         sound: "/Audio/Ambience/Antag/headrev_start.ogg"
-      startingGear: HeadRevGear
+      #startingGear: HeadRevGear
       components:
       - type: Revolutionary
       - type: HeadRevolutionary
@@ -175,6 +183,12 @@
       Hostile: 300
       Medical: 300
       Death: 300
+    maxChaos:
+      Hostile: 30
+      Combat: -60
+      Power: 50
+      Medical: 50
+      Atmos: 50
   - type: BlobSpawnRule
     carrierBlobProtos:
     - SpawnPointGhostBlobRat

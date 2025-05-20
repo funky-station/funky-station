@@ -45,7 +45,6 @@
   - BasicRoundstartVariation
   - RegularStationPayouts # funkys
 
-
 - type: gamePreset
   id: BlobTraitor
   alias:
@@ -61,4 +60,43 @@
   - BasicStationEventScheduler
   #- AntagStationEventScheduler
   - BasicRoundstartVariation
-  - RegularStationPayouts # funky
+  - RegularStationPayouts # funkys
+
+- type: gamePreset
+  id: TheDrunkard
+  alias:
+  - drunkard
+  - accidents
+  name: drunkard-title
+  description: drunkard-description
+  showInVote: true
+  minPlayers: 5
+  rules:
+  - IncidentDynamic
+  - RegularStationPayouts # funkys
+
+- type: gamePreset
+  id: TheApostle
+  alias:
+  - apostle
+  - priest
+  - apocalypse
+  name: apostle-title
+  description: apostle-description
+  showInVote: true
+  minPlayers: 5
+  rules:
+  - ApocalypseDynamic
+  - RegularStationPayouts # funkys
+
+- type: gamePreset
+  id: SecretDirector
+  alias:
+  - secretdirector
+  - director
+  name: secret-director-title
+  showInVote: true # Goob - Game Director
+  description: secret-director-description
+  rules:
+  - SecretDirector
+  - RegularStationPayouts # funkys

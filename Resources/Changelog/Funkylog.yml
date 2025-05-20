@@ -2795,3 +2795,17 @@ Entries:
         follow original mechanics
   id: 346
   time: '2025-05-18T19:24:57.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: The crystallizer's max input rate is now capped to 250 mol/s
+  id: 347
+  time: '2025-05-18T22:35:30.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: >-
+        Request computers, Silo Relay, Medcial Biofab, Atmos Crystalizer and Gas
+        Vendors added to origin.
+  id: 348
+  time: '2025-05-19T16:14:58.0000000+00:00'

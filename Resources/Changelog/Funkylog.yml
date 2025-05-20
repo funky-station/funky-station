@@ -2040,7 +2040,772 @@ Entries:
       message: Some requirements to use certain markings have been removed.
   id: 258
   time: '2025-03-22T19:31:36.0000000+00:00'
-- author: ' JoulesBerg'
-  changes: []
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        Blob Factories will now resume production of Blob Pods when its
+        previously produced Pods die.
   id: 259
-  time: '2025-04-19T00:39:32.0000000+00:00'
+  time: '2025-03-23T17:03:53.0000000+00:00'
+- author: Toby222
+  changes:
+    - type: Tweak
+      message: Ethylredoxrazine is now 10x as effective at clearing up drunkenness
+  id: 260
+  time: '2025-03-23T20:47:16.0000000+00:00'
+- author: ' AfterLite, correspond'
+  changes:
+    - type: Tweak
+      message: Entropy is no longer itemized, and is now a cultist-innate resource.
+    - type: Tweak
+      message: >-
+        Lone Ascendant's Dendrite is no longer edible; try using it as a liver
+        instead. 
+  id: 261
+  time: '2025-03-24T19:13:41.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Add
+      message: >-
+        Added the Secret Director/Game Directors game mode, which picks a random
+        game director on start, like Secret but for Game Directors.
+    - type: Add
+      message: >-
+        Added more granularity for Game Director presets in terms of roundstart
+        antagonists. They can now differentiate between extreme, normal, and
+        calm types of roundstart antagonists.
+    - type: Tweak
+      message: >-
+        Midround Blob and Wizard now only spawn in very peaceful situations
+        during game director rounds.
+    - type: Tweak
+      message: >-
+        Midround Changelings during game director rounds now take the form of
+        random infections rather than randomly converting player characters into
+        changelings instantly. 
+  id: 262
+  time: '2025-03-24T20:20:00.0000000+00:00'
+- author: Goomson
+  changes:
+    - type: Add
+      message: >-
+        Added unique previously unlisted chemical reactions to in game
+        guidebook!
+  id: 263
+  time: '2025-03-26T01:46:02.0000000+00:00'
+- author: SpaceCat-Chan
+  changes:
+    - type: Add
+      message: >-
+        Added an Atmos Borg module containing an RPD and Holofan Projector,
+        which can be researched by science and then constructed in the exosuit
+        fabricator.
+  id: 264
+  time: '2025-03-26T01:46:35.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: Atmos water tank backpack QOL changes
+  id: 265
+  time: '2025-03-26T17:14:15.0000000+00:00'
+- author: ' Quantus'
+  changes:
+    - type: Add
+      message: Flatpacker 1001 can be linked to the silo.
+  id: 266
+  time: '2025-03-26T17:15:04.0000000+00:00'
+- author: Sadie-silly
+  changes:
+    - type: Add
+      message: New lobby music
+  id: 267
+  time: '2025-03-26T23:03:23.0000000+00:00'
+- author: Sadie-silly
+  changes:
+    - type: Tweak
+      message: >-
+        New sound when being converted to a revolutionary, and spawning as a
+        head revolutionary.
+  id: 268
+  time: '2025-03-27T02:32:04.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: >-
+        Added the electrolyzer, an atmospheric machine that splits water to its
+        basic elements
+    - type: Add
+      message: Added Hydrogen, a flammable, non-toxic gas, that burns incredibly hot
+    - type: Add
+      message: >-
+        Added Hydrogen metal, a decorative metal that can be made with BZ,
+        hydrogen, and tons of pressure
+  id: 269
+  time: '2025-03-27T04:08:53.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Remove
+      message: Removed transform sting from the changeling catalog
+  id: 270
+  time: '2025-03-27T04:31:08.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Fixed infinite water vapor bug
+  id: 271
+  time: '2025-03-29T02:16:24.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Fixed permanent drunkeness
+  id: 272
+  time: '2025-03-29T16:14:59.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Fix
+      message: Made it so only one nukie commander and one nukie agent can spawn MAX.
+    - type: Fix
+      message: Re-added heretic to sub-gamemodes
+  id: 273
+  time: '2025-03-29T17:10:03.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Fix
+      message: fixed dragon event chaos values
+  id: 274
+  time: '2025-03-31T02:33:59.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: 'Bagel maints expansion Pt 2: The Big one'
+  id: 275
+  time: '2025-03-31T06:55:50.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Remove
+      message: >-
+        Removed the NaturalRegeneration, NaturalResiliance, Hemophiliac,
+        CarefulSteps, TableHider, TemperatureTolerance and SwiftFeet traits.
+    - type: Tweak
+      message: Moved Deuteranopia and Ultravision traits to a new Vision category.
+  id: 276
+  time: '2025-04-01T03:57:45.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Fix
+      message: Adv. SMES capacity buffed (2x)
+    - type: Tweak
+      message: Filled SMES sell for good money.
+  id: 277
+  time: '2025-04-01T19:50:09.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Permanent blindness is now un-treatable.
+  id: 278
+  time: '2025-04-01T20:34:11.0000000+00:00'
+- author: ' Gansu'
+  changes:
+    - type: Tweak
+      message: Bounties generation has been changed for more variety among bounties
+    - type: Tweak
+      message: Certain bounty items have had a rebalance in rewards
+  id: 279
+  time: '2025-04-02T21:41:13.0000000+00:00'
+- author: vassembly
+  changes:
+    - type: Add
+      message: added lowpopCrew lobby art.
+  id: 280
+  time: '2025-04-03T23:44:02.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Tweak
+      message: More maints added into Box
+    - type: Tweak
+      message: Added the material silo into Box
+  id: 281
+  time: '2025-04-04T17:08:47.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added new Janitor syndicate items
+  id: 282
+  time: '2025-04-04T17:14:26.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: Rewrote the Revolutionary Guidebook Entry
+    - type: Tweak
+      message: Blob guidebook now has entry about the Blob carrier timer
+    - type: Tweak
+      message: >-
+        Surgery guidebook now mentions that certain surgeries require a surgical
+        table
+    - type: Tweak
+      message: Engineering SOP has been modified.
+    - type: Tweak
+      message: Medical SOP has been modified.
+    - type: Tweak
+      message: >-
+        Changeling Guide now mentions the DNA Extraction sting, and it's
+        intended use.
+    - type: Add
+      message: Science now has an SOP entry.
+  id: 283
+  time: '2025-04-05T05:38:25.0000000+00:00'
+- author: ' Gansu'
+  changes:
+    - type: Tweak
+      message: >-
+        The bounty rewards for books, dice, board games, and laser guns have
+        been increased.
+    - type: Tweak
+      message: The amount of laser guns required for bounties has been reduced by 2.
+    - type: Tweak
+      message: Basic medical topicals can no longer be generated as bounty items.
+    - type: Tweak
+      message: Bounty skip timer has been reduced to 3 minutes, from 15 minutes.
+    - type: Tweak
+      message: Each category can only have one bounty up at a time to reduce overlap.
+  id: 284
+  time: '2025-04-06T18:52:40.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Add
+      message: >-
+        Ability to reprogram borg laws if their panels are open and you have the
+        lawboard you wish to program them to. 
+  id: 285
+  time: '2025-04-08T19:08:13.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: All organ and body bits sizes made more sane
+  id: 286
+  time: '2025-04-08T19:11:35.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: >-
+        Added Hyper-Noblium, an extremely inert gas that can stop other gases
+        from reacting.
+    - type: Add
+      message: >-
+        Added ProtoNitrate, a highly reactive, but non-toxic gas that reacts
+        with many other gases.
+    - type: Add
+      message: >-
+        Added Zauker, an incredibly deadly gas if inhaled, though dissipates
+        quickly when mixed with nitrogen.
+    - type: Add
+      message: >-
+        Added Halon, a gas that acts as a fire suppressant by removing oxygen in
+        the air while producing CO2.
+    - type: Add
+      message: >-
+        Added Helium, an invisible, inert gas. Can be sold to cargo for pocket
+        change.
+    - type: Add
+      message: >-
+        Added Anti-Noblium, a rare gas used for not very much at all, but can be
+        sold through cargo for a large sum of money. 
+  id: 287
+  time: '2025-04-10T19:14:28.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: >-
+        The bluespace sender and vendor have been added, used for distributing
+        gases to crew across the station. 
+  id: 288
+  time: '2025-04-10T19:15:53.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Fixed nitrium decomposition sometimes exceeding 100C
+  id: 289
+  time: '2025-04-10T19:16:32.0000000+00:00'
+- author: ReconPangolin
+  changes:
+    - type: Fix
+      message: Fixed the plant analyzer not scanning unless the UI was open
+    - type: Fix
+      message: Fixed the plant analyzer not displaying /tg/ gases
+    - type: Tweak
+      message: The plant analyzer now stores the last scan it made
+  id: 290
+  time: '2025-04-11T00:30:40.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: >-
+        Added 'select all' and 'deselect all' buttons to the gas filters drop
+        down menu on air alarms
+  id: 291
+  time: '2025-04-11T19:01:08.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Tweak
+      message: Atmospherics Guidebook now contains details on advanced gasses
+  id: 292
+  time: '2025-04-11T19:02:09.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Tweak
+      message: >-
+        Changelings have been added to the list Uncontainable EoC's in the
+        Guidebook. 
+  id: 293
+  time: '2025-04-13T00:17:58.0000000+00:00'
+- author: ' kbarkevich, Rainbeon'
+  changes:
+    - type: Add
+      message: >-
+        Added Blood Cult, a new type of round-start antagonists that are
+        dedicated to Nar'Sie, the Geometer of Blood.
+  id: 294
+  time: '2025-04-13T01:21:13.0000000+00:00'
+- author: spanky-spanky
+  changes:
+    - type: Tweak
+      message: Central Command has been changed to a new map.
+  id: 295
+  time: '2025-04-15T19:14:14.0000000+00:00'
+- author: ' Semni'
+  changes:
+    - type: Add
+      message: New Vulp scream sounds ported from Goob for all of your screaming needs.
+    - type: Fix
+      message: Vulpkanin innate temperature protection now actually works.
+  id: 296
+  time: '2025-04-16T23:52:33.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Bagel, Origin, and Fland have been given IAA rooms.
+    - type: Add
+      message: >-
+        Mousetraps have been put in doors leading to Supermatters on Bagel and
+        Fland.
+    - type: Add
+      message: Marathon has been given NTR, BSO, and IAA rooms.
+  id: 297
+  time: '2025-04-17T04:53:58.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: Updated and improved almost all in-game text relating to the Blob.
+  id: 298
+  time: '2025-04-17T07:45:26.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: >-
+        Electrolyzers now produce at a higher rate but with a much higher power
+        draw
+  id: 299
+  time: '2025-04-19T00:40:41.0000000+00:00'
+- author: Gansu
+  changes:
+    - type: Add
+      message: Added music techfab for all your instrument creating needs
+    - type: Add
+      message: New civilian tier 1 research to unlock the music techfab board
+  id: 300
+  time: '2025-04-19T04:42:09.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Remove
+      message: Removed the Traitor Objective for the Handheld Crew Monitor.
+    - type: Fix
+      message: >-
+        The Chaplain is now legally allowed to own their Null Rod (and
+        associated items).
+    - type: Fix
+      message: >-
+        The Handheld Crew Monitor is now job-restricted contraband, instead of
+        Syndie Objective contraband. CMOs and Paramedics are allowed to have it,
+        in accordance with SOP.
+    - type: Fix
+      message: >-
+        The Syndicate now correctly informs its agents that the Energy Shotgun
+        is a Warden-based Objective, not Head of Security.
+  id: 301
+  time: '2025-04-19T21:48:06.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: A Revolutionary Mindshield has been added to the Metashield.
+    - type: Tweak
+      message: Rule 7 now states "There are no main characters"
+  id: 302
+  time: '2025-04-19T21:48:52.0000000+00:00'
+- author: Gansu
+  changes:
+    - type: Tweak
+      message: Added a note to large bounties if they require sub storage items
+  id: 303
+  time: '2025-04-19T21:50:20.0000000+00:00'
+- author: Dot5511
+  changes:
+    - type: Fix
+      message: Fixed the wording on Rule 11 to not contradict itself in the same text.
+  id: 304
+  time: '2025-04-19T21:55:20.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Tweak
+      message: Mindcontrol and Brainwashing has been clarified in Rule 6.
+  id: 305
+  time: '2025-04-20T01:05:56.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: >-
+        Thermomachines now have 4 tiers, and are capable of much greater heating
+        and cooling. 
+    - type: Add
+      message: Atmospherics Exotech, a new unlockable research, has been added.
+    - type: Tweak
+      message: >-
+        Hyper-Noblium's maximum production temperature has been lowered from 24K
+        to 15K.
+  id: 306
+  time: '2025-04-20T01:39:02.0000000+00:00'
+- author: ArsCatalyst
+  changes:
+    - type: Add
+      message: Added high-pop map Resort for playtesting!
+    - type: Add
+      message: >-
+        Added Celedon, a familiar for the Zookeeper for playtesting! (currently
+        placeholder sprite)
+    - type: Tweak
+      message: Added some spawners for mapping!
+  id: 307
+  time: '2025-04-20T06:18:12.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Add
+      message: >-
+        Added Open Revolt to Revolutionaries. Open Revolt is a state that is
+        declared by any Head Rev, or by the Evac Shuttle failing to dock, that
+        reveals all Revolutionaries to each other while also revealing every
+        Head Rev's name in an announcement, allowing both Revolutionaries and
+        Loyalist Crew to co-operate amongst themselves better in the late game.
+  id: 308
+  time: '2025-04-25T23:45:03.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: Fixed issue with bluespace gas vendors forcing the game back to lobby.
+  id: 309
+  time: '2025-04-26T03:50:15.0000000+00:00'
+- author: Gansu
+  changes:
+    - type: Tweak
+      message: >-
+        Certain bounty items now have prerequisite research, this will prevent
+        them from generating until the relevant item is creatable 
+  id: 310
+  time: '2025-04-26T18:46:08.0000000+00:00'
+- author: ArsCatalyst
+  changes:
+    - type: Fix
+      message: Map fixes for Resort
+  id: 311
+  time: '2025-04-26T20:04:42.0000000+00:00'
+- author: Sadie-silly
+  changes:
+    - type: Add
+      message: >-
+        New song, Split, added to the pool of songs that can play while a nuke
+        is armed.
+  id: 312
+  time: '2025-04-26T20:19:39.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Crystalizer and bluespace gas vendors added to Bagel
+  id: 313
+  time: '2025-04-27T02:47:05.0000000+00:00'
+- author: ' widgetbeck, crocodilecarousel, TGRCdev, airfryerbuyonegetonefree, sowelipililimute, honeyedlemons, DinnerCalzone, kushbreth, deltanedas, ShaSeng'
+  changes:
+    - type: Add
+      message: >-
+        Thaven have been added as a species! These fey creatures are struck by
+        Moods, a new mechanic similar to silicon laws- but far more dramatic.
+        Ported from Impstation.
+  id: 314
+  time: '2025-04-27T02:47:38.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Fix
+      message: Fixed IPC and Vulp emotes on the emote wheel
+  id: 315
+  time: '2025-04-28T18:24:53.0000000+00:00'
+- author: SpaceCat-Chan
+  changes:
+    - type: Add
+      message: >-
+        plushies are now injectable, and reagents injected will slowly and
+        lossily pass through the skin of anyone holding the plushie.
+    - type: Tweak
+      message: insuls make you immune to plushies leaking if they're in your hand
+    - type: Add
+      message: plushies will spill some of their liquid when thrown against a wall
+  id: 316
+  time: '2025-04-30T01:27:29.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Add
+      message: Added the moffin, a cloth muffin for moths
+  id: 317
+  time: '2025-04-30T18:10:43.0000000+00:00'
+- author: ptrcnull
+  changes:
+    - type: Add
+      message: Added a recipe for homemade "vegan" syrup by mixing water and sugar.
+  id: 318
+  time: '2025-04-30T18:15:17.0000000+00:00'
+- author: vassembly
+  changes:
+    - type: Tweak
+      message: Changed pizza sprites.
+  id: 319
+  time: '2025-05-01T01:27:11.0000000+00:00'
+- author: vassembly
+  changes:
+    - type: Add
+      message: Added Godo plushie.
+    - type: Add
+      message: Added Gocrazy plushie.
+  id: 320
+  time: '2025-05-01T23:40:45.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Fix
+      message: Monkeys and clowns can now have their biomass reclaimed.
+  id: 321
+  time: '2025-05-03T01:10:19.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        Revolutionaries and Head Revolutionaries can no longer Mind Shield
+        themselves.
+    - type: Tweak
+      message: >-
+        The revolutionaries' fast draw implanter now crushes any implants it
+        draws, allowing for easier re-use.
+    - type: Tweak
+      message: >-
+        Implanter draw times have been cut in half. Implanters now take 30
+        seconds to draw, and Fast Draws now take 15 seconds to draw.
+    - type: Tweak
+      message: >-
+        The standard implanter now deals 90 damage on a failed draw, 50 genetic
+        + 40 heat, instead of the previous 60.
+    - type: Tweak
+      message: >-
+        The fast draw implanter now only deals 20 heat damage on a failed draw,
+        instead of the previous 60.
+  id: 322
+  time: '2025-05-04T01:59:09.0000000+00:00'
+- author: ' Icepicked, oBerry'
+  changes:
+    - type: Add
+      message: Added 16 new lawsets to the Ion storm event.
+    - type: Tweak
+      message: Ion storm weights have been altered.
+  id: 323
+  time: '2025-05-04T02:06:36.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added Biofabricator and Bluespace Relay to Bagel.
+    - type: Fix
+      message: Removed extra mail teleporters from under tables on Bagel.
+  id: 324
+  time: '2025-05-05T00:22:02.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: >-
+        Crystallizer will no longer maintain temperature with a low amount of
+        gas in it's regulator port. 
+  id: 325
+  time: '2025-05-05T23:05:33.0000000+00:00'
+- author: sleepyyapril
+  changes:
+    - type: Add
+      message: Added a pill buffer and sorting to the ChemMaster.
+    - type: Tweak
+      message: Moved transfer buttons to the side.
+  id: 326
+  time: '2025-05-08T01:31:14.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: Changed medical bio-fabricator sprite
+  id: 327
+  time: '2025-05-09T02:14:04.0000000+00:00'
+- author: ReconPangolin
+  changes:
+    - type: Add
+      message: Added catberries
+  id: 328
+  time: '2025-05-09T20:18:03.0000000+00:00'
+- author: Sadie-silly
+  changes:
+    - type: Tweak
+      message: Granted Blueshield extra access, and a centcomm overear headset.
+    - type: Fix
+      message: Removed Blueshield's extra survival box.
+  id: 329
+  time: '2025-05-09T20:18:42.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Add
+      message: >-
+        some more thaven moods have been added, though only certain jobs can
+        roll them
+    - type: Tweak
+      message: mindshielded thavens can no longer be emagged
+  id: 330
+  time: '2025-05-09T20:19:59.0000000+00:00'
+- author: GaloGal0
+  changes:
+    - type: Tweak
+      message: Increased the speed of the autodoc
+  id: 331
+  time: '2025-05-10T00:02:42.0000000+00:00'
+- author: GaloGal0
+  changes:
+    - type: Remove
+      message: Removed Russian text in Autodoc UI
+    - type: Tweak
+      message: Changed capitalisation in Autodoc UI
+  id: 332
+  time: '2025-05-10T04:05:57.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: >-
+        The heat pump, a heat transferring device, can now be found in the
+        crafting menu or crafted with the RPD. 
+  id: 333
+  time: '2025-05-11T23:42:53.0000000+00:00'
+- author: ' JoulesBerg'
+  changes:
+    - type: Fix
+      message: >-
+        CBurn agents get to role play at centcomm now (zombie rounds should no
+        longer end early if the shuttle has been called)
+  id: 334
+  time: '2025-05-12T00:04:27.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: >-
+        Electrolyzer powerload will now return to baseline more slowly, causing
+        fewer power fluctuations.
+  id: 335
+  time: '2025-05-12T00:54:45.0000000+00:00'
+- author: SpaceCat-Chan
+  changes:
+    - type: Add
+      message: Added a News Manager digiboard, because the news never sleeps!
+  id: 336
+  time: '2025-05-14T03:10:08.0000000+00:00'
+- author: ' Joulesberg'
+  changes:
+    - type: Add
+      message: >-
+        Added finance allocation computer / departmental request computers to
+        omega. 
+  id: 337
+  time: '2025-05-14T05:18:35.0000000+00:00'
+- author: UristMcWiki
+  changes:
+    - type: Tweak
+      message: Changed and modify pricing and sales for nukies/traitors.
+    - type: Tweak
+      message: Added a War Ops requirement to certain nukie items.
+  id: 338
+  time: '2025-05-14T20:05:09.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Fix
+      message: late joined thavens will now have moods
+  id: 339
+  time: '2025-05-15T18:34:50.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Departmental Economy Consoles added to Bagel
+  id: 340
+  time: '2025-05-15T18:35:34.0000000+00:00'
+- author: IronDragoon
+  changes:
+    - type: Add
+      message: >-
+        portable chemical mixer, a craftable chemical mixer which can be worn
+        around the waist. 
+  id: 341
+  time: '2025-05-15T18:37:05.0000000+00:00'
+- author: ' JoulesBerg'
+  changes:
+    - type: Add
+      message: >-
+        Added Funds Allocation and department request computers, biomass
+        reclaimer, biotech medfab, crystalizer, and bluespace distributor to
+        elkridge.
+  id: 342
+  time: '2025-05-16T02:25:34.0000000+00:00'
+- author: Quantus
+  changes:
+    - type: Tweak
+      message: Removed security time requirement for Changeling.
+  id: 343
+  time: '2025-05-16T02:32:30.0000000+00:00'
+- author: ' oLykos'
+  changes:
+    - type: Add
+      message: >-
+        Moths have a new "Soft Eyes" marking option with accompanying
+        heterochromia
+  id: 344
+  time: '2025-05-17T01:21:33.0000000+00:00'
+- author: UristMcWiki
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Syndie rework not allowing surplus crates to contain WarOps
+        content.
+  id: 345
+  time: '2025-05-18T01:48:00.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: >-
+        Hydrogen fire reactions have been slightly reworked to more closely
+        follow original mechanics
+  id: 346
+  time: '2025-05-18T19:24:57.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: The crystallizer's max input rate is now capped to 250 mol/s
+  id: 347
+  time: '2025-05-18T22:35:30.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: >-
+        Request computers, Silo Relay, Medcial Biofab, Atmos Crystalizer and Gas
+        Vendors added to origin.
+  id: 348
+  time: '2025-05-19T16:14:58.0000000+00:00'

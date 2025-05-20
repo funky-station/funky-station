@@ -51,7 +51,6 @@
   - BasicRoundstartVariation
   - RegularStationPayouts # funkys
 
-
 - type: gamePreset
   id: BlobTraitor
   alias:

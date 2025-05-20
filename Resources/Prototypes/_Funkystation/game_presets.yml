@@ -73,7 +73,6 @@
   minPlayers: 5
   rules:
   - IncidentDynamic
-  - RegularStationPayouts # funkys
 
 - type: gamePreset
   id: TheApostle
@@ -87,7 +86,6 @@
   minPlayers: 5
   rules:
   - ApocalypseDynamic
-  - RegularStationPayouts # funkys
 
 - type: gamePreset
   id: SecretDirector
@@ -99,4 +97,3 @@
   description: secret-director-description
   rules:
   - SecretDirector
-  - RegularStationPayouts # funkys

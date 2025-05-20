@@ -1,4 +1,5 @@
-﻿using Content.Shared.Whitelist;
+using Content.Shared.Research.Prototypes;
+using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -63,6 +64,29 @@ public readonly partial record struct CargoBountyItemEntry()
     /// </summary>
     [DataField]
     public int Amount { get; init; } = 1;
+
+    // Beginning of Funky Station edits
+    /// <summary>
+    /// A minimum amount of the item that can be requested in a bounty, used to make sure a bounty isn't to underwhelming
+    /// </summary>
+    [DataField]
+    public int MinAmount { get; init; } = 1;
+
+    /// <summary>
+    /// A maximum amount of the item that can be requested for a bounty
+    /// </summary>
+    [DataField]
+    public int MaxAmount { get; init; } = 1;
+
+    /// <summary>
+    /// The amount each item will reward for a bounty
+    /// </summary>
+    [DataField]
+    public int RewardPer { get; init; } = 1;
+
+    [DataField]
+    public List<ProtoId<TechnologyPrototype>>? RequiredResearch { get; init; }
+    // End of Funky Station edits
 
     /// <summary>
     /// A player-facing name for the item.

@@ -1,0 +1,17 @@
+- type: entity
+  id: CultSoulStone
+  parent: [ BaseItem, BaseBloodCultContraband ]
+  name: soul stone
+  description: "May or may not contain a stolen soul."
+  components:
+  - type: Sprite
+    sprite: _Funkystation/BloodCult/Objects/soulstone.rsi
+    state: soulstone
+  - type: Input
+    context: "ghost"
+  - type: SoulStone
+  - type: Clickable
+  - type: MindContainer
+  - type: Item
+    size: Small
+    heldPrefix: soulstone

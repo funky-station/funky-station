@@ -3,6 +3,8 @@ using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Kitchen.Components;
 using Content.Server.NameIdentifier;
+using Content.Shared.PDA;
+using Robust.Shared.Containers;
 using Content.Shared.Database;
 using Content.Shared._DV.CartridgeLoader.Cartridges;
 using Content.Shared._DV.NanoChat;
@@ -26,8 +28,30 @@ public sealed class NanoChatSystem : SharedNanoChatSystem
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<NanoChatCardComponent, EntGotInsertedIntoContainerMessage>(OnInserted);
+        SubscribeLocalEvent<NanoChatCardComponent, EntGotRemovedFromContainerMessage>(OnRemoved);
+
         SubscribeLocalEvent<NanoChatCardComponent, MapInitEvent>(OnCardInit);
         SubscribeLocalEvent<NanoChatCardComponent, BeingMicrowavedEvent>(OnMicrowaved, after: [typeof(IdCardSystem)]);
+    }
+
+    private void OnInserted(Entity<NanoChatCardComponent> ent, ref EntGotInsertedIntoContainerMessage args)
+    {
+        if (args.Container.ID != PdaComponent.PdaIdSlotId)
+            return;
+
+        ent.Comp.PdaUid = args.Container.Owner;
+        Dirty(ent);
+    }
+
+    private void OnRemoved(Entity<NanoChatCardComponent> ent, ref EntGotRemovedFromContainerMessage args)
+    {
+        if (args.Container.ID != PdaComponent.PdaIdSlotId)
+            return;
+
+        ent.Comp.PdaUid = null;
+        Dirty(ent);
     }
 
     private void OnMicrowaved(Entity<NanoChatCardComponent> ent, ref BeingMicrowavedEvent args)

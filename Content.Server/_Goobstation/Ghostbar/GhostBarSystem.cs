@@ -33,6 +33,8 @@ public sealed class GhostBarSystem : EntitySystem
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
+    private DeserializationOptions _options = new DeserializationOptions();
+
     private static readonly List<ProtoId<JobPrototype>> _jobComponents = new()
     {
         "Passenger", "Bartender", "Botanist", "Chef", "Janitor"
@@ -48,7 +50,14 @@ public sealed class GhostBarSystem : EntitySystem
     private ResPath _mapPath = new("Maps/_Goobstation/Nonstations/ghostbar.yml");
     private void OnRoundStart(RoundStartingEvent ev)
     {
-        _mapLoader.TryLoadMap(_mapPath, out _, out _);
+        _options.InitializeMaps = true;
+        _options.PauseMaps = false;
+        var res = _mapLoader.TryLoadMap(_mapPath, out _, out _, _options);
+
+        if (res)
+        {
+            Log.Info("Ghostbar loaded");
+        }
     }
 
     public void SpawnPlayer(GhostBarSpawnEvent msg, EntitySessionEventArgs args)

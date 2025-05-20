@@ -23,7 +23,7 @@ First and foremost, you'll need to familiarize yourself with the kitchen, and th
 
 ## Kitchen Prep:
 
-It's hard to put into words how to play chef without feeling like you're being given orders, but here are some basics.
+It's hard to put into words how to work as a chef without feeling like you're being given orders, but here are some basics.
 
 - Check what you have on hand when it comes to ingredients, most kitchens have some Flour, Rice, Eggs, Monkey Cubes, and a few other things to get started with.
 - Try your hand at mixing up some dough by putting water and flour together in a beaker. (Use the sinks!)
@@ -47,6 +47,29 @@ Place wheat in a grinder (with a beaker placed inside) and grind it up!
 <GuideEntityEmbed Entity="LargeBeaker"/>
 <GuideEntityEmbed Entity="WheatBushel"/>
 <GuideEntityEmbed Entity="ReagentContainerFlour"/>
+</Box>
+## Making Cheese/Tofu/Chèvre:
+Adding Milk to a little bit of Universal Enzyme (catalyst) in a beaker can give you various items;
+Cow Milk gives you Cheese, Soy Milk makes Tofu, and Goat Milk makes Chèvre.
+<Box>
+<GuideEntityEmbed Entity="LargeBeaker"/>
+<GuideEntityEmbed Entity="FoodCondimentBottleEnzyme"/>
+<GuideEntityEmbed Entity="DrinkMilkCarton"/>
+<GuideEntityEmbed Entity="DrinkSoyMilkCarton"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodCheese"/>
+<GuideEntityEmbed Entity="FoodTofu"/>
+<GuideEntityEmbed Entity="FoodChevre"/>
+</Box>
+## Making Butter:
+Pouring Milk into a beaker and adding a pinch of salt will give you a stick of butter.
+Note: You might need a bit more milk than you expect.
+<Box>
+<GuideEntityEmbed Entity="LargeBeaker"/>
+<GuideEntityEmbed Entity="DrinkMilkCarton"/>
+<GuideEntityEmbed Entity="FoodShakerSalt"/>
+<GuideEntityEmbed Entity="FoodButter"/>
 </Box>
 ## Getting Plants:
 Ask Botany for what you need, without a botanist, you may need to grow more plants yourself.

@@ -199,7 +199,7 @@
         state: idle
   - type: RandomMetadata
     nameSegments:
-    - names_first_male
+    - NamesFirstMale
   - type: Grammar
     attributes:
       gender: male

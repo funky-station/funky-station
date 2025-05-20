@@ -73,3 +73,11 @@
 - type: lobbyBackground
   id: typicalDay
   background: /Textures/LobbyScreens/typicalDay.webp
+
+- type: lobbyBackground
+  id: lowpopCrew
+  background: /Textures/LobbyScreens/lowpopCrew.webp
+
+- type: lobbyBackground
+  id: rats
+  background: /Textures/LobbyScreens/rats.webp

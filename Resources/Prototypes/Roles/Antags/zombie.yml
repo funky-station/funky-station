@@ -9,6 +9,8 @@
     inverted: true
     species:
     - IPC
+  - !type:OverallPlaytimeRequirement
+    time: 3600 # 1h
   guides: [ Zombies ]
 
 - type: antag

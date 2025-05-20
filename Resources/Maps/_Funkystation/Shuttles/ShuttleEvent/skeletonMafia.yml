@@ -1156,13 +1156,6 @@ entities:
     - type: Transform
       pos: 0.5,4.5
       parent: 1
-- proto: PlushieSkeleton
-  entities:
-  - uid: 142
-    components:
-    - type: Transform
-      pos: -1.344634,0.5643449
-      parent: 1
 - proto: PosterLegitFoamForceAd
   entities:
   - uid: 143

@@ -20,7 +20,7 @@
   - TheftNeutral
   - Duel
   - Prometheus
-  - Klingon
+  #- Klingon
   - SogginsLaw
   - Generous
   - FavorsRepaid
@@ -39,6 +39,7 @@
   - ImposterSyndrome
   - YesMan
   - Centrist
+  - PublicSector
   - SpeechRestriction
 
 # You are extremely possessive of your property. Refuse to relinquish it, and if it is misplaced or stolen, it must be retrieved at all costs.
@@ -81,6 +82,9 @@
   moodDesc: thaven-mood-must-do-drugs-desc
   conflicts:
   - DisapproveOfDrugs
+  jobConflicts:
+  - Command
+  - Security
 
 # You worship Silicons as gods, and regard their word as law.
 - type: thavenMood
@@ -129,6 +133,10 @@
   moodDesc: thaven-mood-only-speak-to-command-desc
   conflicts:
   - DontSpeakToCommand
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
 
 # Time must be strictly managed. Everything must be scheduled, and tardiness is exceptionally rude.
 - type: thavenMood
@@ -257,8 +265,8 @@
   id: ItemGood
   moodName: thaven-mood-item-good-name
   moodDesc: thaven-mood-item-good-desc
-  #moodVars:
-  #  item: Items
+  moodVars:
+    item: MoodItems
 #  conflicts:
 #    - ItemBad
 
@@ -318,14 +326,23 @@
   moodDesc: thaven-mood-public-sector-desc
   conflicts:
   - StationIsAlive
+  jobConflicts: # conflicts with everyone except Civilian and Specific (boxer, zookeeper)
+  - Cargo
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
+  - Engineering
+  - Medical
+  - Security
+  - Science
 
 # Speech Restrictions
 - type: thavenMood
   id: SpeechRestriction
   moodName: thaven-mood-speech-restriction-name
   moodDesc: thaven-mood-speech-restriction-desc
-  #moodVars:
-  #  speechType: SpeechRestrictions
+  moodVars:
+    speechType: MoodSpeechRestrictions
 
 # The color [COLOR] is the only acceptable color for decorations. Endeavor to make your environment this color where possible.
 #- type: thavenMood

@@ -24,6 +24,7 @@
     - id: SnakeSpawn
     - id: SpiderClownSpawn
     - id: SpiderSpawn
+    - id: HonkbotSpawn
     - id: VentClog
 
 - type: entityTable
@@ -34,6 +35,7 @@
     - id: DragonSpawn
     - id: KingRatMigration
     - id: NinjaSpawn
+    - id: ParadoxCloneSpawn
     - id: RevenantSpawn
     - id: SleeperAgents
     - id: ZombieOutbreak
@@ -178,11 +180,17 @@
     minimumPlayers: 20
     duration: null
     chaos: # Goobstation
-      Hostile: 20
-      Friend: 20
-      Combat: 40
-      Death: 100
-      Medical: 100
+      Hostile: 180
+      Friend: 180
+      Combat: 180
+      Death: 180
+      Medical: 140
+    maxChaos:
+      Hostile: 30
+      Combat: -60
+      Power: 50
+      Medical: 50
+      Atmos: 50
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner
@@ -213,11 +221,11 @@
     reoccurrenceDelay: 60 # funkystation
     minimumPlayers: 30
     chaos: # Goobstation
-      Hostile: 20
-      Friend: 20
-      Combat: 40
-      Death: 40
-      Medical: 40
+      Hostile: 50
+      Friend: 50
+      Combat: 50
+      Death: 50
+      Medical: 50
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
   - type: AntagObjectives
@@ -252,10 +260,46 @@
         - DeathAcidifierImplant
       - type: RandomMetadata
         nameSegments:
-        - names_ninja_title
-        - names_ninja
+        - NamesNinjaTitle
+        - NamesNinjaName
       mindRoles:
       - MindRoleNinja
+
+- type: entity
+  parent: BaseGameRule
+  id: ParadoxCloneSpawn
+  components:
+  - type: StationEvent
+    weight: 5
+    duration: null
+    earliestStart: 20
+    reoccurrenceDelay: 20
+    minimumPlayers: 15
+  - type: ParadoxCloneRule
+    objectiveBlacklist:
+      tags:
+      - ParadoxCloneObjectiveBlacklist
+  - type: AntagObjectives
+    objectives:
+    - ParadoxCloneKillObjective
+    - ParadoxCloneLivingObjective
+  - type: AntagRandomSpawn # TODO: improve spawning so they only start in maints
+  - type: AntagSelection
+    agentName: paradox-clone-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostParadoxClone
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: ParadoxCloneGear
+      roleLoadout:
+      - RoleSurvivalVoxTank # give vox something to breath in case they don't get a copy
+      briefing:
+        text: paradox-clone-role-greeting
+        color: lightblue
+        sound: /Audio/Misc/paradox_clone_greeting.ogg
+      mindRoles:
+      - MindRoleParadoxClone
 
 - type: entity
   parent: BaseGameRule
@@ -301,6 +345,17 @@
     earliestStart: 30
     reoccurrenceDelay: 60
     minimumPlayers: 10
+    chaos:
+      Hostile: 150
+      Friend: 150
+      Combat: 150
+      Death: 150
+    maxChaos:
+      Hostile: 30
+      Combat: -60
+      Power: 50
+      Medical: 50
+      Atmos: 50
   - type: AntagSelection
     agentName: wizard-round-end-name
     definitions:
@@ -324,8 +379,8 @@
         - Wizard
       - type: RandomMetadata
         nameSegments:
-        - names_wizard_first
-        - names_wizard_last
+        - NamesWizardFirst
+        - NamesWizardLast
       mindRoles:
       - MindRoleWizard
 
@@ -497,6 +552,22 @@
       id: MobClownSpider
 
 - type: entity
+  id: HonkbotSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/aliens.ogg
+    earliestStart: 20
+    minimumPlayers: 10
+    weight: 1
+    duration: 30
+  - type: VentCrittersRule
+    table: # DeltaV: EntityTable instead of spawn entries
+      id: MobHonkBot
+
+- type: entity
   id: ZombieOutbreak
   parent: BaseGameRule
   components:
@@ -566,8 +637,8 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments: # Vocaloid Names Fix
-        - nukeops-role-operator
-        - SyndicateNamesElite
+        - NamesNukieFirstOperator
+        - NamesSyndicateElite
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -659,6 +730,19 @@
     - Service
     blacklist:
     - External # don't space everything
+
+- type: entity
+  parent: BaseGameRule
+  id: SmugglerStashVariationPass
+  components:
+  - type: StationEvent
+    earliestStart: 0
+    duration: 1
+    minimumPlayers: 1
+    maxOccurrences: 2
+    weight: 10
+  - type: RandomSpawnRule
+    prototype: RandomSatchelSpawner
 
 - type: entity
   parent: BaseGameRule

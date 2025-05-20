@@ -94,3 +94,217 @@
       Male: Cerberus
       Female: Cerberus
       Unsexed: Cerberus
+
+# I'm so sorry for making this code so long I'm not a coder, someone should take a look over it to see where it can be simplified
+- type: entity
+  name: Celedon
+  parent:
+  - SimpleMobBase
+  - StripableInventoryBase
+  id: MobCeledonRaptor
+  description: Before the genetics lab on Europa was shut down, an activist group fought to save the animals about to be euthanized. Celedon is still untrusting of most humanoids, but maybe they can be rehabilitated.
+  components:
+  # Code for Celedon is copied from LaserRaptor, Pun pun, Remilia, Willow, and Impstation's dinosaurs
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Pets/celedon.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: celedon_raptor
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"] #this is temporary because it keeps throwing up errors when thinking about handcuffs
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.30
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: celedon_raptor
+      Dead:
+        Base: celedon_raptor_dead
+  - type: Tool
+    qualities:
+    - Prying
+  # Celedon is intended to pry open doors, this speed could be lowered if found too fast
+  - type: Prying
+    pryPowered: false # but not powered doors
+    force: true # I dont know what this does
+    speedModifier: 2.0
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: ReplacementAccent
+    accent: dino
+  - type: MeleeWeapon
+    animation: WeaponArcClaw
+    wideAnimation: WeaponArcClaw
+    altDisarm: true #this is a nerf from false to true as the attack is strong so it should be used with intent
+    angle: 30
+    soundHit:
+      collection: AlienClaw
+    # Damage lowered from 20 to 15 as I increased the attack speed to 1.0 as .33 felt too slow, Structural decreased from 12 to 10
+    damage:
+      types:
+        Slash: 16 #buffing the damage back up to 16 as I am nerfing the alt attack to be Disarm
+        Structural: 10
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 1.0
+    damageRecovery:
+      types:
+        Asphyxiation: -1.0
+  - type: Hands
+  - type: ComplexInteraction
+  - type: Cuffable # Need to figure out sprite layer
+  - type: Stripping
+  - type: Sharp
+  - type: Puller
+    needsHands: false
+  - type: Blindable
+  - type: SurgeryTarget
+  - type: Targeting
+  - type: Body # Shitmed Change
+    prototype: CeledonRaptor
+    requiredLegs: 2
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+      enum.ThavenMoodsUiKey.Key: # impstation edit
+        type: ThavenMoodsBoundUserInterface
+        requireInputValidation: false
+  - type: CanEscapeInventory # GoobStation - Escape being picked up by players
+  - type: Carriable # Goobstation
+  - type: SurgeryContaminable # DeltaV - surgery cross contamination
+  - type: Clumsy # I am giving them hands, but they will NOT be able to shoot guns
+    gunShootFailDamage:
+      types:
+        Blunt: 2
+        Piercing: 7
+      groups:
+        Burn: 3
+    clumsySound:
+      path: /Audio/Voice/Vox/shriek1.ogg
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: TypingIndicator
+    proto: lizard
+  - type: MindContainer
+    showExamineInfo: true
+  # I really dont know what I'm doing with inventory
+  - type: Inventory
+    speciesId: kangaroo
+    templateId: raptorinventory
+  - type: Temperature # temperature values taken from reptilian species
+    heatDamageThreshold: 400
+    coldDamageThreshold: 285
+    currentTemperature: 310.15
+    specificHeat: 42
+    coldDamage:
+      types:
+        Cold : 0.1 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 1.5 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      301: 0.8
+      295: 0.6
+      285: 0.4
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.50
+        Heat: 0.1
+  - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
+    allowedStates:
+    - Alive
+    damageCap: 10 # capped at 10 instead of 20 because they have dinosaur resistances
+    damage:
+      types:
+        Heat: -0.07
+      groups:
+        Brute: -0.07
+  - type: Metabolizer
+    solutionOnBody: false
+    metabolizerTypes: [ Animal ]
+    groups:
+    - id: Medicine
+    - id: Poison
+  - type: Dna
+  - type: Speech
+    speechSounds: Dino
+    speechVerb: Vox
+    allowedEmotes: ['Thump']
+  - type: Vocal
+    sounds:
+      Unsexed: DinoEmotes
+  - type: BodyEmotes
+    soundsId: ReptilianBodyEmotes
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Dinosaur
+  - type: GhostRole
+    prob: 1
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-celedon-name
+    description: ghost-role-information-celedon-description
+    rules: ghost-role-information-big-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatChicken
+      amount: 4
+    - id: MaterialBones1
+      amount: 4
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+    - AnomalyHost
+    - FootstepSound
+    - CanPilot
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: epicene
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5.25
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: BarestepHard
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+    - Passive
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Alerts
+  - type: Familiar
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-reptile
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/lizard_happy.ogg
+  - type: MobPrice
+    price: 751 # Celedon shouldn't have a price as they are a priceless team-member

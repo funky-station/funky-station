@@ -83,6 +83,12 @@
         key: Jitter
         time: 3.0
         type: Remove
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        component: Drowsiness
+        time: 1.5
+        type: Add
+        refresh: false
       - !type:HealthChange
         damage:
           types:
@@ -101,7 +107,7 @@
       effects:
       - !type:GenericStatusEffect
         key: Drunk
-        time: 6.0
+        time: 60.0
         type: Remove
       - !type:HealthChange
         damage:
@@ -1083,6 +1089,8 @@
         conditions:
         - !type:ReagentThreshold
           min: 10
+      - !type:DeCultify  # funky: TODO, make DeCultify work for both Cosmic and Blood Cult
+        amount: 2.5
       - !type:HealthChange
         conditions:
         - !type:TotalDamage

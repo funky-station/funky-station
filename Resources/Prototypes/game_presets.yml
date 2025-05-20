@@ -1,31 +1,31 @@
 - type: gamePreset
   id: Survival
   alias:
-  - survival
+    - survival
   name: survival-title
   showInVote: false # secret
   description: survival-description
   rules:
-  # - MeteorSwarmScheduler Goobstation - nuh uh
-  - RampingStationEventScheduler
-  - SpaceTrafficControlEventScheduler
-  - SpaceTrafficControlFriendlyEventScheduler
-  - BasicRoundstartVariation
+    # - MeteorSwarmScheduler Goobstation - nuh uh
+    - RampingStationEventScheduler
+    - SpaceTrafficControlEventScheduler
+    - SpaceTrafficControlFriendlyEventScheduler
+    - BasicRoundstartVariation
 
 - type: gamePreset
   id: KesslerSyndrome
   alias:
-  - kessler
-  - junk
-  - meteorhell
+    - kessler
+    - junk
+    - meteorhell
   name: kessler-syndrome-title
   showInVote: false # secret
   description: kessler-syndrome-description
   rules:
-  #    - KesslerSyndromeScheduler
-  - RampingStationEventScheduler
-  - SpaceTrafficControlEventScheduler
-  - BasicRoundstartVariation
+#    - KesslerSyndromeScheduler
+    - RampingStationEventScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
 
 - type: gamePreset
   id: AllAtOnce
@@ -35,17 +35,17 @@
   description: all-at-once-description
   showInVote: false
   rules:
-  - Nukeops
-  - Traitor
-  - Revolutionary
-  - Zombie
-  - BlobGameMode # Goobstation antag
-  - SubGamemodesRule
-  # - KesslerSyndromeScheduler Goobstation - nuh uh
-  - RampingStationEventScheduler
-  - Changeling # Goobstation - changeling playtest
-  - SpaceTrafficControlEventScheduler
-  - BasicRoundstartVariation
+    - Nukeops
+    - Traitor
+    - Revolutionary
+    - Zombie
+    - BlobGameMode # Goobstation antag
+    - SubGamemodesRule
+    # - KesslerSyndromeScheduler Goobstation - nuh uh
+    - RampingStationEventScheduler
+    - Changeling # Goobstation - changeling playtest
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
 
 - type: gamePreset
   id: AllerAtOnce
@@ -58,22 +58,22 @@
   description: aller-at-once-description
   showInVote: false #Please god dont do this
   rules:
-  - CosmicCult
-  - Nukeops
-  - Traitor
-  - Revolutionary
-  - Zombie
-  - BlobGameMode # Goobstation antag
-  - SubGamemodesRule
-  - BasicStationEventScheduler
-  #    - KesslerSyndromeScheduler
-  #    - MeteorSwarmMildScheduler # Goob Edit
-  #    - MeteorSwarmScheduler # Goob edit
-  - RampingStationEventScheduler
-  - SpaceTrafficControlEventScheduler
-  - SpaceTrafficControlFriendlyEventScheduler
-  - BasicRoundstartVariation
-  - Changeling # Goobstation - changeling playtest
+    - CosmicCult
+    - Nukeops
+    - Traitor
+    - Revolutionary
+    - Zombie
+    - BlobGameMode # Goobstation antag
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+#    - KesslerSyndromeScheduler
+#    - MeteorSwarmMildScheduler # Goob Edit
+#    - MeteorSwarmScheduler # Goob edit
+    - RampingStationEventScheduler
+    - SpaceTrafficControlEventScheduler
+    - SpaceTrafficControlFriendlyEventScheduler
+    - BasicRoundstartVariation
+    - Changeling # Goobstation - changeling playtest
 
 - type: gamePreset
   id: Extended
@@ -104,26 +104,26 @@
 - type: gamePreset
   id: Secret
   alias:
-  - secret
-  - sekrit
+    - secret
+    - sekrit
   name: secret-title
-  showInVote: true # Goob - Game Director
+  showInVote: false # Goob - Game Director
   description: secret-description
   rules:
-  - Secret
+    - Secret
 
 - type: gamePreset
   id: SecretExtended #For Admin Use: Runs Extended but shows "Secret" in lobby.
   alias:
-  - secretextended
+    - secretextended
   name: secret-title
   showInVote: false #Admin Use
   description: secret-description
   rules:
-  - BasicStationEventScheduler
+    - BasicStationEventScheduler
   #  - MeteorSwarmScheduler Goobstation - nuh uh
-  - SpaceTrafficControlEventScheduler
-  - BasicRoundstartVariation
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
 
 - type: gamePreset
   id: SecretGreenshift #For Admin Use: Runs Greenshift but shows "Secret" in lobby.
@@ -139,77 +139,74 @@
 - type: gamePreset
   id: Sandbox
   alias:
-  - sandbox
+    - sandbox
   name: sandbox-title
   description: sandbox-description
   showInVote: false # Not suitable for use without admin intervention, since entity spamming can quickly crash a server
   maxPlayers: 5
   rules:
-  - Sandbox
+    - Sandbox
 
 - type: gamePreset
   id: Traitor
   alias:
-  - traitor
-  - tator
+    - traitor
+    - tator
   name: traitor-title
   description: traitor-description
   showInVote: false
   rules:
-  - DummyNonAntagChance
-  - Traitor
-  - SubGamemodesRule
-  - BasicStationEventScheduler
-  # - MeteorSwarmScheduler
-  - SpaceTrafficControlEventScheduler
-  - BasicRoundstartVariation
+    - Traitor
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+  #  - MeteorSwarmScheduler Goobstation - nuh uh
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
 
 - type: gamePreset
   id: Deathmatch
   alias:
-  - deathmatch
-  - dm
+    - deathmatch
+    - dm
   name: death-match-title
   description: death-match-description
   maxPlayers: 15
   showInVote: true
   supportedMaps: DeathMatchMapPool
   rules:
-  - DeathMatch31
+    - DeathMatch31
 
 - type: gamePreset
   id: Nukeops
   alias:
-  - nukeops
+    - nukeops
   name: nukeops-title
   description: nukeops-description
   showInVote: false
   rules:
-  - Nukeops
-  - DummyNonAntagChance
-  - SubGamemodesRule
-  - BasicStationEventScheduler
-  # - MeteorSwarmScheduler
-  - SpaceTrafficControlEventScheduler
-  - BasicRoundstartVariation
+    - Nukeops
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+  #  - MeteorSwarmScheduler Goobstation - nuh uh
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
 
 - type: gamePreset
   id: Revolutionary
   alias:
-  - rev
-  - revs
-  - revolutionaries
+    - rev
+    - revs
+    - revolutionaries
   name: rev-title
   description: rev-description
   showInVote: false
   rules:
-  - DummyNonAntagChance
-  - Revolutionary
-  - SubGamemodesRule
-  - BasicStationEventScheduler
-  # - MeteorSwarmScheduler
-  - SpaceTrafficControlEventScheduler
-  - BasicRoundstartVariation
+    - Revolutionary
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+  #  - MeteorSwarmScheduler Goobstation - nuh uh
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
 
 - type: gamePreset
   id: Wizard
@@ -220,9 +217,9 @@
   showInVote: false
   rules:
   - Wizard
-  - DummyNonAntagChance
+  - SubGamemodesRuleNoWizard #No Dual Wizards at the start, midround is fine
   - BasicStationEventScheduler
-  # - MeteorSwarmScheduler
+  - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
 
@@ -240,7 +237,7 @@
   rules:
   - Zombie
   - BasicStationEventScheduler
-  #  - MeteorSwarmScheduler Goobstation - nuh uh
+#  - MeteorSwarmScheduler Goobstation - nuh uh
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
 
@@ -256,6 +253,6 @@
   rules:
   - Zombie
   - BasicStationEventScheduler
-  # - KesslerSyndromeScheduler
+ # - KesslerSyndromeScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation

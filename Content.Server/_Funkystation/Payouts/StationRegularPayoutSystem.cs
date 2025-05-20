@@ -9,12 +9,14 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Security;
 using Content.Shared.StationRecords;
 using Content.Server._Funkystation.Payouts.Components;
+using Content.Shared.Cargo.Components;
 
 namespace Content.Server._Funkystation.Payouts;
 
 public sealed class StationRegularPayoutSystem : GameRuleSystem<StationRegularPayoutComponent>
 {
     [Dependency] private readonly StationRecordsSystem _stationRecords = default!;
+    [Dependency] private readonly ScripSystem _scrip = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly PayoutSystem _payoutSystem = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
@@ -82,7 +84,7 @@ public sealed class StationRegularPayoutSystem : GameRuleSystem<StationRegularPa
         var totalStationPayoutAmount =
             component.ScripBaseStationBalanceAdd + (component.ScripPerPlayerBalanceAdd * validCrew);
 
-        bankAccountComponent.ScripBalance += totalStationPayoutAmount;
+        _scrip.AddScripToStation(bankAccountComponent, totalStationPayoutAmount);
 
         if (!component.ScripInitialStationInit)
         {

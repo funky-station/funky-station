@@ -16,7 +16,7 @@
     tags:
       - HideContextMenu
   - type: AnimationPlayer
-  
+
 - type: entity
   parent: MuzzleFlashEffect
   id: MuzzleFlashEffectOmnilaser
@@ -30,7 +30,7 @@
       map: ["enum.EffectLayers.Unshaded"]
       sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
       state: omnilaser_flash
-  
+
 - type: entity
   parent: MuzzleFlashEffect
   id: MuzzleFlashEffectHeavyLaser
@@ -262,6 +262,7 @@
     damage:
       types:
         Ion: 10 #Goobstation
+        Heat: 0
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -301,6 +302,7 @@
     damage:
       types:
         Ion: 5 #Goobstation
+        Heat: 0
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -970,6 +972,7 @@
     damage:
       types:
         Ion: 4 #Goobstation
+        Heat: 0
     soundHit:
       collection: WeakHit
     forceSound: true

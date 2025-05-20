@@ -6,7 +6,7 @@
       sprite: Mobs/Species/Human/parts.rsi
       state: full
     - type: RandomMetadata
-      nameSegments: [ names_borer ]
+      nameSegments: [ NamesBorer ]
     - type: RandomHumanoidSpawner
       settings: ChronoLegionnaire
 

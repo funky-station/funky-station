@@ -74,7 +74,7 @@ namespace Content.Server._Funkystation.Atmos.Systems
 
         private void OnSetGasInputMessage(EntityUid uid, CrystallizerComponent crystallizer, CrystallizerSetGasInputMessage args)
         {
-            crystallizer.GasInput = args.GasInput;
+            crystallizer.GasInput = Math.Clamp(args.GasInput, 0f, 250f);
             DirtyUI(uid, crystallizer);
         }
 
@@ -322,7 +322,7 @@ namespace Content.Server._Funkystation.Atmos.Systems
             if (!GetRegulatorPipeMixture(uid, crystallizer, out var regulatorMix) || regulatorMix == null)
                 return;
 
-            if (regulatorMix.TotalMoles < 0.01 || crystalMix.TotalMoles <= 0)
+            if (crystalMix.TotalMoles <= 0)
                 return;
 
             float regulatorHeatCapacity = _atmos.GetHeatCapacity(regulatorMix, true);

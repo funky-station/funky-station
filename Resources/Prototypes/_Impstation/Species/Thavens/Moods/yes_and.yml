@@ -8,13 +8,13 @@
   - ExcessivelyOrganized
   - MostImportant
   - LeastImportant
-  #- MustDoDrugs # TODO job conflicts
+  - MustDoDrugs
   - WorshipSilicons
   - DinnerEtiquette
   - HugGood
   - NeverAlone
   - VeryReligious
-  #- OnlySpeakToCommand # TODO job conflicts
+  - OnlySpeakToCommand
   - Scheduler
   - ProperStorage
   - TheftNeutral
@@ -39,7 +39,7 @@
   - ImposterSyndrome
   - YesMan
   - Centrist
-  #- PublicSector # TODO job conflicts
+  - PublicSector
   - SpeechRestriction
 
 # You are extremely possessive of your property. Refuse to relinquish it, and if it is misplaced or stolen, it must be retrieved at all costs.

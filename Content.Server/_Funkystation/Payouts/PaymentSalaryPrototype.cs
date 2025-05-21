@@ -3,6 +3,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Funkystation.Payouts.Prototypes;
 
+[Serializable, DataDefinition]
 [Prototype("paymentSalary")]
 public sealed partial class PaymentSalaryPrototype : IPrototype
 {

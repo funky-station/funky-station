@@ -12,7 +12,7 @@ public sealed partial class PaymentSalaryPrototype : IPrototype
     /// <summary>
     /// The roles that has this applied to their salary.
     /// </summary>
-    [DataField("roles")] public List<JobPrototype> Roles = new List<JobPrototype>();
+    [DataField("roles")] public List<string> Roles = new List<string>();
 
     [DataField("salary")] public int Salary = 0;
 }

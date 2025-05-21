@@ -9,7 +9,11 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Security;
 using Content.Shared.StationRecords;
 using Content.Server._Funkystation.Payouts.Components;
+using Content.Server.GameTicking;
 using Content.Shared.Cargo.Components;
+using Content.Shared.GameTicking;
+using Content.Shared.Roles;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Funkystation.Payouts;
 
@@ -24,7 +28,8 @@ public sealed class StationRegularPayoutSystem : GameRuleSystem<StationRegularPa
     public override void Initialize()
     {
         base.Initialize();
-        // this is where I would put my subscriptions... IF I HAD ANY
+        // now you have a subscription
+        SubscribeLocalEvent<AfterGeneralRecordCreatedEvent>(OnPlayerJobsAssigned);
     }
 
     protected override void Added(EntityUid uid, StationRegularPayoutComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
@@ -37,6 +42,26 @@ public sealed class StationRegularPayoutSystem : GameRuleSystem<StationRegularPa
         payoutComponent.NextPayout = TimeSpan.FromMinutes(payoutComponent.RegularPayoutInterval);
     }
 
+    private void OnPlayerJobsAssigned(AfterGeneralRecordCreatedEvent args)
+    {
+        var recordId = _stationRecords.GetRecordByName(args.Station, args.Profile.Name);
+
+        if (recordId == null)
+            return;
+        
+        var key = new StationRecordKey((uint) recordId, args.Station);
+
+        _stationRecords.AddRecordEntry(args.Key, new PaymentRecord());
+        _stationRecords.Synchronize(args.Key);
+        
+        if (!_stationRecords.TryGetRecord(key, out PaymentRecord? record))
+            return;
+        
+        Log.Debug($"{args.Record.JobPrototype}");
+
+        record.PayoutAmount = _payoutSystem.InitialPayoutInfo[(ProtoId<JobPrototype>) args.Record.JobPrototype];
+    }
+
     protected override void Started(EntityUid uid, StationRegularPayoutComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
@@ -47,6 +72,7 @@ public sealed class StationRegularPayoutSystem : GameRuleSystem<StationRegularPa
         // grab a station, there should only be one valid station
         if (!TryGetRandomStation(out var chosenStation, HasComp<StationBankAccountComponent>))
             return;
+        
         component.StationComponentUID = chosenStation.Value;
 
         InitiatePayouts(payoutComponent);
@@ -75,6 +101,14 @@ public sealed class StationRegularPayoutSystem : GameRuleSystem<StationRegularPa
             {
                 record.PaySuspended = true;
                 continue;
+            }
+
+            if (!component.ScripInitialStationInit)
+            {
+                if (!_stationRecords.TryGetRecord(key, out GeneralStationRecord? generalStationRecord))
+                    return;
+                
+                record.PayoutAmount = _payoutSystem.InitialPayoutInfo[generalStationRecord.JobPrototype];
             }
 
             record.PaySuspended = false;

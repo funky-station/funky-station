@@ -100,15 +100,7 @@ public sealed class StationRegularPayoutSystem : GameRuleSystem<StationRegularPa
                 record.PaySuspended = true;
                 continue;
             }
-
-            if (!component.ScripInitialStationInit)
-            {
-                if (!_stationRecords.TryGetRecord(key, out GeneralStationRecord? generalStationRecord))
-                    return;
-                
-                record.PayoutAmount = _payoutSystem.InitialPayoutInfo[generalStationRecord.JobPrototype];
-            }
-
+            
             record.PaySuspended = false;
             validCrew++; // only pay the station for crew that is nice :)
         }

@@ -11,27 +11,9 @@
 
                 <!--
                     TODO:
-                    - personal information
-                    - add back character descs?
                     - put check boxes into scroll boxes
                     - auto gen check boxes in c# via yml protos
-                    - make title cute and pretty
-                    - consistency pass
                 -->
-
-                <!--  title  -->
-                <BoxContainer
-                    HorizontalExpand="True"
-                    Margin="0,10,0,0"
-                    Orientation="Horizontal">
-                    <Label StyleClasses="LabelHeading" Text="Records" />
-                    <Control HorizontalExpand="True" MinSize="5 0" />
-                    <TextureRect
-                        SetSize="30 30"
-                        Stretch="KeepAspectCentered"
-                        StyleClasses="NTLogoDark"
-                        VerticalAlignment="Center" />
-                </BoxContainer>
 
                 <!--  header; General Information  -->
                 <PanelContainer>
@@ -76,14 +58,11 @@
                             <Label MinWidth="70" Name="WeightImperialLabel" />
                         </BoxContainer>
 
-                        <BoxContainer Orientation="Horizontal">
-                            <Label Text="{Loc 'humanoid-profile-editor-cd-records-identifying-features'}" />
-                            <Control HorizontalExpand="True" />
-                            <LineEdit
-                                HorizontalAlignment="Right"
-                                MinSize="350 0"
-                                Name="IdentifyingFeaturesEdit" />
-                        </BoxContainer>
+                        <Label Text="Identifying Features: " />
+                        <LineEdit
+                            HorizontalAlignment="Right"
+                            MinSize="350 0"
+                            Name="IdentifyingFeaturesEdit" />
                     </BoxContainer>
 
                     <!--  divider  -->
@@ -121,7 +100,7 @@
                             <OptionButton Name="InsuranceCompanyDropdown" />
                         </BoxContainer>
 
-                        <BoxContainer HorizontalExpand="True" Name="Ins">
+                        <BoxContainer HorizontalExpand="True" Name="InsurancePlan">
                             <Label Text="Insurance Plan" />
                             <Control HorizontalExpand="True" MinSize="5 0" />
                             <OptionButton Name="InsurancePlanDropdown" />
@@ -146,6 +125,33 @@
                 </PanelContainer>
 
                 <BoxContainer Margin="5,10" Orientation="Vertical">
+
+                    <!--  blood type, postmortem  -->
+                    <BoxContainer Margin="5,0" Orientation="Horizontal">
+                        <Label Text="Blood Type: " />
+                        <Control HorizontalExpand="True" />
+                        <OptionButton Name="BloodTypeDropdown" />
+                    </BoxContainer>
+
+                    <BoxContainer Margin="5,0" Orientation="Horizontal">
+                        <Label Text="Postmortem Instructions: " />
+                        <Control HorizontalExpand="True" />
+                        <LineEdit
+                            HorizontalAlignment="Right"
+                            MinSize="350 0"
+                            Name="PostmortemEdit" />
+                    </BoxContainer>
+
+                    <!--  horizontal divider  -->
+                    <PanelContainer
+                        HorizontalExpand="True"
+                        Margin="5,10"
+                        MinSize="0, 2">
+                        <PanelContainer.PanelOverride>
+                            <graphics:StyleBoxFlat BackgroundColor="#202028" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
                     <GridContainer Columns="5">
                         <!--  allergies  -->
                         <BoxContainer
@@ -153,7 +159,7 @@
                             Margin="5,0"
                             Orientation="Vertical">
 
-                            <Label Text="Allergies:" />
+                            <Label Margin="0,5" Text="Allergies:" />
                             <BoxContainer Margin="5,0" Orientation="Vertical">
                                 <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
                                     <CheckBox HorizontalAlignment="Left" />
@@ -171,15 +177,7 @@
                                     <CheckBox HorizontalAlignment="Left" />
                                     <Label Text="Shellfish" />
                                 </BoxContainer>
-                                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
-                                    <CheckBox HorizontalAlignment="Left" />
-                                    <Label Text="Other:" />
-                                    <Control HorizontalExpand="True" />
-                                    <LineEdit
-                                        HorizontalAlignment="Right"
-                                        MinSize="300 0"
-                                        Name="AllergiesEdit" />
-                                </BoxContainer>
+
                             </BoxContainer>
                         </BoxContainer>
 
@@ -199,7 +197,7 @@
                             HorizontalExpand="True"
                             Margin="5,0"
                             Orientation="Vertical">
-                            <Label Text="Prescriptions:" />
+                            <Label Margin="0,5" Text="Prescriptions:" />
                             <BoxContainer Margin="5,0" Orientation="Vertical">
                                 <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
                                     <CheckBox HorizontalAlignment="Left" />
@@ -217,15 +215,7 @@
                                     <CheckBox HorizontalAlignment="Left" />
                                     <Label Text="Pain Relievers" />
                                 </BoxContainer>
-                                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
-                                    <CheckBox HorizontalAlignment="Left" />
-                                    <Label Text="Other:" />
-                                    <Control HorizontalExpand="True" />
-                                    <LineEdit
-                                        HorizontalAlignment="Right"
-                                        MinSize="300 0"
-                                        Name="PrescriptionsEdit" />
-                                </BoxContainer>
+
                             </BoxContainer>
                         </BoxContainer>
 
@@ -245,7 +235,7 @@
                             Margin="5,0"
                             Orientation="Vertical">
 
-                            <Label Text="Family Medical History:" />
+                            <Label Margin="0,5" Text="Family Medical History:" />
                             <BoxContainer Margin="5,0" Orientation="Vertical">
                                 <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
                                     <CheckBox HorizontalAlignment="Left" />
@@ -263,62 +253,12 @@
                                     <CheckBox HorizontalAlignment="Left" />
                                     <Label Text="Arthritis" />
                                 </BoxContainer>
-                                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
-                                    <CheckBox HorizontalAlignment="Left" />
-                                    <Label Text="Other:" />
-                                    <Control HorizontalExpand="True" />
-                                    <LineEdit
-                                        HorizontalAlignment="Right"
-                                        MinSize="300 0"
-                                        Name="FamilyHistoryEdit" />
-                                </BoxContainer>
+
                             </BoxContainer>
 
                         </BoxContainer>
                     </GridContainer>
-
-                    <!--  horizontal divider  -->
-                    <PanelContainer
-                        HorizontalExpand="True"
-                        Margin="5,10"
-                        MinSize="0, 2">
-                        <PanelContainer.PanelOverride>
-                            <graphics:StyleBoxFlat BackgroundColor="#202028" />
-                        </PanelContainer.PanelOverride>
-                    </PanelContainer>
-
-                    <BoxContainer Margin="5,0" Orientation="Horizontal">
-                        <Label Text="Blood Type: " />
-                        <Control HorizontalExpand="True" />
-                        <OptionButton Name="BloodTypeDropdown" />
-                    </BoxContainer>
-
-                    <BoxContainer Margin="5,0" Orientation="Horizontal">
-                        <Label Text="{Loc 'humanoid-profile-editor-cd-records-postmortem'}" />
-                        <Control HorizontalExpand="True" />
-                        <LineEdit
-                            HorizontalAlignment="Right"
-                            MinSize="350 0"
-                            Name="PostmortemEdit" />
-                    </BoxContainer>
                 </BoxContainer>
-
-
-                <!--  header; Personal Information  -->
-                <PanelContainer>
-                    <PanelContainer.PanelOverride>
-                        <graphics:StyleBoxFlat BackgroundColor="#202028" />
-                    </PanelContainer.PanelOverride>
-
-                    <BoxContainer
-                        HorizontalAlignment="Center"
-                        HorizontalExpand="True"
-                        Margin="5"
-                        Orientation="Horizontal">
-                        <Label StyleClasses="Italic" Text="Personal Information" />
-                    </BoxContainer>
-                </PanelContainer>
-
             </BoxContainer>
         </ScrollContainer>
     </BoxContainer>

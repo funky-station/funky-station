@@ -18,7 +18,7 @@ public sealed partial class PlayerProvidedCharacterRecords
 
     // Additional data is fetched from the Profile
 
-    // physical information
+    // general information
     [DataField]
     public int Height { get; private set; }
     public const int MaxHeight = 800;
@@ -31,6 +31,9 @@ public sealed partial class PlayerProvidedCharacterRecords
     public string IdentifyingFeatures { get; private set; }
 
     [DataField]
+    public bool HasWorkAuthorization { get; private set; }
+
+    [DataField]
     public bool HasInsurance { get; private set; }
 
     [DataField]
@@ -40,75 +43,27 @@ public sealed partial class PlayerProvidedCharacterRecords
     public int InsuranceType { get; private set; }
 
     // medical info
-    [DataField]
-    public string PostmortemInstructions { get; private set; }
 
     // TODO: implement reasons for prescriptions
     // sometime Soon id like to have immunosuppressed as a trait,
     // so keeping this for characters that would potentially need prescriptions across rounds
     [DataField]
-    public string Prescriptions { get; private set; }
+    public Dictionary<string, bool> PrescriptionList { get; private set; }
 
     // TODO: implement allergies
     // keeping these for "tba mechanical allergies."
     // personally not a fan of keeping pure-flavor things that *should* be mechanics instead
     [DataField]
-    public string Allergies { get; private set; }
+    public Dictionary<string, bool> AllergyList { get; private set; }
 
     [DataField]
-    public string DrugAllergies { get; private set; }
+    public Dictionary<string, bool> FamilyHistory { get; private set; }
 
-    // misc bureaucracy
     [DataField]
-    public bool HasWorkAuthorization { get; private set; }
+    public int BloodType { get; private set; }
 
-
-    // "incidents"
-    [DataField, JsonIgnore]
-    public List<RecordEntry> MedicalEntries { get; private set; }
-    [DataField, JsonIgnore]
-    public List<RecordEntry> SecurityEntries { get; private set; }
-    [DataField, JsonIgnore]
-    public List<RecordEntry> EmploymentEntries { get; private set; }
-
-
-    [DataDefinition]
-    [Serializable, NetSerializable]
-    public sealed partial class RecordEntry
-    {
-        [DataField]
-        public string Title { get; private set; }
-        // players involved, can be left blank (or with a generic "CentCom" etc.) for backstory related issues
-        [DataField]
-        public string Involved { get; private set; }
-        // Longer description of events.
-        [DataField]
-        public string Description { get; private set; }
-
-        public RecordEntry(string title, string involved, string desc)
-        {
-            Title = title;
-            Involved = involved;
-            Description = desc;
-        }
-
-        public RecordEntry(RecordEntry other)
-            : this(other.Title, other.Involved, other.Description)
-        {
-        }
-
-        public bool MemberwiseEquals(RecordEntry other)
-        {
-            return Title == other.Title && Involved == other.Involved && Description == other.Description;
-        }
-
-        public void EnsureValid()
-        {
-            Title = ClampString(Title, TextMedLen);
-            Involved = ClampString(Involved, TextMedLen);
-            Description = ClampString(Description, TextVeryLargeLen);
-        }
-    }
+    [DataField]
+    public string PostmortemInstructions { get; private set; }
 
     public PlayerProvidedCharacterRecords(
         bool hasWorkAuthorization,
@@ -116,10 +71,11 @@ public sealed partial class PlayerProvidedCharacterRecords
         string identifyingFeatures,
         bool hasInsurance,
         int insuranceProvider, int insuranceType,
-        string prescriptions,
-        string allergies, string drugAllergies,
-        string postmortemInstructions,
-        List<RecordEntry> medicalEntries, List<RecordEntry> securityEntries, List<RecordEntry> employmentEntries)
+        Dictionary<string, bool> prescriptionList,
+        Dictionary<string, bool> allergyList,
+        Dictionary<string, bool> familyHistory,
+        int bloodType,
+        string postmortemInstructions)
     {
         HasWorkAuthorization = hasWorkAuthorization;
         Height = height;
@@ -128,13 +84,11 @@ public sealed partial class PlayerProvidedCharacterRecords
         HasInsurance = hasInsurance;
         InsuranceProvider = insuranceProvider;
         InsuranceType = insuranceType;
-        Prescriptions = prescriptions;
-        Allergies = allergies;
-        DrugAllergies = drugAllergies;
+        PrescriptionList = prescriptionList;
+        AllergyList = allergyList;
+        FamilyHistory = familyHistory;
+        BloodType = bloodType;
         PostmortemInstructions = postmortemInstructions;
-        MedicalEntries = medicalEntries;
-        SecurityEntries = securityEntries;
-        EmploymentEntries = employmentEntries;
     }
 
     public PlayerProvidedCharacterRecords(PlayerProvidedCharacterRecords other)
@@ -146,13 +100,11 @@ public sealed partial class PlayerProvidedCharacterRecords
         HasInsurance = other.HasInsurance;
         InsuranceProvider = other.InsuranceProvider;
         InsuranceType = other.InsuranceType;
-        Prescriptions = other.Prescriptions;
-        Allergies = other.Allergies;
-        DrugAllergies = other.DrugAllergies;
+        PrescriptionList = other.PrescriptionList;
+        AllergyList = other.AllergyList;
+        FamilyHistory = other.FamilyHistory;
+        BloodType = other.BloodType;
         PostmortemInstructions = other.PostmortemInstructions;
-        MedicalEntries = other.MedicalEntries.Select(x => new RecordEntry(x)).ToList();
-        SecurityEntries = other.SecurityEntries.Select(x => new RecordEntry(x)).ToList();
-        EmploymentEntries = other.EmploymentEntries.Select(x => new RecordEntry(x)).ToList();
     }
 
     public static PlayerProvidedCharacterRecords DefaultRecords()
@@ -164,13 +116,11 @@ public sealed partial class PlayerProvidedCharacterRecords
             hasInsurance: true,
             insuranceProvider: 0,
             insuranceType: 0,
-            prescriptions: "None",
-            allergies: "None",
-            drugAllergies: "None",
-            postmortemInstructions: "Return home",
-            medicalEntries: new List<RecordEntry>(),
-            securityEntries: new List<RecordEntry>(),
-            employmentEntries: new List<RecordEntry>()
+            prescriptionList: new Dictionary<string, bool>(), // need to fill this dict with
+            allergyList: new Dictionary<string, bool>(), // the prototype list, then set to false
+            familyHistory: new Dictionary<string, bool>(), // for every bool
+            bloodType: 0,
+            postmortemInstructions: "Return home"
         );
     }
 
@@ -184,30 +134,13 @@ public sealed partial class PlayerProvidedCharacterRecords
                    && HasInsurance == other.HasInsurance
                    && InsuranceProvider == other.InsuranceProvider
                    && InsuranceType == other.InsuranceType
-                   && Prescriptions == other.Prescriptions
-                   && Allergies == other.Allergies
-                   && DrugAllergies == other.DrugAllergies
+                   && PrescriptionList == other.PrescriptionList
+                   && AllergyList == other.AllergyList
+                   && FamilyHistory == other.FamilyHistory
+                   && BloodType == other.BloodType
                    && PostmortemInstructions == other.PostmortemInstructions;
         if (!test)
             return false;
-        if (MedicalEntries.Count != other.MedicalEntries.Count)
-            return false;
-        if (SecurityEntries.Count != other.SecurityEntries.Count)
-            return false;
-        if (EmploymentEntries.Count != other.EmploymentEntries.Count)
-            return false;
-        if (MedicalEntries.Where((t, i) => !t.MemberwiseEquals(other.MedicalEntries[i])).Any())
-        {
-            return false;
-        }
-        if (SecurityEntries.Where((t, i) => !t.MemberwiseEquals(other.SecurityEntries[i])).Any())
-        {
-            return false;
-        }
-        if (EmploymentEntries.Where((t, i) => !t.MemberwiseEquals(other.EmploymentEntries[i])).Any())
-        {
-            return false;
-        }
 
         return true;
     }
@@ -221,13 +154,6 @@ public sealed partial class PlayerProvidedCharacterRecords
         return str;
     }
 
-    private static void EnsureValidEntries(List<RecordEntry> entries)
-    {
-        foreach (var entry in entries)
-        {
-            entry.EnsureValid();
-        }
-    }
 
     /// <summary>
     /// Clamp invalid entries to valid values
@@ -237,14 +163,7 @@ public sealed partial class PlayerProvidedCharacterRecords
         Height = Math.Clamp(Height, 0, MaxHeight);
         Weight = Math.Clamp(Weight, 0, MaxWeight);
         IdentifyingFeatures = ClampString(IdentifyingFeatures, TextMedLen);
-        Prescriptions = ClampString(Prescriptions, TextMedLen);
-        Allergies = ClampString(Allergies, TextMedLen);
-        DrugAllergies = ClampString(DrugAllergies, TextMedLen);
         PostmortemInstructions = ClampString(PostmortemInstructions, TextMedLen);
-
-        EnsureValidEntries(EmploymentEntries);
-        EnsureValidEntries(MedicalEntries);
-        EnsureValidEntries(SecurityEntries);
     }
     public PlayerProvidedCharacterRecords WithHeight(int height)
     {
@@ -290,21 +209,13 @@ public sealed partial class PlayerProvidedCharacterRecords
     {
         return new(this) { DrugAllergies = s };
     }
+    public PlayerProvidedCharacterRecords WithBloodType(int b)
+    {
+        return new (this) { BloodType = b };
+    }
     public PlayerProvidedCharacterRecords WithPostmortemInstructions(string s)
     {
         return new(this) { PostmortemInstructions = s};
-    }
-    public PlayerProvidedCharacterRecords WithEmploymentEntries(List<RecordEntry> entries)
-    {
-        return new(this) { EmploymentEntries = entries};
-    }
-    public PlayerProvidedCharacterRecords WithMedicalEntries(List<RecordEntry> entries)
-    {
-        return new(this) { MedicalEntries = entries};
-    }
-    public PlayerProvidedCharacterRecords WithSecurityEntries(List<RecordEntry> entries)
-    {
-        return new(this) { SecurityEntries = entries};
     }
 }
 

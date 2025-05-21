@@ -84,9 +84,19 @@ public sealed partial class RecordEditorGui : Control
             UpdateRecords(_records.WithInsuranceProvider(args.Id));
         };
 
+        InsurancePlanDropdown.OnItemSelected += args =>
+        {
+            UpdateRecords(_records.WithInsuranceType(args.Id));
+        };
+
         #endregion
 
         #region MedicalInformation
+
+        BloodTypeDropdown.OnItemSelected += args =>
+        {
+            UpdateRecords(_records.WithBloodType(args.Id));
+        };
 
         PostmortemEdit.OnTextChanged += args =>
         {
@@ -123,12 +133,28 @@ public sealed partial class RecordEditorGui : Control
         WorkAuthCheckBox.Pressed = _records.HasWorkAuthorization;
 
         InsuranceCheckBox.Pressed = _records.HasInsurance;
-        InsuranceCompanyDropdown.SelectId(_records.InsuranceProvider);
-        InsurancePlanDropdown.SelectId(_records.InsuranceType);
+
+        // this feels nasty
+        if (_records.HasInsurance == false)
+        {
+            InsuranceCompanyDropdown.SelectId(0);
+            InsuranceCompanyDropdown.Disabled = true;
+
+            InsurancePlanDropdown.SelectId(0);
+            InsurancePlanDropdown.Disabled = true;
+        }
+        else
+        {
+            InsuranceCompanyDropdown.Disabled = false;
+            InsuranceCompanyDropdown.SelectId(_records.InsuranceProvider);
+
+            InsurancePlanDropdown.Disabled = false;
+            InsurancePlanDropdown.SelectId(_records.InsuranceType);
+        }
 
         // medical information
 
-        AllergiesEdit.SetText(_records.Allergies);
+        BloodTypeDropdown.SelectId(_records.BloodType);
         PostmortemEdit.SetText(_records.PostmortemInstructions);
     }
 

@@ -43,14 +43,6 @@ public static class RecordsSerialization
         return def;
     }
 
-    private static List<PlayerProvidedCharacterRecords.RecordEntry> DeserializeEntries(List<CDModel.CharacterRecordEntry> entries, CDModel.DbRecordEntryType ty)
-    {
-        return entries.Where(e => e.Type == ty)
-            .OrderBy(e => e.Id) // attempt at fixing the record order changing bug.
-            .Select(e => new PlayerProvidedCharacterRecords.RecordEntry(e.Title, e.Involved, e.Description))
-            .ToList();
-    }
-
     /// <summary>
     /// We need to manually deserialize CharacterRecords because the easy JSON deserializer does not
     /// do exactly what we want. More specifically, we need to more robustly handle missing and extra fields
@@ -73,24 +65,7 @@ public static class RecordsSerialization
             prescriptions: DeserializeString(e, nameof(def.Prescriptions), def.Prescriptions),
             allergies: DeserializeString(e, nameof(def.Allergies), def.Allergies),
             drugAllergies: DeserializeString(e, nameof(def.DrugAllergies), def.DrugAllergies),
-            postmortemInstructions: DeserializeString(e, nameof(def.PostmortemInstructions), def.PostmortemInstructions),
-            medicalEntries: DeserializeEntries(entries, CDModel.DbRecordEntryType.Medical),
-            securityEntries: DeserializeEntries(entries, CDModel.DbRecordEntryType.Security),
-            employmentEntries: DeserializeEntries(entries, CDModel.DbRecordEntryType.Employment));
-    }
-
-    private static CDModel.CharacterRecordEntry ConvertEntry(PlayerProvidedCharacterRecords.RecordEntry entry, CDModel.DbRecordEntryType type)
-    {
-        entry.EnsureValid();
-        return new CDModel.CharacterRecordEntry()
-            { Title = entry.Title, Involved = entry.Involved, Description = entry.Description, Type = type };
-    }
-
-    public static List<CDModel.CharacterRecordEntry> GetEntries(PlayerProvidedCharacterRecords records)
-    {
-        return records.MedicalEntries.Select(medical => ConvertEntry(medical, CDModel.DbRecordEntryType.Medical))
-            .Concat(records.SecurityEntries.Select(security => ConvertEntry(security, CDModel.DbRecordEntryType.Security)))
-            .Concat(records.EmploymentEntries.Select(employment => ConvertEntry(employment, CDModel.DbRecordEntryType.Employment)))
-            .ToList();
+            bloodType: DeserializeInt(e, nameof(def.BloodType), def.BloodType),
+            postmortemInstructions: DeserializeString(e, nameof(def.PostmortemInstructions), def.PostmortemInstructions);
     }
 }

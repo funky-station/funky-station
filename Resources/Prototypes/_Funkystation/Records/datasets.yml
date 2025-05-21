@@ -1,0 +1,23 @@
+﻿- type: dataset
+  id: allergies
+  values:
+  - nuts
+  - hugs
+  - shellfish
+  - milk
+
+- type: dataset
+  id: prescriptions
+  values:
+  - bloodthinners
+  - insulin
+  - antidepressants
+  - immunosuppressants
+
+- type: dataset
+  id: familyHistory
+  values:
+  - allergies
+  - anemia
+  - anxiety
+  - arthritis

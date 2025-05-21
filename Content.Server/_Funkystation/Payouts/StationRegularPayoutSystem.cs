@@ -29,7 +29,7 @@ public sealed class StationRegularPayoutSystem : GameRuleSystem<StationRegularPa
     {
         base.Initialize();
         // now you have a subscription
-        SubscribeLocalEvent<AfterGeneralRecordCreatedEvent>(OnPlayerJobsAssigned);
+        SubscribeLocalEvent<AfterGeneralRecordCreatedEvent>(OnAfterGeneralRecordCreatedEvent);
     }
 
     protected override void Added(EntityUid uid, StationRegularPayoutComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
@@ -42,7 +42,7 @@ public sealed class StationRegularPayoutSystem : GameRuleSystem<StationRegularPa
         payoutComponent.NextPayout = TimeSpan.FromMinutes(payoutComponent.RegularPayoutInterval);
     }
 
-    private void OnPlayerJobsAssigned(AfterGeneralRecordCreatedEvent args)
+    private void OnAfterGeneralRecordCreatedEvent(AfterGeneralRecordCreatedEvent args)
     {
         var recordId = _stationRecords.GetRecordByName(args.Station, args.Profile.Name);
 

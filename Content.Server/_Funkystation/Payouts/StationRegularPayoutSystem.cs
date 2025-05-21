@@ -57,8 +57,6 @@ public sealed class StationRegularPayoutSystem : GameRuleSystem<StationRegularPa
         if (!_stationRecords.TryGetRecord(key, out PaymentRecord? record))
             return;
         
-        Log.Debug($"{args.Record.JobPrototype}");
-
         record.PayoutAmount = _payoutSystem.InitialPayoutInfo[(ProtoId<JobPrototype>) args.Record.JobPrototype];
     }
 

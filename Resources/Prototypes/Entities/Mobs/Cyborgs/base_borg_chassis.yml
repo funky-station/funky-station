@@ -160,6 +160,8 @@
     sounds:
       Unsexed: UnisexSilicon
     screamAction: null
+    wilhelmProbability: 0
+  - type: DamagedSiliconAccent
   - type: UnblockableSpeech
   - type: FootstepModifier
     footstepSoundCollection:

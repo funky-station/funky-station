@@ -2809,3 +2809,11 @@ Entries:
         Vendors added to origin.
   id: 348
   time: '2025-05-19T16:14:58.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Boosted the size of Bagel's atmos playground
+    - type: Fix
+      message: Relinked Bagel Gas Vendors to Gas Sender
+  id: 349
+  time: '2025-05-21T16:23:58.0000000+00:00'

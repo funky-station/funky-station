@@ -29,6 +29,14 @@
     content: You've been spared from a terrible fate this time. Push your luck again, if you dare.
 
 - type: entity
+  parent: Paper
+  id: PaperTSpawn
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Paper
+    content: The bomb code is 7355608.
+
+- type: entity
   parent: Jug
   suffix: cognizine
   id: JugCognizine
@@ -99,6 +107,196 @@
     contents:
     - id: MobHonkBot
       amount: 15
+
+- type: entity
+  parent: CrateLivestock
+  id: CratePetPackage
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: MobCorgiIan
+    - id: MobCatRuntime
+    - id: MobCatException
+    - id: MobCatCaracal
+    - id: MobBandito
+    - id: MobBingus
+    - id: MobMcGriff
+    - id: MobPaperwork
+    - id: MobWalter
+    - id: MobPossumMorty
+    - id: MobRaccoonMorticia
+    - id: MobAlexander
+    - id: MobFoxRenault
+    - id: MobHamsterHamlet
+    - id: MobSpiderShiva
+    - id: MobKangarooWillow
+    - id: MobSlimesPet
+    - id: MobCrabAtmos
+
+- type: entity
+  parent: CrateEngineering
+  id: CrateAdvTools
+  name: advanced tool crate
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: StorageFill
+      contents:
+      - id: PowerDrill
+      - id: JawsOfLife
+      - id: Multitool
+      - id: trayScanner
+      - id: GasAnalyzer
+      - id: WelderExperimental
+      - id: HolofanProjector
+      - id: RCD
+      - id: RPD
+
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateTerroristKit
+  name: terrorist kit
+  description: Should you ever need to blow up a bunch of random unmarked boxes.
+  components:
+  - type: Icon
+    sprite: Structures/Storage/Crates/weapon.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/weapon.rsi
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleAk
+    - id: MagazineLightRifle
+      amount: 2
+    - id: WeaponPistolN1984
+    - id: MagazineMagnum
+      amount: 2
+    - id: CombatKnife
+    - id: ExGrenade
+    - id: SmokeGrenade
+    - id: GrenadeFlashBang
+    - id: GrenadeIncendiary
+    - id: C4
+    - id: ClothingEyesGlassesCheapSunglasses
+    - id: ClothingMaskNeckGaiter
+    - id: ClothingOuterArmorBasic
+    - id: ClothingUniformJumpsuitMercenary
+    - id: ClothingShoesBootsMerc
+    - id: PaperTSpawn
+
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateCounterTerroristKit
+  name: counter-terrorist kit
+  description: Should you ever need to stop some idiots from blowing up a bunch of random unmarked boxes.
+  components:
+  - type: Icon
+    sprite: Structures/Storage/Crates/weapon.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/weapon.rsi
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunDrozd
+    - id: MagazinePistolSubMachineGun
+      amount: 2
+    - id: WeaponPistolCobra
+    - id: MagazinePistolCaselessRifle
+      amount: 2
+    - id: CombatKnife
+    - id: ExGrenade
+    - id: SmokeGrenade
+    - id: GrenadeFlashBang
+    - id: GrenadeIncendiary
+    - id: Multitool
+    - id: ClothingHeadHelmetBasic
+    - id: ClothingMaskGasSecurity
+    - id: ClothingOuterArmorBulletproof
+    - id: ClothingUniformJumpsuitTacticool
+    - id: ClothingShoesBootsCombat
+
+- type: entity
+  parent: FrezonCanister
+  id: FrezonCanisterBad # slightly evil
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Lock
+    locked: false
+  - type: GasCanister
+    releasePressure: 1013.25
+    releaseValve: true
+
+- type: startingGear
+  id: SyndicateFootsoldierGearNukie
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    helmet: ClothingHeadHelmetHardsuitSyndie
+    mask: ClothingMaskGasSyndicate
+    outerClothing: ClothingOuterHardsuitSyndie
+    gloves: ClothingHandsGlovesCombat
+    back: ClothingBackpackDuffelSyndicate
+    shoes: ClothingShoesBootsCombat
+    id: SyndiPDA
+
+- type: entity
+  name: syndicate nuclear operative
+  suffix: (AI, Grand Lottery)
+  parent: MobSyndicateFootsoldier
+  id: MobSyndicateFootsoldierNukie
+  components:
+  - type: Loadout
+    prototypes:
+    - SyndicateFootsoldierGearNukie
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: C-20r submachine gun
+  parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband]
+  id: WeaponSubMachineGunC20rLottery
+  description: A firearm that is often used by the infamous nuclear operatives. Uses .35 auto ammo.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus
+    minAngle: -19
+    maxAngle: -16
+  - type: Gun
+    minAngle: 21
+    maxAngle: 32
+    shotsPerBurst: 5
+    availableModes:
+    - Burst
+    - FullAuto
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
+  - type: ChamberMagazineAmmoProvider
+    autoEject: true
+    boltClosed: true
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  parent: CrateLivestock
+  id: CrateNukeOps
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: MobSyndicateFootsoldierNukie
+      amount: 5
+    - id: WeaponSubMachineGunC20rLottery
+      amount: 5
 
 # standard roll tables
 - type: entityTable
@@ -200,6 +398,10 @@
   table: !type:GroupSelector
     children:
     - !type:NestedSelector
+      tableId: MaintFluffTable
+    - !type:NestedSelector
+      tableId: SyndieMaintLoot
+    - !type:NestedSelector
       tableId: AllPlushiesTable
     - id: ClothingNeckBling
     - id: ClothingShoesBling
@@ -216,6 +418,7 @@
     - id: ClothingOuterHardsuitBasic
       weight: 0.1
     - id: ClothingBackpackERTClown
+      weight: 0.2
     - id: ClothingNeckCloakAdmin
     - id: ClothingOuterFlannelBlue
     - id: ClothingHeadHelmetBone
@@ -247,7 +450,6 @@
       tableId: MaintWeaponTable
 
 #defining all the roll outcomes
-
 - type: entityTable
   id: StandardRoll
   table: !type:AllSelector
@@ -274,19 +476,53 @@
   table: !type:GroupSelector
     children:
     - id: JugCognizine
+    - id: CratePetPackage
+    - id: CrateNPCGondola
+    - id: CrateAdvTools
+    - id: Omnitool
+    - id: OmniMedTool
+    - id: EncryptionKeyStationMaster
+      weight: 0.1
+    - !type:AllSelector
+      weight: 0.1
+      children:
+      - id: RubberStampApproved
+      - id: RubberStampDenied
+      - id: RubberStampCaptain
+      - id: RubberStampChaplain
+      - id: RubberStampCE
+      - id: RubberStampCMO
+      - id: RubberStampClown
+      - id: RubberStampDetective
+      - id: RubberStampGreytide
+      - id: RubberStampHop
+      - id: RubberStampHos
+      - id: RubberStampLawyer
+      - id: RubberStampMime
+      - id: RubberStampPsychologist
+      - id: RubberStampQm
+      - id: RubberStampSyndicate
+      - id: RubberStampWarden
+      - id: RubberStampWizard
 
 - type: entityTable
   id: WhammyRoll
   table: !type:GroupSelector
     children:
+    - id: SyndicateBusinessCard
     - id: DrinkBottleOfNothingFull
     - id: CrateMothroachSwarm
     - id: CrateHonkbotHorde
+    - id: MobLaserRaptor
+    - id: WeakKudzu
+    - id: TrashMimanaPeel
+    - id: TheEffigy
 
 - type: entityTable
   id: SuperJackpotRoll
   table: !type:GroupSelector
     children:
+    # crew gygax bundle
     - !type:AllSelector
       children:
       - id: MechGygaxJackpot
@@ -295,8 +531,23 @@
       - id: ToolboxMechanicalFilledAllTools
       - id: ClothingMaskWeldingGas
       - id: ClothingHandsGlovesCombat
+      - id: PlushieAtmosian
     - id: CrateSyndicateSurplusBundle
-
+    - id: CrateTerroristKit
+    - id: CrateCounterTerroristKit
+    - !type:AllSelector
+      children:
+      - id: NukeDiskFake
+      - id: WeaponAntiqueLaser
+      - id: JetpackCaptainFilled
+      - id: CaptainIDCard
+      - id: FoodMeatCorgi
+      - id: WeaponEnergyShotgun
+      - id: ClothingShoesBootsMagAdv
+      - id: ClothingOuterHardsuitRd
+      - id: HandTeleporter
+      - id: Hypospray
+      - id: BoxFolderQmClipboard
 
 - type: entityTable
   id: SuperWhammyRoll
@@ -304,7 +555,10 @@
     children:
     - id: CrateCarpArmy
     - id: CrateXenoArmy
+    - id: FrezonCanisterBad
+    - id: CrateNukeOps
     - !type:AllSelector
+      weight: 0.1
       children:
       - id: CrateCargoGambling
       - id: PaperPushYourLuck

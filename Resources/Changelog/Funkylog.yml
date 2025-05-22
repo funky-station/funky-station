@@ -2829,3 +2829,21 @@ Entries:
       message: Ported over the Holo-flaregun from Frontier Station
   id: 351
   time: '2025-05-22T06:15:17.0000000+00:00'
+- author: ' AfterLite, sowelipililimute, deltanedas'
+  changes:
+    - type: Tweak
+      message: The Cosmic Cult has been refactored and rebalanced!
+    - type: Tweak
+      message: >-
+        Cosmic Cult conversion is no longer tied to the metabolism of holy
+        water, please see the Guidebook tab on deconversion.
+    - type: Remove
+      message: The Lone Astral Ascendant has been removed from the midround pool.
+    - type: Add
+      message: >-
+        Cosmic Cultists now gain a special, one-time use ability while
+        Empowered.
+    - type: Fix
+      message: 'Various Cosmic Cult fixes, yay! '
+  id: 352
+  time: '2025-05-22T06:16:20.0000000+00:00'

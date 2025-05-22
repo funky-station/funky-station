@@ -2823,3 +2823,9 @@ Entries:
       message: Revamped Roingus Textures
   id: 350
   time: '2025-05-22T04:51:47.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Add
+      message: Ported over the Holo-flaregun from Frontier Station
+  id: 351
+  time: '2025-05-22T06:15:17.0000000+00:00'

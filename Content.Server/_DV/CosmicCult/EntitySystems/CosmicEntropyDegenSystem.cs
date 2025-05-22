@@ -1,6 +1,9 @@
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -9,7 +12,7 @@ using Robust.Shared.Timing;
 using Content.Shared.Damage;
 using Content.Shared.Popups;
 using Robust.Shared.Random;
-
+using Content.Shared._Shitmed.Targeting; // Shitmed Change
 namespace Content.Server._DV.CosmicCult.EntitySystems;
 
 /// <summary>
@@ -44,7 +47,7 @@ public sealed partial class CosmicEntropyDegenSystem : EntitySystem
             if (_timing.CurTime < component.CheckTimer)
                 continue;
             component.CheckTimer = _timing.CurTime + component.CheckWait;
-            _damageable.TryChangeDamage(uid, component.Degen, true, false);
+            _damageable.TryChangeDamage(uid, component.Degen, true, false, targetPart: TargetBodyPart.All); // shitmed
         }
     }
 }

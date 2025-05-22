@@ -48,6 +48,7 @@
         Slash: 5
   - type: Body
     prototype: Animal
+    bodyType: Simple
   - type: Flammable
     fireSpread: true
     canResistFire: true

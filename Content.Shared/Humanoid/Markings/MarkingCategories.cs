@@ -2,12 +2,17 @@
 // SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
 // SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
 // SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 Falcon <falcon@zigtag.dev>
 // SPDX-FileCopyrightText: 2025 pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later and MIT
 
 using Robust.Shared.Serialization;
 
@@ -25,6 +30,7 @@ namespace Content.Shared.Humanoid.Markings
         Eyes, // DeltaV - Add Eyes Category for IPCs
         Snout,
         Chest,
+        Groin, // Shitmed Change
         Arms,
         Legs,
         Wings, // For IPC wings porting from SimpleStation
@@ -47,6 +53,7 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.Eyes => MarkingCategories.Eyes, // DeltaV - Add Eyes Category for IPCs
                 HumanoidVisualLayers.Snout => MarkingCategories.Snout,
                 HumanoidVisualLayers.Chest => MarkingCategories.Chest,
+                HumanoidVisualLayers.Groin => MarkingCategories.Groin, // Shitmed Change
                 HumanoidVisualLayers.RArm => MarkingCategories.Arms,
                 HumanoidVisualLayers.LArm => MarkingCategories.Arms,
                 HumanoidVisualLayers.RHand => MarkingCategories.Arms,

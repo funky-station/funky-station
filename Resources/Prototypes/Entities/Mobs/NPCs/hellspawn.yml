@@ -43,6 +43,7 @@
       - SimpleHostile
   - type: Body
     prototype: Animal
+    bodyType: Simple
   - type: Damageable
     damageContainer: BiologicalMetaphysical
     damageModifierSet: HellSpawn

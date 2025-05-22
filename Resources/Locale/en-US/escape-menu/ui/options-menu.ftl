@@ -34,6 +34,8 @@
 # SPDX-FileCopyrightText: 2024 Aexxie <codyfox.077@gmail.com>
 # SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 # SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
@@ -46,7 +48,9 @@
 # SPDX-FileCopyrightText: 2024 anotherbutton <MADpfeifer@outlook.com>
 # SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ekpy <33184056+Ekpy@users.noreply.github.com>
@@ -57,7 +61,7 @@
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 vitopigno <103512727+VitusVeit@users.noreply.github.com>
 #
-# SPDX-License-Identifier: MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 ## General stuff
 
@@ -358,9 +362,17 @@ ui-options-speech-bubble-background-opacity = Speech bubble background opacity
 
 ## Shitmed Change
 ui-options-header-targeting = Targeting
-
-
-## Admin menu
+ui-options-function-target-head = Target head
+ui-options-function-target-chest = Target chest
+ui-options-function-target-groin = Target groin
+ui-options-function-target-left-arm = Target left arm
+ui-options-function-target-right-arm = Target right arm
+ui-options-function-target-left-hand = Target left hand
+ui-options-function-target-right-hand = Target right hand
+ui-options-function-target-left-leg = Target left leg
+ui-options-function-target-right-leg = Target right leg
+ui-options-function-target-left-foot = Target left foot
+ui-options-function-target-right-foot = Target right foot
 
 ui-options-admin-player-panel = Admin Menu Players List
 

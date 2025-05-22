@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -28,6 +32,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+
+using Content.Shared._Shitmed.Targeting; // Shitmed Change
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -75,7 +81,10 @@ public sealed class MonumentSystem : SharedMonumentSystem
             {
                 var entities = _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 10);
                 entities.RemoveWhere(entity => !HasComp<InfluenceVitalityComponent>(entity));
-                foreach (var entity in entities) _damage.TryChangeDamage(entity, monuComp.MonumentHealing * -1);
+
+                foreach (var entity in entities)
+                    _damage.TryChangeDamage(entity, monuComp.MonumentHealing * -1, targetPart: TargetBodyPart.All); // Shitmed Change
+
                 monuComp.CheckTimer = _timing.CurTime + monuComp.CheckWait;
             }
             if (comp.SongTimer is { } time && _timing.CurTime >= time)

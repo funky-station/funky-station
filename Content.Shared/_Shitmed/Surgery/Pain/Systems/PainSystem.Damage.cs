@@ -11,11 +11,13 @@ using System.Threading.Tasks;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Targeting.Events;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
 using Content.Shared.FixedPoint;
+using Content.Shared.Damage.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
@@ -508,7 +510,8 @@ public partial class PainSystem
         string? screamString = null)
     {
         if (!_screamsEnabled
-            || !_random.Prob(_screamChance))
+            || !_random.Prob(_screamChance)
+            || _mobState.IsDead(body))
             return null;
 
         CleanupSounds(nerveSys);
@@ -542,7 +545,9 @@ public partial class PainSystem
         string? screamString = null)
     {
         if (!_screamsEnabled
-            || !_random.Prob(_screamChance))
+            || !_random.Prob(_screamChance)
+            || !TryComp(body, out ConsciousnessComponent? consciousness)
+            || !consciousness.HasPainScreams)
             return null;
 
         var sound = _IHaveNoMouthAndIMustScream.PlayPvs(specifier, body, audioParams);
@@ -626,7 +631,10 @@ public partial class PainSystem
     {
         if (!_timing.IsFirstTimePredicted
             || TerminatingOrDeleted(nerveSysEnt)
-            || !TryComp<OrganComponent>(nerveSysEnt, out var nerveSysOrgan))
+            || !TryComp<OrganComponent>(nerveSysEnt, out var nerveSysOrgan)
+            || nerveSysOrgan.Body is not { } body
+            || _mobState.IsDead(body)
+            || HasComp<GodmodeComponent>(body))
             return;
 
         if (nerveSys.LastPainThreshold != nerveSys.Pain)
@@ -640,18 +648,17 @@ public partial class PainSystem
 
         if (_timing.CurTime > nerveSys.NextCritScream)
         {
-            var body = nerveSysOrgan.Body;
-            if (body != null && _mobState.IsCritical(body.Value))
+            if (_mobState.IsCritical(body))
             {
                 var sex = Sex.Unsexed;
                 if (TryComp<HumanoidAppearanceComponent>(body, out var humanoid))
                     sex = humanoid.Sex;
 
                 CleanupSounds(nerveSys);
-                if (_trauma.HasBodyTrauma(body.Value, TraumaType.OrganDamage) && _random.Prob(0.22f))
+                if (_trauma.HasBodyTrauma(body, TraumaType.OrganDamage) && _random.Prob(0.22f))
                 {
                     // If the person suffers organ damage, do funny gaggling sound :3
-                    PlayPainSound(body.Value,
+                    PlayPainSound(body,
                         nerveSys,
                         nerveSys.OrganDamageWhimpersSounds[sex],
                         AudioParams.Default.WithVolume(-12f));
@@ -660,10 +667,10 @@ public partial class PainSystem
                 {
                     // Play screaming with less chance
                     if (_random.Prob(0.34f))
-                        PlayPainSound(body.Value, nerveSys, nerveSys.PainShockScreams[sex], AudioParams.Default.WithVolume(12f));
+                        PlayPainSound(body, nerveSys, nerveSys.PainShockScreams[sex], AudioParams.Default.WithVolume(12f));
                     else
                         // Whimpering
-                        PlayPainSound(body.Value,
+                        PlayPainSound(body,
                             nerveSys,                    // Pained or normal
                             _random.Prob(0.34f) ? nerveSys.PainShockWhimpers[sex] : nerveSys.CritWhimpers[sex],
                             AudioParams.Default.WithVolume(-12f));
@@ -800,7 +807,7 @@ public partial class PainSystem
                     nerveSys,
                     nerveSys.Comp.PainShockAdrenalineTime);
 
-                _stun.TryParalyze(body, nerveSys.Comp.PainShockStunTime, true);
+                _stun.TryParalyze(body, nerveSys.Comp.PainShockStunTime, true, standOnRemoval: false);
                 _jitter.DoJitter(body, nerveSys.Comp.PainShockStunTime, true, 20f, 7f);
 
                 // For the funnies :3
@@ -816,7 +823,7 @@ public partial class PainSystem
                 var agonySpecifier = nerveSys.Comp.AgonyScreams[sex];
                 PlayPainSound(body, nerveSys, agonySpecifier, AudioParams.Default.WithVolume(12f), screamString: shockAgonyString);
 
-                _stun.TryParalyze(body, nerveSys.Comp.PainShockStunTime * 1.4, true);
+                _stun.TryParalyze(body, nerveSys.Comp.PainShockStunTime * 1.4, true, standOnRemoval: false);
                 _jitter.DoJitter(body, nerveSys.Comp.PainShockStunTime * 1.4, true, 20f, 7f);
 
                 _consciousness.ForceConscious(body, nerveSys.Comp.PainShockStunTime * 1.4);

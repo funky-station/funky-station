@@ -242,6 +242,7 @@
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
@@ -670,6 +671,7 @@
       behaviors:
       - !type:GibBehavior # Shitmed Change
         gibContents: Skip # Shitmed Change
+        recursive: false # Shitmed Change
   - type: NonSpreaderZombie
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
@@ -853,7 +855,9 @@
         damageType: Blunt
         damage: 60
       behaviors:
-      - !type:GibBehavior { }
+      - !type:GibBehavior
+        gibContents: Skip
+        recursive: false
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
@@ -1657,6 +1661,7 @@
             True: { visible: true }
             False: { visible: false }
   - type: Body # Shitmed Change
+    bodyType: Complex
     prototype: Monkey
     requiredLegs: 2
   - type: CreamPied
@@ -1714,6 +1719,7 @@
       effects:
       - !type:WashCreamPieReaction
   - type: Consciousness
+    hasPainScreams: false
     threshold: 70
     cap: 140
 

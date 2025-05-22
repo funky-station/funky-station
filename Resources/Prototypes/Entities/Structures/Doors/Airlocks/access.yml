@@ -919,6 +919,8 @@
   id: AirlockMaintEngiLocked
   suffix: Engineering, Locked
   components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Doors/Airlocks/Standard/maint_engi.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsEngineering ]

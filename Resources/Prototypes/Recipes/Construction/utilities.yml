@@ -180,6 +180,15 @@
     state: conpipe-tagger
 
 - type: construction
+  id: DisposalSignaller
+  graph: DisposalPipe
+  startNode: start
+  targetNode: signaller
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+
+- type: construction
   name: disposal trunk
   description: A pipe trunk used as an entry point for disposal systems.
   id: DisposalTrunk

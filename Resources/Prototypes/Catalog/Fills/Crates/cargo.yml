@@ -19,7 +19,88 @@
 # Super whammies will undoubtedly condemn the area the crate was opened in and require security or security-level intervention to address
 # Maybe add some functionality where super rolls can't be rolled when evac is en route/docked?
 
-# gas canister group for standard rolls
+# things that only exist for this crate because they didn't already
+- type: entity
+  parent: Paper
+  id: PaperPushYourLuck
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Paper
+    content: You've been spared from a terrible fate this time. Push your luck again, if you dare.
+
+- type: entity
+  parent: Jug
+  suffix: cognizine
+  id: JugCognizine
+  components:
+  - type: Label
+    currentLabel: reagent-name-cognizine
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Cognizine
+          Quantity: 200
+
+- type: entity
+  parent: MechGygaxBattery
+  id: MechGygaxJackpot
+  suffix: Battery, Filled
+  components:
+  - type: Mech
+    startingEquipment:
+    - WeaponMechCombatShotgun
+    - WeaponMechCombatMissileRack8
+    - WeaponMechCombatSolarisLaser
+
+- type: entity
+  parent: CrateLivestock
+  id: CrateMothroachSwarm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: MobMothroach
+      amount: 50
+
+- type: entity
+  parent: CrateLivestock
+  id: CrateCarpArmy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: MobCarp
+      amount: 10
+    - id: MobShark
+      amount: 5
+
+- type: entity
+  parent: CrateLivestock
+  id: CrateXenoArmy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: MobXenoDrone
+      amount: 5
+    - id: MobXenoRunner
+      amount: 5
+    - id: MobXenoSpitter
+      amount: 5
+    - id: MobXenoQueen
+
+- type: entity
+  parent: CrateLivestock
+  id: CrateHonkbotHorde
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: MobHonkBot
+      amount: 15
+
+# standard roll tables
 - type: entityTable
   id: RandomGasCanisterTable
   table: !type:GroupSelector
@@ -58,77 +139,202 @@
     - id: AntiNobliumCanister
       weight: 0.001
 
-# standard roll spawner
-- type: entity
-  parent: MarkerBase
-  id: StandardRollSpawner
-  components:
-  - type: EntityTableSpawner
-    table: !type:NestedSelector
+- type: entityTable
+  id: RandomSpesoTable
+  table: !type:GroupSelector
+    children:
+    - id: SpaceCash1000000
+      weight: 0.0001
+    - id: SpaceCash10000
+      weight: 0.01
+    - id: SpaceCash5000
+      weight: 0.1
+    - id: SpaceCash2500
+      weight: 0.4
+    - id: SpaceCash500
+      weight: 0.3
+    - id: SpaceCash100
+      weight: 0.1
+    - id: SpaceCash10
+      weight: 0.01
+    - id: SpaceCash
+      weight: 0.01
+
+- type: entityTable
+  id: RandomMaterialsTable
+  table: !type:GroupSelector
+    children:
+    - id: SheetSteel
+    - id: SheetPlastic
+    - id: SheetGlass
+    - id: SheetBrass
+    - id: SheetPlasteel
+      weight: 0.5
+    - id: SheetPlasma
+    - id: SheetUranium
+    - id: IngotSilver
+    - id: IngotGold
+    - id: SheetPaper
+    - id: MaterialSheetMeat
+    - id: SheetRGlass
+    - id: SheetPGlass
+      weight: 0.5
+    - id: SheetRPGlass
+      weight: 0.5
+    - id: SheetUGlass
+      weight: 0.5
+    - id: SheetRUGlass
+      weight: 0.5
+    - id: MaterialWebSilk
+    - id: MaterialCardboard
+    - id: MaterialCloth
+    - id: MaterialDurathread
+    - id: MaterialWoodPlank
+    - id: MaterialBiomass
+      weight: 0.01
+    - id: MaterialDiamond
+      weight: 0.001
+
+- type: entityTable
+  id: RandomVanityTable
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: AllPlushiesTable
+    - id: ClothingNeckBling
+    - id: ClothingShoesBling
+    - id: DrinkGoldenCup
+    - id: ClothingEyesGlassesGar
+    - id: ClothingEyesGlassesGarGiga
+    - id: ClothingEyesGlassesGarOrange
+    - id: ClothingHeadHatChameleon
+      weight: 0.1
+    - id: ClothingBeltChampion
+    - id: ClothingUniformJumpsuitFamilyGuy
+    - id: ClothingOuterHardsuitCBURN
+      weight: 0.01
+    - id: ClothingOuterHardsuitBasic
+      weight: 0.1
+    - id: ClothingBackpackERTClown
+    - id: ClothingNeckCloakAdmin
+    - id: ClothingOuterFlannelBlue
+    - id: ClothingHeadHelmetBone
+      weight: 0.5
+    - id: ClothingOuterSuitCarp
+    - id: ClothingHeadHatCatEars
+    - id: ClothingHeadHatDogEars
+    - id: ClothingOuterArmorReflective
+      weight: 0.25
+    - id: ClothingUniformJumpskirtSyndieFormalDress
+    - id: ClothingNeckCloakNanotrasen
+    - id: ClothingUniformJumpsuitNanotrasen
+    - id: ClothingShoesSnakeskinBoots
+    - id: ClothingOuterCoatSpaceAsshole
+    - id: ClothingUniformJumpsuitHawaiYellow
+    - id: ClothingHeadSafari
+    - id: ClothingMaskGasMerc
+    - id: ClothingHeadHatCardborg
+    - id: ClothingUnderSocksCoder
+    - id: ClothingUniformJumpskirtOfLife
+
+- type: entityTable
+  id: RandomToolsWeaponsTable
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MaintToolsTable
+    - !type:NestedSelector
+      tableId: MaintWeaponTable
+
+#defining all the roll outcomes
+
+- type: entityTable
+  id: StandardRoll
+  table: !type:AllSelector
+   children:
+    - !type:NestedSelector
       tableId: RandomGasCanisterTable
+    - !type:NestedSelector
+      tableId: RandomSpesoTable
+    - !type:NestedSelector
+      tableId: RandomMaterialsTable
+      rolls: !type:RangeNumberSelector
+        range: 0, 2
+    - !type:NestedSelector
+      tableId: RandomVanityTable
+      rolls: !type:RangeNumberSelector
+        range: 3, 5
+    - !type:NestedSelector
+      tableId: RandomToolsWeaponsTable
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+
+- type: entityTable
+  id: JackpotRoll
+  table: !type:GroupSelector
+    children:
+    - id: JugCognizine
+
+- type: entityTable
+  id: WhammyRoll
+  table: !type:GroupSelector
+    children:
+    - id: DrinkBottleOfNothingFull
+    - id: CrateMothroachSwarm
+    - id: CrateHonkbotHorde
+
+- type: entityTable
+  id: SuperJackpotRoll
+  table: !type:GroupSelector
+    children:
+    - !type:AllSelector
+      children:
+      - id: MechGygaxJackpot
+      - id: DoubleEmergencyOxygenTankFilled
+      - id: DoubleEmergencyNitrogenTankFilled
+      - id: ToolboxMechanicalFilledAllTools
+      - id: ClothingMaskWeldingGas
+      - id: ClothingHandsGlovesCombat
+    - id: CrateSyndicateSurplusBundle
 
 
-# jackpot spawner
-- type: entity
-  parent: MarkerBase
-  id: JackpotSpawner
-  components:
-  - type: EntityTableSpawner
-    table: !type:NestedSelector
-      tableId: MaintFluffTable
-      prob: 0.6
+- type: entityTable
+  id: SuperWhammyRoll
+  table: !type:GroupSelector
+    children:
+    - id: CrateCarpArmy
+    - id: CrateXenoArmy
+    - !type:AllSelector
+      children:
+      - id: CrateCargoGambling
+      - id: PaperPushYourLuck
 
-# whammy spawner
-- type: entity
-  parent: MarkerBase
-  id: WhammySpawner
-  components:
-  - type: EntityTableSpawner
-    table: !type:NestedSelector
-      tableId: MaintFluffTable
-      prob: 0.6
-
-# super jackpot spawner
-- type: entity
-  parent: MarkerBase
-  id: SuperJackpotSpawner
-  components:
-  - type: EntityTableSpawner
-    table: !type:NestedSelector
-      tableId: MaintFluffTable
-      prob: 0.6
-
-# super whammy spawner
-- type: entity
-  parent: MarkerBase
-  id: SuperWhammySpawner
-  components:
-  - type: EntityTableSpawner
-    table: !type:NestedSelector
-      tableId: MaintFluffTable
-      prob: 0.6
-
-# main table
+# the part that picks what kind of roll you get
 - type: entityTable
   id: MainGamblingSelector
   table: !type:GroupSelector
     children:
-    - id: StandardRollSpawner
+    - !type:NestedSelector
+      tableId: StandardRoll
       weight: 8000
-    - id: JackpotSpawner
+    - !type:NestedSelector
+      tableId: JackpotRoll
       weight: 800
-    - id: WhammySpawner
+    - !type:NestedSelector
+      tableId: WhammyRoll
       weight: 1000
-    - id: SuperJackpotSpawner
+    - !type:NestedSelector
+      tableId: SuperJackpotRoll
       weight: 5
-    - id: SuperWhammySpawner
+    - !type:NestedSelector
+      tableId: SuperWhammyRoll
       weight: 195
 
-# main crate
+# the crate itself
 - type: entity
   id: CrateCargoGambling
   name: the grand lottery $$$
-  description: A box containing treasure beyond your greatest imaginations!
+  description: What could be inside? Unimaginable riches? Instant death? Nothing at all? Only one way to find out!
   parent: CratePrivateSecure
   components:
   - type: EntityTableContainerFill

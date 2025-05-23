@@ -19,6 +19,7 @@
     maintenance_science: _Funkystation/Structures/Doors/Airlocks/Standard/maint_science.rsi
     maintenance_medical: _Funkystation/Structures/Doors/Airlocks/Standard/maint_medical.rsi
     maintenance_command: _Funkystation/Structures/Doors/Airlocks/Standard/maint_command.rsi
+    maintenance_service: _Funkystation/Structures/Doors/Airlocks/Standard/maint_service.rsi
     # end Funkystation
     medical:     Structures/Doors/Airlocks/Standard/medical.rsi
     science:     Structures/Doors/Airlocks/Standard/science.rsi
@@ -97,6 +98,7 @@
     maintenance_science: Science
     maintenance_medical: Medical
     maintenance_command: Command
+    maintenance_service: Civilian
     # end Funkystation
     medical: Medical
     science: Science

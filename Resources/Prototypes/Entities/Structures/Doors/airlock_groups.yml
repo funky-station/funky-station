@@ -21,6 +21,7 @@
     maintenance_command: _Funkystation/Structures/Doors/Airlocks/Standard/maint_command.rsi
     maintenance_service: _Funkystation/Structures/Doors/Airlocks/Standard/maint_service.rsi
     maintenance_chemistry: _Funkystation/Structures/Doors/Airlocks/Standard/maint_chemistry.rsi
+    maintenance_hydroponics: _Funkystation/Structures/Doors/Airlocks/Standard/maint_hydroponics.rsi
     # end Funkystation
     medical:     Structures/Doors/Airlocks/Standard/medical.rsi
     science:     Structures/Doors/Airlocks/Standard/science.rsi
@@ -101,6 +102,7 @@
     maintenance_command: Command
     maintenance_service: Civilian
     maintenance_chemistry: Medical
+    maintenance_hydroponics: Civilian
     # end Funkystation
     medical: Medical
     science: Science

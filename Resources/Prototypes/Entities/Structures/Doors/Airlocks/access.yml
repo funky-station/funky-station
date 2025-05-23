@@ -974,6 +974,8 @@
   id: AirlockMaintHydroLocked
   suffix: Hydroponics, Locked
   components:
+  - type: Sprite # Funkystation
+    sprite: _Funkystation/Structures/Doors/Airlocks/Standard/maint_hydroponics.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsHydroponics ]

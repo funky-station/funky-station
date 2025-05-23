@@ -1046,6 +1046,8 @@
   id: AirlockMaintMedLocked
   suffix: Medical, Locked
   components:
+  - type: Sprite # Funkystation
+    sprite: _Funkystation/Structures/Doors/Airlocks/Standard/maint_medical.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsMedical ]
@@ -1057,6 +1059,8 @@
   id: AirlockMedicalMorgueMaintLocked
   suffix: Morgue, Locked
   components:
+  - type: Sprite # Funkystation
+    sprite: _Funkystation/Structures/Doors/Airlocks/Standard/maint_medical.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsMorgue ]

@@ -6,12 +6,15 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Content.Shared.Chemistry.Components;
-using Content.Shared.EntityEffects;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
+<<<<<<<< HEAD:Content.Server/_Funkystation/EntityEffects/Effects/NitriumMoveSpeedModifier.cs
 namespace Content.Server._Funkystation.EntityEffects.Effects;
+========
+namespace Content.Shared.EntityEffects.Effects;
+>>>>>>>> bf41de18aa0 (Move entity effects definitions to shared (#35614)):Content.Shared/EntityEffects/Effects/MovespeedModifier.cs
 
 /// <summary>
 /// Default metabolism for stimulants and tranqs. Attempts to find a MovementSpeedModifier on the target,

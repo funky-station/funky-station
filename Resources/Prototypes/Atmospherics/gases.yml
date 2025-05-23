@@ -232,3 +232,17 @@
   pricePerMole: 8
 
 # Assmos - /tg/ gases end
+
+# Funky
+- type: gas
+  id: 20
+  name: gases-admemium
+  specificHeat: 1984
+  heatCapacityRatio: 420
+  molarMass: 69
+  color: 721e94
+  gasMolesVisible: .05
+  gasVisbilityFactor: 3.5
+  reagent: Admemium
+  pricePerMole: 0
+# Funky end

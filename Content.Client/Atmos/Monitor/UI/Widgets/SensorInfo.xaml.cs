@@ -42,6 +42,9 @@ public sealed partial class SensorInfo : BoxContainer
 
         foreach (var (gas, amount) in data.Gases)
         {
+            // don't show admemium on alarms.
+            if (gas == Gas.Admemium)
+                continue;
             var label = new RichTextLabel();
 
             var fractionGas = amount / data.TotalMoles;
@@ -106,7 +109,7 @@ public sealed partial class SensorInfo : BoxContainer
 
         foreach (var (gas, amount) in data.Gases)
         {
-            if (!_gasLabels.TryGetValue(gas, out var label))
+            if (!_gasLabels.TryGetValue(gas, out var label) || gas == Gas.Admemium)
             {
                 continue;
             }

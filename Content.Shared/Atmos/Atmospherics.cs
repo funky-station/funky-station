@@ -185,6 +185,7 @@ namespace Content.Shared.Atmos
             [Gas.Halon] = Loc.GetString("gas-halon-abbreviation"),
             [Gas.Helium] = Loc.GetString("gas-helium-abbreviation"),
             [Gas.AntiNoblium] = Loc.GetString("gas-anti-noblium-abbreviation"),
+            [Gas.Admemium] = Loc.GetString("gas-admemium-abbreviation"),
         };
 
 
@@ -213,6 +214,7 @@ namespace Content.Shared.Atmos
             [Gas.Halon] = Loc.GetString("gases-halon"),
             [Gas.Helium] = Loc.GetString("gases-helium"),
             [Gas.AntiNoblium] = Loc.GetString("gases-anti-noblium"),
+            [Gas.Admemium] = Loc.GetString("gases-admemium")
         };
 
         #region Excited Groups
@@ -242,7 +244,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Total number of gases. Increase this if you want to add more!
         /// </summary>
-        public const int TotalNumberOfGases = 20; // Assmos - /tg/ gases
+        public const int TotalNumberOfGases = 21; // Assmos - /tg/ gases
 
         /// <summary>
         ///     This is the actual length of the gases arrays in mixtures.
@@ -520,5 +522,6 @@ namespace Content.Shared.Atmos
         Halon = 17, // Assmos - /tg/ gases
         Helium = 18, // Assmos - /tg/ gases
         AntiNoblium = 19, // Assmos - /tg/ gases
+        Admemium = 20, // Funky
     }
 }

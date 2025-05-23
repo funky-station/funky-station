@@ -4,8 +4,8 @@ meta:
   engineVersion: 255.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/23/2025 00:05:13
-  entityCount: 12851
+  time: 05/23/2025 00:14:05
+  entityCount: 12853
 maps:
 - 4494
 grids:
@@ -1108,7 +1108,6 @@ entities:
           decals:
             1308: -12,6
             1309: -12,7
-            1310: -12,10
             1316: -16,12
             1317: -16,13
             1318: -16,14
@@ -2457,7 +2456,6 @@ entities:
             color: '#52B4E996'
             id: MonoOverlay
           decals:
-            574: -11,10
             575: -11,6
             653: -10,7
             654: -9,7
@@ -6874,7 +6872,7 @@ entities:
       pos: 38.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -13466.146
+      secondsUntilStateChange: -13577.571
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -8733,6 +8731,19 @@ entities:
     - type: Transform
       pos: -26.622076,24.452543
       parent: 2
+  - uid: 12852
+    components:
+    - type: Transform
+      pos: -15.657887,5.722499
+      parent: 2
+  - uid: 12853
+    components:
+    - type: Transform
+      pos: -15.340911,5.597907
+      parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: BluespaceSender
   entities:
   - uid: 9972

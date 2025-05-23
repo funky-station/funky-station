@@ -1055,7 +1055,7 @@
     - SpeedLoaderMagnum
     - SpeedLoaderMagnumEmpty
   - type: EmagLatheRecipes # Goobstation
-     emagStaticRecipes:
+    emagStaticRecipes:
     - MagazinePistolCaselessRifle # Goobstation
     - MagazineBoxCaselessRifle # Goobstation
     - MagazineLightRifleBoxEmpty # Goobstation

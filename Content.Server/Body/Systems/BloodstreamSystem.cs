@@ -44,7 +44,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Body.Components;
-using Content.Server.EntityEffects.Effects;
+using Content.Shared.EntityEffects.Effects;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared.Alert;

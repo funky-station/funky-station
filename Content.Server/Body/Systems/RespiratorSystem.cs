@@ -39,8 +39,9 @@ using Content.Server.Body.Components;
 using Content.Shared._Shitmed.Body.Components; // Shitmed Change
 using Content.Shared._Shitmed.Body.Organ; // Shitmed Change
 using Content.Server.Chat.Systems;
-using Content.Server.EntityEffects.EffectConditions;
-using Content.Server.EntityEffects.Effects;
+using Content.Server.EntityEffects;
+using Content.Shared.EntityEffects.EffectConditions;
+using Content.Shared.EntityEffects.Effects;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
@@ -74,6 +75,7 @@ public sealed class RespiratorSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly EntityEffectSystem _entityEffect = default!;
 
     private static readonly ProtoId<MetabolismGroupPrototype> GasId = new("Gas");
 
@@ -319,7 +321,7 @@ public sealed class RespiratorSystem : EntitySystem
 
             foreach (var cond in effect.Conditions)
             {
-                if (cond is OrganType organ && !organ.Condition(lung, EntityManager))
+                if (cond is OrganType organ && !_entityEffect.OrganCondition(organ, lung))
                     return false;
             }
 

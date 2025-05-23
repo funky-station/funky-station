@@ -1091,6 +1091,8 @@
   id: AirlockMaintSecLocked
   suffix: Security, Locked
   components:
+  - type: Sprite # Funkystation
+    sprite: _Funkystation/Structures/Doors/Airlocks/Standard/maint_security.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSecurity ]
@@ -1102,6 +1104,8 @@
   id: AirlockMaintDetectiveLocked
   suffix: Detective, Locked
   components:
+  - type: Sprite # Funkystation
+    sprite: _Funkystation/Structures/Doors/Airlocks/Standard/maint_security.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsDetective ]
@@ -1174,6 +1178,8 @@
   id: AirlockMaintArmoryLocked
   suffix: Armory, Locked
   components:
+  - type: Sprite # Funkystation
+    sprite: _Funkystation/Structures/Doors/Airlocks/Standard/maint_security.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsArmory ]

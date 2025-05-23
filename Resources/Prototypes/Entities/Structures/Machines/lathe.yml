@@ -325,9 +325,9 @@
     - MagazineBoxCaselessRifle # Goobstation
     - MagazineLightRifleBoxEmpty # Goobstation
     - MagazineLightRifleBox # Goobstation
-    - MagazineHighCaliberEmpty # Goobstation
-    - MagazineHighCaliber # Goobstation
-    - MagazineBoxHighCaliber # Goobstation
+    #- MagazineHighCaliberEmpty # Goobstation - Burner not added yet
+    #- MagazineHighCaliber # Goobstation
+    #- MagazineBoxHighCaliber # Goobstation
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -1001,9 +1001,9 @@
     - MagazineBoxCaselessRifle # Goobstation
     - MagazineLightRifleBoxEmpty # Goobstation
     - MagazineLightRifleBox # Goobstation
-    - MagazineHighCaliberEmpty # Goobstation
-    - MagazineHighCaliber # Goobstation
-    - MagazineBoxHighCaliber # Goobstation
+    #- MagazineHighCaliberEmpty # Goobstation - Burner not added yet
+    #- MagazineHighCaliber # Goobstation
+    #- MagazineBoxHighCaliber # Goobstation
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1060,9 +1060,9 @@
     - MagazineBoxCaselessRifle # Goobstation
     - MagazineLightRifleBoxEmpty # Goobstation
     - MagazineLightRifleBox # Goobstation
-    - MagazineHighCaliberEmpty # Goobstation
-    - MagazineHighCaliber # Goobstation
-    - MagazineBoxHighCaliber # Goobstation
+    #- MagazineHighCaliberEmpty # Goobstation - Burner not added yet
+    #- MagazineHighCaliber # Goobstation
+    #- MagazineBoxHighCaliber # Goobstation
   - type: MaterialStorage
     whitelist:
       tags:

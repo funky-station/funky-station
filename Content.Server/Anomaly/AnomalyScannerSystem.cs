@@ -33,7 +33,6 @@ public sealed class AnomalyScannerSystem : SharedAnomalyScannerSystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<AnomalyScannerComponent, BoundUIOpenedEvent>(OnScannerUiOpened);
         SubscribeLocalEvent<AnomalyScannerComponent, AfterInteractEvent>(OnScannerAfterInteract);
         SubscribeLocalEvent<AnomalyScannerComponent, ScannerDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<AnomalyShutdownEvent>(OnScannerAnomalyShutdown);
@@ -42,6 +41,11 @@ public sealed class AnomalyScannerSystem : SharedAnomalyScannerSystem
         SubscribeLocalEvent<AnomalyHealthChangedEvent>(OnScannerAnomalyHealthChanged);
         SubscribeLocalEvent<AnomalyBehaviorChangedEvent>(OnScannerAnomalyBehaviorChanged);
 
+        Subs.BuiEvents<AnomalyScannerComponent>(AnomalyScannerUiKey.Key,
+            subs =>
+            {
+                subs.Event<BoundUIOpenedEvent>(OnScannerUiOpened);
+            });
     }
 
     private void OnScannerUiOpened(EntityUid uid, AnomalyScannerComponent component, BoundUIOpenedEvent args)

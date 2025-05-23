@@ -905,6 +905,8 @@
   id: AirlockMaintCommandLocked
   suffix: Command, Locked
   components:
+  - type: Sprite # Funkystation
+    sprite: _Funkystation/Structures/Doors/Airlocks/Standard/maint_command.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsCommand ]

@@ -16,6 +16,7 @@
     maintenance_atmos: _Funkystation/Structures/Doors/Airlocks/Standard/maint_atmos.rsi
     maintenance_security: _Funkystation/Structures/Doors/Airlocks/Standard/maint_security.rsi
     maintenance_cargo: _Funkystation/Structures/Doors/Airlocks/Standard/maint_cargo.rsi
+    maintenance_science: _Funkystation/Structures/Doors/Airlocks/Standard/maint_science.rsi
     # end Funkystation
     medical:     Structures/Doors/Airlocks/Standard/medical.rsi
     science:     Structures/Doors/Airlocks/Standard/science.rsi
@@ -91,6 +92,7 @@
     maintenance_atmos: Engineering
     maintenance_security: Security
     maintenance_cargo: Cargo
+    maintenance_science: Science
     # end Funkystation
     medical: Medical
     science: Science

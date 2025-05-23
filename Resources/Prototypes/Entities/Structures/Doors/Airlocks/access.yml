@@ -883,6 +883,8 @@
   id: AirlockMaintSalvageLocked
   suffix: Salvage, Locked
   components:
+  - type: Sprite # Funkystation
+    sprite: _Funkystation/Structures/Doors/Airlocks/Standard/maint_cargo.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSalvage ]
@@ -892,6 +894,8 @@
   id: AirlockMaintCargoLocked
   suffix: Cargo, Locked
   components:
+  - type: Sprite # Funkystation
+    sprite: _Funkystation/Structures/Doors/Airlocks/Standard/maint_cargo.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsCargo ]

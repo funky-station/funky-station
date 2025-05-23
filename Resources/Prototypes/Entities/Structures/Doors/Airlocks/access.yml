@@ -919,7 +919,7 @@
   id: AirlockMaintEngiLocked
   suffix: Engineering, Locked
   components:
-  - type: Sprite
+  - type: Sprite # Funkystation
     sprite: _Funkystation/Structures/Doors/Airlocks/Standard/maint_engi.rsi
   - type: ContainerFill
     containers:
@@ -930,6 +930,8 @@
   id: AirlockMaintAtmoLocked
   suffix: Atmospherics, Locked
   components:
+  - type: Sprite # Funkystation
+    sprite: _Funkystation/Structures/Doors/Airlocks/Standard/maint_atmos.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsAtmospherics ]

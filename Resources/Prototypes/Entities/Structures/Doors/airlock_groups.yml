@@ -11,7 +11,10 @@
     freezer:     Structures/Doors/Airlocks/Standard/freezer.rsi
     hydroponics: Structures/Doors/Airlocks/Standard/hydroponics.rsi
     maintenance: Structures/Doors/Airlocks/Standard/maint.rsi
+    # begin Funkystation
     maintenance_engi: _Funkystation/Structures/Doors/Airlocks/Standard/maint_engi.rsi
+    maintenance_atmos: _Funkystation/Structures/Doors/Airlocks/Standard/maint_atmos.rsi
+    # end Funkystation
     medical:     Structures/Doors/Airlocks/Standard/medical.rsi
     science:     Structures/Doors/Airlocks/Standard/science.rsi
     robotics:    Structures/Doors/Airlocks/Standard/robotics.rsi
@@ -81,7 +84,10 @@
     glass: Civilian
     hydroponics: Civilian
     maintenance: Civilian
+    # begin Funkystation
     maintenance_engi: Engineering
+    maintenance_atmos: Engineering
+    # end Funkystation
     medical: Medical
     science: Science
     security: Security

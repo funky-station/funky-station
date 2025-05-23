@@ -1072,6 +1072,8 @@
   id: AirlockMaintChemLocked
   suffix: Chemistry, Locked
   components:
+  - type: Sprite # Funkystation
+    sprite: _Funkystation/Structures/Doors/Airlocks/Standard/maint_chemistry.rsi
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsChemistry ]

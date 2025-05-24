@@ -6,6 +6,12 @@
 # SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -15,14 +21,14 @@
   root: chest
   slots:
     head:
-      part: HeadHuman
+      part: HeadFelinid
       connections:
       - chest
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
     chest:
-      part: ChestHuman
+      part: ChestFelinid
       connections: # Goobstation - fix some species having their hands the wrong way around
       - right arm
       - left arm
@@ -32,7 +38,7 @@
         heart: OrganAnimalHeart
         lungs: OrganHumanLungs
     groin:
-      part: GroinHuman
+      part: GroinFelinid
       connections:
       - right leg
       - left leg
@@ -41,26 +47,26 @@
         liver:  OrganAnimalLiver
         kidneys: OrganHumanKidneys
     right arm:
-      part: RightArmHuman
+      part: RightArmFelinid
       connections:
       - right hand
     left arm:
-      part: LeftArmHuman
+      part: LeftArmFelinid
       connections:
       - left hand
     right hand:
-      part: RightHandHuman
+      part: RightHandFelinid
     left hand:
-      part: LeftHandHuman
+      part: LeftHandFelinid
     right leg:
-      part: RightLegHuman
+      part: RightLegFelinid
       connections:
       - right foot
     left leg:
-      part: LeftLegHuman
+      part: LeftLegFelinid
       connections:
       - left foot
     right foot:
-      part: RightFootHuman
+      part: RightFootFelinid
     left foot:
-      part: LeftFootHuman
+      part: LeftFootFelinid

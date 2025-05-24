@@ -1,5 +1,10 @@
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 GlassEclipse <tsymall5@gmail.com>
+# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 # SPDX-FileCopyrightText: 2020 creadth <creadth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
 # SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2021 Peptide90 <78795277+Peptide90@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
 # SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
@@ -31,6 +36,10 @@
   name: "reptilian body part"
   abstract: true
   components:
+  - type: Icon # Shitmed Change
+    sprite: Mobs/Species/Reptilian/parts.rsi
+  - type: BodyPart # Shitmed Change
+    species: Reptilian
   - type: Extractable
     juiceSolution:
       reagents:
@@ -38,6 +47,8 @@
         Quantity: 3
       - ReagentId: Blood
         Quantity: 10
+  - type: Damageable # Shitmed
+    damageModifierSet: Scale
 
 - type: entity
   id: ChestReptilian
@@ -198,4 +209,3 @@
   - type: Sprite
     sprite: Mobs/Species/Reptilian/parts.rsi
     state: "r_foot"
-    offset: 0.15,0.45

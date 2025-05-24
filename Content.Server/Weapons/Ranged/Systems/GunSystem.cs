@@ -64,6 +64,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Robust.Shared.Containers;
 
 namespace Content.Server.Weapons.Ranged.Systems;
 

@@ -4,7 +4,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Server.Cargo.Systems;
+using Content.Shared.Cargo;
 using Content.Shared.Xenoarchaeology.Artifact;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 

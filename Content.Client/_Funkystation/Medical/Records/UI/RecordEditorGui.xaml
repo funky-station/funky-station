@@ -160,7 +160,10 @@
                             Orientation="Vertical">
 
                             <Label Margin="0,5" Text="Allergies:" />
-                            <BoxContainer Margin="5,0" Orientation="Vertical">
+                            <BoxContainer
+                                Margin="5,0"
+                                Name="AllergiesContainer"
+                                Orientation="Vertical">
                                 <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
                                     <CheckBox HorizontalAlignment="Left" />
                                     <Label Text="Pollen" />

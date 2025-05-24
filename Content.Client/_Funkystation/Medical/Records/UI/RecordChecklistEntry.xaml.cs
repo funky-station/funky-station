@@ -9,9 +9,28 @@ namespace Content.Client._Funkystation.Medical.Records.UI;
 [GenerateTypedNameReferences]
 public sealed partial class RecordChecklistEntry : BoxContainer
 {
-    public RecordChecklistEntry(string name, bool isChecked)
+    public event Action<bool>? PreferenceChanged;
+
+    private readonly CheckBox _checkbox;
+    private readonly Label _label;
+
+    public bool Preference
     {
-        ItemLabel.Text = name;
-        ItemCheckBox.Pressed = isChecked;
+        get => ItemCheckBox.Pressed;
+        set => ItemCheckBox.Pressed = value;
+    }
+    public RecordChecklistEntry(string name)
+    {
+        _checkbox = ItemCheckBox;
+        _label = ItemLabel;
+
+        _label.Text = name;
+
+        _checkbox.OnToggled += OnCheckBoxToggled;
+    }
+
+    private void OnCheckBoxToggled(BaseButton.ButtonToggledEventArgs args)
+    {
+        PreferenceChanged?.Invoke(args.Pressed);
     }
 }

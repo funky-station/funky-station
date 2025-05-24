@@ -62,9 +62,7 @@ public static class RecordsSerialization
             hasInsurance: DeserializeBool(e, nameof(def.HasInsurance), def.HasInsurance),
             insuranceProvider: DeserializeInt(e, nameof(def.InsuranceProvider), def.InsuranceProvider),
             insuranceType: DeserializeInt(e, nameof(def.InsuranceType), def.InsuranceType),
-            prescriptions: DeserializeString(e, nameof(def.Prescriptions), def.Prescriptions),
-            allergies: DeserializeString(e, nameof(def.Allergies), def.Allergies),
-            drugAllergies: DeserializeString(e, nameof(def.DrugAllergies), def.DrugAllergies),
+            medicalInfo: DeserializeHashSet(e, nameof(def.MedicalInfo), def.MedicalInfo),
             bloodType: DeserializeInt(e, nameof(def.BloodType), def.BloodType),
             postmortemInstructions: DeserializeString(e, nameof(def.PostmortemInstructions), def.PostmortemInstructions);
     }

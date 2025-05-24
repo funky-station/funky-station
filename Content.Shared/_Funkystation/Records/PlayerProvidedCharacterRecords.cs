@@ -1,5 +1,7 @@
 using System.Linq;
 using System.Text.Json.Serialization;
+using Content.Shared._Funkystation.Records;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._CD.Records;
@@ -44,20 +46,12 @@ public sealed partial class PlayerProvidedCharacterRecords
 
     // medical info
 
-    // TODO: implement reasons for prescriptions
-    // sometime Soon id like to have immunosuppressed as a trait,
-    // so keeping this for characters that would potentially need prescriptions across rounds
+    /// <summary>
+    /// Enabled medical info: allergies, prescriptions, family history
+    /// </summary>
     [DataField]
-    public Dictionary<string, bool> PrescriptionList { get; private set; }
-
-    // TODO: implement allergies
-    // keeping these for "tba mechanical allergies."
-    // personally not a fan of keeping pure-flavor things that *should* be mechanics instead
-    [DataField]
-    public Dictionary<string, bool> AllergyList { get; private set; }
-
-    [DataField]
-    public Dictionary<string, bool> FamilyHistory { get; private set; }
+    private HashSet<ProtoId<MedicalInfoPrototype>> _medicalInfo = new();
+    public HashSet<ProtoId<MedicalInfoPrototype>> MedicalInfo => _medicalInfo;
 
     [DataField]
     public int BloodType { get; private set; }
@@ -71,9 +65,7 @@ public sealed partial class PlayerProvidedCharacterRecords
         string identifyingFeatures,
         bool hasInsurance,
         int insuranceProvider, int insuranceType,
-        Dictionary<string, bool> prescriptionList,
-        Dictionary<string, bool> allergyList,
-        Dictionary<string, bool> familyHistory,
+        HashSet<ProtoId<MedicalInfoPrototype>> medicalInfo,
         int bloodType,
         string postmortemInstructions)
     {
@@ -84,9 +76,7 @@ public sealed partial class PlayerProvidedCharacterRecords
         HasInsurance = hasInsurance;
         InsuranceProvider = insuranceProvider;
         InsuranceType = insuranceType;
-        PrescriptionList = prescriptionList;
-        AllergyList = allergyList;
-        FamilyHistory = familyHistory;
+        _medicalInfo = medicalInfo;
         BloodType = bloodType;
         PostmortemInstructions = postmortemInstructions;
     }
@@ -100,9 +90,7 @@ public sealed partial class PlayerProvidedCharacterRecords
         HasInsurance = other.HasInsurance;
         InsuranceProvider = other.InsuranceProvider;
         InsuranceType = other.InsuranceType;
-        PrescriptionList = other.PrescriptionList;
-        AllergyList = other.AllergyList;
-        FamilyHistory = other.FamilyHistory;
+        _medicalInfo = other.MedicalInfo;
         BloodType = other.BloodType;
         PostmortemInstructions = other.PostmortemInstructions;
     }
@@ -116,9 +104,7 @@ public sealed partial class PlayerProvidedCharacterRecords
             hasInsurance: true,
             insuranceProvider: 0,
             insuranceType: 0,
-            prescriptionList: new Dictionary<string, bool>(), // need to fill this dict with
-            allergyList: new Dictionary<string, bool>(), // the prototype list, then set to false
-            familyHistory: new Dictionary<string, bool>(), // for every bool
+            medicalInfo: new HashSet<ProtoId<MedicalInfoPrototype>>(),
             bloodType: 0,
             postmortemInstructions: "Return home"
         );
@@ -134,9 +120,7 @@ public sealed partial class PlayerProvidedCharacterRecords
                    && HasInsurance == other.HasInsurance
                    && InsuranceProvider == other.InsuranceProvider
                    && InsuranceType == other.InsuranceType
-                   && PrescriptionList == other.PrescriptionList
-                   && AllergyList == other.AllergyList
-                   && FamilyHistory == other.FamilyHistory
+                   && _medicalInfo == other.MedicalInfo
                    && BloodType == other.BloodType
                    && PostmortemInstructions == other.PostmortemInstructions;
         if (!test)
@@ -197,22 +181,46 @@ public sealed partial class PlayerProvidedCharacterRecords
         return new (this) { InsuranceType = insuranceType };
     }
 
-    public PlayerProvidedCharacterRecords WithPrescriptions(string pres)
+    public PlayerProvidedCharacterRecords WithMedicalInfo(ProtoId<MedicalInfoPrototype> medicalId, IPrototypeManager protoManager)
     {
-        return new (this) { Prescriptions = pres };
+        if (!protoManager.TryIndex(medicalId, out var medicalInfoProto))
+            return new(this);
+
+        var category = medicalInfoProto.Category;
+
+        MedicalInfoCategoryPrototype? categoryProto = null;
+
+        if (category != null && !protoManager.TryIndex(category, out categoryProto))
+            return new(this);
+
+        var list = new HashSet<ProtoId<MedicalInfoPrototype>>(_medicalInfo) { medicalId };
+
+        if (categoryProto == null)
+            return new(this) {_medicalInfo = list};
+
+        foreach (var item in list)
+        {
+            if (!protoManager.TryIndex(item, out var otherProto)
+                || otherProto.Category != categoryProto)
+                continue;
+        }
+
+        return new(this) { _medicalInfo = list };
     }
-    public PlayerProvidedCharacterRecords WithAllergies(string s)
+
+    public PlayerProvidedCharacterRecords WithoutMedicalInfo(ProtoId<MedicalInfoPrototype> medicalId, IPrototypeManager protoManager)
     {
-        return new(this) { Allergies = s };
+        var list = new HashSet<ProtoId<MedicalInfoPrototype>>(_medicalInfo);
+        list.Remove(medicalId);
+
+        return new(this) { _medicalInfo = list };
     }
-    public PlayerProvidedCharacterRecords WithDrugAllergies(string s)
-    {
-        return new(this) { DrugAllergies = s };
-    }
+
     public PlayerProvidedCharacterRecords WithBloodType(int b)
     {
         return new (this) { BloodType = b };
     }
+
     public PlayerProvidedCharacterRecords WithPostmortemInstructions(string s)
     {
         return new(this) { PostmortemInstructions = s};

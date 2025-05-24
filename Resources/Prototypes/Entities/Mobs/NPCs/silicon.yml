@@ -188,6 +188,10 @@
     speechVerb: Cluwne
   - type: StepTrigger
     intersectRatio: 0.2
+  - type: StepTriggerImmune # Goobstation
+    whitelist:
+      types:
+      - Shard
   - type: Fixtures
     fixtures:
       slips:
@@ -310,6 +314,10 @@
     interactFailureString: petting-failure-cleanbot
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: Item # Goobstation
+    size: Large
+  - type: StationAiVision # Goobstation - AI can see through NT silicon
+    range: 0
 
 - type: entity
   parent:
@@ -340,9 +348,20 @@
       Critical:
         reagent: SpaceDrugs
         quantity: 25
+  - type: RandomSprite
+    available:
+        - enum.DamageStateVisualLayers.Base:
+            medibot: ""
+          enum.DamageStateVisualLayers.BaseUnshaded:
+            powered: Rainbow
   - type: Sprite
-    sprite: Mobs/Silicon/Bots/medibot.rsi
-    state: medibot
+    sprite: _Goobstation/Mobs/Silicon/Bots/medibot.rsi
+    layers:
+      - state: medibot
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+      - state: powered
+        map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        shader: unshaded
   - type: HTN
     rootTask:
       task: MedibotCompound
@@ -353,13 +372,22 @@
   - type: InteractionPopup
     interactSuccessString: petting-success-medibot
     interactFailureString: petting-failure-medibot
+    interactSuccessSpawn: EffectHearts
     interactSuccessSound:
-      path: /Audio/Ambience/Objects/periodic_beep.ogg
+      path: /Audio/Animals/cat_meow.ogg
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
   - type: Advertise
     pack: MedibotAds
   - type: Inventory
     templateId: medibot
   - type: DoAfter
+  - type: StationAiVision # Goobstation - AI can see through NT silicon
+    range: 1
 
 - type: entity
   parent:
@@ -370,8 +398,10 @@
   description: Why not give the mimebot a friendly wave?
   components:
   - type: Sprite
-    sprite: Mobs/Silicon/Bots/mimebot.rsi
-    state: mimebot
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: mimebot
+      sprite: Mobs/Silicon/Bots/mimebot.rsi
   - type: MimePowers
   - type: Construction
     graph: MimeBot
@@ -401,7 +431,7 @@
   - type: Sprite
     sprite: Mobs/Silicon/Bots/supplybot.rsi
     layers:
-    - map: ["movement"]
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: supplybot
   - type: SpriteMovement
     movementLayers:
@@ -453,12 +483,14 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
-    - SiliconEmotes
     - Bot
     - Unimplantable
   - type: ActiveRadio
     channels:
+    - Binary
     - Common
     - Supply
+  - type: StationAiVision # Goobstation - AI can see through NT silicon
+    range: 1
   - type: Puller
     needsHands: false

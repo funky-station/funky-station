@@ -347,14 +347,14 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         }
     }
 
-    public override void SetLayerVisibility(
+    public void SetLayerVisibility(
         Entity<HumanoidAppearanceComponent> ent,
         HumanoidVisualLayers layer,
         bool visible,
         SlotFlags? slot,
         ref bool dirty)
     {
-        base.SetLayerVisibility(ent, layer, visible, slot, ref dirty);
+        base.SetLayerVisibility(ent, layer, visible, false, slot, ref dirty);
 
         var sprite = Comp<SpriteComponent>(ent);
         if (!sprite.LayerMapTryGet(layer, out var index))

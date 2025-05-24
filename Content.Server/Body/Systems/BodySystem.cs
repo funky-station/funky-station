@@ -74,15 +74,11 @@ public sealed class BodySystem : SharedBodySystem
         // TODO: Predict this probably.
         base.AddPart(bodyEnt, partEnt, slotId);
 
-        if (TryComp<HumanoidAppearanceComponent>(bodyEnt, out var humanoid))
+        var layer = partEnt.Comp.ToHumanoidLayers();
+        if (layer != null)
         {
-            var layer = partEnt.Comp.ToHumanoidLayers();
-            if (layer != null)
-            {
-                var layers = HumanoidVisualLayersExtension.Sublayers(layer.Value);
-                _humanoidSystem.SetLayersVisibility(
-                    bodyEnt, new[] { layer.Value }, visible: true, permanent: true, humanoid); // Shitmed Change
-            }
+            var layers = HumanoidVisualLayersExtension.Sublayers(layer.Value);
+            _humanoidSystem.SetLayersVisibility(bodyEnt.Owner, layers, visible: true, permanent: true);
         }
     }
 
@@ -102,9 +98,7 @@ public sealed class BodySystem : SharedBodySystem
             return;
 
         var layers = HumanoidVisualLayersExtension.Sublayers(layer.Value);
-        _humanoidSystem.SetLayersVisibility(
-            bodyEnt, layers, visible: false, permanent: true, humanoid);
-        _appearance.SetData(bodyEnt, layer, true); // Shitmed Change
+        _humanoidSystem.SetLayersVisibility((bodyEnt, humanoid), layers, visible: false, permanent: true);
     }
 
     public override HashSet<EntityUid> GibBody(
@@ -126,9 +120,6 @@ public sealed class BodySystem : SharedBodySystem
         {
             return new HashSet<EntityUid>();
         }
-
-        if (HasComp<GodmodeComponent>(bodyId))
-            return new HashSet<EntityUid>();
 
         var xform = Transform(bodyId);
         if (xform.MapUid is null)

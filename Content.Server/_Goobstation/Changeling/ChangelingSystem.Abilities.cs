@@ -22,7 +22,7 @@ using Content.Server.Radio.Components;
 
 namespace Content.Server.Changeling;
 
-public sealed partial class ChangelingSystem : EntitySystem
+internal sealed partial class ChangelingSystem : EntitySystem
 {
     public void SubscribeAbilities()
     {

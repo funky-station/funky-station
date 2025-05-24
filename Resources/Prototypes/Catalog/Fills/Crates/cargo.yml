@@ -69,7 +69,7 @@
   - type: StorageFill
     contents:
     - id: MobMothroach
-      amount: 50
+      amount: 30
 
 - type: entity
   parent: CrateLivestock
@@ -480,7 +480,6 @@
     - id: CrateNPCGondola
     - id: CrateAdvTools
     - id: Omnitool
-    - id: OmniMedTool
     - id: EncryptionKeyStationMaster
       weight: 0.1
     - !type:AllSelector

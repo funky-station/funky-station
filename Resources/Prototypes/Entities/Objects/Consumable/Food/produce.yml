@@ -289,7 +289,7 @@
   - type: Extractable
     grindableSolutionName: food
   - type: DamageOnInteract
-    damage: 
+    damage:
       types:
         Heat: 4
         Caustic: 4
@@ -316,7 +316,7 @@
             volume: -5
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: DamageOnHit 
+  - type: DamageOnHit
     damage:
       types:
         Blunt: 5 # The nettle will "wilt" after 5 hits.
@@ -1448,7 +1448,8 @@
   - type: Tag
     tags:
     - Vegetable
-  - type: FoodSequenceElement
+<<<<<<< HEAD
+- type: FoodSequenceElement
     sprite:
       sprite: Objects/Specific/Hydroponics/chanterelle.rsi
       state: produce
@@ -1462,6 +1463,9 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-mushroom
+=======
+    - Mushroom
+>>>>>>> ebcbdf3077 (Adding fungal soil (#36245))
 
 # Slices
 
@@ -1823,6 +1827,7 @@
       sprite: Objects/Specific/Hydroponics/lingzhi.rsi
       state: produce
     entries:
+<<<<<<< HEAD
       burger:
         name: food-sequence-content-mushroom
       taco:
@@ -1832,6 +1837,13 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-mushroom
+=======
+      Taco: Lingzhi
+      Burger: Lingzhi
+  - type: Tag
+    tags:
+    - Mushroom
+>>>>>>> ebcbdf3077 (Adding fungal soil (#36245))
 
 - type: entity
   name: ambrosia vulgaris
@@ -2072,6 +2084,7 @@
       sprite: Objects/Specific/Hydroponics/fly_amanita.rsi
       state: produce
     entries:
+<<<<<<< HEAD
       burger:
         name: food-sequence-content-mushroom
       taco:
@@ -2081,6 +2094,13 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-mushroom
+=======
+      Taco: FlyAmanita
+      Burger: FlyAmanita
+  - type: Tag
+    tags:
+    - Mushroom
+>>>>>>> ebcbdf3077 (Adding fungal soil (#36245))
 
 - type: entity
   name: gatfruit

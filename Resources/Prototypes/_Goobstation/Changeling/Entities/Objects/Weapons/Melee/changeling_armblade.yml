@@ -14,8 +14,8 @@
     damage:
       types:
         Blunt: 2.5
-        Slash: 5
-        Piercing: 7.5
+        Slash: 12.5
+        Piercing: 10
         Structural: 20
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg

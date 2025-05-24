@@ -102,10 +102,15 @@ public sealed class CosmicFragmentationSystem : EntitySystem
     {
         if (_polymorph.PolymorphEntity(args.Target, "CosmicFragmentationWisp") is not { } polyVictim)
             return;
-        var chantry = Spawn("CosmicBorgChantry", Transform(args.Target).Coordinates);
+
+        var chantry = Spawn("CosmicBorgChantry", Transform(polyVictim).Coordinates);
         EnsureComp<CosmicChantryComponent>(chantry, out var chantryComponent);
         chantryComponent.PolyVictim = polyVictim;
         chantryComponent.Victim = args.Target;
+
+        var mins = chantryComponent.EventTime.Minutes;
+        var secs = chantryComponent.EventTime.Seconds;
+        _antag.SendBriefing(polyVictim, Loc.GetString("cosmiccult-silicon-chantry-briefing", ("minutesandseconds", $"{mins} minutes and {secs} seconds")), Color.FromHex("#4cabb3"), null);
     }
 
     private void OnFragmentAi(Entity<SiliconLawUpdaterComponent> ent, ref MalignFragmentationEvent args)

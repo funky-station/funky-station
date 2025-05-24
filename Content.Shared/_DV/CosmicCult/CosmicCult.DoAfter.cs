@@ -29,3 +29,6 @@ public sealed partial class CancelFinaleDoAfterEvent : SimpleDoAfterEvent;
 
 [Serializable, NetSerializable]
 public sealed partial class EventCosmicFragmentationDoAfter : SimpleDoAfterEvent;
+
+[Serializable, NetSerializable]
+public sealed partial class EventCosmicColossusIngressDoAfter : SimpleDoAfterEvent;

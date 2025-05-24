@@ -22,6 +22,7 @@
 
 # spawn animation, spawns actual god when it ends
 - type: entity
+  categories: [ HideSpawnMenu ]
   parent: MobCosmicGodBase
   id: MobCosmicGodSpawn
   suffix: Spawn
@@ -55,6 +56,7 @@
        enabled: true
 
 - type: entity
+  categories: [ HideSpawnMenu ]
   parent: [MobCosmicGodBase, BaseMob]
   id: MobCosmicGod
   components:

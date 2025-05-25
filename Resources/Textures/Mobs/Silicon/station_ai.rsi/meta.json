@@ -209,6 +209,17 @@
       "directions": 4
     },
     {
+      "name": "directional",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
       "name": "base"
     }
   ]

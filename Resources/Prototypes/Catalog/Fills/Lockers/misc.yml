@@ -172,6 +172,7 @@
     - id: WeaponSniperMosin
     - id: ClothingEyesNightVisionGogglesSyndie
     - id: ClothingEyesThermalVisionGogglesSyndie
+    - id: CigPackMixedRejects #imp
       weight: 2
     - id: ClothingHandsKnuckleDustersSyndicate
 

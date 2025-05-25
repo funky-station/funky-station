@@ -2857,3 +2857,9 @@ Entries:
       message: New Fax sprites by Teasq.
   id: 353
   time: '2025-05-25T18:10:16.0000000+00:00'
+- author: ' ilyamikcoder'
+  changes:
+    - type: Add
+      message: Maintenance airlocks now have colors of their respective departments.
+  id: 354
+  time: '2025-05-25T19:44:07.0000000+00:00'

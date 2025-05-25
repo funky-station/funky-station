@@ -2847,3 +2847,13 @@ Entries:
       message: 'Various Cosmic Cult fixes, yay! '
   id: 352
   time: '2025-05-22T06:16:20.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: New MMI sprites.
+    - type: Tweak
+      message: New AME controller sprites.
+    - type: Tweak
+      message: New Fax sprites by Teasq.
+  id: 353
+  time: '2025-05-25T18:10:16.0000000+00:00'

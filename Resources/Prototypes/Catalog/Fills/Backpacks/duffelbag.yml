@@ -126,6 +126,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ColonicAcid <claudiomota1990@googlemail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PicklOH <62030853+semensponge@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -136,6 +137,7 @@
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -165,16 +167,16 @@
   components:
   - type: StorageFill
     contents:
-      - id: SawAdvanced
-      - id: Drill
-      - id: Cautery
-      - id: Retractor
-      - id: ScalpelAdvanced
-      - id: ClothingHandsGlovesNitrile
-      - id: EmergencyRollerBedSpawnFolded
-      - id: BoneGel # Shitmed Change
-      - id: MedicalStitches # Shitmed Change
-      - id: NitrousOxideTankFilled # DeltaV - add anesthesia
+    - id: DefibrillatorSyndicate
+    - id: SawAdvanced
+    - id: EnergyCautery
+    - id: AdvancedRetractor
+    - id: ScalpelAdvanced
+    - id: Drill
+    - id: AdvancedBoneGel
+    - id: ClothingHandsGlovesNitrile
+    - id: EmergencyRollerBedSpawnFolded
+    - id: NitrousOxideTankFilled # DeltaV - add anesthesia
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle

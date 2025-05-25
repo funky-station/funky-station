@@ -460,11 +460,3 @@
       right:
       - state: inhand-right-mag
 
-
-- type: entity
-  parent: BaseMagazinePistolSubMachineGun
-  id: MagazinePistolSubMachineGunIncendiary
-  name: SMG magazine (.35 auto incendiary)
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgePistolIncendiary

@@ -915,7 +915,7 @@
     state: state0
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
+    damageModifierSet: StructuralMetallicStrong
   - type: Physics
     bodyType: Static
   - type: Reflect
@@ -939,29 +939,6 @@
         - FullTileMask
         layer:
         - WallLayer
-  - type: Pullable
-  - type: Airtight
-    noAirWhenFullyAirBlocked: false
-    airBlockedDirection:
-    - South
-    - East
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PolygonShape
-            vertices:
-            - "-0.5,-0.5"
-            - "0.5,0.5"
-            - "0.5,-0.5"
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
-        density: 2000
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallicStrong
   - type: Destructible
     thresholds:
     - trigger:

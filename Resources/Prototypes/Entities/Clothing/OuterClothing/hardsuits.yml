@@ -252,7 +252,6 @@
         Blunt: 0.6
         Slash: 0.6
         Piercing: 0.6
-        Heat: 0.8
         Caustic: 0.7
         Heat: 0.7 # Goobstation
   - type: ClothingSpeedModifier
@@ -312,7 +311,6 @@
         Blunt: 0.4
         Slash: 0.5
         Piercing: 0.6
-        Heat: 0.8
         Caustic: 0.7
         Heat: 0.7 # Goobstation
   - type: ClothingSpeedModifier
@@ -487,7 +485,6 @@
         Blunt: 0.6
         Slash: 0.5
         Piercing: 0.5
-        Heat: 0.8
         Radiation: 0.5
         Caustic: 0.6
         Heat: 0.6 # Goobstation

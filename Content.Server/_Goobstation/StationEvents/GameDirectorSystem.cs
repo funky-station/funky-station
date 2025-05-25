@@ -153,8 +153,11 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     {
         if (selectedRules == null)
             return;
-
-        if(!_event.TryBuildLimitedEvents(selectedRules.ScheduledGameRules, out var possibleEvents))
+        
+        // funky station: note for ghast
+        // AvailableEvents takes in some new parameters that may be relevant to what you're trynna do here
+        var available = _event.AvailableEvents();
+        if(!_event.TryBuildLimitedEvents(selectedRules.ScheduledGameRules, available, out var possibleEvents))
             return;
 
         foreach (var entry in possibleEvents)

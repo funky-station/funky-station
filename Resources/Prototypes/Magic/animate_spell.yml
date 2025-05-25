@@ -76,3 +76,5 @@
       - BlockMovement
       - Item
       - MeleeRequiresWield
+      speech: action-speech-spell-animate
+      doSpeech: false

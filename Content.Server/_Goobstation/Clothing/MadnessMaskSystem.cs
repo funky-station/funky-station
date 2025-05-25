@@ -1,3 +1,4 @@
+using Content.Server.Damage.Systems;
 using Content.Server.EntityEffects.Effects;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Damage.Components;
@@ -12,7 +13,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Goobstation.Clothing;
 
-public sealed partial class MadnessMaskSystem : EntitySystem
+internal sealed partial class MadnessMaskSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;

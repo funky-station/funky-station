@@ -47,10 +47,12 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: MagazineAmmoProvider
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLightLaser
+    fireCost: 50
   - type: ItemSlots
     slots:
-      gun_magazine:
+      cell_slot:
         name: Magazine
         startingItem: PowerCellSmall
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
@@ -59,17 +61,20 @@
           tags:
             - PowerCell
             - PowerCellSmall
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
   - type: Appearance
   - type: StaticPrice
     price: 500
   - type: ContainerContainer
     containers:
-      gun_magazine: !type:ContainerSlot
+      cell_slot: !type:ContainerSlot
   - type: Cautery # Shitmed
     speed: 0.9
   - type: SurgeryTool # Shitmed
     endSound:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      cell_slot: !type:ContainerSlot
 
 - type: entity
   id: BaseWeaponBatterySmall
@@ -333,7 +338,6 @@
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
-
 
 - type: entity
   name: pulse rifle

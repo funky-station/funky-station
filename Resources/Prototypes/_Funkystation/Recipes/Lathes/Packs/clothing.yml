@@ -1,0 +1,21 @@
+﻿# static
+- type: latheRecipePack
+  id: SyndieCivilianFunky
+  recipes:
+  - ClothingUniformJumpsuitBotanistSyndicate
+  - ClothingUniformJumpsuitBartenderSyndicate
+  - ClothingUniformJumpsuitLibrarianSyndicate
+  - ClothingUniformJumpsuitScientistSyndicate
+  - ClothingUniformJumpsuitScientistWhiteSyndicate
+
+- type: latheRecipePack
+  id: SyndieCommandFunky
+  recipes:
+  - ClothingUniformJumpsuitGCMSyndicate
+  - ClothingUniformJumpsuitCCRSyndicate
+  - ClothingUniformJumpsuitIMDSyndicate
+  - ClothingUniformJumpsuitWSMSyndicate
+  - ClothingUniformJumpsuitHRDSyndicate
+  - ClothingUniformJumpsuitCHESyndicate
+  - ClothingUniformJumpsuitHCRSyndicate
+

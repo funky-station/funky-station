@@ -33,7 +33,6 @@ public sealed partial class CargoSystem
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly NameIdentifierSystem _nameIdentifier = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSys = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedResearchSystem _research = default!;
 
     [ValidatePrototypeId<NameIdentifierGroupPrototype>]

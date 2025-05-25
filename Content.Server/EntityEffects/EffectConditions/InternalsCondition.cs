@@ -1,3 +1,4 @@
+using Content.Server.Body.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;

@@ -41,13 +41,44 @@ uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor 
 
 # Weapons
 
+uplink-m90-name = M-90 Bundle
+uplink-m90-desc = A bundle with a M-90 and 2 .20 rifle mags.
+
 uplink-weapon-burner-name = Burner Heavy Rifle Bundle
 uplink-weapon-burner-desc = A bundle containing a Burner Heavy Rifle and a couple of magazines, including some high-explosive rounds.
 
 # Ammo
 
+uplink-rifle-mag-name = .20 Rifle Magazine
+uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
+
 uplink-high-caliber-box-name = 30 round .50 Box
 uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
+
+uplink-blast-grenade-name = Blast Grenade
+uplink-blast-grenade-desc = Higher damage, smaller radius. Compatible with the China-Lake.
+
+uplink-frag-grenade-name = Frag Grenade
+uplink-frag-grenade-desc = Lower damage, bigger radius. Compatible with the China-Lake.
+
+uplink-l6-box-name = Magazine Box (.30 rifle)
+uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.
+
+uplink-shotgun-magazine-name = Shotgun Drum (.50 pellet)
+uplink-shotgun-magazine-desc = Shutgun drum with 8 pellet shells. Compatible with the Bulldog.
+
+uplink-shotgun-magazine-slug-name = Shotgun Drum (.50 slug)
+uplink-shotgun-magazine-slug-desc = Shutgun drum with 8 slug shells. Compatible with the Bulldog.
+
+# Burner not added yet
+#uplink-high-caliber-magazine-name = Heavy Rifle Magazine (.50 anti-materiel)
+#uplink-high-caliber-magazine-desc = Rifle magazine with 15 cartridges. Compatible with the Burner.
+
+#uplink-high-caliber-explosive-magazine-name = Heavy Rifle Magazine (.50 high-explosive)
+#uplink-high-caliber-explosive-magazine-desc = Rifle magazine with 15 explosive #cartridges. Compatible with the Burner.
+
+#uplink-high-caliber-box-name = .50 Ammo box
+#uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
 
 # Mechs
 
@@ -56,3 +87,13 @@ uplink-mech-teleporter-heavy-desc = Contains a heavily armored Cybersun mech wit
 
 uplink-mech-teleporter-assault-name = Assault Mech teleporter
 uplink-mech-teleporter-assault-desc = Contains a lightly armored Cybersun mech with an integrated chainsword, LBX AC 10 "Scattershot", SRM-8 Light Missile Rack and P-X Tesla Cannon.
+
+# Implants
+
+uplink-smoke-implant-name = Smoke Implant
+uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
+
+# Wearables
+
+uplink-helmet-swat-name = Syndicate SWAT Helmet
+uplink-helmet-swat-desc = Robust helmet that offers good protection and also suppresses flashbang sounds to some extent.

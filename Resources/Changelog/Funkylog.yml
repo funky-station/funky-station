@@ -2881,3 +2881,11 @@ Entries:
       message: closed off front desk better into its own room
   id: 355
   time: '2025-05-26T01:00:42.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Add
+      message: (Im)ported a new syndicate rifle, the M-90.
+    - type: Add
+      message: Smoke implanter & syndi swat helmet.
+  id: 356
+  time: '2025-05-26T01:23:12.0000000+00:00'

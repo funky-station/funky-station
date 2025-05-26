@@ -2863,3 +2863,21 @@ Entries:
       message: Maintenance airlocks now have colors of their respective departments.
   id: 354
   time: '2025-05-25T19:44:07.0000000+00:00'
+- author: The048
+  changes:
+    - type: Tweak
+      message: changed the design of the medbay to make it more usable
+    - type: Tweak
+      message: changed one of the tables in the armory into a rack
+    - type: Tweak
+      message: added an EOD suit locker to the sec locker room
+    - type: Tweak
+      message: converted the maints surgery room into a potential saw trap room
+    - type: Tweak
+      message: added a paramedic locker and opened the paramedic role on cluster
+    - type: Tweak
+      message: removed waiting area
+    - type: Tweak
+      message: closed off front desk better into its own room
+  id: 355
+  time: '2025-05-26T01:00:42.0000000+00:00'

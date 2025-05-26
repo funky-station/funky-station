@@ -1,11 +1,13 @@
-using Content.Server._Impstation.CosmicCult.Components;
+using Content.Server._DV.CosmicCult.Components; // DeltaV
 using Content.Server.Administration.Commands;
 using Content.Server.Antag;
+using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Zombies;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Administration;
 using Content.Shared.Database;
+using Content.Shared.Humanoid;
 using Content.Shared.Mind.Components;
 using Content.Shared.Roles;
 using Content.Shared.Verbs;
@@ -19,6 +21,7 @@ public sealed partial class AdminVerbSystem
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly ZombieSystem _zombie = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
 
     [ValidatePrototypeId<EntityPrototype>]
     private const string DefaultTraitorRule = "Traitor";
@@ -37,6 +40,8 @@ public sealed partial class AdminVerbSystem
 
     [ValidatePrototypeId<StartingGearPrototype>]
     private const string PirateGearId = "PirateGear";
+
+    private readonly EntProtoId _paradoxCloneRuleId = "ParadoxCloneSpawn";
 
     // All antag verbs have names so invokeverb works.
     private void AddAntagVerbs(GetVerbsEvent<Verb> args)
@@ -204,20 +209,21 @@ public sealed partial class AdminVerbSystem
         // IMPSTATION - COSMIC CULT
         //note - the UI for the monument currently doesn't properly account for cultists added like this until it gets sent a new state - ruddygreat
         //todo figure out how to fix that
+        var cosmicCultName = Loc.GetString("admin-verb-text-make-cosmiccultist");
         Verb cosmiccult = new()
         {
-            Text = Loc.GetString("admin-verb-text-make-cosmiccultist"),
+            Text = cosmicCultName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Impstation/CosmicCult/Icons/antag_icons.rsi"), "CosmicCult"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_DV/CosmicCult/Icons/antag_icons.rsi"), "CosmicCult"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<CosmicCultRuleComponent>(targetPlayer, "CosmicCult");
             },
             Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-make-cosmiccultist"),
+            Message = string.Join(": ", cosmicCultName, Loc.GetString("admin-verb-make-cosmiccultist")),
         };
         args.Verbs.Add(cosmiccult);
-      
+
         // Funkystation - blood cult
         Verb cultAntag = new()
         {
@@ -232,5 +238,29 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-cultist")
         };
         args.Verbs.Add(cultAntag);
+
+        var paradoxCloneName = Loc.GetString("admin-verb-text-make-paradox-clone");
+        Verb paradox = new()
+        {
+            Text = paradoxCloneName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "ParadoxClone"),
+            Act = () =>
+            {
+                var ruleEnt = _gameTicker.AddGameRule(_paradoxCloneRuleId);
+
+                if (!TryComp<ParadoxCloneRuleComponent>(ruleEnt, out var paradoxCloneRuleComp))
+                    return;
+
+                paradoxCloneRuleComp.OriginalBody = args.Target; // override the target player
+
+                _gameTicker.StartGameRule(ruleEnt);
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", paradoxCloneName, Loc.GetString("admin-verb-make-paradox-clone")),
+        };
+
+        if (HasComp<HumanoidAppearanceComponent>(args.Target)) // only humanoids can be cloned
+            args.Verbs.Add(paradox);
     }
 }

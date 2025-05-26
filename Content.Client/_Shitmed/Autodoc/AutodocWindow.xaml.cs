@@ -31,6 +31,7 @@ public sealed partial class AutodocWindow : FancyWindow
     public event Action<int, int>? OnRemoveStep;
     public event Action<int>? OnStart;
     public event Action? OnStop;
+    public event Action? OnSanitize;
 
     private DialogWindow? _dialog;
     private AutodocProgramWindow? _currentProgram;
@@ -84,6 +85,8 @@ public sealed partial class AutodocWindow : FancyWindow
         AbortButton.AddStyleClass("Caution");
         AbortButton.OnPressed += _ => OnStop?.Invoke();
 
+        SanitizeToolsButton.OnPressed += _ => OnSanitize?.Invoke();
+
         UpdateActive();
         UpdatePrograms();
     }
@@ -100,8 +103,12 @@ public sealed partial class AutodocWindow : FancyWindow
 
         _active = active;
 
+        var dirtiness = _entMan.System<SharedAutodocSystem>().GetToolDirtiness((_owner, comp));
+
         CreateProgramButton.Disabled = active || _programCount >= comp.MaxPrograms;
         AbortButton.Disabled = !active;
+        SanitizeToolsButton.Disabled = active || dirtiness <= 0;
+
         foreach (var button in Programs.Children)
         {
             ((Button) button).Disabled = active;

@@ -34,7 +34,6 @@
         - ToyMouse
         - PlushieDiona
         - PlushieArachind
-        - PlushieDawn
         - PlushieCirno
       chance: 0.5
       offset: 0.2
@@ -88,6 +87,7 @@
       rarePrototypes:
       - ToyFigurineNukieElite
       - ToyFigurineNukieCommander
+      - ToyFigurineCosmicCultist # DeltaV Figurine, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
       rareChance: 0.05
       prototypes:
       - ToyFigurinePassenger

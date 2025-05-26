@@ -79,9 +79,10 @@
     grid:
     - 0,0,3,3
   - type: SurgerySpeedModifier
-    speedModifier: 0.5 # on par with a surgeon using normal tools
+    speedModifier: 0.80 # Slightly slower than surgeon using normal tools
   - type: GuideHelp
     guides: [ Autodoc ]
+  - type: SurgeryCleansDirt # Required for it to clean it's surgical tools.
 
 - type: entity
   parent: Autodoc

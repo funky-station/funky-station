@@ -127,12 +127,12 @@
   license: "CC-BY-SA-3.0"
   copyright: "cubicalleaf"
   source: "https://funkystation.org"
-  
+
 - files: ["doomdeed.webp"]
   license: "CC-BY-SA-3.0"
   copyright: "sharkpeekotwoelecticboogaloo"
   source: "https://funkystation.org"
-  
+
 - files: ["typicalDay.webp"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "shakulan"
@@ -143,4 +143,12 @@
   copyright: "vectorassembly | CC-BY-NC-ND-4.0"
   source: "https://vectorassembly.org"
 
+- files: ["rats.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Gostir"
+  source: "https://funkystation.org"
 
+- files: ["cirnostation.webp"]
+  license: "CC-BY-NC-3.0"
+  copyright: "joeseph"
+  source: "https://funkystation.org"

@@ -10,9 +10,6 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Antag.Components;
 
-// goob edit - no more specified access.
-// will it turn out to be a bad decision? probably yes
-// do i care? :trollface:
 [RegisterComponent, /*Access(typeof(AntagSelectionSystem), typeof(AdminVerbSystem))*/]
 public sealed partial class AntagSelectionComponent : Component
 {
@@ -47,9 +44,10 @@ public sealed partial class AntagSelectionComponent : Component
     public AntagSelectionTime SelectionTime = AntagSelectionTime.PostPlayerSpawn;
 
     /// <summary>
-    /// Cached sessions of players who are chosen yet not given the role yet.
+    /// Cached sessions of antag definitions and selected players. Players in this dict are not guaranteed to have been assigned the role yet.
     /// </summary>
-    public HashSet<ICommonSession> PreSelectedSessions = new();
+    [DataField]
+    public Dictionary<AntagSelectionDefinition, HashSet<ICommonSession>>PreSelectedSessions = new();
 
     /// <summary>
     /// Cached sessions of players who are chosen. Used so we don't have to rebuild the pool multiple times in a tick.
@@ -63,6 +61,13 @@ public sealed partial class AntagSelectionComponent : Component
     /// </summary>
     [DataField]
     public LocId? AgentName;
+
+    /// <summary>
+    /// If the player is pre-selected but fails to spawn in (e.g. due to only having antag-immune jobs selected),
+    /// should they be removed from the pre-selection list?
+    /// </summary>
+    [DataField]
+    public bool RemoveUponFailedSpawn = true;
 }
 
 [DataDefinition]
@@ -196,13 +201,6 @@ public partial struct AntagSelectionDefinition()
     /// </remarks>
     [DataField]
     public EntProtoId? SpawnerPrototype;
-
-    /// <summary>
-    /// Goobstation
-    /// Does this antag role roll before job
-    /// </summary>
-    [DataField]
-    public bool RollBeforeJob = true;
 }
 
 /// <summary>

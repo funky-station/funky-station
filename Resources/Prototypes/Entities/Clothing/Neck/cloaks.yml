@@ -212,6 +212,15 @@
 
 - type: entity
   parent: ClothingNeckBase
+  id: ClothingNeckCloakGenderfluid
+  name: genderfluid pride cloak
+  description: A cloak representing genderfluid pride.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Cloaks/genderfluid.rsi
+
+- type: entity
+  parent: ClothingNeckBase
   id: ClothingNeckCloakAce
   name: asexual pride cloak
   description: A cloak representing asexual pride.

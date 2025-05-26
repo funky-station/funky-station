@@ -25,3 +25,15 @@
       - id: ClothingHandsGlovesCombat
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateM90Bundle # - I don't know if the old M90 bundle uses this ID, but it's commented out and I don't think it exists anymore.
+  name: M-90 bundle
+  description: "A bundle carrying the syndicate's M-90 assault rifle, packed with 2 spare magazines."
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleM90
+      - id: MagazineRifle
+      - id: MagazineRifle

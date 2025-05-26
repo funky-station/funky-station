@@ -320,6 +320,13 @@
       - SpeedLoaderMagnumEmpty
       - GrenadeFlashBang # Goobstation
       - BolaEnergy # Goobstation
+      - MagazinePistolCaselessRifle # Goobstation
+      - MagazineBoxCaselessRifle # Goobstation
+      - MagazineLightRifleBoxEmpty # Goobstation
+      - MagazineLightRifleBox # Goobstation
+      - #- MagazineHighCaliberEmpty # Goobstation - Burner not added yet
+      - #- MagazineHighCaliber # Goobstation
+      - #- MagazineBoxHighCaliber # Goobstation
       - CartridgeEmergency # Goobstation
       - CartridgeAirloss # Goobstation
       - CartridgeBrute # Goobstation
@@ -1001,6 +1008,15 @@
     - WeaponMechCombatDisabler
     - WeaponMechCombatFlashbangLauncher
     - WeaponMechCombatMissileRack8
+  - type: EmagLatheRecipes # Goobstation
+    emagStaticRecipes:
+    - MagazinePistolCaselessRifle # Goobstation
+    - MagazineBoxCaselessRifle # Goobstation
+    - MagazineLightRifleBoxEmpty # Goobstation
+    - MagazineLightRifleBox # Goobstation
+    #- MagazineHighCaliberEmpty # Goobstation - Burner not added yet
+    #- MagazineHighCaliber # Goobstation
+    #- MagazineBoxHighCaliber # Goobstation
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1051,12 +1067,21 @@
     - MagazineShotgunSlug
     - SpeedLoaderMagnum
     - SpeedLoaderMagnumEmpty
+  - type: EmagLatheRecipes # Goobstation
+    emagStaticRecipes:
+    - MagazinePistolCaselessRifle # Goobstation
+    - MagazineBoxCaselessRifle # Goobstation
+    - MagazineLightRifleBoxEmpty # Goobstation
+    - MagazineLightRifleBox # Goobstation
+    #- MagazineHighCaliberEmpty # Goobstation - Burner not added yet
+    #- MagazineHighCaliber # Goobstation
+    #- MagazineBoxHighCaliber # Goobstation
   - type: MaterialStorage
     whitelist:
       tags:
-      - Sheet
-      - RawMaterial
-      - Ingot
+        - Sheet
+        - RawMaterial
+        - Ingot
 
 - type: entity
   id: MedicalTechFab

@@ -51161,9 +51161,6 @@ entities:
     - type: Transform
       pos: -23.5,13.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 16
     - type: AtmosPipeColor

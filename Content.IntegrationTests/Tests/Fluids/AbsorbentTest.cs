@@ -40,6 +40,7 @@ public sealed class AbsorbentTest
   id: {AbsorbentDummyId}
   components:
   - type: Absorbent
+    useAbsorberSolution: true
   - type: SolutionContainerManager
     solutions:
       absorbed:
@@ -101,7 +102,7 @@ public sealed class AbsorbentTest
             refillable = entityManager.SpawnEntity(RefillableDummyId, coordinates);
 
             entityManager.TryGetComponent(absorbent, out component);
-            solutionContainerSystem.TryGetSolution(absorbent, AbsorbentComponent.SolutionName, out var absorbentSoln, out var absorbentSolution);
+            solutionContainerSystem.TryGetSolution(absorbent, component.SolutionName, out var absorbentSoln, out var absorbentSolution);
             solutionContainerSystem.TryGetRefillableSolution(refillable, out var refillableSoln, out var refillableSolution);
 
             // Arrange
@@ -159,7 +160,7 @@ public sealed class AbsorbentTest
             refillable = entityManager.SpawnEntity(SmallRefillableDummyId, coordinates);
 
             entityManager.TryGetComponent(absorbent, out component);
-            solutionContainerSystem.TryGetSolution(absorbent, AbsorbentComponent.SolutionName, out var absorbentSoln, out var absorbentSolution);
+            solutionContainerSystem.TryGetSolution(absorbent, component.SolutionName, out var absorbentSoln, out var absorbentSolution);
             solutionContainerSystem.TryGetRefillableSolution(refillable, out var refillableSoln, out var refillableSolution);
 
             // Arrange

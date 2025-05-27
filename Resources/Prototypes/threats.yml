@@ -13,6 +13,7 @@
   weights:
     Dragon: 5
     Revenant: 4
+    Replicators: 5
     Wizard: 1
 
 - type: ninjaHackingThreat
@@ -29,3 +30,8 @@
   id: Wizard
   announcement: terror-wizard
   rule: WizardSpawn
+
+- type: ninjaHackingThreat
+  id: Replicators
+  announcement: terror-replicators
+  rule: ReplicatorSpawn

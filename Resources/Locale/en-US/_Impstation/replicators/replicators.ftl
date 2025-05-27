@@ -25,3 +25,15 @@ replicator-nest-level5 = How is the hull still intact?!
 replicator-nest-levelup = There is a flurry of activity from the nest.
 
 replicator-nest-destroyed = Your nest has been destroyed. A Replicator has been selected to replace it.
+
+# ninja spawn warning
+terror-replicators = Attention crew, it appears that someone on your station has made an unexpected communication with a distributed machine intelligence in nearby space.
+
+# AAC phrases
+repli-phrase-species-organic = Organic
+repli-phrase-species-silicon = Silicon
+phrase-we = We
+phrase-we-are = We are
+phrase-this-unit = This unit
+phrase-that-unit = That unit
+phrase-is = Is

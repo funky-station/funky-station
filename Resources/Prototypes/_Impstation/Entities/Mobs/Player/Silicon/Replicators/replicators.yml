@@ -137,6 +137,9 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Pai
+  - type: Inventory
+    templateId: replicator
+  - type: InventorySlots
 
 - type: entity
   id: MobReplicatorQueen
@@ -262,6 +265,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.6 # these fellas are the tanks, they rely on the smaller guys stunning things for them.
     baseSprintSpeed: 4
+    friction: 30 # these fellas are the tanks, they rely on the smaller guys stunning things for them.
   - type: Sprite
     drawDepth: Mobs
     sprite: _Impstation/Mobs/Replicator/replicator.rsi

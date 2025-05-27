@@ -1,4 +1,4 @@
-using Content.Server._Impstation.CosmicCult.Components;
+using Content.Server._DV.CosmicCult.Components; // DeltaV
 using Content.Server.Administration.Commands;
 using Content.Server.Antag;
 using Content.Server.GameTicking;
@@ -209,17 +209,18 @@ public sealed partial class AdminVerbSystem
         // IMPSTATION - COSMIC CULT
         //note - the UI for the monument currently doesn't properly account for cultists added like this until it gets sent a new state - ruddygreat
         //todo figure out how to fix that
+        var cosmicCultName = Loc.GetString("admin-verb-text-make-cosmiccultist");
         Verb cosmiccult = new()
         {
-            Text = Loc.GetString("admin-verb-text-make-cosmiccultist"),
+            Text = cosmicCultName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Impstation/CosmicCult/Icons/antag_icons.rsi"), "CosmicCult"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_DV/CosmicCult/Icons/antag_icons.rsi"), "CosmicCult"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<CosmicCultRuleComponent>(targetPlayer, "CosmicCult");
             },
             Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-make-cosmiccultist"),
+            Message = string.Join(": ", cosmicCultName, Loc.GetString("admin-verb-make-cosmiccultist")),
         };
         args.Verbs.Add(cosmiccult);
 

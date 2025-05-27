@@ -2801,3 +2801,97 @@ Entries:
       message: The crystallizer's max input rate is now capped to 250 mol/s
   id: 347
   time: '2025-05-18T22:35:30.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: >-
+        Request computers, Silo Relay, Medcial Biofab, Atmos Crystalizer and Gas
+        Vendors added to origin.
+  id: 348
+  time: '2025-05-19T16:14:58.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Boosted the size of Bagel's atmos playground
+    - type: Fix
+      message: Relinked Bagel Gas Vendors to Gas Sender
+  id: 349
+  time: '2025-05-21T16:23:58.0000000+00:00'
+- author: ' GtheGlorious'
+  changes:
+    - type: Tweak
+      message: Revamped Roingus Textures
+  id: 350
+  time: '2025-05-22T04:51:47.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Add
+      message: Ported over the Holo-flaregun from Frontier Station
+  id: 351
+  time: '2025-05-22T06:15:17.0000000+00:00'
+- author: ' AfterLite, sowelipililimute, deltanedas'
+  changes:
+    - type: Tweak
+      message: The Cosmic Cult has been refactored and rebalanced!
+    - type: Tweak
+      message: >-
+        Cosmic Cult conversion is no longer tied to the metabolism of holy
+        water, please see the Guidebook tab on deconversion.
+    - type: Remove
+      message: The Lone Astral Ascendant has been removed from the midround pool.
+    - type: Add
+      message: >-
+        Cosmic Cultists now gain a special, one-time use ability while
+        Empowered.
+    - type: Fix
+      message: 'Various Cosmic Cult fixes, yay! '
+  id: 352
+  time: '2025-05-22T06:16:20.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: New MMI sprites.
+    - type: Tweak
+      message: New AME controller sprites.
+    - type: Tweak
+      message: New Fax sprites by Teasq.
+  id: 353
+  time: '2025-05-25T18:10:16.0000000+00:00'
+- author: ' ilyamikcoder'
+  changes:
+    - type: Add
+      message: Maintenance airlocks now have colors of their respective departments.
+  id: 354
+  time: '2025-05-25T19:44:07.0000000+00:00'
+- author: The048
+  changes:
+    - type: Tweak
+      message: changed the design of the medbay to make it more usable
+    - type: Tweak
+      message: changed one of the tables in the armory into a rack
+    - type: Tweak
+      message: added an EOD suit locker to the sec locker room
+    - type: Tweak
+      message: converted the maints surgery room into a potential saw trap room
+    - type: Tweak
+      message: added a paramedic locker and opened the paramedic role on cluster
+    - type: Tweak
+      message: removed waiting area
+    - type: Tweak
+      message: closed off front desk better into its own room
+  id: 355
+  time: '2025-05-26T01:00:42.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Add
+      message: (Im)ported a new syndicate rifle, the M-90.
+    - type: Add
+      message: Smoke implanter & syndi swat helmet.
+  id: 356
+  time: '2025-05-26T01:23:12.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Fix
+      message: The mail bag now actually stores mail again.
+  id: 357
+  time: '2025-05-26T21:13:58.0000000+00:00'

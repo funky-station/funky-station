@@ -537,3 +537,11 @@
       prob: 0.90
     - id: CutWireVariationPass # funkystation
       prob: 0.20 # would suck if it happened every single round, but it's something for engi to be vigilant of
+    - id: BasicDecalDirtVariationPass
+    - id: BasicDecalGraffitiVariationPass
+    - id: BasicDecalBrunsVariationPass
+      prob: 0.50
+      orGroup: monospaceDecals
+    - id: BasicDecalDirtMonospaceVariationPass
+      prob: 0.50
+      orGroup: monospaceDecals

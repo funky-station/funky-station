@@ -3,6 +3,8 @@ using Content.Shared._CD.Records;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text.Json;
+using Content.Shared._Funkystation.Records;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._CD.Records;
 
@@ -43,6 +45,12 @@ public static class RecordsSerialization
         return def;
     }
 
+
+    private static HashSet<ProtoId<MedicalInfoPrototype>> DeserializeSet(JsonElement e, string key, HashSet<ProtoId<MedicalInfoPrototype>>? def)
+    {
+        // help
+    }
+
     /// <summary>
     /// We need to manually deserialize CharacterRecords because the easy JSON deserializer does not
     /// do exactly what we want. More specifically, we need to more robustly handle missing and extra fields
@@ -62,7 +70,7 @@ public static class RecordsSerialization
             hasInsurance: DeserializeBool(e, nameof(def.HasInsurance), def.HasInsurance),
             insuranceProvider: DeserializeInt(e, nameof(def.InsuranceProvider), def.InsuranceProvider),
             insuranceType: DeserializeInt(e, nameof(def.InsuranceType), def.InsuranceType),
-            medicalInfo: DeserializeHashSet(e, nameof(def.MedicalInfo), def.MedicalInfo),
+            medicalInfo: DeserializeSet(e, nameof(def.MedicalInfo), def.MedicalInfo),
             bloodType: DeserializeInt(e, nameof(def.BloodType), def.BloodType),
             postmortemInstructions: DeserializeString(e, nameof(def.PostmortemInstructions), def.PostmortemInstructions);
     }

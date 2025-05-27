@@ -8,6 +8,7 @@ using Content.Shared.Mobs.Systems;
 using Robust.Server.Console;
 using Robust.Shared.Player;
 using Content.Shared.Speech.Muting;
+using Content.Shared.Speech;
 
 namespace Content.Server.Mobs;
 
@@ -61,6 +62,13 @@ public sealed class CritMobActionsSystem : EntitySystem
     {
         if (!TryComp<ActorComponent>(uid, out var actor))
             return;
+
+        if (!HasComp<SpeechComponent>(uid))
+        {
+            _host.ExecuteCommand(actor.PlayerSession, "ghost");
+            args.Handled = true;
+            return;
+        }
 
         _quickDialog.OpenDialog(actor.PlayerSession, Loc.GetString("action-name-crit-last-words"), "",
             (string lastWords) =>

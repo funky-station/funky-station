@@ -5,3 +5,10 @@
   - Brute
   - Burn
 
+- type: damageContainer
+  id: OrganicPart
+  supportedGroups:
+  - Brute
+  - Burn
+  supportedTypes: # DeltaV - limbs can take poison
+  - Poison

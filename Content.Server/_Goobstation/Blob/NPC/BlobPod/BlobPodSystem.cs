@@ -77,6 +77,12 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
         {
             _explosionSystem.QueueExplosion(uid, blobCoreComponent.BlobExplosive, 4, 1, 2, maxTileBreak: 0);
         }
+
+        if (component.Factory == null || !TryComp<BlobFactoryComponent>(component.Factory, out var factoryComp))
+            return;
+        
+        factoryComp.BlobPods.Remove(uid);
+        factoryComp.SpawnedCount -= 1;
     }
 
     public bool Zombify(Entity<BlobPodComponent> ent, EntityUid target)

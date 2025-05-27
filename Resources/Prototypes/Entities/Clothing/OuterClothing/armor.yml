@@ -3,7 +3,7 @@
 
 #Basic armor vest for inheritance
 - type: entity
-  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseRestrictedContraband]
+  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseSecurityContraband]
   id: ClothingOuterArmorBase
   name: armor vest
   abstract: true
@@ -22,6 +22,9 @@
         Heat: 0.80
   - type: ExplosionResistance
     damageCoefficient: 0.90
+  - type: Tag
+    tags:
+      - Armor
 
 #Standard armor vest, allowed for security and bartenders
 - type: entity
@@ -42,7 +45,7 @@
     sprite: Clothing/OuterClothing/Armor/security_slim.rsi
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseRestrictedContraband]
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseSecurityContraband]
   id: ClothingOuterArmorRiot
   name: riot suit
   description: A suit of semi-flexible polycarbonate body armor with heavy padding to protect against melee attacks. Perfect for fighting delinquents around the station.
@@ -140,6 +143,9 @@
       outerClothing:
       - state: equipped-OUTERCLOTHING-light
         shader: unshaded
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-light-vox
+        shader: unshaded
   - type: Appearance
   - type: HandheldLight
     addPrefix: false
@@ -176,6 +182,9 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 2
+  - type: Tag
+    tags:
+      - SpecialArmor
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]
@@ -288,6 +297,9 @@
   - type: ExplosionResistance
     damageCoefficient: 0.65
   - type: GroupExamine
+  - type: Tag
+    tags:
+      - SpecialArmor
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]

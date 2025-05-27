@@ -1,0 +1,58 @@
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: UnknownShuttleSkeletonMafia
+  components:
+  - type: StationEvent
+    weight: 5 # Lower because freelance roles - Same as syndie evac shuttle
+    maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
+  - type: LoadMapRule
+    preloadedGrid: skeletonMafia
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: UnknownShuttleLoneRoboticist
+  components:
+  - type: StationEvent
+    maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
+    weight: 8
+  - type: LoadMapRule
+    preloadedGrid: loneroboticist
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: UnknownShuttleFoamRoid
+  components:
+  - type: StationEvent
+    startAnnouncement: null #Silent
+    maxOccurrences: 1 # should be the same as [copies] in shuttle_incoming_event.yml
+    weight: 8
+  - type: LoadMapRule
+    preloadedGrid: foamroid
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: UnknownShuttleMouseJumpscare
+  components:
+  - type: StationEvent
+    maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
+  - type: LoadMapRule
+    preloadedGrid: mouseJumpscare
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: UnknownShuttleClownPatrol
+  components:
+  - type: StationEvent
+    maxOccurrences: 1 # should be the same as [copies] in shuttle_incoming_event.yml
+    weight: 1      #Rarespawn - 1/2 the weight of the honki
+  - type: LoadMapRule
+    preloadedGrid: clownPatrol
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: UnknownShuttleWanderingNomad
+  components:
+  - type: StationEvent
+    maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
+  - type: LoadMapRule
+    preloadedGrid: wanderingNomad

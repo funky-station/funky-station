@@ -1,0 +1,47 @@
+<BoxContainer
+    HorizontalExpand="True"
+    Orientation="Vertical"
+    xmlns="https://spacestation14.io"
+    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+    <cc:HSeparator />
+    <BoxContainer Orientation="Vertical">
+        <LineEdit Margin="5,0,0,0" Name="ThavenMoodTitle" />
+        <PanelContainer Margin="20,10,0,0" MinHeight="128">
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#1B1B1B" />
+            </PanelContainer.PanelOverride>
+            <BoxContainer Orientation="Horizontal" SeparationOverride="5">
+                <TextEdit
+                    Editable="True"
+                    HorizontalExpand="True"
+                    MinHeight="80"
+                    MinWidth="500"
+                    Name="ThavenMoodContent" />
+            </BoxContainer>
+        </PanelContainer>
+    </BoxContainer>
+    <BoxContainer
+        Align="Begin"
+        Margin="0,5,0,0"
+        MaxHeight="64"
+        Orientation="Horizontal">
+        <Button
+            Name="MoveUp"
+            StyleClasses="OpenRight"
+            Text="{Loc thaven-mood-admin-ui-move-up}" />
+        <Button
+            Name="MoveDown"
+            StyleClasses="OpenLeft"
+            Text="{Loc thaven-mood-admin-ui-move-down}" />
+    </BoxContainer>
+    <BoxContainer
+        Align="End"
+        Margin="0,10,5,10"
+        Orientation="Horizontal">
+        <Button
+            ModulateSelfOverride="Red"
+            Name="Delete"
+            Text="{Loc thaven-mood-admin-ui-delete}" />
+    </BoxContainer>
+</BoxContainer>

@@ -42,7 +42,7 @@
 
 #Detective's vest
 - type: entity
-  parent: [ClothingOuterArmorBase, BaseRestrictedContraband]
+  parent: [ClothingOuterArmorBase, BaseSecurityContraband]
   id: ClothingOuterVestDetective
   name: detective's vest
   description: A hard-boiled private investigator's armored vest.
@@ -99,3 +99,7 @@
     sprite: Clothing/OuterClothing/Vests/tankharness.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Vests/tankharness.rsi
+  - type: Tag # DeltaV: tank harnesses can be used for surgery
+    tags:
+    - PermissibleForSurgery
+    - WhitelistChameleon

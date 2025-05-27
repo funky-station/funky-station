@@ -6,6 +6,8 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee;
+using Content.Shared.Weapons.Melee.Components;
+using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Wieldable.Components;
@@ -137,20 +139,37 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             coordinates = TransformSystem.ToCoordinates(_map.GetMap(mousePos.MapId), mousePos);
         }
 
+        // If the gun has AltFireComponent, it can be used to attack.
+        if (TryComp<GunComponent>(weaponUid, out var gun2) && gun2.UseKey)
+        {
+            if (!TryComp<AltFireMeleeComponent>(weaponUid, out var altFireComponent) || altDown != BoundKeyState.Down)
+                return;
+
+            switch(altFireComponent.AttackType)
+            {
+                case AltFireAttackType.Light:
+                    ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
+                    break;
+
+                case AltFireAttackType.Heavy:
+                    ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
+                    break;
+
+                case AltFireAttackType.Disarm:
+                    ClientDisarm(entity, mousePos, coordinates);
+                    break;
+            }
+
+            return;
+        }
+
         // Heavy attack.
         if (altDown == BoundKeyState.Down && !gunBoundToAlt) //Frontier: add !gunBoundToAlt condition
         {
             // If it's an unarmed attack then do a disarm
             if (weapon.AltDisarm && weaponUid == entity)
             {
-                EntityUid? target = null;
-
-                if (_stateManager.CurrentState is GameplayStateBase screen)
-                {
-                    target = screen.GetClickedEntity(mousePos);
-                }
-
-                EntityManager.RaisePredictiveEvent(new DisarmAttackEvent(GetNetEntity(target), GetNetCoordinates(coordinates)));
+                ClientDisarm(entity, mousePos, coordinates);
                 return;
             }
 
@@ -159,29 +178,8 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         }
 
         // Light attack
-        if (useDown == BoundKeyState.Down && !gunBoundToUse) //Frontier: add !gunBoundToUse condition
-        {
-            var attackerPos = TransformSystem.GetMapCoordinates(entity);
-
-            if (mousePos.MapId != attackerPos.MapId ||
-                (attackerPos.Position - mousePos.Position).Length() > weapon.Range)
-            {
-                return;
-            }
-
-            EntityUid? target = null;
-
-            if (_stateManager.CurrentState is GameplayStateBase screen)
-            {
-                target = screen.GetClickedEntity(mousePos);
-            }
-
-            // Don't light-attack if interaction will be handling this instead
-            if (Interaction.CombatModeCanHandInteract(entity, target))
-                return;
-
-            RaisePredictiveEvent(new LightAttackEvent(GetNetEntity(target), GetNetEntity(weaponUid), GetNetCoordinates(coordinates)));
-        }
+        if (useDown == BoundKeyState.Down && !gunBoundToUse)
+            ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
     }
 
     protected override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session)
@@ -254,6 +252,35 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         // Server will validate it with InRangeUnobstructed.
         var entities = GetNetEntityList(ArcRayCast(userPos, direction.ToWorldAngle(), component.Angle, distance, userXform.MapID, user).ToList());
         RaisePredictiveEvent(new HeavyAttackEvent(GetNetEntity(meleeUid), entities.GetRange(0, Math.Min(MaxTargets, entities.Count)), GetNetCoordinates(coordinates)));
+    }
+
+    private void ClientDisarm(EntityUid attacker, MapCoordinates mousePos, EntityCoordinates coordinates)
+    {
+        EntityUid? target = null;
+
+        if (_stateManager.CurrentState is GameplayStateBase screen)
+            target = screen.GetClickedEntity(mousePos);
+
+        RaisePredictiveEvent(new DisarmAttackEvent(GetNetEntity(target), GetNetCoordinates(coordinates)));
+    }
+
+    private void ClientLightAttack(EntityUid attacker, MapCoordinates mousePos, EntityCoordinates coordinates, EntityUid weaponUid, MeleeWeaponComponent meleeComponent)
+    {
+        var attackerPos = TransformSystem.GetMapCoordinates(attacker);
+
+        if (mousePos.MapId != attackerPos.MapId || (attackerPos.Position - mousePos.Position).Length() > meleeComponent.Range)
+            return;
+
+        EntityUid? target = null;
+
+        if (_stateManager.CurrentState is GameplayStateBase screen)
+            target = screen.GetClickedEntity(mousePos);
+
+        // Don't light-attack if interaction will be handling this instead
+        if (Interaction.CombatModeCanHandInteract(attacker, target))
+            return;
+
+        RaisePredictiveEvent(new LightAttackEvent(GetNetEntity(target), GetNetEntity(weaponUid), GetNetCoordinates(coordinates)));
     }
 
     private void OnMeleeLunge(MeleeLungeEvent ev)

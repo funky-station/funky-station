@@ -25,7 +25,7 @@
   discountDownTo:
     Telecrystal: 1
   cost:
-    Telecrystal: 2
+    Telecrystal: 10
   categories:
   - UplinkChemicals
   conditions:

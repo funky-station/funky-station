@@ -2895,3 +2895,9 @@ Entries:
       message: The mail bag now actually stores mail again.
   id: 357
   time: '2025-05-26T21:13:58.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Bagel atmos room has breathable atmos now
+  id: 358
+  time: '2025-05-27T07:04:58.0000000+00:00'

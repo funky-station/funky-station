@@ -23,7 +23,7 @@ public sealed partial class SurgeryContaminableComponent : Component
     ///     The level of dirtiness above which toxin damage will be dealt
     /// </summary>
     [DataField]
-    public FixedPoint2 DirtinessThreshold = 50.0;
+    public FixedPoint2 DirtinessThreshold = 75.0;
 
     /// <summary>
     /// The damage type to deal for sepsis.

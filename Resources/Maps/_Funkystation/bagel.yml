@@ -4,8 +4,8 @@ meta:
   engineVersion: 255.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/27/2025 06:18:22
-  entityCount: 27410
+  time: 05/27/2025 06:49:33
+  entityCount: 27411
 maps:
 - 3201
 grids:
@@ -11887,7 +11887,7 @@ entities:
       pos: -29.5,37.5
       parent: 60
     - type: Door
-      secondsUntilStateChange: -58789.56
+      secondsUntilStateChange: -58810.754
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -130950,6 +130950,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -66.5,-49.5
+      parent: 60
+  - uid: 17227
+    components:
+    - type: Transform
+      pos: 6.5,10.5
       parent: 60
   - uid: 18720
     components:

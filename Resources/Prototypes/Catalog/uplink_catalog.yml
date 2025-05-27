@@ -759,6 +759,7 @@
   categories:
   - UplinkDeception
   saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
 - type: listing
   id: UplinkBinaryTranslatorKey
@@ -770,6 +771,7 @@
     Telecrystal: 5 # goob
   categories:
   - UplinkDeception
+  saleBlacklist: true
 
 - type: listing
   id: UplinkCyberpen
@@ -1297,7 +1299,7 @@
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
   productEntity: RadioImplanter
   cost:
-    Telecrystal: 2
+    Telecrystal: 5
   categories:
   - UplinkImplants
   saleBlacklist: true

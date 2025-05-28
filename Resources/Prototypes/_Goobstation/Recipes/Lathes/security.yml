@@ -6,6 +6,20 @@
     Steel: 100
     Plastic: 100
 
+- type: latheRecipe
+  id: CartridgeEpinephrine
+  result: CartridgeEpinephrine
+  completetime: 1
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: BolaEnergy
+  result: BolaEnergy
+  completetime: 3
+  materials:
+    Steel: 200
+
 # Mech Weapons
 - type: latheRecipe
   id: WeaponMechCombatImmolationGun
@@ -118,16 +132,54 @@
     Glass: 750
     Silver: 150
 
-- type: latheRecipe
-  id: CartridgeEpinephrine
-  result: CartridgeEpinephrine
-  completetime: 1
-  materials:
-    Glass: 100
+# Ammo
 
 - type: latheRecipe
-  id: BolaEnergy
-  result: BolaEnergy
-  completetime: 3
+  parent: BaseAmmoRecipe
+  id: MagazinePistolCaselessRifle
+  result: MagazinePistolCaselessRifle
   materials:
-    Steel: 200
+    Steel: 145
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxCaselessRifle
+  result: MagazineBoxCaselessRifle
+  materials:
+    Steel: 720
+
+- type: latheRecipe
+  parent: BaseEmptyAmmoRecipe
+  id: MagazineLightRifleBoxEmpty
+  result: MagazineLightRifleBoxEmpty
+  materials:
+    Steel: 100
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineLightRifleBox
+  result: MagazineLightRifleBox
+  materials:
+    Steel: 1600
+
+# Burner not added yet
+#- type: latheRecipe
+#  parent: BaseEmptyAmmoRecipe
+#  id: MagazineHighCaliberEmpty
+#  result: MagazineHighCaliberEmpty
+#  materials:
+#    Steel: 25
+
+#- type: latheRecipe
+#  parent: BaseAmmoRecipe
+#  id: MagazineHighCaliber
+#  result: MagazineHighCaliber
+#  materials:
+#    Steel: 325
+
+#- type: latheRecipe
+#  parent: BaseAmmoRecipe
+#  id: MagazineBoxHighCaliber
+#  result: MagazineBoxHighCaliber
+#  materials:
+#    Steel: 600

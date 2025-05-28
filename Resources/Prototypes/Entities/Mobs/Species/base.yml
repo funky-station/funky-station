@@ -157,7 +157,7 @@
     - Vulgarity # Goobstation - add Profanol
 #    - Brainrotted # Goobstation - skibidi rizz ohio update
     - Adrenaline
-#    - Brainrotted # Goobstation - skibidi rizz ohio update
+    - PainNumbness # DeltaV - Pain numbness status effect
   - type: Body
     prototype: Human
     requiredLegs: 2
@@ -255,6 +255,7 @@
   - type: SurgeryTarget # Shitmed Change
   - type: CanEscapeInventory # GoobStation - Escape being picked up by players
   - type: SurgeryContaminable # DeltaV - surgery cross contamination
+  - type: CosmicCenserTarget # DeltaV - Cosmic Cult
 
 - type: entity
   save: false

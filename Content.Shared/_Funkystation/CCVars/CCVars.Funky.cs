@@ -17,10 +17,10 @@ public sealed class CCVars_Funky
     /// </summary>
     public static readonly CVarDef<bool> BluespaceGasEnabled =
         CVarDef.Create("funky.bluespace_gas_enabled", true, CVar.SERVER | CVar.REPLICATED);
-  
+
     /// <summary>
     /// Allow forks to save a persistent balance for a character. Works kinda like Frontier (shout out frontier).
     /// </summary>
     public static readonly CVarDef<bool> EnablePersistentBalance =
-        CVarDef.Create("banking.enable_persistent_balance", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+        CVarDef.Create("banking.enable_persistent_balance", false, CVar.SERVER | CVar.ARCHIVE);
 }

@@ -146,6 +146,7 @@
   maxPlayers: 5
   rules:
     - Sandbox
+    - RegularStationPayouts
 
 - type: gamePreset
   id: Traitor

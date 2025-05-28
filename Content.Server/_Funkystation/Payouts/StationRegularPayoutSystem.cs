@@ -48,15 +48,15 @@ public sealed class StationRegularPayoutSystem : GameRuleSystem<StationRegularPa
 
         if (recordId == null)
             return;
-        
+
         var key = new StationRecordKey((uint) recordId, args.Station);
 
         _stationRecords.AddRecordEntry(args.Key, new PaymentRecord());
         _stationRecords.Synchronize(args.Key);
-        
+
         if (!_stationRecords.TryGetRecord(key, out PaymentRecord? record))
             return;
-        
+
         record.PayoutAmount = _payoutSystem.InitialPayoutInfo[(ProtoId<JobPrototype>) args.Record.JobPrototype];
     }
 
@@ -70,7 +70,7 @@ public sealed class StationRegularPayoutSystem : GameRuleSystem<StationRegularPa
         // grab a station, there should only be one valid station
         if (!TryGetRandomStation(out var chosenStation, HasComp<StationBankAccountComponent>))
             return;
-        
+
         component.StationComponentUID = chosenStation.Value;
 
         InitiatePayouts(payoutComponent);
@@ -100,7 +100,7 @@ public sealed class StationRegularPayoutSystem : GameRuleSystem<StationRegularPa
                 record.PaySuspended = true;
                 continue;
             }
-            
+
             record.PaySuspended = false;
             validCrew++; // only pay the station for crew that is nice :)
         }
@@ -157,7 +157,10 @@ public sealed class StationRegularPayoutSystem : GameRuleSystem<StationRegularPa
         {
             var history = new PayoutReceipt();
 
-            if (paymentRecord.Item2.PaySuspended)
+            history.Paid = true;
+
+            if (paymentRecord.Item2.PaySuspended
+                || stationBankAccount.ScripBalance < paymentRecord.Item2.PayoutAmount)
             {
                 history.Paid = false;
             }

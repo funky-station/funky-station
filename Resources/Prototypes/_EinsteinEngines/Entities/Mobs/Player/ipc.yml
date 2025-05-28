@@ -110,6 +110,8 @@
   - type: CanHostGuardian
   - type: WeldingHealable
   - type: Fingerprint #Funkystation IPC fingerprints
+  - type: CombatMode # DeltaV - let IPCs disarm
+    canDisarm: true
 
 - type: entity
   save: false

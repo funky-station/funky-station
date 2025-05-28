@@ -36,7 +36,7 @@ public abstract class SharedAutodocSystem : EntitySystem
     [Dependency] private readonly SharedLabelSystem _label = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly SharedSurgerySystem _surgery = default!;
-    [Dependency] private readonly SharedSurgeryCleanSystem _clean = default!;
+    [Dependency] private readonly SurgeryCleanSystem _clean = default!;
     [Dependency] private readonly SleepingSystem _sleeping = default!;
 
     public override void Initialize()
@@ -340,7 +340,7 @@ public abstract class SharedAutodocSystem : EntitySystem
 
     public bool IsAwake(EntityUid uid)
     {
-        return _mobState.IsAlive(uid) && !(HasComp<SleepingComponent>(uid) || HasComp<Content.Shared._DV.Surgery.AnesthesiaComponent>(uid)); // DeltaV: allow autodoc to proceed with only anesthesia
+        return _mobState.IsAlive(uid) && !(HasComp<SleepingComponent>(uid) || HasComp<AnesthesiaComponent>(uid)); // DeltaV: allow autodoc to proceed with only anesthesia
     }
 
     /// <summary>

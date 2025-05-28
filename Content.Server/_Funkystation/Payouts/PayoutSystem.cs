@@ -51,6 +51,12 @@ public sealed class PayoutSystem : EntitySystem
         {
             foreach (var job in salaryInfo.Roles)
             {
+                if(InitialPayoutInfo.TryGetValue(job, out var salary))
+                {
+                    InitialPayoutInfo[job] = salary + salaryInfo.Salary;
+                    continue;
+                }
+
                 InitialPayoutInfo.TryAdd(job, salaryInfo.Salary);
             }
         }
@@ -64,7 +70,7 @@ public sealed class PayoutSystem : EntitySystem
             // PayOutToCharacterBalance(characterUid, amount);
             return true;
         }
-        
+
         record.Balance += amount;
         _scrip.RemoveScripFromStation(stationBankAccount, amount);
 

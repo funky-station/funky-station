@@ -60,15 +60,8 @@ public sealed class CritMobActionsSystem : EntitySystem
 
     private void OnLastWords(EntityUid uid, MobStateActionsComponent component, CritLastWordsEvent args)
     {
-        if (!TryComp<ActorComponent>(uid, out var actor))
+        if (!TryComp<ActorComponent>(uid, out var actor) || !HasComp<SpeechComponent>(uid))
             return;
-
-        if (!HasComp<SpeechComponent>(uid))
-        {
-            _host.ExecuteCommand(actor.PlayerSession, "ghost");
-            args.Handled = true;
-            return;
-        }
 
         _quickDialog.OpenDialog(actor.PlayerSession, Loc.GetString("action-name-crit-last-words"), "",
             (string lastWords) =>

@@ -1,20 +1,17 @@
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
-
 - type: entity
+  parent: BaseAction
   id: ActionChargeSpell
   name: Charge
   description: Adds a charge back to your wand
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 30
     itemIconStyle: BigAction
     icon:
       sprite: Objects/Weapons/Guns/Basic/wands.rsi
       state: nothing
+  - type: InstantAction
     event: !type:ChargeSpellEvent
       charge: 1
-      speech: DI'RI CEL!
+  - type: SpeakOnAction
+    sentence: action-speech-spell-charge

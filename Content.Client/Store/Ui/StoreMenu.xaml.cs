@@ -21,6 +21,7 @@
 // SPDX-License-Identifier: MIT
 
 using System.Linq;
+using System.Text;
 using Content.Client.Actions;
 using Content.Client.Message;
 using Content.Shared.FixedPoint;
@@ -220,7 +221,7 @@ public sealed partial class StoreMenu : DefaultWindow
             if (texture == null)
             {
                 var actionId = _entityManager.Spawn(listing.ProductAction);
-                if (_entityManager.System<ActionsSystem>().TryGetActionData(actionId, out var action) &&
+                if (_entityManager.System<ActionsSystem>().GetAction(actionId, out var action) &&
                     action.Icon != null)
                 {
                     texture = spriteSys.Frame0(action.Icon);

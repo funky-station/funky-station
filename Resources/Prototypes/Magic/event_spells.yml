@@ -1,43 +1,36 @@
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 NathanRosica <nathanrosica@gmail.com>
-# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
-
 - type: entity
+  parent: BaseAction
   id: ActionSummonGhosts
   name: Summon Ghosts
   description: Makes all current ghosts permanently visible
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 120
     itemIconStyle: BigAction
     icon:
       sprite: Mobs/Ghosts/ghost_human.rsi
       state: icon
+  - type: InstantAction
     event: !type:ToggleGhostVisibilityToAllEvent
 
 # TODO: Add Whitelist/Blacklist and Component support to EntitySpawnLists (to avoid making huge hardcoded lists like below).
 
 - type: entity
+  parent: BaseAction
   id: ActionSummonGuns
   name: Summon Guns
   description: AK47s for everyone! Places a random gun in front of everybody.
   components:
   - type: Magic
-  - type: InstantAction
-    useDelay: 600 #Funky: Doubling delay on more guns
+  - type: Action
+    useDelay: 300
     itemIconStyle: BigAction
     icon:
       sprite: Objects/Weapons/Guns/Rifles/ak.rsi
       state: base
+  - type: InstantAction
     event: !type:RandomGlobalSpawnSpellEvent
-      makeSurvivorAntagonist: false #Funky: Disabling survivor antagonist
+      makeSurvivorAntagonist: true
       spawns:
       - id: WeaponPistolViper
         orGroup: Guns
@@ -59,8 +52,8 @@
         orGroup: Guns
       - id: WeaponRifleAk
         orGroup: Guns
-      #- id: WeaponRifleM90GrenadeLauncher #Funky: Extremely likely to destroy the station
-      #  orGroup: Guns
+      - id: WeaponRifleM90GrenadeLauncher
+        orGroup: Guns
       - id: WeaponRifleLecter
         orGroup: Guns
       - id: WeaponShotgunBulldog
@@ -95,10 +88,10 @@
         orGroup: Guns
       - id: WeaponPistolFlintlock
         orGroup: Guns
-      #- id: WeaponLauncherChinaLake #Funky: Extremely likely to destroy the station
-      #  orGroup: Guns
-      #- id: WeaponLauncherRocket #Funky: Extremely likely to destroy the station
-      #  orGroup: Guns
+      - id: WeaponLauncherChinaLake
+        orGroup: Guns
+      - id: WeaponLauncherRocket
+        orGroup: Guns
       - id: WeaponLauncherPirateCannon
         orGroup: Guns
       - id: WeaponTetherGun
@@ -169,34 +162,25 @@
         orGroup: Guns
       - id: RevolverCapGunFake
         orGroup: Guns
-      - id: WeaponRevolverHristov #Funky
-        orGroup: Guns
-      - id: WeaponRifleFoam #Funky
-        orGroup: Guns
-      - id: BowHardlight #Funky
-        orGroup: Guns
-      - id: MiniatureEnergyCrossbow #Funky
-        orGroup: Guns
-      - id: WeaponPlasmaRifle #Funky
-        orGroup: Guns
-      - id: WeaponEnergyRevolver #Funky
-        orGroup: Guns        
-      speech: action-speech-spell-summon-guns
+  - type: SpeakOnAction
+    sentence: action-speech-spell-summon-guns
 
 - type: entity
+  parent: BaseAction
   id: ActionSummonMagic
   name: Summon Magic
   description: Places a random magical item in front of everybody. Nothing could go wrong!
   components:
   - type: Magic
-  - type: InstantAction
-    useDelay: 600 #Funky: Doubling delay on more magic items
+  - type: Action
+    useDelay: 300
     itemIconStyle: BigAction
     icon:
       sprite: Objects/Magic/magicactions.rsi
       state: magicmissile
+  - type: InstantAction
     event: !type:RandomGlobalSpawnSpellEvent
-      makeSurvivorAntagonist: false #Funky: Disabling survivor antagonist
+      makeSurvivorAntagonist: true
       spawns:
       - id: SpawnSpellbook
         orGroup: Magics
@@ -206,18 +190,18 @@
         orGroup: Magics
       - id: KnockSpellbook
         orGroup: Magics
-      #- id: FireballSpellbook #Funky: Extremely likely to destroy the station
-      #  orGroup: Magics
+      - id: FireballSpellbook
+        orGroup: Magics
       - id: WeaponWandPolymorphCarp
         orGroup: Magics
       - id: WeaponWandPolymorphMonkey
         orGroup: Magics
-      #- id: WeaponWandFireball #Funky: Extremely likely to destroy the station
-      #  orGroup: Magics
+      - id: WeaponWandFireball
+        orGroup: Magics
       - id: WeaponWandPolymorphDoor
         orGroup: Magics
-      #- id: WeaponWandCluwne # Funky: Disabling instant kill spells
-      #  orGroup: Magics
+      - id: WeaponWandCluwne
+        orGroup: Magics
       - id: WeaponWandPolymorphBread
         orGroup: Magics
       - id: WeaponStaffHealing
@@ -228,4 +212,5 @@
         orGroup: Magics
       - id: RGBStaff
         orGroup: Magics
-      speech: action-speech-spell-summon-magic
+  - type: SpeakOnAction
+    sentence: action-speech-spell-summon-magic

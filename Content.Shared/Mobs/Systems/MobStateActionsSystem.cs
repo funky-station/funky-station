@@ -9,6 +9,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Mobs.Components;
 
 namespace Content.Shared.Mobs.Systems;

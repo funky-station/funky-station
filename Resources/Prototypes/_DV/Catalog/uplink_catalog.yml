@@ -21,6 +21,8 @@
   name: uplink-omnipatch-kit-name
   description: uplink-omnipatch-kit-desc
   productEntity: OmniPatch
+  cost:
+    Telecrystal: 10
   categories:
   - UplinkChemicals
   conditions:

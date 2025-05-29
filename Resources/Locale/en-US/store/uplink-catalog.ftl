@@ -507,3 +507,6 @@ uplink-fake-mindshield-desc = A togglable implant capable of mimicking the same 
 
 uplink-smuggler-satchel-name = Smuggler's Satchel
 uplink-smuggler-satchel-desc = A handy, suspicious looking satchel. Just flat enough to fit underneath floor tiles.
+
+uplink-autoinjector-bundle-name = Syndicate Cartridge Autoinjector Bundle
+uplink-autoinjector-bundle-desc = A bag containing a Syndicate branded cartridge autoinjector as well as a hard and soft case, both filled with various cartridges. For healing in a pinch when you don't have time to stop!

@@ -16,12 +16,50 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 30
+        maxVol: 10
   - type: ExaminableSolution
     solution: hypospray
   - type: Hypospray
     solutionName: hypospray
-    transferAmount: 30
+    transferAmount: 10
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: HyposprayBlockNonMobInjection
+  - type: UseDelay
+    delay: 60
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      item:
+        name: Cartridge
+        whitelist:
+          tags:
+          - AutoinjectorCartridge
+
+- type: entity
+  parent: BaseItem
+  id: BaseSyndicateCartridgeAutoinjector
+  abstract: true
+  components:
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Medical/autoinjectorSyndicate.rsi
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/autoinjectorSyndicate.rsi
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    fillBaseName: cartridge
+  - type: Appearance
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 10
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    solutionName: hypospray
+    transferAmount: 10
     onlyAffectsMobs: false
     injectOnly: true
   - type: HyposprayBlockNonMobInjection
@@ -64,18 +102,18 @@
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
 
-#- type: entity
-#  name: syndicate cartridge autoinjector
-#  parent: [ BaseCartridgeAutoinjector , BaseMedicalContraband ]
-#  description: Used for rapid administration of medicine. Requires disposable cartridges to function
-#  id: SyndicateHypo
-#  components:
-#  - type: Sprite
-#    layers:
-#    - state: syndicate-base
-#    - state: cartridge1
-#      map: ["enum.SolutionContainerLayers.Fill"]
-#      visible: false
+- type: entity
+  name: syndicate cartridge autoinjector
+  parent: [ BaseSyndicateCartridgeAutoinjector , BaseMedicalContraband ]
+  description: Used for rapid administration of medicine. Requires disposable cartridges to function
+  id: SyndicateHypo
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate-base
+    - state: cartridge1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
 
 # Autoinjector Cartridges
 
@@ -97,7 +135,7 @@
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
-      maxVol: 30
+      maxVol: 10
   - type: Tag
     tags:
     - AutoinjectorCartridge
@@ -116,12 +154,12 @@
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
-      maxVol: 30
+      maxVol: 10
       reagents:
       - ReagentId: Epinephrine
-        Quantity: 20
+        Quantity: 8
       - ReagentId: TranexamicAcid
-        Quantity: 10
+        Quantity: 2
 
 - type: entity
   name: airloss autoinjector cartridge #Funky Addition, this recipe may need tweaking
@@ -137,12 +175,12 @@
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
-      maxVol: 30
+      maxVol: 10
       reagents:
       - ReagentId: Salbutamol
-        Quantity: 10
+        Quantity: 5
       - ReagentId: Dexalin
-        Quantity: 20
+        Quantity: 5
 
 - type: entity
   name: brute autoinjector cartridge #Funky Addition, this recipe may need tweaking
@@ -158,14 +196,14 @@
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
-      maxVol: 20
+      maxVol: 10
       reagents:
       - ReagentId: Probital
-        Quantity: 12
+        Quantity: 4
       - ReagentId: Libital
-        Quantity: 12
+        Quantity: 4
       - ReagentId: TranexamicAcid
-        Quantity: 6
+        Quantity: 2
 
 - type: entity
   name: burn autoinjector cartridge
@@ -181,12 +219,12 @@
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
-      maxVol: 30
+      maxVol: 10
       reagents:
       - ReagentId: Lenturi
-        Quantity: 15
+        Quantity: 5
       - ReagentId: Aiuri
-        Quantity: 15
+        Quantity: 5
 
 - type: entity
   name: poison autoinjector cartridge
@@ -202,31 +240,53 @@
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
-      maxVol: 30
+      maxVol: 10
       reagents:
       - ReagentId: Multiver
-        Quantity: 20
+        Quantity: 8
       - ReagentId: Charcoal
+        Quantity: 2
+
+# Not included yet, prototyping some potential stronger cartridges that could be purchased by nukies (potentially some for syndies also)
+- type: entity
+  name: syndicate sedative autoinjector cartridge
+  parent: [ BaseSyndicateContraband , BaseAutoinjectorCartridge ]
+  description: Syndicate sedative cartridge. Used in a cartridge autoinjector.
+  id: CartridgeSedativeSyndicate
+  components:
+  - type: Sprite
+    layers:
+    - state: base2
+    - state: filling
+      color: "0xFF128E80"
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Nocturine
         Quantity: 10
 
-#- type: entity
-#  name: syndicate brute autoinjector cartridge
-#  parent: [ BaseAutoinjectorCartridge , BaseSyndicateContraband ]
-#  description: Syndicate cartridge brute. Used in a cartridge autoinjector.
-#  id: CartridgeBruteSyndicate
-#  components:
-#  - type: Sprite
-#    layers:
-#    - state: base
-#    - state: filling
-#      color: "#36274FFF"
-#  - type: SolutionCartridge
-#    targetSolution: hypospray
-#    solution:
-#      maxVol: 30
-#      reagents:
-#      - ReagentId: Probital
-#        Quantity: 30
+- type: entity
+  name: syndicate gunshot autoinjector cartridge
+  parent: [ BaseSyndicateContraband , BaseAutoinjectorCartridge ]
+  description: Syndicate medical cartridge, for gunshot wounds. Used in a cartridge autoinjector.
+  id: CartridgeGunshotSyndicate
+  components:
+  - type: Sprite
+    layers:
+    - state: base2
+    - state: filling
+      color: "b9bf93"
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Puncturase
+        Quantity: 5
+      - ReagentId: TranexamicAcid
+        Quantity: 5
 
 # Medipens
 

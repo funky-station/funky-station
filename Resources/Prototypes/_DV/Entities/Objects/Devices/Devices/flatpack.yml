@@ -1,0 +1,9 @@
+
+- type: entity
+  parent: BaseFlatpack
+  id: AutoclaveFlatpack
+  name: autoclave flatpack
+  description: A flatpack used for constructing an Autoclave.
+  components:
+  - type: Flatpack
+    entity: Autoclave

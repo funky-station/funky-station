@@ -897,35 +897,44 @@
       board: [ DoorElectronicsMaintenance ]
 
 - type: entity
-  parent: AirlockSalvageLocked
+  parent: AirlockMaintSalvage # Funkystation
   id: AirlockMaintSalvageLocked
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/maint.rsi
 
 - type: entity
-  parent: AirlockCargoLocked
+  parent: AirlockMaintCargo # Funkystation
   id: AirlockMaintCargoLocked
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/maint.rsi
 
 - type: entity
-  parent: AirlockCommandLocked
+  parent: AirlockMaintCommand # Funkystation
   id: AirlockMaintCommandLocked
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/maint.rsi
 
 - type: entity
-  parent: AirlockEngineeringLocked
+  parent: AirlockMaint
+  id: AirlockMaintCommonLocked
+  suffix: Common, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMaintenance ]
+
+- type: entity
+  parent: AirlockMaintEngi # Funkystation
   id: AirlockMaintEngiLocked
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/maint.rsi
 
 - type: entity
-  parent: AirlockAtmosphericsLocked
+  parent: AirlockMaintAtmo # Funkystation
   id: AirlockMaintAtmoLocked
   components:
   - type: Sprite
@@ -953,7 +962,7 @@
     sprite: Structures/Doors/Airlocks/Standard/maint.rsi
 
 - type: entity
-  parent: AirlockHydroponicsLocked
+  parent: AirlockMaintHydro # Funkystation
   id: AirlockMaintHydroLocked
   components:
   - type: Sprite
@@ -974,11 +983,12 @@
     sprite: Structures/Doors/Airlocks/Standard/maint.rsi
 
 - type: entity
-  parent: AirlockServiceLocked
+  parent: AirlockMaintService # Funkystation
   id: AirlockMaintServiceLocked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsService ]
 
 - type: entity
   parent: AirlockTheatreLocked
@@ -1009,11 +1019,12 @@
     sprite: Structures/Doors/Airlocks/Standard/maint.rsi
 
 - type: entity
-  parent: AirlockMedicalLocked
+  parent: AirlockMaintMed # Funkystation
   id: AirlockMaintMedLocked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMedical ]
 
 - type: entity
   parent: AirlockMedicalMorgueLocked
@@ -1023,18 +1034,19 @@
     sprite: Structures/Doors/Airlocks/Standard/maint.rsi
 
 - type: entity
-  parent: AirlockChemistryLocked
+  parent: AirlockMaintChem # Funkystation
   id: AirlockMaintChemLocked
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/maint.rsi
 
 - type: entity
-  parent: AirlockScienceLocked
+  parent: AirlockMaintRnD # Funkystation
   id: AirlockMaintRnDLocked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsResearch ]
 
 - type: entity
   parent: AirlockMedicalScienceLocked
@@ -1044,11 +1056,12 @@
     sprite: Structures/Doors/Airlocks/Standard/maint.rsi
 
 - type: entity
-  parent: AirlockSecurityLocked
+  parent: AirlockMaintSec # Funkystation
   id: AirlockMaintSecLocked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSecurity ]
 
 - type: entity
   parent: AirlockDetectiveLocked
@@ -1107,11 +1120,12 @@
     sprite: Structures/Doors/Airlocks/Standard/maint.rsi
 
 - type: entity
-  parent: AirlockArmoryLocked
+  parent: AirlockMaintArmory # Funkystation
   id: AirlockMaintArmoryLocked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsArmory ]
 
 - type: entity
   parent: AirlockSyndicate

@@ -108,10 +108,10 @@
   copyright: "cmorris035"
   source: "https://freesound.org/people/cmorris035/sounds/319152/"
 
-- files: ["airlock_open.ogg", "airlock_close.ogg", "airlock_deny.ogg"]
+- files: ["airlock_open.ogg", "airlock_close.ogg", "airlock_deny.ogg", "boltsup.ogg", "boltsdown.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "/tg/station"
-  source: "https://github.com/tgstation/tgstation/tree/5f5002b21253354c20ea224be3f604d79299b37e/sound/machines"
+  copyright: "ParadiseSS13"
+  source: "https://github.com/ParadiseSS13/Paradise/tree/275677675bf34c94e9dd2e5e4e257e76a960db94/sound/machines"
 
 - files: ["machine_vend_hot_drink.ogg"]
   license: "CC0-1.0"

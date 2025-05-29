@@ -2847,3 +2847,77 @@ Entries:
       message: 'Various Cosmic Cult fixes, yay! '
   id: 352
   time: '2025-05-22T06:16:20.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: New MMI sprites.
+    - type: Tweak
+      message: New AME controller sprites.
+    - type: Tweak
+      message: New Fax sprites by Teasq.
+  id: 353
+  time: '2025-05-25T18:10:16.0000000+00:00'
+- author: ' ilyamikcoder'
+  changes:
+    - type: Add
+      message: Maintenance airlocks now have colors of their respective departments.
+  id: 354
+  time: '2025-05-25T19:44:07.0000000+00:00'
+- author: The048
+  changes:
+    - type: Tweak
+      message: changed the design of the medbay to make it more usable
+    - type: Tweak
+      message: changed one of the tables in the armory into a rack
+    - type: Tweak
+      message: added an EOD suit locker to the sec locker room
+    - type: Tweak
+      message: converted the maints surgery room into a potential saw trap room
+    - type: Tweak
+      message: added a paramedic locker and opened the paramedic role on cluster
+    - type: Tweak
+      message: removed waiting area
+    - type: Tweak
+      message: closed off front desk better into its own room
+  id: 355
+  time: '2025-05-26T01:00:42.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Add
+      message: (Im)ported a new syndicate rifle, the M-90.
+    - type: Add
+      message: Smoke implanter & syndi swat helmet.
+  id: 356
+  time: '2025-05-26T01:23:12.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Fix
+      message: The mail bag now actually stores mail again.
+  id: 357
+  time: '2025-05-26T21:13:58.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Bagel atmos room has breathable atmos now
+  id: 358
+  time: '2025-05-27T07:04:58.0000000+00:00'
+- author: bytehammer, sowelipililimute, bogus_0451, deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Anodynafil now exists, an anesthetic that doesn't interfere with
+        consciousness but causes prolonged inability to sense pain.
+    - type: Add
+      message: Added the autoclave to sterilize surgical tools in bulk.
+    - type: Fix
+      message: Fixed not being able to clean autodocs with soap.
+    - type: Fix
+      message: Fixed operating on animals not making surgical tools dirty.
+    - type: Fix
+      message: Fixed held non-surgical items becoming dirty during surgery.
+    - type: Fix
+      message: Fixed surgery dealing damage to dead people.
+    - type: Fix
+      message: Fixed surgery dirtiness display in toolbar.
+  id: 359
+  time: '2025-05-28T18:01:51.0000000+00:00'

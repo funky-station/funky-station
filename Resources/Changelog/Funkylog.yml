@@ -2921,3 +2921,11 @@ Entries:
       message: Fixed surgery dirtiness display in toolbar.
   id: 359
   time: '2025-05-28T18:01:51.0000000+00:00'
+- author: dch-GH
+  changes:
+    - type: Fix
+      message: >-
+        Fix certain non-sentient mobs from being able to speak using the Say
+        Last Words action.
+  id: 360
+  time: '2025-05-29T23:37:49.0000000+00:00'

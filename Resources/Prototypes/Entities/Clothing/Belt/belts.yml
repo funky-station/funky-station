@@ -483,6 +483,7 @@
         - CombatKnife
         - Truncheon
         - BolaEnergy # Goobstation
+        - HandGrenade
       components:
         - Stunbaton
         - FlashOnTrigger

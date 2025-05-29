@@ -1,4 +1,3 @@
-using Content.Shared.FixedPoint;
 using Content.Shared.RCD.Systems;
 using Robust.Shared.GameStates;
 
@@ -12,6 +11,6 @@ public sealed partial class RCDAmmoComponent : Component
     /// How many charges are contained in this ammo cartridge.
     /// Can be partially transferred into an RCD, until it is empty then it gets deleted.
     /// </summary>
-    [DataField("charges"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public FixedPoint2 Charges = 30;
+    [DataField, AutoNetworkedField]
+    public int Charges = 30;
 }

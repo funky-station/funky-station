@@ -24,6 +24,7 @@
     maintenance_hydroponics: _Funkystation/Structures/Doors/Airlocks/Standard/maint_hydroponics.rsi
     # end Funkystation
     medical:     Structures/Doors/Airlocks/Standard/medical.rsi
+    salvage:     Structures/Doors/Airlocks/Standard/salvage.rsi
     science:     Structures/Doors/Airlocks/Standard/science.rsi
     robotics:    Structures/Doors/Airlocks/Standard/robotics.rsi
     security:    Structures/Doors/Airlocks/Standard/security.rsi
@@ -45,6 +46,7 @@
     hydroponics: Structures/Doors/Airlocks/Glass/hydroponics.rsi
     maintenance: Structures/Doors/Airlocks/Glass/maint.rsi
     medical:     Structures/Doors/Airlocks/Glass/medical.rsi
+    salvage:     Structures/Doors/Airlocks/Glass/salvage.rsi
     security:    Structures/Doors/Airlocks/Glass/security.rsi
     virology:    Structures/Doors/Airlocks/Glass/virology.rsi
 
@@ -105,6 +107,7 @@
     maintenance_hydroponics: Civilian
     # end Funkystation
     medical: Medical
+    salvage: Cargo
     science: Science
     security: Security
     virology: Medical

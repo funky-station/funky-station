@@ -32,7 +32,7 @@
         state: unlit-icon
   - type: EntityTableSpawner
     table: !type:NestedSelector
-      tableId: SoakedSmokesTable
+      tableId: RandomSoakedSmokeTable
 
 #Tables
 - type: entityTable
@@ -75,9 +75,7 @@
           weight: 0.5
       - !type:GroupSelector
         children:
-        - id: CigPackMixedMedical
         - id: CigPackMixed
-        - id: CigPackMixedNasty
       - id: CigarGold
         weight: 0.10
 

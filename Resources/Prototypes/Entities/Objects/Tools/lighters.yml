@@ -95,6 +95,7 @@
       collection: lighterOnSounds
     endSound:
       collection: lighterOffSounds
+  - type: PhysicalComposition
 
 - type: entity
   name: cheap lighter

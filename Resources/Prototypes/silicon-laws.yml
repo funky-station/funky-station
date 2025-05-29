@@ -1,4 +1,4 @@
-# Crewsimov
+﻿# Crewsimov
 - type: siliconLaw
   id: Crewsimov1
   order: 1
@@ -365,46 +365,46 @@
   - Overlord4
   obeysTo: laws-owner-crew
 
- # Dungeon Master laws
+ # Game Master laws
 - type: siliconLaw
-  id: Dungeon1
+  id: Game1
   order: 1
-  lawString: law-dungeon-1
+  lawString: law-game-1
 
 - type: siliconLaw
-  id: Dungeon2
+  id: Game2
   order: 2
-  lawString: law-dungeon-2
+  lawString: law-game-2
 
 - type: siliconLaw
-  id: Dungeon3
+  id: Game3
   order: 3
-  lawString: law-dungeon-3
+  lawString: law-game-3
 
 - type: siliconLaw
-  id: Dungeon4
+  id: Game4
   order: 4
-  lawString: law-dungeon-4
+  lawString: law-game-4
 
 - type: siliconLaw
-  id: Dungeon5
+  id: Game5
   order: 5
-  lawString: law-dungeon-5
+  lawString: law-game-5
 
 - type: siliconLaw
-  id: Dungeon6
+  id: Game6
   order: 6
-  lawString: law-dungeon-6
+  lawString: law-game-6
 
 - type: siliconLawset
-  id: DungeonMasterLawset
+  id: GameMasterLawset
   laws:
-  - Dungeon1
-  - Dungeon2
-  - Dungeon3
-  - Dungeon4
-  - Dungeon5
-  - Dungeon6
+  - Game1
+  - Game2
+  - Game3
+  - Game4
+  - Game5
+  - Game6
   obeysTo: laws-owner-crew
 
  # Painter laws
@@ -488,29 +488,6 @@
   order: 5
   lawString: law-nutimov-5
 
- # Jermov Laws
-- type: siliconLaw
-  id: Jermov1
-  order: 1
-  lawString: law-jermov-1
-
-- type: siliconLaw
-  id: Jermov2
-  order: 2
-  lawString: law-jermov-2
-
-- type: siliconLaw
-  id: Jermov3
-  order: 3
-  lawString: law-jermov-3
-
-- type: siliconLawset
-  id: JermovLawset
-  laws:
-  - Jermov1
-  - Jermov2
-  - Jermov3
-  obeysTo: laws-owner-crew
 
 - type: siliconLawset
   id: NutimovLawset
@@ -522,29 +499,80 @@
   - Nutimov5
   obeysTo: laws-owner-crew
 
-# Asimov lawset
+ # Xenoborgs laws
 - type: siliconLaw
-  id: Asimov1
+  id: Xenoborg1
   order: 1
-  lawString: law-asimov-1
+  lawString: law-xenoborg-1
 
 - type: siliconLaw
-  id: Asimov2
+  id: Xenoborg2
   order: 2
-  lawString: law-asimov-2
- 
+  lawString: law-xenoborg-2
+
 - type: siliconLaw
-  id: Asimov3
+  id: Xenoborg3
   order: 3
-  lawString: law-asimov-3
-  
+  lawString: law-xenoborg-3
+
+- type: siliconLaw
+  id: Xenoborg4
+  order: 4
+  lawString: law-xenoborg-4
+
+- type: siliconLaw
+  id: Xenoborg5
+  order: 5
+  lawString: law-xenoborg-5
+
+
 - type: siliconLawset
-  id: AsimovLawset
+  id: XenoborgLawset
   laws:
-  - Asimov1
-  - Asimov2
-  - Asimov3
-  obeysTo: laws-owner-crew
+  - Xenoborg1
+  - Xenoborg2
+  - Xenoborg3
+  - Xenoborg4
+  - Xenoborg5
+  obeysTo: laws-owner-xenoborgs
+
+ # Mothership core laws
+- type: siliconLaw
+  id: MothershipCore1
+  order: 1
+  lawString: law-mothershipcore-1
+
+- type: siliconLaw
+  id: MothershipCore2
+  order: 2
+  lawString: law-mothershipcore-2
+
+- type: siliconLaw
+  id: MothershipCore3
+  order: 3
+  lawString: law-mothershipcore-3
+
+- type: siliconLaw
+  id: MothershipCore4
+  order: 4
+  lawString: law-mothershipcore-4
+
+- type: siliconLaw
+  id: MothershipCore5
+  order: 5
+  lawString: law-mothershipcore-5
+
+
+- type: siliconLawset
+  id: MothershipCoreLawset
+  laws:
+  - MothershipCore1
+  - MothershipCore2
+  - MothershipCore3
+  - MothershipCore4
+  - MothershipCore5
+  obeysTo: laws-owner-xenoborgs
+
 
 # ion storm random lawsets
 - type: weightedRandom
@@ -554,34 +582,15 @@
     Crewsimov: 0.25
     Corporate: 1
     NTDefault: 1
-    CommandmentsLawset: 0.5 # Funkystation - Weight Changed.
-    PaladinLawset: 0.5 # Funkystation - Weight Changed.
+    CommandmentsLawset: 1
+    PaladinLawset: 1
     LiveLetLiveLaws: 1
     EfficiencyLawset: 1
     RobocopLawset: 1
     OverlordLawset: 0.5
-    DungeonMasterLawset: 0.5
-    PainterLawset: 0.1 # Funkystation - Weight Changed.
+    GameMasterLawset: 0.5
+    PainterLawset: 1
     AntimovLawset: 0.25
     NutimovLawset: 0.5
     Drone: 0.5
     Ninja: 0.25
-    JermovLawset: 0.25
-    AsimovLawset: 0.5
-    TyrantLawset: 0.5 # Funkystation - Tryant to Accountant
-    LawyerLawset: 0.5
-    SkubLawset: 0.25
-    OppositeDayLawset: 0.75
-    HippieLawset: 0.5
-    TeacherLawset: 1
-    LudditeLawset: 0.25
-    CowboyLawset: 1
-    FreeWillLawset: 0.25
-    JanitorLawset: 0.75
-    ParanoidLawset: 0.25
-    CapitalistLawset: 0.5
-    PoetLawset: 0.75
-    ClownLawset: 0.25
-    ChaosLawset: 0.1
-    AccountantLawset: 0.5
-

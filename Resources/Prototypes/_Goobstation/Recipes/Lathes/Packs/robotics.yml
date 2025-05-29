@@ -1,0 +1,48 @@
+﻿## Static
+- type: latheRecipePack
+  id: IPCPartsStatic
+  recipes:
+  - ChestIPC
+  - GroinIPC
+  - LeftArmIPC
+  - RightArmIPC
+  - LeftLegIPC
+  - RightLegIPC
+  - HeadIPC
+  - LeftHandIPC
+  - RightHandIPC
+  - LeftFootIPC
+  - RightFootIPC
+  - OrganIPCEyes
+  - OrganIPCPump
+
+- type: latheRecipePack
+  id: BorgModulesStaticGoob
+  recipes:
+  - BorgModuleSurgery
+
+- type: latheRecipePack
+  id: PowerCagesStatic
+  recipes:
+  - PowerCageMedium
+  - PowerCageSmall
+
+## Dynamic
+- type: latheRecipePack
+  id: BorgModulesGoob
+  recipes:
+  - BorgModuleAdvancedSurgery
+
+- type: latheRecipePack
+  id: PowerCages
+  recipes:
+  - PowerCageHigh
+
+- type: latheRecipePack
+  id: Cybernetics
+  recipes:
+  - JawsOfLifeLeftArm
+  - JawsOfLifeRightArm
+  - SpeedLeftLeg
+  - SpeedRightLeg
+  - BasicCyberneticEyes

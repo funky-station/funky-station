@@ -239,6 +239,7 @@
     - id: MedTekCartridge
     # Shitmed
     - id: MedicalBiofabMachineBoard
+    - id: AutoclaveFlatpack # DV
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

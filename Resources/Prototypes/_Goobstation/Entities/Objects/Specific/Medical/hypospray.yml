@@ -64,6 +64,19 @@
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
 
+#- type: entity
+#  name: syndicate cartridge autoinjector
+#  parent: [ BaseCartridgeAutoinjector , BaseMedicalContraband ]
+#  description: Used for rapid administration of medicine. Requires disposable cartridges to function
+#  id: SyndicateHypo
+#  components:
+#  - type: Sprite
+#    layers:
+#    - state: syndicate-base
+#    - state: cartridge1
+#      map: ["enum.SolutionContainerLayers.Fill"]
+#      visible: false
+
 # Autoinjector Cartridges
 
 - type: entity
@@ -195,6 +208,25 @@
         Quantity: 20
       - ReagentId: Charcoal
         Quantity: 10
+
+#- type: entity
+#  name: syndicate brute autoinjector cartridge
+#  parent: [ BaseAutoinjectorCartridge , BaseSyndicateContraband ]
+#  description: Syndicate cartridge brute. Used in a cartridge autoinjector.
+#  id: CartridgeBruteSyndicate
+#  components:
+#  - type: Sprite
+#    layers:
+#    - state: base
+#    - state: filling
+#      color: "#36274FFF"
+#  - type: SolutionCartridge
+#    targetSolution: hypospray
+#    solution:
+#      maxVol: 30
+#      reagents:
+#      - ReagentId: Probital
+#        Quantity: 30
 
 # Medipens
 

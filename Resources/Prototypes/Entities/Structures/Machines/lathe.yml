@@ -295,45 +295,45 @@
 
   - type: EmagLatheRecipes
     emagStaticRecipes:
-      - BoxLethalshot
-      - BoxShotgunSlug
-      - CombatKnife
-      - MagazineBoxLightRifle
-      - MagazineBoxMagnum
-      - MagazineBoxPistol
-      - MagazineBoxRifle
-      - MagazineLightRifle
-      - MagazineLightRifleEmpty
-      - MagazinePistol
-      - MagazinePistolEmpty
-      - MagazinePistolSubMachineGun
-      - MagazinePistolSubMachineGunEmpty
-      - MagazinePistolSubMachineGunTopMounted
-      - MagazinePistolSubMachineGunTopMountedEmpty
-      - MagazineRifle
-      - MagazineRifleEmpty
-      - MagazineShotgun
-      - MagazineShotgunEmpty
-      - MagazineShotgunSlug
-      - RiotShield
-      - SpeedLoaderMagnum
-      - SpeedLoaderMagnumEmpty
-      - GrenadeFlashBang # Goobstation
-      - BolaEnergy # Goobstation
-      - MagazinePistolCaselessRifle # Goobstation
-      - MagazineBoxCaselessRifle # Goobstation
-      - MagazineLightRifleBoxEmpty # Goobstation
-      - MagazineLightRifleBox # Goobstation
-      - #- MagazineHighCaliberEmpty # Goobstation - Burner not added yet
-      - #- MagazineHighCaliber # Goobstation
-      - #- MagazineBoxHighCaliber # Goobstation
-      - CartridgeEmergency # Goobstation
-      - CartridgeAirloss # Goobstation
-      - CartridgeBrute # Goobstation
-      - CartridgeBurn # Goobstation
-      - CartridgePoison
-      - SecHypo # Goobstation
-      - ParamedHypo # Goobstation - ParamedHypo
+    - BoxLethalshot
+    - BoxShotgunSlug
+    - CombatKnife
+    - MagazineBoxLightRifle
+    - MagazineBoxMagnum
+    - MagazineBoxPistol
+    - MagazineBoxRifle
+    - MagazineLightRifle
+    - MagazineLightRifleEmpty
+    - MagazinePistol
+    - MagazinePistolEmpty
+    - MagazinePistolSubMachineGun
+    - MagazinePistolSubMachineGunEmpty
+    - MagazinePistolSubMachineGunTopMounted
+    - MagazinePistolSubMachineGunTopMountedEmpty
+    - MagazineRifle
+    - MagazineRifleEmpty
+    - MagazineShotgun
+    - MagazineShotgunEmpty
+    - MagazineShotgunSlug
+    - RiotShield
+    - SpeedLoaderMagnum
+    - SpeedLoaderMagnumEmpty
+    - GrenadeFlashBang # Goobstation
+    - BolaEnergy # Goobstation
+    - MagazinePistolCaselessRifle # Goobstation
+    - MagazineBoxCaselessRifle # Goobstation
+    - MagazineLightRifleBoxEmpty # Goobstation
+    - MagazineLightRifleBox # Goobstation
+    #- MagazineHighCaliberEmpty # Goobstation - Burner not added yet
+    #- MagazineHighCaliber # Goobstation
+    #- MagazineBoxHighCaliber # Goobstation
+    - CartridgeEmergency # Goobstation
+    - CartridgeAirloss # Goobstation
+    - CartridgeBrute # Goobstation
+    - CartridgeBurn # Goobstation
+    - CartridgePoison
+    - SecHypo # Goobstation
+    - ParamedHypo # Goobstation - ParamedHypo
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -1106,56 +1106,56 @@
     idleState: icon
     runningState: icon
     staticRecipes:
-      - Brutepack
-      - Ointment
-      - Gauze
-      - HandLabeler
-      - Defibrillator
-      - HandheldHealthAnalyzer
-      - ClothingHandsGlovesLatex
-      - ClothingHandsGlovesNitrile
-      - ClothingMaskSterile
-      - DiseaseSwab
-      - Beaker
-      - LargeBeaker
-      - Dropper
-      - Jug
-      - Syringe
-      - Implanter
-      - PillCanister
-      - BodyBag
-      - ChemistryEmptyBottle01
-      - RollerBedSpawnFolded
-      - CheapRollerBedSpawnFolded
-      - EmergencyRollerBedSpawnFolded
-      - Medkit
-      - MedkitBurn
-      - MedkitToxin
-      - MedkitO2
-      - MedkitBrute
-      - MedkitAdvanced
-      - MedkitRadiation
-      - MedkitCombat
-      - Scalpel
-      - Retractor
-      - Cautery
-      - Drill
-      - Saw
-      - Hemostat
-      - ClothingEyesGlassesChemical
-      - WhiteCane
-      - MedicalPatchBasic  #Goobstation - MedicalPatch
-      - MedicalPatchRapid #Goobstation - MedicalPatch
-      - MedicalPatchLarge #Goobstation - MedicalPatch
-      - BoneGel # Shitmed Change
-      - CartridgeEmergency # Goobstation - ParamedHypo
-      - CartridgeAirloss # Goobstation - ParamedHypo
-      - CartridgeBrute # Goobstation - ParamedHypo
-      - CartridgeBurn # Goobstation - ParamedHypo
-      - CartridgePoison
-      - ParamedHypo # Goobstation - ParamedHypo
-      - autoInjectorCartridgeCase
-      - autoInjectorCartridgeCaseSoft
+    - Brutepack
+    - Ointment
+    - Gauze
+    - HandLabeler
+    - Defibrillator
+    - HandheldHealthAnalyzer
+    - ClothingHandsGlovesLatex
+    - ClothingHandsGlovesNitrile
+    - ClothingMaskSterile
+    - DiseaseSwab
+    - Beaker
+    - LargeBeaker
+    - Dropper
+    - Jug
+    - Syringe
+    - Implanter
+    - PillCanister
+    - BodyBag
+    - ChemistryEmptyBottle01
+    - RollerBedSpawnFolded
+    - CheapRollerBedSpawnFolded
+    - EmergencyRollerBedSpawnFolded
+    - Medkit
+    - MedkitBurn
+    - MedkitToxin
+    - MedkitO2
+    - MedkitBrute
+    - MedkitAdvanced
+    - MedkitRadiation
+    - MedkitCombat
+    - Scalpel
+    - Retractor
+    - Cautery
+    - Drill
+    - Saw
+    - Hemostat
+    - ClothingEyesGlassesChemical
+    - WhiteCane
+    - MedicalPatchBasic  #Goobstation - MedicalPatch
+    - MedicalPatchRapid #Goobstation - MedicalPatch
+    - MedicalPatchLarge #Goobstation - MedicalPatch
+    - BoneGel # Shitmed Change
+    - CartridgeEmergency # Goobstation - ParamedHypo
+    - CartridgeAirloss # Goobstation - ParamedHypo
+    - CartridgeBrute # Goobstation - ParamedHypo
+    - CartridgeBurn # Goobstation - ParamedHypo
+    - CartridgePoison
+    - ParamedHypo # Goobstation - ParamedHypo
+    - autoInjectorCartridgeCase
+    - autoInjectorCartridgeCaseSoft
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

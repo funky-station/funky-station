@@ -48,3 +48,6 @@ reagent-desc-helium = A very inert gas produced by the fusion of hydrogen and it
 
 reagent-name-anti-noblium = anti-noblium
 reagent-desc-anti-noblium = We still don't know what it does, but it sells for a lot.
+
+reagent-name-admemium = admemium
+reagent-desc-admemium = How the fuck did you even get this?

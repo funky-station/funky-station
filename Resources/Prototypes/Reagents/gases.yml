@@ -967,3 +967,10 @@
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
   color: "#525151"
+
+- type: reagent
+  id: Admemium
+  name: reagent-name-admemium
+  desc: reagent-desc-admemium
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: sweet

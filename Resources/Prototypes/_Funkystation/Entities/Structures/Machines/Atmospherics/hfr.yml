@@ -1,0 +1,418 @@
+- type: entity
+  parent: BaseStructure
+  id: HFRConsole
+  name: hypertorus fusion reactor console
+  description: Used to control and monitor hypertorus fusion reactions.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Machines/HFR/hfrconsole.rsi
+    layers:
+    - state: off
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { state: on }
+          False: { state: off }
+  - type: Appearance
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Rotatable
+  - type: ActivatableUI
+    key: enum.HFRConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.HFRConsoleUiKey.Key:
+        type: HFRConsoleBoundUserInterface
+  - type: ApcPowerReceiver
+    powerLoad: 350
+    powerDisabled: true
+  - type: ActivatableUIRequiresPower
+  - type: ExtensionCableReceiver
+  - type: Construction
+    graph: HFRConsole
+    node: hfrConsole
+  - type: HFRSidePart
+  - type: HFRConsole
+
+- type: entity
+  parent: BaseStructure
+  id: HFRCore
+  name: hypertorus fusion reactor core
+  description: The core of the hypertorus fusion reactor.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Machines/HFR/hfrcore.rsi
+    granularLayersRendering: true
+    layers:
+    - state: pipe
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+      renderingStrategy: Default
+    - state: off
+      map: [ "enum.HFRVisualLayers.IsActive" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.HFRVisuals.IsActive:
+        enum.HFRVisualLayers.IsActive:
+          True: { state: on }
+          False: { state: off }
+  - type: Appearance
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Rotatable
+  - type: AtmosDevice
+  - type: NodeContainer
+    nodes:
+      pipe:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: South
+  - type: PipeColorVisuals
+  - type: AtmosPipeColor
+  - type: Speech
+  - type: GravityWell
+    baseRadialAcceleration: 1
+    maxRange: 0.5
+    gravPulsePeriod: 15
+  - type: AmbientSound
+    enabled: false
+    range: 20
+    volume: -5
+    sound:
+      path: /Audio/_EE/Supermatter/calm.ogg
+  - type: RadiationSource
+  - type: Construction
+    graph: HFRCore
+    node: hfrCore
+  - type: HFRCore
+
+- type: entity
+  parent: BaseStructure
+  id: HFRFuelInput
+  name: hypertorus fusion reactor fuel input
+  description: Takes in fuel for the hypertorus fusion reactor.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Machines/HFR/hfrfuelinput.rsi
+    granularLayersRendering: true
+    layers:
+    - state: pipe
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+      renderingStrategy: Default
+    - state: off
+      map: [ "enum.HFRVisualLayers.IsActive" ]
+    - state: crack
+      map: ["enum.HFRVisualLayers.Cracked"]
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.HFRVisuals.Cracked:
+        enum.HFRVisualLayers.Cracked:
+          False: { state: crack, visible: false }
+          True: { state: crack, visible: true }
+      enum.HFRVisuals.IsActive:
+        enum.HFRVisualLayers.IsActive:
+          True: { state: on }
+          False: { state: off }
+  - type: Appearance
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Rotatable
+  - type: NodeContainer
+    nodes:
+      pipe:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: South
+  - type: PipeColorVisuals
+  - type: AtmosPipeColor
+  - type: Construction
+    graph: HFRFuelInput
+    node: hfrFuelInput
+  - type: HFRSidePart
+  - type: HFRFuelInput
+
+- type: entity
+  parent: BaseStructure
+  id: HFRModeratorInput
+  name: hypertorus fusion reactor moderator input
+  description: Takes in moderator gases for the hypertorus fusion reactor.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Machines/HFR/hfrmoderatorinput.rsi
+    granularLayersRendering: true
+    layers:
+    - state: pipe
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+      renderingStrategy: Default
+    - state: off
+      map: [ "enum.HFRVisualLayers.IsActive" ]
+    - state: crack
+      map: ["enum.HFRVisualLayers.Cracked"]
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.HFRVisuals.Cracked:
+        enum.HFRVisualLayers.Cracked:
+          False: { state: crack, visible: false }
+          True: { state: crack, visible: true }
+      enum.HFRVisuals.IsActive:
+        enum.HFRVisualLayers.IsActive:
+          True: { state: on }
+          False: { state: off }
+  - type: Appearance
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Rotatable
+  - type: NodeContainer
+    nodes:
+      pipe:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: South
+  - type: PipeColorVisuals
+  - type: AtmosPipeColor
+  - type: Construction
+    graph: HFRModeratorInput
+    node: hfrModeratorInput
+  - type: HFRSidePart
+  - type: HFRModeratorInput
+
+- type: entity
+  parent: BaseStructure
+  id: HFRWasteOutput
+  name: hypertorus fusion reactor waste output
+  description: Outputs waste from the hypertorus fusion reactor.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Machines/HFR/hfrwasteoutput.rsi
+    granularLayersRendering: true
+    layers:
+    - state: pipe
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+      renderingStrategy: Default
+    - state: off
+      map: [ "enum.HFRVisualLayers.IsActive" ]
+    - state: crack
+      map: ["enum.HFRVisualLayers.Cracked"]
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.HFRVisuals.Cracked:
+        enum.HFRVisualLayers.Cracked:
+          False: { state: crack, visible: false }
+          True: { state: crack, visible: true }
+      enum.HFRVisuals.IsActive:
+        enum.HFRVisualLayers.IsActive:
+          True: { state: on }
+          False: { state: off }
+  - type: Appearance
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Rotatable
+  - type: NodeContainer
+    nodes:
+      pipe:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: South
+  - type: PipeColorVisuals
+  - type: AtmosPipeColor
+  - type: Construction
+    graph: HFRWasteOutput
+    node: hfrWasteOutput
+  - type: HFRSidePart
+  - type: HFRWasteOutput
+
+- type: entity
+  parent: BaseStructure
+  id: HFRCorner
+  name: hypertorus fusion reactor corner
+  description: Corner part to a hypertorus fusion reactor.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Machines/HFR/hfrcorner.rsi
+    layers:
+    - state: off
+      map: [ "enum.HFRVisualLayers.IsActive" ]
+    - state: crack
+      map: ["enum.HFRVisualLayers.Cracked"]
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.HFRVisuals.Cracked:
+        enum.HFRVisualLayers.Cracked:
+          False: { state: crack, visible: false }
+          True: { state: crack, visible: true }
+      enum.HFRVisuals.IsActive:
+        enum.HFRVisualLayers.IsActive:
+          True: { state: on }
+          False: { state: off }
+  - type: Appearance
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Rotatable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PolygonShape
+            vertices:
+            - "0.4,0.5"
+            - "-0.5,-0.4"
+            - "-0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - HalfWallLayer
+  - type: Physics
+    bodyType: Static
+  - type: Construction
+    graph: HFRCorner
+    node: hfrCorner
+  - type: HFRCorner
+
+- type: entity
+  parent: BaseFlatpack
+  id: BaseHFRBox
+  abstract: true
+  name: hfr box
+  description: If you see this, call the police.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Machines/HFR/hfrbox.rsi
+    layers:
+    - state: box_body
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: BaseHFRBox
+  id: HFRCornerBox
+  name: hfr corner box
+  description: Place this at a corner of your multiblock fusion reactor.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_corner
+  - type: Flatpack
+    entity: HFRCorner
+
+- type: entity
+  parent: BaseHFRBox
+  id: HFRCoreBox
+  name: hfr core box
+  description: Place this at the center of your multiblock fusion reactor.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_core
+  - type: Flatpack
+    entity: HFRCore
+
+- type: entity
+  parent: BaseHFRBox
+  id: HFRFuelBox
+  name: hfr fuel box
+  description: Place this at your intended fuel injection side of your multiblock fusion reactor.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_fuel
+  - type: Flatpack
+    entity: HFRFuelInput
+
+- type: entity
+  parent: BaseHFRBox
+  id: HFRModeratorBox
+  name: hfr moderator box
+  description: Place this at your intended moderator injection side of your multiblock fusion reactor.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_moderator
+  - type: Flatpack
+    entity: HFRModeratorInput
+
+- type: entity
+  parent: BaseHFRBox
+  id: HFRWasteBox
+  name: hfr waste box
+  description: Place this at your intended waste output side of your multiblock fusion reactor.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_waste
+  - type: Flatpack
+    entity: HFRWasteOutput
+
+- type: entity
+  parent: BaseHFRBox
+  id: HFRConsoleBox
+  name: hfr console box
+  description: This flatpack contains the console for the hypertorus fusion reactor.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_body
+  - type: Flatpack
+    entity: HFRConsole
+
+- type: entity
+  id: CrateEngineeringHFR
+  parent: CrateEngineeringSecure
+  name: hfr crate
+  description: Extremely complex to setup and maintain, but rewarding as heck.
+  components:
+  - type: StorageFill
+    contents:
+      - id: HFRConsoleBox
+      - id: HFRWasteBox
+      - id: HFRModeratorBox
+      - id: HFRFuelBox
+      - id: HFRCoreBox
+      - id: HFRCornerBox
+      - id: HFRCornerBox
+      - id: HFRCornerBox
+      - id: HFRCornerBox
+      - id: HFRInstructions
+
+- type: entity
+  id: HFRInstructions
+  categories: [ HideSpawnMenu ]
+  suffix: "hfr instructions"
+  parent: Paper
+  components:
+  - type: Paper
+    content: |2
+
+      [head=1]Quick Guide to Safe Handling of the Hypertorus Fusion Reactor[/head]
+
+      [head=3]Operating Instructions[/head]
+      - Build the machine as shown in the main guide.
+      - Create a 50/50 gas mix of tritium and hydrogen, totaling approximately 2000 moles.
+      - Start the machine and fill the cooling loop with plasma or hypernoblium. Use space or freezers to cool it.
+      - Connect the fuel mix to the fuel injector port, allowing only 1000 moles into the machine to ease the kickstart of the reaction.
+      - Set the Heat Conductor to 500 when starting the reaction, then reset to 100 when the power level exceeds 1.
+      - In case of a meltdown:
+        - Set the Heat Conductor and Current Damper to maximum.
+        - Set fuel injection to minimum.
+        - If heat output remains positive, adjust the Magnetic Constrictors until it becomes negative.
+        - Strengthen cooling and use high heat capacity gases (e.g., hypernoblium) in the moderator to manage the issue.
+
+      [head=3]Warnings[/head]
+      - The machine cannot be dismantled or powered off if the power level is above 0.
+      - Waste gases cannot be disposed of if the power level is above 5.
+      - Only helium and antinoblium can be removed from the fusion mix.
+      - Hypernoblium significantly reduces the power of the mix.
+      - Antinoblium significantly increases the power of the mix.
+      - High heat capacity gases are harder to heat or cool.
+      - Low heat capacity gases are easier to heat or cool.
+      - The machine consumes 250 KW of power when running, so prepare the station power accordingly before turning on the HFR.
+      - Setting up multiple power generators is highly recommended before running the HFR.
+      - In a power shortage, the fusion reaction continues, but cooling stops.
+      - In the event of a sustained power outage, cut all power to the HFR until power issues are sorted.
+
+      [head=3]Disclaimer[/head]
+      The author of this quick guide is not responsible for misuse or meltdowns caused by following this guide. Refer to advanced guides for detailed information on gas moderators.

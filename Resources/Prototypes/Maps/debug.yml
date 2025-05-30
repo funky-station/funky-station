@@ -50,3 +50,18 @@
         - type: StationJobs
           availableJobs:
             ChiefEngineer: [ -1, -1 ]
+
+- type: gameMap
+  id: TestHFR
+  mapName: Test HFR
+  mapPath: /Maps/Test/test_hfr.yml
+  minPlayers: 0
+  stations:
+    HFR:
+      stationProto: TestStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "HFR"
+        - type: StationJobs
+          availableJobs:
+            ChiefEngineer: [ -1, -1 ]

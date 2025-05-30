@@ -1,0 +1,53 @@
+- type: entity
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  id: MiningMagnet
+  name: mining magnet
+  description: A horribly rusted magnetic apparatus that brings in asteroids to be mined.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Machines/miningmagnet.rsi
+    layers:
+    - state: mining-magnet
+    - state: mining-magnet-ready
+      visible: false
+      map: [ "ready" ]
+    - state: mining-magnet-ready-blinking
+      visible: false
+      map: [ "readyBlinking" ]
+    - state: mining-magnet-unready
+      visible: false
+      map: [ "unready" ]
+    - state: mining-magnet-unready-blinking
+      visible: false
+      map: [ "unreadyBlinking" ]
+    - state: mining-magnet-o4
+      map: ["chargeState"]
+      shader: unshaded
+  - type: ActivatableUI
+    key: enum.MiningMagnetUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.MiningMagnetUiKey.Key:
+        type: MiningMagnetBoundUserInterface
+  - type: Transform
+    noRot: false
+  - type: Appearance
+  - type: Rotatable
+  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
+    channels:
+    - Supply
+  - type: MiningMagnet
+  - type: ApcPowerReceiver
+    powerLoad: 2500
+  - type: Machine
+    board: MiningMagnetMachineCircuitboard
+
+- type: weightedRandomEntity
+  id: RandomAsteroidPool
+  weights:
+    AsteroidSalvageSmall: 3
+    AsteroidSalvageMedium: 7
+    AsteroidSalvageLarge: 5
+    AsteroidSalvageHuge: 3

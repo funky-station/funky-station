@@ -25,6 +25,10 @@
       - !type:SatiateThirst
         factor: 2
       - !type:GenericStatusEffect
+        conditions:
+        - !type:OrganType
+           type: Thaven
+           shouldHave: false
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add

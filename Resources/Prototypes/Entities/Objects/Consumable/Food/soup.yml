@@ -810,6 +810,7 @@
   - type: Tag
     tags:
     - ChiliBowl
+    - Meat
 
 
 - type: entity
@@ -838,6 +839,7 @@
   - type: Tag
     tags:
     - ChiliBowl
+    - Meat
 
 - type: entity
   name: chili con carnival
@@ -871,6 +873,7 @@
   - type: Tag
     tags:
     - ChiliBowl
+    - Meat
 
 - type: entity
   name: monkey's delight

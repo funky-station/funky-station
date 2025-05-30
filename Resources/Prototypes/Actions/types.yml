@@ -427,6 +427,9 @@
     useDelay: 1
   - type: InstantAction
     event: !type:FakeMindShieldToggleEvent
+  - type: Tag
+    tags:
+    - FakeMindShieldImplant
 
 - type: entity
   parent: BaseToggleAction
@@ -478,6 +481,18 @@
     iconOn: Interface/Actions/rooting.png
     itemIconStyle: NoItem
     useDelay: 1
+
+- type: entity
+  id: ActionChameleonController
+  name: Control clothing
+  description: Change your entire outfit fast!
+  components:
+  - type: Action
+    priority: -20
+    icon: { sprite: Actions/Implants/implants.rsi, state: chameleon }
+    itemIconStyle: BigAction
+  - type: InstantAction
+    event: !type:ChameleonControllerOpenMenuEvent
 
 - type: entity
   id: ActionChameleonController

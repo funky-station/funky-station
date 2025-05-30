@@ -779,6 +779,10 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
+  - type: Tag
+    tags:
+    - MonkeyWearable
+    - WhitelistChameleon
 
 #Wizard Hardsuit
 - type: entity

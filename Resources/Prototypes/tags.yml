@@ -964,6 +964,9 @@
   id: MonkeyWearable # Used by inventoryTemplate:monkey to whitelist clothing slot outerClothing for slightly less intelligent primates.
 
 - type: Tag
+  id: FakeMindShieldImplant
+
+- type: Tag
   id: Mop # Storage whitelist: JanitorialTrolley
 
 - type: Tag

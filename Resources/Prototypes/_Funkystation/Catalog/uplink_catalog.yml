@@ -59,3 +59,23 @@
   categories:
   - UplinkWeaponry
   saleLimit: 1
+
+- type: listing
+  id: UplinkAutoInjectorBundle
+  name: uplink-autoinjector-bundle-name
+  description: uplink-autoinjector-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateCartridgeAutoinjectorBundleFilled
+  cost:
+    Telecrystal: 75 # Funky
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  saleLimit: 1

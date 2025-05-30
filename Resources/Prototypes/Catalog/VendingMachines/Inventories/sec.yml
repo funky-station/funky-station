@@ -20,7 +20,9 @@
     RiotLaserShield: 2
     RiotBulletShield: 2
     RadioHandheldSecurity: 5
-    BolaEnergy: 5 # Goobstation
+    BolaEnergy: 5
+    SecHypo: 2
+    CartridgeEmergency: 4
   # security officers need to follow a diet regimen!
   contrabandInventory:
     WeaponMeleeNeedle: 2

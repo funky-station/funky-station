@@ -1,0 +1,10 @@
+- type: entity
+  id: autoInjectorCartridgeCaseSoftFilled
+  parent: autoInjectorCartridgeCaseSoft
+  components:
+  - type: StorageFill
+    contents:
+    - id: CartridgeEmergency
+    - id: CartridgeAirloss
+    - id: CartridgeBrute
+    - id: CartridgeBurn

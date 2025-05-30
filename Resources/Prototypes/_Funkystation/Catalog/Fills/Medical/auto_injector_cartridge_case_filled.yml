@@ -1,0 +1,14 @@
+- type: entity
+  id: autoInjectorCartridgeCaseFilled
+  parent: autoInjectorCartridgeCase
+  components:
+  - type: StorageFill
+    contents:
+    - id: CartridgeAirloss
+      amount: 2
+    - id: CartridgeBrute
+      amount: 2
+    - id: CartridgeBurn
+      amount: 2
+    - id: CartridgePoison
+      amount: 2

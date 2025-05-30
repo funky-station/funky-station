@@ -288,25 +288,39 @@
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
+  id: ClothingBackpackDuffelSyndicateCartridgeAutoinjectorBundleFilled
+  name: medical bundle
+  description: "A bag containing a Syndicate branded cartridge autoinjector as well as a hard and soft case, both filled with various cartridges. For healing in a pinch when you don't have time to stop!"
+  components:
+  - type: StorageFill
+    contents:
+      - id: SyndicateHypo
+      - id: autoInjectorCartridgeCaseFilled
+      - id: autoInjectorCartridgeCaseSoftFilled
+
+
+ #Funky addition - Irondragoon
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateMedicalBundle
   id: ClothingBackpackDuffelSyndicateMedicalBundleFilled
   name: medical bundle
   description: "All you need to get your comrades back in the fight."
   components:
   - type: StorageFill
     contents:
-      - id: DefibrillatorSyndicate
-      - id: MedkitCombatFilled
-        amount: 4
-      - id: Tourniquet
-        amount: 4
-      - id: CombatMedipen
-        amount: 4
-      - id: PunctAutoInjector
-        amount: 4
-      - id: PyraAutoInjector
-        amount: 4
-      - id: AirlossAutoInjector
-        amount: 4
+    - id: DefibrillatorSyndicate
+    - id: MedkitCombatFilled
+      amount: 4
+    - id: Tourniquet
+      amount: 4
+    - id: CombatMedipen
+      amount: 4
+    - id: PunctAutoInjector
+      amount: 4
+    - id: PyraAutoInjector
+      amount: 4
+    - id: AirlossAutoInjector
+      amount: 4
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle

@@ -60,7 +60,7 @@ public sealed class CosmicChantrySystem : EntitySystem
             }
             if (_timing.CurTime >= comp.CountdownTimer)
             {
-                if (!_mind.TryGetMind(comp.PolyVictim, out var mindEnt, out var mind))
+                if (!_mind.TryGetMind(comp.InternalVictim, out var mindEnt, out var mind))
                     return;
                 mind.PreventGhosting = false;
                 var tgtpos = Transform(uid).Coordinates;
@@ -70,7 +70,7 @@ public sealed class CosmicChantrySystem : EntitySystem
                 _role.MindAddRole(mindEnt, MindRole, mind, true);
                 _antag.SendBriefing(colossus, Loc.GetString("cosmiccult-silicon-colossus-briefing"), Color.FromHex("#4cabb3"), null);
                 Spawn(comp.SpawnVFX, tgtpos);
-                QueueDel(comp.PolyVictim);
+                QueueDel(comp.InternalVictim);
                 QueueDel(uid);
             }
         }
@@ -90,15 +90,18 @@ public sealed class CosmicChantrySystem : EntitySystem
         null, false, null,
         Color.FromHex("#cae8e8"));
 
-        if (_mind.TryGetMind(comp.PolyVictim, out _, out var mind))
+        if (_mind.TryGetMind(comp.InternalVictim, out _, out var mind))
             mind.PreventGhosting = true;
     }
 
     private void OnChantryDestroyed(Entity<CosmicChantryComponent> ent, ref ComponentShutdown args)
     {
-        if (!_mind.TryGetMind(ent.Comp.PolyVictim, out _, out var mind) || !_polymorph.TryGetNetEntity(ent.Comp.PolyVictim, out _))
+        var comp = ent.Comp;
+        if (!_mind.TryGetMind(comp.InternalVictim, out var mindId, out var mind))
             return;
+
         mind.PreventGhosting = false;
-        _polymorph.Revert(ent.Comp.PolyVictim);
+        _mind.TransferTo(mindId, comp.VictimBody);
+        QueueDel(comp.InternalVictim);
     }
 }

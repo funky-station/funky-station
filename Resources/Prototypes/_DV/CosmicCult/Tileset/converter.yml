@@ -11,7 +11,7 @@
 - type: entity
   parent: BaseStructure
   id: CosmicBorgChantry
-  name: Vacuous Chantry
+  name: vacuous chantry
   description: Its surface churns with rampant malign light.
   placement:
     mode: AlignTileAny

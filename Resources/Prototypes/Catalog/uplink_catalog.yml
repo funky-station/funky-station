@@ -486,6 +486,7 @@
     Telecrystal: 2 # goob - Ammo should be cheap.
   categories:
   - UplinkAmmo
+  saleBlacklist: true
 
 # For the C20R
 - type: listing
@@ -498,6 +499,7 @@
     Telecrystal: 5 # goob - Bundle + 3 Mags = 100 TC
   categories:
   - UplinkAmmo
+  saleBlacklist: true
 
 # For the Cobra
 - type: listing
@@ -510,6 +512,7 @@
     Telecrystal: 2 # goob - Same price as .35, more damage but less ammo in mag
   categories:
   - UplinkAmmo
+  saleBlacklist: true
 
 # For the Python
 - type: listing
@@ -522,6 +525,7 @@
     Telecrystal: 5 # goob - AP, but only 6 bullets in speedloader
   categories:
   - UplinkAmmo
+  saleBlacklist: true
 
 # For the mosin
 - type: listing
@@ -533,6 +537,7 @@
     Telecrystal: 12 # goob - l6 exists
   categories:
   - UplinkAmmo
+  saleBlacklist: true
 
 # for the hristov
 - type: listing
@@ -754,6 +759,7 @@
   categories:
   - UplinkDeception
   saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
 - type: listing
   id: UplinkBinaryTranslatorKey
@@ -765,6 +771,7 @@
     Telecrystal: 5 # goob
   categories:
   - UplinkDeception
+  saleBlacklist: true
 
 - type: listing
   id: UplinkCyberpen
@@ -1292,9 +1299,10 @@
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
   productEntity: RadioImplanter
   cost:
-    Telecrystal: 2
+    Telecrystal: 5
   categories:
   - UplinkImplants
+  saleBlacklist: true
 
 - type: listing
   id: UplinkMicroBombImplanter

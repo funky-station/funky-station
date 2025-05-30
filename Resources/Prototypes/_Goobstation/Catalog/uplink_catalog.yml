@@ -255,6 +255,7 @@
     Telecrystal: 12 # Buying granades this way is ~14% cheaper than getting them from china-lake bundles
   categories:
   - UplinkAmmo
+  saleBlacklist: true
 
 - type: listing
   id: UplinkGrenadeFrag
@@ -266,6 +267,7 @@
     Telecrystal: 12 # Buying granades this way is ~14% cheaper than getting them from china-lake bundles
   categories:
   - UplinkAmmo
+  saleBlacklist: true
 
 - type: listing
   id: UplinkMagazineShotgun
@@ -277,6 +279,7 @@
     Telecrystal: 5
   categories:
   - UplinkAmmo
+  saleBlacklist: true
 
 - type: listing
   id: UplinkMagazineShotgunSlug
@@ -288,6 +291,7 @@
     Telecrystal: 4 # So little total damage
   categories:
   - UplinkAmmo
+  saleBlacklist: true
 
 - type: listing
   id: UplinkMagazineLightRifleBox
@@ -344,5 +348,6 @@
     Telecrystal: 6 # Slightly more expensive than C20 mag due to more total damage
   categories:
   - UplinkAmmo
+  saleBlacklist: true
 
 # Mechs

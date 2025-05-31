@@ -1,0 +1,31 @@
+# When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_meal.yml
+
+# Custom Soup Example
+
+- type: entity
+  name: slop bowl
+  parent: FoodBowlBase
+  id: FoodMysteryStew
+  description: A dubious stew made of dubious protein.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - potatoes
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bowl.rsi
+    layers:
+      - state: bowl
+      - sprite: _Funkystation/Objects/Consumable/Food/bowl.rsi
+        state: mysterystew
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: Protein
+          Quantity: 6

@@ -13,8 +13,8 @@
     solutions:
       organ:
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
+        - ReagentId: UncookedAnimalProteins # Funky - change organs to be made of uncooked animal proteins
+          Quantity: 8 # Funky - a full slab of raw meat is 9
       food:
         maxVol: 5
         reagents:
@@ -61,7 +61,7 @@
     solutions:
       organ:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: GreyMatter # Funky - why would it become nutriment when blended?
           Quantity: 10
       food:
         maxVol: 5
@@ -205,8 +205,8 @@
     solutions:
       organ:
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
+        - ReagentId: UncookedAnimalProteins # Funky - change organs to be made of uncooked animal proteins
+          Quantity: 8 # Funky - a full slab of raw meat is 9
       Lung:
         maxVol: 100.0
         canReact: false
@@ -275,6 +275,12 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+      # Funky - I think stomachs not having a solution while all the other organs do is an oversight
+      organ:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 8
+      # Funky change ends
   - type: Stomach
   # The stomach metabolizes stuff like foods and drinks.
   # TODO: Have it work off of the ent's solution container, and move this

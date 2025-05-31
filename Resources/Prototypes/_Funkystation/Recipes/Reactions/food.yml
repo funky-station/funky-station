@@ -1,0 +1,14 @@
+- type: reaction
+  id: MeatCoagulating
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  reactants:
+    UncookedAnimalProteins:
+      amount: 10
+    Enzyme:
+      amount: 5
+      catalyst: true
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: FoodMysteryMeat

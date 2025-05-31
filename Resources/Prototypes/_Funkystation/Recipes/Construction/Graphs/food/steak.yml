@@ -1,0 +1,32 @@
+# mystery steak
+- type: constructionGraph
+  id: MysteryMeatSteak
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: cooked mystery meat
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 335
+  - node: cooked mystery meat
+    entity: FoodMysteryMeatCooked
+
+# cutlets
+
+- type: constructionGraph
+  id: MysteryCutlet
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: cooked mystery cutlet
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 335
+  - node: cooked mystery cutlet
+    entity: FoodMysteryCutletCooked

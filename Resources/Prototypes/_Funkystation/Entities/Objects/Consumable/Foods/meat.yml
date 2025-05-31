@@ -72,6 +72,11 @@
         name: food-sequence-burger-content-mystery
       taco:
         name: food-sequence-content-mystery
+      skewer:
+        name: food-sequence-content-mystery
+        sprite:
+          sprite: Objects/Consumable/Food/skewer.rsi
+          state: skewer-meat
 
 # Cutlets
 
@@ -148,6 +153,11 @@
         name: food-sequence-burger-content-mystery
       taco:
         name: food-sequence-content-mystery
+      skewer:
+        name: food-sequence-content-mystery
+        sprite:
+          sprite: Objects/Consumable/Food/skewer.rsi
+          state: skewer-meat
   - type: Construction
     graph: MysteryCutlet
     node: cooked mystery cutlet

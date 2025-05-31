@@ -6,7 +6,7 @@
   name: slop bowl
   parent: FoodBowlBase
   id: FoodMysteryStew
-  description: A questionable stew made of questionable protein.
+  description: A dubious stew made of dubious protein.
   components:
   - type: FlavorProfile
     flavors:

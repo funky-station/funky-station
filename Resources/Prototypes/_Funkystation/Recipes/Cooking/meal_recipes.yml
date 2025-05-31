@@ -33,3 +33,16 @@
     FoodPotato: 1
     FoodBowlBig: 1
     FoodMysteryCutlet: 3
+
+- type: microwaveMealRecipe
+  id: RecipeSloppyJoe
+  name: sloppy joe recipe
+  result: FoodBurgerSloppyJoe
+  time: 10
+  group: Savory
+  reagents:
+    Ketchup: 5
+  solids:
+    FoodBreadBun: 1
+    FoodOnionSlice: 1
+    FoodMysteryMeat: 1

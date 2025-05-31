@@ -67,7 +67,6 @@ namespace Content.Shared.Preferences
         /// <summary>
         /// Get job priorities, but filtered by the presence of enabled characters asking for that job
         /// </summary>
-        /// <returns></returns>
         public Dictionary<ProtoId<JobPrototype>, JobPriority> JobPrioritiesFiltered()
         {
             var allCharacterJobs = new HashSet<ProtoId<JobPrototype>>();
@@ -92,8 +91,6 @@ namespace Content.Shared.Preferences
         /// <summary>
         /// Given a job, return a random enabled character asking for this job
         /// </summary>
-        /// <param name="job"></param>
-        /// <returns></returns>
         public HumanoidCharacterProfile? SelectProfileForJob(ProtoId<JobPrototype> job)
         {
             List<HumanoidCharacterProfile> pool = [];
@@ -113,8 +110,6 @@ namespace Content.Shared.Preferences
         /// <summary>
         /// Get all enabled profiles asking for a job
         /// </summary>
-        /// <param name="job"></param>
-        /// <returns></returns>
         public Dictionary<int, HumanoidCharacterProfile> GetAllEnabledProfilesForJob(ProtoId<JobPrototype> job)
         {
             return GetAllProfilesForJobInternal(job, onlyEnabled: true);
@@ -123,8 +118,6 @@ namespace Content.Shared.Preferences
         /// <summary>
         /// Get all profiles asking for a job
         /// </summary>
-        /// <param name="job"></param>
-        /// <returns></returns>
         public Dictionary<int, HumanoidCharacterProfile> GetAllProfilesForJob(ProtoId<JobPrototype> job)
         {
             return GetAllProfilesForJobInternal(job, onlyEnabled: false);
@@ -150,7 +143,6 @@ namespace Content.Shared.Preferences
         /// <summary>
         /// Get any random enabled profile
         /// </summary>
-        /// <returns></returns>
         public HumanoidCharacterProfile? GetRandomEnabledProfile()
         {
             var random = IoCManager.Resolve<IRobustRandom>();
@@ -161,8 +153,6 @@ namespace Content.Shared.Preferences
         /// <summary>
         /// Return true if any enabled character profile is asking for any antag in antagList
         /// </summary>
-        /// <param name="antagList"></param>
-        /// <returns></returns>
         public bool HasAntagPreference(ICollection<ProtoId<AntagPrototype>> antagList)
         {
             foreach (var profile in Characters.Values)
@@ -182,8 +172,6 @@ namespace Content.Shared.Preferences
         /// <summary>
         /// Given an antag, return a random enabled character asking for this antag
         /// </summary>
-        /// <param name="antags"></param>
-        /// <returns></returns>
         public HumanoidCharacterProfile? SelectProfileForAntag(ICollection<ProtoId<AntagPrototype>> antags)
         {
             var pool = new HashSet<HumanoidCharacterProfile>();
@@ -205,9 +193,6 @@ namespace Content.Shared.Preferences
         /// <summary>
         /// Return true if the profile in the slot exists and is a HumanoidCharacterProfile
         /// </summary>
-        /// <param name="slot"></param>
-        /// <param name="humanoid"></param>
-        /// <returns></returns>
         public bool TryGetHumanoidInSlot(int slot, [NotNullWhen(true)] out HumanoidCharacterProfile? humanoid)
         {
             humanoid = null;

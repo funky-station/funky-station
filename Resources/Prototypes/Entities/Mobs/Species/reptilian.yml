@@ -11,6 +11,8 @@
     - Snout
     - HeadTop
     - HeadSide
+    - Hair
+    - FacialHair
   - type: Hunger
   - type: Puller
     needsHands: false

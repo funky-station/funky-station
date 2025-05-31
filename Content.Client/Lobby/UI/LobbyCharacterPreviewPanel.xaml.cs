@@ -55,6 +55,12 @@ public sealed partial class LobbyCharacterPreviewPanel : Control
         ViewBox.AddChild(spriteView);
     }
 
+    // funky station - balance
+    public void SetBalance(string balance)
+    {
+        Balance.Text = balance;
+    }
+
     protected override void Dispose(bool disposing)
     {
         base.Dispose(disposing);

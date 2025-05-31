@@ -1,13 +1,6 @@
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using System.Threading.Tasks;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.PostGeneration;
-using Content.Shared.Storage;
-using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 
 namespace Content.Server.Procedural.DungeonJob;
@@ -17,17 +10,16 @@ public sealed partial class DungeonJob
     /// <summary>
     /// <see cref="CornerClutterDunGen"/>
     /// </summary>
-    private async Task PostGen(CornerClutterDunGen gen, DungeonData data, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
+    private async Task PostGen(CornerClutterDunGen gen, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
     {
-        if (!data.SpawnGroups.TryGetValue(DungeonDataKey.CornerClutter, out var corner))
-        {
-            _sawmill.Error(Environment.StackTrace);
-            return;
-        }
+        var contentsTable = _prototype.Index(gen.Contents);
 
         foreach (var tile in dungeon.CorridorTiles)
         {
-            var blocked = _anchorable.TileFree(_grid, tile, DungeonSystem.CollisionLayer, DungeonSystem.CollisionMask);
+            if (reservedTiles.Contains(tile))
+                continue;
+
+            var blocked = _anchorable.TileFree((_gridUid, _grid), tile, DungeonSystem.CollisionLayer, DungeonSystem.CollisionMask);
 
             if (blocked)
                 continue;
@@ -50,8 +42,8 @@ public sealed partial class DungeonJob
                 if (random.Prob(gen.Chance))
                 {
                     var coords = _maps.GridTileToLocal(_gridUid, _grid, tile);
-                    var protos = EntitySpawnCollection.GetSpawns(_prototype.Index(corner).Entries, random);
-                    _entManager.SpawnEntities(coords, protos);
+                    var protos = _entTable.GetSpawns(contentsTable, random);
+                    _entManager.SpawnEntitiesAttachedTo(coords, protos);
                 }
 
                 break;

@@ -84,18 +84,14 @@
   categories: [ HideSpawnMenu ]
   description: A dummy reptilian meant to be used in character setup.
   components:
-  - type: Sprite
-    layers:
-      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-      - map: [ "enum.HumanoidVisualLayers.Hair" ]
   - type: HumanoidAppearance
     species: Reptilian
     hideLayersOnEquip:
-    - Hair
-    - FacialHair
     - Snout
     - HeadTop
     - HeadSide
+    - Hair
+    - FacialHair
   - type: Inventory
     speciesId: reptilian
     femaleDisplacements:

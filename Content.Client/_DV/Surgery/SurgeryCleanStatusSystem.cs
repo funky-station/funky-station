@@ -6,9 +6,9 @@ using Robust.Shared.Containers;
 namespace Content.Client._DV.Surgery;
 
 /// <summary>
-///     This gets the examine tooltip and sanitize verb predicted on the client so there's no pop-in after latency
+/// This shows the item status for dirty surgery tools.
 /// </summary>
-public sealed class SurgeryCleanSystem : SharedSurgeryCleanSystem
+public sealed class SurgeryCleanStatusSystem : EntitySystem
 {
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -18,11 +18,5 @@ public sealed class SurgeryCleanSystem : SharedSurgeryCleanSystem
         base.Initialize();
 
         Subs.ItemStatus<SurgeryDirtinessComponent>(ent => new SurgeryDirtinessItemStatus(ent, EntityManager, _inventory, _container));
-    }
-
-    public override bool RequiresCleaning(EntityUid target)
-    {
-        // Predict that it can be cleaned if it has dirt on it
-        return TryComp<SurgeryDirtinessComponent>(target, out var dirtiness) && dirtiness.Dirtiness > 0;
     }
 }

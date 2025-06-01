@@ -2984,3 +2984,11 @@ Entries:
       message: Port new cables from upstream.
   id: 363
   time: '2025-06-01T23:21:11.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: >-
+        Thaven are immune to the drug effects of Shimmering Blood and Fever
+        Dream.
+  id: 364
+  time: '2025-06-01T23:22:05.0000000+00:00'

@@ -27,12 +27,22 @@
         enum.DeliveryVisualLayers.Trash:
           True: { visible: true }
           False: { visible: false }
+      enum.DeliveryVisuals.IsBomb:
+        enum.DeliveryVisualLayers.Bomb:
+          Off: { visible: false }
+          Inactive: { visible: true }
+          Primed: { visible: true }
+        enum.DeliveryVisualLayers.BombPrimed:
+          Off: { visible: false }
+          Inactive: { visible: false }
+          Primed: { visible: true }
   - type: Label
     examinable: false
   - type: FingerprintReader
     failPopup: fingerprint-reader-fail
     failGlovesPopup: fingerprint-reader-fail-gloves
   - type: Delivery
+  - type: DeliveryRandomMultiplier
   - type: ContainerContainer
     containers:
       delivery: !type:Container
@@ -59,21 +69,27 @@
     - state: trash
       map: [ "enum.DeliveryVisualLayers.Trash" ]
       visible: false
-    - state: postmark
-    - map: [ "enum.DeliveryVisualLayers.JobStamp" ]
-      scale: 0.6, 0.6
-      offset: -0.23, -0.23
-    - state: fragile
-      map: [ "enum.DeliveryVisualLayers.FragileStamp" ]
-      visible: false
-    - state: locked
-      map: [ "enum.DeliveryVisualLayers.Lock" ]
     - state: priority
       map: [ "enum.DeliveryVisualLayers.PriorityTape" ]
       visible: false
       shader: unshaded
+    - state: fragile
+      map: [ "enum.DeliveryVisualLayers.FragileStamp" ]
+      visible: false
+    - state: postmark
+    - map: [ "enum.DeliveryVisualLayers.JobStamp" ]
+      offset: -0.21875, -0.25
+    - state: locked
+      map: [ "enum.DeliveryVisualLayers.Lock" ]
     - state: broken
       map: [ "enum.DeliveryVisualLayers.Breakage" ]
+      visible: false
+    - state: bomb
+      map: [ "enum.DeliveryVisualLayers.Bomb" ]
+      visible: false
+    - state: bomb_unshaded
+      map: [ "enum.DeliveryVisualLayers.BombPrimed" ]
+      shader: unshaded
       visible: false
   - type: MultiHandedItem
   - type: Item
@@ -97,28 +113,33 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Cargo/mail.rsi
-    scale: 0.8,0.8
     layers:
     - state: icon
       map: [ "enum.DeliveryVisualLayers.Icon" ]
     - state: trash
       map: [ "enum.DeliveryVisualLayers.Trash" ]
       visible: false
-    - state: postmark
-    - map: [ "enum.DeliveryVisualLayers.JobStamp" ]
-      scale: 0.8, 0.8
-      offset: 0.225, 0.165
-    - state: fragile
-      map: [ "enum.DeliveryVisualLayers.FragileStamp" ]
-      visible: false
-    - state: locked
-      map: [ "enum.DeliveryVisualLayers.Lock" ]
     - state: priority
       map: [ "enum.DeliveryVisualLayers.PriorityTape" ]
       visible: false
       shader: unshaded
+    - state: fragile
+      map: [ "enum.DeliveryVisualLayers.FragileStamp" ]
+      visible: false
+    - state: postmark
+    - map: [ "enum.DeliveryVisualLayers.JobStamp" ]
+      offset: -0.125, -0.0625
+    - state: locked
+      map: [ "enum.DeliveryVisualLayers.Lock" ]
     - state: broken
       map: [ "enum.DeliveryVisualLayers.Breakage" ]
+      visible: false
+    - state: bomb
+      map: [ "enum.DeliveryVisualLayers.Bomb" ]
+      visible: false
+    - state: bomb_unshaded
+      map: [ "enum.DeliveryVisualLayers.BombPrimed" ]
+      shader: unshaded
       visible: false
   - type: Item
     storedRotation: 90
@@ -142,6 +163,8 @@
       prob: 0.25
     - id: DeliveryModifierFragile
       prob: 0.25
+    - id: DeliveryModifierBomb
+      prob: 0.02 # Should happen maybe once or twice per game.
 
 - type: entity
   id: DeliveryModifierPriority
@@ -180,3 +203,21 @@
           collection: DeliveryOpenSounds
       - !type:DoActsBehavior
         acts: [ "Breakage" ]
+
+- type: entity
+  id: DeliveryModifierBomb
+  description: Components to add when a delivery is rolled as a bomb.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: DeliveryBomb
+  - type: AmbientSound
+    enabled: false
+    range: 8
+    sound:
+      path: /Audio/Effects/lightburn.ogg
+  - type: Explosive
+    explosionType: MicroBomb
+    totalIntensity: 150
+    intensitySlope: 5
+    maxIntensity: 15
+    canCreateVacuum: false

@@ -4,8 +4,8 @@ meta:
   engineVersion: 255.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/31/2025 21:32:38
-  entityCount: 12910
+  time: 06/01/2025 03:39:53
+  entityCount: 12911
 maps:
 - 4494
 grids:
@@ -317,6 +317,22 @@ entities:
             1250: -2,17
             1251: -1,17
             1252: 0,17
+        - node:
+            color: '#E6E6E6FF'
+            id: Box
+          decals:
+            2060: 26,-6
+            2061: 26,-7
+            2062: 27,-7
+            2063: 28,-7
+            2064: 28,-6
+            2065: 27,-6
+            2066: 27,-5
+            2067: 26,-5
+            2068: 26,-4
+            2069: 27,-4
+            2070: 28,-4
+            2071: 28,-5
         - node:
             color: '#FFFFFFFF'
             id: Box
@@ -83434,6 +83450,14 @@ entities:
     components:
     - type: Transform
       pos: -41.5,-16.5
+      parent: 2
+- proto: WindoorCargoLocked
+  entities:
+  - uid: 12911
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 8.5,-23.5
       parent: 2
 - proto: WindoorChapelLocked
   entities:

@@ -144,9 +144,9 @@ namespace Content.Server.GameTicking
 
             // Calculate extended access for stations.
             var stationJobCounts = spawnableStations.ToDictionary(e => e, _ => 0);
-            foreach (var (netUser, (job, station)) in assignedJobs)
+            foreach (var netUser in profiles)
             {
-                if (job == null)
+                if(!assignedJobs.TryGetValue(netUser, out var assignedJobAndStation) || assignedJobAndStation.Item1 is null)
                 {
                     var playerSession = _playerManager.GetSessionById(netUser);
                     var evNoJobs = new NoJobsAvailableSpawningEvent(playerSession); // Used by gamerules to wipe their antag slot, if they got one
@@ -156,7 +156,7 @@ namespace Content.Server.GameTicking
                 }
                 else
                 {
-                    stationJobCounts[station] += 1;
+                    stationJobCounts[assignedJobAndStation.Item2] += 1;
                 }
             }
 

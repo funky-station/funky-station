@@ -2972,3 +2972,15 @@ Entries:
       message: You can now put your money where your mouth is.
   id: 362
   time: '2025-06-01T02:40:48.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: New AME shielding.
+    - type: Tweak
+      message: Some of the trash bottles have been resprited.
+    - type: Tweak
+      message: New portable chemical mixer sprites.
+    - type: Tweak
+      message: Port new cables from upstream.
+  id: 363
+  time: '2025-06-01T23:21:11.0000000+00:00'

@@ -55,6 +55,8 @@
     solutions:
       drink:  #drink is the same as Bottle solution, this is to prevent recoding chem master. TODO: recode chem master
         maxVol: 30 # Funky
+  - type: RefillableSolution  # Funky - more versatile
+    solution: drink
   - type: Tag
     tags:
     - MedicalPatch
@@ -164,8 +166,6 @@
     solutions:
       drink:
         maxVol: 15  #Low volume but a full patch  will last for 60 seconds
-  - type: RefillableSolution  # So Tiders can fill ther bandages whit hotch and ventcurd - The spelling i really can't [Funky]
-    solution: drink
   - type: Construction
     graph: MedicalPatchMakeshift
     node: medicalPatchMakeshift

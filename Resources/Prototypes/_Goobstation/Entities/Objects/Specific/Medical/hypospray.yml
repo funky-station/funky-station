@@ -258,7 +258,7 @@
     layers:
     - state: base2
     - state: filling
-      color: "0xFF128E80"
+      color: "#8474F1FF"
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
@@ -277,7 +277,7 @@
     layers:
     - state: base2
     - state: filling
-      color: "b9bf93"
+      color: "#8474F1FF"
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:

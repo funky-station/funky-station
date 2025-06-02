@@ -508,5 +508,11 @@ uplink-fake-mindshield-desc = A togglable implant capable of mimicking the same 
 uplink-smuggler-satchel-name = Smuggler's Satchel
 uplink-smuggler-satchel-desc = A handy, suspicious looking satchel. Just flat enough to fit underneath floor tiles.
 
+uplink-syndicate-autoinjector-name = Syndicate Cartridge Autoinjector
+uplink-syndicate-autoinjector-desc = Contains one Syndicate branded cartridge autoinjector. Can provide near instant administration of chems on use with a small delay between uses. Does not come with any cartridges!
+
+uplink-syndicate-autoinjector-softcase-name = Cartridge Autoinjector Soft Case (Filled)
+uplink-syndicate-autoinjector-softcase-desc = Contains 4 different cartridges for use in an autoinjector. Provide enough chems to stabilise a patient. One for airloss, critical injury, brute injury and burns. Each is single use!
+
 uplink-autoinjector-bundle-name = Syndicate Cartridge Autoinjector Bundle
-uplink-autoinjector-bundle-desc = A bag containing a Syndicate branded cartridge autoinjector as well as a hard and soft case, both filled with various cartridges. For healing in a pinch when you don't have time to stop!
+uplink-autoinjector-bundle-desc = A bag containing multiple Syndicate branded cartridge autoinjectors as well as hard and soft cases, all filled with various cartridges. For healing in a pinch when you don't have time to stop!

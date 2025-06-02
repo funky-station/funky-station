@@ -60,13 +60,46 @@
   - UplinkWeaponry
   saleLimit: 1
 
+#Single autoinjector, similar to listing for hypopen in that it is useless without also buying injectors. May change this to a small kit with several bundled
+- type: listing
+  id: UplinkAutoInjector
+  name: uplink-syndicate-autoinjector-name
+  description: uplink-syndicate-autoinjector-desc
+  productEntity: SyndicateHypo
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  saleLimit: 1
+
+- type: listing
+  id: UplinkAutoInjectorSoftCase
+  name: uplink-syndicate-autoinjector-softcase-name
+  description: uplink-syndicate-autoinjector-softcase-desc
+  productEntity: autoInjectorCartridgeCaseSoftFilled
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  saleLimit: 1
+
 - type: listing
   id: UplinkAutoInjectorBundle
   name: uplink-autoinjector-bundle-name
   description: uplink-autoinjector-bundle-desc
   productEntity: ClothingBackpackDuffelSyndicateCartridgeAutoinjectorBundleFilled
   cost:
-    Telecrystal: 75 # Funky
+    Telecrystal: 100
   categories:
   - UplinkChemicals
   conditions:

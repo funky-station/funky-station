@@ -297,7 +297,7 @@
       - id: SyndicateHypo
         amount: 4
       - id: autoInjectorCartridgeCaseFilled
-        amount: 4
+        amount: 2
       - id: autoInjectorCartridgeCaseSoftFilled
         amount: 4
 

@@ -99,6 +99,7 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
         UpdateUserInterface(ent);
     }
 
+
     private void OnDisable(Entity<RoboticsConsoleComponent> ent, ref RoboticsConsoleDisableMessage args)
     {
         if (_lock.IsLocked(ent.Owner))

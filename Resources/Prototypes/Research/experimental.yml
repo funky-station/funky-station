@@ -28,6 +28,8 @@
   recipeUnlocks:
   - ProximitySensor
   - ExosuitFabricatorMachineCircuitboard
+  - AiRemoteBrain # Goobstation
+  position: -1,0
 
 - type: technology
   id: BasicAnomalousResearch

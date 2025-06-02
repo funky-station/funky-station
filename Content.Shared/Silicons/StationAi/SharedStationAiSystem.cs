@@ -42,6 +42,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 using Robust.Shared.Utility;
+using Content.Shared._CorvaxNext.Silicons.Borgs;
 
 namespace Content.Shared.Silicons.StationAi;
 
@@ -71,6 +72,8 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     [Dependency] private readonly   SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly   StationAiVisionSystem _vision = default!;
     [Dependency] private readonly   IPrototypeManager _protoManager = default!;
+
+    [Dependency] private readonly SharedAiRemoteControlSystem _remoteSystem = default!; // Corvax-Next-AiRemoteControl
 
     // StationAiHeld is added to anything inside of an AI core.
     // StationAiHolder indicates it can hold an AI positronic brain (e.g. holocard / core).
@@ -247,6 +250,13 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         // Try to insert our thing into them
         if (_slots.CanEject(ent.Owner, args.User, ent.Comp.Slot))
         {
+            // Corvax-Next-AiRemoteControl-Start
+            if (ent.Comp.Slot.Item != null
+                && TryComp<StationAiHeldComponent>(ent.Comp.Slot.Item, out var stationAiHeldComp))
+                if (stationAiHeldComp.CurrentConnectedEntity != null)
+                    _remoteSystem.ReturnMindIntoAi(stationAiHeldComp.CurrentConnectedEntity.Value);
+            // Corvax-Next-AiRemoteControl-End
+
             if (!_slots.TryInsert(args.Args.Target.Value, targetHolder.Slot, ent.Comp.Slot.Item!.Value, args.User, excludeUserAudio: true))
             {
                 return;
@@ -304,6 +314,12 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             intelliComp.NextWarningAllowed = _timing.CurTime + intelliComp.WarningDelay;
             AnnounceIntellicardUsage(held, intelliComp.WarningSound);
         }
+
+        // Corvax-Next-AiRemoteControl-Start
+        if (TryComp<StationAiHeldComponent>(held, out var heldComp))
+            if (heldComp.CurrentConnectedEntity != null)
+                AnnounceIntellicardUsage(heldComp.CurrentConnectedEntity.Value, intelliComp.WarningSound);
+        // Corvax-Next-AiRemoteControl-End
 
         var doAfterArgs = new DoAfterArgs(EntityManager, args.User, cardHasAi ? intelliComp.UploadTime : intelliComp.DownloadTime, new IntellicardDoAfterEvent(), args.Target, ent.Owner)
         {

@@ -860,6 +860,7 @@
     - AbominationCube
     - SpaceCarpCube
     - SpaceTickCube
+    - VelociraptorCube
 
 - type: entity
   id: SecurityTechFab

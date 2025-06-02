@@ -860,7 +860,7 @@
     - AbominationCube
     - SpaceCarpCube
     - SpaceTickCube
-    - VelociraptorCube
+    - VelociraptorCube #funky
 
 - type: entity
   id: SecurityTechFab

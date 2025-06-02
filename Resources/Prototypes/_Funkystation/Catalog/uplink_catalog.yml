@@ -67,7 +67,22 @@
   description: uplink-syndicate-autoinjector-desc
   productEntity: SyndicateHypo
   cost:
-    Telecrystal: 10
+    Telecrystal: 20
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkAutoInjectorSoftCase
+  name: uplink-syndicate-autoinjector-softcase-name
+  description: uplink-syndicate-autoinjector-softcase-desc
+  productEntity: autoInjectorCartridgeCaseSoftFilled
+  cost:
+    Telecrystal: 20
   categories:
   - UplinkChemicals
   conditions:
@@ -78,20 +93,24 @@
   saleLimit: 1
 
 - type: listing
-  id: UplinkAutoInjectorSoftCase
-  name: uplink-syndicate-autoinjector-softcase-name
-  description: uplink-syndicate-autoinjector-softcase-desc
-  productEntity: autoInjectorCartridgeCaseSoftFilled
+  id: UplinkAutoInjectorCartridgeSedative
+  name: uplink-autoinjector-cart-sedative-name
+  description: uplink-autoinjector-cart-sedative-desc
+  productEntity: CartridgeSedativeSyndicate
   cost:
     Telecrystal: 10
   categories:
   - UplinkChemicals
-  conditions:
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
-  saleLimit: 1
+
+- type: listing
+  id: UplinkAutoInjectorCartridgeGunshot
+  name: uplink-autoinjector-cart-gunshot-name
+  description: uplink-autoinjector-cart-gunshot-desc
+  productEntity: CartridgeGunshotSyndicate
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkChemicals
 
 - type: listing
   id: UplinkAutoInjectorBundle

@@ -175,7 +175,7 @@
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
-      maxVol: 10
+      maxVol: 15
       reagents:
       - ReagentId: Dexalin
         Quantity: 10
@@ -196,7 +196,7 @@
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
-      maxVol: 10
+      maxVol: 15
       reagents:
       - ReagentId: Probital
         Quantity: 6
@@ -219,7 +219,7 @@
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
-      maxVol: 10
+      maxVol: 15
       reagents:
       - ReagentId: Lenturi
         Quantity: 7.5
@@ -240,7 +240,7 @@
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
-      maxVol: 10
+      maxVol: 15
       reagents:
       - ReagentId: Multiver
         Quantity: 10
@@ -251,40 +251,40 @@
 - type: entity
   name: syndicate sedative autoinjector cartridge
   parent: [ BaseSyndicateContraband , BaseAutoinjectorCartridge ]
-  description: Syndicate sedative cartridge. Used in a cartridge autoinjector.
+  description: Syndicate sedative cartridge, contains 15u of Nocturine to put one target into a deep slumber, fast. Used in a cartridge autoinjector.
   id: CartridgeSedativeSyndicate
   components:
   - type: Sprite
     layers:
     - state: base2
     - state: filling
-      color: "#8474F1FF"
+      color: "#128E80FF"
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
-      maxVol: 10
+      maxVol: 15
       reagents:
       - ReagentId: Nocturine
-        Quantity: 10
+        Quantity: 15
 
 - type: entity
   name: syndicate gunshot autoinjector cartridge
   parent: [ BaseSyndicateContraband , BaseAutoinjectorCartridge ]
-  description: Syndicate medical cartridge, for gunshot wounds. Used in a cartridge autoinjector.
+  description: Syndicate medical cartridge, contains Puncturase specifically for healing gunshot wounds. Used in a cartridge autoinjector.
   id: CartridgeGunshotSyndicate
   components:
   - type: Sprite
     layers:
     - state: base2
     - state: filling
-      color: "#8474F1FF"
+      color: "#B9A88BFF"
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
       maxVol: 10
       reagents:
       - ReagentId: Puncturase
-        Quantity: 5
+        Quantity: 10
       - ReagentId: TranexamicAcid
         Quantity: 5
 

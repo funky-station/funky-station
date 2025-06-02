@@ -733,6 +733,7 @@
     - RightFootIPC
     - OrganIPCEyes
     - OrganIPCPump
+    - Oilpack #Delta-V
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleAdvancedCleaning
@@ -1148,6 +1149,7 @@
     - MedicalPatchRapid #Goobstation - MedicalPatch
     - MedicalPatchLarge #Goobstation - MedicalPatch
     - BoneGel # Shitmed Change
+    - Oilpack #Delta-V
     - CartridgeEmergency # Goobstation - ParamedHypo
     - CartridgeAirloss # Goobstation - ParamedHypo
     - CartridgeBrute # Goobstation - ParamedHypo

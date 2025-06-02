@@ -64,3 +64,6 @@
     shape:
     - 0,0,1,0
     heldPrefix: eyeballs
+  - type: Tag # This allows heretic rituals to work with animals eyes
+    tags:
+    - Eyes

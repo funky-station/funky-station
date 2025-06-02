@@ -16,12 +16,12 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 10
+        maxVol: 15
   - type: ExaminableSolution
     solution: hypospray
   - type: Hypospray
     solutionName: hypospray
-    transferAmount: 10
+    transferAmount: 15
     onlyAffectsMobs: false
     injectOnly: true
   - type: HyposprayBlockNonMobInjection
@@ -54,12 +54,12 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 10
+        maxVol: 15
   - type: ExaminableSolution
     solution: hypospray
   - type: Hypospray
     solutionName: hypospray
-    transferAmount: 10
+    transferAmount: 15
     onlyAffectsMobs: false
     injectOnly: true
   - type: HyposprayBlockNonMobInjection
@@ -135,7 +135,7 @@
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
-      maxVol: 10
+      maxVol: 15
   - type: Tag
     tags:
     - AutoinjectorCartridge
@@ -154,12 +154,12 @@
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
-      maxVol: 10
+      maxVol: 15
       reagents:
       - ReagentId: Epinephrine
-        Quantity: 8
+        Quantity: 12
       - ReagentId: TranexamicAcid
-        Quantity: 2
+        Quantity: 3
 
 - type: entity
   name: airloss autoinjector cartridge #Funky Addition, this recipe may need tweaking
@@ -177,9 +177,9 @@
     solution:
       maxVol: 10
       reagents:
-      - ReagentId: Salbutamol
-        Quantity: 5
       - ReagentId: Dexalin
+        Quantity: 10
+      - ReagentId: TranexamicAcid
         Quantity: 5
 
 - type: entity
@@ -199,11 +199,11 @@
       maxVol: 10
       reagents:
       - ReagentId: Probital
-        Quantity: 4
+        Quantity: 6
       - ReagentId: Libital
-        Quantity: 4
+        Quantity: 6
       - ReagentId: TranexamicAcid
-        Quantity: 2
+        Quantity: 3
 
 - type: entity
   name: burn autoinjector cartridge
@@ -222,9 +222,9 @@
       maxVol: 10
       reagents:
       - ReagentId: Lenturi
-        Quantity: 5
+        Quantity: 7.5
       - ReagentId: Aiuri
-        Quantity: 5
+        Quantity: 7.5
 
 - type: entity
   name: poison autoinjector cartridge
@@ -243,9 +243,9 @@
       maxVol: 10
       reagents:
       - ReagentId: Multiver
-        Quantity: 8
-      - ReagentId: Charcoal
-        Quantity: 2
+        Quantity: 10
+      - ReagentId: Diphenhydramine
+        Quantity: 5
 
 # Not included yet, prototyping some potential stronger cartridges that could be purchased by nukies (potentially some for syndies also)
 - type: entity

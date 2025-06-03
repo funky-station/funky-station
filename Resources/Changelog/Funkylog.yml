@@ -2921,3 +2921,74 @@ Entries:
       message: Fixed surgery dirtiness display in toolbar.
   id: 359
   time: '2025-05-28T18:01:51.0000000+00:00'
+- author: dch-GH
+  changes:
+    - type: Fix
+      message: >-
+        Fix certain non-sentient mobs from being able to speak using the Say
+        Last Words action.
+  id: 360
+  time: '2025-05-29T23:37:49.0000000+00:00'
+- author: Lyndomen, deltanedas, Miiish
+  changes:
+    - type: Tweak
+      message: IPC batteries now last 15% longer
+    - type: Tweak
+      message: >-
+        IPC welding / cabling is now on-par with a bruise pack / ointment for
+        healing.
+    - type: Remove
+      message: IPCs can no longer be emagged
+    - type: Add
+      message: IPCs now start with a survival box full of healing items
+    - type: Tweak
+      message: IPCs now take radiation and cold damage, with 50% resistance to both
+    - type: Add
+      message: IPCs may be cleansed of radiation with Plasma Sheets
+    - type: Add
+      message: >-
+        IPCs now have a bloodstream of Oil. They do not regenerate oil, or stop
+        bleeding without intervention. They will very very slowly tick Blunt
+        damage when low on Oil.
+    - type: Tweak
+      message: IPC bleeding may be stopped with a Plastic Sheet or welding tool.
+    - type: Add
+      message: >-
+        IPCs may get back Oil by using an Oil Pack, printable at the medical
+        techfab or exosuit fabricator roundstart, or purchasable by Cargo.
+    - type: Add
+      message: >-
+        Syndicate members may purchase a Silicon focused repair and recharge
+        kit; the Omnipatch Kit.
+    - type: Fix
+      message: IPC paradoxes now get the real version's headsets.
+    - type: Fix
+      message: IPC blindness can now actually be healed using glass sheets.
+  id: 361
+  time: '2025-05-30T18:55:42.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Add
+      message: You can now put your money where your mouth is.
+  id: 362
+  time: '2025-06-01T02:40:48.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: New AME shielding.
+    - type: Tweak
+      message: Some of the trash bottles have been resprited.
+    - type: Tweak
+      message: New portable chemical mixer sprites.
+    - type: Tweak
+      message: Port new cables from upstream.
+  id: 363
+  time: '2025-06-01T23:21:11.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: >-
+        Thaven are immune to the drug effects of Shimmering Blood and Fever
+        Dream.
+  id: 364
+  time: '2025-06-01T23:22:05.0000000+00:00'

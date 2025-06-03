@@ -13,7 +13,7 @@
         - ReagentId: GreyMatter # Funky - thaven organs have a really interesting reagent composition, so why do they still just turn into nutriment?
           Quantity: 6 # Funky - keeping it consistent with other brain's grey matter mysteriously doubling when blended
         - ReagentId: CarpoToxin # Funky
-          Quantity: 9 # Funky - it'll just trade in 3 carpotoxin instead
+          Quantity: 12 # Funky
       food:
         maxVol: 20
         reagents:
@@ -25,7 +25,7 @@
     juiceSolution:
       reagents:
       - ReagentId: CarpoToxin
-        Quantity: 9 # Funky - Why can you juice their organs? Why not, I guess? Just gonna make the amount consistent
+        Quantity: 12 # Funky - Why can you juice their organs? Why not, I guess? Just gonna make the amount consistent
   - type: FlavorProfile
     flavors:
       - thavenflesh
@@ -80,6 +80,10 @@
           Quantity: 4
         - ReagentId: CarpoToxin
           Quantity: 5
+      Lung:
+        maxVol: 100.0
+        canReact: false
+    # Funky change ends
   - type: Extractable
     juiceSolution:
       reagents:

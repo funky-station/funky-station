@@ -439,8 +439,16 @@ public sealed partial class ChangelingSystem : EntitySystem
         || !TryComp<MetaDataComponent>(target, out var metadata)
         || !TryComp<DnaComponent>(target, out var dna)
         || !TryComp<FingerprintComponent>(target, out var fingerprint))
+        return false;
+        
+        if (_mobState.IsAlive(target) && comp.UsedDnaStingFirstTime)
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-alive-fail"), uid, uid);
             return false;
-
+        }
+        
+        comp.UsedDnaStingFirstTime = true;
+        
         foreach (var storedDNA in comp.AbsorbedDNA)
         {
             if (storedDNA.DNA == dna.DNA)

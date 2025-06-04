@@ -2966,3 +2966,9 @@ Entries:
       message: IPC blindness can now actually be healed using glass sheets.
   id: 361
   time: '2025-05-30T18:55:42.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Add
+      message: You can now put your money where your mouth is.
+  id: 362
+  time: '2025-06-01T02:40:48.0000000+00:00'

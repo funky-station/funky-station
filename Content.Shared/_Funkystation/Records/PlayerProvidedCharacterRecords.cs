@@ -47,7 +47,8 @@ public sealed partial class PlayerProvidedCharacterRecords
     // medical info
 
     /// <summary>
-    /// Enabled medical info: allergies, prescriptions, family history
+    /// A character's enabled medical info,
+    /// includes: allergies, prescriptions, family history
     /// </summary>
     [DataField]
     private HashSet<ProtoId<MedicalInfoPrototype>> _medicalInfo = new();

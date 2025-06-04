@@ -3000,3 +3000,9 @@ Entries:
         eyes tag assigned to it)
   id: 365
   time: '2025-06-04T01:25:15.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Add
+      message: Added velociraptor cubes to emagged biocube fabricators
+  id: 366
+  time: '2025-06-04T01:29:01.0000000+00:00'

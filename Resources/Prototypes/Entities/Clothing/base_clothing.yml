@@ -24,18 +24,15 @@
 
 - type: entity
   abstract: true
-  id: AllowSuitStorageClothing
+  id: AllowWeaponStorageClothing
   components:
-  - type: AllowSuitStorage
+  - type: AllowWeaponStorage
 
 - type: entity
   abstract: true
-  id: AllowSuitStorageClothingGasTanks
+  id: AllowTankStorageClothing
   components:
-  - type: AllowSuitStorage
-    whitelist:
-      tags:
-      - GasTank
+  - type: AllowTankStorage
 
 # for clothing that has a single item slot to insert and alt click out.
 # inheritors add a whitelisted slot named item

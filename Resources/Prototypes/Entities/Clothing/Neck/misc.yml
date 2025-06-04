@@ -96,10 +96,10 @@
     tags:
     - Trash
     - WhitelistChameleon
-    
+
 #Tank Harness
 - type: entity
-  parent: [ ClothingNeckBase, AllowSuitStorageClothingGasTanks ]
+  parent: [ ClothingNeckBase, AllowTankStorageClothing ]
   id: ClothingNeckTankHarness
   name: tank harness
   description: A simple harness that can hold a gas tank.

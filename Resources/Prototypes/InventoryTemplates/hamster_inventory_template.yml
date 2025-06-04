@@ -30,16 +30,17 @@
     whitelist:
       tags:
         - HamsterWearable
-  - name: suitstorage
+  - name: tankstorage
     slotTexture: suit_storage
-    slotFlags: SUITSTORAGE
+    slotFlags: TANKSTORAGE
+    slotGroup: MainHotbar
     stripTime: 3
     uiWindowPos: 1,0
-    strippingWindowPos: 2,5
-    displayName: Suit Storage
+    strippingWindowPos: 2, 5
+    displayName: Tank Storage
     whitelist:
       components:
-        - GasTank
+      - GasTank
   - name: head
     slotTexture: head
     slotFlags: HEAD

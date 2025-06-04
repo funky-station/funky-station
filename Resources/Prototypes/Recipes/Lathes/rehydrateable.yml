@@ -86,14 +86,14 @@
 - type: latheRecipe
   id: SynthHeart
   result: BioSynthHeart
-  completetime: 30
+  completetime: 10
   materials:
     Biomass: 10
 
 - type: latheRecipe
   id: SynthLungs
   result: BioSynthLungs
-  completetime: 30
+  completetime: 10
   materials:
     Biomass: 4
 

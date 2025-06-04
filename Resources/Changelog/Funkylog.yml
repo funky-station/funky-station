@@ -2992,3 +2992,11 @@ Entries:
         Dream.
   id: 364
   time: '2025-06-01T23:22:05.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Add
+      message: >-
+        Animal eyes can be used in heretic rituals (animal eyes now have the
+        eyes tag assigned to it)
+  id: 365
+  time: '2025-06-04T01:25:15.0000000+00:00'

@@ -2,6 +2,7 @@
 
 namespace Content.Shared._Funkystation.Records;
 
+[Prototype("medicalInfoCategory"), Serializable]
 public sealed partial class MedicalInfoCategoryPrototype : IPrototype
 {
     public const string Default = "Default";

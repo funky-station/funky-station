@@ -137,15 +137,15 @@ public sealed class CharacterRecordsSystem : EntitySystem
 
         switch (ty)
         {
-            case CharacterRecordType.Employment:
-                cr.EmploymentEntries.RemoveAt(idx);
-                break;
-            case CharacterRecordType.Medical:
-                cr.MedicalEntries.RemoveAt(idx);
-                break;
-            case CharacterRecordType.Security:
-                cr.SecurityEntries.RemoveAt(idx);
-                break;
+            // case CharacterRecordType.Employment:
+            //     cr.EmploymentEntries.RemoveAt(idx);
+            //     break;
+            // case CharacterRecordType.Medical:
+            //     cr.MedicalEntries.RemoveAt(idx);
+            //     break;
+            // case CharacterRecordType.Security:
+            //     cr.SecurityEntries.RemoveAt(idx);
+            //     break;
         }
 
         RaiseLocalEvent(station, new CharacterRecordsModifiedEvent());

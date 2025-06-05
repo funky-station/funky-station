@@ -48,7 +48,34 @@ public static class RecordsSerialization
 
     private static HashSet<ProtoId<MedicalInfoPrototype>> DeserializeSet(JsonElement e, string key, HashSet<ProtoId<MedicalInfoPrototype>>? def)
     {
-        // help
+        var hashSet = new HashSet<ProtoId<MedicalInfoPrototype>>();
+        
+        if (!e.TryGetProperty(key, out var v))
+            return [];
+
+        if (v.ValueKind == JsonValueKind.Object)
+        {
+            var enumerator = v.EnumerateObject();
+
+            while (enumerator.MoveNext())
+            {
+                var id = enumerator.Current.Value.GetProperty("Id");
+                var category = enumerator.Current.Value.GetProperty("Category");
+                var name = enumerator.Current.Value.GetProperty("Name");
+                
+                var medicalInfoPrototype = new MedicalInfoPrototype
+                {
+                    Category = category.GetString(),
+                    Name = new LocId(name.GetRawText()),
+                    ID = id.GetRawText()
+                };
+
+                hashSet.Add(medicalInfoPrototype);
+            }
+            
+            return hashSet;
+        }
+        
         return [];
     }
 

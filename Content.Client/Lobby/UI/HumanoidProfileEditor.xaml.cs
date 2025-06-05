@@ -441,7 +441,7 @@ namespace Content.Client.Lobby.UI
             // Begin CD - Character Records
             #region CosmaticRecords
 
-            _recordsTab = new RecordEditorGui(UpdateProfileRecords);
+            _recordsTab = new RecordEditorGui(UpdateProfileRecords, prototypeManager);
             TabContainer.AddChild(_recordsTab);
             TabContainer.SetTabTitle(TabContainer.ChildCount - 1, Loc.GetString("humanoid-profile-editor-cd-records-tab"));
 

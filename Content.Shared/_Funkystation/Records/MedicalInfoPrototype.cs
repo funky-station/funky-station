@@ -2,6 +2,7 @@
 
 namespace Content.Shared._Funkystation.Records;
 
+[Prototype("medicalInfo"), Serializable]
 public sealed partial class MedicalInfoPrototype : IPrototype
 {
     [ViewVariables]

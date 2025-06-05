@@ -339,7 +339,7 @@ namespace Content.Server.Database
             if (humanoid.CDCharacterRecords != null)
             {
                 profile.CDProfile.CharacterRecordEntries.Clear();
-                profile.CDProfile.CharacterRecordEntries.AddRange(RecordsSerialization.GetEntries(humanoid.CDCharacterRecords));
+                // profile.CDProfile.CharacterRecordEntries.AddRange(RecordsSerialization.GetEntries(humanoid.CDCharacterRecords));
             }
             // End CD - Character Records
 

@@ -49,6 +49,7 @@ public static class RecordsSerialization
     private static HashSet<ProtoId<MedicalInfoPrototype>> DeserializeSet(JsonElement e, string key, HashSet<ProtoId<MedicalInfoPrototype>>? def)
     {
         // help
+        return [];
     }
 
     /// <summary>
@@ -72,6 +73,6 @@ public static class RecordsSerialization
             insuranceType: DeserializeInt(e, nameof(def.InsuranceType), def.InsuranceType),
             medicalInfo: DeserializeSet(e, nameof(def.MedicalInfo), def.MedicalInfo),
             bloodType: DeserializeInt(e, nameof(def.BloodType), def.BloodType),
-            postmortemInstructions: DeserializeString(e, nameof(def.PostmortemInstructions), def.PostmortemInstructions);
+            postmortemInstructions: DeserializeString(e, nameof(def.PostmortemInstructions), def.PostmortemInstructions));
     }
 }

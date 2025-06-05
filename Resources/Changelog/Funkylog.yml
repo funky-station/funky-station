@@ -3006,3 +3006,13 @@ Entries:
       message: Added velociraptor cubes to emagged biocube fabricators
   id: 366
   time: '2025-06-04T01:29:01.0000000+00:00'
+- author: The048
+  changes:
+    - type: Tweak
+      message: On Origin, redesigned the armory
+    - type: Tweak
+      message: >-
+        On Origin, made minor fixes to the security department regarding
+        spawnpoints and item placement
+  id: 367
+  time: '2025-06-05T06:16:08.0000000+00:00'

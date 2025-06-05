@@ -72,3 +72,14 @@
   name: medical-info-allergies-wheat
   category: Allergies
 
+# prescriptions
+- type: medicalInfo
+  id: danderPrescription
+  name: medical-info-allergies-dander
+  category: Prescriptions
+
+# family history
+- type: medicalInfo
+  id: danderFamilyHistory
+  name: medical-info-allergies-dander
+  category: FamilyHistory

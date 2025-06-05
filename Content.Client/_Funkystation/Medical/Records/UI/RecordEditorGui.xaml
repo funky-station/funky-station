@@ -26,7 +26,7 @@
                         HorizontalExpand="True"
                         Margin="5"
                         Orientation="Horizontal">
-                        <Label StyleClasses="Italic" Text="General Information" />
+                        <Label Text="General Information" />
                     </BoxContainer>
                 </PanelContainer>
 
@@ -120,7 +120,7 @@
                         HorizontalExpand="True"
                         Margin="5"
                         Orientation="Horizontal">
-                        <Label StyleClasses="Italic" Text="Medical Information" />
+                        <Label Text="Medical Information" />
                     </BoxContainer>
                 </PanelContainer>
 
@@ -152,115 +152,11 @@
                         </PanelContainer.PanelOverride>
                     </PanelContainer>
 
-                    <GridContainer Columns="5">
-                        <!--  allergies  -->
-                        <BoxContainer
-                            HorizontalExpand="True"
-                            Margin="5,0"
-                            Orientation="Vertical">
+                    <BoxContainer
+                        HorizontalExpand="True"
+                        Name="MedicalInfoContainer"
+                        Orientation="Horizontal" />
 
-                            <Label Margin="0,5" Text="Allergies:" />
-                            <BoxContainer
-                                Margin="5,0"
-                                Name="AllergiesContainer"
-                                Orientation="Vertical">
-                                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
-                                    <CheckBox HorizontalAlignment="Left" />
-                                    <Label Text="Pollen" />
-                                </BoxContainer>
-                                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
-                                    <CheckBox HorizontalAlignment="Left" />
-                                    <Label Text="Nuts" />
-                                </BoxContainer>
-                                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
-                                    <CheckBox HorizontalAlignment="Left" />
-                                    <Label Text="Hugs" />
-                                </BoxContainer>
-                                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
-                                    <CheckBox HorizontalAlignment="Left" />
-                                    <Label Text="Shellfish" />
-                                </BoxContainer>
-
-                            </BoxContainer>
-                        </BoxContainer>
-
-                        <!--  divider  -->
-                        <PanelContainer
-                            Margin="5,0"
-                            MinSize="2, 0"
-                            VerticalExpand="True">
-                            <PanelContainer.PanelOverride>
-                                <graphics:StyleBoxFlat BackgroundColor="#202028" />
-                            </PanelContainer.PanelOverride>
-                        </PanelContainer>
-
-
-                        <!--  prescriptions  -->
-                        <BoxContainer
-                            HorizontalExpand="True"
-                            Margin="5,0"
-                            Orientation="Vertical">
-                            <Label Margin="0,5" Text="Prescriptions:" />
-                            <BoxContainer Margin="5,0" Orientation="Vertical">
-                                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
-                                    <CheckBox HorizontalAlignment="Left" />
-                                    <Label Text="Blood Thinners" />
-                                </BoxContainer>
-                                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
-                                    <CheckBox HorizontalAlignment="Left" />
-                                    <Label Text="Immunosuppressants" />
-                                </BoxContainer>
-                                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
-                                    <CheckBox HorizontalAlignment="Left" />
-                                    <Label Text="Insulin" />
-                                </BoxContainer>
-                                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
-                                    <CheckBox HorizontalAlignment="Left" />
-                                    <Label Text="Pain Relievers" />
-                                </BoxContainer>
-
-                            </BoxContainer>
-                        </BoxContainer>
-
-                        <!--  divider  -->
-                        <PanelContainer
-                            Margin="5,0"
-                            MinSize="2, 0"
-                            VerticalExpand="True">
-                            <PanelContainer.PanelOverride>
-                                <graphics:StyleBoxFlat BackgroundColor="#202028" />
-                            </PanelContainer.PanelOverride>
-                        </PanelContainer>
-
-                        <!--  medical history  -->
-                        <BoxContainer
-                            HorizontalExpand="True"
-                            Margin="5,0"
-                            Orientation="Vertical">
-
-                            <Label Margin="0,5" Text="Family Medical History:" />
-                            <BoxContainer Margin="5,0" Orientation="Vertical">
-                                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
-                                    <CheckBox HorizontalAlignment="Left" />
-                                    <Label Text="Allergies" />
-                                </BoxContainer>
-                                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
-                                    <CheckBox HorizontalAlignment="Left" />
-                                    <Label Text="Anemia" />
-                                </BoxContainer>
-                                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
-                                    <CheckBox HorizontalAlignment="Left" />
-                                    <Label Text="Anxiety" />
-                                </BoxContainer>
-                                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
-                                    <CheckBox HorizontalAlignment="Left" />
-                                    <Label Text="Arthritis" />
-                                </BoxContainer>
-
-                            </BoxContainer>
-
-                        </BoxContainer>
-                    </GridContainer>
                 </BoxContainer>
             </BoxContainer>
         </ScrollContainer>

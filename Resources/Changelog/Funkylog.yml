@@ -3016,3 +3016,41 @@ Entries:
         spawnpoints and item placement
   id: 367
   time: '2025-06-05T06:16:08.0000000+00:00'
+- author: taydeo, Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        Changelings can now sting one alive person for DNA extraction, then
+        other targets must be either crit or dead.
+    - type: Add
+      message: >-
+        Changelings now eat random non-vital organs and a limb when absorbing
+        someone.
+    - type: Remove
+      message: >-
+        Removed hollowing text on absorbed bodies, and removed genetic damage
+        dealt when absorbing.
+    - type: Remove
+      message: Ferrochromic Acid no longer replaces someones blood when absorbed.
+    - type: Tweak
+      message: >-
+        The metashield for Changelings has been changed to account for hollowing
+        changes, and now allows for bloodtests in very specific circumstances.
+    - type: Tweak
+      message: >-
+        The Medical Biofabricator is now significantly cheaper to operate, with
+        prices being more than halved overall for all objects except the Heart.
+    - type: Tweak
+      message: >-
+        All organ and limb print times have been reduced to 10 seconds in the
+        Medical Biofabricator.
+    - type: Tweak
+      message: >-
+        Heretics now have a slightly greater chance to spawn, and Thieves have a
+        slightly lower chance to spawn.
+    - type: Tweak
+      message: >-
+        Cosmic Cult now has a greater chance of rolling, and Changeling a
+        slightly lower chance of rolling.
+  id: 368
+  time: '2025-06-05T07:42:43.0000000+00:00'

@@ -16,6 +16,12 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+      # Funky - animal organs are missing the organ content solution. Adding it to make them consistent with all the other organs
+      organ:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 8
+      # Funky change ends
   - type: FlavorProfile
     flavors:
       - chicken # everything kinda tastes like chicken
@@ -62,6 +68,12 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+      # Funky - animal organs are missing the organ content solution. Adding it to make them consistent with all the other organs
+      organ:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 8
+      # Funky change ends
   - type: Tag # goob edit
     tags:
     - Meat
@@ -92,6 +104,12 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+      # Funky - animal organs are missing the organ content solution. Adding it to make them consistent with all the other organs
+      organ:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 8
+      # Funky change ends
   - type: Stomach
   - type: Metabolizer
     maxReagents: 3
@@ -120,6 +138,17 @@
     solutions:
       stomach:
         maxVol: 30
+      # Funky - mouse stomachs not having an organ or a food solution is almost definitely an oversight as it makes them inconsistently inedible
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+      organ:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 8
+      # Funky change ends
   - type: Item
     size: Normal
     shape:

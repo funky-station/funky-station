@@ -2966,3 +2966,105 @@ Entries:
       message: IPC blindness can now actually be healed using glass sheets.
   id: 361
   time: '2025-05-30T18:55:42.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Add
+      message: You can now put your money where your mouth is.
+  id: 362
+  time: '2025-06-01T02:40:48.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: New AME shielding.
+    - type: Tweak
+      message: Some of the trash bottles have been resprited.
+    - type: Tweak
+      message: New portable chemical mixer sprites.
+    - type: Tweak
+      message: Port new cables from upstream.
+  id: 363
+  time: '2025-06-01T23:21:11.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: >-
+        Thaven are immune to the drug effects of Shimmering Blood and Fever
+        Dream.
+  id: 364
+  time: '2025-06-01T23:22:05.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Add
+      message: >-
+        Animal eyes can be used in heretic rituals (animal eyes now have the
+        eyes tag assigned to it)
+  id: 365
+  time: '2025-06-04T01:25:15.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Add
+      message: Added velociraptor cubes to emagged biocube fabricators
+  id: 366
+  time: '2025-06-04T01:29:01.0000000+00:00'
+- author: The048
+  changes:
+    - type: Tweak
+      message: On Origin, redesigned the armory
+    - type: Tweak
+      message: >-
+        On Origin, made minor fixes to the security department regarding
+        spawnpoints and item placement
+  id: 367
+  time: '2025-06-05T06:16:08.0000000+00:00'
+- author: taydeo, Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        Changelings can now sting one alive person for DNA extraction, then
+        other targets must be either crit or dead.
+    - type: Add
+      message: >-
+        Changelings now eat random non-vital organs and a limb when absorbing
+        someone.
+    - type: Remove
+      message: >-
+        Removed hollowing text on absorbed bodies, and removed genetic damage
+        dealt when absorbing.
+    - type: Remove
+      message: Ferrochromic Acid no longer replaces someones blood when absorbed.
+    - type: Tweak
+      message: >-
+        The metashield for Changelings has been changed to account for hollowing
+        changes, and now allows for bloodtests in very specific circumstances.
+    - type: Tweak
+      message: >-
+        The Medical Biofabricator is now significantly cheaper to operate, with
+        prices being more than halved overall for all objects except the Heart.
+    - type: Tweak
+      message: >-
+        All organ and limb print times have been reduced to 10 seconds in the
+        Medical Biofabricator.
+    - type: Tweak
+      message: >-
+        Heretics now have a slightly greater chance to spawn, and Thieves have a
+        slightly lower chance to spawn.
+    - type: Tweak
+      message: >-
+        Cosmic Cult now has a greater chance of rolling, and Changeling a
+        slightly lower chance of rolling.
+  id: 368
+  time: '2025-06-05T07:42:43.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Fix
+      message: Fixed IPCs not being able to heal caustic damage or take ion damage
+  id: 369
+  time: '2025-06-05T07:47:13.0000000+00:00'
+- author: ptrcnull
+  changes:
+    - type: Tweak
+      message: >-
+        Fixed the economy once and for all by nerfing firelock electronics
+        selling price.
+  id: 370
+  time: '2025-06-05T07:48:28.0000000+00:00'

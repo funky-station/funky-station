@@ -1,22 +1,7 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vyacheslav Titov <rincew1nd@ya.ru>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
+using Content.Server.Codewords;
 using Content.Shared.Dataset;
-﻿using Content.Shared.NPC.Prototypes;
+using Content.Shared.FixedPoint;
+using Content.Shared.NPC.Prototypes;
 using Content.Shared.Random;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
@@ -34,23 +19,36 @@ public sealed partial class TraitorRuleComponent : Component
     public ProtoId<AntagPrototype> TraitorPrototypeId = "Traitor";
 
     [DataField]
+    public ProtoId<CodewordFactionPrototype> CodewordFactionPrototypeId = "Traitor";
+
+    [DataField]
     public ProtoId<NpcFactionPrototype> NanoTrasenFaction = "NanoTrasen";
 
     [DataField]
     public ProtoId<NpcFactionPrototype> SyndicateFaction = "Syndicate";
 
     [DataField]
-    public ProtoId<DatasetPrototype> CodewordAdjectives = "adjectives";
+    public ProtoId<LocalizedDatasetPrototype> ObjectiveIssuers = "TraitorCorporations";
 
+    /// <summary>
+    /// Give this traitor an Uplink on spawn.
+    /// </summary>
     [DataField]
-    public ProtoId<DatasetPrototype> CodewordVerbs = "verbs";
+    public bool GiveUplink = true;
 
+    /// <summary>
+    /// Give this traitor the codewords.
+    /// </summary>
     [DataField]
-    public ProtoId<DatasetPrototype> ObjectiveIssuers = "TraitorFlavor"; // goob edit
+    public bool GiveCodewords = true;
+
+    /// <summary>
+    /// Give this traitor a briefing in chat.
+    /// </summary>
+    [DataField]
+    public bool GiveBriefing = true;
 
     public int TotalTraitors => TraitorMinds.Count;
-    public string[] Codewords = new string[3];
-    public string ObjectiveIssuer = string.Empty; // goob edit
 
     public enum SelectionState
     {
@@ -77,14 +75,8 @@ public sealed partial class TraitorRuleComponent : Component
     public SoundSpecifier GreetSoundNotification = new SoundPathSpecifier("/Audio/Ambience/Antag/traitor_start.ogg");
 
     /// <summary>
-    /// The amount of codewords that are selected.
-    /// </summary>
-    [DataField]
-    public int CodewordCount = 4;
-
-    /// <summary>
     /// The amount of TC traitors start with.
     /// </summary>
     [DataField]
-    public int StartingBalance = 100;
+    public FixedPoint2 StartingBalance = 20;
 }

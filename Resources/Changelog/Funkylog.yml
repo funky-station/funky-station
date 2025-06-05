@@ -3054,3 +3054,9 @@ Entries:
         slightly lower chance of rolling.
   id: 368
   time: '2025-06-05T07:42:43.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Fix
+      message: Fixed IPCs not being able to heal caustic damage or take ion damage
+  id: 369
+  time: '2025-06-05T07:47:13.0000000+00:00'

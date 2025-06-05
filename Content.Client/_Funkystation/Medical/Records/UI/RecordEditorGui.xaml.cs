@@ -244,11 +244,12 @@ public sealed partial class RecordEditorGui : Control
 
             var category = _prototypeManager.Index<MedicalInfoCategoryPrototype>(categoryId);
 
+            // need to fix this
             var dividerContainer = new PanelContainer
             {
                 HorizontalExpand = true,
                 Margin = new Thickness(5,10),
-                MaxSize = new Vector2(0, 2),
+                SetSize = new Vector2(0, 2),
                 PanelOverride = new StyleBoxFlat(Color.FromHex("#202028")),
             };
 
@@ -256,18 +257,19 @@ public sealed partial class RecordEditorGui : Control
             {
                 Margin = new Thickness(5),
                 Orientation = BoxContainer.LayoutOrientation.Vertical,
-                Name = Loc.GetString(category.Name),
+                Name = category.Name,
             };
 
             container.AddChild(new Label
             {
-                Text = category.Name,
+                Text = Loc.GetString(category.Name),
                 Margin = new Thickness(5),
             });
 
             MedicalInfoContainer.AddChild(container);
             MedicalInfoContainer.AddChild(dividerContainer);
 
+            // tldr remove last child if its the divider
             // if MedicalInfoContainer.Children.LastItem == dividerContainer
             // MedicalInfoContainer.Remove( dividercontainer / lastItem )
 
@@ -291,6 +293,9 @@ public sealed partial class RecordEditorGui : Control
                         UpdateRecords(_records.WithoutMedicalInfo(trait.ID, _prototypeManager));
                     }
 
+                    // need something here to not force players to save if
+                    // changes = default/prior profile
+                    // ex. checking and unchecking the same box
                     UpdateRecords(_records);
                 };
                 selectors.Add(selector);

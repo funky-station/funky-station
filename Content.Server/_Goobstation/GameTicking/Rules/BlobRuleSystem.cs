@@ -7,6 +7,7 @@ using Content.Server._Goobstation.Blob.Components;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
+using Content.Server.Communications;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
@@ -40,6 +41,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
         base.Initialize();
 
         SubscribeLocalEvent<BlobRuleComponent, AfterAntagEntitySelectedEvent>(AfterAntagSelected);
+        SubscribeLocalEvent<CommunicationConsoleCallShuttleAttemptEvent>(OnShuttleCallAttempt);
     }
 
     protected override void Started(EntityUid uid, BlobRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -112,18 +114,6 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
         Resolve(stationUid, ref stationUid.Comp, false);
 
         var stationName = Name(stationUid);
-
-        if (blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin)
-            && _roundEndSystem.ExpectedCountdownEnd != null)
-        {
-            _roundEndSystem.CancelRoundEndCountdown(checkCooldown: false);
-            _chatSystem.DispatchStationAnnouncement(stationUid,
-                Loc.GetString("blob-alert-recall-shuttle"),
-                Loc.GetString("Station"),
-                false,
-                null,
-                Color.Red);
-        }
 
         switch (blobRuleComp.Stage)
         {
@@ -299,5 +289,20 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
     private void AfterAntagSelected(EntityUid uid, BlobRuleComponent component, AfterAntagEntitySelectedEvent args)
     {
         MakeBlob(args.EntityUid);
+    }
+
+    private void OnShuttleCallAttempt(ref CommunicationConsoleCallShuttleAttemptEvent ev)
+    {
+        var check = new Dictionary<EntityUid, long>();
+        var blobCoreQuery = EntityQueryEnumerator<BlobCoreComponent, MetaDataComponent, TransformComponent>();
+        while (blobCoreQuery.MoveNext(out var ent, out var comp, out var md, out var xform))
+        {
+            if (CheckBlobInStation(ent, xform, out var stationUid))
+            {
+                ev.Cancelled = true;
+                ev.Reason = Loc.GetString("blob-alert-recall-shuttle");
+                return;
+            }
+        }
     }
 }

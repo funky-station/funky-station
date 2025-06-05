@@ -3060,3 +3060,11 @@ Entries:
       message: Fixed IPCs not being able to heal caustic damage or take ion damage
   id: 369
   time: '2025-06-05T07:47:13.0000000+00:00'
+- author: ptrcnull
+  changes:
+    - type: Tweak
+      message: >-
+        Fixed the economy once and for all by nerfing firelock electronics
+        selling price.
+  id: 370
+  time: '2025-06-05T07:48:28.0000000+00:00'

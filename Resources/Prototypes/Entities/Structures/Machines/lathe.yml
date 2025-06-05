@@ -321,6 +321,13 @@
     - GrenadeFlashBang # Goobstation
     - BolaEnergy # Goobstation
     - CartridgeEpinephrine # Goobstation
+    - MagazinePistolCaselessRifle # Goobstation
+    - MagazineBoxCaselessRifle # Goobstation
+    - MagazineLightRifleBoxEmpty # Goobstation
+    - MagazineLightRifleBox # Goobstation
+    #- MagazineHighCaliberEmpty # Goobstation - Burner not added yet
+    #- MagazineHighCaliber # Goobstation
+    #- MagazineBoxHighCaliber # Goobstation
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -720,6 +727,7 @@
     - RightFootIPC
     - OrganIPCEyes
     - OrganIPCPump
+    - Oilpack #Delta-V
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleAdvancedCleaning
@@ -852,6 +860,7 @@
     - AbominationCube
     - SpaceCarpCube
     - SpaceTickCube
+    - VelociraptorCube #funky
 
 - type: entity
   id: SecurityTechFab
@@ -988,6 +997,15 @@
     - WeaponMechCombatDisabler
     - WeaponMechCombatFlashbangLauncher
     - WeaponMechCombatMissileRack8
+  - type: EmagLatheRecipes # Goobstation
+    emagStaticRecipes:
+    - MagazinePistolCaselessRifle # Goobstation
+    - MagazineBoxCaselessRifle # Goobstation
+    - MagazineLightRifleBoxEmpty # Goobstation
+    - MagazineLightRifleBox # Goobstation
+    #- MagazineHighCaliberEmpty # Goobstation - Burner not added yet
+    #- MagazineHighCaliber # Goobstation
+    #- MagazineBoxHighCaliber # Goobstation
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1038,12 +1056,21 @@
     - MagazineShotgunSlug
     - SpeedLoaderMagnum
     - SpeedLoaderMagnumEmpty
+  - type: EmagLatheRecipes # Goobstation
+    emagStaticRecipes:
+    - MagazinePistolCaselessRifle # Goobstation
+    - MagazineBoxCaselessRifle # Goobstation
+    - MagazineLightRifleBoxEmpty # Goobstation
+    - MagazineLightRifleBox # Goobstation
+    #- MagazineHighCaliberEmpty # Goobstation - Burner not added yet
+    #- MagazineHighCaliber # Goobstation
+    #- MagazineBoxHighCaliber # Goobstation
   - type: MaterialStorage
     whitelist:
       tags:
-      - Sheet
-      - RawMaterial
-      - Ingot
+        - Sheet
+        - RawMaterial
+        - Ingot
 
 - type: entity
   id: MedicalTechFab
@@ -1110,6 +1137,7 @@
     - MedicalPatchRapid #Goobstation - MedicalPatch
     - MedicalPatchLarge #Goobstation - MedicalPatch
     - BoneGel # Shitmed Change
+    - Oilpack #Delta-V
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

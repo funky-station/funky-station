@@ -829,6 +829,9 @@
           amount: 1
           defaultPrototype: SaxophoneInstrument
           examineName: construction-insert-info-examine-name-instrument-woodwind
+  - type: Tag
+    tags:
+    - DawInstrumentMachineCircuitboard  # Funky Station -- required for the musician hardsuit to be craftable
 
 - type: entity
   id: PortableGeneratorPacmanMachineCircuitboard

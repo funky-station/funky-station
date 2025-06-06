@@ -39,6 +39,10 @@
     sprite: Clothing/OuterClothing/Misc/apron.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/apron.rsi
+  - type: Tag
+    tags:
+    - Apron
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -51,6 +55,10 @@
     sprite: Clothing/OuterClothing/Misc/apronbar.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/apronbar.rsi
+  - type: Tag
+    tags:
+    - Apron
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -63,6 +71,10 @@
     sprite: Clothing/OuterClothing/Misc/apronbotanist.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/apronbotanist.rsi
+  - type: Tag
+    tags:
+    - Apron
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -75,6 +87,10 @@
     sprite: Clothing/OuterClothing/Misc/apronchef.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/apronchef.rsi
+  - type: Tag
+    tags:
+    - Apron
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingOuterStorageBase

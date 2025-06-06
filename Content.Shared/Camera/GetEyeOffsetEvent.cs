@@ -21,7 +21,7 @@ public record struct GetEyeOffsetEvent(Vector2 Offset);
 
 /// <summary>
 ///     Raised on any equipped and in-hand items that may modify the eye offset.
-///     Pockets and suitstorage are excluded.
+///     Pockets, tankstorage, and backstorage are excluded.
 /// </summary>
 [ByRefEvent]
 public sealed class GetEyeOffsetRelayedEvent : EntityEventArgs, IInventoryRelayEvent

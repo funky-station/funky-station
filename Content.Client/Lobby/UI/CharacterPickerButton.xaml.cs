@@ -70,7 +70,7 @@ public sealed partial class CharacterPickerButton : ContainerButton
 
         // Set up the StyleBoxTextures for the outlines...
         foreach (var panel in new List<PanelContainer>
-                     { EnabledCheckOutline, DeleteButtonOutline, ConfirmDeleteButtonOutline })
+                     { EnabledCheckOutline, DeleteButtonOutline })
         {
             if (panel.PanelOverride is not StyleBoxTexture styleBox)
                 continue;
@@ -91,17 +91,10 @@ public sealed partial class CharacterPickerButton : ContainerButton
         {
             AddStyleClass("OpenRight");
             DeleteButtonOutline.Visible = !isSelected;
-            ConfirmDeleteButton.OnPressed += _ =>
-            {
-                Parent?.RemoveChild(this);
-                Parent?.RemoveChild(ConfirmDeleteButton);
-                OnDeletePressed?.Invoke();
-            };
 
             DeleteButton.OnPressed += _ =>
             {
-                DeleteButtonOutline.Visible = false;
-                ConfirmDeleteButtonOutline.Visible = true;
+                OnDeletePressed?.Invoke();
             };
 
             EnabledCheck.OnToggled += args =>

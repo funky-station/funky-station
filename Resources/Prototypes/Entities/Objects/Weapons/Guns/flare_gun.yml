@@ -37,7 +37,7 @@
     quickEquip: false
     slots:
     - Belt
-    - suitStorage
+    - weaponStorage
   - type: Appearance
   - type: Gun
     fireRate: 8

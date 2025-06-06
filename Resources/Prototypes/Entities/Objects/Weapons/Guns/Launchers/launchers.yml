@@ -39,7 +39,7 @@
     sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
     slots:
     - Back
-    - suitStorage
+    - weaponStorage
   - type: AmmoCounter
   - type: Gun
     fireRate: 0.6 # Goobstation

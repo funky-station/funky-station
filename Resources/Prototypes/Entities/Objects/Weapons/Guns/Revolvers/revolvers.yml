@@ -19,7 +19,7 @@
     sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
     quickEquip: false
     slots:
-    - suitStorage
+    - weaponStorage
     - Belt
   - type: AmmoCounter
   - type: Gun

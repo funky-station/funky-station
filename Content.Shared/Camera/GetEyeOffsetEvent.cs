@@ -26,7 +26,7 @@ public record struct GetEyeOffsetEvent(Vector2 Offset);
 [ByRefEvent]
 public sealed class GetEyeOffsetRelayedEvent : EntityEventArgs, IInventoryRelayEvent
 {
-    public SlotFlags TargetSlots { get; } = ~(SlotFlags.POCKET & SlotFlags.SUITSTORAGE);
+    public SlotFlags TargetSlots { get; } = ~(SlotFlags.POCKET & SlotFlags.TANKSTORAGE & SlotFlags.WEAPONSTORAGE);
 
     public Vector2 Offset;
 }

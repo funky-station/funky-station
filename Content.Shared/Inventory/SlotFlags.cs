@@ -25,7 +25,9 @@ public enum SlotFlags
     POCKET = 1 << 12,
     LEGS = 1 << 13,
     FEET = 1 << 14,
-    SUITSTORAGE = 1 << 15,
+    WEAPONSTORAGE = 1 << 15,
+    TANKSTORAGE = 1 << 16,
+    SUITSTORAGE = 1 << 17,
     All = ~NONE,
 
     WITHOUT_POCKET = All & ~POCKET

@@ -1,0 +1,60 @@
+﻿# allergies
+- type: medicalInfo
+  id: danderAllergy
+  name: medical-info-allergies-dander
+  category: Allergies
+
+- type: medicalInfo
+  id: eggsAllergy
+  name: medical-info-allergies-eggs
+  category: Allergies
+
+- type: medicalInfo
+  id: fragrancesAllergy
+  name: medical-info-allergies-fragrances
+  category: Allergies
+
+- type: medicalInfo
+  id: hugsAllergy
+  name: medical-info-allergies-hugs
+  category: Allergies
+
+- type: medicalInfo
+  id: latexAllergy
+  name: medical-info-allergies-latex
+  category: Allergies
+
+- type: medicalInfo
+  id: milkAllergy
+  name: medical-info-allergies-milk
+  category: Allergies
+
+- type: medicalInfo
+  id: moldAllergy
+  name: medical-info-allergies-mold
+  category: Allergies
+
+- type: medicalInfo
+  id: nickelAllergy
+  name: medical-info-allergies-nickel
+  category: Allergies
+
+- type: medicalInfo
+  id: nutsAllergy
+  name: medical-info-allergies-nuts
+  category: Allergies
+
+- type: medicalInfo
+  id: pollenAllergy
+  name: medical-info-allergies-pollen
+  category: Allergies
+
+- type: medicalInfo
+  id: shellfishAllergy
+  name: medical-info-allergies-shellfish
+  category: Allergies
+
+- type: medicalInfo
+  id: wheatAllergy
+  name: medical-info-allergies-wheat
+  category: Allergies

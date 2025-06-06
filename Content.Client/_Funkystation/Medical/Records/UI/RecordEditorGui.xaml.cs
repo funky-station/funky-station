@@ -35,7 +35,7 @@ public sealed partial class RecordEditorGui : Control
         _updateProfileRecords = updateProfileRecords;
         _prototypeManager = prototypeManager;
 
-        #region initialization
+        #region Dropdowns
 
         // add options to each dropdown depending on the enums
         foreach (var insuranceProvider in Enum.GetValues<InsuranceProviders>())
@@ -55,7 +55,7 @@ public sealed partial class RecordEditorGui : Control
 
         #endregion
 
-        #region GeneralInformation
+        #region General Information
 
         HeightEdit.OnTextChanged += args =>
         {
@@ -100,7 +100,7 @@ public sealed partial class RecordEditorGui : Control
 
         #endregion
 
-        #region MedicalInformation
+        #region Medical Information
 
         BloodTypeDropdown.OnItemSelected += args =>
         {
@@ -143,13 +143,16 @@ public sealed partial class RecordEditorGui : Control
 
         InsuranceCheckBox.Pressed = _records.HasInsurance;
 
-        // this feels nasty
+        // no insurance? then no insurance company or plan. sorry.
+        // feels kinda nasty but whatever
         if (_records.HasInsurance == false)
         {
             InsuranceCompanyDropdown.SelectId(0);
+            UpdateRecords(_records.WithInsuranceProvider(0));
             InsuranceCompanyDropdown.Disabled = true;
 
             InsurancePlanDropdown.SelectId(0);
+            UpdateRecords(_records.WithInsuranceType(0));
             InsurancePlanDropdown.Disabled = true;
         }
         else
@@ -216,7 +219,7 @@ public sealed partial class RecordEditorGui : Control
         {
             MedicalInfoContainer.AddChild(new Label
             {
-                Text = Loc.GetString("humanoid-profile-editor-no-traits"),
+                Text = Loc.GetString("medical-info-no-info"),
                 FontColorOverride = Color.Gray,
             });
             return;
@@ -226,15 +229,18 @@ public sealed partial class RecordEditorGui : Control
 
         foreach (var entry in info)
         {
-            if (entry.Category == null)
+            if (entry.Category == null || entry.Category == MedicalInfoCategoryPrototype.Default)
             {
-                _sawmill.Warning($"Medical Info prototype {entry.ID} is missing a category and will be skipped.");
+                _sawmill.Warning($"Medical Info prototype {entry.ID} is missing a category (current category: {entry.Category}) and will be skipped.");
                 continue;
             }
 
             var group = infoGroups.GetOrNew(entry.Category);
             group.Add(entry.ID);
         }
+
+        // organize the dictionary after it gens so it stops randomizing the order of the columns
+        infoGroups.OrderBy(t => t);
 
         // setup ui
         foreach (var (categoryId, categoryInfo) in infoGroups)
@@ -244,34 +250,33 @@ public sealed partial class RecordEditorGui : Control
 
             var category = _prototypeManager.Index<MedicalInfoCategoryPrototype>(categoryId);
 
-            // need to fix this
             var dividerContainer = new PanelContainer
             {
-                HorizontalExpand = true,
+                VerticalExpand = true,
                 Margin = new Thickness(5,10),
-                SetSize = new Vector2(0, 2),
+                SetWidth = 2,
                 PanelOverride = new StyleBoxFlat(Color.FromHex("#202028")),
             };
 
             var container = new BoxContainer
             {
-                Margin = new Thickness(5),
+                HorizontalExpand = true,
+                Margin = new Thickness(10,5),
                 Orientation = BoxContainer.LayoutOrientation.Vertical,
-                Name = category.Name,
             };
 
             container.AddChild(new Label
             {
                 Text = Loc.GetString(category.Name),
                 Margin = new Thickness(5),
+                Align = Label.AlignMode.Center,
             });
 
             MedicalInfoContainer.AddChild(container);
-            MedicalInfoContainer.AddChild(dividerContainer);
 
-            // tldr remove last child if its the divider
-            // if MedicalInfoContainer.Children.LastItem == dividerContainer
-            // MedicalInfoContainer.Remove( dividercontainer / lastItem )
+            // don't add the divider if its the last entry
+            if (categoryId != infoGroups.Keys.Last())
+                MedicalInfoContainer.AddChild(dividerContainer);
 
             List<RecordChecklistEntry> selectors = new();
 
@@ -292,10 +297,6 @@ public sealed partial class RecordEditorGui : Control
                     {
                         UpdateRecords(_records.WithoutMedicalInfo(trait.ID, _prototypeManager));
                     }
-
-                    // need something here to not force players to save if
-                    // changes = default/prior profile
-                    // ex. checking and unchecking the same box
                     UpdateRecords(_records);
                 };
                 selectors.Add(selector);

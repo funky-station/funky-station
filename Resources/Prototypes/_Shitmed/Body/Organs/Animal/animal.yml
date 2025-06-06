@@ -22,7 +22,7 @@
     solutions:
       organ:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: GreyMatter # Funky - why would it become nutriment when blended?
           Quantity: 10
       food:
         maxVol: 5

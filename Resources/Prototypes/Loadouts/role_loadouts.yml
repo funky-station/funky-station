@@ -232,6 +232,7 @@
   id: JobChiefEngineer
   groups:
   - ChiefEngineerHead
+  - EngineeringGoggles #Funky
   - ChiefEngineerJumpsuit
   - StationEngineerBackpack
   - ChiefEngineerNeck
@@ -254,6 +255,7 @@
   id: JobStationEngineer
   groups:
   - StationEngineerHead
+  - EngineeringGoggles #Funky
   - StationEngineerJumpsuit
   - StationEngineerBackpack
   - StationEngineerOuterClothing
@@ -267,6 +269,7 @@
   id: JobAtmosphericTechnician
   groups:
   - AtmosphericTechnicianHead # Goobstation
+  - EngineeringGoggles
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
@@ -322,6 +325,7 @@
   id: JobHeadOfSecurity
   groups:
   - HeadofSecurityHead
+  - SecurityGlasses #Funky
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
   - SecurityBackpack
@@ -337,6 +341,7 @@
   id: JobWarden
   groups:
   - WardenHead
+  - SecurityGlasses #Funky
   - WardenJumpsuit
   - WardenNeck
   - SecurityBackpack
@@ -353,6 +358,7 @@
   groups:
   - SecurityHead
   - SecurityJumpsuit
+  - SecurityGlasses #Funky
   - SecurityNeck
   - SecurityBackpack
   - SecurityOuterClothing
@@ -369,6 +375,7 @@
   groups:
   - DetectiveHead
   - DetectiveNeck
+  - SecurityGlasses #Funky
   - DetectiveJumpsuit
   - SecurityBackpack
   - DetectiveOuterClothing
@@ -394,6 +401,7 @@
   groups:
   - ChiefMedicalOfficerHead
   - MedicalMask
+  - MedicalDoctorGlasses #Funky
   - ChiefMedicalOfficerJumpsuit
   - MedicalGloves
   - MedicalBackpack
@@ -410,6 +418,7 @@
   groups:
   - MedicalDoctorHead
   - MedicalMask
+  - MedicalDoctorGlasses
   - MedicalDoctorJumpsuit
   - MedicalGloves
   - MedicalBackpack
@@ -435,6 +444,7 @@
   id: JobChemist
   groups:
   - MedicalMask
+  - MedicalChemistGlasses #Funky
   - ChemistJumpsuit
   - MedicalGloves
   - ChemistBackpack
@@ -449,6 +459,7 @@
   groups:
   - ParamedicHead
   - MedicalMask
+  - MedicalDoctorGlasses #Funky
   - ParamedicJumpsuit
   - MedicalGloves
   - MedicalBackpack

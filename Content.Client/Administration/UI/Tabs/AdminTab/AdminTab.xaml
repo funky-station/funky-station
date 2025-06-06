@@ -4,7 +4,6 @@
     xmlns="https://spacestation14.io"
     xmlns:at="clr-namespace:Content.Client.Administration.UI.Tabs.AdminTab"
     xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
-    xmlns:cdAdmin="clr-namespace:Content.Client._CD.Admin.UI"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <BoxContainer Orientation="Vertical">
         <GridContainer Columns="3">
@@ -28,11 +27,6 @@
             <cc:CommandButton Command="faxui" Text="{Loc admin-player-actions-window-admin-fax}" />
             <cc:CommandButton Command="timetransferpanel" Text="{Loc admin-player-actions-window-time-transfer}" />
             <cc:CommandButton Command="achatwindow" Text="{Loc admin-player-actions-window-admin-chat}" />
-            <!--  CD: records purge button  -->
-            <cc:UICommandButton
-                Command="purgecharacterrecords"
-                Text="{Loc admin-player-actions-window-cd-record-purge}"
-                WindowType="{x:Type cdAdmin:ModifyCharacterRecords}" />
         </GridContainer>
     </BoxContainer>
 </Control>

@@ -15,7 +15,7 @@
     slots:
     - Back
     - Belt
-    - suitStorage
+    - backStorage
   - type: BallisticAmmoProvider
     proto: null
     whitelist:

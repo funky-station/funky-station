@@ -15,7 +15,7 @@
     quickEquip: false
     slots:
     - Back
-    - weaponStorage
+    - backStorage
   - type: Wieldable
     unwieldOnUse: false
   - type: GunWieldBonus

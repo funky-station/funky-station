@@ -24,9 +24,9 @@
 
 - type: entity
   abstract: true
-  id: AllowWeaponStorageClothing
+  id: AllowBackStorageClothing
   components:
-  - type: AllowWeaponStorage
+  - type: AllowBackStorage
 
 - type: entity
   abstract: true

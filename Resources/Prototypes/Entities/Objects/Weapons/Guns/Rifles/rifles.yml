@@ -13,7 +13,7 @@
     quickEquip: false
     slots:
     - Back
-    - weaponStorage
+    - backStorage
   - type: AmmoCounter
   - type: Gun
     fireRate: 5

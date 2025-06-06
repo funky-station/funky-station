@@ -11,7 +11,7 @@
     quickEquip: false
     slots:
     - Back
-    - weaponStorage
+    - backStorage
   - type: AmmoCounter
   - type: Gun
     fireRate: 2
@@ -89,7 +89,7 @@
     quickEquip: false
     slots:
     - Belt
-    - weaponStorage
+    - backStorage
 
 - type: entity
   id: BaseWeaponPowerCellSmall
@@ -515,7 +515,7 @@
     sprite: Objects/Weapons/Guns/Battery/disabler.rsi
     quickEquip: false
     slots:
-      - weaponStorage
+      - backStorage
       - Belt
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
@@ -854,7 +854,7 @@
     quickEquip: false # Frontier
     slots: # Frontier
     # - Back # Frontier
-    - suitStorage #Frontier
+    - backStorage #Frontier
     sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
   - type: Gun
     soundGunshot:

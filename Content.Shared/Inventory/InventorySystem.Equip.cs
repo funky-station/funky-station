@@ -254,7 +254,7 @@ public abstract partial class InventorySystem
                         _whitelistSystem.IsWhitelistFailOrNull(tankComp.Whitelist, itemUid))
                         return false;
 
-                    if (TryComp<AllowWeaponStorageComponent>(slotEntity, out var weaponComp) &&
+                    if (TryComp<AllowBackStorageComponent>(slotEntity, out var weaponComp) &&
                         _whitelistSystem.IsWhitelistFailOrNull(weaponComp.Whitelist, itemUid))
                         return false;
                 }

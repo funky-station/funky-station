@@ -43,16 +43,16 @@
       uiWindowPos: 1,3
       strippingWindowPos: 1,0
       displayName: Head
-    - name: weaponstorage
+    - name: backstorage
       slotTexture: suit_storage
-      slotFlags:   WEAPONSTORAGE
+      slotFlags:   BACKSTORAGE
       slotGroup: MainHotbar
       stripTime: 3
       uiWindowPos: 2,0
       strippingWindowPos: 2,5
       dependsOn: outerClothing
       dependsOnComponents:
-      - type: AllowWeaponStorage
+      - type: AllowBackStorage
       displayName: Weapon Storage
     - name: tankstorage
       slotTexture: suit_storage

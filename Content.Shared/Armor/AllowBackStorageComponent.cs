@@ -6,7 +6,7 @@ namespace Content.Shared.Armor;
 ///     Used on outerclothing to allow use of weapon storage
 /// </summary>
 [RegisterComponent]
-public sealed partial class AllowWeaponStorageComponent : Component
+public sealed partial class AllowBackStorageComponent : Component
 {
     /// <summary>
     /// Whitelist for what entities are allowed in the weapon storage slot.

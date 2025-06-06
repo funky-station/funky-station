@@ -16,7 +16,7 @@
     quickEquip: false
     slots:
     - Back
-    - weaponStorage
+    - backStorage
   - type: AmmoCounter
   - type: Gun
     fireRate: 0.8 # Goobstation

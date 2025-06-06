@@ -13,7 +13,7 @@
     quickEquip: false
     slots:
       - Back
-      - weaponStorage
+      - backStorage
   - type: Wieldable
     wieldSound:
       path: /Audio/Items/bow_pull.ogg

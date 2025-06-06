@@ -98,7 +98,7 @@
     quickEquip: false
     slots:
     - Belt
-    - suitStorage
+    - backStorage
     - Back
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
   - type: Gun

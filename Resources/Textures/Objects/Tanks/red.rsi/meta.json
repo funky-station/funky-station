@@ -70,10 +70,6 @@
     {
       "name": "inhand-right",
       "directions": 4
-    },
-	{
-	  "name": "equipped-TANKSTORAGE",
-	  "directions": 4
-	}
+    }
   ]
 }

@@ -11,9 +11,6 @@
   id: BolaEnergy
 
 - type: Tag
-  id: AutoinjectorCartridge
-
-- type: Tag
   id: AutoinjectorCartridgeCase
 
 - type: Tag

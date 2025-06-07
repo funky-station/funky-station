@@ -9,12 +9,6 @@
                 Margin="10"
                 Orientation="Vertical">
 
-                <!--
-                    TODO:
-                    - put check boxes into scroll boxes
-                    - auto gen check boxes in c# via yml protos
-                -->
-
                 <!--  header; General Information  -->
                 <PanelContainer>
                     <PanelContainer.PanelOverride>
@@ -158,6 +152,28 @@
                         Orientation="Horizontal" />
 
                 </BoxContainer>
+
+                <BoxContainer
+                    Access="Public"
+                    HorizontalExpand="True"
+                    Name="PersonalInfoContainer"
+                    Orientation="Vertical"
+                    Visible="False">
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <graphics:StyleBoxFlat BackgroundColor="#202028" />
+                        </PanelContainer.PanelOverride>
+
+                        <BoxContainer
+                            HorizontalAlignment="Center"
+                            HorizontalExpand="True"
+                            Margin="5"
+                            Orientation="Horizontal">
+                            <Label Text="Personal Information" />
+                        </BoxContainer>
+                    </PanelContainer>
+                </BoxContainer>
+
             </BoxContainer>
         </ScrollContainer>
     </BoxContainer>

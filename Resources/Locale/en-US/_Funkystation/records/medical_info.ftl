@@ -21,13 +21,13 @@ medical-info-allergies-wheat = Wheat
 
 # prescriptions
 medical-info-prescriptions-antacids = Antacids
-medical-info-prescriptions-antianxiety = Anti-Anxiety Medication
+medical-info-prescriptions-antianxiety = Anti-anxiety Medication
 medical-info-prescriptions-antiarrhythmics = Antiarrhythmics
 medical-info-prescriptions-antidepressants = Antidepressants
 medical-info-prescriptions-anticonvulsants = Anticonvulsants
 medical-info-prescriptions-antiepileptics = Antiepileptics
 medical-info-prescriptions-antihistamines = Antihistamines
-medical-info-prescriptions-betablockers = Beta-Blockers
+medical-info-prescriptions-betablockers = Beta-blockers
 medical-info-prescriptions-bloodthinners = Blood Thinners
 medical-info-prescriptions-hormones = Hormones
 medical-info-prescriptions-immunosuppressives = Immunosuppressives

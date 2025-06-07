@@ -489,8 +489,15 @@ namespace Content.Client.Lobby.UI
                     return;
 
                 _flavorText = new FlavorText.FlavorText();
-                TabContainer.AddChild(_flavorText);
-                TabContainer.SetTabTitle(TabContainer.ChildCount - 1, Loc.GetString("humanoid-profile-editor-flavortext-tab"));
+
+                // begin funky - flavor text is in the Records tab now
+                _recordsTab.PersonalInfoContainer.Visible = true;
+                _recordsTab.PersonalInfoContainer.AddChild(_flavorText);
+
+                // TabContainer.AddChild(_flavorText);
+                // TabContainer.SetTabTitle(TabContainer.ChildCount - 1, Loc.GetString("humanoid-profile-editor-flavortext-tab"));
+                // end funky
+
                 _flavorTextEdit = _flavorText.CFlavorTextInput;
 
                 _flavorText.OnFlavorTextChanged += OnFlavorTextChange;
@@ -500,7 +507,13 @@ namespace Content.Client.Lobby.UI
                 if (_flavorText == null)
                     return;
 
-                TabContainer.RemoveChild(_flavorText);
+                // begin funky - flavor text is in the Records tab now
+                _recordsTab.PersonalInfoContainer.Visible = false;
+                _recordsTab.PersonalInfoContainer.RemoveChild(_flavorText);
+
+                // TabContainer.RemoveChild(_flavorText);
+                // end funky
+
                 _flavorText.OnFlavorTextChanged -= OnFlavorTextChange;
                 _flavorText.Dispose();
                 _flavorTextEdit?.Dispose();

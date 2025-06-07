@@ -250,6 +250,8 @@ public sealed partial class RecordEditorGui : Control
 
             var category = _prototypeManager.Index<MedicalInfoCategoryPrototype>(categoryId);
 
+            // having to define all of these different containers
+            // to get the layout feels wrong but whatever
             var dividerContainer = new PanelContainer
             {
                 VerticalExpand = true,
@@ -258,20 +260,24 @@ public sealed partial class RecordEditorGui : Control
                 PanelOverride = new StyleBoxFlat(Color.FromHex("#202028")),
             };
 
-            var container = new BoxContainer
+            var container = new ScrollContainer
             {
                 HorizontalExpand = true,
+                HScrollEnabled = false,
                 Margin = new Thickness(10,5),
-                Orientation = BoxContainer.LayoutOrientation.Vertical,
+                SetHeight = 200f,
             };
 
-            container.AddChild(new Label
+            var layout = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical };
+
+            layout.AddChild(new Label
             {
                 Text = Loc.GetString(category.Name),
                 Margin = new Thickness(5),
                 Align = Label.AlignMode.Center,
             });
 
+            container.AddChild(layout);
             MedicalInfoContainer.AddChild(container);
 
             // don't add the divider if its the last entry
@@ -302,7 +308,7 @@ public sealed partial class RecordEditorGui : Control
                 selectors.Add(selector);
             }
 
-            foreach (var selector in selectors) { container.AddChild(selector); }
+            foreach (var selector in selectors) { layout.AddChild(selector); }
         }
     }
 }

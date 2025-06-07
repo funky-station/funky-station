@@ -1,6 +1,4 @@
 ﻿# family history
-# there are loc ids missing from here
-# i wanted all of the categories to be roughly the same, so i cut couple from here
 - type: medicalInfo
   id: anemiaFamilyHistory
   name: medical-info-familyhistory-anemia
@@ -47,13 +45,38 @@
   category: FamilyHistory
 
 - type: medicalInfo
+  id: heartdiseaseFamilyHistory
+  name: medical-info-familyhistory-heartdisease
+  category: FamilyHistory
+
+- type: medicalInfo
   id: bloodpressureFamilyHistory
   name: medical-info-familyhistory-bloodpressure
   category: FamilyHistory
 
 - type: medicalInfo
+  id: hivFamilyHistory
+  name: medical-info-familyhistory-hiv
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: kidneydiseaseFamilyHistory
+  name: medical-info-familyhistory-kidneydisease
+  category: FamilyHistory
+
+- type: medicalInfo
   id: kidneystonesFamilyHistory
   name: medical-info-familyhistory-kidneystones
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: liverdiseaseFamilyHistory
+  name: medical-info-familyhistory-liverdisease
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: lungdiseaseFamilyHistory
+  name: medical-info-familyhistory-lungdisease
   category: FamilyHistory
 
 - type: medicalInfo
@@ -74,4 +97,9 @@
 - type: medicalInfo
   id: sleepapneaFamilyHistory
   name: medical-info-familyhistory-sleepapnea
+  category: FamilyHistory
+
+- type: medicalInfo
+  id: strokeFamilyHistory
+  name: medical-info-familyhistory-stroke
   category: FamilyHistory

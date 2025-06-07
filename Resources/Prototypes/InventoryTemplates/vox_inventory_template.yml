@@ -1,3 +1,4 @@
+# Humans, but they can always wear a gas tank
 - type: inventoryTemplate
   id: vox
   slots:
@@ -129,5 +130,4 @@
       stripTime: 3
       uiWindowPos: 3,0
       strippingWindowPos: 3, 5
-      dependsOn: outerClothing
       displayName: Tank Storage

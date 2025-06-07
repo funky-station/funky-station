@@ -1,26 +1,28 @@
-﻿- type: inventoryTemplate
+﻿# Human with extra pockets
+
+- type: inventoryTemplate
   id: arachnid
   slots:
-    - name: shoes
-      slotTexture: shoes
-      slotFlags: FEET
+    - name: eyes
+      slotTexture: glasses
+      slotFlags: EYES
       stripTime: 3
-      uiWindowPos: 1,0
-      strippingWindowPos: 1,3
-      displayName: Shoes
-    - name: jumpsuit
-      slotTexture: uniform
-      slotFlags: INNERCLOTHING
-      stripTime: 6
-      uiWindowPos: 0,1
-      strippingWindowPos: 0,2
-      displayName: Jumpsuit
-    - name: gloves
-      slotTexture: gloves
-      slotFlags: GLOVES
-      uiWindowPos: 2,1
-      strippingWindowPos: 2,2
-      displayName: Gloves
+      uiWindowPos: 0,3
+      strippingWindowPos: 0,0
+      displayName: Eyes
+    - name: head
+      slotTexture: head
+      slotFlags: HEAD
+      uiWindowPos: 1,3
+      strippingWindowPos: 1,0
+      displayName: Head
+    - name: ears
+      slotTexture: ears
+      slotFlags: EARS
+      stripTime: 3
+      uiWindowPos: 2,2
+      strippingWindowPos: 2,0
+      displayName: Ears
     - name: neck
       slotTexture: neck
       slotFlags: NECK
@@ -33,26 +35,33 @@
       uiWindowPos: 1,2
       strippingWindowPos: 1,1
       displayName: Mask
-    - name: eyes
-      slotTexture: glasses
-      slotFlags: EYES
+    - name: gloves
+      slotTexture: gloves
+      slotFlags: GLOVES
+      uiWindowPos: 2,1
+      strippingWindowPos: 2,1
+      displayName: Gloves
+    - name: jumpsuit
+      slotTexture: uniform
+      slotFlags: INNERCLOTHING
+      stripTime: 6
+      uiWindowPos: 0,1
+      strippingWindowPos: 0,2
+      displayName: Jumpsuit
+    - name: outerClothing
+      slotTexture: suit
+      slotFlags: OUTERCLOTHING
+      stripTime: 6
+      uiWindowPos: 1,1
+      strippingWindowPos: 1,2
+      displayName: Suit
+    - name: shoes
+      slotTexture: shoes
+      slotFlags: FEET
       stripTime: 3
-      uiWindowPos: 0,3
-      strippingWindowPos: 0,0
-      displayName: Eyes
-    - name: ears
-      slotTexture: ears
-      slotFlags: EARS
-      stripTime: 3
-      uiWindowPos: 2,2
-      strippingWindowPos: 2,0
-      displayName: Ears
-    - name: head
-      slotTexture: head
-      slotFlags: HEAD
-      uiWindowPos: 1,3
-      strippingWindowPos: 1,0
-      displayName: Head
+      uiWindowPos: 1,0
+      strippingWindowPos: 1,3
+      displayName: Shoes
     - name: id
       slotTexture: id
       fullTextureName: template_small
@@ -60,7 +69,7 @@
       slotGroup: SecondHotbar
       stripTime: 6
       uiWindowPos: 2,1
-      strippingWindowPos: 2,4
+      strippingWindowPos: 1,4
       dependsOn: jumpsuit
       displayName: ID
     - name: belt
@@ -70,7 +79,7 @@
       slotGroup: SecondHotbar
       stripTime: 6
       uiWindowPos: 3,1
-      strippingWindowPos: 1,5
+      strippingWindowPos: 2,2
       displayName: Belt
     - name: back
       slotTexture: back
@@ -79,34 +88,30 @@
       slotGroup: SecondHotbar
       stripTime: 6
       uiWindowPos: 3,0
-      strippingWindowPos: 0,5
+      strippingWindowPos: 2,5
       displayName: Back
-
-    - name: pocket4
-      slotTexture: web
-      fullTextureName: template_small
-      slotFlags: POCKET
+    - name: backstorage
+      slotTexture: back_storage
+      slotFlags:   BACKSTORAGE
       slotGroup: MainHotbar
       stripTime: 3
-      uiWindowPos: 2,4
-      strippingWindowPos: 2,3
-      displayName: Pocket 4
-    - name: pocket3
-      slotTexture: web
-      fullTextureName: template_small
-      slotFlags: POCKET
+      uiWindowPos: 2,0
+      strippingWindowPos: 0,5
+      dependsOn: outerClothing
+      dependsOnComponents:
+      - type: AllowBackStorage
+      displayName: Back Storage
+    - name: tankstorage
+      slotTexture: tank_storage
+      slotFlags:   TANKSTORAGE
       slotGroup: MainHotbar
       stripTime: 3
-      uiWindowPos: 0,4
-      strippingWindowPos: 0,3
-      displayName: Pocket 3
-    - name: outerClothing
-      slotTexture: suit
-      slotFlags: OUTERCLOTHING
-      stripTime: 6
-      uiWindowPos: 1,1
-      strippingWindowPos: 1,2
-      displayName: Suit
+      uiWindowPos: 3,0
+      strippingWindowPos: 1, 5
+      dependsOn: outerClothing
+      dependsOnComponents:
+      - type: AllowTankStorage
+      displayName: Tank Storage
     - name: pocket1
       slotTexture: pocket
       fullTextureName: template_small
@@ -125,29 +130,29 @@
       slotGroup: MainHotbar
       stripTime: 3
       uiWindowPos: 2,3
-      strippingWindowPos: 1,4
+      strippingWindowPos: 2,4
       dependsOn: jumpsuit
       displayName: Pocket 2
       stripHidden: true
-    - name: backstorage
-      slotTexture: suit_storage
-      slotFlags:   BACKSTORAGE
+    - name: pocket3
+      slotTexture: web
+      fullTextureName: template_small
+      slotFlags: POCKET
       slotGroup: MainHotbar
       stripTime: 3
-      uiWindowPos: 2,0
-      strippingWindowPos: 2,5
-      dependsOn: outerClothing
-      dependsOnComponents:
-      - type: AllowBackStorage
-      displayName: Back Storage
-    - name: tankstorage
-      slotTexture: suit_storage
-      slotFlags:   TANKSTORAGE
+      uiWindowPos: 0,3
+      strippingWindowPos: 0,4
+      dependsOn: jumpsuit
+      displayName: Pocket 1
+      stripHidden: true
+    - name: pocket4
+      slotTexture: web
+      fullTextureName: template_small
+      slotFlags: POCKET
       slotGroup: MainHotbar
       stripTime: 3
-      uiWindowPos: 3,0
-      strippingWindowPos: 3, 5
-      dependsOn: outerClothing
-      dependsOnComponents:
-      - type: AllowTankStorage
-      displayName: Tank Storage
+      uiWindowPos: 2,3
+      strippingWindowPos: 2,4
+      dependsOn: jumpsuit
+      displayName: Pocket 2
+      stripHidden: true

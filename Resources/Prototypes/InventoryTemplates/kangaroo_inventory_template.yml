@@ -12,7 +12,7 @@
         - PetWearable
 
   - name: tankstorage
-    slotTexture: suit_storage
+    slotTexture: tank_storage
     slotFlags: TANKSTORAGE
     slotGroup: SecondHotbar
     stripTime: 3

@@ -35,7 +35,6 @@
   equipment:
     id: InternalAffairsAgentPDA
     shoes: ClothingShoesBootsLaceup
-    eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetCentCom
     pocket1: BookSpaceLaw
     pocket2: RubberStampIAA

@@ -31,6 +31,16 @@
   equipment:
     head: ClothingHeadBandSkull
 
+# Eyes - Funky
+- type: loadout
+  id: ScienceRoboNormGlasses
+  equipment:
+    eyes: ClothingEyesHudDiagnostic
+
+- type: loadout
+  id: ScienceRoboJamjarGlasses
+  equipment:
+    eyes: ClothingEyesGlassesRobojar
 # Neck
 
 - type: loadout

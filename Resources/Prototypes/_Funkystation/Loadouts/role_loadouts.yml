@@ -3,6 +3,7 @@
   groups:
   - ScientistHead
   - ScientistNeck
+  - ScienceRoboticistGlasses
   - ScientistJumpsuit
   - RoboticistBackpack
   - ScientistOuterClothing
@@ -17,6 +18,7 @@
 - type: roleLoadout
   id: JobInternalAffairsAgent
   groups:
+  - SecurityGlasses
   - InternalAffairsAgentJumpsuit
   - InternalAffairsAgentBackpack
   - InternalAffairsAgentBelt

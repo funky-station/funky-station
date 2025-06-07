@@ -72,6 +72,16 @@
   equipment:
     head: ClothingHeadNurseHat
 
+# Eyes - Funkystation
+- type: loadout
+  id: MedicalNormGlasses
+  equipment:
+    eyes: ClothingEyesHudMedical
+- type: loadout
+  id: MedicalJamjarGlasses
+  equipment:
+    eyes: ClothingEyesGlassesMedjar
+
 # Jumpsuit
 - type: loadout
   id: MedicalDoctorJumpsuit

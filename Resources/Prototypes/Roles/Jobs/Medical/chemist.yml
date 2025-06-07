@@ -30,7 +30,7 @@
     ears: ClothingHeadsetMedical
     belt: ChemBag
     pocket1: HandLabeler
-    eyes: ClothingEyesGlassesChemical
+#    eyes: ClothingEyesGlassesChemical
   #storage:
     #back:
     #- Stuff

@@ -84,6 +84,8 @@ public sealed partial class ScrubberControl : BoxContainer
 
         foreach (var value in Enum.GetValues<Gas>())
         {
+            if (value == Gas.Admemium)
+                continue;
             var gasButton = new Button
             {
                 Name = value.ToString(),
@@ -124,6 +126,8 @@ public sealed partial class ScrubberControl : BoxContainer
 
         foreach (var value in Enum.GetValues<Gas>())
         {
+            if (value == Gas.Admemium)
+                continue;
             _gasControls[value].Pressed = data.FilterGases.Contains(value);
         }
     }

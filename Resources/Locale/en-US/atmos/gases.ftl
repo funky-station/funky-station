@@ -18,4 +18,5 @@ gas-zauker-abbreviation = Z
 gas-halon-abbreviation = CBrF₃
 gas-helium-abbreviation = He
 gas-anti-noblium-abbreviation = AnNo
+gas-admemium-abbreviation = AdMeEm
 gas-unknown-abbreviation = X

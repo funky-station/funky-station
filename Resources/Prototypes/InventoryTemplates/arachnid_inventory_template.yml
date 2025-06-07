@@ -90,28 +90,6 @@
       uiWindowPos: 3,0
       strippingWindowPos: 2,5
       displayName: Back
-    - name: backstorage
-      slotTexture: back_storage
-      slotFlags:   BACKSTORAGE
-      slotGroup: MainHotbar
-      stripTime: 3
-      uiWindowPos: 2,0
-      strippingWindowPos: 0,5
-      dependsOn: outerClothing
-      dependsOnComponents:
-      - type: AllowBackStorage
-      displayName: Back Storage
-    - name: tankstorage
-      slotTexture: tank_storage
-      slotFlags:   TANKSTORAGE
-      slotGroup: MainHotbar
-      stripTime: 3
-      uiWindowPos: 3,0
-      strippingWindowPos: 1, 5
-      dependsOn: outerClothing
-      dependsOnComponents:
-      - type: AllowTankStorage
-      displayName: Tank Storage
     - name: pocket1
       slotTexture: pocket
       fullTextureName: template_small
@@ -141,7 +119,7 @@
       slotGroup: MainHotbar
       stripTime: 3
       uiWindowPos: 0,3
-      strippingWindowPos: 0,4
+      strippingWindowPos: 0,3
       dependsOn: jumpsuit
       displayName: Pocket 1
       stripHidden: true
@@ -152,7 +130,29 @@
       slotGroup: MainHotbar
       stripTime: 3
       uiWindowPos: 2,3
-      strippingWindowPos: 2,4
+      strippingWindowPos: 2,3
       dependsOn: jumpsuit
       displayName: Pocket 2
       stripHidden: true
+    - name: backstorage
+      slotTexture: back_storage
+      slotFlags:   BACKSTORAGE
+      slotGroup: MainHotbar
+      stripTime: 3
+      uiWindowPos: 2,0
+      strippingWindowPos: 0,5
+      dependsOn: outerClothing
+      dependsOnComponents:
+      - type: AllowBackStorage
+      displayName: Back Storage
+    - name: tankstorage
+      slotTexture: tank_storage
+      slotFlags:   TANKSTORAGE
+      slotGroup: MainHotbar
+      stripTime: 3
+      uiWindowPos: 3,0
+      strippingWindowPos: 1, 5
+      dependsOn: outerClothing
+      dependsOnComponents:
+      - type: AllowTankStorage
+      displayName: Tank Storage

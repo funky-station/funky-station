@@ -98,6 +98,9 @@
 	{
 		"name": "brass_chair",
 		"directions": 4
-	}
+	},
+    {
+      "name": "rainbow_chair"
+    }
   ]
 }

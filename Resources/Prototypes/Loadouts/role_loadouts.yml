@@ -152,6 +152,7 @@
 
 - type: roleLoadout
   id: JobClown
+  canCustomizeName: true
   groups:
   - ClownHead
   - ClownMask
@@ -165,6 +166,7 @@
 
 - type: roleLoadout
   id: JobMime
+  canCustomizeName: true
   groups:
   - MimeHead
   - MimeMask
@@ -178,6 +180,7 @@
 
 - type: roleLoadout
   id: JobMusician
+  canCustomizeName: true
   groups:
   - MusicianJumpsuit
   - CommonBackpack

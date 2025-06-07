@@ -121,7 +121,7 @@
       dependsOn: outerClothing
       dependsOnComponents:
       - type: AllowBackStorage
-      displayName: Weapon Storage
+      displayName: Back Storage
     - name: tankstorage
       slotTexture: suit_storage
       slotFlags:   TANKSTORAGE

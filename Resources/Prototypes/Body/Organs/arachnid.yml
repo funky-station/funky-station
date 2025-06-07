@@ -14,8 +14,8 @@
       organ:
         maxVol: 10
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
+        - ReagentId: UncookedAnimalProteins # Funky - change organs to be made of uncooked animal proteins
+          Quantity: 8 # Funky - a full slab of raw meat is 9
       food:
         maxVol: 5
         reagents:
@@ -38,7 +38,9 @@
   - type: Organ # Shitmed
     slotId: stomach
   - type: Item
-    size: Small
+    size: Normal
+    shape:
+    - 0,0,1,1
     heldPrefix: stomach
   - type: Stomach
     digestionDelay: 30
@@ -51,6 +53,12 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+      # Funky - I think stomachs not having a solution while all the other organs do is an oversight
+      organ:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 8
+      # Funky change ends
   - type: Metabolizer
     updateInterval: 1.5
   - type: Tag # goob edit
@@ -65,6 +73,10 @@
   name: lungs
   description: "Filters oxygen from an atmosphere... just more greedily."
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
   - type: Sprite
     layers:
       - state: lung-l
@@ -85,8 +97,8 @@
     solutions:
       organ:
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
+        - ReagentId: UncookedAnimalProteins # Funky - change organs to be made of uncooked animal proteins
+          Quantity: 8 # Funky - a full slab of raw meat is 9
       Lung:
         maxVol: 100.0
         canReact: false
@@ -111,6 +123,8 @@
     state: heart-on
   - type: Item
     size: Small
+    shape:
+    - 0,0,1,0
     heldPrefix: heart
   - type: Metabolizer
     updateInterval: 1.5
@@ -138,6 +152,8 @@
   components:
   - type: Item
     size: Small
+    shape:
+    - 0,0,1,1
     heldPrefix: liver
   - type: Sprite
     state: liver
@@ -172,7 +188,9 @@
       - state: kidney-r
   # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
   - type: Item
-    size: Small
+    size: Normal
+    shape:
+    - 0,0,1,1
     heldPrefix: kidneys
   - type: Metabolizer
     updateInterval: 1.5
@@ -204,7 +222,9 @@
     - Organ
     - Eyes
   - type: Item
-    size: Small
+    size: Normal
+    shape:
+    - 0,0,1,1
     heldPrefix: eyeballs
 
 - type: entity
@@ -213,6 +233,8 @@
   name: tongue
   description: "A fleshy muscle mostly used for lying."
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     state: tongue
   - type: Tag # goob edit

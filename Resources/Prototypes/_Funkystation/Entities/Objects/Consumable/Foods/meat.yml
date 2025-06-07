@@ -1,0 +1,163 @@
+# Raw
+
+- type: entity
+  name: raw mystery meat
+  parent: FoodMeatRawBase
+  id: FoodMysteryMeat
+  description: Grinded-down organic bits and pieces, coagulated into a slab of ambiguous protein.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Consumable/Food/meat.rsi
+    state: mysterymeat
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 9
+  - type: SliceableFood
+    count: 3
+    slice: FoodMysteryCutlet
+  - type: Construction
+    graph: MysteryMeatSteak
+    node: start
+    defaultTarget: cooked mystery meat
+  - type: FoodSequenceElement
+    sprite:
+      sprite: _Funkystation/Objects/Consumable/Food/meat.rsi
+      state: mysterymeat
+    entries:
+      burger:
+        name: food-sequence-burger-content-mystery
+      taco:
+        name: food-sequence-content-mystery
+
+# Cooked
+
+- type: entity
+  name: cooked mystery meat
+  parent: FoodMeatBase
+  id: FoodMysteryMeatCooked
+  description: A little more edible than when it was raw. Still just as ambiguous though.
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+    - Steak
+  - type: Sprite
+    sprite: _Funkystation/Objects/Consumable/Food/meat.rsi
+    layers:
+    - state: mysterymeat-cooked
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 5
+  - type: SliceableFood
+    count: 3
+    slice: FoodMysteryCutletCooked
+  - type: Construction
+    graph: MysteryMeatSteak
+    node: cooked mystery meat
+  - type: FoodSequenceElement
+    sprite:
+      sprite: _Funkystation/Objects/Consumable/Food/meat.rsi
+      state: mysterymeat-cooked
+    entries:
+      burger:
+        name: food-sequence-burger-content-mystery
+      taco:
+        name: food-sequence-content-mystery
+      skewer:
+        name: food-sequence-content-mystery
+        sprite:
+          sprite: Objects/Consumable/Food/skewer.rsi
+          state: skewer-meat
+
+# Cutlets
+
+# Raw
+
+- type: entity
+  name: raw mystery cutlet
+  parent: FoodMeatBase
+  id: FoodMysteryCutlet
+  description: This can probably pass for a slice of raw bacon if you squint.
+  components:
+  - type: Tag
+    tags:
+    - Raw
+    - Cutlet
+    - Meat
+  - type: Sprite
+    sprite: _Funkystation/Objects/Consumable/Food/meat.rsi
+    layers:
+    - state: mysterycutlet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 3
+        - ReagentId: Fat
+          Quantity: 2
+  - type: FoodSequenceElement
+    sprite:
+      sprite: _Funkystation/Objects/Consumable/Food/meat.rsi
+      state: mysterycutlet
+    entries:
+      burger:
+        name: food-sequence-burger-content-mystery
+      taco:
+        name: food-sequence-content-mystery
+  - type: Construction
+    graph: MysteryCutlet
+    node: start
+    defaultTarget: cooked mystery cutlet
+
+# Cooked
+
+- type: entity
+  name: cooked mystery cutlet
+  parent: FoodMeatBase
+  id: FoodMysteryCutletCooked
+  description: This can probably pass for a slice of bacon if you squint.
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Cutlet
+    - Meat
+  - type: Sprite
+    sprite: _Funkystation/Objects/Consumable/Food/meat.rsi
+    layers:
+    - state: mysterycutlet-cooked
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 2
+  - type: FoodSequenceElement
+    sprite:
+      sprite: _Funkystation/Objects/Consumable/Food/meat.rsi
+      state: mysterycutlet-cooked
+    entries:
+      burger:
+        name: food-sequence-burger-content-mystery
+      taco:
+        name: food-sequence-content-mystery
+      skewer:
+        name: food-sequence-content-mystery
+        sprite:
+          sprite: Objects/Consumable/Food/skewer.rsi
+          state: skewer-meat
+  - type: Construction
+    graph: MysteryCutlet
+    node: cooked mystery cutlet

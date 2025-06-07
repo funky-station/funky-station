@@ -1,8 +1,13 @@
-﻿- type: entity
+- type: entity
   id: OrganVulpkaninStomach
   parent: OrganAnimalStomach
   categories: [ HideSpawnMenu ]
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    heldPrefix: stomach
   - type: Stomach
   - type: SolutionContainerManager
     solutions:
@@ -13,3 +18,9 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+      # Funky - I think stomachs not having a solution while all the other organs do is an oversight
+      organ:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 8
+      # Funky change ends

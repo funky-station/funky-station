@@ -24,13 +24,25 @@
       solutions:
         stomach:
           maxVol: 30.0
-
+        # Funky - making slime mob organs consistent with slime player organs
+        organ:
+          reagents:
+          - ReagentId: Slime
+            Quantity: 10
+          - ReagentId: GreyMatter
+            Quantity: 10
+        # Funky change ends
 - type: entity
   id: OrganSlimesLungs
   parent: BaseHumanOrgan
   name: slimes gas sacs
   description: "Collects nitrogen, which slime cells use for maintenance."
   components:
+    - type: Item
+      size: Normal
+      shape:
+      - 0,0,1,1
+      heldPrefix: lungs
     - type: Sprite
       sprite: Mobs/Species/Slime/organs.rsi
       layers:
@@ -50,8 +62,15 @@
       solutions:
         organ:
           reagents:
-          - ReagentId: Nutriment
+          - ReagentId: Slime # Funky - this shouldn't be made of nutriment
             Quantity: 10
         Lung:
           maxVol: 100.0
           canReact: false
+        # Funky - making slime mob organs consistent with slime player organs
+        food:
+          maxVol: 5
+          reagents:
+          - ReagentId: Slime
+            Quantity: 5
+        # Funky change ends

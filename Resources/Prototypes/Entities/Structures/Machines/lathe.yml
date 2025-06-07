@@ -321,6 +321,13 @@
     - GrenadeFlashBang # Goobstation
     - BolaEnergy # Goobstation
     - CartridgeEpinephrine # Goobstation
+    - MagazinePistolCaselessRifle # Goobstation
+    - MagazineBoxCaselessRifle # Goobstation
+    - MagazineLightRifleBoxEmpty # Goobstation
+    - MagazineLightRifleBox # Goobstation
+    #- MagazineHighCaliberEmpty # Goobstation - Burner not added yet
+    #- MagazineHighCaliber # Goobstation
+    #- MagazineBoxHighCaliber # Goobstation
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -483,6 +490,8 @@
     - MagazineShotgunBeanbag
     - MagazineShotgunIncendiary
     - MagazineShotgunIncendiary
+    - MagazinePistolSubMachineGunTopMountedIncendiary
+    - MagazinePistolSubMachineGunTopMountedUranium
     - PortableRecharger
     - PowerCageHigh
     - PowerCageMedium
@@ -556,8 +565,8 @@
     - SalvageMagnetMachineCircuitboard
     - OperatingTableCircuitboard # Shitmed Change
     - BorgChargerCircuitboard
+    - ThermomachineFreezerMachineCircuitBoard # Assmos - Moved to staticRecipes from dynamicRecipes
     dynamicRecipes:
-    - ThermomachineFreezerMachineCircuitBoard
     - HellfireFreezerMachineCircuitBoard
     - PortableScrubberMachineCircuitBoard
     - CloningPodMachineCircuitboard
@@ -634,6 +643,13 @@
     - JukeboxCircuitBoard
     - SMESAdvancedMachineCircuitboard
     - HolopadMachineCircuitboard
+    - CrystallizerMachineCircuitboard # Assmos - Crystallizer
+    - BluespaceGasSenderMachineBoard # Assmos - Bluespace Gas
+    - ThermomachineUpgradedFreezerMachineCircuitBoard # Assmos
+    - ThermomachineAdvancedFreezerMachineCircuitBoard # Assmos
+    - MusicTechFabCircuitboard # Funky Station
+    - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases
+    - SiloRelayMachineCircuitboard # Funky Station
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - ShuttleGunDusterCircuitboard
@@ -711,10 +727,12 @@
     - RightFootIPC
     - OrganIPCEyes
     - OrganIPCPump
+    - Oilpack #Delta-V
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleAdvancedCleaning
     - BorgModuleAdvancedTool
+    - BorgModuleAtmos
     - BorgModuleGPS
     - BorgModuleArtifact
     - BorgModuleAnomaly
@@ -842,6 +860,7 @@
     - AbominationCube
     - SpaceCarpCube
     - SpaceTickCube
+    - VelociraptorCube #funky
 
 - type: entity
   id: SecurityTechFab
@@ -942,6 +961,8 @@
     - MagazineRifleUranium
     - MagazineShotgunBeanbag
     - MagazineShotgunIncendiary
+    - MagazinePistolSubMachineGunTopMountedIncendiary
+    - MagazinePistolSubMachineGunTopMountedUranium
     - PortableRecharger
     - PowerCageHigh
     - PowerCageMedium
@@ -976,6 +997,15 @@
     - WeaponMechCombatDisabler
     - WeaponMechCombatFlashbangLauncher
     - WeaponMechCombatMissileRack8
+  - type: EmagLatheRecipes # Goobstation
+    emagStaticRecipes:
+    - MagazinePistolCaselessRifle # Goobstation
+    - MagazineBoxCaselessRifle # Goobstation
+    - MagazineLightRifleBoxEmpty # Goobstation
+    - MagazineLightRifleBox # Goobstation
+    #- MagazineHighCaliberEmpty # Goobstation - Burner not added yet
+    #- MagazineHighCaliber # Goobstation
+    #- MagazineBoxHighCaliber # Goobstation
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1026,12 +1056,21 @@
     - MagazineShotgunSlug
     - SpeedLoaderMagnum
     - SpeedLoaderMagnumEmpty
+  - type: EmagLatheRecipes # Goobstation
+    emagStaticRecipes:
+    - MagazinePistolCaselessRifle # Goobstation
+    - MagazineBoxCaselessRifle # Goobstation
+    - MagazineLightRifleBoxEmpty # Goobstation
+    - MagazineLightRifleBox # Goobstation
+    #- MagazineHighCaliberEmpty # Goobstation - Burner not added yet
+    #- MagazineHighCaliber # Goobstation
+    #- MagazineBoxHighCaliber # Goobstation
   - type: MaterialStorage
     whitelist:
       tags:
-      - Sheet
-      - RawMaterial
-      - Ingot
+        - Sheet
+        - RawMaterial
+        - Ingot
 
 - type: entity
   id: MedicalTechFab
@@ -1098,6 +1137,7 @@
     - MedicalPatchRapid #Goobstation - MedicalPatch
     - MedicalPatchLarge #Goobstation - MedicalPatch
     - BoneGel # Shitmed Change
+    - Oilpack #Delta-V
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

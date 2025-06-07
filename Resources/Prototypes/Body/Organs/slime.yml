@@ -35,8 +35,12 @@
           reagents:
           - ReagentId: Slime
             Quantity: 10
+          - ReagentId: GreyMatter # Funky - I guess it makes sense for slimes to have both
+            Quantity: 10 # Funky
     - type: Item
-      size: Small
+      size: Normal
+      shape:
+      - 0,0,1,1
       heldPrefix: brain
 
 
@@ -75,8 +79,10 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: UncookedAnimalProteins
+        - ReagentId: Slime # Funky - it's a slime organ, it isn't made of proteins
           Quantity: 5
   - type: Item
-    size: Small
+    size: Normal
+    shape:
+    - 0,0,1,1
     heldPrefix: lungs

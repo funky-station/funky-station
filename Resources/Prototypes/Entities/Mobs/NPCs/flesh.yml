@@ -44,7 +44,7 @@
     critThreshold: 50
   - type: Butcherable
     spawned:
-    - id: FoodMeat
+    - id: FoodMysteryMeat # Funky - this makes sense, right?
       amount: 1
   - type: Bloodstream
     bloodMaxVolume: 100
@@ -59,6 +59,8 @@
         Slash: 6
   - type: ReplacementAccent
     accent: genericAggressive
+  - type: CombatPower # Goobstation
+    factor: 10 # / 2 = times more powerful than an unarmed crew-member
 
 - type: entity
   parent: BaseMobFlesh

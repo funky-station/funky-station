@@ -41,21 +41,21 @@
         damage: 150
       behaviors:
       - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Heat
-        damage: 200
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawnInContainer: true
-        spawn:
-          Ash:
-            min: 1
-            max: 1
-      - !type:BurnBodyBehavior { }
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MeatLaserImpact
+#    - trigger:
+#        !type:DamageTypeTrigger
+#        damageType: Heat
+#        damage: 200
+#      behaviors:
+#      - !type:SpawnEntitiesBehavior
+#        spawnInContainer: true
+#        spawn:
+#          Ash:
+#            min: 1
+#            max: 1
+#      - !type:BurnBodyBehavior { }
+#      - !type:PlaySoundBehavior
+#        sound:
+#          collection: MeatLaserImpact
   # Shitmed Change End
 
 - type: entity
@@ -63,6 +63,10 @@
   name: "rodentia torso"
   parent: PartRodentia
   components:
+  - type: Item
+    size: Ginormous
+    shape:
+    - 0,0,5,3
   - type: Sprite
     state: "torso_m"
   - type: Icon
@@ -89,21 +93,21 @@
         damage: 400
       behaviors:
       - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Heat
-        damage: 400
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawnInContainer: true
-        spawn:
-          Ash:
-            min: 1
-            max: 1
-      - !type:BurnBodyBehavior { }
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MeatLaserImpact
+#    - trigger:
+#        !type:DamageTypeTrigger
+#        damageType: Heat
+#        damage: 400
+#      behaviors:
+#      - !type:SpawnEntitiesBehavior
+#        spawnInContainer: true
+#        spawn:
+#          Ash:
+#            min: 1
+#            max: 1
+#      - !type:BurnBodyBehavior { }
+#      - !type:PlaySoundBehavior
+#        sound:
+#          collection: MeatLaserImpact
   # Shitmed Change End
 
 - type: entity
@@ -111,8 +115,13 @@
   name: "rodentia head"
   parent: PartRodentia
   components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,1,1
   - type: Sprite
     state: "head_m"
+    offset: 0,-0.3
   - type: Icon
     state: "head_m"
   - type: BodyPart
@@ -132,8 +141,13 @@
   name: "left rodentia arm"
   parent: PartRodentia
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     state: "l_arm"
+    offset: -0.2,0
   - type: Icon
     state: "l_arm"
   - type: BodyPart
@@ -146,8 +160,13 @@
   name: "right rodentia arm"
   parent: PartRodentia
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     state: "r_arm"
+    offset: 0.2,0
   - type: Icon
     state: "r_arm"
   - type: BodyPart
@@ -160,8 +179,11 @@
   name: "left rodentia hand"
   parent: PartRodentia
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     state: "l_hand"
+    offset: -0.2,0.1
   - type: Icon
     state: "l_hand"
   - type: BodyPart
@@ -174,8 +196,11 @@
   name: "right rodentia hand"
   parent: PartRodentia
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     state: "r_hand"
+    offset: 0.2,0.1
   - type: Icon
     state: "r_hand"
   - type: BodyPart
@@ -188,8 +213,13 @@
   name: "left rodentia leg"
   parent: PartRodentia
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     state: "l_leg"
+    offset: -0.1,0.3
   - type: Icon
     state: "l_leg"
   - type: BodyPart
@@ -203,8 +233,13 @@
   name: "right rodentia leg"
   parent: PartRodentia
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     state: "r_leg"
+    offset: 0.1,0.3
   - type: Icon
     state: "r_leg"
   - type: BodyPart
@@ -218,8 +253,11 @@
   name: "left rodentia foot"
   parent: PartRodentia
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     state: "l_foot"
+    offset: -0.15,0.45
   - type: Icon
     state: "l_foot"
   - type: BodyPart
@@ -232,8 +270,11 @@
   name: "right rodentia foot"
   parent: PartRodentia
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     state: "r_foot"
+    offset: 0.15,0.45
   - type: Icon
     state: "r_foot"
   - type: BodyPart

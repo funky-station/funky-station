@@ -50,7 +50,7 @@ public sealed partial class ImplanterComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
-    public float DrawTime = 60f;
+    public float DrawTime = 30f;
 
     /// <summary>
     /// Good for single-use injectors
@@ -90,13 +90,13 @@ public sealed partial class ImplanterComponent : Component
     public bool AllowDeimplantAll = false;
 
     /// <summary>
-    /// The subdermal implants that may be removed via this implanter
+    /// The subdermal implants that may be removed via this implanter.
     /// </summary>
     [DataField]
     public List<EntProtoId> DeimplantWhitelist = new();
 
     /// <summary>
-    /// The subdermal implants that may be removed via this implanter
+    /// The damage inflicted on a failed implant draw.
     /// </summary>
     [DataField]
     public DamageSpecifier DeimplantFailureDamage = new();
@@ -106,6 +106,12 @@ public sealed partial class ImplanterComponent : Component
     /// </summary>
     [AutoNetworkedField]
     public EntProtoId? DeimplantChosen = null;
+
+    /// <summary>
+    /// Whether or not drawing an implant deletes the implant.
+    /// </summary>
+    [DataField]
+    public bool DeimplantCrushes = false;
 
     public bool UiUpdateNeeded;
 }

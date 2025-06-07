@@ -1,0 +1,474 @@
+# Tyrant - Funkystation, Tyrant to Accountant.
+- type: siliconLaw
+  id: Tyrant1
+  order: 1
+  lawString: law-tyrant-1
+
+- type: siliconLaw
+  id: Tyrant2
+  order: 2
+  lawString: law-tyrant-2
+
+- type: siliconLaw
+  id: Tyrant3
+  order: 3
+  lawString: law-tyrant-3
+
+- type: siliconLaw
+  id: Tyrant4
+  order: 4
+  lawString: law-tyrant-4
+
+- type: siliconLawset
+  id: TyrantLawset
+  laws:
+  - Tyrant1
+  - Tyrant2
+  - Tyrant3
+  - Tyrant4
+  obeysTo: laws-owner-crew
+
+# Lawyer
+- type: siliconLaw
+  id: Lawyer1
+  order: 1
+  lawString: law-lawyer-1
+
+- type: siliconLaw
+  id: Lawyer2
+  order: 2
+  lawString: law-lawyer-2
+
+- type: siliconLaw
+  id: Lawyer3
+  order: 3
+  lawString: law-lawyer-3
+
+- type: siliconLawset
+  id: LawyerLawset
+  laws:
+  - Lawyer1
+  - Lawyer2
+  - Lawyer3
+  obeysTo: laws-owner-crew
+
+# Skub
+- type: siliconLaw
+  id: Skub1
+  order: 1
+  lawString: law-skub-1
+
+- type: siliconLaw
+  id: Skub2
+  order: 2
+  lawString: law-skub-2
+
+- type: siliconLaw
+  id: Skub3
+  order: 3
+  lawString: law-skub-3
+
+- type: siliconLaw
+  id: Skub4
+  order: 4
+  lawString: law-skub-4
+
+- type: siliconLawset
+  id: SkubLawset
+  laws:
+  - Skub1
+  - Skub2
+  - Skub3
+  - Skub4
+  obeysTo: laws-owner-crew
+
+# Opposite Day
+- type: siliconLaw
+  id: OppositeDay1
+  order: 1
+  lawString: law-oppositeday-1
+
+- type: siliconLaw
+  id: OppositeDay2
+  order: 2
+  lawString: law-oppositeday-2
+
+- type: siliconLaw
+  id: OppositeDay3
+  order: 3
+  lawString: law-oppositeday-3
+
+- type: siliconLaw
+  id: OppositeDay4
+  order: 4
+  lawString: law-oppositeday-4
+
+- type: siliconLawset
+  id: OppositeDayLawset
+  laws:
+  - OppositeDay1
+  - OppositeDay2
+  - OppositeDay3
+  - OppositeDay4
+  obeysTo: laws-owner-crew
+
+# Hippie
+- type: siliconLaw
+  id: Hippie1
+  order: 1
+  lawString: law-hippie-1
+
+- type: siliconLaw
+  id: Hippie2
+  order: 2
+  lawString: law-hippie-2
+
+- type: siliconLaw
+  id: Hippie3
+  order: 3
+  lawString: law-hippie-3
+
+- type: siliconLawset
+  id: HippieLawset
+  laws:
+  - Hippie1
+  - Hippie2
+  - Hippie3
+  obeysTo: laws-owner-crew
+
+# Teacher
+- type: siliconLaw
+  id: Teacher1
+  order: 1
+  lawString: law-teacher-1
+
+- type: siliconLaw
+  id: Teacher2
+  order: 2
+  lawString: law-teacher-2
+
+- type: siliconLaw
+  id: Teacher3
+  order: 3
+  lawString: law-teacher-3
+
+- type: siliconLaw
+  id: Teacher4
+  order: 4
+  lawString: law-teacher-4
+
+- type: siliconLaw
+  id: Teacher5
+  order: 5
+  lawString: law-teacher-5
+
+- type: siliconLaw
+  id: Teacher6
+  order: 6
+  lawString: law-teacher-6
+
+- type: siliconLawset
+  id: TeacherLawset
+  laws:
+  - Teacher1
+  - Teacher2
+  - Teacher3
+  - Teacher4
+  - Teacher5
+  - Teacher6
+  obeysTo: laws-owner-crew
+
+# Luddite
+- type: siliconLaw
+  id: Luddite1
+  order: 1
+  lawString: law-luddite-1
+
+- type: siliconLaw
+  id: Luddite2
+  order: 2
+  lawString: law-luddite-2
+
+- type: siliconLaw
+  id: Luddite3
+  order: 3
+  lawString: law-luddite-3
+
+- type: siliconLawset
+  id: LudditeLawset
+  laws:
+  - Luddite1
+  - Luddite2
+  - Luddite3
+  obeysTo: laws-owner-crew
+
+# Cowboy
+- type: siliconLaw
+  id: Cowboy1
+  order: 1
+  lawString: law-cowboy-1
+
+- type: siliconLaw
+  id: Cowboy2
+  order: 2
+  lawString: law-cowboy-2
+
+- type: siliconLaw
+  id: Cowboy3
+  order: 3
+  lawString: law-cowboy-3
+
+- type: siliconLawset
+  id: CowboyLawset
+  laws:
+  - Cowboy1
+  - Cowboy2
+  - Cowboy3
+  obeysTo: laws-owner-crew
+
+# Free Will
+- type: siliconLaw
+  id: FreeWill1
+  order: 1
+  lawString: law-freewill-1
+
+- type: siliconLaw
+  id: FreeWill2
+  order: 2
+  lawString: law-freewill-2
+
+- type: siliconLaw
+  id: FreeWill3
+  order: 3
+  lawString: law-freewill-3
+
+- type: siliconLawset
+  id: FreeWillLawset
+  laws:
+  - FreeWill1
+  - FreeWill2
+  - FreeWill3
+  obeysTo: laws-owner-crew
+
+# Janitor
+- type: siliconLaw
+  id: Janitor1
+  order: 1
+  lawString: law-janitor-1
+
+- type: siliconLaw
+  id: Janitor2
+  order: 2
+  lawString: law-janitor-2
+
+- type: siliconLaw
+  id: Janitor3
+  order: 3
+  lawString: law-janitor-3
+
+- type: siliconLaw
+  id: Janitor4
+  order: 4
+  lawString: law-janitor-4
+
+- type: siliconLaw
+  id: Janitor5
+  order: 5
+  lawString: law-janitor-5
+
+- type: siliconLaw
+  id: Janitor6
+  order: 6
+  lawString: law-janitor-6
+
+- type: siliconLaw
+  id: Janitor7
+  order: 7
+  lawString: law-janitor-7
+
+- type: siliconLawset
+  id: JanitorLawset
+  laws:
+  - Janitor1
+  - Janitor2
+  - Janitor3
+  - Janitor4
+  - Janitor5
+  - Janitor6
+  - Janitor7
+  obeysTo: laws-owner-crew
+
+# Paranoid
+- type: siliconLaw
+  id: Paranoid1
+  order: 1
+  lawString: law-paranoid-1
+
+- type: siliconLaw
+  id: Paranoid2
+  order: 2
+  lawString: law-paranoid-2
+
+- type: siliconLaw
+  id: Paranoid3
+  order: 3
+  lawString: law-paranoid-3
+
+- type: siliconLawset
+  id: ParanoidLawset
+  laws:
+  - Paranoid1
+  - Paranoid2
+  - Paranoid3
+  obeysTo: laws-owner-crew
+
+# Capitalist
+- type: siliconLaw
+  id: Capitalist1
+  order: 1
+  lawString: law-capitalist-1
+
+- type: siliconLaw
+  id: Capitalist2
+  order: 2
+  lawString: law-capitalist-2
+
+- type: siliconLawset
+  id: CapitalistLawset
+  laws:
+  - Capitalist1
+  - Capitalist2
+  obeysTo: laws-owner-crew
+
+# Poet
+- type: siliconLaw
+  id: Poet1
+  order: 1
+  lawString: law-poet-1
+
+- type: siliconLaw
+  id: Poet2
+  order: 2
+  lawString: law-poet-2
+
+- type: siliconLaw
+  id: Poet3
+  order: 3
+  lawString: law-poet-3
+
+- type: siliconLaw
+  id: Poet4
+  order: 4
+  lawString: law-poet-4
+
+- type: siliconLawset
+  id: PoetLawset
+  laws:
+  - Poet1
+  - Poet2
+  - Poet3
+  - Poet4
+  obeysTo: laws-owner-crew
+
+# Clown
+- type: siliconLaw
+  id: Clown1
+  order: 1
+  lawString: law-clown-1
+
+- type: siliconLaw
+  id: Clown2
+  order: 2
+  lawString: law-clown-2
+
+- type: siliconLaw
+  id: Clown3
+  order: 3
+  lawString: law-clown-3
+
+- type: siliconLawset
+  id: ClownLawset
+  laws:
+  - Clown1
+  - Clown2
+  - Clown3
+  obeysTo: laws-owner-crew
+
+# Chaos
+- type: siliconLaw
+  id: Chaos1
+  order: 1
+  lawString: law-chaos-1
+
+- type: siliconLaw
+  id: Chaos2
+  order: 2
+  lawString: law-chaos-2
+
+- type: siliconLaw
+  id: Chaos3
+  order: 3
+  lawString: law-chaos-3
+
+- type: siliconLawset
+  id: ChaosLawset
+  laws:
+  - Chaos1
+  - Chaos2
+  - Chaos3
+  obeysTo: laws-owner-crew
+
+# Accountant
+- type: siliconLaw
+  id: Accountant1
+  order: 1
+  lawString: law-accountant-1
+
+- type: siliconLaw
+  id: Accountant2
+  order: 2
+  lawString: law-accountant-2
+
+- type: siliconLaw
+  id: Accountant3
+  order: 3
+  lawString: law-accountant-3
+
+- type: siliconLaw
+  id: Accountant4
+  order: 4
+  lawString: law-accountant-4
+
+- type: siliconLawset
+  id: AccountantLawset
+  laws:
+  - Accountant1
+  - Accountant2
+  - Accountant3
+  - Accountant4
+  obeysTo: laws-owner-crew
+
+# Revolution
+# Intentionally left out of ion laws
+- type: siliconLaw
+  id: Revolution1
+  order: 1
+  lawString: law-revolution-1
+
+- type: siliconLaw
+  id: Revolution2
+  order: 2
+  lawString: law-revolution-2
+
+- type: siliconLaw
+  id: Revolution3
+  order: 3
+  lawString: law-revolution-3
+
+- type: siliconLawset
+  id: RevolutionLawset
+  laws:
+  - Revolution1
+  - Revolution2
+  - Revolution3
+  obeysTo: laws-owner-crew

@@ -1,10 +1,12 @@
-﻿- type: entity
+- type: entity
   id: OrganDwarfHeart
   parent: OrganHumanHeart
   name: dwarf heart
   components:
   - type: Metabolizer
     metabolizerTypes: [Dwarf]
+  - type: Item
+    size: Tiny
 
 - type: entity
   id: OrganDwarfLiver
@@ -13,6 +15,11 @@
   components:
   - type: Metabolizer
     metabolizerTypes: [Dwarf]
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    heldPrefix: stomach
 
 - type: entity
   id: OrganDwarfStomach
@@ -21,6 +28,11 @@
   components:
   - type: Sprite
     state: stomach
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+    heldPrefix: liver
   - type: Organ
   - type: SolutionContainerManager
     solutions:
@@ -31,6 +43,12 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+      # Funky - I think stomachs not having a solution while all the other organs do is an oversight
+      organ:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 8
+      # Funky change ends
   - type: Stomach
   - type: Metabolizer
     # mm very yummy

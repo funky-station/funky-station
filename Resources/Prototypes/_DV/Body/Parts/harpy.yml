@@ -37,21 +37,21 @@
         damage: 150
       behaviors:
       - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Heat
-        damage: 200
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawnInContainer: true
-        spawn:
-          Ash:
-            min: 1
-            max: 1
-      - !type:BurnBodyBehavior { }
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MeatLaserImpact
+#    - trigger:
+#        !type:DamageTypeTrigger
+#        damageType: Heat
+#        damage: 200
+#      behaviors:
+#      - !type:SpawnEntitiesBehavior
+#        spawnInContainer: true
+#        spawn:
+#          Ash:
+#            min: 1
+#            max: 1
+#      - !type:BurnBodyBehavior { }
+#      - !type:PlaySoundBehavior
+#        sound:
+#          collection: MeatLaserImpact
   # Shitmed Change End
 
 - type: entity
@@ -59,6 +59,10 @@
   name: "harpy torso"
   parent: PartHarpy
   components:
+  - type: Item
+    size: Ginormous
+    shape:
+    - 0,0,5,3
   - type: Sprite
     netsync: false
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
@@ -88,21 +92,21 @@
         damage: 400
       behaviors:
       - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Heat
-        damage: 400
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawnInContainer: true
-        spawn:
-          Ash:
-            min: 1
-            max: 1
-      - !type:BurnBodyBehavior { }
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MeatLaserImpact
+#    - trigger:
+#        !type:DamageTypeTrigger
+#        damageType: Heat
+#        damage: 400
+#      behaviors:
+#      - !type:SpawnEntitiesBehavior
+#        spawnInContainer: true
+#        spawn:
+#          Ash:
+#            min: 1
+#            max: 1
+#      - !type:BurnBodyBehavior { }
+#      - !type:PlaySoundBehavior
+#        sound:
+#          collection: MeatLaserImpact
   # Shitmed Change End
 
 - type: entity
@@ -110,10 +114,15 @@
   name: "harpy head"
   parent: PartHarpy
   components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,1,1
   - type: Sprite
     netsync: false
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "head_m"
+    offset: 0,-0.3
   - type: Icon
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "head_m"
@@ -134,10 +143,15 @@
   name: "left harpy arm"
   parent: PartHarpy
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     netsync: false
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "l_arm"
+    offset: -0.2,0
   - type: Icon
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "l_arm"
@@ -151,10 +165,15 @@
   name: "right harpy arm"
   parent: PartHarpy
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     netsync: false
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "r_arm"
+    offset: 0.2,0
   - type: Icon
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "r_arm"
@@ -173,10 +192,13 @@
   name: "left harpy hand"
   parent: PartHarpy
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     netsync: false
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "l_hand"
+    offset: -0.2,0.1
   - type: Icon
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "l_hand"
@@ -190,10 +212,13 @@
   name: "right harpy hand"
   parent: PartHarpy
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     netsync: false
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "r_hand"
+    offset: 0.2,0.1
   - type: Icon
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "r_hand"
@@ -207,10 +232,15 @@
   name: "left harpy leg"
   parent: PartHarpy
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     netsync: false
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "l_leg"
+    offset: -0.1,0.3
   - type: Icon
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "l_leg"
@@ -225,10 +255,15 @@
   name: "right harpy leg"
   parent: PartHarpy
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,1
   - type: Sprite
     netsync: false
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "r_leg"
+    offset: 0.1,0.3
   - type: Icon
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "r_leg"
@@ -243,10 +278,13 @@
   name: "left harpy foot"
   parent: PartHarpy
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     netsync: false
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "l_foot"
+    offset: -0.15,0.45
   - type: Icon
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "l_foot"
@@ -260,10 +298,13 @@
   name: "right harpy foot"
   parent: PartHarpy
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     netsync: false
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "r_foot"
+    offset: 0.15,0.45
   - type: Icon
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
     state: "r_foot"

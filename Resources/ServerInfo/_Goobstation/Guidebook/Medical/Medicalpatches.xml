@@ -25,7 +25,7 @@ Some medkits contain prefilled patches. These hold 30 units and transfers 0.25 u
 ### Large
 The large patch holds 60 units and transfers them one unit at a time. 
 However the large patch also transfers 15% of its chemicals upon use (10 units if full)
-=
+
 ### Makeshift
 The makeshift patch can hold 15 units and transfer 1 unit every 2 seconds.
 However it can be crafted by hand and filled manually without a chemmaster

@@ -44,8 +44,7 @@
 
   ##Pluoxium
   Pluoxium is a non-reactive Oxygen substitute that delivers eight times as much O2 to the bloodstream, with as little 3 kPa minimum pressure required for internals.
-
-  Pluoxium may be created by exposing O2, CO2 and Tritium together in an exothermic reaction between 50 K and 273 K. Furthermore, Pluoxium is also created by the Supermatter, when Oxygen and CO2 are present.
+  It can be made by combining 66% Carbon Dioxide, 33% Oxygen, 0.01% Tritium together in an exothermic reaction between 50 K and 273 K. Furthermore, Pluoxium is also created by the Supermatter, when Oxygen and CO2 are present.
 
   <Box>
     <GuideEntityEmbed Entity="OxygenCanister"/>
@@ -57,6 +56,7 @@
 
   ##BZ
   BZ gas is a potent hallucinogenic, as well as a sleeping agent for slimes. It is toxic to breathe and causes respiratory irritation and coughing. BZ sees frequent use as an ingredient in more complex gas reactions. 
+  It can be made by combining 33% Nitrous Oxide and 66% Plasma in an exothermic reaction. The reaction becomes less efficient if the Plasma content is greater than 3 times the Nitrous Oxide Content. The reaction is fastest outside of pipes and in low pressure enviroments.
 
   <Box>
     <GuideEntityEmbed Entity="PlasmaCanister"/>
@@ -66,7 +66,8 @@
   </Box>
 
   ##Frezon
-  Frezon is a bluish-green gas that is very complex and very dangerous. To obtain frezon, you must mix Tritium, Oxygen, and Nitrogen in a 70K room to start the reaction, and prevent the Tritium from combusting with the oxygen.
+  Frezon is a bluish-green gas that is very complex and very dangerous.
+  It can be made by combining 90% Oxygen, 8% Nitrogen, and 2% Tritium at or below 73.15 K. This reaction only uses Nitrogen as a catalyst, and does not consume Nitrogen.
 
   <Box>
     <GuideEntityEmbed Entity="TritiumCanister"/>
@@ -79,6 +80,7 @@
 
   ##Healium
   Healium is a red gas, formed in cold environments, which acts as a strong sleeping agent, while healing burns, bruises, and toxin damage. Excessive use will lead to inebriation. 
+  It can be made by combining 81% Frezon and 9% BZ in an exothermic reaction. 
 
   <Box>
     <GuideEntityEmbed Entity="BZCanister"/>
@@ -89,6 +91,7 @@
 
   ##Nitrium
   Nitrium is a gaseous stimulant that when inhaled can enhance speed and endurance. At lower concentrations Nitrium will increase your top running speed while healthy and unimpaired. Additionally, at slightly higher concentrations, breathing Nitrium will prevent drowsiness. At high concentrations breathing it will begin to shut down a person's lungs, causing asphyxiation. 
+  It can be made by combining 47.5% Nitrogen, 47.5% Tritium, and 5% BZ at or above 1500k degrees. With higher tempature giving greater efficiency.
 
   <Box>
     <GuideEntityEmbed Entity="BZCanister"/>
@@ -98,7 +101,67 @@
     <GuideEntityEmbed Entity="NitriumCanister"/>
   </Box>
 
-  Nitrium degrades into nitrogen and water vapor on contact with room temperature oxygen. This reaction can produce a good deal of heat, making the station uncomfortably warm in the event of a leak. 
+  Nitrium degrades into nitrogen and hydrogen on contact with room temperature oxygen. This reaction can produce a good deal of heat, making the station uncomfortably warm in the event of a leak. 
+
+  ##Hydrogen
+  Hydrogen is a highly flammable but non-toxic gas that burns similarly to tritium, making it useful as a fuel source. It is produced by electrolyzing water vapor with an electrolyzer machine to produce hydrogen and oxygen. 
+
+  <Box>
+    <GuideEntityEmbed Entity="WaterVaporCanister"/>
+    <GuideEntityEmbed Entity="Electrolyzer"/>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="HydrogenCanister"/>
+  </Box>
+
+  When mixed with BZ at temperatures below 273 K and pressures above 10 MPa, hydrogen can form metal hydrogen, a rare material. Handle hydrogen carefully to prevent fires or explosions, and store canisters securely.
+
+  ##Proto-Nitrate
+  Proto-Nitrate is a highly reactive, non-toxic gas. Combine 1 mole hydrogen with 0.1 moles pluoxium to yield 1.1 moles proto-nitrate exothermically, best at 5000-10000K. It reacts with hydrogen or tritium to adjust proto-nitrate or produce hydrogen, and with BZ at 260-280K to yield nitrogen, helium, and plasma. Handle carefully to avoid leaks.
+
+  <Box>
+    <GuideEntityEmbed Entity="HydrogenCanister"/>
+    <GuideEntityEmbed Entity="PluoxiumCanister"/>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="ProtoNitrateCanister"/>
+  </Box>
+
+  ##Zauker
+  Zauker is a deadly gas if inhaled. Produce it by combining 0.2 moles hyper-noblium with 1 mole nitrium to yield 1 mole zauker exothermically. It decomposes with nitrogen into 0.3 moles oxygen and 0.7 moles nitrogen per mole zauker, also exothermic and inhibited similarly. Store securely to prevent leaks.
+
+  <Box>
+    <GuideEntityEmbed Entity="NitriumCanister"/>
+    <GuideEntityEmbed Entity="HyperNobliumCanister"/>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="ZaukerCanister"/>
+  </Box>
+
+  ##Halon
+  Halon suppresses fires by consuming oxygen, at a ratio of 20 moles oxygen per 1 mole halon, above 343.15 K in an endothermic reaction, producing carbon dioxide. It's made in an exothermic reaction by electrolyzing BZ, yielding 2 moles halon and 0.2 moles oxygen per mole BZ. Use cautiously to avoid oxygen depletion.
+
+  <Box>
+    <GuideEntityEmbed Entity="BZCanister"/>
+    <GuideEntityEmbed Entity="Electrolyzer"/>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="HalonCanister"/>
+  </Box>
+
+  ##Helium
+  Helium is an inert, invisible gas produced as a byproduct of other reactions. It has minimal use in atmospherics, so scrub it to avoid diluting other gases.
+
+  <Box>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="HeliumCanister"/>
+  </Box>
+
+  ##Anti-Noblium
+  Anti-Noblium is a rare gas with niche uses, produced by electrolyzing hyper-noblium below 150 K, yielding 0.5 moles anti-noblium per mole hyper-noblium. Store carefully to preserve hyper-noblium stocks for other reactions.
+
+  <Box>
+    <GuideEntityEmbed Entity="HyperNobliumCanister"/>
+    <GuideEntityEmbed Entity="Electrolyzer"/>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="AntiNobliumCanister"/>
+  </Box>
 
   ## Reference Sheet
   - Standard atmospheric mix is [color=#a4885c]78% N2 and 22% O2 at 101.24kPa.[/color]

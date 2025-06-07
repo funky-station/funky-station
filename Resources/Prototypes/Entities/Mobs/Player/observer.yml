@@ -51,6 +51,12 @@
     maxZoom: 1.44,1.44
   - type: Eye
     drawFov: false
+    visMask:
+      #- TelegnosticProjection # pretty sure this is DV shit, dunno tho!
+      #- PsionicInvisibility # pretty sure this is DV shit, dunno tho!
+      - Ghost
+      - Normal
+      - CosmicCultMonument # DeltaV - Cosmic Cult
   - type: Input
     context: "ghost"
   - type: Examiner

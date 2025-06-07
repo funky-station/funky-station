@@ -4,6 +4,11 @@
   name: lungs
   description: "An advanced pair of avian lungs. Filters oxygen by way of moving air constantly through air sacs."
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    heldPrefix: lungs
   - type: Sprite
     layers:
       - state: lung-l
@@ -24,8 +29,8 @@
     solutions:
       organ:
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
+        - ReagentId: UncookedAnimalProteins # Funky - change organs to be made of uncooked animal proteins
+          Quantity: 8 # Funky - a full slab of raw meat is 9
       Lung:
         maxVol: 100.0
         canReact: false

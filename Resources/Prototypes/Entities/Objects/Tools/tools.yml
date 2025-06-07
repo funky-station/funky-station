@@ -384,6 +384,7 @@
     - ManualValve
     - VolumetricPump
     - PressurePump
+    - HeatPump
     - VentScrubber
     - PressureValve
     - DualPortVent
@@ -415,6 +416,19 @@
   parent: RCD
   name: experimental RCD
   description: A bluespace-enhanced rapid construction device that passively generates its own compressed matter.
+  suffix: AutoRecharge
+  components:
+  - type: LimitedCharges
+    maxCharges: 20
+    charges: 20
+  - type: AutoRecharge
+    rechargeDuration: 10
+
+- type: entity
+  id: RPDRecharging
+  parent: RPD
+  name: experimental RPD
+  description: A bluespace-enhanced rapid piping device that passively generates its own compressed matter.
   suffix: AutoRecharge
   components:
   - type: LimitedCharges

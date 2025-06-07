@@ -40,12 +40,14 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] Grids =
         {
             "/Maps/centcomm.yml",
+            "/Maps/_Harmony/centcomm.yml", // Funky, Harmony CC version
             AdminTestArenaSystem.ArenaMapPath
         };
 
         private static readonly string[] DoNotMapWhitelist =
         {
             "/Maps/centcomm.yml",
+            "/Maps/_Harmony/centcomm.yml", // Funky, Harmony CC version
         };
 
         private static readonly string[] GameMaps =
@@ -76,7 +78,7 @@ namespace Content.IntegrationTests.Tests
             "OasisHighPop",
             "Divide", // funkystation
             "Glacier", // funkystation
-            "Barratry", // Goobstation - add Barratry
+            "Barratry", // Harmony
             "Kettle", // Goobstation - add Kettle
             "Amber",
             "Hot Springs",
@@ -87,7 +89,9 @@ namespace Content.IntegrationTests.Tests
             "Plasma",
             "Elkridge",
             "Convex",
-            "Relic"
+            "Relic",
+            "Resort",
+            "dm01-entryway"
         };
 
         /// <summary>

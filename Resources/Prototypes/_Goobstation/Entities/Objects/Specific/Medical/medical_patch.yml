@@ -2,7 +2,7 @@
   parent: BaseHealingItem
   id: BaseMedicalPatch
   name: base patch
-  description: put this on your boo boo
+  description: A patch for applying medicine over time to patients.
   abstract: true
   components:
   - type: Sprite
@@ -55,10 +55,11 @@
     solutions:
       drink:  #drink is the same as Bottle solution, this is to prevent recoding chem master. TODO: recode chem master
         maxVol: 30 # Funky
+  - type: RefillableSolution  # Funky - more versatile
+    solution: drink
   - type: Tag
     tags:
     - MedicalPatch
-    - Bottle  # Bottle tag so that it can be accepted by chem master # TODO: code chemmaster
   - type: Spillable # only way empty the patch is wring it out and spill it on the floor
     solution: drink
 
@@ -108,6 +109,24 @@
 
 - type: entity
   parent: MedicalPatchBasic
+  id: MedicalPatchTherapeutic
+  name: therapeutic patch
+  description: A patch that applies a dose over a longer period of time than other patches.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Medical/medical_patch.rsi
+    layers:
+      - state: GenericPatch
+      - state: GenericPatchBorder
+        color: LightBlue
+      - state: GenericPatch-1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: MedicalPatch
+    transferAmount: 0.5 # literally the rapid patch but in reverse
+
+- type: entity
+  parent: MedicalPatchBasic
   id: MedicalPatchLarge
   name: large patch
   description: A larger chemical patch. Holds more chemicals, but injects them slowly. # Funky
@@ -146,8 +165,6 @@
     solutions:
       drink:
         maxVol: 15  #Low volume but a full patch  will last for 60 seconds
-  - type: RefillableSolution  # So Tiders can fill ther bandages whit hotch and ventcurd - The spelling i really can't [Funky]
-    solution: drink
   - type: Construction
     graph: MedicalPatchMakeshift
     node: medicalPatchMakeshift
@@ -169,6 +186,14 @@
     Plastic: 75
 
 - type: latheRecipe
+  id: MedicalPatchTherapeutic
+  result: MedicalPatchTherapeutic
+  completetime: 2
+  materials:
+    Cloth: 100
+    Plastic: 100
+
+- type: latheRecipe
   id: MedicalPatchLarge
   result: MedicalPatchLarge
   completetime: 2
@@ -184,14 +209,14 @@
     edges:
     - to: medicalPatchMakeshift
       steps:
-      - material: Gauze
+      - material: Cloth
         amount: 2
         doAfter: 5
   - node: medicalPatchMakeshift
     entity: MedicalPatchMakeshift
 
 - type: construction
-  name: Makeshift Patch
+  name: makeshift patch
   id: MedicalPatchMakeshift
   graph: MedicalPatchMakeshift
   startNode: start
@@ -203,5 +228,32 @@
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
     state: MakeshiftPatch
 
+- type: constructionGraph
+  id: SilkPatchMakeshift
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: silkPatchMakeshift
+      steps:
+      - material: WebSilk
+        amount: 8
+        doAfter: 10
+  - node: silkPatchMakeshift
+    entity: MedicalPatchMakeshift
 
-
+- type: construction
+  name: silk makeshift patch
+  id: SilkPatchMakeshift
+  graph: SilkPatchMakeshift
+  startNode: start
+  targetNode: silkPatchMakeshift
+  category: construction-category-tools
+  objectType: Item
+  description: A little better then nothing. Apply a chemical to it and wear it for treatment over time.
+  icon:
+    sprite: _Goobstation/Objects/Medical/medical_patch.rsi
+    state: MakeshiftPatch
+  entityWhitelist:
+    tags:
+    - SpiderCraft

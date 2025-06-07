@@ -272,6 +272,8 @@
         - DiscreteHealthAnalyzer
         - SurgeryTool
         - Dropper
+        - Tourniquet #Goobstation - ParamedHypo
+        - MedicalPatch # Goobstation
       components:
         - Hypospray
         - Injector

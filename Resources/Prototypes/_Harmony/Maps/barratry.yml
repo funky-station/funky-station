@@ -22,6 +22,9 @@
             #service
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
+            NanotrasenRepresentative: [ 1, 1 ]
+            InternalAffairsAgent: [ 1, 1 ]
+            BlueshieldOfficer: [ 1, 1 ]
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 2 ]
             Chef: [ 2, 2 ]
@@ -43,6 +46,7 @@
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 5, 5 ]
+            Roboticist: [ 1, 1 ]
             ResearchAssistant: [2, 4]
             #security
             HeadOfSecurity: [ 1, 1 ]
@@ -63,4 +67,4 @@
             Reporter: [ 1, 1 ]
             #silicon
             StationAi: [ 1, 1 ]
-            Borg: [ 1, 1 ]
+            Borg: [ 2, 2 ]

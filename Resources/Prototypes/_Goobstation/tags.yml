@@ -11,7 +11,10 @@
   id: BolaEnergy
 
 - type: Tag
-  id: AutoinjectorCartridge
+  id: AutoinjectorCartridgeCase
+
+- type: Tag
+  id: AutoinjectorCartridgeCaseSoft
 
 - type: Tag
   id: NukeOpsMedicUplink
@@ -126,9 +129,6 @@
 
 - type: Tag
   id: Gygax
-
-- type: Tag
-  id: CartridgeEpinephrine
 
 - type: Tag
   id: Jetpack

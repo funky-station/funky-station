@@ -17,7 +17,7 @@
     castShadows: false
     color: "#0000ff"
   - type: StaticPrice
-    price: 500
+    price: 1000
 
 - type: entity
   parent: BaseItem
@@ -39,13 +39,13 @@
         harddisk_mini: ""
         harddisk_micro: ""
   - type: StaticPrice
-    price: 275
+    price: 525
 
 - type: entity
   parent: BaseItem
   id: TreasureFlopDiskDrive
   name: floppy disk drive
-  description: A drive for reading off info off of floppy disks. Shame that the only things stored on them nowadays are nuclear bomb operations.
+  description: A drive for reading off info off of floppy disks. Shame that the only things stored on them nowadays are nuclear bomb operations,curiously enough these are never in short demand.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -54,13 +54,13 @@
   - type: Item
     storedRotation: -90
   - type: StaticPrice
-    price: 350
+    price: 700
 
 - type: entity
   parent: BaseItem
   id: TreasureCDDrive
   name: CD drive
-  description: A piece of tech for reading data off of CDs. Nowadays that's not the most useful thing, unless you plan on flying somewhere.
+  description: A piece of tech for reading data off of CDs. Nowadays that's not the most useful thing, but collectors pay a pretty penny for useless things.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -69,13 +69,13 @@
   - type: Item
     storedRotation: -90
   - type: StaticPrice
-    price: 300
+    price: 600
 
 - type: entity
   parent: BaseItem
   id: TreasureCPUSupercharged
   name: supercharged CPU
-  description: Some kind of super alien space tech. Shame all the computers already come with CPUs nowadays.
+  description: Some kind of super alien space device. Tech like this makes for good scrap and fetches a decent price on the market.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -85,17 +85,17 @@
     size: Tiny
   - type: PhysicalComposition
     materialComposition: # big mats if you don't sell it
-      Steel: 500
-      Glass: 1000
-      Silver: 300
+      Plasma: 1500
+      Gold: 500
+      Silver: 1000
   - type: StaticPrice
-    price: 750
+    price: 2500
 
 - type: entity
   parent: BaseItem
   id: TreasureSampleTube
   name: sample tube
-  description: A glass tube with some sort of goop in it. Looks prone to breaking.
+  description: A glass tube with some sort of sample in it. People are interested in buying these for whatever reason.
   components:
   - type: Sprite
     sprite: Objects/Misc/sample_tubes.rsi
@@ -112,7 +112,7 @@
         synchronizer: ""
         stabilizer: ""
   - type: StaticPrice
-    price: 120
+    price: 275
 
 - type: entityTable
   id: TreasureCoinPile
@@ -148,7 +148,7 @@
   parent: BaseItem
   id: TreasureCoinIron
   name: coin
-  description: A flat bit of metal. If it was still in circulation, inflation would've made it worthless. Since it isn't, it's worth enough to keep in a book.
+  description: A flat bit of metal. If it was still in circulation, inflation would've made it worthless. Since it isn't, it at least can make for some good scrap # Good for recycling but also decent sell value
   components:
   - type: Sprite
     sprite: Objects/Misc/coins.rsi
@@ -157,9 +157,9 @@
     size: Tiny
   - type: PhysicalComposition
     materialComposition:
-      Steel: 300
+      Steel: 400
   - type: StaticPrice
-    price: 75
+    price: 125
 
 - type: entity
   parent: TreasureCoinIron
@@ -169,10 +169,9 @@
     state: coin_silver
   - type: PhysicalComposition
     materialComposition:
-      Steel: 100 # coins are fake on the inside
-      Silver: 200
+      Silver: 400
   - type: StaticPrice
-    price: 135
+    price: 200
 
 - type: entity
   parent: TreasureCoinIron
@@ -182,10 +181,9 @@
     state: coin_gold
   - type: PhysicalComposition
     materialComposition:
-      Steel: 100
-      Gold: 200
+      Gold: 400
   - type: StaticPrice
-    price: 175
+    price: 250
 
 - type: entity
   parent: TreasureCoinIron
@@ -195,10 +193,10 @@
     state: coin_adamantine
   - type: PhysicalComposition
     materialComposition:
-      Steel: 400
-      Diamond: 5
+      Silver: 450
+      Diamond: 10
   - type: StaticPrice
-    price: 250
+    price: 500
 
 - type: entity
   parent: TreasureCoinIron
@@ -208,8 +206,8 @@
     state: coin_diamond
   - type: PhysicalComposition
     materialComposition:
-      Steel: 300
-      Diamond: 15
+      Steel: 380
+      Diamond: 20
   - type: StaticPrice
-    price: 500
+    price: 1000
 

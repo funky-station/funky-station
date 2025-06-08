@@ -54,7 +54,7 @@
   parent: [ClothingMaskGas, BaseSyndicateContraband]
   id: ClothingMaskGasSyndicate
   name: syndicate gas mask
-  description: A close-fitting tactical mask that can be connected to an air supply.
+  description: A close-fitting tactical gas mask with built in welding goggles and face shield
   components:
   - type: Sprite
     sprite: Clothing/Mask/gassyndicate.rsi
@@ -119,9 +119,9 @@
   - type: IngestionBlocker
 
 - type: entity
-  parent: [ClothingMaskGas, BaseCargoContraband]
+  parent: [ClothingMaskGas, BaseSecurityCargoContraband]
   id: ClothingMaskGasExplorer
-  name: explorer gas mask
+  name: armoured gas mask
   description: A military-grade gas mask that can be connected to an air supply.
   components:
   - type: Sprite
@@ -720,7 +720,7 @@
   parent: ClothingMaskGas
   id: ClothingMaskWeldingGas
   name: welding gas mask
-  description: A gas mask with built in welding goggles and face shield. Looks like a skull, clearly designed by a nerd.
+  description: A gas mask with built in welding goggles. Looks like a skull, clearly designed by a nerd.
   components:
   - type: Sprite
     sprite: Clothing/Mask/welding-gas.rsi

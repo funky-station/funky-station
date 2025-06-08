@@ -86,8 +86,7 @@
     children:
     - id: SheetPlasma1
       amount: !type:RangeNumberSelector
-        range: 3, 5
-    - id: ResearchDisk
+        range: 5, 20
     - id: DrinkGoldenCup
     - id: TreasureSampleTube
     - !type:NestedSelector
@@ -103,10 +102,10 @@
     children:
     - id: IngotSilver1
       amount: !type:RangeNumberSelector
-        range: 1, 5
+        range: 5, 10
     - id: IngotGold1
       amount: !type:RangeNumberSelector
-        range: 3, 5
+        range: 5, 10
     - id: TreasureDatadiskEncrypted
     - !type:GroupSelector
       children:
@@ -128,8 +127,7 @@
     children:
     - id: MaterialDiamond1
     - id: TreasureCPUSupercharged
-    - id: TechnologyDiskRare
-      weight: 0.5
+    - id: CrateCargoGambling
     - id: ResearchDisk10000
       weight: 0.5
     - id: ArabianLamp
@@ -162,7 +160,7 @@
     - id: ClothingMaskGoldenCursed
     - id: ClothingHeadHatFancyCrown
     - id: GoldenBikeHorn
-    - id: ClothingHeadHatCatEars
+    - id: CrateCargoGambling
     - id: TreasureCoinDiamond
       amount: !type:RangeNumberSelector
         range: 2, 5
@@ -174,10 +172,33 @@
 # Equipment: Tools and things used by salvagers. Quote unquote "Gamer Loot"
 
 - type: entityTable
-  id: SalvageEquipmentCommon
+  id: SalvageEquipmentCommon # Mostly misc items,tools and clothing 
   table: !type:GroupSelector
     children:
     - id: Flare
+    - id: ClothingHeadHatBeretMerc
+    - id: ClothingHeadBandMerc
+    - id: ClothingMaskBandMerc
+    - id: ClothingUniformJumpsuitMercenary
+    - id: ClothingHandsGlovesMercFingerless
+    - id: ClothingHeadHatUshanka 
+    - id: ClothingBackpackMerc
+      weight: 0.1
+    - id: ClothingBackpackSatchelLeather
+      weight: 0.1
+    - id: ClothingUniformJumpsuitPirate
+    - id: ClothingShoesBootsLaceup
+    - id: ClothingHeadBandBlack
+    - id: ClothingHeadHatPirate
+    - id: ClothingNeckCloakPirateCap
+      weight: 0.1
+    - id: PirateHandyFlag # Me Pirate! 
+      weight: 0.1
+    - id: RadioHandheld
+    - id: DrinkVodkaBottleFull
+    - id: BoxMRE
+    - id: CigPackBlack
+    - id: ClothingBeltUtility
     - id: Crowbar
     - id: Pickaxe
     - id: ClothingMaskGas
@@ -188,77 +209,116 @@
       - id: Wrench
       - id: Welder
         weight: 0.5
+      - id: WelderIndustrial
+        weight: 0.25
     - id: Shovel
     - id: FlashlightLantern
     - id: FireExtinguisher
     - id: SurvivalKnife
 
 - type: entityTable
-  id: SalvageEquipmentUncommon
+  id: SalvageEquipmentUncommon # Mostly just random but rarely seen melee weapons 
   table: !type:GroupSelector
     children:
     - id: OreBag
-    - id: HandheldGPSBasic
+    - id: HandHeldMassScanner
+      weight: 0.25
     - id: PowerCellHighPrinted
-    - id: RadioHandheld
-    - id: ClothingBeltUtility
+    - id: Machete
+    - id: KukriKnife
+    - id: Cutlass
+    - id: Sledgehammer
+    - id: FireAxe
+      weight: 0.5
+    - id: Chainsaw
+      weight: 0.25
+    - id: Katana
     - id: WeaponProtoKineticAccelerator
       weight: 0.5
-    - id: OxygenTankFilled
-    - id: WelderIndustrial
     - id: WeaponGrapplingGun
     - !type:GroupSelector
       children:
       - id: ClothingHeadHatWelding
-      - id: ClothingHeadHatWeldingMaskFlame
+      - id: ClothingOuterHardsuitPirateEVA
         weight: 0.25
       - id: ClothingHeadHatWeldingMaskFlameBlue
         weight: 0.25
-      - id: ClothingHeadHatWeldingMaskPainted
+      - id: ClothingOuterHardsuitPirateCap
         weight: 0.1
-
 - type: entityTable
-  id: SalvageEquipmentRare
+  id: SalvageEquipmentRare # Now getting into some proper eqiupment here, Merc armors are secoff equipment but green, at least it makes it obious where you got it from 
   table: !type:GroupSelector
     children:
-    - id: BlueprintDoubleEmergencyTank
-    - id: FultonBeacon
+    - id: SeismicCharge
     - id: Fulton
       amount: !type:RangeNumberSelector
         range: 1, 3
-    - id: HandHeldMassScanner
-    - id: WeaponCrusherDagger
-    - id: MiningDrill
-    - id: ClothingEyesGlassesMeson
-    - id: ClothingBeltSalvageWebbing
-    - id: SeismicCharge
-    - id: MineralScanner
-      weight: 0.5
-    - id: WeaponCrusher
-      weight: 0.5
-    - !type:GroupSelector
+    - id: ClothingBeltSalvageWebbing    
+    - id: ClothingEyesGlassesMercenary
+    - id: ClothingMaskGasMerc
+    - id: ClothingHeadHelmetMerc
+    - id: ClothingOuterVestWebMerc
+      weight: 0.45
+    - id: ClothingHandsMercGlovesCombat
+      weight: 0.25
+    - id: ClothingBeltMercWebbing
+    - id: ClothingShoesBootsMerc
+    - id: CigPackSyndicate # Only the best 
+      weight: 0.25
+    - id: ToolDebug # Spanish Army Knife, not actualy sure why this is considered a debug tool, its cool
+      weight: 0.1
+    - !type:GroupSelector # The iconic arms of salvagers
       children:
-      - id: JetpackBlue
-      - id: JetpackBlack
-
+       - id: WeaponCrusherDagger  
+       - id: WeaponCrusher
+         weight: 0.5
+       - id: WeaponCrusherGlaive
+         weight: 0.5
+    - !type:GroupSelector # Jetpacks and Airtanks 
+      children:
+      - id: JetpackBlueFilled
+      - id: JetpackBlackFilled # This is technically sindie contra, but its not any diffrent from a regular jetpack
+        weight: 0.25
+      - id: DoubleEmergencyNitrogenTankFilled
+        weight: 0.5
+      - id: DoubleEmergencyOxygenTankFilled
 - type: entityTable
-  id: SalvageEquipmentLegendary
-  table: !type:GroupSelector
+  id: SalvageEquipmentLegendary # The Fun Stuff
+  table: !type:GroupSelector 
     children:
-    - id: AdvancedMineralScanner
-    - id: BlueprintFulton
-    - id: BlueprintSeismicCharge
-    - id: WeaponCrusherGlaive
+    - id: WeaponRevolverPirate 
+    - id: WeaponRevolverRattler
+    - id: WeaponRevolverInspector
+    - id: WeaponPistolN1984 
+    - id: WeaponLaserGun # Retro Laser Blaster
+    - id: WeaponRevolverHisrov 
+      weight: 0.15
+    - id: Musket 
+    - id: WeaponPistolFlintlock 
+    - id: WeaponShotgunBlunderbuss
+    - id: WeaponMakeshiftLaser
+    - id: WeaponEnergyGunEnergyPistol # Miniuture Laser Pistol
+    - id: WeaponLaserSvalinn 
+      weight: 0.50
+    - id: EnergyCutlass
+    - id: FireAxeFlaming 
+    - id: WeaponRifleAk
+      weight: 0.50
+    - id: WeaponShotgunKammerer
+    - id: WeaponLauncherRocket 
+      weight: 0.25
+    - id: WeaponLauncherPirateCannon 
+      weight: 0.50
     - !type:GroupSelector
       children:
       - id: ClothingOuterHardsuitSalvage
       - id: ClothingOuterHardsuitMaxim # funkystation
         weight: 0.05
-    - id: OmnizineChemistryBottle
     - !type:GroupSelector
       children:
-      - id: JetpackBlueFilled
-      - id: JetpackBlackFilled
+      - id: PowerCellAntiqueProto
+        weight: 0.25
+      - id: PowerCellHyper
 
 - type: entityTable
   id: RandomGeneratorTable

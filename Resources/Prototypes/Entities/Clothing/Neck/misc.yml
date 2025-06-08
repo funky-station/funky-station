@@ -47,7 +47,7 @@
   parent: ClothingNeckBase
   id: ClothingNeckBling
   name: bling
-  description: Damn, it feels good to be a gangster.
+  description: It would make you feel like a gangster, if it was not made out of cheap plastic.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Misc/bling.rsi
@@ -55,6 +55,8 @@
     sprite: Clothing/Neck/Misc/bling.rsi
   - type: Item
     sprite: Clothing/Neck/Misc/bling.rsi
+    materialComposition:
+      Plastic: 200
 
 - type: entity
   parent: ClothingNeckBase

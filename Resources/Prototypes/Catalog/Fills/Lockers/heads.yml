@@ -3,7 +3,14 @@
   table: !type:AllSelector
     children:
     - id: BoxEncryptionKeyCargo
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingShoesBootsMag
+    - id: ClothingMaskGasExplorer
     - id: BoxFolderQmClipboard
+    - id: ClothingBeltUtilityFilled
+    - id: WeaponGrapplingGun
+    - id: WeaponProtoKineticAccelerator 
     - id: CargoBountyComputerCircuitboard
     - id: CargoRequestComputerCircuitboard
     - id: CargoSaleComputerCircuitboard

@@ -3,7 +3,7 @@ using Content.Shared.Power;
 
 namespace Content.Server._Funkystation.Medical.MedicalRecords;
 
-public sealed class MedicalRecordsSystem : SharedMedicalRecordsSystem
+public sealed class MedicalRecordsConsoleSystem : SharedMedicalRecordsSystem
 {
     // handle things like OnGetEntries, OnEmag, OnMapInit, OnPowerChangedEvent, etc...
     // basically any events

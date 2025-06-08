@@ -124,6 +124,7 @@
     sprite: _Funkystation/Clothing/Eyes/sungar.rsi
   - type: IdentityBlocker
     coverage: EYES
+  - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
     tags:

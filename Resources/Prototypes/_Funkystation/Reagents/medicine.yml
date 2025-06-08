@@ -519,6 +519,27 @@
             Heat: -3
 
 - type: reagent
+  id: Sievertadone
+  name: reagent-name-sievertadone
+  group: Medicine
+  desc: reagent-desc-sievertadone
+  physicalDesc: reagent-physical-desc-vaporous
+  flavor: medicine
+  color: "#7508b0"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      - effects:
+          - !type:HealthChange
+            conditions:
+            - !type:Temperature
+              min: 343.3
+            damage:
+              types:
+                Radiation: -4
+                Heat: -3
+
+- type: reagent
   id: Deunomia
   name: reagent-name-deunomia
   group: Medicine

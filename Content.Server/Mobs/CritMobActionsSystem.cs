@@ -8,6 +8,7 @@ using Content.Shared.Mobs.Systems;
 using Robust.Server.Console;
 using Robust.Shared.Player;
 using Content.Shared.Speech.Muting;
+using Content.Shared.Speech;
 
 namespace Content.Server.Mobs;
 
@@ -59,7 +60,7 @@ public sealed class CritMobActionsSystem : EntitySystem
 
     private void OnLastWords(EntityUid uid, MobStateActionsComponent component, CritLastWordsEvent args)
     {
-        if (!TryComp<ActorComponent>(uid, out var actor))
+        if (!TryComp<ActorComponent>(uid, out var actor) || !HasComp<SpeechComponent>(uid))
             return;
 
         _quickDialog.OpenDialog(actor.PlayerSession, Loc.GetString("action-name-crit-last-words"), "",

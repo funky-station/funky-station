@@ -87,9 +87,10 @@ public sealed partial class AnnounceTtsSystem : EntitySystem
 	}
 
 	public bool CanTTS(EntityUid user)
-	{
-		return _entityManager.HasComponent<StationAiOverlayComponent>(user);
-	}
+    {
+        return false; // disable ai tts for now
+        //return _entityManager.HasComponent<StationAiOverlayComponent>(user);
+    }
 
 	public static List<string> PrepareTtsMessage(string msg)
 	{

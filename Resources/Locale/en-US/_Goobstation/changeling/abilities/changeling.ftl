@@ -56,6 +56,7 @@ changeling-sting-fail-simplemob = You can't sting a lesser creature!
 changeling-sting-extract-fail = Unable to extract DNA
 changeling-sting-fail = You cannot sting that!
 changeling-sting-extract-max = Need to get rid of the stored DNA beforehand
+changeling-sting-extract-alive-fail = You cannot extract DNA from someone alive
 
 changeling-stasis-enter = You enter regenerative stasis
 changeling-stasis-enter-fail = Can't enter stasis!

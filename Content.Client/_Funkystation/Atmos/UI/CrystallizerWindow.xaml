@@ -76,7 +76,7 @@
                     <PanelContainer StyleClasses="LowDivider"/>
                     <PanelContainer Name="RecipePanel" MinSize="322 180" Margin="18 5 5 5" >
                         <PanelContainer.PanelOverride>
-                            <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                            <gfx:StyleBoxFlat BackgroundColor="#222222" />
                         </PanelContainer.PanelOverride>
                         <BoxContainer Name="RequirementsContainer" Margin="5" Orientation="Vertical" Modulate="#808080">
                             <Label Text="Please select a recipe" />

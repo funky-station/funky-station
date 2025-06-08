@@ -64,3 +64,10 @@
   loadouts:
     - MagistrateGavel
     - MagistratePwig
+
+- type: loadoutGroup
+  id: ScienceRoboticistGlasses
+  name: loadout-group-roboticist-glasses
+  loadouts:
+  - ScienceRoboNormGlasses
+  - ScienceRoboJamjarGlasses

@@ -100,6 +100,9 @@
     sprite: _Funkystation/Clothing/Eyes/Jamjars/jamgog.rsi
   - type: VisionCorrection
   - type: EyeProtection
+    protectionTime: 5
+    tags:
+    - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
   - type: Tag
@@ -121,8 +124,10 @@
     sprite: _Funkystation/Clothing/Eyes/sungar.rsi
   - type: IdentityBlocker
     coverage: EYES
-  - type: FlashImmunity
   - type: EyeProtection
+    protectionTime: 5
+    tags:
+    - WhitelistChameleon
   - type: Tag
     tags:
       - Sunglasses

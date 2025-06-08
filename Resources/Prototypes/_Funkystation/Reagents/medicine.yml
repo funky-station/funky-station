@@ -525,19 +525,19 @@
   desc: reagent-desc-sievertadone
   physicalDesc: reagent-physical-desc-vaporous
   flavor: medicine
-  color: "#7508b0"
+  color: "#904800"
   worksOnTheDead: true
   metabolisms:
     Medicine:
-      - effects:
-          - !type:HealthChange
-            conditions:
-            - !type:Temperature
-              min: 343.3
-            damage:
-              types:
-                Radiation: -4
-                Heat: -3
+      effects:
+      - !type:HealthChange
+         conditions:
+         - !type:Temperature
+            min: 343.3
+         damage:
+           types:
+            Radiation: -4
+            Heat: -3
 
 - type: reagent
   id: Deunomia

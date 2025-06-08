@@ -521,4 +521,4 @@ uplink-syndicate-autoinjector-softcase-name = Cartridge Autoinjector Soft Case (
 uplink-syndicate-autoinjector-softcase-desc = Contains 4 different cartridges for use in an autoinjector. Provide enough chems to stabilise a patient. One for airloss, critical injury, brute injury and burns. Each is single use!
 
 uplink-autoinjector-bundle-name = Syndicate Cartridge Autoinjector Bundle
-uplink-autoinjector-bundle-desc = A bag containing multiple Syndicate branded cartridge autoinjectors as well as hard and soft cases, all filled with various cartridges. For healing in a pinch when you don't have time to stop!
+uplink-autoinjector-bundle-desc = A bag containing 4 Syndicate branded cartridge autoinjectors as well as hard and soft cases, both filled with various cartridges, and a few extras for treating gunshot wounds. For healing in a pinch when you don't have time to stop!

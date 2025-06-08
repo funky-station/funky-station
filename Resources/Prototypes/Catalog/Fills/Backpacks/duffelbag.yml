@@ -286,11 +286,12 @@
       - id: PillAmbuzol
         amount: 3
 
+#Funky addition - Irondragoon
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
   id: ClothingBackpackDuffelSyndicateCartridgeAutoinjectorBundleFilled
   name: autoinjector bundle
-  description: "A bag containing 4 Syndicate branded cartridge autoinjectors as well as hard and soft cases, both filled with various cartridges. For healing in a pinch when you don't have time to stop!"
+  description: "A bag containing 4 Syndicate branded cartridge autoinjectors as well as hard and soft cases, both filled with various cartridges, and a few extras for treating gunshot wounds. For healing in a pinch when you don't have time to stop!"
   components:
   - type: StorageFill
     contents:
@@ -300,9 +301,9 @@
         amount: 2
       - id: autoInjectorCartridgeCaseSoftFilled
         amount: 4
+      - id: CartridgeGunshotSyndicate
+        amount: 4
 
-
- #Funky addition - Irondragoon
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
   id: ClothingBackpackDuffelSyndicateMedicalBundleFilled

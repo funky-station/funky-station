@@ -1448,8 +1448,7 @@
   - type: Tag
     tags:
     - Vegetable
-<<<<<<< HEAD
-- type: FoodSequenceElement
+  - type: FoodSequenceElement
     sprite:
       sprite: Objects/Specific/Hydroponics/chanterelle.rsi
       state: produce
@@ -1463,9 +1462,6 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-mushroom
-=======
-    - Mushroom
->>>>>>> ebcbdf3077 (Adding fungal soil (#36245))
 
 # Slices
 
@@ -1827,7 +1823,6 @@
       sprite: Objects/Specific/Hydroponics/lingzhi.rsi
       state: produce
     entries:
-<<<<<<< HEAD
       burger:
         name: food-sequence-content-mushroom
       taco:
@@ -1837,13 +1832,11 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-mushroom
-=======
       Taco: Lingzhi
       Burger: Lingzhi
   - type: Tag
     tags:
     - Mushroom
->>>>>>> ebcbdf3077 (Adding fungal soil (#36245))
 
 - type: entity
   name: ambrosia vulgaris
@@ -2084,7 +2077,6 @@
       sprite: Objects/Specific/Hydroponics/fly_amanita.rsi
       state: produce
     entries:
-<<<<<<< HEAD
       burger:
         name: food-sequence-content-mushroom
       taco:
@@ -2094,13 +2086,11 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-mushroom
-=======
       Taco: FlyAmanita
       Burger: FlyAmanita
   - type: Tag
     tags:
     - Mushroom
->>>>>>> ebcbdf3077 (Adding fungal soil (#36245))
 
 - type: entity
   name: gatfruit

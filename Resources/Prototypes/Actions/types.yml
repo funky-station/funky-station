@@ -126,7 +126,7 @@
     maxCharges: 3
   - type: InstantAction
     checkCanInteract: false
-    useDelay: 5
+    useDelay: 30
     itemIconStyle: BigAction
     priority: -20
     icon:

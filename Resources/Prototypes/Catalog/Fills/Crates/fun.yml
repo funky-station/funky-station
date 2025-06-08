@@ -43,6 +43,8 @@
     - id: PlushieArachind
     - id: PlushiePenguin
     - id: PlushieCirno
+    - id: PlushieGodo
+    - id: PlushieGocrazy
 
 - type: entity
   id: CrateFunPlushie

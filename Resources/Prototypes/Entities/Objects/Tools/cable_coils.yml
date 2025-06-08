@@ -33,17 +33,23 @@
     guides:
     - VoltageNetworks
     - Power
+
   # EE Change Start
-  #MORE than ointment Estacao Pirata IPCs
+  #Same as Ointment but divided by 5 and 3 because StackPrice needs to be 1 - Estacao Pirata IPCs
+  #1 Ointment = -50 damage of those types
+  #1 Cable ~= -50 (-49.8) damage of those types
   - type: Healing
     delay: 0.6
     damageContainers:
     - Silicon
+    - HumanoidSilicon # DeltaV
     damage:
       types: # these are all split across multiple types
-        Heat: -3.0
-        Shock: -3.0
-        Ion: -3.0 # Goobstation
+        Heat: -1.66
+        Shock: -1.66
+        Cold: -1.66 # DeltaV
+        Ion: -1.66
+        Caustic: -1.66 #funky
   # EE Change End
   # FIXME: Used isnt actually implemented so its still unlimited.
   # Uncomment this when its implemented, and make sure it handles StackComponent right

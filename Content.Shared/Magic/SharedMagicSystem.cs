@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.Actions;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Coordinates.Helpers;
@@ -139,6 +140,7 @@ public abstract class SharedMagicSystem : EntitySystem
             SpawnSpellHelper(args.Prototype, position, args.Performer, preventCollide: args.PreventCollideWithCaster);
         }
 
+        Speak(args);
         args.Handled = true;
     }
 
@@ -232,6 +234,7 @@ public abstract class SharedMagicSystem : EntitySystem
         var targetMapCoords = args.Target;
 
         WorldSpawnSpellHelper(args.Prototypes, targetMapCoords, args.Performer, args.Lifetime, args.Offset);
+        Speak(args);
         args.Handled = true;
     }
 
@@ -267,6 +270,7 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         ev.Handled = true;
+        Speak(ev);
 
         var xform = Transform(ev.Performer);
         var fromCoords = xform.Coordinates;
@@ -290,6 +294,8 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         ev.Handled = true;
+        if (ev.DoSpeech)
+            Speak(ev);
 
         RemoveComponents(ev.Target, ev.ToRemove);
         AddComponents(ev.Target, ev.ToAdd);
@@ -313,6 +319,7 @@ public abstract class SharedMagicSystem : EntitySystem
 
         _transform.SetCoordinates(args.Performer, args.Target);
         _transform.AttachToGridOrMap(args.Performer, transform);
+        Speak(args);
         args.Handled = true;
     }
 
@@ -322,6 +329,7 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         ev.Handled = true;
+        Speak(ev);
 
         _transform.SwapPositions(ev.Performer, ev.Target);
     }
@@ -379,6 +387,7 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         ev.Handled = true;
+        Speak(ev);
 
         var direction = _transform.GetMapCoordinates(ev.Target, Transform(ev.Target)).Position - _transform.GetMapCoordinates(ev.Performer, Transform(ev.Performer)).Position;
         var impulseVector = direction * 10000;
@@ -404,6 +413,7 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         args.Handled = true;
+        Speak(args);
 
         var transform = Transform(args.Performer);
 
@@ -442,6 +452,7 @@ public abstract class SharedMagicSystem : EntitySystem
         }
 
         ev.Handled = true;
+        Speak(ev);
 
         if (wand == null || !TryComp<BasicEntityAmmoProviderComponent>(wand, out var basicAmmoComp) || basicAmmoComp.Count == null)
             return;
@@ -459,6 +470,7 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         ev.Handled = true;
+        Speak(ev);
 
         var allHumans = _mind.GetAliveHumans();
 
@@ -492,6 +504,7 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         ev.Handled = true;
+        Speak(ev);
 
         // Need performer mind, but target mind is unnecessary, such as taking over a NPC
         // Need to get target mind before putting performer mind into their body if they have one
@@ -517,4 +530,14 @@ public abstract class SharedMagicSystem : EntitySystem
     // End Spells
     #endregion
 
+    // When any spell is cast it will raise this as an event, so then it can be played in server or something. At least until chat gets moved to shared
+    // TODO: Temp until chat is in shared
+    private void Speak(BaseActionEvent args)
+    {
+        if (args is not ISpeakSpell speak || string.IsNullOrWhiteSpace(speak.Speech))
+            return;
+
+        var ev = new SpeakSpellEvent(args.Performer, speak.Speech);
+        RaiseLocalEvent(ref ev);
+    }
 }

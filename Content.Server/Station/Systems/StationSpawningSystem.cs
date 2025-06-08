@@ -104,6 +104,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     {
         _prototypeManager.TryIndex(job ?? string.Empty, out var prototype);
         RoleLoadout? loadout = null;
+        string? nameOverride = null;
 
         // Need to get the loadout up-front to handle names if we use an entity spawn override.
         var jobLoadout = LoadoutSystem.GetJobPrototype(prototype?.ID);
@@ -111,7 +112,13 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         if (_prototypeManager.TryIndex(jobLoadout, out RoleLoadoutPrototype? roleProto))
         {
             profile?.Loadouts.TryGetValue(jobLoadout, out loadout);
-
+            if (loadout != null)
+            {
+                if (roleProto.CanCustomizeName)
+                {
+                    nameOverride = loadout.EntityName;
+                }
+            }
             // Set to default if not present
             if (loadout == null)
             {

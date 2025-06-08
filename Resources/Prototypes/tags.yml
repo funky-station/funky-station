@@ -1383,6 +1383,9 @@
 
 - type: Tag
   id: Torch
+  
+- type: Tag
+  id: Tourniquet
 
 - type: Tag
   id: ToyRubberDuck

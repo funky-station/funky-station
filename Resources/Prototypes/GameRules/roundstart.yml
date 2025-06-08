@@ -21,9 +21,9 @@
   - type: SubGamemodes
     rules:
     - id: Thief
-      prob: 0.75
-    - id: Heretic # goob edit
-      prob: 0.2 # funkystation - 20% of rounds can have a heretic as a treat
+      prob: 0.65
+    - id: Heretic
+      prob: 0.3
 
 - type: entity
   parent: BaseGameRule

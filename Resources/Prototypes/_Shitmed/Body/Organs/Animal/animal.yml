@@ -22,7 +22,7 @@
     solutions:
       organ:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: GreyMatter # Funky - why would it become nutriment when blended?
           Quantity: 10
       food:
         maxVol: 5
@@ -64,3 +64,6 @@
     shape:
     - 0,0,1,0
     heldPrefix: eyeballs
+  - type: Tag # This allows heretic rituals to work with animals eyes
+    tags:
+    - Eyes

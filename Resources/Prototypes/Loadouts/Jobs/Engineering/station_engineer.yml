@@ -46,6 +46,16 @@
   - !type:GroupLoadoutEffect
     proto: SeniorEngineering
 
+#Eyes- Funky
+- type: loadout
+  id: EngineeringNormGoggles
+  equipment:
+    eyes: ClothingEyesGlassesMeson
+- type: loadout
+  id: EngineeringJamGoggles
+  equipment:
+    eyes: ClothingEyesGlassesJamgog
+
 # Jumpsuit
 - type: loadout
   id: StationEngineerJumpsuit

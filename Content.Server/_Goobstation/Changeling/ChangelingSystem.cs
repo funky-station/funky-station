@@ -57,6 +57,9 @@ using Content.Shared.Jittering;
 using Content.Server.Explosion.EntitySystems;
 using System.Linq;
 using Content.Server.Damage.Systems;
+using Content.Server.EntityEffects.EffectConditions;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Body.Part;
 using Content.Shared.Forensics.Components;
 
 namespace Content.Server.Changeling;
@@ -115,6 +118,26 @@ internal sealed partial class ChangelingSystem : EntitySystem
 
     public EntProtoId SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
     public EntProtoId SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
+
+    private readonly List<TargetBodyPart> _bodyPartBlacklist = 
+    [ 
+        TargetBodyPart.Head, 
+        TargetBodyPart.Torso, 
+        TargetBodyPart.Groin,
+        TargetBodyPart.LeftFoot,
+        TargetBodyPart.RightFoot,
+        TargetBodyPart.RightHand,
+        TargetBodyPart.LeftHand
+    ];
+    
+    private readonly Dictionary<string, float> _organWhitelist = new()
+    {
+        { "stomach", 0.5f },
+        { "eyes", 0.5f },
+        { "liver", 0.5f },
+        { "lungs", 0.5f },
+        //{ "kidneys", 0.5f }, kidneys are not fucking implemented. some bullshit
+    };
 
     public override void Initialize()
     {
@@ -440,8 +463,16 @@ internal sealed partial class ChangelingSystem : EntitySystem
         || !TryComp<MetaDataComponent>(target, out var metadata)
         || !TryComp<DnaComponent>(target, out var dna)
         || !TryComp<FingerprintComponent>(target, out var fingerprint))
+        return false;
+        
+        if (_mobState.IsAlive(target) && comp.UsedDnaStingFirstTime)
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-alive-fail"), uid, uid);
             return false;
-
+        }
+        
+        comp.UsedDnaStingFirstTime = true;
+        
         foreach (var storedDNA in comp.AbsorbedDNA)
         {
             if (storedDNA.DNA == dna.DNA)

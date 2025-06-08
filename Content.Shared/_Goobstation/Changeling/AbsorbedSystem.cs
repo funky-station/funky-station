@@ -8,8 +8,9 @@ public sealed partial class AbsorbedSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
-        SubscribeLocalEvent<AbsorbedComponent, ExaminedEvent>(OnExamine);
+        
+        // funky station: remove hollowing as is
+        //SubscribeLocalEvent<AbsorbedComponent, ExaminedEvent>(OnExamine); 
         SubscribeLocalEvent<AbsorbedComponent, MobStateChangedEvent>(OnMobStateChange);
     }
 

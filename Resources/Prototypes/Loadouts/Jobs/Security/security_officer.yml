@@ -44,6 +44,17 @@
   equipment:
     head: ClothingHeadHatSecurityTrooper
 
+# Eyes - Funkystation
+- type: loadout
+  id: SecurityNormGlasses
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+
+- type: loadout
+  id: SecurityJamjarGlasses
+  equipment:
+    eyes: ClothingEyesGlassesSecjar
+
 # Jumpsuit
 - type: loadout
   id: SecurityJumpsuit
@@ -168,3 +179,4 @@
   storage:
     back:
     - Dinkystar
+    

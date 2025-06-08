@@ -11,8 +11,6 @@
   id: SurgeryStaticGoob
   recipes:
   - BoneGel
-  - MedicalStitches
-  - Bonesetter
 
 ## Dynamic
 - type: latheRecipePack
@@ -32,8 +30,3 @@
   id: MedicalCybernetics
   recipes:
   - MedicalCyberneticEyes
-
-- type: latheRecipePack
-  id: MedicalMisc
-  recipes:
-  - PrescriptionGlasses

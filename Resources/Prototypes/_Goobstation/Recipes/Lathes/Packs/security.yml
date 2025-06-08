@@ -13,13 +13,6 @@
 
 ## Dynamic
 - type: latheRecipePack
-  id: SecurityAmmoGoob
-  recipes:
-  - MagazineBoxShotgunIncendiaryHighCaliber
-  - MagazineBoxShotgunBeanbagHighCaliber
-  - MagazineBoxShotgunUraniumHighCaliber
-
-- type: latheRecipePack
   id: SecurityCybernetics
   parent: MedicalCybernetics
   recipes:

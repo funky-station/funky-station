@@ -130,14 +130,11 @@
     - ServiceStatic
     - PowerCellsStatic
     - ElectronicsStatic
-    - LatheMiscStatic # goob
-    - GrenadeTriggerStatic # goob
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
     - ScienceExplosives # goob
-    - SyndicateAmmoLightStatic # goob
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -211,8 +208,6 @@
     - Instruments
     - Equipment
     - FauxTiles
-    - ServiceWeapons # goob
-    - MedicalMisc # goob
     - Surgery # goob
     - ServiceDynamicFunky # funky
   - type: EmagLatheRecipes
@@ -221,7 +216,6 @@
     - SecurityExplosives
     - SecurityEquipment
     - SecurityWeapons
-    - SecurityAmmoGoob # goob
     - MiningWeapons # goob
 
 - type: entity
@@ -267,7 +261,6 @@
     - CircuitFloorsStatic
     - SharedBoardsStatic # goob
     - MedicalBoardsStaticGoob # goob
-    - SecurityBoardsStaticGoob # goob
     dynamicPacks:
     - EngineeringBoards
     - CargoBoards
@@ -342,7 +335,6 @@
     - MechEquipment
     # Goobstation Packs
     - MechPartsGoob
-    - Modsuits
     - PowerCages
     - BorgModulesGoob
     - Cybernetics
@@ -434,8 +426,6 @@
     # Goobstation
     - SecurityEquipmentStaticGoob
     - MechWeaponsSecurityStatic
-    - SecurityBoardsStaticGoob
-    - SecurityBoardsStaticGoob
     - PowerCellsStatic
     - ScienceExplosives
     - GrenadeTriggersStatic
@@ -449,9 +439,7 @@
     - MechBoardsSecurity
     - MechWeaponsSecurityLight
     - MechWeaponsSecurityHeavy
-    - SecurityAmmoGoob
     - SecurityCybernetics
-    - ServiceWeapons
     - PowerCells
   - type: MaterialStorage
     whitelist:
@@ -535,8 +523,6 @@
     # Goobstation Packs
     - MedicalSurgery
     - MedicalCybernetics
-    - MedicalMisc
-    - MedicalMiscRestricted
     - MedicalBoards
     - Janitor
   - type: Machine

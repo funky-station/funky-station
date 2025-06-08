@@ -1071,9 +1071,9 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Sprite
-    sprite: Structures/Walls/shuttleinterior.rsi
+    sprite: Structures/Walls/shuttle.rsi
   - type: Icon
-    sprite: Structures/Walls/shuttleinterior.rsi
+    sprite: Structures/Walls/shuttle.rsi
   - type: Construction
     graph: Girder
     node: shuttleInteriorWall

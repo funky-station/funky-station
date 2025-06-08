@@ -1832,8 +1832,6 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-mushroom
-      Taco: Lingzhi
-      Burger: Lingzhi
   - type: Tag
     tags:
     - Mushroom
@@ -2086,8 +2084,6 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-mushroom
-      Taco: FlyAmanita
-      Burger: FlyAmanita
   - type: Tag
     tags:
     - Mushroom

@@ -138,7 +138,6 @@
     - SecurityWeaponsStatic
     - ScienceExplosives # goob
     - SyndicateAmmoLightStatic # goob
-    - SecurityAmmoStaticGoob # goob
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -223,7 +222,6 @@
     - SecurityEquipment
     - SecurityWeapons
     - SecurityAmmoGoob # goob
-    - SecurityWeaponsGoob # goob
     - MiningWeapons # goob
 
 - type: entity
@@ -434,7 +432,6 @@
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
     # Goobstation
-    - SecurityAmmoStaticGoob
     - SecurityEquipmentStaticGoob
     - MechWeaponsSecurityStatic
     - SecurityBoardsStaticGoob
@@ -449,7 +446,6 @@
     - SecurityAmmo
     - SecurityWeapons
     # Goobstation
-    - SecurityWeaponsGoob
     - MechBoardsSecurity
     - MechWeaponsSecurityLight
     - MechWeaponsSecurityHeavy
@@ -490,17 +486,12 @@
     runningState: icon
     staticPacks:
     - SecurityAmmoStatic
-    - SecurityAmmoStaticGoob # goob
-    - type: EmagLatheRecipes # Goobstation Packs
-      emagStaticPacks:
-      - SyndicateAmmoLightStatic
-      - SyndicateAmmoHeavyStatic
   - type: MaterialStorage
     whitelist:
       tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+      - Sheet
+      - RawMaterial
+      - Ingot
 
 - type: entity
   id: MedicalTechFab

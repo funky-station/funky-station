@@ -29,8 +29,6 @@ public sealed class ActionButton : Control, IEntityControl
     private bool _depressed;
     private bool _toggled;
 
-    private int _lastCharges;
-
     public BoundKeyFunction? KeyBind
     {
         set
@@ -323,8 +321,6 @@ public sealed class ActionButton : Control, IEntityControl
         _controller ??= UserInterfaceManager.GetUIController<ActionUIController>();
         if (_action != null ||
             _controller.IsDragging && GetPositionInParent() == Parent?.ChildCount - 1)
-        // goobstation
-        if (_action != null)
         {
             Button.Texture = _buttonBackgroundTexture;
         }
@@ -463,4 +459,3 @@ public sealed class ActionButton : Control, IEntityControl
 
     EntityUid? IEntityControl.UiEntity => ActionId;
 }
-

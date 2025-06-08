@@ -51,6 +51,8 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHigh
+  - type: Construction
+    node: xenoborgengi
 
 - type: entity
   parent: [ BaseXenoborgChassis, BaseXenoborgTransponder ]
@@ -138,6 +140,8 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHigh
+  - type: Construction
+    node: xenoborgheavy
 
 - type: entity
   parent: [ BaseXenoborgChassis, BaseXenoborgTransponder ]
@@ -153,15 +157,15 @@
       state: xenoborg_scout
   - type: Sprite
     layers:
-      - state: xenoborg_scout
-      - state: xenoborg_scout_e
-        map: ["enum.BorgVisualLayers.Light"]
-        shader: unshaded
-        visible: false
-      - state: xenoborg_scout_l
-        shader: unshaded
-        map: ["light"]
-        visible: false
+    - state: xenoborg_scout
+    - state: xenoborg_scout_e
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: xenoborg_scout_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
   - type: FootstepModifier # it flies instead of walking
     footstepSoundCollection:
       collection: FootstepHoverXenoborg
@@ -191,6 +195,8 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHigh
+  - type: Construction
+    node: xenoborgscout
 
 - type: entity
   parent: [ BaseXenoborgChassis, BaseXenoborgTransponder ]
@@ -206,15 +212,15 @@
       state: xenoborg_stealth
   - type: Sprite
     layers:
-      - state: xenoborg_stealth
-      - state: xenoborg_stealth_e
-        map: ["enum.BorgVisualLayers.Light"]
-        shader: unshaded
-        visible: false
-      - state: xenoborg_stealth_l
-        shader: unshaded
-        map: ["light"]
-        visible: false
+    - state: xenoborg_stealth
+    - state: xenoborg_stealth_e
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: xenoborg_stealth_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
   - type: FootstepModifier # it flies instead of walking
     footstepSoundCollection:
       collection: FootstepHoverXenoborg
@@ -245,6 +251,8 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHigh
+  - type: Construction
+    node: xenoborgstealth
 
 
 # xenoborgs empty

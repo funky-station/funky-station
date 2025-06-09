@@ -8,3 +8,14 @@
     solutions:
       stomach:
         maxVol: 80
+      # Funky - TIL cows have their own stomach types. Neat. Made them consistent with all other organs
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+      organ:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 8
+      # Funky change ends

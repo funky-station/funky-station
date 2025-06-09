@@ -211,11 +211,13 @@
       amount: 1
     Arithrazine:
       amount: 2
-    Plasma:
+    Ultravasculine:
+      amount: 1
+    Fluorine:
       amount: 1
       catalyst: true
   products:
-    Sievertadone: 2
+    Sievertadone: 3
 
 - type: reaction
   id: Deunomia

@@ -7,8 +7,6 @@ using Content.Server.Ghost.Components;
 using Content.Server.Mind;
 using Content.Server.Roles.Jobs;
 using Content.Server.Warps;
-using Content.Shared._Impstation.CosmicCult.Components;
-using Content.Shared._Impstation.Ghost;
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
@@ -109,30 +107,7 @@ namespace Content.Server.Ghost
             SubscribeLocalEvent<ToggleGhostVisibilityToAllEvent>(OnToggleGhostVisibilityToAll);
 
             SubscribeLocalEvent<GhostComponent, GetVisMaskEvent>(OnGhostVis);
-
-            SubscribeLocalEvent<MediumComponent, ComponentStartup>(OnMediumStartup); // imp
-            SubscribeLocalEvent<MediumComponent, MapInitEvent>(OnMapInitMedium); // imp
-            SubscribeLocalEvent<MediumComponent, ComponentShutdown>(OnMediumShutdown); // imp
         }
-
-
-        // begin imp
-        public override void Update(float frameTime)
-        {
-            base.Update(frameTime);
-
-            var query = EntityQueryEnumerator<MediumComponent>();
-            while (query.MoveNext(out var uid, out var comp))
-            {
-                comp.CurrentMediumTime += frameTime;
-
-                if (comp.CurrentMediumTime > comp.MediumTime)
-                {
-                    EntityManager.RemoveComponent<MediumComponent>(uid);
-                }
-            }
-        }
-        // end imp
 
         private void OnGhostVis(Entity<GhostComponent> ent, ref GetVisMaskEvent args)
         {
@@ -192,45 +167,6 @@ namespace Content.Server.Ghost
 
             args.Handled = true;
         }
-
-        // begin imp
-        private void OnMediumStartup(EntityUid uid, MediumComponent component, ComponentStartup args)
-        {
-            // Allow this entity to be seen by other ghosts.
-            var visibility = EnsureComp<VisibilityComponent>(uid);
-
-            if (_gameTicker.RunLevel != GameRunLevel.PostRound)
-            {
-                _visibilitySystem.AddLayer((uid, visibility), (int)VisibilityFlags.Ghost, false);
-                _visibilitySystem.RemoveLayer((uid, visibility), (int)VisibilityFlags.Normal, false);
-                _visibilitySystem.RefreshVisibility(uid, visibilityComponent: visibility);
-            }
-
-            SetCanSeeGhosts(uid, true, true);
-
-            var time = _gameTiming.CurTime;
-        }
-        // end imp
-
-        // begin imp
-        private void OnMediumShutdown(EntityUid uid, MediumComponent component, ComponentShutdown args)
-        {
-            // Perf: If the entity is deleting itself, no reason to change these back.
-            if (Terminating(uid))
-                return;
-
-            // Entity can't be seen by ghosts anymore.
-            if (TryComp(uid, out VisibilityComponent? visibility))
-            {
-                _visibilitySystem.RemoveLayer((uid, visibility), (int)VisibilityFlags.Ghost, false);
-                _visibilitySystem.AddLayer((uid, visibility), (int)VisibilityFlags.Normal, false);
-                _visibilitySystem.RefreshVisibility(uid, visibilityComponent: visibility);
-            }
-
-            // Entity can't see ghosts anymore.
-            SetCanSeeGhosts(uid, false, false);
-        }
-        // end imp
 
         private void OnRelayMoveInput(EntityUid uid, GhostOnMoveComponent component, ref MoveInputEvent args)
         {
@@ -307,18 +243,10 @@ namespace Content.Server.Ghost
             if (canSee)
             {
                 _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask | (int) VisibilityFlags.Ghost, eyeComponent);
-                if (!medium) _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask | MonumentComponent.LayerMask); // IMP EDIT
             }
             else
                 _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask & ~(int) VisibilityFlags.Ghost, eyeComponent);
         }
-
-        // begin imp
-        private void OnMapInitMedium(EntityUid uid, MediumComponent component, MapInitEvent args)
-        {
-            _actions.AddAction(uid, ref component.ToggleGhostsMediumActionEntity, component.ToggleGhostsMediumAction);
-        }
-        // end imp
 
         private void OnGhostExamine(EntityUid uid, GhostComponent component, ExaminedEvent args)
         {

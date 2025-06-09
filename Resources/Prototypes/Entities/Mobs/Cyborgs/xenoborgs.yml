@@ -153,15 +153,15 @@
       state: xenoborg_scout
   - type: Sprite
     layers:
-      - state: xenoborg_scout
-      - state: xenoborg_scout_e
-        map: ["enum.BorgVisualLayers.Light"]
-        shader: unshaded
-        visible: false
-      - state: xenoborg_scout_l
-        shader: unshaded
-        map: ["light"]
-        visible: false
+    - state: xenoborg_scout
+    - state: xenoborg_scout_e
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: xenoborg_scout_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
   - type: FootstepModifier # it flies instead of walking
     footstepSoundCollection:
       collection: FootstepHoverXenoborg
@@ -206,15 +206,15 @@
       state: xenoborg_stealth
   - type: Sprite
     layers:
-      - state: xenoborg_stealth
-      - state: xenoborg_stealth_e
-        map: ["enum.BorgVisualLayers.Light"]
-        shader: unshaded
-        visible: false
-      - state: xenoborg_stealth_l
-        shader: unshaded
-        map: ["light"]
-        visible: false
+    - state: xenoborg_stealth
+    - state: xenoborg_stealth_e
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: xenoborg_stealth_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
   - type: FootstepModifier # it flies instead of walking
     footstepSoundCollection:
       collection: FootstepHoverXenoborg

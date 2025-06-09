@@ -46,7 +46,6 @@
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
-  - ClothingBackpackMessengerHolding # Frontier
 
 - type: latheRecipePack
   id: PowerCells
@@ -59,8 +58,6 @@
   recipes:
   - WeaponPistolCHIMP
   - WeaponForceGun
-  #- WeaponLaserSvalinn - Goobstation - Moved to ServiceWeapons
-  #- WeaponProtoKineticAccelerator - Goobstation - Moved to MiningWeapons
   - WeaponTetherGun
   - WeaponGauntletGorilla
 

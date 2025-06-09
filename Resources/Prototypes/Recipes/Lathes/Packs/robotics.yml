@@ -41,7 +41,6 @@
   id: Robotics
   recipes:
   - ProximitySensor
-  - Drone
 
 - type: latheRecipePack
   id: BorgModules

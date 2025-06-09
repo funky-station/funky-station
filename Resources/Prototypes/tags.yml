@@ -31,6 +31,9 @@
   id: AppraisalTool
 
 - type: Tag
+  id: Apron
+
+- type: Tag
   id: Arrow
 
 - type: Tag
@@ -159,7 +162,7 @@
 - type: Tag
   id: BoxHug
 
-- type: Tag # goob edit
+- type: Tag
   id: Brain
 
 - type: Tag
@@ -184,10 +187,16 @@
   id: Bucket
 
 - type: Tag
+  id: Burger
+
+- type: Tag
   id: BulletFoam
 
 - type: Tag
   id: Burnt
+
+- type: Tag
+  id: Bun
 
 - type: Tag
   id: BypassDropChecks
@@ -277,6 +286,9 @@
 - type: Tag
   id: Chicken
 
+- type: Tag
+  id: Cheese
+
 # Allowed to control someone wearing a Chef's hat if inside their hat.
 - type: Tag
   id: ChefPilot
@@ -354,7 +366,13 @@
   id: CottonBoll
 
 - type: Tag
+  id: CottonBurger
+
+- type: Tag
   id: Cow
+
+- type: Tag
+  id: Crab
 
 - type: Tag
   id: Crayon
@@ -396,6 +414,9 @@
   id: Cryobeaker
 
 - type: Tag
+  id: CrystalBlack
+
+- type: Tag
   id: CrystalBlue
 
 - type: Tag
@@ -414,6 +435,9 @@
   id: CrystalRed
 
 - type: Tag
+  id: CrystalYellow
+
+- type: Tag
   id: CubanCarp
 
 - type: Tag
@@ -424,6 +448,9 @@
 
 - type: Tag
   id: Diagonal
+
+- type: Tag
+  id: Diamond
 
 - type: Tag
   id: Dice
@@ -628,6 +655,9 @@
   id: Goliath
 
 - type: Tag
+  id: GoliathPlate
+
+- type: Tag
   id: GPS
 
 - type: Tag
@@ -722,6 +752,9 @@
 
 - type: Tag
   id: HighSecDoor
+
+- type: Tag
+  id: HivelordRemains
 
 - type: Tag
   id: HiViz
@@ -968,6 +1001,9 @@
   id: Multitool
 
 - type: Tag
+  id: Mushroom
+
+- type: Tag
   id: NoBlockAnchoring
 
 - type: Tag
@@ -999,6 +1035,21 @@
 
 - type: Tag
   id: Ore
+
+- type: Tag
+  id: OreBananium
+
+- type: Tag
+  id: OreGold
+
+- type: Tag
+  id: OrePlasma
+
+- type: Tag
+  id: OreSilver
+
+- type: Tag
+  id: OreUranium
 
 - type: Tag # goob edit
   id: Organ
@@ -1191,6 +1242,9 @@
   id: SalvageExperiment
 
 - type: Tag
+  id: SalvageScrap
+
+- type: Tag
   id: Scarf
 
 - type: Tag
@@ -1239,6 +1293,9 @@
   id: SilentStorageUser # used in SharedStorageSystem, so the entity will do all silently
 
 - type: Tag
+  id: SiliconEmotes
+
+- type: Tag
   id: SkeletonMotorcycleKeys
 
 - type: Tag
@@ -1255,8 +1312,6 @@
 
 - type: Tag
   id: Smokable
-
-
 
 - type: Tag
   id: SnowyLabs
@@ -1355,6 +1410,9 @@
   id: TabletopBoard
 
 - type: Tag
+  id: Taco
+
+- type: Tag
   id: TabletopPiece
 
 - type: Tag
@@ -1383,7 +1441,7 @@
 
 - type: Tag
   id: Torch
-  
+
 - type: Tag
   id: Tourniquet
 
@@ -1416,6 +1474,9 @@
 
 - type: Tag
   id: UraniumGlassShard
+
+- type: Tag
+  id: UtilityBelt
 
 - type: Tag
   id: Vegetable

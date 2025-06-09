@@ -130,15 +130,11 @@
     - ServiceStatic
     - PowerCellsStatic
     - ElectronicsStatic
-    - LatheMiscStatic # goob
-    - GrenadeTriggerStatic # goob
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
     - ScienceExplosives # goob
-    - SyndicateAmmoLightStatic # goob
-    - SecurityAmmoStaticGoob # goob
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -212,8 +208,6 @@
     - Instruments
     - Equipment
     - FauxTiles
-    - ServiceWeapons # goob
-    - MedicalMisc # goob
     - Surgery # goob
     - ServiceDynamicFunky # funky
   - type: EmagLatheRecipes
@@ -222,8 +216,6 @@
     - SecurityExplosives
     - SecurityEquipment
     - SecurityWeapons
-    - SecurityAmmoGoob # goob
-    - SecurityWeaponsGoob # goob
     - MiningWeapons # goob
 
 - type: entity
@@ -269,7 +261,6 @@
     - CircuitFloorsStatic
     - SharedBoardsStatic # goob
     - MedicalBoardsStaticGoob # goob
-    - SecurityBoardsStaticGoob # goob
     dynamicPacks:
     - EngineeringBoards
     - CargoBoards
@@ -344,7 +335,6 @@
     - MechEquipment
     # Goobstation Packs
     - MechPartsGoob
-    - Modsuits
     - PowerCages
     - BorgModulesGoob
     - Cybernetics
@@ -434,11 +424,8 @@
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
     # Goobstation
-    - SecurityAmmoStaticGoob
     - SecurityEquipmentStaticGoob
     - MechWeaponsSecurityStatic
-    - SecurityBoardsStaticGoob
-    - SecurityBoardsStaticGoob
     - PowerCellsStatic
     - ScienceExplosives
     - GrenadeTriggersStatic
@@ -449,13 +436,10 @@
     - SecurityAmmo
     - SecurityWeapons
     # Goobstation
-    - SecurityWeaponsGoob
     - MechBoardsSecurity
     - MechWeaponsSecurityLight
     - MechWeaponsSecurityHeavy
-    - SecurityAmmoGoob
     - SecurityCybernetics
-    - ServiceWeapons
     - PowerCells
   - type: MaterialStorage
     whitelist:
@@ -490,17 +474,12 @@
     runningState: icon
     staticPacks:
     - SecurityAmmoStatic
-    - SecurityAmmoStaticGoob # goob
-    - type: EmagLatheRecipes # Goobstation Packs
-      emagStaticPacks:
-      - SyndicateAmmoLightStatic
-      - SyndicateAmmoHeavyStatic
   - type: MaterialStorage
     whitelist:
       tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+      - Sheet
+      - RawMaterial
+      - Ingot
 
 - type: entity
   id: MedicalTechFab
@@ -544,8 +523,6 @@
     # Goobstation Packs
     - MedicalSurgery
     - MedicalCybernetics
-    - MedicalMisc
-    - MedicalMiscRestricted
     - MedicalBoards
     - Janitor
   - type: Machine

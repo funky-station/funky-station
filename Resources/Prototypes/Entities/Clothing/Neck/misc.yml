@@ -47,7 +47,7 @@
   parent: ClothingNeckBase
   id: ClothingNeckBling
   name: bling
-  description: It would make you feel like a gangster, if it was not made out of cheap plastic.
+  description: It would make you feel like a gangster, if it was not made out of cheap plastic. # Only worth 10 spesos kekw
   components:
   - type: Sprite
     sprite: Clothing/Neck/Misc/bling.rsi
@@ -55,6 +55,7 @@
     sprite: Clothing/Neck/Misc/bling.rsi
   - type: Item
     sprite: Clothing/Neck/Misc/bling.rsi
+  - type: PhysicalComposition
     materialComposition:
       Plastic: 200
 

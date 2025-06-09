@@ -52,9 +52,11 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/golden_cup.rsi
   - type: StaticPrice
-    price: 225 # This is mostly just a salvage find 
+    price: 400 # This is mostly just a salvage find 
+  - type: PhysicalComposition  
     materialComposition:
-      Gold: 250
+      Gold: 125
+      Silver: 125
 
 - type: entity
   parent: DrinkBaseCup

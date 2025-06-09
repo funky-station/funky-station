@@ -38,7 +38,7 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Breakage" ]
-    - type: PhysicalComposition
+  - type: PhysicalComposition
     materialComposition:
       Plastic: 100    
 

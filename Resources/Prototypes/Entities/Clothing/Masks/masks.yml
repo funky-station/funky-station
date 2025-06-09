@@ -54,7 +54,7 @@
   parent: [ClothingMaskGas, BaseSyndicateContraband]
   id: ClothingMaskGasSyndicate
   name: syndicate gas mask
-  description: A close-fitting tactical gas mask with built in welding goggles and face shield
+  description: A close-fitting tactical gas mask with built in welding goggles and face shield.
   components:
   - type: Sprite
     sprite: Clothing/Mask/gassyndicate.rsi

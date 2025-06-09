@@ -58,9 +58,11 @@
     - id: SheetPlasma10
       weight: 0.2
     - id: ArtifactFragment1
-      weight: 0.05
+      weight: 0.20
+      amount: !type:RangeNumberSelector
+        range: 1, 10
     - id: SheetPlasteel10
-      weight: 0.05
+      weight: 0.10
 
 - type: entityTable
   id: SalvageScrapLarge
@@ -291,7 +293,7 @@
     - id: WeaponRevolverInspector
     - id: WeaponPistolN1984 
     - id: WeaponLaserGun # Retro Laser Blaster
-    - id: WeaponRevolverHisrov 
+    - id: WeaponRevolverHristov 
       weight: 0.15
     - id: Musket 
     - id: WeaponPistolFlintlock 
@@ -305,7 +307,7 @@
     - id: WeaponRifleAk
       weight: 0.50
     - id: WeaponShotgunKammerer
-    - id: WeaponLauncherRocket 
+    - id: WeaponLauncherRocket # "Is that a motherfucking RPG? You got a motherfucking RPG?! AN RPG IN YOUR MOTHERFUCKING BACKPACK?!"
       weight: 0.25
     - id: WeaponLauncherPirateCannon 
       weight: 0.50

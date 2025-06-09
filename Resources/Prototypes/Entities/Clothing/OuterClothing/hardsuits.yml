@@ -196,7 +196,7 @@
     graph: HardsuitGoliath
     node: hardsuitGoliath
 
-#Maxim Hardsuit
+#Maxim Hardsuit [TODO  Make this bastard somehow obtainable in a way thats not going to break game balance] 
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
   id: ClothingOuterHardsuitMaxim
@@ -210,7 +210,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
-  - type: ClothingSpeedModifier
+  - type: ClothingSpeedModifier # This right here is why the Maxim is terrifying
     walkModifier: 1.0
     sprintModifier: 1.0
   - type: Armor
@@ -221,6 +221,7 @@
         Piercing: 0.5
         Heat: 0.3
         Radiation: 0.1
+        Caustic: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: TemperatureProtection
@@ -492,11 +493,11 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurityRed
 
-#Luxury Mining Hardsuit
+#Quartermasters Mining Hardsuit (aka the Luxury mining hardsuit)
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
   id: ClothingOuterHardsuitLuxury 
-  name: luxury mining hardsuit
+  name: quartermasters mining hardsuit
   description: A custom ordered mining hardsuit, fashioned after the Quartermaster's colors. Just as protective as a regular mining hardsuit, but is much easier to move in.
   components:
   - type: Sprite
@@ -508,7 +509,7 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.3
-  - type: Armor
+  - type: Armor # Wizden design can go to hell, this suit should not be a dirrect downgrage compared to the actual salvage suits
     modifiers:
       coefficients:
         Blunt: 0.7
@@ -522,7 +523,7 @@
   - type: Item
     size: Huge
     shape:
-    - 0,0,4,4 #5X5, can fit in a duffel bag but nothing smaller.
+    - 0,0,4,4 #5X5, can fit in a duffel bag but nothing smaller, this has been added incase this suit gets made into a steal objective
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -531,7 +532,7 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitLuxury
   - type: StaticPrice
-    price: 15000
+    price: 15000 # a small callback to when you could buy this suit 
 
 #ANTAG HARDSUITS
 #Blood-red Hardsuit

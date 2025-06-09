@@ -148,7 +148,7 @@
   parent: BaseItem
   id: TreasureCoinIron
   name: coin
-  description: A flat bit of metal. If it was still in circulation, inflation would've made it worthless. Since it isn't, it at least can make for some good scrap # Good for recycling but also decent sell value
+  description: A flat bit of metal. If it was still in circulation, inflation would've made it worthless. Since it isn't, it at least can make for some good scrap. # Good for recycling but also decent sell value
   components:
   - type: Sprite
     sprite: Objects/Misc/coins.rsi

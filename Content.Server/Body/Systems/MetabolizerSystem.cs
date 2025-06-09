@@ -279,4 +279,3 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
         return true;
     }
 }
-

@@ -51693,7 +51693,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       configurators:
-      - invalid
       deviceLists:
       - 16
     - type: AtmosPipeColor

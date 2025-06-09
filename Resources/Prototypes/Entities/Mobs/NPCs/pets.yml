@@ -691,8 +691,6 @@
     - VimPilot
     - DoorBumpOpener
     - FootstepSound
-  - type: StealTarget
-    stealGroup: AnimalShiva
 
 - type: entity
   name: Willow

@@ -41611,13 +41611,6 @@ entities:
     - type: Transform
       pos: -20.5,15.5
       parent: 2
-- proto: CargoMailTeleporter
-  entities:
-  - uid: 16821
-    components:
-    - type: Transform
-      pos: 15.5,25.5
-      parent: 2
 - proto: Carpet
   entities:
   - uid: 1583
@@ -86155,13 +86148,6 @@ entities:
     components:
     - type: Transform
       pos: -31.5,34.5
-      parent: 2
-- proto: MachineMaterialSilo
-  entities:
-  - uid: 3541
-    components:
-    - type: Transform
-      pos: -18.5,15.5
       parent: 2
 - proto: MagazinePistolSubMachineGunTopMounted
   entities:

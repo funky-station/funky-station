@@ -44669,13 +44669,6 @@ entities:
     - type: Transform
       pos: -5.5,-50.5
       parent: 30
-- proto: CargoMailTeleporter
-  entities:
-  - uid: 23196
-    components:
-    - type: Transform
-      pos: 27.5,-1.5
-      parent: 30
 - proto: Carpet
   entities:
   - uid: 560
@@ -105156,13 +105149,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -22.5,-44.5
-      parent: 30
-- proto: MachineMaterialSilo
-  entities:
-  - uid: 21727
-    components:
-    - type: Transform
-      pos: 23.5,13.5
       parent: 30
 - proto: MagazinePistolSubMachineGun
   entities:

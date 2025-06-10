@@ -59309,13 +59309,6 @@ entities:
     - type: Transform
       pos: -11.5,-8.5
       parent: 2
-- proto: CargoMailTeleporter
-  entities:
-  - uid: 17592
-    components:
-    - type: Transform
-      pos: 19.5,15.5
-      parent: 2
 - proto: CargoPallet
   entities:
   - uid: 16415
@@ -70629,31 +70622,6 @@ entities:
     - type: Transform
       pos: 95.5,-43.5
       parent: 2
-- proto: CrateMaterialSilo
-  entities:
-  - uid: 939
-    components:
-    - type: Transform
-      pos: 9.5,20.5
-      parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14673
-        moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
 - proto: CrateMedicalScrubs
   entities:
   - uid: 4274
@@ -118731,13 +118699,6 @@ entities:
     components:
     - type: Transform
       pos: 59.5,-73.5
-      parent: 2
-- proto: MachineMaterialSilo
-  entities:
-  - uid: 12480
-    components:
-    - type: Transform
-      pos: 32.5,-29.5
       parent: 2
 - proto: MagazinePistolSubMachineGunTopMounted
   entities:

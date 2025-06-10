@@ -42480,14 +42480,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 7.5,62.5
       parent: 2
-- proto: ComputerSalvageJobBoard
-  entities:
-  - uid: 443
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 6.5,57.5
-      parent: 2
 - proto: ComputerShuttleCargo
   entities:
   - uid: 2716

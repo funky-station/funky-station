@@ -1,0 +1,14 @@
+﻿# This is a basic dictionary that maps old entity prototype ids to new ids. This only works for entity prototypes, and
+# is intended to allow maps to load without having to manually edit them. An empty or "null" string results in the
+# entity getting deleted.
+
+# e.g., you can swap all walls with windows and delete all tables by adding lines like:
+#
+# Window: WallSolid
+# WallSolid: Window
+# Table: null
+
+# this is the FUNKYSTATION SPECIFIC file, please ensure that wizden's file, migration.yml, is properly updated & doesn't conflict
+
+# 2025-06-10
+MachineMaterialSilo: MaterialSilo

@@ -39889,14 +39889,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 6.5,30.5
       parent: 2
-- proto: ComputerSalvageJobBoard
-  entities:
-  - uid: 6796
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 7.5,30.5
-      parent: 2
 - proto: ComputerShuttleCargo
   entities:
   - uid: 7879

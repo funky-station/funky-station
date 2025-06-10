@@ -2144,19 +2144,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -7.5,16.5
       parent: 2
-- proto: ClosetWallEmergencyN2FilledRandom
-  entities:
-  - uid: 339
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 5.5,16.5
-      parent: 2
-  - uid: 591
-    components:
-    - type: Transform
-      pos: -6.5,20.5
-      parent: 2
 - proto: ClosetWallFireFilledRandom
   entities:
   - uid: 111

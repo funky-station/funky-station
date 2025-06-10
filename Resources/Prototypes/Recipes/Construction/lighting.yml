@@ -15,14 +15,6 @@
   objectType: Item
 
 - type: construction
-  id: YellowLight
-  graph: YellowLight
-  startNode: start
-  targetNode: icon
-  category: construction-category-utilities
-  objectType: Item
-
-- type: construction
   name: yellow light tube
   id: YellowLight
   graph: YellowLight
@@ -44,14 +36,6 @@
 - type: construction
   id: OrangeLight
   graph: OrangeLight
-  startNode: start
-  targetNode: icon
-  category: construction-category-utilities
-  objectType: Item
-
-- type: construction
-  id: BlackLight
-  graph: BlackLight
   startNode: start
   targetNode: icon
   category: construction-category-utilities
@@ -101,14 +85,6 @@
   objectType: Item
 
 - type: construction
-  id: YellowLightBulb
-  graph: YellowLightBulb
-  startNode: start
-  targetNode: icon
-  category: construction-category-utilities
-  objectType: Item
-
-- type: construction
   name: yellow light bulb
   id: YellowLightBulb
   graph: YellowLightBulb
@@ -144,14 +120,6 @@
   category: construction-category-utilities
   description: A high powered light bulb containing a black crystal. It won't be very bright.
   icon: { sprite: Objects/Power/light_bulb.rsi, state: normal }
-  objectType: Item
-
-- type: construction
-  id: BlackLightBulb
-  graph: BlackLightBulb
-  startNode: start
-  targetNode: icon
-  category: construction-category-utilities
   objectType: Item
 
 - type: construction

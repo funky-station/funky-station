@@ -74544,13 +74544,6 @@ entities:
     - type: Transform
       pos: -25.5,-36.5
       parent: 8364
-- proto: ComputerSalvageJobBoard
-  entities:
-  - uid: 28412
-    components:
-    - type: Transform
-      pos: -26.5,-36.5
-      parent: 8364
 - proto: ComputerShuttleCargo
   entities:
   - uid: 14854

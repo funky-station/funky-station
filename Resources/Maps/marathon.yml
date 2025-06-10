@@ -54747,13 +54747,6 @@ entities:
     - type: Transform
       pos: 29.5,-9.5
       parent: 30
-- proto: ComputerSalvageJobBoard
-  entities:
-  - uid: 23204
-    components:
-    - type: Transform
-      pos: 30.5,-9.5
-      parent: 30
 - proto: ComputerShuttleCargo
   entities:
   - uid: 11718

@@ -30,3 +30,18 @@
     blacklist:
       components:
       - SurplusBundle
+
+- type: listing
+  id: BaseBallBatHomeRun
+  name: uplink-home-run-bat-name
+  description: uplink-home-run-bat-desc
+  productEntity: BaseBallBatHomeRun
+  icon:
+    entity: BaseBallBatHomeRun
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 30
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkWeaponry

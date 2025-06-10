@@ -302,7 +302,13 @@ public sealed partial class CargoSystem
         var items = new HashSet<CargoBountyItemData>();
         foreach (var entry in proto.Entries)
         {
-            items.Add(new CargoBountyItemData(entry));
+            CargoBountyItemData newItem = entry switch
+            {
+                CargoObjectBountyItemEntry itemEntry => new CargoObjectBountyItemData(itemEntry),
+                CargoReagentBountyItemEntry itemEntry => new CargoReagentBountyItemData(itemEntry),
+                _ => throw new NotImplementedException($"Unknown type: {entry.GetType().Name}"),
+            };
+            items.Add(newItem);
         }
 
         return IsBountyComplete(container, items);
@@ -313,7 +319,13 @@ public sealed partial class CargoSystem
         var items = new HashSet<CargoBountyItemData>();
         foreach (var entry in prototype.Entries)
         {
-            items.Add(new CargoBountyItemData(entry));
+            CargoBountyItemData newItem = entry switch
+            {
+                CargoObjectBountyItemEntry itemEntry => new CargoObjectBountyItemData(itemEntry),
+                CargoReagentBountyItemEntry itemEntry => new CargoReagentBountyItemData(itemEntry),
+                _ => throw new NotImplementedException($"Unknown type: {entry.GetType().Name}"),
+            };
+            items.Add(newItem);
         }
 
         return IsBountyComplete(container, items);
@@ -335,7 +347,7 @@ public sealed partial class CargoSystem
     /// Determines whether the <paramref name="entity"/> meets the criteria for the bounty <paramref name="entry"/>.
     /// </summary>
     /// <returns>true if <paramref name="entity"/> is a valid item for the bounty entry, otherwise false</returns>
-    public bool IsValidBountyEntry(EntityUid entity, CargoBountyItemData entry)
+    public bool IsValidBountyEntry(EntityUid entity, CargoObjectBountyItemData entry)
     {
         if (!_whitelistSys.IsValid(entry.Whitelist, entity))
             return false;
@@ -346,9 +358,14 @@ public sealed partial class CargoSystem
         return true;
     }
 
-    public bool IsValidBountyEntry(EntityUid entity, CargoBountyItemEntry entry)
+    public bool IsValidBountyEntry(EntityUid entity, CargoReagentBountyItemData reagentBounty)
     {
-        return IsValidBountyEntry(entity, new CargoBountyItemData(entry));
+        throw new NotImplementedException();
+    }
+
+    public bool IsValidBountyEntry(EntityUid entity, CargoObjectBountyItemEntry entry)
+    {
+        return IsValidBountyEntry(entity, new CargoObjectBountyItemData(entry));
     }
 
     public bool IsBountyComplete(HashSet<EntityUid> entities,
@@ -364,9 +381,17 @@ public sealed partial class CargoSystem
             entityReqs.Add(entity, new HashSet<CargoBountyItemData>());
             foreach (var entry in entries)
             {
-                if (!IsValidBountyEntry(entity, entry))
-                    continue;
-
+                switch (entry)
+                {
+                    case CargoObjectBountyItemData objectBounty:
+                        if (!IsValidBountyEntry(entity, objectBounty))
+                            continue;
+                        break;
+                    case CargoReagentBountyItemData reagentBounty:
+                        if (!IsValidBountyEntry(entity, reagentBounty))
+                            continue;
+                        break;
+                }
                 entityReqs[entity].Add(entry);
             }
         }
@@ -503,7 +528,13 @@ public sealed partial class CargoSystem
             if (skip)
                 continue;
 
-            var bountyItemData = new CargoBountyItemData(bountyItem);
+            CargoBountyItemData bountyItemData = bountyItem switch
+            {
+                CargoObjectBountyItemEntry itemEntry => new CargoObjectBountyItemData(itemEntry),
+                CargoReagentBountyItemEntry itemEntry => new CargoReagentBountyItemData(itemEntry),
+                _ => throw new NotImplementedException($"Unknown type: {bountyItem.GetType().Name}"),
+            };
+
             var bountyAmount = _random.Next(bountyItem.MinAmount, bountyItem.MaxAmount);
             totalReward += bountyAmount * bountyItem.RewardPer;
             bountyItemData.Amount = bountyAmount;
@@ -541,31 +572,38 @@ public sealed partial class CargoSystem
     {
         var bountyItems = new List<CargoBountyItemEntry>(category.Entries);
         List<CargoBountyItemEntry> toRemove = new();
-        foreach (var bountyItem in bountyItems)
+        foreach (var bountyEntry in bountyItems)
         {
-            if (bountyItem.RequiredResearch == null)
-                continue;
-
-            List<bool> techChecks = [];
-            foreach (var research in bountyItem.RequiredResearch)
+            switch (bountyEntry)
             {
-
-                var query = EntityManager.EntityQueryEnumerator<TechnologyDatabaseComponent>();
-
-                while (query.MoveNext(out var tEntityUid, out var technologyDatabaseComponent))
-                {
-                    if (_station.GetOwningStation(uid) is { } station &&
-                        _station.GetOwningStation(tEntityUid) != station)
+                case CargoObjectBountyItemEntry bountyItem:
+                    if (bountyItem.RequiredResearch == null)
                         continue;
-                    techChecks.Add(
-                        _research.IsTechnologyUnlocked(tEntityUid, (string) research, technologyDatabaseComponent));
-                    break;
-                }
-            }
 
-            if (techChecks.Count == 0 || !techChecks.Any(techCheck => techCheck))
-            {
-                toRemove.Add(bountyItem);
+                    List<bool> techChecks = [];
+                    foreach (var research in bountyItem.RequiredResearch)
+                    {
+
+                        var query = EntityManager.EntityQueryEnumerator<TechnologyDatabaseComponent>();
+
+                        while (query.MoveNext(out var tEntityUid, out var technologyDatabaseComponent))
+                        {
+                            if (_station.GetOwningStation(uid) is { } station &&
+                                _station.GetOwningStation(tEntityUid) != station)
+                                continue;
+                            techChecks.Add(
+                                _research.IsTechnologyUnlocked(tEntityUid, (string) research, technologyDatabaseComponent));
+                            break;
+                        }
+                    }
+
+                    if (techChecks.Count == 0 || !techChecks.Any(techCheck => techCheck))
+                    {
+                        toRemove.Add(bountyItem);
+                    }
+                    break;
+                case CargoReagentBountyItemEntry bountyItem:
+                    continue;
             }
         }
 

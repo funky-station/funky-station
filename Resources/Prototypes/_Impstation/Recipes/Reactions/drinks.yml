@@ -2,15 +2,13 @@
 - type: reaction
   id: FeverDream
   requiredMixerCategories:
-    - Stir
+  - Stir
   reactants:
     ShimmeringBlood:
       amount: 2
-    Absinthe:
+    DeathInTheAfternoon:
       amount: 2
-    Champagne:
-      amount: 1
     Egg:
       amount: 1
   products:
-    FeverDream: 6
+    FeverDream: 5

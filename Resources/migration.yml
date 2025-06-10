@@ -136,15 +136,14 @@ SalvagePartsT4Spawner: SalvageLootSpawner
 SalvagePartsT3Spawner: SalvageLootSpawner
 SalvagePartsT3T4Spawner: SalvageLootSpawner
 SalvagePartsT2Spawner: SalvageLootSpawner
-AdvancedCapacitorStockPart: CapacitorStockPart
-SuperCapacitorStockPart: CapacitorStockPart
-QuadraticCapacitorStockPart: CapacitorStockPart
-NanoManipulatorStockPart: MicroManipulatorStockPart
+#SuperCapacitorStockPart: CapacitorStockPart
+#QuadraticCapacitorStockPart: CapacitorStockPart
+#NanoManipulatorStockPart: MicroManipulatorStockPart
 PicoManipulatorStockPart: MicroManipulatorStockPart
 FemtoManipulatorStockPart: MicroManipulatorStockPart
-AdvancedMatterBinStockPart: MatterBinStockPart
-SuperMatterBinStockPart: MatterBinStockPart
-BluespaceMatterBinStockPart: MatterBinStockPart
+#AdvancedMatterBinStockPart: MatterBinStockPart
+#SuperMatterBinStockPart: MatterBinStockPart
+#BluespaceMatterBinStockPart: MatterBinStockPart
 AnsibleSubspaceStockPart: null
 FilterSubspaceStockPart: null
 AmplifierSubspaceStockPart: null
@@ -317,7 +316,6 @@ MagazineBoxLightRifleRubber: MagazineBoxLightRifle
 MagazineBoxRifleRubber: MagazineBoxRifle
 MagazineBoxRifleBigRubber: MagazineBoxRifleBig
 MagazineBoxCaselessRifleRubber: MagazineBoxCaselessRifle
-MagazineBoxCaselessRifleBigRubber: MagazineBoxCaselessRifle10x24
 BoxMagazinePistolRubber: BoxMagazinePistol
 BoxMagazinePistolHighCapacityRubber: BoxMagazinePistolHighCapacity
 BoxMagazinePistolSubMachineGunRubber: BoxMagazinePistolSubMachineGun
@@ -479,6 +477,10 @@ CrateCrewMonitoringBoards: CrateCrewMonitoring
 # 2024-11-25
 CrateSlimepersonLifeSupport: CrateNitrogenInternals
 
+# 2024-12-01
+# DungeonMasterCircuitBoard: GameMasterCircuitBoard # funky: swap these so tests stop failing
+GameMasterCircuitBoard: DungeonMasterCircuitBoard
+
 # 2024-12-12
 FloraRockSolid01: FloraRockSolid
 FloraRockSolid02: FloraRockSolid
@@ -556,6 +558,26 @@ MagazineBoxCaselessRifle10x24: null
 MagazineBoxCaselessRifleBig: null
 MagazinePistolHighCapacityRubber: null
 
+# 2025-03-18
+EpinephrineChemistryBottle: ChemistryBottleEpinephrine
+RobustHarvestChemistryBottle: ChemistryBottleRobustHarvest
+EZNutrientChemistryBottle: ChemistryBottleEZNutrient
+Left4ZedChemistryBottle: ChemistryBottleLeft4Zed
+UnstableMutagenChemistryBottle: ChemistryBottleUnstableMutagen
+PotassiumChemistryBottle: ChemistryBottlePotassium
+NocturineChemistryBottle: ChemistryBottleNocturine
+NitrogenChemistryBottle: ChemistryBottleNitrogen
+EphedrineChemistryBottle: ChemistryBottleEphedrine
+PhosphorusChemistryBottle: ChemistryBottlePhosphorus
+OmnizineChemistryBottle: ChemistryBottleOmnizine
+HydrogenChemistryBottle: ChemistryBottleHydrogen
+CognizineChemistryBottle: ChemistryBottleCognizine
+EthanolChemistryBottle: ChemistryBottleEthanol
+PaxChemistryBottle: ChemistryBottlePax
+MuteToxinChemistryBottle: ChemistryBottleMuteToxin
+LeadChemistryBottle: ChemistryBottleLead
+ToxinChemistryBottle: ChemistryBottleToxin
+
 # 2025-03-29
 ClothingBackpackDuffelSyndicateRaidBundle: ClothingBackpackSyndicateRaidBundle
 
@@ -567,6 +589,7 @@ MediumXenoArtifactItem: ComplexXenoArtifactItem
 VariedXenoArtifactItem: ComplexXenoArtifactItem
 
 # 2025-04-19
+# ClothingOuterHardsuitSyndicate: ClothingOuterEVASuitSyndicate
 AirlockMaintCommonLocked: AirlockMaintLocked
 AirlockMaintIntLocked: AirlockMaintLocked
 

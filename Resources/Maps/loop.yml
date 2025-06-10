@@ -34599,13 +34599,6 @@ entities:
     - type: Transform
       pos: 10.5,22.5
       parent: 2
-- proto: CargoMailTeleporter
-  entities:
-  - uid: 17779
-    components:
-    - type: Transform
-      pos: 5.5,66.5
-      parent: 2
 - proto: CargoRequestEngineeringComputerCircuitboard
   entities:
   - uid: 5181
@@ -42479,14 +42472,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 7.5,62.5
-      parent: 2
-- proto: ComputerSalvageJobBoard
-  entities:
-  - uid: 443
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 6.5,57.5
       parent: 2
 - proto: ComputerShuttleCargo
   entities:
@@ -77764,13 +77749,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -63.5,-3.5
-      parent: 2
-- proto: MachineMaterialSilo
-  entities:
-  - uid: 17814
-    components:
-    - type: Transform
-      pos: 19.5,38.5
       parent: 2
 - proto: MagazinePistolSubMachineGunPractice
   entities:

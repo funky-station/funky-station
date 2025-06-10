@@ -234,7 +234,7 @@
     - id: CigaretteAiuri
     - id: CigaretteArithrazine
     - id: CigaretteSalicylicAcid
-    - id: CigaretteIpecac
+    - id: CigaretteNutriment
     - id: CigaretteOmnizine
       prob: 0.25
     - id: CigaretteDexalin

@@ -72,7 +72,7 @@
 - type: latheRecipePack
   id: EngineeringBoards
   recipes:
-  - ThermomachineFreezerMachineCircuitBoard
+  #- ThermomachineFreezerMachineCircuitBoard
   - HellfireFreezerMachineCircuitBoard
   - PortableScrubberMachineCircuitBoard
   - SolarControlComputerCircuitboard

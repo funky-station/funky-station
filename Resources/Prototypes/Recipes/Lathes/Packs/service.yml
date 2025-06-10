@@ -4,6 +4,7 @@
   id: ServiceStatic
   recipes:
   - Bucket
+  - Ashtray
   - DrinkMug
   - DrinkMugMetal
   - DrinkGlass
@@ -18,8 +19,8 @@
   - FoodPlateTin
   - FoodPlateMuffinTin
   - FoodKebabSkewer
-  - LightReplacer
   - SprayBottle
+  - TrashBag
   - LightReplacer
   - MopItem
   - Holoprojector
@@ -50,6 +51,7 @@
   id: Instruments
   recipes:
   - SynthesizerInstrument
+  - PushHorn
 
 - type: latheRecipePack
   id: ServiceBoards
@@ -62,4 +64,3 @@
   - ReagentGrinderIndustrialMachineCircuitboard
   - JukeboxCircuitBoard
   - DawInstrumentMachineCircuitboard
-  - SheetifierMachineCircuitboard # Goobstation - Moved from ScienceBoards

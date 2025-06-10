@@ -61677,13 +61677,6 @@ entities:
     - type: Transform
       pos: 28.5,-55.5
       parent: 8364
-- proto: CargoMailTeleporter
-  entities:
-  - uid: 26261
-    components:
-    - type: Transform
-      pos: -22.5,-19.5
-      parent: 8364
 - proto: Carpet
   entities:
   - uid: 4508
@@ -74543,13 +74536,6 @@ entities:
     components:
     - type: Transform
       pos: -25.5,-36.5
-      parent: 8364
-- proto: ComputerSalvageJobBoard
-  entities:
-  - uid: 28412
-    components:
-    - type: Transform
-      pos: -26.5,-36.5
       parent: 8364
 - proto: ComputerShuttleCargo
   entities:
@@ -132416,13 +132402,6 @@ entities:
     components:
     - type: Transform
       pos: -43.5,-12.5
-      parent: 8364
-- proto: MachineMaterialSilo
-  entities:
-  - uid: 11598
-    components:
-    - type: Transform
-      pos: 69.5,-26.5
       parent: 8364
 - proto: MagazineBoxMagnumPractice
   entities:

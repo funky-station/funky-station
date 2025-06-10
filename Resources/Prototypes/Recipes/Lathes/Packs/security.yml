@@ -22,6 +22,10 @@
   - MagazineBoxRiflePractice
   - WeaponDisablerPractice
   - WeaponLaserCarbinePractice
+  - MagazineLightRiflePractice
+  - MagazineRiflePractice
+  - MagazinePistolPractice
+  - SpeedLoaderMagnumPractice
   - WeaponFlareGunSecurity
 
 # Shared between secfab and emagged autolathe
@@ -49,7 +53,6 @@
   - MagazineShotgunSlug
   - SpeedLoaderMagnum
   - SpeedLoaderMagnumEmpty
-  - ExplosivePayload
 
 - type: latheRecipePack
   id: SecurityWeaponsStatic
@@ -81,8 +84,11 @@
   - ShuttleGunSvalinnMachineGunCircuitboard
 
 - type: latheRecipePack
+  parent:
+  - ScienceExplosives # sec gets everything for modular grenade making that sci does
   id: SecurityExplosives
   recipes:
+  - ExplosivePayload
   - GrenadeBlast
   - GrenadeEMP
   - GrenadeFlash
@@ -108,7 +114,9 @@
   - MagazineLightRifleUranium
   - MagazinePistolIncendiary
   - MagazinePistolUranium
+  - MagazinePistolSubMachineGunTopMountedIncendiary
   - MagazinePistolSubMachineGunIncendiary
+  - MagazinePistolSubMachineGunTopMountedUranium
   - MagazinePistolSubMachineGunUranium
   - MagazineRifleIncendiary
   - MagazineRifleUranium
@@ -125,7 +133,7 @@
   - WeaponLaserCannon
   - WeaponLaserCarbine
   - WeaponXrayCannon
-  - WeaponTemperatureGun # Goobstation
+  - WeaponTemperatureGun
 
 - type: latheRecipePack
   id: SecurityDisablers

@@ -333,9 +333,11 @@
     - BorgModules
     - MechParts
     - MechEquipment
+    - MechBoardsCargo
     # Goobstation Packs
     - MechPartsGoob
     - PowerCages
+    - MechWeaponsCivilian
     - BorgModulesGoob
     - Cybernetics
     - PowerCells
@@ -435,6 +437,7 @@
     - SecurityExplosives
     - SecurityAmmo
     - SecurityWeapons
+    - SecurityDisablers
     # Goobstation
     - MechBoardsSecurity
     - MechWeaponsSecurityLight
@@ -525,6 +528,7 @@
     - MedicalCybernetics
     - MedicalBoards
     - Janitor
+    - MedicalBoardsGoob
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget

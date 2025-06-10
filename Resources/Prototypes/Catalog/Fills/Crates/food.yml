@@ -198,7 +198,7 @@
   id: CrateFoodRandomDonkPocket
   parent: CratePlastic
   name: donk pockets crate
-  description: You should order four more crates of these. Includes a box of donk pockets.
+  description: You should order four more of these. Includes a box of donk pockets.
   components:
   - type: EntityTableContainerFill
     containers:

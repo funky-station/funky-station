@@ -233,12 +233,16 @@ public sealed class AdminSystem : EntitySystem
 
         RoleTypePrototype roleType = new();
         var startingRole = string.Empty;
+        LocId? subtype = null;
         if (_minds.TryGetMind(session, out var mindId, out var mindComp) && mindComp is not null)
         {
             sortWeight = _role.GetRoleCompByTime(mindComp)?.Comp.SortWeight ?? 0;
 
             if (_proto.TryIndex(mindComp.RoleType, out var role))
+            {
                 roleType = role;
+                subtype = mindComp.Subtype;
+            }
             else
                 Log.Error($"{ToPrettyString(mindId)} has invalid Role Type '{mindComp.RoleType}'. Displaying '{Loc.GetString(roleType.Name)}' instead");
 
@@ -262,6 +266,7 @@ public sealed class AdminSystem : EntitySystem
             startingRole,
             antag,
             roleType,
+            subtype,
             sortWeight,
             GetNetEntity(session?.AttachedEntity),
             data.UserId,

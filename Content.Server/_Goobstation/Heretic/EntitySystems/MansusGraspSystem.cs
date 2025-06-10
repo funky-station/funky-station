@@ -1,4 +1,5 @@
 using Content.Server.Chat.Systems;
+using Content.Server.Damage.Systems;
 using Content.Server.EntityEffects.Effects.StatusEffects;
 using Content.Server.Heretic.Components;
 using Content.Server.Speech.EntitySystems;

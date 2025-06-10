@@ -7,27 +7,24 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-scream"]
   chatTriggers:
-    - scream
-    - screams
-    - screaming
-    - screamed
-    - shriek
-    - shrieks
-    - shrieking
-    - shrieked
-    - screech
-    - screeches
-    - screeching
-    - screeched
-    - yell
-    - yells
-    - yelled
-    - yelling
+  - scream
+  - screams
+  - screaming
+  - screamed
+  - shriek
+  - shrieks
+  - shrieking
+  - shrieked
+  - screech
+  - screeches
+  - screeching
+  - screeched
+  - yell
+  - yells
+  - yelled
+  - yelling
 
 - type: emote
   id: Laugh
@@ -38,25 +35,25 @@
     components:
     - Vocal
   blacklist:
-    components:
-    - BorgChassis
+    tags:
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-laugh"]
   chatTriggers:
-    - laugh
-    - laughs
-    - laughing
-    - laughed
-    - chuckle
-    - chuckles
-    - chuckled
-    - chuckling
-    - giggle
-    - giggles
-    - giggling
-    - giggled
-    - chortle
-    - chortles
-    - chortling
+  - laugh
+  - laughs
+  - laughing
+  - laughed
+  - chuckle
+  - chuckles
+  - chuckled
+  - chuckling
+  - giggle
+  - giggles
+  - giggling
+  - giggled
+  - chortle
+  - chortles
+  - chortling
 
 - type: emote
   id: Honk
@@ -67,13 +64,14 @@
     requireAll: true
     components:
     - Vocal
-    - BorgChassis
+    tags:
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-honk"]
   chatTriggers:
-    - honk
-    - honks
-    - honked
-    - honking
+  - honk
+  - honks
+  - honked
+  - honking
 
 - type: emote
   id: Sigh
@@ -84,13 +82,13 @@
     components:
     - Vocal
   blacklist:
-    components:
-    - BorgChassis
+    tags:
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-sigh"]
   chatTriggers:
-    - sigh
-    - sighs
-    - sighed
+  - sigh
+  - sighs
+  - sighed
 
 - type: emote
   id: Whistle
@@ -101,13 +99,13 @@
     components:
     - Vocal
   blacklist:
-    components:
-    - BorgChassis
+    tags:
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-whistle"]
   chatTriggers:
-    - whistle
-    - whistles
-    - whistleblowing
+  - whistle
+  - whistles
+  - whistleblowing
 
 - type: emote
   id: Crying
@@ -118,16 +116,16 @@
     components:
     - Vocal
   blacklist:
-    components:
-    - BorgChassis
+    tags:
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-crying"]
   chatTriggers:
-    - cry
-    - crying
-    - cries
-    - sob
-    - sobs
-    - sobbing
+  - cry
+  - crying
+  - cries
+  - sob
+  - sobs
+  - sobbing
 
 - type: emote
   id: Squish
@@ -139,13 +137,13 @@
     components:
     - Vocal
   blacklist:
-    components:
-    - BorgChassis
+    tags:
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-squish"]
   chatTriggers:
-    - squish
-    - squishing
-    - squishes
+  - squish
+  - squishing
+  - squishes
 
 - type: emote
   id: Chitter
@@ -157,13 +155,13 @@
     components:
     - Vocal
   blacklist:
-    components:
-    - BorgChassis
+    tags:
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-chitter"]
   chatTriggers:
-   - chitter
-   - chitters
-   - chittered
+  - chitter
+  - chitters
+  - chittered
 
 - type: emote
   id: Squeak
@@ -173,15 +171,15 @@
   icon: Interface/Emotes/squeak.png
   whitelist:
     components:
-      - Vocal
+    - Vocal
   blacklist:
-    components:
-    - BorgChassis
+    tags:
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-squeak"]
   chatTriggers:
-   - squeak
-   - squeaks
-   - squeaked
+  - squeak
+  - squeaks
+  - squeaked
 
 - type: emote
   id: Click
@@ -193,12 +191,12 @@
     components:
     - Vocal
   blacklist:
-    components:
-    - BorgChassis
+    tags:
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-click"]
   chatTriggers:
-   - click
-   - clicks
+  - click
+  - clicks
 
 # hand emotes
 - type: emote
@@ -210,13 +208,13 @@
     components:
     - Hands
   blacklist:
-    components:
-    - BorgChassis
+    tags:
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-clap"]
   chatTriggers:
-    - claps
-    - clapping
-    - clapped
+  - claps
+  - clapping
+  - clapped
 
 - type: emote
   id: ClapSingle
@@ -227,15 +225,15 @@
     components:
     - Hands
   blacklist:
-    components:
-    - BorgChassis
+    tags:
+    - SiliconEmotes
   chatMessages: [ "chat-emote-msg-clap-single" ]
   chatTriggers:
-    - clap
-    - claps their hands together
-    - claps her hands together
-    - claps his hands together
-    - claps its hands together
+  - clap
+  - claps their hands together
+  - claps her hands together
+  - claps his hands together
+  - claps its hands together
 
 - type: emote
   id: Snap
@@ -246,22 +244,22 @@
     components:
     - Hands
   blacklist:
-    components:
-    - BorgChassis
+    tags:
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-snap"]
   chatTriggers:
-    - snap
-    - snaps
-    - snapping
-    - snapped
-    - snap fingers
-    - snaps fingers
-    - snaps their fingers
-    - snaps her fingers
-    - snaps his fingers
-    - snaps its fingers
-    - snapping fingers
-    - snapped fingers
+  - snap
+  - snaps
+  - snapping
+  - snapped
+  - snap fingers
+  - snaps fingers
+  - snaps their fingers
+  - snaps her fingers
+  - snaps his fingers
+  - snaps its fingers
+  - snapping fingers
+  - snapped fingers
 
 - type: emote
   id: Thump
@@ -273,20 +271,20 @@
     components:
     - Hands
   blacklist:
-    components:
-    - BorgChassis
+    tags:
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-thump"]
   chatTriggers:
-    - thump
-    - thumps
-    - thumping
-    - thumped
-    - thump tail
-    - thumps tail
-    - thumps their tail
-    - thumps her tail
-    - thumps his tail
-    - thumps its tail
+  - thump
+  - thumps
+  - thumping
+  - thumped
+  - thump tail
+  - thumps tail
+  - thumps their tail
+  - thumps her tail
+  - thumps his tail
+  - thumps its tail
 
 - type: emote
   id: Salute
@@ -297,12 +295,12 @@
     components:
     - Hands
   blacklist:
-    components:
-    - BorgChassis
+    tags:
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-salute"]
   chatTriggers:
-    - salute
-    - salutes
+  - salute
+  - salutes
 
 - type: emote
   id: Gasp
@@ -312,9 +310,9 @@
     - Respirator
   chatMessages: ["chat-emote-msg-gasp"]
   chatTriggers:
-   - gasp
-   - gasps
-   - gasped
+  - gasp
+  - gasps
+  - gasped
 
 - type: emote
   id: DefaultDeathgasp
@@ -336,20 +334,22 @@
 - type: emote
   id: Buzz
   name: chat-emote-name-buzz
-  whitelist:
-    tags:
-    - IPCEmotes
-    - HarpyEmotes
-    components:
-    - BorgChassis
   category: Vocal
   icon: Interface/Emotes/buzz.png
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - SiliconEmotes
+    - IPCEmotes
+    - HarpyEmotes
   chatMessages: ["chat-emote-msg-buzz"]
   chatTriggers:
-    - buzzing
-    - buzz
-    - buzzed
-    - buzzes
+  - buzzing
+  - buzz
+  - buzzed
+  - buzzes
 
 - type: emote
   id: Weh
@@ -376,93 +376,101 @@
     - Nymph
     - Vocal
   blacklist:
-    components:
-    - BorgChassis
+    tags:
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-chirp"]
   chatTriggers:
-    - chirp
-    - chirps
-    - chirped
-    - chirping
+  - chirp
+  - chirps
+  - chirped
+  - chirping
 
 # Machine Emotes
 - type: emote
   id: Beep
   name: chat-emote-name-beep
   category: Vocal
+  icon: Interface/Emotes/beep.png
   whitelist:
+    requireAll: true
+    components:
+    - Vocal
     tags:
+    - SiliconEmotes
     - IPCEmotes
     - HarpyEmotes
-    components:
-    - BorgChassis
-  icon: Interface/Emotes/beep.png
   chatMessages: ["chat-emote-msg-beep"]
   chatTriggers:
-    - beep
-    - beeps
-    - beeped
-    - beeping
+  - beep
+  - beeps
+  - beeped
+  - beeping
 
 - type: emote
   id: Chime
   name: chat-emote-name-chime
-  whitelist:
-    tags:
-    - IPCEmotes
-    - HarpyEmotes
-    components:
-    - BorgChassis
   category: Vocal
   icon: Interface/Emotes/chime.png
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - SiliconEmotes
+    - IPCEmotes
+    - HarpyEmotes
   chatMessages: ["chat-emote-msg-chime"]
   chatTriggers:
-    - chime
-    - chimes
-    - chimed
-    - chiming
+  - chime
+  - chimes
+  - chimed
+  - chiming
 
 - type: emote
   id: Buzz-Two
   name: chat-emote-name-buzztwo
-  whitelist:
-    tags:
-    - IPCEmotes
-    - HarpyEmotes
-    components:
-    - BorgChassis
   category: Vocal
   icon: Interface/Emotes/buzztwo.png
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - SiliconEmotes
+    - IPCEmotes
+    - HarpyEmotes
   chatMessages: ["chat-emote-msg-buzzestwo"]
   chatTriggers:
-    - buzztwice
-    - buzzstwice
-    - buzzestwice
-    - buzzingtwice
-    - buzzedtwice
-    - buzz twice
-    - buzzs twice
-    - buzzes twice
-    - buzzing twice
-    - buzzed twice
+  - buzztwice
+  - buzzstwice
+  - buzzestwice
+  - buzzingtwice
+  - buzzedtwice
+  - buzz twice
+  - buzzs twice
+  - buzzes twice
+  - buzzing twice
+  - buzzed twice
 
 - type: emote
   id: Ping
   name: chat-emote-name-ping
-  whitelist:
-    tags:
-    - IPCEmotes
-    - HarpyEmotes
-    components:
-    - BorgChassis
   category: Vocal
   icon: Interface/Emotes/ping.png
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - SiliconEmotes
+    - IPCEmotes
+    - HarpyEmotes
   chatMessages: ["chat-emote-msg-ping"]
   chatTriggers:
-    - ping
-    - pings
-    - pinged
-    - pinging
+  - ping
+  - pings
+  - pinged
+  - pinging
 
 - type: emote
   id: Yap

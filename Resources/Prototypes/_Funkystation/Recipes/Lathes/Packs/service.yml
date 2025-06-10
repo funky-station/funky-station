@@ -1,0 +1,8 @@
+﻿- type: latheRecipePack
+  id: ServiceDynamicFunky
+  recipes:
+  - PlantAnalyzer
+  - BoomboxRed
+  - BoomboxBlue
+  - BoomboxGreen
+

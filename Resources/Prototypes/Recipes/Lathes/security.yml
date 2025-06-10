@@ -79,7 +79,8 @@
   materials:
     Steel: 1500
     Glass: 1000
-    Gold: 850
+    Gold: 500
+    Uranium: 300
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -88,14 +89,16 @@
   materials:
     Steel: 1250
     Plastic: 750
-    Gold: 500
+    Gold: 350
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
-  id: WeaponLaserSvalinn
-  result: WeaponLaserSvalinn
+  id: WeaponTemperatureGun
+  result: WeaponTemperatureGun
   materials:
     Steel: 2000
+    Glass: 500
+    Plastic: 500
     Gold: 500
 
 - type: latheRecipe
@@ -106,7 +109,7 @@
     Steel: 1500
     Glass: 500
     Plastic: 250
-    Gold: 100
+    Gold: 250
 
 - type: latheRecipe
   id: ClothingBackpackElectropack
@@ -246,6 +249,23 @@
   result: MagazinePistolSubMachineGun
   materials:
     Steel: 300
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolSubMachineGunUranium
+  result: MagazinePistolSubMachineGunUranium
+  materials:
+    Steel: 25
+    Plastic: 250
+    Uranium: 250
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolSubMachineGunIncendiary
+  result: MagazinePistolSubMachineGunIncendiary
+  materials:
+    Steel: 25
+    Plastic: 275
 
 - type: latheRecipe
   parent: BaseEmptyAmmoRecipe

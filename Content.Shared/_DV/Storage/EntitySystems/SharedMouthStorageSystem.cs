@@ -4,6 +4,7 @@ using Content.Shared.Damage;
 using Content.Shared._DV.Storage.Components;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Nutrition;
 using Content.Shared.Standing;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
@@ -27,6 +28,7 @@ public abstract class SharedMouthStorageSystem : EntitySystem
         SubscribeLocalEvent<MouthStorageComponent, DisarmedEvent>(DropAllContents);
         SubscribeLocalEvent<MouthStorageComponent, DamageChangedEvent>(OnDamageModified);
         SubscribeLocalEvent<MouthStorageComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<MouthStorageComponent, IngestionAttemptEvent>(OnIngestAttempt);
     }
 
     protected bool IsMouthBlocked(MouthStorageComponent component)
@@ -54,7 +56,7 @@ public abstract class SharedMouthStorageSystem : EntitySystem
             _actionsSystem.AddAction(uid, ref component.Action, component.OpenStorageAction, mouth);
     }
 
-    private void DropAllContents(EntityUid uid, MouthStorageComponent component, EntityEventArgs args)
+    private void DropAllContents<T>(EntityUid uid, MouthStorageComponent component, ref T _)
     {
         if (component.MouthId == null)
             return;
@@ -69,7 +71,7 @@ public abstract class SharedMouthStorageSystem : EntitySystem
             || args.DamageDelta.GetTotal() < component.SpitDamageThreshold)
             return;
 
-        DropAllContents(uid, component, args);
+        DropAllContents(uid, component, ref args);
     }
 
     // Other people can see if this person has items in their mouth.
@@ -80,5 +82,19 @@ public abstract class SharedMouthStorageSystem : EntitySystem
             var subject = Identity.Entity(uid, EntityManager);
             args.PushMarkup(Loc.GetString("mouth-storage-examine-condition-occupied", ("entity", subject)));
         }
+    }
+
+    // Attempting to eat or drink anything with items in your mouth won't work
+    private void OnIngestAttempt(EntityUid uid, MouthStorageComponent component, IngestionAttemptEvent args)
+    {
+        if (!IsMouthBlocked(component))
+            return;
+
+        if (!TryComp<StorageComponent>(component.MouthId, out var storage))
+            return;
+
+        var firstItem = storage.Container.ContainedEntities[0];
+        args.Blocker = firstItem;
+        args.Cancel();
     }
 }

@@ -10,9 +10,11 @@ namespace Content.Shared.Access.Components;
 [Access(typeof(SharedIdCardConsoleSystem))]
 public sealed partial class IdCardConsoleComponent : Component
 {
+    // funky station: this was reintroduced to fix nanochat
+    // will we fix this later? i hope!
     public const int MaxFullNameLength = 30;
     public const int MaxJobTitleLength = 30;
-
+    
     public static string PrivilegedIdCardSlotId = "IdCardConsole-privilegedId";
     public static string TargetIdCardSlotId = "IdCardConsole-targetId";
 

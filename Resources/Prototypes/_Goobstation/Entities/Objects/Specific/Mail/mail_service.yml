@@ -421,6 +421,8 @@
       orGroup: Instrument
     - id: SynthesizerInstrument
       orGroup: Instrument
+    - id: PushHorn
+      orGroup: Instrument
     - id: AccordionInstrument
       orGroup: Instrument
     - id: GlockenspielInstrument

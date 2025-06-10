@@ -16,6 +16,7 @@ using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Nutrition.Components;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Popups;
+using Content.Shared.Charges.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -29,6 +30,7 @@ public sealed partial class FelinidSystem : EntitySystem
 {
 
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private readonly SharedChargesSystem _chargesSystem = default!;
     [Dependency] private readonly HungerSystem _hungerSystem = default!;
     [Dependency] private readonly VomitSystem _vomitSystem = default!;
     [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
@@ -141,10 +143,12 @@ public sealed partial class FelinidSystem : EntitySystem
             _popupSystem.PopupEntity(Loc.GetString("hairball-mask", ("mask", maskUid)), uid, uid, Shared.Popups.PopupType.SmallCaution);
             return;
         }
-
+        
+        // funky station: this code might not work with the charges refactor
+        // since hairballs are disabled, its no big deal, but we should fix this later
         if (component.HairballAction != null)
         {
-            _actionsSystem.SetCharges(component.HairballAction, 1); // You get the charge back and that's it. Tough.
+            _chargesSystem.AddCharges(uid, 1); // You get the charge back and that's it. Tough.
             _actionsSystem.SetEnabled(component.HairballAction, true);
         }
         Del(component.EatActionTarget.Value);

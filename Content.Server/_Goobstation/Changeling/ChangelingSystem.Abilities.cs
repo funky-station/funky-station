@@ -25,7 +25,7 @@ using Content.Shared.Random.Helpers;
 
 namespace Content.Server.Changeling;
 
-public sealed partial class ChangelingSystem : EntitySystem
+internal sealed partial class ChangelingSystem : EntitySystem
 {
     public void SubscribeAbilities()
     {

@@ -1,0 +1,12 @@
+﻿## Static
+
+## Dynamic
+- type: latheRecipePack
+  id: MedicalBoardsStaticGoob
+  recipes:
+  - OperatingTableCircuitboard
+
+- type: latheRecipePack
+  id: MedicalBoardsGoob
+  recipes:
+  - AutodocCircuitboard

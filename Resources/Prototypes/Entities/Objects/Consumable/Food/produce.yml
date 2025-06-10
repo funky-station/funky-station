@@ -289,7 +289,7 @@
   - type: Extractable
     grindableSolutionName: food
   - type: DamageOnInteract
-    damage: 
+    damage:
       types:
         Heat: 4
         Caustic: 4
@@ -316,7 +316,7 @@
             volume: -5
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: DamageOnHit 
+  - type: DamageOnHit
     damage:
       types:
         Blunt: 5 # The nettle will "wilt" after 5 hits.
@@ -467,6 +467,8 @@
   - type: Extractable
     grindableSolutionName: food
   - type: SpaceGarbage
+  - type: Food
+    requiresSpecialDigestion: true
 
 - type: entity
   name: baked banana peel
@@ -1830,6 +1832,9 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-mushroom
+  - type: Tag
+    tags:
+    - Mushroom
 
 - type: entity
   name: ambrosia vulgaris
@@ -2079,6 +2084,9 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-mushroom
+  - type: Tag
+    tags:
+    - Mushroom
 
 - type: entity
   name: gatfruit

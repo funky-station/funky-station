@@ -16,7 +16,7 @@ public sealed class MouthStorageSystem : SharedMouthStorageSystem
         base.Initialize();
 
         SubscribeLocalEvent<MouthStorageComponent, AccentGetEvent>(OnAccent);
-        SubscribeLocalEvent<MouthStorageComponent, IngestionAttemptEvent>(OnIngestAttempt);
+        // SubscribeLocalEvent<MouthStorageComponent, IngestionAttemptEvent>(OnIngestAttempt);
     }
 
     // Force you to mumble if you have items in your mouth
@@ -26,17 +26,17 @@ public sealed class MouthStorageSystem : SharedMouthStorageSystem
             args.Message = _replacement.ApplyReplacements(args.Message, "mumble");
     }
 
-    // Attempting to eat or drink anything with items in your mouth won't work
-    private void OnIngestAttempt(EntityUid uid, MouthStorageComponent component, IngestionAttemptEvent args)
-    {
-        if (!IsMouthBlocked(component))
-            return;
-
-        if (!TryComp<StorageComponent>(component.MouthId, out var storage))
-            return;
-
-        var firstItem = storage.Container.ContainedEntities[0];
-        args.Blocker = firstItem;
-        args.Cancel();
-    }
+    // // Attempting to eat or drink anything with items in your mouth won't work
+    // private void OnIngestAttempt(EntityUid uid, MouthStorageComponent component, IngestionAttemptEvent args)
+    // {
+    //     if (!IsMouthBlocked(component))
+    //         return;
+    //
+    //     if (!TryComp<StorageComponent>(component.MouthId, out var storage))
+    //         return;
+    //
+    //     var firstItem = storage.Container.ContainedEntities[0];
+    //     args.Blocker = firstItem;
+    //     args.Cancel();
+    // }
 }

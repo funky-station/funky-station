@@ -6,7 +6,7 @@
   components:
   - type: Sprite
     noRot: true
-    drawdepth: Objects
+    drawdepth: Items
     sprite: Objects/Storage/petcarrier.rsi
     layers:
     - state: pet_carrier_base
@@ -31,8 +31,6 @@
         density: 25
         mask:
         - ItemMask
-        layer:
-        - MachineLayer
   - type: EntityStorage
     capacity: 1
     airtight: false

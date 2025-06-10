@@ -1,0 +1,6 @@
+﻿- type: latheRecipePack
+  id: ClothingDurathreadArmoured
+  recipes:
+  - ClothingOuterVestWebDurathread
+  - ClothingOuterArmourDurathread
+  - ClothingUniformJumpsuitDurathread

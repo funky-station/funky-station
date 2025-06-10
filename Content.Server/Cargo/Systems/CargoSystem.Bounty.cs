@@ -33,7 +33,6 @@ public sealed partial class CargoSystem
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly NameIdentifierSystem _nameIdentifier = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSys = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedResearchSystem _research = default!;
 
     [ValidatePrototypeId<NameIdentifierGroupPrototype>]
@@ -104,7 +103,11 @@ public sealed partial class CargoSystem
         if (TryComp<AccessReaderComponent>(uid, out var accessReaderComponent) &&
             !_accessReaderSystem.IsAllowed(mob, uid, accessReaderComponent))
         {
-            _audio.PlayPvs(component.DenySound, uid);
+            if (Timing.CurTime >= component.NextDenySoundTime)
+            {
+                component.NextDenySoundTime = Timing.CurTime + component.DenySoundDelay;
+                _audio.PlayPvs(component.DenySound, uid);
+            }
             return;
         }
 

@@ -113,18 +113,6 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
 
         var stationName = Name(stationUid);
 
-        if (blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin)
-            && _roundEndSystem.ExpectedCountdownEnd != null)
-        {
-            _roundEndSystem.CancelRoundEndCountdown(checkCooldown: false);
-            _chatSystem.DispatchStationAnnouncement(stationUid,
-                Loc.GetString("blob-alert-recall-shuttle"),
-                Loc.GetString("Station"),
-                false,
-                null,
-                Color.Red);
-        }
-
         switch (blobRuleComp.Stage)
         {
             case BlobStage.Default when blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin):

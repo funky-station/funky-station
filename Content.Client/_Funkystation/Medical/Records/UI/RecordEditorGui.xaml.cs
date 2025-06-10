@@ -165,7 +165,6 @@ public sealed partial class RecordEditorGui : Control
         }
 
         // medical information
-
         BloodTypeDropdown.SelectId(_records.BloodType);
         PostmortemEdit.SetText(_records.PostmortemInstructions);
 
@@ -204,7 +203,7 @@ public sealed partial class RecordEditorGui : Control
     }
 
     /// <summary>
-    /// Generates/refreshes the "Medical Info" checkboxes based on the given <see cref="MedicalInfoPrototype"/>
+    /// Generates/refreshes the "Medical Info" checkboxes based on <see cref="MedicalInfoPrototype"/>
     /// </summary>
     private void RefreshMedicalInformation()
     {
@@ -214,7 +213,7 @@ public sealed partial class RecordEditorGui : Control
             .OrderBy(t => Loc.GetString(t.Name))
             .ToList();
 
-        // if there's no prototypes, generate a default label with no info
+        // if there's no prototypes, generate a default label
         if (info.Count < 1)
         {
             MedicalInfoContainer.AddChild(new Label
@@ -307,7 +306,6 @@ public sealed partial class RecordEditorGui : Control
                 };
                 selectors.Add(selector);
             }
-
             foreach (var selector in selectors) { layout.AddChild(selector); }
         }
     }

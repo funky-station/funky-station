@@ -727,6 +727,7 @@
     - RightFootIPC
     - OrganIPCEyes
     - OrganIPCPump
+    - Oilpack #Delta-V
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleAdvancedCleaning
@@ -859,6 +860,7 @@
     - AbominationCube
     - SpaceCarpCube
     - SpaceTickCube
+    - VelociraptorCube #funky
 
 - type: entity
   id: SecurityTechFab
@@ -1133,8 +1135,10 @@
     - WhiteCane
     - MedicalPatchBasic  #Goobstation - MedicalPatch
     - MedicalPatchRapid #Goobstation - MedicalPatch
+    - MedicalPatchTherapeutic #Goobstation - MedicalPatch
     - MedicalPatchLarge #Goobstation - MedicalPatch
     - BoneGel # Shitmed Change
+    - Oilpack #Delta-V
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

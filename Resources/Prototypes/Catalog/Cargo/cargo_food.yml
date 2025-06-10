@@ -77,3 +77,15 @@
   cost: 2400
   category: cargoproduct-category-name-food
   group: market
+
+# funkystation
+
+- type: cargoProduct
+  id: FoodRandomDonkpocket
+  icon:
+    sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
+    state: plain
+  product: CrateFoodRandomDonkPocket
+  cost: 1000
+  category: caroproduct-category-name-food
+  group: market

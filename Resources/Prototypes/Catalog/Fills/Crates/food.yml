@@ -176,3 +176,41 @@
     contents:
     - id: FoodShrimpRaw
       amount: 6
+
+# funkystation
+
+- type: entity
+  id: CrateFoodRandomDonkPocket
+  parent: CratePlastic
+  name: donk pockets crate
+  description: You should order four more crates of these. Includes a box of donk pockets.
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodBoxDonkpocket
+      amount: 1
+      prob: 0.12
+    - id: FoodBoxDonkpocketSpicy
+      amount: 1
+      prob: 0.12
+    - id: FoodBoxDonkpocketTeriyaki
+      amount: 1
+      prob: 0.12
+    - id: FoodBoxDonkpocketPizza
+      amount: 1
+      prob: 0.12
+    - id: FoodBoxDonkpocketCarp
+      amount: 1
+      prob: 0.12
+    - id: FoodBoxDonkpocketBerry
+      amount: 1
+      prob: 0.12
+    - id: FoodBoxDonkpocketHonk
+      amount: 1
+      prob: 0.12
+    - id: FoodBoxDonkpocketDink
+      amount: 1
+      prob: 0.12
+    - id: FoodBoxDonkpocketStonk
+      amount: 1
+      prob: 0.04 # Limited Edition!

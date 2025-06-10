@@ -60757,19 +60757,6 @@ entities:
     - type: Transform
       pos: -6.5,52.5
       parent: 2
-- proto: PlushieAtmosian
-  entities:
-  - uid: 12736
-    components:
-    - type: MetaData
-      desc: Stuffed toy of a particular atmosian.
-      name: Erisia Eneka
-    - type: Transform
-      pos: -0.8959305,27.66728
-      parent: 2
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
 - proto: PlushieHampter
   entities:
   - uid: 550

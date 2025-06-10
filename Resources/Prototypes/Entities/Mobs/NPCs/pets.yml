@@ -661,7 +661,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      150: Dead
+      125: Dead
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
@@ -669,8 +669,8 @@
       path: /Audio/Effects/bite.ogg
     damage:
       types:
-        Piercing: 8
-        Poison: 8
+        Piercing: 5
+        Poison: 5
   - type: Grammar
     attributes:
       proper: true

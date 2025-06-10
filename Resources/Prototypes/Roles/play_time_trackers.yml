@@ -157,6 +157,9 @@
 - type: playTimeTracker
   id: JobZookeeper
 
+- type: playTimeTracker
+  id: JobBrigmedic
+
 # event-restricted jobs
 - type: playTimeTracker
   id: JobSecurityClown

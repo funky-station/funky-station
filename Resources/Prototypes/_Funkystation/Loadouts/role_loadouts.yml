@@ -25,3 +25,16 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobBrigmedic
+  groups:
+  - BrigmedicJumpsuit
+  - BrigmedicBackpack
+  - BrigmedicAMGGroup
+  - BrigmedicHead
+  - SecurityShoes
+  - SurvivalSecurity
+  - Trinkets
+  - SecurityStar
+  - GroupSpeciesBreathToolSecurity

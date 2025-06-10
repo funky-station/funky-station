@@ -1,8 +1,6 @@
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Client.GameObjects;
-using Robust.Client.Graphics;  // Goobstation - anythingburgers i dont even remember if i need this
-using Robust.Shared.Graphics;  // Goobstation - anythingburgers i dont even remember if i need this
 using Robust.Shared.Prototypes; // Goobstation - anythingburgers
 using Robust.Shared.Utility;
 
@@ -10,6 +8,7 @@ namespace Content.Client.Nutrition.EntitySystems;
 
 public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
 {
+    [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     public override void Initialize()
@@ -33,7 +32,7 @@ public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
         //Remove old layers
         foreach (var key in start.Comp.RevealedLayers)
         {
-            sprite.RemoveLayer(key);
+            _sprite.RemoveLayer((start.Owner, sprite), key);
         }
         start.Comp.RevealedLayers.Clear();
 
@@ -87,19 +86,20 @@ public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
             var keyCode = $"food-layer-{counter}";
             start.Comp.RevealedLayers.Add(keyCode);
 
-            sprite.LayerMapTryGet(start.Comp.TargetLayerMap, out var index);
+            _sprite.LayerMapTryGet((start.Owner, sprite), start.Comp.TargetLayerMap, out var index, false);
 
             if (start.Comp.InverseLayers)
                 index++;
 
-            sprite.AddBlankLayer(index);
-            sprite.LayerMapSet(keyCode, index);
-            sprite.LayerSetSprite(index, state.Sprite);
+            _sprite.AddBlankLayer((start.Owner, sprite), index);
+            _sprite.LayerMapSet((start.Owner, sprite), keyCode, index);
+            _sprite.LayerSetSprite((start.Owner, sprite), index, state.Sprite);
+            //_sprite.LayerSetScale((start.Owner, sprite), index, state.Scale); // goob - this probably doesnt work bc of anythingburgers
 
             //Offset the layer
             var layerPos = start.Comp.StartPosition;
             layerPos += (start.Comp.Offset * counter) + state.LocalOffset;
-            sprite.LayerSetOffset(index, layerPos);
+            _sprite.LayerSetOffset((start.Owner, sprite), index, layerPos);
 
             counter++;
         }

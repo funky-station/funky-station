@@ -156,6 +156,17 @@
     base: clown
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 8000 # really good ramming wall, bananium is rare so it's probably fine
 
 - type: entity
   parent: BaseWall
@@ -327,6 +338,17 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 4000
   - type: IconSmooth
     key: walls
     base: gold
@@ -476,6 +498,22 @@
     - type: IconSmooth
       key: walls
       base: plastitanium
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+          mask:
+          - FullTileMask
+          layer:
+          - WallLayer
+          density: 4000
+    - type: Damageable
+      damageContainer: StructuralInorganic
+      damageModifierSet: StructuralMetallicStrong
+    - type: RadiationBlocker
+      resistance: 5
 
 - type: entity
   parent: WallPlastitaniumIndestructible
@@ -653,6 +691,17 @@
     resistance: 5
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 2000
 
 - type: entity
   parent: WallReinforced
@@ -866,7 +915,7 @@
     state: state0
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
+    damageModifierSet: StructuralMetallicStrong
   - type: Physics
     bodyType: Static
   - type: Reflect
@@ -920,7 +969,6 @@
   parent: BaseWall
   id: WallShuttle
   name: shuttle wall
-  suffix: Reinforced, Exterior
   components:
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -978,6 +1026,17 @@
     reflectProb: 1
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 2000
 
 - type: entity
   parent: BaseWall
@@ -1012,9 +1071,9 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Sprite
-    sprite: Structures/Walls/shuttleinterior.rsi
+    sprite: Structures/Walls/shuttle.rsi
   - type: Icon
-    sprite: Structures/Walls/shuttleinterior.rsi
+    sprite: Structures/Walls/shuttle.rsi
   - type: Construction
     graph: Girder
     node: shuttleInteriorWall
@@ -1171,6 +1230,17 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 6000
   - type: IconSmooth
     key: walls
     base: uranium
@@ -1425,30 +1495,30 @@
   id: WallForce
   name: force wall
   components:
-    - type: TimedDespawn
-      lifetime: 12
-    - type: Tag
-      tags:
-        - Wall
-    - type: Physics
-      bodyType: Static
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "-0.5,-0.5,0.5,0.5"
-          mask:
-            - FullTileMask
-          layer:
-            - WallLayer
-    - type: Airtight
-    - type: Sprite
-      sprite: Structures/Magic/forcewall.rsi
-      state: forcewall
-    - type: Icon
-      sprite: Structures/Magic/forcewall.rsi
-      state: forcewall
+  - type: TimedDespawn
+    lifetime: 10
+  - type: Tag
+    tags:
+    - Wall
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - SpecialWallLayer
+        layer:
+        - SpecialWallLayer
+  - type: Airtight
+  - type: Sprite
+    sprite: Structures/Magic/forcewall.rsi
+    state: forcewall
+  - type: Icon
+    sprite: Structures/Magic/forcewall.rsi
+    state: forcewall
 
 - type: entity
   parent: BaseWall

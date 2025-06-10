@@ -122,6 +122,8 @@
         orGroup: Guns
       - id: WeaponXrayCannon
         orGroup: Guns
+      - id: WeaponTemperatureGun
+        orGroup: Guns
       - id: WeaponDisablerPractice
         orGroup: Guns
       - id: WeaponDisabler

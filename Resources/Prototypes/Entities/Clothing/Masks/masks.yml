@@ -18,8 +18,8 @@
     - GasMask # goob edit
     - Mask # goob edit
   - type: HideLayerClothing
-    slots:
-    - Snout
+    layers:
+      Snout: Mask
     hideOnToggle: true
 
 - type: entity
@@ -155,7 +155,10 @@
     - PetWearable
     - WhitelistChameleon
     - BreathMask  # Goobstation - For survial boxes
-
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+      Plastic: 50
 
 - type: entity
   parent: ClothingMaskBreathMedical

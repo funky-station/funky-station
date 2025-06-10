@@ -1,0 +1,19 @@
+﻿# dynamic
+- type: latheRecipePack
+  id: AtmosBoardsDynamicFunky
+  recipes:
+  - ElectrolyzerMachineCircuitboard
+  - ThermomachineAdvancedFreezerMachineCircuitBoard
+  - ThermomachineUpgradedFreezerMachineCircuitBoard
+  - BluespaceGasSenderMachineBoard
+  - CrystallizerMachineCircuitboard
+
+- type: latheRecipePack
+  id: ServiceBoardsDynamicFunky
+  recipes:
+  - MusicTechFabCircuitboard
+
+- type: latheRecipePack
+  id: CargoBoardsDynamicFunky
+  recipes:
+  - SiloRelayMachineCircuitboard

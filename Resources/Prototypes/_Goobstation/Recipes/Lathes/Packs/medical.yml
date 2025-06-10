@@ -1,0 +1,32 @@
+﻿## Static
+- type: latheRecipePack
+  id: MedicalPatchesStatic
+  recipes:
+  - MedicalPatchBasic
+  - MedicalPatchRapid
+  - MedicalPatchTherapeutic
+  - MedicalPatchLarge
+
+- type: latheRecipePack
+  id: SurgeryStaticGoob
+  recipes:
+  - BoneGel
+
+## Dynamic
+- type: latheRecipePack
+  id: MedicalSurgery
+  parent: Surgery
+  recipes:
+  - OmnimedTool
+
+- type: latheRecipePack
+  id: Surgery
+  recipes:
+  - EnergyScalpel
+  - EnergyCautery
+  - AdvancedRetractor
+
+- type: latheRecipePack
+  id: MedicalCybernetics
+  recipes:
+  - MedicalCyberneticEyes

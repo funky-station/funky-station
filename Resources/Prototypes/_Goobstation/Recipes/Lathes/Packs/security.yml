@@ -1,0 +1,19 @@
+﻿## Static
+- type: latheRecipePack
+  id: SecurityEquipmentStaticGoob
+  recipes:
+  - GrenadeFlashBang
+  - BolaEnergy
+
+- type: latheRecipePack
+  id: SecurityHypoStatic
+  recipes:
+  - CartridgeEpinephrine
+  - SecHypo
+
+## Dynamic
+- type: latheRecipePack
+  id: SecurityCybernetics
+  parent: MedicalCybernetics
+  recipes:
+  - SecurityCyberneticEyes

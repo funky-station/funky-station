@@ -1,18 +1,3 @@
-- type: reaction
-  id: Eggnog
-  requiredMixerCategories:
-  - Shake
-  reactants:
-    Egg:
-      amount: 1
-    Milk:
-      amount: 5
-    Cream:
-      amount: 2
-    Sugar:
-      amount: 2
-  products:
-    Eggnog: 10
 
 - type: reaction
   id: Peggnog

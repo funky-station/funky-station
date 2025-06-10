@@ -176,6 +176,7 @@
   physicalDesc: reagent-physical-desc-fizzy
   flavor: medicine
   color: "#0091ff"
+  worksOnTheDead: true
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: -5
@@ -185,6 +186,8 @@
   metabolisms:
     Medicine:
       effects:
+        - !type:ModifyBloodLevel
+          amount: 4
         - !type:HealthChange
           conditions:
           - !type:Temperature
@@ -193,10 +196,7 @@
           damage:
           # todo scale with temp like SS13
             groups:
-              Airloss: -6
-              Brute: -4
-              Burn: -6
-              Toxin: -4
+              Airloss: -10
 
 - type: reagent
   id: Doxarubixadone
@@ -321,6 +321,13 @@
     Medicine:
       metabolismRate: 0.2 # Funkychem
       effects:
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Histamine
+          min: 45
+        reagent: Histamine
+        amount: -5
       - !type:HealthChange
         conditions:
           # they gotta be in crit first
@@ -1075,6 +1082,7 @@
   name: reagent-name-holywater
   group: Medicine
   desc: reagent-desc-holywater
+  evaporationSpeed: 0.3
   physicalDesc: reagent-physical-desc-holy
   flavor: holy
   color: "#91C3F7"
@@ -1414,3 +1422,27 @@
       - !type:AdjustReagent
         reagent: MindbreakerToxin
         amount: -3.0
+
+- type: reagent
+  id: Stelloxadone
+  name: reagent-name-stelloxadone
+  group: Medicine
+  desc: reagent-desc-stelloxadone
+  physicalDesc: reagent-physical-desc-murky
+  flavor: medicine
+  color: "#FFC683"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:Temperature
+          max: 213.0
+        damage:
+          groups:
+            Brute: 3
+            Genetic: 1
+          types:
+            Poison: -6
+            Radiation: -3

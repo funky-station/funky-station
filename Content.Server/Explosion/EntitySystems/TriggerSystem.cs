@@ -33,6 +33,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Player;
 using Content.Shared.Coordinates;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Revolutionary;
 using Robust.Shared.Utility;
 using Robust.Shared.Timing;
@@ -94,6 +95,7 @@ namespace Content.Server.Explosion.EntitySystems
             SubscribeLocalEvent<TriggerOnSpawnComponent, MapInitEvent>(OnSpawnTriggered);
             SubscribeLocalEvent<TriggerOnCollideComponent, StartCollideEvent>(OnTriggerCollide);
             SubscribeLocalEvent<TriggerOnActivateComponent, ActivateInWorldEvent>(OnActivate);
+            SubscribeLocalEvent<TriggerOnUseComponent, UseInHandEvent>(OnUse);
             SubscribeLocalEvent<TriggerImplantActionComponent, ActivateImplantEvent>(OnImplantTrigger);
             SubscribeLocalEvent<TriggerOnStepTriggerComponent, StepTriggeredOffEvent>(OnStepTriggered);
             SubscribeLocalEvent<TriggerOnSlipComponent, SlipEvent>(OnSlipTriggered);
@@ -156,6 +158,15 @@ namespace Content.Server.Explosion.EntitySystems
 
             if (component.RemoveOnTrigger)
                 RemCompDeferred<AnchorOnTriggerComponent>(uid);
+        }
+        
+        private void OnUse(Entity<TriggerOnUseComponent> ent, ref UseInHandEvent args)
+        {
+            if (args.Handled)
+                return;
+
+            Trigger(ent.Owner, args.User);
+            args.Handled = true;
         }
 
         private void OnSpawnTrigger(EntityUid uid, SpawnOnTriggerComponent component, TriggerEvent args)

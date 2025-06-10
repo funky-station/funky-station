@@ -1,5 +1,6 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
+using Content.Server.Damage.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Flash;
 using Content.Server.Hands.Systems;

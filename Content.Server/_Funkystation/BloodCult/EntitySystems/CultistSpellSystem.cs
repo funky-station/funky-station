@@ -15,6 +15,7 @@ using Content.Shared.Stacks;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Prototypes;
 using Content.Server.BloodCult.Components;
+using Content.Server.Damage.Systems;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Damage;
@@ -58,7 +59,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	[Dependency] private readonly IGameTiming _gameTiming = default!;
 	[Dependency] private readonly IEntityManager _entMan = default!;
 	[Dependency] private readonly SharedStunSystem _stun = default!;
-	
+
 	[Dependency] private readonly IPrototypeManager _protoMan = default!;
 
 	private EntityQuery<EmpowerOnStandComponent> _runeQuery;
@@ -210,7 +211,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			}
 			if (args.RecordKnownSpell)
 				ent.Comp.KnownSpells.Add(args.CultAbility);
-			
+
 			_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
 			_audioSystem.PlayPvs(args.CultAbility.CarveSound, ent);
 			if (args.StandingOnRune)

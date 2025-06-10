@@ -70,10 +70,6 @@
     canShuttle: false
     title: comms-console-announcement-title-station-ai
     color: "#5ed7aa"
-  - type: HolographicAvatar
-    layerData:
-    - sprite: Mobs/Silicon/station_ai.rsi
-      state: default
   - type: ShowJobIcons
 
 - type: entity
@@ -105,6 +101,9 @@
   description: Handles AI interactions across holocards + AI cores
   components:
   - type: ItemSlots
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
   - type: StationAiHolder
     slot:
       name: station-ai-mind-slot
@@ -330,6 +329,9 @@
   suffix: Empty
   components:
   - type: WarpPoint
+    blacklist:
+      tags:
+      - GhostOnlyWarp
   - type: ContainerComp
     proto: AiHeld
     container: station_ai_mind_slot
@@ -354,8 +356,11 @@
     layers:
     - state: base
     - state: ai_empty
-      map: ["unshaded"]
       shader: unshaded
+    - state: ai
+      map: ["enum.StationAiVisualState.Key"]
+      shader: unshaded
+      visible: false
   - type: Appearance
   - type: InteractionPopup
     interactSuccessString: petting-success-station-ai
@@ -363,12 +368,6 @@
     messagePerceivedByOthers: petting-success-station-ai-others # Otherwise AI cannot tell its being pet as It's just a brain inside of the core, not the core itself.
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
-  - type: GenericVisualizer
-    visuals:
-      enum.StationAiVisualState.Key:
-        unshaded:
-          Empty: { state: ai_empty }
-          Occupied: { state: ai }
   - type: Telephone
     compatibleRanges:
     - Grid
@@ -386,6 +385,8 @@
         type: HolopadBoundUserInterface
       enum.HolopadUiKey.AiActionWindow:
         type: HolopadBoundUserInterface
+      enum.StationAiCustomizationUiKey.Key:
+        type: StationAiCustomizationBoundUserInterface
 
 # The job-ready version of an AI spawn.
 - type: entity
@@ -396,12 +397,6 @@
   - type: ContainerSpawnPoint
     containerId: station_ai_mind_slot
     job: StationAi
-  - type: Sprite
-    sprite: Mobs/Silicon/station_ai.rsi
-    layers:
-    - state: base
-    - state: ai
-      shader: unshaded
 
 # The actual brain inside the core
 - type: entity
@@ -446,6 +441,16 @@
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
     silent: true
+  - type: StationAiCustomization
+    protoIds:
+      StationAiCoreIconography: StationAiIconAi
+      StationAiHolograms: StationAiHologramFemale
+  - type: HolographicAvatar
+    layerData:
+    - sprite: Mobs/Silicon/holograms.rsi
+      state: ai_female
+  - type: NameIdentifier
+    group: StationAi
 
 # Hologram projection that the AI's eye tracks.
 - type: entity
@@ -458,8 +463,14 @@
   categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: NoFTL
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
   - type: WarpPoint
     follow: true
+    blacklist:
+      tags:
+      - GhostOnlyWarp
   - type: Eye
     pvsScale: 1.5
   - type: Visibility
@@ -480,8 +491,14 @@
   components:
   - type: Transform
     anchored: true
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
   - type: WarpPoint
     follow: true
+    blacklist:
+      tags:
+      - GhostOnlyWarp
   - type: Eye
   - type: ContentEye
   - type: Examiner

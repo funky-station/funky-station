@@ -16,7 +16,7 @@
   components:
   - type: Objective
     icon:
-      sprite: Objects/Misc/bureaucracy.rsi
+      sprite: Objects/Misc/folders.rsi
       state: folder-white
   - type: MultipleTraitorsRequirement
 
@@ -228,6 +228,16 @@
     job: Quartermaster
   - type: StealCondition
     stealGroup: BoxFolderQmClipboard
+    owner: job-name-qm
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: KnuckleDustersStealObjective
+  components:
+  - type: NotJobRequirement
+    job: Quartermaster
+  - type: StealCondition
+    stealGroup: ClothingHandsKnuckleDustersQM
     owner: job-name-qm
 
 ## hop

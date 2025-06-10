@@ -119,6 +119,9 @@
             "name": "deathsposal"
         },
         {
+            "name": "detective"
+        },
+        {
             "name": "direction_atmos",
             "directions": 4
         },
@@ -257,6 +260,9 @@
         },
         {
             "name": "cloning"
+        },
+        {
+            "name": "genpop"
         },
         {
             "name": "gravi"

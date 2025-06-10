@@ -93,8 +93,9 @@
   name: Break Free
   description: Activating your freedom implant will free you from any hand restraints
   components:
+  - type: LimitedCharges
+    maxCharges: 3
   - type: InstantAction
-    charges: 3
     checkCanInteract: false
     itemIconStyle: BigAction
     priority: -20
@@ -121,6 +122,8 @@
   name: Activate EMP
   description: Triggers a small EMP pulse around you
   components:
+  - type: LimitedCharges
+    maxCharges: 3
   - type: InstantAction
     checkCanInteract: false
     useDelay: 30
@@ -136,10 +139,11 @@
   name: SCRAM!
   description: Randomly teleports you within a large distance.
   components:
+  - type: LimitedCharges
+    maxCharges: 2
   - type: InstantAction
     checkCanInteract: false
-    # charges: 2 # Goobstation - Scrambler buff
-    useDelay: 300 # Goobstation - Scrambler buff, Goobstation - Fix scram
+    useDelay: 300 # goobstation - scrambler buff
     itemIconStyle: BigAction
     priority: -20
     icon:
@@ -154,8 +158,9 @@
   components:
   - type: ConfirmableAction
     popup: dna-scrambler-action-popup
+  - type: LimitedCharges
+    maxCharges: 1
   - type: InstantAction
-    charges: 1
     itemIconStyle: BigAction
     priority: -20
     icon:
@@ -335,7 +340,7 @@
   name: Toggle Paramedic Siren
   description: Toggles the paramedic siren on and off.
   components:
-  - type: InstantAction 
+  - type: InstantAction
     icon:
       sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
       state: icon-siren

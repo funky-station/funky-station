@@ -200,6 +200,7 @@
   name: donk pockets crate
   description: You should order four more crates of these. Includes a box of donk pockets.
   components:
-  - type: StorageFill
-    contents:
-    - id: RandomDonkpocketTable
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableID: RandomDonkpocketTable

@@ -51692,7 +51692,6 @@ entities:
       pos: -23.5,13.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
       deviceLists:
       - 16
     - type: AtmosPipeColor

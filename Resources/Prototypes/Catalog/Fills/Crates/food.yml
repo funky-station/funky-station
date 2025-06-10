@@ -203,4 +203,4 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
-        tableID: RandomDonkpocketTable
+        tableId: RandomDonkpocketTable

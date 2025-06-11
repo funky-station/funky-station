@@ -3068,3 +3068,11 @@ Entries:
         selling price.
   id: 370
   time: '2025-06-05T07:48:28.0000000+00:00'
+- author: jackel234
+  changes:
+    - type: Add
+      message: >-
+        Ported the Home Run Bat from DV, a Syndicate baseball bat that launches
+        anyone hit by it. Swing for the fences!
+  id: 371
+  time: '2025-06-11T04:11:18.0000000+00:00'

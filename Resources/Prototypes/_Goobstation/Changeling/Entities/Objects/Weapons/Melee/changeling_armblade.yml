@@ -14,7 +14,7 @@
     damage:
       types:
         Blunt: 2.5
-        Slash: 12.5
+        Slash: 7.5
         Piercing: 10
         Structural: 20
     soundHit:

@@ -509,12 +509,17 @@ public enum LogType
     ArtifactNode = 101,
 
     /// <summary>
-    /// GameDirector related game interactions.
-    /// </summary>
-    GameDirector = 102, // Goobstation
-
-    /// <summary>
     /// Damaging grid collision has occurred.
     /// </summary>
-    ShuttleImpact = 103
+    ShuttleImpact = 102,
+
+    /// <summary>
+    /// Events relating to midi playback.
+    /// </summary>
+    Instrument = 103,
+
+    /// <summary>
+    /// GameDirector related game interactions.
+    /// </summary>
+    GameDirector = 10002, // Goobstation
 }

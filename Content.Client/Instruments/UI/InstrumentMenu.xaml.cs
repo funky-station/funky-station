@@ -39,6 +39,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Containers;
 using Robust.Shared.Input;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 using Range = Robust.Client.UserInterface.Controls.Range;
 
@@ -173,10 +174,6 @@ namespace Content.Client.Instruments.UI
             if (!PlayCheck())
                 return;
 
-            await using var memStream = new MemoryStream((int) file.Length);
-
-            await file.CopyToAsync(memStream);
-
             if (!_entManager.TryGetComponent<InstrumentComponent>(Entity, out var instrument))
             {
                 return;
@@ -184,7 +181,7 @@ namespace Content.Client.Instruments.UI
 
             if (!_entManager.System<InstrumentSystem>()
                     .OpenMidi(Entity,
-                    memStream.GetBuffer().AsSpan(0, (int) memStream.Length),
+                        file.CopyToArray(),
                     instrument))
             {
                 return;

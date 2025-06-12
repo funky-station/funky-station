@@ -1,1070 +1,1080 @@
-﻿- type: cargoBountyCategory
-  id: testCategory
-  name: Test
+﻿#- type: cargoBountyCategory
+#  id: testCategory
+#  name: Test
+#  entries:
+#  - reagent: Omnizine
+#    name: Sunglasses
+#    minAmount: 1
+#    maxAmount: 5
+#    rewardPer: 750
+
+# Generally, each category should be considered from the perspective of the orderer, what is a medical department likely to order? What will totally not the syndicate order?
+
+- type: cargoBountyCategory
+  id: reagentTest
+  name: Reagent
   entries:
-  - reagent: Omnizine
-    name: Sunglasses
-    minAmount: 1
-    maxAmount: 5
+  - name: Omnizine
+    reagent: Omnizine
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 100
+
+- type: cargoBountyCategory
+  id: botanyCategory
+  name: bounty-category-botany
+  entries:
+  - name: bounty-item-carrot
+    minAmount: 5
+    maxAmount: 15
     rewardPer: 750
-#
-## Generally, each category should be considered from the perspective of the orderer, what is a medical department likely to order? What will totally not the syndicate order?
-#
-#- type: cargoBountyCategory
-#  id: botanyCategory
-#  name: bounty-category-botany
-#  entries:
-#  - name: bounty-item-carrot
-#    minAmount: 5
-#    maxAmount: 15
-#    rewardPer: 750
-#    whitelist:
-#      tags:
-#      - Carrot
-#  - name: bounty-item-corn
-#    minAmount: 5
-#    maxAmount: 15
-#    rewardPer: 1000
-#    whitelist:
-#      tags:
-#      - Corn
-#  - name: bounty-item-flower
-#    minAmount: 3
-#    maxAmount: 5
-#    rewardPer: 1000
-#    whitelist:
-#      tags:
-#      - Flower
-#  - name: bounty-item-galaxythistle
-#    minAmount: 4
-#    maxAmount: 12
-#    rewardPer: 1200
-#    whitelist:
-#      tags:
-#      - Galaxythistle
-#  - name: bounty-item-lemon
-#    minAmount: 5
-#    maxAmount: 10
-#    rewardPer: 1000
-#    whitelist:
-#      tags:
-#      - Lemon
-#  - name: bounty-item-lime
-#    minAmount: 5
-#    maxAmount: 10
-#    rewardPer: 1000
-#    whitelist:
-#      tags:
-#      - Lime
-#  - name: bounty-item-fruit
-#    minAmount: 5
-#    maxAmount: 15
-#    rewardPer: 400
-#    whitelist:
-#      tags:
-#      - Fruit
-#    blacklist:
-#      tags:
-#      - Slice
-#      - Cake
-#      - Pie
-#      - Bread
-#  - name: bounty-item-vegetable
-#    minAmount: 5
-#    maxAmount: 15
-#    rewardPer: 500
-#    whitelist:
-#      tags:
-#      - Vegetable
-#    blacklist:
-#      tags:
-#      - Slice
-#      - Cake
-#      - Pie
-#      - Bread
-#  - name: bounty-item-banana
-#    minAmount: 3
-#    maxAmount: 9
-#    rewardPer: 660
-#    whitelist:
-#      tags:
-#      - Banana
-#  - name: bounty-item-cotton-boll
-#    minAmount: 5
-#    maxAmount: 10
-#    rewardPer: 900
-#    whitelist:
-#      tags:
-#      - CottonBoll
-#  - name: bounty-item-ambrosia
-#    minAmount: 4
-#    maxAmount: 12
-#    rewardPer: 1200
-#    whitelist:
-#      tags:
-#      - Ambrosia
-#  - name: bounty-item-potato
-#    minAmount: 5
-#    maxAmount: 15
-#    rewardPer: 900
-#    whitelist:
-#      tags:
-#      - Potato
-#  - name: bounty-item-wheat
-#    minAmount: 5
-#    maxAmount: 15
-#    rewardPer: 750
-#    whitelist:
-#      tags:
-#      - Wheat
-#
-#- type: cargoBountyCategory
-#  id: scienceCategory
-#  name: bounty-category-science
-#  entries:
-#  - name: bounty-item-artifact
-#    minAmount: 1
-#    maxAmount: 1
-#    rewardPer: 2500
-#    whitelist:
-#      components:
-#      - Artifact
-#  - name: bounty-item-monkey-cube
-#    minAmount: 3
-#    maxAmount: 6
-#    rewardPer: 600
-#    whitelist:
-#      tags:
-#      - MonkeyCube
-#  - name: bounty-item-tech-disk
-#    minAmount: 3
-#    maxAmount: 8
-#    rewardPer: 5000
-#    whitelist:
-#      components:
-#      - TechnologyDisk
-#    requiredResearch:
-#      - AlternativeResearch
-#  - name: bounty-item-anomaly-core
-#    minAmount: 1
-#    maxAmount: 1
-#    rewardPer: 10000
-#    whitelist:
-#      components:
-#      - AnomalyCore
-#  - name: bounty-item-borg-module
-#    minAmount: 2
-#    maxAmount: 5
-#    rewardPer: 1200
-#    whitelist:
-#      components:
-#      - BorgModule
-#  - name: bounty-item-artifact-fragment
-#    minAmount: 4
-#    maxAmount: 12
-#    rewardPer: 1500
-#    whitelist:
-#      tags:
-#      - ArtifactFragment
-#  - name: bounty-item-microwave-machine-board
-#    minAmount: 1
-#    maxAmount: 3
-#    rewardPer: 1000
-#    whitelist:
-#      tags:
-#      - MicrowaveMachineBoard
-#  - name: bounty-item-cryobeaker
-#    minAmount: 1
-#    maxAmount: 3
-#    rewardPer: 1000
-#    whitelist:
-#      tags:
-#      - Cryobeaker
-#    requiredResearch:
-#      - BiochemicalStasis
-#- type: cargoBountyCategory
-#  id: miscCategory
-#  name: bounty-category-misc
-#  entries:
-#  - name: bounty-item-baseball-bat
-#    minAmount: 3
-#    maxAmount: 6
-#    rewardPer: 800
-#    whitelist:
-#      tags:
-#      - BaseballBat
-#  - name: bounty-item-figurine
-#    minAmount: 5
-#    maxAmount: 10
-#    rewardPer: 800
-#    whitelist:
-#      tags:
-#      - Figurine
-#  - name: bounty-item-pen
-#    minAmount: 5
-#    maxAmount: 10
-#    rewardPer: 400
-#    whitelist:
-#      tags:
-#      - Pen
-#  - name: bounty-item-radio
-#    minAmount: 5
-#    maxAmount: 10
-#    rewardPer: 900
-#    whitelist:
-#      components:
-#      - Headset
-#      - RadioMicrophone
-#      tags:
-#      - Radio
-#  - name: bounty-item-labeler
-#    minAmount: 5
-#    maxAmount: 10
-#    rewardPer: 550
-#    whitelist:
-#      components:
-#      - HandLabeler
-#  - name: bounty-item-bedsheet
-#    minAmount: 5
-#    maxAmount: 8
-#    rewardPer: 400
-#    whitelist:
-#      tags:
-#      - Bedsheet
-#  - name: bounty-item-torch
-#    minAmount: 5
-#    maxAmount: 10
-#    rewardPer: 500
-#    whitelist:
-#      tags:
-#      - Torch
-#  - name: bounty-item-cardboard-box
-#    minAmount: 10
-#    maxAmount: 20
-#    rewardPer: 150
-#    whitelist:
-#      tags:
-#      - BoxCardboard
-#
-## Topicals seem a bit weird right now, so I am disabling them while I figure it out
-#- type: cargoBountyCategory
-#  id: medicalCategory
-#  name: bounty-category-medical
-#  entries:
-#  - name: bounty-item-brain
-#    minAmount: 1
-#    maxAmount: 1
-#    rewardPer: 10000
-#    whitelist:
-#      components:
-#      - Brain
-#  - name: bounty-item-lung
-#    minAmount: 2
-#    maxAmount: 5
-#    rewardPer: 1000
-#    whitelist:
-#      components:
-#      - Lung
-#  - name: bounty-item-syringe
-#    minAmount: 5
-#    maxAmount: 20
-#    rewardPer: 150
-#    whitelist:
-#      tags:
-#      - Syringe
-#  - name: bounty-item-organs
-#    minAmount: 5
-#    maxAmount: 10
-#    rewardPer: 600
-#    whitelist:
-#      components:
-#      - Organ
-#  - name: bounty-item-medkit-box
-#    minAmount: 2
-#    maxAmount: 5
-#    rewardPer: 500
-#    whitelist:
-#      tags:
-#      - Medkit
-##  - name: bounty-item-bloodpack
-##    minAmount: 20
-##    maxAmount: 60
-##    rewardPer: 100
-##    whitelist:
-##      tags:
-##      - Bloodpack
-#  - name: bounty-item-bodybag
-#    minAmount: 1
-#    maxAmount: 10
-#    rewardPer: 70
-#    whitelist:
-#      tags:
-#      - BodyBag
-##  - name: bounty-item-brutepack
-##    minAmount: 10
-##    maxAmount: 50
-##    rewardPer: 60
-##    whitelist:
-##      tags:
-##      - Brutepack
-#  - name: bounty-item-dropper
-#    minAmount: 8
-#    maxAmount: 12
-#    rewardPer: 120
-#    whitelist:
-#      tags:
-#      - Dropper
-#  - name: bounty-item-eyes
-#    minAmount: 2
-#    maxAmount: 5
-#    rewardPer: 1000
-#    whitelist:
-#      tags:
-#      - Eyes
-##  - name: bounty-item-gauze
-##    minAmount: 10
-##    maxAmount: 50
-##    rewardPer: 60
-##    whitelist:
-##      tags:
-##      - Gauze
-#  - name: bounty-item-kidney
-#    minAmount: 2
-#    maxAmount: 5
-#    rewardPer: 1000
-#    whitelist:
-#      tags:
-#      - Kidneys
-#  - name: bounty-item-liver
-#    minAmount: 2
-#    maxAmount: 5
-#    rewardPer: 1000
-#    whitelist:
-#      tags:
-#      - Liver
-##  - name: bounty-item-ointment
-##    minAmount: 20
-##    maxAmount: 60
-##    rewardPer: 35
-##    whitelist:
-##      tags:
-##      - Ointment
-#  - name: bounty-item-stomach
-#    minAmount: 2
-#    maxAmount: 5
-#    rewardPer: 1000
-#    whitelist:
-#      tags:
-#      - Stomach
-#  - name: bounty-item-surgery-tool
-#    minAmount: 2
-#    maxAmount: 5
-#    rewardPer: 8000
-#    whitelist:
-#      tags:
-#      - SurgeryTool
-#
-#- type: cargoBountyCategory
-#  id: kitchenCategory
-#  name: bounty-category-kitchen
-#  entries:
-#  - name: bounty-item-cuban-carp
-#    minAmount: 1
-#    maxAmount: 1
-#    rewardPer: 16000
-#    whitelist:
-#      tags:
-#      - CubanCarp
-#  - name: bounty-item-bread
-#    minAmount: 1
-#    maxAmount: 3
-#    rewardPer: 2500
-#    whitelist:
-#      tags:
-#      - Bread
-#    blacklist:
-#      tags:
-#      - Slice
-#  - name: bounty-item-carrot-fries
-#    minAmount: 1
-#    maxAmount: 6
-#    rewardPer: 2500
-#    whitelist:
-#      tags:
-#      - CarrotFries
-#  - name: bounty-item-knife
-#    minAmount: 5
-#    maxAmount: 10
-#    rewardPer: 1000
-#    whitelist:
-#      components:
-#      - Sharp
-#    blacklist:
-#      tags:
-#      - Shiv
-#  - name: bounty-item-pancake
-#    minAmount: 2
-#    maxAmount: 5
-#    rewardPer: 1500
-#    whitelist:
-#      tags:
-#      - Pancake
-#  - name: bounty-item-pie
-#    minAmount: 1
-#    maxAmount: 3
-#    rewardPer: 3141
-#    whitelist:
-#      tags:
-#      - Pie
-#    blacklist:
-#      tags:
-#      - Slice
-#  - name: bounty-item-food
-#    minAmount: 5
-#    maxAmount: 10
-#    rewardPer: 1000
-#    whitelist:
-#      tags:
-#      - Meat
-#    blacklist:
-#      components:
-#      - SliceableFood
-#  - name: bounty-item-chili
-#    minAmount: 3
-#    maxAmount: 5
-#    rewardPer: 2800
-#    whitelist:
-#      tags:
-#      - ChiliBowl
-#  - name: bounty-item-steak
-#    minAmount: 2
-#    maxAmount: 5
-#    rewardPer: 1200
-#    whitelist:
-#      tags:
-#      - Steak
-#  - name: bounty-item-cake
-#    minAmount: 1
-#    maxAmount: 2
-#    rewardPer: 2200
-#    whitelist:
-#      tags:
-#      - Cake
-#  - name: bounty-item-cleaver
-#    minAmount: 1
-#    maxAmount: 2
-#    rewardPer: 1500
-#    whitelist:
-#      tags:
-#      - Cleaver
-#  - name: bounty-item-cloth-made
-#    minAmount: 2
-#    maxAmount: 3
-#    rewardPer: 1600
-#    whitelist:
-#      tags:
-#      - ClothMade
-#    blacklist:
-#      tags:
-#      - Slice
-#  - name: bounty-item-kitchen-knife
-#    minAmount: 1
-#    maxAmount: 2
-#    rewardPer: 1500
-#    whitelist:
-#      tags:
-#      - KitchenKnife
-#  - name: bounty-item-reptilian-food
-#    minAmount: 1
-#    maxAmount: 2
-#    rewardPer: 1400
-#    whitelist:
-#      tags:
-#      - Fruit
-#      - ReptilianFood
-#      - Meat
-#    blacklist:
-#      tags:
-#      - Slice
-#
-#- type: cargoBountyCategory
-#  id: clownCategory
-#  name: bounty-category-clown
-#  entries:
-#  - name: bounty-item-clown-mask
-#    minAmount: 1
-#    maxAmount: 3
-#    rewardPer: 1200
-#    whitelist:
-#      tags:
-#      - ClownMask
-#  - name: bounty-item-clown-shoes
-#    minAmount: 1
-#    maxAmount: 3
-#    rewardPer: 3000
-#    whitelist:
-#      tags:
-#      - ClownShoes
-#  - name: bounty-item-crayon
-#    minAmount: 15
-#    maxAmount: 30
-#    rewardPer: 150
-#    whitelist:
-#      tags:
-#      - Crayon
-#  - name: bounty-item-pie
-#    minAmount: 1
-#    maxAmount: 3
-#    rewardPer: 1413
-#    whitelist:
-#      tags:
-#      - Pie
-#    blacklist:
-#      tags:
-#      - Slice
-#  - name: bounty-item-rollerskates
-#    minAmount: 1
-#    maxAmount: 3
-#    rewardPer: 900
-#    whitelist:
-#      components:
-#      - Skates
-#  - name: bounty-item-banana
-#    minAmount: 1
-#    maxAmount: 5
-#    rewardPer: 660
-#    whitelist:
-#      tags:
-#      - Banana
-#  - name: bounty-item-balloon
-#    minAmount: 1
-#    maxAmount: 3
-#    rewardPer: 1400
-#    whitelist:
-#      tags:
-#      - Balloon
-#  - name: bounty-item-banana-peel
-#    minAmount: 1
-#    maxAmount: 5
-#    rewardPer: 550
-#    whitelist:
-#      tags:
-#      - BananaPeel
-#  - name: bounty-item-bike-horn
-#    minAmount: 1
-#    maxAmount: 3
-#    rewardPer: 1250
-#    whitelist:
-#      tags:
-#      - BikeHorn
-#  - name: bounty-item-toy-sidearm
-#    minAmount: 2
-#    maxAmount: 4
-#    rewardPer: 450
-#    whitelist:
-#      tags:
-#      - ToySidearm
-#
-#- type: cargoBountyCategory
-#  id: securityCategory
-#  name: bounty-category-security
-#  entries:
-#  - name: bounty-item-donut
-#    minAmount: 5
-#    maxAmount: 10
-#    rewardPer: 500
-#    whitelist:
-#      tags:
-#      - Donut
-#  - name: bounty-item-handcuffs
-#    minAmount: 5
-#    maxAmount: 10
-#    rewardPer: 200
-#    whitelist:
-#      components:
-#      - Handcuff
-#  - name: bounty-item-prison-uniform
-#    minAmount: 4
-#    maxAmount: 8
-#    rewardPer: 1500
-#    whitelist:
-#      tags:
-#      - PrisonUniform
-#  - name: bounty-item-lasergun
-#    minAmount: 2
-#    maxAmount: 6
-#    rewardPer: 4500
-#    whitelist:
-#      components:
-#      - HitscanBatteryAmmoProvider
-#    blacklist:
-#      tags:
-#      - PowerCell
-#    requiredResearch:
-#      - WeaponizedLaserManipulation
-#  - name: bounty-item-flash
-#    minAmount: 3
-#    maxAmount: 8
-#    rewardPer: 900
-#    whitelist:
-#      components:
-#      - Flash
-#  - name: bounty-item-ammunition-box
-#    minAmount: 2
-#    maxAmount: 8
-#    rewardPer: 700
-#    whitelist:
-#      components:
-#      - BallisticAmmoProvider
-#      - ContainerContainer
-#      requireAll: true
-#  - name: bounty-item-combat-knife
-#    minAmount: 2
-#    maxAmount: 8
-#    rewardPer: 900
-#    whitelist:
-#      tags:
-#      - CombatKnife
-#  - name: bounty-item-grenade
-#    minAmount: 2
-#    maxAmount: 8
-#    rewardPer: 1000
-#    whitelist:
-#      tags:
-#      - Grenade
-#    requiredResearch:
-#      - BasicShuttleArmament
-#  - name: bounty-item-grenade-flashbang
-#    minAmount: 2
-#    maxAmount: 8
-#    rewardPer: 700
-#    whitelist:
-#      tags:
-#      - GrenadeFlashBang
-#  - name: bounty-item-sidearm
-#    minAmount: 3
-#    maxAmount: 5
-#    rewardPer: 2000
-#    whitelist:
-#      tags:
-#      - Sidearm
-#    blacklist:
-#      tags:
-#      - ToySidearm
-#  - name: bounty-item-stun-baton
-#    minAmount: 3
-#    maxAmount: 5
-#    rewardPer: 1000
-#    whitelist:
-#      tags:
-#      - Stunbaton
-#  - name: bounty-item-taser
-#    minAmount: 3
-#    maxAmount: 5
-#    rewardPer: 1800
-#    whitelist:
-#      tags:
-#      - Taser
-#    requiredResearch:
-#    - NonlethalAmmunition
-#    - AdvancedRiotControl
-#
-#
-#- type: cargoBountyCategory
-#  id: weaponCategory
-#  name: bounty-category-weaponry
-#  idPrefix: SYN
-#  entries:
-#  - name: bounty-item-shiv
-#    minAmount: 5
-#    maxAmount: 10
-#    rewardPer: 800
-#    whitelist:
-#      tags:
-#      - Shiv
-#  - name: bounty-item-spear
-#    minAmount: 3
-#    maxAmount: 8
-#    rewardPer: 1200
-#    whitelist:
-#      tags:
-#      - Spear
-#  - name: bounty-item-flash
-#    minAmount: 3
-#    maxAmount: 8
-#    rewardPer: 900
-#    whitelist:
-#      components:
-#      - Flash
-#  - name: bounty-item-knife
-#    minAmount: 3
-#    maxAmount: 8
-#    rewardPer: 900
-#    whitelist:
-#      components:
-#      - Sharp
-#    blacklist:
-#      tags:
-#      - Shiv
-#  - name: bounty-item-arrow
-#    minAmount: 5
-#    maxAmount: 10
-#    rewardPer: 800
-#    whitelist:
-#      tags:
-#      - Arrow
-#  - name: bounty-item-sidearm
-#    minAmount: 3
-#    maxAmount: 5
-#    rewardPer: 2500
-#    whitelist:
-#      tags:
-#      - Sidearm
-#    blacklist:
-#      tags:
-#      - ToySidearm
-#
-#- type: cargoBountyCategory
-#  id: clothingCategory
-#  name: bounty-category-clothing
-#  entries:
-#  - name: bounty-item-bandana
-#    minAmount: 5
-#    maxAmount: 10
-#    rewardPer: 400
-#    whitelist:
-#      tags:
-#      - Bandana
-#  - name: bounty-item-hi-viz-vest
-#    minAmount: 2
-#    maxAmount: 5
-#    rewardPer: 1500
-#    whitelist:
-#      tags:
-#      - HiViz
-#  - name: bounty-item-warm-cloth
-#    minAmount: 5
-#    maxAmount: 10
-#    rewardPer: 400
-#    whitelist:
-#      components:
-#      - TemperatureProtection
-#      tags:
-#      - Scarf
-#    blacklist:
-#      components:
-#      - ToggleableClothing
-#
-#- type: cargoBountyCategory
-#  id: libraryCategory
-#  name: bounty-category-library
-#  entries:
-#  - name: bounty-item-book
-#    minAmount: 3
-#    maxAmount: 10
-#    rewardPer: 400
-#    whitelist:
-#      tags:
-#      - Book
-#  - name: bounty-item-dice
-#    minAmount: 3
-#    maxAmount: 6
-#    rewardPer: 400
-#    whitelist:
-#      tags:
-#      - Dice
-#  - name: bounty-item-board-game
-#    minAmount: 2
-#    maxAmount: 5
-#    rewardPer: 550
-#    whitelist:
-#      tags:
-#      - TabletopBoard
-#  - name: bounty-item-pen
-#    minAmount: 5
-#    maxAmount: 10
-#    rewardPer: 400
-#    whitelist:
-#      tags:
-#      - Pen
-#
-#- type: cargoBountyCategory
-#  id: roboticsCategory
-#  name: bounty-category-robotics
-#  entries:
-#  - name: bounty-item-flash
-#    minAmount: 2
-#    maxAmount: 6
-#    rewardPer: 900
-#    whitelist:
-#      components:
-#      - Flash
-#  - name: bounty-item-borg-arm
-#    minAmount: 2
-#    maxAmount: 4
-#    rewardPer: 750
-#    whitelist:
-#      tags:
-#      - BorgArm
-#  - name: bounty-item-borg-head
-#    minAmount: 2
-#    maxAmount: 4
-#    rewardPer: 750
-#    whitelist:
-#      tags:
-#      - BorgHead
-#  - name: bounty-item-borg-leg
-#    minAmount: 2
-#    maxAmount: 4
-#    rewardPer: 750
-#    whitelist:
-#      tags:
-#      - BorgLeg
-#  - name: bounty-item-borg-torso
-#    minAmount: 2
-#    maxAmount: 4
-#    rewardPer: 750
-#    whitelist:
-#      tags:
-#      - BorgTorso
-#  - name: bounty-item-borg-module
-#    minAmount: 2
-#    maxAmount: 5
-#    rewardPer: 1200
-#    whitelist:
-#      components:
-#      - BorgModule
-## Currently impossible due to the lack of creatable cargo borg modules
-##  - name: bounty-item-borg-module-cargo
-##    minAmount: 2
-##    maxAmount: 5
-##    rewardPer: 1500
-##    whitelist:
-##      tags:
-##      - BorgModuleCargo
-#  - name: bounty-item-borg-module-engineering
-#    minAmount: 2
-#    maxAmount: 5
-#    rewardPer: 1500
-#    whitelist:
-#      tags:
-#      - BorgModuleEngineering
-#    requiredResearch:
-#      - AdvancedToolsTechnology
-#  - name: bounty-item-borg-module-generic
-#    minAmount: 2
-#    maxAmount: 5
-#    rewardPer: 1500
-#    whitelist:
-#      tags:
-#      - BorgModuleGeneric
-#  - name: bounty-item-borg-module-janitor
-#    minAmount: 2
-#    maxAmount: 5
-#    rewardPer: 1500
-#    whitelist:
-#      tags:
-#      - BorgModuleJanitor
-#    requiredResearch:
-#      - RoboticCleanliness
-#  - name: bounty-item-borg-module-medical
-#    minAmount: 2
-#    maxAmount: 5
-#    rewardPer: 1500
-#    whitelist:
-#      tags:
-#      - BorgModuleMedical
-#  - name: bounty-item-borg-module-service
-#    minAmount: 2
-#    maxAmount: 5
-#    rewardPer: 1500
-#    whitelist:
-#      tags:
-#      - BorgModuleService
-#    requiredResearch:
-#      - Hydroponics
-#  - name: bounty-item-bot
-#    minAmount: 1
-#    maxAmount: 3
-#    rewardPer: 2200
-#    whitelist:
-#      tags:
-#      - Bot
-#  - name: bounty-item-brain
-#    minAmount: 1
-#    maxAmount: 1
-#    rewardPer: 10000
-#    whitelist:
-#      components:
-#      - Brain
-#
-#- type: cargoBountyCategory
-#  id: musicCategory
-#  name: bounty-category-music
-#  entries:
-#  - name: bounty-item-instrument
-#    minAmount: 3
-#    maxAmount: 8
-#    rewardPer: 500
-#    whitelist:
-#      components:
-#      - Instrument
-#    requiredResearch:
-#      - Instruments
-#  - name: bounty-item-percussion
-#    minAmount: 2
-#    maxAmount: 6
-#    rewardPer: 1000
-#    whitelist:
-#      tags:
-#      - PercussionInstrument
-#    requiredResearch:
-#      - Instruments
-#  - name: bounty-item-instrument-brass
-#    minAmount: 2
-#    maxAmount: 6
-#    rewardPer: 600
-#    whitelist:
-#      tags:
-#      - BrassInstrument
-#    requiredResearch:
-#      - Instruments
-#  - name: bounty-item-instrument-keyed
-#    minAmount: 2
-#    maxAmount: 6
-#    rewardPer: 800
-#    whitelist:
-#      tags:
-#      - KeyedInstrument
-#    requiredResearch:
-#      - Instruments
-#  - name: bounty-item-instrument-string
-#    minAmount: 4
-#    maxAmount: 6
-#    rewardPer: 300
-#    whitelist:
-#      tags:
-#      - StringInstrument
-#    requiredResearch:
-#      - Instruments
-#
-#- type: cargoBountyCategory
-#  id: barCategory
-#  name: bounty-category-bar
-#  entries:
-#  - name: bounty-item-beer
-#    minAmount: 3
-#    maxAmount: 8
-#    rewardPer: 500
-#    whitelist:
-#      tags:
-#      - Beer
-#  - name: bounty-item-wine
-#    minAmount: 2
-#    maxAmount: 5
-#    rewardPer: 1500
-#    whitelist:
-#      tags:
-#      - Wine
-#  - name: bounty-item-drink-bottle
-#    minAmount: 3
-#    maxAmount: 8
-#    rewardPer: 400
-#    whitelist:
-#      tags:
-#      - DrinkBottle
-#
-#- type: cargoBountyCategory
-#  id: EngineeringCategory
-#  name: bounty-category-engineering
-#  entries:
-#  - name: bounty-item-holofan-projector
-#    minAmount: 1
-#    maxAmount: 4
-#    rewardPer: 1000
-#    whitelist:
-#      tags:
-#      - HolofanProjector
-#    requiredResearch:
-#      - AdvancedAtmospherics
-#  - name: bounty-item-jaws-of-life
-#    minAmount: 1
-#    maxAmount: 4
-#    rewardPer: 2750
-#    whitelist:
-#      tags:
-#      - JawsOfLife
-#    requiredResearch:
-#      - AdvancedToolsTechnology
-#  - name: bounty-item-powerdrill
-#    minAmount: 1
-#    maxAmount: 4
-#    rewardPer: 1500
-#    whitelist:
-#      tags:
-#      - Powerdrill
-#    requiredResearch:
-#      - AdvancedToolsTechnology
-#  - name: bounty-item-toolbox
-#    minAmount: 4
-#    maxAmount: 8
-#    rewardPer: 750
-#    whitelist:
-#      tags:
-#      - Toolbox
-#  - name: bounty-item-battery
-#    minAmount: 5
-#    maxAmount: 20
-#    rewardPer: 300
-#    whitelist:
-#      components:
-#      - Battery
-#  - name: bounty-item-hi-viz-vest
-#    minAmount: 2
-#    maxAmount: 5
-#    rewardPer: 1500
-#    whitelist:
-#      tags:
-#      - HiViz
-#
-#- type: cargoBountyCategory
-#  id: janitorCategory
-#  name: bounty-category-janitor
-#  entries:
-#  - name: bounty-item-soap
-#    minAmount: 2
-#    maxAmount: 4
-#    rewardPer: 2000
-#    whitelist:
-#      tags:
-#      - Soap
-#  - name: bounty-item-holosign-projector
-#    minAmount: 2
-#    maxAmount: 4
-#    rewardPer: 2000
-#    whitelist:
-#      tags:
-#      - HolosignProjector
-#  - name: bounty-item-trash
-#    minAmount: 5
-#    maxAmount: 15
+    whitelist:
+      tags:
+      - Carrot
+  - name: bounty-item-corn
+    minAmount: 5
+    maxAmount: 15
+    rewardPer: 1000
+    whitelist:
+      tags:
+      - Corn
+  - name: bounty-item-flower
+    minAmount: 3
+    maxAmount: 5
+    rewardPer: 1000
+    whitelist:
+      tags:
+      - Flower
+  - name: bounty-item-galaxythistle
+    minAmount: 4
+    maxAmount: 12
+    rewardPer: 1200
+    whitelist:
+      tags:
+      - Galaxythistle
+  - name: bounty-item-lemon
+    minAmount: 5
+    maxAmount: 10
+    rewardPer: 1000
+    whitelist:
+      tags:
+      - Lemon
+  - name: bounty-item-lime
+    minAmount: 5
+    maxAmount: 10
+    rewardPer: 1000
+    whitelist:
+      tags:
+      - Lime
+  - name: bounty-item-fruit
+    minAmount: 5
+    maxAmount: 15
+    rewardPer: 400
+    whitelist:
+      tags:
+      - Fruit
+    blacklist:
+      tags:
+      - Slice
+      - Cake
+      - Pie
+      - Bread
+  - name: bounty-item-vegetable
+    minAmount: 5
+    maxAmount: 15
+    rewardPer: 500
+    whitelist:
+      tags:
+      - Vegetable
+    blacklist:
+      tags:
+      - Slice
+      - Cake
+      - Pie
+      - Bread
+  - name: bounty-item-banana
+    minAmount: 3
+    maxAmount: 9
+    rewardPer: 660
+    whitelist:
+      tags:
+      - Banana
+  - name: bounty-item-cotton-boll
+    minAmount: 5
+    maxAmount: 10
+    rewardPer: 900
+    whitelist:
+      tags:
+      - CottonBoll
+  - name: bounty-item-ambrosia
+    minAmount: 4
+    maxAmount: 12
+    rewardPer: 1200
+    whitelist:
+      tags:
+      - Ambrosia
+  - name: bounty-item-potato
+    minAmount: 5
+    maxAmount: 15
+    rewardPer: 900
+    whitelist:
+      tags:
+      - Potato
+  - name: bounty-item-wheat
+    minAmount: 5
+    maxAmount: 15
+    rewardPer: 750
+    whitelist:
+      tags:
+      - Wheat
+
+- type: cargoBountyCategory
+  id: scienceCategory
+  name: bounty-category-science
+  entries:
+  - name: bounty-item-artifact
+    minAmount: 1
+    maxAmount: 1
+    rewardPer: 2500
+    whitelist:
+      components:
+      - Artifact
+  - name: bounty-item-monkey-cube
+    minAmount: 3
+    maxAmount: 6
+    rewardPer: 600
+    whitelist:
+      tags:
+      - MonkeyCube
+  - name: bounty-item-tech-disk
+    minAmount: 3
+    maxAmount: 8
+    rewardPer: 5000
+    whitelist:
+      components:
+      - TechnologyDisk
+    requiredResearch:
+      - AlternativeResearch
+  - name: bounty-item-anomaly-core
+    minAmount: 1
+    maxAmount: 1
+    rewardPer: 10000
+    whitelist:
+      components:
+      - AnomalyCore
+  - name: bounty-item-borg-module
+    minAmount: 2
+    maxAmount: 5
+    rewardPer: 1200
+    whitelist:
+      components:
+      - BorgModule
+  - name: bounty-item-artifact-fragment
+    minAmount: 4
+    maxAmount: 12
+    rewardPer: 1500
+    whitelist:
+      tags:
+      - ArtifactFragment
+  - name: bounty-item-microwave-machine-board
+    minAmount: 1
+    maxAmount: 3
+    rewardPer: 1000
+    whitelist:
+      tags:
+      - MicrowaveMachineBoard
+  - name: bounty-item-cryobeaker
+    minAmount: 1
+    maxAmount: 3
+    rewardPer: 1000
+    whitelist:
+      tags:
+      - Cryobeaker
+    requiredResearch:
+      - BiochemicalStasis
+- type: cargoBountyCategory
+  id: miscCategory
+  name: bounty-category-misc
+  entries:
+  - name: bounty-item-baseball-bat
+    minAmount: 3
+    maxAmount: 6
+    rewardPer: 800
+    whitelist:
+      tags:
+      - BaseballBat
+  - name: bounty-item-figurine
+    minAmount: 5
+    maxAmount: 10
+    rewardPer: 800
+    whitelist:
+      tags:
+      - Figurine
+  - name: bounty-item-pen
+    minAmount: 5
+    maxAmount: 10
+    rewardPer: 400
+    whitelist:
+      tags:
+      - Pen
+  - name: bounty-item-radio
+    minAmount: 5
+    maxAmount: 10
+    rewardPer: 900
+    whitelist:
+      components:
+      - Headset
+      - RadioMicrophone
+      tags:
+      - Radio
+  - name: bounty-item-labeler
+    minAmount: 5
+    maxAmount: 10
+    rewardPer: 550
+    whitelist:
+      components:
+      - HandLabeler
+  - name: bounty-item-bedsheet
+    minAmount: 5
+    maxAmount: 8
+    rewardPer: 400
+    whitelist:
+      tags:
+      - Bedsheet
+  - name: bounty-item-torch
+    minAmount: 5
+    maxAmount: 10
+    rewardPer: 500
+    whitelist:
+      tags:
+      - Torch
+  - name: bounty-item-cardboard-box
+    minAmount: 10
+    maxAmount: 20
+    rewardPer: 150
+    whitelist:
+      tags:
+      - BoxCardboard
+
+# Topicals seem a bit weird right now, so I am disabling them while I figure it out
+- type: cargoBountyCategory
+  id: medicalCategory
+  name: bounty-category-medical
+  entries:
+  - name: bounty-item-brain
+    minAmount: 1
+    maxAmount: 1
+    rewardPer: 10000
+    whitelist:
+      components:
+      - Brain
+  - name: bounty-item-lung
+    minAmount: 2
+    maxAmount: 5
+    rewardPer: 1000
+    whitelist:
+      components:
+      - Lung
+  - name: bounty-item-syringe
+    minAmount: 5
+    maxAmount: 20
+    rewardPer: 150
+    whitelist:
+      tags:
+      - Syringe
+  - name: bounty-item-organs
+    minAmount: 5
+    maxAmount: 10
+    rewardPer: 600
+    whitelist:
+      components:
+      - Organ
+  - name: bounty-item-medkit-box
+    minAmount: 2
+    maxAmount: 5
+    rewardPer: 500
+    whitelist:
+      tags:
+      - Medkit
+#  - name: bounty-item-bloodpack
+#    minAmount: 20
+#    maxAmount: 60
 #    rewardPer: 100
 #    whitelist:
 #      tags:
-#      - Trash
-#  - name: bounty-item-advanced-mop
-#    minAmount: 1
-#    maxAmount: 4
-#    rewardPer: 1200
+#      - Bloodpack
+  - name: bounty-item-bodybag
+    minAmount: 1
+    maxAmount: 10
+    rewardPer: 70
+    whitelist:
+      tags:
+      - BodyBag
+#  - name: bounty-item-brutepack
+#    minAmount: 10
+#    maxAmount: 50
+#    rewardPer: 60
 #    whitelist:
 #      tags:
-#      - MopAdv
-#    requiredResearch:
-#      - AdvancedCleaning
-#  - name: bounty-item-mouse
-#    minAmount: 3
+#      - Brutepack
+  - name: bounty-item-dropper
+    minAmount: 8
+    maxAmount: 12
+    rewardPer: 120
+    whitelist:
+      tags:
+      - Dropper
+  - name: bounty-item-eyes
+    minAmount: 2
+    maxAmount: 5
+    rewardPer: 1000
+    whitelist:
+      tags:
+      - Eyes
+#  - name: bounty-item-gauze
+#    minAmount: 10
+#    maxAmount: 50
+#    rewardPer: 60
+#    whitelist:
+#      tags:
+#      - Gauze
+  - name: bounty-item-kidney
+    minAmount: 2
+    maxAmount: 5
+    rewardPer: 1000
+    whitelist:
+      tags:
+      - Kidneys
+  - name: bounty-item-liver
+    minAmount: 2
+    maxAmount: 5
+    rewardPer: 1000
+    whitelist:
+      tags:
+      - Liver
+#  - name: bounty-item-ointment
+#    minAmount: 20
+#    maxAmount: 60
+#    rewardPer: 35
+#    whitelist:
+#      tags:
+#      - Ointment
+  - name: bounty-item-stomach
+    minAmount: 2
+    maxAmount: 5
+    rewardPer: 1000
+    whitelist:
+      tags:
+      - Stomach
+  - name: bounty-item-surgery-tool
+    minAmount: 2
+    maxAmount: 5
+    rewardPer: 8000
+    whitelist:
+      tags:
+      - SurgeryTool
+
+- type: cargoBountyCategory
+  id: kitchenCategory
+  name: bounty-category-kitchen
+  entries:
+  - name: bounty-item-cuban-carp
+    minAmount: 1
+    maxAmount: 1
+    rewardPer: 16000
+    whitelist:
+      tags:
+      - CubanCarp
+  - name: bounty-item-bread
+    minAmount: 1
+    maxAmount: 3
+    rewardPer: 2500
+    whitelist:
+      tags:
+      - Bread
+    blacklist:
+      tags:
+      - Slice
+  - name: bounty-item-carrot-fries
+    minAmount: 1
+    maxAmount: 6
+    rewardPer: 2500
+    whitelist:
+      tags:
+      - CarrotFries
+  - name: bounty-item-knife
+    minAmount: 5
+    maxAmount: 10
+    rewardPer: 1000
+    whitelist:
+      components:
+      - Sharp
+    blacklist:
+      tags:
+      - Shiv
+  - name: bounty-item-pancake
+    minAmount: 2
+    maxAmount: 5
+    rewardPer: 1500
+    whitelist:
+      tags:
+      - Pancake
+  - name: bounty-item-pie
+    minAmount: 1
+    maxAmount: 3
+    rewardPer: 3141
+    whitelist:
+      tags:
+      - Pie
+    blacklist:
+      tags:
+      - Slice
+  - name: bounty-item-food
+    minAmount: 5
+    maxAmount: 10
+    rewardPer: 1000
+    whitelist:
+      tags:
+      - Meat
+    blacklist:
+      components:
+      - SliceableFood
+  - name: bounty-item-chili
+    minAmount: 3
+    maxAmount: 5
+    rewardPer: 2800
+    whitelist:
+      tags:
+      - ChiliBowl
+  - name: bounty-item-steak
+    minAmount: 2
+    maxAmount: 5
+    rewardPer: 1200
+    whitelist:
+      tags:
+      - Steak
+  - name: bounty-item-cake
+    minAmount: 1
+    maxAmount: 2
+    rewardPer: 2200
+    whitelist:
+      tags:
+      - Cake
+  - name: bounty-item-cleaver
+    minAmount: 1
+    maxAmount: 2
+    rewardPer: 1500
+    whitelist:
+      tags:
+      - Cleaver
+  - name: bounty-item-cloth-made
+    minAmount: 2
+    maxAmount: 3
+    rewardPer: 1600
+    whitelist:
+      tags:
+      - ClothMade
+    blacklist:
+      tags:
+      - Slice
+  - name: bounty-item-kitchen-knife
+    minAmount: 1
+    maxAmount: 2
+    rewardPer: 1500
+    whitelist:
+      tags:
+      - KitchenKnife
+  - name: bounty-item-reptilian-food
+    minAmount: 1
+    maxAmount: 2
+    rewardPer: 1400
+    whitelist:
+      tags:
+      - Fruit
+      - ReptilianFood
+      - Meat
+    blacklist:
+      tags:
+      - Slice
+
+- type: cargoBountyCategory
+  id: clownCategory
+  name: bounty-category-clown
+  entries:
+  - name: bounty-item-clown-mask
+    minAmount: 1
+    maxAmount: 3
+    rewardPer: 1200
+    whitelist:
+      tags:
+      - ClownMask
+  - name: bounty-item-clown-shoes
+    minAmount: 1
+    maxAmount: 3
+    rewardPer: 3000
+    whitelist:
+      tags:
+      - ClownShoes
+  - name: bounty-item-crayon
+    minAmount: 15
+    maxAmount: 30
+    rewardPer: 150
+    whitelist:
+      tags:
+      - Crayon
+  - name: bounty-item-pie
+    minAmount: 1
+    maxAmount: 3
+    rewardPer: 1413
+    whitelist:
+      tags:
+      - Pie
+    blacklist:
+      tags:
+      - Slice
+  - name: bounty-item-rollerskates
+    minAmount: 1
+    maxAmount: 3
+    rewardPer: 900
+    whitelist:
+      components:
+      - Skates
+  - name: bounty-item-banana
+    minAmount: 1
+    maxAmount: 5
+    rewardPer: 660
+    whitelist:
+      tags:
+      - Banana
+  - name: bounty-item-balloon
+    minAmount: 1
+    maxAmount: 3
+    rewardPer: 1400
+    whitelist:
+      tags:
+      - Balloon
+  - name: bounty-item-banana-peel
+    minAmount: 1
+    maxAmount: 5
+    rewardPer: 550
+    whitelist:
+      tags:
+      - BananaPeel
+  - name: bounty-item-bike-horn
+    minAmount: 1
+    maxAmount: 3
+    rewardPer: 1250
+    whitelist:
+      tags:
+      - BikeHorn
+  - name: bounty-item-toy-sidearm
+    minAmount: 2
+    maxAmount: 4
+    rewardPer: 450
+    whitelist:
+      tags:
+      - ToySidearm
+
+- type: cargoBountyCategory
+  id: securityCategory
+  name: bounty-category-security
+  entries:
+  - name: bounty-item-donut
+    minAmount: 5
+    maxAmount: 10
+    rewardPer: 500
+    whitelist:
+      tags:
+      - Donut
+  - name: bounty-item-handcuffs
+    minAmount: 5
+    maxAmount: 10
+    rewardPer: 200
+    whitelist:
+      components:
+      - Handcuff
+  - name: bounty-item-prison-uniform
+    minAmount: 4
+    maxAmount: 8
+    rewardPer: 1500
+    whitelist:
+      tags:
+      - PrisonUniform
+  - name: bounty-item-lasergun
+    minAmount: 2
+    maxAmount: 6
+    rewardPer: 4500
+    whitelist:
+      components:
+      - HitscanBatteryAmmoProvider
+    blacklist:
+      tags:
+      - PowerCell
+    requiredResearch:
+      - WeaponizedLaserManipulation
+  - name: bounty-item-flash
+    minAmount: 3
+    maxAmount: 8
+    rewardPer: 900
+    whitelist:
+      components:
+      - Flash
+  - name: bounty-item-ammunition-box
+    minAmount: 2
+    maxAmount: 8
+    rewardPer: 700
+    whitelist:
+      components:
+      - BallisticAmmoProvider
+      - ContainerContainer
+      requireAll: true
+  - name: bounty-item-combat-knife
+    minAmount: 2
+    maxAmount: 8
+    rewardPer: 900
+    whitelist:
+      tags:
+      - CombatKnife
+  - name: bounty-item-grenade
+    minAmount: 2
+    maxAmount: 8
+    rewardPer: 1000
+    whitelist:
+      tags:
+      - Grenade
+    requiredResearch:
+      - BasicShuttleArmament
+  - name: bounty-item-grenade-flashbang
+    minAmount: 2
+    maxAmount: 8
+    rewardPer: 700
+    whitelist:
+      tags:
+      - GrenadeFlashBang
+  - name: bounty-item-sidearm
+    minAmount: 3
+    maxAmount: 5
+    rewardPer: 2000
+    whitelist:
+      tags:
+      - Sidearm
+    blacklist:
+      tags:
+      - ToySidearm
+  - name: bounty-item-stun-baton
+    minAmount: 3
+    maxAmount: 5
+    rewardPer: 1000
+    whitelist:
+      tags:
+      - Stunbaton
+  - name: bounty-item-taser
+    minAmount: 3
+    maxAmount: 5
+    rewardPer: 1800
+    whitelist:
+      tags:
+      - Taser
+    requiredResearch:
+    - NonlethalAmmunition
+    - AdvancedRiotControl
+
+
+- type: cargoBountyCategory
+  id: weaponCategory
+  name: bounty-category-weaponry
+  idPrefix: SYN
+  entries:
+  - name: bounty-item-shiv
+    minAmount: 5
+    maxAmount: 10
+    rewardPer: 800
+    whitelist:
+      tags:
+      - Shiv
+  - name: bounty-item-spear
+    minAmount: 3
+    maxAmount: 8
+    rewardPer: 1200
+    whitelist:
+      tags:
+      - Spear
+  - name: bounty-item-flash
+    minAmount: 3
+    maxAmount: 8
+    rewardPer: 900
+    whitelist:
+      components:
+      - Flash
+  - name: bounty-item-knife
+    minAmount: 3
+    maxAmount: 8
+    rewardPer: 900
+    whitelist:
+      components:
+      - Sharp
+    blacklist:
+      tags:
+      - Shiv
+  - name: bounty-item-arrow
+    minAmount: 5
+    maxAmount: 10
+    rewardPer: 800
+    whitelist:
+      tags:
+      - Arrow
+  - name: bounty-item-sidearm
+    minAmount: 3
+    maxAmount: 5
+    rewardPer: 2500
+    whitelist:
+      tags:
+      - Sidearm
+    blacklist:
+      tags:
+      - ToySidearm
+
+- type: cargoBountyCategory
+  id: clothingCategory
+  name: bounty-category-clothing
+  entries:
+  - name: bounty-item-bandana
+    minAmount: 5
+    maxAmount: 10
+    rewardPer: 400
+    whitelist:
+      tags:
+      - Bandana
+  - name: bounty-item-hi-viz-vest
+    minAmount: 2
+    maxAmount: 5
+    rewardPer: 1500
+    whitelist:
+      tags:
+      - HiViz
+  - name: bounty-item-warm-cloth
+    minAmount: 5
+    maxAmount: 10
+    rewardPer: 400
+    whitelist:
+      components:
+      - TemperatureProtection
+      tags:
+      - Scarf
+    blacklist:
+      components:
+      - ToggleableClothing
+
+- type: cargoBountyCategory
+  id: libraryCategory
+  name: bounty-category-library
+  entries:
+  - name: bounty-item-book
+    minAmount: 3
+    maxAmount: 10
+    rewardPer: 400
+    whitelist:
+      tags:
+      - Book
+  - name: bounty-item-dice
+    minAmount: 3
+    maxAmount: 6
+    rewardPer: 400
+    whitelist:
+      tags:
+      - Dice
+  - name: bounty-item-board-game
+    minAmount: 2
+    maxAmount: 5
+    rewardPer: 550
+    whitelist:
+      tags:
+      - TabletopBoard
+  - name: bounty-item-pen
+    minAmount: 5
+    maxAmount: 10
+    rewardPer: 400
+    whitelist:
+      tags:
+      - Pen
+
+- type: cargoBountyCategory
+  id: roboticsCategory
+  name: bounty-category-robotics
+  entries:
+  - name: bounty-item-flash
+    minAmount: 2
+    maxAmount: 6
+    rewardPer: 900
+    whitelist:
+      components:
+      - Flash
+  - name: bounty-item-borg-arm
+    minAmount: 2
+    maxAmount: 4
+    rewardPer: 750
+    whitelist:
+      tags:
+      - BorgArm
+  - name: bounty-item-borg-head
+    minAmount: 2
+    maxAmount: 4
+    rewardPer: 750
+    whitelist:
+      tags:
+      - BorgHead
+  - name: bounty-item-borg-leg
+    minAmount: 2
+    maxAmount: 4
+    rewardPer: 750
+    whitelist:
+      tags:
+      - BorgLeg
+  - name: bounty-item-borg-torso
+    minAmount: 2
+    maxAmount: 4
+    rewardPer: 750
+    whitelist:
+      tags:
+      - BorgTorso
+  - name: bounty-item-borg-module
+    minAmount: 2
+    maxAmount: 5
+    rewardPer: 1200
+    whitelist:
+      components:
+      - BorgModule
+# Currently impossible due to the lack of creatable cargo borg modules
+#  - name: bounty-item-borg-module-cargo
+#    minAmount: 2
 #    maxAmount: 5
-#    rewardPer: 1000
+#    rewardPer: 1500
 #    whitelist:
 #      tags:
-#      - Mouse
+#      - BorgModuleCargo
+  - name: bounty-item-borg-module-engineering
+    minAmount: 2
+    maxAmount: 5
+    rewardPer: 1500
+    whitelist:
+      tags:
+      - BorgModuleEngineering
+    requiredResearch:
+      - AdvancedToolsTechnology
+  - name: bounty-item-borg-module-generic
+    minAmount: 2
+    maxAmount: 5
+    rewardPer: 1500
+    whitelist:
+      tags:
+      - BorgModuleGeneric
+  - name: bounty-item-borg-module-janitor
+    minAmount: 2
+    maxAmount: 5
+    rewardPer: 1500
+    whitelist:
+      tags:
+      - BorgModuleJanitor
+    requiredResearch:
+      - RoboticCleanliness
+  - name: bounty-item-borg-module-medical
+    minAmount: 2
+    maxAmount: 5
+    rewardPer: 1500
+    whitelist:
+      tags:
+      - BorgModuleMedical
+  - name: bounty-item-borg-module-service
+    minAmount: 2
+    maxAmount: 5
+    rewardPer: 1500
+    whitelist:
+      tags:
+      - BorgModuleService
+    requiredResearch:
+      - Hydroponics
+  - name: bounty-item-bot
+    minAmount: 1
+    maxAmount: 3
+    rewardPer: 2200
+    whitelist:
+      tags:
+      - Bot
+  - name: bounty-item-brain
+    minAmount: 1
+    maxAmount: 1
+    rewardPer: 10000
+    whitelist:
+      components:
+      - Brain
+
+- type: cargoBountyCategory
+  id: musicCategory
+  name: bounty-category-music
+  entries:
+  - name: bounty-item-instrument
+    minAmount: 3
+    maxAmount: 8
+    rewardPer: 500
+    whitelist:
+      components:
+      - Instrument
+    requiredResearch:
+      - Instruments
+  - name: bounty-item-percussion
+    minAmount: 2
+    maxAmount: 6
+    rewardPer: 1000
+    whitelist:
+      tags:
+      - PercussionInstrument
+    requiredResearch:
+      - Instruments
+  - name: bounty-item-instrument-brass
+    minAmount: 2
+    maxAmount: 6
+    rewardPer: 600
+    whitelist:
+      tags:
+      - BrassInstrument
+    requiredResearch:
+      - Instruments
+  - name: bounty-item-instrument-keyed
+    minAmount: 2
+    maxAmount: 6
+    rewardPer: 800
+    whitelist:
+      tags:
+      - KeyedInstrument
+    requiredResearch:
+      - Instruments
+  - name: bounty-item-instrument-string
+    minAmount: 4
+    maxAmount: 6
+    rewardPer: 300
+    whitelist:
+      tags:
+      - StringInstrument
+    requiredResearch:
+      - Instruments
+
+- type: cargoBountyCategory
+  id: barCategory
+  name: bounty-category-bar
+  entries:
+  - name: bounty-item-beer
+    minAmount: 3
+    maxAmount: 8
+    rewardPer: 500
+    whitelist:
+      tags:
+      - Beer
+  - name: bounty-item-wine
+    minAmount: 2
+    maxAmount: 5
+    rewardPer: 1500
+    whitelist:
+      tags:
+      - Wine
+  - name: bounty-item-drink-bottle
+    minAmount: 3
+    maxAmount: 8
+    rewardPer: 400
+    whitelist:
+      tags:
+      - DrinkBottle
+
+- type: cargoBountyCategory
+  id: EngineeringCategory
+  name: bounty-category-engineering
+  entries:
+  - name: bounty-item-holofan-projector
+    minAmount: 1
+    maxAmount: 4
+    rewardPer: 1000
+    whitelist:
+      tags:
+      - HolofanProjector
+    requiredResearch:
+      - AdvancedAtmospherics
+  - name: bounty-item-jaws-of-life
+    minAmount: 1
+    maxAmount: 4
+    rewardPer: 2750
+    whitelist:
+      tags:
+      - JawsOfLife
+    requiredResearch:
+      - AdvancedToolsTechnology
+  - name: bounty-item-powerdrill
+    minAmount: 1
+    maxAmount: 4
+    rewardPer: 1500
+    whitelist:
+      tags:
+      - Powerdrill
+    requiredResearch:
+      - AdvancedToolsTechnology
+  - name: bounty-item-toolbox
+    minAmount: 4
+    maxAmount: 8
+    rewardPer: 750
+    whitelist:
+      tags:
+      - Toolbox
+  - name: bounty-item-battery
+    minAmount: 5
+    maxAmount: 20
+    rewardPer: 300
+    whitelist:
+      components:
+      - Battery
+  - name: bounty-item-hi-viz-vest
+    minAmount: 2
+    maxAmount: 5
+    rewardPer: 1500
+    whitelist:
+      tags:
+      - HiViz
+
+- type: cargoBountyCategory
+  id: janitorCategory
+  name: bounty-category-janitor
+  entries:
+  - name: bounty-item-soap
+    minAmount: 2
+    maxAmount: 4
+    rewardPer: 2000
+    whitelist:
+      tags:
+      - Soap
+  - name: bounty-item-holosign-projector
+    minAmount: 2
+    maxAmount: 4
+    rewardPer: 2000
+    whitelist:
+      tags:
+      - HolosignProjector
+  - name: bounty-item-trash
+    minAmount: 5
+    maxAmount: 15
+    rewardPer: 100
+    whitelist:
+      tags:
+      - Trash
+  - name: bounty-item-advanced-mop
+    minAmount: 1
+    maxAmount: 4
+    rewardPer: 1200
+    whitelist:
+      tags:
+      - MopAdv
+    requiredResearch:
+      - AdvancedCleaning
+  - name: bounty-item-mouse
+    minAmount: 3
+    maxAmount: 5
+    rewardPer: 1000
+    whitelist:
+      tags:
+      - Mouse

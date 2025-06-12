@@ -1006,13 +1006,11 @@ namespace Content.Server.GameTicking
     public sealed class RulePlayerJobsAssignedEvent
     {
         public ICommonSession[] Players { get; }
-        public IReadOnlySet<NetUserId> Profiles { get; }
         public bool Forced { get; }
 
-        public RulePlayerJobsAssignedEvent(ICommonSession[] players, IReadOnlySet<NetUserId> profiles, bool forced)
+        public RulePlayerJobsAssignedEvent(ICommonSession[] players, bool forced)
         {
             Players = players;
-            Profiles = profiles;
             Forced = forced;
         }
     }

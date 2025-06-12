@@ -1,4 +1,4 @@
-﻿// SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
 // SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Leo <lzimann@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Remie Richards <remierichards@gmail.com>
@@ -168,7 +168,7 @@ namespace Content.Server.Database
         {
             await using var db = await GetDb();
 
-            var oldPrios = db.DbContext.Preference
+            var playerPreference = db.DbContext.Preference
                 .Include(p => p.JobPriorities)
                 .Single(p => p.UserId == userId.UserId);
 
@@ -182,7 +182,7 @@ namespace Content.Server.Database
                 };
                 newPrios.Add(newPrio);
             }
-            oldPrios.JobPriorities = newPrios;
+            playerPreference.JobPriorities = newPrios;
 
             await db.DbContext.SaveChangesAsync();
         }

@@ -126,6 +126,7 @@ bounty-item-vegetable = Vegetable
 bounty-item-warm-cloth = Warm clothes
 bounty-item-wheat = Wheat
 bounty-item-wine = Wine bottle
+bounty-item-gin-tonic = Gin and Tonic
 
 bounty-description-artifact = NanoTrasen is in some hot water for stealing artifacts from non-spacefaring planets. Return one and we'll compensate you for it.
 bounty-description-baseball-bat = Baseball fever is going on at CentComm! Be a dear and ship them some baseball bats, so that management can live out their childhood dream.
@@ -213,3 +214,4 @@ bounty-category-music = Music
 bounty-category-bar = Bar
 bounty-category-engineering = Engineering
 bounty-category-janitor = Janitorial
+bounty-category-chemistry = Chemistry

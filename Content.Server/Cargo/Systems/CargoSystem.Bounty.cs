@@ -142,10 +142,21 @@ public sealed partial class CargoSystem
         msg.PushNewline();
         foreach (var entry in bounty.Entries)
         {
-            msg.AddMarkupOrThrow($"- {Loc.GetString("bounty-console-manifest-entry",
-                ("amount", entry.Amount),
-                ("item", Loc.GetString(entry.Name)))}");
-            msg.PushNewline();
+            switch (entry)
+            {
+                case CargoObjectBountyItemData objectBounty:
+                    msg.AddMarkupOrThrow($"- {Loc.GetString("bounty-console-manifest-entry",
+                        ("amount", entry.Amount),
+                        ("item", Loc.GetString(entry.Name)))}");
+                    msg.PushNewline();
+                    break;
+                case CargoReagentBountyItemData reagentBounty:
+                    msg.AddMarkupOrThrow($"- {Loc.GetString("bounty-console-manifest-entry-reagent",
+                        ("amount", entry.Amount),
+                        ("item", Loc.GetString(entry.Name)))}");
+                    msg.PushNewline();
+                    break;
+            }
         }
         msg.AddMarkupOrThrow(Loc.GetString("bounty-console-manifest-reward", ("reward", bounty.Reward)));
         _paperSystem.SetContent((uid, paper), msg.ToMarkup());
@@ -384,9 +395,16 @@ public sealed partial class CargoSystem
         return false;
     }
 
-    public bool IsValidBountyEntry(EntityUid entity, CargoObjectBountyItemEntry entry)
+    public bool IsValidBountyEntry(EntityUid entity, CargoBountyItemEntry entry)
     {
-        return IsValidBountyEntry(entity, new CargoObjectBountyItemData(entry));
+        return entry switch
+        {
+            CargoObjectBountyItemEntry objectBounty =>
+                IsValidBountyEntry(entity, new CargoObjectBountyItemData(objectBounty)),
+            CargoReagentBountyItemEntry reagentBounty =>
+                IsValidBountyEntry(entity, new CargoReagentBountyItemData(reagentBounty)),
+            _ => false,
+        };
     }
 
     public bool IsBountyComplete(HashSet<EntityUid> entities,
@@ -503,6 +521,8 @@ public sealed partial class CargoSystem
             return false;
 
         var allBounties = _protoMan.EnumeratePrototypes<CargoBountyCategoryPrototype>().ToList();
+        if (allBounties.Count < 1)
+            return false;
         var chosenCategory = false;
         var bountyCategory = _random.Pick(allBounties);
         List<CargoBountyItemEntry> bountyItems = [];
@@ -580,7 +600,18 @@ public sealed partial class CargoSystem
             var bountyAmount = _random.Next(bountyItem.MinAmount, bountyItem.MaxAmount);
             totalReward += bountyAmount * bountyItem.RewardPer;
             bountyItemData.Amount = bountyAmount;
-            totalBountyItems += bountyAmount;
+
+            // Counter for the total number of bounty items, used for if the number goes over 30 (basic crate limit)
+            switch (bountyItemData)
+            {
+                case CargoObjectBountyItemData objectBounty:
+                    totalBountyItems += bountyAmount;
+                    break;
+                case CargoReagentBountyItemData reagentBounty:
+                    totalBountyItems ++;
+                    break;
+            }
+
             newBounty.Entries.Add(bountyItemData);
             if (totalItems > 1)
                 totalItems--;

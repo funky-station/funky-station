@@ -1,24 +1,21 @@
 ﻿#- type: cargoBountyCategory
-#  id: testCategory
-#  name: Test
+#  id: exampleCategory
+#  name: Example Category
 #  entries:
-#  - reagent: Omnizine
-#    name: Sunglasses
+#  - name: Sunglasses
 #    minAmount: 1
 #    maxAmount: 5
 #    rewardPer: 750
+#    whitelist:
+#      tags:
+#      - sunglasses
+#  - name: Omnizine
+#    minAmount: 50
+#    maxAmount: 50
+#    rewardPer: 500
+#    reagent: Omnizine
 
 # Generally, each category should be considered from the perspective of the orderer, what is a medical department likely to order? What will totally not the syndicate order?
-
-- type: cargoBountyCategory
-  id: reagentTest
-  name: Reagent
-  entries:
-  - name: Omnizine
-    reagent: Omnizine
-    minAmount: 50
-    maxAmount: 50
-    rewardPer: 100
 
 - type: cargoBountyCategory
   id: botanyCategory
@@ -963,19 +960,20 @@
   name: bounty-category-bar
   entries:
   - name: bounty-item-beer
-    minAmount: 3
-    maxAmount: 8
-    rewardPer: 500
-    whitelist:
-      tags:
-      - Beer
+    minAmount: 90
+    maxAmount: 90
+    rewardPer: 50
+    reagent: Beer
   - name: bounty-item-wine
-    minAmount: 2
-    maxAmount: 5
-    rewardPer: 1500
-    whitelist:
-      tags:
-      - Wine
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 75
+    reagent: Wine
+  - name: bounty-item-gin-tonic
+    minAmount: 60
+    maxAmount: 60
+    rewardPer: 90
+    reagent: GinTonic
   - name: bounty-item-drink-bottle
     minAmount: 3
     maxAmount: 8
@@ -1078,3 +1076,9 @@
     whitelist:
       tags:
       - Mouse
+
+- type: cargoBountyCategory
+  id: chemistryCategory
+  name: bounty-category-chemistry
+  entries:
+  - name:

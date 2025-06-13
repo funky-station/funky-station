@@ -837,7 +837,7 @@
   name: X-01 Multiphase # Goobstation - Changed the capitalization because it was annoying me.
   parent: [BaseWeaponBatterySmall, BaseCommandContraband] # Frontier: added BaseC2ContrabandUnredeemable. Goobstation: removed BaseC2ContrabandUnredeemable, added BaseCommandContraband
   id: WeaponEnergyGunMultiphase
-  description: This is an expensive, modern recreation of the antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
+  description: This is an expensive, modern recreation of the antique laser gun. This gun has several unique firemodes, including stun, kill and ion options.
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
@@ -896,6 +896,7 @@
   - type: Tag
     tags:
     - HighRiskItem
+    - Sidearm
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 40

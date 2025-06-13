@@ -2,7 +2,7 @@ using Content.Shared.Humanoid;
 using Robust.Shared.Enums;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._CD.Records;
+namespace Content.Shared._Funkystation.Records;
 
 /// <summary>
 /// Contains the full records information, not just stuff that is in the database.

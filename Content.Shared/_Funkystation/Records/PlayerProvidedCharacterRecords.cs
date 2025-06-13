@@ -4,7 +4,7 @@ using Content.Shared._Funkystation.Records;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._CD.Records;
+namespace Content.Shared._Funkystation.Records;
 
 /// <summary>
 /// Contains Cosmatic Drift records that can be changed in the character editor. This is stored on the character's profile.

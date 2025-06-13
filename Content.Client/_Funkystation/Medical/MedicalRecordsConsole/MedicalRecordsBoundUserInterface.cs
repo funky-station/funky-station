@@ -1,8 +1,9 @@
 ﻿using Content.Client._Funkystation.Medical.MedicalRecordsConsole.UI;
+using Content.Shared._Funkystation.Medical.MedicalRecords;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
-namespace Content.Client._Funkystation.Medical.MedicalRecords;
+namespace Content.Client._Funkystation.Medical.MedicalRecordsConsole;
 
 [UsedImplicitly]
 public sealed class MedicalRecordsBoundUserInterface(EntityUid owner, Enum uiKey): BoundUserInterface(owner, uiKey)
@@ -10,6 +11,7 @@ public sealed class MedicalRecordsBoundUserInterface(EntityUid owner, Enum uiKey
     [ViewVariables] private MedicalRecordsMenu? _menu;
 
     // this file is how to handle when the ui is open, and the classes for updating it
+    // communicates to the server system file via shared inheritance
 
     protected override void UpdateState(BoundUserInterfaceState state)
     {

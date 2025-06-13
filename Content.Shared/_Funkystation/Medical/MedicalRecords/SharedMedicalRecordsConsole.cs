@@ -1,29 +1,24 @@
+﻿using Content.Shared._Funkystation.Records;
 using Content.Shared.Security;
 using Content.Shared.StationRecords;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._CD.Records;
+namespace Content.Shared._Funkystation.Medical.MedicalRecords;
 
+// this needs to be redone bc it isnt predicted! yayyyy!
+// copy-pasted from CD implementation but this isnt.... how this should be done.....
+// most of this should be put into a comp,
+// and then there should be a shared system folder to inherit from server
+// or instead of inheriting from server, throw the server system stuff into shared to predict it?
+// also combine the server comp file into shared
 [Serializable, NetSerializable]
-public enum CharacterRecordConsoleKey : byte
+public enum MedicalRecordsConsoleKey : byte
 {
     Key
 }
 
 [Serializable, NetSerializable]
-public enum RecordConsoleType : byte
-{
-    Security,
-    Medical,
-    Employment,
-    /// <summary>
-    /// Admin console has the functionality of all other types and has some additional admin related functionality
-    /// </summary>
-    Admin
-}
-
-[Serializable, NetSerializable]
-public sealed class CharacterRecordConsoleState : BoundUserInterfaceState
+public sealed class MedicalRecordsConsoleState : BoundUserInterfaceState
 {
     [Serializable, NetSerializable]
     public struct CharacterInfo
@@ -31,8 +26,6 @@ public sealed class CharacterRecordConsoleState : BoundUserInterfaceState
         public string CharacterDisplayName;
         public uint? StationRecordKey;
     }
-
-    public RecordConsoleType ConsoleType { get; set; }
 
     /// <summary>
     /// Character selected in the console
@@ -50,31 +43,26 @@ public sealed class CharacterRecordConsoleState : BoundUserInterfaceState
     public FullCharacterRecords? SelectedRecord { get; set; } = null;
 
     public StationRecordsFilter? Filter { get; set; } = null;
-
-    /// <summary>
-    /// Security status of the selected record
-    /// </summary>
-    public (SecurityStatus, string?)? SelectedSecurityStatus = null;
 }
 
 [Serializable, NetSerializable]
-public sealed class CharacterRecordsConsoleFilterMsg : BoundUserInterfaceMessage
+public sealed class MedicalRecordsConsoleFilterMsg : BoundUserInterfaceMessage
 {
     public readonly StationRecordsFilter? Filter;
 
-    public CharacterRecordsConsoleFilterMsg(StationRecordsFilter? filter)
+    public MedicalRecordsConsoleFilterMsg(StationRecordsFilter? filter)
     {
         Filter = filter;
     }
 }
 
 [Serializable, NetSerializable]
-public sealed class CharacterRecordConsoleSelectMsg : BoundUserInterfaceMessage
+public sealed class MedicalRecordsConsoleSelectMsg : BoundUserInterfaceMessage
 {
     public readonly uint? CharacterRecordKey;
 
-    public CharacterRecordConsoleSelectMsg(uint? characterRecordKey)
+    public MedicalRecordsConsoleSelectMsg(uint? medicalRecordsKey)
     {
-        CharacterRecordKey = characterRecordKey;
+        CharacterRecordKey = medicalRecordsKey;
     }
 }

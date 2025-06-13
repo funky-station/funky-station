@@ -1,4 +1,4 @@
-namespace Content.Server._CD.Records;
+namespace Content.Server._Funkystation.Records;
 
 /// <summary>
 /// Stores the key to the entities character records.

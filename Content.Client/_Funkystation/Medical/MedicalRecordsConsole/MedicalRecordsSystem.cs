@@ -1,9 +1,7 @@
-﻿using Content.Shared._Funkystation.Medical.MedicalRecords;
-using Robust.Client.UserInterface;
+﻿
+namespace Content.Client._Funkystation.Medical.MedicalRecordsConsole;
 
-namespace Content.Client._Funkystation.Medical.MedicalRecords;
-
-public sealed class MedicalRecordsSystem : SharedMedicalRecordsSystem
+public sealed class MedicalRecordsSystem : SharedMedicalRecordsConsole
 {
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
 

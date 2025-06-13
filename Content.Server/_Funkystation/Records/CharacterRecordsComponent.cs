@@ -1,6 +1,6 @@
-using Content.Shared._CD.Records;
+using Content.Shared._Funkystation.Records;
 
-namespace Content.Server._CD.Records;
+namespace Content.Server._Funkystation.Records;
 
 /// <summary>
 /// The component on the station that stores records after the round starts.

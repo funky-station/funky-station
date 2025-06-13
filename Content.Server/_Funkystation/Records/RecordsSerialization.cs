@@ -1,12 +1,10 @@
 using Content.Server.Database;
-using Content.Shared._CD.Records;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Text.Json;
 using Content.Shared._Funkystation.Records;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._CD.Records;
+namespace Content.Server._Funkystation.Records;
 
 public static class RecordsSerialization
 {
@@ -49,7 +47,7 @@ public static class RecordsSerialization
     private static HashSet<ProtoId<MedicalInfoPrototype>> DeserializeSet(JsonElement e, string key, HashSet<ProtoId<MedicalInfoPrototype>>? def)
     {
         var hashSet = new HashSet<ProtoId<MedicalInfoPrototype>>();
-        
+
         if (!e.TryGetProperty(key, out var v))
             return [];
 
@@ -62,7 +60,7 @@ public static class RecordsSerialization
                 var id = enumerator.Current.Value.GetProperty("Id");
                 var category = enumerator.Current.Value.GetProperty("Category");
                 var name = enumerator.Current.Value.GetProperty("Name");
-                
+
                 var medicalInfoPrototype = new MedicalInfoPrototype
                 {
                     Category = category.GetString(),
@@ -72,10 +70,10 @@ public static class RecordsSerialization
 
                 hashSet.Add(medicalInfoPrototype);
             }
-            
+
             return hashSet;
         }
-        
+
         return [];
     }
 

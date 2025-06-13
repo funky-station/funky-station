@@ -6,12 +6,12 @@ using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Content.Shared.Roles;
 using Content.Shared.StationRecords;
-using Content.Shared._CD.Records;
+using Content.Shared._Funkystation.Records;
 using Content.Shared.Forensics.Components;
 using Content.Shared.GameTicking;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._CD.Records;
+namespace Content.Server._Funkystation.Records;
 
 public sealed class CharacterRecordsSystem : EntitySystem
 {

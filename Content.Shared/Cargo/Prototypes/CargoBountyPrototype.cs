@@ -103,7 +103,7 @@ public partial record CargoObjectBountyItemEntry : CargoBountyItemEntry
 public partial record CargoReagentBountyItemEntry : CargoBountyItemEntry
 {
     /// <summary>
-    /// A whitelist for determining what items satisfy the entry.
+    /// What reagent will satisfy the entry.
     /// </summary>
     [DataField(required: true)]
     public ProtoId<ReagentPrototype> Reagent { get; set; }

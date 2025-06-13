@@ -125,7 +125,7 @@ bounty-item-trash = Trash
 bounty-item-vegetable = Vegetable
 bounty-item-warm-cloth = Warm clothes
 bounty-item-wheat = Wheat
-bounty-item-wine = Wine bottle
+bounty-item-wine = Wine
 bounty-item-gin-tonic = Gin and Tonic
 
 bounty-description-artifact = NanoTrasen is in some hot water for stealing artifacts from non-spacefaring planets. Return one and we'll compensate you for it.

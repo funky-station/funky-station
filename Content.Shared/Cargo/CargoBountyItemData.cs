@@ -52,6 +52,9 @@ public sealed partial class CargoObjectBountyItemData : CargoBountyItemData
 [DataDefinition, Serializable, NetSerializable]
 public sealed partial class CargoReagentBountyItemData : CargoBountyItemData
 {
+    /// <summary>
+    /// What reagent will satisfy the bounty requirement
+    /// </summary>
     public ProtoId<ReagentPrototype> Reagent;
 
     public CargoReagentBountyItemData(CargoReagentBountyItemEntry entry)

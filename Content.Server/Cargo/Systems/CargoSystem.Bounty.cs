@@ -27,7 +27,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-// This file features edits for Funky Station, while there are minor edits throughout the file, the section of major changes has been marked
+// This file features edits for Funky Station, there are a lot of edits throughout the file
 
 namespace Content.Server.Cargo.Systems;
 
@@ -324,6 +324,7 @@ public sealed partial class CargoSystem
                 _ => throw new NotImplementedException($"Unknown type: {entry.GetType().Name}"),
             };
             items.Add(newItem);
+
         }
 
         return IsBountyComplete(container, items);
@@ -373,6 +374,12 @@ public sealed partial class CargoSystem
         return true;
     }
 
+    /// <summary>
+    /// Determines whether the <paramref name="entity"/> meets the criteria for the bounty <paramref name="entry"/>.
+    /// </summary>
+    /// <param name="entity">Some given entity to be checked against criteria</param>
+    /// <param name="reagentBounty">The specific bounty reagent item that is being checked against</param>
+    /// <returns>true if <paramref name="entity"/> is a valid item for the bounty entry, otherwise false</returns>
     public bool IsValidBountyEntry(EntityUid entity, CargoReagentBountyItemData reagentBounty)
     {
         if (!TryComp<SolutionContainerManagerComponent>(entity, out var solutions))
@@ -395,6 +402,10 @@ public sealed partial class CargoSystem
         return false;
     }
 
+    /// <summary>
+    /// Determines whether the <paramref name="entity"/> meets the criteria for the bounty <paramref name="entry"/>.
+    /// </summary>
+    /// <returns>true if <paramref name="entity"/> is a valid item for the bounty entry, otherwise false</returns>
     public bool IsValidBountyEntry(EntityUid entity, CargoBountyItemEntry entry)
     {
         return entry switch
@@ -403,10 +414,18 @@ public sealed partial class CargoSystem
                 IsValidBountyEntry(entity, new CargoObjectBountyItemData(objectBounty)),
             CargoReagentBountyItemEntry reagentBounty =>
                 IsValidBountyEntry(entity, new CargoReagentBountyItemData(reagentBounty)),
-            _ => false,
+            _ => throw new NotImplementedException($"Unknown type: {entry.GetType().Name}"),
         };
     }
 
+    /// <summary>
+    /// Checks if some bounty is complete by iterating through a given set of entities and then matching
+    /// them to potential bounty objectives
+    /// </summary>
+    /// <param name="entities">Given set of entities to match</param>
+    /// <param name="entries">Given list of bounties objectives to match to</param>
+    /// <param name="bountyEntities">Returns a list of entites that are used to fufil the bounty, is a subset of <paramref name="entities"/></param>
+    /// <returns>True if the given bounty objectives are passed, false otherwise</returns>
     public bool IsBountyComplete(HashSet<EntityUid> entities,
         IEnumerable<CargoBountyItemData> entries,
         out HashSet<EntityUid> bountyEntities)
@@ -415,6 +434,7 @@ public sealed partial class CargoSystem
 
         var entityReqs = new Dictionary<EntityUid, HashSet<CargoBountyItemData>>();
 
+        // Matches the given entities to potential objectives each item can fufill
         foreach (var entity in entities)
         {
             entityReqs.Add(entity, new HashSet<CargoBountyItemData>());
@@ -441,6 +461,9 @@ public sealed partial class CargoSystem
             remaining[e] = e.Amount;
         }
 
+        // Matches entities to bounty objectives, for object bounties each item can only be matched once, but as
+        // solutions can hold multiple different solutions we must consider how to match multiple objectives per
+        // entity for reagents
         var sorted = entityReqs.OrderBy(kvp => kvp.Value.Count).ToList();
         foreach (var (entity, possibleEntries) in sorted)
         {
@@ -455,6 +478,7 @@ public sealed partial class CargoSystem
                     remaining[chosenEntry]--;
                     break;
                 case CargoReagentBountyItemData bountyItem:
+                    // TODO: This is horrible and I hate it, but I am bad and need to study to implement it better
                     if (!TryComp<SolutionContainerManagerComponent>(entity, out var solutions))
                         continue;
                     foreach (var (_, soln) in _solutionContainer.EnumerateSolutions((entity, solutions)))
@@ -463,14 +487,17 @@ public sealed partial class CargoSystem
 
                         foreach (var sol in solution.Contents)
                         {
-                            if (sol.Reagent.Prototype.Equals(bountyItem.Reagent.Id))
-                                remaining[chosenEntry] -= sol.Quantity.Value / 100;
+                            foreach (var cargoBountyItemData1 in possibleEntries)
+                            {
+                                var cargoBountyItemData = (CargoReagentBountyItemData)cargoBountyItemData1;
+                                if (sol.Reagent.Prototype.Equals(cargoBountyItemData.Reagent.Id))
+                                    remaining[cargoBountyItemData] -= sol.Quantity.Value / 100;
+                            }
+
                         }
                     }
-
                     break;
             }
-
         }
 
         foreach (var e in remaining)
@@ -511,6 +538,15 @@ public sealed partial class CargoSystem
         return entities;
     }
     // Beginning of major Funky Station Edits
+    /// <summary>
+    /// This method will attempt to add a bounty to a given station bounty database
+    /// </summary>
+    /// <param name="uid">The uid of the entity trying to add the item, this is normally the bounty computer</param>
+    /// <param name="component">The bounty database for a station, each station has one though we normally don't have
+    /// any outside the main station</param>
+    /// <returns>True if the bounty is successfully added, false otherwise</returns>
+    /// <exception cref="NotImplementedException">This will be thrown if some bounty type that handling has not be
+    /// created for is attempted to be made</exception>
     [PublicAPI]
     public bool TryAddBounty(EntityUid uid, StationCargoBountyDatabaseComponent? component = null)
     {
@@ -641,6 +677,14 @@ public sealed partial class CargoSystem
         return true;
     }
 
+    /// <summary>
+    /// Checks if a given bounty category is valid to be created for and returns a list of valid objectives from the
+    /// category that can have bounties created from
+    /// </summary>
+    /// <param name="uid">The entity try to create a bounty</param>
+    /// <param name="category">Some given bounty category as defined in yml</param>
+    /// <param name="availableBounties">Returns a list of currently valid objectives</param>
+    /// <returns>True if the category can have bounties created for, false otherwise</returns>
     private bool CheckCategory(EntityUid uid, CargoBountyCategoryPrototype category, out List<CargoBountyItemEntry> availableBounties)
     {
         var bountyItems = new List<CargoBountyItemEntry>(category.Entries);

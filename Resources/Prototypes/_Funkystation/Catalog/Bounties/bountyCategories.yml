@@ -1081,4 +1081,28 @@
   id: chemistryCategory
   name: bounty-category-chemistry
   entries:
-  - name:
+  - name: Saline
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 60
+    reagent: Saline
+  - name: Arithrazine
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 100
+    reagent: Arithrazine
+  - name: Multiver
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 90
+    reagent: Multiver
+  - name: Dexalin
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 70
+    reagent: Dexalin
+  - name: reagent-name-space-cleaner
+    minAmount: 50
+    maxAmount: 50
+    rewardPer: 60
+    reagent: SpaceCleaner

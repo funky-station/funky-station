@@ -29,3 +29,7 @@
   id: Wizard
   announcement: terror-wizard
   rule: WizardSpawn
+- type: ninjaHackingThreat # DeltaV start
+  id: Colossus
+  announcement: terror-colossus
+  rule: ColossusSpawn # DeltaV end

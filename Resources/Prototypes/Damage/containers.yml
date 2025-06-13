@@ -93,3 +93,9 @@
   id: AiCore
   supportedGroups:
   - Brute
+- type: damageContainer # DeltaV edits begin
+  id: InorganicMetaphysical
+  supportedGroups:
+  - Brute
+  - Burn
+  - Metaphysical # DeltaV edits end

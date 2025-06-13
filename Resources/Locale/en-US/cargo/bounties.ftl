@@ -127,6 +127,11 @@ bounty-item-warm-cloth = Warm clothes
 bounty-item-wheat = Wheat
 bounty-item-wine = Wine
 bounty-item-gin-tonic = Gin and Tonic
+bounty-item-saline = Saline
+bounty-item-arithrazine = Arithrazine
+bounty-item-multiver = Multiver
+bounty-item-dexalin = Dexalin
+bounty-item-space-cleaner = Space Cleaner
 
 bounty-description-artifact = NanoTrasen is in some hot water for stealing artifacts from non-spacefaring planets. Return one and we'll compensate you for it.
 bounty-description-baseball-bat = Baseball fever is going on at CentComm! Be a dear and ship them some baseball bats, so that management can live out their childhood dream.

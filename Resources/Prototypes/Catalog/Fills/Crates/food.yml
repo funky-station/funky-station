@@ -176,3 +176,31 @@
     contents:
     - id: FoodShrimpRaw
       amount: 6
+
+# funkystation
+
+- type: entityTable
+  id: RandomDonkpocketTable
+  table: !type:GroupSelector
+    children:
+    - id: FoodBoxDonkpocket
+    - id: FoodBoxDonkpocketSpicy
+    - id: FoodBoxDonkpocketTeriyaki
+    - id: FoodBoxDonkpocketPizza
+    - id: FoodBoxDonkpocketCarp
+    - id: FoodBoxDonkpocketBerry
+    - id: FoodBoxDonkpocketHonk
+    - id: FoodBoxDonkpocketDink
+    - id: FoodBoxDonkpocketStonk
+      weight: 0.2
+
+- type: entity
+  id: CrateFoodRandomDonkPocket
+  parent: CratePlastic
+  name: donk pockets crate
+  description: You should order four more of these. Includes a box of donk pockets.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: RandomDonkpocketTable

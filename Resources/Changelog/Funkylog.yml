@@ -3135,3 +3135,11 @@ Entries:
       message: Removed Shiva from thief objectives
   id: 378
   time: '2025-06-14T18:47:58.0000000+00:00'
+- author: ptrcnull
+  changes:
+    - type: Add
+      message: >-
+        Added space animal liver which can slowly filter out radiation from the
+        body
+  id: 379
+  time: '2025-06-14T18:53:01.0000000+00:00'

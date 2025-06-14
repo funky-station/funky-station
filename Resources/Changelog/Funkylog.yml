@@ -3119,3 +3119,9 @@ Entries:
       message: Allow clients to use toggleselfghost command.
   id: 376
   time: '2025-06-14T18:17:15.0000000+00:00'
+- author: amethystowo
+  changes:
+    - type: Add
+      message: Added Sievertadone, a pyrogenics chem that heals radiation on the dead.
+  id: 377
+  time: '2025-06-14T18:47:10.0000000+00:00'

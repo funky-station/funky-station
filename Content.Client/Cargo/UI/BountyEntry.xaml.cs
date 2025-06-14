@@ -32,9 +32,19 @@ public sealed partial class BountyEntry : BoxContainer
         var items = new List<string>();
         foreach (var entry in bounty.Entries) // Funky Station
         {
-            items.Add(Loc.GetString("bounty-console-manifest-entry",
-                ("amount", entry.Amount),
-                ("item", Loc.GetString(entry.Name))));
+            switch (entry)
+            {
+                case CargoObjectBountyItemData objectBounty:
+                    items.Add(Loc.GetString("bounty-console-manifest-entry",
+                        ("amount", entry.Amount),
+                        ("item", Loc.GetString(entry.Name))));
+                    break;
+                case CargoReagentBountyItemData reagentBounty:
+                    items.Add(Loc.GetString("bounty-console-manifest-entry-reagent",
+                        ("amount", entry.Amount),
+                        ("item", Loc.GetString(entry.Name))));
+                    break;
+            }
         }
         ManifestLabel.SetMarkup(Loc.GetString("bounty-console-manifest-label", ("item", string.Join(", ", items))));
         RewardLabel.SetMarkup(Loc.GetString("bounty-console-reward-label", ("reward", bounty.Reward))); // Funky Station

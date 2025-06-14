@@ -45,3 +45,4 @@
     offset: 0
     table: !type:NestedSelector
       tableId: RandomDonkpocketTable
+

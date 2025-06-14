@@ -39,6 +39,7 @@
     - replay_load
     - saveconfig
     - chatwindow
+    - toggleselfghost # Funkystation
 
 - Flags: DEBUG
   Commands:

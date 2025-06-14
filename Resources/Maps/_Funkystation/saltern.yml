@@ -53503,13 +53503,6 @@ entities:
       parent: 31
 - proto: PlushieAtmosian
   entities:
-  - uid: 3765
-    components:
-    - type: MetaData
-      name: Harold Smalls
-    - type: Transform
-      pos: -4.5241666,12.6597395
-      parent: 31
   - uid: 7433
     components:
     - type: Transform

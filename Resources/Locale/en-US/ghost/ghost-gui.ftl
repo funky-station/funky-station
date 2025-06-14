@@ -1,8 +1,15 @@
 ghost-gui-return-to-body-button = Return to body
 ghost-gui-ghost-warp-button = Ghost Warp
 ghost-gui-ghost-roles-button = Ghost Roles ({$count})
-ghost-gui-toggle-ghost-visibility-popup-on = Enabled visibility of ghosts.
-ghost-gui-toggle-ghost-visibility-popup-off = Disabled visibility of ghosts.
+
+# begin Funkystation
+ghost-gui-toggle-self-ghost-visibility-popup-on = Enabled visibility of your ghost.
+ghost-gui-toggle-self-ghost-visibility-popup-off = Disabled visibility of your ghost.
+
+ghost-gui-toggle-other-ghosts-visibility-popup-on = Enabled visibility of other ghosts.
+ghost-gui-toggle-other-ghosts-visibility-popup-off = Disabled visibility of other ghosts.
+#end Funkystation
+
 ghost-gui-toggle-lighting-manager-popup-normal = Lighting normal.
 ghost-gui-toggle-lighting-manager-popup-personal-light = Enabled personal light.
 ghost-gui-toggle-lighting-manager-popup-fullbright = Fullbright mode.

@@ -42,6 +42,7 @@
     - id: ClothingOuterHardsuitBlueshield
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
+    - id: SecHypo
 
 - type: entity
   id: LockerBlueshieldOfficerFilled

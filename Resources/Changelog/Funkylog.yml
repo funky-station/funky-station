@@ -3090,3 +3090,13 @@ Entries:
         self-recharge.
   id: 373
   time: '2025-06-14T02:47:20.0000000+00:00'
+- author: Gansu
+  changes:
+    - type: Add
+      message: >-
+        Added reagent bounties which require liquids instead of objects in order
+        to complete. Consult your chemist or bartender for assistance
+    - type: Tweak
+      message: Beer and Wine bounties are now reagent based
+  id: 374
+  time: '2025-06-14T07:49:10.0000000+00:00'

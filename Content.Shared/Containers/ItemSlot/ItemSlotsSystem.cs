@@ -110,7 +110,7 @@ namespace Content.Shared.Containers.ItemSlots
                     continue;
 
                 var item = Spawn(slot.StartingItem, Transform(uid).Coordinates);
-                    
+
                 if (slot.ContainerSlot != null)
                     _containers.Insert(item, slot.ContainerSlot);
             }

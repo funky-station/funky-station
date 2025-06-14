@@ -1,6 +1,6 @@
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
-using Content.Shared.DeltaV.TapeRecorder.Components;
+using Content.Shared._DV.TapeRecorder.Components;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;

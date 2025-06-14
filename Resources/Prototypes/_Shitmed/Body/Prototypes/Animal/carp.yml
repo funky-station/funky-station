@@ -10,7 +10,7 @@
       organs:
         lungs: OrganSpaceAnimalLungs # Immunity to airloss
         stomach: OrganAnimalStomach
-        liver: OrganAnimalLiver
+        liver: OrganSpaceAnimalLiver
         heart: OrganSpaceAnimalHeart # Immunity to cold
         kidneys: OrganAnimalKidneys
     tail:

@@ -485,6 +485,7 @@
         - CombatKnife
         - Truncheon
         - BolaEnergy # Goobstation
+        - NonlethalGrenade
       components:
         - Stunbaton
         - FlashOnTrigger

@@ -324,7 +324,6 @@
     - SpeedLoaderMagnumEmpty
     - GrenadeFlashBang # Goobstation
     - BolaEnergy # Goobstation
-    - CartridgeEpinephrine # Goobstation
     - MagazinePistolCaselessRifle # Goobstation
     - MagazineBoxCaselessRifle # Goobstation
     - MagazineLightRifleBoxEmpty # Goobstation
@@ -332,6 +331,13 @@
     #- MagazineHighCaliberEmpty # Goobstation - Burner not added yet
     #- MagazineHighCaliber # Goobstation
     #- MagazineBoxHighCaliber # Goobstation
+    - CartridgeEmergency # Goobstation
+    - CartridgeAirloss # Goobstation
+    - CartridgeBrute # Goobstation
+    - CartridgeBurn # Goobstation
+    - CartridgePoison
+    - SecHypo # Goobstation
+    - ParamedHypo # Goobstation - ParamedHypo
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -935,7 +941,14 @@
     - Zipties
     - GrenadeFlashBang # Goobstation
     - BolaEnergy # Goobstation
-    - CartridgeEpinephrine # Goobstation
+    - CartridgeEmergency # Goobstation
+    - CartridgeAirloss # Goobstation
+    - CartridgeBrute # Goobstation
+    - CartridgeBurn # Goobstation
+    - CartridgePoison
+    - SecHypo # Goobstation
+    - autoInjectorCartridgeCase
+    - autoInjectorCartridgeCaseSoft
     dynamicRecipes:
     - BoxBeanbag
     - BoxShotgunIncendiary
@@ -1143,6 +1156,14 @@
     - MedicalPatchLarge #Goobstation - MedicalPatch
     - BoneGel # Shitmed Change
     - Oilpack #Delta-V
+    - CartridgeEmergency # Goobstation - ParamedHypo
+    - CartridgeAirloss # Goobstation - ParamedHypo
+    - CartridgeBrute # Goobstation - ParamedHypo
+    - CartridgeBurn # Goobstation - ParamedHypo
+    - CartridgePoison
+    - ParamedHypo # Goobstation - ParamedHypo
+    - autoInjectorCartridgeCase
+    - autoInjectorCartridgeCaseSoft
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

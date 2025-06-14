@@ -3100,3 +3100,14 @@ Entries:
       message: Beer and Wine bounties are now reagent based
   id: 374
   time: '2025-06-14T07:49:10.0000000+00:00'
+- author: IronDragoon
+  changes:
+    - type: Add
+      message: >-
+        New cartridge autoinjector system. Hypospray style injectors using
+        premade cartridges, printable in med and sec fabs. Designed for
+        stabilising patients in the field. Adds new injectors, cartridges and 2
+        cases for holding them. Also available for syndicate agents with 2
+        special cartridges, and a bundle for nukies. 
+  id: 375
+  time: '2025-06-14T15:46:25.0000000+00:00'

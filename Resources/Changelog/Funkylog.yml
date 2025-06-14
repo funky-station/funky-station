@@ -3076,3 +3076,9 @@ Entries:
         anyone hit by it. Swing for the fences!
   id: 371
   time: '2025-06-11T04:11:18.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Tweak
+      message: Space exposure now deals four times as much damage.
+  id: 372
+  time: '2025-06-13T06:26:10.0000000+00:00'

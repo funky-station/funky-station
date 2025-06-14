@@ -70,3 +70,8 @@
     proto: SeniorDetective
   equipment:
     id: SeniorDetectivePDA
+
+- type: loadout
+  id: DetectivePDA
+  equipment:
+    id: DetectivePDA

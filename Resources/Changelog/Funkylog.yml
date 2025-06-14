@@ -3125,3 +3125,13 @@ Entries:
       message: Added Sievertadone, a pyrogenics chem that heals radiation on the dead.
   id: 377
   time: '2025-06-14T18:47:10.0000000+00:00'
+- author: Ekpy
+  changes:
+    - type: Tweak
+      message: Shiva is a roundstart ghost role and is slightly weaker.
+    - type: Add
+      message: Shiva can now pull objects.
+    - type: Remove
+      message: Removed Shiva from thief objectives
+  id: 378
+  time: '2025-06-14T18:47:58.0000000+00:00'

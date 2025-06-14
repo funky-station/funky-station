@@ -11,3 +11,17 @@
     layers:
       - state: green
       - state: centcom
+
+# CentComm
+
+- type: entity
+  id: SpawnPointMagistrate
+  parent: SpawnPointJobBase
+  name: magistrate
+  components:
+  - type: SpawnPoint
+    job_id: Magistrate
+  - type: Sprite
+    layers:
+    - state: green
+    - state: centcom

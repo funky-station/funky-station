@@ -26,11 +26,6 @@ SPDX-License-Identifier: MIT
 
                 <!-- Jobs with "Never" priority -->
                 <ui:DraggableJobTarget Name="NeverBox" Priority="Never" />
-                <!-- <BoxContainer Orientation="Vertical" HorizontalExpand="True"> -->
-                <!--     <Label Text="{Loc 'humanoid-profile-editor-job-priority-never-button'}" HorizontalAlignment="Center" StyleClasses="LabelBig" Margin="0 6"/> -->
-                <!--     ~1~ We stuff the job icons into this GridContainer @1@ -->
-                <!--     <GridContainer Name="NeverBox" MaxGridWidth="140" HorizontalAlignment="Center"/> -->
-                <!-- </BoxContainer> -->
 
                 <!-- Vertical rule -->
                 <PanelContainer MinSize="2 0">
@@ -41,10 +36,6 @@ SPDX-License-Identifier: MIT
 
                 <!-- Jobs with "Low" priority -->
                 <ui:DraggableJobTarget Name="LowBox" Priority="Low" />
-                <!-- <BoxContainer Orientation="Vertical" HorizontalExpand="True"> -->
-                <!--     <Label Text="{Loc 'humanoid-profile-editor-job-priority-low-button'}" HorizontalAlignment="Center" StyleClasses="LabelBig" Margin="6"/> -->
-                <!--     <GridContainer Name="LowBox" MaxGridWidth="140" HorizontalAlignment="Center"/> -->
-                <!-- </BoxContainer> -->
 
                 <!-- Vertical rule -->
                 <PanelContainer MinSize="2 0">
@@ -55,10 +46,6 @@ SPDX-License-Identifier: MIT
 
                 <!-- Jobs with "Medium" priority -->
                 <ui:DraggableJobTarget Name="MediumBox" Priority="Medium" />
-                <!-- <BoxContainer Orientation="Vertical" HorizontalExpand="True"> -->
-                <!--     <Label Text="{Loc 'humanoid-profile-editor-job-priority-medium-button'}" HorizontalAlignment="Center" StyleClasses="LabelBig" Margin="0 6"/> -->
-                <!--     <GridContainer Name="MediumBox" MaxGridWidth="140" HorizontalAlignment="Center"/> -->
-                <!-- </BoxContainer> -->
 
                 <!-- Vertical rule -->
                 <PanelContainer MinSize="2 0">
@@ -69,11 +56,6 @@ SPDX-License-Identifier: MIT
 
                 <!-- THE job with "HIGH" priority -->
                 <ui:DraggableJobTarget Name="HighBox" Priority="High" />
-                <!-- <BoxContainer Orientation="Vertical" HorizontalExpand="True"> -->
-                <!--     <Label Text="{Loc 'humanoid-profile-editor-job-priority-high-button'}" HorizontalAlignment="Center" StyleClasses="LabelBig" Margin="0 6"/> -->
-                <!--     ~1~ There can only be one high priority job, so bigger boxcontainer instead of a grid @1@ -->
-                <!--     <BoxContainer Name="HighBox" HorizontalAlignment="Center" VerticalAlignment="Center"/> -->
-                <!-- </BoxContainer> -->
 
             </BoxContainer> <!-- End job grids -->
 

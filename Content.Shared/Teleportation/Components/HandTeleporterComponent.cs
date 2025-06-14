@@ -23,8 +23,8 @@ public sealed partial class HandTeleporterComponent : Component
     /// <summary>
     ///     Should the portals be able to be placed across grids?
     /// </summary>
-    [DataField]
-    public bool AllowPortalsOnDifferentGrids;
+    [DataField("allowPortalsOnDifferentGrids")] // Funkystation
+    public bool AllowPortalsOnDifferentGrids = false;
 
     /// <summary>
     ///     Should the portals work across maps?

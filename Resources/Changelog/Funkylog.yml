@@ -3111,3 +3111,11 @@ Entries:
         special cartridges, and a bundle for nukies. 
   id: 375
   time: '2025-06-14T15:46:25.0000000+00:00'
+- author: dch-GH
+  changes:
+    - type: Add
+      message: Toggle Your Ghost action to hide your own ghost.
+    - type: Tweak
+      message: Allow clients to use toggleselfghost command.
+  id: 376
+  time: '2025-06-14T18:17:15.0000000+00:00'

@@ -3082,3 +3082,11 @@ Entries:
       message: Space exposure now deals four times as much damage.
   id: 372
   time: '2025-06-13T06:26:10.0000000+00:00'
+- author: jackel234
+  changes:
+    - type: Fix
+      message: >-
+        The X-01 Multiphase's description now accurately reflects that it can
+        self-recharge.
+  id: 373
+  time: '2025-06-14T02:47:20.0000000+00:00'

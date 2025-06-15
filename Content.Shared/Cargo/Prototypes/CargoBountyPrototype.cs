@@ -1,4 +1,5 @@
-﻿using Content.Shared.Research.Prototypes;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Research.Prototypes;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -42,55 +43,69 @@ public sealed partial class CargoBountyPrototype : IPrototype
     public string IdPrefix = "NT";
 }
 
-[DataDefinition, Serializable, NetSerializable]
-public readonly partial record struct CargoBountyItemEntry()
+[ImplicitDataDefinitionForInheritors, Serializable]
+public abstract partial record CargoBountyItemEntry
 {
-    /// <summary>
-    /// A whitelist for determining what items satisfy the entry.
-    /// </summary>
-    [DataField(required: true)]
-    public EntityWhitelist Whitelist { get; init; } = default!;
-
-    /// <summary>
-    /// A blacklist that can be used to exclude items in the whitelist.
-    /// </summary>
-    [DataField]
-    public EntityWhitelist? Blacklist { get; init; } = null;
-
-    // todo: implement some kind of simple generic condition system
-
     /// <summary>
     /// How much of the item must be present to satisfy the entry
     /// </summary>
     [DataField]
-    public int Amount { get; init; } = 1;
+    public int Amount { get; set; } = 1;
 
     // Beginning of Funky Station edits
     /// <summary>
     /// A minimum amount of the item that can be requested in a bounty, used to make sure a bounty isn't to underwhelming
     /// </summary>
     [DataField]
-    public int MinAmount { get; init; } = 1;
+    public int MinAmount { get; set; } = 1;
 
     /// <summary>
     /// A maximum amount of the item that can be requested for a bounty
     /// </summary>
     [DataField]
-    public int MaxAmount { get; init; } = 1;
+    public int MaxAmount { get; set; } = 1;
 
     /// <summary>
     /// The amount each item will reward for a bounty
     /// </summary>
     [DataField]
-    public int RewardPer { get; init; } = 1;
-
-    [DataField]
-    public List<ProtoId<TechnologyPrototype>>? RequiredResearch { get; init; }
-    // End of Funky Station edits
+    public int RewardPer { get; set; } = 1;
 
     /// <summary>
     /// A player-facing name for the item.
     /// </summary>
     [DataField]
-    public LocId Name { get; init; } = string.Empty;
+    public LocId Name { get; set; } = string.Empty;
+}
+
+[DataDefinition, Serializable, NetSerializable]
+public partial record CargoObjectBountyItemEntry : CargoBountyItemEntry
+{
+    /// <summary>
+    /// A whitelist for determining what items satisfy the entry.
+    /// </summary>
+    [DataField(required: true)]
+    public EntityWhitelist Whitelist { get; set; } = default!;
+
+    /// <summary>
+    /// A blacklist that can be used to exclude items in the whitelist.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? Blacklist { get; set; } = null;
+
+    // todo: implement some kind of simple generic condition system
+
+    [DataField]
+    public List<ProtoId<TechnologyPrototype>>? RequiredResearch { get; set; }
+}
+
+[DataDefinition, Serializable, NetSerializable]
+public partial record CargoReagentBountyItemEntry : CargoBountyItemEntry
+{
+    /// <summary>
+    /// What reagent will satisfy the entry.
+    /// </summary>
+    [DataField(required: true)]
+    public ProtoId<ReagentPrototype> Reagent { get; set; }
+    // End of Funky Station edits
 }

@@ -268,6 +268,7 @@ namespace Content.Shared.Atmos
         public const float PlasmaUpperTemperature = (1370f+T0C);
         public const float PlasmaOxygenFullburn = 10f;
         public const float PlasmaBurnRateDelta = 9f;
+        public const float HydrogenBurnRateDelta = 2f; // Assmos - /tg/ gases
 
         /// <summary>
         ///     This is calculated to help prevent singlecap bombs (Overpowered tritium/oxygen single tank bombs)
@@ -457,8 +458,7 @@ namespace Content.Shared.Atmos
         ///     (The pressure threshold is so low that it doesn't make sense to do any calculations,
         ///     so it just applies this flat value).
         /// </summary>
-        // Original value is 4, buff back when we have proper ways for players to deal with breaches.
-        public const int LowPressureDamage = 1;
+        public const int LowPressureDamage = 4;
 
         public const float WindowHeatTransferCoefficient = 0.1f;
 

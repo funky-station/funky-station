@@ -103,12 +103,6 @@ reagent-effect-guidebook-status-effect =
                 } {NATURALFIXED($time, 3)} {MANY("second", $time)} of {LOC($key)}
     }
 
-reagent-effect-guidebook-activate-artifact =
-    { $chance ->
-        [1] Attempts
-        *[other] attempt
-    } to activate an artifact
-
 reagent-effect-guidebook-set-solution-temperature-effect =
     { $chance ->
         [1] Sets
@@ -319,7 +313,7 @@ reagent-effect-guidebook-reset-narcolepsy =
     { $chance ->
         [1] Temporarily staves
         *[other] temporarily stave
-    } off narcolepsy
+    } off narcolepsy for 10 minutes
 
 reagent-effect-guidebook-wash-cream-pie-reaction =
     { $chance ->

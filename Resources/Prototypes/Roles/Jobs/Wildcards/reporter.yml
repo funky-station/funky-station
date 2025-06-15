@@ -16,6 +16,9 @@
     shoes: ClothingShoesColorWhite
     id: ReporterPDA
     ears: ClothingHeadsetService
-  #storage:
-    #back:
-    #- Stuff
+    belt: NewsDigiBoard
+  storage: # DeltaV: Give reporters tape recording equipment
+    back:
+    - TapeRecorder
+    - CassetteTape
+    - CassetteTape

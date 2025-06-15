@@ -25,3 +25,16 @@
       catalyst: true
   products:
     Cyanoxadone: 2
+
+- type: reaction
+  id: Anodynafil
+  minTemp: 400
+  reactants:
+    SalicylicAcid:
+      amount: 1
+    Ethanol:
+      amount: 1
+    Iodine:
+      amount: 1
+  products:
+    Anodynafil: 4

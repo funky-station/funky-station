@@ -51,6 +51,12 @@
     maxZoom: 1.44,1.44
   - type: Eye
     drawFov: false
+    visMask:
+      #- TelegnosticProjection # pretty sure this is DV shit, dunno tho!
+      #- PsionicInvisibility # pretty sure this is DV shit, dunno tho!
+      - Ghost
+      - Normal
+      - CosmicCultMonument # DeltaV - Cosmic Cult
   - type: Input
     context: "ghost"
   - type: Examiner
@@ -113,13 +119,28 @@
     checkCanInteract: false
     event: !type:ToggleFoVActionEvent
 
+# begin Funkystation
+- type: entity
+  id: ActionToggleSelfGhost
+  name: Toggle Your Ghost
+  description: Toggle the visibility of your own ghost.
+  components:
+  - type: InstantAction
+    icon: { sprite: Mobs/Ghosts/ghost_human.rsi, state: icon }
+    clientExclusive: true
+    checkCanInteract: false
+    event: !type:ToggleSelfGhostActionEvent
+#end Funkystation
+
 - type: entity
   id: ActionToggleGhosts
   name: Toggle Ghosts
   description: Toggle the visibility of other ghosts.
   components:
   - type: InstantAction
-    icon: { sprite: Mobs/Ghosts/ghost_human.rsi, state: icon }
+  #begin Funkystation
+    icon: Interface/Actions/toggle-other-ghosts.png
+  #end Funkystation
     clientExclusive: true
     checkCanInteract: false
     event: !type:ToggleGhostsActionEvent

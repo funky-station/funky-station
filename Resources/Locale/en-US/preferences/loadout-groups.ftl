@@ -15,6 +15,7 @@ loadout-group-survival-syndicate = Github is forcing me to write text that is li
 loadout-group-breath-tool = Species-dependent breath tools
 loadout-group-tank-harness = Species-specific survival equipment
 loadout-group-EVA-tank = Species-specific gas tank
+loadout-group-vox-tank = Vox-specific gas tank
 loadout-group-pocket-tank-double = Species-specific double emergency tank in pocket
 loadout-group-survival-mime = Mime Survival Box
 
@@ -111,6 +112,7 @@ loadout-group-chief-engineer-jumpsuit = Chief Engineer jumpsuit
 loadout-group-chief-engineer-outerclothing = Chief Engineer outer clothing
 loadout-group-chief-engineer-neck = Chief Engineer neck
 loadout-group-chief-engineer-shoes = Chief Engineer shoes
+loadout-group-engineering-goggles = Engineering goggles
 
 loadout-group-technical-assistant-jumpsuit = Technical Assistant jumpsuit
 
@@ -143,6 +145,7 @@ loadout-group-scientist-gloves = Scientist gloves
 loadout-group-scientist-shoes = Scientist shoes
 loadout-group-scientist-id = Scientist ID
 loadout-group-roboticist-id = Roboticist ID
+loadout-group-roboticist-glasses = Diagnostics glasses
 
 loadout-group-research-assistant-jumpsuit = Research Assistant jumpsuit
 
@@ -151,6 +154,7 @@ loadout-group-head-of-security-head = Head of Security head
 loadout-group-head-of-security-jumpsuit = Head of Security jumpsuit
 loadout-group-head-of-security-neck = Head of Security neck
 loadout-group-head-of-security-outerclothing = Head of Security outer clothing
+loadout-group-security-glasses = Security glasses
 
 loadout-group-warden-head = Warden head
 loadout-group-warden-jumpsuit = Warden jumpsuit
@@ -183,6 +187,7 @@ loadout-group-chief-medical-officer-jumpsuit = Chief Medical Officer jumpsuit
 loadout-group-chief-medical-officer-outerclothing = Chief Medical Officer outer clothing
 loadout-group-chief-medical-officer-shoes = Chief Medical Officer shoes
 loadout-group-chief-medical-officer-neck = Chief Medical Officer neck
+loadout-group-medical-doctor-glasses = Medical glasses
 
 loadout-group-medical-doctor-head = Medical Doctor head
 loadout-group-medical-doctor-jumpsuit = Medical Doctor jumpsuit
@@ -196,6 +201,7 @@ loadout-group-medical-intern-jumpsuit = Medical intern jumpsuit
 loadout-group-chemist-jumpsuit = Chemist jumpsuit
 loadout-group-chemist-outerclothing = Chemist outer clothing
 loadout-group-chemist-backpack = Chemist backpack
+loadout-group-medical-chemist-glasses = Chemist glasses
 
 loadout-group-paramedic-head = Paramedic head
 loadout-group-paramedic-jumpsuit = Paramedic jumpsuit

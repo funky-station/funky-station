@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Ghost;
 
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedGhostSystem))]
-[AutoGenerateComponentState(true)]
+[AutoGenerateComponentState(true), AutoGenerateComponentPause]
 public sealed partial class GhostComponent : Component
 {
     // Actions
@@ -20,6 +20,11 @@ public sealed partial class GhostComponent : Component
 
     [DataField, AutoNetworkedField]
     public EntityUid? ToggleFoVActionEntity;
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? ToggleSelfGhostActionEntity; // Funkystation
+    [DataField]
+    public EntProtoId ToggleSelfGhostAction = "ActionToggleSelfGhost"; // Funkystation
 
     [DataField]
     public EntProtoId ToggleGhostsAction = "ActionToggleGhosts";
@@ -41,7 +46,7 @@ public sealed partial class GhostComponent : Component
 
     // End actions
 
-    [ViewVariables(VVAccess.ReadWrite), DataField]
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoPausedField]
     public TimeSpan TimeOfDeath = TimeSpan.Zero;
 
     [DataField("booRadius"), ViewVariables(VVAccess.ReadWrite)]
@@ -94,6 +99,8 @@ public sealed partial class GhostComponent : Component
 }
 
 public sealed partial class ToggleFoVActionEvent : InstantActionEvent { }
+
+public sealed partial class ToggleSelfGhostActionEvent : InstantActionEvent { } // Funkystation
 
 public sealed partial class ToggleGhostsActionEvent : InstantActionEvent { }
 

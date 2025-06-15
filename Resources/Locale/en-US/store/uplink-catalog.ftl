@@ -8,7 +8,7 @@ uplink-revolver-python-desc = A brutally simple, effective, and loud Syndicate r
 uplink-pistol-cobra-name = Cobra
 uplink-pistol-cobra-desc = A rugged, robust operator handgun with inbuilt silencer. Uses pistol magazines (.25 caseless).
 
-uplink-rifle-mosin-name = Surplus Rifle
+uplink-rifle-mosin-name = Kardashev-Mosin
 uplink-rifle-mosin-desc = A bolt action service rifle that has seen many wars. Not modern by any standard, hand loaded, and terrible recoil, but it is cheap.
 
 uplink-esword-name = Energy Sword
@@ -223,7 +223,7 @@ uplink-decoy-kit-name = Decoy Kit
 uplink-decoy-kit-desc = State-of-the-art distraction technology straight from RND. Comes with five realistic balloons, four decoy grenades, and some snap poppers!
 
 uplink-chemistry-kit-name = Chemical Synthesis Kit
-uplink-chemistry-kit-desc = A starter kit for the aspiring chemist, includes toxin and vestine for all your criminal needs!
+uplink-chemistry-kit-desc = A starter kit for the aspiring chemist, includes two vials of vestine for all your criminal needs!
 
 uplink-knives-kit-name = Throwing Knives Kit
 uplink-knives-kit-desc = A set of 4 syndicate branded throwing knives, perfect for embedding into the body of your victims.
@@ -351,7 +351,7 @@ uplink-clothing-no-slips-shoes-name = No-slip Shoes
 uplink-clothing-no-slips-shoes-desc = Chameleon shoes that protect you from slips.
 
 uplink-clothing-thieving-gloves-name = Thieving Gloves
-uplink-clothing-thieving-gloves-desc = Discretely steal from pockets and improve your thieving technique with these fancy new gloves. They even look like normal gloves!
+uplink-clothing-thieving-gloves-desc = Discreetly steal from pockets and improve your thieving technique with these fancy new gloves. They even look like normal gloves!
 
 uplink-clothing-outer-vest-web-name = Web Vest
 uplink-clothing-outer-vest-web-desc = A synthetic armor vest. This one has added webbing and ballistic plates.
@@ -504,3 +504,21 @@ uplink-business-card-desc = A business card that you can give to someone to demo
 
 uplink-fake-mindshield-name = Fake Mindshield
 uplink-fake-mindshield-desc = A togglable implant capable of mimicking the same transmissions a real mindshield puts out when on, tricking capable Heads-up displays into thinking you have a mindshield (Nanotrasen brand implanter not provided.)
+
+uplink-smuggler-satchel-name = Smuggler's Satchel
+uplink-smuggler-satchel-desc = A handy, suspicious looking satchel. Just flat enough to fit underneath floor tiles.
+
+uplink-syndicate-autoinjector-name = Syndicate Cartridge Autoinjector
+uplink-syndicate-autoinjector-desc = Contains one Syndicate branded cartridge autoinjector. Can provide near instant administration of chems on use with a small delay between uses. Does not come with any cartridges!
+
+uplink-autoinjector-cart-sedative-name = Syndicate Sedative Cartridge
+uplink-autoinjector-cart-sedative-desc = Contains one Syndicate branded autoinjector cartridge. Can provide almost instant (but temporary) sedation upon injection. Contains ONE dose of 15u of Nocturine.
+
+uplink-autoinjector-cart-gunshot-name = Syndicate Gunshot Cartridge
+uplink-autoinjector-cart-gunshot-desc = Contains one Syndicate branded autoinjector cartridge. Provides a single dose of Puncturase and Tranexamic acid, designed to stabilise a patient who has been shot. Contains ONE dose of 10u Puncturase and 5u Tranexamic Acid
+
+uplink-syndicate-autoinjector-softcase-name = Cartridge Autoinjector Soft Case (Filled)
+uplink-syndicate-autoinjector-softcase-desc = Contains 4 different cartridges for use in an autoinjector. Provide enough chems to stabilise a patient. One for airloss, critical injury, brute injury and burns. Each is single use!
+
+uplink-autoinjector-bundle-name = Syndicate Cartridge Autoinjector Bundle
+uplink-autoinjector-bundle-desc = A bag containing 4 Syndicate branded cartridge autoinjectors as well as hard and soft cases, both filled with various cartridges, and a few extras for treating gunshot wounds. For healing in a pinch when you don't have time to stop!

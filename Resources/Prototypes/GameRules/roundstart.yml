@@ -21,9 +21,18 @@
   - type: SubGamemodes
     rules:
     - id: Thief
-      prob: 0.75
-    - id: Heretic # goob edit
-      prob: 0.2 # funkystation - 20% of rounds can have a heretic as a treat
+      prob: 0.65
+    - id: Heretic
+      prob: 0.3
+
+- type: entity
+  parent: BaseGameRule
+  id: DummyNonAntagChance
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: DummyNonAntag
+      prob: 0.3
 
 - type: entity
   id: DeathMatch31
@@ -77,8 +86,8 @@
   components:
   - type: RandomMetadata #this generates the random operation name cuz it's cool.
     nameSegments:
-    - operationPrefix
-    - operationSuffix
+    - NamesOperationPrefix
+    - NamesOperationSuffix
   - type: NukeopsRule
   - type: RuleGrids
   - type: AntagSelection
@@ -104,7 +113,8 @@
     - prefRoles: [ NukeopsCommander ]
       fallbackRoles: [ Nukeops, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsCommander
-      max: 1
+      min: 1
+      max: 1     # fixed a lot of things. Commanders currently spawn en masse on Funky, so this limits the values to ensure that does not happen.
       startingGear: SyndicateCommanderGearFull
       roleLoadout:
       - RoleSurvivalNukie
@@ -112,15 +122,15 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-commander
-        - SyndicateNamesElite
+        - NamesNukieFirstCommander
+        - NamesSyndicateElite
       - type: NpcFactionMember
         factions:
         - Syndicate
       mindRoles:
       - MindRoleNukeopsCommander
     - prefRoles: [ NukeopsMedic ]
-      fallbackRoles: [ Nukeops, NukeopsCommander ]
+      fallbackRoles: [ Nukeops] # prevents the roundstarter from assigning multiple back up commanders.
       spawnerPrototype: SpawnPointNukeopsMedic
       max: 1
       startingGear: SyndicateOperativeMedicFull
@@ -130,15 +140,15 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-agent
-        - SyndicateNamesNormal
+        - NamesNukieFirstAgent
+        - NamesSyndicateNormal
       - type: NpcFactionMember
         factions:
         - Syndicate
       mindRoles:
       - MindRoleNukeopsMedic
     - prefRoles: [ Nukeops ]
-      fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
+      fallbackRoles: [ NukeopsMedic ]  # prevents the roundstarter from assigning multiple back up commanders.
       spawnerPrototype: SpawnPointNukeopsOperative
       max: 3
       playerRatio: 10
@@ -149,8 +159,8 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-operator
-        - SyndicateNamesNormal
+        - NamesNukieFirstOperator
+        - NamesSyndicateNormal
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -292,8 +302,8 @@
         - Wizard
       - type: RandomMetadata
         nameSegments:
-        - names_wizard_first
-        - names_wizard_last
+        - NamesWizardFirst
+        - NamesWizardLast
       mindRoles:
       - MindRoleWizard
   - type: Tag
@@ -330,6 +340,22 @@
       - type: InitialInfected
       mindRoles:
       - MindRoleInitialInfected
+
+# This rule makes the chosen players unable to get other antag rules, as a way to prevent metagaming job rolls.
+# Put this before antags assigned to station jobs, but after non-job antags (NukeOps/Wiz).
+- type: entity
+  id: DummyNonAntag
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    minPlayers: 5
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn # Pre-selection before jobs; assignment doesn't really matter though, we only care about the pre-selection to block other antags.
+    removeUponFailedSpawn: false
+    definitions:
+    - prefRoles: [ InitialInfected, Traitor, Thief, HeadRev ]
+      max: 2
+      playerRatio: 30
 
 # event schedulers
 
@@ -456,3 +482,5 @@
     - id: BloodbathPuddleMessVariationPass
       prob: 0.01
       orGroup: puddleMess
+    - id: SmugglerStashVariationPass
+      prob: 0.90

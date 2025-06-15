@@ -4,6 +4,13 @@
   name: admin observer
   categories: [ HideSpawnMenu ]
   components:
+  - type: Eye
+    visMask:
+      #- TelegnosticProjection # DeltaV probs
+      #- PsionicInvisibility # DeltaV probs
+      - Ghost
+      - Normal
+      - CosmicCultMonument # DeltaV - Cosmic Cult
   - type: ContentEye
     maxZoom: 8.916104, 8.916104
   - type: Tag
@@ -13,6 +20,9 @@
     - BypassInteractionRangeChecks
     - BypassDropChecks
     - NoConsoleSound
+    - SilentStorageUser
+    - PreventAccessLogging
+    - AllowBiomeLoading
   - type: Input
     context: "aghost"
   - type: Ghost
@@ -31,6 +41,7 @@
   - type: Access
     groups:
     - AllAccess
+    - Silicon
     tags:
     - NuclearOperative
     - SyndicateAgent
@@ -74,7 +85,6 @@
   - type: RadarConsole
     followEntity: true
   - type: CargoOrderConsole
-  - type: BankClient
   - type: CrewMonitoringConsole
   - type: GeneralStationRecordConsole
     canDeleteEntries: true

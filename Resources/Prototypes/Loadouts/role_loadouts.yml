@@ -14,7 +14,6 @@
 - type: roleLoadout
   id: JobHeadOfPersonnel
   groups:
-  - GroupTankHarness
   - HoPHead
   - HoPNeck
   - HoPJumpsuit
@@ -40,7 +39,6 @@
 - type: roleLoadout
   id: JobPassenger
   groups:
-  - GroupTankHarness
   - PassengerJumpsuit
   - CommonBackpack
   - PassengerNeck
@@ -56,7 +54,6 @@
 - type: roleLoadout
   id: JobBartender
   groups:
-  - GroupTankHarness
   - BartenderHead
   - BartenderJumpsuit
   - CommonBackpack
@@ -69,7 +66,6 @@
 - type: roleLoadout
   id: JobServiceWorker
   groups:
-  - GroupTankHarness
   - BartenderJumpsuit
   - CommonBackpack
   - Glasses
@@ -80,7 +76,6 @@
 - type: roleLoadout
   id: JobChef
   groups:
-  - GroupTankHarness
   - ChefHead
   - ChefMask
   - ChefJumpsuit
@@ -94,7 +89,6 @@
 - type: roleLoadout
   id: JobLibrarian
   groups:
-  - GroupTankHarness
   - LibrarianJumpsuit
   - CommonBackpack
   - Glasses
@@ -105,7 +99,6 @@
 - type: roleLoadout
   id: JobLawyer
   groups:
-  - GroupTankHarness
   - LawyerNeck
   - LawyerJumpsuit
   - CommonBackpack
@@ -117,7 +110,6 @@
 - type: roleLoadout
   id: JobChaplain
   groups:
-  - GroupTankHarness
   - ChaplainHead
   - ChaplainEyes # imp
   - ChaplainMask
@@ -135,7 +127,6 @@
 - type: roleLoadout
   id: JobJanitor
   groups:
-  - GroupTankHarness
   - JanitorHead
   - JanitorJumpsuit
   - JanitorGloves
@@ -150,7 +141,6 @@
 - type: roleLoadout
   id: JobBotanist
   groups:
-  - GroupTankHarness
   - BotanistHead
   - BotanistJumpsuit
   - BotanistBackpack
@@ -162,8 +152,8 @@
 
 - type: roleLoadout
   id: JobClown
+  canCustomizeName: true
   groups:
-  - GroupTankHarness
   - ClownHead
   - ClownMask
   - ClownJumpsuit
@@ -176,8 +166,8 @@
 
 - type: roleLoadout
   id: JobMime
+  canCustomizeName: true
   groups:
-  - GroupTankHarness
   - MimeHead
   - MimeMask
   - MimeJumpsuit
@@ -190,8 +180,8 @@
 
 - type: roleLoadout
   id: JobMusician
+  canCustomizeName: true
   groups:
-  - GroupTankHarness
   - MusicianJumpsuit
   - CommonBackpack
   - MusicianOuterClothing
@@ -205,7 +195,6 @@
 - type: roleLoadout
   id: JobQuartermaster
   groups:
-  - GroupTankHarness
   - QuartermasterHead
   - QuartermasterNeck
   - QuartermasterJumpsuit
@@ -220,7 +209,6 @@
 - type: roleLoadout
   id: JobCargoTechnician
   groups:
-  - GroupTankHarness
   - CargoTechnicianHead
   - CargoTechnicianJumpsuit
   - CargoTechnicianBackpack
@@ -234,7 +222,6 @@
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
-  - GroupTankHarness
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
@@ -247,8 +234,8 @@
 - type: roleLoadout
   id: JobChiefEngineer
   groups:
-  - GroupTankHarness
   - ChiefEngineerHead
+  - EngineeringGoggles #Funky
   - ChiefEngineerJumpsuit
   - StationEngineerBackpack
   - ChiefEngineerNeck
@@ -261,7 +248,6 @@
 - type: roleLoadout
   id: JobTechnicalAssistant
   groups:
-  - GroupTankHarness
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
   - SurvivalExtended
@@ -271,8 +257,8 @@
 - type: roleLoadout
   id: JobStationEngineer
   groups:
-  - GroupTankHarness
   - StationEngineerHead
+  - EngineeringGoggles #Funky
   - StationEngineerJumpsuit
   - StationEngineerBackpack
   - StationEngineerOuterClothing
@@ -285,8 +271,8 @@
 - type: roleLoadout
   id: JobAtmosphericTechnician
   groups:
-  - GroupTankHarness
   - AtmosphericTechnicianHead # Goobstation
+  - EngineeringGoggles
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
@@ -299,7 +285,6 @@
 - type: roleLoadout
   id: JobResearchDirector
   groups:
-  - GroupTankHarness
   - ResearchDirectorHead
   - ResearchDirectorNeck
   - ResearchDirectorJumpsuit
@@ -315,7 +300,6 @@
 - type: roleLoadout
   id: JobScientist
   groups:
-  - GroupTankHarness
   - ScientistHead
   - ScientistNeck
   - ScientistJumpsuit
@@ -332,7 +316,6 @@
 - type: roleLoadout
   id: JobResearchAssistant
   groups:
-  - GroupTankHarness
   - ResearchAssistantJumpsuit
   - ScientistBackpack
   - Glasses
@@ -345,6 +328,7 @@
   id: JobHeadOfSecurity
   groups:
   - HeadofSecurityHead
+  - SecurityGlasses #Funky
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
   - SecurityBackpack
@@ -360,6 +344,7 @@
   id: JobWarden
   groups:
   - WardenHead
+  - SecurityGlasses #Funky
   - WardenJumpsuit
   - WardenNeck
   - SecurityBackpack
@@ -376,6 +361,7 @@
   groups:
   - SecurityHead
   - SecurityJumpsuit
+  - SecurityGlasses #Funky
   - SecurityNeck
   - SecurityBackpack
   - SecurityOuterClothing
@@ -392,6 +378,7 @@
   groups:
   - DetectiveHead
   - DetectiveNeck
+  - SecurityGlasses #Funky
   - DetectiveJumpsuit
   - SecurityBackpack
   - DetectiveOuterClothing
@@ -415,9 +402,9 @@
 - type: roleLoadout
   id: JobChiefMedicalOfficer
   groups:
-  - GroupTankHarness
   - ChiefMedicalOfficerHead
   - MedicalMask
+  - MedicalDoctorGlasses #Funky
   - ChiefMedicalOfficerJumpsuit
   - MedicalGloves
   - MedicalBackpack
@@ -432,9 +419,9 @@
 - type: roleLoadout
   id: JobMedicalDoctor
   groups:
-  - GroupTankHarness
   - MedicalDoctorHead
   - MedicalMask
+  - MedicalDoctorGlasses
   - MedicalDoctorJumpsuit
   - MedicalGloves
   - MedicalBackpack
@@ -449,7 +436,6 @@
 - type: roleLoadout
   id: JobMedicalIntern
   groups:
-  - GroupTankHarness
   - MedicalInternJumpsuit
   - MedicalBackpack
   - Glasses
@@ -460,8 +446,8 @@
 - type: roleLoadout
   id: JobChemist
   groups:
-  - GroupTankHarness
   - MedicalMask
+  - MedicalChemistGlasses #Funky
   - ChemistJumpsuit
   - MedicalGloves
   - ChemistBackpack
@@ -474,9 +460,9 @@
 - type: roleLoadout
   id: JobParamedic
   groups:
-  - GroupTankHarness
   - ParamedicHead
   - MedicalMask
+  - MedicalDoctorGlasses #Funky
   - ParamedicJumpsuit
   - MedicalGloves
   - MedicalBackpack
@@ -491,7 +477,6 @@
 - type: roleLoadout
   id: JobZookeeper
   groups:
-  - GroupTankHarness
   - CommonBackpack
   - Glasses
   - Survival
@@ -501,7 +486,6 @@
 - type: roleLoadout
   id: JobReporter
   groups:
-  - GroupTankHarness
   - ReporterJumpsuit
   - ReporterOuterClothing # Goobstation - Bodycams
   - CommonBackpack
@@ -514,7 +498,6 @@
 - type: roleLoadout
   id: JobPsychologist
   groups:
-  - GroupTankHarness
   - PsychologistJumpsuit
   - MedicalBackpack
   - Glasses
@@ -525,7 +508,6 @@
 - type: roleLoadout
   id: JobBoxer
   groups:
-  - GroupTankHarness
   - BoxerJumpsuit
   - BoxerGloves
   - CommonBackpack
@@ -553,7 +535,6 @@
 - type: roleLoadout
   id: JobPartyMaker
   groups:
-  - GroupTankHarness
   - CommonBackpack
   - Survival
   - GroupSpeciesBreathTool
@@ -561,52 +542,61 @@
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
 
+# gives vox a harness and breathing mask
+# nitrogen tank not included
 - type: roleLoadout
   id: RoleSurvivalVoxSupport
   groups:
   - GroupSpeciesBreathTool
-  - GroupTankHarness
+  
+
+# gives vox a nitrogen breathing tank
+# other species get nothing
+- type: roleLoadout
+  id: RoleSurvivalVoxTank
+  groups:
+  - GroupEVATankVox
 
 - type: roleLoadout
   id: RoleSurvivalStandard
   groups:
   - Survival
   - GroupSpeciesBreathTool
-  - GroupTankHarness
+  
 
 - type: roleLoadout
   id: RoleSurvivalClown
   groups:
   - SurvivalClown
-  - GroupTankHarness
+  
 
 - type: roleLoadout
   id: RoleSurvivalExtended
   groups:
   - SurvivalExtended
   - GroupSpeciesBreathTool
-  - GroupTankHarness
+  
 
 - type: roleLoadout
   id: RoleSurvivalMedical
   groups:
   - SurvivalMedical
   - GroupSpeciesBreathToolMedical
-  - GroupTankHarness
+  
 
 - type: roleLoadout
   id: RoleSurvivalSecurity
   groups:
   - SurvivalSecurity
   - GroupSpeciesBreathToolSecurity
-  - GroupTankHarness
+  
 
 - type: roleLoadout
   id: RoleSurvivalSyndicate
   groups:
   - SurvivalSyndicate
   - GroupSpeciesBreathTool
-  - GroupTankHarness
+  
 
 - type: roleLoadout
   id: RoleSurvivalNukie

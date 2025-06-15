@@ -52,6 +52,9 @@
   - TowelColorSilver
   - TowelColorWhite
   - TowelColorYellow
+  # Begin DeltaV Additions
+  - TapeRecorder
+  # End DeltaV Additions
 
 - type: loadoutGroup
   id: Glasses
@@ -79,7 +82,9 @@
   - EmergencyNitrogen
   - EmergencyOxygen
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # DeltaV
 
+# nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
   id: GroupEVATank
   name: loadout-group-EVA-tank
@@ -87,6 +92,14 @@
   loadouts:
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
+
+# vox get a nitrogen tank, other species get nothing
+- type: loadoutGroup
+  id: GroupEVATankVox
+  name: loadout-group-vox-tank
+  hidden: true
+  loadouts:
+  - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
   id: GroupPocketTankDouble
@@ -785,6 +798,14 @@
   - StationEngineerHardhatRed
   - SeniorEngineerBeret
 
+- type: loadoutGroup #Funky
+  id: EngineeringGoggles
+  name: loadout-group-engineering-goggles
+  minLimit: 1
+  loadouts:
+  - EngineeringNormGoggles
+  - EngineeringJamGoggles
+
 - type: loadoutGroup
   id: StationEngineerJumpsuit
   name: loadout-group-station-engineer-jumpsuit
@@ -1080,6 +1101,14 @@
   - SecurityHat
   - TrooperHat
 
+- type: loadoutGroup #Funky
+  id: SecurityGlasses
+  name: loadout-group-security-glasses
+  minLimit: 1
+  loadouts:
+    - SecurityNormGlasses
+    - SecurityJamjarGlasses
+
 - type: loadoutGroup
   id: SecurityJumpsuit
   name: loadout-group-security-jumpsuit
@@ -1252,6 +1281,14 @@
   - PurpleSurgeryCap
   - NurseHat
 
+- type: loadoutGroup #Funky
+  id: MedicalDoctorGlasses
+  name: loadout-group-medical-doctor-glasses
+  minLimit: 1
+  loadouts:
+    - MedicalNormGlasses
+    - MedicalJamjarGlasses
+
 - type: loadoutGroup
   id: MedicalDoctorJumpsuit
   name: loadout-group-medical-doctor-jumpsuit
@@ -1317,6 +1354,14 @@
   - WhiteJumpsuit
   - WhiteJumpskirt
 
+- type: loadoutGroup #Funky
+  id: MedicalChemistGlasses
+  name: loadout-group-medical-chemist-glasses
+  minLimit: 1
+  loadouts:
+    - MedicalChemistNormGlasses
+    - MedicalChemistJamjarGlasses
+
 - type: loadoutGroup
   id: ChemistJumpsuit
   name: loadout-group-chemist-jumpsuit
@@ -1368,6 +1413,7 @@
   name: loadout-group-paramedic-shoes
   loadouts:
   - BlueShoes
+  - WhiteShoes
   - MedicalWinterBoots
 
 - type: loadoutGroup

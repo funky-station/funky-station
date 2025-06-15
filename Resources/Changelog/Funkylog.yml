@@ -2584,3 +2584,576 @@ Entries:
       message: Added Gocrazy plushie.
   id: 320
   time: '2025-05-01T23:40:45.0000000+00:00'
+- author: ' Miiish'
+  changes:
+    - type: Fix
+      message: Monkeys and clowns can now have their biomass reclaimed.
+  id: 321
+  time: '2025-05-03T01:10:19.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        Revolutionaries and Head Revolutionaries can no longer Mind Shield
+        themselves.
+    - type: Tweak
+      message: >-
+        The revolutionaries' fast draw implanter now crushes any implants it
+        draws, allowing for easier re-use.
+    - type: Tweak
+      message: >-
+        Implanter draw times have been cut in half. Implanters now take 30
+        seconds to draw, and Fast Draws now take 15 seconds to draw.
+    - type: Tweak
+      message: >-
+        The standard implanter now deals 90 damage on a failed draw, 50 genetic
+        + 40 heat, instead of the previous 60.
+    - type: Tweak
+      message: >-
+        The fast draw implanter now only deals 20 heat damage on a failed draw,
+        instead of the previous 60.
+  id: 322
+  time: '2025-05-04T01:59:09.0000000+00:00'
+- author: ' Icepicked, oBerry'
+  changes:
+    - type: Add
+      message: Added 16 new lawsets to the Ion storm event.
+    - type: Tweak
+      message: Ion storm weights have been altered.
+  id: 323
+  time: '2025-05-04T02:06:36.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added Biofabricator and Bluespace Relay to Bagel.
+    - type: Fix
+      message: Removed extra mail teleporters from under tables on Bagel.
+  id: 324
+  time: '2025-05-05T00:22:02.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: >-
+        Crystallizer will no longer maintain temperature with a low amount of
+        gas in it's regulator port. 
+  id: 325
+  time: '2025-05-05T23:05:33.0000000+00:00'
+- author: sleepyyapril
+  changes:
+    - type: Add
+      message: Added a pill buffer and sorting to the ChemMaster.
+    - type: Tweak
+      message: Moved transfer buttons to the side.
+  id: 326
+  time: '2025-05-08T01:31:14.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: Changed medical bio-fabricator sprite
+  id: 327
+  time: '2025-05-09T02:14:04.0000000+00:00'
+- author: ReconPangolin
+  changes:
+    - type: Add
+      message: Added catberries
+  id: 328
+  time: '2025-05-09T20:18:03.0000000+00:00'
+- author: Sadie-silly
+  changes:
+    - type: Tweak
+      message: Granted Blueshield extra access, and a centcomm overear headset.
+    - type: Fix
+      message: Removed Blueshield's extra survival box.
+  id: 329
+  time: '2025-05-09T20:18:42.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Add
+      message: >-
+        some more thaven moods have been added, though only certain jobs can
+        roll them
+    - type: Tweak
+      message: mindshielded thavens can no longer be emagged
+  id: 330
+  time: '2025-05-09T20:19:59.0000000+00:00'
+- author: GaloGal0
+  changes:
+    - type: Tweak
+      message: Increased the speed of the autodoc
+  id: 331
+  time: '2025-05-10T00:02:42.0000000+00:00'
+- author: GaloGal0
+  changes:
+    - type: Remove
+      message: Removed Russian text in Autodoc UI
+    - type: Tweak
+      message: Changed capitalisation in Autodoc UI
+  id: 332
+  time: '2025-05-10T04:05:57.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: >-
+        The heat pump, a heat transferring device, can now be found in the
+        crafting menu or crafted with the RPD. 
+  id: 333
+  time: '2025-05-11T23:42:53.0000000+00:00'
+- author: ' JoulesBerg'
+  changes:
+    - type: Fix
+      message: >-
+        CBurn agents get to role play at centcomm now (zombie rounds should no
+        longer end early if the shuttle has been called)
+  id: 334
+  time: '2025-05-12T00:04:27.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: >-
+        Electrolyzer powerload will now return to baseline more slowly, causing
+        fewer power fluctuations.
+  id: 335
+  time: '2025-05-12T00:54:45.0000000+00:00'
+- author: SpaceCat-Chan
+  changes:
+    - type: Add
+      message: Added a News Manager digiboard, because the news never sleeps!
+  id: 336
+  time: '2025-05-14T03:10:08.0000000+00:00'
+- author: ' Joulesberg'
+  changes:
+    - type: Add
+      message: >-
+        Added finance allocation computer / departmental request computers to
+        omega. 
+  id: 337
+  time: '2025-05-14T05:18:35.0000000+00:00'
+- author: UristMcWiki
+  changes:
+    - type: Tweak
+      message: Changed and modify pricing and sales for nukies/traitors.
+    - type: Tweak
+      message: Added a War Ops requirement to certain nukie items.
+  id: 338
+  time: '2025-05-14T20:05:09.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Fix
+      message: late joined thavens will now have moods
+  id: 339
+  time: '2025-05-15T18:34:50.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Departmental Economy Consoles added to Bagel
+  id: 340
+  time: '2025-05-15T18:35:34.0000000+00:00'
+- author: IronDragoon
+  changes:
+    - type: Add
+      message: >-
+        portable chemical mixer, a craftable chemical mixer which can be worn
+        around the waist. 
+  id: 341
+  time: '2025-05-15T18:37:05.0000000+00:00'
+- author: ' JoulesBerg'
+  changes:
+    - type: Add
+      message: >-
+        Added Funds Allocation and department request computers, biomass
+        reclaimer, biotech medfab, crystalizer, and bluespace distributor to
+        elkridge.
+  id: 342
+  time: '2025-05-16T02:25:34.0000000+00:00'
+- author: Quantus
+  changes:
+    - type: Tweak
+      message: Removed security time requirement for Changeling.
+  id: 343
+  time: '2025-05-16T02:32:30.0000000+00:00'
+- author: ' oLykos'
+  changes:
+    - type: Add
+      message: >-
+        Moths have a new "Soft Eyes" marking option with accompanying
+        heterochromia
+  id: 344
+  time: '2025-05-17T01:21:33.0000000+00:00'
+- author: UristMcWiki
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Syndie rework not allowing surplus crates to contain WarOps
+        content.
+  id: 345
+  time: '2025-05-18T01:48:00.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: >-
+        Hydrogen fire reactions have been slightly reworked to more closely
+        follow original mechanics
+  id: 346
+  time: '2025-05-18T19:24:57.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: The crystallizer's max input rate is now capped to 250 mol/s
+  id: 347
+  time: '2025-05-18T22:35:30.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: >-
+        Request computers, Silo Relay, Medcial Biofab, Atmos Crystalizer and Gas
+        Vendors added to origin.
+  id: 348
+  time: '2025-05-19T16:14:58.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Boosted the size of Bagel's atmos playground
+    - type: Fix
+      message: Relinked Bagel Gas Vendors to Gas Sender
+  id: 349
+  time: '2025-05-21T16:23:58.0000000+00:00'
+- author: ' GtheGlorious'
+  changes:
+    - type: Tweak
+      message: Revamped Roingus Textures
+  id: 350
+  time: '2025-05-22T04:51:47.0000000+00:00'
+- author: misterghast
+  changes:
+    - type: Add
+      message: Ported over the Holo-flaregun from Frontier Station
+  id: 351
+  time: '2025-05-22T06:15:17.0000000+00:00'
+- author: ' AfterLite, sowelipililimute, deltanedas'
+  changes:
+    - type: Tweak
+      message: The Cosmic Cult has been refactored and rebalanced!
+    - type: Tweak
+      message: >-
+        Cosmic Cult conversion is no longer tied to the metabolism of holy
+        water, please see the Guidebook tab on deconversion.
+    - type: Remove
+      message: The Lone Astral Ascendant has been removed from the midround pool.
+    - type: Add
+      message: >-
+        Cosmic Cultists now gain a special, one-time use ability while
+        Empowered.
+    - type: Fix
+      message: 'Various Cosmic Cult fixes, yay! '
+  id: 352
+  time: '2025-05-22T06:16:20.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: New MMI sprites.
+    - type: Tweak
+      message: New AME controller sprites.
+    - type: Tweak
+      message: New Fax sprites by Teasq.
+  id: 353
+  time: '2025-05-25T18:10:16.0000000+00:00'
+- author: ' ilyamikcoder'
+  changes:
+    - type: Add
+      message: Maintenance airlocks now have colors of their respective departments.
+  id: 354
+  time: '2025-05-25T19:44:07.0000000+00:00'
+- author: The048
+  changes:
+    - type: Tweak
+      message: changed the design of the medbay to make it more usable
+    - type: Tweak
+      message: changed one of the tables in the armory into a rack
+    - type: Tweak
+      message: added an EOD suit locker to the sec locker room
+    - type: Tweak
+      message: converted the maints surgery room into a potential saw trap room
+    - type: Tweak
+      message: added a paramedic locker and opened the paramedic role on cluster
+    - type: Tweak
+      message: removed waiting area
+    - type: Tweak
+      message: closed off front desk better into its own room
+  id: 355
+  time: '2025-05-26T01:00:42.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Add
+      message: (Im)ported a new syndicate rifle, the M-90.
+    - type: Add
+      message: Smoke implanter & syndi swat helmet.
+  id: 356
+  time: '2025-05-26T01:23:12.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Fix
+      message: The mail bag now actually stores mail again.
+  id: 357
+  time: '2025-05-26T21:13:58.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Bagel atmos room has breathable atmos now
+  id: 358
+  time: '2025-05-27T07:04:58.0000000+00:00'
+- author: bytehammer, sowelipililimute, bogus_0451, deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Anodynafil now exists, an anesthetic that doesn't interfere with
+        consciousness but causes prolonged inability to sense pain.
+    - type: Add
+      message: Added the autoclave to sterilize surgical tools in bulk.
+    - type: Fix
+      message: Fixed not being able to clean autodocs with soap.
+    - type: Fix
+      message: Fixed operating on animals not making surgical tools dirty.
+    - type: Fix
+      message: Fixed held non-surgical items becoming dirty during surgery.
+    - type: Fix
+      message: Fixed surgery dealing damage to dead people.
+    - type: Fix
+      message: Fixed surgery dirtiness display in toolbar.
+  id: 359
+  time: '2025-05-28T18:01:51.0000000+00:00'
+- author: dch-GH
+  changes:
+    - type: Fix
+      message: >-
+        Fix certain non-sentient mobs from being able to speak using the Say
+        Last Words action.
+  id: 360
+  time: '2025-05-29T23:37:49.0000000+00:00'
+- author: Lyndomen, deltanedas, Miiish
+  changes:
+    - type: Tweak
+      message: IPC batteries now last 15% longer
+    - type: Tweak
+      message: >-
+        IPC welding / cabling is now on-par with a bruise pack / ointment for
+        healing.
+    - type: Remove
+      message: IPCs can no longer be emagged
+    - type: Add
+      message: IPCs now start with a survival box full of healing items
+    - type: Tweak
+      message: IPCs now take radiation and cold damage, with 50% resistance to both
+    - type: Add
+      message: IPCs may be cleansed of radiation with Plasma Sheets
+    - type: Add
+      message: >-
+        IPCs now have a bloodstream of Oil. They do not regenerate oil, or stop
+        bleeding without intervention. They will very very slowly tick Blunt
+        damage when low on Oil.
+    - type: Tweak
+      message: IPC bleeding may be stopped with a Plastic Sheet or welding tool.
+    - type: Add
+      message: >-
+        IPCs may get back Oil by using an Oil Pack, printable at the medical
+        techfab or exosuit fabricator roundstart, or purchasable by Cargo.
+    - type: Add
+      message: >-
+        Syndicate members may purchase a Silicon focused repair and recharge
+        kit; the Omnipatch Kit.
+    - type: Fix
+      message: IPC paradoxes now get the real version's headsets.
+    - type: Fix
+      message: IPC blindness can now actually be healed using glass sheets.
+  id: 361
+  time: '2025-05-30T18:55:42.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Add
+      message: You can now put your money where your mouth is.
+  id: 362
+  time: '2025-06-01T02:40:48.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: New AME shielding.
+    - type: Tweak
+      message: Some of the trash bottles have been resprited.
+    - type: Tweak
+      message: New portable chemical mixer sprites.
+    - type: Tweak
+      message: Port new cables from upstream.
+  id: 363
+  time: '2025-06-01T23:21:11.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: >-
+        Thaven are immune to the drug effects of Shimmering Blood and Fever
+        Dream.
+  id: 364
+  time: '2025-06-01T23:22:05.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Add
+      message: >-
+        Animal eyes can be used in heretic rituals (animal eyes now have the
+        eyes tag assigned to it)
+  id: 365
+  time: '2025-06-04T01:25:15.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Add
+      message: Added velociraptor cubes to emagged biocube fabricators
+  id: 366
+  time: '2025-06-04T01:29:01.0000000+00:00'
+- author: The048
+  changes:
+    - type: Tweak
+      message: On Origin, redesigned the armory
+    - type: Tweak
+      message: >-
+        On Origin, made minor fixes to the security department regarding
+        spawnpoints and item placement
+  id: 367
+  time: '2025-06-05T06:16:08.0000000+00:00'
+- author: taydeo, Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        Changelings can now sting one alive person for DNA extraction, then
+        other targets must be either crit or dead.
+    - type: Add
+      message: >-
+        Changelings now eat random non-vital organs and a limb when absorbing
+        someone.
+    - type: Remove
+      message: >-
+        Removed hollowing text on absorbed bodies, and removed genetic damage
+        dealt when absorbing.
+    - type: Remove
+      message: Ferrochromic Acid no longer replaces someones blood when absorbed.
+    - type: Tweak
+      message: >-
+        The metashield for Changelings has been changed to account for hollowing
+        changes, and now allows for bloodtests in very specific circumstances.
+    - type: Tweak
+      message: >-
+        The Medical Biofabricator is now significantly cheaper to operate, with
+        prices being more than halved overall for all objects except the Heart.
+    - type: Tweak
+      message: >-
+        All organ and limb print times have been reduced to 10 seconds in the
+        Medical Biofabricator.
+    - type: Tweak
+      message: >-
+        Heretics now have a slightly greater chance to spawn, and Thieves have a
+        slightly lower chance to spawn.
+    - type: Tweak
+      message: >-
+        Cosmic Cult now has a greater chance of rolling, and Changeling a
+        slightly lower chance of rolling.
+  id: 368
+  time: '2025-06-05T07:42:43.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Fix
+      message: Fixed IPCs not being able to heal caustic damage or take ion damage
+  id: 369
+  time: '2025-06-05T07:47:13.0000000+00:00'
+- author: ptrcnull
+  changes:
+    - type: Tweak
+      message: >-
+        Fixed the economy once and for all by nerfing firelock electronics
+        selling price.
+  id: 370
+  time: '2025-06-05T07:48:28.0000000+00:00'
+- author: jackel234
+  changes:
+    - type: Add
+      message: >-
+        Ported the Home Run Bat from DV, a Syndicate baseball bat that launches
+        anyone hit by it. Swing for the fences!
+  id: 371
+  time: '2025-06-11T04:11:18.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Tweak
+      message: Space exposure now deals four times as much damage.
+  id: 372
+  time: '2025-06-13T06:26:10.0000000+00:00'
+- author: jackel234
+  changes:
+    - type: Fix
+      message: >-
+        The X-01 Multiphase's description now accurately reflects that it can
+        self-recharge.
+  id: 373
+  time: '2025-06-14T02:47:20.0000000+00:00'
+- author: Gansu
+  changes:
+    - type: Add
+      message: >-
+        Added reagent bounties which require liquids instead of objects in order
+        to complete. Consult your chemist or bartender for assistance
+    - type: Tweak
+      message: Beer and Wine bounties are now reagent based
+  id: 374
+  time: '2025-06-14T07:49:10.0000000+00:00'
+- author: IronDragoon
+  changes:
+    - type: Add
+      message: >-
+        New cartridge autoinjector system. Hypospray style injectors using
+        premade cartridges, printable in med and sec fabs. Designed for
+        stabilising patients in the field. Adds new injectors, cartridges and 2
+        cases for holding them. Also available for syndicate agents with 2
+        special cartridges, and a bundle for nukies. 
+  id: 375
+  time: '2025-06-14T15:46:25.0000000+00:00'
+- author: dch-GH
+  changes:
+    - type: Add
+      message: Toggle Your Ghost action to hide your own ghost.
+    - type: Tweak
+      message: Allow clients to use toggleselfghost command.
+  id: 376
+  time: '2025-06-14T18:17:15.0000000+00:00'
+- author: amethystowo
+  changes:
+    - type: Add
+      message: Added Sievertadone, a pyrogenics chem that heals radiation on the dead.
+  id: 377
+  time: '2025-06-14T18:47:10.0000000+00:00'
+- author: Ekpy
+  changes:
+    - type: Tweak
+      message: Shiva is a roundstart ghost role and is slightly weaker.
+    - type: Add
+      message: Shiva can now pull objects.
+    - type: Remove
+      message: Removed Shiva from thief objectives
+  id: 378
+  time: '2025-06-14T18:47:58.0000000+00:00'
+- author: ptrcnull
+  changes:
+    - type: Add
+      message: >-
+        Added space animal liver which can slowly filter out radiation from the
+        body
+  id: 379
+  time: '2025-06-14T18:53:01.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: New nuke disk sprite
+    - type: Tweak
+      message: New paper sprites
+    - type: Tweak
+      message: New beaker sprites
+    - type: Tweak
+      message: New table sprites
+    - type: Tweak
+      message: New glass sheet sprites
+  id: 380
+  time: '2025-06-15T15:37:34.0000000+00:00'

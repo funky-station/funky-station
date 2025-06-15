@@ -123,6 +123,8 @@
       shader: unshaded
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/syndie-raid.rsi
+  - type: StaminaResistance
+    damageCoefficient: 0.8
   - type: Armor
     modifiers:
       coefficients:
@@ -133,6 +135,8 @@
         Caustic: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.35
+  #- type: StaminaResistance
+  #  damageCoefficient: 0.45
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -182,6 +186,8 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 2
+  - type: Item
+    size: Normal
   - type: Tag
     tags:
       - SpecialArmor
@@ -311,6 +317,8 @@
     sprite: Clothing/OuterClothing/Armor/lingarmor.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/lingarmor.rsi
+  - type: StaminaResistance
+    damageCoefficient: 0.4
   - type: Armor
     modifiers:
       coefficients:
@@ -422,7 +430,9 @@
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
   - type: FireProtection
-    reduction: 0.8 
+    reduction: 0.8
+  - type: StaminaResistance
+    damageCoefficient: 0.75
   - type: Armor
     modifiers:
       coefficients:

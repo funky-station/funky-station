@@ -232,19 +232,6 @@
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
-  id: ClothingBackpackDuffelSyndicateRaidBundle
-  name: syndicate raid suit bundle
-  description: "Contains the Syndicate's durable raid armor suit."
-  components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterArmorRaid
-      - id: ClothingHeadHelmetRaid
-      - id: ClothingMaskGasSyndicate
-      - id: ClothingHandsGlovesCombat
-
-- type: entity
-  parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateHardsuitBundle
   name: syndicate hardsuit bundle
   description: "Contains the Syndicate's signature blood red hardsuit."
@@ -299,6 +286,24 @@
       - id: PillAmbuzol
         amount: 3
 
+#Funky addition - Irondragoon
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateMedicalBundle
+  id: ClothingBackpackDuffelSyndicateCartridgeAutoinjectorBundleFilled
+  name: autoinjector bundle
+  description: "A bag containing 4 Syndicate branded cartridge autoinjectors as well as hard and soft cases, both filled with various cartridges, and a few extras for treating gunshot wounds. For healing in a pinch when you don't have time to stop!"
+  components:
+  - type: StorageFill
+    contents:
+      - id: SyndicateHypo
+        amount: 4
+      - id: autoInjectorCartridgeCaseFilled
+        amount: 2
+      - id: autoInjectorCartridgeCaseSoftFilled
+        amount: 4
+      - id: CartridgeGunshotSyndicate
+        amount: 4
+
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
   id: ClothingBackpackDuffelSyndicateMedicalBundleFilled
@@ -307,19 +312,19 @@
   components:
   - type: StorageFill
     contents:
-      - id: DefibrillatorSyndicate
-      - id: MedkitCombatFilled
-        amount: 4
-      - id: Tourniquet
-        amount: 4
-      - id: CombatMedipen
-        amount: 4
-      - id: PunctAutoInjector
-        amount: 4
-      - id: PyraAutoInjector
-        amount: 4
-      - id: AirlossAutoInjector
-        amount: 4
+    - id: DefibrillatorSyndicate
+    - id: MedkitCombatFilled
+      amount: 4
+    - id: Tourniquet
+      amount: 4
+    - id: CombatMedipen
+      amount: 4
+    - id: PunctAutoInjector
+      amount: 4
+    - id: PyraAutoInjector
+      amount: 4
+    - id: AirlossAutoInjector
+      amount: 4
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle

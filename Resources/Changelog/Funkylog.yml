@@ -3157,3 +3157,9 @@ Entries:
       message: New glass sheet sprites
   id: 380
   time: '2025-06-15T15:37:34.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: The hypertorus fusion reactor has been added
+  id: 381
+  time: '2025-06-15T18:45:39.0000000+00:00'

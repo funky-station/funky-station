@@ -89,16 +89,15 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingEyesGlassesSecurity
-      - id: WeaponDisabler
+      - id: ClothingEyesHudMedSec
       - id: TrackingImplanter
         amount: 2
       - id: ClothingOuterHardsuitBrigmedic
       - id: OxygenTankFilled
       - id: NitrogenTankFilled
       - id: BoxSterileMask
+      - id: ClothingHeadHatBeretBrigmedic
       - id: MedkitFilled
-      - id: MedkitAdvancedFilled
       - id: MedkitOxygenFilled
       - id: MedkitBruteFilled
       - id: MedkitToxinFilled

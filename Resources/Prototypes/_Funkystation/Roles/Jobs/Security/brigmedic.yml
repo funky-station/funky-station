@@ -7,10 +7,10 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Medical
-    time: 18000
+    time: 36000
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 7200
+    time: 36000
   startingGear: BrigmedicGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
@@ -21,16 +21,25 @@
   - Brig
   - Maintenance
   - External
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: SecurityStaff
 
 - type: startingGear
   id: BrigmedicGear
   equipment:
     gloves: ClothingHandsGlovesNitrile
-    eyes: ClothingEyesHudMedical
+    eyes: ClothingEyesGlassesMedSec
     id: BrigmedicPDA
     ears: ClothingHeadsetBrigmedic
     belt: ClothingBeltMedicalFilled
+    pocket1: WeaponDisabler
   storage:
     back:
-    - Syringe
     - Flash
+    - SecHypo # Goobstation
+    - autoInjectorCartridgeCaseSoftFilled
+    - WeaponPistolMk58

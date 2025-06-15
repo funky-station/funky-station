@@ -43017,14 +43017,6 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-  - uid: 9288
-    components:
-    - type: MetaData
-      desc: Stuffed toy resembling a certain Atmosian.
-      name: Erisia Eneka
-    - type: Transform
-      pos: 28.543016,-1.3045654
-      parent: 2
 - proto: PlushieLizard
   entities:
   - uid: 6408

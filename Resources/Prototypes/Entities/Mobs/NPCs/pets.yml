@@ -661,7 +661,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      150: Dead
+      125: Dead
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
@@ -669,20 +669,28 @@
       path: /Audio/Effects/bite.ogg
     damage:
       types:
-        Piercing: 8
-        Poison: 8
+        Piercing: 5
+        Poison: 5
   - type: Grammar
     attributes:
       proper: true
       gender: female
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-shiva-name
+    description: ghost-role-information-shiva-description
+    rules: ghost-role-information-shiva-rules
+  - type: GhostTakeoverAvailable
+  - type: Puller
+    needsHands: false
   - type: Tag
     tags:
     - CannotSuicide
     - VimPilot
     - DoorBumpOpener
     - FootstepSound
-  - type: StealTarget
-    stealGroup: AnimalShiva
 
 - type: entity
   name: Willow

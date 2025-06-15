@@ -32,7 +32,7 @@
   id: SecurityCadetGear
   equipment:
     shoes: ClothingShoesBootsJackFilled
-    outerClothing: ClothingOuterArmorBasic
+#    outerClothing: ClothingOuterArmorBasic
     id: SecurityCadetPDA
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     belt: ClothingBeltSecurityFilled
@@ -43,3 +43,4 @@
     - Flash
     - Handcuffs
     - SecHypo # Goobstation
+    - CartridgeEmergency

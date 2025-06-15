@@ -101,7 +101,6 @@
     sprite: _Funkystation/Clothing/Eyes/Jamjars/jamgog.rsi
   - type: VisionCorrection
   - type: EyeProtection
-    protectionTime: 5
   - type: IdentityBlocker
     coverage: EYES
   - type: Construction

@@ -23,9 +23,7 @@
 
                 <!--  my buttonssss  -->
                 <BoxContainer HorizontalExpand="True">
-                    <OptionButton
-                        HorizontalExpand="True"
-                        Name="RecordFilterType" />
+                    <OptionButton HorizontalExpand="True" Name="RecordFilterType" />
                     <Button
                         HorizontalExpand="True"
                         Name="RecordFilterReset"

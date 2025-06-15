@@ -270,7 +270,7 @@
       sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
       slots:
       - Back
-      - suitStorage
+      - backStorage
     - type: BallisticAmmoProvider
       proto: HolyArrow
       mayTransfer: true

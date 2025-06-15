@@ -3143,3 +3143,17 @@ Entries:
         body
   id: 379
   time: '2025-06-14T18:53:01.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: New nuke disk sprite
+    - type: Tweak
+      message: New paper sprites
+    - type: Tweak
+      message: New beaker sprites
+    - type: Tweak
+      message: New table sprites
+    - type: Tweak
+      message: New glass sheet sprites
+  id: 380
+  time: '2025-06-15T15:37:34.0000000+00:00'

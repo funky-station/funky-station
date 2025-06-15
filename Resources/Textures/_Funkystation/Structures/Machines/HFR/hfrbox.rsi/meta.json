@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/f8581a636acfc1517611a680b7711a74fc7ef335",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+        "name":"box_body"
+    },
+    {
+        "name":"box_core"
+    },
+    {
+        "name":"box_corner"
+    },
+    {
+        "name":"box_fuel"
+    },
+    {
+        "name":"box_moderator"
+    },
+    {
+        "name":"box_waste"
+    }
+  ]
+}

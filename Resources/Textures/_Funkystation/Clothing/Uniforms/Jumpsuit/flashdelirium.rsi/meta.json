@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "willowzeta (github)",
+  "copyright": "Sprites by willowzeta (github), using the original upstream color.rsi sprites as a template",
   "size": {
     "x": 32,
     "y": 32

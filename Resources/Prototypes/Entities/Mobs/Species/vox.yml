@@ -20,6 +20,7 @@
   - type: Speech
     speechVerb: Vox
     speechSounds: Vox
+    allowedEmotes: ['Chitter', 'Coo', 'Hiss', 'Caw']
   - type: TypingIndicator
     proto: vox
   - type: Vocal
@@ -167,6 +168,9 @@
         32:
           sprite: Mobs/Species/Vox/displacement.rsi
           state: hand_r
+  - type: Tag
+    tags:
+    - VoxEmotes
 
 - type: entity
   parent: BaseSpeciesDummy

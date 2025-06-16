@@ -5,12 +5,6 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._Funkystation.Medical.MedicalRecords;
 
-// this needs to be redone bc it isnt predicted! yayyyy!
-// copy-pasted from CD implementation but this isnt.... how this should be done.....
-// most of this should be put into a comp,
-// and then there should be a shared system folder to inherit from server
-// or instead of inheriting from server, throw the server system stuff into shared to predict it?
-// also combine the server comp file into shared
 [Serializable, NetSerializable]
 public enum MedicalRecordsConsoleKey : byte
 {
@@ -66,3 +60,5 @@ public sealed class MedicalRecordsConsoleSelectMsg : BoundUserInterfaceMessage
         CharacterRecordKey = medicalRecordsKey;
     }
 }
+
+// maybe a new msg to add history/reports? idkkkkk

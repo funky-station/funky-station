@@ -10,14 +10,10 @@ public sealed class MedicalRecordsBoundUserInterface(EntityUid owner, Enum uiKey
 {
     [ViewVariables] private MedicalRecordsMenu? _menu;
 
-    // this file is how to handle when the ui is open, and the classes for updating it
-    // communicates to the server system file via shared inheritance
-
     protected override void UpdateState(BoundUserInterfaceState state)
     {
         base.UpdateState(state);
-
-        if (state is not MedicalRecordsState state)
+        if (state is not MedicalRecordsConsoleState state)
             return;
 
         _menu?.UpdateState(state);

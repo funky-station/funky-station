@@ -13,10 +13,11 @@ public sealed class MedicalRecordsBoundUserInterface(EntityUid owner, Enum uiKey
     protected override void UpdateState(BoundUserInterfaceState state)
     {
         base.UpdateState(state);
-        if (state is not MedicalRecordsConsoleState state)
+
+        if (state is not MedicalRecordsConsoleState cast)
             return;
 
-        _menu?.UpdateState(state);
+        _menu?.UpdateState(cast);
     }
     protected override void Open()
     {
@@ -25,17 +26,17 @@ public sealed class MedicalRecordsBoundUserInterface(EntityUid owner, Enum uiKey
         _menu = this.CreateWindow<MedicalRecordsMenu>();
         _menu.OnClose += Close;
 
-        _menu.OnListingSelected += meta =>
-        {
-            SendMessage(new MedicalRecordsConsoleSelectMsg(meta?.MedicalRecordsKey));
-        };
-
-        _menu.OnFiltersChanges += (ty, text) =>
-        {
-            SendMessage(txt == null
-                ? new MedicalRecordsConsoleFilterMsg(null)
-                : new MedicalRecordsConsoleFilterMsg(new MedicalRecordsConsoleFilterMsg(ty, txt)));
-        };
+        // _menu.OnListingSelected += meta =>
+        // {
+        //     SendMessage(new MedicalRecordsConsoleSelectMsg(meta?.MedicalRecordsKey));
+        // };
+        //
+        // _menu.OnFiltersChanges += (ty, text) =>
+        // {
+        //     SendMessage(txt == null
+        //         ? new MedicalRecordsConsoleFilterMsg(null)
+        //         : new MedicalRecordsConsoleFilterMsg(new MedicalRecordsConsoleFilterMsg(ty, txt)));
+        // };
 
         _menu.OpenCentered();
     }

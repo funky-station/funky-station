@@ -11,7 +11,7 @@ using Robust.Server.GameObjects;
 
 namespace Content.Server._Funkystation.Medical.MedicalRecords;
 
-public sealed class CharacterRecordConsoleSystem : EntitySystem
+public sealed class MedicalRecordsConsoleSystem : SharedMedicalRecordsConsoleSystem
 {
     [Dependency] private readonly CharacterRecordsSystem _characterRecords = default!;
     [Dependency] private readonly IEntityManager _entity = default!;

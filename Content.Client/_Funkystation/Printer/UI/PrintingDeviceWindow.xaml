@@ -1,0 +1,22 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               Title="{Loc 'printing-device-ui-title'}"
+               MinWidth="250">
+    <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+        <Control HorizontalExpand="True" MinHeight="20" />
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Label Text="{Loc 'printing-device-ui-template'}" />
+            <Control MinWidth="4" />
+            <OptionButton Name="TemplateSelector" HorizontalExpand="True" />
+        </BoxContainer>
+        <Control HorizontalExpand="True" MinHeight="20" />
+        <BoxContainer Name="TemplateContainer" Orientation="Vertical" HorizontalExpand="True">
+            <!--  populated by template data by code  -->
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Button Name="PrintButton"
+                    Text="{Loc 'printing-device-ui-print-button'}"
+                    HorizontalExpand="True"
+                    Disabled="True" />
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>

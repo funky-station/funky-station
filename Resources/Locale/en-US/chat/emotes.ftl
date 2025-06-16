@@ -70,3 +70,4 @@ chat-emote-msg-yawn = yawns.
 chat-emote-msg-snore = snores.
 chat-emote-name-yap = Yaps
 chat-emote-name-gekker = Gekkers
+chat-emote-msg-coo = coos.

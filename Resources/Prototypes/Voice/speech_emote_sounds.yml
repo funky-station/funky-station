@@ -226,6 +226,24 @@
       path: /Audio/Voice/Vox/shriek1.ogg
     Laugh:
       path: /Audio/Voice/Vox/vox_laugh.ogg
+    Crying:
+      path: /Audio/_Impstation/Voice/Vox/voxcry.ogg
+    Cough:
+      path: /Audio/_Goobstation/Voice/Vox/vox_cough.ogg #Placeholder from goob until Imp inevitably comes out with a better one
+    Sneeze:
+      path: /Audio/_Goobstation/Voice/Vox/vox_sneeze.ogg #Placeholder from goob until Imp inevitably comes out with a better one
+    Chitter:
+      collection: VoxChitter
+    Coo:
+      collection: VoxCoo
+    Gasp:
+      collection: VoxGasp
+    Caw:
+      collection: HarpyCaws #This is a placeholder for now
+    DefaultDeathgasp:
+      path: /Audio/_Goobstation/Voice/Vox/vox_deathgasp.ogg #Placeholder from goob until Imp inevitably comes out with a better one
+    Hiss:
+      path: /Audio/_Impstation/Voice/Vox/voxhiss.ogg
     Honk:
       collection: BikeHorn
     Weh:

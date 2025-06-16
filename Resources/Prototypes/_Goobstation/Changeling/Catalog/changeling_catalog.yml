@@ -201,13 +201,13 @@
 # utility
 
 - type: listing
-  id: EvolutionMenuUtilityPanacea
-  name: evolutionmenu-utility-panacea-name
-  description: evolutionmenu-utility-panacea-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: anatomic_panacea }
-  productAction: ActionAnatomicPanacea
+  id: EvolutionMenuUtilityEyesight
+  name: evolutionmenu-utility-eyesight-name
+  description: evolutionmenu-utility-eyesight-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: augmented_eyesight }
+  productAction: ActionAugmentedEyesight
   cost:
-    EvolutionPoint: 2
+    EvolutionPoint: 0
   categories:
   - ChangelingAbilityUtility
   conditions:
@@ -215,13 +215,13 @@
     stock: 1
 
 - type: listing
-  id: EvolutionMenuUtilityEyesight
-  name: evolutionmenu-utility-eyesight-name
-  description: evolutionmenu-utility-eyesight-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: augmented_eyesight }
-  productAction: ActionAugmentedEyesight
+  id: EvolutionMenuUtilityPanacea
+  name: evolutionmenu-utility-panacea-name
+  description: evolutionmenu-utility-panacea-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: anatomic_panacea }
+  productAction: ActionAnatomicPanacea
   cost:
-    EvolutionPoint: 4
+    EvolutionPoint: 2
   categories:
   - ChangelingAbilityUtility
   conditions:

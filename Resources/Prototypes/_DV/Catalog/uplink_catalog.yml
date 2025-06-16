@@ -38,9 +38,6 @@
   productEntity: BaseBallBatHomeRun
   icon:
     entity: BaseBallBatHomeRun
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 30
   cost:
     Telecrystal: 50
   categories:

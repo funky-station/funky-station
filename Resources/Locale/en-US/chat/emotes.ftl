@@ -33,6 +33,7 @@ chat-emote-name-monkeyscreeches = Monkey Screeches
 chat-emote-name-robotbeep = Robot
 chat-emote-name-yawn = Yawn
 chat-emote-name-snore = Snore
+chat-emote-name-gurgle = Gurgle
 
 # Message
 chat-emote-msg-scream = screams!
@@ -70,3 +71,4 @@ chat-emote-msg-yawn = yawns.
 chat-emote-msg-snore = snores.
 chat-emote-name-yap = Yaps
 chat-emote-name-gekker = Gekkers
+chat-emote-msg-gurgle = gurgles.

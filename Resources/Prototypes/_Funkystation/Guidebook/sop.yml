@@ -12,7 +12,6 @@
   - CargoSOP
   - ScienceSOP
   - AlertLevelsSOP
-  - EnemiesOfTheCorporation
 
 - type: guideEntry
   id: CommandSOP
@@ -52,11 +51,6 @@
   id: CargoSOP
   name: guide-entry-cargo-sop
   text: "/ServerInfo/Funkystation/Guidebook/Cargo/CargoSOP.xml"
-
-- type: guideEntry
-  id: EnemiesOfTheCorporation
-  name: guide-entry-eoc-sop
-  text: "/ServerInfo/Funkystation/Guidebook/Security/EnemiesOfTheCorporation.xml"
 
 - type: guideEntry
   id: MedicalSOP

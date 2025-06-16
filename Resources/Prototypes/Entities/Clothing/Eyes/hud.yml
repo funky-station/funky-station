@@ -29,7 +29,9 @@
     damageContainers:
     - Inorganic
     - Silicon
-
+  - type: Tag # Funky - jamjarrening
+    tags:
+    - RoboVision
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons]
   id: ClothingEyesHudMedical

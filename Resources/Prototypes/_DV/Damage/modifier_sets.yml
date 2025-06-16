@@ -22,7 +22,7 @@
 - type: damageModifierSet
   id: BloodlossIPC
   coefficients:
-    Blunt: 0.08
+    Blunt: 0.00 # damagetype for bloodloss, dealing this will cause a loop
     Slash: 0.25
     Piercing: 0.2
     Shock: 0.0
@@ -34,3 +34,4 @@
     Bloodloss: 0.0
     Cellular: 0.0
     Caustic: 0.0
+    Ion: 0.0

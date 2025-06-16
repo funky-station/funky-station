@@ -1,0 +1,72 @@
+- type: entity
+  parent: BaseCrowbar
+  id: CrowbarCutePink
+  name: emotional support crowbar
+  description: Nothing makes maints feel safer than a friend for life by your side.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Tools/cutecrowbar.rsi
+    layers:
+    - state: icon
+    - state: cover-icon
+      color: "#FF69B4"
+  - type: Item
+    size: Small # for pockets
+    storedSprite:
+      state: pink-storage
+      sprite: _Funkystation/Objects/Tools/cutecrowbar.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: cover-inhand-left
+        color: "#FF69B4"
+      right:
+      - state: inhand-right
+      - state: cover-inhand-right
+        color: "#FF69B4"
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 6
+    soundHit:
+      collection: MetalThud
+  - type: Clothing
+    clothingVisuals:
+      belt:
+      - state: equipped-BELT
+      - state: cover-equipped-BELT
+        color: "#FF69B4"
+
+- type: entity
+  parent: CrowbarCutePink
+  id: CrowbarCutePurple
+  name: emotional support crowbar
+  description: Nothing makes maints feel safer than a friend for life by your side.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Tools/cutecrowbar.rsi
+    layers:
+    - state: icon
+    - state: cover-icon
+      color: "#CB00F5"
+  - type: Item
+    size: Small # for pockets
+    storedSprite:
+      state: purple-storage
+      sprite: _Funkystation/Objects/Tools/cutecrowbar.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: cover-inhand-left
+        color: "#CB00F5"
+      right:
+      - state: inhand-right
+      - state: cover-inhand-right
+        color: "#CB00F5"
+  - type: Clothing
+    clothingVisuals:
+      belt:
+      - state: equipped-BELT
+      - state: cover-equipped-BELT
+        color: "#CB00F5"

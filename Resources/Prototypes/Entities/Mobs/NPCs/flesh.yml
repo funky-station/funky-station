@@ -44,7 +44,7 @@
     critThreshold: 50
   - type: Butcherable
     spawned:
-    - id: FoodMeat
+    - id: FoodMysteryMeat # Funky - this makes sense, right?
       amount: 1
   - type: Bloodstream
     bloodMaxVolume: 100

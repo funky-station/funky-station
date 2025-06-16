@@ -387,13 +387,6 @@
     state: fox
 
 - type: stealTargetGroup
-  id: AnimalShiva
-  name: steal-target-groups-animal-shiva
-  sprite:
-    sprite: Mobs/Pets/shiva.rsi
-    state: shiva
-
-- type: stealTargetGroup
   id: AnimalTropico
   name: steal-target-groups-animal-tropico
   sprite:

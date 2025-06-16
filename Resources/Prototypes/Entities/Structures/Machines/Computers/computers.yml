@@ -404,10 +404,10 @@
     board: MedicalRecordsComputerCircuitboard
   - type: ActivatableUI # begin funky
     singleUser: true
-    key: enum.MedicalRecordsUiKey.Key
+    key: enum.MedicalRecordsConsoleKey.Key
   - type: UserInterface
     interfaces:
-      enum.MedicalRecordsUiKey.Key:
+      enum.MedicalRecordsConsoleKey.Key:
         type: MedicalRecordsBoundUserInterface # end funky
 
 - type: entity

@@ -1,6 +1,5 @@
 ﻿<controls:FancyWindow
-    MinSize="1000 750"
-    Resizable="False"
+    Resizable="True"
     SetSize="1000 750"
     Title="Medical Records"
     xmlns="https://spacestation14.io"
@@ -21,18 +20,12 @@
                 Orientation="Vertical"
                 SetWidth="300">
 
-                <!--  my buttonssss  -->
                 <BoxContainer HorizontalExpand="True">
                     <OptionButton HorizontalExpand="True" Name="RecordFilterType" />
                     <Button
                         HorizontalExpand="True"
                         Name="RecordFilterReset"
                         Text="Reset"
-                        TextAlign="Center" />
-                    <Button
-                        HorizontalExpand="True"
-                        Name="RecordFilterSearch"
-                        Text="Search"
                         TextAlign="Center" />
                 </BoxContainer>
 
@@ -44,14 +37,10 @@
                 </BoxContainer>
 
                 <!--  entry list  -->
-                <PanelContainer
+                <BoxContainer
                     HorizontalExpand="True"
                     Margin="10"
                     VerticalExpand="True">
-
-                    <PanelContainer.PanelOverride>
-                        <graphics:StyleBoxFlat BackgroundColor="#1B1B1E" />
-                    </PanelContainer.PanelOverride>
 
                     <Label Name="CharacterListingStatus" Visible="False" />
 
@@ -62,7 +51,7 @@
                             Name="CharacterListing"
                             VerticalExpand="True" />
                     </ScrollContainer>
-                </PanelContainer>
+                </BoxContainer>
             </BoxContainer>
 
             <!--  right column  -->
@@ -71,17 +60,25 @@
                 Margin="10"
                 Orientation="Vertical">
 
-                <LineEdit
-                    HorizontalExpand="True"
-                    Name="RecordFiltersValue"
-                    PlaceHolder="Search..." />
+                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
+                    <LineEdit
+                        HorizontalExpand="True"
+                        MinWidth="100"
+                        Name="RecordFiltersValue"
+                        PlaceHolder="Search..." />
+                    <Button
+                        Name="RecordFilterSearch"
+                        SetWidth="100"
+                        Text="Search"
+                        TextAlign="Center" />
+                </BoxContainer>
 
                 <Label
                     Name="RecordContainerStatus"
                     Text="No Record Selected"
                     Visible="False" />
 
-                <BoxContainer Name="RecordContainer">
+                <BoxContainer Name="RecordContainer" VerticalExpand="True">
                     <BoxContainer
                         Align="Center"
                         HorizontalExpand="True"
@@ -130,42 +127,42 @@
                                         FontColorOverride="DarkGray"
                                         Name="JobTitle"
                                         Text="Job: " />
-                                    <Label Name="JobText" />
+                                    <Label Name="Job" />
                                 </BoxContainer>
                                 <BoxContainer Margin="5" Orientation="Horizontal">
                                     <Label
                                         FontColorOverride="DarkGray"
                                         Name="GenderTitle"
                                         Text="Gender: " />
-                                    <Label Name="GenderText" />
+                                    <Label Name="Gender" />
                                 </BoxContainer>
                                 <BoxContainer Margin="5" Orientation="Horizontal">
                                     <Label
                                         FontColorOverride="DarkGray"
                                         Name="SpeciesTitle"
                                         Text="Species: " />
-                                    <Label Name="SpeciesText" />
+                                    <Label Name="Species" />
                                 </BoxContainer>
                                 <BoxContainer Margin="5" Orientation="Horizontal">
                                     <Label
                                         FontColorOverride="DarkGray"
                                         Name="AgeTitle"
                                         Text="Age: " />
-                                    <Label Name="AgeText" />
+                                    <Label Name="Age" />
                                 </BoxContainer>
                                 <BoxContainer Margin="5" Orientation="Horizontal">
                                     <Label
                                         FontColorOverride="DarkGray"
                                         Name="HeightTitle"
                                         Text="Height: " />
-                                    <Label Name="HeightText" />
+                                    <Label Name="Height" />
                                 </BoxContainer>
                                 <BoxContainer Margin="5" Orientation="Horizontal">
                                     <Label
                                         FontColorOverride="DarkGray"
                                         Name="WeightTitle"
                                         Text="Weight: " />
-                                    <Label Name="WeightText" />
+                                    <Label Name="Weight" />
                                 </BoxContainer>
                             </BoxContainer>
 

@@ -190,12 +190,14 @@ public sealed partial class MedicalRecordsMenu : FancyWindow
 
             CharacterListing.Clear();
 
-            // Add the records to the listing in a sorted order. There is probably are faster way of doing this, but
+            // Add the records to the listing in a sorted order.
+            // There is probably are faster way of doing this, but
             // this is not really a hot code path.
             state.CharacterList
                 // The items in this tuple are as follows: (name of character, CharacterListMetadata)
                 .Select(r
-                    => (CharacterName: r.Value.CharacterDisplayName, new CharacterListMetadata() { CharacterRecordKey = r.Key, StationRecordKey = r.Value.StationRecordKey}))
+                    => (CharacterName: r.Value.CharacterDisplayName, new CharacterListMetadata()
+                        { CharacterRecordKey = r.Key, StationRecordKey = r.Value.StationRecordKey}))
                 .OrderBy(r => r.Item1)
                 .ToList()
                 .ForEach(r => CharacterListing.AddItem(r.Item1, metadata: r.Item2));
@@ -228,14 +230,14 @@ public sealed partial class MedicalRecordsMenu : FancyWindow
         var record = state.SelectedRecord!;
         var cr = record.PRecords;
 
-        // Basic info -- clean up these box names
+        // Basic info
         CrewmateName.Text = record.Name;
-        AgeText.Text = record.Age.ToString();
-        JobText.Text = record.JobTitle; /* At some point in the future we might want to display the icon */
-        GenderText.Text = record.Gender.ToString();
-        SpeciesText.Text = record.Species;
-        HeightText.Text = cr.Height + " " + UnitConversion.GetImperialDisplayLength(cr.Height);
-        WeightText.Text = cr.Weight + " " + UnitConversion.GetImperialDisplayMass(cr.Weight);
+        Age.Text = record.Age.ToString();
+        Job.Text = record.JobTitle; /* At some point in the future we might want to display the icon */
+        Gender.Text = record.Gender.ToString();
+        Species.Text = record.Species;
+        Height.Text = cr.Height + " " + UnitConversion.GetImperialDisplayLength(cr.Height);
+        Weight.Text = cr.Weight + " " + UnitConversion.GetImperialDisplayMass(cr.Weight);
 
         #endregion
 

@@ -297,7 +297,7 @@
   id: UplinkMagazineLightRifleBox
   name: uplink-l6-box-name
   description: uplink-l6-box-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_box.rsi, state: base }
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_box.rsi, state: icon }
   productEntity: MagazineLightRifleBox
   cost:
     Telecrystal: 25 # 5 times as much total damage as C20 mag - 5 time as much cost

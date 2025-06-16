@@ -1,0 +1,31 @@
+# Backpack
+- type: loadout
+  id: MagistrateDuffel
+  equipment:
+    back: ClothingBackpackDuffel
+
+- type: loadout
+  id: MagistrateSatchel
+  equipment:
+    back: ClothingBackpackSatchelLeather
+
+# Belt
+- type: loadout
+  id: MagistrateClipboard
+  equipment:
+    belt: BoxFolderCentComClipboard
+
+- type: loadout
+  id: MagistrateWaistbag
+  equipment:
+    belt: ClothingBeltStorageWaistbag
+
+- type: loadout
+  id: MagistrateGavel
+  equipment:
+    pocket1: Gavel
+
+- type: loadout
+  id: MagistratePwig
+  equipment:
+    head: ClothingHeadHatPwig

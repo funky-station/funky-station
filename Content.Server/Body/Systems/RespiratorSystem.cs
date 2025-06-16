@@ -20,7 +20,7 @@ using Content.Shared.Mobs.Systems;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared._Impstation.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult.Components; // DeltaV
 
 
 namespace Content.Server.Body.Systems;
@@ -78,7 +78,15 @@ public sealed class RespiratorSystem : EntitySystem
             if (_mobState.IsDead(uid) || HasComp<BreathingImmunityComponent>(uid)) // Shitmed: BreathingImmunity
                 continue;
 
-            UpdateSaturation(uid, -(float) respirator.UpdateInterval.TotalSeconds, respirator);
+            // Begin DeltaV Additions
+            var organs = _bodySystem.GetBodyOrganEntityComps<LungComponent>((uid, body));
+            var multiplier = -1f;
+            foreach (var (_, lung, _) in organs)
+            {
+                multiplier *= lung.SaturationLoss;
+            }
+            // End DeltaV Additions
+            UpdateSaturation(uid, multiplier * (float) respirator.UpdateInterval.TotalSeconds, respirator); // DeltaV: use multiplier instead of negating
 
             if (!_mobState.IsIncapacitated(uid) && !HasComp<DebrainedComponent>(uid)) // Shitmed Change - Cannot breathe in crit or when no brain.
             {
@@ -97,8 +105,8 @@ public sealed class RespiratorSystem : EntitySystem
 
             if (respirator.Saturation < respirator.SuffocationThreshold)
             {
-                if (TryComp<CosmicCultComponent>(uid, out var cultComponent) && !cultComponent.Respiration && !_mobState.IsIncapacitated(uid)) return; // Imp HACK so cultists gasp while in crit.
-                // One line change but a refactor would be so much better. this is VERY BAD and AWFUL.
+                // DeltaV: Cosmic Cult - One line change but a refactor would be better. this is kinda cringe. Makes cultists gasp and respirate but not asphyxiate in space.
+                if (TryComp<CosmicCultComponent>(uid, out var cultComponent) && !cultComponent.Respiration && !_mobState.IsIncapacitated(uid)) return;
 
                 if (_gameTiming.CurTime >= respirator.LastGaspEmoteTime + respirator.GaspEmoteCooldown)
                 {

@@ -6,13 +6,13 @@
 #  id: Pharmacy
 #  background: /Textures/LobbyScreens/pharmacy.webp
 
-- type: lobbyBackground
-  id: SSXIV
-  background: /Textures/LobbyScreens/ssxiv.webp
+#- type: lobbyBackground
+#  id: SSXIV
+#  background: /Textures/LobbyScreens/ssxiv.webp
 
-- type: lobbyBackground
-  id: Susstation
-  background: /Textures/LobbyScreens/susstation.webp
+#- type: lobbyBackground
+#  id: Susstation
+#  background: /Textures/LobbyScreens/susstation.webp
 #
 #- type: lobbyBackground
 #  id: SkellyVsTheRev
@@ -81,3 +81,7 @@
 - type: lobbyBackground
   id: rats
   background: /Textures/LobbyScreens/rats.webp
+
+- type: lobbyBackground
+  id: cirnoStation
+  background: /Textures/LobbyScreens/cirnostation.webp

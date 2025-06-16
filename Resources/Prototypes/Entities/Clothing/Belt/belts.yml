@@ -272,6 +272,8 @@
         - DiscreteHealthAnalyzer
         - SurgeryTool
         - Dropper
+        - Tourniquet #Goobstation - ParamedHypo
+        - MedicalPatch # Goobstation
       components:
         - Hypospray
         - Injector
@@ -483,6 +485,7 @@
         - CombatKnife
         - Truncheon
         - BolaEnergy # Goobstation
+        - NonlethalGrenade
       components:
         - Stunbaton
         - FlashOnTrigger

@@ -288,6 +288,10 @@
     - WetFloorSign
     - ClothingHeadHatCone
     - FreezerElectronics
+    # Begin Delta-V additions
+    - CassetteTape
+    - TapeRecorder
+    # End Delta-V additions
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen
@@ -320,7 +324,20 @@
     - SpeedLoaderMagnumEmpty
     - GrenadeFlashBang # Goobstation
     - BolaEnergy # Goobstation
-    - CartridgeEpinephrine # Goobstation
+    - MagazinePistolCaselessRifle # Goobstation
+    - MagazineBoxCaselessRifle # Goobstation
+    - MagazineLightRifleBoxEmpty # Goobstation
+    - MagazineLightRifleBox # Goobstation
+    #- MagazineHighCaliberEmpty # Goobstation - Burner not added yet
+    #- MagazineHighCaliber # Goobstation
+    #- MagazineBoxHighCaliber # Goobstation
+    - CartridgeEmergency # Goobstation
+    - CartridgeAirloss # Goobstation
+    - CartridgeBrute # Goobstation
+    - CartridgeBurn # Goobstation
+    - CartridgePoison
+    - SecHypo # Goobstation
+    - ParamedHypo # Goobstation - ParamedHypo
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -720,6 +737,7 @@
     - RightFootIPC
     - OrganIPCEyes
     - OrganIPCPump
+    - Oilpack #Delta-V
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleAdvancedCleaning
@@ -852,6 +870,7 @@
     - AbominationCube
     - SpaceCarpCube
     - SpaceTickCube
+    - VelociraptorCube #funky
 
 - type: entity
   id: SecurityTechFab
@@ -922,7 +941,14 @@
     - Zipties
     - GrenadeFlashBang # Goobstation
     - BolaEnergy # Goobstation
-    - CartridgeEpinephrine # Goobstation
+    - CartridgeEmergency # Goobstation
+    - CartridgeAirloss # Goobstation
+    - CartridgeBrute # Goobstation
+    - CartridgeBurn # Goobstation
+    - CartridgePoison
+    - SecHypo # Goobstation
+    - autoInjectorCartridgeCase
+    - autoInjectorCartridgeCaseSoft
     dynamicRecipes:
     - BoxBeanbag
     - BoxShotgunIncendiary
@@ -988,6 +1014,15 @@
     - WeaponMechCombatDisabler
     - WeaponMechCombatFlashbangLauncher
     - WeaponMechCombatMissileRack8
+  - type: EmagLatheRecipes # Goobstation
+    emagStaticRecipes:
+    - MagazinePistolCaselessRifle # Goobstation
+    - MagazineBoxCaselessRifle # Goobstation
+    - MagazineLightRifleBoxEmpty # Goobstation
+    - MagazineLightRifleBox # Goobstation
+    #- MagazineHighCaliberEmpty # Goobstation - Burner not added yet
+    #- MagazineHighCaliber # Goobstation
+    #- MagazineBoxHighCaliber # Goobstation
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1038,12 +1073,21 @@
     - MagazineShotgunSlug
     - SpeedLoaderMagnum
     - SpeedLoaderMagnumEmpty
+  - type: EmagLatheRecipes # Goobstation
+    emagStaticRecipes:
+    - MagazinePistolCaselessRifle # Goobstation
+    - MagazineBoxCaselessRifle # Goobstation
+    - MagazineLightRifleBoxEmpty # Goobstation
+    - MagazineLightRifleBox # Goobstation
+    #- MagazineHighCaliberEmpty # Goobstation - Burner not added yet
+    #- MagazineHighCaliber # Goobstation
+    #- MagazineBoxHighCaliber # Goobstation
   - type: MaterialStorage
     whitelist:
       tags:
-      - Sheet
-      - RawMaterial
-      - Ingot
+        - Sheet
+        - RawMaterial
+        - Ingot
 
 - type: entity
   id: MedicalTechFab
@@ -1108,8 +1152,18 @@
     - WhiteCane
     - MedicalPatchBasic  #Goobstation - MedicalPatch
     - MedicalPatchRapid #Goobstation - MedicalPatch
+    - MedicalPatchTherapeutic #Goobstation - MedicalPatch
     - MedicalPatchLarge #Goobstation - MedicalPatch
     - BoneGel # Shitmed Change
+    - Oilpack #Delta-V
+    - CartridgeEmergency # Goobstation - ParamedHypo
+    - CartridgeAirloss # Goobstation - ParamedHypo
+    - CartridgeBrute # Goobstation - ParamedHypo
+    - CartridgeBurn # Goobstation - ParamedHypo
+    - CartridgePoison
+    - ParamedHypo # Goobstation - ParamedHypo
+    - autoInjectorCartridgeCase
+    - autoInjectorCartridgeCaseSoft
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

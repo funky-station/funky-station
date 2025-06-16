@@ -15,3 +15,30 @@
 #    blacklist:
 #      components:
 #      - SurplusBundle
+
+- type: listing
+  id: UplinkOmniPatchKit
+  name: uplink-omnipatch-kit-name
+  description: uplink-omnipatch-kit-desc
+  productEntity: OmniPatch
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: BaseBallBatHomeRun
+  name: uplink-home-run-bat-name
+  description: uplink-home-run-bat-desc
+  productEntity: BaseBallBatHomeRun
+  icon:
+    entity: BaseBallBatHomeRun
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkWeaponry

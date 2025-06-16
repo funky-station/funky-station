@@ -49,6 +49,17 @@
   saleLimit: 1
 
 - type: listing
+  id: UplinkM90Bundle
+  name: uplink-m90-name
+  description: uplink-m90-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateM90Bundle
+  cost:
+    Telecrystal: 85
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkFireAxeFlaming
   name: uplink-fire-axe-flaming-name
   description: uplink-fire-axe-flaming-desc
@@ -77,7 +88,7 @@
   icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi, state: icon }
   productEntity: BowHardlight
   cost:
-    Telecrystal: 80
+    Telecrystal: 75
   categories:
   - UplinkWeaponry
   conditions:
@@ -86,7 +97,18 @@
       tags:
       - NukeOpsUplink
 
+# Wearables
 
+- type: listing
+  id: UplinkClothingHeadHelmetSwatSyndicate
+  name: uplink-helmet-swat-name
+  description: uplink-helmet-swat-desc
+  icon: { sprite: /Textures/Clothing/Head/Helmets/swat_syndicate.rsi, state: icon }
+  productEntity: ClothingHeadHelmetSwatSyndicate
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWearables
 
 - type: listing
   id: UplinkHardsuitCybersunStealth
@@ -101,6 +123,7 @@
   saleLimit: 1
 
 # Job specific
+
 - type: listing
   id: UplinkPieCannon
   name: uplink-pie-cannon-name
@@ -209,6 +232,122 @@
           - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
   saleLimit: 1
 
+- type: listing
+  id: UplinkSmokeImplanter
+  name: uplink-smoke-implant-name
+  description: uplink-smoke-implant-desc
+  icon: { sprite: /Textures/Objects/Weapons/Grenades/smoke.rsi, state: icon }
+  productEntity: SmokeImplanter
+  cost:
+    Telecrystal: 10
+  categories:
+    - UplinkImplants
+
+# Ammo
+
+- type: listing
+  id: UplinkGrenadeBlast
+  name: uplink-blast-grenade-name
+  description: uplink-blast-grenade-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi, state: blast }
+  productEntity: GrenadeBlast
+  cost:
+    Telecrystal: 12 # Buying granades this way is ~14% cheaper than getting them from china-lake bundles
+  categories:
+  - UplinkAmmo
+  saleBlacklist: true
+
+- type: listing
+  id: UplinkGrenadeFrag
+  name: uplink-frag-grenade-name
+  description: uplink-frag-grenade-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi, state: frag }
+  productEntity: GrenadeFrag
+  cost:
+    Telecrystal: 12 # Buying granades this way is ~14% cheaper than getting them from china-lake bundles
+  categories:
+  - UplinkAmmo
+  saleBlacklist: true
+
+- type: listing
+  id: UplinkMagazineShotgun
+  name: uplink-shotgun-magazine-name
+  description: uplink-shotgun-magazine-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: pellets }
+  productEntity: MagazineShotgun
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkAmmo
+  saleBlacklist: true
+
+- type: listing
+  id: UplinkMagazineShotgunSlug
+  name: uplink-shotgun-magazine-slug-name
+  description: uplink-shotgun-magazine-slug-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: slug }
+  productEntity: MagazineShotgunSlug
+  cost:
+    Telecrystal: 4 # So little total damage
+  categories:
+  - UplinkAmmo
+  saleBlacklist: true
+
+- type: listing
+  id: UplinkMagazineLightRifleBox
+  name: uplink-l6-box-name
+  description: uplink-l6-box-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_box.rsi, state: base }
+  productEntity: MagazineLightRifleBox
+  cost:
+    Telecrystal: 25 # 5 times as much total damage as C20 mag - 5 time as much cost
+  categories:
+  - UplinkAmmo
+
+# Burner not added yet
+#- type: listing
+#  id: UplinkMagazineHighCaliber
+#  name: uplink-high-caliber-magazine-name
+#  description: uplink-high-caliber-magazine-desc
+#  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
+#  productEntity: MagazineHighCaliber
+#  cost:
+#    Telecrystal: 6 # Slightly more total damage compared to C20 mags
+#  categories:
+#  - UplinkAmmo
+
+#- type: listing
+#  id: UplinkMagazineHighCaliberExplosive
+#  name: uplink-high-caliber-explosive-magazine-name
+#  description: uplink-high-caliber-explosive-magazine-desc
+#  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
+#  productEntity: MagazineHighCaliberExplosive
+#  cost:
+#    Telecrystal: 12 # Twice as much compared to regular mags. Idk if it's reasonable
+#  categories:
+#  - UplinkAmmo
+
+#- type: listing # A box, really? Why not like... mags?
+#  id: UplinkHighCaliberBox
+#  name: uplink-high-caliber-box-name
+#  description: uplink-high-caliber-box-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
+#  productEntity: MagazineBoxHighCaliber
+#  cost:
+#    Telecrystal: 40 # ammo should be a big cost for this
+#  categories:
+#  - UplinkAmmo
+
+- type: listing
+  id: UplinkRifleMag
+  name: uplink-rifle-mag-name
+  description: uplink-rifle-mag-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: red }
+  productEntity: MagazineRifle
+  cost:
+    Telecrystal: 6 # Slightly more expensive than C20 mag due to more total damage
+  categories:
+  - UplinkAmmo
+  saleBlacklist: true
+
 # Mechs
-
-

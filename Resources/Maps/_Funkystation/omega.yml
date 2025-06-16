@@ -64561,21 +64561,6 @@ entities:
     - type: Transform
       pos: 10.5,52.5
       parent: 2
-- proto: PlushieAtmosian
-  entities:
-  - uid: 9637
-    components:
-    - type: Transform
-      pos: -52.503876,17.424706
-      parent: 2
-  - uid: 9638
-    components:
-    - type: MetaData
-      desc: Stuffed toy of a particular atmosian
-      name: Erisia Eneka
-    - type: Transform
-      pos: 7.5751266,24.550356
-      parent: 2
 - proto: PlushieBee
   entities:
   - uid: 9639

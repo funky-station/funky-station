@@ -1,41 +1,5 @@
 - files:
-  - slime_squish_1.ogg
+  - slime_squish.ogg
   license: "CC-BY-SA-3.0"
   copyright: "Taken from https://github.com/ParadiseSS13/Paradise/commit/60d27e07de73f0fe72f4cff78b9c4100fd1d3b19"
   source: "https://github.com/ParadiseSS13/Paradise"
-
-- files:
-  - slime_fizz_1.ogg
-  license: "CC-0"
-  copyright: "Taken from https://freesound.org/. Converted from FLAC to OGG, Cropped."
-  source: "https://freesound.org/people/martinimeniscus/sounds/164423/"
-
-- files:
-  - slime_pop_1.ogg
-  license: "CC-BY-4.0"
-  copyright: "Taken from https://freesound.org/. Converted from FLAC to OGG, shortened a bit."
-  source: "https://freesound.org/people/mokasza/sounds/810763/"
-
-- files:
-  - slime_pop_2.ogg
-  license: "CC-BY-4.0"
-  copyright: "Taken from https://freesound.org/. Converted from FLAC to OGG, shortened a bit."
-  source: "https://freesound.org/people/mokasza/sounds/810764/"
-
-- files:
-  - slime_fizz_1.ogg
-  license: "CC-0"
-  copyright: "Taken from https://freesound.org/. Converted from FLAC to OGG, Cropped."
-  source: "https://freesound.org/people/martinimeniscus/sounds/164423/"
-
-- files:
-  - slime_fizz_2.ogg
-  license: "CC-0"
-  copyright: "Taken from https://freesound.org/. Converted from FLAC to OGG, Cropped."
-  source: "https://freesound.org/people/ZHRØ/sounds/514557/"
-
-- files:
-  - slime_fizz_3.ogg
-  license: "CC-0"
-  copyright: "Taken from https://freesound.org/. Converted from FLAC to OGG"
-  source: "https://freesound.org/people/lmbubec/sounds/118800/"

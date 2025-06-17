@@ -20,7 +20,7 @@
     - 0,0,1,2
     maxItemSize: Large
     storageInsertSound:
-      path: /Audio/Voice/Slime/slime_squish_1.ogg
+      path: /Audio/Voice/Slime/slime_squish.ogg
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -60,7 +60,7 @@
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime
-    allowedEmotes: ['Squish', 'Bubble', 'Slosh','Pop', 'Fizz']
+    allowedEmotes: ['Squish']
   - type: TypingIndicator
     proto: slime
   - type: Vocal

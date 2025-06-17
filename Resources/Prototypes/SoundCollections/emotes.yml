@@ -91,32 +91,7 @@
 - type: soundCollection
   id: Squishes
   files:
-    - /Audio/Voice/Slime/slime_squish_1.ogg
-    - /Audio/Voice/Slime/slime_squish_2.ogg
-
-- type: soundCollection
-  id: Bubbles
-  files:
-    - /Audio/Effects/Chemistry/bubbles.ogg
-
-- type: soundCollection
-  id: Sloshes
-  files:
-    - /Audio/Effects/Fluids/slosh.ogg
-
-- type: soundCollection
-  id: Pops
-  files:
-    - /Audio/Voice/Slime/slime_pop_1.ogg
-    - /Audio/Voice/Slime/slime_pop_2.ogg
-
-- type: soundCollection
-  id: Fizzes
-  files:
-    - /Audio/Voice/Slime/slime_fizz_1.ogg
-    - /Audio/Voice/Slime/slime_fizz_2.ogg
-    - /Audio/Voice/Slime/slime_fizz_3.ogg
-
+    - /Audio/Voice/Slime/slime_squish.ogg
 
 - type: soundCollection
   id: Weh

@@ -117,7 +117,7 @@ namespace Content.Server.Database
 
             var jobPriorities = prefs.JobPriorities.ToDictionary(j => new ProtoId<JobPrototype>(j.JobName), j => (JobPriority) j.Priority);
 
-            return new PlayerPreferences(profiles, Color.FromHex(prefs.AdminOOCColor), jobPriorities, sanitizePriorities: false);
+            return new PlayerPreferences(profiles, Color.FromHex(prefs.AdminOOCColor), jobPriorities);
         }
 
         public async Task SaveCharacterSlotAsync(NetUserId userId, ICharacterProfile? profile, int slot)
@@ -230,8 +230,7 @@ namespace Content.Server.Database
             return new PlayerPreferences(
                 new[] {new KeyValuePair<int, ICharacterProfile>(0, defaultProfile)},
                 Color.FromHex(prefs.AdminOOCColor),
-                priorities,
-                sanitizePriorities: false
+                priorities
             );
         }
 

@@ -14,6 +14,7 @@ using Content.Server.Mind;
 using Content.Server.Nuke;
 using Content.Server.Objectives;
 using Content.Server.RoundEnd;
+using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._Goobstation.Blob.Components;
@@ -41,7 +42,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
         base.Initialize();
 
         SubscribeLocalEvent<BlobRuleComponent, AfterAntagEntitySelectedEvent>(AfterAntagSelected);
-        SubscribeLocalEvent<CommunicationConsoleCallShuttleAttemptEvent>(OnShuttleCallAttempt);
+        SubscribeLocalEvent<ShuttleDockAttemptEvent>(OnShuttleDockAttempt);
     }
 
     protected override void Started(EntityUid uid, BlobRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -291,16 +292,25 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
         MakeBlob(args.EntityUid);
     }
 
-    private void OnShuttleCallAttempt(ref CommunicationConsoleCallShuttleAttemptEvent ev)
+    private void OnShuttleDockAttempt(ref ShuttleDockAttemptEvent ev)
     {
-        var check = new Dictionary<EntityUid, long>();
-        var blobCoreQuery = EntityQueryEnumerator<BlobCoreComponent, MetaDataComponent, TransformComponent>();
-        while (blobCoreQuery.MoveNext(out var ent, out var comp, out var md, out var xform))
+        var blobQuery = EntityQueryEnumerator<BlobRuleComponent, MetaDataComponent, TransformComponent>();
+        while (blobQuery.MoveNext(out var ent, out var comp, out var md, out var xform))
         {
-            if (CheckBlobInStation(ent, xform, out var stationUid))
+            if (comp.Blobs.Count > 0)
             {
                 ev.Cancelled = true;
-                ev.Reason = Loc.GetString("blob-alert-recall-shuttle");
+                ev.CancelMessage = Loc.GetString("blob-alert-recall-shuttle");
+                if (comp.Stage == BlobStage.Default)
+                {
+                    comp.Stage = BlobStage.Begin;
+                    _chatSystem.DispatchGlobalAnnouncement(
+                        Loc.GetString("blob-alert-detect"),
+                        null,
+                        true,
+                        BlobDetectAudio,
+                        Color.Red);
+                }
                 return;
             }
         }

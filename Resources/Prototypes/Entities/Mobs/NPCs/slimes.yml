@@ -140,7 +140,7 @@
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime
-    allowedEmotes: ['Squish']
+    allowedEmotes: ['Squish', 'Slosh', 'Bubble', 'Pop', 'Fizz']
   - type: TypingIndicator
     proto: slime
   - type: NpcFactionMember

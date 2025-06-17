@@ -505,8 +505,8 @@
   - type: Sprite
     sprite: Objects/Weapons/Grenades/wehnade.rsi
   - type: SmokeOnTrigger
-    duration: 15
-    spreadAmount: 100
+    duration: 10
+    spreadAmount: 80
     smokePrototype: Foam
     solution:
       reagents:

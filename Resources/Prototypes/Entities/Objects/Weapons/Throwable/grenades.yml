@@ -494,3 +494,28 @@
       path: /Audio/Effects/minibombcountdown.ogg
       params:
         volume: 12
+
+# fun items
+- type: entity
+  parent: [ BaseCivilianContraband, SmokeGrenade ]
+  id: WehNade
+  name: weh-nade
+  description: This lizard plushie seems to have a button to activate it?
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/wehnade.rsi
+  - type: SmokeOnTrigger
+    duration: 15
+    spreadAmount: 100
+    smokePrototype: Foam
+    solution:
+      reagents:
+      - ReagentId: JuiceThatMakesYouWeh
+        Quantity: 10 #not enough to turn people into lizards. If you put this higher you can absolutely do that, maybe too chaotic...
+  - type: SoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Appearance
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: /Audio/Effects/countdown.ogg

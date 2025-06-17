@@ -516,6 +516,7 @@
     - id: WeakKudzu
     - id: TrashMimanaPeel
     - id: TheEffigy
+    - id: WehNade
 
 - type: entityTable
   id: SuperJackpotRoll

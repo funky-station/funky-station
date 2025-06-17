@@ -134,12 +134,25 @@
 
 - type: entity
   name: golden toolbox
-  parent: ToolboxBase
+  parent: [ToolboxBase, BaseCommandContraband]
   id: ToolboxGolden
-  description: A solid gold toolbox. A rapper would kill for this.
+  description: A solid gold toolbox. A tider would kill for this.
   components:
   - type: Sprite
     sprite: Objects/Tools/Toolboxes/toolbox_gold.rsi
     state: icon
   - type: Item
     sprite: Objects/Tools/Toolboxes/toolbox_gold.rsi
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,7,3
+  - type: MeleeWeapon
+    autoAttack: true
+    damage:
+      types:
+        Blunt: 20
+  - type: StealTarget
+    stealGroup: ToolboxGolden
+  
+  

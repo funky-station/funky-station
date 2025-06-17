@@ -9,7 +9,7 @@ namespace Content.Shared.Actions;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class WorldTargetActionComponent : BaseTargetActionComponent
 {
-    public override BaseActionEvent? BaseEvent => Event;
+    public new BaseActionEvent? BaseEvent => Event;
 
     /// <summary>
     ///     The local-event to raise when this action is performed.

@@ -12,5 +12,11 @@
     ClothingEyesEyepatchHudMedical: 2
     MedicalPatchPrefilledLibital: 3  #Goobstation - MedicalPatches - Funkychem
     MedicalPatchPrefilledAiuri: 3   #Goobstation - MedicalPatches - Funkychem
+    ParamedHypo: 2 #Goobstation - ParamedHypo
+    CartridgeEmergency: 2
+    CartridgeAirloss: 2
+    CartridgeBrute: 2
+    CartridgeBurn: 2
+    CartridgePoison: 2
   contrabandInventory:
     FoodApple: 1

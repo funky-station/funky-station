@@ -1010,6 +1010,9 @@
   id: NoConsoleSound
 
 - type: Tag
+  id: NonlethalGrenade
+
+- type: Tag
   id: NoRecharge # Assmos - Crystallizer
 
 - type: Tag

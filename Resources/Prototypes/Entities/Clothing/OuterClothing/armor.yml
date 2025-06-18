@@ -124,6 +124,8 @@
       shader: unshaded
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/syndie-raid.rsi
+  - type: StaminaResistance
+    damageCoefficient: 0.8
   - type: Armor
     modifiers:
       coefficients:
@@ -316,6 +318,8 @@
     sprite: Clothing/OuterClothing/Armor/lingarmor.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/lingarmor.rsi
+  - type: StaminaResistance
+    damageCoefficient: 0.4
   - type: Armor
     modifiers:
       coefficients:
@@ -428,6 +432,8 @@
     coolingCoefficient: 0.001
   - type: FireProtection
     reduction: 0.8
+  - type: StaminaResistance
+    damageCoefficient: 0.75
   - type: Armor
     modifiers:
       coefficients:

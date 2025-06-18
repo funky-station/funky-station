@@ -214,6 +214,8 @@
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
+  - type: StaminaResistance
+    damageCoefficient: 0.6
   - type: Armor
     modifiers:
       coefficients:
@@ -246,6 +248,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.4
+  - type: StaminaResistance
+    damageCoefficient: 0.8 
   - type: Armor
     modifiers:
       coefficients:
@@ -275,6 +279,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
+  - type: StaminaResistance
+    damageCoefficient: 0.8 
   - type: Armor
     modifiers:
       coefficients:
@@ -305,6 +311,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.4
+  - type: StaminaResistance
+    damageCoefficient: 0.7 
   - type: Armor
     modifiers:
       coefficients:
@@ -336,6 +344,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.5
+  - type: StaminaResistance
+    damageCoefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -547,8 +557,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.5
-  #- type: StaminaResistance
-  #  damageCoefficient: 0.75
+  - type: StaminaResistance
+    damageCoefficient: 0.75
   - type: Armor
     modifiers:
       coefficients:
@@ -609,8 +619,8 @@
     damageCoefficient: 0.2
   - type: FireProtection
     reduction: 0.8
-  #- type: StaminaResistance
-  #  damageCoefficient: 0.6
+  - type: StaminaResistance
+    damageCoefficient: 0.6
   - type: Armor
     modifiers:
       coefficients:
@@ -645,8 +655,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.5
-  #- type: StaminaResistance
-  #  damageCoefficient: 0.6
+  - type: StaminaResistance
+    damageCoefficient: 0.5
   - type: Armor
     modifiers:
       coefficients:
@@ -716,6 +726,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.5
+  - type: StaminaResistance
+    damageCoefficient: 0.8 
   - type: Armor
     modifiers:
       coefficients:
@@ -779,6 +791,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/pirateeva.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.7
+  - type: StaminaResistance
+    damageCoefficient: 0.8
   - type: Armor
     modifiers:
       coefficients:
@@ -814,6 +828,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.6
+  - type: StaminaResistance
+    damageCoefficient: 0.70 
   - type: Armor
     modifiers:
       coefficients:
@@ -980,6 +996,8 @@
     coolingCoefficient: 0.001
   - type: ExplosionResistance
     damageCoefficient: 0.7
+  - type: StaminaResistance
+    damageCoefficient: 0.75 
   - type: Armor
     modifiers:
       coefficients:

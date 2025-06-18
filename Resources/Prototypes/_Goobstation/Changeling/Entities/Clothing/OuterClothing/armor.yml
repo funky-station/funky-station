@@ -9,6 +9,8 @@
     sprite: _Goobstation/Changeling/ling_armor.rsi
   - type: Clothing
     sprite: _Goobstation/Changeling/ling_armor.rsi
+  - type: StaminaResistance
+    damageCoefficient: 0.40
   - type: Armor
     modifiers:
       coefficients:

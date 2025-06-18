@@ -3068,3 +3068,104 @@ Entries:
         selling price.
   id: 370
   time: '2025-06-05T07:48:28.0000000+00:00'
+- author: jackel234
+  changes:
+    - type: Add
+      message: >-
+        Ported the Home Run Bat from DV, a Syndicate baseball bat that launches
+        anyone hit by it. Swing for the fences!
+  id: 371
+  time: '2025-06-11T04:11:18.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Tweak
+      message: Space exposure now deals four times as much damage.
+  id: 372
+  time: '2025-06-13T06:26:10.0000000+00:00'
+- author: jackel234
+  changes:
+    - type: Fix
+      message: >-
+        The X-01 Multiphase's description now accurately reflects that it can
+        self-recharge.
+  id: 373
+  time: '2025-06-14T02:47:20.0000000+00:00'
+- author: Gansu
+  changes:
+    - type: Add
+      message: >-
+        Added reagent bounties which require liquids instead of objects in order
+        to complete. Consult your chemist or bartender for assistance
+    - type: Tweak
+      message: Beer and Wine bounties are now reagent based
+  id: 374
+  time: '2025-06-14T07:49:10.0000000+00:00'
+- author: IronDragoon
+  changes:
+    - type: Add
+      message: >-
+        New cartridge autoinjector system. Hypospray style injectors using
+        premade cartridges, printable in med and sec fabs. Designed for
+        stabilising patients in the field. Adds new injectors, cartridges and 2
+        cases for holding them. Also available for syndicate agents with 2
+        special cartridges, and a bundle for nukies. 
+  id: 375
+  time: '2025-06-14T15:46:25.0000000+00:00'
+- author: dch-GH
+  changes:
+    - type: Add
+      message: Toggle Your Ghost action to hide your own ghost.
+    - type: Tweak
+      message: Allow clients to use toggleselfghost command.
+  id: 376
+  time: '2025-06-14T18:17:15.0000000+00:00'
+- author: amethystowo
+  changes:
+    - type: Add
+      message: Added Sievertadone, a pyrogenics chem that heals radiation on the dead.
+  id: 377
+  time: '2025-06-14T18:47:10.0000000+00:00'
+- author: Ekpy
+  changes:
+    - type: Tweak
+      message: Shiva is a roundstart ghost role and is slightly weaker.
+    - type: Add
+      message: Shiva can now pull objects.
+    - type: Remove
+      message: Removed Shiva from thief objectives
+  id: 378
+  time: '2025-06-14T18:47:58.0000000+00:00'
+- author: ptrcnull
+  changes:
+    - type: Add
+      message: >-
+        Added space animal liver which can slowly filter out radiation from the
+        body
+  id: 379
+  time: '2025-06-14T18:53:01.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: New nuke disk sprite
+    - type: Tweak
+      message: New paper sprites
+    - type: Tweak
+      message: New beaker sprites
+    - type: Tweak
+      message: New table sprites
+    - type: Tweak
+      message: New glass sheet sprites
+  id: 380
+  time: '2025-06-15T15:37:34.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: The hypertorus fusion reactor has been added
+  id: 381
+  time: '2025-06-15T18:45:39.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Fix
+      message: Added missing changeling armor stun resist.
+  id: 382
+  time: '2025-06-16T15:42:34.0000000+00:00'

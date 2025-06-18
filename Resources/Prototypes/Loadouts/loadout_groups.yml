@@ -53,6 +53,9 @@
   - TowelColorSilver
   - TowelColorWhite
   - TowelColorYellow
+  # Begin DeltaV Additions
+  - TapeRecorder
+  # End DeltaV Additions
 
 - type: loadoutGroup
   id: Glasses
@@ -802,7 +805,7 @@
   id: EngineeringGoggles
   name: loadout-group-engineering-goggles
   minLimit: 1
-  loadouts: 
+  loadouts:
   - EngineeringNormGoggles
   - EngineeringJamGoggles
 
@@ -1108,7 +1111,7 @@
   loadouts:
     - SecurityNormGlasses
     - SecurityJamjarGlasses
-    
+
 - type: loadoutGroup
   id: SecurityJumpsuit
   name: loadout-group-security-jumpsuit
@@ -1288,7 +1291,7 @@
   loadouts:
     - MedicalNormGlasses
     - MedicalJamjarGlasses
-  
+
 - type: loadoutGroup
   id: MedicalDoctorJumpsuit
   name: loadout-group-medical-doctor-jumpsuit

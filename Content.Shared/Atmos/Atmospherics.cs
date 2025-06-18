@@ -53,7 +53,7 @@ namespace Content.Shared.Atmos
         ///     calculations and so cap it here. The physical interpretation is that at this temperature, any
         ///     gas that you would have transforms into plasma.
         /// </summary>
-        public const float Tmax = 262144; // 1/64 of max safe integer, any values above will result in a ~0.03K epsilon
+        public const float Tmax = 262144000; // 1/64 of max safe integer, any values above will result in a ~0.03K epsilon // Funky - raised to support HFR
 
         /// <summary>
         ///     Liters in a cell.
@@ -461,8 +461,7 @@ namespace Content.Shared.Atmos
         ///     (The pressure threshold is so low that it doesn't make sense to do any calculations,
         ///     so it just applies this flat value).
         /// </summary>
-        // Original value is 4, buff back when we have proper ways for players to deal with breaches.
-        public const int LowPressureDamage = 1;
+        public const int LowPressureDamage = 4;
 
         public const float WindowHeatTransferCoefficient = 0.1f;
 

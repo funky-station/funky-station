@@ -519,3 +519,18 @@ uplink-fake-mindshield-desc = A togglable implant capable of mimicking the same 
 
 uplink-smuggler-satchel-name = Smuggler's Satchel
 uplink-smuggler-satchel-desc = A handy, suspicious looking satchel. Just flat enough to fit underneath floor tiles.
+
+uplink-syndicate-autoinjector-name = Syndicate Cartridge Autoinjector
+uplink-syndicate-autoinjector-desc = Contains one Syndicate branded cartridge autoinjector. Can provide near instant administration of chems on use with a small delay between uses. Does not come with any cartridges!
+
+uplink-autoinjector-cart-sedative-name = Syndicate Sedative Cartridge
+uplink-autoinjector-cart-sedative-desc = Contains one Syndicate branded autoinjector cartridge. Can provide almost instant (but temporary) sedation upon injection. Contains ONE dose of 15u of Nocturine.
+
+uplink-autoinjector-cart-gunshot-name = Syndicate Gunshot Cartridge
+uplink-autoinjector-cart-gunshot-desc = Contains one Syndicate branded autoinjector cartridge. Provides a single dose of Puncturase and Tranexamic acid, designed to stabilise a patient who has been shot. Contains ONE dose of 10u Puncturase and 5u Tranexamic Acid
+
+uplink-syndicate-autoinjector-softcase-name = Cartridge Autoinjector Soft Case (Filled)
+uplink-syndicate-autoinjector-softcase-desc = Contains 4 different cartridges for use in an autoinjector. Provide enough chems to stabilise a patient. One for airloss, critical injury, brute injury and burns. Each is single use!
+
+uplink-autoinjector-bundle-name = Syndicate Cartridge Autoinjector Bundle
+uplink-autoinjector-bundle-desc = A bag containing 4 Syndicate branded cartridge autoinjectors as well as hard and soft cases, both filled with various cartridges, and a few extras for treating gunshot wounds. For healing in a pinch when you don't have time to stop!

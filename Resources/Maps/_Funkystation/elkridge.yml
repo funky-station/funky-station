@@ -45947,7 +45947,7 @@ entities:
     - type: Transform
       pos: 10.5,14.5
       parent: 2
-- proto: ComputerCargoShuttle
+- proto: ComputerShuttleCargo
   entities:
   - uid: 6561
     components:
@@ -52638,7 +52638,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 38.5,-16.5
       parent: 2
-- proto: EthanolChemistryBottle
+- proto: ChemistryBottleEthanol
   entities:
   - uid: 385
     components:

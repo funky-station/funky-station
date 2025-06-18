@@ -932,7 +932,7 @@ entities:
     - type: Transform
       pos: -1.6332935,-3.5610697
       parent: 1
-- proto: EpinephrineChemistryBottle
+- proto: ChemistryBottleEpinephrine
   entities:
   - uid: 124
     components:

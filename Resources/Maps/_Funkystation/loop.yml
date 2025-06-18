@@ -41783,7 +41783,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,71.5
       parent: 2
-- proto: ComputerCargoShuttle
+- proto: ComputerShuttleCargo
   entities:
   - uid: 2716
     components:
@@ -97490,7 +97490,7 @@ entities:
     - type: Transform
       pos: -40.292664,59.497982
       parent: 2
-- proto: UnstableMutagenChemistryBottle
+- proto: ChemistryBottleUnstableMutagen
   entities:
   - uid: 15490
     components:

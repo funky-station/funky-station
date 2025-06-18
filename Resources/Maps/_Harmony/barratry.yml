@@ -56950,7 +56950,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -39.5,35.5
       parent: 1
-- proto: ComputerCargoShuttle
+- proto: ComputerShuttleCargo
   entities:
   - uid: 3618
     components:
@@ -63768,14 +63768,14 @@ entities:
     - type: Transform
       pos: 27.345951,23.492924
       parent: 1
-- proto: EphedrineChemistryBottle
+- proto: ChemistryBottleEphedrine
   entities:
   - uid: 2031
     components:
     - type: Transform
       pos: -0.2686499,20.856321
       parent: 1
-- proto: EthanolChemistryBottle
+- proto: ChemistryBottleEthanol
   entities:
   - uid: 18639
     components:

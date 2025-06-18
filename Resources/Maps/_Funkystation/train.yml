@@ -39025,7 +39025,7 @@ entities:
     - type: Transform
       pos: 3.5,-276.5
       parent: 2
-- proto: ComputerCargoShuttle
+- proto: ComputerShuttleCargo
   entities:
   - uid: 5580
     components:

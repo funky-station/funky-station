@@ -15064,7 +15064,7 @@ entities:
     - type: Transform
       pos: 19.5,25.5
       parent: 2
-- proto: ComputerCargoShuttle
+- proto: ComputerShuttleCargo
   entities:
   - uid: 7634
     components:
@@ -18479,14 +18479,14 @@ entities:
     - type: Transform
       pos: 28.42001,14.909441
       parent: 2
-- proto: EphedrineChemistryBottle
+- proto: ChemistryBottleEphedrine
   entities:
   - uid: 7456
     components:
     - type: Transform
       pos: 12.5,13.5
       parent: 2
-- proto: EpinephrineChemistryBottle
+- proto: ChemistryBottleEpinephrine
   entities:
   - uid: 7304
     components:
@@ -18498,7 +18498,7 @@ entities:
     - type: Transform
       pos: 32.5,16.5
       parent: 2
-- proto: EthanolChemistryBottle
+- proto: ChemistryBottleEthanol
   entities:
   - uid: 7321
     components:
@@ -36565,7 +36565,7 @@ entities:
     - type: Transform
       pos: 10.5,-8.5
       parent: 2
-- proto: MuteToxinChemistryBottle
+- proto: ChemistryBottleMuteToxin
   entities:
   - uid: 7322
     components:
@@ -36604,7 +36604,7 @@ entities:
       parent: 2
     - type: Physics
       bodyType: Static
-- proto: NocturineChemistryBottle
+- proto: ChemistryBottleNocturine
   entities:
   - uid: 2063
     components:
@@ -36642,7 +36642,7 @@ entities:
     - type: Transform
       pos: 30.5,51.5
       parent: 2
-- proto: OmnizineChemistryBottle
+- proto: ChemistryBottleOmnizine
   entities:
   - uid: 2369
     components:
@@ -37033,7 +37033,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 32.5,-13.5
       parent: 2
-- proto: PotassiumChemistryBottle
+- proto: ChemistryBottlePotassium
   entities:
   - uid: 7447
     components:

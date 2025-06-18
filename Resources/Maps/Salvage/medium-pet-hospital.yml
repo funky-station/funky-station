@@ -1086,7 +1086,7 @@ entities:
     - type: Transform
       pos: 10.517837,-9.85569
       parent: 289
-- proto: OmnizineChemistryBottle
+- proto: ChemistryBottleOmnizine
   entities:
   - uid: 140
     components:

@@ -106,7 +106,7 @@
     children:
     - id: SpaceCash100
       weight: 20
-    - id: UnstableMutagenChemistryBottle
+    - id: ChemistryBottleUnstableMutagen
       amount: !type:RangeNumberSelector
         range: 1, 5
     - id: Left4ZedChemistryBottle
@@ -118,16 +118,16 @@
     - id: RobustHarvestChemistryBottle
       amount: !type:RangeNumberSelector
         range: 1, 5
-    - id: EpinephrineChemistryBottle
+    - id: ChemistryBottleEpinephrine
       amount: !type:RangeNumberSelector
         range: 1, 5
-    - id: EphedrineChemistryBottle
+    - id: ChemistryBottleEphedrine
       amount: !type:RangeNumberSelector
         range: 1, 5
-    - id: OmnizineChemistryBottle
-    - id: CognizineChemistryBottle
-    - id: ToxinChemistryBottle
-    - id: NocturineChemistryBottle
+    - id: ChemistryBottleOmnizine
+    - id: ChemistryBottleCognizine
+    - id: ChemistryBottleToxin
+    - id: ChemistryBottleNocturine
     - id: VestineChemistryVial
 
 - type: entityTable

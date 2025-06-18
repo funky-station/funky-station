@@ -59979,7 +59979,7 @@ entities:
     - type: Transform
       pos: 63.494625,8.599179
       parent: 2
-- proto: CigPackMixedNasty
+- proto: CigPackMixed
   entities:
   - uid: 21747
     components:
@@ -62361,7 +62361,7 @@ entities:
     - type: Transform
       pos: 25.5,15.5
       parent: 2
-- proto: ComputerCargoShuttle
+- proto: ComputerShuttleCargo
   entities:
   - uid: 4045
     components:

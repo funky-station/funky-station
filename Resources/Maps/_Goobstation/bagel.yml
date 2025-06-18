@@ -60950,7 +60950,7 @@ entities:
     - type: Transform
       pos: 43.5,10.5
       parent: 60
-- proto: ComputerCargoShuttle
+- proto: ComputerShuttleCargo
   entities:
   - uid: 21024
     components:

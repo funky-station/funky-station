@@ -2037,7 +2037,7 @@ entities:
         actions: !type:Container
           ents:
           - 624
-- proto: EphedrineChemistryBottle
+- proto: ChemistryBottleEphedrine
   entities:
   - uid: 667
     components:
@@ -2957,13 +2957,6 @@ entities:
     components:
     - type: Transform
       pos: 7.5,-27.5
-      parent: 2
-- proto: PosterContrabandLustyExomorph
-  entities:
-  - uid: 290
-    components:
-    - type: Transform
-      pos: 5.5,-9.5
       parent: 2
 - proto: PosterLegit12Gauge
   entities:

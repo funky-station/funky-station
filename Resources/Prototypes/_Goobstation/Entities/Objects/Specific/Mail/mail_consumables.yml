@@ -136,12 +136,6 @@
     - id: CigPackMixed
       orGroup: Cigs
       prob: 0.09
-    - id: CigPackMixedMedical
-      orGroup: Cigs
-      prob: 0.05
-    - id: CigPackMixedNasty
-      orGroup: Cigs
-      prob: 0.05
       # Rare
     - id: CigPackSyndicate
       orGroup: Cigs

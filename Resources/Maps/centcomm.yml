@@ -18804,7 +18804,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -13.5,14.5
       parent: 1668
-- proto: ComputerCargoShuttle
+- proto: ComputerShuttleCargo
   entities:
   - uid: 1625
     components:
@@ -20714,7 +20714,7 @@ entities:
     - type: PointLight
       enabled: True
     - type: ActiveEmergencyLight
-- proto: EpinephrineChemistryBottle
+- proto: ChemistryBottleEpinephrine
   entities:
   - uid: 1462
     components:

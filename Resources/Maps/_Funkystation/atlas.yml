@@ -20365,7 +20365,7 @@ entities:
       parent: 2
     - type: Physics
       canCollide: False
-- proto: CigPackMixedNasty
+- proto: CigPackMixed
   entities:
   - uid: 3213
     components:
@@ -21237,7 +21237,7 @@ entities:
     - type: Transform
       pos: -27.5,17.5
       parent: 2
-- proto: ComputerCargoShuttle
+- proto: ComputerShuttleCargo
   entities:
   - uid: 3332
     components:
@@ -43170,13 +43170,6 @@ entities:
     components:
     - type: Transform
       pos: -18.5,-10.5
-      parent: 2
-- proto: PosterContrabandLustyExomorph
-  entities:
-  - uid: 6430
-    components:
-    - type: Transform
-      pos: -38.5,20.5
       parent: 2
 - proto: PosterContrabandMissingGloves
   entities:

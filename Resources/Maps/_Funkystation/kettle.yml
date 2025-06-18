@@ -66899,7 +66899,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 45.5,13.5
       parent: 82
-- proto: ComputerCargoShuttle
+- proto: ComputerShuttleCargo
   entities:
   - uid: 3403
     components:
@@ -77900,14 +77900,14 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -9.5,35.5
       parent: 82
-- proto: EphedrineChemistryBottle
+- proto: ChemistryBottleEphedrine
   entities:
   - uid: 24186
     components:
     - type: Transform
       pos: -61.605972,-48.389294
       parent: 82
-- proto: EpinephrineChemistryBottle
+- proto: ChemistryBottleEpinephrine
   entities:
   - uid: 17795
     components:
@@ -123134,13 +123134,6 @@ entities:
     components:
     - type: Transform
       pos: -21.5,39.5
-      parent: 82
-- proto: PosterContrabandLustyExomorph
-  entities:
-  - uid: 21923
-    components:
-    - type: Transform
-      pos: 24.5,38.5
       parent: 82
 - proto: PosterContrabandMissingGloves
   entities:

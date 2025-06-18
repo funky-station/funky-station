@@ -298,7 +298,7 @@
       orGroup: Chemical
     - id: WeedSpray
       orGroup: Chemical
-    - id: UnstableMutagenChemistryBottle
+    - id: ChemistryBottleUnstableMutagen
       orGroup: Chemical
 
 - type: entity

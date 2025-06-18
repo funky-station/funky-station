@@ -69708,7 +69708,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 33.5,-7.5
       parent: 5350
-- proto: ComputerCargoShuttle
+- proto: ComputerShuttleCargo
   entities:
   - uid: 28195
     components:
@@ -135979,13 +135979,6 @@ entities:
     components:
     - type: Transform
       pos: 57.5,10.5
-      parent: 5350
-- proto: PosterContrabandLustyExomorph
-  entities:
-  - uid: 12717
-    components:
-    - type: Transform
-      pos: 32.5,30.5
       parent: 5350
 - proto: PosterContrabandMissingGloves
   entities:

@@ -4254,14 +4254,14 @@ entities:
     - type: Transform
       pos: 11.5,-1.5
       parent: 2
-- proto: EphedrineChemistryBottle
+- proto: ChemistryBottleEphedrine
   entities:
   - uid: 653
     components:
     - type: Transform
       pos: -1.4256997,-0.3865409
       parent: 2
-- proto: EpinephrineChemistryBottle
+- proto: ChemistryBottleEpinephrine
   entities:
   - uid: 654
     components:
@@ -6552,13 +6552,6 @@ entities:
     components:
     - type: Transform
       pos: -13.5,-11.5
-      parent: 2
-- proto: PosterContrabandLustyExomorph
-  entities:
-  - uid: 1035
-    components:
-    - type: Transform
-      pos: 41.5,0.5
       parent: 2
 - proto: PosterContrabandMoth
   entities:

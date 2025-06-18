@@ -2375,7 +2375,7 @@ entities:
     - type: Transform
       pos: 3.5,-7.5
       parent: 1
-- proto: EpinephrineChemistryBottle
+- proto: ChemistryBottleEpinephrine
   entities:
   - uid: 317
     components:

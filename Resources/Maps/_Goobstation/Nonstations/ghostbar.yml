@@ -13095,7 +13095,7 @@ entities:
     - type: Transform
       pos: -11.259459,11.21897
       parent: 4
-- proto: UnstableMutagenChemistryBottle
+- proto: ChemistryBottleUnstableMutagen
   entities:
   - uid: 1344
     components:

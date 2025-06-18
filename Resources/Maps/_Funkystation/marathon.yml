@@ -54059,7 +54059,7 @@ entities:
     - type: Transform
       pos: 16.5,2.5
       parent: 30
-- proto: ComputerCargoShuttle
+- proto: ComputerShuttleCargo
   entities:
   - uid: 11718
     components:

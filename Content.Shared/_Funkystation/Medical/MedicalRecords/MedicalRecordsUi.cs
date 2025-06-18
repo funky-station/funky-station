@@ -60,5 +60,3 @@ public sealed class MedicalRecordsConsoleSelectMsg : BoundUserInterfaceMessage
         CharacterRecordKey = medicalRecordsKey;
     }
 }
-
-// maybe a new msg to add history/reports? idkkkkk

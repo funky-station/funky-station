@@ -1,0 +1,392 @@
+<controls:FancyWindow 
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    SetSize="1110 690"
+    MinSize="1110 690">
+    <ScrollContainer VerticalExpand="True" VScrollEnabled="True" HScrollEnabled="False">
+        <BoxContainer Orientation="Vertical">
+            <!-- Switches Section -->
+            <BoxContainer Orientation="Vertical" Margin="10 5">
+                <BoxContainer Orientation="Horizontal" Margin="0 5">
+                    <Label Text="Start Power: " />
+                    <Button Access="Public" Name="TogglePowerButton" Text="Off" />
+                    <Label Text="Start Cooling: " Margin="10 0 0 0" />
+                    <Button Access="Public" Name="ToggleCoolingButton" Text="Off" Disabled="True" />
+                </BoxContainer>
+                
+                <!-- Recipe Dropdown -->
+                <Collapsible Margin="2 2 2 2">
+                    <CollapsibleHeading Title="Recipe selection" />
+                    <CollapsibleBody Margin="20 0 0 0">
+                        <PanelContainer Name="DropdownTableBody" />
+                        <BoxContainer Orientation="Vertical" Name="RecipeTable">
+                            <!-- Table for Fuel, Fusion Byproducts, Produced Gases, Effects -->
+                            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                                <!-- Toggle Column -->
+                                <BoxContainer Orientation="Vertical" Margin="5 0">
+                                    <Label Text=" " StyleClasses="LabelBold" HorizontalAlignment="Center" />
+                                    <BoxContainer Orientation="Horizontal" Margin="0 2">
+                                        <BoxContainer Name="SelectionBox" Orientation="Vertical" Margin="2 0" HorizontalAlignment="Center">
+                                            <Label Text=" " HorizontalAlignment="Center" Margin="0 0 0 1" />
+                                        </BoxContainer>
+                                    </BoxContainer>
+                                </BoxContainer>
+
+                                <!-- Fuel Column -->
+                                <BoxContainer Orientation="Vertical" Margin="5 0">
+                                    <Label Text="Fuel" StyleClasses="LabelBold" HorizontalAlignment="Center" />
+                                    <BoxContainer Orientation="Horizontal" Margin="0 2">
+                                        <!-- Primary Gas -->
+                                        <BoxContainer Name="FuelPrimaryBox" Orientation="Vertical" Margin="2 0" HorizontalAlignment="Center">
+                                            <Label Text="Primary" HorizontalAlignment="Center" Margin="0 0 0 6" />
+                                        </BoxContainer>
+                                        <PanelContainer StyleClasses="LowDivider" VerticalAlignment="Top" SetSize="2 24" />
+                                        <!-- Secondary Gas -->
+                                        <BoxContainer Name="FuelSecondaryBox" Orientation="Vertical" Margin="2 0" HorizontalAlignment="Center">
+                                            <Label Text="Secondary" HorizontalAlignment="Center" Margin="0 0 0 6" />
+                                        </BoxContainer>
+                                    </BoxContainer>
+                                </BoxContainer>
+                                
+                                <!-- Vertical Divider Between Columns -->
+                                <PanelContainer StyleClasses="LowDivider" VerticalAlignment="Top" SetSize="2 49" />
+                                
+                                <!-- Fusion Byproducts Column -->
+                                <BoxContainer Orientation="Vertical" Margin="5 0">
+                                    <Label Text="Fusion Byproducts" StyleClasses="LabelBold" HorizontalAlignment="Center" />
+                                    <BoxContainer Orientation="Horizontal" Margin="0 2">
+                                        <!-- Gas 1 -->
+                                        <BoxContainer Name="ByproductsSubfield1Box" Orientation="Vertical" Margin="2 0" HorizontalAlignment="Center">
+                                            <Label Name="ByproductsSubfield1Content" Text=" " HorizontalAlignment="Center" Margin="0 0 0 6" />
+                                        </BoxContainer>
+                                        <!-- Gas 2 -->
+                                        <BoxContainer Name="ByproductsSubfield2Box" Orientation="Vertical" Margin="2 0" HorizontalAlignment="Center">
+                                            <Label Name="ByproductsSubfield2Content" Text=" " HorizontalAlignment="Center" Margin="0 0 0 6" />
+                                        </BoxContainer>
+                                    </BoxContainer>
+                                </BoxContainer>
+                                
+                                <!-- Vertical Divider Between Columns -->
+                                <PanelContainer StyleClasses="LowDivider" VerticalAlignment="Top" SetSize="2 49" />
+                                
+                                <!-- Produced Gases Column -->
+                                <BoxContainer Orientation="Vertical" Margin="5 0">
+                                    <Label Text="Produced Gases" StyleClasses="LabelBold" HorizontalAlignment="Center" />
+                                    <BoxContainer Orientation="Horizontal" Margin="0 2">
+                                        <!-- Tier 1 -->
+                                        <BoxContainer Name="ProducedGasesTier1Box" Orientation="Vertical" Margin="2 0" HorizontalAlignment="Center">
+                                            <Label Text="Tier 1" HorizontalAlignment="Center" Margin="0 0 0 6" />
+                                        </BoxContainer>
+                                        <PanelContainer StyleClasses="LowDivider" VerticalAlignment="Top" SetSize="2 24" />
+                                        <!-- Tier 2 -->
+                                        <BoxContainer Name="ProducedGasesTier2Box" Orientation="Vertical" Margin="2 0" HorizontalAlignment="Center">
+                                            <Label Text="Tier 2" HorizontalAlignment="Center" Margin="0 0 0 6" />
+                                        </BoxContainer>
+                                        <PanelContainer StyleClasses="LowDivider" VerticalAlignment="Top" SetSize="2 24" />
+                                        <!-- Tier 3 -->
+                                        <BoxContainer Name="ProducedGasesTier3Box" Orientation="Vertical" Margin="2 0" HorizontalAlignment="Center">
+                                            <Label Text="Tier 3" HorizontalAlignment="Center" Margin="0 0 0 6" />
+                                        </BoxContainer>
+                                        <PanelContainer StyleClasses="LowDivider" VerticalAlignment="Top" SetSize="2 24" />
+                                        <!-- Tier 4 -->
+                                        <BoxContainer Name="ProducedGasesTier4Box" Orientation="Vertical" Margin="2 0" HorizontalAlignment="Center">
+                                            <Label Text="Tier 4" HorizontalAlignment="Center" Margin="0 0 0 6" />
+                                        </BoxContainer>
+                                        <PanelContainer StyleClasses="LowDivider" VerticalAlignment="Top" SetSize="2 24" />
+                                        <!-- Tier 5 -->
+                                        <BoxContainer Name="ProducedGasesTier5Box" Orientation="Vertical" Margin="2 0" HorizontalAlignment="Center">
+                                            <Label Text="Tier 5" HorizontalAlignment="Center" Margin="0 0 0 6" />
+                                        </BoxContainer>
+                                        <PanelContainer StyleClasses="LowDivider" VerticalAlignment="Top" SetSize="2 24" />
+                                        <!-- Tier 6 -->
+                                        <BoxContainer Name="ProducedGasesTier6Box" Orientation="Vertical" Margin="2 0" HorizontalAlignment="Center">
+                                            <Label Text="Tier 6" HorizontalAlignment="Center" Margin="0 0 0 6" />
+                                        </BoxContainer>
+                                    </BoxContainer>
+                                </BoxContainer>
+                                
+                                <!-- Vertical Divider Between Columns -->
+                                <PanelContainer StyleClasses="LowDivider" VerticalAlignment="Top" SetSize="2 49" />
+                                
+                                <!-- Effects Column -->
+                                <BoxContainer Orientation="Vertical" Margin="5 0">
+                                    <Label Text="Effects" StyleClasses="LabelBold" HorizontalAlignment="Center" />
+                                    <BoxContainer Orientation="Horizontal" Margin="0 2">
+                                        <!-- Subfield 1 -->
+                                        <BoxContainer Name="EffectsSubfield1Box" Orientation="Vertical" Margin="2 0" HorizontalAlignment="Center">
+                                            <Label Name="NegativeTemperatureMultiplier" Text="&#x2744;" HorizontalAlignment="Center" Margin="3 3 3 10" />
+                                        </BoxContainer>
+                                        <PanelContainer StyleClasses="LowDivider" VerticalAlignment="Top" SetSize="2 24" />
+                                        <!-- Subfield 2 -->
+                                        <BoxContainer Name="EffectsSubfield2Box" Orientation="Vertical" Margin="2 0" HorizontalAlignment="Center">
+                                            <Label Name="PositiveTemperatureMultiplier" Text="&#xF06D;" HorizontalAlignment="Center" Margin="3 3 3 10" />
+                                        </BoxContainer>
+                                        <PanelContainer StyleClasses="LowDivider" VerticalAlignment="Top" SetSize="2 24" />
+                                        <!-- Subfield 3 -->
+                                        <BoxContainer Name="EffectsSubfield3Box" Orientation="Vertical" Margin="2 0" HorizontalAlignment="Center">
+                                            <Label Name="EnergyConcentrationMultiplier" Text="&#x2600;" HorizontalAlignment="Center" Margin="3 3 3 10" />
+                                        </BoxContainer>
+                                        <PanelContainer StyleClasses="LowDivider" VerticalAlignment="Top" SetSize="2 24" />
+                                        <!-- Subfield 4 -->
+                                        <BoxContainer Name="EffectsSubfield4Box" Orientation="Vertical" Margin="2 0" HorizontalAlignment="Center">
+                                            <Label Name="FuelConsumptionMultiplier" Text="&#xF149;" HorizontalAlignment="Center" Margin="3 3 3 10" />
+                                        </BoxContainer>
+                                        <PanelContainer StyleClasses="LowDivider" VerticalAlignment="Top" SetSize="2 24" />
+                                        <!-- Subfield 5 -->
+                                        <BoxContainer Name="EffectsSubfield5Box" Orientation="Vertical" Margin="2 0" HorizontalAlignment="Center">
+                                            <Label Name="GasProductionMultiplier" Text="&#xF148;" HorizontalAlignment="Center" Margin="3 3 3 10" />
+                                        </BoxContainer>
+                                        <PanelContainer StyleClasses="LowDivider" VerticalAlignment="Top" SetSize="2 24" />
+                                        <!-- Subfield 6 -->
+                                        <BoxContainer Name="EffectsSubfield6Box" Orientation="Vertical" Margin="2 0" HorizontalAlignment="Center">
+                                            <Label Name="TemperatureChangeMultiplier" Text="&#xF2CB;" HorizontalAlignment="Center" Margin="3 3 3 10" />
+                                        </BoxContainer>
+                                    </BoxContainer>
+                                </BoxContainer>
+                            </BoxContainer>
+                        </BoxContainer>
+                    </CollapsibleBody>
+                </Collapsible>
+            </BoxContainer>
+
+            <!-- Middle Info Panel -->
+            <BoxContainer Orientation="Horizontal" Margin="10 5" HorizontalExpand="True">
+                <!-- Internal Fusion and Moderator Gases -->
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="0 0 4 0">
+                    <!-- Internal Fusion Gases -->
+                    <BoxContainer Orientation="Vertical">
+                        <Label Text="Internal Fusion Gases" />
+                        <PanelContainer StyleClasses="LowDivider" />
+                        <BoxContainer Orientation="Horizontal" Margin="0 5">
+                            <Label Text="Injection Control: " />
+                            <Button Access="Public" Name="ToggleFuelInjectionButton" Text="Off" Disabled="True" />
+                            <FloatSpinBox Access="Public" Name="FuelInputRateSpinbox" Value="0" MinSize="140 20" Margin="10 0 0 0" />
+                            <Label Text=" mol/s" />
+                        </BoxContainer>
+                        <BoxContainer Orientation="Vertical" Margin="0 5" Name="FusionGasesContent">
+                            <Label Text="No recipe has been selected." FontColorOverride="red" />
+                        </BoxContainer>
+                    </BoxContainer>
+                    <!-- Moderator Gases -->
+                    <BoxContainer Orientation="Vertical" Margin="0 5 0 0">
+                        <Label Text="Moderator Gases" />
+                        <PanelContainer StyleClasses="LowDivider" />
+                        <BoxContainer Orientation="Horizontal" Margin="0 5">
+                            <Label Text="Injection Control: " />
+                            <Button Access="Public" Name="ToggleModeratorInjectionButton" Text="Off" Disabled="True" />
+                            <FloatSpinBox Access="Public" Name="ModeratorInputRateSpinbox" Value="0" MinSize="140 20" Margin="10 0 0 0" />
+                            <Label Text=" mol/s" />
+                        </BoxContainer>
+                        <BoxContainer Orientation="Horizontal" Margin="0 5">
+                            <Label Text="Plasma: " FontColorOverride="#FF3300" />
+                            <Control HorizontalExpand="True" />
+                            <Label Name="MPlasmaMoles" Text="0.00 moles" FontColorOverride="#FF3300" />
+                        </BoxContainer>
+                        <BoxContainer Orientation="Horizontal" Margin="0 5">
+                            <Label Text="BZ: " FontColorOverride="#9370DB" />
+                            <Control HorizontalExpand="True" />
+                            <Label Name="MBZMoles" Text="0.00 moles" FontColorOverride="#9370DB" />
+                        </BoxContainer>
+                        <BoxContainer Orientation="Horizontal" Margin="0 5">
+                            <Label Text="Proto-Nitrate: " FontColorOverride="#009933" />
+                            <Control HorizontalExpand="True" />
+                            <Label Name="MProtoNitrateMoles" Text="0.00 moles" FontColorOverride="#009933" />
+                        </BoxContainer>
+                        <BoxContainer Orientation="Vertical" Name="ModeratorGasesContent">
+                        </BoxContainer>
+                    </BoxContainer>
+                </BoxContainer>
+                <!-- Gas Monitoring -->
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="4 0 0 0">
+                    <Label Text="Gas Monitoring" />
+                    <PanelContainer StyleClasses="LowDivider" />
+                    <BoxContainer Orientation="Horizontal" Margin="4 10 10 4">
+                        <BoxContainer Orientation="Vertical" SetSize="90 0" VerticalAlignment="Top" HorizontalAlignment="Right">
+                            <Label Name="UpperGraphTemp" Text="500 K" Margin="0 0 5 0" HorizontalAlignment="Right" />
+                            <Control VerticalExpand="True" />
+                            <Label Name="LowerGraphTemp" Text="3 K" Margin="0 200 5 0" HorizontalAlignment="Right" />
+                        </BoxContainer>
+                        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalAlignment="Top">
+                            <PanelContainer MinSize="0 220">
+                                <PanelContainer.PanelOverride>
+                                    <gfx:StyleBoxFlat BorderColor="#FFFFFF" BorderThickness="1,0,0,1" />
+                                </PanelContainer.PanelOverride>
+                                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalAlignment="Bottom" >
+                                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalAlignment="Bottom" >
+                                        <PanelContainer Name="FusionTempBar" HorizontalExpand="True" Margin="40 0" >
+                                            <PanelContainer.PanelOverride>
+                                                <gfx:StyleBoxFlat BackgroundColor="#20b142" />
+                                            </PanelContainer.PanelOverride>
+                                        </PanelContainer>
+                                    </BoxContainer>
+                                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalAlignment="Bottom" >
+                                        <PanelContainer Name="ModeratorTempBar" HorizontalExpand="True" Margin="40 0" >
+                                            <PanelContainer.PanelOverride>
+                                                <gfx:StyleBoxFlat BackgroundColor="#a6d9e5" />
+                                            </PanelContainer.PanelOverride>
+                                        </PanelContainer>
+                                    </BoxContainer>
+                                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalAlignment="Bottom" >
+                                        <PanelContainer Name="CoolantTempBar" HorizontalExpand="True" Margin="40 0" >
+                                            <PanelContainer.PanelOverride>
+                                                <gfx:StyleBoxFlat BackgroundColor="#e03997" />
+                                            </PanelContainer.PanelOverride>
+                                        </PanelContainer>
+                                    </BoxContainer>
+                                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalAlignment="Bottom" >
+                                        <PanelContainer Name="OutputTempBar" HorizontalExpand="True" Margin="40 0" >
+                                            <PanelContainer.PanelOverride>
+                                                <gfx:StyleBoxFlat BackgroundColor="#f2711c" />
+                                            </PanelContainer.PanelOverride>
+                                        </PanelContainer>
+                                    </BoxContainer>
+                                </BoxContainer>
+                            </PanelContainer>
+                            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" >
+                                <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                                    <Label Text="Fusion" HorizontalAlignment="Center" />
+                                    <Label Name="FusionTemperature" Text="3 K" HorizontalAlignment="Center" />
+                                    <Label Name="FusionTrend" Text="-" HorizontalAlignment="Center" />
+                                </BoxContainer>
+                                <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                                    <Label Text="Moderator" HorizontalAlignment="Center" />
+                                    <Label Name="ModeratorTemperature" Text="3 K" HorizontalAlignment="Center" />
+                                    <Label Name="ModeratorTrend" Text="-" HorizontalAlignment="Center" />
+                                </BoxContainer>
+                                <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                                    <Label Text="Coolant" HorizontalAlignment="Center" />
+                                    <Label Name="CoolantTemperature" Text="Empty" FontColorOverride="red" HorizontalAlignment="Center" />
+                                </BoxContainer>
+                                <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                                    <Label Text="Output" HorizontalAlignment="Center" />
+                                    <Label Name="OutputTemperature" Text="Empty" FontColorOverride="red" HorizontalAlignment="Center" />
+                                </BoxContainer>
+                            </BoxContainer>
+                        </BoxContainer>
+                    </BoxContainer>
+                </BoxContainer>
+            </BoxContainer>
+
+            <!-- Reactor Status -->
+            <BoxContainer Orientation="Vertical" Margin="10 5" HorizontalExpand="True">
+                <Label Text="Reactor Status" />
+                <PanelContainer StyleClasses="LowDivider" />
+                <BoxContainer Orientation="Horizontal" Margin="0 20 0 10">
+                    <!-- Reactor Integrity -->
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5 0">
+                        <Label Name="ReactorIntegrityLabel" Text="100%" HorizontalAlignment="Center" />
+                        <Label Text="Reactor Integrity" HorizontalAlignment="Center" />
+                    </BoxContainer>
+                    <!-- Iron Content -->
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5 0">
+                        <Label Name="IronContentLabel" Text="0%" HorizontalAlignment="Center" />
+                        <Label Text="Iron Content" HorizontalAlignment="Center" />
+                    </BoxContainer>
+                    <!-- Area Power -->
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5 0">
+                        <Label Name="AreaPowerLabel" Text="0%" HorizontalAlignment="Center" />
+                        <Label Text="Area Power" HorizontalAlignment="Center" />
+                    </BoxContainer>
+                    <!-- Fusion Level -->
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5 0">
+                        <Label Name="FusionLevelLabel" Text="0" HorizontalAlignment="Center" />
+                        <Label Text="Fusion Level" HorizontalAlignment="Center" />
+                    </BoxContainer>
+                    <!-- Energy -->
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5 0">
+                        <Label Name="EnergyLabel" Text="0 TJ" HorizontalAlignment="Center" />
+                        <Label Text="Energy" HorizontalAlignment="Center" />
+                    </BoxContainer>
+                    <!-- Reaction Activity -->
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5 0">
+                        <Label Name="ReactionActivityLabel" Text="0%" HorizontalAlignment="Center" />
+                        <Label Text="Reaction Activity" HorizontalAlignment="Center" />
+                    </BoxContainer>
+                    <!-- Instability -->
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5 0">
+                        <Label Name="InstabilityLabel" Text="0%" HorizontalAlignment="Center" />
+                        <Label Text="Instability" HorizontalAlignment="Center" />
+                    </BoxContainer>
+                </BoxContainer>
+            </BoxContainer>
+
+            <!-- Reactor Control -->
+            <BoxContainer Orientation="Vertical" Margin="10 5" HorizontalExpand="True">
+                <Label Text="Reactor Control" />
+                <PanelContainer StyleClasses="LowDivider" />
+                <BoxContainer Orientation="Horizontal" Margin="0 25 0 10">
+                    <!-- Heating Conductor -->
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5 0">
+                        <FloatSpinBox Access="Public" Name="HeatingConductorSpinBox" Value="0" MinSize="140 20" HorizontalAlignment="Center" />
+                        <Label Text="Heating Conductor" HorizontalAlignment="Center" />
+                    </BoxContainer>
+                    <!-- Cooling Volume -->
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5 0">
+                        <FloatSpinBox Access="Public" Name="CoolingVolumeSpinBox" Value="0" MinSize="140 20" HorizontalAlignment="Center" />
+                        <Label Text="Cooling Volume" HorizontalAlignment="Center" />
+                    </BoxContainer>
+                    <!-- Magnetic Constrictor -->
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5 0">
+                        <FloatSpinBox Access="Public" Name="MagneticConstrictorSpinBox" Value="0" MinSize="140 20" HorizontalAlignment="Center" />
+                        <Label Text="Magnetic Constrictor" HorizontalAlignment="Center" />
+                    </BoxContainer>
+                    <!-- Current Damper -->
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5 0">
+                        <FloatSpinBox Access="Public" Name="CurrentDamperSpinBox" Value="0" MinSize="140 20" HorizontalAlignment="Center" />
+                        <Label Text="Current Damper" HorizontalAlignment="Center" />
+                    </BoxContainer>
+                </BoxContainer>
+            </BoxContainer>
+
+            <!-- Output Control -->
+            <BoxContainer Orientation="Vertical" Margin="10 5" HorizontalExpand="True">
+                <Label Text="Output Control" />
+                <PanelContainer StyleClasses="LowDivider" />
+                <BoxContainer Orientation="Horizontal" Margin="0 5">
+                    <Label Text="Waste remove: " />
+                    <Button Access="Public" Name="ToggleWasteRemoveButton" Text="Off" />
+                </BoxContainer>
+                <BoxContainer Orientation="Horizontal" Margin="0 5">
+                    <Label Text="Moderator filtering rate: " />
+                    <FloatSpinBox Access="Public" Name="ModeratorFilteringRateSpinBox" Value="0" MinSize="140 20" />
+                    <Label Text=" mol/s" />
+                </BoxContainer>
+                <BoxContainer Orientation="Horizontal" Margin="0 5" HorizontalExpand="True" >
+                    <Collapsible Margin="2 2 2 2" HorizontalExpand="True" >
+                        <CollapsibleHeading Title="Filter from moderator mix" />
+                        <CollapsibleBody Margin="20 0 0 0">
+                            <BoxContainer Orientation="Vertical" HorizontalExpand="True" >
+                                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 5">
+                                    <GridContainer HorizontalExpand="True" Columns="7" Margin="0 5 0 0">
+                                        <Button Name="SelectAllButton" HorizontalExpand="True" Text="{Loc 'Select All'}" />
+                                        <Button Name="DeselectAllButton" HorizontalExpand="True" Text="{Loc 'Deselect All'}" />
+                                        <Control HorizontalExpand="True" />
+                                        <Control HorizontalExpand="True" />
+                                        <Control HorizontalExpand="True" />
+                                        <Control HorizontalExpand="True" />
+                                        <Control HorizontalExpand="True" />
+                                    </GridContainer>
+                                </BoxContainer>
+                                <GridContainer HorizontalExpand="True" Name="GasContainer" Columns="7" Margin="0 5 0 0" />
+                            </BoxContainer>
+                        </CollapsibleBody>
+                    </Collapsible>
+                </BoxContainer>
+            </BoxContainer>
+
+            <!-- Footer -->
+            <BoxContainer Orientation="Vertical">
+                <PanelContainer StyleClasses="LowDivider" />
+                <BoxContainer Orientation="Horizontal" Margin="10 2 5 0" VerticalAlignment="Bottom">
+                    <Label Text="{Loc 'atmos-monitoring-window-flavor-left'}" StyleClasses="WindowFooterText" />
+                    <Label Text="{Loc 'atmos-monitoring-window-flavor-right'}" StyleClasses="WindowFooterText"
+                           HorizontalAlignment="Right" HorizontalExpand="True" Margin="0 0 5 0" />
+                    <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
+                                 VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19"/>
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </ScrollContainer>
+</controls:FancyWindow>

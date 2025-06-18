@@ -1274,9 +1274,6 @@
   - type: Sprite
     sprite: Objects/Fun/toys.rsi
     state: foamblade
-  - type: EmitSoundOnUse #funkystation
-    sound:
-      path: /Audio/Effects/gib1.ogg
   - type: StaminaDamageOnHit #funkystation
     damage: 8
   - type: DisarmMalus #funkystation

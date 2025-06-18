@@ -21,6 +21,8 @@ public sealed class MapMigrationSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
 #pragma warning restore CS0414
     [Dependency] private readonly IResourceManager _resMan = default!;
+    
+    private ISawmill _sawmill = Logger.GetSawmill("mapMigration");
 
     private List<string> _migrationFiles = [ "/migration.yml", "/funky_migration.yml" ];
 
@@ -41,7 +43,8 @@ public sealed class MapMigrationSystem : EntitySystem
         }
 #endif
     }
-
+    
+    // funkystation - changed to support multiple migration files
     private MappingDataNode TryReadFiles()
     {
         var mappings = new MappingDataNode();
@@ -61,7 +64,10 @@ public sealed class MapMigrationSystem : EntitySystem
             
             foreach (var node in docRoot.Children)
             {
-                if (mappings.TryAdd(node.Key, node.Value));
+                if (!mappings.TryAdd(node.Key, node.Value))
+                {
+                    _sawmill.Warning($"{node.Key} is duplicated. Check key for doubles.");
+                }
             }
         }
 

@@ -17,7 +17,6 @@ namespace Content.Client.Crayon;
 public sealed class CrayonSystem : SharedCrayonSystem
 {
     [Dependency] private readonly IOverlayManager _overlayManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
 
@@ -28,12 +27,11 @@ public sealed class CrayonSystem : SharedCrayonSystem
 
         _overlayManager.AddOverlay(new CrayonPlacementOverlay(_transform, _sprite)); //Funky Station
 
-        SubscribeLocalEvent<CrayonComponent, CrayonSelectMessage>(OnCrayonBoundUI);
         SubscribeLocalEvent<CrayonComponent, ComponentHandleState>(OnCrayonHandleState);
         Subs.ItemStatus<CrayonComponent>(ent => new StatusControl(ent));
     }
 
-    private void OnCrayonHandleState(EntityUid uid, CrayonComponent component, ref ComponentHandleState args)
+    private static void OnCrayonHandleState(EntityUid uid, CrayonComponent component, ref ComponentHandleState args)
     {
         if (args.Current is not CrayonComponentState state) return;
 
@@ -45,14 +43,6 @@ public sealed class CrayonSystem : SharedCrayonSystem
 
         component.UIUpdateNeeded = true;
     }
-
-    private void OnCrayonBoundUI(EntityUid uid, CrayonComponent component, CrayonSelectMessage args)
-    {
-        // Check if the selected state is valid
-        if (!_prototypeManager.TryIndex<DecalPrototype>(args.State, out var prototype) || !prototype.Tags.Contains("crayon"))
-            return;
-    }
-
 
     private sealed class StatusControl : Control
     {

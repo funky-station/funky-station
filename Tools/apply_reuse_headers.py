@@ -1,4 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 sleepyyapril <flyingkarii@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 #!/usr/bin/env python3
@@ -230,6 +232,7 @@ def parse_existing_header(content, comment_style):
     """
     Parses an existing REUSE header to extract authors and license.
     Returns: (authors_dict, license_id, header_lines)
+
     comment_style is a tuple of (prefix, suffix)
     """
     prefix, suffix = comment_style
@@ -315,10 +318,25 @@ def parse_existing_header(content, comment_style):
 
     return authors, license_id, header_lines
 
+tokens = ["github_pat_", "ghp_", "gho_"]
+
+def is_token(name):
+    email_pos = name.find("<")
+    email = name[email_pos:]
+    real_name = name[:email_pos - 2]
+
+    for token in tokens:
+        if email.startswith(token) or real_name.startswith(token):
+            return True
+        
+    return False
+
+
 def create_header(authors, license_id, comment_style):
     """
     Creates a REUSE header with the given authors and license.
     Returns: header string
+
     comment_style is a tuple of (prefix, suffix)
     """
     prefix, suffix = comment_style
@@ -329,7 +347,8 @@ def create_header(authors, license_id, comment_style):
         # Add copyright lines
         if authors:
             for author, (_, year) in sorted(authors.items(), key=lambda x: (x[1][1], x[0])):
-                if not author.startswith("Unknown <"):
+                # avoid tokens
+                if not author.startswith("Unknown <") and not is_token(author):
                     lines.append(f"{prefix} SPDX-FileCopyrightText: {year} {author}")
         else:
             lines.append(f"{prefix} SPDX-FileCopyrightText: Contributors to The Den project")

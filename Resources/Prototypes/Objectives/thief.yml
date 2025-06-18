@@ -313,17 +313,6 @@
   - type: Objective
     difficulty: 1
 
-- type: entity
-  parent: BaseThiefStealObjective
-  id: ToolboxGoldenStealObjective
-  components:
-  - type: NotJobRequirement
-    job: Captain
-  - type: StealCondition
-    stealGroup: ToolboxGolden
-  - type: Objective
-    difficulty: 1.5
-
 # Structures
 
 - type: entity

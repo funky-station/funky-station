@@ -99,6 +99,17 @@
 
 - type: entity
   parent: ClothingPrideMantleBase
+  id: ClothingNeckMantleGenderfluid
+  name: genderfluid mantle
+  description: A soft mantle, striped with the genderfluid flag.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Neck/mantles/genderfluidmantle.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Neck/mantles/genderfluidmantle.rsi
+
+- type: entity
+  parent: ClothingPrideMantleBase
   id: ClothingNeckMantleRainbow
   name: rainbow mantle
   description: A soft mantle, striped with the pride flag.

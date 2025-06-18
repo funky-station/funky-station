@@ -50,8 +50,8 @@ If your changes are under the resources folder, you do not need to build more th
 
 ## License
 
-Content contributed to this repository after commit [50f3910abba2a021c5a70b68a65a98bfaf3028c9](https://github.com/funky-station/funky-station/commit/50f3910abba2a021c5a70b68a65a98bfaf3028c9) is licensed under the GNU Affero General Public License version 3.0, unless otherwise stated. See LICENSE-AGPLv3.txt. Content contributed to this repository before commit [b9efd260f3d727b4cc621f189ba96e37f0f30bc5](https://github.com/Goob-Station/Goob-Station/commit/b9efd260f3d727b4cc621f189ba96e37f0f30bc5) is licensed under the MIT license, unless otherwise stated. See LICENSE-MIT.txt.
+All code in this codebase is released under the AGPL-3.0-or-later license. Each file includes REUSE Specification headers or separate .license files that specify a dual license option. This dual licensing is provided to simplify the process for projects that are not using AGPL, allowing them to adopt the relevant portions of the code under an alternative license. You can review the complete texts of these licenses in the LICENSES/ directory.
 
-Most assets are licensed under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) unless stated otherwise. Assets have their license and the copyright in the metadata file. [Example](https://github.com/space-wizards/space-station-14/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
+Most media assets are licensed under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) unless stated otherwise. Assets have their license and the copyright in the metadata file. [Example](https://github.com/space-wizards/space-station-14/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
 
 Note that some assets are licensed under the non-commercial [CC-BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) or similar non-commercial licenses and will need to be removed if you wish to use this project commercially.

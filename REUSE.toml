@@ -1,0 +1,16 @@
+version = 1
+SPDX-PackageName = "Funky Station"
+SPDX-PackageSupplier = "taydeo <tay@funkystation.org>
+SPDX-PackageDownloadLocation = "https://funkystation.org"
+
+[[annotations]]
+path = ["Resources/Audio/**", "Resources/Textures/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "None"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = ["**.txt", "**.json"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "None"
+SPDX-License-Identifier = "MIT"

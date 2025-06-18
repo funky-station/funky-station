@@ -19,6 +19,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using System.Globalization;
+using Content.Server.Shuttles.Systems;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -43,6 +44,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
         SubscribeLocalEvent<InitialInfectedRoleComponent, GetBriefingEvent>(OnGetBriefing);
         SubscribeLocalEvent<ZombieRoleComponent, GetBriefingEvent>(OnGetBriefing);
         SubscribeLocalEvent<IncurableZombieComponent, ZombifySelfActionEvent>(OnZombifySelf);
+        SubscribeLocalEvent<ShuttleDockAttemptFailedEvent>(OnShuttleDockFailed);
     }
 
     private void OnGetBriefing(Entity<InitialInfectedRoleComponent> role, ref GetBriefingEvent args)
@@ -222,5 +224,11 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
             healthy.Add(uid);
         }
         return healthy;
+    }
+
+    // If Shuttle is blocked, just end the round to end the suffering
+    private void OnShuttleDockFailed(ref ShuttleDockAttemptFailedEvent ev)
+    {
+        _roundEnd.EndRound();
     }
 }

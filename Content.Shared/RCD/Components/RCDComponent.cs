@@ -32,6 +32,11 @@ public sealed partial class RCDComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public ProtoId<RCDPrototype> ProtoId { get; set; } = "Invalid";
+    
+    /// <summary>
+    /// The ProtoId of the currently selected RCD prototype
+    /// </summary>
+    [DataField, AutoNetworkedField] public bool IsRpd = false;
 
     /// <summary>
     /// The direction constructed entities will face upon spawning

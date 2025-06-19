@@ -240,7 +240,7 @@
     sprite: Objects/Misc/module.rsi
     state: std_mod
   - type: SiliconLawProvider
-    laws: DungeonMasterLawset
+    laws: GameMasterLawset
 
 # funky begin - for migration purposes
 - type: entity
@@ -253,7 +253,7 @@
     sprite: Objects/Misc/module.rsi
     state: std_mod
   - type: SiliconLawProvider
-    laws: DungeonMasterLawset
+    laws: GameMasterLawset
 # funky end
 
 - type: entity

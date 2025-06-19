@@ -120,7 +120,7 @@
 - type: entity
   parent: IngotBase
   id: MetalHydrogen
-  name: metal hydrogen
+  name: stack-metal-hydrogen
   suffix: Full
   components:
   - type: Material
@@ -155,7 +155,7 @@
 - type: entity
   parent: MetalHydrogen
   id: MetalHydrogen10
-  name: metal hydrogen
+  name: stack-metal-hydrogen
   suffix: 10
   components:
   - type: Sprite
@@ -167,7 +167,7 @@
 - type: entity
   parent: MetalHydrogen
   id: MetalHydrogen1
-  name: metal hydrogen
+  name: stack-metal-hydrogen
   suffix: Single
   components:
   - type: Sprite
@@ -215,7 +215,7 @@
 - type: entity
   parent: Zaukerite
   id: Zaukerite10
-  name: zaukerite
+  name: stack-zaukerite
   suffix: 10
   components:
   - type: Sprite
@@ -227,7 +227,7 @@
 - type: entity
   parent: Zaukerite
   id: Zaukerite1
-  name: zaukerite
+  name: stack-zaukerite
   suffix: Single
   components:
   - type: Sprite

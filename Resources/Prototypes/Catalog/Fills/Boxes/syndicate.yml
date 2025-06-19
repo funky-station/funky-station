@@ -27,7 +27,7 @@
       - id: Dropper
       # It would be cool to have special "syndicate" chemical analysis goggles
       - id: ClothingEyesGlassesChemical
-      - id: VestineChemistryVial
+      - id: ChemistryVialVestine
         amount: 2
       - id: BaseChemistryEmptyVial
       - id: SyringeStimulants

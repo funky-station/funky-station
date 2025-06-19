@@ -1,0 +1,1 @@
+stack-mote-of-entropy = mote of entropy

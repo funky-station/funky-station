@@ -11,8 +11,9 @@
         Blunt: 0.95
         Slash: 0.95
   - type: Slippery
-    paralyzeTime: 5.0
-    launchForwardsMultiplier: 3.0
+    slipData:
+      paralyzeTime: 5.0
+      launchForwardsMultiplier: 3.0
   - type: StepTrigger
     intersectRatio: 0.2
     triggerGroups: # Goobstation

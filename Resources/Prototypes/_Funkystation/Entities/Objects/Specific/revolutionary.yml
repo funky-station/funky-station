@@ -48,6 +48,6 @@
 
 - type: stack
   id: RevCoin
-  name: revcoin
+  name: store-currency-display-revcoin
   icon: _Funkystation/Objects/Specific/Revolutionary/revcoin.rsi
   spawn: RevCoin1

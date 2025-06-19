@@ -104,7 +104,7 @@
   - type: DnaSubstanceTrace
 
 - type: entity
-  id: VestineChemistryVial
+  id: ChemistryVialVestine
   parent: BaseChemistryEmptyVial
   suffix: vestine
   components:

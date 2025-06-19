@@ -111,9 +111,6 @@
   description: uplink-gloves-knuckleduster-desc
   icon: { sprite: Clothing/Hands/Gloves/KnuckleDusters/syndicateknuckleduster.rsi, state: syndicateknuckleduster }
   productEntity: ClothingHandsKnuckleDustersSyndicate
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 3
   cost:
     Telecrystal: 6
   categories:
@@ -1542,9 +1539,6 @@
   name: uplink-clothing-outer-vest-web-elite-name
   description: uplink-clothing-outer-vest-web-elite-desc
   productEntity: ClothingOuterVestWebElite
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 3
   cost:
     Telecrystal: 5
   categories:
@@ -2366,9 +2360,6 @@
   description: uplink-saw-advanced-desc
   icon: { sprite:  Objects/Specific/Medical/Surgery/saw.rsi, state: advanced}
   productEntity: SawAdvanced
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 1
   cost:
     Telecrystal: 2
   categories:

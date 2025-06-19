@@ -109,13 +109,13 @@
     - id: ChemistryBottleUnstableMutagen
       amount: !type:RangeNumberSelector
         range: 1, 5
-    - id: Left4ZedChemistryBottle
+    - id: ChemistryBottleLeft4Zed
       amount: !type:RangeNumberSelector
         range: 1, 5
-    - id: EZNutrientChemistryBottle
+    - id: ChemistryBottleEZNutrient
       amount: !type:RangeNumberSelector
         range: 1, 5
-    - id: RobustHarvestChemistryBottle
+    - id: ChemistryBottleRobustHarvest
       amount: !type:RangeNumberSelector
         range: 1, 5
     - id: ChemistryBottleEpinephrine
@@ -128,7 +128,7 @@
     - id: ChemistryBottleCognizine
     - id: ChemistryBottleToxin
     - id: ChemistryBottleNocturine
-    - id: VestineChemistryVial
+    - id: ChemistryVialVestine
 
 - type: entityTable
   id: RandomSatchelTable2

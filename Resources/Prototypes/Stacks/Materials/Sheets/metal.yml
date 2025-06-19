@@ -21,7 +21,7 @@
 
 - type: stack
   id: MetalHydrogen
-  name: metal hydrogen
+  name: stack-metal-hydrogen
   icon: { sprite: /Textures/Objects/Materials/ingots.rsi, state: hydrogen }
   spawn: MetalHydrogen1
   maxCount: 30
@@ -29,7 +29,7 @@
 # Assmos
 - type: stack
   id: Zaukerite
-  name: zaukerite
+  name: stack-zaukerite
   icon: { sprite: /Textures/Objects/Materials/ingots.rsi, state: zaukerite }
   spawn: Zaukerite1
   maxCount: 30

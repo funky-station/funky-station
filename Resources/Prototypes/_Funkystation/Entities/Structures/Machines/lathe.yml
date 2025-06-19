@@ -20,31 +20,7 @@
   - type: Lathe
     idleState: icon
     runningState: icon
-    staticRecipes:
-    - TrumpetInstrument
-    - TromboneInstrument
-    - FrenchHornInstrument
-    - EuphoniumInstrument
-    - GunpetInstrument
-    - GlockenspielInstrument
-    - MusicBoxInstrument
-    - XylophoneInstrument
-    - MicrophoneInstrument
-    - WoodblockInstrument
-    - KalimbaInstrument
-    - ElectricGuitarInstrument
-    - BassGuitarInstrument
-    - RockGuitarInstrument
-    - AcousticGuitarInstrument
-    - BanjoInstrument
-    - ViolinInstrument
-    - ViolaInstrument
-    - CelloInstrument
-    - SaxophoneInstrument
-    - HarmonicaInstrument
-    - ClarinetInstrument
-    - FluteInstrument
-    - RecorderInstrument
-    - BagpipeInstrument
+    staticPacks:
+    - ServiceMusicStaticFunky
   - type: Machine
     board: MusicTechFabCircuitboard

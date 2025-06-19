@@ -53,11 +53,8 @@ public sealed class MedicalRecordsConsoleSystem : SharedMedicalRecordsConsoleSys
             return;
 
         var station = _station.GetOwningStation(entity);
-        if (!HasComp<StationRecordsComponent>(station) ||
-            !HasComp<CharacterRecordsComponent>(station))
-        {
+        if (!HasComp<StationRecordsComponent>(station) || !HasComp<CharacterRecordsComponent>(station))
             return;
-        }
 
         var characterRecords = _characterRecords.QueryRecords(station.Value);
         // Get the name and station records key display from the list of records

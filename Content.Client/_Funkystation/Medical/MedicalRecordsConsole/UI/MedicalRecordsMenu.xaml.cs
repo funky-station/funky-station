@@ -204,15 +204,8 @@ public sealed partial class MedicalRecordsMenu : FancyWindow
         RecordContainerStatus.Visible = false;
         RecordContainer.Visible = true;
 
-        // Do not needlessly reload the record if not needed. This is mainly done to prevent a bug in the admin record viewer.
-        if (state.SelectedIndex == _openRecordKey)
-            return;
-        _openRecordKey = state.SelectedIndex;
-
         var record = state.SelectedRecord!;
-        var cr = record.PRecords;
-
-        PopulateInformation(record, cr);
+        PopulateInformation(record);
     }
 
     /* generate locale */
@@ -248,10 +241,9 @@ public sealed partial class MedicalRecordsMenu : FancyWindow
     {
         if (_selectedListingKey == key)
             return;
+
         _selectedListingKey = key;
-
         _isPopulating = true;
-
         CharacterListing.ClearSelected();
 
         // I wish there was a better way of doing this
@@ -270,10 +262,9 @@ public sealed partial class MedicalRecordsMenu : FancyWindow
         _isPopulating = false;
     }
 
-    private void PopulateInformation(FullCharacterRecords record, PlayerProvidedCharacterRecords cr)
+    private void PopulateInformation(FullCharacterRecords record)
     {
-        // i love data!!! i love it!!!!!!
-        // this isnt ugly at all!!!!!!!
+        var cr = record.PRecords;
 
         // General Information
         RecordContainerName.Text = record.Name;
@@ -283,25 +274,23 @@ public sealed partial class MedicalRecordsMenu : FancyWindow
         RecordContainerAge.Text = record.Age.ToString();
         RecordContainerHeight.Text = cr.Height + " " + UnitConversion.GetImperialDisplayLength(cr.Height);
         RecordContainerWeight.Text = cr.Weight + " " + UnitConversion.GetImperialDisplayMass(cr.Weight);
-        RecordContainerWorkAuth.Text = record.PRecords.HasWorkAuthorization ? "Yes" : "No";
-
-        RecordContainerInsurance.Text = record.PRecords.HasInsurance ? "Yes" : "No";
+        RecordContainerWorkAuth.Text = cr.HasWorkAuthorization ? "Yes" : "No";
+        RecordContainerInsurance.Text = cr.HasInsurance ? "Yes" : "No";
         if (RecordContainerInsurance.Text.Equals("Yes"))
         {
             InsuranceContainer.Visible = true;
-
-            RecordContainerInsuranceProvider.Text = GetInsuranceProviderLocals(record.PRecords.InsuranceProvider);
-            RecordContainerInsurancePlan.Text = GetInsuranceTypeLocals(record.PRecords.InsuranceType);
+            RecordContainerInsuranceProvider.Text = GetInsuranceProviderLocals(cr.InsuranceProvider);
+            RecordContainerInsurancePlan.Text = GetInsuranceTypeLocals(cr.InsuranceType);
         }
         else { InsuranceContainer.Visible = false; }
 
         // Medical Information
         RecordContainerFingerprints.Text = record.Fingerprint ?? Loc.GetString("cd-character-records-viewer-unknown");
         RecordContainerDNA.Text = record.DNA ?? Loc.GetString("cd-character-records-viewer-unknown");
-        RecordContainerBloodType.Text = GetBloodTypeLocals(record.PRecords.BloodType);
+        RecordContainerBloodType.Text = GetBloodTypeLocals(cr.BloodType);
         // prescriptions
         // allergies
-        RecordContainerIdentFeatures.Text = record.PRecords.IdentifyingFeatures;
+        RecordContainerIdentFeatures.Text = cr.IdentifyingFeatures;
         RecordContainerPostMortem.Text = cr.PostmortemInstructions;
 
         // Autopsy Information

@@ -16,24 +16,17 @@
 
             <!--  left column  -->
             <BoxContainer
-                Margin="10"
+                Margin="5"
                 Orientation="Vertical"
                 SetWidth="300">
 
-                <BoxContainer HorizontalExpand="True">
+                <BoxContainer HorizontalExpand="True" Margin="10,0">
                     <OptionButton HorizontalExpand="True" Name="RecordFilterType" />
                     <Button
                         HorizontalExpand="True"
-                        MinSize="100 0"
+                        MinWidth="100"
                         Name="RecordFiltersReset"
                         Text="Reset" />
-                </BoxContainer>
-
-                <BoxContainer
-                    Align="Center"
-                    HorizontalExpand="True"
-                    Margin="10">
-                    <Label StyleClasses="LabelBig" Text="Crewmembers" />
                 </BoxContainer>
 
                 <!--  entry list  -->
@@ -57,7 +50,7 @@
             <!--  right column  -->
             <BoxContainer
                 HorizontalExpand="True"
-                Margin="10"
+                Margin="5"
                 Orientation="Vertical">
 
                 <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
@@ -74,12 +67,17 @@
                 </BoxContainer>
 
                 <Label
+                    Align="Center"
                     Name="RecordContainerStatus"
+                    StyleClasses="LabelBig"
                     Text="No Record Selected"
-                    Visible="False" />
+                    VerticalExpand="True" />
 
                 <!--  information  -->
-                <BoxContainer Name="RecordContainer" Orientation="Vertical">
+                <BoxContainer
+                    Name="RecordContainer"
+                    Orientation="Vertical"
+                    Visible="False">
 
                     <Label
                         Align="Center"

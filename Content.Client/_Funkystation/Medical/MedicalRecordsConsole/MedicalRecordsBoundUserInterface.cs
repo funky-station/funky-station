@@ -12,10 +12,21 @@ public sealed class MedicalRecordsBoundUserInterface : BoundUserInterface
 {
     [ViewVariables] private MedicalRecordsMenu? _menu;
     private readonly AccessReaderSystem _accessReader;
+    // TODO: access locking entries / history
 
     public MedicalRecordsBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
         _accessReader = EntMan.System<AccessReaderSystem>();
+    }
+
+    protected override void UpdateState(BoundUserInterfaceState state)
+    {
+        base.UpdateState(state);
+
+        if (state is not MedicalRecordsConsoleState cast)
+            return;
+
+        _menu?.UpdateState(cast);
     }
 
     protected override void Open()
@@ -40,15 +51,6 @@ public sealed class MedicalRecordsBoundUserInterface : BoundUserInterface
         _menu.OpenCentered();
     }
 
-    protected override void UpdateState(BoundUserInterfaceState state)
-    {
-        base.UpdateState(state);
-
-        if (state is not MedicalRecordsConsoleState cast)
-            return;
-
-        _menu?.UpdateState(cast);
-    }
 
     protected override void Dispose(bool disposing)
     {

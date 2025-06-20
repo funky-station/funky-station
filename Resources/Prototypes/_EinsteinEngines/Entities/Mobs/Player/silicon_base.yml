@@ -165,7 +165,7 @@
       bounds: -0.5,-0.5,0.5,0.5
     - type: Bloodstream # begin DeltaV - uncommented
       damageBleedModifiers: BloodlossIPC
-      bloodReagent: Oil
+      bloodReagent: MachineOil
       bleedReductionAmount: 0
       bloodMaxVolume: 100
       chemicalMaxVolume: 0

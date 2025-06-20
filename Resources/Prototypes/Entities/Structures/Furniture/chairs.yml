@@ -350,7 +350,7 @@
     size: Huge
   - type: Appearance
   - type: MeleeWeapon
-    wideAnimationRotation: 90
+    wideAnimationRotation: 270
     damage:
       types:
         Blunt: 6

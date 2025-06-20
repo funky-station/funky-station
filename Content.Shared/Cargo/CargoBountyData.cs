@@ -1,6 +1,5 @@
 using Robust.Shared.Serialization;
 using Content.Shared.Cargo.Prototypes;
-using Content.Shared.Whitelist;
 
 namespace Content.Shared.Cargo;
 
@@ -65,7 +64,13 @@ public sealed partial class CargoBountyData
         var items = new List<CargoBountyItemData>();
         foreach (var entry in prototype.Entries)
         {
-            items.Add(new CargoBountyItemData(entry));
+            CargoBountyItemData newItem = entry switch
+            {
+                CargoObjectBountyItemEntry itemEntry => new CargoObjectBountyItemData(itemEntry),
+                CargoReagentBountyItemEntry itemEntry => new CargoReagentBountyItemData(itemEntry),
+                _ => throw new NotImplementedException($"Unknown type: {entry.GetType().Name}"),
+            };
+            items.Add(newItem);
         }
         Entries = items;
     }
@@ -73,43 +78,5 @@ public sealed partial class CargoBountyData
     public CargoBountyData()
     {
 
-    }
-}
-
-[DataDefinition, Serializable, NetSerializable]
-public sealed partial class CargoBountyItemData
-{
-    /// <summary>
-    /// A whitelist for determining what items satisfy the entry.
-    /// </summary>
-    [DataField(required: true)]
-    public EntityWhitelist Whitelist { get; set; } = default!;
-
-    /// <summary>
-    /// A blacklist that can be used to exclude items in the whitelist.
-    /// </summary>
-    [DataField]
-    public EntityWhitelist? Blacklist { get; set; }
-
-    // todo: implement some kind of simple generic condition system
-
-    /// <summary>
-    /// How much of the item must be present to satisfy the entry
-    /// </summary>
-    [DataField]
-    public int Amount { get; set; } = 1;
-
-    /// <summary>
-    /// A player-facing name for the item.
-    /// </summary>
-    [DataField]
-    public LocId Name { get; set; } = string.Empty;
-
-    public CargoBountyItemData(CargoBountyItemEntry entry)
-    {
-        Name = entry.Name;
-        Amount = entry.Amount;
-        Whitelist = entry.Whitelist;
-        Blacklist = entry.Blacklist;
     }
 }

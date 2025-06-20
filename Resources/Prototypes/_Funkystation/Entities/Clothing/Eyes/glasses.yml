@@ -12,17 +12,18 @@
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
-    tags:
-    - WhitelistChameleon
   - type: GuideHelp
     guides:
     - Security
     - Antagonists
   - type: IdentityBlocker
     coverage: EYES
-  - type: Construction 
+  - type: Construction
     graph: jamjarGlassesSec
     node: secjarGlasses
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 - type: entity
   parent: [ ClothingEyesGlassesJamjar, ShowMedicalIcons ]
@@ -35,14 +36,14 @@
   - type: Clothing
     sprite: _Funkystation/Clothing/Eyes/Jamjars/medjar.rsi
   - type: VisionCorrection
+  - type: Construction
+    graph: jamjarGlassesMed
+    node: medjarGlasses
   - type: Tag
     tags:
     - WhitelistChameleon
     - HudMedical
-  - type: Construction
-    graph: jamjarGlassesMed
-    node: medjarGlasses
-    
+
 - type: entity
   parent: ClothingEyesGlassesJamjar
   id: ClothingEyesGlassesChemjar
@@ -57,12 +58,12 @@
   - type: SolutionScanner
   - type: IdentityBlocker
     coverage: EYES
-  - type: Tag
-    tags:
-    - WhitelistChameleon
   - type: Construction
     graph: jamjarGlassesChem
     node: chemjarGlasses
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingEyesGlassesJamjar
@@ -81,13 +82,13 @@
     - Silicon
   - type: IdentityBlocker
     coverage: EYES
-  - type: Tag
-    tags:
-    - WhitelistChameleon
   - type: Construction
     graph: jamjarGlassesRobo
     node: robojarGlasses
-  
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
 - type: entity
   parent: ClothingEyesGlassesJamjar
   id: ClothingEyesGlassesJamgog
@@ -100,21 +101,18 @@
     sprite: _Funkystation/Clothing/Eyes/Jamjars/jamgog.rsi
   - type: VisionCorrection
   - type: EyeProtection
-    protectionTime: 5
-    tags:
-    - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
-  - type: Tag
-    tags:
-    - WhitelistChameleon
   - type: Construction
     graph: jamjarGlassesEngi
     node: engijarGlasses
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingEyesGlassesGar
-  id: ClothingEyesGlassesSungar 
+  id: ClothingEyesGlassesSungar
   name: sungar glasses
   description: Wearing this will most certainly lead to decapitation.
   components:
@@ -124,14 +122,9 @@
     sprite: _Funkystation/Clothing/Eyes/sungar.rsi
   - type: IdentityBlocker
     coverage: EYES
+  - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
-    tags:
-    - WhitelistChameleon
-  - type: Tag
-    tags:
-      - Sunglasses
-      - WhitelistChameleon
   - type: MeleeWeapon
     attackRate: 1.5
     damage:
@@ -140,6 +133,10 @@
   - type: Construction
     graph: glassesSungar
     node: sungarGlasses
+  - type: Tag
+    tags:
+    - Sunglasses
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingEyesBase
@@ -161,3 +158,7 @@
   - type: Construction
     graph: glassesCSungar
     node: sungarCGlasses
+  - type: Tag
+    tags:
+    - Sunglasses
+    - WhitelistChameleon

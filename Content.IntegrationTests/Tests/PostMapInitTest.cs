@@ -54,6 +54,7 @@ namespace Content.IntegrationTests.Tests
         {
             "Dev",
             "TestTeg",
+            "TestHFR", // Funky - HFR
             "Fland",
             "Meta",
             "Packed",

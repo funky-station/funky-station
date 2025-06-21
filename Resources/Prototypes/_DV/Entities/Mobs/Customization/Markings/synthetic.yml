@@ -130,13 +130,13 @@
     state: eyes
 
 - type: marking
-  id: ProtogenEyes
+  id: ProtogenMouth
   bodyPart: Eyes
   markingCategory: Eyes
   speciesRestriction: [IPC]
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/head_markings.rsi
-    state: protogen_eyes
+    state: protogen_mouth
 
 # Snouts
 - type: marking

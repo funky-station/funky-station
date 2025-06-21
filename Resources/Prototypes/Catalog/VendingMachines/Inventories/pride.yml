@@ -14,10 +14,12 @@
     ClothingNeckOmnisexualPin: 3
     ClothingNeckGenderqueerPin: 3
     ClothingNeckTransPin: 3
+    ClothingNeckGenderfluidPin: 3
     ClothingNeckAutismPin: 3
     ClothingNeckGoldAutismPin: 3
     ClothingNeckCloakProgressPride: 3
     ClothingNeckCloakTrans: 2
+    ClothingNeckCloakGenderfluid: 2
     ClothingNeckCloakAro: 2
     ClothingNeckCloakAce: 2
     ClothingNeckCloakBi: 2
@@ -39,6 +41,7 @@
     ClothingNeckScarfStripedNonBinary: 2
     ClothingNeckScarfStripedRainbow: 2
     ClothingNeckScarfStripedTrans: 2
+    ClothingNeckScarfStripedGenderfluid: 2
     ClothingHeadHatXmasCrown: 2
     BedsheetRainbow: 2
     ClothingNeckHeadphones: 2

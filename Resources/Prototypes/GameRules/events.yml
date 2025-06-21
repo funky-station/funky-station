@@ -44,7 +44,6 @@
     - id: FalseAlarm
     - id: DerelictCyborgSpawn
     #- id: WizardSpawn # todo: remove these when done
-    #- id: RogueAscendedSpawn # imp todo: remove these when done
 
 - type: entity
   id: BaseStationEvent

@@ -36,3 +36,12 @@
   equipment:
     outerClothing: ClothingOuterWinterChem
 
+#Eyes - Funky
+- type: loadout
+  id: MedicalChemistNormGlasses
+  equipment:
+    eyes: ClothingEyesGlassesChemical
+- type: loadout
+  id: MedicalChemistJamjarGlasses
+  equipment:
+    eyes: ClothingEyesGlassesChemjar

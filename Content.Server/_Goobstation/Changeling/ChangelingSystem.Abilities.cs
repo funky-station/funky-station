@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Changeling;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Cuffs.Components;
@@ -19,6 +20,8 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Damage.Components;
 using Content.Server.Radio.Components;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Random.Helpers;
 
 namespace Content.Server.Changeling;
 
@@ -193,21 +196,25 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         UpdateBiomass(uid, comp, comp.MaxBiomass - comp.TotalAbsorbedEntities);
 
-        var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
-        _damage.TryChangeDamage(target, dmg, false, false);
-        _blood.ChangeBloodReagent(target, "FerrochromicAcid");
-        _blood.SpillAllSolutions(target);
+        // funky - updated gaming
+        //var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
+        //_damage.TryChangeDamage(target, dmg, false, false);
+        //_blood.ChangeBloodReagent(target, "FerrochromicAcid");
+        //_blood.SpillAllSolutions(target);
 
         EnsureComp<AbsorbedComponent>(target);
 
         var popup = Loc.GetString("changeling-absorb-end-self-ling");
         var bonusChemicals = 0f;
         var bonusEvolutionPoints = 0f;
+        var isTargetChangeling = false;
         if (TryComp<ChangelingComponent>(target, out var targetComp))
         {
             bonusChemicals += targetComp.MaxChemicals / 2;
             bonusEvolutionPoints += 10;
             comp.MaxBiomass += targetComp.MaxBiomass / 2;
+            
+            isTargetChangeling = true;
         }
         else
         {
@@ -230,6 +237,50 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (_mind.TryGetMind(uid, out var mindId, out var mind))
             if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var objective, mind))
                 objective.Absorbed += 1;
+
+        if (isTargetChangeling) return;
+        
+        if (!TryComp<TargetingComponent>(target, out var targetingComponent))
+            return; // funky station - if you get here somethings really wrong
+            
+        var bodyPart = _bodySystem.GetRandomBodyPart(target, targetingComponent, _bodyPartBlacklist);
+        
+        if (bodyPart != null)
+        {
+            if (_proto.TryIndex<DamageTypePrototype>("Blunt", out var bluntDamage))
+                _damage.TryChangeDamage(target, new DamageSpecifier(bluntDamage, 200), ignoreResistances: true, targetPart: bodyPart);
+        }
+
+        var organs = GetRandomOrgans();
+        var bodyOrgans = _bodySystem.GetBodyOrgans(target);
+
+        var valueTuples = bodyOrgans.ToList();
+        
+        foreach (var organ in valueTuples)
+        {
+            if (organs.Contains(organ.Component.SlotId))
+            {
+                _bodySystem.RemoveOrgan(organ.Id);
+                Del(organ.Id);
+            }
+        }
+    }
+
+    private List<string> GetRandomOrgans()
+    {
+        var organWhitelist = new Dictionary<string, float>(_organWhitelist);
+        List<string> organs = [];
+        const int tries = 3;
+        
+        for (var i = 0; i < tries; i++)
+        {
+            _rand.TryPickAndTake(organWhitelist, out var organ);
+            
+            if (organ != null)
+                organs.Add(organ);
+        }
+
+        return organs;
     }
 
     private void OnStingExtractDNA(EntityUid uid, ChangelingComponent comp, ref StingExtractDNAEvent args)

@@ -44,6 +44,9 @@
       - DeathAcidifierImplant
       - DeathRattleImplant
       - MindShieldImplant
+      - SmokeImplant # Goob
+      - RadioImplanter # Funky
+      - FakeMindShieldImplanter # Funky
       deimplantFailureDamage:
         types:
           Cellular: 50

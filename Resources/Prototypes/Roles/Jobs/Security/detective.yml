@@ -29,7 +29,7 @@
 - type: startingGear
   id: DetectiveGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
+    #eyes: ClothingEyesGlassesSecurity
     id: DetectivePDA
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     belt: ClothingBeltHolsterFilled
@@ -39,3 +39,4 @@
     - ForensicPad
     - ForensicScanner
     - SecHypo # Goobstation
+    - CartridgeEmergency

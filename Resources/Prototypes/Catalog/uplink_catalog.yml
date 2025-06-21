@@ -7,7 +7,7 @@
   description: uplink-pistol-viper-desc
   productEntity: WeaponPistolViper
   cost:
-    Telecrystal: 14 # goob - this +1 mag = 20 TC
+    Telecrystal: 14 # goob - this +1 mag = 16 TC
   categories:
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT
@@ -30,7 +30,7 @@
   description: uplink-revolver-python-desc
   productEntity: WeaponRevolverPythonAP
   cost:
-    Telecrystal: 24 # goob - Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 40 TC.
+    Telecrystal: 24 # goob - Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 34 TC.
   categories:
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT
@@ -42,7 +42,7 @@
   description: uplink-pistol-cobra-desc
   productEntity: WeaponPistolCobra
   cost:
-    Telecrystal: 17 # goob - this +1 mag = 25 TC
+    Telecrystal: 15 # goob - this +1 mag = 17 TC
   categories:
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT
@@ -186,6 +186,27 @@
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT
 
+
+
+
+# Funky duplicate to fix surplus bundle, this one cannot be bought ignore
+- type: listing
+  id: UplinkGrenadeLauncherBundleSurplus
+  name: uplink-grenade-launcher-bundle-name
+  description: uplink-grenade-launcher-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+  cost:
+    Telecrystal: 150 # goob
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:BuyerJobCondition # Funky string pulling to make the damn surplus crates work don't ask.
+    whitelist:
+    - Captain
+  saleBlacklist: true
+
+
 - type: listing
   id: UplinkGrenadeLauncherBundle
   name: uplink-grenade-launcher-bundle-name
@@ -200,6 +221,24 @@
   - !type:WarOpsCondition
   saleBlacklist: true
 
+
+# Funky duplicate to fix surplus bundle, this one cannot be bought ignore
+- type: listing
+  id: UplinkL6SawBundleSurplus
+  name: uplink-l6-saw-bundle-name
+  description: uplink-l6-saw-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledLMG
+  cost:
+    Telecrystal: 100 # goob
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:BuyerJobCondition # Funky string pulling to make the damn surplus crates work don't ask.
+    whitelist:
+    - Captain
+  saleLimit: 1
+
 - type: listing
   id: UplinkL6SawBundle
   name: uplink-l6-saw-bundle-name
@@ -212,6 +251,7 @@
   - UplinkWeaponry
   conditions: # Funky war ops whitelisting
   - !type:WarOpsCondition
+  saleLimit: 1
 
 
 # Explosives
@@ -443,9 +483,10 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi, state: red-icon }
   productEntity: MagazinePistol
   cost:
-    Telecrystal: 6 # goob - Harder to spam mags, not that people really viper spam and they have more space.
+    Telecrystal: 2 # goob - Ammo should be cheap.
   categories:
   - UplinkAmmo
+  saleBlacklist: true
 
 # For the C20R
 - type: listing
@@ -455,9 +496,10 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
   productEntity: MagazinePistolSubMachineGun
   cost:
-    Telecrystal: 15 # goob - Bundle + Mag = 100 TC
+    Telecrystal: 5 # goob - Bundle + 3 Mags = 100 TC
   categories:
   - UplinkAmmo
+  saleBlacklist: true
 
 # For the Cobra
 - type: listing
@@ -467,9 +509,10 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
   productEntity: MagazinePistolCaselessRifle
   cost:
-    Telecrystal: 8 # goob - People actually spam these more than other ammo types
+    Telecrystal: 2 # goob - Same price as .35, more damage but less ammo in mag
   categories:
   - UplinkAmmo
+  saleBlacklist: true
 
 # For the Python
 - type: listing
@@ -479,9 +522,10 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
   productEntity: SpeedLoaderMagnumAP
   cost:
-    Telecrystal: 8 # goob - AP, improved level
+    Telecrystal: 5 # goob - AP, but only 6 bullets in speedloader
   categories:
   - UplinkAmmo
+  saleBlacklist: true
 
 # For the mosin
 - type: listing
@@ -490,9 +534,10 @@
   description: uplink-mosin-ammo-desc
   productEntity: MagazineBoxLightRifle
   cost:
-    Telecrystal: 4 # goob
+    Telecrystal: 12 # goob - l6 exists
   categories:
   - UplinkAmmo
+  saleBlacklist: true
 
 # for the hristov
 - type: listing
@@ -501,7 +546,7 @@
   description: uplink-sniper-ammo-desc
   productEntity: MagazineBoxAntiMateriel
   cost:
-    Telecrystal: 40 # goob - 2 ammo capacity worth
+    Telecrystal: 20 # goob - Calculated to have about the same amount/damage ratio as AP speedloader
   categories:
   - UplinkAmmo
 
@@ -714,6 +759,7 @@
   categories:
   - UplinkDeception
   saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
 - type: listing
   id: UplinkBinaryTranslatorKey
@@ -725,6 +771,7 @@
     Telecrystal: 5 # goob
   categories:
   - UplinkDeception
+  saleBlacklist: true
 
 - type: listing
   id: UplinkCyberpen
@@ -801,6 +848,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkDeception
+  saleLimit: 1
 
 # Disruption
 
@@ -813,6 +861,7 @@
     Telecrystal: 30
   categories:
   - UplinkDisruption
+  saleLimit: 1
 
 - type: listing
   id: UplinkEmag
@@ -966,7 +1015,7 @@
   description: uplink-surplus-bundle-desc
   productEntity: CrateSyndicateSurplusBundle
   cost:
-    Telecrystal: 80 # goob
+    Telecrystal: 100 # goob
   categories:
   - UplinkDisruption
   conditions:
@@ -986,7 +1035,7 @@
   description: uplink-super-surplus-bundle-desc
   productEntity: CrateSyndicateSuperSurplusBundle
   cost:
-    Telecrystal: 160 # goob
+    Telecrystal: 180 # goob
   categories:
   - UplinkDisruption
   conditions:
@@ -1250,9 +1299,10 @@
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
   productEntity: RadioImplanter
   cost:
-    Telecrystal: 2
+    Telecrystal: 5
   categories:
   - UplinkImplants
+  saleBlacklist: true
 
 - type: listing
   id: UplinkMicroBombImplanter
@@ -1448,7 +1498,7 @@
   description: uplink-clothing-outer-vest-web-desc
   productEntity: ClothingOuterVestWeb
   cost:
-    Telecrystal: 20 # goob - Locks out some stronger items. Also 20 TC Tier makes more sense.
+    Telecrystal: 15 # goob
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -2177,6 +2227,7 @@
     whitelist:
     - Chef
     - Mime
+
   saleLimit: 1 # WD EDIT
 
 - type: listing
@@ -2190,7 +2241,22 @@
   - UplinkDeception
   saleLimit: 1 # WD EDIT
 
-
+# Funky duplicate to fix surplus bundle, this one cannot be bought ignore
+- type: listing
+  id: UplinkDarkGygaxSurplus
+  name: uplink-mech-teleporter-assault-name
+  description: uplink-mech-teleporter-assault-desc
+  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: darkgygax }
+  productEntity: CrateCybersunDarkGygaxBundle
+  cost:
+    Telecrystal: 500 #Funky
+  categories:
+  - UplinkAllies
+  conditions:
+  - !type:BuyerJobCondition # Funky string pulling to make the damn surplus crates work don't ask.
+    whitelist:
+    - Captain
+  saleLimit: 1
 
 - type: listing
   id: UplinkDarkGygax
@@ -2204,7 +2270,30 @@
   - UplinkAllies
   conditions:
   - !type:WarOpsCondition
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
   saleLimit: 1
+
+
+# Funky duplicate to fix surplus bundle, this one cannot be bought ignore
+- type: listing
+  id: UplinkMaulerSurplus
+  name: uplink-mech-teleporter-heavy-name
+  description: uplink-mech-teleporter-heavy-desc
+  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: mauler }
+  productEntity: CrateCybersunMaulerBundle
+  cost:
+    Telecrystal: 600 # Funky
+  categories:
+  - UplinkAllies
+  conditions:
+  - !type:BuyerJobCondition # Funky string pulling to make the damn surplus crates work don't ask.
+    whitelist:
+    - Captain
+  saleLimit: 1
+
 
 - type: listing
   id: UplinkMauler

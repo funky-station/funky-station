@@ -4,6 +4,13 @@
   name: admin observer
   categories: [ HideSpawnMenu ]
   components:
+  - type: Eye
+    visMask:
+      #- TelegnosticProjection # DeltaV probs
+      #- PsionicInvisibility # DeltaV probs
+      - Ghost
+      - Normal
+      - CosmicCultMonument # DeltaV - Cosmic Cult
   - type: ContentEye
     maxZoom: 8.916104, 8.916104
   - type: Tag

@@ -280,6 +280,38 @@ public partial class SharedBodySystem
 
         return TargetBodyPart.Torso; // Default to torso if something goes wrong
     }
+    
+    /// <summary>
+    /// funky station: get a random body part with an optional blacklist!
+    /// useful for not wanting to get torso, or head.
+    /// </summary>
+    /// <param name="uid">body entuid</param>
+    /// <param name="target">attackers targeting component</param>
+    /// <param name="blacklist">blacklisted parts</param>
+    /// <returns>part or null</returns>
+    public TargetBodyPart? GetRandomBodyPart(EntityUid uid, TargetingComponent? target, List<TargetBodyPart>? blacklist)
+    {
+        if (!Resolve(uid, ref target))
+            return null;
+
+        var totalWeight = target.TargetOdds.Values.Sum();
+        var randomValue = _random.NextFloat() * totalWeight;
+
+        foreach (var (part, weight) in target.TargetOdds)
+        {
+            if (randomValue <= weight)
+            {
+                if (blacklist!.Contains(part))
+                    continue;
+                
+                return part;
+            }
+
+            randomValue -= weight;
+        }
+
+        return null; // returns null which signifies that this body is FUCKED up
+    }
 
     /// <summary>
     /// This should be called after body part damage was changed.

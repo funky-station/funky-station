@@ -21,6 +21,18 @@
     - type: PressureImmunity
 
 - type: entity
+  parent: OrganAnimalLiver
+  id: OrganSpaceAnimalLiver
+  name: space animal liver
+  components:
+  - type: ConstantHealing
+    effects:
+    - !type:HealthChange
+      damage:
+        types:
+          Radiation: -0.1
+
+- type: entity
   parent: OrganAnimalHeart
   id: OrganGoliathHeart
   name: goliath heart

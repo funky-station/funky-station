@@ -74,7 +74,7 @@ namespace Content.Server._Funkystation.Atmos.Systems
 
         private void OnSetGasInputMessage(EntityUid uid, CrystallizerComponent crystallizer, CrystallizerSetGasInputMessage args)
         {
-            crystallizer.GasInput = args.GasInput;
+            crystallizer.GasInput = Math.Clamp(args.GasInput, 0f, 250f);
             DirtyUI(uid, crystallizer);
         }
 

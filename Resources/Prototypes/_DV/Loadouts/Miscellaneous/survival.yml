@@ -1,0 +1,15 @@
+- type: loadoutEffectGroup
+  id: HumanoidSilicon
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - IPC
+
+- type: loadout
+  id: EmergencyIPCBox
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: HumanoidSilicon
+  storage:
+    back:
+    - BoxSurvivalHumanoidSilicon

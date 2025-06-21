@@ -11,6 +11,18 @@
     freezer:     Structures/Doors/Airlocks/Standard/freezer.rsi
     hydroponics: Structures/Doors/Airlocks/Standard/hydroponics.rsi
     maintenance: Structures/Doors/Airlocks/Standard/maint.rsi
+    # begin Funkystation
+    maintenance_engi: _Funkystation/Structures/Doors/Airlocks/Standard/maint_engi.rsi
+    maintenance_atmos: _Funkystation/Structures/Doors/Airlocks/Standard/maint_atmos.rsi
+    maintenance_security: _Funkystation/Structures/Doors/Airlocks/Standard/maint_security.rsi
+    maintenance_cargo: _Funkystation/Structures/Doors/Airlocks/Standard/maint_cargo.rsi
+    maintenance_science: _Funkystation/Structures/Doors/Airlocks/Standard/maint_science.rsi
+    maintenance_medical: _Funkystation/Structures/Doors/Airlocks/Standard/maint_medical.rsi
+    maintenance_command: _Funkystation/Structures/Doors/Airlocks/Standard/maint_command.rsi
+    maintenance_service: _Funkystation/Structures/Doors/Airlocks/Standard/maint_service.rsi
+    maintenance_chemistry: _Funkystation/Structures/Doors/Airlocks/Standard/maint_chemistry.rsi
+    maintenance_hydroponics: _Funkystation/Structures/Doors/Airlocks/Standard/maint_hydroponics.rsi
+    # end Funkystation
     medical:     Structures/Doors/Airlocks/Standard/medical.rsi
     science:     Structures/Doors/Airlocks/Standard/science.rsi
     robotics:    Structures/Doors/Airlocks/Standard/robotics.rsi
@@ -80,6 +92,18 @@
     glass: Civilian
     hydroponics: Civilian
     maintenance: Civilian
+    # begin Funkystation
+    maintenance_engi: Engineering
+    maintenance_atmos: Engineering
+    maintenance_security: Security
+    maintenance_cargo: Cargo
+    maintenance_science: Science
+    maintenance_medical: Medical
+    maintenance_command: Command
+    maintenance_service: Civilian
+    maintenance_chemistry: Medical
+    maintenance_hydroponics: Civilian
+    # end Funkystation
     medical: Medical
     science: Science
     security: Security

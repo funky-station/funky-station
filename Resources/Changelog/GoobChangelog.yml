@@ -1772,6 +1772,14 @@ Entries:
         wherever the corpse was moved.
   id: 215
   time: '2024-11-09T02:58:50.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: The M-90 rifle has been added to the Syndicate uplink for 85 TC
+    - type: Tweak
+      message: .20 rifle mags are now available in the Syndicate uplink for 15 TC
+  id: 264
+  time: '2024-11-24T21:41:38.0000000+00:00'
 - author: Tonk
   changes:
     - type: Add
@@ -1780,3 +1788,15 @@ Entries:
         suit to touch the SM without being ashed. Be warned: This starts the SM.
   id: 327
   time: '2024-12-04T05:22:12.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        A lot of uplink changes, prices for ammo and some items reduced, some
+        items added, some items tweaked.
+    - type: Add
+      message: >-
+        Now mags and ammo for most syndicate guns are printable at emagged
+        lathes.
+  id: 354
+  time: '2024-12-12T21:08:04.0000000+00:00'

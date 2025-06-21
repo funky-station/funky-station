@@ -243,6 +243,17 @@
 
 - type: entity
   parent: ClothingScarfBase
+  id: ClothingNeckScarfStripedGenderfluid
+  name: striped genderfluid scarf
+  description: A stylish striped genderfluid scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Scarfs/PrideScarfs/genderfluid.rsi
+  - type: Clothing
+    sprite: Clothing/Neck/Scarfs/PrideScarfs/genderfluid.rsi
+
+- type: entity
+  parent: ClothingScarfBase
   id: ClothingNeckScarfStripedLesbianLong
   name: long bacon
   description: Long bacon! Perfect for sharing with your girlfriend!

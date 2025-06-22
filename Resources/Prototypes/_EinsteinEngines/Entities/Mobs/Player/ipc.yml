@@ -114,6 +114,7 @@
     canDisarm: true
   - type: SnoutHelmet # DeltaV - IPC Snouts
     replacementRace: vulpkanin
+  - type: Wagging # Funky - Added wagging for IPCs
 
 - type: entity
   save: false

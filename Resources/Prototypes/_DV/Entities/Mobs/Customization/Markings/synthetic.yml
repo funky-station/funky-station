@@ -282,10 +282,10 @@
     state: synth_lizard_tail
 
 - type: marking
-  id: SynthLizardTailWag
+  id: SynthLizardTailAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [IPC]
+  speciesRestriction: []
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/tail_markings.rsi
     state: synth_lizard_tail_wag

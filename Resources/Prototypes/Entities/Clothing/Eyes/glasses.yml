@@ -1,7 +1,7 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesGar
-  name: gar glasses
+  name: construction-gar-glasses
   description: Go beyond impossible and kick reason to the curb!
   components:
   - type: Sprite
@@ -60,7 +60,7 @@
 - type: entity
   parent: [ClothingEyesBase, BaseEngineeringContraband]
   id: ClothingEyesGlassesMeson
-  name: engineering goggles #less confusion
+  name: construction-engineering-goggles
   description: Green-tinted goggles using a proprietary polymer that provides protection from eye damage of all types.
   components:
   - type: Sprite
@@ -107,7 +107,7 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesJamjar
-  name: jamjar glasses
+  name: construction-jamjar-glasses
   description: These retro glasses remind you of a simpler time.
   components:
   - type: Sprite
@@ -137,7 +137,7 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesCheapSunglasses
-  name: cheap sunglasses
+  name: construction-cheap-sunglasses
   description: A pair of black sunglasses. Doesn't block light well, more of an accessory than something useful.
   components:
   - type: Sprite

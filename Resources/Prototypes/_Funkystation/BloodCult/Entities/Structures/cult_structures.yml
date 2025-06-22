@@ -53,7 +53,7 @@
   parent: CultBaseStructure
   name: Pylon
   suffix: Cult
-  description: A floating crystal that slowly heals those faithful to Nar'Sie.
+  description: construction-cult-pylon-desc
   components:
   - type: CultHealingSource
   - type: Construction

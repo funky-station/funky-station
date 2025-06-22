@@ -1,7 +1,7 @@
 - type: entity
   parent: [ClothingShoesBase, BaseToggleClothing]
   id: ClothingShoesBootsMagBase
-  name: magboots
+  name: construction-magboots
   description: Magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle.
   abstract: true
   components:

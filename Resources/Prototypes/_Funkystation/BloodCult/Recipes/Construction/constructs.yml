@@ -1,11 +1,11 @@
 - type: construction
-  name: cult juggernaut shell
+  name: construction-cult-juggernaut-shell
   id: CultJuggernautShell
   graph: CultJuggernautShell
   startNode: start
   targetNode: juggernautShell
   category: construction-category-structures
-  description: A large, inert monstrosity made from runed metal.
+  description: construction-cult-juggernaut-shell-desc
   icon:
     sprite: _Funkystation/BloodCult/Mobs/constructs.rsi
     state: juggernaut

@@ -16,7 +16,7 @@
 - type: entity
   parent: ClothingOuterHardsuitClown
   id: ClothingOuterHardsuitMusician
-  name: musician hardsuit
+  name: construction-musician-hardsuit
   description: A custom-made musician hardsuit.
   components:
   - type: Sprite

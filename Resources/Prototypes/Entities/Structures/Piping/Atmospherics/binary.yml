@@ -554,7 +554,7 @@
 - type: entity
   parent: GasBinaryBase
   id: HeatPump
-  name: heat pump
+  name: construction-heat-pump
   description: A pump that moves heat from one side to the other.
   placement:
     mode: SnapgridCenter

@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingShoesSharkminnow
-  name: sharkminnow shoes
-  description: Tough shoes, the chitin flexes slightly with each step.
+  name: construction-sharkminnow-shoes
+  description: construction-sharkminnow-shoes-desc
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Shoes/Misc/sharkminnow.rsi

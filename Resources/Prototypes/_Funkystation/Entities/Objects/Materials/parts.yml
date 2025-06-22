@@ -23,7 +23,7 @@
 - type: entity
   parent: PartUraniumBase
   id: PartRodUranium
-  name: uranium rod
+  name: construction-uranium-rod
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -58,7 +58,7 @@
 - type: entity
   parent: PartRodUranium
   id: PartRodUraniuml10
-  name: uranium rod
+  name: construction-uranium-rod
   suffix: 10
   components:
   - type: Tag
@@ -72,7 +72,7 @@
 - type: entity
   parent: PartRodUranium
   id: PartRodUranium1
-  name: uranium rod
+  name: construction-uranium-rod
   suffix: Single
   components:
   - type: Tag

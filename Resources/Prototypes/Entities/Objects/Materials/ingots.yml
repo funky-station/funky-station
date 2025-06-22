@@ -180,7 +180,7 @@
 - type: entity
   parent: IngotBase
   id: Zaukerite
-  name: zaukerite
+  name: stack-zaukerite
   suffix: Full
   components:
   - type: Material
@@ -203,7 +203,7 @@
     heldPrefix: metalhydrogen
   - type: Appearance
   - type: Extractable
-    grindableSolutionName: zaukerite
+    grindableSolutionName: stack-zaukerite
   - type: SolutionContainerManager
     solutions:
       zaukerite:
@@ -219,7 +219,7 @@
   suffix: 10
   components:
   - type: Sprite
-    state: zaukerite
+    state: stack-zaukerite
   - type: Stack
     stackType: Zaukerite
     count: 10
@@ -231,7 +231,7 @@
   suffix: Single
   components:
   - type: Sprite
-    state: zaukerite
+    state: stack-zaukerite
   - type: Stack
     stackType: Zaukerite
     count: 1

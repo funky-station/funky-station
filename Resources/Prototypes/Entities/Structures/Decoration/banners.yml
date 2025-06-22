@@ -40,7 +40,7 @@
 - type: entity
   id: BannerNanotrasen
   parent: BannerBase
-  name: nanotrasen banner
+  name: construction-nanotrasen-banner
   description: A banner displaying the Nanotrasen logo. It looks rather cheap.
   components:
   - type: Sprite
@@ -53,7 +53,7 @@
 - type: entity
   id: BannerCargo
   parent: BannerBase
-  name: cargo banner
+  name: construction-cargo-banner
   description: A banner displaying the colors of the cargo department. Not. Cargonia.
   components:
   - type: Sprite
@@ -66,7 +66,7 @@
 - type: entity
   id: BannerEngineering
   parent: BannerBase
-  name: engineering banner
+  name: construction-engineering-banner
   description: A banner displaying the colors of the engineering department. Scrungularty.
   components:
   - type: Sprite
@@ -79,7 +79,7 @@
 - type: entity
   id: BannerMedical
   parent: BannerBase
-  name: medical banner
+  name: construction-medical-banner
   description: A banner displaying the colors of the medical department. How sterile.
   components:
   - type: Sprite
@@ -92,8 +92,8 @@
 - type: entity
   id: BannerRevolution
   parent: BannerBase
-  name: revolution banner
-  description: A banner displaying revolution. Viva!
+  name: construction-revolution-banner
+  description: construction-revolution-banner-desc
   components:
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
@@ -105,8 +105,8 @@
 - type: entity
   id: BannerSyndicate
   parent: BannerBase
-  name: syndicate banner
-  description: A banner from which, according to the syndicate, you should feel hatred for NT.
+  name: construction-syndicate-banner
+  description: construction-syndicate-banner-desc
   components:
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
@@ -118,7 +118,7 @@
 - type: entity
   id: BannerScience
   parent: BannerBase
-  name: science banner
+  name: construction-science-banner
   description: A banner displaying the colors of the science department. Where science has no bounds, and regulations are rarely followed.
   components:
   - type: Sprite
@@ -131,7 +131,7 @@
 - type: entity
   id: BannerSecurity
   parent: BannerBase
-  name: security banner
+  name: construction-security-banner
   description: A banner displaying the colors of the security department. You're surprised it's not vandalised.
   components:
   - type: Sprite
@@ -144,7 +144,7 @@
 - type: entity
   id: BannerBlue
   parent: BannerBase
-  name: blue banner
+  name: construction-blue-banner
   description: A banner displaying the color blue. Dabudidabudai.
   components:
   - type: Sprite
@@ -157,7 +157,7 @@
 - type: entity
   id: BannerRed
   parent: BannerBase
-  name: red banner
+  name: construction-red-banner
   description: A banner displaying the color red. The edgy one.
   components:
   - type: Sprite
@@ -170,7 +170,7 @@
 - type: entity
   id: BannerYellow
   parent: BannerBase
-  name: yellow banner
+  name: construction-yellow-banner
   description: A banner displaying the color yellow. Reminds you of ducks and lemon stands.
   components:
   - type: Sprite
@@ -183,7 +183,7 @@
 - type: entity
   id: BannerGreen
   parent: BannerBase
-  name: green banner
+  name: construction-green-banner
   description: A banner displaying the color green. Grass, leaves, guacamole.
   components:
   - type: Sprite

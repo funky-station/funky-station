@@ -19,7 +19,7 @@
 - type: entity
   id: DurandArmorPlate
   parent: BaseExosuitParts
-  name: durand armor plates
+  name: construction-durand-armor-plates
   description: Armor plates made of plasteel for Durand exosuit.
   components:
     - type: Item
@@ -37,7 +37,7 @@
 - type: entity
   id: GygaxArmorPlate
   parent: BaseExosuitParts
-  name: gygax armor plates
+  name: construction-gygax-armor-plates
   description: Armor plates made of steel for Gygax exosuit.
   components:
     - type: Item
@@ -72,7 +72,7 @@
 - type: entity
   id: MechAirTank
   parent: BaseExosuitParts
-  name: exosuit air tank
+  name: construction-exosuit-air-tank
   description: A special air canister capable of holding a large amount of air.
   components:
     - type: Item
@@ -89,7 +89,7 @@
 - type: entity
   id: MechThruster
   parent: BaseExosuitParts
-  name: exosuit thruster
+  name: construction-exosuit-thruster
   description: A thruster with which the exosuit can safely move in the absence of gravity.
   components:
     - type: Item

@@ -34,7 +34,7 @@
   id: MailTagger
   parent: DisposalTagger
   name: mail pipe tagger
-  description: A pipe that tags entities for routing.
+  description: construction-mail-tagger-desc
   components:
   - type: Sprite
     drawdepth: ThickPipe
@@ -49,8 +49,8 @@
 - type: entity
   id: MailTrunk
   parent: DisposalTrunk
-  name: mail trunk
-  description: A pipe trunk used as an entry point for mail systems.
+  name: construction-mail-trunk
+  description: construction-mail-trunk-desc
   components:
   - type: Sprite
     drawdepth: ThickPipe
@@ -62,8 +62,8 @@
 - type: entity
   id: MailRouter
   parent: DisposalRouter
-  name: mail router
-  description: A three-way router. Entities with matching tags get routed to the side via configurable filters.
+  name: construction-mail-router
+  description: construction-mail-router-desc
   components:
   - type: Sprite
     drawdepth: ThickPipe
@@ -76,7 +76,7 @@
   id: MailRouterFlipped
   description: A three-way router. Entities with matching tags get routed to the side.
   parent: DisposalRouterFlipped
-  name: mail router
+  name: construction-mail-router
   suffix: flipped
   components:
   - type: Sprite
@@ -89,8 +89,8 @@
 - type: entity
   id: MailJunction
   parent: DisposalJunction
-  name: mail junction
-  description: A three-way junction. The arrow indicates where items exit.
+  name: construction-mail-junction
+  description: construction-mail-junction-desc
   components:
   - type: Sprite
     drawdepth: ThickPipe
@@ -101,7 +101,7 @@
 
 - type: entity
   id: MailJunctionFlipped
-  description: A three-way junction. The arrow indicates where items exit.
+  description: construction-mail-junction-desc
   parent: DisposalJunctionFlipped
   suffix: flipped
   components:
@@ -115,8 +115,8 @@
 - type: entity
   id: MailYJunction
   parent: DisposalYJunction
-  name: mail y-junction
-  description: A three-way junction with another exit point.
+  name: construction-mail-y-junction
+  description: construction-mail-y-junction-desc
   components:
   - type: Sprite
     drawdepth: ThickPipe
@@ -128,8 +128,8 @@
 - type: entity
   id: MailBend
   parent: DisposalBend
-  name: mail bend
-  description: A tube bent at a 90 degree angle.
+  name: construction-mail-bend
+  description: construction-mail-bend-desc
   components:
   - type: Sprite
     drawdepth: ThickPipe
@@ -141,8 +141,8 @@
 - type: entity
   parent: DisposalSignalRouter
   id: MailSignalRouter
-  name: mail signal router
-  description: A signal-controlled three-way router.
+  name: construction-mail-signal-router
+  description: construction-mail-signal-router-desc
   components:
   - type: Sprite
     drawdepth: ThickPipe
@@ -154,7 +154,7 @@
 - type: entity
   parent: DisposalSignalRouterFlipped
   id: MailSignalRouterFlipped
-  name: mail signal router
+  name: construction-mail-signal-router
   suffix: flipped
   components:
   - type: Sprite

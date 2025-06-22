@@ -45,7 +45,7 @@
 - type: entity
   parent: BaseCurb
   id: SteelCurb
-  name: steel curb
+  name: construction-steel-curb
   components:
   - type: Sprite
     state: steel_curb
@@ -91,7 +91,7 @@
 - type: entity
   parent: SteelCurb
   id: SteelCurbCorner
-  name: steel curb corner
+  name: construction-steel-curb-corner
   components:
   - type: Sprite
     state: steel_curb_corner
@@ -120,7 +120,7 @@
 - type: entity
   parent: SteelCurb
   id: SteelCurbCornerInside
-  name: steel curb inside corner
+  name: construction-steel-curb-inside-corner
   components:
   - type: Sprite
     state: steel_curb_inside_corner
@@ -178,7 +178,7 @@
 - type: entity
   parent: SteelCurb
   id: SteelCurbSquare
-  name: steel curb square
+  name: construction-steel-curb-square
   components:
   - type: Sprite
     state: steel_curb_square
@@ -215,7 +215,7 @@
 - type: entity
   parent: BaseCurb
   id: BrassCurb
-  name: brass curb
+  name: construction-brass-curb
   components:
   - type: Sprite
     state: brass_curb
@@ -261,7 +261,7 @@
 - type: entity
   parent: BrassCurb
   id: BrassCurbCorner
-  name: brass curb corner
+  name: construction-brass-curb-corner
   components:
   - type: Sprite
     state: brass_curb_corner
@@ -290,7 +290,7 @@
 - type: entity
   parent: BrassCurb
   id: BrassCurbCornerInside
-  name: brass curb inside corner
+  name: construction-brass-curb-inside-corner
   components:
   - type: Sprite
     state: brass_curb_inside_corner
@@ -348,7 +348,7 @@
 - type: entity
   parent: BrassCurb
   id: BrassCurbSquare
-  name: brass curb square
+  name: construction-brass-curb-square
   components:
   - type: Sprite
     state: brass_curb_square
@@ -385,7 +385,7 @@
 - type: entity
   parent: BaseCurb
   id: GoldCurb
-  name: gold curb
+  name: construction-gold-curb
   components:
     - type: Sprite
       state: gold_curb
@@ -431,7 +431,7 @@
 - type: entity
   parent: GoldCurb
   id: GoldCurbCorner
-  name: gold curb corner
+  name: construction-gold-curb-corner
   components:
     - type: Sprite
       state: gold_curb_corner
@@ -460,7 +460,7 @@
 - type: entity
   parent: GoldCurb
   id: GoldCurbCornerInside
-  name: gold curb inside corner
+  name: construction-gold-curb-inside-corner
   components:
     - type: Sprite
       state: gold_curb_inside_corner
@@ -518,7 +518,7 @@
 - type: entity
   parent: GoldCurb
   id: GoldCurbSquare
-  name: gold curb square
+  name: construction-gold-curb-square
   components:
     - type: Sprite
       state: gold_curb_square

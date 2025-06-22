@@ -152,7 +152,7 @@
 - type: entity
   parent: BaseMedicalPatch
   id: MedicalPatchMakeshift
-  name: makeshift patch
+  name: construction-makeshift-patch
   description: You hate this creation, but it has chemicals. Maybe. # Funky
   components:
   - type: Sprite
@@ -216,14 +216,14 @@
     entity: MedicalPatchMakeshift
 
 - type: construction
-  name: makeshift patch
+  name: construction-makeshift-patch
   id: MedicalPatchMakeshift
   graph: MedicalPatchMakeshift
   startNode: start
   targetNode: medicalPatchMakeshift
   category: construction-category-tools
   objectType: Item
-  description: A ghetto chemist's dream. For the customers? A nightmare. # Funky
+  description: construction-makeshift-patch-desc
   icon:
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
     state: MakeshiftPatch
@@ -243,14 +243,14 @@
     entity: MedicalPatchMakeshift
 
 - type: construction
-  name: silk makeshift patch
+  name: construction-silk-makeshift-patch
   id: SilkPatchMakeshift
   graph: SilkPatchMakeshift
   startNode: start
   targetNode: silkPatchMakeshift
   category: construction-category-tools
   objectType: Item
-  description: A little better then nothing. Apply a chemical to it and wear it for treatment over time.
+  description: construction-silk-makeshift-patch-desc
   icon:
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
     state: MakeshiftPatch

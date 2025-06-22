@@ -1,7 +1,7 @@
 - type: entity
   id: Bonfire
   parent: BaseStructure
-  name: bonfire
+  name: construction-bonfire
   description: What can be better than a late evening under the sky with guitar and friends?
   components:
   - type: Sprite

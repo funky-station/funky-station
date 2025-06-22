@@ -2,7 +2,7 @@
   name: juggernaut shell
   id: CultJuggernautShell
   parent: BaseBloodCultContraband
-  description: A large, inert monstrosity made from runed metal.
+  description: construction-cult-juggernaut-shell-desc
   components:
   - type: BloodCultConstructShell
   - type: Construction

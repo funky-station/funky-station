@@ -85,7 +85,7 @@
 # Assmos - Metal Hydrogen
 - type: entity
   id: MetalHydrogenAxe
-  name: metal hydrogen axe
+  name: construction-metal-hydro-axe
   parent: [BaseEngineeringContraband, FireAxe]
   description: A lightweight crowbar with an extreme sharp fire axe head attached. It trades its heft as a weapon by making it easier to carry around when holstered to suits without having to sacrifice your backpack.
   components:

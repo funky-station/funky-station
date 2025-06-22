@@ -14,7 +14,7 @@
 
 - type: listing
   id: RevolutionaryUplinkSunglasses
-  name: sunglasses
+  name: construction-sunglasses
   description: Make yourself look suspicious, in style.
   productEntity: ClothingEyesGlassesSunglasses
   cost:

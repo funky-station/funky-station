@@ -1,11 +1,11 @@
 - type: construction
-  name: cult pylon
+  name: construction-cult-pylon
   id: CultPylon
   graph: CultPylon
   startNode: start
   targetNode: pylon
   category: construction-category-structures
-  description: A floating crystal that slowly heals those faithful to Nar'Sie.
+  description: construction-cult-pylon-desc
   icon:
     sprite: /Textures/_Funkystation/Structures/BloodCult/pylon.rsi
     state: crystal

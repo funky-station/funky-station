@@ -121,7 +121,7 @@
   id: DisposalTagger
   parent: DisposalPipeBase
   name: disposal pipe tagger
-  description: A pipe that tags entities for routing.
+  description: construction-mail-tagger-desc
   components:
   - type: Sprite
     layers:
@@ -228,7 +228,7 @@
   id: DisposalRouter
   parent: DisposalPipeBase
   name: disposal router
-  description: A three-way router. Entities with matching tags get routed to the side via configurable filters.
+  description: construction-mail-router-desc
   components:
   - type: Sprite
     layers:
@@ -317,7 +317,7 @@
   id: DisposalJunction
   parent: DisposalPipeBase
   name: disposal junction
-  description: A three-way junction. The arrow indicates where items exit.
+  description: construction-mail-junction-desc
   components:
   - type: Sprite
     layers:
@@ -358,7 +358,7 @@
 
 - type: entity
   id: DisposalJunctionFlipped
-  description: A three-way junction. The arrow indicates where items exit.
+  description: construction-mail-junction-desc
   parent: DisposalJunction
   suffix: flipped
   components:
@@ -402,7 +402,7 @@
   id: DisposalYJunction
   parent: DisposalPipeBase
   name: disposal y-junction
-  description: A three-way junction with another exit point.
+  description: construction-mail-y-junction-desc
   components:
   - type: Sprite
     layers:
@@ -484,7 +484,7 @@
   id: DisposalBend
   parent: DisposalPipeBase
   name: disposal bend
-  description: A tube bent at a 90 degree angle.
+  description: construction-mail-bend-desc
   components:
   - type: Sprite
     layers:
@@ -520,7 +520,7 @@
   parent: DisposalJunction
   id: DisposalSignalRouter
   name: disposal signal router
-  description: A signal-controlled three-way router.
+  description: construction-mail-signal-router-desc
   components:
   - type: Sprite
     layers:

@@ -1,7 +1,7 @@
 - type: entity
   id: portableChemicalMixer
   parent: BaseItem
-  name: portable chemical mixer
+  name: construction-portable-chemical-mixer
   description: A "Tider" grade chemical manipulator. It can hold up to a 200u in each of its two internal buffers. Fits around your waist for chemical mixing on the go!
   components:
   - type: Sprite

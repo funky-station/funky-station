@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseWall
   id: WallUraniumReinforced
-  name: reinforced uranium wall
-  description: Keeps the air in and the radiation out.
+  name: construction-reinforced-uranium-wall
+  description: construction-reinforced-uranium-wall-desc
   components:
   - type: Sprite
     sprite: _Funkystation/Structures/Walls/reinforced_uranium.rsi

@@ -1,5 +1,5 @@
 - type: construction
-  name: portable chemical mixer
+  name: construction-portable-chemical-mixer
   id: portableChemicalMixerConstruction
   graph: portableChemicalMixerGraph
   startNode: start

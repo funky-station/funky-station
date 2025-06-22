@@ -1,7 +1,7 @@
 #Steel
 - type: construction
-  name: steel curb
-  description: A simple curb.
+  name: construction-steel-curb
+  description: construction-steel-curb-desc
   id: SteelCurb
   graph: curbs
   startNode: start
@@ -14,8 +14,8 @@
     state: steel_curb
 
 - type: construction
-  name: steel curb corner
-  description: A simple curb corner.
+  name: construction-steel-curb-corner
+  description: construction-steel-curb-corner-desc
   id: SteelCurbCorner
   graph: curbs
   startNode: start
@@ -28,8 +28,8 @@
     state: steel_curb_corner
 
 - type: construction
-  name: steel curb inside corner
-  description: A simple curb inside corner.
+  name: construction-steel-curb-inside-corner
+  description: construction-steel-curb-inside-corner-desc
   id: SteelCurbCornerInside
   graph: curbs
   startNode: start
@@ -42,8 +42,8 @@
     state: steel_curb_inside_corner
 
 - type: construction
-  name: steel curb Ubend
-  description: A simple curb Ubend.
+  name: construction-steel-curb-ubend
+  description: construction-steel-curb-ubend-desc
   id: SteelCurbUbend
   graph: curbs
   startNode: start
@@ -56,8 +56,8 @@
     state: steel_curb_ubend
 
 - type: construction
-  name: steel curb square
-  description: A simple curb square.
+  name: construction-steel-curb-square
+  description: construction-steel-curb-square-desc
   id: SteelCurbSquare
   graph: curbs
   startNode: start
@@ -71,8 +71,8 @@
 
 #Brass
 - type: construction
-  name: brass curb
-  description: A rustic brass curb.
+  name: construction-brass-curb
+  description: construction-brass-curb-desc
   id: BrassCurb
   graph: curbs
   startNode: start
@@ -85,8 +85,8 @@
     state: brass_curb
 
 - type: construction
-  name: brass curb corner
-  description: A rustic brass curb corner.
+  name: construction-brass-curb-corner
+  description: construction-brass-curb-corner-desc
   id: BrassCurbCorner
   graph: curbs
   startNode: start
@@ -99,8 +99,8 @@
     state: brass_curb_corner
 
 - type: construction
-  name: brass curb inside corner
-  description: A rustic brass inside corner.
+  name: construction-brass-curb-inside-corner
+  description: construction-brass-curb-inside-corner-desc
   id: BrassCurbCornerInside
   graph: curbs
   startNode: start
@@ -113,8 +113,8 @@
     state: brass_curb_inside_corner
 
 - type: construction
-  name: brass curb Ubend
-  description: A rustic brass Ubend.
+  name: construction-brass-curb-ubend
+  description: construction-brass-curb-ubend-desc
   id: BrassCurbUbend
   graph: curbs
   startNode: start
@@ -127,8 +127,8 @@
     state: brass_curb_ubend
 
 - type: construction
-  name: brass curb square
-  description: A rustic brass square curb.
+  name: construction-brass-curb-square
+  description: construction-brass-curb-square-desc
   id: BrassCurbSquare
   graph: curbs
   startNode: start
@@ -142,8 +142,8 @@
 
 #Gold
 - type: construction
-  name: gold curb
-  description: A lavish golden curb.
+  name: construction-gold-curb
+  description: construction-gold-curb-desc
   id: GoldCurb
   graph: curbs
   startNode: start
@@ -156,8 +156,8 @@
     state: gold_curb
 
 - type: construction
-  name: gold curb corner
-  description: A lavish golden curb corner.
+  name: construction-gold-curb-corner
+  description: construction-gold-curb-corner-desc
   id: GoldCurbCorner
   graph: curbs
   startNode: start
@@ -170,8 +170,8 @@
     state: gold_curb_corner
 
 - type: construction
-  name: gold curb inside corner
-  description: A lavish golden inside corner.
+  name: construction-gold-curb-inside-corner
+  description: construction-gold-curb-inside-corner-desc
   id: GoldCurbCornerInside
   graph: curbs
   startNode: start
@@ -184,8 +184,8 @@
     state: gold_curb_inside_corner
 
 - type: construction
-  name: gold curb Ubend
-  description: A lavish golden Ubend.
+  name: construction-gold-curb-ubend
+  description: construction-gold-curb-ubend-desc
   id: GoldCurbUbend
   graph: curbs
   startNode: start
@@ -198,8 +198,8 @@
     state: gold_curb_ubend
 
 - type: construction
-  name: gold curb square
-  description: A lavish golden square curb.
+  name: construction-gold-curb-square
+  description: construction-gold-curb-square-desc
   id: GoldCurbSquare
   graph: curbs
   startNode: start
@@ -213,8 +213,8 @@
 
 #Hydrogen
 - type: construction
-  name: hydrogen metal curb
-  description: A exotic hydrogen metal curb.
+  name: construction-hydrogen-metal-curb
+  description: construction-hydrogen-metal-curb-desc
   id: HydrogenCurb
   graph: curbs
   startNode: start
@@ -227,8 +227,8 @@
     state: hydrogen_curb
 
 - type: construction
-  name: hydrogen metal curb corner
-  description: A exotic hydrogen metal curb corner.
+  name: construction-hydrogen-metal-curb-corner
+  description: construction-hydrogen-metal-curb-corner-desc
   id: HydrogenCurbCorner
   graph: curbs
   startNode: start
@@ -241,8 +241,8 @@
     state: hydrogen_curb_corner
 
 - type: construction
-  name: hydrogen metal curb inside corner
-  description: A exotic hydrogen metal inside corner.
+  name: construction-hydrogen-metal-curb-inside-corner
+  description: construction-hydrogen-metal-curb-inside-corner-desc
   id: HydrogenCurbCornerInside
   graph: curbs
   startNode: start
@@ -255,8 +255,8 @@
     state: hydrogen_curb_inside_corner
 
 - type: construction
-  name: hydrogen metal curb Ubend
-  description: A exotic hydrogen metal Ubend.
+  name: construction-hydrogen-metal-curb-ubend
+  description: construction-hydrogen-metal-curb-ubend-desc
   id: HydrogenCurbUbend
   graph: curbs
   startNode: start
@@ -269,8 +269,8 @@
     state: hydrogen_curb_ubend
 
 - type: construction
-  name: hydrogen metal curb square
-  description: A exotic hydrogen metal square curb.
+  name: construction-hydrogen-metal-curb-square
+  description: construction-hydrogen-metal-curb-square-desc
   id: HydrogenCurbSquare
   graph: curbs
   startNode: start

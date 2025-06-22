@@ -1,7 +1,7 @@
 - type: entity
   parent: MaterialBase
   id: MaterialChitinSharkminnow
-  name: sharkminnow chitin
+  name: stack-sharkminnow-chitin
   description: Thick, tough, and strangely lightweight. Might make good armor.
   suffix: Full
   components:

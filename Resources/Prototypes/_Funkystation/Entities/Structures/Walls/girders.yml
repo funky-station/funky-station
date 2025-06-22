@@ -1,7 +1,7 @@
 - type: entity
   id: ReinforcedUraniumGirder
   parent: Girder
-  name: reinforced uranium girder
+  name: construction-reinforced-uranium-girder
   description: A large structural assembly made out of metal and uranium. For all your radiation related needs!
   components:
     - type: Sprite

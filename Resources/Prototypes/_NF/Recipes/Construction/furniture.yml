@@ -1,8 +1,8 @@
 # Seat
 - type: construction
   id: BenchSofaMiddle
-  name: sofa (middle)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-sofa-middle
+  description: construction-sofa-middle-desc
   graph: SofasGraph
   startNode: start
   targetNode: BenchSofaMiddleNode
@@ -18,8 +18,8 @@
 
 - type: construction
   id: BenchSofaLeft
-  name: sofa (left)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-sofa-left
+  description: construction-sofa-middle-desc
   graph: SofasGraph
   startNode: start
   targetNode: BenchSofaLeftNode
@@ -35,8 +35,8 @@
 
 - type: construction
   id: BenchSofaRight
-  name: sofa (right)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-sofa-right
+  description: construction-sofa-middle-desc
   graph: SofasGraph
   startNode: start
   targetNode: BenchSofaRightNode
@@ -52,8 +52,8 @@
 
 - type: construction
   id: BenchSofaCorner
-  name: sofa (corner)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-sofa-corner
+  description: construction-sofa-middle-desc
   graph: SofasGraph
   startNode: start
   targetNode: BenchSofaCornerNode
@@ -69,8 +69,8 @@
 
 - type: construction
   id: BenchSofaCorpMiddle
-  name: grey sofa (middle)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-grey-sofa-middle
+  description: construction-sofa-middle-desc
   graph: SofasGraph
   startNode: start
   targetNode: BenchSofaCorpMiddleNode
@@ -86,8 +86,8 @@
 
 - type: construction
   id: BenchSofaCorpLeft
-  name: grey sofa (left)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-grey-sofa-left
+  description: construction-sofa-middle-desc
   graph: SofasGraph
   startNode: start
   targetNode: BenchSofaCorpLeftNode
@@ -103,8 +103,8 @@
 
 - type: construction
   id: BenchSofaCorpRight
-  name: grey sofa (right)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-grey-sofa-right
+  description: construction-sofa-middle-desc
   graph: SofasGraph
   startNode: start
   targetNode: BenchSofaCorpRightNode
@@ -120,8 +120,8 @@
 
 - type: construction
   id: BenchSofaCorpCorner
-  name: grey sofa (corner)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-grey-sofa-corner
+  description: construction-sofa-middle-desc
   graph: SofasGraph
   startNode: start
   targetNode: BenchSofaCorpCornerNode
@@ -137,8 +137,8 @@
 
 - type: construction
   id: BenchSteelMiddle
-  name: steel bench (middle)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-steel-bench-middle
+  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchSteelMiddleNode
@@ -154,8 +154,8 @@
 
 - type: construction
   id: BenchSteelRight
-  name: steel bench (right)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-steel-bench-right
+  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchSteelRightNode
@@ -171,8 +171,8 @@
 
 - type: construction
   id: BenchSteelLeft
-  name: steel bench (left)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-steel-bench-left
+  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchSteelLeftNode
@@ -188,8 +188,8 @@
 
 - type: construction
   id: BenchPewMiddle
-  name: pew (middle)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-pew-middle
+  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchPewMiddleNode
@@ -205,8 +205,8 @@
 
 - type: construction
   id: BenchPewRight
-  name: pew (right)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-pew-right
+  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchPewRightNode
@@ -222,8 +222,8 @@
 
 - type: construction
   id: BenchPewLeft
-  name: pew (left)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-pew-left
+  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchPewLeftNode
@@ -239,8 +239,8 @@
 
 - type: construction
   id: BenchParkMiddle
-  name: park bench (middle)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-park-bench-middle
+  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchParkMiddleNode
@@ -256,8 +256,8 @@
 
 - type: construction
   id: BenchParkRight
-  name: park bench (right)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-park-bench-right
+  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchParkRightNode
@@ -273,8 +273,8 @@
 
 - type: construction
   id: BenchParkLeft
-  name: park bench (left)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-park-bench-left
+  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchParkLeftNode
@@ -290,8 +290,8 @@
 
 - type: construction
   id: BenchSteelWhiteMiddle
-  name: white bench (middle)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-white-bench-middle
+  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchSteelWhiteMiddleNode
@@ -307,8 +307,8 @@
 
 - type: construction
   id: BenchSteelWhiteRight
-  name: white bench (right)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-white-bench-right
+  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchSteelWhiteRightNode
@@ -324,8 +324,8 @@
 
 - type: construction
   id: BenchSteelWhiteLeft
-  name: white bench (left)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-white-bench-left
+  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchSteelWhiteLeftNode
@@ -341,8 +341,8 @@
 
 - type: construction
   id: BenchParkBambooMiddle
-  name: bamboo park bench (middle)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-bamboo-park-bench-middle
+  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchParkBambooMiddleNode
@@ -358,8 +358,8 @@
 
 - type: construction
   id: BenchParkBambooRight
-  name: bamboo park bench (right)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-bamboo-park-bench-right
+  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchParkBambooRightNode
@@ -375,8 +375,8 @@
 
 - type: construction
   id: BenchParkBambooLeft
-  name: bamboo park bench (left)
-  description: Multiple seats spanning a single object. Truly a marvel of science.
+  name: construction-bamboo-park-bench-left
+  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchParkBambooLeftNode
@@ -393,15 +393,15 @@
 # Decorations (bonfire, fireplace)
 - type: construction
   id: Bonfire
-  name: bonfire
-  description: What can be better then late evening under the sky with guitar and friends.
+  name: construction-bonfire
+  description: construction-bonfire-desc
   graph: FiresGraph
   startNode: start
   targetNode: BonfireNode
   category: construction-category-furniture
   icon:
     sprite: Structures/Decoration/bonfire.rsi
-    state: bonfire
+    state: construction-bonfire
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -410,15 +410,15 @@
 
 - type: construction
   id: Fireplace
-  name: fireplace
-  description: A place that has fire. Cozy!
+  name: construction-fireplace
+  description: construction-fireplace-desc
   graph: FiresGraph
   startNode: start
   targetNode: FireplaceNode
   category: construction-category-furniture
   icon:
     sprite: Structures/Decoration/fireplace.rsi
-    state: fireplace
+    state: construction-fireplace
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -428,8 +428,8 @@
 # Banners
 - type: construction
   id: BannerNanotrasen
-  name: nanotrasen banner
-  description: A banner displaying the Nanotrasen logo.
+  name: construction-nanotrasen-banner
+  description: construction-nanotrasen-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerNanotrasenNode
@@ -445,8 +445,8 @@
 
 - type: construction
   id: BannerCargo
-  name: cargo banner
-  description: A banner displaying the colors of the cargo department.
+  name: construction-cargo-banner
+  description: construction-cargo-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerCargoNode
@@ -462,8 +462,8 @@
 
 - type: construction
   id: BannerEngineering
-  name: engineering banner
-  description: A banner displaying the colors of the engineering department.
+  name: construction-engineering-banner
+  description: construction-engineering-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerEngineeringNode
@@ -479,8 +479,8 @@
 
 - type: construction
   id: BannerMedical
-  name: medical banner
-  description: A banner displaying the colors of the medical department.
+  name: construction-medical-banner
+  description: construction-medical-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerMedicalNode
@@ -496,8 +496,8 @@
 
 - type: construction
   id: BannerScience
-  name: science banner
-  description: A banner displaying the colors of the science department.
+  name: construction-science-banner
+  description: construction-science-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerScienceNode
@@ -513,8 +513,8 @@
 
 - type: construction
   id: BannerSecurity
-  name: security banner
-  description: A banner displaying the colors of the security department.
+  name: construction-security-banner
+  description: construction-security-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerSecurityNode
@@ -530,8 +530,8 @@
 
 - type: construction
   id: BannerBlue
-  name: blue banner
-  description: A banner displaying the color blue.
+  name: construction-blue-banner
+  description: construction-blue-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerBlueNode
@@ -547,8 +547,8 @@
 
 - type: construction
   id: BannerRed
-  name: red banner
-  description: A banner displaying the color red.
+  name: construction-red-banner
+  description: construction-red-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerRedNode
@@ -564,8 +564,8 @@
 
 - type: construction
   id: BannerYellow
-  name: yellow banner
-  description: A banner displaying the color yellow.
+  name: construction-yellow-banner
+  description: construction-yellow-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerYellowNode
@@ -581,8 +581,8 @@
 
 - type: construction
   id: BannerGreen
-  name: green banner
-  description: A banner displaying the color green.
+  name: construction-green-banner
+  description: construction-green-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerGreenNode
@@ -598,8 +598,8 @@
 
 - type: construction
   id: BannerRevolution
-  name: revolution banner
-  description: A banner displaying revolution. Viva!
+  name: construction-revolution-banner
+  description: construction-revolution-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerRevolutionNode
@@ -615,8 +615,8 @@
 
 - type: construction
   id: BannerSyndicate
-  name: syndicate banner
-  description: A banner from which, according to the syndicate, you should feel hatred for NT.
+  name: construction-syndicate-banner
+  description: construction-syndicate-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerSyndicateNode

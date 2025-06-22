@@ -1,8 +1,8 @@
 - type: entity
   parent: [ ClothingEyesGlassesJamjar, ShowSecurityIcons, BaseSecurityContraband ]
   id: ClothingEyesGlassesSecjar
-  name: security-issue jamjar glasses
-  description: These retro glasses remind you of 1984.
+  name: construction-security-jamjar-glasses
+  description: construction-security-jamjar-glasses-desc
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Eyes/Jamjars/secjar.rsi
@@ -28,8 +28,8 @@
 - type: entity
   parent: [ ClothingEyesGlassesJamjar, ShowMedicalIcons ]
   id: ClothingEyesGlassesMedjar
-  name: medical-issue jamjar glasses
-  description: These retro glasses remind you of bodybagging rotting corpses.
+  name: construction-medical-jamjar-glasses
+  description: construction-medical-jamjar-glasses-desc
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Eyes/Jamjars/medjar.rsi
@@ -47,8 +47,8 @@
 - type: entity
   parent: ClothingEyesGlassesJamjar
   id: ClothingEyesGlassesChemjar
-  name: chemical analysis jamjar glasses
-  description: These retro glasses remind you of breaking SOP by making explosives.
+  name: construction-chemical-analysis-jamjar-glasses
+  description: construction-chemical-analysis-jamjar-glasses-desc
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Eyes/Jamjars/chemjar.rsi
@@ -68,8 +68,8 @@
 - type: entity
   parent: ClothingEyesGlassesJamjar
   id: ClothingEyesGlassesRobojar
-  name: diagnostics jamjar glasses
-  description: These retro glasses remind you of tampering with borgs' laws.
+  name: construction-diagnostics-jamjar-glasses
+  description: construction-diagnostics-jamjar-glasses-desc
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Eyes/Jamjars/robojar.rsi
@@ -92,8 +92,8 @@
 - type: entity
   parent: ClothingEyesGlassesJamjar
   id: ClothingEyesGlassesJamgog
-  name: engineering jamgoggles
-  description: These retro glasses remind you of setting the tesla loose.
+  name: construction-engineering-jamgoggles
+  description: construction-engineering-jamgoggles-desc
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Eyes/Jamjars/jamgog.rsi
@@ -113,8 +113,8 @@
 - type: entity
   parent: ClothingEyesGlassesGar
   id: ClothingEyesGlassesSungar
-  name: sungar glasses
-  description: Wearing this will most certainly lead to decapitation.
+  name: construction-sungar-glasses
+  description: construction-sungar-glasses-desc
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Eyes/sungar.rsi
@@ -141,8 +141,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesCSungar
-  name: cheap sungar glasses
-  description: Now with 99% less artificial intelligence.
+  name: construction-cheap-sungar-glasses
+  description: construction-cheap-sungar-glasses-desc
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Eyes/sungar.rsi

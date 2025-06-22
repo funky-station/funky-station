@@ -140,8 +140,9 @@ marking-SyntheticLizardLFoot = Synth Lizard Left Foot
 marking-SyntheticLizardLFoot-synth_lizard_l_foot = Primary
 
 # Tail
-marking-SynthLizardTailWag = Synth Lizard Tail (Wag)
-marking-SynthLizardTailAnimated-synth_lizard_tail_wag = Primary
+# Funky - Renamed tail wag to tail
+marking-SynthLizardTail = Synth Lizard Tail
+marking-SynthLizardTail-synth_lizard_tail = Primary
 
 # Funky - Extra Markings
 marking-IPCCheeksWhiskers = Whiskers

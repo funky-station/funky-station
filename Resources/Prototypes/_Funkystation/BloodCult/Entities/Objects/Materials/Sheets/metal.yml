@@ -29,7 +29,7 @@
 - type: entity
   parent: SheetRunedMetal
   id: SheetRunedMetal30
-  name: runed metal
+  name: materials-runed-metal
   suffix: Full
   components:
   - type: Sprite
@@ -41,7 +41,7 @@
 - type: entity
   parent: SheetRunedMetal
   id: SheetRunedMetal10
-  name: runed metal
+  name: materials-runed-metal
   suffix: 10
   components:
   - type: Sprite
@@ -53,7 +53,7 @@
 - type: entity
   parent: SheetRunedMetal
   id: SheetRunedMetal1
-  name: runed metal
+  name: materials-runed-metal
   suffix: Single
   components:
   - type: Sprite

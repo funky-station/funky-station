@@ -379,3 +379,14 @@
     state: synth_antenna_hood_1
   - sprite: _DV/Mobs/Customization/SynthLizIPC/antenna_markings.rsi
     state: synth_antenna_hood_2
+
+# Funky - Extra Markings
+- type: marking
+  id: IPCCheeksWhiskers
+  markingCategory: HeadTop
+  bodyPart: HeadTop
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _DV/Mobs/Customization/Rodentia/cheek_markings.rsi
+    state: whiskers
+

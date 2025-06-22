@@ -142,3 +142,7 @@ marking-SyntheticLizardLFoot-synth_lizard_l_foot = Primary
 # Tail
 marking-SynthLizardTailWag = Synth Lizard Tail (Wag)
 marking-SynthLizardTailAnimated-synth_lizard_tail_wag = Primary
+
+# Funky - Extra Markings
+marking-IPCCheeksWhiskers = Whiskers
+marking-IPCCheeksWhiskers-whiskers = Whiskers

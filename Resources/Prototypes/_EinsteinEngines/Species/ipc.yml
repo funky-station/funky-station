@@ -64,7 +64,7 @@
       required: true
       defaultMarkings: [ MobIPCEyesDefault ]
     Head:
-      points: 2 # Funky - Increase to allow Rodentia face markings
+      points: 1
       required: true
       defaultMarkings: [ MobIPCHeadDefault ]
     Chest:

@@ -10,19 +10,19 @@
               amount: 5
               doAfter: 1
             - tag: SuitEVA
-              name: an EVA suit
+              name: construction-graph-tag-eva-suit
               icon:
                 sprite: Clothing/OuterClothing/Suits/eva.rsi
                 state: icon
               doAfter: 1
             - tag: HelmetEVA
-              name: an EVA helmet
+              name: construction-graph-tag-eva-helmet
               icon:
                 sprite: Clothing/Head/Helmets/eva.rsi
                 state: icon
               doAfter: 1
             - tag: DawInstrumentMachineCircuitboard
-              name: a Digital Audio Workstation Machine Board
+              name: construction-daw-single
               icon:
                 sprite: Objects/Misc/module.rsi
                 state: generic
@@ -34,7 +34,7 @@
       - to: musicianHardsuit
         steps:
         - tag: KeyedInstrument
-          name: a Keyed Insutrument
+          name: construction-keyed-instrument-single
           icon:
             sprite: Objects/Fun/Instruments/h_synthesizer.rsi
             state: icon
@@ -43,7 +43,7 @@
           - !type:PlaySound
             sound: /Audio/Machines/button.ogg
         - tag: StringInstrument
-          name: a String Instrument
+          name: construction-string-instrument-single
           icon:
             sprite: Objects/Fun/Instruments/guitar.rsi
             state: icon
@@ -52,7 +52,7 @@
           - !type:PlaySound
             sound: /Audio/Machines/button.ogg
         - tag: PercussionInstrument
-          name: a Percussion Instrument
+          name: construction-perc-instrument-single
           icon:
             sprite: Objects/Fun/Instruments/glockenspiel.rsi
             state: icon
@@ -61,7 +61,7 @@
           - !type:PlaySound
             sound: /Audio/Machines/button.ogg
         - tag: BrassInstrument
-          name: a Brass Instrument
+          name: construction-brass-instrument-single
           icon:
             sprite: Objects/Fun/Instruments/trumpet.rsi
             state: icon
@@ -70,7 +70,7 @@
           - !type:PlaySound
             sound: /Audio/Machines/button.ogg
         - tag: WoodwindInstrument
-          name: a Woodwind Instrument
+          name: construction-woodwind-instrument-single
           icon:
             sprite: Objects/Fun/Instruments/saxophone.rsi
             state: icon

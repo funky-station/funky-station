@@ -90,17 +90,17 @@
       - id: CigaretteNutriment
       - id: CigaretteSalicylicAcid
       - id: CigaretteDexalin
-      - id: CigarettePax
+      - id: CigaretteSaline
       - id: CigaretteBbqSauce
       - id: CigaretteBlackPepper
       - id: CigaretteOmnizine
       - id: CigaretteCapsaicinOil
-      - id: CigaretteBread
-      - id: CigaretteMilk
+      - id: CigaretteBbqSauce
+      - id: CigaretteHaloperidol
       - id: CigaretteBanana
-      - id: CigaretteSpaceDrugs
-      - id: CigaretteMuteToxin
+      - id: CigaretteLipolicide
+      - id: CigaretteSodiumPolyacrylate
       - id: CigaretteMold
       - id: CigaretteLicoxide
       - id: CigaretteWeldingFuel
-      - id: CigaretteTHC
+      - id: CigaretteRobustHarvest

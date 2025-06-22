@@ -294,7 +294,7 @@
     isFragile: true
     isPriority: true
     contents:
-    - id: RobustHarvestChemistryBottle
+    - id: ChemistryBottleRobustHarvest
       orGroup: Chemical
     - id: WeedSpray
       orGroup: Chemical

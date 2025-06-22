@@ -165,7 +165,6 @@
     nameSegments:
     - NamesDragon
     - NamesDragonTitle
-    nameFormat: name-format-dragon
   - type: Prying
     pryPowered: true
     force: true

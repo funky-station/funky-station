@@ -7,13 +7,13 @@
         - to: secjarGlasses
           steps:
             - tag: JamjarBase
-              name: jamjar glasses
+              name: construction-jamjar-glasses
               icon:
                 sprite: Clothing/Eyes/Glasses/jamjar.rsi
                 state: icon
               doAfter: 5
             - component: ShowMindShieldIcons
-              name: eyewear with security hud
+              name: construction-eyewear-with-security-hud
               icon:
                 sprite: Clothing/Eyes/Glasses/secglasses.rsi
                 state: icon
@@ -30,13 +30,13 @@
         - to: medjarGlasses
           steps:
             - tag: JamjarBase
-              name: jamjar glasses
+              name: construction-jamjar-glasses
               icon:
                 sprite: Clothing/Eyes/Glasses/jamjar.rsi
                 state: icon
               doAfter: 5
             - tag: HudMedical
-              name: eyewear with medical hud
+              name: construction-eyewear-with-medical-hud
               icon:
                 sprite: Clothing/Eyes/Hud/med.rsi
                 state: icon
@@ -53,13 +53,13 @@
         - to: chemjarGlasses
           steps:
             - tag: JamjarBase
-              name: jamjar glasses
+              name: construction-jamjar-glasses
               icon:
                 sprite: Clothing/Eyes/Glasses/jamjar.rsi
                 state: icon
               doAfter: 5
             - tag: ChemVision
-              name: eyewear with chemical hud
+              name: construction-eyewear-with-chemical-hud
               icon:
                 sprite: Clothing/Eyes/Glasses/science.rsi
                 state: icon
@@ -76,13 +76,13 @@
         - to: robojarGlasses
           steps:
             - tag: JamjarBase
-              name: jamjar glasses
+              name: construction-jamjar-glasses
               icon:
                 sprite: Clothing/Eyes/Glasses/jamjar.rsi
                 state: icon
               doAfter: 5
             - tag: RoboVision
-              name: eyewear with diagnostics hud
+              name: construction-eyewear-with-diagnostics-hud
               icon:
                 sprite: Clothing/Eyes/Hud/diag.rsi
                 state: icon
@@ -99,13 +99,13 @@
         - to: engijarGlasses
           steps:
             - tag: JamjarBase
-              name: jamjar glasses
+              name: construction-jamjar-glasses
               icon:
                 sprite: Clothing/Eyes/Glasses/jamjar.rsi
                 state: icon
               doAfter: 5
             - tag: EngiVision
-              name: engineering goggles
+              name: construction-engineering-goggles
               icon:
                 sprite: Clothing/Eyes/Glasses/meson.rsi
                 state: icon
@@ -122,13 +122,13 @@
         - to: sungarGlasses
           steps:
             - tag: GarBase
-              name: gar glasses
+              name: construction-gar-glasses
               icon:
                 sprite: Clothing/Eyes/Glasses/gar.rsi
                 state: icon
               doAfter: 5
             - tag: Sunglasses
-              name: sunglasses
+              name: construction-sunglasses
               icon:
                 sprite: Clothing/Eyes/Glasses/sunglasses.rsi
                 state: icon
@@ -145,13 +145,13 @@
         - to: sungarCGlasses
           steps:
             - tag: GarBase
-              name: gar glasses
+              name: construction-gar-glasses
               icon:
                 sprite: Clothing/Eyes/Glasses/gar.rsi
                 state: icon
               doAfter: 5
             - tag: CheapSunglasses
-              name: cheap sunglasses
+              name: construction-cheap-sunglasses
               icon:
                 sprite: Clothing/Eyes/Glasses/sunglasses.rsi
                 state: icon

@@ -10,7 +10,7 @@
           amount: 15
           doAfter: 8
         - tag: Magboots
-          name: magboots
+          name: construction-magboots
           icon:
             sprite: Clothing/Shoes/Boots/magboots.rsi
             state: icon

@@ -8,7 +8,7 @@
 - type: latheRecipePack
   id: SecurityHypoStatic
   recipes:
-  - CartridgeEpinephrine
+  - CartridgeEmergency
   - SecHypo
 
 ## Dynamic

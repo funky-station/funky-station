@@ -461,8 +461,8 @@
 
 - type: construction
   id: HeatPump
-  name: heat pump
-  description: A pump that moves heat from one side to the other.
+  name: construction-heat-pump
+  description: heat-pump-desc
   graph: GasBinary
   startNode: start
   targetNode: heatpump

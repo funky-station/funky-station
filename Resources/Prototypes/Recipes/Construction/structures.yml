@@ -25,13 +25,13 @@
     - !type:TileNotBlocked
 
 - type: construction # Funkystation
-  name: reinforced uranium girder
+  name: construction-reinforced-uranium-girder
   id: ReinforcedUraniumGirder
   graph: Girder
   startNode: start
   targetNode: reinforcedUraniumGirder
   category: construction-category-structures
-  description: A large structural assembly made out of metal and uranium. Fit for all your radiation needs!
+  description: reinforced-uranium-girder-desc
   icon:
     sprite: _Funkystation/Structures/Walls/reinforced_uranium.rsi
     state: reinforced_wall_girder

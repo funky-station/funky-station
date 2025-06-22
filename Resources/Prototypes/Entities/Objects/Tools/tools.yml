@@ -397,7 +397,6 @@
     - Deconstruct
   - type: LimitedCharges
     maxCharges: 45
-    charges: 45
   - type: Sprite
     sprite: Objects/Tools/rpd.rsi
 
@@ -431,7 +430,6 @@
   components:
   - type: LimitedCharges
     maxCharges: 20
-    charges: 20
   - type: AutoRecharge
     rechargeDuration: 10
 

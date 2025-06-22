@@ -1,9 +1,9 @@
-﻿- type: latheRecipePack
-  id: MiningToolsStatic
-  recipes:
-  - Fulton
-  - FultonBeacon
-  - OreBag
+﻿#- type: latheRecipePack
+#  id: MiningToolsStatic
+#  recipes:
+#  - Fulton
+#  - FultonBeacon
+#  - OreBag
 
 - type: latheRecipePack
   id: SalvageExplosivesStatic # emag-locked

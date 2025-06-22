@@ -1,6 +1,6 @@
 - type: stack
   id: SharkminnowChitin
-  name: sharkminnow chitin
+  name: stack-sharkminnow-chitin
   icon: { sprite: _Funkystation/Objects/Materials/Mob/sharkchitin.rsi, state: chitin}
   spawn: MaterialChitinSharkminnow1
   maxCount: 30

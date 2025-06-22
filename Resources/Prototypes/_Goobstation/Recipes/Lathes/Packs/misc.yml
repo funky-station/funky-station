@@ -1,15 +1,15 @@
 ﻿## Static
-- type: latheRecipePack
-  id: SyndicateAmmoHeavyStatic
-  recipes:
-  - MagazinePistolHighCapacityEmpty
-  - MagazinePistolHighCapacity
-  - MagazineLightRifleBoxEmpty
-  - MagazineLightRifleBox
-  - MagazineHighCaliberEmpty
-  - MagazineHighCaliber
-  - MagazineBoxHighCaliber
-  - MagazineBoxAntiMateriel
+#- type: latheRecipePack
+#  id: SyndicateAmmoHeavyStatic
+#  recipes:
+#  - MagazinePistolHighCapacityEmpty
+#  - MagazinePistolHighCapacity
+#  - MagazineLightRifleBoxEmpty
+#  - MagazineLightRifleBox
+#  - MagazineHighCaliberEmpty
+#  - MagazineHighCaliber
+#  - MagazineBoxHighCaliber
+#  - MagazineBoxAntiMateriel
 
 - type: latheRecipePack
   id: ProtoLatheMiscStatic

@@ -6,3 +6,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 steal-target-groups-cargo-supermatter-sliver = supermatter sliver
+steal-target-groups-gemini-projector = ax-32 "gemini" holo-projector rig

@@ -14,3 +14,10 @@
   sprite:
     sprite: _EE/Structures/Power/Generation/Supermatter/supermatter_sliver.rsi
     state: icon
+
+- type: stealTargetGroup
+  id: ClothingBeltGeminiHoloProjector
+  name: steal-target-groups-gemini-projector
+  sprite:
+    sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
+    state: icon

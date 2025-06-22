@@ -428,6 +428,7 @@
       prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
     - id: RadioHandheldScience #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: ClothingBeltGeminiHoloProjector # Goobstation - Who better to do science with than yourself?
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

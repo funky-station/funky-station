@@ -38,6 +38,9 @@
   id: NukeOpsCommanderUplink
 
 - type: Tag
+  id: ClothingBeltGeminiHoloProjector
+
+- type: Tag
   id: NukeOpsReinforcementUplink
 
 # Mechs

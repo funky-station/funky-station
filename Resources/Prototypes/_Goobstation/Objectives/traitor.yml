@@ -73,3 +73,16 @@
     stealGroup: SupermatterSliver
     objectiveNoOwnerText: objective-condition-steal-smsliver-title
     descriptionText: objective-condition-steal-smsliver-description
+
+- type: entity
+  parent: BaseRDStealObjective
+  id: GeminiProjectorStealObjective
+  components:
+  - type: NotJobRequirement
+    job: ResearchDirector
+  - type: StealCondition
+    stealGroup: ClothingBeltGeminiHoloProjector
+    descriptionText: objective-condition-steal-gemini-projector-description
+  - type: Objective
+    # This bad boy is LITERALLY directly screwed into the RDs spinal cord. Good luck!
+    difficulty: 3.5

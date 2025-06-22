@@ -604,3 +604,10 @@ binds:
   key: Num9
   mod1: Shift
 ### goobstation-end
+### RMC Port
+- function: CMUniqueAction
+  type: State
+  key: Space
+- function: CMHolsterPrimary
+  type: State
+  key: F

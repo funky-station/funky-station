@@ -411,6 +411,8 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Scream:
+      collection: CyborgScream
 
 - type: emoteSounds
   id: UnisexSiliconSyndicate

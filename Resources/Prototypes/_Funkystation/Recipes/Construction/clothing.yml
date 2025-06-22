@@ -1,98 +1,71 @@
 - type: construction
-  name: construction-musician-hardsuit
   id: MusicianHardsuit
   graph: MusicianHardsuit
   startNode: start
   targetNode: musicianHardsuit
   category: construction-category-clothing
-  description: construction-musician-hardsuit-desc
-  icon: { sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/musician.rsi, state: icon }
   objectType: Item
 
 - type: construction
-  name: construction-sharkminnow-shoes
   id: SharkminnowShoes
   graph: SharkminnowShoes
   startNode: start
   targetNode: sharkminnowShoes
   category: construction-category-clothing
-  description: construction-sharkminnow-shoes-desc
-  icon: { sprite: _Funkystation/Clothing/Shoes/Misc/sharkminnow.rsi, state: icon }
   objectType: Item
 
 - type: construction
-  name: construction-security-jamjar-glasses
   id: ClothingEyesGlassesSecjar
   graph: jamjarGlassesSec
   startNode: start
   targetNode: secjarGlasses
   category: construction-category-clothing
-  description: construction-security-jamjar-glasses-desc
-  icon: { sprite: _Funkystation/Clothing/Eyes/Jamjars/secjar.rsi, state: icon }
   objectType: Item
 
 - type: construction
-  name: construction-medical-jamjar-glasses
   id: ClothingEyesGlassesMedjar
   graph: jamjarGlassesMed
   startNode: start
   targetNode: medjarGlasses
   category: construction-category-clothing
-  description: construction-medical-jamjar-glasses-desc
-  icon: { sprite: _Funkystation/Clothing/Eyes/Jamjars/medjar.rsi, state: icon }
-  objectType: Item  
+  objectType: Item
 
 - type: construction
-  name: construction-chemical-analysis-jamjar-glasses
   id: ClothingEyesGlassesChemjar
   graph: jamjarGlassesChem
   startNode: start
   targetNode: chemjarGlasses
   category: construction-category-clothing
-  description: construction-chemical-analysis-jamjar-glasses-desc
-  icon: { sprite: _Funkystation/Clothing/Eyes/Jamjars/chemjar.rsi, state: icon }
-  objectType: Item  
+  objectType: Item
 
 - type: construction
-  name: construction-diagnostics-jamjar-glasses
   id: ClothingEyesGlassesRobojar
   graph: jamjarGlassesRobo
   startNode: start
   targetNode: robojarGlasses
   category: construction-category-clothing
-  description: construction-diagnostics-jamjar-glasses-desc
-  icon: { sprite: _Funkystation/Clothing/Eyes/Jamjars/robojar.rsi, state: icon }
-  objectType: Item  
-  
+  objectType: Item
+
 - type: construction
-  name: construction-engineering-jamgoggles
   id: ClothingEyesGlassesJamgog
   graph: jamjarGlassesEngi
   startNode: start
   targetNode: engijarGlasses
   category: construction-category-clothing
-  description: construction-engineering-jamgoggles-desc
-  icon: { sprite: _Funkystation/Clothing/Eyes/Jamjars/jamgog.rsi, state: icon }
-  objectType: Item  
+  objectType: Item
 
 - type: construction
-  name: construction-sungar-glasses
   id: ClothingEyesGlassesSungar
   graph: glassesSungar
   startNode: start
   targetNode: sungarGlasses
   category: construction-category-clothing
-  description: construction-sungar-glasses-desc
-  icon: { sprite: _Funkystation/Clothing/Eyes/sungar.rsi, state: icon }
   objectType: Item
 
 - type: construction
-  name: construction-cheap-sungar-glasses
   id: ClothingEyesGlassesCSungar
   graph: glassesCSungar
   startNode: start
   targetNode: sungarCGlasses
   category: construction-category-clothing
-  description: construction-cheap-sungar-glasses-desc
-  icon: { sprite: _Funkystation/Clothing/Eyes/sungar.rsi, state: icon }
-  objectType: Item  
+  objectType: Item

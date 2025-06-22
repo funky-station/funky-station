@@ -1,153 +1,98 @@
 - type: construction
-  name: construction-mail-pipe
   id: MailPipe
-  description: construction-mail-pipe-desc
   graph: mailpipes
   startNode: start
   targetNode: pipe
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  icon:
-    sprite: _Funkystation/Structures/mailpipes.rsi
-    state: conpipe-s
 
 - type: construction
-  name: construction-mail-tagger
   id: MailTagger
-  description: construction-mail-tagger-desc
   graph: mailpipes
   startNode: start
   targetNode: tagger
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  icon:
-    sprite: _Funkystation/Structures/mailpipes.rsi
-    state: conpipe-tagger
 
 - type: construction
-  name: construction-mail-trunk
   id: MailTrunk
-  description: construction-mail-trunk-desc
   graph: mailpipes
   startNode: start
   targetNode: trunk
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  icon:
-    sprite: _Funkystation/Structures/mailpipes.rsi
-    state: conpipe-t
 
 - type: construction
-  name: construction-mail-router
   id: MailRouter
-  description: construction-mail-router-desc
   graph: mailpipes
   startNode: start
   targetNode: router
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  icon:
-    sprite: _Funkystation/Structures/mailpipes.rsi
-    state: conpipe-j1s
 
 - type: construction
-  name: construction-mail-router-flipped
   id: MailRouterFlipped
-  description: construction-mail-router-desc
   graph: mailpipes
   startNode: start
   targetNode: routerflipped
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  icon:
-    sprite: _Funkystation/Structures/mailpipes.rsi
-    state: conpipe-j2s
 
 - type: construction
-  name: construction-mail-junction
   id: MailJunction
-  description: construction-mail-junction-desc
   graph: mailpipes
   startNode: start
   targetNode: junction
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  icon:
-    sprite: _Funkystation/Structures/mailpipes.rsi
-    state: conpipe-j1
 
 - type: construction
-  name: construction-mail-junction-flipped
   id: MailJunctionFlipped
-  description: construction-mail-junction-desc
   graph: mailpipes
   startNode: start
   targetNode: junctionflipped
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  icon:
-    sprite: _Funkystation/Structures/mailpipes.rsi
-    state: conpipe-j2
 
 - type: construction
-  name: construction-mail-y-junction
   id: MailYJunction
-  description: construction-mail-y-junction-desc
   graph: mailpipes
   startNode: start
   targetNode: yJunction
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  icon:
-    sprite: _Funkystation/Structures/mailpipes.rsi
-    state: conpipe-y
 
 - type: construction
-  name: construction-mail-bend
   id: MailBend
-  description: construction-mail-bend-desc
   graph: mailpipes
   startNode: start
   targetNode: bend
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  icon:
-    sprite: _Funkystation/Structures/mailpipes.rsi
-    state: conpipe-c
 
 - type: construction
-  name: construction-mail-signal-router
   id: MailSignalRouter
-  description: construction-mail-signal-router-desc
   graph: mailpipes
   startNode: start
   targetNode: signal_router
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  icon:
-    sprite: _Funkystation/Structures/mailpipes.rsi
-    state: signal-router-free
 
 - type: construction
-  name: construction-mail-signal-router-flipped
   id: MailSignalRouterFlipped
-  description: construction-mail-signal-router-desc
   graph: mailpipes
   startNode: start
   targetNode: signal_router_flipped
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  icon:
-    sprite: _Funkystation/Structures/mailpipes.rsi
-    state: signal-router-flipped-free

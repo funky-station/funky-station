@@ -402,7 +402,8 @@
     color: "#1f8c28"
   - type: Computer
     board: MedicalRecordsComputerCircuitboard
-  - type: ActivatableUI # begin funky
+  - type: MedicalRecordsConsole # begin funky
+  - type: ActivatableUI
     singleUser: true
     key: enum.MedicalRecordsConsoleKey.Key
   - type: UserInterface

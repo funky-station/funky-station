@@ -1,14 +1,9 @@
 - type: construction
-  name: construction-cult-juggernaut-shell
   id: CultJuggernautShell
   graph: CultJuggernautShell
   startNode: start
   targetNode: juggernautShell
   category: construction-category-structures
-  description: construction-cult-juggernaut-shell-desc
-  icon:
-    sprite: _Funkystation/BloodCult/Mobs/constructs.rsi
-    state: juggernaut
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: false

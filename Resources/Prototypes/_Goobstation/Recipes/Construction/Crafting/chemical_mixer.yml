@@ -1,10 +1,7 @@
 - type: construction
-  name: construction-portable-chemical-mixer
   id: portableChemicalMixerConstruction
   graph: portableChemicalMixerGraph
   startNode: start
   targetNode: end
   category: construction-category-misc
-  description: proto-chem-mixer-desc
-  icon: { sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi, state: chemical_mixer }
   objectType: Item

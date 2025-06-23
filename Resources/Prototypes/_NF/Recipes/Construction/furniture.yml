@@ -1,15 +1,10 @@
 # Seat
 - type: construction
   id: BenchSofaMiddle
-  name: construction-sofa-middle
-  description: construction-sofa-middle-desc
   graph: SofasGraph
   startNode: start
   targetNode: BenchSofaMiddleNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/sofa.rsi
-    state: middle
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -18,15 +13,10 @@
 
 - type: construction
   id: BenchSofaLeft
-  name: construction-sofa-left
-  description: construction-sofa-middle-desc
   graph: SofasGraph
   startNode: start
   targetNode: BenchSofaLeftNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/sofa.rsi
-    state: left
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -35,15 +25,10 @@
 
 - type: construction
   id: BenchSofaRight
-  name: construction-sofa-right
-  description: construction-sofa-middle-desc
   graph: SofasGraph
   startNode: start
   targetNode: BenchSofaRightNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/sofa.rsi
-    state: right
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -52,15 +37,10 @@
 
 - type: construction
   id: BenchSofaCorner
-  name: construction-sofa-corner
-  description: construction-sofa-middle-desc
   graph: SofasGraph
   startNode: start
   targetNode: BenchSofaCornerNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/sofa.rsi
-    state: corner
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -69,15 +49,10 @@
 
 - type: construction
   id: BenchSofaCorpMiddle
-  name: construction-grey-sofa-middle
-  description: construction-sofa-middle-desc
   graph: SofasGraph
   startNode: start
   targetNode: BenchSofaCorpMiddleNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/sofa_corp.rsi
-    state: middle
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -86,15 +61,10 @@
 
 - type: construction
   id: BenchSofaCorpLeft
-  name: construction-grey-sofa-left
-  description: construction-sofa-middle-desc
   graph: SofasGraph
   startNode: start
   targetNode: BenchSofaCorpLeftNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/sofa_corp.rsi
-    state: left
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -103,15 +73,10 @@
 
 - type: construction
   id: BenchSofaCorpRight
-  name: construction-grey-sofa-right
-  description: construction-sofa-middle-desc
   graph: SofasGraph
   startNode: start
   targetNode: BenchSofaCorpRightNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/sofa_corp.rsi
-    state: right
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -120,15 +85,10 @@
 
 - type: construction
   id: BenchSofaCorpCorner
-  name: construction-grey-sofa-corner
-  description: construction-sofa-middle-desc
   graph: SofasGraph
   startNode: start
   targetNode: BenchSofaCorpCornerNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/sofa_corp.rsi
-    state: corner
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -137,15 +97,10 @@
 
 - type: construction
   id: BenchSteelMiddle
-  name: construction-steel-bench-middle
-  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchSteelMiddleNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/steel_bench.rsi
-    state: middle
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -154,15 +109,10 @@
 
 - type: construction
   id: BenchSteelRight
-  name: construction-steel-bench-right
-  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchSteelRightNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/steel_bench.rsi
-    state: right
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -171,15 +121,10 @@
 
 - type: construction
   id: BenchSteelLeft
-  name: construction-steel-bench-left
-  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchSteelLeftNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/steel_bench.rsi
-    state: left
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -188,15 +133,10 @@
 
 - type: construction
   id: BenchPewMiddle
-  name: construction-pew-middle
-  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchPewMiddleNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/pews.rsi
-    state: middle
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -205,15 +145,10 @@
 
 - type: construction
   id: BenchPewRight
-  name: construction-pew-right
-  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchPewRightNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/pews.rsi
-    state: right
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -222,15 +157,10 @@
 
 - type: construction
   id: BenchPewLeft
-  name: construction-pew-left
-  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchPewLeftNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/pews.rsi
-    state: left
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -239,15 +169,10 @@
 
 - type: construction
   id: BenchParkMiddle
-  name: construction-park-bench-middle
-  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchParkMiddleNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/parkbench_wooden.rsi
-    state: middle
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -256,15 +181,10 @@
 
 - type: construction
   id: BenchParkRight
-  name: construction-park-bench-right
-  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchParkRightNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/parkbench_wooden.rsi
-    state: right
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -273,15 +193,10 @@
 
 - type: construction
   id: BenchParkLeft
-  name: construction-park-bench-left
-  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchParkLeftNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/parkbench_wooden.rsi
-    state: left
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -290,15 +205,10 @@
 
 - type: construction
   id: BenchSteelWhiteMiddle
-  name: construction-white-bench-middle
-  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchSteelWhiteMiddleNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/steel_bench_white.rsi
-    state: middle
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -307,15 +217,10 @@
 
 - type: construction
   id: BenchSteelWhiteRight
-  name: construction-white-bench-right
-  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchSteelWhiteRightNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/steel_bench_white.rsi
-    state: right
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -324,15 +229,10 @@
 
 - type: construction
   id: BenchSteelWhiteLeft
-  name: construction-white-bench-left
-  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchSteelWhiteLeftNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/steel_bench_white.rsi
-    state: left
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -341,15 +241,10 @@
 
 - type: construction
   id: BenchParkBambooMiddle
-  name: construction-bamboo-park-bench-middle
-  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchParkBambooMiddleNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/parkbench_bamboo.rsi
-    state: middle
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -358,15 +253,10 @@
 
 - type: construction
   id: BenchParkBambooRight
-  name: construction-bamboo-park-bench-right
-  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchParkBambooRightNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/parkbench_bamboo.rsi
-    state: right
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -375,15 +265,10 @@
 
 - type: construction
   id: BenchParkBambooLeft
-  name: construction-bamboo-park-bench-left
-  description: construction-sofa-middle-desc
   graph: BenchesGraph
   startNode: start
   targetNode: BenchParkBambooLeftNode
   category: construction-category-furniture
-  icon:
-    sprite: _SimpleStation/Structures/Furniture/Benches/parkbench_bamboo.rsi
-    state: left
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -393,15 +278,10 @@
 # Decorations (bonfire, fireplace)
 - type: construction
   id: Bonfire
-  name: construction-bonfire
-  description: construction-bonfire-desc
   graph: FiresGraph
   startNode: start
   targetNode: BonfireNode
   category: construction-category-furniture
-  icon:
-    sprite: Structures/Decoration/bonfire.rsi
-    state: construction-bonfire
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -410,15 +290,10 @@
 
 - type: construction
   id: Fireplace
-  name: construction-fireplace
-  description: construction-fireplace-desc
   graph: FiresGraph
   startNode: start
   targetNode: FireplaceNode
   category: construction-category-furniture
-  icon:
-    sprite: Structures/Decoration/fireplace.rsi
-    state: construction-fireplace
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -428,15 +303,10 @@
 # Banners
 - type: construction
   id: BannerNanotrasen
-  name: construction-nanotrasen-banner
-  description: construction-nanotrasen-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerNanotrasenNode
   category: construction-category-furniture
-  icon:
-    sprite: Structures/Decoration/banner.rsi
-    state: banner
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -445,15 +315,10 @@
 
 - type: construction
   id: BannerCargo
-  name: construction-cargo-banner
-  description: construction-cargo-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerCargoNode
   category: construction-category-furniture
-  icon:
-    sprite: Structures/Decoration/banner.rsi
-    state: banner_cargo
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -462,15 +327,10 @@
 
 - type: construction
   id: BannerEngineering
-  name: construction-engineering-banner
-  description: construction-engineering-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerEngineeringNode
   category: construction-category-furniture
-  icon:
-    sprite: Structures/Decoration/banner.rsi
-    state: banner_engineering
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -479,15 +339,10 @@
 
 - type: construction
   id: BannerMedical
-  name: construction-medical-banner
-  description: construction-medical-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerMedicalNode
   category: construction-category-furniture
-  icon:
-    sprite: Structures/Decoration/banner.rsi
-    state: banner_medical
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -496,15 +351,10 @@
 
 - type: construction
   id: BannerScience
-  name: construction-science-banner
-  description: construction-science-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerScienceNode
   category: construction-category-furniture
-  icon:
-    sprite: Structures/Decoration/banner.rsi
-    state: banner_science
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -513,15 +363,10 @@
 
 - type: construction
   id: BannerSecurity
-  name: construction-security-banner
-  description: construction-security-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerSecurityNode
   category: construction-category-furniture
-  icon:
-    sprite: Structures/Decoration/banner.rsi
-    state: banner_security
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -530,15 +375,10 @@
 
 - type: construction
   id: BannerBlue
-  name: construction-blue-banner
-  description: construction-blue-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerBlueNode
   category: construction-category-furniture
-  icon:
-    sprite: Structures/Decoration/banner.rsi
-    state: banner-blue
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -547,15 +387,10 @@
 
 - type: construction
   id: BannerRed
-  name: construction-red-banner
-  description: construction-red-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerRedNode
   category: construction-category-furniture
-  icon:
-    sprite: Structures/Decoration/banner.rsi
-    state: banner-red
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -564,15 +399,10 @@
 
 - type: construction
   id: BannerYellow
-  name: construction-yellow-banner
-  description: construction-yellow-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerYellowNode
   category: construction-category-furniture
-  icon:
-    sprite: Structures/Decoration/banner.rsi
-    state: banner-yellow
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -581,15 +411,10 @@
 
 - type: construction
   id: BannerGreen
-  name: construction-green-banner
-  description: construction-green-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerGreenNode
   category: construction-category-furniture
-  icon:
-    sprite: Structures/Decoration/banner.rsi
-    state: banner-green
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -598,15 +423,10 @@
 
 - type: construction
   id: BannerRevolution
-  name: construction-revolution-banner
-  description: construction-revolution-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerRevolutionNode
   category: construction-category-furniture
-  icon:
-    sprite: Structures/Decoration/banner.rsi
-    state: banner_revolution
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -615,15 +435,10 @@
 
 - type: construction
   id: BannerSyndicate
-  name: construction-syndicate-banner
-  description: construction-syndicate-banner-desc
   graph: BannersGraph
   startNode: start
   targetNode: BannerSyndicateNode
   category: construction-category-furniture
-  icon:
-    sprite: Structures/Decoration/banner.rsi
-    state: banner_syndicate
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false

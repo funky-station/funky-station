@@ -216,17 +216,12 @@
     entity: MedicalPatchMakeshift
 
 - type: construction
-  name: construction-makeshift-patch
   id: MedicalPatchMakeshift
   graph: MedicalPatchMakeshift
   startNode: start
   targetNode: medicalPatchMakeshift
   category: construction-category-tools
   objectType: Item
-  description: construction-makeshift-patch-desc
-  icon:
-    sprite: _Goobstation/Objects/Medical/medical_patch.rsi
-    state: MakeshiftPatch
 
 - type: constructionGraph
   id: SilkPatchMakeshift
@@ -243,17 +238,12 @@
     entity: MedicalPatchMakeshift
 
 - type: construction
-  name: construction-silk-makeshift-patch
   id: SilkPatchMakeshift
   graph: SilkPatchMakeshift
   startNode: start
   targetNode: silkPatchMakeshift
   category: construction-category-tools
   objectType: Item
-  description: construction-silk-makeshift-patch-desc
-  icon:
-    sprite: _Goobstation/Objects/Medical/medical_patch.rsi
-    state: MakeshiftPatch
   entityWhitelist:
     tags:
     - SpiderCraft

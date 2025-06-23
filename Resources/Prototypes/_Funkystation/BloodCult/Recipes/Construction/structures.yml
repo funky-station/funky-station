@@ -1,14 +1,9 @@
 - type: construction
-  name: construction-cult-pylon
   id: CultPylon
   graph: CultPylon
   startNode: start
   targetNode: pylon
   category: construction-category-structures
-  description: construction-cult-pylon-desc
-  icon:
-    sprite: /Textures/_Funkystation/Structures/BloodCult/pylon.rsi
-    state: crystal
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: false

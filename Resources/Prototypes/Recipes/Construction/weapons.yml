@@ -160,14 +160,11 @@
 
 # Assmos - Metal Hydrogen
 - type: construction
-  name: construction-metal-hydro-axe
   id: MetalHydrogenAxeConstruct
   graph: MetalHydrogenAxeConstruct
   startNode: start
   targetNode: icon
   category: construction-category-weapons
-  description: metal-hydro-axe-desc
-  icon: { sprite: Objects/Weapons/Melee/metal_hydrogen_axe.rsi, state: icon }
   objectType: Item
 
 - type: construction

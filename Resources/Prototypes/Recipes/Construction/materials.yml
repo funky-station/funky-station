@@ -7,14 +7,11 @@
   objectType: Item
 
 - type: construction # Funkystation
-  name: construction-uranium-rod
   id: UraniumRod
   graph: UraniumRod
   startNode: start
   targetNode: UraniumRod
   category: construction-category-materials
-  description: construction-uranium-rod-desc
-  icon: { sprite: _Funkystation/Objects/Materials/uranium_rods.rsi, state: rods }
   objectType: Item
 
 - type: construction

@@ -15,14 +15,11 @@
   objectType: Item
 
 - type: construction
-  name: construction-yellow-light-tube
   id: YellowLight
   graph: YellowLight
   startNode: start
   targetNode: icon
   category: construction-category-utilities
-  description: construction-yellow-light-tube-desc
-  icon: { sprite: Objects/Power/light_tube.rsi, state: normal }
   objectType: Item
 
 - type: construction
@@ -42,14 +39,11 @@
   objectType: Item
 
 - type: construction
-  name: construction-black-light-tube
   id: BlackLight
   graph: BlackLight
   startNode: start
   targetNode: icon
   category: construction-category-utilities
-  description: construction-black-light-tube-desc
-  icon: { sprite: Objects/Power/light_tube.rsi, state: normal }
   objectType: Item
 
 - type: construction
@@ -85,14 +79,11 @@
   objectType: Item
 
 - type: construction
-  name: construction-yellow-light-bulb
   id: YellowLightBulb
   graph: YellowLightBulb
   startNode: start
   targetNode: icon
   category: construction-category-utilities
-  description: construction-yellow-light-bulb-desc
-  icon: { sprite: Objects/Power/light_bulb.rsi, state: normal }
   objectType: Item
 
 - type: construction
@@ -112,14 +103,11 @@
   objectType: Item
 
 - type: construction
-  name: construction-black-light-bulb
   id: BlackLightBulb
   graph: BlackLightBulb
   startNode: start
   targetNode: icon
   category: construction-category-utilities
-  description: construction-black-light-bulb-desc
-  icon: { sprite: Objects/Power/light_bulb.rsi, state: normal }
   objectType: Item
 
 - type: construction

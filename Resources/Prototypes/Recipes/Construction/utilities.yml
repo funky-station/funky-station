@@ -469,14 +469,6 @@
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  icon:
-    sprite: Structures/Piping/Atmospherics/pump.rsi
-    state: pumpHeat
-  layers:
-  - sprite: Structures/Piping/Atmospherics/pipe.rsi
-    state: pipeStraight
-  - sprite: Structures/Piping/Atmospherics/pump.rsi
-    state: pumpHeat
   conditions:
     - !type:NoUnstackableInTile
 

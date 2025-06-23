@@ -1,8 +1,8 @@
 - type: entity
-  parent: ClothingBackpackDuffelMedical
+  parent: FunkySurgicalCase
   id: ClothingBackpackDuffelSurgeryFilled
-  name: surgical duffel bag
-  description: "A large duffel bag for holding extra medical supplies - this one seems to be designed for holding surgical tools."
+  name: surgical case
+  description: "It's a soft-shell case for holding and storing the tools required for surgery - this one seems to be filled already."
   components:
   - type: StorageFill
     contents:

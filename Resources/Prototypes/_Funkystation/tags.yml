@@ -21,3 +21,21 @@
 
 - type: Tag
   id: IPCEmotes
+
+- type: Tag
+  id: JamjarBase
+
+- type: Tag
+  id: ChemVision
+
+- type: Tag
+  id: RoboVision
+
+- type: Tag
+  id: EngiVision
+
+- type: Tag
+  id: GarBase
+
+- type: Tag
+  id: CheapSunglasses

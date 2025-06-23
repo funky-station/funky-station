@@ -7,13 +7,6 @@
     Plastic: 100
 
 - type: latheRecipe
-  id: CartridgeEpinephrine
-  result: CartridgeEpinephrine
-  completetime: 1
-  materials:
-    Glass: 100
-
-- type: latheRecipe
   id: BolaEnergy
   result: BolaEnergy
   completetime: 3
@@ -131,6 +124,69 @@
     Steel: 1500
     Glass: 750
     Silver: 150
+
+#Autoinjectors and Cartridges
+
+- type: latheRecipe
+  id: CartridgeEmergency
+  result: CartridgeEmergency
+  completetime: 1
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 100
+    Silver: 100
+
+
+- type: latheRecipe
+  id: CartridgeAirloss
+  result: CartridgeAirloss
+  completetime: 1
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 100
+    Silver: 100
+
+- type: latheRecipe
+  id: CartridgeBrute
+  result: CartridgeBrute
+  completetime: 1
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 100
+    Silver: 100
+
+- type: latheRecipe
+  id: CartridgeBurn
+  result: CartridgeBurn
+  completetime: 1
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 100
+    Silver: 100
+
+- type: latheRecipe
+  id: CartridgePoison
+  result: CartridgePoison
+  completetime: 1
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 100
+    Silver: 100
+
+- type: latheRecipe
+  id: SecHypo
+  result: SecHypo
+  completetime: 3
+  materials:
+    Steel: 1500
+    Plastic: 1000
+    Glass: 500
+    Gold: 500
 
 # Ammo
 

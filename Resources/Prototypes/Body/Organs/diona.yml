@@ -50,7 +50,7 @@
       organ:
         maxVol: 10
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: GreyMatter # Funky - I'm keeping the rest of the diona organs as nutriment because they're plants but the brains getting changed
           Quantity: 10
       Lung:
         maxVol: 100
@@ -103,8 +103,14 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: UncookedAnimalProteins
+        - ReagentId: Nutriment # Funky - it's a diona organ, it isn't made of proteins
           Quantity: 5
+      # Funky - I think stomachs not having a solution while all the other organs do is an oversight
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+      # Funky change ends
   - type: Organ # Shitmed
     slotId: stomach
   - type: Stomach
@@ -165,6 +171,13 @@
       Lung:
         maxVol: 100
         canReact: False
+      # Funky - everyone elses lungs have a food solution so I think dionas not having one is an oversight
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+      # Funky change ends
   - type: Tag # goob edit
     tags:
     - Meat

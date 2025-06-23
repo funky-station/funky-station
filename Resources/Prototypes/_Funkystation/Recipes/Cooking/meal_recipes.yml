@@ -20,3 +20,29 @@
     FoodDoughPie: 1
     FoodPlateTin: 1
     PipeBomb: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMysteryStew
+  name: slop bowl recipe
+  result: FoodMysteryStew
+  time: 10
+  group: Soup
+  reagents:
+    Water: 10
+  solids:
+    FoodPotato: 1
+    FoodBowlBig: 1
+    FoodMysteryCutlet: 3
+
+- type: microwaveMealRecipe
+  id: RecipeSloppyJoe
+  name: sloppy joe recipe
+  result: FoodBurgerSloppyJoe
+  time: 10
+  group: Savory
+  reagents:
+    Ketchup: 5
+  solids:
+    FoodBreadBun: 1
+    FoodOnionSlice: 1
+    FoodMysteryMeat: 1

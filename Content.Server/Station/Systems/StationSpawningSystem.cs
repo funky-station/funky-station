@@ -104,6 +104,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     {
         _prototypeManager.TryIndex(job ?? string.Empty, out var prototype);
         RoleLoadout? loadout = null;
+        string? nameOverride = null;
 
         // Need to get the loadout up-front to handle names if we use an entity spawn override.
         var jobLoadout = LoadoutSystem.GetJobPrototype(prototype?.ID);
@@ -111,7 +112,13 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         if (_prototypeManager.TryIndex(jobLoadout, out RoleLoadoutPrototype? roleProto))
         {
             profile?.Loadouts.TryGetValue(jobLoadout, out loadout);
-
+            if (loadout != null)
+            {
+                if (roleProto.CanCustomizeName)
+                {
+                    nameOverride = loadout.EntityName;
+                }
+            }
             // Set to default if not present
             if (loadout == null)
             {
@@ -191,10 +198,22 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         if (profile != null)
         {
             if (prototype != null)
-                SetPdaAndIdCardData(entity.Value, profile.Name, prototype, station);
+            {
+                if (nameOverride != null)
+                {
+                    SetPdaAndIdCardData(entity.Value, nameOverride, prototype, station);
+                    _metaSystem.SetEntityName(entity.Value, nameOverride);
+                }
+                else
+                {
+                    SetPdaAndIdCardData(entity.Value, profile.Name, prototype, station);
+                    _metaSystem.SetEntityName(entity.Value, profile.Name);
+                }
+            }
+
 
             _humanoidSystem.LoadProfile(entity.Value, profile);
-            _metaSystem.SetEntityName(entity.Value, profile.Name);
+
             if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
             {
                 AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;

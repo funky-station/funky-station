@@ -1,0 +1,103 @@
+- type: entityTable
+  id: RandomFuelTank
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 100
+      children:
+      - id: WeldingFuelTankFull
+        weight: 10
+      - id: WaterTankFull
+        weight: 10
+      - id: WeldingFuelTankHighCapacity
+        weight: 1
+      - id: WaterTankHighCapacity
+        weight: 1
+
+- type: entityTable
+  id: RandomChair
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 100
+      children:
+      - id: Chair
+        weight: 10
+      - id: ChairFolding
+        weight: 5
+      - id: Stool
+        weight: 3
+      - id: ChairWood
+        weight: 3
+      - id: ChairGreyscale
+        weight: 1
+
+- type: entityTable
+  id: MaintLocker50
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 100
+      children:
+      - id: ClosetMaintenanceFilledRandom
+        weight: 1
+
+- type: entityTable
+  id: RandomToolbox
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 100
+      children:
+      - id: ToolboxEmergencyFilled
+        weight: 1
+      - id: ToolboxArtisticFilled
+        weight: 1
+      - id: ToolboxMechanicalMaints
+        weight: 1
+      - id: ToolboxElectricalMaints
+        weight: 1
+
+- type: entityTable
+  id: MaintLockerRandom
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 100
+      children:
+      - id: ClosetMaintenanceFilledRandom
+        weight: 20
+      - id: LockerElectricalSuppliesFilled
+        weight: 3
+      - id: LockerWeldingSuppliesFilled
+        weight: 3
+      - id: ClosetToolFilled
+        weight: 3
+      - id: ClosetEmergencyFilledRandom
+        weight: 1
+      - id: ClosetEmergencyN2FilledRandom
+        weight: 1
+      - id: ClosetFireFilled
+        weight: 0.3
+
+- type: entityTable
+  id: CrowbarRandom
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 100
+      children:
+      - id: CrowbarGreen
+        weight: 20
+      - id: CrowbarYellow
+        weight: 20
+      - id: CrowbarOrange
+        weight: 20
+      - id: Crowbar
+        weight: 30
+      - id: CrowbarRed
+        weight: 10
+      - id: CrowbarCutePurple
+        weight: 1
+      - id: CrowbarCutePink
+        weight: 1

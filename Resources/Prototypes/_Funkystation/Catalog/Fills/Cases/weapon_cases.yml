@@ -15,7 +15,7 @@
   parent: SynMediumCase
   id: ClothingBackpackDuffelSyndicateFilledShotgun
   name: Bulldog case
-  description: "Lean and mean: Contains the popular Bulldog Shotgun and four 12g buckshot drums." #, and a pair of Thermal Imaging Goggles.
+  description: "Lean and mean: Contains the popular Bulldog Shotgun and three 12g buckshot drums." #, and a pair of Thermal Imaging Goggles.
   components:
   - type: Storage
     grid:
@@ -141,10 +141,45 @@
   parent: NTMediumCase
   id: NonlethalEnforcerWeaponCase
   name: riot enforcer case
-  description: "A case for the Enforcer Combat Shotgun, complete with two boxes of buckshot."
+  description: "A case for the Enforcer Combat Shotgun, loaded with beanbag shells. Contains an extra box of beanbags for your riot-suppression needs."
   components:
   - type: StorageFill
     contents:
     - id: WeaponShotgunEnforcerRubber
     - id: BoxBeanbag
       amount: 1
+
+- type: entity
+  parent: NTLargeCase
+  id: LecterWeaponCase
+  name: lecter case
+  description: "A case for the Lecter Assault rifle, complete with two extra mags."
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleLecter
+    - id: MagazineRifle
+      amount: 2
+
+- type: entity
+  parent: NTMediumCase
+  id: DrozdWeaponCase
+  name: drozd case
+  description: "A case for the Drozd submachine gun, complete with two extra mags."
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunDrozd
+    - id: MagazinePistolSubMachineGun
+      amount: 2
+
+- type: entity
+  parent: NTMediumCase
+  id: KammererWeaponCase
+  name: kammerer case
+  description: "A case for the classic Kammerer shotgun, loaded with buckshot. An extra box of shells has been provided inside the case."
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunKammerer
+    - id: BoxLethalShot

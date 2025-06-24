@@ -30,6 +30,7 @@ using Content.Shared._Impstation.CCVar;
 using Content.Shared.Mind;
 using Content.Shared.Mindshield.Components;
 using Robust.Shared.Audio.Systems;
+using Content.Server.StationEvents.Events;
 using Robust.Shared.Utility;
 
 namespace Content.Server._Impstation.Thaven;
@@ -79,6 +80,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         SubscribeLocalEvent<ThavenMoodsBoundComponent, ToggleMoodsScreenEvent>(OnToggleMoodsScreen);
         SubscribeLocalEvent<ThavenMoodsBoundComponent, BoundUIOpenedEvent>(OnBoundUIOpened);
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnSpawnComplete); // funky
+        SubscribeLocalEvent<ThavenMoodsBoundComponent, IonStormEvent>(OnIonStorm);
         SubscribeLocalEvent<RoundRestartCleanupEvent>((_) => NewSharedMoods());
     }
 
@@ -486,4 +488,39 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
             TryAddMood(args.Mob, mood, comp, true, false);
     }
     // end funky
+    public void OnIonStorm(Entity<ThavenMoodsBoundComponent> ent, ref IonStormEvent args)
+    {
+        if (!ent.Comp.IonStormable)
+            return;
+
+
+
+        // remove mood
+        if (_random.Prob(ent.Comp.IonStormRemoveChance) && ent.Comp.Moods.Count > 1)
+        {
+            ent.Comp.Moods.RemoveAt(0);
+            Dirty(ent);
+            NotifyMoodChange(ent);
+        }
+
+        // add mood
+        else if (_random.Prob(ent.Comp.IonStormAddChance) && ent.Comp.Moods.Count <= ent.Comp.MaxIonMoods)
+        {
+            if (_random.Prob(ent.Comp.IonStormWildcardChance))
+                AddWildcardMood(ent);
+            else
+                TryAddRandomMood(ent);
+        }
+
+        // replace mood
+        else
+        {
+            if (ent.Comp.Moods.Count > 1)
+                ent.Comp.Moods.RemoveAt(0);
+            if (_random.Prob(ent.Comp.IonStormWildcardChance))
+                AddWildcardMood(ent);
+            else
+                TryAddRandomMood(ent);
+        }
+    }
 }

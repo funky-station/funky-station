@@ -1,7 +1,8 @@
+# Syndicate Weapon Cases
 - type: entity
   parent: SynLargeCase
   id: ClothingBackpackDuffelSyndicateM90Bundle # - I don't know if the old M90 bundle uses this ID, but it's commented out and I don't think it exists anymore.
-  name: M-90 bundle
+  name: M-90 case
   description: "A weapon case containing the syndicate's M-90 assault rifle, packed with 2 spare magazines."
   components:
   - type: StorageFill
@@ -13,9 +14,12 @@
 - type: entity
   parent: SynMediumCase
   id: ClothingBackpackDuffelSyndicateFilledShotgun
-  name: Bulldog bundle
+  name: Bulldog case
   description: "Lean and mean: Contains the popular Bulldog Shotgun and four 12g buckshot drums." #, and a pair of Thermal Imaging Goggles.
   components:
+  - type: Storage
+    grid:
+    - 0,0,6,1
   - type: StorageFill
     contents:
     - id: WeaponShotgunBulldog
@@ -27,7 +31,7 @@
 - type: entity
   parent: SynMediumCase
   id: ClothingBackpackDuffelSyndicateFilledSMG
-  name: C-20r bundle
+  name: C-20r case
   description: "Old faithful: The classic C-20r Submachine Gun, bundled with three magazines." #, and a Suppressor.
   components:
   - type: StorageFill
@@ -40,7 +44,7 @@
 - type: entity
   parent: SynPistolCase
   id: ClothingBackpackDuffelSyndicateFilledRevolver
-  name: Python bundle
+  name: Python case
   description: "Go loud and proud with a fully loaded Magnum Python, bundled with two speed loaders."
   components:
   - type: StorageFill
@@ -50,9 +54,9 @@
       amount: 2
 
 - type: entity
-  parent: SynCaseHuge
+  parent: SynHugeCase
   id: ClothingBackpackDuffelSyndicateFilledLMG
-  name: L6 Saw bundle
+  name: L6 Saw crate
   description: "More dakka: The iconic L6 lightmachinegun, bundled with 2 box magazines."
   components:
   - type: StorageFill
@@ -61,9 +65,9 @@
     - id: MagazineLightRifleBox
 
 - type: entity
-  parent: SynCaseHuge
+  parent: SynHugeCase
   id: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
-  name: China-Lake bundle
+  name: China-Lake crate
   description: "An old China-Lake grenade launcher bundled with 11 rounds of various destruction capability."
   components:
   - type: StorageFill
@@ -75,9 +79,9 @@
       amount: 4
 
 - type: entity
-  parent: SynCaseHuge
+  parent: SynHugeCase
   id: ClothingBackpackDuffelSyndicateFilledCarbine
-  name: M-90gl bundle
+  name: M-90gl crate
   description: "A versatile battle rifle with an attached grenade launcher, bundled with 3 magazines and 6 grenades of various capabilities."
   components:
   - type: StorageFill
@@ -92,3 +96,55 @@
     - id: GrenadeFrag
       amount: 2
 
+# NT Weapon Cases
+
+- type: entity
+  parent: NTPistolCase
+  id: Mk58WeaponCase
+  name: mk 58 pistol case
+  description: "A case for the ubiquitous Mk 58, with two extra mags nestled inside."
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolMk58
+    - id: MagazinePistol
+      amount: 2
+
+- type: entity
+  parent: NTMediumCase
+  id: EnforcerWeaponCase
+  name: enforcer case
+  description: "A case for the Enforcer Combat Shotgun, complete with two boxes of buckshot."
+  components:
+  - type: Storage
+    grid:
+    - 0,0,7,1
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunEnforcer
+    - id: BoxLethalshot
+      amount: 2
+
+- type: entity
+  parent: NTMediumCase
+  id: Wt550WeaponCase
+  name: WT550 case
+  description: "A case for the WT550 submachine gun, complete with two extra mags."
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunWt550
+    - id: MagazinePistolSubMachineGunTopMounted
+      amount: 2
+
+- type: entity
+  parent: NTMediumCase
+  id: NonlethalEnforcerWeaponCase
+  name: riot enforcer case
+  description: "A case for the Enforcer Combat Shotgun, complete with two boxes of buckshot."
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunEnforcerRubber
+    - id: BoxBeanbag
+      amount: 1

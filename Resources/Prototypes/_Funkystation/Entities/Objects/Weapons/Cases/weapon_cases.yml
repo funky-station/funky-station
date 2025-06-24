@@ -1,5 +1,5 @@
 - type: entity
-  parent: FunkyCaseSmall
+  parent: FunkySmallCase
   id: NTPistolCase
   name: pistol case (nanotrasen)
   components:
@@ -9,7 +9,7 @@
     sprite: _RMC14/Objects/Storage/D18case.rsi
 
 - type: entity
-  parent: FunkyCaseSmall
+  parent: FunkySmallCase
   id: SynPistolCase
   name: pistol case (syndicate)
   components:

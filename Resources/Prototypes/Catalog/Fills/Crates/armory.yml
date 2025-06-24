@@ -2,27 +2,23 @@
   id: CrateArmorySMG
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
   name: SMG crate
-  description: Contains two high-powered, semiautomatic rifles with four mags. Requires Armory access to open.
+  description: Contains two weapon cases, holding a WT550 and two spare mags each. Requires Armory access to open.
   components:
   - type: StorageFill
     contents:
-      - id: WeaponSubMachineGunWt550
+      - id: Wt550WeaponCase
         amount: 2
-      - id: MagazinePistolSubMachineGunTopMounted
-        amount: 4
 
 - type: entity
   id: CrateArmoryShotgun
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
   name: shotgun crate
-  description: For when the enemy absolutely needs to be replaced with lead. Contains two Enforcer Combat Shotguns, and some standard shotgun shells. Requires Armory access to open.
+  description: For when the enemy absolutely needs to be replaced with lead. Contains two cases with Enforcer Combat Shotguns, and some standard shotgun shells. Requires Armory access to open.
   components:
   - type: StorageFill
     contents:
-      - id: WeaponShotgunEnforcer
-        amount: 2
-      - id: BoxLethalshot
-        amount: 4
+    - id: EnforcerWeaponCase
+      amount: 2
 
 - type: entity
   id: CrateTrackingImplants
@@ -61,20 +57,18 @@
   id: CrateArmoryPistols
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
   name: pistols crate
-  description: Contains two standard NT pistols with four mags. Requires Armory access to open.
+  description: Contains two standard NT pistol cases with two mags each. Requires Armory access to open.
   components:
   - type: StorageFill
     contents:
-    - id: WeaponPistolMk58
+    - id: Mk58WeaponCase
       amount: 2
-    - id: MagazinePistol
-      amount: 4
 
 - type: entity
   id: CrateSecurityRiot
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
   name: swat crate
-  description: Contains two sets of riot armor, helmets, shields, and enforcers loaded with beanbags. Extra ammo is included. Requires Armory access to open.
+  description: Contains two sets of riot armor, helmets, shields, and two weapon cases, containing Enforcers loaded with beanbags. Extra ammo is included. Requires Armory access to open.
   components:
   - type: StorageFill
     contents:
@@ -82,9 +76,7 @@
       amount: 2
     - id: ClothingHeadHelmetRiot
       amount: 2
-    - id: WeaponShotgunEnforcerRubber
-      amount: 2
-    - id: BoxBeanbag
+    - id: NonlethalEnforcerWeaponCase
       amount: 2
     - id: RiotShield
       amount: 2

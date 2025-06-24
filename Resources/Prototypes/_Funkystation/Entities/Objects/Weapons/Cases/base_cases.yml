@@ -51,6 +51,7 @@
       - SpeedLoaderCap
       - SpeedLoaderPistol
       - SpeedLoaderRifle
+      - AmmoBox
       - Sidearm
 
 - type: entity
@@ -64,13 +65,15 @@
   - type: Storage
     maxItemSize: Large
     grid:
-    - 0,0,6,1
+    - 0,0,5,1
     whitelist:
       tags:
       - MagazinePistolSubMachineGun
       - MagazineRifle
       - MagazineShotgun
       - MagazineLightRifle
+      - MagazinePistolSubMachineGunTopMounted
+      - AmmoBox
       components:
       - Gun
 
@@ -92,6 +95,8 @@
       - MagazineRifle
       - MagazineShotgun
       - MagazineLightRifle
+      - MagazinePistolSubMachineGunTopMounted
+      - AmmoBox
       components:
       - Gun
 
@@ -118,6 +123,7 @@
       - MagazineShotgun
       - MagazineLightRifle
       - MagazineLightRifleBox
+      - AmmoBox
       - Grenade
       components:
       - Gun

@@ -29,6 +29,9 @@
       steps: 5
       zeroVisible: false
     - type: Appearance
+    - type: Tag
+      tags:
+      - AmmoBox
 
 # Shotgun Shells
 - type: entity

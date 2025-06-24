@@ -72,10 +72,17 @@ public abstract partial record CargoBountyItemEntry
     public int RewardPer { get; set; } = 1;
 
     /// <summary>
-    /// A player-facing name for the item.
+    /// A player-facing name for the item. Assigned here but declared in the cargo bounties.ftl file.
     /// </summary>
     [DataField]
     public LocId Name { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Some weight that can be used to effect the chances an item is selected, default is 1, smaller number means less
+    /// likely, higher more likely.
+    /// </summary>
+    [DataField]
+    public double Weight { get; set; } = 1;
 }
 
 [DataDefinition, Serializable, NetSerializable]

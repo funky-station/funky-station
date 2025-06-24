@@ -1,0 +1,94 @@
+- type: entity
+  parent: SynLargeCase
+  id: ClothingBackpackDuffelSyndicateM90Bundle # - I don't know if the old M90 bundle uses this ID, but it's commented out and I don't think it exists anymore.
+  name: M-90 bundle
+  description: "A weapon case containing the syndicate's M-90 assault rifle, packed with 2 spare magazines."
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleM90
+    - id: MagazineRifle
+    - id: MagazineRifle
+
+- type: entity
+  parent: SynMediumCase
+  id: ClothingBackpackDuffelSyndicateFilledShotgun
+  name: Bulldog bundle
+  description: "Lean and mean: Contains the popular Bulldog Shotgun and four 12g buckshot drums." #, and a pair of Thermal Imaging Goggles.
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunBulldog
+    - id: MagazineShotgun
+    - id: MagazineShotgun
+    - id: MagazineShotgun
+#     - id: ThermalImagingGoggles
+
+- type: entity
+  parent: SynMediumCase
+  id: ClothingBackpackDuffelSyndicateFilledSMG
+  name: C-20r bundle
+  description: "Old faithful: The classic C-20r Submachine Gun, bundled with three magazines." #, and a Suppressor.
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunC20r
+    - id: MagazinePistolSubMachineGun
+      amount: 2
+#     - id: SMGSuppressor
+
+- type: entity
+  parent: SynPistolCase
+  id: ClothingBackpackDuffelSyndicateFilledRevolver
+  name: Python bundle
+  description: "Go loud and proud with a fully loaded Magnum Python, bundled with two speed loaders."
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRevolverPythonAP
+    - id: SpeedLoaderMagnumAP
+      amount: 2
+
+- type: entity
+  parent: SynCaseHuge
+  id: ClothingBackpackDuffelSyndicateFilledLMG
+  name: L6 Saw bundle
+  description: "More dakka: The iconic L6 lightmachinegun, bundled with 2 box magazines."
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponLightMachineGunL6
+    - id: MagazineLightRifleBox
+
+- type: entity
+  parent: SynCaseHuge
+  id: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+  name: China-Lake bundle
+  description: "An old China-Lake grenade launcher bundled with 11 rounds of various destruction capability."
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponLauncherChinaLake
+    - id: GrenadeBlast
+      amount: 4
+    - id: GrenadeFrag
+      amount: 4
+
+- type: entity
+  parent: SynCaseHuge
+  id: ClothingBackpackDuffelSyndicateFilledCarbine
+  name: M-90gl bundle
+  description: "A versatile battle rifle with an attached grenade launcher, bundled with 3 magazines and 6 grenades of various capabilities."
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleM90GrenadeLauncher
+    - id: MagazineRifle
+      amount: 2
+    - id: GrenadeBlast
+      amount: 2
+    - id: GrenadeFlash
+      amount: 2
+    - id: GrenadeFrag
+      amount: 2
+

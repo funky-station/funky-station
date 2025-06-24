@@ -179,7 +179,10 @@
   name: kammerer case
   description: "A case for the classic Kammerer shotgun, loaded with buckshot. An extra box of shells has been provided inside the case."
   components:
+  - type: Storage
+    grid:
+    - 0,0,6,1
   - type: StorageFill
     contents:
     - id: WeaponShotgunKammerer
-    - id: BoxLethalShot
+    - id: BoxLethalshot

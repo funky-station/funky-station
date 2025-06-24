@@ -1,5 +1,6 @@
 using Content.Shared.Alert;
 using Content.Shared.CCVar;
+using Content.Shared.Friction;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Systems;
@@ -60,16 +61,16 @@ public sealed class MoverController : SharedMoverController
 
     private void OnRelayPlayerAttached(Entity<RelayInputMoverComponent> entity, ref LocalPlayerAttachedEvent args)
     {
-        Physics.UpdateIsPredicted(entity.Owner);
-        Physics.UpdateIsPredicted(entity.Comp.RelayEntity);
+        PhysicsSystem.UpdateIsPredicted(entity.Owner);
+        PhysicsSystem.UpdateIsPredicted(entity.Comp.RelayEntity);
         if (MoverQuery.TryGetComponent(entity.Comp.RelayEntity, out var inputMover))
             SetMoveInput((entity.Comp.RelayEntity, inputMover), MoveButtons.None);
     }
 
     private void OnRelayPlayerDetached(Entity<RelayInputMoverComponent> entity, ref LocalPlayerDetachedEvent args)
     {
-        Physics.UpdateIsPredicted(entity.Owner);
-        Physics.UpdateIsPredicted(entity.Comp.RelayEntity);
+        PhysicsSystem.UpdateIsPredicted(entity.Owner);
+        PhysicsSystem.UpdateIsPredicted(entity.Comp.RelayEntity);
         if (MoverQuery.TryGetComponent(entity.Comp.RelayEntity, out var inputMover))
             SetMoveInput((entity.Comp.RelayEntity, inputMover), MoveButtons.None);
     }

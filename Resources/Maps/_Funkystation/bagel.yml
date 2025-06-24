@@ -10361,9 +10361,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
 - proto: AcousticGuitarInstrument
@@ -64648,7 +64646,7 @@ entities:
     - type: Transform
       pos: -19.648687,-36.787586
       parent: 60
-- proto: CigaretteSpaceDrugs
+- proto: CigaretteLipolicide
   entities:
   - uid: 26885
     components:

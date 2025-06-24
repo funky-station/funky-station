@@ -65,9 +65,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
   - uid: 2
@@ -63177,7 +63175,7 @@ entities:
     - type: Transform
       pos: -21.5,-17.5
       parent: 2
-- proto: EZNutrientChemistryBottle
+- proto: ChemistryBottleEZNutrient
   entities:
   - uid: 9258
     components:

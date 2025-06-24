@@ -25,9 +25,6 @@
     interfaces:
       enum.HFRConsoleUiKey.Key:
         type: HFRConsoleBoundUserInterface
-  - type: ApcPowerReceiver
-    powerLoad: 350
-    powerDisabled: true
   - type: ActivatableUIRequiresPower
   - type: ExtensionCableReceiver
   - type: Construction

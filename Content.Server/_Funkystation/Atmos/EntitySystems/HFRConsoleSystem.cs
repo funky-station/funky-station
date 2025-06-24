@@ -32,7 +32,7 @@ public sealed class HFRConsoleSystem : EntitySystem
         SubscribeLocalEvent<HFRConsoleComponent, HFRConsoleSetFuelInputRateMessage>(OnSetFuelInputRateMessage);
         SubscribeLocalEvent<HFRConsoleComponent, HFRConsoleSetModeratorInputRateMessage>(OnSetModeratorInputRateMessage);
         SubscribeLocalEvent<HFRConsoleComponent, HFRConsoleSelectRecipeMessage>(OnSelectRecipeMessage);
-        SubscribeLocalEvent<HFRConsoleComponent, ComponentStartup>(OnConsoleStartup);
+        SubscribeLocalEvent<HFRConsoleComponent, MapInitEvent>(OnConsoleStartup);
         SubscribeLocalEvent<HFRConsoleComponent, AnchorStateChangedEvent>(OnConsoleAnchorChanged);
         SubscribeLocalEvent<HFRConsoleComponent, HFRConsoleToggleWasteRemoveMessage>(OnToggleWasteRemoveMessage);
         SubscribeLocalEvent<HFRConsoleComponent, HFRConsoleSetHeatingConductorMessage>(OnSetHeatingConductorMessage);
@@ -49,7 +49,7 @@ public sealed class HFRConsoleSystem : EntitySystem
         DirtyUI(ent, ent.Comp);
     }
 
-    private void OnConsoleStartup(EntityUid uid, HFRConsoleComponent console, ComponentStartup args)
+    private void OnConsoleStartup(EntityUid uid, HFRConsoleComponent console, MapInitEvent args)
     {
         SetPowerState(uid, console);
     }

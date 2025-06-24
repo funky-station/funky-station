@@ -3135,9 +3135,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
     - type: LoadedMap
@@ -118674,7 +118672,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 52.62632,-76.50213
       parent: 2
-- proto: MediumXenoArtifactItem
+- proto: ComplexXenoArtifactItem
   entities:
   - uid: 8409
     components:

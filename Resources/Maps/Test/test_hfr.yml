@@ -28,9 +28,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
   - uid: 2
@@ -2625,7 +2623,6 @@ entities:
       pos: 0.5,1.5
       parent: 2
     - type: ApcPowerReceiver
-      powerDisabled: False
     - type: HFRConsole
       coreUid: 412
 - proto: HFRCore

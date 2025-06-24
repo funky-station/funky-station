@@ -51,9 +51,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
   - uid: 2
@@ -52795,7 +52793,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -5.5,35.5
       parent: 2
-- proto: EZNutrientChemistryBottle
+- proto: ChemistryBottleEZNutrient
   entities:
   - uid: 14379
     components:
@@ -78754,7 +78752,7 @@ entities:
     - type: Transform
       pos: -5.465043,8.29865
       parent: 2
-- proto: HydrogenChemistryBottle
+- proto: ChemistryBottleHydrogen
   entities:
   - uid: 401
     components:
@@ -81475,7 +81473,7 @@ entities:
     - type: Transform
       pos: 25.5,47.5
       parent: 2
-- proto: NitrogenChemistryBottle
+- proto: ChemistryBottleNitrogen
   entities:
   - uid: 13772
     components:
@@ -81958,7 +81956,7 @@ entities:
     - type: Transform
       pos: -31.055569,-10.24702
       parent: 2
-- proto: PhosphorusChemistryBottle
+- proto: ChemistryBottlePhosphorus
   entities:
   - uid: 13773
     components:
@@ -90465,14 +90463,14 @@ entities:
     - type: Transform
       pos: -13.509577,-5.578573
       parent: 2
-- proto: SimpleXenoArtifact
+- proto: ComplexXenoArtifact
   entities:
   - uid: 15285
     components:
     - type: Transform
       pos: -23.5,25.5
       parent: 2
-- proto: SimpleXenoArtifactItem
+- proto: ComplexXenoArtifactItem
   entities:
   - uid: 15286
     components:

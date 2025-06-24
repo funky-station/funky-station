@@ -7625,9 +7625,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
 - proto: AcousticGuitarInstrument
@@ -103671,7 +103669,7 @@ entities:
     - type: Transform
       pos: -36.5,57.5
       parent: 30
-- proto: PosterContrabandBustyBackdoorExoBabes6
+- proto: PosterContrabandRouny
   entities:
   - uid: 22102
     components:

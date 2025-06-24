@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
 // SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
 // SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
 // SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
@@ -21,8 +22,19 @@
 // SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Patrik Caes-Sayrs <heartofgoldfish@gmail.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -36,7 +48,9 @@ using Content.Server.Chat;
 using Content.Server.Chat.Systems;
 using Content.Server.Emoting.Systems;
 using Content.Server.Speech.EntitySystems;
+using Content.Server.Roles;
 using Content.Shared.Anomaly.Components;
+using Content.Shared.Armor;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Cloning;
 using Content.Shared.Cloning.Events;
@@ -44,16 +58,23 @@ using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.Roles;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+
+// Shitmed Change
+using Content.Shared._Shitmed.Damage;
+using Content.Shared._Shitmed.Targeting;
+
 
 namespace Content.Server.Zombies
 {
@@ -155,7 +176,13 @@ namespace Content.Server.Zombies
                     ? comp.CritDamageMultiplier
                     : 1f;
 
-                _damageable.TryChangeDamage(uid, comp.Damage * multiplier, true, false, damage);
+                _damageable.TryChangeDamage(uid,
+                    comp.Damage * multiplier,
+                    true,
+                    false,
+                    damage,
+                    targetPart: TargetBodyPart.All, // Shitmed Change
+                    splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
             }
 
             // Heal the zombified
@@ -176,7 +203,14 @@ namespace Content.Server.Zombies
                     : 1f;
 
                 // Gradual healing for living zombies.
-                _damageable.TryChangeDamage(uid, comp.PassiveHealing * multiplier, true, false, damage);
+                _damageable.TryChangeDamage(uid,
+                    comp.PassiveHealing * multiplier,
+                    true,
+                    false,
+                    damage,
+                    ignoreBlockers: true, // Shitmed Change
+                    targetPart: TargetBodyPart.All, // Shitmed Change
+                    splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
             }
         }
 

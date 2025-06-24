@@ -1,4 +1,12 @@
-﻿using Content.Shared.FixedPoint;
+﻿// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;
@@ -8,6 +16,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 
 [RegisterComponent, NetworkedComponent]
+[EntityCategory("Wounds")]
 public sealed partial class WoundComponent : Component
 {
     /// <summary>
@@ -19,7 +28,7 @@ public sealed partial class WoundComponent : Component
     /// <summary>
     /// The damage this wound applies to it's woundable
     /// </summary>
-    public FixedPoint2 WoundIntegrityDamage => WoundSeverityPoint * WoundableIntegrityMultiplier;
+    public FixedPoint2 WoundIntegrityDamage => WoundSeverityPoint; //* WoundableIntegrityMultiplier;
 
     /// <summary>
     /// Actually, severity of the wound. The more the worse.
@@ -51,8 +60,8 @@ public sealed partial class WoundComponent : Component
     /// <summary>
     /// Damage type of this wound.
     /// </summary>
-    [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<DamageTypePrototype>))]
-    public string DamageType;
+    [DataField(required: true)]
+    public ProtoId<DamageTypePrototype> DamageType;
 
     /// <summary>
     /// Scar wound prototype, what will be spawned upon healing this wound.

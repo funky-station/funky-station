@@ -339,6 +339,7 @@ public sealed class MobThresholdSystem : EntitySystem
                     if (!entWoundablesDamage.TryAdd(bodyPart, modifiedDamage))
                         entWoundablesDamage[bodyPart] += modifiedDamage;
                 }
+                woundableDamage = entWoundablesDamage;
             }
         }
 

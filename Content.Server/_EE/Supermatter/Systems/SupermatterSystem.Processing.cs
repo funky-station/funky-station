@@ -756,13 +756,10 @@ public sealed partial class SupermatterSystem
             if (HasComp<SupermatterHallucinationImmuneComponent>(mob) || // Immune to supermatter hallucinations
             HasComp<SiliconLawBoundComponent>(mob))                // Silicons don't get supermatter hallucinations
                 continue;
-
-            if (!EnsureComp<ParacusiaComponent>(mob, out var paracusia))
-            {
+            if (!EnsureComp<ParacusiaComponent>(mob, out var paracusia)) 
                 _paracusia.SetSounds(mob, paracusiaSounds, paracusia);
                 _paracusia.SetTime(mob, paracusiaMinTime, paracusiaMaxTime, paracusia);
                 _paracusia.SetDistance(mob, paracusiaDistance, paracusia);
-            }
         }
 
         switch (sm.PreferredDelamType)
@@ -805,12 +802,12 @@ public sealed partial class SupermatterSystem
         var hsvFinal = Vector4.Lerp(hsvDelam, hsvNormal, integrity / 100f);
 
         _light.SetEnergy(uid, 2f * scalar, light);
-        _light.SetRadius(uid, 10f * scalar, light);
+    /// Checks whether a mob can see the supermatter, then applies hallucinations and psychologist coefficient
         _light.SetColor(uid, Color.FromHsv(hsvFinal), light);
     }
 
     /// <summary>
-    /// Checks for
+    /// Checks whether a mob can see the supermatter, then applies hallucinations and psychologist coefficient
     /// </summary>
     private void HandleVision(EntityUid uid, SupermatterComponent sm)
     {

@@ -30,6 +30,7 @@ using Content.Shared._Impstation.CCVar;
 using Content.Shared.Mind;
 using Content.Shared.Mindshield.Components;
 using Robust.Shared.Audio.Systems;
+using Content.Server.StationEvents.Events;
 using Robust.Shared.Utility;
 
 namespace Content.Server._Impstation.Thaven;
@@ -73,6 +74,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         SubscribeLocalEvent<ThavenMoodsComponent, ToggleMoodsScreenEvent>(OnToggleMoodsScreen);
         SubscribeLocalEvent<ThavenMoodsComponent, BoundUIOpenedEvent>(OnBoundUIOpened);
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnSpawnComplete); // funky
+        SubscribeLocalEvent<ThavenMoodsComponent, IonStormEvent>(OnIonStorm); // imp port
         SubscribeLocalEvent<RoundRestartCleanupEvent>((_) => NewSharedMoods());
     }
 
@@ -109,7 +111,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
 
     private bool SharedMoodConflicts(ThavenMood mood)
     {
-        return mood.ProtoId is {} id &&
+        return mood.ProtoId is { } id &&
             (GetConflicts(_sharedMoods).Contains(id) ||
             GetMoodProtoSet(_sharedMoods).Overlaps(mood.Conflicts));
     }
@@ -253,8 +255,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
 
             if (!foundChoice)
             {
-                Log.Warning($"Ran out of choices for moodvar \"{name}\" in \"{proto.ID}\"! Picking a duplicate...");
-                mood.MoodVars.Add(name, _random.Pick(dataset));
+                Log.Warning($"Ran out of choices for moodvar \"{name}\" in \"{proto.ID}\"!"); // You can't add duplicates to dicts, what is the goal here?
             }
         }
 
@@ -326,7 +327,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
 
         foreach (var mood in moods)
         {
-            if (mood.ProtoId is {} id)
+            if (mood.ProtoId is { } id)
                 conflicts.Add(id); // Specific moods shouldn't be added twice
             conflicts.UnionWith(mood.Conflicts);
         }
@@ -364,7 +365,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         _moodProtos.Clear();
         foreach (var mood in moods)
         {
-            if (mood.ProtoId is {} id)
+            if (mood.ProtoId is { } id)
                 _moodProtos.Add(id);
         }
 
@@ -459,4 +460,42 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
             TryAddMood((args.Mob, comp), mood, true, false);
     }
     // end funky
+
+    public void OnIonStorm(Entity<ThavenMoodsComponent> ent, ref IonStormEvent args)
+    {
+        if (!ent.Comp.IonStormable)
+            return;
+
+        // mindshield blocking chance
+        if (HasComp<MindShieldComponent>(ent) && _random.Prob(ent.Comp.IonStormMindShieldProtect))
+            return;
+
+        // remove mood
+        if (_random.Prob(ent.Comp.IonStormRemoveChance) && ent.Comp.Moods.Count > 1)
+        {
+            ent.Comp.Moods.RemoveAt(0);
+            Dirty(ent);
+            NotifyMoodChange(ent);
+        }
+
+        // add mood
+        else if (_random.Prob(ent.Comp.IonStormAddChance) && ent.Comp.Moods.Count <= ent.Comp.MaxIonMoods)
+        {
+            if (_random.Prob(ent.Comp.IonStormWildcardChance))
+                AddWildcardMood(ent);
+            else
+                TryAddRandomMood(ent);
+        }
+
+        // replace mood
+        else
+        {
+            if (ent.Comp.Moods.Count > 1)
+                ent.Comp.Moods.RemoveAt(0);
+            if (_random.Prob(ent.Comp.IonStormWildcardChance))
+                AddWildcardMood(ent);
+            else
+                TryAddRandomMood(ent);
+        }
+    }
 }

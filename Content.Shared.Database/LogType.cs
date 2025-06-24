@@ -478,5 +478,5 @@ public enum LogType
     /// <summary>
     /// Damaging grid collision has occurred.
     /// </summary>
-    ShuttleImpact = 103
+    ShuttleImpact = 103,
 }

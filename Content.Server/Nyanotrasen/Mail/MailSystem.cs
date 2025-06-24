@@ -80,6 +80,7 @@ namespace Content.Server.Mail
         [Dependency] private readonly ItemSystem _itemSystem = default!;
         [Dependency] private readonly MindSystem _mindSystem = default!;
         [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
+        [Dependency] private readonly TurfSystem _turf = default!;
 
         // DeltaV - system that keeps track of mail and cargo stats
         [Dependency] private readonly LogisticStatsSystem _logisticsStatsSystem = default!;
@@ -568,7 +569,7 @@ namespace Content.Server.Mail
             // parcels spawned by the teleporter and see if they're not carried
             // by someone, but this is simple, and simple is good.
             List<EntityUid> undeliveredParcels = new();
-            foreach (var entityInTile in TurfHelpers.GetEntitiesInTile(Transform(uid).Coordinates, LookupFlags.Dynamic | LookupFlags.Sundries))
+            foreach (var entityInTile in _turf.GetEntitiesInTile(Transform(uid).Coordinates, LookupFlags.Dynamic | LookupFlags.Sundries))
             {
                 if (HasComp<MailComponent>(entityInTile))
                     undeliveredParcels.Add(entityInTile);

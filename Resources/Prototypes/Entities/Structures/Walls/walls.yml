@@ -939,6 +939,7 @@
         - FullTileMask
         layer:
         - WallLayer
+        density: 2000
   - type: Destructible
     thresholds:
     - trigger:

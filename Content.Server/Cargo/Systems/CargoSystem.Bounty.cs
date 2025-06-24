@@ -617,7 +617,6 @@ public sealed partial class CargoSystem
             {
                 return false;
             }
-            // var bountyItem = _random.Pick(bountyItems);
 
             var skip = false;
             foreach (var entry in newBounty.Entries)

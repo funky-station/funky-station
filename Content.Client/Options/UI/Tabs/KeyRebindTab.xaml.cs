@@ -209,8 +209,6 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.RotateObjectClockwise);
             AddButton(ContentKeyFunctions.RotateObjectCounterclockwise);
             AddButton(ContentKeyFunctions.FlipObject);
-            //RMC Port
-            AddButton(CMKeyFunctions.CMHolsterPrimary);
 
             AddHeader("ui-options-header-ui");
             AddButton(ContentKeyFunctions.FocusChat);

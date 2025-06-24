@@ -107,7 +107,6 @@ namespace Content.Client.Input
             // Shitmed Change End
             //RMC Port
             human.AddFunction(CMKeyFunctions.CMUniqueAction);
-            human.AddFunction(CMKeyFunctions.CMHolsterPrimary);
 
             // actions should be common (for ghosts, mobs, etc)
             common.AddFunction(ContentKeyFunctions.OpenActionsMenu);

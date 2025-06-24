@@ -66,6 +66,12 @@ public abstract partial record CargoBountyItemEntry
     public int MaxAmount { get; set; } = 1;
 
     /// <summary>
+    /// The step size for the bounties amount, i.e. min:1 max:3 step:2 means only amounts 1 and 3 will be generated.
+    /// </summary>
+    [DataField]
+    public int AmountStep { get; set; } = 1;
+
+    /// <summary>
     /// The amount each item will reward for a bounty
     /// </summary>
     [DataField]

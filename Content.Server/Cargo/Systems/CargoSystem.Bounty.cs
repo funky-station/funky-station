@@ -636,7 +636,9 @@ public sealed partial class CargoSystem
                 _ => throw new NotImplementedException($"Unknown type: {bountyItem.GetType().Name}"),
             };
 
-            var bountyAmount = _random.Next(bountyItem.MinAmount, bountyItem.MaxAmount);
+            var steps = (bountyItem.MaxAmount - bountyItem.MinAmount) / bountyItem.AmountStep;
+            var step = _random.Next(steps + 1);
+            var bountyAmount = step * bountyItem.AmountStep + bountyItem.MinAmount;
             totalReward += bountyAmount * bountyItem.RewardPer;
             bountyItemData.Amount = bountyAmount;
 

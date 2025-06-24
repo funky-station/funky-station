@@ -176,7 +176,10 @@
                                         Text="Insurance: " />
                                     <Label Name="RecordContainerInsurance" />
                                 </BoxContainer>
-                                <BoxContainer Name="InsuranceContainer" Visible="False">
+                                <BoxContainer
+                                    Name="InsuranceContainer"
+                                    Orientation="Vertical"
+                                    Visible="False">
                                     <BoxContainer Margin="5" Orientation="Horizontal">
                                         <Label
                                             FontColorOverride="DarkGray"
@@ -255,7 +258,14 @@
                                         FontColorOverride="DarkGray"
                                         Name="AllergiesTitle"
                                         Text="Allergies: " />
-                                    <Label Name="AllergiesText" />
+                                    <Label Name="RecordContainerAllergies" />
+                                </BoxContainer>
+                                <BoxContainer Margin="5" Orientation="Horizontal">
+                                    <Label
+                                        FontColorOverride="DarkGray"
+                                        Name="FamilyHistoryTitle"
+                                        Text="Family History: " />
+                                    <Label Name="RecordContainerFamilyHistory" />
                                 </BoxContainer>
                                 <BoxContainer Margin="5" Orientation="Horizontal">
                                     <Label
@@ -273,34 +283,37 @@
                                 </BoxContainer>
                             </BoxContainer>
 
-                            <PanelContainer Margin="0,5,20,5" StyleClasses="LowDivider" />
+                            <!--  todo implement autopsies  -->
+                            <BoxContainer Visible="False">
+                                <PanelContainer Margin="0,5,20,5" StyleClasses="LowDivider" />
 
-                            <!--  autopsy header  -->
-                            <BoxContainer Margin="5" Orientation="Horizontal">
-                                <Label
-                                    HorizontalAlignment="Left"
-                                    HorizontalExpand="True"
-                                    Text="Autopsy Report" />
-                                <BoxContainer Orientation="Horizontal" SetHeight="24">
-                                    <Button
-                                        Margin="-1"
-                                        Name="ARButton"
-                                        SetWidth="27"
-                                        StyleClasses="ButtonSquare">
-                                        <TextureRect
-                                            Margin="-8,-2,0,0"
-                                            Name="ARButtonArrow"
-                                            TexturePath="/Textures/_EE/Interface/Supermatter/arrow_up.png"
-                                            VerticalAlignment="Center" />
-                                    </Button>
+                                <!--  autopsy header  -->
+                                <BoxContainer Margin="5" Orientation="Horizontal">
+                                    <Label
+                                        HorizontalAlignment="Left"
+                                        HorizontalExpand="True"
+                                        Text="Autopsy Report" />
+                                    <BoxContainer Orientation="Horizontal" SetHeight="24">
+                                        <Button
+                                            Margin="-1"
+                                            Name="ARButton"
+                                            SetWidth="27"
+                                            StyleClasses="ButtonSquare">
+                                            <TextureRect
+                                                Margin="-8,-2,0,0"
+                                                Name="ARButtonArrow"
+                                                TexturePath="/Textures/_EE/Interface/Supermatter/arrow_up.png"
+                                                VerticalAlignment="Center" />
+                                        </Button>
+                                    </BoxContainer>
                                 </BoxContainer>
-                            </BoxContainer>
 
-                            <BoxContainer
-                                Margin="20,0"
-                                Name="AutopsyInformation"
-                                Orientation="Vertical">
-                                <RichTextLabel Name="AutopsyUndocumented" Text="This patient has not received an autopsy, or their autopsy has not been documented." />
+                                <BoxContainer
+                                    Margin="20,0"
+                                    Name="AutopsyInformation"
+                                    Orientation="Vertical">
+                                    <RichTextLabel Name="AutopsyUndocumented" Text="This patient has not received an autopsy, or their autopsy has not been documented." />
+                                </BoxContainer>
                             </BoxContainer>
 
                         </BoxContainer>

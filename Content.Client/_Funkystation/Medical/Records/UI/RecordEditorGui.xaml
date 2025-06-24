@@ -20,7 +20,7 @@
                         HorizontalExpand="True"
                         Margin="5"
                         Orientation="Horizontal">
-                        <Label Text="General Information" />
+                        <Label Text="{Loc 'humanoid-profile-editor-cd-records-header-general'}" />
                     </BoxContainer>
                 </PanelContainer>
 
@@ -31,7 +31,7 @@
                         Margin="5,0"
                         Orientation="Vertical">
                         <BoxContainer HorizontalExpand="True" SeparationOverride="2">
-                            <Label Text="Height:" />
+                            <Label Text="{Loc 'humanoid-profile-editor-cd-records-general-height'}" />
                             <Control HorizontalExpand="True" MinSize="5 0" />
                             <LineEdit
                                 HorizontalAlignment="Right"
@@ -42,7 +42,7 @@
                         </BoxContainer>
 
                         <BoxContainer HorizontalExpand="True" SeparationOverride="2">
-                            <Label Text="Weight:" />
+                            <Label Text="{Loc 'humanoid-profile-editor-cd-records-general-weight'}" />
                             <Control HorizontalExpand="True" MinSize="5 0" />
                             <LineEdit
                                 HorizontalAlignment="Right"
@@ -52,7 +52,7 @@
                             <Label MinWidth="70" Name="WeightImperialLabel" />
                         </BoxContainer>
 
-                        <Label Text="Identifying Features: " />
+                        <Label Text="{Loc 'humanoid-profile-editor-cd-records-general-identifying-features'}" />
                         <LineEdit
                             HorizontalAlignment="Right"
                             MinSize="350 0"
@@ -75,7 +75,7 @@
                         Margin="5,0"
                         Orientation="Vertical">
                         <BoxContainer HorizontalExpand="True">
-                            <Label Text="{Loc 'humanoid-profile-editor-cd-records-work-authorization'}" />
+                            <Label Text="{Loc 'humanoid-profile-editor-cd-records-general-work-authorization'}" />
                             <Control HorizontalExpand="True" MinSize="5 0" />
                             <CheckBox HorizontalAlignment="Right" Name="WorkAuthCheckBox" />
                         </BoxContainer>
@@ -83,19 +83,19 @@
                         <Control MinSize="0 20" />
 
                         <BoxContainer HorizontalExpand="True">
-                            <Label Text="Insurance" />
+                            <Label Text="{Loc 'humanoid-profile-editor-cd-records-general-insurance'}" />
                             <Control HorizontalExpand="True" MinSize="5 0" />
                             <CheckBox HorizontalAlignment="Right" Name="InsuranceCheckBox" />
                         </BoxContainer>
 
                         <BoxContainer HorizontalExpand="True" Name="InsuranceProvider">
-                            <Label Text="Insurance Provider" />
+                            <Label Text="{Loc 'humanoid-profile-editor-cd-records-general-insurance-provider'}" />
                             <Control HorizontalExpand="True" MinSize="5 0" />
                             <OptionButton Name="InsuranceCompanyDropdown" />
                         </BoxContainer>
 
                         <BoxContainer HorizontalExpand="True" Name="InsurancePlan">
-                            <Label Text="Insurance Plan" />
+                            <Label Text="{Loc 'humanoid-profile-editor-cd-records-general-insurance-plan'}" />
                             <Control HorizontalExpand="True" MinSize="5 0" />
                             <OptionButton Name="InsurancePlanDropdown" />
                         </BoxContainer>
@@ -114,7 +114,7 @@
                         HorizontalExpand="True"
                         Margin="5"
                         Orientation="Horizontal">
-                        <Label Text="Medical Information" />
+                        <Label Text="{Loc 'humanoid-profile-editor-cd-records-header-medical'}" />
                     </BoxContainer>
                 </PanelContainer>
 
@@ -122,13 +122,13 @@
 
                     <!--  blood type, postmortem  -->
                     <BoxContainer Margin="5,0" Orientation="Horizontal">
-                        <Label Text="Blood Type: " />
+                        <Label Text="{Loc 'humanoid-profile-editor-cd-records-medical-blood-type'}" />
                         <Control HorizontalExpand="True" />
                         <OptionButton Name="BloodTypeDropdown" />
                     </BoxContainer>
 
                     <BoxContainer Margin="5,0" Orientation="Horizontal">
-                        <Label Text="Postmortem Instructions: " />
+                        <Label Text="{Loc 'humanoid-profile-editor-cd-records-medical-postmortem'}" />
                         <Control HorizontalExpand="True" />
                         <LineEdit
                             HorizontalAlignment="Right"
@@ -169,7 +169,7 @@
                             HorizontalExpand="True"
                             Margin="5"
                             Orientation="Horizontal">
-                            <Label Text="Personal Information" />
+                            <Label Text="{Loc 'humanoid-profile-editor-cd-records-header-personal'}" />
                         </BoxContainer>
                     </PanelContainer>
                 </BoxContainer>

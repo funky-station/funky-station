@@ -458,7 +458,7 @@
           shouldHave: false
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
-      - !type:GenericStatusEffect
+      - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentThreshold
           reagent: NitrousOxide
@@ -472,22 +472,20 @@
         - !type:OrganType #imp, thaven can breathe all gases safely
           type: Thaven
           shouldHave: false
-        key: ForcedSleep
-        component: ForcedSleeping
-        time: 200 # This reeks, but I guess it works LMAO
-        type: Add
-      - !type:GenericStatusEffect # DeltaV: anesthesia changes
-        conditions:
-        - !type:ReagentThreshold
-          reagent: NitrousOxide
-          min: 1
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
-        key: Anesthesia
-        component: Anesthesia
+        effectProto: StatusEffectForcedSleeping
         time: 200
-        type: Add
+      - !type:GenericStatusEffect # DeltaV: anesthesia changes
+          conditions:
+          - !type:ReagentThreshold
+            reagent: NitrousOxide
+            min: 1
+          - !type:OrganType
+            type: Slime
+            shouldHave: false
+          key: Anesthesia
+          component: Anesthesia
+          time: 200
+          type: Add
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold

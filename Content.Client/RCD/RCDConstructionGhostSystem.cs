@@ -7,6 +7,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Atmos.Components;
+using Content.Client.Hands.Systems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
@@ -27,7 +28,8 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly RCDSystem _rcdSystem = default!;
     [Dependency] private readonly IPlacementManager _placementManager = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!; // Added for prototype access
+    [Dependency] private readonly IPrototypeManager _protoManager = default!;
+    [Dependency] private readonly HandsSystem _hands = default!;
 
     private string _placementMode = typeof(AlignRCDConstruction).Name;
     private string _rpdPlacementMode = typeof(AlignRPDAtmosPipeLayers).Name;
@@ -93,12 +95,11 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
             return;
 
         // Determine if player is carrying an RCD in their active hand
-        var player = _playerManager.LocalSession?.AttachedEntity;
-
-        if (!TryComp<HandsComponent>(player, out var hands))
+        if (_playerManager.LocalSession?.AttachedEntity is not { } player)
             return;
 
-        var heldEntity = hands.ActiveHand?.HeldEntity;
+        if (!_hands.TryGetActiveItem(player, out var heldEntity))
+            return;
 
         if (!TryComp<RCDComponent>(heldEntity, out var rcd))
         {
@@ -108,6 +109,7 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
 
             return;
         }
+        var prototype = _protoManager.Index(rcd.ProtoId);
 
         // Update the direction the RCD prototype based on the placer direction
         if (_placementDirection != _placementManager.Direction)
@@ -116,9 +118,9 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
             RaiseNetworkEvent(new RCDConstructionGhostRotationEvent(GetNetEntity(heldEntity.Value), _placementDirection));
         }
 
-        // If the placer has not changed build it.
-        _rcdSystem.UpdateCachedPrototype(heldEntity.Value, rcd);
-        var useProto = (_useMirrorPrototype && !string.IsNullOrEmpty(rcd.CachedPrototype.MirrorPrototype)) ? rcd.CachedPrototype.MirrorPrototype : rcd.CachedPrototype.Prototype;
+        // If the placer has not changed, exit
+        if (heldEntity == placerEntity && prototype.Prototype == placerProto)
+            return;
 
         // Funky - Check if RPD and prototype supports layered placement
         if (rcd.IsRpd && useProto != null && _protoManager.TryIndex<RCDPrototype>(rcd.CachedPrototype.ID, out var rcdProto) && !rcdProto.NoLayers)
@@ -132,19 +134,14 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
             CreatePlacer(heldEntity.Value, rcd, useProto);
         }
 
-
-    }
-
-    private void CreatePlacer(EntityUid uid, RCDComponent component, string? prototype)
-    {
         // Create a new placer
         var newObjInfo = new PlacementInformation
         {
-            MobUid = uid,
+            MobUid = heldEntity.Value,
             PlacementOption = _placementMode,
-            EntityType = prototype,
+            EntityType = prototype.Prototype,
             Range = (int) Math.Ceiling(SharedInteractionSystem.InteractionRange),
-            IsTile = (component.CachedPrototype.Mode == RcdMode.ConstructTile),
+            IsTile = (prototype.Mode == RcdMode.ConstructTile),
             UseEditorContext = false,
         };
 

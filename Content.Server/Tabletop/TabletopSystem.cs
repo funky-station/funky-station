@@ -20,6 +20,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Server.Tabletop.Components;
 using Content.Shared.CCVar;
@@ -45,6 +46,7 @@ namespace Content.Server.Tabletop
     {
         [Dependency] private readonly SharedMapSystem _map = default!;
         [Dependency] private readonly EyeSystem _eye = default!;
+        [Dependency] private readonly HandsSystem _hands = default!;
         [Dependency] private readonly ViewSubscriberSystem _viewSubscriberSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly IChatManager _chat = default!;
@@ -108,13 +110,8 @@ namespace Content.Server.Tabletop
             if (component.Session is not { } session)
                 return;
 
-            if (hands.ActiveHand == null)
+            if (!_hands.TryGetActiveItem(uid, out var handEnt))
                 return;
-
-            if (hands.ActiveHand.HeldEntity == null)
-                return;
-
-            var handEnt = hands.ActiveHand.HeldEntity.Value;
 
             if (!TryComp<ItemComponent>(handEnt, out var item))
                 return;
@@ -128,7 +125,8 @@ namespace Content.Server.Tabletop
             }
             else
                 component.HologramsSpawned++;
-            var meta = MetaData(handEnt);
+
+            var meta = MetaData(handEnt.Value);
             var protoId = meta.EntityPrototype?.ID;
 
             var hologram = Spawn(protoId, session.Position.Offset(-1, 0));

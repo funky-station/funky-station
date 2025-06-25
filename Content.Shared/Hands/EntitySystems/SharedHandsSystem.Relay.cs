@@ -44,7 +44,7 @@ public abstract partial class SharedHandsSystem
     {
         var ev = new HeldRelayedEvent<T>(args);
 
-        foreach (var held in EnumerateHeld(entity, entity.Comp))
+        foreach (var held in EnumerateHeld(entity.AsNullable()))
         {
             RaiseLocalEvent(held, ref ev);
         }

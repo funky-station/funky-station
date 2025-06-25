@@ -30,7 +30,7 @@
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
-    allowedEmotes: ['Thump', 'Chirp', 'Gurgle']
+    allowedEmotes: ['Thump', 'Chirp', 'Gurgle', 'Weh']
   - type: TypingIndicator
     proto: lizard
   - type: Vocal

@@ -96,6 +96,8 @@
       collection: LizardGurgle
     Chirp:
       collection: LizardChirp
+    Hiss:
+      path: /Audio/_Impstation/Voice/Reptilian/reptillian_hiss1.ogg
     Honk:
       collection: BikeHorn
     Whistle:
@@ -124,6 +126,8 @@
       collection: LizardGurgle
     Chirp:
       collection: LizardChirp
+    Hiss:
+      path: /Audio/_Impstation/Voice/Reptilian/reptilian_hiss1.ogg
     Honk:
       collection: BikeHorn
     Whistle:

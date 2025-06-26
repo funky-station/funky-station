@@ -5,10 +5,10 @@
   source: "https://github.com/ParadiseSS13/Paradise"
 
 - files:
-  - slime_fizz_1.ogg
+  - slime_squish_2.ogg
   license: "CC0-1.0"
   copyright: "Taken from https://freesound.org/. Converted from FLAC to OGG, Cropped."
-  source: "https://freesound.org/people/martinimeniscus/sounds/164423/"
+  source: "https://freesound.org/people/Breviceps/sounds/445117/"
 
 - files:
   - slime_pop_1.ogg

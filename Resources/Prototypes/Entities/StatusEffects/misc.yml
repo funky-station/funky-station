@@ -63,6 +63,14 @@
   - type: StunnedStatusEffect
   - type: KnockdownStatusEffect
 
+# This creature is asleep because it's disconnected from the game.
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectSSDSleeping
+  name: forced sleep
+  components:
+  - type: ForcedSleepingStatusEffect
+
 # Blurs your vision and makes you randomly fall asleep
 - type: entity
   parent: MobStatusEffectDebuff

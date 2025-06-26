@@ -54,6 +54,7 @@
     - /Audio/Effects/spray.ogg
     - /Audio/Effects/spray2.ogg
     - /Audio/_Impstation/Voice/Vox/voxhiss.ogg
+    - /Audio/_Impstation/Voice/Reptilian/reptillianhiss1.ogg
 
 - type: soundCollection
   id: HarpySigh
@@ -245,3 +246,6 @@
     - /Audio/Voice/Talk/pai.ogg
     - /Audio/Voice/Talk/pai_ask.ogg
     - /Audio/Voice/Talk/pai_exclaim.ogg
+    - /_Funkystation/Voice/Reptilian/lizardchirp1.ogg
+    - /_Funkystation/Voice/Reptilian/lizardchirp2.ogg
+    - /_Funkystation/Voice/Reptilian/lizardchirp3.ogg

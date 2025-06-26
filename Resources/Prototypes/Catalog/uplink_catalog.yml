@@ -160,6 +160,11 @@
     Telecrystal: 60
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
   saleLimit: 1 # WD EDIT
 
 - type: listing
@@ -496,7 +501,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
   productEntity: MagazinePistolSubMachineGun
   cost:
-    Telecrystal: 5 # goob - Bundle + 3 Mags = 100 TC
+    Telecrystal: 10 # goob - Bundle + 3 Mags = 100 TC
   categories:
   - UplinkAmmo
   saleBlacklist: true
@@ -509,7 +514,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
   productEntity: MagazinePistolCaselessRifle
   cost:
-    Telecrystal: 2 # goob - Same price as .35, more damage but less ammo in mag
+    Telecrystal: 5 # goob - Same price as .35, more damage but less ammo in mag
   categories:
   - UplinkAmmo
   saleBlacklist: true
@@ -522,7 +527,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
   productEntity: SpeedLoaderMagnumAP
   cost:
-    Telecrystal: 5 # goob - AP, but only 6 bullets in speedloader
+    Telecrystal: 10 # goob - AP, but only 6 bullets in speedloader
   categories:
   - UplinkAmmo
   saleBlacklist: true

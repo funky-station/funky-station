@@ -1,0 +1,28 @@
+- type: entity
+  parent: BaseItem
+  id: Brick
+  name: brick
+  description: The simple brick, one of mankinds most brilliant creations.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/brick.rsi
+    layers:
+    - state: brick
+  - type: Item
+    size: Normal
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 10
+        Structural: 5
+    soundHit:
+      collection: MetalThud
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 8
+        Structural: 8
+  - type: StaminaDamageOnCollide
+    damage: 20
+    sound: /Audio/Effects/metal_thud1.ogg

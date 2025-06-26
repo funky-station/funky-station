@@ -3203,3 +3203,12 @@ Entries:
         more)
   id: 386
   time: '2025-06-26T05:09:31.0000000+00:00'
+- author: amethystowo
+  changes:
+    - type: Add
+      message: >-
+        Lizard people now have new emotes they can use, being Chirp, Hiss, and
+        Gurgle. They can also now weh to their hearts content, like a true
+        lizard should.
+  id: 387
+  time: '2025-06-26T05:21:12.0000000+00:00'

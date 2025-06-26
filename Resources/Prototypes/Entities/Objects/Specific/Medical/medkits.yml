@@ -21,6 +21,8 @@
   - type: Tag
     tags:
     - Medkit
+    - WhitelistChameleon #Midnight
+    - HandStorageItem #Midnight
 
 - type: entity
   name: burn treatment kit

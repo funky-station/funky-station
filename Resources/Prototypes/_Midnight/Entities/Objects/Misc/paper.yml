@@ -1,0 +1,446 @@
+- type: entity
+  id: BoxFolderSyndicate
+  name: Syndicate folder
+  parent: [ BoxFolderBase, BaseSyndicateContraband ]
+  categories: [ DoNotMap ]
+  description: "Contains: Syndicate Things"
+  components:
+  - type: Sprite
+    layers:
+    - state: folder-syndicate
+    - state: folder-base
+
+#I loathe that I had to do this, but FTL files could not handle the docs for some reason. I dont get it.
+
+- type: entity
+  parent: ForensicReportPaper
+  id: ForensicReportPaperSmuggler
+  components:
+  - type: Paper
+    content: |
+            FULTONS:
+            10 - Coat hidden pocket - cant get back in
+            link to thief beacon, floats items to linked beacon - Takes around a minute to move stuff when you attach a fulton to em, be
+            careful
+                            Cops dont like em but they are legal
+
+- type: entity
+  parent: PaperCargoInvoice
+  id: PaperCargoInvoiceSmuggler
+  components:
+  - type: Paper
+    content: |
+      HIDDEN STORAGE - Use screwdriver on item to open
+
+      PEOPLE CAN HEAR IT FROM 10 METERS AWAY
+
+      Chameleon with storage open - Disguising as armor doesnt actually protect.
+
+      Comms Coat - has freelancer and syndie comms with a spare slot for another key, makes a noise when spoken into, be careful. Can fit ID card sized objects
+
+      PEOPLE CAN HEAR IT FROM 10 METERS AWAY
+
+      Slippery Style - its slippery, can fit pill bottle sized objects.
+
+      Sneak-ers - Silent steps when you walk instead of run, but you can still hear your own steps.
+
+#I loathe that I had to do this, but FTL files could not handle the docs for some reason. I dont get it.
+- type: entity
+  name: 'MI13 "DV-300" Manual'
+  parent: Paper
+  id: PaperHoldoutBriefcase
+  description: 'A Manual for the MI13 "Dossier Vault".'
+  components:
+  - type: Paper
+    content: |
+      .
+                                        [color=#36454F]█▀▄▀█  ▀█▀    [color=#C0C0C0]  ▀█    ▀▀█
+                                        [color=#36454F]█   █   █     █       [color=#C0C0C0]     █    ▀▀█
+                                        [color=#36454F]█   █   █  ▄█▄    [color=#C0C0C0]  ▄█▄  ▄▄█ [/color]
+                                                   [italic]Silent Solutions.[/italic]
+
+      [head=1] "DOSSIER VAULT" Briefcase[/head]
+      [head=2]  Model DV-300 User Manual[/head]
+      [bold][/bold]
+      [bold]In collaboration with:[/bold]     [color=#2681a5]Cybersun Industries[/color] 
+      [bold]Product Code:[/bold]                     DV-300-EXEC  
+      [bold]Classification:[/bold]                     Restricted Equipment  
+      [bold]Version:[/bold]                                 4.0  
+      [bold]Last revision:[/bold]                      2623.03.15
+      
+      ─────────────────────────────────────
+      
+      [head=2]OPERATION INSTRUCTIONS[/head]
+      
+      [bold]Storage Access & Activation:[/bold]  
+      
+      To open:
+      
+      1. Hold or place briefcase as comfortable to manipulate. 
+      2. Administer screwdriver to hinge.
+      3. Specialized document compartment should audibly open. The sound will carry over a distance of 10 meters.
+      4. Chameleon controls are accessable for as long as the compartment is open.
+      
+      To close:
+      
+      Repeat steps to open, note that closing is noisy as well.
+      
+      It is advised to place the folder provided with this item into the folder compartment after thorough review of contents.
+      
+      [head=2]PRODUCT OVERVIEW[/head]
+      
+      The "Dossier Vault" represents another successful collaboration between Cybersun Industries and MI13. This executive briefcase provides ultra-secure document storage with our specialized chameleon technology to let you blend in in any enviroment.
+      
+      A Cybersun Hardlight Pen is a highly recommended companion item that can act as the screwdriver required.
+      
+      [head=2]TECHNICAL SPECIFICATIONS[/head]
+      
+      [bold]Base Unit:[/bold] Cybersun Industries Executive Series Briefcase
+      [bold]Storage Capacity:[/bold] Hidden compartment - one folder
+      [bold]Disguise Options:[/bold] Any medkit, briefcase, or toolbox configuration
+      
+      Note that disguising this item as a medkit will not change its internal storage capacity, so avoid letting people open it in such a state.  
+      
+      [head=2]FEATURES[/head]
+      
+      [bold]Concealed Storage:[/bold] Perfectly engineered slot for ONE (1) folder.
+      
+      [bold]Physical Security Protocol:[/bold] Dual-tool authentication (opening/closing) ensures compartment integrity against casual tampering. 
+      
+      [bold]Advanced Chameleon System:[/bold]  
+      [bullet] Multiple disguise configurations 
+      [bullet] Nigh-Instant transformation capability
+      
+      Each disguise includes appropriate weight simulation and surface texture to pass casual inspection. Note that it will always make a metalic "thunk" on impact with wall, floor or flesh regardless of the disguise.
+      
+      [head=2]MAINTENANCE[/head]
+      
+      [bullet] Clean exterior according to briefcase material specifications  
+      [bullet] Calibrate chameleon abilities weekly  
+      [bullet] Verify compartment seal integrity monthly 
+      
+      [head=2]TROUBLESHOOTING[/head]
+      
+      [bold]Disguise Flicker:[/bold] Ensure the item was not fully submerged in water or exposed to an EMP. If the device was, please take it to a certified MI13 technician.
+      [bold]Compartment jamming:[/bold] Percussive maintenance.
+      [bold]Lack of Audible Thunk on Closure:[/bold] Indicates improper seal. Reopen and re-close firmly. Normal operation includes a distinct thud.
+      [bold]Screwdriver Not Engaging:[/bold] Ensure correct orientation (flat head aligned with hinge slot). If stripped, contact MI13 Logistics for replacement (Form DV300-SR7 required). [bold]Do not[/bold] use unauthorized tools outside of emergency situations.
+      
+      ─────────────────────────────────────
+                           [color=#2681a5]In Partnership with Cybersun Industries[/color]
+
+      [color=#ff0000]                                      █▀ [/color][color=#2681a5]  █▀▀   █▀▀  [/color][color=#ff0000] ▀█ 
+      [/color]                                      [color=#ff0000]█  [/color][color=#2681a5]    █         ▀▀█    [/color][color=#ff0000]  █ 
+      [/color]                                      [color=#ff0000]▀▀ [/color][color=#2681a5]  ▀▀▀   ▀▀▀[/color][color=#ff0000]    ▀▀ [/color]
+      [color=#2681a5]                                      [italic]Patenting Protection.[/italic][/color]
+      ─────────────────────────────────────
+      [mono]Serial: DV-300-0847-D  
+      Base Unit: CBI-EXEC-4471  
+      QC Approved: D. Cipher, Document Security Division  
+      Cybersun Certification: Valid  
+      Field Tested: Operational[/mono]
+        
+- type: entity
+  name: 'MI13 "PS-100" Manual'
+  parent: Paper
+  id: PaperHoldoutShoes
+  description: 'A Manual for the MI13 "Phantom Step".'
+  components:
+  - type: Paper
+    content: |
+      .
+                                        [color=#36454F]█▀▄▀█  ▀█▀    [color=#C0C0C0]  ▀█    ▀▀█
+                                        [color=#36454F]█   █   █     █       [color=#C0C0C0]     █    ▀▀█
+                                        [color=#36454F]█   █   █  ▄█▄    [color=#C0C0C0]  ▄█▄  ▄▄█ [/color]
+                                                   [italic]Silent Solutions.[/italic]
+
+      [head=1] "PHANTOM STEP" Sneakers[/head]
+      [head=2]  Model PS-100 User Manual[/head]
+      [bold][/bold]
+      [bold]Product Code:[/bold]                     PS-100-SOLE  
+      [bold]Classification:[/bold]                     Restricted Equipment  
+      [bold]Version:[/bold]                                 2.7  
+      [bold]Last revision:[/bold]                      2624.11.22
+      
+      ─────────────────────────────────────
+      
+      [head=2]OPERATION INSTRUCTIONS[/head]
+      
+      [bold]Storage Access & Chameleon Activation:[/bold]  
+      
+      To open:
+      
+      1. Adjust to a comfortable posture. 
+      2. Administer screwdriver heel.
+      3. A small compartment should audibly open. The sound will carry over a distance of 10 meters.
+      4. Chameleon controls are accessable for as long as the compartment is open.
+      
+      To close:
+      
+      Repeat steps to open, note that closing is noisy as well.
+      
+      [bold]Silent Steps[/bold]  
+      
+      1. Don the footwear.
+      2. Walk, do note that your footsteps cannot be silenced while sprinting.
+
+      You will still be able to hear your own footsteps, this is normal and should not raise alarm. As long as you are not sprinting, no one else will be able to hear them.
+      
+      [head=2]PRODUCT OVERVIEW[/head]
+      
+      The "Phantom Step" enables our agents to stealthily complete objectives without issue. the provided "1x2" storage compartment is ideal for storing our trademarked "EMAG" and prevent confiscation.
+      
+      A Cybersun Hardlight Pen is a highly recommended companion item that can act as the screwdriver required.
+      
+      [head=2]TECHNICAL SPECIFICATIONS[/head]
+      
+      [bold]Base Unit:[/bold] Standard Polished Laceup shoes.
+      [bold]Storage Capacity:[/bold] Hidden compartment - 1x2, exact size varies based off of shoe size.
+      [bold]Disguise Options:[/bold] Any other type of footwear.
+      
+      Note that disguising this item as a medkit will not change its internal storage capacity, so avoid letting people open it in such a state.  
+      
+      [head=2]FEATURES[/head]
+      
+      [bold]Concealed Storage:[/bold] For what you dont want others to see.
+      
+      [bold]Physical Security Protocol:[/bold] Dual-tool authentication (opening/closing) ensures compartment integrity against casual tampering. 
+      
+      [bold]Advanced Chameleon System:[/bold]  
+      [bullet] Multiple disguise configurations 
+      [bullet] Nigh-Instant transformation capability
+      [bullet] Bio-verification systems prevent chameleon systems from being engaged by anyone but the wearer.
+
+      Bio-locks are an avalible upgrade for this item for ███████ TC!
+      
+      Each disguise includes appropriate weight simulation and surface texture to pass casual inspection, capable of replicating anything, from the metal of a magboot to the soft cotton of socks.
+      
+      [head=2]MAINTENANCE[/head]
+      
+      [bullet] Clean exterior nightly 
+      [bullet] Calibrate chameleon abilities weekly  
+      [bullet] Verify compartment seal integrity monthly 
+      
+      [head=2]TROUBLESHOOTING[/head]
+      
+      [bold]Disguise Flicker:[/bold] Ensure the item was not fully submerged in water or exposed to an EMP. If the device was, please take it to a certified MI13 technician.
+      [bold]Compartment jamming:[/bold] Percussive maintenance.
+      [bold]Lack of Audible Thunk on Closure:[/bold] Indicates improper seal. Reopen and re-close firmly. Normal operation includes a distinct thud.
+      [bold]Screwdriver Not Engaging:[/bold] Ensure correct orientation (flat head aligned with hinge slot). If stripped, contact MI13 Logistics for replacement (Form DV300-SR7 required). [bold]Do not[/bold] use unauthorized tools outside of emergency situations.
+      
+      ─────────────────────────────────────
+
+      [mono]Serial: PS-100-12A-S
+      QC Approved: S. N. Key, Ergonomics department. 
+      Field Tested: Operational[/mono]
+      
+- type: entity
+  name: 'MI13 "SP-50" Manual'
+  parent: Paper
+  id: PaperHoldoutHat
+  description: 'A Manual for the MI13 "Sharp Profile".'
+  components:
+  - type: Paper
+    content: |
+      .
+                                        [color=#36454F]█▀▄▀█  ▀█▀    [color=#C0C0C0]  ▀█    ▀▀█
+                                        [color=#36454F]█   █   █     █       [color=#C0C0C0]     █    ▀▀█
+                                        [color=#36454F]█   █   █  ▄█▄    [color=#C0C0C0]  ▄█▄  ▄▄█ [/color]
+                                                   [italic]Silent Solutions.[/italic]
+
+      [head=1] "Sharp Profile" Hat[/head]
+      [head=2]  Model SP-50 User Manual[/head]
+      [bold][/bold]
+      [bold]In collaboration with:[/bold]     [color=#2681a5]Cybersun Industries[/color] 
+      [bold]Product Code:[/bold]                     SP-50-BLADE  
+      [bold]Classification:[/bold]                     Restricted Equipment  
+      [bold]Version:[/bold]                                 1.6  
+      [bold]Last revision:[/bold]                      2624.09.17
+      
+      ─────────────────────────────────────
+      
+      [head=2]OPERATION INSTRUCTIONS[/head]
+      
+      [bold]Storage Access & Activation:[/bold]  
+      
+      To open:
+      
+      1. Adjust to a comfortable posture. 
+      2. Administer screwdriver the brim.
+      3. A tiny compartment should audibly open. The sound will carry over a distance of 10 meters.
+      4. Chameleon controls are accessable for as long as the compartment is open.
+      
+      To close:
+      
+      Repeat steps to open, note that closing is noisy as well.
+      
+      [bold]"Sharp" Style[/bold]  
+      
+      1. Doff the cap.
+      2. The cap can now be used as a blade, for throwing or cutting. Adaptive technology should prevent cuts to the user.
+
+      Note that due to the construction of the hat, it flies throught the air closer to a knife than a traditional cap.
+      
+      [head=2]PRODUCT OVERVIEW[/head]
+      
+      The "Sharp Profile" enables our agents to stealthily bear the means to defend themselves and destroy electrified grills. the provided "1x1" storage compartment is ideal for storing a bottle of cyanide pills, in case of capture.
+      
+      A Cybersun Hardlight Pen is a highly recommended companion item that can act as the screwdriver required, and fits within the hidden compartment of this cap.
+      
+      [head=2]TECHNICAL SPECIFICATIONS[/head]
+      
+      [bold]Base Unit:[/bold] Standard Grey Fedora.
+      [bold]Storage Capacity:[/bold] Hidden compartment - 1x1, exact size varies based off of hat size ordered.
+      [bold]Disguise Options:[/bold] Any other type of headwear.
+
+      Note that disguising as a helmet provides no additional protection.
+
+      [head=2]FEATURES[/head]
+      
+      [bold]Concealed Storage:[/bold] For what you dont want others to see.
+      
+      [bold]Physical Security Protocol:[/bold] Dual-tool authentication (opening/closing) ensures compartment integrity against casual tampering. 
+      
+      [bold]Advanced Chameleon System:[/bold]  
+      [bullet] Multiple disguise configurations 
+      [bullet] Nigh-Instant transformation capability
+      [bullet] Bio-verification systems prevent chameleon systems from being engaged by anyone but the wearer.
+
+      Bio-locks are an avalible upgrade for this item for ███████ TC!
+      
+      Each disguise includes appropriate weight simulation and surface texture to pass casual inspection, capable of replicating anything, from a blood-red helmet to a captain's cap.
+      
+      [head=2]MAINTENANCE[/head]
+      
+      [bullet] Dramatically knock dust out after every mission
+      [bullet] Clean exterior nightly 
+      [bullet] Calibrate chameleon abilities weekly  
+      [bullet] Verify compartment seal integrity monthly 
+      
+      [head=2]TROUBLESHOOTING[/head]
+      
+      [bold]Electic shock when cutting grills:[/bold] Attempt to throw the item, as opposed to holding it, to strike the grill.
+      [bold]Disguise Flicker:[/bold] Ensure the item was not fully submerged in water or exposed to an EMP. If the device was, please take it to a certified MI13 technician.
+      [bold]Compartment jamming:[/bold] Percussive maintenance.
+      [bold]Lack of Audible Thunk on Closure:[/bold] Indicates improper seal. Reopen and re-close firmly. Normal operation includes a distinct thud.
+      [bold]Screwdriver Not Engaging:[/bold] Ensure correct orientation (flat head aligned with hinge slot). If stripped, contact MI13 Logistics for replacement (Form DV300-SR7 required). [bold]Do not[/bold] use unauthorized tools outside of emergency situations.
+      
+      ─────────────────────────────────────
+
+      [mono]Serial: SP-50-7231-B
+      QC Approved: U. McHands, Culinary department.
+      Field Tested: Operational[/mono]
+
+- type: entity
+  name: 'MI13 "EE-200" Manual'
+  parent: Paper
+  id: PaperHoldoutCoat
+  description: 'A Manual for your new MI13 "Eloquent Ensemble".'
+  components:
+  - type: Paper
+    content: |
+      .
+                                        [color=#36454F]█▀▄▀█  ▀█▀    [color=#C0C0C0]  ▀█    ▀▀█
+                                        [color=#36454F]█   █   █     █       [color=#C0C0C0]     █    ▀▀█
+                                        [color=#36454F]█   █   █  ▄█▄    [color=#C0C0C0]  ▄█▄  ▄▄█ [/color]
+                                                   [italic]Silent Solutions.[/italic]
+
+      [head=1] "ELOQUENT ENSEMBLE" Radio Jacket[/head]
+      [head=2]  Model EE-200 User Manual[/head]
+      [bold][/bold]
+      [bold]Product Code:[/bold]                     EE-200-COMM  
+      [bold]Classification:[/bold]                     Restricted Equipment  
+      [bold]Version:[/bold]                                 3.2  
+      [bold]Last revision:[/bold]                      2624.06.08
+      
+      ─────────────────────────────────────
+      
+      [head=2]OPERATION INSTRUCTIONS[/head]
+      
+      [bold]Storage Access & Activation:[/bold]  
+      
+      To open:
+      
+      1. Adjust to a comfortable posture wearing the jacket. 
+      2. Administer screwdriver to inner chest pocket.
+      3. Specialized storage compartment should audibly open. The sound will carry over a distance of 10 meters.
+      4. Chameleon controls are accessable for as long as the compartment is open.
+      
+      To close:
+      
+      Repeat steps to open, note that closing is noisy as well.
+      
+      [bold]Radio Operation:[/bold]  
+      
+      1. Don the jacket.
+      2. The integrated radio system will automatically connect to Syndicate encrypted channels.
+      3. [bold]WARNING:[/bold] The radio produces a distinct activation sound when transmitting.
+      
+      The radio has two encryption key slots, and comes with one "Blood-Red" encryption key.
+
+      [bold]Key Insertion:[/bold]
+      1. Open the hidden compartment, if applicable
+      2. Insert encryption key into subcompartment.
+
+      [bold]Key Removal:[/bold]
+      1. Open the hidden compartment, if applicable
+      2. Apply wirecutters.
+
+
+      [head=2]PRODUCT OVERVIEW[/head]
+      
+      The "Eloquent Ensemble" provides our field operatives with secure communication capabilities and discrete storage for mission-critical equipment. The integrated radio system maintains contact with syndicate networks while the spacious "wedge" storage compartment accommodates sidearms and similar equipment.
+      
+      A Cybersun Hardlight Pen is a highly recommended companion item that can act as the screwdriver required.
+      
+      [head=2]TECHNICAL SPECIFICATIONS[/head]
+      
+      [bold]Base Unit:[/bold] Standard Business Jacket
+      [bold]Storage Capacity:[/bold] Hidden compartment - one wedge (pistol-sized object)
+      [bold]Disguise Options:[/bold] Any jacket, coat, or outer garment configuration
+      [bold]Radio Specifications:[/bold] Modular dual-key with Syndicate encryption key pre-loaded
+      
+      Note that the radio functionality operates regardless of disguise but distinctive transmission sounds remain consistent across all configurations.
+      
+      [head=2]FEATURES[/head]
+      
+      [bold]Concealed Storage:[/bold] Perfectly engineered slot for ONE (1) sidearm.
+      
+      [bold]Physical Security Protocol:[/bold] Dual-tool authentication (opening/closing) ensures compartment integrity against casual tampering. 
+      
+      [bold]Integrated Communications:[/bold]
+      [bullet] Pre-loaded Syndicate encryption key
+      [bullet] Transmission feedback
+      [bullet] Hands-free operation when worn
+      
+      [bold]Advanced Chameleon System:[/bold]  
+      [bullet] Multiple disguise configurations 
+      [bullet] Nigh-Instant transformation capability
+      [bullet] Bio-verification systems prevent chameleon systems from being engaged by anyone but the wearer
+      
+      Bio-locks are an available upgrade for this item for ███████ TC!
+      
+      Each disguise includes appropriate weight simulation and surface texture to pass casual inspection, capable of replicating materials from hardsuits to lightweight blazers.
+      
+      [head=2]MAINTENANCE[/head]
+      
+      [bullet] Clean exterior according to garment specifications
+      [bullet] Calibrate chameleon abilities weekly  
+      [bullet] Verify compartment seal integrity monthly
+      [bullet] Test radio encryption capabilities daily
+      
+      [head=2]TROUBLESHOOTING[/head]
+      
+      [bold]Radio Static/Interference:[/bold] Ensure jacket is properly worn and not damaged. Check for radio jammers.
+      [bold]Encryption Key Failure:[/bold] Contact MI13 Communications for key refresh (Form EE200-CR4 required).
+      [bold]Lack of Distinctive Radio Sound:[/bold] Dispose of item and order a replacement.
+      [bold]Disguise Flicker:[/bold] Ensure the item was not fully submerged in water or exposed to an EMP. If the device was, please take it to a certified MI13 technician.
+      [bold]Compartment jamming:[/bold] Percussive maintenance.
+      [bold]Lack of Audible Thunk on Closure:[/bold] Indicates improper seal. Reopen and re-close firmly. Normal operation includes a distinct thud.
+      [bold]Screwdriver Not Engaging:[/bold] Ensure correct orientation (flat head aligned with pocket slot). If stripped, contact MI13 Logistics for replacement (Form EE200-SR3 required). [bold]Do not[/bold] use unauthorized tools outside of emergency situations.
+      
+      ─────────────────────────────────────
+
+      [mono]Serial: EE-200-1847-C
+      QC Approved: F. Quency, Communications Division
+      Field Tested: Operational[/mono]

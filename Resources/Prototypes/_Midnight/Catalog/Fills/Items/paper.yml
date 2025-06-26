@@ -1,0 +1,19 @@
+- type: entity
+  parent: BoxFolderSyndicate
+  id: BoxFolderSyndicateHoldout
+  components:
+  - type: StorageFill
+    contents:
+      - id: PaperHoldoutBriefcase
+      - id: PaperHoldoutHat
+      - id: PaperHoldoutShoes
+      - id: PaperHoldoutCoat
+
+- type: entity
+  parent: BoxFolderClipboard
+  id: BoxFolderClipboardSmugglerFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: ForensicReportPaperSmuggler
+      - id: PaperCargoInvoiceSmuggler

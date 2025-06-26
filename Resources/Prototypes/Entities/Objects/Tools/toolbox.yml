@@ -24,6 +24,8 @@
       path: "/Audio/Weapons/smash.ogg"
   - type: Tag
     tags:
+    - WhitelistChameleon #Midnight - Holdout Chameleon briefcase
+    - HandStorageItem #Midnight
     - Toolbox
   - type: GenericVisualizer
     visuals:

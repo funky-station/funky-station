@@ -2,8 +2,24 @@
   parent: BriefcaseBrown
   id: CybersunBriefcase
   name: cybersun briefcase
-  description: It's like a brown briefcase, but black.
+  description: A metal briefcase with Cybersun branding and a hidden document compartment accessible with a screwdriver. Once useful for stealth, before everyone learned about its secret.
   components:
+    # Holdout storage.
+  - type: ItemSlots
+    slots:
+      holdout:
+        name: Stash
+        whitelist:
+            tags:
+            - Folder
+  - type: HiddenStorage
+    openDelay: 0.2
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
   - type: Sprite
     sprite: _DV/Objects/Storage/Briefcases/briefcase_cybersun.rsi
     state: icon

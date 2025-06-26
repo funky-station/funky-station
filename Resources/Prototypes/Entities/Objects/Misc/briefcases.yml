@@ -8,10 +8,12 @@
     size: Ginormous
   - type: Storage
     grid:
-    - 0,0,5,3
+    - 0,0,6,3
   - type: Tag
     tags:
     - Briefcase
+    - WhitelistChameleon #Midnight
+    - HandStorageItem #Midnight
   - type: MeleeWeapon
     damage:
       types:

@@ -54,7 +54,6 @@
   - RadioJammer
   - TraitorCodePaper
   - Emag
-  - AccessBreaker
   - Lighter
   - CigPackSyndicate
    # Goobstation - Telecrystal rework
@@ -95,8 +94,8 @@
     sprite: Clothing/Neck/Cloaks/void.rsi
     state: icon
   content:
+  - BoxFolderClipboardSmugglerFilled
+  - ClothingOuterCoatSmugglerFilled
+  - ClothingHeadHatSmuggler
+  - ClothingShoesSmuggler
   - InvisibleCrate
-  - FultonBeacon
-  - Fulton
-  - SmokeImplanter # Funky Edit
-  - ClothingSatchelSmuggler # Goobstation

@@ -1,0 +1,9 @@
+- type: listing
+  id: UplinkHoldoutKit
+  name: uplink-holdout-kit-name 
+  description: uplink-holdout-kit-desc
+  productEntity: HoldoutBriefcaseFilled
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkDeception

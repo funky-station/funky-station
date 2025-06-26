@@ -1,0 +1,11 @@
+- type: entity
+  parent: HoldoutBriefcase
+  id: HoldoutBriefcaseFilled
+  name: MI13 Holdout Kit
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingShoesHoldout
+      - id: ClothingHeadHatHoldout
+      - id: ClothingOuterCoatHoldout
+      - id: BoxFolderSyndicateHoldout

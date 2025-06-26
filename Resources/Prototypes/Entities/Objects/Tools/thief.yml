@@ -7,6 +7,7 @@
     - type: ThiefBeacon
     - type: StealArea
       range: 2 # Slightly larger than fulton beacon's random offset
+    - type: FultonBeacon # Midnight
     - type: Item
       size: Normal
     - type: Physics

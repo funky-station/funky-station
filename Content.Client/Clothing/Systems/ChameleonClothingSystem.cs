@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Client.PDA;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
@@ -17,8 +17,7 @@ public sealed class ChameleonClothingSystem : SharedChameleonClothingSystem
     private static readonly SlotFlags[] IgnoredSlots =
     {
         SlotFlags.All,
-        SlotFlags.PREVENTEQUIP,
-        SlotFlags.NONE
+        SlotFlags.PREVENTEQUIP
     };
     private static readonly SlotFlags[] Slots = Enum.GetValues<SlotFlags>().Except(IgnoredSlots).ToArray();
 
@@ -69,8 +68,23 @@ public sealed class ChameleonClothingSystem : SharedChameleonClothingSystem
     public IEnumerable<string> GetValidTargets(SlotFlags slot)
     {
         var set = new HashSet<string>();
+        
+        // Handle SlotFlags.NONE specially
+        if (slot == SlotFlags.NONE)
+        {
+            if (_data.ContainsKey(SlotFlags.NONE))
+            {
+                set.UnionWith(_data[SlotFlags.NONE]);
+            }
+            return set;
+        }
+        
+        // Handle clothing slots normally
         foreach (var availableSlot in _data.Keys)
         {
+            if (availableSlot == SlotFlags.NONE)
+                continue; // Skip handheld items for clothing slots
+                
             if (slot.HasFlag(availableSlot))
             {
                 set.UnionWith(_data[availableSlot]);
@@ -86,24 +100,34 @@ public sealed class ChameleonClothingSystem : SharedChameleonClothingSystem
 
         foreach (var proto in prototypes)
         {
-            // check if this is valid clothing
+            // check if this is valid clothing or handheld item
             if (!IsValidTarget(proto))
                 continue;
-            if (!proto.TryGetComponent(out ClothingComponent? item, _factory))
-                continue;
 
-            // sort item by their slot flags
-            // one item can be placed in several buckets
-            foreach (var slot in Slots)
+            // Handle handheld items (SlotFlags.NONE)
+            if (proto.TryGetComponent(out ClothingComponent? clothing, _factory))
             {
-                if (!item.Slots.HasFlag(slot))
-                    continue;
-
-                if (!_data.ContainsKey(slot))
+                // This is a clothing item - handle normally
+                foreach (var slot in Slots)
                 {
-                    _data.Add(slot, new List<string>());
+                    if (!clothing.Slots.HasFlag(slot))
+                        continue;
+
+                    if (!_data.ContainsKey(slot))
+                    {
+                        _data.Add(slot, new List<string>());
+                    }
+                    _data[slot].Add(proto.ID);
                 }
-                _data[slot].Add(proto.ID);
+            }
+            else
+            {
+                // This is a handheld item - add to NONE slot
+                if (!_data.ContainsKey(SlotFlags.NONE))
+                {
+                    _data.Add(SlotFlags.NONE, new List<string>());
+                }
+                _data[SlotFlags.NONE].Add(proto.ID);
             }
         }
     }

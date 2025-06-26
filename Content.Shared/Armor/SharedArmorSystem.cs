@@ -1,9 +1,10 @@
-﻿using Content.Shared.Damage;
+using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
+using Content.Shared.Clothing.Components;
 
 namespace Content.Shared.Armor;
 
@@ -54,8 +55,34 @@ public abstract class SharedArmorSystem : EntitySystem
         if (!args.CanInteract || !args.CanAccess || !component.ShowArmorOnExamine)
             return;
 
-        var examineMarkup = GetArmorExamine(component.Modifiers);
+        // Handle chameleon perceived armor
+        if (TryComp<ChameleonClothingComponent>(uid, out var chameleon) && 
+            chameleon.PerceivedShowArmorOnExamine)
+        {
+            if (chameleon.PerceivedArmorModifiers == null || 
+                (chameleon.PerceivedArmorModifiers.Coefficients.Count == 0 && 
+                 chameleon.PerceivedArmorModifiers.FlatReduction.Count == 0))
+                return;
 
+            var chameleonExamine = GetChameleonArmorExamine(chameleon);
+            var chameleonEv = new ArmorExamineEvent(chameleonExamine);
+            RaiseLocalEvent(uid, ref chameleonEv);
+
+            _examine.AddDetailedExamineVerb(args, component, chameleonExamine,
+                Loc.GetString("armor-examinable-verb-text"), 
+                "/Textures/Interface/VerbIcons/dot.svg.192dpi.png",
+                Loc.GetString("armor-examinable-verb-message"));
+            return;
+        }
+
+        // Skip real armor for chameleon items
+        if (TryComp<ChameleonClothingComponent>(uid, out _))
+            return;
+
+        if (component.Modifiers.Coefficients.Count == 0 && component.Modifiers.FlatReduction.Count == 0)
+            return;
+
+        var examineMarkup = GetArmorExamine(component);
         var ev = new ArmorExamineEvent(examineMarkup);
         RaiseLocalEvent(uid, ref ev);
 
@@ -64,23 +91,14 @@ public abstract class SharedArmorSystem : EntitySystem
             Loc.GetString("armor-examinable-verb-message"));
     }
 
-    private FormattedMessage GetArmorExamine(DamageModifierSet armorModifiers)
+    private FormattedMessage GetArmorExamine(ArmorComponent component)
     {
         var msg = new FormattedMessage();
         msg.AddMarkupOrThrow(Loc.GetString("armor-examine"));
 
-        // TODO: better reflect What's Going On
-        // Hi! Tay here. This is not true.
-        // This WILL be null if the person using this has the
-        // funny trait that gives them armor buffs.
-        // Sorry!
-        if (armorModifiers == null)
-            return msg;
-
-        foreach (var coefficientArmor in armorModifiers.Coefficients)
+        foreach (var coefficientArmor in component.Modifiers.Coefficients)
         {
             msg.PushNewline();
-
             var armorType = Loc.GetString("armor-damage-type-" + coefficientArmor.Key.ToLower());
             msg.AddMarkupOrThrow(Loc.GetString("armor-coefficient-value",
                 ("type", armorType),
@@ -88,15 +106,45 @@ public abstract class SharedArmorSystem : EntitySystem
             ));
         }
 
-        foreach (var flatArmor in armorModifiers.FlatReduction)
+        foreach (var flatArmor in component.Modifiers.FlatReduction)
         {
             msg.PushNewline();
-
             var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.ToLower());
             msg.AddMarkupOrThrow(Loc.GetString("armor-reduction-value",
                 ("type", armorType),
                 ("value", flatArmor.Value)
             ));
+        }
+
+        return msg;
+    }
+
+    private FormattedMessage GetChameleonArmorExamine(ChameleonClothingComponent component)
+    {
+        var msg = new FormattedMessage();
+        msg.AddMarkupOrThrow(Loc.GetString("armor-examine"));
+
+        if (component.PerceivedArmorModifiers != null)
+        {
+            foreach (var coefficientArmor in component.PerceivedArmorModifiers.Coefficients)
+            {
+                msg.PushNewline();
+                var armorType = Loc.GetString("armor-damage-type-" + coefficientArmor.Key.ToLower());
+                msg.AddMarkupOrThrow(Loc.GetString("armor-coefficient-value",
+                    ("type", armorType),
+                    ("value", MathF.Round((1f - coefficientArmor.Value) * 100, 1))
+                ));
+            }
+
+            foreach (var flatArmor in component.PerceivedArmorModifiers.FlatReduction)
+            {
+                msg.PushNewline();
+                var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.ToLower());
+                msg.AddMarkupOrThrow(Loc.GetString("armor-reduction-value",
+                    ("type", armorType),
+                    ("value", flatArmor.Value)
+                ));
+            }
         }
 
         return msg;

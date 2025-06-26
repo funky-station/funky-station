@@ -1,0 +1,113 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatSmuggler
+  suffix: Chameleon, Holdout
+  name: Chatter Coat
+  description: Smuggler kit radio coat.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/space_asshole.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/space_asshole.rsi
+  # Holdout storage
+  - type: ItemSlots
+    slots:
+      holdout:
+        name: Stash
+        whitelistComponents:
+        - type: ItemSlotRestrictions
+          maxSize: Small
+  - type: HiddenStorage
+    openDelay: 0.2
+  # Radio system
+  - type: Headset
+    requiredSlot: [OUTERCLOTHING]
+    enabled: true
+  - type: EncryptionKeyHolder
+    keySlots: 2
+    examineWhileLocked: false
+    keysExtractionMethod: Cutting
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySmuggler
+  # Hidden radio component for sound
+  - type: HiddenRadio
+    sound:
+      path: /Audio/_RMC14/Effects/radiostatic.ogg
+  # Chameleon system
+  - type: ChameleonClothing
+    slot: [OUTERCLOTHING]
+    default: ClothingOuterCoatSpaceAsshole
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  # Normal coat properties
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.9
+        Heat: 0.8
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatHoldout
+  suffix: Chameleon, Holdout
+  name: Eloquent Ensemble
+  description: MI13 holdout kit radio coat.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/jensencoat.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/jensencoat.rsi
+  # Holdout storage
+  - type: ItemSlots
+    slots:
+      holdout:
+        name: Stash
+        whitelistComponents:
+        - type: ItemSlotRestrictions
+          maxSize: Small
+  - type: HiddenStorage
+    openDelay: 0.2
+  # Radio system
+  - type: Headset
+    requiredSlot: [OUTERCLOTHING]
+    enabled: true
+  - type: EncryptionKeyHolder
+    keySlots: 2
+    examineWhileLocked: false
+    keysExtractionMethod: Cutting
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySyndie
+  # Hidden radio component for sound
+  - type: HiddenRadio
+    sound:
+      path: /Audio/_RMC14/Effects/radiostatic.ogg
+  # Chameleon system
+  - type: ChameleonClothing
+    slot: [OUTERCLOTHING]
+    default: ClothingOuterCoatJensen
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  # Normal coat properties
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.9
+        Heat: 0.8

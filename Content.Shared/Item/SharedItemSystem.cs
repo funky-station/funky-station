@@ -279,7 +279,11 @@ public abstract class SharedItemSystem : EntitySystem
                 out StorageComponent? storage)) // Goobstation - reinsert item in storage because size changed
             {
                 _transform.AttachToGridOrMap(uid);
-                _storage.Insert(container.Owner, uid, out _, null, storage, false);
+                if (!_storage.Insert(container.Owner, uid, out _, null, storage, false))
+                {
+                    // It didn't fit, so try to hand it to whoever toggled it.
+                    _handsSystem.PickupOrDrop(args.User, uid, animate: false);
+                }
             }
         }
 

@@ -1,0 +1,41 @@
+﻿{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Based on a sprite by Sofya, modified by IronDragoon, for FunkyStation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "cc1"
+        },
+        {
+            "name": "cc2"
+        },
+        {
+            "name": "cc3"
+        },
+        {
+            "name": "cc4"
+        },
+        {
+            "name": "cc5"
+        },
+        {
+            "name": "cc6"
+        },
+        {
+            "name": "cc7"
+        },
+        {
+            "name": "cc8"
+        },
+        {
+            "name": "open"
+        },
+        {
+            "name": "closed"
+        }
+    ]
+}

@@ -31,6 +31,7 @@
     id: ParamedicPDA
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalEMTFilled
+    pocket2: autoInjectorCartridgeCaseSoft
   storage:
     back:
     - EmergencyRollerBedSpawnFolded

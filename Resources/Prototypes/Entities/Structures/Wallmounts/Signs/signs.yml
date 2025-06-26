@@ -406,6 +406,15 @@
 
 - type: entity
   parent: BaseSign
+  id: SignIAA
+  name: Internal affairs sign
+  description: A sign indicating the IAA office.
+  components:
+  - type: Sprite
+    state: iaa
+
+- type: entity
+  parent: BaseSign
   id: SignCanisters
   name: canisters sign
   description: A sign warning the viewer about pressurised canisters.

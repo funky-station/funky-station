@@ -79,3 +79,25 @@
         weight: 1
       - id: ClosetFireFilled
         weight: 0.3
+
+- type: entityTable
+  id: CrowbarRandom
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 100
+      children:
+      - id: CrowbarGreen
+        weight: 20
+      - id: CrowbarYellow
+        weight: 20
+      - id: CrowbarOrange
+        weight: 20
+      - id: Crowbar
+        weight: 30
+      - id: CrowbarRed
+        weight: 10
+      - id: CrowbarCutePurple
+        weight: 1
+      - id: CrowbarCutePink
+        weight: 1

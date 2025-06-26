@@ -115,8 +115,8 @@
       - id: Ointment
       - id: Bloodpack
       - id: Gauze
-      - id: EmergencyMedipen #You never know what people are going to latejoin into
-        amount: 3
+      - id: EmergencyMedipen
+      - id: ParamedHypo
 
 - type: entity
   id: ClothingBeltPlantFilled

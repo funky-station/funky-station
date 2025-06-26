@@ -17,6 +17,8 @@
     id: ReporterPDA
     ears: ClothingHeadsetService
     belt: NewsDigiBoard
-  #storage:
-    #back:
-    #- Stuff
+  storage: # DeltaV: Give reporters tape recording equipment
+    back:
+    - TapeRecorder
+    - CassetteTape
+    - CassetteTape

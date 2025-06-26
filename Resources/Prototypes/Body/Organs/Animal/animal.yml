@@ -5,6 +5,8 @@
   components:
   - type: Organ
   - type: Food
+  - type: Extractable # Funky - base animal organs were missing the grinder extractable component altogether. Whoops! They can be grinded now
+    grindableSolutionName: organ # Funky
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
   - type: StaticPrice

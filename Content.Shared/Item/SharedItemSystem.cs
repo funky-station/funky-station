@@ -251,9 +251,9 @@ public abstract class SharedItemSystem : EntitySystem
         }
 
         if (Container.TryGetContainingContainer((uid, null, null), out var container) &&
-            !_handsSystem.IsHolding(container.Owner, uid))
+            !_handsSystem.IsHolding(container.Owner, uid)) // Funkystation - Don't move items in hands.
         {
-            // Check if the item is in a pocket.
+            // Funkystation - Check if the item is in a pocket.
             var wasInPocket = false;
             if (_inventory.TryGetContainerSlotEnumerator(container.Owner, out var enumerator, SlotFlags.POCKET))
             {
@@ -261,12 +261,12 @@ public abstract class SharedItemSystem : EntitySystem
                 {
                     if (slotItem == uid)
                     {
-                        // We found it in a pocket.
+                        // Funkystation - We found it in a pocket.
                         wasInPocket = true;
 
                         if (!_inventory.CanEquip(container.Owner, uid, slot.Name, out var _, slot))
                         {
-                            // It no longer fits, so try to hand it to whoever toggled it.
+                            // Funkystation - It no longer fits, so try to hand it to whoever toggled it.
                             _transform.AttachToGridOrMap(uid);
                             _handsSystem.PickupOrDrop(args.User, uid, animate: true);
                         }
@@ -281,7 +281,7 @@ public abstract class SharedItemSystem : EntitySystem
                 _transform.AttachToGridOrMap(uid);
                 if (!_storage.Insert(container.Owner, uid, out _, null, storage, false))
                 {
-                    // It didn't fit, so try to hand it to whoever toggled it.
+                    // Funkystation - It didn't fit, so try to hand it to whoever toggled it.
                     _handsSystem.PickupOrDrop(args.User, uid, animate: false);
                 }
             }

@@ -64,7 +64,7 @@ public sealed class HolosignSystem : EntitySystem
 
         // places the holographic sign at the click location, snapped to grid.
         // overlapping of the same holo on one tile remains allowed to allow holofan refreshes
-        var holoUid = EntityManager.SpawnEntity(component.SignProto, args.ClickLocation.SnapToGrid(EntityManager));
+        var holoUid = Spawn(component.SignProto, args.ClickLocation.SnapToGrid(EntityManager));
         var xform = Transform(holoUid);
         // TODO: Just make the prototype anchored
         if (!xform.Anchored)

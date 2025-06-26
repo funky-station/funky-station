@@ -3,6 +3,9 @@
   name: chat-emote-name-sneeze
   category: Vocal
   chatMessages: ["chat-emote-msg-sneeze"]
+  chatTriggers:
+    - sneeze
+    - sneezes
 
 - type: emote
   id: Cough
@@ -19,7 +22,7 @@
   chatTriggers:
     - cough
     - coughs
-    - coughed 
+    - coughed
     - cough.
     - coughs.
     - coughed.
@@ -71,4 +74,8 @@
   id: Snore
   name: chat-emote-name-snore
   category: Vocal
+  available: false
   chatMessages: ["chat-emote-msg-snore"]
+  chatTriggers:
+    - snore
+    - snores

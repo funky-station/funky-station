@@ -97,6 +97,7 @@
   whitelist:
     tags:
     - HarpyEmotes
+    - VoxEmotes
   blacklist:
     components:
     - BorgChassis

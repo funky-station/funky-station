@@ -3212,3 +3212,23 @@ Entries:
         lizard should.
   id: 387
   time: '2025-06-26T05:21:12.0000000+00:00'
+- author: ZigTag
+  changes:
+    - type: Add
+      message: synthetic lizard and zenghu alternative IPC parts
+    - type: Tweak
+      message: whitelist more markings for IPCs
+    - type: Tweak
+      message: IPC screens now render under hair and are in their own category
+    - type: Tweak
+      message: >-
+        change naming scheme of rodentia and feroxi accessories to fall in line
+        with vulpkanin
+    - type: Tweak
+      message: IPCs will drain power based off movement speed
+    - type: Tweak
+      message: IPCs now have tail wagging
+    - type: Fix
+      message: IPCs are no longer bald
+  id: 388
+  time: '2025-06-26T05:46:10.0000000+00:00'

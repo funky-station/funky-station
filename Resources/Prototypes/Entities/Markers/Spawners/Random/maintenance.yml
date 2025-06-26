@@ -311,6 +311,7 @@
       - id: DrinkMopwataBottleRandom
       - id: SpectralLocator
       - id: WehpetInstrument
+      - id: WehNade
       - id: LidSalami
         weight: 0.05
       - id: BoomboxSlav

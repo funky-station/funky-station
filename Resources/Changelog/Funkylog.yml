@@ -3232,3 +3232,9 @@ Entries:
       message: IPCs are no longer bald
   id: 388
   time: '2025-06-26T05:46:10.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Tweak
+      message: The Metashield, Naming Rules, and Escalation Rules have been tweaked.
+  id: 389
+  time: '2025-06-26T21:25:01.0000000+00:00'

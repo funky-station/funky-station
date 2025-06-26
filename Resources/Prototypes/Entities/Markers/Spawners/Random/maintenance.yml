@@ -349,6 +349,7 @@
       - id: RifleStock
       - id: ModularReceiver
       - id: HydroponicsToolScythe
+      - id: Brick
     # Rare Group
     - !type:GroupSelector
       weight: 5

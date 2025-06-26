@@ -249,6 +249,7 @@ public abstract class SharedItemSystem : EntitySystem
         }
 
         if (Container.TryGetContainingContainer((uid, null, null), out var container) &&
+            !_handsSystem.IsHolding(container.Owner, uid)) &&
             TryComp(container.Owner,
                 out StorageComponent? storage)) // Goobstation - reinsert item in storage because size changed
         {

@@ -1,0 +1,10 @@
+
+- type: entity
+  abstract: true
+  parent: ClothingNeckBase
+  id: ClothingPrideMantleBase
+  components:
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - WhitelistChameleonPrideMantle

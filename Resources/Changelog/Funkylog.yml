@@ -3193,3 +3193,13 @@ Entries:
       message: The sneeze emote is now accessible from the emote wheel.
   id: 385
   time: '2025-06-26T05:01:30.0000000+00:00'
+- author: IronDragoon
+  changes:
+    - type: Tweak
+      message: >-
+        Further work on Pioneer. Lots of new maints areas, old ones reworked for
+        more hiding spaces, revamped medbay/chemlab, added HFR room for atmos,
+        made SM room more safe, mailing units between chemlab and botany (and
+        more)
+  id: 386
+  time: '2025-06-26T05:09:31.0000000+00:00'

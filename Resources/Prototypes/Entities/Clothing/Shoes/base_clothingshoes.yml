@@ -51,6 +51,9 @@
           tags:
           - Knife
           - Sidearm
+  - type: FootstepModifier #funky start
+    footstepSoundCollection:
+      collection: FootstepBoot #funky end
 
 - type: entity
   abstract: true

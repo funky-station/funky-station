@@ -3185,3 +3185,11 @@ Entries:
         broken.
   id: 384
   time: '2025-06-26T04:53:00.0000000+00:00'
+- author: amethystowo
+  changes:
+    - type: Add
+      message: Ported over new Vox noises from Impstation and Goob. Bird up!
+    - type: Tweak
+      message: The sneeze emote is now accessible from the emote wheel.
+  id: 385
+  time: '2025-06-26T05:01:30.0000000+00:00'

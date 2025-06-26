@@ -1,0 +1,13 @@
+- type: soundCollection
+  id: LizardChirp
+  files:
+    - /Audio/_Funkystation/Voice/Reptilian/lizardchirp1.ogg
+    - /Audio/_Funkystation/Voice/Reptilian/lizardchirp2.ogg
+    - /Audio/_Funkystation/Voice/Reptilian/lizardchirp3.ogg
+
+- type: soundCollection
+  id: LizardGurgle
+  files:
+    - /Audio/_Funkystation/Voice/Reptilian/lizardgurgle1.ogg
+    - /Audio/_Funkystation/Voice/Reptilian/lizardgurgle2.ogg
+    - /Audio/_Funkystation/Voice/Reptilian/lizardgurgle3.ogg

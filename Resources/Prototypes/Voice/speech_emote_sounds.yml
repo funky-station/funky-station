@@ -92,6 +92,12 @@
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
+    Gurgle:
+      collection: LizardGurgle
+    Chirp:
+      collection: LizardChirp
+    Hiss:
+      path: /Audio/_Impstation/Voice/Reptilian/reptillian_hiss1.ogg
     Honk:
       collection: BikeHorn
     Whistle:
@@ -116,6 +122,12 @@
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
+    Gurgle:
+      collection: LizardGurgle
+    Chirp:
+      collection: LizardChirp
+    Hiss:
+      path: /Audio/_Impstation/Voice/Reptilian/reptillian_hiss1.ogg
     Honk:
       collection: BikeHorn
     Whistle:

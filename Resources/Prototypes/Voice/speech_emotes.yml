@@ -374,6 +374,9 @@
   category: Vocal
   icon: Interface/Emotes/weh.png
   chatMessages: ["chat-emote-msg-weh"]
+  chatTriggers:
+    - weh
+    - wehs
 
 - type: emote
   id: Hew
@@ -392,6 +395,8 @@
     components:
     - Nymph
     - Vocal
+    tags:
+    - LizardEmotes
   blacklist:
     components:
     - BorgChassis

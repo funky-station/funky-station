@@ -3169,3 +3169,11 @@ Entries:
       message: Added missing changeling armor stun resist.
   id: 382
   time: '2025-06-16T15:42:34.0000000+00:00'
+- author: IronDragoon
+  changes:
+    - type: Add
+      message: >-
+        Added pride mantle to vendor, which is a chameleon item with multiple
+        different LGBTQIA+ flags on it. 
+  id: 383
+  time: '2025-06-26T04:49:40.0000000+00:00'

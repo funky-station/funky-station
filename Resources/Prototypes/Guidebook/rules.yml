@@ -138,6 +138,13 @@
   ruleEntry: false
   priority: 4
   text: "/ServerInfo/Guidebook/ServerRules/Metashield.xml"
+  
+- type: guideEntry
+  id: NamingScheme
+  name: guide-entry-namingscheme
+  ruleEntry: true
+  priority: 4
+  text: "/ServerInfo/Guidebook/ServerRules/NamingScheme.xml"
 
 #- type: guideEntry
 #  id: RuleC14

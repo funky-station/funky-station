@@ -7,6 +7,15 @@
     "y": 32
   },
   "states": [
+      {
+          "name": "acquisition_form"
+      },
+      {
+          "name": "acquisition_form_words"
+      },
+      {
+          "name": "acquisition_form_header"
+      },
     {
       "name": "envelope_closed"
     },

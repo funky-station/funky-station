@@ -107,3 +107,22 @@
   id: VulpkaninYap
   files:
   - /Audio/_DV/Voice/Vulpkanin/yap.ogg
+
+- type: soundCollection
+  id: VoxChitter
+  files:
+    - /Audio/_Impstation/Voice/Vox/voxchitter1.ogg
+    - /Audio/_Impstation/Voice/Vox/voxchitter2.ogg
+
+- type: soundCollection
+  id: VoxCoo
+  files:
+    - /Audio/_Impstation/Voice/Vox/voxcoo1.ogg
+    - /Audio/_Impstation/Voice/Vox/voxcoo2.ogg
+
+- type: soundCollection
+  id: VoxGasp
+  files:
+  - /Audio/_Impstation/Voice/Vox/voxgasp1.ogg
+  - /Audio/_Impstation/Voice/Vox/voxgasp2.ogg
+  - /Audio/_Impstation/Voice/Vox/voxgasp3.ogg

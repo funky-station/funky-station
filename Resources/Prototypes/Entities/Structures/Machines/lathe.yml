@@ -288,6 +288,10 @@
     - WetFloorSign
     - ClothingHeadHatCone
     - FreezerElectronics
+    # Begin Delta-V additions
+    - CassetteTape
+    - TapeRecorder
+    # End Delta-V additions
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen

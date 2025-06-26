@@ -3143,3 +3143,72 @@ Entries:
         body
   id: 379
   time: '2025-06-14T18:53:01.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: New nuke disk sprite
+    - type: Tweak
+      message: New paper sprites
+    - type: Tweak
+      message: New beaker sprites
+    - type: Tweak
+      message: New table sprites
+    - type: Tweak
+      message: New glass sheet sprites
+  id: 380
+  time: '2025-06-15T15:37:34.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: The hypertorus fusion reactor has been added
+  id: 381
+  time: '2025-06-15T18:45:39.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Fix
+      message: Added missing changeling armor stun resist.
+  id: 382
+  time: '2025-06-16T15:42:34.0000000+00:00'
+- author: IronDragoon
+  changes:
+    - type: Add
+      message: >-
+        Added pride mantle to vendor, which is a chameleon item with multiple
+        different LGBTQIA+ flags on it. 
+  id: 383
+  time: '2025-06-26T04:49:40.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Fix
+      message: >-
+        Changeling organic shield no longer needs to be "retracted" when it is
+        broken.
+  id: 384
+  time: '2025-06-26T04:53:00.0000000+00:00'
+- author: amethystowo
+  changes:
+    - type: Add
+      message: Ported over new Vox noises from Impstation and Goob. Bird up!
+    - type: Tweak
+      message: The sneeze emote is now accessible from the emote wheel.
+  id: 385
+  time: '2025-06-26T05:01:30.0000000+00:00'
+- author: IronDragoon
+  changes:
+    - type: Tweak
+      message: >-
+        Further work on Pioneer. Lots of new maints areas, old ones reworked for
+        more hiding spaces, revamped medbay/chemlab, added HFR room for atmos,
+        made SM room more safe, mailing units between chemlab and botany (and
+        more)
+  id: 386
+  time: '2025-06-26T05:09:31.0000000+00:00'
+- author: amethystowo
+  changes:
+    - type: Add
+      message: >-
+        Lizard people now have new emotes they can use, being Chirp, Hiss, and
+        Gurgle. They can also now weh to their hearts content, like a true
+        lizard should.
+  id: 387
+  time: '2025-06-26T05:21:12.0000000+00:00'

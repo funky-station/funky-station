@@ -49,6 +49,9 @@ ui-options-misc-label = Misc
 ui-options-interface-label = Interface
 
 
+## Funky Station
+ui-options-crayon-overlay-transparency = Crayon overlay transparency
+
 ui-options-show-held-item = Show held item next to cursor
 ui-options-show-combat-mode-indicators = Show combat mode indicators with cursor
 ui-options-opaque-storage-window = Opaque storage window

@@ -176,6 +176,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: PumpAction
   - type: Gun
     fireRate: 1
   - type: Tag

@@ -3259,3 +3259,13 @@ Entries:
       message: Adjusted Engineering to a little bit, adding lights to miners on Box
   id: 391
   time: '2025-06-27T00:38:33.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Remove
+      message: Zombies are no longer in the roundstart or midround antagonist pool.
+    - type: Tweak
+      message: Romerol is now a VERY RARE maintenance pill.
+    - type: Tweak
+      message: Zombie-infected humanoids no longer take poison damage.
+  id: 392
+  time: '2025-06-27T01:24:35.0000000+00:00'

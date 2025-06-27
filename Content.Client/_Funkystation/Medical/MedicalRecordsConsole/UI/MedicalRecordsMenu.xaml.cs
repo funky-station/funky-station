@@ -17,6 +17,11 @@ namespace Content.Client._Funkystation.Medical.MedicalRecordsConsole.UI;
 public sealed partial class MedicalRecordsMenu : FancyWindow
 {
     [Dependency] private readonly PrototypeManager _prototypeManager = default!;
+    // TODO: moreee localization
+    // TODO: final aesthetics pass
+    // TODO: fix medical info (allergies, prescriptions, family history)
+    // TODO: access lock the entire console
+    // TODO: add per-round notes/history for psychologists/doctors
 
     public struct CharacterListMetadata
     {
@@ -283,12 +288,10 @@ public sealed partial class MedicalRecordsMenu : FancyWindow
         RecordContainerFingerprints.Text = record.Fingerprint ?? Loc.GetString("cd-character-records-viewer-unknown");
         RecordContainerDNA.Text = record.DNA ?? Loc.GetString("cd-character-records-viewer-unknown");
         RecordContainerBloodType.Text = GetBloodTypeLocals(cr.BloodType);
-        // prescriptions
-        // allergies
-        // family history
         RecordContainerIdentFeatures.Text = cr.IdentifyingFeatures == "" ? Loc.GetString("cd-character-records-viewer-unknown") : cr.IdentifyingFeatures;
         RecordContainerPostMortem.Text = cr.PostmortemInstructions;
 
+        // TODO: make this work
         var allergies = new List<string>();
         var prescriptions = new List<string>();
         var familyHistory = new List<string>();
@@ -320,15 +323,21 @@ public sealed partial class MedicalRecordsMenu : FancyWindow
             }
         }
 
-        var allergiesString = string.Join<string>(", ", allergies);
-        var prescriptionsString = string.Join<string>(", ", prescriptions);
-        var familyHistoryString = string.Join<string>(", ", familyHistory);
+        var allergiesString = string.Join(", ", allergies);
+        var prescriptionsString = string.Join(", ", prescriptions);
+        var familyHistoryString = string.Join(", ", familyHistory);
 
         RecordContainerAllergies.Text =
-            allergiesString == "" ? Loc.GetString("cd-character-records-viewer-unknown") : allergiesString;
+            allergiesString == ""
+                ? allergiesString
+                : Loc.GetString("cd-character-records-viewer-unknown");
         RecordContainerPrescriptions.Text =
-            prescriptionsString == "" ? Loc.GetString("cd-character-records-viewer-unknown") : prescriptionsString;
+            prescriptionsString == ""
+                ? prescriptionsString
+                : Loc.GetString("cd-character-records-viewer-unknown");
         RecordContainerFamilyHistory.Text =
-            familyHistoryString == "" ? Loc.GetString("cd-character-records-viewer-unknown") : familyHistoryString;
+            familyHistoryString == ""
+                ? familyHistoryString
+                : Loc.GetString("cd-character-records-viewer-unknown");
     }
 }

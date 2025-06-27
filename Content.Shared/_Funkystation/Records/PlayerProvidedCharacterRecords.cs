@@ -105,7 +105,7 @@ public sealed partial class PlayerProvidedCharacterRecords
             hasInsurance: true,
             insuranceProvider: 0,
             insuranceType: 0,
-            medicalInfo: new HashSet<ProtoId<MedicalInfoPrototype>>(),
+            medicalInfo: [],
             bloodType: 0,
             postmortemInstructions: "Return home"
         );
@@ -226,9 +226,4 @@ public sealed partial class PlayerProvidedCharacterRecords
     {
         return new(this) { PostmortemInstructions = s};
     }
-}
-
-public enum CharacterRecordType : byte
-{
-    Employment, Medical, Security
 }

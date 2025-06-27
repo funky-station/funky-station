@@ -24,6 +24,7 @@ using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Preferences.Managers;
 using Content.Server.Station.Components;
 using Content.Server.Station.Events;
+using Content.Shared.Antag;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Server.Player;
@@ -39,7 +40,6 @@ public sealed partial class StationJobsSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IBanManager _banManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly IServerPreferencesManager _serverPreferences = default!;
 
@@ -319,8 +319,12 @@ public sealed partial class StationJobsSystem
 
         foreach (var player in players)
         {
+            if (!_player.TryGetSessionById(player, out var session))
+                continue;
+
             var roleBans = _banManager.GetJobBans(player);
-            var antagBlocked = _antag.GetPreSelectedAntagSessions();
+            var isPreselectedAntag = _antag.GetPreSelectedAntagSessions().Contains(session);
+            var preselectedAntags = _antag.GetPreSelectedAntagDefinitions(session);
 
             // Get all the jobs that a player has selected with a priority greater than Never and also that they
             // have an enabled character with that job preference selected
@@ -360,7 +364,14 @@ public sealed partial class StationJobsSystem
                 if (!_prototypeManager.TryIndex(jobId, out var job))
                     continue;
 
-                if (!job.CanBeAntag && (!_playerManager.TryGetSessionById(player, out var session) || antagBlocked.Contains(session)))
+                // If we're an antag but the job can't be an antag, don't allow this job
+                if (isPreselectedAntag && !job.CanBeAntag)
+                    continue;
+
+                // If we're an antag, make sure that we have a character that is eligible to
+                // become all of our selected antags
+                if (isPreselectedAntag && !preselectedAntags.All(antag =>
+                        _antag.HasPrimaryAntagPreference(session, antag, AntagSelectionTime.IntraPlayerSpawn, job)))
                     continue;
 
                 if (weight is not null && job.Weight != weight.Value)

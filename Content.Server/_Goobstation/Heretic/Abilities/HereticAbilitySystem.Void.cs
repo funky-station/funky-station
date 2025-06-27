@@ -120,7 +120,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
 
         var topPriority = GetNearbyPeople(ent, 2f);
-        var midPriority = GetNearbyPeople(ent, 4f);
+        var midPriority = GetNearbyPeople(ent, 3.5f);
         var farPriority = GetNearbyPeople(ent, 5f);
 
         // Freeze closest ones, and do heavy damage - funky

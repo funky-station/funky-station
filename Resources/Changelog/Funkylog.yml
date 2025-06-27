@@ -3269,3 +3269,9 @@ Entries:
       message: Zombie-infected humanoids no longer take poison damage.
   id: 392
   time: '2025-06-27T01:24:35.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Add
+      message: Added text highlighting
+  id: 393
+  time: '2025-06-27T06:36:41.0000000+00:00'

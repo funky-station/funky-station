@@ -23,8 +23,13 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.RCD;
 
+/// <summary>
+/// System for handling structure ghost placement in places where RCD can create objects.
+/// </summary>
 public sealed class RCDConstructionGhostSystem : EntitySystem
 {
+    private const string PlacementMode = nameof(AlignRCDConstruction);
+
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly RCDSystem _rcdSystem = default!;
     [Dependency] private readonly IPlacementManager _placementManager = default!;
@@ -98,8 +103,7 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
         if (_playerManager.LocalSession?.AttachedEntity is not { } player)
             return;
 
-        if (!_hands.TryGetActiveItem(player, out var heldEntity))
-            return;
+        var heldEntity = _hands.GetActiveItem(player);
 
         if (!TryComp<RCDComponent>(heldEntity, out var rcd))
         {
@@ -138,7 +142,7 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
         var newObjInfo = new PlacementInformation
         {
             MobUid = heldEntity.Value,
-            PlacementOption = _placementMode,
+            PlacementOption = PlacementMode,
             EntityType = prototype.Prototype,
             Range = (int) Math.Ceiling(SharedInteractionSystem.InteractionRange),
             IsTile = (prototype.Mode == RcdMode.ConstructTile),

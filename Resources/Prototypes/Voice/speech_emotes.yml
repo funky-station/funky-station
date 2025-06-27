@@ -282,8 +282,8 @@
   available: false
   icon: _Impstation/Interface/Emotes/coo.png
   whitelist:
-    components:
-    - Vocal
+    tags:
+    - VoxEmotes
   blacklist:
     components:
     - BorgChassis
@@ -448,6 +448,9 @@
   name: chat-emote-name-weh
   category: Vocal
   icon: Interface/Emotes/weh.png
+  whitelist:
+    tags:
+    - LizardEmotes
   chatMessages: ["chat-emote-msg-weh"]
   chatTriggers:
     - weh

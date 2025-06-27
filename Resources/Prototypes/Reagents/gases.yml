@@ -345,7 +345,7 @@
         ignoreResistances: true
         damage:
           types:
-            Cellular: 0.5
+            Cellular: 1
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         type: Add
@@ -371,9 +371,12 @@
         ignoreResistances: true
         damage:
           types:
-            Cellular: 0.05
+            Cellular: 0.5
       - !type:ModifyStatusEffect
-        minScale: 2
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 1
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 500

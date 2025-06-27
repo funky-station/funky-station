@@ -89,7 +89,7 @@
 
 # Adds drugs overlay
 - type: entity
-  parent: MobStatusEffectDebuff
+  parent: MobStatusEffectBase
   id: StatusEffectSeeingRainbow
   name: hallucinations
   components:

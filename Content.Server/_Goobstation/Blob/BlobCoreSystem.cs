@@ -563,7 +563,7 @@ public sealed class BlobCoreSystem : EntitySystem
                     continue;
 
                 if(stationUid != null)
-                    _alertLevelSystem.SetLevel(stationUid.Value, "green", true, true, true);
+                    _alertLevelSystem.SetLevel(stationUid.Value, "red", true, true, true);
 
                 _roundEndSystem.CancelRoundEndCountdown(null, false);
                 blobRuleComp.Stage = BlobStage.Default;

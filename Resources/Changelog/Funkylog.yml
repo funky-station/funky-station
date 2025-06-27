@@ -3275,3 +3275,9 @@ Entries:
       message: Added text highlighting
   id: 393
   time: '2025-06-27T06:36:41.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Tweak
+      message: Box burn chambers fixed
+  id: 394
+  time: '2025-06-27T07:03:36.0000000+00:00'

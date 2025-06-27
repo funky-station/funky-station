@@ -103,8 +103,28 @@
 
 - files: ["squish.png"]
   license: "CC-BY-SA-3.0"
-  copyright: "Modified from blue_adult_slime.png by TyAshley (AllenTheGreat) & Sarahon"
+  copyright: "Modified from blue_adult_slime.png by TyAshley (AllenTheGreat) & Sarahon, redrawn by Frogoo"
   source: "https://github.com/TyAshley"
+
+- files: ["slosh.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by Frogoo. based on bucket thingy idk brah"
+  source: "https://github.com/Fr0goo"
+
+- files: ["bubble.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by Frogoo. based on BeakerLarge by cev-eris"
+  source: "https://github.com/Fr0goo"
+
+- files: ["pop.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by Frogoo"
+  source: "https://github.com/Fr0goo"
+
+- files: ["fizz.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by Frogoo. based on Cola from baystation"
+  source: "https://github.com/Fr0goo"
 
 - files: ["vocal.png"]
   license: "CC-BY-SA-3.0"

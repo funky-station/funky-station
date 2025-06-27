@@ -442,6 +442,8 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
             }
 
             _roundEnd.CancelRoundEndCountdown(null, false, false);
+            var evfailed = new ShuttleDockAttemptFailedEvent();
+            RaiseLocalEvent(ref evfailed);
             return;
         }
 
@@ -757,4 +759,9 @@ public record struct ShuttleDockAttemptEvent()
 {
     public bool Cancelled = false;
     public string CancelMessage = string.Empty;
+}
+
+[ByRefEvent]
+public record struct ShuttleDockAttemptFailedEvent()
+{
 }

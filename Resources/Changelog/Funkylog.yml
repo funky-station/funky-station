@@ -3291,3 +3291,11 @@ Entries:
         departments.
   id: 395
   time: '2025-06-27T08:04:10.0000000+00:00'
+- author: Tyranex
+  changes:
+    - type: Add
+      message: Added a scream for cyborgs!
+    - type: Fix
+      message: Fixed Syndicate Cyborg not being able to laugh.
+  id: 396
+  time: '2025-06-27T17:57:25.0000000+00:00'

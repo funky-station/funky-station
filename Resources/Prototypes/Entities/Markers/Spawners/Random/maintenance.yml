@@ -225,7 +225,23 @@
       - id: Wirecutter
       - id: Screwdriver
       - id: Wrench
-      - id: Crowbar
+      - !type:GroupSelector
+        weight: 1
+        children:
+        - id: CrowbarGreen
+          weight: 10
+        - id: CrowbarYellow
+          weight: 10
+        - id: CrowbarOrange
+          weight: 10
+        - id: Crowbar
+          weight: 15
+        - id: CrowbarRed
+          weight: 10
+        - id: CrowbarCutePurple
+          weight: 1
+        - id: CrowbarCutePink
+          weight: 1
       - id: Multitool
       - id: Shovel
       - id: Welder
@@ -294,6 +310,8 @@
       - id: PetCarrier
       - id: DrinkMopwataBottleRandom
       - id: SpectralLocator
+      - id: WehpetInstrument
+      - id: WehNade
       - id: LidSalami
         weight: 0.05
       - id: BoomboxSlav
@@ -331,6 +349,7 @@
       - id: RifleStock
       - id: ModularReceiver
       - id: HydroponicsToolScythe
+      - id: Brick
     # Rare Group
     - !type:GroupSelector
       weight: 5

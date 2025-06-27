@@ -1,0 +1,63 @@
+- type: entity
+  id: autoInjectorCartridgeCase
+  name: autoinjector cartridge case
+  description: A hard shelled case for storing up to 8 emergency medical cartridges, for use in a cartridge autoinjector.
+  parent: [ BaseStorageItem, BaseBagOpenClose, BaseMedicalContraband, BaseSecurityContraband ]
+  components:
+  - type: Tag
+    tags:
+    - AutoinjectorCartridgeCase
+  - type: Sprite
+    sprite: _Funkystation/Objects/Medical/auto_injector_cartridge_case.rsi
+    layers:
+    - state: closed
+      map: [ "closeLayer" ]
+    - state: open
+      map: [ "openLayer" ]
+    - state: cc1
+      map: ["cc1"]
+      visible: false
+    - state: cc2
+      map: ["cc2"]
+      visible: false
+    - state: cc3
+      map: ["cc3"]
+      visible: false
+    - state: cc4
+      map: ["cc4"]
+      visible: false
+    - state: cc5
+      map: ["cc5"]
+      visible: false
+    - state: cc6
+      map: ["cc6"]
+      visible: false
+    - state: cc7
+      map: ["cc7"]
+      visible: false
+    - state: cc8
+      map: ["cc8"]
+      visible: false
+  - type: Appearance
+  - type: Item
+    sprite: _Funkystation/Objects/Medical/auto_injector_cartridge_case.rsi
+    size: Large
+  - type: Storage
+    grid:
+    - 0,0,3,1
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 300
+  - type: ItemCounter
+    count:
+      tags: [AutoinjectorCartridge]
+    composite: true
+    layerStates:
+    - cc1
+    - cc2
+    - cc3
+    - cc4
+    - cc5
+    - cc6
+    - cc7
+    - cc8

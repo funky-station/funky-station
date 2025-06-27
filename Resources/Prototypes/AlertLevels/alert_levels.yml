@@ -79,15 +79,12 @@
       emergencyLightColor: DarkGoldenrod
       forceEnableEmergencyLights: true
       shuttleTime: 1200
-    octarine: # impstation cosmic cult
+    octarine: # DV cosmic cult
       announcement: alert-level-octarine-announcement
       selectable: false
-      sound:
-        path: /Audio/_Impstation/Misc/octarine.ogg # i think this is deprecated bc of random announcers
-        params:
-          volume: -3
+      sound: /Audio/Announcements/Alerts/code_octarine.ogg
       disableSelection: true
       color: CadetBlue
       emergencyLightColor: CadetBlue
       forceEnableEmergencyLights: true
-      shuttleTime: 1200
+      shuttleTime: 600

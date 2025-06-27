@@ -23,7 +23,7 @@
     whitelist:
       components:
       - Paper
-      - Delivery
+      - Mail
       - Envelope # funky
       tags:
       - Document

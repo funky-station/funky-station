@@ -40,6 +40,7 @@
     slots:
     - Back
     - suitStorage
+  - type: PumpAction
   - type: AmmoCounter
   - type: Gun
     fireRate: 0.6 # Goobstation

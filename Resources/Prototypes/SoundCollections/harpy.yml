@@ -53,6 +53,8 @@
     - /Audio/Machines/windoor_open.ogg
     - /Audio/Effects/spray.ogg
     - /Audio/Effects/spray2.ogg
+    - /Audio/_Impstation/Voice/Vox/voxhiss.ogg
+    - /Audio/_Impstation/Voice/Reptilian/reptillian_hiss1.ogg
 
 - type: soundCollection
   id: HarpySigh
@@ -223,6 +225,8 @@
     - /Audio/Machines/diagnoser_printing.ogg
     - /Audio/Machines/uniformprinter.ogg
     - /Audio/Machines/vaccinator_running.ogg
+    - /Audio/_Impstation/Voice/Vox/voxchitter1.ogg
+    - /Audio/_Impstation/Voice/Vox/voxchitter2.ogg
 
 - type: soundCollection
   id: HarpySqueak
@@ -242,3 +246,6 @@
     - /Audio/Voice/Talk/pai.ogg
     - /Audio/Voice/Talk/pai_ask.ogg
     - /Audio/Voice/Talk/pai_exclaim.ogg
+    - /Audio/_Funkystation/Voice/Reptilian/lizardchirp1.ogg
+    - /Audio/_Funkystation/Voice/Reptilian/lizardchirp2.ogg
+    - /Audio/_Funkystation/Voice/Reptilian/lizardchirp3.ogg

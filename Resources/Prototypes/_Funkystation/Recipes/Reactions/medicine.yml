@@ -205,6 +205,21 @@
     Natusixadone: 2
 
 - type: reaction
+  id: Sievertadone
+  reactants:
+    Pyroxadone:
+      amount: 1
+    Arithrazine:
+      amount: 2
+    Ultravasculine:
+      amount: 1
+    Fluorine:
+      amount: 1
+      catalyst: true
+  products:
+    Sievertadone: 3
+
+- type: reaction
   id: Deunomia
   reactants:
     Amatoxin:

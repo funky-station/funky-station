@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprited by LinkUyx#6557. Reptilian edit by Nairod(Github)",
+  "copyright": "Sprited by LinkUyx#6557. Reptilian edit by Nairod(Github) | vulpkanin state taken from https://github.com/DeltaV-Station/Delta-v/tree/89c42ad237a16ae64179a2385d218520458327ff/Resources/Textures/Clothing/Mask/medicalsecurity.rsi added by Zephyrpak",
   "size": {
     "x": 32,
     "y": 32
@@ -56,6 +56,14 @@
     },
     {
       "name": "equipped-MASK-reptilian",
+      "directions": 4
+    },
+	{
+      "name": "equipped-MASK-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "up-equipped-MASK-vulpkanin",
       "directions": 4
     }
   ]

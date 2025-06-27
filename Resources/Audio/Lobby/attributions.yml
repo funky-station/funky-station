@@ -126,6 +126,7 @@
   copyright: "Bluecometdude"
   source: "https://soundcloud.com/bluecometdude/red-sun-in-the-sky-hq-and-extended"
 
+# Funky Station
 - files: ["ironwill.ogg"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "Iron Will by Dynzz made for Funky Station"
@@ -140,3 +141,8 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: "Ashwalking by Pigeonbeans for Space Station 14"
   source: "https://soundcloud.com/pigeonbeans/ashwalking"
+
+- files: ["droopy_likes_your_face.ogg"]
+  license: "Custom"
+  copyright: "Droopy likes your face by C418. License is https://creativecommons.org/licenses/by-nc-nd/3.0/deed.en"
+  source: "https://c418.bandcamp.com/album/life-changing-moments-seem-minor-in-pictures"

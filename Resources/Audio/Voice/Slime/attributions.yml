@@ -6,7 +6,7 @@
 
 - files:
   - slime_squish_2.ogg
-  license: "CC0-1.0"
+  license: CC0-1.0
   copyright: "Taken from https://freesound.org/. Converted from FLAC to OGG, Cropped."
   source: "https://freesound.org/people/Breviceps/sounds/445117/"
 
@@ -24,18 +24,18 @@
 
 - files:
   - slime_fizz_1.ogg
-  license: CC0-1.0"
+  license: CC0-1.0
   copyright: "Taken from https://freesound.org/. Converted from FLAC to OGG, Cropped."
   source: "https://freesound.org/people/martinimeniscus/sounds/164423/"
 
 - files:
   - slime_fizz_2.ogg
-  license: "CC0-1.0"
+  license: CC0-1.0
   copyright: "Taken from https://freesound.org/. Converted from FLAC to OGG, Cropped."
   source: "https://freesound.org/people/ZHRØ/sounds/514557/"
 
 - files:
   - slime_fizz_3.ogg
-  license: "CC0-1.0"
+  license: CC0-1.0
   copyright: "Taken from https://freesound.org/. Converted from FLAC to OGG"
   source: "https://freesound.org/people/lmbubec/sounds/118800/"

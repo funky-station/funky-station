@@ -3247,3 +3247,15 @@ Entries:
         are a bit more... postal 
   id: 390
   time: '2025-06-27T00:22:50.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Added a more official docking area for salvage on Box
+    - type: Add
+      message: Added a temporary HFR area until I figure out other ways on Box
+    - type: Tweak
+      message: Moved the economy consoles outside of the heads office on Box
+    - type: Tweak
+      message: Adjusted Engineering to a little bit, adding lights to miners on Box
+  id: 391
+  time: '2025-06-27T00:38:33.0000000+00:00'

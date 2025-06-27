@@ -70,8 +70,6 @@
       collection: VulpkaninGekker
     Yap:
       collection: VulpkaninYap
-    Coo:
-      collection: VoxCoo
 
 - type: emoteSounds
   id: SoundsHarpyMale
@@ -144,8 +142,6 @@
       collection: VulpkaninGekker
     Yap:
       collection: VulpkaninYap
-    Coo:
-      collection: VoxCoo
 
 - type: emoteSounds
   id: FemaleVulpkanin

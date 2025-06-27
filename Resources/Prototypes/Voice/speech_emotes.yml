@@ -208,7 +208,6 @@
   icon: _Impstation/Interface/Emotes/coo.png
   whitelist:
     tags:
-    - HarpyEmotes
     - VoxEmotes
   blacklist:
     components:

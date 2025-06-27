@@ -40,7 +40,9 @@ public sealed partial class CargoSystem
 
         ent.Comp.NextAccountActionTime = Timing.CurTime + ent.Comp.AccountActionDelay;
         Dirty(ent);
-        UpdateBankAccount((station, bank), -args.Amount, CreateAccountDistribution((ent, bank)));
+
+        WithdrawFunds((station, bank), -args.Amount, ent.Comp.Account);
+
         _audio.PlayPvs(ApproveSound, ent);
 
         var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(ent, args.Actor);

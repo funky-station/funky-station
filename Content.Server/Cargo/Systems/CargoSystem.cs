@@ -91,6 +91,15 @@ public sealed partial class CargoSystem : SharedCargoSystem
             dirty: dirty);
     }
 
+        public void WithdrawFunds(
+            Entity<StationBankAccountComponent?> ent,
+            int balanceWithdrawn,
+            ProtoId<CargoAccountPrototype> account,
+            bool dirty = true){
+            UpdateBankAccount( ent, balanceWithdrawn, new Dictionary<ProtoId<CargoAccountPrototype>, double> { {account, 1} }, dirty);
+    }
+
+
     /// <summary>
     /// Adds or removes funds from the <see cref="StationBankAccountComponent"/>.
     /// </summary>

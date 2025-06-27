@@ -10,7 +10,7 @@ public sealed partial class RampingStationEventSchedulerComponent : Component
     ///     Max chaos chosen for a round will deviate from this
     /// </summary>
     [DataField]
-    public float AverageChaos = 12f;
+    public float AverageChaos = 10f; //Funky lower
 
     /// <summary>
     ///     Average time (in minutes) for when the ramping event scheduler should stop increasing the chaos modifier.

@@ -67,7 +67,7 @@ public sealed partial class CargoSystem
         else
         {
             var otherAccount = _protoMan.Index(args.Account.Value);
-            UpdateBankAccount((station, bank), args.Amount, CreateAccountDistribution((args.Actor, bank)));
+            DepositFunds((station, bank), args.Amount, otherAccount);
 
             if (!_emag.CheckFlag(ent, EmagType.Interaction))
             {

@@ -91,12 +91,28 @@ public sealed partial class CargoSystem : SharedCargoSystem
             dirty: dirty);
     }
 
-        public void WithdrawFunds(
-            Entity<StationBankAccountComponent?> ent,
-            int balanceWithdrawn,
-            ProtoId<CargoAccountPrototype> account,
-            bool dirty = true){
-            UpdateBankAccount( ent, balanceWithdrawn, new Dictionary<ProtoId<CargoAccountPrototype>, double> { {account, 1} }, dirty);
+    public void WithdrawFunds(
+        Entity<StationBankAccountComponent?> ent,
+        int balanceWithdrawn,
+        ProtoId<CargoAccountPrototype> account,
+        bool dirty = true){
+        UpdateBankAccount( 
+            ent,
+            balanceWithdrawn,
+            new Dictionary<ProtoId<CargoAccountPrototype>, double> { {account, 1} },
+            dirty);
+    }
+
+    public void DepositFunds(
+        Entity<StationBankAccountComponent?> ent,
+        int depositBalance,
+        ProtoId<CargoAccountPrototype> account,
+        bool dirty = true){
+        UpdateBankAccount( 
+            ent,
+            depositBalance,
+            new Dictionary<ProtoId<CargoAccountPrototype>, double> { {account, 1} },
+            dirty);
     }
 
 

@@ -80,7 +80,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
 
             case "Void":
                 if (TryComp<TemperatureComponent>(target, out var temp))
-                    _temp.ForceChangeTemperature(target, temp.CurrentTemperature - 5f, temp);
+                    _temp.ForceChangeTemperature(target, temp.CurrentTemperature - 50f, temp);
                 break;
 
             default:

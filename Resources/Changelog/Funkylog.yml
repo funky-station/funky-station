@@ -3281,3 +3281,13 @@ Entries:
       message: Box burn chambers fixed
   id: 394
   time: '2025-06-27T07:03:36.0000000+00:00'
+- author: Currot
+  changes:
+    - type: Fix
+      message: Cash withdrawals no longer steal from other departments.
+    - type: Fix
+      message: >-
+        Inter-department money transfers are no longer spread through all
+        departments.
+  id: 395
+  time: '2025-06-27T08:04:10.0000000+00:00'

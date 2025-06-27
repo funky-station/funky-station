@@ -3238,3 +3238,12 @@ Entries:
       message: The Metashield, Naming Rules, and Escalation Rules have been tweaked.
   id: 389
   time: '2025-06-26T21:25:01.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Added rollerskates to the cargo maildrobes contraband inventory, and
+        added some items to the emaged inventory for those mail carriers that
+        are a bit more... postal 
+  id: 390
+  time: '2025-06-27T00:22:50.0000000+00:00'

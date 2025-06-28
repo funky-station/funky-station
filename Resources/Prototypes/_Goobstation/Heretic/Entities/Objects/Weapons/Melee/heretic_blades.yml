@@ -125,4 +125,4 @@
   - type: Prying
     speedModifier: 1.5
   soundHit:
-      path: /Audio/Weapons/bladeslice.ogg
+    path: /Audio/Weapons/bladeslice.ogg

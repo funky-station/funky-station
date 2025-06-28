@@ -124,5 +124,5 @@
   - type: ToolTileCompatible
   - type: Prying
     speedModifier: 1.5
-    soundHit:
+  soundHit:
       path: /Audio/Weapons/bladeslice.ogg

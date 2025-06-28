@@ -10,6 +10,7 @@ using Content.Shared.Security;
 using Content.Shared.StationRecords;
 using Content.Server._Funkystation.Payouts.Components;
 using Content.Server.GameTicking;
+using Content.Shared._Funkystation.Payouts;
 using Content.Shared.Cargo.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Roles;
@@ -25,13 +26,6 @@ public sealed class StationRegularPayoutSystem : GameRuleSystem<StationRegularPa
     [Dependency] private readonly PayoutSystem _payoutSystem = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-        // now you have a subscription
-        SubscribeLocalEvent<AfterGeneralRecordCreatedEvent>(OnAfterGeneralRecordCreatedEvent);
-    }
-
     protected override void Added(EntityUid uid, StationRegularPayoutComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         base.Added(uid, component, gameRule, args);
@@ -40,24 +34,6 @@ public sealed class StationRegularPayoutSystem : GameRuleSystem<StationRegularPa
             return;
 
         payoutComponent.NextPayout = TimeSpan.FromMinutes(payoutComponent.RegularPayoutInterval);
-    }
-
-    private void OnAfterGeneralRecordCreatedEvent(AfterGeneralRecordCreatedEvent args)
-    {
-        var recordId = _stationRecords.GetRecordByName(args.Station, args.Profile.Name);
-
-        if (recordId == null)
-            return;
-
-        var key = new StationRecordKey((uint) recordId, args.Station);
-
-        _stationRecords.AddRecordEntry(args.Key, new PaymentRecord());
-        _stationRecords.Synchronize(args.Key);
-
-        if (!_stationRecords.TryGetRecord(key, out PaymentRecord? record))
-            return;
-
-        record.PayoutAmount = _payoutSystem.InitialPayoutInfo[(ProtoId<JobPrototype>) args.Record.JobPrototype];
     }
 
     protected override void Started(EntityUid uid, StationRegularPayoutComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -151,40 +127,6 @@ public sealed class StationRegularPayoutSystem : GameRuleSystem<StationRegularPa
 
     private void PayoutStation(EntityUid stationUid, StationBankAccountComponent stationBankAccount, bool announceToStation = true)
     {
-        var paymentRecords = _stationRecords.GetRecordsOfType<PaymentRecord>(stationUid);
-
-        foreach (var paymentRecord in paymentRecords)
-        {
-            var history = new PayoutReceipt();
-
-            history.Paid = true;
-
-            if (paymentRecord.Item2.PaySuspended
-                || stationBankAccount.ScripBalance < paymentRecord.Item2.PayoutAmount)
-            {
-                history.Paid = false;
-            }
-
-            history.PayoutTime = _gameTiming.CurTime;
-            history.Amount = paymentRecord.Item2.PayoutAmount;
-
-            paymentRecord.Item2.History.Add(history);
-
-            if (!history.Paid)
-                continue;
-
-            var key = new StationRecordKey(paymentRecord.Item1, stationUid);
-            _stationRecords.TryGetRecord(key, out GeneralStationRecord? record);
-
-            if (record is null)
-                continue;
-
-            _payoutSystem.PayOutToBalance(record, paymentRecord.Item2.PayoutAmount, stationBankAccount);
-        }
-
-        Log.Info("Station paid out through PayoutStation");
-
-        if (announceToStation)
-            _chatSystem.DispatchStationAnnouncement(stationUid, Loc.GetString("scrip-scheduled-payout"));
+        _payoutSystem.PayoutStation(stationUid, stationBankAccount, announceToStation);
     }
 }

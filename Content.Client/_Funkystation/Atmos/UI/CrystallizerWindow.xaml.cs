@@ -8,6 +8,7 @@ using Content.Shared.Atmos;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using System.Numerics;
+using System.Linq;
 
 namespace Content.Client._Funkystation.Atmos.UI
 {
@@ -34,7 +35,7 @@ namespace Content.Client._Funkystation.Atmos.UI
             IoCManager.InjectDependencies(this);
             InitializeRecipeButtons();
 
-            GasInput.OnValueChanged += args => OnGasInputChanged?.Invoke(args.Value);
+            GasInput.OnValueChanged += args => OnGasInputChanged?.Invoke(Math.Clamp(args.Value, 0f, 250f));
         }
 
         public void SetActive(bool active)
@@ -142,6 +143,20 @@ namespace Content.Client._Funkystation.Atmos.UI
             RecipesContainer.Children.Clear();
             _buttonToRecipeId.Clear();
 
+            var orderedRecipeIds = new List<string>
+            {
+                "ammoniaCrystalRecipe",
+                "metalHydrogenRecipe",
+                "healiumCrystalRecipe",
+                "protoNitrateCrystalRecipe",
+                "supermatterSliverRecipe",
+                "nitrousOxideCrystalRecipe",
+                "diamondRecipe",
+                "plasmaSheetRecipe",
+                "crystalCellRecipe",
+                "zaukeriteRecipe"
+            };
+
             _nothingButton.Text = "Nothing";
             _nothingButton.HorizontalExpand = true;
             _nothingButton.Pressed = true;
@@ -156,21 +171,50 @@ namespace Content.Client._Funkystation.Atmos.UI
             _buttonToRecipeId[_nothingButton] = null;
             RecipesContainer.AddChild(_nothingButton);
 
-            foreach (var recipe in _prototypeManager.EnumeratePrototypes<CrystallizerRecipePrototype>())
-            {
-                var button = new Button
-                {
-                    Text = recipe.Name,
-                    HorizontalExpand = true
-                };
+            var allRecipes = _prototypeManager.EnumeratePrototypes<CrystallizerRecipePrototype>().ToList();
+            var processedRecipeIds = new HashSet<string>();
 
-                button.OnPressed += _ =>
+            foreach (var recipeId in orderedRecipeIds)
+            {
+                var recipe = allRecipes.FirstOrDefault(r => r.ID == recipeId);
+                if (recipe != null)
                 {
-                    SelectRecipeButton(button, recipe);
-                    OnRecipeButtonPressed?.Invoke(button, recipe.ID);
-                };
-                _buttonToRecipeId[button] = recipe.ID;
-                RecipesContainer.AddChild(button);
+                    var button = new Button
+                    {
+                        Text = recipe.Name,
+                        HorizontalExpand = true
+                    };
+
+                    button.OnPressed += _ =>
+                    {
+                        SelectRecipeButton(button, recipe);
+                        OnRecipeButtonPressed?.Invoke(button, recipe.ID);
+                    };
+                    _buttonToRecipeId[button] = recipe.ID;
+                    RecipesContainer.AddChild(button);
+                    processedRecipeIds.Add(recipe.ID);
+                }
+            }
+
+            foreach (var recipe in allRecipes)
+            {
+                if (!processedRecipeIds.Contains(recipe.ID))
+                {
+                    var button = new Button
+                    {
+                        Text = recipe.Name,
+                        HorizontalExpand = true
+                    };
+
+                    button.OnPressed += _ =>
+                    {
+                        SelectRecipeButton(button, recipe);
+                        OnRecipeButtonPressed?.Invoke(button, recipe.ID);
+                    };
+                    _buttonToRecipeId[button] = recipe.ID;
+                    RecipesContainer.AddChild(button);
+                    processedRecipeIds.Add(recipe.ID);
+                }
             }
         }
 
@@ -277,7 +321,7 @@ namespace Content.Client._Funkystation.Atmos.UI
                             HorizontalExpand = true
                         };
 
-                        var backgroundColor = (index % 2 == 0) ? Color.FromHex("#1B1B1E") : Color.FromHex("#2F2F38");
+                        var backgroundColor = (index % 2 == 0) ? Color.FromHex("#222222") : Color.FromHex("#2F2F38");
                         panel.PanelOverride = new StyleBoxFlat { BackgroundColor = backgroundColor };
 
                         GasList.AddChild(panel);

@@ -1,0 +1,160 @@
+- type: constructionGraph
+  id: jamjarGlassesSec
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: secjarGlasses
+          steps:
+            - tag: JamjarBase
+              name: jamjar glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/jamjar.rsi
+                state: icon
+              doAfter: 5
+            - component: ShowMindShieldIcons
+              name: eyewear with security hud
+              icon:
+                sprite: Clothing/Eyes/Glasses/secglasses.rsi
+                state: icon
+              doAfter: 5
+    - node: secjarGlasses
+      entity: ClothingEyesGlassesSecjar
+
+- type: constructionGraph
+  id: jamjarGlassesMed
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: medjarGlasses
+          steps:
+            - tag: JamjarBase
+              name: jamjar glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/jamjar.rsi
+                state: icon
+              doAfter: 5
+            - tag: HudMedical
+              name: eyewear with medical hud
+              icon:
+                sprite: Clothing/Eyes/Hud/med.rsi
+                state: icon
+              doAfter: 5
+    - node: medjarGlasses
+      entity: ClothingEyesGlassesMedjar
+
+- type: constructionGraph
+  id: jamjarGlassesChem
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: chemjarGlasses
+          steps:
+            - tag: JamjarBase
+              name: jamjar glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/jamjar.rsi
+                state: icon
+              doAfter: 5
+            - tag: ChemVision
+              name: eyewear with chemical hud
+              icon:
+                sprite: Clothing/Eyes/Glasses/science.rsi
+                state: icon
+              doAfter: 5
+    - node: chemjarGlasses
+      entity: ClothingEyesGlassesChemjar
+
+- type: constructionGraph
+  id: jamjarGlassesRobo
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: robojarGlasses
+          steps:
+            - tag: JamjarBase
+              name: jamjar glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/jamjar.rsi
+                state: icon
+              doAfter: 5
+            - tag: RoboVision
+              name: eyewear with diagnostics hud
+              icon:
+                sprite: Clothing/Eyes/Hud/diag.rsi
+                state: icon
+              doAfter: 5
+    - node: robojarGlasses
+      entity: ClothingEyesGlassesRobojar
+
+- type: constructionGraph
+  id: jamjarGlassesEngi
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: engijarGlasses
+          steps:
+            - tag: JamjarBase
+              name: jamjar glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/jamjar.rsi
+                state: icon
+              doAfter: 5
+            - tag: EngiVision
+              name: engineering goggles
+              icon:
+                sprite: Clothing/Eyes/Glasses/meson.rsi
+                state: icon
+              doAfter: 5
+    - node: engijarGlasses
+      entity: ClothingEyesGlassesJamgog
+  
+- type: constructionGraph
+  id: glassesSungar
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: sungarGlasses
+          steps:
+            - tag: GarBase
+              name: gar glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/gar.rsi
+                state: icon
+              doAfter: 5
+            - tag: Sunglasses
+              name: sunglasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+                state: icon
+              doAfter: 5
+    - node: sungarGlasses
+      entity: ClothingEyesGlassesSungar
+
+- type: constructionGraph
+  id: glassesCSungar
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: sungarCGlasses
+          steps:
+            - tag: GarBase
+              name: gar glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/gar.rsi
+                state: icon
+              doAfter: 5
+            - tag: CheapSunglasses
+              name: cheap sunglasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+                state: icon
+              doAfter: 5
+    - node: sungarCGlasses
+      entity: ClothingEyesGlassesCSungar

@@ -58,13 +58,8 @@
       - id: BookTruth
       - id: BookWatched
       - id: BookWorld
-    # Impstation begin
-    - !type:GroupSelector
-      rolls: !type:RangeNumberSelector
-        range: 0, 2
-      children:
-      - id: BookCosmicCult
-    # Impstation end
+      - id: BookCosmicCult # imp
+    # if you add more books please consider organizing them into a new group selector
 
 - type: entity
   id: BookshelfFilled

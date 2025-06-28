@@ -54,7 +54,7 @@ async function main() {
 
     // Construct changelog yml entry
     const entry = {
-        author: author,
+        author: author.trim(),
         changes: entries,
         id: getHighestCLNumber() + 1,
         time: time,

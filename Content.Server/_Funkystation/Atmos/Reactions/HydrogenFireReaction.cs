@@ -19,45 +19,34 @@ public sealed partial class HydrogenFireReaction : IGasReactionEffect
         if (mixture.Temperature > 20f && mixture.GetMoles(Gas.HyperNoblium) >= 5f)
             return ReactionResult.NoReaction;
 
-        var energyReleased = 0f;
         var oldHeatCapacity = atmosphereSystem.GetHeatCapacity(mixture, true);
         var temperature = mixture.Temperature;
+        var initHydrogen = mixture.GetMoles(Gas.Hydrogen);
+        var initOxygen = mixture.GetMoles(Gas.Oxygen);
+        var burnRateDelta = Atmospherics.HydrogenBurnRateDelta;
+        var hydrogenOxygenFullBurn = Atmospherics.PlasmaOxygenFullburn;
+        var burnedFuel = Math.Min(
+            initHydrogen / burnRateDelta, Math.Min(
+            initOxygen / (burnRateDelta * hydrogenOxygenFullBurn), Math.Min(
+            initHydrogen,
+            initOxygen * 2f))
+        );
+
         mixture.ReactionResults[(byte) GasReaction.Fire] = 0f;
-        var burnedFuel = 0f;
-        var initialH2 = mixture.GetMoles(Gas.Hydrogen);
 
-        if (mixture.GetMoles(Gas.Oxygen) < initialH2 ||
-            Atmospherics.MinimumHydrogenOxyburnEnergy > (temperature * oldHeatCapacity * heatScale))
-        {
-            burnedFuel = mixture.GetMoles(Gas.Oxygen) / Atmospherics.HydrogenBurnOxyFactor;
-            if (burnedFuel > initialH2)
-                burnedFuel = initialH2;
+        if (burnedFuel <= 0 || initHydrogen - burnedFuel < 0 || initOxygen - (burnedFuel * 0.5f) < 0)
+            return ReactionResult.NoReaction;
 
-            mixture.AdjustMoles(Gas.Hydrogen, -burnedFuel);
-        }
-        else
-        {
-            burnedFuel = initialH2;
-            mixture.SetMoles(Gas.Hydrogen, mixture.GetMoles(Gas.Hydrogen) * (1 - 1 / Atmospherics.HydrogenBurnH2Factor));
-            mixture.AdjustMoles(Gas.Oxygen, -mixture.GetMoles(Gas.Hydrogen));
-            energyReleased += (Atmospherics.FireHydrogenEnergyReleased * burnedFuel * (Atmospherics.HydrogenBurnH2Factor - 1));
-        }
+        mixture.AdjustMoles(Gas.Hydrogen, -burnedFuel);
+        mixture.AdjustMoles(Gas.Oxygen, -(burnedFuel * 0.5f));
+        mixture.AdjustMoles(Gas.WaterVapor, burnedFuel);
 
-        if (burnedFuel > 0)
-        {
-            energyReleased += (Atmospherics.FireHydrogenEnergyReleased * burnedFuel);
+        var energyReleased = burnedFuel * Atmospherics.FireHydrogenEnergyReleased;
+        var newHeatCapacity = atmosphereSystem.GetHeatCapacity(mixture, true);
 
-            mixture.AdjustMoles(Gas.WaterVapor, burnedFuel * 0.5f);
-
-            mixture.ReactionResults[(byte) GasReaction.Fire] += burnedFuel;
-        }
-
-        energyReleased /= heatScale; // adjust energy to make sure speedup doesn't cause mega temperature rise
         if (energyReleased > 0)
         {
-            var newHeatCapacity = atmosphereSystem.GetHeatCapacity(mixture, true);
-            if (newHeatCapacity > Atmospherics.MinimumHeatCapacity)
-                mixture.Temperature = ((temperature * oldHeatCapacity + energyReleased) / newHeatCapacity);
+            mixture.Temperature = Math.Max((mixture.Temperature * oldHeatCapacity + energyReleased) / newHeatCapacity, Atmospherics.TCMB);
         }
 
         if (holder is TileAtmosphere location)

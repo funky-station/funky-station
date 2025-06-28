@@ -1,4 +1,5 @@
 using Content.Server._EinsteinEngines.Silicon.WeldingHealing;
+using Content.Server.Body.Systems;
 using Content.Shared.Tools.Components;
 using Content.Shared._EinsteinEngines.Silicon.WeldingHealing;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -6,7 +7,6 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared.Tools;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Systems;
 using SharedToolSystem = Content.Shared.Tools.Systems.SharedToolSystem;
@@ -19,6 +19,8 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodstream = default!; // DeltaV
+
     [Dependency] private readonly SharedBodySystem _bodySystem = default!;
     public override void Initialize()
     {
@@ -42,6 +44,13 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
         _damageableSystem.TryChangeDamage(uid, component.Damage, true, false, origin: args.User);
 
         _solutionContainer.RemoveReagent(solution.Value, welder.FuelReagent, component.FuelCost);
+
+        // Begin DeltaV Additions - stop bleeding on weld
+        if (component.bleedingModifier != 0)
+        {
+            _bloodstream.TryModifyBleedAmount(uid, component.bleedingModifier);
+        }
+        // End DeltaV Additions
 
         var str = Loc.GetString("comp-repairable-repair",
             ("target", uid),

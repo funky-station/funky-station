@@ -1084,11 +1084,7 @@
       - !type:SatiateThirst
         factor: 3
     Medicine:
-      effects: # imp edit
-      - !type:CleanseCult
-        conditions:
-        - !type:ReagentThreshold
-          min: 10
+      effects:
       - !type:DeCultify  # funky: TODO, make DeCultify work for both Cosmic and Blood Cult
         amount: 2.5
       - !type:HealthChange

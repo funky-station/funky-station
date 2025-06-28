@@ -82,6 +82,8 @@
   - type: IconSmooth
     key: bricks
     base: brick
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
@@ -114,6 +116,8 @@
   - type: IconSmooth
     key: walls
     base: clock
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
@@ -150,6 +154,8 @@
   - type: IconSmooth
     key: walls
     base: clown
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
@@ -277,6 +283,8 @@
   - type: IconSmooth
     key: walls
     base: diamond
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
@@ -322,6 +330,8 @@
   - type: IconSmooth
     key: walls
     base: gold
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
@@ -351,6 +361,8 @@
   - type: IconSmooth
     key: walls
     base: ice
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
@@ -398,6 +410,8 @@
     base: plasma
   - type: RadiationBlocker
     resistance: 5
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
@@ -443,6 +457,8 @@
   - type: IconSmooth
     key: walls
     base: plastic
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
@@ -635,6 +651,8 @@
     price: 250
   - type: RadiationBlocker
     resistance: 5
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: WallReinforced
@@ -674,7 +692,8 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
-
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: WallShuttleDiagonal
@@ -813,6 +832,8 @@
   - type: IconSmooth
     key: walls
     base: silver
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 #shuttle walls
 - type: entity
@@ -955,6 +976,8 @@
           5: { state: shuttle_construct-5, visible: true}
   - type: Reflect
     reflectProb: 1
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
@@ -1000,6 +1023,8 @@
     base: state
   - type: Reflect
     reflectProb: 1
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
@@ -1046,6 +1071,8 @@
   - type: IconSmooth
     key: walls
     base: solid
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: WallShuttleDiagonal
@@ -1107,6 +1134,8 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
@@ -1147,6 +1176,8 @@
     base: uranium
   - type: RadiationBlocker
     resistance: 6
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
@@ -1186,6 +1217,8 @@
   - type: IconSmooth
     key: woods
     base: wood
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
@@ -1257,6 +1290,8 @@
   - type: IconSmooth
     key: walls
     base: necropolis
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
@@ -1286,6 +1321,8 @@
     - mining
     - miningB
   - type: Appearance
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: WallShuttleDiagonal
@@ -1332,6 +1369,8 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: WallVaultAlien
@@ -1439,6 +1478,8 @@
   - type: IconSmooth
     key: cobblebricks
     base: cobblebrick
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
 
 - type: entity
   parent: WallCobblebrick

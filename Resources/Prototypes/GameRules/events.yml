@@ -38,7 +38,7 @@
     - id: ParadoxCloneSpawn
     - id: RevenantSpawn
     - id: SleeperAgents
-    - id: ZombieOutbreak
+#    - id: ZombieOutbreak - funky
     - id: LoneOpsSpawn
     - id: BlobSpawn #Goobstation - Blob
     - id: FalseAlarm

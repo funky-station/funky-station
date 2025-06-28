@@ -69,7 +69,7 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
     {
         var mod = GetChaosModifier(uid, component);
 
-        // 4-12 minutes baseline. Will get faster over time as the chaos mod increases.
-        component.TimeUntilNextEvent = _random.NextFloat(240f / mod, 720f / mod);
+        // 7-20 minutes baseline, similar to the base stationeventscheduler. Will get faster over time as the chaos mod increases. Funky increase
+        component.TimeUntilNextEvent = _random.NextFloat(420f / mod, 1200f / mod);
     }
 }

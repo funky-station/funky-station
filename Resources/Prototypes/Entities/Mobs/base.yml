@@ -148,7 +148,7 @@
     currentTemperature: 310.15
     coldDamage: #per second, scales with temperature & other constants
       types:
-        Cold : 0.1
+        Cold : 0.5
     specificHeat: 42
     heatDamage: #per second, scales with temperature & other constants
       types:

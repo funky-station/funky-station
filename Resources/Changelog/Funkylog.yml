@@ -3232,3 +3232,76 @@ Entries:
       message: IPCs are no longer bald
   id: 388
   time: '2025-06-26T05:46:10.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Tweak
+      message: The Metashield, Naming Rules, and Escalation Rules have been tweaked.
+  id: 389
+  time: '2025-06-26T21:25:01.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Added rollerskates to the cargo maildrobes contraband inventory, and
+        added some items to the emaged inventory for those mail carriers that
+        are a bit more... postal 
+  id: 390
+  time: '2025-06-27T00:22:50.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Added a more official docking area for salvage on Box
+    - type: Add
+      message: Added a temporary HFR area until I figure out other ways on Box
+    - type: Tweak
+      message: Moved the economy consoles outside of the heads office on Box
+    - type: Tweak
+      message: Adjusted Engineering to a little bit, adding lights to miners on Box
+  id: 391
+  time: '2025-06-27T00:38:33.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Remove
+      message: Zombies are no longer in the roundstart or midround antagonist pool.
+    - type: Tweak
+      message: Romerol is now a VERY RARE maintenance pill.
+    - type: Tweak
+      message: Zombie-infected humanoids no longer take poison damage.
+  id: 392
+  time: '2025-06-27T01:24:35.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Add
+      message: Added text highlighting
+  id: 393
+  time: '2025-06-27T06:36:41.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Tweak
+      message: Box burn chambers fixed
+  id: 394
+  time: '2025-06-27T07:03:36.0000000+00:00'
+- author: Currot
+  changes:
+    - type: Fix
+      message: Cash withdrawals no longer steal from other departments.
+    - type: Fix
+      message: >-
+        Inter-department money transfers are no longer spread through all
+        departments.
+  id: 395
+  time: '2025-06-27T08:04:10.0000000+00:00'
+- author: Tyranex
+  changes:
+    - type: Add
+      message: Added a scream for cyborgs!
+    - type: Fix
+      message: Fixed Syndicate Cyborg not being able to laugh.
+  id: 396
+  time: '2025-06-27T17:57:25.0000000+00:00'
+- author: amethystowo
+  changes:
+    - type: Tweak
+      message: Cold damage is now increased by about 5x. Make sure to bundle up!
+  id: 397
+  time: '2025-06-28T02:01:07.0000000+00:00'

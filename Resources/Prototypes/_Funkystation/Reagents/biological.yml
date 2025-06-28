@@ -3,7 +3,7 @@
   name: reagent-name-machine-oil
   group: Biological
   desc: reagent-desc-machine-oil
-  flavor: flavor-base-terrible
+  flavor: terrible
   color: "#010101"
   recognizable: true
   physicalDesc: reagent-physical-desc-burnt

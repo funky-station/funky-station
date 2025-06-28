@@ -84,7 +84,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
             case "Void":
                 if (TryComp<TemperatureComponent>(target, out var temp))
-                    _temperature.ForceChangeTemperature(target, temp.CurrentTemperature - 20f, temp);
+                    _temperature.ForceChangeTemperature(target, temp.CurrentTemperature - 200f, temp);
                 _statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(8), false);
                 break;
 
@@ -126,7 +126,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         if (HasComp<StatusEffectsComponent>(target))
         {
             _chat.TrySendInGameICMessage(args.User, Loc.GetString("heretic-speech-mansusgrasp"), InGameICChatType.Speak, false);
-            _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/welder.ogg"), target);
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Funkystation/Effects/Heretic/mansusgrasp.ogg"), target);
             _stun.TryKnockdown(target, TimeSpan.FromSeconds(3f), true);
             _stamina.TakeStaminaDamage(target, 65f);
             _language.DoRatvarian(target, TimeSpan.FromSeconds(10f), true);

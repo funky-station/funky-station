@@ -3317,3 +3317,9 @@ Entries:
         before, but not as well as it could before the cold damage increase.
   id: 398
   time: '2025-06-28T21:21:04.0000000+00:00'
+- author: KiraZen-Underscore
+  changes:
+    - type: Fix
+      message: IPC's now have a different chemical for their blood, Machine oil.
+  id: 399
+  time: '2025-06-28T21:48:05.0000000+00:00'

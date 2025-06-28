@@ -112,18 +112,13 @@
   - type: MeleeWeapon
     wideAnimationRotation: -125
     attackRate: 1
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
     damage:
       types:
         Cold: 15
         Slash: 10.5
         Structural: 60
-  - type: Tool
-    qualities:
-      - Prying
-      - Axing
-  - type: ToolTileCompatible
-  - type: Prying
-    speedModifier: 1.5
     soundHit:
     path: /Audio/Weapons/bladeslice.ogg
   - type: Tool
@@ -133,4 +128,3 @@
   - type: ToolTileCompatible
   - type: Prying
     speedModifier: 1.5
-

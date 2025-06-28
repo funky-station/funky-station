@@ -74,11 +74,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         foreach (var pookie in GetNearbyPeople(ent, 2f))
         {
-            _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2.5f), true);
-        }
+            _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2f), true);
 
-        foreach (var pookie in GetNearbyPeople(ent, 2f))
-        {
             if (TryComp<TemperatureComponent>(pookie, out var temp))
                 _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 50f, temp);
 
@@ -96,10 +93,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Funkystation/Effects/Heretic/voidblink.ogg"), ent);
 
         foreach (var pookie in GetNearbyPeople(ent, 2f))
+        {
             _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2f), true);
 
-        foreach (var pookie in GetNearbyPeople(ent, 2f))
-        {
             if (TryComp<TemperatureComponent>(pookie, out var temp))
                 _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 60f, temp);
 
@@ -148,6 +144,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                 var appliedDamageSpecifier =
                     new DamageSpecifier(_prot.Index<DamageTypePrototype>("Cold"), FixedPoint2.New(12.5f));
                 _damage.TryChangeDamage(pookie, appliedDamageSpecifier, true, origin: ent);
+
+                _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2.5f), true);
             }
         }
 
@@ -159,19 +157,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                 var appliedDamageSpecifier =
                     new DamageSpecifier(_prot.Index<DamageTypePrototype>("Cold"), FixedPoint2.New(5f));
                 _damage.TryChangeDamage(pookie, appliedDamageSpecifier, true, origin: ent);
+
+                _throw.TryThrow(pookie, Transform(ent).Coordinates);
             }
-        }
-
-        // stun close-mid range
-        foreach (var pookie in midPriority)
-        {
-            _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2.5f), true);
-        }
-
-        // pull in farthest ones
-        foreach (var pookie in farPriority)
-        {
-            _throw.TryThrow(pookie, Transform(ent).Coordinates);
         }
 
         args.Handled = true;

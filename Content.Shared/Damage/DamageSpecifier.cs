@@ -78,12 +78,10 @@ namespace Content.Shared.Damage
         public bool Empty => DamageDict.Count == 0;
 
         #region constructors
-
         /// <summary>
         ///     Constructor that just results in an empty dictionary.
         /// </summary>
-        /// <param name="index"></param>
-        public DamageSpecifier(DamageTypePrototype index) { }
+        public DamageSpecifier() { }
 
         /// <summary>
         ///     Constructor that takes another DamageSpecifier instance and copies it.

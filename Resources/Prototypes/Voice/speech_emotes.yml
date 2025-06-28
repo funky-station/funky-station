@@ -7,9 +7,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-scream"]
   chatTriggers:
     - scream
@@ -37,9 +34,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-laugh"]
   chatTriggers:
     - laugh
@@ -83,9 +77,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-sigh"]
   chatTriggers:
     - sigh
@@ -100,9 +91,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-whistle"]
   chatTriggers:
     - whistle
@@ -117,9 +105,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-crying"]
   chatTriggers:
     - cry
@@ -138,9 +123,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-squish"]
   chatTriggers:
     - squish
@@ -231,9 +213,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-chitter"]
   chatTriggers:
    - chitter
@@ -249,9 +228,6 @@
   whitelist:
     components:
       - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-squeak"]
   chatTriggers:
    - squeak
@@ -267,9 +243,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-click"]
   chatTriggers:
    - click
@@ -301,9 +274,6 @@
   whitelist:
     components:
     - Hands
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-clap"]
   chatTriggers:
     - claps
@@ -318,9 +288,6 @@
   whitelist:
     components:
     - Hands
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: [ "chat-emote-msg-clap-single" ]
   chatTriggers:
     - clap
@@ -337,9 +304,6 @@
   whitelist:
     components:
     - Hands
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-snap"]
   chatTriggers:
     - snap
@@ -364,9 +328,6 @@
   whitelist:
     components:
     - Hands
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-thump"]
   chatTriggers:
     - thump
@@ -388,9 +349,6 @@
   whitelist:
     components:
     - Hands
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-salute"]
   chatTriggers:
     - salute

@@ -469,6 +469,8 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Scream:
+      collection: CyborgScream
 
 - type: emoteSounds
   id: UnisexSiliconSyndicate
@@ -489,6 +491,8 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Scream:
+      collection: CyborgScream # TODO: May be good to create a separate collection and assets for Syndicate
 
 # body emotes
 - type: emoteSounds

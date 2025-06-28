@@ -3269,3 +3269,39 @@ Entries:
       message: Zombie-infected humanoids no longer take poison damage.
   id: 392
   time: '2025-06-27T01:24:35.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Add
+      message: Added text highlighting
+  id: 393
+  time: '2025-06-27T06:36:41.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Tweak
+      message: Box burn chambers fixed
+  id: 394
+  time: '2025-06-27T07:03:36.0000000+00:00'
+- author: Currot
+  changes:
+    - type: Fix
+      message: Cash withdrawals no longer steal from other departments.
+    - type: Fix
+      message: >-
+        Inter-department money transfers are no longer spread through all
+        departments.
+  id: 395
+  time: '2025-06-27T08:04:10.0000000+00:00'
+- author: Tyranex
+  changes:
+    - type: Add
+      message: Added a scream for cyborgs!
+    - type: Fix
+      message: Fixed Syndicate Cyborg not being able to laugh.
+  id: 396
+  time: '2025-06-27T17:57:25.0000000+00:00'
+- author: amethystowo
+  changes:
+    - type: Tweak
+      message: Cold damage is now increased by about 5x. Make sure to bundle up!
+  id: 397
+  time: '2025-06-28T02:01:07.0000000+00:00'

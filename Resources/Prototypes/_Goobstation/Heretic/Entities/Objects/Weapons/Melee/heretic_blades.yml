@@ -117,6 +117,8 @@
         Cold: 15
         Slash: 10.5
         Structural: 60
+    soundHit:
+    path: /Audio/Weapons/bladeslice.ogg
   - type: Tool
     qualities:
       - Prying
@@ -124,5 +126,4 @@
   - type: ToolTileCompatible
   - type: Prying
     speedModifier: 1.5
-  soundHit:
-    path: /Audio/Weapons/bladeslice.ogg
+

@@ -112,7 +112,7 @@
         variation: 0.2
   - type: ProjectileBatteryAmmoProvider
     proto: TeslaGunBullet
-    fireCost: 99
+    fireCost: 110
   - type: Appearance
   - type: AmmoCounter
 
@@ -173,7 +173,7 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_scatter
   - type: Gun
-    fireRate: 0.5
+    fireRate: 1.2
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
@@ -181,7 +181,7 @@
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: ShellShotgun
-    fireCost: 99
+    fireCost: 70
   - type: Appearance
   - type: AmmoCounter
 
@@ -219,7 +219,7 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_uac2
   - type: Gun
-    fireRate: 3
+    fireRate: 4
     selectedMode: FullAuto
     availableModes:
       - FullAuto
@@ -227,7 +227,7 @@
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: CartridgeLightRifle
-    fireCost: 15
+    fireCost: 25
   - type: Appearance
   - type: AmmoCounter
 
@@ -242,7 +242,7 @@
     sprite: Objects/Specific/Mech/mecha_equipment.rsi
     state: mecha_missilerack
   - type: Gun
-    fireRate: 1
+    fireRate: 1.2
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
@@ -250,7 +250,7 @@
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletWeakRocket
-    fireCost: 25
+    fireCost: 30
   - type: Appearance
   - type: AmmoCounter
 
@@ -273,7 +273,7 @@
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: GrenadeBlast
-    fireCost: 100
+    fireCost: 120
   - type: Appearance
   - type: AmmoCounter
 

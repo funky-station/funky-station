@@ -66,16 +66,29 @@ public abstract partial record CargoBountyItemEntry
     public int MaxAmount { get; set; } = 1;
 
     /// <summary>
+    /// The step size for the bounties amount, i.e. min:1 max:3 step:2 means only amounts 1 and 3 will be generated.
+    /// </summary>
+    [DataField]
+    public int AmountStep { get; set; } = 1;
+
+    /// <summary>
     /// The amount each item will reward for a bounty
     /// </summary>
     [DataField]
     public int RewardPer { get; set; } = 1;
 
     /// <summary>
-    /// A player-facing name for the item.
+    /// A player-facing name for the item. Assigned here but declared in the cargo bounties.ftl file.
     /// </summary>
     [DataField]
     public LocId Name { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Some weight that can be used to effect the chances an item is selected, default is 1, smaller number means less
+    /// likely, higher more likely.
+    /// </summary>
+    [DataField]
+    public double Weight { get; set; } = 1;
 }
 
 [DataDefinition, Serializable, NetSerializable]

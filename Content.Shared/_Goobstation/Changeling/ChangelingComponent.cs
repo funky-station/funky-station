@@ -46,6 +46,8 @@ public sealed partial class ChangelingComponent : Component
 
     #endregion
 
+    public EntProtoId ShieldPrototype = "ChangelingShield";
+
     public bool IsInStasis = false;
 
     public bool StrainedMusclesActive = false;
@@ -133,7 +135,7 @@ public sealed partial class ChangelingComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly)]
     public TransformData? SelectedForm;
-    
+
     /// <summary>
     /// If the changeling used their DNA sting for the first time. Only set when used first time.
     /// By default false.

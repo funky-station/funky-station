@@ -33,7 +33,7 @@
     specificHeat: 46
     coldDamage:
       types:
-        Cold: 0.1 #per second, scales with temperature & other constants
+        Cold: 0.5 #per second, scales with temperature & other constants
   # Funkystation - same as lizard for now, could probably work on a rebalance
   - type: TemperatureSpeed
     thresholds:

@@ -7,6 +7,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
+using Content.Client._Funkystation.Access.UI;
 using static Content.Shared.Access.Components.IdCardConsoleComponent;
 
 namespace Content.Client.Access.UI
@@ -26,6 +27,8 @@ namespace Content.Client.Access.UI
         private string? _lastFullName;
         private string? _lastJobTitle;
         private string? _lastJobProto;
+
+        private IdCardConsoleIconSelectorWindow _iconWindow;
 
         // The job that will be picked if the ID doesn't have a job on the station.
         private static ProtoId<JobPrototype> _defaultJob = "Passenger";
@@ -66,6 +69,13 @@ namespace Content.Client.Access.UI
                 _jobPrototypeIds.Add(job.ID);
                 JobPresetOptionButton.AddItem(Loc.GetString(job.Name), _jobPrototypeIds.Count - 1);
             }
+
+            // begin Funkystation
+            _iconWindow = new IdCardConsoleIconSelectorWindow();
+            _iconWindow.SetAllowedIcons();
+            _iconWindow.OnJobIconChanged += _ => SubmitData();
+            JobIconChangeButton.OnPressed += _ => _iconWindow.OpenCentered();
+            // end Funkystation
 
             JobPresetOptionButton.OnItemSelected += SelectJobPreset;
             _accessButtons.Populate(accessLevels, prototypeManager);
@@ -187,6 +197,12 @@ namespace Content.Client.Access.UI
             _lastFullName = state.TargetIdFullName;
             _lastJobTitle = state.TargetIdJobTitle;
             _lastJobProto = state.TargetIdJobPrototype;
+
+            // begin Funkystation
+            if (state.TargetIdJobIcon != null)
+            {
+                _iconWindow.JobIcon = state.TargetIdJobIcon;
+            }
         }
 
         private void SubmitData()
@@ -198,6 +214,7 @@ namespace Content.Client.Access.UI
             _owner.SubmitData(
                 FullNameLineEdit.Text,
                 JobTitleLineEdit.Text,
+                _iconWindow.JobIcon,
                 // Iterate over the buttons dictionary, filter by `Pressed`, only get key from the key/value pair
                 _accessButtons.ButtonsList.Where(x => x.Value.Pressed).Select(x => x.Key).ToList(),
                 jobProtoDirty ? _jobPrototypeIds[JobPresetOptionButton.SelectedId] : string.Empty);

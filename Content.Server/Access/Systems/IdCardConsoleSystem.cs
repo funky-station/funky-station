@@ -14,6 +14,7 @@ using Content.Shared.Database;
 using Content.Shared.Roles;
 using Content.Shared.StationRecords;
 using Content.Shared.Throwing;
+using Content.Shared.StatusIcon;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
@@ -37,6 +38,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
 
+    private const string JobIconForNoId = "JobIconNoId";
     public override void Initialize()
     {
         base.Initialize();
@@ -59,7 +61,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         if (args.Actor is not { Valid: true } player)
             return;
 
-        TryWriteToTargetId(uid, args.FullName, args.JobTitle, args.AccessList, args.JobPrototype, player, component);
+        TryWriteToTargetId(uid, args.FullName, args.JobTitle, args.JobIcon, args.AccessList, args.JobPrototype, player, component);
 
         UpdateUserInterface(uid, component, args);
     }
@@ -87,6 +89,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
                 false,
                 null,
                 null,
+                JobIconForNoId,
                 null,
                 possibleAccess,
                 string.Empty,
@@ -112,6 +115,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
                 true,
                 targetIdComponent.FullName,
                 targetIdComponent.LocalizedJobTitle,
+                targetIdComponent.JobIcon,
                 targetAccessComponent.Tags.ToList(),
                 possibleAccess,
                 jobProto,
@@ -129,6 +133,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
     private void TryWriteToTargetId(EntityUid uid,
         string newFullName,
         string newJobTitle,
+        string newJobIcon,
         List<ProtoId<AccessLevelPrototype>> newAccessList,
         ProtoId<AccessLevelPrototype> newJobProto,
         EntityUid player,
@@ -143,11 +148,13 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         _idCard.TryChangeFullName(targetId, newFullName, player: player);
         _idCard.TryChangeJobTitle(targetId, newJobTitle, player: player);
 
-        if (_prototype.TryIndex<JobPrototype>(newJobProto, out var job)
-            && _prototype.TryIndex(job.Icon, out var jobIcon))
+        if (_prototype.TryIndex<JobPrototype>(newJobProto, out var job))
+        {
+            _idCard.TryChangeJobDepartment(targetId, job);
+        }
+        if (_prototype.TryIndex<JobIconPrototype>(newJobIcon, out var jobIcon))
         {
             _idCard.TryChangeJobIcon(targetId, jobIcon, player: player);
-            _idCard.TryChangeJobDepartment(targetId, job);
         }
 
         UpdateStationRecord(uid, targetId, newFullName, newJobTitle, job);

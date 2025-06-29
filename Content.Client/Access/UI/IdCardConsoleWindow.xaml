@@ -30,6 +30,17 @@
             <Label Text="{Loc 'id-card-console-window-job-selection-label'}" />
             <OptionButton Name="JobPresetOptionButton" />
         </GridContainer>
+        <!-- begin Funkystation - job icon selection -->
+        <Control MinSize="0 8" />
+        <GridContainer Columns="3">
+            <Label Text="{Loc 'id-card-console-window-job-icon-label'}" />
+            <TextureRect Name="JobIcon"
+                         TextureScale="2 2"
+                         Margin="6 0"
+                         VerticalAlignment="Center" />
+            <Button Name="JobIconChangeButton" Access="Public" Text="{Loc 'id-card-console-window-job-icon-change-button'}" />
+        </GridContainer>
+        <!-- end Funkystation -->
         <Control Name="AccessLevelControlContainer" />
     </BoxContainer>
 </DefaultWindow>

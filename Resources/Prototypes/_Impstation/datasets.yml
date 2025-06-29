@@ -16,6 +16,7 @@
   - Hamlet the Hamster
   - Shiva the Spider
   - Ian the Corgi
+  - Lisa the Corgi
   - Morticia the Possum
   - Morty the Possum
   - Paperwork the Sloth
@@ -24,10 +25,13 @@
   - Willow the Kangaroo
   - Smile the Slime
   - Tropico the Crab
+  - Runtime the Cat
+  - Exception the Cat
 
 - type: dataset
   id: MoodRooms
   values:
+  - The Brig
   - Disposals
   - The Library
   - Escape Pod
@@ -73,6 +77,7 @@
   - Figurines
   - Toys
   - Lockers
+  - Dihydrogen Monoxide
 
 - type: dataset
   id: MoodEdibles

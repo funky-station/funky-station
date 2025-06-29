@@ -3323,3 +3323,19 @@ Entries:
       message: IPC's now have a different chemical for their blood, Machine oil.
   id: 399
   time: '2025-06-28T21:48:05.0000000+00:00'
+- author: EmoGarbage404
+  changes:
+    - type: Add
+      message: >-
+        When an artifact's node is unlocked, the effect will now also occur.
+        Effects can still be triggered manually through interaction.
+    - type: Tweak
+      message: Artifacts will now have more nodes on average.
+    - type: Tweak
+      message: Higher-class artifact nodes now grant significantly more points.
+    - type: Tweak
+      message: Sentient artifacts can once again activate themselves.
+    - type: Tweak
+      message: Increased sentient artifact self activation cooldown.
+  id: 400
+  time: '2025-06-29T02:41:11.0000000+00:00'

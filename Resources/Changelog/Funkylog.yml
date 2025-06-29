@@ -3339,3 +3339,9 @@ Entries:
       message: Increased sentient artifact self activation cooldown.
   id: 400
   time: '2025-06-29T02:41:11.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Remove
+      message: The ability to use items / weapons / throw things while prone
+  id: 401
+  time: '2025-06-29T23:18:37.0000000+00:00'

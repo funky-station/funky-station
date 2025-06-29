@@ -81535,7 +81535,7 @@ entities:
     - type: Transform
       pos: 40.5,20.5
       parent: 2
-- proto: MediumXenoArtifact
+- proto: ComplexXenoArtifact
   entities:
   - uid: 5291
     components:

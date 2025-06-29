@@ -232,3 +232,18 @@
     offset: 0
     table: !type:NestedSelector
       tableId: RandomToolbox
+
+- type: entity
+  name: Random Crowbar Spawner
+  id: RandomCrowbarSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Funkystation/Objects/Tools/cutecrowbar.rsi
+      state: rainbow_crowbar
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:NestedSelector
+      tableId: CrowbarRandom

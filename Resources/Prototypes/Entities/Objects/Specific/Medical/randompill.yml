@@ -1,7 +1,7 @@
 - type: weightedRandomFillSolution
   id: RandomFillStrangePill
   fills:
-  # 5 groups for a total weight of 100
+  # 5 groups for a total weight of 100 + 0.1 for the Romerol - Funky
   # Very Good - weight: 15
     - quantity: 15
       weight: 5
@@ -81,6 +81,11 @@
       weight: 2.5
       reagents:
       - Lexorin
+    # Yeesh - Romerol, ~0.1% chance
+    - quantity: 15
+      weight: 0.1
+      reagents:
+      - Romerol
 
 - type: entity
   name: strange pill

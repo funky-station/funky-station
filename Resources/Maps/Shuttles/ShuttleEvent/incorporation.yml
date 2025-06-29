@@ -5286,7 +5286,7 @@ entities:
     - type: Transform
       pos: 5.5,-14.5
       parent: 1
-- proto: VariedXenoArtifactItem
+- proto: ComplexXenoArtifactItem
   entities:
   - uid: 767
     components:

@@ -1,0 +1,131 @@
+- type: constructionGraph
+  id: HFRCore
+  start: start
+  graph:
+    - node: start
+    - node: hfrCore
+      entity: HFRCore
+      edges:
+        - to: start
+          conditions:
+            - !type:HFRIsActive
+          completed:
+            - !type:AdminLog
+              message: "An HFR part was deconstructed"
+            - !type:SpawnPrototype
+              prototype: HFRCoreBox
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 3
+
+- type: constructionGraph
+  id: HFRCorner
+  start: start
+  graph:
+    - node: start
+    - node: hfrCorner
+      entity: HFRCorner
+      edges:
+        - to: start
+          conditions:
+            - !type:HFRIsActive
+          completed:
+            - !type:AdminLog
+              message: "An HFR part was deconstructed"
+            - !type:SpawnPrototype
+              prototype: HFRCornerBox
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 3
+
+- type: constructionGraph
+  id: HFRConsole
+  start: start
+  graph:
+    - node: start
+    - node: hfrConsole
+      entity: HFRConsole
+      edges:
+        - to: start
+          conditions:
+            - !type:HFRIsActive
+          completed:
+            - !type:AdminLog
+              message: "An HFR part was deconstructed"
+            - !type:SpawnPrototype
+              prototype: HFRConsoleBox
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 3
+
+- type: constructionGraph
+  id: HFRFuelInput
+  start: start
+  graph:
+    - node: start
+    - node: hfrFuelInput
+      entity: HFRFuelInput
+      edges:
+        - to: start
+          conditions:
+            - !type:HFRIsActive
+          completed:
+            - !type:AdminLog
+              message: "An HFR part was deconstructed"
+            - !type:SpawnPrototype
+              prototype: HFRFuelBox
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 3
+
+- type: constructionGraph
+  id: HFRModeratorInput
+  start: start
+  graph:
+    - node: start
+    - node: hfrModeratorInput
+      entity: HFRModeratorInput
+      edges:
+        - to: start
+          conditions:
+            - !type:HFRIsActive
+          completed:
+            - !type:AdminLog
+              message: "An HFR part was deconstructed"
+            - !type:SpawnPrototype
+              prototype: HFRModeratorBox
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 3
+
+- type: constructionGraph
+  id: HFRWasteOutput
+  start: start
+  graph:
+    - node: start
+    - node: hfrWasteOutput
+      entity: HFRWasteOutput
+      edges:
+        - to: start
+          conditions:
+            - !type:HFRIsActive
+          completed:
+            - !type:AdminLog
+              message: "An HFR part was deconstructed"
+            - !type:SpawnPrototype
+              prototype: HFRWasteBox
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 3

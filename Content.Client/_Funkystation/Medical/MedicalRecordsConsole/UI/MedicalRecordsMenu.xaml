@@ -246,27 +246,7 @@
                                         Text="Blood Type: " />
                                     <Label Name="RecordContainerBloodType" />
                                 </BoxContainer>
-                                <BoxContainer Margin="5" Orientation="Horizontal">
-                                    <Label
-                                        FontColorOverride="DarkGray"
-                                        Name="PrescriptionsTitle"
-                                        Text="Prescriptions: " />
-                                    <Label Name="RecordContainerPrescriptions" />
-                                </BoxContainer>
-                                <BoxContainer Margin="5" Orientation="Horizontal">
-                                    <Label
-                                        FontColorOverride="DarkGray"
-                                        Name="AllergiesTitle"
-                                        Text="Allergies: " />
-                                    <Label Name="RecordContainerAllergies" />
-                                </BoxContainer>
-                                <BoxContainer Margin="5" Orientation="Horizontal">
-                                    <Label
-                                        FontColorOverride="DarkGray"
-                                        Name="FamilyHistoryTitle"
-                                        Text="Family History: " />
-                                    <Label Name="RecordContainerFamilyHistory" />
-                                </BoxContainer>
+                                <BoxContainer Name="MedicalInfoContainer" Orientation="Vertical" />
                                 <BoxContainer Margin="5" Orientation="Horizontal">
                                     <Label
                                         FontColorOverride="DarkGray"

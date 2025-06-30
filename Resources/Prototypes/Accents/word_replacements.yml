@@ -369,6 +369,7 @@
     # funkystation
     accent-cowboy-words-100: accent-cowboy-replacement-100
     accent-cowboy-words-101: accent-cowboy-replacement-101
+    accent-cowboy-words-102: accent-cowboy-replacement-102
 
 - type: accent
   id: southern

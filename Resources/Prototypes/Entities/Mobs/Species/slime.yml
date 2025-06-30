@@ -30,7 +30,7 @@
     probability: 0.3
     containerId: storagebase
     insertSound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
+      path: /Audio/Voice/Slime/slime_squish_1.ogg
   - type: UserInterface
     interfaces:
       enum.VoiceMaskUIKey.Key:

@@ -228,6 +228,9 @@ accent-cowboy-replacement-101 = sheriff
 accent-cowboy-words-102 = head of law
 accent-cowboy-replacement-102 = sheriff
 
+accent-cowboy-words-103 = head of sec
+accent-cowboy-replacement-103 = sheriff
+
 <#-- end funky  -->
 
 accent-cowboy-words-74 = sec

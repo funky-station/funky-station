@@ -40,7 +40,7 @@ public sealed partial class IdCardConsoleIconSelectorWindow : DefaultWindow
         IconGrid.DisposeAllChildren();
         var jobIconButtonGroup = new ButtonGroup();
         var i = 0;
-        var icons = _prototypeManager.EnumeratePrototypes<JobIconPrototype>().Where(icon => icon.AllowSelection).ToList();
+        var icons = _prototypeManager.EnumeratePrototypes<JobIconPrototype>().Where(icon => icon.AllowSelection && icon.AllowIdConsole).ToList();
         icons.Sort((x, y) => string.Compare(x.LocalizedJobName, y.LocalizedJobName, StringComparison.CurrentCulture));
         foreach (var jobIcon in icons)
         {

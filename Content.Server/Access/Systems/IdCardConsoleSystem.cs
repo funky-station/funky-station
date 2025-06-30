@@ -154,7 +154,14 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         }
         if (_prototype.TryIndex<JobIconPrototype>(newJobIcon, out var jobIcon))
         {
-            _idCard.TryChangeJobIcon(targetId, jobIcon, player: player);
+            if (jobIcon.AllowIdConsole)
+            {
+                _idCard.TryChangeJobIcon(targetId, jobIcon, player: player);
+            }
+            else
+            {
+                _sawmill.Warning($"User {ToPrettyString(uid)} tried to write disallowed job icon using ID card console.");
+            }
         }
 
         UpdateStationRecord(uid, targetId, newFullName, newJobTitle, job);

@@ -108,6 +108,8 @@ namespace Content.Client.Access.UI
             JobTitleLineEdit.Text = Loc.GetString(job.Name);
             args.Button.SelectId(args.Id);
 
+            _iconWindow.JobIcon = job.Icon; // Funkystation
+
             ClearAllAccess();
 
             // this is a sussy way to do this

@@ -224,7 +224,7 @@ accent-cowboy-words-75 = secoff
 accent-cowboy-replacement-75 = deputy
 
 accent-cowboy-words-76 = security
-accent-cowboy-replacement-76 = law 
+accent-cowboy-replacement-76 = law
 
 accent-cowboy-words-77 = shitsec
 accent-cowboy-replacement-77 = crooked law
@@ -294,3 +294,11 @@ accent-cowboy-replacement-98 = hollered
 
 accent-cowboy-words-99 = yelling
 accent-cowboy-replacement-99 = hollering
+
+<#-- funky -->
+
+accent-cowboy-words-100 = hos
+accent-cowboy-replacement-100 = sheriff
+
+accent-cowboy-words-101 = head of security
+accent-cowboy-replacement-101 = sheriff

@@ -2,7 +2,7 @@
   parent: BaseShield
   id: ChangelingShield
   name: organic shield
-  description: A large, fleshy shield.
+  description: A large, fleshy shield, evolved as a defense mechanism against modern weaponry.
   suffix: Unremoveable
   components:
     - type: Unremoveable
@@ -16,7 +16,17 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
+<<<<<<< ilinge -- Incoming Change
+            damage: 100
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
+            damage: 80
+=======
             damage: 50
+>>>>>>> master -- Current Change
           behaviors:
             - !type:RemoveOrganicShield # Remove the shield Uid in the equipment dictionary of the changeling component (avoid triggering this ability to "deactivate a shield that is destroyed")
             - !type:DoActsBehavior

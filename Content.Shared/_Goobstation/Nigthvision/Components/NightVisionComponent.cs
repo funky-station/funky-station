@@ -6,7 +6,8 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.NightVision.Components;
 
 [RegisterComponent]
-[NetworkedComponent, AutoGenerateComponentState]
+// fieldDeltas: true because otherwise the color and other weird nuanced variables are not correctly passed to the client.
+[NetworkedComponent, AutoGenerateComponentState(raiseAfterAutoHandleState: true)]
 [Access(typeof(NightVisionSystem))]
 public sealed partial class NightVisionComponent : Component
 {
@@ -33,3 +34,6 @@ public sealed partial class NightVisionComponent : Component
 }
 
 public sealed partial class NVInstantActionEvent : InstantActionEvent { }
+
+[ByRefEvent]
+public record struct NightVisionChangedEvent(bool NightVision);

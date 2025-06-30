@@ -1,0 +1,28 @@
+- type: entity
+  parent: BaseItem
+  id: Gavel
+  name: gavel
+  description: For whenever someone wants to play God.
+  components:
+    - type: Sprite
+      sprite: _Funkystation/Objects/Fun/gavel.rsi
+      state: icon
+    - type: Item
+      size: Small
+    - type: EmitSoundOnUse
+      sound:
+        collection: Gavel
+        params:
+          variation: 0.125
+    - type: MeleeWeapon
+      wideAnimationRotation: 90
+      resetOnHandSelected: false
+      animation: WeaponArcDisarm
+      damage:
+        types:
+          Blunt: 0
+    - type: GuideHelp
+      guides:
+        - Security
+    - type: UseDelay
+      delay: 0.5

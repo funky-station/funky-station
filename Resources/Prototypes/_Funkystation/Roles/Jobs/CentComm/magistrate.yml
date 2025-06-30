@@ -1,0 +1,43 @@
+- type: job
+  id: Magistrate
+  name: Magistrate
+  description: "Serve directly under CentComm. As the stations central legal authority, you authorize executions, extended detentions, warrants, etc."
+  playTimeTracker: JobMagistrate
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 72000 #20 hrs
+  - !type:RoleTimeRequirement
+    role: JobNanotrasenRepresentative
+    time: 18000 #5 hrs
+  weight: 20
+  startingGear: MagistrateGear
+  icon: "JobIconMagistrate"
+  requireAdminNotify: true
+  joinNotifyCrew: true
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  access:
+  - Command
+  - CentralCommand
+  - Brig
+  - External
+  - Maintenance
+  - Lawyer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: MagistrateGear
+  equipment:
+    id: MagistratePDA
+    shoes: ClothingShoesBootsLaceup
+    eyes: ClothingEyesGlassesSecurity
+    ears: ClothingHeadsetCentCom
+    pocket2: RubberStampMagistrate
+  inhand:
+  - BriefcaseBrownFilled
+  storage:
+    back:
+    - Flash
+    - BookSpaceLaw

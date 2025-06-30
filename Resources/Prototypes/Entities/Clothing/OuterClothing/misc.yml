@@ -138,9 +138,9 @@
   description: This robe commands authority.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Misc/judge.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/legal_robe.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Misc/judge.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/legal_robe.rsi
 
 - type: entity
   parent: ClothingOuterBase

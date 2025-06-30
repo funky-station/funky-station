@@ -402,6 +402,13 @@
     color: "#1f8c28"
   - type: Computer
     board: MedicalRecordsComputerCircuitboard
+  - type: ActivatableUI # begin funky
+    singleUser: true
+    key: enum.MedicalRecordsConsoleKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MedicalRecordsConsoleKey.Key:
+        type: MedicalRecordsBoundUserInterface # end funky
 
 - type: entity
   parent: BaseComputerAiAccess

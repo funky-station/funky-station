@@ -90465,14 +90465,14 @@ entities:
     - type: Transform
       pos: -13.509577,-5.578573
       parent: 2
-- proto: SimpleXenoArtifact
+- proto: ComplexXenoArtifact
   entities:
   - uid: 15285
     components:
     - type: Transform
       pos: -23.5,25.5
       parent: 2
-- proto: SimpleXenoArtifactItem
+- proto: ComplexXenoArtifactItem
   entities:
   - uid: 15286
     components:

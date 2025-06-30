@@ -1,1 +1,2 @@
 shuttle-dock-fail-revs = Central Command has received reports of unusual activity on the station. The shuttle has been returned to base as a precaution, and will not be usable until the situation has been resolved.
+shuttle-dock-fail-blob = A level 5 biohazard has been detected onboard the station. The shuttle has been returned to base as a precaution, and will not be usable until the situation has been resolved.

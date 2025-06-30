@@ -62,7 +62,6 @@ accent-cowboy-words-21 = crazy
 accent-cowboy-replacement-21 = cracked
 
 accent-cowboy-words-22 = cyborg
-accent-cowboy-words-22-2 = borg
 accent-cowboy-replacement-22 = tin man
 
 accent-cowboy-words-23 = dad

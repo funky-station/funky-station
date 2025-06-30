@@ -300,5 +300,5 @@ accent-cowboy-replacement-99 = hollering
 accent-cowboy-words-100 = hos
 accent-cowboy-replacement-100 = sheriff
 
-accent-cowboy-words-101 = head of security
+accent-cowboy-words-101 = head of law
 accent-cowboy-replacement-101 = sheriff

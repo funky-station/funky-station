@@ -108,7 +108,7 @@ namespace Content.Client.Access.UI
             JobTitleLineEdit.Text = Loc.GetString(job.Name);
             args.Button.SelectId(args.Id);
 
-            _iconWindow.JobIcon = job.Icon; // Funkystation
+            _iconWindow.SetJobIcon(job.Icon); // Funkystation
 
             ClearAllAccess();
 
@@ -180,6 +180,8 @@ namespace Content.Client.Access.UI
 
             JobPresetOptionButton.Disabled = !interfaceEnabled;
 
+            _iconWindow.SetJobIcon(state.TargetIdJobIcon); // Funkystation
+
             _accessButtons.UpdateState(state.TargetIdAccessList?.ToList() ??
                                        new List<ProtoId<AccessLevelPrototype>>(),
                                        state.AllowedModifyAccessList?.ToList() ??
@@ -201,10 +203,7 @@ namespace Content.Client.Access.UI
             _lastJobProto = state.TargetIdJobPrototype;
 
             // begin Funkystation
-            if (state.TargetIdJobIcon != null)
-            {
-                _iconWindow.JobIcon = state.TargetIdJobIcon;
-            }
+            _iconWindow.SetJobIcon(state.TargetIdJobIcon);
         }
 
         private void SubmitData()

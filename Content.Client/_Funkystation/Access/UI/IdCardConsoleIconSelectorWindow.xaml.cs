@@ -35,6 +35,15 @@ public sealed partial class IdCardConsoleIconSelectorWindow : DefaultWindow
         JobIcon = JobIconForNoId;
     }
 
+    public void SetJobIcon(string? jobIcon) {
+        if(jobIcon != null) {
+            JobIcon = jobIcon;
+        } else {
+            JobIcon = JobIconForNoId;
+        }
+        SetAllowedIcons();
+    }
+
     public void SetAllowedIcons()
     {
         IconGrid.DisposeAllChildren();

@@ -148,6 +148,14 @@
   sounds:
     Squish:
       collection: Squishes
+    Bubble:
+      collection: Bubbles
+    Slosh:
+      collection: Sloshes
+    Pop:
+      collection: Pops
+    Fizz:
+      collection: Fizzes
     Scream:
       collection: MaleScreams
     Laugh:
@@ -192,6 +200,14 @@
   sounds:
     Squish:
       collection: Squishes
+    Bubble:
+      collection: Bubbles
+    Slosh:
+      collection: Sloshes
+    Pop:
+      collection: Pops
+    Fizz:
+      collection: Fizzes
     Scream:
       collection: FemaleScreams
     Laugh:
@@ -453,6 +469,8 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Scream:
+      collection: CyborgScream
 
 - type: emoteSounds
   id: UnisexSiliconSyndicate
@@ -473,6 +491,8 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Scream:
+      collection: CyborgScream # TODO: May be good to create a separate collection and assets for Syndicate
 
 # body emotes
 - type: emoteSounds

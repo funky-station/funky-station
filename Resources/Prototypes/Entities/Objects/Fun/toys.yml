@@ -781,20 +781,20 @@
     state: plushie_slime
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
+      path: /Audio/Voice/Slime/slime_squish_1.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
+      path: /Audio/Voice/Slime/slime_squish_1.ogg
   - type: EmitSoundOnActivate
     sound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
+      path: /Audio/Voice/Slime/slime_squish_1.ogg
   - type: EmitSoundOnTrigger
     sound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
+      path: /Audio/Voice/Slime/slime_squish_2.ogg
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:
-      path: /Audio/Voice/Slime/slime_squish.ogg
+      path: /Audio/Voice/Slime/slime_squish_2.ogg
 
 - type: entity
   parent: BasePlushie

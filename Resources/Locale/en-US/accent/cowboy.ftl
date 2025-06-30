@@ -217,6 +217,19 @@ accent-cowboy-replacement-72 = hollered
 accent-cowboy-words-73 = screaming
 accent-cowboy-replacement-73 = hollering
 
+<#-- funky -->
+
+accent-cowboy-words-100 = hos
+accent-cowboy-replacement-100 = sheriff
+
+accent-cowboy-words-101 = head of security
+accent-cowboy-replacement-101 = sheriff
+
+accent-cowboy-words-102 = head of law
+accent-cowboy-replacement-102 = sheriff
+
+<#-- end funky  -->
+
 accent-cowboy-words-74 = sec
 accent-cowboy-replacement-74 = law
 
@@ -294,14 +307,3 @@ accent-cowboy-replacement-98 = hollered
 
 accent-cowboy-words-99 = yelling
 accent-cowboy-replacement-99 = hollering
-
-<#-- funky -->
-
-accent-cowboy-words-100 = hos
-accent-cowboy-replacement-100 = sheriff
-
-accent-cowboy-words-101 = head of security
-accent-cowboy-replacement-101 = sheriff
-
-accent-cowboy-words-102 = head of law
-accent-cowboy-replacement-102 = sheriff

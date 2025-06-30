@@ -81,10 +81,10 @@
     back: ClothingBackpackDuffelCaptain
 
 # Outer clothing
-- type: loadout
-  id: CaptainOuterClothing
-  equipment:
-    outerClothing: ClothingOuterArmorCaptainCarapace
+#- type: loadout # funky change - remove dupes
+#  id: CaptainOuterClothing
+#  equipment:
+#    outerClothing: ClothingOuterArmorCaptainCarapace
 
 - type: loadout
   id: CaptainWintercoat

@@ -36,7 +36,7 @@
   id: LockerFillCaptainNoLaser
   table: !type:AllSelector
     children:
-    - id: CaptainIDCard
+#    - id: CaptainIDCard # funky - remove dupes
     - id: CigarGoldCase
       prob: 0.25
     - id: ClothingBeltSheathFilled

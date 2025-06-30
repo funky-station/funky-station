@@ -163,8 +163,12 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
                 _sawmill.Warning($"User {ToPrettyString(uid)} tried to write disallowed job icon using ID card console.");
             }
         }
+        else
+        {
+            jobIcon = _prototype.Index<JobIconPrototype>(JobIconForNoId);
+        }
 
-        UpdateStationRecord(uid, targetId, newFullName, newJobTitle, job);
+        UpdateStationRecord(uid, targetId, newFullName, newJobTitle, newJobIcon, job);
         if ((!TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage)
             || keyStorage.Key is not { } key
             || !_record.TryGetRecord<GeneralStationRecord>(key, out _))
@@ -226,7 +230,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         return privilegedId != null && _accessReader.IsAllowed(privilegedId.Value, uid, reader);
     }
 
-    private void UpdateStationRecord(EntityUid uid, EntityUid targetId, string newFullName, ProtoId<AccessLevelPrototype> newJobTitle, JobPrototype? newJobProto)
+    private void UpdateStationRecord(EntityUid uid, EntityUid targetId, string newFullName, ProtoId<AccessLevelPrototype> newJobTitle, ProtoId<JobIconPrototype> newJobIcon, JobPrototype? newJobProto)
     {
         if (!TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage)
             || keyStorage.Key is not { } key
@@ -237,6 +241,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
 
         record.Name = newFullName;
         record.JobTitle = newJobTitle;
+        record.JobIcon = newJobIcon;
 
         if (newJobProto != null)
         {

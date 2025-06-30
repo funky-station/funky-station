@@ -100,7 +100,7 @@ public sealed partial class IdCardConsoleComponent : Component
             bool isTargetIdPresent,
             string? targetIdFullName,
             string? targetIdJobTitle,
-            string targetIdJobIcon, // Funkystation
+            string targetIdJobIcon, // Funkystation - ID card console job icon selection
             List<ProtoId<AccessLevelPrototype>>? targetIdAccessList,
             List<ProtoId<AccessLevelPrototype>>? allowedModifyAccessList,
             ProtoId<AccessLevelPrototype> targetIdJobPrototype,
@@ -112,7 +112,7 @@ public sealed partial class IdCardConsoleComponent : Component
             IsTargetIdPresent = isTargetIdPresent;
             TargetIdFullName = targetIdFullName;
             TargetIdJobTitle = targetIdJobTitle;
-            TargetIdJobIcon = targetIdJobIcon != null ? targetIdJobIcon : "JobIconNoId"; // Funkystation
+            TargetIdJobIcon = targetIdJobIcon ?? "JobIconNoId"; // Funkystation - ID card console job icon selection
             TargetIdAccessList = targetIdAccessList;
             AllowedModifyAccessList = allowedModifyAccessList;
             TargetIdJobPrototype = targetIdJobPrototype;

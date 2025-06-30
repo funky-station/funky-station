@@ -76,7 +76,7 @@ namespace Content.Client.Access.UI
             SendMessage(new WriteToTargetIdMessage(
                 newFullName,
                 newJobTitle,
-                newJobIcon,
+                newJobIcon, // Funkystation - ID card console job icon selection
                 newAccessList,
                 newJobPrototype));
         }

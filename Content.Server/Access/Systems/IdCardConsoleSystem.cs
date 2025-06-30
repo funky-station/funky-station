@@ -38,7 +38,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
 
-    private const string JobIconForNoId = "JobIconNoId";
+    private const string JobIconForNoId = "JobIconNoId"; // Funkystation - ID card console job icon selection
     public override void Initialize()
     {
         base.Initialize();
@@ -89,7 +89,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
                 false,
                 null,
                 null,
-                JobIconForNoId,
+                JobIconForNoId, // Funkystation - ID card console job icon selection
                 null,
                 possibleAccess,
                 string.Empty,
@@ -115,7 +115,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
                 true,
                 targetIdComponent.FullName,
                 targetIdComponent.LocalizedJobTitle,
-                targetIdComponent.JobIcon,
+                targetIdComponent.JobIcon, // Funkystation - ID card console job icon selection
                 targetAccessComponent.Tags.ToList(),
                 possibleAccess,
                 jobProto,
@@ -133,7 +133,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
     private void TryWriteToTargetId(EntityUid uid,
         string newFullName,
         string newJobTitle,
-        string newJobIcon,
+        string newJobIcon, // Funkystation - ID card console job icon selection
         List<ProtoId<AccessLevelPrototype>> newAccessList,
         ProtoId<AccessLevelPrototype> newJobProto,
         EntityUid player,
@@ -152,6 +152,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         {
             _idCard.TryChangeJobDepartment(targetId, job);
         }
+        // begin Funkystation - ID card console job icon selection
         if (_prototype.TryIndex<JobIconPrototype>(newJobIcon, out var jobIcon))
         {
             if (jobIcon.AllowIdConsole)
@@ -167,6 +168,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         {
             jobIcon = _prototype.Index<JobIconPrototype>(JobIconForNoId);
         }
+        // end Funkystation
 
         UpdateStationRecord(uid, targetId, newFullName, newJobTitle, newJobIcon, job);
         if ((!TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage)
@@ -241,7 +243,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
 
         record.Name = newFullName;
         record.JobTitle = newJobTitle;
-        record.JobIcon = newJobIcon;
+        record.JobIcon = newJobIcon; // Funkystation - ID card console job icon selection
 
         if (newJobProto != null)
         {

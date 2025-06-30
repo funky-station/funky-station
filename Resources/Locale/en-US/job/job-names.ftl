@@ -119,7 +119,8 @@ JobCentralCommandOfficial = Central Command Official
 JobChaplain = Chaplain
 JobChef = Chef
 JobChemist = Chemist
-JobChiefEngineer = Chief Engineer
+# Frontier: Chief Engineer<Plant Manager
+JobChiefEngineer = Plant Manager
 JobChiefMedicalOfficer = Chief Medical Officer
 JobClown = Clown
 JobCommandMaid = Command Maid

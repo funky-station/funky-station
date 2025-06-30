@@ -340,6 +340,11 @@
     accent-cowboy-words-71: accent-cowboy-replacement-71
     accent-cowboy-words-72: accent-cowboy-replacement-72
     accent-cowboy-words-73: accent-cowboy-replacement-73
+    # funkystation
+    accent-cowboy-words-100: accent-cowboy-replacement-100
+    accent-cowboy-words-101: accent-cowboy-replacement-101
+    accent-cowboy-words-102: accent-cowboy-replacement-102
+    # end funkystation
     accent-cowboy-words-74: accent-cowboy-replacement-74
     accent-cowboy-words-75: accent-cowboy-replacement-75
     accent-cowboy-words-76: accent-cowboy-replacement-76
@@ -366,10 +371,6 @@
     accent-cowboy-words-97: accent-cowboy-replacement-97
     accent-cowboy-words-98: accent-cowboy-replacement-98
     accent-cowboy-words-99: accent-cowboy-replacement-99
-    # funkystation
-    accent-cowboy-words-100: accent-cowboy-replacement-100
-    accent-cowboy-words-101: accent-cowboy-replacement-101
-    accent-cowboy-words-102: accent-cowboy-replacement-102
 
 - type: accent
   id: southern

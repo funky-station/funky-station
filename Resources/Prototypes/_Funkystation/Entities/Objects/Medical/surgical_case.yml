@@ -1,0 +1,41 @@
+- type: entity
+  parent: BaseStorageItem
+  id: FunkySurgicalCase
+  name: surgical case
+  description: It's a soft-shell case for holding and storing the tools required for surgery.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Storage/surgical_case.rsi # this is a placeholder, for until we get proper sprites that match the artstyle
+    layers:
+    - state: surgical_case_base
+    - state: surgical_case_open
+      map: [ "openLayer" ]
+      visible: false
+    - state: surgical_case_closed
+      map: [ "closedLayer" ]
+      visible: false
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,3,2
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,4,4
+    whitelist:
+      tags:
+      - SurgeryTool
+      - Soap
+      - Gauze
+      - Brutepack
+      - GasTank
+  - type: GenericVisualizer
+    visuals:
+      enum.SharedBagOpenVisuals.BagState:
+        openLayer:
+          Open: { visible: true }
+          Closed: { visible: false }
+        closedLayer:
+          Open: { visible: false }
+          Closed: { visible: true }
+  - type: Appearance

@@ -425,9 +425,43 @@
   icon:
     sprite: Structures/Piping/Atmospherics/gas_pipe_sensor.rsi
     state: icon
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   objectType: Structure
   canRotate: true
+  alternativePrototypes:
+  - GasPipeSensor
+  - GasPipeSensorAlt1
+  - GasPipeSensorAlt2
+
+- type: construction
+  id: GasPipeSensorAlt1
+  hide: true
+  graph: GasPipeSensor
+  startNode: start
+  targetNode: sensorAlt1
+  category: construction-category-structures
+  placementMode: AlignAtmosPipeLayers
+  objectType: Structure
+  canRotate: true
+  alternativePrototypes:
+  - GasPipeSensor
+  - GasPipeSensorAlt1
+  - GasPipeSensorAlt2
+
+- type: construction
+  id: GasPipeSensorAlt2
+  hide: true
+  graph: GasPipeSensor
+  startNode: start
+  targetNode: sensorAlt2
+  category: construction-category-structures
+  placementMode: AlignAtmosPipeLayers
+  objectType: Structure
+  canRotate: true
+  alternativePrototypes:
+  - GasPipeSensor
+  - GasPipeSensorAlt1
+  - GasPipeSensorAlt2
 
 # ATMOS PIPES
 - type: construction
@@ -776,9 +810,9 @@
   conditions:
     - !type:NoUnstackableInTile
   alternativePrototypes:
-    - GasPressurePump
-    - GasPressurePumpAlt1
-    - GasPressurePumpAlt2
+  - GasPressurePump
+  - GasPressurePumpAlt1
+  - GasPressurePumpAlt2
 
 - type: construction
   id: GasPressurePumpAlt1
@@ -792,9 +826,9 @@
   conditions:
     - !type:NoUnstackableInTile
   alternativePrototypes:
-    - GasPressurePump
-    - GasPressurePumpAlt1
-    - GasPressurePumpAlt2
+  - GasPressurePump
+  - GasPressurePumpAlt1
+  - GasPressurePumpAlt2
 
 - type: construction
   id: GasPressurePumpAlt2
@@ -808,9 +842,9 @@
   conditions:
     - !type:NoUnstackableInTile
   alternativePrototypes:
-    - GasPressurePump
-    - GasPressurePumpAlt1
-    - GasPressurePumpAlt2
+  - GasPressurePump
+  - GasPressurePumpAlt1
+  - GasPressurePumpAlt2
 
 - type: construction
   name: volumetric gas pump
@@ -833,9 +867,9 @@
   conditions:
     - !type:NoUnstackableInTile
   alternativePrototypes:
-    - GasVolumePump
-    - GasVolumePumpAlt1
-    - GasVolumePumpAlt2
+  - GasVolumePump
+  - GasVolumePumpAlt1
+  - GasVolumePumpAlt2
 
 - type: construction
   id: GasVolumePumpAlt1
@@ -849,9 +883,9 @@
   conditions:
     - !type:NoUnstackableInTile
   alternativePrototypes:
-    - GasVolumePump
-    - GasVolumePumpAlt1
-    - GasVolumePumpAlt2
+  - GasVolumePump
+  - GasVolumePumpAlt1
+  - GasVolumePumpAlt2
 
 - type: construction
   id: GasVolumePumpAlt2
@@ -865,9 +899,9 @@
   conditions:
     - !type:NoUnstackableInTile
   alternativePrototypes:
-    - GasVolumePump
-    - GasVolumePumpAlt1
-    - GasVolumePumpAlt2
+  - GasVolumePump
+  - GasVolumePumpAlt1
+  - GasVolumePumpAlt2
 
 - type: construction
   id: GasPassiveGate
@@ -890,9 +924,9 @@
   conditions:
     - !type:NoUnstackableInTile
   alternativePrototypes:
-    - GasPassiveGate
-    - GasPassiveGateAlt1
-    - GasPassiveGateAlt2
+  - GasPassiveGate
+  - GasPassiveGateAlt1
+  - GasPassiveGateAlt2
 
 - type: construction
   id: GasPassiveGateAlt1
@@ -906,9 +940,9 @@
   conditions:
     - !type:NoUnstackableInTile
   alternativePrototypes:
-    - GasPassiveGate
-    - GasPassiveGateAlt1
-    - GasPassiveGateAlt2
+  - GasPassiveGate
+  - GasPassiveGateAlt1
+  - GasPassiveGateAlt2
 
 - type: construction
   id: GasPassiveGateAlt2
@@ -922,9 +956,9 @@
   conditions:
     - !type:NoUnstackableInTile
   alternativePrototypes:
-    - GasPassiveGate
-    - GasPassiveGateAlt1
-    - GasPassiveGateAlt2
+  - GasPassiveGate
+  - GasPassiveGateAlt1
+  - GasPassiveGateAlt2
 
 - type: construction
   id: GasValve
@@ -947,9 +981,9 @@
   conditions:
     - !type:NoUnstackableInTile
   alternativePrototypes:
-    - GasValve
-    - GasValveAlt1
-    - GasValveAlt2
+  - GasValve
+  - GasValveAlt1
+  - GasValveAlt2
 
 - type: construction
   id: GasValveAlt1
@@ -963,9 +997,9 @@
   conditions:
     - !type:NoUnstackableInTile
   alternativePrototypes:
-    - GasValve
-    - GasValveAlt1
-    - GasValveAlt2
+  - GasValve
+  - GasValveAlt1
+  - GasValveAlt2
 
 - type: construction
   id: GasValveAlt2
@@ -979,9 +1013,9 @@
   conditions:
     - !type:NoUnstackableInTile
   alternativePrototypes:
-    - GasValve
-    - GasValveAlt1
-    - GasValveAlt2
+  - GasValve
+  - GasValveAlt1
+  - GasValveAlt2
 
 - type: construction
   id: SignalControlledValve
@@ -1004,9 +1038,9 @@
   conditions:
   - !type:NoUnstackableInTile
   alternativePrototypes:
-    - SignalControlledValve
-    - SignalControlledValveAlt1
-    - SignalControlledValveAlt2
+  - SignalControlledValve
+  - SignalControlledValveAlt1
+  - SignalControlledValveAlt2
 
 - type: construction
   id: SignalControlledValveAlt1
@@ -1019,9 +1053,9 @@
   conditions:
     - !type:NoUnstackableInTile
   alternativePrototypes:
-    - SignalControlledValve
-    - SignalControlledValveAlt1
-    - SignalControlledValveAlt2
+  - SignalControlledValve
+  - SignalControlledValveAlt1
+  - SignalControlledValveAlt2
 
 - type: construction
   id: SignalControlledValveAlt2
@@ -1034,9 +1068,9 @@
   conditions:
     - !type:NoUnstackableInTile
   alternativePrototypes:
-    - SignalControlledValve
-    - SignalControlledValveAlt1
-    - SignalControlledValveAlt2
+  - SignalControlledValve
+  - SignalControlledValveAlt1
+  - SignalControlledValveAlt2
 
 - type: construction
   id: GasPort

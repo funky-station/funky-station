@@ -5,12 +5,14 @@ using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Containers;
 
 public sealed class ThrowInsertContainerSystem : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -36,7 +38,12 @@ public sealed class ThrowInsertContainerSystem : EntitySystem
         if (beforeThrowArgs.Cancelled)
             return;
 
-        if (_random.Prob(ent.Comp.Probability))
+        // funkystation: roll twice if it's an "accurate" throw (the landing time is near current time) to increase hit chance
+        var hitThrow = _random.Prob(ent.Comp.Probability);
+        if (HasComp<ThrownItemComponent>(args.Thrown) && Comp<ThrownItemComponent>(args.Thrown).LandTime - _gameTiming.CurTime <= TimeSpan.FromSeconds(0.2))
+            hitThrow |= _random.Prob(ent.Comp.Probability);
+
+        if (!hitThrow)
         {
             _audio.PlayPvs(ent.Comp.MissSound, ent);
             _popup.PopupEntity(Loc.GetString(ent.Comp.MissLocString), ent);

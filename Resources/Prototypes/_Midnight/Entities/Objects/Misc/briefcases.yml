@@ -1,0 +1,18 @@
+- type: entity
+  parent: CybersunBriefcase
+  id: HoldoutBriefcase
+  suffix: Chameleon, Holdout
+  name: Dossier Vault
+  description: MI13 holdout kit briefcase. how are you seeing this description?
+  components:
+    # Chameleon.
+    - type: ChameleonClothing
+      slot: [NONE]
+      default: CybersunBriefcase
+      requireTag: HandStorageItem
+    - type: UserInterface
+      interfaces:
+        enum.StorageUiKey.Key:
+          type: StorageBoundUserInterface
+        enum.ChameleonUiKey.Key:
+          type: ChameleonBoundUserInterface

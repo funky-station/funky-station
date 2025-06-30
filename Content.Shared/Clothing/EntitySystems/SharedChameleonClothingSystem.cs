@@ -8,6 +8,10 @@ using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared._Midnight.Storage; 
+using Content.Shared.Armor;
+using Content.Shared.Body.Part;
+using System.Collections.Generic;
 
 namespace Content.Shared.Clothing.EntitySystems;
 
@@ -31,6 +35,14 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
         SubscribeLocalEvent<ChameleonClothingComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<ChameleonClothingComponent, GotUnequippedEvent>(OnGotUnequipped);
         SubscribeLocalEvent<ChameleonClothingComponent, GetVerbsEvent<InteractionVerb>>(OnVerb);
+    }
+
+    /// <summary>
+    ///     Check if the entity has a hidden storage that's closed.
+    /// </summary>
+    public bool IsHiddenStorageClosed(EntityUid uid)
+    {
+        return TryComp<HiddenStorageComponent>(uid, out var storage) && !storage.IsOpen;
     }
 
     private void OnGotEquipped(EntityUid uid, ChameleonClothingComponent component, GotEquippedEvent args)
@@ -96,11 +108,29 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
         {
             RemComp<ContrabandComponent>(uid);
         }
+        
+        Dirty(uid, component);
     }
 
     private void OnVerb(Entity<ChameleonClothingComponent> ent, ref GetVerbsEvent<InteractionVerb> args)
     {
-        if (!args.CanAccess || !args.CanInteract || ent.Comp.User != args.User)
+        if (!args.CanAccess || !args.CanInteract)
+            return;
+
+        // Allow verb if:
+        // 1. Item is equipped and user is the wearer, OR
+        // 2. Item is not equipped and has NONE slot (non-equippable)
+        var isEquipped = ent.Comp.User != null;
+        var isNonEquippable = ent.Comp.Slot == SlotFlags.NONE;
+        
+        if (isEquipped && ent.Comp.User != args.User)
+            return;
+
+        if (!isEquipped && !isNonEquippable)
+            return;
+
+        // Only show verb if hidden storage is open
+        if (IsHiddenStorageClosed(ent.Owner))
             return;
 
         // Can't pass args from a ref event inside of lambdas
@@ -130,7 +160,10 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
             return false;
 
         if (requiredTag != null && !_tag.HasTag(tag, requiredTag))
-            return false;
+                return false;
+
+        if (chameleonSlot == SlotFlags.NONE)
+            return true;
 
         // check if it's valid clothing
         if (!proto.TryGetComponent("Clothing", out ClothingComponent? clothing))

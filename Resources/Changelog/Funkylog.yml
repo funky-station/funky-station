@@ -3356,3 +3356,11 @@ Entries:
       message: You will now be able to unbuckle yourself from beds. Cough.
   id: 402
   time: '2025-07-01T01:50:54.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Add
+      message: Ported genpop
+    - type: Fix
+      message: Ported a fix for cargo telepads causing client crashes
+  id: 403
+  time: '2025-07-01T02:17:09.0000000+00:00'

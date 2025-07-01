@@ -77,7 +77,7 @@
   id: MobHereticFleshAscend
   name: eldritch horror
   description: An incomprehensible mess of limbs and eyes. You can feel it's stare into your soul.
-  suffix: DO NOT MAP
+  categories: [ DoNotMap ] # imp
   components:
   - type: NpcFactionMember
     factions:
@@ -87,7 +87,7 @@
     baseWalkSpeed: 5
     baseSprintSpeed: 7.5
     weightlessModifier: 1.5
-  - type: Sprite
+  - type: Sprite # contains imp changes
     drawdepth: Mobs
     sprite: _Goobstation/Heretic/eldritch_horror.rsi
     noRot: true

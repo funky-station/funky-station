@@ -17,6 +17,7 @@
 
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
+using Content.Shared.Humanoid.Prototypes; // DeltaV - Trait species hiding
 
 namespace Content.Shared.Traits;
 
@@ -89,4 +90,16 @@ public sealed partial class TraitPrototype : IPrototype
     /// </summary>
     [DataField]
     public ProtoId<TraitCategoryPrototype>? Category;
+
+    /// <summary>
+    /// The organ that this trait should be assigned to instead of the body.
+    /// </summary>
+    [DataField]
+    public ProtoId<TagPrototype>? Organ;
+
+    /// <summary>
+    /// DeltaV - Hides traits from specific species
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<SpeciesPrototype>> ExcludedSpecies = new();
 }

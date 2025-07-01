@@ -127,6 +127,7 @@
     - AmmoniaBlood
     - ZombieBlood
     - ShimmeringBlood #imp
+    - SynthBlood # imp
   requiredTags:
     Knife: 1
   output:
@@ -162,6 +163,7 @@
     - AmmoniaBlood
     - ZombieBlood
     - ShimmeringBlood #imp
+    - SynthBlood # imp
   requiredTags:
     Eyes: 1
     Stomach: 1
@@ -186,6 +188,7 @@
     - AmmoniaBlood
     - ZombieBlood
     - ShimmeringBlood #imp
+    - SynthBlood # imp
   requiredTags:
     Pen: 1
     Heart: 1

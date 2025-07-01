@@ -3364,3 +3364,15 @@ Entries:
       message: Ported a fix for cargo telepads causing client crashes
   id: 403
   time: '2025-07-01T02:17:09.0000000+00:00'
+- author: GreyMario
+  changes:
+    - type: Tweak
+      message: >-
+        Disposal units now more receptive of thrown items. Aim well for a 75%
+        chance to land your throw!
+    - type: Add
+      message: >-
+        Throwing an item at a slimeperson now has a low chance of adding it to
+        their body storage.
+  id: 404
+  time: '2025-07-01T21:26:24.0000000+00:00'

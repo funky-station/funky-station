@@ -1,0 +1,7 @@
+- type: latheRecipe
+  parent: BaseCubeRecipe
+  id: VelociraptorCube
+  result: VelociraptorCube
+  materials:
+    Biomass: 20
+    Plasma: 1000 #these things are strong

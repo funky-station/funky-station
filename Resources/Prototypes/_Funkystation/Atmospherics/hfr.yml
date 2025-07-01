@@ -1,0 +1,177 @@
+- type: fusionRecipe
+  id: plasmaO2FuelRecipe
+  name: Plasma + Oxygen fuel
+  negativeTemperatureMultiplier: 2.5
+  positiveTemperatureMultiplier: 0.1
+  energyConcentrationMultiplier: 10
+  fuelConsumptionMultiplier: 3.3
+  gasProductionMultiplier: 1.4
+  temperatureChangeMultiplier: 0.6
+  meltdownFlags: 33 # BaseExplosion (1) | MinimumSpread (32)
+  requirements:
+    - Plasma
+    - Oxygen
+  primaryProducts:
+    - CarbonDioxide
+    - WaterVapor
+  secondaryProducts:
+    - CarbonDioxide
+    - WaterVapor
+    - Frezon
+    - NitrousOxide
+    - Pluoxium
+    - Halon
+
+- type: fusionRecipe
+  id: h2O2FuelRecipe
+  name: Hydrogen + Oxygen fuel
+  negativeTemperatureMultiplier: 2
+  positiveTemperatureMultiplier: 0.6
+  energyConcentrationMultiplier: 3
+  fuelConsumptionMultiplier: 1.1
+  gasProductionMultiplier: 0.9
+  temperatureChangeMultiplier: 0.75
+  meltdownFlags: 81 # BaseExplosion (1) | EMP (16) | MediumSpread (64)
+  requirements:
+    - Hydrogen
+    - Oxygen
+  primaryProducts:
+    - Helium
+    - Nitrogen
+  secondaryProducts:
+    - Helium
+    - Plasma
+    - Oxygen
+    - Nitrogen
+    - BZ
+    - HyperNoblium
+
+- type: fusionRecipe
+  id: t2O2FuelRecipe
+  name: Tritium + Oxygen fuel
+  negativeTemperatureMultiplier: 2.1
+  positiveTemperatureMultiplier: 0.5
+  energyConcentrationMultiplier: 2
+  fuelConsumptionMultiplier: 1.2
+  gasProductionMultiplier: 0.8
+  temperatureChangeMultiplier: 0.8
+  meltdownFlags: 73 # BaseExplosion (1) | RadiationPulse (8) | MediumSpread (64)
+  requirements:
+    - Tritium
+    - Oxygen
+  primaryProducts:
+    - Helium
+    - Pluoxium
+  secondaryProducts:
+    - Helium
+    - Plasma
+    - Oxygen
+    - Nitrogen
+    - BZ
+    - HyperNoblium
+
+- type: fusionRecipe
+  id: h2T2FuelRecipe
+  name: Hydrogen + Tritium fuel
+  negativeTemperatureMultiplier: 1
+  positiveTemperatureMultiplier: 1
+  energyConcentrationMultiplier: 1
+  fuelConsumptionMultiplier: 1
+  gasProductionMultiplier: 1
+  temperatureChangeMultiplier: 0.85
+  meltdownFlags: 90 # MediumExplosion (2) | RadiationPulse (8) | EMP (16) | MediumSpread (64)
+  requirements:
+    - Hydrogen
+    - Tritium
+  primaryProducts:
+    - Helium
+  secondaryProducts:
+    - Helium
+    - Plasma
+    - Oxygen
+    - Nitrogen
+    - BZ
+    - HyperNoblium
+
+- type: fusionRecipe
+  id: hypernobHydrogenFuelRecipe
+  name: Hypernoblium + Hydrogen fuel
+  negativeTemperatureMultiplier: 0.2
+  positiveTemperatureMultiplier: 2.2
+  energyConcentrationMultiplier: 0.2
+  fuelConsumptionMultiplier: 0.55
+  gasProductionMultiplier: 1.4
+  temperatureChangeMultiplier: 0.9
+  meltdownFlags: 148 # DevastatingExplosion (4) | RadiationPulse (8) | EMP (16) | BigSpread (128)
+  requirements:
+    - HyperNoblium
+    - Hydrogen
+  primaryProducts:
+    - AntiNoblium
+  secondaryProducts:
+    - AntiNoblium
+    - Helium
+    - ProtoNitrate
+    - Zauker
+    - Healium
+    - Ammonia
+
+- type: fusionRecipe
+  id: hypernobTritFuelRecipe
+  name: Hypernoblium + Tritium fuel
+  negativeTemperatureMultiplier: 0.1
+  positiveTemperatureMultiplier: 2.5
+  energyConcentrationMultiplier: 0.1
+  fuelConsumptionMultiplier: 0.45
+  gasProductionMultiplier: 1.7
+  temperatureChangeMultiplier: 0.95
+  meltdownFlags: 148 # DevastatingExplosion (4) | RadiationPulse (8) | EMP (16) | BigSpread (128)
+  requirements:
+    - HyperNoblium
+    - Tritium
+  primaryProducts:
+    - AntiNoblium
+  secondaryProducts:
+    - AntiNoblium
+    - Helium
+    - ProtoNitrate
+    - Zauker
+    - Healium
+    - Ammonia
+
+- type: fusionRecipe
+  id: hypernobAntinobFuelRecipe
+  name: Hypernoblium + Antinoblium fuel
+  negativeTemperatureMultiplier: 0.01
+  positiveTemperatureMultiplier: 3.5
+  energyConcentrationMultiplier: 2
+  fuelConsumptionMultiplier: 0.01
+  gasProductionMultiplier: 3
+  temperatureChangeMultiplier: 1
+  meltdownFlags: 796 # DevastatingExplosion (4) | RadiationPulse (8) | EMP (16) | MassiveSpread (256) | CriticalMeltdown (512)
+  requirements:
+    - HyperNoblium
+    - AntiNoblium
+  primaryProducts:
+    - Helium
+  secondaryProducts:
+    - Plasma
+    - Oxygen
+    - Nitrogen
+    - ProtoNitrate
+    - Nitrium
+    - Ammonia
+
+
+# Meltdown flags for reference
+
+# BaseExplosion = 1,
+# MediumExplosion = 2,
+# DevastatingExplosion = 4,
+# RadiationPulse = 8,
+# EMP = 16,
+# MinimumSpread = 32,
+# MediumSpread = 64,
+# BigSpread = 128,
+# MassiveSpread = 256,
+# CriticalMeltdown = 512

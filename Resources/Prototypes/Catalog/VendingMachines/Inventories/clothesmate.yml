@@ -46,6 +46,7 @@
     ClothingUniformJumpsuitHawaiBlue: 2
     ClothingUniformJumpsuitHawaiRed: 2
     ClothingUniformJumpsuitHawaiYellow: 2
+    ClothingUniformJumpsuitFlashDelirium: 2 # funkystation - but what if I did add more tho
     ClothingUniformJumpsuitFlannel: 2
     ClothingUniformJumpsuitCasualBlue: 2
     ClothingUniformJumpskirtCasualBlue: 2
@@ -91,6 +92,7 @@
     ClothingHandsGlovesColorOrange: 2
     ClothingHandsGlovesColorPurple: 2
     ClothingEyesGlassesCheapSunglasses: 3
+    ClothingEyesGlassesJamjar: 5
     # DO NOT ADD MORE, USE UNIFORM DYING
   contrabandInventory:
     ClothingMaskNeckGaiter: 2

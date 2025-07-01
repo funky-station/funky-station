@@ -29,8 +29,8 @@
     solutions:
       organ:
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
+        - ReagentId: UncookedAnimalProteins # Funky - change organs to be made of uncooked animal proteins
+          Quantity: 8 # Funky - a full slab of raw meat is 9
       Lung:
         maxVol: 100.0
         canReact: false

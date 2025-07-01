@@ -406,6 +406,15 @@
 
 - type: entity
   parent: BaseSign
+  id: SignIAA
+  name: Internal affairs sign
+  description: A sign indicating the IAA office.
+  components:
+  - type: Sprite
+    state: iaa
+
+- type: entity
+  parent: BaseSign
   id: SignCanisters
   name: canisters sign
   description: A sign warning the viewer about pressurised canisters.
@@ -692,6 +701,15 @@
   components:
   - type: Sprite
     state: nosmoking
+
+- type: entity
+  parent: BaseSign
+  id: SignGenpop
+  name: genpop sign
+  description: A sign indicating the genpop prison.
+  components:
+  - type: Sprite
+    state: genpop
 
 - type: entity
   parent: BaseSign

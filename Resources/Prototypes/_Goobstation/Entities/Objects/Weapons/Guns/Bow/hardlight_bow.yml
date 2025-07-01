@@ -37,7 +37,6 @@
     soundGunshot:
       collection: BulletMiss
     soundEmpty: null
-  - type: UnwieldOnShoot
   - type: UseDelayBlockShoot
   - type: BasicEntityAmmoProvider
     proto: ArrowEnergy

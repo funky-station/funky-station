@@ -8,11 +8,11 @@
   rules:
     - CosmicCult
     - SubGamemodesRule
-    - MeteorSwarmScheduler
+    #- MeteorSwarmScheduler - Parity with other Funky Station gamemodes.
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    # - BasicStationEventScheduler //temporarily replaced with Ramping.
-    - RampingStationEventScheduler
+    - BasicStationEventScheduler
+    # - RampingStationEventScheduler - Funky Station: We do not need ramping on cosmic cult rounds.
 
 - type: gamePreset #Runs Cosmic Cult but shows "Secret" in lobby.
   id: SecretCosmicCult
@@ -24,8 +24,8 @@
   rules:
     - CosmicCult
     - SubGamemodesRule
-    - MeteorSwarmScheduler
+    #- MeteorSwarmScheduler - Parity with other Funky Station gamemodes.
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    # - BasicStationEventScheduler //temporarily replaced with Ramping.
-    - RampingStationEventScheduler
+    - BasicStationEventScheduler
+    # - RampingStationEventScheduler - Funky Station: We do not need ramping on cosmic cult rounds.

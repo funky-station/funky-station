@@ -147,11 +147,9 @@ public sealed partial class RecordEditorGui : Control
         if (_records.HasInsurance == false)
         {
             InsuranceCompanyDropdown.SelectId(0);
-            UpdateRecords(_records.WithInsuranceProvider(0));
             InsuranceCompanyDropdown.Disabled = true;
 
             InsurancePlanDropdown.SelectId(0);
-            UpdateRecords(_records.WithInsuranceType(0));
             InsurancePlanDropdown.Disabled = true;
         }
         else

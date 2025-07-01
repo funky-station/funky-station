@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 255.0.0
-  forkId: funkystation
-  forkVersion: bd4ad58790470a66a7b22732dbb5209ba31862db
-  time: 07/01/2025 16:01:35
-  entityCount: 21561
+  forkId: ""
+  forkVersion: ""
+  time: 07/01/2025 21:38:35
+  entityCount: 21569
 maps:
 - 1
 grids:
@@ -4551,6 +4551,18 @@ entities:
             3631: 36,-29
             3632: 36,-30
             3633: 36,-24
+        - node:
+            angle: 1.5707963267948966 rad
+            color: '#DA8B8BFF'
+            id: LoadingArea
+          decals:
+            9099: -26,15
+        - node:
+            angle: 4.71238898038469 rad
+            color: '#DA8B8BFF'
+            id: LoadingArea
+          decals:
+            9100: -26,17
         - node:
             color: '#FFF200FF'
             id: LoadingAreaGreyscale
@@ -15456,7 +15468,7 @@ entities:
       pos: -42.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -122348.07
+      secondsUntilStateChange: -122848.14
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15669,7 +15681,7 @@ entities:
       pos: 55.5,3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -61984.348
+      secondsUntilStateChange: -62484.42
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15924,7 +15936,7 @@ entities:
       pos: -54.5,31.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -122158.5
+      secondsUntilStateChange: -122658.57
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16576,7 +16588,7 @@ entities:
       pos: 37.5,-26.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -97493.28
+      secondsUntilStateChange: -97993.35
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -54803,12 +54815,6 @@ entities:
     - type: Transform
       pos: -25.5,19.5
       parent: 2
-  - uid: 7449
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -29.5,16.5
-      parent: 2
   - uid: 7450
     components:
     - type: Transform
@@ -56862,6 +56868,12 @@ entities:
     components:
     - type: Transform
       pos: 73.5,-5.5
+      parent: 2
+  - uid: 9264
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -29.5,16.5
       parent: 2
   - uid: 9657
     components:
@@ -62416,7 +62428,7 @@ entities:
       pos: 45.5,15.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -30273.336
+      secondsUntilStateChange: -30773.406
       state: Closing
   - uid: 8579
     components:
@@ -62551,7 +62563,7 @@ entities:
       pos: -1.5,48.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -97151.75
+      secondsUntilStateChange: -97651.82
       state: Closing
   - uid: 15123
     components:
@@ -63339,18 +63351,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -29.5,25.5
       parent: 2
-  - uid: 8718
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -29.5,15.5
-      parent: 2
-  - uid: 8719
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -22.5,15.5
-      parent: 2
   - uid: 8720
     components:
     - type: Transform
@@ -63395,6 +63395,18 @@ entities:
     components:
     - type: Transform
       pos: 40.5,47.5
+      parent: 2
+  - uid: 9263
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -22.5,16.5
+      parent: 2
+  - uid: 9270
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -29.5,16.5
       parent: 2
   - uid: 13452
     components:
@@ -63607,6 +63619,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -21.5,19.5
+      parent: 2
+  - uid: 8718
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -23.5,16.5
       parent: 2
   - uid: 8771
     components:
@@ -66027,52 +66045,35 @@ entities:
     - type: Transform
       pos: -22.5,17.5
       parent: 2
-  - uid: 9263
-    components:
-    - type: Transform
-      pos: -22.5,16.5
-      parent: 2
-  - uid: 9264
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -23.5,15.5
-      parent: 2
   - uid: 9265
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -24.5,15.5
+      pos: -28.5,16.5
       parent: 2
   - uid: 9266
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -25.5,15.5
+      pos: -27.5,16.5
       parent: 2
   - uid: 9267
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -26.5,15.5
+      pos: -26.5,16.5
       parent: 2
   - uid: 9268
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -27.5,15.5
+      pos: -25.5,16.5
       parent: 2
   - uid: 9269
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -28.5,15.5
-      parent: 2
-  - uid: 9270
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -29.5,16.5
+      pos: -24.5,16.5
       parent: 2
   - uid: 9271
     components:
@@ -94376,6 +94377,48 @@ entities:
     - type: Transform
       pos: 18.5,-1.5
       parent: 2
+- proto: LockerPrisoner
+  entities:
+  - uid: 8719
+    components:
+    - type: Transform
+      pos: -20.5,17.5
+      parent: 2
+- proto: LockerPrisoner2
+  entities:
+  - uid: 7449
+    components:
+    - type: Transform
+      pos: -20.5,16.5
+      parent: 2
+- proto: LockerPrisoner3
+  entities:
+  - uid: 21565
+    components:
+    - type: Transform
+      pos: -20.5,15.5
+      parent: 2
+- proto: LockerPrisoner4
+  entities:
+  - uid: 21566
+    components:
+    - type: Transform
+      pos: -20.5,14.5
+      parent: 2
+- proto: LockerPrisoner5
+  entities:
+  - uid: 21567
+    components:
+    - type: Transform
+      pos: -22.5,14.5
+      parent: 2
+- proto: LockerPrisoner6
+  entities:
+  - uid: 21568
+    components:
+    - type: Transform
+      pos: -23.5,14.5
+      parent: 2
 - proto: LockerQuarterMasterFilled
   entities:
   - uid: 9030
@@ -96899,7 +96942,7 @@ entities:
 
         [bold]1. Turn on the air supply and waste filter.[/bold]
 
-        The cryogenics pods are essentially sanitary atmospheric isolation chambers designed to be extremely hot or cold without impacting the surrounding environment, while also preventing the patient from experiencing much of the ill effects of such an enviroment.
+        The cryogenics pods are essentially sanitary atmospheric isolation chambers designed to be extremely hot or cold without impacting the surrounding environment, while also preventing the patient from experiencing much of the ill effects of such an enviroment. 
 
 
         In order to prevent the occupant from suffocating, you need to supply breathable air from the atmospheric distribution network ("distro") and filter carbon dioxide from the cryogenics air supply system.
@@ -96922,7 +96965,7 @@ entities:
 
         [bold]5. Place a beaker with the preferred cryogenic chemical into the slot on the cryopod.[/bold]
 
-        Cryoxadone is the most common cryogenics chemical. Medical bays are often stocked with it at the beginning of shifts, and it is exceptionally cheap to produce for how effective it is as medicine.
+        Cryoxadone is the most common cryogenics chemical. Medical bays are often stocked with it at the beginning of shifts, and it is exceptionally cheap to produce for how effective it is as medicine. 
 
 
         Other chemicals are desirable for their ability to work on the dead, with cryoxadone cannot accomplish.
@@ -112677,6 +112720,13 @@ entities:
     - type: Transform
       pos: 15.5,38.5
       parent: 2
+- proto: SpawnPointWarden
+  entities:
+  - uid: 21569
+    components:
+    - type: Transform
+      pos: -16.5,11.5
+      parent: 2
 - proto: SpeedLoaderCap
   entities:
   - uid: 8168
@@ -116785,6 +116835,27 @@ entities:
     components:
     - type: Transform
       pos: 22.789436,36.610012
+      parent: 2
+- proto: TurnstileGenpopEnter
+  entities:
+  - uid: 21562
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -24.5,17.5
+      parent: 2
+- proto: TurnstileGenpopLeave
+  entities:
+  - uid: 21563
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -24.5,15.5
+      parent: 2
+  - uid: 21564
+    components:
+    - type: Transform
+      pos: -21.5,13.5
       parent: 2
 - proto: TwoWayLever
   entities:
@@ -137350,7 +137421,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -129607.555
+      secondsUntilStateChange: -130107.625
       state: Opening
     - type: Airlock
       autoClose: False
@@ -137366,7 +137437,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -129606.99
+      secondsUntilStateChange: -130107.06
       state: Opening
     - type: Airlock
       autoClose: False
@@ -137388,7 +137459,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -129606.52
+      secondsUntilStateChange: -130106.59
       state: Opening
     - type: Airlock
       autoClose: False
@@ -137404,7 +137475,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -129608.055
+      secondsUntilStateChange: -130108.125
       state: Opening
     - type: Airlock
       autoClose: False

@@ -98,8 +98,20 @@ namespace Content.Shared.Cuffs
             SubscribeLocalEvent<HandcuffComponent, VirtualItemDeletedEvent>(OnCuffVirtualItemDeleted);
         }
 
-        private void CheckInteract(Entity<CuffableComponent> ent, ref InteractionAttemptEvent args)
+        // funky - fuck crawl meta
+        protected virtual void CheckInteract(Entity<CuffableComponent> ent, ref InteractionAttemptEvent args)
         {
+            if (ent.Comp.CuffedHandCount == 0)
+            {
+                // allow interaction with something you are buckled into (for if you are laying in a bed)
+                if (TryComp<BuckleComponent>(args.Uid, out var buckleComp) && args.Target == buckleComp.BuckledTo)
+                    return;
+                // allow interaction with yourself. 
+                if (args.Uid == args.Target)
+                    return;
+            }
+            // funky - end
+
             if (!ent.Comp.CanStillInteract)
                 args.Cancelled = true;
         }
@@ -261,7 +273,7 @@ namespace Content.Shared.Cuffs
 
         private void HandleMoveAttempt(EntityUid uid, CuffableComponent component, UpdateCanMoveEvent args)
         {
-            if (component.CanStillInteract || !EntityManager.TryGetComponent(uid, out PullableComponent? pullable) || !pullable.BeingPulled)
+            if (component.CanStillInteract || !EntityManager.TryGetComponent(uid, out PullableComponent? pullable) || !pullable.BeingPulled || component.CuffedHandCount == 0)
                 return;
 
             args.Cancel();

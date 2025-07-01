@@ -3345,3 +3345,22 @@ Entries:
       message: The ability to use items / weapons / throw things while prone
   id: 401
   time: '2025-06-29T23:18:37.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Fix
+      message: >-
+        When being carried you will no longer be helpless and at the mercy of
+        the person who was able to get off the 15 second doafter on you without
+        you noticing
+    - type: Fix
+      message: You will now be able to unbuckle yourself from beds. Cough.
+  id: 402
+  time: '2025-07-01T01:50:54.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Add
+      message: Ported genpop
+    - type: Fix
+      message: Ported a fix for cargo telepads causing client crashes
+  id: 403
+  time: '2025-07-01T02:17:09.0000000+00:00'

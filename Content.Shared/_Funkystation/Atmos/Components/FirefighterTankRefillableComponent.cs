@@ -18,7 +18,6 @@ public sealed partial class FirefighterTankRefillableComponent : Component
     /// <summary>
     ///     Name of solution/>.
     /// </summary>
-    [DataField]
     public const string SolutionName = "tank";
 
     /// <summary>

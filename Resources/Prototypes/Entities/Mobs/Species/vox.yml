@@ -170,6 +170,10 @@
           state: hand_r
   - type: Tag
     tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
     - VoxEmotes
 
 - type: entity

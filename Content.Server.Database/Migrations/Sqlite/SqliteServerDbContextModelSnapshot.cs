@@ -575,48 +575,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("cdprofile", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.CDModel+CharacterRecordEntry", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("cd_character_record_entries_id");
-
-                    b.Property<int>("CDProfileId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("cdprofile_id");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("description");
-
-                    b.Property<string>("Involved")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("involved");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("title");
-
-                    b.Property<byte>("Type")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("type");
-
-                    b.HasKey("Id")
-                        .HasName("PK_cd_character_record_entries");
-
-                    b.HasIndex("CDProfileId")
-                        .HasDatabaseName("IX_cd_character_record_entries_cdprofile_id");
-
-                    b.HasIndex("Id")
-                        .HasDatabaseName("IX_cd_character_record_entries_cd_character_record_entries_id");
-
-                    b.ToTable("cd_character_record_entries", (string)null);
-                });
-
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.Property<int>("Id")
@@ -1667,18 +1625,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Profile");
                 });
 
-            modelBuilder.Entity("Content.Server.Database.CDModel+CharacterRecordEntry", b =>
-                {
-                    b.HasOne("Content.Server.Database.CDModel+CDProfile", "CDProfile")
-                        .WithMany("CharacterRecordEntries")
-                        .HasForeignKey("CDProfileId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_cd_character_record_entries_cdprofile_cdprofile_id");
-
-                    b.Navigation("CDProfile");
-                });
-
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.HasOne("Content.Server.Database.Server", "Server")
@@ -2036,11 +1982,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Admins");
 
                     b.Navigation("Flags");
-                });
-
-            modelBuilder.Entity("Content.Server.Database.CDModel+CDProfile", b =>
-                {
-                    b.Navigation("CharacterRecordEntries");
                 });
 
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>

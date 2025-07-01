@@ -63,12 +63,6 @@ namespace Content.Server.Database
                 .WithOne(p => p.CDProfile)
                 .HasForeignKey<CDModel.CDProfile>(p => p.ProfileId)
                 .IsRequired();
-
-            modelBuilder.Entity<CDModel.CharacterRecordEntry>()
-                .HasOne(e => e.CDProfile)
-                .WithMany(e => e.CharacterRecordEntries)
-                .HasForeignKey(e => e.CDProfileId)
-                .IsRequired();
             // End CD - CD Character Data
 
             modelBuilder.Entity<Antag>()

@@ -122,7 +122,6 @@ public sealed class CharacterRecordsSystem : EntitySystem
     public void DelEntry(
         EntityUid station,
         EntityUid player,
-        CharacterRecordType ty,
         int idx,
         CharacterRecordsComponent? recordsDb = null,
         CharacterRecordKeyStorageComponent? key = null)
@@ -132,21 +131,6 @@ public sealed class CharacterRecordsSystem : EntitySystem
 
         if (!recordsDb.Records.TryGetValue(key.Key.Index, out var value))
             return;
-
-        var cr = value.PRecords;
-
-        switch (ty)
-        {
-            // case CharacterRecordType.Employment:
-            //     cr.EmploymentEntries.RemoveAt(idx);
-            //     break;
-            // case CharacterRecordType.Medical:
-            //     cr.MedicalEntries.RemoveAt(idx);
-            //     break;
-            // case CharacterRecordType.Security:
-            //     cr.SecurityEntries.RemoveAt(idx);
-            //     break;
-        }
 
         RaiseLocalEvent(station, new CharacterRecordsModifiedEvent());
     }

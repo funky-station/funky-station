@@ -84,7 +84,7 @@ public static class RecordsSerialization
     /// <br />
     /// Missing fields are filled in with their default value, extra fields are simply ignored
     /// </summary>
-    public static PlayerProvidedCharacterRecords Deserialize(JsonDocument json, List<CDModel.CharacterRecordEntry> entries)
+    public static PlayerProvidedCharacterRecords Deserialize(JsonDocument json)
     {
         var e = json.RootElement;
         var def = PlayerProvidedCharacterRecords.DefaultRecords();

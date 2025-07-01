@@ -227,8 +227,3 @@ public sealed partial class PlayerProvidedCharacterRecords
         return new(this) { PostmortemInstructions = s};
     }
 }
-
-public enum CharacterRecordType : byte
-{
-    Employment, Medical, Security
-}

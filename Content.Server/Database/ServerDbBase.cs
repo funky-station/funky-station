@@ -53,7 +53,6 @@ namespace Content.Server.Database
                 // Begin CD - Character Records
                 .Include(p => p.Profiles)
                     .ThenInclude(h => h.CDProfile)
-                    .ThenInclude(cd => cd != null ? cd.CharacterRecordEntries : null)
                 // End CD - Character Records
                 .Include(p => p.Profiles)
                     .ThenInclude(h => h.Loadouts)
@@ -103,7 +102,6 @@ namespace Content.Server.Database
 
             var oldProfile = db.DbContext.Profile
                 .Include(p => p.CDProfile) // CD - Character Records
-                    .ThenInclude(cd => cd != null ? cd.CharacterRecordEntries : null)
                 .Include(p => p.Preference)
                 .Where(p => p.Preference.UserId == userId.UserId)
                 .Include(p => p.Jobs)
@@ -227,7 +225,7 @@ namespace Content.Server.Database
 
             // Begin CD - Chracter Records
             var cdRecords = profile.CDProfile?.CharacterRecords != null
-                ? RecordsSerialization.Deserialize(profile.CDProfile.CharacterRecords, profile.CDProfile.CharacterRecordEntries)
+                ? RecordsSerialization.Deserialize(profile.CDProfile.CharacterRecords)
                 : PlayerProvidedCharacterRecords.DefaultRecords();
             // End CD - Character Records
             var loadouts = new Dictionary<string, RoleLoadout>();
@@ -336,11 +334,6 @@ namespace Content.Server.Database
             profile.CDProfile ??= new CDModel.CDProfile();
             // There are JsonIgnore annotations to ensure that entries are not stored as JSON.
             profile.CDProfile.CharacterRecords = JsonSerializer.SerializeToDocument(humanoid.CDCharacterRecords ?? PlayerProvidedCharacterRecords.DefaultRecords());
-            if (humanoid.CDCharacterRecords != null)
-            {
-                profile.CDProfile.CharacterRecordEntries.Clear();
-                // profile.CDProfile.CharacterRecordEntries.AddRange(RecordsSerialization.GetEntries(humanoid.CDCharacterRecords));
-            }
             // End CD - Character Records
 
             profile.Loadouts.Clear();

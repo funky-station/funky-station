@@ -2,6 +2,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -106,6 +107,13 @@ public sealed partial class InjectorComponent : Component
     /// </summary>
     [DataField]
     public List<ProtoId<ReagentPrototype>>? ReagentWhitelist = null;
+
+    /// <summary>
+    ///  Containers that the injector is allowed to draw from.
+    /// A null ContainerWhitelist indicates all containers are allowed.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? ContainerDrawWhitelist;
 
     #region Arguments for injection doafter
 

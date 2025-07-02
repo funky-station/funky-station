@@ -1,5 +1,6 @@
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -14,6 +15,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Stacks;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Whitelist;
 
 namespace Content.Server.Chemistry.EntitySystems;
 
@@ -22,6 +24,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
     [Dependency] private readonly OpenableSystem _openable = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {
@@ -61,7 +64,8 @@ public sealed class InjectorSystem : SharedInjectorSystem
             }
 
             // Draw from an object (food, beaker, etc)
-            if (isOpenOrIgnored && SolutionContainers.TryGetDrawableSolution(target, out var drawableSolution, out _))
+            if (isOpenOrIgnored && _whitelist.IsWhitelistPassOrNull(injector.Comp.ContainerDrawWhitelist, target) &&
+                SolutionContainers.TryGetDrawableSolution(target, out var drawableSolution, out _))
                 return TryDraw(injector, target, drawableSolution.Value, user);
 
             Popup.PopupEntity(Loc.GetString("injector-component-cannot-draw-message",

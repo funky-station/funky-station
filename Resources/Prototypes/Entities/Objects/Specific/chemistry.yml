@@ -363,6 +363,9 @@
         maxVol: 15
   - type: Injector
     injectOnly: false
+    containerDrawWhitelist:
+      tags:
+      - Bottle
   - type: ExaminableSolution
     solution: injector
   - type: Spillable
@@ -378,6 +381,7 @@
   - type: Tag
     tags:
     - Syringe
+    - Beaker
 
 - type: entity
   parent: BaseSyringe

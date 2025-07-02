@@ -19,11 +19,11 @@ public sealed partial class ModifyStatusEffect : EntityEffect
     [DataField]
     public float Time = 2.0f;
 
-    /// <summary>
-    /// Delay before the effect starts. If another effect is added with a shorter delay, it takes precedence.
-    /// </summary>
+    /// <remarks>
+    /// true - refresh status effect time (update to greater value), false - accumulate status effect time.
+    /// </remarks>
     [DataField]
-    public float Delay = 0f;
+    public bool Refresh = true;
 
     /// <summary>
     /// Should this effect add the status effect, remove time from it, or set its cooldown?
@@ -34,7 +34,7 @@ public sealed partial class ModifyStatusEffect : EntityEffect
     /// <inheritdoc />
     public override void Effect(EntityEffectBaseArgs args)
     {
-        var statusSys = args.EntityManager.EntitySysManager.GetEntitySystem<StatusEffectsSystem>();
+        var statusSys = args.EntityManager.EntitySysManager.GetEntitySystem<SharedStatusEffectsSystem>();
 
         var time = Time;
         if (args is EntityEffectReagentArgs reagentArgs)
@@ -43,17 +43,17 @@ public sealed partial class ModifyStatusEffect : EntityEffect
         var duration = TimeSpan.FromSeconds(time);
         switch (Type)
         {
-            case StatusEffectMetabolismType.Update:
-                statusSys.TryUpdateStatusEffectDuration(args.TargetEntity, EffectProto, duration, Delay > 0 ? TimeSpan.FromSeconds(Delay) : null);
-                break;
             case StatusEffectMetabolismType.Add:
-                statusSys.TryAddStatusEffectDuration(args.TargetEntity, EffectProto, duration, Delay > 0 ? TimeSpan.FromSeconds(Delay) : null);
+                if (Refresh)
+                    statusSys.TryUpdateStatusEffectDuration(args.TargetEntity, EffectProto, duration);
+                else
+                    statusSys.TryAddStatusEffectDuration(args.TargetEntity, EffectProto, duration);
                 break;
             case StatusEffectMetabolismType.Remove:
                 statusSys.TryAddTime(args.TargetEntity, EffectProto, -duration);
                 break;
             case StatusEffectMetabolismType.Set:
-                statusSys.TrySetStatusEffectDuration(args.TargetEntity, EffectProto, duration, TimeSpan.FromSeconds(Delay));
+                statusSys.TrySetStatusEffectDuration(args.TargetEntity, EffectProto, duration);
                 break;
         }
     }

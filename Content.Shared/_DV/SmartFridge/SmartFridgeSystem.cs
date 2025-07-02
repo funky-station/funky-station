@@ -1,9 +1,11 @@
+using System.Linq;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Content.Shared.Storage;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -36,28 +38,25 @@ public sealed class SmartFridgeSystem : EntitySystem
 
     private void OnInteractUsing(Entity<SmartFridgeComponent> ent, ref InteractUsingEvent args)
     {
-        if (!_container.TryGetContainer(ent, ent.Comp.Container, out var container))
-            return;
+        var comp = ent.Comp;
+        var user = args.User;
+        var used = args.Used;
 
-        if (_whitelist.IsWhitelistFail(ent.Comp.Whitelist, args.Used) || _whitelist.IsBlacklistPass(ent.Comp.Blacklist, args.Used))
-            return;
+        if (_whitelist.IsWhitelistPass(comp.Whitelist, used))
+        {
+            if (TryInsert(ent, user, used))
+            {
+                _audio.PlayPredicted(comp.InsertSound, ent, user);
+            }
+        }
+        if (TryComp<StorageComponent>(used, out var storage))
+        {
+            if (TryInsertFromStorage(ent, user, storage))
+            {
+                _audio.PlayPredicted(comp.InsertSound, ent, user);
+            }
 
-        if (!Allowed(ent, args.User))
-            return;
-
-        if (!_hands.TryDrop(args.User, args.Used))
-            return;
-
-        _audio.PlayPredicted(ent.Comp.InsertSound, ent, args.User);
-        _container.Insert(args.Used, container);
-        var key = new SmartFridgeEntry(Identity.Name(args.Used, EntityManager));
-        if (!ent.Comp.Entries.Contains(key))
-            ent.Comp.Entries.Add(key);
-        ent.Comp.ContainedEntries.TryAdd(key, new());
-        var entries = ent.Comp.ContainedEntries[key];
-        if (!entries.Contains(GetNetEntity(args.Used)))
-            entries.Add(GetNetEntity(args.Used));
-        Dirty(ent);
+        }
     }
 
     private void OnItemRemoved(Entity<SmartFridgeComponent> ent, ref EntRemovedFromContainerMessage args)
@@ -107,5 +106,40 @@ public sealed class SmartFridgeSystem : EntitySystem
 
         _audio.PlayPredicted(ent.Comp.SoundDeny, ent, args.Actor);
         _popup.PopupPredicted(Loc.GetString("smart-fridge-component-try-eject-out-of-stock"), ent, args.Actor);
+    }
+
+    private bool TryInsert(Entity<SmartFridgeComponent> ent, EntityUid user, EntityUid used)
+    {
+        if (!_container.TryGetContainer(ent, ent.Comp.Container, out var container))
+            return false;
+
+        if (!Allowed(ent, user))
+            return false;
+
+        _container.Insert(used, container);
+        var key = new SmartFridgeEntry(Identity.Name(used, EntityManager));
+        if (!ent.Comp.Entries.Contains(key))
+            ent.Comp.Entries.Add(key);
+        ent.Comp.ContainedEntries.TryAdd(key, new());
+        var entries = ent.Comp.ContainedEntries[key];
+        if (!entries.Contains(GetNetEntity(used)))
+            entries.Add(GetNetEntity(used));
+        Dirty(ent);
+        return true;
+    }
+
+    private bool TryInsertFromStorage(Entity<SmartFridgeComponent> ent, EntityUid user, StorageComponent storage)
+    {
+        var storagedEnts = storage.Container.ContainedEntities.ToArray();
+        var count = 0;
+        foreach (var used in storagedEnts)
+        {
+            if (_whitelist.IsWhitelistPass(ent.Comp.Whitelist, used))
+            {
+                if (TryInsert(ent, user, used))
+                    count++;
+            }
+        }
+        return count > 0;
     }
 }

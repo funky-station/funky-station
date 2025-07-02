@@ -68,7 +68,7 @@
   - type: AmmoCounter
 
 - type: entity
-  id: WeaponMechCombatFireyedartLaser
+  id: WeaponMechCombatFiredartLaser
   name: CH-PS "Firedart" Laser
   description: The standard combat armament of the mechs is a combat mounted laser.
   suffix: Mech Weapon, Gun, Combat, Laser

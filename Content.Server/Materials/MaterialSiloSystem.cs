@@ -1,29 +1,29 @@
 using Content.Server.Pinpointer;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Materials.OreSilo;
+using Content.Shared.Materials.MaterialSilo;
 using Robust.Server.GameStates;
 using Robust.Shared.Player;
 
 namespace Content.Server.Materials;
 
 /// <inheritdoc/>
-public sealed class OreSiloSystem : SharedOreSiloSystem
+public sealed class MaterialSiloSystem : SharedMaterialSiloSystem
 {
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
 
-    private const float OreSiloPreloadRangeSquared = 225f; // ~1 screen
+    private const float MaterialSiloPreloadRangeSquared = 225f; // ~1 screen
 
-    private readonly HashSet<Entity<OreSiloClientComponent>> _clientLookup = new();
+    private readonly HashSet<Entity<MaterialSiloClientComponent>> _clientLookup = new();
     private readonly HashSet<(NetEntity, string, string)> _clientInformation = new();
     private readonly HashSet<EntityUid> _silosToAdd = new();
     private readonly HashSet<EntityUid> _silosToRemove = new();
 
-    protected override void UpdateOreSiloUi(Entity<OreSiloComponent> ent)
+    protected override void UpdateMaterialSiloUi(Entity<MaterialSiloComponent> ent)
     {
-        if (!_userInterface.IsUiOpen(ent.Owner, OreSiloUiKey.Key))
+        if (!_userInterface.IsUiOpen(ent.Owner, MaterialSiloUiKey.Key))
             return;
         _clientLookup.Clear();
         _clientInformation.Clear();
@@ -69,7 +69,7 @@ public sealed class OreSiloSystem : SharedOreSiloSystem
             _clientInformation.Add((netEnt, txt, beacon));
         }
 
-        _userInterface.SetUiState(ent.Owner, OreSiloUiKey.Key, new OreSiloBuiState(_clientInformation));
+        _userInterface.SetUiState(ent.Owner, MaterialSiloUiKey.Key, new MaterialSiloBuiState(_clientInformation));
     }
 
     public override void Update(float frameTime)
@@ -86,7 +86,7 @@ public sealed class OreSiloSystem : SharedOreSiloSystem
             _silosToAdd.Clear();
             _silosToRemove.Clear();
 
-            var clientQuery = EntityQueryEnumerator<OreSiloClientComponent, TransformComponent>();
+            var clientQuery = EntityQueryEnumerator<MaterialSiloClientComponent, TransformComponent>();
             while (clientQuery.MoveNext(out _, out var clientComp, out var clientXform))
             {
                 if (clientComp.Silo == null)
@@ -96,7 +96,7 @@ public sealed class OreSiloSystem : SharedOreSiloSystem
                 if (actorXform.GridUid != clientXform.GridUid)
                     continue;
 
-                if ((actorXform.LocalPosition - clientXform.LocalPosition).LengthSquared() <= OreSiloPreloadRangeSquared)
+                if ((actorXform.LocalPosition - clientXform.LocalPosition).LengthSquared() <= MaterialSiloPreloadRangeSquared)
                 {
                     _silosToAdd.Add(clientComp.Silo.Value);
                 }

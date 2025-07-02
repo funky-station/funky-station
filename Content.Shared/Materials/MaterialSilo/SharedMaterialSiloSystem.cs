@@ -2,36 +2,36 @@ using Content.Shared.Power.EntitySystems;
 using JetBrains.Annotations;
 using Robust.Shared.Utility;
 
-namespace Content.Shared.Materials.OreSilo;
+namespace Content.Shared.Materials.MaterialSilo;
 
-public abstract class SharedOreSiloSystem : EntitySystem
+public abstract class SharedMaterialSiloSystem : EntitySystem
 {
     [Dependency] private readonly SharedMaterialStorageSystem _materialStorage = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    private EntityQuery<OreSiloClientComponent> _clientQuery;
+    private EntityQuery<MaterialSiloClientComponent> _clientQuery;
 
     /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<OreSiloComponent, ToggleOreSiloClientMessage>(OnToggleOreSiloClient);
-        SubscribeLocalEvent<OreSiloComponent, ComponentShutdown>(OnSiloShutdown);
-        Subs.BuiEvents<OreSiloComponent>(OreSiloUiKey.Key,
+        SubscribeLocalEvent<MaterialSiloComponent, ToggleMaterialSiloClientMessage>(OnToggleMaterialSiloClient);
+        SubscribeLocalEvent<MaterialSiloComponent, ComponentShutdown>(OnSiloShutdown);
+        Subs.BuiEvents<MaterialSiloComponent>(MaterialSiloUiKey.Key,
             subs =>
         {
             subs.Event<BoundUIOpenedEvent>(OnBoundUIOpened);
         });
 
 
-        SubscribeLocalEvent<OreSiloClientComponent, GetStoredMaterialsEvent>(OnGetStoredMaterials);
-        SubscribeLocalEvent<OreSiloClientComponent, ConsumeStoredMaterialsEvent>(OnConsumeStoredMaterials);
-        SubscribeLocalEvent<OreSiloClientComponent, ComponentShutdown>(OnClientShutdown);
+        SubscribeLocalEvent<MaterialSiloClientComponent, GetStoredMaterialsEvent>(OnGetStoredMaterials);
+        SubscribeLocalEvent<MaterialSiloClientComponent, ConsumeStoredMaterialsEvent>(OnConsumeStoredMaterials);
+        SubscribeLocalEvent<MaterialSiloClientComponent, ComponentShutdown>(OnClientShutdown);
 
-        _clientQuery = GetEntityQuery<OreSiloClientComponent>();
+        _clientQuery = GetEntityQuery<MaterialSiloClientComponent>();
     }
 
-    private void OnToggleOreSiloClient(Entity<OreSiloComponent> ent, ref ToggleOreSiloClientMessage args)
+    private void OnToggleMaterialSiloClient(Entity<MaterialSiloComponent> ent, ref ToggleMaterialSiloClientMessage args)
     {
         var client = GetEntity(args.Client);
 
@@ -45,7 +45,7 @@ public abstract class SharedOreSiloSystem : EntitySystem
             ent.Comp.Clients.Remove(client);
             Dirty(ent);
 
-            UpdateOreSiloUi(ent);
+            UpdateMaterialSiloUi(ent);
         }
         else // add client
         {
@@ -66,16 +66,16 @@ public abstract class SharedOreSiloSystem : EntitySystem
             clientComp.Silo = ent;
             Dirty(client, clientComp);
 
-            UpdateOreSiloUi(ent);
+            UpdateMaterialSiloUi(ent);
         }
     }
 
-    private void OnBoundUIOpened(Entity<OreSiloComponent> ent, ref BoundUIOpenedEvent args)
+    private void OnBoundUIOpened(Entity<MaterialSiloComponent> ent, ref BoundUIOpenedEvent args)
     {
-        UpdateOreSiloUi(ent);
+        UpdateMaterialSiloUi(ent);
     }
 
-    private void OnSiloShutdown(Entity<OreSiloComponent> ent, ref ComponentShutdown args)
+    private void OnSiloShutdown(Entity<MaterialSiloComponent> ent, ref ComponentShutdown args)
     {
         foreach (var client in ent.Comp.Clients)
         {
@@ -87,12 +87,12 @@ public abstract class SharedOreSiloSystem : EntitySystem
         }
     }
 
-    protected virtual void UpdateOreSiloUi(Entity<OreSiloComponent> ent)
+    protected virtual void UpdateMaterialSiloUi(Entity<MaterialSiloComponent> ent)
     {
 
     }
 
-    private void OnGetStoredMaterials(Entity<OreSiloClientComponent> ent, ref GetStoredMaterialsEvent args)
+    private void OnGetStoredMaterials(Entity<MaterialSiloClientComponent> ent, ref GetStoredMaterialsEvent args)
     {
         if (args.LocalOnly)
             return;
@@ -116,7 +116,7 @@ public abstract class SharedOreSiloSystem : EntitySystem
         }
     }
 
-    private void OnConsumeStoredMaterials(Entity<OreSiloClientComponent> ent, ref ConsumeStoredMaterialsEvent args)
+    private void OnConsumeStoredMaterials(Entity<MaterialSiloClientComponent> ent, ref ConsumeStoredMaterialsEvent args)
     {
         if (args.LocalOnly)
             return;
@@ -135,21 +135,21 @@ public abstract class SharedOreSiloSystem : EntitySystem
         }
     }
 
-    private void OnClientShutdown(Entity<OreSiloClientComponent> ent, ref ComponentShutdown args)
+    private void OnClientShutdown(Entity<MaterialSiloClientComponent> ent, ref ComponentShutdown args)
     {
-        if (!TryComp<OreSiloComponent>(ent.Comp.Silo, out var silo))
+        if (!TryComp<MaterialSiloComponent>(ent.Comp.Silo, out var silo))
             return;
 
         silo.Clients.Remove(ent);
         Dirty(ent.Comp.Silo.Value, silo);
-        UpdateOreSiloUi((ent.Comp.Silo.Value, silo));
+        UpdateMaterialSiloUi((ent.Comp.Silo.Value, silo));
     }
 
     /// <summary>
     /// Checks if a given client fulfills the criteria to link/receive materials from an ore silo.
     /// </summary>
     [PublicAPI]
-    public bool CanTransmitMaterials(Entity<OreSiloComponent?> silo, EntityUid client)
+    public bool CanTransmitMaterials(Entity<MaterialSiloComponent?> silo, EntityUid client)
     {
         if (!Resolve(silo, ref silo.Comp))
             return false;

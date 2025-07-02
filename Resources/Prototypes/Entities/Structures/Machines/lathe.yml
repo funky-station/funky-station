@@ -112,7 +112,7 @@
         - Sheet
         - RawMaterial
         - Ingot
-  - type: OreSiloClient
+  - type: MaterialSiloClient
   - type: Lathe
     idleState: icon
     runningState: building
@@ -390,7 +390,7 @@
         - Sheet
         - RawMaterial
         - Ingot
-  - type: OreSiloClient
+  - type: MaterialSiloClient
   - type: Lathe
     idleState: icon
     runningState: building
@@ -661,7 +661,6 @@
     - ThermomachineAdvancedFreezerMachineCircuitBoard # Assmos
     - MusicTechFabCircuitboard # Funky Station
     - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases
-    - SiloRelayMachineCircuitboard # Funky Station
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - ShuttleGunDusterCircuitboard
@@ -674,7 +673,7 @@
         - Sheet
         - RawMaterial
         - Ingot
-  - type: OreSiloClient
+  - type: MaterialSiloClient
   - type: RequireProjectileTarget
 
 - type: entity
@@ -823,7 +822,7 @@
       - Sheet
       - RawMaterial
       - Ingot
-  - type: OreSiloClient
+  - type: MaterialSiloClient
   - type: GuideHelp
     guides:
     - Robotics
@@ -1033,7 +1032,7 @@
         - Sheet
         - RawMaterial
         - Ingot
-  - type: OreSiloClient
+  - type: MaterialSiloClient
 
 - type: entity
   id: AmmoTechFab
@@ -1093,7 +1092,7 @@
         - Sheet
         - RawMaterial
         - Ingot
-  - type: OreSiloClient
+  - type: MaterialSiloClient
 
 - type: entity
   id: MedicalTechFab
@@ -1186,7 +1185,7 @@
     board: MedicalTechFabCircuitboard
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
-  - type: OreSiloClient
+  - type: MaterialSiloClient
 
 - type: entity
   parent: BaseLathe
@@ -1429,7 +1428,7 @@
         - Sheet
         - RawMaterial
         - Ingot
-  - type: OreSiloClient
+  - type: MaterialSiloClient
 
 - type: entity
   id: Biogenerator
@@ -1677,7 +1676,7 @@
         - Wooden
         - RawMaterial
         - Plastic
-  - type: OreSiloClient
+  - type: MaterialSiloClient
 
 # Shitmed Change Start
 - type: entity

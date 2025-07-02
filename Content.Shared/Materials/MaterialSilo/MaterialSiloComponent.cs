@@ -1,17 +1,17 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Materials.OreSilo;
+namespace Content.Shared.Materials.MaterialSilo;
 
 /// <summary>
 /// Provides additional materials to linked clients across long distances.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(SharedOreSiloSystem))]
-public sealed partial class OreSiloComponent : Component
+[Access(typeof(SharedMaterialSiloSystem))]
+public sealed partial class MaterialSiloComponent : Component
 {
     /// <summary>
-    /// The <see cref="OreSiloClientComponent"/> that are connected to this silo.
+    /// The <see cref="MaterialSiloClientComponent"/> that are connected to this silo.
     /// </summary>
     [DataField, AutoNetworkedField]
     public HashSet<EntityUid> Clients = new();
@@ -27,29 +27,29 @@ public sealed partial class OreSiloComponent : Component
 }
 
 [Serializable, NetSerializable]
-public sealed class OreSiloBuiState : BoundUserInterfaceState
+public sealed class MaterialSiloBuiState : BoundUserInterfaceState
 {
     public readonly HashSet<(NetEntity, string, string)> Clients;
 
-    public OreSiloBuiState(HashSet<(NetEntity, string, string)> clients)
+    public MaterialSiloBuiState(HashSet<(NetEntity, string, string)> clients)
     {
         Clients = clients;
     }
 }
 
 [Serializable, NetSerializable]
-public sealed class ToggleOreSiloClientMessage : BoundUserInterfaceMessage
+public sealed class ToggleMaterialSiloClientMessage : BoundUserInterfaceMessage
 {
     public readonly NetEntity Client;
 
-    public ToggleOreSiloClientMessage(NetEntity client)
+    public ToggleMaterialSiloClientMessage(NetEntity client)
     {
         Client = client;
     }
 }
 
 [Serializable, NetSerializable]
-public enum OreSiloUiKey : byte
+public enum MaterialSiloUiKey : byte
 {
     Key
 }

@@ -1,25 +1,25 @@
-using Content.Shared.Materials.OreSilo;
+using Content.Shared.Materials.MaterialSilo;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.Materials.UI;
 
 [UsedImplicitly]
-public sealed class OreSiloBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
+public sealed class MaterialSiloBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
     [ViewVariables]
-    private OreSiloMenu? _menu;
+    private MaterialSiloMenu? _menu;
 
     protected override void Open()
     {
         base.Open();
 
-        _menu = this.CreateWindow<OreSiloMenu>();
+        _menu = this.CreateWindow<MaterialSiloMenu>();
         _menu.SetEntity(Owner);
 
         _menu.OnClientEntryPressed += netEnt =>
         {
-            SendPredictedMessage(new ToggleOreSiloClientMessage(netEnt));
+            SendPredictedMessage(new ToggleMaterialSiloClientMessage(netEnt));
         };
     }
 
@@ -27,7 +27,7 @@ public sealed class OreSiloBoundUserInterface(EntityUid owner, Enum uiKey) : Bou
     {
         base.UpdateState(state);
 
-        if (state is not OreSiloBuiState msg)
+        if (state is not MaterialSiloBuiState msg)
             return;
         _menu?.Update(msg);
     }

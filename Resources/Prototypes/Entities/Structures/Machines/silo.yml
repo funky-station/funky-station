@@ -16,19 +16,20 @@
         base:
           True: { state: silo_active }
           False: { state: silo }
-  - type: OreSilo
+  - type: MaterialSilo
   - type: MaterialStorage
     whitelist:
       tags:
       - Sheet
+      - RawMaterial
       - Ingot
   - type: ActivatableUI
-    key: enum.OreSiloUiKey.Key
+    key: enum.MaterialSiloUiKey.Key
   - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
-      enum.OreSiloUiKey.Key:
-        type: OreSiloBoundUserInterface
+      enum.MaterialSiloUiKey.Key:
+        type: MaterialSiloBoundUserInterface
   - type: Machine
     board: MaterialSiloMachineCircuitboard
   - type: Fixtures

@@ -1,14 +1,14 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Materials.OreSilo;
+namespace Content.Shared.Materials.MaterialSilo;
 
 /// <summary>
-/// An entity with <see cref="MaterialStorageComponent"/> that interfaces with an <see cref="OreSiloComponent"/>.
+/// An entity with <see cref="MaterialStorageComponent"/> that interfaces with an <see cref="MaterialSiloComponent"/>.
 /// Used for tracking the connected silo.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(SharedOreSiloSystem))]
-public sealed partial class OreSiloClientComponent : Component
+[Access(typeof(SharedMaterialSiloSystem))]
+public sealed partial class MaterialSiloClientComponent : Component
 {
     /// <summary>
     /// The silo that this client pulls materials from.

@@ -1,3 +1,4 @@
+using Content.Server.StatusEffectNew;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Drowsiness;
 using Content.Shared.StatusEffectNew;

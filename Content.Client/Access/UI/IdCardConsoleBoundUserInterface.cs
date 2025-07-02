@@ -3,6 +3,7 @@ using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.CrewManifest;
+using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 using static Content.Shared.Access.Components.IdCardConsoleComponent;
 
@@ -64,7 +65,7 @@ namespace Content.Client.Access.UI
             _window?.UpdateState(castState);
         }
 
-        public void SubmitData(string newFullName, string newJobTitle, List<ProtoId<AccessLevelPrototype>> newAccessList, string newJobPrototype)
+        public void SubmitData(string newFullName, string newJobTitle, string newJobIcon, List<ProtoId<AccessLevelPrototype>> newAccessList, string newJobPrototype)
         {
             if (newFullName.Length > MaxFullNameLength)
                 newFullName = newFullName[..MaxFullNameLength];
@@ -75,6 +76,7 @@ namespace Content.Client.Access.UI
             SendMessage(new WriteToTargetIdMessage(
                 newFullName,
                 newJobTitle,
+                newJobIcon, // Funkystation - ID card console job icon selection
                 newAccessList,
                 newJobPrototype));
         }

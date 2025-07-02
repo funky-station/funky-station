@@ -3305,3 +3305,86 @@ Entries:
       message: Cold damage is now increased by about 5x. Make sure to bundle up!
   id: 397
   time: '2025-06-28T02:01:07.0000000+00:00'
+- author: kittygyat, amethystowo
+  changes:
+    - type: Tweak
+      message: >-
+        Monkeys & kobolds can now wear emergency EVA suits, with a fresh new
+        sprite to go along with it! You're welcome, Pun-Pun enthusiasts!
+    - type: Tweak
+      message: >-
+        The Emergency EVA can now survive in the cold slightly better than
+        before, but not as well as it could before the cold damage increase.
+  id: 398
+  time: '2025-06-28T21:21:04.0000000+00:00'
+- author: KiraZen-Underscore
+  changes:
+    - type: Fix
+      message: IPC's now have a different chemical for their blood, Machine oil.
+  id: 399
+  time: '2025-06-28T21:48:05.0000000+00:00'
+- author: EmoGarbage404
+  changes:
+    - type: Add
+      message: >-
+        When an artifact's node is unlocked, the effect will now also occur.
+        Effects can still be triggered manually through interaction.
+    - type: Tweak
+      message: Artifacts will now have more nodes on average.
+    - type: Tweak
+      message: Higher-class artifact nodes now grant significantly more points.
+    - type: Tweak
+      message: Sentient artifacts can once again activate themselves.
+    - type: Tweak
+      message: Increased sentient artifact self activation cooldown.
+  id: 400
+  time: '2025-06-29T02:41:11.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Remove
+      message: The ability to use items / weapons / throw things while prone
+  id: 401
+  time: '2025-06-29T23:18:37.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Fix
+      message: >-
+        When being carried you will no longer be helpless and at the mercy of
+        the person who was able to get off the 15 second doafter on you without
+        you noticing
+    - type: Fix
+      message: You will now be able to unbuckle yourself from beds. Cough.
+  id: 402
+  time: '2025-07-01T01:50:54.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Add
+      message: Ported genpop
+    - type: Fix
+      message: Ported a fix for cargo telepads causing client crashes
+  id: 403
+  time: '2025-07-01T02:17:09.0000000+00:00'
+- author: GreyMario
+  changes:
+    - type: Tweak
+      message: >-
+        Disposal units now more receptive of thrown items. Aim well for a 75%
+        chance to land your throw!
+    - type: Add
+      message: >-
+        Throwing an item at a slimeperson now has a low chance of adding it to
+        their body storage.
+  id: 404
+  time: '2025-07-01T21:26:24.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: Rodents can now squeak AND scream with appropriate sounds.
+  id: 405
+  time: '2025-07-02T01:57:06.0000000+00:00'
+- author: ilyamikcoder
+  changes:
+    - type: Add
+      message: ID card computer has a dedicated job icon option
+  id: 406
+  time: '2025-07-02T04:50:16.0000000+00:00'

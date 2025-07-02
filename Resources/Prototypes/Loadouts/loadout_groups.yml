@@ -1447,8 +1447,8 @@
   id: BoxerJumpsuit
   name: loadout-group-boxer-jumpsuit
   loadouts:
-  - BoxerShorts
   - BoxerShortsWithTop
+  - BoxerShorts
 
 - type: loadoutGroup
   id: BoxerGloves

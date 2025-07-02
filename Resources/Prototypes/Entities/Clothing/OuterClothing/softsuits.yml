@@ -49,13 +49,17 @@
   - type: HeldSpeedModifier
   - type: TemperatureProtection
     heatingCoefficient: 0.75
-    coolingCoefficient: 0.5
+    coolingCoefficient: 0.25
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetEVALarge
     slot: head
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
+  - type: Tag
+    tags:
+    - MonkeyWearable
+    - WhitelistChameleon
 
 #Prisoner EVA
 - type: entity

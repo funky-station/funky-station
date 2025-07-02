@@ -4,8 +4,8 @@ meta:
   engineVersion: 255.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/01/2025 05:15:52
-  entityCount: 19923
+  time: 07/02/2025 02:05:12
+  entityCount: 19928
 maps:
 - 1
 grids:
@@ -646,11 +646,6 @@ entities:
             7282: 28,9
             7283: 28,10
             7284: 28,11
-        - node:
-            color: '#FF5C5CFF'
-            id: BrickLineOverlayW
-          decals:
-            5823: -24,-8
         - node:
             color: '#34FFFFFF'
             id: BrickTileDarkCornerNe
@@ -11484,8 +11479,6 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 6183
-      - 6184
       - 6186
       - 6185
       - 6187
@@ -11494,6 +11487,10 @@ entities:
       - 6102
       - 8370
       - 8271
+      - 6131
+      - 6132
+      - 10524
+      - 6128
   - uid: 30
     components:
     - type: Transform
@@ -11605,16 +11602,15 @@ entities:
       - 6156
       - 6157
       - 6232
-      - 6130
-      - 6129
-      - 6128
-      - 6131
-      - 6132
       - 6124
       - 6125
       - 6126
       - 8243
       - 8335
+      - 19926
+      - 19925
+      - 19927
+      - 19924
   - uid: 45
     components:
     - type: Transform
@@ -11627,11 +11623,6 @@ entities:
       - 6148
       - 6147
       - 6146
-      - 6130
-      - 6129
-      - 6128
-      - 6131
-      - 6132
       - 8334
       - 8244
   - uid: 46
@@ -13501,7 +13492,7 @@ entities:
       pos: -10.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -92845.39
+      secondsUntilStateChange: -93048.945
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13678,7 +13669,7 @@ entities:
       pos: -7.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -272388.66
+      secondsUntilStateChange: -272592.22
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14210,7 +14201,7 @@ entities:
       pos: -27.5,10.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -450791.6
+      secondsUntilStateChange: -450995.16
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14895,8 +14886,6 @@ entities:
       pos: -53.5,29.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - 9041
       deviceLists:
       - 19754
 - proto: AirSensorVox
@@ -15866,7 +15855,7 @@ entities:
   - uid: 480
     components:
     - type: Transform
-      pos: -18.657267,-9.395831
+      pos: -18.699411,-9.4790945
       parent: 2
     - type: Physics
       angularDamping: 0
@@ -19228,6 +19217,21 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
+- proto: BoxReamBright
+  entities:
+  - uid: 6183
+    components:
+    - type: Transform
+      pos: -17.778341,-7.3705506
+      parent: 2
+- proto: BoxReamClassic
+  entities:
+  - uid: 6184
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -15.522341,-9.350551
+      parent: 2
 - proto: BoxSterileMask
   entities:
   - uid: 793
@@ -59421,11 +59425,6 @@ entities:
       - 6156
       - 6157
       - 6232
-      - 6130
-      - 6129
-      - 6128
-      - 6131
-      - 6132
       - 6124
       - 6125
       - 6126
@@ -59441,11 +59440,6 @@ entities:
       - 6148
       - 6147
       - 6146
-      - 6130
-      - 6129
-      - 6128
-      - 6131
-      - 6132
   - uid: 6032
     components:
     - type: Transform
@@ -59631,8 +59625,6 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 6183
-      - 6184
       - 6186
       - 6185
       - 6187
@@ -59948,6 +59940,44 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 18297
+- proto: FirelockEdge
+  entities:
+  - uid: 6128
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -24.5,-8.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 29
+  - uid: 6131
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -24.5,-3.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 29
+  - uid: 6132
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -24.5,-5.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 29
+  - uid: 10524
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -24.5,-6.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 29
 - proto: FirelockElectronics
   entities:
   - uid: 6099
@@ -60192,72 +60222,6 @@ entities:
       - 44
       - 6026
       - 61
-  - uid: 6127
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -23.5,-7.5
-      parent: 2
-  - uid: 6128
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -22.5,-7.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 6030
-      - 44
-      - 6031
-      - 45
-  - uid: 6129
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -21.5,-7.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 6030
-      - 44
-      - 6031
-      - 45
-  - uid: 6130
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -20.5,-7.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 6030
-      - 44
-      - 6031
-      - 45
-  - uid: 6131
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -25.5,-7.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 6030
-      - 44
-      - 6031
-      - 45
-  - uid: 6132
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -26.5,-7.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 6030
-      - 44
-      - 6031
-      - 45
   - uid: 6133
     components:
     - type: Transform
@@ -60551,26 +60515,6 @@ entities:
       - 6057
       - 27
       - 69
-  - uid: 6183
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -27.5,-5.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 6059
-      - 29
-  - uid: 6184
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -27.5,-6.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 6059
-      - 29
   - uid: 6185
     components:
     - type: Transform
@@ -61900,6 +61844,38 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 19483
+  - uid: 19924
+    components:
+    - type: Transform
+      pos: -20.5,-9.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 44
+  - uid: 19925
+    components:
+    - type: Transform
+      pos: -22.5,-9.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 44
+  - uid: 19926
+    components:
+    - type: Transform
+      pos: -23.5,-9.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 44
+  - uid: 19927
+    components:
+    - type: Transform
+      pos: -21.5,-9.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 44
 - proto: Fireplace
   entities:
   - uid: 6309
@@ -78801,8 +78777,6 @@ entities:
       pos: -54.5,30.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - 9041
       deviceLists:
       - 19754
   - uid: 19822
@@ -78812,8 +78786,6 @@ entities:
       pos: -54.5,29.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - 9041
       deviceLists:
       - 19754
   - uid: 19823
@@ -78823,8 +78795,6 @@ entities:
       pos: -53.5,28.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - 9041
       deviceLists:
       - 19754
 - proto: GasVentScrubberVox
@@ -82901,6 +82871,20 @@ entities:
     - type: Transform
       pos: -35.5,-37.5
       parent: 2
+- proto: MagazinePistolSubMachineGunTopMounted
+  entities:
+  - uid: 6129
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -37.15866,8.583234
+      parent: 2
+  - uid: 19928
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -36.89466,8.655234
+      parent: 2
 - proto: MailingUnitElectronics
   entities:
   - uid: 2676
@@ -83838,14 +83822,9 @@ entities:
   - uid: 9041
     components:
     - type: Transform
-      pos: 24.082884,8.72774
+      pos: 24.131943,8.793147
       parent: 2
     - type: NetworkConfigurator
-      devices:
-        'UID: 27285': 19821
-        'UID: 27286': 19822
-        'UID: 27288': 19823
-        'UID: 27299': 19826
       linkModeActive: False
     - type: Physics
       angularDamping: 0
@@ -84423,6 +84402,14 @@ entities:
     components:
     - type: Transform
       pos: -34.241787,-39.220284
+      parent: 2
+- proto: PaperStickyNoteStackFilled
+  entities:
+  - uid: 6130
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -18.702343,-9.09855
       parent: 2
 - proto: PartRodMetal
   entities:
@@ -95318,15 +95305,15 @@ entities:
     - type: Transform
       pos: 30.5,8.5
       parent: 2
+  - uid: 6127
+    components:
+    - type: Transform
+      pos: -23.5,-7.5
+      parent: 2
   - uid: 10523
     components:
     - type: Transform
       pos: -23.5,-4.5
-      parent: 2
-  - uid: 10524
-    components:
-    - type: Transform
-      pos: -23.5,-7.5
       parent: 2
   - uid: 10525
     components:

@@ -3,7 +3,9 @@ using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
+using Content.Shared.Body.Events;
 using Content.Server.DeviceNetwork.Systems;
+using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
 using Content.Server.PowerCell;
 using Content.Shared.Alert;
@@ -62,7 +64,8 @@ public sealed partial class BorgSystem : SharedBorgSystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
 
-    public static readonly ProtoId<JobPrototype> BorgJobId = "Borg";
+    [ValidatePrototypeId<JobPrototype>]
+    public const string BorgJobId = "Borg";
 
     /// <inheritdoc/>
     public override void Initialize()

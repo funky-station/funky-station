@@ -28,6 +28,7 @@ using Content.Server.DoAfter;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics.Components;
 using Content.Server.Popups;
+using Content.Shared.Body.Events;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Chemistry.Components;
@@ -56,7 +57,7 @@ namespace Content.Server.Forensics
 
         public override void Initialize()
         {
-            SubscribeLocalEvent<FingerprintComponent, ContactInteractionEvent>(OnInteract);
+            SubscribeLocalEvent<HandsComponent, ContactInteractionEvent>(OnInteract);
             SubscribeLocalEvent<FingerprintComponent, MapInitEvent>(OnFingerprintInit, after: new[] { typeof(BloodstreamSystem) });
             // The solution entities are spawned on MapInit as well, so we have to wait for that to be able to set the DNA in the bloodstream correctly without ResolveSolution failing
             SubscribeLocalEvent<DnaComponent, MapInitEvent>(OnDNAInit, after: new[] { typeof(BloodstreamSystem) });

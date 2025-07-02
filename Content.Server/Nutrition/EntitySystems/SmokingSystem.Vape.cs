@@ -20,6 +20,8 @@ using Content.Server.DoAfter;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
+using Content.Shared.Body.Components;
+using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Components;

@@ -22,6 +22,7 @@ using Content.Server.Temperature.Systems;
 using Content.Server.Traits.Assorted;
 using Content.Server.Zombies;
 using Content.Shared.Atmos;
+using Content.Shared.Body.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.EntityEffects.EffectConditions;
 using Content.Shared.EntityEffects.Effects.PlantMetabolism;
@@ -556,11 +557,11 @@ public sealed class EntityEffectSystem : EntitySystem
                 return;
 
             cleanseRate *= reagentArgs.Scale.Float();
-            _bloodstream.FlushChemicals(args.Args.TargetEntity, reagentArgs.Reagent.ID, cleanseRate);
+            _bloodstream.FlushChemicals(args.Args.TargetEntity, reagentArgs.Reagent, cleanseRate);
         }
         else
         {
-            _bloodstream.FlushChemicals(args.Args.TargetEntity, "", cleanseRate);
+            _bloodstream.FlushChemicals(args.Args.TargetEntity, null, cleanseRate);
         }
     }
 
@@ -778,7 +779,7 @@ public sealed class EntityEffectSystem : EntitySystem
                 amt *= reagentArgs.Scale.Float();
             }
 
-            _bloodstream.TryModifyBleedAmount(args.Args.TargetEntity, amt, blood);
+            _bloodstream.TryModifyBleedAmount((args.Args.TargetEntity, blood), amt);
         }
     }
 
@@ -794,7 +795,7 @@ public sealed class EntityEffectSystem : EntitySystem
                 amt *= reagentArgs.Scale;
             }
 
-            _bloodstream.TryModifyBloodLevel(args.Args.TargetEntity, amt, blood);
+            _bloodstream.TryModifyBloodLevel((args.Args.TargetEntity, blood), amt);
         }
     }
 

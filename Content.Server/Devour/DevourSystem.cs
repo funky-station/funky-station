@@ -13,7 +13,7 @@ using Content.Shared.Body.Events;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Devour;
 using Content.Shared.Devour.Components;
-using Content.Shared.Whitelist;
+using Content.Shared.Humanoid;
 
 namespace Content.Server.Devour;
 

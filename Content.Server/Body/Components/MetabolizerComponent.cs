@@ -11,6 +11,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.Body.Prototypes;
 using Content.Shared.FixedPoint;

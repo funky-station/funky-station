@@ -23,6 +23,9 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Body.Components;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Hypospray.Events;
@@ -31,17 +34,20 @@ using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Forensics;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Popups;
 using Content.Shared.Timing;
+using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Server.Body.Components;
 using System.Linq;
 using Content.Shared._Goobstation.Chemistry.SolutionCartridge;
 using Robust.Server.Audio;
 
-namespace Content.Server.Chemistry.EntitySystems;
+namespace Content.Shared.Chemistry.EntitySystems;
 
 public sealed class HypospraySystem : SharedHypospraySystem
 {

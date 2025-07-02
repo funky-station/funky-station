@@ -120,6 +120,7 @@ public abstract partial class SharedGunSystem
         {
             // We call SharedInteractionSystem to raise contact events. Checks are already done by this point.
             _interaction.InteractUsing(args.User, ammo, ammoProvider, coordinates, checkCanInteract: false, checkCanUse: false);
+            UpdateAmmoCount(ammoProvider);
         }
 
         List<(EntityUid? Entity, IShootable Shootable)> ammo = new();

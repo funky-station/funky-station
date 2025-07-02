@@ -46,6 +46,14 @@
     },
     {
       "name": "icon-on"
-    }
+    },
+	{
+		"name": "inhand-left",
+		"directions": 4
+	},
+	{
+		"name": "inhand-right",
+		"directions": 4
+	}
   ]
 }

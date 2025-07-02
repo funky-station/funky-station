@@ -2409,6 +2409,8 @@
   - type: SurgeryTarget # Shitmed
   - type: UserInterface # Shitmed
     interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
   - type: MobThresholds
@@ -2478,8 +2480,8 @@
     isToggle: true
     color: "#808080"
     playSoundOn: false
-  - type: Inventory
-    speciesId: possum
+  - type: Inventory # FunkyStation. Mainly for Shiva, but doing it for all spiders
+    speciesId: spider
     templateId: pet
 
 - type: entity

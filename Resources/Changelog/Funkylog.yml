@@ -3382,3 +3382,9 @@ Entries:
       message: Rodents can now squeak AND scream with appropriate sounds.
   id: 405
   time: '2025-07-02T01:57:06.0000000+00:00'
+- author: ilyamikcoder
+  changes:
+    - type: Add
+      message: ID card computer has a dedicated job icon option
+  id: 406
+  time: '2025-07-02T04:50:16.0000000+00:00'

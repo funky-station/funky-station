@@ -10,8 +10,8 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 22 # Get to WHACKIN!  Funky change - 25 > 20, since this inherits from a baseball bat it gains 5 more damage while wielded,
-                  # meaning that it actually does 30 blunt. Plus collision damage, it could kill unarmoured in 3 hits. It's now 25 for real
+        Blunt: 22 # Get to WHACKIN!  Funky change - 25 > 22, since this inherits from a baseball bat it gains 5 more damage while wielded,
+                  # meaning that it actually does 30 blunt. Plus collision damage, it could kill unarmoured in 3 hits. It's now 27 blunt.
         Structural: 30 # Funky - it also gains 10 more structural, but that hasn't proved to be an issue yet so it's unchanged.
     soundHit:
       collection: ExplosionSmall

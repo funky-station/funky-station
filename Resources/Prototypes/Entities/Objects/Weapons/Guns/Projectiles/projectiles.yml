@@ -1116,6 +1116,7 @@
         mask:
         - Impassable
         - BulletImpassable
+      fly-by: *flybyfixture
   - type: Ammo
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler

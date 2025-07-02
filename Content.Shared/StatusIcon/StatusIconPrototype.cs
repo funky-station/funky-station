@@ -118,6 +118,12 @@ public sealed partial class JobIconPrototype : StatusIconPrototype, IInheritingP
     /// </summary>
     [DataField]
     public bool AllowSelection = true;
+
+    /// <summary>
+    /// Funkystation - should the job icon be selectable on the ID card console?
+    /// </summary>
+    [DataField]
+    public bool AllowIdConsole = true;
 }
 
 /// <summary>

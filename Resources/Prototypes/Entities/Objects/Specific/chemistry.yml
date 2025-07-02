@@ -382,6 +382,7 @@
     tags:
     - Syringe
     - Beaker
+    - Vial
 
 - type: entity
   parent: BaseSyringe

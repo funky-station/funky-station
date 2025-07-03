@@ -3394,3 +3394,15 @@ Entries:
       message: Sec ids now work with genpop turnstiles
   id: 407
   time: '2025-07-03T01:24:42.0000000+00:00'
+- author: TempWorm, SlamBamActionman
+  changes:
+    - type: Add
+      message: >-
+        Propeller Hats! For those who want to look a bit more silly than usual,
+        get one from a ClothesMate or AutoDrobe!
+    - type: Add
+      message: >-
+        Swirl Lollipops! These can be found on any GetMore Chocolate vending
+        machine.
+  id: 408
+  time: '2025-07-03T01:25:42.0000000+00:00'

@@ -335,6 +335,7 @@ namespace Content.Client.Chemistry.UI
         {
             var bufferVolume = castState.PillBufferCurrentVolume?.Int() ?? 0;
             PillDosage.Value = (int) Math.Min(bufferVolume, castState.PillDosageLimit);
+            BottleDosage.Value = (int) Math.Min(bufferVolume, 30);
 
             PillTypeButtons[castState.SelectedPillType].Pressed = true;
             PillNumber.IsValid = x => x >= 0;

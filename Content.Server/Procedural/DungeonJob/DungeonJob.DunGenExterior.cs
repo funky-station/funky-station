@@ -1,17 +1,8 @@
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using System.Threading.Tasks;
-using Content.Server.NPC.Pathfinding;
 using Content.Shared.Maps;
 using Content.Shared.NPC;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.DungeonGenerators;
-using Robust.Shared.Collections;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
@@ -34,7 +25,6 @@ public sealed partial class DungeonJob
         var startTile = new Vector2i(0, (int) distance).Rotate(angle);
 
         Vector2i? dungeonSpawn = null;
-        var pathfinder = _entManager.System<PathfindingSystem>();
 
         // Gridcast
         SharedPathfindingSystem.GridCast(startTile, position, tile =>
@@ -59,7 +49,7 @@ public sealed partial class DungeonJob
 
         var config = _prototype.Index(dungen.Proto);
         var nextSeed = random.Next();
-        var dungeons = await GetDungeons(dungeonSpawn.Value, config, config.Data, config.Layers, reservedTiles, nextSeed, new Random(nextSeed));
+        var dungeons = await GetDungeons(dungeonSpawn.Value, config, config.Layers, reservedTiles, nextSeed, new Random(nextSeed));
 
         return dungeons;
     }

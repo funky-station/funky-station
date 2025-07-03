@@ -1,13 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
-
 # Okay so my general thought is this:
 # 1. Generate the large mass
 # 2. Generate smaller masses offset
@@ -28,6 +18,7 @@
       proto: VGRoidSmaller
     - !type:PrototypeDunGen
       proto: VGRoidSmallPaths
+      inheritDungeons: All
     - !type:EntityTableDunGen
       minCount: 7
       maxCount: 12
@@ -36,73 +27,74 @@
     # Fill
     - !type:PrototypeDunGen
       proto: VGRoidFill
+      inheritDungeons: All
     # Ores
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockIron
-      count: 55
+      count: 50
       minGroupSize: 10
       maxGroupSize: 15
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockCoal
-      count: 55
+      count: 50
       minGroupSize: 8
       maxGroupSize: 12
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockQuartz
-      count: 55
+      count: 50
       minGroupSize: 10
       maxGroupSize: 15
     - !type:OreDunGen
       replacement: IronRock
-      entity: IronRockBananium
-      count: 15 # Funky station, salt is currently useless so its replaced with bananium ore 
+      entity: IronRockSalt
+      count: 50
       minGroupSize: 8
       maxGroupSize: 12
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockGold
-      count: 45
+      count: 40
       minGroupSize: 8
       maxGroupSize: 12
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockSilver
-      count: 45
+      count: 40
       minGroupSize: 8
       maxGroupSize: 12
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockPlasma
-      count: 40
+      count: 35
       minGroupSize: 4
       maxGroupSize: 8
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockUranium
-      count: 40
+      count: 35
       minGroupSize: 4
       maxGroupSize: 8
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockArtifactFragment
-      count: 30
+      count: 25
       minGroupSize: 1
       maxGroupSize: 3
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockDiamond
-      count: 20
-      minGroupSize: 1
-      maxGroupSize: 2
-    - !type:OreDunGen # Goobstation
-      replacement: IronRock
-      entity: IronRockBSCrystal
       count: 15
       minGroupSize: 1
       maxGroupSize: 2
+    - !type:OreDunGen
+      replacement: IronRock
+      entity: IronRockGibtonite
+      count: 60 # you don't really hit it on purpose so it should be common
+      minGroupSize: 1
+      maxGroupSize: 1
 
 # Configs
 - type: dungeonConfig
@@ -145,14 +137,12 @@
 - type: dungeonConfig
   id: VGRoidExterior
   reserveTiles: true
-  data:
-    tiles:
-      FallbackTile: PlatingAsteroid
-      WidenTile: FloorAsteroidSand
   layers:
   - !type:PrototypeDunGen
     proto: VGRoidExteriorDungeons
   - !type:SplineDungeonConnectorDunGen
+    tile: PlatingAsteroid
+    widenTile: FloorAsteroidSand
 
 - type: dungeonConfig
   id: VGRoidExteriorDungeons
@@ -173,29 +163,24 @@
     table: !type:NestedSelector
       tableId: SalvageScrapSpawnerValuable
   - !type:EntityTableDunGen
-    minCount: 15
-    maxCount: 25
+    minCount: 30
+    maxCount: 45
     table: !type:NestedSelector
       tableId: SalvageTreasureSpawnerCommon
   - !type:EntityTableDunGen
-    minCount: 15
-    maxCount: 25
-    table: !type:NestedSelector
-      tableId: SalvageEquipmentSpawnerCommon
-  - !type:EntityTableDunGen
-    minCount: 15
-    maxCount: 20
+    minCount: 30
+    maxCount: 45
     table: !type:NestedSelector
       tableId: SalvageTreasureSpawnerValuable
-  - !type:EntityTableDunGen
-    minCount: 15
-    maxCount: 20
-    table: !type:NestedSelector
-      tableId: SalvageEquipmentSpawnerValuable
   - !type:MobsDunGen
     minCount: 8
     maxCount: 15
-    groups:
+    contents: VGRoidExteriorDungeonsMobs
+
+- type: entityTable
+  id: VGRoidExteriorDungeonsMobs
+  table: !type:GroupSelector
+    children:
     - id: SalvageSpawnerMobMiningAsteroid
       amount: 1
 
@@ -225,7 +210,12 @@
   - !type:MobsDunGen
     minCount: 25
     maxCount: 35
-    groups:
+    contents: VGRoidSmallPathsMobs
+
+- type: entityTable
+  id: VGRoidSmallPathsMobs
+  table: !type:GroupSelector
+    children:
     - id: SalvageSpawnerMobMiningAsteroid
       amount: 1
 
@@ -235,10 +225,8 @@
 # Fill with rocks.
 - type: dungeonConfig
   id: VGRoidFill
-  data:
-    entities:
-      Fill: IronRock
   layers:
   - !type:FillGridDunGen
+    entity: IronRock
     allowedTiles:
     - FloorAsteroidSand

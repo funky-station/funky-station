@@ -1,11 +1,6 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
+using Content.Shared.EntityTable;
 using Content.Shared.Storage;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Procedural.PostGeneration;
 
@@ -21,5 +16,5 @@ public sealed partial class CorridorClutterDunGen : IDunGenLayer
     /// The default starting bulbs
     /// </summary>
     [DataField(required: true)]
-    public List<EntitySpawnEntry> Contents = new();
+    public ProtoId<EntityTablePrototype> Contents;
 }

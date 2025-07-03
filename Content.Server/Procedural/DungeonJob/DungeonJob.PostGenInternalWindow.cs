@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using System.Threading.Tasks;
 using Content.Shared.Maps;
@@ -17,21 +12,14 @@ public sealed partial class DungeonJob
     /// <summary>
     /// <see cref="InternalWindowDunGen"/>
     /// </summary>
-    private async Task PostGen(InternalWindowDunGen gen, DungeonData data, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
+    private async Task PostGen(InternalWindowDunGen gen, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
     {
-        if (!data.Tiles.TryGetValue(DungeonDataKey.FallbackTile, out var tileProto) ||
-            !data.SpawnGroups.TryGetValue(DungeonDataKey.Window, out var windowGroup))
-        {
-            _sawmill.Error($"Unable to find dungeon data keys for {nameof(gen)}");
-            return;
-        }
-
         // Iterate every room and check if there's a gap beyond it that leads to another room within N tiles
         // If so then consider windows
         var minDistance = 4;
         var maxDistance = 6;
-        var tileDef = _tileDefManager[tileProto];
-        var window = _prototype.Index(windowGroup);
+        var tileDef = _tileDefManager[gen.Tile];
+        var contents = _prototype.Index(gen.Contents);
 
         foreach (var room in dungeon.Rooms)
         {
@@ -81,7 +69,7 @@ public sealed partial class DungeonJob
                     if (reservedTiles.Contains(windowTile))
                         continue;
 
-                    if (!_anchorable.TileFree(_grid, windowTile, DungeonSystem.CollisionLayer, DungeonSystem.CollisionMask))
+                    if (!_anchorable.TileFree((_gridUid, _grid), windowTile, DungeonSystem.CollisionLayer, DungeonSystem.CollisionMask))
                         continue;
 
                     validTiles.Add(windowTile);
@@ -95,7 +83,7 @@ public sealed partial class DungeonJob
                     var gridPos = _maps.GridTileToLocal(_gridUid, _grid, tile);
                     _maps.SetTile(_gridUid, _grid, tile, _tile.GetVariantTile((ContentTileDefinition) tileDef, random));
 
-                    _entManager.SpawnEntities(gridPos, EntitySpawnCollection.GetSpawns(window.Entries, random));
+                    _entManager.SpawnEntitiesAttachedTo(gridPos, _entTable.GetSpawns(contents, random));
                 }
 
                 if (validTiles.Count > 0)

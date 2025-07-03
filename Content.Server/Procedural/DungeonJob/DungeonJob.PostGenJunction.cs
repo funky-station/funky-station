@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using System.Threading.Tasks;
 using Content.Shared.Maps;
 using Content.Shared.Procedural;
@@ -17,22 +12,15 @@ public sealed partial class DungeonJob
     /// <summary>
     /// <see cref="JunctionDunGen"/>
     /// </summary>
-    private async Task PostGen(JunctionDunGen gen, DungeonData data, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
+    private async Task PostGen(JunctionDunGen gen, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
     {
-        if (!data.Tiles.TryGetValue(DungeonDataKey.FallbackTile, out var tileProto) ||
-            !data.SpawnGroups.TryGetValue(DungeonDataKey.Junction, out var junctionProto))
-        {
-            _sawmill.Error($"Dungeon data keys are missing for {nameof(gen)}");
-            return;
-        }
-
-        var tileDef = _tileDefManager[tileProto];
-        var entranceGroup = _prototype.Index(junctionProto);
+        var tileDef = _tileDefManager[gen.Tile];
+        var contents = _prototype.Index(gen.Contents);
 
         // N-wide junctions
         foreach (var tile in dungeon.CorridorTiles)
         {
-            if (!_anchorable.TileFree(_grid, tile, DungeonSystem.CollisionLayer, DungeonSystem.CollisionMask))
+            if (!_anchorable.TileFree((_gridUid, _grid), tile, DungeonSystem.CollisionLayer, DungeonSystem.CollisionMask))
                 continue;
 
             // Check each direction:
@@ -69,7 +57,7 @@ public sealed partial class DungeonJob
                     }
 
                     // If we're not at the end tile then check it + perpendicular are free.
-                    if (!_anchorable.TileFree(_grid, neighbor, DungeonSystem.CollisionLayer, DungeonSystem.CollisionMask))
+                    if (!_anchorable.TileFree((_gridUid, _grid), neighbor, DungeonSystem.CollisionLayer, DungeonSystem.CollisionMask))
                     {
                         isValid = false;
                         break;
@@ -78,13 +66,13 @@ public sealed partial class DungeonJob
                     var perp1 = tile + neighborVec * j + ((Direction) ((i * 2 + 2) % 8)).ToIntVec();
                     var perp2 = tile + neighborVec * j + ((Direction) ((i * 2 + 6) % 8)).ToIntVec();
 
-                    if (!_anchorable.TileFree(_grid, perp1, DungeonSystem.CollisionLayer, DungeonSystem.CollisionMask))
+                    if (!_anchorable.TileFree((_gridUid, _grid), perp1, DungeonSystem.CollisionLayer, DungeonSystem.CollisionMask))
                     {
                         isValid = false;
                         break;
                     }
 
-                    if (!_anchorable.TileFree(_grid, perp2, DungeonSystem.CollisionLayer, DungeonSystem.CollisionMask))
+                    if (!_anchorable.TileFree((_gridUid, _grid), perp2, DungeonSystem.CollisionLayer, DungeonSystem.CollisionMask))
                     {
                         isValid = false;
                         break;
@@ -106,7 +94,7 @@ public sealed partial class DungeonJob
                         var cornerVec = cornerDir.ToIntVec();
                         var cornerNeighbor = tile + neighborVec * j + cornerVec;
 
-                        if (_anchorable.TileFree(_grid, cornerNeighbor, DungeonSystem.CollisionLayer, DungeonSystem.CollisionMask))
+                        if (_anchorable.TileFree((_gridUid, _grid), cornerNeighbor, DungeonSystem.CollisionLayer, DungeonSystem.CollisionMask))
                         {
                             freeCount++;
                         }
@@ -128,7 +116,7 @@ public sealed partial class DungeonJob
                         _maps.SetTile(_gridUid, _grid, weh, _tile.GetVariantTile((ContentTileDefinition) tileDef, random));
 
                         var coords = _maps.GridTileToLocal(_gridUid, _grid, weh);
-                        _entManager.SpawnEntities(coords, EntitySpawnCollection.GetSpawns(entranceGroup.Entries, random));
+                        _entManager.SpawnEntitiesAttachedTo(coords, _entTable.GetSpawns(contents, random));
                     }
 
                     break;

@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using System.Threading.Tasks;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.PostGeneration;
@@ -18,10 +12,11 @@ public sealed partial class DungeonJob
     /// <summary>
     /// <see cref="CorridorClutterDunGen"/>
     /// </summary>
-    private async Task PostGen(CorridorClutterDunGen gen, DungeonData data, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
+    private async Task PostGen(CorridorClutterDunGen gen, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
     {
         var physicsQuery = _entManager.GetEntityQuery<PhysicsComponent>();
         var count = (int) Math.Ceiling(dungeon.CorridorTiles.Count * gen.Chance);
+        var contents = _prototype.Index(gen.Contents);
 
         while (count > 0)
         {
@@ -48,9 +43,12 @@ public sealed partial class DungeonJob
 
             count--;
 
-            var protos = EntitySpawnCollection.GetSpawns(gen.Contents, random);
+            if (reservedTiles.Contains(tile))
+                continue;
+
+            var protos = _entTable.GetSpawns(contents, random);
             var coords = _maps.ToCenterCoordinates(_gridUid, tile, _grid);
-            _entManager.SpawnEntities(coords, protos);
+            _entManager.SpawnEntitiesAttachedTo(coords, protos);
             await SuspendIfOutOfTime();
 
             if (!ValidateResume())

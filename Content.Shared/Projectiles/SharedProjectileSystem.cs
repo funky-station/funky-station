@@ -42,6 +42,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedGunSystem _guns = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
 
     public override void Initialize()
     {
@@ -164,10 +165,10 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     private void OnEmbedActivate(EntityUid uid, EmbeddableProjectileComponent component, ActivateInWorldEvent args)
     {
         // Unremovable embeddables moment
-        if (embeddable.Comp.RemovalTime == null)
+        if (component.RemovalTime == null)
             return;
 
-        if (args.Handled || !args.Complex || !TryComp<PhysicsComponent>(embeddable, out var physics) ||
+        if (args.Handled || !args.Complex || !TryComp<PhysicsComponent>(uid, out var physics) ||
             physics.BodyType != BodyType.Static)
             return;
 
@@ -175,10 +176,10 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager,
             args.User,
-            embeddable.Comp.RemovalTime.Value,
+            component.RemovalTime.Value,
             new RemoveEmbeddedProjectileEvent(),
-            eventTarget: embeddable,
-            target: embeddable));
+            eventTarget: uid,
+            target: uid));
     }
 
     private void OnEmbedRemove(Entity<EmbeddableProjectileComponent> embeddable, ref RemoveEmbeddedProjectileEvent args)

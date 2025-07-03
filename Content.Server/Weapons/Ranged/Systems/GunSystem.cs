@@ -83,13 +83,13 @@ public sealed partial class GunSystem : SharedGunSystem
         if (gridUid != fromCoordinates.EntityId && TryComp(gridUid, out TransformComponent? gridXform))
         {
             var (_, gridRot, gridInvMatrix) = TransformSystem.GetWorldPositionRotationInvMatrix(gridXform);
-            var map = _transform.ToMapCoordinates(fromCoordinates);
+            var map = TransformSystem.ToMapCoordinates(fromCoordinates);
             fromCoordinates = new EntityCoordinates(gridUid.Value, Vector2.Transform(map.Position, gridInvMatrix));
             angle -= gridRot;
         }
         else
         {
-            angle -= _transform.GetWorldRotation(fromXform);
+            angle -= TransformSystem.GetWorldRotation(fromXform);
         }
 
         if (distance >= 1f)

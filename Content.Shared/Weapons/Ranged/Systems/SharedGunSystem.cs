@@ -83,7 +83,6 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] protected readonly ThrowingSystem ThrowingSystem = default!;
     [Dependency] private   readonly UseDelaySystem _useDelay = default!;
     [Dependency] private   readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private   readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private   readonly StaminaSystem _stamina = default!;
     [Dependency] private   readonly SharedStunSystem _stun = default!;
     [Dependency] private   readonly SharedColorFlashEffectSystem _color = default!;
@@ -483,26 +482,26 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         // Try a clumsy roll
         // TODO: Who put this here
-        if (TryComp<ClumsyComponent>(user, out var clumsy) && gun.ClumsyProof == false)
-        {
-            for (var i = 0; i < ammo.Count; i++)
-            {
-                if (_interaction.TryRollClumsy(user.Value, GunClumsyChance, clumsy))
-                {
-                    // Wound them
-                    Damageable.TryChangeDamage(user, clumsy.ClumsyDamage, origin: user);
-                    _stun.TryParalyze(user.Value, TimeSpan.FromSeconds(3f), true);
-
-                    // Apply salt to the wound ("Honk!")
-                    Audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/Guns/Gunshots/bang.ogg"), gunUid);
-                    Audio.PlayPvs(clumsy.ClumsySound, gunUid);
-
-                    PopupSystem.PopupEntity(Loc.GetString("gun-clumsy"), user.Value);
-                    userImpulse = false;
-                    return null;
-                }
-            }
-        }
+        // if (TryComp<ClumsyComponent>(user, out var clumsy) && gun.ClumsyProof == false)
+        // {
+        //     for (var i = 0; i < ammo.Count; i++)
+        //     {
+        //         if (_interaction.TryRollClumsy(user.Value, GunClumsyChance, clumsy))
+        //         {
+        //             // Wound them
+        //             Damageable.TryChangeDamage(user, clumsy.ClumsyDamage, origin: user);
+        //             _stun.TryParalyze(user.Value, TimeSpan.FromSeconds(3f), true);
+        //
+        //             // Apply salt to the wound ("Honk!")
+        //             Audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/Guns/Gunshots/bang.ogg"), gunUid);
+        //             Audio.PlayPvs(clumsy.ClumsySound, gunUid);
+        //
+        //             PopupSystem.PopupEntity(Loc.GetString("gun-clumsy"), user.Value);
+        //             userImpulse = false;
+        //             return null;
+        //         }
+        //     }
+        // }
 
         var fromMap = fromCoordinates.ToMap(EntityManager, TransformSystem);
         var toMap = toCoordinates.ToMapPos(EntityManager, TransformSystem);

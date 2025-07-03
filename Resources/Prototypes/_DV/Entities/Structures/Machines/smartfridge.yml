@@ -41,6 +41,7 @@
       - Bottle
       - Syringe
       - ChemDispensable
+      - MedicalPatch
   - type: ActivatableUI
     key: enum.SmartFridgeUiKey.Key
   - type: ActivatableUIRequiresPower

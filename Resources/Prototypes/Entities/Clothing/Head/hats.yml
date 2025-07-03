@@ -1148,3 +1148,18 @@
     sprite: Clothing/Head/Hats/beret_medic.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/beret_medic.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadPropellerHat
+  name: propeller hat
+  description: You're the goodest one of all.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/propellerhat.rsi
+    layers:
+    - state: icon-on
+      map: [ "light" ]
+  - type: Clothing
+    equippedPrefix: on
+    sprite: Clothing/Head/Hats/propellerhat.rsi

@@ -82,6 +82,15 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Anchorable
+  - type: Rotatable
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    anchored: true
 
 ##################### PILLAR
 - type: entity

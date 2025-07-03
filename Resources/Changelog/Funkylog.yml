@@ -3388,3 +3388,9 @@ Entries:
       message: ID card computer has a dedicated job icon option
   id: 406
   time: '2025-07-02T04:50:16.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Sec ids now work with genpop turnstiles
+  id: 407
+  time: '2025-07-03T01:24:42.0000000+00:00'

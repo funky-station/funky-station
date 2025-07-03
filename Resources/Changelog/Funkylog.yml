@@ -3412,3 +3412,11 @@ Entries:
       message: 'Cloning boards no longer spawn in the CMO''s locker. '
   id: 409
   time: '2025-07-03T01:29:44.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: >-
+        Characters with cowboy accents now refer to the Head of Security as
+        "Sheriff".
+  id: 410
+  time: '2025-07-03T01:32:09.0000000+00:00'

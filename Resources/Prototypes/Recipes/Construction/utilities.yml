@@ -1367,6 +1367,17 @@
   - GasPassiveGateAlt2
 
 - type: construction
+  id: GasPressureRegulator
+  graph: GasBinary
+  startNode: start
+  targetNode: pressureregulator
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:NoUnstackableInTile
+
+- type: construction
   id: GasValve
   name: manual valve
   description: A pipe with a valve that can be used to disable the flow of gas through it.

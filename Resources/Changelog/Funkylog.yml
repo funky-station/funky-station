@@ -3406,3 +3406,9 @@ Entries:
         machine.
   id: 408
   time: '2025-07-03T01:25:42.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Remove
+      message: 'Cloning boards no longer spawn in the CMO''s locker. '
+  id: 409
+  time: '2025-07-03T01:29:44.0000000+00:00'

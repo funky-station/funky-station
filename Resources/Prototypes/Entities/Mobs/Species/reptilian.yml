@@ -30,7 +30,7 @@
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
-    allowedEmotes: ['Thump']
+    allowedEmotes: ['Thump', 'Chirp', 'Gurgle', 'Weh']
   - type: TypingIndicator
     proto: lizard
   - type: Vocal
@@ -58,7 +58,7 @@
     specificHeat: 42
     coldDamage:
       types:
-        Cold : 0.1 #per second, scales with temperature & other constants
+        Cold : 0.5 #per second, scales with temperature & other constants
     heatDamage:
       types:
         Heat : 1.5 #per second, scales with temperature & other constants
@@ -76,6 +76,13 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - LizardEmotes
 
 
 - type: entity

@@ -1,5 +1,6 @@
 using Content.Shared.Access.Systems;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -27,13 +28,15 @@ public sealed partial class IdCardConsoleComponent : Component
     {
         public readonly string FullName;
         public readonly string JobTitle;
+        public readonly string JobIcon;
         public readonly List<ProtoId<AccessLevelPrototype>> AccessList;
         public readonly ProtoId<AccessLevelPrototype> JobPrototype;
 
-        public WriteToTargetIdMessage(string fullName, string jobTitle, List<ProtoId<AccessLevelPrototype>> accessList, ProtoId<AccessLevelPrototype> jobPrototype)
+        public WriteToTargetIdMessage(string fullName, string jobTitle, string jobIcon, List<ProtoId<AccessLevelPrototype>> accessList, ProtoId<AccessLevelPrototype> jobPrototype)
         {
             FullName = fullName;
             JobTitle = jobTitle;
+            JobIcon = jobIcon;
             AccessList = accessList;
             JobPrototype = jobPrototype;
         }
@@ -87,6 +90,7 @@ public sealed partial class IdCardConsoleComponent : Component
         public readonly string TargetIdName;
         public readonly string? TargetIdFullName;
         public readonly string? TargetIdJobTitle;
+        public readonly string? TargetIdJobIcon; // Funkystation
         public readonly List<ProtoId<AccessLevelPrototype>>? TargetIdAccessList;
         public readonly List<ProtoId<AccessLevelPrototype>>? AllowedModifyAccessList;
         public readonly ProtoId<AccessLevelPrototype> TargetIdJobPrototype;
@@ -96,6 +100,7 @@ public sealed partial class IdCardConsoleComponent : Component
             bool isTargetIdPresent,
             string? targetIdFullName,
             string? targetIdJobTitle,
+            string targetIdJobIcon, // Funkystation - ID card console job icon selection
             List<ProtoId<AccessLevelPrototype>>? targetIdAccessList,
             List<ProtoId<AccessLevelPrototype>>? allowedModifyAccessList,
             ProtoId<AccessLevelPrototype> targetIdJobPrototype,
@@ -107,6 +112,7 @@ public sealed partial class IdCardConsoleComponent : Component
             IsTargetIdPresent = isTargetIdPresent;
             TargetIdFullName = targetIdFullName;
             TargetIdJobTitle = targetIdJobTitle;
+            TargetIdJobIcon = targetIdJobIcon ?? "JobIconNoId"; // Funkystation - ID card console job icon selection
             TargetIdAccessList = targetIdAccessList;
             AllowedModifyAccessList = allowedModifyAccessList;
             TargetIdJobPrototype = targetIdJobPrototype;

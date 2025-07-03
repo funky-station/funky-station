@@ -35,6 +35,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
+using Content.Shared.Standing;
 
 namespace Content.Shared.Cuffs
 {
@@ -86,17 +87,52 @@ namespace Content.Shared.Cuffs
             SubscribeLocalEvent<CuffableComponent, UseAttemptEvent>(CheckAct);
             SubscribeLocalEvent<CuffableComponent, InteractionAttemptEvent>(CheckInteract);
 
+            // funky - fuck crawl meta
+            SubscribeLocalEvent<CuffableComponent, DownedEvent>(OnDowned);
+            SubscribeLocalEvent<CuffableComponent, StoodEvent>(OnStood);
+            // funky - end
+
             SubscribeLocalEvent<HandcuffComponent, AfterInteractEvent>(OnCuffAfterInteract);
             SubscribeLocalEvent<HandcuffComponent, MeleeHitEvent>(OnCuffMeleeHit);
             SubscribeLocalEvent<HandcuffComponent, AddCuffDoAfterEvent>(OnAddCuffDoAfter);
             SubscribeLocalEvent<HandcuffComponent, VirtualItemDeletedEvent>(OnCuffVirtualItemDeleted);
         }
 
-        private void CheckInteract(Entity<CuffableComponent> ent, ref InteractionAttemptEvent args)
+        // funky - fuck crawl meta
+        protected virtual void CheckInteract(Entity<CuffableComponent> ent, ref InteractionAttemptEvent args)
         {
+            if (ent.Comp.CuffedHandCount == 0)
+            {
+                // allow interaction with something you are buckled into (for if you are laying in a bed)
+                if (TryComp<BuckleComponent>(args.Uid, out var buckleComp) && args.Target == buckleComp.BuckledTo)
+                    return;
+                // allow interaction with yourself. 
+                if (args.Uid == args.Target)
+                    return;
+            }
+            // funky - end
+
             if (!ent.Comp.CanStillInteract)
                 args.Cancelled = true;
         }
+
+        // funky - fuck crawl meta
+        private void OnDowned(EntityUid uid, CuffableComponent component, DownedEvent args)
+        {
+            component.CanStillInteract = false;
+            Dirty(uid, component);
+        }
+
+        private void OnStood(EntityUid uid, CuffableComponent component, StoodEvent args)
+        {
+            if (component.CuffedHandCount == 0)
+            {
+                component.CanStillInteract = true;
+                _actionBlocker.UpdateCanMove(uid);
+                Dirty(uid, component);
+            }
+        }
+        // funky - end
 
         private void OnUncuffAttempt(ref UncuffAttemptEvent args)
         {
@@ -237,7 +273,7 @@ namespace Content.Shared.Cuffs
 
         private void HandleMoveAttempt(EntityUid uid, CuffableComponent component, UpdateCanMoveEvent args)
         {
-            if (component.CanStillInteract || !EntityManager.TryGetComponent(uid, out PullableComponent? pullable) || !pullable.BeingPulled)
+            if (component.CanStillInteract || !EntityManager.TryGetComponent(uid, out PullableComponent? pullable) || !pullable.BeingPulled || component.CuffedHandCount == 0)
                 return;
 
             args.Cancel();

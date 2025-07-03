@@ -613,7 +613,10 @@ public sealed partial class CargoSystem
 
         for (var i = 1; i <= selection;)
         {
-            var bountyItem = _random.Pick(bountyItems);
+            if (!SelectBountyEntry(bountyItems, out var bountyItem))
+            {
+                return false;
+            }
 
             var skip = false;
             foreach (var entry in newBounty.Entries)
@@ -633,7 +636,9 @@ public sealed partial class CargoSystem
                 _ => throw new NotImplementedException($"Unknown type: {bountyItem.GetType().Name}"),
             };
 
-            var bountyAmount = _random.Next(bountyItem.MinAmount, bountyItem.MaxAmount);
+            var steps = (bountyItem.MaxAmount - bountyItem.MinAmount) / bountyItem.AmountStep;
+            var step = _random.Next(steps + 1);
+            var bountyAmount = step * bountyItem.AmountStep + bountyItem.MinAmount;
             totalReward += bountyAmount * bountyItem.RewardPer;
             bountyItemData.Amount = bountyAmount;
 
@@ -675,6 +680,34 @@ public sealed partial class CargoSystem
         component.Bounties.Add(newBounty);
         component.TotalBounties++;
         return true;
+    }
+
+    /// <summary>
+    /// Selects a bounty item from a list of entries accounting for the entries weightings.
+    /// </summary>
+    /// <param name="entries">List of entries to select from.</param>
+    /// <param name="bountyEntry">The randomly selected entry.</param>
+    /// <returns>True of false depending on the success of the selection.</returns>
+    private bool SelectBountyEntry(List<CargoBountyItemEntry> entries, out CargoBountyItemEntry bountyEntry)
+    {
+        double totalWeight = 0;
+        foreach (var entry in entries)
+        {
+            totalWeight += entry.Weight;
+        }
+        var roll = _random.NextDouble(0, totalWeight);
+
+        foreach (var entry in entries)
+        {
+            roll -= entry.Weight;
+            if (!(roll <= 0))
+                continue;
+            bountyEntry = entry;
+            return true;
+        }
+
+        bountyEntry = new CargoObjectBountyItemEntry();
+        return false;
     }
 
     /// <summary>

@@ -2,6 +2,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Verbs;
 using Content.Shared.Examine;
+using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
@@ -17,6 +18,7 @@ public abstract class SharedItemSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!; // Goobstation
     [Dependency] private readonly SharedStorageSystem _storage = default!; // Goobstation
+    [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private   readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] protected readonly SharedContainerSystem Container = default!;
@@ -249,11 +251,40 @@ public abstract class SharedItemSystem : EntitySystem
         }
 
         if (Container.TryGetContainingContainer((uid, null, null), out var container) &&
-            TryComp(container.Owner,
-                out StorageComponent? storage)) // Goobstation - reinsert item in storage because size changed
+            !_handsSystem.IsHolding(container.Owner, uid)) // Funkystation - Don't move items in hands.
         {
-            _transform.AttachToGridOrMap(uid);
-            _storage.Insert(container.Owner, uid, out _, null, storage, false);
+            // Funkystation - Check if the item is in a pocket.
+            var wasInPocket = false;
+            if (_inventory.TryGetContainerSlotEnumerator(container.Owner, out var enumerator, SlotFlags.POCKET))
+            {
+                while (enumerator.NextItem(out var slotItem, out var slot))
+                {
+                    if (slotItem == uid)
+                    {
+                        // Funkystation - We found it in a pocket.
+                        wasInPocket = true;
+
+                        if (!_inventory.CanEquip(container.Owner, uid, slot.Name, out var _, slot))
+                        {
+                            // Funkystation - It no longer fits, so try to hand it to whoever toggled it.
+                            _transform.AttachToGridOrMap(uid);
+                            _handsSystem.PickupOrDrop(args.User, uid, animate: true);
+                        }
+                        break;
+                    }
+                }
+            }
+
+            if (!wasInPocket && TryComp(container.Owner,
+                out StorageComponent? storage)) // Goobstation - reinsert item in storage because size changed
+            {
+                _transform.AttachToGridOrMap(uid);
+                if (!_storage.Insert(container.Owner, uid, out _, null, storage, false))
+                {
+                    // Funkystation - It didn't fit, so try to hand it to whoever toggled it.
+                    _handsSystem.PickupOrDrop(args.User, uid, animate: false);
+                }
+            }
         }
 
         Dirty(uid, item);

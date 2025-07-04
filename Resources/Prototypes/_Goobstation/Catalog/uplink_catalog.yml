@@ -89,6 +89,11 @@
   productEntity: BowHardlight
   cost:
     Telecrystal: 60
+  conditions:
+    - !type:StoreWhitelistCondition
+      blacklist:
+        tags:
+          - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
   categories:
   - UplinkWeaponry
 

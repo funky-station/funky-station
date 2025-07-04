@@ -28,7 +28,7 @@
   id: UplinkRevolverPython
   name: uplink-revolver-python-name
   description: uplink-revolver-python-desc
-  productEntity: WeaponRevolverPython
+  productEntity: WeaponRevolverPythonAP
   cost:
     Telecrystal: 24 # goob - Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 34 TC.
   categories:

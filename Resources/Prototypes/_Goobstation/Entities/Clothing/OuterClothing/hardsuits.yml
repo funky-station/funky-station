@@ -66,11 +66,11 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.7
-        Piercing: 0.45
-        Heat: 0.9
-        Cold: 0.9
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.4
+        Heat: 0.8
+        Cold: 0.8
         Radiation: 0.8
         Caustic: 0.8
   - type: ClothingSpeedModifier
@@ -101,8 +101,6 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.65
-  - type: StaminaResistance
-    damageCoefficient: 0.8
   - type: Armor
     modifiers:
       coefficients:

@@ -98,6 +98,8 @@
     - Back
     - Belt
   - type: Reflect
+    reflectProb: .30
+    spread: 30
 
 - type: entity
   name: machete

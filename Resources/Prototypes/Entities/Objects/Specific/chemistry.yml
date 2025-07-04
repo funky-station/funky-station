@@ -366,6 +366,8 @@
     containerDrawWhitelist:
       tags:
       - Bottle
+      - GlassBeaker
+      - Vial
   - type: ExaminableSolution
     solution: injector
   - type: Spillable
@@ -381,8 +383,6 @@
   - type: Tag
     tags:
     - Syringe
-    - Beaker
-    - Vial
 
 - type: entity
   parent: BaseSyringe

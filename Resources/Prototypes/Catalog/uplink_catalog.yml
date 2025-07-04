@@ -43,6 +43,9 @@
   productEntity: WeaponPistolCobra
   cost:
     Telecrystal: 15 # goob - this +1 mag = 17 TC
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
   categories:
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT

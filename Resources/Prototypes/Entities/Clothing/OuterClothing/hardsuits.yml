@@ -1,4 +1,4 @@
-#When adding new hardsuits, please try to keep the organization consistent with hardsuit-helmets.yml (if possible.)
+s#When adding new hardsuits, please try to keep the organization consistent with hardsuit-helmets.yml (if possible.)
 
 #CREW HARDSUITS
 #Basic Hardsuit
@@ -254,7 +254,7 @@
       coefficients:
         Blunt: 0.6
         Slash: 0.6
-        Piercing: 0.6
+        Piercing: 0.45
         Caustic: 0.7
         Heat: 0.7 # Goobstation
   - type: ClothingSpeedModifier
@@ -316,8 +316,8 @@
     modifiers:
       coefficients:
         Blunt: 0.5
-        Slash: 0.6
-        Piercing: 0.6
+        Slash: 0.5
+        Piercing: 0.4
         Caustic: 0.7
         Heat: 0.7 # Goobstation
   - type: ClothingSpeedModifier
@@ -350,7 +350,7 @@
       coefficients:
         Blunt: 0.8
         Slash: 0.8
-        Piercing: 0.6
+        Piercing: 0.5
         Heat: 0.5
         Radiation: 0.5
         Caustic: 0.6
@@ -492,8 +492,8 @@
     modifiers:
       coefficients:
         Blunt: 0.6
-        Slash: 0.5
-        Piercing: 0.5
+        Slash: 0.6
+        Piercing: 0.4
         Radiation: 0.5
         Caustic: 0.6
         Heat: 0.6 # Goobstation

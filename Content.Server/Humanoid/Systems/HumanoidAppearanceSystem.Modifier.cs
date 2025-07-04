@@ -27,7 +27,7 @@ public sealed partial class HumanoidAppearanceSystem
 
         args.Verbs.Add(new Verb
         {
-            Text = "Modify markings",
+            Text = Loc.GetString("modify-markings-title"), // Funky: FTL for Modify Markings
             Category = VerbCategory.Tricks,
             Icon = new SpriteSpecifier.Rsi(new("/Textures/Mobs/Customization/reptilian_parts.rsi"), "tail_smooth"),
             Act = () =>

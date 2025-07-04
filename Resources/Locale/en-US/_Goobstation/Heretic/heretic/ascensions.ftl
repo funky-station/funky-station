@@ -1,6 +1,6 @@
 heretic-ascension-ash =
     The Watch is dead. the Nightwatcher burned with it, yet his fire burns evermore.
-    For the Nightwatcher brought forth the rite to mankind! His gaze endures, and now i am one with the flames.
+    For the Nightwatcher brought forth the rite to mankind! His gaze endures, and now I am one with the flames.
     WITNESS MY ASCENSION! THE ASHY LANTERN BLAZES ONCE MORE!
 
 heretic-ascension-blade =

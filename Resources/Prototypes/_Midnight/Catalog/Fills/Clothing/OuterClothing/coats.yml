@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingOuterCoatSmuggler
+  id: ClothingOuterCoatSmugglerFilled
+  suffix: Chameleon, Holdout, Fill
+  components:
+  - type: StorageFill
+    contents:
+      - id: SmokeImplanter # Funky Edit
+  - type: ContainerFill
+    containers:
+      holdout:
+        - Fulton
+      key_slots:
+        - EncryptionKeySmuggler

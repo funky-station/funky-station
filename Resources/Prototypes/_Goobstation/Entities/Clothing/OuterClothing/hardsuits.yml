@@ -115,7 +115,7 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.85
-   - type: Tag
+  - type: Tag
     tags:
     - Hardsuit
     - WhitelistChameleon

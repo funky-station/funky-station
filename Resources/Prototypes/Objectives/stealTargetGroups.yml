@@ -270,6 +270,14 @@
     sprite: Objects/Devices/cartridge.rsi
     state: cart-sec
 
+- type: stealTargetGroup
+  id: ToolboxGolden
+  name: steal-target-groups-toolbox-gold
+  sprite:
+    sprite: Objects/Tools/Toolboxes/toolbox_gold.rsi
+    state: icon
+
+
 #Thief structures
 
 - type: stealTargetGroup

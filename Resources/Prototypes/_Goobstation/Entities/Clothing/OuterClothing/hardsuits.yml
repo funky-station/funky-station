@@ -119,11 +119,11 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitCybersunStealth
   - type: ClothingGrantComponent
     component:
     - type: StealthOnMove
       passiveVisibilityRate: -0.5
       movementVisibilityRate: 0.6
-  - type: HeldSpeedModifier
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetHardsuitCybersunStealth

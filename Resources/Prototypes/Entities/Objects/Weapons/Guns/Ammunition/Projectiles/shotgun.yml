@@ -115,8 +115,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 3
-        Slash: 3
+        Piercing: 4
+        Slash: 4
 
 - type: entity
   id: PelletShotgunImprovisedSpread
@@ -126,7 +126,7 @@
   - type: ProjectileSpread
     proto: PelletShotgunImprovised
     count: 10
-    spread: 45
+    spread: 30
 
 - type: entity
   id: PelletShotgunTranquilizer

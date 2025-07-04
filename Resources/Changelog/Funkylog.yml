@@ -3458,3 +3458,11 @@ Entries:
         manageable.
   id: 415
   time: '2025-07-04T20:12:33.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Fix
+      message: >-
+        fixed some species only being able to metabolize 2 chems at a time, now
+        they can metabolize three!
+  id: 416
+  time: '2025-07-04T20:40:27.0000000+00:00'

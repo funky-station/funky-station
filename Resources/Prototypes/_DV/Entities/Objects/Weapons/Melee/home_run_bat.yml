@@ -10,21 +10,25 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 25 # Get to WHACKIN!
-        Structural: 30
+        Blunt: 22 # Get to WHACKIN!  Funky change - 25 > 22, since this inherits from a baseball bat it gains 5 more damage while wielded,
+                  # meaning that it actually does 30 blunt. Plus collision damage, it could kill unarmoured in 3 hits. It's now 27 blunt.
+        Structural: 30 # Funky - it also gains 10 more structural, but that hasn't proved to be an issue yet so it's unchanged.
     soundHit:
       collection: ExplosionSmall
+    attackRate: 0.40 # Funky change - Swing speed reduced significantly to prevent stunlocking with the knockdown
   - type: MeleeRequiresWield # You can't hit a home run with one hand, jimbo.
   - type: MeleeThrowOnHit
     stunTime: .1 # I get knocked DOWN
-    speed: 30
+    speed: 20 # Funky change - 30 -> 20 since 30 is incredibly fast, fast enough to frequently clip people through walls
     distance: 50
   - type: Item
     size: Large
   - type: Tool
     speedModifier: 0.5 # it's very heavy, it rolls slower than a wooden bat
   - type: UseDelay
-    delay: 2
+    delay: 2 # Funky - In theory, since the bat requires wielding this should stop you from swinging the bat until the wield delay is over...
+             # ...however that's not the case. You aren't able to knock people back during the delay but you're still able to swing for full damage instantly.
+             # This is an issue with use delay and is out of scope for me to fix here but should be kept in mind.
   - type: PhysicalComposition
     materialComposition:
       Steel: 350 # it's not made of wood

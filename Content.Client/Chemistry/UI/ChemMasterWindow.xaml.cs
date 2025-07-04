@@ -99,6 +99,7 @@ namespace Content.Client.Chemistry.UI
             PillDosage.InitDefaultButtons();
             PillNumber.InitDefaultButtons();
             BottleDosage.InitDefaultButtons();
+            BottleNumber.InitDefaultButtons();
 
             // Ensure label length is within the character limit.
             LabelLineEdit.IsValid = s => s.Length <= SharedChemMaster.LabelMaxLength;
@@ -320,7 +321,7 @@ namespace Content.Client.Chemistry.UI
             BufferCurrentVolume.Text = $" {castState.PillBufferCurrentVolume?.Int() ?? 0}u";
 
             InputEjectButton.Disabled = castState.ContainerInfo is null;
-            CreateBottleButton.Disabled = true;
+            CreateBottleButton.Disabled = castState.PillBufferReagents.Count == 0;;
             CreatePillButton.Disabled = castState.PillBufferReagents.Count == 0;
 
             UpdateDosageFields(castState);
@@ -334,10 +335,12 @@ namespace Content.Client.Chemistry.UI
         {
             var bufferVolume = castState.PillBufferCurrentVolume?.Int() ?? 0;
             PillDosage.Value = (int) Math.Min(bufferVolume, castState.PillDosageLimit);
+            BottleDosage.Value = (int) Math.Min(bufferVolume, 30);
 
             PillTypeButtons[castState.SelectedPillType].Pressed = true;
             PillNumber.IsValid = x => x >= 0;
             PillDosage.IsValid = x => x > 0 && x <= castState.PillDosageLimit;
+            BottleNumber.IsValid = x => x >= 0;
             BottleDosage.IsValid = x => x >= 0;
 
             // Avoid division by zero
@@ -346,7 +349,10 @@ namespace Content.Client.Chemistry.UI
             else
                 PillNumber.Value = 0;
 
-            BottleDosage.Value = bufferVolume;
+            if (BottleDosage.Value > 0)
+                BottleNumber.Value = bufferVolume / BottleDosage.Value;
+            else
+                BottleNumber.Value = 0;
         }
         /// <summary>
         /// Generate a product label based on reagents in the buffer.

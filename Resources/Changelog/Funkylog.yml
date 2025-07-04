@@ -3388,3 +3388,53 @@ Entries:
       message: ID card computer has a dedicated job icon option
   id: 406
   time: '2025-07-02T04:50:16.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Sec ids now work with genpop turnstiles
+  id: 407
+  time: '2025-07-03T01:24:42.0000000+00:00'
+- author: TempWorm, SlamBamActionman
+  changes:
+    - type: Add
+      message: >-
+        Propeller Hats! For those who want to look a bit more silly than usual,
+        get one from a ClothesMate or AutoDrobe!
+    - type: Add
+      message: >-
+        Swirl Lollipops! These can be found on any GetMore Chocolate vending
+        machine.
+  id: 408
+  time: '2025-07-03T01:25:42.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Remove
+      message: 'Cloning boards no longer spawn in the CMO''s locker. '
+  id: 409
+  time: '2025-07-03T01:29:44.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: >-
+        Characters with cowboy accents now refer to the Head of Security as
+        "Sheriff".
+  id: 410
+  time: '2025-07-03T01:32:09.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Fix
+      message: Directional audio for the new slime emotes now works properly
+  id: 411
+  time: '2025-07-04T04:14:05.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: HFR added to cargo order console
+  id: 412
+  time: '2025-07-04T19:53:40.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Bagel security reworked for genpop
+  id: 413
+  time: '2025-07-04T19:57:22.0000000+00:00'

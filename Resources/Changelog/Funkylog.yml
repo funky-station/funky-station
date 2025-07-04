@@ -3446,3 +3446,15 @@ Entries:
       message: Shiva ghost role requires security time, to be played.
   id: 414
   time: '2025-07-04T20:06:20.0000000+00:00'
+- author: UristMcWiki
+  changes:
+    - type: Add
+      message: >-
+        Allowed carp to be purchase from Nukie shops since they cannot be made
+        at all normally.
+    - type: Tweak
+      message: >-
+        Slightly buffed the reflect chance on the new Dsword but kept it
+        manageable.
+  id: 415
+  time: '2025-07-04T20:12:33.0000000+00:00'

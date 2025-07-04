@@ -3438,3 +3438,11 @@ Entries:
       message: Bagel security reworked for genpop
   id: 413
   time: '2025-07-04T19:57:22.0000000+00:00'
+- author: Ekpy
+  changes:
+    - type: Add
+      message: Shiva has inventory with mask and gas tank slots
+    - type: Tweak
+      message: Shiva ghost role requires security time, to be played.
+  id: 414
+  time: '2025-07-04T20:06:20.0000000+00:00'

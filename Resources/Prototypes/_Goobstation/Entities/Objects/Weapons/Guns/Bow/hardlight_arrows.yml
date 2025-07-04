@@ -109,7 +109,6 @@
         Cold: 15
   - type: ChangeTemperatureOnCollide
     heat: -150000
-    cold: 1000
 
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]

@@ -151,10 +151,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.6
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
   # phase cloak
   - type: ToggleClothing
     action: ActionTogglePhaseCloak
@@ -162,9 +162,6 @@
   - type: ComponentToggler
     parent: true
     components:
-    - type: NightVision # Goobstation - Nigthvision
-    isToggle: true
-    color: "#808080"
     # Goobstation - Proper invisibility
     - type: Stealth
       maxVisibility: 0.1

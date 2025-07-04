@@ -357,9 +357,11 @@ namespace Content.Server.Atmos.EntitySystems
 
         public void Extinguish(EntityUid uid, FlammableComponent? flammable = null)
         {
+            // Goobstation - from EE at 7b0949568d07df81b298251c6fce9be4d7d03f18 (https://github.com/Simple-Station/Einstein-Engines/pull/2462)
             if (!Resolve(uid, ref flammable) || !flammable.CanExtinguish)
                 return;
 
+            // Goobstation - from EE at 7b0949568d07df81b298251c6fce9be4d7d03f18 (https://github.com/Simple-Station/Einstein-Engines/pull/2462)
             RemCompDeferred<OnFireComponent>(uid);
             if (!flammable.OnFire)
                 return;
@@ -382,6 +384,7 @@ namespace Content.Server.Atmos.EntitySystems
             if (!Resolve(uid, ref flammable))
                 return;
 
+            // Goobstation - from EE at 7b0949568d07df81b298251c6fce9be4d7d03f18 (https://github.com/Simple-Station/Einstein-Engines/pull/2462)
             EnsureComp<OnFireComponent>(uid);
             if (flammable.AlwaysCombustible)
             {
@@ -476,6 +479,7 @@ namespace Content.Server.Atmos.EntitySystems
             _timer -= UpdateTime;
 
             // TODO: This needs cleanup to take off the crust from TemperatureComponent and shit.
+            // <Goobstation> - from EE at 7b0949568d07df81b298251c6fce9be4d7d03f18 (https://github.com/Simple-Station/Einstein-Engines/pull/2462)
             var query = EntityQueryEnumerator<OnFireComponent>();
             while (query.MoveNext(out var uid, out _))
             {
@@ -484,6 +488,7 @@ namespace Content.Server.Atmos.EntitySystems
                     RemCompDeferred<OnFireComponent>(uid);
                     continue;
                 }
+                // </Goobstation>
 
                 // Slowly dry ourselves off if wet.
                 if (flammable.FireStacks < 0)
@@ -494,7 +499,7 @@ namespace Content.Server.Atmos.EntitySystems
                 if (!flammable.OnFire)
                 {
                     _alertsSystem.ClearAlert(uid, flammable.FireAlert);
-                    RaiseLocalEvent(uid, new MoodRemoveEffectEvent("OnFire"));
+                    // Goobstation - from EE at 7b0949568d07df81b298251c6fce9be4d7d03f18 (https://github.com/Simple-Station/Einstein-Engines/pull/2462)
                     RemCompDeferred<OnFireComponent>(uid);
                     continue;
                 }

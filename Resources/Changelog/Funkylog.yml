@@ -3466,3 +3466,12 @@ Entries:
         they can metabolize three!
   id: 416
   time: '2025-07-04T20:40:27.0000000+00:00'
+- author: Bhijn and Myr
+  changes:
+    - type: Add
+      message: >-
+        In interest of raising awareness of addiction to the game, the lobby
+        will now display your current playtime on a given day once it exceeds a
+        threshold.
+  id: 417
+  time: '2025-07-04T22:17:37.0000000+00:00'

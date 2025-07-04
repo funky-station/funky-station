@@ -5,6 +5,8 @@ using Content.Shared.Objectives.Components;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Server._Funkystation.Obsessed.Objectives.Components;
+using Content.Server.Funkystation.Components;
 using Content.Server._Goobstation.Objectives.Components;
 
 namespace Content.Server.Objectives.Systems;
@@ -29,6 +31,8 @@ public sealed class KeepAliveConditionSystem : EntitySystem
         SubscribeLocalEvent<RandomTraitorAliveComponent, ObjectiveAssignedEvent>(OnAssigned);
 
         SubscribeLocalEvent<RandomTraitorTargetComponent, ObjectiveAssignedEvent>(OnTraitorTargetAssigned);
+
+        SubscribeLocalEvent<RandomPersistentTargetComponent, ObjectiveAssignedEvent>(OnPersistentAssigned);
     }
 
     private void OnGetProgress(EntityUid uid, KeepAliveConditionComponent comp, ref ObjectiveGetProgressEvent args)
@@ -118,6 +122,35 @@ public sealed class KeepAliveConditionSystem : EntitySystem
         }
 
         _target.SetTarget(uid, _random.Pick(killTargets), target);
+    }
+
+    // funkystation - persistent target for an antag
+    // TODO: make more generic but idgaf
+    private void OnPersistentAssigned(EntityUid uid, RandomPersistentTargetComponent comp, ref ObjectiveAssignedEvent args)
+    {
+        if (!TryComp<TargetObjectiveComponent>(uid, out var target))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        EnsureComp<ObsessedPersistentTargetComponent>((EntityUid) args.Mind.OwnedEntity!, out var obsessedTarget);
+
+        if (obsessedTarget.EntityUid != EntityUid.Invalid)
+        {
+            _target.SetTarget(uid, obsessedTarget.EntityUid, target);
+            return;
+        }
+
+        var allAlive = _mind.GetAliveHumansExcept(args.MindId);
+        var luckyOne = _random.Pick(allAlive);
+
+        if (!TryComp<MindComponent>(luckyOne, out var targetMind) || targetMind.CharacterName == null)
+            return;
+
+        obsessedTarget.EntityUid = luckyOne;
+        obsessedTarget.EntityName = targetMind.CharacterName;
+        _target.SetTarget(uid, obsessedTarget.EntityUid, target);
     }
 
     private float GetProgress(EntityUid target)

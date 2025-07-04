@@ -30,7 +30,7 @@ jobs:
   build:
     name: Test Packaging
     if: github.actor != 'funkystationbot' && github.event.pull_request.draft == false
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
 
     steps:
       - name: Checkout Master
@@ -49,7 +49,7 @@ jobs:
           git submodule update --init --recursive
 
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v4.1.0
+        uses: useblacksmith/setup-dotnet@v5
         with:
           dotnet-version: 9.0.x
 

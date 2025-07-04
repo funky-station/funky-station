@@ -16,7 +16,7 @@ jobs:
     if: github.actor != 'funkystationbot' && github.event.pull_request.draft == false
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [blacksmith-4vcpu-ubuntu-2404]
 
     runs-on: [ self-hosted, "${{ matrix.os }}" ]
 
@@ -37,7 +37,7 @@ jobs:
         git submodule update --init --recursive
 
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v4.1.0
+      uses: useblacksmith/setup-dotnet@v5
       with:
         dotnet-version: 9.0.x
 
@@ -59,7 +59,7 @@ jobs:
     name: Build & Test Debug
     needs:
       - build
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - name: CI succeeded
         run: exit 0

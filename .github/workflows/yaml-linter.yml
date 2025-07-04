@@ -11,7 +11,7 @@ jobs:
   build:
     name: YAML Linter
     if: github.actor != 'funkystationbot' && github.event.pull_request.draft == false
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - uses: actions/checkout@v4.2.2
       - name: Setup submodule
@@ -24,7 +24,7 @@ jobs:
           cd RobustToolbox/
           git submodule update --init --recursive
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v4.1.0
+        uses: useblacksmith/setup-dotnet@v5
         with:
           dotnet-version: 9.0.x
       - name: Install dependencies

@@ -3426,3 +3426,9 @@ Entries:
       message: Directional audio for the new slime emotes now works properly
   id: 411
   time: '2025-07-04T04:14:05.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: HFR added to cargo order console
+  id: 412
+  time: '2025-07-04T19:53:40.0000000+00:00'

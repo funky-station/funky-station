@@ -78,6 +78,10 @@
             state: jumpsuit-female
   - type: Tag
     tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
     - LizardEmotes
 
 

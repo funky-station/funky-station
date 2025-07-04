@@ -90,8 +90,6 @@
   - !type:RitualAshAscendBehavior
     min: 3
     max: 3
-  requiredTags:
-
   outputKnowledge: AshlordRite
   outputEvent: !type:EventHereticAscension
 

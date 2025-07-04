@@ -1,0 +1,8 @@
+- type: latheRecipe
+  id: FunkySurgicalCase
+  result: FunkySurgicalCase
+  completiontime: 2
+  materials:
+    Plastic: 300
+    Steel: 50
+    Cloth: 300

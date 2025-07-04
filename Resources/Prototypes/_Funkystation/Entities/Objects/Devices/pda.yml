@@ -19,3 +19,25 @@
   - type: Icon
     sprite: _Funkystation/Objects/Devices/pda.rsi
     state: pda-iaa
+
+- type: entity
+  parent: BasePDA
+  id: MagistratePDA
+  name: magistrate PDA
+  description: For the fortunate ones.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/pda.rsi
+  - type: Pda
+    id: MagistrateIDCard
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#6f6192"
+  - type: Icon
+    sprite: _Funkystation/Objects/Devices/pda.rsi
+    state: pda-magi

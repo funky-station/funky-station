@@ -34,6 +34,38 @@
   - ChaplainBibleBhuddhist
 
 - type: loadoutGroup
+  id: MagistrateJumpsuit
+  name: loadout-group-magistrate-jumpsuit
+  loadouts:
+  - LawyerJumpsuit
+  - LawyerJumpskirt
+  - LawyerJumpsuitBlue
+  - LawyerJumpskirtBlue
+  - LawyerJumpsuitPurple
+  - LawyerJumpskirtPurple
+
+- type: loadoutGroup
+  id: MagistrateBackpack
+  name: loadout-group-magistrate-backpack
+  loadouts:
+  - MagistrateDuffel
+  - MagistrateSatchel
+
+- type: loadoutGroup
+  id: MagistrateBelt
+  name: loadout-group-iaa-belt
+  loadouts:
+    - MagistrateClipboard
+    - MagistrateWaistbag
+
+- type: loadoutGroup
+  id: MagistrateFlavor
+  name: loadout-group-magistrate-flavor
+  loadouts:
+    - MagistrateGavel
+    - MagistratePwig
+
+- type: loadoutGroup
   id: ScienceRoboticistGlasses
   name: loadout-group-roboticist-glasses
   loadouts:

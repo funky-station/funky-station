@@ -1,6 +1,6 @@
 ﻿- type: entity
   id: MusicTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: [BaseLatheLube] # Goob edit
   name: music techfab
   description: Prints equipment for use by the musician.
   components:
@@ -48,3 +48,10 @@
     - BagpipeInstrument
   - type: Machine
     board: MusicTechFabCircuitboard
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: MaterialSiloClient

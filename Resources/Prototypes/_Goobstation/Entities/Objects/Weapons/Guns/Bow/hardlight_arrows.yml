@@ -131,7 +131,7 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 12
+    totalIntensity: 6
     intensitySlope: 0.4
     maxIntensity: 4
     canCreateVacuum: false

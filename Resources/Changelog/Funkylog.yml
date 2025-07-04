@@ -3432,3 +3432,9 @@ Entries:
       message: HFR added to cargo order console
   id: 412
   time: '2025-07-04T19:53:40.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Bagel security reworked for genpop
+  id: 413
+  time: '2025-07-04T19:57:22.0000000+00:00'

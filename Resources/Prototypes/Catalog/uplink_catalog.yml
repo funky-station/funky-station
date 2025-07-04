@@ -1595,7 +1595,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/cybersun.rsi, state: icon } # goobstation - duke nukies
   productEntity: CrateCybersunJuggernautBundle
   cost:
-    Telecrystal: 75
+    Telecrystal: 85
      # Unchanged to allow for traitors to make a funny terrible decision. Funky
   categories:
   - UplinkWearables

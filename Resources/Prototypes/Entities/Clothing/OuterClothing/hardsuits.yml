@@ -506,11 +506,10 @@
 
 #Luxury Mining Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitBase
-  id: ClothingOuterHardsuitLuxury #DO NOT MAP - https://github.com/space-wizards/space-station-14/pull/19738#issuecomment-1703486738
-  name: luxury mining hardsuit
-  description: A refurbished mining hardsuit, fashioned after the Quartermaster's colors. Graphene lining provides less protection, but is much easier to move.
-  categories: [ DoNotMap ]
+  parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
+  id: ClothingOuterHardsuitLuxury 
+  name: quartermaster luxury mining hardsuit
+  description: A custom ordered mining hardsuit, fashioned after the Quartermaster's colors. Just as protective as a regular mining hardsuit, but is much easier to move in.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/luxury.rsi
@@ -520,7 +519,7 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.3
   - type: Armor
     modifiers:
       coefficients:
@@ -531,10 +530,12 @@
         Caustic: 0.7
   - type: ClothingSpeedModifier
     walkModifier: 0.85
-    sprintModifier: 0.9
+    sprintModifier: 0.85
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitLuxury
+  - type: StaticPrice
+    price: 15000
 
 #ANTAG HARDSUITS
 #Blood-red Hardsuit

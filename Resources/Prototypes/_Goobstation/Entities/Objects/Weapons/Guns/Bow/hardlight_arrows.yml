@@ -106,9 +106,10 @@
   - type: Projectile
     damage:
       types:
-        Cold: 5
+        Cold: 15
   - type: ChangeTemperatureOnCollide
     heat: -150000
+    cold: 1000
 
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
@@ -136,31 +137,6 @@
     maxIntensity: 4
     canCreateVacuum: false
 
-- type: entity
-  parent: BaseHardlightArrow
-  id: ArrowXray
-  name: x-ray arrow
-  description: An arrow made from hardlight. This one pierces through everything.
-  components:
-  - type: Sprite
-    color: "#1AE51A"
-  - type: PointLight
-    color: "#1AE51A"
-  - type: Projectile
-    damage:
-      types:
-        Radiation: 20 #funky make it rads and keep the damage low
-  - type: Fixtures
-    fixtures:
-      projectile:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.1,-0.2,0.1,0.2"
-        hard: false
-        mask:
-        - Opaque
-  - type: TimedDespawn
-    lifetime: 0.7
 
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]

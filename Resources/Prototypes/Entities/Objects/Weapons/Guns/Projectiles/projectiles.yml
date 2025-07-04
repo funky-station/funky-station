@@ -88,7 +88,7 @@
     impactEffect: BulletImpactEffect
     damage:
       types:
-        Piercing: 14
+        Piercing: 50
     soundHit:
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
   - type: TimedDespawn
@@ -104,7 +104,7 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 7 # more damage than a punch.
+        Blunt: 25 # more damage than a punch.
   - type: Fixtures
     fixtures:
       projectile:
@@ -163,7 +163,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 11 # 20% decrease
+        Piercing: 50 # 20% decrease
     ignoreResistances: true
 
 - type: entity
@@ -256,7 +256,7 @@
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
-    damage: 33
+    damage: 20
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:

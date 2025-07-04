@@ -1507,7 +1507,7 @@
   description: uplink-clothing-outer-vest-web-desc
   productEntity: ClothingOuterVestWeb
   cost:
-    Telecrystal: 15 # goob
+    Telecrystal: 12 # goob
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT

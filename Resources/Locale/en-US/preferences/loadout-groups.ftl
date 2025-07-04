@@ -161,6 +161,11 @@ loadout-group-warden-jumpsuit = Warden jumpsuit
 loadout-group-warden-outerclothing = Warden outer clothing
 loadout-group-warden-neck = Warden neck
 
+loadout-group-brigmedic-jumpsuit = Brigmedic jumpsuit
+loadout-group-bridmedic-outer = Brigmedic outer clothing
+loadout-group-brigmedic-backpack = Brigmedic backpack
+loadout-group-bridmedic-head = Brigmedic head
+
 loadout-group-security-head = Security head
 loadout-group-security-jumpsuit = Security jumpsuit
 loadout-group-security-neck = Security neck

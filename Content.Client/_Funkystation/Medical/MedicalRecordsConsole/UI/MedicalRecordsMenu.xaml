@@ -1,0 +1,329 @@
+﻿<controls:FancyWindow
+    MinSize="700 750"
+    Resizable="True"
+    SetSize="1000 750"
+    Title="Medical Records"
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <BoxContainer Orientation="Vertical">
+        <!--  main container  -->
+        <BoxContainer
+            HorizontalExpand="True"
+            Orientation="Horizontal"
+            VerticalExpand="True">
+
+            <!--  left column  -->
+            <BoxContainer
+                Margin="5"
+                Orientation="Vertical"
+                SetWidth="300">
+
+                <BoxContainer HorizontalExpand="True" Margin="10,0">
+                    <OptionButton HorizontalExpand="True" Name="RecordFilterType" />
+                    <Button
+                        HorizontalExpand="True"
+                        MinWidth="100"
+                        Name="RecordFiltersReset"
+                        Text="Reset" />
+                </BoxContainer>
+
+                <!--  entry list  -->
+                <BoxContainer
+                    HorizontalExpand="True"
+                    Margin="10"
+                    VerticalExpand="True">
+
+                    <Label Name="CharacterListingStatus" Visible="False" />
+
+                    <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
+                        <ItemList
+                            HorizontalExpand="True"
+                            Margin="4,4"
+                            Name="CharacterListing"
+                            VerticalExpand="True" />
+                    </ScrollContainer>
+                </BoxContainer>
+            </BoxContainer>
+
+            <!--  right column  -->
+            <BoxContainer
+                HorizontalExpand="True"
+                Margin="5"
+                Orientation="Vertical">
+
+                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
+                    <LineEdit
+                        HorizontalExpand="True"
+                        MinWidth="100"
+                        Name="RecordFiltersValue"
+                        PlaceHolder="Search..." />
+                    <Button
+                        Name="RecordFilters"
+                        SetWidth="100"
+                        Text="Search"
+                        TextAlign="Center" />
+                </BoxContainer>
+
+                <Label
+                    Align="Center"
+                    Name="RecordContainerStatus"
+                    StyleClasses="LabelBig"
+                    Text="No Record Selected"
+                    VerticalExpand="True" />
+
+                <!--  information  -->
+                <BoxContainer
+                    Name="RecordContainer"
+                    Orientation="Vertical"
+                    Visible="False">
+
+                    <Label
+                        Align="Center"
+                        HorizontalExpand="True"
+                        Margin="10"
+                        Name="RecordContainerName"
+                        StyleClasses="LabelBig"
+                        Text="Crewmember" />
+
+                    <ScrollContainer
+                        HScrollEnabled="False"
+                        HorizontalExpand="True"
+                        MinSize="100, 600"
+                        VerticalExpand="True">
+                        <BoxContainer Orientation="Vertical">
+
+                            <!--  general info header  -->
+                            <BoxContainer Margin="5" Orientation="Horizontal">
+                                <Label
+                                    HorizontalAlignment="Left"
+                                    HorizontalExpand="True"
+                                    Text="General Information" />
+                                <BoxContainer Orientation="Horizontal" SetHeight="24">
+                                    <Button
+                                        Margin="-1"
+                                        Name="GIButton"
+                                        SetWidth="27"
+                                        StyleClasses="ButtonSquare">
+                                        <TextureRect
+                                            Margin="-8,-2,0,0"
+                                            Name="GIButtonArrow"
+                                            TexturePath="/Textures/_EE/Interface/Supermatter/arrow_up.png"
+                                            VerticalAlignment="Center" />
+                                    </Button>
+                                </BoxContainer>
+                            </BoxContainer>
+
+                            <!--  general information fills  -->
+                            <BoxContainer
+                                Margin="20,0"
+                                Name="GeneralInformation"
+                                Orientation="Vertical">
+                                <BoxContainer Margin="5" Orientation="Horizontal">
+                                    <Label
+                                        FontColorOverride="DarkGray"
+                                        Name="JobTitle"
+                                        Text="Job: " />
+                                    <Label Name="RecordContainerJob" />
+                                </BoxContainer>
+                                <BoxContainer Margin="5" Orientation="Horizontal">
+                                    <Label
+                                        FontColorOverride="DarkGray"
+                                        Name="GenderTitle"
+                                        Text="Gender: " />
+                                    <Label Name="RecordContainerGender" />
+                                </BoxContainer>
+                                <BoxContainer Margin="5" Orientation="Horizontal">
+                                    <Label
+                                        FontColorOverride="DarkGray"
+                                        Name="SpeciesTitle"
+                                        Text="Species: " />
+                                    <Label Name="RecordContainerSpecies" />
+                                </BoxContainer>
+                                <BoxContainer Margin="5" Orientation="Horizontal">
+                                    <Label
+                                        FontColorOverride="DarkGray"
+                                        Name="AgeTitle"
+                                        Text="Age: " />
+                                    <Label Name="RecordContainerAge" />
+                                </BoxContainer>
+                                <BoxContainer Margin="5" Orientation="Horizontal">
+                                    <Label
+                                        FontColorOverride="DarkGray"
+                                        Name="HeightTitle"
+                                        Text="Height: " />
+                                    <Label Name="RecordContainerHeight" />
+                                </BoxContainer>
+                                <BoxContainer Margin="5" Orientation="Horizontal">
+                                    <Label
+                                        FontColorOverride="DarkGray"
+                                        Name="WeightTitle"
+                                        Text="Weight: " />
+                                    <Label Name="RecordContainerWeight" />
+                                </BoxContainer>
+                                <BoxContainer Margin="5" Orientation="Horizontal">
+                                    <Label
+                                        FontColorOverride="DarkGray"
+                                        Name="WorkAuth"
+                                        Text="Work Authorization: " />
+                                    <Label Name="RecordContainerWorkAuth" />
+                                </BoxContainer>
+                                <BoxContainer Margin="5" Orientation="Horizontal">
+                                    <Label
+                                        FontColorOverride="DarkGray"
+                                        Name="Insurance"
+                                        Text="Insurance: " />
+                                    <Label Name="RecordContainerInsurance" />
+                                </BoxContainer>
+                                <BoxContainer
+                                    Name="InsuranceContainer"
+                                    Orientation="Vertical"
+                                    Visible="False">
+                                    <BoxContainer Margin="5" Orientation="Horizontal">
+                                        <Label
+                                            FontColorOverride="DarkGray"
+                                            Name="InsuranceProvider"
+                                            Text="Insurance Provider: " />
+                                        <Label Name="RecordContainerInsuranceProvider" />
+                                    </BoxContainer>
+                                    <BoxContainer Margin="5" Orientation="Horizontal">
+                                        <Label
+                                            FontColorOverride="DarkGray"
+                                            Name="InsurancePlan"
+                                            Text="Insurance Plan: " />
+                                        <Label Name="RecordContainerInsurancePlan" />
+                                    </BoxContainer>
+                                </BoxContainer>
+                            </BoxContainer>
+
+                            <PanelContainer Margin="0,5,20,5" StyleClasses="LowDivider" />
+
+                            <!--  medical info header  -->
+                            <BoxContainer Margin="5" Orientation="Horizontal">
+                                <Label
+                                    HorizontalAlignment="Left"
+                                    HorizontalExpand="True"
+                                    Text="Medical Information" />
+                                <BoxContainer Orientation="Horizontal" SetHeight="24">
+                                    <Button
+                                        Margin="-1"
+                                        Name="MIButton"
+                                        SetWidth="27"
+                                        StyleClasses="ButtonSquare">
+                                        <TextureRect
+                                            Margin="-8,-2,0,0"
+                                            Name="MIButtonArrow"
+                                            TexturePath="/Textures/_EE/Interface/Supermatter/arrow_up.png"
+                                            VerticalAlignment="Center" />
+                                    </Button>
+                                </BoxContainer>
+                            </BoxContainer>
+
+                            <!--  medical information fills  -->
+                            <BoxContainer
+                                Margin="20,0"
+                                Name="MedicalInformation"
+                                Orientation="Vertical">
+                                <BoxContainer Margin="5" Orientation="Horizontal">
+                                    <Label
+                                        FontColorOverride="DarkGray"
+                                        Name="FingerprintsTitle"
+                                        Text="Fingerprints: " />
+                                    <Label Name="RecordContainerFingerprints" />
+                                </BoxContainer>
+                                <BoxContainer Margin="5" Orientation="Horizontal">
+                                    <Label
+                                        FontColorOverride="DarkGray"
+                                        Name="DNATitle"
+                                        Text="DNA: " />
+                                    <Label Name="RecordContainerDNA" />
+                                </BoxContainer>
+                                <BoxContainer Margin="5" Orientation="Horizontal">
+                                    <Label
+                                        FontColorOverride="DarkGray"
+                                        Name="BloodTypeTitle"
+                                        Text="Blood Type: " />
+                                    <Label Name="RecordContainerBloodType" />
+                                </BoxContainer>
+                                <BoxContainer Name="MedicalInfoContainer" Orientation="Vertical" />
+                                <BoxContainer Margin="5" Orientation="Horizontal">
+                                    <Label
+                                        FontColorOverride="DarkGray"
+                                        Name="IdentifyingFeatures"
+                                        Text="Identifying Features: " />
+                                    <Label Name="RecordContainerIdentFeatures" />
+                                </BoxContainer>
+                                <BoxContainer Margin="5" Orientation="Horizontal">
+                                    <Label
+                                        FontColorOverride="DarkGray"
+                                        Name="MortemTitle"
+                                        Text="Post Mortem Instructions: " />
+                                    <Label Name="RecordContainerPostMortem" />
+                                </BoxContainer>
+                            </BoxContainer>
+
+                            <!--  todo implement autopsies  -->
+                            <BoxContainer Visible="False">
+                                <PanelContainer Margin="0,5,20,5" StyleClasses="LowDivider" />
+
+                                <!--  autopsy header  -->
+                                <BoxContainer Margin="5" Orientation="Horizontal">
+                                    <Label
+                                        HorizontalAlignment="Left"
+                                        HorizontalExpand="True"
+                                        Text="Autopsy Report" />
+                                    <BoxContainer Orientation="Horizontal" SetHeight="24">
+                                        <Button
+                                            Margin="-1"
+                                            Name="ARButton"
+                                            SetWidth="27"
+                                            StyleClasses="ButtonSquare">
+                                            <TextureRect
+                                                Margin="-8,-2,0,0"
+                                                Name="ARButtonArrow"
+                                                TexturePath="/Textures/_EE/Interface/Supermatter/arrow_up.png"
+                                                VerticalAlignment="Center" />
+                                        </Button>
+                                    </BoxContainer>
+                                </BoxContainer>
+
+                                <BoxContainer
+                                    Margin="20,0"
+                                    Name="AutopsyInformation"
+                                    Orientation="Vertical">
+                                    <RichTextLabel Name="AutopsyUndocumented" Text="This patient has not received an autopsy, or their autopsy has not been documented." />
+                                </BoxContainer>
+                            </BoxContainer>
+
+                        </BoxContainer>
+                    </ScrollContainer>
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+
+        <!--  footer  -->
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer StyleClasses="LowDivider" />
+            <BoxContainer
+                Margin="10,2,5,0"
+                Orientation="Horizontal"
+                VerticalAlignment="Bottom">
+                <Label StyleClasses="WindowFooterText" Text="Medical Department" />
+                <Label
+                    HorizontalAlignment="Right"
+                    HorizontalExpand="True"
+                    Margin="0,0,5,0"
+                    StyleClasses="WindowFooterText"
+                    Text="v1.0" />
+                <TextureRect
+                    HorizontalAlignment="Right"
+                    SetSize="19 19"
+                    Stretch="KeepAspectCentered"
+                    StyleClasses="NTLogoDark"
+                    VerticalAlignment="Center" />
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+
+</controls:FancyWindow>

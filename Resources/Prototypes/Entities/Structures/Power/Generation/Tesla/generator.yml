@@ -29,4 +29,7 @@
     guides:
     - TeslaEngine
     - Power
+  - type: Tag
+    tags:
+    - ShadowSideLootEpic
 

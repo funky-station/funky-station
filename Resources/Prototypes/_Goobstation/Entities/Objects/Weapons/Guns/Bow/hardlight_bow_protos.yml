@@ -45,7 +45,7 @@
 
 - type: selectableAmmo
   id: ArrowXray
-  desc: X-ray hardlight arrow. Deals less damage. Pierces through anything.
+  desc: X-ray hardlight arrow. Deals less damage. Irradiates the victim.
   icon:
     sprite: Objects/Weapons/Guns/Battery/xray.rsi
     state: icon

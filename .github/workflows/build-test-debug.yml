@@ -18,7 +18,7 @@ jobs:
       matrix:
         os: [blacksmith-4vcpu-ubuntu-2404]
 
-    runs-on: [ self-hosted, "${{ matrix.os }}" ]
+    runs-on: [ "${{ matrix.os }}" ]
 
     steps:
     - name: Checkout Master

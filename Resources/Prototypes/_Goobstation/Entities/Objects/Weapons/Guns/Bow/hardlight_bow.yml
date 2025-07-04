@@ -47,6 +47,7 @@
       - ArrowFiery
       - ArrowFreeze
       - ArrowExplosive
+      - ArrowXray
       - ArrowBee
   - type: FoldingWeapon
   - type: UserInterface

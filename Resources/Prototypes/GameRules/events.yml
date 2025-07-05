@@ -90,6 +90,21 @@
   - type: AnomalySpawnRule
 
 - type: entity
+  id: SpawnBlob
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 2
+    reoccurrenceDelay: 40 #funkystation - stop happening so fucking often
+    earliestStart: 10
+    chaos: # Goobstation
+      Hostile: 180
+      Friend: 180
+      Combat: 180
+      Medical: 140
+  - type: BlobSpawn
+
+- type: entity
   id: BluespaceArtifact
   parent: BaseStationEventShortDelay
   components:

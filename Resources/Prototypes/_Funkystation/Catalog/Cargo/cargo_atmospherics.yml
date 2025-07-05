@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: CrateEngineeringHFROrder
+  icon:
+    sprite: _Funkystation/Structures/Machines/HFR/hfrbox.rsi
+    state: box_core
+  product: CrateEngineeringHFR
+  cost: 50000
+  category: cargoproduct-category-name-atmospherics
+  group: market

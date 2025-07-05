@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "taken from tgstation https://github.com/tgstation/tgstation/blob/master/icons/obj/machines/engine/tesla_coil.dmi",
+  "copyright": "taken from tgstation https://github.com/tgstation/tgstation/blob/master/icons/obj/machines/engine/tesla_coil.dmi | grounding rods by vectorassembly (CC-BY-NC-3.0)",
   "size": {
     "x": 32,
     "y": 32
@@ -34,7 +34,8 @@
           0.1,
           0.1,
           0.1,
-          0.1
+          0.1,
+	  0.1
         ]
       ]
     }

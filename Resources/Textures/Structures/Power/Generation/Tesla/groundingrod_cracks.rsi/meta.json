@@ -4,8 +4,8 @@
     "x": 32,
     "y": 32
   },
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Created by TheShuEd (github) for Space Station 14",
+  "license": "CC-BY-NC-3.0",
+  "copyright": "vectorassembly",
   "states": [
     {"name": "DamageOverlay_8", "directions": 1},
     {"name": "DamageOverlay_16", "directions": 1},

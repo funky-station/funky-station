@@ -65,7 +65,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
 
             // Draw from an object (food, beaker, etc)
             if (isOpenOrIgnored && _whitelist.IsWhitelistPassOrNull(injector.Comp.ContainerDrawWhitelist, target) &&
-                SolutionContainers.TryGetDrawableSolution(target, out var drawableSolution, out _))
+                SolutionContainers.TryGetDrawableSolution(target, out var drawableSolution, out _)) //Funky Edit
                 return TryDraw(injector, target, drawableSolution.Value, user);
 
             Popup.PopupEntity(Loc.GetString("injector-component-cannot-draw-message",

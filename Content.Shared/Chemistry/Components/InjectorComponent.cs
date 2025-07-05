@@ -108,6 +108,7 @@ public sealed partial class InjectorComponent : Component
     [DataField]
     public List<ProtoId<ReagentPrototype>>? ReagentWhitelist = null;
 
+    // Funky Edit
     /// <summary>
     ///  Containers that the injector is allowed to draw from.
     /// A null ContainerWhitelist indicates all containers are allowed.

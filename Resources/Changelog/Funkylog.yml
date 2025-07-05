@@ -3426,3 +3426,52 @@ Entries:
       message: Directional audio for the new slime emotes now works properly
   id: 411
   time: '2025-07-04T04:14:05.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: HFR added to cargo order console
+  id: 412
+  time: '2025-07-04T19:53:40.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Bagel security reworked for genpop
+  id: 413
+  time: '2025-07-04T19:57:22.0000000+00:00'
+- author: Ekpy
+  changes:
+    - type: Add
+      message: Shiva has inventory with mask and gas tank slots
+    - type: Tweak
+      message: Shiva ghost role requires security time, to be played.
+  id: 414
+  time: '2025-07-04T20:06:20.0000000+00:00'
+- author: UristMcWiki
+  changes:
+    - type: Add
+      message: >-
+        Allowed carp to be purchase from Nukie shops since they cannot be made
+        at all normally.
+    - type: Tweak
+      message: >-
+        Slightly buffed the reflect chance on the new Dsword but kept it
+        manageable.
+  id: 415
+  time: '2025-07-04T20:12:33.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Fix
+      message: >-
+        fixed some species only being able to metabolize 2 chems at a time, now
+        they can metabolize three!
+  id: 416
+  time: '2025-07-04T20:40:27.0000000+00:00'
+- author: Bhijn and Myr
+  changes:
+    - type: Add
+      message: >-
+        In interest of raising awareness of addiction to the game, the lobby
+        will now display your current playtime on a given day once it exceeds a
+        threshold.
+  id: 417
+  time: '2025-07-04T22:17:37.0000000+00:00'

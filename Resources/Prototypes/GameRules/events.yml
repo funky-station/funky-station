@@ -102,7 +102,6 @@
       Friend: 180
       Combat: 180
       Medical: 140
-  - type: BlobSpawn
 
 - type: entity
   id: BluespaceArtifact

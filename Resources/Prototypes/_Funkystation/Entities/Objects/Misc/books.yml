@@ -1,0 +1,13 @@
+﻿- type: entity
+  id: BookCorporateSecrets
+  parent: [BaseGuidebook, BaseCommandContraband]
+  name: command training manual
+  description: There's a big red stamp that says "CONFIDENTIAL" on it. Probably should keep this locked up.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/books.rsi
+    layers:
+    - state: corporate-secrets
+  - type: GuideHelp
+    guides:
+    - CommandTrainingManual

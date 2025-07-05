@@ -48,6 +48,21 @@
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
   - type: Item  # Goob edit start
     size: Large
+  - type: Gun
+    fireRate: 2 # funky time :3
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+  - type: UniqueAction
+  - type: BreechLoaded
+    needOpenClose: true
+    openSound:
+      path: "/Audio/_RMC14/Weapons/Guns/Breech/pkd_open_chamber.ogg"
+    closeSound:
+      path: "/Audio/_RMC14/Weapons/Guns/Breech/pkd_close_chamber.ogg"
+  - type: AltFireMelee # for some reason, this was missing from the mosin
   - type: MeleeWeapon
     damage:
       types:
@@ -119,6 +134,7 @@
       - CartridgeAntiMateriel
     capacity: 1
     proto: CartridgeAntiMateriel
+  - type: AltFireMelee # it was also missing from this too, oddly
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:

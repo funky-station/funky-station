@@ -44,4 +44,7 @@
   id: LizardEmotes
 
 - type: Tag
+  id: Vial
+
+- type: Tag
   id: VoxEmotes

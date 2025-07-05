@@ -363,6 +363,11 @@
         maxVol: 15
   - type: Injector
     injectOnly: false
+    containerDrawWhitelist:
+      tags:
+      - Bottle
+      - GlassBeaker
+      - Vial
   - type: ExaminableSolution
     solution: injector
   - type: Spillable

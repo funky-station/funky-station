@@ -91,6 +91,7 @@
           - Bottle
           - PillCanister
           - MedicalPatch # Goobstation
+          - BoxCardboard # Funkystation
   - type: SolutionContainerManager
     solutions:
       buffer: {}

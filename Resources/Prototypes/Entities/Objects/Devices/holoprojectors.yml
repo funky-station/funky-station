@@ -90,7 +90,6 @@
     storedRotation: -90
   - type: LimitedCharges
     maxCharges: 6 # same as it was on a medium cell
-    charges: 6
   - type: ContainerContainer
     containers:
       signs: !type:Container
@@ -187,3 +186,8 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 75
+      Plastic: 12
+      Glass: 12

@@ -118,7 +118,6 @@
         prob: 0.3
       - id: BoxPillCanister
       - id: BoxBottle
-      - id: BoxBottle
       - id: BoxVial
       - id: PlasmaChemistryVial
       - id: ChemBag

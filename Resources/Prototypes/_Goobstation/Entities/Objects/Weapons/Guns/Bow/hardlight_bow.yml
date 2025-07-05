@@ -30,7 +30,7 @@
     delay: 1
   - type: GunRequiresWield
   - type: Gun
-    fireRate: 1
+    fireRate: 0.5
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -60,7 +60,7 @@
     verbText: mode-select-verb-text
     key: enum.AmmoSelectorUiKey.Key
   - type: ItemToggle
-    wieldToggle: false
+    wieldToggle: true
     soundActivate:
       path: /Audio/Weapons/telescopicon.ogg
       params:

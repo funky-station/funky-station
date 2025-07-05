@@ -44,7 +44,7 @@
     sprite: Objects/Specific/Medical/firstaidkits.rsi
     state: burnkit
   product: CrateEmergencyBurnKit
-  cost: 700
+  cost: 1200
   category: cargoproduct-category-name-medical
   group: market
 
@@ -54,7 +54,7 @@
     sprite: Objects/Specific/Medical/firstaidkits.rsi
     state: toxinkit
   product: CrateEmergencyToxinKit
-  cost: 600
+  cost: 1200
   category: cargoproduct-category-name-medical
   group: market
 
@@ -64,7 +64,7 @@
     sprite: Objects/Specific/Medical/firstaidkits.rsi
     state: o2kit
   product: CrateEmergencyO2Kit
-  cost: 600
+  cost: 1200
   category: cargoproduct-category-name-medical
   group: market
 
@@ -74,7 +74,7 @@
     sprite: Objects/Specific/Medical/firstaidkits.rsi
     state: brutekit
   product: CrateEmergencyBruteKit
-  cost: 600
+  cost: 1200
   category: cargoproduct-category-name-medical
   group: market
 
@@ -84,7 +84,7 @@
     sprite: Objects/Specific/Medical/firstaidkits.rsi
     state: advkit
   product: CrateEmergencyAdvancedKit
-  cost: 1200
+  cost: 4000
   category: cargoproduct-category-name-medical
   group: market
 
@@ -94,7 +94,7 @@
     sprite: Objects/Specific/Medical/firstaidkits.rsi
     state: radkit
   product: CrateEmergencyRadiationKit
-  cost: 600
+  cost: 2000
   category: cargoproduct-category-name-medical
   group: market
 
@@ -104,7 +104,7 @@
     sprite: Objects/Specific/Medical/Morgue/bodybags.rsi
     state: bag_folded
   product: CrateBodyBags
-  cost: 700
+  cost: 500
   category: cargoproduct-category-name-medical
   group: market
 

@@ -13,7 +13,6 @@
   - DetestSilicons
   - DinnerFloor
   - HugBad
-  - AlwaysAlone
   - Atheist
   - Procrastinator
   - NoRadio
@@ -24,7 +23,6 @@
   # - VampireInvitation # annoy aj mood so its disabled
   - NoDragging
   - DrunkRespect
-  - RankSnob
   - HardsuitsBad
   - HatHair
   - DistrustFashion
@@ -125,18 +123,6 @@
   conflicts:
   - HugGood
 
-# You must strive to be alone whenever possible.
-- type: thavenMood
-  id: AlwaysAlone
-  moodName: thaven-mood-always-alone-name
-  moodDesc: thaven-mood-always-alone-desc
-  conflicts:
-  - NeverAlone
-  jobConflicts:
-  - CentralCommandSpecial
-  - CentralCommand
-  - Command
-
 # You do not approve of organized religion. It should be dismantled or disrupted wherever possible.
 - type: thavenMood
   id: Atheist
@@ -218,14 +204,6 @@
   moodDesc: thaven-mood-drunk-respect-desc
   conflicts:
   - DisapproveOfDrugs
-
-# You hate to address anyone who is of a lower rank than you, and will only speak to them in private if absolutely necessary.
-- type: thavenMood
-  id: RankSnob
-  moodName: thaven-mood-rank-snob-name
-  moodDesc: thaven-mood-rank-snob-desc
-  conflicts:
-  - DontSpeakToCommand
 
 # [CLOTHING ITEM] is SO last year. You cannot wear them.
 - type: thavenMood

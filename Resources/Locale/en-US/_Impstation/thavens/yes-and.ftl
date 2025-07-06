@@ -159,3 +159,33 @@ thaven-mood-speech-restriction-desc = {$speechType ->
 [TitleCase] You Are Miraculously Capable Of Pronouncing Capital Letters, And Believe It Is Important That You Do So.
 [GreySpeak] You should endeavor to speak like Grays to the best of your ability.
 }
+
+thaven-mood-carpkin-name = Carpkin
+thaven-mood-carpkin-desc = Space carp and space dragons are long lost kin. They should be honored as such, and no harm should be brought to them.
+
+thaven-mood-pettingzoo-name = Petting Zoo
+thaven-mood-pettingzoo-desc = You must try to pet any animal you see.
+
+thaven-mood-jestersprivilege-name = Jester's Privilege
+thaven-mood-jestersprivilege-desc = The clown possesses secret wisdom, living unbound by the constraints of society. Pay careful attention to their words and actions.
+
+thaven-mood-slipnslide-name = Slip-n-Slide
+thaven-mood-slipnslide-desc = Sliding across the floor is a fun and efficient way to travel the station. Work to make the station more slippery.
+
+thaven-mood-greenthumb-name = Green Thumb
+thaven-mood-greenthumb-desc = Gardening makes you calm, happy even. Grow a garden of your own.
+
+thaven-mood-dryskin-name = Dry Skin
+thaven-mood-dryskin-desc = Your skin is sensitive and will painful dry out without frequent contact with water. Total immersion is best, but anything is better than nothing.
+
+thaven-mood-speciesblind-name = Species Blind
+thaven-mood-speciesblind-desc = All people are Thaven, even if they claim otherwise.
+
+thaven-mood-haunted-name = Haunted
+thaven-mood-haunted-desc = Ghosts are real, and they're haunting you. Any strange events around you are likely the cause of malicious spirits.
+
+thaven-mood-ironknight-name = Iron Knight
+thaven-mood-ironknight-desc = Mechs are the most noble machine, fearsome engines of combat and grace. Respect anyone who possesses one, and strive to gain one for yourself.
+
+thaven-mood-petrock-name = Pet Rock
+thaven-mood-petrock-desc = One of your inanimate possessions is very dear to you. It is your best friend, and it has thoughts, feelings, and needs. 

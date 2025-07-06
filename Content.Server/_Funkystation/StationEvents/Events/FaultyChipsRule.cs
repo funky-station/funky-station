@@ -51,16 +51,17 @@ public sealed class FaultyChipsRule : StationEventSystem<FaultyChipsRuleComponen
 
     private void PlayerSpawned(PlayerSpawnCompleteEvent args)
     {
-        var q = QueryActiveRules();
-        //I have no idea, sorry.
-        while (q.MoveNext(out var uid, out _, out var rule, out _))
+        if (HasComp<UnrevivableComponent>(args.Mob))
+            return;
+        
+        var query = QueryAllRules(); // once the round has this, its over.
+
+        while (query.MoveNext(out var comp, out _))
         {
-                if (!EnsureComp<UnrevivableComponent>(args.Mob, out var unrevivable))
-                {
-                    unrevivable.Analyzable = false;
-                    unrevivable.ReasonMessage = "defib-faulty-chip";
-                }
+            if (EnsureComp<UnrevivableComponent>(args.Mob, out var unrevivable)) continue;
+            
+            unrevivable.Analyzable = false;
+            unrevivable.ReasonMessage = "defib-faulty-chip";
         }
     }
-
 }

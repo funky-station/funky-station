@@ -176,24 +176,25 @@ public sealed partial class SupermatterSystem
             }
         }
          // Checks for Nitrous Oxide and spits out BZ if both N2O and plasma are present.
-         {
-             if (mix.GetMoles(Gas.Plasma) > 0.01f)
-             {
-                 var N2OPP = gasReleased.Pressure * ((mix.GetMoles(Gas.NitrousOxide) / mix.TotalMoles) * 100);
-                 var N2ORatio = Math.Clamp(0.5f * (N2OPP - (101.325f * 0.01f)) / (N2OPP + (101.325f * 0.25f)), 0, 1);
-                 var consumedN2O = gasReleased.GetMoles(Gas.NitrousOxide) * N2ORatio;
-                 consumedN2O = Math.Min(consumedN2O,
-                     Math.Min(gasReleased.GetMoles(Gas.Plasma), gasReleased.GetMoles(Gas.NitrousOxide)));
 
-                 if (consumedN2O > 0)
-                 {
-                     var releasedBZ = Math.Clamp(consumedN2O, 0, 1);
-                     gasReleased.AdjustMoles(Gas.NitrousOxide, -consumedN2O);
-                     gasReleased.AdjustMoles(Gas.Plasma, -consumedN2O);
-                     gasReleased.AdjustMoles(Gas.BZ, (releasedBZ * (sm.Power / 500)));
-                 }
+         if (mix.GetMoles(Gas.Plasma) > 0.01f)
+         {
+             var N2OPP = gasReleased.Pressure * ((mix.GetMoles(Gas.NitrousOxide) / mix.TotalMoles) * 100);
+             var N2ORatio = Math.Clamp(0.5f * (N2OPP - (101.325f * 0.01f)) / (N2OPP + (101.325f * 0.25f)), 0, 1);
+             var consumedN2O = gasReleased.GetMoles(Gas.NitrousOxide) * N2ORatio;
+             consumedN2O = Math.Min(consumedN2O,
+                 Math.Min(gasReleased.GetMoles(Gas.Plasma), gasReleased.GetMoles(Gas.NitrousOxide)));
+
+             if (consumedN2O > 0)
+             {
+                 var releasedBZ = Math.Clamp(consumedN2O, 0, 1);
+                 gasReleased.AdjustMoles(Gas.NitrousOxide, -consumedN2O);
+                 gasReleased.AdjustMoles(Gas.Plasma, -consumedN2O);
+                 gasReleased.AdjustMoles(Gas.BZ, (releasedBZ * (sm.Power / 500)));
              }
          }
+
+
          // Assmos - /tg/ gases end
 
         // Release the waste

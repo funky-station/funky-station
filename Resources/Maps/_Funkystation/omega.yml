@@ -56015,7 +56015,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       configurators:
-      - invalid
       deviceLists:
       - 35
       - 38
@@ -56331,7 +56330,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       configurators:
-      - invalid
       deviceLists:
       - 35
       - 38
@@ -56353,7 +56351,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       configurators:
-      - invalid
       deviceLists:
       - 38
     - type: AtmosPipeColor
@@ -56366,7 +56363,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       configurators:
-      - invalid
       deviceLists:
       - 39
     - type: AtmosPipeColor
@@ -56995,7 +56991,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       configurators:
-      - invalid
       deviceLists:
       - 35
       - 38
@@ -57266,7 +57261,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       configurators:
-      - invalid
       deviceLists:
       - 35
       - 38
@@ -57291,7 +57285,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       configurators:
-      - invalid
       deviceLists:
       - 38
     - type: AtmosPipeColor

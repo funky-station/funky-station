@@ -11,6 +11,7 @@
   - type: StationEvent
     color: Red
     MaxOccurrences: 1
+    minimumPlayers: 35
     OccursDuringRoundEnd: false
     startAnnouncement: station-event-faulty-chips-announcement
     startAudio:

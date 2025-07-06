@@ -234,7 +234,7 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
-    Yap: 
+    Yap:
       collection: VulpkaninYap
     Gekker:
       collection: VulpkaninGekker
@@ -263,7 +263,7 @@
     variation: 0.125
   sounds:
     Scream:
-      path: /Audio/Animals/mouse_squeak.ogg
+      collection: MaleScreams
     Laugh:
       collection: MaleLaugh
     Sneeze:
@@ -297,7 +297,7 @@
     variation: 0.125
   sounds:
     Scream:
-      path: /Audio/Animals/mouse_squeak.ogg
+      collection: FemaleScreams
     Laugh:
       collection: FemaleLaugh
     Sneeze:

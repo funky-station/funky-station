@@ -16,14 +16,9 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 60
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-        - trigger:
-            !type:DamageTrigger
             damage: 50
           behaviors:
+            - !type:RemoveOrganicShield # Remove the shield Uid in the equipment dictionary of the changeling component (avoid triggering this ability to "deactivate a shield that is destroyed")
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
             - !type:PlaySoundBehavior

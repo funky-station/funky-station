@@ -3169,3 +3169,309 @@ Entries:
       message: Added missing changeling armor stun resist.
   id: 382
   time: '2025-06-16T15:42:34.0000000+00:00'
+- author: IronDragoon
+  changes:
+    - type: Add
+      message: >-
+        Added pride mantle to vendor, which is a chameleon item with multiple
+        different LGBTQIA+ flags on it. 
+  id: 383
+  time: '2025-06-26T04:49:40.0000000+00:00'
+- author: Drywink
+  changes:
+    - type: Fix
+      message: >-
+        Changeling organic shield no longer needs to be "retracted" when it is
+        broken.
+  id: 384
+  time: '2025-06-26T04:53:00.0000000+00:00'
+- author: amethystowo
+  changes:
+    - type: Add
+      message: Ported over new Vox noises from Impstation and Goob. Bird up!
+    - type: Tweak
+      message: The sneeze emote is now accessible from the emote wheel.
+  id: 385
+  time: '2025-06-26T05:01:30.0000000+00:00'
+- author: IronDragoon
+  changes:
+    - type: Tweak
+      message: >-
+        Further work on Pioneer. Lots of new maints areas, old ones reworked for
+        more hiding spaces, revamped medbay/chemlab, added HFR room for atmos,
+        made SM room more safe, mailing units between chemlab and botany (and
+        more)
+  id: 386
+  time: '2025-06-26T05:09:31.0000000+00:00'
+- author: amethystowo
+  changes:
+    - type: Add
+      message: >-
+        Lizard people now have new emotes they can use, being Chirp, Hiss, and
+        Gurgle. They can also now weh to their hearts content, like a true
+        lizard should.
+  id: 387
+  time: '2025-06-26T05:21:12.0000000+00:00'
+- author: ZigTag
+  changes:
+    - type: Add
+      message: synthetic lizard and zenghu alternative IPC parts
+    - type: Tweak
+      message: whitelist more markings for IPCs
+    - type: Tweak
+      message: IPC screens now render under hair and are in their own category
+    - type: Tweak
+      message: >-
+        change naming scheme of rodentia and feroxi accessories to fall in line
+        with vulpkanin
+    - type: Tweak
+      message: IPCs will drain power based off movement speed
+    - type: Tweak
+      message: IPCs now have tail wagging
+    - type: Fix
+      message: IPCs are no longer bald
+  id: 388
+  time: '2025-06-26T05:46:10.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Tweak
+      message: The Metashield, Naming Rules, and Escalation Rules have been tweaked.
+  id: 389
+  time: '2025-06-26T21:25:01.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Added rollerskates to the cargo maildrobes contraband inventory, and
+        added some items to the emaged inventory for those mail carriers that
+        are a bit more... postal 
+  id: 390
+  time: '2025-06-27T00:22:50.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Added a more official docking area for salvage on Box
+    - type: Add
+      message: Added a temporary HFR area until I figure out other ways on Box
+    - type: Tweak
+      message: Moved the economy consoles outside of the heads office on Box
+    - type: Tweak
+      message: Adjusted Engineering to a little bit, adding lights to miners on Box
+  id: 391
+  time: '2025-06-27T00:38:33.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Remove
+      message: Zombies are no longer in the roundstart or midround antagonist pool.
+    - type: Tweak
+      message: Romerol is now a VERY RARE maintenance pill.
+    - type: Tweak
+      message: Zombie-infected humanoids no longer take poison damage.
+  id: 392
+  time: '2025-06-27T01:24:35.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Add
+      message: Added text highlighting
+  id: 393
+  time: '2025-06-27T06:36:41.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Tweak
+      message: Box burn chambers fixed
+  id: 394
+  time: '2025-06-27T07:03:36.0000000+00:00'
+- author: Currot
+  changes:
+    - type: Fix
+      message: Cash withdrawals no longer steal from other departments.
+    - type: Fix
+      message: >-
+        Inter-department money transfers are no longer spread through all
+        departments.
+  id: 395
+  time: '2025-06-27T08:04:10.0000000+00:00'
+- author: Tyranex
+  changes:
+    - type: Add
+      message: Added a scream for cyborgs!
+    - type: Fix
+      message: Fixed Syndicate Cyborg not being able to laugh.
+  id: 396
+  time: '2025-06-27T17:57:25.0000000+00:00'
+- author: amethystowo
+  changes:
+    - type: Tweak
+      message: Cold damage is now increased by about 5x. Make sure to bundle up!
+  id: 397
+  time: '2025-06-28T02:01:07.0000000+00:00'
+- author: kittygyat, amethystowo
+  changes:
+    - type: Tweak
+      message: >-
+        Monkeys & kobolds can now wear emergency EVA suits, with a fresh new
+        sprite to go along with it! You're welcome, Pun-Pun enthusiasts!
+    - type: Tweak
+      message: >-
+        The Emergency EVA can now survive in the cold slightly better than
+        before, but not as well as it could before the cold damage increase.
+  id: 398
+  time: '2025-06-28T21:21:04.0000000+00:00'
+- author: KiraZen-Underscore
+  changes:
+    - type: Fix
+      message: IPC's now have a different chemical for their blood, Machine oil.
+  id: 399
+  time: '2025-06-28T21:48:05.0000000+00:00'
+- author: EmoGarbage404
+  changes:
+    - type: Add
+      message: >-
+        When an artifact's node is unlocked, the effect will now also occur.
+        Effects can still be triggered manually through interaction.
+    - type: Tweak
+      message: Artifacts will now have more nodes on average.
+    - type: Tweak
+      message: Higher-class artifact nodes now grant significantly more points.
+    - type: Tweak
+      message: Sentient artifacts can once again activate themselves.
+    - type: Tweak
+      message: Increased sentient artifact self activation cooldown.
+  id: 400
+  time: '2025-06-29T02:41:11.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Remove
+      message: The ability to use items / weapons / throw things while prone
+  id: 401
+  time: '2025-06-29T23:18:37.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Fix
+      message: >-
+        When being carried you will no longer be helpless and at the mercy of
+        the person who was able to get off the 15 second doafter on you without
+        you noticing
+    - type: Fix
+      message: You will now be able to unbuckle yourself from beds. Cough.
+  id: 402
+  time: '2025-07-01T01:50:54.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Add
+      message: Ported genpop
+    - type: Fix
+      message: Ported a fix for cargo telepads causing client crashes
+  id: 403
+  time: '2025-07-01T02:17:09.0000000+00:00'
+- author: GreyMario
+  changes:
+    - type: Tweak
+      message: >-
+        Disposal units now more receptive of thrown items. Aim well for a 75%
+        chance to land your throw!
+    - type: Add
+      message: >-
+        Throwing an item at a slimeperson now has a low chance of adding it to
+        their body storage.
+  id: 404
+  time: '2025-07-01T21:26:24.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: Rodents can now squeak AND scream with appropriate sounds.
+  id: 405
+  time: '2025-07-02T01:57:06.0000000+00:00'
+- author: ilyamikcoder
+  changes:
+    - type: Add
+      message: ID card computer has a dedicated job icon option
+  id: 406
+  time: '2025-07-02T04:50:16.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Fix
+      message: Sec ids now work with genpop turnstiles
+  id: 407
+  time: '2025-07-03T01:24:42.0000000+00:00'
+- author: TempWorm, SlamBamActionman
+  changes:
+    - type: Add
+      message: >-
+        Propeller Hats! For those who want to look a bit more silly than usual,
+        get one from a ClothesMate or AutoDrobe!
+    - type: Add
+      message: >-
+        Swirl Lollipops! These can be found on any GetMore Chocolate vending
+        machine.
+  id: 408
+  time: '2025-07-03T01:25:42.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Remove
+      message: 'Cloning boards no longer spawn in the CMO''s locker. '
+  id: 409
+  time: '2025-07-03T01:29:44.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: >-
+        Characters with cowboy accents now refer to the Head of Security as
+        "Sheriff".
+  id: 410
+  time: '2025-07-03T01:32:09.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Fix
+      message: Directional audio for the new slime emotes now works properly
+  id: 411
+  time: '2025-07-04T04:14:05.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: HFR added to cargo order console
+  id: 412
+  time: '2025-07-04T19:53:40.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Bagel security reworked for genpop
+  id: 413
+  time: '2025-07-04T19:57:22.0000000+00:00'
+- author: Ekpy
+  changes:
+    - type: Add
+      message: Shiva has inventory with mask and gas tank slots
+    - type: Tweak
+      message: Shiva ghost role requires security time, to be played.
+  id: 414
+  time: '2025-07-04T20:06:20.0000000+00:00'
+- author: UristMcWiki
+  changes:
+    - type: Add
+      message: >-
+        Allowed carp to be purchase from Nukie shops since they cannot be made
+        at all normally.
+    - type: Tweak
+      message: >-
+        Slightly buffed the reflect chance on the new Dsword but kept it
+        manageable.
+  id: 415
+  time: '2025-07-04T20:12:33.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Fix
+      message: >-
+        fixed some species only being able to metabolize 2 chems at a time, now
+        they can metabolize three!
+  id: 416
+  time: '2025-07-04T20:40:27.0000000+00:00'
+- author: Bhijn and Myr
+  changes:
+    - type: Add
+      message: >-
+        In interest of raising awareness of addiction to the game, the lobby
+        will now display your current playtime on a given day once it exceeds a
+        threshold.
+  id: 417
+  time: '2025-07-04T22:17:37.0000000+00:00'

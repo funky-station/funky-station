@@ -20,11 +20,17 @@
     - 0,0,1,2
     maxItemSize: Large
     storageInsertSound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
+      path: /Audio/Voice/Slime/slime_squish_1.ogg
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
         ents: []
+  # Funkystation - body catches items thrown in
+  - type: ThrowInsertContainer
+    probability: 0.3
+    containerId: storagebase
+    insertSound:
+      path: /Audio/Voice/Slime/slime_squish_1.ogg
   - type: UserInterface
     interfaces:
       enum.VoiceMaskUIKey.Key:
@@ -60,7 +66,7 @@
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime
-    allowedEmotes: ['Squish']
+    allowedEmotes: ['Squish', 'Bubble', 'Slosh','Pop', 'Fizz']
   - type: TypingIndicator
     proto: slime
   - type: Vocal

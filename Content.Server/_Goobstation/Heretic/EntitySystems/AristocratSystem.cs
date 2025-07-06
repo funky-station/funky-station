@@ -51,7 +51,10 @@ public sealed partial class AristocratSystem : EntitySystem
 
         var mix = _atmos.GetTileMixture((ent, Transform(ent)));
         if (mix != null)
-            mix.Temperature -= 50f;
+        {
+            mix.Temperature -= 500f;
+            mix.RemoveRatio(0.5f);
+        }
 
         // replace certain things with their winter analogue
         var lookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, ent.Comp.Range);
@@ -61,7 +64,7 @@ public sealed partial class AristocratSystem : EntitySystem
                 continue;
 
             if (TryComp<TemperatureComponent>(look, out var temp))
-                _temp.ChangeHeat(look, -200f, true, temp);
+                _temp.ChangeHeat(look, -300f, true, temp);
 
             _statusEffect.TryAddStatusEffect<MutedComponent>(look, "Muted", TimeSpan.FromSeconds(5), true);
 

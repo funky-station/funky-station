@@ -1,0 +1,120 @@
+- type: entity
+  parent: ClothingPrideMantleBase
+  id: ClothingNeckMantleAce
+  name: ace mantle
+  description: A soft mantle, striped with the asexual flag.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Neck/mantles/acemantle.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Neck/mantles/acemantle.rsi
+
+- type: entity
+  parent: ClothingPrideMantleBase
+  id: ClothingNeckMantleAroAce
+  name: aroace mantle
+  description: A soft mantle, striped with the aromantic asexual flag.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Neck/mantles/aroacemantle.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Neck/mantles/aroacemantle.rsi
+
+- type: entity
+  parent: ClothingPrideMantleBase
+  id: ClothingNeckMantleBisexual
+  name: bisexual mantle
+  description: A soft mantle, striped with the bisexual flag.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Neck/mantles/bisexualmantle.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Neck/mantles/bisexualmantle.rsi
+
+- type: entity
+  parent: ClothingPrideMantleBase
+  id: ClothingNeckMantleEnby
+  name: enby mantle
+  description: A soft mantle, striped with the nonbinary flag.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Neck/mantles/enbymantle.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Neck/mantles/enbymantle.rsi
+
+- type: entity
+  parent: ClothingPrideMantleBase
+  id: ClothingNeckMantleGay
+  name: gay mantle
+  description: A soft mantle, striped with the gay flag.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Neck/mantles/gaymantle.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Neck/mantles/gaymantle.rsi
+
+- type: entity
+  parent: ClothingPrideMantleBase
+  id: ClothingNeckMantleIntersex
+  name: intersex mantle
+  description: A soft mantle, striped with the intersex flag.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Neck/mantles/intersexmantle.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Neck/mantles/intersexmantle.rsi
+
+- type: entity
+  parent: ClothingPrideMantleBase
+  id: ClothingNeckMantleLesbian
+  name: lesbian mantle
+  description: A soft mantle, striped with the lebsian flag.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Neck/mantles/lesbianmantle.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Neck/mantles/lesbianmantle.rsi
+
+- type: entity
+  parent: ClothingPrideMantleBase
+  id: ClothingNeckMantlePansexual
+  name: pansexual mantle
+  description: A soft mantle, striped with the pansexual flag.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Neck/mantles/pansexualmantle.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Neck/mantles/pansexualmantle.rsi
+
+- type: entity
+  parent: ClothingPrideMantleBase
+  id: ClothingNeckMantleTrans
+  name: trans mantle
+  description: A soft mantle, striped with the transgender flag.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Neck/mantles/transgendermantle.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Neck/mantles/transgendermantle.rsi
+
+- type: entity
+  parent: ClothingPrideMantleBase
+  id: ClothingNeckMantleGenderfluid
+  name: genderfluid mantle
+  description: A soft mantle, striped with the genderfluid flag.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Neck/mantles/genderfluidmantle.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Neck/mantles/genderfluidmantle.rsi
+
+- type: entity
+  parent: ClothingPrideMantleBase
+  id: ClothingNeckMantleRainbow
+  name: rainbow mantle
+  description: A soft mantle, striped with the pride flag.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Neck/mantles/rainbowmantle.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Neck/mantles/rainbowmantle.rsi

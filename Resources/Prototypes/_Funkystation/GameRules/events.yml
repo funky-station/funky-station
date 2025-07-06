@@ -16,5 +16,5 @@
     startAnnouncement: station-event-faulty-chips-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 0.5
+    weight: 1
   - type: FaultyChipsRule

@@ -63,7 +63,7 @@
       required: true
       defaultMarkings: [ VulpEar ]
     Overlay:
-      points: 3 # Funky - was 1, changed to 3
+      points: 3 # Funky - was 2, changed to 3
       required: false
 
 - type: humanoidBaseSprite

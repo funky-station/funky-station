@@ -1,3 +1,4 @@
+using Content.Server.GameTicking.Rules;
 using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking;
@@ -50,10 +51,18 @@ public sealed class FaultyChipsRule : StationEventSystem<FaultyChipsRuleComponen
 
     private void PlayerSpawned(PlayerSpawnCompleteEvent args)
     {
-        if (!EnsureComp<UnrevivableComponent>(args.Mob, out var unrevivable))
+        var q = QueryActiveRules();
+        //I have no idea, sorry.
+        while (q.MoveNext(out var uid, out _, out var rule, out _))
         {
-            unrevivable.Analyzable = false;
-            unrevivable.ReasonMessage = "defib-faulty-chip";
+            if (rule.Running)
+            {
+                if (!EnsureComp<UnrevivableComponent>(args.Mob, out var unrevivable))
+                {
+                    unrevivable.Analyzable = false;
+                    unrevivable.ReasonMessage = "defib-faulty-chip";
+                }
+            }
         }
     }
 

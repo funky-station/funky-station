@@ -55,14 +55,11 @@ public sealed class FaultyChipsRule : StationEventSystem<FaultyChipsRuleComponen
         //I have no idea, sorry.
         while (q.MoveNext(out var uid, out _, out var rule, out _))
         {
-            if (rule.Running)
-            {
                 if (!EnsureComp<UnrevivableComponent>(args.Mob, out var unrevivable))
                 {
                     unrevivable.Analyzable = false;
                     unrevivable.ReasonMessage = "defib-faulty-chip";
                 }
-            }
         }
     }
 

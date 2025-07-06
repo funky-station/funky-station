@@ -369,8 +369,8 @@
 # The clown possesses secret wisdom, living unbound by the constraints of society. Pay careful attention to their words and actions.
 - type: thavenMood
   id: JestersPrivilege
-  moodName: thaven-mood-jesterprivilege-name
-  moodDesc: thaven-mood-jesterprivilege-desc
+  moodName: thaven-mood-jestersprivilege-name
+  moodDesc: thaven-mood-jestersprivilege-desc
   jobConflicts:
   - Security
 

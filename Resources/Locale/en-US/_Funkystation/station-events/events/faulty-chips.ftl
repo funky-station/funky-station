@@ -1,0 +1,2 @@
+station-event-faulty-chips-announcement = Due to an ongoing ion storm, NanoTrasen compliance chips have experienced critical malfunctions. As a result, defibrillation devices are currently non-operational and may inflict severe harm rather than providing medical assistance. All personnel are urged to exercise extreme caution. Unnecessary injuries may result in avoidable costs for the company, your diligence in this matter is greatly appreciated.
+defib-faulty-chip = NanoTrasen compliancy chip fault detected. This patient cannot be revived.

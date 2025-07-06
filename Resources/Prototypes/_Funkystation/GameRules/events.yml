@@ -1,0 +1,19 @@
+- type: entityTable
+  id: BasicFunkyEventsTable
+  table: !type:AllSelector
+    children:
+    - id: FaultyChips
+
+- type: entity
+  id: FaultyChips
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    color: Red
+    startAnnouncement: station-event-faulty-chips-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 8
+    chaos:
+      Medical: 100
+  - type: FaultyChipsRule

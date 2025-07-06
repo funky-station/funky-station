@@ -60,9 +60,8 @@
       points: 1
       required: false
     Eyes: # DeltaV - Moves screen to the eyes layer
-      points: 1
-      required: true
-      defaultMarkings: [ MobIPCEyesDefault ]
+      points: 2 # Funky - Increase to 2 for Protogen mouth and eyes
+      required: false # Funky - Disable requirement
     Head:
       points: 1
       required: true

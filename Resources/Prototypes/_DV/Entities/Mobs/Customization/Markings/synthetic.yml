@@ -285,6 +285,11 @@
   bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [IPC]
+  coloring: # Funky - Add default color
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#000000"
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
     state: protogen_snout_1
@@ -296,6 +301,11 @@
   bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [IPC]
+  coloring: # Funky - Add default color
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#000000"
   sprites:
   - sprite: _DV/Mobs/Customization/SynthLizIPC/snout_markings.rsi
     state: protogen_snout_bolt_1

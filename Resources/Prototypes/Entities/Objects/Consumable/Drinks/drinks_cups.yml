@@ -42,6 +42,22 @@
   - type: Tag
     tags:
     - DrinkCup
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/drinkglass_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/drinkglass_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/drinkglass_drop.ogg
+      params:
+        volume: -4
+
 
 - type: entity
   parent: DrinkBaseCup
@@ -84,6 +100,21 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/mug.rsi
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/drinkglass_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/drinkglass_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/drinkglass_drop.ogg
+      params:
+        volume: -4
 
 - type: entity
   parent: DrinkBaseMug

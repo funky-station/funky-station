@@ -66,9 +66,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.7
-        Piercing: 0.45
+        Blunt: 0.65
+        Slash: 0.6
+        Piercing: 0.40
         Heat: 0.9
         Cold: 0.9
         Radiation: 0.8
@@ -102,7 +102,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.65
   - type: StaminaResistance
-    damageCoefficient: 0.8
+    damageCoefficient: 0.99
   - type: Armor
     modifiers:
       coefficients:
@@ -115,13 +115,13 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.85
-  - type: HeldSpeedModifier
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetHardsuitCybersunStealth
   - type: Tag
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitCybersunStealth
   - type: ClothingGrantComponent
     component:
     - type: StealthOnMove

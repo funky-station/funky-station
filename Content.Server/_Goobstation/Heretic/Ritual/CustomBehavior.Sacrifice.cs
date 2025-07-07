@@ -103,7 +103,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
                 continue;
 
             var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]);
-            var knowledgeGain = isCommand ? 4f : 2f;
+            var knowledgeGain = isCommand ? 6f : 4f; //funkystation: changed to encourage sacs
 
             // funkystation
             // start the sacrifing process -space

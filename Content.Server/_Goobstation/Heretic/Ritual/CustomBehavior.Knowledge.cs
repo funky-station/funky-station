@@ -86,7 +86,7 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
         toDelete = new();
 
         if (args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
-            _heretic.UpdateKnowledge(args.Performer, hereticComp, 4);
+            _heretic.UpdateKnowledge(args.Performer, hereticComp, 2); // funkystation: changed value to encourage sacs
 
         // reset tags
         requiredTags = new();

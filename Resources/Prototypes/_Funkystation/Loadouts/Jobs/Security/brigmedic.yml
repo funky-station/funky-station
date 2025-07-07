@@ -1,0 +1,69 @@
+- type: loadout
+  id: BrigmedicJumpskirtOfLife
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtOfLife
+
+- type: loadout
+  id: BrigmedicJumpsuitBrigmedic
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBrigmedic
+
+- type: loadout
+  id: BrigmedicAMG
+  equipment:
+    outerClothing: ClothingOuterCoatAMG
+
+- type: loadout
+  id: BrigmedicJumpskirtBrigmedic
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBrigmedic
+
+- type: loadout
+  id: BrigmedicBackpackSatchel
+  equipment:
+    back: ClothingBackpackSatchelBrigmedic
+
+- type: loadout
+  id: BrigmedicBackpackDuffel
+  equipment:
+    back: ClothingBackpackDuffelBrigmedic
+
+- type: loadout
+  id: BrigmedicBackpack
+  equipment:
+    back: ClothingBackpackBrigmedic
+
+- type: loadout
+  id: BrigmedicHead
+  equipment:
+    head: ClothingHeadHatBeretBrigmedic
+
+- type: loadoutGroup
+  id: BrigmedicJumpsuit
+  name: loadout-group-brigmedic-jumpsuit
+  loadouts:
+  - BrigmedicJumpsuitBrigmedic
+  - BrigmedicJumpskirtBrigmedic
+  - SecurityJumpsuitGrey
+  - SecurityJumpskirtGrey
+  - BrigmedicJumpskirtOfLife
+
+- type: loadoutGroup
+  id: BrigmedicAMGGroup
+  name: loadout-group-bridmedic-outer
+  loadouts:
+  - BrigmedicAMG
+
+- type: loadoutGroup
+  id: BrigmedicBackpack
+  name: loadout-group-brigmedic-backpack
+  loadouts:
+  - BrigmedicBackpackSatchel
+  - BrigmedicBackpackDuffel
+  - BrigmedicBackpack
+
+- type: loadoutGroup
+  id: BrigmedicHeadGroup
+  name: loadout-group-bridmedic-head
+  loadouts:
+  - BrigmedicHead

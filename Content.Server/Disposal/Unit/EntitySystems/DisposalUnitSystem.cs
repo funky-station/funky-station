@@ -80,10 +80,7 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
         SubscribeLocalEvent<DisposalUnitComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<DisposalUnitComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         SubscribeLocalEvent<DisposalUnitComponent, DragDropTargetEvent>(OnDragDropOn);
-        SubscribeLocalEvent<DisposalUnitComponent, ContainerRelayMovementEntityEvent>(OnMovement);
 
-        SubscribeLocalEvent<DisposalUnitComponent, GetDumpableVerbEvent>(OnGetDumpableVerb);
-        SubscribeLocalEvent<DisposalUnitComponent, DumpEvent>(OnDump);
         SubscribeLocalEvent<DisposalUnitComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<DisposalUnitComponent, BeforeExplodeEvent>(OnExploded);
 
@@ -817,54 +814,6 @@ public sealed class DisposalUnitUIStateUpdatedEvent : EntityEventArgs
     public DisposalUnitUIStateUpdatedEvent(SharedDisposalUnitComponent.DisposalUnitBoundUserInterfaceState state)
     {
         State = state;
-    }
-
-    private void AddClimbInsideVerb(EntityUid uid, DisposalUnitComponent component, GetVerbsEvent<Verb> args)
-    {
-        // This is not an interaction, activation, or alternative verb type because unfortunately most users are
-        // unwilling to accept that this is where they belong and don't want to accidentally climb inside.
-        if (!args.CanAccess ||
-            !args.CanInteract ||
-            component.Container.ContainedEntities.Contains(args.User) ||
-            !ActionBlockerSystem.CanMove(args.User))
-        {
-            return;
-        }
-
-        if (!CanInsert(uid, component, args.User))
-            return;
-
-        // Add verb to climb inside of the unit,
-        Verb verb = new()
-        {
-            Act = () => TryInsert(uid, args.User, args.User),
-            DoContactInteraction = true,
-            Text = Loc.GetString("disposal-self-insert-verb-get-data-text")
-        };
-        // TODO VERB ICON
-        // TODO VERB CATEGORY
-        // create a verb category for "enter"?
-        // See also, medical scanner. Also maybe add verbs for entering lockers/body bags?
-        args.Verbs.Add(verb);
-    }
-
-    private void OnGetDumpableVerb(Entity<DisposalUnitComponent> ent, ref GetDumpableVerbEvent args)
-    {
-        args.Verb = Loc.GetString("dump-disposal-verb-name", ("unit", ent));
-    }
-
-    private void OnDump(Entity<DisposalUnitComponent> ent, ref DumpEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        args.Handled = true;
-        args.PlaySound = true;
-
-        foreach (var entity in args.DumpQueue)
-        {
-            DoInsertDisposalUnit(ent, entity, args.User);
-        }
     }
 }
 /// <summary>

@@ -228,7 +228,10 @@
 
 - type: wireLayout
   id: APC
-  dummyWires: 3
+  dummyWires: 0
   wires:
+  - !type:PowerWireAction
+  - !type:PowerWireAction
+  - !type:PowerWireAction
   - !type:AccessWireAction
   - !type:AiInteractWireAction

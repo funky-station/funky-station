@@ -155,4 +155,32 @@ public sealed class DumpableSystem : EntitySystem
             _audio.PlayPredicted(component.DumpSound, uid, args.Args.User);
         }
     }
+
+    [PublicAPI]
+    public void DumpContents(EntityUid uid, EntityUid? target, EntityUid user, DumpableComponent? component = null)
+    {
+        if (!TryComp<StorageComponent>(uid, out var storage)
+            || !Resolve(uid, ref component))
+            return;
+
+        if (storage.Container.ContainedEntities.Count == 0)
+            return;
+
+        var dumpQueue = new Queue<EntityUid>(storage.Container.ContainedEntities);
+
+        var dumped = false;
+
+        var targetPos = _transformSystem.GetWorldPosition(uid);
+
+            foreach (var entity in dumpQueue)
+            {
+                var transform = Transform(entity);
+                _transformSystem.SetWorldPositionRotation(entity, targetPos + _random.NextVector2Box() / 4, _random.NextAngle(), transform);
+            }
+
+        if (dumped)
+        {
+            _audio.PlayPredicted(component.DumpSound, uid, user);
+        }
+    }
 }

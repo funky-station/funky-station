@@ -818,7 +818,6 @@ public sealed class DisposalUnitUIStateUpdatedEvent : EntityEventArgs
     {
         State = state;
     }
-}
 
     private void AddClimbInsideVerb(EntityUid uid, DisposalUnitComponent component, GetVerbsEvent<Verb> args)
     {
@@ -867,6 +866,7 @@ public sealed class DisposalUnitUIStateUpdatedEvent : EntityEventArgs
             DoInsertDisposalUnit(ent, entity, args.User);
         }
     }
+}
 /// <summary>
 /// Sent before the disposal unit flushes it's contents.
 /// Allows adding tags for sorting and preventing the disposal unit from flushing.

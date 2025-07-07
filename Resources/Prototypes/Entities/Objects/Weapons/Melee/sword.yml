@@ -82,7 +82,7 @@
     wideAnimationRotation: -60
     damage:
       types:
-        Slash: 30
+        Slash: 45
   - type: Item
     sprite: Objects/Weapons/Melee/energykatana.rsi
   - type: EnergyKatana

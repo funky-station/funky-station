@@ -58,6 +58,7 @@
   moodDesc: thaven-mood-compulsive-believer-desc
   conflicts:
   - CompulsiveLiar
+  - Oathbound
 
 # The usage of plant matter by humanoids is abhorrent.
 - type: thavenMood

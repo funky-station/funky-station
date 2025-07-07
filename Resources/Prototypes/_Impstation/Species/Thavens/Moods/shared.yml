@@ -117,6 +117,7 @@
   moodDesc: thaven-mood-one-true-thaven-desc
   conflicts:
   - MustCongregate
+  - SpeciesBlind
 
 # Violence between Thaven is permitted with no legal repercussions.
 - type: thavenMood
@@ -202,6 +203,8 @@
   id: Oathbound
   moodName: thaven-mood-oathbound-name
   moodDesc: thaven-mood-oathbound-desc
+  conflicts:
+  - CompulsiveLiar
 
 # Oxygen and Nitrogen are bland, and Thaven deserve something more. You must breath an exotic gas at all times.
 - type: thavenMood
@@ -214,6 +217,8 @@
   id: TunnelDweller
   moodName: thaven-mood-tunneldweller-name
   moodDesc: thaven-mood-tunneldweller-desc
+  conflicts:
+  - StationIsAlive
 
 # A clownish spirit has infected the station, and you find friendly pranks, especially against fellow Thaven, to be great fun.
 - type: thavenMood

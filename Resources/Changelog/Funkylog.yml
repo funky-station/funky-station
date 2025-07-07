@@ -3475,3 +3475,11 @@ Entries:
         threshold.
   id: 417
   time: '2025-07-04T22:17:37.0000000+00:00'
+- author: UristMcWiki
+  changes:
+    - type: Fix
+      message: >-
+        Certain mech guns had broken energy costs. Fixed those values and
+        slightly buffed others.
+  id: 418
+  time: '2025-07-07T00:20:03.0000000+00:00'

@@ -7,8 +7,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 17
-
+        Piercing: 30
 - type: entity
   id: BulletRiflePractice
   name: bullet (0.20 rifle practice)
@@ -42,5 +41,5 @@
     damage:
       types:
         Radiation: 7
-        Piercing: 8
+        Piercing: 10
 

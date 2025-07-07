@@ -38,7 +38,6 @@ public abstract partial class SharedChatSystem : EntitySystem
     public const int WhisperMuffledRange = 5; // how far whisper goes at all, in world units
     public static readonly SoundSpecifier DefaultAnnouncementSound
         = new SoundPathSpecifier("/Audio/Announcements/announce.ogg");
-
     public static readonly ProtoId<RadioChannelPrototype> CommonChannel = "Common";
 
     public static readonly string DefaultChannelPrefix = $"{RadioChannelPrefix}{DefaultChannelKey}";
@@ -60,9 +59,7 @@ public abstract partial class SharedChatSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
         DebugTools.Assert(_prototypeManager.HasIndex(CommonChannel));
-
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypeReload);
         CacheRadios();
         CacheEmotes();

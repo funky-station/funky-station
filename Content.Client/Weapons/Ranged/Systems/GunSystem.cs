@@ -72,8 +72,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly Robust.Client.Physics.PhysicsSystem _physics = default!;
 
-    [ValidatePrototypeId<EntityPrototype>]
-    public const string HitscanProto = "HitscanEffect";
+    public static readonly EntProtoId HitscanProto = "HitscanEffect";
 
     public bool SpreadOverlay
     {

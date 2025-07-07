@@ -36,6 +36,7 @@ using Content.Shared.Access;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
+using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.Popups;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Events;
@@ -44,7 +45,7 @@ using Content.Shared.Shuttles.Systems;
 using Content.Shared.UserInterface;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
-using Content.Shared.DeviceNetwork.Components;
+using Robust.Shared.Prototypes;
 using Timer = Robust.Shared.Timing.Timer;
 using System.Net;
 using System.Net.Sockets;
@@ -105,8 +106,7 @@ public sealed partial class EmergencyShuttleSystem
 
     private CancellationTokenSource? _roundEndCancelToken;
 
-    [ValidatePrototypeId<AccessLevelPrototype>]
-    private const string EmergencyRepealAllAccess = "EmergencyShuttleRepealAll";
+    private static readonly ProtoId<AccessLevelPrototype> EmergencyRepealAllAccess = "EmergencyShuttleRepealAll";
     private static readonly Color DangerColor = Color.Red;
 
     /// <summary>

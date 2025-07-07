@@ -74,8 +74,7 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
 
-        [ValidatePrototypeId<EntityPrototype>]
-        private const string PillPrototypeId = "Pill";
+        private static readonly EntProtoId PillPrototypeId = "Pill";
 
         [ValidatePrototypeId<EntityPrototype>]
         private const string PillCanisterPrototypeId = "PillCanister";

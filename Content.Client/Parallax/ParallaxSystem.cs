@@ -25,8 +25,7 @@ public sealed class ParallaxSystem : SharedParallaxSystem
     [Dependency] private readonly IOverlayManager _overlay = default!;
     [Dependency] private readonly IParallaxManager _parallax = default!;
 
-    [ValidatePrototypeId<ParallaxPrototype>]
-    private const string Fallback = "Default";
+    private static readonly ProtoId<ParallaxPrototype> Fallback = "Default";
 
     public const int ParallaxZIndex = 0;
 

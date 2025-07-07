@@ -27,6 +27,7 @@
   - Medical
   - Research
   - Command
+  - Cargo #funkystation
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

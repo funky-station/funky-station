@@ -11,14 +11,6 @@ namespace Content.Server.Heretic.Ritual;
 [Virtual]
 public partial class RitualAscensionBehavior : RitualCustomBehavior
 {
-    /// <summary>
-    ///     Should we count only targets?
-    /// </summary>
-    [DataField]
-    public bool OnlyTargets = false;
-
-    protected List<EntityUid> uids = new();
-
     public override bool Execute(RitualData args, out string? outstr)
     {
         var mindSystem = args.EntityManager.System<SharedMindSystem>();

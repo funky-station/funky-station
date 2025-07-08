@@ -27,6 +27,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Content.Server._EinsteinEngines.Silicon.IPC; // Goobstation
+using Content.Server.Access.Components; // Funkystation
 
 namespace Content.Server.Station.Systems;
 
@@ -269,6 +270,10 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         }
 
         _accessSystem.SetAccessToJob(cardId, jobPrototype, extendedAccess);
+
+        // funkystation: prevent setting PresetIdCard accesses; we just GOT our accesses, remember?
+        if (TryComp<PresetIdCardComponent>(cardId, out _))
+            RemComp<PresetIdCardComponent>(cardId);
 
         if (pdaComponent != null)
             _pdaSystem.SetOwner(idUid.Value, pdaComponent, entity, characterName);

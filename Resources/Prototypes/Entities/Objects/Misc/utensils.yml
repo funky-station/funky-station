@@ -151,6 +151,7 @@
   - type: Tag
     tags:
     - Metal
+    - BartendingTool #Funky - bartender changes
   - type: Sprite
     state: bar_spoon
   - type: Item

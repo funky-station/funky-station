@@ -3489,3 +3489,15 @@ Entries:
       message: The Magistrate has been added as a CentComm role.
   id: 419
   time: '2025-07-08T03:22:48.0000000+00:00'
+- author: Zephyrpak, Ci1rus
+  changes:
+    - type: Add
+      message: New inner ear sprites for fox ears and new vulpine snout sprites!
+    - type: Tweak
+      message: Changed markings limits on arms to 4, legs to 4, and overlay to 3.
+    - type: Tweak
+      message: >-
+        Vulpkanin now have access to eye markings allowing you to give them
+        heterochromia!
+  id: 420
+  time: '2025-07-08T12:43:35.0000000+00:00'

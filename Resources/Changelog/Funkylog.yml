@@ -3517,3 +3517,11 @@ Entries:
         injuries when applied topically through raw contact or patches
   id: 422
   time: '2025-07-08T19:27:12.0000000+00:00'
+- author: GreyMario
+  changes:
+    - type: Fix
+      message: >-
+        Nanotrasen Representative's ID now correctly receives its intended job
+        title and accesses instead of becoming All Access.
+  id: 423
+  time: '2025-07-08T19:28:43.0000000+00:00'

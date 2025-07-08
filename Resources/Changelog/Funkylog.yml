@@ -3509,3 +3509,11 @@ Entries:
         Ritual of Knowledge
   id: 421
   time: '2025-07-08T18:45:07.0000000+00:00'
+- author: sowelipililimute
+  changes:
+    - type: Add
+      message: >-
+        Styptic powder and silver sulfadiazine now exist, medications that mend
+        injuries when applied topically through raw contact or patches
+  id: 422
+  time: '2025-07-08T19:27:12.0000000+00:00'

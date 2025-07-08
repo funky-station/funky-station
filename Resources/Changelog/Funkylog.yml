@@ -3531,3 +3531,9 @@ Entries:
       message: Magistrate can be selected on Glacier and Elkridge
   id: 424
   time: '2025-07-08T19:33:26.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Ported APC wire panel hacking from Wizden
+  id: 425
+  time: '2025-07-08T19:44:48.0000000+00:00'

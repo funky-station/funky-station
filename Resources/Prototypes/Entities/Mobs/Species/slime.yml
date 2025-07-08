@@ -25,6 +25,12 @@
     containers:
       storagebase: !type:Container
         ents: []
+  # Funkystation - body catches items thrown in
+  - type: ThrowInsertContainer
+    probability: 0.3
+    containerId: storagebase
+    insertSound:
+      path: /Audio/Voice/Slime/slime_squish_1.ogg
   - type: UserInterface
     interfaces:
       enum.VoiceMaskUIKey.Key:
@@ -98,6 +104,7 @@
     groups:
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
+      Medication: [ Touch ] # Funky - dermal medication
     reactions:
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]

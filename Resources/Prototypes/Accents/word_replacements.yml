@@ -299,6 +299,7 @@
     accent-cowboy-words-30: accent-cowboy-replacement-30
     accent-cowboy-words-31: accent-cowboy-replacement-31
     accent-cowboy-words-32: accent-cowboy-replacement-32
+    accent-cowboy-words-32-2: accent-cowboy-replacement-32
     accent-cowboy-words-33: accent-cowboy-replacement-33
     accent-cowboy-words-34: accent-cowboy-replacement-34
     accent-cowboy-words-35: accent-cowboy-replacement-35
@@ -306,6 +307,8 @@
     accent-cowboy-words-37: accent-cowboy-replacement-37
     accent-cowboy-words-38: accent-cowboy-replacement-38
     accent-cowboy-words-39: accent-cowboy-replacement-39
+    accent-cowboy-words-39-2: accent-cowboy-replacement-39
+    accent-cowboy-words-39-3: accent-cowboy-replacement-39
     accent-cowboy-words-40: accent-cowboy-replacement-40
     accent-cowboy-words-41: accent-cowboy-replacement-41
     accent-cowboy-words-42: accent-cowboy-replacement-42
@@ -319,7 +322,10 @@
     accent-cowboy-words-50: accent-cowboy-replacement-50
     accent-cowboy-words-51: accent-cowboy-replacement-51
     accent-cowboy-words-52: accent-cowboy-replacement-52
+    accent-cowboy-words-52-2: accent-cowboy-replacement-52
     accent-cowboy-words-53: accent-cowboy-replacement-53
+    accent-cowboy-words-53-2: accent-cowboy-replacement-53
+    accent-cowboy-words-53-3: accent-cowboy-replacement-53
     accent-cowboy-words-54: accent-cowboy-replacement-54
     accent-cowboy-words-55: accent-cowboy-replacement-55
     accent-cowboy-words-56: accent-cowboy-replacement-56
@@ -336,15 +342,24 @@
     accent-cowboy-words-67: accent-cowboy-replacement-67
     accent-cowboy-words-68: accent-cowboy-replacement-68
     accent-cowboy-words-69: accent-cowboy-replacement-69
+    accent-cowboy-words-69-2: accent-cowboy-replacement-69
+    accent-cowboy-words-69-3: accent-cowboy-replacement-69
+    accent-cowboy-words-69-4: accent-cowboy-replacement-69
     accent-cowboy-words-70: accent-cowboy-replacement-70
+    accent-cowboy-words-70-2: accent-cowboy-replacement-70
+    accent-cowboy-words-70-3: accent-cowboy-replacement-70
+    accent-cowboy-words-70-4: accent-cowboy-replacement-70
     accent-cowboy-words-71: accent-cowboy-replacement-71
+    accent-cowboy-words-71-2: accent-cowboy-replacement-71
     accent-cowboy-words-72: accent-cowboy-replacement-72
     accent-cowboy-words-73: accent-cowboy-replacement-73
     accent-cowboy-words-74: accent-cowboy-replacement-74
     accent-cowboy-words-75: accent-cowboy-replacement-75
     accent-cowboy-words-76: accent-cowboy-replacement-76
+    accent-cowboy-words-76-2: accent-cowboy-replacement-76
     accent-cowboy-words-77: accent-cowboy-replacement-77
     accent-cowboy-words-78: accent-cowboy-replacement-78
+    accent-cowboy-words-78-2: accent-cowboy-replacement-78
     accent-cowboy-words-79: accent-cowboy-replacement-79
     accent-cowboy-words-80: accent-cowboy-replacement-80
     accent-cowboy-words-81: accent-cowboy-replacement-81
@@ -366,6 +381,72 @@
     accent-cowboy-words-97: accent-cowboy-replacement-97
     accent-cowboy-words-98: accent-cowboy-replacement-98
     accent-cowboy-words-99: accent-cowboy-replacement-99
+    accent-cowboy-words-100: accent-cowboy-replacement-100
+    accent-cowboy-words-101: accent-cowboy-replacement-101
+    accent-cowboy-words-102: accent-cowboy-replacement-102
+    accent-cowboy-words-103: accent-cowboy-replacement-103
+    accent-cowboy-words-104: accent-cowboy-replacement-104
+    accent-cowboy-words-105: accent-cowboy-replacement-105
+    accent-cowboy-words-106: accent-cowboy-replacement-106
+    accent-cowboy-words-107: accent-cowboy-replacement-107
+    accent-cowboy-words-108: accent-cowboy-replacement-108
+    accent-cowboy-words-109: accent-cowboy-replacement-109
+    accent-cowboy-words-110: accent-cowboy-replacement-110
+    accent-cowboy-words-110-2: accent-cowboy-replacement-110
+    accent-cowboy-words-111: accent-cowboy-replacement-111
+    accent-cowboy-words-111-2: accent-cowboy-replacement-111
+    accent-cowboy-words-112: accent-cowboy-replacement-112
+    accent-cowboy-words-113: accent-cowboy-replacement-113
+    accent-cowboy-words-114: accent-cowboy-replacement-114
+    accent-cowboy-words-115: accent-cowboy-replacement-115
+    accent-cowboy-words-116: accent-cowboy-replacement-116
+    accent-cowboy-words-117: accent-cowboy-replacement-117
+    accent-cowboy-words-118: accent-cowboy-replacement-118
+    accent-cowboy-words-119: accent-cowboy-replacement-119
+    accent-cowboy-words-120: accent-cowboy-replacement-120
+    accent-cowboy-words-121: accent-cowboy-replacement-121
+    accent-cowboy-words-122: accent-cowboy-replacement-122
+    accent-cowboy-words-123: accent-cowboy-replacement-123
+    accent-cowboy-words-124: accent-cowboy-replacement-124
+    accent-cowboy-words-125: accent-cowboy-replacement-125
+    accent-cowboy-words-126: accent-cowboy-replacement-126
+    accent-cowboy-words-127: accent-cowboy-replacement-127
+    accent-cowboy-words-128: accent-cowboy-replacement-128
+    accent-cowboy-words-129: accent-cowboy-replacement-129
+    accent-cowboy-words-129-2: accent-cowboy-replacement-129
+    accent-cowboy-words-130: accent-cowboy-replacement-130
+    accent-cowboy-words-130-2: accent-cowboy-replacement-130
+    accent-cowboy-words-131: accent-cowboy-replacement-131
+    accent-cowboy-words-132: accent-cowboy-replacement-132
+    accent-cowboy-words-133: accent-cowboy-replacement-133
+    accent-cowboy-words-134: accent-cowboy-replacement-134
+    accent-cowboy-words-135: accent-cowboy-replacement-135
+    accent-cowboy-words-136: accent-cowboy-replacement-136
+    accent-cowboy-words-137: accent-cowboy-replacement-137
+    accent-cowboy-words-137-2: accent-cowboy-replacement-137
+    accent-cowboy-words-137-3: accent-cowboy-replacement-137
+    accent-cowboy-words-138: accent-cowboy-replacement-138
+    accent-cowboy-words-138-2: accent-cowboy-replacement-138
+    accent-cowboy-words-138-3: accent-cowboy-replacement-138
+    accent-cowboy-words-139: accent-cowboy-replacement-139
+    accent-cowboy-words-140: accent-cowboy-replacement-140
+    accent-cowboy-words-141: accent-cowboy-replacement-141
+    accent-cowboy-words-142: accent-cowboy-replacement-142
+    accent-cowboy-words-143: accent-cowboy-replacement-143
+    accent-cowboy-words-144: accent-cowboy-replacement-144
+    accent-cowboy-words-144-2: accent-cowboy-replacement-144
+    accent-cowboy-words-145: accent-cowboy-replacement-145
+    accent-cowboy-words-145-2: accent-cowboy-replacement-145
+    accent-cowboy-words-146: accent-cowboy-replacement-146
+    accent-cowboy-words-147: accent-cowboy-replacement-147
+    accent-cowboy-words-147-2: accent-cowboy-replacement-147
+    accent-cowboy-words-147-3: accent-cowboy-replacement-147
+    accent-cowboy-words-147-4: accent-cowboy-replacement-147
+    accent-cowboy-words-148: accent-cowboy-replacement-148
+    accent-cowboy-words-148-2: accent-cowboy-replacement-148
+    accent-cowboy-words-148-3: accent-cowboy-replacement-148
+    accent-cowboy-words-148-4: accent-cowboy-replacement-148
+    accent-cowboy-words-148-5: accent-cowboy-replacement-148
 
 - type: accent
   id: southern

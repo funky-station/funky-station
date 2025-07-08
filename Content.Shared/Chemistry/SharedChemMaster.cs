@@ -77,11 +77,13 @@ namespace Content.Shared.Chemistry
     public sealed class ChemMasterOutputToBottleMessage : BoundUserInterfaceMessage
     {
         public readonly uint Dosage;
+        public readonly uint Number;
         public readonly string Label;
 
-        public ChemMasterOutputToBottleMessage(uint dosage, string label)
+        public ChemMasterOutputToBottleMessage(uint dosage, uint number, string label)
         {
             Dosage = dosage;
+            Number = number;
             Label = label;
         }
     }

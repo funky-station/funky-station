@@ -1,0 +1,4 @@
+- type: soundCollection
+  id: Gavel
+  files:
+    - /Audio/_Funkystation/Items/gavel.ogg

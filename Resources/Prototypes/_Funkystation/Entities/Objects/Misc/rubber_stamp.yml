@@ -11,3 +11,18 @@
   - type: Sprite
     sprite: _Funkystation/Objects/Misc/stamps.rsi
     state: stamp-iaa
+
+- type: entity
+  name: magistrate's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampMagistrate
+  suffix: DO NOT MAP
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-magistrate
+    stampedColor: "#515961"
+    stampState: "paper_stamp-magi"
+    stampLargeIcon: "large_stamp-magi"
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/stamps.rsi
+    state: stamp-magi

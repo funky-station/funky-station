@@ -192,8 +192,6 @@
   saleLimit: 1 # WD EDIT
 
 
-
-
 # Funky duplicate to fix surplus bundle, this one cannot be bought ignore
 - type: listing
   id: UplinkGrenadeLauncherBundleSurplus
@@ -1191,11 +1189,6 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkAllies
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
   saleLimit: 1 # WD EDIT
 
 - type: listing
@@ -1426,8 +1419,14 @@
   productEntity: JetpackBlackFilled
   cost:
     Telecrystal: 10 # goob
+  conditions:
+    - !type:StoreWhitelistCondition
+      blacklist:
+        tags:
+          - NukeOpsUplink
   categories:
   - UplinkWearables
+
   saleLimit: 1 # WD EDIT
 
 - type: listing
@@ -1481,7 +1480,7 @@
   description: uplink-clothing-no-slips-shoes-desc
   productEntity: ClothingShoesChameleonNoSlips
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 15 # goob
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -1514,7 +1513,7 @@
   description: uplink-clothing-shoes-boots-mag-syndie-desc
   productEntity: ClothingShoesBootsMagSyndie
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 30 # goob
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -1550,7 +1549,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndicate.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateHardsuitBundle
   cost:
-    Telecrystal: 30 # goob
+    Telecrystal: 50 # funky
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -1562,7 +1561,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
   productEntity: ClothingBackpackSyndicateRaidBundle
   cost:
-    Telecrystal: 75 # goob
+    Telecrystal: 30 # funky
   categories:
   - UplinkWearables
   conditions:
@@ -1579,7 +1578,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
   cost:
-    Telecrystal: 75 # goob
+    Telecrystal: 100 # Funky
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -1591,7 +1590,8 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/cybersun.rsi, state: icon } # goobstation - duke nukies
   productEntity: CrateCybersunJuggernautBundle
   cost:
-    Telecrystal: 75 # Unchanged to allow for traitors to make a funny terrible decision. Funky
+    Telecrystal: 75
+     # Unchanged to allow for traitors to make a funny terrible decision. Funky
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT

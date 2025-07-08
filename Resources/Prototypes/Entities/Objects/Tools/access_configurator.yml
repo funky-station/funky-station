@@ -39,6 +39,7 @@
       - Janitor
       - Kitchen
       - Lawyer
+      - Logistics #Imp
       - Maintenance
       - Medical
       - Quartermaster
@@ -112,6 +113,7 @@
     - Janitor
     - Kitchen
     - Lawyer
+    - Logistics #Imp
     - Maintenance
     - Medical
     - Quartermaster
@@ -126,6 +128,8 @@
     - NuclearOperative
     - SyndicateAgent
     - Wizard
+    - GenpopEnter
+    - GenpopLeave
     privilegedIdSlot:
       name: id-card-console-privileged-id
       ejectSound: /Audio/Machines/id_swipe.ogg

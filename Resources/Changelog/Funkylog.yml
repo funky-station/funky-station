@@ -3483,3 +3483,9 @@ Entries:
         slightly buffed others.
   id: 418
   time: '2025-07-07T00:20:03.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: The Magistrate has been added as a CentComm role.
+  id: 419
+  time: '2025-07-08T03:22:48.0000000+00:00'

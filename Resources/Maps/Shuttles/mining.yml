@@ -1022,7 +1022,6 @@ entities:
           ents:
           - 105
           - 102
-          - 103
           - 108
           - 109
           - 106
@@ -1032,46 +1031,6 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: ClothingEyesGlassesMercenary
-  entities:
-  - uid: 110
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -4.556146,0.61211896
-      parent: 1
-  - uid: 111
-    components:
-    - type: Transform
-      pos: -5.040521,-2.4816308
-      parent: 1
-- proto: ClothingHandsMercGlovesCombat
-  entities:
-  - uid: 112
-    components:
-    - type: Transform
-      pos: -5.009271,-2.8722558
-      parent: 1
-  - uid: 113
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -3.9155211,-1.294131
-      parent: 1
-  - uid: 114
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -5.071771,0.58086896
-      parent: 1
-- proto: ClothingShoesBootsMercFilled
-  entities:
-  - uid: 115
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -4.487769,-1.3110876
-      parent: 1
 - proto: ComfyChair
   entities:
   - uid: 116
@@ -1544,30 +1503,9 @@ entities:
         192:
         - - Pressed
           - Toggle
-- proto: MedkitCombat
-  entities:
-  - uid: 172
-    components:
-    - type: Transform
-      pos: -1.695888,0.31600714
-      parent: 1
-    - type: CollisionWake
-      enabled: False
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-    - type: Conveyed
 - proto: MedkitFilled
   entities:
   - uid: 102
-    components:
-    - type: Transform
-      parent: 100
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-  - uid: 103
     components:
     - type: Transform
       parent: 100
@@ -1633,34 +1571,6 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-0.5
-      parent: 1
-- proto: PlushieCarp
-  entities:
-  - uid: 175
-    components:
-    - type: Transform
-      pos: -4.227768,-4.1683164
-      parent: 1
-- proto: PlushieHolocarp
-  entities:
-  - uid: 176
-    components:
-    - type: Transform
-      pos: -3.4606028,2.4596853
-      parent: 1
-- proto: PlushieMagicarp
-  entities:
-  - uid: 177
-    components:
-    - type: Transform
-      pos: -4.5001245,2.3815603
-      parent: 1
-- proto: PlushieRainbowCarp
-  entities:
-  - uid: 178
-    components:
-    - type: Transform
-      pos: -2.536034,5.40928
       parent: 1
 - proto: PowerCellMediumPrinted
   entities:

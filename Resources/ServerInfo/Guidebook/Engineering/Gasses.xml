@@ -47,7 +47,7 @@
         O2, Plasma
       </Box>
     </ColorBox>
-    <ColorBox Color="#bffffd">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Water Vapor, CO2
       </Box>
@@ -123,7 +123,7 @@
 	  Hydrogen
       </Box>
     </ColorBox>
-    <ColorBox Color="#453a59">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
@@ -198,7 +198,7 @@
         Burns in O2
       </Box>
     </ColorBox>
-    <ColorBox Color="#fffaf0">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Hydrogen
       </Box>
@@ -223,7 +223,7 @@
         Flammable
       </Box>
     </ColorBox>
-    <ColorBox Color="#fffaf0">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Proto-Nitrate
       </Box>
@@ -233,7 +233,7 @@
 	  7500k
       </Box>
     </ColorBox>
-    <ColorBox Color="#fffaf0">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Hydrogen, Pluox
       </Box>
@@ -256,7 +256,7 @@
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
-    <ColorBox Color="#fffaf0">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Nitrium, Hyper-nob
       </Box>
@@ -295,7 +295,7 @@
         Stops fires
       </Box>
     </ColorBox>
-    <ColorBox Color="#e3574d">
+    <ColorBox Color="#005959">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Helium
       </Box>
@@ -318,7 +318,7 @@
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
-    <ColorBox Color="#e3574d">
+    <ColorBox Color="#33cccc">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Hyper-Noblium
       </Box>
@@ -352,7 +352,7 @@
 	  Electrolyze-100k
       </Box>
     </ColorBox>
-    <ColorBox Color="#13FF4B">
+    <ColorBox Color="#33cccc">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Hyper-Noblium
       </Box>

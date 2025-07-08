@@ -3537,3 +3537,13 @@ Entries:
       message: Ported APC wire panel hacking from Wizden
   id: 425
   time: '2025-07-08T19:44:48.0000000+00:00'
+- author: kipdotnet, Miiish
+  changes:
+    - type: Add
+      message: >-
+        Adds the Logistics access group, used to approve orders, given to the
+        QM, Cargo Techs, and HoP.
+    - type: Remove
+      message: Removes the cargo ordering computer from the Salvage shuttle.
+  id: 426
+  time: '2025-07-08T20:22:40.0000000+00:00'

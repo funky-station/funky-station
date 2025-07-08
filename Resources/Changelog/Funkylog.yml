@@ -3501,3 +3501,11 @@ Entries:
         heterochromia!
   id: 420
   time: '2025-07-08T12:43:35.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: >-
+        Changed point gain values for Heretic to favor sacrifices over the
+        Ritual of Knowledge
+  id: 421
+  time: '2025-07-08T18:45:07.0000000+00:00'

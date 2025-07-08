@@ -282,39 +282,84 @@ namespace Content.Server.Chemistry.EntitySystems
         private void OnOutputToBottleMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterOutputToBottleMessage message)
         {
             var user = message.Actor;
+            var needed = message.Dosage * message.Number;
             var maybeContainer = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.OutputSlotName);
+            Entity<SolutionComponent>? soln;
+            Solution? solution;
 
             if (maybeContainer == null)
             {
-                var canister = _entityManager.SpawnEntity(PillCanisterPrototypeId, Transform(chemMaster.Owner).Coordinates);
-                _itemSlotsSystem.TryInsert(chemMaster.Owner, SharedChemMaster.OutputSlotName, canister, null);
-                maybeContainer = canister;
+                return;
             }
 
-            if (maybeContainer is not { Valid: true } container
-                || !_solutionContainerSystem.TryGetSolution(container, SharedChemMaster.BottleSolutionName, out var soln, out var solution))
+            if (maybeContainer is not { Valid: true } container)
                 return; // output can't fit reagents
 
             // Ensure the amount is valid.
-            if (message.Dosage == 0 || message.Dosage > solution.AvailableVolume)
+            if (message.Dosage == 0)
                 return;
 
             // Ensure label length is within the character limit.
             if (message.Label.Length > SharedChemMaster.LabelMaxLength)
                 return;
 
-            if (!WithdrawFromBuffer(chemMaster, message.Dosage, user, out var withdrawal))
+            if (_solutionContainerSystem.TryGetSolution(container,
+                    SharedChemMaster.BottleSolutionName,
+                    out soln,
+                    out solution) && message.Number == 1)
+            {
+                if (message.Dosage > solution.AvailableVolume)
+                    return;
+                if (!WithdrawFromBuffer(chemMaster, message.Dosage, user, out var withdrawal))
+                    return;
+
+                _labelSystem.Label(container, message.Label);
+                _solutionContainerSystem.TryAddSolution(soln.Value, withdrawal);
+
+                // Log bottle fill by a user
+                _adminLogger.Add(LogType.Action, LogImpact.Low,
+                    $"{ToPrettyString(user):user} bottled {ToPrettyString(container):bottle} {SharedSolutionContainerSystem.ToPrettyString(solution)}");
+                UpdateUiState(chemMaster);
+                ClickSound(chemMaster);
                 return;
+            }
 
-            _labelSystem.Label(container, message.Label);
-            _solutionContainerSystem.TryAddSolution(soln.Value, withdrawal);
+            if (TryComp<StorageComponent>(container, out var storage))
+            {
+                List<EntityUid> bottles = new List<EntityUid>();
+                foreach (var ent in storage.Container.ContainedEntities)
+                {
+                    if (!_solutionContainerSystem.TryGetSolution(ent,
+                            SharedChemMaster.BottleSolutionName,
+                            out soln,
+                            out solution) || message.Dosage > solution.AvailableVolume)
+                        continue;
+                    bottles.Add(ent);
+                }
+                if (bottles.Count < message.Number)
+                    return; // Check for enough bottles
 
-            // Log bottle creation by a user
-            _adminLogger.Add(LogType.Action, LogImpact.Low,
-                $"{ToPrettyString(user):user} bottled {ToPrettyString(container):bottle} {SharedSolutionContainerSystem.ToPrettyString(solution)}");
+                if (!WithdrawFromBuffer(chemMaster, needed, user, out var withdrawal))
+                    return;
 
-            UpdateUiState(chemMaster);
-            ClickSound(chemMaster);
+                _labelSystem.Label(container, message.Label);
+                foreach (var bottle in bottles)
+                {
+                    _solutionContainerSystem.TryGetSolution(bottle,
+                        SharedChemMaster.BottleSolutionName,
+                        out soln,
+                        out solution);
+
+                    _labelSystem.Label(bottle, message.Label);
+                    _solutionContainerSystem.TryAddSolution(soln!.Value, withdrawal.SplitSolution(message.Dosage));
+
+                    // Log bottle fill by a user
+                    _adminLogger.Add(LogType.Action, LogImpact.Low,
+                        $"{ToPrettyString(user):user} bottled {ToPrettyString(container):bottle} {SharedSolutionContainerSystem.ToPrettyString(solution!)}");
+                }
+                UpdateUiState(chemMaster);
+                ClickSound(chemMaster);
+            }
         }
 
         private bool WithdrawFromBuffer(

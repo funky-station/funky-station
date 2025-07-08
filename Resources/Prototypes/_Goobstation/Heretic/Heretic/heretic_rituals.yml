@@ -87,6 +87,7 @@
     sprite: _Goobstation/Heretic/abilities_heretic.rsi
     state: ashlord_rite2
   customBehaviors:
+  - !type:RitualAscensionBehavior
   - !type:RitualAshAscendBehavior
     min: 3
     max: 3
@@ -189,6 +190,7 @@
     sprite: _Goobstation/Heretic/abilities_heretic.rsi
     state: final_hymn
   customBehaviors:
+  - !type:RitualAscensionBehavior
   - !type:RitualSacrificeBehavior
     min: 4
     max: 4
@@ -221,6 +223,7 @@
     sprite: Interface/Alerts/temperature.rsi
     state: cold3
   customBehaviors:
+  - !type:RitualAscensionBehavior
   - !type:RitualSacrificeBehavior
     min: 3
     max: 3

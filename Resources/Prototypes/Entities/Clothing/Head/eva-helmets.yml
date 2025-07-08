@@ -81,12 +81,16 @@
       - state: equipped-head-light
       head-vox:
       - state: equipped-head-light-vox
+      head-vulpkanin: # Funky - added vulpkanin state
+      - state: equipped-head-light-vulpkanin
   - type: Clothing
     clothingVisuals:
       head:
       - state: equipped-head
       head-vox:
       - state: equipped-head-vox
+      head-vulpkanin: # Funky - added vulpkanin state
+      - state: equipped-head-vulpkanin
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1

@@ -3525,3 +3525,9 @@ Entries:
         title and accesses instead of becoming All Access.
   id: 423
   time: '2025-07-08T19:28:43.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Add
+      message: Magistrate can be selected on Glacier and Elkridge
+  id: 424
+  time: '2025-07-08T19:33:26.0000000+00:00'

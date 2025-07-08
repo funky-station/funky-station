@@ -268,7 +268,6 @@
   name: loadout-group-bartender-outerclothing
   minLimit: 0
   loadouts:
-  - BartenderVest
   - BartenderApron
   - BartenderWintercoat
 

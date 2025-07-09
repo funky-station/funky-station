@@ -3,6 +3,8 @@
   parent: BaseStorageItem
   abstract: true
   components:
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/toolbox_pickup.ogg
   - type: Sprite
     layers:
       - map: [ base ]
@@ -11,6 +13,10 @@
     sound:
       path: /Audio/Items/toolbox_drop.ogg
   - type: Storage
+    storageOpenSound: /Audio/Items/toolbox_open.ogg
+    storageCloseSound: /Audio/Items/toolbox_close.ogg
+    storageInsertSound: /Audio/Items/toolbox_insert.ogg
+    storageRemoveSound: /Audio/Items/toolbox_remove.ogg
     maxItemSize: Normal
     grid:
     - 0,0,6,3

@@ -17,6 +17,8 @@
   - Salvage
   - Maintenance
   - External
+  extendedAccess:
+  - Logistics #Imp
 
 - type: startingGear
   id: SalvageSpecialistGear

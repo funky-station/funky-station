@@ -27,6 +27,9 @@ using Content.Shared.Item;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
 using Content.Shared.Power;
+using Content.Shared.Power.EntitySystems;
+using Content.Shared.Storage.Components;
+using Content.Shared.Throwing;
 using Content.Shared.Verbs;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
@@ -77,6 +80,7 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
         SubscribeLocalEvent<DisposalUnitComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<DisposalUnitComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         SubscribeLocalEvent<DisposalUnitComponent, DragDropTargetEvent>(OnDragDropOn);
+
         SubscribeLocalEvent<DisposalUnitComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<DisposalUnitComponent, BeforeExplodeEvent>(OnExploded);
 
@@ -812,7 +816,6 @@ public sealed class DisposalUnitUIStateUpdatedEvent : EntityEventArgs
         State = state;
     }
 }
-
 /// <summary>
 /// Sent before the disposal unit flushes it's contents.
 /// Allows adding tags for sorting and preventing the disposal unit from flushing.

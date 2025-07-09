@@ -34,6 +34,8 @@
   - FeyMood
   - Borged
   - AyeAye
+  - CorporateConspiracy
+  - OppositeDay
   #- NewJob
 
 # You must always lie, and can never acknowledge that you are lying. If anyone asks, you're incapable of deception.
@@ -43,6 +45,7 @@
   moodDesc: thaven-mood-compulsive-liar-desc
   conflicts:
   - CompulsiveBeliever
+  - Oathbound
   jobConflicts:
   - CentralCommandSpecial
   - CentralCommand
@@ -55,6 +58,7 @@
   moodDesc: thaven-mood-compulsive-believer-desc
   conflicts:
   - CompulsiveLiar
+  - Oathbound
 
 # The usage of plant matter by humanoids is abhorrent.
 - type: thavenMood
@@ -183,6 +187,7 @@
   moodDesc: thaven-mood-sims-desc
   conflicts:
   - StationIsAlive
+  - TheSimsShared
 
 # You must experience the raw vacuum of space, unprotected, at least three times a day, as a religious obligation.
 - type: thavenMood
@@ -306,6 +311,22 @@
   conflicts:
   - YourDepartmentOnly
 
+# You believe there is a hidden connection between Nanotrasen and the Syndicate. Command is complicit.
+- type: thavenMood
+  id: CorporateConspiracy
+  moodName: thaven-mood-corporateconspiracy-name
+  moodDesc: thaven-mood-corporateconspiracy-desc
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
+
+#People mean the opposite of what they say. Up is down, and down is up.
+- type: thavenMood
+  id: OppositeDay
+  moodName: thaven-mood-oppositeday-name
+  moodDesc: thaven-mood-oppositeday-desc
+  
 # [NUMBER] is sacred to you. You must endeavor to only handle stackable items and chemicals in quantities of [NUMBER].
 #- type: thavenMood
 #  id: NumberGood

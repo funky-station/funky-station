@@ -124,7 +124,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -0.5
+            Poison: -1
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
@@ -196,7 +196,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -0.5
+            Brute: -1.2
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
@@ -227,7 +227,7 @@
           max: 20
         damage:
           groups:
-            Brute: -0.5
+            Brute: -1.8
       - !type:ChemVomit
         conditions:
         - !type:ReagentThreshold

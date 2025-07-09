@@ -161,8 +161,12 @@
     jumpsuit: ClothingUniformJumpsuitJacketMonkey
     id: PunPunIDCard
 
-# DeathMatch Gear
+- type: startingGear
+  id: MobPollyGear
+  equipment:
+    ears: ClothingHeadsetEngineering
 
+# DeathMatch Gear
 - type: startingGear
   id: DeathMatchGear
   equipment:

@@ -64,7 +64,7 @@
     sprite: Objects/Consumable/Drinks/cola.rsi
     state: icon
   product: CrateFoodSoftdrinks
-  cost: 4000
+  cost: 3500
   category: cargoproduct-category-name-food
   group: market
 
@@ -74,7 +74,7 @@
     sprite: Objects/Consumable/Drinks/colabottle.rsi
     state: icon
   product: CrateFoodSoftdrinksLarge
-  cost: 10000
+  cost: 6750
   category: cargoproduct-category-name-food
   group: market
 
@@ -86,6 +86,6 @@
     sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
     state: plain
   product: CrateFoodRandomDonkPocket
-  cost: 2000
+  cost: 1500
   category: cargoproduct-category-name-food
   group: market

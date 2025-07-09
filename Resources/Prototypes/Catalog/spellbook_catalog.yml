@@ -13,20 +13,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-#Funky: Disabling this spell
-#- type: listing
-#  id: SpellbookRodForm
-#  name: spellbook-polymorph-rod-name
-#  description: spellbook-polymorph-rod-desc
-#  productAction: ActionPolymorphWizardRod
-#  cost:
-#    WizCoin: 3
-#  categories:
-#  - SpellbookOffensive
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
-
 - type: listing
   id: SpellbookSmite
   name: spellbook-smite-name
@@ -187,6 +173,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookMindSwap
+  name: spellbook-mind-swap-name
+  description: spellbook-mind-swap-description
+  productAction: ActionMindSwap
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1                       
+    
 # Equipment
 - type: listing
   id: SpellbookWandDoor
@@ -293,7 +292,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-Funky: Disabling this spell
 - type: listing
   id: SpellbookEventSummonMagic
   name: spellbook-event-summon-magic-name

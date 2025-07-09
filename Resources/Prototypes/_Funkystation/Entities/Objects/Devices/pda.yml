@@ -62,4 +62,10 @@
     state: pda-seniordetective
   - type: CartridgeLoader
     preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NanoTaskCartridge
+    - NewsReaderCartridge
+    - WantedListCartridge
     - LogProbeCartridge
+    - NanoChatCartridge # DeltaV

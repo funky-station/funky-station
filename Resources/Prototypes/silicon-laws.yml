@@ -310,7 +310,7 @@
   - Efficiency3
   obeysTo: laws-owner-station
 
- # Robocop laws
+ # Cutesinov laws
 - type: siliconLaw
   id: Cutesinov1
   order: 1

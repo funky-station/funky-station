@@ -17,23 +17,23 @@ public sealed class ReactiveSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
-    public void DoEntityReaction(EntityUid uid, Solution solution, ReactionMethod method)
+    public void DoEntityReaction(EntityUid uid, Solution solution, ReactionMethod method, float scale = 1f) // Funky - allow reactives to specify scale
     {
         foreach (var reagent in solution.Contents.ToArray())
         {
-            ReactionEntity(uid, method, reagent, solution);
+            ReactionEntity(uid, method, reagent, solution, scale);
         }
     }
 
-    public void ReactionEntity(EntityUid uid, ReactionMethod method, ReagentQuantity reagentQuantity, Solution? source)
+    public void ReactionEntity(EntityUid uid, ReactionMethod method, ReagentQuantity reagentQuantity, Solution? source, float scale = 1f) // Funky - allow reactives to specify scale
     {
         // We throw if the reagent specified doesn't exist.
         var proto = _prototypeManager.Index<ReagentPrototype>(reagentQuantity.Reagent.Prototype);
-        ReactionEntity(uid, method, proto, reagentQuantity, source);
+        ReactionEntity(uid, method, proto, reagentQuantity, source, scale); // Funky - allow reactives to specify scale
     }
 
     public void ReactionEntity(EntityUid uid, ReactionMethod method, ReagentPrototype proto,
-        ReagentQuantity reagentQuantity, Solution? source)
+        ReagentQuantity reagentQuantity, Solution? source, float scale = 1f) // Funky - allow reactives to specify scale
     {
         if (!TryComp(uid, out ReactiveComponent? reactive))
             return;
@@ -43,7 +43,7 @@ public sealed class ReactiveSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
 
         // If we have a source solution, use the reagent quantity we have left. Otherwise, use the reaction volume specified.
-        var args = new EntityEffectReagentArgs(uid, EntityManager, null, source, source?.GetReagentQuantity(reagentQuantity.Reagent) ?? reagentQuantity.Quantity, proto, method, 1f);
+        var args = new EntityEffectReagentArgs(uid, EntityManager, null, source, source?.GetReagentQuantity(reagentQuantity.Reagent) ?? reagentQuantity.Quantity, proto, method, scale); // Funky - allow reactives to specify scale
 
         // First, check if the reagent wants to apply any effects.
         if (proto.ReactiveEffects != null && reactive.ReactiveGroups != null)

@@ -104,6 +104,7 @@
     groups:
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
+      Medication: [ Touch ] # Funky - dermal medication
     reactions:
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]

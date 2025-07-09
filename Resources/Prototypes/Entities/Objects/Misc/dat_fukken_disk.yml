@@ -22,6 +22,21 @@
     - HighRiskItem
   - type: StealTarget
     stealGroup: NukeDisk
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/disk_pickup.ogg
+      params:
+        volume: -8
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/disk_drop.ogg
+      params:
+        volume: -8
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/disk_drop.ogg
+      params:
+        volume: -8
 
 - type: entity
   name: nuclear authentication disk
@@ -38,3 +53,18 @@
   - type: Tag
     tags:
     - FakeNukeDisk
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/disk_pickup.ogg
+      params:
+        volume: -8
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/disk_drop.ogg
+      params:
+        volume: -8
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/disk_drop.ogg
+      params:
+        volume: -8

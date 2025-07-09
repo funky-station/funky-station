@@ -566,3 +566,39 @@
         conditions:
         - !type:ReagentThreshold
           min: 1
+
+- type: reagent
+  id: StypticPowder
+  name: reagent-name-styptic-powder
+  group: Medicine
+  desc: reagent-desc-styptic-powder
+  physicalDesc: reagent-physical-desc-acidic
+  flavor: medicine
+  color: "#FF9696"
+  reactiveEffects:
+    Medication:
+      methods: [ Touch ]
+      effects:
+      - !type:EvenHealthChange
+        scaleByQuantity: true
+        damage:
+          Brute: -0.25
+      - !type:ModifyBleedAmount
+        amount: -0.25
+
+- type: reagent
+  id: SilverSulfadiazine
+  name: reagent-name-silver-sulfadiazine
+  group: Medicine
+  desc: reagent-desc-silver-sulfadiazine
+  physicalDesc: reagent-physical-desc-acidic
+  flavor: medicine
+  color: "#F0DC00"
+  reactiveEffects:
+    Medication:
+      methods: [ Touch ]
+      effects:
+      - !type:EvenHealthChange
+        scaleByQuantity: true
+        damage:
+          Burn: -0.25

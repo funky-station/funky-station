@@ -682,6 +682,10 @@
     name: ghost-role-information-shiva-name
     description: ghost-role-information-shiva-description
     rules: ghost-role-information-shiva-rules
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 18000 #5 hrs
   - type: GhostTakeoverAvailable
   - type: Puller
     needsHands: false

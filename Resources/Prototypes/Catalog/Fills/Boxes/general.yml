@@ -17,6 +17,7 @@
   - type: Tag
     tags:
     - BoxCardboard
+  - type: Dumpable
 
 - type: entity
   name: mousetrap box

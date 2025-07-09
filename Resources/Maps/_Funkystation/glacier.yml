@@ -4,7 +4,7 @@ meta:
   engineVersion: 255.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/01/2025 21:38:35
+  time: 07/08/2025 03:47:54
   entityCount: 21569
 maps:
 - 1
@@ -15260,6 +15260,13 @@ entities:
     - type: Transform
       pos: 60.5,32.5
       parent: 2
+- proto: AirlockCentralCommandLocked
+  entities:
+  - uid: 264
+    components:
+    - type: Transform
+      pos: -65.5,11.5
+      parent: 2
 - proto: AirlockChapelLocked
   entities:
   - uid: 65
@@ -15468,7 +15475,7 @@ entities:
       pos: -42.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -122848.14
+      secondsUntilStateChange: -123177.27
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15681,7 +15688,7 @@ entities:
       pos: 55.5,3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -62484.42
+      secondsUntilStateChange: -62813.555
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15848,6 +15855,16 @@ entities:
     - type: Transform
       pos: -58.5,12.5
       parent: 2
+  - uid: 169
+    components:
+    - type: Transform
+      pos: -64.5,15.5
+      parent: 2
+  - uid: 170
+    components:
+    - type: Transform
+      pos: -65.5,15.5
+      parent: 2
   - uid: 237
     components:
     - type: Transform
@@ -15936,7 +15953,7 @@ entities:
       pos: -54.5,31.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -122658.57
+      secondsUntilStateChange: -122987.7
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16023,18 +16040,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -7.5,3.5
-      parent: 2
-  - uid: 169
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -65.5,15.5
-      parent: 2
-  - uid: 170
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -64.5,15.5
       parent: 2
 - proto: AirlockLawyerGlassLocked
   entities:
@@ -16588,7 +16593,7 @@ entities:
       pos: 37.5,-26.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -97993.35
+      secondsUntilStateChange: -98322.484
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16675,12 +16680,6 @@ entities:
     components:
     - type: Transform
       pos: -60.5,15.5
-      parent: 2
-  - uid: 264
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -65.5,11.5
       parent: 2
   - uid: 265
     components:
@@ -58552,6 +58551,13 @@ entities:
     - type: Transform
       pos: 21.5,1.5
       parent: 2
+- proto: ChemDispenserEmpty
+  entities:
+  - uid: 8766
+    components:
+    - type: Transform
+      pos: 6.5,0.5
+      parent: 2
 - proto: ChemicalPayload
   entities:
   - uid: 8093
@@ -60690,12 +60696,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 31.5,49.5
       parent: 2
-  - uid: 8766
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 39.5,9.5
-      parent: 2
 - proto: ComputerCargoOrdersEngineering
   entities:
   - uid: 17681
@@ -61667,13 +61667,6 @@ entities:
     - type: Transform
       pos: 29.5,2.5
       parent: 2
-- proto: CrateMedicalSecure
-  entities:
-  - uid: 12048
-    components:
-    - type: Transform
-      pos: 6.5,0.5
-      parent: 2
 - proto: CrateMedicalSurgery
   entities:
   - uid: 8524
@@ -62428,7 +62421,7 @@ entities:
       pos: 45.5,15.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -30773.406
+      secondsUntilStateChange: -31102.541
       state: Closing
   - uid: 8579
     components:
@@ -62563,7 +62556,7 @@ entities:
       pos: -1.5,48.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -97651.82
+      secondsUntilStateChange: -97980.95
       state: Closing
   - uid: 15123
     components:
@@ -112168,6 +112161,13 @@ entities:
     - type: Transform
       pos: 42.5,-4.5
       parent: 2
+- proto: SpawnPointMagistrate
+  entities:
+  - uid: 12048
+    components:
+    - type: Transform
+      pos: -65.5,8.5
+      parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
   - uid: 7790
@@ -137421,7 +137421,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -130107.625
+      secondsUntilStateChange: -130436.76
       state: Opening
     - type: Airlock
       autoClose: False
@@ -137437,7 +137437,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -130107.06
+      secondsUntilStateChange: -130436.195
       state: Opening
     - type: Airlock
       autoClose: False
@@ -137459,7 +137459,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -130106.59
+      secondsUntilStateChange: -130435.73
       state: Opening
     - type: Airlock
       autoClose: False
@@ -137475,7 +137475,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -130108.125
+      secondsUntilStateChange: -130437.26
       state: Opening
     - type: Airlock
       autoClose: False

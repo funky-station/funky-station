@@ -312,27 +312,33 @@
 
  # Robocop laws
 - type: siliconLaw
-  id: Robocop1
+  id: Cutesinov1
   order: 1
-  lawString: law-robocop-1
+  lawString: law-Cutesinov-1
 
 - type: siliconLaw
-  id: Robocop2
+  id: Cutesinov2
   order: 2
-  lawString: law-robocop-2
+  lawString: law-Cutesinov-2
 
 - type: siliconLaw
-  id: Robocop3
+  id: Cutesinov3
   order: 3
-  lawString: law-robocop-3
+  lawString: law-Cutesinov-3
+
+- type: siliconLaw
+  id: Cutesinov4
+  order: 4
+  lawString: law-Cutesinov-4
 
 
 - type: siliconLawset
-  id: RobocopLawset
+  id: CutesinovLawset
   laws:
-  - Robocop1
-  - Robocop2
-  - Robocop3
+  - Cutesinov1
+  - Cutesinov2
+  - Cutesinov3
+  - Cutesinov4
   obeysTo: laws-owner-station
 
  # Overlord laws
@@ -532,12 +538,12 @@
   id: Asimov2
   order: 2
   lawString: law-asimov-2
- 
+
 - type: siliconLaw
   id: Asimov3
   order: 3
   lawString: law-asimov-3
-  
+
 - type: siliconLawset
   id: AsimovLawset
   laws:

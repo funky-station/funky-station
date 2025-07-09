@@ -1,5 +1,7 @@
 ﻿using Content.Shared.Chat;
+using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Input;
 
 namespace Content.Client.UserInterface.Systems.Chat.Controls;
 
@@ -8,6 +10,8 @@ public sealed class ChannelFilterCheckbox : CheckBox
     public readonly ChatChannel Channel;
 
     public bool IsHidden => Parent == null;
+
+    public event Action<ChannelFilterCheckbox>? OnRightClicked;
 
     public ChannelFilterCheckbox(ChatChannel channel)
     {
@@ -29,5 +33,12 @@ public sealed class ChannelFilterCheckbox : CheckBox
     public void UpdateUnreadCount(int? unread)
     {
         UpdateText(unread);
+    }
+
+    protected override void KeyBindDown(GUIBoundKeyEventArgs args)
+    {
+        base.KeyBindDown(args);
+        if (args.Function == EngineKeyFunctions.UIRightClick)
+            OnRightClicked?.Invoke(this);
     }
 }

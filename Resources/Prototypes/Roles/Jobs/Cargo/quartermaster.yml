@@ -30,6 +30,7 @@
   - Brig
   - Cryogenics
   - External # goobstation
+  - Logistics #Imp
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

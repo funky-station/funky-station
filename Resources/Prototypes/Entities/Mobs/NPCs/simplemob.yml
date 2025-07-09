@@ -14,6 +14,7 @@
       Flammable: [Touch]
       Extinguish: [Touch]
       Acidic: [Touch, Ingestion]
+      Medication: [ Touch ] # Funky - dermal medication
   - type: Internals
   - type: MovementSpeedModifier
     baseWalkSpeed : 4

@@ -50,10 +50,10 @@
       points: 1
       required: false
     Legs:
-      points: 1
+      points: 4 # Funky - was 1, changed to 4
       required: false
     Arms:
-      points: 1
+      points: 4 # Funky - was 1, changed to 4
       required: false
     Snout:
       points: 1
@@ -63,7 +63,7 @@
       required: true
       defaultMarkings: [ VulpEar ]
     Overlay:
-      points: 2
+      points: 3 # Funky - was 2, changed to 3
       required: false
 
 - type: humanoidBaseSprite

@@ -4,7 +4,7 @@ meta:
   engineVersion: 255.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/01/2025 16:36:52
+  time: 07/08/2025 03:41:10
   entityCount: 17344
 maps:
 - 1
@@ -47669,6 +47669,13 @@ entities:
     - type: Transform
       pos: 27.5,10.5
       parent: 2
+- proto: ChemDispenserEmpty
+  entities:
+  - uid: 4206
+    components:
+    - type: Transform
+      pos: 36.5,7.5
+      parent: 2
 - proto: ChemistryEmptyBottle01
   entities:
   - uid: 8823
@@ -76762,6 +76769,13 @@ entities:
       - 11251
     - type: AtmosPipeColor
       color: '#990000FF'
+- proto: Gavel
+  entities:
+  - uid: 16555
+    components:
+    - type: Transform
+      pos: -12.51227,-33.364746
+      parent: 2
 - proto: GeneratorRTGDamaged
   entities:
   - uid: 507
@@ -84011,11 +84025,6 @@ entities:
     components:
     - type: Transform
       pos: 34.5,3.5
-      parent: 2
-  - uid: 4007
-    components:
-    - type: Transform
-      pos: 36.5,7.5
       parent: 2
   - uid: 4060
     components:
@@ -95539,6 +95548,13 @@ entities:
     - type: Transform
       pos: -23.5,-26.5
       parent: 2
+- proto: SpawnPointMagistrate
+  entities:
+  - uid: 4007
+    components:
+    - type: Transform
+      pos: -12.5,-32.5
+      parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
   - uid: 8081
@@ -99660,11 +99676,6 @@ entities:
     - type: Transform
       pos: 38.5,7.5
       parent: 2
-  - uid: 4206
-    components:
-    - type: Transform
-      pos: 36.5,7.5
-      parent: 2
   - uid: 4590
     components:
     - type: Transform
@@ -100847,14 +100858,6 @@ entities:
     components:
     - type: Transform
       pos: -30.743069,-10.52173
-      parent: 2
-- proto: ToyHammer
-  entities:
-  - uid: 16555
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -12.480858,-33.377354
       parent: 2
 - proto: ToyNuke
   entities:

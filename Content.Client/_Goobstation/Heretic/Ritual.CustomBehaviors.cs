@@ -9,6 +9,7 @@ namespace Content.Client.Heretic;
 
 public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior { }
 public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior { }
+public sealed partial class RitualAscensionBehavior : RitualSacrificeBehavior { }
 
 [Virtual] public partial class RitualSacrificeBehavior : RitualCustomBehavior
 {

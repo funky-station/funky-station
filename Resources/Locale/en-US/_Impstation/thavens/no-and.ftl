@@ -111,6 +111,9 @@ thaven-mood-fairy-rings-desc = Unbroken circles are impenetrable barriers.
 thaven-mood-fairy-name = Charmed
 thaven-mood-fairy-desc = You are allergic to iron, steel, and silver. You should avoid touching it directly.
 
+thaven-mood-afraiddark-name = Afraid of the Dark
+thaven-mood-afraiddark-desc = Darkness is incredibly dangerous, and you won't enter a space without proper illumination.
+
 # Testing Locales, only exist to shut up prototype tests
 DuplicateTest = You shouldn't see this
 DuplicateOverlapTest = Time, doctor freeman?

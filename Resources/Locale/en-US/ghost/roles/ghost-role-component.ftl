@@ -53,8 +53,10 @@ ghost-role-information-neanderthal-rules = You are a [color=yellow][bold]Neander
 #funkystation
 ghost-role-information-shiva-name = Shiva the Spider
 ghost-role-information-shiva-description = Head Of Security's most trusted pet. First defender of the station.
-ghost-role-information-shiva-rules = You are [bold]Shiva the Spider[/bold]. The Head of Security's most trusted pet
-                                        Follow security and help them with their duties. Be a good spider and don't harm the crew unless they harm you first.
+ghost-role-information-shiva-rules = You are [bold]Shiva the Spider[/bold]. The Head of Security's highly trained and most trusted pet.
+                                        You are part of security, and as such are held to higher standards.
+                                        Be a good spider and dont hinder the crew. Use your fangs only when it is needed.
+
                                         You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
                                         You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
                                         You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.

@@ -646,8 +646,8 @@
     maxAmount: 8
     rewardPer: 700
     whitelist:
-      tags:
-      - GrenadeFlashBang
+      components:
+      - Flashbang
   - name: bounty-item-sidearm
     minAmount: 3
     maxAmount: 5

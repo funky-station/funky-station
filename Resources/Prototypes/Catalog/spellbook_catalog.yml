@@ -13,18 +13,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-- type: listing
-  id: SpellbookRodForm
-  name: spellbook-polymorph-rod-name
-  description: spellbook-polymorph-rod-desc
-  productAction: ActionPolymorphWizardRod
-  cost:
-    WizCoin: 3
-  categories:
-  - SpellbookOffensive
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
+#Funky: Disabling this spell
+#- type: listing
+#  id: SpellbookRodForm
+#  name: spellbook-polymorph-rod-name
+#  description: spellbook-polymorph-rod-desc
+#  productAction: ActionPolymorphWizardRod
+#  cost:
+#    WizCoin: 3
+#  categories:
+#  - SpellbookOffensive
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
 
 - type: listing
   id: SpellbookSmite
@@ -272,38 +273,40 @@
   description: spellbook-event-summon-ghosts-description
   productAction: ActionSummonGhosts
   cost:
-    WizCoin: 0
+    WizCoin: 2 #Funky: Making this cost wizcoins, so people have to want ghosts to buy it.
   categories:
   - SpellbookEvents
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
 
-- type: listing
-  id: SpellbookEventSummonGuns
-  name: spellbook-event-summon-guns-name
-  description: spellbook-event-summon-guns-description
-  productAction: ActionSummonGuns
-  cost:
-    WizCoin: 2
-  categories:
-  - SpellbookEvents
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
+#Funky: Disabling this spell
+#- type: listing
+#  id: SpellbookEventSummonGuns
+#  name: spellbook-event-summon-guns-name
+#  description: spellbook-event-summon-guns-description
+#  productAction: ActionSummonGuns
+#  cost:
+#    WizCoin: 2
+#  categories:
+#  - SpellbookEvents
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
 
-- type: listing
-  id: SpellbookEventSummonMagic
-  name: spellbook-event-summon-magic-name
-  description: spellbook-event-summon-magic-description
-  productAction: ActionSummonMagic
-  cost:
-    WizCoin: 2
-  categories:
-  - SpellbookEvents
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
+#Funky: Disabling this spell
+#- type: listing
+#  id: SpellbookEventSummonMagic
+#  name: spellbook-event-summon-magic-name
+#  description: spellbook-event-summon-magic-description
+#  productAction: ActionSummonMagic
+#  cost:
+#    WizCoin: 2
+#  categories:
+#  - SpellbookEvents
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
 
 # Upgrades
 - type: listing

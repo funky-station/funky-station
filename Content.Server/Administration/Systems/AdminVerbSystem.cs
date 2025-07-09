@@ -184,17 +184,23 @@ namespace Content.Server.Administration.Systems
                     args.Verbs.Add(prayerVerb);
 
                     // Spawn - Like respawn but on the spot.
-                    args.Verbs.Add(new Verb()
+                    var pref = _prefsManager.GetPreferences(targetActor.PlayerSession.UserId);
+                    foreach (var (slot, profile) in pref.Characters)
                     {
-                        Text = Loc.GetString("admin-player-actions-spawn"),
-                        Category = VerbCategory.Admin,
-                        Act = () =>
+                        if (profile is not HumanoidCharacterProfile humanoid)
+                            continue;
+
+                        args.Verbs.Add(new Verb()
                         {
-                            if (!_transformSystem.TryGetMapOrGridCoordinates(args.Target, out var coords))
+                            Text = $"{slot}. {profile.Name}",
+                            Category = VerbCategory.Spawn,
+                            Act = () =>
                             {
-                                _popup.PopupEntity(Loc.GetString("admin-player-spawn-failed"), args.User, args.User);
-                                return;
-                            }
+                                if (!_transformSystem.TryGetMapOrGridCoordinates(args.Target, out var coords))
+                                {
+                                    _popup.PopupEntity(Loc.GetString("admin-player-spawn-failed"), args.User, args.User);
+                                    return;
+                                }
 
                             var stationUid = _stations.GetOwningStation(args.Target);
 

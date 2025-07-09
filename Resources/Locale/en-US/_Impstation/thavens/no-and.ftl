@@ -105,6 +105,12 @@ thaven-mood-crawler-desc = It is impolite not to perform a deep bow by entering 
 thaven-mood-elevated-name = The Floor Is Lava
 thaven-mood-elevated-desc = You prefer to be elevated whenever possible - Standing atop tables, railings, etc., is where you feel the most comfortable.
 
+thaven-mood-fairy-rings-name = Fairy Rings
+thaven-mood-fairy-rings-desc = Unbroken circles are impenetrable barriers.
+
+thaven-mood-fairy-name = Charmed
+thaven-mood-fairy-desc = You are allergic to iron, steel, and silver. You should avoid touching it directly.
+
 thaven-mood-afraiddark-name = Afraid of the Dark
 thaven-mood-afraiddark-desc = Darkness is incredibly dangerous, and you won't enter a space without proper illumination.
 

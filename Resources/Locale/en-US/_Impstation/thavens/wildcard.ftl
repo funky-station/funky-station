@@ -100,6 +100,13 @@ thaven-mood-aye-aye-desc = {$command} is the only position on the station. Every
 thaven-mood-new-job-name = Jobhopping
 thaven-mood-new-job-desc = Your current job is disgusting to you. You must endeavor to get a new one.
 
+
+thaven-mood-always-alone-name = Lone Wolf
+thaven-mood-always-alone-desc = Other people will only slow you down. You should strive to be alone whenever possible.
+
+thaven-mood-rank-snob-name = Snob
+thaven-mood-rank-snob-desc = You are incredibly reluctant to respond to anyone who is of a lower rank than you. If they must be addressed, do so away from prying eyes.
+
 thaven-mood-corporateconspiracy-name = Corporate Conspiracy
 thaven-mood-corporateconspiracy-desc = You believe there is a hidden connection between Nanotrasen and the Syndicate. Command is complicit.
  
@@ -111,4 +118,3 @@ thaven-mood-always-alone-desc = Other people will only slow you down. You should
 
 thaven-mood-rank-snob-name = Snob
 thaven-mood-rank-snob-desc = You are incredibly reluctant to respond to anyone who is of a lower rank than you. If they must be addressed, do so away from prying eyes.
-

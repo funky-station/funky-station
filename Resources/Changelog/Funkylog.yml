@@ -3483,3 +3483,67 @@ Entries:
         slightly buffed others.
   id: 418
   time: '2025-07-07T00:20:03.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: The Magistrate has been added as a CentComm role.
+  id: 419
+  time: '2025-07-08T03:22:48.0000000+00:00'
+- author: Zephyrpak, Ci1rus
+  changes:
+    - type: Add
+      message: New inner ear sprites for fox ears and new vulpine snout sprites!
+    - type: Tweak
+      message: Changed markings limits on arms to 4, legs to 4, and overlay to 3.
+    - type: Tweak
+      message: >-
+        Vulpkanin now have access to eye markings allowing you to give them
+        heterochromia!
+  id: 420
+  time: '2025-07-08T12:43:35.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: >-
+        Changed point gain values for Heretic to favor sacrifices over the
+        Ritual of Knowledge
+  id: 421
+  time: '2025-07-08T18:45:07.0000000+00:00'
+- author: sowelipililimute
+  changes:
+    - type: Add
+      message: >-
+        Styptic powder and silver sulfadiazine now exist, medications that mend
+        injuries when applied topically through raw contact or patches
+  id: 422
+  time: '2025-07-08T19:27:12.0000000+00:00'
+- author: GreyMario
+  changes:
+    - type: Fix
+      message: >-
+        Nanotrasen Representative's ID now correctly receives its intended job
+        title and accesses instead of becoming All Access.
+  id: 423
+  time: '2025-07-08T19:28:43.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Add
+      message: Magistrate can be selected on Glacier and Elkridge
+  id: 424
+  time: '2025-07-08T19:33:26.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Ported APC wire panel hacking from Wizden
+  id: 425
+  time: '2025-07-08T19:44:48.0000000+00:00'
+- author: kipdotnet, Miiish
+  changes:
+    - type: Add
+      message: >-
+        Adds the Logistics access group, used to approve orders, given to the
+        QM, Cargo Techs, and HoP.
+    - type: Remove
+      message: Removes the cargo ordering computer from the Salvage shuttle.
+  id: 426
+  time: '2025-07-08T20:22:40.0000000+00:00'

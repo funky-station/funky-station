@@ -39,6 +39,7 @@
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
       Acidic: [Touch, Ingestion]
+      Medication: [ Touch ] # Funky - dermal medication
     reactions:
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]

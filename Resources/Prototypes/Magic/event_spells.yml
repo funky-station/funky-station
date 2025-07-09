@@ -26,7 +26,7 @@
       sprite: Objects/Weapons/Guns/Rifles/ak.rsi
       state: base
     event: !type:RandomGlobalSpawnSpellEvent
-      makeSurvivorAntagonist: true
+      #makeSurvivorAntagonist: true #Funky: Disabling survivor antagonist
       spawns:
       - id: WeaponPistolViper
         orGroup: Guns
@@ -48,8 +48,8 @@
         orGroup: Guns
       - id: WeaponRifleAk
         orGroup: Guns
-      - id: WeaponRifleM90GrenadeLauncher
-        orGroup: Guns
+      #- id: WeaponRifleM90GrenadeLauncher #Funky: Extremely likely to destroy the station
+      #  orGroup: Guns
       - id: WeaponRifleLecter
         orGroup: Guns
       - id: WeaponShotgunBulldog
@@ -84,10 +84,10 @@
         orGroup: Guns
       - id: WeaponPistolFlintlock
         orGroup: Guns
-      - id: WeaponLauncherChinaLake
-        orGroup: Guns
-      - id: WeaponLauncherRocket
-        orGroup: Guns
+      #- id: WeaponLauncherChinaLake #Funky: Extremely likely to destroy the station
+      #  orGroup: Guns
+      #- id: WeaponLauncherRocket #Funky: Extremely likely to destroy the station
+      #  orGroup: Guns
       - id: WeaponLauncherPirateCannon
         orGroup: Guns
       - id: WeaponTetherGun
@@ -158,6 +158,18 @@
         orGroup: Guns
       - id: RevolverCapGunFake
         orGroup: Guns
+      - id: WeaponRevolverHristov #Funky
+        orGroup: Guns
+      - id: WeaponRifleFoam #Funky
+        orGroup: Guns
+      - id: BowHardlight #Funky
+        orGroup: Guns
+      - id: MiniatureEnergyCrossbow #Funky
+        orGroup: Guns
+      - id: WeaponPlasmaRifle #Funky
+        orGroup: Guns
+      - id: WeaponEnergyRevolver #Funky
+        orGroup: Guns        
       speech: action-speech-spell-summon-guns
 
 - type: entity
@@ -173,7 +185,7 @@
       sprite: Objects/Magic/magicactions.rsi
       state: magicmissile
     event: !type:RandomGlobalSpawnSpellEvent
-      makeSurvivorAntagonist: true
+      #makeSurvivorAntagonist: true #Funky: Disabling survivor antagonist
       spawns:
       - id: SpawnSpellbook
         orGroup: Magics
@@ -183,18 +195,18 @@
         orGroup: Magics
       - id: KnockSpellbook
         orGroup: Magics
-      - id: FireballSpellbook
-        orGroup: Magics
+      #- id: FireballSpellbook #Funky: Extremely likely to destroy the station
+      #  orGroup: Magics
       - id: WeaponWandPolymorphCarp
         orGroup: Magics
       - id: WeaponWandPolymorphMonkey
         orGroup: Magics
-      - id: WeaponWandFireball
-        orGroup: Magics
+      #- id: WeaponWandFireball #Funky: Extremely likely to destroy the station
+      #  orGroup: Magics
       - id: WeaponWandPolymorphDoor
         orGroup: Magics
-      - id: WeaponWandCluwne
-        orGroup: Magics
+      #- id: WeaponWandCluwne # Funky: Disabling instant kill spells
+      #  orGroup: Magics
       - id: WeaponWandPolymorphBread
         orGroup: Magics
       - id: WeaponStaffHealing

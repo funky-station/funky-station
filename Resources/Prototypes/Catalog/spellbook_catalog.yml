@@ -273,40 +273,39 @@
   description: spellbook-event-summon-ghosts-description
   productAction: ActionSummonGhosts
   cost:
-    WizCoin: 2 #Funky: Making this cost wizcoins, so people have to want ghosts to buy it.
+    WizCoin: 1 #Funky: Making this cost a wizcoin, so a wizard that wants ghosts has to invest something to get ghosts
   categories:
   - SpellbookEvents
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
 
-#Funky: Disabling this spell
-#- type: listing
-#  id: SpellbookEventSummonGuns
-#  name: spellbook-event-summon-guns-name
-#  description: spellbook-event-summon-guns-description
-#  productAction: ActionSummonGuns
-#  cost:
-#    WizCoin: 2
-#  categories:
-#  - SpellbookEvents
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
+- type: listing
+  id: SpellbookEventSummonGuns
+  name: spellbook-event-summon-guns-name
+  description: spellbook-event-summon-guns-description
+  productAction: ActionSummonGuns
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
-#Funky: Disabling this spell
-#- type: listing
-#  id: SpellbookEventSummonMagic
-#  name: spellbook-event-summon-magic-name
-#  description: spellbook-event-summon-magic-description
-#  productAction: ActionSummonMagic
-#  cost:
-#    WizCoin: 2
-#  categories:
-#  - SpellbookEvents
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
+Funky: Disabling this spell
+- type: listing
+  id: SpellbookEventSummonMagic
+  name: spellbook-event-summon-magic-name
+  description: spellbook-event-summon-magic-description
+  productAction: ActionSummonMagic
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 # Upgrades
 - type: listing

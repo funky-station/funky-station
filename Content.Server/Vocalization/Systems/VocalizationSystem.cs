@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Chat.Systems;
+using Content.Server.Power.Components;
 using Content.Server.Vocalization.Components;
 using Content.Shared.ActionBlocker;
 using Robust.Shared.Random;
@@ -23,6 +24,27 @@ public sealed partial class VocalizationSystem : EntitySystem
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<VocalizerComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<VocalizerRequiresPowerComponent, TryVocalizeEvent>(OnRequiresPowerTryVocalize);
+    }
+
+    private void OnMapInit(Entity<VocalizerComponent> ent, ref MapInitEvent args)
+    {
+        ent.Comp.NextVocalizeInterval = _random.Next(ent.Comp.MinVocalizeInterval, ent.Comp.MaxVocalizeInterval);
+    }
+
+    private void OnRequiresPowerTryVocalize(Entity<VocalizerRequiresPowerComponent> ent, ref TryVocalizeEvent args)
+    {
+        if (!TryComp<ApcPowerReceiverComponent>(ent, out var receiver))
+            return;
+
+        args.Cancelled |= !receiver.Powered;
+    }
+
     /// <summary>
     /// Try speaking by raising a TryVocalizeEvent
     /// This event is passed to systems adding a message to it and setting it to handled
@@ -31,6 +53,10 @@ public sealed partial class VocalizationSystem : EntitySystem
     {
         var tryVocalizeEvent = new TryVocalizeEvent();
         RaiseLocalEvent(entity.Owner, ref tryVocalizeEvent);
+
+        // If the event was cancelled, don't speak
+        if (tryVocalizeEvent.Cancelled)
+            return;
 
         // if the event was never handled, return
         // this happens if there are no components that trigger systems to add a message to this event
@@ -65,7 +91,7 @@ public sealed partial class VocalizationSystem : EntitySystem
             return;
 
         // send the message
-        _chat.TrySendInGameICMessage(entity, message, InGameICChatType.Speak, ChatTransmitRange.Normal);
+        _chat.TrySendInGameICMessage(entity, message, InGameICChatType.Speak, entity.Comp.HideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal);
     }
 
     public override void Update(float frameTime)
@@ -104,7 +130,7 @@ public sealed partial class VocalizationSystem : EntitySystem
 /// <param name="Message">Message to send, this is null when the event is just fired and should be set by a system</param>
 /// <param name="Handled">Whether the message was handled by a system</param>
 [ByRefEvent]
-public record struct TryVocalizeEvent(string? Message = null, bool Handled = false);
+public record struct TryVocalizeEvent(string? Message = null, bool Handled = false, bool Cancelled = false);
 
 /// <summary>
 /// Fired when the entity wants to vocalize and has a message. Allows for interception by other systems if the

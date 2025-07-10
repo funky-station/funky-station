@@ -29,6 +29,7 @@ using Content.Shared.Item.ItemToggle;
 using Content.Shared.Maps;
 using Content.Shared.Popups;
 using Content.Shared.Tools.Components;
+using Content.Shared.Whitelist; // imp
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -41,6 +42,7 @@ namespace Content.Shared.Tools.Systems;
 
 public abstract partial class SharedToolSystem : EntitySystem
 {
+    [Dependency] private   readonly EntityWhitelistSystem _whitelist = default!; // imp
     [Dependency] private   readonly IMapManager _mapManager = default!;
     [Dependency] private   readonly IPrototypeManager _protoMan = default!;
     [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
@@ -64,6 +66,7 @@ public abstract partial class SharedToolSystem : EntitySystem
         InitializeMultipleTool();
         InitializeTile();
         InitializeWelder();
+        InitializeSolutionRefuel(); // imp
         SubscribeLocalEvent<ToolComponent, ToolDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<ToolComponent, ExaminedEvent>(OnExamine);
     }

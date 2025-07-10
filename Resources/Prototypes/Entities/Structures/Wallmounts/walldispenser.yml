@@ -116,6 +116,12 @@
           Quantity: 1000
   - type: ReagentTank
     tankType: Fuel
+    fuelWhitelist: #imp
+      tags:
+        - WeldingTool
+    fuelBlacklist: #imp
+      tags:
+        - EchionGun
   - type: DamageOnToolInteract
     tools: Welding
     weldingDamage:

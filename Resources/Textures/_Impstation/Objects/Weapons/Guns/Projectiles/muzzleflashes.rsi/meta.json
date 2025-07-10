@@ -41,6 +41,17 @@
       ]
     },
     {
+      "name": "energysmall",
+      "delays": [
+        [
+          0.05,
+          0.05,
+          0.05,
+          1.00
+        ]
+      ]
+    },
+    {
       "name": "energygold",
       "delays": [
         [

@@ -345,6 +345,10 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
+  - type: DamageOnShootProtection #imp
+    damageProtection:
+      flatReductions:
+        Blunt: 4
 
 # can't parent combat gloves since they are butcherable
 - type: entity
@@ -381,6 +385,10 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-olive
+  - type: DamageOnShootProtection #imp
+    damageProtection:
+      flatReductions:
+        Blunt: 3
 
 - type: entity
   parent: ClothingHandsButcherable

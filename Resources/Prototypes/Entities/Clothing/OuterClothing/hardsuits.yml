@@ -128,6 +128,11 @@
     damageCoefficient: 0.5
   - type: FireResistance
     damageCoefficient: 0.1
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 3
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -160,6 +165,11 @@
         Radiation: 0.2
   - type: ExplosionResistance
     damageCoefficient: 0.5
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 5
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -191,6 +201,16 @@
         Caustic: 0.80
   - type: ExplosionResistance
     damageCoefficient: 0.8
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Radiation: 0.3 #salv is supposed to have radiation hazards in the future
+        Caustic: 0.8
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 3
   - type: ClothingSpeedModifier
     walkModifier: 0.90
     sprintModifier: 0.80
@@ -227,6 +247,11 @@
         Caustic: 0.85
   - type: ExplosionResistance
     damageCoefficient: 0.7
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 6
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
@@ -330,6 +355,11 @@
     damageCoefficient: 0.4
   - type: StaminaResistance
     damageCoefficient: 0.8
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 8
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -363,6 +393,11 @@
     damageCoefficient: 0.8
   - type: StaminaResistance
     damageCoefficient: 0.8
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 5
   - type: ClothingSpeedModifier
     walkModifier: 0.80
     sprintModifier: 0.80
@@ -464,6 +499,11 @@
     damageCoefficient: 0.20
   - type: FireResistance
     damageCoefficient: 0.20
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 8
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.8
@@ -500,6 +540,11 @@
         Heat: 0.85
         Cold: 0.85
         Caustic: 0.1
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 1
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.95
@@ -1108,6 +1153,11 @@
         Slash: 0.9
         Piercing: 0.9
         Caustic: 0.8
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 1
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -1158,6 +1208,11 @@
         Slash: 0.9
         Piercing: 0.85
         Caustic: 0.8
+  - type: DamageOnShootProtection #imp
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 1
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9

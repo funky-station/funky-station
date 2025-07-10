@@ -10,3 +10,12 @@
 
 - type: Tag
   id: NullRod
+
+- type: Tag
+  id: CartridgeBazooka
+
+- type: Tag
+  id: EchionGun
+
+- type: Tag
+  id: SpeedLoaderAM

@@ -335,6 +335,10 @@
   - Robocop3
   obeysTo: laws-owner-station
 
+  #The pirate code - laws:
+- type: siliconLaw
+  id: ThePirateCode
+
  # Overlord laws
 - type: siliconLaw
   id: Overlord1
@@ -532,12 +536,12 @@
   id: Asimov2
   order: 2
   lawString: law-asimov-2
- 
+
 - type: siliconLaw
   id: Asimov3
   order: 3
   lawString: law-asimov-3
-  
+
 - type: siliconLawset
   id: AsimovLawset
   laws:

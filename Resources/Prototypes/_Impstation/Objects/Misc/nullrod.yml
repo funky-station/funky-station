@@ -225,6 +225,7 @@
     sprite: _Impstation/Objects/Misc/nullrod_bow.rsi
     layers:
     - state: nullrod_bow
+    -
   - type: Item
     size: Huge
   - type: Wieldable

@@ -14,6 +14,9 @@
       "name": "unwielded"
     },
     {
+      "name": "wielded"
+    },
+    {
       "name": "inhand-left",
       "directions": 4
     },

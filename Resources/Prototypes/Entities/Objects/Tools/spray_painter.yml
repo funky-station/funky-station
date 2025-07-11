@@ -12,7 +12,7 @@
   parent: BaseItem
   id: SprayPainter
   name: spray painter
-  description: A spray painter for painting airlocks and pipes.
+  description: A spray painter for painting airlocks, pipes, and other items.
   components:
   - type: Sprite
     sprite: Objects/Tools/spray_painter.rsi
@@ -50,15 +50,57 @@
       h2o: '#bffffd'
       ammonia: '#56941E'
       n2o: '#e82872'
-      frezon: '#3a758c' 
-      healium: '#64f595' 
-      anti-noblium: '#141414' 
-      nitrium: '#964c23' 
-      bz: '#764851' 
-      halon: '#75355f' 
-      pluoxium: '#6f79e8' 
-      proto-nitrate: '#379f4f' 
-      hyper-noblium: '#11ffb8' 
-      zauker: '#13422e' 
+      frezon: '#3a758c'
+      healium: '#64f595'
+      anti-noblium: '#141414'
+      nitrium: '#964c23'
+      bz: '#764851'
+      halon: '#75355f'
+      pluoxium: '#6f79e8'
+      proto-nitrate: '#379f4f'
+      hyper-noblium: '#11ffb8'
+      zauker: '#13422e'
   - type: StaticPrice
     price: 40
+  - type: LimitedCharges
+    maxCharges: 15
+    lastCharges: 15
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+
+- type: entity
+  parent: SprayPainter
+  id: SprayPainterRecharging
+  suffix: Admeme
+  components:
+  - type: AutoRecharge
+    rechargeDuration: 1
+
+- type: entity
+  parent: SprayPainter
+  id: SprayPainterEmpty
+  suffix: Empty
+  components:
+  - type: LimitedCharges
+    lastCharges: -1
+
+- type: entity
+  parent: BaseItem
+  id: SprayPainterAmmo
+  name: compressed paint
+  description: A cartridge of highly compressed paint, commonly used in spray painters.
+  components:
+  - type: SprayPainterAmmo
+  - type: Sprite
+    sprite: Objects/Tools/spray_painter.rsi
+    state: ammo
+  - type: Item
+    sprite: Objects/Tools/spray_painter.rsi
+    heldPrefix: ammo
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 10
+      Plastic: 10
+  - type: StaticPrice
+    price: 30

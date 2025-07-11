@@ -105,3 +105,9 @@ thaven-mood-aye-aye-desc = {$command} is the only position on the station. Every
 
 thaven-mood-new-job-name = Jobhopping
 thaven-mood-new-job-desc = Your current job is disgusting to you. You must endeavor to get a new one.
+
+thaven-mood-corporateconspiracy-name = Corporate Conspiracy
+thaven-mood-corporateconspiracy-desc = You believe there is a hidden connection between Nanotrasen and the Syndicate. Command is complicit.
+ 
+thaven-mood-oppositeday-name = Opposite Day
+thaven-mood-oppositeday-desc = People mean the opposite of what they say. Up is down, and down is up.

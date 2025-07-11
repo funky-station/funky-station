@@ -3547,3 +3547,15 @@ Entries:
       message: Removes the cargo ordering computer from the Salvage shuttle.
   id: 426
   time: '2025-07-08T20:22:40.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Add
+      message: Added new Thaven moods.
+  id: 427
+  time: '2025-07-09T01:21:54.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Fix
+      message: Fixed HoP cloak's inconsistent trim.
+  id: 428
+  time: '2025-07-10T01:51:14.0000000+00:00'

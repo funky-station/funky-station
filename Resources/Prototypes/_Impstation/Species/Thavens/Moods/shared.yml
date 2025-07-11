@@ -28,6 +28,13 @@
   - PetGod
   - Delicacy
   - Holiday
+  - RoyalRealm
+  - Oathbound
+  - GourmetGas
+  - TunnelDweller
+  - PrankWar
+  - StarPeople
+  - TheSimsShared
 #   - OutOfFashion
 #   - InFashion
 
@@ -110,6 +117,7 @@
   moodDesc: thaven-mood-one-true-thaven-desc
   conflicts:
   - MustCongregate
+  - SpeciesBlind
 
 # Violence between Thaven is permitted with no legal repercussions.
 - type: thavenMood
@@ -183,6 +191,55 @@
   moodDesc: thaven-mood-holiday-desc
   moodVars:
     day: MoodHolidays
+
+# The station is a feudal realm. The captain is king, the department heads nobility, and the rest of the station knights, servants, or peasants.    
+- type: thavenMood
+  id: RoyalRealm
+  moodName: thaven-mood-royalrealm-name
+  moodDesc: thaven-mood-royalrealm-desc
+
+#  A thaven must honor all oaths made. A thaven may never directly tell a lie, but can hide the truth through deceptive wording.
+- type: thavenMood
+  id: Oathbound
+  moodName: thaven-mood-oathbound-name
+  moodDesc: thaven-mood-oathbound-desc
+  conflicts:
+  - CompulsiveLiar
+
+# Oxygen and Nitrogen are bland, and Thaven deserve something more. You must breath an exotic gas at all times.
+- type: thavenMood
+  id: GourmetGas
+  moodName: thaven-mood-gourmetgas-name
+  moodDesc: thaven-mood-gourmetgas-desc
+
+# The maintenance tunnels are safe and cozy, a home to all Thaven. Build in them a place worth living.
+- type: thavenMood
+  id: TunnelDweller
+  moodName: thaven-mood-tunneldweller-name
+  moodDesc: thaven-mood-tunneldweller-desc
+  conflicts:
+  - StationIsAlive
+
+# A clownish spirit has infected the station, and you find friendly pranks, especially against fellow Thaven, to be great fun.
+- type: thavenMood
+  id: PrankWar
+  moodName: thaven-mood-prankwar-name
+  moodDesc: thaven-mood-prankwar-desc
+  
+# Like their carp-kin, Thaven are beings of the stellar sea. You feel drawn to space, whether to explore, discover, or construct something new.
+- type: thavenMood
+  id: StarPeople
+  moodName: thaven-mood-starpeople-name
+  moodDesc: thaven-mood-starpeople-desc
+
+# You are not on a ‘station.’ This is just a very large house. Each person in it is a relative of you.
+- type: thavenMood
+  id: TheSimsShared
+  moodName: thaven-mood-simsshared-name
+  moodDesc: thaven-mood-simsshared-desc
+  conflicts:
+  - StationIsAlive
+  - TheSims
 
 # - type: thavenMood
 #   id: OutOfFashion

@@ -75,24 +75,25 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _White/Mobs/Species/displacement.rsi
+#            sprite: _White/Mobs/Species/displacement.rsi
+            sprite: Mobs/Species/Human/displacement.rsi # Funky edit
             state: jumpsuit-female
-      shoes:
-        sizeMaps:
-          32:
-            sprite: _White/Mobs/Species/displacement.rsi
-            state: shoes
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: _White/Mobs/Species/displacement.rsi
-            state: jumpsuit
-      shoes:
-        sizeMaps:
-          32:
-            sprite: _White/Mobs/Species/displacement.rsi
-            state: shoes
+#      shoes:
+#        sizeMaps:
+#          32:
+#            sprite: _White/Mobs/Species/displacement.rsi
+#            state: shoes
+#    displacements:
+#      jumpsuit:
+#        sizeMaps:
+#          32:
+#            sprite: _White/Mobs/Species/displacement.rsi
+#            state: jumpsuit
+#      shoes:
+#        sizeMaps:
+#          32:
+#            sprite: _White/Mobs/Species/displacement.rsi
+#            state: shoes
     # WWDP-Edit-End
   - type: Tag
     tags:
@@ -121,24 +122,25 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _White/Mobs/Species/displacement.rsi
+#            sprite: _White/Mobs/Species/displacement.rsi
+            sprite: Mobs/Species/Human/displacement.rsi # Funky edit
             state: jumpsuit-female
-      shoes:
-        sizeMaps:
-          32:
-            sprite: _White/Mobs/Species/displacement.rsi
-            state: shoes
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: _White/Mobs/Species/displacement.rsi
-            state: jumpsuit
-      shoes:
-        sizeMaps:
-          32:
-            sprite: _White/Mobs/Species/displacement.rsi
-            state: shoes
+#      shoes:
+#        sizeMaps:
+#          32:
+#            sprite: _White/Mobs/Species/displacement.rsi
+#            state: shoes
+#    displacements:
+#      jumpsuit:
+#        sizeMaps:
+#          32:
+#            sprite: _White/Mobs/Species/displacement.rsi
+#            state: jumpsuit
+#      shoes:
+#        sizeMaps:
+#          32:
+#            sprite: _White/Mobs/Species/displacement.rsi
+#            state: shoes
     # WWDP-Edit-End
 
-#Weh
+# Weh~

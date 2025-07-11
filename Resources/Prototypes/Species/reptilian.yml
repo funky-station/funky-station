@@ -26,10 +26,15 @@
     RArm: MobReptilianRArm
     LHand: MobReptilianLHand
     RHand: MobReptilianRHand
-    LLeg: MobReptilianLLegDigi # WWDP-Edit
-    RLeg: MobReptilianRLegDigi # WWDP-Edit
-    LFoot: MobReptilianLFootDigi # WWDP-Edit
-    RFoot: MobReptilianRFootDigi # WWDP-Edit
+    LLeg: MobReptilianLLeg
+    RLeg: MobReptilianRLeg
+    LFoot: MobReptilianLFoot
+    RFoot: MobReptilianRFoot
+#    LLeg: MobReptilianLLegDigi # WWDP-Edit
+#    RLeg: MobReptilianRLegDigi # WWDP-Edit
+#    LFoot: MobReptilianLFootDigi # WWDP-Edit
+#    RFoot: MobReptilianRFootDigi # WWDP-Edit
+#    Replace the above four uncommented lines with these four commented lines when adding digitigrade lizard legs
 
 - type: markingPoints
   id: MobReptilianMarkingLimits

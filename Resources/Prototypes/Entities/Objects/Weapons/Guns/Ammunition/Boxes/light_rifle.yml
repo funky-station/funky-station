@@ -81,6 +81,7 @@
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleSilver
+    capacity: 14
   - type: Sprite
     layers:
     - state: base

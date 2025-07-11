@@ -77,7 +77,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2f), true);
 
             if (TryComp<TemperatureComponent>(pookie, out var temp))
-                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 50f, temp);
+                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 25f, temp);
 
             if (TryComp<DamageableComponent>(pookie, out var damage))
             {
@@ -97,7 +97,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2f), true);
 
             if (TryComp<TemperatureComponent>(pookie, out var temp))
-                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 60f, temp);
+                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 25f, temp);
 
             if (TryComp<DamageableComponent>(pookie, out var damage))
             {
@@ -123,7 +123,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         foreach (var pookie in topPriority)
         {
             if (TryComp<TemperatureComponent>(pookie, out var temp))
-                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 100f, temp);
+                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 50f, temp);
 
             if (TryComp<DamageableComponent>(pookie, out var damage))
             {
@@ -137,7 +137,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         foreach (var pookie in midPriority)
         {
             if (TryComp<TemperatureComponent>(pookie, out var temp))
-                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 60f, temp);
+                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 30f, temp);
 
             if (TryComp<DamageableComponent>(pookie, out var damage))
             {

@@ -475,6 +475,7 @@
   - type: FireVisuals
     alternateState: Standing
   - type: Carriable # Goobstation
+  - type: StunVisuals
 
 - type: entity
   save: false

@@ -9,6 +9,6 @@
   source: "https://github.com/cmss13-devs/cmss13/blob/master/sound/weapons/shotgunpump2.ogg"
 
 - files: ["gun_boomslang_lever.ogg"]
-  license: "CC0"
+  license: "CC-BY-SA-3.0"
   copyright: "Taken from freesound"
   source: "https://freesound.org/people/C-V/sounds/523402/?"

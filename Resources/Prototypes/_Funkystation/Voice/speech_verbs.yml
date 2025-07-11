@@ -1,0 +1,8 @@
+- type: speechVerb
+  id: Palinid
+  name: chat-speech-verb-name-palinid
+  speechVerbStrings:
+  - chat-speech-verb-palinid-1
+  - chat-speech-verb-palinid-2
+  - chat-speech-verb-palinid-3
+  - chat-speech-verb-palinid-4

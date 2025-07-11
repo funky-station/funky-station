@@ -1,0 +1,144 @@
+- type: species
+  id: Palinid
+  name: species-name-palinid
+  roundStart: false # sad...
+  prototype: MobPalinid
+  sprites: MobPalinidSprites
+  dollPrototype: MobPalinidDummy
+  skinColoration: Hues
+  defaultSkinTone: "#ffffff"
+  markingLimits: MobPalinidMarkingLimits
+
+- type: speciesBaseSprites
+  id: MobPalinidSprites
+  sprites:
+    Special: MobPalinidAnyMarking
+    Head: MobPalinidHead
+    HeadTop: MobPalinidAnyMarking
+    Chest: MobPalinidTorso
+    Tail: MobPalinidTail
+    Eyes: MobPalinidEyes
+    LArm: MobPalinidLArm
+    RArm: MobPalinidRArm
+    LHand: MobPalinidLHand
+    RHand: MobPalinidRHand
+    LLeg: MobPalinidLLeg
+    RLeg: MobPalinidRLeg
+    LFoot: MobPalinidLFoot
+    RFoot: MobPalinidRFoot
+
+- type: humanoidBaseSprite
+  id: MobPalinidAnyMarking
+
+- type: humanoidBaseSprite
+  id: MobPalinidMarkingMatchSkin
+  markingsMatchSkin: true
+
+- type: humanoidBaseSprite
+  id: MobPalinidHead
+  baseSprite:
+    sprite: _Funkystation/Mobs/Animals/palinid.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobPalinidHeadMale
+  baseSprite:
+    sprite: _Funkystation/Mobs/Animals/palinid.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobPalinidHeadFemale
+  baseSprite:
+    sprite: _Funkystation/Mobs/Animals/palinid.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobPalinidTorso
+  baseSprite:
+    sprite: _Funkystation/Mobs/Animals/palinid.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobPalinidTorsoMale
+  baseSprite:
+    sprite: _Funkystation/Mobs/Animals/palinid.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobPalinidTorsoFemale
+  baseSprite:
+    sprite: _Funkystation/Mobs/Animals/palinid.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobPalinidLLeg
+  baseSprite:
+    sprite: _Funkystation/Mobs/Animals/palinid.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobPalinidLArm
+  baseSprite:
+    sprite: _Funkystation/Mobs/Animals/palinid.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobPalinidLHand
+  baseSprite:
+    sprite: _Funkystation/Mobs/Animals/palinid.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobPalinidLFoot
+  baseSprite:
+    sprite: _Funkystation/Mobs/Animals/palinid.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobPalinidRLeg
+  baseSprite:
+    sprite: _Funkystation/Mobs/Animals/palinid.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobPalinidRArm
+  baseSprite:
+    sprite: _Funkystation/Mobs/Animals/palinid.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobPalinidRHand
+  baseSprite:
+    sprite: _Funkystation/Mobs/Animals/palinid.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobPalinidRFoot
+  baseSprite:
+    sprite: _Funkystation/Mobs/Animals/palinid.rsi
+    state: r_foot
+
+- type: humanoidBaseSprite
+  id: MobPalinidTail
+  baseSprite:
+    sprite: _Funkystation/Mobs/Animals/palinid.rsi
+    state: tail
+
+- type: humanoidBaseSprite
+  id: MobPalinidEyes
+  baseSprite:
+    sprite: _Funkystation/Mobs/Animals/palinid.rsi
+    state: eyes
+
+- type: markingPoints
+  id: MobPalinidMarkingLimits
+  points:
+    Special: # the cat ear joke
+      points: 1 # Corvax-Sponsors
+      required: false
+    HeadTop:
+      points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false

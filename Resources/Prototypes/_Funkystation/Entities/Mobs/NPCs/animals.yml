@@ -41,3 +41,78 @@
     sprite:
       sprite: _Funkystation/Mobs/Animals/roingus.rsi
       state: dead
+
+- type: entity
+  name: palinid
+  id: MobPalinid
+  parent: MobBaseAncestor
+  description: Meowdy do mister! The perfect creature to chuck headfirst into a space dragon's maw.
+  components:
+  - type: NameIdentifier
+    group: Palinid
+  - type: Speech
+    speechSounds: Cat
+    speechVerb: Felinid
+  - type: OwOAccent
+  - type: Body
+    prototype: Palinid
+    requiredLegs: 2
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-palinid
+  - type: AlwaysRevolutionaryConvertible
+  - type: GhostRole
+    prob: 0.1
+    makeSentient: true
+    name: ghost-role-information-palinid-name
+    description: ghost-role-information-palinid-description
+    rules: ghost-role-information-nonantagonist-rules
+  - type: GhostTakeoverAvailable
+  - type: HumanoidAppearance
+    species: Palinid
+  - type: Vocal
+    wilhelm: "/Audio/Nyanotrasen/Voice/Felinid/cat_wilhelm.ogg"
+    sounds:
+      Male: Palinid
+      Female: Palinid
+      Unsexed: Palinid
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: TypingIndicator
+    proto: felinid
+  - type: Deathgasp
+    prototype: DeathGasp
+  - type: InteractionPopup
+    successChance: 0.9
+    interactSuccessString: petting-success-cat
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/cat_meow.ogg
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPieReaction
+    - reagents: [ Water ]
+      methods: [ Touch ]
+      effects:
+      - !type:Emote
+        emote: Scream
+        probability: 0.2
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 5
+        Piercing: 4
+  - type: Felinid
+  - type: Tag
+    tags:
+    - FelinidEmotes

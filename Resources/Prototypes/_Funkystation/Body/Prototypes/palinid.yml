@@ -1,0 +1,50 @@
+- type: body
+  id: Palinid
+  name: "palinid"
+  root: torso
+  slots:
+    head:
+      part: HeadPalinid
+      connections:
+      - torso
+      organs:
+        brain: OrganAnimalBrain
+        eyes: OrganAnimalEyes
+    torso:
+      part: TorsoPalinid
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head
+      organs:
+        heart: OrganAnimalHeart
+        lungs: OrganAnimalLungs
+        stomach: OrganAnimalStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganAnimalKidneys
+    right arm:
+      part: RightArmPalinid
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmPalinid
+      connections:
+      - left hand
+    right hand:
+      part: RightHandPalinid
+    left hand:
+      part: LeftHandPalinid
+    right leg:
+      part: RightLegPalinid
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegPalinid
+      connections:
+      - left foot
+    right foot:
+      part: RightFootPalinid
+    left foot:
+      part: LeftFootPalinid

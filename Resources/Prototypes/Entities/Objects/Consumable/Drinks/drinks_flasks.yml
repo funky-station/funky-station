@@ -71,6 +71,9 @@
   components:
     - type: Sprite
       sprite: Objects/Consumable/Drinks/barflask.rsi
+    - type: Tag  #Funky - bartender changes
+      tags:
+      - BartendingTool
 
 - type: entity
   parent: FlaskBase

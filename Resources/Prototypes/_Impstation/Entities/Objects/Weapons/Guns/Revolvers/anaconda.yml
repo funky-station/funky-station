@@ -2,7 +2,7 @@
   name: Anaconda
   parent: [BaseWeaponRevolver, BaseSyndicateContraband]
   id: WeaponAnaconda
-  description: A junior designer at Waffle Corp. swears they submitted this as a joke. Kicks like a blood-red horse if used without a hardsuit. Uses .60 anti-materiel ammo.
+  description: A junior designer at Waffle Corp. swears they submitted this as a joke. Kicks like a blood-red horse when fired. Uses .60 anti-materiel ammo.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Revolvers/anaconda.rsi
@@ -48,6 +48,7 @@
       types:
         Blunt: 10
     popupText: null
+    ignoreResistances: true
     damageSound: /Audio/Weapons/boxingpunch3.ogg
   - type: MeleeWeapon
     range: 0.8

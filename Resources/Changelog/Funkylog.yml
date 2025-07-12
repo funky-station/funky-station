@@ -3563,3 +3563,11 @@ Entries:
   changes: []
   id: 429
   time: '2025-07-12T00:08:33.0000000+00:00'
+- author: ZigTag
+  changes:
+    - type: Add
+      message: Protogen Visors for IPCs
+    - type: Tweak
+      message: gave IPCs 2 points for eyes
+  id: 430
+  time: '2025-07-12T00:18:15.0000000+00:00'

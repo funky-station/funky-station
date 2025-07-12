@@ -54,7 +54,7 @@
     sprite: Objects/Tools/Toolboxes/toolbox_yellow.rsi
     state: icon
   product: CrateEngineeringElectricalSupplies
-  cost: 4500
+  cost: 2000 # Funky Station, reduced from 4500, only has a single pair of gloves and a toolbox 
   category: cargoproduct-category-name-engineering
   group: market
 
@@ -104,7 +104,7 @@
     sprite: Clothing/Head/Helmets/eva.rsi
     state: icon
   product: CrateEvaKit
-  cost: 5000
+  cost: 2500 # Funky Station, reduced from 5000, made it just a single suit instead of two 
   category: cargoproduct-category-name-engineering
   group: market
 

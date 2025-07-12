@@ -1,0 +1,51 @@
+- type: entity
+  id: CrateEngineeringEquipment
+  parent: CrateEngineeringSecure
+  name: engineer equipment crate
+  description: Various engineering gear parts.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingBeltUtilityEngineering
+      - id: ClothingEyesGlassesMeson
+      - id: ClothingOuterHardsuitEngineering
+      - id: ClothingShoesBootsMag
+      - id: NitrogenTankFilled
+      - id: OxygenTankFilled
+      - id: RCD
+      - id: RCDAmmo
+
+- type: entity
+  id: CrateEngineeringAtmosEquipment
+  parent: CrateEngineeringSecure
+  name: atmospheric technician equipment crate
+  description: Contains a Amospheric Hardsuit and Firesuit, fire fighting backpack, atmospheric gas mask, filled tool belt, meson glasses, RCD and RPD alsongide the engineering guidebook.
+  components:
+  - type: StorageFill
+    contents:
+     - id: ClothingBeltUtilityEngineering
+     - id: ClothingEyesGlassesMeson
+     - id: ClothingOuterHardsuitAtmos
+     - id: ClothingHeadHelmetAtmosFire
+     - id: ClothingOuterSuitAtmosFire
+     - id: ClothingMaskGasAtmos
+     - id: ClothingBackpackFirefighterTank
+     - id: RPD
+     - id: ClothingShoesBootsMag
+     - id: NitrogenTankFilled
+     - id: OxygenTankFilled
+     - id: RCD
+     - id: RCDAmmo     
+     - id: HolofanProjector
+
+- type: entity
+  id: CrateBasicHardsuit
+  parent: CrateCommandSecure
+  name: basic hardsuit kit
+  description: A crate containing a basic hardsuit, rated for civilian use.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterHardsuitBasic
+      - id: NitrogenTankFilled 
+      - id: OxygenTankFilled    

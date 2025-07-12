@@ -1,0 +1,13 @@
+- type: entity
+  id: CrateFultonSupplies 
+  parent: CratePrivateSecure
+  name: fulton supplies crate
+  description: Contains 20 fulltons and a beacon to link with. 
+  components:
+  - type: StorageFill
+    contents:
+    - id: Fulton
+      amount: 2
+    - id: FultonBeacon
+
+    

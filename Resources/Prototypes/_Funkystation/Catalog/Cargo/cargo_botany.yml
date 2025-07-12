@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: HydroponicsChemicals
+  icon:
+    sprite: Objects/Specific/Chemistry/jug.rsi
+    state: jug
+  product: CrateHydroponicsChemicals
+  cost: 4000
+  category: cargoproduct-category-name-hydroponics
+  group: market

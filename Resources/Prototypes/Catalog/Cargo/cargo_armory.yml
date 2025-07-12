@@ -24,7 +24,7 @@
     sprite: Clothing/OuterClothing/Armor/riot.rsi
     state: icon
   product: CrateSecurityRiot
-  cost: 7500
+  cost: 4000 #Funky station, reduced form 7500 because it no longer has the two enforcer shotguns in the crate 
   category: cargoproduct-category-name-armory
   group: market
 

@@ -1,20 +1,24 @@
 - type: entity
-  id: CrateMedicalSupplies
+  id: CrateMedicalSupplies 
   parent: CrateMedical
-  name: medical supplies crate
+  name: medical supplies crate  
   description: Basic medical supplies.
   components:
-  - type: StorageFill
+  - type: StorageFill # Funky Station, changed the fills to only be treatment supplies 
     contents:
-      - id: MedkitFilled
-        amount: 2
+      - id: Brutepack
+        amount: 4
       - id: Gauze
-        amount: 2
+        amount: 4
       - id: Bloodpack
-        amount: 2
-      - id: BoxLatexGloves
-      - id: BoxSterileMask
-      - id: BoxMouthSwab
+        amount: 4
+      - id: Ointment
+        amount: 4  
+      - id: PillCanisterTricordrazine
+        amount: 4
+      - id: PillCanisterGranibitulari
+        amount: 4
+      - id: HandheldHealthAnalyzer   
 
 - type: entity
   id: CrateChemistrySupplies

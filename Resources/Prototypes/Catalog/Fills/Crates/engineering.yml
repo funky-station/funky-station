@@ -108,12 +108,12 @@
   name: electrical supplies crate
   description: NT is not responsible for any workplace infighting relating to the insulated gloves included within these crates.
   components:
-  - type: StorageFill
+  - type: StorageFill # Funky station, reduced to just a single set of items, price down to just 2000
     contents:
       - id: ToolboxElectricalFilled
-        amount: 2
+        amount: 1
       - id: ClothingHandsGlovesColorYellow
-        amount: 2
+        amount: 1
 
 - type: entity
   id: CrateEngineeringStationBeaconBundle
@@ -165,14 +165,15 @@
   id: CrateEvaKit
   parent: CrateCommandSecure
   name: EVA kit
-  description: A set consisting of two prestigious EVA suits and helmets.
+  description: A crate containing a standard EVA suit and helmet.
   components:
-  - type: StorageFill
+  - type: StorageFill # Funky station, reduced to just having a single suit and helmet, added air tanks, price down to just 2000
     contents:
       - id: ClothingHeadHelmetEVA
-        amount: 2
       - id: ClothingOuterHardsuitEVA
-        amount: 2
+      - id: NitrogenTankFilled 
+      - id: OxygenTankFilled
+
 
 - type: entity
   id: CrateRCDAmmo

@@ -142,7 +142,7 @@
 
 - type: entity
   id: CrateVendingMachineRestockSalvageEquipmentFilled
-  parent: CrateGenericSteel
+  parent: CratePrivateSecure # Funky station
   name: Salvage restock crate
   description: Contains a restock box for the salvage vendor.
   components:

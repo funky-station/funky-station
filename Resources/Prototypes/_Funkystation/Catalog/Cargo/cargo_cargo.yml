@@ -1,0 +1,19 @@
+- type: cargoProduct
+  id: FultonSupplies
+  icon:
+    sprite: Objects/Tools/fulton.rsi
+    state: extraction_pack
+  product: CrateFultonSupplies
+  cost: 1000
+  category: cargoproduct-category-name-cargo
+  group: market
+
+- type: cargoProduct
+  id: SalvageEquipment
+  icon:
+    sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
+    state: icon
+  product: CrateSalvageEquipment
+  cost: 7500
+  category: cargoproduct-category-name-cargo
+  group: market

@@ -225,7 +225,7 @@
     state: cash_1000000
   product: CrateCargoGambling
   cost: 10000
-  category: cargoproduct-category-name-fun
+  category: cargoproduct-category-name-cargo
   group: market
 
 - type: cargoProduct

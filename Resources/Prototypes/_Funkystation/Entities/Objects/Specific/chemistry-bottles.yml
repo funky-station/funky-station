@@ -1,0 +1,61 @@
+- type: entity
+  id: DiethylamineChemistryBottle
+  suffix: Diethylamine
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-diethylamine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Diethylamine
+          Quantity: 30
+
+- type: entity
+  id: SedinChemistryBottle
+  suffix: Sedin
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-sedin
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Sedin
+          Quantity: 30
+
+- type: entity
+  id: CryoxadoneChemistryBottle
+  suffix: Cryoxadone
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-cryoxadone
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Cryoxadone
+          Quantity: 30
+
+- type: entity
+  id: PhalanximineChemistryBottle
+  suffix: Phalanximine
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-phalanximine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Phalanximine
+          Quantity: 30
+
+                              

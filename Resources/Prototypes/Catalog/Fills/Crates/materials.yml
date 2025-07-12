@@ -47,11 +47,13 @@
   id: CrateMaterialWood
   parent: CrateGenericSteel
   name: wood crate
-  description: Bunch of wood planks.
+  description: 90 wooden planks.
   components:
   - type: StorageFill
     contents:
       - id: MaterialWoodPlank
+        amount: 3 # Funky 
+          
 
 - type: entity
   id: CrateMaterialBrass

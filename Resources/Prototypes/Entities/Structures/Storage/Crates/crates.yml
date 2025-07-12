@@ -234,6 +234,8 @@
     sprite: Structures/Storage/Crates/privatecrate_secure.rsi
   - type: Sprite
     sprite: Structures/Storage/Crates/privatecrate_secure.rsi
+  - type: AccessReader
+    access: [["Cargo"]] # Funky station, Cargo itself dosent have its own secure crate. 
 
 - type: entity
   parent: CrateBaseSecure

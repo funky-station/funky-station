@@ -26,7 +26,7 @@
     onlyCollideWhenShot: true
     damage:
       types:
-        Heat: 30 #funky change it down to a 4 shot
+        Heat: 40 #funky change it down to a 3 shot
   - type: TimedDespawn
     lifetime: 10
   - type: PointLight
@@ -106,7 +106,7 @@
   - type: Projectile
     damage:
       types:
-        Cold: 5
+        Cold: 15
   - type: ChangeTemperatureOnCollide
     heat: -150000
 
@@ -131,7 +131,7 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 12
+    totalIntensity: 6
     intensitySlope: 0.4
     maxIntensity: 4
     canCreateVacuum: false
@@ -140,7 +140,7 @@
   parent: BaseHardlightArrow
   id: ArrowXray
   name: x-ray arrow
-  description: An arrow made from hardlight. This one pierces through everything.
+  description: This arrow irradiates the target, making healing difficult.
   components:
   - type: Sprite
     color: "#1AE51A"

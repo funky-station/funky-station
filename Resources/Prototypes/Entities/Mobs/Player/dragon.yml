@@ -90,12 +90,12 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      450: Critical
-      500: Dead
+      650: Critical
+      700: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      250: 0.7
-      400: 0.5
+      500: 0.7
+      600: 0.5
   # disable taking damage from fire, since its a fire breathing dragon
   - type: Flammable
     damage:
@@ -137,8 +137,8 @@
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     damage:
       types:
-        Piercing: 15
-        Slash: 15
+        Piercing: 22
+        Slash: 22
   - type: Devourer
     foodPreference: Humanoid
     shouldStoreDevoured: true

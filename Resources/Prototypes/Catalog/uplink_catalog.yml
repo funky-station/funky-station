@@ -43,6 +43,9 @@
   productEntity: WeaponPistolCobra
   cost:
     Telecrystal: 15 # goob - this +1 mag = 17 TC
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
   categories:
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT
@@ -505,17 +508,17 @@
   saleBlacklist: true
 
 # For the Cobra
-- type: listing
-  id: UplinkMagazinePistolCaselessRifle
-  name: uplink-pistol-magazine-caseless-name
-  description: uplink-pistol-magazine-caseless-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
-  productEntity: MagazinePistolCaselessRifle
-  cost:
-    Telecrystal: 5 # goob - Same price as .35, more damage but less ammo in mag
-  categories:
-  - UplinkAmmo
-  saleBlacklist: true
+#- type: listing
+#  id: UplinkMagazinePistolCaselessRifle
+#  name: uplink-pistol-magazine-caseless-name
+#  description: uplink-pistol-magazine-caseless-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
+#  productEntity: MagazinePistolCaselessRifle
+#  cost:
+#    Telecrystal: 5 # goob - Same price as .35, more damage but less ammo in mag
+#  categories:
+#  - UplinkAmmo
+#  saleBlacklist: true
 
 # For the Python
 - type: listing
@@ -1502,7 +1505,7 @@
   description: uplink-clothing-outer-vest-web-desc
   productEntity: ClothingOuterVestWeb
   cost:
-    Telecrystal: 15 # goob
+    Telecrystal: 12 # goob
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -1590,8 +1593,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/cybersun.rsi, state: icon } # goobstation - duke nukies
   productEntity: CrateCybersunJuggernautBundle
   cost:
-    Telecrystal: 75
-     # Unchanged to allow for traitors to make a funny terrible decision. Funky
+    Telecrystal: 85     # Unchanged to allow for traitors to make a funny terrible decision. Funky
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT

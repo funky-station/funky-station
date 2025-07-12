@@ -254,7 +254,7 @@
       coefficients:
         Blunt: 0.6
         Slash: 0.6
-        Piercing: 0.6
+        Piercing: 0.45
         Caustic: 0.7
         Heat: 0.7 # Goobstation
   - type: ClothingSpeedModifier
@@ -316,8 +316,8 @@
     modifiers:
       coefficients:
         Blunt: 0.5
-        Slash: 0.6
-        Piercing: 0.6
+        Slash: 0.5
+        Piercing: 0.4
         Caustic: 0.7
         Heat: 0.7 # Goobstation
   - type: ClothingSpeedModifier
@@ -350,7 +350,7 @@
       coefficients:
         Blunt: 0.8
         Slash: 0.8
-        Piercing: 0.6
+        Piercing: 0.5
         Heat: 0.5
         Radiation: 0.5
         Caustic: 0.6
@@ -492,8 +492,8 @@
     modifiers:
       coefficients:
         Blunt: 0.6
-        Slash: 0.5
-        Piercing: 0.5
+        Slash: 0.6
+        Piercing: 0.4
         Radiation: 0.5
         Caustic: 0.6
         Heat: 0.6 # Goobstation
@@ -506,10 +506,10 @@
 
 #Luxury Mining Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitBase
-  id: ClothingOuterHardsuitLuxury #DO NOT MAP - https://github.com/space-wizards/space-station-14/pull/19738#issuecomment-1703486738
-  name: luxury mining hardsuit
-  description: A refurbished mining hardsuit, fashioned after the Quartermaster's colors. Graphene lining provides less protection, but is much easier to move.
+  parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
+  id: ClothingOuterHardsuitLuxury 
+  name: quartermaster luxury mining hardsuit
+  description: A custom ordered mining hardsuit, fashioned after the Quartermaster's colors. Just as protective as a regular mining hardsuit, but is much easier to move in.
   categories: [ DoNotMap ]
   components:
   - type: Sprite
@@ -520,21 +520,23 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.3
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.8
-        Radiation: 0.5
-        Caustic: 0.8
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.5
+        Radiation: 0.3
+        Caustic: 0.7
   - type: ClothingSpeedModifier
     walkModifier: 0.85
-    sprintModifier: 0.9
+    sprintModifier: 0.85
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitLuxury
+  - type: StaticPrice
+    price: 15000
 
 #ANTAG HARDSUITS
 #Blood-red Hardsuit
@@ -555,14 +557,12 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.5
-  - type: StaminaResistance
-    damageCoefficient: 0.75
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.5
         Slash: 0.5
-        Piercing: 0.5
+        Piercing: 0.4
         Heat: 0.5
         Radiation: 0.5
         Caustic: 0.5
@@ -617,14 +617,12 @@
     damageCoefficient: 0.2
   - type: FireProtection
     reduction: 0.8
-  - type: StaminaResistance
-    damageCoefficient: 0.6
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.45
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.35
         Heat: 0.2
         Radiation: 0.01
         Caustic: 0.5
@@ -692,15 +690,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.2
-        Slash: 0.2
-        Piercing: 0.2
-        Heat: 0.2
-        Radiation: 0.2
-        Caustic: 0.2
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.3
+        Radiation: 0.1
+        Caustic: 0.1
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.65
+    walkModifier: 0.8
+    sprintModifier: 0.60
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
@@ -990,8 +988,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
+        Blunt: 0.5
+        Slash: 0.5
         Piercing: 0.6
         Heat: 0.1
         Cold: 0.1

@@ -270,6 +270,7 @@
         - Sheet
     materialWhiteList:
     - Plasma
+  - type: MaterialSiloClient
   - type: Fixtures
     fixtures:
       fix1:

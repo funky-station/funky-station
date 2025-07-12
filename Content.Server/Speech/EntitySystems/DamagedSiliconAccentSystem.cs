@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Text;
 using Content.Server.Destructible;
 using Content.Shared.Speech.Components;
@@ -38,10 +34,9 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
             {
                 currentChargeLevel = ent.Comp.OverrideChargeLevel.Value;
             }
-            else if (_powerCell.TryGetBatteryFromSlot(uid, out var battery) ||
-                     TryComp<BatteryComponent>(uid, out battery)) // Goobstation - Energycrit: Make this work with BatteryComponent too
+            else if (_powerCell.TryGetBatteryFromSlot(uid, out var battery))
             {
-                currentChargeLevel = _battery.GetCharge(battery.Value.AsNullable()) / battery.Value.Comp.MaxCharge;
+                currentChargeLevel = _battery.GetChargeLevel(battery.Value.AsNullable());
             }
             currentChargeLevel = Math.Clamp(currentChargeLevel, 0.0f, 1.0f);
             // Corrupt due to low power (drops characters on longer messages)

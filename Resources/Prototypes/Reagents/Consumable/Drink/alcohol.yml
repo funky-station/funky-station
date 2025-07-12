@@ -229,6 +229,10 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: -1.0    
 
 - type: reagent
   id: CoffeeLiqueur

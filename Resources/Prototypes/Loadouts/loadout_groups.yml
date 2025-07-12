@@ -147,8 +147,9 @@
 - type: loadoutGroup
   id: CaptainOuterClothing
   name: loadout-group-captain-outerclothing
+  minLimit: 0 #funky - removed carapace from loadout
   loadouts:
-  - CaptainOuterClothing
+#  - CaptainOuterClothing # funky
   - CaptainWintercoat
 
 - type: loadoutGroup

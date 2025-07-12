@@ -3577,3 +3577,9 @@ Entries:
       message: Dionae now have unique reactions to ammonia, sedin, and diethylamine.
   id: 431
   time: '2025-07-12T01:00:53.0000000+00:00'
+- author: QueerCats
+  changes:
+    - type: Add
+      message: More bottles for Chemists to facilitate the increased use of bottles
+  id: 432
+  time: '2025-07-12T01:13:12.0000000+00:00'

@@ -105,6 +105,9 @@
     guides:
     - TeslaEngine
     - SingularityTeslaEngine
+  - type: Tag
+    tags:
+    - ShadowSideLoot
 
 - type: entity
   id: TeslaGroundingRod

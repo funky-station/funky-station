@@ -3571,3 +3571,9 @@ Entries:
       message: gave IPCs 2 points for eyes
   id: 430
   time: '2025-07-12T00:18:15.0000000+00:00'
+- author: sowelipililimute
+  changes:
+    - type: Add
+      message: Dionae now have unique reactions to ammonia, sedin, and diethylamine.
+  id: 431
+  time: '2025-07-12T01:00:53.0000000+00:00'

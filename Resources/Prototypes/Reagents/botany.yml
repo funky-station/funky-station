@@ -163,6 +163,29 @@
   flavor: bitter
   color: "#3CB371"
   physicalDesc: reagent-physical-desc-sickly
+  metabolisms: # Funky - expanded diona medication
+    Poison:
+      metabolismRate: 1
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2
+      - !type:CreateEntityReactionEffect
+        entity: MobDionaNymph
+        conditions:
+        - !type:OrganType
+          type: Plant
+        - !type:ReagentThreshold
+          min: 40
+      - !type:AdjustReagent
+        reagent: Sedin
+        amount: -20
+        conditions:
+        - !type:OrganType
+          type: Plant
+        - !type:ReagentThreshold
+          min: 40
   plantMetabolism:
     - !type:PlantAdjustHealth
       amount: -2
@@ -217,6 +240,17 @@
         damage:
           types:
             Caustic: 1
+        conditions:
+        - !type:OrganType # Funky - flesh out diona medication
+          type: Plant
+          shouldHave: false
+    Food: # Funky - flesh out diona medication
+      effects:
+      - !type:SatiateHunger
+        factor: 1
+        conditions:
+        - !type:OrganType
+          type: Plant
     Gas:
       effects:
       - !type:HealthChange
@@ -316,3 +350,18 @@
         damage:
           types:
             Caustic: 1
+        conditions:
+        - !type:OrganType # Funky - flesh out diona medication
+          type: Plant
+          shouldHave: false
+    Medicine: # Funky - flesh out diona medication
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: -2
+            Cold: -2
+            Shock: -2
+        conditions:
+        - !type:OrganType
+          type: Plant

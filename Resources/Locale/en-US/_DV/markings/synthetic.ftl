@@ -100,8 +100,8 @@ marking-SyntheticVulpkaninHead = Vulpkanin Head from Ward-Takahashi
 marking-SyntheticVulpkaninHead-vulp_head = Primary
 
 # Eyes
-marking-ProtogenEyes = Protogen Screen
-marking-ProtogenEyes-protogen_eyes = Primary
+marking-ProtogenMouth = Protogen Mouth
+marking-ProtogenMouth-protogen_mouth = Primary
 
 marking-SyntheticIPCEyes = Anthropomorphic Eyes
 marking-SyntheticIPCEyes-eyes = Primary

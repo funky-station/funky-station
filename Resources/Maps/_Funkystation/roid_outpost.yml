@@ -4,8 +4,8 @@ meta:
   engineVersion: 255.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/02/2025 02:05:12
-  entityCount: 19928
+  time: 07/09/2025 01:39:25
+  entityCount: 19933
 maps:
 - 1
 grids:
@@ -8904,6 +8904,20 @@ entities:
             2545: 0,-57
         - node:
             cleanable: True
+            color: '#FFFFFF44'
+            id: burnt1
+          decals:
+            7410: -43.53662,-21.655014
+            7411: -41.673138,-20.305492
+            7412: -42.00761,-21.977467
+            7413: -41.12365,-22.108835
+            7414: -41.85232,-23.565842
+            7415: -42.306244,-23.37476
+            7416: -41.888157,-23.267275
+            7417: -42.13901,-23.756926
+            7418: -43.60829,-20.914568
+        - node:
+            cleanable: True
             color: '#FFFFFFFF'
             id: burnt1
           decals:
@@ -10223,7 +10237,8 @@ entities:
           -13,-4:
             0: 1646
           -12,-3:
-            0: 63351
+            4: 1
+            0: 63350
           -13,-3:
             0: 32631
           -12,-2:
@@ -10439,17 +10454,17 @@ entities:
             0: 65535
           -15,2:
             0: 13311
-            4: 32768
+            5: 32768
           -15,3:
             0: 13107
-            4: 34944
+            5: 34944
           -15,4:
             0: 65523
           -14,2:
             0: 35327
-            4: 12288
+            5: 12288
           -14,3:
-            4: 13105
+            5: 13105
             0: 34952
           -14,1:
             0: 2188
@@ -10613,7 +10628,7 @@ entities:
           -14,6:
             3: 255
           -14,7:
-            4: 3822
+            5: 3822
           -13,8:
             3: 2
             0: 136
@@ -11078,9 +11093,9 @@ entities:
           -13,9:
             3: 50176
           -12,9:
-            5: 51
+            6: 51
             3: 61440
-            4: 136
+            5: 136
           -13,10:
             3: 136
           -12,10:
@@ -11091,7 +11106,7 @@ entities:
           -12,12:
             0: 65535
           -11,9:
-            4: 17
+            5: 17
             3: 4096
             0: 52428
           -11,10:
@@ -11106,22 +11121,22 @@ entities:
             3: 1
             0: 28928
           -10,9:
-            4: 102
+            5: 102
             3: 57344
           -10,10:
             3: 232
           -10,12:
             0: 65535
           -9,9:
-            4: 51
+            5: 51
             3: 61440
-            6: 136
+            7: 136
           -9,10:
             3: 248
           -8,9:
-            6: 17
+            7: 17
             3: 61440
-            7: 204
+            8: 204
           -8,10:
             3: 248
           -7,9:
@@ -11222,6 +11237,29 @@ entities:
           moles:
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -13100,6 +13138,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -33.5,-48.5
       parent: 2
+  - uid: 15634
+    components:
+    - type: Transform
+      pos: 8.5,-27.5
+      parent: 2
 - proto: AirlockEVAGlassLocked
   entities:
   - uid: 1010
@@ -13492,7 +13535,7 @@ entities:
       pos: -10.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -93048.945
+      secondsUntilStateChange: -93621.81
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13669,7 +13712,7 @@ entities:
       pos: -7.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -272592.22
+      secondsUntilStateChange: -273165.1
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14186,12 +14229,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 2.5,26.5
       parent: 2
-  - uid: 15634
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 8.5,-27.5
-      parent: 2
 - proto: AirlockMaintEngiLocked
   entities:
   - uid: 279
@@ -14201,7 +14238,7 @@ entities:
       pos: -27.5,10.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -450995.16
+      secondsUntilStateChange: -451568.03
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -44287,6 +44324,21 @@ entities:
     - type: Transform
       pos: -36.5,-16.5
       parent: 2
+  - uid: 19931
+    components:
+    - type: Transform
+      pos: 28.5,7.5
+      parent: 2
+  - uid: 19932
+    components:
+    - type: Transform
+      pos: 28.5,6.5
+      parent: 2
+  - uid: 19933
+    components:
+    - type: Transform
+      pos: 27.5,6.5
+      parent: 2
 - proto: CableMVStack
   entities:
   - uid: 3432
@@ -51646,6 +51698,32 @@ entities:
     - type: Transform
       pos: -47.5,-11.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: ClosetRadiationSuitFilled
   entities:
   - uid: 4998
@@ -51834,8 +51912,11 @@ entities:
   - uid: 12438
     components:
     - type: Transform
-      pos: -50.467255,-17.448881
+      pos: -50.449856,-17.448156
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: ClothingHandsGlovesLatex
   entities:
   - uid: 5057
@@ -95214,6 +95295,13 @@ entities:
     - type: Transform
       pos: 25.5,-4.5
       parent: 2
+- proto: SpawnPointMagistrate
+  entities:
+  - uid: 19929
+    components:
+    - type: Transform
+      pos: -52.5,-21.5
+      parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
   - uid: 3357
@@ -100472,10 +100560,10 @@ entities:
     - type: Transform
       pos: -29.507263,7.6604733
       parent: 2
-  - uid: 19889
+  - uid: 19930
     components:
     - type: Transform
-      pos: -45.43694,-14.830188
+      pos: -50.4618,-17.63924
       parent: 2
 - proto: ToolboxEmergencyFilled
   entities:
@@ -100554,6 +100642,13 @@ entities:
     components:
     - type: Transform
       pos: -29.491095,7.4049897
+      parent: 2
+- proto: ToolboxMechanicalFilledAllTools
+  entities:
+  - uid: 19889
+    components:
+    - type: Transform
+      pos: -45.426254,-14.808825
       parent: 2
 - proto: ToyAi
   entities:

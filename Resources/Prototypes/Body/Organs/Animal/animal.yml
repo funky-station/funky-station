@@ -196,7 +196,7 @@
   - type: Organ
     slotId: heart # Shitmed
   - type: Metabolizer
-    maxReagents: 2
+    maxReagents: 3 # funky
     metabolizerTypes: [ Animal ]
     groups:
     - id: Medicine

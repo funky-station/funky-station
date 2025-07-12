@@ -4,6 +4,7 @@ using Content.Server.Heretic.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
+using Content.Shared.Extensions;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -11,7 +12,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.Hands;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
@@ -168,6 +168,9 @@ public sealed partial class MansusGraspSystem : EntitySystem
         || !heretic.MansusGraspActive // no grasp - not special
         || HasComp<ActiveDoAfterComponent>(args.User) // prevent rune shittery
         || !tags.Contains("Write") || !tags.Contains("Pen")) // not a pen
+            return;
+
+        if (args.Target != null && EntityManager.IsChildOf(args.User, args.Target.Value))
             return;
 
         // remove our rune if clicked

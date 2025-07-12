@@ -45,3 +45,6 @@
 
 - type: Tag
   id: VoxEmotes
+
+- type: Tag
+  id: BartendingTool

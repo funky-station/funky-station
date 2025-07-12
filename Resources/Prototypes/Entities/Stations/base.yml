@@ -61,7 +61,7 @@
             - /Maps/Shuttles/trading_outpost.yml
         mining: !type:GridSpawnGroup
           paths:
-          - /Maps/Shuttles/mining.yml
+          - /Maps/_Funkystation/Shuttles/mining.yml #funky
         oldstation: !type:GridSpawnGroup #force this to always spawn so ghost roles are always accessible
           minimumDistance: 950 #unlikely to work
           maximumDistance: 1200

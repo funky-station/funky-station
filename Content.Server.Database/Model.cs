@@ -425,6 +425,8 @@ namespace Content.Server.Database
 
         public int PreferenceId { get; set; }
         public Preference Preference { get; set; } = null!;
+        // funkystation - character account balance
+        public int Balance { get; set; }
     }
 
     public class Job

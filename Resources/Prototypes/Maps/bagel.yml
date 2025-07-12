@@ -19,6 +19,7 @@
           availableJobs: # 60 jobs total w/o latejoins & interns, 77 jobs total w/ latejoins & interns
             #command
             Captain: [ 1, 1 ]
+            Magistrate: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]
             InternalAffairsAgent: [ 2, 2 ]
             BlueshieldOfficer: [ 1, 1 ]

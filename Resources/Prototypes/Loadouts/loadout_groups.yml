@@ -1164,6 +1164,14 @@
   - SecurityPDA
   - SeniorOfficerPDA
 
+# Funkystation
+- type: loadoutGroup
+  id: DetectivePDA
+  name: loadout-group-detective-id
+  loadouts:
+  - DetectivePDA
+  - SeniorDetectivePDA
+
 - type: loadoutGroup
   id: DetectiveHead
   name: loadout-group-detective-head

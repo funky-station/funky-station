@@ -30,7 +30,6 @@
   id: DetectiveGear
   equipment:
     #eyes: ClothingEyesGlassesSecurity
-    id: DetectivePDA
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     belt: ClothingBeltHolsterFilled
   storage:

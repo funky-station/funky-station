@@ -98,4 +98,10 @@ public sealed partial class ProjectileComponent : Component
     /// </summary>
     [DataField]
     public FixedPoint2 PenetrationAmount = FixedPoint2.Zero;
+
+    /// <summary>
+    ///     The entity that was damaged.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool DamagedEntity;
 }

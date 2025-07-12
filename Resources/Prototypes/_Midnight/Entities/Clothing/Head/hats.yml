@@ -1,0 +1,97 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSmuggler
+  suffix: Chameleon, Holdout
+  name: Slippery Style
+  description: Smuggler holdout kit slippery hat.
+  components:
+    - type: Clothing
+      sprite: Clothing/Head/Hats/ushanka.rsi
+    - type: Sprite
+      sprite: Clothing/Head/Hats/ushanka.rsi
+      layers:
+      - state: icon
+        map: [ "unfoldedLayer" ]
+      - state: icon-up
+        map: ["foldedLayer"]
+        visible: false
+    # Holdout storage.
+    - type: ItemSlots
+      slots:
+        holdout:
+          name: Stash 
+    - type: ItemSlotRestrictions
+      maxSize: Tiny
+    - type: HiddenStorage
+      openDelay: 0.2
+      # Secondary, slippery
+    - type: Slippery
+      paralyzeTime: 3
+      launchForwardsMultiplier: 3
+    - type: StepTrigger
+      intersectRatio: 0.2
+      triggerGroups: # Goobstation
+        types:
+        - SlipEntity
+    - type: CollisionWake
+      enabled: false
+    - type: Physics
+      bodyType: Dynamic
+    - type: Fixtures
+      fixtures:
+        slips:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.2,-0.2,0.2,0.2"
+          hard: false
+          layer:
+          - SlipLayer
+    - type: ChameleonClothing
+      slot: [HEAD]
+      default: ClothingHeadHatUshanka
+    - type: UserInterface
+      interfaces:
+        enum.ChameleonUiKey.Key:
+          type: ChameleonBoundUserInterface
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHoldout
+  suffix: Chameleon, Holdout
+  name: Sharp Profile
+  description: MI13 holdout kit hat-knife.
+  components:
+    - type: Sprite
+      sprite: Clothing/Head/Hats/greyfedora.rsi
+    - type: Clothing
+      sprite: Clothing/Head/Hats/greyfedora.rsi
+    # Holdout storage.
+    - type: ItemSlots
+      slots:
+        holdout:
+          name: Stash 
+    - type: ItemSlotRestrictions
+      maxSize: Tiny
+    - type: HiddenStorage
+      openDelay: 0.2
+      # Secondary, bladed
+    - type: MeleeWeapon
+      hidden: true
+      wideAnimationRotation: 90
+      attackRate: 1.2
+      damage:
+        types:
+          Slash: 5
+    - type: DamageOtherOnHit
+      damage:
+        types:
+          Slash: 10
+    - type: LandAtCursor
+    - type: Sharp
+    - type: ChameleonClothing
+      slot: [HEAD]
+      default: ClothingHeadHatFedoraGrey
+    - type: UserInterface
+      interfaces:
+        enum.ChameleonUiKey.Key:
+          type: ChameleonBoundUserInterface

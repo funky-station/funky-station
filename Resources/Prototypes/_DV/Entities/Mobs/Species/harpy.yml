@@ -160,6 +160,7 @@
     - FootstepSound
     - DoorBumpOpener
     - HarpyEmotes
+    - AnomalyHost
   - type: StepTriggerImmune
     whitelist:
       types:

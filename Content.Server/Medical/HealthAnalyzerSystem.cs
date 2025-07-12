@@ -265,8 +265,12 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         if (HasComp<TargetingComponent>(target))
             body = _bodySystem.GetBodyPartStatus(target);
         // Shitmed Change End
-        if (HasComp<UnrevivableComponent>(target))
-            unrevivable = true;
+        if (TryComp<UnrevivableComponent>(target, out var compUnrevivable))
+        {
+            if (compUnrevivable.Analyzable)
+                unrevivable = true;
+        }
+
 
         _uiSystem.ServerSendUiMessage(healthAnalyzer, HealthAnalyzerUiKey.Key, new HealthAnalyzerScannedUserMessage(
             GetNetEntity(target),

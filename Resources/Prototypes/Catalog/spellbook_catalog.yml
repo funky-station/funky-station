@@ -14,19 +14,6 @@
     stock: 1
 
 - type: listing
-  id: SpellbookRodForm
-  name: spellbook-polymorph-rod-name
-  description: spellbook-polymorph-rod-desc
-  productAction: ActionPolymorphWizardRod
-  cost:
-    WizCoin: 3
-  categories:
-  - SpellbookOffensive
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-- type: listing
   id: SpellbookSmite
   name: spellbook-smite-name
   description: spellbook-smite-desc
@@ -186,6 +173,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookMindSwap
+  name: spellbook-mind-swap-name
+  description: spellbook-mind-swap-description
+  productAction: ActionMindSwap
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1                       
+    
 # Equipment
 - type: listing
   id: SpellbookWandDoor
@@ -272,7 +272,7 @@
   description: spellbook-event-summon-ghosts-description
   productAction: ActionSummonGhosts
   cost:
-    WizCoin: 0
+    WizCoin: 1 #Funky: Making this cost a wizcoin, so a wizard that wants ghosts has to invest something to get ghosts
   categories:
   - SpellbookEvents
   conditions:

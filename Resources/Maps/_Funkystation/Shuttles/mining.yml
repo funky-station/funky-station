@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Grid
+  engineVersion: 255.0.0
+  forkId: ""
+  forkVersion: ""
+  time: 07/08/2025 22:20:16
+  entityCount: 160
+maps: []
+grids:
+- 181
+orphans:
+- 181
+nullspace: []
 tilemap:
   0: Space
   51: FloorGrayConcrete
@@ -94,7 +105,6 @@ entities:
             color: '#FFFFFFFF'
             id: Delivery
           decals:
-            2: -4,-1
             186: -6,2
             187: -5,2
         - node:
@@ -141,8 +151,6 @@ entities:
             43: -5,-5
             44: -5,-4
             45: -5,-3
-            46: -5,-2
-            47: -4,-2
             48: -1,-2
         - node:
             cleanable: True
@@ -158,8 +166,6 @@ entities:
             color: '#A4610696'
             id: QuarterTileOverlayGreyscale
           decals:
-            8: -5,-2
-            9: -5,-1
             18: -3,1
         - node:
             color: '#A4610696'
@@ -180,6 +186,11 @@ entities:
           decals:
             10: -1,-1
             11: -1,-2
+        - node:
+            color: '#FFFFFFFF'
+            id: WarnBox
+          decals:
+            193: -4,-1
         - node:
             color: '#FFFFFFFF'
             id: WarnCornerSmallGreyscaleSE
@@ -207,6 +218,12 @@ entities:
             178: -2,-5
             179: -3,-5
             180: -4,-5
+        - node:
+            color: '#FFFFFFFF'
+            id: WarnLineW
+          decals:
+            195: -4,-2
+            196: -5,-2
         - node:
             angle: -4.71238898038469 rad
             color: '#00000034'
@@ -245,9 +262,7 @@ entities:
             128: -1.2839293,-3.3127022
             129: -0.94017935,-3.5627022
             130: -5.2526793,-2.4064522
-            131: -4.8620543,-2.2814522
             132: -4.2526793,-2.6720772
-            133: -4.0026793,-2.3595772
         - node:
             cleanable: True
             angle: -1.5707963267948966 rad
@@ -378,8 +393,6 @@ entities:
           decals:
             155: -1.4245543,-4.7713237
             156: -1.7526793,-4.3650737
-            157: -4.0808043,-1.8806987
-            158: -4.3464293,-1.9119487
             159: -3.5183043,-2.8338237
             160: -4.8620543,-4.0994487
             161: -4.4714293,-4.7869487
@@ -400,10 +413,7 @@ entities:
             color: '#EFB34109'
             id: splatter
           decals:
-            169: -4.6901793,-1.6619487
-            170: -3.7370543,-1.4275737
             171: -3.2995543,-1.4588237
-            172: -3.5651793,-0.8494487
             173: -3.5339293,4.1436462
             174: -3.3464293,3.6905212
             175: -4.0495543,3.1123965
@@ -488,9 +498,25 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -512,6 +538,13 @@ entities:
       shakeTimes: 10
     - type: GasTileOverlay
     - type: GridPathfinding
+- proto: AirCanister
+  entities:
+  - uid: 152
+    components:
+    - type: Transform
+      pos: -3.5,-4.5
+      parent: 181
 - proto: AirlockCargoGlass
   entities:
   - uid: 29
@@ -619,6 +652,13 @@ entities:
     components:
     - type: Transform
       pos: -1.4982989,5.541272
+      parent: 181
+- proto: ButtonFrameExit
+  entities:
+  - uid: 148
+    components:
+    - type: Transform
+      pos: -5.5,-0.5
       parent: 181
 - proto: CableApcExtension
   entities:
@@ -894,13 +934,17 @@ entities:
       rot: 3.141592653589793 rad
       pos: -2.5,5.5
       parent: 181
-- proto: ComputerCargoOrders
-  entities:
-  - uid: 153
+  - uid: 135
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
+      rot: 3.141592653589793 rad
       pos: -3.5,5.5
+      parent: 181
+  - uid: 137
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,3.5
       parent: 181
 - proto: ComputerShuttle
   entities:
@@ -908,6 +952,14 @@ entities:
     components:
     - type: Transform
       pos: -2.5,6.5
+      parent: 181
+- proto: CrowbarRed
+  entities:
+  - uid: 155
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.43879056,-4.4339213
       parent: 181
 - proto: GasPort
   entities:
@@ -1013,6 +1065,20 @@ entities:
     - type: Transform
       pos: -0.5,-0.5
       parent: 181
+- proto: MedkitFilled
+  entities:
+  - uid: 146
+    components:
+    - type: Transform
+      pos: -0.50712013,-4.4666853
+      parent: 181
+- proto: OreProcessor
+  entities:
+  - uid: 139
+    components:
+    - type: Transform
+      pos: -4.5,-0.5
+      parent: 181
 - proto: PersonalAI
   entities:
   - uid: 167
@@ -1084,6 +1150,14 @@ entities:
     - type: Transform
       pos: -4.5,-6.5
       parent: 181
+- proto: Recycler
+  entities:
+  - uid: 149
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -3.5,-0.5
+      parent: 181
 - proto: SignalButtonExt1
   entities:
   - uid: 100
@@ -1094,11 +1168,14 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         69:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         37:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         47:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
 - proto: SMESBasic
   entities:
   - uid: 24
@@ -1146,6 +1223,22 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -6.5,-0.5
       parent: 181
+- proto: TwoWayLever
+  entities:
+  - uid: 150
+    components:
+    - type: Transform
+      pos: -3.5,-1.5
+      parent: 181
+    - type: DeviceLinkSource
+      linkedPorts:
+        149:
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
 - proto: WallSolid
   entities:
   - uid: 30
@@ -1375,5 +1468,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -1.5,7.5
+      parent: 181
+- proto: Wrench
+  entities:
+  - uid: 153
+    components:
+    - type: Transform
+      pos: -0.32941556,-4.3245463
       parent: 181
 ...

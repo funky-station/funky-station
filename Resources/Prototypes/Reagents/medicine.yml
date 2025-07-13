@@ -821,9 +821,9 @@
   color: "#fcf7f9"
   metabolisms:
     Medicine:
-      effects:like
+      effects:
       - !type:HealthChange
-      damage:
+        damage:
           groups:
             Burn: -1.2 # funky
             Toxin: -1.2 # funky

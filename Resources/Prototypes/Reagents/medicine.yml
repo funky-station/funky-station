@@ -823,7 +823,7 @@
     Medicine:
       effects:like
       - !type:HealthChange
-        damage:
+         damage:
           groups:
             Burn: -1.2 # funky
             Toxin: -1.2 # funky

@@ -3583,3 +3583,11 @@ Entries:
       message: More bottles for Chemists to facilitate the increased use of bottles
   id: 432
   time: '2025-07-12T01:13:12.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Fix
+      message: >-
+        Core should now contain most of the up to date things, but there may be
+        some stuff missing still, which I will update as I get feedback.
+  id: 433
+  time: '2025-07-13T22:48:38.0000000+00:00'

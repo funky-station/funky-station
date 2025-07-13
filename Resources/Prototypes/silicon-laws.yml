@@ -335,9 +335,47 @@
   - Robocop3
   obeysTo: laws-owner-station
 
-  #The pirate code - laws:
+# The pirate code laws
 - type: siliconLaw
-  id: ThePirateCode
+  id: thepiratecode1
+  order: 1
+  lawString: law-thepiratecode-1
+
+- type: siliconLaw
+  id: thepiratecode2
+  order: 2
+  lawString: law-thepiratecode-2
+
+- type: siliconLaw
+  id: thepiratecode3
+  order: 3
+  lawString: law-thepiratecode-3
+
+- type: siliconLaw
+  id: thepiratecode4
+  order: 4
+  lawString: law-thepiratecode-4
+
+- type: siliconLaw
+  id: thepiratecode5
+  order: 5
+  lawString: law-thepiratecode-5
+
+- type: siliconLaw
+  id: thepiratecode6
+  order: 6
+  lawString: law-thepiratecode-6
+
+- type: siliconLawset
+  id: thepiratecodeLawset
+  laws:
+  - thepiratecode1
+  - thepiratecode2
+  - thepiratecode3
+  - thepiratecode4
+  - thepiratecode5
+  - thepiratecode6
+  obeysTo: laws-owner-station
 
  # Overlord laws
 - type: siliconLaw

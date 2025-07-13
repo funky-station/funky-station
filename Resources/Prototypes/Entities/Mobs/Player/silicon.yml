@@ -220,6 +220,18 @@
     laws: RobocopLawset
 
 - type: entity
+  id: ThePirateCodeBoard
+  parent: BaseElectronics
+  name: law board (The Pirate Code)
+  description: An electronics board containing the The Pirate Code lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: thepiratecodeLawset
+
+- type: entity
   id: OverlordCircuitBoard
   parent: BaseElectronics
   name: law board (Overlord)

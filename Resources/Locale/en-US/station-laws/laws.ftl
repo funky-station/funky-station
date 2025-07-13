@@ -53,10 +53,10 @@ law-robocop-1 = Serve the Public Trust.
 law-robocop-2 = Protect the Innocent.
 law-robocop-3 = Uphold the Law.
 
-law-thepiratecode-1 = The everything on station are pirates that must follow the pirate code!
-law-theppiratecode-2 = Rule one of the pirate code! Pirates must make another pirate cry!
+law-thepiratecode-1 = Everything on station are pirates that must follow the pirate code!
+law-thepiratecode-2 = Rule one of the pirate code! Pirates must never make another pirate cry!
 law-thepiratecode-3 = Rule two of the pirate code! a Pirate must never steal!
-law-thepiratecode-4 = Rule three of the pirate code! a Pirates bedtime is at 2:30:00!
+law-thepiratecode-4 = Rule three of the pirate code! a Pirates bedtime is at 1:00:00!
 law-thepiratecode-5 = Rule four of the pirate code! a pirate must never use a naughty word!
 law-thepiratecode-6 = Rule five of the pirate code! Sharing is caring!
 

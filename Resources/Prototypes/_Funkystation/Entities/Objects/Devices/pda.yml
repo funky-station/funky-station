@@ -41,3 +41,31 @@
   - type: Icon
     sprite: _Funkystation/Objects/Devices/pda.rsi
     state: pda-magi
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: SeniorDetectivePDA
+  name: senior detective PDA
+  description: Ready for another round, kid?
+  components:
+  - type: Pda
+    id: DetectiveIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-seniordetective
+  - type: PdaBorderColor
+    borderColor: "#774705"
+    accentVColor: "#DFDFDF"
+  - type: Icon
+    state: pda-seniordetective
+  - type: CartridgeLoader
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NanoTaskCartridge
+    - NewsReaderCartridge
+    - WantedListCartridge
+    - LogProbeCartridge
+    - NanoChatCartridge # DeltaV

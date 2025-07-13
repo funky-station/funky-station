@@ -57,3 +57,24 @@ thaven-mood-delicacy-desc = {$edible} is a traditional Thaven delicacy. All Thav
 
 thaven-mood-holiday-name = Today is {$day}
 thaven-mood-holiday-desc = You think you remember the traditional celebrations...
+
+thaven-mood-royalrealm-name = The Royal Realm
+thaven-mood-royalrealm-desc = The station is a feudal realm. The captain is king, the department heads nobility, and the rest of the station knights, servants, or peasants.
+
+thaven-mood-oathbound-name = Oathbound
+thaven-mood-oathbound-desc = A Thaven must honor all oaths made. A Thaven may never directly tell a lie, but can hide the truth through deceptive wording.
+
+thaven-mood-gourmetgas-name = Gourmet Gassier
+thaven-mood-gourmetgas-desc = Oxygen and Nitrogen are bland, and Thaven deserve something more. You must breath an exotic gas at all times.
+
+thaven-mood-tunneldweller-name = Tunnel Dwellers
+thaven-mood-tunneldweller-desc = The maintenance tunnels are safe and cozy, a home to all Thaven. Build in them a place worth living.
+
+thaven-mood-prankwar-name = Prank War
+thaven-mood-prankwar-desc = A clownish spirit has infected the station, and you find friendly pranks, especially against fellow Thaven, to be great fun.
+
+thaven-mood-starpeople-name = People of the Stars
+thaven-mood-starpeople-desc = Like their carp-kin, Thaven are beings of the stellar sea. You feel drawn to space, whether to explore, discover, or construct something new.
+
+thaven-mood-simsshared-name = The Sims
+thaven-mood-simsshared-desc = You are not on a ‘station.’ This is just a very large house. Each person in it is a relative of you.

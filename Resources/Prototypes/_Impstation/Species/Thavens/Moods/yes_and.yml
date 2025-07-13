@@ -41,6 +41,16 @@
   - Centrist
   - PublicSector
   - SpeechRestriction
+  - Carpkin
+  - PettingZoo
+  - JestersPrivilege
+  - SlipNSlide
+  - GreenThumb
+  - DrySkin
+  - SpeciesBlind
+  - Haunted
+  - IronKnight
+  - PetRock
 
 # You are extremely possessive of your property. Refuse to relinquish it, and if it is misplaced or stolen, it must be retrieved at all costs.
 - type: thavenMood
@@ -93,6 +103,11 @@
   moodDesc: thaven-mood-worship-silicons-desc
   conflicts:
   - DetestSilicons
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
+  - Security
 
 # Food must be consumed in the manner of a proper meal - seated at a table, in courses, with dishes and utensils.
 - type: thavenMood
@@ -302,6 +317,11 @@
   id: ImposterSyndrome
   moodName: thaven-mood-imposter-syndrome-name
   moodDesc: thaven-mood-imposter-syndrome-desc
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
+  - Security
 
 # Yes Man: You just can't say "no." You must agree with everyone, and perform any task requested of you, regardless of its source.
 - type: thavenMood
@@ -310,6 +330,11 @@
   moodDesc: thaven-mood-yes-man-desc
   conflicts:
   - Centrist
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
+  - Security
 
 # Centrist: You are ambivalent towards any and all decisions, and refuse to take sides.
 - type: thavenMood
@@ -318,6 +343,11 @@
   moodDesc: thaven-mood-centrist-desc
   conflicts:
   - YesMan
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
+  - Security
 
 # Public Sector: Your job should not be done in private if it can be helped. If at all possible, you should renovate the facilities to allow public access to your workplace.
 - type: thavenMood
@@ -343,6 +373,76 @@
   moodDesc: thaven-mood-speech-restriction-desc
   moodVars:
     speechType: MoodSpeechRestrictions
+
+# Space carp and space dragons are long lost kin. They should be honored as such, and no harm should be brought to them.
+- type: thavenMood
+  id: Carpkin
+  moodName: thaven-mood-carpkin-name
+  moodDesc: thaven-mood-carpkin-desc
+  jobConflicts:
+  - Security
+
+# You must try to pet any animal you see.
+- type: thavenMood
+  id: PettingZoo
+  moodName: thaven-mood-pettingzoo-name
+  moodDesc: thaven-mood-pettingzoo-desc
+
+# The clown possesses secret wisdom, living unbound by the constraints of society. Pay careful attention to their words and actions.
+- type: thavenMood
+  id: JestersPrivilege
+  moodName: thaven-mood-jestersprivilege-name
+  moodDesc: thaven-mood-jestersprivilege-desc
+  jobConflicts:
+  - Security
+  - Civilian
+
+# Gardening makes you calm, happy even. Grow a garden of your own.
+- type: thavenMood
+  id: GreenThumb
+  moodName: thaven-mood-greenthumb-name
+  moodDesc: thaven-mood-greenthumb-desc
+
+# Sliding across the floor is a fun and efficent way to travel the station. Work to make the station more slippery.
+- type: thavenMood
+  id: SlipNSlide
+  moodName: thaven-mood-slipnslide-name
+  moodDesc: thaven-mood-slipnslide-desc
+  jobConflicts:
+  - Security
+
+# Your skin is sensitive and will painful dry out without frequent contact with water. Total immersion is best, but anything is better than nothing.
+- type: thavenMood
+  id: DrySkin
+  moodName: thaven-mood-dryskin-name
+  moodDesc: thaven-mood-dryskin-desc
+
+# All people are Thaven, even if they claim otherwise.
+- type: thavenMood
+  id: SpeciesBlind
+  moodName: thaven-mood-speciesblind-name
+  moodDesc: thaven-mood-speciesblind-desc
+  conflicts:
+  - OneTrueThaven
+
+# Ghosts are real, and they're haunting you. Any strange events around you are likely the cause of malicious spirits.
+- type: thavenMood
+  id: Haunted
+  moodName: thaven-mood-haunted-name
+  moodDesc: thaven-mood-haunted-desc
+
+#  Mechs are the most noble machine, fearsome engines of combat and grace. Respect anyone who possesses one, and strive to gain one for yourself.
+- type: thavenMood
+  id: IronKnight
+  moodName: thaven-mood-ironknight-name
+  moodDesc: thaven-mood-ironknight-desc
+  
+# One of your inanimate possessions is very dear to you. It is your best friend, and it has thoughts, feelings, and needs.
+- type: thavenMood
+  id: PetRock
+  moodName: thaven-mood-petrock-name
+  moodDesc: thaven-mood-petrock-desc
+
 
 # The color [COLOR] is the only acceptable color for decorations. Endeavor to make your environment this color where possible.
 #- type: thavenMood

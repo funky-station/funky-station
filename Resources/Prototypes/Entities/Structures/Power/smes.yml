@@ -100,6 +100,19 @@
       - VoltageNetworks
       - Power
 
+    # Interface
+    - type: BatteryInterface
+      minChargeRate: 5000
+      maxChargeRate: 300000 # Goobstation - SMES buff
+      minSupply: 5000
+      maxSupply: 300000 # Goobstation - SMES buff
+    - type: UserInterface
+      interfaces:
+        enum.BatteryUiKey.Key:
+          type: BatteryBoundUserInterface
+    - type: ActivatableUI
+      key: enum.BatteryUiKey.Key
+
 # SMES' in use
 
 - type: entity

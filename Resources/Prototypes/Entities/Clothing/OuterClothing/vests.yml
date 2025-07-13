@@ -76,18 +76,24 @@
     tags:
     - HiViz
 
-#(Bartender) vest
+#(Bartender) vest -  #Funky - bartender changes
 - type: entity
-  parent: ClothingOuterBase
+  parent: [ClothingOuterArmorBasic, ClothingOuterStorageBase, AllowSuitStorageClothing]
   id: ClothingOuterVest
   name: vest
-  description: A thick vest with a rubbery, water-resistant shell.
+  description: A neat bartender vest, reinforced with kevlar.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Vests/vest.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Vests/vest.rsi
-
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,2,1
+    whitelist:
+      tags:
+      - BartendingTool
 #Tank Harness
 #- type: entity
  # parent: [ClothingOuterBase, AllowSuitStorageClothingGasTanks]

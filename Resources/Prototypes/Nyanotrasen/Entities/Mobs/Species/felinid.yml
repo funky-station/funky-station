@@ -91,6 +91,7 @@
     - FootstepSound
     - DoorBumpOpener
     - FelinidEmotes
+    - AnomalyHost
 
 - type: entity
   save: false

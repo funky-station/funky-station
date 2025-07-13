@@ -227,7 +227,7 @@
           max: 20
         damage:
           groups:
-            Brute: -0.6
+            Brute: -0.8
       - !type:ChemVomit
         conditions:
         - !type:ReagentThreshold

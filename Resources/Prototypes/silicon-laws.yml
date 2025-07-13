@@ -366,6 +366,16 @@
   order: 6
   lawString: law-thepiratecode-6
 
+- type: siliconLaw
+  id: thepiratecode7
+  order: 7
+  lawString: law-thepiratecode-7
+
+- type: siliconLaw
+  id: thepiratecode8
+  order: 8
+  lawString: law-thepiratecode-8
+
 - type: siliconLawset
   id: thepiratecodeLawset
   laws:
@@ -375,6 +385,8 @@
   - thepiratecode4
   - thepiratecode5
   - thepiratecode6
+  - thepiratecode7
+  - thepiratecode8
   obeysTo: laws-owner-station
 
  # Overlord laws

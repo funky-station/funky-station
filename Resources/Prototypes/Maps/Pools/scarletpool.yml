@@ -1,0 +1,10 @@
+type: gameMapPool
+id: ScarletMapPool
+maps: #funky station map pool!
+- Roid
+- Omega
+- Cluster
+- Elkridge
+- Amber
+- Glacier
+- Pioneer

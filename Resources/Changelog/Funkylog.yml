@@ -3601,3 +3601,9 @@ Entries:
       message: some lightbulbs to core
   id: 434
   time: '2025-07-14T03:41:09.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Map rotation for Scarlet and Cirno
+  id: 435
+  time: '2025-07-14T05:08:59.0000000+00:00'

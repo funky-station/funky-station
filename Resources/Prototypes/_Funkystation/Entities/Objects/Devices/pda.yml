@@ -91,7 +91,7 @@
   - type: Pda
     id: BlueshieldOfficerIDCard
     penSlot:
-      startingItem: LuxuryPen
+      startingItem: HoloflarePen
       priority: -1
       whitelist:
         tags:
@@ -118,3 +118,31 @@
       - LogProbeCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
+
+- type: entity
+  parent: BasePDA
+  id: NanotrasenRepresentativePDA
+  name: nanotrasen representative PDA
+  description: Make everyone anxious with your presense.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/pda.rsi
+  - type: Pda
+    id: NanotrasenRepresentativeIDCard
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-ntr
+  - type: PdaBorderColor
+    borderColor: "#258E25"
+    accentVColor: "#C3B9B9"
+  - type: Icon
+    sprite: _Funkystation/Objects/Devices/pda.rsi
+    state: pda-ntr

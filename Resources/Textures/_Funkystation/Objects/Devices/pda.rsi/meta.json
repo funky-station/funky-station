@@ -24,6 +24,9 @@
         },
         {
             "name": "pda-bso"
+        },
+        {
+            "name": "pda-ntr"
         }
     ]
 }

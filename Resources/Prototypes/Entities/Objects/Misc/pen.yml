@@ -170,3 +170,43 @@
     - Pen
   - type: SignatureWriter # imp
     color: "#7d1ba5"
+
+- type: entity
+  name: holoflare pen
+  parent: Pen
+  id: HoloflarePen
+  description: Pen with robust casing. Contains microscopic holoflare launcher.
+  components:
+  - type: Sprite
+    state: holoflare_pen
+  - type: Gun
+    selectedMode: SemiAuto
+    fireRate: 2
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/flaregun.ogg
+    projectileSpeed: 15
+  - type: Battery
+    maxCharge: 240
+    startingCharge: 240
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 5
+  - type: ProjectileBatteryAmmoProvider
+    proto: HoloFlareCyan
+    fireCost: 240
+  - type: EnergyGun
+    fireModes:
+    - proto: HoloFlareCyan
+      fireCost: 240
+      name: cyan
+      state: cyan
+    - proto: HoloFlareRed
+      fireCost: 240
+      name: red
+      state: red
+    - proto: HoloFlareYellow
+      fireCost: 240
+      name: yellow
+      state: yellow

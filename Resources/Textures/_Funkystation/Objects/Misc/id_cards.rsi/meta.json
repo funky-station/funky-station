@@ -6,41 +6,47 @@
     "x": 32,
     "y": 32
   },
-  "states": [
-    {
-      "name": "default"
-    },
-	{
-      "name": "idiaa"
-    },
-    {
-      "name": "idmagistrate"
-    },
-	{
-      "name": "retro"
-    },
-    {
-      "name": "retro_security"
-    },
-    {
-      "name": "retro_research"
-    },
-    {
-      "name": "retro_medical"
-    },
-    {
-      "name": "retro_engineering"
-    },
-    {
-      "name": "retro_nanotrasen"
-    },
-    {
-      "name": "default-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "default-inhand-right",
-      "directions": 4
-    }
-  ]
+    "states": [
+        {
+            "name": "default"
+        },
+        {
+            "name": "idiaa"
+        },
+        {
+            "name": "idbso"
+        },
+        {
+            "name": "idntr"
+        },
+        {
+            "name": "idmagistrate"
+        },
+        {
+            "name": "retro"
+        },
+        {
+            "name": "retro_security"
+        },
+        {
+            "name": "retro_research"
+        },
+        {
+            "name": "retro_medical"
+        },
+        {
+            "name": "retro_engineering"
+        },
+        {
+            "name": "retro_nanotrasen"
+        },
+        {
+            "name": "default-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "default-inhand-right",
+            "directions": 4
+        }
+    ]
 }

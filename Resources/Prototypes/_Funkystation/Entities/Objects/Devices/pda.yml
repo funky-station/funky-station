@@ -89,7 +89,7 @@
   - type: Sprite
     sprite: _Funkystation/Objects/Devices/pda.rsi
   - type: Pda
-    id: InternalAffairsAgentIDCard
+    id: BlueshieldOfficerIDCard
     penSlot:
       startingItem: LuxuryPen
       priority: -1

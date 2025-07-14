@@ -1,7 +1,7 @@
 - type: gameMapPool
   id: CirnoMapPool
   maps: #funky station
-  - Roid
+  - Roid_outpost
   - Amber
   - Elkridge
   - Glacier

@@ -3591,3 +3591,13 @@ Entries:
         some stuff missing still, which I will update as I get feedback.
   id: 433
   time: '2025-07-13T22:48:38.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Fix
+      message: Core
+    - type: Remove
+      message: Core bugs
+    - type: Add
+      message: some lightbulbs to core
+  id: 434
+  time: '2025-07-14T03:41:09.0000000+00:00'

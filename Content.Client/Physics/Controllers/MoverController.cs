@@ -40,7 +40,8 @@ public sealed class MoverController : SharedMoverController
             args.IsPredicted = true;
     }
 
-    private void OnUpdateRelayTargetPredicted(Entity<MovementRelayTargetComponent> entity, ref UpdateIsPredictedEvent args)
+    private void OnUpdateRelayTargetPredicted(Entity<MovementRelayTargetComponent> entity,
+        ref UpdateIsPredictedEvent args)
     {
         if (entity.Comp.Source == _playerManager.LocalEntity)
             args.IsPredicted = true;
@@ -90,7 +91,7 @@ public sealed class MoverController : SharedMoverController
     {
         base.UpdateBeforeSolve(prediction, frameTime);
 
-        if (_playerManager.LocalEntity is not {Valid: true} player)
+        if (_playerManager.LocalEntity is not { Valid: true } player)
             return;
 
         if (RelayQuery.TryGetComponent(player, out var relayMover))
@@ -101,39 +102,11 @@ public sealed class MoverController : SharedMoverController
 
     private void HandleClientsideMovement(EntityUid player, float frameTime)
     {
-        if (!MoverQuery.TryGetComponent(player, out var mover) ||
-            !XformQuery.TryGetComponent(player, out var xform))
-        {
+        if (!MoverQuery.TryGetComponent(player, out var mover))
             return;
-        }
-
-        var physicsUid = player;
-        PhysicsComponent? body;
-        var xformMover = xform;
-
-        if (mover.ToParent && RelayQuery.HasComponent(xform.ParentUid))
-        {
-            if (!PhysicsQuery.TryGetComponent(xform.ParentUid, out body) ||
-                !XformQuery.TryGetComponent(xform.ParentUid, out xformMover))
-            {
-                return;
-            }
-
-            physicsUid = xform.ParentUid;
-        }
-        else if (!PhysicsQuery.TryGetComponent(player, out body))
-        {
-            return;
-        }
 
         // Server-side should just be handled on its own so we'll just do this shizznit
-        HandleMobMovement(
-            player,
-            mover,
-            physicsUid,
-            body,
-            xformMover,
-            frameTime);
+        HandleMobMovement((player, mover), frameTime);
     }
 
     protected override bool CanSound()

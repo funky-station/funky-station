@@ -275,7 +275,7 @@ accent-cowboy-words-87 = very
 accent-cowboy-replacement-87 = mighty
 
 accent-cowboy-words-88 = worried
-accent-cowboy-replacement-89 = rattled
+accent-cowboy-replacement-88 = rattled
 
 accent-cowboy-words-90 = wow
 accent-cowboy-replacement-90 = by gum

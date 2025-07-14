@@ -313,7 +313,7 @@
         conditions:
         - !type:ReagentThreshold
           reagent: Nocturine
-          min: 15
+          min: 8
         key: ForcedSleep
         component: ForcedSleeping
         refresh: false

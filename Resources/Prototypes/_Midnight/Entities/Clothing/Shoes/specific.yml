@@ -1,0 +1,55 @@
+- type: entity
+  parent: ClothingShoesBootsLaceup
+  id: ClothingShoesHoldout
+  suffix: Chameleon, Holdout
+  name: Phantom step
+  description: MI13 holdout kit quiet shoes. how are you seeing this description?
+  components:
+    # Holdout storage.
+    - type: ItemSlots
+      slots:
+        holdout:
+          name: Stash 
+    - type: ItemSlotRestrictions
+      maxSize: Small # Its like a pocket
+      blacklistedTags: [Sidearm] # No wedges!
+    - type: HiddenStorage
+      openDelay: 0.2
+    # Secondary ability - Quiet Walk.
+    - type: MuteWalkingFootstep
+    # Chameleon.
+    - type: ChameleonClothing
+      slot: FEET
+      default: ClothingShoesBootsLaceup
+    - type: UserInterface
+      interfaces:
+        enum.ChameleonUiKey.Key:
+          type: ChameleonBoundUserInterface
+
+- type: entity
+  parent: ClothingShoesBootsWork
+  id: ClothingShoesSmuggler
+  suffix: Chameleon, Holdout
+  name: Sneak-ers
+  description: Smuggler kit quiet shoes. how are you seeing this description?
+  components:
+    # Holdout storage.
+    - type: ItemSlots
+      slots:
+        holdout:
+          name: Stash 
+    - type: ItemSlotRestrictions
+      maxSize: Small # Its like a pocket
+      blacklistedTags: [Sidearm] # No wedges!
+    - type: HiddenStorage
+      openDelay: 0.2
+    # Secondary ability - Quiet Walk.
+    - type: MuteWalkingFootstep
+    # Chameleon.
+    - type: ChameleonClothing
+      slot: FEET
+      default: ClothingShoesBootsWork
+    - type: UserInterface
+      interfaces:
+        enum.ChameleonUiKey.Key:
+          type: ChameleonBoundUserInterface

@@ -69,3 +69,26 @@
     - WantedListCartridge
     - LogProbeCartridge
     - NanoChatCartridge # DeltaV
+
+- type: entity
+  parent: BasePDA
+  id: BlueshieldOfficerPDA
+  name: blueshield officer PDA
+  description: Remember, you are NOT security.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/pda.rsi
+  - type: Pda
+    id: InternalAffairsAgentIDCard
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#004281"
+    accentVColor: "#469EF7"
+  - type: Icon
+    sprite: _Funkystation/Objects/Devices/pda.rsi
+    state: pda-bso

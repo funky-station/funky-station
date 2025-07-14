@@ -829,7 +829,6 @@
             Toxin: -1.2 # funky
             Airloss: -1.2 # funky
             Brute: -1.2 # funky
-          Radiation: -1.2 #funky
             
 
 - type: reagent

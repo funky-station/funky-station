@@ -825,10 +825,10 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -1.2 # funky
-            Toxin: -1.2 # funky
-            Airloss: -1.2 # funky
-            Brute: -1.2 # funky
+            Burn: -2.0 # funky
+            Toxin: -2.0 # funky
+            Airloss: -2.0 # funky
+            Brute: -2.0 # funky
             
 
 - type: reagent

@@ -94,17 +94,47 @@
 - type: loadout
   id: ChaplainBibleChristian
   storage:
-     back: 
+     back:
      - Bible
 
 - type: loadout
   id: ChaplainBibleAtheist
   storage:
-     back: 
+     back:
      - BibleAtheist
 
 - type: loadout
   id: ChaplainBibleBhuddhist
   storage:
-     back: 
+     back:
      - BibleBhuddhist # The item's not even spelt correctly
+
+- type: loadout
+  id: BibleDruid
+  storage:
+    back:
+    - BibleDruid
+
+- type: loadout
+  id: BibleNanoTrasen
+  storage:
+    back:
+    - BibleNanoTrasen
+
+- type: loadout
+  id: BibleSatanic
+  storage:
+    back:
+    - BibleSatanic
+
+- type: loadout
+  id: BibleQuran
+  storage:
+    back:
+    - BibleQuran
+
+- type: loadout
+  id: BibleTanakh
+  storage:
+    back:
+    - BibleTanakh

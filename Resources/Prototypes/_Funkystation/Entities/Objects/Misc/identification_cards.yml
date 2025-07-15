@@ -24,6 +24,32 @@
   - type: PresetIdCard
     job: Magistrate
 
+- type: entity
+  parent: IDCardStandard
+  id: BlueshieldOfficerIDCard
+  name: blueshield officer ID card
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+    - state: idbso
+  - type: PresetIdCard
+    job: BlueshieldOfficer
+
+- type: entity
+  parent: IDCardStandard
+  id: NanotrasenRepresentativeIDCard
+  name: nanotrasen representative ID card
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+    - state: idntr
+  - type: PresetIdCard
+    job: NanotrasenRepresentative
+
 # Charlie Station / Ancient ID Cards
 
 - type: entity

@@ -278,3 +278,21 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
   - type: FlashImmunity
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesDealbreakers
+  name: Dealbreakers 
+  description: Now YOUR chance to be a LEGALLY DISTINCT [[HYPERLINK BLOCKED]] for ONLY [[9.99]]!
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/dealbreakers.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/dealbreakers.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: VisionCorrection

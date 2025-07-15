@@ -2367,3 +2367,16 @@
   solids:
     FoodShrimpRaw : 1
     FoodButterSlice: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMoproach # TODO: Move this to be an actual surgery instead, once surgery gets implemented.
+  name: moproach recipe
+  result: MobMoproach
+  time: 30
+  group: Other
+  reagents:
+    SpaceCleaner: 15
+  solids:
+    MobMothroach: 1
+    OrganAnimalHeart: 1
+    MoproachShoes: 1

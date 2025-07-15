@@ -30,3 +30,11 @@
   icon:
     sprite: Clothing/OuterClothing/Suits/iansuit.rsi
     state: icon
+
+- type: construction
+  id: MoproachShoes
+  graph: MoproachShoes
+  startNode: start
+  targetNode: shoes
+  category: construction-category-misc
+  objectType: Item

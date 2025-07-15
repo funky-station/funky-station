@@ -11,7 +11,6 @@
     CrateFoodPizzaLarge: 0.25
     CrateFoodSoftdrinks: 0.25
     CrateFunInstrumentsVariety: 0.25
-    CrateSalvageEquipment: 0.25
     RandomArtifactSpawner: 0.25
     # weighted down since it sells for a lot
     NuclearBombKeg: 0.1
@@ -27,8 +26,6 @@
     IngotSilver: 1.0
     SheetPlasma: 1.0
     SheetUranium: 1.0
-    CratePartsT3: 1.0
-    CratePartsT3T4: 0.5
     TechnologyDiskRare: 0.5
     # cloning boards
     CloningPodMachineCircuitboard: 0.5
@@ -57,7 +54,6 @@
     # rare machinery
     AmmoTechFabCircuitboard: 1.0
     ResearchAndDevelopmentServerMachineCircuitboard: 1.0
-    CratePartsT4: 1.0
     PowerCellAntiqueProto: 0.25
     # basic weapons
     CrateArmorySMG: 1.0

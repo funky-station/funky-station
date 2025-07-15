@@ -47,7 +47,7 @@
   category: construction-category-clothing
   description: These retro glasses remind you of bodybagging rotting corpses.
   icon: { sprite: _Funkystation/Clothing/Eyes/Jamjars/medjar.rsi, state: icon }
-  objectType: Item  
+  objectType: Item
 
 - type: construction
   name: chemical analysis jamjar glasses
@@ -58,7 +58,7 @@
   category: construction-category-clothing
   description: These retro glasses remind you of breaking SOP by making explosives.
   icon: { sprite: _Funkystation/Clothing/Eyes/Jamjars/chemjar.rsi, state: icon }
-  objectType: Item  
+  objectType: Item
 
 - type: construction
   name: diagnostics jamjar glasses
@@ -69,8 +69,8 @@
   category: construction-category-clothing
   description: These retro glasses remind you of tampering with borgs' laws.
   icon: { sprite: _Funkystation/Clothing/Eyes/Jamjars/robojar.rsi, state: icon }
-  objectType: Item  
-  
+  objectType: Item
+
 - type: construction
   name: engineering jamgoggles
   id: ClothingEyesGlassesJamgog
@@ -80,7 +80,7 @@
   category: construction-category-clothing
   description: These retro glasses remind you of setting the tesla loose.
   icon: { sprite: _Funkystation/Clothing/Eyes/Jamjars/jamgog.rsi, state: icon }
-  objectType: Item  
+  objectType: Item
 
 - type: construction
   name: sungar glasses
@@ -102,4 +102,15 @@
   category: construction-category-clothing
   description: Now with 99% less artificial intelligence.
   icon: { sprite: _Funkystation/Clothing/Eyes/sungar.rsi, state: icon }
-  objectType: Item  
+  objectType: Item
+
+- type: construction
+  name: lizard plushie cloak
+  id: ClothingHeadLizardCloak
+  graph: ClothingHeadLizardCloak
+  startNode: start
+  targetNode: helmet
+  category: construction-category-clothing
+  description: Wow, you skinned a stuffed animal, maybe check in with the station psychologist?
+  icon: { sprite: _Funkystation/Clothing/head/hats/lizard-cloak.rsi, state: icon }
+  objectType: Item

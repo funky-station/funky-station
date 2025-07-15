@@ -23,7 +23,6 @@
     ears: ClothingHeadsetService
   storage:
     back:
-    - Bible
     - RubberStampChaplain
     - NullRodDefault
     - CosmicCenser # DeltaV - Cosmic Cult

@@ -1,0 +1,6 @@
+
+- type: loadout
+  id: TapeRecorder
+  storage:
+    back:
+    - TapeRecorderFilled

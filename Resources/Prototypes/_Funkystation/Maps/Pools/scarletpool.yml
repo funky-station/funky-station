@@ -1,0 +1,10 @@
+- type: gameMapPool
+  id: ScarletMapPool
+  maps: #funky station
+  - roid_outpost
+  - Amber
+  - Elkridge
+  - Omega
+  - Cluster
+  - Glacier
+  - Barratry

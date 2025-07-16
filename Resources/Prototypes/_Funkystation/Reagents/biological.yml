@@ -1,0 +1,36 @@
+- type: reagent
+  id: MachineOil
+  name: reagent-name-machine-oil
+  group: Biological
+  desc: reagent-desc-machine-oil
+  flavor: terrible
+  color: "#010101"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-burnt
+  slippery: false
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        factor: -1
+      - !type:SatiateThirst
+        factor: -1
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 5
+        refresh: false
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: 2
+  - !type:PlantAdjustWeeds
+    amount: -2
+  - !type:PlantAdjustPests
+    amount: -2
+  footstepSound:
+    collection: FootstepBlood
+    params:
+      volume: 6

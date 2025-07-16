@@ -1,0 +1,8 @@
+- type: soundCollection
+  id: FootstepBoot
+  files:
+  - /Audio/_Funkystation/Effects/Footsteps/bootstep1.ogg
+  - /Audio/_Funkystation/Effects/Footsteps/bootstep2.ogg
+  - /Audio/_Funkystation/Effects/Footsteps/bootstep3.ogg
+  - /Audio/_Funkystation/Effects/Footsteps/bootstep4.ogg
+  - /Audio/_Funkystation/Effects/Footsteps/bootstep5.ogg

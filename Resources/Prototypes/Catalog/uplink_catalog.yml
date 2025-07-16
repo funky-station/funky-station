@@ -160,6 +160,11 @@
     Telecrystal: 60
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
   saleLimit: 1 # WD EDIT
 
 - type: listing
@@ -185,8 +190,6 @@
   categories:
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT
-
-
 
 
 # Funky duplicate to fix surplus bundle, this one cannot be bought ignore
@@ -496,7 +499,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
   productEntity: MagazinePistolSubMachineGun
   cost:
-    Telecrystal: 5 # goob - Bundle + 3 Mags = 100 TC
+    Telecrystal: 10 # goob - Bundle + 3 Mags = 100 TC
   categories:
   - UplinkAmmo
   saleBlacklist: true
@@ -509,7 +512,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
   productEntity: MagazinePistolCaselessRifle
   cost:
-    Telecrystal: 2 # goob - Same price as .35, more damage but less ammo in mag
+    Telecrystal: 5 # goob - Same price as .35, more damage but less ammo in mag
   categories:
   - UplinkAmmo
   saleBlacklist: true
@@ -522,7 +525,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
   productEntity: SpeedLoaderMagnumAP
   cost:
-    Telecrystal: 5 # goob - AP, but only 6 bullets in speedloader
+    Telecrystal: 10 # goob - AP, but only 6 bullets in speedloader
   categories:
   - UplinkAmmo
   saleBlacklist: true
@@ -1186,11 +1189,6 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkAllies
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
   saleLimit: 1 # WD EDIT
 
 - type: listing
@@ -1421,8 +1419,14 @@
   productEntity: JetpackBlackFilled
   cost:
     Telecrystal: 10 # goob
+  conditions:
+    - !type:StoreWhitelistCondition
+      blacklist:
+        tags:
+          - NukeOpsUplink
   categories:
   - UplinkWearables
+
   saleLimit: 1 # WD EDIT
 
 - type: listing
@@ -1476,7 +1480,7 @@
   description: uplink-clothing-no-slips-shoes-desc
   productEntity: ClothingShoesChameleonNoSlips
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 15 # goob
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -1509,7 +1513,7 @@
   description: uplink-clothing-shoes-boots-mag-syndie-desc
   productEntity: ClothingShoesBootsMagSyndie
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 30 # goob
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -1545,7 +1549,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndicate.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateHardsuitBundle
   cost:
-    Telecrystal: 30 # goob
+    Telecrystal: 50 # funky
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -1557,7 +1561,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
   productEntity: ClothingBackpackSyndicateRaidBundle
   cost:
-    Telecrystal: 75 # goob
+    Telecrystal: 30 # funky
   categories:
   - UplinkWearables
   conditions:
@@ -1574,7 +1578,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
   cost:
-    Telecrystal: 75 # goob
+    Telecrystal: 100 # Funky
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -1586,7 +1590,8 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/cybersun.rsi, state: icon } # goobstation - duke nukies
   productEntity: CrateCybersunJuggernautBundle
   cost:
-    Telecrystal: 75 # Unchanged to allow for traitors to make a funny terrible decision. Funky
+    Telecrystal: 75
+     # Unchanged to allow for traitors to make a funny terrible decision. Funky
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT

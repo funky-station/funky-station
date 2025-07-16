@@ -383,6 +383,7 @@
   - SecurityBackpack
   - DetectiveOuterClothing
   - SecurityShoes
+  - DetectivePDA # funkystation
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
@@ -548,7 +549,7 @@
   id: RoleSurvivalVoxSupport
   groups:
   - GroupSpeciesBreathTool
-  
+
 
 # gives vox a nitrogen breathing tank
 # other species get nothing
@@ -562,41 +563,41 @@
   groups:
   - Survival
   - GroupSpeciesBreathTool
-  
+
 
 - type: roleLoadout
   id: RoleSurvivalClown
   groups:
   - SurvivalClown
-  
+
 
 - type: roleLoadout
   id: RoleSurvivalExtended
   groups:
   - SurvivalExtended
   - GroupSpeciesBreathTool
-  
+
 
 - type: roleLoadout
   id: RoleSurvivalMedical
   groups:
   - SurvivalMedical
   - GroupSpeciesBreathToolMedical
-  
+
 
 - type: roleLoadout
   id: RoleSurvivalSecurity
   groups:
   - SurvivalSecurity
   - GroupSpeciesBreathToolSecurity
-  
+
 
 - type: roleLoadout
   id: RoleSurvivalSyndicate
   groups:
   - SurvivalSyndicate
   - GroupSpeciesBreathTool
-  
+
 
 - type: roleLoadout
   id: RoleSurvivalNukie

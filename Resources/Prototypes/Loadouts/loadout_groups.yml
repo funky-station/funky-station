@@ -52,6 +52,9 @@
   - TowelColorSilver
   - TowelColorWhite
   - TowelColorYellow
+  # Begin DeltaV Additions
+  - TapeRecorder
+  # End DeltaV Additions
 
 - type: loadoutGroup
   id: Glasses
@@ -265,7 +268,6 @@
   name: loadout-group-bartender-outerclothing
   minLimit: 0
   loadouts:
-  - BartenderVest
   - BartenderApron
   - BartenderWintercoat
 
@@ -799,7 +801,7 @@
   id: EngineeringGoggles
   name: loadout-group-engineering-goggles
   minLimit: 1
-  loadouts: 
+  loadouts:
   - EngineeringNormGoggles
   - EngineeringJamGoggles
 
@@ -1105,7 +1107,7 @@
   loadouts:
     - SecurityNormGlasses
     - SecurityJamjarGlasses
-    
+
 - type: loadoutGroup
   id: SecurityJumpsuit
   name: loadout-group-security-jumpsuit
@@ -1161,6 +1163,14 @@
   loadouts:
   - SecurityPDA
   - SeniorOfficerPDA
+
+# Funkystation
+- type: loadoutGroup
+  id: DetectivePDA
+  name: loadout-group-detective-id
+  loadouts:
+  - DetectivePDA
+  - SeniorDetectivePDA
 
 - type: loadoutGroup
   id: DetectiveHead
@@ -1285,7 +1295,7 @@
   loadouts:
     - MedicalNormGlasses
     - MedicalJamjarGlasses
-  
+
 - type: loadoutGroup
   id: MedicalDoctorJumpsuit
   name: loadout-group-medical-doctor-jumpsuit
@@ -1444,8 +1454,8 @@
   id: BoxerJumpsuit
   name: loadout-group-boxer-jumpsuit
   loadouts:
-  - BoxerShorts
   - BoxerShortsWithTop
+  - BoxerShorts
 
 - type: loadoutGroup
   id: BoxerGloves

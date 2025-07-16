@@ -1,0 +1,15 @@
+- type: latheRecipe
+  id: CassetteTape
+  result: CassetteTape
+  completetime: 2
+  materials:
+    Steel: 50
+    Plastic: 150
+
+- type: latheRecipe
+  id: TapeRecorder
+  result: TapeRecorder
+  completetime: 3
+  materials:
+    Steel: 250
+    Plastic: 250

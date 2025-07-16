@@ -92,6 +92,12 @@
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
+    Gurgle:
+      collection: LizardGurgle
+    Chirp:
+      collection: LizardChirp
+    Hiss:
+      path: /Audio/_Impstation/Voice/Reptilian/reptillian_hiss1.ogg
     Honk:
       collection: BikeHorn
     Whistle:
@@ -116,6 +122,12 @@
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
+    Gurgle:
+      collection: LizardGurgle
+    Chirp:
+      collection: LizardChirp
+    Hiss:
+      path: /Audio/_Impstation/Voice/Reptilian/reptillian_hiss1.ogg
     Honk:
       collection: BikeHorn
     Whistle:
@@ -136,6 +148,14 @@
   sounds:
     Squish:
       collection: Squishes
+    Bubble:
+      collection: Bubbles
+    Slosh:
+      collection: Sloshes
+    Pop:
+      collection: Pops
+    Fizz:
+      collection: Fizzes
     Scream:
       collection: MaleScreams
     Laugh:
@@ -180,6 +200,14 @@
   sounds:
     Squish:
       collection: Squishes
+    Bubble:
+      collection: Bubbles
+    Slosh:
+      collection: Sloshes
+    Pop:
+      collection: Pops
+    Fizz:
+      collection: Fizzes
     Scream:
       collection: FemaleScreams
     Laugh:
@@ -226,6 +254,36 @@
       path: /Audio/Voice/Vox/shriek1.ogg
     Laugh:
       path: /Audio/Voice/Vox/vox_laugh.ogg
+    Crying:
+      path: /Audio/_Impstation/Voice/Vox/voxcry.ogg
+      params:
+        volume: -7
+    Cough:
+      path: /Audio/_Goobstation/Voice/Vox/vox_cough.ogg #Placeholder from goob until Imp inevitably comes out with a better one
+    Sneeze:
+      path: /Audio/_Goobstation/Voice/Vox/vox_sneeze.ogg #Placeholder from goob until Imp inevitably comes out with a better one
+    Chitter:
+      collection: VoxChitter
+      params:
+        volume: -5
+    Coo:
+      collection: VoxCoo
+      params:
+        volume: -7
+    Gasp:
+      collection: VoxGasp
+      params:
+        volume: 10
+    Caw:
+      collection: HarpyCaws #This is a placeholder for now
+    DefaultDeathgasp:
+      path: /Audio/_Goobstation/Voice/Vox/vox_deathgasp.ogg #Placeholder from goob until Imp inevitably comes out with a better one
+      params:
+        volume: -5
+    Hiss:
+      path: /Audio/_Impstation/Voice/Vox/voxhiss.ogg
+      params:
+        volume: -5
     Honk:
       collection: BikeHorn
     Weh:
@@ -411,6 +469,8 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Scream:
+      collection: CyborgScream
 
 - type: emoteSounds
   id: UnisexSiliconSyndicate
@@ -431,6 +491,8 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Scream:
+      collection: CyborgScream # TODO: May be good to create a separate collection and assets for Syndicate
 
 # body emotes
 - type: emoteSounds

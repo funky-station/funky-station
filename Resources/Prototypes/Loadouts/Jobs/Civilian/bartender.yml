@@ -31,10 +31,10 @@
   equipment:
     outerClothing: ClothingOuterApronBar
 
-- type: loadout
-  id: BartenderVest
-  equipment:
-    outerClothing: ClothingOuterVest
+#- type: loadout
+#  id: BartenderVest
+#  equipment:
+#    outerClothing: ClothingOuterVest
 
 - type: loadout
   id: BartenderWintercoat

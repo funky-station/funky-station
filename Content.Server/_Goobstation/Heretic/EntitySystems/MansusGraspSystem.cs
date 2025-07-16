@@ -4,6 +4,7 @@ using Content.Server.Heretic.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
+using Content.Shared.Extensions;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -11,7 +12,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.Hands;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
@@ -84,7 +84,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
             case "Void":
                 if (TryComp<TemperatureComponent>(target, out var temp))
-                    _temperature.ForceChangeTemperature(target, temp.CurrentTemperature - 20f, temp);
+                    _temperature.ForceChangeTemperature(target, temp.CurrentTemperature - 200f, temp);
                 _statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(8), false);
                 break;
 
@@ -126,7 +126,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         if (HasComp<StatusEffectsComponent>(target))
         {
             _chat.TrySendInGameICMessage(args.User, Loc.GetString("heretic-speech-mansusgrasp"), InGameICChatType.Speak, false);
-            _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/welder.ogg"), target);
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Funkystation/Effects/Heretic/mansusgrasp.ogg"), target);
             _stun.TryKnockdown(target, TimeSpan.FromSeconds(3f), true);
             _stamina.TakeStaminaDamage(target, 65f);
             _language.DoRatvarian(target, TimeSpan.FromSeconds(10f), true);
@@ -168,6 +168,9 @@ public sealed partial class MansusGraspSystem : EntitySystem
         || !heretic.MansusGraspActive // no grasp - not special
         || HasComp<ActiveDoAfterComponent>(args.User) // prevent rune shittery
         || !tags.Contains("Write") || !tags.Contains("Pen")) // not a pen
+            return;
+
+        if (args.Target != null && EntityManager.IsChildOf(args.User, args.Target.Value))
             return;
 
         // remove our rune if clicked

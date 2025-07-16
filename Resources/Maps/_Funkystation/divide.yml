@@ -118674,7 +118674,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 52.62632,-76.50213
       parent: 2
-- proto: MediumXenoArtifactItem
+- proto: ComplexXenoArtifactItem
   entities:
   - uid: 8409
     components:
@@ -144480,7 +144480,7 @@ entities:
     - type: Transform
       pos: 26.5,-20.5
       parent: 2
-- proto: VariedXenoArtifactItem
+- proto: ComplexXenoArtifactItem
   entities:
   - uid: 8423
     components:

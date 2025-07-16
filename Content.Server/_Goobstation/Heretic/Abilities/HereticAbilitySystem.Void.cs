@@ -9,11 +9,17 @@ using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
 using System.Linq;
+using Content.Server.Temperature.Systems;
+using Content.Shared.FixedPoint;
+using Content.Shared.Magic;
+using Content.Shared.Magic.Events;
 
 namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem : EntitySystem
 {
+    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly TemperatureSystem _temperature = default!;
     private void SubscribeVoid()
     {
         SubscribeLocalEvent<HereticComponent, HereticAristocratWayEvent>(OnAristocratWay);
@@ -64,18 +70,42 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
+        _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Funkystation/Effects/Heretic/voidblink.ogg"), ent);
 
         foreach (var pookie in GetNearbyPeople(ent, 2f))
-            _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2.5f), true);
+        {
+            _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2f), true);
+
+            if (TryComp<TemperatureComponent>(pookie, out var temp))
+                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 50f, temp);
+
+            if (TryComp<DamageableComponent>(pookie, out var damage))
+            {
+                var appliedDamageSpecifier =
+                    new DamageSpecifier(_prot.Index<DamageTypePrototype>("Cold"), FixedPoint2.New(5f));
+                _damage.TryChangeDamage(pookie, appliedDamageSpecifier, true, origin: ent);
+            }
+        }
 
         _transform.SetCoordinates(ent, args.Target);
 
         // repeating for both sides
-        _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
+        _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Funkystation/Effects/Heretic/voidblink.ogg"), ent);
 
         foreach (var pookie in GetNearbyPeople(ent, 2f))
-            _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2.5f), true);
+        {
+            _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2f), true);
+
+            if (TryComp<TemperatureComponent>(pookie, out var temp))
+                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 60f, temp);
+
+            if (TryComp<DamageableComponent>(pookie, out var damage))
+            {
+                var appliedDamageSpecifier =
+                    new DamageSpecifier(_prot.Index<DamageTypePrototype>("Cold"), FixedPoint2.New(5f));
+                _damage.TryChangeDamage(pookie, appliedDamageSpecifier, true, origin: ent);
+            }
+        }
 
         args.Handled = true;
     }
@@ -85,30 +115,52 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        var topPriority = GetNearbyPeople(ent, 1.5f);
-        var midPriority = GetNearbyPeople(ent, 2.5f);
+        var topPriority = GetNearbyPeople(ent, 2f);
+        var midPriority = GetNearbyPeople(ent, 3.5f);
         var farPriority = GetNearbyPeople(ent, 5f);
 
-        // damage closest ones
+        // Freeze closest ones, and do heavy damage - funky
         foreach (var pookie in topPriority)
         {
-            if (!TryComp<DamageableComponent>(pookie, out var dmgComp))
-                continue;
+            if (TryComp<TemperatureComponent>(pookie, out var temp))
+                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 100f, temp);
 
-            // total damage + 20 divided by all damage types.
-            var damage = (dmgComp.TotalDamage + 20f) / _prot.EnumeratePrototypes<DamageTypePrototype>().Count();
-
-            // apply gaming.
-            _dmg.SetAllDamage(pookie, dmgComp, damage);
+            if (TryComp<DamageableComponent>(pookie, out var damage))
+            {
+                var appliedDamageSpecifier =
+                    new DamageSpecifier(_prot.Index<DamageTypePrototype>("Cold"), FixedPoint2.New(25f));
+                _damage.TryChangeDamage(pookie, appliedDamageSpecifier, true, origin: ent);
+            }
         }
 
-        // stun close-mid range
+        //Reduce mid-range entities' temps, and do decent damage - funky
         foreach (var pookie in midPriority)
-            _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2.5f), true);
+        {
+            if (TryComp<TemperatureComponent>(pookie, out var temp))
+                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 60f, temp);
 
-        // pull in farthest ones
+            if (TryComp<DamageableComponent>(pookie, out var damage))
+            {
+                var appliedDamageSpecifier =
+                    new DamageSpecifier(_prot.Index<DamageTypePrototype>("Cold"), FixedPoint2.New(12.5f));
+                _damage.TryChangeDamage(pookie, appliedDamageSpecifier, true, origin: ent);
+
+                _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2.5f), true);
+            }
+        }
+
+        //Do light damage to far ones - funky
         foreach (var pookie in farPriority)
-            _throw.TryThrow(pookie, Transform(ent).Coordinates);
+        {
+            if (TryComp<DamageableComponent>(pookie, out var damage))
+            {
+                var appliedDamageSpecifier =
+                    new DamageSpecifier(_prot.Index<DamageTypePrototype>("Cold"), FixedPoint2.New(5f));
+                _damage.TryChangeDamage(pookie, appliedDamageSpecifier, true, origin: ent);
+
+                _throw.TryThrow(pookie, Transform(ent).Coordinates);
+            }
+        }
 
         args.Handled = true;
     }

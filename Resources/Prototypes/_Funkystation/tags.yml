@@ -39,3 +39,12 @@
 
 - type: Tag
   id: CheapSunglasses
+
+- type: Tag
+  id: LizardEmotes
+
+- type: Tag
+  id: VoxEmotes
+
+- type: Tag
+  id: BartendingTool

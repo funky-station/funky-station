@@ -51,3 +51,9 @@ reagent-desc-sievertadone = A pyrogenics chemical that repairs the damage done t
 
 reagent-name-deunomia = deunomia
 reagent-desc-deunomia = A highly potent mixture of chemicals used before natusixadone to destroy cancerous cells. It may hold use against any parasitic infections.
+
+reagent-name-styptic-powder = styptic powder
+reagent-desc-styptic-powder = A powder that helps to control bleeding and heal physical wounds when applied topically.
+
+reagent-name-silver-sulfadiazine = silver sulfadiazine
+reagent-desc-silver-sulfadiazine = An antibacterial compound used topically on burn victims.

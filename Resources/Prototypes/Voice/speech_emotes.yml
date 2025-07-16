@@ -7,9 +7,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-scream"]
   chatTriggers:
     - scream
@@ -37,9 +34,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-laugh"]
   chatTriggers:
     - laugh
@@ -83,9 +77,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-sigh"]
   chatTriggers:
     - sigh
@@ -100,9 +91,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-whistle"]
   chatTriggers:
     - whistle
@@ -117,9 +105,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-crying"]
   chatTriggers:
     - cry
@@ -138,14 +123,86 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-squish"]
   chatTriggers:
     - squish
     - squishing
     - squishes
+
+- type: emote
+  id: Bubble
+  name: chat-emote-name-bubble
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/bubble.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-bubble"]
+  chatTriggers:
+    - bubble
+    - bubbling
+    - bubbles
+
+- type: emote
+  id: Slosh
+  name: chat-emote-name-slosh
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/slosh.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-slosh"]
+  chatTriggers:
+    - slosh
+    - sloshing
+    - sloshes
+
+- type: emote
+  id: Pop
+  name: chat-emote-name-pop
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/pop.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-pop"]
+  chatTriggers:
+    - pop
+    - poping
+    - pops
+
+- type: emote
+  id: Fizz
+  name: chat-emote-name-fizz
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/fizz.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-fizz"]
+  chatTriggers:
+    - fizz
+    - fizzing
+    - fizzes
+    - carbinate
+    - carbinating
+    - carbinates
 
 - type: emote
   id: Chitter
@@ -156,9 +213,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-chitter"]
   chatTriggers:
    - chitter
@@ -174,9 +228,6 @@
   whitelist:
     components:
       - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-squeak"]
   chatTriggers:
    - squeak
@@ -192,13 +243,27 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-click"]
   chatTriggers:
    - click
    - clicks
+
+- type: emote
+  id: Coo
+  name: chat-emote-name-coo
+  category: Vocal
+  available: false
+  icon: _Impstation/Interface/Emotes/coo.png
+  whitelist:
+    tags:
+    - VoxEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [ chat-emote-msg-coo ]
+  chatTriggers:
+  - coo
+  - coos
 
 # hand emotes
 - type: emote
@@ -209,9 +274,6 @@
   whitelist:
     components:
     - Hands
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-clap"]
   chatTriggers:
     - claps
@@ -226,9 +288,6 @@
   whitelist:
     components:
     - Hands
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: [ "chat-emote-msg-clap-single" ]
   chatTriggers:
     - clap
@@ -245,9 +304,6 @@
   whitelist:
     components:
     - Hands
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-snap"]
   chatTriggers:
     - snap
@@ -272,9 +328,6 @@
   whitelist:
     components:
     - Hands
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-thump"]
   chatTriggers:
     - thump
@@ -296,9 +349,6 @@
   whitelist:
     components:
     - Hands
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-salute"]
   chatTriggers:
     - salute
@@ -356,7 +406,13 @@
   name: chat-emote-name-weh
   category: Vocal
   icon: Interface/Emotes/weh.png
+  whitelist:
+    tags:
+    - LizardEmotes
   chatMessages: ["chat-emote-msg-weh"]
+  chatTriggers:
+    - weh
+    - wehs
 
 - type: emote
   id: Hew
@@ -375,6 +431,8 @@
     components:
     - Nymph
     - Vocal
+    tags:
+    - LizardEmotes
   blacklist:
     components:
     - BorgChassis

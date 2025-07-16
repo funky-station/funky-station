@@ -22,7 +22,7 @@
     - type: Item
       size: Tiny
     - type: StaticPrice
-      price: 20
+      price: 5
     - type: ItemSlots
     - type: ContainerContainer
       containers:

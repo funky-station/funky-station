@@ -2,7 +2,7 @@
   id: CrateEngineeringEquipment
   parent: CrateEngineeringSecure
   name: engineer equipment crate
-  description: Various engineering gear parts.
+  description: Contains a Engineering Hardsuit, filled tool belt, meson glasses, RCD, alsongide the engineering guidebook.
   components:
   - type: StorageFill
     contents:

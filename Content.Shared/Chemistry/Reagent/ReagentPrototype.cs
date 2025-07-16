@@ -81,11 +81,25 @@ namespace Content.Shared.Chemistry.Reagent
         [DataField]
         public float SpecificHeat { get; private set; } = 1.0f;
 
+        /// <summary>
+        ///     In Celsius
+        /// </summary>
         [DataField]
         public float? BoilingPoint { get; private set; }
 
         [DataField]
         public float? MeltingPoint { get; private set; }
+
+        /// <summary>
+        ///     Funkychem additions
+        /// </summary>
+
+        /// In kg/l
+        [DataField]
+        public float? Density { get; private set; }
+
+        [DataField]
+        public float? HydrogenPotential { get; private set; }
 
         [DataField]
         public SpriteSpecifier? MetamorphicSprite { get; private set; } = null;

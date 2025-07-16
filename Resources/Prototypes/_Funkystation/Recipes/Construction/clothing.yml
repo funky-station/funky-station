@@ -112,5 +112,5 @@
   targetNode: helmet
   category: construction-category-clothing
   description: Wow, you skinned a stuffed animal, maybe check in with the station psychologist?
-  icon: { sprite: _Funkystation/Clothing/head/hats/lizard-cloak.rsi, state: icon }
+  icon: { sprite: _Funkystation/Clothing/Head/Hats/lizard-cloak.rsi, state: icon }
   objectType: Item

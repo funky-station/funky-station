@@ -2,7 +2,7 @@
     MinSize="700 750"
     Resizable="True"
     SetSize="1000 750"
-    Title="Medical Records"
+    Title="{Loc 'funky-medical-records-window-title'}"
     xmlns="https://spacestation14.io"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
@@ -26,7 +26,7 @@
                         HorizontalExpand="True"
                         MinWidth="100"
                         Name="RecordFiltersReset"
-                        Text="Reset" />
+                        Text="{Loc 'funky-medical-records-reset'}" />
                 </BoxContainer>
 
                 <!--  entry list  -->
@@ -58,11 +58,11 @@
                         HorizontalExpand="True"
                         MinWidth="100"
                         Name="RecordFiltersValue"
-                        PlaceHolder="Search..." />
+                        PlaceHolder="{Loc 'funky-medical-records-search-placeholder'}" />
                     <Button
                         Name="RecordFilters"
                         SetWidth="100"
-                        Text="Search"
+                        Text="{Loc 'funky-medical-records-search'}"
                         TextAlign="Center" />
                 </BoxContainer>
 
@@ -70,7 +70,7 @@
                     Align="Center"
                     Name="RecordContainerStatus"
                     StyleClasses="LabelBig"
-                    Text="No Record Selected"
+                    Text="{Loc 'funky-medical-records-no-record-selected'}"
                     VerticalExpand="True" />
 
                 <!--  information  -->
@@ -85,7 +85,7 @@
                         Margin="10"
                         Name="RecordContainerName"
                         StyleClasses="LabelBig"
-                        Text="Crewmember" />
+                        Text="{Loc 'funky-medical-records-crewmember'}" />
 
                     <ScrollContainer
                         HScrollEnabled="False"
@@ -99,7 +99,7 @@
                                 <Label
                                     HorizontalAlignment="Left"
                                     HorizontalExpand="True"
-                                    Text="General Information" />
+                                    Text="{Loc 'funky-medical-records-general-info'}" />
                                 <BoxContainer Orientation="Horizontal" SetHeight="24">
                                     <Button
                                         Margin="-1"
@@ -124,56 +124,56 @@
                                     <Label
                                         FontColorOverride="DarkGray"
                                         Name="JobTitle"
-                                        Text="Job: " />
+                                        Text="{Loc 'funky-medical-records-job-title'}" />
                                     <Label Name="RecordContainerJob" />
                                 </BoxContainer>
                                 <BoxContainer Margin="5" Orientation="Horizontal">
                                     <Label
                                         FontColorOverride="DarkGray"
                                         Name="GenderTitle"
-                                        Text="Gender: " />
+                                        Text="{Loc 'funky-medical-records-gender-title'}" />
                                     <Label Name="RecordContainerGender" />
                                 </BoxContainer>
                                 <BoxContainer Margin="5" Orientation="Horizontal">
                                     <Label
                                         FontColorOverride="DarkGray"
                                         Name="SpeciesTitle"
-                                        Text="Species: " />
+                                        Text="{Loc 'funky-medical-records-species-title'}" />
                                     <Label Name="RecordContainerSpecies" />
                                 </BoxContainer>
                                 <BoxContainer Margin="5" Orientation="Horizontal">
                                     <Label
                                         FontColorOverride="DarkGray"
                                         Name="AgeTitle"
-                                        Text="Age: " />
+                                        Text="{Loc 'funky-medical-records-age-title'}" />
                                     <Label Name="RecordContainerAge" />
                                 </BoxContainer>
                                 <BoxContainer Margin="5" Orientation="Horizontal">
                                     <Label
                                         FontColorOverride="DarkGray"
                                         Name="HeightTitle"
-                                        Text="Height: " />
+                                        Text="{Loc 'funky-medical-records-height-title'}" />
                                     <Label Name="RecordContainerHeight" />
                                 </BoxContainer>
                                 <BoxContainer Margin="5" Orientation="Horizontal">
                                     <Label
                                         FontColorOverride="DarkGray"
                                         Name="WeightTitle"
-                                        Text="Weight: " />
+                                        Text="{Loc 'funky-medical-records-weight-title'}" />
                                     <Label Name="RecordContainerWeight" />
                                 </BoxContainer>
                                 <BoxContainer Margin="5" Orientation="Horizontal">
                                     <Label
                                         FontColorOverride="DarkGray"
                                         Name="WorkAuth"
-                                        Text="Work Authorization: " />
+                                        Text="{Loc 'funky-medical-records-work-auth-title'}" />
                                     <Label Name="RecordContainerWorkAuth" />
                                 </BoxContainer>
                                 <BoxContainer Margin="5" Orientation="Horizontal">
                                     <Label
                                         FontColorOverride="DarkGray"
                                         Name="Insurance"
-                                        Text="Insurance: " />
+                                        Text="{Loc 'funky-medical-records-insurance-title'}" />
                                     <Label Name="RecordContainerInsurance" />
                                 </BoxContainer>
                                 <BoxContainer
@@ -184,14 +184,14 @@
                                         <Label
                                             FontColorOverride="DarkGray"
                                             Name="InsuranceProvider"
-                                            Text="Insurance Provider: " />
+                                            Text="{Loc 'funky-medical-records-insurance-provider-title'}" />
                                         <Label Name="RecordContainerInsuranceProvider" />
                                     </BoxContainer>
                                     <BoxContainer Margin="5" Orientation="Horizontal">
                                         <Label
                                             FontColorOverride="DarkGray"
                                             Name="InsurancePlan"
-                                            Text="Insurance Plan: " />
+                                            Text="{Loc 'funky-medical-records-insurance-plan-title'}" />
                                         <Label Name="RecordContainerInsurancePlan" />
                                     </BoxContainer>
                                 </BoxContainer>
@@ -204,7 +204,7 @@
                                 <Label
                                     HorizontalAlignment="Left"
                                     HorizontalExpand="True"
-                                    Text="Medical Information" />
+                                    Text="{Loc 'funky-medical-records-medical-info'}" />
                                 <BoxContainer Orientation="Horizontal" SetHeight="24">
                                     <Button
                                         Margin="-1"
@@ -229,21 +229,21 @@
                                     <Label
                                         FontColorOverride="DarkGray"
                                         Name="FingerprintsTitle"
-                                        Text="Fingerprints: " />
+                                        Text="{Loc 'funky-medical-records-fingerprints-title'}" />
                                     <Label Name="RecordContainerFingerprints" />
                                 </BoxContainer>
                                 <BoxContainer Margin="5" Orientation="Horizontal">
                                     <Label
                                         FontColorOverride="DarkGray"
                                         Name="DNATitle"
-                                        Text="DNA: " />
+                                        Text="{Loc 'funky-medical-records-dna-title'}" />
                                     <Label Name="RecordContainerDNA" />
                                 </BoxContainer>
                                 <BoxContainer Margin="5" Orientation="Horizontal">
                                     <Label
                                         FontColorOverride="DarkGray"
                                         Name="BloodTypeTitle"
-                                        Text="Blood Type: " />
+                                        Text="{Loc 'funky-medical-records-blood-title'}" />
                                     <Label Name="RecordContainerBloodType" />
                                 </BoxContainer>
                                 <BoxContainer Name="MedicalInfoContainer" Orientation="Vertical" />
@@ -251,14 +251,14 @@
                                     <Label
                                         FontColorOverride="DarkGray"
                                         Name="IdentifyingFeatures"
-                                        Text="Identifying Features: " />
+                                        Text="{Loc 'funky-medical-records-identifying-features-title'}" />
                                     <Label Name="RecordContainerIdentFeatures" />
                                 </BoxContainer>
                                 <BoxContainer Margin="5" Orientation="Horizontal">
                                     <Label
                                         FontColorOverride="DarkGray"
                                         Name="MortemTitle"
-                                        Text="Post Mortem Instructions: " />
+                                        Text="{Loc 'funky-medical-records-post-mortem-title'}" />
                                     <Label Name="RecordContainerPostMortem" />
                                 </BoxContainer>
                             </BoxContainer>
@@ -272,7 +272,7 @@
                                     <Label
                                         HorizontalAlignment="Left"
                                         HorizontalExpand="True"
-                                        Text="Autopsy Report" />
+                                        Text="{Loc 'funky-medical-records-autopsy-info'}" />
                                     <BoxContainer Orientation="Horizontal" SetHeight="24">
                                         <Button
                                             Margin="-1"

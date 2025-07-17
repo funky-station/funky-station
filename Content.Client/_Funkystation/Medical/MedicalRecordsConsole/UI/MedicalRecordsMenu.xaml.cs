@@ -17,9 +17,7 @@ namespace Content.Client._Funkystation.Medical.MedicalRecordsConsole.UI;
 public sealed partial class MedicalRecordsMenu : FancyWindow
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    // TODO: moreee localization
     // TODO: final aesthetics pass
-    // TODO: fix medical info (allergies, prescriptions, family history)
     // TODO: access lock the entire console
     // TODO: add per-round notes/history for psychologists/doctors
 
@@ -136,16 +134,7 @@ public sealed partial class MedicalRecordsMenu : FancyWindow
 
         // Given that there is the same number of keys in the dictionary as in items in the listing, they are not equal
         // if and only if there exists a key in the listing that is not in the dictionary
-        foreach (var item in CharacterListing)
-        {
-            var key = ((CharacterListMetadata)item.Metadata!).CharacterRecordKey;
-            if (!newKeys.ContainsKey(key))
-            {
-                return true;
-            }
-        }
-
-        return false;
+        return CharacterListing.Select(item => ((CharacterListMetadata) item.Metadata!).CharacterRecordKey).Any(key => !newKeys.ContainsKey(key));
     }
 
     public void UpdateState(MedicalRecordsConsoleState state)
@@ -262,7 +251,7 @@ public sealed partial class MedicalRecordsMenu : FancyWindow
     }
 
     /// <summary>
-    /// fills out all of the character information based on the given record
+    /// i hope you have fun reading this
     /// </summary>
     /// <param name="record">character information from the database</param>
     private void PopulateInformation(FullCharacterRecords record)
@@ -277,8 +266,8 @@ public sealed partial class MedicalRecordsMenu : FancyWindow
         RecordContainerGender.Text = record.Gender.ToString();
         RecordContainerSpecies.Text = record.Species;
         RecordContainerAge.Text = record.Age.ToString();
-        RecordContainerHeight.Text = cr.Height + " cm " + UnitConversion.GetImperialDisplayLength(cr.Height);
-        RecordContainerWeight.Text = cr.Weight + " kg " + UnitConversion.GetImperialDisplayMass(cr.Weight);
+        RecordContainerHeight.Text = cr.Height + " " + Loc.GetString("funky-medical-records-unit-cm") + " " + UnitConversion.GetImperialDisplayLength(cr.Height);
+        RecordContainerWeight.Text = cr.Weight + " " + Loc.GetString("funky-medical-records-unit-kg") + " " + UnitConversion.GetImperialDisplayMass(cr.Weight);
         RecordContainerWorkAuth.Text = cr.HasWorkAuthorization ? Loc.GetString("funky-medical-records-yes") : Loc.GetString("funky-medical-records-no");
         RecordContainerInsurance.Text = cr.HasInsurance ? Loc.GetString("funky-medical-records-yes") : Loc.GetString("funky-medical-records-no");
         RecordContainerInsuranceProvider.Text = GetInsuranceProviderLocals(cr.InsuranceProvider);
@@ -346,7 +335,7 @@ public sealed partial class MedicalRecordsMenu : FancyWindow
             var entry = new BoxContainer
             {
                 Name = category.ID,
-                Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                Orientation = BoxContainer.LayoutOrientation.Vertical,
                 Margin = new Thickness(5),
             };
 
@@ -358,9 +347,9 @@ public sealed partial class MedicalRecordsMenu : FancyWindow
 
             var text = string.Join(", ", categoryItems);
 
-            entry.AddChild(new RecordLongItemDisplay
+            entry.AddChild(new RichTextLabel()
             {
-                Title = text == "" ? "None provided" : text,
+                Text = text == "" ? Loc.GetString("funky-medical-records-viewer-none-provided") : text,
             });
 
             MedicalInfoContainer.AddChild(entry);

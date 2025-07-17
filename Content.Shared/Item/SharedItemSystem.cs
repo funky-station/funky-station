@@ -302,17 +302,21 @@ public abstract class SharedItemSystem : EntitySystem
             _handsSystem.PickupOrDrop(args.User, uid, animate: true);
         }
 
-        if (!wasInPocket && TryComp(container.Owner,
-                out StorageComponent? storage)) // Goobstation - reinsert item in storage because size changed
+        var exists = TryComp(container.Owner, out StorageComponent? storage);
+
+        if (!wasInPocket && exists) // Goobstation - reinsert item in storage because size changed
         {
             _transform.AttachToGridOrMap(uid);
-
-            if (_storage.Insert(container.Owner, uid, out _, null, storage, false))
-                return;
-
-            // Funkystation - It didn't fit, so try to hand it to whoever toggled it.
-            _handsSystem.PickupOrDrop(args.User, uid, animate: false);
+            return;
         }
+
+        if (storage == null
+            || !_storage.Insert(container.Owner, uid, out _, null, storage, false)
+            || !exists)
+            return;
+
+        // Funkystation - It didn't fit, so try to hand it to whoever toggled it.
+        _handsSystem.PickupOrDrop(args.User, uid, animate: false);
 
         Dirty(uid, item);
     }

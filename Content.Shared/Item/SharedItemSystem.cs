@@ -311,8 +311,7 @@ public abstract class SharedItemSystem : EntitySystem
         }
 
         if (storage == null
-            || !_storage.Insert(container.Owner, uid, out _, null, storage, false)
-            || !exists)
+            || !_storage.Insert(container.Owner, uid, out _, null, storage, false))
             return;
 
         // Funkystation - It didn't fit, so try to hand it to whoever toggled it.

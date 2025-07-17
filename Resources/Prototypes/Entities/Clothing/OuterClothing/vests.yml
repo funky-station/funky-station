@@ -104,7 +104,7 @@
 
 #(Bartender) vest -  #Funky - bartender changes
 - type: entity
-  parent: [ClothingOuterArmorBasic, ClothingOuterBase, AllowBackStorageClothing]
+  parent: ClothingOuterArmorBasic
   id: ClothingOuterVest
   name: vest
   description: A neat bartender vest, reinforced with kevlar.
@@ -120,6 +120,10 @@
     whitelist:
       tags:
       - BartendingTool
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
 #Tank Harness
 #- type: entity
  # parent: [ClothingOuterBase, AllowSuitStorageClothingGasTanks]

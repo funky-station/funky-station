@@ -105,7 +105,7 @@
       displayName: Pocket 2
       stripHidden: true
     - name: backstorage
-      slotTexture: suit_storage
+      slotTexture: back_storage
       slotFlags:   BACKSTORAGE
       slotGroup: MainHotbar
       stripTime: 3
@@ -116,7 +116,7 @@
       - type: AllowBackStorage
       displayName: Back Storage
     - name: tankstorage
-      slotTexture: suit_storage
+      slotTexture: back_storage
       slotFlags:   TANKSTORAGE
       slotGroup: MainHotbar
       stripTime: 3

@@ -20,7 +20,7 @@
         - PetWearable
 
   - name: tankstorage
-    slotTexture: suit_storage
+    slotTexture: back_storage
     slotFlags: TANKSTORAGE
     stripTime: 3
     uiWindowPos: 0,1

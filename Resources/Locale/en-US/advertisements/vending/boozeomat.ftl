@@ -1,4 +1,11 @@
-﻿advertisement-boozeomat-1 = I hope nobody asks me for a bloody cup o' tea...
+# SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+advertisement-boozeomat-1 = I hope nobody asks me for a bloody cup o' tea...
 advertisement-boozeomat-2 = Alcohol is humanity's friend. Would you abandon a friend?
 advertisement-boozeomat-3 = Quite delighted to serve you!
 advertisement-boozeomat-4 = Is nobody thirsty on this station?

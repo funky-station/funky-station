@@ -4,7 +4,6 @@ using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.Atmos.Components;
 using Content.Server.Audio;
-using Content.Goobstation.Shared.Religion; // Goobstation - Shitchap
 using Content.Server.Bible.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.EUI;

@@ -94,3 +94,7 @@
   id: RevenantAbilities
   name: store-category-abilities
 
+#pai
+- type: storeCategory
+  id: PAIAbilities
+  name: store-category-abilities

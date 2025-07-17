@@ -31,8 +31,8 @@
 - type: entity
   parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, BaseChaplainContraband]
   id: ClothingOuterDusterCoat
-  name: Duster
-  description: An 18th-century duster trenchcoat, emblazoned with religious imagery
+  name: duster trench coat
+  description: An 18th-century duster trench coat, emblazoned with religious imagery
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/OuterClothing/Coats/annabellecoat.rsi

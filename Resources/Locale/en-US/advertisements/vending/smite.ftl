@@ -1,4 +1,10 @@
-﻿advertisement-smite-1 = SMITE! Ban your thirst!
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+advertisement-smite-1 = SMITE! Ban your thirst!
 advertisement-smite-2 = An eldritch blast of lemon and lime!
 advertisement-smite-3 = Over 1 million drinks sold!
 advertisement-smite-4 = SMITE! Roll 2d8 for FLAVOR.

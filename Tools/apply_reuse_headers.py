@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 sleepyyapril <flyingkarii@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 #!/usr/bin/env python3
@@ -31,6 +33,13 @@ FILE_PATTERNS = ["*.cs", "*.js", "*.ts", "*.jsx", "*.tsx", "*.c", "*.cpp", "*.cc
                 "*.less", "*.md", "*.markdown", "*.csproj", "*.DotSettings"]
 REPO_PATH = "."
 MAX_WORKERS = os.cpu_count() or 4
+
+MEDIA_EXTENSIONS = {
+    ".png", ".jpg", ".jpeg", ".gif", ".bmp", ".tiff", ".ico", ".webp",   # Images
+    ".mp4", ".mkv", ".mov", ".avi", ".wmv", ".flv", ".webm",             # Videos
+    ".mp3", ".wav", ".flac", ".aac", ".ogg", ".m4a",                     # Audio
+    ".svgz", ".psd", ".xcf", ".ai", ".eps", ".raw"                       # Graphics/vector/raw
+}
 
 # Dictionary mapping file extensions to comment styles
 # Format: {extension: (prefix, suffix)}
@@ -407,6 +416,20 @@ def get_last_commit_timestamp(file_path, cwd=REPO_PATH):
             return None
     return None
 
+def is_descendant_of_resources(file_path):
+    """
+    Checks if the file is in or under a 'Resources' directory.
+    """
+    parts = os.path.normpath(file_path).split(os.sep)
+    return "Resources" in parts[:-1]  # exclude filename itself
+
+def is_under_agpl_directory(file_path):
+    parts = os.path.normpath(file_path).split(os.sep)
+    for part in parts[:-1]:  # exclude the file itself
+        if part.startswith("_") or part == "Nyanotrasen":
+            return True
+    return False
+
 def print_progress(current_processed_count, bar_length=40):
     """Prints the progress status block (thread-safe access to globals)."""
     if total_files == 0: percent = 0
@@ -433,6 +456,17 @@ def process_file(file_path_tuple):
     global last_file_processed, last_license_type, all_warnings
 
     file_path, cutoff_ts = file_path_tuple
+
+    # Skip media files
+    _, ext = os.path.splitext(file_path)
+    if ext.lower() in MEDIA_EXTENSIONS:
+        with progress_lock:
+            skipped_count += 1
+            all_warnings.append(f"Skipped (Media File): {file_path}")
+            progress_count_snapshot = processed_count + skipped_count + error_count
+        print_progress(progress_count_snapshot)
+        return 'skipped_media'
+
     file_warnings = []
     status = 'skipped'
     comment_prefix = None
@@ -487,13 +521,21 @@ def process_file(file_path_tuple):
         except Exception as e:
             print(f"Error getting git user: {e}")
 
-        # Determine license based on cutoff commit
-        last_commit_timestamp = get_last_commit_timestamp(file_path, REPO_PATH)
-        if last_commit_timestamp is None:
-            file_warnings.append(f"Warning (No Timestamp): Assuming AGPL for {file_path}")
-            determined_license_id = LICENSE_AFTER
+        # Determine license based on rules:
+        # YAML under 'Resources' → use original timestamp-based logic
+        # Otherwise → underscore path rule
+        _, ext = os.path.splitext(file_path)
+        ext = ext.lower()
+
+        if ext in {".yml", ".yaml"} and is_descendant_of_resources(file_path):
+            last_commit_timestamp = get_last_commit_timestamp(file_path, REPO_PATH)
+            if last_commit_timestamp is None:
+                file_warnings.append(f"Warning (No Timestamp): Assuming AGPL for {file_path}")
+                determined_license_id = LICENSE_AFTER
+            else:
+                determined_license_id = LICENSE_AFTER if last_commit_timestamp > cutoff_ts else LICENSE_BEFORE
         else:
-            determined_license_id = LICENSE_AFTER if last_commit_timestamp > cutoff_ts else LICENSE_BEFORE
+            determined_license_id = LICENSE_AFTER if is_under_agpl_directory(file_path) else LICENSE_BEFORE
 
         # Determine what to do based on existing header
         if existing_license:

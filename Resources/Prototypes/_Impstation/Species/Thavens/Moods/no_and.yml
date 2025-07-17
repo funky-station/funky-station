@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 # "No, and" moods will discourage players from certain behaviors and objects
 
 # Make sure to add new moods to this dataset or they will not be selected!!!!!!
@@ -13,7 +20,6 @@
   - DetestSilicons
   - DinnerFloor
   - HugBad
-  - AlwaysAlone
   - Atheist
   - Procrastinator
   - NoRadio
@@ -24,7 +30,6 @@
   # - VampireInvitation # annoy aj mood so its disabled
   - NoDragging
   - DrunkRespect
-  - RankSnob
   - HardsuitsBad
   - HatHair
   - DistrustFashion
@@ -38,7 +43,11 @@
   - MadHatter
   - Crawler
   - Elevated
+  - Fairy
+  - FairyRings
   - AfraidDark
+
+
 
 # Your Moods are a strictly-kept secret, and should never be revealed to anyone.
 - type: thavenMood
@@ -122,18 +131,6 @@
   conflicts:
   - HugGood
 
-# You must strive to be alone whenever possible.
-- type: thavenMood
-  id: AlwaysAlone
-  moodName: thaven-mood-always-alone-name
-  moodDesc: thaven-mood-always-alone-desc
-  conflicts:
-  - NeverAlone
-  jobConflicts:
-  - CentralCommandSpecial
-  - CentralCommand
-  - Command
-
 # You do not approve of organized religion. It should be dismantled or disrupted wherever possible.
 - type: thavenMood
   id: Atheist
@@ -183,6 +180,10 @@
   id: ToolLicense
   moodName: thaven-mood-tool-license-name
   moodDesc: thaven-mood-tool-license-desc
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
 
 # Anyone who lies, no matter how trivial the falsehood, is the worst kind of criminal.
 - type: thavenMood
@@ -211,14 +212,6 @@
   moodDesc: thaven-mood-drunk-respect-desc
   conflicts:
   - DisapproveOfDrugs
-
-# You hate to address anyone who is of a lower rank than you, and will only speak to them in private if absolutely necessary.
-- type: thavenMood
-  id: RankSnob
-  moodName: thaven-mood-rank-snob-name
-  moodDesc: thaven-mood-rank-snob-desc
-  conflicts:
-  - DontSpeakToCommand
 
 # [CLOTHING ITEM] is SO last year. You cannot wear them.
 - type: thavenMood
@@ -329,6 +322,20 @@
   moodDesc: thaven-mood-elevated-desc
   conflicts:
   - Crawler
+  
+# Iron, steel, and silver are deathly poisonous to you. Touching them directly will cause you extreme physical pain.
+- type: thavenMood
+  id: Fairy
+  moodName: thaven-mood-fairy-name
+  moodDesc: thaven-mood-fairy-desc
+  conflicts:
+  - Barefoot
+
+# Unbroken circles are impenetrable barriers.
+- type: thavenMood
+  id: FairyRings
+  moodName: thaven-mood-fairy-rings-name
+  moodDesc: thaven-mood-fairy-rings-desc
 
 # Darkness is incredibly dangerous, and you won't enter a space without proper illumination.
 - type: thavenMood

@@ -1,4 +1,11 @@
-﻿health-examinable-carbon-none = There are no obvious wounds to be seen.
+# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <gradientvera@outlook.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+health-examinable-carbon-none = There are no obvious wounds to be seen.
 
 health-examinable-carbon-Blunt-25 = [color=red]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } minor contusions across { POSS-ADJ($target) } body.[/color]
 health-examinable-carbon-Blunt-50 = [color=crimson]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } major bruises all over { POSS-ADJ($target) } body![/color]

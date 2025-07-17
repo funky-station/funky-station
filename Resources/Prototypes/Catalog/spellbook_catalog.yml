@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 NathanRosica <nathanrosica@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 # Offensive
 - type: listing
   id: SpellbookFireball
@@ -7,19 +19,6 @@
   productUpgradeId: SpellbookFireballUpgrade
   cost:
     WizCoin: 2
-  categories:
-  - SpellbookOffensive
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-- type: listing
-  id: SpellbookRodForm
-  name: spellbook-polymorph-rod-name
-  description: spellbook-polymorph-rod-desc
-  productAction: ActionPolymorphWizardRod
-  cost:
-    WizCoin: 3
   categories:
   - SpellbookOffensive
   conditions:
@@ -186,6 +185,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookMindSwap
+  name: spellbook-mind-swap-name
+  description: spellbook-mind-swap-description
+  productAction: ActionMindSwap
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1                       
+    
 # Equipment
 - type: listing
   id: SpellbookWandDoor
@@ -272,7 +284,7 @@
   description: spellbook-event-summon-ghosts-description
   productAction: ActionSummonGhosts
   cost:
-    WizCoin: 0
+    WizCoin: 1 #Funky: Making this cost a wizcoin, so a wizard that wants ghosts has to invest something to get ghosts
   categories:
   - SpellbookEvents
   conditions:

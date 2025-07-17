@@ -1,4 +1,10 @@
-﻿advertisement-dinnerware-1 = Mm, food stuffs!
+# SPDX-FileCopyrightText: 2021 Moses <StrawberryMoses@gmail.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+advertisement-dinnerware-1 = Mm, food stuffs!
 advertisement-dinnerware-2 = Food and food accessories.
 advertisement-dinnerware-3 = Get your plates!
 advertisement-dinnerware-4 = You like forks?

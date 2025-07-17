@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Shared.Chemistry;
 using Content.Shared.Damage;
@@ -56,14 +63,12 @@ public abstract partial class SharedXenoArtifactSystem
     /// <summary>
     /// Attempts to shift artifact into unlocking state, in which it is going to listen to interactions, that could trigger nodes.
     /// </summary>
-    public void TriggerXenoArtifact(Entity<XenoArtifactComponent> ent, Entity<XenoArtifactNodeComponent> node)
+    public void TriggerXenoArtifact(Entity<XenoArtifactComponent> ent, Entity<XenoArtifactNodeComponent>? node, bool force = false)
     {
         // limits spontaneous chain activations, also prevents spamming every triggering tool to activate nodes
         // without real knowledge about triggers
-        if (_timing.CurTime < ent.Comp.NextUnlockTime)
+        if (!force && _timing.CurTime < ent.Comp.NextUnlockTime)
             return;
-
-        var index = GetIndex(ent, node);
 
         if (!_unlockingQuery.TryGetComponent(ent, out var unlockingComp))
         {
@@ -73,24 +78,33 @@ public abstract partial class SharedXenoArtifactSystem
 
             if (_net.IsServer)
                 _popup.PopupEntity(Loc.GetString("artifact-unlock-state-begin"), ent);
+            Dirty(ent);
         }
-        else
+        else if (node != null)
         {
+            var index = GetIndex(ent, node.Value);
+
             var predecessorNodeIndices = GetPredecessorNodes((ent, ent), index);
             var successorNodeIndices = GetSuccessorNodes((ent, ent), index);
-            if(unlockingComp.TriggeredNodeIndexes.Count == 0
-               || unlockingComp.TriggeredNodeIndexes.All(
-                   x => predecessorNodeIndices.Contains(x) || successorNodeIndices.Contains(x)
+            if (unlockingComp.TriggeredNodeIndexes.Count == 0
+                || unlockingComp.TriggeredNodeIndexes.All(
+                    x => predecessorNodeIndices.Contains(x) || successorNodeIndices.Contains(x)
                 )
                )
                 // we add time on each new trigger, if it is not going to fail us
                 unlockingComp.EndTime += ent.Comp.UnlockStateIncrementPerNode;
         }
 
-        if (unlockingComp.TriggeredNodeIndexes.Add(index))
+        if (node != null && unlockingComp.TriggeredNodeIndexes.Add(GetIndex(ent, node.Value)))
         {
             Dirty(ent, unlockingComp);
         }
+    }
+
+    public void SetArtifexiumApplied(Entity<XenoArtifactUnlockingComponent> ent, bool val)
+    {
+        ent.Comp.ArtifexiumApplied = val;
+        Dirty(ent);
     }
 }
 

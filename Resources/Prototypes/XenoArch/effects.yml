@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entityTable
   id: XenoArtifactEffectsDefaultTable
   table: !type:GroupSelector
@@ -363,9 +371,6 @@
       mindRoles:
       - MindRoleGhostRoleFreeAgent
     - type: GhostTakeoverAvailable
-    - type: MovementSpeedModifier
-      baseWalkSpeed: 0.25
-      baseSprintSpeed: 0.5
 
 - type: entity
   id: XenoArtifactOmnitool
@@ -1060,14 +1065,9 @@
 
 - type: entity
   id: XenoArtifactAnomalySpawn
-  parent: BaseXenoArtifactEffect
+  parent: BaseOneTimeXenoArtifactEffect
   description: Creates anomaly
   components:
-  - type: XenoArtifactNode
-    maxDurability: 2
-    maxDurabilityCanDecreaseBy:
-      min: 0
-      max: 1
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true

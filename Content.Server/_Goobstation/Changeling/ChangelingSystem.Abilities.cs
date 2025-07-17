@@ -1,3 +1,19 @@
+// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Drywink <43855731+Drywink@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Eris <eris@erisws.com>
+// SPDX-FileCopyrightText: 2025 Eris <erisfiregamer1@gmail.com>
+// SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using System.Linq;
 using Content.Shared.Changeling;
 using Content.Shared.Chemistry.Components;
@@ -213,7 +229,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             bonusChemicals += targetComp.MaxChemicals / 2;
             bonusEvolutionPoints += 10;
             comp.MaxBiomass += targetComp.MaxBiomass / 2;
-            
+
             isTargetChangeling = true;
         }
         else
@@ -239,12 +255,12 @@ public sealed partial class ChangelingSystem : EntitySystem
                 objective.Absorbed += 1;
 
         if (isTargetChangeling) return;
-        
+
         if (!TryComp<TargetingComponent>(target, out var targetingComponent))
             return; // funky station - if you get here somethings really wrong
-            
+
         var bodyPart = _bodySystem.GetRandomBodyPart(target, targetingComponent, _bodyPartBlacklist);
-        
+
         if (bodyPart != null)
         {
             if (_proto.TryIndex<DamageTypePrototype>("Blunt", out var bluntDamage))
@@ -255,7 +271,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         var bodyOrgans = _bodySystem.GetBodyOrgans(target);
 
         var valueTuples = bodyOrgans.ToList();
-        
+
         foreach (var organ in valueTuples)
         {
             if (organs.Contains(organ.Component.SlotId))
@@ -271,11 +287,11 @@ public sealed partial class ChangelingSystem : EntitySystem
         var organWhitelist = new Dictionary<string, float>(_organWhitelist);
         List<string> organs = [];
         const int tries = 3;
-        
+
         for (var i = 0; i < tries; i++)
         {
             _rand.TryPickAndTake(organWhitelist, out var organ);
-            
+
             if (organ != null)
                 organs.Add(organ);
         }
@@ -424,7 +440,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        if (!TryToggleItem(uid, ShieldPrototype, comp))
+        if (!TryToggleItem(uid, comp.ShieldPrototype, comp))
             return;
 
         PlayMeatySound(uid, comp);

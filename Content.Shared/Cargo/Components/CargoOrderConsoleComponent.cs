@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 icekot8 <93311212+icekot8@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Access;
 using Content.Shared.Cargo.Prototypes;
 using Robust.Shared.Audio;
@@ -96,6 +106,36 @@ public sealed partial class CargoOrderConsoleComponent : Component
     /// Secondary radio channel which always receives order announcements.
     /// </summary>
     public static readonly ProtoId<RadioChannelPrototype> BaseAnnouncementChannel = "Supply";
+
+    /// <summary>
+    /// If set to true, restricts this console from ordering and has it print slips instead
+    /// </summary>
+    [DataField]
+    public bool SlipPrinter;
+
+    /// <summary>
+    /// The time at which the console will be able to print a slip again.
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan NextPrintTime = TimeSpan.Zero;
+
+    /// <summary>
+    /// The time between prints.
+    /// </summary>
+    [DataField]
+    public TimeSpan PrintDelay = TimeSpan.FromSeconds(5);
+
+    /// <summary>
+    /// The sound made when printing occurs
+    /// </summary>
+    [DataField]
+    public SoundSpecifier PrintSound = new SoundCollectionSpecifier("PrinterPrint");
+
+    /// <summary>
+    /// The sound made when an order slip is scanned
+    /// </summary>
+    [DataField]
+    public SoundSpecifier ScanSound = new SoundCollectionSpecifier("CargoBeep");
 }
 
 /// <summary>

@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.GameStates;
 
@@ -64,7 +72,7 @@ public sealed partial class XenoArtifactNodeComponent : Component
     /// The amount of points a node is worth with no scaling
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float BasePointValue = 5000;
+    public float BasePointValue = 4000;
 
     /// <summary>
     /// Amount of points available currently for extracting.

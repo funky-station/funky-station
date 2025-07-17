@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 Carrot <carpecarrot@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Database;
@@ -40,7 +47,9 @@ public sealed partial class CargoSystem
 
         ent.Comp.NextAccountActionTime = Timing.CurTime + ent.Comp.AccountActionDelay;
         Dirty(ent);
-        UpdateBankAccount((station, bank), -args.Amount, CreateAccountDistribution((ent, bank)));
+
+        WithdrawFunds((station, bank), -args.Amount, ent.Comp.Account);
+
         _audio.PlayPvs(ApproveSound, ent);
 
         var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(ent, args.Actor);
@@ -65,7 +74,7 @@ public sealed partial class CargoSystem
         else
         {
             var otherAccount = _protoMan.Index(args.Account.Value);
-            UpdateBankAccount((station, bank), args.Amount, CreateAccountDistribution((args.Actor, bank)));
+            DepositFunds((station, bank), args.Amount, otherAccount);
 
             if (!_emag.CheckFlag(ent, EmagType.Interaction))
             {

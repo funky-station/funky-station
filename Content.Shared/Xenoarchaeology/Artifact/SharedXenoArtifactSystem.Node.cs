@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Shared.EntityTable;
 using Content.Shared.NameIdentifier;
@@ -163,7 +171,7 @@ public abstract partial class SharedXenoArtifactSystem
         if (ent.Comp.Locked)
             return 0;
 
-        return ent.Comp.ResearchValue - ent.Comp.ConsumedResearchValue;
+        return Math.Max(0, ent.Comp.ResearchValue - ent.Comp.ConsumedResearchValue);
     }
 
     /// <summary>
@@ -394,6 +402,6 @@ public abstract partial class SharedXenoArtifactSystem
             : 1f + durabilityEffect;
 
         var predecessorNodes = GetPredecessorNodes((artifact, artifact), node);
-        nodeComponent.ResearchValue = (int)(Math.Pow(1.25, predecessorNodes.Count) * nodeComponent.BasePointValue * durabilityMultiplier);
+        nodeComponent.ResearchValue = (int)(Math.Pow(1.25, Math.Pow(predecessorNodes.Count, 1.5f)) * nodeComponent.BasePointValue * durabilityMultiplier);
     }
 }

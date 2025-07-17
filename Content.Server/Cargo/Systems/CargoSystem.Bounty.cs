@@ -1,3 +1,23 @@
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 blueDev2 <89804215+blueDev2@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 aa5g21 <aa5g21@soton.ac.uk>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Cargo.Components;
@@ -613,7 +633,10 @@ public sealed partial class CargoSystem
 
         for (var i = 1; i <= selection;)
         {
-            var bountyItem = _random.Pick(bountyItems);
+            if (!SelectBountyEntry(bountyItems, out var bountyItem))
+            {
+                return false;
+            }
 
             var skip = false;
             foreach (var entry in newBounty.Entries)
@@ -633,7 +656,9 @@ public sealed partial class CargoSystem
                 _ => throw new NotImplementedException($"Unknown type: {bountyItem.GetType().Name}"),
             };
 
-            var bountyAmount = _random.Next(bountyItem.MinAmount, bountyItem.MaxAmount);
+            var steps = (bountyItem.MaxAmount - bountyItem.MinAmount) / bountyItem.AmountStep;
+            var step = _random.Next(steps + 1);
+            var bountyAmount = step * bountyItem.AmountStep + bountyItem.MinAmount;
             totalReward += bountyAmount * bountyItem.RewardPer;
             bountyItemData.Amount = bountyAmount;
 
@@ -675,6 +700,34 @@ public sealed partial class CargoSystem
         component.Bounties.Add(newBounty);
         component.TotalBounties++;
         return true;
+    }
+
+    /// <summary>
+    /// Selects a bounty item from a list of entries accounting for the entries weightings.
+    /// </summary>
+    /// <param name="entries">List of entries to select from.</param>
+    /// <param name="bountyEntry">The randomly selected entry.</param>
+    /// <returns>True of false depending on the success of the selection.</returns>
+    private bool SelectBountyEntry(List<CargoBountyItemEntry> entries, out CargoBountyItemEntry bountyEntry)
+    {
+        double totalWeight = 0;
+        foreach (var entry in entries)
+        {
+            totalWeight += entry.Weight;
+        }
+        var roll = _random.NextDouble(0, totalWeight);
+
+        foreach (var entry in entries)
+        {
+            roll -= entry.Weight;
+            if (!(roll <= 0))
+                continue;
+            bountyEntry = entry;
+            return true;
+        }
+
+        bountyEntry = new CargoObjectBountyItemEntry();
+        return false;
     }
 
     /// <summary>

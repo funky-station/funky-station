@@ -1,4 +1,10 @@
-using Content.Shared.Xenoarchaeology.Equipment.Components;
+// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Robust.Client.UserInterface;
 
 namespace Content.Client.Xenoarchaeology.Ui;
@@ -18,15 +24,6 @@ public sealed class NodeScannerBoundUserInterface(EntityUid owner, Enum uiKey) :
 
         _scannerDisplay = this.CreateWindow<NodeScannerDisplay>();
         _scannerDisplay.SetOwner(Owner);
-        _scannerDisplay.OnClose += Close;
-    }
-
-    /// <summary>
-    /// Update UI state based on corresponding component.
-    /// </summary>
-    public void Update(Entity<NodeScannerComponent> ent)
-    {
-        _scannerDisplay?.Update(ent);
     }
 
     /// <inheritdoc />

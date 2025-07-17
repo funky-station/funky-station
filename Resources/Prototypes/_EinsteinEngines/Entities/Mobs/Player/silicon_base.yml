@@ -1,3 +1,18 @@
+# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 KiraZen_ <209320699+KiraZen-Underscore@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Lyndomen <49795619+lyndomen@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   save: false
   id: PlayerSiliconHumanoidBase
@@ -69,7 +84,7 @@
       specificHeat: 42
       coldDamage:
         types:
-          Cold: 0.1 #per second, scales with temperature & other constants
+          Cold: 0.5 #per second, scales with temperature & other constants
       heatDamage:
         types:
           Heat: 2 # DeltaV - was 3
@@ -165,7 +180,7 @@
       bounds: -0.5,-0.5,0.5,0.5
     - type: Bloodstream # begin DeltaV - uncommented
       damageBleedModifiers: BloodlossIPC
-      bloodReagent: Oil
+      bloodReagent: MachineOil
       bleedReductionAmount: 0
       bloodMaxVolume: 100
       chemicalMaxVolume: 0

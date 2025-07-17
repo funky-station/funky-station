@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Radio;
 using Robust.Shared.Prototypes;
 
@@ -36,4 +44,10 @@ public sealed partial class CargoAccountPrototype : IPrototype
     /// </summary>
     [DataField]
     public ProtoId<RadioChannelPrototype> RadioChannel;
+
+    /// <summary>
+    /// Paper prototype used for acquisition slips.
+    /// </summary>
+    [DataField]
+    public EntProtoId AcquisitionSlip;
 }

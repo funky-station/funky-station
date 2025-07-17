@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Actions;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.EntityTable.EntitySelectors;
 using Content.Shared.Xenoarchaeology.Artifact.Prototypes;
@@ -68,13 +77,13 @@ public sealed partial class XenoArtifactComponent : Component
     /// By how much unlocking state should be prolonged for each node that was unlocked.
     /// </summary>
     [DataField]
-    public TimeSpan UnlockStateIncrementPerNode = TimeSpan.FromSeconds(5);
+    public TimeSpan UnlockStateIncrementPerNode = TimeSpan.FromSeconds(10);
 
     /// <summary>
     /// Minimum waiting time between unlock states.
     /// </summary>
     [DataField]
-    public TimeSpan UnlockStateRefractory = TimeSpan.FromSeconds(10);
+    public TimeSpan UnlockStateRefractory = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// When next unlock session can be triggered.
@@ -158,4 +167,15 @@ public sealed partial class XenoArtifactComponent : Component
             Variation = 0.1f
         }
     };
+
+    /// <summary>
+    /// Action that allows the artifact to self activate.
+    /// </summary>
+    [DataField]
+    public EntProtoId<InstantActionComponent> SelfActivateAction = "ActionArtifactActivate";
 }
+
+/// <summary>
+/// Event raised by sentient artifact to activate itself at no durability cost.
+/// </summary>
+public sealed partial class ArtifactSelfActivateEvent : InstantActionEvent;

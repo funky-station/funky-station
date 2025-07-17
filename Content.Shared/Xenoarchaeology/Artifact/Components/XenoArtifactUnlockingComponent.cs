@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
@@ -20,6 +27,12 @@ public sealed partial class XenoArtifactUnlockingComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField, AutoPausedField]
     public TimeSpan EndTime;
+
+    /// <summary>
+    /// Tracks if artifexium has been applied, which changes the unlock behavior slightly.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ArtifexiumApplied;
 
     /// <summary>
     /// The sound that plays when an artifact finishes unlocking successfully (with node unlocked).

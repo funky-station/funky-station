@@ -1,3 +1,18 @@
+# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Marat Gadzhiev <15rinkashikachi15@gmail.com>
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 icekot8 <93311212+icekot8@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 ## UI
 cargo-console-menu-title = Cargo request console
 cargo-console-menu-account-name-label = Account:{" "}
@@ -18,7 +33,7 @@ cargo-console-menu-requests-label = Requests
 cargo-console-menu-orders-label = Orders
 cargo-console-menu-order-reason-description = Reasons: {$reason}
 cargo-console-menu-populate-categories-all-text = All
-cargo-console-menu-populate-orders-cargo-order-row-product-name-text = {$productName} (x{$orderAmount}) by {$orderRequester}
+cargo-console-menu-populate-orders-cargo-order-row-product-name-text = {$productName} (x{$orderAmount}) by {$orderRequester} from [color={$accountColor}]{$account}[/color]
 cargo-console-menu-cargo-order-row-approve-button = Approve
 cargo-console-menu-cargo-order-row-cancel-button = Cancel
 cargo-console-menu-tab-title-orders = Orders
@@ -78,3 +93,15 @@ cargo-funding-alloc-console-label-save-fail = [bold]Revenue Divisions Invalid![/
     [1] +
     *[-1] -
 }{$val}%)[/color]
+
+# Slip template
+cargo-acquisition-slip-body = [head=3]Asset Detail[/head]
+    {"[bold]Product:[/bold]"} {$product}
+    {"[bold]Description:[/bold]"} {$description}
+    {"[bold]Unit cost:[/bold"}] ${$unit}
+    {"[bold]Amount:[/bold]"} {$amount}
+    {"[bold]Cost:[/bold]"} ${$cost}
+
+    {"[head=3]Purchase Detail[/head]"}
+    {"[bold]Orderer:[/bold]"} {$orderer}
+    {"[bold]Reason:[/bold]"} {$reason}

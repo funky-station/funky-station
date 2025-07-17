@@ -1,3 +1,19 @@
+// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Drywink <43855731+Drywink@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using Content.Server.DoAfter;
 using Content.Server.Forensics;
 using Content.Server.Polymorph.Systems;
@@ -108,8 +124,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
-
-    public EntProtoId ShieldPrototype = "ChangelingShield";
+    
     public EntProtoId BoneShardPrototype = "ThrowingStarChangeling";
 
     public EntProtoId ArmorPrototype = "ChangelingClothingOuterArmor";
@@ -118,17 +133,17 @@ public sealed partial class ChangelingSystem : EntitySystem
     public EntProtoId SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
     public EntProtoId SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
 
-    private readonly List<TargetBodyPart> _bodyPartBlacklist = 
-    [ 
-        TargetBodyPart.Head, 
-        TargetBodyPart.Torso, 
+    private readonly List<TargetBodyPart> _bodyPartBlacklist =
+    [
+        TargetBodyPart.Head,
+        TargetBodyPart.Torso,
         TargetBodyPart.Groin,
         TargetBodyPart.LeftFoot,
         TargetBodyPart.RightFoot,
         TargetBodyPart.RightHand,
         TargetBodyPart.LeftHand
     ];
-    
+
     private readonly Dictionary<string, float> _organWhitelist = new()
     {
         { "stomach", 0.5f },
@@ -463,15 +478,15 @@ public sealed partial class ChangelingSystem : EntitySystem
         || !TryComp<DnaComponent>(target, out var dna)
         || !TryComp<FingerprintComponent>(target, out var fingerprint))
         return false;
-        
+
         if (_mobState.IsAlive(target) && comp.UsedDnaStingFirstTime)
         {
             _popup.PopupEntity(Loc.GetString("changeling-sting-extract-alive-fail"), uid, uid);
             return false;
         }
-        
+
         comp.UsedDnaStingFirstTime = true;
-        
+
         foreach (var storedDNA in comp.AbsorbedDNA)
         {
             if (storedDNA.DNA == dna.DNA)

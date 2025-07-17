@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - files: ["ascend_ash.ogg", "ascend_blade.ogg", "ascend_flesh.ogg", "ascend_knock.ogg", "ascend_rust.ogg", "ascend_void.ogg", "heretic_gain.ogg", "heretic_gain_intense.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from /tg/station"

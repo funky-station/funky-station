@@ -638,3 +638,6 @@ uplink-emp-flashlight-desc = Looks and functions like a regular flashlight, with
 
 uplink-reagent-implanter-name = Empty Reagent Implanter
 uplink-reagent-implanter-desc = Can be filled with up to 45 units of any chemical. Once implanted, you can activate the implant to inject up to 15 units of the stored chemical into your bloodstream. Has 3 uses, and cannot be refilled.
+
+uplink-acolyte-armor-name = Acolyte Armor
+uplink-acolyte-armor-desc = The must have of any self respecting cult leader. An evil looking piece of armor, made of bones, and surprisingly resistant to damage.

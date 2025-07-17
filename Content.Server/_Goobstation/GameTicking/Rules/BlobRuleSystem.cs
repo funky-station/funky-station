@@ -1,4 +1,12 @@
-﻿using System.Diagnostics.CodeAnalysis;
+// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.AlertLevel;
 using Content.Server.Antag;
@@ -7,11 +15,12 @@ using Content.Server._Goobstation.Blob.Components;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
+using Content.Server.GameTicking;
+using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
 using Content.Server.Nuke;
 using Content.Server.Objectives;
 using Content.Server.RoundEnd;
-using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._Goobstation.Blob.Components;
@@ -39,7 +48,6 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
         base.Initialize();
 
         SubscribeLocalEvent<BlobRuleComponent, AfterAntagEntitySelectedEvent>(AfterAntagSelected);
-        SubscribeLocalEvent<ShuttleDockAttemptEvent>(OnShuttleDockAttempt);
     }
 
     protected override void Started(EntityUid uid, BlobRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -287,32 +295,5 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
     private void AfterAntagSelected(EntityUid uid, BlobRuleComponent component, AfterAntagEntitySelectedEvent args)
     {
         MakeBlob(args.EntityUid);
-    }
-
-    // Funky changes, causes shuttle to leave when blob is active
-    private void OnShuttleDockAttempt(ref ShuttleDockAttemptEvent ev)
-    {
-        var blobQuery = EntityQueryEnumerator<BlobRuleComponent, MetaDataComponent, TransformComponent>();
-        while (blobQuery.MoveNext(out var ent, out var comp, out var md, out var xform))
-        {
-            if (comp.Blobs.Count > 0)
-            {
-                ev.Cancelled = true;
-                ev.CancelMessage = Loc.GetString("blob-alert-recall-shuttle");
-
-                // Sets stage to Begin if it hasn't started yet
-                if (comp.Stage == BlobStage.Default)
-                {
-                    comp.Stage = BlobStage.Begin;
-                    _chatSystem.DispatchGlobalAnnouncement(
-                        Loc.GetString("blob-alert-detect"),
-                        Loc.GetString("Station"),
-                        true,
-                        BlobDetectAudio,
-                        Color.Red);
-                }
-                return;
-            }
-        }
     }
 }

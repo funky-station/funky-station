@@ -1,4 +1,13 @@
-﻿advertisement-clothes-1 = Dress for success!
+# SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Nairod <110078045+Nairodian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+advertisement-clothes-1 = Dress for success!
 advertisement-clothes-2 = Prepare to look swagalicious!
 advertisement-clothes-3 = Look at all this swag!
 advertisement-clothes-4 = Why leave style up to fate? Use the ClothesMate!

@@ -166,7 +166,7 @@
     damage:
       types:
         Blunt: 8
-        Structural: 15
+        Holy: 15
   - type: StaminaDamageOnCollide
     damage: 20
     sound: /Audio/Effects/metal_thud1.ogg

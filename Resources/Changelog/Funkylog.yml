@@ -3613,3 +3613,13 @@ Entries:
       message: Added radiation healing to vodka
   id: 436
   time: '2025-07-14T21:59:39.0000000+00:00'
+- author: Catazeus
+  changes:
+    - type: Tweak
+      message: Aligned job icons with color pallet.
+    - type: Tweak
+      message: Some job icons got a redesign.
+    - type: Tweak
+      message: Made job icons consistent.
+  id: 437
+  time: '2025-07-17T10:41:38.0000000+00:00'

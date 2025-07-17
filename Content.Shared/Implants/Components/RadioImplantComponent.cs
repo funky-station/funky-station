@@ -1,4 +1,10 @@
-﻿using Content.Shared.Radio;
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Radio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Implants.Components;

@@ -255,13 +255,11 @@
   description: uplink-gloves-knuckleduster-desc
   icon: { sprite: Clothing/Hands/Gloves/KnuckleDusters/syndicateknuckleduster.rsi, state: syndicateknuckleduster }
   productEntity: ClothingHandsKnuckleDustersSyndicate
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 3
   cost:
-    Telecrystal: 6
+    Telecrystal: 30 # funky - does 75% DPS of northstars, costs 75% of northstars
   categories:
   - UplinkWeaponry
+  saleLimit: 1 # matching WD edits i guess
 
 - type: listing
   id: UplinkDisposableTurret

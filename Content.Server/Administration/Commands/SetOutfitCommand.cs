@@ -198,7 +198,7 @@ namespace Content.Server.Administration.Commands
 
             if (entityManager.HasComponent<EncryptionKeyHolderComponent>(target))
             {
-                var encryption = new InternalEncryptionKeySpawner();
+                var encryption = entityManager.System<InternalEncryptionKeySpawner>();
                 encryption.TryInsertEncryptionKey(target, startingGear, entityManager);
             }
             

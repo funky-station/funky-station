@@ -328,6 +328,13 @@ public sealed partial class MedicalRecordsMenu : FancyWindow
             group.Add(Loc.GetString(item.Name));
         }
 
+        var allGroups = _prototypeManager.EnumeratePrototypes<MedicalInfoCategoryPrototype>()
+            .OrderBy(t => Loc.GetString(t.Name))
+            .ToList();
+
+        foreach (var kind in allGroups)
+            infoGroups.GetOrNew(kind.ID);
+
         foreach (var (categoryId, categoryItems) in infoGroups)
         {
             if (!_prototypeManager.TryIndex<MedicalInfoCategoryPrototype>(categoryId, out var category))
@@ -349,7 +356,12 @@ public sealed partial class MedicalRecordsMenu : FancyWindow
                 Text = Loc.GetString(category.Name) + ": ",
             });
 
-            entry.AddChild(new RecordLongItemDisplay { Title = string.Join(", ", categoryItems) });
+            var text = string.Join(", ", categoryItems);
+
+            entry.AddChild(new RecordLongItemDisplay
+            {
+                Title = text == "" ? "None provided" : text,
+            });
 
             MedicalInfoContainer.AddChild(entry);
         }

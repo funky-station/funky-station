@@ -1,6 +1,4 @@
 using System.Linq;
-using System.Text.Json.Serialization;
-using Content.Shared._Funkystation.Records;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -132,23 +130,24 @@ public sealed partial class PlayerProvidedCharacterRecords
 
     private static string ClampString(string str, int maxLen)
     {
-        if (str.Length > maxLen)
-        {
-            return str[..maxLen];
-        }
-        return str;
+        return str.Length > maxLen ? str[..maxLen] : str;
     }
-
 
     /// <summary>
     /// Clamp invalid entries to valid values
     /// </summary>
     public void EnsureValid()
     {
+        var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
+        var info = MedicalInfo
+            .Where(prototypeManager.HasIndex)
+            .ToList();
+
         Height = Math.Clamp(Height, 0, MaxHeight);
         Weight = Math.Clamp(Weight, 0, MaxWeight);
         IdentifyingFeatures = ClampString(IdentifyingFeatures, TextMedLen);
         PostmortemInstructions = ClampString(PostmortemInstructions, TextMedLen);
+        _medicalInfo.UnionWith(GetValidInfo(info, prototypeManager));
     }
     public PlayerProvidedCharacterRecords WithHeight(int height)
     {
@@ -225,5 +224,27 @@ public sealed partial class PlayerProvidedCharacterRecords
     public PlayerProvidedCharacterRecords WithPostmortemInstructions(string s)
     {
         return new(this) { PostmortemInstructions = s};
+    }
+
+    public HashSet<ProtoId<MedicalInfoPrototype>> GetValidInfo(IEnumerable<ProtoId<MedicalInfoPrototype>> info, IPrototypeManager protoManager)
+    {
+        var result = new HashSet<ProtoId<MedicalInfoPrototype>>();
+
+        foreach (var item in info)
+        {
+            if (!protoManager.TryIndex(item, out var itemProto))
+                continue;
+
+            if (itemProto.Category == null)
+                continue;
+
+            // No category so dump it.
+            if (!protoManager.TryIndex(itemProto.Category, out var category))
+                continue;
+
+            result.Add(item);
+        }
+
+        return result;
     }
 }

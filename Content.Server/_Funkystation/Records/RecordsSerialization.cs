@@ -43,38 +43,27 @@ public static class RecordsSerialization
         return def;
     }
 
-
-    private static HashSet<ProtoId<MedicalInfoPrototype>> DeserializeSet(JsonElement e, string key, HashSet<ProtoId<MedicalInfoPrototype>>? def)
+    private static HashSet<ProtoId<MedicalInfoPrototype>> DeserializeSet(JsonElement e, string key)
     {
         var hashSet = new HashSet<ProtoId<MedicalInfoPrototype>>();
 
         if (!e.TryGetProperty(key, out var v))
             return [];
 
-        if (v.ValueKind == JsonValueKind.Object)
+        if (v.ValueKind != JsonValueKind.Array)
+            return [];
+
+        var enumerator = v.EnumerateArray();
+
+        while (enumerator.MoveNext())
         {
-            var enumerator = v.EnumerateObject();
-
-            while (enumerator.MoveNext())
-            {
-                var id = enumerator.Current.Value.GetProperty("Id");
-                var category = enumerator.Current.Value.GetProperty("Category");
-                var name = enumerator.Current.Value.GetProperty("Name");
-
-                var medicalInfoPrototype = new MedicalInfoPrototype
-                {
-                    Category = category.GetString(),
-                    Name = new LocId(name.GetRawText()),
-                    ID = id.GetRawText()
-                };
-
-                hashSet.Add(medicalInfoPrototype);
-            }
-
-            return hashSet;
+            var id = enumerator.Current.GetProperty("Id").GetString();
+            if (id is not null)
+                hashSet.Add(id);
         }
 
-        return [];
+        return hashSet;
+
     }
 
     /// <summary>
@@ -96,7 +85,7 @@ public static class RecordsSerialization
             hasInsurance: DeserializeBool(e, nameof(def.HasInsurance), def.HasInsurance),
             insuranceProvider: DeserializeInt(e, nameof(def.InsuranceProvider), def.InsuranceProvider),
             insuranceType: DeserializeInt(e, nameof(def.InsuranceType), def.InsuranceType),
-            medicalInfo: DeserializeSet(e, nameof(def.MedicalInfo), def.MedicalInfo),
+            medicalInfo: DeserializeSet(e, nameof(def.MedicalInfo)),
             bloodType: DeserializeInt(e, nameof(def.BloodType), def.BloodType),
             postmortemInstructions: DeserializeString(e, nameof(def.PostmortemInstructions), def.PostmortemInstructions));
     }

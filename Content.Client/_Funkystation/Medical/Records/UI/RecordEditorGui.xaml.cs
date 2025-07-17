@@ -291,16 +291,12 @@ public sealed partial class RecordEditorGui : Control
 
                 selector.PreferenceChanged += preference =>
                 {
-                    if (preference)
-                    {
-                        UpdateRecords(_records.WithMedicalInfo(trait.ID, _prototypeManager));
-                    }
-                    else
-                    {
-                        UpdateRecords(_records.WithoutMedicalInfo(trait.ID, _prototypeManager));
-                    }
+                    UpdateRecords(preference
+                        ? _records.WithMedicalInfo(trait.ID, _prototypeManager)
+                        : _records.WithoutMedicalInfo(trait.ID, _prototypeManager));
                     UpdateRecords(_records);
                 };
+
                 selectors.Add(selector);
             }
             foreach (var selector in selectors) { layout.AddChild(selector); }

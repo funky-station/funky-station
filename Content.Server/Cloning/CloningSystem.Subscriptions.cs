@@ -5,10 +5,12 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Access.Components; // funkystation
+using Content.Server.CartridgeLoader.Cartridges; // funkystation
 using Content.Server.Forensics;
 using Content.Shared._DV.NanoChat; // funkystation
 using Content.Shared.Access.Components; // funkystation
 using Content.Shared.Access.Systems; // funkystation
+using Content.Shared.CartridgeLoader.Cartridges; // funkystation
 using Content.Shared.Cloning.Events;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Containers.ItemSlots; // funkystation
@@ -128,12 +130,13 @@ public sealed partial class CloningSystem : EntitySystem
     private void OnClonePda(Entity<PdaComponent> ent, ref CloningItemEvent args)
     {
         // if we cloned a whole PDA, we need to explicitly copy its contents too; welcome to hell
-        // we SHOULD copy installed apps too to be thorough but.........
+        // actually, REALLY GENUINELY welcome to hell; we have to copy some installed program data from here too
         if (TryComp<PdaComponent>(args.CloneUid, out var clonePda))
         {
             clonePda.OwnerName = ent.Comp.OwnerName;
             clonePda.PdaOwner = ent.Comp.PdaOwner;
 
+            // ID, pen, pAI, and cartridge slots
             if (TryComp<ItemSlotsComponent>(args.CloneUid, out var clonePdaSlots) && TryComp<ItemSlotsComponent>(ent, out var oldPdaSlots))
             {
                 foreach (var slot in clonePdaSlots.Slots)
@@ -152,6 +155,32 @@ public sealed partial class CloningSystem : EntitySystem
                         }
 
                         QueueDel(trash);
+                    }
+                }
+            }
+
+            // installed programs
+            if (_container.TryGetContainer(args.CloneUid, "program-container", out var newPrograms) && _container.TryGetContainer(ent, "program-container", out var oldPrograms))
+            {
+                // there's GOT to be a BETTER WAY
+                foreach (var progId in oldPrograms.ContainedEntities)
+                {
+                    if (TryComp<NanoTaskCartridgeComponent>(progId, out var oldNanotask))
+                    {
+                        if (!TryComp<NanoTaskCartridgeComponent>(newPrograms.ContainedEntities.Where(id => HasComp<NanoTaskCartridgeComponent>(id)).First(), out var newNanotask))
+                            continue;
+                        newNanotask.Counter = oldNanotask.Counter;
+                        foreach (var task in oldNanotask.Tasks)
+                            newNanotask.Tasks.Add(task);
+                        continue;
+                    }
+                    if (TryComp<NotekeeperCartridgeComponent>(progId, out var oldNotes))
+                    {
+                        if (!TryComp<NotekeeperCartridgeComponent>(newPrograms.ContainedEntities.Where(id => HasComp<NotekeeperCartridgeComponent>(id)).First(), out var newNotes))
+                            continue;
+                        foreach (var note in oldNotes.Notes)
+                            newNotes.Notes.Add(note);
+                        continue;
                     }
                 }
             }

@@ -21,6 +21,7 @@ using Content.Shared.Stacks;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Robust.Shared.Prototypes;
+using System.Linq; // funkystation
 
 namespace Content.Server.Cloning;
 
@@ -160,9 +161,22 @@ public sealed partial class CloningSystem : EntitySystem
     // funkystation
     private void OnCloneNanochat(Entity<NanoChatCardComponent> ent, ref CloningItemEvent args)
     {
-        // copy the NanoChat ID number and unlist the card to properly clone messages without revealing the Paradox Clone immediately in nanochat listing
+        // copy the NanoChat ID number and unlist the card to properly clone sent messages without revealing the Paradox Clone immediately in nanochat listing
         if (ent.Comp.Number != null)
             _nano.SetNumber(args.CloneUid, ent.Comp.Number.Value);
         _nano.SetListNumber(args.CloneUid, false);
+
+        var oldRecipients = ent.Comp.Recipients;
+        var oldMessages = ent.Comp.Messages;
+        if (oldRecipients != null && oldMessages != null && TryComp<NanoChatCardComponent>(args.CloneUid, out var newCard))
+        {
+            foreach (var recipient in oldRecipients)
+            {
+                _nano.EnsureRecipientExists(args.CloneUid, recipient.Key, recipient.Value);
+                var toCopy = oldMessages.Where(m => m.Key == recipient.Key).First().Value;
+                foreach (var msg in toCopy)
+                    _nano.AddMessage(args.CloneUid, recipient.Key, msg);
+            }
+        }
     }
 }

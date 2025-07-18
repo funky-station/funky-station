@@ -11,6 +11,20 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+# SPDX-FileCopyrightText: 2025 UristMcWiki <endernate2015@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+# SPDX-FileCopyrightText: 2025 UristMcWiki <endernate2015@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   name: hardlight bow
   parent: [BaseItem, BaseSyndicateContraband]
@@ -27,6 +41,12 @@
       visible: false
       shader: unshaded
       map: [ "bowstring" ]
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi
+    quickEquip: false
+    slots:
+      - Back
+      - suitStorage
   - type: Item
     heldPrefix: folded
     size: Normal
@@ -52,7 +72,6 @@
       fireCost: 100
     - proto: ArrowFiery
       fireCost: 100
-  - type: Appearance
   - type: MagazineVisuals
     magState: mag
     steps: 10
@@ -62,31 +81,6 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-   - type: ItemToggle
-    wieldToggle: false
-    soundActivate:
-      path: /Audio/Weapons/telescopicon.ogg
-      params:
-        volume: -5
-    soundDeactivate:
-      path: /Audio/Weapons/telescopicoff.ogg
-      params:
-        volume: -5
-  - type: ItemToggleSize
-    activatedSize: Huge
-  - type: ItemTogglePointLight
-  - type: ComponentToggler
-    components:
-    - type: DisarmMalus
-      malus: 0.6
-  - type: PointLight
-    enabled: false
-    radius: 1.5
-    energy: 1.5
-    color: white
-    netsync: false
-  - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi
   - type: Appearance
   - type: ToggleableLightVisuals
     spriteLayer: bowstring
@@ -129,5 +123,7 @@
           False: { state: bow-folded }
   - type: ToggleableLightWieldable
   # TODO: Zoom
+
+
 
 

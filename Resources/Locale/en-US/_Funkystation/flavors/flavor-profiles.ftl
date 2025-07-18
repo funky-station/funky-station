@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 ## non-alcoholic drinks
 flavor-complex-eggnog = like egg and nog
 flavor-complex-peggnog = like nothing you've ever tasted before

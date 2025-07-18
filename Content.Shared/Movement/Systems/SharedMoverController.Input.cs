@@ -1,3 +1,28 @@
+// SPDX-FileCopyrightText: 2020 GlassEclipse <32942106+GlassEclipse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 Vince <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 collinlunn <60152240+collinlunn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 duston <66768086+dch-GH@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Shared.Alert;
 using Content.Shared.CCVar;
@@ -169,7 +194,7 @@ namespace Content.Shared.Movement.Systems
             }
 
             // If we updated parent then cancel the accumulator and force it now.
-            if (!TryUpdateRelative(mover, XformQuery.GetComponent(uid)) && mover.TargetRelativeRotation.Equals(Angle.Zero))
+            if (!TryUpdateRelative(uid, mover, XformQuery.GetComponent(uid)) && mover.TargetRelativeRotation.Equals(Angle.Zero))
                 return;
 
             mover.LerpTarget = TimeSpan.Zero;
@@ -177,7 +202,7 @@ namespace Content.Shared.Movement.Systems
             Dirty(uid, mover);
         }
 
-        private bool TryUpdateRelative(InputMoverComponent mover, TransformComponent xform)
+        private bool TryUpdateRelative(EntityUid uid, InputMoverComponent mover, TransformComponent xform)
         {
             var relative = xform.GridUid;
             relative ??= xform.MapUid;
@@ -192,38 +217,42 @@ namespace Content.Shared.Movement.Systems
 
             // Okay need to get our old relative rotation with respect to our new relative rotation
             // e.g. if we were right side up on our current grid need to get what that is on our new grid.
-            var currentRotation = Angle.Zero;
-            var targetRotation = Angle.Zero;
+            var oldRelativeRot = Angle.Zero;
+            var relativeRot = Angle.Zero;
 
             // Get our current relative rotation
             if (XformQuery.TryGetComponent(mover.RelativeEntity, out var oldRelativeXform))
             {
-                currentRotation = _transform.GetWorldRotation(oldRelativeXform, XformQuery) + mover.RelativeRotation;
+                oldRelativeRot = _transform.GetWorldRotation(oldRelativeXform);
             }
 
             if (XformQuery.TryGetComponent(relative, out var relativeXform))
             {
                 // This is our current rotation relative to our new parent.
-                mover.RelativeRotation = (currentRotation - _transform.GetWorldRotation(relativeXform)).FlipPositive();
+                relativeRot = _transform.GetWorldRotation(relativeXform);
             }
 
-            // If we went from grid -> map we'll preserve our worldrotation
-            if (relative != null && HasComp<MapComponent>(relative.Value))
+            var diff = relativeRot - oldRelativeRot;
+
+            // If we're going from a grid -> map then preserve the relative rotation so it's seamless if they go into space and back.
+            if (MapQuery.HasComp(relative) && MapGridQuery.HasComp(mover.RelativeEntity))
             {
-                targetRotation = currentRotation.FlipPositive().Reduced();
+                mover.TargetRelativeRotation -= diff;
             }
-            // If we went from grid -> grid OR grid -> map then snap the target to cardinal and lerp there.
-            // OR just rotate to zero (depending on cvar)
-            else if (relative != null && _mapManager.IsGrid(relative.Value))
+            // Snap to nearest cardinal if map -> grid or grid -> grid
+            else if (MapGridQuery.HasComp(relative) && (MapQuery.HasComp(mover.RelativeEntity) || MapGridQuery.HasComp(mover.RelativeEntity)))
             {
-                if (CameraRotationLocked)
-                    targetRotation = Angle.Zero;
-                else
-                    targetRotation = mover.RelativeRotation.GetCardinalDir().ToAngle().Reduced();
+                var targetDir = mover.TargetRelativeRotation - diff;
+                targetDir = targetDir.GetCardinalDir().ToAngle().Reduced();
+                mover.TargetRelativeRotation = targetDir;
             }
+
+            // Preserve target rotation in relation to the new parent.
+            // Regardless of what the target is don't want the eye to move at all (from the player's perspective).
+            mover.RelativeRotation -= diff;
 
             mover.RelativeEntity = relative;
-            mover.TargetRelativeRotation = targetRotation;
+            Dirty(uid, mover);
             return true;
         }
 

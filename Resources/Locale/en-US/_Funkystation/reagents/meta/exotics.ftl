@@ -1,4 +1,10 @@
-﻿reagent-name-exotic = liquid exotium
+# SPDX-FileCopyrightText: 2025 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+reagent-name-exotic = liquid exotium
 reagent-desc-exotic = A precursor to many different rare chemicals. Use wisely.
 
 reagent-name-stasicillin = stasicillin

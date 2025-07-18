@@ -310,11 +310,20 @@ public sealed partial class MedicalRecordsMenu : FancyWindow
     /// </remarks>
     private void RefreshMedicalInformation(HashSet<ProtoId<MedicalInfoPrototype>> medicalInfo)
     {
+        MedicalInfoContainer.DisposeAllChildren();
+
         var information = _prototypeManager.EnumeratePrototypes<MedicalInfoPrototype>()
             .OrderBy(t => Loc.GetString(t.Name))
             .ToList();
 
         Dictionary<string, List<string>> infoGroups = new();
+
+        // this is just so it generates empty groups, rather than none at all, if a character does not have entries in that category.
+        var allGroups = _prototypeManager.EnumeratePrototypes<MedicalInfoCategoryPrototype>()
+            .OrderBy(t => Loc.GetString(t.Name))
+            .ToList();
+
+        foreach (var kind in allGroups) infoGroups.GetOrNew(kind.ID);
 
         foreach (var item in information)
         {
@@ -334,13 +343,6 @@ public sealed partial class MedicalRecordsMenu : FancyWindow
             group.Add(Loc.GetString(item.Name));
         }
 
-        // this is just so it generates empty groups, rather than none at all, if a character does not have entries in that category.
-        var allGroups = _prototypeManager.EnumeratePrototypes<MedicalInfoCategoryPrototype>()
-            .OrderBy(t => Loc.GetString(t.Name))
-            .ToList();
-
-        foreach (var kind in allGroups) infoGroups.GetOrNew(kind.ID);
-
         // build the ui
         // ill be so fr all of the stuff with setting the font colors is kinda shitcode
         // not like richtextlabels are particularly fun to use
@@ -358,8 +360,10 @@ public sealed partial class MedicalRecordsMenu : FancyWindow
                 Margin = new Thickness(5),
             };
 
-            var text = "[color=white]" + string.Join(", ", categoryItems) + "[/color]";
-            item.SetValue(text == "" ? Loc.GetString("funky-medical-records-viewer-none-provided") : text);
+            var text = string.Join(", ", categoryItems);
+            item.SetValue(text == ""
+                ? "[color=white]" + Loc.GetString("funky-medical-records-viewer-none-provided") + "[/color]"
+                : "[color=white]" + text + "[/color]");
 
             MedicalInfoContainer.AddChild(item);
         }

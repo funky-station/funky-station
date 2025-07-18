@@ -1,5 +1,5 @@
 ﻿<controls:FancyWindow
-    MinSize="00 750"
+    MinSize="800 750"
     Resizable="True"
     SetSize="1000 750"
     Title="{Loc 'funky-medical-records-window-title'}"
@@ -250,25 +250,6 @@
                                 <BoxContainer Name="MedicalInfoContainer" Orientation="Vertical" />
                                 <ui:RecordLongItemDisplay Margin="5" Name="RecordContainerIdentFeatures" />
                                 <ui:RecordLongItemDisplay Margin="5" Name="RecordContainerPostMortem" />
-                                <BoxContainer Margin="5" Orientation="Horizontal">
-                                    <BoxContainer Orientation="Horizontal" SetHeight="24">
-                                        <Button
-                                            Margin="-1"
-                                            Name="ARButton"
-                                            SetWidth="27"
-                                            StyleClasses="ButtonSquare">
-                                            <TextureRect
-                                                Margin="-8,-2,0,0"
-                                                Name="ARButtonArrow"
-                                                TexturePath="/Textures/_Funkystation/Interface/StyleFunky/arrow_up.png"
-                                                VerticalAlignment="Center" />
-                                        </Button>
-                                    </BoxContainer>
-                                    <Label
-                                        Name="NotesTitle"
-                                        StyleClasses="LabelSecondaryColor"
-                                        Text="{Loc 'funky-medical-records-doctors-notes-title'}" />
-                                </BoxContainer>
                             </BoxContainer>
 
                             <!--  todo implement autopsies  -->

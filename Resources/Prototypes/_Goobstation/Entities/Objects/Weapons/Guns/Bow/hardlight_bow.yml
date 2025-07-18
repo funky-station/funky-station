@@ -25,6 +25,13 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+# SPDX-FileCopyrightText: 2025 UristMcWiki <endernate2015@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   name: hardlight bow
   parent: [BaseItem, BaseSyndicateContraband]
@@ -47,34 +54,35 @@
     slots:
       - Back
       - suitStorage
+    size: Normal
+  - type: GunRequiresWield
   - type: Item
     heldPrefix: folded
-    size: Normal
   - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
+    maxCharge: 2500
+    startingCharge: 2500
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 30
+    autoRechargeRate: 50
   - type: BatteryWeaponFireModes
     fireModes:
     - proto: ArrowEnergy
-      fireCost: 100
+      fireCost: 99
     - proto: ArrowDisabler
-      fireCost: 100
+      fireCost: 99
     - proto: ArrowFreeze
-      fireCost: 100
+      fireCost: 99
     - proto: ArrowExplosive
-      fireCost: 100
+      fireCost: 99
     - proto: ArrowBee
-      fireCost: 100
+      fireCost: 99
     - proto: ArrowXray
-      fireCost: 100
+      fireCost: 99
     - proto: ArrowFiery
-      fireCost: 100
+      fireCost: 99
   - type: MagazineVisuals
     magState: mag
-    steps: 10
+    steps: 8
     zeroVisible: false
   - type: Gun
     fireRate: 1
@@ -121,8 +129,32 @@
         base:
           True: { state: bow }
           False: { state: bow-folded }
+  - type: ItemToggle
+    wieldToggle: false
+    soundActivate:
+      path: /Audio/Weapons/telescopicon.ogg
+      params:
+        volume: -5
+    soundDeactivate:
+      path: /Audio/Weapons/telescopicoff.ogg
+      params:
+        volume: -5
+  - type: ItemToggleSize
+    activatedSize: Huge
+  - type: ItemTogglePointLight
+  - type: ComponentToggler
+    components:
+    - type: DisarmMalus
+      malus: 0.6
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    energy: 1.5
+    color: white
+    netsync: false
   - type: ToggleableLightWieldable
   # TODO: Zoom
+
 
 
 

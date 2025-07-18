@@ -33,6 +33,7 @@ funky-medical-records-dna-title = DNA:
 funky-medical-records-blood-title = Blood Type:
 funky-medical-records-identifying-features-title = Identifying Features:
 funky-medical-records-post-mortem-title = Post Mortem Instructions:
+funky-medical-records-doctors-notes-title = Doctor's Notes
 
 funky-medical-records-autopsy-info = Autopsy Report
 

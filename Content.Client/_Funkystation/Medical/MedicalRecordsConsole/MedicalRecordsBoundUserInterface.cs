@@ -33,7 +33,7 @@ public sealed class MedicalRecordsBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _menu = this.CreateWindow<MedicalRecordsMenu>();
+        _menu = new MedicalRecordsMenu(_accessReader);
         _menu.OnClose += Close;
 
         _menu.OnListingItemSelected += meta =>

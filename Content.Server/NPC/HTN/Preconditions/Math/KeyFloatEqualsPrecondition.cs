@@ -1,4 +1,9 @@
-﻿namespace Content.Server.NPC.HTN.Preconditions.Math;
+// SPDX-FileCopyrightText: 2024 Tornado Tech <54727692+Tornado-Technology@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+namespace Content.Server.NPC.HTN.Preconditions.Math;
 
 /// <summary>
 /// Checks if there is a float value for the specified <see cref="KeyFloatEqualsPrecondition.Key"/>

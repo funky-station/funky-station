@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 AryaRaiin <crhuette@gmail.com>
+# SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 
 - type: entity
   abstract: true

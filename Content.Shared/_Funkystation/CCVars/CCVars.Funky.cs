@@ -24,4 +24,18 @@ public sealed class CCVars_Funky
     /// </summary>
     public static readonly CVarDef<bool> BluespaceGasEnabled =
         CVarDef.Create("funky.bluespace_gas_enabled", true, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// If the LOOC message budget system should be enabled.
+    /// Defaults to true.
+    /// </summary>
+    public static readonly CVarDef<bool> LoocBudgetEnabled =
+        CVarDef.Create("funky.looc_budget_enabled", true, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// How many LOOC messages each player can send per round.
+    /// Defaults to 20.
+    /// </summary>
+    public static readonly CVarDef<int> DefaultLoocBudget =
+        CVarDef.Create("funky.looc_budget_default", 20, CVar.SERVER | CVar.REPLICATED);
 }

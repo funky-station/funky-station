@@ -62,6 +62,29 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
+   - type: ItemToggle
+    wieldToggle: false
+    soundActivate:
+      path: /Audio/Weapons/telescopicon.ogg
+      params:
+        volume: -5
+    soundDeactivate:
+      path: /Audio/Weapons/telescopicoff.ogg
+      params:
+        volume: -5
+  - type: ItemToggleSize
+    activatedSize: Huge
+  - type: ItemTogglePointLight
+  - type: ComponentToggler
+    components:
+    - type: DisarmMalus
+      malus: 0.6
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    energy: 1.5
+    color: white
+    netsync: false
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi
   - type: Appearance

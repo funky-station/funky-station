@@ -1,5 +1,5 @@
 ﻿<controls:FancyWindow
-    MinSize="800 750"
+    MinSize="850 750"
     Resizable="True"
     SetSize="1000 750"
     Title="{Loc 'funky-medical-records-window-title'}"

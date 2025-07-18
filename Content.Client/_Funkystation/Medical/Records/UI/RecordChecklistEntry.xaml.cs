@@ -23,11 +23,10 @@ public sealed partial class RecordChecklistEntry : BoxContainer
     public RecordChecklistEntry(string name)
     {
         RobustXamlLoader.Load(this);
+
         _checkbox = ItemCheckBox;
         _label = ItemLabel;
-
         _label.Text = name;
-
         _checkbox.OnToggled += OnCheckBoxToggled;
     }
 

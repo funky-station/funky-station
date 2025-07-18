@@ -120,12 +120,19 @@ public sealed partial class RecordEditorGui : Control
         UpdateWidgets();
     }
 
-    private void UpdateRecords(PlayerProvidedCharacterRecords records)
+    /// <param name="records"></param>
+    /// <param name="updateWidgets">
+    /// in some cases we don't want to update the widgets along with the records,
+    /// because doing so will refresh any scrollboxes
+    /// </param>
+    private void UpdateRecords(PlayerProvidedCharacterRecords records, bool updateWidgets = true)
     {
         records.EnsureValid();
         _records = records;
         _updateProfileRecords(_records);
-        UpdateWidgets();
+
+        if (updateWidgets)
+            UpdateWidgets();
     }
 
     private void UpdateWidgets()
@@ -199,9 +206,6 @@ public sealed partial class RecordEditorGui : Control
         BloodTypeDropdown.AddItem(name, (int)type);
     }
 
-    /// <summary>
-    /// Generates/refreshes the "Medical Info" checkboxes based on <see cref="MedicalInfoPrototype"/>
-    /// </summary>
     private void RefreshMedicalInformation()
     {
         MedicalInfoContainer.DisposeAllChildren();
@@ -261,7 +265,7 @@ public sealed partial class RecordEditorGui : Control
                 HorizontalExpand = true,
                 HScrollEnabled = false,
                 Margin = new Thickness(10,5),
-                SetHeight = 200f,
+                SetHeight = 300f,
             };
 
             var layout = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical };
@@ -293,8 +297,9 @@ public sealed partial class RecordEditorGui : Control
                 {
                     UpdateRecords(preference
                         ? _records.WithMedicalInfo(trait.ID, _prototypeManager)
-                        : _records.WithoutMedicalInfo(trait.ID, _prototypeManager));
-                    UpdateRecords(_records);
+                        : _records.WithoutMedicalInfo(trait.ID, _prototypeManager),
+                        false);
+                    UpdateRecords(_records, false);
                 };
 
                 selectors.Add(selector);

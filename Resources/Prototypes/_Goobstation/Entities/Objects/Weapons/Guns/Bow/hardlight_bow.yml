@@ -34,7 +34,7 @@
 
 - type: entity
   name: hardlight bow
-  parent: [BaseItem, BaseSyndicateContraband]
+  parent: [BaseItem, BaseSyndicateContraband, BaseWeaponBattery]
   id: BowHardlight
   description: A modern bow that can fabricate hardlight arrows using an internal energy. This one is designed by the Syndicate for silent takedowns of targets.
   components:
@@ -54,41 +54,53 @@
     slots:
       - Back
       - suitStorage
-    size: Normal
+  - type: Wieldable
+    wieldSound:
+      path: /Audio/Items/bow_pull.ogg
+  - type: UseDelay
+    delay: 1
   - type: GunRequiresWield
   - type: Item
     heldPrefix: folded
+    size: Normal
   - type: Battery
-    maxCharge: 2500
-    startingCharge: 2500
+    maxCharge: 1000
+    startingCharge: 1000
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 50
+    autoRechargeRate: 20
+  - type: ProjectileBatteryAmmoProvider
+    proto: ArrowEnergy
+    fireCost: 100
   - type: BatteryWeaponFireModes
     fireModes:
     - proto: ArrowEnergy
-      fireCost: 99
+      fireCost: 100
     - proto: ArrowDisabler
-      fireCost: 99
+      fireCost: 100
     - proto: ArrowFreeze
-      fireCost: 99
+      fireCost: 100
     - proto: ArrowExplosive
-      fireCost: 99
+      fireCost: 100
     - proto: ArrowBee
-      fireCost: 99
+      fireCost: 100
     - proto: ArrowXray
-      fireCost: 99
+      fireCost: 100
     - proto: ArrowFiery
-      fireCost: 99
+      fireCost: 100
   - type: MagazineVisuals
     magState: mag
-    steps: 8
-    zeroVisible: false
+    steps: 5
+    zeroVisible: true
+  - type: FoldingWeapon
   - type: Gun
     fireRate: 1
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
+    soundGunshot:
+      collection: BulletMiss
+    soundEmpty: null
   - type: Appearance
   - type: ToggleableLightVisuals
     spriteLayer: bowstring
@@ -154,7 +166,6 @@
     netsync: false
   - type: ToggleableLightWieldable
   # TODO: Zoom
-
 
 
 

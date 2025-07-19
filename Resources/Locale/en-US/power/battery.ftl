@@ -1,4 +1,10 @@
-﻿## Strings for the battery (SMES/substation) menu
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+## Strings for the battery (SMES/substation) menu
 
 battery-menu-footer-left = Danger: high voltage
 battery-menu-footer-right = 7.2 REV 6

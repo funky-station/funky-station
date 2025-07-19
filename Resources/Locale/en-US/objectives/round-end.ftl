@@ -21,3 +21,4 @@ objectives-with-objectives = {$custody}{$title} was a {$agent} who had the follo
 
 objectives-objective-success = {$objective}
 objectives-objective-fail = {$objective}
+objectives-in-custody = [bold][color=red]| IN CUSTODY | [/color][/bold]

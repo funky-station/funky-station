@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 TemporalOroboros <TemporalOroboros@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 ## Standard SI prefixes
 units-si--y = y
 units-si--z = z

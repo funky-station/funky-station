@@ -77,7 +77,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
         //This is a certified Funkystation addition :fire:
 
         if (TryComp<TemperatureComponent>(args.OtherEntity, out var temp))
-            _temperature.ForceChangeTemperature(args.OtherEntity, temp.CurrentTemperature - 70f, temp);
+            _temperature.ForceChangeTemperature(args.OtherEntity, temp.CurrentTemperature - 35f, temp);
 
         if (TryComp<DamageableComponent>(args.OtherEntity, out var damage))
         {

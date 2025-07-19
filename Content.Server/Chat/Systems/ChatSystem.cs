@@ -397,6 +397,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (!_critLoocEnabled && _mobStateSystem.IsCritical(source))
             return;
 
+        if (TryComp<AdminFrozenComponent>(source, out var frozenComponent) && frozenComponent.Muted)
+            return;
+
         switch (sendType)
         {
             case InGameOOCChatType.Dead:

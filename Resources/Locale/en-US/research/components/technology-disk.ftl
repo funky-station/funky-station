@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 tech-disk-inserted = You insert the disk, adding a new recipe to the server.
 tech-disk-examine-none = The label is blank.
 tech-disk-examine = The label has a small dot matrix printed image depicting a {$result}.

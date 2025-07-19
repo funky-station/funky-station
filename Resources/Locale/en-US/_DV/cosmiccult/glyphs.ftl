@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 cult-glyph-target-dead = The glyph's influence has no effect on the deceased..
 cult-glyph-not-enough-cultists = Not enough cultists present to invoke glyph!
 cult-glyph-conditions-not-met = No suitable targets within range of glyph!

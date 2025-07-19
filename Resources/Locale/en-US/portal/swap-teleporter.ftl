@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 swap-teleporter-popup-link-create = Quantum link established!
 swap-teleporter-popup-link-fail-already = Quantum link failed! Link already present on device.
 swap-teleporter-popup-link-fail-already-other = Quantum link failed! Link already present on secondary device.

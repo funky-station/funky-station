@@ -1,4 +1,10 @@
-﻿names-thaven-dataset-1 = Honesty
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+names-thaven-dataset-1 = Honesty
 names-thaven-dataset-2 = Have Mercy
 names-thaven-dataset-3 = Give Thanks To Thine Ancestors
 names-thaven-dataset-4 = Obedience

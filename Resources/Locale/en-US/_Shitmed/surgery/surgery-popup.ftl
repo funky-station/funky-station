@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 surgery-popup-step-SurgeryStepOpenIncisionScalpel = {$user} is making an incision on {$target}'s {$part}.
 surgery-popup-step-SurgeryStepClampBleeders = {$user} is clamping the bleeders on {$target}'s {$part}.
 surgery-popup-step-SurgeryStepRetractSkin = {$user} is retracting the skin on {$target}'s {$part}.

@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 advertisement-space-villain-1 = Are you a bad enough dude to beat this game?
 advertisement-space-villain-2 = Beat the bad guy; win a prize!
 advertisement-space-villain-3 = FIGHT ME!

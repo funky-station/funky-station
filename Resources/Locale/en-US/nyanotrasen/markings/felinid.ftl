@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 marking-FelinidEarsBasic = Basic Ears
 marking-FelinidEarsBasic-basic_outer = Outer ear
 marking-FelinidEarsBasic-basic_inner = Inner ear

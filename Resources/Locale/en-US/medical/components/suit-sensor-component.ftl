@@ -1,4 +1,10 @@
-﻿## Modes
+# SPDX-FileCopyrightText: 2021 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+## Modes
 
 suit-sensor-mode-off = Off
 suit-sensor-mode-binary = Binary

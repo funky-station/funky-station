@@ -1,4 +1,10 @@
-﻿names-vulpkanin-female-dataset-1 = Abby
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+names-vulpkanin-female-dataset-1 = Abby
 names-vulpkanin-female-dataset-2 = Acantha
 names-vulpkanin-female-dataset-3 = Addilyn
 names-vulpkanin-female-dataset-4 = Adela

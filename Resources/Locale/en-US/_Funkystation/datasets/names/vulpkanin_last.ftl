@@ -1,4 +1,10 @@
-﻿names-vulpkanin-last-dataset-1 = Abbott
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+names-vulpkanin-last-dataset-1 = Abbott
 names-vulpkanin-last-dataset-2 = Adoette
 names-vulpkanin-last-dataset-3 = Aegaeon
 names-vulpkanin-last-dataset-4 = Aegir

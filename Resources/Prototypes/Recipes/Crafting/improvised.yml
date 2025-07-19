@@ -287,17 +287,27 @@
     state: icon
 
 - type: construction
+  name: scrap armor
   id: scraparmor
   graph: scraparmor
   startNode: start
-  targetNode: scraparmorfinished
+  targetNode: scrapArmor
   category: construction-category-clothing
   objectType: Item
+  description: A tider's gleaming plate mail. Bail up, or you're a dead man.
+  icon:
+    sprite: Clothing/OuterClothing/Armor/scrap_armor.rsi
+    state: icon
 
 - type: construction
+  name: scrap helmet
   id: scraphelmet
   graph: scraphelmet
   startNode: start
-  targetNode: scraphelmet
+  targetNode: scrapHelmet
   category: construction-category-clothing
   objectType: Item
+  description: An apron affixed with welded steel plating attached to spare cabling.
+  icon:
+    sprite: Clothing/Head/Helmets/scrap_helmet.rsi
+    state: icon

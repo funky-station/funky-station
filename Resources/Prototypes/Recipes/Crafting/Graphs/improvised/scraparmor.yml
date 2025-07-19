@@ -10,7 +10,7 @@
           icon:
             sprite: Clothing/OuterClothing/Misc/apronbotanist.rsi
             state: icon
-          name: construction-graph-tag-apron
+          name: apron
         - material: Cable
           amount: 15
           doAfter: 10
@@ -35,16 +35,16 @@
     - node: weldedsteelapron
       entity: WeldedSteelApronBase
       edges:
-      - to: scraparmorfinished
+      - to: scrapArmor
         steps:
         - tag: UtilityBelt
           icon:
             sprite: Clothing/Belt/utility.rsi
             state: icon
-          name: construction-graph-tag-utility-belt
+          name: utility belt
         - material: Cable
           amount: 15
           doAfter: 15
 
-    - node: scraparmorfinished
+    - node: scrapArmor
       entity: ClothingOuterArmorScrap

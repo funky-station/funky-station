@@ -10,7 +10,7 @@
           icon:
             sprite: Objects/Tools/bucket.rsi
             state: icon
-          name: construction-graph-tag-bucket
+          name: bucket
         - material: Cable
           amount: 15
           doAfter: 3
@@ -37,10 +37,10 @@
     - node: steelbucket
       entity: SteelBucketBase
       edges:
-      - to: scraphelmet
+      - to: scrapHelmet
         steps:
         - tool: Anchoring
           doAfter: 5
 
-    - node: scraphelmet
+    - node: scrapHelmet
       entity: ClothingHeadHelmetScrap

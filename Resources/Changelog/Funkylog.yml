@@ -3651,3 +3651,25 @@ Entries:
       message: Added Medical Biofab to Amber
   id: 440
   time: '2025-07-19T06:05:31.0000000+00:00'
+- author: GreyMario
+  changes:
+    - type: Tweak
+      message: >-
+        Paradox Clone improvements to greatly reduce the area of attack on
+        identifying the fake
+  id: 441
+  time: '2025-07-19T06:07:54.0000000+00:00'
+- author: beckthompson
+  changes:
+    - type: Remove
+      message: 'Greentexts are now not visible at the end of round screen. '
+    - type: Add
+      message: 'You can now write custom objective summaries as traitors. '
+  id: 442
+  time: '2025-07-19T16:53:26.0000000+00:00'
+- author: Catazeus
+  changes:
+    - type: Fix
+      message: Holoflare pen failing arbitrage test.
+  id: 443
+  time: '2025-07-19T19:48:26.0000000+00:00'

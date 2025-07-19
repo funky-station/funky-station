@@ -67,7 +67,7 @@
     verbText: mode-select-verb-text
     key: enum.AmmoSelectorUiKey.Key
   - type: ItemToggle
-    wieldToggle: false
+    wieldToggle: true
     soundActivate:
       path: /Audio/Weapons/telescopicon.ogg
       params:

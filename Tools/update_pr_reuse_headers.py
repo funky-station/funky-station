@@ -528,17 +528,17 @@ def main():
     license_label = args.pr_license.lower()
 
     # TODO: support any amount of licenses
-    for license in LICENSE_CONFIG:
-        for target_license in LICENSE_CONFIG:
+    for license in list(LICENSE_CONFIG):
+        for target_license in list(LICENSE_CONFIG):
             if target_license == license:
                 continue
 
-            config_license_id = LICENSE_CONFIG[license]["id"]
-            target_license_id = LICENSE_CONFIG[target_license]["id"]
+        config_license_id = LICENSE_CONFIG[license]["id"]
+        target_license_id = LICENSE_CONFIG[target_license]["id"]
 
-            LICENSE_CONFIG[f"{license}&{target_license}"] = {
-                id: f"{config_license_id} AND {target_license_id}"
-            }
+        LICENSE_CONFIG[f"{license}&{target_license}"] = {
+            "id": f"{config_license_id} AND {target_license_id}"
+        }
 
     if license_label not in LICENSE_CONFIG:
         print(f"Warning: Unknown license '{license_label}', using default: {DEFAULT_LICENSE_LABEL}")

@@ -1,4 +1,11 @@
-﻿using Content.Shared.Anomaly.Effects;
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Anomaly.Effects;
 using Content.Shared.Body.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;

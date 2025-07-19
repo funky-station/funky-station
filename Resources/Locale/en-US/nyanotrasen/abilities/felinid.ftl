@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 action-name-hairball = Cough Up Hairball
 action-description-hairball = Purge some of your chemstream, and gain a cool hairball to throw at people.
 

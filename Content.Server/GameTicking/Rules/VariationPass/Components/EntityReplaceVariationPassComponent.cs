@@ -1,4 +1,9 @@
-﻿using Content.Shared.Storage;
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Storage;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 

@@ -1,4 +1,13 @@
-﻿//Public Domain Code - Basically neutered, bibles are in loadouts - Funky
+// SPDX-FileCopyrightText: 2024 Dae <60460608+ZeroDayDaemon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+//Public Domain Code - Basically neutered, bibles are in loadouts - Funky
 using Content.Server.Bible.Components;
 using Content.Server.GameTicking;
 using Content.Shared._Goobstation.Religion;

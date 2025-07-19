@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Fahasor <70820551+Fahasor@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 using Content.Shared.Humanoid;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;

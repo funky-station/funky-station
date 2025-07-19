@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 accent-cowboy-words-1 = alcohol
 accent-cowboy-replacement-1 = firewater
 
@@ -275,7 +282,7 @@ accent-cowboy-words-87 = very
 accent-cowboy-replacement-87 = mighty
 
 accent-cowboy-words-88 = worried
-accent-cowboy-replacement-89 = rattled
+accent-cowboy-replacement-88 = rattled
 
 accent-cowboy-words-90 = wow
 accent-cowboy-replacement-90 = by gum

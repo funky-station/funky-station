@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Internal Affairs Agent taken from Paradise @ https://paradisestation.org/wiki/index.php?title=File:Hud_iaa.png, Magistrate edited from Paradise sprite",
+    "copyright": "Internal Affairs Agent taken from Paradise @ https://paradisestation.org/wiki/index.php?title=File:Hud_iaa.png, Magistrate edited from Paradise sprite; BSO icon made by @Catazeus (GitHub)",
     "size": {
         "x": 8,
         "y": 8
@@ -12,6 +12,9 @@
         },
         {
             "name": "Magistrate"
+        },
+        {
+            "name": "Blueshield"
         }
     ]
 }

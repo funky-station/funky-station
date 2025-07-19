@@ -1,26 +1,32 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "IAA PDA made for FunkyStation",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-	{
-      "name": "pda-iaa"
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "IAA PDA made for FunkyStation; BSO and NTR PDAs made for FunkyStation.",
+    "size": {
+        "x": 32,
+        "y": 32
     },
-    {
-      "name": "pda-magi"
-    },
-    {
-      "name": "id_overlay"
-    },
-    {
-      "name": "light_overlay"
-    },
-    {
-      "name": "pda"
-    }
-  ]
+    "states": [
+        {
+            "name": "pda-iaa"
+        },
+        {
+            "name": "pda-magi"
+        },
+        {
+            "name": "id_overlay"
+        },
+        {
+            "name": "light_overlay"
+        },
+        {
+            "name": "pda"
+        },
+        {
+            "name": "pda-bso"
+        },
+        {
+            "name": "pda-ntr"
+        }
+    ]
 }

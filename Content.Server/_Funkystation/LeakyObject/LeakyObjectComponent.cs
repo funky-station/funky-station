@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Sophia Rustfield <gitlab@catwolf.xyz>
+// SPDX-FileCopyrightText: 2025 SpaceCat~Chan <49094338+SpaceCat-Chan@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using Content.Shared.FixedPoint;
 
 [RegisterComponent]

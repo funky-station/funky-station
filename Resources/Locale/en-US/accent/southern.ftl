@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 UBlueberry <161545003+UBlueberry@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 accent-southern-words-1 = you all
 accent-southern-words-replace-1 = y'all
 

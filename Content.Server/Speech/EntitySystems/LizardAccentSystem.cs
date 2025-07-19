@@ -1,4 +1,10 @@
-﻿using System.Text.RegularExpressions;
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
 
 namespace Content.Server.Speech.EntitySystems;

@@ -1,4 +1,9 @@
-﻿health-examinable-silicon-none = There is no obvious damage to be seen.
+# SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+health-examinable-silicon-none = There is no obvious damage to be seen.
 
 health-examinable-silicon-Blunt-25 = [color=red]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } minor dents on { POSS-ADJ($target) } chassis.[/color]
 health-examinable-silicon-Blunt-50 = [color=crimson]{ CAPITALIZE(POSS-ADJ($target)) } chassis is severely dented![/color]

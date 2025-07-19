@@ -59,7 +59,7 @@
 # SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 meta:
   format: 7
@@ -67,8 +67,8 @@ meta:
   engineVersion: 255.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/09/2025 01:18:37
-  entityCount: 27840
+  time: 07/19/2025 01:18:02
+  entityCount: 27850
 maps:
 - 3201
 grids:
@@ -10940,6 +10940,15 @@ entities:
     - type: InstantAction
       originalIconColor: '#FFFFFFFF'
       container: 1700
+  - uid: 19912
+    mapInit: true
+    paused: true
+    components:
+    - type: Transform
+      parent: 19919
+    - type: InstantAction
+      originalIconColor: '#FFFFFFFF'
+      container: 19919
 - proto: AirAlarm
   entities:
   - uid: 249
@@ -12530,7 +12539,7 @@ entities:
       pos: -29.5,37.5
       parent: 60
     - type: Door
-      secondsUntilStateChange: -90502.42
+      secondsUntilStateChange: -91493.375
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12551,6 +12560,16 @@ entities:
       parent: 60
 - proto: AirlockBrigLocked
   entities:
+  - uid: 244
+    components:
+    - type: Transform
+      pos: -25.5,-14.5
+      parent: 60
+  - uid: 778
+    components:
+    - type: Transform
+      pos: -25.5,-15.5
+      parent: 60
   - uid: 3781
     components:
     - type: MetaData
@@ -15167,16 +15186,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -22.5,-4.5
       parent: 60
-  - uid: 244
-    components:
-    - type: Transform
-      pos: -25.5,-15.5
-      parent: 60
-  - uid: 778
-    components:
-    - type: Transform
-      pos: -25.5,-14.5
-      parent: 60
   - uid: 1488
     components:
     - type: Transform
@@ -17126,8 +17135,6 @@ entities:
     - type: Transform
       pos: -8.5,29.5
       parent: 60
-    - type: SiloUtilizer
-      silo: 7578
 - proto: BananaPhoneInstrument
   entities:
   - uid: 21478
@@ -18927,6 +18934,13 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
+- proto: BoxingBell
+  entities:
+  - uid: 19768
+    components:
+    - type: Transform
+      pos: 25.5,-3.5
+      parent: 60
 - proto: BoxLatexGloves
   entities:
   - uid: 261
@@ -65280,11 +65294,35 @@ entities:
       parent: 60
 - proto: ChairFolding
   entities:
+  - uid: 7578
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 23.497269,-5.3847723
+      parent: 60
+  - uid: 8910
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 24.45379,-5.8369465
+      parent: 60
   - uid: 17190
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 24.563826,-51.398354
+      parent: 60
+  - uid: 19766
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 23.67118,-7.315207
+      parent: 60
+  - uid: 19911
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 23.966835,-6.5586853
       parent: 60
   - uid: 26934
     components:
@@ -65308,6 +65346,28 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -57.45221,-34.326866
+      parent: 60
+  - uid: 27844
+    components:
+    - type: Transform
+      pos: 23.54758,-0.36664104
+      parent: 60
+- proto: ChairFoldingSpawnFolded
+  entities:
+  - uid: 27848
+    components:
+    - type: Transform
+      pos: 25.54758,-4.019555
+      parent: 60
+  - uid: 27849
+    components:
+    - type: Transform
+      pos: 25.504103,-4.2630334
+      parent: 60
+  - uid: 27850
+    components:
+    - type: Transform
+      pos: 25.573668,-4.4804244
       parent: 60
 - proto: ChairOfficeDark
   entities:
@@ -70408,42 +70468,6 @@ entities:
     - type: Transform
       pos: -8.5,-4.5
       parent: 60
-  - uid: 19911
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 23.5,-5.5
-      parent: 60
-  - uid: 19912
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 23.5,-6.5
-      parent: 60
-  - uid: 19913
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 23.5,-7.5
-      parent: 60
-  - uid: 19914
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 24.5,-7.5
-      parent: 60
-  - uid: 19915
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 24.5,-6.5
-      parent: 60
-  - uid: 19916
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 24.5,-5.5
-      parent: 60
   - uid: 24320
     components:
     - type: Transform
@@ -70649,6 +70673,12 @@ entities:
       parent: 60
 - proto: ComputerCrewMonitoring
   entities:
+  - uid: 796
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -33.5,-8.5
+      parent: 60
   - uid: 2144
     components:
     - type: Transform
@@ -70691,12 +70721,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -31.5,-8.5
-      parent: 60
-  - uid: 796
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -33.5,-8.5
       parent: 60
   - uid: 2024
     components:
@@ -78066,6 +78090,14 @@ entities:
       parent: 60
 - proto: DrinkBeerCan
   entities:
+  - uid: 19923
+    components:
+    - type: Transform
+      pos: 23.921494,-0.65359735
+      parent: 60
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 26770
     components:
     - type: Transform
@@ -115418,6 +115450,16 @@ entities:
     - type: Transform
       pos: 20.5,-3.5
       parent: 60
+  - uid: 19915
+    components:
+    - type: Transform
+      pos: 24.5,-3.5
+      parent: 60
+  - uid: 19916
+    components:
+    - type: Transform
+      pos: 22.5,-3.5
+      parent: 60
   - uid: 20099
     components:
     - type: Transform
@@ -120347,8 +120389,26 @@ entities:
   - uid: 19919
     components:
     - type: Transform
-      pos: 26.631458,-6.2829666
+      pos: 26.549442,-6.080425
       parent: 60
+    - type: HandheldLight
+      toggleActionEntity: 19912
+    - type: ContainerContainer
+      containers:
+        cell_slot: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+        actions: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 19912
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: True
+    - type: ActionsContainer
   - uid: 21245
     components:
     - type: Transform
@@ -122759,18 +122819,6 @@ entities:
     - type: Transform
       pos: 56.487034,-17.432411
       parent: 60
-- proto: MaterialSilo
-  entities:
-  - uid: 7578
-    components:
-    - type: Transform
-      pos: 22.5,-0.5
-      parent: 60
-    - type: DeviceLinkSource
-      linkedPorts:
-        15714:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
 - proto: MaterialWoodPlank
   entities:
   - uid: 3309
@@ -130190,13 +130238,6 @@ entities:
       parent: 60
     - type: ApcPowerReceiver
       powerLoad: 0
-  - uid: 19923
-    components:
-    - type: Transform
-      pos: 24.5,-4.5
-      parent: 60
-    - type: ApcPowerReceiver
-      powerLoad: 0
   - uid: 19924
     components:
     - type: Transform
@@ -130645,6 +130686,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -33.5,-3.5
+      parent: 60
+  - uid: 27847
+    components:
+    - type: Transform
+      pos: 25.5,-4.5
       parent: 60
 - proto: PoweredSmallLightEmpty
   entities:
@@ -133085,6 +133131,11 @@ entities:
     components:
     - type: Transform
       pos: -34.5,-53.5
+      parent: 60
+  - uid: 27843
+    components:
+    - type: Transform
+      pos: 25.5,1.5
       parent: 60
 - proto: RandomTankSpawner100
   entities:
@@ -135648,11 +135699,6 @@ entities:
     - type: Transform
       pos: 22.5,-1.5
       parent: 60
-  - uid: 8910
-    components:
-    - type: Transform
-      pos: 23.5,-3.5
-      parent: 60
   - uid: 9231
     components:
     - type: Transform
@@ -136958,6 +137004,11 @@ entities:
     - type: Transform
       pos: 26.5,-3.5
       parent: 60
+  - uid: 19914
+    components:
+    - type: Transform
+      pos: 24.5,-3.5
+      parent: 60
   - uid: 20512
     components:
     - type: Transform
@@ -137820,6 +137871,16 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -52.5,60.5
       parent: 60
+  - uid: 27845
+    components:
+    - type: Transform
+      pos: 23.5,-3.5
+      parent: 60
+  - uid: 27846
+    components:
+    - type: Transform
+      pos: 22.5,-3.5
+      parent: 60
 - proto: RemoteSignaller
   entities:
   - uid: 3017
@@ -138516,6 +138577,11 @@ entities:
     components:
     - type: Transform
       pos: -120.32988,15.381494
+      parent: 60
+  - uid: 27842
+    components:
+    - type: Transform
+      pos: 22.500376,-0.45839322
       parent: 60
 - proto: SheetUranium
   entities:
@@ -144324,8 +144390,11 @@ entities:
   - uid: 19880
     components:
     - type: Transform
-      pos: 25.49133,-7.802103
+      pos: 25.558138,-7.7065115
       parent: 60
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: SpaceCash10
   entities:
   - uid: 5509
@@ -149326,6 +149395,11 @@ entities:
     - type: Transform
       pos: 26.5,12.5
       parent: 60
+  - uid: 19913
+    components:
+    - type: Transform
+      pos: 22.5,-0.5
+      parent: 60
   - uid: 19918
     components:
     - type: Transform
@@ -151896,6 +151970,14 @@ entities:
     - type: Transform
       pos: -116.42363,15.522119
       parent: 60
+  - uid: 27841
+    components:
+    - type: Transform
+      pos: 22.55255,0.8111719
+      parent: 60
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: ToolboxEmergencyFilled
   entities:
   - uid: 3967
@@ -162403,16 +162485,6 @@ entities:
     components:
     - type: Transform
       pos: 21.5,-3.5
-      parent: 60
-  - uid: 19766
-    components:
-    - type: Transform
-      pos: 22.5,-3.5
-      parent: 60
-  - uid: 19768
-    components:
-    - type: Transform
-      pos: 24.5,-3.5
       parent: 60
   - uid: 19769
     components:

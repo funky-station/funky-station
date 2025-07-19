@@ -45,6 +45,8 @@
 # SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 superjj18 <gagnonjake@gmail.com>
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AsnDen <75905158+AsnDen@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Herostar898 <askherostar2@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
@@ -547,3 +549,5 @@
     - Supply
   - type: StationAiVision # Goobstation - AI can see through NT silicon
     range: 1
+  - type: Puller
+    needsHands: false

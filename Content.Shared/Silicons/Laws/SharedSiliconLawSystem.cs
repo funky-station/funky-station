@@ -1,4 +1,16 @@
-﻿using Content.Shared.Emag.Systems;
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Jajsha <101492056+Zap527@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Emag.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.Laws.Components;

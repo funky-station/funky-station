@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Access.Systems;
 using Content.Shared.Doors.Components;
 using Content.Shared.Examine;

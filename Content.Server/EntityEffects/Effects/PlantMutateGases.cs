@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 drakewill-CRL <46307022+drakewill-CRL@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Botany.Components;
 using Content.Shared.Atmos;
 using Content.Shared.EntityEffects;

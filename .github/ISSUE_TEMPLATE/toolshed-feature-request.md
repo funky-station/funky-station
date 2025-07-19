@@ -1,3 +1,10 @@
+<!--
+SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 ---
 name: Toolshed feature request
 about: Suggest a feature for Toolshed (for game admins/developers)

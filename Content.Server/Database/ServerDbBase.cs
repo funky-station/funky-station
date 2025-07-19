@@ -32,7 +32,9 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Lyndomen <49795619+Lyndomen@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -61,6 +63,8 @@ using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Server._Funkystation.Records; // CD - Character Records
+using Content.Shared._Funkystation.Records; // CD - Character Records
 
 namespace Content.Server.Database
 {
@@ -88,6 +92,10 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles).ThenInclude(h => h.Jobs)
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
+                // Begin CD - Character Records
+                .Include(p => p.Profiles)
+                    .ThenInclude(h => h.CDProfile)
+                // End CD - Character Records
                 .Include(p => p.Profiles)
                     .ThenInclude(h => h.Loadouts)
                     .ThenInclude(l => l.Groups)
@@ -135,6 +143,7 @@ namespace Content.Server.Database
             }
 
             var oldProfile = db.DbContext.Profile
+                .Include(p => p.CDProfile) // CD - Character Records
                 .Include(p => p.Preference)
                 .Where(p => p.Preference.UserId == userId.UserId)
                 .Include(p => p.Jobs)
@@ -256,6 +265,11 @@ namespace Content.Server.Database
                 }
             }
 
+            // Begin CD - Chracter Records
+            var cdRecords = profile.CDProfile?.CharacterRecords != null
+                ? RecordsSerialization.Deserialize(profile.CDProfile.CharacterRecords)
+                : PlayerProvidedCharacterRecords.DefaultRecords();
+            // End CD - Character Records
             var loadouts = new Dictionary<string, RoleLoadout>();
 
             foreach (var role in profile.Loadouts)
@@ -304,7 +318,8 @@ namespace Content.Server.Database
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts
+                loadouts,
+                cdRecords // CD - Character Records
             );
         }
 
@@ -356,6 +371,12 @@ namespace Content.Server.Database
                 humanoid.TraitPreferences
                         .Select(t => new Trait { TraitName = t })
             );
+
+            // Begin CD - Character Records
+            profile.CDProfile ??= new CDModel.CDProfile();
+            // There are JsonIgnore annotations to ensure that entries are not stored as JSON.
+            profile.CDProfile.CharacterRecords = JsonSerializer.SerializeToDocument(humanoid.CDCharacterRecords ?? PlayerProvidedCharacterRecords.DefaultRecords());
+            // End CD - Character Records
 
             profile.Loadouts.Clear();
 

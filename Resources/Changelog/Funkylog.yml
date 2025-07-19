@@ -3623,3 +3623,9 @@ Entries:
       message: Made job icons consistent.
   id: 437
   time: '2025-07-17T10:41:38.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Thieves no longer have objectives, they are a freeform antag now.
+  id: 438
+  time: '2025-07-19T01:58:24.0000000+00:00'

@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+# SPDX-FileCopyrightText: 2025 Falcon <falcon@zigtag.dev>
+# SPDX-FileCopyrightText: 2025 pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: species
   id: IPC
   name: species-name-ipc
@@ -60,9 +68,8 @@
       points: 1
       required: false
     Eyes: # DeltaV - Moves screen to the eyes layer
-      points: 1
-      required: true
-      defaultMarkings: [ MobIPCEyesDefault ]
+      points: 2 # Funky - Increase to 2 for Protogen mouth and eyes
+      required: false # Funky - Disable requirement
     Head:
       points: 1
       required: true

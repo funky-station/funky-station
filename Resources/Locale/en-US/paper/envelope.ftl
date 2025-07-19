@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 envelope-verb-seal = Seal
 envelope-verb-tear = Tear
 

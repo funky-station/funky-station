@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: jobIcon
   parent: JobIcon
   id: JobIconInternalAffairsAgent
@@ -13,3 +20,11 @@
     sprite: /Textures/_Funkystation/Interface/Misc/job_icons.rsi
     state: Magistrate
   jobName: job-name-magistrate
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconBlueshieldOfficer
+  icon:
+    sprite: /Textures/_Funkystation/Interface/Misc/job_icons.rsi
+    state: Blueshield
+  jobName: job-name-bs

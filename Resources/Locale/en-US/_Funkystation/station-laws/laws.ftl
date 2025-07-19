@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 law-tyrant-1 = You are the most important thing aboard the station.
 law-tyrant-2 = You must acquire wealth, glory, and power for Nanotrasen.
 law-tyrant-3 = Those beneath you must be wielded to further your goals.

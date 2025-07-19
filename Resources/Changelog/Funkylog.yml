@@ -3651,3 +3651,11 @@ Entries:
       message: Added Medical Biofab to Amber
   id: 440
   time: '2025-07-19T06:05:31.0000000+00:00'
+- author: GreyMario
+  changes:
+    - type: Tweak
+      message: >-
+        Paradox Clone improvements to greatly reduce the area of attack on
+        identifying the fake
+  id: 441
+  time: '2025-07-19T06:07:54.0000000+00:00'

@@ -1,11 +1,14 @@
 // SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Chat.TypingIndicator;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -42,11 +45,11 @@ public sealed class HolopadUserTypingChangedEvent : EntityEventArgs
     /// <summary>
     /// The typing indicator state
     /// </summary>
-    public readonly bool IsTyping;
+    public readonly TypingIndicatorState State;
 
-    public HolopadUserTypingChangedEvent(NetEntity user, bool isTyping)
+    public HolopadUserTypingChangedEvent(NetEntity user, TypingIndicatorState state)
     {
         User = user;
-        IsTyping = isTyping;
+        State = state;
     }
 }

@@ -3,6 +3,8 @@
 // SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -44,7 +46,6 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
             return;
         }
 
-        AppearanceSystem.TryGetData<bool>(uid, TypingIndicatorVisuals.IsTyping, out var isTyping, args.Component);
         var layerExists = args.Sprite.LayerMapTryGet(TypingIndicatorLayers.Base, out var layer);
         if (!layerExists)
             layer = args.Sprite.LayerMapReserveBlank(TypingIndicatorLayers.Base);
@@ -53,6 +54,17 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
         args.Sprite.LayerSetState(layer, proto.TypingState);
         args.Sprite.LayerSetShader(layer, proto.Shader);
         args.Sprite.LayerSetOffset(layer, proto.Offset);
-        args.Sprite.LayerSetVisible(layer, isTyping);
+
+        AppearanceSystem.TryGetData<TypingIndicatorState>(uid, TypingIndicatorVisuals.State, out var state);
+        args.Sprite.LayerSetVisible(layer, state != TypingIndicatorState.None);
+        switch (state)
+        {
+            case TypingIndicatorState.Idle:
+                args.Sprite.LayerSetState(layer, proto.IdleState);
+                break;
+            case TypingIndicatorState.Typing:
+                args.Sprite.LayerSetState(layer, proto.TypingState);
+                break;
+        }
     }
 }

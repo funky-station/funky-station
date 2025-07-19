@@ -3629,3 +3629,11 @@ Entries:
       message: Thieves no longer have objectives, they are a freeform antag now.
   id: 438
   time: '2025-07-19T01:58:24.0000000+00:00'
+- author: dch-GH
+  changes:
+    - type: Add
+      message: >-
+        Added LOOC message budget to limit the total amount of LOOC messages
+        players can send per round. Defaults to 20 messages. 
+  id: 439
+  time: '2025-07-19T03:10:28.0000000+00:00'

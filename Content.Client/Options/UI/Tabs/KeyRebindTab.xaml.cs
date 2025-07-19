@@ -207,6 +207,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.ToggleStanding);
             AddCheckBox("ui-options-function-auto-get-up", _cfg.GetCVar(CCVars.AutoGetUp), HandleToggleAutoGetUp); // WD EDIT
             InitToggleWalk();
+            AddButton(ContentKeyFunctions.ToggleKnockdown);
 
             AddHeader("ui-options-header-camera");
             AddButton(EngineKeyFunctions.CameraRotateLeft);

@@ -54,7 +54,7 @@
 
 - type: entity
   parent: [BaseMob, StripableInventoryBase]
-  id: BaseBorgChassis
+  id: BaseBorgChassisNotIonStormable
   name: cyborg
   description: A man-machine hybrid that assists in station activity. They love being asked to state their laws over and over.
   save: false
@@ -202,6 +202,8 @@
     thermalVisibility: false # EE edit
   - type: StatusEffects
     allowed:
+    - Stun
+    - SlowedDown
     - Flashed
   - type: TypingIndicator
     proto: robot

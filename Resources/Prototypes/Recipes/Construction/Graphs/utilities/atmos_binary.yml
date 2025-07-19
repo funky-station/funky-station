@@ -161,8 +161,8 @@
         anchored: false
       completed:
       - !type:SpawnPrototype
-        prototype: SheetSteel1
-        amount: 2
+          prototype: SheetSteel1
+          amount: 2
       - !type:DeleteEntity
       steps:
       - tool: Welding

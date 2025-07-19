@@ -1,0 +1,79 @@
+- type: entity
+  parent: FunkySmallCase
+  id: NTPistolCase
+  name: pistol case (nanotrasen)
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Storage/D18case.rsi
+  - type: Icon
+    sprite: _RMC14/Objects/Storage/D18case.rsi
+
+- type: entity
+  parent: FunkySmallCase
+  id: SynPistolCase
+  name: pistol case (syndicate)
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Storage/D18case.rsi
+  - type: Icon
+    sprite: _RMC14/Objects/Storage/D18case.rsi
+
+- type: entity
+  parent: FunkyMediumCase
+  id: NTMediumCase
+  name: weapon case (medium, nanotrasen)
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Storage/guncase.rsi
+  - type: Icon
+    sprite: _RMC14/Objects/Storage/guncase.rsi
+
+- type: entity
+  parent: FunkyMediumCase
+  id: SynMediumCase
+  name: weapon case (medium, syndicate)
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Storage/guncase.rsi
+  - type: Icon
+    sprite: _RMC14/Objects/Storage/guncase.rsi
+
+- type: entity
+  parent: FunkyLargeCase
+  id: NTLargeCase
+  name: weapon case (large, nanotrasen)
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Storage/guncase.rsi
+  - type: Icon
+    sprite: _RMC14/Objects/Storage/guncase.rsi
+
+- type: entity
+  parent: FunkyLargeCase
+  id: SynLargeCase
+  name: weapon case (large, syndicate)
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Storage/guncase.rsi
+  - type: Icon
+    sprite: _RMC14/Objects/Storage/guncase.rsi
+
+- type: entity
+  parent: FunkyHugeCase
+  id: NTHugeCase
+  name: weapon crate (nanotrasen)
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Storage/loadout_kits.rsi
+  - type: Icon
+    sprite: _RMC14/Objects/Storage/loadout_kits.rsi
+
+- type: entity
+  parent: FunkyHugeCase
+  id: SynHugeCase
+  name: weapon crate (syndicate)
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Storage/loadout_kits.rsi
+  - type: Icon
+    sprite: _RMC14/Objects/Storage/loadout_kits.rsi

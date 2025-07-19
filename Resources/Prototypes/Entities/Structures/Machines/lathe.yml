@@ -1337,6 +1337,7 @@
     - ParamedHypo # Goobstation - ParamedHypo
     - autoInjectorCartridgeCase
     - autoInjectorCartridgeCaseSoft
+    - FunkySurgicalCase
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker

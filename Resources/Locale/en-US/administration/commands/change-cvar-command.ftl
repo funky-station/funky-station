@@ -1,4 +1,9 @@
-﻿cmd-changecvar-no-arguments = You must specify a cvar.
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+cmd-changecvar-no-arguments = You must specify a cvar.
 cmd-changecvar-cvar-not-registered = The cvar {$cvar} is not registered.
 cmd-changecvar-cvar-not-allowed = You cannot change this cvar.
 cmd-changecvar-value-out-of-range = The value is out of range. The range is {$min} to {$max}.

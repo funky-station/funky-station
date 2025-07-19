@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 cmd-mapping-desc = Create or load a map and teleports you to it.
 cmd-mapping-help = Usage: mapping [MapID] [Path] [Grid]
 cmd-mapping-server = Only players can use this command.

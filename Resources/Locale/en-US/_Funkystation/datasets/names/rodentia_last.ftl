@@ -1,4 +1,10 @@
-﻿names-rodentia-last-dataset-1 = Agile
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+names-rodentia-last-dataset-1 = Agile
 names-rodentia-last-dataset-2 = Beady-eyed
 names-rodentia-last-dataset-3 = Berry-picking
 names-rodentia-last-dataset-4 = Big

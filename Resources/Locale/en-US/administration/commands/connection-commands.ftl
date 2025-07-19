@@ -1,4 +1,9 @@
-﻿## Strings for the "grant_connect_bypass" command.
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+## Strings for the "grant_connect_bypass" command.
 
 cmd-grant_connect_bypass-desc = Temporarily allow a user to bypass regular connection checks.
 cmd-grant_connect_bypass-help = Usage: grant_connect_bypass <user> [duration minutes]

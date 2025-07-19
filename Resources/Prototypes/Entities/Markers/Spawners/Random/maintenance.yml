@@ -72,6 +72,7 @@
         - id: ClothingEyesGlassesGarGiga
       - id: Wristwatch
         weight: 0.5
+      - id: ClothingEyesDealbreakers
       - id: ClothingHeadHatCake
       - id: ClothingHeadHatSkub
       - id: ClothingHeadHatCone

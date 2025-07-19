@@ -16,6 +16,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+# Humans, but they can always wear a gas tank
 - type: inventoryTemplate
   id: vox
   slots:
@@ -129,25 +130,22 @@
       dependsOn: jumpsuit
       displayName: Pocket 2
       stripHidden: true
-    - name: suitstorage
-      slotTexture: suit_storage
-      slotFlags:   SUITSTORAGE
+    - name: backstorage
+      slotTexture: back_storage
+      slotFlags:   BACKSTORAGE
       slotGroup: MainHotbar
       stripTime: 3
       uiWindowPos: 2,0
       strippingWindowPos: 2,5
       dependsOn: outerClothing
       dependsOnComponents:
-      - type: AllowSuitStorage
-      displayName: Suit Storage
+      - type: AllowBackStorage
+      displayName: Back Storage
     - name: tankstorage
-      slotTexture: suit_storage
-      slotFlags: SUITSTORAGE
+      slotTexture: back_storage
+      slotFlags:   TANKSTORAGE
       slotGroup: MainHotbar
       stripTime: 3
       uiWindowPos: 3,0
-      strippingWindowPos: 2,1
-      dependsOn: neck
-#      dependsOnComponents:
-#      - type: AllowSuitStorageClothingGasTanks
+      strippingWindowPos: 3, 5
       displayName: Tank Storage

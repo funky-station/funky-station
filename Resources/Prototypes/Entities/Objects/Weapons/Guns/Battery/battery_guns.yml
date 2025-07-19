@@ -62,6 +62,7 @@
 # SPDX-FileCopyrightText: 2025 Cthyga <41489382+Cthyga@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Liamofthesky <157073227+Liamofthesky@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
@@ -86,7 +87,7 @@
     quickEquip: false
     slots:
     - Back
-    - suitStorage
+    - backStorage
   - type: AmmoCounter
   - type: Gun
     fireRate: 2
@@ -164,7 +165,7 @@
     quickEquip: false
     slots:
     - Belt
-    - suitStorage
+    - backStorage
 
 - type: entity
   id: BaseWeaponPowerCellSmall
@@ -590,7 +591,7 @@
     sprite: Objects/Weapons/Guns/Battery/disabler.rsi
     quickEquip: false
     slots:
-      - suitStorage
+      - backStorage
       - Belt
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
@@ -907,4 +908,73 @@
   - type: Battery
     maxCharge: 1050 # Goobstation
     startingCharge: 1050
+
+- type: entity
+  name: X-01 Multiphase # Goobstation - Changed the capitalization because it was annoying me.
+  parent: [BaseWeaponBatterySmall, BaseCommandContraband] # Frontier: added BaseC2ContrabandUnredeemable. Goobstation: removed BaseC2ContrabandUnredeemable, added BaseCommandContraband
+  id: WeaponEnergyGunMultiphase
+  description: This is an expensive, modern recreation of the antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mode-disabler
+      shader: unshaded
+      map: [ "Firemode" ]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    quickEquip: false # Frontier
+    slots: # Frontier
+    # - Back # Frontier
+    - backStorage #Frontier
+    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 100
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 100
+      name: disabling
+      state: disabler
+    - proto: BulletEnergyGunLaser
+      fireCost: 200
+      name: lethal
+      state: lethal
+    - proto: BulletEnergyGunIon
+      fireCost: 200
+      name: ion
+      state: special
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: mode-disabler }
+          Lethal: { state: mode-lethal }
+          Special: { state: mode-ion }
+  - type: Tag
+    tags:
+    - HighRiskItem
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 40
+  - type: StaticPrice
+    price: 750
 

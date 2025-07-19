@@ -18,7 +18,7 @@
   - type: Clothing
     sprite: _Goobstation/Objects/Tanks/chronojet.rsi
     slots:
-      - suitStorage
+      - backStorage
   - type: GasTank
     outputPressure: 1
     air:

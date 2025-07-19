@@ -13,6 +13,7 @@
 # SPDX-FileCopyrightText: 2024 Wrexbe (Josh) <81056464+wrexbe@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 ZarathushtraSpitama <bloodcunt@protonmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
@@ -118,10 +119,10 @@
     tags:
     - Trash
     - WhitelistChameleon
-    
+
 #Tank Harness
 - type: entity
-  parent: [ ClothingNeckBase, AllowSuitStorageClothingGasTanks ]
+  parent: [ ClothingNeckBase, AllowTankStorageClothing ]
   id: ClothingNeckTankHarness
   name: tank harness
   description: A simple harness that can hold a gas tank.

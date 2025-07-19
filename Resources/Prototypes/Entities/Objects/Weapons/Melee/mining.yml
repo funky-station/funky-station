@@ -144,7 +144,7 @@
     quickEquip: false
     slots:
     - Back
-    - suitStorage
+    - backStorage
   - type: AmmoCounter
   - type: UseDelayOnShoot
   - type: UseDelay
@@ -232,7 +232,7 @@
     quickEquip: false
     slots:
     - Back
-    - suitStorage
+    - backStorage
   - type: UseDelay
     delay: 1.9
   - type: LeechOnMarker

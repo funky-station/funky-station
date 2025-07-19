@@ -19,6 +19,15 @@
       tags:
         - PetWearable
         - HamsterWearable
+  - name: head
+    slotTexture: head
+    slotFlags: HEAD
+    uiWindowPos: 1,2
+    strippingWindowPos: 1,0
+    displayName: Head
+    whitelist:
+      tags:
+      - HamsterWearable
   - name: neck
     slotTexture: neck
     slotFlags: NECK
@@ -38,22 +47,14 @@
     whitelist:
       tags:
         - HamsterWearable
-  - name: suitstorage
-    slotTexture: suit_storage
-    slotFlags: SUITSTORAGE
+  - name: tankstorage
+    slotTexture: tank_storage
+    slotFlags: TANKSTORAGE
+    slotGroup: MainHotbar
     stripTime: 3
     uiWindowPos: 1,0
-    strippingWindowPos: 2,5
-    displayName: Suit Storage
+    strippingWindowPos: 2, 5
+    displayName: Tank Storage
     whitelist:
       components:
-        - GasTank
-  - name: head
-    slotTexture: head
-    slotFlags: HEAD
-    uiWindowPos: 1,2
-    strippingWindowPos: 1,0
-    displayName: Head
-    whitelist:
-      tags:
-        - HamsterWearable
+      - GasTank

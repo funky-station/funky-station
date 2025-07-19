@@ -25,7 +25,7 @@
     quickEquip: false # Frontier
     slots: # Frontier
     # - Back # Frontier
-    - suitStorage #Frontier
+    - backStorage #Frontier
     - Belt
     sprite: _Funkystation/Objects/Weapons/miniature_laser_pistol.rsi
   - type: Gun
@@ -100,7 +100,7 @@
     sprite: _Funkystation/Objects/Weapons/disablerplus.rsi
     quickEquip: false
     slots:
-      - suitStorage
+      - backStorage
       - Belt
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler

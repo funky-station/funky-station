@@ -14,6 +14,7 @@
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 ZarathushtraSpitama <bloodcunt@protonmail.com>
@@ -26,7 +27,7 @@
 
 #Web vest
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSyndicateContraband]
+  parent: [ClothingOuterStorageBase, AllowBackStorageClothing, BaseSyndicateContraband]
   id: ClothingOuterVestWeb
   name: web vest
   description: A synthetic armor vest. This one has added webbing and ballistic plates.
@@ -47,7 +48,7 @@
 
 #Mercenary web vest
 - type: entity
-  parent: [ClothingOuterStorageBase, BaseMajorContraband] #web vest so it should have some pockets for ammo \\ Goobstation - issue #733 fix, changed from minor to major contraband
+  parent: [ClothingOuterStorageBase, AllowBackStorageClothing, BaseMajorContraband] #web vest so it should have some pockets for ammo \\ Goobstation - issue #733 fix, changed from minor to major contraband
   id: ClothingOuterVestWebMerc
   name: merc web vest
   description: A high-quality armored vest made from a hard synthetic material. It's surprisingly flexible and light, despite formidable armor plating.
@@ -104,7 +105,7 @@
 
 #(Bartender) vest -  #Funky - bartender changes
 - type: entity
-  parent: [ClothingOuterArmorBasic, ClothingOuterStorageBase, AllowSuitStorageClothing]
+  parent: ClothingOuterArmorBasic
   id: ClothingOuterVest
   name: vest
   description: A neat bartender vest, reinforced with kevlar.
@@ -120,6 +121,10 @@
     whitelist:
       tags:
       - BartendingTool
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
 #Tank Harness
 #- type: entity
  # parent: [ClothingOuterBase, AllowSuitStorageClothingGasTanks]

@@ -25,6 +25,8 @@
 // SPDX-FileCopyrightText: 2024 charlie <charlie.sc.wong@veiwsonic.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Falcon <falcon@zigtag.dev>
+// SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 ZarathushtraSpitama <bloodcunt@protonmail.com>
 // SPDX-FileCopyrightText: 2025 pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -80,8 +82,8 @@ public sealed class ClientClothingSystem : ClothingSystem
         {"id", "IDCARD"},
         {"pocket1", "POCKET1"},
         {"pocket2", "POCKET2"},
-        {"suitstorage", "SUITSTORAGE"},
-		{"tankstorage", "SUITSTORAGE"},
+        {"backstorage", "BACKSTORAGE"},
+		{"tankstorage", "TANKSTORAGE"},
     };
 
     [Dependency] private readonly IResourceCache _cache = default!;

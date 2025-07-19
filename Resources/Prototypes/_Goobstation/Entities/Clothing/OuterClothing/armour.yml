@@ -35,7 +35,7 @@
 
 # Durathread plated vest
 - type: entity
-  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing]
+  parent: [ClothingOuterBaseMedium, AllowBackStorageClothing]
   id: ClothingOuterArmourDurathread
   name: durathread armor
   description: An improvised armored vest made from durathread with plasteel plates. It's surprisingly flexible and light, despite formidable armor plating.
@@ -86,7 +86,7 @@
 
 # Blueshield Armour Vest
 - type: entity
-  parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCentcommContraband ]
+  parent: [ ClothingOuterBaseMedium, AllowBackStorageClothing, BaseCentcommContraband ]
   id: ClothingBlueshieldArmourVest
   name: blueshield's security armour
   description: An armoured vest with the badge of the blueshield

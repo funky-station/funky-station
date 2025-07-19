@@ -141,7 +141,7 @@
     quickEquip: false
     slots:
     - back
-    - suitStorage
+    - backStorage
   - type: Tool
     qualities:
       - Prying

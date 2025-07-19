@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2024 UtopiOne <110351290+UtopiOne@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Binbag <124107163+Binbagg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PresentAJ <Ajdpersonalemail@gmail.com>
+# SPDX-FileCopyrightText: 2025 PresentAJ <ajdpersonalemail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -47,7 +49,7 @@
   category: construction-category-clothing
   description: These retro glasses remind you of bodybagging rotting corpses.
   icon: { sprite: _Funkystation/Clothing/Eyes/Jamjars/medjar.rsi, state: icon }
-  objectType: Item  
+  objectType: Item
 
 - type: construction
   name: chemical analysis jamjar glasses
@@ -58,7 +60,7 @@
   category: construction-category-clothing
   description: These retro glasses remind you of breaking SOP by making explosives.
   icon: { sprite: _Funkystation/Clothing/Eyes/Jamjars/chemjar.rsi, state: icon }
-  objectType: Item  
+  objectType: Item
 
 - type: construction
   name: diagnostics jamjar glasses
@@ -69,8 +71,8 @@
   category: construction-category-clothing
   description: These retro glasses remind you of tampering with borgs' laws.
   icon: { sprite: _Funkystation/Clothing/Eyes/Jamjars/robojar.rsi, state: icon }
-  objectType: Item  
-  
+  objectType: Item
+
 - type: construction
   name: engineering jamgoggles
   id: ClothingEyesGlassesJamgog
@@ -80,7 +82,7 @@
   category: construction-category-clothing
   description: These retro glasses remind you of setting the tesla loose.
   icon: { sprite: _Funkystation/Clothing/Eyes/Jamjars/jamgog.rsi, state: icon }
-  objectType: Item  
+  objectType: Item
 
 - type: construction
   name: sungar glasses
@@ -102,4 +104,15 @@
   category: construction-category-clothing
   description: Now with 99% less artificial intelligence.
   icon: { sprite: _Funkystation/Clothing/Eyes/sungar.rsi, state: icon }
-  objectType: Item  
+  objectType: Item
+
+- type: construction
+  name: lizard plushie cloak
+  id: ClothingHeadLizardCloak
+  graph: ClothingHeadLizardCloak
+  startNode: start
+  targetNode: helmet
+  category: construction-category-clothing
+  description: Wow, you skinned a stuffed animal, maybe check in with the station psychologist?
+  icon: { sprite: _Funkystation/Clothing/Head/Hats/lizard-cloak.rsi, state: icon }
+  objectType: Item

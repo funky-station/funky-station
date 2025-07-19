@@ -22,7 +22,6 @@
       prototypes:
         - CrystalPink
         - CrystalPink
-        - ShadowPortal
         - ShadowTree #TODO: transform into EntityTable with weight
         - ShadowTree
         - ShadowTree

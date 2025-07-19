@@ -30,7 +30,7 @@
     delay: 1
   - type: GunRequiresWield
   - type: Gun
-    fireRate: 0.5
+    fireRate: 1
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto

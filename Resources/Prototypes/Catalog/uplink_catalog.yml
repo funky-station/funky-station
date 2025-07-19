@@ -128,10 +128,12 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
 # SPDX-FileCopyrightText: 2025 UristMcWiki <endernate2015@gmail.com>
 # SPDX-FileCopyrightText: 2025 amatwiedle <amatwiedle@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
@@ -248,6 +250,18 @@
   categories:
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: UplinkGlovesKnuckleDusters
+  name: uplink-gloves-knuckleduster-name
+  description: uplink-gloves-knuckleduster-desc
+  icon: { sprite: Clothing/Hands/Gloves/KnuckleDusters/syndicateknuckleduster.rsi, state: syndicateknuckleduster }
+  productEntity: ClothingHandsKnuckleDustersSyndicate
+  cost:
+    Telecrystal: 30 # funky - does 75% DPS of northstars, costs 75% of northstars
+  categories:
+  - UplinkWeaponry
+  saleLimit: 1 # matching WD edits i guess
 
 - type: listing
   id: UplinkDisposableTurret

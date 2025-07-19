@@ -41,6 +41,8 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -282,6 +284,8 @@
     sprite: Structures/Storage/Crates/privatecrate_secure.rsi
   - type: Sprite
     sprite: Structures/Storage/Crates/privatecrate_secure.rsi
+  - type: AccessReader
+    access: [["Cargo"]] # Funky station, Cargo itself dosent have its own secure crate. 
 
 - type: entity
   parent: CrateBaseSecure

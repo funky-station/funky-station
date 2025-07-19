@@ -1,0 +1,53 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: cargoProduct
+  id: EmergencyDefibrillator
+  icon:
+    sprite: Objects/Specific/Medical/defib.rsi
+    state: icon
+  product: CrateEmergencyDefibrillator
+  cost: 1400
+  category: cargoproduct-category-name-medical
+  group: market
+
+- type: cargoProduct
+  id: EmergencyMedipens
+  icon:
+    sprite: Objects/Specific/Medical/medipen.rsi
+    state: medipen
+  product: CrateEmergencyMedipens
+  cost: 2500
+  category: cargoproduct-category-name-medical
+  group: market
+
+- type: cargoProduct
+  id: MedicalEquipment
+  icon:
+    sprite: Objects/Specific/Medical/healthanalyzer.rsi
+    state: icon
+  product: CrateMedicalEquipment
+  cost: 2500
+  category: cargoproduct-category-name-medical
+  group: market    
+
+- type: cargoProduct
+  id: MedicalParamedSuit
+  icon:
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    state: firstaid
+  product: CrateMedicalParamedSuit
+  cost: 6500
+  category: cargoproduct-category-name-medical
+  group: market      
+
+- type: cargoProduct
+  id: MedicalBiomass
+  icon:
+    sprite: Objects/Misc/monkeycube.rsi
+    state: cube
+  product: CrateMedicalBiomass
+  cost: 3000
+  category: cargoproduct-category-name-medical
+  group: market    

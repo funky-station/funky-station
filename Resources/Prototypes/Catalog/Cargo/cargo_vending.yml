@@ -36,6 +36,8 @@
 # SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -66,7 +68,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockChefvendFilled
-  cost: 680
+  cost: 1250 #Funky station, increased from 680
   category: cargoproduct-category-name-service
   group: market
 
@@ -96,7 +98,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockDinnerwareFilled
-  cost: 2000
+  cost: 1500 #Funky station, reduced from 2000 
   category: cargoproduct-category-name-service
   group: market
 
@@ -197,7 +199,7 @@
     state: base
   product: CrateVendingMachineRestockSalvageEquipmentFilled
   cost: 1500
-  category: cargoproduct-category-name-engineering
+  category: cargoproduct-category-name-cargo 
   group: market
 
 - type: cargoProduct
@@ -206,7 +208,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockSecTechFilled
-  cost: 2200
+  cost: 6500 # Funky station, increased from 2200, includes way to many supplies for such a low price
   category: cargoproduct-category-name-security
   group: market
 
@@ -216,7 +218,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockSeedsFilled
-  cost: 3600
+  cost: 1600 # Funky station, reduced from 3600 
   category: cargoproduct-category-name-hydroponics
   group: market
 

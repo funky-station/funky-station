@@ -21,9 +21,9 @@
     WeaponMailLake: 1 # Frontier
     BoxMailCapsulePrimed: 2 # Frontier
   contrabandInventory:
-   ClothingShoesSkates: 1
+    ClothingShoesSkates: 1
   emaggedInventory: # Hello there, would you please sign this pettition? 
-   ClothingOuterCoatSpaceAsshole: 1
-   ClothingEyesGlassesSunglasses: 1
-   Shovel: 1  
-   BoxFolderClipboard: 1
+    ClothingOuterCoatSpaceAsshole: 1
+    ClothingEyesGlassesSunglasses: 1
+    Shovel: 1  
+    BoxFolderClipboard: 1

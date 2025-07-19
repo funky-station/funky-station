@@ -1,0 +1,31 @@
+- type: entity
+  id: CrateServiceBulkCleanerGranades
+  parent: CratePlastic
+  name: bulk clenades box 
+  description: When just a mop is not enough to do the job.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxCleanerGrenades
+      amount: 3
+
+- type: entity
+  id: CrateServiceColoredLightTubes
+  parent: CratePlastic
+  name: colored lightube box
+  description: Contains a set of diffrent colored light tubes.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxLightTubeColored
+
+- type: entity
+  id: CrateServiceColoredLightBulb
+  parent: CratePlastic
+  name: colored lightbulb box 
+  description: Contains a set of diffrent colored light bulbs.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxLightBulbColored
+

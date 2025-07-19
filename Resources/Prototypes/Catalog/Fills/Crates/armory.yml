@@ -17,6 +17,8 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -97,8 +99,8 @@
 - type: entity
   id: CrateSecurityRiot
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: swat crate
-  description: Contains two sets of riot armor, helmets, shields, and enforcers loaded with beanbags. Extra ammo is included. Requires Armory access to open.
+  name: riot gear crate
+  description: Contains two sets of riot armor, helmets, gas masks and shields as well as four tear gas grenades, Requires Armory access to open.
   components:
   - type: StorageFill
     contents:
@@ -106,9 +108,9 @@
       amount: 2
     - id: ClothingHeadHelmetRiot
       amount: 2
-    - id: WeaponShotgunEnforcerRubber
-      amount: 2
-    - id: BoxBeanbag
+    - id: ClothingMaskGasSecurity
       amount: 2
     - id: RiotShield
       amount: 2
+    - id: TearGasGrenade
+      amount: 4

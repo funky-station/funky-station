@@ -3659,3 +3659,11 @@ Entries:
         identifying the fake
   id: 441
   time: '2025-07-19T06:07:54.0000000+00:00'
+- author: beckthompson
+  changes:
+    - type: Remove
+      message: 'Greentexts are now not visible at the end of round screen. '
+    - type: Add
+      message: 'You can now write custom objective summaries as traitors. '
+  id: 442
+  time: '2025-07-19T16:53:26.0000000+00:00'

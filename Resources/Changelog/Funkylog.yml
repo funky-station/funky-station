@@ -3559,3 +3559,81 @@ Entries:
       message: Fixed HoP cloak's inconsistent trim.
   id: 428
   time: '2025-07-10T01:51:14.0000000+00:00'
+- author: Teasq
+  changes: []
+  id: 429
+  time: '2025-07-12T00:08:33.0000000+00:00'
+- author: ZigTag
+  changes:
+    - type: Add
+      message: Protogen Visors for IPCs
+    - type: Tweak
+      message: gave IPCs 2 points for eyes
+  id: 430
+  time: '2025-07-12T00:18:15.0000000+00:00'
+- author: sowelipililimute
+  changes:
+    - type: Add
+      message: Dionae now have unique reactions to ammonia, sedin, and diethylamine.
+  id: 431
+  time: '2025-07-12T01:00:53.0000000+00:00'
+- author: QueerCats
+  changes:
+    - type: Add
+      message: More bottles for Chemists to facilitate the increased use of bottles
+  id: 432
+  time: '2025-07-12T01:13:12.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Fix
+      message: >-
+        Core should now contain most of the up to date things, but there may be
+        some stuff missing still, which I will update as I get feedback.
+  id: 433
+  time: '2025-07-13T22:48:38.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Fix
+      message: Core
+    - type: Remove
+      message: Core bugs
+    - type: Add
+      message: some lightbulbs to core
+  id: 434
+  time: '2025-07-14T03:41:09.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Map rotation for Scarlet and Cirno
+  id: 435
+  time: '2025-07-14T05:08:59.0000000+00:00'
+- author: selvamoonbell
+  changes:
+    - type: Tweak
+      message: Added radiation healing to vodka
+  id: 436
+  time: '2025-07-14T21:59:39.0000000+00:00'
+- author: Catazeus
+  changes:
+    - type: Tweak
+      message: Aligned job icons with color pallet.
+    - type: Tweak
+      message: Some job icons got a redesign.
+    - type: Tweak
+      message: Made job icons consistent.
+  id: 437
+  time: '2025-07-17T10:41:38.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Thieves no longer have objectives, they are a freeform antag now.
+  id: 438
+  time: '2025-07-19T01:58:24.0000000+00:00'
+- author: dch-GH
+  changes:
+    - type: Add
+      message: >-
+        Added LOOC message budget to limit the total amount of LOOC messages
+        players can send per round. Defaults to 20 messages. 
+  id: 439
+  time: '2025-07-19T03:10:28.0000000+00:00'

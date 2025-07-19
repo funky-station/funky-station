@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: dataset
   id: ThavenMoodsWildcard
   values:
@@ -14,14 +21,12 @@
   - LoneActor
   - Immortal
   - Unknown
-  - Fairy
   - VampireTalisman
   - OutsideTheBox
   - TheSims
   - Spacewalk
   - Pariah
   - TouysBad
-  - FairyRings
   - StayDead
   - Tourist
   - CryWolf
@@ -34,8 +39,11 @@
   - FeyMood
   - Borged
   - AyeAye
+  - RankSnob
+  - AlwaysAlone
   - CorporateConspiracy
   - OppositeDay
+
   #- NewJob
 
 # You must always lie, and can never acknowledge that you are lying. If anyone asks, you're incapable of deception.
@@ -160,13 +168,6 @@
   - Command
   - Security
 
-# Iron, steel, and silver are deathly poisonous to you. Touching them directly will cause you extreme physical pain.
-- type: thavenMood
-  id: Fairy
-  moodName: thaven-mood-fairy-name
-  moodDesc: thaven-mood-fairy-desc
-  conflicts:
-  - Barefoot
 
 # Religious iconography causes you extreme physical pain when visible.
 - type: thavenMood
@@ -211,13 +212,6 @@
   id: TouysBad
   moodName: thaven-mood-touys-bad-name
   moodDesc: thaven-mood-touys-bad-desc
-
-# Unbroken circles are impenetrable barriers.
-- type: thavenMood
-  id: FairyRings
-  moodName: thaven-mood-fairy-rings-name
-  moodDesc: thaven-mood-fairy-rings-desc
-
 
 # If you die, you should stay dead. If you are revived, you must force whoever revived you to kill you again.
 - type: thavenMood
@@ -310,6 +304,26 @@
   moodDesc: thaven-mood-new-job-desc
   conflicts:
   - YourDepartmentOnly
+  
+# You hate to address anyone who is of a lower rank than you, and will only speak to them in private if absolutely necessary.
+- type: thavenMood
+  id: RankSnob
+  moodName: thaven-mood-rank-snob-name
+  moodDesc: thaven-mood-rank-snob-desc
+  conflicts:
+  - DontSpeakToCommand
+
+# You must strive to be alone whenever possible.
+- type: thavenMood
+  id: AlwaysAlone
+  moodName: thaven-mood-always-alone-name
+  moodDesc: thaven-mood-always-alone-desc
+  conflicts:
+  - NeverAlone
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
 
 # You believe there is a hidden connection between Nanotrasen and the Syndicate. Command is complicit.
 - type: thavenMood

@@ -3637,3 +3637,17 @@ Entries:
         players can send per round. Defaults to 20 messages. 
   id: 439
   time: '2025-07-19T03:10:28.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Added Requests and Communications Consoles to Amber
+    - type: Add
+      message: Added Crystallizer Machine Board to Amber
+    - type: Add
+      message: Added Courtroom and Magistrate, as well as NTR and BSO to Amber
+    - type: Add
+      message: Added Genpop to Amber
+    - type: Add
+      message: Added Medical Biofab to Amber
+  id: 440
+  time: '2025-07-19T06:05:31.0000000+00:00'

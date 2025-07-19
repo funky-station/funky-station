@@ -28,8 +28,8 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 3
-        Heat: 2
+        Piercing: 5
+        Heat: 3
   - type: InputMover
   - type: MobMover
   - type: HTN

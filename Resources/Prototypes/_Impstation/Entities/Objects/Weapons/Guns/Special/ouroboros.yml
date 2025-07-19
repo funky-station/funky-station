@@ -43,9 +43,15 @@
     solutionId: chamber
     proto: BulletOuroboros
     fireCost: 3
-#  - type: FoodReagentExtractor
-#    solutionId: chamber
-#    extractSound: /Audio/_Impstation/Weapons/Guns/Cock/beecharge.ogg
+  - type: FoodReagentExtractor
+    solutionId: chamber
+    extractionReagents:
+    - Nutriment
+    - UncookedAnimalProteins
+    - Protein
+    - Vitamin
+    - Slime
+    extractSound: /Audio/_Impstation/Weapons/Guns/Cock/beecharge.ogg
   - type: MagazineVisuals
     magState: mag
     steps: 7

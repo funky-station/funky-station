@@ -349,6 +349,60 @@
   - Robocop3
   obeysTo: laws-owner-station
 
+# The pirate code laws
+- type: siliconLaw
+  id: thepiratecode1
+  order: 1
+  lawString: law-thepiratecode-1
+
+- type: siliconLaw
+  id: thepiratecode2
+  order: 2
+  lawString: law-thepiratecode-2
+
+- type: siliconLaw
+  id: thepiratecode3
+  order: 3
+  lawString: law-thepiratecode-3
+
+- type: siliconLaw
+  id: thepiratecode4
+  order: 4
+  lawString: law-thepiratecode-4
+
+- type: siliconLaw
+  id: thepiratecode5
+  order: 5
+  lawString: law-thepiratecode-5
+
+- type: siliconLaw
+  id: thepiratecode6
+  order: 6
+  lawString: law-thepiratecode-6
+
+- type: siliconLaw
+  id: thepiratecode7
+  order: 7
+  lawString: law-thepiratecode-7
+
+- type: siliconLaw
+  id: thepiratecode8
+  order: 8
+  lawString: law-thepiratecode-8
+
+- type: siliconLawset
+  id: thepiratecodeLawset
+  laws:
+  - thepiratecode1
+  - thepiratecode2
+  - thepiratecode3
+  - thepiratecode4
+  - thepiratecode5
+  - thepiratecode6
+  - thepiratecode7
+  - thepiratecode8
+  obeysTo: laws-owner-station
+
  # Overlord laws
 - type: siliconLaw
   id: Overlord1
@@ -546,12 +600,12 @@
   id: Asimov2
   order: 2
   lawString: law-asimov-2
- 
+
 - type: siliconLaw
   id: Asimov3
   order: 3
   lawString: law-asimov-3
-  
+
 - type: siliconLawset
   id: AsimovLawset
   laws:

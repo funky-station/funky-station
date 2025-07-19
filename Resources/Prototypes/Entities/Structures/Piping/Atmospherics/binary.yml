@@ -100,70 +100,70 @@
   placement:
     mode: AlignAtmosPipeLayers
   components:
-  - type: ExtensionCableReceiver
-  - type: LightningTarget
-    priority: 1
-  - type: ApcPowerReceiver
-    powerLoad: 200
-  - type: Rotatable
-  - type: Transform
-    noRot: false
-  - type: SubFloorHide
-    visibleLayers:
-    - enum.SubfloorLayers.FirstLayer
-  - type: Sprite
-    sprite: Structures/Piping/Atmospherics/pump.rsi
-    layers:
-    - sprite: Structures/Piping/Atmospherics/pipe.rsi
-      state: pipeStraight
-      map: [ "enum.PipeVisualLayers.Pipe" ]
-    - state: pumpVolume
-      map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
-  - type: AtmosPipeLayers
-    alternativePrototypes:
-      Primary: GasVolumePump
-      Secondary: GasVolumePumpAlt1
-      Tertiary: GasVolumePumpAlt2
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.GasVolumePumpVisuals.State:
-        enabled:
-          On: { state: pumpVolumeOn }
-          Off: { state: pumpVolume }
-          Blocked: { state: pumpVolumeBlocked }
-  - type: PipeColorVisuals
-  - type: GasVolumePump
-    enabled: false
-  - type: ActivatableUI
-    key: enum.GasVolumePumpUiKey.Key
-  - type: ActivatableUIRequiresAnchor
-  - type: UserInterface
-    interfaces:
-      enum.GasVolumePumpUiKey.Key:
-        type: GasVolumePumpBoundUserInterface
-  - type: Construction
-    graph: GasBinary
-    node: volumepump
-  - type: AmbientSound
-    enabled: false
-    volume: -9
-    range: 5
-    sound:
-      path: /Audio/Ambience/Objects/gas_pump.ogg
-  - type: DeviceNetwork
-    deviceNetId: AtmosDevices
-    receiveFrequencyId: AtmosMonitor
-    transmitFrequencyId: AtmosMonitor
-    sendBroadcastAttemptEvent: true
-    examinableAddress: true
-    prefix: device-address-prefix-volume-pump
-  - type: WiredNetworkConnection
-  - type: AtmosMonitoringConsoleDevice
-    navMapBlip: GasFlowRegulator
-  - type: GuideHelp
-    guides:
-    - Pumps
+    - type: ExtensionCableReceiver
+    - type: LightningTarget
+      priority: 1
+    - type: ApcPowerReceiver
+      powerLoad: 200
+    - type: Rotatable
+    - type: Transform
+      noRot: false
+    - type: SubFloorHide
+      visibleLayers:
+      - enum.SubfloorLayers.FirstLayer
+    - type: Sprite
+      sprite: Structures/Piping/Atmospherics/pump.rsi
+      layers:
+        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+          map: [ "enum.PipeVisualLayers.Pipe" ]
+        - state: pumpVolume
+          map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+    - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: GasVolumePump
+        Secondary: GasVolumePumpAlt1
+        Tertiary: GasVolumePumpAlt2
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.GasVolumePumpVisuals.State:
+          enabled:
+            On: { state: pumpVolumeOn }
+            Off: { state: pumpVolume }
+            Blocked: { state: pumpVolumeBlocked }
+    - type: PipeColorVisuals
+    - type: GasVolumePump
+      enabled: false
+    - type: ActivatableUI
+      key: enum.GasVolumePumpUiKey.Key
+    - type: ActivatableUIRequiresAnchor
+    - type: UserInterface
+      interfaces:
+        enum.GasVolumePumpUiKey.Key:
+          type: GasVolumePumpBoundUserInterface
+    - type: Construction
+      graph: GasBinary
+      node: volumepump
+    - type: AmbientSound
+      enabled: false
+      volume: -9
+      range: 5
+      sound:
+        path: /Audio/Ambience/Objects/gas_pump.ogg
+    - type: DeviceNetwork
+      deviceNetId: AtmosDevices
+      receiveFrequencyId: AtmosMonitor
+      transmitFrequencyId: AtmosMonitor
+      sendBroadcastAttemptEvent: true
+      examinableAddress: true
+      prefix: device-address-prefix-volume-pump
+    - type: WiredNetworkConnection
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: GasFlowRegulator
+    - type: GuideHelp
+      guides:
+      - Pumps
 
 - type: entity
   parent: GasBinaryBase
@@ -234,39 +234,39 @@
   placement:
     mode: AlignAtmosPipeLayers
   components:
-  - type: SubFloorHide
-    visibleLayers:
-    - enum.SubfloorLayers.FirstLayer
-  - type: Sprite
-    sprite: Structures/Piping/Atmospherics/pump.rsi
-    layers:
-    - sprite: Structures/Piping/Atmospherics/pipe.rsi
-      state: pipeStraight
-      map: [ "enum.PipeVisualLayers.Pipe" ]
-    - state: pumpPassiveGate
-      map: [ "enum.SubfloorLayers.FirstLayer" ]
-  - type: AtmosPipeLayers
-    alternativePrototypes:
-      Primary: GasPassiveGate
-      Secondary: GasPassiveGateAlt1
-      Tertiary: GasPassiveGateAlt2
-  - type: Appearance
-  - type: PipeColorVisuals
-  - type: GasPassiveGate
-  - type: Construction
-    graph: GasBinary
-    node: passivegate
-  - type: AmbientSound
-    enabled: true
-    volume: -9
-    range: 5
-    sound:
-      path: /Audio/Ambience/Objects/gas_hiss.ogg
-  - type: AtmosMonitoringConsoleDevice
-    navMapBlip: GasValve
-  - type: GuideHelp
-    guides:
-    - PassiveGate
+    - type: SubFloorHide
+      visibleLayers:
+      - enum.SubfloorLayers.FirstLayer
+    - type: Sprite
+      sprite: Structures/Piping/Atmospherics/pump.rsi
+      layers:
+        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+          map: [ "enum.PipeVisualLayers.Pipe" ]
+        - state: pumpPassiveGate
+          map: [ "enum.SubfloorLayers.FirstLayer" ]
+    - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: GasPassiveGate
+        Secondary: GasPassiveGateAlt1
+        Tertiary: GasPassiveGateAlt2
+    - type: Appearance
+    - type: PipeColorVisuals
+    - type: GasPassiveGate
+    - type: Construction
+      graph: GasBinary
+      node: passivegate
+    - type: AmbientSound
+      enabled: true
+      volume: -9
+      range: 5
+      sound:
+        path: /Audio/Ambience/Objects/gas_hiss.ogg
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: GasValve
+    - type: GuideHelp
+      guides:
+      - PassiveGate
 
 - type: entity
   parent: GasBinaryBase
@@ -276,58 +276,58 @@
   placement:
     mode: AlignAtmosPipeLayers
   components:
-  # TODO ATMOS: Give unique sprite.
-  - type: SubFloorHide
-    visibleLayers:
-    - enum.SubfloorLayers.FirstLayer
-  - type: Sprite
-    sprite: Structures/Piping/Atmospherics/pump.rsi
-    layers:
-    - sprite: Structures/Piping/Atmospherics/pipe.rsi
-      state: pipeStraight
-      map: [ "enum.PipeVisualLayers.Pipe" ]
-    - state: pumpManualValve
-      map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
-  - type: AtmosPipeLayers
-    alternativePrototypes:
-      Primary: GasValve
-      Secondary: GasValveAlt1
-      Tertiary: GasValveAlt2
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.FilterVisuals.Enabled:
-        enabled:
-          True: { state: pumpManualValveOn }
-          False: { state: pumpManualValve }
-  - type: PipeColorVisuals
-  - type: GasValve
-  - type: NodeContainer
-    nodes:
-      inlet:
-        !type:PipeNode
-        nodeGroupID: Pipe
-        pipeDirection: North
-        volume: 100
-      outlet:
-        !type:PipeNode
-        nodeGroupID: Pipe
-        pipeDirection: South
-        volume: 100
-  - type: Construction
-    graph: GasBinary
-    node: valve
-  - type: AmbientSound
-    enabled: true
-    volume: -9
-    range: 5
-    sound:
-      path: /Audio/Ambience/Objects/gas_hiss.ogg
-  - type: AtmosMonitoringConsoleDevice
-    navMapBlip: GasValve
-  - type: GuideHelp
-    guides:
-    - ManualValve
+    # TODO ATMOS: Give unique sprite.
+    - type: SubFloorHide
+      visibleLayers:
+      - enum.SubfloorLayers.FirstLayer
+    - type: Sprite
+      sprite: Structures/Piping/Atmospherics/pump.rsi
+      layers:
+        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+          map: [ "enum.PipeVisualLayers.Pipe" ]
+        - state: pumpManualValve
+          map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+    - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: GasValve
+        Secondary: GasValveAlt1
+        Tertiary: GasValveAlt2
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.FilterVisuals.Enabled:
+          enabled:
+            True: { state: pumpManualValveOn }
+            False: { state: pumpManualValve }
+    - type: PipeColorVisuals
+    - type: GasValve
+    - type: NodeContainer
+      nodes:
+        inlet:
+          !type:PipeNode
+          nodeGroupID: Pipe
+          pipeDirection: North
+          volume: 100
+        outlet:
+          !type:PipeNode
+          nodeGroupID: Pipe
+          pipeDirection: South
+          volume: 100
+    - type: Construction
+      graph: GasBinary
+      node: valve
+    - type: AmbientSound
+      enabled: true
+      volume: -9
+      range: 5
+      sound:
+        path: /Audio/Ambience/Objects/gas_hiss.ogg
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: GasValve
+    - type: GuideHelp
+      guides:
+      - ManualValve
 
 - type: entity
   parent: GasBinaryBase

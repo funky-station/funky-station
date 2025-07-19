@@ -12,13 +12,15 @@
   id: InternalAffairsAgentIDCard
   name: internal affairs agent ID card
   components:
-    - type: Sprite
-      sprite: _Funkystation/Objects/Misc/id_cards.rsi
-      layers:
-        - state: default
-        - state: idiaa
-    - type: PresetIdCard
-      job: InternalAffairsAgent
+  - type: Sprite
+    layers:
+    - state: cc #base
+    - state: decal-stripe-cc #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: InternalAffairsAgent
+  - type: PresetIdCard
+    job: InternalAffairsAgent
 
 - type: entity
   parent: IDCardStandard
@@ -26,10 +28,12 @@
   name: magistrate ID card
   components:
   - type: Sprite
-    sprite: _Funkystation/Objects/Misc/id_cards.rsi
     layers:
-    - state: default
-    - state: idmagistrate
+    - state: cc #base
+    - state: decal-stripe-cc #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Magistrate
   - type: PresetIdCard
     job: Magistrate
 
@@ -39,10 +43,12 @@
   name: blueshield officer ID card
   components:
   - type: Sprite
-    sprite: _Funkystation/Objects/Misc/id_cards.rsi
     layers:
-    - state: default
-    - state: idbso
+    - state: cc #base
+    - state: decal-stripe-cc #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Blueshield
   - type: PresetIdCard
     job: BlueshieldOfficer
 
@@ -52,10 +58,12 @@
   name: nanotrasen representative ID card
   components:
   - type: Sprite
-    sprite: _Funkystation/Objects/Misc/id_cards.rsi
     layers:
-    - state: default
-    - state: idntr
+    - state: cc #base
+    - state: decal-stripe-cc #decal
+    - sprite: _Goobstation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: nanotrasenrepresentative
   - type: PresetIdCard
     job: NanotrasenRepresentative
 

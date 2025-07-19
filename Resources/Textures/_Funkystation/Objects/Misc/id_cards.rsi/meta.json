@@ -11,6 +11,99 @@
             "name": "default"
         },
         {
+            "name": "silver"
+        },
+        {
+            "name": "gold"
+        },
+        {
+            "name": "cc"
+        },
+        {
+            "name": "nt"
+        },
+        {
+            "name": "prison"
+        },
+        {
+            "name": "pirate"
+        },
+        {
+            "name": "syndicate"
+        },
+        {
+            "name": "wizard"
+        },
+        {
+            "name": "future"
+        },
+        {
+            "name": "helldiver"
+        },
+        {
+            "name": "decal-admin"
+        },
+        {
+            "name": "decal-stripe-command"
+        },
+        {
+            "name": "decal-stripe-cargo"
+        },
+        {
+            "name": "decal-stripe-cc"
+        },
+        {
+            "name": "decal-stripe-civillian"
+        },
+        {
+            "name": "decal-discriminator-command"
+        },
+        {
+            "name": "decal-stripe-criminal"
+        },
+        {
+            "name": "decal-stripe-engineering"
+        },
+        {
+            "name": "decal-discriminator-cc"
+        },
+        {
+            "name": "decal-stripe-medical"
+        },
+        {
+            "name": "decal-stripe-science"
+        },
+        {
+            "name": "decal-stripe-security"
+        },
+        {
+            "name": "decal-stripe-service"
+        },
+        {
+            "name": "decal-stripe-syndicate"
+        },
+        {
+            "name": "decal-stripe-rainbow"
+        },
+        {
+            "name": "decal-stripe-stripes"
+        },
+        {
+            "name": "decal-discriminator-security"
+        },
+        {
+            "name": "decal-stripe-party"
+        },
+        {
+            "name": "decal-stripe-cluwne"
+        },
+        {
+            "name": "decal-stripe-pirate"
+        },
+        {
+            "name": "decal-stripe-wizard"
+        },
+        {
             "name": "idiaa"
         },
         {

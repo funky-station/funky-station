@@ -3583,3 +3583,79 @@ Entries:
       message: More bottles for Chemists to facilitate the increased use of bottles
   id: 432
   time: '2025-07-12T01:13:12.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Fix
+      message: >-
+        Core should now contain most of the up to date things, but there may be
+        some stuff missing still, which I will update as I get feedback.
+  id: 433
+  time: '2025-07-13T22:48:38.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Fix
+      message: Core
+    - type: Remove
+      message: Core bugs
+    - type: Add
+      message: some lightbulbs to core
+  id: 434
+  time: '2025-07-14T03:41:09.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Map rotation for Scarlet and Cirno
+  id: 435
+  time: '2025-07-14T05:08:59.0000000+00:00'
+- author: selvamoonbell
+  changes:
+    - type: Tweak
+      message: Added radiation healing to vodka
+  id: 436
+  time: '2025-07-14T21:59:39.0000000+00:00'
+- author: Catazeus
+  changes:
+    - type: Tweak
+      message: Aligned job icons with color pallet.
+    - type: Tweak
+      message: Some job icons got a redesign.
+    - type: Tweak
+      message: Made job icons consistent.
+  id: 437
+  time: '2025-07-17T10:41:38.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Thieves no longer have objectives, they are a freeform antag now.
+  id: 438
+  time: '2025-07-19T01:58:24.0000000+00:00'
+- author: dch-GH
+  changes:
+    - type: Add
+      message: >-
+        Added LOOC message budget to limit the total amount of LOOC messages
+        players can send per round. Defaults to 20 messages. 
+  id: 439
+  time: '2025-07-19T03:10:28.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Added Requests and Communications Consoles to Amber
+    - type: Add
+      message: Added Crystallizer Machine Board to Amber
+    - type: Add
+      message: Added Courtroom and Magistrate, as well as NTR and BSO to Amber
+    - type: Add
+      message: Added Genpop to Amber
+    - type: Add
+      message: Added Medical Biofab to Amber
+  id: 440
+  time: '2025-07-19T06:05:31.0000000+00:00'
+- author: GreyMario
+  changes:
+    - type: Tweak
+      message: >-
+        Paradox Clone improvements to greatly reduce the area of attack on
+        identifying the fake
+  id: 441
+  time: '2025-07-19T06:07:54.0000000+00:00'

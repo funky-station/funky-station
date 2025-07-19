@@ -1,3 +1,24 @@
+// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 duston <66768086+dch-GH@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Alert;
 using Content.Shared.CCVar;
 using Content.Shared.Movement.Components;
@@ -40,7 +61,8 @@ public sealed class MoverController : SharedMoverController
             args.IsPredicted = true;
     }
 
-    private void OnUpdateRelayTargetPredicted(Entity<MovementRelayTargetComponent> entity, ref UpdateIsPredictedEvent args)
+    private void OnUpdateRelayTargetPredicted(Entity<MovementRelayTargetComponent> entity,
+        ref UpdateIsPredictedEvent args)
     {
         if (entity.Comp.Source == _playerManager.LocalEntity)
             args.IsPredicted = true;
@@ -90,7 +112,7 @@ public sealed class MoverController : SharedMoverController
     {
         base.UpdateBeforeSolve(prediction, frameTime);
 
-        if (_playerManager.LocalEntity is not {Valid: true} player)
+        if (_playerManager.LocalEntity is not { Valid: true } player)
             return;
 
         if (RelayQuery.TryGetComponent(player, out var relayMover))
@@ -101,39 +123,11 @@ public sealed class MoverController : SharedMoverController
 
     private void HandleClientsideMovement(EntityUid player, float frameTime)
     {
-        if (!MoverQuery.TryGetComponent(player, out var mover) ||
-            !XformQuery.TryGetComponent(player, out var xform))
-        {
+        if (!MoverQuery.TryGetComponent(player, out var mover))
             return;
-        }
-
-        var physicsUid = player;
-        PhysicsComponent? body;
-        var xformMover = xform;
-
-        if (mover.ToParent && RelayQuery.HasComponent(xform.ParentUid))
-        {
-            if (!PhysicsQuery.TryGetComponent(xform.ParentUid, out body) ||
-                !XformQuery.TryGetComponent(xform.ParentUid, out xformMover))
-            {
-                return;
-            }
-
-            physicsUid = xform.ParentUid;
-        }
-        else if (!PhysicsQuery.TryGetComponent(player, out body))
-        {
-            return;
-        }
 
         // Server-side should just be handled on its own so we'll just do this shizznit
-        HandleMobMovement(
-            player,
-            mover,
-            physicsUid,
-            body,
-            xformMover,
-            frameTime);
+        HandleMobMovement((player, mover), frameTime);
     }
 
     protected override bool CanSound()

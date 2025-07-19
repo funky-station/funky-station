@@ -1,10 +1,9 @@
+#!/usr/bin/env python3
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-
-#!/usr/bin/env python3
 
 import subprocess
 import os
@@ -252,7 +251,7 @@ def process_git_log_output(output, author_timestamps):
             continue
 
         # Add main author
-        if author_name and author_email and author_name.strip() != "Unknown":
+        if author_name and author_email and author_name.strip() != "Unknown" and author_name.strip().lower() != "funkystationbot":
             author_key = f"{author_name.strip()} <{author_email.strip()}>"
             author_timestamps[author_key].append(timestamp)
 
@@ -260,7 +259,7 @@ def process_git_log_output(output, author_timestamps):
         for match in co_author_regex.finditer(body):
             co_author_name = match.group(1).strip()
             co_author_email = match.group(2).strip()
-            if co_author_name and co_author_email and co_author_name.strip() != "Unknown":
+            if co_author_name and co_author_email and co_author_name.strip() != "Unknown" and co_author_name.strip().lower() != "funkystationbot":
                 co_author_key = f"{co_author_name} <{co_author_email}>"
                 author_timestamps[co_author_key].append(timestamp)
 
@@ -529,17 +528,17 @@ def main():
     license_label = args.pr_license.lower()
 
     # TODO: support any amount of licenses
-    for license in LICENSE_CONFIG:
-        for target_license in LICENSE_CONFIG:
+    for license in list(LICENSE_CONFIG):
+        for target_license in list(LICENSE_CONFIG):
             if target_license == license:
                 continue
 
-            config_license_id = LICENSE_CONFIG[license]["id"]
-            target_license_id = LICENSE_CONFIG[target_license]["id"]
+        config_license_id = LICENSE_CONFIG[license]["id"]
+        target_license_id = LICENSE_CONFIG[target_license]["id"]
 
-            LICENSE_CONFIG[f"{license}&{target_license}"] = {
-                id: f"{config_license_id} AND {target_license_id}"
-            }
+        LICENSE_CONFIG[f"{license}&{target_license}"] = {
+            "id": f"{config_license_id} AND {target_license_id}"
+        }
 
     if license_label not in LICENSE_CONFIG:
         print(f"Warning: Unknown license '{license_label}', using default: {DEFAULT_LICENSE_LABEL}")

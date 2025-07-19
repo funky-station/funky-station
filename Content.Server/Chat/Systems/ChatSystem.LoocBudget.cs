@@ -1,4 +1,8 @@
-﻿using Content.Shared._Funkystation.CCVars;
+// SPDX-FileCopyrightText: 2025 duston <66768086+dch-GH@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared._Funkystation.CCVars;
 using Content.Shared.Chat;
 using Robust.Shared.Console;
 using Robust.Shared.Network;

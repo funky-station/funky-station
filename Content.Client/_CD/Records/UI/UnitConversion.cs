@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Lyndomen <49795619+Lyndomen@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 namespace Content.Client._CD.Records.UI;
 
 public static class UnitConversion

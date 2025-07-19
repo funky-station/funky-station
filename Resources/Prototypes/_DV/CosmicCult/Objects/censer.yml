@@ -15,7 +15,7 @@
   parent: BaseItem
   id: CosmicCenser
   name: ardent censer
-  description: Cleanses and sanctifies the air around it.
+  description: Cleanses and sanctifies the air around it with holy water.
   components:
   - type: Item
     size: Small

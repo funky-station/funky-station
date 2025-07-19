@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 thaven-mood-secret-moods-name = Keep Your Moods Secret
 thaven-mood-secret-moods-desc = Your Moods are a strictly-kept secret, and should never be revealed to anyone.
 
@@ -24,9 +30,6 @@ thaven-mood-dinner-floor-desc = Food and drink must only be consumed off of the 
 
 thaven-mood-hug-bad-name = HUGS? EUGH.
 thaven-mood-hug-bad-desc = Hugging someone is a grave insult where you come from.
-
-thaven-mood-always-alone-name = Lone Wolf
-thaven-mood-always-alone-desc = Other people will only slow you down. You should strive to be alone whenever possible.
 
 thaven-mood-atheist-name = You Do Not Approve Of Religion
 thaven-mood-atheist-desc = You do not approve of organized religion, excepting that mandated by your Moods. It should be dismantled or disrupted wherever possible.
@@ -57,9 +60,6 @@ thaven-mood-no-dragging-desc = Dragging bodies across the bare ground is horrifi
 
 thaven-mood-drunk-respect-name = The Noble Drunkard
 thaven-mood-drunk-respect-desc = You do not respect anyone who is not drunk, excluding yourself, of course.
-
-thaven-mood-rank-snob-name = Snob
-thaven-mood-rank-snob-desc = You are incredibly reluctant to respond to anyone who is of a lower rank than you. If they must be addressed, do so away from prying eyes.
 
 thaven-mood-hardsuits-bad-name = {$clothes} Are SO Last Year
 thaven-mood-hardsuits-bad-desc = Anyone wearing them in public should be shunned and derided. If you need to wear them, it should never be done where others can see it.
@@ -110,6 +110,12 @@ thaven-mood-crawler-desc = It is impolite not to perform a deep bow by entering 
 
 thaven-mood-elevated-name = The Floor Is Lava
 thaven-mood-elevated-desc = You prefer to be elevated whenever possible - Standing atop tables, railings, etc., is where you feel the most comfortable.
+
+thaven-mood-fairy-rings-name = Fairy Rings
+thaven-mood-fairy-rings-desc = Unbroken circles are impenetrable barriers.
+
+thaven-mood-fairy-name = Charmed
+thaven-mood-fairy-desc = You are allergic to iron, steel, and silver. You should avoid touching it directly.
 
 thaven-mood-afraiddark-name = Afraid of the Dark
 thaven-mood-afraiddark-desc = Darkness is incredibly dangerous, and you won't enter a space without proper illumination.

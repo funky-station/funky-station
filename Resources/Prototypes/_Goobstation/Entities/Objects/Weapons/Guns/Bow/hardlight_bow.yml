@@ -123,4 +123,3 @@
 #          True: { state: bow }
 #          False: { state: bow-folded }
 #  - type: ToggleableLightWieldable
-  # TODO: Zoom

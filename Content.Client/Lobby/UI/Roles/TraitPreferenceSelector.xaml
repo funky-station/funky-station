@@ -1,3 +1,12 @@
+<!--
+SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 <Control xmlns="https://spacestation14.io">
     <PanelContainer StyleClasses="TraitBackground">
         <BoxContainer Name="Container" Orientation="Horizontal" Margin="4,2">

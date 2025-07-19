@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 # "Yes, and" moods will encourage players towards certain behaviors and objects
 
 # Make sure to add new moods to this dataset or they will not be selected!!!!!!
@@ -103,6 +110,11 @@
   moodDesc: thaven-mood-worship-silicons-desc
   conflicts:
   - DetestSilicons
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
+  - Security
 
 # Food must be consumed in the manner of a proper meal - seated at a table, in courses, with dishes and utensils.
 - type: thavenMood
@@ -312,6 +324,11 @@
   id: ImposterSyndrome
   moodName: thaven-mood-imposter-syndrome-name
   moodDesc: thaven-mood-imposter-syndrome-desc
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
+  - Security
 
 # Yes Man: You just can't say "no." You must agree with everyone, and perform any task requested of you, regardless of its source.
 - type: thavenMood
@@ -320,6 +337,11 @@
   moodDesc: thaven-mood-yes-man-desc
   conflicts:
   - Centrist
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
+  - Security
 
 # Centrist: You are ambivalent towards any and all decisions, and refuse to take sides.
 - type: thavenMood
@@ -328,6 +350,11 @@
   moodDesc: thaven-mood-centrist-desc
   conflicts:
   - YesMan
+  jobConflicts:
+  - CentralCommandSpecial
+  - CentralCommand
+  - Command
+  - Security
 
 # Public Sector: Your job should not be done in private if it can be helped. If at all possible, you should renovate the facilities to allow public access to your workplace.
 - type: thavenMood

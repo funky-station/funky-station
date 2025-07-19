@@ -233,6 +233,7 @@
       ArmorySmg: 1
       ArmoryShotgun: 1
       ArmoryLaser: 1
+      ArmoryRifle: 1
 
 - type: entity
   id: GiftsSecurityRiot

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "All sprites created by https://github.com/Pronana / princesscheeseballs (Discord)",
+  "copyright": "All sprites created by https://github.com/Pronana / princesscheeseballs (Discord) | vulpkanin states sprited by Ci1rus",
 
   "size": {
     "x": 32,
@@ -42,6 +42,18 @@
     },
     {
       "name": "equipped-head-unshaded-vox",
+      "directions": 4
+    },
+	{
+      "name": "equipped-head-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-head-light-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-head-unshaded-vulpkanin",
       "directions": 4
     }
   ]

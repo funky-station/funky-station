@@ -1,3 +1,30 @@
+// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2021 Spartak <artak10t@gmail.com>
+// SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2022 Illiux <newoutlook@gmail.com>
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 Linus Wacker <70486856+SirDragooon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DEATHB4DEFEAT <77995199+DEATHB4DEFEAT@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 PrPleGoo <PrPleGoo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 sleepyyapril <flyingkarii@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Chemistry;
@@ -99,6 +126,7 @@ namespace Content.Client.Chemistry.UI
             PillDosage.InitDefaultButtons();
             PillNumber.InitDefaultButtons();
             BottleDosage.InitDefaultButtons();
+            BottleNumber.InitDefaultButtons();
 
             // Ensure label length is within the character limit.
             LabelLineEdit.IsValid = s => s.Length <= SharedChemMaster.LabelMaxLength;
@@ -320,7 +348,7 @@ namespace Content.Client.Chemistry.UI
             BufferCurrentVolume.Text = $" {castState.PillBufferCurrentVolume?.Int() ?? 0}u";
 
             InputEjectButton.Disabled = castState.ContainerInfo is null;
-            CreateBottleButton.Disabled = true;
+            CreateBottleButton.Disabled = castState.PillBufferReagents.Count == 0;;
             CreatePillButton.Disabled = castState.PillBufferReagents.Count == 0;
 
             UpdateDosageFields(castState);
@@ -334,10 +362,12 @@ namespace Content.Client.Chemistry.UI
         {
             var bufferVolume = castState.PillBufferCurrentVolume?.Int() ?? 0;
             PillDosage.Value = (int) Math.Min(bufferVolume, castState.PillDosageLimit);
+            BottleDosage.Value = (int) Math.Min(bufferVolume, 30);
 
             PillTypeButtons[castState.SelectedPillType].Pressed = true;
             PillNumber.IsValid = x => x >= 0;
             PillDosage.IsValid = x => x > 0 && x <= castState.PillDosageLimit;
+            BottleNumber.IsValid = x => x >= 0;
             BottleDosage.IsValid = x => x >= 0;
 
             // Avoid division by zero
@@ -346,7 +376,10 @@ namespace Content.Client.Chemistry.UI
             else
                 PillNumber.Value = 0;
 
-            BottleDosage.Value = bufferVolume;
+            if (BottleDosage.Value > 0)
+                BottleNumber.Value = bufferVolume / BottleDosage.Value;
+            else
+                BottleNumber.Value = 0;
         }
         /// <summary>
         /// Generate a product label based on reagents in the buffer.

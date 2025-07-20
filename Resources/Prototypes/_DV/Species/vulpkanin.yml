@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Zephyr <68482449+Zephyrpak@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: species
   id: Vulpkanin
   name: species-name-vulpkanin
@@ -50,10 +60,10 @@
       points: 1
       required: false
     Legs:
-      points: 1
+      points: 4 # Funky - was 1, changed to 4
       required: false
     Arms:
-      points: 1
+      points: 4 # Funky - was 1, changed to 4
       required: false
     Snout:
       points: 1
@@ -63,7 +73,7 @@
       required: true
       defaultMarkings: [ VulpEar ]
     Overlay:
-      points: 2
+      points: 3 # Funky - was 2, changed to 3
       required: false
 
 - type: humanoidBaseSprite

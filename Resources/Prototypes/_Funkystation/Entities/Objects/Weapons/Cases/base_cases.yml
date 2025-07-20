@@ -1,0 +1,129 @@
+- type: entity
+  parent: BaseStorageItem
+  abstract: true
+  id: FunkyCaseBase
+  name: case
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Storage/guncase.rsi
+    layers:
+    - state: closed
+      map: [ base ]
+  - type: Icon
+    sprite: _RMC14/Objects/Storage/guncase.rsi
+    state: closed
+  - type: Item
+    size: Huge
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,8,3
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: open }
+          False: { state: closed }
+  - type: Appearance
+
+- type: entity
+  parent: FunkyCaseBase
+  abstract: true
+  id: FunkySmallCase
+  name: pistol case
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Storage/D18case.rsi
+  - type: Icon
+    sprite: _RMC14/Objects/Storage/D18case.rsi
+  - type: Item
+    size: Large
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,1
+    whitelist:
+      tags:
+      - MagazinePistol
+      - MagazineMagnum
+      - MagazinePistolCaselessRifle
+      - SpeedLoaderMagnum
+      - SpeedLoaderCap
+      - SpeedLoaderPistol
+      - SpeedLoaderRifle
+      - AmmoBox
+      - Sidearm
+
+- type: entity
+  parent: FunkyCaseBase
+  abstract: true
+  id: FunkyMediumCase
+  name: weapon case
+  components:
+  - type: Item
+    size: Huge
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,5,1
+    whitelist:
+      tags:
+      - MagazinePistolSubMachineGun
+      - MagazineRifle
+      - MagazineShotgun
+      - MagazineLightRifle
+      - MagazinePistolSubMachineGunTopMounted
+      - AmmoBox
+      components:
+      - Gun
+
+- type: entity
+  parent: FunkyCaseBase
+  abstract: true
+  id: FunkyLargeCase
+  name: weapon case
+  components:
+  - type: Item
+    size: Huge
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,4,3
+    whitelist:
+      tags:
+      - MagazinePistolSubMachineGun
+      - MagazineRifle
+      - MagazineShotgun
+      - MagazineLightRifle
+      - MagazinePistolSubMachineGunTopMounted
+      - AmmoBox
+      components:
+      - Gun
+
+- type: entity
+  parent: FunkyCaseBase
+  abstract: true
+  id: FunkyHugeCase
+  name: weapon crate
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Storage/loadout_kits.rsi
+  - type: Icon
+    sprite: _RMC14/Objects/Storage/loadout_kits.rsi
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,7,3
+    whitelist:
+      tags:
+      - MagazinePistolSubMachineGun
+      - MagazineRifle
+      - MagazineShotgun
+      - MagazineLightRifle
+      - MagazineLightRifleBox
+      - AmmoBox
+      - Grenade
+      components:
+      - Gun

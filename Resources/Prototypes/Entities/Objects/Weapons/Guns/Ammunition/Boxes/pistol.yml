@@ -43,6 +43,9 @@
     steps: 3
     zeroVisible: false
   - type: Appearance
+  - type: Tag
+    tags:
+    - AmmoBox
 
 # Boxes
 - type: entity

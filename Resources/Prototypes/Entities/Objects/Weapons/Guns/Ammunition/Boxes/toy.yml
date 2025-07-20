@@ -67,3 +67,6 @@
       - state: mag-1
         map: ["enum.GunVisualLayers.Mag"]
       - state: cap
+  - type: Tag
+    tags:
+    - AmmoBox

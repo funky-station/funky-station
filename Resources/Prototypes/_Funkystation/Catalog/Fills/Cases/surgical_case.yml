@@ -1,0 +1,16 @@
+- type: entity
+  parent: FunkySurgicalCase
+  id: ClothingBackpackDuffelSurgeryFilled
+  name: surgical case
+  description: It's a soft-shell case for holding and storing the tools required for surgery - this one seems to be filled already.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Hemostat
+    - id: SawElectric # Shitmed Change
+    - id: Drill
+    - id: Cautery
+    - id: Retractor
+    - id: Scalpel
+    - id: BoneGel # Shitmed Change
+    - id: NitrousOxideTankFilled # DeltaV - add anesthesia

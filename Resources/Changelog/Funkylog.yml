@@ -3673,3 +3673,15 @@ Entries:
       message: Holoflare pen failing arbitrage test.
   id: 443
   time: '2025-07-19T19:48:26.0000000+00:00'
+- author: Queer-Cats
+  changes:
+    - type: Tweak
+      message: >-
+        There are now separate slots for air tanks and back stroage items,
+        allowing combat hardsuits to carry both at the same time
+    - type: Add
+      message: >-
+        Gave bartender vest the backstorage slot, so bartenders can now wear
+        their shotgun instead of just chopping it in half
+  id: 444
+  time: '2025-07-20T18:38:01.0000000+00:00'

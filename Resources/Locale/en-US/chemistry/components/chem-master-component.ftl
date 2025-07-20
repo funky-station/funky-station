@@ -1,3 +1,18 @@
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Spartak <artak10t@gmail.com>
+# SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
+# SPDX-FileCopyrightText: 2022 Illiux <newoutlook@gmail.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 ## Entity
 
 chem-master-component-activate-no-hands = You have no hands.
@@ -38,10 +53,10 @@ chem-master-window-packaging-text = Packaging
 chem-master-current-text-label = Label:
 chem-master-window-pills-label = Pills:
 chem-master-window-pill-type-label = Pill type:
-chem-master-window-pills-number-label = Count:
+chem-master-window-number-label = Count:
 chem-master-window-dose-label = Dose (u):
 chem-master-window-create-button = Create
-chem-master-window-bottles-label = Bottles:
+chem-master-window-bottles-label = Bottles / Patches:
 chem-master-window-unknown-reagent-text = Unknown reagent
 chem-master-window-sort-type-none = Sort by: Oldest First
 chem-master-window-sort-type-alphabetical = Sort by: Alphabetical

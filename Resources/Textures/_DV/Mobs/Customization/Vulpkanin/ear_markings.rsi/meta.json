@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "vulp-sharp and vulp-fade taken from https://github.com/ParadiseSS13/Paradise/ every thing else taken from https://github.com/VOREStation/VOREStation/ edited by Floofers",
+  "copyright": "vulp-sharp and vulp-fade taken from https://github.com/ParadiseSS13/Paradise/ every thing else taken from https://github.com/VOREStation/VOREStation/ edited by Floofers | fox-inner taken from https://github.com/TheDenSS14/TheDen/tree/68abd066de144b7319ef4ff6fc5d788b737154dc/Resources/Textures/_DV/Mobs/Customization/Vulpkanin/ear_markings.rsi added by Zephyrpak",
   "size": {"x": 32, "y": 32},
   "states": [
     {
@@ -54,6 +54,10 @@
     },
     {
       "name": "fox",
+      "directions": 4
+    },
+	{
+      "name": "fox-inner",
       "directions": 4
     },
     {

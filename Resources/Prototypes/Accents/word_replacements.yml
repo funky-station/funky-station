@@ -1,3 +1,35 @@
+# SPDX-FileCopyrightText: 2023 Alekshhh <44923899+Alekshhh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Mr. 27 <45323883+27alaing@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Raitononai <136900466+Raitononai@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lunarcomets <140772713+lunarcomets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Benny (TropicalHibi) <24284437+TropicalHibi@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Doctor-Cpu <77215380+Doctor-Cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hmeister-real <118129069+Hmeister-real@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
+# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 UBlueberry <161545003+UBlueberry@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deepdarkdepths <155149356+deepdarkdepths@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 tosatur <63034378+tosatur@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 # Accents that work off of word replacements.
 
 # this is kind of dumb but localization demands it.
@@ -375,6 +407,78 @@
     accent-cowboy-words-91: accent-cowboy-replacement-91
     accent-cowboy-words-92: accent-cowboy-replacement-92
     accent-cowboy-words-93: accent-cowboy-replacement-93
+    accent-cowboy-words-94: accent-cowboy-replacement-94
+    accent-cowboy-words-95: accent-cowboy-replacement-95
+    accent-cowboy-words-96: accent-cowboy-replacement-96
+    accent-cowboy-words-97: accent-cowboy-replacement-97
+    accent-cowboy-words-98: accent-cowboy-replacement-98
+    accent-cowboy-words-99: accent-cowboy-replacement-99
+    accent-cowboy-words-100: accent-cowboy-replacement-100
+    accent-cowboy-words-101: accent-cowboy-replacement-101
+    accent-cowboy-words-102: accent-cowboy-replacement-102
+    accent-cowboy-words-103: accent-cowboy-replacement-103
+    accent-cowboy-words-104: accent-cowboy-replacement-104
+    accent-cowboy-words-105: accent-cowboy-replacement-105
+    accent-cowboy-words-106: accent-cowboy-replacement-106
+    accent-cowboy-words-107: accent-cowboy-replacement-107
+    accent-cowboy-words-108: accent-cowboy-replacement-108
+    accent-cowboy-words-109: accent-cowboy-replacement-109
+    accent-cowboy-words-110: accent-cowboy-replacement-110
+    accent-cowboy-words-110-2: accent-cowboy-replacement-110
+    accent-cowboy-words-111: accent-cowboy-replacement-111
+    accent-cowboy-words-111-2: accent-cowboy-replacement-111
+    accent-cowboy-words-112: accent-cowboy-replacement-112
+    accent-cowboy-words-113: accent-cowboy-replacement-113
+    accent-cowboy-words-114: accent-cowboy-replacement-114
+    accent-cowboy-words-115: accent-cowboy-replacement-115
+    accent-cowboy-words-116: accent-cowboy-replacement-116
+    accent-cowboy-words-117: accent-cowboy-replacement-117
+    accent-cowboy-words-118: accent-cowboy-replacement-118
+    accent-cowboy-words-119: accent-cowboy-replacement-119
+    accent-cowboy-words-120: accent-cowboy-replacement-120
+    accent-cowboy-words-121: accent-cowboy-replacement-121
+    accent-cowboy-words-122: accent-cowboy-replacement-122
+    accent-cowboy-words-123: accent-cowboy-replacement-123
+    accent-cowboy-words-124: accent-cowboy-replacement-124
+    accent-cowboy-words-125: accent-cowboy-replacement-125
+    accent-cowboy-words-126: accent-cowboy-replacement-126
+    accent-cowboy-words-127: accent-cowboy-replacement-127
+    accent-cowboy-words-128: accent-cowboy-replacement-128
+    accent-cowboy-words-129: accent-cowboy-replacement-129
+    accent-cowboy-words-129-2: accent-cowboy-replacement-129
+    accent-cowboy-words-130: accent-cowboy-replacement-130
+    accent-cowboy-words-130-2: accent-cowboy-replacement-130
+    accent-cowboy-words-131: accent-cowboy-replacement-131
+    accent-cowboy-words-132: accent-cowboy-replacement-132
+    accent-cowboy-words-133: accent-cowboy-replacement-133
+    accent-cowboy-words-134: accent-cowboy-replacement-134
+    accent-cowboy-words-135: accent-cowboy-replacement-135
+    accent-cowboy-words-136: accent-cowboy-replacement-136
+    accent-cowboy-words-137: accent-cowboy-replacement-137
+    accent-cowboy-words-137-2: accent-cowboy-replacement-137
+    accent-cowboy-words-137-3: accent-cowboy-replacement-137
+    accent-cowboy-words-138: accent-cowboy-replacement-138
+    accent-cowboy-words-138-2: accent-cowboy-replacement-138
+    accent-cowboy-words-138-3: accent-cowboy-replacement-138
+    accent-cowboy-words-139: accent-cowboy-replacement-139
+    accent-cowboy-words-140: accent-cowboy-replacement-140
+    accent-cowboy-words-141: accent-cowboy-replacement-141
+    accent-cowboy-words-142: accent-cowboy-replacement-142
+    accent-cowboy-words-143: accent-cowboy-replacement-143
+    accent-cowboy-words-144: accent-cowboy-replacement-144
+    accent-cowboy-words-144-2: accent-cowboy-replacement-144
+    accent-cowboy-words-145: accent-cowboy-replacement-145
+    accent-cowboy-words-145-2: accent-cowboy-replacement-145
+    accent-cowboy-words-146: accent-cowboy-replacement-146
+    accent-cowboy-words-147: accent-cowboy-replacement-147
+    accent-cowboy-words-147-2: accent-cowboy-replacement-147
+    accent-cowboy-words-147-3: accent-cowboy-replacement-147
+    accent-cowboy-words-147-4: accent-cowboy-replacement-147
+    accent-cowboy-words-148: accent-cowboy-replacement-148
+    accent-cowboy-words-148-2: accent-cowboy-replacement-148
+    accent-cowboy-words-148-3: accent-cowboy-replacement-148
+    accent-cowboy-words-148-4: accent-cowboy-replacement-148
+    accent-cowboy-words-148-5: accent-cowboy-replacement-148
 
 - type: accent
   id: southern

@@ -1,11 +1,72 @@
+# SPDX-FileCopyrightText: 2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2021 buletsponge <96000213+buletsponge@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
+# SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
+# SPDX-FileCopyrightText: 2022 Cheackraze <71046427+Cheackraze@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Morbo <14136326+Morb0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 TimrodDX <timrod@gmail.com>
+# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+# SPDX-FileCopyrightText: 2022 and_a <and_a@DESKTOP-RJENGIR>
+# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Checkraze <71046427+Cheackraze@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Eoin Mcloughlin <helloworld@eoinrul.es>
+# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 WIN-AOO91TUKDC7\geniy <bogdanilchev@yandex.ru>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2023 not-gavnaed <114421346+not-gavnaed@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aineias1 <142914808+Aineias1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hobbitmax <91288081+Hobbitmax@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 OrangeMoronage9622 <whyteterry0092@gmail.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 meta:
   format: 7
   category: Map
   engineVersion: 255.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/02/2025 02:05:12
-  entityCount: 19928
+  time: 07/09/2025 01:39:25
+  entityCount: 19933
 maps:
 - 1
 grids:
@@ -8904,6 +8965,20 @@ entities:
             2545: 0,-57
         - node:
             cleanable: True
+            color: '#FFFFFF44'
+            id: burnt1
+          decals:
+            7410: -43.53662,-21.655014
+            7411: -41.673138,-20.305492
+            7412: -42.00761,-21.977467
+            7413: -41.12365,-22.108835
+            7414: -41.85232,-23.565842
+            7415: -42.306244,-23.37476
+            7416: -41.888157,-23.267275
+            7417: -42.13901,-23.756926
+            7418: -43.60829,-20.914568
+        - node:
+            cleanable: True
             color: '#FFFFFFFF'
             id: burnt1
           decals:
@@ -10223,7 +10298,8 @@ entities:
           -13,-4:
             0: 1646
           -12,-3:
-            0: 63351
+            4: 1
+            0: 63350
           -13,-3:
             0: 32631
           -12,-2:
@@ -10439,17 +10515,17 @@ entities:
             0: 65535
           -15,2:
             0: 13311
-            4: 32768
+            5: 32768
           -15,3:
             0: 13107
-            4: 34944
+            5: 34944
           -15,4:
             0: 65523
           -14,2:
             0: 35327
-            4: 12288
+            5: 12288
           -14,3:
-            4: 13105
+            5: 13105
             0: 34952
           -14,1:
             0: 2188
@@ -10613,7 +10689,7 @@ entities:
           -14,6:
             3: 255
           -14,7:
-            4: 3822
+            5: 3822
           -13,8:
             3: 2
             0: 136
@@ -11078,9 +11154,9 @@ entities:
           -13,9:
             3: 50176
           -12,9:
-            5: 51
+            6: 51
             3: 61440
-            4: 136
+            5: 136
           -13,10:
             3: 136
           -12,10:
@@ -11091,7 +11167,7 @@ entities:
           -12,12:
             0: 65535
           -11,9:
-            4: 17
+            5: 17
             3: 4096
             0: 52428
           -11,10:
@@ -11106,22 +11182,22 @@ entities:
             3: 1
             0: 28928
           -10,9:
-            4: 102
+            5: 102
             3: 57344
           -10,10:
             3: 232
           -10,12:
             0: 65535
           -9,9:
-            4: 51
+            5: 51
             3: 61440
-            6: 136
+            7: 136
           -9,10:
             3: 248
           -8,9:
-            6: 17
+            7: 17
             3: 61440
-            7: 204
+            8: 204
           -8,10:
             3: 248
           -7,9:
@@ -11222,6 +11298,29 @@ entities:
           moles:
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -13100,6 +13199,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -33.5,-48.5
       parent: 2
+  - uid: 15634
+    components:
+    - type: Transform
+      pos: 8.5,-27.5
+      parent: 2
 - proto: AirlockEVAGlassLocked
   entities:
   - uid: 1010
@@ -13492,7 +13596,7 @@ entities:
       pos: -10.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -93048.945
+      secondsUntilStateChange: -93621.81
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13669,7 +13773,7 @@ entities:
       pos: -7.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -272592.22
+      secondsUntilStateChange: -273165.1
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14186,12 +14290,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 2.5,26.5
       parent: 2
-  - uid: 15634
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 8.5,-27.5
-      parent: 2
 - proto: AirlockMaintEngiLocked
   entities:
   - uid: 279
@@ -14201,7 +14299,7 @@ entities:
       pos: -27.5,10.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -450995.16
+      secondsUntilStateChange: -451568.03
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -44287,6 +44385,21 @@ entities:
     - type: Transform
       pos: -36.5,-16.5
       parent: 2
+  - uid: 19931
+    components:
+    - type: Transform
+      pos: 28.5,7.5
+      parent: 2
+  - uid: 19932
+    components:
+    - type: Transform
+      pos: 28.5,6.5
+      parent: 2
+  - uid: 19933
+    components:
+    - type: Transform
+      pos: 27.5,6.5
+      parent: 2
 - proto: CableMVStack
   entities:
   - uid: 3432
@@ -51646,6 +51759,32 @@ entities:
     - type: Transform
       pos: -47.5,-11.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: ClosetRadiationSuitFilled
   entities:
   - uid: 4998
@@ -51834,8 +51973,11 @@ entities:
   - uid: 12438
     components:
     - type: Transform
-      pos: -50.467255,-17.448881
+      pos: -50.449856,-17.448156
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: ClothingHandsGlovesLatex
   entities:
   - uid: 5057
@@ -95214,6 +95356,13 @@ entities:
     - type: Transform
       pos: 25.5,-4.5
       parent: 2
+- proto: SpawnPointMagistrate
+  entities:
+  - uid: 19929
+    components:
+    - type: Transform
+      pos: -52.5,-21.5
+      parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
   - uid: 3357
@@ -100472,10 +100621,10 @@ entities:
     - type: Transform
       pos: -29.507263,7.6604733
       parent: 2
-  - uid: 19889
+  - uid: 19930
     components:
     - type: Transform
-      pos: -45.43694,-14.830188
+      pos: -50.4618,-17.63924
       parent: 2
 - proto: ToolboxEmergencyFilled
   entities:
@@ -100554,6 +100703,13 @@ entities:
     components:
     - type: Transform
       pos: -29.491095,7.4049897
+      parent: 2
+- proto: ToolboxMechanicalFilledAllTools
+  entities:
+  - uid: 19889
+    components:
+    - type: Transform
+      pos: -45.426254,-14.808825
       parent: 2
 - proto: ToyAi
   entities:

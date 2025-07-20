@@ -1,4 +1,9 @@
-﻿using Content.Server.Objectives.Systems;
+// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Objectives.Systems;
 
 namespace Content.Server.Objectives.Components;
 

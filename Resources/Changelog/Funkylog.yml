@@ -3685,3 +3685,23 @@ Entries:
         their shotgun instead of just chopping it in half
   id: 444
   time: '2025-07-20T18:38:01.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: >-
+        Add Psychologist camera, added AI turrets to AI room, added lv for
+        unpowered scrubber and air vent in Courtroom
+    - type: Remove
+      message: >-
+        Removed Material silo, removed extra mining suit in the QM's locker,
+        removed salvager supplies crate in salvage, removed HFR flatpackers and
+        HFR room
+    - type: Tweak
+      message: >-
+        Connected all Bluespace Gas dispensers to the Bluespace Gas Network,
+        moved mats room button for blast door so it couldn't be accessed from
+        the outside
+    - type: Fix
+      message: Fixed HOS camera name
+  id: 445
+  time: '2025-07-20T19:18:52.0000000+00:00'

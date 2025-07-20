@@ -35,7 +35,7 @@
     quickEquip: false
     slots:
     - Back
-    - suitStorage
+    - backStorage
   - type: MeleeWeapon
     damage:
       types:
@@ -113,7 +113,7 @@
     quickEquip: false
     slots:
     - Back
-    - suitStorage
+    - backStorage
 
 - type: entity
   id: BoomboxPink
@@ -131,7 +131,7 @@
     quickEquip: false
     slots:
     - Back
-    - suitStorage
+    - backStorage
 
 - type: entity
   id: BoomboxPurple
@@ -149,7 +149,7 @@
     quickEquip: false
     slots:
     - Back
-    - suitStorage
+    - backStorage
 
 - type: entity
   id: BoomboxGreen
@@ -167,7 +167,7 @@
     quickEquip: false
     slots:
     - Back
-    - suitStorage
+    - backStorage
 
 - type: entity
   id: BoomboxSlav
@@ -185,4 +185,4 @@
     quickEquip: false
     slots:
     - Back
-    - suitStorage
+    - backStorage

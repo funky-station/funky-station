@@ -18,6 +18,7 @@
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 spanky-spanky <scott@wearejacob.com>
+# SPDX-FileCopyrightText: 2025 Huhm-1 <cameronhillard40@gmail.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -27,7 +28,7 @@
   id: Amber
   mapName: 'Amber'
   mapPath: /Maps/_Funkystation/amber.yml #Funkystatin - Robotics
-  minPlayers: 7
+  minPlayers: 5
   maxPlayers: 50
   stations:
     Amber:
@@ -44,6 +45,9 @@
           availableJobs:
             #service
             Captain: [ 1, 1 ]
+            Magistrate: [ 1, 1 ]
+            NanotrasenRepresentative: [ 1, 1 ]
+            BlueshieldOfficer: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             InternalAffairsAgent: [ 1, 1 ]
             Bartender: [ 1, 1 ]

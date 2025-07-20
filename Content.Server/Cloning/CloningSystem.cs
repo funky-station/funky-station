@@ -36,6 +36,7 @@
 // SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GreyMaria <mariomister541@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -130,7 +131,19 @@ public sealed partial class CloningSystem : EntitySystem
         var cloningEv = new Shared.Cloning.Events.CloningEvent(settings, clone.Value);
         RaiseLocalEvent(original, ref cloningEv); // used for datafields that cannot be directly copied
 
-        // Add equipment first so that SetEntityName also renames the ID card.
+        // funkystation: let's rename the clone first, since we're manually cloning ID and PDA names
+        var originalName = Name(original);
+        if (TryComp<NameModifierComponent>(original, out var nameModComp)) // if the originals name was modified, use the unmodified name
+            originalName = nameModComp.BaseName;
+
+        // This will properly set the BaseName and EntityName for the clone.
+        // Adding the component first before renaming will make sure RefreshNameModifers is called.
+        // Without this the name would get reverted to Urist.
+        // If the clone has no name modifiers, NameModifierComponent will be removed again.
+        EnsureComp<NameModifierComponent>(clone.Value);
+        _metaData.SetEntityName(clone.Value, originalName);
+
+        // funkystation: ok NOW let's copy equipment and such
         if (settings.CopyEquipment != null)
             CopyEquipment(original, clone.Value, settings.CopyEquipment.Value, settings.Whitelist, settings.Blacklist);
 
@@ -142,17 +155,6 @@ public sealed partial class CloningSystem : EntitySystem
         // copy implants and their storage contents
         if (settings.CopyImplants)
             CopyImplants(original, clone.Value, settings.CopyInternalStorage, settings.Whitelist, settings.Blacklist);
-
-        var originalName = Name(original);
-        if (TryComp<NameModifierComponent>(original, out var nameModComp)) // if the originals name was modified, use the unmodified name
-            originalName = nameModComp.BaseName;
-
-        // This will properly set the BaseName and EntityName for the clone.
-        // Adding the component first before renaming will make sure RefreshNameModifers is called.
-        // Without this the name would get reverted to Urist.
-        // If the clone has no name modifiers, NameModifierComponent will be removed again.
-        EnsureComp<NameModifierComponent>(clone.Value);
-        _metaData.SetEntityName(clone.Value, originalName);
 
         _adminLogger.Add(LogType.Chat, LogImpact.Medium, $"The body of {original:player} was cloned as {clone.Value:player}");
         return true;

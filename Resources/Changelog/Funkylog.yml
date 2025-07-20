@@ -3637,3 +3637,51 @@ Entries:
         players can send per round. Defaults to 20 messages. 
   id: 439
   time: '2025-07-19T03:10:28.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Added Requests and Communications Consoles to Amber
+    - type: Add
+      message: Added Crystallizer Machine Board to Amber
+    - type: Add
+      message: Added Courtroom and Magistrate, as well as NTR and BSO to Amber
+    - type: Add
+      message: Added Genpop to Amber
+    - type: Add
+      message: Added Medical Biofab to Amber
+  id: 440
+  time: '2025-07-19T06:05:31.0000000+00:00'
+- author: GreyMario
+  changes:
+    - type: Tweak
+      message: >-
+        Paradox Clone improvements to greatly reduce the area of attack on
+        identifying the fake
+  id: 441
+  time: '2025-07-19T06:07:54.0000000+00:00'
+- author: beckthompson
+  changes:
+    - type: Remove
+      message: 'Greentexts are now not visible at the end of round screen. '
+    - type: Add
+      message: 'You can now write custom objective summaries as traitors. '
+  id: 442
+  time: '2025-07-19T16:53:26.0000000+00:00'
+- author: Catazeus
+  changes:
+    - type: Fix
+      message: Holoflare pen failing arbitrage test.
+  id: 443
+  time: '2025-07-19T19:48:26.0000000+00:00'
+- author: Queer-Cats
+  changes:
+    - type: Tweak
+      message: >-
+        There are now separate slots for air tanks and back stroage items,
+        allowing combat hardsuits to carry both at the same time
+    - type: Add
+      message: >-
+        Gave bartender vest the backstorage slot, so bartenders can now wear
+        their shotgun instead of just chopping it in half
+  id: 444
+  time: '2025-07-20T18:38:01.0000000+00:00'

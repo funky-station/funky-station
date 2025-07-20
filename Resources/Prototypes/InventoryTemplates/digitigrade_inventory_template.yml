@@ -16,7 +16,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-# Human without shoes, and has to wear a skirt apparently
+# Human without shoes
 - type: inventoryTemplate
   id: digitigrade
   slots:
@@ -65,8 +65,6 @@
       uiWindowPos: 0,1
       strippingWindowPos: 0,2
       displayName: Jumpsuit
-      whitelist:
-        tag: skirt
     - name: outerClothing
       slotTexture: suit
       slotFlags: OUTERCLOTHING

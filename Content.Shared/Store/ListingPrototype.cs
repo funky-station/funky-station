@@ -107,7 +107,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     /// <summary>
     /// The event that is broadcast when the listing is purchased.
     /// </summary>
-    [DataField]
+    [DataField(serverOnly: true), NonSerialized] // Goob edit
     public object? ProductEvent;
 
     // goobstation - heretics
@@ -158,8 +158,11 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             Description != listing.Description ||
             ProductEntity != listing.ProductEntity ||
             ProductAction != listing.ProductAction ||
-            ProductEvent?.GetType() != listing.ProductEvent?.GetType() ||
+            RaiseProductEventOnUser != listing.RaiseProductEventOnUser || // Goobstation
             RestockTime != listing.RestockTime)
+            return false;
+
+        if (ProductEvent != null && listing.ProductEvent != null && ProductEvent.GetType() != listing.ProductEvent.GetType()) // Goobstation
             return false;
 
         if (Icon != null && !Icon.Equals(listing.Icon))
@@ -202,6 +205,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             ProductUpgradeId = ProductUpgradeId,
             ProductActionEntity = ProductActionEntity,
             ProductEvent = ProductEvent,
+            RaiseProductEventOnUser = RaiseProductEventOnUser, // goob edit
             ProductHereticKnowledge = ProductHereticKnowledge, // goob edit
             PurchaseAmount = PurchaseAmount,
             RestockTime = RestockTime,

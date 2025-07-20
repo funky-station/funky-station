@@ -14,72 +14,76 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+using Content.Server.Actions;
+using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
+using Content.Server.Emp;
+using Content.Server.EntityEffects.EffectConditions;
+using Content.Server.Explosion.EntitySystems;
+using Content.Server.Flash;
+using Content.Server.Flash.Components;
 using Content.Server.Forensics;
+using Content.Server.Gravity;
+using Content.Server.Humanoid;
+using Content.Server.Light.EntitySystems;
+using Content.Server.Objectives.Components;
+using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Store.Systems;
+using Content.Server.Stunnable;
 using Content.Server.Zombies;
+using Content.Shared._EE.Overlays;
+using Content.Shared._EE.Overlays.Switchable;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Actions;
 using Content.Shared.Alert;
+using Content.Shared.Body.Part;
+using Content.Shared.Camera;
 using Content.Shared.Changeling;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.FixedPoint;
+using Content.Shared.Fluids;
+using Content.Shared.Forensics.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Inventory;
+using Content.Shared.Jittering;
+using Content.Shared.Mind;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Polymorph;
+using Content.Shared.Popups;
+using Content.Shared.Revolutionary.Components;
+using Content.Shared.StatusEffect;
 using Content.Shared.Store.Components;
 using Robust.Server.Audio;
-using Robust.Shared.Audio;
-using Robust.Shared.Random;
-using Content.Shared.Popups;
-using Content.Shared.Damage;
-using Robust.Shared.Prototypes;
-using Content.Server.Body.Systems;
-using Content.Shared.Actions;
-using Content.Shared.Polymorph;
-using Robust.Shared.Serialization.Manager;
-using Content.Server.Actions;
-using Content.Server.Humanoid;
-using Content.Server.Polymorph.Components;
-using Content.Shared.Chemistry.EntitySystems;
-using Content.Server.Flash;
-using Content.Server.Emp;
 using Robust.Server.GameObjects;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Inventory;
-using Content.Shared.Movement.Systems;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Mind;
-using Content.Server.Objectives.Components;
-using Content.Server.Light.EntitySystems;
-using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.StatusEffect;
-using Content.Shared.Movement.Pulling.Systems;
-using Content.Shared.Cuffs;
-using Content.Shared.Fluids;
-using Content.Shared.Revolutionary.Components;
+using Robust.Shared.Audio;
 using Robust.Shared.Player;
-using System.Numerics;
-using Content.Shared.Camera;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
-using Content.Shared.Damage.Components;
-using Content.Server.Gravity;
-using Content.Shared.Mobs.Components;
-using Content.Server.Stunnable;
-using Content.Shared.Jittering;
-using Content.Server.Explosion.EntitySystems;
 using System.Linq;
-using Content.Server.EntityEffects.EffectConditions;
-using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Body.Part;
-using Content.Shared.Forensics.Components;
+using System.Numerics;
 
 namespace Content.Server.Changeling;
 
-public sealed partial class ChangelingSystem : EntitySystem
+public sealed partial class ChangelingSystem : SharedChangelingSystem
 {
     // this is one hell of a star wars intro text
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -121,6 +125,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
+    [Dependency] private readonly IComponentFactory _compFactory = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -164,9 +169,32 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         SubscribeLocalEvent<ChangelingComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
 
+        SubscribeLocalEvent<ChangelingComponent, AugmentedEyesightPurchasedEvent>(OnAugmentedEyesightPurchased);
+
         SubscribeAbilities();
     }
 
+    protected override void UpdateFlashImmunity(EntityUid uid, bool active)
+    {
+        if (TryComp(uid, out FlashImmunityComponent? flashImmunity))
+            flashImmunity.Enabled = active;
+    }
+
+    private void OnAugmentedEyesightPurchased(Entity<ChangelingComponent> ent, ref AugmentedEyesightPurchasedEvent args)
+    {
+        EnsureComp<FlashImmunityComponent>(ent);
+        EnsureComp<EyeProtectionComponent>(ent);
+
+        var thermalVision = _compFactory.GetComponent<ThermalVisionComponent>();
+        thermalVision.Color = Color.FromHex("#FB9898");
+        thermalVision.LightRadius = 15f;
+        thermalVision.ActivateSound = null;
+        thermalVision.DeactivateSound = null;
+        thermalVision.ToggleAction = null;
+
+        AddComp(ent, thermalVision);
+        Dirty(ent, thermalVision);
+    }
     private void OnRefreshSpeed(Entity<ChangelingComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
         if (ent.Comp.StrainedMusclesActive)

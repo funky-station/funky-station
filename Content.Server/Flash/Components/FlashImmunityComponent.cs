@@ -14,7 +14,7 @@ namespace Content.Server.Flash.Components;
 ///     Makes the entity immune to being flashed.
 ///     When given to clothes in the "head", "eyes" or "mask" slot it protects the wearer.
 /// </summary>
-[RegisterComponent, Access(typeof(FlashSystem))]
+[RegisterComponent] // Goob edit
 public sealed partial class FlashImmunityComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite)]

@@ -28,12 +28,10 @@ public abstract partial class SwitchableOverlayComponent : BaseOverlayComponent
     public float PulseAccumulator;
 
     [DataField]
-    public virtual SoundSpecifier? ActivateSound { get; set; } =
-        new SoundPathSpecifier("/Audio/_EE/Items/Goggles/activate.ogg");
+    public SoundSpecifier? ActivateSound = new SoundPathSpecifier("/Audio/_White/Items/Goggles/activate.ogg");
 
     [DataField]
-    public virtual SoundSpecifier? DeactivateSound { get; set; } =
-        new SoundPathSpecifier("/Audio/_EE/Items/Goggles/deactivate.ogg");
+    public SoundSpecifier? DeactivateSound = new SoundPathSpecifier("/Audio/_White/Items/Goggles/deactivate.ogg");
 
     [DataField]
     public virtual string? ToggleAction { get; set; }

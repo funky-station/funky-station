@@ -45,6 +45,20 @@
 
 - type: entity
   parent: MarkerBase
+  id: SpawnMobCeledonRaptor
+  name: Celedon Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: celedon_raptor
+      sprite: Mobs/Pets/celedon.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCeledonRaptor
+
+- type: entity
+  parent: MarkerBase
   id: SpawnMobBoxingKangaroo
   name: Boxing Kangaroo Spawner
   suffix: Hostile
@@ -200,6 +214,20 @@
   - type: ConditionalSpawner
     prototypes:
     - MobSpiderSpace
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobTick
+  name: Space Tick Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: alive
+      sprite: Mobs/Aliens/Xenos/spacetick.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobTick
 
 - type: entity
   parent: MarkerBase

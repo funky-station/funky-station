@@ -186,6 +186,20 @@
 
 - type: entity
   parent: MarkerBase
+  id: SpawnMobMothroach
+  name: Mothroach Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Animals/mothroach/mothroach.rsi
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobMothroach
+
+- type: entity
+  parent: MarkerBase
   id: SpawnMobMouse
   name: Mouse Spawner
   components:
@@ -228,6 +242,32 @@
   - type: ConditionalSpawner
     prototypes:
     - MobPenguin
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobPossum
+  name: Possum Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobPossum
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobPossumPoppy
+  name: Possum Poppy Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobPossumPoppy
 
 - type: entity
   parent: MarkerBase

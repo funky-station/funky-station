@@ -27,6 +27,7 @@
           #service
           StationAi: [ 1, 1 ]
           Captain: [ 1, 1 ]
+          Magistrate: [ 1, 1 ]
           NanotrasenRepresentative: [ 1, 1 ]
           InternalAffairsAgent: [ 1, 2 ]
           BlueshieldOfficer: [ 1, 1 ]
@@ -45,7 +46,7 @@
           TechnicalAssistant: [ 4, 4 ]
           #medical
           ChiefMedicalOfficer: [ 1, 1 ]
-          Chemist: [ 3, 3 ]
+          Chemist: [ 2, 3 ]
           MedicalDoctor: [ 6, 6 ]
           Paramedic: [ 2, 2 ]
           MedicalIntern: [ 4, 4 ]
@@ -53,7 +54,7 @@
           #science
           ResearchDirector: [ 1, 1 ]
           Scientist: [ 5, 5 ]
-          Roboticist: [ 1, 2 ]
+          Roboticist: [ 1, 1 ]
           ResearchAssistant: [ 6, 6 ]
           Borg: [ 2, 2 ]
           #security

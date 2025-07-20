@@ -12,6 +12,8 @@
 # SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Zephyr <68482449+Zephyrpak@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Zephyr <cgarretson15@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -100,12 +102,16 @@
       - state: equipped-head-light
       head-vox:
       - state: equipped-head-light-vox
+      head-vulpkanin: # Funky - added vulpkanin state
+      - state: equipped-head-light-vulpkanin
   - type: Clothing
     clothingVisuals:
       head:
       - state: equipped-head
       head-vox:
       - state: equipped-head-vox
+      head-vulpkanin: # Funky - added vulpkanin state
+      - state: equipped-head-vulpkanin
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1

@@ -13,14 +13,15 @@
   - ClothingEyesNightVisionMedicalGoggles
   - ClothingEyesNightVisionDiagnosticGoggles
 
-- type: technology
-  id: ThermalVisionTech
-  name: research-technology-thermal-vision
-  icon:
-    sprite: _EE/Clothing/Eyes/Goggles/thermal.rsi
-    state: icon
-  discipline: Experimental
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-  - ClothingEyesThermalVisionGoggles
+# Funky - No thermals for crew please
+#- type: technology
+#  id: ThermalVisionTech
+#  name: research-technology-thermal-vision
+#  icon:
+#    sprite: _EE/Clothing/Eyes/Goggles/thermal.rsi
+#    state: icon
+#  discipline: Experimental
+#  tier: 2
+#  cost: 10000
+#  recipeUnlocks:
+#  - ClothingEyesThermalVisionGoggles

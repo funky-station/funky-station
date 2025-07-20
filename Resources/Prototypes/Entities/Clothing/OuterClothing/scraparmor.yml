@@ -55,7 +55,7 @@
 
 # The armor itself
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseMajorContraband]
+  parent: [ClothingOuterBaseLarge, AllowBackStorageClothing, BaseMajorContraband]
   id: ClothingOuterArmorScrap
   name: scrap armor
   description: A tider's gleaming plate mail. Bail up, or you're a dead man.

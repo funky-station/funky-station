@@ -3667,3 +3667,9 @@ Entries:
       message: 'You can now write custom objective summaries as traitors. '
   id: 442
   time: '2025-07-19T16:53:26.0000000+00:00'
+- author: Catazeus
+  changes:
+    - type: Fix
+      message: Holoflare pen failing arbitrage test.
+  id: 443
+  time: '2025-07-19T19:48:26.0000000+00:00'

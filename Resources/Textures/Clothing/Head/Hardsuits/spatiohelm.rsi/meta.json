@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Original by Emisse, modified by EmoGarbage404. Vox states by Flareguy for SS14",
+  "copyright": "Original by Emisse, modified by EmoGarbage404. Vox states by Flareguy for SS14 | vulpkanin state taken from https://github.com/DeltaV-Station/Delta-v/tree/3fbe5312c58a9edda6e1342f62d697482b6b8d48/Resources/Textures/Clothing/Head/Hardsuits/spatiohelm.rsi added by Zephyrpak",
 
   "size": {
     "x": 32,
@@ -42,6 +42,18 @@
     },
     {
       "name": "equipped-head-unshaded-vox",
+      "directions": 4
+    },
+	{
+      "name": "equipped-head-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-head-light-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-head-unshaded-vulpkanin",
       "directions": 4
     }
   ]

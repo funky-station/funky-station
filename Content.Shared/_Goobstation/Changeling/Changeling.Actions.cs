@@ -83,6 +83,7 @@ public sealed partial class ActionContortBodyEvent : InstantActionEvent { }
 
 #region Events - Misc
 
-public sealed partial class AugmentedEyesightPurchasedEvent : EntityEventArgs { }
+[DataDefinition]
+public sealed partial class AugmentedEyesightPurchasedEvent : EntityEventArgs;
 
 #endregion

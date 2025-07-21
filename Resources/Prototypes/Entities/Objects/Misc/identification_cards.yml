@@ -348,7 +348,7 @@
     layers:
     - state: silver #base
     - state: decal-stripe-cargo #decal
-    - state: decal-stripe-command #decal
+    - state: decal-discriminator-command #decal
     - sprite: Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: QuarterMaster

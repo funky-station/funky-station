@@ -26,7 +26,6 @@
 // SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 J. Brown <DrMelon@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 James Simonson <jamessimo89@gmail.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
@@ -42,6 +41,7 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -596,6 +596,10 @@ namespace Content.Server.Kitchen.EntitySystems
                 // special behavior when being microwaved ;)
                 var ev = new BeingMicrowavedEvent(uid, user);
                 RaiseLocalEvent(item, ev);
+
+                // TODO MICROWAVE SPARKS & EFFECTS
+                // Various microwaveable entities should probably spawn a spark, play a sound, and generate a pop=up.
+                // This should probably be handled by the microwave system, with fields in BeingMicrowavedEvent.
 
                 if (ev.Handled)
                 {

@@ -270,6 +270,17 @@
                                         StyleClasses="LabelSecondaryColor"
                                         Text="{Loc 'funky-medical-records-doctors-notes-title'}" />
                                 </BoxContainer>
+                                <BoxContainer
+                                    HorizontalExpand="True"
+                                    Margin="5"
+                                    Name="DoctorsNotesContainer"
+                                    Orientation="Vertical"
+                                    Visible="False">
+                                    <ScrollContainer HScrollEnabled="False" VerticalExpand="True">
+                                        <ItemList MaxHeight="500" Name="History" />
+                                        <!--  Populated when window opened  -->
+                                    </ScrollContainer>
+                                </BoxContainer>
                             </BoxContainer>
 
                             <!--  todo implement autopsies  -->

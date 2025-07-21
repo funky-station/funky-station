@@ -165,6 +165,14 @@
 
 - type: jobIcon
   parent: JobIcon
+  id: JobIconHECU
+  icon:
+    sprite: /Textures/_Funkystation/Interface/Misc/job_icons.rsi
+    state: HECU
+  jobName: job-name-hecu
+
+- type: jobIcon
+  parent: JobIcon
   id: JobIconPrisoner
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi

@@ -675,7 +675,7 @@
       offset: "-0.125, 0.09375"
       state: CentralCommandOfficial
   - type: Item
-    heldPrefix: blue
+    heldPrefix: cc
   - type: PresetIdCard
     job: CentralCommandOfficial
   - type: NanoChatCard # DeltaV
@@ -689,8 +689,8 @@
   - type: Sprite
     layers:
     - state: gold #base
-    - state: decal-stripe-command #decal
-    - state: decal-discriminator-cc #decal
+    - state: decal-stripe-cc #decal
+    - state: decal-discriminator-ert #decal
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: ERT-Leader
@@ -709,15 +709,15 @@
   - type: Sprite
     layers:
     - state: cc #base
-    - state: decal-stripe-civillian #decal
-    - state: decal-discriminator-cc #decal
+    - state: decal-stripe-cc #decal
+    - state: decal-discriminator-ert #decal
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: ERT-Chaplain
+  - type: Item
+    heldPrefix: cc
   - type: PresetIdCard
     job: ERTChaplain
-  - type: Item
-    heldPrefix: blue
   - type: NanoChatCard # DeltaV
     listNumber: false
 
@@ -729,11 +729,13 @@
   - type: Sprite
     layers:
     - state: cc #base
-    - state: decal-stripe-engineering #decal
-    - state: decal-discriminator-cc #decal
+    - state: decal-stripe-cc #decal
+    - state: decal-discriminator-ert #decal
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: ERT-Engineer
+  - type: Item
+    heldPrefix: cc
   - type: PresetIdCard
     job: ERTEngineer
   - type: NanoChatCard # DeltaV
@@ -747,11 +749,13 @@
   - type: Sprite
     layers:
     - state: cc #base
-    - state: decal-stripe-civillian #decal
-    - state: decal-discriminator-cc #decal
+    - state: decal-stripe-cc #decal
+    - state: decal-discriminator-ert #decal
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: ERT-Janitor
+  - type: Item
+    heldPrefix: cc
   - type: PresetIdCard
     job: ERTJanitor
   - type: NanoChatCard # DeltaV
@@ -765,11 +769,13 @@
   - type: Sprite
     layers:
     - state: cc #base
-    - state: decal-stripe-medical #decal
-    - state: decal-discriminator-cc #decal
+    - state: decal-stripe-cc #decal
+    - state: decal-discriminator-ert #decal
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: ERT-Medic
+  - type: Item
+    heldPrefix: cc
   - type: PresetIdCard
     job: ERTMedical
   - type: NanoChatCard # DeltaV
@@ -783,11 +789,13 @@
   - type: Sprite
     layers:
     - state: cc #base
-    - state: decal-stripe-security #decal
-    - state: decal-discriminator-cc #decal
+    - state: decal-stripe-cc #decal
+    - state: decal-discriminator-ert #decal
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: ERT-Security
+  - type: Item
+    heldPrefix: cc
   - type: PresetIdCard
     job: ERTSecurity
   - type: NanoChatCard # DeltaV
@@ -817,11 +825,12 @@
     layers:
     - state: cc #base
     - state: decal-stripe-cc #decal
+    - state: decal-discriminator-deathsquad #decal
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: DeathSquad
   - type: Item
-    heldPrefix: blue
+    heldPrefix: cc
   - type: PresetIdCard
     job: DeathSquad
   - type: NanoChatCard # DeltaV
@@ -907,6 +916,8 @@
     - sprite: Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: Syndicate
+  - type: Item
+    heldPrefix: syndicate
   - type: Access
     tags:
     - NuclearOperative
@@ -926,6 +937,8 @@
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: Pirate
+  - type: Item
+    heldPrefix: pirate
   - type: Access
     tags:
     - NuclearOperative
@@ -1022,7 +1035,7 @@
       offset: "-0.125, 0.09375"
       state: Prisoner
   - type: Item
-    heldPrefix: orange
+    heldPrefix: prison
   - type: Access
     tags:
     - GenpopEnter
@@ -1060,7 +1073,7 @@
       offset: "-0.125, 0.09375"
       state: CBURN
   - type: Item
-    heldPrefix: blue
+    heldPrefix: cc
   - type: PresetIdCard
     job: CBURN
   - type: NanoChatCard # DeltaV
@@ -1149,6 +1162,8 @@
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: Wizard
+  - type: Item
+    heldPrefix: wizard
   - type: Access
     tags:
     - Wizard
@@ -1174,7 +1189,7 @@
   - type: Clothing
     sprite: Objects/Misc/id_cards.rsi
   - type: Item
-    heldPrefix: green
+    heldPrefix: cc
   - type: IdCard
     jobTitle: job-title-universal
     jobIcon: JobIconAdmin
@@ -1227,7 +1242,7 @@
   components:
   - type: Sprite
     layers:
-    - state: cc #base
+    - state: default #base
     - state: decal-stripe-cc #decal
     - sprite: Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"

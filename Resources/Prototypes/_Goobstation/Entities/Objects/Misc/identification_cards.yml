@@ -19,7 +19,7 @@
       offset: "-0.125, 0.09375"
       state: Future
   - type: Item
-    heldPrefix: blue
+    heldPrefix: future
   - type: IdCard
     jobTitle: job-name-futureagent
     jobIcon: JobIconFuture
@@ -43,6 +43,8 @@
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: Helldiver
+  - type: Item
+    heldPrefix: helldiver
   - type: IdCard
     jobTitle: job-name-salvagediver
     jobIcon: JobIconShaftMiner
@@ -55,13 +57,16 @@
   components:
   - type: Sprite
     layers:
-    - state: nt #base
-    - sprite: Interface/Misc/job_icons.rsi #icon
+    - state: cc #base
+    - state: decal-stripe-cc #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
-      state: Nanotrasen
+      state: HECU
+  - type: Item
+    heldPrefix: cc
   - type: IdCard
     jobTitle: job-name-hecu
-    jobIcon: JobIconNanotrasen
+    jobIcon: JobIconHECU
   - type: Access
     groups:
     - AllAccess

@@ -68,6 +68,12 @@
             "name": "decal-discriminator-cc"
         },
         {
+            "name": "decal-discriminator-ert"
+        },
+        {
+            "name": "decal-discriminator-deathsquad"
+        },
+        {
             "name": "decal-stripe-medical"
         },
         {
@@ -104,18 +110,6 @@
             "name": "decal-stripe-wizard"
         },
         {
-            "name": "idiaa"
-        },
-        {
-            "name": "idbso"
-        },
-        {
-            "name": "idntr"
-        },
-        {
-            "name": "idmagistrate"
-        },
-        {
             "name": "retro"
         },
         {
@@ -139,6 +133,86 @@
         },
         {
             "name": "default-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "silver-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "silver-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "gold-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "gold-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "prison-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "prison-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "cc-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "cc-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "nt-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "nt-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "syndicate-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "syndicate-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "wizard-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "wizard-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "pirate-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "pirate-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "future-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "future-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "helldiver-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "helldiver-inhand-right",
             "directions": 4
         }
     ]

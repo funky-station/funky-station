@@ -452,12 +452,11 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             if (HasComp<HeadRevolutionaryComponent>(uid))
                 continue;
 
-            _npcFaction.RemoveFaction(uid, RevolutionaryNpcFaction);
-            _stun.TryParalyze(uid, stunTime, true); // todo: use gamerule
-            RemCompDeferred<RevolutionaryComponent>(uid);
-            RemCompDeferred<ShowRevolutionaryIconsComponent>(uid);
-            _popup.PopupEntity(Loc.GetString("rev-break-control", ("name", Identity.Entity(uid, EntityManager))), uid);
-            _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} was deconverted due to all Head Revolutionaries dying.");
+                _npcFaction.RemoveFaction(uid, RevolutionaryNpcFaction);
+                _stun.TryUpdateParalyzeDuration(uid, stunTime);
+                RemCompDeferred<RevolutionaryComponent>(uid);
+                _popup.PopupEntity(Loc.GetString("rev-break-control", ("name", Identity.Entity(uid, EntityManager))), uid);
+                _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} was deconverted due to all Head Revolutionaries dying.");
 
             // Goobstation - check if command staff was deconverted
             if (TryComp<CommandStaffComponent>(uid, out var commandComp))

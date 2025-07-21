@@ -34,15 +34,10 @@ public abstract partial class SharedStunSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
-    [Dependency] private readonly StandingStateSystem _standingState = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-
-    /// <summary>
-    /// Friction modifier for knocked down players.
-    /// Doesn't make them faster but makes them slow down... slower.
-    /// </summary>
-    public const float KnockDownModifier = 0.2f;
+    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
+    [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
+    [Dependency] protected readonly SharedStaminaSystem Stamina = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
 
     public override void Initialize()
     {
@@ -124,7 +119,7 @@ public abstract partial class SharedStunSystem : EntitySystem
         if (args.OurFixtureId != ent.Comp.FixtureId)
             return;
 
-        if (_entityWhitelist.IsBlacklistPass(ent.Comp.Blacklist, args.OtherEntity))
+        if (_entityWhitelist.IsWhitelistPass(ent.Comp.Blacklist, args.OtherEntity))
             return;
 
         TryUpdateStunDuration(args.OtherEntity, ent.Comp.Duration);

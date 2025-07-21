@@ -35,7 +35,7 @@ public record struct KnockDownAttemptEvent(bool AutoStand, bool Drop, TimeSpan? 
 ///     Raised directed on an entity when it is knocked down.
 /// </summary>
 [ByRefEvent]
-public record struct KnockedDownEvent;
+public record struct KnockedDownEvent(TimeSpan? Time);
 
 /// <summary>
 ///     Raised on an entity that needs to refresh its knockdown modifiers

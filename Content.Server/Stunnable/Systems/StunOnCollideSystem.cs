@@ -16,17 +16,16 @@
 using Content.Server.Stunnable.Components;
 using Content.Shared.Movement.Systems;
 using JetBrains.Annotations;
-using Robust.Shared.Physics.Dynamics;
 using Content.Shared.Throwing;
 using Robust.Shared.Physics.Events;
 
-namespace Content.Server.Stunnable.Systems;
-
-[UsedImplicitly]
-internal sealed class StunOnCollideSystem : EntitySystem
+namespace Content.Server.Stunnable
 {
-    [Dependency] private readonly StunSystem _stunSystem = default!;
-    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
+    [UsedImplicitly]
+    internal sealed class StunOnCollideSystem : EntitySystem
+    {
+        [Dependency] private readonly StunSystem _stunSystem = default!;
+        [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
 
     public override void Initialize()
     {

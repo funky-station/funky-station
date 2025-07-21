@@ -3705,3 +3705,11 @@ Entries:
       message: Fixed HOS camera name
   id: 445
   time: '2025-07-20T19:18:52.0000000+00:00'
+- author: UristMcWiki
+  changes:
+    - type: Remove
+      message: >-
+        Removed the Hardlight Bow for a test period. Cannot be bought. Will
+        return with a reworked concept later.
+  id: 446
+  time: '2025-07-21T21:15:30.0000000+00:00'

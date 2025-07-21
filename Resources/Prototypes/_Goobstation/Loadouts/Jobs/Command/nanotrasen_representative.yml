@@ -19,6 +19,15 @@
       role: JobNanotrasenRepresentative
       time: 72000 #20 hrs
 
+- type: loadoutEffectGroup
+  id: SeniorSeniorNanotrasenRepresentative
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobNanotrasenRepresentative
+      time: 180000 #50 hrs
+
 #hat
 - type: loadout
   id: NanotrasenRepresentativeBowler
@@ -107,3 +116,12 @@
   id: NanotrasenRepresentativeHeels
   equipment:
     shoes: ClothingShoesHighheelBoots
+
+# Flavor
+- type: loadout
+  id: NanotrasenRepresentativeFlippo
+  equipment:
+    pocket1: CentCommFlippo
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorSeniorNanotrasenRepresentative

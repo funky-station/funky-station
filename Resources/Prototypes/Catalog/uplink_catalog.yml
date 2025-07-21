@@ -1779,11 +1779,8 @@
   name: uplink-night-vision-name
   description: uplink-night-vision-desc
   productEntity: ClothingEyesNightVisionGogglesSyndie
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 1
   cost:
-    Telecrystal: 3
+    Telecrystal: 12
   categories:
   - UplinkWearables
   conditions:
@@ -1791,17 +1788,15 @@
     blacklist:
       tags:
       - NukeOpsUplink
+  saleLimit: 1
 
 - type: listing # EE
   id: UplinkNightGogglesNukie
   name: uplink-night-vision-name
   description: uplink-night-vision-desc
   productEntity: ClothingEyesNightVisionGogglesNukie
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 1
   cost:
-    Telecrystal: 3
+    Telecrystal: 12
   categories:
   - UplinkWearables
   conditions:
@@ -1809,6 +1804,7 @@
     whitelist:
       tags:
       - NukeOpsUplink
+  saleLimit: 1
 # Funky change - No thermal vision in uplink
 #- type: listing # EE
 #  id: UplinkThermalGoggles

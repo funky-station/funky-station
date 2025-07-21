@@ -28,10 +28,13 @@ public abstract partial class SwitchableOverlayComponent : BaseOverlayComponent
     public float PulseAccumulator;
 
     [DataField]
-    public SoundSpecifier? ActivateSound = new SoundPathSpecifier("/Audio/_White/Items/Goggles/activate.ogg");
+    public float FlashDurationMultiplier = 1f;
 
     [DataField]
-    public SoundSpecifier? DeactivateSound = new SoundPathSpecifier("/Audio/_White/Items/Goggles/deactivate.ogg");
+    public SoundSpecifier? ActivateSound = new SoundPathSpecifier("/Audio/_EE/Items/Goggles/activate.ogg");
+
+    [DataField]
+    public SoundSpecifier? DeactivateSound = new SoundPathSpecifier("/Audio/_EE/Items/Goggles/deactivate.ogg");
 
     [DataField]
     public virtual string? ToggleAction { get; set; }
@@ -45,6 +48,7 @@ public sealed class SwitchableVisionOverlayComponentState : IComponentState
 {
     public Color Color;
     public bool IsActive;
+    public float FlashDurationMultiplier;
     public SoundSpecifier? ActivateSound;
     public SoundSpecifier? DeactivateSound;
     public EntProtoId? ToggleAction;

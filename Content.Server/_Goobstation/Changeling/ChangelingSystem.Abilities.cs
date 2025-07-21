@@ -37,6 +37,7 @@ using Content.Shared.Damage.Components;
 using Content.Server.Radio.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Random.Helpers;
+using Content.Shared._EE.Overlays.Switchable;
 
 namespace Content.Server.Changeling;
 
@@ -603,6 +604,7 @@ public sealed partial class ChangelingSystem
         eggComp.lingComp = comp;
         eggComp.lingMind = (EntityUid) mind;
         eggComp.lingStore = _serialization.CreateCopy(storeComp, notNullableOverride: true);
+        eggComp.AugmentedEyesightPurchased = HasComp<ThermalVisionComponent>(uid);
 
         EnsureComp<AbsorbedComponent>(target);
         var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
@@ -610,9 +612,9 @@ public sealed partial class ChangelingSystem
         _blood.ChangeBloodReagent(target, "FerrochromicAcid");
         _blood.SpillAllSolutions(target);
 
-        PlayMeatySound((EntityUid) uid, comp);
+        PlayMeatySound(uid, comp);
 
-        _bodySystem.GibBody((EntityUid) uid);
+        _bodySystem.GibBody(uid);
     }
 
     #endregion

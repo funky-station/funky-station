@@ -41,8 +41,6 @@ public sealed partial class MedicalRecordsMenu : FancyWindow
     // maybe next week style funky will be real
     private const string ArrowUp = "/Textures/_Funkystation/Interface/StyleFunky/arrow_up.png";
     private const string ArrowDown = "/Textures/_Funkystation/Interface/StyleFunky/arrow_down.png";
-    private const string PlusSign = "/Textures/_Funkystation/Interface/StyleFunky/plus_sign.png";
-    private const string XSign = "/Textures/_Funkystation/Interface/StyleFunky/x_sign.png";
 
     public event Action<CharacterListMetadata?>? OnListingItemSelected;
     public event Action<StationRecordFilterType, string?>? OnFiltersChanged;
@@ -153,7 +151,6 @@ public sealed partial class MedicalRecordsMenu : FancyWindow
         return CharacterListing
             .Select(item => ((CharacterListMetadata) item.Metadata!).CharacterRecordKey)
             .Any(key => !newKeys.ContainsKey(key));
-        // LINQ ME UP
     }
 
     public void UpdateState(MedicalRecordsConsoleState state)

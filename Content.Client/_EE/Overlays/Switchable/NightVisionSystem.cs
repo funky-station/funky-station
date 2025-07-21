@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared._EE.Overlays.Switchable;

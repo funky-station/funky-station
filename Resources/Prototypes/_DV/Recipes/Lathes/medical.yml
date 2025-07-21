@@ -8,3 +8,13 @@
     Silver: 100
     Gold: 100
     Plasma: 200
+
+- type: latheRecipe
+  id: Oilpack
+  result: Oilpack1
+  categories:
+  - Robotics
+  completetime: 1
+  materials:
+    Plastic: 250
+    Steel: 25

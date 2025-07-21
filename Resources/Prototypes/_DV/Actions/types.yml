@@ -36,3 +36,8 @@
   - type: InstantAction
     useDelay: 4
 
+- type: entity
+  id: ActionOpenMouthStorage
+  name: Open cheek storage
+  description: Allows you to store items in your cheeks.
+  components:

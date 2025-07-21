@@ -88,8 +88,7 @@
     ClothingEyesHudBeerStealObjective: 1                #srv
     BibleStealObjective: 1
     ClothingNeckGoldmedalStealObjective: 1              #other
-    ClothingNeckClownmedalStealObjective: 0.5
-    
+    ClothingNeckClownmedalStealObjective: 0.5    
 - type: weightedRandom
   id: ThiefObjectiveGroupStructure
   weights:

@@ -100,7 +100,7 @@
   parent: IDCardAncient
   id: IDCardAncientScience
   name: Scientist ID
-  description: A clip on ID Badge, has one of those fancy new magnetic strips built in. This one is encoded for the Science Dept.
+  description: A neck-worn ID Badge, has one of those fancy new magnetic strips built in. This one is encoded for the Science Dept.
   components:
   - type: Sprite
     layers:
@@ -110,7 +110,7 @@
   parent: IDCardAncient
   id: IDCardAncientMedical
   name: Medical ID
-  description: A clip on ID Badge, has one of those fancy new magnetic strips built in. This one is encoded for the Medical Dept.
+  description: A neck-worn ID Badge, has one of those fancy new magnetic strips built in. This one is encoded for the Medical Dept.
   components:
   - type: Sprite
     layers:
@@ -120,7 +120,7 @@
   parent: IDCardAncient
   id: IDCardAncientEngineering
   name: Engineering ID
-  description: A clip on ID Badge, has one of those fancy new magnetic strips built in. This one is encoded for the Engineering Dept.
+  description: A neck-worn ID Badge, has one of those fancy new magnetic strips built in. This one is encoded for the Engineering Dept.
   components:
   - type: Sprite
     layers:
@@ -130,7 +130,7 @@
   parent: IDCardAncient
   id: IDCardAncientSecurity
   name: Security ID
-  description: A clip on ID Badge, has one of those fancy new magnetic strips built in. This one is encoded for the Security Dept.
+  description: A neck-worn ID Badgee, has one of those fancy new magnetic strips built in. This one is encoded for the Security Dept.
   components:
   - type: Sprite
     layers:
@@ -140,7 +140,7 @@
   parent: IDCardAncient
   id: IDCardAncientNanotrasen
   name: Nanotrasen ID
-  description: A clip on ID Badge, has one of those fancy new magnetic strips built in. This one is for a Nanotrasen Representative.
+  description: A neck-worn ID Badge, has one of those fancy new magnetic strips built in. This one is for a Nanotrasen Representative.
   components:
   - type: Sprite
     layers:

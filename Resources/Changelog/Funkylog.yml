@@ -3719,3 +3719,17 @@ Entries:
       message: Removed the Elite Hardsuit.
   id: 447
   time: '2025-07-22T23:55:20.0000000+00:00'
+- author: Catazeus
+  changes:
+    - type: Tweak
+      message: New ID card sprites, including in hand.
+    - type: Tweak
+      message: Magistrate and NTR job icons ~~have touched grass~~ are now green.
+    - type: Add
+      message: Added CCO, ERT, CBURN, HECU, Death Squad, Cluwne, Wizard job icons.
+    - type: Remove
+      message: >-
+        Removed old ID card sprites, excluding ones in
+        `\Textures\Objects\Misc\id_cards.rsi`.
+  id: 448
+  time: '2025-07-22T23:57:02.0000000+00:00'

@@ -4,9 +4,8 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Interaction;
-using Content.Shared.Actions;
-﻿using Content.Shared.Interaction;
-﻿using Robust.Shared.GameStates;
+using Content.Shared.Physics;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Actions.Components;
@@ -43,6 +42,16 @@ public sealed partial class TargetActionComponent : Component
     [DataField]
     public bool CheckCanAccess = true;
 
+    /// <summary>
+    ///     The collision group to use to check for accessibility if <see cref="CheckCanAccess" /> is true.
+    /// </summary>
+    [DataField]
+    public CollisionGroup AccessMask = SharedInteractionSystem.InRangeUnobstructedMask;
+
+    /// <summary>
+    ///     The allowed range for a target to be. If zero or negative, the range check is skipped,
+    ///     unless <see cref="CheckCanAccess"/> is true.
+    /// </summary>
     [DataField]
     public float Range = SharedInteractionSystem.InteractionRange;
 

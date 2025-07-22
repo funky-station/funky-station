@@ -38,8 +38,8 @@
     - state: bow-folded
       map: [ "base" ]
     - state: unwielded-arrow
-      color: "#FFFFFF"
-      visible: false
+      color: "#00B2FF"
+      visible: true
       shader: unshaded
       map: [ "bowstring" ]
   - type: Clothing
@@ -47,7 +47,7 @@
     quickEquip: false
     slots:
       - Back
-      - backStorage
+      - suitStorage
   - type: Wieldable
     wieldSound:
       path: /Audio/Items/bow_pull.ogg
@@ -62,26 +62,28 @@
     startingCharge: 1000
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 20
+    autoRechargeRate: 50
   - type: ProjectileBatteryAmmoProvider
     proto: ArrowEnergy
-    fireCost: 100
-  - type: BatteryWeaponFireModes
+    fireCost: 50
+  - type: EnergyGun
     fireModes:
     - proto: ArrowEnergy
-      fireCost: 100
-    - proto: ArrowDisabler
-      fireCost: 100
-    - proto: ArrowFreeze
-      fireCost: 100
-    - proto: ArrowExplosive
-      fireCost: 100
-    - proto: ArrowBee
-      fireCost: 100
-    - proto: ArrowXray
-      fireCost: 100
+      fireCost: 50
+      name: Arrow
+      state: Arrow
     - proto: ArrowFiery
-      fireCost: 100
+      fireCost: 300
+      name: Fire
+      state: Fire
+    - proto: ArrowAP
+      fireCost: 200
+      name: AP
+      state: AP
+    - proto: ArrowVolley
+      fireCost: 250
+      name: Volley
+      state: Volley
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -119,7 +121,7 @@
       back:
       - state: bowstring-equipped-BACKPACK
         shader: unshaded
-      backStorage:
+      suitstorage:
       - state: bowstring-equipped-BACKPACK
         shader: unshaded
   - type: GenericVisualizer
@@ -135,8 +137,14 @@
         base:
           True: { state: bow }
           False: { state: bow-folded }
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Arrow: { state: hardlight-wield}
+          Fire: { state: fire-wield }
+          Volley: { state: volley-wield }
+          AP: { state: ap-wield }
   - type: ItemToggle
-    wieldToggle: false
+    wieldToggle: true
     soundActivate:
       path: /Audio/Weapons/telescopicon.ogg
       params:
@@ -156,11 +164,8 @@
     enabled: false
     radius: 1.5
     energy: 1.5
-    color: white
+    color: "#FFB200"
     netsync: false
   - type: ToggleableLightWieldable
   # TODO: Zoom
-
-
-
 

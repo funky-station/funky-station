@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: vendingMachineInventory
   id: MailDrobeInventory
   startingInventory:
@@ -13,9 +21,9 @@
     WeaponMailLake: 1 # Frontier
     BoxMailCapsulePrimed: 2 # Frontier
   contrabandInventory:
-   ClothingShoesSkates: 1
+    ClothingShoesSkates: 1
   emaggedInventory: # Hello there, would you please sign this pettition? 
-   ClothingOuterCoatSpaceAsshole: 1
-   ClothingEyesGlassesSunglasses: 1
-   Shovel: 1  
-   BoxFolderClipboard: 1
+    ClothingOuterCoatSpaceAsshole: 1
+    ClothingEyesGlassesSunglasses: 1
+    Shovel: 1  
+    BoxFolderClipboard: 1

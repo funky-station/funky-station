@@ -38,11 +38,11 @@
       "directions": 4
     },
     {
-      "name": "equipped-SUITSTORAGE",
+      "name": "equipped-TANKSTORAGE",
       "directions": 4
     },
     {
-      "name": "on-equipped-SUITSTORAGE",
+      "name": "on-equipped-TANKSTORAGE",
       "directions": 4
     }
   ]

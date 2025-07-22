@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 # Durathred web vest
 - type: entity
   parent: ClothingOuterVestWeb
@@ -24,7 +35,7 @@
 
 # Durathread plated vest
 - type: entity
-  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing]
+  parent: [ClothingOuterBaseMedium, AllowBackStorageClothing]
   id: ClothingOuterArmourDurathread
   name: durathread armor
   description: An improvised armored vest made from durathread with plasteel plates. It's surprisingly flexible and light, despite formidable armor plating.
@@ -75,7 +86,7 @@
 
 # Blueshield Armour Vest
 - type: entity
-  parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCentcommContraband ]
+  parent: [ ClothingOuterBaseMedium, AllowBackStorageClothing, BaseCentcommContraband ]
   id: ClothingBlueshieldArmourVest
   name: blueshield's security armour
   description: An armoured vest with the badge of the blueshield

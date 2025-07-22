@@ -3713,3 +3713,9 @@ Entries:
         return with a reworked concept later.
   id: 446
   time: '2025-07-21T21:15:30.0000000+00:00'
+- author: UristMcWiki
+  changes:
+    - type: Remove
+      message: Removed the Elite Hardsuit.
+  id: 447
+  time: '2025-07-22T23:55:20.0000000+00:00'

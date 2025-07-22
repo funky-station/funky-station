@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 UristMcWiki <endernate2015@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -35,7 +34,7 @@
     onlyCollideWhenShot: true
     damage:
       types:
-        Heat: 40 #funky change it down to a 3 shot
+        Heat: 30 #funky change it down to a 4 shot
   - type: TimedDespawn
     lifetime: 10
   - type: PointLight
@@ -115,7 +114,7 @@
   - type: Projectile
     damage:
       types:
-        Cold: 15
+        Cold: 5
   - type: ChangeTemperatureOnCollide
     heat: -150000
 
@@ -140,7 +139,7 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 6
+    totalIntensity: 12
     intensitySlope: 0.4
     maxIntensity: 4
     canCreateVacuum: false
@@ -149,7 +148,7 @@
   parent: BaseHardlightArrow
   id: ArrowXray
   name: x-ray arrow
-  description: This arrow irradiates the target, making healing difficult.
+  description: An arrow made from hardlight. This one pierces through everything.
   components:
   - type: Sprite
     color: "#1AE51A"

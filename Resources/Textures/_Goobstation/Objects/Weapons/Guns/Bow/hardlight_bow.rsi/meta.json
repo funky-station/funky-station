@@ -73,14 +73,6 @@
       "directions": 4
     },  
     {
-      "name": "unfolded-equipped-SUITSTORAGE",
-      "directions": 4
-    },
-    {
-      "name": "folded-equipped-SUITSTORAGE",
-      "directions": 4
-    },
-    {
       "name": "bowstring-equipped-BACKPACK",
       "directions": 4
     },

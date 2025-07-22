@@ -65,6 +65,14 @@
       "directions": 4
     },
     {
+      "name": "folded-equipped-BACKSTORAGE",
+      "directions": 4
+    },
+    {
+      "name": "unfolded-equipped-BACKSTORAGE",
+      "directions": 4
+    },  
+    {
       "name": "unfolded-equipped-SUITSTORAGE",
       "directions": 4
     },

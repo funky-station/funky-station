@@ -21,30 +21,32 @@
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-- type: cargoProduct
-  id: SecurityArmor
-  icon:
-    sprite: Clothing/OuterClothing/Armor/bulletproof.rsi
-    state: icon
-  product: CrateSecurityArmor
-  cost: 1250
-  category: cargoproduct-category-name-security
-  group: market
+#- type: cargoProduct #Funky Station, replaced by the standard armor crate 
+#  id: SecurityArmor
+#  icon:
+#    sprite: Clothing/OuterClothing/Armor/bulletproof.rsi
+#    state: icon
+#  product: CrateSecurityArmor
+#  cost: 1250
+#  category: cargoproduct-category-name-security
+#  group: market
 
-- type: cargoProduct
-  id: SecurityHelmet
-  icon:
-    sprite: Clothing/Head/Helmets/security.rsi
-    state: icon
-  product: CrateSecurityHelmet
-  cost: 550
-  category: cargoproduct-category-name-security
-  group: market
+#- type: cargoProduct #Funky Station, replaced by the standard armor crate
+#  id: SecurityHelmet
+#  icon:
+#    sprite: Clothing/Head/Helmets/security.rsi
+#    state: icon
+#  product: CrateSecurityHelmet
+#  cost: 550
+#  category: cargoproduct-category-name-security
+#  group: market
 
 - type: cargoProduct
   id: SecurityNonLethal
@@ -93,15 +95,5 @@
     state: idle
   product: DeployableBarrier
   cost: 1000
-  category: cargoproduct-category-name-security
-  group: market
-
-- type: cargoProduct
-  id: SecurityGenPopCloset
-  icon:
-    sprite: Structures/Storage/closet.rsi
-    state: genpop
-  product: LockerPrisoner
-  cost: 250
   category: cargoproduct-category-name-security
   group: market

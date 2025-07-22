@@ -47,7 +47,7 @@
     quickEquip: false
     slots:
       - Back
-      - suitStorage
+      - backStorage
   - type: Wieldable
     wieldSound:
       path: /Audio/Items/bow_pull.ogg
@@ -119,7 +119,7 @@
       back:
       - state: bowstring-equipped-BACKPACK
         shader: unshaded
-      suitstorage:
+      backStorage:
       - state: bowstring-equipped-BACKPACK
         shader: unshaded
   - type: GenericVisualizer

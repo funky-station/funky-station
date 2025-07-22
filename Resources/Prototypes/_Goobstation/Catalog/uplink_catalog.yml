@@ -107,16 +107,16 @@
   categories:
   - UplinkWeaponry
 
-- type: listing
-  id: UplinkBowHardlight
-  name: uplink-hardlight-bow-name
-  description: uplink-hardlight-bow-desc
-  icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi, state: icon }
-  productEntity: BowHardlight
-  cost:
-    Telecrystal: 60
-  categories:
-  - UplinkWeaponry
+#- type: listing
+#  id: UplinkBowHardlight
+#  name: uplink-hardlight-bow-name
+#  description: uplink-hardlight-bow-desc
+#  icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi, state: icon }
+#  productEntity: BowHardlight
+#  cost:
+#    Telecrystal: 60
+# categories:
+#  - UplinkWeaponry
 
 # Wearables
 

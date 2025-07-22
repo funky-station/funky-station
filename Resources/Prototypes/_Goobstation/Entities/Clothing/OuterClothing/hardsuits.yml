@@ -11,7 +11,7 @@
 #chrono/future soldier hardsuit
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ClothingOuterHardsuitBase, AllowBackStorageClothing]
   id: ClothingOuterHardsuitChronolegioneer
   name: futuristic hardsuit
   description: A hardsuit covered in an unknown material that protects against most material and temporal damage
@@ -57,7 +57,7 @@
 #bso hardsuit
 
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
+  parent: [ClothingOuterHardsuitBase, AllowBackStorageClothing, BaseCommandContraband]
   id: ClothingOuterHardsuitBlueshield
   name: blueshield hardsuit
   description: A hardsuit for the captains personal bodyguard.
@@ -94,7 +94,7 @@
 # cybersun stealth
 
 - type: entity
-  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  parent: [ ClothingOuterHardsuitBase, AllowBackStorageClothing, BaseSyndicateContraband ]
   id: ClothingOuterHardsuitCybersunStealth
   suffix: stealth
   name: cybersun stealth hardsuit

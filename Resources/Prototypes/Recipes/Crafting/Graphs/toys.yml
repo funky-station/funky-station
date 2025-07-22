@@ -53,37 +53,37 @@
     - to: shoes
       steps:
       - tag: MopBasic
-        name: construction-graph-tag-mop-basic
+        name: mop
         icon:
           sprite: Objects/Specific/Janitorial/mop.rsi
           state: mop
         doAfter: 5
       - tag: MopBasic
-        name: construction-graph-tag-mop-basic
+        name: mop
         icon:
           sprite: Objects/Specific/Janitorial/mop.rsi
           state: mop
         doAfter: 5
       - tag: MopBasic
-        name: construction-graph-tag-mop-basic
+        name: mop
         icon:
           sprite: Objects/Specific/Janitorial/mop.rsi
           state: mop
         doAfter: 5
       - tag: MopBasic
-        name: construction-graph-tag-mop-basic
+        name: mop
         icon:
           sprite: Objects/Specific/Janitorial/mop.rsi
           state: mop
         doAfter: 5
       - tag: MopBasic
-        name: construction-graph-tag-mop-basic
+        name: mop
         icon:
           sprite: Objects/Specific/Janitorial/mop.rsi
           state: mop
         doAfter: 5
       - tag: MopBasic
-        name: construction-graph-tag-mop-basic
+        name: mop
         icon:
           sprite: Objects/Specific/Janitorial/mop.rsi
           state: mop

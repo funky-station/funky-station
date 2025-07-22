@@ -32,9 +32,14 @@
     state: icon
 
 - type: construction
+  name: moproach shoes
   id: MoproachShoes
   graph: MoproachShoes
   startNode: start
   targetNode: shoes
   category: construction-category-misc
   objectType: Item
+  description: Three pairs of tiny mopshoes, perfectly fit for a moproach.
+  icon:
+    sprite: Objects/Misc/moproach_shoes.rsi
+    state: mopshoes

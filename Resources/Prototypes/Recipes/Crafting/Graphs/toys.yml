@@ -57,36 +57,36 @@
         icon:
           sprite: Objects/Specific/Janitorial/mop.rsi
           state: mop
-        doAfter: 5
+        doAfter: 2
       - tag: MopBasic
         name: mop
         icon:
           sprite: Objects/Specific/Janitorial/mop.rsi
           state: mop
-        doAfter: 5
+        doAfter: 2
       - tag: MopBasic
         name: mop
         icon:
           sprite: Objects/Specific/Janitorial/mop.rsi
           state: mop
-        doAfter: 5
+        doAfter: 2
       - tag: MopBasic
         name: mop
         icon:
           sprite: Objects/Specific/Janitorial/mop.rsi
           state: mop
-        doAfter: 5
+        doAfter: 2
       - tag: MopBasic
         name: mop
         icon:
           sprite: Objects/Specific/Janitorial/mop.rsi
           state: mop
-        doAfter: 5
+        doAfter: 2
       - tag: MopBasic
         name: mop
         icon:
           sprite: Objects/Specific/Janitorial/mop.rsi
           state: mop
-        doAfter: 5
+        doAfter: 2
   - node: shoes
     entity: MoproachShoes

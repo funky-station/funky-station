@@ -140,7 +140,7 @@ public partial class ChatSystem
     }
 
     /// <summary>
-    /// args: session: user, int: budget, bool: refill budget, bool: inform user
+    /// args: session: user
     /// </summary>
     /// <param name="shell"></param>
     /// <param name="argstr"></param>

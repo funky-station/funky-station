@@ -34,13 +34,15 @@
     onlyCollideWhenShot: true
     damage:
       types:
-        Heat: 30 #funky change it down to a 4 shot
+        Heat: 15 #funky change it down to a 4 shot
+        Piercing: 15
   - type: TimedDespawn
-    lifetime: 10
+    lifetime: 2
   - type: PointLight
-    color: white
+    color: blue
     radius: 1.5
     energy: 1.5
+  fireCost: 99
 
 - type: entity
   id: BaseHardlightEmbeddableArrow
@@ -66,6 +68,42 @@
     color: "#FFB200"
   - type: PointLight
     color: "#FFB200"
+
+- type: entity
+  parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
+  id: ArrowAP
+  name: ap arrow
+  description: An arrow made from hardlight. Punches through all armour but does less damage.
+  components:
+  - type: Sprite
+    color: "#00B2FF"
+  - type: PointLight
+    color: "#00B2FF"
+  - type: Projectile
+    damage:
+      types:
+        Heat: 15
+        Piercing: 20
+    ignoreResistances: true
+
+- type: entity
+  parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow,]
+  id: ArrowVolley
+  name: volley arrow
+  description: A spread blast of mini arrows. Bad at range but effective up close.
+  components:
+  - type: Sprite
+    color: "#FFB200"
+  - type: PointLight
+    color: "#FFB200"
+  - type: Projectile
+    damage:
+      types:
+        Heat: 20
+  - type: ProjectileSpread
+    proto: ArrowEnergy
+    count: 3
+    spread: 10
 
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
@@ -97,9 +135,9 @@
   - type: Projectile
     damage:
       types:
-        Heat: 5 #funkystation nerf the damage with the base
+        Heat: 15 #funkystation nerf the damage with the base
   - type: IgniteOnCollide
-    fireStacks: 3
+    fireStacks: 1
 
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]

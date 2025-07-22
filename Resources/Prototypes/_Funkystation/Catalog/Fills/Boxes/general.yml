@@ -1,0 +1,43 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: colored lighttube box
+  parent: BoxLightbulb
+  id: BoxLightTubeColored
+  components:
+  - type: StorageFill
+    contents:
+      - id: LightTubeCrystalBlue
+      - id: LightTubeCrystalBlue
+      - id: LightTubeCrystalCyan
+      - id: LightTubeCrystalCyan
+      - id: LightTubeCrystalGreen
+      - id: LightTubeCrystalGreen
+      - id: LightTubeCrystalOrange
+      - id: LightTubeCrystalOrange
+      - id: LightTubeCrystalPink
+      - id: LightTubeCrystalPink
+      - id: LightTubeCrystalRed
+      - id: LightTubeCrystalRed
+
+- type: entity
+  name: colored lighttube box
+  parent: BoxLightbulb
+  id: BoxLightBulbColored
+  components:
+  - type: StorageFill
+    contents:
+      - id: LightBulbCrystalBlue
+      - id: LightBulbCrystalBlue
+      - id: LightBulbCrystalCyan
+      - id: LightBulbCrystalCyan
+      - id: LightBulbCrystalGreen
+      - id: LightBulbCrystalGreen
+      - id: LightBulbCrystalOrange
+      - id: LightBulbCrystalOrange
+      - id: LightBulbCrystalPink
+      - id: LightBulbCrystalPink
+      - id: LightBulbCrystalRed
+      - id: LightBulbCrystalRed

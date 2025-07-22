@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Velken <8467292+Velken@users.noreply.github.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later
+# SPDX-License-Identifier: MIT
 
 ### For items thare are used as intermediate steps on a crafting recipe but have no use outside of it.
 - type: entity

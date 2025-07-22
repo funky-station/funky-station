@@ -44,7 +44,10 @@ public partial class ChatSystem
     private void SetLoocBudget(IConsoleShell shell, string argstr, string[] args)
     {
         if (!_configurationManager.GetCVar(CCVars_Funky.LoocBudgetEnabled))
+        {
+            shell.WriteLine(Loc.GetString("cmd-looc-budget-disabled-message"));
             return;
+        }
 
         void SetBudget(ICommonSession player)
         {
@@ -87,7 +90,7 @@ public partial class ChatSystem
 
         if (args[0] == "all")
         {
-            foreach(var session in _playerManager.Sessions)
+            foreach (var session in _playerManager.Sessions)
                 SetBudget(session);
         }
         else if (!_playerManager.TryGetSessionByUsername(args[0], out var player))
@@ -103,7 +106,7 @@ public partial class ChatSystem
         {
             _loocBudgets.TryAdd(player.UserId,
                 new LoocBudget()
-                    { Budget= maxLoocAllowed, SentMessages = 0});
+                    { Budget = maxLoocAllowed, SentMessages = 0 });
         }
 
         if (!_loocBudgets.TryGetValue(player.UserId, out var playerBudget))
@@ -124,6 +127,62 @@ public partial class ChatSystem
                 player.Channel,
                 Color.Red);
         }
+    }
 
+    private CompletionResult GetLoocBudgetHelper(IConsoleShell shell, string[] args)
+    {
+        return args.Length switch
+        {
+            1 => CompletionResult.FromHintOptions(CompletionHelper.SessionNames(),
+                Loc.GetString("cmd-looc-budget-1")),
+            _ => CompletionResult.Empty,
+        };
+    }
+
+    /// <summary>
+    /// args: session: user
+    /// </summary>
+    /// <param name="shell"></param>
+    /// <param name="argstr"></param>
+    /// <param name="args"></param>
+    private void GetLoocBudget(IConsoleShell shell, string argstr, string[] args)
+    {
+        if (!_configurationManager.GetCVar(CCVars_Funky.LoocBudgetEnabled))
+        {
+            shell.WriteLine(Loc.GetString("cmd-looc-budget-disabled-message"));
+            return;
+        }
+
+        void GetBudget(ICommonSession player)
+        {
+            if (!_loocBudgets.TryGetValue(player.UserId, out var playerBudget))
+                return;
+
+            shell.WriteLine(Loc.GetString("cmd-looc-budget-get-result",
+                ("player", player.Name),
+                ("spent", playerBudget.SentMessages),
+                ("budget", playerBudget.Budget)));
+        }
+
+        if (args.Length < 1)
+        {
+            shell.WriteLine(Loc.GetString("cmd-looc-budget-help"));
+            return;
+        }
+
+        if (args[0] == "all")
+        {
+            foreach (var session in _playerManager.Sessions)
+                GetBudget(session);
+        }
+        else if (!_playerManager.TryGetSessionByUsername(args[0], out var player))
+            shell.WriteLine(Loc.GetString("cmd-looc-budget-error-no-user"));
+        else
+            GetBudget(player);
+    }
+
+    private void ResetLoocBudget()
+    {
+        _loocBudgets.Clear();
     }
 }

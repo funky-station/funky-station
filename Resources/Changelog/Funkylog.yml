@@ -3741,3 +3741,15 @@ Entries:
         [[real boy]]'s glasses! Can be found as maints loot.
   id: 449
   time: '2025-07-23T03:18:16.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Completely reworked Bagel sec a second time to be much more spacious
+    - type: Tweak
+      message: Bagel AI turrets are real now and DEBUG generator replaced with RTG
+    - type: Tweak
+      message: >-
+        Bagel Solars are now far less setup round start but with supplies to
+        fully finish them.
+  id: 450
+  time: '2025-07-23T18:36:56.0000000+00:00'

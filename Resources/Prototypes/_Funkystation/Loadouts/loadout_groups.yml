@@ -30,13 +30,13 @@
   maxLimit: 1
   loadouts:
   - ChaplainBibleChristian
-  - ChaplainBibleAtheist
-  - ChaplainBibleBhuddhist
-  - BibleDruid
   - BibleNanoTrasen
+  - BibleDruid
+  - ChaplainBibleAtheist
   - BibleQuran
   - BibleSatanic
   - BibleTanakh
+  - ChaplainBibleBhuddhist #sorted by in game name. i think.
 
 - type: loadoutGroup
   id: ScienceRoboticistGlasses

@@ -149,6 +149,12 @@ public sealed partial class ChatSystem : SharedChatSystem
             SetLoocBudget,
             SetLoocBudgetHelper);
 
+        _conHost.RegisterCommand("looc_budget_get",
+            Loc.GetString("cmd-looc-budget-get-desc"),
+            Loc.GetString("cmd-looc-budget-get-help"),
+            GetLoocBudget,
+            GetLoocBudgetHelper);
+
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnGameChange);
     }
 
@@ -198,6 +204,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             case GameRunLevel.PreRoundLobby:
                 if (!_configurationManager.GetCVar(CCVars.OocEnableDuringRound))
                     _configurationManager.SetCVar(CCVars.OocEnabled, true);
+                ResetLoocBudget();
                 break;
         }
     }

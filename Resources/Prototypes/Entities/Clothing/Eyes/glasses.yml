@@ -346,7 +346,7 @@
     coverage: EYES
   - type: VisionCorrection
   
-  - type: entity
+- type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband]
   id: ClothingEyesGlassesNoir
   name: noir-tech glasses

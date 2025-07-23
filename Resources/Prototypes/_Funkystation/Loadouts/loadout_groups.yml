@@ -32,6 +32,11 @@
   - ChaplainBibleChristian
   - ChaplainBibleAtheist
   - ChaplainBibleBhuddhist
+  - BibleDruid
+  - BibleNanoTrasen
+  - BibleQuran
+  - BibleSatanic
+  - BibleTanakh
 
 - type: loadoutGroup
   id: ScienceRoboticistGlasses

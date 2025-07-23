@@ -42,6 +42,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 xprospero <116504990+xprospero@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Dragon232347 <122056448+Dragon232347@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Professor Renderer Grizzleton <dimjcb@aol.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
@@ -72,6 +73,7 @@
         - id: ClothingEyesGlassesGarGiga
       - id: Wristwatch
         weight: 0.5
+      - id: ClothingEyesDealbreakers
       - id: ClothingHeadHatCake
       - id: ClothingHeadHatSkub
       - id: ClothingHeadHatCone

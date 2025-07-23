@@ -61,4 +61,10 @@ public sealed partial class PortalComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public bool RandomTeleport = true;
+
+    /// <summary>
+    /// You can disable teleportation
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Enable = true;
 }

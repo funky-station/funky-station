@@ -142,6 +142,10 @@
     follow: true
     location: nuclear bomb
   - type: FTLSmashImmune
+  - type: Tag
+    tags:
+    - Structure
+    - ShadowSideLootEpic
 
 - type: entity
   parent: NuclearBomb

@@ -181,6 +181,9 @@
   - type: Construction
     graph: SolarPanel
     node: solarpanel
+  - type: Tag
+    tags:
+    - ShadowSideLoot
 
 - type: entity
   id: SolarPanelBroken

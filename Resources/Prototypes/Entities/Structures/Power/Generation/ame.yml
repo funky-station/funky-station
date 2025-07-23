@@ -256,3 +256,6 @@
     onBump: false
     requirePower: true
     highVoltageNode: ame
+  - type: Tag
+    tags:
+    - ShadowSideLoot

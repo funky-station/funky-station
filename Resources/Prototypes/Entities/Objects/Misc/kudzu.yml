@@ -316,7 +316,6 @@
       prototypes:
       - ShadowBasaltRandom
       rarePrototypes:
-      - ShadowPortal
       - ShadowKudzuLootSpawner
     - type: Tag
       tags:

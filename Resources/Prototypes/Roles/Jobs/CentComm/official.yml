@@ -34,7 +34,7 @@
   playTimeTracker: JobCentralCommandOfficial
   setPreference: false
   startingGear: CentcomGear
-  icon: "JobIconNanotrasen"
+  icon: "JobIconCentralCommandOfficial"
   supervisors: job-supervisors-hos
   canBeAntag: false
   # Goobstation - Siouxcide, prevent felinids from playing command

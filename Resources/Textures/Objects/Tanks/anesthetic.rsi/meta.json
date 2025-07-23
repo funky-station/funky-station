@@ -15,51 +15,51 @@
       "directions": 4
     },
     {
-      "name": "equipped-SUITSTORAGE",
+      "name": "equipped-TANKSTORAGE",
       "directions": 4
     },
     {
-      "name": "equipped-SUITSTORAGE-dog",
+      "name": "equipped-TANKSTORAGE-dog",
       "directions": 4,
       "delays": [[1],[1],[1],[1]]
     },
     {
-      "name": "equipped-SUITSTORAGE-puppy",
+      "name": "equipped-TANKSTORAGE-puppy",
       "directions": 4,
       "delays": [[1],[1],[1],[1]]
     },
     {
-      "name": "equipped-SUITSTORAGE-fox",
+      "name": "equipped-TANKSTORAGE-fox",
       "directions": 4,
       "delays": [[1],[1],[1],[1]]
     },
     {
-      "name": "equipped-SUITSTORAGE-cat",
+      "name": "equipped-TANKSTORAGE-cat",
       "directions": 4,
       "delays": [[1],[1],[1],[1]]
     },
     {
-      "name": "equipped-SUITSTORAGE-sloth",
+      "name": "equipped-TANKSTORAGE-sloth",
       "directions": 4,
       "delays": [[1],[1],[1],[1]]
     },
     {
-      "name": "equipped-SUITSTORAGE-hamster",
+      "name": "equipped-TANKSTORAGE-hamster",
       "directions": 4,
       "delays": [[1],[1],[1],[1]]
     },
     {
-      "name": "equipped-SUITSTORAGE-kangaroo",
+      "name": "equipped-TANKSTORAGE-kangaroo",
       "directions": 4,
       "delays": [[1],[1],[1],[1]]
     },
     {
-      "name": "equipped-SUITSTORAGE-possum",
+      "name": "equipped-TANKSTORAGE-possum",
       "directions": 4,
       "delays": [[1],[1],[1],[1]]
     },
     {
-      "name": "equipped-SUITSTORAGE-pig",
+      "name": "equipped-TANKSTORAGE-pig",
       "directions": 4,
       "delays": [[1],[1],[1],[1]]
     },

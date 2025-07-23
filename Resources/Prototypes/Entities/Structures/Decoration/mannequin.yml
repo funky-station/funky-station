@@ -63,11 +63,11 @@
         acts: [ "Destruction" ]
   - type: ContainerContainer
     containers:
-      jumpsuit: !type:ContainerSlot
+      eyes: !type:ContainerSlot
         showEnts: False
         occludes: False
         ent: null
-      outerClothing: !type:ContainerSlot
+      head: !type:ContainerSlot
         showEnts: False
         occludes: False
         ent: null
@@ -79,19 +79,23 @@
         showEnts: False
         occludes: False
         ent: null
-      eyes: !type:ContainerSlot
+      jumpsuit: !type:ContainerSlot
         showEnts: False
         occludes: False
         ent: null
-      head: !type:ContainerSlot
-        showEnts: False
-        occludes: False
-        ent: null
-      suitstorage: !type:ContainerSlot
+      outerClothing: !type:ContainerSlot
         showEnts: False
         occludes: False
         ent: null
       back: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      backstorage: !type:ContainerSlot
+        showEnts: False
+        occludes: False
+        ent: null
+      tankstorage: !type:ContainerSlot
         showEnts: False
         occludes: False
         ent: null

@@ -3673,3 +3673,71 @@ Entries:
       message: Holoflare pen failing arbitrage test.
   id: 443
   time: '2025-07-19T19:48:26.0000000+00:00'
+- author: Queer-Cats
+  changes:
+    - type: Tweak
+      message: >-
+        There are now separate slots for air tanks and back stroage items,
+        allowing combat hardsuits to carry both at the same time
+    - type: Add
+      message: >-
+        Gave bartender vest the backstorage slot, so bartenders can now wear
+        their shotgun instead of just chopping it in half
+  id: 444
+  time: '2025-07-20T18:38:01.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: >-
+        Add Psychologist camera, added AI turrets to AI room, added lv for
+        unpowered scrubber and air vent in Courtroom
+    - type: Remove
+      message: >-
+        Removed Material silo, removed extra mining suit in the QM's locker,
+        removed salvager supplies crate in salvage, removed HFR flatpackers and
+        HFR room
+    - type: Tweak
+      message: >-
+        Connected all Bluespace Gas dispensers to the Bluespace Gas Network,
+        moved mats room button for blast door so it couldn't be accessed from
+        the outside
+    - type: Fix
+      message: Fixed HOS camera name
+  id: 445
+  time: '2025-07-20T19:18:52.0000000+00:00'
+- author: UristMcWiki
+  changes:
+    - type: Remove
+      message: >-
+        Removed the Hardlight Bow for a test period. Cannot be bought. Will
+        return with a reworked concept later.
+  id: 446
+  time: '2025-07-21T21:15:30.0000000+00:00'
+- author: UristMcWiki
+  changes:
+    - type: Remove
+      message: Removed the Elite Hardsuit.
+  id: 447
+  time: '2025-07-22T23:55:20.0000000+00:00'
+- author: Catazeus
+  changes:
+    - type: Tweak
+      message: New ID card sprites, including in hand.
+    - type: Tweak
+      message: Magistrate and NTR job icons ~~have touched grass~~ are now green.
+    - type: Add
+      message: Added CCO, ERT, CBURN, HECU, Death Squad, Cluwne, Wizard job icons.
+    - type: Remove
+      message: >-
+        Removed old ID card sprites, excluding ones in
+        `\Textures\Objects\Misc\id_cards.rsi`.
+  id: 448
+  time: '2025-07-22T23:57:02.0000000+00:00'
+- author: Dragon232347
+  changes:
+    - type: Add
+      message: >-
+        Adds Dealbreakers, the [[legally distinct]] version of YOUR favorite
+        [[real boy]]'s glasses! Can be found as maints loot.
+  id: 449
+  time: '2025-07-23T03:18:16.0000000+00:00'

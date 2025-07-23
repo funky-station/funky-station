@@ -54,11 +54,11 @@
         "directions": 4
     },
     {
-        "name": "equipped-SUITSTORAGE",
+        "name": "equipped-BACKSTORAGE",
         "directions": 4
     },
     {
-        "name": "equipped-suitstorage-fill-1",
+        "name": "equipped-BACKSTORAGE-fill-1",
         "directions": 4
     }
   ]

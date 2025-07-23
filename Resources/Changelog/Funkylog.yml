@@ -3733,3 +3733,11 @@ Entries:
         `\Textures\Objects\Misc\id_cards.rsi`.
   id: 448
   time: '2025-07-22T23:57:02.0000000+00:00'
+- author: Dragon232347
+  changes:
+    - type: Add
+      message: >-
+        Adds Dealbreakers, the [[legally distinct]] version of YOUR favorite
+        [[real boy]]'s glasses! Can be found as maints loot.
+  id: 449
+  time: '2025-07-23T03:18:16.0000000+00:00'

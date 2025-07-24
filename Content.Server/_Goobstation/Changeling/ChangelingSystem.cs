@@ -55,6 +55,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Fluids;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
@@ -637,22 +638,41 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
                 newLingComp?.AbsorbedDNA.Remove(data);
             RemCompDeferred<ChangelingComponent>(uid);
 
-            if (TryComp<StoreComponent>(uid, out var storeComp))
+            //if (TryComp<StoreComponent>(uid, out var storeComp))
+            //{
+            //    var storeCompCopy = _serialization.CreateCopy(storeComp, notNullableOverride: true);
+            //    RemComp<StoreComponent>(newUid.Value);
+            //    EntityManager.AddComponent(newUid.Value, storeCompCopy);
+            //}
+        }
+
+        List<Type> types = new()
+        {
+            typeof(HeadRevolutionaryComponent),
+            typeof(RevolutionaryComponent),
+            typeof(GhoulComponent),
+            typeof(HereticComponent),
+            typeof(StoreComponent),
+            typeof(FlashImmunityComponent),
+            typeof(EyeProtectionComponent),
+            typeof(NightVisionComponent),
+            typeof(ThermalVisionComponent),
+            // ADD MORE TYPES HERE
+        };
+        foreach (var type in types)
+        {
+            if (EntityManager.TryGetComponent(uid, type, out var icomp))
             {
-                var storeCompCopy = _serialization.CreateCopy(storeComp, notNullableOverride: true);
-                RemComp<StoreComponent>(newUid.Value);
-                EntityManager.AddComponent(newUid.Value, storeCompCopy);
+                var newComp = (Component) _compFactory.GetComponent(_compFactory.GetComponentName(type));
+                var temp = (object) newComp;
+                _serialization.CopyTo(icomp, ref temp, notNullableOverride: true);
+                EntityManager.AddComponent(newEnt, (Component) temp!);
             }
         }
 
-        // exceptional comps check
-        // there's no foreach for types i believe so i gotta thug it out yandev style.
-        if (HasComp<HeadRevolutionaryComponent>(uid))
-            EnsureComp<HeadRevolutionaryComponent>(newEnt);
-        if (HasComp<RevolutionaryComponent>(uid))
-            EnsureComp<RevolutionaryComponent>(newEnt);
+        RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(uid)), newEnt);
 
-        QueueDel(uid);
+        Timer.Spawn(300, () => { QueueDel(uid); });
 
         return newUid;
     }

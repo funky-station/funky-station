@@ -47,11 +47,19 @@ namespace Content.Server.Inventory
                 return;
 
             var enumerator = new InventorySlotEnumerator(source.Comp);
+            // Goob edit start
+            List<(EntityUid, SlotDefinition)> items = new();
             while (enumerator.NextItem(out var item, out var slot))
             {
-                if (TryUnequip(source, slot.Name, true, true, inventory: source.Comp))
-                    TryEquip(target, item, slot.Name , true, true, inventory: target.Comp);
+                items.Add((item, slot));
             }
+
+            foreach (var (item, slot) in items)
+            {
+                TryUnequip(source, slot.Name, true, true, inventory: source.Comp);
+                TryEquip(target, item, slot.Name, true, true, inventory: target.Comp);
+            }
+            // Goob edit end
         }
     }
 }

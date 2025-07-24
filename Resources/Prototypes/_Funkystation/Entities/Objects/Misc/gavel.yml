@@ -25,7 +25,7 @@
       animation: WeaponArcDisarm
       damage:
         types:
-          Blunt: 0
+          Blunt: 15
     - type: GuideHelp
       guides:
         - Security

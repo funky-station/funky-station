@@ -3759,3 +3759,20 @@ Entries:
       message: Chaplain is now actually allowed to have their gun.
   id: 451
   time: '2025-07-25T21:11:43.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Tweak
+      message: Magistrate can now take pwig AND gavel as loadout items
+    - type: Tweak
+      message: Magistrate now has access more in line with their duties
+    - type: Tweak
+      message: >-
+        Magistrate playtime pre-requisites have been increased drastically, to
+        be more in line with the expectations for the role and the experience
+        you should have before playing it
+    - type: Tweak
+      message: Gavel now actually does damage
+    - type: Remove
+      message: Removed deathsquad from the codebase
+  id: 452
+  time: '2025-07-25T21:12:14.0000000+00:00'

@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 # SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
@@ -69,6 +70,8 @@
 - type: loadoutGroup
   id: MagistrateFlavor
   name: loadout-group-magistrate-flavor
+  minLimit: 1
+  maxLimit: 2
   loadouts:
     - MagistrateGavel
     - MagistratePwig

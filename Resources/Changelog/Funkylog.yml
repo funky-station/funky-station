@@ -3776,3 +3776,11 @@ Entries:
       message: Removed deathsquad from the codebase
   id: 452
   time: '2025-07-25T21:12:14.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: >-
+        The Kardashev-Mosin's bayonet can now be used while the weapon is
+        wielded. Tally ho!
+  id: 453
+  time: '2025-07-25T21:12:51.0000000+00:00'

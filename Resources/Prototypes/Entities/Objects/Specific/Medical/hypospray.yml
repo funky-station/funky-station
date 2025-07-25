@@ -43,6 +43,7 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Dragon232347 <122056448+Dragon232347@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
@@ -95,7 +96,7 @@
 
 - type: entity
   name: gorlex hypospray
-  parent: BaseItem
+  parent: [BaseItem, BaseSyndicateContraband]
   description: Using reverse engineered designs from NT, Cybersun produced these in limited quantities for Gorlex Marauder operatives.
   id: SyndiHypo
   components:

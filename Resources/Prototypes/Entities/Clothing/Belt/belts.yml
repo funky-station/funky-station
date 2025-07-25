@@ -79,6 +79,7 @@
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
@@ -169,6 +170,10 @@
             - Multitool
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
+  - type: Tag
+    tags:
+    - UtilityBelt
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingBeltStorageBase

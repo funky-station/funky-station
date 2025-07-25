@@ -27,6 +27,7 @@
 // SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -51,6 +52,7 @@ using Content.Server.Shuttles.Events;
 using Content.Server.Station.Components;
 using Content.Server.Station.Events;
 using Content.Server.Station.Systems;
+using Content.Shared._DV.CustomObjectiveSummary; // DeltaV
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -252,6 +254,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
             };
             _deviceNetworkSystem.QueuePacket(uid, null, payload, netComp.TransmitFrequency);
         }
+        RaiseLocalEvent(new EvacShuttleLeftEvent()); // DeltaV
     }
 
     /// <summary>

@@ -69,20 +69,20 @@ namespace Content.Shared.Movement.Systems;
 /// </summary>
 public abstract partial class SharedMoverController : VirtualController
 {
-    [Dependency] private readonly IConfigurationManager _configManager = default!;
+    [Dependency] private   readonly IConfigurationManager _configManager = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private   readonly IMapManager _mapManager = default!;
+    [Dependency] private   readonly ITileDefinitionManager _tileDefinitionManager = default!;
+    [Dependency] private   readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private   readonly InventorySystem _inventory = default!;
+    [Dependency] private   readonly MobStateSystem _mobState = default!;
+    [Dependency] private   readonly SharedAudioSystem _audio = default!;
+    [Dependency] private   readonly SharedContainerSystem _container = default!;
+    [Dependency] private   readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private   readonly SharedGravitySystem _gravity = default!;
     [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly TagSystem _tags = default!;
+    [Dependency] private   readonly SharedTransformSystem _transform = default!;
+    [Dependency] private   readonly TagSystem _tags = default!;
 
     protected EntityQuery<InputMoverComponent> MoverQuery;
     protected EntityQuery<MobMoverComponent> MobMoverQuery;
@@ -96,7 +96,6 @@ public abstract partial class SharedMoverController : VirtualController
     protected EntityQuery<NoRotateOnMoveComponent> NoRotateQuery;
     protected EntityQuery<FootstepModifierComponent> FootstepModifierQuery;
     protected EntityQuery<MapGridComponent> MapGridQuery;
-    protected EntityQuery<MapComponent> MapQuery;
 
     private static readonly ProtoId<TagPrototype> FootstepSoundTag = "FootstepSound";
 
@@ -128,7 +127,6 @@ public abstract partial class SharedMoverController : VirtualController
         CanMoveInAirQuery = GetEntityQuery<CanMoveInAirComponent>();
         FootstepModifierQuery = GetEntityQuery<FootstepModifierComponent>();
         MapGridQuery = GetEntityQuery<MapGridComponent>();
-        MapQuery = GetEntityQuery<MapComponent>();
 
         InitializeInput();
         InitializeRelay();
@@ -153,77 +151,41 @@ public abstract partial class SharedMoverController : VirtualController
     ///     Movement while considering actionblockers, weightlessness, etc.
     /// </summary>
     protected void HandleMobMovement(
-        Entity<InputMoverComponent> entity,
+        EntityUid uid,
+        InputMoverComponent mover,
+        EntityUid physicsUid,
+        PhysicsComponent physicsComponent,
+        TransformComponent xform,
         float frameTime)
     {
-        var uid = entity.Owner;
-        var mover = entity.Comp;
         var canMove = mover.CanMove;
         if (RelayTargetQuery.TryGetComponent(uid, out var relayTarget))
         {
             if (_mobState.IsIncapacitated(relayTarget.Source) ||
-                HasComp<SleepingComponent>(relayTarget.Source) ||
-                !MoverQuery.HasComponent(relayTarget.Source))
+                TryComp<SleepingComponent>(relayTarget.Source, out _) ||
+                !MoverQuery.TryGetComponent(relayTarget.Source, out var relayedMover))
             {
                 canMove = false;
             }
+            else
+            {
+                mover.RelativeEntity = relayedMover.RelativeEntity;
+                mover.RelativeRotation = relayedMover.RelativeRotation;
+                mover.TargetRelativeRotation = relayedMover.TargetRelativeRotation;
+            }
         }
 
-        if (!XformQuery.TryComp(entity.Owner, out var xform))
-            return;
-
         // Update relative movement
-        // We have to do this stuff first otherwise relays don't rotate when they
-        // transfer from grid to grid.
         if (mover.LerpTarget < Timing.CurTime)
-            TryUpdateRelative(uid, mover, xform);
+        {
+            if (TryUpdateRelative(mover, xform))
+            {
+                Dirty(uid, mover);
+            }
+        }
 
         LerpRotation(uid, mover, frameTime);
 
-        // If we're a relay then apply all of our data to the parent instead and go next.
-        if (RelayQuery.TryComp(uid, out var relay))
-        {
-            if (!MoverQuery.TryComp(relay.RelayEntity, out var relayTargetMover))
-                return;
-
-            var dirtied = false;
-
-            if (relayTargetMover.RelativeEntity != mover.RelativeEntity)
-            {
-                relayTargetMover.RelativeEntity = mover.RelativeEntity;
-                dirtied = true;
-            }
-
-            if (relayTargetMover.RelativeRotation != mover.RelativeRotation)
-            {
-                relayTargetMover.RelativeRotation = mover.RelativeRotation;
-                dirtied = true;
-            }
-
-            if (relayTargetMover.TargetRelativeRotation != mover.TargetRelativeRotation)
-            {
-                relayTargetMover.TargetRelativeRotation = mover.TargetRelativeRotation;
-                dirtied = true;
-            }
-
-            if (relayTargetMover.CanMove != mover.CanMove)
-            {
-                relayTargetMover.CanMove = mover.CanMove;
-                dirtied = true;
-            }
-
-            if (dirtied)
-            {
-                Dirty(relay.RelayEntity, relayTargetMover);
-            }
-
-            return;
-        }
-
-        if (!PhysicsQuery.TryComp(entity.Owner, out var physicsComponent))
-            return;
-
-        var physicsUid = physicsComponent.Owner;
         if (!canMove
             || physicsComponent.BodyStatus != BodyStatus.OnGround && !CanMoveInAirQuery.HasComponent(uid)
             || PullableQuery.TryGetComponent(uid, out var pullable) && pullable.BeingPulled)
@@ -274,8 +236,7 @@ public abstract partial class SharedMoverController : VirtualController
         var moveSpeedComponent = ModifierQuery.CompOrNull(uid);
 
         var walkSpeed = moveSpeedComponent?.CurrentWalkSpeed ?? MovementSpeedModifierComponent.DefaultBaseWalkSpeed;
-        var sprintSpeed = moveSpeedComponent?.CurrentSprintSpeed ??
-                          MovementSpeedModifierComponent.DefaultBaseSprintSpeed;
+        var sprintSpeed = moveSpeedComponent?.CurrentSprintSpeed ?? MovementSpeedModifierComponent.DefaultBaseSprintSpeed;
 
         var total = walkDir * walkSpeed + sprintDir * sprintSpeed;
 
@@ -293,40 +254,31 @@ public abstract partial class SharedMoverController : VirtualController
         if (weightless)
         {
             if (gridComp == null && !MapGridQuery.HasComp(xform.GridUid))
-                friction = moveSpeedComponent?.OffGridFriction ??
-                           MovementSpeedModifierComponent.DefaultOffGridFriction;
+                friction = moveSpeedComponent?.OffGridFriction ?? MovementSpeedModifierComponent.DefaultOffGridFriction;
             else if (wishDir != Vector2.Zero && touching)
-                friction = moveSpeedComponent?.WeightlessFriction ??
-                           MovementSpeedModifierComponent.DefaultWeightlessFriction;
+                friction = moveSpeedComponent?.WeightlessFriction ?? MovementSpeedModifierComponent.DefaultWeightlessFriction;
             else
-                friction = moveSpeedComponent?.WeightlessFrictionNoInput ??
-                           MovementSpeedModifierComponent.DefaultWeightlessFrictionNoInput;
+                friction = moveSpeedComponent?.WeightlessFrictionNoInput ?? MovementSpeedModifierComponent.DefaultWeightlessFrictionNoInput;
 
-            weightlessModifier = moveSpeedComponent?.WeightlessModifier ??
-                                 MovementSpeedModifierComponent.DefaultWeightlessModifier;
-            accel = moveSpeedComponent?.WeightlessAcceleration ??
-                    MovementSpeedModifierComponent.DefaultWeightlessAcceleration;
+            weightlessModifier = moveSpeedComponent?.WeightlessModifier ?? MovementSpeedModifierComponent.DefaultWeightlessModifier;
+            accel = moveSpeedComponent?.WeightlessAcceleration ?? MovementSpeedModifierComponent.DefaultWeightlessAcceleration;
         }
         else
         {
             if (wishDir != Vector2.Zero || moveSpeedComponent?.FrictionNoInput == null)
             {
-                friction = tileDef?.MobFriction ??
-                           moveSpeedComponent?.Friction ?? MovementSpeedModifierComponent.DefaultFriction;
+                friction = tileDef?.MobFriction ?? moveSpeedComponent?.Friction ?? MovementSpeedModifierComponent.DefaultFriction;
             }
             else
             {
-                friction = tileDef?.MobFrictionNoInput ?? moveSpeedComponent.FrictionNoInput ??
-                    MovementSpeedModifierComponent.DefaultFrictionNoInput;
+                friction = tileDef?.MobFrictionNoInput ?? moveSpeedComponent.FrictionNoInput ?? MovementSpeedModifierComponent.DefaultFrictionNoInput;
             }
 
             weightlessModifier = 1f;
-            accel = tileDef?.MobAcceleration ??
-                    moveSpeedComponent?.Acceleration ?? MovementSpeedModifierComponent.DefaultAcceleration;
+            accel = tileDef?.MobAcceleration ?? moveSpeedComponent?.Acceleration ?? MovementSpeedModifierComponent.DefaultAcceleration;
         }
 
-        var minimumFrictionSpeed = moveSpeedComponent?.MinimumFrictionSpeed ??
-                                   MovementSpeedModifierComponent.DefaultMinimumFrictionSpeed;
+        var minimumFrictionSpeed = moveSpeedComponent?.MinimumFrictionSpeed ?? MovementSpeedModifierComponent.DefaultMinimumFrictionSpeed;
         Friction(minimumFrictionSpeed, frameTime, friction, ref velocity);
 
         wishDir *= weightlessModifier;
@@ -362,10 +314,14 @@ public abstract partial class SharedMoverController : VirtualController
                     .WithVariation(sound.Params.Variation ?? mobMover.FootstepVariation);
 
                 // If we're a relay target then predict the sound for all relays.
-                _audio.PlayPredicted(sound,
-                    uid,
-                    relayTarget?.Source ?? uid,
-                    audioParams);
+                if (relayTarget != null)
+                {
+                    _audio.PlayPredicted(sound, uid, relayTarget.Source, audioParams);
+                }
+                else
+                {
+                    _audio.PlayPredicted(sound, uid, uid, audioParams);
+                }
             }
         }
     }
@@ -409,12 +365,12 @@ public abstract partial class SharedMoverController : VirtualController
             }
 
             mover.RelativeRotation += adjustment;
-            mover.RelativeRotation = mover.RelativeRotation.FlipPositive();
+            mover.RelativeRotation.FlipPositive();
             Dirty(uid, mover);
         }
         else if (!angleDiff.Equals(Angle.Zero))
         {
-            mover.TargetRelativeRotation = mover.TargetRelativeRotation.FlipPositive();
+            mover.TargetRelativeRotation.FlipPositive();
             mover.RelativeRotation = mover.TargetRelativeRotation;
             Dirty(uid, mover);
         }
@@ -469,11 +425,7 @@ public abstract partial class SharedMoverController : VirtualController
     /// <summary>
     ///     Used for weightlessness to determine if we are near a wall.
     /// </summary>
-    private bool IsAroundCollider(SharedPhysicsSystem broadPhaseSystem,
-        TransformComponent transform,
-        MobMoverComponent mover,
-        EntityUid physicsUid,
-        PhysicsComponent collider)
+    private bool IsAroundCollider(SharedPhysicsSystem broadPhaseSystem, TransformComponent transform, MobMoverComponent mover, EntityUid physicsUid, PhysicsComponent collider)
     {
         var enlargedAABB = _lookup.GetWorldAABB(physicsUid, transform).Enlarged(mover.GrabRangeVV);
 
@@ -486,7 +438,7 @@ public abstract partial class SharedMoverController : VirtualController
             if (otherCollider.BodyType != BodyType.Static ||
                 !otherCollider.CanCollide ||
                 ((collider.CollisionMask & otherCollider.CollisionLayer) == 0 &&
-                 (otherCollider.CollisionMask & collider.CollisionLayer) == 0) ||
+                (otherCollider.CollisionMask & collider.CollisionLayer) == 0) ||
                 (TryComp(otherCollider.Owner, out PullableComponent? pullable) && pullable.BeingPulled))
             {
                 continue;

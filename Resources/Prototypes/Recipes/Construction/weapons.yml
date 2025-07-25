@@ -22,6 +22,8 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -235,4 +237,15 @@
   category: construction-category-weapons
   description: A lightweight crowbar with an extreme sharp fire axe head attached. It trades its heft as a weapon by making it easier to carry around when holstered to suits without having to sacrifice your backpack.
   icon: { sprite: Objects/Weapons/Melee/metal_hydrogen_axe.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: brass knuckle dusters
+  id: ClothingHandsKnuckleDustersBrass
+  graph: ClothingHandsKnuckleDustersBrass
+  startNode: start
+  targetNode: icon
+  category: construction-category-weapons
+  description: Brass knuckle dusters, just like how they used to make em and still hit just as hard.
+  icon: { sprite: Clothing/Hands/Gloves/KnuckleDusters/brassknuckleduster.rsi, state: brassknuckleduster }
   objectType: Item

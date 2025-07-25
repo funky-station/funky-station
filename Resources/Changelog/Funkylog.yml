@@ -3713,3 +3713,82 @@ Entries:
         return with a reworked concept later.
   id: 446
   time: '2025-07-21T21:15:30.0000000+00:00'
+- author: UristMcWiki
+  changes:
+    - type: Remove
+      message: Removed the Elite Hardsuit.
+  id: 447
+  time: '2025-07-22T23:55:20.0000000+00:00'
+- author: Catazeus
+  changes:
+    - type: Tweak
+      message: New ID card sprites, including in hand.
+    - type: Tweak
+      message: Magistrate and NTR job icons ~~have touched grass~~ are now green.
+    - type: Add
+      message: Added CCO, ERT, CBURN, HECU, Death Squad, Cluwne, Wizard job icons.
+    - type: Remove
+      message: >-
+        Removed old ID card sprites, excluding ones in
+        `\Textures\Objects\Misc\id_cards.rsi`.
+  id: 448
+  time: '2025-07-22T23:57:02.0000000+00:00'
+- author: Dragon232347
+  changes:
+    - type: Add
+      message: >-
+        Adds Dealbreakers, the [[legally distinct]] version of YOUR favorite
+        [[real boy]]'s glasses! Can be found as maints loot.
+  id: 449
+  time: '2025-07-23T03:18:16.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Completely reworked Bagel sec a second time to be much more spacious
+    - type: Tweak
+      message: Bagel AI turrets are real now and DEBUG generator replaced with RTG
+    - type: Tweak
+      message: >-
+        Bagel Solars are now far less setup round start but with supplies to
+        fully finish them.
+  id: 450
+  time: '2025-07-23T18:36:56.0000000+00:00'
+- author: gaesnek
+  changes:
+    - type: Fix
+      message: Chaplain is now actually allowed to have their gun.
+  id: 451
+  time: '2025-07-25T21:11:43.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Tweak
+      message: Magistrate can now take pwig AND gavel as loadout items
+    - type: Tweak
+      message: Magistrate now has access more in line with their duties
+    - type: Tweak
+      message: >-
+        Magistrate playtime pre-requisites have been increased drastically, to
+        be more in line with the expectations for the role and the experience
+        you should have before playing it
+    - type: Tweak
+      message: Gavel now actually does damage
+    - type: Remove
+      message: Removed deathsquad from the codebase
+  id: 452
+  time: '2025-07-25T21:12:14.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: >-
+        The Kardashev-Mosin's bayonet can now be used while the weapon is
+        wielded. Tally ho!
+  id: 453
+  time: '2025-07-25T21:12:51.0000000+00:00'
+- author: amethystowo
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced the temperature decrease on the Void Heretic's abilities by
+        about half.
+  id: 454
+  time: '2025-07-25T21:32:34.0000000+00:00'

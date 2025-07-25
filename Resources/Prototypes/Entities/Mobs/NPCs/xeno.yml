@@ -171,6 +171,13 @@
     molsPerSecondPerUnitMass: 0.0005
   - type: Speech
     speechVerb: LargeMob
+  - type: ThermalVision
+    isActive: true
+    toggleAction: null
+    color: "#FB9898"
+    activateSound: null
+    deactivateSound: null
+    lightRadius: 15
 
 - type: entity
   name: praetorian

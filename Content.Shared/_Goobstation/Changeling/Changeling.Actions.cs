@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Eris <erisfiregamer1@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -69,7 +70,6 @@ public sealed partial class StingLayEggsEvent : EntityTargetActionEvent { }
 #region Events - Utility
 
 public sealed partial class ActionAnatomicPanaceaEvent : InstantActionEvent { }
-public sealed partial class ActionAugmentedEyesightEvent : InstantActionEvent { }
 public sealed partial class ActionBiodegradeEvent : InstantActionEvent { }
 public sealed partial class ActionChameleonSkinEvent : InstantActionEvent { }
 public sealed partial class ActionEphedrineOverdoseEvent : InstantActionEvent { }
@@ -79,5 +79,12 @@ public sealed partial class ActionLesserFormEvent : InstantActionEvent { }
 public sealed partial class ActionSpacesuitEvent : InstantActionEvent { }
 public sealed partial class ActionHivemindAccessEvent : InstantActionEvent { }
 public sealed partial class ActionContortBodyEvent : InstantActionEvent { }
+
+#endregion
+
+#region Events - Misc
+
+[DataDefinition]
+public sealed partial class AugmentedEyesightPurchasedEvent : EntityEventArgs;
 
 #endregion

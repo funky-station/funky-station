@@ -25,6 +25,7 @@
 // SPDX-FileCopyrightText: 2024 charlie <charlie.sc.wong@veiwsonic.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Falcon <falcon@zigtag.dev>
+// SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 // SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 ZarathushtraSpitama <bloodcunt@protonmail.com>
@@ -83,7 +84,7 @@ public sealed class ClientClothingSystem : ClothingSystem
         {"pocket1", "POCKET1"},
         {"pocket2", "POCKET2"},
         {"backstorage", "BACKSTORAGE"},
-		{"tankstorage", "TANKSTORAGE"},
+        {"tankstorage", "TANKSTORAGE"},
     };
 
     [Dependency] private readonly IResourceCache _cache = default!;

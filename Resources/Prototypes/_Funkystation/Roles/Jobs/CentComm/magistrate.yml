@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -13,7 +14,13 @@
     time: 72000 #20 hrs
   - !type:RoleTimeRequirement
     role: JobNanotrasenRepresentative
-    time: 18000 #5 hrs
+    time: 36000 #10 hrs
+  - !type:RoleTimeRequirement
+    role: JobCaptain
+    time: 36000 #10 hrs
+  - !type:RoleTimeRequirement
+    role: JobHeadOfSecurity
+    time: 36000 #10 hrs
   weight: 20
   startingGear: MagistrateGear
   icon: "JobIconMagistrate"
@@ -28,6 +35,15 @@
   - External
   - Maintenance
   - Lawyer
+  - Security
+  - GenpopEnter
+  - GenpopLeave
+  - Cryogenics
+  - Engineering
+  - Medical
+  - Research
+  - Cargo
+  - Service
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

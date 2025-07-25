@@ -3784,3 +3784,11 @@ Entries:
         wielded. Tally ho!
   id: 453
   time: '2025-07-25T21:12:51.0000000+00:00'
+- author: amethystowo
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced the temperature decrease on the Void Heretic's abilities by
+        about half.
+  id: 454
+  time: '2025-07-25T21:32:34.0000000+00:00'

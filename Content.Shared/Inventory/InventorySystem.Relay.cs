@@ -26,6 +26,8 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -58,6 +60,8 @@ using Content.Shared.Strip.Components;
 using Content.Shared.Temperature;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared._EE.Overlays.Switchable; // EE edit
+using Content.Shared._Goobstation.Flashbang; // Funky - Goob flash vulnerability
 
 namespace Content.Shared.Inventory;
 
@@ -96,6 +100,7 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, GetEyeProtectionEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, GetBlurEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, SolutionScanEvent>(RelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, FlashDurationMultiplierEvent>(RelayInventoryEvent); // goob edit
 
         // ComponentActivatedClientSystems
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowJobIconsComponent>>(RefRelayInventoryEvent);
@@ -106,6 +111,8 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowMindShieldIconsComponent>>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowSyndicateIconsComponent>>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowCriminalRecordIconsComponent>>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<NightVisionComponent>>(RefRelayInventoryEvent); // EE edit
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ThermalVisionComponent>>(RefRelayInventoryEvent); // EE edit
 
         SubscribeLocalEvent<InventoryComponent, GetVerbsEvent<EquipmentVerb>>(OnGetEquipmentVerbs);
     }

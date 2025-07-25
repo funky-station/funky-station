@@ -44,6 +44,7 @@
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -74,6 +75,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Random;
 using InventoryComponent = Content.Shared.Inventory.InventoryComponent;
 using Robust.Shared.Prototypes;
+using Content.Shared._EE.Overlays.Switchable; // Funky - Thermal/nightvision flash vulnerability
 
 namespace Content.Server.Flash
 {
@@ -178,18 +180,24 @@ namespace Content.Server.Flash
             if (attempt.Cancelled)
                 return;
 
+            // Goobstation start
+            var multiplierEv = new FlashDurationMultiplierEvent();
+            RaiseLocalEvent(target, multiplierEv);
+            var multiplier = multiplierEv.Multiplier;
+            // Goobstation end
+
             // don't paralyze, slowdown or convert to rev if the target is immune to flashes
-            if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, TimeSpan.FromSeconds(flashDuration / 1000f), true))
+            if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, TimeSpan.FromSeconds(flashDuration * multiplier / 1000f), true)) // Goob edit
                 return;
 
             if (stunDuration != null)
             {
-                _stun.TryParalyze(target, stunDuration.Value, true);
+                _stun.TryKnockdown(target, stunDuration.Value * multiplier, true); // Goob edit
             }
             else
             {
-                _stun.TrySlowdown(target, TimeSpan.FromSeconds(flashDuration / 1000f), true,
-                slowTo, slowTo);
+                _stun.TrySlowdown(target, TimeSpan.FromSeconds(flashDuration * multiplier / 1000f), true,
+                slowTo, slowTo); // Goob edit
             }
 
             if (displayPopup && user != null && target != user && Exists(user.Value))
@@ -285,9 +293,48 @@ namespace Content.Server.Flash
 
         private void OnFlashImmunityFlashAttempt(EntityUid uid, FlashImmunityComponent component, FlashAttemptEvent args)
         {
-            if (component.Enabled)
-                args.Cancel();
+            if (!component.Enabled)
+                return;
+            if (CheckFlashVulnerability(args.Target)) // Funky edit - Check if flash target has vulnerability from thermal/nightvision.
+                return; // If flash vulnerability returns true, flash immunity will have no effect.
+            args.Cancel();
         }
+
+        // Funky edit starts
+        private bool CheckFlashVulnerability(EntityUid target)
+        {
+            foreach (var slot in new[] { "head", "eyes", "mask" })
+            {
+                if (_inventory.TryGetSlotEntity(target, slot, out var item))
+                {
+                    if (TryComp<ThermalVisionComponent>(item, out var thermalvision) &&
+                        thermalvision.IsActive == true &&
+                        thermalvision.FlashDurationMultiplier > 1)  // If the thermal/nightvision comp has any flash multiplier, ignore
+                                                                    // flash immunity. If a flash multiplier is not set on the comp (or is
+                        return true;                                // set to 1 or lower), flash immunity will work as normal.
+
+                    if (TryComp<NightVisionComponent>(item, out var nightvision) &&
+                        nightvision.IsActive == true &&
+                        nightvision.FlashDurationMultiplier > 1)
+
+                        return true;
+                }
+            }
+            if (TryComp<ThermalVisionComponent>(target, out var selfthermalvision) &&   // Copypasted but checks the flash target instead of their
+                        selfthermalvision.IsActive == true &&                           // equipped items, in case they're a ling with enhanced
+                        selfthermalvision.FlashDurationMultiplier > 1)                  // eyesight. There's probably a cleaner way to do this.
+
+                return true;
+
+            if (TryComp<NightVisionComponent>(target, out var selfnightvision) &&
+                selfnightvision.IsActive == true &&
+                selfnightvision.FlashDurationMultiplier > 1)
+
+                return true;
+
+            return false;
+        }
+        // Funky edit ends
 
         private void OnPermanentBlindnessFlashAttempt(EntityUid uid, PermanentBlindnessComponent component, FlashAttemptEvent args)
         {

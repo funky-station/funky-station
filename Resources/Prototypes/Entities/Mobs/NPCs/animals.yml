@@ -17,7 +17,7 @@
 # SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
 # SPDX-FileCopyrightText: 2022 Justin Trotter <trotter.justin@gmail.com>
-# SPDX-FileCopyrightText: 2022 Júlio César Ueti <52474532+Mirino97@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 J�lio C�sar Ueti <52474532+Mirino97@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
 # SPDX-FileCopyrightText: 2022 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
@@ -227,10 +227,12 @@
   - type: Tag
     tags:
     - VimPilot
-  - type: NightVision # Goobstation - Nigthvision
-    isToggle: true
-    color: "#808080"
-    playSoundOn: false
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: bee
@@ -564,6 +566,12 @@
     damage:
       types:
         Piercing: 0.1
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: glockroach
@@ -742,6 +750,12 @@
         type: StrippableBoundUserInterface
       enum.SurgeryUIKey.Key: # Shitmed
         type: SurgeryBui
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
   - type: InventorySlots
   - type: Inventory
     speciesId: hamster
@@ -772,6 +786,7 @@
           32:
             sprite: Mobs/Animals/mothroach/displacement.rsi
             state: neck
+
 
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
@@ -1134,6 +1149,12 @@
     interfaces:
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: goat
@@ -2007,10 +2028,12 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-rat
-  - type: NightVision # Goobstation - Nigthvision
-    isToggle: true
-    color: "#808080"
-    playSoundOn: false
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   parent: MobMouse
@@ -2199,6 +2222,12 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 
 - type: entity
@@ -2247,6 +2276,12 @@
     interactSuccessSpawn: EffectHearts
   - type: Bloodstream
     bloodMaxVolume: 50
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: frog
@@ -2306,6 +2341,12 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 # Would be cool to have some functionality for the parrot to be able to sit on stuff
 - type: entity
@@ -2571,6 +2612,12 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
@@ -2668,10 +2715,12 @@
       groups:
         Brute: -0.07
         Burn: -0.07
-  - type: NightVision # Goobstation - Nigthvision
-    isToggle: true
-    color: "#808080"
-    playSoundOn: false
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
   - type: Inventory # FunkyStation. Mainly for Shiva, but doing it for all spiders
     speciesId: spider
     templateId: pet
@@ -2854,6 +2903,12 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: possum
@@ -2875,6 +2930,12 @@
         Base: possum_dead_old
       Dead:
         Base: possum_dead_old
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: raccoon
@@ -2928,6 +2989,12 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: fox
@@ -3006,6 +3073,12 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: corgi
@@ -3224,6 +3297,12 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: calico cat
@@ -3493,6 +3572,12 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: hamster
@@ -3866,6 +3951,12 @@
       task: SimpleHostileCompound
   - type: Puller
     needsHands: false
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: reindeer doe

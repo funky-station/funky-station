@@ -184,6 +184,12 @@
   - type: Sharp
   - type: CombatPower # Goobstation
     factor: 2
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null 
 
 - type: entity
   id: MobRatKingBuff
@@ -363,6 +369,12 @@
   - type: Food
   - type: Item
     size: Tiny # Delta V - Make them edible and pickable.
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: weightedRandomEntity
   id: RatKingLoot

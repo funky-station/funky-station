@@ -8,7 +8,7 @@
 # SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Júlio César Ueti <52474532+Mirino97@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 J�lio C�sar Ueti <52474532+Mirino97@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
 # SPDX-FileCopyrightText: 2022 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
@@ -1773,6 +1773,84 @@
 #      tags:
 #        -NukeOpsUplink
 #  saleLimit: 1 # WD EDIT
+
+- type: listing # EE
+  id: UplinkNightGoggles
+  name: uplink-night-vision-name
+  description: uplink-night-vision-desc
+  productEntity: ClothingEyesNightVisionGogglesSyndie
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  saleLimit: 1
+
+- type: listing # EE
+  id: UplinkNightGogglesNukie
+  name: uplink-night-vision-name
+  description: uplink-night-vision-desc
+  productEntity: ClothingEyesNightVisionGogglesNukie
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  saleLimit: 1
+# Funky change - No thermal vision in uplink
+#- type: listing # EE
+#  id: UplinkThermalGoggles
+#  name: uplink-thermal-vision-name
+#  description: uplink-thermal-vision-desc
+#  productEntity: ClothingEyesThermalVisionGogglesSyndie
+#  discountCategory: rareDiscounts
+#  discountDownTo:
+#    Telecrystal: 1
+#  cost:
+#    Telecrystal: 3
+#  categories:
+#  - UplinkWearables
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - NukeOpsUplink
+
+#- type: listing # EE
+#  id: UplinkThermalGogglesNukie
+#  name: uplink-thermal-vision-name
+#  description: uplink-thermal-vision-desc
+#  productEntity: ClothingEyesThermalVisionGogglesNukie
+#  discountCategory: rareDiscounts
+#  discountDownTo:
+#    Telecrystal: 1
+#  cost:
+#    Telecrystal: 3
+#  categories:
+#  - UplinkWearables
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - NukeOpsUplink
+
+- type: listing
+  id: UplinkClothingConductingGloves
+  name: uplink-clothing-conducting-gloves-name
+  description: uplink-clothing-conducting-gloves-desc
+  productEntity: ClothingHandsGlovesConducting
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkWearables
 
 - type: listing
   id: UplinkBackpackSyndicate

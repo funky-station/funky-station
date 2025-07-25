@@ -1,4 +1,9 @@
-﻿using Content.Server.Administration.Logs;
+// SPDX-FileCopyrightText: 2024 Conchelle <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Shared.Administration.Events;
 using Content.Shared.Administration.Logs;

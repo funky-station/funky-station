@@ -1,0 +1,43 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: cargoProduct
+  id: SwatArmor
+  icon:
+    sprite: Clothing/Mask/swat.rsi
+    state: icon
+  product: CrateSecuritySwat
+  cost: 6500
+  category: cargoproduct-category-name-security
+  group: market
+
+- type: cargoProduct
+  id: SecurityHardsuit
+  icon:
+    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+    state: icon
+  product: CrateSecurityHardsuit
+  cost: 9000
+  category: cargoproduct-category-name-security
+  group: market
+
+- type: cargoProduct
+  id: SecurityEquipment
+  icon:
+    sprite: Clothing/Belt/security.rsi
+    state: icon
+  product: CrateSecurityEquipment
+  cost: 3000
+  category: cargoproduct-category-name-security
+  group: market    
+
+- type: cargoProduct
+  id: SecurityBasicArmor
+  icon:
+    sprite: Clothing/Head/Helmets/security.rsi
+    state: icon
+  product: CrateSecurityBasicArmor
+  cost: 2000
+  category: cargoproduct-category-name-security
+  group: market

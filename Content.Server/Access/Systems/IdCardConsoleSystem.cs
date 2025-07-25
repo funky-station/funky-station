@@ -1,3 +1,26 @@
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 PrPleGoo <PrPleGoo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 ilyamikcoder <me@ilyamikcoder.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Server.Chat.Systems;
 using Content.Server.Containers;
@@ -14,6 +37,7 @@ using Content.Shared.Database;
 using Content.Shared.Roles;
 using Content.Shared.StationRecords;
 using Content.Shared.Throwing;
+using Content.Shared.StatusIcon;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
@@ -37,6 +61,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
 
+    private const string JobIconForNoId = "JobIconNoId"; // Funkystation - ID card console job icon selection
     public override void Initialize()
     {
         base.Initialize();
@@ -59,7 +84,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         if (args.Actor is not { Valid: true } player)
             return;
 
-        TryWriteToTargetId(uid, args.FullName, args.JobTitle, args.AccessList, args.JobPrototype, player, component);
+        TryWriteToTargetId(uid, args.FullName, args.JobTitle, args.JobIcon, args.AccessList, args.JobPrototype, player, component);
 
         UpdateUserInterface(uid, component, args);
     }
@@ -87,6 +112,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
                 false,
                 null,
                 null,
+                JobIconForNoId, // Funkystation - ID card console job icon selection
                 null,
                 possibleAccess,
                 string.Empty,
@@ -112,6 +138,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
                 true,
                 targetIdComponent.FullName,
                 targetIdComponent.LocalizedJobTitle,
+                targetIdComponent.JobIcon, // Funkystation - ID card console job icon selection
                 targetAccessComponent.Tags.ToList(),
                 possibleAccess,
                 jobProto,
@@ -129,6 +156,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
     private void TryWriteToTargetId(EntityUid uid,
         string newFullName,
         string newJobTitle,
+        string newJobIcon, // Funkystation - ID card console job icon selection
         List<ProtoId<AccessLevelPrototype>> newAccessList,
         ProtoId<AccessLevelPrototype> newJobProto,
         EntityUid player,
@@ -143,14 +171,29 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         _idCard.TryChangeFullName(targetId, newFullName, player: player);
         _idCard.TryChangeJobTitle(targetId, newJobTitle, player: player);
 
-        if (_prototype.TryIndex<JobPrototype>(newJobProto, out var job)
-            && _prototype.TryIndex(job.Icon, out var jobIcon))
+        if (_prototype.TryIndex<JobPrototype>(newJobProto, out var job))
         {
-            _idCard.TryChangeJobIcon(targetId, jobIcon, player: player);
             _idCard.TryChangeJobDepartment(targetId, job);
         }
+        // begin Funkystation - ID card console job icon selection
+        if (_prototype.TryIndex<JobIconPrototype>(newJobIcon, out var jobIcon))
+        {
+            if (jobIcon.AllowIdConsole)
+            {
+                _idCard.TryChangeJobIcon(targetId, jobIcon, player: player);
+            }
+            else
+            {
+                _sawmill.Warning($"User {ToPrettyString(uid)} tried to write disallowed job icon using ID card console.");
+            }
+        }
+        else
+        {
+            jobIcon = _prototype.Index<JobIconPrototype>(JobIconForNoId);
+        }
+        // end Funkystation
 
-        UpdateStationRecord(uid, targetId, newFullName, newJobTitle, job);
+        UpdateStationRecord(uid, targetId, newFullName, newJobTitle, newJobIcon, job);
         if ((!TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage)
             || keyStorage.Key is not { } key
             || !_record.TryGetRecord<GeneralStationRecord>(key, out _))
@@ -212,7 +255,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         return privilegedId != null && _accessReader.IsAllowed(privilegedId.Value, uid, reader);
     }
 
-    private void UpdateStationRecord(EntityUid uid, EntityUid targetId, string newFullName, ProtoId<AccessLevelPrototype> newJobTitle, JobPrototype? newJobProto)
+    private void UpdateStationRecord(EntityUid uid, EntityUid targetId, string newFullName, ProtoId<AccessLevelPrototype> newJobTitle, ProtoId<JobIconPrototype> newJobIcon, JobPrototype? newJobProto)
     {
         if (!TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage)
             || keyStorage.Key is not { } key
@@ -223,6 +266,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
 
         record.Name = newFullName;
         record.JobTitle = newJobTitle;
+        record.JobIcon = newJobIcon; // Funkystation - ID card console job icon selection
 
         if (newJobProto != null)
         {

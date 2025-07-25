@@ -3673,3 +3673,114 @@ Entries:
       message: Holoflare pen failing arbitrage test.
   id: 443
   time: '2025-07-19T19:48:26.0000000+00:00'
+- author: Queer-Cats
+  changes:
+    - type: Tweak
+      message: >-
+        There are now separate slots for air tanks and back stroage items,
+        allowing combat hardsuits to carry both at the same time
+    - type: Add
+      message: >-
+        Gave bartender vest the backstorage slot, so bartenders can now wear
+        their shotgun instead of just chopping it in half
+  id: 444
+  time: '2025-07-20T18:38:01.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: >-
+        Add Psychologist camera, added AI turrets to AI room, added lv for
+        unpowered scrubber and air vent in Courtroom
+    - type: Remove
+      message: >-
+        Removed Material silo, removed extra mining suit in the QM's locker,
+        removed salvager supplies crate in salvage, removed HFR flatpackers and
+        HFR room
+    - type: Tweak
+      message: >-
+        Connected all Bluespace Gas dispensers to the Bluespace Gas Network,
+        moved mats room button for blast door so it couldn't be accessed from
+        the outside
+    - type: Fix
+      message: Fixed HOS camera name
+  id: 445
+  time: '2025-07-20T19:18:52.0000000+00:00'
+- author: UristMcWiki
+  changes:
+    - type: Remove
+      message: >-
+        Removed the Hardlight Bow for a test period. Cannot be bought. Will
+        return with a reworked concept later.
+  id: 446
+  time: '2025-07-21T21:15:30.0000000+00:00'
+- author: UristMcWiki
+  changes:
+    - type: Remove
+      message: Removed the Elite Hardsuit.
+  id: 447
+  time: '2025-07-22T23:55:20.0000000+00:00'
+- author: Catazeus
+  changes:
+    - type: Tweak
+      message: New ID card sprites, including in hand.
+    - type: Tweak
+      message: Magistrate and NTR job icons ~~have touched grass~~ are now green.
+    - type: Add
+      message: Added CCO, ERT, CBURN, HECU, Death Squad, Cluwne, Wizard job icons.
+    - type: Remove
+      message: >-
+        Removed old ID card sprites, excluding ones in
+        `\Textures\Objects\Misc\id_cards.rsi`.
+  id: 448
+  time: '2025-07-22T23:57:02.0000000+00:00'
+- author: Dragon232347
+  changes:
+    - type: Add
+      message: >-
+        Adds Dealbreakers, the [[legally distinct]] version of YOUR favorite
+        [[real boy]]'s glasses! Can be found as maints loot.
+  id: 449
+  time: '2025-07-23T03:18:16.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Completely reworked Bagel sec a second time to be much more spacious
+    - type: Tweak
+      message: Bagel AI turrets are real now and DEBUG generator replaced with RTG
+    - type: Tweak
+      message: >-
+        Bagel Solars are now far less setup round start but with supplies to
+        fully finish them.
+  id: 450
+  time: '2025-07-23T18:36:56.0000000+00:00'
+- author: gaesnek
+  changes:
+    - type: Fix
+      message: Chaplain is now actually allowed to have their gun.
+  id: 451
+  time: '2025-07-25T21:11:43.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Tweak
+      message: Magistrate can now take pwig AND gavel as loadout items
+    - type: Tweak
+      message: Magistrate now has access more in line with their duties
+    - type: Tweak
+      message: >-
+        Magistrate playtime pre-requisites have been increased drastically, to
+        be more in line with the expectations for the role and the experience
+        you should have before playing it
+    - type: Tweak
+      message: Gavel now actually does damage
+    - type: Remove
+      message: Removed deathsquad from the codebase
+  id: 452
+  time: '2025-07-25T21:12:14.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: >-
+        The Kardashev-Mosin's bayonet can now be used while the weapon is
+        wielded. Tally ho!
+  id: 453
+  time: '2025-07-25T21:12:51.0000000+00:00'

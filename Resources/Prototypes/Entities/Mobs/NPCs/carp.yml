@@ -144,10 +144,12 @@
       interfaces:
         enum.SurgeryUIKey.Key:
           type: SurgeryBui
-    - type: NightVision # Goobstation - Nigthvision
-      isToggle: true
-      color: "#808080"
-      playSoundOn: false
+    - type: NightVision # EE edit
+      isActive: true
+      toggleAction: null
+      color: "#50595C"
+      activateSound: null
+      deactivateSound: null
     - type: CombatPower # Funky
       factor: 8 # / 2 = times stronger than an unarmed crew member
 

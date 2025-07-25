@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -62,7 +63,7 @@ public sealed class UnwieldOnShootSystem : EntitySystem
         provider.Proto = index.ProtoId;
 
         if (index.Color != null && TryComp(ent, out AppearanceComponent? appearance))
-            _appearance.SetData(ent, ToggleableLightVisuals.Color, index.Color, appearance);
+            _appearance.SetData(ent, ToggleableVisuals.Color, index.Color, appearance);
 
         Dirty(ent);
         return true;

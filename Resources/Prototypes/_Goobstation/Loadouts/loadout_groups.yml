@@ -52,6 +52,13 @@
   - NanotrasenRepresentativeWaistbag
 
 - type: loadoutGroup
+  id: NanotrasenRepresentativeFlavor
+  name: loadout-group-ntr-flavor
+  minLimit: 0
+  loadouts:
+  - NanotrasenRepresentativeFlippo
+
+- type: loadoutGroup
   id: NanotrasenRepresentativeShoes
   name: loadout-group-ntr-shoes
   loadouts:

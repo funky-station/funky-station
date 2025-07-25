@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -92,7 +93,7 @@ public abstract class SharedHandheldLightSystem : EntitySystem
         if (component.ToggleActionEntity != null)
             _actionSystem.SetToggled(component.ToggleActionEntity, component.Activated);
 
-        _appearance.SetData(uid, ToggleableLightVisuals.Enabled, component.Activated, appearance);
+        _appearance.SetData(uid, ToggleableVisuals.Enabled, component.Activated, appearance);
     }
 
     private void AddToggleLightVerb(Entity<HandheldLightComponent> ent, ref GetVerbsEvent<ActivationVerb> args)

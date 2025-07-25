@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
 // SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -216,7 +217,7 @@ public abstract class SharedTapeRecorderSystem : EntitySystem
         if (HasComp<FitsInTapeRecorderComponent>(ent))
             return;
 
-        _appearance.SetData(ent, ToggleVisuals.Toggled, false);
+        _appearance.SetData(ent, ToggleableVisuals.Enabled, false);
         AddComp<FitsInTapeRecorderComponent>(ent);
         args.Handled = true;
     }
@@ -229,7 +230,7 @@ public abstract class SharedTapeRecorderSystem : EntitySystem
         if (args.DamageDelta == null || args.DamageDelta.GetTotal() < 5)
             return;
 
-        _appearance.SetData(ent, ToggleVisuals.Toggled, true);
+        _appearance.SetData(ent, ToggleableVisuals.Enabled, true);
 
         RemComp<FitsInTapeRecorderComponent>(ent);
         CorruptRandomEntry(ent);

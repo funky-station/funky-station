@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Drywink <43855731+Drywink@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using Content.Shared.Heretic.Prototypes;
 
 namespace Content.Client.Heretic;
@@ -9,6 +17,7 @@ namespace Content.Client.Heretic;
 
 public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior { }
 public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior { }
+public sealed partial class RitualAscensionBehavior : RitualSacrificeBehavior { }
 
 [Virtual] public partial class RitualSacrificeBehavior : RitualCustomBehavior
 {

@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   parent: IDCardStandard
   id: ChronoIDCard
@@ -5,12 +13,13 @@
   description: The card that originally accessed everything in this universe
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Misc/id_cards.rsi
     layers:
-    - state: future
-    - state: idchrono
+    - state: future #base
+    - sprite: _Goobstation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Future
   - type: Item
-    heldPrefix: blue
+    heldPrefix: future
   - type: IdCard
     jobTitle: job-name-futureagent
     jobIcon: JobIconFuture
@@ -28,9 +37,14 @@
   name: salvage diver ID card
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Misc/id_cards.rsi
     layers:
-    - state: idhelldiver
+    - state: helldiver #base
+    - state: decal-stripe-cargo #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Helldiver
+  - type: Item
+    heldPrefix: helldiver
   - type: IdCard
     jobTitle: job-name-salvagediver
     jobIcon: JobIconShaftMiner
@@ -42,12 +56,17 @@
   name: HECU ID card
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
     layers:
-    - state: ert_security
+    - state: cc #base
+    - state: decal-stripe-cc #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: HECU
+  - type: Item
+    heldPrefix: cc
   - type: IdCard
     jobTitle: job-name-hecu
-    jobIcon: JobIconNanotrasen
+    jobIcon: JobIconHECU
   - type: Access
     groups:
     - AllAccess

@@ -6,7 +6,7 @@
 
 - type: entity
   name: Annabelle
-  parent: [BaseWeaponSniper, BaseGunWieldable, BaseMinorContraband]
+  parent: [BaseWeaponSniper, BaseGunWieldable, BaseChaplainContraband]
   id: WeaponSniperChaplainAnnabelle
   description: A Winchester 1886 with religious imagery plastered all over it. Carved into its stock, "Matthew 19:23-24"
   components:

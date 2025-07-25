@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GreyMario <mariomister541@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Audio;
 
 namespace Content.Server.Containers;
@@ -16,7 +22,7 @@ public sealed partial class ThrowInsertContainerComponent : Component
     /// Throw chance of hitting into the container
     /// </summary>
     [DataField]
-    public float Probability = 0.75f;
+    public float Probability = 0.5f; // funkystation: 0.75f;
 
     /// <summary>
     /// Sound played when an object is throw into the container.

@@ -1,3 +1,17 @@
+<!--
+SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 ilyamikcoder <me@ilyamikcoder.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 <DefaultWindow xmlns="https://spacestation14.io"
             MinSize="650 290">
     <BoxContainer Orientation="Vertical">
@@ -24,12 +38,22 @@
             <Label Name="JobTitleLabel" Text="{Loc 'id-card-console-window-job-title-label'}" />
             <LineEdit Name="JobTitleLineEdit" HorizontalExpand="True" />
             <Button Name="JobTitleSaveButton" Text="{Loc 'id-card-console-window-save-button'}" Disabled="True" />
+
+            <!-- begin Funkystation - job icon selection -->
+            <Label Name="JobIconLabel" Text="{Loc 'id-card-console-window-job-icon-label'}" />
+            <TextureRect Name="JobIconPreview"
+                         TextureScale="3 3"
+                         Margin="4 0"
+                         VerticalAlignment="Center" />
+            <Button Name="JobIconChangeButton" Text="{Loc 'id-card-console-window-job-icon-change-button'}"  Disabled="True" />
+            <!-- end Funkystation -->
         </GridContainer>
         <Control MinSize="0 8" />
         <GridContainer Columns="2">
             <Label Text="{Loc 'id-card-console-window-job-selection-label'}" />
             <OptionButton Name="JobPresetOptionButton" />
         </GridContainer>
+        <Control MinSize="0 8" />
         <Control Name="AccessLevelControlContainer" />
     </BoxContainer>
 </DefaultWindow>

@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2024 UtopiOne <110351290+UtopiOne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Binbag <124107163+Binbagg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Eris <erisfiregamer1@gmail.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: Tag
   id: DawInstrumentMachineCircuitboard
 
@@ -45,3 +57,6 @@
 
 - type: Tag
   id: VoxEmotes
+
+- type: Tag
+  id: BartendingTool

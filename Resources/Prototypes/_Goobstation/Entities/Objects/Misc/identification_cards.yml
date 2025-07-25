@@ -13,12 +13,13 @@
   description: The card that originally accessed everything in this universe
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Misc/id_cards.rsi
     layers:
-    - state: future
-    - state: idchrono
+    - state: future #base
+    - sprite: _Goobstation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Future
   - type: Item
-    heldPrefix: blue
+    heldPrefix: future
   - type: IdCard
     jobTitle: job-name-futureagent
     jobIcon: JobIconFuture
@@ -36,9 +37,14 @@
   name: salvage diver ID card
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Misc/id_cards.rsi
     layers:
-    - state: idhelldiver
+    - state: helldiver #base
+    - state: decal-stripe-cargo #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Helldiver
+  - type: Item
+    heldPrefix: helldiver
   - type: IdCard
     jobTitle: job-name-salvagediver
     jobIcon: JobIconShaftMiner
@@ -50,12 +56,17 @@
   name: HECU ID card
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
     layers:
-    - state: ert_security
+    - state: cc #base
+    - state: decal-stripe-cc #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: HECU
+  - type: Item
+    heldPrefix: cc
   - type: IdCard
     jobTitle: job-name-hecu
-    jobIcon: JobIconNanotrasen
+    jobIcon: JobIconHECU
   - type: Access
     groups:
     - AllAccess

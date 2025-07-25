@@ -67,6 +67,7 @@
 # SPDX-FileCopyrightText: 2024 nao fujiwara <awkwarddryad@gmail.com>
 # SPDX-FileCopyrightText: 2024 reverie collection <revsys413@gmail.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Crude Oil <124208219+CroilBird@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ekpy <33184056+Ekpy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -948,3 +949,21 @@
   #  - type: AlwaysRevolutionaryConvertible
   - type: StealTarget
     stealGroup: AnimalTropico
+
+- type: entity
+  name: Polly the parrot
+  parent: MobParrotBase
+  id: MobPollyParrot
+  description: An expert in quantum cracker theory
+  components:
+  - type: ParrotMemory
+    learnChance: 0.5 # polly is smarter
+  - type: Vocalizer
+    maxVocalizeInterval: 240 # polly is chattier
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: Loadout
+    prototypes: [ MobPollyGear ]
+

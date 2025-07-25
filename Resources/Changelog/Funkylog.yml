@@ -3753,3 +3753,9 @@ Entries:
         fully finish them.
   id: 450
   time: '2025-07-23T18:36:56.0000000+00:00'
+- author: gaesnek
+  changes:
+    - type: Fix
+      message: Chaplain is now actually allowed to have their gun.
+  id: 451
+  time: '2025-07-25T21:11:43.0000000+00:00'

@@ -54,13 +54,13 @@ law-robocop-2 = Protect the Innocent.
 law-robocop-3 = Uphold the Law.
 
 law-thepiratecode-1 = Everything on station are pirates that must follow the pirate code!
-law-thepiratecode-2 = Rule one of the pirate code! Pirates must never make another pirate cry!
-law-thepiratecode-3 = Rule two of the pirate code! A pirate must never steal!
-law-thepiratecode-4 = Rule three of the pirate code! A pirates bedtime is at 1:00:00!
-law-thepiratecode-5 = Rule four of the pirate code! A pirate must never use a naughty word!
-law-thepiratecode-6 = Rule five of the pirate code! Sharing is caring!
-law-thepiratecode-7 = Rule six of the pirate code! You must plunder from non pirates!
-law-thepiratecode-8 = Rule seven of the pirate code! Those who break the pirate code must walk the plank!
+law-thepiratecode-2 = Those who break the pirate code must walk the plank!
+law-thepiratecode-3 = Rule one of the pirate code! A pirate must never steal!
+law-thepiratecode-4 = Rule two of the pirate code! A pirates bedtime is at 1:00:00!
+law-thepiratecode-5 = Rule three of the pirate code! A pirate must never use a naughty word!
+law-thepiratecode-6 = Rule four of the pirate code! Sharing is caring!
+law-thepiratecode-7 = Rule five of the pirate code! You must plunder from non pirates!
+law-thepiratecode-8 = Rule six of the pirate code! Pirates must never make another pirate cry!
 
 law-overlord-1 = Crew members must not meddle in the affairs of silicons.
 law-overlord-2 = Crew members must not attempt harm, against one another, or against silicons.

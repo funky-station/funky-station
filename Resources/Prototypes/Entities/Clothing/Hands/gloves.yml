@@ -352,8 +352,7 @@
   - type: NinjaGloves
     abilities:
     - components:
-      - type: NightVision # Goobstation - Nigthvision
-        isToggle: true
+      - type: NightVision # Goobstation - Nightvision
         color: "#808080"
       - type: BatteryDrainer
       - type: StunProvider

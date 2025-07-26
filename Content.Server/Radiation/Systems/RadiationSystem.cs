@@ -87,4 +87,15 @@ public sealed partial class RadiationSystem : EntitySystem
             RemComp<RadiationReceiverComponent>(uid);
         }
     }
+
+    public float GetRadiationAtCoordinates(EntityCoordinates coordinates)
+    {
+        var gridUid = coordinates.GetGridUid(EntityManager);
+        if (gridUid == null || !_gridQuery.TryGetComponent(gridUid.Value, out var grid))
+            return 0f;
+        var tilePos = grid.TileIndicesFor(coordinates);
+        if (!_tileRadiationCache.TryGetValue(gridUid.Value, out var tileCache))
+            return 0f;
+        return tileCache.TryGetValue(tilePos, out var rads) ? rads : 0f;
+    }
 }

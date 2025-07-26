@@ -28,11 +28,13 @@ namespace Content.Server.Radiation.Systems;
 public partial class RadiationSystem
 {
     private List<Entity<MapGridComponent>> _grids = new();
+    private Dictionary<EntityUid, Dictionary<Vector2i, float>> _tileRadiationCache = new();
 
     private readonly record struct SourceData(
         float Intensity,
         Entity<RadiationSourceComponent, TransformComponent> Entity,
-        Vector2 WorldPosition)
+        Vector2 WorldPosition,
+        List<Entity<MapGridComponent>> Grids)
     {
         public EntityUid? GridUid => Entity.Comp2.GridUid;
         public float Slope => Entity.Comp1.Slope;
@@ -49,6 +51,7 @@ public partial class RadiationSystem
         stopwatch.Start();
 
         _sources.Clear();
+        _tileRadiationCache.Clear();
         _sources.EnsureCapacity(EntityManager.Count<RadiationSourceComponent>());
 
         var sources = EntityQueryEnumerator<RadiationSourceComponent, TransformComponent>();
@@ -69,7 +72,13 @@ public partial class RadiationSystem
             // I.e., a source & receiver in the same blocking container will get double-blocked, when no blocking should be applied.
             intensity = GetAdjustedRadiationIntensity(uid, intensity);
 
-            _sources.Add(new(intensity, (uid, source, xform), worldPos));
+            // Precompute grids within GridcastMaxDistance for this source
+            var grids = new List<Entity<MapGridComponent>>();
+            var box = new Box2(worldPos - new Vector2(GridcastMaxDistance, GridcastMaxDistance),
+                               worldPos + new Vector2(GridcastMaxDistance, GridcastMaxDistance));
+            _mapManager.FindGridsIntersecting(xform.MapID, box, ref grids, true);
+
+            _sources.Add(new(intensity, (uid, source, xform), worldPos, grids));
         }
 
         var debugRays = debug ? new List<DebugRadiationRay>() : null;
@@ -108,8 +117,13 @@ public partial class RadiationSystem
                     ray.Blockers ?? new())
                 );
             }
-
-            // Apply modifier if the destination entity is hidden within a radiation blocking container
+            if (destTrs.GridUid is { } gridUid && _gridQuery.TryGetComponent(gridUid, out var grid))
+            {
+                var tilePos = grid.TileIndicesFor(destTrs.Coordinates);
+                if (!_tileRadiationCache.ContainsKey(gridUid))
+                    _tileRadiationCache[gridUid] = new();
+                _tileRadiationCache[gridUid][tilePos] = rads;
+            }
             rads = GetAdjustedRadiationIntensity(destUid, rads);
 
             receiversTotalRads.Add(((destUid, dest), rads));
@@ -177,21 +191,7 @@ public partial class RadiationSystem
             return Gridcast((gridUid, gridComponent, Transform(gridUid)), ref ray, saveVisitedTiles, source.Transform, destTrs);
         }
 
-        // lets check how many grids are between source and destination
-        // do a box intersection test between target and destination
-        // it's not very precise, but really cheap
-
-        // TODO RADIATION
-        // Consider caching this in SourceData?
-        // I.e., make the lookup for grids as large as the sources's max distance and store the result in SourceData.
-        // Avoids having to do a lookup per source*receiver.
-        var box = Box2.FromTwoPoints(source.WorldPosition, destWorld);
-        _grids.Clear();
-        _mapManager.FindGridsIntersecting(mapId, box, ref _grids, true);
-
-        // gridcast through each grid and try to hit some radiation blockers
-        // the ray will be updated with each grid that has some blockers
-        foreach (var grid in _grids)
+        foreach (var grid in source.Grids)
         {
             ray = Gridcast((grid.Owner, grid.Comp, Transform(grid)), ref ray, saveVisitedTiles, source.Transform, destTrs);
 
@@ -200,8 +200,6 @@ public partial class RadiationSystem
             if (ray.Rads <= 0)
                 return ray;
         }
-
-        _grids.Clear();
 
         return ray;
     }
@@ -214,10 +212,7 @@ public partial class RadiationSystem
         TransformComponent destTrs)
     {
         var blockers = saveVisitedTiles ? new List<(Vector2i, float)>() : null;
-
-        // if grid doesn't have resistance map just apply distance penalty
-        var gridUid = grid.Owner;
-        if (!_resistanceQuery.TryGetComponent(gridUid, out var resistance))
+        if (!_resistanceQuery.TryGetComponent(grid.Owner, out var resistance))
             return ray;
         var resistanceMap = resistance.ResistancePerTile;
 
@@ -269,7 +264,7 @@ public partial class RadiationSystem
 
         // save data for debug if needed
         ray.Blockers ??= new();
-        ray.Blockers.Add(GetNetEntity(gridUid), blockers);
+        ray.Blockers.Add(GetNetEntity(grid.Owner), blockers);
 
         return ray;
     }

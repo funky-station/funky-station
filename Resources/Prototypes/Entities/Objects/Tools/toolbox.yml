@@ -32,6 +32,8 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
@@ -179,13 +181,22 @@
         Blunt: 20
 
 - type: entity
-  name: golden toolbox
-  parent: ToolboxBase
+  name: golden toolbox # Funky Station, changed to have the statline of the suspicous toolbox 
+  parent: [ToolboxBase, BaseCommandContraband]
   id: ToolboxGolden
-  description: A solid gold toolbox. A rapper would kill for this.
+  description: A solid gold toolbox. A tider would kill for this.
   components:
   - type: Sprite
     sprite: Objects/Tools/Toolboxes/toolbox_gold.rsi
     state: icon
   - type: Item
     sprite: Objects/Tools/Toolboxes/toolbox_gold.rsi
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,7,3
+  - type: MeleeWeapon
+    autoAttack: true # And also this because funny 
+    damage:
+      types:
+        Blunt: 20

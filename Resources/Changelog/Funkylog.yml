@@ -3798,3 +3798,9 @@ Entries:
       message: You no longer face items for a single frame when clicking while moving.
   id: 455
   time: '2025-07-26T18:52:48.0000000+00:00'
+- author: ArsCatalyst
+  changes:
+    - type: Add
+      message: Added Genpop, emergency lights, and gateway portals to Resort
+  id: 456
+  time: '2025-07-26T18:56:29.0000000+00:00'

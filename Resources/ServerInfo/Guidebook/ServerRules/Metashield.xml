@@ -12,115 +12,61 @@ SPDX-License-Identifier: MIT
 
 <Document>
   # The Metashield
+
   Something that is "shielded" cannot be known by your character during a round until the "revealing condition" happens. This also means that your character cannot do things based on "shielded" information. Knowing or acting on something that is shielded before the revealing condition is met is referred to as metagaming.
 
   Revealing conditions reveal the shielded information for the round, not for a specific instance. This means that once a revealing condition is met in a round, the shield no longer applies in any case for the remainder of the round.
 
-  ## Nuclear Operatives
+  Some related documents regarding the metashield are:
+  - [textlink="Command Training Manual" link="CommandTrainingManual"]
+  - [textlink="Security Training Manual" link="SecurityTrainingManual"]
 
-  The existence of Nuclear Operatives beyond a myth that no one would act on isthe  shielded.
 
-  The fact that the nuke disk must be protected and could be used by a bad actor to try to destroy the station is not shielded.
+  ## Lifting the Shield
 
-  The revealing condition for this shield is any of the following:
-  - discovering a nuclear operative's shuttle
-  - discovering a operative uplink
-  - a War Ops announcement
+  The metashield can be lifted one of two ways:
 
-  ## Revolutionaries
+  1. Any announcement from Central Command, relating to the specific antagonist. Such as:
+    - War declaration
+    - Unusual activity recalls
+    - Enemy communications
+    - Biohazard announcements
 
-  The presence of Revolutionary Idealists on station beyond a myth that no one would act on is shielded.
+  2. Command members (or any other player who is no longer under the metashield) telling others about specific antagonists
 
-  The fact that they exist in-universe is not shielded.
+  Lifting the metashield (spilling corporate secrets) is considered to be something only done with *sufficient reason.*
 
-  The revealing condition for this shield is any of the following:
+  ## Corporate Secrets
 
-  - the evacuation shuttle being recalled due to reports of unusual activity on the station by Central Command.
-  - being a revolutionary
-  - A mindshield causing the implanted to remember their true allegiance.
-  - witnessing someone being brainwashed by a flash.
-  - discovering a USP (Union of Socialist Planets) fast draw implanter.
-  - discovering a unlocked rev-uplink.
+  The metashield is an out-of-character term used for admin actions; in character, this would be referred to as *corporate secrets.* You, as an average crewmember, are not trained to react to potential threats, nor do you remember the events between each round. Nanotrasen policy dictates that the average crewmate is here to do their job, not to worry about any potential threats. It is in Nanotrasen's best interest that the crew is unaware of any potential threat, as that would imply there is something to be afraid of.
 
-  ## Changelings
+  As such, *all information about specific antagonists is shielded.* You do not know the objectives, tools, abilities, etc of any antagonist. Also included in metashielded knowledge is:
+  - Non-NT implanters
+  - Chameleon items and mysterious fibers
+  - Stealth items
 
-  In the eyes of the public, changelings are an exterminated predatory lifeform and their potential existence on the station is shielded.
-  This metashield prohibits players from general crew bloodtesting until the metashield is revealed. Witnessing two of the same person in one location is grounds for a specific blood test on those two individuals, but not a revealing condition itself.
+  However, *all command members do not have a metashield.* They are fully aware of any potential threats, and are specifically "trained" on how to deal with any threat. If the situation requires it, they are also allowed to tell crewmates what is happening and lift the shield. Security is still under metashield, however it is slightly modified and less strict. Please see the "Security Training Manual" for what they specifically know.
 
-  Knowledge about the abilities of changelings is not shielded.
+  This comes at the expense of being against Nanotrasen policy. Wrongfully lifting the metashield, as a command member, has both IC and OOC consequences. Please see the general Command SOP for when it is considered wrong or right to lift the shield. The fact that Nanotrasen is hiding something from its crewmates is not shielded, but the actual secrets are shielded.
 
-  The revealing condition for this shield is any of the following:
-  - witnessing the use of changeling-only abilities
-  - witnessing someone trying to absorb a body
-  - witnessing someone changing their appearance
-  - witnessing a positive changeling blood test
-  
-  ## Magic Users
-  
-  Heretics, Wizards, and Cultists are considered and known to crew as "Magic Users".
-  
-  The existence of magic users among crew is not shielded. Though knowledge of their abilities and goals is shielded.
-  
-  The shield prevents people from assuming magic users are inherently bad or antagonistic.
-  
-  The shield does not dictate the contraband status of magic user items.
+  ## Examples
 
-  The shield prevents people from knowing the purpose and use of role specific items like heretic reality fractures/shifts or cultists pylons/altars. Though they may be suspicious of them.
-  
-  The shield prevents information leading up to being sacrificed from being known: such as people, places, faces, or names. 
-  
-  The revealing condition for this shield is any of the following:
-  
-  - the presence or announcement of an Ascension.
-  - the presence or announcement of the Veil being torn.
-  - the presence or announcement of an Unknown god.
-  - an announcement from the Wizards Federation
-  - the announcement of a "notable increase in Λ-CDM".
-  - witnessing a magic user's transformation (glowing eyes, cosmic energy, etc)
-  - witnessing the act of someone being sacrificed
-  - seeing magic summon mobs / familiars (flesh stalker, juggernauts, etc)
-  
-  ## Implanted Implants
+  As a standard crew member, you do *not* know the objectives or abilities of any antagonist until the shield is revealed. However, you may know about rumors or concepts that relate to a specific antagonist, or that specific items or people are high-risk and require safekeeping. For example:
+  - Knowing that someone is a revolutionary is shielded; however, you may report them for unsolicited union activities.
+  - Knowing that someone is a heretic is shielded; however, you may report them for assault, kidnapping, etc.
+  - Knowing that someone is a traitor is shielded; however, you may report them for theft or murder.
+  - Knowing that someone is a changeling is shielded; however, genetic horrors beyond your imagination should probably not be on station. You can report them.
 
-  Implanted implants are shielded.
+  Essentially, do not take any action because you know that someone is antagonist, take action depending on *what they have done.* Avoid callouts that name the antagonist or game mode, at least until the shield has been lifted. If you find evidence that is inexcusably from an antagonist, bring it to a command member in order to "force" them to reveal the shield to you. Command is your boss, and you should consult them if you don't know what to do, IC or OOC.
 
-  Implanters themselves and un-implanted implants are not shielded. This prohibits implant checking.
-
-  The revealing condition for this shield is any of the following:
-  - discovering a non-NT implanter, used or unused
-  - discovering a non-NT implant box
-  - discovering use of a non-NT implant by anyone
-  - experiencing a situation where absolutely no other explanation is possible
-  - discovering an unlocked uplink
-
-  ## Chameleon Items
-
-  Chameleon items are shielded.
-
-  Being suspicious of an item being fake or stolen is not shielded, but testing items or calling them chameleon is covered by this shield.
-
-  The revealing condition for this shield is any of the following:
-  - seeing someone else cause any chameleon item to change
-  - finding mysterious fibers
-  - experiencing a situation where absolutely no other explanation is possible
-  - discovering an unlocked uplink
-
-  ## Stealth Items
-
-  The fact that an item can be something other than what its visual appearance and examine description indicate is shielded.
-
-  This shield protects stealth items, including protecting them from being tested.
-
-  The revealing condition for this shield is any of the following:
-  - seeing the item behave differently than the expected behavior for the item
-  - seeing the item used for its hidden purpose
-  - experiencing a situation where absolutely no other explanation is possible
-  - discovering an unlocked uplink
+  This does not mean that the entire shift must play out without ever naming or dealing with the specific antagonists. As stated prior, the metashield is equal to corporate secrets, which do exist in character. This means that Nanotrasen is fully aware of any potential threats; they are just selective to who they give this information to.
 
   ## Metafriending and Metagrudging
+
   This section provides additional information on a concept that is prohibited by multiple metashield items that are never revealed IC. Giving a person or character preferential treatment based on something that your character should not know is considered metafriending. Treating a person or character negatively based on something that your character should not know is considered metagrudging.
 
   ## Metafriending Examples
+
   These are all examples of things that are prohibited by at least one metashield item that is never revealed IC.
   - Giving a character additional access or a job because you are friends with the player who is playing that character.
   - Trusting a character because you are friends with the player who is playing that character.
@@ -128,6 +74,7 @@ SPDX-License-Identifier: MIT
   - Ignoring your objective to kill a character because your character and theirs became friends in a previous round.
 
   ## Metagrudging Examples
+
   These are all examples of things that are prohibited by at least one metashield item that is never revealed IC.
   - Not giving a character additional access or a job because you are mad at or don't like the player who is playing that character.
   - Not trusting a character because you are mad at or don't like the player who is playing that character.
@@ -137,12 +84,12 @@ SPDX-License-Identifier: MIT
   - Targeting or harassing a character based on anything which the character's player did while not playing the character.
 
   ## Explicitly Not Shielded
+
   The following is a list of things that are explicitly not shielded. If something is not on this list, it doesn't mean that it is shielded, but if something is on it then it definitely is not shielded.
+  - Non-NT aligned organizations exist, such as the Syndicate.
+  - The fact that the Syndicate are enemies of Nanotrasen.
   - The fact that the nuke disk must be protected and could be used by a bad actor to try to destroy the station.
-  - Items that are of high value or are desired by the Syndicate, and therefore are likely targets of theft.
+  - Certain items are high-risk and may be desired by outlaws or outside organizations (such as the Syndicate), and therefore are likely targets of theft.
   - The idea that any Syndicate agent or other bad actor has goals or objectives that they are attempting to accomplish.
-  - The number of goals or objectives that a Syndicate agent or other bad actor has.
-  - The fact that the Syndicate are enemies of Nanotrasen, and that they regularly attempt to send covert agents to spy on, sabotage, or attack Nanotrasen.
   - A character's typical appearance. Though you should keep in mind that multiple characters can share the same name.
-  - The fact that the Syndicate have covert items capable of getting items to them, and that these items are known as uplinks.
 </Document>

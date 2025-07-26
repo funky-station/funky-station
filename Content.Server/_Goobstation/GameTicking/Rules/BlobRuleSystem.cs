@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
 // SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -42,7 +44,6 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
 
-    private static readonly SoundPathSpecifier BlobDetectAudio = new ("/Audio/Announcements/outbreak5.ogg");
     public override void Initialize()
     {
         base.Initialize();
@@ -130,7 +131,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     Loc.GetString("blob-alert-detect"),
                     stationName,
                     true,
-                    BlobDetectAudio,
+                    blobRuleComp.DetectedAudio,
                     Color.Red);
 
                 _alertLevelSystem.SetLevel(stationUid, StationAlertDetected, true, true, true, true);
@@ -152,7 +153,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     Loc.GetString("blob-alert-critical"),
                     stationName,
                     true,
-                    blobRuleComp.AlertAudio,
+                    blobRuleComp.CriticalAudio,
                     Color.Red);
                 }
                 else
@@ -162,7 +163,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     Loc.GetString("blob-alert-critical-NoNukeCode"),
                     stationName,
                     true,
-                    blobRuleComp.AlertAudio,
+                    blobRuleComp.CriticalAudio,
                     Color.Red);
                 }
 

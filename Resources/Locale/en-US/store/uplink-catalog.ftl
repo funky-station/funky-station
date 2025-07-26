@@ -472,8 +472,8 @@ uplink-hardsuit-syndie-desc = The Syndicate's well known armored blood red hards
 uplink-syndie-raid-name = Syndicate Raid Suit
 uplink-syndie-raid-desc = A very durable and reasonably flexible suit of blood-red armor, reinforced against all common forms of damage but not capable of space walks. Comes with a sick helmet.
 
-uplink-hardsuit-syndieelite-name = Syndicate Elite Hardsuit
-uplink-hardsuit-syndieelite-desc = An elite version of the blood-red hardsuit, with improved mobility and fireproofing. Property of Gorlex Marauders.
+uplink-hardsuit-syndiepyrotect-name = Syndicate Aramid Suit
+uplink-hardsuit-syndiepyrotect-desc = An alternative model of the blood-red hardsuit, with improved fireproofing. Property of Gorlex Marauders.
 
 uplink-clothing-outer-hardsuit-juggernaut-name = Cybersun Juggernaut Suit
 uplink-clothing-outer-hardsuit-juggernaut-desc = Hyper resilient armor made of materials tested in the Tau chromosphere facility. The only thing that's going to be slowing you down is this suit... and tasers.

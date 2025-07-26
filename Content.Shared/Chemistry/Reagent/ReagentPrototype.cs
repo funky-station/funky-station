@@ -37,6 +37,7 @@
 // SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -126,11 +127,25 @@ namespace Content.Shared.Chemistry.Reagent
         [DataField]
         public float SpecificHeat { get; private set; } = 1.0f;
 
+        /// <summary>
+        ///     In Celsius
+        /// </summary>
         [DataField]
         public float? BoilingPoint { get; private set; }
 
         [DataField]
         public float? MeltingPoint { get; private set; }
+
+        /// <summary>
+        ///     Funkychem additions
+        /// </summary>
+
+        /// In kg/l
+        [DataField]
+        public float? Density { get; private set; }
+
+        [DataField]
+        public float? HydrogenPotential { get; private set; }
 
         [DataField]
         public SpriteSpecifier? MetamorphicSprite { get; private set; } = null;

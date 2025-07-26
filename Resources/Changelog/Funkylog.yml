@@ -3792,3 +3792,9 @@ Entries:
         about half.
   id: 454
   time: '2025-07-25T21:32:34.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Tweak
+      message: You no longer face items for a single frame when clicking while moving.
+  id: 455
+  time: '2025-07-26T18:52:48.0000000+00:00'

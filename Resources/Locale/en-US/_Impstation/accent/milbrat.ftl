@@ -33,18 +33,22 @@ accent-milbrat-words-7 = acting insane
 accent-milbrat-words-7-2 = acting crazy
 accent-milbrat-words-replace-7 = going AWOL
 
-accent-milbrat-words-8 = on my way
-accent-milbrat-words-8-2 = on the move
-accent-milbrat-words-8-3 = shmoving
-accent-milbrat-words-replace-8 = Oscar Mike
+accent-milbrat-words-8 = how are you doing
+accent-milbrat-words-8-2 = how are ya doing
+accent-milbrat-words-8-3 = how's it going
+accent-milbrat-words-8-4 = what's going on
+accent-milbrat-words-8-5 = what's up
+accent-milbrat-words-8-6 = sup
+accent-milbrat-words-8-7 = how're you doing
+accent-milbrat-words-8-8 = how're ya doing
+accent-milbrat-words-8-9 = what's good
+accent-milbrat-words-replace-8 = SITREP
 
-accent-milbrat-words-9 = how are you
-accent-milbrat-words-9-2 = how are ya
-accent-milbrat-words-9-3 = how's it going
-accent-milbrat-words-9-4 = what's going on
-accent-milbrat-words-9-5 = what's up
-accent-milbrat-words-9-6 = sup
-accent-milbrat-words-replace-9 = SITREP
+accent-milbrat-words-9 = on my way
+accent-milbrat-words-9-2 = on the move
+accent-milbrat-words-9-3 = shmoving
+accent-milbrat-words-9-4 = going
+accent-milbrat-words-replace-9 = Oscar Mike
 
 accent-milbrat-words-10 = fuck off
 accent-milbrat-words-10-2 = leave me alone
@@ -66,6 +70,7 @@ accent-milbrat-words-12-5 = sup
 accent-milbrat-words-replace-12 = reporting for duty
 
 accent-milbrat-words-13 = are you sure
+accent-archaic-words-13-2 = you sure
 accent-milbrat-words-replace-13 = please confirm
 
 accent-milbrat-words-14 = well done
@@ -100,6 +105,8 @@ accent-milbrat-words-19 = mistake
 accent-milbrat-words-replace-19 = SNAFU
 
 accent-milbrat-words-20 = will do
+accent-milbrat-words-20-2 = i'm on it
+accent-milbrat-words-20-3 = on it
 accent-milbrat-words-replace-20 = wilco
 
 accent-milbrat-words-21 = help
@@ -148,6 +155,7 @@ accent-milbrat-words-replace-31 = brief me
 
 accent-milbrat-words-32 = get to evac
 accent-milbrat-words-32-2 = time to evac
+accent-milbrat-words-32-3 = go to evac
 accent-milbrat-words-replace-32 = RTB
 
 accent-milbrat-words-33 = kill them
@@ -250,8 +258,9 @@ accent-milbrat-words-replace-55 = delta subaltern
 accent-milbrat-words-56 = dragon
 accent-milbrat-words-replace-56 = delta HVT
 
-accent-milbrat-words-57 = wizard
-accent-milbrat-words-replace-57 = whiskey HVT
+accent-milbrat-words-57 = i see
+accent-milbrat-words-57-2 = sure
+accent-milbrat-words-replace-57 = aknowledged
 
 accent-milbrat-words-58 = vent pest
 accent-milbrat-words-58-2 = vent pests
@@ -260,16 +269,20 @@ accent-milbrat-words-replace-58 = victor papa
 accent-milbrat-words-59 = research director
 accent-milbrat-words-59-2 = head of science
 accent-milbrat-words-59-3 = head of research
+accent-milbrat-words-59-4 = rd
 accent-milbrat-words-replace-59 = Science Actual
 
 accent-milbrat-words-60 = hospitality director
+accent-milbrat-words-60-2 = hd
 accent-milbrat-words-replace-60 = Service Actual
 
 accent-milbrat-words-61 = quartermaster
 accent-milbrat-words-61-2 = head of cargo
+accent-milbrat-words-61-3 = qm
 accent-milbrat-words-replace-61 = Cargo Actual
 
 accent-milbrat-words-62 = silly
+accent-milbrat-words-62-2 = dumb
 accent-milbrat-words-replace-62 = unbecoming
 
 accent-milbrat-words-63 = cadet
@@ -434,3 +447,141 @@ accent-milbrat-words-replace-100 = soldiers
 accent-milbrat-words-101 = medkit
 accent-milbrat-words-101-2 = medical kit
 accent-milbrat-words-replace-101 = IFAK
+
+accent-milbrat-words-102 = wizard
+accent-milbrat-words-102-2 = mage
+accent-milbrat-words-102-3 = sorcerer
+accent-milbrat-words-102-4 = warlock
+accent-milbrat-words-replace-102 = whiskey HVT
+
+accent-milbrat-words-103 = chief engineer
+accent-milbrat-words-103-2 = ce
+accent-milbrat-words-103-3 = head of engineering
+accent-milbrat-words-replace-103 = Engineering Actual
+
+accent-milbrat-words-104 = engineer
+accent-milbrat-words-replace-104 = comtech
+
+accent-milbrat-words-105 = engie
+accent-milbrat-words-replace-105 = CT
+
+accent-milbrat-words-106 = fucked up
+accent-milbrat-words-replace-106 = FUBAR
+
+accent-milbrat-words-107 = engineers
+accent-milbrat-words-replace-107 = comtechs
+
+accent-milbrat-words-108 = engies
+accent-milbrat-words-replace-108 = CTs
+
+accent-milbrat-words-109 = salvage
+accent-milbrat-words-109-2 = salvie
+accent-milbrat-words-109-3 = salvager
+accent-milbrat-words-replace-109 = recon
+
+accent-milbrat-words-110 = bar
+accent-milbrat-words-110-2 = cafeteria
+accent-milbrat-words-replace-110 = mess hall
+
+accent-milbrat-words-111 = cargo
+accent-milbrat-words-replace-111 = PX
+
+accent-milbrat-words-112 = peace
+accent-milbrat-words-replace-112 = ceasefire
+
+accent-milbrat-words-113 = rules and regulations
+accent-milbrat-words-113-2 = rules
+accent-milbrat-words-113-3 = regulations
+accent-milbrat-words-113-4 = rule
+accent-milbrat-words-113-5 = law
+accent-milbrat-words-replace-113 = SOP
+
+accent-milbrat-words-114 = you're good to go
+accent-milbrat-words-114-2 = you're good
+accent-milbrat-words-114-3 = that'll do
+accent-milbrat-words-114-4 = we're good
+accent-milbrat-words-replace-114 = at ease
+
+accent-milbrat-words-115 = drug
+accent-milbrat-words-replace-115 = stimulant
+
+accent-milbrat-words-116 = drugs
+accent-milbrat-words-replace-116 = stimulants
+
+accent-milbrat-words-117 = gun
+accent-milbrat-words-replace-117 = firearm
+
+accent-milbrat-words-118 = normal
+accent-milbrat-words-replace-118 = standard issue
+
+accent-milbrat-words-119 = shift
+accent-milbrat-words-replace-119 = tour
+
+accent-milbrat-words-120 = magic
+accent-milbrat-words-replace-120 = irregular warfare
+
+accent-milbrat-words-121 = weird
+accent-milbrat-words-121-2 = strange
+accent-milbrat-words-replace-121 = irregular
+
+accent-milbrat-words-122 = leave
+accent-milbrat-words-replace-122 = retreat
+
+accent-milbrat-words-123 = clown
+accent-milbrat-words-replace-123 = moral support officer
+
+accent-milbrat-words-124 = clowns
+accent-milbrat-words-replace-124 = moral support officers
+
+accent-milbrat-words-125 = mime
+accent-milbrat-words-replace-125 = silent operative
+
+accent-milbrat-words-126 = mimes
+accent-milbrat-words-replace-126 = silent operatives
+
+accent-milbrat-words-127 = meanie
+accent-milbrat-words-127-2 = asshole
+accent-milbrat-words-replace-127 = liability to troop morale
+
+accent-milbrat-words-128 = meanies
+accent-milbrat-words-128-2 = assholes
+accent-milbrat-words-replace-128 = liabilities to troop morale
+
+accent-milbrat-words-129 = reporter
+accent-milbrat-words-129-2 = journalist
+accent-milbrat-words-replace-129 = correspondant
+
+accent-milbrat-words-130 = reporters
+accent-milbrat-words-130-2 = journalists
+accent-milbrat-words-replace-130 = correspondants
+
+accent-milbrat-words-131 = see you later
+accent-milbrat-words-131-2 = good bye
+accent-milbrat-words-131-3 = bye
+accent-milbrat-words-replace-131 = over and out
+
+accent-milbrat-words-132 = sniper
+accent-milbrat-words-replace-132 = designated marksman
+
+accent-milbrat-words-133 = move
+accent-milbrat-words-replace-133 = redeploy
+
+accent-milbrat-words-134 = mom
+accent-milbrat-words-134-2 = dad
+accent-milbrat-words-134-3 = daddy
+accent-milbrat-words-134-4 = mommy
+accent-milbrat-words-134-5 = parent
+accent-milbrat-words-134-6 = mama
+accent-milbrat-words-replace-134 = Commanding Officer
+
+accent-milbrat-words-135 = boy
+accent-milbrat-words-replace-135 = rifleman
+
+accent-milbrat-words-136 = girl
+accent-milbrat-words-replace-136 = riflemaid
+
+accent-milbrat-words-137 = boys
+accent-milbrat-words-replace-137 = riflemen
+
+accent-milbrat-words-138 = girls
+accent-milbrat-words-replace-138 = riflemaids

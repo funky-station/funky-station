@@ -1,0 +1,65 @@
+﻿# prescriptions
+- type: medicalInfo
+  id: antacidsPrescription
+  name: medical-info-prescriptions-antacids
+  category: Prescriptions
+
+- type: medicalInfo
+  id: danderPrescription
+  name: medical-info-prescriptions-antianxiety
+  category: Prescriptions
+
+- type: medicalInfo
+  id: antianxietyPrescription
+  name: medical-info-prescriptions-antiarrhythmics
+  category: Prescriptions
+
+- type: medicalInfo
+  id: antidepressantsPrescription
+  name: medical-info-prescriptions-antidepressants
+  category: Prescriptions
+
+- type: medicalInfo
+  id: anticonvulsantsPrescription
+  name: medical-info-prescriptions-anticonvulsants
+  category: Prescriptions
+
+- type: medicalInfo
+  id: antiepilepticsPrescription
+  name: medical-info-prescriptions-antiepileptics
+  category: Prescriptions
+
+- type: medicalInfo
+  id: antihistaminesPrescription
+  name: medical-info-prescriptions-antihistamines
+  category: Prescriptions
+
+- type: medicalInfo
+  id: betablockersPrescription
+  name: medical-info-prescriptions-betablockers
+  category: Prescriptions
+
+- type: medicalInfo
+  id: bloodthinnersPrescription
+  name: medical-info-prescriptions-bloodthinners
+  category: Prescriptions
+
+- type: medicalInfo
+  id: hormonesPrescription
+  name: medical-info-prescriptions-hormones
+  category: Prescriptions
+
+- type: medicalInfo
+  id: immunosuppressivesPrescription
+  name: medical-info-prescriptions-immunosuppressives
+  category: Prescriptions
+
+- type: medicalInfo
+  id: painrelieversPrescription
+  name: medical-info-prescriptions-painrelievers
+  category: Prescriptions
+
+- type: medicalInfo
+  id: sleepingdrugsPrescription
+  name: medical-info-prescriptions-sleepingdrugs
+  category: Prescriptions

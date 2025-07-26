@@ -1,22 +1,40 @@
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
-
 - type: entity
-  id: ActionOpenRadioImplant
-  name: Open Radio Implant
-  description: Opens the bluespace key compartment of the radio implant embedded in your skull.
+  id: ToggleNightVision
+  name: Switch night vision
+  description: Switches night vision.
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     itemIconStyle: BigAction
     priority: -20
     icon:
-      sprite: Clothing/Ears/Headsets/base.rsi
+      sprite: _EE/Clothing/Eyes/Goggles/nightvision.rsi
       state: icon
-    event: !type:OpenStorageImplantEvent
+    event: !type:ToggleNightVisionEvent
+
+- type: entity
+  id: ToggleThermalVision
+  name: Switch Thermal vision
+  description: Switches Thermal vision.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: _EE/Clothing/Eyes/Goggles/thermal.rsi
+      state: icon
+    event: !type:ToggleThermalVisionEvent
+
+- type: entity
+  id: PulseThermalVision
+  parent: ToggleThermalVision
+  name: Pulse Thermal Vision
+  description: Activate thermal vision temporarily.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 4
 
 - type: entity
   id: ActionOpenMouthStorage
@@ -28,16 +46,3 @@
     priority: -10
     icon: _DV/Interface/Actions/mouthStorageOpen.png
     event: !type:OpenStorageImplantEvent
-
-- type: entity
-  id: ActionToggleSneakMode
-  name: Toggle sneak mode
-  description: Sneak underneath tables.
-  components:
-  - type: InstantAction
-    itemIconStyle: BigAction
-    useDelay: 3
-    icon:
-      sprite: Structures/Furniture/Tables/generic.rsi
-      state: full
-    event: !type:ToggleCrawlingStateEvent

@@ -102,6 +102,7 @@
     - id: PlushieCirno
     - id: PlushieGodo
     - id: PlushieGocrazy
+    - id: PlushieMothroach
 
 - type: entity
   id: CrateFunPlushie

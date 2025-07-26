@@ -43,3 +43,34 @@
     wideAnimationRotation: 180
     soundHit:
       path: /Audio/_Funkystation/Items/Toys/baka.ogg
+
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieMothroach
+  name: mothroach plushie
+  description: A fuzzy friend for your moth plushie.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/toys.rsi
+    state: plushie_mothroach
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Moth/moth_laugh.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Moth/moth_squeak.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Voice/Moth/moth_squeak.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Voice/Moth/moth_laugh.ogg

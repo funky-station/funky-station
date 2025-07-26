@@ -665,7 +665,7 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, AllowBackStorageClothing, BaseSyndicateContraband]
   id: ClothingOuterHardsuitSyndieElite
-  name: syndicate pyrotect aramid hardsuit
+  name: syndicate aramid hardsuit
   description: An alternative model of the blood-red hardsuit, with improved fireproofing. Property of Gorlex Marauders.
   components:
   - type: Sprite

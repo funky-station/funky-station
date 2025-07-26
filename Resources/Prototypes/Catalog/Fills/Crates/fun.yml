@@ -51,6 +51,7 @@
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 willowzeta <willowzeta632146@proton.me>
+# SPDX-FileCopyrightText: 2025 yeet <t.sith96@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -102,6 +103,7 @@
     - id: PlushieCirno
     - id: PlushieGodo
     - id: PlushieGocrazy
+    - id: PlushieMothroach
 
 - type: entity
   id: CrateFunPlushie

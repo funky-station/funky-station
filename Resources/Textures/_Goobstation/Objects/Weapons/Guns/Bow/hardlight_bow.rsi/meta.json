@@ -65,13 +65,13 @@
       "directions": 4
     },
     {
-      "name": "unfolded-equipped-BACKSTORAGE",
-      "directions": 4
-    },
-    {
       "name": "folded-equipped-BACKSTORAGE",
       "directions": 4
     },
+    {
+      "name": "unfolded-equipped-BACKSTORAGE",
+      "directions": 4
+    },  
     {
       "name": "bowstring-equipped-BACKPACK",
       "directions": 4
@@ -81,6 +81,30 @@
     },
     {
       "name": "unwielded-arrow"
+    },
+    {
+      "name": "ap-unwield"
+    },
+    {
+      "name": "ap-wield"
+    },
+    {
+      "name": "hardlight-unwield"
+    },
+    {
+      "name": "hardlight-wield"
+    },
+    {
+      "name": "fire-unwield"
+    },
+    {
+      "name": "fire-wield"
+    },
+    {
+      "name": "volley-unwield"
+    },
+    {
+      "name": "volley-wield"
     }
   ]
 }

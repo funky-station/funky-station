@@ -1,5 +1,28 @@
 # SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 UristMcWiki <endernate2015@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+# SPDX-FileCopyrightText: 2025 UristMcWiki <endernate2015@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+# SPDX-FileCopyrightText: 2025 UristMcWiki <endernate2015@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
 # SPDX-FileCopyrightText: 2025 UristMcWiki <endernate2015@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -7,7 +30,7 @@
 
 - type: entity
   name: hardlight bow
-  parent: [BaseItem, BaseSyndicateContraband]
+  parent: [BaseItem, BaseSyndicateContraband, BaseWeaponBattery]
   id: BowHardlight
   description: A modern bow that can fabricate hardlight arrows using an internal energy. This one is designed by the Syndicate for silent takedowns of targets.
   components:
@@ -17,25 +40,56 @@
     - state: bow-folded
       map: [ "base" ]
     - state: unwielded-arrow
-      color: "#FFFFFF"
-      visible: false
+      color: "#00B2FF"
+      visible: true
       shader: unshaded
       map: [ "bowstring" ]
-  - type: Item
-    heldPrefix: folded
-    size: Normal
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi
     quickEquip: false
     slots:
-      - Back
-      - backStorage
+      - BACKSTORAGE
   - type: Wieldable
     wieldSound:
       path: /Audio/Items/bow_pull.ogg
   - type: UseDelay
     delay: 1
   - type: GunRequiresWield
+  - type: Item
+    heldPrefix: folded
+    size: Normal
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50
+  - type: ProjectileBatteryAmmoProvider
+    proto: ArrowEnergy
+    fireCost: 50
+  - type: EnergyGun
+    fireModes:
+    - proto: ArrowEnergy
+      fireCost: 50
+      name: Arrow
+      state: Arrow
+    - proto: ArrowFiery
+      fireCost: 300
+      name: Fire
+      state: Fire
+    - proto: ArrowAP
+      fireCost: 200
+      name: AP
+      state: AP
+    - proto: ArrowVolley
+      fireCost: 250
+      name: Volley
+      state: Volley
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: FoldingWeapon
   - type: Gun
     fireRate: 1
     selectedMode: SemiAuto
@@ -44,51 +98,6 @@
     soundGunshot:
       collection: BulletMiss
     soundEmpty: null
-  - type: UseDelayBlockShoot
-  - type: BasicEntityAmmoProvider
-    proto: ArrowEnergy
-  - type: AmmoSelector
-    prototypes:
-      - ArrowEnergy
-      - ArrowDisabler
-      - ArrowFiery
-      - ArrowFreeze
-      - ArrowExplosive
-      - ArrowXray
-      - ArrowBee
-  - type: FoldingWeapon
-  - type: UserInterface
-    interfaces:
-      enum.AmmoSelectorUiKey.Key:
-        type: AmmoSelectorMenuBoundUserInterface
-  - type: ActivatableUI
-    altVerb: true
-    verbOnly: true
-    verbText: mode-select-verb-text
-    key: enum.AmmoSelectorUiKey.Key
-  - type: ItemToggle
-    wieldToggle: false
-    soundActivate:
-      path: /Audio/Weapons/telescopicon.ogg
-      params:
-        volume: -5
-    soundDeactivate:
-      path: /Audio/Weapons/telescopicoff.ogg
-      params:
-        volume: -5
-  - type: ItemToggleSize
-    activatedSize: Huge
-  - type: ItemTogglePointLight
-  - type: ComponentToggler
-    components:
-    - type: DisarmMalus
-      malus: 0.6
-  - type: PointLight
-    enabled: false
-    radius: 1.5
-    energy: 1.5
-    color: white
-    netsync: false
   - type: Appearance
   - type: ToggleableLightVisuals
     spriteLayer: bowstring
@@ -113,7 +122,7 @@
       back:
       - state: bowstring-equipped-BACKPACK
         shader: unshaded
-      backStorage:
+      suitstorage:
       - state: bowstring-equipped-BACKPACK
         shader: unshaded
   - type: GenericVisualizer
@@ -129,5 +138,35 @@
         base:
           True: { state: bow }
           False: { state: bow-folded }
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Arrow: { state: hardlight-wield}
+          Fire: { state: fire-wield }
+          Volley: { state: volley-wield }
+          AP: { state: ap-wield }
+  - type: ItemToggle
+    wieldToggle: true
+    soundActivate:
+      path: /Audio/Weapons/telescopicon.ogg
+      params:
+        volume: -5
+    soundDeactivate:
+      path: /Audio/Weapons/telescopicoff.ogg
+      params:
+        volume: -5
+  - type: ItemToggleSize
+    activatedSize: Huge
+  - type: ItemTogglePointLight
+  - type: ComponentToggler
+    components:
+    - type: DisarmMalus
+      malus: 0.6
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    energy: 1.5
+    color: "#FFB200"
+    netsync: false
   - type: ToggleableLightWieldable
   # TODO: Zoom
+

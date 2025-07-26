@@ -38,21 +38,14 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
+  parent: BaseWallmountMetallic
   id: SignalSwitch
   name: signal switch
   description: It's a switch for toggling power to things.
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Wallmount
   components:
-  - type: StationAiWhitelist
   - type: WallMount
     arc: 360
-  - type: Clickable
-  - type: InteractionOutline
-  - type: Physics
-    canCollide: false
+  - type: StationAiWhitelist
   - type: Sprite
     drawdepth: SmallObjects
     sprite: Structures/Wallmounts/switch.rsi
@@ -64,7 +57,6 @@
   - type: Construction
     graph: SignalSwitchGraph
     node: SignalSwitchNode
-  - type: Fixtures
   - type: DeviceNetwork
     deviceNetId: Wireless
   - type: WirelessNetworkConnection
@@ -76,26 +68,37 @@
     - Status
     lastSignals:
       Status: false
-  - type: Tag
-    tags:
-    - Structure
+  - type: Transform
+    anchored: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 80
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -8
 
 - type: entity
+  parent: BaseWallmountMetallic
   id: SignalButton
   name: signal button
   description: It's a button for activating something.
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Wallmount
   components:
-  - type: StationAiWhitelist
   - type: WallMount
     arc: 360
-  - type: Clickable
-  - type: InteractionOutline
-  - type: Physics
-    canCollide: false
+  - type: StationAiWhitelist
   - type: Sprite
     drawdepth: SmallObjects
     sprite: Structures/Wallmounts/switch.rsi
@@ -110,137 +113,67 @@
   - type: Construction
     graph: SignalButtonGraph
     node: SignalButtonNode
-  - type: Fixtures
   - type: DeviceNetwork
     deviceNetId: Wireless
   - type: WirelessNetworkConnection
     range: 200
   - type: DeviceLinkSource
     ports:
-      - Pressed
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
+    - Pressed
+  - type: Transform
+    anchored: false
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 80
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 40
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-              params:
-                volume: -8
-  - type: Tag
-    tags:
-    - Structure
+    - trigger:
+        !type:DamageTrigger
+        damage: 80
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -8
 
 - type: entity
+  parent: BaseWallmountMetallic
   id: ApcNetSwitch
   name: apc net switch
   description: It's a switch for toggling lights that are connected to the same apc.
-  placement:
-    mode: SnapgridCenter
-    snap:
-      - Wallmount
   components:
-    - type: WallMount
-      arc: 360
-    - type: Clickable
-    - type: InteractionOutline
-    - type: Physics
-      canCollide: false
-    - type: Transform
-      anchored: true
-    - type: Sprite
-      drawdepth: SmallObjects
-      sprite: Structures/Wallmounts/switch.rsi
-      state: on
-    - type: Rotatable
-    - type: ExtensionCableReceiver
-    - type: DeviceNetwork
-      deviceNetId: Apc
-      transmitFrequencyId: SmartLight # assuming people want to use it for light switches.
-    - type: ApcNetworkConnection
-    - type: ApcNetSwitch
-    - type: Construction
-      graph: LightSwitchGraph
-      node: LightSwitchNode
-    - type: Fixtures
-    - type: Tag
-      tags:
-      - Structure
-
-- type: entity
-  id: TwoWayLever
-  name: two way lever
-  description: A two way lever.
-  placement:
-    mode: SnapgridCenter
-  components:
-    - type: StationAiWhitelist
-    - type: Clickable
-    - type: InteractionOutline
-    - type: Sprite
-      drawdepth: HighFloorObjects
-      sprite: Structures/conveyor.rsi
-      layers:
-        - state: switch-off
-          map: ["enabled", "enum.TwoWayLeverState.Middle"]
-    - type: TwoWayLever
-    - type: UseDelay
-      delay: 0.2 # prevent light-toggling auto-clickers.
-    - type: Appearance
-    - type: GenericVisualizer
-      visuals:
-        enum.TwoWayLeverVisuals.State:
-          enabled:
-            Right: { state: switch-fwd }
-            Middle: { state: switch-off }
-            Left: { state: switch-rev }
-    - type: Damageable
-      damageContainer: Inorganic
-      damageModifierSet: Metallic
-    - type: Destructible
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 100
-        behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - type: Construction
-      graph: LeverGraph
-      node: LeverNode
-    - type: DeviceNetwork
-      deviceNetId: Wireless
-    - type: WirelessNetworkConnection
-      range: 200
-    - type: DeviceLinkSource
-      ports:
-        - Left
-        - Right
-        - Middle
-    - type: Tag
-      tags:
-      - Structure
+  - type: WallMount
+    arc: 360
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: Structures/Wallmounts/switch.rsi
+    state: on
+  - type: Rotatable
+  - type: ExtensionCableReceiver
+  - type: DeviceNetwork
+    deviceNetId: Apc
+    transmitFrequencyId: SmartLight # assuming people want to use it for light switches.
+  - type: ApcNetworkConnection
+  - type: ApcNetSwitch
+  - type: Transform
+    anchored: false
+  - type: Construction
+    graph: LightSwitchGraph
+    node: LightSwitchNode
 
 #directional
 
 - type: entity
+  parent: SignalSwitch
   id: SignalSwitchDirectional
   name: signal switch
   suffix: directional
-  parent: SignalSwitch
   components:
   - type: WallMount
     arc: 175
@@ -249,10 +182,10 @@
     node: SignalSwitchDirectionalNode
 
 - type: entity
+  parent: SignalButton
   id: SignalButtonDirectional
   name: signal button
   suffix: directional
-  parent: SignalButton
   components:
   - type: WallMount
     arc: 175
@@ -261,10 +194,10 @@
     node: SignalButtonDirectionalNode
 
 - type: entity
+  parent: ApcNetSwitch
   id: ApcNetSwitchDirectional
   name: apc net switch
   suffix: directional
-  parent: ApcNetSwitch
   components:
   - type: WallMount
     arc: 175
@@ -275,9 +208,9 @@
 # lockable buttons
 
 - type: entity
+  parent: SignalButtonDirectional
   id: LockableButton
   name: lockable button
-  parent: SignalButtonDirectional
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -294,249 +227,249 @@
       shader: unshaded
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonCaptain
   suffix: Captain
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Captain"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonHeadOfPersonnel
   suffix: HeadOfPersonnel
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["HeadOfPersonnel"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonChiefEngineer
   suffix: ChiefEngineer
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["ChiefEngineer"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonChiefMedicalOfficer
   suffix: ChiefMedicalOfficer
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["ChiefMedicalOfficer"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonHeadOfSecurity
   suffix: HeadOfSecurity
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["HeadOfSecurity"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonResearchDirector
   suffix: ResearchDirector
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["ResearchDirector"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonCommand
   suffix: Command
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Command"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonCryogenics
   suffix: Cryogenics
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Cryogenics"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonSecurity
   suffix: Security
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Security"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonDetective
   suffix: Detective
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Detective"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonArmory
   suffix: Armory
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Armory"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonBrig
   suffix: Brig
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Brig"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonLawyer
   suffix: Lawyer
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Lawyer"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonEngineering
   suffix: Engineering
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Engineering"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonMedical
   suffix: Medical
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Medical"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonQuartermaster
   suffix: Quartermaster
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Quartermaster"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonSalvage
   suffix: Salvage
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Salvage"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonCargo
   suffix: Cargo
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Cargo"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonResearch
   suffix: Research
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Research"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonService
   suffix: Service
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Service"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonMaintenance
   suffix: Maintenance
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Maintenance"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonExternal
   suffix: External
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["External"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonJanitor
   suffix: Janitor
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Janitor"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonTheatre
   suffix: Theatre
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Theatre"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonBar
   suffix: Bar
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Bar"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonChemistry
   suffix: Chemistry
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Chemistry"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonKitchen
   suffix: Kitchen
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Kitchen"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonChapel
   suffix: Chapel
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Chapel"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonHydroponics
   suffix: Hydroponics
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Hydroponics"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonAtmospherics
   suffix: Atmospherics
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["Atmospherics"]]
 
 - type: entity
+  parent: LockableButton
   id: LockableButtonCentcomm
   suffix: CentComm
-  parent: LockableButton
   components:
   - type: AccessReader
     access: [["CentralCommand"]]

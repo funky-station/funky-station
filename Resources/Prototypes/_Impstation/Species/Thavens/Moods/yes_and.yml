@@ -220,7 +220,7 @@
   moodName: thaven-mood-imitation-name
   moodDesc: thaven-mood-imitation-desc
 
-# Everyone you speak to must recieve a gift.
+# Everyone you speak to must receive a gift.
 - type: thavenMood
   id: Generous
   moodName: thaven-mood-generous-name
@@ -233,6 +233,8 @@
   id: FavorsRepaid
   moodName: thaven-mood-favors-repaid-name
   moodDesc: thaven-mood-favors-repaid-desc
+  conflicts:
+  - GiftReciever
 
 # You feel bookkeeping is vitally important. Make sure to provide your supervisor with a detailed log of each job task you complete.
 - type: thavenMood
@@ -255,6 +257,7 @@
   moodDesc: thaven-mood-gift-reciever-desc
   conflicts:
   - LeastImportant
+  - FavorsRepaid
 
 # You must not refer directly to the names of departments - You may only refer to a specific person who works in that department.
 - type: thavenMood
@@ -363,6 +366,7 @@
   moodDesc: thaven-mood-public-sector-desc
   conflicts:
   - StationIsAlive
+  - PrivateSector
   jobConflicts: # conflicts with everyone except Civilian and Specific (boxer, zookeeper)
   - Cargo
   - CentralCommandSpecial
@@ -443,12 +447,22 @@
   id: IronKnight
   moodName: thaven-mood-ironknight-name
   moodDesc: thaven-mood-ironknight-desc
-  
+
 # One of your inanimate possessions is very dear to you. It is your best friend, and it has thoughts, feelings, and needs.
 - type: thavenMood
   id: PetRock
   moodName: thaven-mood-petrock-name
   moodDesc: thaven-mood-petrock-desc
+
+# [CLOTHING ITEM] is so in right now! You must wear them to show off your style!
+- type: thavenMood
+  id: HardsuitsGood
+  moodName: thaven-mood-hardsuits-good-name
+  moodDesc: thaven-mood-hardsuits-good-desc
+  moodVars:
+    clothes: MoodClothes
+  conflicts:
+  - HardsuitsGood
 
 
 # The color [COLOR] is the only acceptable color for decorations. Endeavor to make your environment this color where possible.

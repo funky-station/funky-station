@@ -22,6 +22,7 @@
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -64,6 +65,11 @@ namespace Content.Client.Actions
         public event Action? ClearAssignments;
         public event Action<List<SlotAssignment>>? AssignSlot;
 
+        // Goobstation start
+        public event Action<EntityUid>? ActionsSaved;
+        public event Action<EntityUid>? ActionsLoaded;
+        // Goobstation end
+
         private readonly List<EntityUid> _removed = new();
         private readonly List<(EntityUid, BaseActionComponent?)> _added = new();
 
@@ -78,6 +84,8 @@ namespace Content.Client.Actions
             SubscribeLocalEvent<EntityTargetActionComponent, ComponentHandleState>(OnEntityTargetHandleState);
             SubscribeLocalEvent<WorldTargetActionComponent, ComponentHandleState>(OnWorldTargetHandleState);
             SubscribeLocalEvent<EntityWorldTargetActionComponent, ComponentHandleState>(OnEntityWorldTargetHandleState);
+
+            SubscribeNetworkEvent<LoadActionsEvent>(OnLoadActions); // Goobstation
         }
 
         // goob edit - man fuck them actions bruh
@@ -106,6 +114,14 @@ namespace Content.Client.Actions
         //        UpdateAction(uid, action);
         //    }
         //}
+
+        private void OnLoadActions(LoadActionsEvent msg, EntitySessionEventArgs args) // Goobstation
+        {
+            if (args.SenderSession != _playerManager.LocalSession)
+                return;
+
+            ActionsLoaded?.Invoke(GetEntity(msg.Entity));
+        }
 
         private void OnInstantHandleState(EntityUid uid, InstantActionComponent component, ref ComponentHandleState args)
         {
@@ -258,6 +274,7 @@ namespace Content.Client.Actions
                 return;
 
             OnActionAdded?.Invoke(actionId);
+            ActionsUpdated?.Invoke(); // Goobstation
         }
 
         protected override void ActionRemoved(EntityUid performer, EntityUid actionId, ActionsComponent comp, BaseActionComponent action)
@@ -266,6 +283,7 @@ namespace Content.Client.Actions
                 return;
 
             OnActionRemoved?.Invoke(actionId);
+            ActionsUpdated?.Invoke(); // Goobstation
         }
 
         public IEnumerable<(EntityUid Id, BaseActionComponent Comp)> GetClientActions()

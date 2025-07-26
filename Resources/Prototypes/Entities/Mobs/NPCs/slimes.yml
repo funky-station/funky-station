@@ -153,6 +153,12 @@
     proto: slime
   - type: CombatPower # Goobstation
     factor: 8 # / 2 = times more powerful than an unarmed crew-member
+  - type: NightVision # EE edit
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: basic slime

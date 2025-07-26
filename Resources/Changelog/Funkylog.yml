@@ -3784,3 +3784,23 @@ Entries:
         wielded. Tally ho!
   id: 453
   time: '2025-07-25T21:12:51.0000000+00:00'
+- author: amethystowo
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced the temperature decrease on the Void Heretic's abilities by
+        about half.
+  id: 454
+  time: '2025-07-25T21:32:34.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Tweak
+      message: You no longer face items for a single frame when clicking while moving.
+  id: 455
+  time: '2025-07-26T18:52:48.0000000+00:00'
+- author: ArsCatalyst
+  changes:
+    - type: Add
+      message: Added Genpop, emergency lights, and gateway portals to Resort
+  id: 456
+  time: '2025-07-26T18:56:29.0000000+00:00'

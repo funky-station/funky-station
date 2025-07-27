@@ -3819,3 +3819,11 @@ Entries:
       message: A number of minor fixes and tweaks to Glacier
   id: 458
   time: '2025-07-27T05:33:58.0000000+00:00'
+- author: Catazeus
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaked medical, engineering and science job icons to pop out better
+        color wise.
+  id: 459
+  time: '2025-07-27T20:02:44.0000000+00:00'

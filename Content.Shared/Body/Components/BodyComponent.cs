@@ -5,6 +5,7 @@
 // SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -52,4 +53,11 @@ public sealed partial class BodyComponent : Component
     [ViewVariables]
     [DataField, AutoNetworkedField]
     public HashSet<EntityUid> LegEntities = new();
+
+    // EE edit
+    /// <summary>
+    /// Determines if the entity will show up on thermal scanners for thermal vision.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ThermalVisibility = true;
 }

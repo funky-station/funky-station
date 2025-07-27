@@ -644,6 +644,9 @@
     - EnergyCautery # Shitmed Change
     - AdvancedRetractor # Shitmed Change
     - PlantAnalyzer # Frontier
+    - ClothingEyesNightVisionGoggles # Funky - EE nightvision
+    - ClothingEyesNightVisionDiagnosticGoggles # Funky - EE nightvision
+    - ClothingEyesThermalVisionGoggles # Funky - EE nightvision
   - type: EmagLatheRecipes
     emagDynamicRecipes:
     - BoxBeanbag
@@ -1187,6 +1190,7 @@
     - WeaponMechCombatDisabler
     - WeaponMechCombatFlashbangLauncher
     - WeaponMechCombatMissileRack8
+    - ClothingEyesNightVisionSecurityGoggles # Funky - EE nightvision
   - type: EmagLatheRecipes # Goobstation
     emagStaticRecipes:
     - MagazinePistolCaselessRifle # Goobstation
@@ -1349,6 +1353,7 @@
     - AdvancedRetractor
     - OmnimedTool
     - MedicalCyberneticEyes
+    - ClothingEyesNightVisionMedicalGoggles # Funky - EE nightvision
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget

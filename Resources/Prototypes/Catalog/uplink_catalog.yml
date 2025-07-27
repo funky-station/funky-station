@@ -8,7 +8,7 @@
 # SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Júlio César Ueti <52474532+Mirino97@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 J�lio C�sar Ueti <52474532+Mirino97@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
 # SPDX-FileCopyrightText: 2022 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
@@ -128,10 +128,12 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
 # SPDX-FileCopyrightText: 2025 UristMcWiki <endernate2015@gmail.com>
 # SPDX-FileCopyrightText: 2025 amatwiedle <amatwiedle@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
@@ -248,6 +250,18 @@
   categories:
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: UplinkGlovesKnuckleDusters
+  name: uplink-gloves-knuckleduster-name
+  description: uplink-gloves-knuckleduster-desc
+  icon: { sprite: Clothing/Hands/Gloves/KnuckleDusters/syndicateknuckleduster.rsi, state: syndicateknuckleduster }
+  productEntity: ClothingHandsKnuckleDustersSyndicate
+  cost:
+    Telecrystal: 30 # funky - does 75% DPS of northstars, costs 75% of northstars
+  categories:
+  - UplinkWeaponry
+  saleLimit: 1 # matching WD edits i guess
 
 - type: listing
   id: UplinkDisposableTurret
@@ -1715,17 +1729,17 @@
       - NukeOpsUplink
   saleLimit: 1 # WD EDIT
 
-#- type: listing
-#  id: UplinkHardsuitSyndieElite
-#  name: uplink-hardsuit-syndieelite-name
-#  description: uplink-hardsuit-syndieelite-desc
-#  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
-# productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
-#  cost:
-#    Telecrystal: 100 # Funky
-#  categories:
-#  - UplinkWearables
-#  saleLimit: 1 # WD EDIT
+- type: listing
+  id: UplinkHardsuitSyndieElite
+  name: uplink-hardsuit-syndiepyrotect-name
+  description: uplink-hardsuit-syndiepyrotect-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
+  cost:
+    Telecrystal: 100 # Funky
+  categories:
+  - UplinkWearables
+  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkClothingOuterHardsuitJuggernaut
@@ -1773,6 +1787,84 @@
 #      tags:
 #        -NukeOpsUplink
 #  saleLimit: 1 # WD EDIT
+
+- type: listing # EE
+  id: UplinkNightGoggles
+  name: uplink-night-vision-name
+  description: uplink-night-vision-desc
+  productEntity: ClothingEyesNightVisionGogglesSyndie
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  saleLimit: 1
+
+- type: listing # EE
+  id: UplinkNightGogglesNukie
+  name: uplink-night-vision-name
+  description: uplink-night-vision-desc
+  productEntity: ClothingEyesNightVisionGogglesNukie
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  saleLimit: 1
+# Funky change - No thermal vision in uplink
+#- type: listing # EE
+#  id: UplinkThermalGoggles
+#  name: uplink-thermal-vision-name
+#  description: uplink-thermal-vision-desc
+#  productEntity: ClothingEyesThermalVisionGogglesSyndie
+#  discountCategory: rareDiscounts
+#  discountDownTo:
+#    Telecrystal: 1
+#  cost:
+#    Telecrystal: 3
+#  categories:
+#  - UplinkWearables
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - NukeOpsUplink
+
+#- type: listing # EE
+#  id: UplinkThermalGogglesNukie
+#  name: uplink-thermal-vision-name
+#  description: uplink-thermal-vision-desc
+#  productEntity: ClothingEyesThermalVisionGogglesNukie
+#  discountCategory: rareDiscounts
+#  discountDownTo:
+#    Telecrystal: 1
+#  cost:
+#    Telecrystal: 3
+#  categories:
+#  - UplinkWearables
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - NukeOpsUplink
+
+- type: listing
+  id: UplinkClothingConductingGloves
+  name: uplink-clothing-conducting-gloves-name
+  description: uplink-clothing-conducting-gloves-desc
+  productEntity: ClothingHandsGlovesConducting
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkWearables
 
 - type: listing
   id: UplinkBackpackSyndicate

@@ -48,6 +48,7 @@ station-ai-icon-dorf = Adventure awaits
 station-ai-icon-heartline = Lifeline
 station-ai-icon-smiley = All smiles
 
+station-ai-hologram-fumo = Fumo appearence
 station-ai-hologram-female = Female appearance
 station-ai-hologram-male = Male appearance
 station-ai-hologram-face = Disembodied head

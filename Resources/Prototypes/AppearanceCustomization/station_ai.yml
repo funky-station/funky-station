@@ -17,6 +17,7 @@
   name: station-ai-customization-hologram
   category: Hologram
   protoIds:
+  - StationAiHologramFumo
   - StationAiHologramFemale
   - StationAiHologramMale
   - StationAiHologramFace
@@ -117,6 +118,15 @@
       state: "ai_dead"
 
 # Holograms
+- type: stationAiCustomization
+  id: StationAiHologramFumo
+  name: station-ai-hologram-fumo
+  previewKey: Hologram
+  layerData:
+    Hologram:
+      sprite: Mobs/Silicon/holograms.rsi
+      state: default
+
 - type: stationAiCustomization
   id: StationAiHologramFemale
   name: station-ai-hologram-female

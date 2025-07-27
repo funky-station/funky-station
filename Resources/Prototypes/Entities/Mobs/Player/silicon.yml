@@ -484,11 +484,11 @@
   - type: StationAiCustomization
     protoIds:
       StationAiCoreIconography: StationAiIconAi
-      StationAiHolograms: StationAiHologramFemale
+      StationAiHolograms: StationAiHologramFumo
   - type: HolographicAvatar
     layerData:
     - sprite: Mobs/Silicon/holograms.rsi
-      state: ai_female
+      state: default
   - type: NameIdentifier
     group: StationAi
 

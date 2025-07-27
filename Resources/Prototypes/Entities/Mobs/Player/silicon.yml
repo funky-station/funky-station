@@ -491,8 +491,6 @@
     layerData:
     - sprite: Mobs/Silicon/holograms.rsi
       state: default
-  - type: NameIdentifier
-    group: StationAi
 
 # Hologram projection that the AI's eye tracks.
 - type: entity

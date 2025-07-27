@@ -21,6 +21,15 @@
 # 2 cost
 
 - type: trait
+  id: Archaic
+  name: trait-archaic-name
+  description: trait-archaic-desc
+  category: SpeechTraits
+  cost: 2
+  components:
+  - type: ArchaicAccent
+
+- type: trait
   id: MilbratAccent
   name: trait-milbrat-name
   description: trait-milbrat-desc

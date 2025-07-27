@@ -4,6 +4,9 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+trait-archaic-name = Archaic speech
+trait-archaic-desc = Thy language is quite outdated, and thou still hold thyself to some manner of chivalry
+
 trait-nocontractions-name = No contractions
 trait-nocontractions-desc = You are (mostly) incapable of using contractions.
 

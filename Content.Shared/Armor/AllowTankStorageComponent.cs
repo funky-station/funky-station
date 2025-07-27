@@ -18,8 +18,5 @@ public sealed partial class AllowTankStorageComponent : Component
     /// Whitelist for what entities are allowed in the tank storage slot.
     /// </summary>
     [DataField]
-    public EntityWhitelist Whitelist = new()
-    {
-        Components = new[] {"Item"}
-    };
+    public EntityWhitelist? Whitelist;
 }

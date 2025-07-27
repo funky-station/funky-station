@@ -3813,3 +3813,9 @@ Entries:
         autoswing, now clasified as command contraband.
   id: 457
   time: '2025-07-27T05:32:55.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: A number of minor fixes and tweaks to Glacier
+  id: 458
+  time: '2025-07-27T05:33:58.0000000+00:00'

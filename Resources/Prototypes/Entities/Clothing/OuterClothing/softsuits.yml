@@ -29,7 +29,7 @@
 
 #Basic EVA
 - type: entity
-  parent: ClothingOuterEVASuitBase
+  parent: [ClothingOuterEVASuitBase, AllowBackStorageClothingCivilian]
   id: ClothingOuterHardsuitEVA
   name: EVA suit
   description: A lightweight space suit with the basic ability to protect the wearer from the vacuum of space during emergencies.
@@ -46,7 +46,7 @@
 
 #Syndicate EVA
 - type: entity
-  parent: [ ClothingOuterEVASuitBase, AllowBackStorageClothing, BaseSyndicateContraband ]
+  parent: [ ClothingOuterEVASuitBase, AllowBackStorageClothingCombat, BaseSyndicateContraband ]
   id: ClothingOuterHardsuitSyndicate # TODO: rename to ClothingOuterEVASuitSyndicate
   name: syndicate EVA suit
   description: "Has a tag on the back that reads: 'Totally not property of an enemy corporation, honest!'"
@@ -140,9 +140,6 @@
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
-  - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: TemperatureProtection
     heatingCoefficient: 0.1
@@ -151,8 +148,11 @@
     modifiers:
       coefficients:
         Heat: 0.90
-        Radiation: 0.75
         Caustic: 0.5
+        Radiation: 0.75
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
   - type: GroupExamine
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitVoidParamed

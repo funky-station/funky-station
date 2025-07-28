@@ -123,13 +123,14 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
+        Blunt: 0.90
+        Slash: 0.90
         Piercing: 0.85
-        Heat: 0.9
-        Cold: 0.9
-        Radiation: 0.95
+        Heat: 0.90
+        Cold: 0.90
+        Shock: 0.10
         Caustic: 0.95
+        Radiation: 0.95
   - type: FlashImmunity
   - type: FlashSoundSuppression
 

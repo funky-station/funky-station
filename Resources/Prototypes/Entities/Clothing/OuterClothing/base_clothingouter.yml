@@ -157,7 +157,9 @@
     sprintModifier: 0.6
   - type: HeldSpeedModifier
   - type: Item
-    size: Ginormous
+    size: Huge
+    shape:
+    - 0,0,4,4 # Funkystation
   - type: Armor
     modifiers:
       coefficients:
@@ -202,6 +204,8 @@
   - type: HeldSpeedModifier
   - type: Item
     size: Huge
+    shape:
+    - 0,0,3,3 # Funkystation
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
   - type: DamageOnInteractProtection

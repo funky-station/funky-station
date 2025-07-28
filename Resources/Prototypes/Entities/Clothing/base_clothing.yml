@@ -68,9 +68,19 @@
 
 - type: entity
   abstract: true
-  id: AllowBackStorageClothing
+  id: AllowBackStorageClothingCombat
   components:
   - type: AllowBackStorage
+
+- type: entity
+  abstract: true
+  id: AllowBackStorageClothingCivilian
+  components:
+  - type: AllowBackStorage
+    whitelist:
+      components:
+      - Instrument
+      - Jukebox
 
 - type: entity
   abstract: true

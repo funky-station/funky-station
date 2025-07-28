@@ -35,7 +35,7 @@
 
 # Durathread plated vest
 - type: entity
-  parent: [ClothingOuterBaseMedium, AllowBackStorageClothing]
+  parent: [ClothingOuterBaseMedium, AllowBackStorageClothingCombat]
   id: ClothingOuterArmourDurathread
   name: durathread armor
   description: An improvised armored vest made from durathread with plasteel plates. It's surprisingly flexible and light, despite formidable armor plating.
@@ -56,37 +56,10 @@
   - type: Tag
     tags:
     - Armor
-# Helldiver
-- type: entity
-  parent: [ ClothingOuterArmorRaid, GeigerCounterClothing ]
-  id: ClothingOuterArmorHelldiver
-  name: salvage NT-01 tactical hardsuit
-  description: This armor is the NanoTrasen standard issue, made from the same titanium alloy as the Goliath hull.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Armor/helldiver.rsi
-    layers:
-    - state: icon
-    - state: light-overlay
-      visible: false
-      shader: unshaded
-  - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Armor/helldiver.rsi
-  - type: TemperatureProtection
-    heatingCoefficient: 0.1
-    coolingCoefficient: 0.1
-  - type: PointLight
-    enabled: false
-    color: "#e5af38"
-    radius: 5
-    energy: 2
-    mask: /Textures/Effects/LightMasks/cone.png
-    autoRot: true
-    netsync: false
 
 # Blueshield Armour Vest
 - type: entity
-  parent: [ ClothingOuterBaseMedium, AllowBackStorageClothing, BaseCentcommContraband ]
+  parent: [ ClothingOuterBaseMedium, AllowBackStorageClothingCombat, BaseCentcommContraband ]
   id: ClothingBlueshieldArmourVest
   name: blueshield's security armour
   description: An armoured vest with the badge of the blueshield

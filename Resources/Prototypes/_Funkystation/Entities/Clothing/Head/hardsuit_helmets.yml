@@ -32,3 +32,21 @@
       - state: off-equipped-HELMET
   - type: RgbLightController
     layers: [ 1 ]
+
+# Helldivers, Funky
+- type: entity
+  parent: ClothingHeadHelmetHardsuitGoliath
+  id: ClothingHeadHelmetHelldiver
+  name: salvage NT-01 tactical helmet
+  description: This armor is the NanoTrasen standard issue, made from the same titanium alloy as the Goliath hull.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Helmets/helldiver.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Helmets/helldiver.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+    - HeadSide

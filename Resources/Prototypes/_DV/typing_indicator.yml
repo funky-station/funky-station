@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
 # SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -11,16 +13,19 @@
   id: felinid
   spritePath: /Textures/_DV/Effects/speech.rsi
   typingState: felinid0
+  idleState: felinid0 #TODO add idle state sprite
   offset: 0, 0.2 # 0625
 
 - type: typingIndicator
   id: rodentia
   spritePath: /Textures/_DV/Effects/speech.rsi
   typingState: rodentia0
+  idleState: rodentia0 #TODO add idle state sprite
   offset: 0, 0.2 # 0625
 
 - type: typingIndicator
   id: thaven
   spritePath: /Textures/_DV/Effects/speech.rsi
   typingState: thaven0
+  idleState: thaven0 #TODO add idle state sprite
   offset: -0.2, 0.1 # 0625

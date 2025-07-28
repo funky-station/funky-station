@@ -9,77 +9,83 @@
 // SPDX-FileCopyrightText: 2025 Drywink <43855731+Drywink@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+using Content.Server.Actions;
+using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
+using Content.Server.Emp;
+using Content.Server.EntityEffects.EffectConditions;
+using Content.Server.Explosion.EntitySystems;
+using Content.Server.Flash;
+using Content.Server.Flash.Components;
 using Content.Server.Forensics;
+using Content.Server.Gravity;
+using Content.Server.Humanoid;
+using Content.Server.Light.EntitySystems;
+using Content.Server.Objectives.Components;
+using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Store.Systems;
+using Content.Server.Stunnable;
 using Content.Server.Zombies;
+using Content.Shared._EE.Overlays;
+using Content.Shared._EE.Overlays.Switchable;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Actions;
 using Content.Shared.Alert;
+using Content.Shared.Body.Part;
+using Content.Shared.Camera;
 using Content.Shared.Changeling;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.FixedPoint;
+using Content.Shared.Fluids;
+using Content.Shared.Forensics.Components;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Inventory;
+using Content.Shared.Jittering;
+using Content.Shared.Mind;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Polymorph;
+using Content.Shared.Popups;
+using Content.Shared.Revolutionary.Components;
+using Content.Shared.StatusEffect;
 using Content.Shared.Store.Components;
 using Robust.Server.Audio;
-using Robust.Shared.Audio;
-using Robust.Shared.Random;
-using Content.Shared.Popups;
-using Content.Shared.Damage;
-using Robust.Shared.Prototypes;
-using Content.Server.Body.Systems;
-using Content.Shared.Actions;
-using Content.Shared.Polymorph;
-using Robust.Shared.Serialization.Manager;
-using Content.Server.Actions;
-using Content.Server.Humanoid;
-using Content.Server.Polymorph.Components;
-using Content.Shared.Chemistry.EntitySystems;
-using Content.Server.Flash;
-using Content.Server.Emp;
 using Robust.Server.GameObjects;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Inventory;
-using Content.Shared.Movement.Systems;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Mind;
-using Content.Server.Objectives.Components;
-using Content.Server.Light.EntitySystems;
-using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.StatusEffect;
-using Content.Shared.Movement.Pulling.Systems;
-using Content.Shared.Cuffs;
-using Content.Shared.Fluids;
-using Content.Shared.Revolutionary.Components;
+using Robust.Shared.Audio;
 using Robust.Shared.Player;
-using System.Numerics;
-using Content.Shared.Camera;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
-using Content.Shared.Damage.Components;
-using Content.Server.Gravity;
-using Content.Shared.Mobs.Components;
-using Content.Server.Stunnable;
-using Content.Shared.Jittering;
-using Content.Server.Explosion.EntitySystems;
 using System.Linq;
-using Content.Server.EntityEffects.EffectConditions;
-using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Body.Part;
-using Content.Shared.Forensics.Components;
+using System.Numerics;
 
 namespace Content.Server.Changeling;
 
-public sealed partial class ChangelingSystem : EntitySystem
+public sealed partial class ChangelingSystem : SharedChangelingSystem
 {
     // this is one hell of a star wars intro text
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -121,6 +127,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
+    [Dependency] private readonly IComponentFactory _compFactory = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -164,9 +171,38 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         SubscribeLocalEvent<ChangelingComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
 
+        SubscribeLocalEvent<ChangelingComponent, AugmentedEyesightPurchasedEvent>(OnAugmentedEyesightPurchased);
+
         SubscribeAbilities();
     }
 
+    protected override void UpdateFlashImmunity(EntityUid uid, bool active)
+    {
+        if (TryComp(uid, out FlashImmunityComponent? flashImmunity))
+            flashImmunity.Enabled = active;
+    }
+
+    private void OnAugmentedEyesightPurchased(Entity<ChangelingComponent> ent, ref AugmentedEyesightPurchasedEvent args)
+    {
+        InitializeAugmentedEyesight(ent);
+    }
+
+    public void InitializeAugmentedEyesight(EntityUid uid)
+    {
+        EnsureComp<FlashImmunityComponent>(uid);
+        EnsureComp<EyeProtectionComponent>(uid);
+
+        var thermalVision = _compFactory.GetComponent<ThermalVisionComponent>();
+        thermalVision.Color = Color.FromHex("#FB9898");
+        thermalVision.LightRadius = 15f;
+        thermalVision.FlashDurationMultiplier = 2f;
+        thermalVision.ActivateSound = null;
+        thermalVision.DeactivateSound = null;
+        thermalVision.ToggleAction = null;
+
+        AddComp(uid, thermalVision);
+        Dirty(uid, thermalVision);
+    }
     private void OnRefreshSpeed(Entity<ChangelingComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
         if (ent.Comp.StrainedMusclesActive)
@@ -602,22 +638,41 @@ public sealed partial class ChangelingSystem : EntitySystem
                 newLingComp?.AbsorbedDNA.Remove(data);
             RemCompDeferred<ChangelingComponent>(uid);
 
-            if (TryComp<StoreComponent>(uid, out var storeComp))
+            //if (TryComp<StoreComponent>(uid, out var storeComp))
+            //{
+            //    var storeCompCopy = _serialization.CreateCopy(storeComp, notNullableOverride: true);
+            //    RemComp<StoreComponent>(newUid.Value);
+            //    EntityManager.AddComponent(newUid.Value, storeCompCopy);
+            //}
+        }
+
+        List<Type> types = new()
+        {
+            typeof(HeadRevolutionaryComponent),
+            typeof(RevolutionaryComponent),
+            typeof(GhoulComponent),
+            typeof(HereticComponent),
+            typeof(StoreComponent),
+            typeof(FlashImmunityComponent),
+            typeof(EyeProtectionComponent),
+            typeof(NightVisionComponent),
+            typeof(ThermalVisionComponent),
+            // ADD MORE TYPES HERE
+        };
+        foreach (var type in types)
+        {
+            if (EntityManager.TryGetComponent(uid, type, out var icomp))
             {
-                var storeCompCopy = _serialization.CreateCopy(storeComp, notNullableOverride: true);
-                RemComp<StoreComponent>(newUid.Value);
-                EntityManager.AddComponent(newUid.Value, storeCompCopy);
+                var newComp = (Component) _compFactory.GetComponent(_compFactory.GetComponentName(type));
+                var temp = (object) newComp;
+                _serialization.CopyTo(icomp, ref temp, notNullableOverride: true);
+                EntityManager.AddComponent(newEnt, (Component) temp!);
             }
         }
 
-        // exceptional comps check
-        // there's no foreach for types i believe so i gotta thug it out yandev style.
-        if (HasComp<HeadRevolutionaryComponent>(uid))
-            EnsureComp<HeadRevolutionaryComponent>(newEnt);
-        if (HasComp<RevolutionaryComponent>(uid))
-            EnsureComp<RevolutionaryComponent>(newEnt);
+        RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(uid)), newEnt);
 
-        QueueDel(uid);
+        Timer.Spawn(300, () => { QueueDel(uid); });
 
         return newUid;
     }

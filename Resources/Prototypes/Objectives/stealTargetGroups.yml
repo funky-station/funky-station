@@ -21,6 +21,7 @@
 # SPDX-FileCopyrightText: 2025 Ekpy <33184056+Ekpy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -69,6 +70,13 @@
   sprite:
     sprite: Objects/Misc/qm_clipboard.rsi
     state: qm_clipboard
+
+- type: stealTargetGroup
+  id: ClothingHandsKnuckleDustersQM
+  name: steal-target-groups-clothing-hands-knuckledusters-qm
+  sprite:
+    sprite: Clothing/Hands/Gloves/KnuckleDusters/goldenknuckleduster.rsi
+    state: goldenknuckleduster
 
 - type: stealTargetGroup
   id: FoodMeatCorgi

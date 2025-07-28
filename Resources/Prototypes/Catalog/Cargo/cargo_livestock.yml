@@ -20,6 +20,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Crude Oil <124208219+CroilBird@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -177,7 +178,7 @@
 - type: cargoProduct
   id: LivestockParrot
   icon:
-    sprite: Mobs/Animals/parrot.rsi
+    sprite: Mobs/Animals/parrot/parrot.rsi
     state: parrot
   product: CrateNPCParrot
   cost: 3000

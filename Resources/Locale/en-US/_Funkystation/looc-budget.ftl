@@ -10,3 +10,8 @@ cmd-looc-budget-4 = display a message to the user to inform them their budget ha
 
 cmd-looc-budget-error-no-user = User not found.
 
+cmd-looc-budget-disabled-message = LOOC budget is disabled.
+cmd-looc-budget-get-result = Player {$player} has spent {$spent} of their LOOC budget of {$budget}.
+cmd-looc-budget-get-help = looc_budget_get <user | all>
+cmd-looc-budget-get-desc = Get the current LOOC budget and spent messages of a player.
+

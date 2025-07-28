@@ -119,7 +119,7 @@ public sealed partial class PlayerProvidedCharacterRecords
                    && HasInsurance == other.HasInsurance
                    && InsuranceProvider == other.InsuranceProvider
                    && InsuranceType == other.InsuranceType
-                   && _medicalInfo == other.MedicalInfo
+                   && _medicalInfo.SetEquals(other.MedicalInfo)
                    && BloodType == other.BloodType
                    && PostmortemInstructions == other.PostmortemInstructions;
         if (!test)

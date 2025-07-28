@@ -368,7 +368,6 @@
   moodDesc: thaven-mood-public-sector-desc
   conflicts:
   - StationIsAlive
-  - PrivateSector
   jobConflicts: # conflicts with everyone except Civilian and Specific (boxer, zookeeper)
   - Cargo
   - CentralCommandSpecial

@@ -120,9 +120,6 @@ thaven-mood-fairy-desc = You are allergic to iron, steel, and silver. You should
 thaven-mood-afraiddark-name = Afraid of the Dark
 thaven-mood-afraiddark-desc = Darkness is incredibly dangerous, and you won't enter a space without proper illumination.
 
-thaven-mood-private-sector-name = Private Sector
-thaven-mood-private-sector-desc = Your job should not be done in public if it can be helped. If at all possible, you should renovate the facilities to disallow public access to your workplace.
-
 # Testing Locales, only exist to shut up prototype tests
 DuplicateTest = You shouldn't see this
 DuplicateOverlapTest = Time, doctor freeman?

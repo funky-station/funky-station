@@ -197,4 +197,4 @@ thaven-mood-petrock-name = Pet Rock
 thaven-mood-petrock-desc = One of your inanimate possessions is very dear to you. It is your best friend, and it has thoughts, feelings, and needs.
 
 thaven-mood-hardsuits-good-name = {$clothes} Are So In Right Now!
-thaven-mood-hardsuits-good-desc = Anyone wearing them in public should be adored and celebrated. If you need to wear them, it should never be done where others can see it.
+thaven-mood-hardsuits-good-desc = They are absolutely the pinnacle of fashion. You and everybody else utterly need to be wearing these to stay in style. Anyone who is not wearing these are quite unfashionable.

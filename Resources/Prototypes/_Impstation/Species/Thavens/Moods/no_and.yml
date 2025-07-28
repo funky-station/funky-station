@@ -47,7 +47,6 @@
   - Fairy
   - FairyRings
   - AfraidDark
-  - PrivateSector
 
 
 
@@ -346,25 +345,6 @@
   id: AfraidDark
   moodName: thaven-mood-afraiddark-name
   moodDesc: thaven-mood-afraiddark-desc
-
-# Private Sector: Your job should not be done in public if it can be helped. If at all possible, you should renovate the facilities to disallow public access to your workplace.
-- type: thavenMood
-  id: PrivateSector
-  moodName: thaven-mood-private-sector-name
-  moodDesc: thaven-mood-private-sector-desc
-  conflicts:
-  - StationIsAlive
-  - PublicSector
-  jobConflicts: # conflicts with everyone except Civilian and Specific (boxer, zookeeper)
-  - Cargo
-  - CentralCommandSpecial
-  - CentralCommand
-  - Command
-  - Engineering
-  - Medical
-  - Security
-  - Science
-
 
 # [ITEM]s are an abomination. You must avoid them at all costs, and destroy them if necessary.
 #- type: thavenMood

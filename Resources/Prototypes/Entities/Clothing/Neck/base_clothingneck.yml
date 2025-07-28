@@ -57,3 +57,6 @@
     - Scarf
     - ClothMade
     - WhitelistChameleon
+  - type: TemperatureProtection
+    heatingCoefficient: 1.05
+    coolingCoefficient: 0.5

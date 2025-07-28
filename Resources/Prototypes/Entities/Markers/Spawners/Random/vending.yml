@@ -44,6 +44,10 @@
     - VendingMachineSovietSoda #Boda
     - VendingMachineSpaceUp
     - VendingMachineStarkist
+    # Funky 
+    - VendingMachineFitness # SweatMAX
+    - VendingMachineSolsnack # Mars Mart
+    - VendingMachineWeeb # Nippon-tan    
     chance: 1
 
 

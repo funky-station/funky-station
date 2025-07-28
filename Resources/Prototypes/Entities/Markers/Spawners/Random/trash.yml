@@ -36,6 +36,20 @@
       - id: FoodPacketSusTrash
       - id: FoodPacketSyndiTrash
       - id: BrokenBottle
+      # Funky 
+      - id: FoodPacketLunacakeTrash
+      - id: FoodPacketMooncakeTrash
+      - id: FoodPacketMochicakeTrash
+      - id: FoodPacketPlutoniumrodsTrash
+      - id: FoodPacketSaturnosTrash
+      - id: FoodPacketTidegobsTrash
+      - id: FoodPacketJoveGelloTrash
+      - id: FoodPacketMarsFroukaTrash
+      - id: FoodPacketVenusTrash
+      - id: FoodPacketOortrocksTrash
+      - id: FoodPacketRedalertnutsTrash
+      - id: FoodPacketStickTrash
+      - id: FoodPacketProteinbarTrash      
     - !type:GroupSelector
       weight: 5
       children:

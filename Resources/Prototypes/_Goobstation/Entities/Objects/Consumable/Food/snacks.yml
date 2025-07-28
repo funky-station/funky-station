@@ -24,10 +24,8 @@
           Quantity: 4
         - ReagentId: Protein
           Quantity: 4
-        - ReagentId: CocoaPowder
-          Quantity: 1
         - ReagentId: Theobromine
-          Quantity: 1
+          Quantity: 2
 
 # Sol Vend / Mars Mart
 - type: entity
@@ -65,6 +63,15 @@
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: lunacake
   - type: Item
+  - type: SolutionContainerManager # Funky Station 
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Theobromine
+          Quantity: 2    
 
 - type: entity
   parent: BaseItem
@@ -136,7 +143,17 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: lunacake
-  - type: Item
+  - type: SolutionContainerManager # Funky Station 
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 13
+        - ReagentId: Granibitulari
+          Quantity: 5
+        - ReagentId: Theobromine
+          Quantity: 2  
 
 - type: entity
   parent: FoodSnackBase

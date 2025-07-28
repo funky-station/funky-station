@@ -2,3 +2,8 @@
   id: RevCoin
   displayName: store-currency-display-revcoin
   canWithdraw: false
+
+- type: currency
+  id: SalvageTicket
+  displayName: store-currency-display-salvageticket
+  canWithdraw: true

@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingBackpackDuffelSalvage
+  id: ClothingBackpackDuffelSalvageHelldiver
+  name: NT-01 Bundle 
+  description: "For Nanotrasen!" 
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterArmorHelldiver
+      - id: HelldiverIDCard
+      - id: ClothingNeckCloakHelldiver
+      - id: NTHandyFlag

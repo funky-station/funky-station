@@ -1,0 +1,4 @@
+- type: storeCategory
+  id: SalvageVendorWearables
+  name: store-category-salvage-wearables
+  priority: 1

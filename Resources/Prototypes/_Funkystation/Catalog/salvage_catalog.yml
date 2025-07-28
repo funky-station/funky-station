@@ -1,0 +1,46 @@
+- type: listing
+  id: SalvageVendorSpationaught
+  name: vendor-salvage-mining-suit-name
+  description: vendor-salvage-mining-suit-desc
+  icon: { sprite:  Clothing/OuterClothing/Hardsuits/spatio.rsi, state: icon}
+  productEntity: ClothingOuterHardsuitSpatio
+  cost:
+    SalvageTicket: 40 
+  categories:
+  - SalvageVendorWearables
+
+- type: listing
+  id: SalvageVendorMiningSuit
+  name: vendor-salvage-mining-suit-name
+  description: vendor-salvage-mining-suit-desc
+  icon: { sprite:  Clothing/OuterClothing/Hardsuits/salvage.rsi, state: icon}
+  productEntity: ClothingOuterHardsuitSalvage
+  cost:
+    SalvageTicket: 75 
+  categories:
+  - SalvageVendorWearables
+  saleLimit: 3
+
+- type: listing
+  id: SalvageVendorHelldiver
+  name: vendor-salvage-mining-suit-name
+  description: vendor-salvage-mining-suit-desc
+  icon: { sprite:  _Goobstation/Clothing/OuterClothing/Armor/helldiver.rsi, state: icon}
+  productEntity: ClothingBackpackDuffelSalvageHelldiver
+  cost:
+    SalvageTicket: 500
+  categories:
+  - SalvageVendorWearables
+  saleLimit: 3
+
+- type: listing
+  id: SalvageVendorMaxim
+  name: vendor-salvage-mining-suit-name
+  description: vendor-salvage-mining-suit-desc
+  icon: { sprite:  Clothing/OuterClothing/Hardsuits/maxim.rsi, state: icon}
+  productEntity: ClothingOuterHardsuitMaxim
+  cost:
+    SalvageTicket: 7500 
+  categories:
+  - SalvageVendorWearables
+  saleLimit: 1    

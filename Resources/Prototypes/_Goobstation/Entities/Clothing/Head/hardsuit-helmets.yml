@@ -150,3 +150,21 @@
     component:
     - type: Stealth
 
+# Helldiver
+
+- type: entity
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  id: ClothingHeadHelmetHelldiver
+  name: salvage NT-01 tactical helmet
+  description: This armor is the NanoTrasen standard issue, made from the same titanium alloy as the Goliath hull.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Helmets/helldiver.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Helmets/helldiver.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: PointLight
+    radius: 7
+    energy: 3    

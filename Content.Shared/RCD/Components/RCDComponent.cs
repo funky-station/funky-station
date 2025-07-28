@@ -12,6 +12,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.RCD.Components;
 
@@ -62,6 +63,13 @@ public sealed partial class RCDComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool IsRpd { get; set; } = false;
+
+    /// <summary>
+    /// Funkystation
+    /// Stores color data for the RPD
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public (string Key, Color? Color) PipeColor { get; set; } = ("default", null);
 
     /// <summary>
     /// The direction constructed entities will face upon spawning

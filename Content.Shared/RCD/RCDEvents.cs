@@ -46,8 +46,29 @@ public sealed class RCDConstructionGhostFlipEvent : EntityEventArgs
     }
 }
 
+// Funky - Added to handle pipe color changes in RPDs
+[Serializable, NetSerializable]
+public sealed class RCDColorChangeMessage : BoundUserInterfaceMessage
+{
+    public readonly NetEntity NetEntity;
+    public readonly (string Key, Color? Color) PipeColor;
+
+    public RCDColorChangeMessage(NetEntity entity, (string Key, Color? Color) pipeColor)
+    {
+        NetEntity = entity;
+        PipeColor = pipeColor;
+    }
+}
+
 [Serializable, NetSerializable]
 public enum RcdUiKey : byte
+{
+    Key
+}
+
+// Funky - Added to handle RPD color and layer selection
+[Serializable, NetSerializable]
+public enum RpdUiKey : byte
 {
     Key
 }

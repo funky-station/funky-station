@@ -531,6 +531,13 @@
     charges: 45
   - type: Sprite
     sprite: Objects/Tools/rpd.rsi
+  - type: UserInterface
+    interfaces:
+      enum.RpdUiKey.Key:
+        type: RPDMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.RpdUiKey.Key
 
 
 - type: entity

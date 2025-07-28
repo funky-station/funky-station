@@ -508,14 +508,14 @@ namespace Content.Server.Atmos.EntitySystems
                     if (TryComp(uid, out TemperatureComponent? temp))
                         _temperatureSystem.ChangeHeat(uid, 12500 * flammable.FireStacks, false, temp);
 
-                    var ev = new GetFireProtectionEvent();
+                    var ev = new GetFireResistanceEvent();
                     // let the thing on fire handle it
                     RaiseLocalEvent(uid, ref ev);
                     // and whatever it's wearing
                     if (_inventoryQuery.TryComp(uid, out var inv))
                         _inventory.RelayEvent((uid, inv), ref ev);
 
-                    _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * ev.Multiplier, interruptsDoAfters: false);
+                    _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * ev.DamageCoefficient, interruptsDoAfters: false);
 
                     AdjustFireStacks(uid, flammable.FirestackFade * (flammable.Resisting ? 10f : 1f), flammable, flammable.OnFire);
                 }

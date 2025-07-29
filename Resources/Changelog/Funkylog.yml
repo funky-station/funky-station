@@ -3804,3 +3804,26 @@ Entries:
       message: Added Genpop, emergency lights, and gateway portals to Resort
   id: 456
   time: '2025-07-26T18:56:29.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Rebalanced the golden toolbox that exists in the vault, now shares the
+        same stats as a syndicate suspicious toolbox while also being capable of
+        autoswing, now clasified as command contraband.
+  id: 457
+  time: '2025-07-27T05:32:55.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: A number of minor fixes and tweaks to Glacier
+  id: 458
+  time: '2025-07-27T05:33:58.0000000+00:00'
+- author: Catazeus
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaked medical, engineering and science job icons to pop out better
+        color wise.
+  id: 459
+  time: '2025-07-27T20:02:44.0000000+00:00'

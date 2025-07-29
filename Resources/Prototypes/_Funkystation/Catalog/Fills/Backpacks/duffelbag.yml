@@ -1,0 +1,22 @@
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledKitSlasher
+  name: slasher syndie-kit
+  description: "All you need to become a terror of maints! Includes an exclusive chainsaw and armored apron for endless hack-and-slash fun!"
+  components:
+  - type: StorageFill
+    contents:
+      - id: SyndieChainsaw
+      - id: ClothingOuterApronArmored
+      - id: ClothingHeadHatWeldingMaskPainted
+      - id: ClothingShoesChameleonNoSlips
+      - id: ClothingEyesNightVisionGogglesSyndie
+      - id: ThrowingKnife
+      - id: ThrowingKnife
+      - id: ThrowingKnife
+      - id: ThrowingKnife
+      - id: SmokeGrenade
+      - id: SmokeGrenade
+      - id: RadioJammer
+      - id: SyndicateJawsOfLife
+      - id: Gauze

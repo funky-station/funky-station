@@ -1,0 +1,46 @@
+# SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 I.K <45953835+notquitehadouken@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 JessePretendstoCode <j14527998@gmail.com>
+# SPDX-FileCopyrightText: 2023 Jessetriesagain <138042477+Jessetriesagain@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2023 notquitehadouken <1isthisameme>
+# SPDX-FileCopyrightText: 2023 stopbreaking <126102320+stopbreaking@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: entity
+  name: syndicate chainsaw
+  parent: [Chainsaw, BaseSyndicateContraband]
+  id: SyndieChainsaw
+  description: A brutal, syndicate-branded chainsaw. Definitely not for cutting down trees.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Melee/syndie_chainsaw.rsi
+    state: icon
+  - type: MeleeWeapon
+    autoAttack: true
+    angle: 0
+    wideAnimationRotation: -135
+    attackRate: 4
+    damage:
+      types:
+        Slash: 3
+        Blunt: 2
+        Structural: 8
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 4.5
+        Structural: 8
+    soundHit:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        volume: -3
+  - type: Item
+    size: Normal
+    sprite: _Funkystation/Objects/Weapons/Melee/syndie_chainsaw.rsi

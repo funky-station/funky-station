@@ -171,7 +171,8 @@
     - id: BalloonSyn
     - id: WeaponSniperMosin
     - id: ClothingEyesNightVisionGogglesSyndie
-    - id: ClothingEyesThermalVisionGogglesSyndie
+    # Funky - no thermals in maints lockers please
+    # - id: ClothingEyesThermalVisionGogglesSyndie
       weight: 2
     - id: ClothingHandsKnuckleDustersSyndicate
 

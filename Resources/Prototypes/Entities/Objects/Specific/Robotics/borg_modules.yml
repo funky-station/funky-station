@@ -505,12 +505,6 @@
   - type: ItemBorgModule
     items:
     - RCDRecharging
-    - RPDRecharging # Goobstation
-    - BorgFireExtinguisher
-    - BorgHandheldGPSBasic
-    - GasAnalyzer
-    - HolofanProjector
-    - GeigerCounter
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: rcd-module }
 

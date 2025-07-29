@@ -13,6 +13,8 @@
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -31,6 +33,7 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Objectives.Commands;
+using Content.Shared._DV.CustomObjectiveSummary; // DeltaV
 using Content.Shared.Prototypes;
 using Content.Shared.Roles.Jobs;
 using Robust.Server.Player;
@@ -190,6 +193,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                     totalObjectives++;
 
                     agentSummary.Append("- ");
+                    /* Begin DeltaV removal - Removed greentext
                     if (progress > 0.99f)
                     {
                         agentSummary.AppendLine(Loc.GetString(
@@ -208,10 +212,39 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                             ("markupColor", "red")
                         ));
                     }
+                    End DeltaV removal */
+                    // Begin DeltaV Additions - Generic objective
+                    agentSummary.AppendLine(Loc.GetString(
+                        "objectives-objective",
+                        ("objective", objectiveTitle)
+                    ));
+                    // End DeltaV Additions
                 }
             }
 
             var successRate = totalObjectives > 0 ? (float) completedObjectives / totalObjectives : 0f;
+            // Begin DeltaV Additions - custom objective response.
+            if (TryComp<CustomObjectiveSummaryComponent>(mindId, out var customComp))
+            {
+                // We have to spit it like this to make it readable. Yeah, it sucks but for some reason the entire thing
+                // is just one long string...
+                var words = customComp.ObjectiveSummary.Split(" ");
+                var currentLine = "";
+                foreach (var word in words)
+                {
+                    currentLine += word + " ";
+
+                    // magic number
+                    if (currentLine.Length <= 50)
+                        continue;
+
+                    agentSummary.AppendLine(Loc.GetString("custom-objective-format", ("line", currentLine)));
+                    currentLine = "";
+                }
+
+                agentSummary.AppendLine(Loc.GetString("custom-objective-format", ("line", currentLine)));
+            }
+            // End DeltaV Additions
             agentSummaries.Add((agentSummary.ToString(), successRate, completedObjectives));
         }
 

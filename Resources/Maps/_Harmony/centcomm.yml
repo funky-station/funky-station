@@ -32807,13 +32807,6 @@ entities:
     - type: Transform
       pos: 53.483402,34.619392
       parent: 1
-- proto: PlushieThrongler
-  entities:
-  - uid: 2572
-    components:
-    - type: Transform
-      pos: 59.594227,19.558416
-      parent: 1
 - proto: PortableGeneratorJrPacman
   entities:
   - uid: 2758

@@ -3637,3 +3637,193 @@ Entries:
         players can send per round. Defaults to 20 messages. 
   id: 439
   time: '2025-07-19T03:10:28.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Added Requests and Communications Consoles to Amber
+    - type: Add
+      message: Added Crystallizer Machine Board to Amber
+    - type: Add
+      message: Added Courtroom and Magistrate, as well as NTR and BSO to Amber
+    - type: Add
+      message: Added Genpop to Amber
+    - type: Add
+      message: Added Medical Biofab to Amber
+  id: 440
+  time: '2025-07-19T06:05:31.0000000+00:00'
+- author: GreyMario
+  changes:
+    - type: Tweak
+      message: >-
+        Paradox Clone improvements to greatly reduce the area of attack on
+        identifying the fake
+  id: 441
+  time: '2025-07-19T06:07:54.0000000+00:00'
+- author: beckthompson
+  changes:
+    - type: Remove
+      message: 'Greentexts are now not visible at the end of round screen. '
+    - type: Add
+      message: 'You can now write custom objective summaries as traitors. '
+  id: 442
+  time: '2025-07-19T16:53:26.0000000+00:00'
+- author: Catazeus
+  changes:
+    - type: Fix
+      message: Holoflare pen failing arbitrage test.
+  id: 443
+  time: '2025-07-19T19:48:26.0000000+00:00'
+- author: Queer-Cats
+  changes:
+    - type: Tweak
+      message: >-
+        There are now separate slots for air tanks and back stroage items,
+        allowing combat hardsuits to carry both at the same time
+    - type: Add
+      message: >-
+        Gave bartender vest the backstorage slot, so bartenders can now wear
+        their shotgun instead of just chopping it in half
+  id: 444
+  time: '2025-07-20T18:38:01.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: >-
+        Add Psychologist camera, added AI turrets to AI room, added lv for
+        unpowered scrubber and air vent in Courtroom
+    - type: Remove
+      message: >-
+        Removed Material silo, removed extra mining suit in the QM's locker,
+        removed salvager supplies crate in salvage, removed HFR flatpackers and
+        HFR room
+    - type: Tweak
+      message: >-
+        Connected all Bluespace Gas dispensers to the Bluespace Gas Network,
+        moved mats room button for blast door so it couldn't be accessed from
+        the outside
+    - type: Fix
+      message: Fixed HOS camera name
+  id: 445
+  time: '2025-07-20T19:18:52.0000000+00:00'
+- author: UristMcWiki
+  changes:
+    - type: Remove
+      message: >-
+        Removed the Hardlight Bow for a test period. Cannot be bought. Will
+        return with a reworked concept later.
+  id: 446
+  time: '2025-07-21T21:15:30.0000000+00:00'
+- author: UristMcWiki
+  changes:
+    - type: Remove
+      message: Removed the Elite Hardsuit.
+  id: 447
+  time: '2025-07-22T23:55:20.0000000+00:00'
+- author: Catazeus
+  changes:
+    - type: Tweak
+      message: New ID card sprites, including in hand.
+    - type: Tweak
+      message: Magistrate and NTR job icons ~~have touched grass~~ are now green.
+    - type: Add
+      message: Added CCO, ERT, CBURN, HECU, Death Squad, Cluwne, Wizard job icons.
+    - type: Remove
+      message: >-
+        Removed old ID card sprites, excluding ones in
+        `\Textures\Objects\Misc\id_cards.rsi`.
+  id: 448
+  time: '2025-07-22T23:57:02.0000000+00:00'
+- author: Dragon232347
+  changes:
+    - type: Add
+      message: >-
+        Adds Dealbreakers, the [[legally distinct]] version of YOUR favorite
+        [[real boy]]'s glasses! Can be found as maints loot.
+  id: 449
+  time: '2025-07-23T03:18:16.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Completely reworked Bagel sec a second time to be much more spacious
+    - type: Tweak
+      message: Bagel AI turrets are real now and DEBUG generator replaced with RTG
+    - type: Tweak
+      message: >-
+        Bagel Solars are now far less setup round start but with supplies to
+        fully finish them.
+  id: 450
+  time: '2025-07-23T18:36:56.0000000+00:00'
+- author: gaesnek
+  changes:
+    - type: Fix
+      message: Chaplain is now actually allowed to have their gun.
+  id: 451
+  time: '2025-07-25T21:11:43.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Tweak
+      message: Magistrate can now take pwig AND gavel as loadout items
+    - type: Tweak
+      message: Magistrate now has access more in line with their duties
+    - type: Tweak
+      message: >-
+        Magistrate playtime pre-requisites have been increased drastically, to
+        be more in line with the expectations for the role and the experience
+        you should have before playing it
+    - type: Tweak
+      message: Gavel now actually does damage
+    - type: Remove
+      message: Removed deathsquad from the codebase
+  id: 452
+  time: '2025-07-25T21:12:14.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Add
+      message: >-
+        The Kardashev-Mosin's bayonet can now be used while the weapon is
+        wielded. Tally ho!
+  id: 453
+  time: '2025-07-25T21:12:51.0000000+00:00'
+- author: amethystowo
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced the temperature decrease on the Void Heretic's abilities by
+        about half.
+  id: 454
+  time: '2025-07-25T21:32:34.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Tweak
+      message: You no longer face items for a single frame when clicking while moving.
+  id: 455
+  time: '2025-07-26T18:52:48.0000000+00:00'
+- author: ArsCatalyst
+  changes:
+    - type: Add
+      message: Added Genpop, emergency lights, and gateway portals to Resort
+  id: 456
+  time: '2025-07-26T18:56:29.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Rebalanced the golden toolbox that exists in the vault, now shares the
+        same stats as a syndicate suspicious toolbox while also being capable of
+        autoswing, now clasified as command contraband.
+  id: 457
+  time: '2025-07-27T05:32:55.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: A number of minor fixes and tweaks to Glacier
+  id: 458
+  time: '2025-07-27T05:33:58.0000000+00:00'
+- author: Catazeus
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaked medical, engineering and science job icons to pop out better
+        color wise.
+  id: 459
+  time: '2025-07-27T20:02:44.0000000+00:00'

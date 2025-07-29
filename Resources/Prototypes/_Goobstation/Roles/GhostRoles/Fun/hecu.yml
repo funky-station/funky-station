@@ -10,7 +10,7 @@
   playTimeTracker: JobHecuOperative
   setPreference: false
   startingGear: HECUOperativeGear
-  icon: "JobIconNanotrasen"
+  icon: "JobIconHECU"
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:

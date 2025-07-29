@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.RCD;
 using Content.Shared.RCD.Components;
 using Robust.Client.Graphics;

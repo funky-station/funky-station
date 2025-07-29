@@ -111,4 +111,11 @@ public abstract class SharedChargesSystem : EntitySystem
     {
         AddCharges(uid, -chargesUsed, comp);
     }
+
+    public FixedPoint2 GetCurrentCharges(EntityUid uid, LimitedChargesComponent? comp = null)
+    {
+        if (!Query.Resolve(uid, ref comp, false))
+            return FixedPoint2.Zero;
+        return comp.Charges;
+    }
 }

@@ -130,7 +130,7 @@ public sealed class ChargeHolosignSystem : EntitySystem
                 break;
             }
 
-            _charges.AddCharges((ent, charges), 1);
+            _charges.AddCharges(ent.Owner, 1, charges);
             ent.Comp.Signs.Add(signUid.Value);
         }
 
@@ -161,7 +161,7 @@ public sealed class ChargeHolosignSystem : EntitySystem
             return false;
 
         // don't overfill
-        if (_charges.GetCurrentCharges((ent, ent.Comp2)) >= ent.Comp2.MaxCharges)
+        if (_charges.GetCurrentCharges(ent.Owner, ent.Comp2) >= ent.Comp2.MaxCharges)
         {
             _popup.PopupClient(Loc.GetString("charge-holoprojector-charges-full", ("item", ent)), sign, user);
             return false;
@@ -173,7 +173,7 @@ public sealed class ChargeHolosignSystem : EntitySystem
             return false;
         }
 
-        _charges.AddCharges((ent, ent.Comp2), 1);
+        _charges.AddCharges(ent.Owner, 1, ent.Comp2);
 
         var othersStr = showIdentity ? Loc.GetString("charge-holoprojector-reclaim-others", ("sign", sign), ("user", Identity.Name(user, EntityManager)))
                                      : Loc.GetString("charge-holoprojector-recall-others", ("sign", sign));

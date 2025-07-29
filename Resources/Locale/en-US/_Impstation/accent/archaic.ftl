@@ -46,9 +46,9 @@ accent-archaic-words-replace-11 = physicker
 accent-archaic-words-12 = surgeon
 accent-archaic-words-replace-12 = chirurgeon
 
-accent-archaic-words-13 = mercenary
-accent-archaic-words-13-2 = merc
-accent-archaic-words-replace-13 = sellsword
+accent-archaic-words-13 = listen up
+accent-archaic-words-13-2 = i have an announcement to make
+accent-archaic-words-replace-13 = hear ye, hear ye
 
 accent-archaic-words-14 = ghosts
 accent-archaic-words-replace-14 = spectres 
@@ -404,6 +404,7 @@ accent-archaic-words-112-3 = leave me alone
 accent-archaic-words-replace-112 = begone from mine sight
 
 accent-archaic-words-113 = dirty
+accent-archaic-words-113-2 = stinky
 accent-archaic-words-replace-113 = foul
 
 accent-archaic-words-114 = dipshit
@@ -427,14 +428,17 @@ accent-archaic-words-replace-119 = triumph
 accent-archaic-words-120 = won
 accent-archaic-words-replace-120 = triumphed
 
-accent-hivepunk-words-121 = borg
-accent-hivepunk-words-replace-121 = automaton
+accent-archaic-words-121 = borg
+accent-archaic-words-121-2 = robot 
+accent-archaic-words-replace-121 = automaton
 
-accent-hivepunk-words-122 = borged
-accent-hivepunk-words-replace-122 = made into an automaton
+accent-archaic-words-122 = borged
+accent-archaic-words-122-2 = roboticized
+accent-archaic-words-replace-122 = made into an automaton
 
-accent-hivepunk-words-123 = borgs
-accent-hivepunk-words-replace-123 = automata
+accent-archaic-words-123 = borgs
+accent-archaic-words-123-2 = robots
+accent-archaic-words-replace-123 = automata
 
 accent-archaic-words-124 = funny
 accent-archaic-words-replace-124 = amusing
@@ -451,7 +455,7 @@ accent-archaic-words-replace-127 = guard
 accent-archaic-words-128 = hos
 accent-archaic-words-128-2 = head of security
 accent-archaic-words-128-3 = headsec
-accent-archaic-words-replace-128 = sheriff
+accent-archaic-words-replace-128 = paladin
 
 accent-archaic-words-129 = hop
 accent-archaic-words-129-2 = head of personnel
@@ -510,8 +514,8 @@ accent-archaic-words-replace-143 = i have little attention to spare
 accent-archaic-words-144 = why
 accent-archaic-words-replace-144 = wherefore
 
-accent-archaic-words-145 = fuck
-accent-archaic-words-replace-145 = zounds
+accent-archaic-words-145 = fuck this
+accent-archaic-words-replace-145 = to the fourteen hells with this
 
 accent-archaic-words-146 = replicator
 accent-archaic-words-replace-146 = soulless husk
@@ -522,15 +526,15 @@ accent-archaic-words-replace-147 = soulless husks
 accent-archaic-words-148 = shit's fucked
 accent-archaic-words-replace-148 = ill omens are upon us
 
-accent-archaic-words-149 = fucked
-accent-archaic-words-149-2 = messed
-accent-archaic-words-replace-149 = twisted
+accent-archaic-words-149 = fucked up
+accent-archaic-words-149-2 = messed up
+accent-archaic-words-replace-149 = vile and twisted
 
 accent-archaic-words-150 = nuke
 accent-archaic-words-replace-150 = contraption of doom
 
 accent-archaic-words-151 = please
-accent-archaic-words-151-2 = prithee
+accent-archaic-words-replace-151 = prithee
 
 accent-archaic-words-152 = bar
 accent-archaic-words-152-1 = cafeteria
@@ -655,7 +659,8 @@ accent-archaic-words-replace-185 = incestuous scuts
 
 accent-archaic-words-186 = sad
 accent-archaic-words-186-2 = depressing
-accent-archaic-words-replace-186 = maudlin
+accent-archaic-words-186-3 = painful
+accent-archaic-words-replace-186 = dolorous
 
 accent-archaic-words-187 = you'll
 accent-archaic-words-187-2 = you will
@@ -667,13 +672,149 @@ accent-archaic-words-replace-188 = shall
 accent-archaic-words-189 = is
 accent-archaic-words-replace-189 = art
 
-accent-archaic-words-190 = you
-accent-archaic-words-190-2 = ya
-accent-archaic-words-190-3 = ye
-accent-archaic-words-replace-190 = thou
+accent-archaic-words-190 = shit
+accent-archaic-words-replace-190 = filth
 
 accent-archaic-words-191 = badass
 accent-archaic-words-replace-191 = fearsome
 
 accent-archaic-words-192 = chemicals
 accent-archaic-words-replace-192 = reagents
+
+accent-archaic-words-193 = bye bye
+accent-archaic-words-193-2 = good bye
+accent-archaic-words-193-3 = bye
+accent-archaic-words-193-4 = see you later
+accent-archaic-words-193-5 = farewell
+accent-archaic-words-replace-193 = fare thee well
+
+accent-archaic-words-194 = take care of
+accent-archaic-words-replace-194 = see to
+
+accent-archaic-words-195 = redshell
+accent-archaic-words-195-2 = nukie
+accent-archaic-words-replace-195 = doom knight
+
+accent-archaic-words-196 = redshells
+accent-archaic-words-196-2 = nukies
+accent-archaic-words-replace-196 = doom knights
+
+accent-archaic-words-197 = security officer
+accent-archaic-words-197-2 = secoff
+accent-archaic-words-replace-197 = knight of the order
+
+accent-archaic-words-198 = security
+accent-archaic-words-replace-198 = order
+
+accent-archaic-words-199 = detective
+accent-archaic-words-replace-199 = inquisitor
+
+accent-archaic-words-200 = detectives
+accent-archaic-words-replace-200 = inquisitors
+
+accent-archaic-words-201 = security officers
+accent-archaic-words-201-2 = secoffs
+accent-archaic-words-replace-201 = knights of the order
+
+accent-archaic-words-202 = operatives
+accent-archaic-words-202-2 = officers
+accent-archaic-words-replace-202 = knights
+
+accent-archaic-words-203 = please take care
+accent-archaic-words-203-2 = stay safe
+accent-archaic-words-replace-203 = may the stars keep thee safe
+
+accent-archaic-words-204 = from where
+accent-archaic-words-replace-204 = whence
+
+accent-archaic-words-205 = hacking our mainframe
+accent-archaic-words-replace-205 = performing vile acts upon our virtue
+
+accent-archaic-words-206 = fucked
+accent-archaic-words-replace-206 = doomed
+
+accent-archaic-words-207 = magazine
+accent-archaic-words-207-2 = ammunition box
+accent-archaic-words-207-3 = ammo box
+accent-archaic-words-replace-207 = quiver
+
+accent-archaic-words-208 = ammo
+accent-archaic-words-replace-208 = munitions
+
+accent-archaic-words-209 = want to
+accent-archaic-words-209-2 = wanna
+accent-archaic-words-replace-209 = wish to
+
+accent-archaic-words-210 = want
+accent-archaic-words-replace-210 = desire
+
+accent-archaic-words-211 = pain
+accent-archaic-words-211-2 = sadness
+accent-archaic-words-211-3 = ouchies
+accent-archaic-words-211-4 = booboo
+accent-archaic-words-replace-211 = dolor
+
+accent-archaic-words-212 = maints
+accent-archaic-words-replace-212 = underways
+
+accent-archaic-words-213 = stain
+accent-archaic-words-replace-213 = blemish
+
+accent-archaic-words-214 = PDA
+accent-archaic-words-replace-214 = magic scroll
+
+accent-archaic-words-215 = TV
+accent-archaic-words-215-2 = television
+accent-archaic-words-replace-215 = farsight box
+
+accent-archaic-words-216 = old
+accent-archaic-words-216-2 = veteran
+accent-archaic-words-replace-216 = venerable
+
+accent-archaic-words-217 = gamble
+accent-archaic-words-replace-217 = dance with fate
+
+accent-archaic-words-218 = gambling
+accent-archaic-words-replace-218 = dancing with fate
+
+accent-archaic-words-219 = operative
+accent-archaic-words-219-2 = officer
+accent-archaic-words-replace-219 = knight
+
+accent-archaic-words-220 = bet
+accent-archaic-words-replace-220 = wager
+
+accent-archaic-words-221 = hell
+accent-archaic-words-replace-221 = fourteen hells
+
+accent-archaic-words-222 = i think
+accent-archaic-words-replace-222 = methinks
+
+accent-archaic-words-223 = fuck that
+accent-archaic-words-replace-223 = to the fourteen hells with that
+
+accent-archaic-words-224 = fuck you
+accent-archaic-words-replace-224 = to the fourteen hells with thee
+
+accent-archaic-words-225 = you
+accent-archaic-words-225-2 = ya
+accent-archaic-words-replace-225 = thou
+
+accent-archaic-words-226 = fuck
+accent-archaic-words-replace-226 = bleeding stars
+
+accent-archaic-words-227 = bounty hunter
+accent-archaic-words-replace-227 = witchfinder
+
+accent-archaic-words-228 = bounty
+accent-archaic-words-replace-228 = quest
+
+accent-archaic-words-229 = fugitive
+accent-archaic-words-replace-229 = caput lupinum
+
+accent-archaic-words-230 = clone
+accent-archaic-words-replace-230 = döppelganger
+
+accent-archaic-words-231 = mercenary
+accent-archaic-words-231-2 = merc
+accent-archaic-words-replace-231 = sellsword

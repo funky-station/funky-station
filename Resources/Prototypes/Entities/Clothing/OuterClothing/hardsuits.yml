@@ -576,7 +576,7 @@
 
 #Luxury Mining Hardsuit
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
+  parent: [ClothingOuterHardsuitBase, AllowBackStorageClothingCombat, BaseCommandContraband]
   id: ClothingOuterHardsuitLuxury
   name: quartermasters luxury hardsuit
   description: A high quality custom ordered hardsuit, fashioned after the Quartermaster's colors.

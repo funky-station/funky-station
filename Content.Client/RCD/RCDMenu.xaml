@@ -51,6 +51,9 @@ SPDX-License-Identifier: MIT
         <ui:RadialMenuTextureButtonWithSector StyleClasses="RadialMenuButton" SetSize="64 64" ToolTip="{Loc 'rcd-component-vents'}" TargetLayer="Vents" Visible="False">
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RPD/vent_passive.png"/>
         </ui:RadialMenuTextureButtonWithSector>
+        <ui:RadialMenuTextureButtonWithSector StyleClasses="RadialMenuButton" SetSize="64 64" ToolTip="{Loc 'rcd-component-sensorsmonitors'}" TargetLayer="SensorsMonitors" Visible="False">
+            <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RPD/alarm.png"/>
+        </ui:RadialMenuTextureButtonWithSector>
     </ui:RadialContainer>
 
     <!-- Walls and flooring -->
@@ -79,5 +82,8 @@ SPDX-License-Identifier: MIT
 
     <!-- Vents -->
     <ui:RadialContainer Name="Vents"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
+
+    <!-- Sensors and Monitors -->
+    <ui:RadialContainer Name="SensorsMonitors"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
 
 </ui:RadialMenu>

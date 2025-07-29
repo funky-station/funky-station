@@ -510,6 +510,7 @@
     - PipeStraight
     - PipeBend
     - PipeTJunction
+    - PipeHalf
     - OutletInjector
     - ManualValve
     - VolumetricPump
@@ -522,9 +523,13 @@
     - VentPassive
     - MixerGas
     - Radiator
+    - RadiatorBend
     - SignalValve
     - CanisterPort
     - FilterGas
+    - Alarm
+    - Sensor
+    - SensorPipe
     - Deconstruct
   - type: LimitedCharges
     maxCharges: 45

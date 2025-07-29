@@ -387,6 +387,7 @@
     - type: GuideHelp
       guides:
       - GasCanisters
+    - type: DeviceRestrictOverlap # Funky
 
 - type: entity
   parent: GasVentPump
@@ -518,7 +519,7 @@
     navMapBlip: GasValve
 
 - type: entity
-  parent: GasBinaryBase
+  parent: GasPipeNoOverlap # Funky
   id: HeatExchanger
   name: radiator
   description: Transfers heat between the pipe and its surroundings.
@@ -537,6 +538,8 @@
     - state: heStraight
       map: [ "enum.SubfloorLayers.FirstLayer" ]
   - type: SubFloorHide
+    blockInteractions: false
+    blockAmbience: false
     visibleLayers:
     - enum.SubfloorLayers.FirstLayer
   - type: Appearance

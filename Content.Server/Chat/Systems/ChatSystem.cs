@@ -1187,7 +1187,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 }
 
 /// <summary>
-///     Base record for recipent events
+///     Base record for recipient events
 /// </summary>
 public abstract record ExpandICEvent(
     EntityUid Source,

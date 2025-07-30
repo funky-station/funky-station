@@ -1,7 +1,9 @@
 using Content.Server.Chat.Systems;
+using Content.Server.Popups;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.Popups;
 using Robust.Shared.Player;
 
 namespace Content.Server._Funkystation.Damage.Systems;
@@ -11,30 +13,48 @@ namespace Content.Server._Funkystation.Damage.Systems;
 /// </summary>
 public sealed partial class SensitiveHearingSystem : EntitySystem
 {
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<ExpandICChatRecipientsEvent>(OnExpandICChatRecipientsEvent);
+        SubscribeLocalEvent<ExpandICEmoteRecipientsEvent>(OnExpandICEmoteRecipientsEvent);
         SubscribeLocalEvent<EntitySpokeEvent>(OnEntitySpokeEvent);
+        SubscribeLocalEvent<EmoteEvent>(OnEmoteEvent);
         base.Initialize();
+    }
+
+    private void OnExpandICEmoteRecipientsEvent(ExpandICEmoteRecipientsEvent ev)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void OnEmoteEvent(ref EmoteEvent ev)
+    {
+        throw new NotImplementedException();
     }
 
     private void OnEntitySpokeEvent(EntitySpokeEvent ev)
     {
-        Log.Warning($"{ev}");
+
     }
 
     private void OnExpandICChatRecipientsEvent(ExpandICChatRecipientsEvent ev)
     {
-        if (!HasComp<SensitiveHearingComponent>(ev.Source))
-            return;
+        foreach (var recipient in ev.Recipients)
+        {
+            var entity = recipient.Key.AttachedEntity;
+            var session = recipient.Key;
+            if (!HasComp<SensitiveHearingComponent>(entity))
+                continue;
 
-        var hearing = Comp<SensitiveHearingComponent>(ev.Source);
-        // hearing.damageAmount
+            var hearing = CompOrNull<SensitiveHearingComponent>(entity);
+            if (hearing is { IsDeaf: true })
+            {
+                    ev.Recipients.Remove(session);
+                    _popupSystem.PopupEntity("u can't hear bozo", ev.Source, session, PopupType.Medium);
+            }
+        }
 
-        var sourceSession = GetEntityICommonSession(ev.Source);
-        if (sourceSession != null)
-            ev.Recipients.Remove(sourceSession);
     }
 
     private ICommonSession? GetEntityICommonSession(EntityUid entity)

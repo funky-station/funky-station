@@ -29,8 +29,8 @@ public sealed partial class SensitiveHearingSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<GunShotEvent>(OnGunShotEvent); //Doesn't work for some reason.
-        SubscribeLocalEvent<Components.SensitiveHearingComponent, SpeakAttemptEvent>(OnSpeakAttemptEvent);
         base.Initialize();
+        // SubscribeLocalEvent<Components.SensitiveHearingComponent, SpeakAttemptEvent>(OnSpeakAttemptEvent);
     }
 
     private void OnSpeakAttemptEvent(EntityUid uid, Components.SensitiveHearingComponent component, ref SpeakAttemptEvent ev)

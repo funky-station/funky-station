@@ -961,7 +961,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         ChatTransmitRange range,
         NetUserId? author = null)
     {
-        foreach (var (session, data) in GetRecipients(source, VoiceRange))
+        var recipents = (channel != ChatChannel.Emotes) ? GetRecipients(source, VoiceRange) : GetEmoteRecipients(source, VoiceRange);
+        foreach (var (session, data) in recipents)
         {
             var entRange = MessageRangeCheck(session, data, range);
             if (entRange == MessageRangeCheckResult.Disallowed)
@@ -1099,7 +1100,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// <summary>
     ///     Returns list of players and ranges for all players withing some range. Also returns observers with a range of -1.
     /// </summary>
-    public Dictionary<ICommonSession, ICChatRecipientData> GetRecipients(EntityUid source, float voiceGetRange)
+    public Dictionary<ICommonSession, ICChatRecipientData> GetRecipients(EntityUid source, float voiceGetRange, bool raiseEvent = true)
     {
         // TODO proper speech occlusion
 
@@ -1135,7 +1136,15 @@ public sealed partial class ChatSystem : SharedChatSystem
                 recipients.Add(player, new ICChatRecipientData(-1, true));
         }
 
-        RaiseLocalEvent(new ExpandICChatRecipientsEvent(source, voiceGetRange, recipients));
+        if (raiseEvent)
+            RaiseLocalEvent(new ExpandICChatRecipientsEvent(source, voiceGetRange, recipients));
+        return recipients;
+    }
+
+    public Dictionary<ICommonSession, ICChatRecipientData> GetEmoteRecipients(EntityUid source, float voiceGetRange, bool raiseEvent = true)
+    {
+        var recipients = GetRecipients(source, voiceGetRange, false);
+        RaiseLocalEvent(new ExpandICEmoteRecipientsEvent(source, voiceGetRange, recipients));
         return recipients;
     }
 
@@ -1182,6 +1191,16 @@ public sealed partial class ChatSystem : SharedChatSystem
 ///     messages to otherwise out-of view entities (e.g. for multiple viewports from cameras).
 /// </summary>
 public record ExpandICChatRecipientsEvent(
+    EntityUid Source,
+    float VoiceRange,
+    Dictionary<ICommonSession, ChatSystem.ICChatRecipientData> Recipients)
+{
+}
+
+/// <summary>
+///     This event is raised before emote messages are sent out to clients.
+/// </summary>
+public record ExpandICEmoteRecipientsEvent(
     EntityUid Source,
     float VoiceRange,
     Dictionary<ICommonSession, ChatSystem.ICChatRecipientData> Recipients)

@@ -38,6 +38,12 @@ public sealed class StationAiSystem : SharedStationAiSystem
         base.Initialize();
 
         SubscribeLocalEvent<ExpandICChatRecipientsEvent>(OnExpandICChatRecipients);
+        SubscribeLocalEvent<ExpandICEmoteRecipientsEvent>(OnExpandICEmoteRecipientsEvent);
+    }
+
+    private void OnExpandICEmoteRecipientsEvent(ExpandICEmoteRecipientsEvent ev)
+    {
+        OnExpandICChatRecipients(new ExpandICChatRecipientsEvent(ev.Source, ev.VoiceRange, ev.Recipients));
     }
 
     private void OnExpandICChatRecipients(ExpandICChatRecipientsEvent ev)

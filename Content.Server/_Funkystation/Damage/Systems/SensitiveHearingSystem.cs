@@ -17,18 +17,12 @@ public sealed partial class SensitiveHearingSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<ExpandICEmoteRecipientsEvent>(OnExpandICEmoteRecipientsEvent);
+        SubscribeLocalEvent<ExpandICChatRecipientsEvent>(OnExpandICChatRecipientsEvent);
         SubscribeLocalEvent<EntitySpokeEvent>(OnEntitySpokeEvent);
-        SubscribeLocalEvent<EmoteEvent>(OnEmoteEvent);
         base.Initialize();
     }
 
-    private void OnExpandICEmoteRecipientsEvent(ExpandICEmoteRecipientsEvent ev)
-    {
-        throw new NotImplementedException();
-    }
-
-    private void OnEmoteEvent(ref EmoteEvent ev)
+    private void OnExpandICRecipientsEvent(ExpandICEvent ev)
     {
         throw new NotImplementedException();
     }

@@ -1187,25 +1187,31 @@ public sealed partial class ChatSystem : SharedChatSystem
 }
 
 /// <summary>
-///     This event is raised before chat messages are sent out to clients. This enables some systems to send the chat
-///     messages to otherwise out-of view entities (e.g. for multiple viewports from cameras).
+///     Base record for recipent events
 /// </summary>
-public record ExpandICChatRecipientsEvent(
+public abstract record ExpandICEvent(
     EntityUid Source,
     float VoiceRange,
     Dictionary<ICommonSession, ChatSystem.ICChatRecipientData> Recipients)
+{
+
+}
+
+/// <summary>
+///     This event is raised before chat messages are sent out to clients. This enables some systems to send the chat
+///     messages to otherwise out-of view entities (e.g. for multiple viewports from cameras).
+/// </summary>
+public record ExpandICChatRecipientsEvent(EntityUid Source, float VoiceRange, Dictionary<ICommonSession, ChatSystem.ICChatRecipientData> Recipients) : ExpandICEvent(Source, VoiceRange, Recipients)
 {
 }
 
 /// <summary>
 ///     This event is raised before emote messages are sent out to clients.
 /// </summary>
-public record ExpandICEmoteRecipientsEvent(
-    EntityUid Source,
-    float VoiceRange,
-    Dictionary<ICommonSession, ChatSystem.ICChatRecipientData> Recipients)
+public record ExpandICEmoteRecipientsEvent(EntityUid Source, float VoiceRange, Dictionary<ICommonSession, ChatSystem.ICChatRecipientData> Recipients) : ExpandICEvent(Source, VoiceRange, Recipients)
 {
 }
+
 
 /// <summary>
 ///     Raised broadcast in order to transform speech.transmit

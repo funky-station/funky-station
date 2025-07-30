@@ -38,15 +38,10 @@ public sealed class StationAiSystem : SharedStationAiSystem
         base.Initialize();
 
         SubscribeLocalEvent<ExpandICChatRecipientsEvent>(OnExpandICChatRecipients);
-        SubscribeLocalEvent<ExpandICEmoteRecipientsEvent>(OnExpandICEmoteRecipientsEvent);
+        SubscribeLocalEvent<ExpandICEmoteRecipientsEvent>(OnExpandICChatRecipients);
     }
 
-    private void OnExpandICEmoteRecipientsEvent(ExpandICEmoteRecipientsEvent ev)
-    {
-        OnExpandICChatRecipients(new ExpandICChatRecipientsEvent(ev.Source, ev.VoiceRange, ev.Recipients));
-    }
-
-    private void OnExpandICChatRecipients(ExpandICChatRecipientsEvent ev)
+    private void OnExpandICChatRecipients(ExpandICEvent ev)
     {
         var xformQuery = GetEntityQuery<TransformComponent>();
         var sourceXform = Transform(ev.Source);

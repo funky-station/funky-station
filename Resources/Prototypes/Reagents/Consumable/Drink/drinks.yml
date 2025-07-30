@@ -580,6 +580,21 @@
   flavor: pilk
   color: "#e7c69f"
   metabolisms:
+    Poison:
+      effects:
+      - !type:Emote
+          emote: Scream
+          probability: 0.1
+      - !type:GenericStatusEffect
+        key: TemporaryBlindness
+        component: TemporaryBlindness
+        probability: 0.08
+      - !type:ChemVomit
+        probability: 0.5
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.25
     Drink:
       effects:
         - !type:SatiateThirst

@@ -3,12 +3,15 @@
     "license": "CC-BY-SA-3.0",
     "copyright": "meijunkie on Discord - https://funkystation.org",
     "size": {
-      "x": 19,
-      "y": 23
+      "x": 32,
+      "y": 32
     },
     "states": [
       {
         "name": "plushie_cirno"
+      },
+      {
+        "name": "plushie_mothroach"
       }
     ]
 }

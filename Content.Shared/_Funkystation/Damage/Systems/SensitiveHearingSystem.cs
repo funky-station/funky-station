@@ -30,25 +30,7 @@ public sealed partial class SensitiveHearingSystem : EntitySystem
     {
         SubscribeLocalEvent<GunShotEvent>(OnGunShotEvent); //Doesn't work for some reason.
         base.Initialize();
-        // SubscribeLocalEvent<Components.SensitiveHearingComponent, SpeakAttemptEvent>(OnSpeakAttemptEvent);
     }
-
-    private void OnSpeakAttemptEvent(EntityUid uid, Components.SensitiveHearingComponent component, ref SpeakAttemptEvent ev)
-    {
-        // NOTE: this prevents you from speaking in all ways, so, when you're deaf, no one will hear you.
-        // This is not the intended behavior for this system.
-        //Everyone except the deaf player should see their chat message
-
-        if (component.damageAmount > 100.0)
-        {
-            //need to use Loc
-            var iSession = GetEntityICommonSession(uid);
-            if (iSession != null)
-                _popupSystem.PopupEntity("You spoke something", uid, iSession, PopupType.Medium);
-            ev.Cancel();
-        }
-    }
-
 
     public void BlastRadius(float amount, float radius, MapCoordinates coords)
     {
@@ -68,25 +50,37 @@ public sealed partial class SensitiveHearingSystem : EntitySystem
             if (!_examine.InRangeUnOccluded(coords, entCoords, radius, predicate: (e) => false))
                 continue;
 
+            var hearing = Comp<SensitiveHearingComponent>(entity);
 
             //show pain message when a certain damage threshold is passed, in or case this threshold is 50.0f.
-            if (Comp<Components.SensitiveHearingComponent>(entity).damageAmount >= 50.0)
+            if (hearing.DamageAmount >= hearing.WarningThreshold)
             {
                 //I don't like using var, feel free to use intellisense.
                 //get user's ISession to show the message locally, didn't test this out yet.
                 var iSession = GetEntityICommonSession(entity);
-                if (iSession != null)
-                    _popupSystem.PopupEntity("Your eardrums tremble", entity, iSession, PopupType.Medium);
+                if (iSession == null)
+                    return;
+
+                // Rupture the eardrums once a certain threshold is passed.
+                if (hearing.DamageAmount >= hearing.DeafnessThreshold && !hearing.RuptureFlag)
+                {
+                    hearing.RuptureFlag = true;
+                    _popupSystem.PopupEntity(Loc.GetString("damage-sensitive-hearing-eardrums-rupture"), entity, iSession, PopupType.LargeCaution);
+                }
+
+                //Alert the user when they have hearing damage but their eardrums are not ruptured yet. This goes below critical threshold check to avoid showing two messages at the same time.
+                if (!hearing.RuptureFlag)
+                    _popupSystem.PopupEntity(Loc.GetString("damage-sensitive-hearing-eardrums-tremble"), entity, iSession, PopupType.MediumCaution);
             }
 
-            Comp<Components.SensitiveHearingComponent>(entity).damageAmount += CalculateFalloff(amount, radius, distance);
+            Comp<Components.SensitiveHearingComponent>(entity).DamageAmount += CalculateFalloff(amount, radius, distance);
         }
 
     }
 
     private ICommonSession? GetEntityICommonSession(EntityUid entity)
     {
-        MindContainerComponent? mindContainer = CompOrNull<MindContainerComponent>(entity);
+        var mindContainer = CompOrNull<MindContainerComponent>(entity);
         MindComponent? mind;
         if (mindContainer == null || !mindContainer.HasMind)
             return null;
@@ -107,7 +101,7 @@ public sealed partial class SensitiveHearingSystem : EntitySystem
     //This does NOT work.
     private void OnGunShotEvent(ref GunShotEvent msg)
     {
-        TransformComponent? xform = CompOrNull<TransformComponent>(msg.User);
+        var xform = CompOrNull<TransformComponent>(msg.User);
         if (xform == null)
             return;
 

@@ -1,12 +1,14 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Popups;
+using Content.Server.Radio;
 using Content.Shared.Damage.Components;
+using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Player;
 
-namespace Content.Server._Funkystation.Damage.Systems;
+namespace Content.Server.Damage.Systems;
 
 /// <summary>
 /// This handles...
@@ -18,19 +20,26 @@ public sealed partial class SensitiveHearingSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<ExpandICChatRecipientsEvent>(OnExpandICChatRecipientsEvent);
-        SubscribeLocalEvent<EntitySpokeEvent>(OnEntitySpokeEvent);
+        SubscribeLocalEvent<RadioReceiveAttemptEvent>(OnRadioReceiveAttemptEvent);
         base.Initialize();
     }
 
-    private void OnExpandICRecipientsEvent(ExpandICEvent ev)
+    private void OnRadioReceiveAttemptEvent(ref RadioReceiveAttemptEvent ev)
     {
-        throw new NotImplementedException();
+        //Check whether the entity that's receiving the radio message has an xform.
+        var transform = CompOrNull<TransformComponent>(ev.RadioReceiver);
+        var parentEntity = transform?.ParentUid;
+        if (!parentEntity.HasValue || !HasComp<TransformComponent>(parentEntity))
+            return;
+
+        var hearing = CompOrNull<SensitiveHearingComponent>(parentEntity);
+        if (hearing == null)
+            return;
+
+        //Cancel the event when the entity is deaf.
+        ev.Cancelled = hearing.IsDeaf;
     }
 
-    private void OnEntitySpokeEvent(EntitySpokeEvent ev)
-    {
-
-    }
 
     private void OnExpandICChatRecipientsEvent(ExpandICChatRecipientsEvent ev)
     {
@@ -44,23 +53,20 @@ public sealed partial class SensitiveHearingSystem : EntitySystem
             var hearing = CompOrNull<SensitiveHearingComponent>(entity);
             if (hearing is { IsDeaf: true })
             {
+                    //Remove deaf recipients
                     ev.Recipients.Remove(session);
-                    _popupSystem.PopupEntity("u can't hear bozo", ev.Source, session, PopupType.Medium);
+
+                    string message = Loc.GetString(
+                        "damage-sensitive-hearing-deaf-message",
+                        (
+                            "user",
+                            (entity == ev.Source) ? Loc.GetString("damage-sensitive-hearing-you") : Name(ev.Source)
+                            ));
+                    //"YOU said something" if source and recipient are the same, otherwise "SOMETHING/SOMEONE said something"
+                    _popupSystem.PopupEntity(message, ev.Source, session, PopupType.Medium);
             }
         }
 
     }
-
-    private ICommonSession? GetEntityICommonSession(EntityUid entity)
-    {
-        MindContainerComponent? mindContainer = CompOrNull<MindContainerComponent>(entity);
-        MindComponent? mind;
-        if (mindContainer == null || !mindContainer.HasMind)
-            return null;
-        mind = CompOrNull<MindComponent>(mindContainer.Mind);
-        return mind?.Session;
-    }
-
-
 }
 

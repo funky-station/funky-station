@@ -7,14 +7,36 @@ namespace Content.Shared.Damage.Components;
 public sealed partial class SensitiveHearingComponent : Component
 {
     /// <summary>
-    /// DamageAmount
+    /// Controls whether the eardrum rupture message have been shown or not.
     /// </summary>
+    [ViewVariables(VVAccess.ReadOnly), DataField("RuptureFlag")]
+    public bool RuptureFlag;
+
     [ViewVariables(VVAccess.ReadWrite), DataField("DamageAmount")]
-    public float damageAmount = 0.0f;
+    public float DamageAmount
+    {
+        get => _damage;
+        set {
+            _damage = value;
+            if (_damage < DeafnessThreshold)
+                RuptureFlag = false;
+        }
+    }
 
+    private float _damage;
+
+    /// <summary>
+    /// When damage reaches this value - entity goes deaf.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("WarningThreshold")]
+    public float WarningThreshold = 50.0f;
+
+    /// <summary>
+    /// When damage reaches this value - entity goes deaf.
+    /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("DeafnessThreshold")]
-    public float deafnessThreshold = 100.0f;
+    public float DeafnessThreshold = 100.0f;
 
-    public bool IsDeaf { get => (damageAmount >= deafnessThreshold); }
+    public bool IsDeaf {get => (DamageAmount >= DeafnessThreshold); }
 }
 

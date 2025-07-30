@@ -99,6 +99,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/katana.rsi
   - type: MeleeWeapon
+    attackRate: 1.75 # Funky - Buffing katana to swing a lot faster, still worse than an esword
     damage:
       types:
         Slash: 15
@@ -107,7 +108,12 @@
   - type: Item
     sprite: Objects/Weapons/Melee/katana.rsi
   - type: DisarmMalus
-
+  # Funky - Let the base katana be worn too
+  - type: Clothing
+    sprite: Objects/Weapons/Melee/katana.rsi
+    slots:
+    - Back
+    - Belt
 - type: entity
   name: energy katana
   parent: Katana

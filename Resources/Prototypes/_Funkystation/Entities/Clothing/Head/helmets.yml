@@ -1,0 +1,11 @@
+#Just a recolour of the merc helmet because it's Cool
+- type: entity
+  parent: [ ClothingHeadHelmetBase, BaseSyndicateContraband ]
+  id: ClothingHeadHelmetMercSyndicate
+  name: syndicate mercenary helmet
+  description: This helmet is often worn by mercenaries hired by the Syndicate, and sometimes by agents who just think it makes them look tough.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Helmets/merc_helmet.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Helmets/merc_helmet.rsi

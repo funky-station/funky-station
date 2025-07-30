@@ -1,0 +1,24 @@
+- type: entity
+  name: syndicate radio
+  description: A tiny listening device which relays what it hears to the syndicate radio channel. It does not have a speaker.
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  id: RadioHandheldSyndicate
+  components:
+  - type: TelecomExempt
+  - type: RadioMicrophone
+    broadcastChannel: Syndicate
+  - type: Speech
+    speechVerb: Robotic
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/syndicate_radio.rsi
+    layers:
+    - state: walkietalkie
+    - state: walkietalkie-on
+    state: walkietalkie
+  - type: Item
+    size: Tiny
+    sprite: _Funkystation/Objects/Devices/syndicate_radio.rsi
+    heldPrefix: walkietalkie
+  - type: Tag
+    tags:
+    - Radio

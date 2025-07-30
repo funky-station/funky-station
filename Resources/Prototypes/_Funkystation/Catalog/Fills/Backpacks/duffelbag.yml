@@ -20,3 +20,68 @@
       - id: RadioJammer
       - id: SyndicateJawsOfLife
       - id: Gauze
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledKitNinja
+  name: budget ninja syndie-kit
+  description: "We asked the Spider Clan to send us some of their tech but they refused, so we improvised. Perfect for striking from the shadows."
+  components:
+  - type: StorageFill
+    contents:
+      - id: Katana
+      - id: ThrowingStar
+      - id: ThrowingStar
+      - id: ThrowingStar
+      - id: ThrowingStar
+      - id: ClothingEyesNightVisionGogglesSyndie
+      - id: ClothingUniformJumpsuitNinja
+      - id: ClothingMaskNeckGaiter
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingShoesChameleonNoSlips
+      - id: EmpImplanter
+      - id: SmokeImplanter
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledKitHacker
+  name: hacker syndie-kit
+  description: "The ideal set of tools for hacking into the mainframe."
+  components:
+  - type: StorageFill
+    contents:
+      - id: Emag
+      - id: AccessBreaker
+      - id: CameraBug
+      - id: EncryptionKeyBinary
+      - id: EmpGrenade
+      - id: EmpFlashlight
+      - id: EmpImplanter
+      - id: OverlordCircuitBoard
+      - id: Multitool
+      - id: ClothingHandsGlovesColorYellow
+      - id: ClothingEyesGlassesSunglasses
+      - id: ClothingOuterCoatJensen
+      - id: ToyAi
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledKitHunter
+  name: hunter syndie-kit
+  description: "Become a master of syndicate surveillance, eavesdrop on the crew and use these state-of-the-art thermal goggles to track down even the slipperiest of targets!"
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingEyesThermalVisionGogglesSyndie
+      - id: EncryptionKeySyndie
+      - id: CameraBug
+      - id: AccessBreaker
+      - id: GrenadeShrapnel
+      - id: Binoculars
+      - id: WeaponPistolViper
+      - id: MagazinePistol
+      - id: RadioHandheldSyndicate
+      - id: ClothingMaskGasSyndicate
+      - id: ClothingHeadHelmetMercSyndicate
+      - id: ClothingOuterHardsuitSyndicateDurathread
+      - id: ClothingHeadHelmetSyndicate

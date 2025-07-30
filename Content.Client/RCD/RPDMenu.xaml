@@ -1,0 +1,26 @@
+<ui:RadialMenu xmlns="https://spacestation14.io"
+               xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
+               xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+               Name="RPDMenuRoot">
+    <BoxContainer Orientation="Vertical">
+        <!-- Upper Box: Empty -->
+        <BoxContainer Name="UpperBox" HorizontalExpand="True" VerticalExpand="True" MinSize="30 44" >
+            <!-- Will contain pipe layer buttons in the future -->
+        </BoxContainer>
+        <!-- Middle Box: Contains RCDMenu -->
+        <BoxContainer Name="MiddleBox" HorizontalExpand="True" >
+            <Control HorizontalExpand="True"  />
+            <Control Name="RCDMenuPlaceholder" />
+            <Control HorizontalExpand="True"  />
+        </BoxContainer>
+        <!-- Lower Box: Color selection -->
+        <BoxContainer Name="LowerBox" MinSize="30 44" Orientation="Vertical">
+            <PanelContainer Visible="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#46496680" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer Name="ColorList" Orientation="Horizontal" />
+            </PanelContainer>
+        </BoxContainer>
+    </BoxContainer>
+</ui:RadialMenu>

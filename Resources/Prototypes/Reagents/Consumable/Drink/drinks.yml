@@ -583,18 +583,28 @@
     Poison:
       effects:
       - !type:Emote
-          emote: Scream
-          probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        emote: Scream
+        probability: 0.5
       - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
         key: TemporaryBlindness
         component: TemporaryBlindness
         probability: 0.08
       - !type:ChemVomit
         probability: 0.5
       - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
         damage:
           types:
             Poison: 0.25
+
     Drink:
       effects:
         - !type:SatiateThirst

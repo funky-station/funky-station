@@ -78,7 +78,7 @@
   - type: HeldSpeedModifier
   - type: TemperatureProtection
     heatingCoefficient: 0.75
-    coolingCoefficient: 0.25
+    coolingCoefficient: 0.3
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetEVALarge
     slot: head

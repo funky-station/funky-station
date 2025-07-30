@@ -36,7 +36,9 @@
 // SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -357,10 +359,13 @@ namespace Content.Server.Atmos.EntitySystems
 
         public void Extinguish(EntityUid uid, FlammableComponent? flammable = null)
         {
-            if (!Resolve(uid, ref flammable))
+            // Goobstation - from EE at 7b0949568d07df81b298251c6fce9be4d7d03f18 (https://github.com/Simple-Station/Einstein-Engines/pull/2462)
+            if (!Resolve(uid, ref flammable) || !flammable.CanExtinguish)
                 return;
 
-            if (!flammable.OnFire || !flammable.CanExtinguish)
+            // Goobstation - from EE at 7b0949568d07df81b298251c6fce9be4d7d03f18 (https://github.com/Simple-Station/Einstein-Engines/pull/2462)
+            RemCompDeferred<OnFireComponent>(uid);
+            if (!flammable.OnFire)
                 return;
 
             _adminLogger.Add(LogType.Flammable, $"{ToPrettyString(uid):entity} stopped being on fire damage");
@@ -381,6 +386,8 @@ namespace Content.Server.Atmos.EntitySystems
             if (!Resolve(uid, ref flammable))
                 return;
 
+            // Goobstation - from EE at 7b0949568d07df81b298251c6fce9be4d7d03f18 (https://github.com/Simple-Station/Einstein-Engines/pull/2462)
+            EnsureComp<OnFireComponent>(uid);
             if (flammable.AlwaysCombustible)
             {
                 flammable.FireStacks = Math.Max(flammable.FirestacksOnIgnite, flammable.FireStacks);
@@ -474,9 +481,17 @@ namespace Content.Server.Atmos.EntitySystems
             _timer -= UpdateTime;
 
             // TODO: This needs cleanup to take off the crust from TemperatureComponent and shit.
-            var query = EntityQueryEnumerator<FlammableComponent, TransformComponent>();
-            while (query.MoveNext(out var uid, out var flammable, out _))
+            // <Goobstation> - from EE at 7b0949568d07df81b298251c6fce9be4d7d03f18 (https://github.com/Simple-Station/Einstein-Engines/pull/2462)
+            var query = EntityQueryEnumerator<OnFireComponent>();
+            while (query.MoveNext(out var uid, out _))
             {
+                if (!TryComp(uid, out FlammableComponent? flammable))
+                {
+                    RemCompDeferred<OnFireComponent>(uid);
+                    continue;
+                }
+                // </Goobstation>
+
                 // Slowly dry ourselves off if wet.
                 if (flammable.FireStacks < 0)
                 {
@@ -486,6 +501,8 @@ namespace Content.Server.Atmos.EntitySystems
                 if (!flammable.OnFire)
                 {
                     _alertsSystem.ClearAlert(uid, flammable.FireAlert);
+                    // Goobstation - from EE at 7b0949568d07df81b298251c6fce9be4d7d03f18 (https://github.com/Simple-Station/Einstein-Engines/pull/2462)
+                    RemCompDeferred<OnFireComponent>(uid);
                     continue;
                 }
 

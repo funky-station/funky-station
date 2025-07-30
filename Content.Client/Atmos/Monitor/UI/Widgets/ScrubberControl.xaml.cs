@@ -10,6 +10,7 @@
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 qwerltaz <msmarcinpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -88,6 +89,7 @@ public sealed partial class ScrubberControl : BoxContainer
             _data.PumpDirection = (ScrubberPumpDirection) args.Id;
             ScrubberDataChanged?.Invoke(_address, _data);
         };
+        _pumpDirection.Disabled = data.AirAlarmPanicWireCut;
 
         _copySettings.OnPressed += _ =>
         {
@@ -131,6 +133,7 @@ public sealed partial class ScrubberControl : BoxContainer
 
         _data.PumpDirection = data.PumpDirection;
         _pumpDirection.Select((int) _data.PumpDirection);
+        _pumpDirection.Disabled = data.AirAlarmPanicWireCut;
 
         _data.VolumeRate = data.VolumeRate;
         _volumeRate.Value = _data.VolumeRate;

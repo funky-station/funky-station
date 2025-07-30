@@ -3827,3 +3827,19 @@ Entries:
         color wise.
   id: 459
   time: '2025-07-27T20:02:44.0000000+00:00'
+- author: sitovina
+  changes:
+    - type: Add
+      message: Added the mothroach plushie
+  id: 460
+  time: '2025-07-30T03:06:13.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: The RPD can now create painted pipes.
+    - type: Tweak
+      message: More atmospheric devices and pipes can now be made with the RPD.
+    - type: Fix
+      message: 'The RPD can no longer stack atmos devices. '
+  id: 461
+  time: '2025-07-30T03:59:15.0000000+00:00'

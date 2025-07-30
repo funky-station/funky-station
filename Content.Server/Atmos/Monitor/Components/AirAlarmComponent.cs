@@ -12,6 +12,7 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 qwerltaz <msmarcinpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -65,4 +66,10 @@ public sealed partial class AirAlarmComponent : Component
     /// </summary>
     [DataField("normalPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
     public string NormalPort = "AirNormal";
+
+    /// <summary>
+    /// Whether the panic wire is cut, forcing the alarm into panic mode.
+    /// </summary>
+    [DataField, ViewVariables]
+    public bool PanicWireCut;
 }

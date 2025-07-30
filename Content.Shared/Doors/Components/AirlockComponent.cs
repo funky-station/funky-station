@@ -29,6 +29,12 @@ namespace Content.Shared.Doors.Components;
 [Access(typeof(SharedAirlockSystem), Friend = AccessPermissions.ReadWriteExecute, Other = AccessPermissions.Read)]
 public sealed partial class AirlockComponent : Component
 {
+    /// <summary>
+    /// Funky - Prevents the airlock's powered state from being changed while the airlock is under the effect of an EMP.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ForceDisabled = false;
+
     [DataField, AutoNetworkedField]
     public bool Powered;
 

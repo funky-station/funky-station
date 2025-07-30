@@ -12,8 +12,8 @@ public sealed partial class EmpWeaponComponent : Component
     /// If the item consumes charges to create EMPs.
     /// No EMP will be created if this is true and the item either doesn't have the <see cref="LimitedChargesComponent"/>, or if it has no charges left.
     /// </summary>
-    [DataField]
-    public bool RequiresCharges = true;
+    [DataField(required: true)]
+    public bool RequiresCharges = false;
 
     /// <summary>
     /// Range of the EMP in tiles.

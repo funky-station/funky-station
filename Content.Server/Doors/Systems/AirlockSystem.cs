@@ -30,6 +30,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Server.Emp;
 using Content.Server.Power.Components;
 using Content.Server.Wires;
 using Content.Shared.DeviceLinking.Events;
@@ -54,6 +55,8 @@ public sealed class AirlockSystem : SharedAirlockSystem
 
         SubscribeLocalEvent<AirlockComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<AirlockComponent, ActivateInWorldEvent>(OnActivate, before: new[] { typeof(DoorSystem) });
+        SubscribeLocalEvent<AirlockComponent, EmpPulseEvent>(OnEmpPulse); // Funky edit
+        SubscribeLocalEvent<AirlockComponent, EmpDisabledRemoved>(OnEmpFinished); // Funky edit
     }
 
     private void OnSignalReceived(EntityUid uid, AirlockComponent component, ref SignalReceivedEvent args)
@@ -67,6 +70,9 @@ public sealed class AirlockSystem : SharedAirlockSystem
 
     private void OnPowerChanged(EntityUid uid, AirlockComponent component, ref PowerChangedEvent args)
     {
+        if (component.ForceDisabled) // Funky edit - Don't turn on if it is currently disabled by an EMP
+            return;
+
         component.Powered = args.Powered;
         Dirty(uid, component);
 
@@ -110,4 +116,25 @@ public sealed class AirlockSystem : SharedAirlockSystem
             Dirty(uid, component);
         }
     }
+
+    // Funky edit starts - Airlocks get disabled by EMP pulses
+    private void OnEmpPulse(EntityUid uid, AirlockComponent comp, ref EmpPulseEvent args)
+    {
+        args.Affected = true;
+        args.Disabled = true;
+
+        comp.Powered = false;
+        comp.ForceDisabled = true;  // Prevent power updates from setting powered back to true
+        Dirty(uid, comp);
+    }
+
+    private void OnEmpFinished(EntityUid uid, AirlockComponent comp, ref EmpDisabledRemoved args)
+    {
+        comp.ForceDisabled = false;
+        Dirty(uid, comp);
+
+        if (TryComp<ApcPowerReceiverComponent>(uid, out var powerComp))
+            powerComp.Recalculate = true;   // Re-check power state in case it stopped getting powered/wasn't powered in the first place
+    }
+    // Funky edit ends
 }

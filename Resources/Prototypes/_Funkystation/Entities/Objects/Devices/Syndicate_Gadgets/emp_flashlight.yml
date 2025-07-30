@@ -1,5 +1,20 @@
 - type: entity
   parent: FlashlightLantern
+  id: EmpFlashlightUnlimited
+  suffix: Debug, EMP
+  components:
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    damage:
+      types:
+        Blunt: 1
+    angle: 0
+    animation: WeaponArcThrust
+  - type: EmpWeapon
+    requiresCharges: false
+
+- type: entity
+  parent: FlashlightLantern
   id: EmpFlashlight
   suffix: Syndicate, EMP
   components:
@@ -11,7 +26,7 @@
     angle: 0
     animation: WeaponArcThrust
   - type: EmpWeapon
-    RequiresCharges: true
+    requiresCharges: true
   - type: LimitedCharges
     maxCharges: 3
     charges: 3

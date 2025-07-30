@@ -18,7 +18,7 @@ namespace Content.Shared.Damage.Systems;
 /// <summary>
 /// This handles...
 /// </summary>
-public sealed partial class LoudNoiseSystem : EntitySystem
+public sealed partial class SensitiveHearingSystem : EntitySystem
 {
 
     [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
@@ -29,11 +29,11 @@ public sealed partial class LoudNoiseSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<GunShotEvent>(OnGunShotEvent); //Doesn't work for some reason.
-        SubscribeLocalEvent<SensitiveHearingComponent, SpeakAttemptEvent>(OnSpeakAttemptEvent);
+        SubscribeLocalEvent<Components.SensitiveHearingComponent, SpeakAttemptEvent>(OnSpeakAttemptEvent);
         base.Initialize();
     }
 
-    private void OnSpeakAttemptEvent(EntityUid uid, SensitiveHearingComponent component, ref SpeakAttemptEvent ev)
+    private void OnSpeakAttemptEvent(EntityUid uid, Components.SensitiveHearingComponent component, ref SpeakAttemptEvent ev)
     {
         // NOTE: this prevents you from speaking in all ways, so, when you're deaf, no one will hear you.
         // This is not the intended behavior for this system.
@@ -56,7 +56,7 @@ public sealed partial class LoudNoiseSystem : EntitySystem
         foreach (var entity in blastEntities)
         {
             // skips an iteration if entity does not have sensitive hearing or does not have a valid position in the world.
-            if (!HasComp<SensitiveHearingComponent>(entity) || !HasComp<TransformComponent>(entity))
+            if (!HasComp<Components.SensitiveHearingComponent>(entity) || !HasComp<TransformComponent>(entity))
                 continue;
 
             var entCoords =  _transformSystem.GetMapCoordinates(entity);
@@ -70,7 +70,7 @@ public sealed partial class LoudNoiseSystem : EntitySystem
 
 
             //show pain message when a certain damage threshold is passed, in or case this threshold is 50.0f.
-            if (Comp<SensitiveHearingComponent>(entity).damageAmount >= 50.0)
+            if (Comp<Components.SensitiveHearingComponent>(entity).damageAmount >= 50.0)
             {
                 //I don't like using var, feel free to use intellisense.
                 //get user's ISession to show the message locally, didn't test this out yet.
@@ -79,7 +79,7 @@ public sealed partial class LoudNoiseSystem : EntitySystem
                     _popupSystem.PopupEntity("Your eardrums tremble", entity, iSession, PopupType.Medium);
             }
 
-            Comp<SensitiveHearingComponent>(entity).damageAmount += CalculateFalloff(amount, radius, distance);
+            Comp<Components.SensitiveHearingComponent>(entity).damageAmount += CalculateFalloff(amount, radius, distance);
         }
 
     }

@@ -1,0 +1,66 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-3.0",
+    "copyright": "vectorassembly",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "hearing_damage1",
+            "delays": [
+            [
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1
+            ]
+         ]
+        },
+        {
+            "name": "hearing_damage2",
+            "delays": [
+            [
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1
+            ]
+         ]
+        },
+        {
+            "name": "hearing_damage3",
+            "delays": [
+            [
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1
+            ]
+         ]
+        },
+        {
+            "name": "hearing_damage4",
+            "delays": [
+            [
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1
+            ]
+         ]
+        },
+        {
+            "name": "hearing_loss"
+        }
+    ]
+}

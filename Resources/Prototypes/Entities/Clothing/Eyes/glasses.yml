@@ -438,13 +438,13 @@
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/science.rsi
   - type: Clothing
-      sprite: Clothing/Eyes/Glasses/science.rsi
-    - type: SolutionScanner
-    - type: IdentityBlocker
-      coverage: EYES
-    - type: Tag
-      tags:
-      - ChemVision #Funky - jamjarrening
+    sprite: Clothing/Eyes/Glasses/science.rsi
+  - type: SolutionScanner
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - ChemVision #Funky - jamjarrening
 
 - type: entity
   parent: [ClothingEyesBase, BaseMajorContraband]

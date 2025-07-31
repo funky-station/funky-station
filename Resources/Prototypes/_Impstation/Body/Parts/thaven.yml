@@ -16,12 +16,20 @@
     species: Thaven
 
 - type: entity
-  id: TorsoThaven
-  name: "thaven torso"
-  parent: [PartThaven, BaseTorso]
+  id: ChestThaven
+  name: "thaven chest"
+  parent: [PartThaven, BaseChest]
   components:
   - type: Sprite
-    state: "torso"
+    state: "chest"
+
+- type: entity
+  id: GroinThaven
+  name: "thaven groin"
+  parent: [PartThaven, BaseGroin]
+  components:
+  - type: Sprite
+    state: "groin"
 
 - type: entity
   id: HeadThaven

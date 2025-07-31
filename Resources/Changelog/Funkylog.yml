@@ -3843,3 +3843,13 @@ Entries:
       message: 'The RPD can no longer stack atmos devices. '
   id: 461
   time: '2025-07-30T03:59:15.0000000+00:00'
+- author: ItsAurelai
+  changes:
+    - type: Add
+      message: Added a new standard Thaven mood to the mood pool.
+    - type: Tweak
+      message: >-
+        Tweaked the GiftReciever and FavorsRepaid moods to not be rolled at the
+        same time as one another.
+  id: 462
+  time: '2025-07-31T21:26:37.0000000+00:00'

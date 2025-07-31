@@ -21,7 +21,15 @@ public sealed partial class SensitiveHearingSystem : EntitySystem
     {
         SubscribeLocalEvent<ExpandICChatRecipientsEvent>(OnExpandICChatRecipientsEvent);
         SubscribeLocalEvent<RadioReceiveAttemptEvent>(OnRadioReceiveAttemptEvent);
+        SubscribeLocalEvent<TransformSpeechEvent>(OnTransformSpeechEvent);
         base.Initialize();
+    }
+
+    private void OnTransformSpeechEvent(TransformSpeechEvent args)
+    {
+        if (TryComp<SensitiveHearingComponent>(args.Sender, out var hearing) && hearing.IsDeaf)
+            // ReSharper disable once ReturnValueOfPureMethodIsNotUsed
+            args.Message = args.Message.ToUpper();
     }
 
     private void OnRadioReceiveAttemptEvent(ref RadioReceiveAttemptEvent ev)

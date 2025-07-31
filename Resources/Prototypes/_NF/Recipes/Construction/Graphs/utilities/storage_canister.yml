@@ -7,7 +7,7 @@
     - to: storagecanister
       steps:
       - material: Plasteel
-        amount: 3
+        amount: 5
         doAfter: 5
 
   - node: storagecanister
@@ -20,7 +20,7 @@
       completed:
       - !type:SpawnPrototype
         prototype: SheetPlasteel1
-        amount: 3
+        amount: 5
       - !type:DeleteEntity
       steps:
       - tool: Screwing

@@ -23,10 +23,9 @@ using Content.Shared.Mobs.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
-using Content.Goobstation.Common.Examine; // Goobstation Change
 using Content.Shared.Damage;
 using Content.Shared.Examine;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
@@ -107,8 +106,6 @@ public sealed class PartStatusSystem : EntitySystem
             {
                 var markup = CreateMarkup(uid, args.User, component, damage);
                 _examineSystem.SendExamineTooltip(args.User, uid, markup, false, false);
-                var examineCompletedEvent = new ExamineCompletedEvent(markup, uid, args.User, true); // Goobstation
-                RaiseLocalEvent(uid, examineCompletedEvent); // Goobstation
             },
             Text = Loc.GetString("health-examinable-verb-text"),
             Category = VerbCategory.Examine,

@@ -150,7 +150,7 @@
           components:
             - GasTank
     - type: StaticPrice
-      price: 125 # Frontier: 200<125
+      price: 250 # Funky
     - type: AccessReader
 #      access: [["Atmospherics"], ["Engineering"], ["Research"], ["Captain"]] # Frontier
     - type: Construction # Frontier

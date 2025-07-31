@@ -7,7 +7,7 @@
     - to: storagecanister
       steps:
       - material: Plasteel
-        amount: 5
+        amount: 3
         doAfter: 5
 
   - node: storagecanister

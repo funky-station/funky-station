@@ -10,5 +10,5 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   icon:
-    sprite: _NF/Structures/Storage/canister.rsi
-    state: storage
+    sprite: Structures/Storage/canister.rsi
+    state: yellow

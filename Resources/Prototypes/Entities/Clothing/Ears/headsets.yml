@@ -59,6 +59,8 @@
   - type: GuideHelp
     guides:
     - Radio
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.1
 
 - type: entity
   parent: ClothingHeadset

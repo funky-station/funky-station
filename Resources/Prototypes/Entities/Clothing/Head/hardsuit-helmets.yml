@@ -76,6 +76,8 @@
     - Snout
     - HeadTop
     - HeadSide
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.1
 
 #Atmospherics Hardsuit
 - type: entity
@@ -129,6 +131,8 @@
     coolingCoefficient: 0.005
   - type: FireProtection
     reduction: 0.2
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.2
 
 #Engineering Hardsuit
 - type: entity
@@ -146,6 +150,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.1
     lowPressureMultiplier: 1000
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.2
 
 #Spationaut Hardsuit
 - type: entity
@@ -211,6 +217,8 @@
   - type: PointLight
     radius: 7
     energy: 3
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.2
 
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
@@ -308,6 +316,8 @@
         Heat: 0.9
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.2
 
 #Brigmedic Hardsuit
 - type: entity
@@ -336,6 +346,8 @@
     lowPressureMultiplier: 1000
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.2
 
 #Warden's Hardsuit
 - type: entity
@@ -362,6 +374,8 @@
         Heat: 0.9
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.2
 
 #Captain's Hardsuit
 - type: entity
@@ -379,6 +393,9 @@
     lowPressureMultiplier: 1000
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.3
+
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -398,6 +415,8 @@
     lowPressureMultiplier: 1000
   - type: FireProtection
     reduction: 0.2
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.3
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -415,6 +434,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.3
 
 #Research Director's Hardsuit
 - type: entity
@@ -432,6 +453,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.60
     lowPressureMultiplier: 1000
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.3
 
 #Head of Security's hardsuit
 - type: entity
@@ -458,6 +481,8 @@
         Heat: 0.9
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.3
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -504,6 +529,8 @@
         Heat: 0.9
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.3
 
 #Blood-red Medic Hardsuit
 - type: entity
@@ -530,6 +557,8 @@
         Heat: 0.9
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.3
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -561,6 +590,8 @@
         Heat: 0.9
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.3
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -587,6 +618,8 @@
         Heat: 0.9
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.3
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -611,6 +644,8 @@
         Heat: 0.9
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.3
 
 #Wizard Hardsuit
 - type: entity
@@ -637,6 +672,8 @@
         Heat: 0.9
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.3
 
 #Organic Space Suit
 - type: entity
@@ -668,6 +705,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.3
 
 #Pirate Captain Hardsuit
 - type: entity
@@ -686,6 +725,8 @@
     lowPressureMultiplier: 1000
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.3
 
 #CENTCOMM / ERT HARDSUITS
 #ERT Leader Hardsuit
@@ -708,6 +749,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.4
 
 #ERT Chaplain Hardsuit
 - type: entity
@@ -722,6 +765,8 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertchaplain.rsi
   - type: PointLight
     color: "#ffffff"
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.4
 
 #ERT Engineer Hardsuit
 - type: entity
@@ -743,6 +788,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.4
 
 #ERT Medical Hardsuit
 - type: entity
@@ -757,6 +804,8 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertmedical.rsi
   - type: PointLight
     color: "#adffec"
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.4
 
 #ERT Security Hardsuit
 - type: entity
@@ -778,6 +827,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.4
 
 #ERT Janitor Hardsuit
 - type: entity
@@ -792,6 +843,8 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi
   - type: PointLight
     color: "#cbadff"
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.4
 
 #CBURN Hardsuit
 - type: entity
@@ -837,6 +890,8 @@
         Heat: 0.9
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 0.4
 
 #Deathsquad Hardsuit
 - type: entity
@@ -871,6 +926,8 @@
     isEquipment: true
     color: "#98EEFB"
     lightRadius: 15
+  - type: LoudNoiseSuppressor
+    suppressionModifier: 1.0 #lol
 
 #MISC. HARDSUITS
 #Clown Hardsuit

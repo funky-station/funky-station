@@ -10,6 +10,10 @@ using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Shared.Map;
 using Content.Shared.Popups;
+using Content.Shared.Speech;
+using Robust.Shared.Audio.Components;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
@@ -32,7 +36,15 @@ public sealed partial class SensitiveHearingSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<SensitiveHearingComponent, ComponentRemove>(OnCompRemove);
+        SubscribeLocalEvent<ScreamActionEvent>(OnScreamAction);
         base.Initialize();
+    }
+
+    private void OnScreamAction(ScreamActionEvent ev)
+    {
+        if (!TryComp<TransformComponent>(ev.Performer, out var xform))
+            return;
+        BlastRadius(10, 2, _transformSystem.GetMapCoordinates(xform));
     }
 
     private void OnCompRemove(EntityUid uid, SensitiveHearingComponent comp, ComponentRemove args)
@@ -85,7 +97,7 @@ public sealed partial class SensitiveHearingSystem : EntitySystem
             }
 
             if (!hearing.IsDeaf)
-                hearing.DamageAmount += GetBlastDamageModifier(entity) * CalculateFalloff(amount, radius, distance);
+                hearing.DamageAmount += GetBlastDamageModifier(entity) * CalculateFalloff(amount, radius, distance) * hearing.DamageModifier;
             Dirty(entity, hearing);
         }
 
@@ -103,7 +115,8 @@ public sealed partial class SensitiveHearingSystem : EntitySystem
         // NOTE: Using linear formula because it deals better damage.
         double x = sample / maxDistance;
         //no clue how safe an explicit cast here is
-        return (float) Math.Pow(x - 1, 2) * maxDamage;
+        return (float) (-x*x+1) * maxDamage;
+        // return (float) Math.Pow(x - 1, 2) * maxDamage;
         //-x^{2}+1
         // return (float) Math.Pow((1 - (1 / maxDistance) * sample), 2) * maxDamage;
     }

@@ -17,6 +17,6 @@ public sealed partial class LoudNoiseSuppressorComponent : Component
     /// 1.0f - Full suppression.
     /// 0.0f - No suppression.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("SuppressionModifier")]
+    [ViewVariables(VVAccess.ReadWrite), DataField("suppressionModifier")]
     public float SuppressionModifier = 1.0f;
 }

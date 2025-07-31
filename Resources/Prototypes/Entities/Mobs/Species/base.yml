@@ -450,6 +450,7 @@
   - type: FireVisuals
     alternateState: Standing
   - type: Carriable # Goobstation
+  - type: SensitiveHearing # funkystation /// Add this component and set data field "damageModifier" to 0 if you want to prevent certain species from haveing hearing damage.
 
 - type: entity
   save: false

@@ -22,14 +22,14 @@ namespace Content.Shared.Atmos.Piping.Trinary.Components
         public string FilterLabel { get; }
         public float TransferRate { get; }
         public bool Enabled { get; }
-        public Gas? FilteredGas { get; }
+        public HashSet<Gas>? FilterGases { get; }
 
-        public GasFilterBoundUserInterfaceState(string filterLabel, float transferRate, bool enabled, Gas? filteredGas)
+        public GasFilterBoundUserInterfaceState(string filterLabel, float transferRate, bool enabled, HashSet<Gas>? filterGases)
         {
             FilterLabel = filterLabel;
             TransferRate = transferRate;
             Enabled = enabled;
-            FilteredGas = filteredGas;
+            FilterGases = filterGases;
         }
     }
 
@@ -56,13 +56,13 @@ namespace Content.Shared.Atmos.Piping.Trinary.Components
     }
 
     [Serializable, NetSerializable]
-    public sealed class GasFilterSelectGasMessage : BoundUserInterfaceMessage
+    public sealed class GasFilterChangeGasesMessage : BoundUserInterfaceMessage
     {
-        public int? ID { get; }
+        public HashSet<Gas> Gases { get; }
 
-        public GasFilterSelectGasMessage(int? id)
+        public GasFilterChangeGasesMessage(HashSet<Gas> gases)
         {
-            ID = id;
+            Gases = gases;
         }
     }
 }

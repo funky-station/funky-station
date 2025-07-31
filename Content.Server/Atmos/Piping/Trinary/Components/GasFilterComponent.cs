@@ -39,5 +39,8 @@ namespace Content.Server.Atmos.Piping.Trinary.Components
 
         [DataField]
         public Gas? FilteredGas;
+
+        [DataField]
+        public HashSet<Gas> FilterGases = new HashSet<Gas>();
     }
 }

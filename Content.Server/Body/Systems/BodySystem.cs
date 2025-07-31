@@ -178,7 +178,7 @@ public sealed partial class BodySystem : SharedBodySystem // Shitmed change: mad
             return;
 
         var layers = HumanoidVisualLayersExtension.Sublayers(layer.Value);
-        _humanoidSystem.SetLayersVisibility((bodyEnt, humanoid), layers, visible: false);
+        _humanoidSystem.SetLayersVisibility(bodyEnt, layers, visible: false);
         _appearance.SetData(bodyEnt, layer, true); // Shitmed Change
     }
 

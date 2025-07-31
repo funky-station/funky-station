@@ -131,7 +131,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
-    
+
     public EntProtoId BoneShardPrototype = "ThrowingStarChangeling";
 
     public EntProtoId ArmorPrototype = "ChangelingClothingOuterArmor";
@@ -143,7 +143,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     private readonly List<TargetBodyPart> _bodyPartBlacklist =
     [
         TargetBodyPart.Head,
-        TargetBodyPart.Torso,
+        TargetBodyPart.Chest,
         TargetBodyPart.Groin,
         TargetBodyPart.LeftFoot,
         TargetBodyPart.RightFoot,

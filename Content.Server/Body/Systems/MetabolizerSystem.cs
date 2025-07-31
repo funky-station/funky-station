@@ -197,7 +197,7 @@ namespace Content.Server.Body.Systems
                 }
 
                 // we're done here entirely if this is true
-                if (reagents >= ent.Comp1.MaxReagentsProcessable)
+                if (reagents >= ent.Comp1.MaxPoisonsProcessable)
                     return;
 
 

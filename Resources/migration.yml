@@ -608,6 +608,16 @@ MagazinePistolHighCapacityRubber: null
 # 2025-03-09 - Shitmed Woundmed, separating torsos into chest and groin
 TorsoHuman: ChestHuman
 TorsoSkeleton: ChestSkeleton
+TorsoReptilian: ChestReptilian
+TorsoSlime: ChestSlime
+TorsoMoth: ChestMoth
+TorsoVox: ChestVox
+TorsoDiona: ChestDiona
+TorsoArachnid: ChestArachnid
+TorsoGingerbread: ChestGingerbread
+TorsoVulpkanin: ChestVulpkanin
+TorsoHarpy: ChestHarpy
+TorsoIPC: ChestIPC
 
 # 2025-03-29
 ClothingBackpackDuffelSyndicateRaidBundle: ClothingBackpackSyndicateRaidBundle

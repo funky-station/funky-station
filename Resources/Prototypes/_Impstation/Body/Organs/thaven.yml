@@ -139,7 +139,7 @@
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Thaven/organs.rsi
   - type: Metabolizer
-    maxReagents: 3
+    maxPoisonsProcessable: 3
     metabolizerTypes: [Animal, Thaven]
     removeEmpty: true
     groups:

@@ -17,7 +17,7 @@
       - legs
       organs:
         lungs: OrganRatLungs
-        stomach: OrganRatKingStomach
+        stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
         heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys

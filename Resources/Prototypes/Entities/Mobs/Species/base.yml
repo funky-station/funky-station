@@ -380,7 +380,7 @@
     groups:
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
-      Acidic: [Touch, Ingestion, Eyes] # goobstation
+      Acidic: [Touch, Ingestion] # goobstation
       Medication: [ Touch ] # Funky - dermal medication
     reactions:
     - reagents: [Water, SpaceCleaner]

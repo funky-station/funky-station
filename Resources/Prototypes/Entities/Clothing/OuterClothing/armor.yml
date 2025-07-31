@@ -517,7 +517,6 @@
   - type: Tag # Goobstation
     tags:
     - WhitelistChameleon
-    - SyringeArmor
 
 - type: entity
   parent: ClothingOuterArmorHeavy

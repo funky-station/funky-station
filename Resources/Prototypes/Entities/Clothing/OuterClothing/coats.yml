@@ -568,12 +568,6 @@
       coefficients:
         Slash: 0.6
         Heat: 1.2
-  - type: ModifyDelayedKnockdown # GOOB
-    delayDelta: 1
-    knockdownTimeDelta: -1
-  - type: TemperatureProtection # GOOB
-    heatingCoefficient: 1.1 # the robes keep you warm but lets go of heat poorly
-    coolingCoefficient: 0.5
 
 - type: entity
   parent: [ClothingOuterStorageBase, BaseMajorContraband]

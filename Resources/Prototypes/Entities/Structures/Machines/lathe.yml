@@ -901,7 +901,7 @@
     - MechThruster # Goobstation
     # Shitmed Change
     - BorgModuleSurgery
-    - TorsoIPC
+    - ChestIPC
     - LeftArmIPC
     - RightArmIPC
     - LeftLegIPC

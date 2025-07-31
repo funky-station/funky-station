@@ -94,6 +94,6 @@ public sealed partial class SensitiveHearingComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
-    public TimeSpan SelfHealRate = TimeSpan.FromSeconds(5);
+    public TimeSpan SelfHealRate = TimeSpan.FromSeconds(7);
 }
 

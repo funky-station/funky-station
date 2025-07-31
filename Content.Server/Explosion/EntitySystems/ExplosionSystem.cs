@@ -415,7 +415,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
 
         // camera shake
         CameraShake(iterationIntensity.Count * 4f, pos, queued.TotalIntensity);
-        _loud.BlastRadius(queued.TotalIntensity * 4.0f, IntensityToRadius(queued.TotalIntensity, queued.Slope, queued.MaxTileIntensity) * 2, queued.Epicenter);
+        _loud.BlastRadius(queued.TotalIntensity * 8.0f, IntensityToRadius(queued.TotalIntensity, queued.Slope, queued.MaxTileIntensity) * 3f, queued.Epicenter);
 
         //For whatever bloody reason, sound system requires ENTITY coordinates.
         var mapEntityCoords = _transformSystem.ToCoordinates(_mapSystem.GetMap(pos.MapId), pos);

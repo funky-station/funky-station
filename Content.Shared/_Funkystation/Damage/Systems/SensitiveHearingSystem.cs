@@ -28,6 +28,7 @@ public sealed partial class SensitiveHearingSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
 
+    private const float PENETRATION_VOLUME = 100.0f;
     public override void Initialize()
     {
         SubscribeLocalEvent<SensitiveHearingComponent, ComponentRemove>(OnCompRemove);
@@ -53,9 +54,14 @@ public sealed partial class SensitiveHearingSystem : EntitySystem
             //pythagoras theorem
             var distance = Math.Sqrt(Math.Pow(entCoords.X - coords.X, 2.0) + Math.Pow(entCoords.Y - coords.Y, 2.0));
 
-            //lowkey no clue how to use a predicate here. this works
-            if (!_examine.InRangeUnOccluded(coords, entCoords, radius, predicate: _ => false))
-                continue;
+            if (amount < PENETRATION_VOLUME)
+            {
+                //lowkey no clue how to use a predicate here. this works
+                if (!_examine.InRangeUnOccluded(coords, entCoords, radius, predicate: _ => false))
+                    continue;
+            }
+            else
+                amount /= 3.0f;
 
             //show pain message when a certain damage threshold is passed, in or case this threshold is 50.0f.
             if (hearing.DamageAmount >= hearing.WarningThreshold)
@@ -95,9 +101,10 @@ public sealed partial class SensitiveHearingSystem : EntitySystem
     private float CalculateFalloff(float maxDamage, float maxDistance, double sample)
     {
         // NOTE: Using linear formula because it deals better damage.
-
+        double x = sample / maxDistance;
         //no clue how safe an explicit cast here is
-        return (float) (maxDamage * (sample / maxDistance));
+        return (float) Math.Pow(x - 1, 2) * maxDamage;
+        //-x^{2}+1
         // return (float) Math.Pow((1 - (1 / maxDistance) * sample), 2) * maxDamage;
     }
 

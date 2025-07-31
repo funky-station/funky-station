@@ -140,15 +140,13 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     public EntProtoId SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
     public EntProtoId SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
 
-    private readonly List<TargetBodyPart> _bodyPartBlacklist =
+    private readonly List<BodyPartType> _bodyPartBlacklist =
     [
-        TargetBodyPart.Head,
-        TargetBodyPart.Chest,
-        TargetBodyPart.Groin,
-        TargetBodyPart.LeftFoot,
-        TargetBodyPart.RightFoot,
-        TargetBodyPart.RightHand,
-        TargetBodyPart.LeftHand
+        BodyPartType.Head,
+        BodyPartType.Chest,
+        BodyPartType.Groin,
+        BodyPartType.Foot,
+        BodyPartType.Hand,
     ];
 
     private readonly Dictionary<string, float> _organWhitelist = new()

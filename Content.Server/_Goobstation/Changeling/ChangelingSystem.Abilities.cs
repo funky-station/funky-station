@@ -259,7 +259,7 @@ public sealed partial class ChangelingSystem
         if (!TryComp<TargetingComponent>(target, out var targetingComponent))
             return; // funky station - if you get here somethings really wrong
 
-        var bodyPart = _bodySystem.GetRandomBodyPart(target, targetingComponent, _bodyPartBlacklist);
+        var bodyPart = _bodySystem.GetRandomBodyPart(target, _bodyPartBlacklist);
 
         if (bodyPart != null)
         {

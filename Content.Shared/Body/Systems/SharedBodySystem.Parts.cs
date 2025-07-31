@@ -102,6 +102,7 @@ using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.BodyEffects;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Humanoid;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Robust.Shared.Random;
 
@@ -1160,6 +1161,17 @@ public partial class SharedBodySystem
             return null;
 
         return GetTargetBodyPart(_random.PickAndTake(children));
+    }
+
+    public TargetBodyPart? GetRandomBodyPart(EntityUid target, List<BodyPartType> blacklist)
+    {
+        var children = GetBodyChildren(target).ToList();
+        if (children.Count == 0)
+            return null;
+
+        var possibleParts = children.Where(entry => !blacklist.Contains(entry.Component.PartType)).ToList();
+
+        return GetTargetBodyPart(_random.PickAndTake(possibleParts));
     }
 
     public TargetBodyPart? GetTargetBodyPart(EntityUid partId)

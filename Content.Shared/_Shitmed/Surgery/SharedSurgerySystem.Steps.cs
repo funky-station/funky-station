@@ -142,8 +142,8 @@ public abstract partial class SharedSurgerySystem
 
         if (_inventory.TryGetContainerSlotEnumerator(args.Body, out var containerSlotEnumerator, args.TargetSlots))
         {
-            if (HasComp<SurgeryIgnoreClothingComponent>(args.User))
-                return;
+            //if (HasComp<SurgeryIgnoreClothingComponent>(args.User)) // WHAT IS THIS FROM??? ABDUCTORS ????
+                //return;
 
             while (containerSlotEnumerator.MoveNext(out var containerSlot))
             {

@@ -65,12 +65,6 @@ public abstract class SharedDamageMarkerSystem : EntitySystem
         if (TryComp<LeechOnMarkerComponent>(args.Used, out var leech))
             _damageable.TryChangeDamage(args.User, leech.Leech * 11f, true, false, origin: args.Used, targetPart: TargetBodyPart.All); // Shitmed Change
 
-        if (HasComp<DamageBoostOnMarkerComponent>(args.Used))
-        {
-            RaiseLocalEvent(uid, new ApplyMarkerBonusEvent(args.Used, args.User)); // For effects on the target
-            RaiseLocalEvent(args.Used, new ApplyMarkerBonusEvent(args.Used, args.User)); // For effects on the weapon
-        }
-
         RemCompDeferred<DamageMarkerComponent>(uid);
     }
 
@@ -106,8 +100,6 @@ public abstract class SharedDamageMarkerSystem : EntitySystem
         marker.Damage = new DamageSpecifier(component.Damage);
         marker.Marker = projectile.Weapon.Value;
         marker.EndTime = _timing.CurTime + component.Duration;
-        marker.Effect = component.Effect; // Pass the effect to the marker
-        marker.Sound = component.Sound; // Pass the effect to the marker
         component.Amount--;
 
         Dirty(args.OtherEntity, marker);

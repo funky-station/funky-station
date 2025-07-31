@@ -1,6 +1,4 @@
-using System.Numerics;
 using Content.Shared.Alert;
-using Content.Shared.Chat;
 using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
@@ -8,12 +6,6 @@ using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Shared.Map;
 using Content.Shared.Popups;
-using Content.Shared.Speech;
-using Content.Shared.Weapons.Ranged;
-using Content.Shared.Weapons.Ranged.Systems;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
-using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
@@ -34,7 +26,6 @@ public sealed partial class SensitiveHearingSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<GunShotEvent>(OnGunShotEvent); //Doesn't work for some reason.
         SubscribeLocalEvent<SensitiveHearingComponent, ComponentRemove>(OnCompRemove);
         base.Initialize();
     }
@@ -59,7 +50,7 @@ public sealed partial class SensitiveHearingSystem : EntitySystem
             var distance = Math.Sqrt(Math.Pow(entCoords.X - coords.X, 2.0) + Math.Pow(entCoords.Y - coords.Y, 2.0));
 
             //lowkey no clue how to use a predicate here. this works
-            if (!_examine.InRangeUnOccluded(coords, entCoords, radius, predicate: (e) => false))
+            if (!_examine.InRangeUnOccluded(coords, entCoords, radius, predicate: _ => false))
                 continue;
 
             //show pain message when a certain damage threshold is passed, in or case this threshold is 50.0f.
@@ -85,13 +76,13 @@ public sealed partial class SensitiveHearingSystem : EntitySystem
 
             if (!hearing.IsDeaf)
                 hearing.DamageAmount += GetBlastDamageModifier(entity) * CalculateFalloff(amount, radius, distance);
+            Dirty(entity, hearing);
         }
 
     }
 
     private ICommonSession? GetEntityICommonSession(EntityUid entity)
     {
-        MindComponent? mind;
         if (!TryComp<MindContainerComponent>(entity, out var mindContainer) || !mindContainer.HasMind)
             return null;
         return CompOrNull<MindComponent>(mindContainer.Mind)?.Session;
@@ -104,16 +95,6 @@ public sealed partial class SensitiveHearingSystem : EntitySystem
         //no clue how safe an explicit cast here is
         return (float) (maxDamage * (sample / maxDistance));
         // return (float) Math.Pow((1 - (1 / maxDistance) * sample), 2) * maxDamage;
-    }
-
-
-    //This does NOT work.
-    private void OnGunShotEvent(ref GunShotEvent msg)
-    {
-        if (!TryComp<TransformComponent>(msg.User, out var xform))
-            return;
-
-        BlastRadius(10.0f, 3.0f, _transformSystem.GetMapCoordinates(xform));
     }
 
 
@@ -138,7 +119,6 @@ public sealed partial class SensitiveHearingSystem : EntitySystem
         if (hearing.DamageAmount < hearing.WarningThreshold)
         {
             _alertsSystem.ClearAlertCategory(entity, hearing.HearingAlertProtoCategory);
-            Log.Error("A!");
             return;
         }
 
@@ -166,21 +146,32 @@ public sealed partial class SensitiveHearingSystem : EntitySystem
         var query = EntityQueryEnumerator<SensitiveHearingComponent>();
         while (query.MoveNext(out var uid, out var hearing))
         {
-            if (_timing.CurTime >= hearing.NextThresholdUpdateTime) {
+            if (_timing.CurTime >= hearing.NextThresholdUpdateTime)
+            {
                 hearing.NextThresholdUpdateTime = _timing.CurTime + hearing.ThresholdUpdateRate;
                 UpdateAlerts(hearing, uid);
             }
 
-            if (_timing.CurTime >= hearing.NextSelfHeal && !hearing.IsDeaf) {
+            if (_timing.CurTime >= hearing.NextSelfHeal && !hearing.IsDeaf)
+            {
                 hearing.NextSelfHeal = _timing.CurTime + hearing.SelfHealRate;
-                SelfHeal(hearing, uid);
+                SelfHeal(hearing);
             }
         }
     }
 
-    private void SelfHeal(SensitiveHearingComponent hearing, EntityUid uid)
+    private void SelfHeal(SensitiveHearingComponent hearing)
     {
         hearing.DamageAmount -= hearing.SelfHealAmount;
+    }
+
+    public void HealHearingLoss(SensitiveHearingComponent hearing, EntityUid uid)
+    {
+        if (hearing.IsDeaf)
+        {
+            _alertsSystem.ClearAlertCategory(uid, hearing.HearingAlertProtoCategory);
+            hearing.DamageAmount = hearing.DeafnessThreshold - hearing.DeafnessThreshold / 2;
+        }
     }
 }
 

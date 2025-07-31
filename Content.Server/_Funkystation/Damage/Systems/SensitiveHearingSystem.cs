@@ -2,11 +2,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Popups;
 using Content.Server.Radio;
 using Content.Shared.Damage.Components;
-using Content.Shared.Humanoid;
-using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
-using Robust.Shared.Player;
 
 namespace Content.Server.Damage.Systems;
 

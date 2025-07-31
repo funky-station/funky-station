@@ -463,6 +463,19 @@
       - !type:ModifyBleedAmount
         amount: -0.5
 
+- type: reagent
+  id: Acousticium
+  name: reagent-name-acousticium
+  group: Exotic
+  desc: reagent-desc-acousticium
+  physicalDesc: reagent-physical-desc-soothing
+  flavor: bitter
+  color: "#8b759e"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:CureHearingLoss
+
 # pyro
 - type: reagent
   id: Pyroxadone

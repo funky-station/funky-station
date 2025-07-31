@@ -178,6 +178,19 @@
   products:
     Hypothium: 3
 
+- type: reaction
+  id: Acousticium
+  reactants:
+    Hydrogen:
+      amount: 1
+    Libital:
+      amount: 1
+    TableSalt:
+      amount: 1
+  products:
+    Acousticium: 3
+
+
 # pyro
 - type: reaction
   id: Pyroxadone

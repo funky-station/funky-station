@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2024 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -46,8 +47,29 @@ public sealed class RCDConstructionGhostFlipEvent : EntityEventArgs
     }
 }
 
+// Funky - Added to handle pipe color changes in RPDs
+[Serializable, NetSerializable]
+public sealed class RCDColorChangeMessage : BoundUserInterfaceMessage
+{
+    public readonly NetEntity NetEntity;
+    public readonly (string Key, Color? Color) PipeColor;
+
+    public RCDColorChangeMessage(NetEntity entity, (string Key, Color? Color) pipeColor)
+    {
+        NetEntity = entity;
+        PipeColor = pipeColor;
+    }
+}
+
 [Serializable, NetSerializable]
 public enum RcdUiKey : byte
+{
+    Key
+}
+
+// Funky - Added to handle RPD color and layer selection
+[Serializable, NetSerializable]
+public enum RpdUiKey : byte
 {
     Key
 }

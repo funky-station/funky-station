@@ -4,24 +4,15 @@
 
 using Content.Client._Funkystation.Medical.MedicalRecordsConsole.UI;
 using Content.Shared._Funkystation.Medical.MedicalRecords;
-using Content.Shared.Access.Systems;
 using Content.Shared.StationRecords;
 using JetBrains.Annotations;
-using Robust.Client.UserInterface;
 
 namespace Content.Client._Funkystation.Medical.MedicalRecordsConsole;
 
 [UsedImplicitly]
-public sealed class MedicalRecordsBoundUserInterface : BoundUserInterface
+public sealed class MedicalRecordsBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
     [ViewVariables] private MedicalRecordsMenu? _menu;
-    private readonly AccessReaderSystem _accessReader;
-    // TODO: access locking entries / history
-
-    public MedicalRecordsBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
-    {
-        _accessReader = EntMan.System<AccessReaderSystem>();
-    }
 
     protected override void UpdateState(BoundUserInterfaceState state)
     {
@@ -37,7 +28,7 @@ public sealed class MedicalRecordsBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _menu = new MedicalRecordsMenu(_accessReader);
+        _menu = new MedicalRecordsMenu();
         _menu.OnClose += Close;
 
         _menu.OnListingItemSelected += meta =>

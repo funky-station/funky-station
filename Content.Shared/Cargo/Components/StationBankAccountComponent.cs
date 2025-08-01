@@ -36,11 +36,11 @@ public sealed partial class StationBankAccountComponent : Component
     public Dictionary<ProtoId<CargoAccountPrototype>, int> Accounts = new()
     {
         { "Cargo",       2000 },
-        { "Engineering", 1000 },
-        { "Medical",     1000 },
-        { "Science",     1000 },
-        { "Security",    1000 },
-        { "Service",     1000 },
+        { "Engineering", 3000 },
+        { "Medical",     3000 },
+        { "Science",     3000 },
+        { "Security",    3000 },
+        { "Service",     3000 },
     };
 
     /// <summary>
@@ -60,20 +60,20 @@ public sealed partial class StationBankAccountComponent : Component
     /// <summary>
     /// How much the bank balance goes up per second, every Delay period. Rounded down when multiplied.
     /// </summary>
-    [DataField]
-    public int IncreasePerSecond = 2;
+    //[DataField]
+    //public int IncreasePerSecond = 2;
 
     /// <summary>
     /// The time at which the station will receive its next deposit of passive income
     /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan NextIncomeTime;
+    //[DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    //public TimeSpan NextIncomeTime;
 
     /// <summary>
     /// How much time to wait (in seconds) before increasing bank accounts balance.
     /// </summary>
-    [DataField]
-    public TimeSpan IncomeDelay = TimeSpan.FromSeconds(50);
+    //[DataField]
+    //public TimeSpan IncomeDelay = TimeSpan.FromSeconds(50);
 }
 
 /// <summary>

@@ -31,7 +31,7 @@ public abstract class SharedCargoSystem : EntitySystem
 
     private void OnMapInit(Entity<StationBankAccountComponent> ent, ref MapInitEvent args)
     {
-        ent.Comp.NextIncomeTime = Timing.CurTime + ent.Comp.IncomeDelay;
+        //ent.Comp.NextIncomeTime = Timing.CurTime + ent.Comp.IncomeDelay;
         Dirty(ent);
     }
 

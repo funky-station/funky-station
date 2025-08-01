@@ -160,15 +160,15 @@ namespace Content.Server.Cargo.Systems
         private void UpdateConsole()
         {
             var stationQuery = EntityQueryEnumerator<StationBankAccountComponent>();
-            while (stationQuery.MoveNext(out var uid, out var bank))
-            {
-                if (Timing.CurTime < bank.NextIncomeTime)
-                    continue;
-                bank.NextIncomeTime += bank.IncomeDelay;
+            //while (stationQuery.MoveNext(out var uid, out var bank))
+            //{
+                //if (Timing.CurTime < bank.NextIncomeTime)
+                    //continue;
+                //bank.NextIncomeTime += bank.IncomeDelay;`
 
-                var balanceToAdd = (int) Math.Round(bank.IncreasePerSecond * bank.IncomeDelay.TotalSeconds);
-                UpdateBankAccount((uid, bank), balanceToAdd, bank.RevenueDistribution);
-            }
+                //var balanceToAdd = (int) Math.Round(bank.IncreasePerSecond * bank.IncomeDelay.TotalSeconds);
+                //UpdateBankAccount((uid, bank), balanceToAdd, bank.RevenueDistribution);
+            //}
         }
 
         #region Interface

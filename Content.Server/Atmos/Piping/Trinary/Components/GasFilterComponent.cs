@@ -38,9 +38,9 @@ namespace Content.Server.Atmos.Piping.Trinary.Components
         public float MaxTransferRate = Atmospherics.MaxTransferRate;
 
         [DataField]
-        public Gas? FilteredGas;
+        public Gas? FilteredGas; // Funky - unused - kept to prevent crashes on component load
 
         [DataField]
-        public HashSet<Gas> FilterGases = new HashSet<Gas>();
+        public HashSet<Gas> FilterGases = new HashSet<Gas>(); // Funky - for filtering of multiple gases
     }
 }

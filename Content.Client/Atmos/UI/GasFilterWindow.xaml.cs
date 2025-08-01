@@ -63,7 +63,7 @@ namespace Content.Client.Atmos.UI
             FilterTransferRateInput.Text = rate.ToString(CultureInfo.CurrentCulture);
         }
 
-        public bool FilterStatus { get; private set; } = true;
+        public bool FilterStatus { get; private set; } = true; // Funky - for filtering of multiple gases
 
         public void SetFilterStatus(bool enabled)
         {
@@ -78,7 +78,7 @@ namespace Content.Client.Atmos.UI
             }
         }
 
-        public void SetFilteredGases(HashSet<Gas> gases)
+        public void SetFilteredGases(HashSet<Gas> gases) // Funky - modified for filtering of multiple gases
         {
             _selectedGases.Clear();
             _selectedGases.UnionWith(gases);
@@ -88,7 +88,7 @@ namespace Content.Client.Atmos.UI
             }
         }
 
-        public void PopulateGasList(IEnumerable<GasPrototype> gases)
+        public void PopulateGasList(IEnumerable<GasPrototype> gases) // Funky - modified for filtering of multiple gases
         {
             foreach (var gas in gases)
             {
@@ -114,7 +114,7 @@ namespace Content.Client.Atmos.UI
             }
         }
 
-        private void SelectAllGases(BaseButton.ButtonEventArgs args)
+        private void SelectAllGases(BaseButton.ButtonEventArgs args) // Funky - for filtering of multiple gases
         {
             foreach (var (gas, button) in _gasControls)
             {
@@ -124,7 +124,7 @@ namespace Content.Client.Atmos.UI
             FilterGasesChanged?.Invoke(new HashSet<Gas>(_selectedGases));
         }
 
-        private void DeselectAllGases(BaseButton.ButtonEventArgs args)
+        private void DeselectAllGases(BaseButton.ButtonEventArgs args) // Funky - for filtering of multiple gases
         {
             foreach (var (_, button) in _gasControls)
             {

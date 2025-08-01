@@ -23,6 +23,9 @@ using Robust.Client.UserInterface;
 
 namespace Content.Client.Atmos.UI
 {
+    /// <summary>
+    /// Initializes a <see cref="GasFilterWindow"/> and updates it when new server messages are received.
+    /// </summary>
     [UsedImplicitly]
     public sealed class GasFilterBoundUserInterface : BoundUserInterface
     {
@@ -47,7 +50,7 @@ namespace Content.Client.Atmos.UI
 
             _window.ToggleStatusButtonPressed += OnToggleStatusButtonPressed;
             _window.FilterTransferRateChanged += OnFilterTransferRatePressed;
-            _window.FilterGasesChanged += OnFilterGasesChanged;
+            _window.FilterGasesChanged += OnFilterGasesChanged; // Funky - for filtering of multiple gases
         }
 
         private void OnToggleStatusButtonPressed()
@@ -62,21 +65,24 @@ namespace Content.Client.Atmos.UI
             SendMessage(new GasFilterChangeRateMessage(rate));
         }
 
-        private void OnFilterGasesChanged(HashSet<Gas> gases)
+        private void OnFilterGasesChanged(HashSet<Gas> gases) // Funky - for filtering of multiple gases
         {
             SendMessage(new GasFilterChangeGasesMessage(gases));
         }
 
+        /// <summary>
+        /// Update the UI state based on server-sent info
+        /// </summary>
+        /// <param name="state"></param>
         protected override void UpdateState(BoundUserInterfaceState state)
         {
             base.UpdateState(state);
             if (_window == null || state is not GasFilterBoundUserInterfaceState cast)
                 return;
 
-            _window.Title = cast.FilterLabel;
             _window.SetFilterStatus(cast.Enabled);
             _window.SetTransferRate(cast.TransferRate);
-            _window.SetFilteredGases(cast.FilterGases ?? new HashSet<Gas>());
+            _window.SetFilteredGases(cast.FilterGases ?? new HashSet<Gas>()); // Funky - for filtering of multiple gases
         }
 
         protected override void Dispose(bool disposing)

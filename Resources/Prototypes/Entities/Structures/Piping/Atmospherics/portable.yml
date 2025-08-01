@@ -118,6 +118,9 @@
   - type: GuideHelp
     guides:
     - PortableScrubber
+  - type: CosmicTransmutable # DeltaV
+    transmutesTo: CosmicVacuousSpire
+    requiredGlyphType: CosmicGlyphCessation
 
 - type: entity
   id: SpaceHeater

@@ -197,7 +197,6 @@
     soundGunshot: /Audio/_DV/CosmicCult/projectile_razor.ogg
     soundEmpty: null
     fireRate: 1
-    useKey: false
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 1.8
     rechargeSound:
@@ -234,6 +233,8 @@
       params:
         variation: 0.2
         volume: -11
+  - type: AltFireMelee
+    attackType: Heavy
   - type: Reflect
     reflectProb: .21
     spread: 120

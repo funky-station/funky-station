@@ -16,6 +16,9 @@ cosmic-examine-text-imposition = [color=#4cabb3]A barrier of astral power wards 
 cosmic-examine-text-chantry = [color=#4cabb3]You get the horrific feeling that there's somebody trapped inside![/color]
 cosmic-examine-text-god = [color=#4cabb3]the end is the end is the end is the end is the end is the end is the end is the end is the end is the end is[/color]
 
+## CULTIST EXAMINES
+cosmic-examine-transmutable = This can be transmuted into [color=#4cabb3]{$result}[/color] by using [color=#4cabb3]{$glyph}[/color].
+cosmic-examine-transmutable-verb-text = Transmutability.
 
 ## GLYPH EXAMINES
 cosmic-examine-glyph-cultcount = {$COUNT ->

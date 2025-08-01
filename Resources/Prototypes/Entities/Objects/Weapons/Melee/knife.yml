@@ -79,6 +79,9 @@
       path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
+  - type: CosmicTransmutable # DeltaV
+    transmutesTo: SwordCosmicCult
+    requiredGlyphType: CosmicGlyphBlades
 
 - type: entity
   name: kitchen knife

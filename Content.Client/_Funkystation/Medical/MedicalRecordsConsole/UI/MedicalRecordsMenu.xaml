@@ -250,37 +250,6 @@
                                 <BoxContainer Name="MedicalInfoContainer" Orientation="Vertical" />
                                 <ui:RecordLongItemDisplay Margin="5" Name="RecordContainerIdentFeatures" />
                                 <ui:RecordLongItemDisplay Margin="5" Name="RecordContainerPostMortem" />
-                                <BoxContainer Margin="5" Orientation="Horizontal">
-                                    <BoxContainer Orientation="Horizontal" SetHeight="24">
-                                        <Button
-                                            Margin="-1"
-                                            Name="DoctorsNotesButton"
-                                            SetWidth="27"
-                                            StyleClasses="ButtonSquare">
-                                            <TextureRect
-                                                Margin="-8,-2,0,0"
-                                                Name="DoctorsNotesButtonIcon"
-                                                TexturePath="/Textures/_Funkystation/Interface/StyleFunky/view_icon.png"
-                                                VerticalAlignment="Center" />
-                                        </Button>
-                                    </BoxContainer>
-                                    <Label
-                                        Margin="5,0"
-                                        Name="DoctorsNotesTitle"
-                                        StyleClasses="LabelSecondaryColor"
-                                        Text="{Loc 'funky-medical-records-doctors-notes-title'}" />
-                                </BoxContainer>
-                                <BoxContainer
-                                    HorizontalExpand="True"
-                                    Margin="5"
-                                    Name="DoctorsNotesContainer"
-                                    Orientation="Vertical"
-                                    Visible="False">
-                                    <ScrollContainer HScrollEnabled="False" VerticalExpand="True">
-                                        <ItemList MaxHeight="500" Name="History" />
-                                        <!--  Populated when window opened  -->
-                                    </ScrollContainer>
-                                </BoxContainer>
                             </BoxContainer>
 
                             <!--  todo implement autopsies  -->

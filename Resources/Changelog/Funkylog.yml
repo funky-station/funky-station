@@ -3859,3 +3859,13 @@ Entries:
       message: Resprited all PDAs
   id: 463
   time: '2025-08-01T12:21:54.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Added the Nippon-tan, SweatMAX and Mars Mart vendors, alongside new
+        restock crates for them to buy at cargo
+    - type: Tweak
+      message: Most trash items now recycle into plastic rather than steel
+  id: 464
+  time: '2025-08-01T23:23:36.0000000+00:00'

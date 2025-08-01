@@ -3883,3 +3883,9 @@ Entries:
         hypernoblium present. 
   id: 466
   time: '2025-08-01T23:39:51.0000000+00:00'
+- author: Icepick, Frostwight
+  changes:
+    - type: Tweak
+      message: Rules 6, 12, and 13 have been tweaked.
+  id: 467
+  time: '2025-08-01T23:40:39.0000000+00:00'

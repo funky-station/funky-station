@@ -73,7 +73,7 @@
   - type: StorageFill
     contents:
       - id: ClothingEyesThermalVisionGogglesSyndie
-      - id: EncryptionKeySyndie
+      - id: RadioImplanter
       - id: CameraBug
       - id: AccessBreaker
       - id: GrenadeShrapnel
@@ -85,3 +85,63 @@
       - id: ClothingHeadHelmetMercSyndicate
       - id: ClothingOuterHardsuitSyndicateDurathread
       - id: ClothingHeadHelmetSyndicate
+
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledKitUndercover
+  name: undercover syndie-kit
+  description: "Use this collection of covert items and chameleon clothing to disguise as anyone or anything. Surprise."
+  components:
+  - type: StorageFill
+    contents:
+      - id: ChameleonPDA
+      - id: ClothingUniformJumpsuitChameleon
+      - id: ClothingOuterChameleon
+      - id: ClothingNeckChameleon
+      - id: ClothingHeadHatChameleon
+      - id: ClothingHandsChameleon
+      - id: ClothingEyesChameleon
+      - id: ClothingHeadsetChameleon
+      - id: ClothingShoesChameleon
+      - id: ClothingMaskGasVoiceChameleon
+      - id: Switchblade
+      - id: DnaScramblerImplanter
+      - id: StorageImplanter
+      - id: FakeMindShieldImplanter
+      - id: SoapSyndie
+      - id: SmokeGrenade
+      - id: EmpFlashlight
+      - id: PenExplodingBox
+      - id: AgentIDCard
+      - id: ChameleonProjector
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledKitBond
+  name: Urist McBond syndie-kit
+  description: "Become an elite secret agent. Evade arrest. Play evil poker."
+  components:
+  - type: StorageFill
+    contents:
+      - id: CyberPen
+      - id: WeaponPistolCobra
+      - id: MagazinePistolCaselessRifle
+      - id: EmpFlashlight
+      - id: FreedomImplanter
+      - id: C4
+      - id: AgentIDCard
+      - id: CardBoxSyndicate
+      - id: SyndicateBusinessCard
+      - id: RagItem
+      - id: PillCanisterAmatoxin
+      - id: SyndicateHypo
+      - id: CartridgeGunshotSyndicate
+      - id: CartridgeSedativeSyndicate
+      - id: ClothingEyesChameleonHud
+      - id: ClothingUniformJumpsuitChameleon
+      - id: ClothingOuterChameleon
+      - id: ClothingHeadHatChameleon
+      - id: ClothingHandsChameleon
+      - id: ClothingShoesChameleon
+      - id: ClothingMaskGasVoiceChameleon

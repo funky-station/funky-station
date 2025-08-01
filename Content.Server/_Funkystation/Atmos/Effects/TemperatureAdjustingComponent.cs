@@ -15,19 +15,19 @@ public sealed partial class TemperatureAdjustingComponent : Component
 {
 
     /// <summary>
-    /// The the amount the tempurature should be modified by (negative for decreasing temp)
+    /// The amount the tempurature should be modified by (negative for decreasing temp)
     /// </summary>
     [DataField("tempChangePerSecond")]
     public float TempChangePerSecond = 0;
 
     /// <summary>
-    /// The maximum temperature that the anomaly can affect
+    /// The maximum temperature that the entity can affect
     /// </summary>
     [DataField("maxTemperature")]
     public float MaxTemperature = 0;
 
     /// <summary>
-    /// The the amount the tempurature should be modified by (negative for decreasing temp)
+    /// The minimum temperature that the entity can affect
     /// </summary>
     [DataField("minTemperature")]
     public float MinTemperature = 0;

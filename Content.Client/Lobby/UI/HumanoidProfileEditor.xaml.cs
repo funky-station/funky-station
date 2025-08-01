@@ -106,6 +106,10 @@ using Content.Client._Funkystation.Medical.Records.UI;
 using Content.Shared._Funkystation.Records;
 // End CD - Character Records
 using Direction = Robust.Shared.Maths.Direction;
+// Begin CD - Character Records
+using Content.Client._Funkystation.Medical.Records.UI;
+using Content.Shared._Funkystation.Records;
+// End CD - Character Records
 
 namespace Content.Client.Lobby.UI
 {
@@ -1603,6 +1607,8 @@ namespace Content.Client.Lobby.UI
             var name = HumanoidCharacterProfile.GetName(Profile.Species, Profile.Gender);
             SetName(name);
             UpdateNameEdit();
+
+            _recordsTab.Update(Profile); // CD - Character Records
         }
 
         private async void ImportProfile()

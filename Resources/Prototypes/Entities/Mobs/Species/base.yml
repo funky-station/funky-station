@@ -118,6 +118,7 @@
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -450,6 +451,7 @@
   - type: FireVisuals
     alternateState: Standing
   - type: Carriable # Goobstation
+  - type: SensitiveHearing # funkystation /// Add this component and set data field "damageModifier" to 0 if you want to prevent certain species from haveing hearing damage.
 
 - type: entity
   save: false

@@ -33,6 +33,7 @@
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -62,6 +63,7 @@
     - category: Breathing # Vox gang not calling this oxygen
     - alertType: Thieving # funkystation - MTGA
     - category: Pressure
+    - category: Hearing # funkystation
     - alertType: Bleed
     - category: Temperature
     - category: Hunger
@@ -222,6 +224,32 @@
   description: alerts-thieving-desc
   minSeverity: 1
   maxSeverity: 2
+
+- type: alert
+  id: HearingWarning
+  category: Hearing
+  icons:
+  - sprite: /Textures/_Funkystation/Interface/Alerts/hearing.rsi
+    state: hearing_damage1
+  - sprite: /Textures/_Funkystation/Interface/Alerts/hearing.rsi
+    state: hearing_damage2
+  - sprite: /Textures/_Funkystation/Interface/Alerts/hearing.rsi
+    state: hearing_damage3
+  - sprite: /Textures/_Funkystation/Interface/Alerts/hearing.rsi
+    state: hearing_damage4
+  name: alerts-hearing-warn-name
+  description: alerts-hearing-warn-desc
+  minSeverity: 1
+  maxSeverity: 4
+
+- type: alert
+  id: HearingDeaf
+  category: Hearing
+  icons:
+  - sprite: /Textures/_Funkystation/Interface/Alerts/hearing.rsi
+    state: hearing_loss
+  name: alerts-hearing-loss-name
+  description: alerts-hearing-loss-desc
 
 - type: alert
   id: HumanCrit

@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -462,6 +463,19 @@
             Airloss: -6
       - !type:ModifyBleedAmount
         amount: -0.5
+
+- type: reagent
+  id: Acousticium
+  name: reagent-name-acousticium
+  group: Exotic
+  desc: reagent-desc-acousticium
+  physicalDesc: reagent-physical-desc-soothing
+  flavor: bitter
+  color: "#8b759e"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:CureHearingLoss
 
 # pyro
 - type: reagent

@@ -5,6 +5,7 @@
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -38,9 +39,10 @@ public sealed class StationAiSystem : SharedStationAiSystem
         base.Initialize();
 
         SubscribeLocalEvent<ExpandICChatRecipientsEvent>(OnExpandICChatRecipients);
+        SubscribeLocalEvent<ExpandICEmoteRecipientsEvent>(OnExpandICChatRecipients);
     }
 
-    private void OnExpandICChatRecipients(ExpandICChatRecipientsEvent ev)
+    private void OnExpandICChatRecipients(ExpandICEvent ev)
     {
         var xformQuery = GetEntityQuery<TransformComponent>();
         var sourceXform = Transform(ev.Source);

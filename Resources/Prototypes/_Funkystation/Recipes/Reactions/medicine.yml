@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -177,6 +178,19 @@
       amount: 1
   products:
     Hypothium: 3
+
+- type: reaction
+  id: Acousticium
+  reactants:
+    Hydrogen:
+      amount: 1
+    Libital:
+      amount: 1
+    TableSalt:
+      amount: 1
+  products:
+    Acousticium: 3
+
 
 # pyro
 - type: reaction

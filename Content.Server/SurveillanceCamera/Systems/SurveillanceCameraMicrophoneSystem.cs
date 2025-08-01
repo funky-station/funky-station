@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -27,9 +28,10 @@ public sealed class SurveillanceCameraMicrophoneSystem : EntitySystem
         SubscribeLocalEvent<SurveillanceCameraMicrophoneComponent, ListenEvent>(RelayEntityMessage);
         SubscribeLocalEvent<SurveillanceCameraMicrophoneComponent, ListenAttemptEvent>(CanListen);
         SubscribeLocalEvent<ExpandICChatRecipientsEvent>(OnExpandRecipients);
+        SubscribeLocalEvent<ExpandICEmoteRecipientsEvent>(OnExpandRecipients);
     }
 
-    private void OnExpandRecipients(ExpandICChatRecipientsEvent ev)
+    private void OnExpandRecipients(ExpandICEvent ev)
     {
         var xformQuery = GetEntityQuery<TransformComponent>();
         var sourceXform = Transform(ev.Source);

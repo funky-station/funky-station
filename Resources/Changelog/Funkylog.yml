@@ -3875,3 +3875,11 @@ Entries:
       message: New Encryption Key sprites.
   id: 465
   time: '2025-08-01T23:31:52.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: >-
+        Fire visuals will no longer remain on tiles with more than 5 mols of
+        hypernoblium present. 
+  id: 466
+  time: '2025-08-01T23:39:51.0000000+00:00'

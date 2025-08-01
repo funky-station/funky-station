@@ -194,4 +194,7 @@ thaven-mood-ironknight-name = Iron Knight
 thaven-mood-ironknight-desc = Mechs are the most noble machine, fearsome engines of combat and grace. Respect anyone who possesses one, and strive to gain one for yourself.
 
 thaven-mood-petrock-name = Pet Rock
-thaven-mood-petrock-desc = One of your inanimate possessions is very dear to you. It is your best friend, and it has thoughts, feelings, and needs. 
+thaven-mood-petrock-desc = One of your inanimate possessions is very dear to you. It is your best friend, and it has thoughts, feelings, and needs.
+
+thaven-mood-hardsuits-good-name = {$clothes} Are So In Right Now!
+thaven-mood-hardsuits-good-desc = They are absolutely the pinnacle of fashion. You and everybody else utterly need to be wearing these to stay in style. Anyone who is not wearing these are quite unfashionable.

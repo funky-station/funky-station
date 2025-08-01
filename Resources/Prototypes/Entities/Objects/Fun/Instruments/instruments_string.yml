@@ -42,7 +42,7 @@
     quickEquip: false
     slots:
     - back
-    - backstorage
+    - backStorage
     sprite: Objects/Fun/Instruments/eguitar.rsi
   - type: Tag
     tags:

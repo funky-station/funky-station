@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2020 FrostMando <68990565+FrostMando@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
 # SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
 # SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <zddm@outlook.es>
 # SPDX-FileCopyrightText: 2021 Alex Evgrashin <aevgrashin@yandex.ru>
 # SPDX-FileCopyrightText: 2021 xRiriq <94037592+xRiriq@users.noreply.github.com>
@@ -43,7 +44,11 @@
 # SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 buntobaggins <113877683+buntobaggins@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nikovnik <116634167+nkokic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zephyr <68482449+Zephyrpak@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zephyr <cgarretson15@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
@@ -127,8 +132,8 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.005
     coolingCoefficient: 0.005
-  - type: FireProtection
-    reduction: 0.2
+  - type: FireResistance
+    damageCoefficient: 0.50
 
 #Engineering Hardsuit
 - type: entity
@@ -146,6 +151,14 @@
   - type: PressureProtection
     highPressureMultiplier: 0.1
     lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Shock: 0.8
+        Radiation: 0.5
 
 #Spationaut Hardsuit
 - type: entity
@@ -193,6 +206,13 @@
   - type: PressureProtection
     highPressureMultiplier: 0.72
     lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.95
+        Radiation: 0.60
 
 #Salvage Hardsuit
 - type: entity
@@ -211,6 +231,15 @@
   - type: PointLight
     radius: 7
     energy: 3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.90
+        Radiation: 0.40
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
 
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
@@ -260,6 +289,16 @@
   - type: PressureProtection
     highPressureMultiplier: 0.72
     lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.9
+        Heat: 0.9
+        Radiation: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.85
 
 - type: entity
   parent: ClothingHeadHardsuitBase
@@ -325,11 +364,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.95
-        Radiation: 0.90
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90
         Caustic: 0.90
   - type: PressureProtection
     highPressureMultiplier: 0.6
@@ -396,8 +434,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
-  - type: FireProtection
-    reduction: 0.2
+  - type: FireResistance
+    damageCoefficient: 0.6
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -463,7 +501,7 @@
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitLuxury #DO NOT MAP - https://github.com/space-wizards/space-station-14/pull/19738#issuecomment-1703486738
-  name: luxury mining hardsuit helmet
+  name: quartermasters luxury hardsuit helmet
   description: A refurbished mining hardsuit helmet, fitted with satin cushioning and an extra (non-functioning) antenna, because you're that extra.
   categories: [ DoNotMap ]
   components:
@@ -550,8 +588,6 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.005
     coolingCoefficient: 0.005
-  - type: FireProtection
-    reduction: 0.2
   - type: Armor
     modifiers:
       coefficients:
@@ -559,6 +595,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: FireResistance
+    damageCoefficient: 0.80
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
 
@@ -853,8 +891,6 @@
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
-  - type: FireProtection
-    reduction: 0.2
   - type: Armor
     modifiers:
       coefficients:
@@ -864,6 +900,8 @@
         Heat: 0.80
         Radiation: 0.80
         Caustic: 0.95
+  - type: FireResistance
+    damageCoefficient: 0.70
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
     protectionRange: 0

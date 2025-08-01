@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/59f2a4e10e5ba36033c9734ddebfbbdc6157472d, pda-cluwne made by brainfood1183 (github) ss14 | pda-brigmedic and pda-centcom made by PuroSlavKing (Github) | pda-brigemdic resprited by Hülle#2562 (Discord), pda-pirate made by brainfood1183 (Github), pda-syndi-agent drawn by Ubaser, pda-wizard recolour by Velken",
+  "license": "CC-BY-NC-3.0",
+  "copyright": "vectorassembly",
   "size": {
     "x": 32,
     "y": 32
@@ -98,15 +98,7 @@
       "name": "pda-lawyer"
     },
     {
-      "name": "pda-library",
-      "delays": [
-        [
-          0.3,
-          0.3,
-          0.3,
-          0.3
-        ]
-      ]
+      "name": "pda-library"
     },
     {
       "name": "pda-medical"
@@ -157,15 +149,7 @@
       "name": "pda-security"
     },
     {
-      "name": "pda-brigmedic",
-      "delays": [
-        [
-          0.3,
-          0.3,
-          0.3,
-          0.3
-        ]
-      ]
+      "name": "pda-brigmedic"
     },
     {
       "name": "pda-syndi"
@@ -174,15 +158,7 @@
       "name": "pda-syndi-agent"
     },
     {
-      "name": "pda-centcom",
-      "delays": [
-        [
-          1.2,
-          1.2,
-          1.2,
-          1.2
-        ]
-      ]
+      "name": "pda-centcom"
     },
     {
       "name": "pda-virology"

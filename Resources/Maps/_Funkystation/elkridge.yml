@@ -72,8 +72,8 @@ meta:
   engineVersion: 255.0.0
   forkId: funkystation
   forkVersion: c684b38f85803f36d87d6d097bd47ef9235befe7
-  time: 08/01/2025 08:06:32
-  entityCount: 17368
+  time: 08/01/2025 14:06:00
+  entityCount: 17369
 maps:
 - 1
 grids:
@@ -102007,103 +102007,87 @@ entities:
     - type: Transform
       pos: -2.5,-42.5
       parent: 2
-- proto: WallPlastitaniumIndestructible
+- proto: WallPlastitanium
   entities:
   - uid: 2344
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 32.5,39.5
+      pos: 29.5,37.5
       parent: 2
   - uid: 2346
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 31.5,39.5
+      pos: 29.5,38.5
       parent: 2
   - uid: 14182
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 29.5,34.5
+      pos: 32.5,36.5
       parent: 2
   - uid: 15202
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 32.5,37.5
+      pos: 29.5,35.5
       parent: 2
   - uid: 16349
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 29.5,35.5
+      pos: 32.5,37.5
       parent: 2
   - uid: 16500
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 30.5,39.5
+      pos: 29.5,39.5
       parent: 2
   - uid: 16501
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 29.5,37.5
+      pos: 32.5,38.5
       parent: 2
   - uid: 16504
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 30.5,34.5
+      pos: 32.5,34.5
       parent: 2
   - uid: 16505
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 32.5,34.5
+      pos: 31.5,34.5
       parent: 2
   - uid: 16514
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 29.5,36.5
+      pos: 32.5,39.5
       parent: 2
   - uid: 16515
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 32.5,35.5
+      pos: 30.5,34.5
       parent: 2
   - uid: 16516
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 32.5,36.5
+      pos: 29.5,34.5
       parent: 2
   - uid: 16853
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 32.5,38.5
+      pos: 29.5,36.5
       parent: 2
   - uid: 16945
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 31.5,34.5
+      pos: 32.5,35.5
       parent: 2
   - uid: 16977
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 29.5,39.5
+      pos: 30.5,39.5
       parent: 2
   - uid: 16980
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 29.5,38.5
+      pos: 31.5,39.5
       parent: 2
 - proto: WallReinforced
   entities:
@@ -107119,6 +107103,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 45.5,-52.5
+      parent: 2
+  - uid: 17369
+    components:
+    - type: Transform
+      pos: 27.5,39.5
       parent: 2
 - proto: WallReinforcedRust
   entities:

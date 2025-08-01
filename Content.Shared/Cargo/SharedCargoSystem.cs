@@ -26,7 +26,7 @@ public abstract class SharedCargoSystem : EntitySystem
     {
         base.Initialize();
 
-        //SubscribeLocalEvent<StationBankAccountComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<StationBankAccountComponent, MapInitEvent>(OnMapInit);
     }
 
     private void OnMapInit(Entity<StationBankAccountComponent> ent, ref MapInitEvent args)

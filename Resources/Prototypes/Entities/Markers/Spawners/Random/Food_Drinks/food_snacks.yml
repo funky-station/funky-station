@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GumshoeWorm <thelunaman365@gmail.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -58,5 +59,21 @@
       - FoodSnackPistachios
       - FoodSnackSemki
       - FoodSnackSwirlLollipop
+      # Funky
+      - FoodSnackLunacakeWrapped
+      - FoodSnackMochicakeWrapped
+      - FoodSnackMooncakeWrapped
+      - FoodSnackTidegobs
+      - FoodSnackJoveGello
+      - FoodSnackPlutoniumrods
+      - FoodSnackMarsFrouka
+      - FoodSnackVenusianhotcakes
+      - FoodSnackOortrocks
+      - FoodSnackRedalertnuts
+      - FoodSnackRicecake
+      - FoodSnackPokeysticks
+      - FoodSnackChocobanana
+      - FoodSnackDango
+      - FoodSnackProteinbar      
     chance: 0.8
     offset: 0.0

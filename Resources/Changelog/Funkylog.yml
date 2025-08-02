@@ -3859,3 +3859,53 @@ Entries:
       message: Resprited all PDAs
   id: 463
   time: '2025-08-01T12:21:54.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Added the Nippon-tan, SweatMAX and Mars Mart vendors, alongside new
+        restock crates for them to buy at cargo
+    - type: Tweak
+      message: Most trash items now recycle into plastic rather than steel
+  id: 464
+  time: '2025-08-01T23:23:36.0000000+00:00'
+- author: Catazeus
+  changes:
+    - type: Tweak
+      message: New Encryption Key sprites.
+  id: 465
+  time: '2025-08-01T23:31:52.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: >-
+        Fire visuals will no longer remain on tiles with more than 5 mols of
+        hypernoblium present. 
+  id: 466
+  time: '2025-08-01T23:39:51.0000000+00:00'
+- author: Icepick, Frostwight
+  changes:
+    - type: Tweak
+      message: Rules 6, 12, and 13 have been tweaked.
+  id: 467
+  time: '2025-08-01T23:40:39.0000000+00:00'
+- author: GreyMario
+  changes:
+    - type: Fix
+      message: Roundstart budget no longer balloons out of control.
+  id: 468
+  time: '2025-08-01T23:46:54.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Tweak
+      message: Altered western security on Box
+    - type: Tweak
+      message: Altered northern maints on Box
+  id: 469
+  time: '2025-08-01T23:47:31.0000000+00:00'
+- author: Ekpy
+  changes:
+    - type: Add
+      message: Porting over Wizden Station AI customizations
+  id: 470
+  time: '2025-08-01T23:52:06.0000000+00:00'

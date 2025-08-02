@@ -133,7 +133,7 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
                 }
                 if (TryComp<ApcPowerReceiverComponent>(core.ConsoleUid.Value, out var consolePower))
                 {
-                    consolePower.Load = isActive ? 250000f : (core.PowerLevel > 0 ? consolePower.Load : 350f);
+                    consolePower.Load = isActive ? 100000f : (core.PowerLevel > 0 ? consolePower.Load : 350f);
                 }
                 if (isActive)
                 {

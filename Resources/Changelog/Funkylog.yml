@@ -3909,3 +3909,9 @@ Entries:
       message: Porting over Wizden Station AI customizations
   id: 470
   time: '2025-08-01T23:52:06.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: HFR power draw has been lowered from 250kW to 100kW
+  id: 471
+  time: '2025-08-02T20:29:11.0000000+00:00'

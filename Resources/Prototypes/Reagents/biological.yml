@@ -136,7 +136,7 @@
   color: "#cd7314"
   boilingPoint: 100.0
   meltingPoint: 0.0
-  desnity: 1.37
+  density: 1.37
   hydrogenPotential: 6.5
   recognizable: true
   physicalDesc: reagent-physical-desc-sticky

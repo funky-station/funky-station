@@ -1386,3 +1386,25 @@
   id: zombiecocktail
   flavorType: Complex
   description: flavor-complex-zombiecocktail
+
+# not implemented yet
+
+#- type: flavor
+#  id: bacchusblessing
+#  flavorType: Complex
+#  description: flavor-complex-bacchus-blessing
+
+#- type: flavor
+#  id: trashy
+#  flavorType: Base
+#  description: flavor-base-trashy
+
+#- type: flavor
+#  id: artifactglue
+#  flavorType: Complex
+#  description: flavor-complex-artifact-glue
+
+- type: flavor
+  id: motivating
+  flavorType: Base
+  description: flavor-base-motivating

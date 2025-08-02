@@ -1,0 +1,180 @@
+﻿<Control
+    xmlns="https://spacestation14.io"
+    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:ui="clr-namespace:Content.Client.Options.UI">
+    <BoxContainer Orientation="Vertical">
+        <ScrollContainer HScrollEnabled="False" VerticalExpand="True">
+            <BoxContainer
+                HorizontalExpand="True"
+                Margin="10"
+                Orientation="Vertical">
+
+                <!--  header; General Information  -->
+                <PanelContainer>
+                    <PanelContainer.PanelOverride>
+                        <graphics:StyleBoxFlat BackgroundColor="#202028" />
+                    </PanelContainer.PanelOverride>
+
+                    <BoxContainer
+                        HorizontalAlignment="Center"
+                        HorizontalExpand="True"
+                        Margin="5"
+                        Orientation="Horizontal">
+                        <Label Text="{Loc 'humanoid-profile-editor-cd-records-header-general'}" />
+                    </BoxContainer>
+                </PanelContainer>
+
+                <GridContainer Columns="3" Margin="5,10">
+                    <!--  height, weight, identifying info  -->
+                    <BoxContainer
+                        HorizontalExpand="True"
+                        Margin="5,0"
+                        Orientation="Vertical">
+                        <BoxContainer HorizontalExpand="True" SeparationOverride="2">
+                            <Label Text="{Loc 'humanoid-profile-editor-cd-records-general-height'}" />
+                            <Control HorizontalExpand="True" MinSize="5 0" />
+                            <LineEdit
+                                HorizontalAlignment="Right"
+                                MinSize="60 0"
+                                Name="HeightEdit" />
+                            <Label Margin="0,0,5,0" Text="cm " />
+                            <Label MinWidth="60" Name="HeightImperialLabel" />
+                        </BoxContainer>
+
+                        <BoxContainer HorizontalExpand="True" SeparationOverride="2">
+                            <Label Text="{Loc 'humanoid-profile-editor-cd-records-general-weight'}" />
+                            <Control HorizontalExpand="True" MinSize="5 0" />
+                            <LineEdit
+                                HorizontalAlignment="Right"
+                                MinSize="60 0"
+                                Name="WeightEdit" />
+                            <Label Margin="0,0,5,0" Text="kg " />
+                            <Label MinWidth="70" Name="WeightImperialLabel" />
+                        </BoxContainer>
+
+                        <Label Text="{Loc 'humanoid-profile-editor-cd-records-general-identifying-features'}" />
+                        <LineEdit
+                            HorizontalAlignment="Right"
+                            MinSize="350 0"
+                            Name="IdentifyingFeaturesEdit" />
+                    </BoxContainer>
+
+                    <!--  divider  -->
+                    <PanelContainer
+                        Margin="5,0"
+                        MinSize="2, 0"
+                        VerticalExpand="True">
+                        <PanelContainer.PanelOverride>
+                            <graphics:StyleBoxFlat BackgroundColor="#202028" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
+                    <!--  work auth, insurance  -->
+                    <BoxContainer
+                        HorizontalExpand="True"
+                        Margin="5,0"
+                        Orientation="Vertical">
+                        <BoxContainer HorizontalExpand="True">
+                            <Label Text="{Loc 'humanoid-profile-editor-cd-records-general-work-authorization'}" />
+                            <Control HorizontalExpand="True" MinSize="5 0" />
+                            <CheckBox HorizontalAlignment="Right" Name="WorkAuthCheckBox" />
+                        </BoxContainer>
+
+                        <Control MinSize="0 20" />
+
+                        <BoxContainer HorizontalExpand="True">
+                            <Label Text="{Loc 'humanoid-profile-editor-cd-records-general-insurance'}" />
+                            <Control HorizontalExpand="True" MinSize="5 0" />
+                            <CheckBox HorizontalAlignment="Right" Name="InsuranceCheckBox" />
+                        </BoxContainer>
+
+                        <BoxContainer HorizontalExpand="True" Name="InsuranceProvider">
+                            <Label Text="{Loc 'humanoid-profile-editor-cd-records-general-insurance-provider'}" />
+                            <Control HorizontalExpand="True" MinSize="5 0" />
+                            <OptionButton Name="InsuranceCompanyDropdown" />
+                        </BoxContainer>
+
+                        <BoxContainer HorizontalExpand="True" Name="InsurancePlan">
+                            <Label Text="{Loc 'humanoid-profile-editor-cd-records-general-insurance-plan'}" />
+                            <Control HorizontalExpand="True" MinSize="5 0" />
+                            <OptionButton Name="InsurancePlanDropdown" />
+                        </BoxContainer>
+                    </BoxContainer>
+                </GridContainer>
+
+
+                <!--  header; Medical Information  -->
+                <PanelContainer>
+                    <PanelContainer.PanelOverride>
+                        <graphics:StyleBoxFlat BackgroundColor="#202028" />
+                    </PanelContainer.PanelOverride>
+
+                    <BoxContainer
+                        HorizontalAlignment="Center"
+                        HorizontalExpand="True"
+                        Margin="5"
+                        Orientation="Horizontal">
+                        <Label Text="{Loc 'humanoid-profile-editor-cd-records-header-medical'}" />
+                    </BoxContainer>
+                </PanelContainer>
+
+                <BoxContainer Margin="5,10" Orientation="Vertical">
+
+                    <!--  blood type, postmortem  -->
+                    <BoxContainer Margin="5,0" Orientation="Horizontal">
+                        <Label Text="{Loc 'humanoid-profile-editor-cd-records-medical-blood-type'}" />
+                        <Control HorizontalExpand="True" />
+                        <OptionButton Name="BloodTypeDropdown" />
+                    </BoxContainer>
+
+                    <BoxContainer Margin="5,0" Orientation="Horizontal">
+                        <Label Text="{Loc 'humanoid-profile-editor-cd-records-medical-postmortem'}" />
+                        <Control HorizontalExpand="True" />
+                        <LineEdit
+                            HorizontalAlignment="Right"
+                            MinSize="350 0"
+                            Name="PostmortemEdit" />
+                    </BoxContainer>
+
+                    <!--  horizontal divider  -->
+                    <PanelContainer
+                        HorizontalExpand="True"
+                        Margin="5,10"
+                        MinSize="0, 2">
+                        <PanelContainer.PanelOverride>
+                            <graphics:StyleBoxFlat BackgroundColor="#202028" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+
+                    <BoxContainer
+                        HorizontalExpand="True"
+                        Name="MedicalInfoContainer"
+                        Orientation="Horizontal" />
+
+                </BoxContainer>
+
+                <BoxContainer
+                    Access="Public"
+                    HorizontalExpand="True"
+                    Name="PersonalInfoContainer"
+                    Orientation="Vertical"
+                    Visible="False">
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <graphics:StyleBoxFlat BackgroundColor="#202028" />
+                        </PanelContainer.PanelOverride>
+
+                        <BoxContainer
+                            HorizontalAlignment="Center"
+                            HorizontalExpand="True"
+                            Margin="5"
+                            Orientation="Horizontal">
+                            <Label Text="{Loc 'humanoid-profile-editor-cd-records-header-personal'}" />
+                        </BoxContainer>
+                    </PanelContainer>
+                </BoxContainer>
+
+            </BoxContainer>
+        </ScrollContainer>
+    </BoxContainer>
+</Control>

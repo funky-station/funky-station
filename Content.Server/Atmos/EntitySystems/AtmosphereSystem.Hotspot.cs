@@ -67,8 +67,9 @@ namespace Content.Server.Atmos.EntitySystems
                 ExcitedGroupResetCooldowns(tile.ExcitedGroup);
 
             if ((tile.Hotspot.Temperature < Atmospherics.FireMinimumTemperatureToExist) || (tile.Hotspot.Volume <= 1f)
-                || tile.Air == null || tile.Air.GetMoles(Gas.Oxygen) < 0.5f || (tile.Air.GetMoles(Gas.Plasma) < 0.5f && tile.Air.GetMoles(Gas.Tritium) < 0.5f && tile.Air.GetMoles(Gas.Hydrogen) < 0.5f
-                && tile.Air.GetMoles(Gas.HyperNoblium) > 5f))  // Assmos - /tg/ gases
+               || (tile.Air == null || tile.Air.GetMoles(Gas.Oxygen) < 0.5f || (tile.Air.GetMoles(Gas.Plasma) < 0.5f
+               && tile.Air.GetMoles(Gas.Tritium) < 0.5f && tile.Air.GetMoles(Gas.Hydrogen) < 0.5f)
+               || tile.Air.GetMoles(Gas.HyperNoblium) > 5f))  // Assmos - /tg/ gases
             {
                 tile.Hotspot = new Hotspot();
                 InvalidateVisuals(ent, tile);

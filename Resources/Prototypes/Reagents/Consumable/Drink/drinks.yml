@@ -35,6 +35,7 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 Do You Like Beans <bowenjonathan407@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -580,6 +581,31 @@
   flavor: pilk
   color: "#e7c69f"
   metabolisms:
+    Poison:
+      effects:
+      - !type:Emote
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        emote: Scream
+        probability: 0.5
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        key: TemporaryBlindness
+        component: TemporaryBlindness
+        probability: 0.08
+      - !type:ChemVomit
+        probability: 0.5
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        damage:
+          types:
+            Poison: 0.25
+
     Drink:
       effects:
         - !type:SatiateThirst

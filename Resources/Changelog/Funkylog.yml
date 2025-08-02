@@ -3915,3 +3915,9 @@ Entries:
       message: HFR power draw has been lowered from 250kW to 100kW
   id: 471
   time: '2025-08-02T20:29:11.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Gas canisters can now be constructed and deconstructed.
+  id: 472
+  time: '2025-08-02T20:31:33.0000000+00:00'

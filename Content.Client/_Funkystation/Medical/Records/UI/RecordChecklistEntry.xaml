@@ -1,0 +1,7 @@
+﻿<BoxContainer
+    HorizontalExpand="True"
+    Orientation="Horizontal"
+    xmlns="https://spacestation14.io">
+    <CheckBox HorizontalAlignment="Left" Name="ItemCheckBox" />
+    <Label Name="ItemLabel" />
+</BoxContainer>

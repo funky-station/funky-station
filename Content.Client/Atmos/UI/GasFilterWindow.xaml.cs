@@ -33,12 +33,23 @@ namespace Content.Client.Atmos.UI
     [GenerateTypedNameReferences]
     public sealed partial class GasFilterWindow : DefaultWindow
     {
-        private readonly Dictionary<Gas, Button> _gasControls = new();
-        private readonly HashSet<Gas> _selectedGases = new();
+        // Funky - removed for filtering of multiple gases
+        // private readonly ButtonGroup _buttonGroup = new();
+
+        // public bool FilterStatus = true;
+        // public string? SelectedGas;
+        // public string? CurrentGasId;
+
+        private readonly Dictionary<Gas, Button> _gasControls = new(); // Funky - for filtering of multiple gases
+        private readonly HashSet<Gas> _selectedGases = new(); // Funky - for filtering of multiple gases
 
         public event Action? ToggleStatusButtonPressed;
         public event Action<string>? FilterTransferRateChanged;
-        public event Action<HashSet<Gas>>? FilterGasesChanged;
+
+        // Funky - removed for filtering of multiple gases
+        // public event Action? SelectGasPressed;
+
+        public event Action<HashSet<Gas>>? FilterGasesChanged; // Funky - for filtering of multiple gases
 
         public GasFilterWindow()
         {
@@ -54,8 +65,14 @@ namespace Content.Client.Atmos.UI
                 SetFilterRate.Disabled = true;
             };
 
-            SelectAllButton.OnPressed += args => SelectAllGases(args);
-            DeselectAllButton.OnPressed += args => DeselectAllGases(args);
+            // Funky - removed for filtering of multiple gases
+            // SelectGasButton.OnPressed += _ => SelectGasPressed?.Invoke();
+
+            // GasList.OnItemSelected += GasListOnItemSelected;
+            // GasList.OnItemDeselected += GasListOnItemDeselected;
+
+            SelectAllButton.OnPressed += args => SelectAllGases(args); // Funky - for filtering of multiple gases
+            DeselectAllButton.OnPressed += args => DeselectAllGases(args); // Funky - for filtering of multiple gases
         }
 
         public void SetTransferRate(float rate)
@@ -78,7 +95,10 @@ namespace Content.Client.Atmos.UI
             }
         }
 
-        public void SetFilteredGases(HashSet<Gas> gases) // Funky - modified for filtering of multiple gases
+        /// <summary>
+        /// Funky - for filtering of multiple gases
+        /// </summary>
+        public void SetFilteredGases(HashSet<Gas> gases)
         {
             _selectedGases.Clear();
             _selectedGases.UnionWith(gases);
@@ -88,7 +108,7 @@ namespace Content.Client.Atmos.UI
             }
         }
 
-        public void PopulateGasList(IEnumerable<GasPrototype> gases) // Funky - modified for filtering of multiple gases
+        public void PopulateGasList(IEnumerable<GasPrototype> gases)
         {
             foreach (var gas in gases)
             {
@@ -98,23 +118,23 @@ namespace Content.Client.Atmos.UI
                     Text = Loc.GetString(gas.Name),
                     ToggleMode = true,
                     HorizontalExpand = true,
-                    Pressed = _selectedGases.Contains((Gas)int.Parse(gas.ID))
+                    Pressed = _selectedGases.Contains((Gas) int.Parse(gas.ID))
                 };
                 gasButton.OnToggled += args =>
                 {
-                    var gasId = (Gas)int.Parse(gasButton.Name);
+                    var gasId = (Gas) int.Parse(gasButton.Name);
                     if (args.Pressed)
                         _selectedGases.Add(gasId);
                     else
                         _selectedGases.Remove(gasId);
                     FilterGasesChanged?.Invoke(new HashSet<Gas>(_selectedGases));
                 };
-                _gasControls.Add((Gas)int.Parse(gas.ID), gasButton);
+                _gasControls.Add((Gas) int.Parse(gas.ID), gasButton);
                 GasContainer.AddChild(gasButton);
             }
         }
 
-        private void SelectAllGases(BaseButton.ButtonEventArgs args) // Funky - for filtering of multiple gases
+        private void SelectAllGases(BaseButton.ButtonEventArgs args)
         {
             foreach (var (gas, button) in _gasControls)
             {
@@ -124,7 +144,7 @@ namespace Content.Client.Atmos.UI
             FilterGasesChanged?.Invoke(new HashSet<Gas>(_selectedGases));
         }
 
-        private void DeselectAllGases(BaseButton.ButtonEventArgs args) // Funky - for filtering of multiple gases
+        private void DeselectAllGases(BaseButton.ButtonEventArgs args)
         {
             foreach (var (_, button) in _gasControls)
             {
@@ -133,5 +153,57 @@ namespace Content.Client.Atmos.UI
             _selectedGases.Clear();
             FilterGasesChanged?.Invoke(new HashSet<Gas>(_selectedGases));
         }
+
+        /// <summary>
+        /// Funky - end of changes for filtering of multiple gases
+        /// </summary>
+
+        /// <summary>
+        /// Funky - below removed for filtering of multiple gases
+        /// </summary>
+
+        // public void SetGasFiltered(string? id, string name)
+        // {
+        //     CurrentGasId = id;
+        //     CurrentGasLabel.Text = Loc.GetString("comp-gas-filter-ui-filter-gas-current") + $" {name}";
+        //     GasList.ClearSelected();
+        //     SelectGasButton.Disabled = true;
+        // }
+
+        // public void PopulateGasList(IEnumerable<GasPrototype> gases)
+        // {
+        //     GasList.Add(new ItemList.Item(GasList)
+        //     {
+        //         Metadata = null,
+        //         Text = Loc.GetString("comp-gas-filter-ui-filter-gas-none")
+        //     });
+
+        //     foreach (var gas in gases)
+        //     {
+        //         var gasName = Loc.GetString(gas.Name);
+        //         GasList.Add(GetGasItem(gas.ID, gasName, GasList));
+        //     }
+        // }
+
+        // private static ItemList.Item GetGasItem(string id, string name, ItemList itemList)
+        // {
+        //     return new(itemList)
+        //     {
+        //         Metadata = id,
+        //         Text = name
+        //     };
+        // }
+
+        // private void GasListOnItemSelected(ItemList.ItemListSelectedEventArgs obj)
+        // {
+        //     SelectedGas = (string) obj.ItemList[obj.ItemIndex].Metadata!;
+        //     if(SelectedGas != CurrentGasId) SelectGasButton.Disabled = false;
+        // }
+
+        // private void GasListOnItemDeselected(ItemList.ItemListDeselectedEventArgs obj)
+        // {
+        //     SelectedGas = CurrentGasId;
+        //     SelectGasButton.Disabled = true;
+        // }
     }
 }

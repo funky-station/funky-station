@@ -69,6 +69,8 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
             SubscribeLocalEvent<GasFilterComponent, GasAnalyzerScanEvent>(OnFilterAnalyzed);
             // Bound UI subscriptions
             SubscribeLocalEvent<GasFilterComponent, GasFilterChangeRateMessage>(OnTransferRateChangeMessage);
+            // Funky - removed for filtering of multiple gases
+            // SubscribeLocalEvent<GasFilterComponent, GasFilterSelectGasMessage>(OnSelectGasMessage);
             SubscribeLocalEvent<GasFilterComponent, GasFilterChangeGasesMessage>(OnChangeGasesMessage);
             SubscribeLocalEvent<GasFilterComponent, GasFilterToggleStatusMessage>(OnToggleStatusMessage);
 
@@ -99,6 +101,16 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
             }
 
             var removed = inletNode.Air.RemoveVolume(transferVol);
+
+            // Funky - removed for filtering of multiple gases
+            // if (filter.FilteredGas.HasValue)
+            // {
+            //     filteredOut.SetMoles(filter.FilteredGas.Value, removed.GetMoles(filter.FilteredGas.Value));
+            //     removed.SetMoles(filter.FilteredGas.Value, 0f);
+            //     var target = filterNode.Air.Pressure < Atmospherics.MaxOutputPressure ? filterNode : inletNode;
+            //     _atmosphereSystem.Merge(target.Air, filteredOut);
+            //     _ambientSoundSystem.SetAmbience(uid, filteredOut.TotalMoles > 0f);
+            // }
 
             if (filter.FilterGases != null && filter.FilterGases.Count > 0)
             {
@@ -162,7 +174,9 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
                 return;
 
             _userInterfaceSystem.SetUiState(uid, GasFilterUiKey.Key,
-                new GasFilterBoundUserInterfaceState(MetaData(uid).EntityName, filter.TransferRate, filter.Enabled, filter.FilterGases));
+                // Funky - removed for filtering of multiple gases
+                // new GasFilterBoundUserInterfaceState(MetaData(uid).EntityName, filter.TransferRate, filter.Enabled, filter.FilteredGas));
+                new GasFilterBoundUserInterfaceState(MetaData(uid).EntityName, filter.TransferRate, filter.Enabled, filter.FilterGases)); // Funky - for filtering of multiple gases
         }
 
         private void UpdateAppearance(EntityUid uid, GasFilterComponent? filter = null)
@@ -190,6 +204,32 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
             DirtyUI(uid, filter);
 
         }
+
+        // Funky - removed for filtering of multiple gases
+        // private void OnSelectGasMessage(EntityUid uid, GasFilterComponent filter, GasFilterSelectGasMessage args)
+        // {
+        //     if (args.ID.HasValue)
+        //     {
+        //         if (Enum.TryParse<Gas>(args.ID.ToString(), true, out var parsedGas))
+        //         {
+        //             filter.FilteredGas = parsedGas;
+        //             _adminLogger.Add(LogType.AtmosFilterChanged, LogImpact.Medium,
+        //                 $"{ToPrettyString(args.Actor):player} set the filter on {ToPrettyString(uid):device} to {parsedGas.ToString()}");
+        //             DirtyUI(uid, filter);
+        //         }
+        //         else
+        //         {
+        //             Log.Warning($"{ToPrettyString(uid)} received GasFilterSelectGasMessage with an invalid ID: {args.ID}");
+        //         }
+        //     }
+        //     else
+        //     {
+        //         filter.FilteredGas = null;
+        //         _adminLogger.Add(LogType.AtmosFilterChanged, LogImpact.Medium,
+        //             $"{ToPrettyString(args.Actor):player} set the filter on {ToPrettyString(uid):device} to none");
+        //         DirtyUI(uid, filter);
+        //     }
+        // }
 
         private void OnChangeGasesMessage(EntityUid uid, GasFilterComponent filter, GasFilterChangeGasesMessage args)
         {

@@ -28,8 +28,20 @@ SPDX-License-Identifier: MIT
             <Button Name="SetFilterRate" Text="{Loc comp-gas-filter-ui-filter-set-rate}" Disabled="True"/>
         </BoxContainer>
 
+        <!-- Funky - Removed for filtering of multiple gases -->
+        <!-- <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Label Name="CurrentGasLabel" />
+        </BoxContainer> -->
+
         <BoxContainer Orientation="Vertical" VerticalExpand="True">
             <Label Text="{Loc comp-gas-filter-ui-filter-gas-select}" />
+
+            <!-- Funky - Removed for filtering of multiple gases -->
+            <!-- <ItemList Name="GasList" SelectMode="Single" VerticalExpand="True"
+                      SizeFlagsStretchRatio="0.9" />
+            <Button Name="SelectGasButton" Text="{Loc comp-gas-filter-ui-filter-gas-confirm}" HorizontalExpand="True" Disabled="True" /> -->
+
+            <!-- Funky - Start of filtering of multiple gases changes -->
             <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 5">
                 <GridContainer HorizontalExpand="True" Columns="3" Margin="0 5 0 0">
                     <Button Name="SelectAllButton" HorizontalExpand="True" Text="{Loc 'Select All'}" />
@@ -37,6 +49,8 @@ SPDX-License-Identifier: MIT
                     <Control HorizontalExpand="True" />
                 </GridContainer>
             </BoxContainer>
+            <!-- Funky - End of changes -->
+
             <GridContainer HorizontalExpand="True" Name="GasContainer" Columns="3" Margin="0 5 0 0" VerticalExpand="True" />
         </BoxContainer>
     </BoxContainer>

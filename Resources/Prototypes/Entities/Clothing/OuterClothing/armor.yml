@@ -51,7 +51,7 @@
 
 #Basic armor vest for inheritance
 - type: entity
-  parent: [ClothingOuterBaseMedium, AllowBackStorageClothing, BaseSecurityContraband]
+  parent: [ClothingOuterBaseMedium, AllowBackStorageClothingCombat, BaseSecurityContraband]
   id: ClothingOuterArmorBase
   name: armor vest
   abstract: true
@@ -66,10 +66,12 @@
       coefficients:
         Blunt: 0.65
         Slash: 0.65
-        Piercing: 0.67 #Can save you, but bullets will still hurt. Will take about 10 shots from a Viper before critting, as opposed to 7 while unarmored and 16~ with a bulletproof vest.
+        Piercing: 0.65 #Can save you, but bullets will still hurt. Will take about 10 shots from a Viper before critting, as opposed to 7 while unarmored and 16~ with a bulletproof vest.
         Heat: 0.80
   - type: ExplosionResistance
     damageCoefficient: 0.90
+  - type: StaminaResistance
+    damageCoefficient: 0.85
   - type: Tag
     tags:
       - Armor
@@ -93,7 +95,7 @@
     sprite: Clothing/OuterClothing/Armor/security_slim.rsi
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowBackStorageClothing, BaseSecurityContraband]
+  parent: [ClothingOuterBaseLarge, AllowBackStorageClothingCombat, BaseSecurityContraband]
   id: ClothingOuterArmorRiot
   name: riot suit
   description: A suit of semi-flexible polycarbonate body armor with heavy padding to protect against melee attacks. Perfect for fighting delinquents around the station.
@@ -112,6 +114,8 @@
         Caustic: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.85
   - type: GroupExamine
 
 - type: entity
@@ -133,6 +137,8 @@
         Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.80
+  - type: StaminaResistance
+    damageCoefficient: 0.85
 
 - type: entity
   parent: ClothingOuterArmorBase
@@ -151,13 +157,15 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.4 # this technically means it protects against fires pretty well? -heat is just for lasers and stuff, not atmos temperature
+  - type: StaminaResistance
+    damageCoefficient: 0.85
   - type: Reflect
     reflectProb: 1
     reflects:
       - Energy
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowBackStorageClothing, BaseSyndicateContraband ]
+  parent: [ClothingOuterBaseLarge, AllowBackStorageClothingCombat, BaseSyndicateContraband ]
   id: ClothingOuterArmorRaid
   name: syndicate raid suit
   description: A somewhat flexible and well-armored suit with a powerful shoulder mounted flashlight manufactured in the Gorlex Marauder's iconic blood-red color scheme, it does not protect its wearer from space.
@@ -171,8 +179,6 @@
       shader: unshaded
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/syndie-raid.rsi
-  - type: StaminaResistance
-    damageCoefficient: 0.8
   - type: Armor
     modifiers:
       coefficients:
@@ -183,6 +189,8 @@
         Caustic: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.35
+  - type: StaminaResistance
+    damageCoefficient: 0.8
   #- type: StaminaResistance
   #  damageCoefficient: 0.45
   - type: ClothingSpeedModifier
@@ -241,7 +249,7 @@
       - SpecialArmor
 
 - type: entity
-  parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowBackStorageClothing ]
+  parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowBackStorageClothingCombat ]
   id: ClothingOuterArmorCult
   name: acolyte armor
   description: An evil-looking piece of cult armor, made of bones.
@@ -260,7 +268,7 @@
   - type: GroupExamine
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowBackStorageClothing]
+  parent: [ClothingOuterBaseLarge, AllowBackStorageClothingCombat]
   id: ClothingOuterArmorHeavy
   name: heavy armor suit
   description: A heavily armored suit that protects against excessive damage.
@@ -276,8 +284,11 @@
         Slash: 0.2
         Piercing: 0.2
         Heat: 0.5
-        Radiation: 0
         Caustic: 0.75
+        Radiation: 0
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
@@ -327,7 +338,7 @@
     sprite: Clothing/OuterClothing/Armor/magusred.rsi
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowBackStorageClothing, BaseCommandContraband]
+  parent: [ClothingOuterBaseLarge, AllowBackStorageClothingCombat, BaseCommandContraband]
   id: ClothingOuterArmorCaptainCarapace
   name: "captain's carapace"
   description: "An armored chestpiece that provides protection whilst still offering maximum mobility and flexibility. Issued only to the station's finest."
@@ -344,19 +355,21 @@
         Piercing: 0.6
         Heat: 0.5
         Caustic: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: StaminaResistance
+    damageCoefficient: 0.85
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
   - type: HeldSpeedModifier
-  - type: ExplosionResistance
-    damageCoefficient: 0.65
   - type: GroupExamine
   - type: Tag
     tags:
       - SpecialArmor
 
 - type: entity
-  parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowBackStorageClothing, AllowTankStorageClothing ]
+  parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowBackStorageClothingCombat, AllowTankStorageClothing ]
   id: ClothingOuterArmorChangeling
   name: chitinous armor
   description: Inflates the changeling's body into an all-consuming chitinous mass of armor.
@@ -365,8 +378,6 @@
     sprite: Clothing/OuterClothing/Armor/lingarmor.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/lingarmor.rsi
-  - type: StaminaResistance
-    damageCoefficient: 0.4
   - type: Armor
     modifiers:
       coefficients:
@@ -375,18 +386,20 @@
         Piercing: 0.5
         Heat: 0.9
         Radiation: 0.8
-  - type: ClothingSpeedModifier
-    walkModifier: 0.7
-    sprintModifier: 0.65
-  - type: HeldSpeedModifier
   - type: ExplosionResistance
     damageCoefficient: 0.5
+  - type: StaminaResistance
+    damageCoefficient: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.80
+  - type: HeldSpeedModifier
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
 
 - type: entity
-  parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowBackStorageClothing ]
+  parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowBackStorageClothingCombat ]
   id: ClothingOuterArmorBone
   name: bone armor
   description: Sits on you like a second skin.
@@ -401,11 +414,11 @@
         Blunt: 0.6
         Slash: 0.8
         Piercing: 0.4
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
   - type: ClothingSpeedModifier
     walkModifier: 0.8
   - type: HeldSpeedModifier
-  - type: ExplosionResistance
-    damageCoefficient: 0.4
   - type: GroupExamine
   - type: Construction
     graph: BoneArmor
@@ -414,7 +427,7 @@
     slots: WITHOUT_POCKET
 
 - type: entity
-  parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowBackStorageClothing ]
+  parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowBackStorageClothingCombat ]
   id: ClothingOuterArmorPodWars
   name: ironclad II armor
   description: A repurposed suit of ironclad II armor, a relic of the pod wars.
@@ -454,6 +467,8 @@
         Heat: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.90
+  - type: StaminaResistance
+    damageCoefficient: 0.75
   - type: Construction
     graph: MetalHydrogenArmor
     node: armor
@@ -477,18 +492,20 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
-  - type: FireProtection
-    reduction: 0.8
-  - type: StaminaResistance
-    damageCoefficient: 0.75
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.75
-        Slash: 0.8
-        Piercing: 0.8
-        Heat: 0.7
-        Cold: 0.8
+        Slash: 0.70
+        Piercing: 0.80
+        Heat: 0.50
+        Cold: 0.80
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: FireResistance
+    damageCoefficient: 0.8
+  - type: StaminaResistance
+    damageCoefficient: 0.75
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -496,8 +513,6 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
-  - type: ExplosionResistance
-    damageCoefficient: 0.90
   - type: Construction
     graph: AtmosianArmor
     node: armor

@@ -11,15 +11,14 @@ namespace Content.Shared.Clothing.Components;
 /// <summary>
 /// Makes this clothing reduce fire damage when worn.
 /// </summary>
-[RegisterComponent, Access(typeof(FireProtectionSystem))]
-public sealed partial class FireProtectionComponent : Component
+[RegisterComponent, Access(typeof(FireResistanceSystem))]
+public sealed partial class FireResistanceComponent : Component
 {
     /// <summary>
-    /// Percentage to reduce fire damage by, subtracted not multiplicative.
-    /// 0.25 means 25% less fire damage.
+    ///     The fern resistance coefficient, This fraction is multiplied into the total resistance.
     /// </summary>
-    [DataField(required: true)]
-    public float Reduction;
+    [DataField("damageCoefficient")]
+    public float DamageCoefficient = 1;
 
     /// <summary>
     /// LocId for message that will be shown on detailed examine.

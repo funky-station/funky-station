@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 qwerltaz <msmarcinpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -40,6 +41,7 @@ public sealed partial class AirAlarmPanicWire : ComponentWireAction<AirAlarmComp
 
     public override bool Cut(EntityUid user, Wire wire, AirAlarmComponent comp)
     {
+        comp.PanicWireCut = true;
         if (EntityManager.TryGetComponent<DeviceNetworkComponent>(wire.Owner, out var devNet))
         {
             _airAlarmSystem.SetMode(wire.Owner, devNet.Address, AirAlarmMode.Panic, false);
@@ -50,6 +52,7 @@ public sealed partial class AirAlarmPanicWire : ComponentWireAction<AirAlarmComp
 
     public override bool Mend(EntityUid user, Wire wire, AirAlarmComponent alarm)
     {
+        alarm.PanicWireCut = false;
         if (EntityManager.TryGetComponent<DeviceNetworkComponent>(wire.Owner, out var devNet)
             && alarm.CurrentMode == AirAlarmMode.Panic)
         {

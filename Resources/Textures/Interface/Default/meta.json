@@ -71,7 +71,10 @@
         "name": "suit"
       },
       {
-        "name": "suit_storage"
+        "name": "tank_storage"
+      },
+      {
+        "name": "back_storage"
       },
       {
         "name": "uniform"

@@ -12,13 +12,15 @@
   id: InternalAffairsAgentIDCard
   name: internal affairs agent ID card
   components:
-    - type: Sprite
-      sprite: _Funkystation/Objects/Misc/id_cards.rsi
-      layers:
-        - state: default
-        - state: idiaa
-    - type: PresetIdCard
-      job: InternalAffairsAgent
+  - type: Sprite
+    layers:
+    - state: default #base
+    - state: decal-stripe-cc #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: InternalAffairsAgent
+  - type: PresetIdCard
+    job: InternalAffairsAgent
 
 - type: entity
   parent: IDCardStandard
@@ -26,10 +28,14 @@
   name: magistrate ID card
   components:
   - type: Sprite
-    sprite: _Funkystation/Objects/Misc/id_cards.rsi
     layers:
-    - state: default
-    - state: idmagistrate
+    - state: cc #base
+    - state: decal-stripe-cc #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Magistrate
+  - type: Item
+    heldPrefix: cc
   - type: PresetIdCard
     job: Magistrate
 
@@ -39,10 +45,12 @@
   name: blueshield officer ID card
   components:
   - type: Sprite
-    sprite: _Funkystation/Objects/Misc/id_cards.rsi
     layers:
-    - state: default
-    - state: idbso
+    - state: default #base
+    - state: decal-stripe-cc #decal
+    - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Blueshield
   - type: PresetIdCard
     job: BlueshieldOfficer
 
@@ -52,10 +60,14 @@
   name: nanotrasen representative ID card
   components:
   - type: Sprite
-    sprite: _Funkystation/Objects/Misc/id_cards.rsi
     layers:
-    - state: default
-    - state: idntr
+    - state: cc #base
+    - state: decal-stripe-cc #decal
+    - sprite: _Goobstation/Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: nanotrasenrepresentative
+  - type: Item
+    heldPrefix: cc
   - type: PresetIdCard
     job: NanotrasenRepresentative
 
@@ -88,7 +100,7 @@
   parent: IDCardAncient
   id: IDCardAncientScience
   name: Scientist ID
-  description: A clip on ID Badge, has one of those fancy new magnetic strips built in. This one is encoded for the Science Dept.
+  description: A neck-worn ID Badge, has one of those fancy new magnetic strips built in. This one is encoded for the Science Dept.
   components:
   - type: Sprite
     layers:
@@ -98,7 +110,7 @@
   parent: IDCardAncient
   id: IDCardAncientMedical
   name: Medical ID
-  description: A clip on ID Badge, has one of those fancy new magnetic strips built in. This one is encoded for the Medical Dept.
+  description: A neck-worn ID Badge, has one of those fancy new magnetic strips built in. This one is encoded for the Medical Dept.
   components:
   - type: Sprite
     layers:
@@ -108,7 +120,7 @@
   parent: IDCardAncient
   id: IDCardAncientEngineering
   name: Engineering ID
-  description: A clip on ID Badge, has one of those fancy new magnetic strips built in. This one is encoded for the Engineering Dept.
+  description: A neck-worn ID Badge, has one of those fancy new magnetic strips built in. This one is encoded for the Engineering Dept.
   components:
   - type: Sprite
     layers:
@@ -118,7 +130,7 @@
   parent: IDCardAncient
   id: IDCardAncientSecurity
   name: Security ID
-  description: A clip on ID Badge, has one of those fancy new magnetic strips built in. This one is encoded for the Security Dept.
+  description: A neck-worn ID Badgee, has one of those fancy new magnetic strips built in. This one is encoded for the Security Dept.
   components:
   - type: Sprite
     layers:
@@ -128,7 +140,7 @@
   parent: IDCardAncient
   id: IDCardAncientNanotrasen
   name: Nanotrasen ID
-  description: A clip on ID Badge, has one of those fancy new magnetic strips built in. This one is for a Nanotrasen Representative.
+  description: A neck-worn ID Badge, has one of those fancy new magnetic strips built in. This one is for a Nanotrasen Representative.
   components:
   - type: Sprite
     layers:

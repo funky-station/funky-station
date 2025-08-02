@@ -17,6 +17,7 @@
 # SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -32,9 +33,9 @@
   components:
   - type: EncryptionKey
   - type: Item
-    sprite: Objects/Devices/encryption_keys.rsi
+    sprite: _Funkystation/Objects/Devices/encryption_keys.rsi
   - type: Sprite
-    sprite: Objects/Devices/encryption_keys.rsi
+    sprite: _Funkystation/Objects/Devices/encryption_keys.rsi
 
 - type: entity
   parent: EncryptionKey
@@ -48,8 +49,8 @@
     defaultChannel: Common
   - type: Sprite
     layers:
-    - state: crypt_gray
-    - state: common_label
+    - state: default
+    - state: label-common
 
 - type: entity
   parent: [ EncryptionKey, BaseCargoContraband ]
@@ -63,8 +64,8 @@
     defaultChannel: Supply
   - type: Sprite
     layers:
-    - state: crypt_gray
-    - state: cargo_label
+    - state: default
+    - state: label-cargo
 
 - type: entity
   parent: [ EncryptionKey, BaseCentcommContraband ]
@@ -78,8 +79,8 @@
     defaultChannel: CentCom
   - type: Sprite
     layers:
-    - state: crypt_blue
-    - state: nano_label
+    - state: cc
+    - state: label-cc
 
 - type: entity
   parent: [ EncryptionKey, BaseCentcommCommandContraband ]
@@ -100,8 +101,8 @@
     defaultChannel: Command
   - type: Sprite
     layers:
-    - state: crypt_gold
-    - state: cap_label
+    - state: gold
+    - state: label-master
 
 - type: entity
   parent: [ EncryptionKey, BaseCommandContraband ]
@@ -115,8 +116,8 @@
     defaultChannel: Command
   - type: Sprite
     layers:
-    - state: crypt_silver
-    - state: com_label
+    - state: silver
+    - state: label-command
 
 - type: entity
   parent: [ EncryptionKey, BaseEngineeringContraband ]
@@ -130,8 +131,8 @@
     defaultChannel: Engineering
   - type: Sprite
     layers:
-    - state: crypt_gray
-    - state: eng_label
+    - state: default
+    - state: label-engineering
 
 - type: entity
   parent: [ EncryptionKey, BaseMedicalContraband ]
@@ -145,8 +146,8 @@
     defaultChannel: Medical
   - type: Sprite
     layers:
-    - state: crypt_gray
-    - state: med_label
+    - state: default
+    - state: label-medical
 
 - type: entity
   parent: [ EncryptionKey, BaseMedicalScienceContraband ]
@@ -161,8 +162,8 @@
     defaultChannel: Science
   - type: Sprite
     layers:
-    - state: crypt_gray
-    - state: medsci_label
+    - state: default
+    - state: label-medsci
 
 - type: entity
   parent: [ EncryptionKey, BaseScienceContraband ]
@@ -176,8 +177,8 @@
     defaultChannel: Science
   - type: Sprite
     layers:
-    - state: crypt_gray
-    - state: sci_label
+    - state: default
+    - state: label-science
 
 - type: entity
   parent: [ EncryptionKey, BaseScienceContraband ]
@@ -191,8 +192,8 @@
     defaultChannel: Science
   - type: Sprite
     layers:
-    - state: crypt_gray
-    - state: robotics_label
+    - state: default
+    - state: label-robotics
 
 - type: entity
   parent: [ EncryptionKey, BaseSecurityLawyerContraband ]
@@ -206,8 +207,8 @@
     defaultChannel: Security
   - type: Sprite
     layers:
-    - state: crypt_gray
-    - state: sec_label
+    - state: default
+    - state: label-security
 
 - type: entity
   parent: [ EncryptionKey, BaseCivilianContraband ]
@@ -221,8 +222,8 @@
     defaultChannel: Service
   - type: Sprite
     layers:
-    - state: crypt_gray
-    - state: service_label
+    - state: default
+    - state: label-service
 
 - type: entity
   parent: [ EncryptionKey, BaseSyndicateContraband ]
@@ -236,8 +237,8 @@
     defaultChannel: Syndicate
   - type: Sprite
     layers:
-    - state: crypt_red
-    - state: synd_label
+    - state: syndicate
+    - state: label-syndicate
 
 - type: entity
   parent: [ EncryptionKey, BaseSiliconScienceContraband ]
@@ -251,8 +252,8 @@
     defaultChannel: Binary
   - type: Sprite
     layers:
-    - state: crypt_silver
-    - state: ai_label
+    - state: default
+    - state: label-binary
 
 - type: entity
   parent: [ EncryptionKey, BaseSyndicateContraband ]
@@ -266,8 +267,8 @@
     defaultChannel: Binary
   - type: Sprite
     layers:
-    - state: crypt_red
-    - state: ai_label
+    - state: syndicate
+    - state: label-sinary
 
 - type: entity
   parent: EncryptionKey
@@ -281,5 +282,5 @@
       defaultChannel: Freelance
     - type: Sprite
       layers:
-        - state: crypt_rusted
-        - state: pirate_label
+        - state: freelance
+        - state: label-freelance

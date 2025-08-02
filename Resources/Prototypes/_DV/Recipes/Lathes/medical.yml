@@ -1,8 +1,13 @@
-# SPDX-FileCopyrightText: 2025 Lyndomen <49795619+lyndomen@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+- type: latheRecipe
+  id: ClothingEyesNightVisionMedicalGoggles
+  result: ClothingEyesNightVisionMedicalGoggles
+  completetime: 7
+  materials:
+    Steel: 300
+    Glass: 300
+    Silver: 100
+    Gold: 100
+    Plasma: 200
 
 - type: latheRecipe
   id: Oilpack

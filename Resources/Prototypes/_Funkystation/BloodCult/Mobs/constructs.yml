@@ -130,10 +130,12 @@
         - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
           state: nautdamage
           shader: unshaded
-    - type: NightVision
-      isToggle: true
-      color: "#808080"
-      playSoundOn: false
+    - type: NightVision # EE nightvision port
+      isActive: true
+      toggleAction: null
+      color: "#50595C"
+      activateSound: null
+      deactivateSound: null
     - type: GuideHelp
       guides:
       - Blob
@@ -211,10 +213,12 @@
       layers:
         - map: [ "enum.DamageStateVisualLayers.Base" ]
           state: shade
-    - type: NightVision
-      isToggle: true
-      color: "#808080"
-      playSoundOn: false
+    - type: NightVision # Funky - EE nightvision port
+      isActive: true
+      toggleAction: null
+      color: "#50595C"
+      activateSound: null
+      deactivateSound: null
     - type: GuideHelp
       guides:
       - Blob

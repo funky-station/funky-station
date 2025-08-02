@@ -23,6 +23,8 @@
 # SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -30,27 +32,24 @@
 - type: entity
   id: CrateSalvageEquipment
   name: "salvage equipment crate"
-  description: For the daring.
+  description: For the daring. Contains a Spationaugh Hardsuit, air tanks, magboots, tool belt, PKA, GPS and Radio. # Funky Station
   suffix: Filled
-  parent: CrateGenericSteel
+  parent: CratePrivateSecure
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterHardsuitSalvage
-      - id: ClothingMaskBreath
+      - id: ClothingOuterHardsuitSpatio
+      - id: ClothingMaskGasExplorer
       - id: OxygenTankFilled
-      - id: FireExtinguisher
+      - id: NitrogenTankFilled
       - id: ClothingShoesBootsMag
-      - id: HandHeldMassScanner
       - id: Pickaxe
-      - id: Welder
-      - id: Wrench
-      - id: Screwdriver
-      - id: Crowbar
-      - id: Wirecutter
-      - id: ClothingBeltUtility
+      - id: ClothingBeltUtilityFilled
       - id: OreBag
-      - id: ClothingBeltSalvageWebbing
+      - id: WeaponProtoKineticAccelerator
+      - id: ClothingEyesGlassesMeson
+      - id: HandheldGPSBasic
+      - id: RadioHandheld
 
 - type: entity
   id: CrateSalvageAssortedGoodies
@@ -119,38 +118,4 @@
       - id: WeaponRevolverMateba
         prob: 0.0001
 
-- type: entity
-  parent: CrateGenericSteel
-  id: CratePartsT3
-  name: tier 3 parts crate
-  description: Contains 5 random tier 3 parts for upgrading machines.
-  # TODO add contents.
-  #components:
-  #- type: StorageFill
-  #  contents:
-  #   - id: SalvagePartsT3Spawner
-  #    amount: 5
 
-- type: entity
-  parent: CrateGenericSteel
-  id: CratePartsT3T4
-  name: tier 3/4 parts crate
-  description: Contains 5 random tier 3 or 4 parts for upgrading machines.
-  # TODO add contents.
-  #components:
-  # type: StorageFill
-  #  contents:
-  #  - id: SalvagePartsT3T4Spawner
-  #     amount: 5
-
-- type: entity
-  parent: CrateGenericSteel
-  id: CratePartsT4
-  name: tier 4 parts crate
-  description: Contains 5 random tier 4 parts for upgrading machines.
-  # TODO add contents.
-  #components:
-  #- type: StorageFill
-  #  contents:
-  #  - id: SalvagePartsT4Spawner
-  #    amount: 5

@@ -147,6 +147,9 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
         SubscribeLocalEvent<DisposalUnitComponent, BeforeThrowInsertEvent>(OnThrowInsert);
 
         SubscribeLocalEvent<DisposalUnitComponent, SharedDisposalUnitComponent.UiButtonPressedMessage>(OnUiButtonPressed);
+
+        SubscribeLocalEvent<DisposalUnitComponent, GetDumpableVerbEvent>(OnGetDumpableVerb);
+        SubscribeLocalEvent<DisposalUnitComponent, DumpEvent>(OnDump);
     }
 
     private void OnGetState(EntityUid uid, DisposalUnitComponent component, ref ComponentGetState args)
@@ -853,6 +856,25 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
     private void OnExploded(Entity<DisposalUnitComponent> ent, ref BeforeExplodeEvent args)
     {
         args.Contents.AddRange(ent.Comp.Container.ContainedEntities);
+    }
+
+    private void OnGetDumpableVerb(Entity<DisposalUnitComponent> ent, ref GetDumpableVerbEvent args)
+    {
+        args.Verb = Loc.GetString("dump-disposal-verb-name", ("unit", ent));
+    }
+
+    private void OnDump(Entity<DisposalUnitComponent> ent, ref DumpEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+        args.PlaySound = true;
+
+        foreach (var entity in args.DumpQueue)
+        {
+            DoInsertDisposalUnit(ent, entity, args.User);
+        }
     }
 
 }

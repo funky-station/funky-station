@@ -54,7 +54,10 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nikovnik <116634167+nkokic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Zephyr <68482449+Zephyrpak@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
@@ -300,16 +303,16 @@
   description: An atmos tech's best friend. Provides some heat resistance and looks cool.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Helmets/firehelmet.rsi
+    sprite: _DV/Clothing/Head/Helmets/firehelmet.rsi # DeltaV
   - type: Clothing
-    sprite: Clothing/Head/Helmets/firehelmet.rsi
+    sprite: _DV/Clothing/Head/Helmets/firehelmet.rsi # DeltaV
     quickEquip: true
   - type: IngestionBlocker
   - type: TemperatureProtection
     heatingCoefficient: 0.01
     coolingCoefficient: 0.2
-  - type: FireProtection
-    reduction: 0.15 # not fully sealed so less protection
+  - type: FireResistance
+    damageCoefficient: 0.85 # not fully sealed so less protection
   - type: IdentityBlocker
   - type: Tag
     tags:
@@ -330,19 +333,19 @@
   description: An atmos fire helmet, able to keep the user cool in any situation.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Helmets/atmos_firehelmet.rsi
+    sprite: _DV/Clothing/Head/Helmets/atmos_firehelmet.rsi # DeltaV
   - type: Clothing
-    sprite: Clothing/Head/Helmets/atmos_firehelmet.rsi
+    sprite: _DV/Clothing/Head/Helmets/atmos_firehelmet.rsi # DeltaV
     quickEquip: true
   - type: IngestionBlocker
   - type: TemperatureProtection
     heatingCoefficient: 0.01
     coolingCoefficient: 0.2
-  - type: FireProtection
-    reduction: 0.2
   - type: PressureProtection
     highPressureMultiplier: 0.25
     lowPressureMultiplier: 1000
+  - type: FireResistance
+    damageCoefficient: 0.8
   - type: IdentityBlocker
   - type: Tag
     tags:
@@ -559,7 +562,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        
+
 - type: entity
   id: ActionToggleJusticeHelm
   name: Toggle Justice Helm

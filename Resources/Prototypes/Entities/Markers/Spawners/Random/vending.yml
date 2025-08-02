@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2024 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -44,6 +45,10 @@
     - VendingMachineSovietSoda #Boda
     - VendingMachineSpaceUp
     - VendingMachineStarkist
+    # Funky 
+    - VendingMachineFitness # SweatMAX
+    - VendingMachineSolsnack # Mars Mart
+    - VendingMachineWeeb # Nippon-tan    
     chance: 1
 
 

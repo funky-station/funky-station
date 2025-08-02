@@ -152,7 +152,7 @@
     - type: StaticPrice
       price: 250 # Funky
     - type: AccessReader
-#      access: [["Atmospherics"], ["Engineering"], ["Research"], ["Captain"]] # Frontier
+      access: [["Atmospherics"], ["Engineering"], ["Research"], ["Captain"]]
     - type: Construction # Frontier
       graph: NFStorageCanister # Frontier
       node: storagecanister # Frontier

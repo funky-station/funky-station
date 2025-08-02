@@ -12,26 +12,26 @@ using Content.Shared.Inventory;
 namespace Content.Shared.Clothing.EntitySystems;
 
 /// <summary>
-/// Handles reducing fire damage when wearing clothing with <see cref="FireProtectionComponent"/>.
+/// Handles reducing fire damage when wearing clothing with <see cref="FireResistanceComponent"/>.
 /// </summary>
-public sealed class FireProtectionSystem : EntitySystem
+public sealed class FireResistanceSystem : EntitySystem
 {
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<FireProtectionComponent, InventoryRelayedEvent<GetFireProtectionEvent>>(OnGetProtection);
-        SubscribeLocalEvent<FireProtectionComponent, ArmorExamineEvent>(OnArmorExamine);
+        SubscribeLocalEvent<FireResistanceComponent, GetFireResistanceEvent>(OnGetResistance);
+        SubscribeLocalEvent<FireResistanceComponent, ArmorExamineEvent>(OnArmorExamine);
     }
 
-    private void OnGetProtection(Entity<FireProtectionComponent> ent, ref InventoryRelayedEvent<GetFireProtectionEvent> args)
+    private void OnGetResistance(Entity<FireResistanceComponent> ent, ref GetFireResistanceEvent args)
     {
-        args.Args.Reduce(ent.Comp.Reduction);
+        args.DamageCoefficient *= ent.Comp.DamageCoefficient;
     }
 
-    private void OnArmorExamine(Entity<FireProtectionComponent> ent, ref ArmorExamineEvent args)
+    private void OnArmorExamine(Entity<FireResistanceComponent> ent, ref ArmorExamineEvent args)
     {
-        var value = MathF.Round((1f - ent.Comp.Reduction) * 100, 1);
+        var value = MathF.Round((1f - ent.Comp.DamageCoefficient) * 100, 1);
 
         if (value == 0)
             return;

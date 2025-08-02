@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -11,7 +12,7 @@
   parent: FoodSnackBase
   id: FoodSnackProteinbar
   name: protein bar
-  description: SwoleMAX brand protein bars, guaranteed to get you feeling perfectly overconfident.
+  description: SwoleMAX brand chocolate flavored protein bars, guaranteed to get you feeling perfectly overconfident.
   components:
   - type: FlavorProfile
     flavors:
@@ -29,20 +30,18 @@
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 6
         - ReagentId: Protein
           Quantity: 4
-        - ReagentId: CocoaPowder
-          Quantity: 1
         - ReagentId: Theobromine
-          Quantity: 1
+          Quantity: 2
 
 # Sol Vend / Mars Mart
 - type: entity
   parent: BaseItem
   id: FoodSnackLunacakeWrapped
   name: wrapped lunacake
-  description: Now with 20% less lawsuit enabling rhegolith!
+  description: Now with 20% more lawsuit enabling vanilla flavor!
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
@@ -64,11 +63,11 @@
   parent: FoodSnackBase
   id: FoodSnackLunacake
   name: lunacake
-  description: Now with 20% less lawsuit enabling rhegolith!
+  description: Now with 20% more lawsuit enabling vanilla flavor!
   components:
   - type: FlavorProfile
     flavors:
-      - vanilla
+      - sweet
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: lunacake
@@ -114,7 +113,7 @@
   parent: BaseItem
   id: FoodSnackMooncakeWrapped
   name: wrapped mooncake
-  description: Explore the dark side! May contain trace amounts of reconstituted cocoa.
+  description: Explore the dark side! A limited edition lunacake made for a promotion that never went anywhere.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
@@ -136,7 +135,7 @@
   parent: FoodSnackBase
   id: FoodSnackMooncake
   name: mooncake
-  description: Explore the dark side! May contain trace amounts of reconstituted cocoa.
+  description: Explore the dark side! A limited edition lunacake made for a promotion that never went anywhere.
   components:
   - type: FlavorProfile
     flavors:
@@ -145,6 +144,17 @@
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: lunacake
   - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 13
+        - ReagentId: Granibitulari
+          Quantity: 5
+        - ReagentId: Theobromine
+          Quantity: 2    
 
 - type: entity
   parent: FoodSnackBase

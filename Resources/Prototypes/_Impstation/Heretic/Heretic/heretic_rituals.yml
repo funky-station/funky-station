@@ -1,0 +1,27 @@
+##side knowledge
+- type: hereticRitual
+  id: SeekersHeartRitual
+  locName: knowledge-path-side-s1-sensor-name
+  locDesc: knowledge-path-side-s1-sensor-description
+  icon:
+    sprite: _Goobstation/Heretic/items.rsi
+    state: living_heart
+  requiredTags:
+    Heart: 1
+    Flare: 1
+  output:
+    HereticBookSensor: 1
+
+- type: hereticRitual
+  id: HereticMirrorRitual
+  locName: knowledge-path-side-s3-mirror-name
+  locDesc: knowledge-path-side-s3-mirror-description
+  icon:
+    sprite: _Impstation/Heretic/wildering_mirror.rsi
+    state: heretic-mirror-icon
+  requiredTags:
+    LightBulb: 1
+    Crowbar: 1
+    Eyes: 1
+  output:
+    HereticMirror: 1

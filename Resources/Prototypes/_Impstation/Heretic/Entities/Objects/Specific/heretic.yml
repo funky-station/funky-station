@@ -1,0 +1,210 @@
+- type: entity
+  parent: BaseItem
+  id: EldritchTome
+  name: eldritch tome
+  description: A strange book with some kind of ritualistic rune emblazoned on the front. The text seems to rewrite itself whenever you look away.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/eldritch_book.rsi
+    layers:
+    - state: eldritch-book-base1
+      map : [ "cover" ]
+    - state: eldritch-book-icon1
+      map : [ "icon" ]
+  - type: RandomSprite
+    available:
+      - cover:
+          eldritch-book-base1: ""
+          eldritch-book-base2: ""
+          eldritch-book-base3: ""
+          eldritch-book-base4: ""
+          eldritch-book-base5: ""
+          eldritch-book-base6: ""
+          eldritch-book-base7: ""
+          eldritch-book-base8: ""
+        icon:
+          eldritch-book-icon1: ""
+          eldritch-book-icon2: ""
+          eldritch-book-icon3: ""
+          eldritch-book-icon4: ""
+          eldritch-book-icon5: ""
+          eldritch-book-icon6: ""          
+  - type: HereticKnowledgeItem
+  - type: PointLight
+    radius: 1.5
+    energy: 0.5
+    color: "#6e7500"
+  - type: Tag
+    tags:
+      - Book
+    
+- type: entity
+  id: RealityTear
+  name: reality tear
+  description: It hurts your head to look at. 
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: SpawnOnDespawn
+    prototype: EldritchTome
+  - type: PointLight
+    radius: 3
+    energy: 2.5
+    color: "#6e7500"
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Goobstation/Heretic/reality_fracture.rsi
+    state: icon_harvested
+  - type: Clickable
+  
+- type: entity
+  parent: EldritchTome
+  id: DebugEldritchTome
+  name: debug tome
+  description: once you understand everything, all you will be able to think about is Halloween.
+  suffix: Debug
+  components:
+  - type: HereticKnowledgeItem
+    pointGain: 999
+    useTimeSeconds: 1
+
+- type: entity 
+  parent: [ BaseItem, TierXContraband ]
+  id: HereticBookSensor
+  name: seeker's heart
+  description: A macabre contraption that beats faster in the presence of forbidden knowledge. Use it in your hand to toggle it on or off.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/items.rsi
+    state: living_heart
+  - type: ItemToggle
+  - type: ProximityBeeper
+  - type: ProximityDetector
+    range: 20
+    components:
+    - type: HereticKnowledgeItem
+  - type: Beeper
+    isMuted: false
+    minBeepInterval: 0.50
+    maxBeepInterval: 2.00
+    beepSound:
+      path: "/Audio/_Goobstation/Heretic/heartbeat.ogg"
+      params:
+        maxDistance: 1
+        volume: -2
+
+- type: entity 
+  id: AlwaysPoweredHellLight
+  parent: MarkerBase
+  name: hellworldlight
+  description: "An always powered light."
+  suffix: Always powered
+  components:
+  - type: PointLight
+    color: "#FF7777" # 5000K color temp
+    energy: 0.8
+    radius: 10
+    softness: 1
+    offset: "0, -0.5"
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/Lighting/light_tube.rsi
+        state: base
+
+- type: entity 
+  id: HellSpawnPointMarker
+  parent: MarkerBase
+  name: hellworldtarget
+  description: "You go here if you do drugs."
+  components:
+  - type: HellSpawnPoint
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Mobs/Species/Human/parts.rsi
+        state: full
+
+- type: entity
+  name: wildering mirror
+  parent: [BaseItem, TierXContraband]
+  id: HereticMirror
+  description: "A multiplicity of vistas! A bewilderment of views! Gaze upon me, and rejoice in the dissolution of your senses!"
+  components:
+    - type: Sprite
+      sprite: _Impstation/Heretic/wildering_mirror.rsi
+      state: heretic-mirror-icon
+    - type: Item
+      size: Normal
+      sprite: _Impstation/Heretic/wildering_mirror.rsi
+      heldPrefix: heretic-mirror
+    - type: Appearance
+    - type: PointLight
+      enabled: true
+      color: "#F8FF9A"
+      radius: 3.5
+      softness: 1
+      autoRot: true
+    - type: Reflect
+      reflectProb: 0.6
+      reflects:
+        - Energy
+      spread: 330
+
+- type: entity
+  name: frangiclave
+  parent: [BaseItem, TierXContraband]
+  id: HereticKeyThrowing
+  description: "There are keys that open doors; then there are keys that destroy them."
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/crowbar.rsi
+      state: storage
+    - type: Item
+      sprite: Objects/Tools/crowbar.rsi
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PolygonShape
+            vertices:
+              - -0.05,-0.15
+              - -0.05,0.25
+              - 0.05,-0.15
+              - 0.05,0.25
+          density: 20
+          mask:
+          - ItemMask
+          restitution: 0.3
+          friction: 0.2
+    - type: DamageOtherOnHit
+      damage:
+        types:
+          Structural: 9999
+    - type: ThrowingAngle
+      angle: 180
+    - type: LandAtCursor
+    - type: DamageOnHighSpeedImpact
+      minimumSpeed: 2
+      damage:
+        types:
+          Blunt: 10000
+    - type: DamageOnLand
+      damage:
+        types:
+          Blunt: 10000
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Glass
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 5000
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            collection: GlassBreak
+            params:
+              volume: -4
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]

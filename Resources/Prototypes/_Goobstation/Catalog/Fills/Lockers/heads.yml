@@ -54,12 +54,13 @@
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: SecHypo
+    - id: CartridgeEmergency
     - id: BlueshieldTacticalMaidoutfitBoxed #Funky Station
       prob: 0.05
     - id: MedkitAdvancedFilled #Funky Station
       prob: 0.1
 
-- type: entity #Funky Station /// Stylized workaround for the fact I cannot figure out how to make multiple items spawn upon successful probability roll.
+- type: entity #Funky Station /// Stylized workaround for the fact I cannot figure out how to make set of items spawn upon successful probability roll.
   parent: BaseItem
   id: BlueshieldTacticalMaidOutfitBoxed
   name: blueshield tactical maid outfit

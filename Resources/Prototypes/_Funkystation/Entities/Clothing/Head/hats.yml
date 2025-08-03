@@ -39,4 +39,13 @@
       types:
         Slash: 20
 
-
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBSOTacticalMaidHeadband
+  name: blueshield tactical maid headband
+  description: "A blue headband - don't imagine yourself a security and don't pick up validhunt chases."
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/bsotacticalmaidheadband.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/bsotacticalmaidheadband.rsi

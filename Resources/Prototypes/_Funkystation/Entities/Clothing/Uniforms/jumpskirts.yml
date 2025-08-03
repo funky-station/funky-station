@@ -15,3 +15,14 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/redperformer.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/redperformer.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformBSOJumpskirtTacticalMaid
+  name: blueshield tactical maid suitskirt
+  description: It is assumed that the best maids should have designer suits.
+  components:
+    - type: Sprite
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/bsotacticalmaid.rsi
+    - type: Clothing
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/bsotacticalmaid.rsi

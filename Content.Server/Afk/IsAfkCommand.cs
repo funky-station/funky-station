@@ -1,4 +1,11 @@
-﻿using Content.Server.Administration;
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Server.Player;
 using Robust.Shared.Console;

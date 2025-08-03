@@ -1,3 +1,45 @@
+// SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Leo <lzimann@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Remie Richards <remierichards@gmail.com>
+// SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Julian Giebel <j.giebel@netrocks.info>
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Sailor <109166122+Equivocateur@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
+// SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 PoTeletubby <151896601+PoTeletubby@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Lyndomen <49795619+Lyndomen@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -21,6 +63,8 @@ using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Server._Funkystation.Records; // CD - Character Records
+using Content.Shared._Funkystation.Records; // CD - Character Records
 
 namespace Content.Server.Database
 {
@@ -48,6 +92,10 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles).ThenInclude(h => h.Jobs)
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
+                // Begin CD - Character Records
+                .Include(p => p.Profiles)
+                    .ThenInclude(h => h.CDProfile)
+                // End CD - Character Records
                 .Include(p => p.Profiles)
                     .ThenInclude(h => h.Loadouts)
                     .ThenInclude(l => l.Groups)
@@ -95,6 +143,7 @@ namespace Content.Server.Database
             }
 
             var oldProfile = db.DbContext.Profile
+                .Include(p => p.CDProfile) // CD - Character Records
                 .Include(p => p.Preference)
                 .Where(p => p.Preference.UserId == userId.UserId)
                 .Include(p => p.Jobs)
@@ -216,6 +265,11 @@ namespace Content.Server.Database
                 }
             }
 
+            // Begin CD - Chracter Records
+            var cdRecords = profile.CDProfile?.CharacterRecords != null
+                ? RecordsSerialization.Deserialize(profile.CDProfile.CharacterRecords)
+                : PlayerProvidedCharacterRecords.DefaultRecords();
+            // End CD - Character Records
             var loadouts = new Dictionary<string, RoleLoadout>();
 
             foreach (var role in profile.Loadouts)
@@ -264,7 +318,8 @@ namespace Content.Server.Database
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts
+                loadouts,
+                cdRecords // CD - Character Records
             );
         }
 
@@ -316,6 +371,12 @@ namespace Content.Server.Database
                 humanoid.TraitPreferences
                         .Select(t => new Trait { TraitName = t })
             );
+
+            // Begin CD - Character Records
+            profile.CDProfile ??= new CDModel.CDProfile();
+            // There are JsonIgnore annotations to ensure that entries are not stored as JSON.
+            profile.CDProfile.CharacterRecords = JsonSerializer.SerializeToDocument(humanoid.CDCharacterRecords ?? PlayerProvidedCharacterRecords.DefaultRecords());
+            // End CD - Character Records
 
             profile.Loadouts.Clear();
 

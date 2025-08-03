@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Sage <sagefacepants@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 Theapug <159912420+Teapug@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: loadoutEffectGroup
   id: SeniorNanotrasenRepresentative
   effects:

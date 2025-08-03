@@ -1,46 +1,219 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from ParadiseSS13 at commit https://github.com/ParadiseSS13/Paradise/commit/2fd9200036dd18a56e6887f8090d5dc0477fc6f3, IAA ID made for FunkyStation, Magistrate ID made from IAA for funky station",
+  "copyright": "ID Cards for Funky Station - Design by @Catazeus (GitHub) and Polishing + QA by @vectorassembly (GitHub).",
   "size": {
     "x": 32,
     "y": 32
   },
-  "states": [
-    {
-      "name": "default"
-    },
-	{
-      "name": "idiaa"
-    },
-    {
-      "name": "idmagistrate"
-    },
-	{
-      "name": "retro"
-    },
-    {
-      "name": "retro_security"
-    },
-    {
-      "name": "retro_research"
-    },
-    {
-      "name": "retro_medical"
-    },
-    {
-      "name": "retro_engineering"
-    },
-    {
-      "name": "retro_nanotrasen"
-    },
-    {
-      "name": "default-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "default-inhand-right",
-      "directions": 4
-    }
-  ]
+    "states": [
+        {
+            "name": "default"
+        },
+        {
+            "name": "silver"
+        },
+        {
+            "name": "gold"
+        },
+        {
+            "name": "cc"
+        },
+        {
+            "name": "nt"
+        },
+        {
+            "name": "prison"
+        },
+        {
+            "name": "pirate"
+        },
+        {
+            "name": "syndicate"
+        },
+        {
+            "name": "wizard"
+        },
+        {
+            "name": "future"
+        },
+        {
+            "name": "helldiver"
+        },
+        {
+            "name": "decal-admin"
+        },
+        {
+            "name": "decal-stripe-command"
+        },
+        {
+            "name": "decal-stripe-cargo"
+        },
+        {
+            "name": "decal-stripe-cc"
+        },
+        {
+            "name": "decal-stripe-civillian"
+        },
+        {
+            "name": "decal-discriminator-command"
+        },
+        {
+            "name": "decal-stripe-criminal"
+        },
+        {
+            "name": "decal-stripe-engineering"
+        },
+        {
+            "name": "decal-discriminator-cc"
+        },
+        {
+            "name": "decal-discriminator-ert"
+        },
+        {
+            "name": "decal-discriminator-deathsquad"
+        },
+        {
+            "name": "decal-stripe-medical"
+        },
+        {
+            "name": "decal-stripe-science"
+        },
+        {
+            "name": "decal-stripe-security"
+        },
+        {
+            "name": "decal-stripe-service"
+        },
+        {
+            "name": "decal-stripe-syndicate"
+        },
+        {
+            "name": "decal-stripe-rainbow"
+        },
+        {
+            "name": "decal-stripe-stripes"
+        },
+        {
+            "name": "decal-discriminator-security"
+        },
+        {
+            "name": "decal-stripe-party"
+        },
+        {
+            "name": "decal-stripe-cluwne"
+        },
+        {
+            "name": "decal-stripe-pirate"
+        },
+        {
+            "name": "decal-stripe-wizard"
+        },
+        {
+            "name": "retro"
+        },
+        {
+            "name": "retro_security"
+        },
+        {
+            "name": "retro_research"
+        },
+        {
+            "name": "retro_medical"
+        },
+        {
+            "name": "retro_engineering"
+        },
+        {
+            "name": "retro_nanotrasen"
+        },
+        {
+            "name": "default-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "default-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "silver-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "silver-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "gold-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "gold-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "prison-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "prison-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "cc-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "cc-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "nt-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "nt-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "syndicate-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "syndicate-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "wizard-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "wizard-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "pirate-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "pirate-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "future-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "future-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "helldiver-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "helldiver-inhand-right",
+            "directions": 4
+        }
+    ]
 }

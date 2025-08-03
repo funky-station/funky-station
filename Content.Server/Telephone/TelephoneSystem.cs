@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Winkarst-cpu <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
@@ -490,6 +500,6 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
 
     public bool IsTelephonePowered(Entity<TelephoneComponent> entity)
     {
-        return this.IsPowered(entity, EntityManager) || !entity.Comp.RequiresPower;
+        return this.IsPowered(entity, EntityManager);
     }
 }

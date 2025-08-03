@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 thaven-mood-possessive-of-property-name = Possessive Of Property
 thaven-mood-possessive-of-property-desc = You are extremely possessive of your property. Refuse to relinquish it, and if it is misplaced or stolen, it must be retrieved at all costs.
 
@@ -188,4 +194,7 @@ thaven-mood-ironknight-name = Iron Knight
 thaven-mood-ironknight-desc = Mechs are the most noble machine, fearsome engines of combat and grace. Respect anyone who possesses one, and strive to gain one for yourself.
 
 thaven-mood-petrock-name = Pet Rock
-thaven-mood-petrock-desc = One of your inanimate possessions is very dear to you. It is your best friend, and it has thoughts, feelings, and needs. 
+thaven-mood-petrock-desc = One of your inanimate possessions is very dear to you. It is your best friend, and it has thoughts, feelings, and needs.
+
+thaven-mood-hardsuits-good-name = {$clothes} Are So In Right Now!
+thaven-mood-hardsuits-good-desc = They are absolutely the pinnacle of fashion. You and everybody else utterly need to be wearing these to stay in style. Anyone who is not wearing these are quite unfashionable.

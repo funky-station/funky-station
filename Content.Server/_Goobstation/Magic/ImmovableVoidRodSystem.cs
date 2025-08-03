@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using Content.Server.Heretic.Components;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
@@ -68,7 +77,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
         //This is a certified Funkystation addition :fire:
 
         if (TryComp<TemperatureComponent>(args.OtherEntity, out var temp))
-            _temperature.ForceChangeTemperature(args.OtherEntity, temp.CurrentTemperature - 70f, temp);
+            _temperature.ForceChangeTemperature(args.OtherEntity, temp.CurrentTemperature - 35f, temp);
 
         if (TryComp<DamageableComponent>(args.OtherEntity, out var damage))
         {

@@ -1,3 +1,33 @@
+// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 vulppine <vulppine@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 qwerltaz <msmarcinpl@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Atmos.Monitor.Components;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.DeviceLinking.Systems;
@@ -468,10 +498,16 @@ public sealed class AirAlarmSystem : EntitySystem
     /// <param name="uiOnly">Whether this change is for the UI only, or if it changes the air alarm's operating mode. Defaults to true.</param>
     public void SetMode(EntityUid uid, string origin, AirAlarmMode mode, bool uiOnly = true, AirAlarmComponent? controller = null)
     {
-        if (!Resolve(uid, ref controller) || controller.CurrentMode == mode)
+        if (!Resolve(uid, ref controller))
         {
             return;
         }
+
+        if (controller.PanicWireCut)
+        {
+            mode = AirAlarmMode.Panic;
+        }
+
 
         controller.CurrentMode = mode;
 
@@ -654,6 +690,7 @@ public sealed class AirAlarmSystem : EntitySystem
         }
         foreach (var (addr, data) in alarm.ScrubberData)
         {
+            data.AirAlarmPanicWireCut = alarm.PanicWireCut;
             dataToSend.Add((addr, data));
         }
         foreach (var (addr, data) in alarm.SensorData)
@@ -671,7 +708,7 @@ public sealed class AirAlarmSystem : EntitySystem
         _ui.SetUiState(
             uid,
             SharedAirAlarmInterfaceKey.Key,
-            new AirAlarmUIState(devNet.Address, deviceCount, pressure, temperature, dataToSend, alarm.CurrentMode, highestAlarm.Value, alarm.AutoMode));
+            new AirAlarmUIState(devNet.Address, deviceCount, pressure, temperature, dataToSend, alarm.CurrentMode, highestAlarm.Value, alarm.AutoMode, alarm.PanicWireCut));
     }
 
     private const float Delay = 8f;

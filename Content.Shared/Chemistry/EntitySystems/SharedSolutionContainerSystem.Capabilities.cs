@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 LucasTheDrgn <kirbyfan.95@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Kitchen.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;

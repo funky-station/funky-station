@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+# gloves
+- type: entity
+  id: ActionToggleKnuckleDustersStun
+  name: Toggle stun knuckle dusters
+  description: Toggles the duster's built in stun baton.
+  components:
+  - type: InstantAction
+    event: !type:ToggleActionEvent

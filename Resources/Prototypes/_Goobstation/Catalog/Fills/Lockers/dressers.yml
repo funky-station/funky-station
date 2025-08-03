@@ -24,6 +24,7 @@
     - id: ClothingUniformJumpsuitBlueshieldShirt
     - id: ClothingBlueshieldArmoredJacket
     - id: ClothingOuterWinterBSO #Funky Station
+    - id: ClothingShoesBootsLaceup #Funky Station
     - id: ClothingHeadHatBeretNavy
 
 - type: entity

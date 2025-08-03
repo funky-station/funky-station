@@ -106,8 +106,8 @@
   background: /Textures/LobbyScreens/typicalDay.webp
 
 - type: lobbyBackground
-  id: lowpopCrew
-  background: /Textures/LobbyScreens/lowpopCrew.webp
+  id: funkyChem
+  background: /Textures/LobbyScreens/funkyChem.webp
 
 - type: lobbyBackground
   id: rats

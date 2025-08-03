@@ -55,28 +55,10 @@
     - id: NitrogenTankFilled
     - id: SecHypo
     - id: CartridgeEmergency
-    - id: BlueshieldTacticalMaidoutfitBoxed #Funky Station
+    - id: BlueshieldTacticalMaidOutfitBoxed #Funky Station
       prob: 0.05
     - id: MedkitAdvancedFilled #Funky Station
       prob: 0.1
-
-- type: entity #Funky Station /// Stylized workaround for the fact I cannot figure out how to make set of items spawn upon successful probability roll.
-  parent: BaseItem
-  id: BlueshieldTacticalMaidOutfitBoxed
-  name: blueshield tactical maid outfit
-  description: You feel tempted to wear it despite any judging stares.
-  components:
-  - type: Sprite
-    sprite: _Funkystation/Objects/Fun/bsotacticalmaidboxed.rsi
-    layers:
-      - state: bsotacticalmaidboxed
-  - type: SpawnItemsOnUse
-    sound:
-      path: /Audio/Effects/unwrap.ogg
-    items:
-    - id: ClothingHeadHatBSOTacticalMaidHeadband
-    - id: ClothingUniformBSOJumpskirtTacticalMaid
-    - id: ClothingHandsBSOTacticalMaidGloves
 
 - type: entity
   id: LockerBlueshieldOfficerFilled

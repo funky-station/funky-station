@@ -97,7 +97,7 @@
 
 - type: stack
   id: Credit
-  name: stack-credit
+  name: speso
   icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash }
   spawn: SpaceCash
 

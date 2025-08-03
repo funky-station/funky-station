@@ -1,8 +1,16 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Construction.Components;
+using Content.Shared.Construction;
 using Content.Shared.Construction.Components;
 using JetBrains.Annotations;
-using Robust.Shared.Containers;
+using Robust.Server.Containers;
 
-namespace Content.Shared.Construction.NodeEntities;
+namespace Content.Server.Construction.NodeEntities;
 
 /// <summary>
 ///     Works for both <see cref="ComputerBoardComponent"/> and <see cref="MachineBoardComponent"/>
@@ -19,7 +27,7 @@ public sealed partial class BoardNodeEntity : IGraphNodeEntity
         if (uid == null)
             return null;
 
-        var containerSystem = args.EntityManager.EntitySysManager.GetEntitySystem<SharedContainerSystem>();
+        var containerSystem = args.EntityManager.EntitySysManager.GetEntitySystem<ContainerSystem>();
 
         if (!containerSystem.TryGetContainer(uid.Value, Container, out var container)
             || container.ContainedEntities.Count == 0)
@@ -31,7 +39,7 @@ public sealed partial class BoardNodeEntity : IGraphNodeEntity
         if (args.EntityManager.TryGetComponent(board, out MachineBoardComponent? machine))
             return machine.Prototype;
 
-        if (args.EntityManager.TryGetComponent(board, out ComputerBoardComponent? computer))
+        if(args.EntityManager.TryGetComponent(board, out ComputerBoardComponent? computer))
             return computer.Prototype;
 
         return null;

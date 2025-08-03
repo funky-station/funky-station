@@ -62,6 +62,11 @@
   equipment:
     outerClothing: ClothingBlueshieldArmoredJacket
 
+- type: loadout #Funky Station
+  id: BlueshieldOfficerOuterBlueshieldArmoredWinterCoat
+  equipment:
+    outerClothing: ClothingOuterWinterBSO
+
 # Neck
 - type: loadout
   id: BlueshieldOfficerOuterBlueshieldMantle

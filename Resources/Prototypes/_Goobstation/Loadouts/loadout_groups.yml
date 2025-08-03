@@ -91,6 +91,7 @@
   loadouts:
   - BlueshieldOfficerOuterBlueshieldArmorVest
   - BlueshieldOfficerOuterBlueshieldArmoredJacket
+  - BlueshieldOfficerOuterBlueshieldArmoredWinterCoat #Funky Station
 
 - type: loadoutGroup
   id: BlueshieldOfficerNeck

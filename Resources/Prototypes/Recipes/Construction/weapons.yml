@@ -109,13 +109,13 @@
   category: construction-category-weapons
   objectType: Item
 
-- type: construction
-  id: SpearSharkMinnow
-  graph: SpearSharkMinnow
-  startNode: start
-  targetNode: spear
-  category: construction-category-weapons
-  objectType: Item
+# - type: construction
+#   id: SpearSharkMinnow
+#   graph: SpearSharkMinnow
+#   startNode: start
+#   targetNode: spear
+#   category: construction-category-weapons
+#   objectType: Item
 
 - type: construction
   id: Bola
@@ -149,13 +149,13 @@
   category: construction-category-weapons
   objectType: Item
 
-- type: construction
-  id: ImprovisedArrowCarp
-  graph: ImprovisedArrowCarp
-  startNode: start
-  targetNode: ImprovisedArrowCarp
-  category: construction-category-weapons
-  objectType: Item
+# - type: construction
+#   id: ImprovisedArrowCarp
+#   graph: ImprovisedArrowCarp
+#   startNode: start
+#   targetNode: ImprovisedArrowCarp
+#   category: construction-category-weapons
+#   objectType: Item
 
 - type: construction
   id: ImprovisedArrowPlasma

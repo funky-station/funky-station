@@ -81,16 +81,16 @@
   id: BlueshieldOfficerBelt
   name: loadout-group-bso-belt
   loadouts:
-  - SecurityBelt
-  - SecurityWebbing
+  - BlueshieldOfficerSecurityBelt
+  - BlueshieldOfficerSecurityWebbing
 
 - type: loadoutGroup #Funky Station
   id: BlueshieldOfficerShoes
   name: loadout-group-bso-shoes
   loadouts:
-  - JackBoots
-  - CombatBoots
-  - ClothingShoesBootsLaceup
+  - BlueshieldOfficerJackBoots
+  - BlueshieldOfficerCombatBoots
+  - BlueshieldOfficerClothingShoesBootsLaceup
 
 - type: loadoutGroup
   id: BlueshieldOfficerJumpsuit

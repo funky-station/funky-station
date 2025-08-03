@@ -94,27 +94,27 @@
 
 # Belt /// Funky Station
 - type: loadout
-  id: SecurityBelt
+  id: BlueshieldOfficerSecurityBelt
   equipment:
     belt: ClothingBeltSecurityFilled
 
 - type: loadout
-  id: SecurityWebbing
+  id: BlueshieldOfficerSecurityWebbing
   equipment:
     belt: ClothingBeltSecurityWebbingFilled
 
 # Shoes /// Funky Station
 - type: loadout
-  id: JackBoots
+  id: BlueshieldOfficerJackBoots
   equipment:
     shoes: ClothingShoesBootsJackFilled
 
 - type: loadout
-  id: CombatBoots
+  id: BlueshieldOfficerCombatBoots
   equipment:
     shoes: ClothingShoesBootsCombatFilled
 
 - type: loadout
-  id: ClothingShoesBootsLaceup
+  id: BlueshieldOfficerClothingShoesBootsLaceup
   equipment:
     shoes: ClothingShoesBootsLaceup

@@ -106,8 +106,8 @@
   background: /Textures/LobbyScreens/typicalDay.webp
 
 - type: lobbyBackground
-  id: funkyChem
-  background: /Textures/LobbyScreens/funkyChem.webp
+  id: funkyscience
+  background: /Textures/LobbyScreens/funkyscience.webp
 
 - type: lobbyBackground
   id: rats

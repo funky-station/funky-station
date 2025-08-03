@@ -77,6 +77,21 @@
   - BlueshieldOfficerSatchel
   - BlueshieldOfficerDuffel
 
+- type: loadoutGroup #Funky Station
+  id: BlueshieldOfficerBelt
+  name: loadout-group-bso-belt
+  loadouts:
+  - SecurityBelt
+  - SecurityWebbing
+
+- type: loadoutGroup #Funky Station
+  id: BlueshieldOfficerShoes
+  name: loadout-group-bso-shoes
+  loadouts:
+  - JackBoots
+  - CombatBoots
+  - ClothingShoesBootsLaceup
+
 - type: loadoutGroup
   id: BlueshieldOfficerJumpsuit
   name: loadout-group-bso-jumpsuit

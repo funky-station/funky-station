@@ -92,3 +92,29 @@
   equipment:
     back: ClothingBackpackDuffelBlueshield
 
+# Belt /// Funky Station
+- type: loadout
+  id: SecurityBelt
+  equipment:
+    belt: ClothingBeltSecurityFilled
+
+- type: loadout
+  id: SecurityWebbing
+  equipment:
+    belt: ClothingBeltSecurityWebbingFilled
+
+# Shoes /// Funky Station
+- type: loadout
+  id: JackBoots
+  equipment:
+    shoes: ClothingShoesBootsJackFilled
+
+- type: loadout
+  id: CombatBoots
+  equipment:
+    shoes: ClothingShoesBootsCombatFilled
+
+- type: loadout
+  id: ClothingShoesBootsLaceup
+  equipment:
+    shoes: ClothingShoesBootsLaceup

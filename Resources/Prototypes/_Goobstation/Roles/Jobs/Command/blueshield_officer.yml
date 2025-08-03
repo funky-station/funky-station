@@ -64,12 +64,10 @@
 - type: startingGear
   id: BlueshieldOfficerGear
   equipment:
-    shoes: ClothingShoesBootsJackFilled
     eyes: ClothingEyesGlassesMedSec
     gloves: ClothingHandsGlovesCombat
     id: BlueshieldOfficerPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltSecurityFilled
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
   storage:
     back:

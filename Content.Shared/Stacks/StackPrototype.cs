@@ -13,7 +13,6 @@
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Stacks;
@@ -30,7 +29,7 @@ public sealed partial class StackPrototype : IPrototype
     /// </summary>
     /// <remarks>This is a localization string ID.</remarks>
     [DataField]
-    public string Name { get; private set; } = string.Empty;
+    public LocId Name { get; private set; } = string.Empty;
 
     /// <summary>
     ///     An icon that will be used to represent this stack type.

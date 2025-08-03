@@ -18,7 +18,7 @@
               amount: 1
               doAfter: 1
             - tag: CrystalCyan
-              name: construction-graph-tag-cyan-crystal-shard
+              name: cyan crystal shard
               icon:
                 sprite: Objects/Materials/Shards/crystal.rsi
                 state: shard1
@@ -39,7 +39,7 @@
               amount: 1
               doAfter: 1
             - tag: CrystalBlue
-              name: construction-graph-tag-blue-crystal-shard
+              name: blue crystal shard
               icon:
                 sprite: Objects/Materials/Shards/crystal.rsi
                 state: shard1
@@ -59,7 +59,7 @@
               amount: 1
               doAfter: 1
             - tag: CrystalPink
-              name: construction-graph-tag-pink-crystal-shard
+              name: pink crystal shard
               icon:
                 sprite: Objects/Materials/Shards/crystal.rsi
                 state: shard1
@@ -79,7 +79,7 @@
               amount: 1
               doAfter: 1
             - tag: CrystalOrange
-              name: construction-graph-tag-orange-crystal-shard
+              name: orange crystal shard
               icon:
                 sprite: Objects/Materials/Shards/crystal.rsi
                 state: shard1
@@ -99,7 +99,7 @@
               amount: 1
               doAfter: 1
             - tag: CrystalRed
-              name: construction-graph-tag-red-crystal-shard
+              name: red crystal shard
               icon:
                 sprite: Objects/Materials/Shards/crystal.rsi
                 state: shard1
@@ -119,7 +119,7 @@
               amount: 1
               doAfter: 1
             - tag: CrystalGreen
-              name: construction-graph-tag-green-crystal-shard
+              name: green crystal shard
               icon:
                 sprite: Objects/Materials/Shards/crystal.rsi
                 state: shard1
@@ -139,7 +139,7 @@
         amount: 1
         doAfter: 1
       - tag: CrystalCyan
-        name: construction-graph-tag-cyan-crystal-shard
+        name: cyan crystal shard
         icon:
           sprite: Objects/Materials/Shards/crystal.rsi
           state: shard1
@@ -160,7 +160,7 @@
         amount: 1
         doAfter: 1
       - tag: CrystalBlue
-        name: construction-graph-tag-blue-crystal-shard
+        name: blue crystal shard
         icon:
           sprite: Objects/Materials/Shards/crystal.rsi
           state: shard1
@@ -180,7 +180,7 @@
         amount: 1
         doAfter: 1
       - tag: CrystalPink
-        name: construction-graph-tag-pink-crystal-shard
+        name: pink crystal shard
         icon:
           sprite: Objects/Materials/Shards/crystal.rsi
           state: shard1
@@ -200,7 +200,7 @@
         amount: 1
         doAfter: 1
       - tag: CrystalOrange
-        name: construction-graph-tag-orange-crystal-shard
+        name: orange crystal shard
         icon:
           sprite: Objects/Materials/Shards/crystal.rsi
           state: shard1
@@ -220,7 +220,7 @@
         amount: 1
         doAfter: 1
       - tag: CrystalRed
-        name: construction-graph-tag-red-crystal-shard
+        name: red crystal shard
         icon:
           sprite: Objects/Materials/Shards/crystal.rsi
           state: shard1
@@ -240,7 +240,7 @@
         amount: 1
         doAfter: 1
       - tag: CrystalGreen
-        name: construction-graph-tag-green-crystal-shard
+        name: green crystal shard
         icon:
           sprite: Objects/Materials/Shards/crystal.rsi
           state: shard1

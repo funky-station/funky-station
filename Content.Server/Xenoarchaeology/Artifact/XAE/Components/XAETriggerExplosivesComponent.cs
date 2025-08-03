@@ -1,15 +1,9 @@
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Shared.Explosion.Components.OnTrigger;
+using Content.Shared.Explosion.Components;
 
 namespace Content.Server.Xenoarchaeology.Artifact.XAE.Components;
 
 /// <summary>
-/// Activates 'trigger' for <see cref="ExplodeOnTriggerComponent"/>.
+/// Activates <see cref="ExplosiveComponent"/> to explode.
 /// </summary>
 [RegisterComponent, Access(typeof(XAETriggerExplosivesSystem))]
 public sealed partial class XAETriggerExplosivesComponent : Component;

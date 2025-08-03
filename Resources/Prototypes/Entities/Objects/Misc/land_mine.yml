@@ -78,7 +78,8 @@
   parent: BaseLandMine
   id: LandMineKick
   components:
-  - type: GhostKickUserOnTrigger
+  - type: GhostKickOnTrigger
+    targetUser: true
   - type: DeleteOnTrigger
 
 - type: entity

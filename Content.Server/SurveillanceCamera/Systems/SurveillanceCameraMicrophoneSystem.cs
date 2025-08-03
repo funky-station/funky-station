@@ -1,16 +1,6 @@
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Chat.Systems;
-using Content.Server.Speech;
-using Content.Server.Speech.Components;
-using Content.Shared.MalfAI;
+using Content.Shared.Speech;
+using Content.Shared.Speech.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Player;
 using static Content.Server.Chat.Systems.ChatSystem;
@@ -52,10 +42,6 @@ public sealed class SurveillanceCameraMicrophoneSystem : EntitySystem
 
             foreach (var viewer in camera.ActiveViewers)
             {
-                // Skip Malf AIs with camera microphones upgrade - they handle their own proximity-based filtering
-                if (HasComp<MalfAiCameraMicrophonesComponent>(viewer))
-                    continue;
-
                 // if the player has not already received the chat message, send it to them but don't log it to the chat
                 // window. This is simply so that it appears in camera.
                 if (TryComp(viewer, out ActorComponent? actor))

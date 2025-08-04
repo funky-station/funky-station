@@ -66,6 +66,7 @@
       Primary: Structures/Piping/Atmospherics/pump.rsi
       Secondary: Structures/Piping/Atmospherics/pump_alt1.rsi
       Tertiary: Structures/Piping/Atmospherics/pump_alt2.rsi
+  - type: BinaryDeviceRestrictOverlap # Funky
 
 - type: entity
   parent: GasBinaryBase
@@ -130,7 +131,6 @@
   - type: GuideHelp
     guides:
     - Pumps
-  - type: DeviceRestrictOverlap # Funky
 
 - type: entity
   parent: GasBinaryBase
@@ -201,7 +201,6 @@
     - type: GuideHelp
       guides:
       - Pumps
-    - type: DeviceRestrictOverlap # Funky
 
 - type: entity
   parent: GasBinaryBase
@@ -244,7 +243,6 @@
     - type: GuideHelp
       guides:
       - PassiveGate
-    - type: DeviceRestrictOverlap # Funky
 
 - type: entity
   parent: GasBinaryBase
@@ -306,7 +304,6 @@
     - type: GuideHelp
       guides:
       - ManualValve
-    - type: DeviceRestrictOverlap # Funky
 
 - type: entity
   parent: GasBinaryBase
@@ -379,7 +376,6 @@
   - type: GuideHelp
     guides:
     - SignalValve
-  - type: DeviceRestrictOverlap # Funky
 
 - type: entity
   parent: GasBinaryBase
@@ -419,7 +415,6 @@
     - type: GuideHelp
       guides:
       - GasCanisters
-    - type: DeviceRestrictOverlap # Funky
 
 - type: entity
   parent: GasVentPump
@@ -559,7 +554,7 @@
     navMapBlip: GasValve
 
 - type: entity
-  parent: GasPipeNoOverlap # Funky
+  parent: GasBinaryBase
   id: HeatExchanger
   name: radiator
   description: Transfers heat between the pipe and its surroundings.
@@ -607,7 +602,6 @@
   - type: GuideHelp
     guides:
     - Radiators
-  - type: PipeRestrictOverlap # Funky
 
 - type: entity
   parent: HeatExchanger
@@ -637,7 +631,6 @@
     - type: Construction
       graph: GasBinary
       node: bendradiator
-    - type: PipeRestrictOverlap # Funky
 
 # Funkystation - heat pump
 - type: entity
@@ -694,4 +687,3 @@
     - type: GuideHelp
       guides:
       - ManualValve
-    - type: DeviceRestrictOverlap # Funky

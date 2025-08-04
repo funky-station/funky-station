@@ -723,7 +723,7 @@
   - sprite: Structures/Piping/Atmospherics/vent.rsi
     state: vent_off
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
 
 - type: construction
   name: passive vent
@@ -744,7 +744,7 @@
   - sprite: Structures/Piping/Atmospherics/vent.rsi
     state: vent_passive
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
 
 - type: construction
   name: air scrubber
@@ -765,7 +765,7 @@
   - sprite: Structures/Piping/Atmospherics/scrubber.rsi
     state: scrub_off
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
 
 - type: construction
   name: air injector
@@ -786,7 +786,7 @@
   - sprite: Structures/Piping/Atmospherics/outletinjector.rsi
     state: injector
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
 
 # ATMOS BINARY
 - type: construction
@@ -808,7 +808,7 @@
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpPressure
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasPressurePump
   - GasPressurePumpAlt1
@@ -824,7 +824,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasPressurePump
   - GasPressurePumpAlt1
@@ -840,7 +840,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasPressurePump
   - GasPressurePumpAlt1
@@ -865,7 +865,7 @@
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpVolume
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasVolumePump
   - GasVolumePumpAlt1
@@ -881,7 +881,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasVolumePump
   - GasVolumePumpAlt1
@@ -897,7 +897,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasVolumePump
   - GasVolumePumpAlt1
@@ -922,7 +922,7 @@
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpPassiveGate
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasPassiveGate
   - GasPassiveGateAlt1
@@ -938,7 +938,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasPassiveGate
   - GasPassiveGateAlt1
@@ -954,7 +954,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasPassiveGate
   - GasPassiveGateAlt1
@@ -979,7 +979,7 @@
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpManualValve
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasValve
   - GasValveAlt1
@@ -995,7 +995,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasValve
   - GasValveAlt1
@@ -1011,7 +1011,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasValve
   - GasValveAlt1
@@ -1036,7 +1036,7 @@
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpSignalValve
   conditions:
-  - !type:NoUnstackableInTile
+  # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - SignalControlledValve
   - SignalControlledValveAlt1
@@ -1051,7 +1051,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - SignalControlledValve
   - SignalControlledValveAlt1
@@ -1066,7 +1066,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - SignalControlledValve
   - SignalControlledValveAlt1
@@ -1091,7 +1091,7 @@
   - sprite: Structures/Piping/Atmospherics/gascanisterport.rsi
     state: gasCanisterPort
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
 
 - type: construction
   id: GasDualPortVentPump
@@ -1149,7 +1149,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - HeatPump
   - HeatPumpAlt1
@@ -1165,7 +1165,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - HeatPump
   - HeatPumpAlt1
@@ -1181,7 +1181,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - HeatPump
   - HeatPumpAlt1
@@ -1203,7 +1203,7 @@
     state: gasFilter
   mirror: GasFilterFlipped
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
 
 - type: construction
   id: GasFilterFlipped
@@ -1221,7 +1221,7 @@
     state: gasFilterF
   mirror: GasFilter
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
 
 - type: construction
   id: GasMixer
@@ -1238,7 +1238,7 @@
     state: gasMixer
   mirror: GasMixerFlipped
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
 
 - type: construction
   id: GasMixerFlipped
@@ -1256,7 +1256,7 @@
     state: gasMixerF
   mirror: GasMixer
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
 
 - type: construction
   id: PressureControlledValve
@@ -1272,7 +1272,7 @@
     sprite: Structures/Piping/Atmospherics/pneumaticvalve.rsi
     state: off
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
 
 # INTERCOM
 - type: construction

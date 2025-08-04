@@ -58,16 +58,16 @@
 # SPDX-FileCopyrightText: 2025 willowzeta <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 meta:
   format: 7
   category: Map
   engineVersion: 255.0.0
   forkId: funkystation
-  forkVersion: 7829624bd555cc005cd2fc505eadd4e07d3fb74b
-  time: 07/25/2025 21:50:09
-  entityCount: 21565
+  forkVersion: c684b38f85803f36d87d6d097bd47ef9235befe7
+  time: 07/30/2025 11:33:27
+  entityCount: 21574
 maps:
 - 1
 grids:
@@ -15590,7 +15590,7 @@ entities:
       pos: -42.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -126272.93
+      secondsUntilStateChange: -126529.49
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15803,7 +15803,7 @@ entities:
       pos: 55.5,3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -65909.22
+      secondsUntilStateChange: -66165.78
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16068,7 +16068,7 @@ entities:
       pos: -54.5,31.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -126083.36
+      secondsUntilStateChange: -126339.92
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16226,6 +16226,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 21.5,-5.5
       parent: 2
+    - type: Door
+      secondsUntilStateChange: -184.86496
+      state: Opening
+    - type: DeviceLinkSource
+      lastSignals:
+        DoorStatus: True
 - proto: AirlockMaintGlass
   entities:
   - uid: 180
@@ -16708,7 +16714,7 @@ entities:
       pos: 37.5,-26.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -101418.14
+      secondsUntilStateChange: -101674.7
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -60355,6 +60361,29 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
+  - uid: 21052
+    components:
+    - type: Transform
+      pos: -16.15637,16.790384
+      parent: 2
+  - uid: 21572
+    components:
+    - type: Transform
+      pos: -15.96887,16.55601
+      parent: 2
+  - uid: 21573
+    components:
+    - type: Transform
+      pos: -15.65637,16.821634
+      parent: 2
+  - uid: 21574
+    components:
+    - type: Transform
+      pos: -15.484495,16.540384
+      parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: ClothingShoesBling
   entities:
   - uid: 8332
@@ -62536,7 +62565,7 @@ entities:
       pos: 45.5,15.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -34198.203
+      secondsUntilStateChange: -34454.77
       state: Closing
   - uid: 8579
     components:
@@ -62671,7 +62700,7 @@ entities:
       pos: -1.5,48.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -101076.61
+      secondsUntilStateChange: -101333.17
       state: Closing
   - uid: 15123
     components:
@@ -96152,7 +96181,7 @@ entities:
   - uid: 12997
     components:
     - type: Transform
-      pos: -15.5545,16.611565
+      pos: -15.149163,16.821634
       parent: 2
     - type: Physics
       angularDamping: 0
@@ -97020,7 +97049,7 @@ entities:
 
         [bold]1. Turn on the air supply and waste filter.[/bold]
 
-        The cryogenics pods are essentially sanitary atmospheric isolation chambers designed to be extremely hot or cold without impacting the surrounding environment, while also preventing the patient from experiencing much of the ill effects of such an enviroment.
+        The cryogenics pods are essentially sanitary atmospheric isolation chambers designed to be extremely hot or cold without impacting the surrounding environment, while also preventing the patient from experiencing much of the ill effects of such an enviroment. 
 
 
         In order to prevent the occupant from suffocating, you need to supply breathable air from the atmospheric distribution network ("distro") and filter carbon dioxide from the cryogenics air supply system.
@@ -97043,7 +97072,7 @@ entities:
 
         [bold]5. Place a beaker with the preferred cryogenic chemical into the slot on the cryopod.[/bold]
 
-        Cryoxadone is the most common cryogenics chemical. Medical bays are often stocked with it at the beginning of shifts, and it is exceptionally cheap to produce for how effective it is as medicine.
+        Cryoxadone is the most common cryogenics chemical. Medical bays are often stocked with it at the beginning of shifts, and it is exceptionally cheap to produce for how effective it is as medicine. 
 
 
         Other chemicals are desirable for their ability to work on the dead, with cryoxadone cannot accomplish.
@@ -111551,6 +111580,13 @@ entities:
     - type: Transform
       pos: 53.5,49.5
       parent: 2
+- proto: SpawnMobAlexander
+  entities:
+  - uid: 14729
+    components:
+    - type: Transform
+      pos: 7.5,15.5
+      parent: 2
 - proto: SpawnMobBandito
   entities:
   - uid: 563
@@ -111607,6 +111643,13 @@ entities:
     components:
     - type: Transform
       pos: 7.5,14.5
+      parent: 2
+- proto: SpawnMobCrabAtmos
+  entities:
+  - uid: 11782
+    components:
+    - type: Transform
+      pos: -2.5,48.5
       parent: 2
 - proto: SpawnMobFoxRenault
   entities:
@@ -111886,6 +111929,27 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -29.5,86.5
+      parent: 2
+- proto: SpawnMobPollyParrot
+  entities:
+  - uid: 14491
+    components:
+    - type: Transform
+      pos: 9.5,41.5
+      parent: 2
+- proto: SpawnMobPossumMorty
+  entities:
+  - uid: 12872
+    components:
+    - type: Transform
+      pos: 11.5,-7.5
+      parent: 2
+- proto: SpawnMobRaccoonMorticia
+  entities:
+  - uid: 13627
+    components:
+    - type: Transform
+      pos: 43.5,15.5
       parent: 2
 - proto: SpawnMobSlothPaperwork
   entities:
@@ -137511,7 +137575,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -133532.42
+      secondsUntilStateChange: -133788.98
       state: Opening
     - type: Airlock
       autoClose: False
@@ -137527,7 +137591,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -133531.86
+      secondsUntilStateChange: -133788.42
       state: Opening
     - type: Airlock
       autoClose: False
@@ -137549,7 +137613,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -133531.39
+      secondsUntilStateChange: -133787.95
       state: Opening
     - type: Airlock
       autoClose: False
@@ -137565,7 +137629,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -133532.92
+      secondsUntilStateChange: -133789.48
       state: Opening
     - type: Airlock
       autoClose: False

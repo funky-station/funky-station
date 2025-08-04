@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Джексон Миссиссиппи <tripwiregamer@gmail.com>
+// SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -18,8 +20,5 @@ public sealed partial class AllowTankStorageComponent : Component
     /// Whitelist for what entities are allowed in the tank storage slot.
     /// </summary>
     [DataField]
-    public EntityWhitelist Whitelist = new()
-    {
-        Components = new[] {"Item"}
-    };
+    public EntityWhitelist? Whitelist;
 }

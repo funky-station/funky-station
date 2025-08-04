@@ -563,7 +563,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
 
 - type: construction
   id: GasPassiveVent
@@ -574,7 +574,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
 
 - type: construction
   id: GasVentScrubber
@@ -585,7 +585,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
 
 - type: construction
   id: GasOutletInjector
@@ -596,7 +596,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
 
 # ATMOS BINARY
 - type: construction
@@ -608,7 +608,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasPressurePump
   - GasPressurePumpAlt1
@@ -624,7 +624,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasPressurePump
   - GasPressurePumpAlt1
@@ -640,7 +640,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasPressurePump
   - GasPressurePumpAlt1
@@ -655,7 +655,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasVolumePump
   - GasVolumePumpAlt1
@@ -671,7 +671,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasVolumePump
   - GasVolumePumpAlt1
@@ -687,7 +687,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasVolumePump
   - GasVolumePumpAlt1
@@ -702,7 +702,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasPassiveGate
   - GasPassiveGateAlt1
@@ -718,7 +718,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasPassiveGate
   - GasPassiveGateAlt1
@@ -734,7 +734,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasPassiveGate
   - GasPassiveGateAlt1
@@ -749,7 +749,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasValve
   - GasValveAlt1
@@ -765,7 +765,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasValve
   - GasValveAlt1
@@ -781,7 +781,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - GasValve
   - GasValveAlt1
@@ -796,7 +796,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-  - !type:NoUnstackableInTile
+  # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - SignalControlledValve
   - SignalControlledValveAlt1
@@ -811,7 +811,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - SignalControlledValve
   - SignalControlledValveAlt1
@@ -826,7 +826,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - SignalControlledValve
   - SignalControlledValveAlt1
@@ -841,7 +841,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
 
 - type: construction
   id: GasDualPortVentPump
@@ -882,7 +882,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - HeatPump
   - HeatPumpAlt1
@@ -898,7 +898,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - HeatPump
   - HeatPumpAlt1
@@ -914,7 +914,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - HeatPump
   - HeatPumpAlt1
@@ -931,7 +931,7 @@
   canBuildInImpassable: false
   mirror: GasFilterFlipped
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
 
 - type: construction
   id: GasFilterFlipped
@@ -944,7 +944,7 @@
   canBuildInImpassable: false
   mirror: GasFilter
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
 
 - type: construction
   id: GasMixer
@@ -956,7 +956,7 @@
   canBuildInImpassable: false
   mirror: GasMixerFlipped
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
 
 - type: construction
   id: GasMixerFlipped
@@ -969,7 +969,7 @@
   canBuildInImpassable: false
   mirror: GasMixer
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
 
 - type: construction
   id: PressureControlledValve
@@ -980,7 +980,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   conditions:
-    - !type:NoUnstackableInTile
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
 
 # INTERCOM
 - type: construction

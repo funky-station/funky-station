@@ -639,7 +639,7 @@
   name: heat pump
   description: A pump that moves heat from one side to the other.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
     - type: ExtensionCableReceiver
     - type: LightningTarget
@@ -687,3 +687,8 @@
     - type: GuideHelp
       guides:
       - ManualValve
+    - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: HeatPump
+        Secondary: HeatPumpAlt1
+        Tertiary: HeatPumpAlt2

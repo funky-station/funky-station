@@ -140,6 +140,18 @@
         amount: 2
         doAfter: 1
 
+    - to: heatpumpAlt1
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
+    - to: heatpumpAlt2
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
   - node: pressurepump
     entity: GasPressurePump
     edges:
@@ -453,6 +465,38 @@
 # Funky - heat pump
   - node: heatpump
     entity: HeatPump
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: heatpumpAlt1
+    entity: HeatPumpAlt1
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: heatpumpAlt2
+    entity: HeatPumpAlt2
     edges:
     - to: start
       conditions:

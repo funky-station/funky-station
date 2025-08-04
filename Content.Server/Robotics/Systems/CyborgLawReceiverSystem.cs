@@ -17,6 +17,8 @@ using System;
 using Content.Server.Silicons.Laws;
 using Content.Shared.Roles;
 using Content.Server.Mind;
+using Content.Shared.DeviceNetwork;
+using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Mind;
 using Content.Shared.Silicons.StationAi;
 

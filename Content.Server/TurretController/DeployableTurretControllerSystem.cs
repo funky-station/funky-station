@@ -14,6 +14,8 @@ using Content.Server.DeviceNetwork.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Shared.DeviceNetwork.Components;
+using Content.Shared.DeviceNetwork.Events;
 
 namespace Content.Server.TurretController;
 

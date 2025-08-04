@@ -41,11 +41,10 @@ namespace Content.Client.UserInterface.Systems.Actions.Controls;
 public sealed class ActionButton : Control, IEntityControl
 {
     private IEntityManager _entities;
-    private IPlayerManager _player;
+    private IPlayerManager? _player;
     private SpriteSystem? _spriteSys;
     private ActionUIController? _controller;
     private SharedChargesSystem? _sharedChargesSys;
-
     private SharedChargesSystem? SharedChargesSys => _sharedChargesSys ??= _entities?.System<SharedChargesSystem>();
 
     private bool _beingHovered;
@@ -89,9 +88,9 @@ public sealed class ActionButton : Control, IEntityControl
         // TODO why is this constructor so slooooow. The rest of the code is fine
 
         _entities = entities;
-        _player = IoCManager.Resolve<IPlayerManager>();
+        _player = null;
         _spriteSys = spriteSys;
-        _sharedChargesSys = _entities.System<SharedChargesSystem>();
+        _sharedChargesSys = null;
         _controller = controller;
 
         MouseFilter = MouseFilterMode.Pass;
@@ -221,7 +220,14 @@ public sealed class ActionButton : Control, IEntityControl
 
         var name = FormattedMessage.FromMarkupPermissive(Loc.GetString(metadata.EntityName));
         var desc = FormattedMessage.FromMarkupPermissive(Loc.GetString(metadata.EntityDescription));
-
+        try
+        {
+            _player ??= IoCManager.Resolve<IPlayerManager>();
+        }
+        catch
+        {
+            return new ActionAlertTooltip(name, desc);
+        }
         if (_player.LocalEntity is null)
             return null;
 

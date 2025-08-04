@@ -184,4 +184,53 @@ public sealed class DumpableSystem : EntitySystem
             _audio.PlayPredicted(component.DumpSound, uid, args.User);
         }
     }
+    public void DumpContents(EntityUid storageUid, EntityUid targetUid, EntityUid userUid)
+    {
+        if (!TryComp<StorageComponent>(storageUid, out var storage) || storage.Container.ContainedEntities.Count == 0)
+            return;
+
+        var dumpQueue = new Queue<EntityUid>(storage.Container.ContainedEntities);
+
+        var dumped = false;
+
+        // Disposal unit target
+        if (HasComp<DisposalUnitComponent>(targetUid))
+        {
+            dumped = true;
+
+            foreach (var entity in dumpQueue)
+            {
+                _disposalUnitSystem.DoInsertDisposalUnit(targetUid, entity, userUid);
+            }
+        }
+        // Placeable surface target
+        else if (HasComp<PlaceableSurfaceComponent>(targetUid))
+        {
+            dumped = true;
+
+            var (targetPos, targetRot) = _transformSystem.GetWorldPositionRotation(targetUid);
+
+            foreach (var entity in dumpQueue)
+            {
+                _transformSystem.SetWorldPositionRotation(entity, targetPos + _random.NextVector2Box() / 4, targetRot);
+            }
+        }
+        // Default: drop at storage position
+        else
+        {
+            var targetPos = _transformSystem.GetWorldPosition(storageUid);
+
+            foreach (var entity in dumpQueue)
+            {
+                var transform = Transform(entity);
+                _transformSystem.SetWorldPositionRotation(entity, targetPos + _random.NextVector2Box() / 4, _random.NextAngle(), transform);
+            }
+        }
+
+        // Play sound if this storage actually has a DumpableComponent
+        if (dumped && TryComp<DumpableComponent>(storageUid, out var dumpComp))
+        {
+            _audio.PlayPredicted(dumpComp.DumpSound, storageUid, userUid);
+        }
+    }
 }

@@ -169,7 +169,7 @@
   copyright: "shakulan"
   source: "https://funkystation.org"
 
-- files: ["lowpopCrew.webp"]
+- files: ["funkysci.webp"]
   license: "Custom"
   copyright: "vectorassembly | CC-BY-NC-ND-4.0"
   source: "https://vectorassembly.org"
@@ -183,3 +183,9 @@
   license: "CC-BY-NC-3.0"
   copyright: "joeseph"
   source: "https://funkystation.org"
+  
+- files: ["usualsuspects.webp"]
+  license: "CC-BY-NC-3.0"
+  copyright: "basil"
+  source: "https://www.tumblr.com/koboldbartender08"
+

@@ -27,6 +27,8 @@
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Джексон Миссиссиппи <tripwiregamer@gmail.com>
+// SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -283,9 +285,22 @@ public abstract partial class InventorySystem
                     if (!HasComp(slotEntity, entry.Component.GetType()))
                         return false;
 
-                    if (TryComp<AllowSuitStorageComponent>(slotEntity, out var comp) &&
-                        _whitelistSystem.IsWhitelistFailOrNull(comp.Whitelist, itemUid))
-                        return false;
+                    if (TryComp<ClothingComponent>(itemUid, out var clothingComp))
+                    {
+                        if (clothingComp.Slots.HasFlag(SlotFlags.BACKSTORAGE))
+                        {
+                            if (TryComp<AllowBackStorageComponent>(slotEntity, out var backComp) &&
+                                _whitelistSystem.IsWhitelistFail(backComp.Whitelist, itemUid))
+                                return false;
+                        }
+
+                        if (clothingComp.Slots.HasFlag(SlotFlags.TANKSTORAGE))
+                        {
+                            if (TryComp<AllowTankStorageComponent>(slotEntity, out var tankComp) &&
+                                _whitelistSystem.IsWhitelistFail(tankComp.Whitelist, itemUid))
+                                return false;
+                        }
+                    }
                 }
             }
         }

@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -21,4 +22,11 @@ public sealed class AreaFlashEvent(float range, float distance, EntityUid target
     public float Distance = distance;
 
     public EntityUid Target = target;
+}
+
+public sealed class FlashDurationMultiplierEvent : EntityEventArgs, IInventoryRelayEvent
+{
+    public float Multiplier = 1f;
+
+    public SlotFlags TargetSlots => SlotFlags.EYES | SlotFlags.HEAD | SlotFlags.MASK;
 }

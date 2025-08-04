@@ -203,9 +203,11 @@
     - DoorBumpOpener
   - type: Puller
     needsHands: false
-  - type: NightVision # Goobstation - Nigthvision
-    isToggle: true
-    color: "#808080"
+  - type: NightVision # EE
+    isActive: true
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
   - type: CombatPower # Goobstation
     factor: 40 # / 2 = times more dangerous than an unarmed crew-member
 

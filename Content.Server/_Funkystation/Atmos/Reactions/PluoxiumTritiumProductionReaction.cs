@@ -28,9 +28,7 @@ public sealed partial class PluoxiumTritiumProductionReaction : IGasReactionEffe
         var initCO2 = mixture.GetMoles(Gas.CarbonDioxide);
         var initTrit = mixture.GetMoles(Gas.Tritium);
 
-        float[] efficiencies = [5f, initCO2, initO2 * 2f, initTrit * 100f];
-        Array.Sort(efficiencies);
-        var producedAmount = efficiencies[0];
+        float producedAmount = Math.Min(5f, Math.Min(initCO2, Math.Min(initO2 * 2f, initTrit * 100f)));
 
         if (producedAmount <= 0)
             return ReactionResult.NoReaction;

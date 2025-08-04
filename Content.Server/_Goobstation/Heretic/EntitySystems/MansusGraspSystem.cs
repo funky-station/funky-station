@@ -97,7 +97,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
             case "Void":
                 if (TryComp<TemperatureComponent>(target, out var temp))
-                    _temperature.ForceChangeTemperature(target, temp.CurrentTemperature - 200f, temp);
+                    _temperature.ForceChangeTemperature(target, temp.CurrentTemperature - 100f, temp);
                 _statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(8), false);
                 break;
 

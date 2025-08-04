@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -25,7 +26,7 @@
       animation: WeaponArcDisarm
       damage:
         types:
-          Blunt: 0
+          Blunt: 15
     - type: GuideHelp
       guides:
         - Security

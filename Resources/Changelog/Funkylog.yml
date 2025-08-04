@@ -3921,3 +3921,17 @@ Entries:
       message: Gas canisters can now be constructed and deconstructed.
   id: 472
   time: '2025-08-02T20:31:33.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Added temperature adjusting component
+  id: 473
+  time: '2025-08-02T20:35:15.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Add
+      message: New lobby track
+    - type: Tweak
+      message: Changed lowpopcrew art to a new one
+  id: 474
+  time: '2025-08-03T00:53:54.0000000+00:00'

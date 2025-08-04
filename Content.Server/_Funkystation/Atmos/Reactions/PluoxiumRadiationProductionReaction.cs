@@ -1,29 +1,17 @@
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.NodeContainer;
-using Content.Server.NodeContainer.Nodes;
 using Content.Server.NodeContainer.NodeGroups;
 using Content.Server.Radiation.Components;
-using Content.Server.Radiation.Events;
-using Content.Shared.Radiation.Systems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Reactions;
-using Content.Shared.Radiation.Components;
 using JetBrains.Annotations;
-using Robust.Shared.Map;
-using Robust.Server.GameObjects; 
 using Robust.Shared.Timing; 
-using Robust.Shared.Serialization; 
-using Robust.Shared.IoC;
-using Content.Shared.Stacks;
 using Content.Server.Radiation.Systems;
-using System.Linq;
-using System.Numerics;
 using Robust.Shared.Map.Components;
-using Robust.Shared.GameObjects;
 using Content.Server.Atmos.Components;
 
 
@@ -90,9 +78,7 @@ public sealed partial class PluoxiumRadiationProductionReaction : IGasReactionEf
         if (radiationLevel < RadiationThreshold)
             return ReactionResult.Reacting; 
 
-        float[] efficiencies = { radiationLevel, initCO2, initO2 * 2f };
-        Array.Sort(efficiencies);
-        float producedAmount = efficiencies[0];
+        float producedAmount = Math.Min(radiationLevel, Math.Min(initCO2, initO2 * 2f));
 
         float co2Removed = producedAmount;
         float oxyRemoved = producedAmount * 0.5f;
@@ -104,13 +90,9 @@ public sealed partial class PluoxiumRadiationProductionReaction : IGasReactionEf
         if (producedAmount <= 0) 
             return ReactionResult.Reacting;
 
-        float pluoxProduced = producedAmount;
-        float hydroProduced = producedAmount * 0.01f;
-
         mixture.AdjustMoles(Gas.CarbonDioxide, -co2Removed);
         mixture.AdjustMoles(Gas.Oxygen, -oxyRemoved);
-        mixture.AdjustMoles(Gas.Pluoxium, pluoxProduced);
-        mixture.AdjustMoles(Gas.Hydrogen, hydroProduced);
+        mixture.AdjustMoles(Gas.Pluoxium, producedAmount);
 
         float energyReleased = producedAmount * Atmospherics.PluoxiumProductionEnergy;
         float heatCap = atmosphereSystem.GetHeatCapacity(mixture, true);

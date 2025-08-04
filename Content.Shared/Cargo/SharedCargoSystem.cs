@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2023 Checkraze <71046427+Cheackraze@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GreyMaria <mariomister541@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -26,7 +27,7 @@ public abstract class SharedCargoSystem : EntitySystem
     {
         base.Initialize();
 
-        //SubscribeLocalEvent<StationBankAccountComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<StationBankAccountComponent, MapInitEvent>(OnMapInit);
     }
 
     private void OnMapInit(Entity<StationBankAccountComponent> ent, ref MapInitEvent args)

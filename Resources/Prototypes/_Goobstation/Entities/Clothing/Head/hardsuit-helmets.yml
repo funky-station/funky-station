@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Benjamin Velliquette <32338704+bVelliquette@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -123,13 +124,14 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
+        Blunt: 0.90
+        Slash: 0.90
         Piercing: 0.85
-        Heat: 0.9
-        Cold: 0.9
-        Radiation: 0.95
+        Heat: 0.90
+        Cold: 0.90
+        Shock: 0.10
         Caustic: 0.95
+        Radiation: 0.95
   - type: FlashImmunity
   - type: FlashSoundSuppression
 

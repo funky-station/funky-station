@@ -16,6 +16,7 @@
 # SPDX-FileCopyrightText: 2025 Sadie <147350443+Sadie-silly@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -167,3 +168,8 @@
   license: "Custom"
   copyright: "Droopy likes your face by C418. License is https://creativecommons.org/licenses/by-nc-nd/3.0/deed.en"
   source: "https://c418.bandcamp.com/album/life-changing-moments-seem-minor-in-pictures"
+
+- files: ["dagd.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "D.A.G.D by vectorassembly, a funky exclusive"
+  source: "https://funkystation.org"

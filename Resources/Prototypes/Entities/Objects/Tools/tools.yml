@@ -510,6 +510,7 @@
     - PipeStraight
     - PipeBend
     - PipeTJunction
+    - PipeHalf
     - OutletInjector
     - ManualValve
     - VolumetricPump
@@ -522,15 +523,26 @@
     - VentPassive
     - MixerGas
     - Radiator
+    - RadiatorBend
     - SignalValve
     - CanisterPort
     - FilterGas
+    - Alarm
+    - Sensor
+    - SensorPipe
     - Deconstruct
   - type: LimitedCharges
     maxCharges: 45
     charges: 45
   - type: Sprite
     sprite: Objects/Tools/rpd.rsi
+  - type: UserInterface
+    interfaces:
+      enum.RpdUiKey.Key:
+        type: RPDMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.RpdUiKey.Key
 
 
 - type: entity

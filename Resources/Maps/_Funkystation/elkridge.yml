@@ -62,17 +62,18 @@
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 willowzeta <willowzeta632146@proton.me>
+# SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 meta:
   format: 7
   category: Map
   engineVersion: 255.0.0
-  forkId: ""
-  forkVersion: ""
-  time: 07/08/2025 03:41:10
-  entityCount: 17344
+  forkId: funkystation
+  forkVersion: c684b38f85803f36d87d6d097bd47ef9235befe7
+  time: 08/01/2025 14:06:00
+  entityCount: 17369
 maps:
 - 1
 grids:
@@ -16476,6 +16477,29 @@ entities:
     - type: Transform
       pos: 25.5,-10.5
       parent: 2
+  - uid: 1645
+    components:
+    - type: MetaData
+      name: APC (Security Break Room)
+    - type: Transform
+      pos: 0.5,-28.5
+      parent: 2
+  - uid: 1955
+    components:
+    - type: MetaData
+      name: APC (Security Front)
+    - type: Transform
+      pos: -1.5,-15.5
+      parent: 2
+    - type: Apc
+      node: Security Front
+  - uid: 1970
+    components:
+    - type: MetaData
+      name: APC (Detective's Office)
+    - type: Transform
+      pos: 2.5,-39.5
+      parent: 2
   - uid: 2032
     components:
     - type: Transform
@@ -16493,11 +16517,30 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -18.5,-51.5
       parent: 2
+  - uid: 2108
+    components:
+    - type: MetaData
+      name: APC (Security Backroom)
+    - type: Transform
+      pos: -2.5,-35.5
+      parent: 2
   - uid: 2124
     components:
+    - type: MetaData
+      name: APC (Gen. Pop. Brig)
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -9.5,-28.5
+      parent: 2
+    - type: Apc
+      node: Gen. Pop. Brig
+  - uid: 2142
+    components:
+    - type: MetaData
+      name: APC (Secuirty Main)
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 4.5,-23.5
       parent: 2
   - uid: 2556
     components:
@@ -17017,11 +17060,15 @@ entities:
       parent: 2
   - uid: 11572
     components:
+    - type: MetaData
+      name: APC (Warden's Office)
     - type: Transform
       pos: -4.5,-23.5
       parent: 2
   - uid: 11589
     components:
+    - type: MetaData
+      name: APC (Armory)
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -2.5,-32.5
@@ -17117,6 +17164,8 @@ entities:
       parent: 2
   - uid: 16184
     components:
+    - type: MetaData
+      name: APC (Courtroom)
     - type: Transform
       pos: -13.5,-31.5
       parent: 2
@@ -17124,39 +17173,6 @@ entities:
     components:
     - type: Transform
       pos: 35.5,32.5
-      parent: 2
-- proto: APCConstructed
-  entities:
-  - uid: 1645
-    components:
-    - type: Transform
-      pos: -1.5,-15.5
-      parent: 2
-  - uid: 1648
-    components:
-    - type: Transform
-      pos: -3.5,-39.5
-      parent: 2
-  - uid: 1955
-    components:
-    - type: Transform
-      pos: 0.5,-28.5
-      parent: 2
-  - uid: 1970
-    components:
-    - type: Transform
-      pos: 2.5,-39.5
-      parent: 2
-  - uid: 2108
-    components:
-    - type: Transform
-      pos: -2.5,-35.5
-      parent: 2
-  - uid: 2142
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 4.5,-23.5
       parent: 2
 - proto: APCElectronics
   entities:
@@ -48837,6 +48853,20 @@ entities:
     - type: Transform
       pos: 20.5,-20.5
       parent: 2
+- proto: ClosetWallEmergencyFilledRandom
+  entities:
+  - uid: 17366
+    components:
+    - type: Transform
+      pos: -6.5,-35.5
+      parent: 2
+- proto: ClosetWallFireFilledRandom
+  entities:
+  - uid: 17367
+    components:
+    - type: Transform
+      pos: -4.5,-35.5
+      parent: 2
 - proto: ClothingBackpackDuffelSurgeryFilled
   entities:
   - uid: 4066
@@ -51070,6 +51100,15 @@ entities:
     components:
     - type: Transform
       pos: 37.417343,26.09099
+      parent: 2
+- proto: DebugAPC
+  entities:
+  - uid: 1648
+    components:
+    - type: MetaData
+      name: APC (HoS' Office)
+    - type: Transform
+      pos: -3.5,-39.5
       parent: 2
 - proto: DefaultStationBeaconAI
   entities:
@@ -56128,6 +56167,34 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.5,-7.5
       parent: 2
+  - uid: 17350
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,-18.5
+      parent: 2
+  - uid: 17358
+    components:
+    - type: Transform
+      pos: 0.5,-20.5
+      parent: 2
+  - uid: 17359
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,-25.5
+      parent: 2
+  - uid: 17360
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,-29.5
+      parent: 2
+  - uid: 17361
+    components:
+    - type: Transform
+      pos: -1.5,-36.5
+      parent: 2
 - proto: EmergencyRollerBed
   entities:
   - uid: 4100
@@ -56342,6 +56409,30 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -5.5,35.5
+      parent: 2
+  - uid: 17362
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 4.5,-21.5
+      parent: 2
+  - uid: 17363
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,-28.5
+      parent: 2
+  - uid: 17364
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,-34.5
+      parent: 2
+  - uid: 17365
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -5.5,-35.5
       parent: 2
 - proto: EZNutrientChemistryBottle
   entities:
@@ -97359,6 +97450,19 @@ entities:
       - SurveillanceCameraCommand
       nameSet: True
       id: C12 - HoP's Bedroom
+  - uid: 17352
+    components:
+    - type: MetaData
+      name: camera (C13 - HoS' Office)
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,-40.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
+      nameSet: True
+      id: C13 - HoS' Office
 - proto: SurveillanceCameraEngineering
   entities:
   - uid: 8941
@@ -98184,6 +98288,16 @@ entities:
       id: N06 - Xenoarchaeology
 - proto: SurveillanceCameraSecurity
   entities:
+  - uid: 15165
+    components:
+    - type: Transform
+      pos: 20.5,-11.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: L02 - Internal Affairs
   - uid: 15170
     components:
     - type: MetaData
@@ -98199,17 +98313,15 @@ entities:
       id: S16 - Arrivals Checkpoint
   - uid: 15171
     components:
-    - type: MetaData
-      name: camera (S17 - Engineering Checkpoint)
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 20.5,-11.5
+      rot: 3.141592653589793 rad
+      pos: -4.5,-36.5
       parent: 2
     - type: SurveillanceCamera
       setupAvailableNetworks:
       - SurveillanceCameraSecurity
       nameSet: True
-      id: S17 - Internal Affairs
+      id: S04 - Back Hall
   - uid: 15172
     components:
     - type: MetaData
@@ -98222,6 +98334,116 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: S18 - Evac Checkpoint
+  - uid: 17345
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -6.5,-30.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: S06 - Armory
+  - uid: 17346
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -12.5,-20.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: S10 - Brig Front
+  - uid: 17347
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,-16.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: S01 - Security Front Desk
+  - uid: 17348
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -7.5,-16.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: S09 - Brig Lockers
+  - uid: 17349
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -12.5,-29.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: S11 - Brig Back
+  - uid: 17351
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,-40.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: S08 - Detective's Office
+  - uid: 17354
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.5,-30.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: S03 - Break Room
+  - uid: 17356
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,-37.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: S07 - Interrogation
+  - uid: 17357
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -4.5,-24.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: S05 - Warden's Office
+  - uid: 17368
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,-22.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: S02 - Equipment Room
 - proto: SurveillanceCameraService
   entities:
   - uid: 412
@@ -98412,19 +98634,6 @@ entities:
       - SurveillanceCameraService
       nameSet: True
       id: V17 - Chapel
-  - uid: 15165
-    components:
-    - type: MetaData
-      name: camera (V19 - Lawyer's Office)
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -22.5,-41.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraService
-      nameSet: True
-      id: V19 - Lawyer's Office
   - uid: 15166
     components:
     - type: MetaData
@@ -98464,6 +98673,28 @@ entities:
       - SurveillanceCameraService
       nameSet: True
       id: V02 - Bar
+  - uid: 17353
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -16.5,-36.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraService
+      nameSet: True
+      id: L01 - Courtroom
+  - uid: 17355
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -22.5,-41.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraService
+      nameSet: True
+      id: L03 - Lawyer's Office
 - proto: SurveillanceCameraSupply
   entities:
   - uid: 15173
@@ -101776,103 +102007,87 @@ entities:
     - type: Transform
       pos: -2.5,-42.5
       parent: 2
-- proto: WallPlastitaniumIndestructible
+- proto: WallPlastitanium
   entities:
   - uid: 2344
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 32.5,39.5
+      pos: 29.5,37.5
       parent: 2
   - uid: 2346
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 31.5,39.5
+      pos: 29.5,38.5
       parent: 2
   - uid: 14182
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 29.5,34.5
+      pos: 32.5,36.5
       parent: 2
   - uid: 15202
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 32.5,37.5
+      pos: 29.5,35.5
       parent: 2
   - uid: 16349
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 29.5,35.5
+      pos: 32.5,37.5
       parent: 2
   - uid: 16500
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 30.5,39.5
+      pos: 29.5,39.5
       parent: 2
   - uid: 16501
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 29.5,37.5
+      pos: 32.5,38.5
       parent: 2
   - uid: 16504
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 30.5,34.5
+      pos: 32.5,34.5
       parent: 2
   - uid: 16505
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 32.5,34.5
+      pos: 31.5,34.5
       parent: 2
   - uid: 16514
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 29.5,36.5
+      pos: 32.5,39.5
       parent: 2
   - uid: 16515
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 32.5,35.5
+      pos: 30.5,34.5
       parent: 2
   - uid: 16516
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 32.5,36.5
+      pos: 29.5,34.5
       parent: 2
   - uid: 16853
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 32.5,38.5
+      pos: 29.5,36.5
       parent: 2
   - uid: 16945
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 31.5,34.5
+      pos: 32.5,35.5
       parent: 2
   - uid: 16977
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 29.5,39.5
+      pos: 30.5,39.5
       parent: 2
   - uid: 16980
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 29.5,38.5
+      pos: 31.5,39.5
       parent: 2
 - proto: WallReinforced
   entities:
@@ -106888,6 +107103,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 45.5,-52.5
+      parent: 2
+  - uid: 17369
+    components:
+    - type: Transform
+      pos: 27.5,39.5
       parent: 2
 - proto: WallReinforcedRust
   entities:

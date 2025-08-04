@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Benjamin Velliquette <32338704+bVelliquette@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -10,7 +12,7 @@
 #chrono/future soldier hardsuit
 
 - type: entity
-  parent: [ClothingOuterHardsuitBase, AllowBackStorageClothing]
+  parent: [ClothingOuterHardsuitBase, AllowBackStorageClothingCombat]
   id: ClothingOuterHardsuitChronolegioneer
   name: futuristic hardsuit
   description: A hardsuit covered in an unknown material that protects against most material and temporal damage
@@ -56,7 +58,7 @@
 #bso hardsuit
 
 - type: entity
-  parent: [ClothingOuterHardsuitBase, AllowBackStorageClothing, BaseCommandContraband]
+  parent: [ClothingOuterHardsuitBase, AllowBackStorageClothingCombat, BaseCommandContraband]
   id: ClothingOuterHardsuitBlueshield
   name: blueshield hardsuit
   description: A hardsuit for the captains personal bodyguard.
@@ -68,23 +70,24 @@
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
-  - type: ExplosionResistance
-    damageCoefficient: 0.4
-  - type: StaminaResistance
-    damageCoefficient: 0.70
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.7
-        Piercing: 0.45
-        Heat: 0.9
-        Cold: 0.9
-        Radiation: 0.8
-        Caustic: 0.8
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.40
+        Heat: 0.80
+        Cold: 0.90
+        Shock: 0.90
+        Caustic: 0.80
+        Radiation: 0.80
+  - type: ExplosionResistance
+    damageCoefficient: 0.60
+  - type: StaminaResistance
+    damageCoefficient: 0.70
   - type: ClothingSpeedModifier
-    walkModifier: 0.75
-    sprintModifier: 0.75
+    walkModifier: 0.85
+    sprintModifier: 0.85
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitBlueshield
@@ -93,7 +96,7 @@
 # cybersun stealth
 
 - type: entity
-  parent: [ ClothingOuterHardsuitBase, AllowBackStorageClothing, BaseSyndicateContraband ]
+  parent: [ ClothingOuterHardsuitBase, AllowBackStorageClothingCombat, BaseSyndicateContraband ]
   id: ClothingOuterHardsuitCybersunStealth
   suffix: stealth
   name: cybersun stealth hardsuit

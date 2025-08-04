@@ -16,6 +16,7 @@
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -71,6 +72,7 @@ public class RCDSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly TagSystem _tags = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
 
     private readonly int _instantConstructionDelay = 0;
     private readonly EntProtoId _instantConstructionFx = "EffectRCDConstruct0";
@@ -90,6 +92,7 @@ public class RCDSystem : EntitySystem
         SubscribeLocalEvent<RCDComponent, RCDDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<RCDComponent, DoAfterAttemptEvent<RCDDoAfterEvent>>(OnDoAfterAttempt);
         SubscribeLocalEvent<RCDComponent, RCDSystemMessage>(OnRCDSystemMessage);
+        SubscribeLocalEvent<RCDComponent, RCDColorChangeMessage>(OnColorChange);
         SubscribeNetworkEvent<RCDConstructionGhostRotationEvent>(OnRCDconstructionGhostRotationEvent);
         SubscribeNetworkEvent<RCDConstructionGhostFlipEvent>(OnRCDConstructionGhostFlipEvent);
 
@@ -113,7 +116,11 @@ public class RCDSystem : EntitySystem
         QueueDel(uid);
     }
 
-
+    private void OnColorChange(Entity<RCDComponent> entity, ref RCDColorChangeMessage args)
+    {
+        entity.Comp.PipeColor = args.PipeColor;
+        Dirty(entity); // Mark component as dirty to sync with clients
+    }
 
     private void OnRCDSystemMessage(EntityUid uid, RCDComponent component, RCDSystemMessage args)
     {
@@ -593,6 +600,12 @@ public class RCDSystem : EntitySystem
                     : component.CachedPrototype.Prototype;
 
                 var ent = Spawn(proto, _mapSystem.GridTileToLocal(mapGridData.GridUid, mapGridData.Component, mapGridData.Position));
+
+                // Apply color if the entity has PipeColorVisualsComponent and PipeColor is not "default"
+                if (component.PipeColor.Key != "default" && component.PipeColor.Color != null)
+                {
+                    _appearanceSystem.SetData(ent, Atmos.Piping.PipeColorVisuals.Color, component.PipeColor.Color.Value);
+                }
 
                 switch (component.CachedPrototype.Rotation)
                 {

@@ -152,6 +152,10 @@
                     1.0
                 ]
             ]
+        },
+        {
+            "name":"pumpHeat",
+            "directions":4
         }
     ]
 }

@@ -26,11 +26,6 @@
           !type:PipeNode
           nodeGroupID: Pipe
           pipeDirection: South
-    - type: AtmosPipeLayers
-      spriteRsiPaths:
-        Primary: Structures/Piping/Atmospherics/pipe.rsi
-        Secondary: Structures/Piping/Atmospherics/pipe_alt1.rsi
-        Tertiary: Structures/Piping/Atmospherics/pipe_alt2.rsi
     - type: DeviceRestrictOverlap # Funky
 
 - type: entity

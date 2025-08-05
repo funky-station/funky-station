@@ -401,6 +401,10 @@
         Primary: GasPort
         Secondary: GasPortAlt1
         Tertiary: GasPortAlt2
+      spriteRsiPaths:
+        Primary: Structures/Piping/Atmospherics/gascanisterport.rsi
+        Secondary: Structures/Piping/Atmospherics/gascanisterport.rsi
+        Tertiary: Structures/Piping/Atmospherics/gascanisterport.rsi
     - type: Appearance
     - type: PipeColorVisuals
     - type: GasPort

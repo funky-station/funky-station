@@ -3935,3 +3935,11 @@ Entries:
       message: Changed lowpopcrew art to a new one
   id: 474
   time: '2025-08-03T00:53:54.0000000+00:00'
+- author: kallalilies
+  changes:
+    - type: Tweak
+      message: various minor fixes and tweaks to the Cluster map
+    - type: Add
+      message: Polly the Parrot will now spawn in the Cluster Chief Engineer's room
+  id: 475
+  time: '2025-08-05T03:31:19.0000000+00:00'

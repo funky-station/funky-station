@@ -422,6 +422,7 @@
     - type: GuideHelp
       guides:
       - GasCanisters
+    - type: DeviceRestrictOverlap # Funky
 
 - type: entity
   parent: GasVentPump

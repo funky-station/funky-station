@@ -71,10 +71,10 @@
   components:
   - type: GameRule
   - type: BasicStationEventScheduler
-    minimumTimeUntilFirstEvent: 300 # 5 min
+    minimumTimeUntilFirstEvent: 1800 # 30 min
     minMaxEventTiming:
-      min: 750 # 12.5 min
-      max: 930 # 17.5 min
+      min: 1500 # 25 min
+      max: 2400 # 40 max
     scheduledGameRules: !type:NestedSelector
       tableId: BasicMeteorSwarmEventsTable
 
@@ -217,10 +217,10 @@
     startAnnouncement: station-event-immovable-rod-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 3.5
+    weight: 0.1 #oh my god
     reoccurrenceDelay: 1
     duration: 1
-    earliestStart: 30
+    earliestStart: 60 # funky - if it rolls it deserves it
     minimumPlayers: 25
   - type: ImmovableRodRule
     rodPrototypes:

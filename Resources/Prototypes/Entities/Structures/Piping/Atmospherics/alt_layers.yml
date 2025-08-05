@@ -307,10 +307,10 @@
     sprite: Structures/Piping/Atmospherics/gascanisterport.rsi
     layers:
     - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
-      state: pipeHalf
+      state: pipeUnaryConnectors
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: gasCanisterPort
-      map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+      map: [ "enum.SubfloorLayers.FirstLayer"]
   - type: Construction
     node: portAlt1
 
@@ -323,10 +323,10 @@
     sprite: Structures/Piping/Atmospherics/gascanisterport.rsi
     layers:
     - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
-      state: pipeHalf
+      state: pipeUnaryConnectors
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: gasCanisterPort
-      map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+      map: [ "enum.SubfloorLayers.FirstLayer"]
   - type: Construction
     node: portAlt2
 

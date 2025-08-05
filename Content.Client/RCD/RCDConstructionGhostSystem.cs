@@ -119,15 +119,15 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
         _rcdSystem.UpdateCachedPrototype(heldEntity.Value, rcd);
         var useProto = (_useMirrorPrototype && !string.IsNullOrEmpty(rcd.CachedPrototype.MirrorPrototype)) ? rcd.CachedPrototype.MirrorPrototype : rcd.CachedPrototype.Prototype;
 
-        // Funky - If statement checks if RPD and prototype has AtmosPipeLayers
-        // remove if statement to revert changes
-        if (rcd.IsRpd && useProto != null)
+        // Funky - Check if RPD and prototype supports layered placement
+        if (rcd.IsRpd && useProto != null && _protoManager.TryIndex<RCDPrototype>(rcd.CachedPrototype.ID, out var rcdProto) && !rcdProto.NoLayers)
         {
             _placementManager.Clear();
             CreateLayeredPlacer(heldEntity.Value, rcd, useProto);
         }
         else if (heldEntity != placerEntity || useProto != placerProto)
         {
+            _placementManager.Clear();
             CreatePlacer(heldEntity.Value, rcd, useProto);
         }
 

@@ -5,7 +5,7 @@
 // SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-License: MIT
 
 using Content.Client.Construction;
 using Content.Client.Gameplay;
@@ -76,6 +76,14 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
 
     public override void Render(in OverlayDrawArgs args)
     {
+        // Early exit if mouse is out of interaction range
+        if (_playerManager.LocalSession?.AttachedEntity is not { } player ||
+            !_entityManager.TryGetComponent<TransformComponent>(player, out var xform) ||
+            !_transformSystem.InRange(xform.Coordinates, MouseCoords, SharedInteractionSystem.InteractionRange))
+        {
+            return;
+        }
+
         var gridUid = _transformSystem.GetGrid(MouseCoords);
 
         if (gridUid == null || !_entityManager.TryGetComponent<MapGridComponent>(gridUid, out var grid))
@@ -134,8 +142,10 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
             newLayer = (direction == Direction.North || direction == Direction.East) ? AtmosPipeLayer.Secondary : AtmosPipeLayer.Tertiary;
         }
 
-        // Update the layer
+        // Update the layer only if within interaction range
         if (_playerManager.LocalSession?.AttachedEntity is { } player &&
+            _entityManager.TryGetComponent<TransformComponent>(player, out var xform) &&
+            _transformSystem.InRange(xform.Coordinates, MouseCoords, SharedInteractionSystem.InteractionRange) &&
             _entityManager.TryGetComponent<HandsComponent>(player, out var hands) &&
             hands.ActiveHand?.HeldEntity is { } heldEntity &&
             _entityManager.TryGetComponent<RCDComponent>(heldEntity, out var rcd))

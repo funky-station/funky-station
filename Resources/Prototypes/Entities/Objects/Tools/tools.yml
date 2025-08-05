@@ -507,6 +507,8 @@
     isRpd: true
     availablePrototypes:
     - PipeFourway
+    - PipeFourwayAlt1
+    - PipeFourwayAlt2
     - PipeStraight
     - PipeBend
     - PipeTJunction

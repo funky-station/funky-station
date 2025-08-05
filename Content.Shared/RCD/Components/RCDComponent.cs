@@ -8,6 +8,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Atmos.Components;
 using Content.Shared.RCD.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -71,6 +72,13 @@ public sealed partial class RCDComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public (string Key, Color? Color) PipeColor { get; set; } = ("default", null);
+
+    /// <summary>
+    /// Funkystation
+    /// Stores layer data for the RPD
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public AtmosPipeLayer LastSelectedLayer = AtmosPipeLayer.Primary;
 
     /// <summary>
     /// The direction constructed entities will face upon spawning

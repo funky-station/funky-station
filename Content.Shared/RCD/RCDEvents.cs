@@ -6,6 +6,8 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Atmos.Components;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -19,6 +21,19 @@ public sealed class RCDSystemMessage : BoundUserInterfaceMessage
     public RCDSystemMessage(ProtoId<RCDPrototype> protoId)
     {
         ProtoId = protoId;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class RPDSelectLayerEvent : EntityEventArgs
+{
+    public readonly NetEntity NetEntity;
+    public AtmosPipeLayer Layer;
+
+    public RPDSelectLayerEvent(NetEntity netEntity, AtmosPipeLayer layer)
+    {
+        NetEntity = netEntity;
+        Layer = layer;
     }
 }
 

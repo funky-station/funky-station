@@ -17,6 +17,28 @@
   fx: EffectRCDConstruct0
 
 - type: rcd
+  id: PipeFourwayAlt1
+  category: hidden
+  sprite: /Textures/Interface/Radial/RPD/fourway.png
+  mode: ConstructObject
+  prototype: GasPipeFourwayAlt1
+  cost: 0.5
+  delay: 0 
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: PipeFourwayAlt2
+  category: hidden
+  sprite: /Textures/Interface/Radial/RPD/fourway.png
+  mode: ConstructObject
+  prototype: GasPipeFourwayAlt2
+  cost: 0.5
+  delay: 0 
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
   id: PipeStraight
   category: Piping
   sprite: /Textures/Interface/Radial/RPD/straight.png

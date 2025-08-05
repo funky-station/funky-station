@@ -574,6 +574,10 @@
     - FilterGasAlt2
     - SensorPipeAlt1
     - SensorPipeAlt2
+    - RadiatorAlt1
+    - RadiatorAlt2
+    - RadiatorBendAlt1
+    - RadiatorBendAlt2
   - type: LimitedCharges
     maxCharges: 45
     charges: 45

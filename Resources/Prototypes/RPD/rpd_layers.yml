@@ -376,53 +376,53 @@
   rotation: User
   fx: EffectRCDConstruct0
 
-# - type: rcd
-#   id: RadiatorAlt1
-#   category: hidden
-#   sprite: /Textures/Interface/Radial/RPD/radiator.png
-#   mode: ConstructObject
-#   prototype: HeatExchangerAlt1
-#   cost: 1
-#   delay: 0
-#   collisionMask: Impassable
-#   rotation: User
-#   fx: EffectRCDConstruct0
+- type: rcd
+  id: RadiatorAlt1
+  category: hidden
+  sprite: /Textures/Interface/Radial/RPD/radiator.png
+  mode: ConstructObject
+  prototype: HeatExchangerAlt1
+  cost: 1
+  delay: 0
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0
 
-# - type: rcd
-#   id: RadiatorAlt2
-#   category: hidden
-#   sprite: /Textures/Interface/Radial/RPD/radiator.png
-#   mode: ConstructObject
-#   prototype: HeatExchangerAlt2
-#   cost: 1
-#   delay: 0
-#   collisionMask: Impassable
-#   rotation: User
-#   fx: EffectRCDConstruct0
+- type: rcd
+  id: RadiatorAlt2
+  category: hidden
+  sprite: /Textures/Interface/Radial/RPD/radiator.png
+  mode: ConstructObject
+  prototype: HeatExchangerAlt2
+  cost: 1
+  delay: 0
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0
 
-# - type: rcd
-#   id: RadiatorBendAlt1
-#   category: hidden
-#   sprite: /Textures/Interface/Radial/RPD/he_bend.png
-#   mode: ConstructObject
-#   prototype: HeatExchangerBendAlt1
-#   cost: 1
-#   delay: 0
-#   collisionMask: Impassable
-#   rotation: User
-#   fx: EffectRCDConstruct0
+- type: rcd
+  id: RadiatorBendAlt1
+  category: hidden
+  sprite: /Textures/Interface/Radial/RPD/he_bend.png
+  mode: ConstructObject
+  prototype: HeatExchangerBendAlt1
+  cost: 1
+  delay: 0
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0
 
-# - type: rcd
-#   id: RadiatorBendAlt2
-#   category: hidden
-#   sprite: /Textures/Interface/Radial/RPD/he_bend.png
-#   mode: ConstructObject
-#   prototype: HeatExchangerBendAlt2
-#   cost: 1
-#   delay: 0
-#   collisionMask: Impassable
-#   rotation: User
-#   fx: EffectRCDConstruct0
+- type: rcd
+  id: RadiatorBendAlt2
+  category: hidden
+  sprite: /Textures/Interface/Radial/RPD/he_bend.png
+  mode: ConstructObject
+  prototype: HeatExchangerBendAlt2
+  cost: 1
+  delay: 0
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0
 
 - type: rcd
   id: MixerGasAlt1

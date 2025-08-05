@@ -1070,20 +1070,84 @@
   startNode: start
   targetNode: radiator
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
+  alternativePrototypes:
+  - HeatExchanger
+  - HeatExchangerAlt1
+  - HeatExchangerAlt2
+
+- type: construction
+  id: HeatExchangerAlt1
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: radiatorAlt1
+  category: construction-category-utilities
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  alternativePrototypes:
+  - HeatExchanger
+  - HeatExchangerAlt1
+  - HeatExchangerAlt2
+
+- type: construction
+  id: HeatExchangerAlt2
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: radiatorAlt2
+  category: construction-category-utilities
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: 
+  alternativePrototypes:
+  - HeatExchanger
+  - HeatExchangerAlt1
+  - HeatExchangerAlt2
 
 - type: construction
   id: HeatExchangerBend
+  hide: true
   graph: GasBinary
   startNode: start
   targetNode: bendradiator
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/heatexchanger.rsi
     state: heBend
+  alternativePrototypes:
+  - HeatExchangerBend
+  - HeatExchangerBendAlt1
+  - HeatExchangerBendAlt2
+
+- type: construction
+  id: HeatExchangerBendAlt1
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: bendradiatorAlt1
+  category: construction-category-utilities
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  alternativePrototypes:
+  - HeatExchangerBend
+  - HeatExchangerBendAlt1
+  - HeatExchangerBendAlt2
+
+- type: construction
+  id: HeatExchangerBendAlt2
+  graph: GasBinary
+  startNode: start
+  targetNode: bendradiatorAlt2
+  category: construction-category-utilities
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  alternativePrototypes:
+  - HeatExchangerBend
+  - HeatExchangerBendAlt1
+  - HeatExchangerBendAlt2
 
 - type: construction
   id: HeatPump

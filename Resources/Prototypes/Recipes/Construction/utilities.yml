@@ -940,7 +940,7 @@
   placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   conditions:
-  # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+    # - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
   alternativePrototypes:
   - SignalControlledValve
   - SignalControlledValveAlt1

@@ -1099,7 +1099,7 @@
   targetNode: radiatorAlt2
   category: construction-category-utilities
   placementMode: AlignAtmosPipeLayers
-  canBuildInImpassable: 
+  canBuildInImpassable: false
   alternativePrototypes:
   - HeatExchanger
   - HeatExchangerAlt1

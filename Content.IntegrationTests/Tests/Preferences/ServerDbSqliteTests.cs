@@ -103,6 +103,7 @@ namespace Content.IntegrationTests.Tests.Preferences
             var originalProfile = CharlieCharlieson();
             await db.InitPrefsAsync(username, originalProfile);
             var prefs = await db.GetPlayerPreferencesAsync(username);
+            Assert.That(prefs, Is.Not.Null);
             Assert.That(prefs.Characters.Single(p => p.Key == slot).Value.MemberwiseEquals(originalProfile));
             await pair.CleanReturnAsync();
         }
@@ -118,7 +119,8 @@ namespace Content.IntegrationTests.Tests.Preferences
             await db.SaveCharacterSlotAsync(username, CharlieCharlieson(), 1);
             await db.SaveCharacterSlotAsync(username, null, 1);
             var prefs = await db.GetPlayerPreferencesAsync(username);
-            Assert.That(!prefs.Characters.Any(p => p.Key != 0));
+            Assert.That(prefs, Is.Not.Null);
+            Assert.That(prefs.Characters.Any(p => p.Key != 0));
             await pair.CleanReturnAsync();
         }
 

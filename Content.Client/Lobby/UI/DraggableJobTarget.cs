@@ -1,4 +1,8 @@
-﻿using System.Collections.Immutable;
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Collections.Immutable;
 using System.Linq;
 using System.Numerics;
 using Content.Client.Stylesheets;

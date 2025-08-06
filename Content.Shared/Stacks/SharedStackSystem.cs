@@ -1,23 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 ike709 <ike709@github.com>
-// SPDX-FileCopyrightText: 2021 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
@@ -58,17 +38,12 @@ namespace Content.Shared.Stacks
             SubscribeLocalEvent<StackComponent, ComponentStartup>(OnStackStarted);
             SubscribeLocalEvent<StackComponent, ExaminedEvent>(OnStackExamined);
             SubscribeLocalEvent<StackComponent, InteractUsingEvent>(OnStackInteractUsing);
-            SubscribeLocalEvent<StackComponent, StackCustomSplitAmountMessage>(OnCustomSplitMessage); // Goobstation - Custom stack splitting dialog
             SubscribeLocalEvent<StackComponent, BeforeIngestedEvent>(OnBeforeEaten);
             SubscribeLocalEvent<StackComponent, IngestedEvent>(OnEaten);
 
             _vvm.GetTypeHandler<StackComponent>()
                 .AddPath(nameof(StackComponent.Count), (_, comp) => comp.Count, SetCount);
         }
-
-        // Goobstation - Custom stack splitting dialog
-        // client shouldn't try to split stacks so do nothing on client
-        protected virtual void OnCustomSplitMessage(Entity<StackComponent> ent, ref StackCustomSplitAmountMessage message) {}
 
         public override void Shutdown()
         {
@@ -377,6 +352,10 @@ namespace Content.Shared.Stacks
 
         private void OnStackStarted(EntityUid uid, StackComponent component, ComponentStartup args)
         {
+            // on client, lingering stacks that start at 0 need to be darkened
+            // on server this does nothing
+            SetCount(uid, component.Count, component);
+
             if (!TryComp(uid, out AppearanceComponent? appearance))
                 return;
 
@@ -387,7 +366,7 @@ namespace Content.Shared.Stacks
 
         private void OnStackGetState(EntityUid uid, StackComponent component, ref ComponentGetState args)
         {
-            args.State = new StackComponentState(component.Count, component.MaxCountOverride);
+            args.State = new StackComponentState(component.Count, component.MaxCountOverride, component.Lingering);
         }
 
         private void OnStackHandleState(EntityUid uid, StackComponent component, ref ComponentHandleState args)
@@ -396,6 +375,7 @@ namespace Content.Shared.Stacks
                 return;
 
             component.MaxCountOverride = cast.MaxCount;
+            component.Lingering = cast.Lingering;
             // This will change the count and call events.
             SetCount(uid, cast.Count, component);
         }
@@ -448,7 +428,7 @@ namespace Content.Shared.Stacks
                 return;
 
             // We haven't eaten the whole stack yet or are unable to eat it completely.
-            if (eaten.Comp.Count > 0)
+            if (eaten.Comp.Count > 0 || eaten.Comp.Lingering)
             {
                 args.Refresh = true;
                 return;

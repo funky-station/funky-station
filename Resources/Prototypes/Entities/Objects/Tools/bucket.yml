@@ -24,15 +24,16 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: BaseItem
+  parent: DrinkBase
   id: Bucket
   name: bucket
   description: It's a boring old bucket.
   components:
-  - type: Drink
-    solution: bucket
-    ignoreEmpty: true
   - type: Clickable
+  - type: Edible
+    edible: Drink
+    solution: bucket
+    destroyOnEmpty: false
   - type: Sprite
     sprite: Objects/Tools/bucket.rsi
     layers:

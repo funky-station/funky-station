@@ -214,9 +214,30 @@ SPDX-License-Identifier: MIT
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
-    <ColorBox Color="#ffce93">
+	<ColorBox Color="#ffce93">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         [color=black]Grand Theft (G)[/color]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+	<ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Sedition
+      </Box>
+    </ColorBox>
+	<ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
     <ColorBox>
@@ -438,6 +459,25 @@ SPDX-License-Identifier: MIT
         Leaders of a riot can be charged with all crimes that happen under their lead.
       </Box>
     </ColorBox>
+	<ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Sedition
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        To incite rebellion or dissent against the station order.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        A catchall crime for those spreading subversive ideologies, such as anti-Nanotrasen thought, labor organization, or resistance against Command and their agents.
+      </Box>
+    </ColorBox>
+	
+	
+	
+	
   </Table>
 
   ## III Degree Crimes

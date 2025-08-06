@@ -32,7 +32,7 @@ public sealed partial class PendingZombieComponent : Component
     {
         DamageDict = new ()
         {
-            { "Poison", 0.0 }, //funky - no damage :)
+            { "Poison", 0.2}, 
         }
     };
 
@@ -40,7 +40,7 @@ public sealed partial class PendingZombieComponent : Component
     /// A multiplier for <see cref="Damage"/> applied when the entity is in critical condition.
     /// </summary>
     [DataField("critDamageMultiplier")]
-    public float CritDamageMultiplier = 1f; //funky - no multiplier :)
+    public float CritDamageMultiplier = 10f; 
 
     [DataField("nextTick", customTypeSerializer:typeof(TimeOffsetSerializer))]
     public TimeSpan NextTick;
@@ -67,7 +67,7 @@ public sealed partial class PendingZombieComponent : Component
     /// The chance each second that a warning will be shown.
     /// </summary>
     [DataField("infectionWarningChance")]
-    public float InfectionWarningChance = 0.0f; //funky - no warning :)
+    public float InfectionWarningChance = 0.0166f; //funky - no warning :)
 
     /// <summary>
     /// Infection warnings shown as popups

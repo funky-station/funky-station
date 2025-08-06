@@ -26,6 +26,7 @@
 # SPDX-FileCopyrightText: 2025 ashley <vectorassembly@icloud.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -106,8 +107,8 @@
   background: /Textures/LobbyScreens/typicalDay.webp
 
 - type: lobbyBackground
-  id: lowpopCrew
-  background: /Textures/LobbyScreens/lowpopCrew.webp
+  id: funkysci
+  background: /Textures/LobbyScreens/funkysci.webp
 
 - type: lobbyBackground
   id: rats
@@ -116,3 +117,7 @@
 - type: lobbyBackground
   id: cirnoStation
   background: /Textures/LobbyScreens/cirnostation.webp
+
+- type: lobbyBackground
+  id: usualsuspects
+  background: /Textures/LobbyScreens/usualsuspects.webp

@@ -120,7 +120,8 @@ namespace Content.IntegrationTests.Tests.Preferences
             await db.SaveCharacterSlotAsync(username, null, 1);
             var prefs = await db.GetPlayerPreferencesAsync(username);
             Assert.That(prefs, Is.Not.Null);
-            Assert.That(prefs.Characters.Any(p => p.Key != 0));
+            Assert.That(prefs.Characters.All(p => p.Key == 0));
+            Assert.That(prefs.Characters.Count, Is.EqualTo(1));
             await pair.CleanReturnAsync();
         }
 

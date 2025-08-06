@@ -1,0 +1,12 @@
+- type: alert
+  id: ToggleInteraction
+  clickEvent: !type:ToggleInteractionEvent
+  icons:
+  - sprite: _CD/Clothing/Hands/Gloves/etu_gauntlet.rsi
+    state: icon
+  - sprite: /Textures/Interface/Alerts/pacified.rsi
+    state: icon
+  name: cd-aghost-toggle-interaction
+  description: cd-aghost-toggle-interaction-desc
+  minSeverity: 0
+  maxSeverity: 1

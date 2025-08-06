@@ -69,6 +69,7 @@
     - category: Thirst
     - alertType: Magboots
     - alertType: Pacified
+    - alertType: ToggleInteraction # CD
 
 - type: entity
   id: AlertSpriteView

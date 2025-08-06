@@ -162,6 +162,9 @@
     prototypes: [ MobAghostGear ]
   - type: BypassInteractionChecks
   - type: SupermatterImmune # Goobstation
+  - type: ExplosionResistance
+    damageCoefficient: 0
+  - type: InteractionToggleable # CD
 
 - type: entity
   id: ActionAGhostShowSolar

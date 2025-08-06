@@ -20,11 +20,19 @@ public sealed class FireResistanceSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<FireResistanceComponent, GetFireResistanceEvent>(OnGetResistance);
+        SubscribeLocalEvent<FireResistanceComponent, GetFireResistanceEvent>(OnGetFireResistance);
         SubscribeLocalEvent<FireResistanceComponent, ArmorExamineEvent>(OnArmorExamine);
+
+        SubscribeLocalEvent<FireResistanceComponent, InventoryRelayedEvent<GetFireResistanceEvent>>(RelayedFireResistance);
     }
 
-    private void OnGetResistance(Entity<FireResistanceComponent> ent, ref GetFireResistanceEvent args)
+    private void RelayedFireResistance(Entity<FireResistanceComponent> ent,
+        ref InventoryRelayedEvent<GetFireResistanceEvent> args)
+    {
+        OnGetFireResistance(ent, ref args.Args);
+    }
+
+    private void OnGetFireResistance(Entity<FireResistanceComponent> ent, ref GetFireResistanceEvent args)
     {
         args.DamageCoefficient *= ent.Comp.DamageCoefficient;
     }

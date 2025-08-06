@@ -73,6 +73,7 @@ public class RCDSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly TagSystem _tags = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
     private readonly int _instantConstructionDelay = 0;
     private readonly EntProtoId _instantConstructionFx = "EffectRCDConstruct0";
@@ -599,7 +600,24 @@ public class RCDSystem : EntitySystem
                     ? component.CachedPrototype.MirrorPrototype
                     : component.CachedPrototype.Prototype;
 
-                var ent = Spawn(proto, _mapSystem.GridTileToLocal(mapGridData.GridUid, mapGridData.Component, mapGridData.Position));
+                // Funky - Calculate rotation and apply it before spawning
+                var rotation = component.CachedPrototype.Rotation switch
+                {
+                    RcdRotation.Fixed => Angle.Zero,
+                    RcdRotation.Camera => Transform(uid).LocalRotation,
+                    RcdRotation.User => direction.ToAngle(),
+                    _ => Angle.Zero // Fallback
+                };
+
+                // Convert EntityCoordinates to MapCoordinates
+                var entityCoords = _mapSystem.GridTileToLocal(mapGridData.GridUid, mapGridData.Component, mapGridData.Position);
+                var mapCoords = new MapCoordinates(entityCoords.ToMapPos(EntityManager, _transformSystem), entityCoords.GetMapId(EntityManager));
+                var ent = Spawn(proto, mapCoords, rotation: rotation);
+                // End of funky changes
+
+                // Funky - handled above
+                // var ent = Spawn(proto, _mapSystem.GridTileToLocal(mapGridData.GridUid, mapGridData.Component, mapGridData.Position));
+
 
                 // Apply color if the entity has PipeColorVisualsComponent and PipeColor is not "default"
                 if (component.PipeColor.Key != "default" && component.PipeColor.Color != null)
@@ -607,18 +625,19 @@ public class RCDSystem : EntitySystem
                     _appearanceSystem.SetData(ent, Atmos.Piping.PipeColorVisuals.Color, component.PipeColor.Color.Value);
                 }
 
-                switch (component.CachedPrototype.Rotation)
-                {
-                    case RcdRotation.Fixed:
-                        Transform(ent).LocalRotation = Angle.Zero;
-                        break;
-                    case RcdRotation.Camera:
-                        Transform(ent).LocalRotation = Transform(uid).LocalRotation;
-                        break;
-                    case RcdRotation.User:
-                        Transform(ent).LocalRotation = direction.ToAngle();
-                        break;
-                }
+                // Funky - handled above
+                // switch (component.CachedPrototype.Rotation)
+                // {
+                //     case RcdRotation.Fixed:
+                //         Transform(ent).LocalRotation = Angle.Zero;
+                //         break;
+                //     case RcdRotation.Camera:
+                //         Transform(ent).LocalRotation = Transform(uid).LocalRotation;
+                //         break;
+                //     case RcdRotation.User:
+                //         Transform(ent).LocalRotation = direction.ToAngle();
+                //         break;
+                // }
 
                 _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RCD to spawn {ToPrettyString(ent)} at {mapGridData.Position} on grid {mapGridData.GridUid}");
                 break;

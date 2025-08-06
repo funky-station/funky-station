@@ -171,7 +171,7 @@
       state: gib
 
 - type: entity
-  parent: BaseAction
+  parent: BaseImplantAction
   id: ActionActivateFreedomImplant
   name: Break Free
   description: Activating your freedom implant will free you from any hand restraints
@@ -185,8 +185,6 @@
     icon:
       sprite: Actions/Implants/implants.rsi
       state: freedom
-  - type: InstantAction
-    event: !type:UseFreedomImplantEvent
 
 - type: entity
   parent: BaseAction
@@ -221,7 +219,7 @@
       state: icon
 
 - type: entity
-  parent: BaseAction
+  parent: BaseImplantAction
   id: ActionActivateScramImplant
   name: SCRAM!
   description: Randomly teleports you within a large distance.
@@ -237,11 +235,9 @@
     icon:
       sprite: Structures/Specific/anomaly.rsi
       state: anom4
-  - type: InstantAction
-    event: !type:UseScramImplantEvent
 
 - type: entity
-  parent: BaseAction
+  parent: BaseImplantAction
   id: ActionActivateDnaScramblerImplant
   name: Scramble DNA
   description:  Randomly changes your name and appearance.
@@ -256,8 +252,6 @@
     icon:
       sprite: Clothing/OuterClothing/Hardsuits/lingspacesuit.rsi
       state: icon
-  - type: InstantAction
-    event: !type:UseDnaScramblerImplantEvent
 
 - type: entity
   parent: BaseAction
@@ -446,3 +440,41 @@
       state: icon-siren
     useDelay: 1
     itemIconStyle: BigAction
+
+- type: entity
+  parent: BaseAction
+  id: ActionGravityJump
+  name: Jump
+  description: Activating the advanced propulsion system, you propel yourself a short distance in the direction of your gaze.
+  components:
+  - type: Action
+    useDelay: 8
+    icon:
+      sprite: Interface/Actions/jump.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:GravityJumpEvent {}
+
+- type: entity
+  parent: BaseToggleAction
+  id: ActionToggleRootable
+  name: Rootable
+  description: Begin or stop being rooted to the floor.
+  components:
+  - type: Action
+    icon: Interface/Actions/rooting.png
+    iconOn: Interface/Actions/rooting.png
+    itemIconStyle: NoItem
+    useDelay: 1
+
+- type: entity
+  id: ActionChameleonController
+  name: Control clothing
+  description: Change your entire outfit fast!
+  components:
+  - type: Action
+    priority: -20
+    icon: { sprite: Actions/Implants/implants.rsi, state: chameleon }
+    itemIconStyle: BigAction
+  - type: InstantAction
+    event: !type:ChameleonControllerOpenMenuEvent

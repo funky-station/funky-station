@@ -15,6 +15,10 @@ namespace Content.Client.Lobby.UI.ProfileEditorControls;
 
 public sealed partial class ProfilePreviewSpriteView
 {
+
+    private readonly ProtoId<JobPrototype> BorgJob = "Borg";
+    private readonly ProtoId<JobPrototype> AIJob = "StationAi";
+
     /// <summary>
     /// A slim reload that only updates the entity itself and not any of the job entities, etc.
     /// </summary>
@@ -72,7 +76,7 @@ public sealed partial class ProfilePreviewSpriteView
                 PreviewDummy = EntMan.SpawnEntity(previewEntity, MapCoordinates.Nullspace);
                 JobName = job.LocalizedName;
                 // Grab the loadout specific name too!
-                LoadoutName = GetLoadoutName(loadout);
+                LoadoutName = job.ID == BorgJob || job.ID == AIJob ? humanoid.BorgName : GetLoadoutName(loadout);
                 return;
             }
         }
@@ -128,7 +132,7 @@ public sealed partial class ProfilePreviewSpriteView
             EntMan,
             _prototypeManager);
 
-        LoadoutName = GetLoadoutName(loadout);
+        LoadoutName = job.ID == BorgJob || job.ID == AIJob ? humanoid.BorgName : GetLoadoutName(loadout);
 
         GiveDummyLoadout(PreviewDummy, loadout);
     }

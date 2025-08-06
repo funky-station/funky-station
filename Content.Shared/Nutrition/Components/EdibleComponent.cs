@@ -6,6 +6,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Nutrition.Components;
+<<<<<<<< HEAD:Content.Shared/Nutrition/Components/EdibleComponent.cs
 
 /// <summary>
 /// This is used on an entity with a solution container to flag a specific solution as being able to have its
@@ -13,6 +14,11 @@ namespace Content.Shared.Nutrition.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(IngestionSystem))]
 public sealed partial class EdibleComponent : Component
+========
+[Obsolete("Migration to Content.Shared.Nutrition.Components.EdibleComponent is required")]
+[RegisterComponent, Access(typeof(FoodSystem), typeof(FoodSequenceSystem))]
+public sealed partial class FoodComponent : Component
+>>>>>>>> 91854e07762 (Debody Food and Drink Systems, Combine Food and Drink into One System. (#39031)):Content.Shared/Nutrition/Components/FoodComponent.cs
 {
     /// <summary>
     /// Name of the solution that stores the consumable reagents
@@ -60,6 +66,22 @@ public sealed partial class EdibleComponent : Component
     public bool RequiresSpecialDigestion;
 
     /// <summary>
+<<<<<<<< HEAD:Content.Shared/Nutrition/Components/EdibleComponent.cs
+========
+    ///     Stomachs required to digest this entity.
+    ///     Used to simulate 'ruminant' digestive systems (which can digest grass)
+    /// </summary>
+    [DataField]
+    public int RequiredStomachs = 1;
+
+    /// <summary>
+    /// The localization identifier for the eat message. Needs a "food" entity argument passed to it.
+    /// </summary>
+    [DataField]
+    public LocId EatMessage = "edible-nom";
+
+    /// <summary>
+>>>>>>>> 91854e07762 (Debody Food and Drink Systems, Combine Food and Drink into One System. (#39031)):Content.Shared/Nutrition/Components/FoodComponent.cs
     /// How long it takes to eat the food personally.
     /// </summary>
     [DataField]

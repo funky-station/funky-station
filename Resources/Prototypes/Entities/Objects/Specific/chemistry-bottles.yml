@@ -80,6 +80,7 @@
     solution: drink
   - type: ExaminableSolution
     solution: drink
+    exactVolume: true
   - type: DrawableSolution
     solution: drink
   - type: SolutionTransfer

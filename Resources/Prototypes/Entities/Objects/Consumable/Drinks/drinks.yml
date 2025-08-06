@@ -88,96 +88,82 @@
   id: DrinkBase
   abstract: true
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-    - type: MixableSolution
-      solution: drink
-    - type: SolutionTransfer
-      canChangeTransferAmount: true
-    - type: Drink
-    - type: Sprite
-      state: icon
-    - type: MeleeWeapon
-      soundNoDamage:
-        path: "/Audio/Effects/Fluids/splat.ogg"
-      damage:
-        types:
-          Blunt: 0
-    - type: Spillable
-      solution: drink
-    - type: DrawableSolution
-      solution: drink
-    - type: RefillableSolution
-      solution: drink
-    - type: DrainableSolution
-      solution: drink
-    - type: UserInterface
-      interfaces:
-        enum.TransferAmountUiKey.Key:
-          type: TransferAmountBoundUserInterface
-    - type: DnaSubstanceTrace
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+  - type: MixableSolution
+    solution: drink
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: Drink
+  - type: Sprite
+    state: icon
+  - type: MeleeWeapon
+    soundNoDamage:
+      path: "/Audio/Effects/Fluids/splat.ogg"
+    damage:
+      types:
+        Blunt: 0
+  - type: Spillable
+    solution: drink
+  - type: DrawableSolution
+    solution: drink
+  - type: RefillableSolution
+    solution: drink
+  - type: DrainableSolution
+    solution: drink
+  - type: ExaminableSolution
+    solution: drink
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: DnaSubstanceTrace
 
 - type: entity
   parent: DrinkBase
   id: DrinkGlassBase
   abstract: true
   components:
-    - type: Damageable
-      damageContainer: Inorganic
-      damageModifierSet: Glass
-    - type: Destructible
-      thresholds:
-        - trigger: !type:DamageTrigger
-            damage: 5
-          behaviors:
-            - !type:PlaySoundBehavior
-              sound:
-                collection: GlassBreak
-            - !type:SpillBehavior {}
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                ShardGlass:
-                  min: 1
-                  max: 1
-              transferForensics: true
-            - !type:DoActsBehavior
-              acts: ["Destruction"]
-    - type: DamageOnLand
-      ignoreResistances: true
-      damage:
-        types:
-          Blunt: 5
-    - type: DamageOtherOnHit
-      damage:
-        types:
-          Blunt: 5
-    - type: PhysicalComposition
-      materialComposition:
-        Glass: 25
-    - type: ExaminableSolution
-      solution: drink
-    - type: FitsInDispenser
-      solution: drink
-    - type: Tag
-      tags:
-        - DrinkGlass
-    - type: EmitSoundOnPickup
-      sound:
-        path: /Audio/SimpleStation14/Items/Handling/drinkglass_pickup.ogg
-        params:
-          volume: -4
-    - type: EmitSoundOnDrop
-      sound:
-        path: /Audio/SimpleStation14/Items/Handling/drinkglass_drop.ogg
-        params:
-          volume: -4
-    - type: EmitSoundOnLand
-      sound:
-        path: /Audio/SimpleStation14/Items/Handling/drinkglass_drop.ogg
-        params:
-          volume: -4
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Glass
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpillBehavior { }
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageOnLand
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 5
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 25
+  - type: FitsInDispenser
+    solution: drink
+  - type: Tag
+    tags:
+      - DrinkGlass
 
 # Transformable container - normal glass
 - type: entity
@@ -186,29 +172,29 @@
   parent: DrinkGlassBase
   id: DrinkGlass
   components:
-    - type: Sprite
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/glass_clear.rsi
+    layers:
+      - state: icon
+        map: [ "enum.SolutionContainerLayers.Base" ]
+      - state: fill1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+      - state: icon-front
+        map: [ "enum.SolutionContainerLayers.Overlay" ]
+  - type: Appearance
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+  - type: SolutionContainerVisuals
+    maxFillLevels: 9
+    fillBaseName: fill
+    metamorphic: true
+    metamorphicDefaultSprite:
       sprite: Objects/Consumable/Drinks/glass_clear.rsi
-      layers:
-        - state: icon
-          map: ["enum.SolutionContainerLayers.Base"]
-        - state: fill1
-          map: ["enum.SolutionContainerLayers.Fill"]
-          visible: false
-        - state: icon-front
-          map: ["enum.SolutionContainerLayers.Overlay"]
-    - type: Appearance
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-    - type: SolutionContainerVisuals
-      maxFillLevels: 9
-      fillBaseName: fill
-      metamorphic: true
-      metamorphicDefaultSprite:
-        sprite: Objects/Consumable/Drinks/glass_clear.rsi
-        state: icon
-    - type: TransformableContainer
+      state: icon
+  - type: TransformableContainer
 
 - type: entity
   name: coupe glass
@@ -220,12 +206,12 @@
       sprite: Objects/Consumable/Drinks/glass_coupe_shape.rsi
       layers:
         - state: icon
-          map: ["enum.SolutionContainerLayers.Base"]
+          map: [ "enum.SolutionContainerLayers.Base" ]
         - state: fill1
-          map: ["enum.SolutionContainerLayers.Fill"]
+          map: [ "enum.SolutionContainerLayers.Fill" ]
           visible: false
         - state: icon-front
-          map: ["enum.SolutionContainerLayers.Overlay"]
+          map: [ "enum.SolutionContainerLayers.Overlay" ]
     - type: Appearance
     - type: SolutionContainerManager
       solutions:
@@ -234,6 +220,8 @@
     - type: SolutionContainerVisuals
       maxFillLevels: 5
       fillBaseName: fill
+      inHandsMaxFillLevels: 1
+      inHandsFillBaseName: -fill-
 
 - type: entity
   parent: DrinkGlass
@@ -256,125 +244,125 @@
   id: DrinkAcidSpitGlass
   suffix: acid spit
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: AcidSpit
-              Quantity: 30
-    - type: Icon
-      sprite: Objects/Consumable/Drinks/acidspitglass.rsi
-      state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: AcidSpit
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/acidspitglass.rsi
+    state: icon
 
 - type: entity
   parent: DrinkGlass
   id: DrinkAleGlass
   suffix: ale
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: Ale
-              Quantity: 30
-    - type: Icon
-      sprite: Objects/Consumable/Drinks/aleglass.rsi
-      state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Ale
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/aleglass.rsi
+    state: icon
 
 - type: entity
   parent: DrinkGlass
   id: DrinkAlienBrainHemorrhage
   suffix: alien brain hemorrhage
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: AlienBrainHemorrhage
-              Quantity: 30
-    - type: Icon
-      sprite: Objects/Consumable/Drinks/alienbrainhemorrhage.rsi
-      state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: AlienBrainHemorrhage
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/alienbrainhemorrhage.rsi
+    state: icon
 
 - type: entity
   parent: DrinkGlass
   id: DrinkAlliesCocktail
   suffix: allies cocktail
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: AlliesCocktail
-              Quantity: 30
-    - type: Icon
-      sprite: Objects/Consumable/Drinks/alliescocktail.rsi
-      state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: AlliesCocktail
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/alliescocktail.rsi
+    state: icon
 
 - type: entity
   parent: DrinkGlass
   id: DrinkAloe
   suffix: aloe
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: Aloe
-              Quantity: 30
-    - type: Icon
-      sprite: Objects/Consumable/Drinks/aloe.rsi
-      state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Aloe
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/aloe.rsi
+    state: icon
 
 - type: entity
   parent: DrinkGlass
   id: DrinkAmasecGlass
   suffix: amasec
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: Amasec
-              Quantity: 30
-    - type: Icon
-      sprite: Objects/Consumable/Drinks/amasecglass.rsi
-      state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Amasec
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/amasecglass.rsi
+    state: icon
 
 - type: entity
   parent: DrinkGlass
   id: DrinkAndalusia
   suffix: andalusia
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: Andalusia
-              Quantity: 30
-    - type: Icon
-      sprite: Objects/Consumable/Drinks/andalusia.rsi
-      state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Andalusia
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/andalusia.rsi
+    state: icon
 
 - type: entity
   parent: DrinkGlass
   id: DrinkAntifreeze
   suffix: antifreeze
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: Antifreeze
-              Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Antifreeze
+          Quantity: 30
 
 - type: entity
   parent: DrinkGlass

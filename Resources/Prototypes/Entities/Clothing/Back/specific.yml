@@ -90,6 +90,7 @@
     solution: tank
   - type: ExaminableSolution
     solution: tank
+    exactVolume: true
 
 # Assmos - Extinguisher Nozzle
 - type: entity

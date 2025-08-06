@@ -27,6 +27,8 @@
       Steel: 300
   - type: FitsInDispenser
     solution: drink
+  - type: ExaminableSolution
+    examinableWhileClosed: false
 
 - type: entity
   parent: FlaskBase

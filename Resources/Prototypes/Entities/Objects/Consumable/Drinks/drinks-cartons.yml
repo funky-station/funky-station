@@ -30,6 +30,8 @@
         maxVol: 50
   - type: PressurizedSolution
     solution: drink
+  - type: ExaminableSolution
+    examinableWhileClosed: false
   - type: Shakeable
   - type: Sprite
     state: icon
@@ -222,3 +224,18 @@
           Quantity: 50
   - type: Sprite
     sprite: Objects/Consumable/Drinks/lemonjuice.rsi
+
+- type: entity
+  parent: [DrinkCartonVisualsOpenable, DrinkCartonBaseFull]
+  id: DrinkJuicePineappleCarton
+  name: pineapple juice
+  description: Tastes like a tropical vacation far from space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: JuicePineapple
+          Quantity: 50
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/pineapplejuice.rsi

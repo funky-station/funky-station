@@ -80,6 +80,8 @@
     solution: drink
   - type: DrainableSolution
     solution: drink
+  - type: ExaminableSolution
+    solution: drink
   - type: SolutionTransfer
     canChangeTransferAmount: true
     maxTransferAmount: 10

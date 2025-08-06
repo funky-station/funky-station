@@ -108,6 +108,97 @@
   - type: Shakeable
 
 - type: entity
+  parent: DrinkBase
+  id: DrinkBottlePlasticSmallBaseFull
+  abstract: true
+  suffix: Full
+  components:
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+      - DrinkCup
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+  - type: FitsInDispenser
+    solution: drink
+  - type: Openable
+    sound:
+      collection: bottleOpenSounds
+    closeable: true
+    closeSound:
+      collection: bottleCloseSounds
+  - type: Sprite
+    state: icon
+    sprite: Objects/Consumable/Drinks/waterbottle.rsi
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+       - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+       - !type:SpillBehavior { }
+  - type: DnaSubstanceTrace
+  - type: PressurizedSolution
+    solution: drink
+  - type: TrashOnSolutionEmpty
+    solution: drink
+  - type: Shakeable
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+
+- type: entity
+  parent: DrinkBottlePlasticSmallBaseFull
+  id: DrinkBottleGlassSmallBaseFull
+  abstract: true
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/beer.rsi
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 4
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpillBehavior { }
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          BrokenBottle:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Tool
+    qualities:
+    - Rolling
+    speedModifier: 0.75
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 100
+
+- type: entity
   parent: DrinkBottlePlasticBaseFull
   id: DrinkBottleGlassBaseFull
   abstract: true
@@ -164,6 +255,8 @@
     layers:
       - state: icon
         map: ["enum.OpenableVisuals.Layer"]
+  - type: ExaminableSolution
+    examinableWhileClosed: false # If you can't see fill levels, it's probably opaque
 
 - type: entity
   id: DrinkBottleVisualsAll
@@ -187,6 +280,11 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 5
     fillBaseName: fill-
+    inHandsMaxFillLevels: 3
+    inHandsFillBaseName: -fill-
+  - type: ExaminableSolution
+
+# Large Glass Bottles
 
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]

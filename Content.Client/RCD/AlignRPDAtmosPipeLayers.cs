@@ -10,6 +10,7 @@
 using Content.Client.Construction;
 using Content.Client.Gameplay;
 using Content.Shared.Atmos.Components;
+using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
@@ -27,6 +28,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Numerics;
 using static Robust.Client.Placement.PlacementManager;
@@ -34,6 +36,7 @@ using static Robust.Client.Placement.PlacementManager;
 namespace Content.Client.RCD;
 
 /// <summary>
+/// Funkystation
 /// Allows users to place RCD prototypes with atmos pipe layers on different layers depending on how the mouse cursor is positioned within a grid tile.
 /// </summary>
 /// <remarks>
@@ -48,9 +51,11 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
     [Dependency] private readonly IStateManager _stateManager = default!;
     [Dependency] private readonly IEyeManager _eyeManager = default!;
     [Dependency] private readonly IEntityNetworkManager _entityNetwork = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     private readonly SharedMapSystem _mapSystem;
     private readonly SharedTransformSystem _transformSystem;
+    private readonly SharedAtmosPipeLayersSystem _pipeLayersSystem;
     private readonly SpriteSystem _spriteSystem;
     private readonly RCDSystem _rcdSystem;
 
@@ -61,8 +66,9 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
     private const float GuideOffset = 0.21875f;
 
     private EntityCoordinates _mouseCoordsRaw = default;
-    private AtmosPipeLayer _currentLayer = AtmosPipeLayer.Primary;
+    private static AtmosPipeLayer _currentLayer = AtmosPipeLayer.Primary;
     private Color _guideColor = new(0, 0, 0.5785f);
+    private TimeSpan _lastLayerSendTime = TimeSpan.Zero;
 
     public AlignRPDAtmosPipeLayers(PlacementManager pMan) : base(pMan)
     {
@@ -71,6 +77,7 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
         _transformSystem = _entityManager.System<SharedTransformSystem>();
         _spriteSystem = _entityManager.System<SpriteSystem>();
         _rcdSystem = _entityManager.System<RCDSystem>();
+        _pipeLayersSystem = _entityManager.System<SharedAtmosPipeLayersSystem>();
         ValidPlaceColor = ValidPlaceColor.WithAlpha(PlaceColorBaseAlpha);
     }
 
@@ -142,7 +149,11 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
             newLayer = (direction == Direction.North || direction == Direction.East) ? AtmosPipeLayer.Secondary : AtmosPipeLayer.Tertiary;
         }
 
-        // Update the layer only if within interaction range
+        // Update the layer only if within interaction range, enough time has passed and layer has changed
+        // This is to prevent the layer from being updated too frequently and causing lag
+        // All of this is bad and needs to be reworked at some point maybe by sending 
+        // current layer on click through an afterinteract event specific to the RCD
+
         if (_playerManager.LocalSession?.AttachedEntity is { } player &&
             _entityManager.TryGetComponent<TransformComponent>(player, out var xform) &&
             _transformSystem.InRange(xform.Coordinates, MouseCoords, SharedInteractionSystem.InteractionRange) &&
@@ -150,138 +161,101 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
             hands.ActiveHand?.HeldEntity is { } heldEntity &&
             _entityManager.TryGetComponent<RCDComponent>(heldEntity, out var rcd))
         {
-            _entityNetwork.SendSystemNetworkMessage(new RPDSelectLayerEvent(_entityManager.GetNetEntity(heldEntity), newLayer));
-            _currentLayer = newLayer;
+            var currentTime = _gameTiming.CurTime;
+
+            if (newLayer != _currentLayer && (currentTime - _lastLayerSendTime).TotalMilliseconds > 100)
+            {
+                _entityNetwork.SendSystemNetworkMessage(new RPDSelectLayerEvent(_entityManager.GetNetEntity(heldEntity), newLayer));
+                _lastLayerSendTime = currentTime;
+                _currentLayer = newLayer;
+            }
         }
 
         // Update the construction menu placer
-        if (pManager.Hijack != null)
-        {
-            UpdateHijackedPlacer(_currentLayer, mouseScreen);
-        }
-        else
-        {
-            UpdatePlacer(_currentLayer);
-        }
-    }
-
-    private void UpdateHijackedPlacer(AtmosPipeLayer layer, ScreenCoordinates mouseScreen)
-    {
-        var constructionSystem = (pManager.Hijack as ConstructionPlacementHijack)?.CurrentConstructionSystem;
-        var altPrototypes = (pManager.Hijack as ConstructionPlacementHijack)?.CurrentPrototype?.AlternativePrototypes;
-
-        if (constructionSystem == null || altPrototypes == null || (int)layer >= altPrototypes.Length)
-            return;
-
-        var newProtoId = altPrototypes[(int)layer];
-
-        if (!_protoManager.TryIndex(newProtoId, out var newProto))
-            return;
-
-        if (newProto.Type != ConstructionType.Structure)
-        {
-            pManager.Clear();
-            return;
-        }
-
-        if (newProto.ID == (pManager.Hijack as ConstructionPlacementHijack)?.CurrentPrototype?.ID)
-            return;
-
-        pManager.BeginPlacing(new PlacementInformation()
-        {
-            IsTile = false,
-            PlacementOption = newProto.PlacementMode,
-        }, new ConstructionPlacementHijack(constructionSystem, newProto));
-
-        if (pManager.CurrentMode is AlignRPDAtmosPipeLayers { } newMode)
-            newMode.RefreshGrid(mouseScreen);
-
-        constructionSystem.GetGuide(newProto);
+        UpdatePlacer(_currentLayer);
     }
 
     private void UpdatePlacer(AtmosPipeLayer layer)
     {
+        // Try to get alternative prototypes from the entity atmos pipe layer component
         if (pManager.CurrentPermission?.EntityType == null)
             return;
 
         if (!_protoManager.TryIndex<EntityPrototype>(pManager.CurrentPermission.EntityType, out var currentProto))
             return;
 
-        var baseProtoId = currentProto.ID;
-        if (baseProtoId.EndsWith("Alt1") || baseProtoId.EndsWith("Alt2"))
-            baseProtoId = baseProtoId.Substring(0, baseProtoId.Length - 4);
+        if (!currentProto.TryGetComponent<AtmosPipeLayersComponent>(out var atmosPipeLayers, _entityManager.ComponentFactory))
+            return;
 
-        var newProtoId = layer switch
-        {
-            AtmosPipeLayer.Primary => baseProtoId,
-            AtmosPipeLayer.Secondary => $"{baseProtoId}Alt1",
-            AtmosPipeLayer.Tertiary => $"{baseProtoId}Alt2",
-            _ => baseProtoId
-        };
+        if (!_pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, layer, out var newProtoId))
+            return;
 
         if (_protoManager.TryIndex<EntityPrototype>(newProtoId, out var newProto))
         {
+            // Update the placed prototype
             pManager.CurrentPermission.EntityType = newProtoId;
 
+            // Update the appearance of the ghost sprite
             if (newProto.TryGetComponent<SpriteComponent>(out var sprite, _entityManager.ComponentFactory))
             {
                 var textures = new List<IDirectionalTextureProvider>();
+
                 foreach (var spriteLayer in sprite.AllLayers)
                 {
                     if (spriteLayer.ActualRsi?.Path != null && spriteLayer.RsiState.Name != null)
                         textures.Add(_spriteSystem.RsiStateLike(new SpriteSpecifier.Rsi(spriteLayer.ActualRsi.Path, spriteLayer.RsiState.Name)));
                 }
+
                 pManager.CurrentTextures = textures;
             }
         }
     }
 
-    private void RefreshGrid(ScreenCoordinates mouseScreen)
-    {
-        MouseCoords = ScreenToCursorGrid(mouseScreen).AlignWithClosestGridTile(SearchBoxSize, _entityManager, _mapManager);
-
-        var gridId = _transformSystem.GetGrid(MouseCoords);
-
-        if (!_entityManager.TryGetComponent<MapGridComponent>(gridId, out var mapGrid))
-            return;
-
-        CurrentTile = _mapSystem.GetTileRef(gridId.Value, mapGrid, MouseCoords);
-
-        float tileSize = mapGrid.TileSize;
-        GridDistancing = tileSize;
-
-        if (pManager.CurrentPermission!.IsTile)
-        {
-            MouseCoords = new EntityCoordinates(MouseCoords.EntityId, new Vector2(CurrentTile.X + tileSize / 2,
-                CurrentTile.Y + tileSize / 2));
-        }
-        else
-        {
-            MouseCoords = new EntityCoordinates(MouseCoords.EntityId, new Vector2(CurrentTile.X + tileSize / 2 + pManager.PlacementOffset.X,
-                CurrentTile.Y + tileSize / 2 + pManager.PlacementOffset.Y));
-        }
-    }
-
     public override bool IsValidPosition(EntityCoordinates position)
     {
-        if (_playerManager.LocalSession?.AttachedEntity is not { } player ||
-            !_entityManager.TryGetComponent<TransformComponent>(player, out var xform) ||
-            !_transformSystem.InRange(xform.Coordinates, position, SharedInteractionSystem.InteractionRange))
+        var player = _playerManager.LocalSession?.AttachedEntity;
+
+        // If the destination is out of interaction range, set the placer alpha to zero
+        if (!_entityManager.TryGetComponent<TransformComponent>(player, out var xform))
+            return false;
+
+        if (!_transformSystem.InRange(xform.Coordinates, position, SharedInteractionSystem.InteractionRange))
         {
             InvalidPlaceColor = InvalidPlaceColor.WithAlpha(0);
             return false;
         }
 
-        InvalidPlaceColor = InvalidPlaceColor.WithAlpha(PlaceColorBaseAlpha);
+        // Otherwise restore the alpha value
+        else
+        {
+            InvalidPlaceColor = InvalidPlaceColor.WithAlpha(PlaceColorBaseAlpha);
+        }
 
-        if (!_entityManager.TryGetComponent<HandsComponent>(player, out var hands) ||
-            hands.ActiveHand?.HeldEntity is not { } heldEntity ||
-            !_entityManager.TryGetComponent<RCDComponent>(heldEntity, out var rcd) ||
-            !_rcdSystem.TryGetMapGridData(position, out var mapGridData) ||
-            _stateManager.CurrentState is not GameplayStateBase screen)
+        // Determine if player is carrying an RCD in their active hand
+        if (!_entityManager.TryGetComponent<HandsComponent>(player, out var hands))
+            return false;
+
+        var heldEntity = hands.ActiveHand?.HeldEntity;
+
+        if (!_entityManager.TryGetComponent<RCDComponent>(heldEntity, out var rcd))
+            return false;
+
+        // Retrieve the map grid data for the position
+        if (!_rcdSystem.TryGetMapGridData(position, out var mapGridData))
+            return false;
+
+        // Determine if the user is hovering over a target
+        var currentState = _stateManager.CurrentState;
+
+        if (currentState is not GameplayStateBase screen)
             return false;
 
         var target = screen.GetClickedEntity(_transformSystem.ToMapCoordinates(_mouseCoordsRaw));
-        return _rcdSystem.IsRCDOperationStillValid(heldEntity, rcd, mapGridData.Value, target, player, false);
+
+        // Determine if the RCD operation is valid or not
+        if (!_rcdSystem.IsRCDOperationStillValid(heldEntity.Value, rcd, mapGridData.Value, target, player.Value, false))
+            return false;
+
+        return true;
     }
 }

@@ -24,6 +24,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
@@ -71,7 +72,7 @@ public sealed class RadioSystem : EntitySystem
 
     private void OnIntrinsicSpeak(EntityUid uid, IntrinsicRadioTransmitterComponent component, EntitySpokeEvent args)
     {
-        if (args.Channel != null && component.Channels.Contains(args.Channel.ID))
+        if (args.Channel != null && CanTalkChannel(uid, args.Channel.ID))
         {
             SendRadioMessage(uid, args.Message, args.Channel, uid);
             args.Channel = null; // prevent duplicate messages from other listeners.
@@ -152,7 +153,7 @@ public sealed class RadioSystem : EntitySystem
         {
             if (!radio.ReceiveAllChannels)
             {
-                if (!radio.Channels.Contains(channel.ID) || (TryComp<IntercomComponent>(receiver, out var intercom) &&
+                if (!CanListenChannel(receiver, channel.ID) || (TryComp<IntercomComponent>(receiver, out var intercom) &&
                                                              !intercom.SupportedChannels.Contains(channel.ID)))
                     continue;
             }
@@ -198,6 +199,22 @@ public sealed class RadioSystem : EntitySystem
                 return true;
             }
         }
+        return false;
+    }
+
+    /// Helpers for listening to and talking on channels:
+    private bool CanTalkChannel(EntityUid uid, string channelId){
+        if (TryComp<IntrinsicRadioTransmitterComponent>(uid, out var intrinsicTransmitter) && intrinsicTransmitter.AllChannels.Contains(channelId))
+            return true;
+        
+        return false;
+    }
+
+    private bool CanListenChannel(EntityUid uid, string channelId){
+
+        if (TryComp<ActiveRadioComponent>(uid, out var activeRadio) && activeRadio.AllChannels.Contains(channelId))
+            return true;
+
         return false;
     }
 }

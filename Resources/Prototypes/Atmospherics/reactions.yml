@@ -207,7 +207,7 @@
 
 - type: gasReaction
   id: PluoxiumRadiationProduction
-  priority: 3
+  priority: 4
   minimumTemperature: 50.0
   maximumTemperature: 273.15
   minimumRequirements:

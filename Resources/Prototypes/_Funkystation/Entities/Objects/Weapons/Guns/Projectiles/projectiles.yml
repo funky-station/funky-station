@@ -41,7 +41,7 @@
       collection: MeatLaserImpact
 
 - type: entity
-  name: laser
+  name: energy bolt
   id: ProjectileEnergyGunLaserPractice
   parent: ProjectileEnergyGunLaser
   categories: [ HideSpawnMenu ]

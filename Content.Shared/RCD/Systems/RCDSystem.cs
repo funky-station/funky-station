@@ -28,6 +28,7 @@ using System.Linq;
 using Content.Shared.FixedPoint;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.EntitySystems;
+using System.Numerics;
 
 namespace Content.Shared.RCD.Systems;
 
@@ -51,6 +52,7 @@ public class RCDSystem : EntitySystem
     [Dependency] private readonly TagSystem _tags = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly SharedAtmosPipeLayersSystem _pipeLayersSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
     private readonly int _instantConstructionDelay = 0;
     private readonly EntProtoId _instantConstructionFx = "EffectRCDConstruct0";
@@ -72,7 +74,6 @@ public class RCDSystem : EntitySystem
         SubscribeLocalEvent<RCDComponent, RCDSystemMessage>(OnRCDSystemMessage);
         SubscribeLocalEvent<RCDComponent, RCDColorChangeMessage>(OnColorChange); // Funkystation - Handle rpd color changes
 
-        SubscribeNetworkEvent<RPDSelectLayerEvent>(OnRPDSelectLayerEvent);
         SubscribeNetworkEvent<RCDConstructionGhostRotationEvent>(OnRCDconstructionGhostRotationEvent);
         SubscribeNetworkEvent<RCDConstructionGhostFlipEvent>(OnRCDConstructionGhostFlipEvent);
 
@@ -118,27 +119,6 @@ public class RCDSystem : EntitySystem
         Dirty(uid, component);
     }
 
-    private void OnRPDSelectLayerEvent(RPDSelectLayerEvent ev, EntitySessionEventArgs session)
-    {
-        var uid = GetEntity(ev.NetEntity);
-
-        // Determine if player that sent the message is carrying the specified RCD in their active hand
-        if (session.SenderSession.AttachedEntity is not { } player)
-            return;
-
-        if (!TryComp<HandsComponent>(player, out var hands) || uid != hands.ActiveHand?.HeldEntity)
-            return;
-
-        if (!TryComp<RCDComponent>(uid, out var rcd))
-            return;
-
-        // Update the layer if different
-        if (rcd.LastSelectedLayer != ev.Layer)
-        {
-            rcd.LastSelectedLayer = ev.Layer;
-        }
-    }
-
     private void OnExamine(EntityUid uid, RCDComponent component, ExaminedEvent args)
     {
         if (!args.IsInDetailsRange)
@@ -182,23 +162,39 @@ public class RCDSystem : EntitySystem
         }
 
         // Funky - Update prototype for RPD based on last selected layer
-        // I hate all of this but it works for now
-        if (component.IsRpd)
+        // Parts of this should probably be moved to FinalizeRCDOperation to directly
+        // spawn the correct prototype using PipeLayersSystem's TryGetAlternativePrototype
+        // to avoid the need for extra rcd prototypes and modifying/storing strings.
+        if (component.IsRpd && !component.CachedPrototype.NoLayers)
         {
-            // Determine the base prototype ID by stripping any Alt1 or Alt2 suffix
             var baseProtoId = component.ProtoId.Id;
             if (baseProtoId.EndsWith("Alt1") || baseProtoId.EndsWith("Alt2"))
             {
-                baseProtoId = baseProtoId.Substring(0, baseProtoId.Length - 4); // Remove "Alt1" or "Alt2"
+                baseProtoId = baseProtoId.Substring(0, baseProtoId.Length - 4);
             }
 
-            // Construct the new protoId based on the layer
-            var protoId = component.LastSelectedLayer switch
+            var tileRef = _mapSystem.GetTileRef(mapGridData.Value.GridUid, mapGridData.Value.Component, mapGridData.Value.Location);
+            var tileSize = mapGridData.Value.Component.TileSize;
+            var tileCenter = new Vector2(tileRef.X + tileSize / 2, tileRef.Y + tileSize / 2);
+            var mouseCoordsDiff = args.ClickLocation.Position - tileCenter;
+
+            var newLayer = AtmosPipeLayer.Primary;
+
+            if (Math.Abs(mouseCoordsDiff.X - 0.5f) > 0.25f || Math.Abs(mouseCoordsDiff.Y - 0.5f) > 0.25f)
+            {
+                var gridRotation = _transformSystem.GetWorldRotation(mapGridData.Value.GridUid);
+                var angle = new Angle(new Vector2(mouseCoordsDiff.X - 0.5f, mouseCoordsDiff.Y - 0.5f)) + Math.PI / 2;
+                var direction = angle.GetCardinalDir();
+                newLayer = (direction == Direction.North || direction == Direction.East) ? AtmosPipeLayer.Secondary : AtmosPipeLayer.Tertiary;
+            }
+
+
+            var protoId = newLayer switch
             {
                 AtmosPipeLayer.Primary => baseProtoId,
                 AtmosPipeLayer.Secondary => $"{baseProtoId}Alt1",
                 AtmosPipeLayer.Tertiary => $"{baseProtoId}Alt2",
-                _ => baseProtoId // Fallback to base prototype
+                _ => baseProtoId
             };
 
             if (_protoManager.HasIndex<RCDPrototype>(protoId))

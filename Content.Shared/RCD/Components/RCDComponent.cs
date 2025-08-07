@@ -74,13 +74,6 @@ public sealed partial class RCDComponent : Component
     public (string Key, Color? Color) PipeColor { get; set; } = ("default", null);
 
     /// <summary>
-    /// Funkystation
-    /// Stores layer data for the RPD
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public AtmosPipeLayer LastSelectedLayer = AtmosPipeLayer.Primary;
-
-    /// <summary>
     /// The direction constructed entities will face upon spawning
     /// </summary>
     [DataField, AutoNetworkedField]

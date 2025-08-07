@@ -15,6 +15,7 @@
 # SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2024 ChaseFlorom <57235581+ChaseFlorom@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -60,6 +61,11 @@
   - type: Stack
     stackType: LeavesCannabisDried
     count: 1
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: SolutionContainerManager
     solutions:
       food:
@@ -79,6 +85,11 @@
   - type: Stack
     stackType: GroundCannabis
     count: 1
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: SolutionContainerManager
     solutions:
       food:
@@ -255,6 +266,11 @@
   - type: Stack
     stackType: LeavesTobaccoDried
     count: 1
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: SolutionContainerManager
     solutions:
       food:
@@ -274,6 +290,11 @@
   - type: Stack
     stackType: GroundTobacco
     count: 1
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: SolutionContainerManager
     solutions:
       food:

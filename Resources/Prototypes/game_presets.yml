@@ -29,6 +29,7 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
@@ -46,7 +47,7 @@
   showInVote: false # secret
   description: survival-description
   rules:
-    # - MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
@@ -62,7 +63,7 @@
   showInVote: false # secret
   description: kessler-syndrome-description
   rules:
-#    - KesslerSyndromeScheduler
+    - KesslerSyndromeScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
@@ -81,7 +82,7 @@
     - Zombie
     - BlobGameMode # Goobstation antag
     - SubGamemodesRule
-    # - KesslerSyndromeScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - RampingStationEventScheduler
     - Changeling # Goobstation - changeling playtest
     - SpaceTrafficControlEventScheduler
@@ -103,12 +104,13 @@
     - Traitor
     - Revolutionary
     - Zombie
+    - Wizard
     - BlobGameMode # Goobstation antag
     - SubGamemodesRule
     - BasicStationEventScheduler
-#    - KesslerSyndromeScheduler
-#    - MeteorSwarmMildScheduler # Goob Edit
-#    - MeteorSwarmScheduler # Goob edit
+    - KesslerSyndromeScheduler
+    - MeteorSwarmMildScheduler
+    - MeteorSwarmScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
@@ -125,7 +127,7 @@
   description: extended-description
   rules:
   - BasicStationEventScheduler
-  # - MeteorSwarmScheduler Goobstation - nuh uh
+  - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
 
@@ -161,7 +163,7 @@
   description: secret-description
   rules:
     - BasicStationEventScheduler
-  #  - MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
 
@@ -200,7 +202,7 @@
     - Traitor
     - SubGamemodesRule
     - BasicStationEventScheduler
-    # - MeteorSwarmScheduler
+    - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
 
@@ -229,7 +231,7 @@
     - DummyNonAntagChance
     - SubGamemodesRule
     - BasicStationEventScheduler
-    # - MeteorSwarmScheduler
+    - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
 
@@ -247,7 +249,7 @@
   - Revolutionary
   - SubGamemodesRule
   - BasicStationEventScheduler
-  # - MeteorSwarmScheduler
+  - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
 
@@ -262,7 +264,7 @@
   - Wizard
   - DummyNonAntagChance
   - BasicStationEventScheduler
-  # - MeteorSwarmScheduler
+  - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
 
@@ -280,7 +282,7 @@
   rules:
   - Zombie
   - BasicStationEventScheduler
-#  - MeteorSwarmScheduler Goobstation - nuh uh
+  - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
 
@@ -296,6 +298,6 @@
   rules:
   - Zombie
   - BasicStationEventScheduler
- # - KesslerSyndromeScheduler
+  - KesslerSyndromeScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation

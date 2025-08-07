@@ -85,7 +85,7 @@
     Steel: 500
 
 - type: latheRecipe
-  id: MaterialBagBag
+  id: MaterialBag
   result: MaterialBag
   completetime: 10
   materials:

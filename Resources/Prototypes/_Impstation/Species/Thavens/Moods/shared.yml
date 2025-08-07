@@ -218,6 +218,8 @@
   id: GourmetGas
   moodName: thaven-mood-gourmetgas-name
   moodDesc: thaven-mood-gourmetgas-desc
+  conflicts:
+  - Smoker
 
 # The maintenance tunnels are safe and cozy, a home to all Thaven. Build in them a place worth living.
 - type: thavenMood

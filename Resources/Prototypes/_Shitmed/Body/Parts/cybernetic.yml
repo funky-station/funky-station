@@ -2,15 +2,21 @@
 # SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  id: LeftArmCybernetic
-  parent: LeftArmHuman
   abstract: true
+  parent: BasePartInorganic
+  id: CyberneticPartBase
   components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+  - type: Icon
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
   - type: Damageable
     damageContainer: Silicon
   - type: Cybernetics
@@ -20,9 +26,9 @@
     canBleed: false
 
 - type: entity
-  abstract: true
   parent: [ CyberneticPartBase, BaseLeftArm ]
-  id: LeftArmCyberneticBase
+  id: LeftArmCybernetic
+  name: cybernetic left arm
   components:
   - type: Sprite
     state: "l_arm-combined"
@@ -30,8 +36,6 @@
     state: "l_arm-combined"
   - type: BodyPart
     baseLayerId: MobCyberneticBishopLArm
-  - type: GenerateChildPart
-    id: LeftHandCybernetic
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     occupiedLayer: LArm
@@ -44,16 +48,16 @@
     bleedingOverlay: null
 
 - type: entity
+  parent: [ CyberneticPartBase, BaseRightArm ]
   id: RightArmCybernetic
-  parent: RightArmHuman
-  abstract: true
+  name: cybernetic right arm
   components:
-  - type: Damageable
-    damageContainer: Silicon
+  - type: Sprite
+    state: "r_arm-combined"
+  - type: Icon
+    state: "r_arm-combined"
   - type: BodyPart
     baseLayerId: MobCyberneticBishopRArm
-  - type: GenerateChildPart
-    id: RightHandCybernetic
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     occupiedLayer: RArm
@@ -66,16 +70,16 @@
     bleedingOverlay: null
 
 - type: entity
+  parent: [ CyberneticPartBase, BaseLeftLeg ]
   id: LeftLegCybernetic
-  parent: LeftLegHuman
-  abstract: true
+  name: cybernetic left leg
   components:
-  - type: Damageable
-    damageContainer: Silicon
+  - type: Sprite
+    state: "l_leg-combined"
+  - type: Icon
+    state: "l_leg-combined"
   - type: BodyPart
     baseLayerId: MobCyberneticBishopLLeg
-  - type: GenerateChildPart
-    id: LeftFootCybernetic
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     occupiedLayer: LLeg
@@ -88,16 +92,16 @@
     bleedingOverlay: null
 
 - type: entity
+  parent: [ CyberneticPartBase, BaseRightLeg ]
   id: RightLegCybernetic
-  parent: RightLegHuman
-  abstract: true
+  name: cybernetic right leg
   components:
-  - type: Damageable
-    damageContainer: Silicon
+  - type: Sprite
+    state: "r_leg-combined"
+  - type: Icon
+    state: "r_leg-combined"
   - type: BodyPart
     baseLayerId: MobCyberneticBishopRLeg
-  - type: GenerateChildPart
-    id: RightFootCybernetic
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     occupiedLayer: RLeg
@@ -110,12 +114,10 @@
     bleedingOverlay: null
 
 - type: entity
+  parent: [ CyberneticPartBase, BaseLeftHand ]
   id: LeftHandCybernetic
-  parent: LeftHandHuman
   name: cybernetic left hand
   components:
-  - type: Damageable
-    damageContainer: Silicon
   - type: BodyPart
     baseLayerId: MobCyberneticBishopLHand
   - type: WoundableVisuals
@@ -130,12 +132,10 @@
     bleedingOverlay: null
 
 - type: entity
+  parent: [ CyberneticPartBase, BaseRightHand ]
   id: RightHandCybernetic
-  parent: RightHandHuman
   name: cybernetic right hand
   components:
-  - type: Damageable
-    damageContainer: Silicon
   - type: BodyPart
     baseLayerId: MobCyberneticBishopRHand
   - type: WoundableVisuals
@@ -150,12 +150,10 @@
     bleedingOverlay: null
 
 - type: entity
+  parent: [ CyberneticPartBase, BaseLeftFoot ]
   id: LeftFootCybernetic
-  parent: LeftFootHuman
   name: cybernetic left foot
   components:
-  - type: Damageable
-    damageContainer: Silicon
   - type: BodyPart
     baseLayerId: MobCyberneticBishopLFoot
   - type: WoundableVisuals
@@ -170,12 +168,10 @@
     bleedingOverlay: null
 
 - type: entity
+  parent: [ CyberneticPartBase, BaseRightFoot ]
   id: RightFootCybernetic
-  parent: RightFootHuman
   name: cybernetic right foot
   components:
-  - type: Damageable
-    damageContainer: Silicon
   - type: BodyPart
     baseLayerId: MobCyberneticBishopRFoot
   - type: WoundableVisuals

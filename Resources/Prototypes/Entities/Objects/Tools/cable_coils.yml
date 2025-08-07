@@ -20,6 +20,7 @@
 # SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Debug <49997488+DebugOk@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
 # SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Magnus Larsen <i.am.larsenml@gmail.com>
@@ -49,6 +50,11 @@
     - CableCoil
   - type: Stack
     stackType: Cable
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     sprite: Objects/Tools/cable-coils.rsi
   - type: Item

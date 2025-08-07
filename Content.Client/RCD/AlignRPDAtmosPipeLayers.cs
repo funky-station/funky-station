@@ -120,14 +120,15 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
         }
 
         // Calculate the position of the mouse cursor with respect to the center of the tile to determine which layer to use
+        // For the time being this cannot rotate as there is no way to easily get client rotation data or otherwise 
+        // send the layer to the server. This same check has to be done on the server as well sans client rotation data.
+        // Ghosts accurately reflect final placement of prototypes.
         var mouseCoordsDiff = _mouseCoordsRaw.Position - MouseCoords.Position;
         var newLayer = AtmosPipeLayer.Primary;
-        if (mouseCoordsDiff.Length() > MouseDeadzoneRadius)
+        if (Math.Abs(mouseCoordsDiff.X) > MouseDeadzoneRadius || Math.Abs(mouseCoordsDiff.Y) > MouseDeadzoneRadius)
         {
-            var gridRotation = _transformSystem.GetWorldRotation(gridId.Value);
-            var rawAngle = new Angle(mouseCoordsDiff);
-            var eyeRotation = _eyeManager.CurrentEye.Rotation;
-            var direction = (rawAngle + eyeRotation + gridRotation + Math.PI / 2).GetCardinalDir();
+            var angle = new Angle(new Vector2(mouseCoordsDiff.X, mouseCoordsDiff.Y)) + Math.PI / 2;
+            var direction = angle.GetCardinalDir();
             newLayer = (direction == Direction.North || direction == Direction.East) ? AtmosPipeLayer.Secondary : AtmosPipeLayer.Tertiary;
         }
 
@@ -141,8 +142,9 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
             newLayer != _currentLayer)
         {
             _currentLayer = newLayer;
-            UpdatePlacer(_currentLayer);
         }
+
+        UpdatePlacer(_currentLayer);
     }
 
     private void UpdatePlacer(AtmosPipeLayer layer)

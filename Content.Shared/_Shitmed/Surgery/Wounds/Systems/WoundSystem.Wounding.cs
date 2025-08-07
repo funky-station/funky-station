@@ -8,7 +8,6 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Goobstation.Common.Changeling;
 using Content.Shared._Shitmed.CCVar;
 using Content.Shared._Shitmed.DoAfter;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
@@ -868,8 +867,8 @@ public sealed partial class WoundSystem
         _audio.PlayPvs(woundableComp.WoundableDelimbedSound, bodyPart.Body.Value);
 
         if (woundableComp.DamageOnAmputate != null
-            && _body.TryGetRootPart(bodyPart.Body.Value, out var rootPart)
-            && !HasComp<ChangelingComponent>(bodyPart.Body.Value)) // Shitcod Alert!!!!
+            && _body.TryGetRootPart(bodyPart.Body.Value, out var rootPart))
+            //&& !HasComp<ChangelingComponent>(bodyPart.Body.Value)) // Shitcod Alert!!!!
             _damageable.TryChangeDamage(bodyPart.Body.Value,
                 woundableComp.DamageOnAmputate,
                 targetPart: _body.GetTargetBodyPart(rootPart));

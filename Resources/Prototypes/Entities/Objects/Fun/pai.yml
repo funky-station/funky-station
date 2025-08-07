@@ -84,6 +84,8 @@
     intrinsicChannels:
     - Binary
     - Common
+  - type: EncryptionKeyHolder
+    keySlots: 4
   - type: DoAfter
   - type: Actions
   - type: TypingIndicator
@@ -138,6 +140,8 @@
   - type: ActiveRadio
     intrinsicChannels:
     - Syndicate
+  - type: EncryptionKeyHolder
+    keySlots: 4
   - type: Appearance
   - type: GenericVisualizer
     visuals:

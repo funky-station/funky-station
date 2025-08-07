@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT
 
 - type: entity
-  name: laser
+  name: energy bolt
   id: ProjectileEnergyGunLaser
   parent: BaseBullet
   categories: [ HideSpawnMenu ]

@@ -9,10 +9,10 @@
 # SPDX-License-Identifier: MIT
 
 - type: entity
-  name: ore bag
+  name: scrap bag # Funky Station changed to make it also be able to pick up scrap items 
   id: OreBag
   parent: BaseStorageItem
-  description: A robust bag for salvage specialists and miners alike to carry large amounts of ore. Magnetises any nearby ores when attached to a belt.
+  description: A robust bag for salvage specialists and miners alike to carry large amounts of ore or scrap. Magnetises any nearby raw resources when attached to a belt.
   components:
   - type: MagnetPickup
   - type: Sprite
@@ -26,13 +26,14 @@
   - type: Item
     size: Ginormous
   - type: Storage
-    maxItemSize: Normal
+    maxItemSize: Large
     grid:
-    - 0,0,9,3
+    - 0,0,9,4
     quickInsert: true
     areaInsert: true
     whitelist:
       tags:
         - ArtifactFragment
         - Ore
+        - Recyclable
   - type: Dumpable

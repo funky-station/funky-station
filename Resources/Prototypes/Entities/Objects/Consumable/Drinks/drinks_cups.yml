@@ -127,7 +127,12 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/golden_cup.rsi
   - type: StaticPrice
-    price: 125
+    price: 400 # Funky, inceased sell value and made it recycle into a bit of gold and silver
+  - type: PhysicalComposition  
+    materialComposition:
+      Gold: 125
+      Silver: 125
+
 
 - type: entity
   parent: DrinkBaseCup

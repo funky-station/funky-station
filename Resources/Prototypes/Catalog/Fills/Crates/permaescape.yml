@@ -99,10 +99,10 @@
     - id: WeaponPistolMk58
       prob: 0.15
       orGroup: gun
-    - id: FoamCrossbow
+    - id: WeaponLaserSvalinn
       prob: 0.10
       orGroup: gun
-    - id: WeaponRifleFoam
+    - id: WeaponLaserGun
       prob: 0.05
       orGroup: gun
     - id: WeaponPistolFlintlock
@@ -117,10 +117,7 @@
     - id: WeaponRevolverPirate
       prob: 0.15
       orGroup: gun
-    - id: WeaponProtoKineticAccelerator
-      prob: 0.20
-      orGroup: gun
-
+      
 - type: entity
   id: CratePermaEscapeBureaucracy
   parent: CrateGenericSteel

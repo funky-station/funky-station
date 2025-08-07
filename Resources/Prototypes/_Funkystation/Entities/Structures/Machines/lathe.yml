@@ -54,3 +54,78 @@
     - BagpipeInstrument
   - type: Machine
     board: MusicTechFabCircuitboard
+
+- type: entity
+  id: CargoTechFab
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  name: cargo techfab
+  description: Prints equipment for use by cargo personnel.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/techfab.rsi
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: cargo
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    staticRecipes:
+    - FultonBeacon
+    - Fulton
+    - AppraisalTool
+    - SheetRGlass
+    - SheetPGlass
+    - SheetRPGlass
+    - SheetUGlass
+    - SheetRUGlass
+    - SheetPlasteel
+    - ToolboxArtistic
+    - ToolboxEmergency
+    - ToolboxElectrical
+    - ToolboxMechanical
+    - OreBag
+    - MaterialBag
+    - WeaponGrapplingGun
+    - NFWeaponHoloflareGun
+    - HandheldGPSBasic
+    - MailCapsulePrimed
+    - MechEquipmentGrabberSmall
+    dynamicRecipes:
+    - MiningDrill
+    - MiningDrillDiamond
+    - HandHeldMassScanner
+    - MineralScannerEmpty
+    - AdvancedMineralScannerEmpty
+    - WeaponProtoKineticAccelerator
+    - ClothingShoesBootsMagSci
+    - OreBagOfHolding # It can create bluespace bags, but *not* synthethic bluespace crystals from diamonds and plasma
+    - ClothingBackpackHolding
+    - ClothingBackpackSatchelHolding
+    - ClothingBackpackDuffelHolding
+    - WeaponPlasmaCutter
+    - HandHeldMassScannerEmpty
+    - MechEquipmentGrabber
+    - MechEquipmentDrill
+    - MechEquipmentDrillDiamond
+    - MechEquipmentKineticAccelerator
+    - CargoTelepadMachineCircuitboard
+  - type: EmagLatheRecipes
+    emagStaticRecipes:
+    - ToolboxSyndicate  
+  - type: Machine
+    board: CargoTechFabCircuitboard
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: RequireProjectileTarget    

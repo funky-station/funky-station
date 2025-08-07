@@ -309,7 +309,7 @@
   - type: Sprite
     sprite: Structures/Storage/Crates/plasma.rsi
   - type: AccessReader
-    access: [["Engineering"], ["Research"], ["Chemistry"]]
+    access: [["Engineering"], ["Research"], ["Chemistry"], ["Cargo"]]  # Funky station, Cargo access added
 
 - type: entity
   parent: CrateBaseSecure

@@ -106,6 +106,10 @@
     - id: AstroNavCartridge
     - id: ClothingOuterHardsuitLuxury
     - id: ClothingHandsKnuckleDustersQM
+    # Funky
+    - id: CargoTechFabCircuitboard
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
 
 - type: entity
   id: LockerQuarterMasterFilled

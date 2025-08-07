@@ -224,9 +224,7 @@
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampHop
-    # funkystation: removing disabler and instead using energy pistol
-    # - id: WeaponDisabler
-    - id: WeaponDisablerPlus # funkystation adding unique hop weapon
+    - id: WeaponEnergyGunMiniature # funky
     - id: ClothingEyesHudCommand
     - id: PDA_cartridge_case
 

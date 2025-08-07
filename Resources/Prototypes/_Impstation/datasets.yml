@@ -98,12 +98,31 @@
   - Suppermatter
   - Stick of Cannabis Butter
   - Bungo Curry
-  - Salty Sweet Miso Cola Soup
+  - Valid Salad
   - Bread Dog
-  - Camel's Soup
-  - Toddler Rings Stew
-  - Heart Carpaccio
-
+  - Cak
+  - Slime Cake
+  - Sashimi
+  - Mothroachburger
+  - Amanita Jelly
+  - Spicy Rock Pizza
+  
+- type: dataset
+  id: MoodDrinkables
+  values:
+  - Chutzpah
+  - Cogchamp
+  - Demon's Blood
+  - Devil's Kiss
+  - Driest Martini
+  - Fever Dream
+  - Mindbreaker Toxin
+  - Happiness
+  - Acidspit
+  - Hippie's Delight
+  - Tayquila
+  - Three Mile Island Iced Tea
+  
 - type: dataset
   id: MoodHolidays
   values:

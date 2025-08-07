@@ -465,6 +465,7 @@
     - CassetteTape
     - TapeRecorder
     # End Delta-V additions
+    - TankHarness
     dynamicRecipes:
     - BoomboxRed
     - BoomboxGreen

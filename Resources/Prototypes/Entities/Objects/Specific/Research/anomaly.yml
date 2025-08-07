@@ -28,6 +28,7 @@
     sprite: Objects/Specific/Research/anomalyscanner.rsi
     layers:
       - state: icon
+        map: ["enum.AnomalyScannerVisualLayers.Base"]
       - map: ["enum.AnomalyScannerVisualLayers.Screen"]
         visible: false
         shader: unshaded

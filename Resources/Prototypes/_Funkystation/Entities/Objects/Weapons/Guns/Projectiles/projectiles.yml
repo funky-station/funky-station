@@ -1,5 +1,5 @@
 - type: entity
-  name: energy bolt
+  name: laser
   id: ProjectileEnergyGunLaser
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -35,3 +35,15 @@
         Heat: 20
     soundHit:
       collection: MeatLaserImpact
+
+- type: entity
+  name: laser
+  id: ProjectileEnergyGunLaserPractice
+  parent: ProjectileEnergyGunLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectRedDisabler
+    damage:
+      types:
+        Heat: 0

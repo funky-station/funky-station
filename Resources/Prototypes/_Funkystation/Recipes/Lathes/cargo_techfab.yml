@@ -97,7 +97,7 @@
     Steel: 500
 
 - type: latheRecipe
-  id: WeaponGrapplingGun
+  id: GrapplingGun
   result: WeaponGrapplingGun
   completetime: 10
   materials:

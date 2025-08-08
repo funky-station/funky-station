@@ -3,6 +3,7 @@ using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
+using Content.Shared.RCD;
 using Content.Shared.RCD.Components;
 using Content.Shared.RCD.Systems;
 using Robust.Client.GameObjects;
@@ -34,6 +35,7 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IStateManager _stateManager = default!;
     [Dependency] private readonly IEyeManager _eyeManager = default!;
+    [Dependency] private readonly IEntityNetworkManager _entityNetwork = default!;
 
     private readonly SharedMapSystem _mapSystem;
     private readonly SharedTransformSystem _transformSystem;
@@ -49,6 +51,7 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
 
     private EntityCoordinates _mouseCoordsRaw = default;
     private static AtmosPipeLayer _currentLayer = AtmosPipeLayer.Primary;
+    private static float? _currentEyeRotation = null;
     private Color _guideColor = new(0, 0, 0.5785f);
 
     public AlignRPDAtmosPipeLayers(PlacementManager pMan) : base(pMan)
@@ -120,15 +123,14 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
         }
 
         // Calculate the position of the mouse cursor with respect to the center of the tile to determine which layer to use
-        // For the time being this cannot rotate as there is no way to easily get client rotation data or otherwise 
-        // send the layer to the server. This same check has to be done on the server as well sans client rotation data.
-        // Ghosts accurately reflect final placement of prototypes.
         var mouseCoordsDiff = _mouseCoordsRaw.Position - MouseCoords.Position;
         var newLayer = AtmosPipeLayer.Primary;
-        if (Math.Abs(mouseCoordsDiff.X) > MouseDeadzoneRadius || Math.Abs(mouseCoordsDiff.Y) > MouseDeadzoneRadius)
+        if (mouseCoordsDiff.Length() > MouseDeadzoneRadius)
         {
-            var angle = new Angle(new Vector2(mouseCoordsDiff.X, mouseCoordsDiff.Y)) + Math.PI / 2;
-            var direction = angle.GetCardinalDir();
+            var gridRotation = _transformSystem.GetWorldRotation(gridId.Value);
+            var rawAngle = new Angle(mouseCoordsDiff);
+            var eyeRotation = _eyeManager.CurrentEye.Rotation;
+            var direction = (rawAngle + eyeRotation + gridRotation + Math.PI / 2).GetCardinalDir();
             newLayer = (direction == Direction.North || direction == Direction.East) ? AtmosPipeLayer.Secondary : AtmosPipeLayer.Tertiary;
         }
 
@@ -138,13 +140,27 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
             _transformSystem.InRange(xform.Coordinates, MouseCoords, SharedInteractionSystem.InteractionRange) &&
             _entityManager.TryGetComponent<HandsComponent>(player, out var hands) &&
             hands.ActiveHand?.HeldEntity is { } heldEntity &&
-            _entityManager.TryGetComponent<RCDComponent>(heldEntity, out var rcd) &&
-            newLayer != _currentLayer)
+            _entityManager.TryGetComponent<RCDComponent>(heldEntity, out var rcd))
         {
-            _currentLayer = newLayer;
+            if (newLayer != _currentLayer)
+            {
+                _currentLayer = newLayer;
+            }
+            UpdateEyeRotation(heldEntity, _eyeManager.CurrentEye.Rotation);
         }
 
         UpdatePlacer(_currentLayer);
+    }
+
+    // Since player eye rotation isn't networked, we need a way of sending current eye rotation to the rpd for correct layer placement
+    // hopefully a better solution is found eventually
+    private void UpdateEyeRotation(EntityUid heldEntity, Angle eyeRotation)
+    {
+        if (_currentEyeRotation != eyeRotation.Theta)
+        {
+            _currentEyeRotation = (float) eyeRotation.Theta;
+            _entityNetwork.SendSystemNetworkMessage(new RPDEyeRotationEvent(_entityManager.GetNetEntity(heldEntity), _currentEyeRotation));
+        }
     }
 
     private void UpdatePlacer(AtmosPipeLayer layer)

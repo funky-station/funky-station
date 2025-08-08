@@ -68,10 +68,6 @@ public sealed partial class RCDMenu : RadialMenu
             if (!_protoManager.TryIndex(protoId, out var proto))
                 continue;
 
-            // Funky - Skip prototypes with category "hidden"
-            if (string.Equals(proto.Category, "hidden", StringComparison.OrdinalIgnoreCase))
-                continue;
-
             if (proto.Mode == RcdMode.Invalid)
                 continue;
 

@@ -36,8 +36,6 @@
     - id: ShardGlass
       amount: !type:RangeNumberSelector
         range: 1, 3
-      amount: !type:RangeNumberSelector
-        range: 1, 3
     - id: SheetPlastic1
       weight: 0.5
       amount: !type:RangeNumberSelector
@@ -159,9 +157,6 @@
   table: !type:GroupSelector
     children:
     - id: ClothingMaskGoldenCursed
-    - id: ClothingHeadHatFancyCrown
-    - id: GoldenBikeHorn
-    
     - id: CrateCargoGambling
     - id: TreasureCoinDiamond
       amount: !type:RangeNumberSelector
@@ -229,15 +224,13 @@
     - id: WelderIndustrial
     - id: SyndicateBusinessCard
       weight: 0.1    
-    - !type:GroupSelector
-      children:
-      - id: ClothingHeadHatWelding
-      - id: ClothingHeadHatWeldingMaskFlame
-        weight: 0.25
-      - id: ClothingHeadHatWeldingMaskFlameBlue
-        weight: 0.25
-      - id: ClothingHeadHatWeldingMaskPainted
-        weight: 0.1
+    - id: ClothingHeadHatWelding
+    - id: ClothingHeadHatWeldingMaskFlame
+      weight: 0.25
+    - id: ClothingHeadHatWeldingMaskFlameBlue
+      weight: 0.25
+    - id: ClothingHeadHatWeldingMaskPainted
+      weight: 0.1
 
 - type: entityTable
   id: SalvageEquipmentRare
@@ -248,35 +241,31 @@
         range: 1, 3
     - id: WeaponCrusherDagger
     - id: ClothingBeltSalvageWebbing
-    - id: SeismicCharge  
+    - id: SeismicCharge
+    - id: MedkitBruteFilled  
     - id: WeaponCrusher
       weight: 0.5
     - id: WeaponCrusherGlaive  
       weight: 0.5    
     - id: ClothingOuterHardsuitSalvage     
       weight: 0.25     
-    - !type:GroupSelector
-      children:
-      - id: JetpackBlueFilled
-      - id: JetpackBlackFilled # This is technically sindie contra, but its not any diffrent from a regular jetpack
-        weight: 0.25
-      - id: DoubleEmergencyNitrogenTankFilled
-        weight: 0.5        
-      - id: DoubleEmergencyOxygenTankFilled        
+    - id: JetpackBlueFilled
+    - id: JetpackBlackFilled # This is technically sindie contra, but its not any diffrent from a regular jetpack
+      weight: 0.25
+    - id: DoubleEmergencyNitrogenTankFilled
+      weight: 0.5        
+    - id: DoubleEmergencyOxygenTankFilled        
 
 - type: entityTable
   id: SalvageEquipmentLegendary
   table: !type:GroupSelector
     children:
-    - id: CratePermaEscapeEVA
     - id: CratePermaEscapeGun
     - id: CratePermaEscapeGiftsFromSyndicate
       weight: 0.45    
     - id: CratePermaEscapeMerc
-    - id: CratePermaEscapeComs
-    - id: CratePermaEscapeMats
-    - id: CratePermaEscapeDigging
     - id: ClothingBackpackSatchelSmugglerUnanchored
+    - id: MedkitAdvancedFilled
     - id: ClothingOuterHardsuitMaxim # funkystation
       weight: 0.05
     - id: PowerCellAntiqueProto

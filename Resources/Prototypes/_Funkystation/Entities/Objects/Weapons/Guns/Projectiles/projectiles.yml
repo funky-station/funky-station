@@ -92,3 +92,12 @@
     soundHit:
       collection: WeakHit
     forceSound: true
+
+- type: entity
+  name : disabler bolt
+  id: ProjectileEnergyGunDisablerPractice
+  parent: ProjectileEnergyGunDisabler
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StaminaDamageOnCollide
+    damage: 0

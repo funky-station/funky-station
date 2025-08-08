@@ -8,6 +8,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared._DV.CosmicCult;
 using Content.Shared.Revolutionary;
 using Robust.Shared.GameStates;
 using Content.Shared.StatusIcon;
@@ -18,7 +19,7 @@ namespace Content.Shared.Mindshield.Components;
 /// <summary>
 /// If a player has a Mindshield they will get this component to prevent conversion.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(SharedRevolutionarySystem))] //Goobstation - AutoGenerateComponentState
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(SharedRevolutionarySystem),typeof(SharedCosmicCultSystem))] //Goobstation - AutoGenerateComponentState
 public sealed partial class MindShieldComponent : Component
 {
     [DataField, ViewVariables(VVAccess.ReadWrite)]

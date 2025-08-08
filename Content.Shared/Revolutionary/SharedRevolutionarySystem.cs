@@ -21,6 +21,8 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 using Content.Shared.Antag;
 using Content.Shared.Strip.Components;
+using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._DV.Roles;
 
 namespace Content.Shared.Revolutionary;
 
@@ -70,6 +72,13 @@ public abstract class SharedRevolutionarySystem : EntitySystem
             _sharedStun.TryParalyze(uid, stunTime, true);
             _popupSystem.PopupEntity(Loc.GetString("rev-break-control", ("name", name)), uid);
         }
+
+        if (HasComp<CosmicCultComponent>(uid) || HasComp<CosmicCultLeadComponent>(uid))
+        {
+            comp.Broken = true; // Goobstation - Broken mindshield implant instead of break it
+            Dirty(uid, comp);
+            return;
+        }
     }
 
     /// <summary>
@@ -104,7 +113,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
 
         return HasComp<ShowAntagIconsComponent>(uid);
     }
-    
+
     /// <summary>
     /// Dirties all the Rev components so they are sent to clients.
     ///
@@ -150,7 +159,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
     {
         if (user != target)
             return false;
-        
+
         if (!TryComp<TagComponent>(implant, out var tagComp))
             return false;
 

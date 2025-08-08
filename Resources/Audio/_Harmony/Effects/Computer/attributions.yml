@@ -1,0 +1,4 @@
+﻿- files: ["*.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from NSV13"
+  source: "https://github.com/BeeStation/NSV13/commit/dfd5d068b8cbadd3130e76c3613d9e4094a5166d"

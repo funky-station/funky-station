@@ -106,6 +106,18 @@
   - type: Wires
     boardName: wires-board-name-computer
     layoutId: Computer
+# Begin Harmony changes, add ambience
+  - type: SpamEmitSoundRequirePower
+  - type: SpamEmitSound
+    minInterval: 15
+    maxInterval: 30
+    sound:
+      collection: HarmonyComputerSFX
+      params:
+        volume: -8
+        maxDistance: 3.5
+        variation: 0.1
+# End Harmony changes
 #
 #     This is overwritten by children, so needs to be defined there
 #  - type: UserInterface

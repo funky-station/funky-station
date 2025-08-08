@@ -60,6 +60,7 @@
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 vanx <61917534+Vaaankas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Cthyga <41489382+Cthyga@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Liamofthesky <157073227+Liamofthesky@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
@@ -253,12 +254,12 @@
   - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 62.5
+  - type: ProjectileBatteryAmmoProvider #funky
+    proto: ProjectileEnergyGunLaser #funky
+    fireCost: 100 #funky
   - type: Battery
-    maxCharge: 500
-    startingCharge: 500
+    maxCharge: 700 #funky
+    startingCharge: 700 #funky
   - type: Multishot # Goobstation
 
 - type: entity
@@ -318,9 +319,12 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaserPractice
-    fireCost: 62.5
+  - type: Battery #funky change start
+    maxCharge: 1500
+    startingCharge: 1500
+  - type: ProjectileBatteryAmmoProvider
+    proto: ProjectileEnergyGunLaserPractice
+    fireCost: 100 #funky change end
   - type: StaticPrice
     price: 300
 
@@ -332,9 +336,9 @@
   components:
   - type: StaticPrice
     price: 420
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 62.5
+  - type: ProjectileBatteryAmmoProvider #funky change end
+    proto: ProjectileEnergyGunLaser
+    fireCost: 100 #funky change end
   - type: Tag
     tags:
       - Rifle
@@ -570,8 +574,8 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisablerPractice
-    fireCost: 50
+    proto: ProjectileEnergyGunDisablerPractice #funky
+    fireCost: 100 #funky
 
 - type: entity
   name: disabler
@@ -594,8 +598,8 @@
       - backStorage
       - Belt
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
-    fireCost: 50
+    proto: ProjectileEnergyGunDisabler #funky
+    fireCost: 100 #funky
   - type: GuideHelp
     guides:
     - Security
@@ -698,10 +702,10 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000 # Funkystation added battery component?
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
+    maxCharge: 1200 #funky change start
+    startingCharge: 1200 # Funkystation added battery component
+  - type: ProjectileBatteryAmmoProvider
+    proto: ProjectileEnergyGunLaser #funky change end
     fireCost: 100
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -746,8 +750,8 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
+  - type: ProjectileBatteryAmmoProvider #funky
+    proto: ProjectileEnergyGunLaser #funky
     fireCost: 100
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -848,8 +852,8 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_clown.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
+  - type: ProjectileBatteryAmmoProvider #funky
+    proto: ProjectileEnergyGunLaser #funky
     fireCost: 100
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -931,6 +935,7 @@
     slots: # Frontier
     # - Back # Frontier
     - backStorage #Frontier
+    - belt # Funky
     sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
   - type: Gun
     soundGunshot:
@@ -941,16 +946,16 @@
     maxCharge: 2000
     startingCharge: 2000
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
+    proto: ProjectileEnergyGunDisabler #funky
     fireCost: 100
   - type: EnergyGun
     fireModes:
-    - proto: BulletDisabler
+    - proto: ProjectileEnergyGunDisabler #funky
       fireCost: 100
       name: disabling
       state: disabler
-    - proto: BulletEnergyGunLaser
-      fireCost: 200
+    - proto: ProjectileEnergyGunLaser # Funky
+      fireCost: 100 #funky matching other guns
       name: lethal
       state: lethal
     - proto: BulletEnergyGunIon

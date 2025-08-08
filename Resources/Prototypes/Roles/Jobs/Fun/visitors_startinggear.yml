@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -237,8 +238,8 @@
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterArmorBasic
-    pocket1: WeaponPistolMk58
-    pocket2: MagazinePistol
+    pocket1: WeaponEnergyGunMiniature #funky
+#    pocket2: MagazinePistol
   inhand:
   - FlashlightSeclite
 
@@ -255,8 +256,8 @@
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterArmorBasicSlim
-    pocket1: WeaponPistolMk58
-    pocket2: MagazinePistol
+    pocket1: WeaponEnergyGunMiniature #funky
+#    pocket2: MagazinePistol
   inhand:
   - FlashlightSeclite
 
@@ -272,8 +273,8 @@
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterArmorBasic
-    pocket1: WeaponPistolMk58
-    pocket2: MagazinePistol
+    pocket1: WeaponEnergyGunMiniature #funky
+#    pocket2: MagazinePistol
   inhand:
   - FlashlightSeclite
 
@@ -290,8 +291,8 @@
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterArmorBasicSlim
-    pocket1: WeaponPistolMk58
-    pocket2: MagazinePistol
+    pocket1: WeaponEnergyGunMiniature #funky
+#    pocket2: MagazinePistol
   inhand:
   - FlashlightSeclite
 

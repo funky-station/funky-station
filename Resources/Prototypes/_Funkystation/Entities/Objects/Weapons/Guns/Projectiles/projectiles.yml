@@ -1,0 +1,107 @@
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  name: laser
+  id: ProjectileEnergyGunLaser
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: heavylaser
+      shader: unshaded
+  - type: Ammo
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        mask:
+        - Opaque
+  - type: Projectile
+    impactEffect: BulletImpactEffectRedDisabler
+    damage:
+      types:
+        Heat: 20
+    soundHit:
+      collection: MeatLaserImpact
+
+- type: entity
+  name: laser
+  id: ProjectileEnergyGunLaserPractice
+  parent: ProjectileEnergyGunLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectRedDisabler
+    damage:
+      types:
+        Heat: 0
+
+- type: entity
+  name : disabler bolt
+  id: ProjectileEnergyGunDisabler
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+      shader: unshaded
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.3,0.15,0.3"
+        hard: false
+        mask:
+        - Opaque # Goobstation
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+  - type: Ammo
+  - type: StaminaDamageOnCollide
+    damage: 33
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Ion: 0
+        Heat: 0
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+- type: entity
+  name : disabler bolt
+  id: ProjectileEnergyGunDisablerPractice
+  parent: ProjectileEnergyGunDisabler
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StaminaDamageOnCollide
+    damage: 0

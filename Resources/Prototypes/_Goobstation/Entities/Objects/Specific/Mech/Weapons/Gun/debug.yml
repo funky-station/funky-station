@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
 # SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -95,7 +96,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
+    proto: ProjectileEnergyGunDisabler #funky
     fireCost: 19
   - type: MagazineVisuals
     magState: mag

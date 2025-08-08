@@ -5,6 +5,8 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
+# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -124,16 +126,16 @@
     maxCharge: 1800
     startingCharge: 1800
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
+    proto: ProjectileEnergyGunDisabler #funky
     fireCost: 100
   - type: EnergyGun
     fireModes:
-    - proto: BulletDisabler
+    - proto: ProjectileEnergyGunDisabler #funky
       fireCost: 100
       name: disabling
       state: disabler
-    - proto: BulletEnergyGunMagnum
-      fireCost: 225
+    - proto: ProjectileEnergyGunLaser # Funky
+      fireCost: 100 #funky
       name: lethal
       state: lethal
   - type: MagazineVisuals

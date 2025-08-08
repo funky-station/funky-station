@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Encryption key sprites for Funky Station by @Catazeus (GitHub).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "default"
+        },
+        {
+            "name": "silver"
+        },
+        {
+            "name": "gold"
+        },
+        {
+            "name": "cc"
+        },
+        {
+            "name": "nt"
+        },
+        {
+            "name": "freelance"
+        },
+        {
+            "name": "syndicate"
+        },
+        {
+            "name": "future"
+        },
+        {
+            "name": "label-common"
+        },
+        {
+            "name": "label-service"
+        },
+        {
+            "name": "label-cargo"
+        },
+        {
+            "name": "label-engineering"
+        },
+        {
+            "name": "label-medical"
+        },
+        {
+            "name": "label-medsci"
+        },
+        {
+            "name": "label-science"
+        },
+        {
+            "name": "label-robotics"
+        },
+        {
+            "name": "label-security"
+        },
+        {
+            "name": "label-command"
+        },
+        {
+            "name": "label-master"
+        },
+        {
+            "name": "label-cc"
+        },
+        {
+            "name": "label-nt"
+        },
+        {
+            "name": "label-binary"
+        },
+        {
+            "name": "label-sinary"
+        },
+        {
+            "name": "label-syndicate"
+        },
+        {
+            "name": "label-freelance"
+        },
+        {
+            "name": "label-future",
+            "delays": [
+                [ 0.2, 0.2, 0.2, 0.2 ]
+            ]
+        }
+
+    ]
+}

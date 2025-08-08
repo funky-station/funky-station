@@ -63,7 +63,7 @@
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
 
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowBackStorageClothing, ClothingOuterArmorBase]
+  parent: [ClothingOuterStorageBase, AllowBackStorageClothingCombat, ClothingOuterArmorBase]
   id: ClothingOuterCoatDetective
   name: detective trenchcoat
   description: An 18th-century multi-purpose trenchcoat. Someone who wears this means serious business.
@@ -113,7 +113,7 @@
 
 - type: entity
   abstract: true
-  parent: AllowBackStorageClothing
+  parent: AllowBackStorageClothingCombat
   id: ClothingOuterArmorHoS
   components:
   - type: Armor
@@ -129,7 +129,7 @@
 
 - type: entity
   abstract: true
-  parent: AllowBackStorageClothing
+  parent: AllowBackStorageClothingCombat
   id: ClothingOuterArmorWarden
   components:
   - type: Armor

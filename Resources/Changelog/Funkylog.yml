@@ -3827,3 +3827,119 @@ Entries:
         color wise.
   id: 459
   time: '2025-07-27T20:02:44.0000000+00:00'
+- author: sitovina
+  changes:
+    - type: Add
+      message: Added the mothroach plushie
+  id: 460
+  time: '2025-07-30T03:06:13.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: The RPD can now create painted pipes.
+    - type: Tweak
+      message: More atmospheric devices and pipes can now be made with the RPD.
+    - type: Fix
+      message: 'The RPD can no longer stack atmos devices. '
+  id: 461
+  time: '2025-07-30T03:59:15.0000000+00:00'
+- author: ItsAurelai
+  changes:
+    - type: Add
+      message: Added a new standard Thaven mood to the mood pool.
+    - type: Tweak
+      message: >-
+        Tweaked the GiftReciever and FavorsRepaid moods to not be rolled at the
+        same time as one another.
+  id: 462
+  time: '2025-07-31T21:26:37.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: Resprited all PDAs
+  id: 463
+  time: '2025-08-01T12:21:54.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Add
+      message: >-
+        Added the Nippon-tan, SweatMAX and Mars Mart vendors, alongside new
+        restock crates for them to buy at cargo
+    - type: Tweak
+      message: Most trash items now recycle into plastic rather than steel
+  id: 464
+  time: '2025-08-01T23:23:36.0000000+00:00'
+- author: Catazeus
+  changes:
+    - type: Tweak
+      message: New Encryption Key sprites.
+  id: 465
+  time: '2025-08-01T23:31:52.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: >-
+        Fire visuals will no longer remain on tiles with more than 5 mols of
+        hypernoblium present. 
+  id: 466
+  time: '2025-08-01T23:39:51.0000000+00:00'
+- author: Icepick, Frostwight
+  changes:
+    - type: Tweak
+      message: Rules 6, 12, and 13 have been tweaked.
+  id: 467
+  time: '2025-08-01T23:40:39.0000000+00:00'
+- author: GreyMario
+  changes:
+    - type: Fix
+      message: Roundstart budget no longer balloons out of control.
+  id: 468
+  time: '2025-08-01T23:46:54.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Tweak
+      message: Altered western security on Box
+    - type: Tweak
+      message: Altered northern maints on Box
+  id: 469
+  time: '2025-08-01T23:47:31.0000000+00:00'
+- author: Ekpy
+  changes:
+    - type: Add
+      message: Porting over Wizden Station AI customizations
+  id: 470
+  time: '2025-08-01T23:52:06.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: HFR power draw has been lowered from 250kW to 100kW
+  id: 471
+  time: '2025-08-02T20:29:11.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Gas canisters can now be constructed and deconstructed.
+  id: 472
+  time: '2025-08-02T20:31:33.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Added temperature adjusting component
+  id: 473
+  time: '2025-08-02T20:35:15.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Add
+      message: New lobby track
+    - type: Tweak
+      message: Changed lowpopcrew art to a new one
+  id: 474
+  time: '2025-08-03T00:53:54.0000000+00:00'
+- author: kallalilies
+  changes:
+    - type: Tweak
+      message: various minor fixes and tweaks to the Cluster map
+    - type: Add
+      message: Polly the Parrot will now spawn in the Cluster Chief Engineer's room
+  id: 475
+  time: '2025-08-05T03:31:19.0000000+00:00'

@@ -55,6 +55,7 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Nikovnik <116634167+nkokic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Zephyr <68482449+Zephyrpak@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
@@ -310,8 +311,8 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.01
     coolingCoefficient: 0.2
-  - type: FireProtection
-    reduction: 0.15 # not fully sealed so less protection
+  - type: FireResistance
+    damageCoefficient: 0.85 # not fully sealed so less protection
   - type: IdentityBlocker
   - type: Tag
     tags:
@@ -340,11 +341,11 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.01
     coolingCoefficient: 0.2
-  - type: FireProtection
-    reduction: 0.2
   - type: PressureProtection
     highPressureMultiplier: 0.25
     lowPressureMultiplier: 1000
+  - type: FireResistance
+    damageCoefficient: 0.8
   - type: IdentityBlocker
   - type: Tag
     tags:
@@ -561,7 +562,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        
+
 - type: entity
   id: ActionToggleJusticeHelm
   name: Toggle Justice Helm

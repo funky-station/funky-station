@@ -106,14 +106,14 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.005
     coolingCoefficient: 0.05
-  - type: FireProtection
-    reduction: 0.65 # doesnt have a full seal so not as good
   - type: Armor
     modifiers:
       coefficients:
         Slash: 0.9
         Heat: 0.8
         Cold: 0.8
+  - type: FireResistance
+    damageCoefficient: 0.65 # doesnt have a full seal so not as good
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.7
@@ -138,14 +138,14 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.001
     coolingCoefficient: 0.05
-  - type: FireProtection
-    reduction: 0.8 # atmos firesuit offers best protection, hardsuits are a little vulnerable
   - type: Armor
     modifiers:
       coefficients:
         Slash: 0.9
         Heat: 0.8
         Cold: 0.8
+  - type: FireResistance
+    damageCoefficient: 0.20 # atmos firesuit offers best protection, hardsuits are a little vulnerable
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -183,7 +183,7 @@
     slots: WITHOUT_POCKET
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowTankStorageClothing, AllowBackStorageClothing, BaseToggleClothing, BaseMajorContraband]
+  parent: [ClothingOuterBaseLarge, AllowTankStorageClothing, AllowBackStorageClothingCombat, BaseToggleClothing, BaseMajorContraband]
   id: ClothingOuterSuitSpaceNinja
   name: space ninja suit
   description: This black technologically advanced, cybernetically-enhanced suit provides many abilities like invisibility or teleportation.

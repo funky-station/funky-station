@@ -986,9 +986,6 @@
   - type: Tag
     tags:
     - HighRiskItem
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 40
   - type: StaticPrice
     price: 750
 

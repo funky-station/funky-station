@@ -11,7 +11,7 @@
   name: miniature energy gun
   parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
   id: WeaponEnergyGunMiniature
-  description: pew pew
+  description: A miniature self-defense laser pistol for meter maids and other small-time private security.
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Weapons/Guns/Battery/miniature-egun.rsi

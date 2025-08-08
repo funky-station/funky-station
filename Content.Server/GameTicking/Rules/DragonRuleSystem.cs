@@ -6,6 +6,8 @@
 
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
+using Content.Server.Mind;
+using Content.Server.Roles;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Localizations;
@@ -38,10 +40,9 @@ public sealed class DragonRuleSystem : GameRuleSystem<DragonRuleComponent>
 
         var dragonXform = Transform(dragon);
 
-        var station = _station.GetStationInMap(dragonXform.MapID);
         EntityUid? stationGrid = null;
-        if (TryComp<StationDataComponent>(station, out var stationData))
-            stationGrid = _station.GetLargestGrid(stationData);
+        if (_station.GetStationInMap(dragonXform.MapID) is { } station)
+            stationGrid = _station.GetLargestGrid(station);
 
         if (stationGrid is not null)
         {

@@ -62,10 +62,8 @@ using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
-using Content.Server.Players.RateLimiting;
-using Content.Server.Speech.Prototypes;
 using Content.Server.Speech.EntitySystems;
-using Content.Server.Station.Components;
+using Content.Server.Speech.Prototypes;
 using Content.Server.Station.Systems;
 using Content.Shared._Funkystation.CCVars;
 using Content.Shared.ActionBlocker;
@@ -82,6 +80,7 @@ using Content.Shared.Players.RateLimiting;
 using Content.Shared.Radio;
 using Content.Shared.Station.Components;
 using Content.Shared.Silicons.StationAi;
+using Content.Shared.Station.Components;
 using Content.Shared.Whitelist;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
@@ -156,8 +155,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     private void OnLoocEnabledChanged(bool val)
     {
-        if (_loocEnabled == val)
-            return;
+        if (_loocEnabled == val) return;
 
         _loocEnabled = val;
         _chatManager.DispatchServerAnnouncement(
@@ -166,8 +164,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     private void OnDeadLoocEnabledChanged(bool val)
     {
-        if (_deadLoocEnabled == val)
-            return;
+        if (_deadLoocEnabled == val) return;
 
         _deadLoocEnabled = val;
         _chatManager.DispatchServerAnnouncement(

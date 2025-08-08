@@ -124,16 +124,16 @@
     maxCharge: 1800
     startingCharge: 1800
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
+    proto: ProjectileEnergyGunDisabler #funky
     fireCost: 100
   - type: EnergyGun
     fireModes:
-    - proto: BulletDisabler
+    - proto: ProjectileEnergyGunDisabler #funky
       fireCost: 100
       name: disabling
       state: disabler
-    - proto: BulletEnergyGunMagnum
-      fireCost: 225
+    - proto: ProjectileEnergyGunLaser # Funky
+      fireCost: 100 #funky
       name: lethal
       state: lethal
   - type: MagazineVisuals

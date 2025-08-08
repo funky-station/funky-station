@@ -36,11 +36,11 @@
     maxCharge: 1000
     startingCharge: 1000
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
+    proto: ProjectileEnergyGunDisabler
     fireCost: 100
   - type: EnergyGun
     fireModes:
-    - proto: BulletDisabler
+    - proto: ProjectileEnergyGunDisabler
       fireCost: 100
       name: disabling
       state: disabler
@@ -74,11 +74,11 @@
     maxCharge: 1000
     startingCharge: 1000
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
+    proto: ProjectileEnergyGunDisabler
     fireCost: 100
   - type: EnergyGun
     fireModes:
-    - proto: BulletDisabler
+    - proto: ProjectileEnergyGunDisabler
       fireCost: 100
       name: disabling
       state: disabler

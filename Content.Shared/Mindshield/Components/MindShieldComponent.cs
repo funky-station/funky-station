@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT

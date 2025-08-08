@@ -114,6 +114,7 @@
   - tp
   - tpto
   - looc_budget
+  - looc_budget_get
 
 - Flags: FUN
   Commands:

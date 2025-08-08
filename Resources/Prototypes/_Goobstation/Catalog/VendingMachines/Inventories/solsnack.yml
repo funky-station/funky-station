@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -8,9 +9,9 @@
 - type: vendingMachineInventory
   id: SolsnackInventory
   startingInventory:
-    FoodSnackLunacakeWrapped: 3
-    FoodSnackMochicakeWrapped: 3
-    FoodSnackMooncakeWrapped: 3
+    FoodSnackLunacakeWrapped: 4
+    FoodSnackMochicakeWrapped: 4
+    FoodSnackMooncakeWrapped: 1
     FoodSnackTidegobs: 3
     FoodSnackSaturnos: 3
     FoodSnackJoveGello: 3

@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2025 GreyMaria <mariomister541@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -15,15 +16,16 @@ namespace Content.Server._Goobstation.Flashbang;
 public sealed class FlashbangSystem : EntitySystem
 {
     [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<FlashbangComponent, AreaFlashEvent>(OnFlash);
-        SubscribeLocalEvent<FlashSoundSuppressionComponent, InventoryRelayedEvent<GetFlashbangedEvent>>(
+        SubscribeLocalEvent<InventoryComponent, GetFlashbangedEvent>(
             OnInventoryFlashbanged);
-        SubscribeLocalEvent<FlashSoundSuppressionComponent, GetFlashbangedEvent>(OnFlashbanged);
+        // SubscribeLocalEvent<FlashSoundSuppressionComponent, GetFlashbangedEvent>(OnFlashbanged); // funkystation: not right now
         SubscribeLocalEvent<FlashSoundSuppressionComponent, ExaminedEvent>(OnExamined);
     }
 
@@ -37,15 +39,21 @@ public sealed class FlashbangSystem : EntitySystem
         args.PushMarkup(message);
     }
 
-    private void OnFlashbanged(Entity<FlashSoundSuppressionComponent> ent, ref GetFlashbangedEvent args)
-    {
-        args.ProtectionRange = MathF.Min(args.ProtectionRange, ent.Comp.ProtectionRange);
-    }
+    // funkystation: if we have entities that naturally resist (without being immune to) flashbangs we can restore this and write it correctly
+    // private void OnFlashbanged(Entity<FlashSoundSuppressionComponent> ent, ref GetFlashbangedEvent args)
+    // {
+    //     args.ProtectionRange = MathF.Min(args.ProtectionRange, ent.Comp.ProtectionRange);
+    // }
 
-    private void OnInventoryFlashbanged(Entity<FlashSoundSuppressionComponent> ent,
-        ref InventoryRelayedEvent<GetFlashbangedEvent> args)
+    // funkystation: borrow perfectly functional code from wizden FlashSystem to make flashbang protection work
+    private void OnInventoryFlashbanged(Entity<InventoryComponent> ent,
+        ref GetFlashbangedEvent args)
     {
-        args.Args.ProtectionRange = MathF.Min(args.Args.ProtectionRange, ent.Comp.ProtectionRange);
+        foreach (var slot in new[] { "head", "ears" })
+        {
+            if (_inventory.TryGetSlotEntity(ent, slot, out var item, ent.Comp) && TryComp<FlashSoundSuppressionComponent>(item, out var bangProtector))
+                args.ProtectionRange = MathF.Min(args.ProtectionRange, bangProtector.ProtectionRange);
+        }
     }
 
     private void OnFlash(Entity<FlashbangComponent> ent, ref AreaFlashEvent args)
@@ -56,7 +64,7 @@ public sealed class FlashbangSystem : EntitySystem
             return;
 
         var ev = new GetFlashbangedEvent(args.Range);
-        RaiseLocalEvent(args.Target, ev);
+        RaiseLocalEvent(args.Target, ev, true);
 
         var protectionRange = ev.ProtectionRange;
 

@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
+  id: ClothingHandsKnuckleDustersBrass
+  start: start
+  graph:
+  - node: start
+    edges:
+      - to: icon
+        steps:
+          - material: Brass
+            amount: 6
+            doAfter: 10
+  - node: icon
+    entity: ClothingHandsKnuckleDustersBrass

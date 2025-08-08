@@ -209,6 +209,7 @@
       path: /Audio/Weapons/Guns/Gunshots/flaregun.ogg
     projectileSpeed: 15
   - type: Battery
+    pricePerJoule: 0
     maxCharge: 240
     startingCharge: 240
   - type: BatterySelfRecharger

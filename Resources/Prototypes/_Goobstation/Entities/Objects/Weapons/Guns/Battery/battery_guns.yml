@@ -124,14 +124,14 @@
     maxCharge: 1800
     startingCharge: 1800
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
-    fireCost: 100
+    proto: BulletTaser
+    fireCost: 1350
   - type: EnergyGun
     fireModes:
-    - proto: BulletDisabler
-      fireCost: 100
-      name: disabling
-      state: disabler
+    - proto: BulletTaser
+      fireCost: 1350
+      name: tasing
+      state: taser
     - proto: BulletEnergyGunMagnum
       fireCost: 225
       name: lethal

@@ -75,6 +75,7 @@
   - type: Tag
     tags:
       - Armor
+      - WhitelistChameleon
 
 #Standard armor vest, allowed for security and bartenders
 - type: entity

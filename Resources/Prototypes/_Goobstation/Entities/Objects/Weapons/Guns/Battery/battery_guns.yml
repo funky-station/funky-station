@@ -150,6 +150,3 @@
   - type: Tag
     tags:
     - Sidearm
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 40

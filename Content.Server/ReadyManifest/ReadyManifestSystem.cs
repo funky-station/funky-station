@@ -23,7 +23,6 @@ public sealed class ReadyManifestSystem : EntitySystem
 {
     [Dependency] private readonly EuiManager _euiManager = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
 
@@ -67,8 +66,9 @@ public sealed class ReadyManifestSystem : EntitySystem
             return;
         }
 
-        HumanoidCharacterProfile profile = (HumanoidCharacterProfile) preferences.SelectedCharacter;
-        var profileJobs = FilterPlayerJobs(profile);
+
+        // HumanoidCharacterProfile profile = (HumanoidCharacterProfile) preferences.SelectedCharacter;
+        var profileJobs = preferences.JobPrioritiesFiltered().Keys;
 
         if (_gameTicker.PlayerGameStatuses[userId] == PlayerGameStatus.ReadyToPlay)
         {
@@ -106,11 +106,9 @@ public sealed class ReadyManifestSystem : EntitySystem
         {
             if (status == PlayerGameStatus.ReadyToPlay)
             {
-                HumanoidCharacterProfile profile;
                 if (_prefsManager.TryGetCachedPreferences(userId, out var preferences))
                 {
-                    profile = (HumanoidCharacterProfile) preferences.SelectedCharacter;
-                    var profileJobs = FilterPlayerJobs(profile);
+                    var profileJobs = preferences.JobPrioritiesFiltered().Keys;
                     foreach (var jobId in profileJobs)
                     {
                         if (jobCounts.ContainsKey(jobId))
@@ -126,22 +124,6 @@ public sealed class ReadyManifestSystem : EntitySystem
             }
         }
         _jobCounts = jobCounts;
-    }
-
-
-    private List<ProtoId<JobPrototype>> FilterPlayerJobs(HumanoidCharacterProfile profile)
-    {
-        var jobs = profile.JobPriorities.Keys.Select(k => new ProtoId<JobPrototype>(k)).ToList();
-        List<ProtoId<JobPrototype>> priorityJobs = new();
-        foreach (var job in jobs)
-        {
-            var priority = profile.JobPriorities[job];
-            if (priority == JobPriority.High || (_prototypeManager.Index(job).Weight >= 10 && priority > JobPriority.Never))
-            {
-                priorityJobs.Add(job);
-            }
-        }
-        return priorityJobs;
     }
 
     public Dictionary<ProtoId<JobPrototype>, int> GetReadyManifest()

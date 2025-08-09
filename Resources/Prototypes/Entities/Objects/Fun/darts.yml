@@ -104,6 +104,9 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: BalloonPopper
+  - type: Tag # Funky edit
+    tags:
+    - DartGunAmmo
 
 - type: entity
   parent: Dart

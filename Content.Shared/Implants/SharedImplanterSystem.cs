@@ -16,8 +16,8 @@
 //
 // SPDX-License-Identifier: MIT
 
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
+using Content.Shared.Chemistry.Components.SolutionManager; // Funky
+using Content.Shared.Chemistry.EntitySystems; // Funky
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
@@ -33,6 +33,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace Content.Shared.Implants;
 
@@ -46,6 +48,7 @@ public abstract class SharedImplanterSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!; // Funky
 
     public override void Initialize()
     {
@@ -148,6 +151,8 @@ public abstract class SharedImplanterSystem : EntitySystem
             _popup.PopupEntity(msg, target, user);
             return;
         }
+
+        TransferImplantSolution(implanter, implant.GetValueOrDefault());
 
         //If the target doesn't have the implanted component, add it.
         var implantedComp = EnsureComp<ImplantedComponent>(target);
@@ -363,6 +368,29 @@ public abstract class SharedImplanterSystem : EntitySystem
             component.DeimplantChosen = proto;
 
         Dirty(uid, component);
+    }
+
+    private void TransferImplantSolution(EntityUid implanter, EntityUid implant)
+    {
+
+        Log.Debug(Name(implanter));
+        Log.Debug(Name(implant));
+
+        // Get the solution on the implanter
+        if (!TryComp<SolutionContainerManagerComponent>(implanter, out var solutionComp) ||
+            !_solution.TryGetSolution(implanter, "drink", out var _, out var solution))
+            return;
+
+        // Ensure a new solution container on the implant, and add the implanter's solution to it
+        EnsureComp<SolutionContainerManagerComponent>(implant);
+        if (_solution.EnsureSolution(implant, "drink", out var newSolution))
+        {
+            newSolution.MaxVolume = 45.0f;
+            newSolution.AddSolution(solution, _proto);
+        }
+
+        // Remove solution container from the implanter
+        RemComp<SolutionContainerManagerComponent>(implanter);
     }
 }
 

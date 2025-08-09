@@ -58,4 +58,62 @@
         - ReagentId: Phalanximine
           Quantity: 30
 
-                              
+- type: entity
+  id: PolytrinicAcidChemistryBottle
+  suffix: Polytrinic Acid
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-polytrinic-acid
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: PolytrinicAcid
+          Quantity: 30
+
+- type: entity
+  id: ChloralHydrateChemistryBottle
+  parent: BaseChemistryBottleFilled
+  suffix: chloral hydrate
+  components:
+  - type: Label
+    currentLabel: reagent-name-chloral-hydrate
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+          - ReagentId: ChloralHydrate
+            Quantity: 30
+
+- type: entity
+  id: AmatoxinChemistryBottle
+  parent: BaseChemistryBottleFilled
+  suffix: amatoxin
+  components:
+  - type: Label
+    currentLabel: reagent-name-amatoxin
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+          - ReagentId: Amatoxin
+            Quantity: 30
+
+- type: entity
+  id: StimulantsChemistryBottle
+  parent: BaseChemistryBottleFilled
+  suffix: hyperzine
+  components:
+  - type: Label
+    currentLabel: reagent-name-stimulants
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+          - ReagentId: Stimulants
+            Quantity: 30

@@ -1,0 +1,31 @@
+# Base reagent implant
+- type: entity
+  parent: BaseSubdermalImplant
+  id: BaseReagentImplant
+  name: reagent implant
+  description: This implant lets the user get up to 3 instant doses of any chemicals contained within itself.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionActivateReagentImplant
+      #whitelist:
+      #  components:
+      #  - Bloodstream
+
+# Fillable reagent implant. Functions normally as a reagent container
+- type: entity
+  parent: BaseReagentImplant
+  id: EmptyReagentImplant
+  suffix: empty
+  name: reagent implant
+  description: This implant lets the user get up to 3 instant doses of any chemicals contained within itself. This one can be manually filled.
+  categories: [ HideSpawnMenu ]
+
+# Static content reagent implants. Can't be filled or emptied
+- type: entity
+  parent: BaseReagentImplant
+  id: HyperzineReagentImplant
+  suffix: hyperzine
+  name: hyperzine reagent implant
+  description: This implant lets the user get up to 3 instant doses of any chemicals contained within itself. This one is for hyperzine.
+  categories: [ HideSpawnMenu ]

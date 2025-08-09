@@ -1,0 +1,14 @@
+- type: entity
+  suffix: desoxyephedrine
+  parent: Beaker
+  id: DesoxyephedrineBeakerSmall
+  components:
+  - type: Label
+    currentLabel: reagent-name-desoxyephedrine
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 50
+        reagents:
+        - ReagentId: Desoxyephedrine
+          Quantity: 50

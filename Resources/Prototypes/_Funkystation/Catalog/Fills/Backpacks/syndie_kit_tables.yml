@@ -1,0 +1,21 @@
+- type: entityTable
+  id: RandomSyndieKitTable
+  table: !type:GroupSelector
+    children:
+    # These kits are slightly more gimmicky, so they're a little rarer
+    - id: ClothingBackpackDuffelSyndicateFilledKitSlasher
+      weight: 10
+    - id: ClothingBackpackDuffelSyndicateFilledKitNinja
+      weight: 10
+    - id: ClothingBackpackDuffelSyndicateFilledKitChemical
+      weight: 10
+
+    # These kits are slightly more general
+    - id: ClothingBackpackDuffelSyndicateFilledKitHacker
+      weight: 15
+    - id: ClothingBackpackDuffelSyndicateFilledKitHunter
+      weight: 15
+    - id: ClothingBackpackDuffelSyndicateFilledKitUndercover
+      weight: 20
+    - id: ClothingBackpackDuffelSyndicateFilledKitBond
+      weight: 20

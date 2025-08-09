@@ -1,3 +1,19 @@
+# Random kit selector entity
+- type: entity
+  parent: MarkerBase
+  id: RandomSyndieKitSpawner
+  name: random syndie-kit spawner
+  suffix: Do Not Map
+  components:
+  - type: Sprite
+    layers:
+      - sprite: Clothing/Back/Duffels/syndicate.rsi
+        state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomSyndieKitTable
+
+# Kits
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledKitSlasher
@@ -19,6 +35,7 @@
       - id: SmokeGrenade
       - id: RadioJammer
       - id: SyndicateJawsOfLife
+      - id: HyperzineReagentImplanter
       - id: Gauze
 
 - type: entity
@@ -34,6 +51,8 @@
       - id: ThrowingStar
       - id: ThrowingStar
       - id: ThrowingStar
+      - id: ThrowingStar
+      - id: ThrowingStar
       - id: ClothingEyesNightVisionGogglesSyndie
       - id: ClothingUniformJumpsuitNinja
       - id: ClothingMaskNeckGaiter
@@ -41,6 +60,7 @@
       - id: ClothingShoesChameleonNoSlips
       - id: EmpImplanter
       - id: SmokeImplanter
+      - id: Stimpack
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -145,3 +165,32 @@
       - id: ClothingHandsChameleon
       - id: ClothingShoesChameleon
       - id: ClothingMaskGasVoiceChameleon
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledKitChemical
+  name: chemical syndie-kit
+  description: "Inject your foes with neurotoxins! Inject yourself with performance enhancers! Inject everyone with mold for no reason! Do all this and more with this kit!"
+  components:
+  - type: StorageFill
+    contents:
+      - id: EmptyReagentImplanter
+      - id: LauncherDart
+      - id: HypoDartBox
+      - id: HypoDartBox
+      - id: HypoDartBox
+      - id: HypopenBox
+      - id: MuteToxinChemistryBottle      # 30u bottles
+      - id: PolytrinicAcidChemistryBottle
+      - id: ChloralHydrateChemistryBottle
+      - id: AmatoxinChemistryBottle
+      - id: PestilineChemistryVial        # 5u vials for stronger chems
+      - id: TazinideChemistryVial
+      - id: FresiumChemistryVial
+      - id: DesoxyephedrineBeakerSmall
+      - id: Beaker
+      - id: LargeBeaker
+      - id: SyringeBluespace
+      - id: DrinkPoisonWinebottleFull
+      - id: ClothingEyesGlassesChemical
+      - id: ClothingOuterCoatLab

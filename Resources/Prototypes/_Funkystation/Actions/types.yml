@@ -15,3 +15,18 @@
       itemIconStyle: NoItem
       useDelay: 1 # emote spam
       event: !type:ToggleActionEvent
+
+- type: entity
+  id: ActionActivateReagentImplant
+  name: Inject Reagents
+  description: Inject up to 15u of the contained chemicals directly into your bloodstream.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    charges: 3
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Specific/Medical/medipen.rsi
+      state: stimpen
+    event: !type:UseReagentImplantEvent {}

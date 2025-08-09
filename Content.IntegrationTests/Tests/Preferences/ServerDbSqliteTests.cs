@@ -18,18 +18,13 @@
 //
 // SPDX-License-Identifier: MIT
 
-using System.Collections.Generic;
+#nullable enable
 using System.Linq;
 using Content.Server.Database;
-using Content.Shared.GameTicking;
-using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
-using Content.Shared.Preferences.Loadouts;
-using Content.Shared.Preferences.Loadouts.Effects;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Robust.Shared.Configuration;
-using Robust.Shared.Enums;
 using Robust.Shared.Log;
 using Robust.Shared.Maths;
 using Robust.Shared.Network;
@@ -108,6 +103,7 @@ namespace Content.IntegrationTests.Tests.Preferences
             var originalProfile = CharlieCharlieson();
             await db.InitPrefsAsync(username, originalProfile);
             var prefs = await db.GetPlayerPreferencesAsync(username);
+            Assert.That(prefs, Is.Not.Null);
             Assert.That(prefs.Characters.Single(p => p.Key == slot).Value.MemberwiseEquals(originalProfile));
             await pair.CleanReturnAsync();
         }
@@ -121,10 +117,11 @@ namespace Content.IntegrationTests.Tests.Preferences
             var username = new NetUserId(new Guid("640bd619-fc8d-4fe2-bf3c-4a5fb17d6ddd"));
             await db.InitPrefsAsync(username, new HumanoidCharacterProfile());
             await db.SaveCharacterSlotAsync(username, CharlieCharlieson(), 1);
-            await db.SaveSelectedCharacterIndexAsync(username, 1);
             await db.SaveCharacterSlotAsync(username, null, 1);
             var prefs = await db.GetPlayerPreferencesAsync(username);
-            Assert.That(!prefs.Characters.Any(p => p.Key != 0));
+            Assert.That(prefs, Is.Not.Null);
+            Assert.That(prefs.Characters.All(p => p.Key == 0));
+            Assert.That(prefs.Characters.Count, Is.EqualTo(1));
             await pair.CleanReturnAsync();
         }
 

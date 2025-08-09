@@ -53,14 +53,12 @@ public class RCDSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly SharedAtmosPipeLayersSystem _pipeLayersSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     private readonly int _instantConstructionDelay = 0;
     private readonly EntProtoId _instantConstructionFx = "EffectRCDConstruct0";
     private readonly ProtoId<RCDPrototype> _deconstructTileProto = "DeconstructTile";
     private readonly ProtoId<RCDPrototype> _deconstructLatticeProto = "DeconstructLattice";
     private static readonly ProtoId<TagPrototype> CatwalkTag = "Catwalk";
-    private AtmosPipeLayer _currentLayer = AtmosPipeLayer.Primary; // Funky - Current layer for RPD
 
     private HashSet<EntityUid> _intersectingEntities = new();
 
@@ -76,7 +74,6 @@ public class RCDSystem : EntitySystem
         SubscribeLocalEvent<RCDComponent, RCDSystemMessage>(OnRCDSystemMessage);
         SubscribeLocalEvent<RCDComponent, RCDColorChangeMessage>(OnColorChange); // Funkystation - Handle rpd color changes
 
-        SubscribeNetworkEvent<RPDEyeRotationEvent>(OnRPDEyeRotationEvent);
         SubscribeNetworkEvent<RCDConstructionGhostRotationEvent>(OnRCDconstructionGhostRotationEvent);
         SubscribeNetworkEvent<RCDConstructionGhostFlipEvent>(OnRCDConstructionGhostFlipEvent);
 
@@ -165,24 +162,45 @@ public class RCDSystem : EntitySystem
         }
 
         // Funky - Update prototype for RPD based on last selected layer
-        // calculate the layer based on the mouse click location and player rotation
+        // Parts of this should probably be moved to FinalizeRCDOperation to directly
+        // spawn the correct prototype using PipeLayersSystem's TryGetAlternativePrototype
+        // to avoid the need for extra rcd prototypes and modifying/storing strings.
         if (component.IsRpd && !component.CachedPrototype.NoLayers)
         {
+            var baseProtoId = component.ProtoId.Id;
+            if (baseProtoId.EndsWith("Alt1") || baseProtoId.EndsWith("Alt2"))
+            {
+                baseProtoId = baseProtoId.Substring(0, baseProtoId.Length - 4);
+            }
+
             var tileRef = _mapSystem.GetTileRef(mapGridData.Value.GridUid, mapGridData.Value.Component, mapGridData.Value.Location);
             var tileSize = mapGridData.Value.Component.TileSize;
             var tileCenter = new Vector2(tileRef.X + tileSize / 2, tileRef.Y + tileSize / 2);
-            var mouseCoordsDiff = args.ClickLocation.Position - tileCenter - new Vector2(0.5f, 0.5f);
-            var mouseDeadzoneRadius = 0.25f;
+            var mouseCoordsDiff = args.ClickLocation.Position - tileCenter;
 
-            _currentLayer = AtmosPipeLayer.Primary;
+            var newLayer = AtmosPipeLayer.Primary;
 
-            if (mouseCoordsDiff.Length() > mouseDeadzoneRadius && component.LastKnownEyeRotation.HasValue)
+            if (Math.Abs(mouseCoordsDiff.X - 0.5f) > 0.25f || Math.Abs(mouseCoordsDiff.Y - 0.5f) > 0.25f)
             {
                 var gridRotation = _transformSystem.GetWorldRotation(mapGridData.Value.GridUid);
-                var angle = new Angle(mouseCoordsDiff);
-                var eyeRotation = new Angle(component.LastKnownEyeRotation.Value);
-                var direction = (angle + eyeRotation + gridRotation + Math.PI / 2).GetCardinalDir();
-                _currentLayer = (direction == Direction.North || direction == Direction.East) ? AtmosPipeLayer.Secondary : AtmosPipeLayer.Tertiary;
+                var angle = new Angle(new Vector2(mouseCoordsDiff.X - 0.5f, mouseCoordsDiff.Y - 0.5f)) + Math.PI / 2;
+                var direction = angle.GetCardinalDir();
+                newLayer = (direction == Direction.North || direction == Direction.East) ? AtmosPipeLayer.Secondary : AtmosPipeLayer.Tertiary;
+            }
+
+
+            var protoId = newLayer switch
+            {
+                AtmosPipeLayer.Primary => baseProtoId,
+                AtmosPipeLayer.Secondary => $"{baseProtoId}Alt1",
+                AtmosPipeLayer.Tertiary => $"{baseProtoId}Alt2",
+                _ => baseProtoId
+            };
+
+            if (_protoManager.HasIndex<RCDPrototype>(protoId))
+            {
+                component.ProtoId = new ProtoId<RCDPrototype>(protoId);
+                UpdateCachedPrototype(uid, component);
             }
         }
         // Funky - end of changes
@@ -363,27 +381,6 @@ public class RCDSystem : EntitySystem
         // Update the construction direction
         rcd.UseMirrorPrototype = ev.UseMirrorPrototype;
         Dirty(uid, rcd);
-    }
-
-    // Funky - Very dumb was of getting player rotation for pipe layer selection
-    private void OnRPDEyeRotationEvent(RPDEyeRotationEvent ev, EntitySessionEventArgs session)
-    {
-        var uid = GetEntity(ev.NetEntity);
-
-        if (session.SenderSession.AttachedEntity is not { } player)
-            return;
-
-        if (!TryComp<HandsComponent>(player, out var hands) || uid != hands.ActiveHand?.HeldEntity)
-            return;
-
-        if (!TryComp<RCDComponent>(uid, out var rcd))
-            return;
-
-        // Update the layer if different
-        if (rcd.LastKnownEyeRotation != ev.EyeRotation)
-        {
-            rcd.LastKnownEyeRotation = ev.EyeRotation;
-        }
     }
 
 
@@ -623,32 +620,10 @@ public class RCDSystem : EntitySystem
                 break;
 
             case RcdMode.ConstructObject:
-                // Funky - Determine the correct prototype based on selected layer for RPD
-                // var proto = (component.UseMirrorPrototype && !string.IsNullOrEmpty(component.CachedPrototype.MirrorPrototype))
-                //     ? component.CachedPrototype.MirrorPrototype
-                //     : component.CachedPrototype.Prototype;
-
-                string proto;
-                if (component.IsRpd && !component.CachedPrototype.NoLayers)
-                {
-                    if (_protoManager.TryIndex<EntityPrototype>(component.CachedPrototype.Prototype, out var entityProto) &&
-                        entityProto.TryGetComponent<AtmosPipeLayersComponent>(out var atmosPipeLayers, _entityManager.ComponentFactory) &&
-                        _pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, _currentLayer, out var newProtoId))
-                    {
-                        proto = newProtoId;
-                    }
-                    else
-                    {
-                        proto = component.CachedPrototype.Prototype;
-                    }
-                }
-                else
-                {
-                    proto = (component.UseMirrorPrototype && !string.IsNullOrEmpty(component.CachedPrototype.MirrorPrototype))
-                        ? component.CachedPrototype.MirrorPrototype
-                        : component.CachedPrototype.Prototype;
-                }
-                // Funky - end of changes
+                var proto = (component.UseMirrorPrototype &&
+                    !string.IsNullOrEmpty(component.CachedPrototype.MirrorPrototype))
+                    ? component.CachedPrototype.MirrorPrototype
+                    : component.CachedPrototype.Prototype;
 
                 var ent = Spawn(proto, _mapSystem.GridTileToLocal(mapGridData.GridUid, mapGridData.Component, mapGridData.Position));
 

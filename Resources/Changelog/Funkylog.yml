@@ -3951,3 +3951,9 @@ Entries:
       message: Fixed Thaven Feast mood. All foods are craftable now.
   id: 476
   time: '2025-08-09T21:03:49.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Tweak
+      message: Fland's AI Core now produces heat!
+  id: 477
+  time: '2025-08-09T21:07:48.0000000+00:00'

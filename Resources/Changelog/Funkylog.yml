@@ -3943,3 +3943,11 @@ Entries:
       message: Polly the Parrot will now spawn in the Cluster Chief Engineer's room
   id: 475
   time: '2025-08-05T03:31:19.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Add
+      message: Added a mirror of the Thaven Feast mood, this time for drinks.
+    - type: Fix
+      message: Fixed Thaven Feast mood. All foods are craftable now.
+  id: 476
+  time: '2025-08-09T21:03:49.0000000+00:00'

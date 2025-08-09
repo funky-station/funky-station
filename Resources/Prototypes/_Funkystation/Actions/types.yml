@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2024 miapyxel <retromannnnn@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -15,3 +16,18 @@
       itemIconStyle: NoItem
       useDelay: 1 # emote spam
       event: !type:ToggleActionEvent
+
+- type: entity
+  id: ActionActivateReagentImplant
+  name: Inject Reagents
+  description: Inject up to 15u of the contained chemicals directly into your bloodstream.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    charges: 3
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Specific/Medical/medipen.rsi
+      state: stimpen
+    event: !type:UseReagentImplantEvent {}

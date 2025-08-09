@@ -1364,7 +1364,7 @@
 - type: entity
   parent: GasCanister
   id: LockBoxCanisterEngineering
-  name: engineering Lock canister
+  name: Engineering Selling Canister
   components:
   - type: Sprite
     layers:

@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: material bag 
+  id: MaterialBag
+  parent: BaseStorageItem
+  description: A sturdy bag for carrying large amounts processed material.
+  components:
+  - type: MagnetPickup
+  - type: Sprite
+    sprite: _Funkystation/Objects/Specific/Cargo/material_bag.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,7,3
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      tags:
+        - Sheet
+        - Ingot
+        - RawMaterial 
+  - type: Dumpable

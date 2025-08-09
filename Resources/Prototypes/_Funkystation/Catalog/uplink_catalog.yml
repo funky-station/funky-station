@@ -161,7 +161,7 @@
       components:
       - SurplusBundle
   - !type:ListingLimitedStockCondition
-    stock: 3
+    stock: 1
   saleLimit: 1
 
 - type: listing
@@ -190,11 +190,12 @@
   id: UplinkReagentImplanter
   name: uplink-reagent-implanter-name
   description: uplink-reagent-implanter-desc
+  icon: { sprite: /Textures/Objects/Specific/Medical/medipen.rsi, state: stimpen }
   productEntity: EmptyReagentImplanter
   cost:
     Telecrystal: 12   # Pretty cheap since it comes empty
   categories:
-  - UplinkChemicals
+  - UplinkImplants
   conditions:
   - !type:StoreWhitelistCondition
     blacklist:

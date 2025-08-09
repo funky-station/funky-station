@@ -6,7 +6,7 @@
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
-      implant: EmptyReagentImplant
+      implant: ReagentImplant
     - type: SolutionContainerManager
       solutions:
         drink:
@@ -37,7 +37,7 @@
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
-      implant: HyperzineReagentImplant
+      implant: ReagentImplant
     - type: SolutionContainerManager
       solutions:
         drink:

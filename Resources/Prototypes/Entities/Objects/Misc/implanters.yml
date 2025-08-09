@@ -78,6 +78,7 @@
       - SmokeImplant # Goob
       - RadioImplanter # Funky
       - FakeMindShieldImplanter # Funky
+      - ReagentImplant # Funky
       deimplantFailureDamage:
         types:
           Cellular: 50

@@ -15,6 +15,16 @@
   group: market
 
 - type: cargoProduct
+  id: LockBoxCanisterEngineering
+  icon:
+    sprite: Structures/Storage/canister.rsi
+    state: can-lockbox
+  product: LockBoxCanisterEngineering
+  cost: 150
+  category: cargoproduct-category-name-atmospherics
+  group: market
+
+- type: cargoProduct
   id: CrateLockBoxMedical
   icon:
     sprite: Structures/Storage/Crates/lockbox.rsi

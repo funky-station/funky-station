@@ -1,4 +1,6 @@
+// SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -7,7 +9,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared._EE.Overlays.Switchable;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class ThermalVisionComponent : SwitchableOverlayComponent
 {
     public override string? ToggleAction { get; set; } = "ToggleThermalVision";

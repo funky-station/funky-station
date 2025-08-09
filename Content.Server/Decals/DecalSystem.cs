@@ -11,9 +11,10 @@
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -180,38 +181,41 @@ namespace Content.Server.Decals
 
         private void OnTileChanged(ref TileChangedEvent args)
         {
-            if (!args.NewTile.IsSpace(_tileDefMan))
-                return;
-
-            if (!TryComp(args.Entity, out DecalGridComponent? grid))
-                return;
-
-            var indices = GetChunkIndices(args.NewTile.GridIndices);
-            var toDelete = new HashSet<uint>();
-            if (!grid.ChunkCollection.ChunkCollection.TryGetValue(indices, out var chunk))
-                return;
-
-            foreach (var (uid, decal) in chunk.Decals)
+            foreach (var change in args.Changes)
             {
-                if (new Vector2((int) Math.Floor(decal.Coordinates.X), (int) Math.Floor(decal.Coordinates.Y)) ==
-                    args.NewTile.GridIndices)
+                if (!change.NewTile.IsSpace(_tileDefMan))
+                    return;
+
+                if (!TryComp(args.Entity, out DecalGridComponent? grid))
+                    return;
+
+                var indices = GetChunkIndices(change.GridIndices);
+                var toDelete = new HashSet<uint>();
+                if (!grid.ChunkCollection.ChunkCollection.TryGetValue(indices, out var chunk))
+                    return;
+
+                foreach (var (uid, decal) in chunk.Decals)
                 {
-                    toDelete.Add(uid);
+                    if (new Vector2((int)Math.Floor(decal.Coordinates.X), (int)Math.Floor(decal.Coordinates.Y)) ==
+                        change.GridIndices)
+                    {
+                        toDelete.Add(uid);
+                    }
                 }
+
+                if (toDelete.Count == 0)
+                    return;
+
+                foreach (var decalId in toDelete)
+                {
+                    grid.DecalIndex.Remove(decalId);
+                    chunk.Decals.Remove(decalId);
+                }
+
+                DirtyChunk(args.Entity, indices, chunk);
+                if (chunk.Decals.Count == 0)
+                    grid.ChunkCollection.ChunkCollection.Remove(indices);
             }
-
-            if (toDelete.Count == 0)
-                return;
-
-            foreach (var decalId in toDelete)
-            {
-                grid.DecalIndex.Remove(decalId);
-                chunk.Decals.Remove(decalId);
-            }
-
-            DirtyChunk(args.Entity, indices, chunk);
-            if (chunk.Decals.Count == 0)
-                grid.ChunkCollection.ChunkCollection.Remove(indices);
         }
 
         private void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs e)

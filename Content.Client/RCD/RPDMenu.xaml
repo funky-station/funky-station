@@ -10,7 +10,7 @@
         <!-- Middle Box: Contains RCDMenu -->
         <BoxContainer Name="MiddleBox" HorizontalExpand="True" >
             <Control HorizontalExpand="True"  />
-            <Control Name="RCDMenuHolder" />
+            <Control Name="RCDMenuPlaceholder" />
             <Control HorizontalExpand="True"  />
         </BoxContainer>
         <!-- Lower Box: Color selection -->

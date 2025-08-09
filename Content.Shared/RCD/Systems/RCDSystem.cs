@@ -1,3 +1,28 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Administration.Logs;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
@@ -26,8 +51,6 @@ using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.FixedPoint;
-using Content.Shared.Atmos.Components;
-using Content.Shared.Atmos.EntitySystems;
 
 namespace Content.Shared.RCD.Systems;
 
@@ -50,7 +73,6 @@ public class RCDSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly TagSystem _tags = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly SharedAtmosPipeLayersSystem _pipeLayersSystem = default!;
 
     private readonly int _instantConstructionDelay = 0;
     private readonly EntProtoId _instantConstructionFx = "EffectRCDConstruct0";
@@ -70,9 +92,7 @@ public class RCDSystem : EntitySystem
         SubscribeLocalEvent<RCDComponent, RCDDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<RCDComponent, DoAfterAttemptEvent<RCDDoAfterEvent>>(OnDoAfterAttempt);
         SubscribeLocalEvent<RCDComponent, RCDSystemMessage>(OnRCDSystemMessage);
-        SubscribeLocalEvent<RCDComponent, RCDColorChangeMessage>(OnColorChange); // Funkystation - Handle rpd color changes
-
-        SubscribeNetworkEvent<RPDSelectLayerEvent>(OnRPDSelectLayerEvent);
+        SubscribeLocalEvent<RCDComponent, RCDColorChangeMessage>(OnColorChange);
         SubscribeNetworkEvent<RCDConstructionGhostRotationEvent>(OnRCDconstructionGhostRotationEvent);
         SubscribeNetworkEvent<RCDConstructionGhostFlipEvent>(OnRCDConstructionGhostFlipEvent);
 
@@ -96,7 +116,6 @@ public class RCDSystem : EntitySystem
         QueueDel(uid);
     }
 
-    // Funkystation - Handle rpd color changes
     private void OnColorChange(Entity<RCDComponent> entity, ref RCDColorChangeMessage args)
     {
         entity.Comp.PipeColor = args.PipeColor;
@@ -116,27 +135,6 @@ public class RCDSystem : EntitySystem
         component.ProtoId = args.ProtoId;
         UpdateCachedPrototype(uid, component);
         Dirty(uid, component);
-    }
-
-    private void OnRPDSelectLayerEvent(RPDSelectLayerEvent ev, EntitySessionEventArgs session)
-    {
-        var uid = GetEntity(ev.NetEntity);
-
-        // Determine if player that sent the message is carrying the specified RCD in their active hand
-        if (session.SenderSession.AttachedEntity is not { } player)
-            return;
-
-        if (!TryComp<HandsComponent>(player, out var hands) || uid != hands.ActiveHand?.HeldEntity)
-            return;
-
-        if (!TryComp<RCDComponent>(uid, out var rcd))
-            return;
-
-        // Update the layer if different
-        if (rcd.LastSelectedLayer != ev.Layer)
-        {
-            rcd.LastSelectedLayer = ev.Layer;
-        }
     }
 
     private void OnExamine(EntityUid uid, RCDComponent component, ExaminedEvent args)
@@ -180,34 +178,6 @@ public class RCDSystem : EntitySystem
             _popup.PopupClient(Loc.GetString("rcd-component-no-valid-grid"), uid, user);
             return;
         }
-
-        // Funky - Update prototype for RPD based on last selected layer
-        // I hate this but it works for now
-        if (component.IsRpd)
-        {
-            // Determine the base prototype ID by stripping any Alt1 or Alt2 suffix
-            var baseProtoId = component.ProtoId.Id;
-            if (baseProtoId.EndsWith("Alt1") || baseProtoId.EndsWith("Alt2"))
-            {
-                baseProtoId = baseProtoId.Substring(0, baseProtoId.Length - 4); // Remove "Alt1" or "Alt2"
-            }
-
-            // Construct the new protoId based on the layer
-            var protoId = component.LastSelectedLayer switch
-            {
-                AtmosPipeLayer.Primary => baseProtoId,
-                AtmosPipeLayer.Secondary => $"{baseProtoId}Alt1",
-                AtmosPipeLayer.Tertiary => $"{baseProtoId}Alt2",
-                _ => baseProtoId // Fallback to base prototype
-            };
-
-            if (_protoManager.HasIndex<RCDPrototype>(protoId))
-            {
-                component.ProtoId = new ProtoId<RCDPrototype>(protoId);
-                UpdateCachedPrototype(uid, component);
-            }
-        }
-        // Funky - end of changes
 
         if (!IsRCDOperationStillValid(uid, component, mapGridData.Value, args.Target, args.User))
             return;

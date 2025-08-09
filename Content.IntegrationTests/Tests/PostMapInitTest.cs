@@ -133,7 +133,7 @@ namespace Content.IntegrationTests.Tests
             "Barratry", // Harmony
             "Kettle", // Goobstation - add Kettle
             "Amber",
-            "Hot Springs",
+            "HotSprings",
             "Gate",
             "Loop",
             "roid_outpost",

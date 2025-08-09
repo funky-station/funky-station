@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: syndicate radio
   description: A tiny listening device which relays what it hears to the syndicate radio channel. It does not have a speaker.

@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -32,7 +33,7 @@ public sealed class RadioImplantSystem : EntitySystem
         var activeRadio = EnsureComp<ActiveRadioComponent>(args.Implanted.Value);
         foreach (var channel in ent.Comp.RadioChannels)
         {
-            if (activeRadio.Channels.Add(channel))
+            if (activeRadio.IntrinsicChannels.Add(channel))
                 ent.Comp.ActiveAddedChannels.Add(channel);
         }
 
@@ -41,7 +42,7 @@ public sealed class RadioImplantSystem : EntitySystem
         var intrinsicRadioTransmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(args.Implanted.Value);
         foreach (var channel in ent.Comp.RadioChannels)
         {
-            if (intrinsicRadioTransmitter.Channels.Add(channel))
+            if (intrinsicRadioTransmitter.IntrinsicChannels.Add(channel))
                 ent.Comp.TransmitterAddedChannels.Add(channel);
         }
     }
@@ -55,7 +56,7 @@ public sealed class RadioImplantSystem : EntitySystem
         {
             foreach (var channel in ent.Comp.ActiveAddedChannels)
             {
-                activeRadioComponent.Channels.Remove(channel);
+                activeRadioComponent.IntrinsicChannels.Remove(channel);
             }
             ent.Comp.ActiveAddedChannels.Clear();
 
@@ -70,7 +71,7 @@ public sealed class RadioImplantSystem : EntitySystem
 
         foreach (var channel in ent.Comp.TransmitterAddedChannels)
         {
-            radioTransmitterComponent.Channels.Remove(channel);
+            radioTransmitterComponent.IntrinsicChannels.Remove(channel);
         }
         ent.Comp.TransmitterAddedChannels.Clear();
 

@@ -23,6 +23,10 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Players;
 using Content.Shared.Roles;
+using Content.Shared.Inventory;
+using Content.Server.Antag.Components;
+using Content.Server.Preferences.Managers;
+using Content.Shared.Mindshield.Components;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
@@ -30,7 +34,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Server.Ghostbar;
+namespace Content.Server._Goobstation.Ghostbar;
 
 public sealed class GhostBarSystem : EntitySystem
 {
@@ -41,6 +45,9 @@ public sealed class GhostBarSystem : EntitySystem
     [Dependency] private readonly StationSpawningSystem _spawningSystem = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
+
+    private DeserializationOptions _options = new DeserializationOptions();
 
     private static readonly List<ProtoId<JobPrototype>> _jobComponents = new()
     {
@@ -54,34 +61,24 @@ public sealed class GhostBarSystem : EntitySystem
         SubscribeLocalEvent<GhostBarPlayerComponent, MindRemovedMessage>(OnPlayerGhosted);
     }
 
-    const string MapPath = "Maps/_Goobstation/Nonstations/ghostbar.yml";
+    private ResPath _mapPath = new("Maps/_Goobstation/Nonstations/ghostbar.yml");
     private void OnRoundStart(RoundStartingEvent ev)
     {
-        var resPath = new ResPath(MapPath);
+        _options.InitializeMaps = true;
+        _options.PauseMaps = false;
+        var res = _mapLoader.TryLoadMap(_mapPath, out _, out _, _options);
 
-        if (_mapLoader.TryLoadMap(resPath, out var map, out _, new DeserializationOptions { InitializeMaps = true }))
-            _mapSystem.SetPaused(map.Value.Comp.MapId, false);
+        if (res)
+        {
+            Log.Info("Ghostbar loaded");
+        }
     }
 
     public void SpawnPlayer(GhostBarSpawnEvent msg, EntitySessionEventArgs args)
     {
-        var player = args.SenderSession;
-
-        if (!_mindSystem.TryGetMind(player, out var mindId, out var mind))
+        if (!_entityManager.HasComponent<GhostComponent>(args.SenderSession.AttachedEntity))
         {
-            Log.Warning($"Failed to find mind for player {player.Name}.");
-            return;
-        }
-
-        if (!_entityManager.TryGetComponent<GhostComponent>(player.AttachedEntity, out var ghost))
-        {
-            Log.Warning($"User {player.Name} tried to spawn at ghost bar without being a ghost.");
-            return;
-        }
-
-        if (!ghost.CanEnterGhostBar)
-        {
-            Log.Warning($"User {player.Name} tried to enter ghost bar while they cannot enter it.");
+            Log.Warning($"User {args.SenderSession.Name} tried to spawn at ghost bar without being a ghost.");
             return;
         }
 
@@ -98,28 +95,26 @@ public sealed class GhostBarSystem : EntitySystem
             return;
         }
 
-        var data = player.ContentData();
-
-        if (data == null)
-        {
-            Log.Warning($"ContentData was null when trying to spawn {player.Name} in ghost bar.");
-            return;
-        }
 
         var randomSpawnPoint = _random.Pick(spawnPoints);
         var randomJob = _random.Pick(_jobComponents);
-        var profile = _ticker.GetPlayerProfile(args.SenderSession);
+        if (!_prefsManager.TryGetCachedPreferences(args.SenderSession.UserId, out var preferences))
+            return;
+
+        var profile = preferences.GetRandomEnabledProfile();
         var mobUid = _spawningSystem.SpawnPlayerMob(randomSpawnPoint, randomJob, profile, null);
 
         _entityManager.EnsureComponent<GhostBarPlayerComponent>(mobUid);
         _entityManager.EnsureComponent<MindShieldComponent>(mobUid);
         _entityManager.EnsureComponent<AntagImmuneComponent>(mobUid);
-        _entityManager.EnsureComponent<IsDeadICComponent>(mobUid);
 
-        if (mind.Objectives.Count == 0)
-            _mindSystem.WipeMind(player);
-        mindId = _mindSystem.CreateMind(data.UserId, profile.Name).Owner;
-        _mindSystem.TransferTo(mindId, mobUid, true);
+        var targetMind = _mindSystem.GetMind(args.SenderSession.UserId);
+
+
+        if (targetMind != null)
+        {
+            _mindSystem.TransferTo(targetMind.Value, mobUid, true);
+        }
     }
 
     private void OnPlayerGhosted(EntityUid uid, GhostBarPlayerComponent component, MindRemovedMessage args)
@@ -127,3 +122,4 @@ public sealed class GhostBarSystem : EntitySystem
         _entityManager.DeleteEntity(uid);
     }
 }
+

@@ -1,8 +1,49 @@
+// SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
+// SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
+// SPDX-FileCopyrightText: 2020 Tyler Young <tyler.young@impromptu.ninja>
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 Clyybber <darkmine956@gmail.com>
+// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 ike709 <ike709@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Jesse Rougeau <jmaster9999@gmail.com>
+// SPDX-FileCopyrightText: 2022 Jessica M <jessica@jessicamaybe.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 theashtronaut <112137107+theashtronaut@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 deathride58 <deathride58@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Audio;
 using Content.Client.GameTicking.Managers;
-using Content.Client.LateJoin;
 using Content.Client.Lobby.UI;
 using Content.Client.Message;
+using Content.Client.ReadyManifest;
 using Content.Client.Playtime;
 using Content.Client.UserInterface.Systems.Chat;
 using Content.Client.Voting;
@@ -12,6 +53,7 @@ using Robust.Client.Console;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -28,14 +70,18 @@ namespace Content.Client.Lobby
         [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IVoteManager _voteManager = default!;
+        [Dependency] private readonly IClientPreferencesManager _preferences = default!;
         [Dependency] private readonly ClientsidePlaytimeTrackingManager _playtimeTracking = default!;
         [Dependency] private readonly IPrototypeManager _protoMan = default!;
 
         private ClientGameTicker _gameTicker = default!;
         private ContentAudioSystem _contentAudioSystem = default!;
+        private ReadyManifestSystem _readyManifest = default!;
 
         protected override Type? LinkedScreenType { get; } = typeof(LobbyGui);
         public LobbyGui? Lobby;
+
+        private bool _readyPossibleWithCharacters;
 
         protected override void Startup()
         {
@@ -50,6 +96,7 @@ namespace Content.Client.Lobby
             _gameTicker = _entityManager.System<ClientGameTicker>();
             _contentAudioSystem = _entityManager.System<ContentAudioSystem>();
             _contentAudioSystem.LobbySoundtrackChanged += UpdateLobbySoundtrackInfo;
+            _readyManifest = _entityManager.EntitySysManager.GetEntitySystem<ReadyManifestSystem>();
 
             chatController.SetMainChat(true);
 
@@ -69,12 +116,41 @@ namespace Content.Client.Lobby
             UpdateLobbyUi();
 
             Lobby.CharacterPreview.CharacterSetupButton.OnPressed += OnSetupPressed;
+            Lobby.CharacterPreview.PrioritiesUpdated += UpdateReadyAllowed;
+            Lobby.ManifestButton.OnPressed += OnManifestPressed;
             Lobby.ReadyButton.OnPressed += OnReadyPressed;
             Lobby.ReadyButton.OnToggled += OnReadyToggled;
+            Lobby.ReadyButton.TooltipSupplier = GetReadyButtonTooltip;
 
             _gameTicker.InfoBlobUpdated += UpdateLobbyUi;
             _gameTicker.LobbyStatusUpdated += LobbyStatusUpdated;
             _gameTicker.LobbyLateJoinStatusUpdated += LobbyLateJoinStatusUpdated;
+
+            _userInterfaceManager.GetUIController<LobbyUIController>().OnAnyCharacterOrJobChange += UpdateReadyAllowed;
+
+            // We need to set the disabled state of the ready button when the preferences are loaded...
+            // Check for the case that they're already loaded!
+            if(_preferences.ServerDataLoaded)
+                UpdateReadyAllowed();
+            _preferences.OnServerDataLoaded += UpdateReadyAllowed;
+        }
+
+        private string GetReadyButtonTooltipText()
+        {
+            if (!Lobby!.ReadyButton.ToggleMode)
+                return Loc.GetString("ui-lobby-ready-button-tooltip-join-state");
+            if (!_preferences.ServerDataLoaded)
+                return Loc.GetString("ui-lobby-ready-button-tooltip-not-loaded");
+            if (!_readyPossibleWithCharacters)
+                return Loc.GetString("ui-lobby-ready-button-tooltip-no-possible-characters");
+            if (Lobby!.ReadyButton.Pressed)
+                return Loc.GetString("ui-lobby-ready-button-tooltip-is-ready");
+            return Loc.GetString("ui-lobby-ready-button-tooltip-is-not-ready");
+        }
+
+        private Control GetReadyButtonTooltip(Control sender)
+        {
+            return new Tooltip { Text = GetReadyButtonTooltipText() };
         }
 
         protected override void Shutdown()
@@ -89,6 +165,7 @@ namespace Content.Client.Lobby
             _voteManager.ClearPopupContainer();
 
             Lobby!.CharacterPreview.CharacterSetupButton.OnPressed -= OnSetupPressed;
+            Lobby!.ManifestButton.OnPressed -= OnManifestPressed;
             Lobby!.ReadyButton.OnPressed -= OnReadyPressed;
             Lobby!.ReadyButton.OnToggled -= OnReadyToggled;
 
@@ -120,6 +197,11 @@ namespace Content.Client.Lobby
         private void OnReadyToggled(BaseButton.ButtonToggledEventArgs args)
         {
             SetReady(args.Pressed);
+        }
+
+        private void OnManifestPressed(BaseButton.ButtonEventArgs args)
+        {
+            _readyManifest.RequestReadyManifest();
         }
 
         public override void FrameUpdate(FrameEventArgs e)
@@ -183,15 +265,25 @@ namespace Content.Client.Lobby
                 Lobby!.ReadyButton.Text = Loc.GetString("lobby-state-ready-button-join-state");
                 Lobby!.ReadyButton.ToggleMode = false;
                 Lobby!.ReadyButton.Pressed = false;
+                Lobby!.ReadyButton.Disabled = false;
                 Lobby!.ObserveButton.Disabled = false;
+                Lobby!.ManifestButton.Disabled = true;
             }
             else
             {
                 Lobby!.StartTime.Text = string.Empty;
-                Lobby!.ReadyButton.Pressed = _gameTicker.AreWeReady;
-                Lobby!.ReadyButton.Text = Loc.GetString(Lobby!.ReadyButton.Pressed ? "lobby-state-player-status-ready": "lobby-state-player-status-not-ready");
+                Lobby!.ReadyButton.Text = Loc.GetString(Lobby!.ReadyButton.Pressed
+                    ? "lobby-state-player-status-ready"
+                    : "lobby-state-player-status-not-ready");
+                // If there is a tooltip showing, make sure to update the text in it as well!
+                if (Lobby!.ReadyButton.SuppliedTooltip is Tooltip tooltip)
+                {
+                    tooltip.Text = GetReadyButtonTooltipText();
+                }
                 Lobby!.ReadyButton.ToggleMode = true;
-                Lobby!.ReadyButton.Disabled = false;
+                Lobby!.ReadyButton.Disabled = !_readyPossibleWithCharacters;
+                Lobby!.ReadyButton.Pressed = _gameTicker.AreWeReady;
+                Lobby!.ManifestButton.Disabled = false;
                 Lobby!.ObserveButton.Disabled = true;
             }
 
@@ -278,6 +370,35 @@ namespace Content.Client.Lobby
             }
 
             _consoleHost.ExecuteCommand($"toggleready {newReady}");
+        }
+
+        /// <summary>
+        /// Check the client preferences to make sure that it's possible to be considered for any round start jobs
+        /// given the player's character selections and job priorities.
+        /// Save and cache this result, and set the disable status and unready if appropriate.
+        /// </summary>
+        private void UpdateReadyAllowed()
+        {
+            if (!_preferences.ServerDataLoaded)
+                return;
+
+            _readyPossibleWithCharacters = (_preferences.Preferences?.JobPrioritiesFiltered().Count ?? 0) != 0;
+
+            if (Lobby is null)
+                return;
+
+            // If the button is not in "Toggle Mode", the button is being used as a late join button instead, so bail.
+            if (!Lobby.ReadyButton.ToggleMode)
+                return;
+
+            Lobby.ReadyButton.Disabled = !_readyPossibleWithCharacters;
+
+            if (!_readyPossibleWithCharacters)
+            {
+                Lobby.ReadyButton.Pressed = false;
+            }
+
+            SetReady(Lobby.ReadyButton.Pressed);
         }
     }
 }

@@ -80,53 +80,20 @@ public sealed partial class ProfilePreviewSpriteView : SpriteView
         EntMan.DeleteEntity(PreviewDummy);
         PreviewDummy = EntityUid.Invalid;
 
-        if (profile is not HumanoidCharacterProfile humanoid)
+        switch (profile)
         {
-            throw new ArgumentException("Only humanoid profiles are implemented in ProfilePreviewSpriteView");
-        }
-
-        // Extract profile information
-        ProfileName = humanoid.Name;
-
-        // Find preferred job
-        JobPrototype? preferredJob = jobOverride;
-        if (preferredJob == null)
-        {
-            var highestPriority = JobPriority.Never;
-            foreach (var (jobId, priority) in humanoid.JobPriorities)
-            {
-                if (priority > highestPriority && _prototypeManager.TryIndex(jobId, out JobPrototype? job))
-                {
-                    highestPriority = priority;
-                    preferredJob = job;
-                }
-            }
-        }
-
-        JobName = preferredJob?.Name;
-
-        // Get loadout name if available
-        if (preferredJob != null && humanoid.Loadouts.TryGetValue(preferredJob.ID, out var loadout))
-        {
-            LoadoutName = loadout.Role;
-        }
-        else
-        {
-            LoadoutName = null;
+            case HumanoidCharacterProfile humanoid:
+                LoadHumanoidEntity(humanoid, jobOverride, showClothes);
+                break;
+            default:
+                throw new ArgumentException("Only humanoid profiles are implemented in ProfilePreviewSpriteView");
         }
 
         FullDescription = ConstructFullDescription();
 
-        // TODO: Implement actual entity spawning logic here
-        // This would typically involve spawning a humanoid entity and applying the profile's appearance
-
         SetEntity(PreviewDummy);
         InvalidateMeasure();
-
-        if (PreviewDummy.IsValid())
-        {
-            _metaDataSystem.SetEntityName(PreviewDummy, profile.Name);
-        }
+        _metaDataSystem.SetEntityName(PreviewDummy, profile.Name);
     }
 
     /// <summary>
@@ -137,13 +104,14 @@ public sealed partial class ProfilePreviewSpriteView : SpriteView
     /// <exception cref="ArgumentException"></exception>
     public void ReloadProfilePreview(ICharacterProfile profile)
     {
-        if (profile is not HumanoidCharacterProfile humanoid)
+        switch (profile)
         {
-            throw new ArgumentException("Only humanoid profiles are implemented in ProfilePreviewSpriteView");
+            case HumanoidCharacterProfile humanoid:
+                ReloadHumanoidEntity(humanoid);
+                break;
+            default:
+                throw new ArgumentException("Only humanoid profiles are implemented in ProfilePreviewSpriteView");
         }
-
-        // TODO: Implement appearance update logic here
-        // This would typically update the HumanoidAppearanceComponent without recreating the entity
     }
 
     private string ConstructFullDescription()

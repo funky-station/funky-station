@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Humanoid;
@@ -27,12 +35,18 @@ public sealed class AntagLoadProfileRuleSystem : GameRuleSystem<AntagLoadProfile
         if (args.Handled)
             return;
 
-        var profile = args.Session != null
-            ? _prefs.GetPreferences(args.Session.UserId).SelectedCharacter as HumanoidCharacterProfile
-            : HumanoidCharacterProfile.RandomWithSpecies();
+        // Try to find a profile with this antagonist enabled on the player preferences
+        HumanoidCharacterProfile? profile = null;
+        if (args.Session != null)
+        {
+            var roles = args.Def.PrefRoles;
+            var prefs = _prefs.GetPreferences(args.Session.UserId);
+            profile = prefs.SelectProfileForAntag(roles);
+        }
 
-
-        if (profile?.Species is not { } speciesId || !_proto.Resolve(speciesId, out var species))
+        // If we can't find one, give them a random humanoid
+        profile ??= HumanoidCharacterProfile.RandomWithSpecies();
+        if (profile?.Species is not { } speciesId || !_proto.TryIndex(speciesId, out var species))
         {
             species = _proto.Index<SpeciesPrototype>(SharedHumanoidAppearanceSystem.DefaultSpecies);
         }

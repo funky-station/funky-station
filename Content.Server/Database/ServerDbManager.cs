@@ -68,9 +68,9 @@ namespace Content.Server.Database
             ICharacterProfile defaultProfile,
             CancellationToken cancel);
 
-        Task SaveSelectedCharacterIndexAsync(NetUserId userId, int index);
-
         Task SaveCharacterSlotAsync(NetUserId userId, ICharacterProfile? profile, int slot);
+
+        Task SaveJobPrioritiesAsync(NetUserId userId, Dictionary<ProtoId<JobPrototype>, JobPriority> newJobPriorities);
 
         Task SaveAdminOOCColorAsync(NetUserId userId, Color color);
 
@@ -499,22 +499,17 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.InitPrefsAsync(userId, defaultProfile));
         }
 
-        public Task SaveSelectedCharacterIndexAsync(NetUserId userId, int index)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.SaveSelectedCharacterIndexAsync(userId, index));
-        }
-
         public Task SaveCharacterSlotAsync(NetUserId userId, ICharacterProfile? profile, int slot)
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.SaveCharacterSlotAsync(userId, profile, slot));
         }
 
-        public Task DeleteSlotAndSetSelectedIndex(NetUserId userId, int deleteSlot, int newSlot)
+        public Task SaveJobPrioritiesAsync(NetUserId userId,
+            Dictionary<ProtoId<JobPrototype>, JobPriority> newJobPriorities)
         {
             DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.DeleteSlotAndSetSelectedIndex(userId, deleteSlot, newSlot));
+            return RunDbCommand(() => _db.SaveJobPrioritiesAsync(userId, newJobPriorities));
         }
 
         public Task SaveAdminOOCColorAsync(NetUserId userId, Color color)

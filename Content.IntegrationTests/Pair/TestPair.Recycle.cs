@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 #nullable enable
 using System.IO;
 using System.Linq;
@@ -8,8 +18,13 @@ using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Preferences;
+using Robust.Client;
 using Robust.Shared.Player;
 using Robust.UnitTesting.Pool;
+using Robust.Server.Player;
+using Robust.Shared.Exceptions;
+using Robust.Shared.GameObjects;
+using Robust.Shared.Network;
 
 namespace Content.IntegrationTests.Pair;
 
@@ -24,16 +39,70 @@ public sealed partial class TestPair
 
     private async Task ResetModifiedPreferences()
     {
+        if (Player == null)
+            return;
+        await Server.WaitIdleAsync();
         var prefMan = Server.ResolveDependency<IServerPreferencesManager>();
-        foreach (var user in _modifiedProfiles)
+
+        var prefs = prefMan.GetPreferences(Player.UserId);
+
+        foreach(var slot in prefs.Characters.Keys)
         {
-            await Server.WaitPost(() => prefMan.SetProfile(user, 0, new HumanoidCharacterProfile()).Wait());
+            if (slot == 0)
+                continue;
+            await Server.WaitPost(() =>
+            {
+                prefMan.DeleteProfile(Player.UserId, slot).Wait();
+            });
         }
 
-        _modifiedProfiles.Clear();
+        await Server.WaitPost(() =>
+        {
+            prefMan.SetProfile(Player.UserId, 0, new HumanoidCharacterProfile().AsEnabled()).Wait();
+            prefMan.SetJobPriorities(Player.UserId, new () { { SharedGameTicker.FallbackOverflowJob, JobPriority.High } }).Wait();
+        });
     }
 
-    protected override async Task Recycle(PairSettings next, TextWriter testOut)
+    public async ValueTask CleanReturnAsync()
+    {
+        if (State != PairState.InUse)
+            throw new Exception($"{nameof(CleanReturnAsync)}: Unexpected state. Pair: {Id}. State: {State}.");
+
+        await _testOut.WriteLineAsync($"{nameof(CleanReturnAsync)}: Return of pair {Id} started");
+        State = PairState.CleanDisposed;
+        try
+        {
+            await OnCleanDispose();
+        }
+        catch (Exception e)
+        {
+            await _testOut.WriteLineAsync($"Exception raised in OnCleanDispose\n{e}");
+            throw;
+        }
+        State = PairState.Ready;
+        PoolManager.NoCheckReturn(this);
+        ClearContext();
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        switch (State)
+        {
+            case PairState.Dead:
+            case PairState.Ready:
+                break;
+            case PairState.InUse:
+                await _testOut.WriteLineAsync($"{nameof(DisposeAsync)}: Dirty return of pair {Id} started");
+                await OnDirtyDispose();
+                PoolManager.NoCheckReturn(this);
+                ClearContext();
+                break;
+            default:
+                throw new Exception($"{nameof(DisposeAsync)}: Unexpected state. Pair: {Id}. State: {State}.");
+        }
+    }
+
+    public async Task CleanPooledPair(PoolSettings settings, TextWriter testOut)
     {
         // Move to pre-round lobby. Required to toggle dummy ticker on and off
         var gameTicker = Server.System<GameTicker>();

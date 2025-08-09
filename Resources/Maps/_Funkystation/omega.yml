@@ -1,76 +1,11 @@
-# SPDX-FileCopyrightText: 2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021 buletsponge <96000213+buletsponge@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-# SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morbo <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TimrodDX <timrod@gmail.com>
-# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-# SPDX-FileCopyrightText: 2022 and_a <and_a@DESKTOP-RJENGIR>
-# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 778b <33431126+778b@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2023 Jackrost <jackrost@mail.ru>
-# SPDX-FileCopyrightText: 2023 JustCone <141039037+JustCone14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 88tv <131759102+88tv@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 8tv <eightev@gmail.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NkoKirkto <153374559+NkoKirkto@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NkoKirkto <halloleute640mail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 spanky-spanky <scott@wearejacob.com>
-# SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
-# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
-# SPDX-FileCopyrightText: 2025 salpphie <53307242+salpphie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 salpphie <alyssa.thomas51@gmail.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 meta:
   format: 7
   category: Map
   engineVersion: 255.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/20/2025 14:26:47
-  entityCount: 13850
+  time: 08/05/2025 00:21:25
+  entityCount: 13868
 maps:
 - 1
 grids:
@@ -201,7 +136,7 @@ entities:
           version: 6
         2,0:
           ind: 2,0
-          tiles: eQAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+          tiles: eQAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeQAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeQAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeQAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeQAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeQAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAeQAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAeAAAAAAAeAAAAAAAeAAAAAAAeQAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
           version: 6
         2,-1:
           ind: 2,-1
@@ -3924,12 +3859,12 @@ entities:
           7,-1:
             0: 65535
           8,1:
-            1: 4352
+            1: 37120
           8,2:
-            1: 1
+            1: 34953
           8,3:
             0: 61713
-            1: 3584
+            1: 3720
           0,12:
             0: 10624
           0,13:
@@ -3981,8 +3916,14 @@ entities:
             1: 14
           9,0:
             1: 15
+          9,1:
+            1: 12288
+          9,2:
+            0: 4369
+            1: 8738
           9,3:
-            1: 8960
+            0: 4369
+            1: 8738
           9,4:
             1: 3
           10,0:
@@ -4445,7 +4386,7 @@ entities:
             4: 2184
           -13,4:
             3: 2184
-            5: 546
+            6: 546
           -12,5:
             0: 1
             1: 3856
@@ -4454,7 +4395,7 @@ entities:
           -11,5:
             1: 784
           -11,4:
-            6: 546
+            5: 546
           -11,6:
             0: 49152
           -11,3:
@@ -4823,9 +4764,9 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 0
-          - 0
           - 6666.982
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -4846,9 +4787,9 @@ entities:
           temperature: 293.15
           moles:
           - 0
+          - 0
+          - 0
           - 6666.982
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -6012,7 +5953,7 @@ entities:
       pos: -24.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -70790.266
+      secondsUntilStateChange: -90429.414
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12178,6 +12119,16 @@ entities:
       parent: 2
 - proto: CableApcExtension
   entities:
+  - uid: 739
+    components:
+    - type: Transform
+      pos: 36.5,11.5
+      parent: 2
+  - uid: 793
+    components:
+    - type: Transform
+      pos: 36.5,13.5
+      parent: 2
   - uid: 804
     components:
     - type: Transform
@@ -12188,10 +12139,20 @@ entities:
     - type: Transform
       pos: -51.5,-6.5
       parent: 2
+  - uid: 1118
+    components:
+    - type: Transform
+      pos: 36.5,14.5
+      parent: 2
   - uid: 1131
     components:
     - type: Transform
       pos: -31.5,-22.5
+      parent: 2
+  - uid: 1137
+    components:
+    - type: Transform
+      pos: 36.5,12.5
       parent: 2
   - uid: 1248
     components:
@@ -14187,6 +14148,11 @@ entities:
     components:
     - type: Transform
       pos: 9.5,28.5
+      parent: 2
+  - uid: 1654
+    components:
+    - type: Transform
+      pos: 36.5,10.5
       parent: 2
   - uid: 1655
     components:
@@ -20707,6 +20673,11 @@ entities:
     components:
     - type: Transform
       pos: -45.5,5.5
+      parent: 2
+  - uid: 2971
+    components:
+    - type: Transform
+      pos: 36.5,15.5
       parent: 2
   - uid: 2972
     components:
@@ -28730,6 +28701,54 @@ entities:
     - type: Transform
       pos: -56.5,12.5
       parent: 2
+  - uid: 780
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 36.5,15.5
+      parent: 2
+  - uid: 997
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 36.5,14.5
+      parent: 2
+  - uid: 998
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 36.5,13.5
+      parent: 2
+  - uid: 999
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 36.5,12.5
+      parent: 2
+  - uid: 1000
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 36.5,11.5
+      parent: 2
+  - uid: 1003
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 36.5,10.5
+      parent: 2
+  - uid: 1004
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 36.5,9.5
+      parent: 2
+  - uid: 1005
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 36.5,8.5
+      parent: 2
   - uid: 2468
     components:
     - type: Transform
@@ -34309,17 +34328,17 @@ entities:
       parent: 2
 - proto: ComputerRadar
   entities:
+  - uid: 754
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 36.5,8.5
+      parent: 2
   - uid: 5294
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 22.5,13.5
-      parent: 2
-  - uid: 5295
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 35.5,15.5
       parent: 2
 - proto: ComputerResearchAndDevelopment
   entities:
@@ -35734,6 +35753,24 @@ entities:
       parent: 2
 - proto: DisposalBend
   entities:
+  - uid: 752
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 9.5,-37.5
+      parent: 2
+  - uid: 753
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 8.5,-37.5
+      parent: 2
+  - uid: 926
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 8.5,-38.5
+      parent: 2
   - uid: 5461
     components:
     - type: Transform
@@ -37709,12 +37746,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 9.5,-36.5
       parent: 2
-  - uid: 5811
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 9.5,-37.5
-      parent: 2
   - uid: 5812
     components:
     - type: Transform
@@ -38069,6 +38100,18 @@ entities:
       parent: 2
 - proto: DisposalTrunk
   entities:
+  - uid: 810
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 9.5,-38.5
+      parent: 2
+  - uid: 927
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 9.5,-38.5
+      parent: 2
   - uid: 5871
     components:
     - type: Transform
@@ -38270,12 +38313,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 12.5,-42.5
-      parent: 2
-  - uid: 5906
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 9.5,-38.5
       parent: 2
   - uid: 5907
     components:
@@ -67405,6 +67442,18 @@ entities:
       parent: 2
     - type: ApcPowerReceiver
       powerLoad: 0
+- proto: PoweredLightPostSmall
+  entities:
+  - uid: 1087
+    components:
+    - type: Transform
+      pos: 37.5,7.5
+      parent: 2
+  - uid: 2973
+    components:
+    - type: Transform
+      pos: 37.5,16.5
+      parent: 2
 - proto: PoweredSmallLight
   entities:
   - uid: 813
@@ -67943,12 +67992,6 @@ entities:
       parent: 2
     - type: ApcPowerReceiver
       powerLoad: 0
-  - uid: 10031
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 37.5,15.5
-      parent: 2
   - uid: 10032
     components:
     - type: Transform
@@ -74393,6 +74436,13 @@ entities:
     - type: Transform
       pos: -6.5,-9.5
       parent: 2
+- proto: SpawnMobCrabAtmos
+  entities:
+  - uid: 738
+    components:
+    - type: Transform
+      pos: -48.5,10.5
+      parent: 2
 - proto: SpawnMobFoxRenault
   entities:
   - uid: 11154
@@ -74425,6 +74475,13 @@ entities:
     components:
     - type: Transform
       pos: -28.5,-17.5
+      parent: 2
+- proto: SpawnMobPollyParrot
+  entities:
+  - uid: 737
+    components:
+    - type: Transform
+      pos: -50.5,-7.5
       parent: 2
 - proto: SpawnMobPossumMorty
   entities:
@@ -79505,6 +79562,12 @@ entities:
     components:
     - type: Transform
       pos: -35.5,33.5
+      parent: 2
+  - uid: 1008
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 36.5,7.5
       parent: 2
   - uid: 5056
     components:
@@ -84816,12 +84879,6 @@ entities:
     - type: Transform
       pos: 64.5,-22.5
       parent: 2
-  - uid: 12938
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 36.5,15.5
-      parent: 2
   - uid: 12939
     components:
     - type: Transform
@@ -89043,18 +89100,6 @@ entities:
       parent: 2
 - proto: WindowReinforcedDirectional
   entities:
-  - uid: 5397
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -26.5,17.5
-      parent: 2
-  - uid: 6496
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -25.5,17.5
-      parent: 2
   - uid: 13731
     components:
     - type: Transform

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Charges.Components;
 
 namespace Content.Server._Funkystation.EmpWeapon.Components;

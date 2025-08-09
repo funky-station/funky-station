@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: entity
+  parent: [ClothingBlueshieldArmourVest, ClothingOuterWinterCoatToggleable]
+  id: ClothingOuterWinterBSO
+  name: blueshield's armored winter coat
+  description: Sleek, comfortable, thermally bonded, non-interwoven kevlar fiber sewn into warm winter coat. It's so lightweight, you'll forget you're wearing it!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/coatbsoarmored.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/coatbsoarmored.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodWinterBSO
+  - type: Item
+    size: Normal

@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2024 Sage <sagefacepants@gmail.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 Theapug <159912420+Teapug@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -77,6 +78,21 @@
   - BlueshieldOfficerSatchel
   - BlueshieldOfficerDuffel
 
+- type: loadoutGroup #Funky Station
+  id: BlueshieldOfficerBelt
+  name: loadout-group-bso-belt
+  loadouts:
+  - BlueshieldOfficerSecurityBelt
+  - BlueshieldOfficerSecurityWebbing
+
+- type: loadoutGroup #Funky Station
+  id: BlueshieldOfficerShoes
+  name: loadout-group-bso-shoes
+  loadouts:
+  - BlueshieldOfficerJackBoots
+  - BlueshieldOfficerCombatBoots
+  - BlueshieldOfficerClothingShoesBootsLaceup
+
 - type: loadoutGroup
   id: BlueshieldOfficerJumpsuit
   name: loadout-group-bso-jumpsuit
@@ -91,6 +107,7 @@
   loadouts:
   - BlueshieldOfficerOuterBlueshieldArmorVest
   - BlueshieldOfficerOuterBlueshieldArmoredJacket
+  - BlueshieldOfficerOuterBlueshieldArmoredWinterCoat #Funky Station
 
 - type: loadoutGroup
   id: BlueshieldOfficerNeck

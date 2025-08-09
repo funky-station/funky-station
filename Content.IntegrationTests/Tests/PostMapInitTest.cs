@@ -143,6 +143,7 @@ namespace Content.IntegrationTests.Tests
             "Convex",
             "Relic",
             "Resort",
+            "microstation",
             "dm01-entryway"
         };
 

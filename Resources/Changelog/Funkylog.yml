@@ -3957,3 +3957,9 @@ Entries:
       message: Fland's AI Core now produces heat!
   id: 477
   time: '2025-08-09T21:07:48.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Fix
+      message: Fixed code bug causing desword to fail
+  id: 478
+  time: '2025-08-09T22:51:32.0000000+00:00'

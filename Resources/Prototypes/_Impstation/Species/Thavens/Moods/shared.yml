@@ -43,6 +43,7 @@
   - PrankWar
   - StarPeople
   - TheSimsShared
+  - ThirstQuencher
 #   - OutOfFashion
 #   - InFashion
 
@@ -191,6 +192,17 @@
   - FoodRestrict
   moodVars:
     edible: MoodEdibles
+    
+# Thirst Quencher: [DRINK] is a traditional Thaven beverage. All Thaven aboard the station should make as many as possible and organize a 
+- type: thavenMood
+  id: ThirstQuencher
+  moodName: thaven-mood-thirstquencher-name
+  moodDesc: thaven-mood-thirstquencher-desc
+  conflicts:
+  - FoodRestrict
+  - DisapproveOfDrugs
+  moodVars:
+    drink: MoodDrinkables
 
 # Today is [HOLIDAY]. You think you remember the traditional celebrations...
 - type: thavenMood

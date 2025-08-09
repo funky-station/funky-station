@@ -177,7 +177,9 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 15  #Low volume but a full patch  will last for 60 seconds
+        maxVol: 15  #Low volume but a full patch  will last for 30 seconds
+  - type: RefillableSolution
+    solution: drink
   - type: Construction
     graph: MedicalPatchMakeshift
     node: medicalPatchMakeshift
@@ -203,8 +205,8 @@
   result: MedicalPatchTherapeutic
   completetime: 2
   materials:
-    Cloth: 100
-    Plastic: 100
+    Cloth: 50
+    Plastic: 50
 
 - type: latheRecipe
   id: MedicalPatchLarge

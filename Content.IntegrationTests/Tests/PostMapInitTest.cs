@@ -39,6 +39,7 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 mkanke-real <mikekanke@gmail.com>
 // SPDX-FileCopyrightText: 2024 terezi <147006836+terezi-station@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ArsCatalyst <Heartflareburst@gmail.com>
 // SPDX-FileCopyrightText: 2025 LaCumbiaDelCoronavirus <90893484+LaCumbiaDelCoronavirus@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Spanky <scott@wearejacob.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
@@ -143,6 +144,7 @@ namespace Content.IntegrationTests.Tests
             "Convex",
             "Relic",
             "Resort",
+            "microstation",
             "dm01-entryway"
         };
 

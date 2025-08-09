@@ -623,3 +623,6 @@ uplink-syndicate-autoinjector-softcase-desc = Contains 4 different cartridges fo
 
 uplink-autoinjector-bundle-name = Syndicate Cartridge Autoinjector Bundle
 uplink-autoinjector-bundle-desc = A bag containing 4 Syndicate branded cartridge autoinjectors as well as hard and soft cases, both filled with various cartridges, and a few extras for treating gunshot wounds. For healing in a pinch when you don't have time to stop!
+
+uplink-syndie-kit-name = Random Syndie-Kit
+uplink-syndie-kit-desc = Get your hands on one of our premium, custom-tailored syndie-kits! Contains a selection of gear to fit a given theme, often including items you cannot find elsewhere in your uplink! Only 1 available per uplink.

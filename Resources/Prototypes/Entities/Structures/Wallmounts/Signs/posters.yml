@@ -23,6 +23,7 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pigeonpeas <147350443+Sadie-silly@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -108,9 +109,9 @@
 
 - type: entity
   parent: PosterBase
-  id: PosterContrabandLustyExomorph
-  name: "Lusty Exomorph"
-  description: "A heretical poster depicting the titular star of an equally heretical book."
+  id: PosterContrabandLiveLaughLove
+  name: "Live Laugh Love"
+  description: "I'm projecting my good vibes into you. And by good vibes I mean ionizing radiation"
   components:
   - type: Sprite
     state: poster4_contraband

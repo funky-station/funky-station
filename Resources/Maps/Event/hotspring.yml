@@ -275,7 +275,7 @@ entities:
       ambientLightColor: '#020100FF'
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: Hot Springs
+      id: HotSprings
     - type: GasTileOverlay
     - type: GridAtmosphere
       version: 2

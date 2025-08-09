@@ -9,11 +9,9 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._EE.Overlays.Switchable;
-
-[AutoGenerateComponentState]
 public abstract partial class SwitchableOverlayComponent : BaseOverlayComponent
 {
-    [DataField, AutoNetworkedField]
+    [DataField]
     public bool IsActive;
 
     [DataField]
@@ -51,7 +49,7 @@ public abstract partial class SwitchableOverlayComponent : BaseOverlayComponent
 }
 
 [Serializable, NetSerializable]
-public sealed class SwitchableVisionOverlayComponentState : IComponentState
+public sealed class SwitchableOverlayComponentState : IComponentState
 {
     public Color Color;
     public bool IsActive;

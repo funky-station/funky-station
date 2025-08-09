@@ -9,7 +9,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared._EE.Overlays.Switchable;
 
-[RegisterComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class NightVisionComponent : SwitchableOverlayComponent
 {
     public override string? ToggleAction { get; set; } = "ToggleNightVision";

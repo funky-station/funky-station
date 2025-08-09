@@ -10,16 +10,18 @@
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.CCVar;
 using Content.Shared.Flash;
 using Content.Shared.Flash.Components;
 using Content.Shared.StatusEffect;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
+using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -32,13 +34,15 @@ namespace Content.Client.Flash
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly IConfigurationManager _configManager = default!;
 
         private readonly SharedFlashSystem _flash;
         private readonly StatusEffectsSystem _statusSys;
 
         public override OverlaySpace Space => OverlaySpace.WorldSpace;
         private readonly ShaderInstance _shader;
-        public float PercentComplete = 0.0f;
+        private bool _reducedMotion;
+        public float PercentComplete;
         public Texture? ScreenshotTexture;
 
         public FlashOverlay()
@@ -47,6 +51,8 @@ namespace Content.Client.Flash
             _shader = _prototypeManager.Index<ShaderPrototype>("FlashedEffect").InstanceUnique();
             _flash = _entityManager.System<SharedFlashSystem>();
             _statusSys = _entityManager.System<StatusEffectsSystem>();
+
+            _configManager.OnValueChanged(CCVars.ReducedMotion, (b) => { _reducedMotion = b; }, invokeImmediately: true);
         }
 
         protected override void FrameUpdate(FrameEventArgs args)
@@ -64,8 +70,8 @@ namespace Content.Client.Flash
                 return;
 
             var curTime = _timing.CurTime;
-            var lastsFor = (float) (time.Value.Item2 - time.Value.Item1).TotalSeconds;
-            var timeDone = (float) (curTime - time.Value.Item1).TotalSeconds;
+            var lastsFor = (float)(time.Value.Item2 - time.Value.Item1).TotalSeconds;
+            var timeDone = (float)(curTime - time.Value.Item1).TotalSeconds;
 
             PercentComplete = timeDone / lastsFor;
         }
@@ -91,10 +97,22 @@ namespace Content.Client.Flash
                 return;
 
             var worldHandle = args.WorldHandle;
-            _shader.SetParameter("percentComplete", PercentComplete);
-            worldHandle.UseShader(_shader);
-            worldHandle.DrawTextureRectRegion(ScreenshotTexture, args.WorldBounds);
-            worldHandle.UseShader(null);
+            if (_reducedMotion)
+            {
+                // TODO: This is a very simple placeholder.
+                // Replace it with a proper shader once we come up with something good.
+                // Turns out making an effect that is supposed to be a bright, sudden, and disorienting flash 
+                // not do any of that while also being equivalent in terms of game balance is hard.
+                var alpha = 1 - MathF.Pow(PercentComplete, 8f); // similar falloff curve to the flash shader
+                worldHandle.DrawRect(args.WorldBounds, new Color(0f, 0f, 0f, alpha));
+            }
+            else
+            {
+                _shader.SetParameter("percentComplete", PercentComplete);
+                worldHandle.UseShader(_shader);
+                worldHandle.DrawTextureRectRegion(ScreenshotTexture, args.WorldBounds);
+                worldHandle.UseShader(null);
+            }
         }
 
         protected override void DisposeBehavior()

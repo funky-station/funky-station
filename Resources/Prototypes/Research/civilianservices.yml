@@ -220,7 +220,6 @@
   cost: 15000
   recipeUnlocks:
   - CargoTelepadMachineCircuitboard
-  - SiloRelayMachineCircuitboard # Funky Station
 
 # Tier 3
 

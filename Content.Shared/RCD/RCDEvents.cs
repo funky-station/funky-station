@@ -24,8 +24,6 @@ public sealed class RCDSystemMessage : BoundUserInterfaceMessage
     }
 }
 
-
-// Funky - Added to handle RPD layer selection
 [Serializable, NetSerializable]
 public sealed class RPDSelectLayerEvent : EntityEventArgs
 {

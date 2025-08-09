@@ -507,6 +507,8 @@
     isRpd: true
     availablePrototypes:
     - PipeFourway
+    - PipeFourwayAlt1
+    - PipeFourwayAlt2
     - PipeStraight
     - PipeBend
     - PipeTJunction
@@ -527,57 +529,10 @@
     - SignalValve
     - CanisterPort
     - FilterGas
-    - ManifoldGas
     - Alarm
     - Sensor
     - SensorPipe
     - Deconstruct
-
-    # Alternate pipe prototypes
-    - PipeFourwayAlt1
-    - PipeFourwayAlt2
-    - PipeStraightAlt1
-    - PipeStraightAlt2
-    - PipeBendAlt1
-    - PipeBendAlt2
-    - PipeTJunctionAlt1
-    - PipeTJunctionAlt2
-    - PipeHalfAlt1
-    - PipeHalfAlt2
-    - OutletInjectorAlt1
-    - OutletInjectorAlt2
-    - ManualValveAlt1
-    - ManualValveAlt2
-    - VolumetricPumpAlt1
-    - VolumetricPumpAlt2
-    - PressurePumpAlt1
-    - PressurePumpAlt2
-    - HeatPumpAlt1
-    - HeatPumpAlt2
-    - VentScrubberAlt1
-    - VentScrubberAlt2
-    - PressureValveAlt1
-    - PressureValveAlt2
-    - DualPortVentAlt1
-    - DualPortVentAlt2
-    - VentGasAlt1
-    - VentGasAlt2
-    - VentPassiveAlt1
-    - VentPassiveAlt2
-    - MixerGasAlt1
-    - MixerGasAlt2
-    - SignalValveAlt1
-    - SignalValveAlt2
-    - CanisterPortAlt1
-    - CanisterPortAlt2
-    - FilterGasAlt1
-    - FilterGasAlt2
-    - SensorPipeAlt1
-    - SensorPipeAlt2
-    - RadiatorAlt1
-    - RadiatorAlt2
-    - RadiatorBendAlt1
-    - RadiatorBendAlt2
   - type: LimitedCharges
     maxCharges: 45
     charges: 45

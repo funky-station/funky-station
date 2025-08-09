@@ -182,7 +182,7 @@ public class RCDSystem : EntitySystem
         }
 
         // Funky - Update prototype for RPD based on last selected layer
-        // I hate all of this but it works for now
+        // I hate this but it works for now
         if (component.IsRpd)
         {
             // Determine the base prototype ID by stripping any Alt1 or Alt2 suffix

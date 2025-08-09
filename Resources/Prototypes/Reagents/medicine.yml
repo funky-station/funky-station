@@ -208,7 +208,7 @@
       - !type:HealthChange
         damage:
           types:
-            Radiation: -2 # Funky
+            Radiation: -1 # Funky
           groups:
             Brute: 0.2 # funky
 
@@ -344,7 +344,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Airloss: -2 # Funkychem- aka 1 asphyx/blood damage
+            Airloss: -1.5 # Funkychem- aka 1 asphyx/blood damage
           #  Bloodloss: -0.5
       - !type:HealthChange
         conditions:
@@ -681,9 +681,9 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -4 # funky
+            Brute: -1 # funky
           types:
-            Asphyxiation: -3 # funky
+            Asphyxiation: -1 # funky
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -772,7 +772,7 @@
       - !type:HealthChange
         damage:
           types:
-            Caustic: -2 # funky
+            Caustic: -4 # funky
 
 - type: reagent
   id: Stellibinin
@@ -904,10 +904,11 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -3.2 # funky
-            Toxin: -1.6 # funky
-            Airloss: -1.6 # funky
-            Brute: -2.4 # funky
+            Burn: -2.0 # funky
+            Toxin: -2.0 # funky
+            Airloss: -2.0 # funky
+            Brute: -2.0 # funky
+            
 
 - type: reagent
   id: Ultravasculine
@@ -1095,7 +1096,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 12
+          min: 6
         damage:
           types:
             Cold: 3
@@ -1120,7 +1121,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 11
+          min: 6
         damage:
           types:
             Blunt: 3 # funky
@@ -1144,7 +1145,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 10.5
+          min: 6
         damage:
           types:
             Poison: 3 # funky
@@ -1217,7 +1218,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 20
+          min: 10
         damage:
           types:
             Slash: 0.5
@@ -1323,8 +1324,8 @@
             max: 213.0
           damage:
             groups:
-              Brute: -4
-              Burn: -5
+              Brute: -5
+              Burn: -6
             types:
               Poison: -2
 

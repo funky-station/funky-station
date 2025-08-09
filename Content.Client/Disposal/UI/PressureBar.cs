@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using System.Numerics;
 using Content.Shared.Disposal;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;

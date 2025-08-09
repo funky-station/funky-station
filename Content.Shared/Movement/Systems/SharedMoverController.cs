@@ -132,9 +132,6 @@ public abstract partial class SharedMoverController : VirtualController
         InitializeInput();
         InitializeRelay();
         Subs.CVar(_configManager, CCVars.RelativeMovement, value => _relativeMovement = value, true);
-        Subs.CVar(_configManager, CCVars.MinFriction, value => _minDamping = value, true);
-        Subs.CVar(_configManager, CCVars.AirFriction, value => _airDamping = value, true);
-        Subs.CVar(_configManager, CCVars.OffgridFriction, value => _offGridDamping = value, true);
         Subs.CVar(_configManager, CCVars.StopSpeed, value => _stopSpeed = value, true);
         UpdatesBefore.Add(typeof(TileFrictionController));
     }

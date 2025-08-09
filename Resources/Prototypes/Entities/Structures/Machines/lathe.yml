@@ -1416,6 +1416,7 @@
     - ClothingUniformJumpskirtEngineering
     - ClothingUniformJumpsuitSeniorEngineer
     - ClothingUniformJumpskirtSeniorEngineer
+    - ClothingOuterVestHazard
     - ClothingHeadHatHopcap
     - ClothingUniformJumpsuitHoP
     - ClothingUniformJumpskirtHoP
@@ -1443,6 +1444,9 @@
     - ClothingUniformJumpskirtMedicalDoctor
     - ClothingUniformJumpsuitSeniorPhysician
     - ClothingUniformJumpskirtSeniorPhysician
+    - ClothingUniformJumpsuitPsychologist
+    - ClothingUniformJumpskirtPsychologist
+    - ClothingOuterStraightjacket
     - ClothingUniformJumpsuitMime
     - ClothingUniformJumpskirtMime
     - ClothingUniformJumpsuitMusician

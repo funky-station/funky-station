@@ -61861,7 +61861,6 @@ entities:
       removedMasks: 20
     - type: PlaceableSurface
       isPlaceable: True
-    - type: ScaleVisuals
 - proto: CrateRadiation
   entities:
   - uid: 17794
@@ -72726,7 +72725,6 @@ entities:
     - type: Transform
       pos: -50.32873,7.580326
       parent: 2
-    - type: ScaleVisuals
     - type: Appearance
 - proto: FoodMeat
   entities:
@@ -110293,14 +110291,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -28.5,-17.5
       parent: 2
-    - type: ScaleVisuals
     - type: Appearance
   - uid: 14638
     components:
     - type: Transform
       pos: -20.5,56.5
       parent: 2
-    - type: ScaleVisuals
     - type: Appearance
     - type: PointLight
       color: '#FFB3B3FF'
@@ -113303,7 +113299,6 @@ entities:
     - type: Transform
       pos: -52.38928,-1.0070057
       parent: 2
-    - type: ScaleVisuals
     - type: Appearance
   - uid: 15031
     components:

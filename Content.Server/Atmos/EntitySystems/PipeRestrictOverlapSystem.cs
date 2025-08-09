@@ -1,11 +1,20 @@
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 router <messagebus@vk.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
 using Content.Server.Atmos.Components;
@@ -13,8 +22,10 @@ using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.Popups;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Construction.Components;
+using Content.Shared.NodeContainer;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
@@ -36,25 +47,19 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
     private EntityQuery<NodeContainerComponent> _nodeContainerQuery;
     // Goobstation - Allow device-on-pipe stacking
     private EntityQuery<PipeRestrictOverlapComponent> _restrictOverlapQuery;
-    private EntityQuery<DeviceRestrictOverlapComponent> _deviceRestrictOverlapQuery; // Funky
 
     public bool StrictPipeStacking = false;
-    public bool StrictDeviceStacking = true; // Funky
 
     /// <inheritdoc/>
     public override void Initialize()
     {
         SubscribeLocalEvent<PipeRestrictOverlapComponent, AnchorStateChangedEvent>(OnAnchorStateChanged);
         SubscribeLocalEvent<PipeRestrictOverlapComponent, AnchorAttemptEvent>(OnAnchorAttempt);
-        // Funky - Added to handle device overlap
-        SubscribeLocalEvent<DeviceRestrictOverlapComponent, AnchorStateChangedEvent>(OnDeviceAnchorStateChanged);
-        SubscribeLocalEvent<DeviceRestrictOverlapComponent, AnchorAttemptEvent>(OnDeviceAnchorAttempt);
         Subs.CVar(_cfg, CCVars.StrictPipeStacking, (bool val) => {StrictPipeStacking = val;}, false);
 
         _nodeContainerQuery = GetEntityQuery<NodeContainerComponent>();
         // Goobstation - Allow device-on-pipe stacking
         _restrictOverlapQuery = GetEntityQuery<PipeRestrictOverlapComponent>();
-        _deviceRestrictOverlapQuery = GetEntityQuery<DeviceRestrictOverlapComponent>();
     }
 
     private void OnAnchorStateChanged(Entity<PipeRestrictOverlapComponent> ent, ref AnchorStateChangedEvent args)
@@ -81,34 +86,6 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
         if (CheckOverlap((ent, node, xform)))
         {
             _popup.PopupEntity(Loc.GetString("pipe-restrict-overlap-popup-blocked", ("pipe", ent.Owner)), ent, args.User);
-            args.Cancel();
-        }
-    }
-
-    /// <summary>
-    /// Funky
-    /// Checks if the device overlaps with any other devices.
-    /// </summary>
-    private void OnDeviceAnchorStateChanged(Entity<DeviceRestrictOverlapComponent> ent, ref AnchorStateChangedEvent args)
-    {
-        if (!args.Anchored)
-            return;
-
-        if (HasComp<AnchorableComponent>(ent) && CheckDeviceOverlap(ent))
-        {
-            _popup.PopupEntity(Loc.GetString("device-restrict-overlap-popup-blocked", ("device", ent.Owner)), ent);
-            _xform.Unanchor(ent, Transform(ent));
-        }
-    }
-
-    private void OnDeviceAnchorAttempt(Entity<DeviceRestrictOverlapComponent> ent, ref AnchorAttemptEvent args)
-    {
-        if (args.Cancelled)
-            return;
-
-        if (CheckDeviceOverlap(ent))
-        {
-            _popup.PopupEntity(Loc.GetString("device-restrict-overlap-popup-blocked", ("device", ent.Owner)), ent, args.User);
             args.Cancel();
         }
     }
@@ -157,51 +134,20 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
         return false;
     }
 
-    /// <summary>
-    /// Funky
-    /// Checks if the device overlaps with any other devices.
-    /// Returns true if it overlaps with another device.
-    /// </summary>
-    [PublicAPI]
-    public bool CheckDeviceOverlap(EntityUid uid)
-    {
-        if (!_deviceRestrictOverlapQuery.HasComp(uid))
-            return false;
-
-        var xform = Transform(uid);
-        if (xform.GridUid is not { } grid || !TryComp<MapGridComponent>(grid, out var gridComp))
-            return false;
-
-        var indices = _map.TileIndicesFor(grid, gridComp, xform.Coordinates);
-        _anchoredEntities.Clear();
-        _map.GetAnchoredEntities((grid, gridComp), indices, _anchoredEntities);
-
-        foreach (var otherEnt in _anchoredEntities)
-        {
-            if (otherEnt == uid)
-                continue;
-
-            if (!_deviceRestrictOverlapQuery.HasComp(otherEnt))
-                continue;
-
-            if (StrictDeviceStacking)
-                return true;
-        }
-
-        return false;
-    }
-
     public (bool, PipeDirection) PipeNodesOverlap(Entity<NodeContainerComponent, TransformComponent> ent, Entity<NodeContainerComponent, TransformComponent> other, PipeDirection takenDirs)
     {
-        var entDirs = GetAllDirections(ent).ToList();
-        var otherDirs = GetAllDirections(other).ToList();
+        var entDirsAndLayers = GetAllDirectionsAndLayers(ent).ToList();
+        var otherDirsAndLayers = GetAllDirectionsAndLayers(other).ToList();
         var entDirsCollapsed = PipeDirection.None;
 
-        foreach (var dir in entDirs)
+        foreach (var (dir, layer) in entDirsAndLayers)
         {
             entDirsCollapsed |= dir;
-            foreach (var otherDir in otherDirs)
+            foreach (var (otherDir, otherLayer) in otherDirsAndLayers)
             {
+                if (layer != otherLayer)
+                    continue;
+
                 takenDirs |= otherDir;
                 if (StrictPipeStacking)
                     if ((dir & otherDir) != 0)
@@ -216,13 +162,13 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
 
         return (StrictPipeStacking ? false : ((takenDirs & entDirsCollapsed) == entDirsCollapsed), takenDirs);
 
-        IEnumerable<PipeDirection> GetAllDirections(Entity<NodeContainerComponent, TransformComponent> pipe)
+        IEnumerable<(PipeDirection, AtmosPipeLayer)> GetAllDirectionsAndLayers(Entity<NodeContainerComponent, TransformComponent> pipe)
         {
             foreach (var node in pipe.Comp1.Nodes.Values)
             {
                 // we need to rotate the pipe manually like this because the rotation doesn't update for pipes that are unanchored.
                 if (node is PipeNode pipeNode)
-                    yield return pipeNode.OriginalPipeDirection.RotatePipeDirection(pipe.Comp2.LocalRotation);
+                    yield return (pipeNode.OriginalPipeDirection.RotatePipeDirection(pipe.Comp2.LocalRotation), pipeNode.CurrentPipeLayer);
             }
         }
     }

@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -21,7 +23,7 @@ public sealed class AtmosMonitoringConsoleSystem : SharedAtmosMonitoringConsoleS
 
     private void OnHandleState(EntityUid uid, AtmosMonitoringConsoleComponent component, ref ComponentHandleState args)
     {
-        Dictionary<Vector2i, Dictionary<(int, string), ulong>> modifiedChunks;
+        Dictionary<Vector2i, Dictionary<AtmosMonitoringConsoleSubnet, ulong>> modifiedChunks;
         Dictionary<NetEntity, AtmosDeviceNavMapData> atmosDevices;
 
         switch (args.Current)
@@ -60,7 +62,7 @@ public sealed class AtmosMonitoringConsoleSystem : SharedAtmosMonitoringConsoleS
         foreach (var (origin, chunk) in modifiedChunks)
         {
             var newChunk = new AtmosPipeChunk(origin);
-            newChunk.AtmosPipeData = new Dictionary<(int, string), ulong>(chunk);
+            newChunk.AtmosPipeData = new Dictionary<AtmosMonitoringConsoleSubnet, ulong>(chunk);
 
             component.AtmosPipeChunks[origin] = newChunk;
         }

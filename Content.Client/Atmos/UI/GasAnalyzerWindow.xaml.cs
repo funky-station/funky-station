@@ -4,6 +4,8 @@
 // SPDX-FileCopyrightText: 2023 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -146,6 +148,7 @@ namespace Content.Client.Atmos.UI
                 else
                 {
                     // oh shit of fuck its more than 4 this ui isn't gonna look pretty anymore
+                    CDeviceMixes.RemoveAllChildren();
                     for (var i = 1; i < msg.NodeGasMixes.Length; i++)
                     {
                         GenerateGasDisplay(msg.NodeGasMixes[i], CDeviceMixes);

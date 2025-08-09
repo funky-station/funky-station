@@ -1,56 +1,9 @@
-# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2021 Kara D <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Jack Fox <35575261+DubiousDoggo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jane Lewis <inquisitivepenguin@protonmail.com>
-# SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TekuNut <13456422+TekuNut@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-# SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 vulppine <vulppine@gmail.com>
-# SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ilya246 <ilyukarno@gmail.com>
-# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Menshin <Menshin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2023 Skarletto <122584947+Skarletto@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
-# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-License: MIT
 
 - type: entity
   parent: GasPipeBase
@@ -81,7 +34,7 @@
   name: air vent
   description: Has a valve and a pump attached to it.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
@@ -100,7 +53,7 @@
       noRot: true
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
-          state: pipeHalf
+          state: pipeUnaryConnectors
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: vent_off
           map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
@@ -133,6 +86,11 @@
       guides:
       - AirVent
       - DeviceMonitoringAndControl
+    - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: GasVentPump
+        Secondary: GasVentPumpAlt1
+        Tertiary: GasVentPumpAlt2
 
 - type: entity
   parent: GasUnaryBase
@@ -140,7 +98,7 @@
   name: passive vent
   description: It's an open vent.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
     - type: SubFloorHide
       visibleLayers:
@@ -151,7 +109,7 @@
       noRot: true
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
-          state: pipeHalf
+          state: pipeUnaryConnectors
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: vent_passive
           map: [ "enum.SubfloorLayers.FirstLayer" ]
@@ -166,6 +124,11 @@
     - type: GuideHelp
       guides:
       - PassiveVent
+    - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: GasPassiveVent
+        Secondary: GasPassiveVentAlt1
+        Tertiary: GasPassiveVentAlt2
 
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
@@ -173,7 +136,7 @@
   name: air scrubber
   description: Has a valve and pump attached to it.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
@@ -192,7 +155,7 @@
       noRot: true
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
-          state: pipeHalf
+          state: pipeUnaryConnectors
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: scrub_off
           map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
@@ -225,6 +188,11 @@
       guides:
       - AirScrubber
       - DeviceMonitoringAndControl
+    - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: GasVentScrubber
+        Secondary: GasVentScrubberAlt1
+        Tertiary: GasVentScrubberAlt2
 
 - type: entity
   parent: GasUnaryBase
@@ -232,13 +200,13 @@
   name: air injector
   description: Has a valve and pump attached to it.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
     - type: Sprite
       drawdepth: FloorObjects
       sprite: Structures/Piping/Atmospherics/outletinjector.rsi
       layers:
-        - state: pipeHalf
+        - state: pipeUnaryConnectors
           sprite: Structures/Piping/Atmospherics/pipe.rsi
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: injector
@@ -247,6 +215,7 @@
           shader: unshaded
           map: [ "enum.LightLayers.Unshaded" ]
           color: "#990000"
+    - type: Appearance
     - type: GenericVisualizer
       visuals:
        # toggle color of the unshaded light:
@@ -254,7 +223,6 @@
          enum.LightLayers.Unshaded:
            True: { color: "#5eff5e" }
            False: { color: "#990000" }
-    - type: Appearance
     - type: PipeColorVisuals
     - type: GasOutletInjector
     - type: Construction
@@ -269,6 +237,11 @@
     - type: GuideHelp
       guides:
       - AirInjector
+    - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: GasOutletInjector
+        Secondary: GasOutletInjectorAlt1
+        Tertiary: GasOutletInjectorAlt2
 
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
@@ -286,6 +259,12 @@
     - type: Rotatable
     - type: GasThermoMachine
     - type: AtmosPipeColor
+    - type: AtmosPipeLayers
+      spriteLayersRsiPaths:
+        enum.PipeVisualLayers.Pipe:
+          Primary: Structures/Piping/Atmospherics/thermomachine.rsi
+          Secondary: Structures/Piping/Atmospherics/thermomachine_alt1.rsi
+          Tertiary: Structures/Piping/Atmospherics/thermomachine_alt2.rsi
     - type: AtmosDevice
     - type: UserInterface
       interfaces:
@@ -464,6 +443,7 @@
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: false
     - state: trans
+  - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.Powered:
@@ -473,11 +453,16 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 7
     fillBaseName: fill-
-  - type: Appearance
   - type: PipeColorVisuals
   - type: Rotatable
   - type: GasCondenser
   - type: AtmosPipeColor
+  - type: AtmosPipeLayers
+    spriteLayersRsiPaths:
+      enum.PipeVisualLayers.Pipe:
+        Primary: Structures/Piping/Atmospherics/condenser.rsi
+        Secondary: Structures/Piping/Atmospherics/condenser_alt1.rsi
+        Tertiary: Structures/Piping/Atmospherics/condenser_alt2.rsi
   - type: AtmosDevice
   # Goobstation - Allow device-on-pipe stacking
   # - type: PipeRestrictOverlap

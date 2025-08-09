@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -21,7 +23,7 @@ public abstract class SharedAtmosMonitoringConsoleSystem : EntitySystem
 
     private void OnGetState(EntityUid uid, AtmosMonitoringConsoleComponent component, ref ComponentGetState args)
     {
-        Dictionary<Vector2i, Dictionary<(int, string), ulong>> chunks;
+        Dictionary<Vector2i, Dictionary<AtmosMonitoringConsoleSubnet, ulong>> chunks;
 
         // Should this be a full component state or a delta-state?
         if (args.FromTick <= component.CreationTick || component.ForceFullUpdate)
@@ -58,22 +60,22 @@ public abstract class SharedAtmosMonitoringConsoleSystem : EntitySystem
 
     [Serializable, NetSerializable]
     protected sealed class AtmosMonitoringConsoleState(
-        Dictionary<Vector2i, Dictionary<(int, string), ulong>> chunks,
+        Dictionary<Vector2i, Dictionary<AtmosMonitoringConsoleSubnet, ulong>> chunks,
         Dictionary<NetEntity, AtmosDeviceNavMapData> atmosDevices)
         : ComponentState
     {
-        public Dictionary<Vector2i, Dictionary<(int, string), ulong>> Chunks = chunks;
+        public Dictionary<Vector2i, Dictionary<AtmosMonitoringConsoleSubnet, ulong>> Chunks = chunks;
         public Dictionary<NetEntity, AtmosDeviceNavMapData> AtmosDevices = atmosDevices;
     }
 
     [Serializable, NetSerializable]
     protected sealed class AtmosMonitoringConsoleDeltaState(
-        Dictionary<Vector2i, Dictionary<(int, string), ulong>> modifiedChunks,
+        Dictionary<Vector2i, Dictionary<AtmosMonitoringConsoleSubnet, ulong>> modifiedChunks,
         Dictionary<NetEntity, AtmosDeviceNavMapData> atmosDevices,
         HashSet<Vector2i> allChunks)
         : ComponentState, IComponentDeltaState<AtmosMonitoringConsoleState>
     {
-        public Dictionary<Vector2i, Dictionary<(int, string), ulong>> ModifiedChunks = modifiedChunks;
+        public Dictionary<Vector2i, Dictionary<AtmosMonitoringConsoleSubnet, ulong>> ModifiedChunks = modifiedChunks;
         public Dictionary<NetEntity, AtmosDeviceNavMapData> AtmosDevices = atmosDevices;
         public HashSet<Vector2i> AllChunks = allChunks;
 
@@ -87,7 +89,7 @@ public abstract class SharedAtmosMonitoringConsoleSystem : EntitySystem
 
             foreach (var (index, data) in ModifiedChunks)
             {
-                state.Chunks[index] = new Dictionary<(int, string), ulong>(data);
+                state.Chunks[index] = new Dictionary<AtmosMonitoringConsoleSubnet, ulong>(data);
             }
 
             state.AtmosDevices.Clear();
@@ -99,7 +101,7 @@ public abstract class SharedAtmosMonitoringConsoleSystem : EntitySystem
 
         public AtmosMonitoringConsoleState CreateNewFullState(AtmosMonitoringConsoleState state)
         {
-            var chunks = new Dictionary<Vector2i, Dictionary<(int, string), ulong>>(state.Chunks.Count);
+            var chunks = new Dictionary<Vector2i, Dictionary<AtmosMonitoringConsoleSubnet, ulong>>(state.Chunks.Count);
 
             foreach (var (index, data) in state.Chunks)
             {
@@ -107,10 +109,10 @@ public abstract class SharedAtmosMonitoringConsoleSystem : EntitySystem
                     continue;
 
                 if (ModifiedChunks.ContainsKey(index))
-                    chunks[index] = new Dictionary<(int, string), ulong>(ModifiedChunks[index]);
+                    chunks[index] = new Dictionary<AtmosMonitoringConsoleSubnet, ulong>(ModifiedChunks[index]);
 
                 else
-                    chunks[index] = new Dictionary<(int, string), ulong>(state.Chunks[index]);
+                    chunks[index] = new Dictionary<AtmosMonitoringConsoleSubnet, ulong>(state.Chunks[index]);
             }
 
             return new AtmosMonitoringConsoleState(chunks, new(AtmosDevices));

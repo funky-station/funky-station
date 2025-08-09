@@ -1362,6 +1362,59 @@
       price: 125
 
 - type: entity
+  parent: GasCanister
+  id: LockBoxCanisterEngineering
+  name: engineering Lock canister
+  components:
+  - type: Sprite
+    layers:
+    - state: can-lockbox
+  - type: StaticPrice
+    price: 150
+  - type: OverrideSell
+    overrideAccount: Engineering
+  - type: AccessReader
+    access: [ [ "Engineering" ] ]
+  - type: GasCanister
+    gasMixture:
+      volume: 1000
+      moles: # List of gasses for easy reference
+      - 0 # oxygen
+      - 0 # nitrogen
+      - 0 # CO2
+      - 0 # Plasma
+      - 0 # Tritium
+      - 0 # Water vapor
+      - 0 # Ammonia
+      - 0 # N2O
+      - 0 # Frezon
+      temperature: 293.15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          LockBoxCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+
+
+- type: entity
   parent: GasCanisterBrokenBase
   id: StorageCanisterBroken
   categories: [ HideSpawnMenu ]
@@ -1540,6 +1593,14 @@
     state: white-1
 # Assmos - /tg/ gases end
 
+- type: entity
+  parent: GasCanisterBrokenBase
+  id: LockBoxCanisterBroken
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: white-1
+
 - type: entityTable
   id: RandomCanTable
   table: !type:GroupSelector
@@ -1571,3 +1632,4 @@
         weight: 1
       - id: HalonCanister
         weight: 1
+

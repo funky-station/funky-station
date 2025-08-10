@@ -63,6 +63,19 @@
   fx: EffectRCDConstruct0
 
 - type: rcd
+  id: ManifoldGas
+  category: Piping
+  sprite: /Textures/Interface/Radial/RPD/manifold.png
+  mode: ConstructObject
+  prototype: GasPipeManifold
+  cost: 1
+  delay: 0 
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0
+  noLayers: true
+
+- type: rcd
   id: PressurePump
   category: PumpsValves
   sprite: /Textures/Interface/Radial/RPD/pump_pressure.png
@@ -256,19 +269,6 @@
   collisionMask: Impassable
   rotation: User
   fx: EffectRCDConstruct0
-
-- type: rcd
-  id: ManifoldGas
-  category: AtmosphericUtility
-  sprite: /Textures/Interface/Radial/RPD/manifold.png
-  mode: ConstructObject
-  prototype: GasPipeManifold
-  cost: 1
-  delay: 0 
-  collisionMask: Impassable
-  rotation: User
-  fx: EffectRCDConstruct0
-  noLayers: true
 
 - type: rcd
   id: Alarm

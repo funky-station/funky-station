@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -26,4 +27,11 @@ public sealed partial class FireResistanceComponent : Component
     /// </summary>
     [DataField]
     public LocId ExamineMessage = "fire-protection-reduction-value";
+
+    /// <summary>
+    /// When true, resistances will be applied to the entity wearing this item.
+    /// When false, only this entity will get th resistance.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool Worn = true;
 }

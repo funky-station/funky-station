@@ -4017,3 +4017,13 @@ Entries:
       message: Readded zombie infection DOT and increased damage while crit.
   id: 483
   time: '2025-08-10T20:16:03.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: tropico spawn, polly spawn
+    - type: Remove
+      message: two windows in Lawyer/IAA room
+    - type: Tweak
+      message: salvage dock
+  id: 484
+  time: '2025-08-10T21:31:08.0000000+00:00'

@@ -340,7 +340,7 @@
     sprite: Structures/Piping/Atmospherics/vent.rsi
     layers:
     - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
-      state: pipeStraight
+      state: pipeBinaryConnectors
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: vent_off
       map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
@@ -356,7 +356,7 @@
     sprite: Structures/Piping/Atmospherics/vent.rsi
     layers:
     - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
-      state: pipeStraight
+      state: pipeBinaryConnectors
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: vent_off
       map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]

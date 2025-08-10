@@ -27,7 +27,7 @@
   - type: Item
     size: Ginormous
   - type: Storage
-    maxItemSize: Large
+    maxItemSize: Huge
     grid:
     - 0,0,9,4
     quickInsert: true

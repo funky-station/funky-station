@@ -138,9 +138,8 @@
       stripTime: 3
       uiWindowPos: 0,3
       strippingWindowPos: 0,3
-      dependsOn: jumpsuit
       displayName: Pocket 1
-      stripHidden: true
+      stripHidden: false
     - name: pocket4
       slotTexture: web
       fullTextureName: template_small
@@ -149,9 +148,8 @@
       stripTime: 3
       uiWindowPos: 2,3
       strippingWindowPos: 2,3
-      dependsOn: jumpsuit
       displayName: Pocket 2
-      stripHidden: true
+      stripHidden: false
     - name: backstorage
       slotTexture: back_storage
       slotFlags:   BACKSTORAGE

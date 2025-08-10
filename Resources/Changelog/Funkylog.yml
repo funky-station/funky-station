@@ -4003,3 +4003,11 @@ Entries:
       message: 19 new pipe colors to the spray painter corresponding to atmos gasses
   id: 481
   time: '2025-08-10T20:05:34.0000000+00:00'
+- author: Queer-Cats
+  changes:
+    - type: Fix
+      message: Vox, Thaven, and IPCs strip menus updated
+    - type: Remove
+      message: IPCs don't have an air tank slot anymore
+  id: 482
+  time: '2025-08-10T20:09:41.0000000+00:00'

@@ -51,6 +51,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
@@ -157,9 +158,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Parallax
       parallax: Sky
     - type: MapAtmosphere
@@ -61863,7 +61862,6 @@ entities:
       removedMasks: 20
     - type: PlaceableSurface
       isPlaceable: True
-    - type: ScaleVisuals
 - proto: CrateRadiation
   entities:
   - uid: 17794
@@ -72728,7 +72726,6 @@ entities:
     - type: Transform
       pos: -50.32873,7.580326
       parent: 2
-    - type: ScaleVisuals
     - type: Appearance
 - proto: FoodMeat
   entities:
@@ -110295,14 +110292,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -28.5,-17.5
       parent: 2
-    - type: ScaleVisuals
     - type: Appearance
   - uid: 14638
     components:
     - type: Transform
       pos: -20.5,56.5
       parent: 2
-    - type: ScaleVisuals
     - type: Appearance
     - type: PointLight
       color: '#FFB3B3FF'
@@ -113305,7 +113300,6 @@ entities:
     - type: Transform
       pos: -52.38928,-1.0070057
       parent: 2
-    - type: ScaleVisuals
     - type: Appearance
   - uid: 15031
     components:

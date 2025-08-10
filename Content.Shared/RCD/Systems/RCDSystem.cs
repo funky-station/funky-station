@@ -1,3 +1,28 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Administration.Logs;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
@@ -47,6 +72,8 @@ public class RCDSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly TagSystem _tags = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
     private readonly int _instantConstructionDelay = 0;
     private readonly EntProtoId _instantConstructionFx = "EffectRCDConstruct0";
@@ -66,6 +93,7 @@ public class RCDSystem : EntitySystem
         SubscribeLocalEvent<RCDComponent, RCDDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<RCDComponent, DoAfterAttemptEvent<RCDDoAfterEvent>>(OnDoAfterAttempt);
         SubscribeLocalEvent<RCDComponent, RCDSystemMessage>(OnRCDSystemMessage);
+        SubscribeLocalEvent<RCDComponent, RCDColorChangeMessage>(OnColorChange);
         SubscribeNetworkEvent<RCDConstructionGhostRotationEvent>(OnRCDconstructionGhostRotationEvent);
         SubscribeNetworkEvent<RCDConstructionGhostFlipEvent>(OnRCDConstructionGhostFlipEvent);
 
@@ -89,7 +117,11 @@ public class RCDSystem : EntitySystem
         QueueDel(uid);
     }
 
-
+    private void OnColorChange(Entity<RCDComponent> entity, ref RCDColorChangeMessage args)
+    {
+        entity.Comp.PipeColor = args.PipeColor;
+        Dirty(entity); // Mark component as dirty to sync with clients
+    }
 
     private void OnRCDSystemMessage(EntityUid uid, RCDComponent component, RCDSystemMessage args)
     {
@@ -568,20 +600,44 @@ public class RCDSystem : EntitySystem
                     ? component.CachedPrototype.MirrorPrototype
                     : component.CachedPrototype.Prototype;
 
-                var ent = Spawn(proto, _mapSystem.GridTileToLocal(mapGridData.GridUid, mapGridData.Component, mapGridData.Position));
-
-                switch (component.CachedPrototype.Rotation)
+                // Funky - Calculate rotation and apply it before spawning
+                var rotation = component.CachedPrototype.Rotation switch
                 {
-                    case RcdRotation.Fixed:
-                        Transform(ent).LocalRotation = Angle.Zero;
-                        break;
-                    case RcdRotation.Camera:
-                        Transform(ent).LocalRotation = Transform(uid).LocalRotation;
-                        break;
-                    case RcdRotation.User:
-                        Transform(ent).LocalRotation = direction.ToAngle();
-                        break;
+                    RcdRotation.Fixed => Angle.Zero,
+                    RcdRotation.Camera => Transform(uid).LocalRotation,
+                    RcdRotation.User => direction.ToAngle(),
+                    _ => Angle.Zero // Fallback
+                };
+
+                // Convert EntityCoordinates to MapCoordinates
+                var entityCoords = _mapSystem.GridTileToLocal(mapGridData.GridUid, mapGridData.Component, mapGridData.Position);
+                var mapCoords = new MapCoordinates(entityCoords.ToMapPos(EntityManager, _transformSystem), entityCoords.GetMapId(EntityManager));
+                var ent = Spawn(proto, mapCoords, rotation: rotation);
+                // End of funky changes
+
+                // Funky - handled above
+                // var ent = Spawn(proto, _mapSystem.GridTileToLocal(mapGridData.GridUid, mapGridData.Component, mapGridData.Position));
+
+
+                // Apply color if the entity has PipeColorVisualsComponent and PipeColor is not "default"
+                if (component.PipeColor.Key != "default" && component.PipeColor.Color != null)
+                {
+                    _appearanceSystem.SetData(ent, Atmos.Piping.PipeColorVisuals.Color, component.PipeColor.Color.Value);
                 }
+
+                // Funky - handled above
+                // switch (component.CachedPrototype.Rotation)
+                // {
+                //     case RcdRotation.Fixed:
+                //         Transform(ent).LocalRotation = Angle.Zero;
+                //         break;
+                //     case RcdRotation.Camera:
+                //         Transform(ent).LocalRotation = Transform(uid).LocalRotation;
+                //         break;
+                //     case RcdRotation.User:
+                //         Transform(ent).LocalRotation = direction.ToAngle();
+                //         break;
+                // }
 
                 _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RCD to spawn {ToPrettyString(ent)} at {mapGridData.Position} on grid {mapGridData.GridUid}");
                 break;

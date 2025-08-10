@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Eris <erisfiregamer1@gmail.com>
+# SPDX-FileCopyrightText: 2025 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 reagent-name-libital = libital
 reagent-desc-libital = A common but weak medicine used to heal brute trauma. Usually paired with other chemicals.
 
@@ -51,3 +61,9 @@ reagent-desc-sievertadone = A pyrogenics chemical that repairs the damage done t
 
 reagent-name-deunomia = deunomia
 reagent-desc-deunomia = A highly potent mixture of chemicals used before natusixadone to destroy cancerous cells. It may hold use against any parasitic infections.
+
+reagent-name-styptic-powder = styptic powder
+reagent-desc-styptic-powder = A powder that helps to control bleeding and heal physical wounds when applied topically.
+
+reagent-name-silver-sulfadiazine = silver sulfadiazine
+reagent-desc-silver-sulfadiazine = An antibacterial compound used topically on burn victims.

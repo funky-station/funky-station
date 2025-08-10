@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 willowzeta <willowzeta632146@proton.me>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Changeling;
 using Content.Shared.Mobs.Components;
@@ -103,7 +113,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
                 continue;
 
             var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]);
-            var knowledgeGain = isCommand ? 4f : 2f;
+            var knowledgeGain = isCommand ? 6f : 4f; //funkystation: changed to encourage sacs
 
             // funkystation
             // start the sacrifing process -space

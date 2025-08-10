@@ -1,3 +1,15 @@
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
@@ -100,30 +112,33 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
 
     private void OnTileChanged(ref TileChangedEvent ev)
     {
-        if (!ev.EmptyChanged || !_navQuery.TryComp(ev.NewTile.GridUid, out var navMap))
-            return;
-
-        var tile = ev.NewTile.GridIndices;
-        var chunkOrigin = SharedMapSystem.GetChunkIndices(tile, ChunkSize);
-
-        var chunk = EnsureChunk(navMap, chunkOrigin);
-
-        // This could be easily replaced in the future to accommodate diagonal tiles
-        var relative = SharedMapSystem.GetChunkRelative(tile, ChunkSize);
-        ref var tileData = ref chunk.TileData[GetTileIndex(relative)];
-
-        if (ev.NewTile.IsSpace(_tileDefManager))
+        foreach (var change in ev.Changes)
         {
-            tileData = 0;
-            if (PruneEmpty((ev.NewTile.GridUid, navMap), chunk))
+            if (!change.EmptyChanged || !_navQuery.TryComp(ev.Entity, out var navMap))
                 return;
-        }
-        else
-        {
-            tileData = FloorMask;
-        }
 
-        DirtyChunk((ev.NewTile.GridUid, navMap), chunk);
+            var tile = change.GridIndices;
+            var chunkOrigin = SharedMapSystem.GetChunkIndices(tile, ChunkSize);
+
+            var chunk = EnsureChunk(navMap, chunkOrigin);
+
+            // This could be easily replaced in the future to accommodate diagonal tiles
+            var relative = SharedMapSystem.GetChunkRelative(tile, ChunkSize);
+            ref var tileData = ref chunk.TileData[GetTileIndex(relative)];
+
+            if (change.NewTile.IsSpace(_tileDefManager))
+            {
+                tileData = 0;
+                if (PruneEmpty((ev.Entity, navMap), chunk))
+                    return;
+            }
+            else
+            {
+                tileData = FloorMask;
+            }
+
+            DirtyChunk((ev.Entity, navMap), chunk);
+        }
     }
 
     private void DirtyChunk(Entity<NavMapComponent> entity, NavMapChunk chunk)

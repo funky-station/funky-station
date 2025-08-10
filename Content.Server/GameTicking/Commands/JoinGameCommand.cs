@@ -1,4 +1,22 @@
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Morber <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Managers;
+using Content.Server.Preferences.Managers;
 using Content.Server.Station.Systems;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -17,6 +35,7 @@ namespace Content.Server.GameTicking.Commands
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
 
         public string Command => "joingame";
         public string Description => "";
@@ -28,7 +47,7 @@ namespace Content.Server.GameTicking.Commands
         }
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
-            if (args.Length != 2)
+            if (args.Length != 3)
             {
                 shell.WriteError(Loc.GetString("shell-wrong-arguments-number"));
                 return;
@@ -58,9 +77,13 @@ namespace Content.Server.GameTicking.Commands
             }
             else if (ticker.RunLevel == GameRunLevel.InRound)
             {
-                string id = args[0];
+                if (!int.TryParse(args[0], out var charSlot))
+                {
+                    shell.WriteError(Loc.GetString("shell-argument-must-be-number"));
+                }
+                string id = args[1];
 
-                if (!int.TryParse(args[1], out var sid))
+                if (!int.TryParse(args[2], out var sid))
                 {
                     shell.WriteError(Loc.GetString("shell-argument-must-be-number"));
                 }
@@ -73,12 +96,18 @@ namespace Content.Server.GameTicking.Commands
                     return;
                 }
 
+                if (!_preferencesManager.GetPreferences(player.UserId).TryGetHumanoidInSlot(charSlot, out var humanoid))
+                {
+                    shell.WriteLine("No profile in slot");
+                    return;
+                }
+
                 if (_adminManager.IsAdmin(player) && _cfg.GetCVar(CCVars.AdminDeadminOnJoin))
                 {
                     _adminManager.DeAdmin(player);
                 }
 
-                ticker.MakeJoinGame(player, station, id);
+                ticker.MakeJoinGame(player, humanoid, station, id);
                 return;
             }
 

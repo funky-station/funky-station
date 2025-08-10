@@ -1,3 +1,42 @@
+# SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Morber <14136326+Morb0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2022 Sissel <axel.roche@pm.me>
+# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 JoeHammad1844 <130668733+JoeHammad1844@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kit0vras <123590995+Kit0vras@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nairod <110078045+Nairodian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 PrPleGoo <PrPleGoo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hanz <41141796+Hanzdegloker@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 RealFakeSoof <william_r_dunn@yahoo.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
+# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 # Leader
 - type: job
   id: ERTLeader
@@ -6,7 +45,7 @@
   playTimeTracker: JobERTLeader
   setPreference: false
   startingGear: ERTLeaderGearEVA
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTLeader"
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
@@ -99,7 +138,7 @@
   playTimeTracker: JobERTChaplain
   setPreference: false
   startingGear: ERTChaplainGear
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTChaplain"
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
@@ -178,7 +217,7 @@
   playTimeTracker: JobERTEngineer
   setPreference: false
   startingGear: ERTEngineerGearEVA
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTEngineer"
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
@@ -253,7 +292,7 @@
   playTimeTracker: JobERTSecurity
   setPreference: false
   startingGear: ERTEngineerGearEVA
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTSecurity"
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
@@ -346,7 +385,7 @@
   playTimeTracker: JobERTMedical
   setPreference: false
   startingGear: ERTMedicalGearEVA
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTMedic"
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
@@ -413,7 +452,7 @@
   playTimeTracker: JobERTJanitor
   setPreference: false
   startingGear: ERTJanitorGearEVA
-  icon: "JobIconNanotrasen"
+  icon: "JobIconERTJanitor"
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:

@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
+# SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: loadoutGroup
   id: InternalAffairsAgentJumpsuit
   name: loadout-group-iaa-jumpsuit
@@ -32,6 +41,40 @@
   - ChaplainBibleChristian
   - ChaplainBibleAtheist
   - ChaplainBibleBhuddhist
+
+- type: loadoutGroup
+  id: MagistrateJumpsuit
+  name: loadout-group-magistrate-jumpsuit
+  loadouts:
+  - LawyerJumpsuit
+  - LawyerJumpskirt
+  - LawyerJumpsuitBlue
+  - LawyerJumpskirtBlue
+  - LawyerJumpsuitPurple
+  - LawyerJumpskirtPurple
+
+- type: loadoutGroup
+  id: MagistrateBackpack
+  name: loadout-group-magistrate-backpack
+  loadouts:
+  - MagistrateDuffel
+  - MagistrateSatchel
+
+- type: loadoutGroup
+  id: MagistrateBelt
+  name: loadout-group-iaa-belt
+  loadouts:
+    - MagistrateClipboard
+    - MagistrateWaistbag
+
+- type: loadoutGroup
+  id: MagistrateFlavor
+  name: loadout-group-magistrate-flavor
+  minLimit: 1
+  maxLimit: 2
+  loadouts:
+    - MagistrateGavel
+    - MagistratePwig
 
 - type: loadoutGroup
   id: ScienceRoboticistGlasses

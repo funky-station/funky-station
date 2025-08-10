@@ -19,13 +19,13 @@ using JetBrains.Annotations;
 using Content.Shared.Throwing;
 using Robust.Shared.Physics.Events;
 
-namespace Content.Server.Stunnable
+namespace Content.Server.Stunnable.Systems;
+
+[UsedImplicitly]
+internal sealed class StunOnCollideSystem : EntitySystem
 {
-    [UsedImplicitly]
-    internal sealed class StunOnCollideSystem : EntitySystem
-    {
-        [Dependency] private readonly StunSystem _stunSystem = default!;
-        [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
+    [Dependency] private readonly StunSystem _stunSystem = default!;
+    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
 
     public override void Initialize()
     {
@@ -42,6 +42,7 @@ namespace Content.Server.Stunnable
         if (ent.Comp.Refresh)
         {
             _stunSystem.TryUpdateStunDuration(target, ent.Comp.StunAmount);
+
             _movementMod.TryUpdateMovementSpeedModDuration(
                 target,
                 MovementModStatusSystem.TaserSlowdown,

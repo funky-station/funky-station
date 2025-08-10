@@ -565,7 +565,7 @@
     navMapBlip: GasValve
 
 - type: entity
-  parent: GasBinaryBase
+  parent: GasPipeNoOverlap
   id: HeatExchanger
   name: radiator
   description: Transfers heat between the pipe and its surroundings.

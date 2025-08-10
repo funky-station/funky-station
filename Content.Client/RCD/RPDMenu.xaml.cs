@@ -38,8 +38,8 @@ public sealed partial class RPDMenu : RadialMenu
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
         _rcdMenu = new RCDMenu();
-        var placeholder = FindControl<Control>("RCDMenuPlaceholder");
-        placeholder.AddChild(_rcdMenu);
+        var rdcHolder = FindControl<Control>("RCDMenuHolder");
+        rdcHolder.AddChild(_rcdMenu);
         _rcdMenu.OnClose += () => Close();
     }
 

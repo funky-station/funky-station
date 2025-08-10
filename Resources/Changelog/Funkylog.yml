@@ -4011,3 +4011,9 @@ Entries:
       message: IPCs don't have an air tank slot anymore
   id: 482
   time: '2025-08-10T20:09:41.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Add
+      message: Readded zombie infection DOT and increased damage while crit.
+  id: 483
+  time: '2025-08-10T20:16:03.0000000+00:00'

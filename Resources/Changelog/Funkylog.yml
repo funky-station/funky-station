@@ -3963,3 +3963,11 @@ Entries:
       message: Fixed code bug causing desword to fail
   id: 478
   time: '2025-08-09T22:51:32.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: The SM on Glacier is no longer a death trap to try and use. Huzzah.
+    - type: Tweak
+      message: Salvagers on Glacier can now dock and go on expeditions.
+  id: 479
+  time: '2025-08-10T02:47:36.0000000+00:00'

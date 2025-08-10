@@ -28,6 +28,7 @@
 # SPDX-FileCopyrightText: 2023 liltenhead <104418166+liltenhead@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2023 vanx <61917534+Vaaankas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Jeff <velcroboy333@hotmail.com>
 # SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
 # SPDX-FileCopyrightText: 2024 Nairod <110078045+Nairodian@users.noreply.github.com>
@@ -98,6 +99,11 @@
   - type: Stack
     stackType: Ointment
     count: 10
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: StackPrice
     price: 5
 
@@ -150,6 +156,11 @@
   - type: Stack
     stackType: RegenerativeMesh
     count: 10
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: StackPrice
     price: 20
 
@@ -190,6 +201,11 @@
   - type: Stack
     stackType: Brutepack
     count: 10
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: StackPrice
     price: 5
 
@@ -241,6 +257,11 @@
   - type: Stack
     stackType: MedicatedSuture
     count: 10
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: StackPrice
     price: 20
 
@@ -282,6 +303,11 @@
   - type: Stack
     stackType: Bloodpack
     count: 10
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: StackPrice
     price: 10
 
@@ -355,6 +381,11 @@
   - type: Stack
     stackType: Gauze
     count: 10
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: StackPrice
     price: 10
 

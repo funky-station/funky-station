@@ -55561,16 +55561,6 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: NetworkConfigurator
-  entities:
-  - uid: 10995
-    components:
-    - type: Transform
-      pos: 7.861592,-17.390022
-      parent: 31
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
 - proto: NewsReaderCartridge
   entities:
   - uid: 12274

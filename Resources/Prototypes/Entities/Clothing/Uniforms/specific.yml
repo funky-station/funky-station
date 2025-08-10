@@ -12,7 +12,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseChameleon]
   id: ClothingUniformJumpsuitChameleon
   name: black jumpsuit
   description: A generic black jumpsuit with no rank markings.

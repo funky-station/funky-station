@@ -3971,3 +3971,29 @@ Entries:
       message: Salvagers on Glacier can now dock and go on expeditions.
   id: 479
   time: '2025-08-10T02:47:36.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: >-
+        Atmospheric pipes can now be built on three different sublayers,
+        allowing for multiple pipe networks on a single tile
+    - type: Add
+      message: >-
+        Pipe manifolds can now be constructed to connect pipes across different
+        sublayers
+    - type: Add
+      message: Bent radiators can now be constructed for all three pipe sublayers.
+    - type: Tweak
+      message: >-
+        Binary devices will now act similarly to pipes and can stack on top of
+        each other if they create a new opening.
+    - type: Tweak
+      message: >-
+        The name, description and icon of the target crafting items are now
+        taken directly from the prototypes.
+    - type: Tweak
+      message: >-
+        Gas vent under-pressure lockout releases are now performed using the
+        right-click menu - a screwdriver is no longer required
+  id: 480
+  time: '2025-08-10T19:47:33.0000000+00:00'

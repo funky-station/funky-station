@@ -31,10 +31,12 @@
           emergencyShuttlePath: /Maps/Shuttles/emergency.yml
         - type: StationJobs
           availableJobs:
+            StationAi: [ 1, 1 ]
             Captain: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]
-            InternalAffairsAgent: [ 1, 1 ]
+            InternalAffairsAgent: [ 2, 2 ]
             BlueshieldOfficer: [ 1, 1 ]
+            Magistrate: [ 1, 1 ]
             #service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]
@@ -77,6 +79,11 @@
             Musician: [ 1, 1 ]
             #silicon
             Borg: [ 1, 1 ]
+            #station specific
+            Psychologist: [ 1, 1 ]
+            Zookeeper: [ 1, 1 ]
+            Reporter: [ 1, 1 ]
+            Boxer: [ 1, 1 ]
 
         # Goobstation blob-config-start LOW
         - type: StationBlobConfig

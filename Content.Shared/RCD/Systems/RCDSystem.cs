@@ -53,7 +53,6 @@ public class RCDSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedAtmosPipeLayersSystem _pipeLayersSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
     private readonly int _instantConstructionDelay = 0;

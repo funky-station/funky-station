@@ -65,6 +65,7 @@
       - id: EmpImplanter
       - id: SmokeImplanter
       - id: Stimpack      # Todo, give this kit a stealth box implanter when I can be bothered to implement that
+      - id: DisruptorPen  # Just an access breaker with extra charges and no recharge, because I didn't wanna give ANOTHER kit an access breaker
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle

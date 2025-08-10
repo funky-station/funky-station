@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -60,7 +61,7 @@ public sealed class AntagPreferenceTest
         Assert.That(pool.Count, Is.EqualTo(0));
 
         // Opt into the traitor role.
-        await pair.SetAntagPreference("Traitor", true);
+        await pair.SetAntagPreferences(["Traitor"]);
 
         Assert.That(sys.IsSessionValid(rule, pair.Player, def), Is.True);
         Assert.That(sys.IsEntityValid(client.AttachedEntity, def), Is.True);
@@ -71,7 +72,7 @@ public sealed class AntagPreferenceTest
         Assert.That(sessions.Count, Is.EqualTo(1));
 
         // opt back out
-        await pair.SetAntagPreference("Traitor", false);
+        await pair.SetAntagPreferences([]);
 
         Assert.That(sys.IsSessionValid(rule, pair.Player, def), Is.True);
         Assert.That(sys.IsEntityValid(client.AttachedEntity, def), Is.True);

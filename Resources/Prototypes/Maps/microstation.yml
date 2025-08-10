@@ -14,12 +14,12 @@
 
 - type: gameMap
   id: microstation
-  mapName: 'microstation'
+  mapName: 'Microstation'
   mapPath: /Maps/microstation.yml
   minPlayers: 0
   maxPlayers: 2
   stations:
-    Reach:
+    microstation:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup

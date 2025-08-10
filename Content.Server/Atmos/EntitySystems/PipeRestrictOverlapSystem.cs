@@ -18,6 +18,7 @@ using Content.Server.NodeContainer.Nodes;
 using Content.Server.Popups;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
+using Content.Shared.CCVar;
 using Content.Shared.Construction.Components;
 using Content.Shared.NodeContainer;
 using JetBrains.Annotations;
@@ -132,9 +133,11 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
     {
         var entDirsAndLayers = GetAllDirectionsAndLayers(ent).ToList();
         var otherDirsAndLayers = GetAllDirectionsAndLayers(other).ToList();
+        var entDirsCollapsed = PipeDirection.None;
 
         foreach (var (dir, layer) in entDirsAndLayers)
         {
+            entDirsCollapsed |= dir;
             foreach (var (otherDir, otherLayer) in otherDirsAndLayers)
             {
                 if (layer != otherLayer)

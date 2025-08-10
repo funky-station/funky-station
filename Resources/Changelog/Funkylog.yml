@@ -4035,3 +4035,9 @@ Entries:
         Implanter.
   id: 485
   time: '2025-08-10T23:39:40.0000000+00:00'
+- author: Queer-Cats
+  changes:
+    - type: Fix
+      message: Atmosian Armor can carry weapons on the back, hooray!
+  id: 486
+  time: '2025-08-10T23:44:40.0000000+00:00'

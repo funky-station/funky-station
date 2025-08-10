@@ -503,7 +503,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.90
   - type: FireResistance
-    damageCoefficient: 0.8
+    damageCoefficient: 0.10
   - type: StaminaResistance
     damageCoefficient: 0.75
   - type: ClothingSpeedModifier

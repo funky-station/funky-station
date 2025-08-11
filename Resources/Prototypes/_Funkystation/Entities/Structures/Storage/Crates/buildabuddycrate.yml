@@ -45,9 +45,9 @@
   description: "\"Randy the Reptilian\" Build-a-Buddy kit. Some assembly required."
   components:
   - type: Icon
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: Sprite
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
     - id: TorsoReptilian
@@ -79,9 +79,9 @@
   description: "\"Steven the Slime\" Build-a-Buddy kit. Some assembly required."
   components:
   - type: Icon
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: Sprite
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
     - id: TorsoSlime
@@ -113,9 +113,9 @@
   description: "\"Molly the Moth\" Build-a-Buddy kit. Some assembly required."
   components:
   - type: Icon
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: Sprite
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
     - id: TorsoMoth
@@ -147,9 +147,9 @@
   description: "\"Viskaravase the Vox\" Build-a-Buddy kit. Some assembly required."
   components:
   - type: Icon
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: Sprite
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
     - id: TorsoVox
@@ -181,9 +181,9 @@
   description: "\"Denny the Diona\" Build-a-Buddy kit. Some assembly required."
   components:
   - type: Icon
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: Sprite
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
     - id: TorsoDiona
@@ -215,9 +215,9 @@
   description: "\"Archy the Arachnid\" Build-a-Buddy kit. Some assembly required."
   components:
   - type: Icon
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: Sprite
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
     - id: TorsoArachnid
@@ -249,9 +249,9 @@
   description: "\"Garry the Gingerbread\" Build-a-Buddy kit. Some assembly required."
   components:
   - type: Icon
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: Sprite
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
     - id: TorsoGingerbread
@@ -283,9 +283,9 @@
   description: "\"Valerie the Vulpkanin\" Build-a-Buddy kit. Some assembly required."
   components:
   - type: Icon
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: Sprite
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
     - id: TorsoVulpkanin
@@ -317,9 +317,9 @@
   description: "\"Ralph the Rodentia\" Build-a-Buddy kit. Some assembly required."
   components:
   - type: Icon
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: Sprite
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
     - id: TorsoRodentia
@@ -351,9 +351,9 @@
   description: "\"Harrie the Harpy\" Build-a-Buddy kit. Some assembly required."
   components:
   - type: Icon
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: Sprite
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
     - id: TorsoHarpy
@@ -385,9 +385,9 @@
   description: "\"1RI5 the IPC\" Build-a-Buddy kit. Some assembly required."
   components:
   - type: Icon
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: Sprite
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
     - id: TorsoIPC

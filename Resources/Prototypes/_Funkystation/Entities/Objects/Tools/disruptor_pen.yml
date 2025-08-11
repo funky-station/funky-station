@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # More or less just an access breaker which is a pen, has 4 extra charges, and does not regenerate charges.
 - type: entity
   parent: [Pen, BaseSyndicateContraband]

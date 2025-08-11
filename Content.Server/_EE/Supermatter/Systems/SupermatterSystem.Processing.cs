@@ -183,6 +183,30 @@ public sealed partial class SupermatterSystem
                 gasReleased.AdjustMoles(Gas.Pluoxium, consumedCO2);
             }
         }
+
+        if (mix.GetMoles(Gas.AntiNoblium) > 0.01f)
+        {
+            var ANPP = gasReleased.Pressure * ((mix.GetMoles(Gas.AntiNoblium) / mix.TotalMoles) * 100);
+            var ANRatio = Math.Clamp(0.5f * (ANPP - (101.325f*0.01f)) / (ANPP + (101.325f*0.25f)), 0, 1);
+            var consumedAN = gasReleased.GetMoles(Gas.AntiNoblium) * ANRatio;
+            consumedAN = Math.Min(consumedAN, Math.Min(gasReleased.GetMoles(Gas.Helium), gasReleased.GetMoles(Gas.AntiNoblium)));
+
+            var zapPower = 0;
+            var zapCount = 0;
+            var zapRange = Math.Clamp(sm.Power / 1000, 2, 7);
+
+            if (consumedAN > 0)
+            {
+                zapPower = 1;
+                zapCount = 1;
+                zapRange = Math.Clamp(sm.Power / 1000, 2, 7);
+
+                gasReleased.AdjustMoles(Gas.AntiNoblium, -consumedAN);
+                gasReleased.AdjustMoles(Gas.Helium, -consumedAN);
+                gasReleased.AdjustMoles(Gas.HyperNoblium, consumedAN);
+                _lightning.ShootRandomLightnings(uid, zapRange, zapCount, sm.LightningPrototypes[zapPower], hitCoordsChance: sm.ZapHitCoordinatesChance);
+            }
+        }
         // Assmos - /tg/ gases end
 
         // Release the waste

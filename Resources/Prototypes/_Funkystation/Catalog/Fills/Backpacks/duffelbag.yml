@@ -180,7 +180,7 @@
   - type: StorageFill
     contents:
       - id: EmptyReagentImplanter
-      - id: LauncherDart
+      - id: LauncherDart              # Just a syringe gun which uses darts as ammo instead of syringes
       - id: HypoDartBox
       - id: HypoDartBox
       - id: HypoDartBox

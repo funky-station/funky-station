@@ -153,7 +153,7 @@ public abstract class SharedImplanterSystem : EntitySystem
             return;
         }
 
-        TransferImplantSolution(implanter, implant.GetValueOrDefault());
+        TransferImplantSolution(implanter, implant.GetValueOrDefault()); // Funky edit - For reagent implanters
 
         //If the target doesn't have the implanted component, add it.
         var implantedComp = EnsureComp<ImplantedComponent>(target);
@@ -371,12 +371,9 @@ public abstract class SharedImplanterSystem : EntitySystem
         Dirty(uid, component);
     }
 
+    // Funky edit - For reagent implanters
     private void TransferImplantSolution(EntityUid implanter, EntityUid implant)
     {
-
-        Log.Debug(Name(implanter));
-        Log.Debug(Name(implant));
-
         // Get the solution on the implanter
         if (!TryComp<SolutionContainerManagerComponent>(implanter, out var solutionComp) ||
             !_solution.TryGetSolution(implanter, "drink", out var _, out var solution))
@@ -393,6 +390,7 @@ public abstract class SharedImplanterSystem : EntitySystem
         // Remove solution container from the implanter
         RemComp<SolutionContainerManagerComponent>(implanter);
     }
+    // Funky edit end
 }
 
 [Serializable, NetSerializable]

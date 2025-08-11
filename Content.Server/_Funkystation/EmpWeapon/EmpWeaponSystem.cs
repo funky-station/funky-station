@@ -33,8 +33,6 @@ namespace Content.Server._Funkystation.EmpWeapon
             args.Handled = true;
             foreach (var e in args.HitEntities)
             {
-                Log.Debug(Name(uid));
-                Log.Debug(comp.RequiresCharges.ToString());
                 if (comp.RequiresCharges)
                 {
                     if (!TryComp<LimitedChargesComponent>(uid, out var charge) ||

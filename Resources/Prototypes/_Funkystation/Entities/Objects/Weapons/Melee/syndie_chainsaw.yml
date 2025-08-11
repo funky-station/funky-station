@@ -22,10 +22,6 @@
       types:
         Slash: 4.5
         Structural: 8
-    soundHit:
-      path: /Audio/Weapons/chainsaw.ogg
-      params:
-        volume: -3
   - type: Item
     size: Normal
     sprite: _Funkystation/Objects/Weapons/Melee/syndie_chainsaw.rsi

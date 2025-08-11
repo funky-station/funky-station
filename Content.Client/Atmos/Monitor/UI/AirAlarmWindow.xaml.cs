@@ -17,6 +17,7 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 qwerltaz <msmarcinpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -134,6 +135,8 @@ public sealed partial class AirAlarmWindow : FancyWindow
         {
             UpdateDeviceData(addr, dev);
         }
+        _modes.Visible = !state.PanicWireCut;
+        CModeSelectLocked.Visible = state.PanicWireCut;
     }
 
     public void UpdateModeSelector(AirAlarmMode mode)

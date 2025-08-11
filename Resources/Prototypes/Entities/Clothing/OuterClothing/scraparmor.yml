@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+# SPDX-FileCopyrightText: 2025 RedBookcase <Usualmoves@gmail.com>
 # SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 #
 # SPDX-License-Identifier: MIT
@@ -57,7 +59,7 @@
 
 # The armor itself
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowBackStorageClothing, BaseMajorContraband]
+  parent: [ClothingOuterBaseLarge, AllowBackStorageClothingCombat, BaseMajorContraband]
   id: ClothingOuterArmorScrap
   name: scrap armor
   description: A tider's gleaming plate mail. Bail up, or you're a dead man.

@@ -39,7 +39,7 @@
       - to: musicianHardsuit
         steps:
         - tag: KeyedInstrument
-          name: a Keyed Insutrument
+          name: a Keyed Instrument
           icon:
             sprite: Objects/Fun/Instruments/h_synthesizer.rsi
             state: icon

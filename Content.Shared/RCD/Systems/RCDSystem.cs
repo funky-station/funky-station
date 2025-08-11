@@ -659,9 +659,7 @@ public class RCDSystem : EntitySystem
                         entityProto.TryGetComponent<AtmosPipeLayersComponent>(out var atmosPipeLayers, _entityManager.ComponentFactory) &&
                         _pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, _currentLayer, out var newProtoId))
                     {
-                        proto = (component.UseMirrorPrototype && !string.IsNullOrEmpty(component.CachedPrototype.MirrorPrototype))
-                              ? component.CachedPrototype.MirrorPrototype
-                              : newProtoId;
+                        proto = newProtoId;
                     }
                 }
                 // Funky - end of changes

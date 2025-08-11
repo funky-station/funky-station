@@ -6,6 +6,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Random;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Ranged.Systems;
@@ -14,6 +15,7 @@ namespace Content.Shared.Damage.Systems;
 
 public sealed class DamageOnShootSystem : EntitySystem
 {
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
@@ -69,9 +71,12 @@ public sealed class DamageOnShootSystem : EntitySystem
             if (entity.Comp.PopupText != null)
                 _popupSystem.PopupClient(Loc.GetString(entity.Comp.PopupText), args.User, args.User);
 
-            // Attempt to paralyze the user after they have taken damage
-            if (_random.Prob(entity.Comp.StunChance))
-                _stun.TryParalyze(args.User, TimeSpan.FromSeconds(entity.Comp.StunSeconds), true);
+            if (_net.IsClient)
+                return;
+            {
+                if (_random.Prob(entity.Comp.StunChance))
+                    _stun.TryParalyze(args.User, TimeSpan.FromSeconds(entity.Comp.StunSeconds), true);
+            }
         }
     }
 }

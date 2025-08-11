@@ -421,13 +421,72 @@
   startNode: start
   targetNode: sensor
   category: construction-category-structures
-  description: Reports on the status of the gas within the attached pipe network. 
+  description: Reports on the status of the gas within the attached pipe network.
   icon:
     sprite: Structures/Piping/Atmospherics/gas_pipe_sensor.rsi
     state: icon
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   objectType: Structure
   canRotate: true
+  alternativePrototypes:
+  - GasPipeSensor
+  - GasPipeSensorAlt1
+  - GasPipeSensorAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/gas_pipe_sensor.rsi
+    state: base
+
+- type: construction
+  name: gas pipe sensor
+  id: GasPipeSensorAlt1
+  hide: true
+  graph: GasPipeSensor
+  startNode: start
+  targetNode: sensorAlt1
+  category: construction-category-structures
+  description: Reports on the status of the gas within the attached pipe network.
+  placementMode: AlignAtmosPipeLayers
+  objectType: Structure
+  canRotate: true
+  icon:
+    sprite: Structures/Piping/Atmospherics/gas_pipe_sensor_alt1.rsi
+    state: base
+  alternativePrototypes:
+  - GasPipeSensor
+  - GasPipeSensorAlt1
+  - GasPipeSensorAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/gas_pipe_sensor_alt1.rsi
+    state: base
+
+- type: construction
+  name: gas pipe sensor
+  id: GasPipeSensorAlt2
+  hide: true
+  graph: GasPipeSensor
+  startNode: start
+  targetNode: sensorAlt2
+  category: construction-category-structures
+  description: Reports on the status of the gas within the attached pipe network.
+  placementMode: AlignAtmosPipeLayers
+  objectType: Structure
+  canRotate: true
+  icon:
+    sprite: Structures/Piping/Atmospherics/gas_pipe_sensor_alt2.rsi
+    state: base
+  alternativePrototypes:
+  - GasPipeSensor
+  - GasPipeSensorAlt1
+  - GasPipeSensorAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/gas_pipe_sensor_alt2.rsi
+    state: base
 
 # ATMOS PIPES
 - type: construction
@@ -438,10 +497,61 @@
   startNode: start
   targetNode: half
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
   icon:
     sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeHalf
+  alternativePrototypes:
+  - GasPipeHalf
+  - GasPipeHalfAlt1
+  - GasPipeHalfAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeHalf
+
+- type: construction
+  name: gas pipe half
+  id: GasPipeHalfAlt1
+  hide: true
+  graph: GasPipe
+  startNode: start
+  targetNode: halfAlt1
+  category: construction-category-utilities
+  description: Half of a gas pipe. No skateboards.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  icon:
+    sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeHalf
+  alternativePrototypes:
+  - GasPipeHalf
+  - GasPipeHalfAlt1
+  - GasPipeHalfAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeHalf
+
+- type: construction
+  name: gas pipe half
+  id: GasPipeHalfAlt2
+  hide: true
+  graph: GasPipe
+  startNode: start
+  targetNode: halfAlt2
+  category: construction-category-utilities
+  description: Half of a gas pipe. No skateboards.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  icon:
+    sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeHalf
+  alternativePrototypes:
+  - GasPipeHalf
+  - GasPipeHalfAlt1
+  - GasPipeHalfAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
     state: pipeHalf
 
 - type: construction
@@ -452,10 +562,59 @@
   startNode: start
   targetNode: straight
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
   icon:
     sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeStraight
+  alternativePrototypes:
+  - GasPipeStraight
+  - GasPipeStraightAlt1
+  - GasPipeStraightAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeStraight
+
+- type: construction
+  id: GasPipeStraightAlt1
+  hide: true
+  graph: GasPipe
+  startNode: start
+  targetNode: straightAlt1
+  category: construction-category-utilities
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  icon:
+    sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeStraight
+  alternativePrototypes:
+  - GasPipeStraight
+  - GasPipeStraightAlt1
+  - GasPipeStraightAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeStraight
+
+- type: construction
+  name: gas pipe straight
+  id: GasPipeStraightAlt2
+  hide: true
+  graph: GasPipe
+  startNode: start
+  targetNode: straightAlt2
+  category: construction-category-utilities
+  description: A straight pipe segment.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  icon:
+    sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeStraight
+  alternativePrototypes:
+  - GasPipeStraight
+  - GasPipeStraightAlt1
+  - GasPipeStraightAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
     state: pipeStraight
 
 - type: construction
@@ -466,10 +625,61 @@
   startNode: start
   targetNode: bend
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
   icon:
     sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeBend
+  alternativePrototypes:
+  - GasPipeBend
+  - GasPipeBendAlt1
+  - GasPipeBendAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeBend
+
+- type: construction
+  name: gas pipe bend
+  id: GasPipeBendAlt1
+  hide: true
+  graph: GasPipe
+  startNode: start
+  targetNode: bendAlt1
+  category: construction-category-utilities
+  description: A pipe segment bent at a 90 degree angle.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  icon:
+    sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeBend
+  alternativePrototypes:
+  - GasPipeBend
+  - GasPipeBendAlt1
+  - GasPipeBendAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeBend
+
+- type: construction
+  name: gas pipe bend
+  id: GasPipeBendAlt2
+  hide: true
+  graph: GasPipe
+  startNode: start
+  targetNode: bendAlt2
+  category: construction-category-utilities
+  description: A pipe segment bent at a 90 degree angle.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  icon:
+    sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeBend
+  alternativePrototypes:
+  - GasPipeBend
+  - GasPipeBendAlt1
+  - GasPipeBendAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
     state: pipeBend
 
 - type: construction
@@ -480,10 +690,61 @@
   startNode: start
   targetNode: tjunction
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
   icon:
     sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeTJunction
+  alternativePrototypes:
+  - GasPipeTJunction
+  - GasPipeTJunctionAlt1
+  - GasPipeTJunctionAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeTJunction
+
+- type: construction
+  name: gas pipe T junction
+  id: GasPipeTJunctionAlt1
+  hide: true
+  graph: GasPipe
+  startNode: start
+  targetNode: tjunctionAlt1
+  category: construction-category-utilities
+  description: A pipe segment with a T junction.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  icon:
+    sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeTJunction
+  alternativePrototypes:
+  - GasPipeTJunction
+  - GasPipeTJunctionAlt1
+  - GasPipeTJunctionAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeTJunction
+
+- type: construction
+  name: gas pipe T junction
+  id: GasPipeTJunctionAlt2
+  hide: true
+  graph: GasPipe
+  startNode: start
+  targetNode: tjunctionAlt2
+  category: construction-category-utilities
+  description: A pipe segment with a T junction.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  icon:
+    sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeTJunction
+  alternativePrototypes:
+  - GasPipeTJunction
+  - GasPipeTJunctionAlt1
+  - GasPipeTJunctionAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
     state: pipeTJunction
 
 - type: construction
@@ -494,10 +755,75 @@
   startNode: start
   targetNode: fourway
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: true
   icon:
     sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeFourway
+  alternativePrototypes:
+  - GasPipeFourway
+  - GasPipeFourwayAlt1
+  - GasPipeFourwayAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeFourway
+
+- type: construction
+  name: gas pipe fourway
+  id: GasPipeFourwayAlt1
+  hide: true
+  graph: GasPipe
+  startNode: start
+  targetNode: fourwayAlt1
+  category: construction-category-utilities
+  description: A pipe segment with a fourway junction.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  icon:
+    sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeFourway
+  alternativePrototypes:
+  - GasPipeFourway
+  - GasPipeFourwayAlt1
+  - GasPipeFourwayAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeFourway
+
+- type: construction
+  id: GasPipeManifold
+  name: gas pipe manifold
+  description: Allows gas pipes of different configurations to be connected together.
+  graph: GasPipe
+  startNode: start
+  targetNode: manifold
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  icon:
+    sprite: Structures/Piping/Atmospherics/manifold.rsi
+    state: storageManifold
+
+- type: construction
+  name: gas pipe fourway
+  id: GasPipeFourwayAlt2
+  hide: true
+  graph: GasPipe
+  startNode: start
+  targetNode: fourwayAlt2
+  category: construction-category-utilities
+  description: A pipe segment with a fourway junction.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: true
+  icon:
+    sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeFourway
+  alternativePrototypes:
+  - GasPipeFourway
+  - GasPipeFourwayAlt1
+  - GasPipeFourwayAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
     state: pipeFourway
 
 # ATMOS UNARY
@@ -509,81 +835,304 @@
   startNode: start
   targetNode: ventpump
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/vent.rsi
     state: vent_off
   layers:
   - sprite: Structures/Piping/Atmospherics/pipe.rsi
-    state: pipeHalf
+    state: pipeUnaryConnectors
   - sprite: Structures/Piping/Atmospherics/vent.rsi
     state: vent_off
-  conditions:
-    - !type:NoUnstackableInTile
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasVentPump
+  - GasVentPumpAlt1
+  - GasVentPumpAlt2
+
+- type: construction
+  name: air vent
+  id: GasVentPumpAlt1
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: ventpumpAlt1
+  category: construction-category-utilities
+  description: Pumps gas into the room.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/vent.rsi
+    state: vent_off
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeUnaryConnectors
+  - sprite: Structures/Piping/Atmospherics/vent.rsi
+    state: vent_off
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasVentPump
+  - GasVentPumpAlt1
+  - GasVentPumpAlt2
+
+- type: construction
+  name: air vent
+  id: GasVentPumpAlt2
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: ventpumpAlt2
+  category: construction-category-utilities
+  description: Pumps gas into the room.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/vent.rsi
+    state: vent_off
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeUnaryConnectors
+  - sprite: Structures/Piping/Atmospherics/vent.rsi
+    state: vent_off
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasVentPump
+  - GasVentPumpAlt1
+  - GasVentPumpAlt2
 
 - type: construction
   name: passive vent
-  description: Unpowered vent that equalises gases on both sides.
   id: GasPassiveVent
   graph: GasUnary
   startNode: start
   targetNode: passivevent
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  description: Unpowered vent that equalises gases on both sides.
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/vent.rsi
     state: vent_passive
   layers:
   - sprite: Structures/Piping/Atmospherics/pipe.rsi
-    state: pipeHalf
+    state: pipeUnaryConnectors
   - sprite: Structures/Piping/Atmospherics/vent.rsi
     state: vent_passive
-  conditions:
-    - !type:NoUnstackableInTile
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasPassiveVent
+  - GasPassiveVentAlt1
+  - GasPassiveVentAlt2
+
+- type: construction
+  name: passive vent
+  id: GasPassiveVentAlt1
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: passiveventAlt1
+  category: construction-category-utilities
+  description: Unpowered vent that equalises gases on both sides.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/vent.rsi
+    state: vent_passive
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeUnaryConnectors
+  - sprite: Structures/Piping/Atmospherics/vent.rsi
+    state: vent_passive
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasPassiveVent
+  - GasPassiveVentAlt1
+  - GasPassiveVentAlt2
+
+- type: construction
+  name: passive vent
+  id: GasPassiveVentAlt2
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: passiveventAlt2
+  category: construction-category-utilities
+  description: Unpowered vent that equalises gases on both sides.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/vent.rsi
+    state: vent_passive
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeUnaryConnectors
+  - sprite: Structures/Piping/Atmospherics/vent.rsi
+    state: vent_passive
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasPassiveVent
+  - GasPassiveVentAlt1
+  - GasPassiveVentAlt2
 
 - type: construction
   name: air scrubber
-  description: Sucks gas into connected pipes.
   id: GasVentScrubber
   graph: GasUnary
   startNode: start
   targetNode: ventscrubber
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  description: Sucks gas into connected pipes.
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/scrubber.rsi
     state: scrub_off
   layers:
   - sprite: Structures/Piping/Atmospherics/pipe.rsi
-    state: pipeHalf
+    state: pipeUnaryConnectors
   - sprite: Structures/Piping/Atmospherics/scrubber.rsi
     state: scrub_off
-  conditions:
-    - !type:NoUnstackableInTile
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasVentScrubber
+  - GasVentScrubberAlt1
+  - GasVentScrubberAlt2
+
+- type: construction
+  name: air scrubber
+  id: GasVentScrubberAlt1
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: ventscrubberAlt1
+  category: construction-category-utilities
+  description: Sucks gas into connected pipes.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/scrubber.rsi
+    state: scrub_off
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeUnaryConnectors
+  - sprite: Structures/Piping/Atmospherics/scrubber.rsi
+    state: scrub_off
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasVentScrubber
+  - GasVentScrubberAlt1
+  - GasVentScrubberAlt2
+
+- type: construction
+  name: air scrubber
+  id: GasVentScrubberAlt2
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: ventscrubberAlt2
+  category: construction-category-utilities
+  description: Sucks gas into connected pipes.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/scrubber.rsi
+    state: scrub_off
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeUnaryConnectors
+  - sprite: Structures/Piping/Atmospherics/scrubber.rsi
+    state: scrub_off
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasVentScrubber
+  - GasVentScrubberAlt1
+  - GasVentScrubberAlt2
 
 - type: construction
   name: air injector
-  description: Injects air into the atmosphere.
   id: GasOutletInjector
   graph: GasUnary
   startNode: start
   targetNode: outletinjector
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/outletinjector.rsi
     state: injector
   layers:
   - sprite: Structures/Piping/Atmospherics/pipe.rsi
-    state: pipeHalf
+    state: pipeUnaryConnectors
   - sprite: Structures/Piping/Atmospherics/outletinjector.rsi
     state: injector
-  conditions:
-    - !type:NoUnstackableInTile
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasOutletInjector
+  - GasOutletInjectorAlt1
+  - GasOutletInjectorAlt2
+
+- type: construction
+  name: air injector
+  id: GasOutletInjectorAlt1
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: outletinjectorAlt1
+  category: construction-category-utilities
+  description: Injects air into the atmosphere.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/outletinjector.rsi
+    state: injector
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeUnaryConnectors
+  - sprite: Structures/Piping/Atmospherics/outletinjector.rsi
+    state: injector
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasOutletInjector
+  - GasOutletInjectorAlt1
+  - GasOutletInjectorAlt2
+
+- type: construction
+  name: air injector
+  id: GasOutletInjectorAlt2
+  hide: true
+  graph: GasUnary
+  startNode: start
+  targetNode: outletinjectorAlt2
+  category: construction-category-utilities
+  description: Injects air into the atmosphere.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/outletinjector.rsi
+    state: injector
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeUnaryConnectors
+  - sprite: Structures/Piping/Atmospherics/outletinjector.rsi
+    state: injector
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasOutletInjector
+  - GasOutletInjectorAlt1
+  - GasOutletInjectorAlt2
 
 # ATMOS BINARY
 - type: construction
@@ -594,7 +1143,7 @@
   startNode: start
   targetNode: pressurepump
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/pump.rsi
@@ -604,8 +1153,64 @@
     state: pipeStraight
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpPressure
-  conditions:
-    - !type:NoUnstackableInTile
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasPressurePump
+  - GasPressurePumpAlt1
+  - GasPressurePumpAlt2
+
+- type: construction
+  name: gas pump
+  id: GasPressurePumpAlt1
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: pressurepumpAlt1
+  category: construction-category-utilities
+  description: A pump that moves gas by pressure.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/pump.rsi
+    state: pumpPressure
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/pump_alt1.rsi
+    state: pumpPressure
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasPressurePump
+  - GasPressurePumpAlt1
+  - GasPressurePumpAlt2
+
+- type: construction
+  name: gas pump
+  id: GasPressurePumpAlt2
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: pressurepumpAlt2
+  category: construction-category-utilities
+  description: A pump that moves gas by pressure.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/pump.rsi
+    state: pumpPressure
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/pump_alt2.rsi
+    state: pumpPressure
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasPressurePump
+  - GasPressurePumpAlt1
+  - GasPressurePumpAlt2
 
 - type: construction
   name: volumetric gas pump
@@ -615,7 +1220,7 @@
   startNode: start
   targetNode: volumepump
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/pump.rsi
@@ -625,8 +1230,64 @@
     state: pipeStraight
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpVolume
-  conditions:
-    - !type:NoUnstackableInTile
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasVolumePump
+  - GasVolumePumpAlt1
+  - GasVolumePumpAlt2
+
+- type: construction
+  name: volumetric gas pump
+  id: GasVolumePumpAlt1
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: volumepumpAlt1
+  category: construction-category-utilities
+  description: A pump that moves gas by volume.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/pump.rsi
+    state: pumpVolume
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/pump_alt1.rsi
+    state: pumpVolume
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasVolumePump
+  - GasVolumePumpAlt1
+  - GasVolumePumpAlt2
+
+- type: construction
+  name: volumetric gas pump
+  id: GasVolumePumpAlt2
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: volumepumpAlt2
+  category: construction-category-utilities
+  description: A pump that moves gas by volume.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/pump.rsi
+    state: pumpVolume
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/pump_alt2.rsi
+    state: pumpVolume
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasVolumePump
+  - GasVolumePumpAlt1
+  - GasVolumePumpAlt2
 
 - type: construction
   id: GasPassiveGate
@@ -636,7 +1297,7 @@
   startNode: start
   targetNode: passivegate
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/pump.rsi
@@ -646,8 +1307,64 @@
     state: pipeStraight
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpPassiveGate
-  conditions:
-    - !type:NoUnstackableInTile
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasPassiveGate
+  - GasPassiveGateAlt1
+  - GasPassiveGateAlt2
+
+- type: construction
+  name: passive gate
+  id: GasPassiveGateAlt1
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: passivegateAlt1
+  category: construction-category-utilities
+  description: A one-way air valve that does not require power.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/pump.rsi
+    state: pumpPassiveGate
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/pump_alt1.rsi
+    state: pumpPassiveGate
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasPassiveGate
+  - GasPassiveGateAlt1
+  - GasPassiveGateAlt2
+
+- type: construction
+  name: passive gate
+  id: GasPassiveGateAlt2
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: passivegateAlt2
+  category: construction-category-utilities
+  description: A one-way air valve that does not require power.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/pump.rsi
+    state: pumpPassiveGate
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/pump_alt2.rsi
+    state: pumpPassiveGate
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasPassiveGate
+  - GasPassiveGateAlt1
+  - GasPassiveGateAlt2
 
 - type: construction
   id: GasValve
@@ -657,7 +1374,7 @@
   startNode: start
   targetNode: valve
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/pump.rsi
@@ -667,8 +1384,64 @@
     state: pipeStraight
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpManualValve
-  conditions:
-    - !type:NoUnstackableInTile
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasValve
+  - GasValveAlt1
+  - GasValveAlt2
+
+- type: construction
+  name: manual valve
+  id: GasValveAlt1
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: valveAlt1
+  category: construction-category-utilities
+  description: A pipe with a valve that can be used to disable the flow of gas through it.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/pump.rsi
+    state: pumpManualValve
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/pump_alt1.rsi
+    state: pumpManualValve
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasValve
+  - GasValveAlt1
+  - GasValveAlt2
+
+- type: construction
+  name: manual valve
+  id: GasValveAlt2
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: valveAlt2
+  category: construction-category-utilities
+  description: A pipe with a valve that can be used to disable the flow of gas through it.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/pump.rsi
+    state: pumpManualValve
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/pump_alt2.rsi
+    state: pumpManualValve
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasValve
+  - GasValveAlt1
+  - GasValveAlt2
 
 - type: construction
   id: SignalControlledValve
@@ -678,7 +1451,7 @@
   startNode: start
   targetNode: signalvalve
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/pump.rsi
@@ -688,8 +1461,64 @@
     state: pipeStraight
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpSignalValve
-  conditions:
-  - !type:NoUnstackableInTile
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - SignalControlledValve
+  - SignalControlledValveAlt1
+  - SignalControlledValveAlt2
+
+- type: construction
+  name: signal valve
+  id: SignalControlledValveAlt1
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: signalvalveAlt1
+  category: construction-category-utilities
+  description: Valve controlled by signal inputs.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/pump.rsi
+    state: pumpSignalValve
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/pump_alt1.rsi
+    state: pumpSignalValve
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - SignalControlledValve
+  - SignalControlledValveAlt1
+  - SignalControlledValveAlt2
+
+- type: construction
+  name: signal valve
+  id: SignalControlledValveAlt2
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: signalvalveAlt2
+  category: construction-category-utilities
+  description: Valve controlled by signal inputs.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/pump.rsi
+    state: pumpSignalValve
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/pump_alt2.rsi
+    state: pumpSignalValve
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - SignalControlledValve
+  - SignalControlledValveAlt1
+  - SignalControlledValveAlt2
 
 - type: construction
   id: GasPort
@@ -699,18 +1528,74 @@
   startNode: start
   targetNode: port
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/gascanisterport.rsi
     state: gasCanisterPort
   layers:
   - sprite: Structures/Piping/Atmospherics/pipe.rsi
-    state: pipeHalf
+    state: pipeUnaryConnectors
   - sprite: Structures/Piping/Atmospherics/gascanisterport.rsi
     state: gasCanisterPort
-  conditions:
-    - !type:NoUnstackableInTile
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasPort
+  - GasPortAlt1
+  - GasPortAlt2
+
+- type: construction
+  name: connector port
+  id: GasPortAlt1
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: portAlt1
+  category: construction-category-utilities
+  description: For connecting portable devices related to atmospherics control.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/gascanisterport.rsi
+    state: gasCanisterPort
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeUnaryConnectors
+  - sprite: Structures/Piping/Atmospherics/gascanisterport.rsi
+    state: gasCanisterPort
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasPort
+  - GasPortAlt1
+  - GasPortAlt2
+
+- type: construction
+  name: connector port
+  id: GasPortAlt2
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: portAlt2
+  category: construction-category-utilities
+  description: For connecting portable devices related to atmospherics control.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/gascanisterport.rsi
+    state: gasCanisterPort
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeUnaryConnectors
+  - sprite: Structures/Piping/Atmospherics/gascanisterport.rsi
+    state: gasCanisterPort
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasPort
+  - GasPortAlt1
+  - GasPortAlt2
 
 - type: construction
   id: GasDualPortVentPump
@@ -720,16 +1605,68 @@
   startNode: start
   targetNode: dualportventpump
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/vent.rsi
     state: vent_off
   layers:
   - sprite: Structures/Piping/Atmospherics/pipe.rsi
-    state: pipeStraight
+    state: pipeBinaryConnectors
   - sprite: Structures/Piping/Atmospherics/vent.rsi
     state: vent_off
+  alternativePrototypes:
+  - GasDualPortVentPump
+  - GasDualPortVentPumpAlt1
+  - GasDualPortVentPumpAlt2
+
+- type: construction
+  name: dual-port air vent
+  id: GasDualPortVentPumpAlt1
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: dualportventpumpAlt1
+  category: construction-category-utilities
+  description: Has a valve and a pump attached to it. There are two ports, one is an input for releasing air, the other is an output when siphoning.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/vent.rsi
+    state: vent_off
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeBinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/vent.rsi
+    state: vent_off
+  alternativePrototypes:
+  - GasDualPortVentPump
+  - GasDualPortVentPumpAlt1
+  - GasDualPortVentPumpAlt2
+
+- type: construction
+  name: dual-port air vent
+  id: GasDualPortVentPumpAlt2
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: dualportventpumpAlt2
+  category: construction-category-utilities
+  description: Has a valve and a pump attached to it. There are two ports, one is an input for releasing air, the other is an output when siphoning.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/vent.rsi
+    state: vent_off
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeBinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/vent.rsi
+    state: vent_off
+  alternativePrototypes:
+  - GasDualPortVentPump
+  - GasDualPortVentPumpAlt1
+  - GasDualPortVentPumpAlt2
 
 - type: construction
   id: HeatExchanger
@@ -739,11 +1676,68 @@
   startNode: start
   targetNode: radiator
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/heatexchanger.rsi
     state: heStraight
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/heatexchanger.rsi
+    state: heStraight
+  alternativePrototypes:
+  - HeatExchanger
+  - HeatExchangerAlt1
+  - HeatExchangerAlt2
+
+- type: construction
+  name: radiator
+  id: HeatExchangerAlt1
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: radiatorAlt1
+  category: construction-category-utilities
+  description: Transfers heat between the pipe and its surroundings.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/heatexchanger.rsi
+    state: heStraight
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/heatexchanger_alt1.rsi
+    state: heStraight
+  alternativePrototypes:
+  - HeatExchanger
+  - HeatExchangerAlt1
+  - HeatExchangerAlt2
+
+- type: construction
+  name: radiator
+  id: HeatExchangerAlt2
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: radiatorAlt2
+  category: construction-category-utilities
+  description: Transfers heat between the pipe and its surroundings.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/heatexchanger.rsi
+    state: heStraight
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/heatexchanger_alt2.rsi
+    state: heStraight
+  alternativePrototypes:
+  - HeatExchanger
+  - HeatExchangerAlt1
+  - HeatExchangerAlt2
 
 - type: construction
   id: HeatExchangerBend
@@ -753,11 +1747,68 @@
   startNode: start
   targetNode: bendradiator
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/heatexchanger.rsi
     state: heBend
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeBend
+  - sprite: Structures/Piping/Atmospherics/heatexchanger.rsi
+    state: heBend
+  alternativePrototypes:
+  - HeatExchangerBend
+  - HeatExchangerBendAlt1
+  - HeatExchangerBendAlt2
+
+- type: construction
+  name: radiator bend
+  id: HeatExchangerBendAlt1
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: bendradiatorAlt1
+  category: construction-category-utilities
+  description: Transfers heat between the pipe and its surroundings.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/heatexchanger.rsi
+    state: heBend
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeBend
+  - sprite: Structures/Piping/Atmospherics/heatexchanger_alt1.rsi
+    state: heBend
+  alternativePrototypes:
+  - HeatExchangerBend
+  - HeatExchangerBendAlt1
+  - HeatExchangerBendAlt2
+
+- type: construction
+  name: radiator bend
+  id: HeatExchangerBendAlt2
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: bendradiatorAlt2
+  category: construction-category-utilities
+  description: Transfers heat between the pipe and its surroundings.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/heatexchanger.rsi
+    state: heBend
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeBend
+  - sprite: Structures/Piping/Atmospherics/heatexchanger_alt2.rsi
+    state: heBend
+  alternativePrototypes:
+  - HeatExchangerBend
+  - HeatExchangerBendAlt1
+  - HeatExchangerBendAlt2
 
 - type: construction
   id: HeatPump
@@ -767,7 +1818,7 @@
   startNode: start
   targetNode: heatpump
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/pump.rsi
@@ -777,8 +1828,64 @@
     state: pipeStraight
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpHeat
-  conditions:
-    - !type:NoUnstackableInTile
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - HeatPump
+  - HeatPumpAlt1
+  - HeatPumpAlt2
+
+- type: construction
+  name: heat pump
+  id: HeatPumpAlt1
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: heatpumpAlt1
+  category: construction-category-utilities
+  description: A pump that moves heat from one side to the other.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/pump.rsi
+    state: pumpHeat
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/pump_alt1.rsi
+    state: pumpHeat
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - HeatPump
+  - HeatPumpAlt1
+  - HeatPumpAlt2
+
+- type: construction
+  name: heat pump
+  id: HeatPumpAlt2
+  hide: true
+  graph: GasBinary
+  startNode: start
+  targetNode: heatpumpAlt2
+  category: construction-category-utilities
+  description: A pump that moves heat from one side to the other.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/pump.rsi
+    state: pumpHeat
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/pump_alt2.rsi
+    state: pumpHeat
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - HeatPump
+  - HeatPumpAlt1
+  - HeatPumpAlt2
 
 # ATMOS TRINARY
 - type: construction
@@ -789,14 +1896,77 @@
   startNode: start
   targetNode: filter
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/gasfilter.rsi
     state: gasFilter
   mirror: GasFilterFlipped
-  conditions:
-    - !type:NoUnstackableInTile
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasFilter
+  - GasFilterAlt1
+  - GasFilterAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeTrinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/gasfilter.rsi
+    state: gasFilter
+
+- type: construction
+  name: gas filter
+  id: GasFilterAlt1
+  hide: true
+  graph: GasTrinary
+  startNode: start
+  targetNode: filterAlt1
+  category: construction-category-utilities
+  description: Very useful for filtering gases.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/gasfilter.rsi
+    state: gasFilter
+  mirror: GasFilterFlippedAlt1
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasFilter
+  - GasFilterAlt1
+  - GasFilterAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeTrinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/gasfilter.rsi
+    state: gasFilter
+
+- type: construction
+  name: gas filter
+  id: GasFilterAlt2
+  hide: true
+  graph: GasTrinary
+  startNode: start
+  targetNode: filterAlt2
+  category: construction-category-utilities
+  description: Very useful for filtering gases.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/gasfilter.rsi
+    state: gasFilter
+  mirror: GasFilterFlippedAlt2
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasFilter
+  - GasFilterAlt1
+  - GasFilterAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeTrinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/gasfilter.rsi
+    state: gasFilter
 
 - type: construction
   id: GasFilterFlipped
@@ -807,14 +1977,77 @@
   startNode: start
   targetNode: filterflipped
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/gasfilter.rsi
     state: gasFilterF
   mirror: GasFilter
-  conditions:
-    - !type:NoUnstackableInTile
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasFilterFlipped
+  - GasFilterFlippedAlt1
+  - GasFilterFlippedAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeTrinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/gasfilter.rsi
+    state: gasFilterF
+
+- type: construction
+  name: gas filter
+  id: GasFilterFlippedAlt1
+  hide: true
+  graph: GasTrinary
+  startNode: start
+  targetNode: filterflippedAlt1
+  category: construction-category-utilities
+  description: Very useful for filtering gases.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/gasfilter.rsi
+    state: gasFilterF
+  mirror: GasFilterAlt1
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasFilterFlipped
+  - GasFilterFlippedAlt1
+  - GasFilterFlippedAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeTrinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/gasfilter.rsi
+    state: gasFilterF
+
+- type: construction
+  name: gas filter
+  id: GasFilterFlippedAlt2
+  hide: true
+  graph: GasTrinary
+  startNode: start
+  targetNode: filterflippedAlt2
+  category: construction-category-utilities
+  description: Very useful for filtering gases.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/gasfilter.rsi
+    state: gasFilterF
+  mirror: GasFilterAlt2
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasFilterFlipped
+  - GasFilterFlippedAlt1
+  - GasFilterFlippedAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeTrinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/gasfilter.rsi
+    state: gasFilterF
 
 - type: construction
   id: GasMixer
@@ -824,14 +2057,77 @@
   startNode: start
   targetNode: mixer
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/gasmixer.rsi
     state: gasMixer
   mirror: GasMixerFlipped
-  conditions:
-    - !type:NoUnstackableInTile
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasMixer
+  - GasMixerAlt1
+  - GasMixerAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeTrinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/gasmixer.rsi
+    state: gasMixer
+
+- type: construction
+  name: gas mixer
+  id: GasMixerAlt1
+  hide: true
+  graph: GasTrinary
+  startNode: start
+  targetNode: mixerAlt1
+  category: construction-category-utilities
+  description: Very useful for mixing gases.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/gasmixer.rsi
+    state: gasMixer
+  mirror: GasMixerFlippedAlt1
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasMixer
+  - GasMixerAlt1
+  - GasMixerAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeTrinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/gasmixer.rsi
+    state: gasMixer
+
+- type: construction
+  name: gas mixer
+  id: GasMixerAlt2
+  hide: true
+  graph: GasTrinary
+  startNode: start
+  targetNode: mixerAlt2
+  category: construction-category-utilities
+  description: Very useful for mixing gases.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/gasmixer.rsi
+    state: gasMixer
+  mirror: GasMixerFlippedAlt2
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasMixer
+  - GasMixerAlt1
+  - GasMixerAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeTrinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/gasmixer.rsi
+    state: gasMixer
 
 - type: construction
   id: GasMixerFlipped
@@ -842,14 +2138,77 @@
   startNode: start
   targetNode: mixerflipped
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/gasmixer.rsi
     state: gasMixerF
   mirror: GasMixer
-  conditions:
-    - !type:NoUnstackableInTile
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasMixerFlipped
+  - GasMixerFlippedAlt1
+  - GasMixerFlippedAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeTrinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/gasmixer.rsi
+    state: gasMixerF
+
+- type: construction
+  name: gas mixer
+  id: GasMixerFlippedAlt1
+  hide: true
+  graph: GasTrinary
+  startNode: start
+  targetNode: mixerflippedAlt1
+  category: construction-category-utilities
+  description: Very useful for mixing gases.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/gasmixer.rsi
+    state: gasMixerF
+  mirror: GasMixerAlt1
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasMixerFlipped
+  - GasMixerFlippedAlt1
+  - GasMixerFlippedAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeTrinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/gasmixer.rsi
+    state: gasMixerF
+
+- type: construction
+  name: gas mixer
+  id: GasMixerFlippedAlt2
+  hide: true
+  graph: GasTrinary
+  startNode: start
+  targetNode: mixerflippedAlt2
+  category: construction-category-utilities
+  description: Very useful for mixing gases.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/gasmixer.rsi
+    state: gasMixerF
+  mirror: GasMixerAlt2
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - GasMixerFlipped
+  - GasMixerFlippedAlt1
+  - GasMixerFlippedAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeTrinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/gasmixer.rsi
+    state: gasMixerF
 
 - type: construction
   id: PressureControlledValve
@@ -859,13 +2218,74 @@
   startNode: start
   targetNode: pneumaticvalve
   category: construction-category-utilities
-  placementMode: SnapgridCenter
+  placementMode: AlignAtmosPipeLayers
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/pneumaticvalve.rsi
     state: off
-  conditions:
-    - !type:NoUnstackableInTile
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - PressureControlledValve
+  - PressureControlledValveAlt1
+  - PressureControlledValveAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeTrinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/pneumaticvalve.rsi
+    state: off
+
+- type: construction
+  name: pneumatic valve
+  id: PressureControlledValveAlt1
+  hide: true
+  graph: GasTrinary
+  startNode: start
+  targetNode: pneumaticvalveAlt1
+  category: construction-category-utilities
+  description: A bidirectional valve controlled by pressure. Opens if the output pipe is lower than the pressure of the control pipe by 101.325 kPa.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/pneumaticvalve.rsi
+    state: off
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - PressureControlledValve
+  - PressureControlledValveAlt1
+  - PressureControlledValveAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    state: pipeTrinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/pneumaticvalve.rsi
+    state: off
+
+- type: construction
+  name: pneumatic valve
+  id: PressureControlledValveAlt2
+  hide: true
+  graph: GasTrinary
+  startNode: start
+  targetNode: pneumaticvalveAlt2
+  category: construction-category-utilities
+  description: A bidirectional valve controlled by pressure. Opens if the output pipe is lower than the pressure of the control pipe by 101.325 kPa.
+  placementMode: AlignAtmosPipeLayers
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/Piping/Atmospherics/pneumaticvalve.rsi
+    state: off
+  # conditions:
+  #   - !type:NoUnstackableInTile Funky - Handled by DeviceRestrictOverlap and BinaryDeviceRestrictOverlap
+  alternativePrototypes:
+  - PressureControlledValve
+  - PressureControlledValveAlt1
+  - PressureControlledValveAlt2
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    state: pipeTrinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/pneumaticvalve.rsi
+    state: off
 
 # INTERCOM
 - type: construction

@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -27,7 +28,7 @@
     - Changeling
     - SubGamemodesRule
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -43,7 +44,7 @@
     - CalmTraitor
     - SubGamemodesRule
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -59,7 +60,7 @@
     - Calmops
     - CalmTraitor
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -74,7 +75,7 @@
     - Calmops
     - CalmLing
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -90,7 +91,7 @@
     - CalmRevs
     - CalmTraitor
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
 
 - type: gamePreset
   id: RevLing
@@ -105,7 +106,7 @@
     - CalmLing
     - SubGamemodesRule
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
     - BasicRoundstartVariation
 
@@ -121,6 +122,7 @@
   - BasicStationEventScheduler
   - BasicRoundstartVariation
   - SubGamemodesRule
+  - MeteorSwarmScheduler
 
 - type: gamePreset
   id: TheSleeper

@@ -312,7 +312,7 @@
     heatingCoefficient: 0.01
     coolingCoefficient: 0.2
   - type: FireResistance
-    damageCoefficient: 0.85 # not fully sealed so less protection
+    damageCoefficient: 0.15 # not fully sealed so less protection
   - type: IdentityBlocker
   - type: Tag
     tags:
@@ -345,7 +345,7 @@
     highPressureMultiplier: 0.25
     lowPressureMultiplier: 1000
   - type: FireResistance
-    damageCoefficient: 0.8
+    damageCoefficient: 0.01
   - type: IdentityBlocker
   - type: Tag
     tags:

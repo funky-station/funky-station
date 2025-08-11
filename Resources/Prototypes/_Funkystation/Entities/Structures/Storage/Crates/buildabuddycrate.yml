@@ -11,9 +11,9 @@
   description: "\"Henry the Human\" Build-a-Buddy kit. Some assembly required."
   components:
   - type: Icon
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: Sprite
-    sprite: _Funkystation//Structures/Storage/Crates/buildabuddy.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/buildabuddy.rsi
   - type: StorageFill
     contents:
     - id: TorsoHuman

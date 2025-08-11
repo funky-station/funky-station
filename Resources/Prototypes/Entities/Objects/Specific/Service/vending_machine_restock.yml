@@ -298,7 +298,7 @@
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockMedical
   name: NanoMed restock box
-  description: Slot into your department's NanoMed or NanoMedPlus to dispense. Handle with care.
+  description: Slot into your department's NanoMed or NanoMed Plus to dispense. Handle with care.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -359,7 +359,7 @@
     - SpaceUpInventory
     - SodaInventory
     - DrGibbInventory
-    - SmiteInventory 
+    - SmiteInventory
   - type: Sprite
     layers:
     - state: base

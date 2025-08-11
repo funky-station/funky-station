@@ -109,7 +109,7 @@
   id: CrateVendingMachineRestockMedicalFilled
   parent: CrateMedicalSecure
   name: NanoMed restock crate
-  description: Contains a restock box, compatible with the NanoMed and NanoMedPlus.
+  description: Contains a restock box, compatible with the NanoMed and NanoMed Plus.
   components:
   - type: StorageFill
     contents:

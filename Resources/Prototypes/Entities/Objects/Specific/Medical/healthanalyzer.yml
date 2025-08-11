@@ -74,7 +74,7 @@
   suffix: Powered
   components:
   - type: PowerCellDraw
-    drawRate: 1.2 #Calculated for 5 minutes on a small cell
+    drawRate: 1.8 #7.5 minutes on a small cell - funky change boosted by 50%
   - type: ToggleCellDraw
   - type: ActivatableUIRequiresPowerCell
 

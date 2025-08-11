@@ -123,7 +123,7 @@
       - NotekeeperCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
-      - MedTekCartridge
+      #- MedTekCartridge #funky - medtek removal
       - WantedListCartridge
       - LogProbeCartridge
       - AstroNavCartridge

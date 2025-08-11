@@ -24,14 +24,14 @@
     size: Normal
   - type: Storage
     grid:
-    - 0,0,6,1
+    - 0,0,5,1
     whitelist:
       tags:
       - PDACart
   - type: StorageFill
     contents:
     - id: AstroNavCartridge
-    - id: MedTekCartridge
+    #- id: MedTekCartridge #funky - medtek removal
     - id: WantedListCartridge
     - id: LogProbeCartridge
     - id: NetProbeCartridge

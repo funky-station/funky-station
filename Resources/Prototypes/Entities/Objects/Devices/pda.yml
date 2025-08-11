@@ -264,7 +264,7 @@
       - NotekeeperCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
-      - MedTekCartridge
+      #- MedTekCartridge #funky - medtek removal
       - NanoChatCartridge # DeltaV
 
 - type: entity
@@ -1441,7 +1441,7 @@
     - NanoTaskCartridge
     - NewsReaderCartridge
     - WantedListCartridge
-    - MedTekCartridge
+    #- MedTekCartridge #funky - medtek removal
     - NanoChatCartridge # DeltaV
 
 - type: entity

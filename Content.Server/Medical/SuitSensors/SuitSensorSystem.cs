@@ -32,8 +32,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using System.Numerics;
-using Content.Server.Access.Systems;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Medical.CrewMonitoring;
 using Content.Shared.DeviceNetwork.Components;

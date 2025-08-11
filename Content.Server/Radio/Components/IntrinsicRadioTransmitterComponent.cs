@@ -4,7 +4,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using System.Linq;
 using Content.Server.Chat.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Radio;
@@ -29,5 +28,4 @@ public sealed partial class IntrinsicRadioTransmitterComponent : Component
     [DataField("intrinsicChannels", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<RadioChannelPrototype>))]
     public HashSet<string> IntrinsicChannels = new();
 
-    public IEnumerable<string> AllChannels => Channels.Union(IntrinsicChannels);
 }

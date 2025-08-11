@@ -21,12 +21,12 @@ using Content.Client.Actions;
 using Content.Client.Actions.UI;
 using Content.Client.Cooldown;
 using Content.Client.Stylesheets;
-using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
-using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
+using Content.Shared.Examine;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
+using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input;
@@ -41,6 +41,7 @@ namespace Content.Client.UserInterface.Systems.Actions.Controls;
 public sealed class ActionButton : Control, IEntityControl
 {
     private IEntityManager _entities;
+    private IPlayerManager _player;
     private SpriteSystem? _spriteSys;
     private ActionUIController? _controller;
     private SharedChargesSystem? _sharedChargesSys;
@@ -88,8 +89,9 @@ public sealed class ActionButton : Control, IEntityControl
         // TODO why is this constructor so slooooow. The rest of the code is fine
 
         _entities = entities;
+        _player = IoCManager.Resolve<IPlayerManager>();
         _spriteSys = spriteSys;
-        _sharedChargesSys = null;
+        _sharedChargesSys = _entities.System<SharedChargesSystem>();
         _controller = controller;
 
         MouseFilter = MouseFilterMode.Pass;
@@ -218,22 +220,17 @@ public sealed class ActionButton : Control, IEntityControl
             return null;
 
         var name = FormattedMessage.FromMarkupPermissive(Loc.GetString(metadata.EntityName));
-        var decr = FormattedMessage.FromMarkupPermissive(Loc.GetString(metadata.EntityDescription));
-        FormattedMessage? chargesText = null;
+        var desc = FormattedMessage.FromMarkupPermissive(Loc.GetString(metadata.EntityDescription));
 
-        // TODO: Don't touch this use an event make callers able to add their own shit for actions or I kill you.
-        if (_entities.TryGetComponent(Action, out LimitedChargesComponent? actionCharges))
-        {
-            var shared = SharedChargesSys;
-            if (shared != null)
-            {
-                var charges = shared.GetCurrentCharges(Action.Value, actionCharges);
-                chargesText = FormattedMessage.FromMarkupPermissive($"Charges: {charges}/{actionCharges.MaxCharges}");
-            }
+        if (_player.LocalEntity is null)
+            return null;
 
-        }
+        var ev = new ExaminedEvent(desc, Action.Value, _player.LocalEntity.Value, true, !desc.IsEmpty);
+        _entities.EventBus.RaiseLocalEvent(Action.Value.Owner, ev);
 
-        return new ActionAlertTooltip(name, decr, charges: chargesText);
+        var newDesc = ev.GetTotalMessage();
+
+        return new ActionAlertTooltip(name, newDesc);
     }
 
     protected override void ControlFocusExited()

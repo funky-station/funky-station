@@ -1,0 +1,12 @@
+﻿# categories
+- type: medicalInfoCategory
+  id: Allergies
+  name: medical-info-category-allergies
+
+- type: medicalInfoCategory
+  id: Prescriptions
+  name: medical-info-category-prescriptions
+
+- type: medicalInfoCategory
+  id: FamilyHistory
+  name: medical-info-category-family-history

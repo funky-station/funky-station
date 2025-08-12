@@ -30,7 +30,7 @@ using Robust.Shared.GameStates;
 
 // funky - fuck crawl meta
 using Content.Shared.Interaction.Events;
-using Content.Server.Carrying;
+using Content.Shared._EE.Carrying;
 // funky - end
 
 namespace Content.Server.Cuffs

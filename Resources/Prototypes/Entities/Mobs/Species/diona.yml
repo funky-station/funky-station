@@ -153,6 +153,7 @@
     whitelist:
       types:
       - Shard
+  - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
   parent: BaseSpeciesDummy

@@ -112,7 +112,7 @@
         reagents:
         - ReagentId: Sugar
           Quantity: 200
-
+  - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
   parent: BaseSpeciesDummy

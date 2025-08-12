@@ -22,7 +22,7 @@ public struct BeforeThrowEvent
     }
 
     public EntityUid ItemUid { get; set; }
-    public Vector2 Direction { get; }
+    public Vector2 Direction { get; set; } // Frontier set
     public float ThrowSpeed { get; set;}
     public EntityUid PlayerUid { get; }
 

@@ -50,6 +50,7 @@
   - type: Tag
     tags:
     - Sheet
+    - ConstructionMaterial
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -165,6 +166,7 @@
   - type: Tag
     tags:
     - Sheet
+    - ConstructionMaterial
 
 - type: entity
   parent: SheetPlasma
@@ -197,6 +199,7 @@
     tags:
     - Plastic
     - Sheet
+    - ConstructionMaterial
   - type: Material
   - type: PhysicalComposition
     materialComposition:

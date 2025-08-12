@@ -25,6 +25,9 @@
       size: Tiny
     - type: Stack
       count: 1
+    - type: Tag
+      tags:
+      - ConstructionMaterial
     # Goobstation - Custom stack splitting dialog
     - type: UserInterface
       interfaces:

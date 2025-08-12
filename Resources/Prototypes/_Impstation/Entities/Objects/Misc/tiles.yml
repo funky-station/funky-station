@@ -12,3 +12,12 @@
       - FloorApid
   - type: Stack
     stackType: FloorTileApid
+
+- type: entity
+  id: FloorTileItemAstroGrassStackFour
+  parent: FloorTileItemAstroGrass
+  suffix: 4 stack
+  components:
+  - type: Stack
+    stackType: FloorTileAstroGrass
+    count: 4

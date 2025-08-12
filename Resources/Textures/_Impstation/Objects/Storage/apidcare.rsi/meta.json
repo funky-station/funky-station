@@ -20,6 +20,18 @@
         {
             "name": "inhand-right",
             "directions": 4
-        }
+        },
+    	{
+    	  "name": "paper"
+    	},
+    	{
+    	  "name": "bounty"
+    	},
+    	{
+    	  "name": "captains_paper"
+    	},
+    	{
+    	  "name": "invoice"
+    	}
     ]
 }

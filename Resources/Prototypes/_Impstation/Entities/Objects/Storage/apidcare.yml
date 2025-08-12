@@ -1,0 +1,81 @@
+- type: entity
+  id: ApidCareCase
+  parent: BaseStorageItem
+  name: apid care case
+  description: A tall case bearing the Apid royal seal, containing everything needed to keep homesick Apids happy and healthy.
+  components:
+  - type: Sprite
+    layers:
+      - map: [ base ]
+        state: icon
+      - state: paper
+        sprite: _Impstation/Objects/Storage/apidcare.rsi
+        map: ["enum.PaperLabelVisuals.Layer"]
+    sprite: _Impstation/Objects/Storage/apidcare.rsi
+    state: icon
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/toolbox_drop.ogg
+  - type: Storage
+    grid:
+    - 0,0,3,2
+    - 0,4,3,5
+    storageOpenSound: /Audio/Items/toolbox_open.ogg
+    storageCloseSound: /Audio/Items/toolbox_close.ogg
+    storageInsertSound: /Audio/Items/toolbox_insert.ogg
+    storageRemoveSound: /Audio/Items/toolbox_remove.ogg
+  - type: Item
+    size: Ginormous
+    sprite: _Impstation/Objects/Storage/apidcare.rsi
+  - type: Tag
+    tags:
+    - DroneUsable
+    - Toolbox
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: icon-open }
+          False: { state: icon }
+      enum.PaperLabelVisuals.HasLabel:
+        enum.PaperLabelVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PaperLabelVisuals.LabelType:
+        enum.PaperLabelVisuals.Layer:
+          Paper: { state: paper }
+          Bounty: { state: bounty }
+          CaptainsPaper: { state: captains_paper }
+          Invoice: { state: invoice }
+  - type: PaperLabel
+    labelSlot:
+      insertVerbText: comp-paper-label-insert
+      ejectVerbText: comp-paper-label-eject
+      whitelist:
+        components:
+        - Paper
+      blacklist:
+        tags:
+        - Book
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      paper_label: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+  - type: ItemSlots
+  - type: Appearance
+  - type: DamageOtherOnHit # imp
+    meleeDamageMultiplier: 1.33
+    staminaCost: 12.5
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 0.9

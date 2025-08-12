@@ -114,18 +114,18 @@
   inhand:
   - MegaSprayBottle
 
-- type: startingGear #AA
-  id: StartingGearApidAdministrativeAssistant
-  equipment:
-    jumpsuit: ClothingUniformCreamSuit
-    id: CommandMaidPDA
-    belt: BoxFolderClipboard
-    outerClothing: ClothingOuterWinterColorBlue
-    #head:
-    pocket1: DoubleEmergencyOxygenTankFilled
-    pocket2: ClothingMaskBreath
-    ears: ClothingHeadsetCommandService
-    eyes: ClothingEyesHudCommand
+# - type: startingGear #AA #Funky Change, Admin Assistants are not a role here, so this one is being commented out 
+#  id: StartingGearApidAdministrativeAssistant
+#  equipment:
+#    jumpsuit: ClothingUniformCreamSuit
+#    id: CommandMaidPDA
+#    belt: BoxFolderClipboard
+#    outerClothing: ClothingOuterWinterColorBlue
+#    #head:
+#    pocket1: DoubleEmergencyOxygenTankFilled
+#    pocket2: ClothingMaskBreath
+#    ears: ClothingHeadsetCommandService
+#    eyes: ClothingEyesHudCommand
 
 - type: startingGear #Chaplain
   id: StartingGearApidChaplain

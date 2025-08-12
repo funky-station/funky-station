@@ -5,7 +5,7 @@
     state: icon
   product: ApidCryopodBotanist
   cost: 5000
-  category: cargoproduct-category-name-service
+  category: cargoproduct-category-name-hydroponics
   group: market
 
 - type: cargoProduct
@@ -36,28 +36,38 @@
   id: ApidScientist
   parent: ApidBotanist
   product: ApidCryopodScientist
-  category: cargoproduct-category-name-cargo
+  category: cargoproduct-category-name-science
 
 - type: cargoProduct
   id: ApidJanitor
   parent: ApidBotanist
   product: ApidCryopodJanitor
-  category: cargoproduct-category-name-cargo
+  category: cargoproduct-category-name-service
 
 - type: cargoProduct
   id: ApidAdministrativeAssistant
   parent: ApidBotanist
   product: ApidCryopodAdministrativeAssistant
-  category: cargoproduct-category-name-cargo
+  category: cargoproduct-category-name-service
 
 - type: cargoProduct
   id: ApidChaplain
   parent: ApidBotanist
   product: ApidCryopodChaplain
-  category: cargoproduct-category-name-cargo
+  category: cargoproduct-category-name-service
   
 - type: cargoProduct
   id: ApidSalvageSpecialist
   parent: ApidBotanist
   product: ApidCryopodSalvageSpecialist
   category: cargoproduct-category-name-cargo
+
+- type: cargoProduct
+  id: ApidCareCase
+  icon:
+    sprite: _Impstation/Objects/Storage/apidcare.rsi
+    state: icon
+  product: ApidCareCaseFilled
+  cost: 1000
+  category: cargoproduct-category-name-service
+  group: market

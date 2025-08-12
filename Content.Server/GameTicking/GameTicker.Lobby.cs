@@ -211,9 +211,15 @@ namespace Content.Server.GameTicking
             // Ensure that the player has a character enabled with a compatible job that can even join.
             var readyPossible = (_prefsManager.GetPreferencesOrNull(player.UserId)?.JobPrioritiesFiltered().Count ?? 0) != 0;
 
-            _playerGameStatuses[player.UserId] = ready && readyPossible
+            var newStatus = ready && readyPossible
                 ? PlayerGameStatus.ReadyToPlay
                 : PlayerGameStatus.NotReadyToPlay;
+
+            if (newStatus == _playerGameStatuses[player.UserId])
+                return;
+
+            _playerGameStatuses[player.UserId] = newStatus;
+
             RaiseNetworkEvent(GetStatusMsg(player), player.Channel);
             RaiseLocalEvent(new PlayerToggleReadyEvent(player));
             // update server info to reflect new ready count

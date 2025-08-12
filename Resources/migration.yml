@@ -618,7 +618,11 @@ SimpleXenoArtifactItem: ComplexXenoArtifactItem
 MediumXenoArtifactItem: ComplexXenoArtifactItem
 VariedXenoArtifactItem: ComplexXenoArtifactItem
 
-#2025-08-11
+#2025-08-11 - pew pew
 GunSafeRifleLecter: GunSafeEnergyGun
 GunSafeSubMachineGunDrozd: null
 GunSafePistolMk58: GunSafeEnergyGunMiniature
+WeaponSubMachineGunWt550: null
+MagazinePistolSubMachineGunTopMounted: null
+WeaponPistolkMk58: WeaponEnergyGunMiniature
+MagazinePistol: null

@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -97,12 +98,28 @@ public sealed partial class TestPair : IAsyncDisposable
 
     private async Task ResetModifiedPreferences()
     {
+        if (Player == null)
+            return;
+        await Server.WaitIdleAsync();
         var prefMan = Server.ResolveDependency<IServerPreferencesManager>();
-        foreach (var user in _modifiedProfiles)
+
+        var prefs = prefMan.GetPreferences(Player.UserId);
+
+        foreach(var slot in prefs.Characters.Keys)
         {
-            await Server.WaitPost(() => prefMan.SetProfile(user, 0, new HumanoidCharacterProfile()).Wait());
+            if (slot == 0)
+                continue;
+            await Server.WaitPost(() =>
+            {
+                prefMan.DeleteProfile(Player.UserId, slot).Wait();
+            });
         }
-        _modifiedProfiles.Clear();
+
+        await Server.WaitPost(() =>
+        {
+            prefMan.SetProfile(Player.UserId, 0, new HumanoidCharacterProfile().AsEnabled()).Wait();
+            prefMan.SetJobPriorities(Player.UserId, new () { { SharedGameTicker.FallbackOverflowJob, JobPriority.High } }).Wait();
+        });
     }
 
     public async ValueTask CleanReturnAsync()
@@ -112,7 +129,15 @@ public sealed partial class TestPair : IAsyncDisposable
 
         await _testOut.WriteLineAsync($"{nameof(CleanReturnAsync)}: Return of pair {Id} started");
         State = PairState.CleanDisposed;
-        await OnCleanDispose();
+        try
+        {
+            await OnCleanDispose();
+        }
+        catch (Exception e)
+        {
+            await _testOut.WriteLineAsync($"Exception raised in OnCleanDispose\n{e}");
+            throw;
+        }
         State = PairState.Ready;
         PoolManager.NoCheckReturn(this);
         ClearContext();

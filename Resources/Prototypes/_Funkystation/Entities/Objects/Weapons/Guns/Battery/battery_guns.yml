@@ -5,13 +5,13 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  name: miniature energy gun
-  parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
-  id: WeaponEnergyGunMiniature
-  description: A miniature self-defense laser pistol for meter maids and other small-time private security.
+  name: energy gun
+  parent: [BaseWeaponBattery, BaseSecurityContraband]
+  id: WeaponEnergyGun
+  description: The stock-standard energy weapon used by NanoTrasen security forces. Contrary to popular belief, it's not technically a laser weapon, but it still stings like hell.
   components:
   - type: Sprite
-    sprite: _Funkystation/Objects/Weapons/Guns/Battery/miniature-egun.rsi
+    sprite: _Funkystation/Objects/Weapons/Guns/Battery/energygun.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -21,20 +21,22 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: Item
+    size: Large
   - type: Clothing
     quickEquip: false
     slots:
     - belt
     - backStorage
-    sprite: _Funkystation/Objects/Weapons/Guns/Battery/miniature-egun.rsi
+    sprite: _Funkystation/Objects/Weapons/Guns/Battery/energygun.rsi
   - type: Gun
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
+    maxCharge: 1200
+    startingCharge: 1200
   - type: ProjectileBatteryAmmoProvider
     proto: ProjectileEnergyGunDisabler
     fireCost: 100
@@ -59,15 +61,55 @@
         Firemode:
           Disabler: { state: mode-disabler }
           Lethal: { state: mode-lethal }
+  - type: Tag
+    tags:
+    - Sidearm
   - type: StaticPrice
     price: 750
+
+- type: entity
+  name: miniature energy gun
+  parent: WeaponEnergyGun
+  id: WeaponEnergyGunMiniature
+  description: A miniature self-defense laser pistol for meter maids and other small-time private security.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Guns/Battery/miniature-egun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mode-disabler
+      shader: unshaded
+      map: [ "Firemode" ]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - belt
+    - backStorage
+    sprite: _Funkystation/Objects/Weapons/Guns/Battery/miniature-egun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
 
 # Safety First
 - type: entity
   name: miniature energy gun
   suffix: safety
   description: A miniature self-defense laser pistol. This one has a little plastic child-lock blocking the lethals switch.
-  parent: [ WeaponEnergyGunMiniature, BaseSecurityContraband ]
+  parent: WeaponEnergyGunMiniature
   id: WeaponEnergyGunMiniatureSafety
   components:
   - type: Battery

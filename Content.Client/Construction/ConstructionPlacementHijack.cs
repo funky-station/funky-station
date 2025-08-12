@@ -9,6 +9,8 @@
 // SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
 // SPDX-FileCopyrightText: 2023 08A <git@08a.re>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -25,6 +27,9 @@ namespace Content.Client.Construction
     {
         private readonly ConstructionSystem _constructionSystem;
         private readonly ConstructionPrototype? _prototype;
+
+        public ConstructionSystem? CurrentConstructionSystem { get { return _constructionSystem; } }
+        public ConstructionPrototype? CurrentPrototype { get { return _prototype; } }
 
         public override bool CanRotate { get; }
 

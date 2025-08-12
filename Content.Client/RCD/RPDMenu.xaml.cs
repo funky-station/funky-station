@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -38,8 +39,8 @@ public sealed partial class RPDMenu : RadialMenu
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
         _rcdMenu = new RCDMenu();
-        var placeholder = FindControl<Control>("RCDMenuPlaceholder");
-        placeholder.AddChild(_rcdMenu);
+        var rdcHolder = FindControl<Control>("RCDMenuHolder");
+        rdcHolder.AddChild(_rcdMenu);
         _rcdMenu.OnClose += () => Close();
     }
 

@@ -6,7 +6,9 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -52,8 +54,8 @@ public sealed partial class ShuttleSystem
 
         var otherXform = Transform(args.OtherEntity);
 
-        var ourPoint = Vector2.Transform(args.WorldPoint, _transform.GetInvWorldMatrix(ourXform));
-        var otherPoint = Vector2.Transform(args.WorldPoint, _transform.GetInvWorldMatrix(otherXform));
+        var ourPoint = Vector2.Transform(args.WorldPoints[0], _transform.GetInvWorldMatrix(ourXform));
+        var otherPoint = Vector2.Transform(args.WorldPoints[0], _transform.GetInvWorldMatrix(otherXform));
 
         var ourVelocity = _physics.GetLinearVelocity(uid, ourPoint, ourBody, ourXform);
         var otherVelocity = _physics.GetLinearVelocity(args.OtherEntity, otherPoint, otherBody, otherXform);
@@ -64,7 +66,7 @@ public sealed partial class ShuttleSystem
             return;
         }
 
-        var coordinates = new EntityCoordinates(ourXform.MapUid.Value, args.WorldPoint);
+        var coordinates = new EntityCoordinates(ourXform.MapUid.Value, args.WorldPoints[0]);
         var volume = MathF.Min(10f, 1f * MathF.Pow(jungleDiff, 0.5f) - 5f);
         var audioParams = AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation).WithVolume(volume);
 

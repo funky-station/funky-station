@@ -477,7 +477,7 @@
       - MetalHydrogenArmor
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowTankStorageClothing]
+  parent: [ClothingOuterBaseLarge, AllowBackStorageClothingCombat, AllowTankStorageClothing]
   id: ClothingOuterArmorAtmosian
   name: atmosian armor
   description: An atmos fire suit bolstered by the defensive power of metal hydrogen using techniques passed down through generations of atmospheric technicians.
@@ -503,7 +503,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.90
   - type: FireResistance
-    damageCoefficient: 0.8
+    damageCoefficient: 0.10
   - type: StaminaResistance
     damageCoefficient: 0.75
   - type: ClothingSpeedModifier

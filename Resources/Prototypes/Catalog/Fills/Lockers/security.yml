@@ -59,7 +59,7 @@
     contents:
       - id: FlashlightSeclite
       - id: WeaponEnergyShotgun
-      - id: WeaponDisabler
+#      - id: WeaponDisabler #funky
       - id: ClothingBeltSecurityFilled
       - id: Flash
       - id: ClothingEyesGlassesSecurity
@@ -116,7 +116,7 @@
     contents:
       - id: FlashlightSeclite
         prob: 0.8
-      - id: WeaponDisabler
+#      - id: WeaponDisabler #funky
       - id: ClothingUniformJumpsuitSecGrey
         prob: 0.3
       - id: ClothingHeadHelmetBasic
@@ -143,7 +143,7 @@
   - type: StorageFill
     contents:
       - id: ClothingEyesGlassesSecurity
-      - id: WeaponDisabler
+#      - id: WeaponDisabler #funky
       - id: TrackingImplanter
         amount: 2
       - id: ClothingOuterHardsuitBrigmedic
@@ -219,7 +219,7 @@
   - type: StorageFill
     contents:
     - id: WeaponDisabler
-      amount: 5
+      amount: 4 #funky
 
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]

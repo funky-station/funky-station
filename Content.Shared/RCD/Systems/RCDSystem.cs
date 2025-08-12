@@ -648,30 +648,19 @@ public class RCDSystem : EntitySystem
                 break;
 
             case RcdMode.ConstructObject:
-                // Funky - Determine the correct prototype based on selected layer for RPD
-                // var proto = (component.UseMirrorPrototype && !string.IsNullOrEmpty(component.CachedPrototype.MirrorPrototype))
-                //     ? component.CachedPrototype.MirrorPrototype
-                //     : component.CachedPrototype.Prototype;
+                var proto = (component.UseMirrorPrototype && !string.IsNullOrEmpty(component.CachedPrototype.MirrorPrototype))
+                    ? component.CachedPrototype.MirrorPrototype
+                    : component.CachedPrototype.Prototype;
 
-                string proto;
+                // Funky - Determine the correct prototype based on selected layer for RPD
                 if (component.IsRpd && !component.CachedPrototype.NoLayers)
                 {
-                    if (_protoManager.TryIndex<EntityPrototype>(component.CachedPrototype.Prototype, out var entityProto) &&
+                    if (_protoManager.TryIndex<EntityPrototype>(proto, out var entityProto) &&
                         entityProto.TryGetComponent<AtmosPipeLayersComponent>(out var atmosPipeLayers, _entityManager.ComponentFactory) &&
                         _pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, _currentLayer, out var newProtoId))
                     {
                         proto = newProtoId;
                     }
-                    else
-                    {
-                        proto = component.CachedPrototype.Prototype;
-                    }
-                }
-                else
-                {
-                    proto = (component.UseMirrorPrototype && !string.IsNullOrEmpty(component.CachedPrototype.MirrorPrototype))
-                        ? component.CachedPrototype.MirrorPrototype
-                        : component.CachedPrototype.Prototype;
                 }
                 // Funky - end of changes
 

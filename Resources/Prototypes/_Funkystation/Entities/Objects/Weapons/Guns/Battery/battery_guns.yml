@@ -49,14 +49,14 @@
       fireCost: 100
       name: disabling
       state: disabler
-    - proto: BulletEnergyGunLaser
+    - proto: ProjectileEnergyGunLaser
       fireCost: 100
       name: lethal
       state: lethal
   - type: MagazineVisuals
     magState: mag
     steps: 5
-    zeroVisible: true
+    zeroVisible: false
   - type: Appearance
   - type: GenericVisualizer
     visuals:

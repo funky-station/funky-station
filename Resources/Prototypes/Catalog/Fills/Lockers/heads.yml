@@ -468,7 +468,7 @@
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
     - id: CargoRequestSecurityComputerCircuitboard
-    - id: WeaponDisabler
+#    - id: WeaponDisabler #funky
     - id: WantedListCartridge
     - id: DrinkHosFlask
     - id: RadioHandheldCommand #funkystation, no sec radio since they start with one

@@ -56,6 +56,7 @@ namespace Content.Server.Preferences.Managers
         [Dependency] private readonly IDependencyCollection _dependencies = default!;
         [Dependency] private readonly ILogManager _log = default!;
         [Dependency] private readonly UserDbDataManager _userDb = default!;
+        [Dependency] private readonly IEntityManager _entityManager = default!;
 
         // Cache player prefs on the server so we don't need as much async hell related to them.
         private readonly Dictionary<NetUserId, PlayerPrefData> _cachedPlayerPrefs =
@@ -131,6 +132,9 @@ namespace Content.Server.Preferences.Managers
 
             if (ShouldStorePrefs(session.Channel.AuthType))
                 await _db.SaveJobPrioritiesAsync(userId, jobPriorities);
+
+            var evt = new PlayerJobPriorityChangedEvent(session, curPrefs.JobPriorities, jobPriorities);
+            _entityManager.EventBus.QueueEvent(EventSource.Local, evt);
         }
 
         private async void HandleDeleteCharacterMessage(MsgDeleteCharacter message)

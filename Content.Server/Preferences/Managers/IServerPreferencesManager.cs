@@ -49,4 +49,20 @@ namespace Content.Server.Preferences.Managers
         /// </summary>
         Task DeleteProfile(NetUserId userId, int slot);
     }
+
+    public sealed class PlayerJobPriorityChangedEvent : EntityEventArgs
+    {
+        public readonly ICommonSession Session;
+        public readonly Dictionary<ProtoId<JobPrototype>, JobPriority> OldPriorities;
+        public readonly Dictionary<ProtoId<JobPrototype>, JobPriority> NewPriorities;
+
+        public PlayerJobPriorityChangedEvent(ICommonSession session,
+        Dictionary<ProtoId<JobPrototype>, JobPriority> oldPriorities,
+        Dictionary<ProtoId<JobPrototype>, JobPriority> newPriorities)
+        {
+            Session = session;
+            OldPriorities = oldPriorities;
+            NewPriorities = newPriorities;
+        }
+    }
 }

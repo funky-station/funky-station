@@ -34,6 +34,29 @@ public sealed class ReadyManifestSystem : EntitySystem
         SubscribeNetworkEvent<RequestReadyManifestMessage>(OnRequestReadyManifest);
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStarting);
         SubscribeLocalEvent<PlayerToggleReadyEvent>(OnPlayerToggleReady);
+        SubscribeLocalEvent<PlayerJobPriorityChangedEvent>(OnPlayerJobPriorityChanged);
+    }
+
+    private void OnPlayerJobPriorityChanged(PlayerJobPriorityChangedEvent ev)
+    {
+        if (_gameTicker.PlayerGameStatuses[ev.Session.UserId] != PlayerGameStatus.ReadyToPlay)
+            return;
+
+        var allJobs = ev.OldPriorities.Keys.Union(ev.NewPriorities.Keys);
+        foreach (var job in allJobs)
+        {
+            var oldPrio = ev.OldPriorities.GetValueOrDefault(job);
+            var newPrio = ev.NewPriorities.GetValueOrDefault(job);
+            if (oldPrio != JobPriority.Never && newPrio == JobPriority.Never)
+            {
+                _jobCounts[job]--;
+            }
+            else if (oldPrio == JobPriority.Never && newPrio != JobPriority.Never)
+            {
+                _jobCounts[job]++;
+            }
+        }
+        UpdateEuis();
     }
 
     private void OnRoundStarting(RoundStartingEvent ev)
@@ -66,8 +89,6 @@ public sealed class ReadyManifestSystem : EntitySystem
             return;
         }
 
-
-        // HumanoidCharacterProfile profile = (HumanoidCharacterProfile) preferences.SelectedCharacter;
         var profileJobs = preferences.JobPrioritiesFiltered().Keys;
 
         if (_gameTicker.PlayerGameStatuses[userId] == PlayerGameStatus.ReadyToPlay)

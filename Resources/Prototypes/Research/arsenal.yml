@@ -212,6 +212,18 @@
   technologyPrerequisites:
   - SalvageWeapons
 
+- type: technology # Funkystation, made from a T3 to T2 tech, also bundled with the portable recharger
+  id: ExperimentalBatteryAmmo
+  name: research-technology-experimental-battery-ammo
+  icon:
+    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - WeaponLaserSvalinn
+  - PortableRecharger
 # Tier 3
 
 - type: technology
@@ -225,20 +237,9 @@
   cost: 15000
   recipeUnlocks:
   - WeaponAdvancedLaser
-  - PortableRecharger
+  # - PortableRecharger Moved to a T2 tech unlock
   - WeaponMechCombatImmolationGun # Goobstation
 
-- type: technology
-  id: ExperimentalBatteryAmmo
-  name: research-technology-experimental-battery-ammo
-  icon:
-    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 3
-  cost: 15000
-  recipeUnlocks:
-  - WeaponLaserSvalinn
 
 - type: technology
   id: AdvancedShuttleWeapon

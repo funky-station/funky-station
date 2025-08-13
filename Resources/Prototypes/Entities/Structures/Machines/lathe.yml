@@ -641,6 +641,7 @@
     - FauxTileAstroAsteroidSand
     - OreBagOfHolding
     - DeviceQuantumSpinInverter
+    - PortableRecharger # Funky Change
     - WeaponPlasmaCutter # Goobstation
     - WeaponPlasmaRifle # Goobstation
     - EnergyScalpel # Shitmed Change
@@ -681,7 +682,6 @@
     - MagazineShotgunIncendiary
     - MagazinePistolSubMachineGunTopMountedIncendiary
     - MagazinePistolSubMachineGunTopMountedUranium
-    - PortableRecharger
     - PowerCageHigh
     - PowerCageMedium
     - PowerCageSmall
@@ -1181,6 +1181,7 @@
     - WeaponLaserCannon
     - WeaponLaserCarbine
     - WeaponXrayCannon
+    - WeaponLaserSvalinn # Funky Change 
     - SecurityCyberneticEyes # Shitmed Change
     - MedicalCyberneticEyes # Shitmed Change
     # Goobstation - Mechs

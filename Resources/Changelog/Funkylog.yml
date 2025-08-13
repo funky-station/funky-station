@@ -3971,3 +3971,79 @@ Entries:
       message: Salvagers on Glacier can now dock and go on expeditions.
   id: 479
   time: '2025-08-10T02:47:36.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: >-
+        Atmospheric pipes can now be built on three different sublayers,
+        allowing for multiple pipe networks on a single tile
+    - type: Add
+      message: >-
+        Pipe manifolds can now be constructed to connect pipes across different
+        sublayers
+    - type: Add
+      message: Bent radiators can now be constructed for all three pipe sublayers.
+    - type: Tweak
+      message: >-
+        Binary devices will now act similarly to pipes and can stack on top of
+        each other if they create a new opening.
+    - type: Tweak
+      message: >-
+        The name, description and icon of the target crafting items are now
+        taken directly from the prototypes.
+    - type: Tweak
+      message: >-
+        Gas vent under-pressure lockout releases are now performed using the
+        right-click menu - a screwdriver is no longer required
+  id: 480
+  time: '2025-08-10T19:47:33.0000000+00:00'
+- author: selvamoonbell
+  changes:
+    - type: Add
+      message: 19 new pipe colors to the spray painter corresponding to atmos gasses
+  id: 481
+  time: '2025-08-10T20:05:34.0000000+00:00'
+- author: Queer-Cats
+  changes:
+    - type: Fix
+      message: Vox, Thaven, and IPCs strip menus updated
+    - type: Remove
+      message: IPCs don't have an air tank slot anymore
+  id: 482
+  time: '2025-08-10T20:09:41.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Add
+      message: Readded zombie infection DOT and increased damage while crit.
+  id: 483
+  time: '2025-08-10T20:16:03.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: tropico spawn, polly spawn
+    - type: Remove
+      message: two windows in Lawyer/IAA room
+    - type: Tweak
+      message: salvage dock
+  id: 484
+  time: '2025-08-10T21:31:08.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        Replaced the Thief's Anatomy Kit Storage Implanter with a Freedom
+        Implanter.
+  id: 485
+  time: '2025-08-10T23:39:40.0000000+00:00'
+- author: Queer-Cats
+  changes:
+    - type: Fix
+      message: Atmosian Armor can carry weapons on the back, hooray!
+  id: 486
+  time: '2025-08-10T23:44:40.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Fix
+      message: The RPD is now able to print flipped filters and mixers again.
+  id: 487
+  time: '2025-08-11T19:37:07.0000000+00:00'

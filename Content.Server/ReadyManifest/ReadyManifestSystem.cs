@@ -40,7 +40,10 @@ public sealed class ReadyManifestSystem : EntitySystem
 
     private void OnPlayerJobPriorityChanged(PlayerJobPriorityChangedEvent ev)
     {
-        if (_gameTicker.PlayerGameStatuses[ev.Session.UserId] != PlayerGameStatus.ReadyToPlay)
+        if (!_gameTicker.PlayerGameStatuses.TryGetValue(ev.Session.UserId, out var status))
+            return;
+
+        if (status != PlayerGameStatus.ReadyToPlay)
             return;
 
         var allJobs = ev.OldPriorities.Keys.Union(ev.NewPriorities.Keys);

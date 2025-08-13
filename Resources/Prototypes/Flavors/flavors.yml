@@ -1385,8 +1385,3 @@
   id: zombiecocktail
   flavorType: Complex
   description: flavor-complex-zombiecocktail
-  
-- type: flavor
-  id: shrimp
-  flavorType: Complex
-  description: flavor-complex-shrimp

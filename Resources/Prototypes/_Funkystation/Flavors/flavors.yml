@@ -37,4 +37,8 @@
   id: pineapple-margherita
   flavorType: Complex
   description: flavor-complex-pineapple-margherita
-
+  
+- type: flavor
+  id: shrimp
+  flavorType: Complex
+  description: flavor-complex-shrimp

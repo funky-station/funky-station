@@ -3,6 +3,16 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: cargoProduct
+  id: ServiceFoodShrimpRaw
+  icon:
+    sprite: _Funkystation/Objects/Consumable/Food/meat.rsi
+    state: shrimpfried
+  product: CrateFoodShrimpRaw
+  cost: 350
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
   id: BulkCleanNade
   icon:
     sprite: Objects/Weapons/Grenades/janitor.rsi
@@ -30,4 +40,4 @@
   product: CrateServiceColoredLightBulb 
   cost: 800
   category: cargoproduct-category-name-service
-  group: market    
+  group: market

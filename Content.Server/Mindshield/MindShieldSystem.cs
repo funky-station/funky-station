@@ -21,6 +21,8 @@ using Content.Shared.Implants.Components;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Revolutionary; // GoobStation
 using Content.Shared.Revolutionary.Components;
+using Content.Shared.Roles.Components;
+using Robust.Shared.Containers;
 using Content.Shared.Tag;
 using Content.Shared.Mindcontrol;  //Goobstation - Mindcontrol Implant
 

@@ -232,7 +232,7 @@
     dest: cargo-gift-dest-sec
     gifts:
       SecurityBasicArmor: 2
-      ArmorySmg: 1
+      ArmoryEnergyGun: 1 # funky
       ArmoryShotgun: 1
       ArmoryLaser: 1
 

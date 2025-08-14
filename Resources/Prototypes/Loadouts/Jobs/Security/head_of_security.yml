@@ -61,7 +61,7 @@
 - type: loadout
   id: HelmetLaw
   effects:
-  - !typeGroupLoadoutEffect
+  - !type:GroupLoadoutEffect
     proto: LawHelmetWorthy
   equipment:
     head: ClothingHeadHelmetLaw

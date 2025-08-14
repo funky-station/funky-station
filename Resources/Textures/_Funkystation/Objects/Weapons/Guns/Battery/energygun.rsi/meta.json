@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "base.png and icon.png taken from Core0verload on github at commit https://github.com/Core0verload/-tg-station/blob/4428c7f06205d358dcd5e7625817095ec2a99291/icons/obj/guns/energy.dmi, modified by Miiish for Funkystation 2025-08-06. Inhand sprites taken from tg station at commit https://github.com/tgstation/tgstation/blob/832ae532766d491d91db53746d15b4b55be3f2b0\", also modified by Miiish 2025-08-06.",
+  "copyright": "base.png and icon.png taken from tgstation on GitHub at https://github.com/tgstation/tgstation/commit/1c3c50c9e9017c93ff09c1d4e6ff2beda8d9234c. Inhand sprites taken from tg station at commit https://github.com/tgstation/tgstation/blob/832ae532766d491d91db53746d15b4b55be3f2b0\"",
   "size": {
     "x": 32,
     "y": 32

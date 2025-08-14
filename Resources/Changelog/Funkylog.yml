@@ -4047,3 +4047,11 @@ Entries:
       message: The RPD is now able to print flipped filters and mixers again.
   id: 487
   time: '2025-08-11T19:37:07.0000000+00:00'
+- author: Currot
+  changes:
+    - type: Fix
+      message: >-
+        IPCs who gain channels in a manner other than an encryption key will no
+        longer lose it when changing keys.
+  id: 488
+  time: '2025-08-14T01:35:49.0000000+00:00'

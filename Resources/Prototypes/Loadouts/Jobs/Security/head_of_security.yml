@@ -11,11 +11,11 @@
 - type: loadoutEffectGroup
   id: LawHelmetWorthy
   effects:
-    - !type:JobRequirementLoadoutEffect
-      requirement:
-        !type:RoleTimeRequirement
-        role: JobHeadOfSecurity
-        time: 108000 #30 hrs
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobHeadOfSecurity
+      time: 108000 #30 hrs
 # Jumpsuit
 - type: loadout
   id: HeadofSecurityJumpsuit

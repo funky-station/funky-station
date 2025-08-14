@@ -86,10 +86,10 @@
   - type: Examiner
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
-    channels:
+    intrinsicChannels:
     - Binary
   - type: ActiveRadio
-    channels:
+    intrinsicChannels:
     - Binary
     - Common
   - type: DoAfter
@@ -151,10 +151,10 @@
     mindRoles:
     - MindRoleGhostRoleFamiliar
   - type: IntrinsicRadioTransmitter
-    channels:
+    intrinsicChannels:
     - Syndicate
   - type: ActiveRadio
-    channels:
+    intrinsicChannels:
     - Syndicate
   - type: Appearance
   - type: GenericVisualizer

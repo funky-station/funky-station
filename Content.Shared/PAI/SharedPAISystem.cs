@@ -12,6 +12,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Actions;
+using Content.Shared.Radio.Components;
 
 namespace Content.Shared.PAI;
 
@@ -34,6 +35,8 @@ public abstract class SharedPAISystem : EntitySystem
 
         SubscribeLocalEvent<PAIComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<PAIComponent, ComponentShutdown>(OnShutdown);
+
+        SubscribeLocalEvent<PAIComponent, PAIEnableEncryptionEvent>(EnableEncryption);
     }
 
     private void OnMapInit(Entity<PAIComponent> ent, ref MapInitEvent args)
@@ -45,7 +48,16 @@ public abstract class SharedPAISystem : EntitySystem
     {
         _actions.RemoveAction(ent, ent.Comp.ShopAction);
     }
+
+    private void EnableEncryption(Entity<PAIComponent> ent, ref PAIEnableEncryptionEvent args)
+    {
+        EnsureComp<EncryptionKeyHolderComponent>(ent, out var holder);
+        holder.KeySlots = 4;
+    }
 }
 public sealed partial class PAIShopActionEvent : InstantActionEvent
 {
 }
+
+[DataDefinition]
+public sealed partial class PAIEnableEncryptionEvent : EntityEventArgs;

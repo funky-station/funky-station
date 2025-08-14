@@ -1656,9 +1656,14 @@
     graph: CookedPatty
     node: cooked meat patty
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Consumable/Food/meat.rsi
+      state: dragon
     entries:
-      Burger: MeatSteak
-      Taco: MeatSteak
+      burger:
+        name: food-sequence-content-patty
+      taco:
+        name: food-sequence-content-patty
 
 - type: entity
   name: boiled snail
@@ -1754,9 +1759,14 @@
     graph: DragonSteak
     node: dragon steak
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Consumable/Food/meat.rsi
+      state: dragon
     entries:
-      Burger: DragonSteak
-      Taco: DragonSteak
+      burger:
+        name: food-sequence-content-dragon-cooked
+      taco:
+        name: food-sequence-content-dragon-cooked
 
 # Cutlets
 
@@ -2482,6 +2492,11 @@
     graph: DragonCutlet
     node: dragon cutlet
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Consumable/Food/meat.rsi
+      state: dragon
     entries:
-      Burger: DragonCutlet
-      Taco: DragonCutlet
+      burger:
+        name: food-sequence-content-dragoncutlet-cooked
+      taco:
+        name: food-sequence-content-dragoncutlet-cooked

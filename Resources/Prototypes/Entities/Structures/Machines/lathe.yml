@@ -1097,21 +1097,21 @@
     - MagazineBoxLightRifleSilver
     - MagazineBoxMagnum
     - MagazineBoxMagnumPractice
-    - MagazineBoxPistol
-    - MagazineBoxPistolPractice
-    - MagazineBoxRifle
-    - MagazineBoxRiflePractice
-    - MagazineLightRifle
-    - MagazineLightRifleSilver
-    - MagazineLightRifleEmpty
-    - MagazinePistol
-    - MagazinePistolEmpty
-    - MagazinePistolSubMachineGun
-    - MagazinePistolSubMachineGunEmpty
-    - MagazinePistolSubMachineGunTopMounted
-    - MagazinePistolSubMachineGunTopMountedEmpty
-    - MagazineRifle
-    - MagazineRifleEmpty
+#    - MagazineBoxPistol # funky start
+#    - MagazineBoxPistolPractice
+#    - MagazineBoxRifle
+#    - MagazineBoxRiflePractice
+#    - MagazineLightRifle
+#    - MagazineLightRifleSilver
+#    - MagazineLightRifleEmpty
+#    - MagazinePistol
+#    - MagazinePistolEmpty
+#    - MagazinePistolSubMachineGun
+#    - MagazinePistolSubMachineGunEmpty
+#    - MagazinePistolSubMachineGunTopMounted
+#    - MagazinePistolSubMachineGunTopMountedEmpty
+#    - MagazineRifle
+#    - MagazineRifleEmpty # funky end
     - MagazineShotgun
     - MagazineShotgunEmpty
     - MagazineShotgunSlug
@@ -1152,21 +1152,21 @@
     - MagazineBoxLightRifleUranium
     - MagazineBoxMagnumIncendiary
     - MagazineBoxMagnumUranium
-    - MagazineBoxPistolIncendiary
-    - MagazineBoxPistolUranium
-    - MagazineBoxRifleIncendiary
-    - MagazineBoxRifleUranium
+#    - MagazineBoxPistolIncendiary # funky
+#    - MagazineBoxPistolUranium
+#    - MagazineBoxRifleIncendiary
+#    - MagazineBoxRifleUranium
     - MagazineGrenadeEmpty
-    - MagazineLightRifleIncendiary
-    - MagazineLightRifleUranium
-    - MagazinePistolIncendiary
-    - MagazinePistolUranium
-    - MagazineRifleIncendiary
-    - MagazineRifleUranium
+#    - MagazineLightRifleIncendiary # funky
+#    - MagazineLightRifleUranium
+#    - MagazinePistolIncendiary
+#    - MagazinePistolUranium
+#    - MagazineRifleIncendiary
+#    - MagazineRifleUranium
     - MagazineShotgunBeanbag
     - MagazineShotgunIncendiary
-    - MagazinePistolSubMachineGunTopMountedIncendiary
-    - MagazinePistolSubMachineGunTopMountedUranium
+#    - MagazinePistolSubMachineGunTopMountedIncendiary # funky
+#    - MagazinePistolSubMachineGunTopMountedUranium
     - PortableRecharger
     - PowerCageHigh
     - PowerCageMedium

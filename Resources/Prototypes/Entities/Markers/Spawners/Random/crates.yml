@@ -133,14 +133,14 @@
   - type: RandomSpawner
     rarePrototypes: #Very useful stuff we probably don't want random people getting on space ruins often, even if there are hurdles to open it
     - CrateArmoryShotgun
-    - CrateArmorySMG
+    - CrateArmoryEnergyGun # funky pew pew
     - CrateSecurityRiot
     - CrateSecurityNonlethal
     rareChance: 0.1
     prototypes:
     - CrateWeaponSecure
     - CrateArmoryLaser
-    - CrateArmoryPistols
+    - CrateArmoryMiniEGun # funky pew pew
     - CrateTrainingBombs
     - CrateTrackingImplants
     - CrateSecurityTrackingMindshieldImplants

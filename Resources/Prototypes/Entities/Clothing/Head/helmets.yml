@@ -262,7 +262,7 @@
   parent: [ClothingHeadHelmetBase, BaseSecurityContraband]
   id: ClothingHeadHelmetLaw
   name: law helmet
-  description: Helmet of law enforcer from forgotten era. 
+  description: Helmet of law enforcer from forgotten era.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/lawhelmet.rsi
@@ -271,7 +271,6 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-    - LawHelmet
 #Atmos Fire Helmet
 - type: entity
   parent: [ClothingHeadLightBase, BaseEngineeringContraband]

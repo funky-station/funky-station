@@ -4055,3 +4055,15 @@ Entries:
         longer lose it when changing keys.
   id: 488
   time: '2025-08-14T01:35:49.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Tweak
+      message: >-
+        The Experimental Battery Ammo research has been moved from a T3 Arsenal
+        to a T2 one, also unlocks the Portable Recharger
+    - type: Tweak
+      message: >-
+        Svalinns can be now also printed in the Security Techfab and Portable
+        Recharges can be Printed in the Protolathe 
+  id: 489
+  time: '2025-08-14T04:33:52.0000000+00:00'

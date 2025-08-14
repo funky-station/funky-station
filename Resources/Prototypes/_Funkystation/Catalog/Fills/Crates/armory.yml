@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -40,7 +42,7 @@
 - type: entity
   id: CrateSecurityEquipment
   parent: CrateSecgear
-  name: security equipment crate 
+  name: security equipment crate
   description: Supplies for protecting and serving, contains a armor vest, helmet, flash, disabler, security glasses and belt, holobarrier projector, jackboots, seclite and the security guidebooks. Requires Security access to open.
   components:
   - type: StorageFill
@@ -58,7 +60,7 @@
 - type: entity
   id: CrateSecurityBasicArmor
   parent: CrateSecgear
-  name: standard armor crate 
+  name: standard armor crate
   description: Contains three sets of standard issue security armor vests and helmets. Requires Security access to open.
   components:
   - type: StorageFill
@@ -66,4 +68,26 @@
     - id: ClothingHeadHelmetBasic
       amount: 3
     - id: ClothingOuterArmorBasic
+      amount: 3
+
+- type: entity
+  id: CrateArmoryMiniEGun
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  name: miniature energy guns crate
+  description: Contains three standard miniature energy guns. Requires Armory access to open.
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponEnergyGunMiniature
+      amount: 3
+
+- type: entity
+  id: CrateArmoryEnergyGun
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  name: energy guns crate
+  description: Contains three standard energy guns. Requires Armory access to open.
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponEnergyGun
       amount: 3

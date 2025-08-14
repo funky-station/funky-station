@@ -40,6 +40,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
@@ -58,7 +59,7 @@
     contents:
       - id: FlashlightSeclite
       - id: WeaponEnergyShotgun
-      - id: WeaponDisabler
+#      - id: WeaponDisabler #funky
       - id: ClothingBeltSecurityFilled
       - id: Flash
       - id: ClothingEyesGlassesSecurity
@@ -114,7 +115,7 @@
     contents:
       - id: FlashlightSeclite
         prob: 0.8
-      - id: WeaponDisabler
+#      - id: WeaponDisabler #funky
       - id: ClothingUniformJumpsuitSecGrey
         prob: 0.3
       - id: ClothingHeadHelmetBasic
@@ -141,7 +142,7 @@
   - type: StorageFill
     contents:
       - id: ClothingEyesGlassesSecurity
-      - id: WeaponDisabler
+#      - id: WeaponDisabler #funky
       - id: TrackingImplanter
         amount: 2
       - id: ClothingOuterHardsuitBrigmedic
@@ -217,7 +218,7 @@
   - type: StorageFill
     contents:
     - id: WeaponDisabler
-      amount: 5
+      amount: 4 #funky
 
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]

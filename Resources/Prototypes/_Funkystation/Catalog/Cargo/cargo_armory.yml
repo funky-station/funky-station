@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: cargoProduct
+  id: ArmoryMiniatureEGun
+  icon:
+    sprite: _Funkystation/Objects/Weapons/Guns/Battery/miniature-egun.rsi
+    state: icon
+  product: CrateArmoryMiniEGun
+  cost: 4000
+  category: cargoproduct-category-name-armory
+  group: market
+
+- type: cargoProduct
+  id: ArmoryEnergyGun
+  icon:
+    sprite: _Funkystation/Objects/Weapons/Guns/Battery/energygun.rsi
+    state: icon
+  product: CrateArmoryEnergyGun
+  cost: 6000
+  category: cargoproduct-category-name-armory
+  group: market

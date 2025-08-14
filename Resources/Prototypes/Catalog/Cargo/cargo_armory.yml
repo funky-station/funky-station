@@ -16,26 +16,27 @@
 # SPDX-FileCopyrightText: 2024 MODERN <87994977+modern-nm@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-- type: cargoProduct
-  id: ArmorySmg
-  icon:
-    sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
-    state: icon
-  product: CrateArmorySMG
-  cost: 9000
-  category: cargoproduct-category-name-armory
-  group: market
+#- type: cargoProduct # funky - pew pews
+#  id: ArmorySmg
+#  icon:
+#    sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
+#    state: icon
+#  product: CrateArmorySMG
+#  cost: 9000
+#  category: cargoproduct-category-name-armory
+#  group: market
 
 - type: cargoProduct
   id: ArmoryShotgun
   icon:
-    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
+    sprite: Objects/Weapons/Guns/Shotguns/pump.rsi # funky - pew pews
     state: icon
   product: CrateArmoryShotgun
   cost: 7000
@@ -48,7 +49,7 @@
     sprite: Clothing/OuterClothing/Armor/riot.rsi
     state: icon
   product: CrateSecurityRiot
-  cost: 4000 #Funky station, reduced form 7500 because it no longer has the two enforcer shotguns in the crate 
+  cost: 4000 #Funky station, reduced form 7500 because it no longer has the two enforcer shotguns in the crate
   category: cargoproduct-category-name-armory
   group: market
 
@@ -82,12 +83,12 @@
   category: cargoproduct-category-name-armory
   group: market
 
-- type: cargoProduct
-  id: ArmoryPistol
-  icon:
-    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
-    state: icon
-  product: CrateArmoryPistols
-  cost: 5200
-  category: cargoproduct-category-name-armory
-  group: market
+#- type: cargoProduct # funky - pew pews
+#  id: ArmoryPistol
+#  icon:
+#    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+#    state: icon
+#  product: CrateArmoryPistols
+#  cost: 5200
+#  category: cargoproduct-category-name-armory
+#  group: market

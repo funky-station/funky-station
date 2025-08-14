@@ -146,9 +146,9 @@
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterCoatHoSTrench
     pocket1: WeaponDisabler
-    pocket2: MagazinePistolSubMachineGunTopMounted
-  inhand:
-  - WeaponSubMachineGunWt550
+#    pocket2: MagazinePistolSubMachineGunTopMounted # funky - i hate you i hate you i hate you
+#  inhand:
+#  - WeaponSubMachineGunWt550
 
 - type: startingGear
   id: VisitorHOSAlt
@@ -164,9 +164,9 @@
     ears: ClothingHeadsetAltSecurity
     eyes: ClothingEyesGlassesSecurity
     pocket1: WeaponDisabler
-    pocket2: MagazinePistolSubMachineGunTopMounted
-  inhand:
-  - WeaponSubMachineGunWt550
+#    pocket2: MagazinePistolSubMachineGunTopMounted # funky - i hate you i hate you i hate you
+#  inhand:
+#  - WeaponSubMachineGunWt550
 
 - type: startingGear
   id: VisitorRD

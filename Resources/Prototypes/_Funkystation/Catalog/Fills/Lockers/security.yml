@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  id: GunSafeEnergyGun
+  name: energy gun safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponEnergyGun
+      amount: 3
+
+- type: entity
+  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  id: GunSafeEnergyGunMiniature
+  name: miniature energy gun safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponEnergyGunMiniature
+      amount: 4

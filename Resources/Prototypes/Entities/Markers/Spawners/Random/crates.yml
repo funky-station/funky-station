@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -133,14 +134,14 @@
   - type: RandomSpawner
     rarePrototypes: #Very useful stuff we probably don't want random people getting on space ruins often, even if there are hurdles to open it
     - CrateArmoryShotgun
-    - CrateArmorySMG
+    - CrateArmoryEnergyGun # funky pew pew
     - CrateSecurityRiot
     - CrateSecurityNonlethal
     rareChance: 0.1
     prototypes:
     - CrateWeaponSecure
     - CrateArmoryLaser
-    - CrateArmoryPistols
+    - CrateArmoryMiniEGun # funky pew pew
     - CrateTrainingBombs
     - CrateTrackingImplants
     - CrateSecurityTrackingMindshieldImplants

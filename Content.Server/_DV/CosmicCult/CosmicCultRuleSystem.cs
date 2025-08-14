@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -624,8 +625,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
         var radio = EnsureComp<ActiveRadioComponent>(uid);
-        radio.Channels.Add("CosmicRadio");
-        transmitter.Channels.Add("CosmicRadio");
+        radio.IntrinsicChannels.Add("CosmicRadio");
+        transmitter.IntrinsicChannels.Add("CosmicRadio");
 
         if (_mind.TryGetSession(mindId, out var session))
         {
@@ -762,9 +763,9 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         foreach (var actionEnt in uid.Comp.ActionEntities) _actions.RemoveAction(actionEnt);
 
         if (TryComp<IntrinsicRadioTransmitterComponent>(uid, out var transmitter))
-            transmitter.Channels.Remove("CosmicRadio");
+            transmitter.IntrinsicChannels.Remove("CosmicRadio");
         if (TryComp<ActiveRadioComponent>(uid, out var radio))
-            radio.Channels.Remove("CosmicRadio");
+            radio.IntrinsicChannels.Remove("CosmicRadio");
         RemComp<CosmicCultLeadComponent>(uid);
         RemComp<InfluenceVitalityComponent>(uid);
         RemComp<InfluenceStrideComponent>(uid);

@@ -24,6 +24,7 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 takemysoult <143123247+takemysoult@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -212,6 +213,18 @@
   technologyPrerequisites:
   - SalvageWeapons
 
+- type: technology # Funkystation, made from a T3 to T2 tech, also bundled with the portable recharger
+  id: ExperimentalBatteryAmmo
+  name: research-technology-experimental-battery-ammo
+  icon:
+    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - WeaponLaserSvalinn
+  - PortableRecharger
 # Tier 3
 
 - type: technology
@@ -225,20 +238,9 @@
   cost: 15000
   recipeUnlocks:
   - WeaponAdvancedLaser
-  - PortableRecharger
+  # - PortableRecharger Moved to a T2 tech unlock
   - WeaponMechCombatImmolationGun # Goobstation
 
-- type: technology
-  id: ExperimentalBatteryAmmo
-  name: research-technology-experimental-battery-ammo
-  icon:
-    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 3
-  cost: 15000
-  recipeUnlocks:
-  - WeaponLaserSvalinn
 
 - type: technology
   id: AdvancedShuttleWeapon

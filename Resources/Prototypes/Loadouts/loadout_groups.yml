@@ -1034,6 +1034,7 @@
   loadouts:
   - HeadofSecurityHead
   - HeadofSecurityBeret
+  - HelmetLaw
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit

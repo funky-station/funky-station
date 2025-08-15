@@ -4075,3 +4075,12 @@ Entries:
         speak on) more radio channels.
   id: 490
   time: '2025-08-15T04:14:48.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        Smoke Implanter's cooldown has been changed from 20 seconds to 35
+        seconds. This leaves a gap where no smoke may exist from the Implant for
+        20 seconds total, up from the previous 5 seconds.
+  id: 491
+  time: '2025-08-15T06:42:43.0000000+00:00'

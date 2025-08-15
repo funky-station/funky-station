@@ -141,7 +141,7 @@
 - type: damageModifierSet
   id: BlobReflective # If it reflects lasers, then it must be fragile?
   coefficients:
-    Blunt: 0.75
-    Slash: 1.65
-    Piercing: 0.75
+    Blunt: 0.9
+    Slash: 1.8
+    Piercing: 0.9
     Heat: 1.0

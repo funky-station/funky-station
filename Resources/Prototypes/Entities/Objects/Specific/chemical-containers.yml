@@ -474,3 +474,18 @@
         reagents:
         - ReagentId: WeldingFuel
           Quantity: 200
+
+- type: entity
+  parent: Jug
+  suffix: anodynafil
+  id: JugAnodynafil
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Label
+    currentLabel: reagent-name-anodynafil
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Anodynafil
+          Quantity: 200

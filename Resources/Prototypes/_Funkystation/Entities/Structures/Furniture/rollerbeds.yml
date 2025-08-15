@@ -3,7 +3,7 @@
   id: SyndicateSurgeryRollerBed
   name: syndicate surgery rollerbed
   parent: [RollerBed, BaseSyndicateContraband]
-  description: Cybersun's take on more portable solution to surgery.
+  description: Interdyne's take on more portable solution to surgery.
   components:
   - type: Item
     heldPrefix: syndicate_surgery_rollerbed

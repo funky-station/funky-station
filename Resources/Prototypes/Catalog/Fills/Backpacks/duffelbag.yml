@@ -75,6 +75,7 @@
       - id: Scalpel
       - id: BoneGel # Shitmed Change
       - id: NitrousOxideTankFilled # DeltaV - add anesthesia
+      - id: ClothingMaskBreathMedical
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
@@ -84,16 +85,13 @@
   components:
   - type: StorageFill
     contents:
-      - id: Hemostat
-      - id: SawAdvanced
-      - id: Drill
-      - id: Cautery
-      - id: Retractor
-      - id: ScalpelAdvanced
+      - id: NitrousOxideTankFilled
+      - id: SyndicateSurgeryRollerBedSpawnFolded
       - id: ClothingHandsGlovesNitrile
-      - id: EmergencyRollerBedSpawnFolded
-      - id: BoneGel # Shitmed Change
-      - id: NitrousOxideTankFilled # DeltaV - add anesthesia
+      - id: SoapOmega
+      - id: OmnimedToolSyndie
+      - id: ClothingMaskSterile
+      - id: ClothingMaskBreathMedical
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle

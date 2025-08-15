@@ -1,0 +1,32 @@
+
+- type: entity
+  id: SurgeryKitFilled
+  suffix: Filled
+  parent: SurgeryKit
+  components:
+  - type: StorageFill
+    contents:
+      - id: Hemostat
+      - id: SawElectric # Shitmed Change
+      - id: Drill
+      - id: Cautery
+      - id: Retractor
+      - id: Scalpel
+      - id: BoneGel # Shitmed Change
+      - id: NitrousOxideTankFilled # DeltaV - add anesthesia
+      - id: ClothingMaskBreathMedical
+
+- type: entity
+  id: SurgeryKitSyndicateFilled
+  suffix: Filled
+  parent: SurgeryKitSyndicate
+  components:
+  - type: StorageFill
+    contents:
+      - id: NitrousOxideTankFilled
+      - id: SyndicateSurgeryRollerBedSpawnFolded
+      - id: ClothingHandsGlovesNitrile
+      - id: SoapOmega
+      - id: OmnimedToolSyndie
+      - id: ClothingMaskSterile
+      - id: ClothingMaskBreathMedical

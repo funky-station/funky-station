@@ -1114,10 +1114,10 @@
   saleLimit: 1 # WD EDIT
 
 - type: listing
-  id: UplinkDuffelSurgery
-  name: uplink-duffel-surgery-name
-  description: uplink-duffel-surgery-desc
-  productEntity: ClothingBackpackDuffelSyndicateFilledMedical
+  id: UplinkFieldSurgeryKit
+  name: uplink-field-surgery-kit-name
+  description: uplink-field-surgery-kit-desc
+  productEntity: SurgeryKitSyndicateFilled
   cost:
     Telecrystal: 20 # goob
   categories:

@@ -138,6 +138,7 @@ public sealed class BlobCoreSystem : EntitySystem
 
         var store = EnsureComp<StoreComponent>(uid);
         store.CurrencyWhitelist.Add(BlobMoney);
+        ChangeBlobPoint((uid, component), component.InitialPoints, store);
 
         UpdateAllAlerts((uid, component));
         ChangeChem(uid, component.DefaultChem, component);

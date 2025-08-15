@@ -4067,3 +4067,11 @@ Entries:
         Recharges can be Printed in the Protolathe 
   id: 489
   time: '2025-08-14T04:33:52.0000000+00:00'
+- author: Currot
+  changes:
+    - type: Add
+      message: >-
+        The pAI store now contains an upgrade to allow a pAI to hear (but not
+        speak on) more radio channels.
+  id: 490
+  time: '2025-08-15T04:14:48.0000000+00:00'

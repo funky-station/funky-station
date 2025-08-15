@@ -26,10 +26,10 @@
 - type: entity
   id: ActivateSmokeImplant
   name: Release a cloud of smoke
-  description: Releases a cloud of smoke around you.
+  description: Releases a large cloud of smoke around you that lasts 15 seconds.
   components:
   - type: InstantAction
-    useDelay: 20
+    useDelay: 35
     itemIconStyle: BigAction
     priority: -20
     icon:

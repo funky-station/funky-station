@@ -109,7 +109,7 @@
   id: BaseBlob # ReactiveSpines
   coefficients:
     Blunt: 0.25
-    Slash: 0.50
+    Slash: 0.55
     Piercing: 0.25
     Heat: 2.00
 
@@ -117,7 +117,7 @@
   id: ElectromagneticWebBlob # Electromagnetic Web
   coefficients:
     Blunt: 0.375
-    Slash: 0.75
+    Slash: 0.825
     Piercing: 0.375
     Heat: 2.50
 
@@ -125,7 +125,7 @@
   id: ExplosiveLatticeBlob # Explosive Lattice
   coefficients:
     Blunt: 0.25
-    Slash: 0.50
+    Slash: 0.55
     Piercing: 0.25
     Heat: 3.00
     Shock: 1.50
@@ -142,6 +142,6 @@
   id: BlobReflective # If it reflects lasers, then it must be fragile?
   coefficients:
     Blunt: 0.75
-    Slash: 1.5
+    Slash: 1.65
     Piercing: 0.75
     Heat: 1.0

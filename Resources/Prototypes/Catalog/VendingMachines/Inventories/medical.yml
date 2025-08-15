@@ -14,6 +14,7 @@
 # SPDX-FileCopyrightText: 2024 Hanz <41141796+Hanzdegloker@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
@@ -27,7 +28,7 @@
 - type: vendingMachineInventory
   id: NanoMedPlusInventory
   startingInventory:
-    HandheldHealthAnalyzer: 3
+    HandheldHealthAnalyzer: 5 #funky
     Brutepack: 5
     Ointment: 5
     Bloodpack: 5

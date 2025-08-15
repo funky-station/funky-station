@@ -82,7 +82,7 @@ blob-chem-blazingoil-info = Blazing Oil
                             Deals 15 burn damage and lights targets on fire.
                             Makes you vulnerable to water.
 blob-chem-regenerativemateria-info = Regenerative Materia
-                                    Deals 6 brute damage and 15 toxin damage.
+                                    Deals 6 blunt damage and 15 toxin damage.
                                     The blob core regenerates health 10 times faster than normal and generates 1 extra resource.
 blob-chem-explosivelattice-info = Explosive Lattice
                                     Deals no direct damage but explodes the target, dealing 15 brute damage. Deals double Structural damage.

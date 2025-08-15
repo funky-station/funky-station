@@ -126,7 +126,7 @@
   coefficients:
     Blunt: 0.25
     Slash: 0.55
-    Piercing: 0.25
+    Piercing: 0.325
     Heat: 3.00
     Shock: 1.50
 

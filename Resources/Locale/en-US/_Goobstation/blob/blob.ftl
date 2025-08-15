@@ -88,7 +88,7 @@ blob-chem-explosivelattice-info = Explosive Lattice
                                     Deals no direct damage but explodes the target, dealing 15 brute damage. Deals double Structural damage.
                                     Spores explode on death.
                                     You become immune to explosions.
-                                    You take 50% more damage from burns and electrical shock.
+                                    You take 50% more damage from burns and electrical shock, and 30% more damage from piercing.
 blob-chem-electromagneticweb-info = Electromagnetic Web
                                     Deals 20 burn damage, 20% chance to cause an EMP pulse when attacking.
                                     Blob tiles cause an EMP pulse when destroyed.

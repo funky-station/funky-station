@@ -6,9 +6,9 @@ command-description-acmd-perms =
     Returns the admin permissions of the given command, if any.
 command-description-acmd-caninvoke =
     Check if the given player can invoke the given command.
-command-description-bank-accounts = 
+command-description-bank-accounts =
     Returns all accounts on a station.
-command-description-bank-account = 
+command-description-bank-account =
     Returns a given bank account from a station.
 command-description-bank-adjust =
     Adjusts the money for the given bank account.

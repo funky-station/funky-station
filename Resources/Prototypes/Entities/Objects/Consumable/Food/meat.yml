@@ -1762,7 +1762,7 @@
   - type: FoodSequenceElement
     sprite:
       sprite: Objects/Consumable/Food/meat.rsi
-      state: dragon
+      state: dragon-cooked
     entries:
       burger:
         name: food-sequence-content-dragon-cooked

@@ -159,6 +159,7 @@
     children:
     - id: ClothingMaskGoldenCursed
     - id: CrateCargoGambling
+    - id: GoldenPersonalAI
     - id: TreasureCoinDiamond
       amount: !type:RangeNumberSelector
         range: 2, 5

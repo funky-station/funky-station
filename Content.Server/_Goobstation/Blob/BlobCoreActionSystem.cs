@@ -265,7 +265,7 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
         switch (ent.Comp.CurrentChem)
         {
             case BlobChemType.ExplosiveLattice:
-                _explosionSystem.QueueExplosion(target, ent.Comp.BlobExplosive, 4, 1, 6, maxTileBreak: 0);
+                _explosionSystem.QueueExplosion(target, ent.Comp.BlobExplosive, 3, 1, 6, maxTileBreak: 0);
                 break;
             case BlobChemType.ElectromagneticWeb:
             {

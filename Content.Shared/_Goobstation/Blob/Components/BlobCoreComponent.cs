@@ -91,8 +91,7 @@ public sealed partial class BlobCoreComponent : Component
             {
                 DamageDict = new Dictionary<string, FixedPoint2>
                 {
-                    { "Heat", 5 },
-                    { "Structural", 150 },
+                    { "Structural", 300 },
                 }
             }
         },

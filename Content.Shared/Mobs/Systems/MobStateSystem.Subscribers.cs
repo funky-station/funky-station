@@ -32,6 +32,7 @@ using Content.Shared.Pointing;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Speech;
 using Content.Shared.Standing;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Strip.Components;
 using Content.Shared.Throwing;
 using Robust.Shared.Physics.Components;
@@ -94,7 +95,10 @@ public partial class MobStateSystem
                 //unused
                 break;
             case MobState.Critical:
-                _standing.Stand(target, force: true);
+                if (HasComp<BorgChassisComponent>(target))
+                    _standing.Stand(target, force: true);
+                else
+                    _standing.Stand(target);
                 break;
             case MobState.Dead:
                 RemComp<CollisionWakeComponent>(target);
@@ -119,7 +123,10 @@ public partial class MobStateSystem
         switch (state)
         {
             case MobState.Alive:
-                _standing.Stand(target, force: true);
+                if (HasComp<BorgChassisComponent>(target))
+                    _standing.Stand(target, force: true);
+                else
+                    _standing.Stand(target);
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Alive);
                 break;
             case MobState.Critical:

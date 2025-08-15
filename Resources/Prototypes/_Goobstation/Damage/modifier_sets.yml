@@ -142,6 +142,6 @@
   id: BlobReflective # If it reflects lasers, then it must be fragile?
   coefficients:
     Blunt: 0.9
-    Slash: 1.8
+    Slash: 1.98
     Piercing: 0.9
     Heat: 1.0

@@ -22,6 +22,22 @@
             "name": "head",
             "directions": 4
         },
+	{
+            "name": "eyes",
+            "directions": 4
+        },
+	{
+            "name": "mask",
+            "directions": 4
+        },
+	{
+            "name": "ears",
+            "directions": 4
+        },
+	{
+            "name": "neck",
+            "directions": 4
+        },
         {
             "name": "hands",
             "directions": 4

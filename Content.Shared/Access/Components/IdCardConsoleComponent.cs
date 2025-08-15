@@ -67,6 +67,16 @@ public sealed partial class IdCardConsoleComponent : Component
         "Atmospherics",
         "Bar",
         "Brig",
+        // begin Funkystation: allow ID consoles to give out genpop accesses
+
+        // FIXME: why, WHY IS THIS HARDCODED? i thought i would have a simple
+        // walk in the part changing like a prototype or something but NO!
+        // i had to dig into the codebase just to find this random hardcoded
+        // variable to code these accesses in GRRRRRR
+        // this needs refactor
+        "GenpopEnter",
+        "GenpopLeave",
+        // end Funkystation
         "Detective",
         "Captain",
         "Cargo",

@@ -70,6 +70,10 @@
   - Cryogenics
   - GenpopEnter
   - GenpopLeave
+  # begin Funkystation: give out missing genpop accesses
+  - GenpopEnter
+  - GenpopLeave
+  # end Funkystation
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

@@ -70,6 +70,10 @@
       - Security
       - Service
       - Theatre
+      # begin Funkystation: make actually usable for fixing turnstiles and such
+      - GenpopEnter
+      - GenpopLeave
+      # end Funkystation
       privilegedIdSlot:
         name: id-card-console-privileged-id
         ejectSound: /Audio/Machines/id_swipe.ogg

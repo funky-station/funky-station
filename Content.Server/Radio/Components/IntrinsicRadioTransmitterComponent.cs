@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -19,5 +20,13 @@ namespace Content.Server.Radio.Components;
 public sealed partial class IntrinsicRadioTransmitterComponent : Component
 {
     [DataField("channels", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<RadioChannelPrototype>))]
-    public HashSet<string> Channels = new() { SharedChatSystem.CommonChannel };
+    public HashSet<string> Channels = new();
+
+    
+    /// <summary>
+    ///     The channels that this radio will always be able to talk to.
+    /// </summay>
+    [DataField("intrinsicChannels", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<RadioChannelPrototype>))]
+    public HashSet<string> IntrinsicChannels = new();
+
 }

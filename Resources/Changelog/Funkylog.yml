@@ -4047,3 +4047,40 @@ Entries:
       message: The RPD is now able to print flipped filters and mixers again.
   id: 487
   time: '2025-08-11T19:37:07.0000000+00:00'
+- author: Currot
+  changes:
+    - type: Fix
+      message: >-
+        IPCs who gain channels in a manner other than an encryption key will no
+        longer lose it when changing keys.
+  id: 488
+  time: '2025-08-14T01:35:49.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Tweak
+      message: >-
+        The Experimental Battery Ammo research has been moved from a T3 Arsenal
+        to a T2 one, also unlocks the Portable Recharger
+    - type: Tweak
+      message: >-
+        Svalinns can be now also printed in the Security Techfab and Portable
+        Recharges can be Printed in the Protolathe 
+  id: 489
+  time: '2025-08-14T04:33:52.0000000+00:00'
+- author: Currot
+  changes:
+    - type: Add
+      message: >-
+        The pAI store now contains an upgrade to allow a pAI to hear (but not
+        speak on) more radio channels.
+  id: 490
+  time: '2025-08-15T04:14:48.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        Smoke Implanter's cooldown has been changed from 20 seconds to 35
+        seconds. This leaves a gap where no smoke may exist from the Implant for
+        20 seconds total, up from the previous 5 seconds.
+  id: 491
+  time: '2025-08-15T06:42:43.0000000+00:00'

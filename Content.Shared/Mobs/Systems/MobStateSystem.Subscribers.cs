@@ -94,7 +94,7 @@ public partial class MobStateSystem
                 //unused
                 break;
             case MobState.Critical:
-                _standing.Stand(target);
+                _standing.Stand(target, force: true);
                 break;
             case MobState.Dead:
                 RemComp<CollisionWakeComponent>(target);
@@ -119,7 +119,7 @@ public partial class MobStateSystem
         switch (state)
         {
             case MobState.Alive:
-                _standing.Stand(target);
+                _standing.Stand(target, force: true);
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Alive);
                 break;
             case MobState.Critical:

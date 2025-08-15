@@ -116,11 +116,10 @@
 - type: damageModifierSet
   id: ElectromagneticWebBlob # Electromagnetic Web
   coefficients:
-    Blunt: 0.50
-    Slash: 1.0
-    Piercing: 0.50
+    Blunt: 0.375
+    Slash: 0.75
+    Piercing: 0.375
     Heat: 2.50
-    Shock: 0.50
 
 - type: damageModifierSet
   id: ExplosiveLatticeBlob # Explosive Lattice

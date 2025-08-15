@@ -92,7 +92,7 @@ blob-chem-explosivelattice-info = Explosive Lattice
 blob-chem-electromagneticweb-info = Electromagnetic Web
                                     Deals 20 burn damage, 20% chance to cause an EMP pulse when attacking.
                                     Blob tiles cause an EMP pulse when destroyed.
-                                    You take 25% more brute and heat damage.
+                                    You take 50% more brute damage and 25% more heat damage.
 
 blob-alert-out-off-station = The blob was removed because it was found outside the station!
 

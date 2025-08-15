@@ -1,0 +1,32 @@
+
+- type: entity
+  id: SyndicateSurgeryRollerBed
+  name: syndicate surgery rollerbed
+  parent: [RollerBed, BaseSyndicateContraband]
+  description: Cybersun's take on more portable solution to surgery.
+  components:
+  - type: Item
+    heldPrefix: syndicate_surgery_rollerbed
+  - type: Sprite
+    sprite: _Funkystation/Structures/Furniture/rollerbeds.rsi
+    layers:
+    - state: syndicate_surgery_rollerbed
+      map: ["unfoldedLayer"]
+    - state: syndicate_surgery_rollerbed_folded
+      map: ["foldedLayer"]
+      visible: false
+    - state: syndicate_surgery_rollerbed_buckled
+      map: ["buckledLayer"]
+      visible: false
+  - type: Appearance
+  - type: OperatingTable
+
+- type: entity
+  parent: SyndicateSurgeryRollerBed
+  id: SyndicateSurgeryRollerBedSpawnFolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+  - type: Strap
+    enabled: False

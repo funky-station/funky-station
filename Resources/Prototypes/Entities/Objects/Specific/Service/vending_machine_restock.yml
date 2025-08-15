@@ -16,6 +16,7 @@
 # SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 aa5g21 <aa5g21@soton.ac.uk>
+# SPDX-FileCopyrightText: 2025 mnva <218184747+mnva0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -298,7 +299,7 @@
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockMedical
   name: NanoMed restock box
-  description: Slot into your department's NanoMed or NanoMedPlus to dispense. Handle with care.
+  description: Slot into your department's NanoMed or NanoMed Plus to dispense. Handle with care.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -359,7 +360,7 @@
     - SpaceUpInventory
     - SodaInventory
     - DrGibbInventory
-    - SmiteInventory 
+    - SmiteInventory
   - type: Sprite
     layers:
     - state: base

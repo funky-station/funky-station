@@ -4106,3 +4106,20 @@ Entries:
       message: 'Rule 7 has been tweaked. '
   id: 494
   time: '2025-08-16T05:07:06.0000000+00:00'
+- author: Catazeus
+  changes:
+    - type: Add
+      message: >-
+        Added Surgery Kits. One for NT, one for Syndicate. Replaces Surgery
+        Duffle Bags.
+    - type: Add
+      message: >-
+        Added Syndicate Surgery Rollerbed. Now you can position where you need
+        for more delicate surgeries.
+    - type: Tweak
+      message: >-
+        Surgery Bundle is now Field Surgery Kit. Now stuffed with syndicate
+        surgical multitool, anesthetics, sanitary soap and portable surgery
+        table.
+  id: 495
+  time: '2025-08-16T05:11:10.0000000+00:00'

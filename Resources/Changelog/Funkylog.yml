@@ -4090,3 +4090,13 @@ Entries:
       message: Anesthetics now properly block pain during surgery.
   id: 492
   time: '2025-08-15T19:57:00.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        The Declare Open Revolt button for Head Revs now must be pressed twice
+        on a delay for confirmation, preventing accidental activations. This
+        functions in the exact same way as the Death Acidifier's confirmation
+        sequence.
+  id: 493
+  time: '2025-08-16T05:05:38.0000000+00:00'

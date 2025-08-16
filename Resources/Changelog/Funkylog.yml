@@ -4084,3 +4084,9 @@ Entries:
         20 seconds total, up from the previous 5 seconds.
   id: 491
   time: '2025-08-15T06:42:43.0000000+00:00'
+- author: Jemtamird
+  changes:
+    - type: Fix
+      message: Anesthetics now properly block pain during surgery.
+  id: 492
+  time: '2025-08-15T19:57:00.0000000+00:00'

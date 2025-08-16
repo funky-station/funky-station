@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
+# SPDX-FileCopyrightText: 2025 SG6732 <151011904+SG6732@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# cooked meat patty
+- type: constructionGraph
+  id: CookedPatty
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: cooked meat patty
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 335
+  - node: cooked meat patty
+    entity: FoodMeatPattyCooked

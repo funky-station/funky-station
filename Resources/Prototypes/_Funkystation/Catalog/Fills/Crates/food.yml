@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: CrateFoodShrimpRaw
+  parent: CratePlastic
+  name: Jumbo Space Shrimp Pack
+  description: Don't let the package name fool you. Space Shrimp is nothing more than a brand name.
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodShrimpRaw
+      amount: 6
+
+- type: entityTable
+  id: RandomDonkpocketTable
+  table: !type:GroupSelector
+    children:
+    - id: FoodBoxDonkpocket
+    - id: FoodBoxDonkpocketSpicy
+    - id: FoodBoxDonkpocketTeriyaki
+    - id: FoodBoxDonkpocketPizza
+    - id: FoodBoxDonkpocketCarp
+    - id: FoodBoxDonkpocketBerry
+    - id: FoodBoxDonkpocketHonk
+    - id: FoodBoxDonkpocketDink
+    - id: FoodBoxDonkpocketStonk
+      weight: 0.2
+    - id: FoodBoxDonkpocketMoth
+
+- type: entity
+  id: CrateFoodRandomDonkPocket
+  parent: CratePlastic
+  name: donk pockets crate
+  description: You should order four more of these. Includes a box of donk pockets.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: RandomDonkpocketTable

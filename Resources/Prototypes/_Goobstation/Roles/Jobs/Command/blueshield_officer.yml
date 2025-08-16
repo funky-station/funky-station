@@ -44,6 +44,10 @@
   access:
   - Security
   - Brig
+  # begin Funkystation: give out missing genpop accesses
+  - GenpopEnter
+  - GenpopLeave
+  # end Funkystation
   - External
   - Cryogenics
   - Cargo

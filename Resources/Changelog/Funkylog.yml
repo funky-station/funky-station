@@ -4123,3 +4123,13 @@ Entries:
         table.
   id: 495
   time: '2025-08-16T05:11:10.0000000+00:00'
+- author: ilyamikcoder
+  changes:
+    - type: Fix
+      message: All security personnel can now access genpop.
+    - type: Fix
+      message: ID card computers can assign genpop accesses.
+    - type: Fix
+      message: Access configurators can apply genpop accesses to things.
+  id: 496
+  time: '2025-08-16T05:15:26.0000000+00:00'

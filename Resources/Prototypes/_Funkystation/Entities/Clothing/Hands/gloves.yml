@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -15,3 +16,17 @@
     fiberMaterial: fibers-rubber
     fiberColor: fibers-yellow
   - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsGlovesSyntheticBase
+  id: ClothingHandsBSOTacticalMaidGloves
+  name: blueshield tactical maid gloves
+  description: Tactical maid gloves, every self-respecting maid should be able to discreetly eliminate her goals.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/bsotacticalmaidgloves.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/bsotacticalmaidgloves.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberColor: fibers-grey

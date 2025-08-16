@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2024 heree <79546981+hereelabs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 hereelabs <hahmorm@gmail.com>
+# SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -39,4 +40,13 @@
       types:
         Slash: 20
 
-
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBSOTacticalMaidHeadband
+  name: blueshield tactical maid headband
+  description: "A blue headband - don't imagine yourself a security and don't pick up validhunt chases."
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/bsotacticalmaidheadband.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/bsotacticalmaidheadband.rsi

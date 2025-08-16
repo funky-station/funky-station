@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Middleson5 <Chance@thethiers.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -15,3 +16,14 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/redperformer.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/redperformer.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformBSOJumpskirtTacticalMaid
+  name: blueshield tactical maid suitskirt
+  description: It is assumed that the best maids should have designer suits.
+  components:
+    - type: Sprite
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/bsotacticalmaid.rsi
+    - type: Clothing
+      sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/bsotacticalmaid.rsi

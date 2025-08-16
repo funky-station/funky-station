@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -62,6 +63,11 @@
   equipment:
     outerClothing: ClothingBlueshieldArmoredJacket
 
+- type: loadout #Funky Station
+  id: BlueshieldOfficerOuterBlueshieldArmoredWinterCoat
+  equipment:
+    outerClothing: ClothingOuterWinterBSO
+
 # Neck
 - type: loadout
   id: BlueshieldOfficerOuterBlueshieldMantle
@@ -87,3 +93,29 @@
   equipment:
     back: ClothingBackpackDuffelBlueshield
 
+# Belt /// Funky Station
+- type: loadout
+  id: BlueshieldOfficerSecurityBelt
+  equipment:
+    belt: ClothingBeltSecurityFilled
+
+- type: loadout
+  id: BlueshieldOfficerSecurityWebbing
+  equipment:
+    belt: ClothingBeltSecurityWebbingFilled
+
+# Shoes /// Funky Station
+- type: loadout
+  id: BlueshieldOfficerJackBoots
+  equipment:
+    shoes: ClothingShoesBootsJackFilled
+
+- type: loadout
+  id: BlueshieldOfficerCombatBoots
+  equipment:
+    shoes: ClothingShoesBootsCombatFilled
+
+- type: loadout
+  id: BlueshieldOfficerClothingShoesBootsLaceup
+  equipment:
+    shoes: ClothingShoesBootsLaceup

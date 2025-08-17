@@ -12,5 +12,5 @@
   objective: roles-antag-cosmiccult-description
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 43200 # 12h
+    time: 86400 # 24h
   guides: [ CosmicCult ]

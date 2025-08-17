@@ -20,7 +20,7 @@
   guides: [ Revolutionaries ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 3600 # 1h
+    time: 36000 # 10hours
 
 - type: antag
   id: Rev

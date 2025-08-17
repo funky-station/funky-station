@@ -83,6 +83,8 @@
   - type: Sprite
   - type: Item
     size: Huge
+    shape:
+    - 0,0,4,2
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
     quickEquip: false
@@ -450,6 +452,10 @@
   id: WeaponLaserCannon
   description: A heavy duty, high powered laser weapon.
   components:
+  - type: Item
+    size: Huge
+    shape:
+      - 0,0,4,2
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
     layers:

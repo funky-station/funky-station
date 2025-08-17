@@ -77,8 +77,6 @@
       sprite: Objects/Weapons/Melee/katana_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32
     shape:
     - 0,0,0,3
-  - type: Clothing
-    sprite: Objects/Weapons/Melee/katana.rsi
   - type: DisarmMalus
   # Funky - Let the base katana be worn too
   - type: Clothing
@@ -86,6 +84,7 @@
     slots:
     - Back
     - Belt
+
 - type: entity
   name: energy katana
   parent: Katana
@@ -138,6 +137,11 @@
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     sprite: Objects/Weapons/Melee/machete.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Weapons/Melee/machete.rsi
+    shape:
+    - 0,0,0,2
   - type: DisarmMalus
 
 - type: entity
@@ -186,6 +190,11 @@
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     sprite: Objects/Weapons/Melee/cutlass.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Weapons/Melee/cutlass.rsi
+    shape:
+    - 0,0,0,2
   - type: DisarmMalus
 
 - type: entity

@@ -39,7 +39,12 @@
   maxLimit: 1
   loadouts:
   - ChaplainBibleChristian
+  - BibleNanoTrasen
+  - BibleDruid
   - ChaplainBibleAtheist
+  - BibleQuran
+  - BibleSatanic
+  - BibleTanakh
   - ChaplainBibleBhuddhist
 
 - type: loadoutGroup

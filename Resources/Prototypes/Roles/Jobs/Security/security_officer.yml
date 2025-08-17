@@ -38,6 +38,7 @@
 # SPDX-FileCopyrightText: 2024 Nairod <110078045+Nairodian@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 SpeltIncorrectyl <66873282+SpeltIncorrectyl@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
@@ -70,6 +71,10 @@
   - Cryogenics
   - GenpopEnter
   - GenpopLeave
+  # begin Funkystation: give out missing genpop accesses
+  - GenpopEnter
+  - GenpopLeave
+  # end Funkystation
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

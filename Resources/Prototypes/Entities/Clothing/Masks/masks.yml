@@ -66,6 +66,7 @@
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -194,8 +195,8 @@
 - type: entity
   parent: [ClothingMaskGas, BaseCargoContraband]
   id: ClothingMaskGasExplorer
-  name: explorer gas mask
-  description: A military-grade gas mask that can be connected to an air supply.
+  name: explorers reinforced gas mask
+  description: A gas mask with reinforced padding for wildlife encounters, can be connected to an air supply.
   components:
   - type: Sprite
     sprite: Clothing/Mask/gasexplorer.rsi
@@ -485,8 +486,8 @@
 - type: entity
   parent: [ ClothingMaskGas, BaseSecurityCargoContraband ]
   id: ClothingMaskGasMerc
-  name: mercenary gas mask
-  description: Slightly outdated, but reliable military-style gas mask.
+  name: mercenary armored gas mask
+  description: A reliable military-style gas mask built for heavy combat, can be connected to an air supply.
   components:
   - type: Sprite
     sprite: Clothing/Mask/merc.rsi

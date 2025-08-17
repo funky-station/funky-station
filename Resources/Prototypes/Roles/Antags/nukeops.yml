@@ -30,7 +30,7 @@
   objective: roles-antag-nuclear-operative-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 18000 # 5h
+    time: 36000 # 10h
   guides: [ NuclearOperatives ]
   previewStartingGear: SyndicateOperativeGearFull
 
@@ -42,10 +42,10 @@
   objective: roles-antag-nuclear-operative-agent-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 18000 # 5h
+    time: 36000 # 10h
   - !type:RoleTimeRequirement
     role: JobChemist
-    time: 10800 # 3h
+    time: 18000 # 5h
   guides: [ NuclearOperatives ]
   previewStartingGear: SyndicateOperativeMedicFull
 
@@ -57,7 +57,7 @@
   objective: roles-antag-nuclear-operative-commander-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 18000 # 5h
+    time: 180000 # 50h
   - !type:DepartmentTimeRequirement
     department: Security
     time: 18000 # 5h

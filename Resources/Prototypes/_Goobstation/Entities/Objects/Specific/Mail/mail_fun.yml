@@ -44,6 +44,10 @@
     - id: SyndicatePersonalAI
       orGroup: PAI
       prob: 0.01
+      # funky
+    - id: GoldenPersonalAI
+      orGroup: PAI
+      prob: 0.05
 
 - type: entity
   parent: BaseMail

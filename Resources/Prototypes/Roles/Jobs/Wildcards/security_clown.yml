@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
@@ -30,6 +31,10 @@
   - Theatre
   - External
   - Cryogenics
+  # begin Funkystation: give out missing genpop accesses
+  - GenpopEnter
+  - GenpopLeave
+  # end Funkystation
   special:
   - !type:AddComponentSpecial
     components:

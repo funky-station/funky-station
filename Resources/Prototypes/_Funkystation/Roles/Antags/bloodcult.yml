@@ -19,6 +19,9 @@
   setPreference: true
   objective: roles-antag-cult-objective
   guides: [ BloodCult ]
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 36000 # 10h
 
 - type: startingGear
   id: BloodCultistGear

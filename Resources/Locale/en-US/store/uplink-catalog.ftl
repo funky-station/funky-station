@@ -369,8 +369,8 @@ uplink-toolbox-desc = A full compliment of tools for the mechanically inclined t
 uplink-syndicate-jaws-of-life-name = Jaws Of Life
 uplink-syndicate-jaws-of-life-desc = A combined prying and cutting tool. Useful for entering the station or its departments.
 
-uplink-duffel-surgery-name = Surgical Duffel Bag
-uplink-duffel-surgery-desc = A large duffel bag containing a full suite of surgical tools.
+uplink-field-surgery-kit-name = Field Surgery Kit
+uplink-field-surgery-kit-desc = A large kit with everything to deploy surgery where needed.
 
 uplink-power-sink-name = Power Sink
 uplink-power-sink-desc = Drains immense amounts of electricity from the grid, then explodes once it's saturated. Use wrench to connect it to wires.
@@ -623,3 +623,15 @@ uplink-syndicate-autoinjector-softcase-desc = Contains 4 different cartridges fo
 
 uplink-autoinjector-bundle-name = Syndicate Cartridge Autoinjector Bundle
 uplink-autoinjector-bundle-desc = A bag containing 4 Syndicate branded cartridge autoinjectors as well as hard and soft cases, both filled with various cartridges, and a few extras for treating gunshot wounds. For healing in a pinch when you don't have time to stop!
+
+uplink-syndie-kit-name = Random Syndie-Kit
+uplink-syndie-kit-desc = Get your hands on one of our premium, custom-tailored syndie-kits! Contains a selection of gear to fit a given theme, often including items you cannot find elsewhere in your uplink! Only 1 available per uplink.
+
+uplink-radio-handheld-syndicate-name = Syndicate Radio
+uplink-radio-handheld-syndicate-desc = This tiny radio does not have a speaker, but will relay anything it hears to the Syndicate radio channel. Perfect for planting a listening device on places and people.
+
+uplink-emp-flashlight-name = EMP Flashlight
+uplink-emp-flashlight-desc = Looks and functions like a regular flashlight, with the added capability of releasing a focused EMP into things you hit with it. Has 3 charges, and regenerates charges slowly.
+
+uplink-reagent-implanter-name = Empty Reagent Implanter
+uplink-reagent-implanter-desc = Can be filled with up to 45 units of any chemical. Once implanted, you can activate the implant to inject up to 15 units of the stored chemical into your bloodstream. Has 3 uses, and cannot be refilled.

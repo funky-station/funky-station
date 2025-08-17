@@ -32,6 +32,7 @@
 # SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -90,6 +91,7 @@
   desc: reagent-desc-ash
   physicalDesc: reagent-physical-desc-powdery
   color: white
+  meltingPoint: 1670.0 # Funkystation edit, used value for bone ash
 
 - type: reagent
   id: SodiumCarbonate
@@ -97,6 +99,8 @@
   desc: reagent-desc-sodium-carbonate
   physicalDesc: reagent-physical-desc-powdery
   color: white
+  boilingPoint: 1633.0 # Funkystation edit
+  meltingPoint: 851.0
 
 - type: reagent
   id: Artifexium
@@ -105,6 +109,8 @@
   flavor: metallic
   physicalDesc: reagent-physical-desc-crystalline
   color: "#776291"
+  boilingPoint: 3500.0 # Funkystation edit, made it slightly higher than Titanium
+  meltingPoint: 1800.0
   metabolisms:
     Poison:
       effects:
@@ -215,6 +221,8 @@
   flavor: tingly
   physicalDesc: reagent-physical-desc-refreshing
   color: "#bf1365"
+  boilingPoint: 200.0
+  meltingPoint: -100.0
   metabolisms:
     Medicine:
       effects:

@@ -3,6 +3,8 @@
 # SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 PoTeletubby <108604614+PoTeletubby@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArchRBX <5040911+ArchRBX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -17,6 +19,11 @@
 - type: currency
   id: StolenEssence
   displayName: store-currency-display-stolen-essence
+  canWithdraw: false
+
+- type: currency
+  id: SiliconMemory
+  displayName: store-currency-display-silicon-memory
   canWithdraw: false
 
 - type: currency

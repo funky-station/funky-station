@@ -35,6 +35,11 @@
   category: Prescriptions
 
 - type: medicalInfo
+  id: antipsychoticsPrescription
+  name: medical-info-prescriptions-antipsychotics
+  category: Prescriptions
+
+- type: medicalInfo
   id: betablockersPrescription
   name: medical-info-prescriptions-betablockers
   category: Prescriptions

@@ -1,26 +1,30 @@
 # SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
-#- type: marking
-# id: VoxBeak
-#  bodyPart: Snout
-#  markingCategory: Snout
-#  forcedColoring: true
-#  speciesRestriction: [Vox]
-#  sprites:
-#  - sprite: Mobs/Customization/vox_parts.rsi
-#    state: beak
-#  coloring:
-#    default:
-#      type:
-#        !type:SimpleColoring
-#        color: "#937e3d"
+- type: marking
+  id: VoxBeak
+  bodyPart: Snout
+  markingCategory: Snout
+  forcedColoring: true
+  speciesRestriction: [Vox]
+  sprites:
+  - sprite: Mobs/Customization/vox_parts.rsi
+    state: beak
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#937e3d"
 
 - type: marking
   # The cere is the base of the top part of the beak, the cere on this beak, is a square.
@@ -71,8 +75,8 @@
 - type: marking
   id: VoxLArmScales
   bodyPart: LArm
-  markingCategory: Arms
-  forcedColoring: false #imp
+  markingCategory: LeftArm
+  forcedColoring: false
   followSkinColor: false #imp
   speciesRestriction: [Vox]
   sprites:
@@ -87,7 +91,7 @@
 - type: marking
   id: VoxLLegScales
   bodyPart: LLeg
-  markingCategory: Legs
+  markingCategory: LeftLeg
   forcedColoring: false #imp
   followSkinColor: false #imp
   speciesRestriction: [Vox]
@@ -103,7 +107,7 @@
 - type: marking
   id: VoxRArmScales
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   forcedColoring: false #imp
   followSkinColor: false #imp
   speciesRestriction: [Vox]
@@ -119,7 +123,7 @@
 - type: marking
   id: VoxRLegScales
   bodyPart: RLeg
-  markingCategory: Legs
+  markingCategory: RightLeg
   forcedColoring: false #imp
   followSkinColor: false #imp
   speciesRestriction: [Vox]
@@ -135,7 +139,7 @@
 - type: marking
   id: VoxRHandScales
   bodyPart: RHand
-  markingCategory: Arms
+  markingCategory: RightHand
   forcedColoring: false #imp
   followSkinColor: false #imp
   speciesRestriction: [Vox]
@@ -151,7 +155,7 @@
 - type: marking
   id: VoxLHandScales
   bodyPart: LHand
-  markingCategory: Arms
+  markingCategory: LeftHand
   forcedColoring: false #imp
   followSkinColor: false #imp
   speciesRestriction: [Vox]
@@ -167,7 +171,7 @@
 - type: marking
   id: VoxLFootScales
   bodyPart: LFoot
-  markingCategory: Legs
+  markingCategory: LeftFoot
   forcedColoring: false #imp
   followSkinColor: false #imp
   speciesRestriction: [Vox]
@@ -183,7 +187,7 @@
 - type: marking
   id: VoxRFootScales
   bodyPart: RFoot
-  markingCategory: Legs
+  markingCategory: RightFoot
   forcedColoring: false #imp
   followSkinColor: false #imp
   speciesRestriction: [Vox]

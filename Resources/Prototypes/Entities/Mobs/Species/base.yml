@@ -262,8 +262,8 @@
   components:
   - type: Sprite
     layers:
-    - map: [ "enum.HumanoidVisualLayers.Groin" ]
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Groin" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
@@ -308,21 +308,21 @@
       sprite: "Effects/creampie.rsi"
       state: "creampie_human"
       visible: false
-  #  - type: DamageVisuals
-  #    thresholds: [ 10, 20, 30, 50, 70, 100 ]
-  #    targetLayers:
-  #      - "enum.HumanoidVisualLayers.Chest"
-  #      - "enum.HumanoidVisualLayers.Head"
-  #      - "enum.HumanoidVisualLayers.LArm"
-  #      - "enum.HumanoidVisualLayers.LLeg"
-  #    - "enum.HumanoidVisualLayers.RArm"
-  #    - "enum.HumanoidVisualLayers.RLeg"
-  #    damageOverlayGroups:
-  #      Brute:
-  #        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
-  #        color: "#FF0000"
-  #      Burn:
-  #        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+#  - type: DamageVisuals
+#    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+#    targetLayers:
+#      - "enum.HumanoidVisualLayers.Chest"
+#      - "enum.HumanoidVisualLayers.Head"
+#      - "enum.HumanoidVisualLayers.LArm"
+#      - "enum.HumanoidVisualLayers.LLeg"
+#    - "enum.HumanoidVisualLayers.RArm"
+#    - "enum.HumanoidVisualLayers.RLeg"
+#    damageOverlayGroups:
+#      Brute:
+#        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+#        color: "#FF0000"
+#      Burn:
+#        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
   - type: GenericVisualizer
     visuals:
       enum.CreamPiedVisuals.Creamed:
@@ -377,17 +377,20 @@
     - KnockedDown
     - SlowedDown
     - Stutter
+    - SeeingRainbows
     - Electrocution
     - Drunk
     - SlurredSpeech
     - RatvarianLanguage
     - PressureImmunity
     - Muted
+    - ForcedSleep
     - TemporaryBlindness
     - Pacified
     - StaminaModifier
     - Flashed
     - RadiationProtection
+    - Drowsiness
     - Vulgarity # Goobstation - add Profanol
     - Brainrotted # Goobstation - skibidi rizz ohio update
     - Adrenaline

@@ -7,7 +7,7 @@
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: species
   id: Rodentia
@@ -31,7 +31,8 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Chest: MobRodentiaTorso
+    Chest: MobRodentiaChest
+    Groin: MobRodentiaGroin
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
@@ -54,28 +55,52 @@
     FacialHair:
       points: 1
       required: false
-    Tail:
-      points: 1
-      required: true
-      defaultMarkings: [ RodentiaTailDefault ]
-    Legs:
-      points: 4
-      required: false
-    Arms:
-      points: 4
-      required: false
     Snout:
       points: 1
       required: false
+    Tail: # the cat tail joke, its real *godo*
+      points: 2
+      required: false
+      defaultMarkings: [ RodentiaTailDefault ]
     HeadTop:
-      points: 1
+      points: 8
+      required: false
+    HeadSide:
+      points: 8
       required: true
       defaultMarkings: [ RodentiaHeadTopEarDefault ]
-    HeadSide:
+    Chest:
+      points: 10
+      required: false
+    Underwear:
       points: 1
       required: false
-    Chest:
-      points: 3 # Funkystation 3 from 2
+    Undershirt:
+      points: 1
+      required: false
+    RightLeg:
+      points: 2
+      required: false
+    RightFoot:
+      points: 2
+      required: false
+    LeftLeg:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
+      required: false
+    RightArm:
+      points: 2
+      required: false
+    RightHand:
+      points: 3
+      required: false
+    LeftArm:
+      points: 2
+      required: false
+    LeftHand:
+      points: 3
       required: false
 
 - type: humanoidBaseSprite
@@ -97,22 +122,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobRodentiaTorso
+  id: MobRodentiaChest
   baseSprite:
     sprite: _DV/Mobs/Species/Rodentia/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobRodentiaTorsoMale
+  id: MobRodentiaChestMale
   baseSprite:
     sprite: _DV/Mobs/Species/Rodentia/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobRodentiaTorsoFemale
+  id: MobRodentiaChestFemale
   baseSprite:
     sprite: _DV/Mobs/Species/Rodentia/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobRodentiaGroin
+  baseSprite:
+    sprite: _DV/Mobs/Species/Rodentia/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobRodentiaGroinMale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Rodentia/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobRodentiaGroinFemale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Rodentia/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobRodentiaLLeg

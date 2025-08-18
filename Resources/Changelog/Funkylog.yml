@@ -4155,3 +4155,9 @@ Entries:
         accessibility setting is enabled in the game options.
   id: 499
   time: '2025-08-17T22:28:54.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Fix
+      message: Fixed chameleon vest + allowed it to mimic medium armors
+  id: 500
+  time: '2025-08-18T21:53:13.0000000+00:00'

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Carrot <carpecarrot@gmail.com>
+// SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
+// SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -108,6 +111,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     private TimeSpan _t2RevealDelay = default!;
     private TimeSpan _finaleDelay = default!;
     private TimeSpan _voteTimer = default!;
+    private bool _canVote = default!;
 
     private readonly SoundSpecifier _briefingSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/antag_cosmic_briefing.ogg");
     private readonly SoundSpecifier _deconvertSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/antag_cosmic_deconvert.ogg");
@@ -154,6 +158,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     protected override void Started(EntityUid uid, CosmicCultRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         component.StewardVoteTimer = _timing.CurTime + TimeSpan.FromSeconds(10);
+        _canVote = true;
     }
 
     protected override void ActiveTick(EntityUid uid, CosmicCultRuleComponent component, GameRuleComponent gameRule, float frameTime)
@@ -262,11 +267,19 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             _monument.SetCanTierUp(component.MonumentInGame, true);
             UpdateCultData(component.MonumentInGame); //instantly go up a tier if they manage it
             _ui.SetUiState(component.MonumentInGame.Owner, MonumentKey.Key, new MonumentBuiState(component.MonumentInGame.Comp)); //not sure if this is needed but I'll be safe
+
+            // do not allow new steward votes once t3 starts. the ability to move the monument disappears once this phase begins
+            // and the votesystem doesn't have proper handlers for votes that last after a round has ended - which leads to crashes
+            _canVote = false;
         }
     }
 
     private void StewardVote()
     {
+        // boolean is turned off once we enter phase 3.
+        if (!_canVote)
+            return;
+
         var cultists = new List<(string, EntityUid)>();
 
         var cultQuery = EntityQueryEnumerator<CosmicCultComponent, MetaDataComponent>();
@@ -275,6 +288,9 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             var playerInfo = metadata.EntityName;
             cultists.Add((playerInfo, cult));
         }
+
+        if (cultists.Count == 0)
+            return;
 
         var options = new VoteOptions
         {
@@ -624,8 +640,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
         var radio = EnsureComp<ActiveRadioComponent>(uid);
-        radio.Channels.Add("CosmicRadio");
-        transmitter.Channels.Add("CosmicRadio");
+        radio.IntrinsicChannels.Add("CosmicRadio");
+        transmitter.IntrinsicChannels.Add("CosmicRadio");
 
         if (_mind.TryGetSession(mindId, out var session))
         {
@@ -762,9 +778,9 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         foreach (var actionEnt in uid.Comp.ActionEntities) _actions.RemoveAction(actionEnt);
 
         if (TryComp<IntrinsicRadioTransmitterComponent>(uid, out var transmitter))
-            transmitter.Channels.Remove("CosmicRadio");
+            transmitter.IntrinsicChannels.Remove("CosmicRadio");
         if (TryComp<ActiveRadioComponent>(uid, out var radio))
-            radio.Channels.Remove("CosmicRadio");
+            radio.IntrinsicChannels.Remove("CosmicRadio");
         RemComp<CosmicCultLeadComponent>(uid);
         RemComp<InfluenceVitalityComponent>(uid);
         RemComp<InfluenceStrideComponent>(uid);

@@ -34,8 +34,11 @@
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+// SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 funkystationbot <funky@funkystation.org>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -188,7 +191,7 @@ namespace Content.Server.Administration.Systems
                     var pref = _prefsManager.GetPreferences(targetActor.PlayerSession.UserId);
                     foreach (var (slot, profile) in pref.Characters)
                     {
-                        if (profile is not HumanoidCharacterProfile humanoid)
+                        if (profile is not HumanoidCharacterProfile humanoidProfile)
                             continue;
 
                         args.Verbs.Add(new Verb()
@@ -205,8 +208,7 @@ namespace Content.Server.Administration.Systems
 
                                 var stationUid = _stations.GetOwningStation(args.Target);
 
-                                var profile = _humanoidAppearance.GetBaseProfile(args.Target);
-                                var mobUid = _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid);
+                                var mobUid = _spawning.SpawnPlayerMob(coords.Value, null, humanoidProfile, stationUid);
 
                                 if (_mindSystem.TryGetMind(args.Target, out var mindId, out var mindComp))
                                     _mindSystem.TransferTo(mindId, mobUid, true, mind: mindComp);

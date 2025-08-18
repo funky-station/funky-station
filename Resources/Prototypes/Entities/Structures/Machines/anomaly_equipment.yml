@@ -13,6 +13,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -72,15 +73,15 @@
         enum.AnomalyVesselVisualLayers.Base:
           True: { visible: true }
           False: { visible: false }
-      enum.AnomalyVesselVisuals.AnomalyState:
+      enum.AnomalyVesselVisuals.AnomalySeverity:
         enum.PowerDeviceVisualLayers.Powered:
-          1: { state: powered-1 }
-          2: { state: powered-2 }
-          3: { state: powered-3 }
+          Stable: { state: powered-1 }
+          Decaying: { state: powered-2 }
+          Growing: { state: powered-3 }
         enum.AnomalyVesselVisualLayers.Base:
-          1: { state: anomaly-1 }
-          2: { state: anomaly-2 }
-          3: { state: anomaly-3 }
+          Stable: { state: anomaly-1 }
+          Decaying: { state: anomaly-2 }
+          Growing: { state: anomaly-3 }
       enum.WiresVisuals.MaintenancePanelState:
         enum.WiresVisualLayers.MaintenancePanel:
           True: { visible: false }

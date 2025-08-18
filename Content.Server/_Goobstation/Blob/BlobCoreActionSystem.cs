@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
 // SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -265,7 +266,7 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
         switch (ent.Comp.CurrentChem)
         {
             case BlobChemType.ExplosiveLattice:
-                _explosionSystem.QueueExplosion(target, ent.Comp.BlobExplosive, 4, 1, 6, maxTileBreak: 0);
+                _explosionSystem.QueueExplosion(target, ent.Comp.BlobExplosive, 3, 1, 6, maxTileBreak: 0);
                 break;
             case BlobChemType.ElectromagneticWeb:
             {

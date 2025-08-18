@@ -17,11 +17,11 @@
   setPreference: true
   objective: roles-antag-changeling-description
   requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 18000 # 5h
   - !type:SpeciesRequirement
     inverted: true
     species:
     - IPC
   guides: [ Changelings ]
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 18000 # 5h
+

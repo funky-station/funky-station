@@ -1,0 +1,26 @@
+# Backpack
+- type: loadout
+  id: CentralCommandInternBackpack
+  equipment:
+    back: ClothingBackpackCentcom
+
+- type: loadout
+  id: CentralCommandInternSatchel
+  equipment:
+    back: ClothingBackpackSatchelLeather
+
+# Belt
+- type: loadout
+  id: CentralCommandInternClipboard
+  equipment:
+    belt: BoxFolderCentComClipboard
+
+- type: loadout
+  id: CentralCommandInternJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomAgent
+
+- type: loadout
+  id: CentralCommandInternGloves
+  equipment:
+    gloves: ClothingHandsGlovesHop

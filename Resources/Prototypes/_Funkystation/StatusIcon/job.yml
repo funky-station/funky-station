@@ -28,3 +28,11 @@
     sprite: /Textures/_Funkystation/Interface/Misc/job_icons.rsi
     state: Blueshield
   jobName: job-name-bs
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCentralCommandIntern
+  icon:
+    sprite: /Textures/_Funkystation/Interface/Misc/job_icons.rsi
+    state: CentralCommandOfficial
+  jobName: central-command-intern

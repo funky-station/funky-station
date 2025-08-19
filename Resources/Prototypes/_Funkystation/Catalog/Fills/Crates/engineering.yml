@@ -39,7 +39,7 @@
      - id: NitrogenTankFilled
      - id: OxygenTankFilled
      - id: RCD
-     - id: RCDAmmo
+     - id: RCDAmmo     
      - id: HolofanProjector
 
 - type: entity

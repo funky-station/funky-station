@@ -20,7 +20,7 @@
   product: CrateEngineeringAtmosEquipment
   cost: 9000
   category: cargoproduct-category-name-engineering
-  group: market  
+  group: market
 
 - type: cargoProduct
   id: BasicHardsuit
@@ -30,4 +30,14 @@
   product: CrateBasicHardsuit
   cost: 4500
   category: cargoproduct-category-name-engineering
-  group: market  
+  group: market
+
+- type: cargoProduct
+  id: EngineeringHEVCrate
+  icon:
+    sprite: _Goobstation/Clothing/OuterClothing/Suits/hev.rsi
+    state: icon
+  product: CrateEngineeringHEV
+  cost: 5000
+  category: cargoproduct-category-name-engineering
+  group: market

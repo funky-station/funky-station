@@ -39,7 +39,7 @@
      - id: NitrogenTankFilled
      - id: OxygenTankFilled
      - id: RCD
-     - id: RCDAmmo     
+     - id: RCDAmmo
      - id: HolofanProjector
 
 - type: entity
@@ -51,5 +51,18 @@
   - type: StorageFill
     contents:
       - id: ClothingOuterHardsuitBasic
-      - id: NitrogenTankFilled 
-      - id: OxygenTankFilled    
+      - id: NitrogenTankFilled
+      - id: OxygenTankFilled
+
+- type: entity
+  id: CrateEngineeringHEV
+  parent: CrateEngineeringSecure
+  name: HEV equipment crate
+  description: Contains a full HEV suit and a crowbar for handling hazardous materials safely.
+  components:
+  - type: StorageFill
+    contents:
+     - id: ClothingOuterSuitHEV
+     - id: CrowbarYellow
+     - id: NitrogenTankFilled
+     - id: OxygenTankFilled

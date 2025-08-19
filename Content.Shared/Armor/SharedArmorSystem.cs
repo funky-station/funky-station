@@ -13,6 +13,7 @@ using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Verbs;
+using Content.Shared._EE.Supermatter.Components;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Armor;
@@ -64,7 +65,7 @@ public abstract class SharedArmorSystem : EntitySystem
         if (!args.CanInteract || !args.CanAccess || !component.ShowArmorOnExamine)
             return;
 
-        var examineMarkup = GetArmorExamine(component.Modifiers);
+        var examineMarkup = GetArmorExamine(component.Modifiers, uid);
 
         var ev = new ArmorExamineEvent(examineMarkup);
         RaiseLocalEvent(uid, ref ev);
@@ -74,7 +75,7 @@ public abstract class SharedArmorSystem : EntitySystem
             Loc.GetString("armor-examinable-verb-message"));
     }
 
-    private FormattedMessage GetArmorExamine(DamageModifierSet armorModifiers)
+    private FormattedMessage GetArmorExamine(DamageModifierSet armorModifiers, EntityUid? uid = null)
     {
         var msg = new FormattedMessage();
         msg.AddMarkupOrThrow(Loc.GetString("armor-examine"));
@@ -107,6 +108,12 @@ public abstract class SharedArmorSystem : EntitySystem
                 ("type", armorType),
                 ("value", flatArmor.Value)
             ));
+        }
+
+        if (uid != null && HasComp<SupermatterImmuneComponent>(uid.Value))
+        {
+            msg.PushNewline();
+            msg.AddMarkupOrThrow(Loc.GetString("armor-supermatter-immune"));
         }
 
         return msg;

@@ -20,7 +20,7 @@
   product: CrateEngineeringAtmosEquipment
   cost: 9000
   category: cargoproduct-category-name-engineering
-  group: market
+  group: market  
 
 - type: cargoProduct
   id: BasicHardsuit

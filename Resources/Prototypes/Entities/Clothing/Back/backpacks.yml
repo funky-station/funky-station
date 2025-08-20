@@ -73,6 +73,9 @@
     delay: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 0.925 # 7.5%
 
 - type: entity
   parent: ClothingBackpack

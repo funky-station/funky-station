@@ -296,6 +296,9 @@
       Medical: 50
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
+    speciesOverride: Human # funkystation
+    speciesOverrideBlacklist: # funkstation
+    - IPC # funkystation
   - type: AntagObjectives
     objectives:
     - StealResearchObjective

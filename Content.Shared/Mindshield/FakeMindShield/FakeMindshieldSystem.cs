@@ -14,7 +14,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Mindshield.FakeMindShield;
 
-public sealed class SharedFakeMindShieldSystem : EntitySystem
+public sealed class FakeMindShieldSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly TagSystem _tag = default!;
@@ -30,9 +30,11 @@ public sealed class SharedFakeMindShieldSystem : EntitySystem
         SubscribeLocalEvent<FakeMindShieldComponent, ChameleonControllerOutfitSelectedEvent>(OnChameleonControllerOutfitSelected);
     }
 
-    private void OnToggleMindshield(EntityUid uid, FakeMindShieldComponent comp, FakeMindShieldToggleEvent toggleEvent)
+    private void OnToggleMindshield(EntityUid uid, FakeMindShieldComponent comp, FakeMindShieldToggleEvent args)
     {
         comp.IsEnabled = !comp.IsEnabled;
+        args.Toggle = true;
+        args.Handled = true;
         Dirty(uid, comp);
     }
 

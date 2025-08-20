@@ -121,8 +121,8 @@
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: Battery
-    maxCharge: 1800
-    startingCharge: 1800
+    maxCharge: 1200
+    startingCharge: 1200
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 100
@@ -150,6 +150,3 @@
   - type: Tag
     tags:
     - Sidearm
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 40

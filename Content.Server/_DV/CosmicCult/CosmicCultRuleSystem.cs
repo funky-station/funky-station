@@ -748,8 +748,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
         var radio = EnsureComp<ActiveRadioComponent>(uid);
-        radio.Channels = ["CosmicRadio"];
-        transmitter.Channels = ["CosmicRadio"];
+        radio.IntrinsicChannels.Add("CosmicRadio");
+        transmitter.IntrinsicChannels.Add("CosmicRadio");
 
         _mind.TryAddObjective(mindId, mind, "CosmicFinalityObjective");
         _mind.TryAddObjective(mindId, mind, "CosmicMonumentObjective");

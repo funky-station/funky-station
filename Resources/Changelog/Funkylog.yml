@@ -4161,3 +4161,13 @@ Entries:
       message: Fixed chameleon vest + allowed it to mimic medium armors
   id: 500
   time: '2025-08-18T21:53:13.0000000+00:00'
+- author: AtlasHDD
+  changes:
+    - type: Add
+      message: >-
+        Added purchaseable HEV equipment crate. Added armor examine message to
+        HEV and CE hardsuits showing they are immune to supermatter ashing.
+    - type: Tweak
+      message: Standardized HEV suit and helmet names/descriptions and fixed typos.
+  id: 501
+  time: '2025-08-21T21:37:41.0000000+00:00'

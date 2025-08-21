@@ -4171,3 +4171,11 @@ Entries:
       message: Standardized HEV suit and helmet names/descriptions and fixed typos.
   id: 501
   time: '2025-08-21T21:37:41.0000000+00:00'
+- author: Tropica1Owl
+  changes:
+    - type: Tweak
+      message: >-
+        Botanists are now supplied with plant analyzers at the start of the
+        shift.
+  id: 502
+  time: '2025-08-21T21:46:41.0000000+00:00'

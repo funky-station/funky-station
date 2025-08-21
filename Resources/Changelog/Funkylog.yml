@@ -4179,3 +4179,11 @@ Entries:
         shift.
   id: 502
   time: '2025-08-21T21:46:41.0000000+00:00'
+- author: Currot
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Cosmic Cultists retaining the Astral Murmur after being
+        deconverted.
+  id: 503
+  time: '2025-08-21T23:11:55.0000000+00:00'

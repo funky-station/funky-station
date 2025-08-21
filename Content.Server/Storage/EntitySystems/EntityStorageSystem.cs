@@ -87,7 +87,7 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
         }
     }
 
-    protected override void OnComponentInit(EntityUid uid, SharedEntityStorageComponent component, ComponentInit args)
+    protected override void OnComponentInit(EntityUid uid, EntityStorageComponent component, ComponentInit args)
     {
         base.OnComponentInit(uid, component, args);
 
@@ -95,7 +95,7 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
             _construction.AddContainer(uid, ContainerName, construction);
     }
 
-    public override bool ResolveStorage(EntityUid uid, [NotNullWhen(true)] ref SharedEntityStorageComponent? component)
+    public override bool ResolveStorage(EntityUid uid, [NotNullWhen(true)] ref EntityStorageComponent? component)
     {
         if (component != null)
             return true;
@@ -126,7 +126,7 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
         args.Contents.AddRange(ent.Comp.Contents.ContainedEntities);
     }
 
-    protected override void TakeGas(EntityUid uid, SharedEntityStorageComponent component)
+    protected override void TakeGas(EntityUid uid, EntityStorageComponent component)
     {
         if (!component.Airtight)
             return;
@@ -140,7 +140,7 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
         }
     }
 
-    public override void ReleaseGas(EntityUid uid, SharedEntityStorageComponent component)
+    public override void ReleaseGas(EntityUid uid, EntityStorageComponent component)
     {
         var serverComp = (EntityStorageComponent) component;
 

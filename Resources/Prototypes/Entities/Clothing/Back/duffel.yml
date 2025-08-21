@@ -48,7 +48,7 @@
     - 0,0,7,4
   - type: ClothingSpeedModifier
     walkModifier: 1
-    sprintModifier: 0.85 # 15%
+    sprintModifier: 0.9 # 10%
   - type: HeldSpeedModifier
 
 - type: entity

@@ -75,7 +75,7 @@
     damageCoefficient: 0.9
   - type: ClothingSpeedModifier
     walkModifier: 1
-    sprintModifier: 0.925 # 7.5%
+    sprintModifier: 0.95 # 5%
 
 - type: entity
   parent: ClothingBackpack

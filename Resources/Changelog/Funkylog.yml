@@ -4147,3 +4147,43 @@ Entries:
       message: Blueshield Officers now have Genpop accesses.
   id: 498
   time: '2025-08-16T18:49:30.0000000+00:00'
+- author: Quantum-cross, slarticodefast
+  changes:
+    - type: Add
+      message: >-
+        The flash effect is now replaced with a reduced motion variant if the
+        accessibility setting is enabled in the game options.
+  id: 499
+  time: '2025-08-17T22:28:54.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Fix
+      message: Fixed chameleon vest + allowed it to mimic medium armors
+  id: 500
+  time: '2025-08-18T21:53:13.0000000+00:00'
+- author: AtlasHDD
+  changes:
+    - type: Add
+      message: >-
+        Added purchaseable HEV equipment crate. Added armor examine message to
+        HEV and CE hardsuits showing they are immune to supermatter ashing.
+    - type: Tweak
+      message: Standardized HEV suit and helmet names/descriptions and fixed typos.
+  id: 501
+  time: '2025-08-21T21:37:41.0000000+00:00'
+- author: Tropica1Owl
+  changes:
+    - type: Tweak
+      message: >-
+        Botanists are now supplied with plant analyzers at the start of the
+        shift.
+  id: 502
+  time: '2025-08-21T21:46:41.0000000+00:00'
+- author: Currot
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Cosmic Cultists retaining the Astral Murmur after being
+        deconverted.
+  id: 503
+  time: '2025-08-21T23:11:55.0000000+00:00'

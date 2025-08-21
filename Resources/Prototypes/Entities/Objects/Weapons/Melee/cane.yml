@@ -19,6 +19,7 @@
     size: Normal
     sprite: Objects/Weapons/Melee/cane.rsi
   - type: Appearance
+  - type: MobilityAid
   - type: MeleeWeapon
     wideAnimationRotation: 45
     damage:

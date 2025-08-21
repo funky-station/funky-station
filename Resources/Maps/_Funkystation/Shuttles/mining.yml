@@ -17,17 +17,17 @@
 
 meta:
   format: 7
-  category: Map
+  category: Grid
   engineVersion: 266.0.0
   forkId: funkystation
   forkVersion: 490e3e411aa2160c7a5adf2adfc2f8f660da1daa
-  time: 08/21/2025 00:03:14
-  entityCount: 166
-maps:
-- 2
+  time: 08/21/2025 18:15:44
+  entityCount: 165
+maps: []
 grids:
 - 181
-orphans: []
+orphans:
+- 181
 nullspace: []
 tilemap:
   0: Space
@@ -39,23 +39,13 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 2
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
   - uid: 181
     components:
     - type: MetaData
       name: NT-Reclaimer
     - type: Transform
       pos: 2.2710133,-2.4148211
-      parent: 2
+      parent: invalid
     - type: MapGrid
       chunks:
         -1,0:

@@ -51,6 +51,11 @@
         Structural: 10
   - type: Item
     size: Normal
+    storedSprite:
+      state: storage
+      sprite: Objects/Weapons/Melee/baseball_bat_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32
+    shape:
+    - 0,0,0,3
   - type: Tool
     qualities:
     - Rolling

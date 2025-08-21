@@ -2,8 +2,8 @@ meta:
   format: 7
   category: Grid
   engineVersion: 248.0.2
-  forkId: harmony
-  forkVersion: 9aebd01c58ceabdee09f0e638b2febd221cd0236
+  forkId: ""
+  forkVersion: ""
   time: 04/03/2025 08:36:25
   entityCount: 1608
 maps: []
@@ -28,7 +28,7 @@ tilemap:
   89: FloorSteel
   104: FloorTechMaint
   8: FloorTechMaint2
-  5: FloorTechMaintDark
+  5: FloorTechMaint
   108: FloorWhite
   118: FloorWood
   120: Lattice

@@ -4216,3 +4216,15 @@ Entries:
         successfully stun someone in general.
   id: 505
   time: '2025-08-22T01:02:19.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Remove
+      message: Removed BSO from Roid
+    - type: Fix
+      message: >-
+        Fixed Roid Sci to have an arit round start and fixing missing pipes
+        under the door
+    - type: Tweak
+      message: Reworked all Roid Radiators near atmos
+  id: 506
+  time: '2025-08-22T01:36:31.0000000+00:00'

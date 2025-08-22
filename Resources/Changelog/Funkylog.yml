@@ -4187,3 +4187,9 @@ Entries:
         deconverted.
   id: 503
   time: '2025-08-21T23:11:55.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: Lots of fixes and changes on Glacier.
+  id: 504
+  time: '2025-08-22T01:00:44.0000000+00:00'

@@ -1318,6 +1318,7 @@
   name: loadout-group-chief-medical-officer-neck
   minLimit: 0
   loadouts:
+  - MedicalStethoscope
   - ChiefMedicalOfficerCloak
   - ChiefMedicalOfficerMantle
 
@@ -1360,6 +1361,13 @@
   - MedicalBlueScrubs
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
+
+- type: loadoutGroup
+  id: MedicalNeck
+  name: loadout-group-medical-neck
+  minLimit: 0
+  loadouts:
+  - MedicalStethoscope
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing

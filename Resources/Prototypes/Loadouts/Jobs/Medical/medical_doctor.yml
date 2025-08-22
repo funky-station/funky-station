@@ -150,6 +150,12 @@
   equipment:
     back: ClothingBackpackDuffelMedical
 
+# Neck
+- type: loadout
+  id: MedicalStethoscope
+  equipment:
+    neck: ClothingNeckStethoscope
+
 # OuterClothing
 - type: loadout
   id: MedicalDoctorWintercoat

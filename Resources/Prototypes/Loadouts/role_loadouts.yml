@@ -464,6 +464,7 @@
   - MedicalDoctorJumpsuit
   - MedicalGloves
   - MedicalBackpack
+  - MedicalNeck
   - MedicalDoctorOuterClothing
   - MedicalShoes
   - MedicalDoctorPDA
@@ -478,6 +479,7 @@
   - MedicalInternJumpsuit
   - MedicalBackpack
   - Glasses
+  - MedicalNeck
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -490,6 +492,7 @@
   - ChemistJumpsuit
   - MedicalGloves
   - ChemistBackpack
+  - MedicalNeck
   - ChemistOuterClothing
   - MedicalShoes
   - SurvivalMedical
@@ -505,6 +508,7 @@
   - ParamedicJumpsuit
   - MedicalGloves
   - MedicalBackpack
+  - MedicalNeck
   - ParamedicOuterClothing
   - ParamedicShoes
   - Glasses
@@ -541,6 +545,7 @@
   - MedicalBackpack
   - Glasses
   - Survival
+  - MedicalNeck
   - Trinkets
   - GroupSpeciesBreathTool
 

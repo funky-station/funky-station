@@ -14,6 +14,7 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -41,6 +42,7 @@ namespace Content.Client.Atmos.EntitySystems
         [Dependency] private readonly SharedTransformSystem _xformSys = default!;
 
         private GasTileOverlay _overlay = default!;
+        private GasTileHeatOverlay _heatOverlay = default!;
 
         public override void Initialize()
         {
@@ -50,12 +52,16 @@ namespace Content.Client.Atmos.EntitySystems
 
             _overlay = new GasTileOverlay(this, EntityManager, _resourceCache, ProtoMan, _spriteSys, _xformSys);
             _overlayMan.AddOverlay(_overlay);
+
+            _heatOverlay = new GasTileHeatOverlay();
+            _overlayMan.AddOverlay(_heatOverlay);
         }
 
         public override void Shutdown()
         {
             base.Shutdown();
             _overlayMan.RemoveOverlay<GasTileOverlay>();
+            _overlayMan.RemoveOverlay<GasTileHeatOverlay>();
         }
 
         private void OnHandleState(EntityUid gridUid, GasTileOverlayComponent comp, ref ComponentHandleState args)

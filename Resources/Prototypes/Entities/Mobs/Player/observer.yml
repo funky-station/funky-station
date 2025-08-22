@@ -118,6 +118,7 @@
     tags:
     - BypassInteractionRangeChecks
   - type: PointLight
+    netsync: false
     radius: 6
     enabled: false
 

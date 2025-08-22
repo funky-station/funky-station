@@ -103,7 +103,7 @@
   name: Deckard
   parent: [BaseWeaponRevolver, BaseSecurityCommandContraband]
   id: WeaponRevolverDeckard
-  description: A beautifully machined, custom-built revolver. Used when there is no time for the Voight-Kampff test. Loads 5 rounds of .45 magnum.
+  description: A beautifully machined, custom-built revolver. Used when there is no time for the Voight-Kampff test. Loads 5 rounds of .50 shotgun shells.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
@@ -119,6 +119,10 @@
     capacity: 5
     chambers: [ True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null ]
+    proto: ShellShotgun # Funky Station
+    whitelist:
+      tags:
+        - ShellShotgun
   - type: MagazineVisuals
     magState: mag
     steps: 4

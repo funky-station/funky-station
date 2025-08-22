@@ -65,7 +65,7 @@
 
 - type: entity
   id: CargoTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: [BaseLatheLube] # Goob edit
   name: cargo techfab
   description: Prints equipment for use by cargo personnel.
   components:

@@ -156,11 +156,11 @@
         Blunt: 0.9
         Slash: 0.9
         Piercing: 0.9
-        Heat: 0.4 # this technically means it protects against fires pretty well? -heat is just for lasers and stuff, not atmos temperature
+        Heat: 0.5 # this technically means it protects against fires pretty well? -heat is just for lasers and stuff, not atmos temperature
   - type: StaminaResistance
     damageCoefficient: 0.85
   - type: Reflect
-    reflectProb: 1
+    reflectProb: 0.8
     reflects:
       - Energy
 

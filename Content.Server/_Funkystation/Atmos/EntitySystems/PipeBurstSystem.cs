@@ -29,7 +29,7 @@ namespace Content.Server._Funkystation.Atmos.EntitySystems
 
         public void CheckStatus(Entity<PipeBurstComponent> ent)
         {
-            var (owner, component) = ent;
+            var (uid, component) = ent;
             if (component.Air == null)
                 return;
 
@@ -50,7 +50,7 @@ namespace Content.Server._Funkystation.Atmos.EntitySystems
                 // !1984
                 range = Math.Min(Math.Min(range, GasPipeComponent.MaxExplosionRange), _maxExplosionRange);
 
-                _explosions.TriggerExplosive(owner, radius: range);
+                _explosions.TriggerExplosive(uid, radius: range);
 
                 return;
             }
@@ -63,9 +63,9 @@ namespace Content.Server._Funkystation.Atmos.EntitySystems
                     if (environment != null)
                         _atmosphereSystem.Merge(environment, component.Air);
 
-                    _audioSys.PlayPvs(component.RuptureSound, Transform(owner).Coordinates, AudioParams.Default.WithVariation(0.125f));
+                    _audioSys.PlayPvs(component.RuptureSound, Transform(uid).Coordinates, AudioParams.Default.WithVariation(0.125f));
 
-                    QueueDel(owner);
+                    QueueDel(uid);
                     return;
                 }
 
@@ -77,7 +77,7 @@ namespace Content.Server._Funkystation.Atmos.EntitySystems
             {
                 if (component.Integrity <= 0)
                 {
-                    var environment = _atmosphereSystem.GetContainingMixture(owner, false, true);
+                    var environment = _atmosphereSystem.GetContainingMixture(uid, false, true);
                     if (environment == null)
                         return;
 

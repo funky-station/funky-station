@@ -4234,3 +4234,13 @@ Entries:
       message: A number of changes and fixes for Elkridge
   id: 507
   time: '2025-08-22T01:47:32.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Cargo Techfab added to Bagel Cargo Bay
+    - type: Add
+      message: 'Cap ID to Bagel Caps bedroom '
+    - type: Remove
+      message: BSO is Kill on Bagel
+  id: 508
+  time: '2025-08-22T04:01:21.0000000+00:00'

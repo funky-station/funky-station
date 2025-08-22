@@ -4193,3 +4193,26 @@ Entries:
       message: Lots of fixes and changes on Glacier.
   id: 504
   time: '2025-08-22T01:00:44.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        Lowered the price of the Mind Control Implant to 30 TC. This is on par
+        with the Reinforcement Radio in cost, and down from the prior 50 TC.
+    - type: Tweak
+      message: >-
+        It now takes 8 seconds to break yourself out of Makeshift Handcuffs, up
+        from 3.
+    - type: Tweak
+      message: >-
+        Makeshift Handcuffs now cost 10 LV cables, instead of the prior 15 LV
+        cables. This means you can make 3 sets of cuffs per Cable stack, instead
+        of 2.
+    - type: Tweak
+      message: >-
+        The craftable Stun Prod now can be swung 5 times before it runs out of
+        charge, down from 3. This allows it to be used to stun Hardsuit wearers
+        again with enough swings, as well as requiring less precision to
+        successfully stun someone in general.
+  id: 505
+  time: '2025-08-22T01:02:19.0000000+00:00'

@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Carrot <carpecarrot@gmail.com>
 // SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
 // SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
+// SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -748,8 +749,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
         var radio = EnsureComp<ActiveRadioComponent>(uid);
-        radio.Channels = ["CosmicRadio"];
-        transmitter.Channels = ["CosmicRadio"];
+        radio.IntrinsicChannels.Add("CosmicRadio");
+        transmitter.IntrinsicChannels.Add("CosmicRadio");
 
         _mind.TryAddObjective(mindId, mind, "CosmicFinalityObjective");
         _mind.TryAddObjective(mindId, mind, "CosmicMonumentObjective");

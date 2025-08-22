@@ -62,9 +62,9 @@
     modifiers:
       coefficients:
         Blunt: 0.7 #slightly better overall protection but slightly worse than bulletproof armor against bullets seems sensible
-        Slash: 0.7
+        Slash: 0.5
         Piercing: 0.5
-        Heat: 0.9
+        Heat: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.9
 
@@ -103,6 +103,10 @@
   - type: Tag
     tags:
     - HiViz
+  - type: Reflect
+    reflectProb: 0.1
+    reflects:
+    - Energy
 
 #(Bartender) vest -  #Funky - bartender changes
 - type: entity

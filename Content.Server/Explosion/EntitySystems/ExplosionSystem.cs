@@ -62,6 +62,7 @@ using Content.Server.Atmos.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NPC.Pathfinding;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Camera;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;

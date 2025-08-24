@@ -1,6 +1,6 @@
 ﻿- type: entity
   id: CigCartonMixedRejects
-  parent: [CigCartonGreen, Tier2Contraband]
+  parent: [CigCartonGreen, BaseSyndicateContraband]
   name: Dan's soaked smokes rejects carton
   description: A carton containing 6 packets of Dan's Soaked Smokes Rejects, plus an exclusive Syndicate-branded flippo.
   components:

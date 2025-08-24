@@ -16,6 +16,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Research.Prototypes;
+using NetSerializer;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -26,11 +27,11 @@ public sealed class LatheUpdateState : BoundUserInterfaceState
 {
     public List<ProtoId<LatheRecipePrototype>> Recipes;
 
-    public List<LatheRecipePrototype> Queue;
+    public LatheRecipeBatch[] Queue;
 
-    public LatheRecipePrototype? CurrentlyProducing;
+    public ProtoId<LatheRecipePrototype>? CurrentlyProducing;
 
-    public LatheUpdateState(List<ProtoId<LatheRecipePrototype>> recipes, List<LatheRecipePrototype> queue, LatheRecipePrototype? currentlyProducing = null)
+    public LatheUpdateState(List<ProtoId<LatheRecipePrototype>> recipes, LatheRecipeBatch[] queue, ProtoId<LatheRecipePrototype>? currentlyProducing = null)
     {
         Recipes = recipes;
         Queue = queue;
@@ -60,6 +61,33 @@ public sealed class LatheQueueRecipeMessage : BoundUserInterfaceMessage
         ID = id;
         Quantity = quantity;
     }
+}
+
+/// <summary>
+///     Sent to the server to remove a batch from the queue.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class LatheDeleteRequestMessage(int index) : BoundUserInterfaceMessage
+{
+    public int Index = index;
+}
+
+/// <summary>
+///     Sent to the server to move the position of a batch in the queue.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class LatheMoveRequestMessage(int index, int change) : BoundUserInterfaceMessage
+{
+    public int Index = index;
+    public int Change = change;
+}
+
+/// <summary>
+///     Sent to the server to stop producing the current item.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class LatheAbortFabricationMessage() : BoundUserInterfaceMessage
+{
 }
 
 [NetSerializable, Serializable]

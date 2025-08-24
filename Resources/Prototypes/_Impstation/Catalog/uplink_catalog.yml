@@ -5,21 +5,28 @@
   productEntity: CigPackMixedRejects
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 1
+    Telecrystal: 8
   cost:
-    Telecrystal: 2
+    Telecrystal: 15
   categories:
   - UplinkChemicals
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkMixedRejectsCarton
   name: uplink-mixed-rejects-carton-name
   description: uplink-mixed-rejects-carton-desc
   productEntity: CigCartonMixedRejects
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 3
   cost:
-    Telecrystal: 5
+    Telecrystal: 150
   categories:
   - UplinkChemicals
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink

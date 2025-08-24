@@ -1,8 +1,8 @@
 ﻿- type: entity
   id: CigCartonMixedRejects
-  parent: [CigCartonGreen, BaseSyndicateContraband]
+  parent: [CigCartonGreen,BaseSyndicateContraband ]
   name: Dan's soaked smokes rejects carton
-  description: A carton containing 6 packets of Dan's Soaked Smokes Rejects, plus an exclusive Syndicate-branded flippo.
+  description: A carton containing 6 packets of Dan's Soaked Smokes Rejects # , plus an exclusive Syndicate-branded flippo. need to add that syndicate lighter. will do later..
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/mixedrejectscarton.rsi
@@ -12,8 +12,6 @@
     contents:
     - id: CigPackMixedRejects
       amount: 6
-    - id: FlippoSyndicateLighter
-      amount: 1
   - type: Storage
     grid:
     - 0,0,5,1

@@ -8,9 +8,6 @@
   name: uplink-mixed-rejects-name
   description: uplink-mixed-rejects-desc
   productEntity: CigPackMixedRejects
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 8
   cost:
     Telecrystal: 15
   categories:

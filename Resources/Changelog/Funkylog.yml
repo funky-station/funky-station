@@ -4244,3 +4244,15 @@ Entries:
       message: BSO is Kill on Bagel
   id: 508
   time: '2025-08-22T04:01:21.0000000+00:00'
+- author: TheSecondLord
+  changes:
+    - type: Fix
+      message: Fixed observer light not working
+  id: 509
+  time: '2025-08-22T18:14:30.0000000+00:00'
+- author: spanky-spanky
+  changes:
+    - type: Add
+      message: Ported map Eclipse Starport by Lachryphage.
+  id: 510
+  time: '2025-08-23T00:29:59.0000000+00:00'

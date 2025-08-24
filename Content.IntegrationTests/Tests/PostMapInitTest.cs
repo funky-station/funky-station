@@ -133,6 +133,7 @@ namespace Content.IntegrationTests.Tests
             "Divide", // funkystation
             "Glacier", // funkystation
             "Barratry", // Harmony
+            "Eclipse", // Harmony
             "Kettle", // Goobstation - add Kettle
             "Amber",
             "HotSprings",

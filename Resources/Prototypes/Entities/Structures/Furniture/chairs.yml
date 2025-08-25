@@ -461,14 +461,14 @@
     wideAnimationRotation: 270
     damage:
       types:
-        Blunt: 15
+        Blunt: 9
     soundHit:
       collection: MetalThud
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 15
+        Blunt: 9
   - type: DamageExaminable
 
 - type: entity

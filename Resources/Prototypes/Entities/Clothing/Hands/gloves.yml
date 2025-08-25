@@ -197,6 +197,10 @@
     fiberMaterial: fibers-latex
   - type: FingerprintMask
   - type: SurgeryDirtiness # DeltaV - gloves that are likely to be used for surgery should have their bar visible from the getgo
+  - type: ClothingGrantComponent # funky - tie surgery speed to jobs
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.75
 
 - type: entity
   parent: ClothingHandsButcherable
@@ -212,6 +216,10 @@
     fiberMaterial: fibers-nitrile
   - type: FingerprintMask
   - type: SurgeryDirtiness # DeltaV - gloves that are likely to be used for surgery should have their bar visible from the getgo
+  - type: ClothingGrantComponent # funky - tie surgery speed to jobs
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.75
 ####
 - type: entity
   parent: ClothingHandsButcherable

@@ -90,6 +90,7 @@
     - WantedListCartridge
     - LogProbeCartridge
     - NanoChatCartridge # DeltaV
+    - SOSCartridge
 
 - type: entity
   parent: BasePDA
@@ -129,6 +130,7 @@
       - LogProbeCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
+      - SOSCartridge
 
 - type: entity
   parent: BasePDA

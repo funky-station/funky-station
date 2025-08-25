@@ -789,6 +789,26 @@
     powerLoad: 500
   - type: Computer
     board: BodyScannerComputerCircuitboard
+  # Funky: Functional body scanners
+  - type: HealthAnalyzer
+    scanDelay: 0
+  - type: UserInterface
+    interfaces:
+      enum.HealthAnalyzerUiKey.Key:
+        type: HealthAnalyzerBoundUserInterface
+  - type: ActivatableUI
+    key: enum.HealthAnalyzerUiKey.Key
+    requiresComplex: false
+  - type: ActivatableUIRequiresPower
+  - type: DeviceList
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: BasicDevice
+  - type: DeviceLinkSink
+    ports:
+    - OperatingTableReceiver
+  - type: BodyScanner
+  # End
   - type: PointLight
     radius: 1.5
     energy: 1.6

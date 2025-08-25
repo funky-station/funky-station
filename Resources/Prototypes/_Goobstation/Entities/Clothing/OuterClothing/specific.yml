@@ -4,14 +4,15 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 unknown <alexander.kuepper1234@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterSuitHEV
-  name: H.E.V suit
-  description: Full-body hazardous suit designed to protect wearer from radiation, energy discarges, blunt-force trauma during the handling of hazardous material.
+  name: HEV suit
+  description: A full-body hazardous environment suit designed to protect its wearer from radiation, energy discharges, blunt-force trauma, and disintegration during the handling of hazardous materials.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Suits/hev.rsi
@@ -32,6 +33,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHEV
+  - type: SupermatterImmune
   - type: ClothingGrantComponent
     component:
       - type: SupermatterImmune

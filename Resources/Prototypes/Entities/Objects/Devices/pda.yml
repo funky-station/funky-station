@@ -81,14 +81,18 @@
 # SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lapatison <100279397+lapatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
+# SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 rosieposie <52761126+rosieposieeee@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -179,6 +183,7 @@
       - NanoTaskCartridge
       - NewsReaderCartridge
       - NanoChatCartridge # DeltaV
+      - SOSCartridge # Imp
     cartridgeSlot:
       priority: -1
       name: device-pda-slot-component-slot-name-cartridge
@@ -251,6 +256,7 @@
     - NewsReaderCartridge
     - WantedListCartridge
     - NanoChatCartridge # DeltaV
+    - SOSCartridge # Imp
 
 - type: entity
   parent: BasePDA
@@ -264,8 +270,9 @@
       - NotekeeperCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
-      - MedTekCartridge
+      #- MedTekCartridge #funky - medtek removal
       - NanoChatCartridge # DeltaV
+      - SOSCartridge # Imp
 
 - type: entity
   parent: BasePDA
@@ -317,7 +324,7 @@
     state: pda-internmed
   - type: GuideHelp
     guides:
-    - Medical Doctor
+    - MedicalDoctor
 
 - type: entity
   parent: BaseSecurityPDA
@@ -581,6 +588,7 @@
       - NewsReaderCartridge
       - MailMetricsCartridge
       - NanoChatCartridge # DeltaV
+      - SOSCartridge # Imp
 
 - type: entity
   parent: BasePDA
@@ -599,6 +607,13 @@
     borderColor: "#e39751"
   - type: Icon
     state: pda-cargo
+  - type: CartridgeLoader # DeltaV
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - NanoChatCartridge # DeltaV
+    - SOSCartridge # Imp
 
 - type: entity
   parent: BasePDA
@@ -627,6 +642,7 @@
       - NewsReaderCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
+      - SOSCartridge # Imp
 
 - type: entity
   parent: BasePDA
@@ -861,7 +877,7 @@
     state: pda-medical
   - type: GuideHelp
     guides:
-    - Medical Doctor
+    - MedicalDoctor
 
 - type: entity
   parent: MedicalPDA
@@ -931,6 +947,13 @@
     accentVColor: "#8900c9"
   - type: Icon
     state: pda-rd
+  - type: CartridgeLoader
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - NanoChatCartridge # DeltaV
+      - SOSCartridge # Imp
 
 - type: entity
   parent: BasePDA
@@ -964,6 +987,13 @@
     accentVColor: "#d33725"
   - type: Icon
     state: pda-roboticist
+  - type: CartridgeLoader
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - NanoChatCartridge # DeltaV
+      - SOSCartridge # Imp
 
 - type: entity
   parent: BaseSecurityPDA
@@ -992,6 +1022,7 @@
     - WantedListCartridge
     - LogProbeCartridge
     - NanoChatCartridge # DeltaV
+    - SOSCartridge # Imp
 
 - type: entity
   parent: BaseSecurityPDA
@@ -1032,7 +1063,7 @@
 
 - type: entity
   parent: BaseSecurityPDA
-  id: CentcomPDA
+  id: BaseCentcomPDA
   name: CentComm PDA
   description: Light green sign of walking bureaucracy.
   components:
@@ -1054,6 +1085,37 @@
     state: pda-centcom
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
+    diskSpace: 12 # DeltaV
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - NewsReaderCartridge
+
+- type: entity
+  parent: BaseCentcomPDA
+  id: CentcomOfficialPDA
+  name: CentComm Officials PDA
+  description: Light green sign of walking authoritative bureaucracy.
+  components:
+  - type: Pda
+    id: CentcomIDCard
+    penSlot:
+      startingItem: PenCentcom
+      whitelist:
+        tags:
+        - Write
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-centcom
+  - type: PdaBorderColor
+    borderColor: "#b8ac04"
+  - type: Icon
+    state: pda-centcom
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
@@ -1064,9 +1126,10 @@
       - LogProbeCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
+      - SOSCartridge # Imp
 
 - type: entity
-  parent: CentcomPDA
+  parent: CentcomOfficialPDA
   id: AdminPDA
   name: Admin PDA
   suffix: Admin
@@ -1081,7 +1144,7 @@
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     notificationsEnabled: false
-    diskSpace: 10 # DeltaV
+    diskSpace: 12 # DeltaV
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
@@ -1092,12 +1155,13 @@
       - MedTekCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
+      - SOSCartridge # Imp
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
 
 - type: entity
-  parent: CentcomPDA
+  parent: CentcomOfficialPDA
   id: DeathsquadPDA
   suffix: Death Squad
   components:
@@ -1244,6 +1308,7 @@
       - LogProbeCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
+      - SOSCartridge # Imp
 
 - type: entity
   parent: ERTLeaderPDA
@@ -1350,6 +1415,13 @@
     borderColor: "#3f3f74"
   - type: Icon
     state: pda-reporter
+  - type: CartridgeLoader # DeltaV
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    - NanoChatCartridge # DeltaV
+    - SOSCartridge # Imp
 
 - type: entity
   parent: BasePDA
@@ -1414,6 +1486,7 @@
     - WantedListCartridge
     - LogProbeCartridge
     - NanoChatCartridge # DeltaV
+    - SOSCartridge # Imp
 
 - type: entity
   parent: BaseMedicalPDA
@@ -1441,8 +1514,9 @@
     - NanoTaskCartridge
     - NewsReaderCartridge
     - WantedListCartridge
-    - MedTekCartridge
+    #- MedTekCartridge #funky - medtek removal
     - NanoChatCartridge # DeltaV
+    - SOSCartridge # Imp
 
 - type: entity
   parent: ClownPDA
@@ -1453,6 +1527,13 @@
   components:
   - type: Pda
     id: CluwneIDCard
+    penSlot:
+      startingItem: CrayonGreen
+      ejectSound: /Audio/Items/bikehorn.ogg
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -1462,13 +1543,6 @@
     borderColor: "#1c8f4d"
   - type: Icon
     state: pda-cluwne
-    penSlot:
-      startingItem: CrayonGreen
-      ejectSound: /Audio/Items/bikehorn.ogg
-      priority: -1
-      whitelist:
-        tags:
-        - Write
   - type: Unremoveable
 
 - type: entity

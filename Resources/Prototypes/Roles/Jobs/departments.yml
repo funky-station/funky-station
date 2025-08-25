@@ -111,7 +111,7 @@
   description: department-CentralCommand-description
   color: "#0c344d"
   roles:
-  - BlueshieldOfficer # Goobstation
+#  - BlueshieldOfficer # Funky station - commented out because bso dead
   - NanotrasenRepresentative # Goobstation
   - Magistrate
   - InternalAffairsAgent # FunkyStation

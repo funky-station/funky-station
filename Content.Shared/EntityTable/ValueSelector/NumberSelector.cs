@@ -1,6 +1,13 @@
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.EntityTable.EntitySelectors;
 using JetBrains.Annotations;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.EntityTable.ValueSelector;
 
@@ -10,7 +17,5 @@ namespace Content.Shared.EntityTable.ValueSelector;
 [ImplicitDataDefinitionForInheritors, UsedImplicitly(ImplicitUseTargetFlags.WithInheritors)]
 public abstract partial class NumberSelector
 {
-    public abstract float Get(System.Random rand,
-        IEntityManager entMan,
-        IPrototypeManager proto);
+    public abstract int Get(System.Random rand);
 }

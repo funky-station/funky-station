@@ -1,4 +1,11 @@
-﻿using System.Buffers.Binary;
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using System.Buffers.Binary;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
@@ -259,7 +266,7 @@ public sealed class IPIntel
         {
             _chatManager.SendAdminAlert(Loc.GetString("admin-alert-ipintel-warning",
                 ("player", username),
-                ("percent", Math.Round(score))));
+                ("percent", score)));
         }
 
         if (!decisionIsReject)
@@ -269,7 +276,7 @@ public sealed class IPIntel
         {
             _chatManager.SendAdminAlert(Loc.GetString("admin-alert-ipintel-blocked",
                 ("player", username),
-                ("percent", Math.Round(score))));
+                ("percent", score)));
         }
 
         return _rejectBad ? (true, Loc.GetString("ipintel-suspicious")) : (false, string.Empty);

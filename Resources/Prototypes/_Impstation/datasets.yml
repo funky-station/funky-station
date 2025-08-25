@@ -1,5 +1,14 @@
+# SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
+# SPDX-FileCopyrightText: 2025 funnyfurby <furbyb772@gmail.com>
+# SPDX-FileCopyrightText: 2025 funnyfurby <furbyfunny44@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: dataset
-  id: Departments
+  id: MoodDepartments
   values:
   - Engineering
   - Research
@@ -10,12 +19,13 @@
   - Cargo
 
 - type: dataset
-  id: Pets
+  id: MoodPets
   values:
   - Pun Pun the Monkey
   - Hamlet the Hamster
   - Shiva the Spider
   - Ian the Corgi
+  - Lisa the Corgi
   - Morticia the Possum
   - Morty the Possum
   - Paperwork the Sloth
@@ -24,10 +34,13 @@
   - Willow the Kangaroo
   - Smile the Slime
   - Tropico the Crab
+  - Runtime the Cat
+  - Exception the Cat
 
 - type: dataset
-  id: Rooms
+  id: MoodRooms
   values:
+  - The Brig
   - Disposals
   - The Library
   - Escape Pod
@@ -39,7 +52,7 @@
   - The Morgue
 
 - type: dataset
-  id: FoodRestrictions
+  id: MoodFoodRestrictions
   values:
   - Vegetarian
   - Carnivore
@@ -51,7 +64,7 @@
 
 
 - type: dataset
-  id: Items
+  id: MoodItems
   values:
   - Wrenches
   - Welding Tools
@@ -73,9 +86,10 @@
   - Figurines
   - Toys
   - Lockers
+  - Dihydrogen Monoxide
 
 - type: dataset
-  id: Edibles
+  id: MoodEdibles
   values:
   - Copypasta
   - Moldy Bread Slice
@@ -85,14 +99,33 @@
   - Suppermatter
   - Stick of Cannabis Butter
   - Bungo Curry
-  - Salty Sweet Miso Cola Soup
+  - Valid Salad
   - Bread Dog
-  - Camel's Soup
-  - Toddler Rings Stew
-  - Heart Carpaccio
-
+  - Cak
+  - Slime Cake
+  - Sashimi
+  - Mothroachburger
+  - Amanita Jelly
+  - Spicy Rock Pizza
+  
 - type: dataset
-  id: Holidays
+  id: MoodDrinkables
+  values:
+  - Chutzpah
+  - Cogchamp
+  - Demon's Blood
+  - Devil's Kiss
+  - Driest Martini
+  - Fever Dream
+  - Mindbreaker Toxin
+  - Happiness
+  - Acidspit
+  - Hippie's Delight
+  - Tayquila
+  - Three Mile Island Iced Tea
+  
+- type: dataset
+  id: MoodHolidays
   values:
   - Binkus Day
   - Foster's Feast
@@ -115,7 +148,7 @@
   - The Tegument of Actuality
 
 - type: dataset
-  id: Clothes
+  id: MoodClothes
   values:
   - Hardsuits
   - Gloves
@@ -125,7 +158,7 @@
   - Backpacks
 
 - type: dataset
-  id: CommandRoles
+  id: MoodCommandRoles
   values:
   - Captain
   - Quartermaster
@@ -136,9 +169,9 @@
   - Research Director
 
 - type: dataset
-  id: DAGDname
+  id: MoodDAGDname
   values:
-  - DieAGloriousDeath
+  #- DieAGloriousDeath
   - FolkHero
   - FolkHero
   - FolkHero
@@ -150,12 +183,12 @@
   - FolkHero
 
 - type: dataset
-  id: SpeechRestrictions
+  id: MoodSpeechRestrictions
   values:
   - FullNameAndTitle
   - NamesAreRude
   - Clarity
-  - SwearingGood
+  #- SwearingGood
   - StatementOnly
   - Imitation
   - Unclarity
@@ -163,14 +196,14 @@
   - QuestionOnly
   - MustAnswer
   - OnlyWhisper
-  - OnlyYell
+  #- OnlyYell
   - Rhyme
   - Alliterate
   - ThirdPerson
   - TitleCase
 
 - type: dataset
-  id: ThavenWords
+  id: MoodThavenWords
   values:
   - accept
   - add

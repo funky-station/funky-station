@@ -1,8 +1,16 @@
+# SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 hivehum <ketchupfaced@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: marking
   id: ArmProstheticLeft
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   coloring:
     default:
@@ -17,7 +25,7 @@
   id: ArmTwistingLeft
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -27,7 +35,7 @@
   id: ArmProstheticRight
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   coloring:
     default:
@@ -42,7 +50,7 @@
   id: ArmTwistingRight
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -52,7 +60,7 @@
   id: ChestBackstabbed
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -62,7 +70,7 @@
   id: ChestTwistingLeft
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -72,7 +80,7 @@
   id: ChestTwistingRight
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -82,7 +90,7 @@
   id: ChestStar
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -92,7 +100,7 @@
   id: FootProstheticLeft
   bodyPart: LFoot
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   coloring:
     default:
@@ -107,7 +115,7 @@
   id: FootProstheticRight
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   coloring:
     default:
@@ -122,7 +130,7 @@
   id: HandProstheticLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   coloring:
     default:
@@ -137,7 +145,7 @@
   id: HandTwistingLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -147,7 +155,7 @@
   id: HandProstheticRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   coloring:
     default:
@@ -162,7 +170,7 @@
   id: HandTwistingRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -172,7 +180,7 @@
   id: SmileScars
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -182,7 +190,7 @@
   id: HeadTwisting
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -192,7 +200,7 @@
   id: LegProstheticLeft
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   coloring:
     default:
@@ -207,7 +215,7 @@
   id: LegTwistingLeft
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -217,7 +225,7 @@
   id: LegProstheticRight
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   coloring:
     default:
@@ -232,7 +240,7 @@
   id: LegTwistingRight
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
@@ -242,7 +250,7 @@
   id: TorsoIncision
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
+  speciesRestriction: [Human, Dwarf, Reptilian, SlimePerson, Arachnid, Felinid, Rodentia, Vulpkanin, Thaven] # Frontier: add Felinid Funkystation: add Rodentia and Vulpkanin
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi

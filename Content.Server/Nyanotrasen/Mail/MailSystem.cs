@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
@@ -54,6 +63,8 @@ using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Timer = Robust.Shared.Timing.Timer;
 using Content.Server._DV.Cargo.Systems;
+using Content.Shared.Cargo.Components;
+using Content.Shared.Cargo.Prototypes;
 
 namespace Content.Server.Mail
 {
@@ -251,7 +262,7 @@ namespace Content.Server.Mail
                 if (_stationSystem.GetOwningStation(uid) != station)
                     continue;
 
-                _cargoSystem.UpdateBankAccount(station, account, component.Bounty);
+                _cargoSystem.UpdateBankAccount((station, account), (int) component.Bounty, _cargoSystem.CreateAccountDistribution((station, account)));
             }
         }
 
@@ -309,7 +320,9 @@ namespace Content.Server.Mail
                 if (_stationSystem.GetOwningStation(uid) != station)
                     continue;
 
-                _cargoSystem.UpdateBankAccount(station, account, component.Penalty);
+                _cargoSystem.UpdateBankAccount((station, account),
+                    (int) component.Penalty,
+                    _cargoSystem.CreateAccountDistribution((station, account)));
                 return;
             }
         }

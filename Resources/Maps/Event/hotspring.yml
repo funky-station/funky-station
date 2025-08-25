@@ -1,3 +1,19 @@
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 heree <79546981+hereelabs@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 hereelabs <hahmorm@gmail.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 meta:
   format: 6
   postmapinit: false
@@ -56,9 +72,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
     - type: Gravity
@@ -259,7 +273,7 @@ entities:
       ambientLightColor: '#020100FF'
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: Hot Springs
+      id: HotSprings
     - type: GasTileOverlay
     - type: GridAtmosphere
       version: 2
@@ -7130,30 +7144,6 @@ entities:
     - type: Transform
       pos: 4.5,12.5
       parent: 1
-- proto: CrateFunPlushieSelfInsert
-  entities:
-  - uid: 2424
-    components:
-    - type: Transform
-      pos: -0.5,6.5
-      parent: 1
-  - uid: 2425
-    components:
-    - type: Transform
-      pos: -1.5,6.5
-      parent: 1
-- proto: CrateFunPlushieStowawayToys
-  entities:
-  - uid: 2547
-    components:
-    - type: Transform
-      pos: -2.5,6.5
-      parent: 1
-  - uid: 2548
-    components:
-    - type: Transform
-      pos: -2.5,7.5
-      parent: 1
 - proto: CrateFunWaterGuns
   entities:
   - uid: 1097
@@ -10220,16 +10210,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -30.5,33.5
       parent: 1
-- proto: PlushieAssistantSpider
-  entities:
-  - uid: 1582
-    components:
-    - type: Transform
-      pos: 6.2985024,26.78783
-      parent: 1
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
 - proto: PlushieCirno
   entities:
   - uid: 2431
@@ -10243,16 +10223,6 @@ entities:
     components:
     - type: Transform
       pos: -12.441986,21.279934
-      parent: 1
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-- proto: PlushieResearchDirectorLizard
-  entities:
-  - uid: 2579
-    components:
-    - type: Transform
-      pos: 6.689882,26.543219
       parent: 1
     - type: Physics
       angularDamping: 0

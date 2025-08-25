@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: constructionGraph
   id: GasPipeSensor
   start: start
@@ -10,7 +16,19 @@
         amount: 2
         doAfter: 1
 
-  - node: sensor   
+    - to: sensorAlt1
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
+    - to: sensorAlt2
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
+  - node: sensor
     entity: GasPipeSensor
     actions:
     - !type:SetAnchor
@@ -27,3 +45,39 @@
       steps:
       - tool: Welding
         doAfter: 1
+
+  - node: sensorAlt1
+    entity: GasPipeSensorAlt1
+    actions:
+      - !type:SetAnchor
+    edges:
+      - to: start
+        completed:
+          - !type:SpawnPrototype
+            prototype: SheetSteel1
+            amount: 2
+          - !type:DeleteEntity
+        conditions:
+          - !type:EntityAnchored
+            anchored: false
+        steps:
+          - tool: Welding
+            doAfter: 1
+
+  - node: sensorAlt2
+    entity: GasPipeSensorAlt2
+    actions:
+      - !type:SetAnchor
+    edges:
+      - to: start
+        completed:
+          - !type:SpawnPrototype
+            prototype: SheetSteel1
+            amount: 2
+          - !type:DeleteEntity
+        conditions:
+          - !type:EntityAnchored
+            anchored: false
+        steps:
+          - tool: Welding
+            doAfter: 1

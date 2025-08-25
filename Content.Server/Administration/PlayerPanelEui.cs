@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -8,6 +18,7 @@ using Content.Server.EUI;
 using Content.Shared.Administration;
 using Content.Shared.Database;
 using Content.Shared.Eui;
+using Content.Shared.Follower;
 using Robust.Server.Player;
 using Robust.Shared.Player;
 
@@ -33,11 +44,13 @@ public sealed class PlayerPanelEui : BaseEui
     private bool _frozen;
     private bool _canFreeze;
     private bool _canAhelp;
+    private FollowerSystem _follower;
 
     public PlayerPanelEui(LocatedPlayerData player)
     {
         IoCManager.InjectDependencies(this);
         _targetPlayer = player;
+        _follower = _entity.System<FollowerSystem>();
     }
 
     public override void Opened()
@@ -140,6 +153,16 @@ public sealed class PlayerPanelEui : BaseEui
                     _adminLog.Add(LogType.Action,$"{Player:actor} deleted {_entity.ToPrettyString(session.AttachedEntity):subject}");
                     _entity.DeleteEntity(session.AttachedEntity);
                 }
+                break;
+            case PlayerPanelFollowMessage:
+                if (!_admins.HasAdminFlag(Player, AdminFlags.Admin) ||
+                    !_player.TryGetSessionById(_targetPlayer.UserId, out session) ||
+                    session.AttachedEntity == null ||
+                    Player.AttachedEntity is null ||
+                    session.AttachedEntity == Player.AttachedEntity)
+                    return;
+
+                _follower.StartFollowingEntity(Player.AttachedEntity.Value, session.AttachedEntity.Value);
                 break;
         }
     }

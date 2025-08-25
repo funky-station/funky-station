@@ -1,16 +1,13 @@
-- type: entity
-  id: CrateFunDawnPlushieBulk
-  parent: CrateGenericSteel
-  name: bulk dawn plushie crate
-  description: 4 dawn plushies.
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: PlushieDawn
-          amount: !type:ConstantNumberSelector
-            value: 4
+# SPDX-FileCopyrightText: 2024 Malacchia <39246543+Malacchia@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 heree <79546981+hereelabs@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 miapyxel <retromannnnn@gmail.com>
+# SPDX-FileCopyrightText: 2024 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Teromax34 <148102813+Teromax34@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
   id: CrateCopsNRobbers
@@ -32,72 +29,3 @@
       amount: 2
     - id: ClothingHeadHatOutlawHat
       amount: 2
-
-# self-insert plushies
-- type: entityTable
-  id: AllSelfInsertPlushiesTable
-  table: !type:GroupSelector
-    children:
-    - id: PlushieDawn
-    - id: PlushieAshleyTickum
-    - id: PlushieLunaStargazer
-    - id: PlushieMelodyHennion
-    - id: PlushieJeepersCReepers
-    - id: PlushieTincan
-    - id: PlushieSilasAhas
-    - id: PlushieLokiHydrus
-    - id: PlushieKorrinKarpen
-    - id: PlushieLintonByers
-    - id: PlushieFelixKay
-    - id: PlushieParfeyMaelstorm
-    - id: PlushieAliceAndreev
-    - id: PlushieChadleySkrimblo
-    - id: PlushieAkishJeen
-    - id: PlushieAltecZorban
-    - id: PlushieCynsKatyns
-    - id: PlushieKuafuMoeller
-
-- type: entity
-  id: CrateFunPlushieSelfInsert
-  parent: CrateGenericSteel
-  name: self-insert plushie crate
-  description: As NT continues to invest time and resources into it's loyal employees, NT has started a new program where YOU invest in NT! The Self-insert plush program allows you to purchase plushies of your fellow crewmates to show your support of NT! #WRITTEN BY PALAKONA THANK YOU!!!!!!!
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: AllSelfInsertPlushiesTable
-        rolls: !type:ConstantNumberSelector
-          value: 5
-
-# stowaway toys
-- type: entityTable
-  id: AllStowawayToysTable
-  table: !type:GroupSelector
-    children:
-    - id: PlushieAssistantSpider
-    - id: PlushieBarkeepLizard
-    - id: PlushieCaptainSpider
-    - id: PlushieCargoBird
-    - id: PlushieChaplainDog
-    - id: PlushieChemistLizard
-    - id: PlushiePirateMoth
-    - id: PlushieQuartermasterMoth
-    - id: PlushieResearchDirectorDog
-    - id: PlushieResearchDirectorLizard
-    - id: PlushieSkeleton
-    - id: PlushiePanda
-    - id: PlushieBlueScarfedLizard
-    
-- type: entity
-  id: CrateFunPlushieStowawayToys
-  parent: CrateGenericSteel
-  name: stowaway toys plushie crate
-  description: Stowaway Toys brings the cheapest yet highest quality plushes right to you! Featuring a wide selection of unique plushies, the variety just never ends! Please do not blend or grind up any Stowaway Toys plushies. We are not responsible for anything that occurs due to this.
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: AllStowawayToysTable
-        rolls: !type:ConstantNumberSelector
-          value: 5

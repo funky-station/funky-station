@@ -1,0 +1,42 @@
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: parallax
+  id: CosmicFinaleParallax
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_DV/CosmicCult/Parallaxes/Cosmic_Dust.png"
+      slowness: 0.998046875
+      scale: ".5, .5"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_DV/CosmicCult/Parallaxes/Cosmic_Stars.png"
+      slowness: 0.996625
+      scale: ".6, .6"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_DV/CosmicCult/Parallaxes/Cosmic_Nebulae.png"
+      slowness: 0.985265625
+      scale: ".41, .41"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_DV/CosmicCult/Parallaxes/Cosmic_Stars.png"
+      slowness: 0.984352
+      scale: ".9, .9"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_DV/CosmicCult/Parallaxes/Cosmic_Blackhole.png"
+      slowness: 0.998046875
+      scale: "1.7, 1.7"
+      tiled: false
+  layersLQ:
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: ""
+        configPath: "/Prototypes/Parallaxes/parallax_config.toml"
+        slowness: 0.875
+  layersLQUseHQ: false

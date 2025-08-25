@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 //using Content.Shared.Tag;
 using System.Linq;
 using Robust.Shared.GameObjects;
@@ -66,7 +73,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 	private void OnMapInit(EntityUid uid, BloodCultRuneCarverComponent component, MapInitEvent args)
 	{
-		
+
 	}
 
 	#region UserInterface
@@ -89,7 +96,8 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		if (!BloodCultRuneCarverComponent.ValidRunes.Contains(args.ProtoId))
 			return;
 		ent.Comp.Rune = args.ProtoId;
-	}
+        ent.Comp.InProgress = args.ProtoId + "_drawing";
+    }
 
 	private void TryOpenUi(EntityUid uid, EntityUid user, BloodCultRuneCarverComponent? component = null)
 	{

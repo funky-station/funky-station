@@ -1,6 +1,13 @@
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Holopad;
 using Content.Shared.Silicons.StationAi;
-using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Shared.Player;
 using System.Numerics;
@@ -10,7 +17,6 @@ namespace Content.Client.Holopad;
 public sealed class HolopadBoundUserInterface : BoundUserInterface
 {
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    [Dependency] private readonly IClyde _displayManager = default!;
 
     [ViewVariables]
     private HolopadWindow? _window;

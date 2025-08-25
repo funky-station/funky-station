@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using System.Linq;
 using Content.Server.Administration.Managers;
 using Content.Server.EUI;
@@ -10,8 +16,8 @@ namespace Content.Server._Impstation.Thaven;
 
 public sealed class ThavenMoodsEui : BaseEui
 {
-    private readonly ThavenMoodsSystem _moodsSystem;
-    private readonly EntityManager _entMan;
+    private readonly ThavenMoodsSystem _thavenMoodsSystem;
+    private readonly EntityManager _entityManager;
     private readonly IAdminManager _adminManager;
 
     private List<ThavenMood> _moods = new();
@@ -21,25 +27,26 @@ public sealed class ThavenMoodsEui : BaseEui
 
     public ThavenMoodsEui(ThavenMoodsSystem thavenMoodsSystem, EntityManager entityManager, IAdminManager manager)
     {
-        _moodsSystem = thavenMoodsSystem;
-        _entMan = entityManager;
+        _thavenMoodsSystem = thavenMoodsSystem;
+        _entityManager = entityManager;
         _adminManager = manager;
         _sawmill = Logger.GetSawmill("thaven-moods-eui");
     }
 
     public override EuiStateBase GetNewState()
     {
-        return new ThavenMoodsEuiState(_moods, _entMan.GetNetEntity(_target));
+        return new ThavenMoodsEuiState(_moods, _entityManager.GetNetEntity(_target));
     }
 
-    public void UpdateMoods(Entity<ThavenMoodsComponent> ent)
+    public void UpdateMoods(ThavenMoodsBoundComponent? comp, EntityUid player)
     {
         if (!IsAllowed())
             return;
 
-        _target = ent;
-        _moods = ent.Comp.Moods;
-        _sharedMoods = _moodsSystem.SharedMoods.ToList();
+        var moods = _thavenMoodsSystem.GetActiveMoods(player, comp, false);
+        _target = player;
+        _moods = moods;
+        _sharedMoods = _thavenMoodsSystem.SharedMoods.ToList();
         StateDirty();
     }
 
@@ -53,14 +60,9 @@ public sealed class ThavenMoodsEui : BaseEui
         if (!IsAllowed())
             return;
 
-        var uid = _entMan.GetEntity(message.Target);
-        if (!_entMan.TryGetComponent<ThavenMoodsComponent>(uid, out var comp))
-        {
-            _sawmill.Warning($"Entity {_entMan.ToPrettyString(uid)} does not have ThavenMoodsComponent!");
-            return;
-        }
+        var player = _entityManager.GetEntity(message.Target);
 
-        _moodsSystem.SetMoods((uid, comp), message.Moods);
+        _thavenMoodsSystem.SetMoods(player, message.Moods);
     }
 
     private bool IsAllowed()

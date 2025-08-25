@@ -1,3 +1,21 @@
+# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Keer-Sar <144283718+Keer-Sar@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 TheWaffleJesus <106146578+TheWaffleJesus@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 icekot8 <93311212+icekot8@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 aa5g21 <aa5g21@soton.ac.uk>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 bounty-item-advanced-mop = Advanced Mop
 bounty-item-ambrosia = Ambrosia
 bounty-item-ammunition-box = Ammunition Box
@@ -66,7 +84,7 @@ bounty-item-fruit = Fruit
 bounty-item-galaxythistle = Galaxythistle
 bounty-item-gauze = Rolls of Gauze
 bounty-item-gps = Global Positioning System
-bounty-item-grenade = Grenade
+bounty-item-grenade = Explosive Grenade
 bounty-item-grenade-flashbang = Flashbang
 bounty-item-handcuffs = Handcuffs
 bounty-item-hi-viz-vest = Hi-viz vest
@@ -114,7 +132,7 @@ bounty-item-stomach = Stomach
 bounty-item-stun-baton = Stun Baton
 bounty-item-surgery-tool = Surgery tool
 bounty-item-syringe = Syringe
-bounty-item-taser = Taser
+bounty-item-taser = Taser or Disabler
 bounty-item-tech-disk = Technology disk
 bounty-item-toolbox = Toolbox
 bounty-item-tooth-sharkminnow = Sharkminnow Tooth
@@ -125,7 +143,13 @@ bounty-item-trash = Trash
 bounty-item-vegetable = Vegetable
 bounty-item-warm-cloth = Warm clothes
 bounty-item-wheat = Wheat
-bounty-item-wine = Wine bottle
+bounty-item-wine = Wine
+bounty-item-gin-tonic = Gin and Tonic
+bounty-item-saline = Saline
+bounty-item-arithrazine = Arithrazine
+bounty-item-multiver = Multiver
+bounty-item-dexalin = Dexalin
+bounty-item-space-cleaner = Space Cleaner
 
 bounty-description-artifact = NanoTrasen is in some hot water for stealing artifacts from non-spacefaring planets. Return one and we'll compensate you for it.
 bounty-description-baseball-bat = Baseball fever is going on at CentComm! Be a dear and ship them some baseball bats, so that management can live out their childhood dream.
@@ -213,3 +237,4 @@ bounty-category-music = Music
 bounty-category-bar = Bar
 bounty-category-engineering = Engineering
 bounty-category-janitor = Janitorial
+bounty-category-chemistry = Chemistry

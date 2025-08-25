@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 UristMcWiki <endernate2015@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   parent: [ BaseItem, BaseMagicContraband ]
   id: HereticBladeBase
@@ -112,9 +121,17 @@
   - type: MeleeWeapon
     wideAnimationRotation: -125
     attackRate: 1
-    damage:
-      types:
-        Cold: 10
-        Slash: 7.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+    damage:
+      types:
+        Cold: 15
+        Slash: 10.5
+        Structural: 60
+  - type: Tool
+    qualities:
+      - Prying
+      - Axing
+  - type: ToolTileCompatible
+  - type: Prying
+    speedModifier: 1.5

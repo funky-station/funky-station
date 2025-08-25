@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: alert
+  id: CosmicEntropy
+  icons:
+  - sprite: /Textures/_DV/CosmicCult/Icons/alert_entropy.rsi
+    state: base0
+  alertViewEntity: AlertCosmicEntropySpriteView
+  name: alerts-cosmiccult-entropy-name
+  description: alerts-cosmiccult-entropy-desc
+
+- type: entity
+  id: AlertCosmicEntropySpriteView
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _DV/CosmicCult/Icons/alert_entropy.rsi
+    layers:
+    - map: [ "enum.AlertVisualLayers.Base" ]
+    - map: [ "enum.CultAlertVisualLayers.Counter" ]

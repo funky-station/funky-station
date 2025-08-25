@@ -1,0 +1,47 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: CrateMaterialGlassBulk
+  parent: CrateGenericSteel
+  name: bulk glass sheet crate
+  description: 270 sheets of glass, packed with extreme care.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SheetGlass
+        amount: 9
+
+- type: entity
+  id: CrateMaterialSteelBulk
+  parent: CrateGenericSteel
+  name: bulk steel sheet crate
+  description: 270 sheets of steel.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SheetSteel
+        amount: 9
+
+- type: entity
+  id: CrateMaterialPlasticBulk
+  parent: CrateGenericSteel
+  name: bulk plastic sheet crate
+  description: 270 sheets of plastic.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SheetPlastic
+        amount: 9
+
+- type: entity
+  id: CrateMaterialPlasmaBulk
+  parent: CratePlasma
+  name: bulk solid plasma crate
+  description: 90 sheets of plasma.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SheetPlasma
+        amount: 3

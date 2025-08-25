@@ -1,3 +1,33 @@
+// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
+// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 Vyacheslav Kovalevsky <40753025+Slava0135@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 GreaseMonk <1354802+GreaseMonk@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 blueDev2 <89804215+blueDev2@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Audio;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
@@ -12,6 +42,7 @@ using Content.Shared.Whitelist;
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
@@ -54,6 +85,47 @@ public abstract class SharedEmitSoundSystem : EntitySystem
         SubscribeLocalEvent<EmitSoundOnCollideComponent, StartCollideEvent>(OnEmitSoundOnCollide);
 
         SubscribeLocalEvent<SoundWhileAliveComponent, MobStateChangedEvent>(OnMobState);
+
+        // We need to handle state manually here
+        // BaseEmitSoundComponent isn't registered so we have to subscribe to each one
+        // TODO: Make it use autonetworking instead of relying on inheritance
+        SubscribeEmitComponent<EmitSoundOnActivateComponent>();
+        SubscribeEmitComponent<EmitSoundOnCollideComponent>();
+        SubscribeEmitComponent<EmitSoundOnDropComponent>();
+        SubscribeEmitComponent<EmitSoundOnInteractUsingComponent>();
+        SubscribeEmitComponent<EmitSoundOnLandComponent>();
+        SubscribeEmitComponent<EmitSoundOnPickupComponent>();
+        SubscribeEmitComponent<EmitSoundOnSpawnComponent>();
+        SubscribeEmitComponent<EmitSoundOnThrowComponent>();
+        SubscribeEmitComponent<EmitSoundOnUIOpenComponent>();
+        SubscribeEmitComponent<EmitSoundOnUseComponent>();
+
+        // Helper method so it's a little less ugly
+        void SubscribeEmitComponent<T>() where T : BaseEmitSoundComponent
+        {
+            SubscribeLocalEvent<T, ComponentGetState>(GetBaseEmitState);
+            SubscribeLocalEvent<T, ComponentHandleState>(HandleBaseEmitState);
+        }
+    }
+
+    private static void GetBaseEmitState<T>(Entity<T> ent, ref ComponentGetState args) where T : BaseEmitSoundComponent
+    {
+        args.State = new EmitSoundComponentState(ent.Comp.Sound);
+    }
+
+    private static void HandleBaseEmitState<T>(Entity<T> ent, ref ComponentHandleState args) where T : BaseEmitSoundComponent
+    {
+        if (args.Current is not EmitSoundComponentState state)
+            return;
+
+        ent.Comp.Sound = state.Sound switch
+        {
+            SoundPathSpecifier pathSpec => new SoundPathSpecifier(pathSpec.Path, pathSpec.Params),
+            SoundCollectionSpecifier collectionSpec => collectionSpec.Collection != null
+                ? new SoundCollectionSpecifier(collectionSpec.Collection, collectionSpec.Params)
+                : null,
+            _ => null,
+        };
     }
 
     private void HandleEmitSoundOnUIOpen(EntityUid uid, EmitSoundOnUIOpenComponent component, AfterActivatableUIOpenEvent args)

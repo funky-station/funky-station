@@ -1,0 +1,44 @@
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: entity
+  id: DoorCosmicCult
+  parent: BaseMaterialDoorNavMap
+  name: malign passageway
+  description: A strange, disquieting structure.
+  components:
+  - type: Sprite
+    sprite: _DV/CosmicCult/Tileset/cosmicdoor.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Door
+    bumpOpen: true
+    clickOpen: true
+    canCrush: true
+    closeTimeOne: 0.8
+    closeTimeTwo: 1.2
+    openTimeOne: 0.8
+    openTimeTwo: 1.2
+    openingAnimationTime: 1.2
+    closingAnimationTime: 1.2
+    openSound:
+      path: /Audio/_DV/CosmicCult/door_open.ogg
+    closeSound:
+      path: /Audio/_DV/CosmicCult/door_close.ogg
+  - type: RCDDeconstructable
+    deconstructable: false
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]

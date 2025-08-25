@@ -1,12 +1,10 @@
-- type: cargoProduct
-  id: FunDawnPlushies
-  icon:
-    sprite: _Funkystation/Objects/Fun/dawn_plush.rsi
-    state: plushie_dawn
-  product: CrateFunDawnPlushieBulk
-  cost: 2000
-  category: cargoproduct-category-name-fun
-  group: market
+# SPDX-FileCopyrightText: 2024 heree <79546981+hereelabs@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 miapyxel <retromannnnn@gmail.com>
+# SPDX-FileCopyrightText: 2024 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: cargoProduct
   id: CrateCopsNRobbers
@@ -14,26 +12,6 @@
     sprite: Clothing/Head/Hats/cowboyhatbrown.rsi
     state: icon
   product: CrateCopsNRobbers
-  cost: 2000
-  category: cargoproduct-category-name-fun
-  group: market
-
-- type: cargoProduct
-  id: FunSelfPlushies
-  icon:
-    sprite: _Funkystation/Objects/Fun/syrrikatickum_plush.rsi
-    state: plush_tickum
-  product: CrateFunPlushieSelfInsert
-  cost: 2000
-  category: cargoproduct-category-name-fun
-  group: market
-
-- type: cargoProduct
-  id: FunStowawayToys
-  icon:
-    sprite: _Funkystation/Objects/Fun/stowaway_toys.rsi
-    state: plushie_panda
-  product: CrateFunPlushieStowawayToys
   cost: 2000
   category: cargoproduct-category-name-fun
   group: market

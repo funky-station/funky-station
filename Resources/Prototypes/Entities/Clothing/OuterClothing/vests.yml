@@ -1,6 +1,34 @@
+# SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 KingFroozy <140668342+KingFroozy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 ZarathushtraSpitama <bloodcunt@protonmail.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 #Web vest
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSyndicateContraband]
+  parent: [ClothingOuterStorageBase, AllowBackStorageClothingCombat, BaseSyndicateContraband]
   id: ClothingOuterVestWeb
   name: web vest
   description: A synthetic armor vest. This one has added webbing and ballistic plates.
@@ -14,14 +42,14 @@
       coefficients:
         Blunt: 0.6 #ballistic plates = better protection
         Slash: 0.6
-        Piercing: 0.3
-        Heat: 0.9
+        Piercing: 0.4 # Goob edit - shouldn't be better than bulletproof vest
+        Heat: 0.8 # Goob edit - match regular vest
   - type: ExplosionResistance
     damageCoefficient: 0.9
 
 #Mercenary web vest
 - type: entity
-  parent: [ClothingOuterStorageBase, BaseMajorContraband] #web vest so it should have some pockets for ammo \\ Goobstation - issue #733 fix, changed from minor to major contraband
+  parent: [ClothingOuterStorageBase, AllowBackStorageClothingCombat, BaseMajorContraband] #web vest so it should have some pockets for ammo \\ Goobstation - issue #733 fix, changed from minor to major contraband
   id: ClothingOuterVestWebMerc
   name: merc web vest
   description: A high-quality armored vest made from a hard synthetic material. It's surprisingly flexible and light, despite formidable armor plating.
@@ -76,30 +104,40 @@
     tags:
     - HiViz
 
-#(Bartender) vest
+#(Bartender) vest -  #Funky - bartender changes
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterArmorBasic
   id: ClothingOuterVest
   name: vest
-  description: A thick vest with a rubbery, water-resistant shell.
+  description: A neat bartender vest, reinforced with kevlar.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Vests/vest.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Vests/vest.rsi
-
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,2,1
+    whitelist:
+      tags:
+      - BartendingTool
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
 #Tank Harness
-- type: entity
-  parent: [ClothingOuterBase, AllowSuitStorageClothingGasTanks]
-  id: ClothingOuterVestTank
-  name: tank harness
-  description: A simple harness that can hold a gas tank.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Vests/tankharness.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Vests/tankharness.rsi
-  - type: Tag # DeltaV: tank harnesses can be used for surgery
-    tags:
-    - PermissibleForSurgery
-    - WhitelistChameleon
+#- type: entity
+ # parent: [ClothingOuterBase, AllowSuitStorageClothingGasTanks]
+ # id: ClothingOuterVestTank
+ # name: tank harness
+ # description: A simple harness that can hold a gas tank.
+ # components:
+ # - type: Sprite
+ #   sprite: Clothing/OuterClothing/Vests/tankharness.rsi
+ # - type: Clothing
+ #   sprite: Clothing/OuterClothing/Vests/tankharness.rsi
+ # - type: Tag # DeltaV: tank harnesses can be used for surgery
+ #   tags:
+ #   - PermissibleForSurgery
+ #   - WhitelistChameleon

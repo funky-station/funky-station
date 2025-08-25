@@ -1,55 +1,24 @@
-- type: dataset
-  id: RevenantType
-  values:
-  - essence
-  - ghost
-  - phantom
-  - poltergeist
-  - revenant
-  - soul
-  - spectre
-  - spirit
+# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-- type: dataset
-  id: RevenantAdjective
+- type: localizedDataset
+  id: NamesRevenantType
   values:
-  - abysmal
-  - abyssal
-  - brutal
-  - dark
-  - endless
-  - eternal
-  - fiery
-  - hateful
-  - hideous
-  - hilarious
-  - indifferent
-  - malevolent
-  - peaceful
-  - searing
-  - silent
-  - spiteful
-  - vicious
-  - violent
+    prefix: names-revenant-type-dataset-
+    count: 8
 
-- type: dataset
-  id: RevenantTheme
+- type: localizedDataset
+  id: NamesRevenantAdjective
   values:
-  - agony
-  - anger
-  - death
-  - despair
-  - desperation
-  - destruction
-  - disease
-  - grief
-  - hate
-  - hellfire
-  - laughter
-  - misery
-  - ruin
-  - salt
-  - screams
-  - sorrow
-  - suffering
-  - vengeance
+    prefix: names-revenant-adjective-dataset-
+    count: 18
+
+- type: localizedDataset
+  id: NamesRevenantTheme
+  values:
+    prefix: names-revenant-theme-dataset-
+    count: 18

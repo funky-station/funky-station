@@ -1,3 +1,24 @@
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 using Robust.Shared.Audio;
 
@@ -82,7 +103,7 @@ public sealed partial class ElectrifiedComponent : Component
     /// Shock time multiplier for HV electrocution
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float HighVoltageTimeMultiplier = 1.5f;
+    public float HighVoltageTimeMultiplier = 2f;
 
     /// <summary>
     /// Damage multiplier for MV electrocution
@@ -94,7 +115,7 @@ public sealed partial class ElectrifiedComponent : Component
     /// Shock time multiplier for MV electrocution
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float MediumVoltageTimeMultiplier = 1.25f;
+    public float MediumVoltageTimeMultiplier = 1.5f;
 
     [DataField, AutoNetworkedField]
     public float ShockDamage = 7.5f;
@@ -103,7 +124,7 @@ public sealed partial class ElectrifiedComponent : Component
     /// Shock time, in seconds.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float ShockTime = 8f;
+    public float ShockTime = 5f;
 
     [DataField, AutoNetworkedField]
     public float SiemensCoefficient = 1f;

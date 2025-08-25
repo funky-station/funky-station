@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: entity
+  id: autoInjectorCartridgeCaseFilled
+  parent: autoInjectorCartridgeCase
+  components:
+  - type: StorageFill
+    contents:
+    - id: CartridgeAirloss
+      amount: 2
+    - id: CartridgeBrute
+      amount: 2
+    - id: CartridgeBurn
+      amount: 2
+    - id: CartridgePoison
+      amount: 2

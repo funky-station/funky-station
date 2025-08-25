@@ -1,7 +1,14 @@
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Robust.Client.GameObjects;
-using Robust.Shared.Timing;
 
 namespace Content.Client.Movement.Systems;
 
@@ -10,8 +17,6 @@ namespace Content.Client.Movement.Systems;
 /// </summary>
 public sealed class ClientSpriteMovementSystem : SharedSpriteMovementSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-
     private EntityQuery<SpriteComponent> _spriteQuery;
 
     public override void Initialize()

@@ -1,3 +1,41 @@
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 BeeRobynn <robynthewarcrime@proton.me>
+# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Liamofthesky <157073227+Liamofthesky@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 PoorMansDreams <150595537+PoorMansDreams@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 SpeltIncorrectyl <66873282+SpeltIncorrectyl@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 conrad <73260161+conrad-schroder@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 cool dolphin <36332236+Afrokada@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 pigeonpeas <147350443+pigeonpeas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 ZarathushtraSpitama <bloodcunt@protonmail.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 # Command
 - type: roleLoadout
   id: JobCaptain
@@ -14,7 +52,6 @@
 - type: roleLoadout
   id: JobHeadOfPersonnel
   groups:
-  - GroupTankHarness
   - HoPHead
   - HoPNeck
   - HoPJumpsuit
@@ -40,7 +77,6 @@
 - type: roleLoadout
   id: JobPassenger
   groups:
-  - GroupTankHarness
   - PassengerJumpsuit
   - CommonBackpack
   - PassengerNeck
@@ -56,7 +92,6 @@
 - type: roleLoadout
   id: JobBartender
   groups:
-  - GroupTankHarness
   - BartenderHead
   - BartenderJumpsuit
   - CommonBackpack
@@ -69,7 +104,6 @@
 - type: roleLoadout
   id: JobServiceWorker
   groups:
-  - GroupTankHarness
   - BartenderJumpsuit
   - CommonBackpack
   - Glasses
@@ -80,7 +114,6 @@
 - type: roleLoadout
   id: JobChef
   groups:
-  - GroupTankHarness
   - ChefHead
   - ChefMask
   - ChefJumpsuit
@@ -94,7 +127,6 @@
 - type: roleLoadout
   id: JobLibrarian
   groups:
-  - GroupTankHarness
   - LibrarianJumpsuit
   - CommonBackpack
   - Glasses
@@ -105,7 +137,6 @@
 - type: roleLoadout
   id: JobLawyer
   groups:
-  - GroupTankHarness
   - LawyerNeck
   - LawyerJumpsuit
   - CommonBackpack
@@ -117,7 +148,6 @@
 - type: roleLoadout
   id: JobChaplain
   groups:
-  - GroupTankHarness
   - ChaplainHead
   - ChaplainEyes # imp
   - ChaplainMask
@@ -135,7 +165,6 @@
 - type: roleLoadout
   id: JobJanitor
   groups:
-  - GroupTankHarness
   - JanitorHead
   - JanitorJumpsuit
   - JanitorGloves
@@ -150,7 +179,6 @@
 - type: roleLoadout
   id: JobBotanist
   groups:
-  - GroupTankHarness
   - BotanistHead
   - BotanistJumpsuit
   - BotanistBackpack
@@ -162,8 +190,8 @@
 
 - type: roleLoadout
   id: JobClown
+  canCustomizeName: true
   groups:
-  - GroupTankHarness
   - ClownHead
   - ClownMask
   - ClownJumpsuit
@@ -176,8 +204,8 @@
 
 - type: roleLoadout
   id: JobMime
+  canCustomizeName: true
   groups:
-  - GroupTankHarness
   - MimeHead
   - MimeMask
   - MimeJumpsuit
@@ -190,8 +218,8 @@
 
 - type: roleLoadout
   id: JobMusician
+  canCustomizeName: true
   groups:
-  - GroupTankHarness
   - MusicianJumpsuit
   - CommonBackpack
   - MusicianOuterClothing
@@ -205,7 +233,6 @@
 - type: roleLoadout
   id: JobQuartermaster
   groups:
-  - GroupTankHarness
   - QuartermasterHead
   - QuartermasterNeck
   - QuartermasterJumpsuit
@@ -220,7 +247,6 @@
 - type: roleLoadout
   id: JobCargoTechnician
   groups:
-  - GroupTankHarness
   - CargoTechnicianHead
   - CargoTechnicianJumpsuit
   - CargoTechnicianBackpack
@@ -234,7 +260,6 @@
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
-  - GroupTankHarness
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
@@ -247,8 +272,8 @@
 - type: roleLoadout
   id: JobChiefEngineer
   groups:
-  - GroupTankHarness
   - ChiefEngineerHead
+  - EngineeringGoggles #Funky
   - ChiefEngineerJumpsuit
   - StationEngineerBackpack
   - ChiefEngineerNeck
@@ -261,7 +286,6 @@
 - type: roleLoadout
   id: JobTechnicalAssistant
   groups:
-  - GroupTankHarness
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
   - SurvivalExtended
@@ -271,8 +295,8 @@
 - type: roleLoadout
   id: JobStationEngineer
   groups:
-  - GroupTankHarness
   - StationEngineerHead
+  - EngineeringGoggles #Funky
   - StationEngineerJumpsuit
   - StationEngineerBackpack
   - StationEngineerOuterClothing
@@ -285,8 +309,8 @@
 - type: roleLoadout
   id: JobAtmosphericTechnician
   groups:
-  - GroupTankHarness
   - AtmosphericTechnicianHead # Goobstation
+  - EngineeringGoggles
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
@@ -299,7 +323,6 @@
 - type: roleLoadout
   id: JobResearchDirector
   groups:
-  - GroupTankHarness
   - ResearchDirectorHead
   - ResearchDirectorNeck
   - ResearchDirectorJumpsuit
@@ -315,7 +338,6 @@
 - type: roleLoadout
   id: JobScientist
   groups:
-  - GroupTankHarness
   - ScientistHead
   - ScientistNeck
   - ScientistJumpsuit
@@ -332,7 +354,6 @@
 - type: roleLoadout
   id: JobResearchAssistant
   groups:
-  - GroupTankHarness
   - ResearchAssistantJumpsuit
   - ScientistBackpack
   - Glasses
@@ -345,6 +366,7 @@
   id: JobHeadOfSecurity
   groups:
   - HeadofSecurityHead
+  - SecurityGlasses #Funky
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
   - SecurityBackpack
@@ -360,6 +382,7 @@
   id: JobWarden
   groups:
   - WardenHead
+  - SecurityGlasses #Funky
   - WardenJumpsuit
   - WardenNeck
   - SecurityBackpack
@@ -376,6 +399,7 @@
   groups:
   - SecurityHead
   - SecurityJumpsuit
+  - SecurityGlasses #Funky
   - SecurityNeck
   - SecurityBackpack
   - SecurityOuterClothing
@@ -392,10 +416,12 @@
   groups:
   - DetectiveHead
   - DetectiveNeck
+  - SecurityGlasses #Funky
   - DetectiveJumpsuit
   - SecurityBackpack
   - DetectiveOuterClothing
   - SecurityShoes
+  - DetectivePDA # funkystation
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
@@ -415,9 +441,9 @@
 - type: roleLoadout
   id: JobChiefMedicalOfficer
   groups:
-  - GroupTankHarness
   - ChiefMedicalOfficerHead
   - MedicalMask
+  - MedicalDoctorGlasses #Funky
   - ChiefMedicalOfficerJumpsuit
   - MedicalGloves
   - MedicalBackpack
@@ -432,9 +458,9 @@
 - type: roleLoadout
   id: JobMedicalDoctor
   groups:
-  - GroupTankHarness
   - MedicalDoctorHead
   - MedicalMask
+  - MedicalDoctorGlasses
   - MedicalDoctorJumpsuit
   - MedicalGloves
   - MedicalBackpack
@@ -449,7 +475,6 @@
 - type: roleLoadout
   id: JobMedicalIntern
   groups:
-  - GroupTankHarness
   - MedicalInternJumpsuit
   - MedicalBackpack
   - Glasses
@@ -460,8 +485,8 @@
 - type: roleLoadout
   id: JobChemist
   groups:
-  - GroupTankHarness
   - MedicalMask
+  - MedicalChemistGlasses #Funky
   - ChemistJumpsuit
   - MedicalGloves
   - ChemistBackpack
@@ -474,9 +499,9 @@
 - type: roleLoadout
   id: JobParamedic
   groups:
-  - GroupTankHarness
   - ParamedicHead
   - MedicalMask
+  - MedicalDoctorGlasses #Funky
   - ParamedicJumpsuit
   - MedicalGloves
   - MedicalBackpack
@@ -491,7 +516,6 @@
 - type: roleLoadout
   id: JobZookeeper
   groups:
-  - GroupTankHarness
   - CommonBackpack
   - Glasses
   - Survival
@@ -501,7 +525,6 @@
 - type: roleLoadout
   id: JobReporter
   groups:
-  - GroupTankHarness
   - ReporterJumpsuit
   - ReporterOuterClothing # Goobstation - Bodycams
   - CommonBackpack
@@ -514,7 +537,6 @@
 - type: roleLoadout
   id: JobPsychologist
   groups:
-  - GroupTankHarness
   - PsychologistJumpsuit
   - MedicalBackpack
   - Glasses
@@ -525,7 +547,6 @@
 - type: roleLoadout
   id: JobBoxer
   groups:
-  - GroupTankHarness
   - BoxerJumpsuit
   - BoxerGloves
   - CommonBackpack
@@ -553,7 +574,6 @@
 - type: roleLoadout
   id: JobPartyMaker
   groups:
-  - GroupTankHarness
   - CommonBackpack
   - Survival
   - GroupSpeciesBreathTool
@@ -561,52 +581,61 @@
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
 
+# gives vox a harness and breathing mask
+# nitrogen tank not included
 - type: roleLoadout
   id: RoleSurvivalVoxSupport
   groups:
   - GroupSpeciesBreathTool
-  - GroupTankHarness
+
+
+# gives vox a nitrogen breathing tank
+# other species get nothing
+- type: roleLoadout
+  id: RoleSurvivalVoxTank
+  groups:
+  - GroupEVATankVox
 
 - type: roleLoadout
   id: RoleSurvivalStandard
   groups:
   - Survival
   - GroupSpeciesBreathTool
-  - GroupTankHarness
+
 
 - type: roleLoadout
   id: RoleSurvivalClown
   groups:
   - SurvivalClown
-  - GroupTankHarness
+
 
 - type: roleLoadout
   id: RoleSurvivalExtended
   groups:
   - SurvivalExtended
   - GroupSpeciesBreathTool
-  - GroupTankHarness
+
 
 - type: roleLoadout
   id: RoleSurvivalMedical
   groups:
   - SurvivalMedical
   - GroupSpeciesBreathToolMedical
-  - GroupTankHarness
+
 
 - type: roleLoadout
   id: RoleSurvivalSecurity
   groups:
   - SurvivalSecurity
   - GroupSpeciesBreathToolSecurity
-  - GroupTankHarness
+
 
 - type: roleLoadout
   id: RoleSurvivalSyndicate
   groups:
   - SurvivalSyndicate
   - GroupSpeciesBreathTool
-  - GroupTankHarness
+
 
 - type: roleLoadout
   id: RoleSurvivalNukie

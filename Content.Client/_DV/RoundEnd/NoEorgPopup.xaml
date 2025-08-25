@@ -1,0 +1,38 @@
+<!--
+SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+-->
+
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'no-eorg-popup-title'}"
+                      MinSize="520 450"
+                      MaxSize="520 450">
+    <BoxContainer Orientation="Vertical" Margin="20">
+        <Label Name="TitleLabel"
+               StyleClasses="LabelBig"
+               HorizontalAlignment="Center"
+               Margin="0 0 0 5" />
+        <PanelContainer StyleClasses="BackgroundDark" Margin="0 0 0 10">
+            <BoxContainer Orientation="Vertical" Margin="10">
+                <RichTextLabel Name="MessageLabel" HorizontalAlignment="Center" />
+                <Control MinSize="0 5" />
+                <RichTextLabel Name="RuleLabel" HorizontalAlignment="Center" />
+                <RichTextLabel Name="RuleTextLabel" HorizontalAlignment="Center" Margin="0 5 0 0" />
+            </BoxContainer>
+        </PanelContainer>
+        <BoxContainer Orientation="Vertical" VerticalAlignment="Bottom" Margin="0 10 0 0">
+            <CheckBox Name="SkipCheckBox"
+                      Text="{Loc 'no-eorg-popup-skip-checkbox'}"
+                      HorizontalAlignment="Center"
+                      Margin="0 0 0 10" />
+            <Button Name="NoEorgCloseButton"
+                    HorizontalAlignment="Center"
+                    MinWidth="150" />
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

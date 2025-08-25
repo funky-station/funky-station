@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 # Configuration preset used on Wizard's Den Leviathan
 
 [game]
@@ -14,3 +23,6 @@ force_client_hud_version_watermark = true
 
 [chat]
 motd = "\n########################################################\n\n[font size=17]This is a test server. You can play with the newest changes to the game, but these [color=red]changes may not be final or stable[/color], and may be reverted. Please report bugs via our GitHub, forum, or community Discord.[/font]\n\n########################################################\n"
+
+[debug]
+pow3r_disable_parallel = false

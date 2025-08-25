@@ -1,0 +1,35 @@
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# More or less just an access breaker which is a pen, has 4 extra charges, and does not regenerate charges.
+- type: entity
+  parent: [Pen, BaseSyndicateContraband]
+  id: DisruptorPenUnlimited
+  suffix: Unlimited
+  name: disruptor pen
+  description: A super-compact version of the authentication disruptor, made to fit inside the casing of a blood-red pen. Lacks the self-recharging battery of the original.
+  components:
+  - type: Emag
+    emagType: Access
+  - type: Sprite
+    sprite: Objects/Misc/pens.rsi
+    state: disruptor_pen
+  - type: Item
+    sprite: Objects/Misc/pens.rsi
+  - type: Tag
+    tags:
+    - Write
+    - Pen
+    - Hacking
+  - type: SignatureWriter
+    color: "#ab071f"
+
+- type: entity
+  parent: DisruptorPenUnlimited
+  id: DisruptorPen
+  suffix: Limited
+  components:
+  - type: LimitedCharges
+    charges: 10
+    maxCharges: 10

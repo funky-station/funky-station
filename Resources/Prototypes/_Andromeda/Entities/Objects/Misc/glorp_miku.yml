@@ -1,0 +1,9 @@
+- type: entity
+  parent: BaseItem
+  id: GlorpPerformancePlushie
+  name: Glorp Miku
+  description: Holy shit. A three-dimensional alien??
+  components:
+  - type: Sprite
+    sprite: _Andromeda/Objects/Misc/GlorpMiku.rsi
+    state: miku

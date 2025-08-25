@@ -1,3 +1,32 @@
+// SPDX-FileCopyrightText: 2020 Injazz <injazza@gmail.com>
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Kara D <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
+// SPDX-FileCopyrightText: 2021 py01 <60152240+collinlunn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reaction;
@@ -17,29 +46,33 @@ public sealed class ReactiveSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
-    public void DoEntityReaction(EntityUid uid, Solution solution, ReactionMethod method)
+    public void DoEntityReaction(EntityUid uid, Solution solution, ReactionMethod method, float scale = 1f) // Funky - allow reactives to specify scale
     {
         foreach (var reagent in solution.Contents.ToArray())
         {
-            ReactionEntity(uid, method, reagent, solution);
+            ReactionEntity(uid, method, reagent, solution, scale);
         }
     }
 
-    public void ReactionEntity(EntityUid uid, ReactionMethod method, ReagentQuantity reagentQuantity, Solution? source)
+    public void ReactionEntity(EntityUid uid, ReactionMethod method, ReagentQuantity reagentQuantity, Solution? source, float scale = 1f) // Funky - allow reactives to specify scale
     {
         // We throw if the reagent specified doesn't exist.
         var proto = _prototypeManager.Index<ReagentPrototype>(reagentQuantity.Reagent.Prototype);
-        ReactionEntity(uid, method, proto, reagentQuantity, source);
+        ReactionEntity(uid, method, proto, reagentQuantity, source, scale); // Funky - allow reactives to specify scale
     }
 
     public void ReactionEntity(EntityUid uid, ReactionMethod method, ReagentPrototype proto,
-        ReagentQuantity reagentQuantity, Solution? source)
+        ReagentQuantity reagentQuantity, Solution? source, float scale = 1f) // Funky - allow reactives to specify scale
     {
         if (!TryComp(uid, out ReactiveComponent? reactive))
             return;
 
+        // custom event for bypassing reactivecomponent stuff
+        var ev = new ReactionEntityEvent(method, proto, reagentQuantity, source);
+        RaiseLocalEvent(uid, ref ev);
+
         // If we have a source solution, use the reagent quantity we have left. Otherwise, use the reaction volume specified.
-        var args = new EntityEffectReagentArgs(uid, EntityManager, null, source, source?.GetReagentQuantity(reagentQuantity.Reagent) ?? reagentQuantity.Quantity, proto, method, 1f);
+        var args = new EntityEffectReagentArgs(uid, EntityManager, null, source, source?.GetReagentQuantity(reagentQuantity.Reagent) ?? reagentQuantity.Quantity, proto, method, scale); // Funky - allow reactives to specify scale
 
         // First, check if the reagent wants to apply any effects.
         if (proto.ReactiveEffects != null && reactive.ReactiveGroups != null)
@@ -107,3 +140,11 @@ Touch,
 Injection,
 Ingestion,
 }
+
+[ByRefEvent]
+public readonly record struct ReactionEntityEvent(
+    ReactionMethod Method,
+    ReagentPrototype Reagent,
+    ReagentQuantity ReagentQuantity,
+    Solution? Source
+);

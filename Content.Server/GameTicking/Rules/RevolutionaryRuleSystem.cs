@@ -1,3 +1,29 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2023 coolmankid12345 <55817627+coolmankid12345@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 coolmankid12345 <coolmankid12345@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 silver2127 <52584484+silver2127@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+// SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.EUI;
@@ -22,6 +48,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
+using Content.Shared.Popups;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Zombies;
@@ -74,6 +101,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         base.Initialize();
         SubscribeLocalEvent<CommandStaffComponent, MobStateChangedEvent>(OnCommandMobStateChanged);
         SubscribeLocalEvent<HeadRevolutionaryComponent, MobStateChangedEvent>(OnHeadRevMobStateChanged);
+        SubscribeLocalEvent<HeadRevolutionaryComponent, DeclareOpenRevoltEvent>(OnHeadRevDeclareOpenRevolt); //Funky Station
+
         SubscribeLocalEvent<RevolutionaryRuleComponent, AfterAntagEntitySelectedEvent>(AfterEntitySelected); // Funky Station
         SubscribeLocalEvent<RevolutionaryRoleComponent, GetBriefingEvent>(OnGetBriefing);
         SubscribeLocalEvent<HeadRevolutionaryComponent, AfterFlashedEvent>(OnPostFlash);
@@ -98,6 +127,11 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     /// <returns>true if uplink was successfully added.</returns>
     private bool MakeHeadRevolutionary(EntityUid traitor, RevolutionaryRuleComponent component)
     {
+        //Sync Open Revolt state effects to new Head Rev
+        if (component.OpenRevoltDeclared && TryComp<HeadRevolutionaryComponent>(traitor, out var headRevComp))
+            _revolutionarySystem.ToggleConvertGivesVision((traitor, headRevComp), true);
+
+        //Add Rev Uplink
         if (!_mind.TryGetMind(traitor, out var mindId, out var mind))
             return false;
 
@@ -180,6 +214,29 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                     textAnnounce: "revolutionaries-lose-announcement");
 
                 component.HasAnnouncementPlayed = true;
+            }
+
+            if (component.OpenRevoltAnnouncementPending)
+            {
+                //Build string for announcement
+                string headRevNameList = "";
+
+                var headRevs = AllEntityQuery<HeadRevolutionaryComponent, MobStateComponent>();
+                while (headRevs.MoveNext(out var headRev, out var headRevComp, out _))
+                {
+                    if (!TryComp<MetaDataComponent>(headRev, out var headRevData))
+                        continue;
+                    if (headRevNameList.Length > 0)
+                        headRevNameList += ", ";
+                    headRevNameList += headRevData.EntityName;
+                }
+
+                _chatSystem.DispatchGlobalAnnouncement(
+                        Loc.GetString("revolutionaries-open-revolt-announcement", ("nameList", headRevNameList)),
+                        Loc.GetString("revolutionaries-sender-cc"),
+                        colorOverride: Color.Red);
+                
+                component.OpenRevoltAnnouncementPending = false;
             }
         }
     }
@@ -281,6 +338,10 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         _npcFaction.AddFaction(ev.Target, RevolutionaryNpcFaction);
         var revComp = EnsureComp<RevolutionaryComponent>(ev.Target);
+
+        if (comp.ConvertGivesRevVision)
+            EnsureComp<ShowRevolutionaryIconsComponent>(ev.Target);
+
         _popup.PopupEntity(Loc.GetString("flash-component-user-head-rev",
             ("victim", Identity.Entity(ev.Target, EntityManager))), ev.Target);
 
@@ -362,6 +423,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             _npcFaction.RemoveFaction(uid, RevolutionaryNpcFaction);
             _stun.TryParalyze(uid, stunTime, true); // todo: use gamerule
             RemCompDeferred<RevolutionaryComponent>(uid);
+            RemCompDeferred<ShowRevolutionaryIconsComponent>(uid);
             _popup.PopupEntity(Loc.GetString("rev-break-control", ("name", Identity.Entity(uid, EntityManager))), uid);
             _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} was deconverted due to all Head Revolutionaries dying.");
 
@@ -479,6 +541,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         {
             ev.Cancelled = true;
             ev.CancelMessage = Loc.GetString("shuttle-dock-fail-revs");
+            DeclareOpenRevolt();
         }
     }
 
@@ -520,6 +583,43 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         }
 
         return gone == list.Count || list.Count == 0;
+    }
+
+    /// <summary>
+    /// Declares a state of Open Revolt. This allows all Revolutionaries to see each other, at the cost of announcing openly the names of the Head Revolutionaries
+    /// </summary>
+    private void DeclareOpenRevolt()
+    {
+        var query = QueryActiveRules();
+        while (query.MoveNext(out var uid, out _, out var revolutionaryRule, out _))
+        {
+            if (revolutionaryRule.OpenRevoltDeclared)
+                return;
+
+            revolutionaryRule.OpenRevoltDeclared = true;
+            //Queue announcement
+            revolutionaryRule.OpenRevoltAnnouncementPending = true;
+        }
+
+        var headRevs = AllEntityQuery<HeadRevolutionaryComponent, MobStateComponent>();
+        while (headRevs.MoveNext(out var uid, out var headRevComp, out _))
+        {
+            _revolutionarySystem.ToggleConvertGivesVision((uid, headRevComp), true);
+        }
+
+        //Make All Revs see each other's Rev status
+        var rev = AllEntityQuery<RevolutionaryComponent, MindContainerComponent>();
+        while (rev.MoveNext(out var uid, out _, out var mc))
+        {
+            EnsureComp<ShowRevolutionaryIconsComponent>(uid);
+            _popup.PopupEntity(Loc.GetString("revolutionaries-open-revolt-rev-popup"), uid, uid, PopupType.LargeCaution);
+        }
+    }
+
+    private void OnHeadRevDeclareOpenRevolt(EntityUid uid, HeadRevolutionaryComponent comp, DeclareOpenRevoltEvent args)
+    {
+        DeclareOpenRevolt();
+        args.Handled = true;
     }
 
     private static readonly string[] Outcomes =

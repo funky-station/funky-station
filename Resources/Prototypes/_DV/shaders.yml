@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+# hologram
+- type: shader
+  id: HologramDeltaV
+  kind: source
+  path: "/Textures/_DV/Shaders/hologram.swsl"
+  params:
+    textureHeight: 32
+    hue: 0.64
+
+- type: shader
+  id: SaturationShuffle
+  kind: source
+  path: "/Textures/_DV/Shaders/saturation_shuffle.swsl"
+  params:
+    tileSize: 32, 32
+    hsv: 1.0, 1.0, 1.0
+
+- type: shader
+  id: MonumentStars
+  kind: source
+  path: "/Textures/_DV/Shaders/monument_stars.swsl"
+
+- type: shader
+  id: MonumentPulse
+  kind: source
+  path: "/Textures/_DV/Shaders/monument_pulse.swsl"

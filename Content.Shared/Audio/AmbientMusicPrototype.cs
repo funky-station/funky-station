@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Random;
 using Content.Shared.Random.Rules;
 using Robust.Shared.Audio;
@@ -9,7 +18,7 @@ namespace Content.Shared.Audio;
 /// <summary>
 /// Attaches a rules prototype to sound files to play ambience.
 /// </summary>
-[Prototype("ambientMusic")]
+[Prototype]
 public sealed partial class AmbientMusicPrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = string.Empty;

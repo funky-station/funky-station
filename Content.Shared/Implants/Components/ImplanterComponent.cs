@@ -1,3 +1,17 @@
+// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 liltenhead <104418166+liltenhead@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.Whitelist;
@@ -50,7 +64,7 @@ public sealed partial class ImplanterComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
-    public float DrawTime = 60f;
+    public float DrawTime = 30f;
 
     /// <summary>
     /// Good for single-use injectors
@@ -90,13 +104,13 @@ public sealed partial class ImplanterComponent : Component
     public bool AllowDeimplantAll = false;
 
     /// <summary>
-    /// The subdermal implants that may be removed via this implanter
+    /// The subdermal implants that may be removed via this implanter.
     /// </summary>
     [DataField]
     public List<EntProtoId> DeimplantWhitelist = new();
 
     /// <summary>
-    /// The subdermal implants that may be removed via this implanter
+    /// The damage inflicted on a failed implant draw.
     /// </summary>
     [DataField]
     public DamageSpecifier DeimplantFailureDamage = new();
@@ -106,6 +120,12 @@ public sealed partial class ImplanterComponent : Component
     /// </summary>
     [AutoNetworkedField]
     public EntProtoId? DeimplantChosen = null;
+
+    /// <summary>
+    /// Whether or not drawing an implant deletes the implant.
+    /// </summary>
+    [DataField]
+    public bool DeimplantCrushes = false;
 
     public bool UiUpdateNeeded;
 }

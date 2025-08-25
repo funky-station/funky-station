@@ -1,13 +1,43 @@
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 Marat Gadzhiev <15rinkashikachi15@gmail.com>
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2023 Checkraze <71046427+Cheackraze@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Eoin Mcloughlin <helloworld@eoinrul.es>
+// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2023 eoineoineoin <eoin.mcloughlin+gh@gmail.com>
+// SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 Flesh <62557990+PolterTzi@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 blueDev2 <89804215+blueDev2@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 icekot8 <93311212+icekot8@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using System.Linq;
 using Content.Server.Cargo.Components;
-using Content.Shared.Stacks;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.BUI;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Events;
-using Content.Shared.GameTicking;
-using Robust.Shared.Map;
-using Robust.Shared.Random;
+using Content.Shared.Cargo.Prototypes;
+using JetBrains.Annotations;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Cargo.Systems;
 
@@ -28,12 +58,11 @@ public sealed partial class CargoSystem
         SubscribeLocalEvent<CargoPalletConsoleComponent, CargoPalletSellMessage>(OnPalletSale);
         SubscribeLocalEvent<CargoPalletConsoleComponent, CargoPalletAppraiseMessage>(OnPalletAppraise);
         SubscribeLocalEvent<CargoPalletConsoleComponent, BoundUIOpenedEvent>(OnPalletUIOpen);
-
-        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
     }
 
     #region Console
 
+    [PublicAPI]
     private void UpdateCargoShuttleConsoles(EntityUid shuttleUid, CargoShuttleComponent _)
     {
         // Update pilot consoles that are already open.
@@ -54,15 +83,18 @@ public sealed partial class CargoSystem
 
     private void UpdatePalletConsoleInterface(EntityUid uid)
     {
-        if (Transform(uid).GridUid is not EntityUid gridUid)
+        if (Transform(uid).GridUid is not { } gridUid)
         {
-            _uiSystem.SetUiState(uid, CargoPalletConsoleUiKey.Sale,
-            new CargoPalletConsoleInterfaceState(0, 0, false));
+            _uiSystem.SetUiState(uid,
+                CargoPalletConsoleUiKey.Sale,
+                new CargoPalletConsoleInterfaceState(0, 0, false));
             return;
         }
-        GetPalletGoods(gridUid, out var toSell, out var amount);
-        _uiSystem.SetUiState(uid, CargoPalletConsoleUiKey.Sale,
-            new CargoPalletConsoleInterfaceState((int) amount, toSell.Count, true));
+        GetPalletGoods(gridUid, out var toSell, out var goods);
+        var totalAmount = goods.Sum(t => t.Item3);
+        _uiSystem.SetUiState(uid,
+            CargoPalletConsoleUiKey.Sale,
+            new CargoPalletConsoleInterfaceState((int) totalAmount, toSell.Count, true));
     }
 
     private void OnPalletUIOpen(EntityUid uid, CargoPalletConsoleComponent component, BoundUIOpenedEvent args)
@@ -98,11 +130,15 @@ public sealed partial class CargoSystem
         var shuttleName = orderDatabase?.Shuttle != null ? MetaData(orderDatabase.Shuttle.Value).EntityName : string.Empty;
 
         if (_uiSystem.HasUi(uid, CargoConsoleUiKey.Shuttle))
-            _uiSystem.SetUiState(uid, CargoConsoleUiKey.Shuttle, new CargoShuttleConsoleBoundUserInterfaceState(
+        {
+            _uiSystem.SetUiState(uid,
+                CargoConsoleUiKey.Shuttle,
+                new CargoShuttleConsoleBoundUserInterfaceState(
                 station != null ? MetaData(station.Value).EntityName : Loc.GetString("cargo-shuttle-console-station-unknown"),
                 string.IsNullOrEmpty(shuttleName) ? Loc.GetString("cargo-shuttle-console-shuttle-not-found") : shuttleName,
                 orders
             ));
+        }
     }
 
     #endregion
@@ -132,9 +168,10 @@ public sealed partial class CargoSystem
             return orders;
 
         var spaceRemaining = GetCargoSpace(shuttleUid);
-        for (var i = 0; i < component.Orders.Count && spaceRemaining > 0; i++)
+        var allOrders = component.AllOrders.ToList();
+        for (var i = 0; i < allOrders.Count && spaceRemaining > 0; i++)
         {
-            var order = component.Orders[i];
+            var order = allOrders[i];
             if (order.Approved)
             {
                 var numToShip = order.OrderQuantity - order.NumDispatched;
@@ -142,8 +179,15 @@ public sealed partial class CargoSystem
                 {
                     // We won't be able to fit the whole order on, so make one
                     // which represents the space we do have left:
-                    var reducedOrder = new CargoOrderData(order.OrderId,
-                            order.ProductId, order.ProductName, order.Price, spaceRemaining, order.Requester, order.Reason);
+                    var reducedOrder = new CargoOrderData(
+                        order.OrderId,
+                        order.ProductId,
+                        order.ProductName,
+                        order.Price,
+                        spaceRemaining,
+                        order.Requester,
+                        order.Reason,
+                        order.Account);
                     orders.Add(reducedOrder);
                 }
                 else
@@ -219,15 +263,12 @@ public sealed partial class CargoSystem
 
     #region Station
 
-    private bool SellPallets(EntityUid gridUid, out double amount)
+    private bool SellPallets(EntityUid gridUid, out HashSet<(EntityUid, OverrideSellComponent?, double)> goods)
     {
-        GetPalletGoods(gridUid, out var toSell, out amount);
-
-        Log.Debug($"Cargo sold {toSell.Count} entities for {amount}");
+        GetPalletGoods(gridUid, out var toSell, out goods);
 
         if (toSell.Count == 0)
             return false;
-
 
         var ev = new EntitySoldEvent(toSell);
         RaiseLocalEvent(ref ev);
@@ -240,9 +281,9 @@ public sealed partial class CargoSystem
         return true;
     }
 
-    private void GetPalletGoods(EntityUid gridUid, out HashSet<EntityUid> toSell, out double amount)
+    private void GetPalletGoods(EntityUid gridUid, out HashSet<EntityUid> toSell,  out HashSet<(EntityUid, OverrideSellComponent?, double)> goods)
     {
-        amount = 0;
+        goods = new HashSet<(EntityUid, OverrideSellComponent?, double)>();
         toSell = new HashSet<EntityUid>();
 
         foreach (var (palletUid, _, _) in GetCargoPallets(gridUid, BuySellType.Sell))
@@ -250,7 +291,9 @@ public sealed partial class CargoSystem
             // Containers should already get the sell price of their children so can skip those.
             _setEnts.Clear();
 
-            _lookup.GetEntitiesIntersecting(palletUid, _setEnts,
+            _lookup.GetEntitiesIntersecting(
+                palletUid,
+                _setEnts,
                 LookupFlags.Dynamic | LookupFlags.Sundries);
 
             foreach (var ent in _setEnts)
@@ -273,7 +316,7 @@ public sealed partial class CargoSystem
                 if (price == 0)
                     continue;
                 toSell.Add(ent);
-                amount += price;
+                goods.Add((ent, CompOrNull<OverrideSellComponent>(ent), price));
             }
         }
     }
@@ -305,28 +348,49 @@ public sealed partial class CargoSystem
     {
         var xform = Transform(uid);
 
-        if (xform.GridUid is not EntityUid gridUid)
+        if (_station.GetOwningStation(uid) is not { } station ||
+            !TryComp<StationBankAccountComponent>(station, out var bankAccount))
         {
-            _uiSystem.SetUiState(uid, CargoPalletConsoleUiKey.Sale,
-            new CargoPalletConsoleInterfaceState(0, 0, false));
             return;
         }
 
-        if (!SellPallets(gridUid, out var price))
+        if (xform.GridUid is not { } gridUid)
+        {
+            _uiSystem.SetUiState(uid,
+                CargoPalletConsoleUiKey.Sale,
+                new CargoPalletConsoleInterfaceState(0, 0, false));
+            return;
+        }
+
+        if (!SellPallets(gridUid, out var goods))
             return;
 
-        var stackPrototype = _protoMan.Index<StackPrototype>(component.CashType);
-        _stack.Spawn((int) price, stackPrototype, xform.Coordinates);
+        var baseDistribution = CreateAccountDistribution((station, bankAccount));
+        foreach (var (_, sellComponent, value) in goods)
+        {
+            Dictionary<ProtoId<CargoAccountPrototype>, double> distribution;
+            if (sellComponent != null)
+            {
+                distribution = new Dictionary<ProtoId<CargoAccountPrototype>, double>()
+                {
+                    { sellComponent.OverrideAccount, bankAccount.PrimaryCut },
+                    { bankAccount.PrimaryAccount, 1.0 - bankAccount.PrimaryCut },
+                };
+            }
+            else
+            {
+                distribution = baseDistribution;
+            }
+
+            UpdateBankAccount((station, bankAccount), (int) Math.Round(value), distribution, false);
+        }
+
+        Dirty(station, bankAccount);
         _audio.PlayPvs(ApproveSound, uid);
         UpdatePalletConsoleInterface(uid);
     }
 
     #endregion
-
-    private void OnRoundRestart(RoundRestartCleanupEvent ev)
-    {
-        Reset();
-    }
 }
 
 /// <summary>

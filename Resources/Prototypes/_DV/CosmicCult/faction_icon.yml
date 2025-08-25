@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: factionIcon
+  id: CosmicCultIcon
+  isShaded: false
+  priority: 11
+  showTo:
+    components:
+      - CosmicCult
+      - CosmicAstralBody
+      - ShowAntagIcons
+      - RogueAscended
+  icon:
+    sprite: /Textures/_DV/CosmicCult/Icons/antag_icons.rsi
+    state: CosmicCult
+
+- type: factionIcon
+  id: CosmicCultLeadIcon
+  isShaded: false
+  priority: 11
+  showTo:
+    components:
+      - CosmicCult
+      - CosmicAstralBody
+      - ShowAntagIcons
+      - RogueAscended
+  icon:
+    sprite: /Textures/_DV/CosmicCult/Icons/antag_icons.rsi
+    state: CosmicCultLead

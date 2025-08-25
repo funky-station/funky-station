@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2025 GreyMario <mariomister541@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Popups;
@@ -5,12 +14,14 @@ using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Containers;
 
 public sealed class ThrowInsertContainerSystem : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -36,7 +47,12 @@ public sealed class ThrowInsertContainerSystem : EntitySystem
         if (beforeThrowArgs.Cancelled)
             return;
 
-        if (_random.Prob(ent.Comp.Probability))
+        // funkystation: roll twice if it's an "accurate" throw (the landing time is near current time) to increase hit chance
+        var hitThrow = _random.Prob(ent.Comp.Probability);
+        if (HasComp<ThrownItemComponent>(args.Thrown) && Comp<ThrownItemComponent>(args.Thrown).LandTime - _gameTiming.CurTime <= TimeSpan.FromSeconds(0.2))
+            hitThrow |= _random.Prob(ent.Comp.Probability);
+
+        if (!hitThrow)
         {
             _audio.PlayPvs(ent.Comp.MissSound, ent);
             _popup.PopupEntity(Loc.GetString(ent.Comp.MissLocString), ent);

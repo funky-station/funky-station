@@ -1,0 +1,35 @@
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: entity
+  parent: BaseGameRule
+  id: CosmicCult
+  components:
+  - type: CosmicCultRule
+  - type: GameRule
+    minPlayers: 25
+    delay:
+      min: 60
+      max: 120
+  - type: AntagObjectives
+    objectives:
+    - CosmicFinalityObjective
+    - CosmicMonumentObjective
+    - CosmicEntropyObjective
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ CosmicAntagCultist ]
+      min: 2
+      max: 6
+      playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
+        - BibleUser
+      components:
+      - type: CosmicCult
+      mindRoles:
+      - MindRoleCosmicCult

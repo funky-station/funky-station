@@ -1,0 +1,51 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseVendingMachineRestock
+  id: VendingMachineRestockNippon
+  name: Nippon-tan restock box
+  description: A box covered in white labels with bold blue Japanese characters, ready to be loaded into the nearest Nippon-tan vending machine.
+  components:
+  - type: VendingMachineRestock
+    canRestock:
+    - WeebVendInventory
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_bit
+      shader: unshaded
+    - state: refill_chinese
+
+- type: entity
+  parent: BaseVendingMachineRestock
+  id: VendingMachineRestockFitness
+  name: SweatMAX restock box
+  description: A box loaded with the snacks fit for champions.
+  components:
+  - type: VendingMachineRestock
+    canRestock:
+    - FitnessVendInventory
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_bit
+      shader: unshaded
+    - state: refill_snack
+
+- type: entity
+  parent: BaseVendingMachineRestock
+  id: VendingMachineRestockSol
+  name: Mars Mart restock box
+  description: A box loaded with the snacks that are out of this world!
+  components:
+  - type: VendingMachineRestock
+    canRestock:
+    - SolsnackInventory
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_bit
+      shader: unshaded
+    - state: refill_snack  

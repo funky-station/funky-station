@@ -1,4 +1,12 @@
-﻿using System.Diagnostics.CodeAnalysis;
+// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.AlertLevel;
 using Content.Server.Antag;
@@ -112,18 +120,6 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
         Resolve(stationUid, ref stationUid.Comp, false);
 
         var stationName = Name(stationUid);
-
-        if (blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin)
-            && _roundEndSystem.ExpectedCountdownEnd != null)
-        {
-            _roundEndSystem.CancelRoundEndCountdown(checkCooldown: false);
-            _chatSystem.DispatchStationAnnouncement(stationUid,
-                Loc.GetString("blob-alert-recall-shuttle"),
-                Loc.GetString("Station"),
-                false,
-                null,
-                Color.Red);
-        }
 
         switch (blobRuleComp.Stage)
         {

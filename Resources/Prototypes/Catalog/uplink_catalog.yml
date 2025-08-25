@@ -2439,10 +2439,10 @@
   saleLimit: 1 # WD EDIT
 
 - type: listing
-  id: uplinkSteelChairFoldingSpawnFolded
-  name: uplink-steel-chair-folding-spawn-folded-name
-  description: uplink-steel-chair-folding-spawn-folded-desc
-  productEntity: SteelChairFoldingSpawnFolded
+  id: uplinkChairFoldingSpawnFoldedSteel
+  name: uplink-chair-folding-spawn-folded-steel-name
+  description: uplink-chair-folding-spawn-folded-steel-desc
+  productEntity: ChairFoldingSpawnFoldedSteel
   cost:
     Telecrystal: 30
   categories:

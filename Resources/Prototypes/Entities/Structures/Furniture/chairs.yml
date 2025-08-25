@@ -440,6 +440,48 @@
     enabled: False
 
 - type: entity
+  parent: [SeatBase, BaseDeployFoldable]
+  id: SteelChairFolding
+  name: steel folding chair
+  description: Can be used for sitting. More often used for bashing people's heads in.
+  components:
+  - type: Rotatable
+  - type: Sprite
+    sprite: Structures/Furniture/steel_folding_chair.rsi
+    layers:
+    - state: steel_folding
+      map: ["unfoldedLayer"]
+    - state: folding_folded
+      map: ["foldedLayer"]
+      visible: false
+  - type: Item
+    size: Huge
+  - type: Appearance
+  - type: MeleeWeapon
+    wideAnimationRotation: 270
+    damage:
+      types:
+        Blunt: 15
+    soundHit:
+      collection: MetalThud
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 15
+  - type: DamageExaminable
+
+- type: entity
+  parent: SteelChairFolding
+  id: SteelChairFoldingSpawnFolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+  - type: Strap
+    enabled: False
+
+- type: entity
   name: steel bench
   id: SteelBench
   parent: ChairBase

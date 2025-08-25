@@ -524,6 +524,9 @@ uplink-syndicate-segway-crate-desc = Be an enemy of the corporation, in style!
 uplink-syndicate-sponge-box-name = Syndicate Sponge Box
 uplink-syndicate-sponge-box-desc = A box containing 6 syndicate sponges disguised as monkey cubes, these cubes turn into a variety of angry wildlife after coming into contact with water.
 
+uplink-steel-chair-folding-spawn-folded-name = Steel Folding Chair
+uplink-steel-chair-folding-spawn-folded-desc = A reinforced folding chair. Guaranteed to send an opponent straight to their corner - or the morgue.
+
 uplink-syndicate-dinocube-box-name = Syndicate Dino Box
 uplink-syndicate-dinocube-box-desc = A box containing 6 random compacted dinosaurs, these cubes turn into a variety of angry prehistoric wildlife after coming into contact with water.
 

@@ -2439,6 +2439,25 @@
   saleLimit: 1 # WD EDIT
 
 - type: listing
+  id: uplinkSteelChairFoldingSpawnFolded
+  name: uplink-steel-chair-folding-spawn-folded-name
+  description: uplink-steel-chair-folding-spawn-folded-desc
+  productEntity: SteelChairFoldingSpawnFolded
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Boxer
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  saleLimit: 1
+
+- type: listing
   id: UplinkCaneBlade
   name: uplink-cane-blade-name
   description: uplink-cane-blade-desc

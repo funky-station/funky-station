@@ -122,7 +122,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: FireResistance
-    damageCoefficient: 0.8
+    damageCoefficient: 0.1
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7

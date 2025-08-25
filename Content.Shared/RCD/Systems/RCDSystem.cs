@@ -11,17 +11,17 @@
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Administration.Logs;
 using Content.Shared.Charges.Components;
@@ -51,6 +51,9 @@ using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.FixedPoint;
+using Content.Shared.Atmos.Components;
+using Content.Shared.Atmos.EntitySystems;
+using System.Numerics;
 
 namespace Content.Shared.RCD.Systems;
 
@@ -73,12 +76,16 @@ public class RCDSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly TagSystem _tags = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly SharedAtmosPipeLayersSystem _pipeLayersSystem = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     private readonly int _instantConstructionDelay = 0;
     private readonly EntProtoId _instantConstructionFx = "EffectRCDConstruct0";
     private readonly ProtoId<RCDPrototype> _deconstructTileProto = "DeconstructTile";
     private readonly ProtoId<RCDPrototype> _deconstructLatticeProto = "DeconstructLattice";
     private static readonly ProtoId<TagPrototype> CatwalkTag = "Catwalk";
+    private AtmosPipeLayer _currentLayer = AtmosPipeLayer.Primary; // Funky - Current layer for RPD
 
     private HashSet<EntityUid> _intersectingEntities = new();
 
@@ -92,7 +99,9 @@ public class RCDSystem : EntitySystem
         SubscribeLocalEvent<RCDComponent, RCDDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<RCDComponent, DoAfterAttemptEvent<RCDDoAfterEvent>>(OnDoAfterAttempt);
         SubscribeLocalEvent<RCDComponent, RCDSystemMessage>(OnRCDSystemMessage);
-        SubscribeLocalEvent<RCDComponent, RCDColorChangeMessage>(OnColorChange);
+        SubscribeLocalEvent<RCDComponent, RCDColorChangeMessage>(OnColorChange); // Funkystation - Handle rpd color changes
+
+        SubscribeNetworkEvent<RPDEyeRotationEvent>(OnRPDEyeRotationEvent);
         SubscribeNetworkEvent<RCDConstructionGhostRotationEvent>(OnRCDconstructionGhostRotationEvent);
         SubscribeNetworkEvent<RCDConstructionGhostFlipEvent>(OnRCDConstructionGhostFlipEvent);
 
@@ -116,6 +125,7 @@ public class RCDSystem : EntitySystem
         QueueDel(uid);
     }
 
+    // Funkystation - Handle rpd color changes
     private void OnColorChange(Entity<RCDComponent> entity, ref RCDColorChangeMessage args)
     {
         entity.Comp.PipeColor = args.PipeColor;
@@ -178,6 +188,29 @@ public class RCDSystem : EntitySystem
             _popup.PopupClient(Loc.GetString("rcd-component-no-valid-grid"), uid, user);
             return;
         }
+
+        // Funky - Update prototype for RPD based on last selected layer
+        // calculate the layer based on the mouse click location and player rotation
+        if (component.IsRpd && !component.CachedPrototype.NoLayers)
+        {
+            var tileRef = _mapSystem.GetTileRef(mapGridData.Value.GridUid, mapGridData.Value.Component, mapGridData.Value.Location);
+            var tileSize = mapGridData.Value.Component.TileSize;
+            var tileCenter = new Vector2(tileRef.X + tileSize / 2, tileRef.Y + tileSize / 2);
+            var mouseCoordsDiff = args.ClickLocation.Position - tileCenter - new Vector2(0.5f, 0.5f);
+            var mouseDeadzoneRadius = 0.25f;
+
+            _currentLayer = AtmosPipeLayer.Primary;
+
+            if (mouseCoordsDiff.Length() > mouseDeadzoneRadius && component.LastKnownEyeRotation.HasValue)
+            {
+                var gridRotation = _transformSystem.GetWorldRotation(mapGridData.Value.GridUid);
+                var angle = new Angle(mouseCoordsDiff);
+                var eyeRotation = new Angle(component.LastKnownEyeRotation.Value);
+                var direction = (angle + eyeRotation + gridRotation + Math.PI / 2).GetCardinalDir();
+                _currentLayer = (direction == Direction.North || direction == Direction.East) ? AtmosPipeLayer.Secondary : AtmosPipeLayer.Tertiary;
+            }
+        }
+        // Funky - end of changes
 
         if (!IsRCDOperationStillValid(uid, component, mapGridData.Value, args.Target, args.User))
             return;
@@ -355,6 +388,27 @@ public class RCDSystem : EntitySystem
         // Update the construction direction
         rcd.UseMirrorPrototype = ev.UseMirrorPrototype;
         Dirty(uid, rcd);
+    }
+
+    // Funky - Very dumb was of getting player rotation for pipe layer selection
+    private void OnRPDEyeRotationEvent(RPDEyeRotationEvent ev, EntitySessionEventArgs session)
+    {
+        var uid = GetEntity(ev.NetEntity);
+
+        if (session.SenderSession.AttachedEntity is not { } player)
+            return;
+
+        if (!TryComp<HandsComponent>(player, out var hands) || uid != hands.ActiveHand?.HeldEntity)
+            return;
+
+        if (!TryComp<RCDComponent>(uid, out var rcd))
+            return;
+
+        // Update the layer if different
+        if (rcd.LastKnownEyeRotation != ev.EyeRotation)
+        {
+            rcd.LastKnownEyeRotation = ev.EyeRotation;
+        }
     }
 
 
@@ -594,12 +648,40 @@ public class RCDSystem : EntitySystem
                 break;
 
             case RcdMode.ConstructObject:
-                var proto = (component.UseMirrorPrototype &&
-                    !string.IsNullOrEmpty(component.CachedPrototype.MirrorPrototype))
+                var proto = (component.UseMirrorPrototype && !string.IsNullOrEmpty(component.CachedPrototype.MirrorPrototype))
                     ? component.CachedPrototype.MirrorPrototype
                     : component.CachedPrototype.Prototype;
 
-                var ent = Spawn(proto, _mapSystem.GridTileToLocal(mapGridData.GridUid, mapGridData.Component, mapGridData.Position));
+                // Funky - Determine the correct prototype based on selected layer for RPD
+                if (component.IsRpd && !component.CachedPrototype.NoLayers)
+                {
+                    if (_protoManager.TryIndex<EntityPrototype>(proto, out var entityProto) &&
+                        entityProto.TryGetComponent<AtmosPipeLayersComponent>(out var atmosPipeLayers, _entityManager.ComponentFactory) &&
+                        _pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, _currentLayer, out var newProtoId))
+                    {
+                        proto = newProtoId;
+                    }
+                }
+                // Funky - end of changes
+
+                // Funky - Calculate rotation and apply it before spawning
+                var rotation = component.CachedPrototype.Rotation switch
+                {
+                    RcdRotation.Fixed => Angle.Zero,
+                    RcdRotation.Camera => Transform(uid).LocalRotation,
+                    RcdRotation.User => direction.ToAngle(),
+                    _ => Angle.Zero // Fallback
+                };
+
+                // Convert EntityCoordinates to MapCoordinates
+                var entityCoords = _mapSystem.GridTileToLocal(mapGridData.GridUid, mapGridData.Component, mapGridData.Position);
+                var mapCoords = new MapCoordinates(entityCoords.ToMapPos(EntityManager, _transformSystem), entityCoords.GetMapId(EntityManager));
+                var ent = Spawn(proto, mapCoords, rotation: rotation);
+                // End of funky changes
+
+                // Funky - handled above
+                // var ent = Spawn(proto, _mapSystem.GridTileToLocal(mapGridData.GridUid, mapGridData.Component, mapGridData.Position));
+
 
                 // Apply color if the entity has PipeColorVisualsComponent and PipeColor is not "default"
                 if (component.PipeColor.Key != "default" && component.PipeColor.Color != null)
@@ -607,18 +689,19 @@ public class RCDSystem : EntitySystem
                     _appearanceSystem.SetData(ent, Atmos.Piping.PipeColorVisuals.Color, component.PipeColor.Color.Value);
                 }
 
-                switch (component.CachedPrototype.Rotation)
-                {
-                    case RcdRotation.Fixed:
-                        Transform(ent).LocalRotation = Angle.Zero;
-                        break;
-                    case RcdRotation.Camera:
-                        Transform(ent).LocalRotation = Transform(uid).LocalRotation;
-                        break;
-                    case RcdRotation.User:
-                        Transform(ent).LocalRotation = direction.ToAngle();
-                        break;
-                }
+                // Funky - handled above
+                // switch (component.CachedPrototype.Rotation)
+                // {
+                //     case RcdRotation.Fixed:
+                //         Transform(ent).LocalRotation = Angle.Zero;
+                //         break;
+                //     case RcdRotation.Camera:
+                //         Transform(ent).LocalRotation = Transform(uid).LocalRotation;
+                //         break;
+                //     case RcdRotation.User:
+                //         Transform(ent).LocalRotation = direction.ToAngle();
+                //         break;
+                // }
 
                 _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RCD to spawn {ToPrettyString(ent)} at {mapGridData.Position} on grid {mapGridData.GridUid}");
                 break;

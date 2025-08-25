@@ -34,6 +34,7 @@
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 jellygato <aly.jellygato@gmail.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -145,6 +146,7 @@
         amount: 1
       - id: Gauze
       - id: EmergencyMedipen #You never know what people are going to latejoin into
+      - id: HandheldHealthAnalyzer #funky
 
 - type: entity
   id: ClothingBeltMedicalEMTFilled
@@ -159,6 +161,7 @@
       - id: Gauze
       - id: EmergencyMedipen
       - id: ParamedHypo
+      - id: HandheldHealthAnalyzer #funky
 
 - type: entity
   id: ClothingBeltPlantFilled

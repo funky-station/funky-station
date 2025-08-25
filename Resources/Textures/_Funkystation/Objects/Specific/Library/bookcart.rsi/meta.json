@@ -8,7 +8,7 @@
   },
   "states": [
     {
-      "name": "bookcart",
+      "name": "cart",
       "directions": 4
     }
   ]

@@ -4,10 +4,9 @@
   parent: [BaseStructureDynamic, StructureWheeled]
   description: A library on wheels.
   components:
-    - type: Item
-      size: Ginormous
     - type: Sprite
-      sprite: _Funkystation\Objects\Specific\Library\bookcart.rsi
+      noRot: true
+      sprite: _Funkystation/Objects/Specific/Library/bookcart.rsi
       layers:
-      - state: bookcart
+      - state: cart
 

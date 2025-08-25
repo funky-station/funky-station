@@ -85,6 +85,7 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
+# SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
@@ -1062,7 +1063,7 @@
 
 - type: entity
   parent: BaseSecurityPDA
-  id: CentcomPDA
+  id: BaseCentcomPDA
   name: CentComm PDA
   description: Light green sign of walking bureaucracy.
   components:
@@ -1090,6 +1091,36 @@
       - NotekeeperCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
+
+- type: entity
+  parent: BaseCentcomPDA
+  id: CentcomOfficialPDA
+  name: CentComm Officials PDA
+  description: Light green sign of walking authoritative bureaucracy.
+  components:
+  - type: Pda
+    id: CentcomIDCard
+    penSlot:
+      startingItem: PenCentcom
+      whitelist:
+        tags:
+        - Write
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-centcom
+  - type: PdaBorderColor
+    borderColor: "#b8ac04"
+  - type: Icon
+    state: pda-centcom
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NanoTaskCartridge
+      - NewsReaderCartridge
       - MedTekCartridge
       - WantedListCartridge
       - LogProbeCartridge
@@ -1098,7 +1129,7 @@
       - SOSCartridge # Imp
 
 - type: entity
-  parent: CentcomPDA
+  parent: CentcomOfficialPDA
   id: AdminPDA
   name: Admin PDA
   suffix: Admin
@@ -1130,7 +1161,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: CentcomPDA
+  parent: CentcomOfficialPDA
   id: DeathsquadPDA
   suffix: Death Squad
   components:

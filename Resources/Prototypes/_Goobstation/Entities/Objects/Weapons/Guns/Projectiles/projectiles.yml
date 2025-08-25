@@ -45,7 +45,7 @@
     layers:
     - state: icon
       shader: unshaded
-  - type: GatheringProjectile
+   # - type: GatheringProjectile
     amount: 40
   - type: Projectile
     deleteOnCollide: false

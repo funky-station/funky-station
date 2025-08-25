@@ -42,7 +42,7 @@
       task: SimpleHostileCompound
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - Dragon # Funky station, so space fauna dont just kill one another when spawned in
   - type: Sprite
     drawdepth: Mobs
     layers:

@@ -31,8 +31,8 @@
 - type: entity
   id: Recycler
   parent: BaseMachinePowered
-  name: recycler
-  description: A large crushing machine used to recycle small items inefficiently. There are lights on the side.
+  name: Material Processor
+  description: A large crushing machine used to refine raw materials. 
   components:
   - type: AmbientSound
     enabled: false

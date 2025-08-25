@@ -31,8 +31,8 @@
   description: Notched to perfection, for jamming it into rocks.
   components:
   - type: Tag
-    tags:
-    - Pickaxe
+ #  tags:
+ #   - Pickaxe
   - type: Sprite
     sprite: Objects/Weapons/Melee/pickaxe.rsi
     state: pickaxe
@@ -52,7 +52,7 @@
       groups:
         Brute: 10
       types:
-        Structural: 30
+        Structural: 15
   - type: Item
     size: Normal
     shape:
@@ -71,8 +71,8 @@
   - type: Item
     storedRotation: -90
   - type: Tag
-    tags:
-    - Pickaxe
+  #  tags:
+  #  - Pickaxe
   - type: Sprite
     sprite: Objects/Tools/handdrill.rsi
     state: handdrill
@@ -131,8 +131,8 @@
   id: WeaponCrusher
   components:
   - type: Tag
-    tags:
-      - Pickaxe
+   # tags:
+   #   - Pickaxe
   - type: Sprite
     sprite: Objects/Weapons/Melee/crusher.rsi
     state: icon
@@ -152,7 +152,7 @@
   - type: LeechOnMarker
     leech:
       groups:
-        Brute: -10
+        Brute: -15
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
@@ -238,7 +238,7 @@
   - type: LeechOnMarker
     leech:
       groups:
-        Brute: -21
+        Brute: -15
   - type: MeleeWeapon
   - type: Tag
     tags:

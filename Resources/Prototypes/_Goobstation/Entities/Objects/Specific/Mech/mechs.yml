@@ -150,6 +150,11 @@
     - DoorBumpOpener
     - FootstepSound
     - Clarke
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    color: "#ffeead"
+    enabled: false
+    radius: 8
 
 - type: entity
   id: MechClarkeBattery

@@ -735,7 +735,7 @@
     - AutolatheMachineCircuitboard
     - CircuitImprinterMachineCircuitboard
     - BiogeneratorMachineCircuitboard
-    - OreProcessorMachineCircuitboard
+   # - OreProcessorMachineCircuitboard #Funky Station 
     - ElectrolysisUnitMachineCircuitboard
     - CentrifugeMachineCircuitboard
     - ChemDispenserMachineCircuitboard
@@ -791,7 +791,7 @@
     - CloningConsoleComputerCircuitboard
     - StasisBedMachineCircuitboard
     - AutodocCircuitboard # Shitmed
-    - OreProcessorIndustrialMachineCircuitboard
+    # - OreProcessorIndustrialMachineCircuitboard #Funky Station
     - CargoTelepadMachineCircuitboard
     - RipleyCentralElectronics
     - RipleyPeripheralsElectronics
@@ -1680,6 +1680,7 @@
 - type: entity
   parent: BaseLathe
   id: OreProcessor
+  suffix: DO NOT MAP, OBSOLETE
   name: ore processor
   description: It produces sheets and ingots using ores.
   components:
@@ -1722,6 +1723,7 @@
 - type: entity
   parent: OreProcessor
   id: OreProcessorIndustrial
+  suffix: DO NOT MAP, OBSOLETE
   name: industrial ore processor
   description: An ore processor specifically designed for mass-producing metals in industrial applications.
   components:

@@ -451,7 +451,7 @@
     layers:
     - state: steel_folding
       map: ["unfoldedLayer"]
-    - state: folding_folded
+    - state: steel_folding_folded
       map: ["foldedLayer"]
       visible: false
   - type: Item

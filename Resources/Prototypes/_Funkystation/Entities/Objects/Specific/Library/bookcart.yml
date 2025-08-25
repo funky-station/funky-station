@@ -9,4 +9,46 @@
       sprite: _Funkystation/Objects/Specific/Library/bookcart.rsi
       layers:
       - state: cart
+      - state: book-0
+      - map: [ "enum.StorageFillLayers.Fill" ]
+    - type: Appearance
+    - type: StorageFillVisualizer
+      maxFillLevels: 16
+      fillBaseName: book
+    - type: Storage
+      grid:
+        - 0,0,4,5
+      maxItemSize: Normal
+      whitelist:
+        tags:
+          - Book
+          - Spellbook
+    - type: UserInterface
+      interfaces:
+        enum.StorageUiKey.Key:
+          type: StorageBoundUserInterface
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+    - type: Rotatable
+    - type: InteractionOutline
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.3
+          density: 250
+          layer:
+          - TableLayer
+          mask:
+          - TableMask
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Metallic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 400
 

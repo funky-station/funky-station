@@ -27,7 +27,7 @@
       size: Ginormous
     - type: Storage
       grid:
-      - 0,0,7,3
+      - 0,0,3,3
       quickInsert: true
       areaInsert: true
       whitelist:

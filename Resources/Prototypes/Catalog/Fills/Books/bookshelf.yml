@@ -43,7 +43,7 @@
     # Handwritten books
     - !type:GroupSelector
       rolls: !type:RangeNumberSelector
-        range: 0, 2
+        range: 2, 20
       children:
       - id: BookAurora
       - id: BookCafe

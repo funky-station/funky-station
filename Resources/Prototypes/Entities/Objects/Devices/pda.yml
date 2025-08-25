@@ -1451,6 +1451,7 @@
     - WantedListCartridge
     #- MedTekCartridge #funky - medtek removal
     - NanoChatCartridge # DeltaV
+    - SOSCartridge # Imp
 
 - type: entity
   parent: ClownPDA

@@ -1058,6 +1058,7 @@
     state: pda-centcom
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
+    diskSpace: 10 # DeltaV
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge

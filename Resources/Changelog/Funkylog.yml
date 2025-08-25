@@ -4286,3 +4286,9 @@ Entries:
       message: Added stethoscopes to every medical loadout.
   id: 513
   time: '2025-08-25T23:38:30.0000000+00:00'
+- author: empty0set
+  changes:
+    - type: Fix
+      message: Ninjas can no longer spawn as IPCs
+  id: 514
+  time: '2025-08-25T23:41:34.0000000+00:00'

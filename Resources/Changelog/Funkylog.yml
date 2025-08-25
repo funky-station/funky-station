@@ -4161,3 +4161,98 @@ Entries:
       message: Fixed chameleon vest + allowed it to mimic medium armors
   id: 500
   time: '2025-08-18T21:53:13.0000000+00:00'
+- author: AtlasHDD
+  changes:
+    - type: Add
+      message: >-
+        Added purchaseable HEV equipment crate. Added armor examine message to
+        HEV and CE hardsuits showing they are immune to supermatter ashing.
+    - type: Tweak
+      message: Standardized HEV suit and helmet names/descriptions and fixed typos.
+  id: 501
+  time: '2025-08-21T21:37:41.0000000+00:00'
+- author: Tropica1Owl
+  changes:
+    - type: Tweak
+      message: >-
+        Botanists are now supplied with plant analyzers at the start of the
+        shift.
+  id: 502
+  time: '2025-08-21T21:46:41.0000000+00:00'
+- author: Currot
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Cosmic Cultists retaining the Astral Murmur after being
+        deconverted.
+  id: 503
+  time: '2025-08-21T23:11:55.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: Lots of fixes and changes on Glacier.
+  id: 504
+  time: '2025-08-22T01:00:44.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        Lowered the price of the Mind Control Implant to 30 TC. This is on par
+        with the Reinforcement Radio in cost, and down from the prior 50 TC.
+    - type: Tweak
+      message: >-
+        It now takes 8 seconds to break yourself out of Makeshift Handcuffs, up
+        from 3.
+    - type: Tweak
+      message: >-
+        Makeshift Handcuffs now cost 10 LV cables, instead of the prior 15 LV
+        cables. This means you can make 3 sets of cuffs per Cable stack, instead
+        of 2.
+    - type: Tweak
+      message: >-
+        The craftable Stun Prod now can be swung 5 times before it runs out of
+        charge, down from 3. This allows it to be used to stun Hardsuit wearers
+        again with enough swings, as well as requiring less precision to
+        successfully stun someone in general.
+  id: 505
+  time: '2025-08-22T01:02:19.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Remove
+      message: Removed BSO from Roid
+    - type: Fix
+      message: >-
+        Fixed Roid Sci to have an arit round start and fixing missing pipes
+        under the door
+    - type: Tweak
+      message: Reworked all Roid Radiators near atmos
+  id: 506
+  time: '2025-08-22T01:36:31.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: A number of changes and fixes for Elkridge
+  id: 507
+  time: '2025-08-22T01:47:32.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Cargo Techfab added to Bagel Cargo Bay
+    - type: Add
+      message: 'Cap ID to Bagel Caps bedroom '
+    - type: Remove
+      message: BSO is Kill on Bagel
+  id: 508
+  time: '2025-08-22T04:01:21.0000000+00:00'
+- author: TheSecondLord
+  changes:
+    - type: Fix
+      message: Fixed observer light not working
+  id: 509
+  time: '2025-08-22T18:14:30.0000000+00:00'
+- author: spanky-spanky
+  changes:
+    - type: Add
+      message: Ported map Eclipse Starport by Lachryphage.
+  id: 510
+  time: '2025-08-23T00:29:59.0000000+00:00'

@@ -52,6 +52,7 @@
 # SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2024 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Neoncamouflage <neoncamouflage@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
@@ -432,6 +433,48 @@
 - type: entity
   parent: ChairFolding
   id: ChairFoldingSpawnFolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+  - type: Strap
+    enabled: False
+
+- type: entity
+  parent: [SeatBase, BaseDeployFoldable]
+  id: ChairFoldingSteel
+  name: folding chair
+  description: If you carry six of these you become the coolest kid at church.
+  components:
+  - type: Rotatable
+  - type: Sprite
+    sprite: Structures/Furniture/folding_chair.rsi
+    layers:
+    - state: folding
+      map: ["unfoldedLayer"]
+    - state: folding_folded
+      map: ["foldedLayer"]
+      visible: false
+  - type: Item
+    size: Huge
+  - type: Appearance
+  - type: MeleeWeapon
+    wideAnimationRotation: 270
+    damage:
+      types:
+        Blunt: 9
+    soundHit:
+      collection: MetalThud
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 9
+  - type: DamageExaminable
+
+- type: entity
+  parent: ChairFoldingSteel
+  id: ChairFoldingSpawnFoldedSteel
   suffix: folded
   components:
   - type: Foldable

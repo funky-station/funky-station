@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 mqole <113324899+mqole@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Threading.Channels;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared._DV.NanoChat;

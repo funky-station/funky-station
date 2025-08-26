@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: FoodRandomDonkpocket
+  icon:
+    sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
+    state: plain
+  product: CrateFoodRandomDonkPocket
+  cost: 1500
+  category: cargoproduct-category-name-food
+  group: market

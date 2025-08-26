@@ -39,6 +39,10 @@
       - state: base
       - state: book-0
       - map: ["enum.StorageFillLayers.Fill"]
+      - state: paper
+        visible: false
+        map: [ "enum.PaperLabelVisuals.Layer" ]
+        sprite: Structures/Furniture/bookshelf.rsi
   - type: Appearance
   - type: StorageFillVisualizer
     maxFillLevels: 21

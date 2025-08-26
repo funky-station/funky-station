@@ -4292,3 +4292,11 @@ Entries:
       message: Ninjas can no longer spawn as IPCs
   id: 514
   time: '2025-08-25T23:41:34.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Tweak
+      message: >-
+        medical personnel no longer have innate speedy surgery, now it's tied to
+        nitrile & latex gloves!
+  id: 515
+  time: '2025-08-26T01:46:06.0000000+00:00'

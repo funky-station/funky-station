@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Dragon232347 <122056448+Dragon232347@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -26,8 +28,25 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
   - type: BallisticAmmoProvider
-    capacity: 4
+    capacity: 7
     proto: CartridgeLightRifleSilver
     whitelist:
       tags:
       - CartridgeLightRifle
+  - type: PumpAction
+    sound:
+      path: /Audio/_RMC14/Weapons/Guns/Pump/gun_boomslang_lever.ogg
+
+- type: entity
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, BaseChaplainContraband]
+  id: ClothingOuterDusterCoat
+  name: duster trench coat
+  description: An 18th-century duster trench coat, emblazoned with religious imagery
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/annabellecoat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/annabellecoat.rsi
+  - type: StorageFill
+    contents:
+    - id: MagazineBoxLightRifleSilver

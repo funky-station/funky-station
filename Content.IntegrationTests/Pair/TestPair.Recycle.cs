@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 Jen Pollock <jen@jenpollock.ca>
 // SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -11,6 +12,7 @@
 #nullable enable
 using System.IO;
 using System.Linq;
+using Content.Client.Lobby;
 using Content.Server.GameTicking;
 using Content.Server.Preferences.Managers;
 using Content.Shared.CCVar;
@@ -100,26 +102,27 @@ public sealed partial class TestPair : IAsyncDisposable
     {
         if (Player == null)
             return;
-        await Server.WaitIdleAsync();
-        var prefMan = Server.ResolveDependency<IServerPreferencesManager>();
 
-        var prefs = prefMan.GetPreferences(Player.UserId);
+        await ReallyBeIdle();
 
-        foreach(var slot in prefs.Characters.Keys)
+        // reset through the client so that the client's cached preferences get updated
+        var prefMan = Client.ResolveDependency<IClientPreferencesManager>();
+        var prefs = prefMan.Preferences;
+
+        await Client.WaitAssertion(() =>
         {
-            if (slot == 0)
-                continue;
-            await Server.WaitPost(() =>
+            foreach (var slot in prefs!.Characters.Keys)
             {
-                prefMan.DeleteProfile(Player.UserId, slot).Wait();
-            });
-        }
+                if (slot == 0)
+                    continue;
+                prefMan.DeleteCharacter(slot);
+            }
 
-        await Server.WaitPost(() =>
-        {
-            prefMan.SetProfile(Player.UserId, 0, new HumanoidCharacterProfile().AsEnabled()).Wait();
-            prefMan.SetJobPriorities(Player.UserId, new () { { SharedGameTicker.FallbackOverflowJob, JobPriority.High } }).Wait();
+            prefMan.UpdateCharacter(new HumanoidCharacterProfile().AsEnabled(), 0);
+            prefMan.UpdateJobPriorities(new() { { SharedGameTicker.FallbackOverflowJob, JobPriority.High } });
         });
+
+        await ReallyBeIdle();
     }
 
     public async ValueTask CleanReturnAsync()

@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 Do You Like Beans <bowenjonathan407@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -54,7 +55,7 @@
   lowerBound: !type:AlarmThresholdSetting
     threshold: 0.10
   upperBound: !type:AlarmThresholdSetting
-    threshold: 0.3
+    threshold: 0.34
   lowerWarnAround: !type:AlarmThresholdSetting
     threshold: 1.5
   upperWarnAround: !type:AlarmThresholdSetting

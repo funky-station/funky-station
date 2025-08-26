@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: FlashlightLantern
+  id: EmpFlashlightUnlimited
+  suffix: Debug, EMP
+  components:
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    damage:
+      types:
+        Blunt: 1
+    angle: 0
+    animation: WeaponArcThrust
+  - type: EmpWeapon
+    requiresCharges: false
+
+- type: entity
+  parent: FlashlightLantern
+  id: EmpFlashlight
+  suffix: Syndicate, EMP
+  components:
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    damage:
+      types:
+        Blunt: 1
+    angle: 0
+    animation: WeaponArcThrust
+  - type: EmpWeapon
+    requiresCharges: true
+  - type: LimitedCharges
+    maxCharges: 3
+    charges: 3
+  - type: AutoRecharge
+    rechargeDuration: 50

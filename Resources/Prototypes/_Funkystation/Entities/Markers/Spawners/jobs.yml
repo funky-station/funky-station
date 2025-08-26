@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -5,6 +6,15 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 # Command
+
+- type: entity
+  id: SpawnPointGhostRoleJob
+  parent: MarkerBase
+  components:
+  - type: SpawnPoint
+    spawn_type: GhostJob
+  - type: Sprite
+    sprite: Markers/jobs.rsi
 
 - type: entity
   id: SpawnPointInternalAffairsAgent
@@ -31,3 +41,25 @@
     layers:
     - state: green
     - state: centcom
+
+## CentComm GhostRole Jobs
+- type: entity
+  id: SpawnPointGhostCentCommIntern
+  name: ghost role spawn point
+  suffix: central command intern
+  parent: SpawnPointGhostRoleJob
+  components:
+  - type: GhostRole
+    name: ghost-role-information-centcom-intern-name
+    description: ghost-role-information-centcom-intern-description
+    rules: ghost-role-information-centcom-intern-rules
+    raffle:
+      settings: default
+  - type: SpawnPoint
+    job_id: CentralCommandIntern
+    ## There is an endless stream of applicants for this position since it "looks good on resumes"
+    respawn: true
+  - type: Sprite
+    layers:
+      - state: centcom
+      - state: green

@@ -100,6 +100,8 @@
 # SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Komoni <131829655+Komonighub@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
+# SPDX-FileCopyrightText: 2025 RedBookcase <Usualmoves@gmail.com>
+# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2025 Sophia Rustfield <gitlab@catwolf.xyz>
 # SPDX-FileCopyrightText: 2025 SpaceCat~Chan <49094338+SpaceCat-Chan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
@@ -1773,7 +1775,11 @@
         Blunt: 0
   - type: Item
     size: Normal
-    sprite: Objects/Weapons/Melee/cutlass.rsi
+    storedSprite:
+      state: foam_storage
+      sprite: Objects/Weapons/Melee/cutlass.rsi
+    shape:
+    - 0,0,0,2
 
 - type: entity
   parent: BaseItem

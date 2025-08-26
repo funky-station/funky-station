@@ -161,6 +161,7 @@
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 aa5g21 <aa5g21@soton.ac.uk>
@@ -644,6 +645,7 @@
     - FauxTileAstroAsteroidSand
     - OreBagOfHolding
     - DeviceQuantumSpinInverter
+    - PortableRecharger # Funky Change
     - WeaponPlasmaCutter # Goobstation
     - WeaponPlasmaRifle # Goobstation
     - EnergyScalpel # Shitmed Change
@@ -684,7 +686,6 @@
     - MagazineShotgunIncendiary
     - MagazinePistolSubMachineGunTopMountedIncendiary
     - MagazinePistolSubMachineGunTopMountedUranium
-    - PortableRecharger
     - PowerCageHigh
     - PowerCageMedium
     - PowerCageSmall
@@ -1184,6 +1185,7 @@
     - WeaponLaserCannon
     - WeaponLaserCarbine
     - WeaponXrayCannon
+    - WeaponLaserSvalinn # Funky Change 
     - SecurityCyberneticEyes # Shitmed Change
     - MedicalCyberneticEyes # Shitmed Change
     # Goobstation - Mechs

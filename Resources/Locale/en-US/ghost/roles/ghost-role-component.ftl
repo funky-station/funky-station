@@ -247,6 +247,11 @@ ghost-role-information-remilia-name = Remilia, the chaplain's familiar
 ghost-role-information-remilia-description = Follow and obey the chaplain. Eat fruit. Screech loudly into people's ears and write it off as echolocation.
 
 # funkystation
+ghost-role-information-centcom-intern-name = Central Command Intern
+ghost-role-information-centcom-intern-description = Respond to faxes and assist in managing affairs at central command.
+ghost-role-information-centcom-intern-rules = As a Central Command Intern you are a liason between the crew and central command officers and staff. Your job is to read and respond to faxes. You do not have authority to make promises or provide information that you have not first confirmed is up to date and accurate according to all internal resources. As a member of central command staff you are aware of and responsible for maintaining the secrecy of corporate secrets. If you have doubts about your ability to respond to a situation, either ignore it (you're just an intern after all), or ask a central command officer (admin) for assistance.
+
+# funkystation
 ghost-role-information-celedon-name = Celedon, Animal Lab Rescue
 ghost-role-information-celedon-description = Follow and obey the zookeeper. They must gain your trust first though, you still remember the experiments from the genetics lab on Europa.
 

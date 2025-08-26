@@ -4256,3 +4256,47 @@ Entries:
       message: Ported map Eclipse Starport by Lachryphage.
   id: 510
   time: '2025-08-23T00:29:59.0000000+00:00'
+- author: Quantum-cross
+  changes:
+    - type: Fix
+      message: >-
+        Fix Late join antag selection if you have no "active" characters with a
+        specific antagonist role.
+  id: 511
+  time: '2025-08-25T22:03:56.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: >-
+        The energy revolver is now a part of the Detective load-out, and
+        replaces the inspector.
+    - type: Tweak
+      message: >-
+        The energy revolver now has enough battery for 16 disabler shots, or 5
+        lethal shots.
+    - type: Tweak
+      message: The energy revolver no longer auto-recharges itself.
+    - type: Remove
+      message: Blueshield Officer is no longer a round-start role.
+  id: 512
+  time: '2025-08-25T22:28:01.0000000+00:00'
+- author: PoquitoDondito
+  changes:
+    - type: Add
+      message: Added stethoscopes to every medical loadout.
+  id: 513
+  time: '2025-08-25T23:38:30.0000000+00:00'
+- author: empty0set
+  changes:
+    - type: Fix
+      message: Ninjas can no longer spawn as IPCs
+  id: 514
+  time: '2025-08-25T23:41:34.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Tweak
+      message: >-
+        medical personnel no longer have innate speedy surgery, now it's tied to
+        nitrile & latex gloves!
+  id: 515
+  time: '2025-08-26T01:46:06.0000000+00:00'

@@ -27,6 +27,7 @@ public sealed partial class BodyScannerSystem : EntitySystem
             healthAnalyzer.ScannedEntity = patient;
         }
     }
+
     private void UnsetPatient(Entity<BodyScannerComponent> ent)
     {
         if (TryComp<HealthAnalyzerComponent>(ent, out var healthAnalyzer))
@@ -63,9 +64,9 @@ public sealed partial class BodyScannerSystem : EntitySystem
 
         var buckled = strap.BuckledEntities;
         if (buckled.Count == 0)
-            return;
+            UnsetPatient(ent);
 
-        var patient = buckled.First();
+        var patient = buckled.FirstOrDefault();
         SetPatient(ent, patient);
 
 

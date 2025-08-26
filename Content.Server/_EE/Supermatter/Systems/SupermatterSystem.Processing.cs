@@ -210,9 +210,6 @@ public sealed partial class SupermatterSystem
                     if (sm.Power >= 10)
                         zapCount += 1;
 
-                    if (sm.Power >= 20)
-                        zapCount += 2;
-
 
                     gasReleased.AdjustMoles(Gas.AntiNoblium, -consumedAN);
                     gasReleased.AdjustMoles(Gas.Helium, -consumedAN);

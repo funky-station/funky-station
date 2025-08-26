@@ -8,7 +8,6 @@ using System.Linq;
 
 namespace Content.Server.Medical;
 
-// Is this an EntitySystem?
 public sealed partial class BodyScannerSystem : EntitySystem
 {
     public override void Initialize()
@@ -42,7 +41,6 @@ public sealed partial class BodyScannerSystem : EntitySystem
             HasComp<OperatingTableComponent>(args.Source))
         {
             ent.Comp.OperatingTable = args.Source;
-            //Dirty(ent);
         }
     }
 
@@ -53,11 +51,9 @@ public sealed partial class BodyScannerSystem : EntitySystem
 
         ent.Comp.OperatingTable = null;
         UnsetPatient(ent);
-        //Dirty(ent);
     }
 
     private void OnActivateUI(Entity<BodyScannerComponent> ent, ref AfterActivatableUIOpenEvent args)
-    //private void OnActivateUI(EntityUID uid, BodyScannerComponent component, ref AfterActivatableUIOpenEvent args)
     {
         if (!TryComp<StrapComponent>(ent.Comp.OperatingTable, out var strap))
             return;

@@ -213,6 +213,7 @@ loadout-group-security-star = Security Star
 # Medical
 loadout-group-medical-gloves = Medical gloves
 loadout-group-medical-mask = Medical mask
+loadout-group-medical-neck = Medical neck
 
 loadout-group-chief-medical-officer-head = Chief Medical Officer head
 loadout-group-chief-medical-officer-jumpsuit = Chief Medical Officer jumpsuit

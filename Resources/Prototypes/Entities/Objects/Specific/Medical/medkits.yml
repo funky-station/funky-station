@@ -30,7 +30,7 @@
   - type: Storage
     maxItemSize: Small
     grid:
-    - 0,0,3,1
+    - 0,0,4,1 #funky
   - type: Item
     size: Large
     sprite: Objects/Specific/Medical/firstaidkits.rsi

@@ -1183,7 +1183,7 @@
     - WeaponLaserCannon
     - WeaponLaserCarbine
     - WeaponXrayCannon
-    - WeaponLaserSvalinn # Funky Change 
+    - WeaponLaserSvalinn # Funky Change
     - SecurityCyberneticEyes # Shitmed Change
     - MedicalCyberneticEyes # Shitmed Change
     # Goobstation - Mechs
@@ -1324,7 +1324,7 @@
     - MedkitBrute
     - MedkitAdvanced
     - MedkitRadiation
-    - MedkitCombat
+#    - MedkitCombat #funky
     - Scalpel
     - Retractor
     - Cautery

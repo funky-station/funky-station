@@ -40,6 +40,7 @@
       - id: Gauze
       - id: PillCanisterTricordrazine
       - id: PillCanisterGranibitulari # Funkychem
+      - id: HandheldHealthAnalyzer #funky
       # see https://github.com/tgstation/blob/master/code/game/objects/items/storage/firstaid.dm for example contents
 
 - type: entity
@@ -53,6 +54,7 @@
         amount: 2
       - id: PillCanisterAiuri # Funkychem
       - id: PillCanisterLenturi # funky
+      - id: HandheldHealthAnalyzer #funky
 
 - type: entity
   id: MedkitBruteFilled
@@ -67,6 +69,7 @@
         amount: 2
       - id: PillCanisterLibital # Funkychem
       - id: PillCanisterProbital # funky
+      - id: HandheldHealthAnalyzer #funky
 
 - type: entity
   id: MedkitToxinFilled
@@ -81,6 +84,7 @@
         amount: 2 # Funkychem
       - id: PillCanisterMultiver
       - id: PillCanisterCharcoal
+      - id: HandheldHealthAnalyzer #funky
 
 - type: entity
   id: MedkitOxygenFilled
@@ -97,6 +101,7 @@
       - id: SyringeConvermol # Funkychem - only kit to have 1 pill type, generally makes sense to have 2.
         amount: 2
       - id: PillCanisterDexalin
+      - id: HandheldHealthAnalyzer #funky
 
 - type: entity
   id: MedkitRadiationFilled
@@ -112,6 +117,7 @@
       - id: PillCanisterHyronalin
       - id: MedicalPatchPrefilledAntiRad # Funkychem
         amount: 2
+      - id: HandheldHealthAnalyzer #funky
 
 - type: entity
   id: MedkitAdvancedFilled
@@ -126,6 +132,7 @@
         amount: 1
       - id: SyringeSaline # Funky
         amount: 2
+      - id: HandheldHealthAnalyzer #funky
 
 - type: entity
   id: MedkitCombatFilled
@@ -141,6 +148,7 @@
       - id: SyringeSaline
       - id: BruteAutoInjector
       - id: BurnAutoInjector
+      - id: HandheldHealthAnalyzer #funky
 
 - type: entity
   id: StimkitFilled

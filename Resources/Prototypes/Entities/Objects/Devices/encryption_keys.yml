@@ -98,6 +98,7 @@
     - Security
     - Service
     - Supply
+    - Emergency #funkystation
     defaultChannel: Command
   - type: Sprite
     layers:

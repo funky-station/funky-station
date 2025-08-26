@@ -1,0 +1,26 @@
+- type: entity
+  parent: ClothingHeadsetMedical
+  id: ClothingHeadsetParamedic
+  name: paramedic headset
+  description: A headset for paramedics that receives emergency frequencies in addition to regular medical radio.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyMedical
+      - EncryptionKeyEmergency
+      - EncryptionKeyCommon
+
+
+- type: entity
+  parent: ClothingHeadsetAltSecurity
+  id: ClothingHeadsetWarden
+  name: dispatch headset
+  description: A headset for wardens or desk-working officers that receives emergency frequencies in addition to regular security radio.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySecurity
+      - EncryptionKeyEmergency
+      - EncryptionKeyCommon

@@ -77,6 +77,8 @@
       prob: 0.5
     - id: MedkitOxygenFilled
       prob: 0.2
+    - id: RadioHandheldEmergency #funkystation
+      prob: 0.15
     - id: WeaponFlareGun
       prob: 0.1
     - id: BoxMRE
@@ -113,6 +115,8 @@
         children:
         - id: ClothingMaskBreath
         - id: ClothingOuterSuitEmergency
+        - id: RadioHandheldEmergency #funkystation
+          prob: 0.15
         - !type:GroupSelector
           children:
           - id: EmergencyNitrogenTankFilled

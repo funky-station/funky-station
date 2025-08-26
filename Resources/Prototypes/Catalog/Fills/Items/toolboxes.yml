@@ -34,6 +34,8 @@
     contents:
       - id: CrowbarRed
       - id: RadioHandheld
+      - id: RadioHandheldEmergency #funkystation
+        prob: 0.5
       - id: WelderMini
       - id: FireExtinguisherMini
       # Random lighting item orGroup

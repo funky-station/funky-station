@@ -117,6 +117,8 @@
     - id: CargoTechFabCircuitboard
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
+    - id: RadioHandheldCargo #funkystation
+    - id: RadioHandheldCommand #funkystation
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -151,6 +153,7 @@
     - id: WeaponDisabler
     - id: ClothingEyesGlassesCommand
     - id: BookCorporateSecrets # funky
+    - id: RadioHandheldCommand #funkystation
 
 # No laser table + Laser table
 - type: entityTable
@@ -241,6 +244,8 @@
     - id: ClothingEyesHudCommand
     - id: SOSCartridge # DeltaV - adds SOS app https://github.com/DeltaV-Station/Delta-v/pull/2812
     - id: PDA_cartridge_case
+    - id: RadioHandheldService #funkystation
+    - id: RadioHandheldCommand #funkystation
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -272,6 +277,8 @@
     - id: RubberStampCE
     - id: BaseHandheldStationMapPowerCe
     - id: RPD # RPD
+    - id: RadioHandheldEngineering #funkystation
+    - id: RadioHandheldCommand #funkystation
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillChiefEngineerHardsuit
@@ -330,6 +337,8 @@
     - id: CargoRequestMedicalComputerCircuitboard
     - id: MedkitFilled
     - id: RubberStampCMO
+    - id: RadioHandheldMedical #funkystation
+    - id: RadioHandheldCommand #funkystation
     # Goobstation
     #- id: CloningPodMachineCircuitboard
     - id: MedicalScannerMachineCircuitboard
@@ -396,6 +405,8 @@
     - id: AnomalyLocator # GoobStation - adding anomaly locator to the RD locker to reduce the amount of anoms that crit
     - id: CigarCase
       prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
+    - id: RadioHandheldScience #funkystation
+    - id: RadioHandheldCommand #funkystation
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -458,6 +469,7 @@
     - id: WeaponDisabler
     - id: WantedListCartridge
     - id: DrinkHosFlask
+    - id: RadioHandheldCommand #funkystation, no sec radio since they start with one
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -511,3 +523,5 @@
     - id: SpaceCash1000
     - id: BeachBall
     - id: BikeHorn
+    - id: RadioHandheldCommand #funkystation
+    - id: RadioHandheldEmergency #funkystation

@@ -285,6 +285,7 @@
       key_slots:
       - EncryptionKeyMedical
       - EncryptionKeySecurity
+      - EncryptionKeyEmergency
       - EncryptionKeyCommon
   - type: Sprite
     sprite: Clothing/Ears/Headsets/brigmedic.rsi

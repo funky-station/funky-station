@@ -40,5 +40,6 @@
     Welder: 1
     Screwdriver: 2
     Crowbar: 2
+    RadioHandheldScience: 2 #funkystation
   contrabandInventory:
-    FoodBurgerRobot: 1  
+    FoodBurgerRobot: 1

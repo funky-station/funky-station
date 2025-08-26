@@ -40,7 +40,7 @@
       - id: ClothingBeltUtilityFilled
       - id: SurvivalKnife
       - id: AppraisalTool
-      - id: RadioHandheld
+      - id: RadioHandheldCargo #funkystation
       - id: SeismicCharge
         amount: 2
       - id: OreBag
@@ -62,7 +62,7 @@
       - id: ClothingBeltUtilityFilled
       - id: SurvivalKnife
       - id: AppraisalTool
-      - id: RadioHandheld
+      - id: RadioHandheldCargo #funkystation
       - id: SeismicCharge
         amount: 2
       - id: OreBag

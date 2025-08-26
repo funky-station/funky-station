@@ -1,0 +1,7 @@
+- type: radioChannel
+  id: Emergency
+  name: chat-radio-emergency
+  frequency: 1501
+  keycode: "r"
+  color: "#db4373"
+  longRange: true

@@ -29,6 +29,7 @@
     ClothingUniformBrownSuitSkirt: 2 #imp
     ClothingShoesBootsLaceup: 2
     ClothingHeadsetService: 2
+    RadioHandheldService: 2 #funkystation
   emaggedInventory:
     ClothingUniformJumpsuitLibrarianSyndicate: 2
   contrabandInventory:

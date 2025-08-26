@@ -27,5 +27,6 @@
     ClothingHandsGlovesLatex: 2
     ClothingHeadsetMedical: 2
     ClothingOuterWinterChem: 2
+    RadioHandheldMedical: 2 #funkystation
   contrabandInventory:
     ToyFigurineChemist: 1

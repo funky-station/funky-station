@@ -24,7 +24,7 @@
     FlashlightLantern: 2
     Floodlight: 2
     HandheldGPSBasic: 2
-    RadioHandheld: 2
+    RadioHandheldCargo: 2 #funkystation
     WeaponGrapplingGun: 4
     WeaponProtoKineticAccelerator: 4
     SeismicCharge: 2

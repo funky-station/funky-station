@@ -71,7 +71,7 @@
   id: ParamedicGear
   equipment:
     id: ParamedicPDA
-    ears: ClothingHeadsetMedical
+    ears: ClothingHeadsetParamedic #funkystation
     belt: ClothingBeltMedicalEMTFilled
     pocket2: autoInjectorCartridgeCaseSoft
   storage:

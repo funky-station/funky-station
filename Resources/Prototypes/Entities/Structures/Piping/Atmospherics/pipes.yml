@@ -101,6 +101,7 @@
   - type: Appearance
   - type: PipeAppearance
   - type: PipeColorVisuals
+  - type: PipeBurst
   - type: NodeContainer
   # Goobstation - Allow device-on-pipe stacking
   # - type: PipeRestrictOverlap

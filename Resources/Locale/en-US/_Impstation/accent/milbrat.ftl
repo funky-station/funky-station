@@ -2,8 +2,9 @@ accent-milbrat-words-1 = captain
 accent-milbrat-words-replace-1 = Command Actual
 
 accent-milbrat-words-2 = head of personnel
-accent-milbrat-words-2-2 = hop
+accent-milbrat-words-2-2 = HOP
 accent-milbrat-words-2-3 = head of personel
+accent-milbrat-words-2-4 = hop
 accent-milbrat-words-replace-2 = Admin Actual
 
 accent-milbrat-words-3 = attractive
@@ -16,7 +17,8 @@ accent-milbrat-words-replace-3 = state of the art
 
 accent-milbrat-words-4 = head of security
 accent-milbrat-words-4-2 = security chief
-accent-milbrat-words-4-3 = hos
+accent-milbrat-words-4-3 = HOS
+accent-milbrat-words-4-4 = hos
 accent-milbrat-words-replace-4 = Security Actual
 
 accent-milbrat-words-5 = all right
@@ -71,7 +73,8 @@ accent-milbrat-words-replace-12 = reporting for duty
 
 accent-milbrat-words-13 = are you sure
 accent-milbrat-words-13-2 = you sure
-accent-milbrat-words-replace-13 = please confirm
+accent-milbrat-words-13-3 = make sure
+accent-milbrat-words-replace-13 = confirm
 
 accent-milbrat-words-14 = well done
 accent-milbrat-words-14-2 = congratulations
@@ -273,7 +276,6 @@ accent-milbrat-words-59-4 = rd
 accent-milbrat-words-replace-59 = Science Actual
 
 accent-milbrat-words-60 = hospitality director
-accent-milbrat-words-60-2 = hd
 accent-milbrat-words-replace-60 = Service Actual
 
 accent-milbrat-words-61 = quartermaster
@@ -455,8 +457,9 @@ accent-milbrat-words-102-4 = warlock
 accent-milbrat-words-replace-102 = whiskey HVT
 
 accent-milbrat-words-103 = chief engineer
-accent-milbrat-words-103-2 = ce
+accent-milbrat-words-103-2 = CE
 accent-milbrat-words-103-3 = head of engineering
+accent-milbrat-words-103-4 = ce
 accent-milbrat-words-replace-103 = Engineering Actual
 
 accent-milbrat-words-104 = engineer
@@ -561,7 +564,7 @@ accent-milbrat-words-131-3 = bye
 accent-milbrat-words-replace-131 = over and out
 
 accent-milbrat-words-132 = sniper
-accent-milbrat-words-replace-132 = designated marksman
+accent-milbrat-words-replace-132 = designated marksmate
 
 accent-milbrat-words-133 = move
 accent-milbrat-words-replace-133 = redeploy

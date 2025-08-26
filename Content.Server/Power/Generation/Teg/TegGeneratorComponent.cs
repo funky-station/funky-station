@@ -24,7 +24,7 @@ public sealed partial class TegGeneratorComponent : Component
     /// </remarks>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("thermalEfficiency")]
-    public float ThermalEfficiency = 0.65f;
+    public float ThermalEfficiency = 0.10f;
 
     /// <summary>
     /// Simple factor that scales effective electricity generation.

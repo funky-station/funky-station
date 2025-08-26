@@ -16,25 +16,25 @@ namespace Content.Server._Funkystation.Atmos.Components
         ///     Pressure at which pipes start leaking.
         /// </summary>
         [DataField("pipeLeakPressure"), ViewVariables(VVAccess.ReadWrite)]
-        public float PipeLeakPressure = 90 * Atmospherics.OneAtmosphere;
+        public float PipeLeakPressure = 2 * Atmospherics.MaxOutputPressure;
 
         /// <summary>
         ///     Pressure at which pipe unanchors.
         /// </summary>
         [DataField("pipeRupturePressure"), ViewVariables(VVAccess.ReadWrite)]
-        public float PipeRupturePressure = 120 * Atmospherics.OneAtmosphere;
+        public float PipeRupturePressure = 3 * Atmospherics.MaxOutputPressure;
 
         /// <summary>
         ///     Pressure at which pipe bursts
         /// </summary>
         [DataField("pipeFragmentPressure"), ViewVariables(VVAccess.ReadWrite)]
-        public float PipeFragmentPressure = 150 * Atmospherics.OneAtmosphere;
+        public float PipeFragmentPressure = 4 * Atmospherics.MaxOutputPressure;
 
         /// <summary>
         ///     Increases explosion for each scale kPa above threshold.
         /// </summary>
         [DataField("pipeFragmentScale"), ViewVariables(VVAccess.ReadWrite)]
-        public float PipeFragmentScale = 2 * Atmospherics.OneAtmosphere;
+        public float PipeFragmentScale = 2 * Atmospherics.MaxOutputPressure;
 
         /// <summary>
         /// Damage dealt per tick of rupture

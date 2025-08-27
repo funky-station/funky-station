@@ -40,9 +40,29 @@
       - state: book-0
       - map: ["enum.StorageFillLayers.Fill"]
       - state: paper
-        visible: false
-        map: [ "enum.PaperLabelVisuals.Layer" ]
         sprite: Structures/Furniture/bookshelf.rsi
+        map: [ "enum.PaperLabelVisuals.Layer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.PaperLabelVisuals.HasLabel:
+        enum.PaperLabelVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PaperLabelVisuals.LabelType:
+        enum.PaperLabelVisuals.Layer:
+          Paper: { state: paper }
+          PaperDyedPink: { state: PaperDyedPink }
+          PaperDyedRed: { state: PaperDyedRed }
+          PaperDyedOrange: { state: PaperDyedOrange }
+          PaperDyedYellow: { state: PaperDyedYellow }
+          PaperDyedGrass: { state: PaperDyedGrass }
+          PaperDyedGreen: { state: PaperDyedGreen }
+          PaperDyedOcean: { state: PaperDyedOcean }
+          PaperDyedSky: { state: PaperDyedSky }
+          PaperDyedPurple: { state: PaperDyedPurple }
+          PaperDyedTan: { state: PaperDyedTan }
+          PaperDyedBrown: { state: PaperDyedBrown }
+
   - type: Appearance
   - type: StorageFillVisualizer
     maxFillLevels: 21
@@ -104,12 +124,6 @@
     node: bookshelf
   - type: BlockWeather
   - type: PaperLabelType
-  - type: GenericVisualizer
-    visuals:
-      enum.PaperLabelVisuals.HasLabel:
-        enum.PaperLabelVisuals.Layer:
-          True: { visible: true }
-          False: { visible: false }
   - type: PaperLabel
     labelSlot:
       insertVerbText: comp-paper-label-insert

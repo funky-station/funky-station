@@ -88,6 +88,33 @@
     },
     {
        "name": "PaperDyedRed"
+    },
+    {
+       "name": "PaperDyedOrange"
+    },
+    {
+       "name": "PaperDyedYellow"
+    },
+    {
+       "name": "PaperDyedGrass"
+    },
+    {
+       "name": "PaperDyedGreen"
+    },
+    {
+       "name": "PaperDyedOcean"
+    },
+    {
+       "name": "PaperDyedSky"
+    },
+    {
+       "name": "PaperDyedPurple"
+    },
+    {
+       "name": "PaperDyedTan"
+    },
+    {
+       "name": "PaperDyedBrown"
     }
   ]
 }

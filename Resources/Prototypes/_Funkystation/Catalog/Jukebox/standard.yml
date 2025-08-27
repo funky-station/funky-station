@@ -1,4 +1,8 @@
-﻿- type: jukebox
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: jukebox
   id: AlienKidsTheGreatMessage
   name: Alien Kids - The Great Message
   path:

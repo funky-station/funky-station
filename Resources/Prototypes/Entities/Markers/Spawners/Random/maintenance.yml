@@ -369,6 +369,7 @@
       - id: SpectralLocator
       - id: WehpetInstrument
       - id: WehNade
+        weight: 0.01
       - id: LidSalami
         weight: 0.05
       - id: BoomboxSlav

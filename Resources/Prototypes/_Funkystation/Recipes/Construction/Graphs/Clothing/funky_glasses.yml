@@ -117,7 +117,7 @@
               doAfter: 5
     - node: engijarGlasses
       entity: ClothingEyesGlassesJamgog
-
+  
 - type: constructionGraph
   id: glassesSungar
   start: start
@@ -163,7 +163,7 @@
               doAfter: 5
     - node: sungarCGlasses
       entity: ClothingEyesGlassesCSungar
-############### ATLAS
+
 - type: constructionGraph
   id: GlassesRobo
   start: start

@@ -26,17 +26,13 @@ public sealed partial class BodyScannerSystem : EntitySystem
     private void SetPatient(Entity<BodyScannerComponent> ent, EntityUid patient)
     {
         if (TryComp<HealthAnalyzerComponent>(ent, out var healthAnalyzer))
-        {
             healthAnalyzer.ScannedEntity = patient;
-        }
     }
 
     private void UnsetPatient(Entity<BodyScannerComponent> ent)
     {
         if (TryComp<HealthAnalyzerComponent>(ent, out var healthAnalyzer))
-        {
             healthAnalyzer.ScannedEntity = null;
-        }
     }
 
     private void OnNewLink(Entity<BodyScannerComponent> ent, ref NewLinkEvent args)

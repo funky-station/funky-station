@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 PresentAJ <Ajdpersonalemail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
@@ -5,6 +6,16 @@
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: microwaveMealRecipe
+  id: RecipeShrimpFried
+  name: fried shrimp recipe
+  result: FoodShrimpFried
+  time: 10
+  group: Savory
+  solids:
+    FoodShrimpRaw : 1
+    FoodButterSlice: 1
 
 - type: microwaveMealRecipe
   id: RecipeMuffinCloth

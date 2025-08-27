@@ -44,6 +44,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 miapyxel <retromannnnn@gmail.com>
 # SPDX-FileCopyrightText: 2024 xprospero <116504990+xprospero@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Síťa <82587252+sitovina@users.noreply.github.com>
@@ -77,8 +78,6 @@
         weight: 1
       - id: PlushieLizardInversed
         weight: 0.5
-      - id: WehNade
-        weight: 0.3
     - !type:GroupSelector
       children:
       - id: PlushieCarp
@@ -134,9 +133,6 @@
           amount: !type:ConstantNumberSelector
             value: 3
         - id: PlushieSpaceLizard
-          amount: !type:ConstantNumberSelector
-            value: 3
-        - id: WehNade #WEH!
           amount: !type:ConstantNumberSelector
             value: 3
 

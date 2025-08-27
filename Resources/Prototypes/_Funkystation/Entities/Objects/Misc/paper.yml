@@ -1,0 +1,26 @@
+- type: entity
+  id: BoxFolderBookshelfLabels
+  parent: BoxFolderBase
+  name: bookshelf label folder
+  description: A folder filled with labels for your shelves.
+  components:
+  - type: Sprite
+    layers:
+    - state: folder-colormap
+      color: "#7864c6"
+    - state: folder-base
+  - type: StorageFill
+    contents:
+    - id: Paper
+    - id: PaperDyedPink
+    - id: PaperDyedRed
+    - id: PaperDyedOrange
+    - id: PaperDyedYellow
+    - id: PaperDyedGrass
+    - id: PaperDyedGreen
+    - id: PaperDyedOcean
+    - id: PaperDyedSky
+    - id: PaperDyedPurple
+    - id: PaperDyedTan
+    - id: PaperDyedBrown
+

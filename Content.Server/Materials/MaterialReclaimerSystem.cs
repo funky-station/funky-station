@@ -185,9 +185,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         Dirty(uid, component);
 
         // scales the output if the process was interrupted.
-        var completion = 1f - Math.Clamp((float) Math.Round((active.EndTime - Timing.CurTime) / active.Duration),
-            0f,
-            1f);
+        var completion = 1f; //funkystation fix dupe bug
         Reclaim(uid, item, completion, component);
 
         return true;

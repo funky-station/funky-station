@@ -142,11 +142,12 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
 
         var duration = GetReclaimingDuration(uid, item, component);
         // if it's instant, don't bother with all the active comp stuff.
-        if (duration == TimeSpan.Zero)
+        /*if (duration == TimeSpan.Zero)
         {
             Reclaim(uid, item, 1, component);
             return true;
-        }
+        }*/
+        // funkystation fix dupe bug
 
         var active = EnsureComp<ActiveMaterialReclaimerComponent>(uid);
         active.Duration = duration;

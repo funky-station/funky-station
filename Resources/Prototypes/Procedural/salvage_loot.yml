@@ -32,7 +32,7 @@
           prob: 0.5
         - proto: ChemDispenserMachineCircuitboard
           cost: 2
-        - proto: CircuitImprinter
+#        - proto: CircuitImprinter # Funky
           cost: 2
         - proto: CloningConsoleComputerCircuitboard
           cost: 2
@@ -41,7 +41,7 @@
         - proto: CognizineChemistryBottle
         - proto: FoodBoxDonkpocketCarp
           prob: 0.5
-        - proto: CrateSalvageEquipment
+#        - proto: CrateSalvageEquipment # Funky
           cost: 3
           prob: 0.5
         - proto: GasRecycler
@@ -66,7 +66,7 @@
         - proto: PowerCellAntiqueProto
           cost: 5
           prob: 0.5
-        - proto: ProtolatheMachineCircuitboard
+#        - proto: ProtolatheMachineCircuitboard #Funky 
         - proto: RandomArtifactSpawner
           cost: 2
         - proto: RandomCargoCorpseSpawner

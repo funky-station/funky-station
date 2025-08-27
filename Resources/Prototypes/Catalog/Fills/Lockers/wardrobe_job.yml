@@ -191,7 +191,7 @@
      contents:
        - id: ClothingHeadHatCargosoft
        - id: ClothingUniformJumpsuitCargo
-       - id: ClothingBackpack
+       - id: MaterialBag # Funky Station
        - id: ClothingShoesColorBlack
        - id: ClothingUniformJumpskirtCargo
        - id: ClothingHandsGlovesFingerless
@@ -204,7 +204,7 @@
    components:
    - type: StorageFill
      contents:
-       - id: ClothingBackpack
+       - id: MaterialBag # Funky Station
        - id: ClothingShoesBootsSalvage
          amount: 2
        - id: ClothingUniformJumpsuitSalvageSpecialist

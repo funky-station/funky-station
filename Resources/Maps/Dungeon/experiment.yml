@@ -6168,7 +6168,7 @@ entities:
     - type: Transform
       pos: 45.521095,1.5328176
       parent: 1653
-- proto: CircuitImprinter
+- proto: AutolatheHyperConvection
   entities:
   - uid: 1600
     components:
@@ -8428,7 +8428,7 @@ entities:
       parent: 1653
     - type: ApcPowerReceiver
       powerLoad: 0
-- proto: Protolathe
+- proto: AutolatheHyperConvection
   entities:
   - uid: 618
     components:

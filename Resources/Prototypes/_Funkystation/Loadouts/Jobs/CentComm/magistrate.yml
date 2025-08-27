@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+# Backpack
+- type: loadout
+  id: MagistrateDuffel
+  equipment:
+    back: ClothingBackpackDuffel
+
+- type: loadout
+  id: MagistrateSatchel
+  equipment:
+    back: ClothingBackpackSatchelLeather
+
+# Belt
+- type: loadout
+  id: MagistrateClipboard
+  equipment:
+    belt: BoxFolderCentComClipboard
+
+- type: loadout
+  id: MagistrateWaistbag
+  equipment:
+    belt: ClothingBeltStorageWaistbag
+
+- type: loadout
+  id: MagistrateGavel
+  equipment:
+    pocket1: Gavel
+
+- type: loadout
+  id: MagistratePwig
+  equipment:
+    head: ClothingHeadHatPwig

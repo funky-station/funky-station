@@ -1,5 +1,11 @@
-using System.ComponentModel;
-using Content.Server.DeviceLinking.Events;
+// SPDX-FileCopyrightText: 2024 SpeltIncorrectyl <66873282+SpeltIncorrectyl@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Power.Generator;
 
 namespace Content.Server.Power.Generator;

@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: localizedDataset
+  id: NamesFakeHumanFirst
+  values:
+    prefix: names-fake-human-first-dataset-
+    count: 43
+
+- type: localizedDataset
+  id: NamesFakeHumanLast
+  values: #includes the first names so we get some really fake double names
+    prefix: names-fake-human-last-dataset-
+    count: 78

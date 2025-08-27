@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2025 Drywink <43855731+Drywink@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   id: OrganAnimalBrain
   parent: BaseAnimalOrganUnGibbable
@@ -22,7 +30,7 @@
     solutions:
       organ:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: GreyMatter # Funky - why would it become nutriment when blended?
           Quantity: 10
       food:
         maxVol: 5
@@ -64,3 +72,6 @@
     shape:
     - 0,0,1,0
     heldPrefix: eyeballs
+  - type: Tag # This allows heretic rituals to work with animals eyes
+    tags:
+    - Eyes

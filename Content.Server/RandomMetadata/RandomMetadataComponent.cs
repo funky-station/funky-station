@@ -1,3 +1,16 @@
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Dataset;
+using Robust.Shared.Prototypes;
+
 ﻿namespace Content.Server.RandomMetadata;
 
 /// <summary>
@@ -6,15 +19,15 @@
 [RegisterComponent]
 public sealed partial class RandomMetadataComponent : Component
 {
-    [DataField("descriptionSegments")]
-    public List<string>? DescriptionSegments;
+    [DataField]
+    public List<ProtoId<LocalizedDatasetPrototype>>? DescriptionSegments;
 
-    [DataField("nameSegments")]
-    public List<string>? NameSegments;
+    [DataField]
+    public List<ProtoId<LocalizedDatasetPrototype>>? NameSegments;
 
-    [DataField("nameSeparator")]
+    [DataField]
     public string NameSeparator = " ";
 
-    [DataField("descriptionSeparator")]
+    [DataField]
     public string DescriptionSeparator = " ";
 }

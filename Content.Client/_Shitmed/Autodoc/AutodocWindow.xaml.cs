@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 amatwiedle <amatwiedle@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Administration;
 using Content.Shared._Shitmed.Autodoc;
@@ -31,6 +38,7 @@ public sealed partial class AutodocWindow : FancyWindow
     public event Action<int, int>? OnRemoveStep;
     public event Action<int>? OnStart;
     public event Action? OnStop;
+    public event Action? OnSanitize;
 
     private DialogWindow? _dialog;
     private AutodocProgramWindow? _currentProgram;
@@ -84,6 +92,8 @@ public sealed partial class AutodocWindow : FancyWindow
         AbortButton.AddStyleClass("Caution");
         AbortButton.OnPressed += _ => OnStop?.Invoke();
 
+        SanitizeToolsButton.OnPressed += _ => OnSanitize?.Invoke();
+
         UpdateActive();
         UpdatePrograms();
     }
@@ -100,8 +110,12 @@ public sealed partial class AutodocWindow : FancyWindow
 
         _active = active;
 
+        var dirtiness = _entMan.System<SharedAutodocSystem>().GetToolDirtiness((_owner, comp));
+
         CreateProgramButton.Disabled = active || _programCount >= comp.MaxPrograms;
         AbortButton.Disabled = !active;
+        SanitizeToolsButton.Disabled = active || dirtiness <= 0;
+
         foreach (var button in Programs.Children)
         {
             ((Button) button).Disabled = active;

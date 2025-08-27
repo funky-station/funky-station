@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   id: Boombox
   name: boombox
@@ -30,7 +35,7 @@
     quickEquip: false
     slots:
     - Back
-    - suitStorage
+    - backStorage
   - type: MeleeWeapon
     damage:
       types:
@@ -108,7 +113,7 @@
     quickEquip: false
     slots:
     - Back
-    - suitStorage
+    - backStorage
 
 - type: entity
   id: BoomboxPink
@@ -126,7 +131,7 @@
     quickEquip: false
     slots:
     - Back
-    - suitStorage
+    - backStorage
 
 - type: entity
   id: BoomboxPurple
@@ -144,7 +149,7 @@
     quickEquip: false
     slots:
     - Back
-    - suitStorage
+    - backStorage
 
 - type: entity
   id: BoomboxGreen
@@ -162,7 +167,7 @@
     quickEquip: false
     slots:
     - Back
-    - suitStorage
+    - backStorage
 
 - type: entity
   id: BoomboxSlav
@@ -180,4 +185,4 @@
     quickEquip: false
     slots:
     - Back
-    - suitStorage
+    - backStorage

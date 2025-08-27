@@ -1,3 +1,155 @@
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 FL-OZ <58238103+FL-OZ@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 FL-OZ <anotherscuffed@gmail.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2022 Ablankmann <103340990+Ablankmann@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2022 CrudeWax <75271456+CrudeWax@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Júlio César Ueti <52474532+Mirino97@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 J�lio C�sar Ueti <52474532+Mirino97@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
+# SPDX-FileCopyrightText: 2022 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+# SPDX-FileCopyrightText: 2022 ZeroDayDaemon <60460608+ZeroDayDaemon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Zymem <97173622+Zymem@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 and_a <and_a@DESKTOP-RJENGIR>
+# SPDX-FileCopyrightText: 2022 areit <77842470+areitpog@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
+# SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 AJCM <AJCM@tutanota.com>
+# SPDX-FileCopyrightText: 2023 Alex <129697969+Lomcastar@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 AlexMorgan3817 <46600554+AlexMorgan3817@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 AndrewEyeke <83961709+AndrewEyeke@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Arendian <137322659+Arendian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Brayden H <35241666+hord-brayden@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Dawid Bla <46636558+DawBla@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 EEASAS <109891564+EEASAS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 FacePluslll <34409891+FacePluslll@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Geekyhobo <66805063+Ahlytlex@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Geekyhobo <66805063+Geekyhobo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 GoodWheatley <109803540+GoodWheatley@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 HerCoyote23 <131214189+HerCoyote23@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Interrobang01 <113810873+Interrobang01@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Jackal298 <129199891+Jackal298@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 JoeHammad1844 <130668733+JoeHammad1844@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Kistras <81854722+Kistras@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+# SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Panzer <146987057+Panzer-IV1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Raitononai <136900466+Raitononai@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Repo <47093363+Titian3@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Sailor <109166122+Equivocateur@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Tryded <139474617+Tryded@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Zoldorf <silvertorch5@gmail.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2023 dontbetank <59025279+dontbetank@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 eclips_e <67359748+Just-a-Unity-Dev@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 liltenhead <104418166+liltenhead@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lzk228 <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 magmodius <88403244+magmodius@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 router <messagebus@vk.com>
+# SPDX-FileCopyrightText: 2023 vanx <61917534+Vaaankas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 21Melkuu <79728504+21Melkuu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 AlexUm & XGabriel08X <159550239+AlexUmAndXGabriel08X@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Avalon <148660190+BYONDFuckery@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 CatMagic <135462166+CatMagic1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ERROR404 <100093430+ERORR404V1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 EdenTheLiznerd <138748328+EdenTheLiznerd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
+# SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 FungiFellow <151778459+FungiFellow@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 GitHubUser53123 <110841413+GitHubUser53123@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hmeister-real <118129069+Hmeister-real@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2024 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 LordEclipse <106132477+LordEclipse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Mangohydra <156087924+Mangohydra@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Naive817 <lyx2020@sjtu.edu.cn>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PoTeletubby <108604614+PoTeletubby@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ps3Moira <113228053+ps3moira@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 TruePaInt <113789950+TruePaIntGit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Z4NEER <185666768+Z4NEER-exe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 heree <79546981+hereelabs@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 hereelabs <hahmorm@gmail.com>
+# SPDX-FileCopyrightText: 2024 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ninruB <38016303+asperger-sind@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 pofitlo <kuzminvladislav237@gmail.com>
+# SPDX-FileCopyrightText: 2024 takemysoult <143123247+takemysoult@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Neoncamouflage <neoncamouflage@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
+# SPDX-FileCopyrightText: 2025 UristMcWiki <endernate2015@gmail.com>
+# SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 amatwiedle <amatwiedle@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 # TODO: make more categories
 # Guns
 
@@ -7,7 +159,7 @@
   description: uplink-pistol-viper-desc
   productEntity: WeaponPistolViper
   cost:
-    Telecrystal: 14 # goob - this +1 mag = 20 TC
+    Telecrystal: 14 # goob - this +1 mag = 16 TC
   categories:
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT
@@ -30,7 +182,7 @@
   description: uplink-revolver-python-desc
   productEntity: WeaponRevolverPythonAP
   cost:
-    Telecrystal: 24 # goob - Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 40 TC.
+    Telecrystal: 24 # goob - Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 34 TC.
   categories:
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT
@@ -42,7 +194,7 @@
   description: uplink-pistol-cobra-desc
   productEntity: WeaponPistolCobra
   cost:
-    Telecrystal: 17 # goob - this +1 mag = 25 TC
+    Telecrystal: 15 # goob - this +1 mag = 17 TC
   categories:
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT
@@ -106,6 +258,18 @@
   saleLimit: 1 # WD EDIT
 
 - type: listing
+  id: UplinkGlovesKnuckleDusters
+  name: uplink-gloves-knuckleduster-name
+  description: uplink-gloves-knuckleduster-desc
+  icon: { sprite: Clothing/Hands/Gloves/KnuckleDusters/syndicateknuckleduster.rsi, state: syndicateknuckleduster }
+  productEntity: ClothingHandsKnuckleDustersSyndicate
+  cost:
+    Telecrystal: 30 # funky - does 75% DPS of northstars, costs 75% of northstars
+  categories:
+  - UplinkWeaponry
+  saleLimit: 1 # matching WD edits i guess
+
+- type: listing
   id: UplinkDisposableTurret
   name: uplink-disposable-turret-name
   description: uplink-disposable-turret-desc
@@ -160,6 +324,11 @@
     Telecrystal: 60
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
   saleLimit: 1 # WD EDIT
 
 - type: listing
@@ -186,6 +355,25 @@
   - UplinkWeaponry
   saleLimit: 1 # WD EDIT
 
+
+# Funky duplicate to fix surplus bundle, this one cannot be bought ignore
+- type: listing
+  id: UplinkGrenadeLauncherBundleSurplus
+  name: uplink-grenade-launcher-bundle-name
+  description: uplink-grenade-launcher-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+  cost:
+    Telecrystal: 150 # goob
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:BuyerJobCondition # Funky string pulling to make the damn surplus crates work don't ask.
+    whitelist:
+    - Captain
+  saleBlacklist: true
+
+
 - type: listing
   id: UplinkGrenadeLauncherBundle
   name: uplink-grenade-launcher-bundle-name
@@ -196,7 +384,27 @@
     Telecrystal: 150 # goob
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
+  conditions: # Funky war ops whitelisting
+  - !type:WarOpsCondition
+  saleBlacklist: true
+
+
+# Funky duplicate to fix surplus bundle, this one cannot be bought ignore
+- type: listing
+  id: UplinkL6SawBundleSurplus
+  name: uplink-l6-saw-bundle-name
+  description: uplink-l6-saw-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledLMG
+  cost:
+    Telecrystal: 100 # goob
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:BuyerJobCondition # Funky string pulling to make the damn surplus crates work don't ask.
+    whitelist:
+    - Captain
+  saleLimit: 1
 
 - type: listing
   id: UplinkL6SawBundle
@@ -205,10 +413,13 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledLMG
   cost:
-    Telecrystal: 150 # goob
+    Telecrystal: 100 # goob
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
+  conditions: # Funky war ops whitelisting
+  - !type:WarOpsCondition
+  saleLimit: 1
+
 
 # Explosives
 
@@ -439,9 +650,10 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi, state: red-icon }
   productEntity: MagazinePistol
   cost:
-    Telecrystal: 6 # goob - Harder to spam mags, not that people really viper spam and they have more space.
+    Telecrystal: 2 # goob - Ammo should be cheap.
   categories:
   - UplinkAmmo
+  saleBlacklist: true
 
 # For the C20R
 - type: listing
@@ -451,9 +663,10 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
   productEntity: MagazinePistolSubMachineGun
   cost:
-    Telecrystal: 15 # goob - Bundle + Mag = 100 TC
+    Telecrystal: 10 # goob - Bundle + 3 Mags = 100 TC
   categories:
   - UplinkAmmo
+  saleBlacklist: true
 
 # For the Cobra
 - type: listing
@@ -463,9 +676,10 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
   productEntity: MagazinePistolCaselessRifle
   cost:
-    Telecrystal: 8 # goob - People actually spam these more than other ammo types
+    Telecrystal: 5 # goob - Same price as .35, more damage but less ammo in mag
   categories:
   - UplinkAmmo
+  saleBlacklist: true
 
 # For the Python
 - type: listing
@@ -475,9 +689,10 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
   productEntity: SpeedLoaderMagnumAP
   cost:
-    Telecrystal: 8 # goob - AP, improved level
+    Telecrystal: 10 # goob - AP, but only 6 bullets in speedloader
   categories:
   - UplinkAmmo
+  saleBlacklist: true
 
 # For the mosin
 - type: listing
@@ -486,9 +701,10 @@
   description: uplink-mosin-ammo-desc
   productEntity: MagazineBoxLightRifle
   cost:
-    Telecrystal: 4 # goob
+    Telecrystal: 12 # goob - l6 exists
   categories:
   - UplinkAmmo
+  saleBlacklist: true
 
 # for the hristov
 - type: listing
@@ -497,7 +713,7 @@
   description: uplink-sniper-ammo-desc
   productEntity: MagazineBoxAntiMateriel
   cost:
-    Telecrystal: 40 # goob - 2 ammo capacity worth
+    Telecrystal: 20 # goob - Calculated to have about the same amount/damage ratio as AP speedloader
   categories:
   - UplinkAmmo
 
@@ -507,7 +723,7 @@
   description: uplink-ammo-bundle-desc
   productEntity: ClothingBackpackDuffelSyndicateAmmoFilled
   cost:
-    Telecrystal: 75 # goob
+    Telecrystal: 50 # goob
   categories:
   - UplinkAmmo
   conditions:
@@ -565,7 +781,7 @@
   icon: { sprite: /Textures/Structures/Wallmounts/signs.rsi, state: bio }
   productEntity: ClothingBackpackDuffelZombieBundle
   cost:
-    Telecrystal: 200 # goob
+    Telecrystal: 150 # goob
   categories:
   - UplinkChemicals
   conditions:
@@ -650,7 +866,7 @@
   description: uplink-meds-bundle-desc
   productEntity: ClothingBackpackDuffelSyndicateMedicalBundleFilled
   cost:
-    Telecrystal: 100 # goob
+    Telecrystal: 125 # goob
   categories:
   - UplinkChemicals
   conditions:
@@ -694,7 +910,7 @@
   description: uplink-chameleon-projector-desc
   productEntity: ChameleonProjector
   cost:
-    Telecrystal: 30 # goob - Basically a meme item at 35 TC to be real.
+    Telecrystal: 25 # goob - Basically a meme item at 35 TC to be real.
   categories:
   - UplinkDeception
   saleLimit: 1 # WD EDIT
@@ -706,10 +922,11 @@
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
   productEntity: BoxEncryptionKeySyndie # Two for the price of one
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 5 # goob
   categories:
   - UplinkDeception
   saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
 - type: listing
   id: UplinkBinaryTranslatorKey
@@ -721,6 +938,7 @@
     Telecrystal: 5 # goob
   categories:
   - UplinkDeception
+  saleBlacklist: true
 
 - type: listing
   id: UplinkCyberpen
@@ -731,6 +949,7 @@
     Telecrystal: 5 # goob
   categories:
   - UplinkDeception
+  saleBlacklist: true
 
 - type: listing
   id: UplinkDecoyDisk
@@ -741,6 +960,7 @@
     Telecrystal: 2 # goob - Pointless class item.
   categories:
   - UplinkDeception
+  saleBlacklist: true
 
 - type: listing
   id: UplinkUltrabrightLantern
@@ -759,7 +979,7 @@
   description: uplink-bribe-desc
   productEntity: BriefcaseSyndieLobbyingBundleFilled
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 10 # Funky buy the rights to nuke the station
   categories:
     - UplinkDeception
   saleLimit: 1 # WD EDIT
@@ -795,6 +1015,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkDeception
+  saleLimit: 1
 
 # Disruption
 
@@ -807,6 +1028,7 @@
     Telecrystal: 30
   categories:
   - UplinkDisruption
+  saleLimit: 1
 
 - type: listing
   id: UplinkEmag
@@ -814,7 +1036,7 @@
   description: uplink-emag-desc
   productEntity: Emag
   cost:
-    Telecrystal: 40 # goob
+    Telecrystal: 30 # goob
   categories:
   - UplinkDisruption
   saleLimit: 1 # WD EDIT
@@ -862,7 +1084,7 @@
     Telecrystal: 5 # goob
   categories:
   - UplinkDisruption
-  saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
 - type: listing
   id: UplinkSlipocalypseClusterSoap
@@ -898,10 +1120,10 @@
   saleLimit: 1 # WD EDIT
 
 - type: listing
-  id: UplinkDuffelSurgery
-  name: uplink-duffel-surgery-name
-  description: uplink-duffel-surgery-desc
-  productEntity: ClothingBackpackDuffelSyndicateFilledMedical
+  id: UplinkFieldSurgeryKit
+  name: uplink-field-surgery-kit-name
+  description: uplink-field-surgery-kit-desc
+  productEntity: SurgeryKitSyndicateFilled
   cost:
     Telecrystal: 20 # goob
   categories:
@@ -930,7 +1152,7 @@
   description: uplink-antimov-law-desc
   productEntity: AntimovCircuitBoard
   cost:
-    Telecrystal: 70 # goob
+    Telecrystal: 70 # Funky Price Change. Syndie variant
   categories:
   - UplinkDisruption
   conditions:
@@ -945,7 +1167,7 @@
   description: uplink-antimov-law-desc
   productEntity: AntimovCircuitBoard
   cost:
-    Telecrystal: 120 # goob
+    Telecrystal: 80 # Funky price change. Nukie variant
   categories:
   - UplinkDisruption
   conditions:
@@ -972,7 +1194,7 @@
     blacklist:
       components:
       - SurplusBundle
-  saleLimit: 0 # goob edit
+  saleLimit: 1 # goob edit
 
 - type: listing
   id: UplinkSuperSurplusBundle
@@ -980,7 +1202,7 @@
   description: uplink-super-surplus-bundle-desc
   productEntity: CrateSyndicateSuperSurplusBundle
   cost:
-    Telecrystal: 200 # goob
+    Telecrystal: 180 # goob
   categories:
   - UplinkDisruption
   conditions:
@@ -992,7 +1214,7 @@
     blacklist:
       components:
       - SurplusBundle
-  saleLimit: 0 # goob edit
+  saleLimit: 1 # goob edit
 
 - type: listing
   id: UplinkSingarityBeacon
@@ -1014,6 +1236,7 @@
     Telecrystal: 4
   categories:
   - UplinkDisruption
+  saleBlacklist: true
 
 # Allies
 
@@ -1041,7 +1264,7 @@
   productEntity: ReinforcementRadioSyndicate
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-urist }
   cost:
-    Telecrystal: 70 # goob
+    Telecrystal: 30 # goob
   categories:
   - UplinkAllies
   conditions:
@@ -1076,12 +1299,13 @@
   productEntity: ReinforcementRadioSyndicateCyborgAssault
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
   cost:
-    Telecrystal: 375 # goob
+    Telecrystal: 330 # goob
   categories:
     - UplinkAllies
-  conditions:
+  conditions: # funky war ops whitelisting
+    - !type:WarOpsCondition
     - !type:StoreWhitelistCondition
-      whitelist:
+     whitelist:
         tags:
           - NukeOpsUplink
   saleLimit: 1 # WD EDIT
@@ -1110,7 +1334,7 @@
   productEntity: ReinforcementRadioSyndicateAncestorNukeops
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-ancestor }
   cost:
-    Telecrystal: 40 # goob - Nuke ops have a lot of free gear, and synd eva a common one has been buffed so these need to cost more
+    Telecrystal: 50 # goob - Nuke ops have a lot of free gear, and synd eva a common one has been buffed so these need to cost more
   categories:
   - UplinkAllies
   conditions:
@@ -1129,11 +1353,6 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkAllies
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
   saleLimit: 1 # WD EDIT
 
 - type: listing
@@ -1155,13 +1374,13 @@
   icon: { sprite: /Textures/Objects/Fun/pai.rsi, state: syndicate-icon-pai-off }
   productEntity: SyndicatePersonalAI
   cost:
-    Telecrystal: 5 # goob
+    Telecrystal: 1 # You must play stealth music loudly during your break in. This is to reflect that. Funky
   categories:
     - UplinkAllies
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-  saleLimit: 1 # WD EDIT
+  saleBlacklist: true # Funky
 
 # Implants
 
@@ -1216,6 +1435,11 @@
     Telecrystal: 25 # goob
   categories:
     - UplinkImplants
+  conditions:
+    - !type:StoreWhitelistCondition #DNA scrambler removed from the Nukies. Does not have any valid reason to be there and doesn't do anything. Seems like oversight. Funky
+      blacklist:
+        tags:
+          - NukeOpsUplink
   saleLimit: 1 # WD EDIT
 
 - type: listing
@@ -1237,9 +1461,10 @@
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
   productEntity: RadioImplanter
   cost:
-    Telecrystal: 2
+    Telecrystal: 5
   categories:
   - UplinkImplants
+  saleBlacklist: true
 
 - type: listing
   id: UplinkMicroBombImplanter
@@ -1342,8 +1567,9 @@
   name: uplink-fake-mindshield-name
   description: uplink-fake-mindshield-desc
   icon: { sprite: Interface/Actions/actions_fakemindshield.rsi, state: icon-on }
+  productEntity: FakeMindShieldImplanter
   cost:
-    Telecrystal: 4
+    Telecrystal: 10 # funky, kinda curious what it being low could cause
   categories:
   - UplinkImplants
 
@@ -1357,8 +1583,14 @@
   productEntity: JetpackBlackFilled
   cost:
     Telecrystal: 10 # goob
+  conditions:
+    - !type:StoreWhitelistCondition
+      blacklist:
+        tags:
+          - NukeOpsUplink
   categories:
   - UplinkWearables
+
   saleLimit: 1 # WD EDIT
 
 - type: listing
@@ -1412,7 +1644,7 @@
   description: uplink-clothing-no-slips-shoes-desc
   productEntity: ClothingShoesChameleonNoSlips
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 15 # goob
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -1434,7 +1666,7 @@
   description: uplink-clothing-outer-vest-web-desc
   productEntity: ClothingOuterVestWeb
   cost:
-    Telecrystal: 20 # goob - Locks out some stronger items. Also 20 TC Tier makes more sense.
+    Telecrystal: 15 # goob
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -1445,7 +1677,7 @@
   description: uplink-clothing-shoes-boots-mag-syndie-desc
   productEntity: ClothingShoesBootsMagSyndie
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 30 # goob
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -1457,7 +1689,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Suits/eva_syndicate.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEVABundle
   cost:
-    Telecrystal: 20 # goob - Meh protection no slowdown. Can definitely take a hit or two extra however.
+    Telecrystal: 10 # goob - Meh protection no slowdown. Can definitely take a hit or two extra however.
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -1481,7 +1713,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndicate.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateHardsuitBundle
   cost:
-    Telecrystal: 50 # goob
+    Telecrystal: 50 # funky
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -1491,9 +1723,9 @@
   name: uplink-syndie-raid-name
   description: uplink-syndie-raid-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateRaidBundle
+  productEntity: ClothingBackpackSyndicateRaidBundle
   cost:
-    Telecrystal: 50 # goob
+    Telecrystal: 30 # funky
   categories:
   - UplinkWearables
   conditions:
@@ -1505,12 +1737,12 @@
 
 - type: listing
   id: UplinkHardsuitSyndieElite
-  name: uplink-hardsuit-syndieelite-name
-  description: uplink-hardsuit-syndieelite-desc
+  name: uplink-hardsuit-syndiepyrotect-name
+  description: uplink-hardsuit-syndiepyrotect-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
   cost:
-    Telecrystal: 75 # goob
+    Telecrystal: 100 # Funky
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -1522,10 +1754,12 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/cybersun.rsi, state: icon } # goobstation - duke nukies
   productEntity: CrateCybersunJuggernautBundle
   cost:
-    Telecrystal: 75 # goob
+    Telecrystal: 75
+     # Unchanged to allow for traitors to make a funny terrible decision. Funky
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkClothingEyesHudSyndicate
@@ -1533,7 +1767,7 @@
   description: uplink-clothing-eyes-hud-syndicate-desc
   productEntity: ClothingEyesHudSyndicate
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 1 # Comes preequipped on all nukies. Why is this even cost anything. Funky
   categories:
     - UplinkWearables
   conditions:
@@ -1542,6 +1776,91 @@
         tags:
           - NukeOpsUplink
   saleLimit: 1 # WD EDIT
+  saleBlacklist: true
+
+#- type: listing
+#  id: UplinkClothingConductingGloves
+#  name: uplink-clothing-conducting-gloves-name
+#  description: uplink-clothing-conducting-gloves-desc
+#  productEntity: ClothingHandsGlovesConducting
+#  cost:
+#    Telecrystal: 3 # Literally worthless. Not worth clogging the sale pool. Funky
+#  categories:
+#  - UplinkWearables
+#  conditions:
+#    !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#        -NukeOpsUplink
+#  saleLimit: 1 # WD EDIT
+
+- type: listing # EE
+  id: UplinkNightGoggles
+  name: uplink-night-vision-name
+  description: uplink-night-vision-desc
+  productEntity: ClothingEyesNightVisionGogglesSyndie
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  saleLimit: 1
+
+- type: listing # EE
+  id: UplinkNightGogglesNukie
+  name: uplink-night-vision-name
+  description: uplink-night-vision-desc
+  productEntity: ClothingEyesNightVisionGogglesNukie
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  saleLimit: 1
+# Funky change - No thermal vision in uplink
+#- type: listing # EE
+#  id: UplinkThermalGoggles
+#  name: uplink-thermal-vision-name
+#  description: uplink-thermal-vision-desc
+#  productEntity: ClothingEyesThermalVisionGogglesSyndie
+#  discountCategory: rareDiscounts
+#  discountDownTo:
+#    Telecrystal: 1
+#  cost:
+#    Telecrystal: 3
+#  categories:
+#  - UplinkWearables
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - NukeOpsUplink
+
+#- type: listing # EE
+#  id: UplinkThermalGogglesNukie
+#  name: uplink-thermal-vision-name
+#  description: uplink-thermal-vision-desc
+#  productEntity: ClothingEyesThermalVisionGogglesNukie
+#  discountCategory: rareDiscounts
+#  discountDownTo:
+#    Telecrystal: 1
+#  cost:
+#    Telecrystal: 3
+#  categories:
+#  - UplinkWearables
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - NukeOpsUplink
 
 - type: listing
   id: UplinkClothingConductingGloves
@@ -1549,10 +1868,9 @@
   description: uplink-clothing-conducting-gloves-desc
   productEntity: ClothingHandsGlovesConducting
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 2
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkBackpackSyndicate
@@ -1564,6 +1882,7 @@
   categories:
     - UplinkWearables
   saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
  # Pointless
 
@@ -1576,6 +1895,7 @@
     Telecrystal: 2 # goob - Meh, can be useful in preventing metagamers, but pretty pointless.
   categories:
   - UplinkPointless
+  saleBlacklist: true
 
 - type: listing
   id: UplinkSnackBox
@@ -1586,6 +1906,7 @@
     Telecrystal: 5 # goob
   categories:
   - UplinkPointless
+  saleBlacklist: true
 
 - type: listing
   id: UplinkRevolverCapGun
@@ -1596,6 +1917,7 @@
     Telecrystal: 4 # goob - Funny, but not 20 TC Funny.
   categories:
   - UplinkPointless
+  saleBlacklist: true
 
 - type: listing
   id: UplinkSyndicateStamp
@@ -1607,6 +1929,7 @@
   categories:
   - UplinkPointless
   saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
 - type: listing
   id: UplinkCatEars
@@ -1625,9 +1948,11 @@
   description: uplink-outlaw-hat-desc
   productEntity: ClothingHeadHatOutlawHat
   cost:
-    Telecrystal: 2 # goob - Yeehaw! less than 5 TC for both to get a set.
+    Telecrystal: 2 # Funky
   categories:
   - UplinkPointless
+  saleLimit: 1
+  saleBlacklist: true
 
 - type: listing
   id: UplinkOutlawGlasses
@@ -1635,9 +1960,10 @@
   description: uplink-outlaw-glasses-desc
   productEntity: ClothingEyesGlassesOutlawGlasses
   cost:
-    Telecrystal: 2 # goob - Who am i??? less than 5 TC for both to get a set.
+    Telecrystal: 2 # Funky
   categories:
   - UplinkPointless
+  saleBlacklist: true
 
 - type: listing
   id: UplinkCostumePyjama
@@ -1648,6 +1974,8 @@
     Telecrystal: 8 # goob - Funny but blatantly not worth more
   categories:
   - UplinkPointless
+  saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
 - type: listing
   id: UplinkCostumeClown
@@ -1659,6 +1987,7 @@
   categories:
   - UplinkPointless
   saleLimit: 1 # WD EDIT
+  saleBlacklist: true
 
 - type: listing
   id: UplinkCarpSuitBundle
@@ -1669,6 +1998,7 @@
     Telecrystal: 15 # goob
   categories:
   - UplinkPointless
+  saleBlacklist: true
 
 - type: listing
   id: UplinkOperativeSuit
@@ -1676,9 +2006,11 @@
   description: uplink-operative-suit-desc
   productEntity: ClothingUniformJumpsuitOperative
   cost:
-    Telecrystal: 2 # goob
+    Telecrystal: 2 # Funky
   categories:
   - UplinkPointless
+  saleBlacklist: true
+
 
 - type: listing
   id: UplinkOperativeSkirt
@@ -1689,6 +2021,7 @@
     Telecrystal: 2 # goob
   categories:
   - UplinkPointless
+  saleBlacklist: true
 
 - type: listing
   id: UplinkBalloon
@@ -1707,9 +2040,11 @@
   description: uplink-scarf-syndie-red-desc
   productEntity: ClothingNeckScarfStripedSyndieRed
   cost:
-    Telecrystal: 2 # goob
+    Telecrystal: 2 # Goob
   categories:
   - UplinkPointless
+  saleBlacklist: true
+
 
 - type: listing
   id: UplinkScarfSyndieGreen
@@ -1717,9 +2052,10 @@
   description: uplink-scarf-syndie-green-desc
   productEntity: ClothingNeckScarfStripedSyndieGreen
   cost:
-    Telecrystal: 2 # goob
+    Telecrystal: 2 # Goob
   categories:
     - UplinkPointless
+  saleBlacklist: true
 
 - type: listing
   id: UplinkSyndicateBusinessCard
@@ -1731,6 +2067,7 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 3
+  saleBlacklist: true
 
 # Job Specific
 
@@ -2103,6 +2440,25 @@
   saleLimit: 1 # WD EDIT
 
 - type: listing
+  id: uplinkChairFoldingSpawnFoldedSteel
+  name: uplink-chair-folding-spawn-folded-steel-name
+  description: uplink-chair-folding-spawn-folded-steel-desc
+  productEntity: ChairFoldingSpawnFoldedSteel
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Boxer
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  saleLimit: 1
+
+- type: listing
   id: UplinkCaneBlade
   name: uplink-cane-blade-name
   description: uplink-cane-blade-desc
@@ -2137,5 +2493,88 @@
     whitelist:
     - Chef
     - Mime
+
   saleLimit: 1 # WD EDIT
 
+- type: listing
+  id: UplinkSmugglerSatchel
+  name: uplink-smuggler-satchel-name
+  description: uplink-smuggler-satchel-desc
+  productEntity: ClothingBackpackSatchelSmugglerUnanchored
+  cost:
+    Telecrystal: 15 # funk
+  categories:
+  - UplinkDeception
+  saleLimit: 1 # WD EDIT
+
+# Funky duplicate to fix surplus bundle, this one cannot be bought ignore
+- type: listing
+  id: UplinkDarkGygaxSurplus
+  name: uplink-mech-teleporter-assault-name
+  description: uplink-mech-teleporter-assault-desc
+  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: darkgygax }
+  productEntity: CrateCybersunDarkGygaxBundle
+  cost:
+    Telecrystal: 500 #Funky
+  categories:
+  - UplinkAllies
+  conditions:
+  - !type:BuyerJobCondition # Funky string pulling to make the damn surplus crates work don't ask.
+    whitelist:
+    - Captain
+  saleLimit: 1
+
+- type: listing
+  id: UplinkDarkGygax
+  name: uplink-mech-teleporter-assault-name
+  description: uplink-mech-teleporter-assault-desc
+  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: darkgygax }
+  productEntity: CrateCybersunDarkGygaxBundle
+  cost:
+    Telecrystal: 300 #Funky
+  categories:
+  - UplinkAllies
+  conditions:
+  - !type:WarOpsCondition
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  saleLimit: 1
+
+
+# Funky duplicate to fix surplus bundle, this one cannot be bought ignore
+- type: listing
+  id: UplinkMaulerSurplus
+  name: uplink-mech-teleporter-heavy-name
+  description: uplink-mech-teleporter-heavy-desc
+  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: mauler }
+  productEntity: CrateCybersunMaulerBundle
+  cost:
+    Telecrystal: 600 # Funky
+  categories:
+  - UplinkAllies
+  conditions:
+  - !type:BuyerJobCondition # Funky string pulling to make the damn surplus crates work don't ask.
+    whitelist:
+    - Captain
+  saleLimit: 1
+
+
+- type: listing
+  id: UplinkMauler
+  name: uplink-mech-teleporter-heavy-name
+  description: uplink-mech-teleporter-heavy-desc
+  icon: { sprite: /Textures/Objects/Specific/Mech/mecha.rsi, state: mauler }
+  productEntity: CrateCybersunMaulerBundle
+  cost:
+    Telecrystal: 450 # Funky
+  categories:
+  - UplinkAllies
+  conditions:
+  - !type:WarOpsCondition
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  saleLimit: 1

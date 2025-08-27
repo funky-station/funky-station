@@ -1,3 +1,16 @@
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Antag.Components;
@@ -8,10 +21,12 @@ using Content.Shared.Chat;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 using Content.Shared.Preferences;
+using Content.Shared.Roles;
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Antag;
 
@@ -111,7 +126,7 @@ public sealed partial class AntagSelectionSystem
         var countOffset = 0;
         foreach (var otherDef in ent.Comp.Definitions)
         {
-            countOffset += Math.Clamp((poolSize - countOffset) / otherDef.PlayerRatio, otherDef.Min, otherDef.Max) * otherDef.PlayerRatio;
+            countOffset += Math.Clamp((poolSize - countOffset) / otherDef.PlayerRatio, otherDef.Min, otherDef.Max) * otherDef.PlayerRatio; // Note: Is the PlayerRatio necessary here? Seems like it can cause issues for defs with varied PlayerRatio.
         }
         // make sure we don't double-count the current selection
         countOffset -= Math.Clamp(poolSize / def.PlayerRatio, def.Min, def.Max) * def.PlayerRatio;
@@ -175,9 +190,96 @@ public sealed partial class AntagSelectionSystem
     }
 
     /// <summary>
-    /// Checks if a given session has the primary antag preferences for a given definition
+    /// Return true if a player has any character that could take any antagonist in antagList
     /// </summary>
-    public bool HasPrimaryAntagPreference(ICommonSession? session, AntagSelectionDefinition def)
+    /// <param name="session">The player session to pull preferences from</param>
+    /// <param name="antagList">List of AntagPrototypes to query</param>
+    /// <param name="selectionTime">If this is IntraPlayerSpawn, then this will properly consider exclude
+    /// mindshielded roles</param>
+    private bool HasAntagPreference(ICommonSession? session, ICollection<ProtoId<AntagPrototype>> antagList, AntagSelectionTime selectionTime)
+    {
+        if (session == null)
+            return true;
+
+        var pref = _pref.GetPreferences(session.UserId);
+        var priorities = pref.JobPriorities.Where(kvp => kvp.Value != JobPriority.Never).ToDictionary().Keys;
+
+        foreach (var profile in pref.Characters.Values)
+        {
+            if (profile is not HumanoidCharacterProfile { Enabled: true } humanoid)
+                continue;
+
+            // If this is a crew antag and this character has no jobs that can be antag, then skip this profile.
+            if (selectionTime == AntagSelectionTime.IntraPlayerSpawn
+                && !humanoid.JobPreferences.Intersect(priorities).Any(_jobs.CanBeAntag))
+                continue;
+
+            foreach (var antag in antagList)
+            {
+                if (humanoid.AntagPreferences.Contains(antag))
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Return true if a player has a positive priority for <paramref name="job"/> and also has any character with a
+    /// preference for <paramref name="job"/> with that could take any antagonist in antagList.
+    /// </summary>
+    /// <param name="session">The player session to pull preferences from</param>
+    /// <param name="antagList">List of AntagPrototypes to query</param>
+    /// <param name="selectionTime">If this is IntraPlayerSpawn, then this will properly consider exclude
+    /// mindshielded roles</param>
+    /// <param name="job">The job to filter the player's characters by</param>
+    /// <remarks>This variant is used after antag preselections to build up a player's eligible set of jobs.</remarks>
+    private bool HasAntagPreferenceWithJob(ICommonSession? session,
+        ICollection<ProtoId<AntagPrototype>> antagList,
+        AntagSelectionTime selectionTime,
+        ProtoId<JobPrototype> job)
+    {
+        if (session == null)
+            return true;
+
+        var pref = _pref.GetPreferences(session.UserId);
+        var priorities = pref.JobPriorities.Where(kvp => kvp.Value != JobPriority.Never).ToDictionary().Keys;
+
+        if (!priorities.Contains(job))
+            return false;
+
+        foreach (var profile in pref.Characters.Values)
+        {
+            if (profile is not HumanoidCharacterProfile { Enabled: true } humanoid)
+                continue;
+
+            if (!humanoid.JobPreferences.Contains(job))
+                continue;
+
+            // If this is a crew antag and they have no characters that can be antag considering their selected jobs,
+            // skip them.
+            if (selectionTime == AntagSelectionTime.IntraPlayerSpawn && !_jobs.CanBeAntag(job))
+                continue;
+
+            foreach (var antag in antagList)
+            {
+                if (humanoid.AntagPreferences.Contains(antag))
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Check if a player's session has any character that can become a primary antag in <paramref name="def"/>.
+    /// </summary>
+    /// <param name="session">The player session to pull preferences from</param>
+    /// <param name="def">The antag selection definition to check</param>
+    /// <param name="selectionTime">If this is IntraPlayerSpawn, then this will properly consider exclude
+    /// mindshielded roles</param>
+    /// <param name="job">The job to filter the player's characters by</param>
+    public bool HasPrimaryAntagPreference(ICommonSession? session, AntagSelectionDefinition def, AntagSelectionTime selectionTime, ProtoId<JobPrototype>? job = null)
     {
         if (session == null)
             return true;
@@ -185,14 +287,19 @@ public sealed partial class AntagSelectionSystem
         if (def.PrefRoles.Count == 0)
             return false;
 
-        var pref = (HumanoidCharacterProfile) _pref.GetPreferences(session.UserId).SelectedCharacter;
-        return pref.AntagPreferences.Any(p => def.PrefRoles.Contains(p));
+        return job is null
+            ? HasAntagPreference(session, def.PrefRoles, selectionTime)
+            : HasAntagPreferenceWithJob(session, def.PrefRoles, selectionTime, job.Value);
     }
 
     /// <summary>
-    /// Checks if a given session has the fallback antag preferences for a given definition
+    /// Check if a player's session has any character that can become a fallback antag in <paramref name="def"/>.
     /// </summary>
-    public bool HasFallbackAntagPreference(ICommonSession? session, AntagSelectionDefinition def)
+    /// <param name="session">The player session to pull preferences from</param>
+    /// <param name="def">The antag selection definition to check</param>
+    /// <param name="selectionTime">If this is IntraPlayerSpawn, then this will properly consider exclude
+    /// mindshielded roles</param>
+    public bool HasFallbackAntagPreference(ICommonSession? session, AntagSelectionDefinition def, AntagSelectionTime selectionTime)
     {
         if (session == null)
             return true;
@@ -200,8 +307,7 @@ public sealed partial class AntagSelectionSystem
         if (def.FallbackRoles.Count == 0)
             return false;
 
-        var pref = (HumanoidCharacterProfile) _pref.GetPreferences(session.UserId).SelectedCharacter;
-        return pref.AntagPreferences.Any(p => def.FallbackRoles.Contains(p));
+        return HasAntagPreference(session, def.FallbackRoles, selectionTime);
     }
 
     /// <summary>
@@ -376,7 +482,8 @@ public sealed partial class AntagSelectionSystem
     /// <summary>
     /// Get all sessions that have been preselected for antag.
     /// </summary>
-    public HashSet<ICommonSession> GetPreSelectedAntagSessions(AntagSelectionComponent? except = null)
+    /// <param name="except">A specific definition to be excluded from the check.</param>
+    public HashSet<ICommonSession> GetPreSelectedAntagSessions(AntagSelectionDefinition? except = null)
     {
         var result = new HashSet<ICommonSession>();
         var query = QueryAllRules();
@@ -385,15 +492,13 @@ public sealed partial class AntagSelectionSystem
             if (HasComp<EndedGameRuleComponent>(uid))
                 continue;
 
-            if (comp == except)
-                continue;
-
-            if (!comp.PreSelectionsComplete)
-                continue;
-
             foreach (var def in comp.Definitions)
             {
-                result.UnionWith(comp.PreSelectedSessions);
+                if (def.Equals(except))
+                    continue;
+
+                if (comp.PreSelectedSessions.TryGetValue(def, out var set))
+                    result.UnionWith(set);
             }
         }
 
@@ -403,7 +508,11 @@ public sealed partial class AntagSelectionSystem
     /// <summary>
     /// Get all sessions that have been preselected for antag and are exclusive, i.e. should not be paired with other antags.
     /// </summary>
-    public HashSet<ICommonSession> GetPreSelectedExclusiveAntagSessions(AntagSelectionComponent? except = null)
+    /// <param name="except">A specific definition to be excluded from the check.</param>
+    // Note: This is a bit iffy since technically this exclusive definition is defined via the MultiAntagSetting, while there's a separately tracked antagExclusive variable in the mindrole.
+    // We can't query that however since there's no guarantee the mindrole has been given out yet when checking pre-selected antags.
+    // I don't think there's any instance where they differ, but it's something to be aware of for a potential future refactor.
+    public HashSet<ICommonSession> GetPreSelectedExclusiveAntagSessions(AntagSelectionDefinition? except = null)
     {
         var result = new HashSet<ICommonSession>();
         var query = QueryAllRules();
@@ -412,22 +521,54 @@ public sealed partial class AntagSelectionSystem
             if (HasComp<EndedGameRuleComponent>(uid))
                 continue;
 
-            if (comp == except)
-                continue;
-
-            if (!comp.PreSelectionsComplete)
-                continue;
-
             foreach (var def in comp.Definitions)
             {
-                if (def.MultiAntagSetting == AntagAcceptability.None)
+                if (def.Equals(except))
+                    continue;
+
+                if (def.MultiAntagSetting == AntagAcceptability.None && comp.PreSelectedSessions.TryGetValue(def, out var set))
                 {
-                    result.UnionWith(comp.PreSelectedSessions);
+                    result.UnionWith(set);
                     break;
                 }
             }
         }
 
         return result;
+    }
+
+    /// <summary>
+    /// Returns a list of AntagSelectionDefinitions that this session has been preselected for
+    /// </summary>
+    public List<AntagSelectionDefinition> GetPreSelectedAntagDefinitions(ICommonSession session)
+    {
+        var result = new List<AntagSelectionDefinition>();
+        var query = QueryAllRules();
+        while (query.MoveNext(out var uid, out var comp, out _))
+        {
+            if (HasComp<EndedGameRuleComponent>(uid))
+                continue;
+
+            foreach (var def in comp.Definitions)
+            {
+                if (comp.PreSelectedSessions.TryGetValue(def, out var set) && set.Contains(session))
+                    result.Add(def);
+            }
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// Returns a list, each item being a set of AntagPrototype IDs for each Antag definition the session has been
+    /// preselected for. These entries can be compared to a HumanoidCharacterProfile's AntagPreferences.
+    /// </summary>
+    public List<HashSet<ProtoId<AntagPrototype>>> GetPreSelectedAntags(ICommonSession session)
+    {
+        var antagDefinitions = GetPreSelectedAntagDefinitions(session);
+
+        return antagDefinitions.Select(def =>
+            def.PrefRoles.Union(def.FallbackRoles).ToHashSet())
+            .ToList();
     }
 }

@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 pofitlo <kuzminvladislav237@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   id: CameraBug
   parent: [ BaseItem, BaseSyndicateContraband ]
@@ -9,6 +16,7 @@
     layers:
     - state: camera_bug
   - type: Item
+    sprite: Objects/Devices/camera_bug.rsi
   - type: ActivatableUI
     requireActiveHand: false
     inHandsOnly: true

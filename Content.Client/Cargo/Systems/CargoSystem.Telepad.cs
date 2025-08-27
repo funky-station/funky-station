@@ -1,3 +1,17 @@
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2023 Checkraze <71046427+Cheackraze@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
 using JetBrains.Annotations;
@@ -67,16 +81,17 @@ public sealed partial class CargoSystem
         if (!Resolve(uid, ref sprite))
             return;
 
+        if (!TryComp<AnimationPlayerComponent>(uid, out var player))
+            return;
+
         _appearance.TryGetData<CargoTelepadState?>(uid, CargoTelepadVisuals.State, out var state);
-        AnimationPlayerComponent? player = null;
 
         switch (state)
         {
             case CargoTelepadState.Teleporting:
-                if (_player.HasRunningAnimation(uid, TelepadBeamKey))
-                    return;
-                _player.Stop(uid, player, TelepadIdleKey);
-                _player.Play(uid, player, CargoTelepadBeamAnimation, TelepadBeamKey);
+                _player.Stop((uid, player), TelepadIdleKey);
+                if (!_player.HasRunningAnimation(uid, TelepadBeamKey))
+                    _player.Play((uid, player), CargoTelepadBeamAnimation, TelepadBeamKey);
                 break;
             case CargoTelepadState.Unpowered:
                 sprite.LayerSetVisible(CargoTelepadLayers.Beam, false);
@@ -90,7 +105,7 @@ public sealed partial class CargoSystem
                     _player.HasRunningAnimation(uid, player, TelepadBeamKey))
                     return;
 
-                _player.Play(uid, player, CargoTelepadIdleAnimation, TelepadIdleKey);
+                _player.Play((uid, player), CargoTelepadIdleAnimation, TelepadIdleKey);
                 break;
         }
     }

@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: guideEntry
+  id: CosmicCult
+  name: guide-entry-cosmiccult
+  text: "/ServerInfo/_DV/Guidebook/Antagonist/CosmicCult.xml"
+  children:
+  - CosmicCultMonument
+  - CosmicCultInfluences
+  - CosmicCultDeconversion
+
+- type: guideEntry
+  id: CosmicCultMonument
+  name: guide-entry-cosmiccult-monument
+  text: "/ServerInfo/_DV/Guidebook/Antagonist/CosmicCultMonument.xml"
+
+- type: guideEntry
+  id: CosmicCultInfluences
+  name: guide-entry-cosmiccult-influences
+  text: "/ServerInfo/_DV/Guidebook/Antagonist/CosmicCultInfluences.xml"
+
+- type: guideEntry
+  id: CosmicCultDeconversion
+  name: guide-entry-cosmiccult-deconversion
+  text: "/ServerInfo/_DV/Guidebook/Antagonist/CosmicCultDeconversion.xml"

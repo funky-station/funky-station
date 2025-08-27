@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Threading;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -87,9 +92,10 @@ public sealed partial class AnnounceTtsSystem : EntitySystem
 	}
 
 	public bool CanTTS(EntityUid user)
-	{
-		return _entityManager.HasComponent<StationAiOverlayComponent>(user);
-	}
+    {
+        return false; // disable ai tts for now
+        //return _entityManager.HasComponent<StationAiOverlayComponent>(user);
+    }
 
 	public static List<string> PrepareTtsMessage(string msg)
 	{

@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Created by TheSecondLord (Github)/livelaughlord (Discord) for Funky Station",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "mysterycutlet"
+    },
+    {
+      "name": "mysterycutlet-cooked"
+    },
+    {
+      "name": "mysterymeat"
+    },
+    {
+      "name": "mysterymeat-cooked"
+    }
+  ]
+}

@@ -1,5 +1,33 @@
-﻿<Document>
+<!--
+SPDX-FileCopyrightText: 2024 DevilishMilk <bluscout78@yahoo.com>
+SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
+<Document>
   Here is a list of all the SOP documents for command.
+
+  # General Command SOP
+
+  [bold]1.[/bold] Command members are to ensure the safety of the entire station, each primarily responsible for their own Department and respective duties;
+
+  [bold]2.[/bold] Command members are to ensure the wellbeing and dignity of Nanotrasen and its related assets;
+
+  [bold]3.[/bold] Command members may not slander or libel Nanotrasen;
+
+  [bold]4.[/bold] Command members must ensure that Nanotrasen corporate secrets remain confidential, and may reprimand or punish fellow command members who threaten this confidentiality;
+
+  [bold]5.[/bold] In the event of a confirmed threat to the station or Nanotrasen as a whole, command members may temporarily reveal related corporate secrets to crewmembers;
+
+  [bold]6.[/bold] Command members must report such confidentiality breaks as soon as the event is resolved;
+
+  [bold]7.[/bold] Command members must follow any Central Command officer's (such as the Nanotrasen Representative, Internal Affairs Agent, or the Magistrate) direction on corporate secrets;
+
+  [bold]8.[/bold] Command members must accept any fine, punishment, demotion, or death when a Central Command officer informs them of a wrongful break of their confidentiality agreement.
+
 
   # Captain SOP
 
@@ -11,7 +39,7 @@
 
   [bold]4.[/bold] The Captain is not to leave the Station unless given specific permission by Central Command, or it happens to be the end of the shift. To do so is to be considered abandoning their posts and is grounds for termination;
 
-  [bold]5.[/bold] The Captain must keep the Nuclear Authentication Disk on their person at all times or failing that, in the possession of the Head of Security or Blueshield;
+  [bold]5.[/bold] The Captain must keep the Nuclear Authentication Disk on their person at all times or failing that, in the possession of the Head of Security;
 
   [bold]6.[/bold] The Captain is to attempt to resolve every issue that arises in Command locally before contacting Central Command;
 
@@ -19,7 +47,8 @@
 
   [bold]8.[/bold] The Captain may only promote personnel to an Acting Head of Staff position if there is no assigned Head of Staff associated with the Department. The Acting Head of Staff must be a member of the Department they are to lead. See below for more information on Chain of Command;
 
-  [bold]9.[/bold] The Captain may not fire any Head of Staff without reasonable justification (ie, incompetency, criminal activity, or otherwise any action that endangers/compromises the station and/or crew). The Captain may not fire any Central Command VIPs (ie, Blueshield, NanoTrasen Representative) without permission from Central Command, unless they are blatantly acting against the well-being and safety of the crew and station. The Captain must also follow HoP SOP point 5.
+  [bold]9.[/bold] The Captain may not fire any Head of Staff without reasonable justification (ie, incompetency, criminal activity, or otherwise any action that endangers/compromises the station and/or crew). The Captain may not fire any Central Command VIPs (NanoTrasen Representative, etc) without permission from Central Command, unless they are blatantly acting against the well-being and safety of the crew and station. The Captain must also follow HoP SOP point 5.
+
 
   # Head of Personnel SOP
 
@@ -31,7 +60,7 @@
 
   [bold]4.[/bold] The Head of Personnel may not fire any personnel without authorization from the relevant Head of Staff, unless other conditions apply (see Space Law and General Standard Operating Procedure);
 
-  [bold]5.[/bold] The Head of Personnel may not promote anyone to the job of NanoTrasen Representative or Blueshield;
+  [bold]5.[/bold] The Head of Personnel may not promote anyone to any Central Command role. This includes the Magistrate, IAA, and others;
 
   [bold]6.[/bold] The Head of Personnel is free to utilize paperwork at their discretion. However, during major station emergencies, expediency should take precedence over bureaucracy;
 
@@ -39,7 +68,8 @@
 
   [bold]8.[/bold] The Head of Personnel is not permitted to perform Security duty. The Head of Personnel is permitted to carry a Disabler for self-defense only.
 
-  # NanoTrasen Representative SOP
+
+  # Nanotrasen Representative SOP
 
   [bold]1.[/bold] The NanoTrasen Representative is to ensure that every Department is following Standard Operating Procedure, up to and including the respective Head of Staff. If a Head of Staff is not available for a Department, the NanoTrasen Representative must ensure that the Captain appoints an Acting Head of Staff for said Department;
 
@@ -51,22 +81,32 @@
 
   [bold]5.[/bold] The NanoTrasen Representative is permitted to carry their flash and a blade-cane, or a stun baton if the blade-cane is lost.
 
-  # Blueshield Officer SOP
+  # Magistrate SOP
 
-  [bold]1.[/bold] The Blueshield may not conduct arrests under the same conditions as Security. However, they may apprehend any personnel that trespass on a Head of Staff Office or Command Area, any personnel that steal from those locations, or any personnel that steal from and/or injure any Head of Staff or Central Command VIP. However, all apprehended personnel are to be processed by Security personnel;
+  [bold]1.[/bold] The Magistrate is to ensure that Space Law is applied correctly. If it is not, they are to make it so;
 
-  [bold]2.[/bold] The Blueshield is to put the lives of Command over those of any other personnel, the Blueshield included. Their continued well-being is the Blueshield's top priority. This includes applying basic first aid and making sure they are revived if killed;
+  [bold]2.[/bold] The Magistrate has the final say on whether Trials take place, and should ensure they should only occur for Capital Sentences. Similarly, Magistrates are to ensure that Trials do not happen for Defendants that are self-evidently guilty;
 
-  [bold]3.[/bold] The Blueshield is to protect the lives of Command personnel, not follow their orders to a fault. The Blueshield is not to interfere with legal demotions or arrests. To do so is to place themselves under the Special Modifier Aiding and Abetting;
+  [bold]3.[/bold] The Magistrate may overrule anyone in all matters concerning Space Law. This does not extend to Emergency Response Teams, Central Command Officials or direct Central Command communications;
 
-  [bold]4.[/bold] The Blueshield is not to apply Lethal Force unless there is a clear and present danger to their life, or to the life of a member of Command and the assailant cannot be non-lethally detained.
+  [bold]4.[/bold] The Magistrate is permitted to carry their flash;
+
+  [bold]5.[/bold] The Magistrate is not above Space Law. Similarly, the Magistrate cannot overrule Security on a sentence imposed against themselves;
+
+  [bold]6.[/bold] In the absence of Internal Affairs Agents or a NanoTrasen Representative, the Magistrate may elect to handle matters of Standard Operating Procedure. Otherwise, the Magistrate is only to ensure that the NanoTrasen Representative under their command are handling such matters;
+
+  [bold]7.[/bold] The Magistrate may not impede the expedient functioning of Security for the sake of micromanaging every aspect it. The Magistrate should only concern themselves with crimes that either have fuzzy evidence, or require careful deliberation of circumstances;
+
+  [bold]8.[/bold] The Magistrate is to contact Central Command immediately if their decisions are being ignored, provided said decision actually match up with Space Law and Standard Operating Procedure.
+
 
   # If you need to deviate,
 
   [bold]Document document document![/bold]
   After action reports, calling CentCom on the fabled red phone, or even praying will be heard by CentCom and your actions may be excused if they were determined to be in the best interest for NanoTrasen.
 
-  # I'm Command, but I don't see my job listed here
+
+  # I don't see my job listed here
 
   It may be because this is a living document, and SOP is not yet finalized. The following SOP documents are completed for other Head's of Staff;
 

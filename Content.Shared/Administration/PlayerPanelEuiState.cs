@@ -1,12 +1,20 @@
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Eui;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
-using YamlDotNet.Serialization.Callbacks;
 
 namespace Content.Shared.Administration;
 
 [Serializable, NetSerializable]
-public sealed class PlayerPanelEuiState(NetUserId guid,
+public sealed class PlayerPanelEuiState(
+    NetUserId guid,
     string username,
     TimeSpan playtime,
     int? totalNotes,
@@ -52,3 +60,6 @@ public sealed class PlayerPanelDeleteMessage : EuiMessageBase;
 
 [Serializable, NetSerializable]
 public sealed class PlayerPanelRejuvenationMessage: EuiMessageBase;
+
+[Serializable, NetSerializable]
+public sealed class PlayerPanelFollowMessage: EuiMessageBase;

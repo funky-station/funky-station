@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: 2025 BuildTools <unconfigured@null.spigotmc.org>
+# SPDX-FileCopyrightText: 2025 oLykos <211734292+oLykos-star@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: marking
+  id: MothEyesSoft
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Moth/moth_parts.rsi
+    state: eyes_soft
+  - sprite: _Funkystation/Mobs/Customization/Moth/moth_parts.rsi
+    state: eyes_soft_skin
+
+- type: marking
+  id: HeterochromiaMothSoft
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: _Funkystation/Mobs/Customization/Moth/moth_parts.rsi
+    state: eyes_heterochromia_soft

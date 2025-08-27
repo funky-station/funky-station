@@ -1,71 +1,26 @@
-- type: dataset
-  id: SyndicateNamesNormal
-  values:
-  - Alfa
-  - Bravo
-  - Charlie
-  - Delta
-  - Echo
-  - Foxtrot
-  - Golf
-  - Hotel
-  - India
-  - Juliett
-  - Kilo
-  - Lima
-  - Mike
-  - November
-  - Oscar
-  - Papa
-  - Quebec
-  - Romeo
-  - Sierra
-  - Tango
-  - Uniform
-  - Victor
-  - Whiskey
-  - X-Ray
-  - Zulu
-  - Rin
-  - Len
-  - Luka
-  - Kikuo
-  - Gumi
-  - Kaito
-  - Meiko 
+# SPDX-FileCopyrightText: 2022 Pancake <Pangogie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Middleson5 <Chance@thethiers.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-- type: dataset
-  id: SyndicateNamesElite
+- type: localizedDataset
+  id: NamesSyndicateNormal
   values:
-  - Alpha
-  - Beta
-  - Gamma
-  - Delta
-  - Epsilon
-  - Zeta
-  - Eta
-  - Theta
-  - Iota
-  - Lambda
-  - Mu
-  - Nu
-  - Xi
-  - Omicron
-  - Pi
-  - Rho
-  - Sigma
-  - Tau
-  - Upsilon
-  - Phi
-  - Chi
-  - Psi
-  - Omega
-  - Miku
-  - Teto
-  - Neru
+    prefix: names-syndicate-normal-dataset-
+    count: 25
 
-- type: dataset
-  id: SyndicateNamesPrefix
+- type: localizedDataset
+  id: NamesSyndicateElite
   values:
-  - Operative
-  - Agent
+    prefix: names-syndicate-elite-dataset-
+    count: 23
+
+- type: localizedDataset
+  id: NamesSyndicatePrefix
+  values:
+    prefix: names-syndicate-prefix-dataset-
+    count: 2

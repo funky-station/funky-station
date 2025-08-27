@@ -1,3 +1,39 @@
+// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2021 Saphire Lattice <lattice@saphi.re>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 TekuNut <13456422+TekuNut@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 duston <66768086+dch-GH@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.Bed.Sleep;
@@ -20,6 +56,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Controllers;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
@@ -60,6 +97,8 @@ public abstract partial class SharedMoverController : VirtualController
     protected EntityQuery<FootstepModifierComponent> FootstepModifierQuery;
     protected EntityQuery<MapGridComponent> MapGridQuery;
 
+    private static readonly ProtoId<TagPrototype> FootstepSoundTag = "FootstepSound";
+
     /// <summary>
     /// <see cref="CCVars.StopSpeed"/>
     /// </summary>
@@ -74,6 +113,7 @@ public abstract partial class SharedMoverController : VirtualController
 
     public override void Initialize()
     {
+        UpdatesBefore.Add(typeof(TileFrictionController));
         base.Initialize();
 
         MoverQuery = GetEntityQuery<InputMoverComponent>();
@@ -155,7 +195,6 @@ public abstract partial class SharedMoverController : VirtualController
             return;
         }
 
-
         UsedMobMovement[uid] = true;
         // Specifically don't use mover.Owner because that may be different to the actual physics body being moved.
         var weightless = _gravity.IsWeightless(physicsUid, physicsComponent, xform);
@@ -203,20 +242,21 @@ public abstract partial class SharedMoverController : VirtualController
         var total = walkDir * walkSpeed + sprintDir * sprintSpeed;
 
         var parentRotation = GetParentGridAngle(mover);
-        var worldTotal = _relativeMovement ? parentRotation.RotateVec(total) : total;
+        var wishDir = _relativeMovement ? parentRotation.RotateVec(total) : total;
 
-        DebugTools.Assert(MathHelper.CloseToPercent(total.Length(), worldTotal.Length()));
+        DebugTools.Assert(MathHelper.CloseToPercent(total.Length(), wishDir.Length()));
 
-        var velocity = physicsComponent.LinearVelocity;
         float friction;
         float weightlessModifier;
         float accel;
+        var velocity = physicsComponent.LinearVelocity;
 
+        // Whether we use weightless friction or not.
         if (weightless)
         {
             if (gridComp == null && !MapGridQuery.HasComp(xform.GridUid))
                 friction = moveSpeedComponent?.OffGridFriction ?? MovementSpeedModifierComponent.DefaultOffGridFriction;
-            else if (worldTotal != Vector2.Zero && touching)
+            else if (wishDir != Vector2.Zero && touching)
                 friction = moveSpeedComponent?.WeightlessFriction ?? MovementSpeedModifierComponent.DefaultWeightlessFriction;
             else
                 friction = moveSpeedComponent?.WeightlessFrictionNoInput ?? MovementSpeedModifierComponent.DefaultWeightlessFrictionNoInput;
@@ -226,7 +266,7 @@ public abstract partial class SharedMoverController : VirtualController
         }
         else
         {
-            if (worldTotal != Vector2.Zero || moveSpeedComponent?.FrictionNoInput == null)
+            if (wishDir != Vector2.Zero || moveSpeedComponent?.FrictionNoInput == null)
             {
                 friction = tileDef?.MobFriction ?? moveSpeedComponent?.Friction ?? MovementSpeedModifierComponent.DefaultFriction;
             }
@@ -242,14 +282,27 @@ public abstract partial class SharedMoverController : VirtualController
         var minimumFrictionSpeed = moveSpeedComponent?.MinimumFrictionSpeed ?? MovementSpeedModifierComponent.DefaultMinimumFrictionSpeed;
         Friction(minimumFrictionSpeed, frameTime, friction, ref velocity);
 
-        if (worldTotal != Vector2.Zero)
+        wishDir *= weightlessModifier;
+
+        if (!weightless || touching)
+            Accelerate(ref velocity, in wishDir, accel, frameTime);
+
+        SetWishDir((uid, mover), wishDir);
+
+        PhysicsSystem.SetLinearVelocity(physicsUid, velocity, body: physicsComponent);
+
+        // Ensures that players do not spiiiiiiin
+        PhysicsSystem.SetAngularVelocity(physicsUid, 0, body: physicsComponent);
+
+        // Handle footsteps at the end
+        if (total != Vector2.Zero)
         {
             if (!NoRotateQuery.HasComponent(uid))
             {
                 // TODO apparently this results in a duplicate move event because "This should have its event run during
                 // island solver"??. So maybe SetRotation needs an argument to avoid raising an event?
                 var worldRot = _transform.GetWorldRotation(xform);
-                _transform.SetLocalRotation(xform, xform.LocalRotation + worldTotal.ToWorldAngle() - worldRot);
+                _transform.SetLocalRotation(xform, xform.LocalRotation + wishDir.ToWorldAngle() - worldRot);
             }
 
             if (!weightless && MobMoverQuery.TryGetComponent(uid, out var mobMover) &&
@@ -272,16 +325,23 @@ public abstract partial class SharedMoverController : VirtualController
                 }
             }
         }
+    }
 
-        worldTotal *= weightlessModifier;
+    public Vector2 GetWishDir(Entity<InputMoverComponent?> mover)
+    {
+        if (!MoverQuery.Resolve(mover.Owner, ref mover.Comp, false))
+            return Vector2.Zero;
 
-        if (!weightless || touching)
-            Accelerate(ref velocity, in worldTotal, accel, frameTime);
+        return mover.Comp.WishDir;
+    }
 
-        PhysicsSystem.SetLinearVelocity(physicsUid, velocity, body: physicsComponent);
+    public void SetWishDir(Entity<InputMoverComponent> mover, Vector2 wishDir)
+    {
+        if (mover.Comp.WishDir.Equals(wishDir))
+            return;
 
-        // Ensures that players do not spiiiiiiin
-        PhysicsSystem.SetAngularVelocity(physicsUid, 0, body: physicsComponent);
+        mover.Comp.WishDir = wishDir;
+        Dirty(mover);
     }
 
     public void LerpRotation(EntityUid uid, InputMoverComponent mover, float frameTime)
@@ -317,7 +377,7 @@ public abstract partial class SharedMoverController : VirtualController
         }
     }
 
-    private void Friction(float minimumFrictionSpeed, float frameTime, float friction, ref Vector2 velocity)
+    public void Friction(float minimumFrictionSpeed, float frameTime, float friction, ref Vector2 velocity)
     {
         var speed = velocity.Length();
 
@@ -338,7 +398,10 @@ public abstract partial class SharedMoverController : VirtualController
         velocity *= newSpeed;
     }
 
-    private void Accelerate(ref Vector2 currentVelocity, in Vector2 velocity, float accel, float frameTime)
+    /// <summary>
+    /// Adjusts the current velocity to the target velocity based on the specified acceleration.
+    /// </summary>
+    public static void Accelerate(ref Vector2 currentVelocity, in Vector2 velocity, float accel, float frameTime)
     {
         var wishDir = velocity != Vector2.Zero ? velocity.Normalized() : Vector2.Zero;
         var wishSpeed = velocity.Length();
@@ -401,7 +464,7 @@ public abstract partial class SharedMoverController : VirtualController
     {
         sound = null;
 
-        if (!CanSound() || !_tags.HasTag(uid, "FootstepSound"))
+        if (!CanSound() || !_tags.HasTag(uid, FootstepSoundTag))
             return false;
 
         var coordinates = xform.Coordinates;

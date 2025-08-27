@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 amatwiedle <amatwiedle@gmail.com>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+using Content.Shared._DV.Surgery;
 using Content.Shared._Shitmed.Autodoc;
 using Content.Shared._Shitmed.Autodoc.Components;
 using Content.Shared._Shitmed.Medical.Surgery;
@@ -10,6 +20,7 @@ using Content.Shared.Buckle.Components;
 using Content.Shared.Database;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
+using Content.Shared.FixedPoint;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Labels.EntitySystems;
@@ -34,6 +45,7 @@ public abstract class SharedAutodocSystem : EntitySystem
     [Dependency] private readonly SharedLabelSystem _label = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly SharedSurgerySystem _surgery = default!;
+    [Dependency] private readonly SurgeryCleanSystem _clean = default!;
     [Dependency] private readonly SleepingSystem _sleeping = default!;
 
     public override void Initialize()
@@ -51,6 +63,7 @@ public abstract class SharedAutodocSystem : EntitySystem
             s.Event<AutodocRemoveStepMessage>(OnRemoveStep);
             s.Event<AutodocStartMessage>(OnStart);
             s.Event<AutodocStopMessage>(OnStop);
+            s.Event<AutodocSanitizeMessage>(OnSanitize);
         });
 
         SubscribeLocalEvent<ActiveAutodocComponent, SurgeryStepEvent>(OnSurgeryStep);
@@ -128,6 +141,11 @@ public abstract class SharedAutodocSystem : EntitySystem
     private void OnStop(Entity<AutodocComponent> ent, ref AutodocStopMessage args)
     {
         RemComp<ActiveAutodocComponent>(ent);
+    }
+
+    private void OnSanitize(Entity<AutodocComponent> ent, ref AutodocSanitizeMessage args)
+    {
+        SanitizeTools(ent);
     }
 
     #endregion
@@ -281,6 +299,20 @@ public abstract class SharedAutodocSystem : EntitySystem
         return patient;
     }
 
+    /// <summary>
+    /// Returns the dirtiness value of the autodoc's surgical tool.
+    /// </summary>
+    public FixedPoint2 GetToolDirtiness(Entity<AutodocComponent> ent)
+    {
+        foreach (var item in _hands.EnumerateHeld(ent).ToList())
+        {
+            if (!TryComp<SurgeryDirtinessComponent>(item, out var dirtiness)) continue;
+            return dirtiness.Dirtiness;
+
+        }
+        return 0;
+    }
+
     public EntityUid? FindPart(EntityUid patient, BodyPartType type, BodyPartSymmetry? symmetry)
     {
         foreach (var ent in _body.GetBodyChildrenOfType(patient, type, symmetry: symmetry))
@@ -317,7 +349,7 @@ public abstract class SharedAutodocSystem : EntitySystem
 
     public bool IsAwake(EntityUid uid)
     {
-        return _mobState.IsAlive(uid) && !(HasComp<SleepingComponent>(uid) || HasComp<Content.Shared._DV.Surgery.AnesthesiaComponent>(uid)); // DeltaV: allow autodoc to proceed with only anesthesia
+        return _mobState.IsAlive(uid) && !(HasComp<SleepingComponent>(uid) || HasComp<AnesthesiaComponent>(uid)); // DeltaV: allow autodoc to proceed with only anesthesia
     }
 
     /// <summary>
@@ -474,6 +506,23 @@ public abstract class SharedAutodocSystem : EntitySystem
 
         Dirty(ent.Owner, ent.Comp1);
         return false;
+    }
+
+    /// <summary>
+    /// Cleans the dirt off the medical multitool used by the autodoc to perform surgeries.
+    /// </summary>
+    public bool SanitizeTools(Entity<AutodocComponent> ent)
+    {
+        // Ensure the autodoc has the right component to clean the tools before proceding.
+        if (!TryComp<SurgeryCleansDirtComponent>(ent, out var cleaning)) return false;
+
+        foreach (var item in _hands.EnumerateHeld(ent).ToList())
+        {
+            if (!TryComp<SurgeryDirtinessComponent>(item, out var dirtiness)) continue;
+
+            _clean.TryStartCleaning((ent.Owner, cleaning), ent, item);
+        }
+        return true;
     }
 
     #endregion

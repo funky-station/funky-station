@@ -1,8 +1,18 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   id: BaseFastDrawImplanter
   parent: BaseImplanter
   name: fast draw implanter
-  description: A syringe with tools for quick implant removal. It has small gold stars on its body.
+  description: A syringe with tools for quick implant removal and implant crushing. It has small gold stars on its body.
   abstract: true
   components:
     - type: Sprite
@@ -16,7 +26,11 @@
           map: [ "implantOnly" ]
     - type: Implanter
       currentMode: Draw
-      drawTime: 30
+      drawTime: 15
+      deimplantFailureDamage:
+        types:
+          Heat: 20
+      deimplantCrushes: true
 
 - type: entity
   id: RevsFastDrawImplanter
@@ -84,3 +98,19 @@
   components:
   - type: Implanter
     implant: BluespaceLifelineImplant
+
+- type: entity
+  parent: BaseImplantOnlyImplanter
+  id: PacifismImplanter
+  suffix: pacifism
+  components:
+  - type: Implanter
+    implant: PacifismImplant
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: SmokeImplanter
+  suffix: smoke
+  components:
+  - type: Implanter
+    implant: SmokeImplant

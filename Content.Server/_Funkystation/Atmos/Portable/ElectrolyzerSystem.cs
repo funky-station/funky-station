@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 // Assmos - /tg/ gases
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
@@ -18,6 +24,8 @@ public sealed class ElectrolyzerSystem : EntitySystem
     [Dependency] private readonly PowerReceiverSystem _power = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly GasTileOverlaySystem _gasOverlaySystem = default!;
+    private float _lastPowerLoad = 100f;
+    private const float MaxPowerDecrease = 50f;
 
     public override void Initialize()
     {
@@ -42,6 +50,7 @@ public sealed class ElectrolyzerSystem : EntitySystem
         if (!Resolve(uid, ref powerReceiver))
             return;
 
+        _lastPowerLoad = 100f;
         _power.TogglePower(uid);
 
         UpdateAppearance(uid);
@@ -83,7 +92,7 @@ public sealed class ElectrolyzerSystem : EntitySystem
         {
             var maxProportion = 2.5f * (float) Math.Pow(workingPower, 2);
             var proportion = Math.Min(initH2O * 0.5f, maxProportion);
-            var temperatureEfficiency = Math.Min(mixture.Temperature / 1123.15f * 0.75f, 0.75f);
+            var temperatureEfficiency = Math.Min(mixture.Temperature / 1123.15f * 0.8f, 0.8f); // To prevent closed loop burn systems, gases "evaporate" until we have another solution.
 
             var h2oRemoved = proportion * 2f;
             var oxyProduced = proportion * temperatureEfficiency;
@@ -122,7 +131,9 @@ public sealed class ElectrolyzerSystem : EntitySystem
             powerLoad = Math.Max(activeLoad * Math.Min(proportion / 30f, 1), powerLoad);
         }
 
+        powerLoad = Math.Max(powerLoad, _lastPowerLoad - MaxPowerDecrease);
         receiver.Load = powerLoad;
+        _lastPowerLoad = powerLoad;
 
         _gasOverlaySystem.UpdateSessions();
     }

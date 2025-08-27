@@ -1,8 +1,22 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 coolmankid12345 <55817627+coolmankid12345@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 coolmankid12345 <coolmankid12345@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.IdentityManagement;
+using Content.Shared.Implants;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Popups;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Stunnable;
+using Content.Shared.Tag;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 using Content.Shared.Antag;
@@ -14,6 +28,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedStunSystem _sharedStun = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
     {
@@ -25,6 +40,9 @@ public abstract class SharedRevolutionarySystem : EntitySystem
         SubscribeLocalEvent<RevolutionaryComponent, ComponentStartup>(DirtyRevComps);
         SubscribeLocalEvent<HeadRevolutionaryComponent, ComponentStartup>(DirtyRevComps);
         SubscribeLocalEvent<ShowAntagIconsComponent, ComponentStartup>(DirtyRevComps);
+
+        SubscribeLocalEvent<HeadRevolutionaryComponent, AddImplantAttemptEvent>(OnHeadRevImplantAttempt);
+        SubscribeLocalEvent<RevolutionaryComponent, AddImplantAttemptEvent>(OnRevImplantAttempt);
     }
 
     /// <summary>
@@ -86,6 +104,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
 
         return HasComp<ShowAntagIconsComponent>(uid);
     }
+    
     /// <summary>
     /// Dirties all the Rev components so they are sent to clients.
     ///
@@ -106,6 +125,39 @@ public abstract class SharedRevolutionarySystem : EntitySystem
         {
             Dirty(uid, comp);
         }
+    }
+
+    private void OnHeadRevImplantAttempt(Entity<HeadRevolutionaryComponent> headRev, ref AddImplantAttemptEvent args)
+    {
+        if (TryCancelSelfMindshield(args.User, args.Target, args.Implant))
+            args.Cancel();
+    }
+
+    private void OnRevImplantAttempt(Entity<RevolutionaryComponent> rev, ref AddImplantAttemptEvent args)
+    {
+        if (TryCancelSelfMindshield(args.User, args.Target, args.Implant))
+            args.Cancel();
+    }
+
+    /// <summary>
+    /// Prevents Revs from mindshielding themselves.
+    /// </summary>
+    /// <param name="user">Person using implanter</param>
+    /// <param name="target">Target of implanter</param>
+    /// <param name="implant">The implant</param>
+    /// <returns></returns>
+    private bool TryCancelSelfMindshield(EntityUid user, EntityUid target, EntityUid implant)
+    {
+        if (user != target)
+            return false;
+        
+        if (!TryComp<TagComponent>(implant, out var tagComp))
+            return false;
+
+        if (!_tag.HasTag(tagComp, "MindShield"))
+            return false;
+
+        return true;
     }
 
     // GoobStation

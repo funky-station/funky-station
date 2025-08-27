@@ -1,19 +1,13 @@
-﻿- type: dataset
-  id: ATVDescriptions
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: localizedDataset
+  id: DescriptionsATV
   values:
-  - All-Tile Vehicle.
-  - Ant-Thwarting Vehicle.
-  - Any-Time Vegetable.
-  - Actually-Two Vehicles.
-  - Any-Typed Variable.
-  - Assisted-Trauma Vehicle.
-  - Algorithm-Transmitted Virus.
-  - Alcoholic-Toddler Vacancy.
-  - Asshole-Tearing Volcano.
-  - A-Tele Vision.
-  - Awkward-Tweaking Vagabond.
-  - Art-Tragedy Volunteer.
-  - Automatic-Taco Vacancy.
-  - Another-Terrific View.
-  - All-The Virgins.
-  - A-Terrible Vehicle.
+    prefix: descriptions-atv-dataset-
+    count: 16

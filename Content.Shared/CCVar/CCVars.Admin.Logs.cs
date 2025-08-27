@@ -1,4 +1,12 @@
-﻿using Robust.Shared.Configuration;
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
 
@@ -39,4 +47,11 @@ public sealed partial class CCVars
 
     public static readonly CVarDef<string> AdminLogsServerName =
         CVarDef.Create("adminlogs.server_name", "unknown", CVar.SERVERONLY);
+
+    /// <summary>
+    /// Any session below this playtime will send an admin alert whenever they cause a LogImpact.High log.
+    /// Set to -1 to disable.
+    /// </summary>
+    public static readonly CVarDef<int> AdminLogsHighLogPlaytime =
+        CVarDef.Create("adminlogs.high_log_playtime", 5, CVar.SERVERONLY);
 }

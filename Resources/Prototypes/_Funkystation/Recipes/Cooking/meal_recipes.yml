@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 PresentAJ <Ajdpersonalemail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: microwaveMealRecipe
   id: RecipeMuffinCloth
   name: moffin recipe
@@ -9,3 +17,40 @@
     FoodDoughCottonSlice: 1
   reagents:
     Sugar: 10
+    
+- type: microwaveMealRecipe
+  id: RecipepIED
+  name: pIED recipe
+  result: pIED
+  time: 10
+  group: Dessert
+  solids:
+    FoodDoughPie: 1
+    FoodPlateTin: 1
+    PipeBomb: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMysteryStew
+  name: slop bowl recipe
+  result: FoodMysteryStew
+  time: 10
+  group: Soup
+  reagents:
+    Water: 10
+  solids:
+    FoodPotato: 1
+    FoodBowlBig: 1
+    FoodMysteryCutlet: 3
+
+- type: microwaveMealRecipe
+  id: RecipeSloppyJoe
+  name: sloppy joe recipe
+  result: FoodBurgerSloppyJoe
+  time: 10
+  group: Savory
+  reagents:
+    Ketchup: 5
+  solids:
+    FoodBreadBun: 1
+    FoodOnionSlice: 1
+    FoodMysteryMeat: 1

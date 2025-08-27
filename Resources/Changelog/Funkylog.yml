@@ -4300,3 +4300,11 @@ Entries:
         nitrile & latex gloves!
   id: 515
   time: '2025-08-26T01:46:06.0000000+00:00'
+- author: BrightNibbleston
+  changes:
+    - type: Tweak
+      message: >-
+        Changed air alarms and such to allow harpies to breath without setting
+        off air alarms
+  id: 516
+  time: '2025-08-27T00:19:05.0000000+00:00'

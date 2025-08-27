@@ -36,6 +36,7 @@ using Content.Shared.Database;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Content.Shared.Speech;
+using Content.Shared.Silicons.Laws.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -175,8 +176,8 @@ public sealed class RadioSystem : EntitySystem
             if (attemptEv.Cancelled)
                 continue;
 
-            // Imp original
-            if (channel.IntercomOnly && HasComp<HeadsetComponent>(radioSource))
+            // Imp original - edited to correct behavior for IPCs and Silicons
+            if (channel.IntercomOnly && !(HasComp<IntercomComponent>(radioSource) || HasComp<SiliconLawBoundComponent>(radioSource)))
                 continue;
 
             // send the message

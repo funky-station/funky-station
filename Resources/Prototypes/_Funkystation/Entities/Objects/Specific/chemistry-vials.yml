@@ -1,0 +1,48 @@
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: PestilineChemistryVial
+  parent: BaseChemistryEmptyVial
+  suffix: pestiline
+  components:
+  - type: Label
+    currentLabel: reagent-name-pestiline
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+          - ReagentId: Pestiline
+            Quantity: 10
+
+- type: entity
+  id: TazinideChemistryVial
+  parent: BaseChemistryEmptyVial
+  suffix: tazinide
+  components:
+  - type: Label
+    currentLabel: reagent-name-tazinide
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+          - ReagentId: Tazinide
+            Quantity: 10
+
+- type: entity
+  id: FresiumChemistryVial
+  parent: BaseChemistryEmptyVial
+  suffix: fresium
+  components:
+  - type: Label
+    currentLabel: reagent-name-fresium
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+          - ReagentId: Fresium
+            Quantity: 10

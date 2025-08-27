@@ -10,6 +10,7 @@
 // SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -32,6 +33,7 @@ using Content.Shared.Pointing;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Speech;
 using Content.Shared.Standing;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Strip.Components;
 using Content.Shared.Throwing;
 using Robust.Shared.Physics.Components;
@@ -94,7 +96,10 @@ public partial class MobStateSystem
                 //unused
                 break;
             case MobState.Critical:
-                _standing.Stand(target);
+                if (HasComp<BorgChassisComponent>(target))
+                    _standing.Stand(target, force: true);
+                else
+                    _standing.Stand(target);
                 break;
             case MobState.Dead:
                 RemComp<CollisionWakeComponent>(target);
@@ -119,7 +124,10 @@ public partial class MobStateSystem
         switch (state)
         {
             case MobState.Alive:
-                _standing.Stand(target);
+                if (HasComp<BorgChassisComponent>(target))
+                    _standing.Stand(target, force: true);
+                else
+                    _standing.Stand(target);
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Alive);
                 break;
             case MobState.Critical:

@@ -1,0 +1,27 @@
+- type: entity
+  name: syndicate chainsaw
+  parent: [Chainsaw, BaseSyndicateContraband]
+  id: SyndieChainsaw
+  description: A brutal, syndicate-branded chainsaw. Definitely not for cutting down trees.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Melee/syndie_chainsaw.rsi
+    state: icon
+  - type: MeleeWeapon
+    autoAttack: true
+    angle: 0
+    wideAnimationRotation: -135
+    attackRate: 4
+    damage:
+      types:
+        Slash: 3
+        Blunt: 2
+        Structural: 8   # 38 DPS when wielded, basic chainsaw is 32 DPS, DEsword is 45. Hopefully this is fair.
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 4.5
+        Structural: 8
+  - type: Item
+    size: Normal
+    sprite: _Funkystation/Objects/Weapons/Melee/syndie_chainsaw.rsi

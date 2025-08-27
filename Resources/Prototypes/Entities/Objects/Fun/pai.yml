@@ -24,7 +24,10 @@
 # SPDX-FileCopyrightText: 2024 mr-bo-jangles <mr-bo-jangles@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArchRBX <5040911+ArchRBX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 archrbx <punk.gear5260@fastmail.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -86,10 +89,10 @@
   - type: Examiner
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
-    channels:
+    intrinsicChannels:
     - Binary
   - type: ActiveRadio
-    channels:
+    intrinsicChannels:
     - Binary
     - Common
   - type: DoAfter
@@ -151,10 +154,10 @@
     mindRoles:
     - MindRoleGhostRoleFamiliar
   - type: IntrinsicRadioTransmitter
-    channels:
+    intrinsicChannels:
     - Syndicate
   - type: ActiveRadio
-    channels:
+    intrinsicChannels:
     - Syndicate
   - type: Appearance
   - type: GenericVisualizer
@@ -166,6 +169,23 @@
           On: { state: syndicate-pai-on-overlay }
   - type: StationAiVision # Goobstation - AI can see through NT silicon
     enabled: false
+
+- type: entity
+  parent: PersonalAI
+  id: GoldenPersonalAI
+  name: golden personal ai device
+  description: Your electronic pal who's fun to be with! Special golden edition!
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/pai.rsi
+    layers:
+    - state: golden-pai-base
+    - state: pai-off-overlay
+      shader: unshaded
+      map: ["screen"]
+  - type: Appearance
+  - type: StaticPrice
+    price: 5000
 
 - type: entity
   parent: PersonalAI

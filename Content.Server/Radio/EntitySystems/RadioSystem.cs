@@ -20,6 +20,9 @@
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Carrot <carpecarrot@gmail.com>
+// SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ecramox <65426878+Ecramox@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -71,7 +74,7 @@ public sealed class RadioSystem : EntitySystem
 
     private void OnIntrinsicSpeak(EntityUid uid, IntrinsicRadioTransmitterComponent component, EntitySpokeEvent args)
     {
-        if (args.Channel != null && component.Channels.Contains(args.Channel.ID))
+        if (args.Channel != null && CanTalkChannel(uid, args.Channel.ID))
         {
             SendRadioMessage(uid, args.Message, args.Channel, uid);
             args.Channel = null; // prevent duplicate messages from other listeners.
@@ -152,7 +155,7 @@ public sealed class RadioSystem : EntitySystem
         {
             if (!radio.ReceiveAllChannels)
             {
-                if (!radio.Channels.Contains(channel.ID) || (TryComp<IntercomComponent>(receiver, out var intercom) &&
+                if (!CanListenChannel(receiver, channel.ID) || (TryComp<IntercomComponent>(receiver, out var intercom) &&
                                                              !intercom.SupportedChannels.Contains(channel.ID)))
                     continue;
             }
@@ -170,6 +173,10 @@ public sealed class RadioSystem : EntitySystem
             RaiseLocalEvent(ref attemptEv);
             RaiseLocalEvent(receiver, ref attemptEv);
             if (attemptEv.Cancelled)
+                continue;
+
+            // Imp original
+            if (channel.IntercomOnly && HasComp<HeadsetComponent>(radioSource))
                 continue;
 
             // send the message
@@ -198,6 +205,21 @@ public sealed class RadioSystem : EntitySystem
                 return true;
             }
         }
+        return false;
+    }
+
+    private bool CanTalkChannel(EntityUid uid, string channelId){
+        if (TryComp<IntrinsicRadioTransmitterComponent>(uid, out var intrinsicTransmitter) && (intrinsicTransmitter.IntrinsicChannels.Contains(channelId) || intrinsicTransmitter.Channels.Contains(channelId)))
+            return true;
+
+        return false;
+    }
+
+    private bool CanListenChannel(EntityUid uid, string channelId){
+
+        if (TryComp<ActiveRadioComponent>(uid, out var activeRadio) && (activeRadio.IntrinsicChannels.Contains(channelId) || activeRadio.Channels.Contains(channelId)))
+            return true;
+
         return false;
     }
 }

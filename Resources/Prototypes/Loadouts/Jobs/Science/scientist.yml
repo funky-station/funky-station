@@ -51,6 +51,11 @@
   id: ScienceRoboJamjarGlasses
   equipment:
     eyes: ClothingEyesGlassesRobojar
+
+- type: loadout
+  id: ScienceRoboGlasses
+  equipment:
+    eyes: ClothingEyesGlassesRobo
 # Neck
 
 - type: loadout

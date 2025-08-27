@@ -168,3 +168,48 @@
     tags:
     - Sunglasses
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingEyesGlasses
+  id: ClothingEyesGlassesRobo
+  name: diagnostics-issue glasses
+  description: Upgraded glasses that provide a diagnostics HUD.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Glasses/robotglasses.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Glasses/robotglasses.rsi
+  - type: VisionCorrection
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Construction
+    graph: GlassesRobo
+    node: roboGlasses
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HamsterWearable
+
+- type: entity
+  parent: [ ClothingEyesGlasses, ShowMedicalIcons ]
+  id: ClothingEyesGlassesMed
+  name: medical-issue glasses
+  description: Upgraded glasses that provide a medical HUD.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Eyes/Glasses/medglasses.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Eyes/Glasses/medglasses.rsi
+  - type: VisionCorrection
+  - type: Construction
+    graph: GlassesMed
+    node: medGlasses
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HudMedical
+    - HamsterWearable

@@ -116,3 +116,25 @@
   description: Wow, you skinned a stuffed animal, maybe check in with the station psychologist?
   icon: { sprite: _Funkystation/Clothing/Head/Hats/lizard-cloak.rsi, state: icon }
   objectType: Item
+
+- type: construction
+  name: diagnostics-issue glasses
+  id: ClothingEyesGlassesRobo
+  graph: GlassesRobo
+  startNode: start
+  targetNode: roboGlasses
+  category: construction-category-clothing
+  description: Upgraded glasses that provide a diagnostics HUD.
+  icon: { sprite: _Funkystation/Clothing/Eyes/Glasses/robotglasses.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: medical-issue glasses
+  id: ClothingEyesGlassesMed
+  graph: GlassesMed
+  startNode: start
+  targetNode: medGlasses
+  category: construction-category-clothing
+  description: Upgraded glasses that provide a medical HUD.
+  icon: { sprite: _Funkystation/Clothing/Eyes/Glasses/medglasses.rsi, state: icon }
+  objectType: Item

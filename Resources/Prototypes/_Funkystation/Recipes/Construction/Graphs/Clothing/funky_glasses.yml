@@ -117,7 +117,7 @@
               doAfter: 5
     - node: engijarGlasses
       entity: ClothingEyesGlassesJamgog
-  
+
 - type: constructionGraph
   id: glassesSungar
   start: start
@@ -163,3 +163,55 @@
               doAfter: 5
     - node: sungarCGlasses
       entity: ClothingEyesGlassesCSungar
+############### ATLAS
+- type: constructionGraph
+  id: GlassesRobo
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: roboGlasses
+          steps:
+            - tag: GlassesBase
+              name: glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/glasses.rsi
+                state: icon
+              doAfter: 5
+            - tag: RoboVision
+              name: eyewear with diagnostics hud
+              icon:
+                sprite: Clothing/Eyes/Hud/diag.rsi
+                state: icon
+              doAfter: 5
+            - material: Cable
+              amount: 5
+              doAfter: 5
+    - node: roboGlasses
+      entity: ClothingEyesGlassesRobo
+
+- type: constructionGraph
+  id: GlassesMed
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: medGlasses
+          steps:
+            - tag: GlassesBase
+              name: glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/glasses.rsi
+                state: icon
+              doAfter: 5
+            - tag: HudMedical
+              name: eyewear with medical hud
+              icon:
+                sprite: Clothing/Eyes/Hud/med.rsi
+                state: icon
+              doAfter: 5
+            - material: Cable
+              amount: 5
+              doAfter: 5
+    - node: medGlasses
+      entity: ClothingEyesGlassesMed

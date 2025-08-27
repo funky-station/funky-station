@@ -92,6 +92,10 @@
   id: MedicalJamjarGlasses
   equipment:
     eyes: ClothingEyesGlassesMedjar
+- type: loadout
+  id: MedicalGlasses
+  equipment:
+    eyes: ClothingEyesGlassesMed
 
 # Jumpsuit
 - type: loadout

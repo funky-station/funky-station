@@ -1350,6 +1350,7 @@
   loadouts:
     - MedicalNormGlasses
     - MedicalJamjarGlasses
+    - MedicalGlasses
 
 - type: loadoutGroup
   id: MedicalDoctorJumpsuit

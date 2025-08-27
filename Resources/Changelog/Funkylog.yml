@@ -4308,3 +4308,9 @@ Entries:
         off air alarms
   id: 516
   time: '2025-08-27T00:19:05.0000000+00:00'
+- author: ArsCatalyst
+  changes:
+    - type: Remove
+      message: Removed Blueshield from Resort and Microstation
+  id: 517
+  time: '2025-08-27T18:34:51.0000000+00:00'

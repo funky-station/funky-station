@@ -187,6 +187,8 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 5
     fillBaseName: fill-
+    inHandsMaxFillLevels: 3
+    inHandsFillBaseName: -fill-
 
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
@@ -718,8 +720,6 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 5
     fillBaseName: icon-
-    inHandsMaxFillLevels: 2
-    inHandsFillBaseName: -fill-
   - type: Sealable
 
 - type: entity

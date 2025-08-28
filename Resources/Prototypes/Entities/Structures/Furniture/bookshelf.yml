@@ -120,11 +120,12 @@
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
+      paper_label: !type:ContainerSlot
   - type: Construction
     graph: Bookshelf
     node: bookshelf
   - type: BlockWeather
-  - type: PaperLabelType
+  - type: ItemSlots
   - type: PaperLabel
     labelSlot:
       insertVerbText: comp-paper-label-insert

@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Movement.Components;
 using Robust.Shared.Physics.Events;
 
@@ -27,6 +34,6 @@ public sealed class BoundarySystem : EntitySystem
         // If for whatever reason you want to yeet them to the other side.
         // offset = new Angle(MathF.PI).RotateVec(offset);
 
-        _xform.SetWorldPosition(otherXform, center + offset);
+        _xform.SetWorldPosition((args.OtherEntity, otherXform), center + offset);
     }
 }

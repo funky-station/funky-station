@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: reaction
   id: Hemoxadone
   minTemp: 370
@@ -25,3 +31,16 @@
       catalyst: true
   products:
     Cyanoxadone: 2
+
+- type: reaction
+  id: Anodynafil
+  minTemp: 400
+  reactants:
+    SalicylicAcid:
+      amount: 1
+    Ethanol:
+      amount: 1
+    Iodine:
+      amount: 1
+  products:
+    Anodynafil: 4

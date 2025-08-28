@@ -1,4 +1,10 @@
-﻿using Content.Shared.Preferences;
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Preferences;
 using JetBrains.Annotations;
 using Robust.Shared.Player;
 
@@ -13,13 +19,13 @@ namespace Content.Shared.GameTicking;
 public sealed class PlayerBeforeSpawnEvent : HandledEntityEventArgs
 {
     public ICommonSession Player { get; }
-    public HumanoidCharacterProfile Profile { get; }
+    public HumanoidCharacterProfile? Profile { get; }
     public string? JobId { get; }
     public bool LateJoin { get; }
     public EntityUid Station { get; }
 
     public PlayerBeforeSpawnEvent(ICommonSession player,
-        HumanoidCharacterProfile profile,
+        HumanoidCharacterProfile? profile,
         string? jobId,
         bool lateJoin,
         EntityUid station)

@@ -1,3 +1,40 @@
+# SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 justproggramer <68664576+Klaypexx@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lzk228 <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 router <messagebus@vk.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2024 Hmeister-real <118129069+Hmeister-real@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+# SPDX-FileCopyrightText: 2024 Keer-Sar <144283718+Keer-Sar@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 LankLTE <135308300+LankLTE@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Morb <14136326+Morb0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 Ty Ashley <42426760+TyAshley@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Wertan <48354940+Wertanchik@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 geraeumig <171753363+geraeumig@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 geraeumig <alfenos@proton.me>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Erisiaa <185582649+Erisiaa@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 # vocal emotes
 - type: emote
   id: Scream
@@ -7,9 +44,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-scream"]
   chatTriggers:
     - scream
@@ -37,9 +71,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-laugh"]
   chatTriggers:
     - laugh
@@ -83,9 +114,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-sigh"]
   chatTriggers:
     - sigh
@@ -100,9 +128,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-whistle"]
   chatTriggers:
     - whistle
@@ -117,9 +142,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-crying"]
   chatTriggers:
     - cry
@@ -138,14 +160,86 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-squish"]
   chatTriggers:
     - squish
     - squishing
     - squishes
+
+- type: emote
+  id: Bubble
+  name: chat-emote-name-bubble
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/bubble.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-bubble"]
+  chatTriggers:
+    - bubble
+    - bubbling
+    - bubbles
+
+- type: emote
+  id: Slosh
+  name: chat-emote-name-slosh
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/slosh.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-slosh"]
+  chatTriggers:
+    - slosh
+    - sloshing
+    - sloshes
+
+- type: emote
+  id: Pop
+  name: chat-emote-name-pop
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/pop.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-pop"]
+  chatTriggers:
+    - pop
+    - poping
+    - pops
+
+- type: emote
+  id: Fizz
+  name: chat-emote-name-fizz
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/fizz.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-fizz"]
+  chatTriggers:
+    - fizz
+    - fizzing
+    - fizzes
+    - carbinate
+    - carbinating
+    - carbinates
 
 - type: emote
   id: Chitter
@@ -156,9 +250,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-chitter"]
   chatTriggers:
    - chitter
@@ -174,9 +265,6 @@
   whitelist:
     components:
       - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-squeak"]
   chatTriggers:
    - squeak
@@ -192,13 +280,27 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-click"]
   chatTriggers:
    - click
    - clicks
+
+- type: emote
+  id: Coo
+  name: chat-emote-name-coo
+  category: Vocal
+  available: false
+  icon: _Impstation/Interface/Emotes/coo.png
+  whitelist:
+    tags:
+    - VoxEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [ chat-emote-msg-coo ]
+  chatTriggers:
+  - coo
+  - coos
 
 # hand emotes
 - type: emote
@@ -209,9 +311,6 @@
   whitelist:
     components:
     - Hands
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-clap"]
   chatTriggers:
     - claps
@@ -226,9 +325,6 @@
   whitelist:
     components:
     - Hands
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: [ "chat-emote-msg-clap-single" ]
   chatTriggers:
     - clap
@@ -245,9 +341,6 @@
   whitelist:
     components:
     - Hands
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-snap"]
   chatTriggers:
     - snap
@@ -272,9 +365,6 @@
   whitelist:
     components:
     - Hands
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-thump"]
   chatTriggers:
     - thump
@@ -296,9 +386,6 @@
   whitelist:
     components:
     - Hands
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-salute"]
   chatTriggers:
     - salute
@@ -336,6 +423,12 @@
 - type: emote
   id: Buzz
   name: chat-emote-name-buzz
+  whitelist:
+    tags:
+    - IPCEmotes
+    - HarpyEmotes
+    components:
+    - BorgChassis
   category: Vocal
   icon: Interface/Emotes/buzz.png
   chatMessages: ["chat-emote-msg-buzz"]
@@ -350,7 +443,13 @@
   name: chat-emote-name-weh
   category: Vocal
   icon: Interface/Emotes/weh.png
+  whitelist:
+    tags:
+    - LizardEmotes
   chatMessages: ["chat-emote-msg-weh"]
+  chatTriggers:
+    - weh
+    - wehs
 
 - type: emote
   id: Hew
@@ -369,6 +468,8 @@
     components:
     - Nymph
     - Vocal
+    tags:
+    - LizardEmotes
   blacklist:
     components:
     - BorgChassis
@@ -384,6 +485,12 @@
   id: Beep
   name: chat-emote-name-beep
   category: Vocal
+  whitelist:
+    tags:
+    - IPCEmotes
+    - HarpyEmotes
+    components:
+    - BorgChassis
   icon: Interface/Emotes/beep.png
   chatMessages: ["chat-emote-msg-beep"]
   chatTriggers:
@@ -395,6 +502,12 @@
 - type: emote
   id: Chime
   name: chat-emote-name-chime
+  whitelist:
+    tags:
+    - IPCEmotes
+    - HarpyEmotes
+    components:
+    - BorgChassis
   category: Vocal
   icon: Interface/Emotes/chime.png
   chatMessages: ["chat-emote-msg-chime"]
@@ -407,6 +520,12 @@
 - type: emote
   id: Buzz-Two
   name: chat-emote-name-buzztwo
+  whitelist:
+    tags:
+    - IPCEmotes
+    - HarpyEmotes
+    components:
+    - BorgChassis
   category: Vocal
   icon: Interface/Emotes/buzztwo.png
   chatMessages: ["chat-emote-msg-buzzestwo"]
@@ -425,6 +544,12 @@
 - type: emote
   id: Ping
   name: chat-emote-name-ping
+  whitelist:
+    tags:
+    - IPCEmotes
+    - HarpyEmotes
+    components:
+    - BorgChassis
   category: Vocal
   icon: Interface/Emotes/ping.png
   chatMessages: ["chat-emote-msg-ping"]
@@ -437,6 +562,10 @@
 - type: emote
   id: Yap
   name: chat-emote-name-yap
+  whitelist:
+    tags:
+    - VulpEmotes
+    - HarpyEmotes
   category: Vocal
   chatMessages: [ yaps ]
   chatTriggers:
@@ -446,7 +575,11 @@
 - type: emote
   id: Gekker
   name: chat-emote-name-gekker
-  category: Vocal  
+  whitelist:
+    tags:
+    - VulpEmotes
+    - HarpyEmotes
+  category: Vocal
   chatMessages: [ gekkers ]
   chatTriggers:
   - gekkers

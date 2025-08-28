@@ -1,12 +1,25 @@
-using Content.Shared.DrawDepth;
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Client.UserInterface.Systems.Sandbox;
 using Content.Shared.SubFloor;
 using Robust.Client.GameObjects;
+using Robust.Client.UserInterface;
+using Robust.Shared.Player;
 
 namespace Content.Client.SubFloor;
 
 public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly IUserInterfaceManager _ui = default!;
 
     private bool _showAll;
 
@@ -18,8 +31,13 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
         {
             if (_showAll == value) return;
             _showAll = value;
+            _ui.GetUIController<SandboxUIController>().SetToggleSubfloors(value);
 
-            UpdateAll();
+            var ev = new ShowSubfloorRequestEvent()
+            {
+                Value = value,
+            };
+            RaiseNetworkEvent(ev);
         }
     }
 
@@ -28,6 +46,20 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
         base.Initialize();
 
         SubscribeLocalEvent<SubFloorHideComponent, AppearanceChangeEvent>(OnAppearanceChanged);
+        SubscribeNetworkEvent<ShowSubfloorRequestEvent>(OnRequestReceived);
+        SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnPlayerDetached);
+    }
+
+    private void OnPlayerDetached(LocalPlayerDetachedEvent ev)
+    {
+        // Vismask resets so need to reset this.
+        ShowAll = false;
+    }
+
+    private void OnRequestReceived(ShowSubfloorRequestEvent ev)
+    {
+        // When client receives request Queue an update on all vis.
+        UpdateAll();
     }
 
     private void OnAppearanceChanged(EntityUid uid, SubFloorHideComponent component, ref AppearanceChangeEvent args)

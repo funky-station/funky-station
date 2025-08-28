@@ -1,17 +1,43 @@
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 blueDev2 <89804215+blueDev2@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 aa5g21 <aa5g21@soton.ac.uk>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Cargo.Components;
 using Content.Server.Labels;
 using Content.Server.NameIdentifier;
+using Content.Server.Research.Systems;
 using Content.Shared._Funkystation.Cargo.Prototypes;
 using Content.Shared.Access.Components;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Prototypes;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
 using Content.Shared.NameIdentifier;
 using Content.Shared.Paper;
+using Content.Shared.Research.Components;
+using Content.Shared.Research.Systems;
 using Content.Shared.Stacks;
 using Content.Shared.Whitelist;
 using JetBrains.Annotations;
@@ -21,7 +47,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-// This file features edits for Funky Station, while there are minor edits throughout the file, the section of major changes has been marked
+// This file features edits for Funky Station, there are a lot of edits throughout the file
 
 namespace Content.Server.Cargo.Systems;
 
@@ -30,7 +56,9 @@ public sealed partial class CargoSystem
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly NameIdentifierSystem _nameIdentifier = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSys = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedResearchSystem _research = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
 
     [ValidatePrototypeId<NameIdentifierGroupPrototype>]
     private const string BountyNameIdentifierGroup = "Bounty";
@@ -60,7 +88,9 @@ public sealed partial class CargoSystem
             return;
 
         var untilNextSkip = bountyDb.NextSkipTime - _timing.CurTime;
-        _uiSystem.SetUiState(uid, CargoConsoleUiKey.Bounty, new CargoBountyConsoleState(bountyDb.Bounties, bountyDb.History, untilNextSkip));
+        _uiSystem.SetUiState(uid,
+            CargoConsoleUiKey.Bounty,
+            new CargoBountyConsoleState(bountyDb.Bounties, bountyDb.History, untilNextSkip));
     }
 
     private void OnPrintLabelMessage(EntityUid uid, CargoBountyConsoleComponent component, BountyPrintLabelMessage args)
@@ -82,7 +112,8 @@ public sealed partial class CargoSystem
 
     private void OnSkipBountyMessage(EntityUid uid, CargoBountyConsoleComponent component, BountySkipMessage args)
     {
-        if (_station.GetOwningStation(uid) is not { } station || !TryComp<StationCargoBountyDatabaseComponent>(station, out var db))
+        if (_station.GetOwningStation(uid) is not { } station ||
+            !TryComp<StationCargoBountyDatabaseComponent>(station, out var db))
             return;
 
         if (_timing.CurTime < db.NextSkipTime)
@@ -107,11 +138,17 @@ public sealed partial class CargoSystem
         FillBountyDatabase(station);
         db.NextSkipTime = _timing.CurTime + db.SkipDelay;
         var untilNextSkip = db.NextSkipTime - _timing.CurTime;
-        _uiSystem.SetUiState(uid, CargoConsoleUiKey.Bounty, new CargoBountyConsoleState(db.Bounties, db.History, untilNextSkip));
+        _uiSystem.SetUiState(uid,
+            CargoConsoleUiKey.Bounty,
+            new CargoBountyConsoleState(db.Bounties, db.History, untilNextSkip));
         _audio.PlayPvs(component.SkipSound, uid);
     }
 
-    public void SetupBountyLabel(EntityUid uid, EntityUid stationId, CargoBountyData bounty, PaperComponent? paper = null, CargoBountyLabelComponent? label = null)
+    public void SetupBountyLabel(EntityUid uid,
+        EntityUid stationId,
+        CargoBountyData bounty,
+        PaperComponent? paper = null,
+        CargoBountyLabelComponent? label = null)
     {
         if (!Resolve(uid, ref paper, ref label))
             return;
@@ -125,10 +162,21 @@ public sealed partial class CargoSystem
         msg.PushNewline();
         foreach (var entry in bounty.Entries)
         {
-            msg.AddMarkupOrThrow($"- {Loc.GetString("bounty-console-manifest-entry",
-                ("amount", entry.Amount),
-                ("item", Loc.GetString(entry.Name)))}");
-            msg.PushNewline();
+            switch (entry)
+            {
+                case CargoObjectBountyItemData objectBounty:
+                    msg.AddMarkupOrThrow($"- {Loc.GetString("bounty-console-manifest-entry",
+                        ("amount", entry.Amount),
+                        ("item", Loc.GetString(entry.Name)))}");
+                    msg.PushNewline();
+                    break;
+                case CargoReagentBountyItemData reagentBounty:
+                    msg.AddMarkupOrThrow($"- {Loc.GetString("bounty-console-manifest-entry-reagent",
+                        ("amount", entry.Amount),
+                        ("item", Loc.GetString(entry.Name)))}");
+                    msg.PushNewline();
+                    break;
+            }
         }
         msg.AddMarkupOrThrow(Loc.GetString("bounty-console-manifest-reward", ("reward", bounty.Reward)));
         _paperSystem.SetContent((uid, paper), msg.ToMarkup());
@@ -144,10 +192,12 @@ public sealed partial class CargoSystem
             return;
 
         // make sure this label was actually applied to a crate.
-        if (!_container.TryGetContainingContainer((uid, null, null), out var container) || container.ID != LabelSystem.ContainerName)
+        if (!_container.TryGetContainingContainer((uid, null, null), out var container) ||
+            container.ID != LabelSystem.ContainerName)
             return;
 
-        if (component.AssociatedStationId is not { } station || !TryComp<StationCargoBountyDatabaseComponent>(station, out var database))
+        if (component.AssociatedStationId is not { } station ||
+            !TryComp<StationCargoBountyDatabaseComponent>(station, out var database))
             return;
 
         if (database.CheckedBounties.Contains(component.Id))
@@ -174,7 +224,8 @@ public sealed partial class CargoSystem
             if (!TryGetBountyLabel(sold, out _, out var component))
                 continue;
 
-            if (component.AssociatedStationId is not { } station || !TryGetBountyFromId(station, component.Id, out var bounty))
+            if (component.AssociatedStationId is not { } station ||
+                !TryGetBountyFromId(station, component.Id, out var bounty))
             {
                 continue;
             }
@@ -286,7 +337,14 @@ public sealed partial class CargoSystem
         var items = new HashSet<CargoBountyItemData>();
         foreach (var entry in proto.Entries)
         {
-            items.Add(new CargoBountyItemData(entry));
+            CargoBountyItemData newItem = entry switch
+            {
+                CargoObjectBountyItemEntry itemEntry => new CargoObjectBountyItemData(itemEntry),
+                CargoReagentBountyItemEntry itemEntry => new CargoReagentBountyItemData(itemEntry),
+                _ => throw new NotImplementedException($"Unknown type: {entry.GetType().Name}"),
+            };
+            items.Add(newItem);
+
         }
 
         return IsBountyComplete(container, items);
@@ -297,7 +355,13 @@ public sealed partial class CargoSystem
         var items = new HashSet<CargoBountyItemData>();
         foreach (var entry in prototype.Entries)
         {
-            items.Add(new CargoBountyItemData(entry));
+            CargoBountyItemData newItem = entry switch
+            {
+                CargoObjectBountyItemEntry itemEntry => new CargoObjectBountyItemData(itemEntry),
+                CargoReagentBountyItemEntry itemEntry => new CargoReagentBountyItemData(itemEntry),
+                _ => throw new NotImplementedException($"Unknown type: {entry.GetType().Name}"),
+            };
+            items.Add(newItem);
         }
 
         return IsBountyComplete(container, items);
@@ -308,7 +372,9 @@ public sealed partial class CargoSystem
         return IsBountyComplete(container, entries, out _);
     }
 
-    public bool IsBountyComplete(EntityUid container, IEnumerable<CargoBountyItemData> entries, out HashSet<EntityUid> bountyEntities)
+    public bool IsBountyComplete(EntityUid container,
+        IEnumerable<CargoBountyItemData> entries,
+        out HashSet<EntityUid> bountyEntities)
     {
         return IsBountyComplete(GetBountyEntities(container), entries, out bountyEntities);
     }
@@ -317,7 +383,7 @@ public sealed partial class CargoSystem
     /// Determines whether the <paramref name="entity"/> meets the criteria for the bounty <paramref name="entry"/>.
     /// </summary>
     /// <returns>true if <paramref name="entity"/> is a valid item for the bounty entry, otherwise false</returns>
-    public bool IsValidBountyEntry(EntityUid entity, CargoBountyItemData entry)
+    public bool IsValidBountyEntry(EntityUid entity, CargoObjectBountyItemData entry)
     {
         if (!_whitelistSys.IsValid(entry.Whitelist, entity))
             return false;
@@ -328,25 +394,83 @@ public sealed partial class CargoSystem
         return true;
     }
 
-    public bool IsValidBountyEntry(EntityUid entity, CargoBountyItemEntry entry)
+    /// <summary>
+    /// Determines whether the <paramref name="entity"/> meets the criteria for the bounty <paramref name="entry"/>.
+    /// </summary>
+    /// <param name="entity">Some given entity to be checked against criteria</param>
+    /// <param name="reagentBounty">The specific bounty reagent item that is being checked against</param>
+    /// <returns>true if <paramref name="entity"/> is a valid item for the bounty entry, otherwise false</returns>
+    public bool IsValidBountyEntry(EntityUid entity, CargoReagentBountyItemData reagentBounty)
     {
-        return IsValidBountyEntry(entity, new CargoBountyItemData(entry));
+        if (!TryComp<SolutionContainerManagerComponent>(entity, out var solutions))
+            return false;
+
+        if (!_protoMan.TryIndex(reagentBounty.Reagent, out var bounty))
+            return false;
+
+        foreach (var (_, soln) in _solutionContainer.EnumerateSolutions((entity, solutions)))
+        {
+            var solution = soln.Comp.Solution;
+
+            foreach (var sol in solution.Contents)
+            {
+                if (sol.Reagent.Prototype.Equals(bounty.ID))
+                    return true;
+            }
+        }
+
+        return false;
     }
 
-    public bool IsBountyComplete(HashSet<EntityUid> entities, IEnumerable<CargoBountyItemData> entries, out HashSet<EntityUid> bountyEntities)
+    /// <summary>
+    /// Determines whether the <paramref name="entity"/> meets the criteria for the bounty <paramref name="entry"/>.
+    /// </summary>
+    /// <returns>true if <paramref name="entity"/> is a valid item for the bounty entry, otherwise false</returns>
+    public bool IsValidBountyEntry(EntityUid entity, CargoBountyItemEntry entry)
+    {
+        return entry switch
+        {
+            CargoObjectBountyItemEntry objectBounty =>
+                IsValidBountyEntry(entity, new CargoObjectBountyItemData(objectBounty)),
+            CargoReagentBountyItemEntry reagentBounty =>
+                IsValidBountyEntry(entity, new CargoReagentBountyItemData(reagentBounty)),
+            _ => throw new NotImplementedException($"Unknown type: {entry.GetType().Name}"),
+        };
+    }
+
+    /// <summary>
+    /// Checks if some bounty is complete by iterating through a given set of entities and then matching
+    /// them to potential bounty objectives
+    /// </summary>
+    /// <param name="entities">Given set of entities to match</param>
+    /// <param name="entries">Given list of bounties objectives to match to</param>
+    /// <param name="bountyEntities">Returns a list of entites that are used to fufil the bounty, is a subset of <paramref name="entities"/></param>
+    /// <returns>True if the given bounty objectives are passed, false otherwise</returns>
+    public bool IsBountyComplete(HashSet<EntityUid> entities,
+        IEnumerable<CargoBountyItemData> entries,
+        out HashSet<EntityUid> bountyEntities)
     {
         bountyEntities = new();
 
         var entityReqs = new Dictionary<EntityUid, HashSet<CargoBountyItemData>>();
 
+        // Matches the given entities to potential objectives each item can fufill
         foreach (var entity in entities)
         {
             entityReqs.Add(entity, new HashSet<CargoBountyItemData>());
             foreach (var entry in entries)
             {
-                if (!IsValidBountyEntry(entity, entry))
-                    continue;
-
+                switch (entry)
+                {
+                    case CargoObjectBountyItemData objectBounty:
+                        if (!IsValidBountyEntry(entity, objectBounty))
+                            continue;
+                        break;
+                    case CargoReagentBountyItemData reagentBounty:
+                        if (!IsValidBountyEntry(entity, reagentBounty))
+                            continue;
+                        break;
+                }
                 entityReqs[entity].Add(entry);
             }
         }
@@ -357,6 +481,9 @@ public sealed partial class CargoSystem
             remaining[e] = e.Amount;
         }
 
+        // Matches entities to bounty objectives, for object bounties each item can only be matched once, but as
+        // solutions can hold multiple different solutions we must consider how to match multiple objectives per
+        // entity for reagents
         var sorted = entityReqs.OrderBy(kvp => kvp.Value.Count).ToList();
         foreach (var (entity, possibleEntries) in sorted)
         {
@@ -365,7 +492,32 @@ public sealed partial class CargoSystem
             if (chosenEntry == null)
                 continue;
             bountyEntities.Add(entity);
-            remaining[chosenEntry]--;
+            switch (chosenEntry)
+            {
+                case CargoObjectBountyItemData bountyItem:
+                    remaining[chosenEntry]--;
+                    break;
+                case CargoReagentBountyItemData bountyItem:
+                    // TODO: This is horrible and I hate it, but I am bad and need to study to implement it better
+                    if (!TryComp<SolutionContainerManagerComponent>(entity, out var solutions))
+                        continue;
+                    foreach (var (_, soln) in _solutionContainer.EnumerateSolutions((entity, solutions)))
+                    {
+                        var solution = soln.Comp.Solution;
+
+                        foreach (var sol in solution.Contents)
+                        {
+                            foreach (var cargoBountyItemData1 in possibleEntries)
+                            {
+                                var cargoBountyItemData = (CargoReagentBountyItemData)cargoBountyItemData1;
+                                if (sol.Reagent.Prototype.Equals(cargoBountyItemData.Reagent.Id))
+                                    remaining[cargoBountyItemData] -= sol.Quantity.Value / 100;
+                            }
+
+                        }
+                    }
+                    break;
+            }
         }
 
         foreach (var e in remaining)
@@ -406,6 +558,15 @@ public sealed partial class CargoSystem
         return entities;
     }
     // Beginning of major Funky Station Edits
+    /// <summary>
+    /// This method will attempt to add a bounty to a given station bounty database
+    /// </summary>
+    /// <param name="uid">The uid of the entity trying to add the item, this is normally the bounty computer</param>
+    /// <param name="component">The bounty database for a station, each station has one though we normally don't have
+    /// any outside the main station</param>
+    /// <returns>True if the bounty is successfully added, false otherwise</returns>
+    /// <exception cref="NotImplementedException">This will be thrown if some bounty type that handling has not be
+    /// created for is attempted to be made</exception>
     [PublicAPI]
     public bool TryAddBounty(EntityUid uid, StationCargoBountyDatabaseComponent? component = null)
     {
@@ -416,35 +577,66 @@ public sealed partial class CargoSystem
             return false;
 
         var allBounties = _protoMan.EnumeratePrototypes<CargoBountyCategoryPrototype>().ToList();
+        if (allBounties.Count < 1)
+            return false;
+        var chosenCategory = false;
         var bountyCategory = _random.Pick(allBounties);
-        // This all feels wrong, but it works so hey ho
-        var duplicheck = true;
-        while (duplicheck)
+        List<CargoBountyItemEntry> bountyItems = [];
+        while (!chosenCategory)
         {
-            duplicheck = false;
-            bountyCategory = _random.Pick(allBounties);
-            foreach (var entry in component.Bounties)
+            // This all feels wrong, but it works so hey ho
+            var duplicheck = true;
+            while (duplicheck)
             {
-                if (entry.Category == bountyCategory.Name)
+                duplicheck = false;
+                bountyCategory = _random.Pick(allBounties);
+                foreach (var entry in component.Bounties)
                 {
-                    duplicheck = true;
+                    if (entry.Category == bountyCategory.Name)
+                    {
+                        duplicheck = true;
+                    }
                 }
             }
+
+            chosenCategory = CheckCategory(uid, bountyCategory, out var availableBounties);
+            if (chosenCategory)
+            {
+                bountyItems = availableBounties;
+                continue;
+            }
+
+            allBounties.Remove(bountyCategory);
+
+            if (allBounties.Count == 0)
+            {
+                Log.Error("Failed to add bounty because there are no categories available");
+                return false;
+            }
+
+            bountyCategory = _random.Pick(allBounties);
         }
 
-        var totalItems = bountyCategory.Entries.Count;
+        var totalItems = bountyItems.Count;
 
         // Smaller number means that there will be on average less item per bounty
         const double itemNumberWeight = 0.9;
-        var selection = Math.Min(1 - Math.Ceiling(Math.Log(Math.Pow(_random.NextDouble(), itemNumberWeight), 2)), totalItems);
+        var selection = Math.Min(1 - Math.Ceiling(Math.Log(Math.Pow(_random.NextDouble(), itemNumberWeight), 2)),
+            totalItems);
         var totalReward = 0;
-        var newBounty = new CargoBountyData();
-        newBounty.IdPrefix = bountyCategory.IdPrefix;
-        newBounty.Category = bountyCategory.Name;
+        var newBounty = new CargoBountyData
+        {
+            IdPrefix = bountyCategory.IdPrefix,
+            Category = bountyCategory.Name,
+        };
+        var totalBountyItems = 0;
 
         for (var i = 1; i <= selection;)
         {
-            var bountyItem = _random.Pick(bountyCategory.Entries);
+            if (!SelectBountyEntry(bountyItems, out var bountyItem))
+            {
+                return false;
+            }
 
             var skip = false;
             foreach (var entry in newBounty.Entries)
@@ -457,10 +649,30 @@ public sealed partial class CargoSystem
             if (skip)
                 continue;
 
-            var bountyItemData = new CargoBountyItemData(bountyItem);
-            var bountyAmount = _random.Next(bountyItem.MinAmount, bountyItem.MaxAmount);
+            CargoBountyItemData bountyItemData = bountyItem switch
+            {
+                CargoObjectBountyItemEntry itemEntry => new CargoObjectBountyItemData(itemEntry),
+                CargoReagentBountyItemEntry itemEntry => new CargoReagentBountyItemData(itemEntry),
+                _ => throw new NotImplementedException($"Unknown type: {bountyItem.GetType().Name}"),
+            };
+
+            var steps = (bountyItem.MaxAmount - bountyItem.MinAmount) / bountyItem.AmountStep;
+            var step = _random.Next(steps + 1);
+            var bountyAmount = step * bountyItem.AmountStep + bountyItem.MinAmount;
             totalReward += bountyAmount * bountyItem.RewardPer;
             bountyItemData.Amount = bountyAmount;
+
+            // Counter for the total number of bounty items, used for if the number goes over 30 (basic crate limit)
+            switch (bountyItemData)
+            {
+                case CargoObjectBountyItemData objectBounty:
+                    totalBountyItems += bountyAmount;
+                    break;
+                case CargoReagentBountyItemData reagentBounty:
+                    totalBountyItems ++;
+                    break;
+            }
+
             newBounty.Entries.Add(bountyItemData);
             if (totalItems > 1)
                 totalItems--;
@@ -471,8 +683,14 @@ public sealed partial class CargoSystem
         newBounty.Reward = totalReward;
         _nameIdentifier.GenerateUniqueName(uid, BountyNameIdentifierGroup, out var randomVal);
         newBounty.Id = $"{newBounty.IdPrefix}{randomVal:D3}";
-        newBounty.Description = Loc.GetString("bounty-console-category-description", ("category", Loc.GetString(bountyCategory.Name)), ("id", newBounty.Id));
+        newBounty.Description = Loc.GetString("bounty-console-category-description",
+            ("category", Loc.GetString(bountyCategory.Name)),
+            ("id", newBounty.Id));
 
+        if (totalBountyItems > 30)
+        {
+            newBounty.Description += " (This bounty requires more compact storage methods such as cardboard boxes or bags)";
+        }
         if (component.Bounties.Any(b => b.Id == newBounty.Id))
         {
             Log.Error("Failed to add bounty {ID} because another one with the same ID already existed!", newBounty.Id);
@@ -481,6 +699,93 @@ public sealed partial class CargoSystem
 
         component.Bounties.Add(newBounty);
         component.TotalBounties++;
+        return true;
+    }
+
+    /// <summary>
+    /// Selects a bounty item from a list of entries accounting for the entries weightings.
+    /// </summary>
+    /// <param name="entries">List of entries to select from.</param>
+    /// <param name="bountyEntry">The randomly selected entry.</param>
+    /// <returns>True of false depending on the success of the selection.</returns>
+    private bool SelectBountyEntry(List<CargoBountyItemEntry> entries, out CargoBountyItemEntry bountyEntry)
+    {
+        double totalWeight = 0;
+        foreach (var entry in entries)
+        {
+            totalWeight += entry.Weight;
+        }
+        var roll = _random.NextDouble(0, totalWeight);
+
+        foreach (var entry in entries)
+        {
+            roll -= entry.Weight;
+            if (!(roll <= 0))
+                continue;
+            bountyEntry = entry;
+            return true;
+        }
+
+        bountyEntry = new CargoObjectBountyItemEntry();
+        return false;
+    }
+
+    /// <summary>
+    /// Checks if a given bounty category is valid to be created for and returns a list of valid objectives from the
+    /// category that can have bounties created from
+    /// </summary>
+    /// <param name="uid">The entity try to create a bounty</param>
+    /// <param name="category">Some given bounty category as defined in yml</param>
+    /// <param name="availableBounties">Returns a list of currently valid objectives</param>
+    /// <returns>True if the category can have bounties created for, false otherwise</returns>
+    private bool CheckCategory(EntityUid uid, CargoBountyCategoryPrototype category, out List<CargoBountyItemEntry> availableBounties)
+    {
+        var bountyItems = new List<CargoBountyItemEntry>(category.Entries);
+        List<CargoBountyItemEntry> toRemove = new();
+        foreach (var bountyEntry in bountyItems)
+        {
+            switch (bountyEntry)
+            {
+                case CargoObjectBountyItemEntry bountyItem:
+                    if (bountyItem.RequiredResearch == null)
+                        continue;
+
+                    List<bool> techChecks = [];
+                    foreach (var research in bountyItem.RequiredResearch)
+                    {
+
+                        var query = EntityManager.EntityQueryEnumerator<TechnologyDatabaseComponent>();
+
+                        while (query.MoveNext(out var tEntityUid, out var technologyDatabaseComponent))
+                        {
+                            if (_station.GetOwningStation(uid) is { } station &&
+                                _station.GetOwningStation(tEntityUid) != station)
+                                continue;
+                            techChecks.Add(
+                                _research.IsTechnologyUnlocked(tEntityUid, (string) research, technologyDatabaseComponent));
+                            break;
+                        }
+                    }
+
+                    if (techChecks.Count == 0 || !techChecks.Any(techCheck => techCheck))
+                    {
+                        toRemove.Add(bountyItem);
+                    }
+                    break;
+                case CargoReagentBountyItemEntry bountyItem:
+                    continue;
+            }
+        }
+
+        bountyItems.RemoveAll(b => toRemove.Contains(b));
+
+        if (bountyItems.Count == 0)
+        {
+            availableBounties = [];
+            return false;
+        }
+
+        availableBounties = bountyItems;
         return true;
     }
 
@@ -507,11 +812,13 @@ public sealed partial class CargoSystem
             return false;
         }
         component.Bounties.Add(new CargoBountyData(randomVal, bounty));
-        _adminLogger.Add(LogType.Action, LogImpact.Low, $"Added bounty \"{bounty.ID}\" (id:{component.TotalBounties}) to station {ToPrettyString(uid)}");
+        _adminLogger.Add(LogType.Action,
+            LogImpact.Low,
+            $"Added bounty \"{bounty.ID}\" (id:{component.TotalBounties}) to station {ToPrettyString(uid)}");
         component.TotalBounties++;
         return true;
     }
-    // End of major Funky Station Edits
+// End of major Funky Station Edits
 
     [PublicAPI]
     public bool TryRemoveBounty(Entity<StationCargoBountyDatabaseComponent?> ent,
@@ -549,7 +856,7 @@ public sealed partial class CargoSystem
                     skipped
                         ? CargoBountyHistoryData.BountyResult.Skipped
                         : CargoBountyHistoryData.BountyResult.Completed,
-                    _gameTiming.CurTime,
+                    _timing.CurTime,
                     actorName));
                 ent.Comp.Bounties.RemoveAt(i);
                 return true;

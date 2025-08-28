@@ -1,4 +1,16 @@
-﻿using Content.Shared.Containers.ItemSlots;
+// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.CartridgeLoader;
@@ -33,7 +45,7 @@ public sealed partial class CartridgeLoaderComponent : Component
     /// The maximum amount of programs that can be installed on the cartridge loader entity
     /// </summary>
     [DataField]
-    public int DiskSpace = 8;
+    public int DiskSpace = 10;
 
     /// <summary>
     /// Controls whether the cartridge loader will play notifications if it supports it at all

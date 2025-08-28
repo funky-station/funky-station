@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 NathanRosica <nathanrosica@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   id: ActionSummonGhosts
   name: Summon Ghosts
@@ -20,13 +31,13 @@
   components:
   - type: Magic
   - type: InstantAction
-    useDelay: 300
+    useDelay: 600 #Funky: Doubling delay on more guns
     itemIconStyle: BigAction
     icon:
       sprite: Objects/Weapons/Guns/Rifles/ak.rsi
       state: base
     event: !type:RandomGlobalSpawnSpellEvent
-      makeSurvivorAntagonist: true
+      makeSurvivorAntagonist: false #Funky: Disabling survivor antagonist
       spawns:
       - id: WeaponPistolViper
         orGroup: Guns
@@ -48,8 +59,8 @@
         orGroup: Guns
       - id: WeaponRifleAk
         orGroup: Guns
-      - id: WeaponRifleM90GrenadeLauncher
-        orGroup: Guns
+      #- id: WeaponRifleM90GrenadeLauncher #Funky: Extremely likely to destroy the station
+      #  orGroup: Guns
       - id: WeaponRifleLecter
         orGroup: Guns
       - id: WeaponShotgunBulldog
@@ -84,10 +95,10 @@
         orGroup: Guns
       - id: WeaponPistolFlintlock
         orGroup: Guns
-      - id: WeaponLauncherChinaLake
-        orGroup: Guns
-      - id: WeaponLauncherRocket
-        orGroup: Guns
+      #- id: WeaponLauncherChinaLake #Funky: Extremely likely to destroy the station
+      #  orGroup: Guns
+      #- id: WeaponLauncherRocket #Funky: Extremely likely to destroy the station
+      #  orGroup: Guns
       - id: WeaponLauncherPirateCannon
         orGroup: Guns
       - id: WeaponTetherGun
@@ -158,6 +169,18 @@
         orGroup: Guns
       - id: RevolverCapGunFake
         orGroup: Guns
+      - id: WeaponRevolverHristov #Funky
+        orGroup: Guns
+      - id: WeaponRifleFoam #Funky
+        orGroup: Guns
+      - id: BowHardlight #Funky
+        orGroup: Guns
+      - id: MiniatureEnergyCrossbow #Funky
+        orGroup: Guns
+      - id: WeaponPlasmaRifle #Funky
+        orGroup: Guns
+      - id: WeaponEnergyRevolver #Funky
+        orGroup: Guns        
       speech: action-speech-spell-summon-guns
 
 - type: entity
@@ -167,13 +190,13 @@
   components:
   - type: Magic
   - type: InstantAction
-    useDelay: 300
+    useDelay: 600 #Funky: Doubling delay on more magic items
     itemIconStyle: BigAction
     icon:
       sprite: Objects/Magic/magicactions.rsi
       state: magicmissile
     event: !type:RandomGlobalSpawnSpellEvent
-      makeSurvivorAntagonist: true
+      makeSurvivorAntagonist: false #Funky: Disabling survivor antagonist
       spawns:
       - id: SpawnSpellbook
         orGroup: Magics
@@ -183,18 +206,18 @@
         orGroup: Magics
       - id: KnockSpellbook
         orGroup: Magics
-      - id: FireballSpellbook
-        orGroup: Magics
+      #- id: FireballSpellbook #Funky: Extremely likely to destroy the station
+      #  orGroup: Magics
       - id: WeaponWandPolymorphCarp
         orGroup: Magics
       - id: WeaponWandPolymorphMonkey
         orGroup: Magics
-      - id: WeaponWandFireball
-        orGroup: Magics
+      #- id: WeaponWandFireball #Funky: Extremely likely to destroy the station
+      #  orGroup: Magics
       - id: WeaponWandPolymorphDoor
         orGroup: Magics
-      - id: WeaponWandCluwne
-        orGroup: Magics
+      #- id: WeaponWandCluwne # Funky: Disabling instant kill spells
+      #  orGroup: Magics
       - id: WeaponWandPolymorphBread
         orGroup: Magics
       - id: WeaponStaffHealing

@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 AryaRaiin <crhuette@gmail.com>
+# SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Lachryphage <stuart.e.clough@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: vendingMachineInventory
   id: PrideDrobeInventory
   startingInventory:
@@ -14,10 +24,12 @@
     ClothingNeckOmnisexualPin: 3
     ClothingNeckGenderqueerPin: 3
     ClothingNeckTransPin: 3
+    ClothingNeckGenderfluidPin: 3
     ClothingNeckAutismPin: 3
     ClothingNeckGoldAutismPin: 3
     ClothingNeckCloakProgressPride: 3
     ClothingNeckCloakTrans: 2
+    ClothingNeckCloakGenderfluid: 2
     ClothingNeckCloakAro: 2
     ClothingNeckCloakAce: 2
     ClothingNeckCloakBi: 2
@@ -39,6 +51,7 @@
     ClothingNeckScarfStripedNonBinary: 2
     ClothingNeckScarfStripedRainbow: 2
     ClothingNeckScarfStripedTrans: 2
+    ClothingNeckScarfStripedGenderfluid: 2
     ClothingHeadHatXmasCrown: 2
     BedsheetRainbow: 2
     ClothingNeckHeadphones: 2
@@ -46,5 +59,6 @@
     ClothingUniformColorRainbow: 2
     ClothingUnderSocksCoder: 2
     ClothingUnderSocksBee: 2
+    ClothingNeckChameleonPride: 4 # Harmony unique pride mantles
   contrabandInventory:
     ClothingNeckScarfStripedLesbianLong: 2

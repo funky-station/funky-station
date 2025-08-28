@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 hivehum <ketchupfaced@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 #regrettably due to technical limitations spiders cannot materially dress for religious purposes
 #TO DO - why is kippah white not works?
 
@@ -6,7 +13,7 @@
   id: BurqaSolid
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid] # Frontier: add Felinid
+  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Thaven] # Frontier: add Felinid
   sprites:
   - sprite: _Impstation/Mobs/Customization/headcovers.rsi
     state: burqasolid
@@ -15,7 +22,7 @@
   id: HijabFashionable
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Vulpkanin] # Frontier: add elinid, Vulpkanin
+  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Vulpkanin, Thaven] # Frontier: add elinid, Vulpkanin
   sprites:
   - sprite: _Impstation/Mobs/Customization/headcovers.rsi
     state: hijabchic
@@ -24,7 +31,7 @@
   id: HijabSimple
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Vulpkanin] # Frontier: add Felinid, Vulpkanin
+  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Vulpkanin, Thaven] # Frontier: add Felinid, Vulpkanin
   sprites:
   - sprite: _Impstation/Mobs/Customization/headcovers.rsi
     state: hijabsimple
@@ -33,7 +40,7 @@
   id: Niqab
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid] # Frontier: add Felinid
+  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Thaven] # Frontier: add Felinid
   sprites:
   - sprite: _Impstation/Mobs/Customization/headcovers.rsi
     state: niqab
@@ -42,7 +49,7 @@
   id: TichelFashionable
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Vulpkanin] # Frontier: add Felinid, Vulpkanin
+  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Vulpkanin, Thaven] # Frontier: add Felinid, Vulpkanin
   sprites:
   - sprite: _Impstation/Mobs/Customization/headcovers.rsi
     state: tichelfashionable
@@ -51,7 +58,7 @@
   id: TichelSimple
   bodyPart: Hair
   markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Vulpkanin] # Frontier: add Felinid, Vulpkanin
+  speciesRestriction: [Human, Dwarf, SlimePerson, Felinid, Vulpkanin, Thaven] # Frontier: add Felinid, Vulpkanin
   sprites:
   - sprite: _Impstation/Mobs/Customization/headcovers.rsi
     state: tichelsimple

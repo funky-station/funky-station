@@ -1,4 +1,20 @@
+// SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
+// SPDX-FileCopyrightText: 2023 /ʊniɹɑː/ <onoira@psiko.zone>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Eoin Mcloughlin <helloworld@eoinrul.es>
+// SPDX-FileCopyrightText: 2023 eoineoineoin <eoin.mcloughlin+gh@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
+using Robust.Shared.Utility;
 
 namespace Content.Client.Paper.UI;
 
@@ -54,6 +70,24 @@ public sealed partial class PaperVisualsComponent : Component
     /// </summary>
     [DataField("headerMargin")]
     public Box2 HeaderMargin = default;
+
+    /// <summary>
+    /// A path to an image which will be used as a footer on the paper
+    /// </summary>
+    [DataField]
+    public ResPath? FooterImagePath;
+
+    /// <summary>
+    /// Modulate the footer image by this color
+    /// </summary>
+    [DataField]
+    public Color FooterImageModulate = Color.White;
+
+    /// <summary>
+    /// Any additional margin to add around the footer
+    /// </summary>
+    [DataField]
+    public Box2 FooterMargin = default;
 
     /// <summary>
     ///     Path to an image to use as the background to the "content" of the paper

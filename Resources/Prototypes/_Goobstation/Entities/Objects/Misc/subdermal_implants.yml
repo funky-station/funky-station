@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Huhm-1 <cameronhillard40@gmail.com>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   parent: BaseSubdermalImplant
   id: BluespaceLifelineImplant
@@ -19,3 +30,33 @@
     tags:
     - SubdermalImplant
     - HideContextMenu
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: PacifismImplant
+  name: pacifism implant
+  description: Pacifism implant, given to life sentenced prisoners or such to prevent them from committing violence.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    whitelist:
+      components:
+      - MobState
+  - type: Pacified
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: SmokeImplant
+  name: smoke implant
+  description: This implant releases smoke cloud on activation.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      implantAction: ActivateSmokeImplant
+    - type: TriggerImplantAction
+    - type: SmokeOnTrigger
+      spreadAmount: 25
+      duration: 15
+    - type: SoundOnTrigger
+      sound: /Audio/Effects/smoke.ogg
+

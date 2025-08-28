@@ -1,4 +1,12 @@
-﻿using System.Text.Json;
+// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using System.Text.Json;
 using Content.Shared.Station.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -72,6 +80,6 @@ public readonly struct SerializableEntityCoordinates
         EntityUid = coordinates.EntityId;
         X = coordinates.X;
         Y = coordinates.Y;
-        MapUid = coordinates.GetMapUid(entityManager);
+        MapUid = entityManager.System<SharedTransformSystem>().GetMap(coordinates);
     }
 }

@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 August Eymann <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: rcd
   id: PipeFourway
   category: Piping
@@ -44,6 +51,31 @@
   fx: EffectRCDConstruct0
 
 - type: rcd
+  id: PipeHalf
+  category: Piping
+  sprite: /Textures/Interface/Radial/RPD/pipe_half.png
+  mode: ConstructObject
+  prototype: GasPipeHalf
+  cost: 0.5
+  delay: 0 
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: ManifoldGas
+  category: Piping
+  sprite: /Textures/Interface/Radial/RPD/manifold.png
+  mode: ConstructObject
+  prototype: GasPipeManifold
+  cost: 1
+  delay: 0 
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0
+  noLayers: true
+
+- type: rcd
   id: PressurePump
   category: PumpsValves
   sprite: /Textures/Interface/Radial/RPD/pump_pressure.png
@@ -85,6 +117,18 @@
   sprite: /Textures/Interface/Radial/RPD/pump_signal_valve.png
   mode: ConstructObject
   prototype: SignalControlledValve
+  cost: 1
+  delay: 0 
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: HeatPump
+  category: PumpsValves
+  sprite: /Textures/Interface/Radial/RPD/pump_heat.png
+  mode: ConstructObject
+  prototype: HeatPump
   cost: 1
   delay: 0 
   collisionMask: Impassable
@@ -177,6 +221,18 @@
   fx: EffectRCDConstruct0
 
 - type: rcd
+  id: RadiatorBend
+  category: AtmosphericUtility
+  sprite: /Textures/Interface/Radial/RPD/he_bend.png
+  mode: ConstructObject
+  prototype: HeatExchangerBend
+  cost: 1
+  delay: 0 
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
   id: MixerGas
   category: AtmosphericUtility
   sprite: /Textures/Interface/Radial/RPD/gas_mixer.png
@@ -210,6 +266,43 @@
   prototype: GasPort
   cost: 1
   delay: 0 
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: Alarm
+  category: SensorsMonitors
+  sprite: /Textures/Interface/Radial/RPD/alarm.png
+  mode: ConstructObject
+  prototype: AirAlarm
+  cost: 2
+  delay: 1 
+  rotation: User
+  fx: EffectRCDConstruct0
+  noLayers: true
+
+- type: rcd
+  id: Sensor
+  category: SensorsMonitors
+  sprite: /Textures/Interface/Radial/RPD/sensor.png
+  mode: ConstructObject
+  prototype: AirSensor
+  cost: 1
+  delay: 0
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0
+  noLayers: true
+
+- type: rcd
+  id: SensorPipe
+  category: SensorsMonitors
+  sprite: /Textures/Interface/Radial/RPD/sensorpipe.png
+  mode: ConstructObject
+  prototype: GasPipeSensor
+  cost: 1
+  delay: 0
   collisionMask: Impassable
   rotation: User
   fx: EffectRCDConstruct0

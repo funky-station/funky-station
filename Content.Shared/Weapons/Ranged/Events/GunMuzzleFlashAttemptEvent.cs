@@ -1,4 +1,9 @@
-﻿namespace Content.Shared.Weapons.Ranged.Events;
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+namespace Content.Shared.Weapons.Ranged.Events;
 
 /// <summary>
 ///     Raised directed on the gun entity when a muzzle flash is about to happen.

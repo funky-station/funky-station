@@ -1,0 +1,3 @@
+Order of readying your test environment for testing and development:
+1. Run buildAllDebug.sh or buildAllRelease.sh (once unless you made a C# change or if you pulled from master)
+2. Run runQuickAll.sh to launch the client and server.

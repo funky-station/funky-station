@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 ashley <vectorassembly@icloud.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 vectorassembly <vctrssmly@icloud.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Client.SubFloor;
 using Content.Shared.Wires;
 using Robust.Client.GameObjects;
@@ -31,5 +41,7 @@ public sealed class CableVisualizerSystem : EntitySystem
             mask = WireVisDirFlags.None;
 
         args.Sprite.LayerSetState(0, $"{component.StatePrefix}{(int) mask}");
+        if (component.ExtraLayerPrefix != null)
+            args.Sprite.LayerSetState(1, $"{component.ExtraLayerPrefix}{(int) mask}");
     }
 }

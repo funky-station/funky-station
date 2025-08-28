@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Robust.Client.Animations;
@@ -85,7 +95,7 @@ public sealed class RotatingLightSystem : SharedRotatingLightSystem
 
         if (!_animations.HasRunningAnimation(uid, player, AnimKey))
         {
-            _animations.Play(uid, player, GetAnimation(comp.Speed), AnimKey);
+            _animations.Play((uid, player), GetAnimation(comp.Speed), AnimKey);
         }
     }
 }

@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   id: BluespaceSender
   parent: [ BaseMachinePowered, ConstructibleMachine ]
@@ -6,15 +12,12 @@
   placement:
     mode: SnapgridCenter
   components:
-  - type: Physics
-    bodyType: Static
   - type: Transform
+    noRot: false
     anchored: true
-    noRot: true
   - type: Sprite
     sprite: _Funkystation/Structures/Piping/Atmospherics/bluespacegassender.rsi
     granularLayersRendering: true
-    snapCardinals: true
     layers:
     - state: off
       map: [ "enum.PowerDeviceVisualLayers.Powered" ]
@@ -120,6 +123,7 @@
           True: { state: on }
           False: { state: off }
   - type: WallMount
+    arc: 180
   - type: Destructible
     thresholds:
     - trigger:

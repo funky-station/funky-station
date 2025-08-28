@@ -1,0 +1,55 @@
+# SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+
+- type: reagent
+  id: FeverDream
+  name: reagent-name-feverdream
+  parent: BaseDrink
+  desc: reagent-desc-feverdream
+  physicalDesc: reagent-physical-desc-shimmering-blood
+  flavor: feverdream
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/feverdream.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 6
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.3
+    Narcotic:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:OrganType
+           type: Thaven
+           shouldHave: false
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 5
+        refresh: false
+  plantMetabolism:
+    - !type:PlantAdjustNutrition
+      amount: 0.5
+    - !type:PlantAdjustWater
+      amount: 0.5
+    - !type:PlantAdjustToxins
+      amount: 1
+    - !type:PlantAdjustWeeds
+      amount: -1
+    - !type:PlantAdjustPests
+      amount: -1
+  fizziness: 0.1

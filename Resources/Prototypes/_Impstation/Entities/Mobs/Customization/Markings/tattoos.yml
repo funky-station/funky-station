@@ -1,8 +1,15 @@
+# SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 hivehum <ketchupfaced@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: marking
   id: ChestCutHere
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid] # Frontier: add Felinid
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid, Thaven] # Frontier: add Felinid
   coloring:
     default:
       type:
@@ -16,7 +23,7 @@
   id: ArmDollJointsTattooLeft
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid] # Frontier: add Felinid
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid, Thaven] # Frontier: add Felinid
   coloring:
     default:
       type:
@@ -30,7 +37,7 @@
   id: ArmDollJointsTattooRight
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid] # Frontier: add Felinid
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid, Thaven] # Frontier: add Felinid
   coloring:
     default:
       type:
@@ -44,7 +51,7 @@
   id: HandDollJointsTattooLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid] # Frontier: add Felinid
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid, Thaven] # Frontier: add Felinid
   coloring:
     default:
       type:
@@ -58,7 +65,7 @@
   id: HandDollJointsTattooRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid] # Frontier: add Felinid
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid, Thaven] # Frontier: add Felinid
   coloring:
     default:
       type:
@@ -72,7 +79,7 @@
   id: LegDollJointsTattooLeft
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid] # Frontier: add Felinid
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid, Thaven] # Frontier: add Felinid
   coloring:
     default:
       type:
@@ -86,7 +93,7 @@
   id: LegDollJointsTattooRight
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid] # Frontier: add Felinid
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Reptilian, Felinid, Thaven] # Frontier: add Felinid
   coloring:
     default:
       type:
@@ -100,7 +107,7 @@
   id: FootDollJointsTattooLeft
   bodyPart: LFoot
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Felinid] # Frontier: add Felinid
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Felinid, Thaven] # Frontier: add Felinid
   coloring:
     default:
       type:
@@ -114,7 +121,7 @@
   id: FootDollJointsTattooRight
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Felinid] # Frontier: add Felinid
+  speciesRestriction: [Human, Dwarf, Arachnid, SlimePerson, Felinid, Thaven] # Frontier: add Felinid
   coloring:
     default:
       type:

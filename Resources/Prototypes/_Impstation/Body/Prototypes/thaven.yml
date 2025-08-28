@@ -1,0 +1,56 @@
+# SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: body
+  id: Thaven
+  name: "thaven"
+  root: torso
+  slots:
+    head:
+      part: HeadThaven
+      connections:
+      - torso
+      organs:
+        brain: OrganThavenBrain
+        eyes: OrganThavenEyes
+    torso:
+      part: TorsoThaven
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head # Shitmed Change
+      organs:
+        heart: OrganThavenHeart
+        lungs: OrganThavenLungs
+        stomach: OrganThavenStomach
+        liver: OrganThavenLiver
+        kidneys: OrganThavenKidneys
+    right arm:
+      part: RightArmThaven
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmThaven
+      connections:
+      - left hand
+    right hand:
+      part: RightHandThaven
+    left hand:
+      part: LeftHandThaven
+    right leg:
+      part: RightLegThaven
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegThaven
+      connections:
+      - left foot
+    right foot:
+      part: RightFootThaven
+    left foot:
+      part: LeftFootThaven

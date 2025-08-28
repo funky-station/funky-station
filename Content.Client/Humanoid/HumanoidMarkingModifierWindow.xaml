@@ -1,14 +1,24 @@
+<!--
+SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Minerva <218184747+mnva0@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 <DefaultWindow xmlns="https://spacestation14.io"
-               xmlns:humanoid="clr-namespace:Content.Client.Humanoid">
+               xmlns:humanoid="clr-namespace:Content.Client.Humanoid"
+               Title="{Loc 'modify-markings-title'}">
     <ScrollContainer MinHeight="500" MinWidth="700">
         <BoxContainer Orientation="Vertical" HorizontalExpand="True">
             <humanoid:MarkingPicker Name="MarkingPickerWidget" />
             <BoxContainer>
                 <CheckBox Name="MarkingForced" Text="Force" Pressed="True" />
-                <CheckBox Name="MarkingIgnoreSpecies" Text="Ignore Species" Pressed="True" />
+                <CheckBox Name="MarkingIgnoreSpecies" Text="{Loc 'modify-markings-ignorespecies'}" Pressed="True" />
             </BoxContainer>
             <Collapsible HorizontalExpand="True">
-                <CollapsibleHeading Title="Base layers" />
+                <CollapsibleHeading Title="{Loc 'modify-markings-baselayers'}" />
                 <CollapsibleBody HorizontalExpand="True">
                     <BoxContainer Name="BaseLayersContainer" Orientation="Vertical" HorizontalExpand="True" />
                 </CollapsibleBody>

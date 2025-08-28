@@ -1,3 +1,32 @@
+// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 ike709 <ike709@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 theashtronaut <112137107+theashtronaut@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
+// SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
@@ -41,7 +70,9 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
             SubscribeLocalEvent<GasFilterComponent, GasAnalyzerScanEvent>(OnFilterAnalyzed);
             // Bound UI subscriptions
             SubscribeLocalEvent<GasFilterComponent, GasFilterChangeRateMessage>(OnTransferRateChangeMessage);
-            SubscribeLocalEvent<GasFilterComponent, GasFilterSelectGasMessage>(OnSelectGasMessage);
+            // Funky - removed for filtering of multiple gases
+            // SubscribeLocalEvent<GasFilterComponent, GasFilterSelectGasMessage>(OnSelectGasMessage);
+            SubscribeLocalEvent<GasFilterComponent, GasFilterChangeGasesMessage>(OnChangeGasesMessage);
             SubscribeLocalEvent<GasFilterComponent, GasFilterToggleStatusMessage>(OnToggleStatusMessage);
 
         }
@@ -72,16 +103,35 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
 
             var removed = inletNode.Air.RemoveVolume(transferVol);
 
-            if (filter.FilteredGas.HasValue)
+            // Funky - removed for filtering of multiple gases
+            // if (filter.FilteredGas.HasValue)
+            // {
+            //     filteredOut.SetMoles(filter.FilteredGas.Value, removed.GetMoles(filter.FilteredGas.Value));
+            //     removed.SetMoles(filter.FilteredGas.Value, 0f);
+            //     var target = filterNode.Air.Pressure < Atmospherics.MaxOutputPressure ? filterNode : inletNode;
+            //     _atmosphereSystem.Merge(target.Air, filteredOut);
+            //     _ambientSoundSystem.SetAmbience(uid, filteredOut.TotalMoles > 0f);
+            // }
+
+            if (filter.FilterGases != null && filter.FilterGases.Count > 0)
             {
                 var filteredOut = new GasMixture() { Temperature = removed.Temperature };
+                bool hasFilteredMoles = false;
 
-                filteredOut.SetMoles(filter.FilteredGas.Value, removed.GetMoles(filter.FilteredGas.Value));
-                removed.SetMoles(filter.FilteredGas.Value, 0f);
+                foreach (var gas in filter.FilterGases)
+                {
+                    var moles = removed.GetMoles(gas);
+                    if (moles > 0f)
+                    {
+                        filteredOut.SetMoles(gas, moles);
+                        removed.SetMoles(gas, 0f);
+                        hasFilteredMoles = true;
+                    }
+                }
 
                 var target = filterNode.Air.Pressure < Atmospherics.MaxOutputPressure ? filterNode : inletNode;
                 _atmosphereSystem.Merge(target.Air, filteredOut);
-                _ambientSoundSystem.SetAmbience(uid, filteredOut.TotalMoles > 0f);
+                _ambientSoundSystem.SetAmbience(uid, hasFilteredMoles);
             }
 
             _atmosphereSystem.Merge(outletNode.Air, removed);
@@ -125,7 +175,9 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
                 return;
 
             _userInterfaceSystem.SetUiState(uid, GasFilterUiKey.Key,
-                new GasFilterBoundUserInterfaceState(MetaData(uid).EntityName, filter.TransferRate, filter.Enabled, filter.FilteredGas));
+                // Funky - removed for filtering of multiple gases
+                // new GasFilterBoundUserInterfaceState(MetaData(uid).EntityName, filter.TransferRate, filter.Enabled, filter.FilteredGas));
+                new GasFilterBoundUserInterfaceState(MetaData(uid).EntityName, filter.TransferRate, filter.Enabled, filter.FilterGases)); // Funky - for filtering of multiple gases
         }
 
         private void UpdateAppearance(EntityUid uid, GasFilterComponent? filter = null)
@@ -154,29 +206,38 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
 
         }
 
-        private void OnSelectGasMessage(EntityUid uid, GasFilterComponent filter, GasFilterSelectGasMessage args)
+        // Funky - removed for filtering of multiple gases
+        // private void OnSelectGasMessage(EntityUid uid, GasFilterComponent filter, GasFilterSelectGasMessage args)
+        // {
+        //     if (args.ID.HasValue)
+        //     {
+        //         if (Enum.TryParse<Gas>(args.ID.ToString(), true, out var parsedGas))
+        //         {
+        //             filter.FilteredGas = parsedGas;
+        //             _adminLogger.Add(LogType.AtmosFilterChanged, LogImpact.Medium,
+        //                 $"{ToPrettyString(args.Actor):player} set the filter on {ToPrettyString(uid):device} to {parsedGas.ToString()}");
+        //             DirtyUI(uid, filter);
+        //         }
+        //         else
+        //         {
+        //             Log.Warning($"{ToPrettyString(uid)} received GasFilterSelectGasMessage with an invalid ID: {args.ID}");
+        //         }
+        //     }
+        //     else
+        //     {
+        //         filter.FilteredGas = null;
+        //         _adminLogger.Add(LogType.AtmosFilterChanged, LogImpact.Medium,
+        //             $"{ToPrettyString(args.Actor):player} set the filter on {ToPrettyString(uid):device} to none");
+        //         DirtyUI(uid, filter);
+        //     }
+        // }
+
+        private void OnChangeGasesMessage(EntityUid uid, GasFilterComponent filter, GasFilterChangeGasesMessage args)
         {
-            if (args.ID.HasValue)
-            {
-                if (Enum.TryParse<Gas>(args.ID.ToString(), true, out var parsedGas))
-                {
-                    filter.FilteredGas = parsedGas;
-                    _adminLogger.Add(LogType.AtmosFilterChanged, LogImpact.Medium,
-                        $"{ToPrettyString(args.Actor):player} set the filter on {ToPrettyString(uid):device} to {parsedGas.ToString()}");
-                    DirtyUI(uid, filter);
-                }
-                else
-                {
-                    Log.Warning($"{ToPrettyString(uid)} received GasFilterSelectGasMessage with an invalid ID: {args.ID}");
-                }
-            }
-            else
-            {
-                filter.FilteredGas = null;
-                _adminLogger.Add(LogType.AtmosFilterChanged, LogImpact.Medium,
-                    $"{ToPrettyString(args.Actor):player} set the filter on {ToPrettyString(uid):device} to none");
-                DirtyUI(uid, filter);
-            }
+            filter.FilterGases = new HashSet<Gas>(args.Gases);
+            _adminLogger.Add(LogType.AtmosFilterChanged, LogImpact.Medium,
+                $"{ToPrettyString(args.Actor):player} set the filter gases on {ToPrettyString(uid):device} to {string.Join(", ", args.Gases)}");
+            DirtyUI(uid, filter);
         }
 
         /// <summary>

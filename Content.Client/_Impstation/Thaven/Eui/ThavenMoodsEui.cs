@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using Content.Client.Eui;
 using Content.Shared.Eui;
 using Content.Shared._Impstation.Thaven;
@@ -6,13 +12,17 @@ namespace Content.Client._Impstation.Thaven.Eui;
 
 public sealed class ThavenMoodsEui : BaseEui
 {
+    private readonly EntityManager _entityManager;
+
     private ThavenMoodUi _thavenMoodUi;
     private NetEntity _target;
 
     public ThavenMoodsEui()
     {
+        _entityManager = IoCManager.Resolve<EntityManager>();
+
         _thavenMoodUi = new ThavenMoodUi();
-        _thavenMoodUi.OnSave += SaveMoods;
+        _thavenMoodUi.SaveButton.OnPressed += _ => SaveMoods();
     }
 
     private void SaveMoods()

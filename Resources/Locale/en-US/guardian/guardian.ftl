@@ -1,3 +1,20 @@
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+# SPDX-FileCopyrightText: 2021 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 CrudeWax <75271456+CrudeWax@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 
 ## Guardian host specific
 
@@ -6,8 +23,7 @@ guardian-already-present-invalid-creation = You are NOT re-living that haunting 
 guardian-no-actions-invalid-creation = You don't have the ability to host a guardian!
 guardian-activator-empty-invalid-creation = The injector is spent.
 guardian-activator-empty-examine = [color=#ba1919]The injector is spent.[/color]
-# TODO: Change this once other species can inject it?
-guardian-activator-invalid-target = Only humans can be injected!
+guardian-activator-invalid-target = {CAPITALIZE(THE($entity))} cannot be injected!
 guardian-no-soul = Your guardian has no soul.
 guardian-available = Your guardian now has a soul.
 guardian-inside-container = There's no room to release your guardian!

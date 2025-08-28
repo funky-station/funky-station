@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.NPC.Systems;
 using Robust.Shared.Audio;
 
@@ -39,6 +48,13 @@ public sealed partial class NPCRangedCombatComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public bool TargetInLOS = false;
+
+    /// <summary>
+    /// If true, only opaque objects will block line of sight.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    // ReSharper disable once InconsistentNaming
+    public bool UseOpaqueForLOSChecks = false;
 
     /// <summary>
     /// Delay after target is in LOS before we start shooting.

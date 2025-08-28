@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   id: SentientSlimesCore
   parent: [BaseItem, OrganHumanBrain]
@@ -24,7 +33,14 @@
       solutions:
         stomach:
           maxVol: 30.0
-
+        # Funky - making slime mob organs consistent with slime player organs
+        organ:
+          reagents:
+          - ReagentId: Slime
+            Quantity: 10
+          - ReagentId: GreyMatter
+            Quantity: 10
+        # Funky change ends
 - type: entity
   id: OrganSlimesLungs
   parent: BaseHumanOrgan
@@ -55,8 +71,15 @@
       solutions:
         organ:
           reagents:
-          - ReagentId: Nutriment
+          - ReagentId: Slime # Funky - this shouldn't be made of nutriment
             Quantity: 10
         Lung:
           maxVol: 100.0
           canReact: false
+        # Funky - making slime mob organs consistent with slime player organs
+        food:
+          maxVol: 5
+          reagents:
+          - ReagentId: Slime
+            Quantity: 5
+        # Funky change ends

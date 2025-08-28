@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
@@ -53,6 +59,17 @@ public sealed class BluespaceVendorSystem : EntitySystem
     {
         // Ensure container
         _slots.AddItemSlot(uid, vendor.TankContainerName, vendor.GasTankSlot);
+
+        // Check for linked sender
+        if (TryComp<BluespaceGasUtilizerComponent>(uid, out var utilizer) && utilizer.BluespaceSender != null)
+        {
+            if (TryComp<BluespaceSenderComponent>(utilizer.BluespaceSender.Value, out var sender))
+            {
+                vendor.BluespaceGasMixture = sender.BluespaceGasMixture;
+                vendor.BluespaceSenderConnected = true;
+            }
+        }
+
         DirtyUI(uid, vendor);
     }
 
@@ -132,7 +149,7 @@ public sealed class BluespaceVendorSystem : EntitySystem
     private void DirtyUI(EntityUid uid,
         BluespaceVendorComponent? vendor = null)
     {
-        if (!Resolve(uid, ref vendor))
+        if (!Resolve(uid, ref vendor) || !HasComp<MetaDataComponent>(uid))
             return;
 
         string? tankLabel = null;

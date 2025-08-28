@@ -1,6 +1,17 @@
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Myra <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Item;
-using Content.Shared.Roles;
 using Content.Shared.Tag;
 
 namespace Content.Shared.Whitelist;
@@ -8,7 +19,6 @@ namespace Content.Shared.Whitelist;
 public sealed class EntityWhitelistSystem : EntitySystem
 {
     [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
     private EntityQuery<ItemComponent> _itemQuery;
@@ -54,22 +64,6 @@ public sealed class EntityWhitelistSystem : EntitySystem
                 var regs = StringsToRegs(list.Components);
                 list.Registrations = new List<ComponentRegistration>();
                 list.Registrations.AddRange(regs);
-            }
-        }
-
-        if (list.MindRoles != null)
-        {
-            var regs = StringsToRegs(list.MindRoles);
-
-            foreach (var role in regs)
-            {
-                if ( _roles.MindHasRole(uid, role.Type, out _))
-                {
-                    if (!list.RequireAll)
-                        return true;
-                }
-                else if (list.RequireAll)
-                    return false;
             }
         }
 

@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -27,7 +36,7 @@ public sealed partial class HyposprayComponent : Component
     public bool OnlyAffectsMobs = false;
 
     /// <summary>
-    /// Whether or not the hypospray is able to draw from containers or if it's a single use
+    /// Whether the hypospray is able to draw from containers or if it's a single use
     /// device that can only inject.
     /// </summary>
     [DataField]

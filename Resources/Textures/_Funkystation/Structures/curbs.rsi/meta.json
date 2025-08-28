@@ -1,0 +1,72 @@
+{
+	"version": 1,
+	"license": "CC-BY-SA-3.0",
+  "copyright": "Made by mkanke for Funkystation https://funkystation.org/",
+	"size": {
+		"x": 32,
+		"y": 32
+	},
+	"states": [
+		{
+			"name": "steel_curb"
+		},
+        {
+            "name": "steel_curb_corner"
+        },
+        {
+            "name": "steel_curb_inside_corner"
+        },
+        {
+            "name": "steel_curb_square"
+        },
+        {
+            "name": "steel_curb_ubend"
+        },
+        {
+            "name": "brass_curb"
+        },
+        {
+            "name": "brass_curb_corner"
+        },
+        {
+            "name": "brass_curb_inside_corner"
+        },
+        {
+            "name": "brass_curb_square"
+        },
+        {
+            "name": "brass_curb_ubend"
+        },
+        {
+            "name": "gold_curb"
+        },
+        {
+            "name": "gold_curb_corner"
+        },
+        {
+            "name": "gold_curb_inside_corner"
+        },
+        {
+            "name": "gold_curb_square"
+        },
+        {
+            "name": "gold_curb_ubend"
+        },
+        {
+            "name": "hydrogen_curb"
+        },
+        {
+            "name": "hydrogen_curb_corner"
+        },
+        {
+            "name": "hydrogen_curb_inside_corner"
+        },
+        {
+            "name": "hydrogen_curb_square"
+        },
+        {
+            "name": "hydrogen_curb_ubend"
+        }
+
+    ]
+}

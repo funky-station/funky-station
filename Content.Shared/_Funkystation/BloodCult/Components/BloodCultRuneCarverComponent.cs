@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+using System.Text;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -17,7 +25,7 @@ public sealed partial class BloodCultRuneCarverComponent : Component
 	/// <summary>
     ///     The entity to spawn (e.g. animation) while carving.
     /// </summary>
-    [DataField] public string InProgress = "PuddleSparkle";//"Flash";
+    [DataField, AutoNetworkedField] public string InProgress = "PuddleSparkle";
 
 	/// <summary>
     ///     The entity to spawn when used on self.

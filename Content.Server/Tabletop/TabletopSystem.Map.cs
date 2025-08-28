@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Shared.GameTicking;
 using Robust.Shared.Map;
@@ -45,12 +55,12 @@ namespace Content.Server.Tabletop
         /// </summary>
         private void EnsureTabletopMap()
         {
-            if (TabletopMap != MapId.Nullspace && _mapManager.MapExists(TabletopMap))
+            if (TabletopMap != MapId.Nullspace && _map.MapExists(TabletopMap))
                 return;
 
-            TabletopMap = _mapManager.CreateMap();
+            var mapUid = _map.CreateMap(out var mapId);
+            TabletopMap = mapId;
             _tabletops = 0;
-            var mapUid = _mapManager.GetMapEntityId(TabletopMap);
 
             var mapComp = EntityManager.GetComponent<MapComponent>(mapUid);
 
@@ -89,11 +99,11 @@ namespace Content.Server.Tabletop
 
         private void OnRoundRestart(RoundRestartCleanupEvent _)
         {
-            if (TabletopMap == MapId.Nullspace || !_mapManager.MapExists(TabletopMap))
+            if (TabletopMap == MapId.Nullspace || !_map.MapExists(TabletopMap))
                 return;
 
             // This will usually *not* be the case, but better make sure.
-            _mapManager.DeleteMap(TabletopMap);
+            _map.DeleteMap(TabletopMap);
 
             // Reset tabletop count.
             _tabletops = 0;

@@ -1,3 +1,14 @@
+<!--
+SPDX-FileCopyrightText: 2024 August Eymann <august.eymann@gmail.com>
+SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 <ui:RadialMenu xmlns="https://spacestation14.io"
                 xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
                 xmlns:rcd="clr-namespace:Content.Client.RCD"
@@ -40,6 +51,9 @@
         <ui:RadialMenuTextureButtonWithSector StyleClasses="RadialMenuButton" SetSize="64 64" ToolTip="{Loc 'rcd-component-vents'}" TargetLayer="Vents" Visible="False">
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RPD/vent_passive.png"/>
         </ui:RadialMenuTextureButtonWithSector>
+        <ui:RadialMenuTextureButtonWithSector StyleClasses="RadialMenuButton" SetSize="64 64" ToolTip="{Loc 'rcd-component-sensorsmonitors'}" TargetLayer="SensorsMonitors" Visible="False">
+            <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RPD/alarm.png"/>
+        </ui:RadialMenuTextureButtonWithSector>
     </ui:RadialContainer>
 
     <!-- Walls and flooring -->
@@ -68,5 +82,8 @@
 
     <!-- Vents -->
     <ui:RadialContainer Name="Vents"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
+
+    <!-- Sensors and Monitors -->
+    <ui:RadialContainer Name="SensorsMonitors"  VerticalExpand="True" HorizontalExpand="True" InitialRadius="100"/>
 
 </ui:RadialMenu>

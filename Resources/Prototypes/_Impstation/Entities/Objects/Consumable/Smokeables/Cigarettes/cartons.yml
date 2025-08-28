@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2025 MintyTheBinty <193618231+MintyTheBinty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PurpleTranStar <purpletranstars@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: CigCartonMixedRejects
+  parent: [CigCartonGreen,BaseSyndicateContraband ]
+  name: Dan's soaked smokes rejects carton
+  description: A carton containing 6 packets of Dan's Soaked Smokes Rejects # , plus an exclusive Syndicate-branded flippo. need to add that syndicate lighter. will do later..
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/mixedrejectscarton.rsi
+  - type: Item
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/mixedrejectscarton.rsi
+  - type: StorageFill
+    contents:
+    - id: CigPackMixedRejects
+      amount: 6
+  - type: Storage
+    grid:
+    - 0,0,5,1
+    - 6,1,6,1

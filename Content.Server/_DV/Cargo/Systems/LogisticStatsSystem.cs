@@ -1,10 +1,18 @@
+// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 GreyMaria <mariomister541@gmail.com>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using Content.Server._DV.Cargo.Components;
 using Content.Shared.Cargo;
 using JetBrains.Annotations;
 
 namespace Content.Server._DV.Cargo.Systems;
 
-public sealed partial class LogisticStatsSystem : SharedCargoSystem
+public sealed partial class LogisticStatsSystem : EntitySystem
 {
     public override void Initialize()
     {

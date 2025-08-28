@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Heretic.Components;
@@ -77,7 +86,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2f), true);
 
             if (TryComp<TemperatureComponent>(pookie, out var temp))
-                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 50f, temp);
+                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 25f, temp);
 
             if (TryComp<DamageableComponent>(pookie, out var damage))
             {
@@ -97,7 +106,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2f), true);
 
             if (TryComp<TemperatureComponent>(pookie, out var temp))
-                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 60f, temp);
+                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 25f, temp);
 
             if (TryComp<DamageableComponent>(pookie, out var damage))
             {
@@ -123,7 +132,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         foreach (var pookie in topPriority)
         {
             if (TryComp<TemperatureComponent>(pookie, out var temp))
-                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 100f, temp);
+                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 50f, temp);
 
             if (TryComp<DamageableComponent>(pookie, out var damage))
             {
@@ -137,7 +146,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         foreach (var pookie in midPriority)
         {
             if (TryComp<TemperatureComponent>(pookie, out var temp))
-                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 60f, temp);
+                _temperature.ForceChangeTemperature(pookie, temp.CurrentTemperature - 30f, temp);
 
             if (TryComp<DamageableComponent>(pookie, out var damage))
             {

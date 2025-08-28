@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2022 Alexander Evgrashin <evgrashin.adl@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 badfeeling-artifact-1 = Something doesn't feel right.
 badfeeling-artifact-2 = You get a strange feeling in your gut.
 badfeeling-artifact-3 = Your instincts are trying to warn you about something.

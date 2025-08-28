@@ -20,7 +20,10 @@
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Carrot <carpecarrot@gmail.com>
 // SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ecramox <65426878+Ecramox@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 PurpleTranStar <tehevilduckiscoming@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -34,6 +37,7 @@ using Content.Shared.Database;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Content.Shared.Speech;
+using Content.Shared.Silicons.Laws.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -171,6 +175,10 @@ public sealed class RadioSystem : EntitySystem
             RaiseLocalEvent(ref attemptEv);
             RaiseLocalEvent(receiver, ref attemptEv);
             if (attemptEv.Cancelled)
+                continue;
+
+            // Imp original - edited to correct behavior for IPCs and Silicons
+            if (channel.IntercomOnly && !(HasComp<IntercomComponent>(radioSource) || HasComp<SiliconLawBoundComponent>(radioSource)))
                 continue;
 
             // send the message

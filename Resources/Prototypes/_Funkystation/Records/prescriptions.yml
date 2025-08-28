@@ -1,4 +1,10 @@
-﻿# prescriptions
+# SPDX-FileCopyrightText: 2025 Lyndomen <49795619+Lyndomen@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 funnyfurby <furbyfunny44@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# prescriptions
 - type: medicalInfo
   id: antacidsPrescription
   name: medical-info-prescriptions-antacids
@@ -32,6 +38,11 @@
 - type: medicalInfo
   id: antihistaminesPrescription
   name: medical-info-prescriptions-antihistamines
+  category: Prescriptions
+
+- type: medicalInfo
+  id: antipsychoticsPrescription
+  name: medical-info-prescriptions-antipsychotics
   category: Prescriptions
 
 - type: medicalInfo

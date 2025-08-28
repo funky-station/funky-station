@@ -43,8 +43,6 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 6
     fillBaseName: fill
-    inHandsMaxFillLevels: 3
-    inHandsFillBaseName: -fill-
   - type: GenericVisualizer
     visuals:
       enum.OpenableVisuals.Opened:
@@ -87,8 +85,6 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 6
     fillBaseName: fill
-    inHandsMaxFillLevels: 3
-    inHandsFillBaseName: -fill-
   - type: GenericVisualizer
     visuals:
       enum.OpenableVisuals.Opened:

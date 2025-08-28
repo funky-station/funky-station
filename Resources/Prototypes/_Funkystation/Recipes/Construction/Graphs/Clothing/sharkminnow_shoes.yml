@@ -11,7 +11,7 @@
     edges:
     - to: sharkminnowShoes
       steps:
-        - material: MaterialCarpScale
+        - material: CarpScale
           amount: 15
           doAfter: 8
         - tag: Magboots

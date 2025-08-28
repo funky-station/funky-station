@@ -11,7 +11,7 @@
     edges:
     - to: sharkminnowShoes
       steps:
-        - material: SharkminnowChitin
+        - material: MaterialCarpScale
           amount: 15
           doAfter: 8
         - tag: Magboots

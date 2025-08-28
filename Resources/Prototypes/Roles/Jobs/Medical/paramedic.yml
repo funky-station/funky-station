@@ -36,7 +36,9 @@
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -61,17 +63,12 @@
   - External # goobstation
   extendedAccess:
   - Chemistry
-  special:
-  - !type:AddComponentSpecial
-    components:
-    - type: SurgerySpeedModifier
-      SpeedModifier: 1.75
 
 - type: startingGear
   id: ParamedicGear
   equipment:
     id: ParamedicPDA
-    ears: ClothingHeadsetMedical
+    ears: ClothingHeadsetParamedic #funkystation
     belt: ClothingBeltMedicalEMTFilled
     pocket2: autoInjectorCartridgeCaseSoft
   storage:

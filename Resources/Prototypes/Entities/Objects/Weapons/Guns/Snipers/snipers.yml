@@ -37,11 +37,15 @@
 # SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 vanx <61917534+Vaaankas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+# SPDX-FileCopyrightText: 2025 RedBookcase <Usualmoves@gmail.com>
 # SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <colespayde02@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -101,6 +105,22 @@
     - state: base1
       map: [ "enum.SolutionContainerLayers.Fill" ]
       visible: false
+  - type: Item  # Goob edit start
+    size: Large
+  - type: Gun
+    fireRate: 2 # funky time :3
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+  - type: UniqueAction
+  - type: BreechLoaded
+    needOpenClose: true
+    openSound:
+      path: "/Audio/_RMC14/Weapons/Guns/Breech/pkd_open_chamber.ogg"
+    closeSound:
+      path: "/Audio/_RMC14/Weapons/Guns/Breech/pkd_close_chamber.ogg"
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 1
@@ -198,6 +218,7 @@
       - CartridgeAntiMateriel
     capacity: 1
     proto: CartridgeAntiMateriel
+  - type: AltFireMelee # it was also missing from this too, oddly
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:

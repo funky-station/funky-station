@@ -100,3 +100,14 @@
       orGroup: JaniLights
     - id: BoxLightMixed
       orGroup: JaniLights
+
+#Chef
+- type: entity
+  parent: BaseMail
+  id: MailChefCheese
+  suffix: Cheese for Jani
+  components:
+  - type: Mail
+    contents:
+    - id: PaperCheeseAd
+    - id: FoodCheese

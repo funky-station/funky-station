@@ -115,6 +115,7 @@
       MailWitchery: 1
     Chef:
       MailScienceHazardousMaterials: 0.05
+      MailChefCheese: 200
     Chemist:
       MailMedicalChemistrySupplement: 2
       MailMedicalChemistryChems: 0.3

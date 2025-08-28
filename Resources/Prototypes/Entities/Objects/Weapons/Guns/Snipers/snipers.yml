@@ -100,6 +100,11 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+    layers:
+    - state: base
+    - state: base1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
   - type: Item  # Goob edit start
     size: Large
   - type: Gun
@@ -116,11 +121,6 @@
       path: "/Audio/_RMC14/Weapons/Guns/Breech/pkd_open_chamber.ogg"
     closeSound:
       path: "/Audio/_RMC14/Weapons/Guns/Breech/pkd_close_chamber.ogg"
-    layers:
-    - state: base
-    - state: base1
-      map: [ "enum.SolutionContainerLayers.Fill" ]
-      visible: false
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 1

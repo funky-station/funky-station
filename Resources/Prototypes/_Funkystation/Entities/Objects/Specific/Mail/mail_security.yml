@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: BaseMail
+  id: MailSecurityJusticeHelm
+  suffix: Justice Helm
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHeadHelmetJustice

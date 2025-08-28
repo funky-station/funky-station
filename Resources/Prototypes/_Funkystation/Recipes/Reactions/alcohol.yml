@@ -18,11 +18,9 @@
   requiredMixerCategories:
   - Stir
   reactants:
-    Tequila:
-      amount: 1
+    Margarita:
+      amount: 3 #tay I am changing this as it was causing a merge conflict
     Sake:
-      amount: 2
-    JuiceLime:
       amount: 2
     CapsaicinOil:
       amount: 1

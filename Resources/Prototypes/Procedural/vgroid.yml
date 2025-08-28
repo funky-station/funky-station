@@ -39,67 +39,67 @@
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockIron
-      count: 50
+      count: 55
       minGroupSize: 10
       maxGroupSize: 15
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockCoal
-      count: 50
+      count: 55
       minGroupSize: 8
       maxGroupSize: 12
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockQuartz
-      count: 50
+      count: 55
       minGroupSize: 10
       maxGroupSize: 15
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockSalt
-      count: 50
+      count: 1 # Funky station, salt is currently useless so its made rare 
       minGroupSize: 8
       maxGroupSize: 12
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockGold
-      count: 40
+      count: 45
       minGroupSize: 8
       maxGroupSize: 12
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockSilver
-      count: 40
+      count: 45
       minGroupSize: 8
       maxGroupSize: 12
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockPlasma
-      count: 35
+      count: 40
       minGroupSize: 4
       maxGroupSize: 8
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockUranium
-      count: 35
+      count: 40
       minGroupSize: 4
       maxGroupSize: 8
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockArtifactFragment
-      count: 25
+      count: 30
       minGroupSize: 1
       maxGroupSize: 3
     - !type:OreDunGen
       replacement: IronRock
       entity: IronRockDiamond
-      count: 15
+      count: 20
       minGroupSize: 1
       maxGroupSize: 2
     - !type:OreDunGen # Goobstation
       replacement: IronRock
       entity: IronRockBSCrystal
-      count: 10
+      count: 15
       minGroupSize: 1
       maxGroupSize: 2
 

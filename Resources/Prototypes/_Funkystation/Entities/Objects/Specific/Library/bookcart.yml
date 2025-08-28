@@ -1,0 +1,60 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  name: book cart
+  id: BookCart
+  parent: [BaseStructureDynamic, StructureWheeled]
+  description: A library on wheels.
+  components:
+    - type: Sprite
+      noRot: true
+      sprite: _Funkystation/Objects/Specific/Library/bookcart.rsi
+      layers:
+      - state: cart
+      - state: book-0
+      - map: [ "enum.StorageFillLayers.Fill" ]
+    - type: Appearance
+    - type: StorageFillVisualizer
+      maxFillLevels: 16
+      fillBaseName: book
+    - type: Storage
+      grid:
+        - 0,0,4,1
+        - 0,3,4,4
+        - 0,6,4,7
+      maxItemSize: Normal
+      whitelist:
+        tags:
+          - Book
+          - Spellbook
+    - type: UserInterface
+      interfaces:
+        enum.StorageUiKey.Key:
+          type: StorageBoundUserInterface
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+    - type: Rotatable
+    - type: InteractionOutline
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.3
+          density: 250
+          layer:
+          - TableLayer
+          mask:
+          - TableMask
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Metallic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 400
+

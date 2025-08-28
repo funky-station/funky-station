@@ -16,13 +16,13 @@
             "directions": 4
         },
         {
-            "name": "scale"
+            "name": "chitin"
         },
         {
-            "name": "scale_2"
+            "name": "chitin_2"
         },
         {
-            "name": "scale_3"
+            "name": "chitin_3"
         }
     ]
 }

@@ -24,9 +24,9 @@
     count: 30
     baseLayer: base
     layerStates:
-    - scale
-    - scale_2
-    - scale_3
+    - chitin
+    - chitin_2
+    - chitin_3
   - type: StackPrice
     price: 125
 

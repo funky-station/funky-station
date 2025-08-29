@@ -8,13 +8,15 @@
 # SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Alekshhh <44923899+Alekshhh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Zadeon <loldude9000@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -60,10 +62,10 @@
         type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: gold
-  - type: Material
+  # - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawGold: 300 # Goobstation - was 100
+      Gold: 300 # Goobstation - was 100
   - type: Extractable
     grindableSolutionName: goldore
   - type: SolutionContainerManager
@@ -96,10 +98,10 @@
         type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: diamond
-  - type: Material
+  #- type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawDiamond: 100
+      Diamond: 100
   - type: Extractable
     grindableSolutionName: diamondore
   - type: SolutionContainerManager
@@ -132,10 +134,10 @@
         type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: iron
-  - type: Material
+  #- type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawIron: 200 # Goobstation - was 100
+      Steel: 200 # Goobstation - was 100
   - type: Extractable
     grindableSolutionName: ironore
   - type: SolutionContainerManager
@@ -168,10 +170,10 @@
         type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: plasma
-  - type: Material
+  # - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawPlasma: 500 # Goobstation - was 100
+      Plasma: 500 # Goobstation - was 100
   - type: PointLight
     radius: 1.2
     energy: 0.6
@@ -209,10 +211,10 @@
         type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: silver
-  - type: Material
+  # - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawSilver: 300 # Goobstation - was 100
+      Silver: 300 # Goobstation - was 100
   - type: Extractable
     grindableSolutionName: silverore
   - type: SolutionContainerManager
@@ -245,10 +247,10 @@
         type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: spacequartz
-  - type: Material
+  # - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawQuartz: 200 # Goobstation - was 100
+      Glass: 200 # Goobstation - was 100
   - type: Extractable
     grindableSolutionName: quartzore
   - type: SolutionContainerManager
@@ -281,10 +283,10 @@
         type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: uranium
-  - type: Material
+  # - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawUranium: 300 # Goobstation - was 100
+      Uranium: 300 # Goobstation - was 100
   - type: PointLight
     radius: 1.2
     energy: 0.8
@@ -325,10 +327,10 @@
         type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: bananium
-  - type: Material
+  #- type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawBananium: 100
+      Bananium: 100
   - type: PointLight
     radius: 1.2
     energy: 1
@@ -370,7 +372,7 @@
         type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: coal
-  - type: Material
+  # - type: Material
   - type: Extractable
     grindableSolutionName: coal
   - type: SolutionContainerManager
@@ -389,7 +391,7 @@
           Quantity: 0.1
   - type: PhysicalComposition
     materialComposition:
-      Coal: 200 # Goobstation - was 100
+      Diamond: 2 # Goobstation - was 100
 
 - type: entity
   parent: Coal

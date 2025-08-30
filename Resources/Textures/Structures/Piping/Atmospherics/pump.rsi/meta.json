@@ -80,6 +80,10 @@
         {
             "name": "pumpPressureRegulatorOn",
             "directions": 4
+        },
+        {
+            "name": "pumpHeat",
+            "directions": 4
         }
     ]
 }

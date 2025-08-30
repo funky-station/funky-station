@@ -208,7 +208,7 @@
   name: inlet pressure regulator
   description: A valve that releases gas when the inlet pressure exceeds a certain threshold.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
   - type: Rotatable
   - type: Transform
@@ -224,6 +224,11 @@
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: pumpPressureRegulator
       map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+  - type: AtmosPipeLayers
+    alternativePrototypes:
+      Primary: GasPressureRegulator
+      Secondary: GasPressureRegulatorAlt1
+      Tertiary: GasPressureRegulatorAlt2
   - type: Appearance
   - type: GenericVisualizer
     visuals:

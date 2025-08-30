@@ -147,6 +147,17 @@
   rotation: User
   fx: EffectRCDConstruct0
 
+- type: rcd
+  id: PressureRegulator
+  category: PumpsValves
+  sprite: /Textures/Interface/Radial/RPD/pump_pressure_regulator.png
+  mode: ConstructObject
+  prototype: GasPressureRegulator
+  cost: 1
+  delay: 0 
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0
 
 - type: rcd
   id: OutletInjector

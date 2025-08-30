@@ -518,6 +518,7 @@
     - HeatPump
     - VentScrubber
     - PressureValve
+    - PressureRegulator
     - DualPortVent
     - VentGas
     - VentPassive

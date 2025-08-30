@@ -1,4 +1,8 @@
-﻿using Robust.Shared.Serialization;
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Atmos.Piping.Binary.Components;
 

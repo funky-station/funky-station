@@ -4368,3 +4368,16 @@ Entries:
       message: Reduced number of Health Analyzers in the MedVend from 5 back to 3.
   id: 522
   time: '2025-08-31T19:28:40.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        Rule 11 - Silicon Rules has had its ID definition adjusted. Non-crew ID
+        icons such as Prisoners, Visitors, Blanks, and Hostile icons no longer
+        count as crew by default.
+    - type: Add
+      message: >-
+        Updated and adjusted Ion Storm's job pool (Added NTR, IAA, Prisoner, and
+        Visitor. Replaced Passenger with Assistant.)
+  id: 523
+  time: '2025-08-31T19:29:45.0000000+00:00'

@@ -270,7 +270,7 @@
       - NotekeeperCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
-      #- MedTekCartridge #funky - medtek removal
+      - MedTekCartridge
       - NanoChatCartridge # DeltaV
       - SOSCartridge # Imp
 
@@ -1514,7 +1514,7 @@
     - NanoTaskCartridge
     - NewsReaderCartridge
     - WantedListCartridge
-    #- MedTekCartridge #funky - medtek removal
+    - MedTekCartridge
     - NanoChatCartridge # DeltaV
     - SOSCartridge # Imp
 

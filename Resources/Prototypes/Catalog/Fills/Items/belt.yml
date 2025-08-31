@@ -147,7 +147,6 @@
         amount: 1
       - id: Gauze
       - id: EmergencyMedipen #You never know what people are going to latejoin into
-      - id: HandheldHealthAnalyzer #funky
 
 - type: entity
   id: ClothingBeltMedicalEMTFilled
@@ -162,7 +161,6 @@
       - id: Gauze
       - id: EmergencyMedipen
       - id: ParamedHypo
-      - id: HandheldHealthAnalyzer #funky
 
 - type: entity
   id: ClothingBeltPlantFilled

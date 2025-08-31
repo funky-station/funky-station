@@ -347,7 +347,7 @@
     - id: MedicalScannerMachineCircuitboard
     #- id: CloningConsoleComputerCircuitboard
     - id: BiomassReclaimerMachineCircuitboard
-    #- id: MedTekCartridge #funky - medtek removal
+    - id: MedTekCartridge
     # Shitmed
     - id: MedicalBiofabMachineBoard
     - id: AutoclaveFlatpack # DV

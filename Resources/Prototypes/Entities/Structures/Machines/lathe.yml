@@ -147,6 +147,7 @@
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
@@ -159,6 +160,7 @@
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
@@ -1183,7 +1185,7 @@
     - WeaponLaserCannon
     - WeaponLaserCarbine
     - WeaponXrayCannon
-    - WeaponLaserSvalinn # Funky Change 
+    - WeaponLaserSvalinn # Funky Change
     - SecurityCyberneticEyes # Shitmed Change
     - MedicalCyberneticEyes # Shitmed Change
     # Goobstation - Mechs
@@ -1324,7 +1326,7 @@
     - MedkitBrute
     - MedkitAdvanced
     - MedkitRadiation
-    - MedkitCombat
+#    - MedkitCombat #funky
     - Scalpel
     - Retractor
     - Cautery

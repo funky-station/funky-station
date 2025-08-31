@@ -4332,3 +4332,17 @@ Entries:
         health analyzers for the person buckled to them
   id: 519
   time: '2025-08-27T18:38:52.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added a Book Cart to the game
+    - type: Add
+      message: Bookshelves can now be labeled with paper
+    - type: Add
+      message: Added Bookshelf Label Folder for a sampling of paper colors
+    - type: Tweak
+      message: Books Bag and Book Shelf inventory sizes adjusted
+    - type: Tweak
+      message: Book Shelves generally contain more books round start
+  id: 520
+  time: '2025-08-31T02:41:32.0000000+00:00'

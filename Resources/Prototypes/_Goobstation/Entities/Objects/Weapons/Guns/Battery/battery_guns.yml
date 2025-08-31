@@ -153,4 +153,4 @@
     - Sidearm
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 25
+    autoRechargeRate: 30

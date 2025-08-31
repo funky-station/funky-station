@@ -4381,3 +4381,11 @@ Entries:
         Visitor. Replaced Passenger with Assistant.)
   id: 523
   time: '2025-08-31T19:29:45.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Remove
+      message: >-
+        Removed the Asimov Silicon lawset (Crewsimov is fine, the human-only
+        version is removed).
+  id: 524
+  time: '2025-08-31T22:38:36.0000000+00:00'

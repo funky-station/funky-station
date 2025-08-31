@@ -95,7 +95,7 @@
 - type: entity
   id: ActionStingExtractDNA
   name: Extract DNA sting
-  description: Steal your target's genetic information. Costs 25 chemicals.
+  description: Steal your target's genetic information. After the first usage, the target must be critical or dead. Costs 25 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction

@@ -141,7 +141,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         var code = EnsureComp<RingerUplinkComponent>(pda.Value).Code;
 
-        _antag.SendBriefing(traitor, Loc.GetString("head-rev-role-greeting"), Color.Red, null);
+        _antag.SendBriefing(traitor, Loc.GetString("head-rev-role-greeting", ("code", string.Join("-", code).Replace("sharp", "#"))), Color.Red, null);
 
         if (_role.MindHasRole<RevolutionaryRoleComponent>(mindId, out var revRoleComp))
             AddComp(revRoleComp.Value, new RoleBriefingComponent { Briefing = Loc.GetString("head-rev-briefing", ("code", string.Join("-", code).Replace("sharp", "#"))) }, overwrite: true);

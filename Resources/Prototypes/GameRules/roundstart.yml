@@ -280,8 +280,6 @@
       max: 3
       playerRatio: 25
       briefing:
-        text: head-rev-role-greeting
-        color: CornflowerBlue
         sound: "/Audio/Ambience/Antag/headrev_start.ogg"
       #startingGear: HeadRevGear -- Funky Station: HRev uplink
       components:

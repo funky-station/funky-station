@@ -153,7 +153,7 @@
     description: ghost-role-information-rat-king-description
     rules: ghost-role-information-antagonist-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
   - type: GhostTakeoverAvailable

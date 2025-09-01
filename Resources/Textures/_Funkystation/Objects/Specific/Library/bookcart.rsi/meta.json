@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites by mkanke for https://github.com/funky-station/funky-station",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "cart",
+      "directions": 4
+    },
+    {
+      "name": "book-0",
+      "directions": 4
+    },
+    {
+      "name": "book-1",
+      "directions": 4
+    },
+    {
+      "name": "book-2",
+      "directions": 4
+    },
+    {
+      "name": "book-3",
+      "directions": 4
+    },
+    {
+      "name": "book-4",
+      "directions": 4
+    },
+    {
+      "name": "book-5",
+      "directions": 4
+    },
+    {
+      "name": "book-6",
+      "directions": 4
+    },
+    {
+      "name": "book-7",
+      "directions": 4
+    },
+    {
+      "name": "book-8",
+      "directions": 4
+    },
+    {
+      "name": "book-9",
+      "directions": 4
+    },
+    {
+      "name": "book-10",
+      "directions": 4
+    },
+    {
+      "name": "book-11",
+      "directions": 4
+    },
+    {
+      "name": "book-12",
+      "directions": 4
+    },
+    {
+      "name": "book-13",
+      "directions": 4
+    },
+    {
+      "name": "book-14",
+      "directions": 4
+    },
+    {
+      "name": "book-15",
+      "directions": 4
+    }
+  ]
+}

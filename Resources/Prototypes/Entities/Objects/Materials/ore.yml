@@ -65,7 +65,8 @@
   # - type: Material
   - type: PhysicalComposition
     materialComposition:
-      Gold: 300 # Goobstation - was 100
+      Gold: 200 # Funky Station
+      RawGold: 300
   - type: Extractable
     grindableSolutionName: goldore
   - type: SolutionContainerManager
@@ -102,6 +103,7 @@
   - type: PhysicalComposition
     materialComposition:
       Diamond: 100
+      RawDiamond: 100
   - type: Extractable
     grindableSolutionName: diamondore
   - type: SolutionContainerManager
@@ -137,7 +139,8 @@
   #- type: Material
   - type: PhysicalComposition
     materialComposition:
-      Steel: 200 # Goobstation - was 100
+      Steel: 300 # Funky Station
+      RawIron: 200
   - type: Extractable
     grindableSolutionName: ironore
   - type: SolutionContainerManager
@@ -173,7 +176,8 @@
   # - type: Material
   - type: PhysicalComposition
     materialComposition:
-      Plasma: 500 # Goobstation - was 100
+      Plasma: 200 # Funky Station
+      RawPlasma: 200
   - type: PointLight
     radius: 1.2
     energy: 0.6
@@ -214,7 +218,8 @@
   # - type: Material
   - type: PhysicalComposition
     materialComposition:
-      Silver: 300 # Goobstation - was 100
+      Silver: 200 # Funky Station
+      RawSilver: 200
   - type: Extractable
     grindableSolutionName: silverore
   - type: SolutionContainerManager
@@ -250,7 +255,8 @@
   # - type: Material
   - type: PhysicalComposition
     materialComposition:
-      Glass: 200 # Goobstation - was 100
+      Glass: 300 # Funky Station
+      RawQuartz: 300
   - type: Extractable
     grindableSolutionName: quartzore
   - type: SolutionContainerManager
@@ -286,7 +292,8 @@
   # - type: Material
   - type: PhysicalComposition
     materialComposition:
-      Uranium: 300 # Goobstation - was 100
+      Uranium: 200 # Funky Station
+      RawUranium: 200
   - type: PointLight
     radius: 1.2
     energy: 0.8
@@ -330,7 +337,8 @@
   #- type: Material
   - type: PhysicalComposition
     materialComposition:
-      Bananium: 100
+      Bananium: 100 # Funky Station
+      RawBananium: 100
   - type: PointLight
     radius: 1.2
     energy: 1
@@ -391,7 +399,8 @@
           Quantity: 0.1
   - type: PhysicalComposition
     materialComposition:
-      Diamond: 2 # Goobstation - was 100
+      Diamond: 2 # Funky Station Coal now turns into diamonds 
+      Coal: 100
 
 - type: entity
   parent: Coal

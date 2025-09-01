@@ -536,8 +536,7 @@
   id: Syringe
   components:
   - type: Injector
-    transferAmount: 15
-    toggleState: Draw
+    currentTransferAmount: 15
   - type: Tag
     tags:
     - Syringe
@@ -556,6 +555,14 @@
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
       - state: syringeproj
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 5
+  - type: Injector
+    minTransferAmount: 1
+    maxTransferAmount: 5
+    transferAmount: 5
   - type: SolutionContainerVisuals
     maxFillLevels: 3
     fillBaseName: minisyringe
@@ -604,6 +611,7 @@
     - SyringeGunAmmo
 
 - type: entity
+  abstract: true
   parent: BaseSyringe
   id: PrefilledSyringe
   components:
@@ -672,7 +680,6 @@
     tags:
     - Syringe
     - Trash
-
 
 - type: entity
   name: pill

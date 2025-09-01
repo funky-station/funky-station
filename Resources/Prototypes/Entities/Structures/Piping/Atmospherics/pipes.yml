@@ -60,6 +60,14 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: ExaminableDamage
+    messages: WindowMessages
+  - type: Repairable
+  - type: DamageVisuals
+    thresholds: [8, 16, 25]
+    trackAllDamage: true
+    damageOverlay:
+      sprite: Structures/Piping/Atmospherics/pipe_cracks.rsi
   - type: SubFloorHide
   - type: CollideOnAnchor
   - type: Anchorable

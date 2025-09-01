@@ -8,33 +8,41 @@ namespace Content.Server._Funkystation.Atmos.Components
     public sealed partial class PipeBurstComponent  : Component
     {
         public const float MaxExplosionRange = 26f;
+        public int Ticker = 0;
 
         [ViewVariables(VVAccess.ReadWrite), DataField("ruptureSound")]
+        //TODO: Change this to something less ass
         public SoundSpecifier RuptureSound = new SoundPathSpecifier("/Audio/Effects/spray.ogg");
+
+        /// <summary>
+        /// Factor that adjusts the pipe's resistance to bursting
+        /// </summary>
+        [DataField("pipeStrengthFactor"), ViewVariables(VVAccess.ReadWrite)]
+        public static float PipeStrengthFactor = 1f;
 
         /// <summary>
         ///     Pressure at which pipes start leaking.
         /// </summary>
         [DataField("pipeLeakPressure"), ViewVariables(VVAccess.ReadWrite)]
-        public float PipeLeakPressure = 2 * Atmospherics.MaxOutputPressure;
+        public float PipeLeakPressure = 2 * Atmospherics.MaxOutputPressure * PipeStrengthFactor;
 
         /// <summary>
         ///     Pressure at which pipe unanchors.
         /// </summary>
         [DataField("pipeRupturePressure"), ViewVariables(VVAccess.ReadWrite)]
-        public float PipeRupturePressure = 3 * Atmospherics.MaxOutputPressure;
+        public float PipeRupturePressure = 3 * Atmospherics.MaxOutputPressure * PipeStrengthFactor;
 
         /// <summary>
         ///     Pressure at which pipe bursts
         /// </summary>
         [DataField("pipeFragmentPressure"), ViewVariables(VVAccess.ReadWrite)]
-        public float PipeFragmentPressure = 4 * Atmospherics.MaxOutputPressure;
+        public float PipeFragmentPressure = 4 * Atmospherics.MaxOutputPressure * PipeStrengthFactor;
 
         /// <summary>
         ///     Increases explosion for each scale kPa above threshold.
         /// </summary>
         [DataField("pipeFragmentScale"), ViewVariables(VVAccess.ReadWrite)]
-        public float PipeFragmentScale = 2 * Atmospherics.MaxOutputPressure;
+        public float PipeFragmentScale = 2 * Atmospherics.MaxOutputPressure * PipeStrengthFactor;
 
         /// <summary>
         /// Damage dealt per tick of rupture
@@ -44,11 +52,9 @@ namespace Content.Server._Funkystation.Atmos.Components
         {
             DamageDict = new()
             {
-                { "Structural", 1 },
+                { "Structural", 10 },
             }
         };
-
-
     }
 }
 

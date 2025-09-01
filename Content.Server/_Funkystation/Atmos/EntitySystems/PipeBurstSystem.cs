@@ -29,6 +29,7 @@ namespace Content.Server._Funkystation.Atmos.EntitySystems
         [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         private float _maxExplosionRange;
+        public static int MaxTick = 30; // Once per second
 
         public override void Initialize()
         {
@@ -60,8 +61,6 @@ namespace Content.Server._Funkystation.Atmos.EntitySystems
         public void CheckStatus(Entity<PipeBurstComponent> ent)
         {
             var (uid, component) = ent;
-            GasMixture? air = null;
-            PipeNode? pipe = null;
             if (!TryComp<NodeContainerComponent>(uid, out var nodeContainer))
                 return;
             foreach (var node in nodeContainer.Nodes.Values)
@@ -69,38 +68,52 @@ namespace Content.Server._Funkystation.Atmos.EntitySystems
                 if (node is not PipeNode pipeNode)
                     continue;
 
-                air = pipeNode.Air;
-                pipe = pipeNode;
-            }
+                var air = pipeNode.Air;
+                var pressure = air.Pressure;
+                var pipe = pipeNode;
 
-            if (air == null || pipe == null)
-                return;
-
-            var pressure = air.Pressure;
-
-            if (pressure > component.PipeLeakPressure)
-            {
                 var environment = _atmosphereSystem.GetContainingMixture(uid, false, true);
-                if (environment != null)
+
+                if (environment == null)
+                    continue;
+                var airPressure = environment.Pressure;
+
+                // Get absolute difference
+                var pressureDiff = Math.Abs(pressure - airPressure);
+
+                // Leak behaviour
+                if (pressureDiff < component.PipeLeakPressure)
+                    continue;
+                switch (pressure > airPressure) // If pipe is greater pressure that atmosphere, leak gas, otherwise reverse
                 {
-                    var leakedGas = air.RemoveRatio(0.25f);
-                    _atmosphereSystem.Merge(environment, leakedGas);
+                    case true:
+                        _atmosphereSystem.Merge(environment, air.RemoveRatio(0.25f));
+                        break;
+                    case false:
+                        _atmosphereSystem.Merge(air, environment.RemoveRatio(0.25f));
+                        break;
                 }
-            }
 
-            if (pressure > component.PipeRupturePressure)
-            {
-                var environment = _atmosphereSystem.GetContainingMixture(uid, false, true);
-                if (environment != null)
-                    _atmosphereSystem.Merge(environment, air);
+                // Rupture behaviour
+                if (pressureDiff < component.PipeRupturePressure)
+                {
+                    component.Ticker = 0;
+                    continue;
+                }
 
+                if (component.Ticker < MaxTick) // Limit rate check
+                {
+                    component.Ticker++;
+                    continue;
+                }
+                component.Ticker = 0;
                 _audioSys.PlayPvs(component.RuptureSound, Transform(uid).Coordinates, AudioParams.Default.WithVariation(0.125f));
-                TryComp<DamageableComponent>(uid, out var damageable);
                 _damageableSystem.TryChangeDamage(uid, component.RuptureDamage);
-            }
 
-            if (pressure > component.PipeFragmentPressure && _maxExplosionRange > 0)
-            {
+                // Explosion behaviour
+                if (pressureDiff < component.PipeFragmentPressure || _maxExplosionRange < 0)
+                    continue;
+
                 // Give the gas a chance to build up more pressure.
                 for (var i = 0; i < 3; i++)
                 {

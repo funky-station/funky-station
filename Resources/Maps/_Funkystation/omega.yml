@@ -1,77 +1,11 @@
-# SPDX-FileCopyrightText: 2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021 buletsponge <96000213+buletsponge@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-# SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morbo <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TimrodDX <timrod@gmail.com>
-# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-# SPDX-FileCopyrightText: 2022 and_a <and_a@DESKTOP-RJENGIR>
-# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 778b <33431126+778b@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2023 Jackrost <jackrost@mail.ru>
-# SPDX-FileCopyrightText: 2023 JustCone <141039037+JustCone14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 88tv <131759102+88tv@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 8tv <eightev@gmail.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NkoKirkto <153374559+NkoKirkto@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NkoKirkto <halloleute640mail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 spanky-spanky <scott@wearejacob.com>
-# SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
-# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
-# SPDX-FileCopyrightText: 2025 salpphie <53307242+salpphie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 salpphie <alyssa.thomas51@gmail.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 meta:
   format: 7
   category: Map
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/24/2025 02:10:41
-  entityCount: 13777
+  time: 09/01/2025 21:10:15
+  entityCount: 13802
 maps:
 - 1
 grids:
@@ -4773,6 +4707,24 @@ entities:
       parent: 4
     - type: InstantAction
       container: 4
+  - uid: 4828
+    mapInit: true
+    paused: true
+    components:
+    - type: Transform
+      parent: 5954
+    - type: InstantAction
+      originalIconColor: '#FFFFFFFF'
+      container: 5954
+  - uid: 5181
+    mapInit: true
+    paused: true
+    components:
+    - type: Transform
+      parent: 5955
+    - type: InstantAction
+      originalIconColor: '#FFFFFFFF'
+      container: 5955
 - proto: ActionToggleLight
   entities:
   - uid: 7
@@ -5891,7 +5843,7 @@ entities:
       pos: -24.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -93334.48
+      secondsUntilStateChange: -94507.61
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11516,13 +11468,24 @@ entities:
     - type: Transform
       pos: -25.436514,-18.48842
       parent: 2
+- proto: BookCart
+  entities:
+  - uid: 5906
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -23.5,-16.5
+      parent: 2
 - proto: BookRandomStory
   entities:
   - uid: 1160
     components:
     - type: Transform
-      pos: 17.568647,-11.417019
+      pos: 19.35133,-18.271301
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: BooksBag
   entities:
   - uid: 1163
@@ -11780,6 +11743,13 @@ entities:
     components:
     - type: Transform
       pos: -16.526052,14.591891
+      parent: 2
+- proto: BoxFolderBookshelfLabels
+  entities:
+  - uid: 6127
+    components:
+    - type: Transform
+      pos: -30.731058,-18.437246
       parent: 2
 - proto: BoxFolderGrey
   entities:
@@ -32712,8 +32682,11 @@ entities:
   - uid: 5085
     components:
     - type: Transform
-      pos: 3.4675388,-14.361706
+      pos: 24.360632,-26.01169
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 5086
     components:
     - type: Transform
@@ -32906,8 +32879,11 @@ entities:
   - uid: 5115
     components:
     - type: Transform
-      pos: -24.594517,-34.532703
+      pos: -23.640724,-35.530582
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: ClothingHeadHatHardhatOrange
   entities:
   - uid: 8
@@ -38282,8 +38258,20 @@ entities:
   - uid: 5954
     components:
     - type: Transform
-      pos: -9.542398,-28.358063
-      parent: 2
+      parent: 9407
+    - type: GasTank
+      toggleActionEntity: 4828
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 4828
+    - type: InsideEntityStorage
 - proto: DoubleEmergencyOxygenTankFilled
   entities:
   - uid: 4
@@ -38302,8 +38290,20 @@ entities:
   - uid: 5955
     components:
     - type: Transform
-      pos: -9.167398,-28.37891
-      parent: 2
+      parent: 9407
+    - type: GasTank
+      toggleActionEntity: 5181
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+    - type: ActionsContainer
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents:
+          - 5181
+    - type: InsideEntityStorage
 - proto: Dresser
   entities:
   - uid: 5956
@@ -39003,6 +39003,48 @@ entities:
       parent: 2
     - type: FaxMachine
       name: Psychology
+  - uid: 5182
+    components:
+    - type: Transform
+      pos: 28.5,-20.5
+      parent: 2
+    - type: FaxMachine
+      name: Research Director
+  - uid: 5318
+    components:
+    - type: Transform
+      pos: 17.5,-11.5
+      parent: 2
+    - type: FaxMachine
+      name: Detective
+  - uid: 5326
+    components:
+    - type: Transform
+      pos: 3.5,-14.5
+      parent: 2
+    - type: FaxMachine
+      name: Science
+  - uid: 5327
+    components:
+    - type: Transform
+      pos: -9.5,-28.5
+      parent: 2
+    - type: FaxMachine
+      name: Medical
+  - uid: 5397
+    components:
+    - type: Transform
+      pos: -48.5,-8.5
+      parent: 2
+    - type: FaxMachine
+      name: Chief Engineer
+  - uid: 5811
+    components:
+    - type: Transform
+      pos: -28.5,-5.5
+      parent: 2
+    - type: FaxMachine
+      name: Engineering
   - uid: 6065
     components:
     - type: Transform
@@ -39066,6 +39108,20 @@ entities:
       parent: 2
     - type: FaxMachine
       name: Security
+  - uid: 6174
+    components:
+    - type: Transform
+      pos: -24.5,-34.5
+      parent: 2
+    - type: FaxMachine
+      name: Chaplain
+  - uid: 6496
+    components:
+    - type: Transform
+      pos: 28.5,4.5
+      parent: 2
+    - type: FaxMachine
+      name: Evac SEC Checkpoint
   - uid: 12457
     components:
     - type: Transform
@@ -41402,8 +41458,11 @@ entities:
   - uid: 6403
     components:
     - type: Transform
-      pos: -24.401733,-34.40146
+      pos: -23.421974,-35.577457
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: FoodSnackCheesie
   entities:
   - uid: 6404
@@ -61108,8 +61167,11 @@ entities:
   - uid: 9171
     components:
     - type: Transform
-      pos: 17.570036,-11.532839
+      pos: 18.395576,-16.063698
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 9172
     components:
     - type: Transform
@@ -61934,6 +61996,12 @@ entities:
       parent: 2
 - proto: IntercomCommand
   entities:
+  - uid: 4811
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -26.5,-29.5
+      parent: 2
   - uid: 9305
     components:
     - type: Transform
@@ -62009,6 +62077,18 @@ entities:
       parent: 2
 - proto: IntercomEngineering
   entities:
+  - uid: 5317
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -32.5,-4.5
+      parent: 2
+  - uid: 5333
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -40.5,8.5
+      parent: 2
   - uid: 9318
     components:
     - type: Transform
@@ -62022,6 +62102,12 @@ entities:
       parent: 2
 - proto: IntercomMedical
   entities:
+  - uid: 5183
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -7.5,-19.5
+      parent: 2
   - uid: 9320
     components:
     - type: Transform
@@ -62030,6 +62116,12 @@ entities:
       parent: 2
 - proto: IntercomScience
   entities:
+  - uid: 5184
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,-22.5
+      parent: 2
   - uid: 9321
     components:
     - type: Transform
@@ -62044,6 +62136,29 @@ entities:
       parent: 2
 - proto: IntercomSecurity
   entities:
+  - uid: 4809
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,-25.5
+      parent: 2
+  - uid: 5295
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -24.5,18.5
+      parent: 2
+  - uid: 5329
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 31.5,1.5
+      parent: 2
+  - uid: 5332
+    components:
+    - type: Transform
+      pos: -36.5,17.5
+      parent: 2
   - uid: 9323
     components:
     - type: Transform
@@ -62052,6 +62167,22 @@ entities:
       parent: 2
 - proto: IntercomService
   entities:
+  - uid: 4815
+    components:
+    - type: Transform
+      pos: -20.5,-10.5
+      parent: 2
+  - uid: 5185
+    components:
+    - type: Transform
+      pos: -11.5,-10.5
+      parent: 2
+  - uid: 5219
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,0.5
+      parent: 2
   - uid: 9324
     components:
     - type: Transform
@@ -62076,6 +62207,18 @@ entities:
       parent: 2
 - proto: IntercomSupply
   entities:
+  - uid: 5330
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 18.5,12.5
+      parent: 2
+  - uid: 5331
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 25.5,11.5
+      parent: 2
   - uid: 9328
     components:
     - type: Transform
@@ -62358,21 +62501,6 @@ entities:
     components:
     - type: Transform
       pos: -21.463991,24.553658
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        cellslot_cell_container: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 9361
-    components:
-    - type: Transform
-      pos: -28.442137,-5.370996
       parent: 2
     - type: ContainerContainer
       containers:
@@ -63118,6 +63246,44 @@ entities:
     - type: Transform
       pos: -8.5,-27.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 5954
+          - 5955
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: LockerPrisoner
   entities:
   - uid: 13727
@@ -63207,14 +63373,25 @@ entities:
     - type: Transform
       pos: 28.5,-18.5
       parent: 2
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 9763
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
     - type: EntityStorage
       air:
         volume: 200
         immutable: False
         temperature: 293.14957
         moles:
-        - 1.6033952
-        - 6.031821
+        - 1.8742619
+        - 7.050795
         - 0
         - 0
         - 0
@@ -65716,8 +65893,12 @@ entities:
   - uid: 9763
     components:
     - type: Transform
-      pos: 28.456348,-20.243092
-      parent: 2
+      parent: 9408
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: Poweredlight
   entities:
   - uid: 1000
@@ -68665,8 +68846,11 @@ entities:
   - uid: 10225
     components:
     - type: Transform
-      pos: -48.51471,-8.421415
+      pos: -48.579056,-8.33068
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: RCDAmmo
   entities:
   - uid: 10226
@@ -88798,8 +88982,11 @@ entities:
   - uid: 13801
     components:
     - type: Transform
-      pos: 3.4989405,-14.41828
+      pos: 7.461117,-17.42063
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 13802
     components:
     - type: Transform

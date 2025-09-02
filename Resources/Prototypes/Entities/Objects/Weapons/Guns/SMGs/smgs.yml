@@ -246,9 +246,9 @@
     boltClosed: null
   - type: Gun
     fireRate: 5.5
-    minAngle: 1
+    minAngle: 3
     maxAngle: 12
-    angleIncrease: 2
+    angleIncrease: 3
     angleDecay: 3
     selectedMode: FullAuto
     shotsPerBurst: 5

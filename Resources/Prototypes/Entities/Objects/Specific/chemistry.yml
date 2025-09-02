@@ -568,7 +568,7 @@
       injector:
         maxVol: 100
   - type: Injector
-    delay: 1 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
+    delay: 3 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
     injectOnly: false
   - type: SolutionContainerVisuals
     maxFillLevels: 2
@@ -581,8 +581,8 @@
 - type: entity
   id: SyringeCryostasis
   parent: BaseSyringe
-  name: cryostasis syringe
-  description: An improved syringe used to contain chemicals or solutions without reactions. # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
+  name: speed syringe
+  description: An improved syringe used inject faster # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
   components:
   - type: Sprite
     layers:
@@ -597,10 +597,9 @@
   - type: SolutionContainerManager
     solutions:
       injector:
-        maxVol: 20 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
-        canReact: false
+        maxVol: 15 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
   - type: Injector
-    delay: 2
+    delay: 1
     injectOnly: false
     minTransferAmount: 5
     maxTransferAmount: 20

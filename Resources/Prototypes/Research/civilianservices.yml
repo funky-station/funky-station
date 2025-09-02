@@ -162,6 +162,7 @@
   - CryoPodMachineCircuitboard
   - CryostasisBeaker
   - SyringeCryostasis
+  - SyringeBluespace
 
 - type: technology
   id: AdvancedCleaning
@@ -247,4 +248,4 @@
   cost: 10000
   recipeUnlocks:
   - BluespaceBeaker
-  - SyringeBluespace
+

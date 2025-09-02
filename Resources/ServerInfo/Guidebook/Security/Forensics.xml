@@ -13,48 +13,48 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Forensics
+  # Forense
 
-  There are a lot of tools to help you gather and examine the evidence at your disposal
+  Hay muchas herramientas a tu disposición para ayudarte a recoger y examinar las pruebas.
 
-  # Log probe
+  # Sonda de Registro
 
-  This little add-on to your PDA is incredibly useful, just install the cartridge and your PDA will acquire the ability to scan anything with access (like airlocks) and see who has used them recently.
+  Este pequeño accesorio para tu PDA es increíblemente útil, solo instala el cartucho y tu PDA adquirirá la capacidad de escanear cualquier cosa que requiera acceso (como esclusas de aire) y ver quién las ha usado recientemente.
 
-  You can normally find it inside the detective locker. After inserting it on your PDA, go to the programs tab and the log probe application should be there, to use the application you just have to interact with anything that requires access with your PDA while the application is open and the information will be instantly displayed in it.
+  Normalmente lo puedes encontrar dentro del casillero del detective. Después de insertarlo en tu PDA, ve a la pestaña de programas y la aplicación de la sonda de registro debería aparecer allí. Para usar la aplicación, solo tienes que interactuar con cualquier cosa que requiera acceso usando tu PDA mientras la aplicación esté abierta, y la información se mostrará al instante.
 
-  It should be noted that the name shown in the application is not to be trusted 100% of the time since it gets the name from the identification card of whoever used the thing we are scanning, so if for example someone opened an airlock with no card the application would display "Unknown" as the name.
+  Cabe destacar que el nombre mostrado en la aplicación no debe ser 100% confiable, ya que obtiene el nombre de la tarjeta de identificación de quien usó lo que estamos escaneando, así que si por ejemplo alguien abrió una esclusa de aire sin tarjeta, la aplicación mostraría "Desconocido" como nombre.
 
   <Box>
     <GuideEntityEmbed Entity="LockerDetective"/>
     <GuideEntityEmbed Entity="LogProbeCartridge"/>
   </Box>
 
-  # DNA and Fingerprints
+  # ADN y Huellas Dactilares
 
-  ## How to get someone’s DNA?
+  ## ¿Cómo obtener el ADN de alguien?
 
-  You can scan blood puddles, vomit, glasses, bottles, cans and other liquid containers using the [color=#a4885c]forensic scanner[/color] to get DNA of any person.
+  Puedes escanear charcos de sangre, vómito, gafas, botellas, latas y otros contenedores líquidos usando el [color=#a4885c]escáner forense[/color] para obtener el ADN de cualquier persona.
   <Box>
     <GuideEntityEmbed Entity="ForensicScanner"/>
   </Box>
-  So be careful before fighting with someone.
+  Así que ten cuidado antes de pelear con alguien.
 
-  Same scanner can also get fingerprint information about who touched pretty much any object. If the possible perpetrator was using gloves, then your scanner will print out which fibers were left on the crimescene.
+  El mismo escáner también puede obtener información sobre las huellas dactilares de quien haya tocado prácticamente cualquier objeto. Si el posible culpable estaba usando guantes, entonces tu escáner imprimirá qué fibras fueron dejadas en la escena del crimen.
 
-  ## I got DNA. How do I recognize whose it is?
+  ## Tengo ADN. ¿Cómo sé de quién es?
 
-  You can print the forensic information of the object you scanned so you never miss it. Now with the paper containing DNA you can simply find a [color=#a4885c]Station Records Computer[/color] and look for a person whose DNA matches. Same applies to finding whose fingerprint is is.
+  Puedes imprimir la información forense del objeto que escaneaste para que nunca la pierdas. Ahora, con el papel que contiene el ADN, simplemente busca una [color=#a4885c]Computadora de Registros de la Estación[/color] y busca a una persona cuyo ADN coincida. Lo mismo aplica para encontrar de quién son las huellas dactilares.
 
-  ## Taking Fingerprints
-  It is also possible to take someone's fingerprints while on scene if you make them take off their gloves and apply a forensic pad to their fingers. No need to run back to [color=#a4885c]Station Records Computer[/color] to check if the butler did it!
+  ## Tomando Huellas Dactilares
+  También es posible tomar las huellas dactilares de alguien en la escena si haces que se quiten los guantes y aplicas una almohadilla forense en sus dedos. ¡No es necesario regresar a la [color=#a4885c]Computadora de Registros de la Estación[/color] para comprobar si el mayordomo lo hizo!
 
   <GuideEntityEmbed Entity="ForensicPad"/>
 
-  ## Fibers
-  Whenenever people wearing gloves touch anything on the station, they are bound to leave behind some fibers. This complicates things, but nothing is unsolvable for a real detective.
+  ## Fibras
+  Siempre que las personas que usan guantes tocan algo en la estación, es probable que dejen atrás algunas fibras. Esto complica las cosas, pero nada es irresoluble para un verdadero detective.
 
-  There are up to [color=red]26[/color] different types of fibers possible. Can that stop you from solving the case?
+  Hay hasta [color=red]26[/color] tipos diferentes de fibras posibles. ¿Eso puede detenerte para resolver el caso?
 
   <Box>
     <GuideEntityEmbed Entity="ComputerStationRecords"/>

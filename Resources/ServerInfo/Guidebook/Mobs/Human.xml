@@ -6,13 +6,13 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Humans
+  # Humanos
 
   <Box>
     <GuideEntityEmbed Entity="MobHumanDummy" Caption=""/>
   </Box>
 
-  Depending on who you ask, humans are either unremarkable or the universal standard to which everything else is compared.
-  They have no special mechanics or notable attributes.
+  Dependiendo de a quién le preguntes, los humanos son ya sea poco notables o el estándar universal con el que se compara todo lo demás.
+  No tienen mecánicas especiales ni atributos destacables.
 
 </Document>

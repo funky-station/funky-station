@@ -7,7 +7,9 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Exotic
-  The chemicals in this list are hard to obtain, unique chemicals that the average medbay may not see often.
+  # Químicos Exóticos
+
+  Estos químicos son difíciles de obtener y poco comunes; la medbay promedio puede no verlos con frecuencia.
+
   <GuideReagentGroupEmbed Group="Exotic"/>
 </Document>

@@ -6,226 +6,164 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Reactions
-  Here are some chemicals that, when utilized properly, have unique effects!
+  # Reacciones Químicas
 
+  Aprende a combinar químicos para crear efectos únicos, gases, espumas, humo y explosivos.
 
-  #Creation reactions
+  ## Reacciones de Creación
 
-  When mixing some chemicals, items can be created!
+  Mezclando ciertos químicos se pueden crear objetos útiles:
 
-  Some of the easiest recipes for an aspiring chemist to understand are the simple recipes that help with making items.
-
-
-  ##Soap
+  ### Jabón
   <Box>
-    <GuideEntityEmbed Entity="Soap" Caption="Soap"/>
-    <GuideEntityEmbed Entity="SoapHomemade" Caption="Homemade Soap"/>
+    <GuideEntityEmbed Entity="Soap" Caption="Jabón"/>
+    <GuideEntityEmbed Entity="SoapHomemade" Caption="Jabón Casero"/>
   </Box>
-  Soap can be made with the following reagents:
+  Ingredientes:
+  - 15u Grasa
+  - 10u Sal de Mesa
+  - 10u Agua (o) 10u Sangre
 
-  -15u Fat
-  -10u Table Salt
-  -10u Water (or) 10u Blood
-  
-  You can also make a homemade variant by swapping out water with blood!
-
-  ##Meat
+  ### Carne Sintética
   <Box>
-    <GuideEntityEmbed Entity="FoodMeat" Caption="Meat"/>
+    <GuideEntityEmbed Entity="FoodMeat" Caption="Carne"/>
   </Box>
-  You can make synthetic meat with:
-  -25u Fat
-  -5u Nutriment
-  -10u Blood
-  -10u Carbon
+  Ingredientes:
+  - 25u Grasa
+  - 5u Nutrimento
+  - 10u Sangre
+  - 10u Carbono
 
-  ##Plastic
+  ### Plástico
   <Box>
-    <GuideEntityEmbed Entity="SheetPlastic" Caption="Plastic"/>
+    <GuideEntityEmbed Entity="SheetPlastic" Caption="Plástico"/>
   </Box>
-  You can make plastic by heating the following reagents to 374K:
+  Ingredientes (calentar a 374K):
+  - 5u Aceite
+  - 3u Ceniza
+  - 2u Ácido Sulfúrico
 
-  -5u Oil
-  -3u Ash
-  -2u Sulfuric Acid
-
-  ##Crystals
-
+  ### Cristales Sintéticos
   <Box>
-    <GuideEntityEmbed Entity="ShardCrystalGreen" Caption="Green Crystal"/>
-    <GuideEntityEmbed Entity="ShardCrystalCyan" Caption="Cyan Crystal"/>
-    <GuideEntityEmbed Entity="ShardCrystalPink" Caption="Pink Crystal"/>
-    <GuideEntityEmbed Entity="ShardCrystalRed" Caption="Red Crystal"/>
-    <GuideEntityEmbed Entity="ShardCrystalOrange" Caption="Orange Crystal"/>
+    <GuideEntityEmbed Entity="ShardCrystalGreen" Caption="Cristal Verde"/>
+    <GuideEntityEmbed Entity="ShardCrystalCyan" Caption="Cristal Cian"/>
+    <GuideEntityEmbed Entity="ShardCrystalPink" Caption="Cristal Rosa"/>
+    <GuideEntityEmbed Entity="ShardCrystalRed" Caption="Cristal Rojo"/>
+    <GuideEntityEmbed Entity="ShardCrystalOrange" Caption="Cristal Naranja"/>
   </Box>
-  You can create synthetic crystals for decoration by mixing and heating to 374k:
+  Ingredientes (calentar a 374K):
+  - 15u Azúcar
+  - 15u Agua
+  - 5u Etanol
 
-  -15u Sugar
-  -15u Water
-  -5u Ethanol
-
-  ##Gunpowder
+  ### Pólvora
   <Box>
-    <GuideEntityEmbed Entity="MaterialGunpowder" Caption="Gunpowder"/>
+    <GuideEntityEmbed Entity="MaterialGunpowder" Caption="Pólvora"/>
   </Box>
-  You can create gunpowder, a component used in improvised explosives, by mixing:
-  -6u Potassium
-  -2u Sulfur
-  -2u Charcoal
+  Ingredientes:
+  - 6u Potasio
+  - 2u Azufre
+  - 2u Carbón
 
-  ##Solidification
+  ### Solidificación de Metales
   <Box>
-    <GuideEntityEmbed Entity="IngotGold1" Caption="Gold"/>
-    <GuideEntityEmbed Entity="IngotSilver1" Caption="Silver"/>
+    <GuideEntityEmbed Entity="IngotGold1" Caption="Oro"/>
+    <GuideEntityEmbed Entity="IngotSilver1" Caption="Plata"/>
   </Box>
-  You can solidify reagents such as silver and gold into bars by using:
-  -10u Metal (silver or gold)
-  -5u Frost Oil
+  Ingredientes:
+  - 10u Metal (Plata o Oro)
+  - 5u Aceite Helado
 
+  ## Reacciones Gaseosas
 
-  # Gas reactions
+  Mezclar ciertos químicos puede generar gases, con efectos peligrosos o útiles.
 
-  When mixing some chemicals, gas can be created!
-
-  This can be beneficial or [color=red]HIGHLY DANGEROUS[/color] depending on the context in which it is used!
-
-  ## Plasma Gas
+  ### Gas de Plasma
   <Box>
-    <GuideEntityEmbed Entity="PlasmaCanister" Caption="Plasma Gas"/>
+    <GuideEntityEmbed Entity="PlasmaCanister" Caption="Gas de Plasma"/>
   </Box>
-  One of the most basic and dangerous gas reactions is the gaseous plasma that is made while mixing Phlogiston.
+  Ingredientes:
+  - 1 parte Plasma
+  - 1 parte Fósforo
+  - 1 parte Ácido Sulfúrico
 
-  The recipe to make this (and release the gas) is:
-
-  -1 part Plasma
-  -1 part Phosphorus
-  -1 part Sulfuric Acid
-
-  ## Frezon
+  ### Gas Frezon
   <Box>
-    <GuideEntityEmbed Entity="FrezonCanister" Caption="Frezon Gas"/>
+    <GuideEntityEmbed Entity="FrezonCanister" Caption="Gas Frezon"/>
   </Box>
-  Another effect can be used to make Frezon gas, which is very damaging to the stations atmosphere. Please wear your winter coats!
+  Ingredientes:
+  - 1 parte Fresio
+  - 1 parte Agua
 
-  The reaction to create Frezon gas is:
+  ## Reacciones de Espuma
 
-  -1 part Fresium
-  -1 part Water
-
-  # Foam reactions
-
-  There are two types of [color=cyan]foam[/color] reactions.
-
-  ##Reagent Foam
-
+  ### Espuma de Reactivo
   <Box>
-    <GuideEntityEmbed Entity="Beaker" Caption="Fluorosurfactant"/>
-    <GuideEntityEmbed Entity="Beaker" Caption="Water"/>
-    <GuideEntityEmbed Entity="Beaker" Caption="(Optional) reagent(s)"/>
+    <GuideEntityEmbed Entity="Beaker" Caption="Fluorosurfactante"/>
+    <GuideEntityEmbed Entity="Beaker" Caption="Agua"/>
+    <GuideEntityEmbed Entity="Beaker" Caption="(Opcional) Reactivo"/>
   </Box>
+  Ingredientes:
+  - 1 parte Fluorosurfactante
+  - 1 parte Agua
+  - (Opcional) cualquier reactivo
 
-  [color=cyan]Reagent[/color] foam applies whatever chemical is in the solution to those within it's radius- this is different from [color=cyan]smoke[/color] because it can apply reagents topically as well.
-
-  Reagent foam leaves residue on the floor when utilized with drinks or other liquids, so be sure to take this into account while making mixes!
-
-  More Fluorosurfactant and water mean more spread- but be aware this doesn't increase the potency of the foam, which depends on how much of the reagent you put in the solution.
-  Enjoy mixing and creating your own foam!
-
-  To make reagent foam you mix:
-
-  -1 part Fluorosurfactant
-  -1 part Water
-  -(Optional) Any amount of Reagent
-
-
-  ## Metal Foam
+  ### Espuma Metálica
   <Box>
-    <GuideEntityEmbed Entity="MetalFoamGrenade" Caption="Metal Foam"/>
-    <GuideEntityEmbed Entity="FoamedIronMetal" Caption="Foamed Iron"/>
-    <GuideEntityEmbed Entity="FoamedAluminiumMetal" Caption="Foamed Aluminum"/>
+    <GuideEntityEmbed Entity="MetalFoamGrenade" Caption="Espuma Metálica"/>
+    <GuideEntityEmbed Entity="FoamedIronMetal" Caption="Hierro Espumado"/>
+    <GuideEntityEmbed Entity="FoamedAluminiumMetal" Caption="Aluminio Espumado"/>
   </Box>
-  [color=cyan]Metal[/color] foam creates fairly sturdy walls made of solidified foam metal. This also can be utilized for a variety of purposes, such as sealing hallways, hull breaches, and more!
-  To make metal foam you mix:
+  Ingredientes:
+  - 3 partes metal (Hierro o Aluminio)
+  - 1 parte Agente Espumante
+  - 1 parte Ácido Fluorosulfúrico
 
-  -3 parts metal (Iron, Aluminum)
-  -1 part Foaming Agent
-  -1 part Fluorosulfuric acid
-
-  Be aware that the fluorosulfuric acid will hurt anyone near it before it solidifies!
-  Increasing the reactants will increase the size of the foam area.
-
-
-  # Smoke reactions
+  ## Reacciones de Humo
   <Box>
-    <GuideEntityEmbed Entity="SmokeGrenade" Caption="Smoke Grenade"/>
+    <GuideEntityEmbed Entity="SmokeGrenade" Caption="Granada de Humo"/>
   </Box>
-  When mixing some chemicals, smoke can coat the area!
+  Ingredientes:
+  - 1 parte Fósforo
+  - 1 parte Potasio
+  - 1 parte Azúcar
+  - (Opcional) cualquier reactivo
 
-  This causes any [color=cyan]reagents[/color] within the mix to be ingested by anyone who breathes it in, which can result in many fun (or deadly!) effects!
+  ## Reacciones Explosivas
 
-  The basic recipe to mix smoke is:
-  -1 part Phosphorous
-  -1 part Potassium
-  -1 part Sugar
-  -(Optional) Any amount of reagent
-
-  More of the reagents mean a larger area of effect, and adding more reagents will result in larger quantities of whatever is in solution being inhaled by those without internals on.
-
-  # Explosive reactions
-
-  When mixing some chemicals, explosions can be caused!
-
-  ##Potassium and Water
+  ### Potasio + Agua
   <Box>
-    <GuideEntityEmbed Entity="Beaker" Caption="Potassium"/>
-    <GuideEntityEmbed Entity="Beaker" Caption="Water"/>
+    <GuideEntityEmbed Entity="Beaker" Caption="Potasio"/>
+    <GuideEntityEmbed Entity="Beaker" Caption="Agua"/>
   </Box>
-  The most basic of explosions is mixing:
+  Ingredientes:
+  - 1 parte Potasio
+  - 1 parte Agua
 
-  -1 Part Potassium
-  -1 Part Water
-
-  This will instantly cause a small but easily scalable explosion, which releases heat and can shatter windows! This can be used for chaining effects together with larger explosive payloads, such as CLF3!
-
-
-  ##CLF3
+  ### CLF3
   <Box>
-    <GuideEntityEmbed Entity="Beaker" Caption="Chlorine"/>
-    <GuideEntityEmbed Entity="Beaker" Caption="Fluorine"/>
+    <GuideEntityEmbed Entity="Beaker" Caption="Cloro"/>
+    <GuideEntityEmbed Entity="Beaker" Caption="Flúor"/>
   </Box>
+  Ingredientes (calentar a 370K):
+  - 1 parte Cloro
+  - 3 partes Flúor
 
-  Some more advanced explosions can be formed by mixing and then heating to 370K:
-  -1 part Chlorine
-  -3 parts Fluorine
-
-  Be aware that this WILL cause an explosion as soon as the CLF3 is hot enough to be made! This will likely result in it's loss unless precautions are taken.
-
-
-  ##EMPs
+  ### EMP Casero
   <Box>
-    <GuideEntityEmbed Entity="EmpGrenade" Caption="Emp"/>
+    <GuideEntityEmbed Entity="EmpGrenade" Caption="EMP"/>
   </Box>
-  To make a homemade EMP, which will immediately knock out any electronics in the area; you use:
+  Ingredientes:
+  - 1 parte Aluminio
+  - 1 parte Hierro
+  - 1 parte Uranio
 
-  -1 part Aluminum
-  -1 part Iron
-  -1 part Uranium
-
-  As with other area of effect tools, the size and will increase the more reagents you use.
-
-  ##Flashbangs
+  ### Flashbang Casero
   <Box>
     <GuideEntityEmbed Entity="GrenadeFlashBang" Caption="Flashbang"/>
   </Box>
-  To make a homemade flashbang, capable of disorienting and confusing people within it's radius, you use:
-
-  -1 part Aluminum
-  -1 part Potassium
-  -1 part Sulfur
-
-  Size and radius increase with the reagent amounts.
-
-
-
+  Ingredientes:
+  - 1 parte Aluminio
+  - 1 parte Potasio
+  - 1 parte Azufre
 </Document>

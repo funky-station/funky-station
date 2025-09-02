@@ -11,14 +11,14 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-# Chemist
-Now you've done it. You picked the one job where -math- is mandatory. Grab your beaker, pull up a chair, and get cracking, it's time to cook up some chems.
+# Químico
+Ahora la has hecho. Elegiste el único trabajo donde las -matemáticas- son obligatorias. Agarra tu vaso de precipitados, siéntate y ponte manos a la obra, es hora de cocinar algunos químicos.
 
-While chemists primarily make medications, there's a very wide variety of chemicals that can be made, all of which are showcased in the Chemicals entry of the Guidebook.
+Aunque los químicos se dedican principalmente a producir medicamentos, existe una gran variedad de químicos que pueden elaborarse, todos los cuales se muestran en la entrada “Chemicals” del Manual.
 
-[textlink="Click here to see a complete list of chemicals." link="Chemicals"]
+[textlink="Haz clic aquí para ver la lista completa de químicos." link="Chemicals"]
 
-## Equipment:
+## Equipamiento:
 
   <Box>
     <GuideEntityEmbed Entity="ChemDispenser"/>
@@ -34,27 +34,27 @@ While chemists primarily make medications, there's a very wide variety of chemic
     <GuideEntityEmbed Entity="PillCanister"/>
   </Box>
 
-## The Basics:
-Chemistry is fairly straightforward once you know what to expect. Here's a simple, step-by-step process on how to begin.
+## Conceptos Básicos:
+La química es bastante sencilla una vez que sabes qué esperar. Aquí tienes un proceso paso a paso para comenzar.
 
-- Grab a beaker, Pill Canister, and if desired, some Bottles.
-- Place the beaker in the Chemical Dispenser, and Pill Canister (or bottle) in the Chem Master.
-- Open the Chemical Dispenser UI, and make your mix. Recipes are in other sections of the guidebook.
-- Alt-click the dispenser to remove your beaker, and place it in the Chem Master.
-- Open the Chem Master UI. On the Input tab, move your mix into the buffer.
-- Move to the Output tab, customise your pill, and press the Create button.
-- Alt-click the Chem Master to get the pill bottle out. You may have to remove the beaker first.
-- Click on a table, crate, or another surface to empty the pill bottle if desired. Alternatively, store or empty it into another storage container.
+- Agarra un vaso de precipitados, un frasco de pastillas y, si deseas, algunas botellas.
+- Coloca el vaso en el Dispensador de Químicos, y el frasco de pastillas (o botella) en el Chem Master.
+- Abre la interfaz del Dispensador de Químicos y prepara tu mezcla. Las recetas se encuentran en otras secciones del manual.
+- Alt-clic en el dispensador para sacar el vaso y colócalo en el Chem Master.
+- Abre la interfaz del Chem Master. En la pestaña de Entrada, mueve tu mezcla al buffer.
+- Ve a la pestaña de Salida, personaliza tu pastilla y presiona el botón Crear.
+- Alt-clic en el Chem Master para sacar el frasco de pastillas. Es posible que tengas que retirar el vaso primero.
+- Haz clic sobre una mesa, caja u otra superficie para vaciar el frasco si lo deseas. Alternativamente, guárdalo o vacíalo en otro contenedor.
 
-That's it, you've made your first set of pills! Consider checking with Medical Doctors and other crew to see what else may be requested, refilling the medical kits in medbay storage, or just experimenting!
+¡Listo, has creado tu primer conjunto de pastillas! Considera consultar con los médicos y otros miembros de la tripulación para ver qué más podría solicitarse, rellenar los kits médicos en almacenamiento de medbay o simplemente experimentar.
 
-You can also use the hand labeler to organize individual bottles or bags without using the Chem Master labeling system.
+También puedes usar la etiquetadora manual para organizar frascos o bolsas individuales sin usar el sistema de etiquetado del Chem Master.
 
-## Extra Content:
+## Contenido Extra:
 
-  Chemistry is a versatile role with plenty to experiment with. Generally, the only requirement is making enough chemicals to heal any patients that come in, but how you do so, and what you do afterward, is up to you.
+La química es un rol versátil con mucho espacio para experimentar. Generalmente, el único requisito es producir suficientes químicos para curar a los pacientes que lleguen, pero cómo hacerlo y qué hacer después depende de ti.
 
-  This job requires a lot of trial and error, so it's up to you to figure out what to make with the tools available to you. These tools and products can be dangerous or helpful, for example...
+Este trabajo requiere mucho ensayo y error, por lo que dependerá de ti decidir qué crear con las herramientas disponibles. Estas herramientas y productos pueden ser peligrosos o útiles, por ejemplo...
 
   <Box>
     <GuideEntityEmbed Entity="ModularGrenade"/>
@@ -62,27 +62,27 @@ You can also use the hand labeler to organize individual bottles or bags without
     <GuideEntityEmbed Entity="ChemicalPayload"/>
     <GuideEntityEmbed Entity="TimerTrigger"/>
   </Box>
-  Have you tried making Fluorosurfactant before? What about Napalm?
+¿Has intentado hacer Fluorosurfactante antes? ¿Qué tal Napalm?
 
   <Box>
     <GuideEntityEmbed Entity="RegenerativeMesh"/>
     <GuideEntityEmbed Entity="MedicatedSuture"/>
   </Box>
-  Sometimes you will see "advanced" topicals, but did you know that you can make them as well?
+A veces verás tópicos “avanzados”, ¿pero sabías que también puedes fabricarlos?
 
-  Ask the chef to borrow their microwave and try out the following recipes:
+Pide prestado el microondas del chef y prueba las siguientes recetas:
 
-  - 1 Poppy
-  - 1 Bruise Pack
-  - 1 Piece of Cloth
-  - 20u Tranexamic Acid
-  - 20u Cryptobiolin
+- 1 Amapola
+- 1 Paquete de Moretones
+- 1 Trozo de Tela
+- 20u Ácido Tranexámico
+- 20u Cryptobiolina
 
-  or
+o
 
-  - 1 Aloe
-  - 1 Ointment
-  - 1 Piece of Cloth
-  - 20u Oxandrolone
-  - 20u Sigynate
+- 1 Aloe
+- 1 Ungüento
+- 1 Trozo de Tela
+- 20u Oxandrolona
+- 20u Sigynato
 </Document>

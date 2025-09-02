@@ -6,22 +6,22 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-# Writing
+# Escritura
 
-Using a pen, you can write on paper or in books. Nanotrasen provides everyone with a spare pen in their PDA.
+Usando un bolígrafo, puedes escribir en papel o en libros. Nanotrasen proporciona a todos un bolígrafo de repuesto en su PDA.
 
-## Formatting
+## Formateo
 
-You can use the following sigils:
+Puedes usar los siguientes sigilos:
 
-- [color=tan]\[color=color\]\[\/color\][/color] — to change the color of the text
-- [color=tan]\[head=n\]\[\/head\][/color] — where [italic]n[/italic] is the heading level (1 – 3)
-- [color=tan]\[bullet\/\][/color] — to insert a bullet point (useful for lists)
-- [color=tan][bold]\[bold\]\[\/bold\][/bold][/color], [color=tan][italic]\[italic\]\[\/italic\][/italic][/color] — for emphasis
+- [color=tan]\[color=color\]\[\/color\][/color] — para cambiar el color del texto
+- [color=tan]\[head=n\]\[\/head\][/color] — donde [italic]n[/italic] es el nivel de encabezado (1 – 3)
+- [color=tan]\[bullet\/\][/color] — para insertar un punto de viñeta (útil para listas)
+- [color=tan][bold]\[bold\]\[\/bold\][/bold][/color], [color=tan][italic]\[italic\]\[\/italic\][/italic][/color] — para énfasis
 
-You can combine [bold][italic]bold and italic[/italic][/bold] tags, or use the shortcut [color=tan][bolditalic]\[bolditalic\][/bolditalic][/color].
+Puedes combinar etiquetas [bold][italic]negrita y cursiva[/italic][/bold], o usar el atajo [color=tan][bolditalic]\[bolditalic\][/bolditalic][/color].
 
-Color supports either hexadecimal or most HTML color names. For example:
+El color admite valores hexadecimales o la mayoría de los nombres de colores HTML. Por ejemplo:
 
 - [color=#ff0000]\[color=#ff0000\]\[\/color\][/color]
 - [color=red]\[color=red\]\[\/color\][/color]

@@ -8,18 +8,17 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Rule 8 - Have an Appropriate Name
+  # Regla 8 - Tener un Nombre Apropiado
 
-  If a name could reasonably appear on a driver's license in the year 3000, it's probably alright.
+  Si un nombre podría razonablemente aparecer en una licencia de conducir en el año 3000, probablemente esté bien.
 
-  Humanoid species like Humans, dwarves, felinids, and harpies must have both a first and last name.
+  Las especies humanoides como los Humanos, enanos, felínidos y arpías deben tener tanto un nombre y un apellido.
 
-  Other species should follow their species specific [textlink="naming scheme" link="NamingScheme"], have both a first name and last name like the humanoid species, or have reasonably alien sounding names.
+  Otras especies deben seguir el [textlink="esquema de nombres" link="NamingScheme"] específico de su especie, tener tanto un nombre como un apellido como las especies humanoides, o tener nombres razonablemente alienígenas.
 
-  Names may contain prefixes, suffixes, and one nickname if reasonable.
+  Los nombres pueden contener prefijos, sufijos y un apodo si es razonable.
 
-  Admins may ask you to change your name if it's low-effort / overdone (John Central Command)
+  Los administradores pueden pedirte que cambies tu nombre si es de bajo esfuerzo o demasiado común (John Central Command).
 
-  No flat-out copying characters from popular media. A reference is okay, but give it enough variance to not be a straight up copycat character.
-
+  No copies personajes directamente de medios populares. Una referencia está bien, pero dale suficiente variación para que no sea una copia exacta del personaje.
 </Document>

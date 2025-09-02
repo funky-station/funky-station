@@ -11,38 +11,38 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 -->
 
 <Document>
-# Patches
+# Parche Médico
 
-Patches are a simple and effective way to administer medication to a patient over time with lower risk of an overdose.
-They can be made at a medical techfab, and are filled directly or via a ChemMaster. They can be directly applied to a patient and will fall off by themselves once empty.
+Los parches son una forma simple y efectiva de administrar medicación a un paciente durante un tiempo prolongado con menor riesgo de sobredosis.
+Se pueden fabricar en un techfab médico y llenarse directamente o mediante un ChemMaster. Pueden aplicarse directamente al paciente y se desprenderán solos una vez vacíos.
 
 <GuideEntityEmbed Entity="MedicalPatchBasic" Rotation="0"/>
 
-There are 6 types of patches:
-- Basic
-- Rapid
-- Large
-- Therapeutic
+Existen 6 tipos de parches:
+- Básico
+- Rápido
+- Grande
+- Terapéutico
 - Prefilled
-- Makeshift
+- Improvisado
 
-## Basic
-The (basic) patch holds 30 units of chemicals and transfers 2 unit every second.
+## Básico
+El parche básico contiene 30 unidades de químicos y transfiere 2 unidades por segundo.
 
-## Rapid
-The rapid patch holds 30 units and transfers 5 units every second.
+## Rápido
+El parche rápido contiene 30 unidades y transfiere 5 unidades por segundo.
 
-## Large
-The large patch holds 60 units and transfers 1 unit every second.
+## Grande
+El parche grande contiene 60 unidades y transfiere 1 unidad por segundo.
 
-## Therapeutic
-The therapeutic patch holds 30 units and transfers 0.5 units every second.
+## Terapéutico
+El parche terapéutico contiene 30 unidades y transfiere 0.5 unidades por segundo.
 
 ## Prefilled
-NanoMed Plus machines and some medkits contain prefilled patches for treating Brute or Burn damage.
-These hold 30 units and transfer 0.5 units per second, but cannot be refilled or emptied. Not reusable.
+Las máquinas NanoMed Plus y algunos botiquines incluyen parches prellenados para tratar daño Bruto o Quemaduras.
+Contienen 30 unidades y transfieren 0.5 unidades por segundo, pero no se pueden rellenar ni vaciar. No reutilizable.
 
-## Makeshift
-This rudimentary patch can hold 15 units and transfers 2 unit every 4 seconds.
-However, it can be made by hand with cloth. Not reusable.
+## Improvisado
+Este parche rudimentario puede contener 15 unidades y transfiere 2 unidades cada 4 segundos.
+Se puede fabricar a mano con tela. No reutilizable.
 </Document>

@@ -11,104 +11,104 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 <Document>
 # Blob
 
-  [color=#ff0000]A level five biological threat was detected at the station, and the isolation of the station was announced.[/color]
+  [color=#ff0000]Se ha detectado una amenaza biológica de nivel cinco en la estación, y se ha declarado el aislamiento de la misma.[/color]
 
-  A blob is a fast-growing dangerous organism whose main goal is to take over the station.
+  Un blob es un organismo peligroso de rápido crecimiento cuyo objetivo principal es apoderarse de la estación.
   <Box>
     <GuideEntityEmbed Entity="CoreBlobTile" Caption="Blob"/>
-	<GuideEntityEmbed Entity="MobMouseCancer" Caption="Carrier of the blob"/>
+    <GuideEntityEmbed Entity="MobMouseCancer" Caption="Portador del blob"/>
   </Box>
 
-  You can become a blob carrier both at the beginning of the round and in the middle if you take on the role of a ghost. Usually, the carrier of the blob is a sentient humanoid, or a special green radioactive mouse.
+  Puedes convertirte en portador del blob tanto al inicio de la ronda como en el transcurso de ella si tomas el rol de fantasma. Usualmente, el portador del blob es un humanoide con conciencia, o un ratón verde radiactivo especial.
 
-  [bold]DO NOTE:[/bold] You HAVE a timer! After you have been selected as a blob carrier, you have 10 minutes to find a place to setup. After 10 minutes, you will automatically transform into a blob.
+  [bold]TEN EN CUENTA:[/bold] ¡TIENES un temporizador! Una vez que has sido seleccionado como portador del blob, tienes 10 minutos para encontrar un lugar donde instalarte. Pasados los 10 minutos, te transformarás automáticamente en un blob.
 
-  ## Nucleus
+  ## Núcleo
 
-  The most important blob cell is [color=#a4885c]nucleus[/color]. By destroying the nucleus, the blob will be defeated, and all its other cells will die.
+  La célula más importante del blob es el [color=#a4885c]núcleo[/color]. Al destruir el núcleo, el blob será derrotado, y todas sus demás células morirán.
 
-  You can always see the core health on the right side of the screen as a percentage. Watch your core and don't let it be destroyed!
+  Siempre puedes ver la salud del núcleo en el lado derecho de la pantalla en porcentaje. ¡Vigila tu núcleo y no dejes que sea destruido!
 
-  There are 2 steps you can do with the kernel: [color=#a4885c]transfer[/color] and [color=#a4885c]split[/color].
-  - When a kernel is transferred, the selected node and kernel are swapped. This is useful in case the kernel location is not very secure.
-  - When the kernel is split, the selected node becomes [color=#a4885c]new and independent kernel[/color]. Although this action requires a lot of points, in the long run, a new core can help you capture the station.
+  Hay 2 acciones que puedes hacer con el núcleo: [color=#a4885c]transferir[/color] y [color=#a4885c]dividir[/color].
+  - Cuando transfieres el núcleo, el nodo seleccionado y el núcleo se intercambian. Esto es útil si la ubicación del núcleo no es muy segura.
+  - Cuando divides el núcleo, el nodo seleccionado se convierte en un [color=#a4885c]nuevo núcleo independiente[/color]. Aunque esta acción requiere muchos puntos, a largo plazo un nuevo núcleo puede ayudarte a capturar la estación.
 
-  ## Blob Types
+  ## Tipos de Blob
 
-  Your ordinary unity is a [bold]regular tile[/bold]. Normal cells are extremely vulnerable to burns or even mechanical damage.
-  They can also be upgraded to reinforced versions, or turned into special blob Tiles.
+  Tu unidad común es una [bold]celda regular[/bold]. Las celdas normales son extremadamente vulnerables al fuego o incluso al daño mecánico.
+  También pueden mejorarse a versiones reforzadas, o convertirse en celdas especiales del blob.
 
-  ## Special cages
+  ## Celdas especiales
 
   <Box>
-    <GuideEntityEmbed Entity="ResourceBlobTile" Caption="Resource Blob"/>
-	  <GuideEntityEmbed Entity="FactoryBlobTile" Caption="Factory Blob"/>
-	  <GuideEntityEmbed Entity="NodeBlobTile" Caption="Node Blob"/>
+    <GuideEntityEmbed Entity="ResourceBlobTile" Caption="Blob de recursos"/>
+    <GuideEntityEmbed Entity="FactoryBlobTile" Caption="Fábrica de blob"/>
+    <GuideEntityEmbed Entity="NodeBlobTile" Caption="Nodo de blob"/>
   </Box>
 
-  - [color=#a4885c]The Resource Blob[/color] is constantly gaining points for all the actions the blob performs.
-  - [color=#a4885c]Blob Factory[/color] creates Blob Pods and Blobburnouts to help fight against the station.
-  - [color=#a4885c]Blob node[/color] allows you to place other blob cells around it within a certain radius.
+  - El [color=#a4885c]Blob de recursos[/color] gana puntos constantemente por todas las acciones que realiza el blob.
+  - La [color=#a4885c]Fábrica de blob[/color] crea Pods de blob y Blobburnouts para ayudar a luchar contra la estación.
+  - El [color=#a4885c]Nodo de blob[/color] te permite colocar otras celdas de blob a su alrededor dentro de un cierto radio.
 
-  Note! Special blob cells are tied to the nearest core.
-  Thus, for the best placement, you should place the nodes as compactly as possible, and build other special cells around them.
+  ¡Atención! Las celdas especiales del blob están vinculadas al núcleo más cercano.
+  Por lo tanto, para la mejor colocación, deberías poner los nodos lo más compactos posible, y construir otras celdas especiales a su alrededor.
 
-  When a node is destroyed, all bound special tiles are destroyed with the return of their value.
+  Cuando un nodo es destruido, todas las celdas especiales vinculadas son destruidas y su valor es devuelto.
 
-  ## Minions
+  ## Esbirros
 
   <Box>
     <GuideEntityEmbed Entity="MobBlobBlobbernaut" Caption="Blobbernaut"/>
-	<GuideEntityEmbed Entity="MobBlobPod" Caption="Blob Pod"/>
+    <GuideEntityEmbed Entity="MobBlobPod" Caption="Pod de blob"/>
   </Box>
 
-  Blob factories can produce Blob pods and Blobburnouts.
-  - Blob pods have the ability to turn dead humanoids into zombie blobs, which will force them to fight on your side against the rest of the crew.
-  - Blobburnouts have a lot of damage, which will come in handy for attacking.
+  Las fábricas de blob pueden producir Pods de blob y Blobburnouts.
+  - Los Pods de blob tienen la capacidad de convertir humanoides muertos en blobs zombis, forzándolos a luchar de tu lado contra el resto de la tripulación.
+  - Los Blobburnouts hacen mucho daño, lo cual resulta útil para atacar.
 
-  ## Management
+  ## Gestión
 
-  - To place a blob cage, click on an empty space. If a tile is occupied, or someone or something is standing on it, clicking on it will attack and deal damage.
-  - Note that [color=#a4885c]you cannot place regular blob cages far from blob nodes. Put blob knots to be able to grow further.
-  - By pressing Alt+LMB, you can upgrade normal tiles to sturdy and sturdy tiles to reflective.
+  - Para colocar una celda de blob, haz clic en un espacio vacío. Si un espacio está ocupado, o alguien o algo está encima, al hacer clic atacarás y causarás daño.
+  - Ten en cuenta que [color=#a4885c]no puedes colocar celdas regulares de blob lejos de los nodos de blob[/color]. Coloca nodos para poder expandirte más lejos.
+  - Presionando Alt+LMB, puedes mejorar celdas normales a reforzadas, y celdas reforzadas a reflectoras.
 
   <Box>
-    <GuideEntityEmbed Entity="StrongBlobTile" Caption="Strong tiles"/>
-	  <GuideEntityEmbed Entity="ReflectiveBlobTile" Caption="Reflective tiles"/>
+    <GuideEntityEmbed Entity="StrongBlobTile" Caption="Celdas reforzadas"/>
+    <GuideEntityEmbed Entity="ReflectiveBlobTile" Caption="Celdas reflectoras"/>
   </Box>
 
-  ## Special Abilities
+  ## Habilidades especiales
 
-  In the action bar, you can use special abilities that will allow you to perform important actions, such as placing special cells, or special actions with the core and chemicals.
+  En la barra de acciones, puedes usar habilidades especiales que te permitirán realizar acciones importantes, como colocar celdas especiales, o acciones específicas con el núcleo y los químicos.
 
-  - [color=#a4885c]Changing a chemical[/color] allows you to change your chemical to any of the 5 presented. Each has its own characteristics suitable for different situations.
-  - [color=#a4885c]Demote Blob[/color] gives you the option to downgrade any blob cell back to normal for free. It is useful in order to correct the wrong placement.
+  - [color=#a4885c]Cambiar químico[/color] te permite cambiar tu químico a cualquiera de los 5 disponibles. Cada uno tiene características propias adecuadas para diferentes situaciones.
+  - [color=#a4885c]Degradar blob[/color] te da la opción de devolver cualquier celda del blob a normal gratuitamente. Es útil para corregir una colocación equivocada.
 
-  ## Course of the round
+  ## Desarrollo de la ronda
 
-  As the blob grows, the station will pass through several stages.
+  A medida que el blob crece, la estación pasará por varias etapas.
 
-  - 1. [color=#a4885c]Silent stage[/color] - the blob is still undetected, and you can safely evolve while no one knows about you.
-  - 2. [color=#a4885c]Threat detection[/color] - as soon as the blob grows a little, a Sigma code is installed and a complete isolation of the station is declared. The evacuation shuttle cannot be called at this point.
-  - 3. [color=#a4885c]Critical mass[/color] - if a blob captures a significant part of the station, a gamma code is announced and a CBRN squad arrives to help. The main goal of all survivors at this stage is to blow up the station, which you as a blob must prevent! (note CBRN currently now aveilable)
-  - 4. [color=#a4885c]Blob Win[/color] - When a blob grows to a gigantic size, its growth becomes too uncontrollable, causing the round to end with the blob winning.
+  - 1. [color=#a4885c]Etapa silenciosa[/color] - el blob aún no ha sido detectado, y puedes evolucionar tranquilamente mientras nadie sabe de ti.
+  - 2. [color=#a4885c]Detección de amenaza[/color] - tan pronto como el blob crece un poco, se activa el código Sigma y se declara el aislamiento total de la estación. La lanzadera de evacuación no puede ser llamada en este punto.
+  - 3. [color=#a4885c]Masa crítica[/color] - si el blob captura una parte significativa de la estación, se declara un código Gamma y llega un escuadrón CBRN para ayudar. El objetivo principal de todos los sobrevivientes en esta etapa es volar la estación, lo cual debes impedir como blob. (nota: CBRN actualmente no disponible)
+  - 4. [color=#a4885c]Victoria del blob[/color] - cuando un blob crece a un tamaño gigantesco, su crecimiento se vuelve incontrolable, terminando la ronda con la victoria del blob.
 
-  Starting from the second stage, the captain has a priority goal in the form of protecting the nuclear authentication disk. If you lose it, the blob cannot be destroyed in the Gamma code, which gives an almost guaranteed victory to the blob!
+  A partir de la segunda etapa, el capitán tiene como prioridad proteger el disco de autenticación nuclear. Si lo pierdes, el blob no puede ser destruido en el código Gamma, ¡lo que da una victoria casi asegurada al blob!
 
   <Box>
-    <GuideEntityEmbed Entity="NukeDisk" Caption="Nuclear Authentication Disk"/>
+    <GuideEntityEmbed Entity="NukeDisk" Caption="Disco de Autenticación Nuclear"/>
   </Box>
 
-  ## Methods of control
+  ## Métodos de control
 
-  Since the blob is a biological creature, [color=#ff5500]heat and burning[/color] are the blob's main weaknesses. Burn damage is extremely effective against it, so the following weapons can help you:
+  Dado que el blob es una criatura biológica, el [color=#ff5500]calor y el fuego[/color] son sus principales debilidades. El daño por quemaduras es extremadamente efectivo contra él, por lo que las siguientes armas pueden ayudarte:
 
   <Box>
-    <GuideEntityEmbed Entity="MagazineBoxPistolIncendiary" Caption="Incendiary Rounds"/>
-	  <GuideEntityEmbed Entity="WeaponLaserCarbine" Caption="Laser Rifle"/>
-	  <GuideEntityEmbed Entity="Welder" Caption="Welder "/>
+    <GuideEntityEmbed Entity="MagazineBoxPistolIncendiary" Caption="Munición incendiaria"/>
+    <GuideEntityEmbed Entity="WeaponLaserCarbine" Caption="Rifle láser"/>
+    <GuideEntityEmbed Entity="Welder" Caption="Soldador"/>
   </Box>
 
-  Slash damage is also more effective against the Blob relative to other Brute types, dealing more than double Brute damage.
+  El daño cortante también es más efectivo contra el Blob en comparación con otros tipos de daño contundente, infligiendo más del doble de daño bruto.
 
 </Document>

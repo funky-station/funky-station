@@ -8,109 +8,105 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  Here is a list of all the SOP documents for command.
+  # SOP de Comando
 
-  # General Command SOP
+  Aquí se enlistan todos los documentos de SOP para el personal de comando.
 
-  [bold]1.[/bold] Command members are to ensure the safety of the entire station, each primarily responsible for their own Department and respective duties;
+  ## SOP General de Comando
 
-  [bold]2.[/bold] Command members are to ensure the wellbeing and dignity of Nanotrasen and its related assets;
+  [bold]1.[/bold] Los miembros de comando deben garantizar la seguridad de toda la estación, siendo cada uno responsable principalmente de su propio Departamento y deberes respectivos;
 
-  [bold]3.[/bold] Command members may not slander or libel Nanotrasen;
+  [bold]2.[/bold] Asegurar el bienestar y la dignidad de Nanotrasen y sus activos relacionados;
 
-  [bold]4.[/bold] Command members must ensure that Nanotrasen corporate secrets remain confidential, and may reprimand or punish fellow command members who threaten this confidentiality;
+  [bold]3.[/bold] No difamar ni calumniar a Nanotrasen;
 
-  [bold]5.[/bold] In the event of a confirmed threat to the station or Nanotrasen as a whole, command members may temporarily reveal related corporate secrets to crewmembers;
+  [bold]4.[/bold] Mantener la confidencialidad de los secretos corporativos de Nanotrasen, pudiendo reprender a miembros que la comprometan;
 
-  [bold]6.[/bold] Command members must report such confidentiality breaks as soon as the event is resolved;
+  [bold]5.[/bold] En caso de amenaza confirmada, los secretos pueden ser revelados temporalmente a la tripulación;
 
-  [bold]7.[/bold] Command members must follow any Central Command officer's (such as the Nanotrasen Representative, Internal Affairs Agent, or the Magistrate) direction on corporate secrets;
+  [bold]6.[/bold] Reportar cualquier quiebre de confidencialidad una vez resuelto el evento;
 
-  [bold]8.[/bold] Command members must accept any fine, punishment, demotion, or death when a Central Command officer informs them of a wrongful break of their confidentiality agreement.
+  [bold]7.[/bold] Seguir las indicaciones de oficiales de Comando Central respecto a secretos corporativos;
 
+  [bold]8.[/bold] Aceptar sanciones, multas, degradaciones o muerte si se informa de una violación a la confidencialidad.
 
-  # Captain SOP
+  ## SOP del Capitán
 
-  [bold]1.[/bold] The Captain is not permitted to perform regular Security Duty. However, they may still assist Security if they are understaffed, or if they see a crime being committed. However, the Captain is not permitted to take items from the Armory under normal circumstances, unless authorized by the Head of Security. In addition, the Captain may not requisition weaponry for themselves from Cargo and/or Science, unless there's an immediate threat to station and/or crew;
+  [bold]1.[/bold] No puede realizar deberes regulares de seguridad, salvo para asistir en casos de escasez de personal o crímenes evidentes; no puede tomar armas del Armory ni requisitar armamento sin amenaza inmediata;
 
-  [bold]2.[/bold] If a Department lacks a Head of Staff, the Captain should make reasonable efforts to appoint an Acting Head of Staff, if there are available personnel to fill the position;
+  [bold]2.[/bold] Si un Departamento carece de Jefe de Personal, debe nombrar un Jefe Actuante;
 
-  [bold]3.[/bold] The Captain is to ensure that Space Law is being correctly applied. This should be done in cooperation with the Head of Security;
+  [bold]3.[/bold] Garantizar la correcta aplicación de la Ley Espacial junto al Jefe de Seguridad;
 
-  [bold]4.[/bold] The Captain is not to leave the Station unless given specific permission by Central Command, or it happens to be the end of the shift. To do so is to be considered abandoning their posts and is grounds for termination;
+  [bold]4.[/bold] No abandonar la estación sin permiso de Comando Central;
 
-  [bold]5.[/bold] The Captain must keep the Nuclear Authentication Disk on their person at all times or failing that, in the possession of the Head of Security;
+  [bold]5.[/bold] Mantener siempre el Disco de Autenticación Nuclear, o en poder del Jefe de Seguridad;
 
-  [bold]6.[/bold] The Captain is to attempt to resolve every issue that arises in Command locally before contacting Central Command;
+  [bold]6.[/bold] Resolver problemas localmente antes de contactar a Comando Central;
 
-  [bold]7.[/bold] The Captain, despite being in charge of the Station, is not separate from NanoTrasen. Any attempts to disregard general company policy are to be considered an instant condition for contract termination;
+  [bold]7.[/bold] Seguir políticas corporativas de Nanotrasen; incumplirlas es causa de terminación de contrato;
 
-  [bold]8.[/bold] The Captain may only promote personnel to an Acting Head of Staff position if there is no assigned Head of Staff associated with the Department. The Acting Head of Staff must be a member of the Department they are to lead. See below for more information on Chain of Command;
+  [bold]8.[/bold] Promocionar personal solo a Jefe Actuante si no hay un Jefe asignado; debe pertenecer al Departamento correspondiente;
 
-  [bold]9.[/bold] The Captain may not fire any Head of Staff without reasonable justification (ie, incompetency, criminal activity, or otherwise any action that endangers/compromises the station and/or crew). The Captain may not fire any Central Command VIPs (NanoTrasen Representative, etc) without permission from Central Command, unless they are blatantly acting against the well-being and safety of the crew and station. The Captain must also follow HoP SOP point 5.
+  [bold]9.[/bold] No puede despedir a Jefes de Departamento sin justificación razonable; no puede despedir VIPs de Comando Central sin permiso.
 
+  ## SOP del Jefe de Personal
 
-  # Head of Personnel SOP
+  [bold]1.[/bold] No transferir personal sin autorización del Jefe correspondiente; excepciones aplican para Security y Genetics;
 
-  [bold]1.[/bold] The Head of Personnel may not transfer any personnel to another Department without authorization from the relevant Head of Staff. If no Head of Staff is available, the Head of Personnel may make a judgment call. This does not apply to Security, which always requires authorization from the Head of Security, or Genetics, which requires both Chief Medical Officer and Research Director approval. If there is no Head of Security active, no transfers are allowed to Security without authorization from the Captain;
+  [bold]2.[/bold] No otorgar accesos incrementados sin autorización; acceso a nivel Capitán solo si es Capitán Actuante;
 
-  [bold]2.[/bold] The Head of Personnel may not give any personnel increased access without authorization from the relevant Head of Staff. This includes the Head of Personnel. In addition, the Head of Personnel may only give Captain-Level access to someone if they are the Acting Captain. This access is to be removed when a proper Captain arrives at the station;
+  [bold]3.[/bold] No aumentar vacantes sin aprobación del Jefe correspondiente;
 
-  [bold]3.[/bold] The Head of Personnel may not increase any Job Openings unless the relevant Head of Staff approves;
+  [bold]4.[/bold] No despedir personal sin autorización del Jefe correspondiente, salvo condiciones de Ley Espacial o SOP;
 
-  [bold]4.[/bold] The Head of Personnel may not fire any personnel without authorization from the relevant Head of Staff, unless other conditions apply (see Space Law and General Standard Operating Procedure);
+  [bold]5.[/bold] No promover a roles de Comando Central;
 
-  [bold]5.[/bold] The Head of Personnel may not promote anyone to any Central Command role. This includes the Magistrate, IAA, and others;
+  [bold]6.[/bold] Puede usar papeleo a discreción, salvo en emergencias donde la rapidez prevalece;
 
-  [bold]6.[/bold] The Head of Personnel is free to utilize paperwork at their discretion. However, during major station emergencies, expediency should take precedence over bureaucracy;
+  [bold]7.[/bold] No abandonar oficina si hay personal esperando; responder en menos de 10 minutos;
 
-  [bold]7.[/bold] The Head of Personnel may not leave their office unmanned if there are personnel waiting in line. Failure to respond to personnel with a legitimate request within ten (10) minutes, either via radio or in person is to be considered a breach of Standard Operating Procedure;
+  [bold]8.[/bold] No realizar deberes de seguridad; puede portar Disabler solo para defensa propia.
 
-  [bold]8.[/bold] The Head of Personnel is not permitted to perform Security duty. The Head of Personnel is permitted to carry a Disabler for self-defense only.
+  ## SOP del Representante de Nanotrasen
 
+  [bold]1.[/bold] Garantizar que todos los Departamentos sigan SOP, nombrando Jefes Actuantes si es necesario;
 
-  # Nanotrasen Representative SOP
+  [bold]2.[/bold] Intentar resolver infracciones localmente antes de contactar a Comando Central;
 
-  [bold]1.[/bold] The NanoTrasen Representative is to ensure that every Department is following Standard Operating Procedure, up to and including the respective Head of Staff. If a Head of Staff is not available for a Department, the NanoTrasen Representative must ensure that the Captain appoints an Acting Head of Staff for said Department;
+  [bold]3.[/bold] Asegurar, junto al Jefe de Seguridad, la correcta aplicación de la Ley Espacial;
 
-  [bold]2.[/bold] The NanoTrasen Representative must attempt to resolve any breach of Standard Operating Procedure locally before contacting Central Command. This is an imperative: Standard Operating Procedure should always be followed unless there is a very good reason not to;
+  [bold]4.[/bold] No amenazar con fax o despidos sin justificante;
 
-  [bold]3.[/bold] The NanoTrasen Representative must, together with the Head of Security, ensure that Space Law is being followed and correctly applied;
+  [bold]5.[/bold] Puede portar flash y bastón-espada, o una baton de aturdimiento si pierde el bastón.
 
-  [bold]4.[/bold] The NanoTrasen Representative may not threaten the use of a fax in order to gain leverage over any personnel, up to and including Command. In addition, they may not threaten to fire or have Central Command fire anyone, unless they actually possess a demotion note;
+  ## SOP del Magistrado
 
-  [bold]5.[/bold] The NanoTrasen Representative is permitted to carry their flash and a blade-cane, or a stun baton if the blade-cane is lost.
+  [bold]1.[/bold] Garantizar la correcta aplicación de la Ley Espacial;
 
-  # Magistrate SOP
+  [bold]2.[/bold] Decidir sobre la realización de juicios, solo para sentencias capitales;
 
-  [bold]1.[/bold] The Magistrate is to ensure that Space Law is applied correctly. If it is not, they are to make it so;
+  [bold]3.[/bold] Puede anular decisiones de otros respecto a la Ley Espacial, salvo ERTs y oficiales de Comando Central;
 
-  [bold]2.[/bold] The Magistrate has the final say on whether Trials take place, and should ensure they should only occur for Capital Sentences. Similarly, Magistrates are to ensure that Trials do not happen for Defendants that are self-evidently guilty;
+  [bold]4.[/bold] Puede portar su flash;
 
-  [bold]3.[/bold] The Magistrate may overrule anyone in all matters concerning Space Law. This does not extend to Emergency Response Teams, Central Command Officials or direct Central Command communications;
+  [bold]5.[/bold] No está por encima de la Ley Espacial, ni puede anular a Security sobre sanciones a sí mismo;
 
-  [bold]4.[/bold] The Magistrate is permitted to carry their flash;
+  [bold]6.[/bold] Puede manejar SOP si no hay IAA o Representante presente;
 
-  [bold]5.[/bold] The Magistrate is not above Space Law. Similarly, the Magistrate cannot overrule Security on a sentence imposed against themselves;
+  [bold]7.[/bold] No obstruir el funcionamiento de Security por micromanagement;
 
-  [bold]6.[/bold] In the absence of Internal Affairs Agents or a NanoTrasen Representative, the Magistrate may elect to handle matters of Standard Operating Procedure. Otherwise, the Magistrate is only to ensure that the NanoTrasen Representative under their command are handling such matters;
+  [bold]8.[/bold] Contactar a Comando Central si sus decisiones son ignoradas y cumplen con Ley Espacial y SOP.
 
-  [bold]7.[/bold] The Magistrate may not impede the expedient functioning of Security for the sake of micromanaging every aspect it. The Magistrate should only concern themselves with crimes that either have fuzzy evidence, or require careful deliberation of circumstances;
+  ## Si necesitas desviarte
 
-  [bold]8.[/bold] The Magistrate is to contact Central Command immediately if their decisions are being ignored, provided said decision actually match up with Space Law and Standard Operating Procedure.
+  [bold]¡Documenta todo![/bold] Informes, llamados a CentCom, o incluso oraciones pueden justificar tus acciones si benefician a Nanotrasen.
 
+  ## No veo mi trabajo listado
 
-  # If you need to deviate,
+  Puede ser que SOP no esté finalizado. SOP completos existen para otros Jefes de Departamento:
 
-  [bold]Document document document![/bold]
-  After action reports, calling CentCom on the fabled red phone, or even praying will be heard by CentCom and your actions may be excused if they were determined to be in the best interest for NanoTrasen.
+  - [textlink="SOP del Jefe de Seguridad" link="SecuritySOP"]
 
-
-  # I don't see my job listed here
-
-  It may be because this is a living document, and SOP is not yet finalized. The following SOP documents are completed for other Head's of Staff;
-
-  -[textlink="Head of Security SOP" link="SecuritySOP"]
-
-  Glory to NanoTrasen!
+  ¡Gloria a Nanotrasen!
 </Document>

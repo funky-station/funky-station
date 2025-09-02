@@ -1,95 +1,93 @@
 <!--
-SPDX-FileCopyrightText: 2024 DevilishMilk <michaellapjr@gmail.com>
-SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Icepick <icepickedcyanide@gmail.com>
+SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2025 Huhm-1 <cameronhillard40@gmail.com>
 SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-SPDX-FileCopyrightText: 2025 UristMcWiki <endernate2015@gmail.com>
 SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 
 SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # The Metashield
+  # El Metashield
 
-  Something that is "shielded" cannot be known by your character during a round until the "revealing condition" happens. This also means that your character cannot do things based on "shielded" information. Knowing or acting on something that is shielded before the revealing condition is met is referred to as metagaming.
+  Algo que está "protegido" no puede ser conocido por tu personaje durante una ronda hasta que ocurra la "condición de revelación". Esto también significa que tu personaje no puede hacer cosas basadas en información "protegida". Saber o actuar sobre algo que está protegido antes de que se cumpla la condición de revelación se conoce como metajuego.
 
-  Revealing conditions reveal the shielded information for the round, not for a specific instance. This means that once a revealing condition is met in a round, the shield no longer applies in any case for the remainder of the round.
+  Las condiciones de revelación revelan la información protegida para la ronda, no para una instancia específica. Esto significa que una vez que se cumple una condición de revelación en una ronda, el escudo ya no aplica en ningún caso para el resto de la ronda.
 
-  Some related documents regarding the metashield are:
-  - [textlink="Command Training Manual" link="CommandTrainingManual"]
-  - [textlink="Security Training Manual" link="SecurityTrainingManual"]
+  Algunos documentos relacionados con el metashield son:
+  - [textlink="Manual de Entrenamiento de Comando" link="CommandTrainingManual"]
+  - [textlink="Manual de Entrenamiento de Seguridad" link="SecurityTrainingManual"]
 
 
-  ## Lifting the Shield
+  ## Levantar el Escudo
 
-  The metashield can be lifted one of two ways:
+  El metashield se puede levantar de dos formas:
 
-  1. Any announcement from Central Command, relating to the specific antagonist. Such as:
-    - War declaration
-    - Unusual activity recalls
-    - Enemy communications
-    - Biohazard announcements
+  1. Cualquier anuncio de Central Command, relacionado con el antagonista específico. Como por ejemplo:
+    - Declaración de guerra
+    - Recalls de actividad inusual
+    - Comunicaciones enemigas
+    - Anuncios de bio-peligro
 
-  2. Command members (or any other player who is no longer under the metashield) telling others about specific antagonists
+  2. Miembros del comando (o cualquier otro jugador que ya no esté bajo el metashield) diciéndole a otros sobre antagonistas específicos
 
-  Lifting the metashield (spilling corporate secrets) is considered to be something only done with *sufficient reason.*
+  Levantar el metashield (revelar secretos corporativos) se considera algo que solo se debe hacer con *razones suficientes.*
 
-  ## Corporate Secrets
+  ## Secretos Corporativos
 
-  The metashield is an out-of-character term used for admin actions; in character, this would be referred to as *corporate secrets.* You, as an average crewmember, are not trained to react to potential threats, nor do you remember the events between each round. Nanotrasen policy dictates that the average crewmate is here to do their job, not to worry about any potential threats. It is in Nanotrasen's best interest that the crew is unaware of any potential threat, as that would imply there is something to be afraid of.
+  El metashield es un término fuera de personaje utilizado para acciones de administración; en personaje, esto se referiría como *secretos corporativos*. Tú, como miembro promedio de la tripulación, no estás entrenado para reaccionar ante amenazas potenciales, ni recuerdas los eventos entre cada ronda. La política de Nanotrasen dicta que el miembro promedio de la tripulación está aquí para hacer su trabajo, no para preocuparse por amenazas potenciales. Es en el mejor interés de Nanotrasen que la tripulación no esté al tanto de ninguna amenaza potencial, ya que eso implicaría que hay algo de lo que temer.
 
-  As such, *all information about specific antagonists is shielded.* You do not know the objectives, tools, abilities, etc of any antagonist. Also included in metashielded knowledge is:
-  - Non-NT implanters
-  - Chameleon items and mysterious fibers
-  - Stealth items
+  Como tal, *toda la información sobre antagonistas específicos está protegida.* No conoces los objetivos, herramientas, habilidades, etc., de ningún antagonista. También se incluye en el conocimiento protegido:
+  - Implantes no relacionados con NT
+  - Objetos camaleónicos y fibras misteriosas
+  - Objetos de sigilo
 
-  However, *all command members do not have a metashield.* They are fully aware of any potential threats, and are specifically "trained" on how to deal with any threat. If the situation requires it, they are also allowed to tell crewmates what is happening and lift the shield. Security is still under metashield, however it is slightly modified and less strict. Please see the "Security Training Manual" for what they specifically know.
+  Sin embargo, *todos los miembros de comando no tienen metashield.* Ellos están completamente al tanto de cualquier amenaza potencial y están específicamente "entrenados" en cómo tratar cualquier amenaza. Si la situación lo requiere, también se les permite decirle a los demás lo que está ocurriendo y levantar el escudo. La seguridad sigue estando bajo el metashield, pero está ligeramente modificada y es menos estricta. Por favor, consulta el "Manual de Entrenamiento de Seguridad" para saber qué es lo que específicamente saben.
 
-  This comes at the expense of being against Nanotrasen policy. Wrongfully lifting the metashield, as a command member, has both IC and OOC consequences. Please see the general Command SOP for when it is considered wrong or right to lift the shield. The fact that Nanotrasen is hiding something from its crewmates is not shielded, but the actual secrets are shielded.
+  Esto viene al costo de ir en contra de la política de Nanotrasen. Levantar erróneamente el metashield, como miembro de comando, tiene consecuencias tanto IC como OOC. Por favor, consulta el SOP general de Comando para saber cuándo se considera incorrecto o correcto levantar el escudo. El hecho de que Nanotrasen esté ocultando algo de sus tripulantes no está protegido, pero los secretos reales están protegidos.
 
-  ## Examples
+  ## Ejemplos
 
-  As a standard crew member, you do *not* know the objectives or abilities of any antagonist until the shield is revealed. However, you may know about rumors or concepts that relate to a specific antagonist, or that specific items or people are high-risk and require safekeeping. For example:
-  - Knowing that someone is a revolutionary is shielded; however, you may report them for unsolicited union activities.
-  - Knowing that someone is a heretic is shielded; however, you may report them for assault, kidnapping, etc.
-  - Knowing that someone is a traitor is shielded; however, you may report them for theft or murder.
-  - Knowing that someone is a changeling is shielded; however, genetic horrors beyond your imagination should probably not be on station. You can report them.
+  Como miembro estándar de la tripulación, *no* sabes los objetivos ni las habilidades de ningún antagonista hasta que se revele el escudo. Sin embargo, puedes saber sobre rumores o conceptos relacionados con un antagonista específico, o que ciertos objetos o personas son de alto riesgo y requieren ser protegidos. Por ejemplo:
+  - Saber que alguien es un revolucionario está protegido; sin embargo, puedes reportarlo por actividades sindicales no solicitadas.
+  - Saber que alguien es un hereje está protegido; sin embargo, puedes reportarlo por asalto, secuestro, etc.
+  - Saber que alguien es un traidor está protegido; sin embargo, puedes reportarlo por robo o asesinato.
+  - Saber que alguien es un cambiapieles está protegido; sin embargo, los horrores genéticos más allá de tu imaginación probablemente no deberían estar en la estación. Puedes reportarlos.
 
-  Essentially, do not take any action because you know that someone is antagonist, take action depending on *what they have done.* Avoid callouts that name the antagonist or game mode, at least until the shield has been lifted. If you find evidence that is inexcusably from an antagonist, bring it to a command member in order to "force" them to reveal the shield to you. Command is your boss, and you should consult them if you don't know what to do, IC or OOC.
+  Esencialmente, no tomes ninguna acción porque sabes que alguien es un antagonista, toma acción dependiendo de *lo que hayan hecho*. Evita mencionar a los antagonistas o el modo de juego, al menos hasta que se levante el escudo. Si encuentras evidencia que provenga irremediablemente de un antagonista, llévala a un miembro del comando para "forzarlos" a revelar el escudo. El comando es tu jefe, y deberías consultarlos si no sabes qué hacer, IC u OOC.
 
-  This does not mean that the entire shift must play out without ever naming or dealing with the specific antagonists. As stated prior, the metashield is equal to corporate secrets, which do exist in character. This means that Nanotrasen is fully aware of any potential threats; they are just selective to who they give this information to.
+  Esto no significa que toda la ronda deba transcurrir sin mencionar o tratar con los antagonistas específicos. Como se mencionó antes, el metashield es igual a los secretos corporativos, los cuales existen en el personaje. Esto significa que Nanotrasen está completamente al tanto de cualquier amenaza potencial; simplemente son selectivos con a quién le dan esta información.
 
-  ## Metafriending and Metagrudging
+  ## Metafriending y Metagrudging
 
-  This section provides additional information on a concept that is prohibited by multiple metashield items that are never revealed IC. Giving a person or character preferential treatment based on something that your character should not know is considered metafriending. Treating a person or character negatively based on something that your character should not know is considered metagrudging.
+  Esta sección proporciona información adicional sobre un concepto que está prohibido por múltiples elementos del metashield que nunca se revelan IC. Dar un trato preferencial a una persona o personaje basado en algo que tu personaje no debería saber se considera metafriending. Tratar a una persona o personaje de manera negativa basado en algo que tu personaje no debería saber se considera metagrudging.
 
-  ## Metafriending Examples
+  ## Ejemplos de Metafriending
 
-  These are all examples of things that are prohibited by at least one metashield item that is never revealed IC.
-  - Giving a character additional access or a job because you are friends with the player who is playing that character.
-  - Trusting a character because you are friends with the player who is playing that character.
-  - Not fighting a character because you are friends with the player who is playing that character.
-  - Ignoring your objective to kill a character because your character and theirs became friends in a previous round.
+  Estos son ejemplos de cosas que están prohibidas por al menos un elemento del metashield que nunca se revela IC.
+  - Darle acceso adicional o un trabajo a un personaje porque eres amigo del jugador que está jugando ese personaje.
+  - Confiar en un personaje porque eres amigo del jugador que está jugando ese personaje.
+  - No pelear con un personaje porque eres amigo del jugador que está jugando ese personaje.
+  - Ignorar tu objetivo de matar a un personaje porque tu personaje y el suyo se hicieron amigos en una ronda anterior.
 
-  ## Metagrudging Examples
+  ## Ejemplos de Metagrudging
 
-  These are all examples of things that are prohibited by at least one metashield item that is never revealed IC.
-  - Not giving a character additional access or a job because you are mad at or don't like the player who is playing that character.
-  - Not trusting a character because you are mad at or don't like the player who is playing that character.
-  - Starting a fight with a character because of something that they did last round.
-  - Starting a fight with a character because they killed you while you were playing a different character.
-  - Targeting or harassing a character based on anything which that character did outside the current round.
-  - Targeting or harassing a character based on anything which the character's player did while not playing the character.
+  Estos son ejemplos de cosas que están prohibidas por al menos un elemento del metashield que nunca se revela IC.
+  - No darle acceso adicional o un trabajo a un personaje porque estás enojado o no te gusta el jugador que está jugando ese personaje.
+  - No confiar en un personaje porque estás enojado o no te gusta el jugador que está jugando ese personaje.
+  - Iniciar una pelea con un personaje debido a algo que hizo en la ronda anterior.
+  - Iniciar una pelea con un personaje porque te mató mientras jugabas un personaje diferente.
+  - Apuntar o acosar a un personaje basado en algo que ese personaje hizo fuera de la ronda actual.
+  - Apuntar o acosar a un personaje basado en algo que el jugador de ese personaje hizo mientras no estaba jugando al personaje.
 
-  ## Explicitly Not Shielded
+  ## Explicitamente No Protegido
 
-  The following is a list of things that are explicitly not shielded. If something is not on this list, it doesn't mean that it is shielded, but if something is on it then it definitely is not shielded.
-  - Non-NT aligned organizations exist, such as the Syndicate.
-  - The fact that the Syndicate are enemies of Nanotrasen.
-  - The fact that the nuke disk must be protected and could be used by a bad actor to try to destroy the station.
-  - Certain items are high-risk and may be desired by outlaws or outside organizations (such as the Syndicate), and therefore are likely targets of theft.
-  - The idea that any Syndicate agent or other bad actor has goals or objectives that they are attempting to accomplish.
-  - A character's typical appearance. Though you should keep in mind that multiple characters can share the same name.
+  Lo siguiente es una lista de cosas que explícitamente no están protegidas. Si algo no está en esta lista, no significa que esté protegido, pero si algo está en esta lista, definitivamente no está protegido.
+  - Existen organizaciones no alineadas con NT, como el Sindicato.
+  - El hecho de que el Sindicato sea enemigo de Nanotrasen.
+  - El hecho de que el disco nuclear debe ser protegido y podría ser usado por un mal actor para intentar destruir la estación.
+  - Algunos objetos son de alto riesgo y pueden ser deseados por forajidos u organizaciones externas (como el Sindicato), y por lo tanto son objetivos probables de robo.
+  - La idea de que cualquier agente del Sindicato u otro mal actor tiene metas u objetivos que intentan cumplir.
+  - La apariencia típica de un personaje. Aunque debes tener en cuenta que varios personajes pueden compartir el mismo nombre.
 </Document>

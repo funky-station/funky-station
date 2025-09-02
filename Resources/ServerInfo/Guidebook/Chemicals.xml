@@ -10,42 +10,42 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-# Chemicals
+# Químicos
 
-Chemicals are a powerful tool that can cause a variety of effects when consumed. Some can be found in plants, purchased from cargo, or be synthesized through combination with other chemicals.
+Los químicos son una herramienta poderosa que puede causar una variedad de efectos cuando se consumen. Algunos se pueden encontrar en plantas, comprar en carga, o sintetizarse mediante combinación con otros químicos.
 
-Knowing different types of chemicals and their effects is important for being able to manage injury and danger.
+Conocer los diferentes tipos de químicos y sus efectos es importante para poder manejar lesiones y peligros.
 
-## Elements
+## Elementos
 <GuideReagentGroupEmbed Group="Elements"/>
 
-## Medicine
+## Medicina
 <GuideReagentGroupEmbed Group="Medicine"/>
 
-## Narcotics
+## Narcóticos
 <GuideReagentGroupEmbed Group="Narcotics"/>
 
-## Pyrotechnics
+## Pirotécnicos
 <GuideReagentGroupEmbed Group="Pyrotechnic"/>
 
-## Toxins
+## Toxinas
 <GuideReagentGroupEmbed Group="Toxins"/>
 
-  ## Exotic
+  ## Exóticos
   <GuideReagentGroupEmbed Group="Exotic"/>
 
-## Foods
+## Alimentos
 <GuideReagentGroupEmbed Group="Foods"/>
 
-## Botanical
+## Botánicos
 <GuideReagentGroupEmbed Group="Botanical"/>
 
-## Biological
+## Biológicos
 <GuideReagentGroupEmbed Group="Biological"/>
 
-## Special
+## Especiales
 <GuideReagentGroupEmbed Group="Special"/>
 
-## Other
+## Otros
 <GuideReagentGroupEmbed Group="Unknown"/>
 </Document>

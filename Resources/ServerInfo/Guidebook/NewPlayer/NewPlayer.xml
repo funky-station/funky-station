@@ -7,44 +7,44 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-# Welcome to Space Station 14!
+# ¡Bienvenido a Space Station 14!
 
-You've just begun your shift aboard a Nanotrasen space station.
-You and your fellow crewmates are tasked with working together, surviving, and having fun!
+Acabas de comenzar tu turno a bordo de una estación espacial de Nanotrasen.
+Tú y tus compañeros de tripulación tienen la tarea de trabajar juntos, ¡sobrevivir y divertirse!
 
-[bold]Make sure to follow all server rules.[/bold] You can ask questions or report rule breaks to the [color=#EB2D3A][bold]admin team[/bold][/color] by using the [bold]admin help menu[/bold]. ([italic]accessible by pressing [/italic][color=yellow][bold][keybind="OpenAHelp"/][/bold][/color])
+[bold]Asegúrate de seguir todas las reglas del servidor.[/bold] Puedes hacer preguntas o informar sobre infracciones a las reglas al [color=#EB2D3A][bold]equipo de administración[/bold][/color] usando el [bold]menú de ayuda de administración[/bold]. ([italic]accesible presionando [/italic][color=yellow][bold][keybind="OpenAHelp"/][/bold][/color])
 
-More detailed guides about [italic]specific jobs[/italic] and [italic]mechanics[/italic] can be found [textlink="here." link="SS14"/]
+Puedes encontrar guías más detalladas sobre [italic]trabajos específicos[/italic] y [italic]mecánicas[/italic] [textlink="aquí." link="SS14"/]
 
-This guide can be reopened at any time using [color=yellow][bold][keybind="OpenGuidebook"][/bold][/color].
+Esta guía se puede volver a abrir en cualquier momento usando [color=yellow][bold][keybind="OpenGuidebook"][/bold][/color].
 
-## Basic Controls
-The following are the controls you'll need for regular gameplay:
+## Controles Básicos
+Los siguientes son los controles que necesitarás para el juego regular:
 
-- Run using [color=yellow][bold][keybind="MoveUp"][keybind="MoveLeft"][keybind="MoveDown"][keybind="MoveRight"][/bold][/color]. Hold down [color=yellow][bold][keybind="Walk"][/bold][/color] to walk
+- Corre usando [color=yellow][bold][keybind="MoveUp"][keybind="MoveLeft"][keybind="MoveDown"][keybind="MoveRight"][/bold][/color]. Mantén presionado [color=yellow][bold][keybind="Walk"][/bold][/color] para caminar
 
-- Examine the world around you with [color=yellow][bold][keybind="ExamineEntity"][/bold][/color]
+- Examina el mundo a tu alrededor con [color=yellow][bold][keybind="ExamineEntity"][/bold][/color]
 
-- Interact with the world using [color=yellow][bold][keybind="Use"][/bold][/color]
+- Interactúa con el mundo usando [color=yellow][bold][keybind="Use"][/bold][/color]
 
-- Hovering over an entity and pressing [color=yellow][bold][keybind="UseSecondary"][/bold][/color] shows the [italic]context menu[/italic], which contains additional interactions
+- Al pasar el cursor sobre una entidad y presionar [color=yellow][bold][keybind="UseSecondary"][/bold][/color], se muestra el [italic]menú contextual[/italic], que contiene interacciones adicionales
 
-- Swap hands using [color=yellow][bold][keybind="SwapHands"][/bold][/color] and activate the currently held item with [color=yellow][bold][keybind="ActivateItemInHand"][/bold][/color]
+- Cambia de mano usando [color=yellow][bold][keybind="SwapHands"][/bold][/color] y activa el objeto que tienes en la mano con [color=yellow][bold][keybind="ActivateItemInHand"][/bold][/color]
 
-- Drop held items with [color=yellow][bold][keybind="Drop"][/bold][/color] or throw them using [color=yellow][bold][keybind="ThrowItemInHand"][/bold][/color]
+- Suelta los objetos que tienes en la mano con [color=yellow][bold][keybind="Drop"][/bold][/color] o lánzalos usando [color=yellow][bold][keybind="ThrowItemInHand"][/bold][/color]
 
-- Pull and release things with [color=yellow][bold][keybind="TryPullObject"][/bold][/color] and [color=yellow][bold][keybind="ReleasePulledObject"][/bold][/color]
+- Tira y suelta cosas con [color=yellow][bold][keybind="TryPullObject"][/bold][/color] y [color=yellow][bold][keybind="ReleasePulledObject"][/bold][/color]
 
-A more comprehensive list can be found on the [textlink="controls" link="Controls"] page.
+Puedes encontrar una lista más completa en la página de [textlink="controles" link="Controls"].
 
-## What is SS14?
-Space Station 14 is a multiplayer game about paranoia and chaos on a space station and a remake of the cult-classic Space Station 13.
+## ¿Qué es SS14?
+Space Station 14 es un juego multijugador sobre paranoia y caos en una estación espacial y un remake del clásico de culto Space Station 13.
 
-Join dozens of other players on an intricately designed and simulated space station, immersing yourself in roleplay and dealing with threats along the way.
+Únete a docenas de otros jugadores en una estación espacial intrincadamente diseñada y simulada, sumergiéndote en el rol y lidiando con amenazas en el camino.
 
-SS14 is an [italic]open-source game[/italic] developed by people [bold]just like you![/bold]
-It receives [color=lime]daily updates[/color] and may at times be [color=#EB2D3A][bold]unstable.[/bold][/color]
+SS14 es un [italic]juego de código abierto[/italic] desarrollado por personas ¡[bold]como tú[/bold]!
+Recibe [color=lime]actualizaciones diarias[/color] y a veces puede ser [color=#EB2D3A][bold]inestable.[/bold][/color]
 
-[italic]If you want to report bugs or help with development, join the discord and learn how to get started.[/italic]
+[italic]Si quieres informar de errores o ayudar con el desarrollo, únete al Discord y descubre cómo empezar.[/italic]
 
 </Document>

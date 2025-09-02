@@ -13,29 +13,29 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="MobRodentiaDummy" Caption=""/>
   </Box>
 
-  Rodentia are a race of humanoid beings resembling rodents. Resourceful, evasive, sneaky, but fragile.
+  Rodentia son una raza de seres humanoides que se asemejan a roedores. Ingeniosos, evasivos, sigilosos, pero frágiles.
 
-  ## Diet
+  ## Dieta
 
-  - Can eat raw meat.
-  - Will get poisoned by Theobromine (Chocolate, Tea, Coffee) and Allicin (Onion, Garlic).
+  - Pueden comer carne cruda.
+  - Se intoxicará por Teobromina (Chocolate, Té, Café) y Alicina (Cebolla, Ajo).
 
-  ## Benefits
+  ## Beneficios
 
-  - Uses their claws to do some Slashing and Blunt damage.
-  - Smaller than humans.
-  - Can fit in duffelbags.
+  - Usan sus garras para causar algo de daño Cortante y Contundente.
+  - Más pequeños que los humanos.
+  - Pueden caber en bolsas de viaje (duffelbags).
 
-  ## Special
+  ## Especial
 
-  - Can Rummage in disposal chutes, which can sometimes dig up food.
-  - Can store small items in their cheeks. Having items in their mouth makes their speech unintelligible, and they will drop all items in their mouth if attacked, stunned, or shoved.
-  - Can "sneak" underneath tables, but not doors.
+  - Pueden rebuscar en los conductos de basura, lo que a veces permite encontrar comida.
+  - Pueden almacenar objetos pequeños en sus mejillas. Tener objetos en la boca hace que su habla sea ininteligible, y soltarán todos los objetos si son atacados, aturdidos o empujados.
+  - Pueden "esconderse" debajo de mesas, pero no debajo de puertas.
 
-  ## Drawbacks
+  ## Desventajas
 
-  - Takes 30% more Blunt damage, and 15% more Slash and Piercing damage.
-  - Always triggers mousetraps, regardless of whether or not they are wearing shoes.
-  - Gets hungry 33% faster.
+  - Reciben 30% más de daño Contundente, y 15% más de daño Cortante y Perforante.
+  - Siempre activan trampas para ratones, sin importar si llevan zapatos o no.
+  - Se hambran un 33% más rápido.
 
 </Document>

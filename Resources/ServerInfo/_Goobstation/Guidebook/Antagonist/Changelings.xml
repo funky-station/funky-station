@@ -11,96 +11,96 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 -->
 
 <Document>
-  # Changelings
+  # Cambiaformas
   <Box>
     <GuideEntityEmbed Entity="GuidebookChangelingFluff" Caption=""/>
   </Box>
-  A Changeling is an alien creature that is intelligent and able to morph into humans.
-  Changelings are aliens in a form of a headslug, but before a shift starts, they either transform as someone while they're off-station or rather they somehow killed someone and made into a Changeling through unknown ways.
-  The main weapons of the Changeling are its ability to internally synthesize dangerous chemicals, morph into other creatures that it has absorbed, and blend in with humans.
+  Un Cambiaformas es una criatura alienígena inteligente capaz de transformarse en humanos.
+  Los Cambiaformas son alienígenas con forma de babosa cerebral, pero antes de que comience un turno, o bien se transforman en alguien mientras están fuera de la estación o, de alguna manera, mataron a alguien y se convirtieron en Cambiaformas por medios desconocidos.
+  Las principales armas del Cambiaformas son su habilidad para sintetizar internamente químicos peligrosos, transformarse en otras criaturas que haya absorbido y mezclarse entre los humanos.
 
-  Changelings are reported to be extinct. Once the apex predator of the universe reduced to being a myth.
+  Se informa que los Cambiaformas están extintos. Alguna vez fueron el depredador ápice del universo, reducidos ahora a un mito.
 
-  The Changeling can be anyone it's absorbed, it can switch identities instantaneously, only absorbing takes time and peace.
-  Unlike the Traitor, the Changeling's only objective is to survive until the shuttle arrives and escape on it while transformed into somebody else.
+  El Cambiaformas puede ser cualquiera que haya absorbido, puede cambiar de identidad instantáneamente; solo el proceso de absorción requiere tiempo y calma.
+  A diferencia del Traidor, el único objetivo del Cambiaformas es sobrevivir hasta que llegue la lanzadera y escapar en ella mientras se hace pasar por otra persona.
 
-  Remember that Changelings are not obliged to work each other as a team, and some may go solo/rogue depending on the situation.
-  Changelings are generally expected to keep a low profile.
+  Recuerda que los Cambiaformas no están obligados a trabajar en equipo; algunos pueden ir en solitario o volverse rebeldes según la situación.
+  En general, se espera que los Cambiaformas mantengan un perfil bajo.
 
-  ## Chemicals
-  Chemicals are your source of abilities. Without them you won't be able to use your powers.
-  They regenerate slowly over time, and absorption will increase their max capacity.
+  ## Químicos
+  Los químicos son tu fuente de habilidades. Sin ellos no podrás usar tus poderes.
+  Se regeneran lentamente con el tiempo, y la absorción aumentará tu capacidad máxima.
 
-  ## Biomass
-  Your biomass is your health. In the beginning you have 30 biomass to begin. Biomass does not drain over time, as it's used by some of your abilities.
+  ## Biomasa
+  Tu biomasa es tu salud. Al inicio cuentas con 30 de biomasa. La biomasa no se consume con el tiempo, ya que se utiliza en algunas de tus habilidades.
 
-  You cannot die normally, as in being gibbed by blunt trauma. As you are a natural organism, being tossed in the incinerator is your biggest worry. Or tossed into the super-matter.
+  No puedes morir de forma normal, como al ser destrozado por trauma contundente. Al ser un organismo natural, tu mayor preocupación es ser lanzado al incinerador o a la súper-materia.
 
-  ## DNA Extraction
-  If your main weapon is deception, then DNA Extraction is your main tool. This sting allows you to copy the genetic information of anyone you come into contact with.
+  ## Extracción de ADN
+  Si tu arma principal es el engaño, la Extracción de ADN es tu herramienta clave. Este aguijón te permite copiar la información genética de cualquiera con quien entres en contacto.
 
-  This sting works on one person for free, and further stings on different targets must be on those who are either critical or dead.
+  Este aguijón funciona gratis en una persona, y los siguientes deben aplicarse a objetivos que estén en estado crítico o muertos.
 
-  The person you extract from will have no indication that they were just harvested, and can be used secretly. This ability is powerful, as you can turn into someone just from stinging them.
+  La persona de la que extraes no tendrá ninguna señal de que fue cosechada, lo que te permite hacerlo en secreto. Esta habilidad es poderosa, pues puedes convertirte en alguien con solo picarlo.
 
-  You can only have a maximum of 5 DNA strands at a time, and must transform to obtain more.
+  Solo puedes tener un máximo de 5 cadenas de ADN a la vez, y deberás transformarte para obtener más.
 
   <Box>
-    <GuideEntityEmbed Entity="ActionStingExtractDNA" Caption="Changeling Extraction Ability"/>
+    <GuideEntityEmbed Entity="ActionStingExtractDNA" Caption="Habilidad de Extracción de Cambiaformas"/>
   </Box>
 
-  Remember, your objective is to collect DNA, absorb and then eventually become your target, so keep a low-profile.
+  Recuerda, tu objetivo es recolectar ADN, absorber y eventualmente convertirte en tu objetivo, así que mantén un perfil bajo.
 
-  ## DNA Absorption
-  Absorbing your victim is a lot different from extraction. You will need to absorb your target and effectively [bold]become[/bold] them.
+  ## Absorción de ADN
+  Absorber a tu víctima es muy distinto a extraer. Necesitarás absorber a tu objetivo y efectivamente [bold]convertirte[/bold] en él.
 
-  Acquiring DNA via absorption requires the victim's incapacitation, critical condition or death.
-  You can absorb a target that is handcuffed, critical, or dead.
+  Obtener ADN mediante absorción requiere que la víctima esté incapacitada, en estado crítico o muerta.
+  Puedes absorber a alguien que esté esposado, crítico o muerto.
 
-  - Absorbing someone takes a lot of time, so prepare a safe spot or do it somewhere with the least amount of ears possible.
-  - [color=red]Absorbed victims cannot be cloned.[/color] Although, medicine exists that can undo genetic damage on corpses.
+  - Absorber a alguien toma bastante tiempo, así que prepara un lugar seguro o hazlo en un sitio con la menor cantidad de testigos posible.
+  - [color=red]Las víctimas absorbidas no pueden ser clonadas.[/color] Aunque existe medicina capaz de revertir el daño genético en cadáveres.
 
-  [color=red]Absorbing another changeling[/color] will give you even more chemicals and evolution points, including the points they collected.
+  [color=red]Absorber a otro cambiaformas[/color] te dará aún más químicos y puntos de evolución, incluidos los que hayan recolectado.
 
-  ## You exclaim, "I am the only one here!"
-  Changelings are limited, however, to how much DNA they can absorb at once! If a changeling has 5 DNAs stored and attempts to gain another, they must purge the older DNA by transforming.
-  Eventually, any changeling will have to be a twin of someone else on the station, living or dead.
+  ## Tú exclamas: "¡Soy el único aquí!"
+  Los Cambiaformas están limitados en la cantidad de ADN que pueden absorber a la vez. Si un Cambiaformas ya tiene 5 ADN almacenados e intenta obtener otro, deberá purgar un ADN anterior transformándose.
+  Eventualmente, cualquier Cambiaformas tendrá que convertirse en el doble de alguien más en la estación, vivo o muerto.
 
-  The changeling can shift its appearance, making them look and sound exactly like a victim of which they have absorbed. This can be massive compromise in security, especially if command staff are absorbed and the changeling is able to imitate them.
-  Changelings can also, via their lesser form ability, transform into monkeys and do monkey things.
+  El Cambiaformas puede alterar su apariencia, haciéndolo ver y sonar exactamente como la víctima que haya absorbido. Esto representa un grave riesgo para la seguridad, especialmente si personal de mando es absorbido y el Cambiaformas logra imitarlos.
+  Los Cambiaformas también pueden, mediante su habilidad de forma inferior, transformarse en monos y comportarse como tales.
 
-  ## Regeneration
-  Also known as Regenerative Stasis, changelings have the ability to 'kill' themselves, and appear dead. After an uncertain amount of time, the changeling can revive at will, fully healed of all injuries and illness.
-  Entering stasis drains all the changeling's chemicals, and leaving costs 60. Chemicals will still regenerate while a changeling is dead, meaning it can always enter stasis unless it's biomass levels are critical.
+  ## Regeneración
+  También llamada Estasis Regenerativa, los Cambiaformas tienen la habilidad de "matarse" y aparentar estar muertos. Tras un tiempo indeterminado, pueden revivir a voluntad, completamente curados de todas sus heridas y enfermedades.
+  Entrar en estasis consume todos los químicos del Cambiaformas, y salir cuesta 60. Los químicos siguen regenerándose mientras el Cambiaformas está muerto, lo que significa que siempre podrá entrar en estasis salvo que sus niveles de biomasa sean críticos.
 
-  Changelings can also choose to revive by defibrillator, making it even harder to tell if they are one or not.
+  Los Cambiaformas también pueden optar por revivir mediante desfibrilador, lo que hace aún más difícil detectarlos.
 
-  This makes them nigh-unkillable, as they can fully regenerate themselves even from death if they have enough chemicals.
-  Spaced changelings may also be able to make it back on station given enough time.
-  The best way to permanently deal with a changeling is to starve it to death, putting them on mining colonies or solitary confinement.
+  Esto los hace prácticamente inmortales, ya que pueden regenerarse por completo incluso desde la muerte si tienen suficientes químicos.
+  Los Cambiaformas arrojados al espacio también pueden lograr regresar a la estación si se les da suficiente tiempo.
+  La mejor manera de acabar de forma permanente con un Cambiaformas es matarlo de hambre, enviándolo a colonias mineras o confinamiento solitario.
 
-  ## Going Solo or Teaming Up
-  Like traitors, changelings operate individually and are in no way obligated to assist each other.
-  It is not required for changelings to even reveal their identity to each other, as it's not uncommon for changelings to backstab each other to remove competition.
-  Even so, [color=red]a coordinated group of changelings is truly a terror to behold[/color].
+  ## Ir en solitario o en equipo
+  Al igual que los traidores, los Cambiaformas operan individualmente y no están obligados a ayudarse entre sí.
+  Ni siquiera es necesario que revelen su identidad a otros Cambiaformas, pues no es raro que se traicionen entre ellos para eliminar competencia.
+  Aun así, [color=red]un grupo coordinado de Cambiaformas es verdaderamente aterrador[/color].
 
-  ## Medical
-  As a changeling, your worst enemy will be a competent medical team.
-  A good medical team will be able to completely revive all of your victims, and once they learn of your presence, the Chemist and Chief Medical Officer have full reign to begin blood tests.
+  ## Medicina
+  Como Cambiaformas, tu peor enemigo será un equipo médico competente.
+  Un buen equipo médico podrá revivir por completo a todas tus víctimas, y una vez descubran tu presencia, el Químico y el Director Médico tendrán vía libre para comenzar análisis de sangre.
 
   <Box>
     <GuideEntityEmbed Entity="MachineCentrifuge"/>
   </Box>
-  Changelings have a different blood type. Even if a changeling is pretending to be a diona, vox or a moth person, they have one blood type.
-  When put in a centrifuge, the changeling's blood reacts in a violent explosion. A good chemist will be constantly performing blood checks on the realization of a changeling, so be careful.
+  Los Cambiaformas tienen un tipo de sangre distinto. Incluso si se hacen pasar por un diona, vox o persona polilla, siempre tendrán un mismo tipo de sangre.
+  Al ser introducida en una centrífuga, la sangre del Cambiaformas reacciona con una violenta explosión. Un buen químico realizará pruebas de sangre constantemente tras sospechar de un Cambiaformas, así que ten cuidado.
 
   <Box>
     <GuideEntityEmbed Entity="CryoPod"/>
   </Box>
-  Along with this, hollowing someone does not mean they are round removed.
+  Además, vaciar a alguien no significa que esté fuera de la ronda.
 
-  Hollowing someone gives them 200 genetic damage; in most cases this does mean they are dead forever. Genetic damage causes cloning to fail, and there's no conventional mean to heal genetic damage on corpses.
-  By setting up pyrogenics and making Natusixadone, medical is able to completely revive any hollowed corpses.
+  Vaciar a alguien le causa 200 de daño genético; en la mayoría de los casos, esto sí implica que estén muertos para siempre. El daño genético hace que la clonación falle, y no existe un medio convencional para curar el daño genético en cadáveres.
+  Al configurar pirogénicos y fabricar Natusixadona, el equipo médico puede revivir completamente cualquier cadáver vaciado.
 
   <GuideReagentEmbed Reagent="Natusixadone"/>
 </Document>

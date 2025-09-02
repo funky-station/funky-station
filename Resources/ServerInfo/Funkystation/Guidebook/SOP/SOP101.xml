@@ -8,37 +8,37 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Standard Operating Procedure
+  # Procedimiento Operativo Estándar
 
   <Box>
-    [color=#999999][italic]"The station is currently under threat of imminent destruction. Crewmembers are advised to listen to heads of staff for more information."[/italic][/color]
+    [color=#999999][italic]"La estación está actualmente bajo amenaza de destrucción inminente. Se aconseja a la tripulación seguir las indicaciones de los jefes de personal para más información."[/italic][/color]
   </Box>
 
-  Consider SOP your new space bible, feature complete with ways to lethal people legally.
+  Considera el SOP como tu nueva biblia espacial, completa con instrucciones para lidiar legalmente con personas de manera letal.
 
-  # What is Standard Operating Procedure? (SOP)
+  # ¿Qué es el Procedimiento Operativo Estándar? (SOP)
 
-  Standard Operating Procedure, from hereon out known as SOP, is how NanoTrasen is expected to run its facilities. This ensures proper treatment of prisoners, how to safely deal with certain situations, and how to identify positive threats on the station.
-  Deviating from SOP is a big and conscious decision, and any actions you may take while deviating from SOP may be grounds for discipline and/or termination of your contract.
+  El Procedimiento Operativo Estándar, en adelante SOP, define cómo se espera que Nanotrasen gestione sus instalaciones. Esto garantiza el trato adecuado a los prisioneros, cómo manejar de manera segura ciertas situaciones y cómo identificar amenazas potenciales en la estación.
+  Desviarse del SOP es una decisión seria y consciente, y cualquier acción tomada fuera de este procedimiento puede ser motivo de disciplina y/o terminación de contrato.
 
-  [bold]Job SOP should not be a considered a checklist of conditions to fire someone over, and should not be rigidly followed to the letter in detriment of circumstances and context. As always, SOP can be malleable if the situation so requires, and the decision to punish a crewmember for breaching it ultimately falls onto the relevant Head of Staff, for Department Members, or Captain, for the Head of Staff.[/bold]
+  [bold]El SOP de un puesto no debe considerarse una lista de verificación para despedir a alguien, ni debe seguirse rígidamente al pie de la letra en detrimento de las circunstancias y el contexto. Como siempre, el SOP puede adaptarse si la situación lo requiere, y la decisión de sancionar a un miembro de la tripulación por incumplimiento recae finalmente en el Jefe de Personal correspondiente para los miembros del Departamento, o en el Capitán para los Jefes de Personal.[/bold]
 
-  # Isn't SOP just guidelines?
+  # ¿No es el SOP solo una guía?
 
-  Yes they are, but following them ensures to establish proper trust with the public. Otherwise, you may be regarded as "Shitsec", or even worse, "Shitsci", so it's always wise to consult the appropriate SOP document for your department. If you need to break SOP, you better have a good reason to justify its breakage afterward.
+  Sí, pero seguirlo garantiza establecer confianza con el público. De lo contrario, podrías ser considerado como "Shitsec" o, peor aún, "Shitsci". Por eso siempre es recomendable consultar el documento SOP correspondiente a tu departamento. Si necesitas romper el SOP, asegúrate de tener una buena razón que justifique la infracción posteriormente.
 
-  # Great, now where can I find the SOP for my department?
+  # Genial, ¿dónde puedo encontrar el SOP de mi departamento?
 
-  You can find all department SOP documents here:
+  Puedes encontrar todos los documentos SOP de los departamentos aquí:
 
-  - [textlink="Alert Levels and You" link="AlertLevelsSOP"]
-  - [textlink="Command SOP" link="CommandSOP"]
-  - [textlink="Security SOP" link="SecuritySOP"]
-  - [textlink="Legal SOP" link="LegalSOP"]
-  - [textlink="Medical SOP" link="MedicalSOP"]
-  - [textlink="Service SOP" link="ServiceSOP"]
-  - [textlink="Engineering SOP" link="EngineeringSOP"]
-  - [textlink="Cargo SOP" link="CargoSOP"]
-  - [textlink="Science SOP" link="ScienceSOP"]
+  - [textlink="Niveles de Alerta y Tú" link="AlertLevelsSOP"]
+  - [textlink="SOP de Comando" link="CommandSOP"]
+  - [textlink="SOP de Seguridad" link="SecuritySOP"]
+  - [textlink="SOP Legal" link="LegalSOP"]
+  - [textlink="SOP Médico" link="MedicalSOP"]
+  - [textlink="SOP de Servicio" link="ServiceSOP"]
+  - [textlink="SOP de Ingeniería" link="EngineeringSOP"]
+  - [textlink="SOP de Carga" link="CargoSOP"]
+  - [textlink="SOP de Ciencia" link="ScienceSOP"]
 
 </Document>

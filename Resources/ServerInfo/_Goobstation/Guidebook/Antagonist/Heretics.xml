@@ -10,86 +10,88 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 -->
 
 <Document>
-  # The Mansus Veil Weakens
-  So you're a Heretic? Well, get ready for magic and battle. Grab influences, complete sacrifices, accomplish rituals, and ascend to godhood.
+  # El Velo de Mansus se Debilita
+  ¿Eres un Hereje? Prepárate para magia y batalla. Obtén influencias, completa sacrificios, realiza rituales y asciende a la divinidad.
 
-  Your ultimate goal is to ascend and become all powerful, but to do that you must gain knowledge.
-  All knowledges cost 1 point, except for "public" ones, which are accessible from any path, or Ascensions.
+  Tu objetivo final es ascender y convertirte en todopoderoso, pero para lograrlo debes adquirir conocimiento.
+  Todos los conocimientos cuestan 1 punto, excepto aquellos "públicos", accesibles desde cualquier camino, o las Ascensiones.
 
-  You can gain knowledge points and become stronger through a few ways:
-  - Draining influences that spawn randomly around the station.
-  - Sacrificing crew members your dark patrons hunger for.
-  - Automatically getting one knowledge point every 20 minutes.
+  Puedes ganar puntos de conocimiento y volverte más poderoso de varias formas:
+  - Drenando influencias que aparecen aleatoriamente en la estación.
+  - Sacrificando miembros de la tripulación que tus patrones oscuros desean.
+  - Obteniendo automáticamente un punto de conocimiento cada 20 minutos.
 
-  ## Eldritch Influences
+  ## Influencias Eldritch
   <Box>
     <GuideEntityEmbed Entity="EldritchInfluence" Caption=""/>
   </Box>
-  Influences are the easy way to gain power points. Whenever there are Heretics aboard Space Station 14, influences will randomly spawn across the station.
-  They are not visible to the naked eye of a crew member, hovewer they [bold]will[/bold] become visible after harvesting, aside from suddenly changing colors.
-  Tip: When using [color=green]Codex Cicatrix[/color] on an influence you will get double the points, but it will be a dead giveaway to anyone nearby that you're a heretic.
+  Las influencias son la manera rápida de ganar puntos de poder. Siempre que haya Herejes en Space Station 14, las influencias aparecerán de forma aleatoria en la estación.
+  No son visibles para los ojos desnudos de la tripulación, pero [bold]serán[/bold] visibles después de ser recolectadas, además de cambiar de color repentinamente.
+  Consejo: Al usar [color=green]Codex Cicatrix[/color] sobre una influencia obtendrás el doble de puntos, aunque alertarás a cualquier persona cercana de que eres un hereje.
+
   <Box>
-    <GuideEntityEmbed Entity="EldritchInfluenceSpent" Caption="Harvested influence. Notice the glow."/>
+    <GuideEntityEmbed Entity="EldritchInfluenceSpent" Caption="Influencia recolectada. Nota el resplandor."/>
   </Box>
 
-  Each influence can only be harvested once, so the heretic that goes the fastest and grabs the most influences first has to do less killing and sacrificing to reach their ascensions.
+  Cada influencia solo puede recolectarse una vez, por lo que el hereje que actúe más rápido y recoja más influencias necesitará menos sacrificios para alcanzar sus ascensiones.
 
-  ## Sacrifices
-  Now it's time for you to grow some balls and start sacrificing crewmembers for points.
-  The Mansus desires only a select few Heathens (non-heretics) at any moment.
+  ## Sacrificios
+  Ahora es momento de demostrar tu audacia y sacrificar miembros de la tripulación por puntos.
+  Mansus desea solo unos pocos Herejes (no herejes) en cualquier momento.
 
-  At the start of the round you will be assigned five sacrifice targets. You can reroll these with an optional knowledge (The Relentless Heartbeat) later on, but until then, you're stuck with those.
+  Al inicio de la ronda recibirás cinco objetivos de sacrificio. Puedes volver a elegirlos con un conocimiento opcional (El Latido Incesante) más adelante, pero hasta entonces estás limitado a los asignados.
 
-  - One target will be a Head of Staff. Heads of staff are worth an additional point!
-  - One target will be a member of security.
-  - One target will be a member of your department.
-  - Other targets will be completely random crewmembers.
-  
-  You will only be able to sacrifice these targets. Your patrons will not accept just any old assistant.
+  - Un objetivo será un Jefe de Personal, ¡vale un punto adicional!
+  - Un objetivo será un miembro de seguridad.
+  - Un objetivo será un miembro de tu departamento.
+  - Otros objetivos serán miembros aleatorios de la tripulación.
 
-  Follow your [color=red]Living Heart[/color] to your target of choice and incapacitate them through any means necessary. If your target's in critical condition or dead they're ready to sacrifice.
-  Drag them over a transmutation rune and invoke the [color=yellow]Heartbeat of the Mansus[/color] to sacrifice them.
+  Solo podrás sacrificar estos objetivos. Tus patrones no aceptarán cualquier asistente.
 
-  You can reroll your targets by invoking [color=yellow]Relentless Heartbeat[/color] ritual.
+  Sigue tu [color=red]Corazón Vivo[/color] hacia tu objetivo y incapacítalo por cualquier medio necesario. Si tu objetivo está en condición crítica o muerto, estará listo para el sacrificio.
+  Arrástralo sobre una runa de transmutación e invoca el [color=yellow]Latido de Mansus[/color] para sacrificarlo.
 
-  ## Heretical Research
-  Once you have some power points, it's time to research! Open up your knowledge store using the action button.
-  The research menu forms a branching tree, and your first selection will be to commit to a path that defines your initial abilities and Final Ascension.
-  You can earn abilities from other paths to a limited degree, but overall your chosen path will heavily influence your play-style.
+  Puedes volver a elegir tus objetivos invocando el ritual [color=yellow]Latido Incesante[/color].
 
-  ## Transmutation is Key
-  Eventually, you'll need to start using proper magics. To draw a transmutation rune, you'll need a writing tool, such as a pen or crayon.
-  Activate [color=green]Mansus Grasp[/color] in your offhand and click on the floor to start drawing a rune.
-  These runes are highly noticeable and take up a 3x3 area.
-  You can freely remove runes by using your pen with the activated [color=green]Mansus Grasp[/color] on it, and you can also freely use other Heretic's runes.
+  ## Investigación Herética
+  Una vez tengas algunos puntos de poder, ¡es hora de investigar!
+  Abre tu almacén de conocimientos usando el botón de acción.
+  El menú de investigación forma un árbol ramificado, y tu primera selección será comprometerte con un camino que defina tus habilidades iniciales y tu Ascensión Final.
+  Puedes obtener habilidades de otros caminos hasta cierto punto, pero en general, tu camino elegido influirá fuertemente en tu estilo de juego.
 
-  To [bold]transmute[/bold], simply click the rune with your empty hand to choose the needed ritual, after that use your [color=green]Mansus Grasp[/color] on the rune to see what objects you require for the ritual.
-  You can always see your chosen ritual by [bold]inspecting[/bold] the rune.
+  ## La Transmutación es Clave
+  Eventualmente, necesitarás usar magias adecuadas. Para dibujar una runa de transmutación, necesitarás un instrumento de escritura, como un bolígrafo o crayón.
+  Activa [color=green]Mansus Grasp[/color] en tu mano secundaria y haz clic en el suelo para empezar a dibujar una runa.
+  Estas runas son altamente visibles y ocupan un área de 3x3.
+  Puedes eliminar runas libremente usando tu bolígrafo con [color=green]Mansus Grasp[/color] activado, y también puedes usar runas de otros Herejes.
 
-  Transmutation Rituals allow you to create powerful artifacts, demonic monsters, and many useful tools that will help you progress towards ultimate power.
+  Para [bold]transmutar[/bold], haz clic en la runa con la mano vacía para elegir el ritual necesario; después, usa tu [color=green]Mansus Grasp[/color] en la runa para ver los objetos requeridos.
+  Siempre puedes inspeccionar la runa para ver el ritual elegido.
 
-  ## Focus is Necessary
-  To cast more advanced spells, you must focus by wearing an [color=orange]Amber Focus[/color].
-  You can acquire Ambes Focus using the eponymous ritual.
-  Some more powerful heretical equipment also functions as a focus - namely, the Ominous Armor from the Armorer's Ritual (when the hood is flipped up).
-  [color=yellow]Ascension[/color] disables the need for a focus.
+  Los rituales de transmutación permiten crear artefactos poderosos, monstruos demoníacos y muchas herramientas útiles para progresar hacia el poder absoluto.
 
-  ## Starting Knowledge
-  - \[ [color=red]Mansus Grasp[/color] \] - A short range spell that channels eldritch power straight to your palm. Upon contact, knocks down and confuses unsuspecting targets.
-  - \[ [color=red]Heartbeat of the Mansus[/color] \] - Allows you to sacrifice targets who are in critical or worse condition to the Mansus, gibbing them and rewarding you with one knowledge point; two if your victim was a head of staff.
-  - \[ [color=red]Amber Focus[/color] \] - Allows you to transmute a sheet of glass and a pair of eyes into an Amber Focus. This is a small neck-worn item that allows you to cast advanced spells while worn.
-  - \[ [color=red]Living Heart[/color] \] - Allows you to pinpoint your targets. Plays an audible heartbeat sound, so use it carefully.
-  - \[ [color=red]Relentless Heartbeat[/color] \] - Allows you to reroll your target selection, in case you've run out of bodies or want a different approach.
-  - \[ [color=red]Codex Cicatrix[/color] \] - Allows you to cast advanced spells while open in hands, and drain more knowledge points from influences. If you lost your codex you can make a new one at the rune.
+  ## El Enfoque es Necesario
+  Para lanzar hechizos más avanzados, debes enfocarte usando un [color=orange]Enfoque Ámbar[/color].
+  Puedes obtener un Enfoque Ámbar mediante el ritual homónimo.
+  Algunos equipos heréticos más poderosos también funcionan como enfoque, como la Armadura Ominosa del Ritual del Armador (cuando la capucha está levantada).
+  [color=yellow]Ascensión[/color] elimina la necesidad de enfoque.
 
-  ## Tips
-  - On Ashen Path, always carry a fire extinguisher or a bottle of water with you! While you can spew out fireballs, you are not immune to them until you ascend!
-  - As a [color=purple]Ghoul[/color], your [color=green]Mansus Link[/color] ability is extremely useful for communication. When you use it on someone, they gain a radio channel similar to changelings with :z key to talk privately.
-  - Unlike most other solo antagonists, Heretics start weak but grow stronger over time. It would be best not to attract too much attention to yourself until you unlock more powerful spells and equipment.
-  - Your Mansus Grasp will temporarily garble the speech of people who you use it on. This can let you get away with murder while comms are online, but be careful - it's not foolproof.
-  - [color=purple]Influences[/color] can spawn in almost any location on the station, ranging from the main hallways and public restrooms to [color=cyan]Command staff offices[/color] and [color=red]restricted security areas[/color] in the Brig. It's best to check every area you can access, public and department.
-  - By default, nothing on you is incriminating. If security suspects you, but can't actually pin anything heretical on you, you might be able to pass off as a Traitor instead.
-  - Monkeys and other animals make for great, usually non-suspicious sources of organs or corpses for your heretical rituals.
-  - Most summoned ghouls will drop the components used to create them on death. While having them to die is not ideal, you can easily grab the parts and summon another.
-  - [color=yellow]Eldritch Flash[/color], a stage 3 side path knowledge acts like a cryostasis beaker and has a total capacity of 100 units, meaning you can create deadly mixes that are easily triggered.
+  ## Conocimiento Inicial
+  - \[ [color=red]Mansus Grasp[/color] \] - Hechizo de corto alcance que canaliza poder eldritch a tu palma. Al contacto, derriba y confunde a los objetivos desprevenidos.
+  - \[ [color=red]Latido de Mansus[/color] \] - Permite sacrificar objetivos críticos o muertos al Mansus, destrozándolos y otorgando un punto de conocimiento; dos si la víctima era un Jefe de Personal.
+  - \[ [color=red]Enfoque Ámbar[/color] \] - Permite transmutar un vidrio y un par de ojos en un Enfoque Ámbar. Pequeño objeto que se coloca en el cuello para lanzar hechizos avanzados.
+  - \[ [color=red]Corazón Vivo[/color] \] - Permite localizar tus objetivos. Reproduce un sonido de latido, úsalo con precaución.
+  - \[ [color=red]Latido Incesante[/color] \] - Permite volver a elegir tus objetivos si te quedas sin cuerpos o quieres otro enfoque.
+  - \[ [color=red]Codex Cicatrix[/color] \] - Permite lanzar hechizos avanzados y drenar más puntos de conocimiento de las influencias. Si pierdes tu códice, puedes crear uno nuevo en la runa.
+
+  ## Consejos
+  - En Ashen Path, ¡lleva siempre un extintor o botella de agua! Aunque puedas lanzar bolas de fuego, no eres inmune hasta ascender.
+  - Como [color=purple]Ghoul[/color], tu habilidad [color=green]Mansus Link[/color] es útil para comunicación. Al usarla, otorgas a alguien un canal de radio similar al de los Cambiaformas con la tecla :z para hablar en privado.
+  - A diferencia de otros antagonistas solitarios, los Herejes comienzan débiles y se vuelven más fuertes con el tiempo. Es mejor no llamar demasiado la atención hasta desbloquear hechizos y equipo más poderosos.
+  - Tu Mansus Grasp distorsiona temporalmente el habla de quienes lo reciben, permitiéndote escapar de asesinatos mientras las comunicaciones están activas, pero no es infalible.
+  - [color=purple]Influencias[/color] pueden aparecer en casi cualquier lugar de la estación, desde pasillos principales y baños públicos hasta [color=cyan]oficinas de mando[/color] y [color=red]áreas restringidas de seguridad[/color] en la Brigada. Revisa todas las áreas accesibles, públicas y de departamento.
+  - Por defecto, nada en tu poder es incriminatorio. Si seguridad sospecha, pero no puede probar nada herético, puedes hacerte pasar por Traidor.
+  - Monos y otros animales son buenas fuentes de órganos o cadáveres para tus rituales heréticos sin levantar sospechas.
+  - La mayoría de los ghouls invocados dejarán los componentes usados al morir. Aunque no es ideal que mueran, puedes recolectar los materiales y convocar otro.
+  - [color=yellow]Destello Eldritch[/color], conocimiento de camino secundario de etapa 3, actúa como un beaker de criostasis con capacidad de 100 unidades, permitiendo crear mezclas letales fácilmente activables.
 </Document>

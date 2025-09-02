@@ -7,26 +7,26 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-## Anomaly Scanner
+## Escáner de Anomalías
 
-The Anomaly Scanner is used to gather various information on anomalies. They can be found inside of the lockers in the science department.
+El Escáner de Anomalías se utiliza para recopilar diversa información sobre anomalías. Se pueden encontrar dentro de los casilleros en el departamento de ciencia.
 
 <Box>
 <GuideEntityEmbed Entity="AnomalyScanner"/>
 </Box>
 
-Scanning an anomaly shows the severity, general stability, approximate point output, reactions with particle types, and time until the next pulse. The reaction types, specifically, can be used in conjunction with the A.P.E. to manipulate anomalies.
+Escanear una anomalía muestra la gravedad, estabilidad general, puntos aproximados de salida, reacciones con tipos de partículas y el tiempo hasta el siguiente pulso. Los tipos de reacciones, específicamente, pueden ser utilizados junto con el A.P.E. para manipular anomalías.
 
-## Anomaly Vessel
+## Vaso de Anomalías
 
-The anomaly vessel is a machine that generates points from anomalies. Use the anomaly scanner on an empty vessel, and the anomaly that was last scanned will be synced with the vessel.
+El vaso de anomalías es una máquina que genera puntos a partir de anomalías. Usa el escáner de anomalías sobre un vaso vacío, y la anomalía que se escaneó por última vez se sincronizará con el vaso.
 
 <Box>
 <GuideEntityEmbed Entity="MachineAnomalyVessel"/>
 </Box>
 
-The amount of points a vessel generates per second is based on the severity, stability, and health of an anomaly. The higher each of these values, the higher the point output will be.
+La cantidad de puntos que un vaso genera por segundo depende de la gravedad, estabilidad y salud de una anomalía. Cuanto más altos sean estos valores, mayor será la salida de puntos.
 
-Be careful: if an anomaly goes [color=#a4885c]supercritical[/color], the vessel it is linked to will explode. This may damage the station and nearby equipment.
+Ten cuidado: si una anomalía se vuelve [color=#a4885c]supercrítica[/color], el vaso al que está vinculada explotará. Esto podría dañar la estación y los equipos cercanos.
 
 </Document>

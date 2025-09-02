@@ -1,4 +1,5 @@
 <!--
+SPDX-FileCopyrightText: 2024 DevilishMilk <bluscout78@yahoo.com>
 SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 
@@ -6,94 +7,77 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  Here is a list of all the SOP documents for Science.
+  # Oficial Médico en Jefe
 
-  # Research Director SOP
+  [bold]1.[/bold] El Oficial Médico en Jefe puede portar un Desfibrilador regular o compacto en todo momento;
 
-  ## Code Green
+  [bold]2.[/bold] Puede portar una linterna y su hipopistola;
 
-  [bold]1.[/bold] The Research Director must make sure Research is being done. Research must be completed by the end of the shift, assuming Science is provided the materials for it by Cargo;
+  [bold]3.[/bold] Puede portar químicos de autodefensa para su hipopistola si el nivel de alerta de la estación lo requiere;
 
-  [bold]2.[/bold] The Research Director is permitted to carry a flash and their Handheld Teleporter;
+  [bold]4.[/bold] No se permite permitir la creación de mezclas venenosas o explosivas en Química sin consentimiento expreso del Jefe de Seguridad, salvo en situaciones de peligro claro e inminente para la estación, o cuando se requieran Implantes Químicos;
 
-  [bold]3.[/bold] The Research Director is not permitted to bring harmful artifacts outside of Science if they are not stored within an artifact container;
+  [bold]5.[/bold] Puede entregar su Monitor de Tripulación Portátil al Paramédico si se requiere reemplazo;
 
-  [bold]4.[/bold] The Research Director is not permitted to decommission a Station AI without the Captain's approval. The AI unit, if decommissioned must be secured on an Intellicard to be inspected in Central Command;
+  [bold]6.[/bold] Debe asegurarse de revivir cualquier cadáver que sea revivable.
 
-  [bold]5.[/bold] The Research Director is permitted to change the Station AIs laws, provided they receive approval from the Captain;
+  # Doctores Médicos e Internos
 
-  [bold]6.[/bold] The Research Director must keep a log of all anomalies and eliminate any anomalies that may pose an immediate danger to crewmembers;
+  [bold]1.[/bold] Se recomienda que los Doctores usen mascarillas estériles y guantes de látex/nitrilo al atender pacientes; obligatorio durante Brotes Virales;
 
-  [bold]7.[/bold] The Research Director must ensure telecommunications is properly maintained.
+  [bold]2.[/bold] Los Internos deben ayudar a Doctores y Cirujanos, atender pacientes de cuidado ligero y, si es necesario, reemplazar a un Doctor;
 
-  ## Code Blue
+  [bold]3.[/bold] Los Doctores deben asegurar que haya al menos un (1) Desfibrilador disponible cerca del área principal de tratamiento;
 
-  [bold]1.[/bold] All guidelines carry over from Code Green.
+  [bold]4.[/bold] Mantener Medbay higiénico si no hay personal de limpieza, incluyendo residuos orgánicos, fluidos y cadáveres;
 
-  ## Code Red
+  [bold]5.[/bold] Colocar todos los cadáveres en bolsas o bandejas de morgue; asegurarse de que no haya cadáveres revivibles en la morgue;
 
-  [bold]1.[/bold] All guidelines carry over from Code Blue;
+  [bold]6.[/bold] No abandonar Medbay para recreación si hay pacientes desatendidos;
 
-  [bold]2.[/bold] In addition to a flash, the Research Director is permitted to carry a single weapon created in the Protolathe, provided they recieve authorization from the Head of Security. An exception is made during extreme emergencies;
+  [bold]7.[/bold] No están obligados a tratar a pacientes que se autolesionan intencionadamente; en tal caso, remitir al Psicólogo;
 
-  # Scientist / Research Assistant SOP
+  [bold]8.[/bold] Devolver equipo de miembros fallecidos a su respectivo departamento.
 
-  ## Code Green
+  # Químico
 
-  [bold]1.[/bold] Scientists are not permitted to bring artifacts outside of Science without the use of an artifact container;
+  [bold]1.[/bold] No se permite experimentar con mezclas explosivas;
 
-  [bold]2.[/bold] Scientists are not permitted to generate anomalies without approval from the Research Director;
+  [bold]2.[/bold] No se permite experimentar con mezclas venenosas o narcóticos;
 
-  [bold]3.[/bold] While not mandatory, it is highly recommended that Scientists give a prior warning before generating an anomaly, preferably done in-conjuction with the Research Director declaring that an anomaly is generated with the appropriate Communications Console;
+  [bold]3.[/bold] No se permite experimentar con Omnizina u otras mezclas experimentales de Vida;
 
-  [bold]4.[/bold] Scientists are to deliver any animals used for testing to the Chef after testing has concluded;
+  [bold]4.[/bold] No se permite producir bebidas alcohólicas;
 
-  [bold]5.[/bold] Scientists are not permitted to carry any weapons generated from the protolathe;
+  [bold]5.[/bold] Deben asegurar junto a Doctores que Clonación tenga Biomasa si está configurada;
 
-  [bold]6.[/bold] Scientists are not permitted to distribute any weapons generated from the protolathe, unless the weapon in question (for example, Proto-Kinetic Accelerators) is delivered to the appropriate department;
+  [bold]6.[/bold] Mantener Medbay abastecido con medicación suficiente para Brute, Burn, Respiratory y Toxin; incumplimiento en 30 minutos se considera violación de SOP;
 
-  [bold]7.[/bold] Scientists are not to activate Station-wide Destruction artifacts, and must destroy or eliminate them as soon as possible;
+  [bold]7.[/bold] No dejar Química desatendida si Medbay carece de medicación, salvo que Química sea inutilizable.
 
-  [bold]8.[/bold] At least one scientist should be available to take orders from crewmembers at the Science front desk, if there is one.
+  # Paramédico
 
-  ## Code Blue
+  [bold]1.[/bold] Puede portar un Desfibrilador en todo momento, dejando al menos uno disponible en Medbay;
 
-  [bold]1.[/bold] All guidelines carry over from Code Green;
+  [bold]2.[/bold] Debe estabilizar pacientes antes de trasladarlos a Medbay;
 
-  [bold]2.[/bold] Scientists are permitted to produce weapons and grenades from the protolathe provided they get delivered to Security.
+  [bold]3.[/bold] Si el paciente está muerto e irrecuperable, debe trasladarlo a Medbay y notificar a los Doctores;
 
-  ## Code Red
+  [bold]4.[/bold] Autorizado a portar Monitor de Tripulación Portátil, no puede distribuirlo;
 
-  [bold]1.[/bold] All guidelines carry over from Code Blue;
+  [bold]5.[/bold] Debe portar materiales suficientes para primeros auxilios de lesiones mayores (Brute, Burn, Toxic, Respiratory).
 
-  [bold]2.[/bold] In regard to Guideline 2 on Code Blue, scientists may arm themselves with a single weapon if the threat is deemed to be station ending.
+  # Psicólogo
 
-  # Roboticist SOP
+  [bold]1.[/bold] Puede realizar evaluaciones psicológicas y tratamiento si la persona lo solicita;
 
-  ## Code Green
+  [bold]2.[/bold] No puede forzar terapia; excepción para criminales violentos con orden de Jefe de Seguridad, Magistrado o Capitán;
 
-  [bold]1.[/bold] Roboticists are not permitted to construct Combat Mechs without explicit permission from the Captain and/or the Head of Security. An example of a Combat Mech is the Gygax;
+  [bold]3.[/bold] No puede administrar medicación sin consentimiento del paciente;
 
-  [bold]2.[/bold] Roboticists are freely permitted to construct Utility Mechs, along with any assorted Utility Equipment;
+  [bold]4.[/bold] No puede sujetar o inmovilizar a alguien sin permiso del Oficial Médico en Jefe o Jefe de Seguridad; excepción para pacientes violentos o fuera de control;
 
-  [bold]3.[/bold] Roboticists are freely permitted to construct Cyborgs and all assorted equipment;
+  [bold]5.[/bold] Puede recomendar la degradación de un paciente si su condición psicológica lo hace incapaz de cumplir sus funciones;
 
-  [bold]4.[/bold] Roboticists are to respect all Do-Not-Borg orders, and copies of orders are to be kept safe if possible. If no copy exists, an MMI Unit may refuse to be a Cyborg, and that wish must be respected;
-
-  [bold]5.[/bold] Roboticists must ensure that all Cyborgs are adhering to their laws and not malfunctioning. If a Cyborg is found to be breaking their laws, their MMI Unit or Positronic Brain must be preserved and placed into a new Cyborg chassis;
-
-  [bold]6.[/bold] Roboticists must keep at least one Positronic Brain activated if possible;
-
-  [bold]7.[/bold] Roboticists must adhere to all Scientist SOP guidelines.
-
-
-  ## Code Blue
-
-  [bold]1.[/bold] All guidelines carry over from Code Green;
-
-  [bold]2.[/bold] In regard to Guideline 1 on Code Green, Roboticists are permitted to construct Combat Mechs without prior consent, but must be delivered to the Armory. Failure to comply will result in the Combat Mech being destroyed. An exception is made for station-wide threats, but even after these threats are dealt with, the Mech must be delivered to the Armory.
-
-  ## Code Red
-
-  [bold]1.[/bold] All guidelines carry over from Code Blue.
+  [bold]6.[/bold] Puede consultar a prisioneros de encarcelamiento permanente en Permabrig con autorización del Alcaide y/o Jefe de Seguridad, bajo supervisión de Seguridad con acceso a Permabrig.
 </Document>

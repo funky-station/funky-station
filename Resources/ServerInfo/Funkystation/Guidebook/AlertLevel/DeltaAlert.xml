@@ -5,39 +5,39 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Station Alert - Delta
+  # Alerta de Estación - Delta
 
   <Box>
-    [italic]Called by: Malfunctioning AI Units, the supermatter delaminating, or the on-board Nuclear Fission Device being activated.[/italic]
+    [italic]Emitida por: Unidades de IA con mal funcionamiento, la supermateria delaminándose, o el Dispositivo de Fisión Nuclear a bordo siendo activado.[/italic]
   </Box>
 
-  [bold]Conditions:[/bold]
+  [bold]Condiciones:[/bold]
 
-  A Malfunctioning AI Unit has dropped all semblance of stealth and activated their Override Mechanism.
+  Una Unidad de IA con mal funcionamiento ha perdido todo indicio de sigilo y ha activado su Mecanismo de Anulación.
 
-  [bold]OR[/bold]
+  [bold]O[/bold]
 
-  The on-board Nuclear Fission Device has been activated by Command or Central Command personnel. Though it does not trigger Code Delta, Nuclear Operative Nuclear Operations should still be considered as a Code Delta situation.
+  El Dispositivo de Fisión Nuclear a bordo ha sido activado por personal de Comando o Comando Central. Aunque esto no dispara Código Delta, las Operaciones Nucleares de los Operativos Nucleares deben considerarse como una situación de Código Delta.
 
-  [bold]OR[/bold]
+  [bold]O[/bold]
 
-  The supermatter is in the process of delaminating. This is a station-wide threat.
+  La supermateria está en proceso de delaminación. Esto representa una amenaza a nivel de toda la estación.
 
-  [bold]Security:[/bold]
+  [bold]Seguridad:[/bold]
 
-  In the case of a Malfunctioning AI Unit, all Security personnel are required to drop whatever it is they are doing, and proceed to neutralize the AI Unit. Any relevant help from station personnel (such as Engineers or Scientists) is not to be turned down;
+  En caso de una Unidad de IA con mal funcionamiento, todo el personal de Seguridad debe abandonar cualquier actividad que estén realizando y proceder a neutralizar la Unidad de IA. No se debe rechazar ayuda relevante de personal de la estación (como Ingenieros o Científicos);
 
-  In the case of a Central Command-authorized activation of the on-board Nuclear Fission Device, all Security personnel are to stand down.
+  En caso de activación autorizada por Comando Central del Dispositivo de Fisión Nuclear a bordo, todo el personal de Seguridad debe permanecer en sus puestos.
 
-  [bold]Secure Areas:[/bold]
+  [bold]Áreas Seguras:[/bold]
 
-  EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used.
+  Almacén EVA, Almacén Técnico, Generador de Gravedad, Almacén Seguro de Ingeniería, Subida de IA, Bóveda, Gateway, y cualquier otra área que requiera acceso de nivel comando y que no se use regularmente.
 
-  Procedures are irrelevant.
+  Los procedimientos son irrelevantes.
 
-  [bold]General Crew:[/bold]
+  [bold]Tripulación General:[/bold]
 
-  In the case of a Malfunctioning AI Unit or Nuclear Operatives that have armed a nuclear device, all non-vital personnel are to evacuate off-station immediately;
+  En caso de una Unidad de IA con mal funcionamiento o de Operativos Nucleares que hayan armado un dispositivo nuclear, todo el personal no vital debe evacuar de la estación de inmediato;
 
-  In the case of a Central Command-authorized activation of the on-board Nuclear Fission Device, all personnel are to stand down.
+  En caso de activación autorizada por Comando Central del Dispositivo de Fisión Nuclear a bordo, todo el personal debe permanecer en sus puestos.
 </Document>

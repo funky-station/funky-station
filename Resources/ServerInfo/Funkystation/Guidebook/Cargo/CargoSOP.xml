@@ -7,51 +7,51 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Quartermaster
+  # Jefe de Suministros (Quartermaster)
 
-  [bold]1.[/bold] The Quartermaster must ensure that every approved order is delivered within 15 minutes of having been placed and approved;
+  [bold]1.[/bold] El Jefe de Suministros debe asegurar que cada orden aprobada sea entregada dentro de los 15 minutos posteriores a su aprobación;
 
-  [bold]2.[/bold] In the event of a major crisis, such as Nuclear Operatives or a Blob Organism, expediency is to be favored over paperwork, as excessive bureaucracy may be detrimental to the well-being of the station;
+  [bold]2.[/bold] En caso de crisis mayor, como Operativos Nucleares o un Organismo Blob, se debe priorizar la rapidez sobre la burocracia, ya que el papeleo excesivo puede ser perjudicial para la estación;
 
-  [bold]3.[/bold] The Quartermaster is not permitted to authorize the ordering of Security equipment and/or gear without express permission from the Head of Security and/or Captain. An exception is made during extreme emergencies, such as Nuclear Operatives or a Blob Organism, where said equipment is to be delivered to Security, post haste;
+  [bold]3.[/bold] El Jefe de Suministros no puede autorizar la orden de equipamiento o material de Seguridad sin permiso expreso del Jefe de Seguridad y/o Capitán, excepto en emergencias extremas (como Operativos Nucleares o Blob), donde dicho equipo debe ser entregado inmediatamente a Seguridad;
 
-  [bold]4.[/bold] The Quartermaster is permitted to authorize non-departmental orders (such as a Medical Doctor asking for Insulated Gloves) without express permission from the respective Head of Staff (in this example, the Chief Engineer), utilizing their best judgement, although they may still request a stamped form. However, any breach of Standard Operating Procedure and/or Space Law that results from said order will also implicate the Quartermaster;
+  [bold]4.[/bold] Puede autorizar órdenes no departamentales (por ejemplo, un médico pidiendo Guantes Aislantes) sin permiso expreso del Jefe del departamento correspondiente, usando su mejor juicio, aunque aún puede solicitar un formulario sellado. Sin embargo, cualquier infracción resultante implicará al Jefe de Suministros;
 
-  [bold]5.[/bold] The Quartermaster is not permitted to authorize the purchase of a Supermatter Crate without express permission from the Chief Engineer;
+  [bold]5.[/bold] No puede autorizar la compra de una Caja de Supermatter sin permiso expreso del Jefe de Ingeniería;
 
-  [bold]6.[/bold] The Quartermaster is required to follow the guidelines put in place for Cargo Technicians;
+  [bold]6.[/bold] Debe seguir las pautas establecidas para los Técnicos de Carga;
 
-  # Cargo Technician
+  # Técnico de Carga
 
-  [bold]1.[/bold] Cargo Technicians must ensure that every approved order is delivered within 15 minutes of having been placed and approved;
+  [bold]1.[/bold] Deben asegurar que cada orden aprobada sea entregada dentro de los 15 minutos posteriores a su aprobación;
 
-  [bold]2.[/bold] Cargo Technicians are bound to the same rules as the Quartermaster regarding restricted crates (see above);
+  [bold]2.[/bold] Se rigen por las mismas reglas que el Jefe de Suministros respecto a cajas restringidas;
 
-  [bold]3.[/bold] Cargo Technicians are not permitted to order items for sole personal use with the supply department account without express consent from the Quartermaster. Exception is made if there are more than 2500 spesos available and no outstanding orders. Cargo Technicians may not deplete the entire department account balance for this;
+  [bold]3.[/bold] No pueden ordenar artículos para uso personal con la cuenta del departamento sin consentimiento expreso del Jefe de Suministros, salvo que haya más de 2500 spesos disponibles y no existan órdenes pendientes;
 
-  [bold]4.[/bold] Cargo Technicians are not permitted to order non-essential items using the supply account (such as cats, or clothing) without express consent from the Quartermaster;
+  [bold]4.[/bold] No pueden ordenar artículos no esenciales (como gatos o ropa) sin consentimiento expreso del Jefe de Suministros;
 
-  [bold]5.[/bold] Cargo Technicians are not permitted to force and/or break open locked crates. The same applies to the Quartermaster. Exception is made for Abandoned Crates found by Mining;
+  [bold]5.[/bold] No pueden forzar ni abrir cajas cerradas sin autorización; excepción: cajas abandonadas encontradas por Minería;
 
-  [bold]6.[/bold] Cargo Technicians are not permitted to authorize non-departmental orders (such as a Medical Doctor asking for Insulated Gloves) without express permission from the Quartermaster;
+  [bold]6.[/bold] No pueden autorizar órdenes no departamentales sin permiso del Jefe de Suministros;
 
-  [bold]7.[/bold] Cargo Technicians must ensure at least one copy of every Order Form (ie, the forms produced by the Requests Console) is kept inside Cargo.
+  [bold]7.[/bold] Deben mantener al menos una copia de cada Formulario de Orden dentro del área de Carga;
 
-  [bold]8.[/bold] Cargo Technicians must send back all crates that have been ordered, with accompanying stamped manifest inside the crate;
+  [bold]8.[/bold] Deben enviar todas las cajas ordenadas con el manifiesto sellado dentro de la caja;
 
-  [bold]9.[/bold] Cargo Technicians should ensure that a single Department does not fully drain the Ore Redemption Machine, as it can be utilized by multiple Departments;
+  [bold]9.[/bold] Deben asegurar que un solo departamento no agote completamente la Máquina de Redención de Mineral;
 
-  [bold]10.[/bold] Cargo Technicians are not permitted to ask for space credits in exchange for legal cargo crate orders or autolathe requests from crew members;
+  [bold]10.[/bold] No pueden pedir créditos espaciales a cambio de órdenes legales de carga o solicitudes de autolathe;
 
-  [bold]11.[/bold] Cargo Technicians are not permitted to trade items and/or favors in exchange for items with regular personnel without express consent from the Quartermaster;
+  [bold]11.[/bold] No pueden intercambiar artículos o favores por objetos con la tripulación sin consentimiento del Jefe de Suministros;
 
-  # Salvage Specialist
+  # Especialista en Recuperación (Salvage Specialist)
 
-  [bold]1.[/bold] Salvage Specialists are not permitted to hoard materials. All mined materials are to be left in the Ore Processor;
+  [bold]1.[/bold] No pueden acumular materiales; todo material minado debe dejarse en el Procesador de Mineral;
 
-  [bold]2.[/bold] Salvage Specialists are not permitted to throw people into manufactured wormholes, nor are they permitted to trick people into using Bluespace Crystals, or throwing Bluespace Crystals at anyone;
+  [bold]2.[/bold] No pueden arrojar personas a agujeros de gusano fabricados, engañar a otros para usar Cristales de Bluespace ni lanzarlos a alguien;
 
-  [bold]3.[/bold] Salvage Specialists are not permitted to give expedition acquired items to station crew, unless the Quartermaster approves;
+  [bold]3.[/bold] No pueden dar artículos obtenidos en expediciones a la tripulación sin aprobación del Jefe de Suministros;
 
-  [bold]4.[/bold] Salvage Specialists are bound by guidelines set for Cargo Technicians when inside the Cargo Office or Bay;
+  [bold]4.[/bold] Deben seguir las pautas establecidas para Técnicos de Carga cuando estén en la Oficina o Bahía de Carga;
 </Document>

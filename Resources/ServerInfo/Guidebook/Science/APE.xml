@@ -12,21 +12,21 @@ SPDX-License-Identifier: MIT
 <Document>
 # A.P.E.
 
-The Anomalous Particle Emitter is a machine used to interface with anomalies. It is the primary way of manipulating the stats of an anomaly.
+El Emisor de Partículas Anómalas (A.P.E) es una máquina utilizada para interactuar con las anomalías. Es la principal forma de manipular las estadísticas de una anomalía.
 
 <Box>
 <GuideEntityEmbed Entity="MachineAPE"/>
 </Box>
 
-The A.P.E. can shoot four different kinds of anomalous particles: Delta, Epsilon, Sigma and Zeta. Each particle type has certain effects:
+El A.P.E puede disparar cuatro tipos diferentes de partículas anómalas: Delta, Épsilon, Sigma y Zeta. Cada tipo de partícula tiene ciertos efectos:
 
-- [color=crimson]Danger:[/color] Increases the severity of an anomaly.
-- [color=plum]Unstable:[/color] Increases the instability of an anomaly.
-- [color=goldenrod]Containment:[/color] Increases anomaly stability at the cost of its health - if an anomaly is struck by too many containment particles, it will collapse, leaving behind an anomaly core.
-- [color=#6b75fa]Transformation:[/color] Increases anomaly severity with a chance of changing its behavior.
+- [color=crimson]Peligro:[/color] Aumenta la gravedad de una anomalía.
+- [color=plum]Inestable:[/color] Aumenta la inestabilidad de una anomalía.
+- [color=goldenrod]Contención:[/color] Aumenta la estabilidad de la anomalía a costa de su salud. Si una anomalía recibe demasiados impactos de partículas de contención, colapsará, dejando un núcleo anómalo.
+- [color=#6b75fa]Transformación:[/color] Aumenta la gravedad de la anomalía con la posibilidad de cambiar su comportamiento.
 
-Which particle type corresponds to each effect is unique and can be learned by scanning the anomaly.
+El tipo de partícula que corresponde a cada efecto es único y se puede averiguar escaneando la anomalía.
 
-The A.P.E. can also be locked by anyone with science access, which prevents it from being deconstructed, turned on or off, or having the particle type switched.
+El A.P.E. también puede ser bloqueado por cualquier persona con acceso de ciencia, lo que impide que sea desmantelado, encendido o apagado, o que se cambie el tipo de partícula.
 
 </Document>

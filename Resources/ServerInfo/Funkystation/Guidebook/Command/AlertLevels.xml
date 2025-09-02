@@ -8,24 +8,24 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Alert Levels and You!
+  # Niveles de Alerta y Tú
 
-  [bold]What is an alert level?[/bold]
+  [bold]¿Qué es un nivel de alerta?[/bold]
 
-  Alert levels are a way to quickly alert crew of any possible threats that may be present on the station.
+  Los niveles de alerta son un método para notificar rápidamente a la tripulación sobre posibles amenazas presentes en la estación.
 
-  Alert levels also determine which procedures to follow, including security. On certain alert levels, security may be granted more leniency to deal with threats and unruly crew.
+  También determinan los procedimientos a seguir, incluyendo medidas de seguridad. En ciertos niveles, el personal de seguridad puede recibir mayor libertad para enfrentar amenazas y mantener el orden entre la tripulación.
 
-  Failure to abide by the regulations put on by these alert levels may result in contract termination.
+  No cumplir con las regulaciones de los niveles de alerta puede resultar en la terminación del contrato laboral.
 
-  The following are all possible alert levels:
+  Los niveles de alerta posibles son:
 
-  - [textlink="Green Alert" link="GreenAlertSOP"]
-  - [textlink="Yellow Alert" link="YellowAlertSOP"]
-  - [textlink="Blue Alert" link="BlueAlertSOP"]
-  - [textlink="Red Alert" link="RedAlertSOP"]
-  - [textlink="Violet Alert" link="VioletAlertSOP"]
-  - [textlink="Gamma Alert" link="GammaAlertSOP"]
-  - [textlink="Delta Alert" link="DeltaAlertSOP"]
-  - [textlink="Octarine Alert" link="OctarineAlertSOP"]
+  - [textlink="Alerta Verde" link="GreenAlertSOP"]
+  - [textlink="Alerta Amarilla" link="YellowAlertSOP"]
+  - [textlink="Alerta Azul" link="BlueAlertSOP"]
+  - [textlink="Alerta Roja" link="RedAlertSOP"]
+  - [textlink="Alerta Violeta" link="VioletAlertSOP"]
+  - [textlink="Alerta Gamma" link="GammaAlertSOP"]
+  - [textlink="Alerta Delta" link="DeltaAlertSOP"]
+  - [textlink="Alerta Octarine" link="OctarineAlertSOP"]
 </Document>

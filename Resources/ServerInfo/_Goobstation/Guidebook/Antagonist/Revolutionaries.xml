@@ -14,44 +14,44 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 -->
 
 <Document>
-  # Revolutionaries
+  # Revolucionarios
 
   <Box>
-    [color=#999999][italic]"Viva la revolución!!"[/italic][/color]
+    [color=#999999][italic]"¡Viva la revolución!"[/italic][/color]
   </Box>
   <Box>
     <GuideEntityEmbed Entity="PosterContrabandRevolt" Caption=""/>
   </Box>
 
-  Revolutionaries are conversion antagonists sponsored by the [color=#ff0000]Syndicate[/color] who are tasked with taking control of the station.
-  Head revolutionaries are graciously given a PDA uplink, paid for by Yucatan Communications.
+  Los Revolucionarios son antagonistas de conversión patrocinados por el [color=#ff0000]Sindicato[/color], cuya misión es tomar control de la estación.
+  Los líderes revolucionarios reciben un enlace PDA financiado por Yucatan Communications.
 
-  ## Objectives
-  You must cuff, kill, or exile all of the [textlink="Command staff" link="Command"] on station in no particular order.
+  ## Objetivos
+  Debes esposar, eliminar o exiliar a todos los [textlink="Command staff" link="Command"] de la estación sin un orden específico.
 
-  Your objective is [bold]not to destroy the station[/bold], but [italic]to take it over[/italic], so try to minimize damage as much as possible.
+  Tu objetivo [bold]no es destruir la estación[/bold], sino [italic]tomarla[/italic], así que intenta minimizar los daños.
 
-  [bold]The revolution will fail[/bold] if all of the [bold][color=#5e9cff]Head Revolutionaries[/color][/bold] die, and all [color=red]Revolutionaries[/color] will de-convert if this happens.
+  [bold]La revolución fallará[/bold] si todos los [bold][color=#5e9cff]Líderes Revolucionarios[/color][/bold] mueren, y todos los [color=red]Revolucionarios[/color] serán desconvertidos.
 
-  [bold]The revolution will also fail[/bold] if all of the [bold][color=#5e9cff]Head Revolutionaries[/color][/bold] are off the station. Your objective is to capture the station, so do not wander far.
+  [bold]La revolución también fallará[/bold] si todos los [bold][color=#5e9cff]Líderes Revolucionarios[/color][/bold] se alejan de la estación. Tu objetivo es capturarla, no deambular lejos.
 
-  ## Your Uplink
-  [bold][color=#5e9cff]Head Revolutionaries[/color][/bold] are chosen at the start of the shift. They are given a PDA uplink similar to a Syndicate uplink.
+  ## Tu enlace PDA
+  [bold][color=#5e9cff]Líderes Revolucionarios[/color][/bold] son elegidos al inicio del turno y reciben un enlace PDA similar al del Sindicato.
 
-  Telecrystals cannot be used in this PDA, instead a new currency, [color=#ff0000]RevCoin[/color], must be used. Be sure to lock your uplink after you're done using it.
+  Los telecristales no pueden usarse en este PDA; en su lugar, se utiliza una nueva moneda, [color=#ff0000]RevCoin[/color]. Bloquea tu enlace después de usarlo.
 
   <Box>
     <GuideEntityEmbed Entity="RevCoin"/>
   </Box>
 
-  ## Mindshields & Eye Protection
-  [color=cyan]Mindshield implanters[/color] are an obstruction to the revolution. These will:
-  - Prevent the implanted person from being converted into a [color=red]Revolutionary[/color]
-  - De-convert Revolutionaries, and will make them no longer loyal to your cause
-  - [bold]Visibly be destroyed upon being implanted into a [color=#5e9cff]Head Revolutionary[/color][/bold], giving you away
-  - NOT protect against flash disorientation
+  ## Mindshields y protección ocular
+  [color=cyan]Los implantes de Mindshield[/color] obstaculizan la revolución. Sus efectos:
+  - Evitan que la persona implantada se convierta en [color=red]Revolucionario[/color].
+  - Desconvierten a los Revolucionarios, perdiendo lealtad a la causa.
+  - [bold]Se destruyen visiblemente al implantarse en un [color=#5e9cff]Líder Revolucionario[/color][/bold], revelándote.
+  - NO protegen contra desorientación por flash.
 
-  These however, do protect against flash disorientation and conversion.
+  Protegen contra desorientación por flash y conversión.
 
   <Box>
     <GuideEntityEmbed Entity="ClothingEyesGlassesSunglasses"/>
@@ -59,44 +59,43 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
     <GuideEntityEmbed Entity="ClothingHeadHatWelding"/>
   </Box>
 
-  ## Your tools
+  ## Tus herramientas
   <Box>
     <GuideEntityEmbed Entity="Flash"/>
   </Box>
 
-  Your flash and your fast draw implanter are your bread and butter. You can remove mindshields from crew members and implant them in animals, so you can continue converting.
+  Tu flash y tu implante rápido son tus herramientas principales. Puedes remover mindshields de la tripulación y colocarlos en animales para seguir convirtiendo.
 
-  You do not need a special flash or anything. Regular ones on the station will do.
+  No necesitas un flash especial; los normales de la estación sirven.
 
-  People will notice when you start converting. Plan your conversions carefully, as a wrong move will alert security.
+  La gente notará cuando empieces a convertir. Planifica cuidadosamente, un error alertará a seguridad.
 
   <Box>
     <GuideEntityEmbed Entity="RevsFastDrawImplanter"/>
   </Box>
 
-  This implanter removes implants, quickly. A regular implanter takes 60 seconds to remove a single implant, while this only takes 30 seconds.
-  Useful for when you want to get command or security on your side.
-
-  Be sure to [bold]toggle your implanter[/bold] to remove a mindshield, as you will deal great damage if you attempt to remove the wrong one!
+  Este implante rápido elimina implantes en 30 segundos, mientras que uno normal tarda 60.
+  Útil para tener el comando o seguridad de tu lado.
+  [bold]Activa tu implante[/bold] para remover un mindshield, ¡de lo contrario causarás daño grave!
 
   <Box>
     <GuideEntityEmbed Entity="EncryptionKeySyndie"/>
   </Box>
 
-  An encryption key that allows you to speak to other operatives and head revolutionaries on the station. Useful for long way communication, not-so-useful if you are caught.
+  Llave de encriptación para comunicarte con otros operativos y líderes revolucionarios en la estación. Útil a larga distancia, pero peligrosa si te atrapan.
 
   <Box>
     <GuideEntityEmbed Entity="ClothingEyesGlassesSunglasses"/>
   </Box>
 
-  Style. Prevents you from getting flashed yourself. Useful if you are being chased by security or over-zealous crew members.
+  Estilo y protección: evita ser cegado por flashes, útil si seguridad o tripulantes sobreentusiastas te persiguen.
 
-  ## Extra Tools
-
+  ## Herramientas extra
   <Box>
     <GuideEntityEmbed Entity="GrenadeFlashBangRevolutionary"/>
   </Box>
 
-  This flash can convert anyone in its flash radius, useful for causing mayhem. You must take a screwdriver to a flash and mess with it. Only head revolutionaries have access to this incredible power, so keep it well hidden.
-  Only head revolutionaries can throw the revolutionary flashbang and have it convert people.
+  Este flash puede convertir a cualquier persona en su radio de efecto, ideal para causar caos.
+  Debes modificar un flash con un destornillador para habilitarlo.
+  Solo los líderes revolucionarios pueden usar esta poderosa herramienta; mantenla bien oculta.
 </Document>

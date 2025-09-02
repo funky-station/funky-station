@@ -5,41 +5,41 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-    # Station Alert - Green
+    # Alerta de Estación - Verde
 
     <Box>
-        [italic]Called by: Anyone with Command-Level Access at a working Communications Console.[/italic]
+        [italic]Emitida por: Cualquier persona con acceso de nivel Comando en una Consola de Comunicaciones funcional.[/italic]
     </Box>
 
-    [bold]Conditions:[/bold]
+    [bold]Condiciones:[/bold]
 
-    Default Alert Code at the start of the shift. Do not change unless a threat is suspected/confirmed;
+    Código de Alerta por defecto al inicio del turno. No se debe cambiar a menos que se sospeche o confirme una amenaza;
 
-    [bold]OR[/bold]
+    [bold]O[/bold]
 
-    All confirmed/suspected threats to the station and/or crew have been handled, or simply vanished on their own. It is recommended that, after 15+ minutes on Code Blue without any hostile activity, Code Green be called;
+    Todas las amenazas confirmadas o sospechadas a la estación y/o tripulación han sido manejadas, o simplemente desaparecieron por sí solas. Se recomienda que, después de 15+ minutos en Código Azul sin actividad hostil, se llame a Código Verde;
 
-    [bold]Security:[/bold]
+    [bold]Seguridad:[/bold]
 
-    All weapons must be holstered or kept in pockets/suit storage slots unless absolutely required;
+    Todas las armas deben estar enfundadas o guardadas en los bolsillos o compartimentos del traje, salvo que sea absolutamente necesario;
 
-    Random searches are not permitted without express permission by either the Head of Security or Captain. However, searches are still permitted if there is reasonable suspicion of a crime.
+    Los registros aleatorios no están permitidos sin permiso expreso del Jefe de Seguridad o del Capitán. Sin embargo, los registros sí están permitidos si existe una sospecha razonable de un delito.
 
-    [bold]Secure Areas:[/bold]
+    [bold]Áreas Seguras:[/bold]
 
-    EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used.
+    Almacén EVA, Almacén Técnico, Generador de Gravedad, Almacén Seguro de Ingeniería, Subida de IA, Bóveda, Gateway, y cualquier otra área que requiera acceso de nivel comando y que no se use regularmente.
 
-    Secure areas such as EVA are to be left unbolted and ready to be used for their intended purposes.
+    Las Áreas Seguras como EVA deben permanecer desbloqueadas y listas para su uso previsto.
 
-    Exceptions are below;
+    Excepciones:
 
-    The Vault is not to be opened unless repairs are required, gold is required for Research and Development (in case Mining fails to deliver) or a critical item needs to be hidden in the safe.
+    La Bóveda no debe abrirse a menos que se requieran reparaciones, se necesite oro para Investigación y Desarrollo (en caso de que Minería no entregue) o se necesite ocultar un objeto crítico en la caja fuerte.
 
-    Searches of a person or department need to have a signed and stamped warrant by the Captain or HoP.
+    Los registros de una persona o departamento necesitan una orden firmada y sellada por el Capitán o Jefe de Personal.
 
-    [bold]General Crew:[/bold]
+    [bold]Tripulación General:[/bold]
 
-    While not required, it is recommended that the crew activate and maximize their Suit Sensors, due to the potential for workplace accidents;
+    Aunque no es obligatorio, se recomienda que la tripulación active y maximice los Sensores de su Traje, debido a la posibilidad de accidentes laborales;
 
-    Free transit through the station is permitted for the crew, excluding Secure Areas.
+    El tránsito libre por la estación está permitido para la tripulación, excluyendo Áreas Seguras.
 </Document>

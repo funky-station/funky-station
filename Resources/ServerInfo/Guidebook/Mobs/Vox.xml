@@ -16,22 +16,22 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="MobVox" Caption=""/>
   </Box>
 
-  [color=#ffa500]Warning! This species is not recommended for new players due to their fatal allergy to oxygen![/color]
+  [color=#ffa500]¡Advertencia! Esta especie no se recomienda para jugadores nuevos debido a su alergia fatal al oxígeno.[/color]
 
-  Vox breathe nitrogen, and [color=#ffa500] oxygen is toxic to them.[/color]
-  Unfortunately, space stations tend to be full of oxygen,
-  so Vox must use an internal nitrogen supply at almost all times to avoid fatal exposure.
+  Los Vox respiran nitrógeno, y [color=#ffa500]el oxígeno es tóxico para ellos.[/color]
+  Desafortunadamente, las estaciones espaciales suelen estar llenas de oxígeno,
+  por lo que los Vox deben usar un suministro interno de nitrógeno casi todo el tiempo para evitar una exposición fatal.
 
-  Vox always spawn wearing working nitrogen internals equipment.
-  A spare breathing mask and an emergency nitrogen canister is provided in their survival box.
+  Los Vox siempre aparecen usando equipo funcional de internos de nitrógeno.
+  Se proporciona una máscara respiratoria de repuesto y un bote de nitrógeno de emergencia en su caja de supervivencia.
 
-  Vox [color=#1e90ff]slowly recover from low levels of poison damage[/color] on their own,
-  so long as they are careful not to exceed 20 poison damage.
-  This allows them to endure breathing station air for up to thirty seconds at a time without lasting damage,
-  letting them quickly eat, drink, take oral medication, and so on.
-  A thirty second oxygen exposure takes them two minutes to recover from.
-  If their health does not seem to improve within a minute of oxygen exposure, they should seek medical attention.
+  Los Vox [color=#1e90ff]se recuperan lentamente de niveles bajos de daño por veneno[/color] por sí mismos,
+  siempre que tengan cuidado de no superar 20 de daño por veneno.
+  Esto les permite soportar el aire de la estación durante hasta treinta segundos a la vez sin daño duradero,
+  permitiéndoles comer, beber, tomar medicación oral, etc.
+  Una exposición de treinta segundos al oxígeno les toma dos minutos en recuperarse.
+  Si su salud no mejora dentro de un minuto tras la exposición al oxígeno, deben buscar atención médica.
 
-  Vox deal Slash damage with their unarmed attack.
+  Los Vox infligen daño de tipo [color=#ec3a3a]corte[/color] con su ataque desarmado.
 
 </Document>

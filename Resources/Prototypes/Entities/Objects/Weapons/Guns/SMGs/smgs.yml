@@ -247,9 +247,9 @@
   - type: Gun
     fireRate: 5.5
     minAngle: 1
-    maxAngle: 6
-    angleIncrease: 1.5
-    angleDecay: 6
+    maxAngle: 12
+    angleIncrease: 2
+    angleDecay: 3
     selectedMode: FullAuto
     shotsPerBurst: 5
     burstCooldown: 0.2

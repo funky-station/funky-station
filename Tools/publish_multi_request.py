@@ -25,7 +25,7 @@ RELEASE_DIR = "release"
 # Forks should change these to publish to their own infrastructure.
 #
 ROBUST_CDN_URL = "https://build.funkystation.org/"
-FORK_ID = "sshispano"
+FORK_ID = "ss14hispano"
 
 def main():
     parser = argparse.ArgumentParser()

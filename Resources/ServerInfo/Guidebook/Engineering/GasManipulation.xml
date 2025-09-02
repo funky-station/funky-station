@@ -7,11 +7,11 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Gas Manipulation
-  Atmos has a wide variety of tools and equipment at their disposal for the manipulation of gasses throughout the station.
+  # Manipulación de Gases
+  Atmos cuenta con una amplia variedad de herramientas y equipos a su disposición para la manipulación de gases en toda la estación.
 
-  [bold]Warning: unanchoring (unwrenching) most devices containing gas will [color=red]leak gas[/color] into the atmosphere.[/bold]
-  You can safely unanchor [textlink="canisters" link="GasCanisters"], [textlink="portable scrubbers" link="PortableScrubber"], [textlink="condensers" link="GasCondensing"], and [textlink="thermomachines" link="Thermomachines"].
+  [bold]Advertencia: desanclar (desatornillar) la mayoría de dispositivos que contienen gas provocará [color=red]fugas de gas[/color] hacia la atmósfera.[/bold]
+  Puedes desanclar de forma segura [textlink="botellas" link="GasCanisters"], [textlink="depuradores portátiles" link="PortableScrubber"], [textlink="condensadores" link="GasCondensing"] y [textlink="termomáquinas" link="Thermomachines"].
 
   <Box>
     <GuideEntityEmbed Entity="GasPipeStraight" Caption=""/>
@@ -21,10 +21,10 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="GasPipeFourway" Caption=""/>
   </Box>
   <Box>
-    ## Pipes
+    ## Tuberías
   </Box>
   <Box>
-    [color=#999999][italic]Distributing gasses from one place to another[italic][/color]
+    [color=#999999][italic]Distribuir gases de un lugar a otro[italic][/color]
   </Box>
 
   <Box>
@@ -32,10 +32,10 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="GasVolumePump" Caption=""/>
   </Box>
   <Box>
-    ## Pumps
+    ## Bombas
   </Box>
   <Box>
-    [color=#999999][italic]Forcing the movement of gasses from one place to another[italic][/color]
+    [color=#999999][italic]Forzar el movimiento de gases de un lugar a otro[italic][/color]
   </Box>
 
   <Box>
@@ -46,10 +46,10 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="PortableScrubber" Caption=""/>
   </Box>
   <Box>
-    ## Atmosphere Input and Output
+    ## Entrada y Salida de Atmósfera
   </Box>
   <Box>
-    [color=#999999][italic]Inserting and extracting gasses from a present (or non-present) atmosphere[italic][/color]
+    [color=#999999][italic]Insertar y extraer gases de una atmósfera presente (o inexistente)[italic][/color]
   </Box>
 
   <Box>
@@ -59,10 +59,10 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="GasPassiveGate" Caption=""/>
   </Box>
   <Box>
-    ## Valves
+    ## Válvulas
   </Box>
   <Box>
-    [color=#999999][italic]Controlling the flow of gas through pipes[italic][/color]
+    [color=#999999][italic]Controlar el flujo de gas a través de las tuberías[italic][/color]
   </Box>
 
   <Box>
@@ -70,10 +70,10 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="GasFilter" Caption=""/>
   </Box>
   <Box>
-    ## Mixing and Filtering
+    ## Mezcla y Filtrado
   </Box>
   <Box>
-    [color=#999999][italic]Manipulating the composition of gas[italic][/color]
+    [color=#999999][italic]Manipular la composición de los gases[italic][/color]
   </Box>
 
   <Box>
@@ -85,10 +85,10 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="GasPort" Caption=""/>
   </Box>
   <Box>
-    ## Gas Canisters
+    ## Botellas de Gas
   </Box>
   <Box>
-    [color=#999999][italic]Storing and transporting gas for easy use by the crew[italic][/color]
+    [color=#999999][italic]Almacenar y transportar gas para un uso sencillo por parte de la tripulación[italic][/color]
   </Box>
 
   <Box>
@@ -98,19 +98,19 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="HeatExchanger" Caption=""/>
   </Box>
   <Box>
-    ## Thermomachines and Radiators
+    ## Termomáquinas y Radiadores
   </Box>
   <Box>
-    [color=#999999][italic]Manipulating the temperature of gasses in a pipenet or atmosphere[italic][/color]
+    [color=#999999][italic]Manipular la temperatura de los gases en una red de tuberías o en la atmósfera[italic][/color]
   </Box>
 
   <Box>
     <GuideEntityEmbed Entity="BaseGasCondenser" Caption=""/>
   </Box>
   <Box>
-    ## Gas Condensing
+    ## Condensación de Gases
   </Box>
   <Box>
-    [color=#999999][italic]Condensing gasses for further use[italic][/color]
+    [color=#999999][italic]Condensar gases para su uso posterior[italic][/color]
   </Box>
 </Document>

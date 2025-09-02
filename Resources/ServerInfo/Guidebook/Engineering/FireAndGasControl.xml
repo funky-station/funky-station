@@ -7,9 +7,9 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Fire and Gas Control
-  Unfortunately, [textlink="fires" link="Fires"], [textlink="spacing" link="Spacing"], and other [textlink="atmospheric upsets" link="AtmosphericUpsets"] are a common occurrence on the station.
-  These upsets can quickly spread throughout the station and make the atmosphere uninhabitable for the crew.
+  # Control de Fuego y Gases
+  Lamentablemente, los [textlink="incendios" link="Fires"], [textlink="exposición al espacio" link="Spacing"] y otros [textlink="problemas atmosféricos" link="AtmosphericUpsets"] son algo común en la estación.
+  Estos problemas pueden propagarse rápidamente por toda la estación y volver la atmósfera inhabitable para la tripulación.
 
   <Box>
     <GuideEntityEmbed Entity="Firelock"/>
@@ -18,33 +18,33 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="FireAlarm"/>
   </Box>
 
-  To combat this, stations have a variety of devices to help prevent these upsets from spreading.
+  Para combatir esto, las estaciones cuentan con una variedad de dispositivos que ayudan a prevenir la propagación de estos problemas.
 
-  ## Firelocks
-  Firelocks are a simple and effective way to prevent fires from spreading throughout the station.
+  ## Cortafuegos
+  Los cortafuegos son una manera simple y efectiva de evitar que los incendios se propaguen por la estación.
 
-  Based on conditions sensed by the firelock, or through instruction from a connected [textlink="air" link="AirAlarms"] or fire alarm, they can close off sections of the station to prevent the spread of dangerous conditions.
+  Según las condiciones detectadas por el cortafuegos, o por instrucciones de una [textlink="alarma de aire" link="AirAlarms"] o alarma contra incendios conectada, pueden cerrar secciones de la estación para evitar la propagación de condiciones peligrosas.
 
-  ## Station Sectioning
-  Firelocks are intentionally placed in key areas to divide the station into sections. Open spaces like hallways or promenades are divided into smaller sections. This prevents the spread of dangerous conditions to the entire station through connected rooms, hallways, and other open spaces.
+  ## Seccionamiento de la Estación
+  Los cortafuegos se colocan intencionalmente en áreas clave para dividir la estación en secciones. Espacios abiertos como pasillos o paseos se dividen en secciones más pequeñas. Esto evita que las condiciones peligrosas se extiendan a toda la estación a través de habitaciones conectadas, pasillos y otros espacios abiertos.
 
-  ## Basic Operation
-  When not connected to an [textlink="air alarm" link="AirAlarms"] or fire alarm, firelocks will function based on the conditions they sense. Firelocks will drop (close) if:
-  - The temperature between the two sides of the firelock is different by [color=orange][protodata="Firelock" comp="Firelock" member="TemperatureThreshold"/] K[/color] or more.
-  - The pressure between the two sides of the firelock is different by [color=orange][protodata="Firelock" comp="Firelock" member="PressureThreshold"/] kPa[/color] or more.
+  ## Operación Básica
+  Cuando no están conectados a una [textlink="alarma de aire" link="AirAlarms"] o a una alarma contra incendios, los cortafuegos funcionan según las condiciones que detectan. Los cortafuegos se cerrarán si:
+  - La diferencia de temperatura entre ambos lados es de [color=orange][protodata="Firelock" comp="Firelock" member="TemperatureThreshold"/] K[/color] o más.
+  - La diferencia de presión entre ambos lados es de [color=orange][protodata="Firelock" comp="Firelock" member="PressureThreshold"/] kPa[/color] o más.
 
-  If these conditions continue, the firelock will enter lockout mode. Firelocks in lockout mode will have [color=red]red[/color] lights and cannot be pried open by hand. They can only be opened by people with Engineering access or by using a crowbar.
+  Si estas condiciones continúan, el cortafuegos entrará en modo de bloqueo. Los cortafuegos en este modo tendrán luces [color=red]rojas[/color] y no podrán abrirse a mano. Solo pueden abrirlos personas con acceso de Ingeniería o con una palanca.
 
-  Firelocks in lockout mode cannot be opened by using Engineering access if they are unpowered. Only a crowbar can open an unpowered firelock in lockout mode.
+  Los cortafuegos en modo de bloqueo no pueden abrirse con acceso de Ingeniería si están sin energía. Solo una palanca puede abrir un cortafuegos sin energía en este estado.
 
-  If the conditions between the two sides of the firelock return to within acceptable differences, the firelock will disable lockout mode, and can be opened by anyone.
-  Note that this only means that the conditions are the same on both sides of the firelock, not that they are safe.
+  Si las condiciones entre ambos lados del cortafuegos vuelven a estar dentro de las diferencias aceptables, este saldrá del modo de bloqueo y podrá abrirlo cualquiera.
+  Ten en cuenta que esto solo significa que las condiciones son iguales en ambos lados del cortafuegos, no que sean seguras.
 
-  A common example of this is a firelock that has released due to both sides being exposed to space.
+  Un ejemplo común es un cortafuegos que se activó porque ambos lados están expuestos al espacio.
 
-  ## Connecting to Air and Fire Alarms
-  Firelocks can be connected to [textlink="air alarms" link="AirAlarms"] and fire alarms to receive instructions on when to drop.
-  Firelocks use the [textlink="List system" link="Networking"], and you can connect these devices using a multitool or network configurator.
+  ## Conexión con Alarmas de Aire y de Incendios
+  Los cortafuegos pueden conectarse a [textlink="alarmas de aire" link="AirAlarms"] y alarmas contra incendios para recibir instrucciones sobre cuándo cerrarse.
+  Los cortafuegos usan el [textlink="sistema de Listas" link="Networking"], y puedes conectar estos dispositivos con una multiherramienta o un configurador de red.
 
   <Box>
     <GuideEntityEmbed Entity="Firelock" Caption=""/>
@@ -54,32 +54,32 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="AirAlarm" Caption=""/>
   </Box>
 
-  Each firelock has its own unique address. The process for connecting air vents, scrubbers, and sensors to air alarms is very similar.
+  Cada cortafuegos tiene su propia dirección única. El proceso para conectar rejillas de ventilación, filtros y sensores a las alarmas de aire es muy similar.
 
-  ## Operation Under Air Alarms
-  When connected to an air alarm, firelocks will also drop under the command of the connected [textlink="air alarm" link="AirAlarms"].
+  ## Funcionamiento con Alarmas de Aire
+  Cuando están conectados a una alarma de aire, los cortafuegos también se cerrarán bajo la orden de la [textlink="alarma de aire" link="AirAlarms"] conectada.
 
-  Firelocks will drop if the air alarm reaches a [color=red]Danger[/color] alert state. Firelocks will remain dropped until the air alarm returns to a [color=green]Green[/color] alert state.
+  Los cortafuegos se cerrarán si la alarma de aire entra en estado de alerta [color=red]Peligro[/color]. Permanecerán cerrados hasta que la alarma vuelva al estado [color=green]Verde[/color].
 
-  Firelocks that are in lockout mode will not raise even if the air alarm returns to a [color=green]Green[/color] alert state. Even if the pressure difference is resolved, the firelock will remain dropped until the air alarm re-sends a green alert state.
+  Los cortafuegos en modo de bloqueo no se abrirán aunque la alarma de aire vuelva al estado [color=green]Verde[/color]. Incluso si se resuelve la diferencia de presión, el cortafuegos permanecerá cerrado hasta que la alarma de aire reenvíe el estado verde.
 
-  ## Operation Under Fire Alarms
-  When connected to a fire alarm, firelocks will drop if the fire alarm is triggered. Firelocks will remain dropped until the fire alarm is reset.
+  ## Funcionamiento con Alarmas de Incendio
+  Cuando están conectados a una alarma contra incendios, los cortafuegos se cerrarán si esta se activa. Permanecerán cerrados hasta que la alarma se reinicie.
 
-  ## Fire Alarms
-  Fire alarms are devices that can be used to centrally control all connected firelocks.
+  ## Alarmas de Incendio
+  Las alarmas contra incendios son dispositivos que pueden usarse para controlar centralmente todos los cortafuegos conectados.
 
   <Box>
     <GuideEntityEmbed Entity="FireAlarm"/>
   </Box>
 
-  Devices with sensors can be [textlink="linked" link="Networking"] to fire alarms, which will trigger the fire alarm if the sensor enters the [color=red]Danger[/color] temperature threshold as defined by its sensors.
+  Los dispositivos con sensores pueden [textlink="vincularse" link="Networking"] a las alarmas contra incendios, las cuales se activarán si el sensor entra en el umbral de temperatura [color=red]Peligro[/color] definido por sus sensores.
 
-  When the fire alarm is triggered, all connected firelocks will be overridden with a [color=red]Danger[/color] alert state and will drop.
+  Cuando la alarma contra incendios se activa, todos los cortafuegos conectados se forzarán al estado de alerta [color=red]Peligro[/color] y se cerrarán.
 
-  The alarm will automatically clear itself when the sensor returns to a [color=green]Normal[/color] temperature threshold.
+  La alarma se desactivará automáticamente cuando el sensor vuelva a un umbral de temperatura [color=green]Normal[/color].
 
-  You can trigger and reset a fire alarm manually by interacting with it.
+  Puedes activar y reiniciar una alarma contra incendios manualmente interactuando con ella.
 
-  This can be used to quickly drop firelocks in a room manually, or to raise them after an upset has been resolved.
+  Esto puede usarse para cerrar rápidamente los cortafuegos de una sala de forma manual, o para abrirlos después de que un problema haya sido resuelto.
 </Document>

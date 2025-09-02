@@ -14,20 +14,20 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Engineering
-  [color=#f39f27]Engineering[/color] is a combination of [textlink="construction" link="Construction"] work, [textlink="repair" link="ExpandingRepairingStation"] work, maintaining a death machine that happens to produce [textlink="power" link="Power"], and making sure the station contains [textlink="breathable air" link="Atmospherics"].
+  # Ingeniería
+  [color=#f39f27]Ingeniería[/color] es una combinación de trabajo de [textlink="construcción" link="Construction"], trabajo de [textlink="reparación" link="ExpandingRepairingStation"], mantener una máquina mortal que de paso produce [textlink="energía" link="Power"], y asegurarse de que la estación contenga [textlink="aire respirable" link="Atmospherics"].
 
-  ## Personnel
-  [color=#f39f27]Engineering[/color]'s staff is made up of Technical Assistants, Station Engineers and Atmospheric Technicians.
-  Engineering is run by the Chief Engineer.
+  ## Personal
+  El personal de [color=#f39f27]Ingeniería[/color] está compuesto por Asistentes Técnicos, Ingenieros de Estación y Técnicos Atmosféricos.
+  Ingeniería está dirigida por el Ingeniero Jefe.
 
   <Box>
-    <GuideEntityEmbed Entity="ToyFigurineEngineer" Caption="Engineer"/>
-    <GuideEntityEmbed Entity="ToyFigurineAtmosTech" Caption="Atmosian"/>
-    <GuideEntityEmbed Entity="ToyFigurineChiefEngineer" Caption="CE"/>
+    <GuideEntityEmbed Entity="ToyFigurineEngineer" Caption="Ingeniero"/>
+    <GuideEntityEmbed Entity="ToyFigurineAtmosTech" Caption="Atmosiano"/>
+    <GuideEntityEmbed Entity="ToyFigurineChiefEngineer" Caption="IJ"/>
   </Box>
 
-  ## Tools
+  ## Herramientas
   <Box>
     <GuideEntityEmbed Entity="Wrench"/>
     <GuideEntityEmbed Entity="Crowbar"/>
@@ -39,8 +39,8 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="Multitool"/>
     <GuideEntityEmbed Entity="NetworkConfigurator"/>
   </Box>
-  Your core toolset is a small variety of tools.
-  If you're an engineer, then you should have a belt on your waist containing one of each; if not, you can likely find them in maintenance shafts and in tool storage within assorted toolboxes and vending machines.
+  Tu set de herramientas principal es una pequeña variedad de instrumentos.
+  Si eres ingeniero, deberías llevar un cinturón en la cintura con uno de cada tipo; si no, probablemente puedas encontrarlos en los túneles de mantenimiento y en el almacén de herramientas dentro de cajas de herramientas surtidas y máquinas expendedoras.
 
-  Most tasks will have explainers for how to perform them on examination; for example, if you're [textlink="constructing" link="Construction"] a wall, it'll tell you the next step if you look at it a bit closer.
+  La mayoría de las tareas tendrán instrucciones sobre cómo realizarlas al examinarlas; por ejemplo, si estás [textlink="construyendo" link="Construction"] una pared, te dirá el siguiente paso si la miras más de cerca.
 </Document>

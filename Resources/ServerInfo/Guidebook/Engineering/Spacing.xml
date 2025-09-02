@@ -7,25 +7,24 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Spacing
-  Spacing is the most common form of atmospheric upset that can occur on the station.
+  # Despresurización
+  La despresurización es la forma más común de alteración atmosférica que puede ocurrir en la estación.
 
-  While the damage that caused the spacing is often time-consuming to [textlink="fix" link="ExpandingRepairingStation"], the actual spacing problem can be quickly resolved by simply repressurizing the area.
+  Aunque el daño que causó la despresurización suele requerir tiempo para [textlink="reparar" link="ExpandingRepairingStation"], el problema de la despresurización en sí puede resolverse rápidamente simplemente re-presurizando el área.
 
-  Fixing spacing generally follows two simple steps:
+  Reparar la despresurización generalmente sigue dos pasos simples:
 
-  1. Identify the area that has been spaced and [textlink="seal the hole." link="ExpandingRepairingStation"]
+  1. Identificar el área que ha sido despresurizada y [textlink="sellar el agujero." link="ExpandingRepairingStation"]
 
-  - If you're having trouble finding the hole, you can carefully listen for the flow of air rushing by you, if air is currently leaking to space.
-  - Look for any holes underneath girders that may be hard to see.
+  - Si tienes problemas para encontrar el agujero, puedes escuchar cuidadosamente el flujo de aire pasando cerca de ti, si el aire se está escapando al espacio.
+  - Busca cualquier agujero debajo de vigas que pueda ser difícil de ver.
 
-  2. Repressurize the area.
+  2. Re-presurizar el área.
 
-  - [textlink="Air vents" link="AirVent"] enter pressure lockout in order not to lose more air to spacing, so you'll need to override the vents to repressurize the area. You can do this by setting the connected [textlink="air alarm" link="AirAlarms"] to fill, or by right-clicking on the vent and selecting 'Release pressure lock out' to manually override it temporarily.
+  - Los [textlink="conductos de aire" link="AirVent"] entran en bloqueo de presión para evitar perder más aire por la despresurización, por lo que necesitarás anular los conductos para re-presurizar el área. Esto se puede hacer configurando la [textlink="alarma de aire" link="AirAlarms"] conectada en modo de llenado, o haciendo clic derecho en el conducto y seleccionando "Liberar bloqueo de presión" para anularlo manualmente de forma temporal.
 
-  ## Things to Avoid
-  - Keep in mind that while you have an infinite supply of [textlink="mined gas" link="GasMiningAndStorage"], it is not quick enough to fill up multiple rooms at once. Setting [textlink="air alarms" link="AirAlarms"] to fill first [italic]before[/italic] fixing the root problem will often lead to wasted time and gas.
+  ## Cosas a Evitar
+  - Ten en cuenta que, aunque tengas un suministro infinito de [textlink="gas extraído" link="GasMiningAndStorage"], no es lo suficientemente rápido para llenar varias habitaciones a la vez. Configurar las [textlink="alarmas de aire" link="AirAlarms"] en modo llenado antes de solucionar el problema raíz a menudo lleva a perder tiempo y gas.
 
-  - Leaving [textlink="air alarms" link="AirAlarms"] on the Fill mode unsupervised may lead to overpressuring a room, which can potentially harm crew if it gets out of hand.
-
+  - Dejar las [textlink="alarmas de aire" link="AirAlarms"] en modo Llenado sin supervisión puede causar sobrepresurización de una habitación, lo que potencialmente puede dañar a la tripulación si se descontrola.
 </Document>

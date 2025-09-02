@@ -15,34 +15,29 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Antimatter Engine (AME)
-  The Antimatter Engine is a short-term support generator for the station, providing a sizable chunk of power for a limited time.
+  # Motor de Antimateria (AME)
+  El Motor de Antimateria es un generador de soporte a corto plazo para la estación, proporcionando una cantidad significativa de energía por un tiempo limitado.
 
-  It's mainly used to assist engineers in starting up bigger engines like the [textlink="Singularity Engine" link="SingularityEngine"] or [textlink="Tesla Engine" link="TeslaEngine"], by supplementing the station's [textlink="batteries" link="PowerStorage"] with partial power to extend their runtime.
+  Se utiliza principalmente para asistir a los ingenieros al iniciar motores más grandes como el [textlink="Motor de Singularidad" link="SingularityEngine"] o el [textlink="Motor Tesla" link="TeslaEngine"], suplementando las [textlink="baterías" link="PowerStorage"] de la estación con energía parcial para extender su tiempo de funcionamiento.
 
-  ## Construction
-  <Box>Required parts:</Box>
+  ## Construcción
+  <Box>Partes requeridas:</Box>
   <Box>
-  <GuideEntityEmbed Entity="AmeController"/>
-  <GuideEntityEmbed Entity="AmePartFlatpack"/>
-  <GuideEntityEmbed Entity="AmeJar"/>
+    <GuideEntityEmbed Entity="AmeController"/>
+    <GuideEntityEmbed Entity="AmePartFlatpack"/>
+    <GuideEntityEmbed Entity="AmeJar"/>
   </Box>
 
-  The AME Controller is the part of the AME that outputs power to the station's grid through an [textlink="HV connection" link="VoltageNetworks"].
-  Because of this, you'll want to start your AME construction with the controller on top of an [color=orange]HV wire[/color].
+  El Controlador AME es la parte del AME que entrega energía a la red de la estación a través de una [textlink="conexión HV" link="VoltageNetworks"].
+  Por ello, se recomienda iniciar la construcción del AME colocando el controlador sobre un [color=orange]cable HV[/color].
 
-  Most stations have exposed [color=orange]HV wiring[/color] or designated spots to wrench an AME controller, so that it connects to the grid.
+  La mayoría de las estaciones tienen [color=orange]cables HV[/color] expuestos o lugares designados para instalar un controlador AME, conectándolo así a la red.
 
-  AME shielding is the physical structure that makes the antimatter engine. It's made by converting AME flatpacks into shielding using a multitool.
+  El blindaje del AME es la estructura física que conforma el motor de antimateria. Se fabrica convirtiendo los flatpacks de AME en blindaje usando un multitool.
 
-  To construct an AME, start putting down a 3x3 or larger square of AME flatpacks in preparation for construction, making sure to maximize the number of "center" pieces that are surrounded on all eight sides.
-  The greater amount of center pieces, the more cores your AME will have, and the more power it will be able to output safely.
+  Para construir un AME, coloca un cuadrado de 3x3 o mayor de flatpacks de AME en preparación para la construcción, asegurándote de maximizar la cantidad de piezas "centrales" rodeadas en los ocho lados.
+  Cuantas más piezas centrales haya, más núcleos tendrá tu AME y mayor potencia podrá entregar de forma segura.
 
-  <Box>
-    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
-    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
-    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
-  </Box>
   <Box>
     <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
     <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
@@ -53,8 +48,13 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
     <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
   </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+  </Box>
 
-  Once this is done, you can use a multitool to convert each AME flatpack into shielding, which should form a finished AME configuration.
+  Una vez hecho esto, puedes usar un multitool para convertir cada flatpack de AME en blindaje, formando así una configuración de AME completa.
 
   <GuideEntityEmbed Entity="AmeController" Caption=""/>
   <Box>
@@ -73,20 +73,19 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="AmeShielding" Caption="" Margin="0"/>
   </Box>
   <Box>
-    [color=#999999][italic]An example of a one core setup[italic][/color]
+    [color=#999999][italic]Un ejemplo de una configuración de un núcleo[italic][/color]
   </Box>
 
-  ## Operation
-  To start the AME, insert a fuel jar into the AME controller, and set the safe injection rate.
+  ## Operación
+  Para iniciar el AME, inserta un frasco de combustible en el controlador AME y ajusta la tasa de inyección segura.
 
-  The safe injection rate is the point where the AME can safely run without overheating, while maximizing power output.
+  La tasa de inyección segura es el punto donde el AME puede funcionar sin sobrecalentarse, mientras maximiza la entrega de energía.
 
-  This rate is always twice the core count.
+  Esta tasa siempre es el doble del número de núcleos.
 
-  For example, an AME with one core will have a safe injection rate of 2. With two cores, the safe injection rate would be 4, and so on.
+  Por ejemplo, un AME con un núcleo tendrá una tasa de inyección segura de 2. Con dos núcleos, la tasa segura sería 4, y así sucesivamente.
 
-  Any more than this ratio will eventually result in the engine [color=#ff0000]overheating[/color] and, shortly afterwards, [color=#ff0000]exploding[/color].
+  Superar esta proporción resultará eventualmente en que el motor [color=#ff0000]se sobrecaliente[/color] y, poco después, [color=#ff0000]explote[/color].
 
-  The AME controller will [textlink="report" link="InspectingPower"] on both the amount of power it is providing to the grid, and the theoretical maximum power it could provide if demanded.
-
+  El controlador AME [textlink="reportará" link="InspectingPower"] tanto la cantidad de energía que está proporcionando a la red como la potencia máxima teórica que podría suministrar si se le exige.
 </Document>

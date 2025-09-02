@@ -7,17 +7,17 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Passive Vent
-  The passive vent is an extremely basic vent.
-  It serves as a direct connection between the pipenet it's connected to and the atmosphere it's exposed to.
+  # Respiradero Pasivo
+  El respiradero pasivo es un respiradero extremadamente básico.
+  Funciona como una conexión directa entre la red de tuberías a la que está conectado y la atmósfera a la que está expuesto.
   <Box>
     <GuideEntityEmbed Entity="GasPassiveVent"/>
   </Box>
-  Gasses are free to move between the passive vent and the atmosphere it's connected to.
-  The passive vent requires no [textlink="power" link="Power"] to function.
+  Los gases pueden moverse libremente entre el respiradero pasivo y la atmósfera a la que está conectado.
+  El respiradero pasivo no requiere [textlink="energía" link="Power"] para funcionar.
 
-  This vent is commonly found in the station's [textlink="gas storage tanks" link="GasMiningAndStorage"] and connected to the station's wastenet.
-  It is a simple and reliable way to pull gasses from a gas miner, or to space unwanted gasses safely.
+  Este respiradero se encuentra comúnmente en los [textlink="tanques de almacenamiento de gas" link="GasMiningAndStorage"] de la estación y conectado a la red de desechos de la estación.
+  Es una forma simple y confiable de extraer gases de un minero de gas o de expulsar gases no deseados al espacio de manera segura.
 
-  The passive vent can be welded with any welding tool to stop it from functioning.
+  El respiradero pasivo puede ser soldado con cualquier herramienta de soldadura para evitar que funcione.
 </Document>

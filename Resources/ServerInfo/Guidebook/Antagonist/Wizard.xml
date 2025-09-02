@@ -6,32 +6,33 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # The Wizard
+  # El Mago
 
   <Box>
-    [color=#457573][italic]IT'S WIZARD TIME MOTHERF-...[italic][/color]
+    [color=#457573][italic]¡ES HORA DEL MAGO, HIJOS DE P-...[italic][/color]
   </Box>
   <Box>
     <GuideEntityEmbed Entity="ToyFigurineWizard" Caption=""/>
   </Box>
-  Wizards are a force of chaos and unpredictability. You never know what one is going to do next.
-  Generally sent by the [color=#40E0D0]Space Wizards Federation[/color] or some schmuck turned into one by rolling a nat 20 on a cursed die.
-  And since a Wizard is highly unpredictable, one may show up when you least expect it!
 
-  ## The Grimoire
+  Los magos son una fuerza de caos e imprevisibilidad. Nunca sabes qué hará uno a continuación.
+  Generalmente enviados por la [color=#40E0D0]Federación de Magos Espaciales[/color] o algún tipo convertido en mago tras sacar un 20 natural en un dado maldito.
+  Y como un mago es altamente impredecible, ¡uno puede aparecer cuando menos lo esperes!
+
+  ## El Grimorio
   <Box>
-    <GuideEntityEmbed Entity="WizardsGrimoire" Caption="Wizards Grimoire"/>
+    <GuideEntityEmbed Entity="WizardsGrimoire" Caption="Grimorio del Mago"/>
   </Box>
 
-  [bold]By wizard law of eld your Grimoire is bound to you.[/bold] This means you cannot share your Grimoire with anyone else. The spells and equipment inside are for you and you alone.
-  The Wizard's Grimoire is used to get all sorts of magical spells, equipment, and creatures. What's available to you is [italic]extremely powerful[/italic] so you only have 10 [color=#FF0000]W[/color][color=#FFA500]i[/color][color=#FFFF00]z[/color][color=#00FF00]€[/color][color=#0000FF]o[/color][color=#4B0082]i[/color][color=#8F00FF]n[/color]™ to spend on them.
-  Your only limit, other than the price, is your creativity. Try to find some combinations!
+  [bold]Por la ley mágica ancestral, tu Grimorio está ligado a ti.[/bold] Esto significa que no puedes compartir tu Grimorio con nadie más. Los hechizos y equipos que contiene son solo para ti.
+  El Grimorio del Mago se utiliza para obtener todo tipo de hechizos mágicos, equipos y criaturas. Lo que esté disponible para ti es [italic]extremadamente poderoso[/italic], así que solo cuentas con 10 [color=#FF0000]M[/color][color=#FFA500]a[/color][color=#FFFF00]g[/color][color=#00FF00]i[/color][color=#0000FF]€[/color][color=#4B0082]o[/color][color=#8F00FF]s[/color]™ para gastarlos.
+  Tu único límite, además del costo, es tu creatividad. ¡Intenta encontrar combinaciones!
 
   <Box>
-    <GuideEntityEmbed Entity="PonderingOrbWizard" Caption="The Pondering Orb"/>
+    <GuideEntityEmbed Entity="PonderingOrbWizard" Caption="La Orbe Meditativa"/>
   </Box>
 
-  If you ever find yourself wanting to ponder, look no further! The [bold]Pondering Orb[/bold] allows the Wizard to tap into the Station's camera network to spy on others unsuspectingly.
-  Could be useful if you're trying to plan something out or stay one step ahead of [color=red]Security[/color].
+  Si alguna vez quieres reflexionar, ¡no busques más! La [bold]Orbe Meditativa[/bold] permite al Mago acceder a la red de cámaras de la estación para espiar a otros sin ser visto.
+  Puede ser útil si estás planeando algo o intentando mantenerte un paso adelante de [color=red]Seguridad[/color].
 
 </Document>

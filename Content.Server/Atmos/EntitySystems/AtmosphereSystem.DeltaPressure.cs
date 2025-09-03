@@ -46,7 +46,7 @@ public sealed partial class AtmosphereSystem
         for (var i = 0; i < Atmospherics.Directions; i++)
         {
             var direction = (AtmosDirection)(1 << i);
-            var offset = currentPos.Offset(direction);
+            var offset = ent.Comp.CurrentPosition.Offset(direction);
             tiles[i] = gridAtmosComp.Tiles.GetValueOrDefault(offset);
         }
 
@@ -176,7 +176,7 @@ public sealed partial class AtmosphereSystem
     /// containing the queue.</param>
     /// <param name="pressure">The current absolute pressure being experienced by the entity.</param>
     /// <param name="delta">The current delta pressure being experienced by the entity.</param>
-    private void EnqueueDeltaPressureDamage(Entity<DeltaPressureComponent> ent,
+    private static void EnqueueDeltaPressureDamage(Entity<DeltaPressureComponent> ent,
         GridAtmosphereComponent gridAtmosComp,
         float pressure,
         float delta)
@@ -185,7 +185,7 @@ public sealed partial class AtmosphereSystem
         var aboveMinDeltaPressure = delta > ent.Comp.MinPressureDelta;
         if (!aboveMinPressure && !aboveMinDeltaPressure)
         {
-            SetIsTakingDamageState(ent, false);
+            ent.Comp.IsTakingDamage = false;
             return;
         }
 
@@ -248,24 +248,10 @@ public sealed partial class AtmosphereSystem
     private void PerformDamage(Entity<DeltaPressureComponent> ent, float pressure, float deltaPressure)
     {
         var maxPressure = Math.Max(pressure - ent.Comp.MinPressure, deltaPressure - ent.Comp.MinPressureDelta);
-        var maxPressureCapped = Math.Min(maxPressure, ent.Comp.MaxEffectivePressure);
-        var appliedDamage = ScaleDamage(ent, ent.Comp.BaseDamage, maxPressureCapped);
+        var appliedDamage = ScaleDamage(ent, ent.Comp.BaseDamage, maxPressure);
 
-        _damage.ChangeDamage(ent.Owner, appliedDamage, ignoreResistances: true, interruptsDoAfters: false);
-        SetIsTakingDamageState(ent, true);
-    }
-
-    /// <summary>
-    /// Helper function to prevent spamming clients with dirty events when the damage state hasn't changed.
-    /// </summary>
-    /// <param name="ent">The entity to check.</param>
-    /// <param name="toSet">The value to set.</param>
-    private void SetIsTakingDamageState(Entity<DeltaPressureComponent> ent, bool toSet)
-    {
-        if (ent.Comp.IsTakingDamage == toSet)
-            return;
-        ent.Comp.IsTakingDamage = toSet;
-        Dirty(ent);
+        _damage.TryChangeDamage(ent, appliedDamage, ignoreResistances: true, interruptsDoAfters: false);
+        ent.Comp.IsTakingDamage = true;
     }
 
     /// <summary>

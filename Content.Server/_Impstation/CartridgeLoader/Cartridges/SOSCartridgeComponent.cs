@@ -12,7 +12,6 @@ namespace Content.Server._Impstation.CartridgeLoader.Cartridges;
 [RegisterComponent]
 public sealed partial class SOSCartridgeComponent : Component
 {
-    [DataField]
     //Path to the id container
     public const string PDAIdContainer = "PDA-id";
 

@@ -164,3 +164,14 @@
   - type: Mail
     contents:
     - id: BalloonSyn
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailWehPackage
+  suffix: Weh Package
+  components:
+  - type: Mail
+    contents:
+    - id: WehMedipen
+    - id: WehpetInstrument
+    - id: ClothingHeadWehcellentCap

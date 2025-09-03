@@ -1,0 +1,165 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailFilledBelt
+  suffix: Utility Belt
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingBeltUtilityFilled
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailBetterFilledBelt
+  suffix: CE Belt
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingBeltChiefEngineerFilled
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailInsuls
+  suffix: Insuls
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHandsGlovesColorYellow
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailFakeInsuls
+  suffix: Fake Insuls
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHandsGlovesConducting
+
+- type: entity
+  parent: BaseMail
+  id: MailBadCigs
+  suffix: Bad Cigarretes
+  components:
+  - type: Mail
+    contents:
+    - id: CigPackMixedRejects
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailBalloonNukies
+  suffix: BalloonNukies
+  components:
+  - type: Mail
+    contents:
+    - id: BalloonCommander
+    - id: BalloonOperative
+    - id: BalloonAgent
+    - id: BalloonJuggernaut
+    - id: BalloonElite
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailFoamCrossbows
+  suffix: Foam Crossbows
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: FoamCrossbow
+      amount: 2
+    - id: BoxDonkSoftBox
+    - id: GrenadeFoamDart
+      amount: 2
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailFoamGuns
+  suffix: FoamGuns
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: WeaponRifleFoam
+      amount: 2
+    - id: BoxDonkSoftBox
+    - id: GrenadeFoamDart
+      amount: 2
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailPresent
+  suffix: Present
+  components:
+  - type: Mail
+    contents:
+    - id: PresentRandom
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailFoamBlade
+  suffix: Foam Blade
+  components:
+  - type: Mail
+    contents:
+    - id: FoamBlade
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailPracticeGuns
+  suffix: Practice Guns
+  components:
+  - type: Mail
+    contents:
+    - id: WeaponLaserCarbinePractice
+      amount: 2
+    - id: WeaponDisablerPractice
+      amount: 2
+
+- type: entity
+  parent: BaseMail
+  id: MailCatEars
+  suffix: Cat Ears
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHeadHatCatEars
+
+- type: entity
+  parent: BaseMail
+  id: MailCatEars
+  suffix: Cat Ears
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHeadHatCatEars
+
+- type: entity
+  parent: BaseMail
+  id: MailCorgiBalloon
+  suffix: Corgi Balloon
+  components:
+  - type: Mail
+    contents:
+    - id: BalloonCorgi
+
+- type: entity
+  parent: BaseMail
+  id: MailNTBalloon
+  suffix: NT Balloon
+  components:
+  - type: Mail
+    contents:
+    - id: BalloonNT
+
+- type: entity
+  parent: BaseMail
+  id: MailSynBalloon
+  suffix: Syndicate Balloon
+  components:
+  - type: Mail
+    contents:
+    - id: BalloonSyn

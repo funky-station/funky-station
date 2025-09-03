@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailSyndicateSurplus
+  suffix: Syndicate Surplus
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingUniformJumpsuitIMDSyndicate
+    - id: ClothingUniformJumpsuitCCRSyndicate
+    - id: ClothingUniformJumpsuitCHESyndicate
+    - id: ClothingUniformJumpsuitWSMSyndicate
+    - id: ClothingUniformJumpsuitHRDSyndicate
+    - id: ClothingHeadHatHRDCapSyndicate
+    - id: ClothingUniformJumpsuitGCMSyndicate
+    - id: ClothingUniformJumpsuitWSMSyndicate
+    - id: ClothingUniformJumpsuitHCRSyndicate #why is this broken

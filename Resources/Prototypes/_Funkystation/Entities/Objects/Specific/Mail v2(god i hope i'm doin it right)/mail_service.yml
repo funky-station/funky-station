@@ -1,0 +1,131 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+#Chaplain
+- type: entity
+  parent: BaseMail
+  id: MailChapCandles
+  suffix: Candles
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: BoxCandleSmall
+      amount: 1
+      orGroup: ChapCandles
+      prob: 0.7
+    - id: CandleBlackInfinite
+      amount: 2
+      orGroup: ChapCandles
+      prob: 0.05
+    - id: CandleBlueInfinite
+      amount: 2
+      orGroup: ChapCandles
+      prob: 0.05
+    - id: CandleInfinite
+      amount: 2
+      orGroup: ChapCandles
+      prob: 0.05
+    - id: CandleGreenInfinite
+      amount: 2
+      orGroup: ChapCandles
+      prob: 0.05
+    - id: CandlePurpleInfinite
+      amount: 2
+      orGroup: ChapCandles
+      prob: 0.05
+    - id: CandleRedInfinite
+      amount: 2
+      orGroup: ChapCandles
+      prob: 0.05
+#Bartender
+- type: entity
+  parent: BaseMail
+  id: MailBartenderTools
+  suffix: Bartender Tools
+  components:
+  - type: Mail
+    contents:
+    - id: ShellShotgunBeanbag
+      amount: 6
+      orGroup: Bartools
+    - id: DrinkJigger
+      amount: 2
+      orGroup: Bartools
+    - id: DrinkShaker
+      orGroup: Bartools
+    - id: BoxMousetrap
+      orGroup: Bartools
+    - id: SprayBottleSpaceCleaner
+      orGroup: Bartools
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailBartenderKeg
+  suffix: Bartender Keg
+  components:
+  - type: Mail
+    contents:
+    - id: NuclearBombKeg
+
+- type: entity
+  parent: BaseMail
+  id: MailBartenderPremiumBooze
+  suffix: Premium Booze
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: DrinkPremiumTequilaBottleFull
+      orGroup: PremiumBooze
+    - id: DrinkPremiumRumBottleFull
+      orGroup: PremiumBooze
+    - id: DrinkPremiumGinBottleFull
+      orGroup: PremiumBooze
+    - id: DrinkPremiumAbsintheBottleFull
+      orGroup: PremiumBooze
+    - id: DrinkPremiumVodkaBottleFull
+      orGroup: PremiumBooze
+    - id: DrinkWineBottleFull
+      orGroup: PremiumBooze
+    - id: DrinkPremiumWhiskeyBottleFull
+      orGroup: PremiumBooze
+#Janitor
+- type: entity
+  parent: BaseMail
+  id: MailJanitorReplacementLights
+  suffix: Janitor Replacement Lights
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: BoxLighttubeHoliday
+      orGroup: JaniLights
+    - id: LightReplacer
+      orGroup: JaniLights
+    - id: BoxWarmLightbulb
+      orGroup: JaniLights
+    - id: BoxLightMixed
+      orGroup: JaniLights
+
+- type: entity
+  parent: BaseMail
+  id: MailJanitorMoproach
+  suffix: Janitor Moproach
+  components:
+  - type: Mail
+    contents:
+    - id: MoproachCube
+
+#Chef
+- type: entity
+  parent: BaseMail
+  id: MailChefCheese
+  suffix: Cheese for Jani
+  components:
+  - type: Mail
+    contents:
+    - id: PaperCheeseAd
+    - id: FoodCheese

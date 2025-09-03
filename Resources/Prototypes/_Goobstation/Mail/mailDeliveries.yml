@@ -69,7 +69,7 @@
     MailFoamGuns: 0.2 #0.2
     MailPresent: 0.1 #0.1
     MailFoamBlade: 0.2 #0.1
-    MailPracticeGuns: 0.2 #0.1
+    MailPracticeGuns: 0.1 #0.1
     MailCorgiBalloon: 0.5
     MailNTBalloon: 0.3
     MailSynBalloon: 0.2

@@ -74,7 +74,7 @@
     MailNTBalloon: 0.3
     MailSynBalloon: 0.2
     MailCatEars: 0.05
-    MailWehPackage: 0.1
+    MailWehPackage: 0.01
   # Tools
     MailSignallerKit: 0.5
     MailFlashlight: 0.8

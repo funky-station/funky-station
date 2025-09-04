@@ -77,6 +77,7 @@
 # SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 PurpleTranStar <tehevilduckiscoming@gmail.com>
+# SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
@@ -89,6 +90,7 @@
 # SPDX-FileCopyrightText: 2025 rosieposie <52761126+rosieposieeee@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 willowzeta <willowzeta632146@proton.me>
 # SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -347,7 +349,7 @@
     - id: MedicalScannerMachineCircuitboard
     #- id: CloningConsoleComputerCircuitboard
     - id: BiomassReclaimerMachineCircuitboard
-    #- id: MedTekCartridge #funky - medtek removal
+    - id: MedTekCartridge
     # Shitmed
     - id: MedicalBiofabMachineBoard
     - id: AutoclaveFlatpack # DV

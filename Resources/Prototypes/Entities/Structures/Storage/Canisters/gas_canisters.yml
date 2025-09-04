@@ -1,54 +1,3 @@
-# SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2020 ike709 <ike709@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
-# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 collinlunn <60152240+collinlunn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2021 moonheart08 <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Electro <no>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Justin Trotter <trotter.justin@gmail.com>
-# SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2022 Profane McBane <profanedbane+github@gmail.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rinkashikachi <15rinkashikachi15@gmail.com>
-# SPDX-FileCopyrightText: 2022 TekuNut <13456422+TekuNut@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <gradientvera@outlook.com>
-# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Łukasz Mędrek <lukaszm210@gmail.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Jeff <velcroboy333@hotmail.com>
-# SPDX-FileCopyrightText: 2024 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2024 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Checkraze <71046427+Cheackraze@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
-# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
-
 - type: entity
   abstract: true
   parent: BaseStructureDynamic
@@ -88,7 +37,9 @@
             3: { state: can-o3, shader: "unshaded" }
     - type: ActivatableUI
       key: enum.GasCanisterUiKey.Key
-    - type: ActivatableUIRequiresLock
+    - type: UIRequiresLock
+      userInterfaceKeys:
+      - enum.GasCanisterUiKey.Key
     - type: UserInterface
       interfaces:
         enum.GasCanisterUiKey.Key:
@@ -150,21 +101,21 @@
     - type: GasCanister
       gasTankSlot:
         name: comp-gas-canister-slot-name-gas-tank
+        ejectOnBreak: true
         whitelist:
           components:
             - GasTank
     - type: StaticPrice
-      price: 250 # Funky
+      price: 200
     - type: AccessReader
-      access: [["Atmospherics"], ["Engineering"], ["Research"], ["Captain"]]
-    - type: Construction # Frontier
-      graph: NFStorageCanister # Frontier
-      node: storagecanister # Frontier
+      access: [["Atmospherics"], ["Engineering"], ["Research"]]
     - type: Lock
       locked: false
     - type: GuideHelp
       guides:
       - GasCanisters
+    - type: Paintable
+      group: Canisters
 
 - type: entity
   parent: GasCanister
@@ -176,17 +127,7 @@
         - state: yellow
     - type: GasCanister
       gasMixture:
-        volume: 1000
-        moles: # List of gasses for easy reference
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 0 # Plasma
-          - 0 # Tritium
-          - 0 # Water vapor
-          - 0 # Ammonia
-          - 0 # N2O
-          - 0 # Frezon
+        volume: 1500
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -225,10 +166,10 @@
       - state: grey
   - type: GasCanister
     gasMixture:
-      volume: 1000
+      volume: 1500
       moles:
-        - 393.0592071 # oxygen 21%
-        - 1478.6513029 # nitrogen 79%
+        Oxygen: 581.56 # oxygen 21%
+        Nitrogen: 2187.79 # nitrogen 79%
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -265,9 +206,9 @@
       - state: blue
   - type: GasCanister
     gasMixture:
-      volume: 1000
+      volume: 1500
       moles:
-        - 1871.71051 # oxygen
+        Oxygen: 2769.36 # oxygen
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -301,9 +242,9 @@
   components:
   - type: GasCanister
     gasMixture:
-      volume: 1000
+      volume: 1500
       moles:
-        - 18710.71051 # oxygen
+        Oxygen: 18710.71051 # oxygen
       temperature: 72
   - type: AccessReader
     access: [["Atmospherics"]]
@@ -319,10 +260,9 @@
         - state: red
     - type: GasCanister
       gasMixture:
-        volume: 1000
+        volume: 1500
         moles:
-          - 0 # oxygen
-          - 1871.71051 # nitrogen
+          Nitrogen: 2769.36 # nitrogen
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -356,10 +296,9 @@
   components:
   - type: GasCanister
     gasMixture:
-      volume: 1000
+      volume: 1500
       moles:
-        - 0 # oxygen
-        - 18710.71051 # nitrogen
+        Nitrogen: 18710.71051 # nitrogen
       temperature: 72
   - type: AccessReader
     access: [["Atmospherics"]]
@@ -375,11 +314,9 @@
         - state: black
     - type: GasCanister
       gasMixture:
-        volume: 1000
+        volume: 1500
         moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 1871.71051 # CO2
+          CarbonDioxide: 2769.36 # CO2
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -415,11 +352,9 @@
   components:
   - type: GasCanister
     gasMixture:
-      volume: 1000
+      volume: 1500
       moles:
-        - 0 # oxygen
-        - 0 # nitrogen
-        - 18710.71051 # CO2
+        CarbonDioxide: 18710.71051 # CO2
       temperature: 72
   - type: AccessReader
     access: [["Atmospherics"]]
@@ -435,12 +370,9 @@
         - state: orange
     - type: GasCanister
       gasMixture:
-        volume: 1000
+        volume: 1500
         moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # carbon dioxide
-          - 1871.71051 # plasma
+          Plasma: 2769.36 # plasma
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -479,13 +411,9 @@
         - state: green
     - type: GasCanister
       gasMixture:
-        volume: 1000
+        volume: 1500
         moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 0 # Plasma
-          - 1871.71051 # Tritium
+          Tritium: 2769.36 # Tritium
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -524,14 +452,9 @@
         - state: water_vapor
     - type: GasCanister
       gasMixture:
-        volume: 1000
+        volume: 1500
         moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 0 # Plasma
-          - 0 # Tritium
-          - 1871.71051 # Water vapor
+          WaterVapor: 2769.36 # Water vapor
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -568,15 +491,9 @@
         - state: greenys
     - type: GasCanister
       gasMixture:
-        volume: 1000
+        volume: 1500
         moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 0 # Plasma
-          - 0 # Tritium
-          - 0 #  Water vapor
-          - 1871.71051 # Ammonia
+          Ammonia: 2769.36 # Ammonia
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -615,16 +532,9 @@
         - state: redws
     - type: GasCanister
       gasMixture:
-        volume: 1000
+        volume: 1500
         moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 0 # Plasma
-          - 0 # Tritium
-          - 0 #  Water vapor
-          - 0 # Ammonia
-          - 1871.71051 # N2O
+          NitrousOxide: 2769.36 # N2O
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -649,6 +559,8 @@
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
         - !type:DumpCanisterBehavior
+    - type: Lock
+      locked: true
 
 - type: entity
   parent: GasCanister
@@ -661,17 +573,9 @@
     - state: frezon
   - type: GasCanister
     gasMixture:
-      volume: 1000
+      volume: 1500
       moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 # Water vapor
-      - 0 # Ammonia
-      - 0 # N2O
-      - 1871.71051 # Frezon
+        Frezon: 2769.36 # Frezon
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -698,619 +602,6 @@
       - !type:DumpCanisterBehavior
   - type: Lock
     locked: true
-
- # Assmos - /tg/ gases
-- type: entity
-  parent: GasCanister
-  id: BZCanister
-  name: bz canister
-  components:
-  - type: Sprite
-    layers:
-    - state: purple
-  - type: GasCanister
-    gasMixture:
-      volume: 1000
-      moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 1871.71051 # BZ
-      temperature: 293.15
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          BZCanisterBroken:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
-  - type: Lock
-    locked: true
-
-- type: entity
-  parent: GasCanister
-  id: HealiumCanister
-  name: healium canister
-  components:
-  - type: Sprite
-    layers:
-    - state: healium
-  - type: GasCanister
-    gasMixture:
-      volume: 1000
-      moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 0 # BZ
-      - 1871.71051 # Healium
-      temperature: 293.15
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          HealiumCanisterBroken:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
-  - type: Lock
-    locked: true
-
-- type: entity
-  parent: GasCanister
-  id: NitriumCanister
-  name: nitrium canister
-  components:
-  - type: Sprite
-    layers:
-    - state: brown
-  - type: GasCanister
-    gasMixture:
-      volume: 1000
-      moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 0 # BZ
-      - 0 # Healium
-      - 1871.71051 # Nitrium
-      temperature: 293.15
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          NitriumCanisterBroken:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
-  - type: Lock
-    locked: true
-
-- type: entity
-  parent: GasCanister
-  id: PluoxiumCanister
-  name: pluoxium canister
-  components:
-  - type: Sprite
-    layers:
-    - state: darkblue
-  - type: GasCanister
-    gasMixture:
-      volume: 1000
-      moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 0 # BZ
-      - 0 # Healium
-      - 0 # Nitrium
-      - 1871.71051 # Pluoxium
-      temperature: 293.15
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          PluoxiumCanisterBroken:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
-  - type: Lock
-    locked: true
-
-- type: entity
-  parent: GasCanister
-  id: HydrogenCanister
-  name: hydrogen canister
-  components:
-  - type: Sprite
-    layers:
-    - state: white
-  - type: GasCanister
-    gasMixture:
-      volume: 1000
-      moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 0 # BZ
-      - 0 # Healium
-      - 0 # Nitrium
-      - 0 # Pluoxium
-      - 1871.71051 # Hydrogen
-      temperature: 293.15
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          HydrogenCanisterBroken:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
-  - type: Lock
-    locked: true
-
-- type: entity
-  parent: GasCanister
-  id: HyperNobliumCanister
-  name: hyper-noblium canister
-  components:
-  - type: Sprite
-    layers:
-    - state: nob
-  - type: GasCanister
-    gasMixture:
-      volume: 1000
-      moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 0 # BZ
-      - 0 # Healium
-      - 0 # Nitrium
-      - 0 # Pluoxium
-      - 0 # Hydrogen
-      - 1871.71051 # HyperNoblium
-      temperature: 293.15
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          HyperNobliumCanisterBroken:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
-  - type: Lock
-    locked: true
-
-- type: entity
-  parent: GasCanister
-  id: ProtoNitrateCanister
-  name: proto-nitrate canister
-  components:
-  - type: Sprite
-    layers:
-    - state: proto_nitrate
-  - type: GasCanister
-    gasMixture:
-      volume: 1000
-      moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 0 # BZ
-      - 0 # Healium
-      - 0 # Nitrium
-      - 0 # Pluoxium
-      - 0 # Hydrogen
-      - 0 # HyperNoblium
-      - 1871.71051 # ProtoNitrate
-      temperature: 293.15
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          ProtoNitrateCanisterBroken:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
-  - type: Lock
-    locked: true
-
-- type: entity
-  parent: GasCanister
-  id: ZaukerCanister
-  name: zauker canister
-  components:
-  - type: Sprite
-    layers:
-    - state: zauker
-  - type: GasCanister
-    gasMixture:
-      volume: 1000
-      moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 0 # BZ
-      - 0 # Healium
-      - 0 # Nitrium
-      - 0 # Pluoxium
-      - 0 # Hydrogen
-      - 0 # HyperNoblium
-      - 0 # ProtoNitrate
-      - 1871.71051 # Zauker
-      temperature: 293.15
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          ZaukerCanisterBroken:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
-  - type: Lock
-    locked: true
-
-- type: entity
-  parent: GasCanister
-  id: HalonCanister
-  name: halon canister
-  components:
-  - type: Sprite
-    layers:
-    - state: halon
-  - type: GasCanister
-    gasMixture:
-      volume: 1000
-      moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 0 # BZ
-      - 0 # Healium
-      - 0 # Nitrium
-      - 0 # Pluoxium
-      - 0 # Hydrogen
-      - 0 # HyperNoblium
-      - 0 # ProtoNitrate
-      - 0 # Zauker
-      - 1871.71051 # Halon
-      temperature: 293.15
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          HalonCanisterBroken:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
-  - type: Lock
-    locked: true
-
-- type: entity
-  parent: GasCanister
-  id: HeliumCanister
-  name: helium canister
-  components:
-  - type: Sprite
-    layers:
-    - state: helium
-  - type: GasCanister
-    gasMixture:
-      volume: 1000
-      moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 0 # BZ
-      - 0 # Healium
-      - 0 # Nitrium
-      - 0 # Pluoxium
-      - 0 # Hydrogen
-      - 0 # HyperNoblium
-      - 0 # ProtoNitrate
-      - 0 # Zauker
-      - 0 # Halon
-      - 1871.71051 # Helium
-      temperature: 293.15
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          HeliumCanisterBroken:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
-  - type: Lock
-    locked: true
-
-- type: entity
-  parent: GasCanister
-  id: AntiNobliumCanister
-  name: anti-noblium canister
-  components:
-  - type: Sprite
-    layers:
-    - state: antinob
-  - type: GasCanister
-    gasMixture:
-      volume: 1000
-      moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 0 # BZ
-      - 0 # Healium
-      - 0 # Nitrium
-      - 0 # Pluoxium
-      - 0 # Hydrogen
-      - 0 # HyperNoblium
-      - 0 # ProtoNitrate
-      - 0 # Zauker
-      - 0 # Halon
-      - 0 # Helium
-      - 1871.71051 # AntiNoblium
-      temperature: 293.15
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          AntiNobliumCanisterBroken:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:DumpCanisterBehavior
-  - type: Lock
-    locked: true
-# Assmos - /tg/ gases end
-
-- type: entity
-  name: Random Canister Spawner
-  id: RandomCanisterSpawner
-  parent: MarkerBase
-  placement:
-    mode: SnapgridCenter
-  components:
-  - type: Sprite
-    layers:
-    - state: red
-    - sprite: Structures/Storage/canister.rsi
-      state: can-rainbow
-  - type: EntityTableSpawner
-    offset: 0
-    table: !type:NestedSelector
-      tableId: RandomCanTable
 
 # Broke Entities
 
@@ -1456,125 +747,3 @@
   components:
   - type: Sprite
     state: frezon-1
-
- # Assmos - /tg/ gases
-- type: entity
-  parent: GasCanisterBrokenBase
-  id: BZCanisterBroken
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    state: purple-1
-
-- type: entity
-  parent: GasCanisterBrokenBase
-  id: HealiumCanisterBroken
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    state: healium-1
-
-- type: entity
-  parent: GasCanisterBrokenBase
-  id: NitriumCanisterBroken
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    state: brown-1
-
-- type: entity
-  parent: GasCanisterBrokenBase
-  id: PluoxiumCanisterBroken
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    state: darkblue-1
-
-- type: entity
-  parent: GasCanisterBrokenBase
-  id: HydrogenCanisterBroken
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    state: white-1
-
-- type: entity
-  parent: GasCanisterBrokenBase
-  id: HyperNobliumCanisterBroken
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    state: white-1
-
-- type: entity
-  parent: GasCanisterBrokenBase
-  id: ProtoNitrateCanisterBroken
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    state: white-1
-
-- type: entity
-  parent: GasCanisterBrokenBase
-  id: ZaukerCanisterBroken
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    state: white-1
-
-- type: entity
-  parent: GasCanisterBrokenBase
-  id: HalonCanisterBroken
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    state: white-1
-
-- type: entity
-  parent: GasCanisterBrokenBase
-  id: HeliumCanisterBroken
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    state: white-1
-
-- type: entity
-  parent: GasCanisterBrokenBase
-  id: AntiNobliumCanisterBroken
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    state: white-1
-# Assmos - /tg/ gases end
-
-- type: entityTable
-  id: RandomCanTable
-  table: !type:GroupSelector
-    children:
-    - !type:GroupSelector
-      weight: 100
-      children:
-      - id: StorageCanister
-        weight: 10
-      - id: OxygenCanister
-        weight: 7
-      - id: NitrogenCanister
-        weight: 7
-      - id: HydrogenCanister
-        weight: 4
-      - id: PlasmaCanister
-        weight: 4
-      - id: NitrousOxideCanister
-        weight: 3
-      - id: AmmoniaCanister
-        weight: 3
-      - id: CarbonDioxideCanister
-        weight: 2
-      - id: TritiumCanister
-        weight: 2
-      - id: FrezonCanister
-        weight: 2
-      - id: BZCanister
-        weight: 1
-      - id: HalonCanister
-        weight: 1

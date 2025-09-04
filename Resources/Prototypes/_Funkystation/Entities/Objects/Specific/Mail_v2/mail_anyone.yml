@@ -326,3 +326,21 @@
   - type: Mail
     contents:
     - id: Switchblade
+
+- type: entity
+  parent: BaseMail
+  id: MailSecWhistle
+  suffix: Security Whistle
+  components:
+  - type: Mail
+    contents:
+    - id: SecurityWhistle
+
+- type: entity
+  parent: BaseMail
+  id: MailSyndWhistle
+  suffix: Syndicate Whistle
+  components:
+  - type: Mail
+    contents:
+    - id: SyndicateWhistle

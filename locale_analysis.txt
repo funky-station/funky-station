@@ -1,0 +1,45 @@
+MalfAI Store Listings vs Locale Analysis
+==========================================
+
+Store Listings (from malfai_listings.yml):
+-------------------------------------------
+1. MalfAiViewport - uses: malfai-listing-viewport-name/desc
+2. MalfAiToggleCameraUpgrade - uses: malfai-listing-camera-upgrade-name/desc
+3. MalfAiDoomsday - uses: malfai-listing-doomsday-name/desc
+4. MalfAiRoboticsFactory - uses: malfai-listing-robotics-factory-name/desc
+5. MalfAiDetonateRCDs - uses: malfai-listing-detonate-rcds-name/desc
+6. MalfAiShuntToApc - uses: malfai-listing-shunt-to-apc-name/desc
+7. MalfAiOverloadMachine - uses: malfai-listing-overload-machine-name/desc
+8. MalfAiDecryptSyndicateKeys - uses: malfai-listing-decrypt-syndicate-keys-name/desc
+9. MalfAiVoiceModulator - uses: malfai-listing-voice-modulator-name/desc
+10. MalfAiGyroscope - uses: malfai-listing-gyroscope-name/desc
+
+Locale Entries (from malfai.ftl):
+---------------------------------
+Store Listing entries:
+- malfai-listing-detonate-rcds-name/desc ✓
+- malfai-listing-shunt-to-apc-name/desc ✓
+- malfai-listing-lockdown-grid-name/desc (UNUSED - no corresponding listing)
+- malfai-listing-gyroscope-name/desc ✓
+- malfai-listing-voice-modulator-name/desc ✓
+- malfai-listing-decrypt-syndicate-keys-name/desc ✓
+- malfai-listing-viewport-name/desc ✓
+- malfai-listing-overload-machine-name/desc ✓
+- malfai-listing-robotics-factory-name/desc ✓
+- malfai-listing-deep-storage-unit-name/desc (UNUSED - no corresponding listing)
+- malfai-listing-camera-upgrade-name/desc ✓
+- malfai-listing-camera-microphones-name/desc (UNUSED - no corresponding listing)
+- malfai-listing-doomsday-name/desc ✓
+
+MISSING LOCALE ENTRIES:
+- None! All store listings have corresponding locale entries.
+
+UNUSED LOCALE ENTRIES:
+- malfai-listing-lockdown-grid-name/desc
+- malfai-listing-deep-storage-unit-name/desc
+- malfai-listing-camera-microphones-name/desc
+
+ISSUES TO FIX:
+1. Remove unused locale entries for cleanliness
+2. Reorganize locale entries to match the order in store listings
+3. Fix inconsistent section organization (Store Listings / Store Listings continued)

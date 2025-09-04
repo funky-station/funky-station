@@ -195,3 +195,36 @@
       Steel: 75
       Plastic: 12
       Glass: 12
+
+- type: entity
+  parent: Holoprojector
+  id: HoloprojectorEngineering
+  name: engineering tape
+  description: Stops hapless crewmembers from walking onto your work site.
+  components:
+    - type: HolosignProjector
+      signProto: HolosignEngineering
+      chargeUse: 120
+    - type: Sprite
+      sprite: Objects/Devices/Holoprojectors/engineering.rsi
+      state: icon
+    - type: Tag
+      tags:
+        - HolofanProjector
+    - type: StaticPrice
+      price: 50
+
+- type: entity
+  parent: HoloprojectorEngineering
+  id: HoloprojectorEngineeringEmpty
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Plastic: 12
+      Glass: 12

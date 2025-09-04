@@ -93,6 +93,8 @@
     MailCapGuns: 0.1 
     MailCodex: 0.1 
     MailCancerMouse: 0.1
+    MailSecWhistle: 0.4
+    MailSyndWhistle: 0.2
   # Tools
     MailSignallerKit: 0.5
     MailFlashlight: 0.8

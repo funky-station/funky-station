@@ -122378,13 +122378,6 @@ entities:
     - type: Transform
       pos: -17.38306,-3.5393329
       parent: 5350
-- proto: MaterialSilo
-  entities:
-  - uid: 27632
-    components:
-    - type: Transform
-      pos: 104.5,-13.5
-      parent: 5350
 - proto: MaterialWoodPlank1
   entities:
   - uid: 22703

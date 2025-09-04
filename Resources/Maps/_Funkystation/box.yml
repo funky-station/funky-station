@@ -147681,13 +147681,6 @@ entities:
     - type: Transform
       pos: -40.5,-10.5
       parent: 8364
-- proto: SiloRelay
-  entities:
-  - uid: 15265
-    components:
-    - type: Transform
-      pos: -43.5,-41.5
-      parent: 8364
 - proto: SingularityGenerator
   entities:
   - uid: 4541

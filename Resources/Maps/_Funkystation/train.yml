@@ -81402,13 +81402,6 @@ entities:
     - type: Transform
       pos: 2.6536188,-121.53795
       parent: 2
-- proto: MaterialSilo
-  entities:
-  - uid: 14122
-    components:
-    - type: Transform
-      pos: 23.5,-297.5
-      parent: 2
 - proto: MaterialWoodPlank10
   entities:
   - uid: 11762

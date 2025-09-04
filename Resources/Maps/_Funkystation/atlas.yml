@@ -42362,13 +42362,6 @@ entities:
       parent: 2
     - type: Physics
       canCollide: False
-- proto: MaterialSilo
-  entities:
-  - uid: 9286
-    components:
-    - type: Transform
-      pos: -51.5,16.5
-      parent: 2
 - proto: MaterialWoodPlank
   entities:
   - uid: 6313

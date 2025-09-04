@@ -224,6 +224,7 @@
   - type: InstantAction
     itemIconStyle: BigAction
     priority: -5
+    charges: 1
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
       state: malfai_bg_detonatercd
@@ -238,6 +239,7 @@
   - type: InstantAction
     itemIconStyle: BigAction
     priority: -5
+    charges: 1
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
       state: malfai_bg_lockdowngrid

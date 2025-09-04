@@ -204,6 +204,8 @@ public sealed partial class StoreSystem
 
             component.BalanceSpent[currency] += value;
         }
+        // Replicate updated balance to clients so Malf CPU HUD updates
+        Dirty(uid, component);
 
         // goobstation - heretics
         // i am too tired of making separate systems for knowledge adding
@@ -289,10 +291,22 @@ public sealed partial class StoreSystem
 
         if (listing.ProductEvent != null)
         {
-            if (!listing.RaiseProductEventOnUser)
-                RaiseLocalEvent(listing.ProductEvent);
+            // Handle ActionPurchaseCompanionEvent specially to populate the buyer
+            if (listing.ProductEvent is Content.Shared.Actions.Events.ActionPurchaseCompanionEvent companionEvent)
+            {
+                companionEvent.Buyer = GetNetEntity(buyer);
+                if (!listing.RaiseProductEventOnUser)
+                    RaiseLocalEvent(companionEvent);
+                else
+                    RaiseLocalEvent(buyer, companionEvent);
+            }
             else
-                RaiseLocalEvent(buyer, listing.ProductEvent);
+            {
+                if (!listing.RaiseProductEventOnUser)
+                    RaiseLocalEvent(listing.ProductEvent);
+                else
+                    RaiseLocalEvent(buyer, listing.ProductEvent);
+            }
         }
 
         //log dat shit.
@@ -312,6 +326,7 @@ public sealed partial class StoreSystem
         //WD EDIT END
 
         UpdateUserInterface(buyer, uid, component);
+        ShowMalfCpuIfApplicable(uid, component);
     }
 
     /// <summary>
@@ -355,7 +370,10 @@ public sealed partial class StoreSystem
         }
 
         component.Balance[msg.Currency] -= msg.Amount;
+        // Replicate updated balance to clients so Malf CPU HUD updates
+        Dirty(uid, component);
         UpdateUserInterface(buyer, uid, component);
+        ShowMalfCpuIfApplicable(uid, component);
     }
 
     private void OnRequestRefund(EntityUid uid, StoreComponent component, StoreRequestRefundMessage args)
@@ -402,7 +420,10 @@ public sealed partial class StoreSystem
         // Reset store back to its original state
         RefreshAllListings(component);
         component.BalanceSpent = new();
+        // Replicate updated balance to clients so Malf CPU HUD updates
+        Dirty(uid, component);
         UpdateUserInterface(buyer, uid, component);
+        ShowMalfCpuIfApplicable(uid, component);
     }
 
     private void HandleRefundComp(EntityUid uid, StoreComponent component, EntityUid purchase)

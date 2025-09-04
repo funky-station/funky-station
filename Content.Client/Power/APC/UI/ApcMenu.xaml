@@ -33,6 +33,12 @@ SPDX-License-Identifier: MIT
                         <BoxContainer Orientation="Horizontal" MinWidth="90">
                             <Button Name="BreakerButton" Text="{Loc 'apc-menu-breaker-button'}" HorizontalExpand="True"/>
                         </BoxContainer>
+                        <!--Malf AI Siphon -->
+                        <Label Name="SiphonLabel" Text="{Loc 'apc-menu-siphon-label'}" HorizontalExpand="True"
+                                StyleClasses="StatusFieldTitle" MinWidth="120"/>
+                        <BoxContainer Orientation="Horizontal" MinWidth="90">
+                            <Button Name="SiphonButton" Text="{Loc 'apc-menu-siphon-button'}" HorizontalExpand="True"/>
+                        </BoxContainer>
                         <!--Charging Status-->
                         <Label Text="{Loc 'apc-menu-external-label'}" StyleClasses="StatusFieldTitle" MinWidth="120" />
                         <Label Name="ExternalPowerStateLabel" Text="{Loc 'apc-menu-power-state-good'}" />

@@ -16,6 +16,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Client.MalfAI;
 using Content.Shared.Store;
 using JetBrains.Annotations;
 using System.Linq;
@@ -47,9 +48,24 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _menu = this.CreateWindow<StoreMenu>();
         if (EntMan.TryGetComponent<StoreComponent>(Owner, out var store))
-            _menu.Title = Loc.GetString(store.Name);
+        {
+            ProtoId<CurrencyPrototype> cpu = "CPU";
+            if (store.CurrencyWhitelist.Contains(cpu))
+            {
+                // Removed call to open Malf AI store window here to prevent duplicate/empty window.
+                return;
+            }
+        }
+
+        _menu = this.CreateWindow<StoreMenu>();
+        if (EntMan.TryGetComponent<StoreComponent>(Owner, out var store2))
+        {
+            _menu.Title = Loc.GetString(store2.Name);
+            ProtoId<CurrencyPrototype> cpu = "CPU";
+            if (store2.CurrencyWhitelist.Contains(cpu))
+                _menu.ApplyMalfTheme();
+        }
 
         _menu.OnListingButtonPressed += (_, listing) =>
         {
@@ -88,6 +104,12 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
                 _listings = msg.Listings;
 
                 _menu?.UpdateBalance(msg.Balance);
+                if (_menu != null)
+                {
+                    ProtoId<CurrencyPrototype> cpu = "CPU";
+                    if (msg.Balance.ContainsKey(cpu))
+                        _menu.ApplyMalfTheme();
+                }
                 UpdateListingsWithSearchFilter();
                 _menu?.SetFooterVisibility(msg.ShowFooter);
                 _menu?.UpdateRefund(msg.AllowRefund);

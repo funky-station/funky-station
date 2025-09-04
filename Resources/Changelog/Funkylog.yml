@@ -4161,3 +4161,239 @@ Entries:
       message: Fixed chameleon vest + allowed it to mimic medium armors
   id: 500
   time: '2025-08-18T21:53:13.0000000+00:00'
+- author: AtlasHDD
+  changes:
+    - type: Add
+      message: >-
+        Added purchaseable HEV equipment crate. Added armor examine message to
+        HEV and CE hardsuits showing they are immune to supermatter ashing.
+    - type: Tweak
+      message: Standardized HEV suit and helmet names/descriptions and fixed typos.
+  id: 501
+  time: '2025-08-21T21:37:41.0000000+00:00'
+- author: Tropica1Owl
+  changes:
+    - type: Tweak
+      message: >-
+        Botanists are now supplied with plant analyzers at the start of the
+        shift.
+  id: 502
+  time: '2025-08-21T21:46:41.0000000+00:00'
+- author: Currot
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Cosmic Cultists retaining the Astral Murmur after being
+        deconverted.
+  id: 503
+  time: '2025-08-21T23:11:55.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: Lots of fixes and changes on Glacier.
+  id: 504
+  time: '2025-08-22T01:00:44.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        Lowered the price of the Mind Control Implant to 30 TC. This is on par
+        with the Reinforcement Radio in cost, and down from the prior 50 TC.
+    - type: Tweak
+      message: >-
+        It now takes 8 seconds to break yourself out of Makeshift Handcuffs, up
+        from 3.
+    - type: Tweak
+      message: >-
+        Makeshift Handcuffs now cost 10 LV cables, instead of the prior 15 LV
+        cables. This means you can make 3 sets of cuffs per Cable stack, instead
+        of 2.
+    - type: Tweak
+      message: >-
+        The craftable Stun Prod now can be swung 5 times before it runs out of
+        charge, down from 3. This allows it to be used to stun Hardsuit wearers
+        again with enough swings, as well as requiring less precision to
+        successfully stun someone in general.
+  id: 505
+  time: '2025-08-22T01:02:19.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Remove
+      message: Removed BSO from Roid
+    - type: Fix
+      message: >-
+        Fixed Roid Sci to have an arit round start and fixing missing pipes
+        under the door
+    - type: Tweak
+      message: Reworked all Roid Radiators near atmos
+  id: 506
+  time: '2025-08-22T01:36:31.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: A number of changes and fixes for Elkridge
+  id: 507
+  time: '2025-08-22T01:47:32.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Cargo Techfab added to Bagel Cargo Bay
+    - type: Add
+      message: 'Cap ID to Bagel Caps bedroom '
+    - type: Remove
+      message: BSO is Kill on Bagel
+  id: 508
+  time: '2025-08-22T04:01:21.0000000+00:00'
+- author: TheSecondLord
+  changes:
+    - type: Fix
+      message: Fixed observer light not working
+  id: 509
+  time: '2025-08-22T18:14:30.0000000+00:00'
+- author: spanky-spanky
+  changes:
+    - type: Add
+      message: Ported map Eclipse Starport by Lachryphage.
+  id: 510
+  time: '2025-08-23T00:29:59.0000000+00:00'
+- author: Quantum-cross
+  changes:
+    - type: Fix
+      message: >-
+        Fix Late join antag selection if you have no "active" characters with a
+        specific antagonist role.
+  id: 511
+  time: '2025-08-25T22:03:56.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Tweak
+      message: >-
+        The energy revolver is now a part of the Detective load-out, and
+        replaces the inspector.
+    - type: Tweak
+      message: >-
+        The energy revolver now has enough battery for 16 disabler shots, or 5
+        lethal shots.
+    - type: Tweak
+      message: The energy revolver no longer auto-recharges itself.
+    - type: Remove
+      message: Blueshield Officer is no longer a round-start role.
+  id: 512
+  time: '2025-08-25T22:28:01.0000000+00:00'
+- author: PoquitoDondito
+  changes:
+    - type: Add
+      message: Added stethoscopes to every medical loadout.
+  id: 513
+  time: '2025-08-25T23:38:30.0000000+00:00'
+- author: empty0set
+  changes:
+    - type: Fix
+      message: Ninjas can no longer spawn as IPCs
+  id: 514
+  time: '2025-08-25T23:41:34.0000000+00:00'
+- author: corresp0nd
+  changes:
+    - type: Tweak
+      message: >-
+        medical personnel no longer have innate speedy surgery, now it's tied to
+        nitrile & latex gloves!
+  id: 515
+  time: '2025-08-26T01:46:06.0000000+00:00'
+- author: BrightNibbleston
+  changes:
+    - type: Tweak
+      message: >-
+        Changed air alarms and such to allow harpies to breath without setting
+        off air alarms
+  id: 516
+  time: '2025-08-27T00:19:05.0000000+00:00'
+- author: ArsCatalyst
+  changes:
+    - type: Remove
+      message: Removed Blueshield from Resort and Microstation
+  id: 517
+  time: '2025-08-27T18:34:51.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Add
+      message: Handheld radio variants for every department, not just security.
+    - type: Add
+      message: >-
+        New emergency radio channel to inform the Warden and the Paramedics of
+        your impending demise.
+  id: 518
+  time: '2025-08-27T18:36:07.0000000+00:00'
+- author: Minerva
+  changes:
+    - type: Add
+      message: >-
+        Body scanner computers can now be linked to operating tables and act as
+        health analyzers for the person buckled to them
+  id: 519
+  time: '2025-08-27T18:38:52.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added a Book Cart to the game
+    - type: Add
+      message: Bookshelves can now be labeled with paper
+    - type: Add
+      message: Added Bookshelf Label Folder for a sampling of paper colors
+    - type: Tweak
+      message: Books Bag and Book Shelf inventory sizes adjusted
+    - type: Tweak
+      message: Book Shelves generally contain more books round start
+  id: 520
+  time: '2025-08-31T02:41:32.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: >-
+        Conversion to a cosmic cult breaks a mindshield, and implanted
+        mindshields into cult members do not work.
+  id: 521
+  time: '2025-08-31T03:49:49.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Add
+      message: >-
+        MedTek has returned! It is once again available in all ways it used to
+        be (except in the BSO's PDA, BSO is not real).
+    - type: Remove
+      message: >-
+        Medical Staff no longer spawn with analyzers, as they do not need them
+        again.
+    - type: Tweak
+      message: Reduced number of Health Analyzers in the MedVend from 5 back to 3.
+  id: 522
+  time: '2025-08-31T19:28:40.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        Rule 11 - Silicon Rules has had its ID definition adjusted. Non-crew ID
+        icons such as Prisoners, Visitors, Blanks, and Hostile icons no longer
+        count as crew by default.
+    - type: Add
+      message: >-
+        Updated and adjusted Ion Storm's job pool (Added NTR, IAA, Prisoner, and
+        Visitor. Replaced Passenger with Assistant.)
+  id: 523
+  time: '2025-08-31T19:29:45.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Remove
+      message: >-
+        Removed the Asimov Silicon lawset (Crewsimov is fine, the human-only
+        version is removed).
+  id: 524
+  time: '2025-08-31T22:38:36.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a mapping tool oversight from pipe layers implementation where the
+        unary stuff was overriding non default vent prototypes
+  id: 525
+  time: '2025-09-01T02:20:17.0000000+00:00'

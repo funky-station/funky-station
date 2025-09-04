@@ -127,10 +127,8 @@
     sprite: Interface/Actions/actions_malf_ai.rsi
     state: malfai_overloadmachine
   productAction: ActionMalfAiOverloadMachine
+  productActionCharges: 2
   priority: 6
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
 
 - type: listing
   id: MalfAiOverrideMachine
@@ -145,10 +143,8 @@
     sprite: Interface/Actions/actions_malf_ai.rsi
     state: malfai_overridemachine
   productAction: ActionMalfAiOverrideMachine
+  productActionCharges: 2
   priority: 5
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
 
 - type: listing
   id: MalfAiDecryptSyndicateKeys

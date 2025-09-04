@@ -162,6 +162,7 @@
     priority: -5
     checkCanAccess: false
     range: 99999
+    charges: 2
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
       state: malfai_bg_overloadmachine
@@ -194,6 +195,7 @@
     priority: -5
     checkCanAccess: false
     range: 99999
+    charges: 2
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
       state: malfai_bg_overridemachine

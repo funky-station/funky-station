@@ -240,17 +240,64 @@ public sealed partial class StoreSystem
         //give action
         if (!string.IsNullOrWhiteSpace(listing.ProductAction))
         {
-            EntityUid? actionId;
-            // I guess we just allow duplicate actions?
-            // Allow duplicate actions and just have a single list buy for the buy-once ones.
-            if (!_mind.TryGetMind(buyer, out var mind, out _))
-                actionId = _actions.AddAction(buyer, listing.ProductAction);
-            else
-                actionId = _actionContainer.AddAction(mind, listing.ProductAction);
+            EntityUid? actionId = null;
+            var existingActionFound = false;
 
-            // Add the newly bought action entity to the list of bought entities
+            // Check if buyer already has this action and add charges instead of creating duplicate
+            if (!_mind.TryGetMind(buyer, out var mind, out _))
+            {
+                // Check buyer's actions directly
+                if (TryComp<ActionsComponent>(buyer, out var buyerActions))
+                {
+                    foreach (var existingAction in buyerActions.Actions)
+                    {
+                        if (TryComp<MetaDataComponent>(existingAction, out var metaData) &&
+                            metaData.EntityPrototype?.ID == listing.ProductAction)
+                        {
+                            // Found existing action, add charges to it using existing method
+                            if (listing.ProductActionCharges.HasValue && listing.ProductActionCharges > 0)
+                            {
+                                _actions.AddCharges(existingAction, listing.ProductActionCharges.Value);
+                            }
+                            actionId = existingAction;
+                            existingActionFound = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!existingActionFound)
+                    actionId = _actions.AddAction(buyer, listing.ProductAction);
+            }
+            else
+            {
+                // Check mind's action container
+                if (TryComp<ActionsContainerComponent>(mind, out var mindActions))
+                {
+                    foreach (var existingAction in mindActions.Container.ContainedEntities)
+                    {
+                        if (TryComp<MetaDataComponent>(existingAction, out var metaData) &&
+                            metaData.EntityPrototype?.ID == listing.ProductAction)
+                        {
+                            // Found existing action, add charges to it using existing method
+                            if (listing.ProductActionCharges.HasValue && listing.ProductActionCharges > 0)
+                            {
+                                _actions.AddCharges(existingAction, listing.ProductActionCharges.Value);
+                            }
+                            actionId = existingAction;
+                            existingActionFound = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!existingActionFound)
+                    actionId = _actionContainer.AddAction(mind, listing.ProductAction);
+            }
+
+            // Add the newly bought action entity to the list of bought entities (only for new actions)
             // And then add that action entity to the relevant product upgrade listing, if applicable
-            if (actionId != null)
+            if (actionId != null && !existingActionFound)
             {
                 HandleRefundComp(uid, component, actionId.Value);
 

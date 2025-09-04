@@ -168,15 +168,6 @@ malfai-apc-siphon-verb = Siphon CPU ({$amount})
 malfai-apc-siphon-success = Siphoned {$amount} CPU from APC.
 malfai-apc-restore = The APC springs back to life!
 
-# System validation messages
-malfai-overload-not-malf = Only a malfunctioning AI can overload machines.
-malfai-overload-invalid-location = Invalid target location.
-malfai-overload-no-machine = No machine found at target location.
-
-malfai-override-not-malf = Only a malfunctioning AI can override machines.
-malfai-override-invalid-location = Invalid target location.
-malfai-override-no-machine = No machine found at target location.
-
 # Voice Modulator Window
 malf-voice-window-title = Voice Modulator
 malf-voice-header-label = Enter Voice Name

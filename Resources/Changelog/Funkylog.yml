@@ -4332,3 +4332,76 @@ Entries:
         health analyzers for the person buckled to them
   id: 519
   time: '2025-08-27T18:38:52.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added a Book Cart to the game
+    - type: Add
+      message: Bookshelves can now be labeled with paper
+    - type: Add
+      message: Added Bookshelf Label Folder for a sampling of paper colors
+    - type: Tweak
+      message: Books Bag and Book Shelf inventory sizes adjusted
+    - type: Tweak
+      message: Book Shelves generally contain more books round start
+  id: 520
+  time: '2025-08-31T02:41:32.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: >-
+        Conversion to a cosmic cult breaks a mindshield, and implanted
+        mindshields into cult members do not work.
+  id: 521
+  time: '2025-08-31T03:49:49.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Add
+      message: >-
+        MedTek has returned! It is once again available in all ways it used to
+        be (except in the BSO's PDA, BSO is not real).
+    - type: Remove
+      message: >-
+        Medical Staff no longer spawn with analyzers, as they do not need them
+        again.
+    - type: Tweak
+      message: Reduced number of Health Analyzers in the MedVend from 5 back to 3.
+  id: 522
+  time: '2025-08-31T19:28:40.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        Rule 11 - Silicon Rules has had its ID definition adjusted. Non-crew ID
+        icons such as Prisoners, Visitors, Blanks, and Hostile icons no longer
+        count as crew by default.
+    - type: Add
+      message: >-
+        Updated and adjusted Ion Storm's job pool (Added NTR, IAA, Prisoner, and
+        Visitor. Replaced Passenger with Assistant.)
+  id: 523
+  time: '2025-08-31T19:29:45.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Remove
+      message: >-
+        Removed the Asimov Silicon lawset (Crewsimov is fine, the human-only
+        version is removed).
+  id: 524
+  time: '2025-08-31T22:38:36.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a mapping tool oversight from pipe layers implementation where the
+        unary stuff was overriding non default vent prototypes
+  id: 525
+  time: '2025-09-01T02:20:17.0000000+00:00'
+- author: Queer-Cats
+  changes:
+    - type: Tweak
+      message: Silos have a limited range now
+    - type: Remove
+      message: Silo Relay is gone
+  id: 526
+  time: '2025-09-02T00:12:32.0000000+00:00'

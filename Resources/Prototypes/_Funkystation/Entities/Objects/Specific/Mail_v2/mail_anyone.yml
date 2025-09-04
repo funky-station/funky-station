@@ -298,3 +298,31 @@
     - id: SpeedLoaderCap
       amount: 2
     - id: BoxCartridgeCap
+
+- type: entity
+  parent: BaseMail
+  id: MailCodex
+  suffix: Codex Cicatrix 
+  components:
+  - type: Mail
+    contents:
+    - id: CodexCicatrix
+
+- type: entity
+  parent: BaseMail
+  id: MailCancerMouse
+  suffix: Cancer Mouse
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: MobMouseCancer
+
+- type: entity
+  parent: BaseMail
+  id: MailSwitchblade
+  suffix: Switchblade
+  components:
+  - type: Mail
+    contents:
+    - id: Switchblade

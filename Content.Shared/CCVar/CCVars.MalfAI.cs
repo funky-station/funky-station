@@ -12,7 +12,7 @@ public sealed partial class CCVars
     /// The duration (in seconds) of the Malf AI Doomsday Protocol.
     /// </summary>
     public static readonly CVarDef<float> MalfAiDoomsdayDuration =
-        CVarDef.Create("malfai.doomsday_duration", 250f, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("malfai.doomsday_duration", 420f, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
     /// Duration in seconds that an APC remains siphoned after being targeted by a Malf AI.

@@ -65,6 +65,6 @@
     MargheritaDrink:
       amount: 3
     JuicePineapple:
-      amount: 1
+      amount: 2
   products:
     PineappleMargherita: 4

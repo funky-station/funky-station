@@ -193,6 +193,7 @@
        - id: ClothingHeadHatCargosoft
        - id: ClothingUniformJumpsuitCargo
        - id: MaterialBag # Funky Station
+       - id: RadioHandheldCargo # Funky Station 
        - id: ClothingShoesColorBlack
        - id: ClothingUniformJumpskirtCargo
        - id: ClothingHandsGlovesFingerless

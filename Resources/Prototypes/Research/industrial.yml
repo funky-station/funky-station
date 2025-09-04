@@ -25,7 +25,6 @@
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SpaceCat~Chan <49094338+SpaceCat-Chan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -41,13 +40,13 @@
     state: handdrill
   discipline: Industrial
   tier: 1
-  cost: 5000 # Funky Station
+  cost: 10000 # Goobstation
   recipeUnlocks:
   - MiningDrill
   - WeaponPlasmaCutter # Goobstation
   - MechEquipmentDrill # Goobstation
   - MineralScannerEmpty
-  # - OreProcessorIndustrialMachineCircuitboard Funky Station
+  - OreProcessorIndustrialMachineCircuitboard
   - ClothingMaskWeldingGas
 
 - type: technology

@@ -62,11 +62,10 @@
         type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: gold
-  # - type: Material
+  - type: Material
   - type: PhysicalComposition
     materialComposition:
-      Gold: 200 # Funky Station
-      RawGold: 300
+      RawGold: 300 # Goobstation - was 100
   - type: Extractable
     grindableSolutionName: goldore
   - type: SolutionContainerManager
@@ -99,10 +98,9 @@
         type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: diamond
-  #- type: Material
+  - type: Material
   - type: PhysicalComposition
     materialComposition:
-      Diamond: 100
       RawDiamond: 100
   - type: Extractable
     grindableSolutionName: diamondore
@@ -136,11 +134,10 @@
         type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: iron
-  #- type: Material
+  - type: Material
   - type: PhysicalComposition
     materialComposition:
-      Steel: 300 # Funky Station
-      RawIron: 200
+      RawIron: 200 # Goobstation - was 100
   - type: Extractable
     grindableSolutionName: ironore
   - type: SolutionContainerManager
@@ -173,11 +170,10 @@
         type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: plasma
-  # - type: Material
+  - type: Material
   - type: PhysicalComposition
     materialComposition:
-      Plasma: 200 # Funky Station
-      RawPlasma: 200
+      RawPlasma: 500 # Goobstation - was 100
   - type: PointLight
     radius: 1.2
     energy: 0.6
@@ -215,11 +211,10 @@
         type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: silver
-  # - type: Material
+  - type: Material
   - type: PhysicalComposition
     materialComposition:
-      Silver: 200 # Funky Station
-      RawSilver: 200
+      RawSilver: 300 # Goobstation - was 100
   - type: Extractable
     grindableSolutionName: silverore
   - type: SolutionContainerManager
@@ -252,11 +247,10 @@
         type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: spacequartz
-  # - type: Material
+  - type: Material
   - type: PhysicalComposition
     materialComposition:
-      Glass: 300 # Funky Station
-      RawQuartz: 300
+      RawQuartz: 200 # Goobstation - was 100
   - type: Extractable
     grindableSolutionName: quartzore
   - type: SolutionContainerManager
@@ -289,11 +283,10 @@
         type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: uranium
-  # - type: Material
+  - type: Material
   - type: PhysicalComposition
     materialComposition:
-      Uranium: 200 # Funky Station
-      RawUranium: 200
+      RawUranium: 300 # Goobstation - was 100
   - type: PointLight
     radius: 1.2
     energy: 0.8
@@ -334,10 +327,9 @@
         type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: bananium
-  #- type: Material
+  - type: Material
   - type: PhysicalComposition
     materialComposition:
-      Bananium: 100 # Funky Station
       RawBananium: 100
   - type: PointLight
     radius: 1.2
@@ -380,7 +372,7 @@
         type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: coal
-  # - type: Material
+  - type: Material
   - type: Extractable
     grindableSolutionName: coal
   - type: SolutionContainerManager
@@ -399,8 +391,7 @@
           Quantity: 0.1
   - type: PhysicalComposition
     materialComposition:
-      Diamond: 2 # Funky Station Coal now turns into diamonds 
-      Coal: 100
+      Coal: 200 # Goobstation - was 100
 
 - type: entity
   parent: Coal

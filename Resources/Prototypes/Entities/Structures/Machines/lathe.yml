@@ -146,7 +146,6 @@
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
@@ -161,7 +160,6 @@
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
@@ -740,7 +738,7 @@
     - AutolatheMachineCircuitboard
     - CircuitImprinterMachineCircuitboard
     - BiogeneratorMachineCircuitboard
-   # - OreProcessorMachineCircuitboard #Funky Station 
+    - OreProcessorMachineCircuitboard
     - ElectrolysisUnitMachineCircuitboard
     - CentrifugeMachineCircuitboard
     - ChemDispenserMachineCircuitboard
@@ -796,7 +794,7 @@
     - CloningConsoleComputerCircuitboard
     - StasisBedMachineCircuitboard
     - AutodocCircuitboard # Shitmed
-    # - OreProcessorIndustrialMachineCircuitboard #Funky Station
+    - OreProcessorIndustrialMachineCircuitboard
     - CargoTelepadMachineCircuitboard
     - RipleyCentralElectronics
     - RipleyPeripheralsElectronics
@@ -1189,7 +1187,7 @@
     - WeaponLaserCannon
     - WeaponLaserCarbine
     - WeaponXrayCannon
-    - WeaponLaserSvalinn # Funky Change
+    - WeaponLaserSvalinn # Funky Change 
     - SecurityCyberneticEyes # Shitmed Change
     - MedicalCyberneticEyes # Shitmed Change
     # Goobstation - Mechs
@@ -1332,7 +1330,7 @@
     - MedkitBrute
     - MedkitAdvanced
     - MedkitRadiation
-#    - MedkitCombat #funky
+    - MedkitCombat
     - Scalpel
     - Retractor
     - Cautery
@@ -1690,7 +1688,6 @@
 - type: entity
   parent: BaseLathe
   id: OreProcessor
-  suffix: DO NOT MAP, OBSOLETE
   name: ore processor
   description: It produces sheets and ingots using ores.
   components:
@@ -1718,17 +1715,21 @@
     runningState: building
     defaultProductionAmount: 10
     staticRecipes:
-    - SheetRGlass
-    - SheetPGlass
-    - SheetRPGlass
-    - SheetUGlass
-    - SheetRUGlass
-    - SheetPlasteel
+    - SheetSteel
+    - SheetGlass1
+    - SheetRGlassRaw
+    - SheetPlasma1
+    - SheetPGlass1
+    - SheetRPGlass1
+    - SheetUranium1
+    - IngotGold1
+    - IngotSilver1
+    - MaterialBananium1
+    - MaterialDiamond
 
 - type: entity
   parent: OreProcessor
   id: OreProcessorIndustrial
-  suffix: DO NOT MAP, OBSOLETE
   name: industrial ore processor
   description: An ore processor specifically designed for mass-producing metals in industrial applications.
   components:
@@ -1739,6 +1740,21 @@
   - type: Lathe
     materialUseMultiplier: 0.75
     timeMultiplier: 0.5
+    staticRecipes:
+    - SheetSteel
+    - SheetGlass1
+    - SheetRGlassRaw
+    - SheetPlasma1
+    - SheetPGlass1
+    - SheetRPGlass1
+    - SheetPlasteel1
+    - SheetUranium1
+    - SheetUGlass1
+    - SheetRUGlass1
+    - IngotGold1
+    - IngotSilver1
+    - MaterialBananium1
+    - MaterialDiamond
 
 - type: entity
   parent: BaseLathe

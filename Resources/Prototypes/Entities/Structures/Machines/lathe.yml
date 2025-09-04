@@ -1332,7 +1332,7 @@
     - MedkitBrute
     - MedkitAdvanced
     - MedkitRadiation
-    - MedkitCombat
+   # - MedkitCombat # Funky Change 
     - Scalpel
     - Retractor
     - Cautery

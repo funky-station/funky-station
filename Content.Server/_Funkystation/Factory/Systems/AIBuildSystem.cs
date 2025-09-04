@@ -1,19 +1,11 @@
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.Actions;
-using Content.Shared.Actions.Events; // For MalfAiRoboticsFactoryActionEvent
 using Content.Shared.DoAfter;
 using Content.Shared._Funkystation.Factory;
 using Content.Shared.MalfAI;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Log;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
-using Robust.Server.GameObjects;
-using System;
-using System.Collections.Generic;
 
 namespace Content.Server._Funkystation.Factory.Systems;
 
@@ -51,9 +43,6 @@ public sealed partial class AIBuildSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<AIBuildRequestEvent>(OnBuildRequest);
         SubscribeLocalEvent<Content.Shared.MalfAI.MalfAiMarkerComponent, AIBuildDoAfterEvent>(OnBuildDoAfter);
-
-        Sawmill.Info("[DEBUG_LOG] AIBuildSystem initialized.");
-        Sawmill.Info("[DEBUG_LOG] Subscribed to AIBuildRequestEvent and AIBuildDoAfterEvent with MalfAiMarkerComponent");
     }
 
     /// <summary>
@@ -65,40 +54,30 @@ public sealed partial class AIBuildSystem : EntitySystem
         var target = args.Target;
         var prototype = args.Prototype;
 
-        Sawmill.Info($"[DEBUG_LOG] AIBuildSystem.OnBuildRequest called");
-        Sawmill.Info($"[DEBUG_LOG] Build request details - Requester: {ToPrettyString(requester)}, Target: {target}, Prototype: '{prototype}'");
-
         // Validate prototype exists
-        var prototypeExists = _prototypes.HasIndex<EntityPrototype>(prototype);
-        Sawmill.Info($"[DEBUG_LOG] Prototype '{prototype}' exists: {prototypeExists}");
-        if (!prototypeExists)
+        if (!_prototypes.HasIndex<EntityPrototype>(prototype))
         {
-            Sawmill.Error($"[DEBUG_LOG] AIBuild: Invalid prototype '{prototype}' requested by {ToPrettyString(requester)}");
+            Sawmill.Error($"AIBuild: Invalid prototype '{prototype}' requested by {ToPrettyString(requester)}");
             return;
         }
 
         // Validate coordinates
-        var coordinatesValid = target.IsValid(EntityManager);
-        Sawmill.Info($"[DEBUG_LOG] Target coordinates valid: {coordinatesValid}");
-        if (!coordinatesValid)
+        if (!target.IsValid(EntityManager))
         {
-            Sawmill.Warning($"[DEBUG_LOG] AIBuild: Invalid coordinates {target} for prototype '{prototype}'");
+            Sawmill.Warning($"AIBuild: Invalid coordinates {target} for prototype '{prototype}'");
             return;
         }
 
         // Validate tile is free
-        var tileFree = IsTileFree(target);
-        Sawmill.Info($"[DEBUG_LOG] Tile at {target} is free: {tileFree}");
-        if (!tileFree)
+        if (!IsTileFree(target))
         {
-            Sawmill.Warning($"[DEBUG_LOG] AIBuild: Tile at {target} is occupied, cannot build '{prototype}'");
+            Sawmill.Warning($"AIBuild: Tile at {target} is occupied, cannot build '{prototype}'");
             return;
         }
 
         // Start building process with DoAfter
         var doAfterEvent = new AIBuildDoAfterEvent(GetNetCoordinates(target), prototype);
         var delay = TimeSpan.FromSeconds(3.0f); // 3 second build time
-        Sawmill.Info($"[DEBUG_LOG] Creating DoAfter with {delay.TotalSeconds}s delay");
 
         // Try to get the AI's visible eye entity (RemoteEntity) for DoAfter display
         EntityUid doAfterUser = requester;
@@ -108,11 +87,6 @@ public sealed partial class AIBuildSystem : EntitySystem
             coreComp.RemoteEntity.HasValue)
         {
             doAfterUser = coreComp.RemoteEntity.Value;
-            Sawmill.Info($"[DEBUG_LOG] Resolved AI core: {ToPrettyString(aiCore)}, using RemoteEntity for DoAfter display: {ToPrettyString(doAfterUser)}");
-        }
-        else
-        {
-            Sawmill.Info($"[DEBUG_LOG] Could not resolve AI core or RemoteEntity (core: {ToPrettyString(aiCore)}), using requester for DoAfter: {ToPrettyString(doAfterUser)}");
         }
 
         var doAfterArgs = new DoAfterArgs(EntityManager, doAfterUser, delay, doAfterEvent, eventTarget: requester)
@@ -126,16 +100,9 @@ public sealed partial class AIBuildSystem : EntitySystem
             Hidden = false
         };
 
-        var doAfterStarted = _doAfter.TryStartDoAfter(doAfterArgs);
-        Sawmill.Info($"[DEBUG_LOG] DoAfter start attempt result: {doAfterStarted}");
-
-        if (doAfterStarted)
+        if (!_doAfter.TryStartDoAfter(doAfterArgs))
         {
-            Sawmill.Info($"[DEBUG_LOG] AIBuild: Started building '{prototype}' for {ToPrettyString(requester)} at {target}");
-        }
-        else
-        {
-            Sawmill.Warning($"[DEBUG_LOG] AIBuild: Failed to start DoAfter for '{prototype}' build request");
+            Sawmill.Warning($"AIBuild: Failed to start DoAfter for '{prototype}' build request");
         }
     }
 
@@ -144,42 +111,28 @@ public sealed partial class AIBuildSystem : EntitySystem
     /// </summary>
     private void OnBuildDoAfter(EntityUid uid, Content.Shared.MalfAI.MalfAiMarkerComponent component, AIBuildDoAfterEvent args)
     {
-        Sawmill.Info($"[DEBUG_LOG] AIBuildSystem.OnBuildDoAfter called for prototype '{args.Prototype}'");
-        Sawmill.Info($"[DEBUG_LOG] DoAfter cancelled: {args.Cancelled}");
-
-
         if (args.Cancelled)
-        {
-            Sawmill.Debug($"[DEBUG_LOG] AIBuild: Build cancelled for prototype '{args.Prototype}'");
             return;
-        }
 
         var location = GetCoordinates(args.Location);
-        Sawmill.Info($"[DEBUG_LOG] Build completion location: {location}");
 
         // Final validation before spawning
-        var prototypeExists = _prototypes.HasIndex<EntityPrototype>(args.Prototype);
-        Sawmill.Info($"[DEBUG_LOG] Final prototype validation - '{args.Prototype}' exists: {prototypeExists}");
-        if (!prototypeExists)
+        if (!_prototypes.HasIndex<EntityPrototype>(args.Prototype))
         {
-            Sawmill.Error($"[DEBUG_LOG] AIBuild: Invalid prototype '{args.Prototype}' at completion");
+            Sawmill.Error($"AIBuild: Invalid prototype '{args.Prototype}' at completion");
             return;
         }
 
-        var tileFree = IsTileFree(location);
-        Sawmill.Info($"[DEBUG_LOG] Final tile validation - location free: {tileFree}");
-        if (!tileFree)
+        if (!IsTileFree(location))
         {
-            Sawmill.Warning($"[DEBUG_LOG] AIBuild: Tile at {location} became occupied during build");
+            Sawmill.Warning($"AIBuild: Tile at {location} became occupied during build");
             return;
         }
 
         try
         {
-            Sawmill.Info($"[DEBUG_LOG] Attempting to spawn entity '{args.Prototype}' at {location}");
             // Spawn the entity
             var spawned = EntityManager.SpawnEntity(args.Prototype, location);
-            Sawmill.Info($"[DEBUG_LOG] Entity spawned successfully: {ToPrettyString(spawned)}");
 
             // If this is a robotics factory grid, remember who built it so we can assign borgs later.
             var isFactory = false;
@@ -188,23 +141,18 @@ public sealed partial class AIBuildSystem : EntitySystem
                 isFactory = true;
                 var owner = EnsureComp<Content.Server._Funkystation.Factory.Components.MalfFactoryOwnerComponent>(spawned);
                 owner.Controller = uid; // uid is the AI entity that received the DoAfter completion
-                Dirty(spawned, owner);
-                Sawmill.Info($"[DEBUG_LOG] Tagged factory {ToPrettyString(spawned)} with owner {ToPrettyString(uid)}");
             }
 
             // Anchor the entity if possible
             TryAnchorEntity(spawned);
-            Sawmill.Info($"[DEBUG_LOG] Anchoring attempt completed");
 
             // On success, remove the Robotics Factory action from the Malf AI that built it.
             if (isFactory)
                 RemoveRoboticsFactoryAction(uid);
-
-            Sawmill.Info($"[DEBUG_LOG] AIBuild: Successfully spawned '{args.Prototype}' as {ToPrettyString(spawned)} at {location}");
         }
         catch (Exception ex)
         {
-            Sawmill.Error($"[DEBUG_LOG] AIBuild: Failed to spawn '{args.Prototype}' at {location}: {ex}");
+            Sawmill.Error($"AIBuild: Failed to spawn '{args.Prototype}' at {location}: {ex}");
         }
     }
 
@@ -264,7 +212,5 @@ public sealed partial class AIBuildSystem : EntitySystem
 
         // Try to anchor the entity
         transform.Anchored = true;
-
-        Sawmill.Debug($"AIBuild: Anchored entity {ToPrettyString(entity)}");
     }
 }

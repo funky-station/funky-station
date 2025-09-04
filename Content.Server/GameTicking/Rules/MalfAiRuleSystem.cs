@@ -93,8 +93,8 @@ public sealed class MalfAiRuleSystem : GameRuleSystem<MalfAiRuleComponent>
         if (!store.CurrencyWhitelist.Contains("CPU"))
             store.CurrencyWhitelist.Add("CPU");
 
-        // Ensure UI updates and set starting balance to showcase CPU currency (can be adjusted later)
-        _store.TryAddCurrency(new() { { "CPU", Content.Shared.FixedPoint.FixedPoint2.New(10) } }, aiEnt, store);
+        // Ensure UI updates and set starting balance to 0 CPU
+        _store.TryAddCurrency(new() { { "CPU", Content.Shared.FixedPoint.FixedPoint2.New(0) } }, aiEnt, store);
 
         // Grant the Open Shop action to the AI entity
         _actions.AddAction(aiEnt, "ActionMalfAiOpenStore");

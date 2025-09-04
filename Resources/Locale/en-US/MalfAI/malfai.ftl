@@ -130,17 +130,28 @@ malfai-viewport-desc = Select a tile to center a remote viewport window on it.
 # =====================
 # Action Validation Messages
 # =====================
+# Hijack Mech
+malfai-hijack-invalid-target = Invalid mech target.
+malfai-hijack-insert-failed = Failed to insert AI into mech.
+malfai-hijack-success = Mech hijacked successfully.
+
 # Override Machine
 malfai-override-no-target = Select a machine to override.
 malfai-override-not-machine = Not a machine!
 malfai-override-not-powered = Machine unpowered.
 malfai-override-success = Machine overridden successfully.
+malfai-override-not-malf = Only a malfunctioning AI can override machines.
+malfai-override-invalid-location = Invalid target location.
+malfai-override-no-machine = No machine found at target location.
 
 # Overload Machine
 malfai-overload-no-target = Select a machine to overload.
 malfai-overload-not-machine = Not a machine!
 malfai-overload-not-powered = Machine unpowered.
 malfai-overload-success = Machine overloaded successfully.
+malfai-overload-not-malf = Only a malfunctioning AI can overload machines.
+malfai-overload-invalid-location = Invalid target location.
+malfai-overload-no-machine = No machine found at target location.
 
 # Shunt to APC
 malfai-shunt-invalid-target = Invalid APC target.

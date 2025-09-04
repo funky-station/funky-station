@@ -20,4 +20,10 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<float> MalfAiSiphonDurationSeconds =
         CVarDef.Create("malfai.siphon_duration_seconds", 60f, CVar.SERVER | CVar.ARCHIVE);
+
+    /// <summary>
+    /// The amount of CPU that a Malf AI gains per APC siphon.
+    /// </summary>
+    public static readonly CVarDef<int> MalfAiSiphonCpuAmount =
+        CVarDef.Create("malfai.siphon_cpu_amount", 5, CVar.SERVER | CVar.ARCHIVE);
 }

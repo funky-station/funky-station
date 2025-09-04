@@ -10,6 +10,8 @@ using Content.Server.Power.Components;
 using Content.Shared.Alert;
 using Content.Server.Administration.Logs;
 using Content.Shared.Database;
+using Content.Shared.CCVar;
+using Robust.Shared.Configuration;
 using Robust.Shared.Localization;
 
 namespace Content.Server.MalfAI;
@@ -22,21 +24,23 @@ public sealed class MalfAiApcSiphonSystem : EntitySystem
 {
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private const string CpuCurrency = "CPU";
-    private const int CpuGainInt = 999;
-    private static readonly FixedPoint2 SiphonAmount = FixedPoint2.New(CpuGainInt);
 
     public void OnApcStartSiphon(EntityUid uid, ApcComponent apc, ref ApcStartSiphonEvent args)
     {
         if (!TryComp<Content.Shared.Store.Components.StoreComponent>(args.SiphonedBy, out var store))
             return;
 
+        var cpuAmount = _cfg.GetCVar(CCVars.MalfAiSiphonCpuAmount);
+        var siphonAmount = FixedPoint2.New(cpuAmount);
+
         // Grant CPU to the AI
-        var dict = new System.Collections.Generic.Dictionary<string, FixedPoint2> { { CpuCurrency, SiphonAmount } };
+        var dict = new System.Collections.Generic.Dictionary<string, FixedPoint2> { { CpuCurrency, siphonAmount } };
         _store.TryAddCurrency(dict, args.SiphonedBy, store);
 
         // Log the APC siphoning for admin records
-        _adminLogger.Add(LogType.Action, LogImpact.High, $"Malf AI {ToPrettyString(args.SiphonedBy)} siphoned APC {ToPrettyString(uid)} for {CpuGainInt} CPU");
+        _adminLogger.Add(LogType.Action, LogImpact.High, $"Malf AI {ToPrettyString(args.SiphonedBy)} siphoned APC {ToPrettyString(uid)} for {cpuAmount} CPU");
     }
 }

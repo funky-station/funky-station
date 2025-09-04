@@ -172,7 +172,7 @@
   components:
   - type: Mail
     contents:
-    - id: WehMedipen
+    - id: WehMedipen #why does this inject 1u at a time, literally only reason why it's as rare as a throngler plush
     - id: WehpetInstrument
     - id: ClothingHeadWehcellentCap
 

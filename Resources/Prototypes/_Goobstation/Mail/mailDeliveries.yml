@@ -46,6 +46,9 @@
     MailViceSuit: 0.2
     MailNinjaOutfit: 0.1 
     MailNukieOutfit: 0.1
+    MailMercOutfit: 0.1
+    MailHECU1: 0.1
+    MailHECU2: 0.1
   # Fun
     MailEMP: 0.1 # Xcy - People comically hate this, bumping down by half to 0.1
     MailSmoke: 0.3
@@ -88,6 +91,8 @@
     MailGocrazyPlush: 0.1 
     MailToySword: 0.2 
     MailCapGuns: 0.1 
+    MailCodex: 0.1 
+    MailCancerMouse: 0.1
   # Tools
     MailSignallerKit: 0.5
     MailFlashlight: 0.8
@@ -98,6 +103,7 @@
   # Weapons
     MailKnife: 0.3
     MailSword: 0.2
+    MailSwitchblade: 0.05
   # Departments
   departments:
     Cargo:

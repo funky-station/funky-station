@@ -175,3 +175,126 @@
     - id: WehMedipen
     - id: WehpetInstrument
     - id: ClothingHeadWehcellentCap
+
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailStrangePills
+  suffix: Strange Pills
+  components:
+  - type: Mail
+    contents:
+    - id: StrangePill
+      amount: 10
+
+- type: entity
+  parent: BaseMail
+  id: MailDealbreakers
+  suffix: Deal Breakers
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingEyesDealbreakers
+
+- type: entity
+  parent: BaseMail
+  id: MailOutlawGlasses
+  suffix: OutlawGlasses
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingEyesGlassesOutlawGlasses
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailSingulothToy
+  suffix: Singuloth Toy
+  components:
+  - type: Mail
+    contents:
+    - id: SingularityToy
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailTeslaToy
+  suffix: Tesla Toy
+  components:
+  - type: Mail
+    contents:
+    - id: TeslaToy
+
+- type: entity
+  parent: BaseMail
+  id: MailSpaceGlue
+  suffix: Space Glue
+  components:
+  - type: Mail
+    contents:
+    - id: DrinkSpaceGlue
+
+- type: entity
+  parent: BaseMail
+  id: MailSpaceLube
+  suffix: Space Lube
+  components:
+  - type: Mail
+    contents:
+    - id: DrinkSpaceLube
+
+- type: entity
+  parent: BaseMail
+  id: MailGlorpMiku
+  suffix: Glorp Miku
+  components:
+  - type: Mail
+    contents:
+    - id: GlorpPerformancePlushie
+
+- type: entity
+  parent: BaseMail
+  id: MailDrazilPlush
+  suffix: Drazil Plush
+  components:
+  - type: Mail
+    contents:
+    - id: PlushieLizardInversed
+
+- type: entity
+  parent: BaseMail
+  id: MailGodoPlush
+  suffix: Godo Plush
+  components:
+  - type: Mail
+    contents:
+    - id: PlushieGodo
+
+- type: entity
+  parent: BaseMail
+  id: MailGocrazyPlush
+  suffix: Gocrazy Plush
+  components:
+  - type: Mail
+    contents:
+    - id: PlushieGocrazy
+
+- type: entity
+  parent: BaseMail
+  id: MailToySword
+  suffix: Toy Sword
+  components:
+  - type: Mail
+    contents:
+    - id: ToySword
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailCapGuns
+  suffix: Cap Guns
+  components:
+  - type: Mail
+    contents:
+    - id: RevolverCapGun
+      amount: 2
+    - id: SpeedLoaderCap
+      amount: 2
+    - id: BoxCartridgeCap

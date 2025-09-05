@@ -25,10 +25,10 @@
     size: Ginormous
   - type: GunRequiresWield
   - type: Gun
-    projectileSpeed: 8
+    projectileSpeed: 16
     clumsyProof: false
     cameraRecoilScalar: 0
-    fireRate: 8
+    fireRate: 10
     selectedMode: FullAuto
     availableModes:
     - FullAuto

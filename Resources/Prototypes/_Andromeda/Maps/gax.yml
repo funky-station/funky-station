@@ -6,8 +6,8 @@
   id: Gax
   mapName: 'NTVS Gax'
   mapPath: /Maps/_Andromeda/gax.yml
-  minPlayers: 10
-  maxPlayers: 45
+  minPlayers: 15
+  maxPlayers: 65
   stations:
     NTVS Gax:
       stationProto: StandardNanotrasenStation

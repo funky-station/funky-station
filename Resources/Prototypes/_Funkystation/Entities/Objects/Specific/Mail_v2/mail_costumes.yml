@@ -16,6 +16,8 @@
     - id: ClothingBeltMilitaryWebbing
     - id: ClothingShoesBootsSyndieFilled
     - id: ClothingHeadHatBlacksoft
+    - id: ClothingBackpackSyndicate
+    - id: ClothingHandsGlovesFingerless
     
 - type: entity
   parent: BaseMailLarge

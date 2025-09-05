@@ -82,3 +82,16 @@
     - id: ClothingHeadHelmetMerc
     - id: ClothingUniformHecu
     - id: ClothingMaskGasMerc
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailShrineMaidenOutfit
+  suffix: Shrine Maiden
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingOuterSuitShrineMaiden
+    - id: ClothingHeadHatShrineMaidenWig
+    - id: Gohei
+    - id: ClothingShoesWizard
+    - id: PlushieCirno

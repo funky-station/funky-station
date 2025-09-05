@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
+// SPDX-FileCopyrightText: 2025 PurpleTranStar <tehevilduckiscoming@gmail.com>
+// SPDX-FileCopyrightText: 2025 mqole <113324899+mqole@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 rosieposie <52761126+rosieposieeee@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -12,7 +15,6 @@ namespace Content.Server._Impstation.CartridgeLoader.Cartridges;
 [RegisterComponent]
 public sealed partial class SOSCartridgeComponent : Component
 {
-    [DataField]
     //Path to the id container
     public const string PDAIdContainer = "PDA-id";
 

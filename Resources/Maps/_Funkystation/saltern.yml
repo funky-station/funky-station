@@ -52570,13 +52570,6 @@ entities:
     - type: Transform
       pos: 7.2571726,18.545927
       parent: 31
-- proto: MaterialSilo
-  entities:
-  - uid: 12018
-    components:
-    - type: Transform
-      pos: 50.5,-11.5
-      parent: 31
 - proto: MaterialWoodPlank1
   entities:
   - uid: 9680
@@ -61563,13 +61556,6 @@ entities:
     components:
     - type: Transform
       pos: -11.5,-7.5
-      parent: 31
-- proto: SpawnPointBlueshieldOfficer
-  entities:
-  - uid: 11590
-    components:
-    - type: Transform
-      pos: -2.5,24.5
       parent: 31
 - proto: SpawnPointBorg
   entities:

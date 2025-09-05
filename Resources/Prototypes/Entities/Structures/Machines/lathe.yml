@@ -1741,20 +1741,32 @@
     materialUseMultiplier: 0.75
     timeMultiplier: 0.5
     staticRecipes:
-    - SheetSteel
-    - SheetGlass1
+    # Funky Change, replaced with Industrial Procecor specific recipes 
+    #- IngotGold1
+    #- IngotSilver1
+    #- MaterialBananium1
+    #- MaterialDiamond    
+    #- SheetSteel
+    #- SheetGlass1
+    #- SheetPlasma1    
+    #- SheetUranium1   
+    # Funky Recipe Start
+    - SheetSteelIndustrial
+    - SheetGlassIndustrial
+    - SheetPlasmaIndustrial
+    - IngotSilverIndustrial
+    - IngotGoldIndustrial
+    - SheetUraniumIndustrial
+    - MaterialBananiumIndustrial
+    - MaterialDiamondIndustrial
+    # Funky Recipe End 
     - SheetRGlassRaw
-    - SheetPlasma1
     - SheetPGlass1
     - SheetRPGlass1
     - SheetPlasteel1
-    - SheetUranium1
     - SheetUGlass1
     - SheetRUGlass1
-    - IngotGold1
-    - IngotSilver1
-    - MaterialBananium1
-    - MaterialDiamond
+
 
 - type: entity
   parent: BaseLathe

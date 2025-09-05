@@ -173,7 +173,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawPlasma: 500 # Goobstation - was 100
+      RawPlasma: 300 # Goobstation - was 100
   - type: PointLight
     radius: 1.2
     energy: 0.6
@@ -214,7 +214,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawSilver: 300 # Goobstation - was 100
+      RawSilver: 300
   - type: Extractable
     grindableSolutionName: silverore
   - type: SolutionContainerManager
@@ -286,7 +286,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawUranium: 300 # Goobstation - was 100
+      RawUranium: 200
   - type: PointLight
     radius: 1.2
     energy: 0.8
@@ -391,7 +391,7 @@
           Quantity: 0.1
   - type: PhysicalComposition
     materialComposition:
-      Coal: 200 # Goobstation - was 100
+      Coal: 100
 
 - type: entity
   parent: Coal

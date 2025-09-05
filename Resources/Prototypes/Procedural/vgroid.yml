@@ -57,8 +57,8 @@
       maxGroupSize: 15
     - !type:OreDunGen
       replacement: IronRock
-      entity: IronRockSalt
-      count: 1 # Funky station, salt is currently useless so its made rare 
+      entity: IronRockBananium
+      count: 15 # Funky station, salt is currently useless so its replaced with bananium ore 
       minGroupSize: 8
       maxGroupSize: 12
     - !type:OreDunGen

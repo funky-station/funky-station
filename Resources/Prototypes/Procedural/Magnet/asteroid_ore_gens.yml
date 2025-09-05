@@ -5,19 +5,20 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+#Funky Station change: Salt is made rare while other ores made more common
 - type: weightedRandom
   id: AsteroidOre
   weights:
     OreIron: 1.0
     OreQuartz: 1.0
-    OreCoal: 0.33
-    OreSalt: 0.25
-    OreGold: 0.25
-    OreSilver: 0.25
-    OrePlasma: 0.20
-    OreUranium: 0.20
-    OreArtifactFragment: 0.10
-    OreBananium: 0.10
+    OreCoal: 0.20
+    OreSalt: 0.01  
+    OreGold: 0.30
+    OreSilver: 0.30
+    OrePlasma: 0.30
+    OreUranium: 0.25
+    OreArtifactFragment: 0.15
+    OreBananium: 0.15
 
 - type: oreDunGen
   id: OreIron

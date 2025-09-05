@@ -94,6 +94,7 @@
   - BorgModuleGrapplingGun
   - BorgModuleMining
   - BorgModuleAppraisal
+  - BorgModuleTool # Funky Station
 
   radioChannels:
   - Supply

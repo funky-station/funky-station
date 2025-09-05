@@ -4405,3 +4405,9 @@ Entries:
       message: Silo Relay is gone
   id: 526
   time: '2025-09-02T00:12:32.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Remove
+      message: Removed invalid prototypes from many orphaned or unmaintained maps.
+  id: 527
+  time: '2025-09-05T03:42:36.0000000+00:00'

@@ -4419,3 +4419,9 @@ Entries:
       message: Puddle slipperiness has been tweaked to be more intuitive
   id: 528
   time: '2025-09-05T06:27:19.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Fix
+      message: Fixed duplicate spawns with the recycler.
+  id: 529
+  time: '2025-09-05T06:28:46.0000000+00:00'

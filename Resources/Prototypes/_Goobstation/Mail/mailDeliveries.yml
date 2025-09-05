@@ -49,6 +49,7 @@
     MailMercOutfit: 0.1
     MailHECU1: 0.1
     MailHECU2: 0.1
+    MailShrineMaidenOutfit: 0.2
   # Fun
     MailEMP: 0.1 # Xcy - People comically hate this, bumping down by half to 0.1
     MailSmoke: 0.3

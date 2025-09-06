@@ -72,7 +72,6 @@
     Command:
       MailCommandPipebombIntern: 1
       MailLuxuryPen: 1.6
-      MailExtendedWarrantyCommand: 0.5
       MailBartenderPremiumBooze: 0.2
     Medical:
       MailMedicalBasicSupplies: 2

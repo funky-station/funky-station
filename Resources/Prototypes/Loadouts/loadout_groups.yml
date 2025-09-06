@@ -994,7 +994,7 @@
   loadouts:
   - RoboticistCap
   - SkullBandana
-  - ScientistHardhatWhite
+  - ScientistHardhatWhite # Funky
   - ScientificBeret
 
 - type: loadoutGroup

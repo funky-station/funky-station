@@ -182,7 +182,6 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
         Dirty(args.Actor, store);
         _alerts.ShowAlert(args.Actor, "MalfCpu");
 
-        System.Console.WriteLine("[DEBUG_LOG] OnImposeLaw: Actor=" + ToPrettyString(args.Actor) + ", Address=" + args.Address + ", CPU charged=5");
 
         // Link by device address across any device network (robust fallback)
         var linked = false;
@@ -197,7 +196,6 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
             if (string.IsNullOrWhiteSpace(ctrl.UniqueId))
                 ctrl.UniqueId = $"BORG-{Guid.NewGuid().ToString("N").Substring(0, 8)}";
             Dirty(targetUid, ctrl);
-            System.Console.WriteLine("[DEBUG_LOG] OnImposeLaw: Linked borg=" + ToPrettyString(targetUid) + " to controller=" + ToPrettyString(args.Actor));
             linked = true;
             break;
         }
@@ -206,7 +204,6 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
         if (linked)
         {
             var state = BuildMalfBorgsState(args.Actor);
-            System.Console.WriteLine("[DEBUG_LOG] OnImposeLaw: Built state entries=" + state.Borgs.Count);
             // Refresh on the actor entity if open
             if (_ui.IsUiOpen((args.Actor, null), MalfAiBorgsUiKey.Key))
                 _ui.SetUiState((args.Actor, null), MalfAiBorgsUiKey.Key, state);

@@ -207,8 +207,6 @@ public sealed class MalfAiGyroscopeSystem : EntitySystem
             endMap = new MapCoordinates(centered, startMap.MapId);
         }
 
-        System.Console.WriteLine($"[DEBUG_LOG] Gyroscope movement: Start={startMap.Position}, Target={targetPosition}, End={endMap.Position}");
-
         // Obstruction check: block traversal if a wall/closed door is between start and end.
         // Use the standard unobstructed interaction check so open doors pass and walls/closed doors block.
         // This check now uses the calculated endMap position after lengthdir calculation.

@@ -1,0 +1,122 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: latheRecipe
+  id: SheetPGlass
+  result: SheetPGlass1
+  completetime: 0
+  materials:
+    Glass: 100
+    Plasma: 100
+
+- type: latheRecipe
+  id: SheetRPGlass
+  result: SheetRPGlass1
+  completetime: 0
+  materials:
+    Glass: 100
+    Plasma: 100
+    Steel: 50
+
+- type: latheRecipe
+  id: SheetPlasteel
+  result: SheetPlasteel1
+  completetime: 0
+  materials:
+    Plasma: 100
+    Steel: 250
+
+
+- type: latheRecipe
+  id: SheetUGlass
+  result: SheetUGlass1
+  completetime: 0
+  materials:
+    Uranium: 100
+    Glass: 100
+
+- type: latheRecipe
+  id: SheetRUGlass
+  result: SheetRUGlass1
+  completetime: 0
+  materials:
+    Uranium: 100
+    Glass: 100
+    Steel: 50        
+
+- type: latheRecipe
+  id: ToolboxArtistic
+  result: ToolboxArtistic
+  completetime: 15
+  materials:
+    Steel: 1500    
+
+- type: latheRecipe
+  id: ToolboxEmergency
+  result: ToolboxEmergency
+  completetime: 15
+  materials:
+    Steel: 1500    
+
+- type: latheRecipe
+  id: ToolboxElectrical
+  result: ToolboxElectrical
+  completetime: 15
+  materials:
+    Steel: 1500    
+
+- type: latheRecipe
+  id: ToolboxMechanical
+  result: ToolboxMechanical
+  completetime: 15
+  materials:
+    Steel: 1500    
+
+- type: latheRecipe
+  id: ToolboxSyndicate
+  result: ToolboxSyndicate
+  completetime: 20
+  materials:
+    Plasteel: 1500                
+
+- type: latheRecipe
+  id: OreBag
+  result: OreBag
+  completetime: 10
+  materials:
+    Cloth: 500                
+    Steel: 500
+
+- type: latheRecipe
+  id: MaterialBag
+  result: MaterialBag
+  completetime: 10
+  materials:
+    Cloth: 500                
+    Steel: 500
+
+- type: latheRecipe
+  id: GrapplingGun
+  result: WeaponGrapplingGun
+  completetime: 10
+  materials:
+    Cloth: 1000                
+    Steel: 500       
+        
+- type: latheRecipe
+  id: NFWeaponHoloflareGun
+  result: NFWeaponHoloflareGun
+  completetime: 10
+  materials:
+    Steel: 1000                
+    Glass: 500               
+    Silver: 100
+
+- type: latheRecipe
+  id: MailCapsulePrimed
+  result: MailCapsulePrimed
+  completetime: 10
+  materials:
+    Steel: 100               
+    Plastic: 50           

@@ -1,10 +1,12 @@
 // SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
 // SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Content.Server.Radio.Components;
+using Content.Shared.PAI;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 
@@ -22,7 +24,8 @@ public sealed class IntrinsicRadioKeySystem : EntitySystem
 
     private void OnTransmitterChannelsChanged(EntityUid uid, IntrinsicRadioTransmitterComponent component, EncryptionChannelsChangedEvent args)
     {
-        UpdateChannels(uid, args.Component, ref component.Channels);
+        if (!HasComp<PAIComponent>(uid)) //We don't want to update what channels a pAI can talk to
+            UpdateChannels(uid, args.Component, ref component.Channels);
     }
 
     private void OnReceiverChannelsChanged(EntityUid uid, ActiveRadioComponent component, EncryptionChannelsChangedEvent args)

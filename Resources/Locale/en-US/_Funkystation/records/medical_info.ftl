@@ -27,6 +27,7 @@ medical-info-prescriptions-antidepressants = Antidepressants
 medical-info-prescriptions-anticonvulsants = Anticonvulsants
 medical-info-prescriptions-antiepileptics = Antiepileptics
 medical-info-prescriptions-antihistamines = Antihistamines
+medical-info-prescriptions-antipsychotics = Antipsychotics
 medical-info-prescriptions-betablockers = Beta-blockers
 medical-info-prescriptions-bloodthinners = Blood Thinners
 medical-info-prescriptions-hormones = Hormones

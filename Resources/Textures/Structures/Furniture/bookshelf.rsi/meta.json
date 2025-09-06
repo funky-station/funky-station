@@ -79,6 +79,42 @@
     },
     {
       "name": "book-20"
+    },
+    {
+       "name": "paper"
+    },
+    {
+       "name": "PaperDyedPink"
+    },
+    {
+       "name": "PaperDyedRed"
+    },
+    {
+       "name": "PaperDyedOrange"
+    },
+    {
+       "name": "PaperDyedYellow"
+    },
+    {
+       "name": "PaperDyedGrass"
+    },
+    {
+       "name": "PaperDyedGreen"
+    },
+    {
+       "name": "PaperDyedOcean"
+    },
+    {
+       "name": "PaperDyedSky"
+    },
+    {
+       "name": "PaperDyedPurple"
+    },
+    {
+       "name": "PaperDyedTan"
+    },
+    {
+       "name": "PaperDyedBrown"
     }
   ]
 }

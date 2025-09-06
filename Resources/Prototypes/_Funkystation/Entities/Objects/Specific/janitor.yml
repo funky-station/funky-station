@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -16,8 +17,9 @@
         Blunt: 0.95
         Slash: 0.95
   - type: Slippery
-    paralyzeTime: 5.0
-    launchForwardsMultiplier: 3.0
+    slipData:
+      paralyzeTime: 5.0
+      launchForwardsMultiplier: 3.0
   - type: StepTrigger
     intersectRatio: 0.2
     triggerGroups: # Goobstation

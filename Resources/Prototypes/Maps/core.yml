@@ -16,6 +16,7 @@
 # SPDX-FileCopyrightText: 2024 NkoKirkto <halloleute640mail.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -27,7 +28,7 @@
   mapName: 'Core'
   mapPath: /Maps/_Funkystation/core.yml #Funkystatin - Robotics
   minPlayers: 30
-  maxPlayers: 75
+  maxPlayers: 80
   stations:
     Core:
       stationProto: StandardNanotrasenStation
@@ -46,7 +47,7 @@
             #service
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 2]
-            Chef: [ 1, 1 ]
+            Chef: [ 2, 2 ]
             Janitor: [ 3, 3 ]
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -94,6 +95,5 @@
             # central command
             NanotrasenRepresentative: [ 1, 1 ]
             InternalAffairsAgent: [ 2, 2 ]
-            BlueshieldOfficer: [ 1, 1 ]
             Magistrate: [ 1, 1 ]
             # end Funky

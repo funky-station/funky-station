@@ -23,6 +23,7 @@
 # SPDX-FileCopyrightText: 2024 Debug <49997488+DebugOk@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2024 FungiFellow <151778459+FungiFellow@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
 # SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
@@ -108,6 +109,11 @@
     - glass
     - glass_2
     - glass_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: glass_3
     layers:
@@ -178,6 +184,11 @@
     - rglass
     - rglass_2
     - rglass_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: rglass_3
     layers:
@@ -258,6 +269,11 @@
     - pglass
     - pglass_2
     - pglass_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: pglass_3
     layers:
@@ -388,6 +404,11 @@
     - uglass
     - uglass_2
     - uglass_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: uglass_3
     layers:
@@ -517,6 +538,11 @@
     - cglass
     - cglass_2
     - cglass_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: cglass_3
     layers:

@@ -6,3 +6,4 @@
 
 job-name-internal-affairs-agent = Internal Affairs Agent
 job-name-magistrate = Magistrate
+job-name-central-command-intern = Central Command Intern

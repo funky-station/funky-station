@@ -52,7 +52,11 @@
   physicalDesc: reagent-physical-desc-pungent
   flavor: offensive
   color: "#BF5E5E"
-  slippery: true
+  slipData:
+    paralyzeTime: 1.5
+    launchForwardsMultiplier: 1.5
+    requiredSlipSpeed: 3.5
+    superSlippery: false
   metabolisms:
     Poison:
       metabolismRate: 0.10

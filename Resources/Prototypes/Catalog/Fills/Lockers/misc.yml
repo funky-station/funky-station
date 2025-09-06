@@ -34,11 +34,17 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 miapyxel <retromannnnn@gmail.com>
 # SPDX-FileCopyrightText: 2024 plyush <121322002+toasterpm87@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MintyTheBinty <193618231+MintyTheBinty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PurpleTranStar <tehevilduckiscoming@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
+# SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -73,6 +79,8 @@
       prob: 0.5
     - id: MedkitOxygenFilled
       prob: 0.2
+    - id: RadioHandheldEmergency #funkystation
+      prob: 0.15
     - id: WeaponFlareGun
       prob: 0.1
     - id: BoxMRE
@@ -109,6 +117,8 @@
         children:
         - id: ClothingMaskBreath
         - id: ClothingOuterSuitEmergency
+        - id: RadioHandheldEmergency #funkystation
+          prob: 0.15
         - !type:GroupSelector
           children:
           - id: EmergencyNitrogenTankFilled
@@ -172,6 +182,7 @@
     - id: WeaponSniperMosin
     - id: ClothingEyesNightVisionGogglesSyndie
     - id: ClothingEyesThermalVisionGogglesSyndie
+    - id: CigPackMixedRejects #imp
       weight: 2
     - id: ClothingHandsKnuckleDustersSyndicate
 

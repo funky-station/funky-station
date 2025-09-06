@@ -15,6 +15,7 @@
 # SPDX-FileCopyrightText: 2024 nao fujiwara <awkwarddryad@gmail.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Futuristic-OK <141568243+futuristic-ok@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -1406,3 +1407,10 @@
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: longbow
+- type: marking
+  id: HumanHairLongWithBangs
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: Mobs/Customization/human_hair.rsi
+    state: longwithbangs

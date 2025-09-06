@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingHeadsetMedical
+  id: ClothingHeadsetParamedic
+  name: paramedic headset
+  description: A headset for paramedics that receives emergency frequencies in addition to regular medical radio.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyMedical
+      - EncryptionKeyEmergency
+      - EncryptionKeyCommon
+
+
+- type: entity
+  parent: ClothingHeadsetAltSecurity
+  id: ClothingHeadsetWarden
+  name: dispatch headset
+  description: A headset for wardens or desk-working officers that receives emergency frequencies in addition to regular security radio.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySecurity
+      - EncryptionKeyEmergency
+      - EncryptionKeyCommon

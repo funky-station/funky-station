@@ -13,6 +13,7 @@
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -34,6 +35,12 @@
     EncryptionKeyScience: 2
     EncryptionKeySecurity: 1
     EncryptionKeyService: 3
+    RadioHandheldCargo: 1 #funkystation
+    RadioHandheldEngineering: 1 #funkystation
+    RadioHandheldMedical: 1 #funkystation
+    RadioHandheldEmergency: 2 #funkystation
+    RadioHandheldScience: 1 #funkystation
+    RadioHandheldService: 2 #funkystation
   contrabandInventory:
     BalloonNT: 2
     LuxuryPen: 1

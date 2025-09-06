@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -10,6 +11,7 @@
   id: BaseMailDeliveryPool
   everyone:
   # Consumables
+    MailJellyOfTheMonth: 0.2
     MailAlcohol: 1
     MailCakes: 1
     MailCheese: 0.9
@@ -63,11 +65,15 @@
   # Weapons
     MailKnife: 0.3
     MailSword: 0.2
-  departments: # Departments
+  # Departments
+  departments:
+    Cargo:
+      MailCargoMailSupplies: 0.5
     Command:
       MailCommandPipebombIntern: 1
       MailLuxuryPen: 1.6
       MailExtendedWarrantyCommand: 0.5
+      MailBartenderPremiumBooze: 0.2
     Medical:
       MailMedicalBasicSupplies: 2
       MailMedicalMedicinePills: 2
@@ -95,9 +101,11 @@
       MailSecurityFlashlight: 2
       MailSecurityNonlethalsKit: 1.6
       MailSecuritySpaceLaw: 1
+      MailSecurityJusticeHelm: 0.2
   jobs: # Jobs
     Bartender:
       MailBartenderTools: 0.5
+      MailBartenderPremiumBooze: 0.5
     Botanist:
       MailMutatedProduce: 1.6
       MailBotanistChemicalBottles: 2
@@ -108,6 +116,7 @@
       MailWitchery: 1
     Chef:
       MailScienceHazardousMaterials: 0.05
+      MailChefCheese: 1
     Chemist:
       MailMedicalChemistrySupplement: 2
       MailMedicalChemistryChems: 0.3
@@ -143,6 +152,7 @@
     Janitor:
       MailSoaps: 2
       MailSoapsOmega: 0.5
+      MailJanitorReplacementLights: 1
     Lawyer:
       MailLuxuryPen: 2
       MailSecuritySpaceLaw: 0.8

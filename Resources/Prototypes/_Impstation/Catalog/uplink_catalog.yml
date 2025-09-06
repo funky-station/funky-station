@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2025 MintyTheBinty <193618231+MintyTheBinty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PurpleTranStar <purpletranstars@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: listing
+  id: UplinkMixedRejects
+  name: uplink-mixed-rejects-name
+  description: uplink-mixed-rejects-desc
+  productEntity: CigPackMixedRejects
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkMixedRejectsCarton
+  name: uplink-mixed-rejects-carton-name
+  description: uplink-mixed-rejects-carton-desc
+  productEntity: CigCartonMixedRejects
+  cost:
+    Telecrystal: 150
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+        - SurplusBundle

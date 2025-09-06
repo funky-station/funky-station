@@ -9,11 +9,13 @@
 // SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
 // SPDX-FileCopyrightText: 2024 778b <33431126+778b@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Roles;
+using Content.Server.Ghost.Roles;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Spawners.Components;
@@ -34,6 +36,12 @@ public sealed partial class SpawnPointComponent : Component, ISpawnPoint
     {
         return $"{Job} {SpawnType}";
     }
+
+    // currently only has any amount of functionality in relation to GhostJob type spawners.
+    // If true, then when the spawned entity enters cryo-storage it will reactivate the ghost role via the spawner
+    [DataField("respawn")]
+    [Access(typeof(GhostRoleSystem), Other = AccessPermissions.Read)]
+    public bool Respawn = false;
 }
 
 public enum SpawnPointType
@@ -42,4 +50,5 @@ public enum SpawnPointType
     LateJoin,
     Job,
     Observer,
+    GhostJob, // Funky
 }

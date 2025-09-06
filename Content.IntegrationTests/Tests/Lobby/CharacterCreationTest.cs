@@ -9,6 +9,7 @@
 // SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -52,8 +53,6 @@ namespace Content.IntegrationTests.Tests.Lobby
 
             await client.WaitAssertion(() =>
             {
-                clientPrefManager.SelectCharacter(0);
-
                 var clientCharacters = clientPrefManager.Preferences?.Characters;
                 Assert.That(clientCharacters, Is.Not.Null);
                 Assert.Multiple(() =>

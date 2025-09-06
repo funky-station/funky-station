@@ -60,3 +60,6 @@
 
 - type: Tag
   id: BartendingTool
+
+- type: Tag
+  id: DartGunAmmo

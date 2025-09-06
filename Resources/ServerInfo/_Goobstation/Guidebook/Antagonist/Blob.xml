@@ -109,4 +109,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 	  <GuideEntityEmbed Entity="Welder" Caption="Welder "/>
   </Box>
 
+  Slash damage is also more effective against the Blob relative to other Brute types, dealing more than double Brute damage.
+
 </Document>

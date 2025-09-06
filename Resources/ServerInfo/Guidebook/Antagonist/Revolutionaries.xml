@@ -24,11 +24,11 @@ SPDX-License-Identifier: MIT
   Revolutionaries are conversion antagonists sponsored by the [color=#ff0000]Syndicate[/color] who are tasked with taking control of the station. They have no fancy gimmicks or cheap tricks, they only have a cause and strength in numbers.
 
   ## Objectives
-  You must cuff, kill, or exile all of the [textlink="Command staff" link="Command"] on station in no particular order.
+  You must convert, kill, or exile all of the [textlink="Command staff" link="Command"] on station in no particular order.
 
   Your objective is [bold]not to destroy the station[/bold], but [italic]to take it over[/italic], so try to minimize damage where possible.
 
-  [bold]The revolution will fail[/bold] if all of the [bold][color=#5e9cff]Head Revolutionaries[/color][/bold] die, and all [color=red]Revolutionaries[/color] will de-convert if this happens.
+  [bold]The revolution will fail[/bold] if all of the [bold][color=#5e9cff]Head Revolutionaries[/color][/bold] die or abandon the station, and all [color=red]Revolutionaries[/color] will de-convert if this happens.
 
   ## Headrevs & Conversion
   [bold][color=#5e9cff]Head Revolutionaries[/color][/bold] are chosen at the start of the shift and begin with a [color=cyan]flash[/color] and a pair of [color=cyan]sunglasses[/color].
@@ -38,7 +38,7 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="ClothingEyesGlassesSunglasses"/>
   </Box>
 
-  You can convert crew members to your side by taking any [bold]flash[/bold] and attacking someone with it using [color=#ff0000]harm mode[/color].
+  You can convert crew members to your side by taking any [bold]flash[/bold] and attacking someone with it using [color=#ff0000]harm mode[/color] by either directly swinging or wide swinging, activating it as an item does not convert.
   However, [bold]you can't convert your target if they're wearing [color=cyan]flash protection[/color][/bold] such as sunglasses or a welding mask.
 
   <Box>
@@ -53,7 +53,7 @@ SPDX-License-Identifier: MIT
   - [bold]Visibly be destroyed upon being implanted into a [color=#5e9cff]Head Revolutionary[/color][/bold], giving you away
   - NOT protect against flash disorientation
 
-  Assume all of [color=#cb0000]Security[/color] and [color=#1b67a5]Command[/color] are implanted with mindshields already.
+  Assume all of [color=#cb0000]Security[/color] and [color=#1b67a5]Command[/color] are implanted with mindshields already. Mindshields can be removed via an empty implanter, which may be produced in the Medical Techfab, or a fast draw implanter from the Rev Uplink.
 
   <Box>
     <GuideEntityEmbed Entity="MindShieldImplanter"/>

@@ -133,13 +133,16 @@ namespace Content.Server.Database
                 .HasForeignKey(e => e.ProfileLoadoutGroupId)
                 .IsRequired();
 
-            modelBuilder.Entity<Job>()
-                .HasIndex(j => j.ProfileId);
+            modelBuilder.Entity<JobPriorityEntry>()
+                .HasIndex(j => j.PreferenceId);
 
-            modelBuilder.Entity<Job>()
-                .HasIndex(j => j.ProfileId, "IX_job_one_high_priority")
+            modelBuilder.Entity<JobPriorityEntry>()
+                .HasIndex(j => j.PreferenceId, "IX_job_one_high_priority")
                 .IsUnique()
                 .HasFilter("priority = 3");
+
+            modelBuilder.Entity<Job>()
+                .HasIndex(j => j.ProfileId);
 
             modelBuilder.Entity<Job>()
                 .HasIndex(j => new { j.ProfileId, j.JobName })
@@ -440,9 +443,9 @@ namespace Content.Server.Database
         // Also I couldn't figure out how to create it on SQLite.
         public int Id { get; set; }
         public Guid UserId { get; set; }
-        public int SelectedCharacterSlot { get; set; }
         public string AdminOOCColor { get; set; } = null!;
         public List<Profile> Profiles { get; } = new();
+        public List<JobPriorityEntry> JobPriorities { get; set; } = new();
     }
 
     public class Profile
@@ -471,7 +474,7 @@ namespace Content.Server.Database
 
         public List<ProfileRoleLoadout> Loadouts { get; } = new();
 
-        [Column("pref_unavailable")] public DbPreferenceUnavailableMode PreferenceUnavailable { get; set; }
+        public bool Enabled { get; set; }
 
         public int PreferenceId { get; set; }
         public Preference Preference { get; set; } = null!;
@@ -484,6 +487,15 @@ namespace Content.Server.Database
         public int Id { get; set; }
         public Profile Profile { get; set; } = null!;
         public int ProfileId { get; set; }
+
+        public string JobName { get; set; } = null!;
+    }
+
+    public class JobPriorityEntry
+    {
+        public int Id { get; set; }
+        public Preference Preference { get; set; } = null!;
+        public int PreferenceId { get; set; }
 
         public string JobName { get; set; } = null!;
         public DbJobPriority Priority { get; set; }
@@ -594,13 +606,6 @@ namespace Content.Server.Database
     }
 
     #endregion
-
-    public enum DbPreferenceUnavailableMode
-    {
-        // These enum values HAVE to match the ones in PreferenceUnavailableMode in Shared.
-        StayInLobby = 0,
-        SpawnAsOverflow,
-    }
 
     public class AssignedUserId
     {

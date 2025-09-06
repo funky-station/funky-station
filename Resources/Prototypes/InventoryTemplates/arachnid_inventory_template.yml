@@ -1,4 +1,4 @@
-﻿# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
 # SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
 # SPDX-FileCopyrightText: 2022 Justin Trotter <trotter.justin@gmail.com>
@@ -12,6 +12,9 @@
 # SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Джексон Миссиссиппи <tripwiregamer@gmail.com>
+# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 hereelabs <hahmorme@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -138,9 +141,8 @@
       stripTime: 3
       uiWindowPos: 0,3
       strippingWindowPos: 0,3
-      dependsOn: jumpsuit
       displayName: Pocket 1
-      stripHidden: true
+      stripHidden: false
     - name: pocket4
       slotTexture: web
       fullTextureName: template_small
@@ -149,9 +151,8 @@
       stripTime: 3
       uiWindowPos: 2,3
       strippingWindowPos: 2,3
-      dependsOn: jumpsuit
       displayName: Pocket 2
-      stripHidden: true
+      stripHidden: false
     - name: backstorage
       slotTexture: back_storage
       slotFlags:   BACKSTORAGE

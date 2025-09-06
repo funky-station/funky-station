@@ -1,0 +1,55 @@
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Fillable reagent implant. Functions normally as a reagent container
+- type: entity
+  id: EmptyReagentImplanter
+  name: reagent implanter
+  suffix: empty, fillable
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+    - type: Implanter
+      implant: ReagentImplant
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 45
+    - type: MixableSolution
+      solution: drink
+    - type: RefillableSolution
+      solution: drink
+    - type: DrainableSolution
+      solution: drink
+    - type: ExaminableSolution
+      solution: drink
+    - type: DrawableSolution
+      solution: drink
+    - type: InjectableSolution
+      solution: drink
+    - type: SolutionTransfer
+      maxTransferAmount: 45
+      canChangeTransferAmount: true
+    - type: SolutionItemStatus
+      solution: drink
+
+# Static content reagent implants. Can't be filled or emptied
+- type: entity
+  id: HyperzineReagentImplanter
+  name: reagent implanter
+  suffix: hyperzine
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+    - type: Implanter
+      implant: ReagentImplant
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 45
+          reagents:
+          - ReagentId: Stimulants
+            Quantity: 45
+    - type: SolutionItemStatus
+      solution: drink
+    - type: ExaminableSolution
+      solution: drink

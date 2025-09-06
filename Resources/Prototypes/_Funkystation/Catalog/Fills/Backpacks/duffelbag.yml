@@ -1,0 +1,201 @@
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Random kit selector entity
+- type: entity
+  parent: MarkerBase
+  id: RandomSyndieKitSpawner
+  name: random syndie-kit spawner
+  suffix: Do Not Map
+  components:
+  - type: Sprite
+    layers:
+      - sprite: Clothing/Back/Duffels/syndicate.rsi
+        state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomSyndieKitTable
+
+# Kits
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledKitSlasher
+  name: slasher syndie-kit
+  description: "All you need to become a terror of maints! Includes an exclusive chainsaw and armored apron for endless hack-and-slash fun!"
+  components:
+  - type: StorageFill
+    contents:
+      - id: SyndieChainsaw            # Very strong 38dps when wielded
+      - id: ClothingOuterApronArmored
+      - id: ClothingHeadHatWeldingMaskPainted
+      - id: ClothingShoesChameleonNoSlips
+      - id: ClothingEyesNightVisionGogglesSyndie
+      - id: ThrowingKnife
+      - id: ThrowingKnife
+      - id: ThrowingKnife
+      - id: ThrowingKnife
+      - id: SmokeGrenade
+      - id: SmokeGrenade
+      - id: RadioJammer
+      - id: SyndicateJawsOfLife
+      - id: HyperzineReagentImplanter # Can be used while stunned to get you back up if needed
+      - id: Gauze
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledKitNinja
+  name: budget ninja syndie-kit
+  description: "We asked the Spider Clan to send us some of their tech but they refused, so we improvised. Perfect for striking from the shadows."
+  components:
+  - type: StorageFill
+    contents:
+      - id: Katana        # Same as the nukie planet katana, 26.25dps
+      - id: ThrowingStar  # 2-hit stun, multi-use if recovered. very underrated. Change to 4 if this is too op.
+      - id: ThrowingStar
+      - id: ThrowingStar
+      - id: ThrowingStar
+      - id: ThrowingStar
+      - id: ThrowingStar
+      - id: ClothingEyesNightVisionGogglesSyndie
+      - id: ClothingUniformJumpsuitNinja
+      - id: ClothingMaskNeckGaiter
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingShoesChameleonNoSlips
+      - id: EmpImplanter
+      - id: SmokeImplanter
+      - id: Stimpack      # Todo, give this kit a stealth box implanter when I can be bothered to implement that
+      - id: DisruptorPen  # Just an access breaker with extra charges and no recharge, because I didn't wanna give ANOTHER kit an access breaker
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledKitHacker
+  name: hacker syndie-kit
+  description: "The ideal set of tools for hacking into the mainframe."
+  components:
+  - type: StorageFill
+    contents:
+      - id: Emag
+      - id: AccessBreaker
+      - id: CameraBug
+      - id: EncryptionKeyBinary
+      - id: EmpGrenade
+      - id: EmpFlashlight
+      - id: EmpImplanter
+      - id: OverlordCircuitBoard  # Very situational but it's currently unused so it'd be fun to see it used
+      - id: Multitool
+      - id: ClothingHandsGlovesColorYellow
+      - id: ClothingEyesGlassesSunglasses
+      - id: ClothingOuterCoatJensen
+      - id: ToyAi
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledKitHunter
+  name: hunter syndie-kit
+  description: "Become a master of syndicate surveillance, eavesdrop on the crew and use these state-of-the-art thermal goggles to track down even the slipperiest of targets!"
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingEyesThermalVisionGogglesSyndie  # Exclusive to this kit
+      - id: RadioImplanter
+      - id: CameraBug
+      - id: AccessBreaker
+      - id: GrenadeShrapnel
+      - id: Binoculars
+      - id: WeaponPistolViper
+      - id: MagazinePistol
+      - id: RadioHandheldSyndicate
+      - id: ClothingMaskGasSyndicate
+      - id: ClothingHeadHelmetMercSyndicate
+      - id: ClothingOuterHardsuitSyndicateDurathread
+      - id: ClothingHeadHelmetSyndicate
+
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledKitUndercover
+  name: undercover syndie-kit
+  description: "Use this collection of covert items and chameleon clothing to disguise as anyone or anything. Surprise."
+  components:
+  - type: StorageFill
+    contents:
+      - id: ChameleonPDA
+      - id: ClothingUniformJumpsuitChameleon
+      - id: ClothingOuterChameleon
+      - id: ClothingNeckChameleon
+      - id: ClothingHeadHatChameleon
+      - id: ClothingHandsChameleon
+      - id: ClothingEyesChameleon
+      - id: ClothingHeadsetChameleon
+      - id: ClothingShoesChameleon
+      - id: ClothingMaskGasVoiceChameleon
+      - id: Switchblade # Basic 21dps toggleable knife
+      - id: DnaScramblerImplanter
+      - id: StorageImplanter
+      - id: FakeMindShieldImplanter
+      - id: SoapSyndie
+      - id: SmokeGrenade
+      - id: EmpFlashlight
+      - id: PenExplodingBox
+      - id: AgentIDCard
+      - id: ChameleonProjector
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledKitBond
+  name: Urist McBond syndie-kit
+  description: "Become an elite secret agent. Evade arrest. Play evil poker. The special chameleon glasses included in this kit have a built-in job HUD."
+  components:
+  - type: StorageFill
+    contents:
+      - id: CyberPen
+      - id: WeaponPistolCobra
+      - id: MagazinePistolCaselessRifle
+      - id: EmpFlashlight
+      - id: FreedomImplanter
+      - id: C4
+      - id: AgentIDCard
+      - id: CardBoxSyndicate
+      - id: SyndicateBusinessCard
+      - id: RagItem
+      - id: PillCanisterAmatoxin      # 10u amatoxin pills, 8 pills in the canister. Looks like iron pills. 1 pill = 150 poison over a pretty long time
+      - id: SyndicateHypo
+      - id: CartridgeGunshotSyndicate
+      - id: CartridgeSedativeSyndicate
+      - id: ClothingEyesChameleonHud  # Chameleon glasses with administration hud. NOT sec hud so no wanted status
+      - id: ClothingUniformJumpsuitChameleon
+      - id: ClothingOuterChameleon
+      - id: ClothingHeadHatChameleon
+      - id: ClothingHandsChameleon
+      - id: ClothingShoesChameleon
+      - id: ClothingMaskGasVoiceChameleon
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledKitChemical
+  name: chemical syndie-kit
+  description: "Inject your foes with neurotoxins! Inject yourself with performance enhancers! Inject everyone with mold for no reason! Do all this and more with this kit!"
+  components:
+  - type: StorageFill
+    contents:
+      - id: EmptyReagentImplanter
+      - id: LauncherDart              # Just a syringe gun which uses darts as ammo instead of syringes
+      - id: HypoDartBox
+      - id: HypoDartBox
+      - id: HypoDartBox
+      - id: HypopenBox
+      - id: MuteToxinChemistryBottle  # 30u bottles
+      - id: PolytrinicAcidChemistryBottle
+      - id: ChloralHydrateChemistryBottle
+      - id: AmatoxinChemistryBottle
+      - id: PestilineChemistryVial    # 5u vials for stronger chems
+      - id: TazinideChemistryVial
+      - id: FresiumChemistryVial
+      - id: DesoxyephedrineBeakerSmall
+      - id: Beaker
+      - id: LargeBeaker
+      - id: SyringeBluespace
+      - id: DrinkPoisonWinebottleFull
+      - id: ClothingEyesGlassesChemical
+      - id: ClothingOuterCoatLab

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "created for funkystation by vectorassembly (github/discord) and willowzeta (github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base"
+    },
+    {
+      "name": "active"
+    },
+    {
+      "name": "cap-service"
+    },
+    {
+      "name": "cap-cargo"
+    },
+    {
+      "name": "cap-engineering"
+    },
+    {
+      "name": "cap-medical"
+    },
+    {
+      "name": "cap-science"
+    },
+    {
+      "name": "cap-security"
+    },
+    {
+      "name": "cap-command"
+    },
+    {
+      "name": "body-emergency"
+    }
+  ]
+}

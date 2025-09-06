@@ -1,0 +1,33 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Surgery Kits for Funky Station by @Catazeus (GitHub).",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "surgerykit"
+        },
+        {
+            "name": "surgerykit-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "surgerykit-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "surgerykitsyndicate"
+        },
+        {
+            "name": "surgerykitsyndicate-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "surgerykitsyndicate-inhand-left",
+            "directions": 4
+        }
+    ]
+}

@@ -7,7 +7,7 @@
 
 using System.Linq;
 using Content.Client.Chat.UI;
-using Content.Client.LateJoin;
+using Content.Client.Lobby.UI;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.ContentPack;
 using Robust.Shared.IoC;

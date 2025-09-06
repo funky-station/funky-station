@@ -113,7 +113,7 @@
         Heat: 0.8
         Cold: 0.8
   - type: FireResistance
-    damageCoefficient: 0.65 # doesnt have a full seal so not as good
+    damageCoefficient: 0.35 # doesnt have a full seal so not as good
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.7
@@ -145,7 +145,7 @@
         Heat: 0.8
         Cold: 0.8
   - type: FireResistance
-    damageCoefficient: 0.20 # atmos firesuit offers best protection, hardsuits are a little vulnerable
+    damageCoefficient: 0.10 # atmos firesuit offers best protection, hardsuits are a little vulnerable
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8

@@ -18,6 +18,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -140,3 +141,14 @@
   id: Hologram
   kind: source
   path: "/Textures/Shaders/hologram.swsl"
+
+- type: shader
+  id: Heat
+  kind: source
+  path: "/Textures/Shaders/heat.swsl"
+  params:
+    N: 32
+    spatial_scale: 1.0
+    strength_scale: 1.0
+    speed_scale: 1.0
+    grid_ent_from_viewport_local: 1,0,0,1,0,1

@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: BaseMail
+  id: MailJellyOfTheMonth
+  suffix: Jelly of the Month
+  components:
+  - type: Mail
+    contents:
+    - id: FoodJellyAmanita
+    - id: PaperJellyOfTheMonth

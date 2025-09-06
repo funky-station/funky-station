@@ -43,6 +43,7 @@
 # SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 ninruB <38016303+asperger-sind@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
@@ -197,6 +198,10 @@
     fiberMaterial: fibers-latex
   - type: FingerprintMask
   - type: SurgeryDirtiness # DeltaV - gloves that are likely to be used for surgery should have their bar visible from the getgo
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.75
 
 - type: entity
   parent: ClothingHandsButcherable
@@ -212,6 +217,10 @@
     fiberMaterial: fibers-nitrile
   - type: FingerprintMask
   - type: SurgeryDirtiness # DeltaV - gloves that are likely to be used for surgery should have their bar visible from the getgo
+  - type: ClothingGrantComponent # funky - tie surgery speed to gloves
+    component:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.75
 ####
 - type: entity
   parent: ClothingHandsButcherable

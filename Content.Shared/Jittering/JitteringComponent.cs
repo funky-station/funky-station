@@ -18,11 +18,11 @@ namespace Content.Shared.Jittering;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class JitteringComponent : Component
 {
-    [AutoNetworkedField]
+    [DataField, AutoNetworkedField] // funky - added datafield
     [ViewVariables(VVAccess.ReadWrite)]
     public float Amplitude { get; set; }
 
-    [AutoNetworkedField]
+    [DataField, AutoNetworkedField] // funky - added datafield
     [ViewVariables(VVAccess.ReadWrite)]
     public float Frequency { get; set; }
 

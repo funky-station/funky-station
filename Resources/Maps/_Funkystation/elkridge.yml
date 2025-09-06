@@ -70,10 +70,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 266.0.0
-  forkId: funkystation
-  forkVersion: 490e3e411aa2160c7a5adf2adfc2f8f660da1daa
-  time: 08/20/2025 23:57:37
-  entityCount: 17387
+  forkId: ""
+  forkVersion: ""
+  time: 09/04/2025 03:59:44
+  entityCount: 17390
 maps:
 - 1
 grids:
@@ -9297,7 +9297,7 @@ entities:
             0: 65520
           10,-9:
             0: 17984
-            4: 1
+            6: 1
             2: 2444
           11,-8:
             0: 14336
@@ -9452,7 +9452,7 @@ entities:
           -2,-8:
             0: 57599
           -2,-6:
-            0: 30576
+            0: 32624
           -2,-9:
             0: 65280
           -2,-7:
@@ -9663,7 +9663,7 @@ entities:
             0: 4881
             2: 8226
             3: 8
-            5: 2048
+            4: 2048
           4,-13:
             0: 4369
             2: 17508
@@ -9672,7 +9672,7 @@ entities:
             0: 36096
           5,-10:
             3: 3
-            5: 768
+            4: 768
             2: 32904
             0: 2048
           5,-9:
@@ -9890,11 +9890,11 @@ entities:
             2: 4113
             0: 256
             3: 12
-            6: 3072
+            5: 3072
           9,-9:
             2: 1025
             0: 2832
-            4: 12
+            6: 12
           9,-13:
             2: 30719
             0: 34816
@@ -9906,7 +9906,7 @@ entities:
             0: 17472
           10,-10:
             3: 1
-            6: 256
+            5: 256
             2: 18508
             0: 1024
           10,-13:
@@ -10231,37 +10231,35 @@ entities:
             2: 16
             0: 12
           5,9:
-            0: 64443
+            0: 64511
           5,10:
             0: 34959
             2: 8704
           5,11:
             2: 2
             0: 52424
-          5,12:
-            2: 17476
-            0: 34952
           6,9:
-            0: 40413
+            0: 7645
           6,10:
-            0: 1
-            2: 8908
+            0: 65535
           6,11:
-            0: 13104
-            2: 2062
-          6,12:
-            2: 4369
+            0: 65520
           7,10:
-            2: 7664
+            0: 65520
           7,11:
-            2: 3855
+            0: 16176
+            2: 49344
+          6,12:
+            0: 8
+          7,12:
+            0: 3
           7,9:
             0: 3276
           8,10:
-            2: 9776
-            0: 8
+            0: 13112
           8,11:
-            2: 1815
+            2: 28784
+            0: 1792
           -3,9:
             2: 32
             0: 57480
@@ -10378,12 +10376,14 @@ entities:
           14,6:
             2: 32776
           15,6:
-            2: 9778
+            2: 11826
           15,3:
             2: 8994
+          16,6:
+            2: 3840
           16,7:
+            2: 16661
             0: 47786
-            2: 16388
           -8,9:
             2: 3840
             0: 12
@@ -10503,16 +10503,6 @@ entities:
             2: 242
           -5,16:
             2: 249
-          5,13:
-            2: 8740
-            0: 52424
-          5,14:
-            2: 12
-          6,13:
-            2: 8737
-            0: 4368
-          6,14:
-            2: 1
           12,0:
             2: 32
           13,1:
@@ -10551,7 +10541,7 @@ entities:
             2: 15
           17,7:
             0: 47786
-            2: 16388
+            2: 16661
           18,8:
             0: 45553
             2: 16384
@@ -10575,7 +10565,7 @@ entities:
             0: 12834
             2: 51613
           17,6:
-            2: 2048
+            2: 3840
           18,6:
             2: 7936
           19,6:
@@ -10677,29 +10667,6 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
           - 0
           - 0
           - 6666.982
@@ -10724,6 +10691,29 @@ entities:
           moles:
           - 6666.982
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -46696,11 +46686,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 6.4682918,0.6234399
       parent: 2
-  - uid: 1017
-    components:
-    - type: Transform
-      pos: 11.604484,14.629793
-      parent: 2
   - uid: 4387
     components:
     - type: Transform
@@ -49299,12 +49284,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 42.5,-6.5
-      parent: 2
-  - uid: 16390
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -12.5,15.5
       parent: 2
   - uid: 16431
     components:
@@ -83402,11 +83381,6 @@ entities:
     - type: Transform
       pos: 40.5,17.5
       parent: 2
-  - uid: 9121
-    components:
-    - type: Transform
-      pos: 38.5,20.5
-      parent: 2
 - proto: LockerMedicineFilled
   entities:
   - uid: 3998
@@ -83931,6 +83905,38 @@ entities:
     components:
     - type: Transform
       pos: 26.5,-8.5
+      parent: 2
+- proto: MachineMaterialSilo
+  entities:
+  - uid: 1017
+    components:
+    - type: Transform
+      pos: 11.5,14.5
+      parent: 2
+  - uid: 9121
+    components:
+    - type: Transform
+      pos: -12.5,15.5
+      parent: 2
+  - uid: 16390
+    components:
+    - type: Transform
+      pos: 38.5,20.5
+      parent: 2
+  - uid: 17388
+    components:
+    - type: Transform
+      pos: 16.5,37.5
+      parent: 2
+  - uid: 17389
+    components:
+    - type: Transform
+      pos: 3.5,-26.5
+      parent: 2
+  - uid: 17390
+    components:
+    - type: Transform
+      pos: 33.5,-13.5
       parent: 2
 - proto: MagazinePistolSubMachineGunTopMounted
   entities:
@@ -84645,7 +84651,6 @@ entities:
     - type: Transform
       pos: 26.655888,40.616726
       parent: 2
-    - type: NetworkConfigurator
     - type: Physics
       angularDamping: 0
       linearDamping: 0
@@ -91706,8 +91711,11 @@ entities:
   - uid: 6743
     components:
     - type: Transform
-      pos: -15.476229,20.535725
+      pos: -13.623986,25.804722
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 16843
     components:
     - type: Transform

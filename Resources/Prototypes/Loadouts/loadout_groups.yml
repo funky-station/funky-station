@@ -584,6 +584,7 @@
   - EmergencyNitrogenClown
   - EmergencyOxygenClown
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # Funky
 
 - type: loadoutGroup
   id: MimeHead
@@ -639,6 +640,7 @@
   - EmergencyNitrogenMime
   - EmergencyOxygenMime
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # Funky
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -947,6 +949,7 @@
   - EmergencyNitrogenExtended
   - EmergencyOxygenExtended
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # Funky
 
 # Science
 - type: loadoutGroup
@@ -1280,6 +1283,7 @@
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # Funky
 
 - type: loadoutGroup
   id: SecurityStar
@@ -1494,6 +1498,7 @@
   - EmergencyNitrogenMedical
   - EmergencyOxygenMedical
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # Funky
 
 # Wildcards
 - type: loadoutGroup
@@ -1538,7 +1543,8 @@
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
   - LoadoutSpeciesVoxNitrogen
-
+  - EmergencyIPCBox # Funky
+  
 - type: loadoutGroup
   id: GroupSpeciesBreathTool
   name: loadout-group-breath-tool

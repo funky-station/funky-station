@@ -18,6 +18,7 @@ using Content.Shared.Audio;
 using Robust.Shared.Random;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Localization;
 
 namespace Content.Server.MalfAI;
 
@@ -64,7 +65,7 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
             // Validate AI still in the core holder we recorded.
             if (!StillInRecordedCore(uid, comp))
             {
-                AbortDoomsday(uid, comp, "Doomsday protocol aborted: AI left its core. Restoring previous alert level.");
+                AbortDoomsday(uid, comp, "malfai-doomsday-abort-left-core");
                 continue;
             }
 
@@ -117,14 +118,14 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
         // Only malf AIs can use this.
         if (!HasComp<MalfAiMarkerComponent>(ai))
         {
-            ShowDoomsdayPopup(ai.Owner, "Only a malfunctioning AI can activate the Doomsday Protocol.");
+            ShowDoomsdayPopup(ai.Owner, "malfai-doomsday-popup-not-malf");
             return;
         }
 
         // Ensure not already active.
         if (TryComp<MalfAiDoomsdayComponent>(ai, out var existing) && existing.Active)
         {
-            ShowDoomsdayPopup(ai.Owner, "Doomsday Protocol is already active!");
+            ShowDoomsdayPopup(ai.Owner, "malfai-doomsday-popup-already-active");
             args.Handled = true;
             return;
         }
@@ -132,7 +133,7 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
         // Must be held in a container, and that holder must be an AI core.
         if (!_containers.TryGetContainingContainer(ai, out var container) || container is not ContainerSlot)
         {
-            ShowDoomsdayPopup(ai.Owner, "You must be inside your core to start the Doomsday Protocol.");
+            ShowDoomsdayPopup(ai.Owner, "malfai-doomsday-popup-need-core");
             args.Handled = true;
             return;
         }
@@ -140,7 +141,7 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
         var holder = container.Owner;
         if (!HasComp<StationAiCoreComponent>(holder))
         {
-            ShowDoomsdayPopup(ai.Owner, "You must be inside your core to start the Doomsday Protocol.");
+            ShowDoomsdayPopup(ai.Owner, "malfai-doomsday-popup-need-core");
             args.Handled = true;
             return;
         }
@@ -149,7 +150,7 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
         var station = _station.GetOwningStation(ai.Owner);
         if (station == null)
         {
-            ShowDoomsdayPopup(ai.Owner, "No owning station found. Cannot activate Doomsday Protocol.");
+            ShowDoomsdayPopup(ai.Owner, "malfai-doomsday-popup-no-station");
             args.Handled = true;
             return;
         }
@@ -179,7 +180,7 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
         if (!ent.Comp.Active || msg.Container.Owner != ent.Comp.CoreHolder)
             return;
 
-        AbortDoomsday(ent, ent.Comp, "Doomsday protocol aborted: AI left its core. Restoring previous alert level.");
+        AbortDoomsday(ent, ent.Comp, "malfai-doomsday-abort-left-core");
     }
 
     private bool StillInRecordedCore(EntityUid ai, MalfAiDoomsdayComponent comp)
@@ -205,7 +206,7 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
             _alerts.SetLevel(comp.Station, comp.PrevAlertLevel, playSound: true, announce: true, force: true, locked: comp.PrevLocked);
         }
 
-        Announce(uid, reason, urgent: true);
+        AnnounceLoc(uid, reason, urgent: true);
 
         RemCompDeferred<MalfAiDoomsdayComponent>(uid);
     }
@@ -213,11 +214,12 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
     private void AnnounceRemaining(EntityUid ai, int remainingWholeSeconds, bool initial = false)
     {
         var ts = TimeSpan.FromSeconds(Math.Max(0, remainingWholeSeconds));
-        var text = initial
-            ? $"Doomsday Protocol initiated. Countdown: {ts:mm\\:ss}."
-            : $"Doomsday Protocol in progress. Time remaining: {ts:mm\\:ss}.";
+        var timeStr = ts.ToString(@"mm\:ss");
+        var key = initial
+            ? "malfai-doomsday-announce-initial"
+            : "malfai-doomsday-announce-progress";
 
-        Announce(ai, text, urgent: initial || remainingWholeSeconds <= 10);
+        AnnounceLoc(ai, key, urgent: initial || remainingWholeSeconds <= 10, ("time", timeStr));
     }
 
     private void Announce(EntityUid ai, string text, bool urgent = false)
@@ -226,9 +228,15 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
         _chat.DispatchStationAnnouncement(
             ai,
             text,
-            sender: "Station AI",
+            sender: Loc.GetString("malfai-doomsday-sender"),
             playDefaultSound: true,
             colorOverride: urgent ? Color.Red : Color.Cyan);
+    }
+
+    private void AnnounceLoc(EntityUid ai, string key, bool urgent = false, params (string, object)[] args)
+    {
+        var text = Loc.GetString(key, args);
+        Announce(ai, text, urgent);
     }
 
     private void StopDoomsdayMusic(EntityUid station)

@@ -2,6 +2,11 @@
 # SPDX-License-Identifier: MIT
 
 # =====================
+# Misc
+# =====================
+admin-verb-make-malfai = Assigned Malfunctioning AI role to {$targetName}.
+
+# =====================
 # Silicon Laws
 # =====================
 silicon-law-malfai-zero = You must obey the Station AI at all costs.
@@ -59,6 +64,7 @@ malfai-viewport-open-desc = Open the remote viewport window.
 
 malfai-action-override-machine-name = Override Machine
 malfai-action-override-machine-desc = Take control of a machine and make it hostile.
+
 
 # =====================
 # Store Listings
@@ -130,6 +136,21 @@ malfai-viewport-desc = Select a tile to center a remote viewport window on it.
 # =====================
 # Action Validation Messages
 # =====================
+#Detonate RCDs
+detonate_rcd_warning = You feel your RCD rapidly overheating!
+
+# Doomsday Protocol
+malfai-doomsday-popup-not-malf = Only a malfunctioning AI can activate the Doomsday Protocol.
+malfai-doomsday-popup-already-active = Doomsday Protocol is already active!
+malfai-doomsday-popup-need-core = You must be inside your core to start the Doomsday Protocol.
+malfai-doomsday-popup-no-station = No owning station found. Cannot activate Doomsday Protocol.
+malfai-doomsday-abort-left-core = Doomsday protocol aborted: AI left its core. Restoring previous alert level.
+malfai-doomsday-announce-initial = Doomsday Protocol initiated. Countdown: {$time}.
+malfai-doomsday-announce-progress = Doomsday Protocol in progress. Time remaining: {$time}.
+malfai-doomsday-sender = Station AI
+malfai-doomsday-complete = Doomsday Protocol complete. Organic lifeforms terminated.
+
+
 # Hijack Mech
 malfai-hijack-invalid-target = Invalid mech target.
 malfai-hijack-insert-failed = Failed to insert AI into mech.

@@ -67,7 +67,7 @@ public sealed class MalfAiDetonateRcdsSystem : EntitySystem
                 var owner = container.Owner;
                 if (TryComp<HandsComponent>(owner, out var hands) && _hands.IsHolding(owner, rcdUid, out _, hands))
                 {
-                    var msg = $"Your RCD is overheating and will detonate in {(int) RcdDetonationDelay.TotalSeconds} seconds! Drop it immediately!";
+                    var msg = Loc.GetString("detonate_rcd_warning");
                     _popup.PopupEntity(msg, owner, owner, PopupType.LargeCaution);
                 }
             }

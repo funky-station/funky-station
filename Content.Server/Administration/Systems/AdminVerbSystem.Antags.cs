@@ -290,7 +290,7 @@ public sealed partial class AdminVerbSystem
                 _antag.ForceMakeAntag<MalfAiRuleComponent>(targetPlayer, "MalfAi");
             },
             Impact = LogImpact.High,
-            Message = "Assigned Malfunctioning AI antagonist",
+            Message = Loc.GetString("admin-verb-make-malfai")
         };
         args.Verbs.Add(malfAi);
 

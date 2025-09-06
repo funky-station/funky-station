@@ -16,6 +16,7 @@ using Robust.Shared.Timing;
 // Alias ensures correct TransformComponent reference regardless of namespace layout.
 using TransformComponent = Robust.Shared.GameObjects.TransformComponent;
 using Vector2 = System.Numerics.Vector2;
+using Robust.Shared.Localization;
 
 namespace Content.Server.MalfAI;
 
@@ -145,8 +146,8 @@ public sealed class MalfAiDoomsdayRippleSystem : EntitySystem
         // Dispatch the final doomsday completion announcement.
         _chat.DispatchStationAnnouncement(
             ai,
-            "Doomsday Protocol complete. Organic lifeforms terminated.",
-            sender: "Station AI",
+            Loc.GetString("malfai-doomsday-complete"),
+            sender: Loc.GetString("malfai-doomsday-sender"),
             playDefaultSound: true,
             colorOverride: Color.Cyan);
 

@@ -38,7 +38,7 @@ public sealed partial class SOSCartridgeComponent : Component
 
     [DataField]
     //Timeout between calls
-    public const float TimeOut = 180;
+    public const float TimeOut = 90;
 
     [DataField]
     //Countdown until next call is allowed

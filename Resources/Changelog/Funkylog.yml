@@ -4456,3 +4456,11 @@ Entries:
         components.
   id: 533
   time: '2025-09-06T18:27:43.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: More holopads and intercoms on Box
+    - type: Remove
+      message: Removed BSO from Box
+  id: 534
+  time: '2025-09-06T18:47:20.0000000+00:00'

@@ -1,4 +1,6 @@
 // SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
+// SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 PurpleTranStar <purpletranstars@gmail.com>
 // SPDX-FileCopyrightText: 2025 PurpleTranStar <tehevilduckiscoming@gmail.com>
 // SPDX-FileCopyrightText: 2025 mqole <113324899+mqole@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 rosieposie <52761126+rosieposieeee@users.noreply.github.com>

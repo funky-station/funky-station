@@ -51,6 +51,8 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory.VirtualItem;
 using Robust.Shared.Configuration;
 using Content.Shared.Implants.Components;
+using Content.Shared.MalfAI;
+using Content.Shared.Silicons.StationAi;
 
 namespace Content.Shared.Mech.EntitySystems;
 
@@ -386,8 +388,8 @@ public abstract class SharedMechSystem : EntitySystem
         // Allow Malf AI brain entities to be inserted even if they cannot move.
         // Some forks may not keep StationAiHeldComponent on the brain when removed from its holder; in that case,
         // still allow if the entity is the StationAiBrain prototype or carries the MalfAiMarkerComponent.
-        var isAiHeld = HasComp<Content.Shared.Silicons.StationAi.StationAiHeldComponent>(toInsert);
-        var hasMalfMarker = HasComp<Content.Shared.MalfAI.MalfAiMarkerComponent>(toInsert);
+        var isAiHeld = HasComp<StationAiHeldComponent>(toInsert);
+        var hasMalfMarker = HasComp<MalfAiMarkerComponent>(toInsert);
         var isStationAiBrainProto = false;
         var meta = MetaData(toInsert);
         if (meta.EntityPrototype != null)

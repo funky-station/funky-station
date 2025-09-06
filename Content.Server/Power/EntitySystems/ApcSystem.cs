@@ -40,6 +40,7 @@ using Robust.Shared.Timing;
 using Content.Shared.Interaction;
 using Content.Shared.MalfAI;
 using Content.Shared.CCVar;
+using Content.Shared.Emag.Components;
 using Robust.Shared.Configuration;
 
 namespace Content.Server.Power.EntitySystems;
@@ -281,8 +282,8 @@ public sealed class ApcSystem : EntitySystem
         Dirty(uid, siphonedComp);
 
         // Set APC to emagged state
-        var emagged = EnsureComp<Content.Shared.Emag.Components.EmaggedComponent>(uid);
-        emagged.EmagType |= Content.Shared.Emag.Systems.EmagType.Interaction;
+        var emagged = EnsureComp<EmaggedComponent>(uid);
+        emagged.EmagType |= EmagType.Interaction;
         Dirty(uid, emagged);
 
         // Disable the APC

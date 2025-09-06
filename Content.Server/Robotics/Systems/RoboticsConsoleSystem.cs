@@ -22,6 +22,8 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.MalfAI;
 using Content.Shared.Alert;
+using Content.Shared.Mind.Components;
+using Content.Shared.Silicons.StationAi;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Research.Systems;
@@ -157,8 +159,8 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
     private void OnImposeLaw(Entity<RoboticsConsoleComponent> ent, ref RoboticsConsoleImposeLawMessage args)
     {
         // Only Malf AI may impose Law 0.
-        if (!HasComp<Content.Shared.MalfAI.MalfAiMarkerComponent>(args.Actor) ||
-            !HasComp<Content.Shared.Silicons.StationAi.StationAiHeldComponent>(args.Actor))
+        if (!HasComp<MalfAiMarkerComponent>(args.Actor) ||
+            !HasComp<StationAiHeldComponent>(args.Actor))
             return;
 
         if (!ent.Comp.Cyborgs.TryGetValue(args.Address, out var data))
@@ -258,7 +260,7 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
                 ok = true;
             else if (controllerMind != null && ctrl.Controller != null)
             {
-                if (TryComp<Content.Shared.Mind.Components.MindContainerComponent>(ctrl.Controller.Value, out var otherMindCont) && otherMindCont.Mind == controllerMind)
+                if (TryComp<MindContainerComponent>(ctrl.Controller.Value, out var otherMindCont) && otherMindCont.Mind == controllerMind)
                     ok = true;
             }
 

@@ -2,6 +2,7 @@
 
 using Content.Shared.DoAfter;
 using Content.Shared._Funkystation.Factory;
+using Content.Shared._Funkystation.Factory.Components;
 using Content.Shared.MalfAI;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -136,7 +137,7 @@ public sealed partial class AIBuildSystem : EntitySystem
 
             // If this is a robotics factory grid, remember who built it so we can assign borgs later.
             var isFactory = false;
-            if (HasComp<Content.Shared._Funkystation.Factory.Components.RoboticsFactoryGridComponent>(spawned))
+            if (HasComp<RoboticsFactoryGridComponent>(spawned))
             {
                 isFactory = true;
                 var owner = EnsureComp<Content.Server._Funkystation.Factory.Components.MalfFactoryOwnerComponent>(spawned);

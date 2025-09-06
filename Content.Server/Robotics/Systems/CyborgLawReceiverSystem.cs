@@ -17,6 +17,7 @@ using Content.Server.Silicons.Laws;
 using Content.Shared.Roles;
 using Content.Server.Mind;
 using Content.Shared.Mind;
+using Content.Shared.Silicons.StationAi;
 
 namespace Content.Server.Robotics.Systems;
 
@@ -110,7 +111,7 @@ public sealed class CyborgLawReceiverSystem : EntitySystem
         Dirty(cyborg, newEmag);
 
         // Handle ownership tracking for malf AI if imposer is provided
-        if (imposer != null && HasComp<Content.Shared.Silicons.StationAi.StationAiHeldComponent>(imposer.Value))
+        if (imposer != null && HasComp<StationAiHeldComponent>(imposer.Value))
         {
             var ctrl = EnsureComp<MalfAiControlledComponent>(cyborg);
             ctrl.Controller = imposer;

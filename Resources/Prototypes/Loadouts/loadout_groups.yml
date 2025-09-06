@@ -40,6 +40,7 @@
 # SPDX-FileCopyrightText: 2025 Lyndomen <49795619+lyndomen@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Minerva <218184747+mnva0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Neoncamouflage <neoncamouflage@yahoo.com>
 # SPDX-FileCopyrightText: 2025 PoquitoDondito <danielchristianstone@gmail.com>
 # SPDX-FileCopyrightText: 2025 RadsammyT <32146976+RadsammyT@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
@@ -584,6 +585,7 @@
   - EmergencyNitrogenClown
   - EmergencyOxygenClown
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # Funky
 
 - type: loadoutGroup
   id: MimeHead
@@ -639,6 +641,7 @@
   - EmergencyNitrogenMime
   - EmergencyOxygenMime
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # Funky
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -947,6 +950,7 @@
   - EmergencyNitrogenExtended
   - EmergencyOxygenExtended
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # Funky
 
 # Science
 - type: loadoutGroup
@@ -1280,6 +1284,7 @@
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # Funky
 
 - type: loadoutGroup
   id: SecurityStar
@@ -1494,6 +1499,7 @@
   - EmergencyNitrogenMedical
   - EmergencyOxygenMedical
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # Funky
 
 # Wildcards
 - type: loadoutGroup
@@ -1538,7 +1544,8 @@
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
   - LoadoutSpeciesVoxNitrogen
-
+  - EmergencyIPCBox # Funky
+  
 - type: loadoutGroup
   id: GroupSpeciesBreathTool
   name: loadout-group-breath-tool

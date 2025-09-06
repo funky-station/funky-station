@@ -153,7 +153,6 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         args.Laws = component.Lawset;
 
         args.Handled = true;
-        System.Console.WriteLine($"[DEBUG_LOG] OnDirectedGetLaws: target={uid}, returning {component.Lawset.Laws.Count} laws");
     }
 
     private void OnIonStormLaws(EntityUid uid, SiliconLawProviderComponent component, ref IonStormLawsEvent args)
@@ -309,22 +308,18 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     /// </summary>
     public void SetLaws(List<SiliconLaw> newLaws, EntityUid target, SoundSpecifier? cue = null)
     {
-        System.Console.WriteLine($"[DEBUG_LOG] SiliconLawSystem.SetLaws: target={target}, newLaws count={newLaws.Count}");
 
         if (!TryComp<SiliconLawProviderComponent>(target, out var component))
         {
-            System.Console.WriteLine($"[DEBUG_LOG] SiliconLawSystem.SetLaws: No SiliconLawProviderComponent found on target={target}");
             return;
         }
 
         if (component.Lawset == null)
         {
-            System.Console.WriteLine($"[DEBUG_LOG] SiliconLawSystem.SetLaws: Creating new SiliconLawset for target={target}");
             component.Lawset = new SiliconLawset();
         }
 
         component.Lawset.Laws = newLaws;
-        System.Console.WriteLine($"[DEBUG_LOG] SiliconLawSystem.SetLaws: Successfully set {newLaws.Count} laws on target={target}");
         NotifyLawsChanged(target, cue);
     }
 

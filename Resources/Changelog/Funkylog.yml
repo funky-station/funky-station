@@ -4435,3 +4435,9 @@ Entries:
       message: Added book cart and label folder to Bagels library
   id: 530
   time: '2025-09-05T06:31:23.0000000+00:00'
+- author: EmillyCoelho
+  changes:
+    - type: Add
+      message: NTVS Gax added to the rotation!
+  id: 531
+  time: '2025-09-06T01:00:17.0000000+00:00'

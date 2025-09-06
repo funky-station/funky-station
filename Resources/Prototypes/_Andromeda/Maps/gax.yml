@@ -24,6 +24,7 @@
             #service
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
+            Magistrate: [ 1, 1 ]
             InternalAffairsAgent: [ 1, 2 ]
             Bartender: [ 1, 1 ]
             Botanist: [2 , 3 ]

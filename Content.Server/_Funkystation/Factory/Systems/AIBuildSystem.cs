@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 
+using Content.Server._Funkystation.Factory.Components;
 using Content.Shared.DoAfter;
 using Content.Shared._Funkystation.Factory;
 using Content.Shared._Funkystation.Factory.Components;
@@ -43,7 +44,7 @@ public sealed partial class AIBuildSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<AIBuildRequestEvent>(OnBuildRequest);
-        SubscribeLocalEvent<Content.Shared.MalfAI.MalfAiMarkerComponent, AIBuildDoAfterEvent>(OnBuildDoAfter);
+        SubscribeLocalEvent<MalfAiMarkerComponent, AIBuildDoAfterEvent>(OnBuildDoAfter);
     }
 
     /// <summary>
@@ -140,7 +141,7 @@ public sealed partial class AIBuildSystem : EntitySystem
             if (HasComp<RoboticsFactoryGridComponent>(spawned))
             {
                 isFactory = true;
-                var owner = EnsureComp<Content.Server._Funkystation.Factory.Components.MalfFactoryOwnerComponent>(spawned);
+                var owner = EnsureComp<MalfFactoryOwnerComponent>(spawned);
                 owner.Controller = uid; // uid is the AI entity that received the DoAfter completion
             }
 

@@ -34,6 +34,7 @@ using System.Linq;
 using Content.Server._White.StoreDiscount;
 using Robust.Shared.Timing;
 using Content.Shared.MalfAI;
+using Content.Shared.Store;
 
 namespace Content.Server.Store.Systems;
 
@@ -61,7 +62,7 @@ public sealed partial class StoreSystem : EntitySystem
         SubscribeLocalEvent<StoreComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<StoreComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<StoreComponent, OpenUplinkImplantEvent>(OnImplantActivate);
-        SubscribeLocalEvent<StoreComponent, Content.Shared.MalfAI.OpenMalfAiStoreActionEvent>(OnMalfAiOpenStore);
+        SubscribeLocalEvent<StoreComponent, OpenMalfAiStoreActionEvent>(OnMalfAiOpenStore);
 
         InitializeUi();
         InitializeCommand();
@@ -224,7 +225,7 @@ public sealed partial class StoreSystem : EntitySystem
 
     private void ShowMalfCpuIfApplicable(EntityUid uid, StoreComponent store)
     {
-        ProtoId<Content.Shared.Store.CurrencyPrototype> cpu = "CPU";
+        ProtoId<CurrencyPrototype> cpu = "CPU";
         if (!store.CurrencyWhitelist.Contains(cpu))
             return;
         if (!HasComp<MalfAiMarkerComponent>(uid))

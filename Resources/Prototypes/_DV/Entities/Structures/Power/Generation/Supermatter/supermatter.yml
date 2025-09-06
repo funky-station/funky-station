@@ -68,6 +68,7 @@
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
+  - type: IntercomOnlyBypass
 
 - type: entity
   parent: BaseSupermatter

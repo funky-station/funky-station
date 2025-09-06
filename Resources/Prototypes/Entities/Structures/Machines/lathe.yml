@@ -146,7 +146,6 @@
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
@@ -156,6 +155,7 @@
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <scarky0@onet.eu>
 # SPDX-FileCopyrightText: 2025 SpaceCat~Chan <49094338+SpaceCat-Chan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
@@ -1189,7 +1189,7 @@
     - WeaponLaserCannon
     - WeaponLaserCarbine
     - WeaponXrayCannon
-    - WeaponLaserSvalinn # Funky Change
+    - WeaponLaserSvalinn # Funky Change 
     - SecurityCyberneticEyes # Shitmed Change
     - MedicalCyberneticEyes # Shitmed Change
     # Goobstation - Mechs
@@ -1332,7 +1332,7 @@
     - MedkitBrute
     - MedkitAdvanced
     - MedkitRadiation
-#    - MedkitCombat #funky
+   # - MedkitCombat # Funky Change 
     - Scalpel
     - Retractor
     - Cautery
@@ -1743,20 +1743,32 @@
     materialUseMultiplier: 0.75
     timeMultiplier: 0.5
     staticRecipes:
-    - SheetSteel
-    - SheetGlass1
+    # Funky Change, replaced with Industrial Procecor specific recipes 
+    #- IngotGold1
+    #- IngotSilver1
+    #- MaterialBananium1
+    #- MaterialDiamond    
+    #- SheetSteel
+    #- SheetGlass1
+    #- SheetPlasma1    
+    #- SheetUranium1   
+    # Funky Recipe Start
+    - SheetSteelIndustrial
+    - SheetGlassIndustrial
+    - SheetPlasmaIndustrial
+    - IngotSilverIndustrial
+    - IngotGoldIndustrial
+    - SheetUraniumIndustrial
+    - MaterialBananiumIndustrial
+    - MaterialDiamondIndustrial
+    # Funky Recipe End 
     - SheetRGlassRaw
-    - SheetPlasma1
     - SheetPGlass1
     - SheetRPGlass1
     - SheetPlasteel1
-    - SheetUranium1
     - SheetUGlass1
     - SheetRUGlass1
-    - IngotGold1
-    - IngotSilver1
-    - MaterialBananium1
-    - MaterialDiamond
+
 
 - type: entity
   parent: BaseLathe

@@ -38,6 +38,9 @@
 # SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -170,7 +173,10 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatDragon
-      amount: 2
+      amount: 4
+    - id: MaterialCarpScale1 # Funky
+      amount: 5
+      maxAmount: 10
   - type: InteractionPopup
     successChance: 0.25 # It's no goose, but you better smell like carp.
     interactSuccessString: petting-success-dragon
@@ -260,12 +266,15 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Dead
+      400: Dead
   # less meat spawned since it's a lot easier to kill
   - type: Butcherable
     spawned:
     - id: FoodMeatDragon
-      amount: 1
+      amount: 2
+    - id: MaterialCarpScale1 # Funky
+      amount: 3
+      maxAmount: 7   
   - type: MeleeWeapon
     damage:
       groups:

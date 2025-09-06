@@ -96,6 +96,8 @@ flavor-base-horrible = horrible
 flavor-base-terrible = terrible
 flavor-base-mindful = mindful
 flavor-base-chewy = chewy
+flavor-base-trashy = trashy
+flavor-base-motivating = motivating
 
 # Complex flavors. Put a flavor here when you want something that's more
 # specific.
@@ -224,7 +226,6 @@ flavor-complex-true-nature = like the true nature of reality
 flavor-complex-false-meat = not entirely unlike meat
 flavor-complex-paper = like mushy pulp
 flavor-complex-compressed-meat = like compressed meat
-flavor-complex-shrimp = like shrimp
 
 # Drink-specific flavors.
 

@@ -29,11 +29,11 @@
   id: CrateNPCBee
   parent: CrateLivestock
   name: crate of bees
-  description: A crate containing a swarm of eight bees.
+  description: A crate containing eight individually wrapped bees for your convenience.
   components:
   - type: StorageFill
     contents:
-      - id: MobBee
+      - id: WrappedBee # funky
         amount: 8
 
 - type: entity

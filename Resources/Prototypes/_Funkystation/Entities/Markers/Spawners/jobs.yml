@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
+# SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -63,3 +64,98 @@
     layers:
       - state: centcom
       - state: green
+
+- type: entity
+  id: SpawnPointGhostERTSecurity
+  parent: SpawnPointGhostRoleJob
+  name: ghost role spawn point
+  suffix: ERT Security
+  components:
+  - type: SpawnPoint
+    job_id: ERTSecurity
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ertsecurity
+  - type: GhostRole
+    name: ghost-role-information-ert-security-name
+    description: ghost-role-information-ert-security-description
+    rules: ghost-role-information-ert-rules
+    raffle:
+      settings: default
+
+- type: entity
+  id: SpawnPointGhostERTJanitor
+  parent: SpawnPointGhostRoleJob
+  name: ghost role spawn point
+  suffix: ERT Janitor
+  components:
+  - type: SpawnPoint
+    job_id: ERTJanitor
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ertjanitor
+  - type: GhostRole
+    name: ghost-role-information-ert-janitor-name
+    description: ghost-role-information-ert-janitor-description
+    rules: ghost-role-information-ert-rules
+    raffle:
+      settings: default
+
+- type: entity
+  id: SpawnPointGhostERTChaplain
+  parent: SpawnPointGhostRoleJob
+  name: ghost role spawn point
+  suffix: ERT Chaplain
+  components:
+  - type: SpawnPoint
+    job_id: ERTChaplain
+  - type: Sprite
+    layers:
+      - state: green
+      - state: chaplain
+  - type: GhostRole
+    name: ghost-role-information-ert-chaplain-name
+    description: ghost-role-information-ert-chaplain-description
+    rules: ghost-role-information-ert-rules
+    raffle:
+      settings: default
+
+- type: entity
+  id: SpawnPointGhostERTEngineer
+  parent: SpawnPointGhostRoleJob
+  name: ghost role spawn point
+  suffix: ERT Engineer
+  components:
+  - type: SpawnPoint
+    job_id: ERTEngineer
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ertengineer
+  - type: GhostRole
+    name: ghost-role-information-ert-engineer-name
+    description: ghost-role-information-ert-engineer-description
+    rules: ghost-role-information-ert-rules
+    raffle:
+      settings: default
+
+- type: entity
+  id: SpawnPointGhostERTMedical
+  parent: SpawnPointGhostRoleJob
+  name: ghost role spawn point
+  suffix: ERT Medical
+  components:
+  - type: SpawnPoint
+    job_id: ERTMedical
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ertmedical
+  - type: GhostRole
+    name: ghost-role-information-ert-medical-name
+    description: ghost-role-information-ert-medical-description
+    rules: ghost-role-information-ert-rules
+    raffle:
+      settings: default

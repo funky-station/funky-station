@@ -54,6 +54,7 @@
 # SPDX-FileCopyrightText: 2024 Gotimanga <127038462+Gotimanga@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
 # SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 LucasTheDrgn <kirbyfan.95@gmail.com>
 # SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
@@ -1177,6 +1178,13 @@
             Heat: -0.2
             Shock: -0.2
             Cold: -0.2
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          reagent: ForeverWeed
+          min: 1
+        reagent: ForeverWeed
+        amount: -1
   reactiveEffects:
     Extinguish:
       methods: [ Touch ]

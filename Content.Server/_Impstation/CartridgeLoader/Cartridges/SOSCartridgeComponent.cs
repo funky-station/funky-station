@@ -34,11 +34,11 @@ public sealed partial class SOSCartridgeComponent : Component
 
     [DataField]
     //Channel to notify
-    public ProtoId<RadioChannelPrototype> HelpChannel = "Security";
+    public ProtoId<RadioChannelPrototype> HelpChannel = "Emergency";
 
     [DataField]
     //Timeout between calls
-    public const float TimeOut = 90;
+    public const float TimeOut = 180;
 
     [DataField]
     //Countdown until next call is allowed

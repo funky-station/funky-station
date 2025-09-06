@@ -23,6 +23,7 @@
 // SPDX-FileCopyrightText: 2025 Carrot <carpecarrot@gmail.com>
 // SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
 // SPDX-FileCopyrightText: 2025 Ecramox <65426878+Ecramox@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 PurpleTranStar <purpletranstars@gmail.com>
 // SPDX-FileCopyrightText: 2025 PurpleTranStar <tehevilduckiscoming@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -178,7 +179,7 @@ public sealed class RadioSystem : EntitySystem
                 continue;
 
             // Imp original - edited to correct behavior for IPCs and Silicons
-            if (channel.IntercomOnly && !(HasComp<IntercomComponent>(radioSource) || HasComp<SiliconLawBoundComponent>(radioSource)))
+            if (channel.IntercomOnly && !(HasComp<IntercomComponent>(radioSource) || HasComp<IntercomOnlyBypassComponent>(radioSource)))
                 continue;
 
             // send the message

@@ -118,31 +118,10 @@ public sealed class MalfAiHijackMechSystem : EntitySystem
         var inserted = _mech.TryInsert(target, pilotUid, mech);
         if (!inserted)
         {
-            // Try to restore the AI brain back to its previous container to avoid orphaning.
-            try
-            {
-                if (previousContainer != null && previousContainer.Owner.IsValid())
-                    _containers.Insert(pilotUid, previousContainer);
-            }
-            catch
-            {
-                // ignore
-            }
-
             var pilotPopupTarget = GetAiEyeForPopup(pilotUid) ?? pilotUid;
             _popup.PopupEntity(Loc.GetString("malfai-hijack-insert-failed"), pilotPopupTarget, pilotUid);
             RemComp<MalfAiMechHijackComponent>(pilotUid);
             return;
-        }
-
-        // Replace EJECT with Return-to-Core: remove the mech's eject action from this pilot and add our return action.
-        try
-        {
-            if (TryComp<MechComponent>(target, out var mcomp) && mcomp.MechEjectActionEntity != null)
-                _actions.RemoveAction(mcomp.MechEjectActionEntity.Value);
-        }
-        catch
-        {
         }
 
         // Grant Return-to-Core during hijack, remember the action entity for cleanup.

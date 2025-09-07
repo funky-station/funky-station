@@ -49,6 +49,7 @@ public sealed partial class StoreSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly StoreDiscountSystem _storeDiscount = default!;
     [Dependency] private readonly Content.Shared.Alert.AlertsSystem _alerts = default!;
+    private static readonly ProtoId<CurrencyPrototype> CpuCurrencyId = "CPU";
 
     public override void Initialize()
     {
@@ -225,14 +226,13 @@ public sealed partial class StoreSystem : EntitySystem
 
     private void ShowMalfCpuIfApplicable(EntityUid uid, StoreComponent store)
     {
-        ProtoId<CurrencyPrototype> cpu = "CPU";
-        if (!store.CurrencyWhitelist.Contains(cpu))
+        if (!store.CurrencyWhitelist.Contains(CpuCurrencyId))
             return;
         if (!HasComp<MalfAiMarkerComponent>(uid))
             return;
 
         var amountInt = 0;
-        if (store.Balance.TryGetValue(cpu, out var val))
+        if (store.Balance.TryGetValue(CpuCurrencyId, out var val))
             amountInt = (int) val.Int();
 
         _alerts.ShowAlert(uid, "MalfCpu", dynamicMessage: amountInt.ToString());

@@ -4470,3 +4470,11 @@ Entries:
       message: Added the white hard hat to science loadouts!
   id: 535
   time: '2025-09-07T01:17:13.0000000+00:00'
+- author: AtlasHD
+  changes:
+    - type: Add
+      message: >-
+        Added craftable Medical Issued Glasses and Diagnostic Issued Glasses
+        that retain HUD functionality. Hamlet can wear them as well.
+  id: 536
+  time: '2025-09-07T23:10:10.0000000+00:00'

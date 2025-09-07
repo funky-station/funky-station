@@ -643,6 +643,7 @@
   loadouts:
   - EmergencyNitrogenMime
   - EmergencyOxygenMime
+  - EmergencySpeciesMothMime
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # Funky
 

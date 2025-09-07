@@ -72,10 +72,14 @@
 # SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
 # SPDX-FileCopyrightText: 2025 PresentAJ <Ajdpersonalemail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Smith <182301147+AgentSmithRadio@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ultimite <138839119+UltimiteTheHog@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Velken <8467292+Velken@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -1767,6 +1771,18 @@
     OrganAnimalHeart: 1
 
 - type: microwaveMealRecipe
+  id: RecipeBerryDelight
+  name: berry delight recipe
+  result: FoodCakeBerryDelight
+  time: 5
+  group: Cake
+  solids:
+    FoodCakePlain: 1
+    FoodBerries: 5
+  reagents:
+    Milk: 10
+
+- type: microwaveMealRecipe
   id: RecipeBreadDog
   name: bread dog recipe
   result: MobBreadDog
@@ -1887,6 +1903,13 @@
   solids:
     FoodDonkpocketCarp: 1
 
+- type: microwaveMealRecipe
+  id: RecipeDonkpocketMoth
+  name: warm moth-pocket recipe
+  result: FoodDonkpocketMothWarm
+  time: 5
+  solids:
+    FoodDonkpocketMoth: 1
 
 - type: microwaveMealRecipe
   id: RecipeHotChili
@@ -2382,15 +2405,14 @@
     FoodCheeseSlice: 1
     FoodButterSlice: 1
 
-#shrimp!
 - type: microwaveMealRecipe
-  id: RecipeShrimpFried
-  name: fried shrimp recipe
-  result: FoodShrimpFried
+  id: RecipeGrilledCheeseSandwichCotton
+  name: cotton grilled cheese sandwich recipe
+  result: FoodBakedGrilledCheeseSandwichCotton
   time: 10
-  group: Savory
   solids:
-    FoodShrimpRaw : 1
+    FoodBreadCottonSlice: 2
+    FoodCheeseSlice: 1
     FoodButterSlice: 1
 
 - type: microwaveMealRecipe
@@ -2405,3 +2427,15 @@
     MobMothroach: 1
     OrganAnimalHeart: 1
     MoproachShoes: 1
+
+- type: microwaveMealRecipe
+  id: RecipeCottonCake
+  name: cotton cake recipe
+  result: FoodCakeCotton
+  time: 5
+  group: Cake
+  reagents:
+    Fiber: 10
+  solids:
+    FoodCakePlain: 1
+    

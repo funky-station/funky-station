@@ -35,6 +35,8 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -477,13 +479,13 @@
   name: reagent-name-water
   parent: BaseDrink
   desc: reagent-desc-water
-  slippery: true
   physicalDesc: reagent-physical-desc-translucent
   flavor: water
   color: "#75b1f0"
   recognizable: true
   boilingPoint: 100.0
   meltingPoint: 0.0
+  friction: 0.4
   metabolisms:
     Drink:
       effects:
@@ -507,12 +509,15 @@
   id: Ice
   name: reagent-name-ice
   desc: reagent-desc-ice
+  slipData:
+    requiredSlipSpeed: 3.5
   physicalDesc: reagent-physical-desc-frosty
   flavor: cold
   color: "#bed8e6"
   recognizable: true
   meltingPoint: 0.0
   boilingPoint: 100.0
+  friction: 0.05 #Copied from Ice Crust
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1

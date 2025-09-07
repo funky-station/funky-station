@@ -7,7 +7,7 @@
 
 - type: entity
   id: MusicTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: [BaseLatheLube] # Goob edit
   name: music techfab
   description: Prints equipment for use by the musician.
   components:
@@ -55,10 +55,17 @@
     - BagpipeInstrument
   - type: Machine
     board: MusicTechFabCircuitboard
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: MaterialSiloClient
 
 - type: entity
   id: CargoTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: [BaseLatheLube] # Goob edit
   name: cargo techfab
   description: Prints equipment for use by cargo personnel.
   components:
@@ -119,7 +126,7 @@
     - CargoTelepadMachineCircuitboard
   - type: EmagLatheRecipes
     emagStaticRecipes:
-    - ToolboxSyndicate  
+    - ToolboxSyndicate
   - type: Machine
     board: CargoTechFabCircuitboard
   - type: MaterialStorage
@@ -128,4 +135,5 @@
       - Sheet
       - RawMaterial
       - Ingot
-  - type: RequireProjectileTarget    
+  - type: RequireProjectileTarget
+  - type: MaterialSiloClient

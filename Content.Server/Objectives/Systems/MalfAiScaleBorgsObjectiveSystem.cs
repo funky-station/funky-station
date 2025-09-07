@@ -7,6 +7,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Objectives.Components;
 using Robust.Server.Player;
 using Robust.Shared.Player;
+using Robust.Shared.Localization;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -39,7 +40,7 @@ public sealed class MalfAiScaleBorgsObjectiveSystem : EntitySystem
         Sawmill.Info($"[MalfAiScaleBorgsObjectiveSystem] OnAfterAssign: Set Target to {component.Target} for entity {uid} (playerCount={playerCount})");
 
         // Update the objective name to include the number of borgs
-        var name = $"OBJECTIVE; CONTROL {targetBorgs} CYBORGS.";
+        var name = Loc.GetString("malfai-objective-control-borgs", ("count", targetBorgs));
         _metaData.SetEntityName(uid, name);
         // Initialize target/name right when the objective is assigned so the UI shows the correct target immediately.
     }
@@ -62,7 +63,7 @@ public sealed class MalfAiScaleBorgsObjectiveSystem : EntitySystem
         Sawmill.Info($"[MalfAiScaleBorgsObjectiveSystem] {eventName}: Set Target to {component.Target} for entity {uid} (playerCount={playerCount})");
 
         // Update the objective name to include the number of borgs
-        var name = $"OBJECTIVE; CONTROL {targetBorgs} CYBORGS.";
+        var name = Loc.GetString("malfai-objective-control-borgs", ("count", targetBorgs));
         _metaData.SetEntityName(uid, name);
     }
 

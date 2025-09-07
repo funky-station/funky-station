@@ -215,6 +215,11 @@ malfai-robotics-law-impose-failed = Failed to impose law on {$borgName}
 malfai-robotics-borg-emagged = Cannot impose law!
 
 # =====================
+# Objectives
+# =====================
+malfai-objective-control-borgs = OBJECTIVE; CONTROL {$count} CYBORGS.
+
+# =====================
 # Camera Microphones Messages
 # =====================
 malfai-camera-microphones-enabled = Camera microphones activated.

@@ -12,7 +12,6 @@ using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.Graphics;
-using Robust.Shared.Maths;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Store;
@@ -288,9 +287,9 @@ public sealed class MalfAiCpuHudSystem : EntitySystem
             {
                 ProtoId<CurrencyPrototype> cpu = "CPU";
                 if (store.Balance.TryGetValue(cpu, out FixedPoint2 amount))
-                    _label.Text = $"CPU: {amount}";
+                    _label.Text = $"{Loc.GetString("CPU")}: {amount}";
                 else
-                    _label.Text = "CPU: 0";
+                    _label.Text = $"{Loc.GetString("CPU")}: 0";
             }
             else
             {
@@ -299,13 +298,13 @@ public sealed class MalfAiCpuHudSystem : EntitySystem
                 {
                     ProtoId<CurrencyPrototype> cpu = "CPU";
                     if (localStore.Balance.TryGetValue(cpu, out FixedPoint2 amount))
-                        _label.Text = $"CPU: {amount}";
+                        _label.Text = $"{Loc.GetString("CPU")}: {amount}";
                     else
-                        _label.Text = "CPU: 0";
+                        _label.Text = $"{Loc.GetString("CPU")}: 0";
                 }
                 else
                 {
-                    _label.Text = "CPU: 0";
+                    _label.Text = $"{Loc.GetString("CPU")}: 0";
                 }
             }
         }

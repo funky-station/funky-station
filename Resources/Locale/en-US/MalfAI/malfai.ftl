@@ -150,6 +150,9 @@ malfai-doomsday-announce-progress = Doomsday Protocol in progress. Time remainin
 malfai-doomsday-sender = Station AI
 malfai-doomsday-complete = Doomsday Protocol complete. Organic lifeforms terminated.
 
+# Lockdown
+malfai-lockdown-announcement = WARNING! An unauthorized stationwide lockdown has taken effect.
+malfai-lockdown-sender = Station AI
 
 # Hijack Mech
 malfai-hijack-invalid-target = Invalid mech target.

@@ -8,6 +8,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Maths;
 using Robust.Shared.Audio;
 using Content.Server.Chat.Systems;
+using Robust.Shared.Localization;
 using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.MalfAI;
@@ -33,11 +34,11 @@ public sealed class MalfAiLockdownSystem : EntitySystem
         var performer = args.Performer != default ? args.Performer : uid;
         var duration = TimeSpan.FromSeconds(args.Duration);
 
-        var announcement = "WARNING! An unauthorized stationwide lockdown has taken effect.";
+        var announcement = Loc.GetString("malfai-lockdown-announcement");
         _chat.DispatchStationAnnouncement(
             performer,
             announcement,
-            sender: "Station AI",
+            sender: Loc.GetString("malfai-lockdown-sender"),
             playDefaultSound: true,
             announcementSound: new SoundPathSpecifier("/Audio/Misc/notice1.ogg"),
             colorOverride: Color.Red);

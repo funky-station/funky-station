@@ -258,27 +258,6 @@ public sealed partial class AiBuildActionSystem : EntitySystem
             RaiseLocalEvent(performer, new AiBuildCancelledEvent(performer, _transform.GetMapId(build.Target), build.Target.Position, build.Prototype));
             return;
         }
-
-        try
-        {
-            var spawned = EntityManager.SpawnEntity(args.Prototype, location);
-
-            // If anchorable or expected to be anchored, ensure it's anchored
-            TryAnchor(spawned);
-
-            // If this was a Robotics Factory, remove the action from the AI that built it.
-            if (HasComp<Content.Shared._Funkystation.Factory.Components.RoboticsFactoryGridComponent>(spawned))
-                RemoveRoboticsFactoryAction(performer);
-
-            RaiseLocalEvent(performer, new AiBuildCompletedEvent(performer, spawned, _transform.GetMapId(location), location.Position, args.Prototype));
-            Sawmill.Info($"AiBuild complete: spawned '{args.Prototype}' at {location}.");
-        }
-        catch (Exception ex)
-        {
-            Sawmill.Error($"AiBuild doafter: failed to spawn '{args.Prototype}' at {location}: {ex}");
-            RaiseLocalEvent(performer, new AiBuildCancelledEvent(performer, _transform.GetMapId(build.Target), build.Target.Position, build.Prototype));
-        }
-        // Close OnBuildDoAfter method
     }
 
     private void RemoveRoboticsFactoryAction(EntityUid performer)
@@ -318,16 +297,6 @@ public sealed partial class AiBuildActionSystem : EntitySystem
     // The effect prototype should use Textures/Effects/rcd.rsi/construct4.png.
     private EntityUid? SpawnBuildVisual(EntityCoordinates coords)
     {
-        try
-        {
-            if (_prototypes.HasIndex<EntityPrototype>(BuildEffectPrototypeId))
-                return EntityManager.SpawnEntity(BuildEffectPrototypeId, coords);
-        }
-        catch (Exception ex)
-        {
-            Sawmill.Warning($"AiBuild visual: failed to spawn visual at {coords}: {ex}");
-        }
-
         return null;
     }
 

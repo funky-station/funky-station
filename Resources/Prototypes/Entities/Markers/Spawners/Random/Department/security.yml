@@ -5,7 +5,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-# Security 
+# Security
 - type: entity
   name: security loot spawner
   suffix: Gear, Simple
@@ -59,7 +59,7 @@
         - SecurityWhistle
         - Tourniquet
       chance: 0.85
- 
+
 # Armory loot spawner
 # Automatics are a complete mess right now, so the AK-MS And WT-550 have been commented out for consistency's sake. I have no idea what role these guns are supposed to fufill.
 - type: entity
@@ -120,7 +120,6 @@
       prototypes:
 #        - WeaponSubMachineGunWt550
         - WeaponDisabler
-        - WeaponPistolMk58
 #        - WeaponPistolMk58
         - WeaponEnergyGunMiniature #funky
         - WeaponRifleLecter

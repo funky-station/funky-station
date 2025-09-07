@@ -272,8 +272,6 @@
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterArmorBasic
-    pocket1: WeaponPistolMk58
-    pocket2: MagazinePistol
     pocket1: WeaponEnergyGunMiniature #funky
 #    pocket2: MagazinePistol
   inhand:

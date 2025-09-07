@@ -4447,3 +4447,26 @@ Entries:
       message: Nutribricks now deal damage when you hit people with them.
   id: 532
   time: '2025-09-06T01:05:54.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Fix
+      message: >-
+        Fixed an oversight with vox atmospherics prototypes that was causing
+        massive client errors if you tried to use vox specific air alarms and
+        components.
+  id: 533
+  time: '2025-09-06T18:27:43.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: More holopads and intercoms on Box
+    - type: Remove
+      message: Removed BSO from Box
+  id: 534
+  time: '2025-09-06T18:47:20.0000000+00:00'
+- author: Max_Power
+  changes:
+    - type: Add
+      message: Added the white hard hat to science loadouts!
+  id: 535
+  time: '2025-09-07T01:17:13.0000000+00:00'

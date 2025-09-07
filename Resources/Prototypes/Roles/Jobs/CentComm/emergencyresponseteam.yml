@@ -341,7 +341,7 @@
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPistolMk58
+    pocket1: WeaponEnergyGunMiniature #funky
     pocket2: FlashlightSeclite
   storage:
     back:
@@ -365,7 +365,7 @@
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPistolMk58
+    pocket1: WeaponEnergyGunMiniature #funky
     pocket2: FlashlightSeclite
   storage:
     back:

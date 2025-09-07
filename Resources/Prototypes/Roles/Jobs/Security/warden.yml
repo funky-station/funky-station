@@ -93,7 +93,7 @@
     #eyes: ClothingEyesGlassesSecurity
     id: WardenPDA
     ears: ClothingHeadsetWarden # funkystation
-    pocket1: WeaponPistolMk58
+    pocket1: WeaponEnergyGunMiniature # Funky
   storage:
     back:
     - Flash

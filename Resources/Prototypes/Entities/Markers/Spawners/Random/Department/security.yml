@@ -92,7 +92,8 @@
         - ClothingOuterArmorBulletproof
 #        - WeaponSubMachineGunWt550
         - WeaponDisabler
-        - WeaponPistolMk58
+#        - WeaponPistolMk58
+        - WeaponEnergyGunMiniature #funky
         - WeaponRifleLecter
         - WeaponSubMachineGunDrozd
         - WeaponLaserCarbine
@@ -120,6 +121,8 @@
 #        - WeaponSubMachineGunWt550
         - WeaponDisabler
         - WeaponPistolMk58
+#        - WeaponPistolMk58
+        - WeaponEnergyGunMiniature #funky
         - WeaponRifleLecter
         - WeaponSubMachineGunDrozd
         - WeaponLaserCarbine

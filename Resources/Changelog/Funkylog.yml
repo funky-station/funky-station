@@ -4478,3 +4478,9 @@ Entries:
         that retain HUD functionality. Hamlet can wear them as well.
   id: 536
   time: '2025-09-07T23:10:10.0000000+00:00'
+- author: Tyranex
+  changes:
+    - type: Fix
+      message: Fixed borgs not standing up after being repaired!
+  id: 537
+  time: '2025-09-07T23:14:26.0000000+00:00'

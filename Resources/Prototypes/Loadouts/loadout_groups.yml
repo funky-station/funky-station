@@ -34,6 +34,7 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Cthyga <41489382+Cthyga@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FeelFlows <1493889+FeelFlows@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
@@ -1358,6 +1359,7 @@
   loadouts:
     - MedicalNormGlasses
     - MedicalJamjarGlasses
+    - MedicalGlasses
 
 - type: loadoutGroup
   id: MedicalDoctorJumpsuit

@@ -203,7 +203,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
             return;
 
         // Allow systems to intercept processing (e.g., robotics factory conversion).
-        var processEvent = new Content.Shared.Materials.MaterialReclaimerProcessEntityEvent(item);
+        var processEvent = new MaterialReclaimerProcessEntityEvent(item);
         RaiseLocalEvent(uid, processEvent);
         if (processEvent.Handled)
         {

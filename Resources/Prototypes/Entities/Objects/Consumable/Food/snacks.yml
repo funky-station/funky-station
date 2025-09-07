@@ -36,9 +36,11 @@
 # SPDX-FileCopyrightText: 2024 Waylon Cude <waylon.cude@finzdani.net>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 GumshoeWorm <thelunaman365@gmail.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -88,7 +90,7 @@
     state: boritos
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketBoritosTrash
 
 - type: entity
@@ -104,7 +106,7 @@
     state: cnds
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketCnDsTrash
 
 - type: entity
@@ -121,7 +123,7 @@
     state: cheesiehonkers
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketCheesieTrash
 
 - type: entity
@@ -139,7 +141,7 @@
     state: chips
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketChipsTrash
 
 - type: entity
@@ -238,7 +240,7 @@
     state: pistachio
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketPistachioTrash
   - type: Tag
     tags:
@@ -260,7 +262,7 @@
   - type: Item
     heldPrefix: popcorn
   - type: Food
-    trash: 
+    trash:
     - FoodPacketPopcornTrash
 
 - type: entity
@@ -276,7 +278,7 @@
     state: raisins
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketRaisinsTrash
   - type: Tag
     tags:
@@ -295,7 +297,7 @@
     state: semki
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketSemkiTrash
 
 - type: entity
@@ -311,7 +313,7 @@
     state: susjerky
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketSusTrash
   - type: Tag
     tags:
@@ -330,7 +332,7 @@
     state: syndicakes
   - type: Item
   - type: Food
-    trash: 
+    trash:
     - FoodPacketSyndiTrash
 
 - type: entity
@@ -355,7 +357,7 @@
   - type: Sprite
     state: ramen
   - type: Food
-    trash: 
+    trash:
     - FoodPacketCupRamenTrash
 
 - type: entity
@@ -398,7 +400,7 @@
         - ReagentId: Soysauce
           Quantity: 2
   - type: Food
-    trash: 
+    trash:
     - FoodPacketChowMeinTrash
 
 - type: entity
@@ -427,7 +429,7 @@
         - ReagentId: Soysauce
           Quantity: 2
   - type: Food
-    trash: 
+    trash:
     - FoodPacketDanDanTrash
 
 - type: entity
@@ -453,7 +455,7 @@
     heldPrefix: packet
     size: Tiny
   - type: Food
-    trash: 
+    trash:
     - FoodCookieFortune
 
 - type: entity
@@ -476,6 +478,19 @@
       - id: FoodSnackNutribrickOpen
     sound:
       path: /Audio/Effects/unwrap.ogg
+  - type: MeleeWeapon # funky start
+    damage:
+      types:
+        Blunt: 4
+    soundHit:
+      collection: MetalThud
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 4
+  - type: StaminaDamageOnCollide
+    damage: 10
+    sound: /Audio/Effects/metal_thud1.ogg # funky end
 
 - type: entity
   id: FoodSnackNutribrickOpen
@@ -501,6 +516,19 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 20
+  - type: MeleeWeapon # funky start
+    damage:
+      types:
+        Blunt: 4
+    soundHit:
+      collection: MetalThud
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 4
+  - type: StaminaDamageOnCollide
+    damage: 10
+    sound: /Audio/Effects/metal_thud1.ogg # funky end
 
 - type: entity
   id: FoodSnackMREBrownie

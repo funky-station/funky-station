@@ -41,6 +41,8 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
     [ViewVariables]
     private HashSet<ListingData> _listings = new();
 
+    private static readonly ProtoId<CurrencyPrototype> CpuCurrencyId = "CPU";
+
     public StoreBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
     }
@@ -51,8 +53,7 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
 
         if (EntMan.TryGetComponent<StoreComponent>(Owner, out var store))
         {
-            ProtoId<CurrencyPrototype> cpu = "CPU";
-            if (store.CurrencyWhitelist.Contains(cpu))
+            if (store.CurrencyWhitelist.Contains(CpuCurrencyId))
             {
                 // Removed call to open Malf AI store window here to prevent duplicate/empty window.
                 return;
@@ -63,8 +64,7 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
         if (EntMan.TryGetComponent<StoreComponent>(Owner, out var store2))
         {
             _menu.Title = Loc.GetString(store2.Name);
-            ProtoId<CurrencyPrototype> cpu = "CPU";
-            if (store2.CurrencyWhitelist.Contains(cpu))
+            if (store2.CurrencyWhitelist.Contains(CpuCurrencyId))
                 _menu.ApplyMalfTheme();
         }
 
@@ -107,8 +107,7 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
                 _menu?.UpdateBalance(msg.Balance);
                 if (_menu != null)
                 {
-                    ProtoId<CurrencyPrototype> cpu = "CPU";
-                    if (msg.Balance.ContainsKey(cpu))
+                    if (msg.Balance.ContainsKey(CpuCurrencyId))
                         _menu.ApplyMalfTheme();
                 }
                 UpdateListingsWithSearchFilter();

@@ -23,7 +23,6 @@ public sealed partial class MalfAiRoboticsFactorySystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<MalfAiMarkerComponent, MalfAiRoboticsFactoryActionEvent>(OnRoboticsFactory);
-
     }
 
     private void OnRoboticsFactory(EntityUid uid, MalfAiMarkerComponent comp, ref MalfAiRoboticsFactoryActionEvent args)

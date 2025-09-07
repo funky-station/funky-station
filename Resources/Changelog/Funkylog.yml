@@ -4464,3 +4464,9 @@ Entries:
       message: Removed BSO from Box
   id: 534
   time: '2025-09-06T18:47:20.0000000+00:00'
+- author: Max_Power
+  changes:
+    - type: Add
+      message: Added the white hard hat to science loadouts!
+  id: 535
+  time: '2025-09-07T01:17:13.0000000+00:00'

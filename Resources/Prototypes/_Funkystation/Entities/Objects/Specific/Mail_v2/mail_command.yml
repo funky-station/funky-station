@@ -7,8 +7,8 @@
 
 - type: entity
   parent: BaseMailLarge
-  id: MailSyndicateSurplus
-  suffix: Syndicate Surplus
+  id: MailSyndicateCommandClothes
+  suffix: Syndicate Command Clothes
   components:
   - type: Mail
     contents:

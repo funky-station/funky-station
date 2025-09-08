@@ -4036,7 +4036,7 @@
   - type: Hands # HANDS!
   - type: Puller
   - type: Cuffable # bad dog!
-  - type: BlockWriting # dogs can't write, paws unwieldy; mouth-writing is a myth
+  #- type: BlockWriting
   - type: Stripping
   - type: ComplexInteraction
   # Implement custom borgi body type

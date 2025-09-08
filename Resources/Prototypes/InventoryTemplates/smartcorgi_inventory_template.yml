@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 # Borgi Inventory Template
 - type: inventoryTemplate
   id: SmartCorgi

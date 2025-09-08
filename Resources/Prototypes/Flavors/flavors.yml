@@ -33,6 +33,7 @@
 # SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lapatison <100279397+lapatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ultimite <138839119+UltimiteTheHog@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -1385,8 +1386,25 @@
   id: zombiecocktail
   flavorType: Complex
   description: flavor-complex-zombiecocktail
-  
+
+# not implemented yet
+
+#- type: flavor
+#  id: bacchusblessing
+#  flavorType: Complex
+#  description: flavor-complex-bacchus-blessing
+
 - type: flavor
-  id: shrimp
-  flavorType: Complex
-  description: flavor-complex-shrimp
+  id: trashy
+  flavorType: Base
+  description: flavor-base-trashy
+
+#- type: flavor
+#  id: artifactglue
+#  flavorType: Complex
+#  description: flavor-complex-artifact-glue
+
+- type: flavor
+  id: motivating
+  flavorType: Base
+  description: flavor-base-motivating

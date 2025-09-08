@@ -37,7 +37,7 @@
       shape:
       - 0,0,5,3
     - type: Sprite
-      sprite: Mobs/Species/Slime/parts.rsi
+      sprite: _Funkystation/Mobs/Species/Slime/parts.rsi
       state: "torso_m"
 
 - type: entity
@@ -50,7 +50,7 @@
       shape:
       - 0,0,1,1
     - type: Sprite
-      sprite: Mobs/Species/Slime/parts.rsi
+      sprite: _Funkystation/Mobs/Species/Slime/parts.rsi
       state: "head_m"
       offset: 0,-0.3
 
@@ -64,7 +64,7 @@
       shape:
       - 0,0,0,1
     - type: Sprite
-      sprite: Mobs/Species/Slime/parts.rsi
+      sprite: _Funkystation/Mobs/Species/Slime/parts.rsi
       state: "l_arm"
       offset: -0.2,0
 
@@ -78,7 +78,7 @@
       shape:
       - 0,0,0,1
     - type: Sprite
-      sprite: Mobs/Species/Slime/parts.rsi
+      sprite: _Funkystation/Mobs/Species/Slime/parts.rsi
       state: "r_arm"
       offset: 0.2,0
 
@@ -90,7 +90,7 @@
     - type: Item
       size: Tiny
     - type: Sprite
-      sprite: Mobs/Species/Slime/parts.rsi
+      sprite: _Funkystation/Mobs/Species/Slime/parts.rsi
       state: "l_hand"
       offset: -0.2,0.1
 
@@ -102,7 +102,7 @@
     - type: Item
       size: Tiny
     - type: Sprite
-      sprite: Mobs/Species/Slime/parts.rsi
+      sprite: _Funkystation/Mobs/Species/Slime/parts.rsi
       state: "r_hand"
       offset: 0.2,0.1
 
@@ -116,7 +116,7 @@
       shape:
       - 0,0,0,1
     - type: Sprite
-      sprite: Mobs/Species/Slime/parts.rsi
+      sprite: _Funkystation/Mobs/Species/Slime/parts.rsi
       state: "l_leg"
       offset: -0.1,0.3
 
@@ -130,7 +130,7 @@
       shape:
       - 0,0,0,1
     - type: Sprite
-      sprite: Mobs/Species/Slime/parts.rsi
+      sprite: _Funkystation/Mobs/Species/Slime/parts.rsi
       state: "r_leg"
       offset: 0.1,0.3
 
@@ -142,7 +142,7 @@
     - type: Item
       size: Tiny
     - type: Sprite
-      sprite: Mobs/Species/Slime/parts.rsi
+      sprite: _Funkystation/Mobs/Species/Slime/parts.rsi
       state: "l_foot"
       offset: -0.15,0.45
 
@@ -154,6 +154,6 @@
     - type: Item
       size: Tiny
     - type: Sprite
-      sprite: Mobs/Species/Slime/parts.rsi
+      sprite: _Funkystation/Mobs/Species/Slime/parts.rsi
       state: "r_foot"
       offset: 0.15,0.45

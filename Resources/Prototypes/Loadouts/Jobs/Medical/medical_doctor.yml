@@ -3,6 +3,8 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PoquitoDondito <danielchristianstone@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -91,6 +93,10 @@
   id: MedicalJamjarGlasses
   equipment:
     eyes: ClothingEyesGlassesMedjar
+- type: loadout
+  id: MedicalGlasses
+  equipment:
+    eyes: ClothingEyesGlassesMed
 
 # Jumpsuit
 - type: loadout
@@ -149,6 +155,12 @@
   id: MedicalDoctorDuffel
   equipment:
     back: ClothingBackpackDuffelMedical
+
+# Neck
+- type: loadout
+  id: MedicalStethoscope
+  equipment:
+    neck: ClothingNeckStethoscope
 
 # OuterClothing
 - type: loadout

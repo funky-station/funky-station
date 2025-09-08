@@ -26,6 +26,8 @@
 # SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
 # SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
@@ -150,6 +152,12 @@
     components:
     - type: BibleUser #Lets them heal with bibles and transform null rods.
     - type: CultResistant # Funky cult
+  # funky - ghostjobs
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
+  # end funky
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
@@ -216,7 +224,7 @@
   description: job-description-ertengineer
   playTimeTracker: JobERTEngineer
   setPreference: false
-  startingGear: ERTEngineerGearEVA
+  startingGear: ERTEngineerGear # funky - the *BASE* job should not have EVA gear.
   icon: "JobIconERTEngineer"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -227,6 +235,14 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  # funky - ghostjobs
+  - !type:AddComponentSpecial
+    components:
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
+  # end funky
 
 - type: startingGear
   id: ERTEngineerGear
@@ -291,7 +307,7 @@
   description: job-description-ertsecurity
   playTimeTracker: JobERTSecurity
   setPreference: false
-  startingGear: ERTEngineerGearEVA
+  startingGear: ERTSecurityGear # funky - the BASE job should not have ***ENGINEER*** EVA GEAR???!?!??. what the fuck? why was this set to engineer eva gear
   icon: "JobIconERTSecurity"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -302,6 +318,15 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  # funky - ghostjobs
+  - !type:AddComponentSpecial
+    components:
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
+  # end funky
+
 
 - type: startingGear
   id: ERTSecurityGear
@@ -395,6 +420,14 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  # funky - ghostjobs
+  - !type:AddComponentSpecial
+    components:
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
+  # end funky
 
 - type: startingGear
   id: ERTMedicalGear
@@ -451,7 +484,7 @@
   description: job-description-ertjanitor
   playTimeTracker: JobERTJanitor
   setPreference: false
-  startingGear: ERTJanitorGearEVA
+  startingGear: ERTJanitorGear # funky - the *BASE* job should not have EVA gear.
   icon: "JobIconERTJanitor"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -462,6 +495,14 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  # funky - ghostjobs
+  - !type:AddComponentSpecial
+    components:
+    - type: RandomMetadata
+      nameSegments:
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
+  # end funky
 
 - type: startingGear
   id: ERTJanitorGear

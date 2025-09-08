@@ -114,7 +114,7 @@
     Command:
       MailCommandPipebombIntern: 1
       MailLuxuryPen: 1.6
-      MailSyndicateSurplus: 0.1 
+      MailSyndicateCommandClothes: 0.1 
       MailBartenderPremiumBooze: 0.2
     Medical:
       MailMedicalBasicSupplies: 2

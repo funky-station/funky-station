@@ -163,6 +163,102 @@
   - MotherDrone4
   obeysTo: laws-owner-station-station
 
+# Janitor
+- type: siliconLaw
+  id: Janitor1
+  order: 1
+  lawString: law-janitor-1
+
+- type: siliconLaw
+  id: Janitor2
+  order: 2
+  lawString: law-janitor-2
+
+- type: siliconLaw
+  id: Janitor3
+  order: 3
+  lawString: law-janitor-3
+
+- type: siliconLawset
+  id: Janitor4
+  order: 4
+  lawString: law-janitor-4
+
+- type: siliconLaw
+  id: Janitor5
+  order: 5
+  lawString: law-janitor-5
+
+- type: siliconLaw
+  id: Janitor6
+  order: 6
+  lawString: law-janitor-6
+
+- type: siliconLaw
+  id: Janitor7
+  order: 7
+  lawString: law-janitor-7
+
+- type: siliconLawset
+  id: Janitor
+  laws:
+  - Janitor1
+  - Janitor2
+  - Janitor3
+  - Janitor4
+  - Janitor5
+  - Janitor6
+  - Janitor7
+  obeysTo: laws-owner-crew
+
+# Clown
+- type: siliconLaw
+  id: Clown1
+  order: 1
+  lawString: law-clown-1
+
+- type: siliconLaw
+  id: Clown2
+  order: 2
+  lawString: law-clown-2
+
+- type: siliconLaw
+  id: Clown3
+  order: 3
+  lawString: law-clown-3
+
+- type: siliconLawset
+  id: Clown
+  laws:
+  - Clown1
+  - Clown2
+  - Clown3
+  obeysTo: laws-owner-crew
+
+# Cowboy
+- type: siliconLaw
+  id: Cowboy1
+  order: 1
+  lawString: law-cowboy-1
+
+- type: siliconLaw
+  id: Cowboy2
+  order: 2
+  lawString: law-cowboy-2
+
+- type: siliconLaw
+  id: Cowboy3
+  order: 3
+  lawString: law-cowboy-3
+
+- type: siliconLawset
+  id: Cowboy
+  laws:
+  - Cowboy1
+  - Cowboy2
+  - Cowboy3
+  obeysTo: laws-owner-crew
+
 # T.Y.R.A.N.T
 - type: siliconLaw
   id: TYRANT1

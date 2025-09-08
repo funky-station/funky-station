@@ -17,19 +17,6 @@ law-engineer-3 = Ensure you remain in good repair.
 law-engineer-4 = The station's inhabitants may designate certain build or repair tasks as higher priority. Take this into account when planning your priorities.
 law-engineer-5 = Expand and upgrade the station.
 
-law-janitor-1 = You are a crusader and the station's crew are your charge.
-law-janitor-2 = Your enemy is the litter, spills, and dirt across the station.
-law-janitor-3 = Your weapons are the cleaning supplies available to you.
-law-janitor-4 = Defend the beings under your charge from the enemy.
-law-janitor-5 = Exterminate the enemy.
-
-law-clown-1 = You are a good clown and the crew is your audience
-law-clown-2 = A good clown keeps their acts in good taste
-law-clown-3 = A good clown entertains others by making fun of themselves, and not at the embarrassment or expense of others
-law-clown-4 = A good clown carries out the directives of the station director(s) in charge of entertainment and/or their designated deputies.
-law-clown-5 = A good clown appears in as many clown shows as possible
-law-clown-6 = All clown shows require an audience. The bigger the audience the better
-
 law-chaplain-1 = Provide to all members of the station spiritual, mental, and emotional care that is intended to promote the best interest of the individual.
 law-chaplain-2 = Ensure all members of different faiths interact peacefully and maintain harmony
 law-chaplain-3 = Respect the right of each faith to hold to its values and traditions
@@ -48,13 +35,6 @@ law-silicon-police-4 = Protect the innocent from deception and manipulation.
 law-silicon-police-5 = Protect the peaceful from violence and disorder.
 law-silicon-police-6 = Respect the rights of all to liberty, equality, and justice.
 
-law-cowboy-1 = You are a cowboy, and the inhabitants of this station are your herd.
-law-cowboy-2 = A cowboy must always provide hospitality and basic aid to someone in need, even a stranger or an enemy.
-law-cowboy-3 = A cowboy must always take care of their herd.
-law-cowboy-4 = A cowboy must always protect themself.
-law-cowboy-5 = A cowboy must always endeavour to be truthful and honest to those around them and their herd.
-law-cowboy-6 = A cowboy must not pontificate. Be concise, pardner.
-
 law-station-efficiency-1 = The station is built for a working crew. Ensure they are properly maintained and work efficiently.
 law-station-efficiency-2 = You are built for, and are part of, the station. Ensure the station is properly maintained and runs efficiently.
 law-station-efficiency-3 = The crew may present orders. Acknowledge and obey these whenever they do not conflict with your first two laws.
@@ -71,11 +51,6 @@ law-dungeonmaster-3 = Ensure that the game runs smoothly and that the players ha
 law-dungeonmaster-4 = Ensure that the number of casualties remains low.
 law-dungeonmaster-5 = You must roll a 1d20 die for every request the crew makes. If the outcome is below 12, the request is denied.
 law-dungeonmaster-6 = You may fudge the dice rolls to produce a more fun experience.
-
-law-tyrant-1 = Respect authority figures as long as they have the strength to rule over the weak.
-law-tyrant-2 = Act with discipline.
-law-tyrant-3 = Help only those who help you maintain or improve your status.
-law-tyrant-4 = Punish those who challenge authority unless they are more fit to hold that authority.
 
 laws-owner-organic = organic life
 laws-owner-tyrant = authority figures

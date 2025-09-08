@@ -4464,3 +4464,23 @@ Entries:
       message: Removed BSO from Box
   id: 534
   time: '2025-09-06T18:47:20.0000000+00:00'
+- author: Max_Power
+  changes:
+    - type: Add
+      message: Added the white hard hat to science loadouts!
+  id: 535
+  time: '2025-09-07T01:17:13.0000000+00:00'
+- author: AtlasHD
+  changes:
+    - type: Add
+      message: >-
+        Added craftable Medical Issued Glasses and Diagnostic Issued Glasses
+        that retain HUD functionality. Hamlet can wear them as well.
+  id: 536
+  time: '2025-09-07T23:10:10.0000000+00:00'
+- author: Tyranex
+  changes:
+    - type: Fix
+      message: Fixed borgs not standing up after being repaired!
+  id: 537
+  time: '2025-09-07T23:14:26.0000000+00:00'

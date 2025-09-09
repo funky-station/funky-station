@@ -50,6 +50,7 @@
     MailHECU1: 0.1
     MailHECU2: 0.1
     MailShrineMaidenOutfit: 0.2
+    MailSyndicateSurplus: 0.1
   # Fun
     MailEMP: 0.1 # Xcy - People comically hate this, bumping down by half to 0.1
     MailSmoke: 0.3
@@ -114,7 +115,6 @@
     Command:
       MailCommandPipebombIntern: 1
       MailLuxuryPen: 1.6
-      MailSyndicateCommandClothes: 0.1 
       MailBartenderPremiumBooze: 0.2
     Medical:
       MailMedicalBasicSupplies: 2

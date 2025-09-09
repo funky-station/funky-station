@@ -254,10 +254,9 @@
     sprite: Objects/Weapons/Guns/Shotguns/sawn.rsi
   - type: Item
     size: Normal
-    storedOffset: -8,-8
+    storedOffset: 0,0
     shape:
-    - 0,0,3,0
-    - 0,1,1,1
+    - 0,0,1,1
     sprite: Objects/Weapons/Guns/Shotguns/sawn_inhands_64x.rsi
   - type: Gun
     fireRate: 3

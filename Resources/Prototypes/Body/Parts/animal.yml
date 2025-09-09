@@ -58,6 +58,20 @@
         Quantity: 10
 
 - type: entity
+  id: PartCorgi
+  parent: [BaseItem, BasePart]
+  name: "corgi body part"
+  abstract: true
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
   id: HandsAnimal
   name: animal hands
   parent: PartAnimal
@@ -123,27 +137,82 @@
         Quantity: 20
 
 - type: entity
-  parent: PartAnimal
+  parent: [PartCorgi, BaseLeftHand]
   id: LeftHandSmartCorgi
   name: corgi hand
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
     layers:
     - state: l_hand
-  - type: BodyPart
-    partType: Hand
-    symmetry: Left
+
 
 - type: entity
-  parent: PartAnimal
+  parent: [PartCorgi, BaseRightHand]
   id: RightHandSmartCorgi
   name: corgi hand
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
     layers:
     - state: r_hand
-  - type: BodyPart
-    partType: Hand
-    symmetry: Right
+
+- type: entity
+  parent: [PartCorgi, BaseLeftLeg]
+  id: LeftLegSmartCorgi
+  name: corgi leg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    layers:
+    - state: l_leg
+
+- type: entity
+  parent: [PartCorgi, BaseRightLeg]
+  id: RightLegSmartCorgi
+  name: corgi leg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    layers:
+    - state: r_leg
+
+- type: entity
+  id: LeftArmSmartCorgi
+  name: "left corgi arm"
+  parent: [PartCorgi, BaseLeftArm]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmSmartCorgi
+  name: "right corgi arm"
+  parent: [PartCorgi, BaseRightArm]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftFootSmartCorgi
+  name: "left corgi foot"
+  parent: [PartCorgi, BaseLeftFoot]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootSmartCorgi
+  name: "right corgi foot"
+  parent: [PartCorgi, BaseRightFoot]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "r_foot"

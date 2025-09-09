@@ -10,9 +10,10 @@
     torso:
       part: TorsoAnimal
       connections:
-      - righthand
-      - lefthand
-      - legs
+      - right arm
+      - left arm
+      - right leg
+      - left leg
       organs:
         brain: OrganHumanBrain # feels strange but it is what it is
         lungs: OrganAnimalLungs
@@ -20,13 +21,27 @@
         liver: OrganAnimalLiver
         heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys
-    lefthand:
-      part: LeftHandSmartCorgi
-    righthand:
-      part: RightHandSmartCorgi
-    legs:
-      part: LegsAnimal
+    right arm:
+      part: RightArmSmartCorgi
       connections:
-      - feet
-    feet:
-      part: FeetAnimal
+      - right hand
+    left arm:
+      part: LeftArmSmartCorgi
+      connections:
+      - left hand
+    right hand:
+      part: RightHandSmartCorgi
+    left hand:
+      part: LeftHandSmartCorgi
+    right leg:
+      part: RightLegSmartCorgi
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegSmartCorgi
+      connections:
+      - left foot
+    right foot:
+      part: RightFootSmartCorgi
+    left foot:
+      part: LeftFootSmartCorgi

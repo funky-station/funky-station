@@ -8,11 +8,9 @@ using Content.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Content.Shared.MalfAI;
 using Robust.Client.GameObjects;
-using Robust.Shared.Maths;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.ResourceManagement;
 using Robust.Client.Graphics;
-using Content.Client.Resources;
 using Content.Client.MalfAI.Theme;
 using Robust.Shared.Timing;
 
@@ -57,17 +55,15 @@ public sealed partial class MalfAiBorgsWindow : FancyWindow
             // Add CRT static overlay using the unified effect system - this stays on top
             var staticOverlay = MalfEffectOverlay.CreateStaticOverlay();
             RootBackdrop.AddChild(staticOverlay);
+
+            // Apply  Malf stylesheet
+            RootBackdrop.Stylesheet = MalfUiTheme.GetCachedStylesheet(_resCache, 12);
         }
 
-        // Load KodeMono font (monospace) for this UI and apply to static controls.
+        // Load font for dynamic styling that can't be handled by stylesheet (Like borg health health)
         _kodeMono = MalfUiTheme.GetFont(_resCache, 12);
-        NoBorgs.FontOverride = _kodeMono;
 
-        // Style and wire the Master Lawset button.
-        if (_kodeMono != null && MasterLawsetButton.Label != null)
-            MasterLawsetButton.Label.FontOverride = _kodeMono;
-        if (MasterLawsetButton.Label != null)
-            MasterLawsetButton.Label.Modulate = MalfGreen;
+        // Style and wire the Master Lawset button
         MasterLawsetButton.StyleBoxOverride = MalfUiTheme.CreateButtonStyle(MalfUiTheme.Accent);
         MasterLawsetButton.OnPressed += _ => OnMasterLawsetRequested?.Invoke();
     }
@@ -95,7 +91,7 @@ public sealed partial class MalfAiBorgsWindow : FancyWindow
 
     private PanelContainer WrapWithGreenOutline(Robust.Client.UserInterface.Control child)
     {
-        // Create a square green outline around the given control using the shared theme style WITHOUT static.
+        // Custom malf button styling application
         var border = MalfUiTheme.CreateButtonStyle(MalfUiTheme.Accent);
 
         var panel = new PanelContainer
@@ -214,6 +210,7 @@ public sealed partial class MalfAiBorgsWindow : FancyWindow
             VerticalAlignment = Robust.Client.UserInterface.Control.VAlignment.Center
         };
 
+        // Font now handled by stylesheet, but we need to override font for specific styling
         if (_kodeMono != null)
             healthText.FontOverride = _kodeMono;
 
@@ -237,6 +234,7 @@ public sealed partial class MalfAiBorgsWindow : FancyWindow
             // Normal state - show percentage with color gradient from green (100%) to red (0%)
             healthText.Text = $"{(int)(healthFraction * 100)}%";
             var textColor = new Color(1f - healthFraction, healthFraction, 0f);
+            // Override stylesheet color for dynamic health color gradient
             healthText.Modulate = textColor;
         }
 
@@ -295,8 +293,7 @@ public sealed partial class MalfAiBorgsWindow : FancyWindow
                 {
                     Text = $"{entry.UniqueId} — {entry.Name}",
                 };
-                if (_kodeMono != null)
-                    label.FontOverride = _kodeMono;
+                // Font and color now handled by stylesheet
                 row.AddChild(label);
 
                 // Spacer to push button and health to the right
@@ -314,20 +311,7 @@ public sealed partial class MalfAiBorgsWindow : FancyWindow
                     Text = "Manage laws",
                     MinWidth = 110
                 };
-                if (_kodeMono != null)
-                    updateBtn.Label.FontOverride = _kodeMono;
-                updateBtn.Label.Modulate = MalfGreen;
-                var updateBtnFlat = new StyleBoxFlat
-                {
-                    BackgroundColor = Color.Transparent,
-                    BorderColor = Color.Transparent,
-                    BorderThickness = new Thickness(0f)
-                };
-                updateBtnFlat.ContentMarginLeftOverride = 0;
-                updateBtnFlat.ContentMarginTopOverride = 0;
-                updateBtnFlat.ContentMarginRightOverride = 0;
-                updateBtnFlat.ContentMarginBottomOverride = 0;
-                updateBtn.StyleBoxOverride = updateBtnFlat;
+                // Font, color, and transparent background now handled by stylesheet
                 var uid = entry.UniqueId; // capture
                 updateBtn.OnPressed += _ => OnUpdateLawsRequested?.Invoke(uid);
 
@@ -338,10 +322,7 @@ public sealed partial class MalfAiBorgsWindow : FancyWindow
                     Pressed = entry.Synced,
                     MinWidth = 110
                 };
-                if (_kodeMono != null && syncToggle.Label != null)
-                    syncToggle.Label.FontOverride = _kodeMono;
-                if (syncToggle.Label != null)
-                    syncToggle.Label.Modulate = MalfGreen;
+                // Font and color now handled by stylesheet
 
                 // Apply custom hollow square styling to the checkbox
                 ApplyHollowSquareCheckboxStyle(syncToggle);
@@ -368,21 +349,7 @@ public sealed partial class MalfAiBorgsWindow : FancyWindow
                     Text = "Warp",
                     MinWidth = 110
                 };
-                if (_kodeMono != null)
-                    warpBtn.Label.FontOverride = _kodeMono;
-                warpBtn.Label.Modulate = MalfGreen;
-                // Make the button background fully transparent (no generic backdrop)
-                var warpBtnFlat = new StyleBoxFlat
-                {
-                    BackgroundColor = Color.Transparent,
-                    BorderColor = Color.Transparent,
-                    BorderThickness = new Thickness(0f)
-                };
-                warpBtnFlat.ContentMarginLeftOverride = 0;
-                warpBtnFlat.ContentMarginTopOverride = 0;
-                warpBtnFlat.ContentMarginRightOverride = 0;
-                warpBtnFlat.ContentMarginBottomOverride = 0;
-                warpBtn.StyleBoxOverride = warpBtnFlat;
+                // Font, color, and transparent background now handled by stylesheet
                 warpBtn.OnPressed += _ => OnJumpToBorgRequested?.Invoke(uid);
                 buttonsCol.AddChild(WrapWithGreenOutline(warpBtn));
 

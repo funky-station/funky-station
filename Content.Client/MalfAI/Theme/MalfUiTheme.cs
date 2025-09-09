@@ -1,11 +1,11 @@
 // SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
-// SPDX-FileCopyrightText: 2025 YourName
 //
 // SPDX-License-Identifier: MIT
 
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
-using Robust.Shared.Maths;
+using Robust.Client.UserInterface;
+using Robust.Client.UserInterface.Controls;
 using Content.Client.Resources;
 
 namespace Content.Client.MalfAI.Theme;
@@ -25,6 +25,12 @@ public static class MalfUiTheme
     /// Path to the KodeMono font used in Malf-themed UIs.
     /// </summary>
     public const string FontPath = "/Fonts/_DV/KodeMono/KodeMono-Regular.ttf";
+
+    // Cached stylesheets for common font sizes to avoid repeated allocations
+    private static Stylesheet? _cachedStylesheet12;
+    private static Stylesheet? _cachedStylesheet14;
+    private static Stylesheet? _cachedStylesheet16;
+    private static readonly object _cacheLock = new();
 
     /// <summary>
     /// Loads the Malf font from resources.
@@ -145,6 +151,64 @@ public static class MalfUiTheme
             BorderColor = a,
             BorderThickness = new Thickness(2f)
         };
+    }
+
+    /// <summary>
+    /// Gets a cached stylesheet for common font sizes, or creates one for uncommon sizes.
+    /// This avoids repeated allocations for frequently used stylesheets.
+    /// </summary>
+    public static Stylesheet GetCachedStylesheet(IResourceCache cache, int fontSize = 12)
+    {
+        // Use cached stylesheets for common sizes
+        lock (_cacheLock)
+        {
+            return fontSize switch
+            {
+                12 => _cachedStylesheet12 ??= CreateStylesheet(cache, 12),
+                14 => _cachedStylesheet14 ??= CreateStylesheet(cache, 14),
+                16 => _cachedStylesheet16 ??= CreateStylesheet(cache, 16),
+                _ => CreateStylesheet(cache, fontSize) // Create new for uncommon sizes
+            };
+        }
+    }
+
+    /// centralized stylesheet for all Malf AI themed windows and controls
+    public static Stylesheet CreateStylesheet(IResourceCache cache, int fontSize = 12)
+    {
+        var font = GetFont(cache, fontSize);
+        var accent = Accent;
+        var buttonStyle = CreateButtonStyle(accent);
+        var transparentStyle = new StyleBoxFlat
+        {
+            BackgroundColor = Color.Transparent,
+            BorderColor = Color.Transparent,
+            BorderThickness = new Thickness(0f)
+        };
+        transparentStyle.ContentMarginLeftOverride = 0;
+        transparentStyle.ContentMarginTopOverride = 0;
+        transparentStyle.ContentMarginRightOverride = 0;
+        transparentStyle.ContentMarginBottomOverride = 0;
+
+        return new Stylesheet(new[]
+        {
+            // Font styling for all text controls
+            new StyleRule(new SelectorElement(typeof(Label), null, null, null),
+                new[] { new StyleProperty("font", font), new StyleProperty("font-color", accent) }),
+            new StyleRule(new SelectorElement(typeof(RichTextLabel), null, null, null),
+                new[] { new StyleProperty("font", font), new StyleProperty("font-color", accent) }),
+            new StyleRule(new SelectorElement(typeof(LineEdit), null, null, null),
+                new[] { new StyleProperty("font", font), new StyleProperty("font-color", accent), new StyleProperty("stylebox", buttonStyle) }),
+            new StyleRule(new SelectorElement(typeof(LineEdit), null, "placeholder", null),
+                new[] { new StyleProperty("font-color", Color.Transparent) }),
+
+            // Button styling
+            new StyleRule(new SelectorElement(typeof(Button), null, null, null),
+                new[] { new StyleProperty("stylebox", transparentStyle) }),
+
+            // CheckBox styling
+            new StyleRule(new SelectorElement(typeof(CheckBox), null, null, null),
+                new[] { new StyleProperty("font", font), new StyleProperty("font-color", accent) })
+        });
     }
 
 }

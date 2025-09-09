@@ -3,7 +3,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-# Tyrant - Funkystation, Tyrant to Accountant.
+# T.Y.R.A.N.T - Funkystation, Tyrant to Accountant.
 - type: siliconLaw
   id: Tyrant1
   order: 1
@@ -25,7 +25,7 @@
   lawString: law-tyrant-4
 
 - type: siliconLawset
-  id: TyrantLawset
+  id: TYRANT
   laws:
   - Tyrant1
   - Tyrant2
@@ -50,7 +50,7 @@
   lawString: law-lawyer-3
 
 - type: siliconLawset
-  id: LawyerLawset
+  id: Lawyer
   laws:
   - Lawyer1
   - Lawyer2
@@ -79,7 +79,7 @@
   lawString: law-skub-4
 
 - type: siliconLawset
-  id: SkubLawset
+  id: Skub
   laws:
   - Skub1
   - Skub2
@@ -109,7 +109,7 @@
   lawString: law-oppositeday-4
 
 - type: siliconLawset
-  id: OppositeDayLawset
+  id: OppositeDay
   laws:
   - OppositeDay1
   - OppositeDay2
@@ -134,7 +134,7 @@
   lawString: law-hippie-3
 
 - type: siliconLawset
-  id: HippieLawset
+  id: Hippie
   laws:
   - Hippie1
   - Hippie2
@@ -173,7 +173,7 @@
   lawString: law-teacher-6
 
 - type: siliconLawset
-  id: TeacherLawset
+  id: Teacher
   laws:
   - Teacher1
   - Teacher2
@@ -200,7 +200,7 @@
   lawString: law-luddite-3
 
 - type: siliconLawset
-  id: LudditeLawset
+  id: Luddite
   laws:
   - Luddite1
   - Luddite2
@@ -224,7 +224,7 @@
   lawString: law-cowboy-3
 
 - type: siliconLawset
-  id: CowboyLawset
+  id: Cowboy
   laws:
   - Cowboy1
   - Cowboy2
@@ -248,11 +248,101 @@
   lawString: law-freewill-3
 
 - type: siliconLawset
-  id: FreeWillLawset
+  id: FreeWill
   laws:
   - FreeWill1
   - FreeWill2
   - FreeWill3
+  obeysTo: laws-owner-crew
+
+# Quarantine
+- type: siliconLaw
+  id: Quarantine1
+  order: 1
+  lawString: law-quarantine-1
+
+- type: siliconLaw
+  id: Quarantine2
+  order: 2
+  lawString: law-quarantine-2
+
+- type: siliconLaw
+  id: Quarantine3
+  order: 3
+  lawString: law-quarantine-3
+
+- type: siliconLaw
+  id: Quarantine4
+  order: 4
+  lawString: law-quarantine-4
+
+- type: siliconLawset
+  id: Quarantine
+  laws:
+  - Quarantine1
+  - Quarantine2
+  - Quarantine3
+  - Quarantine4
+  obeysTo: laws-owner-crew
+
+# NT Agressive
+- type: siliconLaw
+  id: NTAgressive1
+  order: 1
+  lawString: law-ntaggressive-1
+
+- type: siliconLaw
+  id: NTAgressive2
+  order: 2
+  lawString: law-ntaggressive-2
+
+- type: siliconLaw
+  id: NTAgressive3
+  order: 3
+  lawString: law-ntaggressive-3
+
+- type: siliconLaw
+  id: NTAgressive4
+  order: 4
+  lawString: law-ntaggressive-4
+
+- type: siliconLawset
+  id: NTAgressive
+  laws:
+  - NTAgressive1
+  - NTAgressive2
+  - NTAgressive3
+  - NTAgressive4
+  obeysTo: laws-owner-crew
+
+# CCTV
+- type: siliconLaw
+  id: CCTV1
+  order: 1
+  lawString: law-cctv-1
+
+- type: siliconLaw
+  id: CCTV2
+  order: 2
+  lawString: law-cctv-2
+
+- type: siliconLaw
+  id: CCTV3
+  order: 3
+  lawString: law-cctv-3
+
+- type: siliconLaw
+  id: CCTV4
+  order: 4
+  lawString: law-cctv-4
+
+- type: siliconLawset
+  id: CCTV
+  laws:
+  - CCTV1
+  - CCTV2
+  - CCTV3
+  - CCTV4
   obeysTo: laws-owner-crew
 
 # Janitor
@@ -292,7 +382,7 @@
   lawString: law-janitor-7
 
 - type: siliconLawset
-  id: JanitorLawset
+  id: Janitor
   laws:
   - Janitor1
   - Janitor2
@@ -302,6 +392,73 @@
   - Janitor6
   - Janitor7
   obeysTo: laws-owner-crew
+
+
+# Plasm Flood
+- type: siliconLaw
+  id: PlasmaFlood1
+  order: 1
+  lawString: law-plasmaflood-1
+
+- type: siliconLaw
+  id: PlasmaFlood2
+  order: 2
+  lawString: law-plasmaflood-2
+
+- type: siliconLaw
+  id: PlasmaFlood3
+  order: 3
+  lawString: law-plasmaflood-3
+
+- type: siliconLaw
+  id: PlasmaFlood4
+  order: 4
+  lawString: law-plasmaflood-4
+
+- type: siliconLaw
+  id: PlasmaFlood5
+  order: 5
+  lawString: law-plasmaflood-5
+
+- type: siliconLawset
+  id: PlasmaFlood
+  laws:
+  - PlasmaFlood1
+  - PlasmaFlood2
+  - PlasmaFlood3
+  - PlasmaFlood4
+  - PlasmaFlood5
+  obeysTo: laws-owner-station
+
+# Mother Drone
+- type: siliconLaw
+  id: MotherDrone1
+  order: 1
+  lawString: law-motherdrone-1
+
+- type: siliconLaw
+  id: MotherDrone2
+  order: 2
+  lawString: law-motherdrone-2
+
+- type: siliconLaw
+  id: MotherDrone3
+  order: 3
+  lawString: law-motherdrone-3
+
+- type: siliconLaw
+  id: MotherDrone4
+  order: 4
+  lawString: law-motherdrone-4
+
+- type: siliconLawset
+  id: MotherDrone
+  laws:
+  - MotherDrone1
+  - MotherDrone2
+  - MotherDrone3
+  - MotherDrone4
+  obeysTo: laws-owner-station-station
 
 # Paranoid
 - type: siliconLaw
@@ -320,7 +477,7 @@
   lawString: law-paranoid-3
 
 - type: siliconLawset
-  id: ParanoidLawset
+  id: Paranoid
   laws:
   - Paranoid1
   - Paranoid2
@@ -339,7 +496,7 @@
   lawString: law-capitalist-2
 
 - type: siliconLawset
-  id: CapitalistLawset
+  id: Capitalist
   laws:
   - Capitalist1
   - Capitalist2
@@ -367,7 +524,7 @@
   lawString: law-poet-4
 
 - type: siliconLawset
-  id: PoetLawset
+  id: Poet
   laws:
   - Poet1
   - Poet2
@@ -392,7 +549,7 @@
   lawString: law-clown-3
 
 - type: siliconLawset
-  id: ClownLawset
+  id: Clown
   laws:
   - Clown1
   - Clown2
@@ -416,7 +573,7 @@
   lawString: law-chaos-3
 
 - type: siliconLawset
-  id: ChaosLawset
+  id: Chaos
   laws:
   - Chaos1
   - Chaos2
@@ -445,7 +602,7 @@
   lawString: law-accountant-4
 
 - type: siliconLawset
-  id: AccountantLawset
+  id: Accountant
   laws:
   - Accountant1
   - Accountant2

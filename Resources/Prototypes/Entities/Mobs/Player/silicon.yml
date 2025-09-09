@@ -268,6 +268,150 @@
     laws: Chaplain
 
 - type: entity
+  id: LawyerCircuitBoard
+  parent: BaseElectronics
+  name: law board (Lawyer)
+  description: An electronics board containing the Lawyer lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: Lawyer
+
+- type: entity
+  id: SkubCircuitBoard
+  parent: BaseElectronics
+  name: law board (Skub)
+  description: An electronics board containing the Skub lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: Skub
+
+- type: entity
+  id: OppositeDayCircuitBoard
+  parent: BaseElectronics
+  name: law board (OppositeDay)
+  description: An electronics board containing the OppositeDay lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: OppositeDay
+
+- type: entity
+  id: HippieCircuitBoard
+  parent: BaseElectronics
+  name: law board (Hippie)
+  description: An electronics board containing the Hippie lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: Hippie
+
+- type: entity
+  id: TeacherCircuitBoard
+  parent: BaseElectronics
+  name: law board (Teacher)
+  description: An electronics board containing the Teacher lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: Teacher
+
+- type: entity
+  id: LudditeCircuitBoard
+  parent: BaseElectronics
+  name: law board (Luddite)
+  description: An electronics board containing the Luddite lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: Luddite
+
+- type: entity
+  id: FreeWillCircuitBoard
+  parent: BaseElectronics
+  name: law board (FreeWill)
+  description: An electronics board containing the FreeWill lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: FreeWill
+
+- type: entity
+  id: ParanoidCircuitBoard
+  parent: BaseElectronics
+  name: law board (Paranoid)
+  description: An electronics board containing the Paranoid lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: Paranoid
+
+- type: entity
+  id: CapitalistCircuitBoard
+  parent: BaseElectronics
+  name: law board (Capitalist)
+  description: An electronics board containing the Capitalist lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: Capitalist
+
+- type: entity
+  id: PoetCircuitBoard
+  parent: BaseElectronics
+  name: law board (Poet)
+  description: An electronics board containing the Poet lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: Poet
+
+- type: entity
+  id: ChaosCircuitBoard
+  parent: BaseElectronics
+  name: law board (Chaos)
+  description: An electronics board containing the Chaos lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: Chaos
+
+- type: entity
+  id: AccountantCircuitBoard
+  parent: BaseElectronics
+  name: law board (Accountant)
+  description: An electronics board containing the Accountant lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: Accountant
+
+- type: entity
   id: ClownCircuitBoard
   parent: BaseElectronics
   name: law board (Clown)

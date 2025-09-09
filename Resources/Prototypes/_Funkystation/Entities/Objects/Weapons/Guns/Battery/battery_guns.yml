@@ -127,3 +127,37 @@
       fireCost: 100
       name: disabling
       state: disabler
+
+- type: entity
+  name: ion rifle
+  parent: BaseWeaponBattery
+  id: WeaponIonRifle
+  description: ion
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Guns/Battery/ion-rifle.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Guns/Battery/ion-rifle.rsi
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: ProjectileBatteryAmmoProvider
+    proto: ProjectileIonRifle
+    fireCost: 500
+  - type: StaticPrice
+    price: 300

@@ -342,7 +342,7 @@
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
-        time: 80
+        time: 32
         refresh: false
       - !type:PopupMessage
         type: Local

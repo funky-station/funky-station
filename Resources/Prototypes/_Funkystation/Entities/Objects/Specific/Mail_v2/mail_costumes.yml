@@ -15,9 +15,10 @@
     - id: ClothingUniformJumpsuitOperative
     - id: ClothingBeltMilitaryWebbing
     - id: ClothingShoesBootsSyndieFilled
-    - id: ClothingHeadHatBlacksoft
+    - id: ClothingHeadHatSyndie
     - id: ClothingBackpackSyndicate
     - id: ClothingHandsGlovesFingerless
+
     
 - type: entity
   parent: BaseMailLarge
@@ -97,3 +98,26 @@
     - id: Gohei
     - id: ClothingShoesWizard
     - id: PlushieCirno
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailSyndicateSurplus
+  suffix: Syndicate Surplus
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingUniformJumpsuitIMDSyndicate
+    - id: ClothingUniformJumpsuitCCRSyndicate
+    - id: ClothingUniformJumpsuitCHESyndicate
+    - id: ClothingUniformJumpsuitWSMSyndicate
+    - id: ClothingUniformJumpsuitHRDSyndicate
+    - id: ClothingHeadHatHRDCapSyndicate
+    - id: ClothingUniformJumpsuitGCMSyndicate
+    - id: ClothingUniformJumpsuitHCRSyndicate
+    - id: ClothingNeckScarfStripedSyndieGreen
+    - id: ClothingNeckScarfStripedSyndieRed
+    - id: ClothingUniformJumpsuitSyndieFormal
+    - id: ClothingOuterWinterSyndie
+    - id: ClothingOuterWinterSyndieCap
+    - id: ClothingShoesBootsWinterSyndicate
+    - id: ClothingOuterCoatSyndieCap

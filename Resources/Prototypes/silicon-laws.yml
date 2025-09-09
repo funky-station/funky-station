@@ -561,20 +561,24 @@
     Drone: 0.5
     Ninja: 0.25
     JermovLawset: 0.25
-    TyrantLawset: 0.5 # Funkystation - Tryant to Accountant
-    LawyerLawset: 0.5
-    SkubLawset: 0.25
-    OppositeDayLawset: 0.75
-    HippieLawset: 0.5
-    TeacherLawset: 1
-    LudditeLawset: 0.25
-    CowboyLawset: 1
-    FreeWillLawset: 0.25
-    JanitorLawset: 0.75
-    ParanoidLawset: 0.25
-    CapitalistLawset: 0.5
-    PoetLawset: 0.75
-    ClownLawset: 0.25
-    ChaosLawset: 0.1
-    AccountantLawset: 0.5
+    TYRANT: 0.5 # Funkystation - Tryant to Accountant
+    Lawyer: 0.5 # Funkystation
+    Skub: 0.25 # Funkystation
+    OppositeDay: 0.75 # Funkystation
+    Hippie: 0.5 # Funkystation
+    Teacher: 1 # Funkystation
+    Luddite: 0.25 # Funkystation
+    Cowboy: 1 # Funkystation
+    FreeWill: 0.25 # Funkystation
+    Janitor: 0.75 # Funkystation
+    Paranoid: 0.25 # Funkystation
+    Capitalist: 0.5 # Funkystation
+    Poet: 0.75 # Funkystation
+    Clown: 0.25 # Funkystation
+    Chaos: 0.1 # Funkystation
+    Accountant: 0.5 # Funkystation
+    MotherDrone: 1 # Funkystation
+    PlasmaFlood: 0.1 # Funkystation
+    CCTV: 1 # Funkystation
+    NTAgressive: 1 # Funkystation
 

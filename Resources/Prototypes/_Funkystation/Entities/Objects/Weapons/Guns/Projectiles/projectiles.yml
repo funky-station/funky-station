@@ -123,3 +123,51 @@
         hard: false
         mask:
         - Opaque
+
+- type: entity
+  name : ion shot
+  id: ProjectileIonRifle
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+      shader: cyan
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        mask:
+        - Opaque # Goobstation
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+  - type: Ammo
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Ion: 50 #holy schnikes
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+  - type: TriggerOnCollide
+    fixtureID: projectile
+  - type: EmpOnTrigger
+    range: 1.5
+    energyConsumption: 500
+    disableDuration: 5

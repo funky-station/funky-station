@@ -4492,3 +4492,9 @@ Entries:
         reasons.
   id: 538
   time: '2025-09-08T04:52:25.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: Changed the Warden icon for accessibility reasons.
+  id: 539
+  time: '2025-09-08T23:28:37.0000000+00:00'

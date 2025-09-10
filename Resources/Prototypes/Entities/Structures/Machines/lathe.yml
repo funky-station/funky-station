@@ -1717,7 +1717,7 @@
   - type: Lathe
     idleState: icon
     runningState: building
-    defaultProductionAmount: 10
+    defaultProductionAmount: 30
     staticRecipes:
     - SheetSteel
     - SheetGlass1
@@ -1730,6 +1730,7 @@
     - IngotSilver1
     - MaterialBananium1
     - MaterialDiamond
+  - type: MaterialSiloClient
 
 - type: entity
   parent: OreProcessor

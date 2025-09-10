@@ -9,7 +9,6 @@ public sealed class MalfAiProtosExist
     {
         "ActionMalfAiRoboticsFactory",
         "RoboticsFactoryGrid",
-        "ProtoId3"
     };
 
     [Test]

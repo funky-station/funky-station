@@ -93,7 +93,6 @@ public sealed partial class AiBuildActionSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     private static readonly ISawmill Sawmill = Logger.GetSawmill("ai.build");
-    private const string BuildEffectPrototypeId = "EffectRCDConstruct4";
 
     // Tracks active builds keyed by performer
     private readonly Dictionary<EntityUid, ActiveBuild> _active = new();

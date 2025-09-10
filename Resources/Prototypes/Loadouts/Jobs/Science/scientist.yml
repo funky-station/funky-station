@@ -3,6 +3,9 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 FeelFlows <1493889+FeelFlows@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Max_Power <1493889+FeelFlows@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -41,6 +44,12 @@
   equipment:
     head: ClothingHeadBandSkull
 
+# Head - Funky
+- type: loadout
+  id: ScientistHardhatWhite
+  equipment:
+    head: ClothingHeadHatHardhatWhite
+
 # Eyes - Funky
 - type: loadout
   id: ScienceRoboNormGlasses
@@ -51,6 +60,11 @@
   id: ScienceRoboJamjarGlasses
   equipment:
     eyes: ClothingEyesGlassesRobojar
+
+- type: loadout
+  id: ScienceRoboGlasses
+  equipment:
+    eyes: ClothingEyesGlassesRobo
 # Neck
 
 - type: loadout

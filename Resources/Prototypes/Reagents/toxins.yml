@@ -550,6 +550,9 @@
           - !type:OrganType
             type: Vox
             shouldHave: false
+          - !type:OrganType
+            type: Arachnid
+            shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -563,6 +566,9 @@
           - !type:OrganType
             type: Vox
             shouldHave: false
+          - !type:OrganType
+            type: Arachnid
+            shouldHave: false
       - !type:HealthChange
         conditions:
         - !type:OrganType
@@ -571,6 +577,9 @@
         - !type:OrganType
           type: Vox
           shouldHave: false
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: false
         damage:
           types:
             Poison: 1
@@ -578,6 +587,12 @@
         conditions:
         - !type:OrganType
           type: Animal
+        reagent: Protein
+        amount: 0.5
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Arachnid
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent

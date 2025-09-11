@@ -11,6 +11,7 @@
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheHolyAegis <Sanderkamphuis719@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -38,6 +39,8 @@
     TriggerPrying: 0.5
     TriggerScrewing: 0.5
     TriggerPulsing: 0.5
+    TriggerRolling: 5
+    TriggerSlicing: 5
     TriggerTimer: 0.25
     TriggerBlood: 1
     TriggerThrow: 1
@@ -236,6 +239,24 @@
     requiredTool: Pulsing
   - type: XATExaminableText
     examineText: xenoarch-trigger-examine-pulsing
+
+- type: xenoArchTrigger
+  id: TriggerRolling
+  tip: xenoarch-trigger-tip-rolling
+  components:
+  - type: XATToolUse
+    requiredTool: Rolling
+  - type: XATExaminableText
+    examineText: xenoarch-trigger-examine-rolling
+
+- type: xenoArchTrigger
+  id: TriggerSlicing
+  tip: xenoarch-trigger-tip-slicing
+  components:
+  - type: XATToolUse
+    requiredTool: Slicing
+  - type: XATExaminableText
+    examineText: xenoarch-trigger-examine-slicing
 
 - type: xenoArchTrigger
   id: TriggerTimer

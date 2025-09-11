@@ -39,8 +39,8 @@
     TriggerPrying: 0.5
     TriggerScrewing: 0.5
     TriggerPulsing: 0.5
-    TriggerRolling: 5
-    TriggerSlicing: 5
+    TriggerRolling: 0.5
+    TriggerSlicing: 0.5
     TriggerTimer: 0.25
     TriggerBlood: 1
     TriggerThrow: 1

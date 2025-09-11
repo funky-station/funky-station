@@ -14,12 +14,12 @@
 # SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 20kdc <asdd2808@gmail.com>
 # SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -122,6 +122,7 @@
   isSpace: true
   itemDrop: PartRodMetal1
   heatCapacity: 10000
+  mass: 200
 
 - type: tile
   id: TrainLattice
@@ -137,3 +138,4 @@
   isSpace: true
   itemDrop: PartRodMetal1
   heatCapacity: 10000
+  mass: 200

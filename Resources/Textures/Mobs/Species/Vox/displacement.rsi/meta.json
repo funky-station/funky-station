@@ -1,7 +1,7 @@
 ﻿{
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "jumpsuit state made by PJB3005. back, hand, head, and eyes states made by Flareguy, ears, hand_l, hand_r and shoes made by TheShuEd",
+    "copyright": "jumpsuit state made by PJB3005 edited by TrixxedHeart. back, hand, head, and eyes states made by Flareguy, ears, hand_l, hand_r and shoes made by TheShuEd, neck by TrixxedHeart",
     "size": {
         "x": 32,
         "y": 32
@@ -24,6 +24,10 @@
         },
         {
             "name": "head",
+            "directions": 4
+        },
+        {
+            "name": "neck",
             "directions": 4
         },
         {

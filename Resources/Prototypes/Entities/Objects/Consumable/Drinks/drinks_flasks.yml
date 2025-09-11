@@ -17,18 +17,41 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: DrinkBase
-  id: FlaskBase
   abstract: true
+  parent: [DrinkBaseMaterialStrongMetal, DrinkBase, DrinkBaseOpenable, DrinkVisualsOpenable]
+  id: FlaskBase
   components:
-  - type: Drink
-  - type: PhysicalComposition
-    materialComposition:
-      Steel: 300
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/flask.rsi
   - type: FitsInDispenser
     solution: drink
-  - type: ExaminableSolution
-    examinableWhileClosed: false
+  - type: Openable
+    sound:
+      collection: flaskOpenSounds
+    closeable: true
+    closeSound:
+      collection: flaskCloseSounds
+
+# Flasks
+
+- type: entity
+  parent: [DrinkBaseMaterialStrongMetal, DrinkBase]
+  id: DrinkFlaskOld
+  name: old flask
+  description: A decrepit old flask, its lid seems to be missing.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/flask_old.rsi
+  - type: FitsInDispenser
+    solution: drink
 
 - type: entity
   parent: FlaskBase
@@ -42,6 +65,7 @@
 - type: entity
   parent: FlaskBase
   id: DrinkMREFlask
+  suffix: Full
   name: MRE flask
   description: An old military flask, filled with the finest contents for soldiers.
   components:
@@ -121,6 +145,10 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/vacuumflask.rsi
+  - type: Tool
+    qualities:
+    - Rolling # Perfectly cylindrical flask
+    speedModifier: 0.75
 
 - type: entity
   parent: FlaskBase

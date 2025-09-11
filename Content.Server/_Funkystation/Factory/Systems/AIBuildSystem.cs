@@ -56,12 +56,6 @@ public sealed partial class AIBuildSystem : EntitySystem
         var target = args.Target;
         var prototype = args.Prototype;
 
-        // Validate prototype exists
-        if (!_prototypes.HasIndex<EntityPrototype>(prototype))
-        {
-            Sawmill.Error($"AIBuild: Invalid prototype '{prototype}' requested by {ToPrettyString(requester)}");
-            return;
-        }
 
         // Validate coordinates
         if (!target.IsValid(EntityManager))
@@ -118,12 +112,6 @@ public sealed partial class AIBuildSystem : EntitySystem
 
         var location = GetCoordinates(args.Location);
 
-        // Final validation before spawning
-        if (!_prototypes.HasIndex<EntityPrototype>(args.Prototype))
-        {
-            Sawmill.Error($"AIBuild: Invalid prototype '{args.Prototype}' at completion");
-            return;
-        }
 
         if (!IsTileFree(location))
         {

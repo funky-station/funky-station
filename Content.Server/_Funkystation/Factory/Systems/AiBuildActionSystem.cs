@@ -130,12 +130,6 @@ public sealed partial class AiBuildActionSystem : EntitySystem
             return;
         }
 
-        // Prototype validation
-        if (string.IsNullOrWhiteSpace(args.Prototype) || !_prototypes.HasIndex<EntityPrototype>(args.Prototype))
-        {
-            Sawmill.Error($"AiBuild start: Invalid or missing prototype '{args.Prototype ?? "<null>"}'.");
-            return;
-        }
 
         // Ensure tile is free (no anchored entities such as walls or machinery)
         if (!IsTileFree(coords))

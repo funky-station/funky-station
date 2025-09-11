@@ -131,5 +131,6 @@ public sealed partial class TapeRecorderWindow : FancyWindow
             ? -comp.RewindSpeed
             : 1f;
         PlaybackSlider.Value += args.DeltaSeconds * speed;
+        DurationLabel.Text = $@"{TimeSpan.FromSeconds(PlaybackSlider.Value):mm\:ss}";
     }
 }

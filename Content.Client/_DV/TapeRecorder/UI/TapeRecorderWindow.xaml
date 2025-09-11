@@ -22,6 +22,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
             <BoxContainer Orientation="Vertical" HorizontalExpand="True">
                 <Label Text="{Loc 'tape-recorder-menu-controls-label'}" Align="Center" />
                 <BoxContainer Name="Buttons" Orientation="Horizontal" VerticalExpand="True" Align="Center"/> <!-- Populated in constructor -->
+                <Label Name="DurationLabel" Text="00:00" HorizontalAlignment="Right" HorizontalExpand="True"/>
             </BoxContainer>
         </BoxContainer>
         <BoxContainer Margin="0 2 0 0" Orientation="Horizontal">

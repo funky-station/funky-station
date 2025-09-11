@@ -48,6 +48,10 @@
       "directions": 4
     },
     {
+      "name": "tail_spikes",
+      "directions": 4
+    },
+    {
       "name": "tail_stenciled",
       "directions": 4
     }

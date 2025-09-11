@@ -31,13 +31,13 @@ public sealed partial class PaymentRecordsConsoleWindow : FancyWindow
         _proto = prototypeManager;
         _spriteSystem = _entManager.System<SpriteSystem>();
         
-        RecordListing.OnItemSelected += args =>
-        {
-            if (!args.Pressed)
-                return;
-            
-            OnKeySelected?.Invoke(args.);
-        };
+        // RecordListing.OnItemSelected += args =>
+        // {
+        //     if (!args.Pressed)
+        //         return;
+        //     
+        //     OnKeySelected?.Invoke(args.);
+        // };
         
         OpenCentered();
     }
@@ -96,8 +96,8 @@ public sealed partial class PaymentRecordsConsoleWindow : FancyWindow
 
         // Walk through the existing items in RecordListing and in the updated listing
         // in parallel to synchronize the items in RecordListing with `entries`.
-        var i = RecordListing.Count - 1;
-        var j = entries.Count - 1;
+        int i = RecordListing.Count - 1;
+        int j = entries.Count - 1;
         while (i >= 0 && j >= 0)
         {
             var strcmp = string.Compare(RecordListing[i].Text, entries[j].Value, StringComparison.Ordinal);
@@ -113,15 +113,10 @@ public sealed partial class PaymentRecordsConsoleWindow : FancyWindow
                 RecordListing.RemoveAt(i);
                 i--;
             }
-            else
+            else if (strcmp < 0)
             {
                 // A new entry which doesn't exist in RecordListing. Create it.
-                var itemList = new PaymentRecordButton();
-
-                itemList.CharacterNameText = entries[j].Value;
-                itemList.KeySelected = entries[j].Key;
-                
-                RecordListing.Insert(i + 1, itemList);
+                RecordListing.Insert(i + 1, new ItemList.Item(RecordListing){Text = entries[j].Value, Metadata = entries[j].Key});
                 j--;
             }
         }

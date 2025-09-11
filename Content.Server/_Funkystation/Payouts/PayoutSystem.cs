@@ -15,6 +15,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using StationBankAccountComponent = Content.Shared.Cargo.Components.StationBankAccountComponent;
 
 namespace Content.Server._Funkystation.Payouts;
 

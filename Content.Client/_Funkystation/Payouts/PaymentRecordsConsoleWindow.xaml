@@ -29,10 +29,10 @@
                            Align="Center"
                            FontColorOverride="DarkGray" />
                     
-                    <ScrollContainer 
+                    <ScrollContainer
                         VerticalExpand="True">
-                        
-                        <payouts:PaymentRecordButton Name="RecordListing" />
+                        <ItemList Name="RecordListing" />
+                        <!-- <Button Name="RecordListing" /> -->
                         
                         <!-- Populated when loading state -->
                     </ScrollContainer>

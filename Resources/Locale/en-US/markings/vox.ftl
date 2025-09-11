@@ -56,3 +56,6 @@ marking-TattooEyeVoxRight = Right Eye
 
 marking-TattooEyeVoxLeft-tattoo_eye_vox_l = Left Eye
 marking-TattooEyeVoxLeft = Left Eye
+
+marking-VoxTailSpikes-vox_tail_spikes = Vox Tail (Spiked)
+marking-VoxTailSpikes = Vox Tail (Spiked)

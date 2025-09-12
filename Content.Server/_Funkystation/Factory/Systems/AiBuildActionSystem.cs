@@ -99,8 +99,7 @@ public sealed partial class AiBuildActionSystem : EntitySystem
 
     private record struct ActiveBuild(
         EntityCoordinates Target,
-        string Prototype,
-        EntityUid? Visual
+        string Prototype
     );
 
     public override void Initialize()
@@ -144,22 +143,18 @@ public sealed partial class AiBuildActionSystem : EntitySystem
         // If an existing build is active for this performer, cancel it first
         if (_active.TryGetValue(performer, out var existing))
         {
-            CleanupVisual(existing.Visual);
             _active.Remove(performer);
             RaiseLocalEvent(performer, new AiBuildCancelledEvent(performer, _transform.GetMapId(existing.Target), existing.Target.Position, existing.Prototype));
         }
 
-        // Spawn the build visual (animation) at the target
-        var visual = SpawnBuildVisual(coords);
-
         // Record active build
-        _active[performer] = new ActiveBuild(coords, args.Prototype, visual);
+        _active[performer] = new ActiveBuild(coords, args.Prototype);
 
         // Raise start event for subscribers
         RaiseLocalEvent(performer, new AiBuildStartedEvent(performer, _transform.GetMapId((EntityCoordinates)coords), coords.Position, args.Prototype, args.Duration, price));
 
         // Start DoAfter
-        var doAfterEvent = new AiBuildDoAfterEvent(GetNetCoordinates(coords, null), args.Prototype, visual != null ? GetNetEntity(visual.Value) : null);
+        var doAfterEvent = new AiBuildDoAfterEvent(GetNetCoordinates(coords, null), args.Prototype, null);
 
         var delay = TimeSpan.FromSeconds(Math.Max(0f, args.Duration));
 
@@ -188,8 +183,6 @@ public sealed partial class AiBuildActionSystem : EntitySystem
         args.Handled = _doAfter.TryStartDoAfter(doAfterArgs);
         if (!args.Handled)
         {
-            // Failed to start DoAfter; clean up
-            CleanupVisual(visual);
             _active.Remove(performer);
             Sawmill.Warning("AiBuild start: Failed to start DoAfter.");
         }
@@ -202,7 +195,6 @@ public sealed partial class AiBuildActionSystem : EntitySystem
         if (!_active.TryGetValue(performer, out var build))
             return;
 
-        CleanupVisual(build.Visual);
         _active.Remove(performer);
 
         RaiseLocalEvent(performer, new AiBuildCancelledEvent(performer, _transform.GetMapId(build.Target), build.Target.Position, build.Prototype));
@@ -215,13 +207,6 @@ public sealed partial class AiBuildActionSystem : EntitySystem
     {
         var performer = uid;
 
-        // Clean up visual (if still present)
-        if (args.Effect != null)
-        {
-            var ent = GetEntity(args.Effect.Value);
-            if (EntityManager.EntityExists(ent))
-                EntityManager.DeleteEntity(ent);
-        }
 
         if (!_active.TryGetValue(performer, out var build))
             return;
@@ -286,18 +271,6 @@ public sealed partial class AiBuildActionSystem : EntitySystem
         }
     }
 
-    // Build visual: spawn a predefined effect entity that uses the requested animation/sprite.
-    // The effect prototype should use Textures/Effects/rcd.rsi/construct4.png.
-    private EntityUid? SpawnBuildVisual(EntityCoordinates coords)
-    {
-        return null;
-    }
-
-    private void CleanupVisual(EntityUid? visual)
-    {
-        if (visual is { } v && EntityManager.EntityExists(v))
-            EntityManager.DeleteEntity(v);
-    }
 
     // Ensure tile is unoccupied by anchored entities (e.g., walls, machinery)
     private bool IsTileFree(EntityCoordinates coordinates)

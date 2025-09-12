@@ -47,6 +47,17 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
     // almost never timing out more than 1 per tick so initialize with that capacity
     private List<string> _removing = new(1);
 
+    /// <summary>
+    /// Currency name for Malf AI
+    /// </summary>
+    private const string CpuCurrency = "CPU";
+
+    /// <summary>
+    /// CPU cost to impose Law 0 on a borg.
+    /// Note for the second review pass. Should I have this be a CVAR mayhaps?
+    /// </summary>
+    private static readonly FixedPoint2 LawImposeCpuCost = FixedPoint2.New(5);
+
     public override void Initialize()
     {
         base.Initialize();
@@ -170,16 +181,14 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
         if (data.Emagged)
             return;
 
-        // Charge 5 CPU from the AI's store before sending the command.
-        const string CpuCurrency = "CPU";
-        var cost = FixedPoint2.New(5);
+        // Charge CPU from the AI's store before sending the command.
         if (!TryComp<StoreComponent>(args.Actor, out var store))
             return;
-        if (!store.Balance.TryGetValue(CpuCurrency, out var balance) || balance < cost)
+        if (!store.Balance.TryGetValue(CpuCurrency, out var balance) || balance < LawImposeCpuCost)
             return; // insufficient CPU
 
         // Deduct cost and proceed
-        store.Balance[CpuCurrency] = balance - cost;
+        store.Balance[CpuCurrency] = balance - LawImposeCpuCost;
         // Replicate to clients and refresh the Malf CPU alert so client HUD updates digits.
         Dirty(args.Actor, store);
         _alerts.ShowAlert(args.Actor, "MalfCpu");
@@ -233,7 +242,7 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
         };
 
         _deviceNetwork.QueuePacket(ent, args.Address, payload);
-        _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(args.Actor):user} imposed Law 0 on borg {data.Name} with address {args.Address} (CPU cost: 5)");
+        _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(args.Actor):user} imposed Law 0 on borg {data.Name} with address {args.Address} (CPU cost: {LawImposeCpuCost})");
     }
 
     private void UpdateUserInterface(Entity<RoboticsConsoleComponent> ent)

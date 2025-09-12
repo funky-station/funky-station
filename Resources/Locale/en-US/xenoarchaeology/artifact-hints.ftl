@@ -9,6 +9,7 @@
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheHolyAegis <Sanderkamphuis719@gmail.com>
 #
 # SPDX-License-Identifier: MIT
 
@@ -74,6 +75,8 @@ xenoarch-trigger-tip-wrenching = Tightening
 xenoarch-trigger-tip-prying = Prying
 xenoarch-trigger-tip-screwing = Screwing
 xenoarch-trigger-tip-pulsing = Pulsing
+xenoarch-trigger-tip-rolling = Rolling
+xenoarch-trigger-tip-slicing = Slicing
 xenoarch-trigger-tip-pressure-low = Low pressure
 xenoarch-trigger-tip-pressure-high = High pressure
 xenoarch-trigger-tip-examine = Close inspection
@@ -88,6 +91,8 @@ xenoarch-trigger-examine-wrenching = There's a loose bit spinning around.
 xenoarch-trigger-examine-prying = There's a panel coming up from the surface.
 xenoarch-trigger-examine-screwing = There's a raised section with a small inset on it.
 xenoarch-trigger-examine-pulsing = An exposed diode pokes out of the artifact's surface.
+xenoarch-trigger-examine-rolling = Make it a pizza.
+xenoarch-trigger-examine-slicing = Cut it into bits.
 xenoarch-trigger-examine-timer = Carvings and scratches cover the surface... You can just barely make out a number: [italic]{$time}[/italic]
 
 ### Effects hints

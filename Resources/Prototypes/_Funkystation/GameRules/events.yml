@@ -1,0 +1,20 @@
+- type: entityTable
+  id: BasicFunkyEventsTable
+  table: !type:AllSelector
+    children:
+    - id: FaultyChips
+
+- type: entity
+  id: FaultyChips
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    color: Red
+    MaxOccurrences: 1
+    minimumPlayers: 35
+    OccursDuringRoundEnd: false
+    startAnnouncement: station-event-faulty-chips-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 0.5
+  - type: FaultyChipsRule

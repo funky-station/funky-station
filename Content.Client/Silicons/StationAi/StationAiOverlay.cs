@@ -45,11 +45,6 @@ public sealed class StationAiOverlay : Overlay
     private SharedAppearanceSystem? _appearance;
     private EntityLookupSystem? _lookup;
 
-    // Cached shaders
-    private ShaderInstance? _cameraStaticShader;
-    private ShaderInstance? _stencilMaskShader;
-    private ShaderInstance? _stencilDrawShader;
-
     // Reusable buffers to avoid per-frame allocations
     private readonly List<Vector2> _circleCenters = new(16);
     private readonly List<(Vector2 pos, float dist2)> _cameraCandidates = new(32);
@@ -61,11 +56,6 @@ public sealed class StationAiOverlay : Overlay
         // Cache systems
         _lookup = _entManager.System<EntityLookupSystem>();
         _appearance = _entManager.System<SharedAppearanceSystem>();
-
-        // Cache shaders (fail fast if not found)
-        _cameraStaticShader = _proto.Index<ShaderPrototype>("CameraStatic").Instance();
-        _stencilMaskShader = _proto.Index<ShaderPrototype>("StencilMask").Instance();
-        _stencilDrawShader = _proto.Index<ShaderPrototype>("StencilDraw").Instance();
     }
 
     protected override void Draw(in OverlayDrawArgs args)
@@ -209,10 +199,9 @@ public sealed class StationAiOverlay : Overlay
             () =>
             {
                 worldHandle.SetTransform(invMatrix);
-                // Use cached camera static shader if available
-                if (_cameraStaticShader == null)
-                    return;
-                worldHandle.UseShader(_cameraStaticShader);
+                // Use camera static shader directly
+                var cameraStaticShader = _proto.Index<ShaderPrototype>("CameraStatic").Instance();
+                worldHandle.UseShader(cameraStaticShader);
                 worldHandle.DrawRect(worldBounds, Color.White);
             },
             Color.Black);
@@ -234,14 +223,14 @@ public sealed class StationAiOverlay : Overlay
         }
 
         // Use the lighting as a mask
-        if (_stencilMaskShader == null || _stencilDrawShader == null)
-            return;
+        var stencilMaskShader = _proto.Index<ShaderPrototype>("StencilMask").Instance();
+        var stencilDrawShader = _proto.Index<ShaderPrototype>("StencilDraw").Instance();
 
-        worldHandle.UseShader(_stencilMaskShader);
+        worldHandle.UseShader(stencilMaskShader);
         worldHandle.DrawTextureRect(_stencilTexture!.Texture, worldBounds);
 
         // Draw the static
-        worldHandle.UseShader(_stencilDrawShader);
+        worldHandle.UseShader(stencilDrawShader);
         worldHandle.DrawTextureRect(_staticTexture!.Texture, worldBounds);
 
         worldHandle.SetTransform(Matrix3x2.Identity);

@@ -18,6 +18,8 @@
 # SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 LaryNevesPR <LaryNevesPR@proton.me>
+# SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -48,6 +50,20 @@
     tags:
       - Trash
   - type: Gibbable
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  id: PartCorgi
+  parent: [BaseItem, BasePart]
+  name: "corgi body part"
+  abstract: true
+  components:
   - type: Extractable
     juiceSolution:
       reagents:
@@ -121,3 +137,83 @@
       - ReagentId: Blood
         Quantity: 20
 
+- type: entity
+  parent: [PartCorgi, BaseLeftHand]
+  id: LeftHandSmartCorgi
+  name: corgi hand
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    layers:
+    - state: l_hand
+
+
+- type: entity
+  parent: [PartCorgi, BaseRightHand]
+  id: RightHandSmartCorgi
+  name: corgi hand
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    layers:
+    - state: r_hand
+
+- type: entity
+  parent: [PartCorgi, BaseLeftLeg]
+  id: LeftLegSmartCorgi
+  name: corgi leg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    layers:
+    - state: l_leg
+
+- type: entity
+  parent: [PartCorgi, BaseRightLeg]
+  id: RightLegSmartCorgi
+  name: corgi leg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    layers:
+    - state: r_leg
+
+- type: entity
+  id: LeftArmSmartCorgi
+  name: "left corgi arm"
+  parent: [PartCorgi, BaseLeftArm]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmSmartCorgi
+  name: "right corgi arm"
+  parent: [PartCorgi, BaseRightArm]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftFootSmartCorgi
+  name: "left corgi foot"
+  parent: [PartCorgi, BaseLeftFoot]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootSmartCorgi
+  name: "right corgi foot"
+  parent: [PartCorgi, BaseRightFoot]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    state: "r_foot"

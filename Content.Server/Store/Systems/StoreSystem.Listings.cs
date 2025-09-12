@@ -157,26 +157,8 @@ public sealed partial class StoreSystem
     {
         foreach (var cat in categories)
         {
-            // Special handling for "All" category - check all MalfAI-related listings
-            if (cat == "All")
-            {
-                var malfaiCategories = new HashSet<ProtoId<StoreCategoryPrototype>>
-                {
-                    "MalfAI", "Deception", "Factory", "Disruption"
-                };
-
-                foreach (var malfaiCat in malfaiCategories)
-                {
-                    if (listing.Categories.Contains(malfaiCat))
-                    {
-                        return true;
-                    }
-                }
-            }
-            else if (listing.Categories.Contains(cat))
-            {
+            if (listing.Categories.Contains(cat))
                 return true;
-            }
         }
         return false;
     }

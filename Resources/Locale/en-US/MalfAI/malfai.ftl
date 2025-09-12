@@ -240,3 +240,9 @@ malfai-store-window-title = Malf AI Upgrade Store
 malfai-store-insufficient-cpu = Insufficient CPU
 malfai-store-purchase-success = Upgrade purchased: {$itemName}
 malfai-store-purchase-failed = Purchase failed
+
+# =====================
+# Round End
+# =====================
+malfai-round-end-result = The malfunctioning AI was:
+malfai-round-end-name-user = [color=white]{$name}[/color] ([color=gray]{$user}[/color])

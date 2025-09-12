@@ -170,4 +170,17 @@ public sealed class MalfAiRuleSystem : GameRuleSystem<MalfAiRuleComponent>
             }
         }
     }
+
+    protected override void AppendRoundEndText(EntityUid uid, MalfAiRuleComponent component, GameRuleComponent gameRule, ref RoundEndTextAppendEvent args)
+    {
+        base.AppendRoundEndText(uid, component, gameRule, ref args);
+
+        args.AddLine(Loc.GetString("malfai-round-end-result"));
+
+        var antags = _antag.GetAntagIdentifiers(uid);
+        foreach (var (_, sessionData, name) in antags)
+        {
+            args.AddLine(Loc.GetString("malfai-round-end-name-user", ("name", name), ("user", sessionData.UserName)));
+        }
+    }
 }

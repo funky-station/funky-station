@@ -43,10 +43,10 @@ public sealed class MalfAiDoomsdayRippleOverlay : Overlay
 
         var now = IoCManager.Resolve<IGameTiming>().CurTime.TotalSeconds;
         var elapsed = Math.Max(0, now - _system.ServerStartSeconds);
-        if (_system.DurationSeconds <= 0f)
+        if (_system.Duration <= TimeSpan.Zero)
             return false;
 
-        var t = Math.Clamp((float)(elapsed / _system.DurationSeconds), 0f, 1f);
+        var t = Math.Clamp((float)(elapsed / _system.Duration.TotalSeconds), 0f, 1f);
         _radiusTiles = t * _system.MaxRadiusTiles;
         if (_radiusTiles <= 0f)
             return false;

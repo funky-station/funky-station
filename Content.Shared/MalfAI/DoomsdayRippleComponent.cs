@@ -20,10 +20,10 @@ public sealed partial class DoomsdayRippleComponent : Component
     public TimeSpan StartTime;
 
     /// <summary>
-    /// Duration of the visual effect, in seconds. Default 20.
+    /// Duration of the visual effect. Default 20 seconds.
     /// </summary>
     [ViewVariables]
-    public float VisualDuration = 20f;
+    public TimeSpan VisualDuration = TimeSpan.FromSeconds(20);
 
     /// <summary>
     /// Max visual range in tiles. Default 300.

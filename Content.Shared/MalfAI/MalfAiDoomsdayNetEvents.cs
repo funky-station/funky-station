@@ -19,7 +19,7 @@ public sealed class MalfAiDoomsdayRippleStartedEvent : EntityEventArgs
     public MapId MapId { get; }
     public Vector2 OriginWorld { get; }
     public double ServerStartSeconds { get; }
-    public float DurationSeconds { get; }
+    public TimeSpan Duration { get; }
     public float MaxRadiusTiles { get; }
     public bool CenterFlash { get; }
 
@@ -27,14 +27,14 @@ public sealed class MalfAiDoomsdayRippleStartedEvent : EntityEventArgs
         MapId mapId,
         Vector2 originWorld,
         double serverStartSeconds,
-        float durationSeconds,
+        TimeSpan duration,
         float maxRadiusTiles,
         bool centerFlash)
     {
         MapId = mapId;
         OriginWorld = originWorld;
         ServerStartSeconds = serverStartSeconds;
-        DurationSeconds = durationSeconds;
+        Duration = duration;
         MaxRadiusTiles = maxRadiusTiles;
         CenterFlash = centerFlash;
     }

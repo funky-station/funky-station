@@ -33,7 +33,7 @@ public sealed class MalfAiDoomsdayRippleClientSystem : EntitySystem
     private MapId _mapId;
     private Vector2 _originWorld;
     private double _serverStartSeconds;
-    private float _durationSeconds;
+    private TimeSpan _duration;
     private float _maxRadiusTiles;
     private bool _centerFlash;
 
@@ -56,7 +56,7 @@ public sealed class MalfAiDoomsdayRippleClientSystem : EntitySystem
         // Stop and remove after duration elapses
         var now = _timing.CurTime.TotalSeconds;
         var elapsed = Math.Max(0, now - _serverStartSeconds);
-        if (elapsed >= _durationSeconds)
+        if (elapsed >= _duration.TotalSeconds)
         {
             EndOverlay();
         }
@@ -68,7 +68,7 @@ public sealed class MalfAiDoomsdayRippleClientSystem : EntitySystem
         _mapId = ev.MapId;
         _originWorld = ev.OriginWorld;
         _serverStartSeconds = ev.ServerStartSeconds;
-        _durationSeconds = ev.DurationSeconds;
+        _duration = ev.Duration;
         _maxRadiusTiles = ev.MaxRadiusTiles;
         _centerFlash = ev.CenterFlash;
 
@@ -96,7 +96,7 @@ public sealed class MalfAiDoomsdayRippleClientSystem : EntitySystem
     // State accessors for the overlay
     public bool IsActive => _active;
     public double ServerStartSeconds => _serverStartSeconds;
-    public float DurationSeconds => _durationSeconds;
+    public TimeSpan Duration => _duration;
     public float MaxRadiusTiles => _maxRadiusTiles;
     public Vector2 OriginWorld => _originWorld;
     public bool CenterFlash => _centerFlash;

@@ -37,8 +37,8 @@ public sealed class MalfAiDoomsdayRippleSystem : EntitySystem
 
     // Ripple configuration: 300 tiles over 30 seconds.
     private const float MaxRadius = 300f;
-    private const float DurationSeconds = 30f;
-    private const float SpeedTilesPerSecond = MaxRadius / DurationSeconds; // 10 tiles/s
+    private static readonly TimeSpan Duration = TimeSpan.FromSeconds(30);
+    private static readonly float SpeedTilesPerSecond = MaxRadius / (float) Duration.TotalSeconds; // 10 tiles/s
 
     // Network synchronization buffer: delay server start to align with client VFX
     private const float NetworkSyncDelaySeconds = 0.15f;
@@ -117,7 +117,7 @@ public sealed class MalfAiDoomsdayRippleSystem : EntitySystem
         }
 
         // Stop the ripple after reaching max radius or total duration (including sync delay) elapses
-        if (currentRadius >= MaxRadius || elapsed >= (DurationSeconds + NetworkSyncDelaySeconds))
+        if (currentRadius >= MaxRadius || elapsed >= (Duration.TotalSeconds + NetworkSyncDelaySeconds))
             StopRipple();
     }
 
@@ -157,7 +157,7 @@ public sealed class MalfAiDoomsdayRippleSystem : EntitySystem
             _rippleMap,
             _originWorld,
             _timing.CurTime.TotalSeconds + NetworkSyncDelaySeconds,
-            DurationSeconds,
+            Duration,
             MaxRadius,
             centerFlash: true);
         RaiseNetworkEvent(ev, Filter.Broadcast());

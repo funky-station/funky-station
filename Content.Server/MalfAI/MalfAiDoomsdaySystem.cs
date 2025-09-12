@@ -73,19 +73,23 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
             if (!comp.MusicStarted && comp.SongDuration.HasValue && comp.SelectedDoomsdaySong != null)
             {
                 // Start music when remaining time matches song duration (with small buffer)
-                if (comp.RemainingSeconds <= comp.SongDuration.Value + DoomsdaySongBuffer)
+                var songDurationWithBuffer = TimeSpan.FromSeconds(comp.SongDuration.Value + DoomsdaySongBuffer);
+                if (comp.RemainingTime <= songDurationWithBuffer)
                 {
                     _sound.DispatchStationEventMusic(comp.Station, comp.SelectedDoomsdaySong, StationEventMusicType.Doomsday);
                     comp.MusicStarted = true;
                 }
             }
 
-            // Tick countdown.
-            comp.RemainingSeconds -= frameTime;
+            // Store previous time for threshold detection
+            var prevTime = comp.RemainingTime;
 
-            if (comp.RemainingSeconds <= 0)
+            // Tick countdown.
+            comp.RemainingTime -= TimeSpan.FromSeconds(frameTime);
+
+            if (comp.RemainingTime <= TimeSpan.Zero)
             {
-                comp.RemainingSeconds = 0;
+                comp.RemainingTime = TimeSpan.Zero;
                 comp.Active = false;
                 // Stop doomsday protocol music
                 StopDoomsdayMusic(comp.Station);
@@ -94,22 +98,8 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
                 continue;
             }
 
-            // Announce remaining time at selected thresholds.
-            var nowWhole = (int) Math.Ceiling(comp.RemainingSeconds);
-            if (nowWhole != comp.LastAnnouncedWholeSeconds)
-            {
-                var shouldAnnounce =
-                    nowWhole % 60 == 0 || // every minute
-                    nowWhole == 30 ||     // 30s
-                    nowWhole <= 10;       // final 10s
-
-                if (shouldAnnounce)
-                {
-                    AnnounceRemaining(uid, nowWhole);
-                }
-
-                comp.LastAnnouncedWholeSeconds = nowWhole;
-            }
+            // Check for threshold crossings and announce
+            CheckAndAnnounceThresholds(uid, prevTime, comp.RemainingTime);
         }
     }
 
@@ -170,7 +160,7 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
         SetupDoomsdayMusic(comp);
 
         // Initial announcement.
-        AnnounceRemaining(ai.Owner, comp.LastAnnouncedWholeSeconds, initial: true);
+        AnnounceRemaining(ai.Owner, comp.RemainingTime, initial: true);
         args.Handled = true;
     }
 
@@ -211,15 +201,41 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
         RemCompDeferred<MalfAiDoomsdayComponent>(uid);
     }
 
-    private void AnnounceRemaining(EntityUid ai, int remainingWholeSeconds, bool initial = false)
+    private void CheckAndAnnounceThresholds(EntityUid ai, TimeSpan prevTime, TimeSpan currentTime)
     {
-        var ts = TimeSpan.FromSeconds(Math.Max(0, remainingWholeSeconds));
-        var timeStr = ts.ToString(@"mm\:ss");
+        // Check for minute thresholds (every 60 seconds)
+        var prevMinutes = (int)Math.Floor(prevTime.TotalMinutes);
+        var currentMinutes = (int)Math.Floor(currentTime.TotalMinutes);
+
+        if (prevMinutes > currentMinutes && currentMinutes >= 0)
+        {
+            var minuteThreshold = TimeSpan.FromMinutes(currentMinutes + 1);
+            AnnounceRemaining(ai, minuteThreshold, initial: false);
+            return; // Only one announcement per frame
+        }
+
+        // Check special final thresholds (30s and final 5 seconds)
+        var specialThresholds = new[] { 30, 5, 4, 3, 2, 1 };
+
+        foreach (var threshold in specialThresholds)
+        {
+            var thresholdTime = TimeSpan.FromSeconds(threshold);
+            if (prevTime > thresholdTime && currentTime <= thresholdTime)
+            {
+                AnnounceRemaining(ai, thresholdTime, initial: false);
+                return; // Only one announcement per frame
+            }
+        }
+    }
+
+    private void AnnounceRemaining(EntityUid ai, TimeSpan remainingTime, bool initial = false)
+    {
+        var timeStr = remainingTime.ToString(@"mm\:ss");
         var key = initial
             ? "malfai-doomsday-announce-initial"
             : "malfai-doomsday-announce-progress";
 
-        AnnounceLoc(ai, key, urgent: initial || remainingWholeSeconds <= 10, ("time", timeStr));
+        AnnounceLoc(ai, key, urgent: initial || remainingTime.TotalSeconds <= 5, ("time", timeStr));
     }
 
     private void Announce(EntityUid ai, string text, bool urgent = false)
@@ -272,8 +288,7 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
         comp.Active = true;
         comp.Station = station;
         comp.CoreHolder = holder;
-        comp.RemainingSeconds = duration;
-        comp.LastAnnouncedWholeSeconds = (int)Math.Ceiling(duration);
+        comp.RemainingTime = TimeSpan.FromSeconds(duration);
 
         // Store previous alert level state
         if (TryComp<AlertLevelComponent>(station, out var alert))

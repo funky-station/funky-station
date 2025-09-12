@@ -56,10 +56,10 @@ public sealed partial class MalfAiDoomsdayComponent : Component
     public ResolvedSoundSpecifier? SelectedDoomsdaySong;
 
     /// <summary>
-    /// Remaining countdown time in seconds.
+    /// Remaining countdown time.
     /// </summary>
     [ViewVariables]
-    public float RemainingSeconds;
+    public TimeSpan RemainingTime;
 
     /// <summary>
     /// The AI core holder entity recorded at activation time.
@@ -67,10 +67,4 @@ public sealed partial class MalfAiDoomsdayComponent : Component
     /// </summary>
     [ViewVariables]
     public EntityUid CoreHolder;
-
-    /// <summary>
-    /// Last whole second value we announced for; used to throttle announcements.
-    /// </summary>
-    [ViewVariables]
-    public int LastAnnouncedWholeSeconds;
 }

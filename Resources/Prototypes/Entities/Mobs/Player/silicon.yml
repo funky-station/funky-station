@@ -34,9 +34,11 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ekpy <33184056+Ekpy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ekpy <xekpyx@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ichaie <ichaicoelho@gmail.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PurpleTranStar <purpletranstars@gmail.com>
+# SPDX-FileCopyrightText: 2025 Starry <202317940+PurpleTranStar@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Winkarst-cpu <74284083+Winkarst-cpu@users.noreply.github.com>
@@ -456,6 +458,7 @@
   - type: SiliconLawProvider
     laws: Crewsimov
   - type: SiliconLawBound
+  - type: IonStormTarget
   - type: ActionGrant
     actions:
     - ActionViewLaws

@@ -38,7 +38,7 @@ public sealed class MalfAiObjectiveSystem : EntitySystem
     private void OnSabotageGetProgress(Entity<MalfAiSabotageObjectiveComponent> objective, ref ObjectiveGetProgressEvent args)
     {
         var comp = objective.Comp;
-        if (comp.SabotageType == "doomsday")
+        if (comp.SabotageType == MalfAiSabotageType.Doomsday)
         {
             // Progress is 1.0 if doomsday has been completed for this AI
             if (args.Mind.OwnedEntity != null && HasComp<MalfAiDoomsdayCompletedComponent>((EntityUid)args.Mind.OwnedEntity))
@@ -46,7 +46,7 @@ public sealed class MalfAiObjectiveSystem : EntitySystem
             else
                 args.Progress = 0.0f;
         }
-        else if (comp.SabotageType == "assassinate")
+        else if (comp.SabotageType == MalfAiSabotageType.Assassinate)
         {
             // Use standard target checking - if target doesn't exist or is dead, objective complete
             if (!_target.GetTarget(objective, out var target))
@@ -57,7 +57,7 @@ public sealed class MalfAiObjectiveSystem : EntitySystem
 
             args.Progress = GetKillProgress(target.Value);
         }
-        else if (comp.SabotageType == "protect")
+        else if (comp.SabotageType == MalfAiSabotageType.Protect)
         {
             // Use standard target checking - if target doesn't exist, objective failed
             if (!_target.GetTarget(objective, out var target))

@@ -40,7 +40,7 @@
       sprite: Structures/Power/apc.rsi
       state: base
   - type: MalfAiSabotageObjective
-    sabotageType: "doomsday"
+    sabotageType: Doomsday
 
 # Sabotage: Assassinate a random crew member, shared logic with traitor.
 - type: entity
@@ -55,7 +55,7 @@
       sprite: Mobs/Species/Human/human.rsi
       state: dead
   - type: MalfAiSabotageObjective
-    sabotageType: "assassinate"
+    sabotageType: Assassinate
   - type: TargetObjective
     title: objective-condition-kill-person-title
   - type: PickRandomPerson
@@ -74,7 +74,7 @@
       sprite: Objects/Misc/briefcase.rsi
       state: briefcase
   - type: MalfAiSabotageObjective
-    sabotageType: "protect"
+    sabotageType: Protect
   - type: TargetObjective
     title: objective-condition-keep-alive-title
   - type: PickRandomPerson
@@ -151,7 +151,7 @@
       sprite: Mobs/Species/Human/human.rsi
       state: dead
   - type: MalfAiSabotageObjective
-    sabotageType: "assassinate"
+    sabotageType: Assassinate
   - type: FreeObjective
 
 - type: entity
@@ -166,6 +166,5 @@
       sprite: Objects/Misc/briefcase.rsi
       state: briefcase
   - type: MalfAiSabotageObjective
-    sabotageType: "protect"
+    sabotageType: Protect
   - type: FreeObjective
-

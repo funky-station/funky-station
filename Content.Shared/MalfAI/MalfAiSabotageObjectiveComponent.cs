@@ -3,6 +3,13 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.MalfAI;
 
+public enum MalfAiSabotageType
+{
+    Doomsday,
+    Assassinate,
+    Protect
+}
+
 /// <summary>
 /// Component for Malf AI sabotage objectives (doomsday, assassinate, protect).
 /// Uses standard TargetObjectiveComponent for target tracking.
@@ -11,8 +18,8 @@ namespace Content.Shared.MalfAI;
 public sealed partial class MalfAiSabotageObjectiveComponent : Component
 {
     /// <summary>
-    /// Type of sabotage objective: "doomsday", "assassinate", or "protect"
+    /// Defaults to Assassinate for safety as a fallback if a type is missing.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public string SabotageType = string.Empty;
+    public MalfAiSabotageType SabotageType = MalfAiSabotageType.Assassinate;
 }

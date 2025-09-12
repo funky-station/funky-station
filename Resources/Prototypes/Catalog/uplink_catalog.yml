@@ -142,6 +142,7 @@
 # SPDX-FileCopyrightText: 2025 UristMcWiki <endernate2015@gmail.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 amatwiedle <amatwiedle@gmail.com>
+# SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -1292,23 +1293,24 @@
           - NukeOpsUplink
   saleLimit: 1 # WD EDIT
 
-- type: listing
-  id: UplinkReinforcementRadioSyndicateCyborgAssault
-  name:  uplink-reinforcement-radio-cyborg-assault-name
-  description: uplink-reinforcement-radio-cyborg-assault-desc
-  productEntity: ReinforcementRadioSyndicateCyborgAssault
-  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
-  cost:
-    Telecrystal: 330 # goob
-  categories:
-    - UplinkAllies
-  conditions: # funky war ops whitelisting
-    - !type:WarOpsCondition
-    - !type:StoreWhitelistCondition
-     whitelist:
-        tags:
-          - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
+#removed until fix for prone borgs is made
+#- type: listing
+#  id: UplinkReinforcementRadioSyndicateCyborgAssault
+#  name:  uplink-reinforcement-radio-cyborg-assault-name
+#  description: uplink-reinforcement-radio-cyborg-assault-desc
+#  productEntity: ReinforcementRadioSyndicateCyborgAssault
+#  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
+#  cost:
+#    Telecrystal: 330 # goob
+#  categories:
+#    - UplinkAllies
+#  conditions: # funky war ops whitelisting
+#    - !type:WarOpsCondition
+#    - !type:StoreWhitelistCondition
+#     whitelist:
+#        tags:
+#          - NukeOpsUplink
+#  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkReinforcementRadioSyndicateAncestor

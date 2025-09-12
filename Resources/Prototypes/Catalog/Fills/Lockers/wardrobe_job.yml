@@ -12,6 +12,7 @@
 # SPDX-FileCopyrightText: 2023 mhamster <81412348+mhamsterr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 potato1234_x <79580518+potato1234x@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -191,7 +192,8 @@
      contents:
        - id: ClothingHeadHatCargosoft
        - id: ClothingUniformJumpsuitCargo
-       - id: ClothingBackpack
+       - id: MaterialBag # Funky Station
+       - id: RadioHandheldCargo # Funky Station 
        - id: ClothingShoesColorBlack
        - id: ClothingUniformJumpskirtCargo
        - id: ClothingHandsGlovesFingerless
@@ -204,7 +206,7 @@
    components:
    - type: StorageFill
      contents:
-       - id: ClothingBackpack
+       - id: MaterialBag # Funky Station
        - id: ClothingShoesBootsSalvage
          amount: 2
        - id: ClothingUniformJumpsuitSalvageSpecialist

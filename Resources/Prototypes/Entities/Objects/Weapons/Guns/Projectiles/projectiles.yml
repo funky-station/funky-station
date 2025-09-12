@@ -65,6 +65,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -410,8 +411,8 @@
     damage:
       types:
         Heat: 14
-  # mining laser real
-  - type: GatheringProjectile
+  # mining laser NOT real # Funkystation
+  # - type: GatheringProjectile
   - type: Tag
     tags:
     - EmitterBolt
@@ -504,7 +505,7 @@
   # Short lifespan
   - type: TimedDespawn
     lifetime: 0.4
-  - type: GatheringProjectile
+#  - type: GatheringProjectile # Funky Station
 
 - type: entity
   id: BulletKineticShuttle
@@ -531,7 +532,7 @@
     radius: 2.5
     color: white
     energy: 0.5
-  - type: GatheringProjectile
+#  - type: GatheringProjectile #Funky Station
 
 - type: entity
   id: BulletCharge

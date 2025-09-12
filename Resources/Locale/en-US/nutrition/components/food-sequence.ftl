@@ -90,6 +90,9 @@ food-sequence-content-spacemans-trumpet = spaceman's trupmet
 food-sequence-content-cherry = cherry
 food-sequence-content-snail = snail
 food-sequence-content-anomaly-berry = anomaly berry
+food-sequence-content-patty = meat patty
+food-sequence-content-dragon-cooked = dragon steak
+food-sequence-content-dragoncutlet-cooked = dragon cutlet
 
 # BURGERS
 

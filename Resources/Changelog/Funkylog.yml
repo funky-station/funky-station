@@ -4405,3 +4405,104 @@ Entries:
       message: Silo Relay is gone
   id: 526
   time: '2025-09-02T00:12:32.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Remove
+      message: Removed invalid prototypes from many orphaned or unmaintained maps.
+  id: 527
+  time: '2025-09-05T03:42:36.0000000+00:00'
+- author: Princess-Cheeseballs
+  changes:
+    - type: Add
+      message: Items now slip on slippery surfaces
+    - type: Tweak
+      message: Puddle slipperiness has been tweaked to be more intuitive
+  id: 528
+  time: '2025-09-05T06:27:19.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Fix
+      message: Fixed duplicate spawns with the recycler.
+  id: 529
+  time: '2025-09-05T06:28:46.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added departmental silos to Bagel
+    - type: Add
+      message: Bagel now has extra intercoms and a few extra radios
+    - type: Add
+      message: Added book cart and label folder to Bagels library
+  id: 530
+  time: '2025-09-05T06:31:23.0000000+00:00'
+- author: EmillyCoelho
+  changes:
+    - type: Add
+      message: NTVS Gax added to the rotation!
+  id: 531
+  time: '2025-09-06T01:00:17.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Tweak
+      message: Nutribricks now deal damage when you hit people with them.
+  id: 532
+  time: '2025-09-06T01:05:54.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Fix
+      message: >-
+        Fixed an oversight with vox atmospherics prototypes that was causing
+        massive client errors if you tried to use vox specific air alarms and
+        components.
+  id: 533
+  time: '2025-09-06T18:27:43.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: More holopads and intercoms on Box
+    - type: Remove
+      message: Removed BSO from Box
+  id: 534
+  time: '2025-09-06T18:47:20.0000000+00:00'
+- author: Max_Power
+  changes:
+    - type: Add
+      message: Added the white hard hat to science loadouts!
+  id: 535
+  time: '2025-09-07T01:17:13.0000000+00:00'
+- author: AtlasHD
+  changes:
+    - type: Add
+      message: >-
+        Added craftable Medical Issued Glasses and Diagnostic Issued Glasses
+        that retain HUD functionality. Hamlet can wear them as well.
+  id: 536
+  time: '2025-09-07T23:10:10.0000000+00:00'
+- author: Tyranex
+  changes:
+    - type: Fix
+      message: Fixed borgs not standing up after being repaired!
+  id: 537
+  time: '2025-09-07T23:14:26.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: >-
+        Changed Internal Affairs Agent icon for consistency and accessibility
+        reasons.
+  id: 538
+  time: '2025-09-08T04:52:25.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: Changed the Warden icon for accessibility reasons.
+  id: 539
+  time: '2025-09-08T23:28:37.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Rat King's Vent Spawn version still saying it is a Free Agent on
+        the [C] screen, it is a Solo Antagonist.
+  id: 540
+  time: '2025-09-11T21:56:25.0000000+00:00'

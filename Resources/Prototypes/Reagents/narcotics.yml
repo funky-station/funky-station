@@ -26,7 +26,6 @@
 # SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
 # SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 LucasTheDrgn <kirbyfan.95@gmail.com>
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 # SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
@@ -36,6 +35,9 @@
 # SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 takemysoult <143123247+takemysoult@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 LucasTheDrgn <kirbyfan.95@gmail.com>
+# SPDX-FileCopyrightText: 2025 PurpleTranStar <purpletranstars@gmail.com>
+# SPDX-FileCopyrightText: 2025 Starry <202317940+PurpleTranStar@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -342,7 +344,7 @@
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
-        time: 1
+        time: 32
         refresh: false
       - !type:PopupMessage
         type: Local

@@ -46,11 +46,8 @@ public sealed class StationAiOverlay : Overlay
     private EntityLookupSystem? _lookup;
 
     // Cached shaders
-    private ShaderPrototype? _cameraStaticProto;
     private ShaderInstance? _cameraStaticShader;
-    private ShaderPrototype? _stencilMaskProto;
     private ShaderInstance? _stencilMaskShader;
-    private ShaderPrototype? _stencilDrawProto;
     private ShaderInstance? _stencilDrawShader;
 
     // Reusable buffers to avoid per-frame allocations
@@ -65,22 +62,10 @@ public sealed class StationAiOverlay : Overlay
         _lookup = _entManager.System<EntityLookupSystem>();
         _appearance = _entManager.System<SharedAppearanceSystem>();
 
-        // Cache shaders (lazy-check prototypes)
-        if (_proto.TryIndex<ShaderPrototype>("CameraStatic", out var cam))
-        {
-            _cameraStaticProto = cam;
-            _cameraStaticShader = cam.Instance();
-        }
-        if (_proto.TryIndex<ShaderPrototype>("StencilMask", out var mask))
-        {
-            _stencilMaskProto = mask;
-            _stencilMaskShader = mask.Instance();
-        }
-        if (_proto.TryIndex<ShaderPrototype>("StencilDraw", out var draw))
-        {
-            _stencilDrawProto = draw;
-            _stencilDrawShader = draw.Instance();
-        }
+        // Cache shaders (fail fast if not found)
+        _cameraStaticShader = _proto.Index<ShaderPrototype>("CameraStatic").Instance();
+        _stencilMaskShader = _proto.Index<ShaderPrototype>("StencilMask").Instance();
+        _stencilDrawShader = _proto.Index<ShaderPrototype>("StencilDraw").Instance();
     }
 
     protected override void Draw(in OverlayDrawArgs args)
@@ -226,15 +211,6 @@ public sealed class StationAiOverlay : Overlay
                 worldHandle.SetTransform(invMatrix);
                 // Use cached camera static shader if available
                 if (_cameraStaticShader == null)
-                {
-                    if (_cameraStaticProto == null && _proto.TryIndex<ShaderPrototype>("CameraStatic", out var cam))
-                    {
-                        _cameraStaticProto = cam;
-                    }
-                    if (_cameraStaticProto != null)
-                        _cameraStaticShader = _cameraStaticProto.Instance();
-                }
-                if (_cameraStaticShader == null)
                     return;
                 worldHandle.UseShader(_cameraStaticShader);
                 worldHandle.DrawRect(worldBounds, Color.White);
@@ -257,21 +233,7 @@ public sealed class StationAiOverlay : Overlay
             }, Color.Black);
         }
 
-        // Use the lighting as a mask with cached shaders
-        if (_stencilMaskShader == null)
-        {
-            if (_stencilMaskProto == null && _proto.TryIndex<ShaderPrototype>("StencilMask", out var mask))
-                _stencilMaskProto = mask;
-            if (_stencilMaskProto != null)
-                _stencilMaskShader = _stencilMaskProto.Instance();
-        }
-        if (_stencilDrawShader == null)
-        {
-            if (_stencilDrawProto == null && _proto.TryIndex<ShaderPrototype>("StencilDraw", out var draw))
-                _stencilDrawProto = draw;
-            if (_stencilDrawProto != null)
-                _stencilDrawShader = _stencilDrawProto.Instance();
-        }
+        // Use the lighting as a mask
         if (_stencilMaskShader == null || _stencilDrawShader == null)
             return;
 

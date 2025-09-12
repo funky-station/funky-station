@@ -11,6 +11,9 @@
 # SPDX-FileCopyrightText: 2024 MODERN <87994977+modern-nm@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
+# SPDX-FileCopyrightText: 2025 Smith <182301147+AgentSmithRadio@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -96,14 +99,42 @@
   category: cargoproduct-category-name-food
   group: market
 
-# funkystation
+- type: cargoProduct
+  id: FoodCookGetmore
+  icon:
+    sprite: Objects/Consumable/Food/snacks.rsi
+    state: raisins
+  product: CrateFoodGetMore
+  cost: 750
+  category: cargoproduct-category-name-food
+  group: market
 
 - type: cargoProduct
-  id: FoodRandomDonkpocket
+  id: FoodHappyHonkMeals
   icon:
-    sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
-    state: plain
-  product: CrateFoodRandomDonkPocket
-  cost: 1500
+    sprite: Objects/Consumable/Food/burger.rsi
+    state: bigbite
+  product: CrateFoodHappyHonkBigBite
+  cost: 1000
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: FoodIceCream
+  icon:
+    sprite: Objects/Consumable/Food/frozen.rsi
+    state: sandwich
+  product: CrateFoodIceCream
+  cost: 1200
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: FoodSnowcone
+  icon:
+    sprite: Objects/Consumable/Food/frozen.rsi
+    state: cone
+  product: CrateFoodSnowcone
+  cost: 1100
   category: cargoproduct-category-name-food
   group: market

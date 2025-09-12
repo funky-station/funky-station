@@ -1,9 +1,7 @@
 using Content.Shared.MalfAI;  // MalfAiControlledComponent
-using Content.Shared.Actions;  // Action events are defined here
 using Content.Shared.Actions.Events; // Correct namespace for MalfAiRoboticsFactoryActionEvent
 using Content.Server._Funkystation.Factory.Systems;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Log;
+using Content.Shared.GridPreloader.Prototypes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Funkystation.MalfAI;
@@ -17,7 +15,7 @@ public sealed partial class MalfAiRoboticsFactorySystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     private static readonly ISawmill Sawmill = Logger.GetSawmill("malf.ai.factory");
 
-    private const string RoboticsFactoryPrototype = "RoboticsFactoryGrid";
+    private static readonly ProtoId<PreloadedGridPrototype> RoboticsFactoryPrototype = "RoboticsFactoryGrid";
 
     public override void Initialize()
     {

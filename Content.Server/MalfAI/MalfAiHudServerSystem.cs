@@ -3,6 +3,7 @@
 
 using Content.Shared.Alert;
 using Content.Shared.MalfAI;
+using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Robust.Shared.Prototypes;
 
@@ -18,8 +19,8 @@ public sealed class MalfAiHudServerSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
 
-    private const string CpuCurrency = "CPU";
-    private const string MalfCpuAlert = "MalfCpu";
+    private static readonly ProtoId<CurrencyPrototype> CpuCurrency = "CPU";
+    private static readonly ProtoId<AlertPrototype> MalfCpuAlert = "MalfCpu";
 
     public override void Initialize()
     {

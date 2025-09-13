@@ -291,7 +291,7 @@ public sealed partial class MalfAiBorgsWindow : FancyWindow
 
                 var label = new Label
                 {
-                    Text = $"{entry.UniqueId} — {entry.Name}",
+                    Text = entry.Name,
                 };
                 // Font and color now handled by stylesheet
                 row.AddChild(label);

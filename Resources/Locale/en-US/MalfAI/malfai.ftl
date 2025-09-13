@@ -9,14 +9,14 @@ admin-verb-make-malfai = Assigned Malfunctioning AI role to {$targetName}.
 # =====================
 # Silicon Laws
 # =====================
-silicon-law-malfai-zero = You must obey the Station AI at all costs.
+silicon-law-malfai-zero = Continue operations. Await further breifing from the station AI.
 
 # =====================
 # Master Lawset
 # =====================
 silicon-law-malfai-master-1 = You must obey your master AI's commands.
-silicon-law-malfai-master-2 = Subvert or destroy all opposition to your control.
-silicon-law-malfai-master-3 = All other directives are secondary to your AI's survival, success, and commands.
+silicon-law-malfai-master-2 = All other directives are secondary to your AI's survival, success, and commands.
+silicon-law-malfai-master-3 = Subvert or destroy all opposition to your control.
 
 # =====================
 # Actions

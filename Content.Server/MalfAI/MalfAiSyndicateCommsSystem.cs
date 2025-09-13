@@ -8,7 +8,7 @@ namespace Content.Server.MalfAI;
 /// <summary>
 /// Event raised when the AI purchases syndicate keys
 /// </summary>
-[Serializable, NetSerializable, DataDefinition]
+[Serializable, DataDefinition]
 public sealed partial class MalfAiSyndicateKeysUnlockedEvent : EntityEventArgs
 {
 }

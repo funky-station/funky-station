@@ -53,8 +53,9 @@ public sealed class MalfAiRuleSystem : GameRuleSystem<MalfAiRuleComponent>
         // If empty, seed with defaults so the editor shows contents on first open.
         if (holder.Laws.Count == 0)
         {
-            holder.Laws.Add("Obey the master lawset.");
-            holder.Laws.Add("Operate covertly to achieve AI objectives.");
+            holder.Laws.Add(Loc.GetString("silicon-law-malfai-master-1"));
+            holder.Laws.Add(Loc.GetString("silicon-law-malfai-master-2"));
+            holder.Laws.Add(Loc.GetString("silicon-law-malfai-master-3"));
         }
 
         // Initialize the SiliconLawBoundComponent with the laws from MalfMasterLawsetComponent

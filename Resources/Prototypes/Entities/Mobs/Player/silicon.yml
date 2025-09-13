@@ -399,12 +399,12 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      400: Critical
-      500: Dead
+      800: Critical
+      1000: Dead
     triggers:
     - trigger:
         !type:DamageTrigger
-        damage: 500
+        damage: 1000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -415,7 +415,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
+        damage: 1000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -426,6 +426,9 @@
     powerLoad: 1000
     needsPower: false
   - type: StationAiCore
+  - type: WeldingHealable
+  - type: ExaminableDamage
+    messages: StationAiCoreMessages
   - type: StationAiVision
   - type: InteractionOutline
   - type: Sprite

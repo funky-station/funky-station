@@ -254,3 +254,13 @@
   materials:
     Steel: 100
     Plastic: 100
+
+# funky station
+
+- type: latheRecipe
+  id: ClothingNeckStethoscope
+  result: ClothingNeckStethoscope
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 200

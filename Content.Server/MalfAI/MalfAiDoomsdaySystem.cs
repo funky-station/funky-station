@@ -37,7 +37,7 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly Content.Server.Silicons.StationAi.StationAiSystem _stationAi = default!;
+    [Dependency] private readonly Silicons.StationAi.StationAiSystem _stationAi = default!;
 
     private const string DoomsdayAlertLevel = "cyan";
     private const float DoomsdaySongBuffer = 1.5f; // seconds before alert

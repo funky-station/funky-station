@@ -18,6 +18,8 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Configuration;
+using Content.Shared.CCVar;
 
 namespace Content.Client.Silicons.StationAi;
 
@@ -28,6 +30,7 @@ public sealed class StationAiOverlay : Overlay
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private readonly ISawmill _sawmill = Logger.GetSawmill("station-ai.overlay");
 
@@ -91,7 +94,7 @@ public sealed class StationAiOverlay : Overlay
 
             // Determine whether the Malf camera-upgrade is active for this client.
             var malfActive = false;
-            var radiusTiles = 4f;
+            var radiusTiles = _cfg.GetCVar(CCVars.MalfAiCameraUpgradeRange);
 
             if (_entManager.TryGetComponent<MalfAiCameraUpgradeComponent>(playerEnt, out var camUpg))
                 malfActive = camUpg.EnabledEffective;

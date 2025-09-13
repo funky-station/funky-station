@@ -26,4 +26,10 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<int> MalfAiSiphonCpuAmount =
         CVarDef.Create("malfai.siphon_cpu_amount", 5, CVar.SERVER | CVar.ARCHIVE);
+
+    /// <summary>
+    /// The effective range in tiles for the MalfAI camera upgrade.
+    /// </summary>
+    public static readonly CVarDef<float> MalfAiCameraUpgradeRange =
+        CVarDef.Create("malfai.camera_upgrade_range", 6.0f, CVar.SERVER | CVar.REPLICATED);
 }

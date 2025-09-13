@@ -299,3 +299,12 @@
   completetime: 3
   materials:
     Plastic: 200
+
+# funky station
+
+- type: latheRecipe
+  id: Pen
+  result: Pen
+  completetime: 1
+  materials:
+    Plastic: 10

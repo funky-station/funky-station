@@ -68,6 +68,18 @@ SPDX-License-Identifier: MIT
     <Compile Remove="Actions\Events\RcdBuildActionEvent.cs" />
     <Compile Remove="Actions\Events\SaveActionsEvent.cs" />
     <Compile Remove="_Funkystation\Factory\Systems\RcdBuildDoAfterEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiLockdownGridActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiDetonateRcdsActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiDoomsdayActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\OpenMalfAiBorgsUiActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiSetViewportActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiReturnToCoreActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiOverrideMachineActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiOpenViewportActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiShuntToApcActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiHijackMechActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiToggleCameraUpgradeActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiToggleCameraMicrophonesActionEvent.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Animation\" />

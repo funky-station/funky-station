@@ -41,6 +41,7 @@ public sealed class MalfAiRuleSystem : GameRuleSystem<MalfAiRuleComponent>
     {
         base.Initialize();
         SubscribeLocalEvent<MalfAiRuleComponent, AfterAntagEntitySelectedEvent>(OnAfterAntagEntitySelected);
+        SubscribeLocalEvent<MalfAiRuleComponent, ObjectivesTextGetInfoEvent>(OnObjectivesTextGetInfo);
     }
 
     private void SeedDefaultLaws(EntityUid rule)
@@ -172,16 +173,15 @@ public sealed class MalfAiRuleSystem : GameRuleSystem<MalfAiRuleComponent>
         }
     }
 
-    protected override void AppendRoundEndText(EntityUid uid, MalfAiRuleComponent component, GameRuleComponent gameRule, ref RoundEndTextAppendEvent args)
+    private void OnObjectivesTextGetInfo(EntityUid uid, MalfAiRuleComponent component, ref ObjectivesTextGetInfoEvent args)
     {
-        base.AppendRoundEndText(uid, component, gameRule, ref args);
-
-        args.AddLine(Loc.GetString("malfai-round-end-result"));
+        args.AgentName = Loc.GetString("malfai-round-end-result");
 
         var antags = _antag.GetAntagIdentifiers(uid);
-        foreach (var (_, sessionData, name) in antags)
+        foreach (var (mindId, _, name) in antags)
         {
-            args.AddLine(Loc.GetString("malfai-round-end-name-user", ("name", name), ("user", sessionData.UserName)));
+            args.Minds.Add((mindId, name));
         }
     }
+
 }

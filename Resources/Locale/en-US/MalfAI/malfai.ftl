@@ -253,5 +253,5 @@ malfai-store-purchase-failed = Purchase failed
 # =====================
 # Round End
 # =====================
-malfai-round-end-result = The malfunctioning AI was:
+malfai-round-end-result = Malfunctioning AI
 malfai-round-end-name-user = [color=white]{$name}[/color] ([color=gray]{$user}[/color])

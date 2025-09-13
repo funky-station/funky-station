@@ -108,8 +108,6 @@ public sealed partial class AiBuildActionSystem : EntitySystem
         SubscribeLocalEvent<MalfAiMarkerComponent, AiBuildActionEvent>(OnBuildStart);
         SubscribeLocalEvent<MalfAiMarkerComponent, AiBuildCancelEvent>(OnBuildCancel);
         SubscribeLocalEvent<MalfAiMarkerComponent, AiBuildDoAfterEvent>(OnBuildDoAfter);
-
-        Sawmill.Info("AiBuildActionSystem initialized.");
     }
 
     // Start: resolve tile, mark active, play visual, start DoAfter

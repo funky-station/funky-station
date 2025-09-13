@@ -8,6 +8,7 @@ using Content.Shared._Funkystation.Factory.Components;
 using Content.Shared.Body.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
+using Robust.Shared.GameObjects;
 using Content.Shared.Containers.ItemSlots;
 using Content.Server.Body.Components;
 using Content.Server._Funkystation.Factory.Components;
@@ -36,6 +37,7 @@ public sealed class CyborgFactorySystem : EntitySystem
     [Dependency] private readonly SiliconLawSystem _laws = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly CyborgLawReceiverSystem _cyborgLawReceiver = default!;
+    [Dependency] private readonly MetaDataSystem _meta = default!;
 
     private static readonly ISawmill Sawmill = Logger.GetSawmill("cyborg.factory");
 
@@ -59,6 +61,11 @@ public sealed class CyborgFactorySystem : EntitySystem
     {
         var entity = args.Entity;
 
+        // Capture prior name (if any) before gibbing
+        string? priorName = null;
+        if (TryComp<MetaDataComponent>(entity, out var meta))
+            priorName = meta.EntityName;
+
         // Validate the entity for conversion
         if (!ValidateEntityForConversion(entity, out var mindId))
             return;
@@ -79,6 +86,10 @@ public sealed class CyborgFactorySystem : EntitySystem
             args.Handled = true;
             return;
         }
+
+        // Restore prior name (if available)
+        if (!string.IsNullOrWhiteSpace(priorName))
+            _meta.SetEntityName(cyborg, priorName);
 
         // Configure cyborg for Malf AI control
         ConfigureCyborgForMalfAI(factoryUid, cyborg);

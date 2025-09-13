@@ -37,6 +37,11 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
+using Content.Shared.Interaction;
+using Content.Shared.MalfAI;
+using Content.Shared.CCVar;
+using Content.Shared.Emag.Components;
+using Robust.Shared.Configuration;
 
 namespace Content.Server.Power.EntitySystems;
 
@@ -49,6 +54,8 @@ public sealed class ApcSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly Content.Server.MalfAI.MalfAiApcSiphonSystem _malfAiSiphon = default!;
 
     public override void Initialize()
     {
@@ -61,8 +68,16 @@ public sealed class ApcSystem : EntitySystem
         SubscribeLocalEvent<ApcComponent, ChargeChangedEvent>(OnBatteryChargeChanged);
         SubscribeLocalEvent<ApcComponent, ApcToggleMainBreakerMessage>(OnToggleMainBreaker);
         SubscribeLocalEvent<ApcComponent, GotEmaggedEvent>(OnEmagged);
-
         SubscribeLocalEvent<ApcComponent, EmpPulseEvent>(OnEmpPulse);
+        SubscribeLocalEvent<ApcComponent, ApcSiphonCpuMessage>(OnSiphonCpu);
+
+        // Siphon event handlers
+        SubscribeLocalEvent<ApcComponent, ApcStartSiphonEvent>(OnStartSiphon);
+        SubscribeLocalEvent<MalfAiApcSiphonedComponent, ApcSiphonExpiredEvent>(OnSiphonExpired);
+
+        // Block interactions with siphoned APCs
+        SubscribeLocalEvent<MalfAiApcSiphonedComponent, ApcToggleMainBreakerAttemptEvent>(OnSiphonedToggleAttempt);
+        SubscribeLocalEvent<MalfAiApcSiphonedComponent, InteractHandEvent>(OnSiphonedInteract);
     }
 
     public override void Update(float deltaTime)
@@ -123,9 +138,21 @@ public sealed class ApcSystem : EntitySystem
         }
     }
 
+    private void OnSiphonCpu(EntityUid uid, ApcComponent component, ApcSiphonCpuMessage args)
+    {
+        // Send the siphon event that MalfAI system will handle
+        var siphonEvent = new ApcStartSiphonEvent(args.Actor);
+        RaiseLocalEvent(uid, ref siphonEvent);
+    }
+
+
     public void ApcToggleBreaker(EntityUid uid, ApcComponent? apc = null, PowerNetworkBatteryComponent? battery = null)
     {
         if (!Resolve(uid, ref apc, ref battery))
+            return;
+
+        // Prevent siphoned APCs from being toggled
+        if (HasComp<MalfAiApcSiphonedComponent>(uid))
             return;
 
         apc.MainBreakerEnabled = !apc.MainBreakerEnabled;
@@ -194,7 +221,8 @@ public sealed class ApcSystem : EntitySystem
 
         var state = new ApcBoundInterfaceState(apc.MainBreakerEnabled,
             (int) MathF.Ceiling(battery.CurrentSupply), apc.LastExternalState,
-            charge);
+            charge,
+            HasComp<MalfAiApcSiphonedComponent>(uid));
 
         _ui.SetUiState((uid, ui), ApcUiKey.Key, state);
     }
@@ -237,6 +265,81 @@ public sealed class ApcSystem : EntitySystem
             args.Disabled = true;
             ApcToggleBreaker(uid, component);
         }
+    }
+
+    private void OnStartSiphon(EntityUid uid, ApcComponent apc, ref ApcStartSiphonEvent args)
+    {
+        // Don't siphon if already siphoned, shouldn't be possile but just in case
+        if (HasComp<MalfAiApcSiphonedComponent>(uid))
+            return;
+
+        if (!TryComp<PowerNetworkBatteryComponent>(uid, out var battery))
+            return;
+
+        // Create siphoned component and save original state
+        var siphonedComp = EnsureComp<MalfAiApcSiphonedComponent>(uid);
+        siphonedComp.OriginalBreakerState = apc.MainBreakerEnabled;
+        Dirty(uid, siphonedComp);
+
+        // Set APC to emagged state
+        var emagged = EnsureComp<EmaggedComponent>(uid);
+        emagged.EmagType |= EmagType.Interaction;
+        Dirty(uid, emagged);
+
+        // Disable the APC
+        apc.MainBreakerEnabled = false;
+        battery.CanDischarge = false;
+
+        // Update APC state and UI
+        UpdateApcState(uid, apc, battery);
+        UpdateUIState(uid, apc, battery);
+
+        // Schedule siphon expiration using configurable duration
+        var siphonDuration = TimeSpan.FromSeconds(_cfg.GetCVar(CCVars.MalfAiSiphonDurationSeconds));
+        Timer.Spawn(siphonDuration, () =>
+        {
+            if (!Exists(uid))
+                return;
+
+            var expireEvent = new ApcSiphonExpiredEvent();
+            RaiseLocalEvent(uid, ref expireEvent);
+        });
+
+        // Handle MalfAI CPU rewards
+        _malfAiSiphon.OnApcStartSiphon(uid, apc, ref args);
+    }
+
+    private void OnSiphonExpired(EntityUid uid, MalfAiApcSiphonedComponent siphoned, ref ApcSiphonExpiredEvent args)
+    {
+        if (!TryComp<ApcComponent>(uid, out var apc) || !TryComp<PowerNetworkBatteryComponent>(uid, out var battery))
+            return;
+
+        // Restore original APC state
+        apc.MainBreakerEnabled = siphoned.OriginalBreakerState;
+        battery.CanDischarge = siphoned.OriginalBreakerState;
+
+        // Remove siphoned and emag components
+        RemComp<MalfAiApcSiphonedComponent>(uid);
+        RemComp<Content.Shared.Emag.Components.EmaggedComponent>(uid);
+
+        // Update APC state and UI
+        UpdateApcState(uid, apc, battery);
+        UpdateUIState(uid, apc, battery);
+
+        _popup.PopupEntity(Loc.GetString("malfai-apc-restore"), uid);
+    }
+
+    private void OnSiphonedToggleAttempt(EntityUid uid, MalfAiApcSiphonedComponent siphoned, ref ApcToggleMainBreakerAttemptEvent args)
+    {
+        // Block all toggle attempts on siphoned APCs
+        args.Cancelled = true;
+    }
+
+    private void OnSiphonedInteract(EntityUid uid, MalfAiApcSiphonedComponent siphoned, InteractHandEvent args)
+    {
+        // Block all interactions with siphoned APCs
+        _popup.PopupCursor(Loc.GetString("malfai-apc-unresponsive"), args.User, PopupType.Medium);
+        args.Handled = true;
     }
 }
 

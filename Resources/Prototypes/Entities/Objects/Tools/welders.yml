@@ -163,6 +163,7 @@
     damageContainers:
       - Silicon
       - HumanoidSilicon # DeltaV
+      - AiCore # Funky AI repair
     fuelCost: 15
     damage:
       types:

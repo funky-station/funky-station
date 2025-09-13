@@ -7,3 +7,13 @@
   license: "CC-BY-SA-3.0"
   copyright: "Created by pigeonbeans, edited to fit better in space station 14."
   source: "https://soundcloud.com/pigeonbeans/splitedited/s-6okWFgGdRlf?si=4695f157643a49248d210487f4e01f22"
+
+- files: ["RUINOUSINTNT.ogg"]
+  license: "MIT"
+  copyright: "Created by Sola (mistsofnowh3r3 on Discord)"
+  source: "https://soundcloud.com/noisyrejects/ruinous-intnt-corruobserver"
+
+- files: ["dft.ogg"]
+  license: "MIT"
+  copyright: "Created by Sola (mistsofnowh3r3 on Discord)"
+  source: "https://noisyrejects.bandcamp.com/track/dft"

@@ -45,3 +45,7 @@ alert-level-delta-instructions = Crewmembers are advised to listen to heads of s
 alert-level-epsilon = Epsilon
 alert-level-epsilon-announcement = Central Command has ordered the Epsilon security level on the station. Consider all contracts terminated.
 alert-level-epsilon-instructions = Crewmembers should stand down. Consider all contracts terminated.
+
+alert-level-cyan = Cyan
+alert-level-cyan-announcement = All silicons should be avoided and treated as hostile.
+alert-level-cyan-instructions = Report any silicon activity to Security immediately.

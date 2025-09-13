@@ -51,6 +51,7 @@ public sealed partial class BorgSystem
 
             var hasBrain = chassis.BrainEntity != null && !comp.FakeDisabled;
             var canDisable = comp.NextDisable == null && !comp.FakeDisabling;
+            var isEmagged = _emag.CheckFlag(uid, EmagType.Interaction); // Added so malf can't hack borgs multiple times
             var data = new CyborgControlData(
                 comp.Sprite,
                 comp.Name,
@@ -58,7 +59,8 @@ public sealed partial class BorgSystem
                 charge,
                 chassis.ModuleCount,
                 hasBrain,
-                canDisable);
+                canDisable,
+                isEmagged);
 
             var payload = new NetworkPayload()
             {

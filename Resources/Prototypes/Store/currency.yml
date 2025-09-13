@@ -35,3 +35,9 @@
 - type: currency
   id: DebugDollar
   displayName: store-currency-display-debugdollar
+
+# Malf AI currency
+- type: currency
+  id: CPU
+  displayName: CPU
+  canWithdraw: false

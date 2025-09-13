@@ -600,7 +600,23 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         // todo: expand this to allow for more fine antag-selection logic for game rules.
         if (!_jobs.CanBeAntag(session))
+        {
+            // Allow Malf AI rule to bypass job CanBeAntag gating so Station AI can be selected.
+            if (HasComp<Content.Server.GameTicking.Rules.Components.MalfAiRuleComponent>(ent.Owner))
+                goto MalfAiStrictCheck;
             return false;
+        }
+
+        // Strict gating for Malf AI: only the Station AI may be selected as Malf AI.
+        MalfAiStrictCheck:
+        if (HasComp<Content.Server.GameTicking.Rules.Components.MalfAiRuleComponent>(ent.Owner))
+        {
+            var entUid = session.AttachedEntity;
+            if (entUid == null)
+                return false;
+            if (!HasComp<Content.Shared.Silicons.StationAi.StationAiHeldComponent>(entUid.Value))
+                return false;
+        }
 
         return true;
     }

@@ -28,13 +28,13 @@ using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Shared.Store.Components;
-using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Server._White.StoreDiscount;
 using Robust.Shared.Timing;
-using Content.Shared.Mind;
+using Content.Shared.MalfAI;
+using Content.Shared.Store;
 
 namespace Content.Server.Store.Systems;
 
@@ -48,6 +48,8 @@ public sealed partial class StoreSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly StoreDiscountSystem _storeDiscount = default!;
+    [Dependency] private readonly Content.Shared.Alert.AlertsSystem _alerts = default!;
+    private static readonly ProtoId<CurrencyPrototype> CpuCurrencyId = "CPU";
 
     public override void Initialize()
     {
@@ -61,6 +63,7 @@ public sealed partial class StoreSystem : EntitySystem
         SubscribeLocalEvent<StoreComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<StoreComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<StoreComponent, OpenUplinkImplantEvent>(OnImplantActivate);
+        SubscribeLocalEvent<StoreComponent, OpenMalfAiStoreActionEvent>(OnMalfAiOpenStore);
 
         InitializeUi();
         InitializeCommand();
@@ -133,6 +136,12 @@ public sealed partial class StoreSystem : EntitySystem
     private void OnImplantActivate(EntityUid uid, StoreComponent component, OpenUplinkImplantEvent args)
     {
         ToggleUi(args.Performer, uid, component);
+    }
+
+    private void OnMalfAiOpenStore(EntityUid uid, StoreComponent component, Content.Shared.MalfAI.OpenMalfAiStoreActionEvent args)
+    {
+        ToggleUi(args.Performer, uid, component);
+        args.Handled = true;
     }
 
     /// <summary>
@@ -208,8 +217,25 @@ public sealed partial class StoreSystem : EntitySystem
                 store.Balance[type.Key] += type.Value;
         }
 
+        // Replicate updated balance to clients before UI/alert updates.
+        Dirty(uid, store);
         UpdateUserInterface(null, uid, store);
+        ShowMalfCpuIfApplicable(uid, store);
         return true;
+    }
+
+    private void ShowMalfCpuIfApplicable(EntityUid uid, StoreComponent store)
+    {
+        if (!store.CurrencyWhitelist.Contains(CpuCurrencyId))
+            return;
+        if (!HasComp<MalfAiMarkerComponent>(uid))
+            return;
+
+        var amountInt = 0;
+        if (store.Balance.TryGetValue(CpuCurrencyId, out var val))
+            amountInt = (int) val.Int();
+
+        _alerts.ShowAlert(uid, "MalfCpu", dynamicMessage: amountInt.ToString());
     }
 }
 

@@ -51,6 +51,8 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory.VirtualItem;
 using Robust.Shared.Configuration;
 using Content.Shared.Implants.Components;
+using Content.Shared.MalfAI;
+using Content.Shared.Silicons.StationAi;
 
 namespace Content.Shared.Mech.EntitySystems;
 
@@ -76,7 +78,7 @@ public abstract class SharedMechSystem : EntitySystem
 
     // Goobstation: Local variable for checking if mech guns can be used out of them.
     private bool _canUseMechGunOutside;
-    
+
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -381,7 +383,19 @@ public abstract class SharedMechSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
-        return IsEmpty(component) && _actionBlocker.CanMove(toInsert);
+        // Allow AI positronic brains to be inserted even if they cannot "move" per ActionBlocker.
+        var canMove = _actionBlocker.CanMove(toInsert);
+        // Allow Malf AI brain entities to be inserted even if they cannot move.
+        // Some forks may not keep StationAiHeldComponent on the brain when removed from its holder; in that case,
+        // still allow if the entity is the StationAiBrain prototype or carries the MalfAiMarkerComponent.
+        var isAiHeld = HasComp<StationAiHeldComponent>(toInsert);
+        var hasMalfMarker = HasComp<MalfAiMarkerComponent>(toInsert);
+        var isStationAiBrainProto = false;
+        var meta = MetaData(toInsert);
+        if (meta.EntityPrototype != null)
+            isStationAiBrainProto = meta.EntityPrototype.ID == "StationAiBrain";
+        var allowAi = isAiHeld || hasMalfMarker || isStationAiBrainProto;
+        return IsEmpty(component) && (canMove || allowAi);
     }
 
     /// <summary>

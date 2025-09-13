@@ -12,3 +12,8 @@
   license: "MIT"
   copyright: "Created by Sola (mistsofnowh3r3 on Discord)"
   source: "https://soundcloud.com/noisyrejects/ruinous-intnt-corruobserver"
+
+- files: ["dft.ogg"]
+  license: "MIT"
+  copyright: "Created by Sola (mistsofnowh3r3 on Discord)"
+  source: "https://noisyrejects.bandcamp.com/track/dft"

@@ -14,6 +14,7 @@
 #
 # SPDX-License-Identifier: MIT
 
+job-supervisors-central-commanders = Central Command Officers
 job-supervisors-centcom = Central Command
 job-supervisors-captain = the Captain
 job-supervisors-hop = the Head of Personnel

@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -40,6 +41,14 @@ public sealed class SecretDataAnomalySystem : EntitySystem
         {
             component.Secret.Add(_random.PickAndTake(_deita));
         }
+    }
+
+    public bool IsSecret(EntityUid uid, AnomalySecretData item, SecretDataAnomalyComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, logMissing: false))
+            return false;
+
+        return component.Secret.Contains(item);
     }
 }
 

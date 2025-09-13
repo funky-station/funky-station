@@ -338,7 +338,7 @@ public sealed class ApcSystem : EntitySystem
     private void OnSiphonedInteract(EntityUid uid, MalfAiApcSiphonedComponent siphoned, InteractHandEvent args)
     {
         // Block all interactions with siphoned APCs
-        _popup.PopupCursor("The APC is completely unresponsive.", args.User, PopupType.Medium);
+        _popup.PopupCursor(Loc.GetString("malfai-apc-unresponsive"), args.User, PopupType.Medium);
         args.Handled = true;
     }
 }

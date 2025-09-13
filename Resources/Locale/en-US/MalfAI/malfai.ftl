@@ -195,8 +195,10 @@ malfai-return-core-occupied = The core is occupied.
 malfai-return-success = Successfully returned to core.
 
 # APC Siphon
+malfai-apc-siphon-button = Siphon APC
 malfai-apc-siphon-verb = Siphon CPU ({$amount})
 malfai-apc-siphon-success = Siphoned {$amount} CPU from APC.
+malfai-apc-unresponsive = The APC is completely unresponsive.
 malfai-apc-restore = The APC springs back to life!
 
 # Voice Modulator Window

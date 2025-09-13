@@ -120,10 +120,12 @@ namespace Content.Client.Power.APC.UI
 
         public void SetSiphonVisible(bool visible)
         {
+            if (SiphonSpacer != null)
+                SiphonSpacer.Visible = visible;
+            if (SiphonContainer != null)
+                SiphonContainer.Visible = visible;
             if (SiphonButton != null)
                 SiphonButton.Visible = visible;
-            if (SiphonLabel != null)
-                SiphonLabel.Visible = visible;
         }
 
         private void UpdateChargeBarColor(float charge)

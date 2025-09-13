@@ -134,4 +134,8 @@
   id: Disruption
   name: Disruption
   priority: 2
-  
+
+- type: storeCategory
+  id: MalfAI
+  name: MalfAI
+  priority: 3

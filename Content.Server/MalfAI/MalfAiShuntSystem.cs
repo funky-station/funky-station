@@ -51,7 +51,7 @@ public sealed class MalfAiShuntSystem : EntitySystem
         var target = args.Target;
 
         // Ensure the AI is currently inside a holder (core or other) and get that holder.
-        if (!_containers.TryGetContainingContainer(ai, out var currentContainer) || currentContainer is not ContainerSlot)
+        if (!_containers.TryGetContainingContainer((ai.Owner, null, null), out var currentContainer) || currentContainer is not ContainerSlot)
         {
             _popup.PopupEntity(Loc.GetString("malfai-shunt-no-holder"), popupTarget, ai);
             return;
@@ -130,7 +130,7 @@ public sealed class MalfAiShuntSystem : EntitySystem
         }
 
         // Ensure we are currently in a container (e.g., in an APC).
-        if (!_containers.TryGetContainingContainer(ai, out var currentContainer) || currentContainer is not ContainerSlot)
+        if (!_containers.TryGetContainingContainer((ai.Owner, null, null), out var currentContainer) || currentContainer is not ContainerSlot)
         {
             _popup.PopupEntity(Loc.GetString("malfai-return-not-shunted"), popupTarget, ai);
             return;

@@ -121,7 +121,7 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
         }
 
         // Must be held in a container, and that holder must be an AI core.
-        if (!_containers.TryGetContainingContainer(ai, out var container) || container is not ContainerSlot)
+        if (!_containers.TryGetContainingContainer((ai.Owner, null, null), out var container) || container is not ContainerSlot)
         {
             ShowDoomsdayPopup(ai.Owner, "malfai-doomsday-popup-need-core");
             args.Handled = true;
@@ -177,7 +177,7 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
     {
         if (!HasComp<StationAiHeldComponent>(ai))
             return false;
-        if (!_containers.TryGetContainingContainer(ai, out var container))
+        if (!_containers.TryGetContainingContainer((ai, null, null), out var container))
             return false;
         return container.Owner == comp.CoreHolder && HasComp<StationAiCoreComponent>(comp.CoreHolder);
     }

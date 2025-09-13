@@ -593,6 +593,18 @@
     mindRole: "MindRoleSiliconBrain"
     silent: true
 
+# Funkystation, for Malf AI
+- type: entity
+  id: PlayerBorgBatteryNoMind
+  parent: BorgChassisSelectable
+  suffix: Battery, No Mind
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+
 - type: entity
   id: PlayerBorgSyndicateAssaultBattery
   parent: BorgChassisSyndicateAssault

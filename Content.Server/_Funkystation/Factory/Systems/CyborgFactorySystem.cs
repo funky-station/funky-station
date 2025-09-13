@@ -7,17 +7,11 @@ using Content.Shared.Materials;
 using Content.Shared._Funkystation.Factory.Components;
 using Content.Shared.Body.Systems;
 using Robust.Shared.Containers;
-using Robust.Shared.Map;
-using Robust.Shared.GameObjects;
 using Content.Shared.Containers.ItemSlots;
+using Robust.Shared.Map;
 using Content.Server.Body.Components;
 using Content.Server._Funkystation.Factory.Components;
-using Content.Shared.MalfAI;
 using Content.Server.Silicons.Laws;
-using Content.Shared.Silicons.Laws;
-using Content.Shared.FixedPoint;
-using Content.Shared.Emag.Components;
-using Content.Shared.Emag.Systems;
 using Content.Server.Mind;
 using Content.Server.Robotics.Systems;
 using System;
@@ -43,7 +37,7 @@ public sealed class CyborgFactorySystem : EntitySystem
 
     // Constants for entity prototypes and slot names
     private const string MmiPrototype = "MMI";
-    private const string CyborgPrototype = "BorgChassisSelectable";
+    private const string CyborgPrototype = "PlayerBorgBatteryNoMind";
     private const string BrainSlotId = "brain_slot";
     private const string MalfLawString = "silicon-law-malfai-zero";
 
@@ -209,11 +203,6 @@ public sealed class CyborgFactorySystem : EntitySystem
             malfAi = owner.Controller;
         }
 
-        // Use the centralized law imposition method which handles:
-        // - Role type change from Silicon to MalfunctioningSilicon
-        // - UI update events
-        // - Law 0 imposition and law shifting
-        // - Emag component for immunity
         // - Ownership tracking for malf AI cyborg menu
         _cyborgLawReceiver.ImposeLawZero(cyborg, malfAi);
     }

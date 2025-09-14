@@ -402,16 +402,6 @@
       0: Alive
       800: Critical
       1000: Dead
-    triggers:
-    - trigger:
-        !type:DamageTrigger
-        damage: 1000
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: Destructible
     thresholds:
     - trigger:

@@ -2,7 +2,7 @@
   parent: BookBase
   id: BookCookbookPie
   name: Granny Pecan's guide to pies
-  description: The book is gibberish but handy for testing
+  description: An older book full of pie recipies.
   components:
   - type: Sprite
     sprite: Objects/Misc/books.rsi

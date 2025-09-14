@@ -4514,3 +4514,13 @@ Entries:
         well as stethoscopes at medical techfabs
   id: 541
   time: '2025-09-14T00:24:04.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added Crew monitor to Roids warden office
+    - type: Fix
+      message: >-
+        Fixed Roid missing an captain fax machine and entertainment camera
+        router
+  id: 542
+  time: '2025-09-14T00:24:50.0000000+00:00'

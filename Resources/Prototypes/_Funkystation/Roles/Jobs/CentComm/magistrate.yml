@@ -9,7 +9,7 @@
   name: Magistrate
   description: "Serve directly under CentComm. As the stations central legal authority, you authorize executions, extended detentions, warrants, etc."
   playTimeTracker: JobMagistrate
-  requirement:
+  requirements:
   - !type:DepartmentTimeRequirement
     department: Security
     time: 360000 #100 hrs

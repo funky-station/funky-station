@@ -1,5 +1,0 @@
-- type: preloadedGrid
-  id: RoboticsFactoryGrid
-  # Update this path to point at the actual grid map you want to preload/spawn.
-  # The path must reference a valid map/grid YAML under Resources/Maps.
-  path: /Maps/_Funkystation/RoboticsFactoryGrid.yml

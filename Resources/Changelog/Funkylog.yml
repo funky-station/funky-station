@@ -4536,3 +4536,9 @@ Entries:
       message: 'NTVS Gax: Post-playtest fixes'
   id: 544
   time: '2025-09-14T21:24:36.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Tweak
+      message: Magistrate's playtime requirements were changed to 100 Security hours.
+  id: 545
+  time: '2025-09-14T21:28:47.0000000+00:00'

@@ -263,8 +263,8 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-      prototypes:
-        - StationAiBrain
+        tags:
+          - StationAiBrain
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -482,7 +482,7 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-      prototypes:
+      tags:
         - StationAiBrain
   - type: MeleeWeapon
     hidden: true

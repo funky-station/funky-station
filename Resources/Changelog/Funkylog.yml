@@ -4524,3 +4524,9 @@ Entries:
         router
   id: 542
   time: '2025-09-14T00:24:50.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: Gave most of command new icons with a department-coloured stripe.
+  id: 543
+  time: '2025-09-14T14:02:18.0000000+00:00'

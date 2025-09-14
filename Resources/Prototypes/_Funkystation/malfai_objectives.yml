@@ -163,8 +163,8 @@
   - type: Objective
     difficulty: 1
     icon:
-      sprite: Objects/Storage/briefcase.rsi
-      state: briefcase
+      sprite: Mobs/Species/Human/parts.rsi
+      state: full
   - type: MalfAiSabotageObjective
     sabotageType: Protect
   - type: FreeObjective

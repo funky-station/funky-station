@@ -33,19 +33,15 @@ public sealed class CyborgFactorySystem : EntitySystem
     [Dependency] private readonly CyborgLawReceiverSystem _cyborgLawReceiver = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
 
-    private static readonly ISawmill Sawmill = Logger.GetSawmill("cyborg.factory");
-
     // Constants for entity prototypes and slot names
     private const string MmiPrototype = "MMI";
     private const string CyborgPrototype = "PlayerBorgBatteryNoMind";
     private const string BrainSlotId = "brain_slot";
-    private const string MalfLawString = "silicon-law-malfai-zero";
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<RoboticsFactoryGridComponent, MaterialReclaimerProcessEntityEvent>(OnEntityProcessed);
-        Sawmill.Info("CyborgFactorySystem initialized.");
     }
 
     /// <summary>
@@ -65,7 +61,6 @@ public sealed class CyborgFactorySystem : EntitySystem
             return;
 
         var spawnCoords = Transform(factoryUid).Coordinates;
-        Sawmill.Info($"[RoboticsFactory] Converting {ToPrettyString(entity)} at {spawnCoords} (mind={ToPrettyString(mindId)})");
 
         // Process gibbing and extract brain
         if (!ProcessEntityGibbing(entity, out var brainUid))
@@ -88,8 +83,6 @@ public sealed class CyborgFactorySystem : EntitySystem
         // Configure cyborg for Malf AI control
         ConfigureCyborgForMalfAI(factoryUid, cyborg);
 
-        Sawmill.Info($"[RoboticsFactory] Conversion complete (Law 0 imposed): borg={ToPrettyString(cyborg)} (via MMI {ToPrettyString(mmi)})");
-
         // Cancel default recycling for the original entity we already handled via gib
         args.Handled = true;
     }
@@ -104,28 +97,24 @@ public sealed class CyborgFactorySystem : EntitySystem
         // Check if entity has a mind
         if (!TryComp<MindContainerComponent>(entity, out var mindContainer) || !mindContainer.HasMind)
         {
-            Sawmill.Debug($"Entity {ToPrettyString(entity)} has no mind, skipping cyborg conversion");
             return false;
         }
 
         // Check if entity is already a cyborg (has BorgChassis component)
         if (HasComp<BorgChassisComponent>(entity))
         {
-            Sawmill.Debug($"Entity {ToPrettyString(entity)} is already a cyborg, skipping conversion");
             return false;
         }
 
         // Get the mind
         if (!_mind.TryGetMind(entity, out mindId, out var mind))
         {
-            Sawmill.Warning($"Failed to get mind for entity {ToPrettyString(entity)}");
             return false;
         }
 
         // Check if mind has a user (player-controlled)
         if (mind.UserId == null)
         {
-            Sawmill.Debug($"Entity {ToPrettyString(entity)} mind has no user, skipping cyborg conversion");
             return false;
         }
 
@@ -143,7 +132,6 @@ public sealed class CyborgFactorySystem : EntitySystem
         var gibbed = _body.GibBody(entity, gibOrgans: true);
         if (gibbed.Count == 0)
         {
-            Sawmill.Warning($"[RoboticsFactory] Gib produced no entities for {ToPrettyString(entity)}");
             return false;
         }
 
@@ -156,7 +144,6 @@ public sealed class CyborgFactorySystem : EntitySystem
             }
         }
 
-        Sawmill.Warning($"[RoboticsFactory] No brain found among gibbed entities for {ToPrettyString(entity)}");
         return false;
     }
 
@@ -172,7 +159,6 @@ public sealed class CyborgFactorySystem : EntitySystem
         mmi = EntityManager.SpawnEntity(MmiPrototype, spawnCoords);
         if (!_itemSlots.TryInsert(mmi, BrainSlotId, brainUid, user: null))
         {
-            Sawmill.Error($"[RoboticsFactory] Failed to insert brain {ToPrettyString(brainUid)} into MMI {ToPrettyString(mmi)}");
             QueueDel(mmi);
             return false;
         }
@@ -181,7 +167,6 @@ public sealed class CyborgFactorySystem : EntitySystem
         cyborg = EntityManager.SpawnEntity(CyborgPrototype, spawnCoords);
         if (!TryComp<BorgChassisComponent>(cyborg, out var chassis))
         {
-            Sawmill.Error($"[RoboticsFactory] Spawned cyborg {ToPrettyString(cyborg)} missing BorgChassisComponent");
             QueueDel(cyborg);
             QueueDel(mmi);
             return false;

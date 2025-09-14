@@ -9,18 +9,10 @@
   name: Magistrate
   description: "Serve directly under CentComm. As the stations central legal authority, you authorize executions, extended detentions, warrants, etc."
   playTimeTracker: JobMagistrate
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 72000 #20 hrs
-  - !type:RoleTimeRequirement
-    role: JobNanotrasenRepresentative
-    time: 36000 #10 hrs
-  - !type:RoleTimeRequirement
-    role: JobCaptain
-    time: 36000 #10 hrs
-  - !type:RoleTimeRequirement
-    role: JobHeadOfSecurity
-    time: 36000 #10 hrs
+  requirement:
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 360000 #100 hrs
   weight: 20
   startingGear: MagistrateGear
   icon: "JobIconMagistrate"

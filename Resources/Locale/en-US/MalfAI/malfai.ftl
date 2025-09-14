@@ -254,5 +254,6 @@ malfai-store-purchase-failed = Purchase failed
 # Round End
 # =====================
 malfai-round-end-result = Malfunctioning AI
+# Confused why I have to do this..
+objective-issuer-malfai = Malfunctioning AI
 malfai-round-end-name-user = [color=white]{$name}[/color] ([color=gray]{$user}[/color])
-objective-issuer-malfai = [color=#ff6600]Malfunctioning AI[/color]

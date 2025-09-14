@@ -273,6 +273,9 @@ ghost-role-information-ert-engineer-description = Assist with engineering effort
 ghost-role-information-ert-security-name = ERT Security
 ghost-role-information-ert-security-description = Assist with security efforts to resolve the station's issues.
 
+#funkystation
+ghost-role-information-ert-rules = Follow the instructions of central command officials. Stick to the briefing. Deviations could result in an ERT roleban.
+
 ghost-role-information-ert-medical-name = ERT Medical
 ghost-role-information-ert-medical-description = Assist with medical efforts to resolve the station's issues.
 

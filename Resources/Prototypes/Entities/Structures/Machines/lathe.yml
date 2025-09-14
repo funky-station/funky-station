@@ -146,7 +146,6 @@
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <you@example.com>
@@ -1197,7 +1196,7 @@
     - WeaponLaserCannon
     - WeaponLaserCarbine
     - WeaponXrayCannon
-    - WeaponLaserSvalinn # Funky Change
+    - WeaponLaserSvalinn # Funky Change 
     - SecurityCyberneticEyes # Shitmed Change
     - MedicalCyberneticEyes # Shitmed Change
     # Goobstation - Mechs
@@ -1724,7 +1723,7 @@
   - type: Lathe
     idleState: icon
     runningState: building
-    defaultProductionAmount: 10
+    defaultProductionAmount: 30
     staticRecipes:
     - SheetSteel
     - SheetGlass1
@@ -1737,6 +1736,7 @@
     - IngotSilver1
     - MaterialBananium1
     - MaterialDiamond
+  - type: MaterialSiloClient
 
 - type: entity
   parent: OreProcessor
@@ -1752,20 +1752,32 @@
     materialUseMultiplier: 0.75
     timeMultiplier: 0.5
     staticRecipes:
-    - SheetSteel
-    - SheetGlass1
+    # Funky Change, replaced with Industrial Procecor specific recipes 
+    #- IngotGold1
+    #- IngotSilver1
+    #- MaterialBananium1
+    #- MaterialDiamond    
+    #- SheetSteel
+    #- SheetGlass1
+    #- SheetPlasma1    
+    #- SheetUranium1   
+    # Funky Recipe Start
+    - SheetSteelIndustrial
+    - SheetGlassIndustrial
+    - SheetPlasmaIndustrial
+    - IngotSilverIndustrial
+    - IngotGoldIndustrial
+    - SheetUraniumIndustrial
+    - MaterialBananiumIndustrial
+    - MaterialDiamondIndustrial
+    # Funky Recipe End 
     - SheetRGlassRaw
-    - SheetPlasma1
     - SheetPGlass1
     - SheetRPGlass1
     - SheetPlasteel1
-    - SheetUranium1
     - SheetUGlass1
     - SheetRUGlass1
-    - IngotGold1
-    - IngotSilver1
-    - MaterialBananium1
-    - MaterialDiamond
+
 
 - type: entity
   parent: BaseLathe

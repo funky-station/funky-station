@@ -4530,3 +4530,9 @@ Entries:
       message: Gave most of command new icons with a department-coloured stripe.
   id: 543
   time: '2025-09-14T14:02:18.0000000+00:00'
+- author: EmillyCoelho
+  changes:
+    - type: Tweak
+      message: 'NTVS Gax: Post-playtest fixes'
+  id: 544
+  time: '2025-09-14T21:24:36.0000000+00:00'

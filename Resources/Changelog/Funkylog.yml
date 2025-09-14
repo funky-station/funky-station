@@ -4542,3 +4542,13 @@ Entries:
       message: Magistrate's playtime requirements were changed to 100 Security hours.
   id: 545
   time: '2025-09-14T21:28:47.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Bagel SM chamber reworked with help from Fern aka Terkala
+    - type: Tweak
+      message: Bagel atmos pipes converted over to pipelayers
+    - type: Add
+      message: Warden now has a crew monitor on Bagel
+  id: 546
+  time: '2025-09-14T21:29:54.0000000+00:00'

@@ -4492,3 +4492,35 @@ Entries:
         reasons.
   id: 538
   time: '2025-09-08T04:52:25.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: Changed the Warden icon for accessibility reasons.
+  id: 539
+  time: '2025-09-08T23:28:37.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Rat King's Vent Spawn version still saying it is a Free Agent on
+        the [C] screen, it is a Solo Antagonist.
+  id: 540
+  time: '2025-09-11T21:56:25.0000000+00:00'
+- author: Komonighub
+  changes:
+    - type: Add
+      message: >-
+        Added the ability to lathe pens and vox tank harnesses at autolathes, as
+        well as stethoscopes at medical techfabs
+  id: 541
+  time: '2025-09-14T00:24:04.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added Crew monitor to Roids warden office
+    - type: Fix
+      message: >-
+        Fixed Roid missing an captain fax machine and entertainment camera
+        router
+  id: 542
+  time: '2025-09-14T00:24:50.0000000+00:00'

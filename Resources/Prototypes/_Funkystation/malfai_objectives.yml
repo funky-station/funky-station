@@ -52,8 +52,8 @@
   - type: Objective
     difficulty: 1
     icon:
-      sprite: Mobs/Species/Human/human.rsi
-      state: dead
+      sprite: Mobs/Species/Human/parts.rsi
+      state: full
   - type: MalfAiSabotageObjective
     sabotageType: Assassinate
   - type: TargetObjective
@@ -71,7 +71,7 @@
   - type: Objective
     difficulty: 1
     icon:
-      sprite: Objects/Misc/briefcase.rsi
+      sprite: Objects/Storage/briefcase.rsi
       state: briefcase
   - type: MalfAiSabotageObjective
     sabotageType: Protect
@@ -91,7 +91,7 @@
     difficulty: 2
     icon:
       sprite: Mobs/Silicon/chassis.rsi
-      state: cyborg
+      state: robot
   - type: MalfAiScaleBorgsObjective
     playersPerBorg: 10
     minBorgs: 2
@@ -148,8 +148,8 @@
   - type: Objective
     difficulty: 1
     icon:
-      sprite: Mobs/Species/Human/human.rsi
-      state: dead
+      sprite: Mobs/Species/Human/parts.rsi
+      state: full
   - type: MalfAiSabotageObjective
     sabotageType: Assassinate
   - type: FreeObjective
@@ -163,7 +163,7 @@
   - type: Objective
     difficulty: 1
     icon:
-      sprite: Objects/Misc/briefcase.rsi
+      sprite: Objects/Storage/briefcase.rsi
       state: briefcase
   - type: MalfAiSabotageObjective
     sabotageType: Protect

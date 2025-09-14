@@ -82,17 +82,17 @@ blob-chem-blazingoil-info = Blazing Oil
                             Deals 15 burn damage and lights targets on fire.
                             Makes you vulnerable to water.
 blob-chem-regenerativemateria-info = Regenerative Materia
-                                    Deals 6 brute damage and 15 toxin damage.
+                                    Deals 6 blunt damage and 15 toxin damage.
                                     The blob core regenerates health 10 times faster than normal and generates 1 extra resource.
 blob-chem-explosivelattice-info = Explosive Lattice
-                                    Deals 5 burn damage and explodes the target, dealing 10 brute damage.
+                                    Deals no direct damage but explodes the target, dealing 15 brute damage. Deals double Structural damage.
                                     Spores explode on death.
                                     You become immune to explosions.
-                                    You take 50% more damage from burns and electrical shock.
+                                    You take 50% more damage from burns and electrical shock, and 30% more damage from piercing.
 blob-chem-electromagneticweb-info = Electromagnetic Web
                                     Deals 20 burn damage, 20% chance to cause an EMP pulse when attacking.
                                     Blob tiles cause an EMP pulse when destroyed.
-                                    You take 25% more brute and heat damage.
+                                    You take 50% more brute damage and 25% more heat damage.
 
 blob-alert-out-off-station = The blob was removed because it was found outside the station!
 

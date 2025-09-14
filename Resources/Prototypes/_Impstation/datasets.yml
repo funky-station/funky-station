@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 # SPDX-FileCopyrightText: 2025 funnyfurby <furbyb772@gmail.com>
 # SPDX-FileCopyrightText: 2025 funnyfurby <furbyfunny44@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -98,12 +99,31 @@
   - Suppermatter
   - Stick of Cannabis Butter
   - Bungo Curry
-  - Salty Sweet Miso Cola Soup
+  - Valid Salad
   - Bread Dog
-  - Camel's Soup
-  - Toddler Rings Stew
-  - Heart Carpaccio
-
+  - Cak
+  - Slime Cake
+  - Sashimi
+  - Mothroachburger
+  - Amanita Jelly
+  - Spicy Rock Pizza
+  
+- type: dataset
+  id: MoodDrinkables
+  values:
+  - Chutzpah
+  - Cogchamp
+  - Demon's Blood
+  - Devil's Kiss
+  - Driest Martini
+  - Fever Dream
+  - Mindbreaker Toxin
+  - Happiness
+  - Acidspit
+  - Hippie's Delight
+  - Tayquila
+  - Three Mile Island Iced Tea
+  
 - type: dataset
   id: MoodHolidays
   values:

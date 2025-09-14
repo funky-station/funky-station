@@ -1,0 +1,3 @@
+reagent_implant_inject = You feel your reagent implant inject something into your bloodstream.
+reagent_implant_inject_fail = Your reagent implant isn't able to inject you...
+reagent_implant_inject_empty = Your reagent implant has nothing to inject into you!

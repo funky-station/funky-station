@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MissKay1994 <15877268+MissKay1994@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -29,3 +30,43 @@
     shape:
     - 0,0,1,1
     heldPrefix: lungs
+
+- type: entity
+  parent: OrganHumanStomach
+  id: OrganVoxStomach
+  name: stomach
+  description: "A stomach that smells of ammonia."
+  components:
+  - type: Metabolizer #Skreeeee!
+    metabolizerTypes: [Vox]
+  - type: Stomach
+#Bird vs tags
+    specialDigestible:
+      tags:
+      - Trash
+      - Fruit
+      - ReptilianFood
+      - Meat
+      - Pill
+      - Crayon
+      - Paper
+      - VoxFood
+      - Vegetable
+
+- type: entity
+  parent: OrganHumanLiver
+  id: OrganVoxLiver
+  name: liver
+  description: "Smells flammable."
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [Vox]
+
+- type: entity
+  parent: OrganHumanHeart
+  id: OrganVoxHeart
+  name: heart
+  description: "The strange heart of a vox."
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [Vox]

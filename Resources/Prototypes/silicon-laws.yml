@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Erisiaa <185582649+Erisiaa@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -536,30 +537,6 @@
   - Nutimov5
   obeysTo: laws-owner-crew
 
-# Asimov lawset
-- type: siliconLaw
-  id: Asimov1
-  order: 1
-  lawString: law-asimov-1
-
-- type: siliconLaw
-  id: Asimov2
-  order: 2
-  lawString: law-asimov-2
- 
-- type: siliconLaw
-  id: Asimov3
-  order: 3
-  lawString: law-asimov-3
-  
-- type: siliconLawset
-  id: AsimovLawset
-  laws:
-  - Asimov1
-  - Asimov2
-  - Asimov3
-  obeysTo: laws-owner-crew
-
 # ion storm random lawsets
 - type: weightedRandom
   id: IonStormLawsets
@@ -581,7 +558,6 @@
     Drone: 0.5
     Ninja: 0.25
     JermovLawset: 0.25
-    AsimovLawset: 0.5
     TyrantLawset: 0.5 # Funkystation - Tryant to Accountant
     LawyerLawset: 0.5
     SkubLawset: 0.25

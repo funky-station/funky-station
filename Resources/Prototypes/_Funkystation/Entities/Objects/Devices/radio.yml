@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -26,3 +27,216 @@
   - type: Tag
     tags:
     - Radio
+
+- type: entity
+  name: service handheld radio
+  description: A handheld radio tuned to the service radio frequency.
+  parent: RadioHandheld
+  id: RadioHandheldService
+  components:
+  - type: RadioMicrophone
+    broadcastChannel: Service
+  - type: RadioSpeaker
+    channels:
+    - Service
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/radio.rsi
+    layers:
+    - state: base
+    - state: cap-service
+    - state: active
+      visible: false
+      shader: unshaded
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Item
+    sprite: Objects/Devices/securityhandy.rsi
+    heldPrefix: walkietalkie
+
+- type: entity
+  name: supply handheld radio
+  description: A handheld radio tuned to the supply radio frequency.
+  parent: [ RadioHandheld, BaseCargoContraband ]
+  id: RadioHandheldCargo
+  components:
+  - type: RadioMicrophone
+    broadcastChannel: Supply
+  - type: RadioSpeaker
+    channels:
+    - Supply
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/radio.rsi
+    layers:
+    - state: base
+    - state: cap-cargo
+    - state: active
+      visible: false
+      shader: unshaded
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Item
+    sprite: Objects/Devices/securityhandy.rsi
+    heldPrefix: walkietalkie
+
+
+- type: entity
+  name: engineering handheld radio
+  description: A handheld radio tuned to the engineering radio frequency.
+  parent: [ RadioHandheld, BaseEngineeringContraband ]
+  id: RadioHandheldEngineering
+  components:
+  - type: RadioMicrophone
+    broadcastChannel: Engineering
+  - type: RadioSpeaker
+    channels:
+    - Engineering
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/radio.rsi
+    layers:
+    - state: base
+    - state: cap-engineering
+    - state: active
+      visible: false
+      shader: unshaded
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Item
+    sprite: Objects/Devices/communication.rsi
+    heldPrefix: walkietalkie
+
+- type: entity
+  name: medical handheld radio
+  description: A handheld radio tuned to the medical radio frequency.
+  parent: [ RadioHandheld, BaseMedicalContraband ]
+  id: RadioHandheldMedical
+  components:
+  - type: RadioMicrophone
+    broadcastChannel: Medical
+  - type: RadioSpeaker
+    channels:
+    - Medical
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/radio.rsi
+    layers:
+    - state: base
+    - state: cap-medical
+    - state: active
+      visible: false
+      shader: unshaded
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Item
+    sprite: Objects/Devices/communication.rsi
+    heldPrefix: walkietalkie
+
+- type: entity
+  name: emergency handheld radio
+  description: You already know I'm obsessed with it. Can't get enough.
+  parent: RadioHandheld
+  id: RadioHandheldEmergency
+  components:
+  - type: RadioMicrophone
+    broadcastChannel: Emergency
+  - type: RadioSpeaker
+    channels:
+    - Emergency
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/radio.rsi
+    layers:
+    - state: base
+    - state: body-emergency
+    - state: active
+      visible: false
+      shader: unshaded
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Item
+    sprite: Objects/Devices/communication.rsi
+    heldPrefix: walkietalkie
+
+
+- type: entity
+  name: science handheld radio
+  description: A handheld radio tuned to the science radio frequency.
+  parent: [ RadioHandheld, BaseScienceContraband ]
+  id: RadioHandheldScience
+  components:
+  - type: RadioMicrophone
+    broadcastChannel: Science
+  - type: RadioSpeaker
+    channels:
+    - Science
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/radio.rsi
+    layers:
+    - state: base
+    - state: cap-science
+    - state: active
+      visible: false
+      shader: unshaded
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Item
+    sprite: Objects/Devices/securityhandy.rsi
+    heldPrefix: walkietalkie
+
+- type: entity
+  name: command handheld radio
+  description: A handheld radio tuned to the command radio frequency.
+  parent: [ RadioHandheld, BaseCommandContraband ]
+  id: RadioHandheldCommand
+  components:
+  - type: RadioMicrophone
+    broadcastChannel: Command
+  - type: RadioSpeaker
+    channels:
+    - Command
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/radio.rsi
+    layers:
+    - state: base
+    - state: cap-command
+    - state: active
+      visible: false
+      shader: unshaded
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Item
+    sprite: Objects/Devices/securityhandy.rsi
+    heldPrefix: walkietalkie
+

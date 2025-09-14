@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
 # SPDX-FileCopyrightText: 2025 ZarathushtraSpitama <bloodcunt@protonmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -86,11 +87,29 @@
     - BoxHugSlotsNitrogen # Goobstation - Slots Based Survival Boxes
 
 # Mime
+- type: loadoutEffectGroup
+  id: OxygenBreatherMime
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Arachnid
+    - Diona
+    - Dwarf
+    - Human
+    - Reptilian
+
+- type: loadoutEffectGroup
+  id: OxygenBreatherMimeMoth
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Moth
+
 - type: loadout
   id: EmergencyOxygenMime
   effects:
   - !type:GroupLoadoutEffect
-    proto: OxygenBreather
+    proto: OxygenBreatherMime
   storage:
     back:
     - BoxMimeSlots # Goobstation - Slots Based Survival Boxes
@@ -104,6 +123,14 @@
     back:
     - BoxMimeSlotsNitrogen # Goobstation - Slots Based Survival Boxes
 
+- type: loadout
+  id: EmergencySpeciesMothMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreatherMimeMoth
+  storage:
+    back:
+    - BoxMimeMoth
 
 # Engineering / Extended
 - type: loadout

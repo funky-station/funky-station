@@ -37,6 +37,7 @@
 // SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
@@ -55,6 +56,8 @@ using Content.Shared.EntityEffects;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Nutrition;
+using Content.Shared.Prototypes;
+using Content.Shared.Slippery;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -159,11 +162,12 @@ namespace Content.Shared.Chemistry.Reagent
         [DataField]
         public bool MetamorphicChangeColor { get; private set; } = true;
 
+
         /// <summary>
-        /// If this reagent is part of a puddle is it slippery.
+        /// If not null, makes something slippery. Also defines slippery interactions like stun time and launch mult.
         /// </summary>
         [DataField]
-        public bool Slippery;
+        public SlipperyEffectEntry? SlipData;
 
         /// <summary>
         /// How easily this reagent becomes fizzy when aggitated.
@@ -178,6 +182,13 @@ namespace Content.Shared.Chemistry.Reagent
         /// </summary>
         [DataField]
         public float Viscosity;
+
+        /// <summary>
+        /// Linear Friction Multiplier for a reagent
+        /// 0 - frictionless, 1 - no effect on friction
+        /// </summary>
+        [DataField]
+        public float Friction = 1.0f;
 
         /// <summary>
         /// Should this reagent work on the dead?

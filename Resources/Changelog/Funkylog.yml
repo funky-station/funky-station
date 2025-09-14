@@ -4552,3 +4552,11 @@ Entries:
       message: Warden now has a crew monitor on Bagel
   id: 546
   time: '2025-09-14T21:29:54.0000000+00:00'
+- author: TakuTaco
+  changes:
+    - type: Add
+      message: >-
+        Added time display to tape recorder UI. Now you can use your transcripts
+        to more conveniently navigate the recording!
+  id: 547
+  time: '2025-09-14T21:48:24.0000000+00:00'

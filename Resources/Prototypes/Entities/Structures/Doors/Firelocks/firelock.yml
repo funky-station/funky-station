@@ -184,6 +184,7 @@
     - type: DoorBolt # Goobstation - re adding fire door remote
     - type: AccessReader
       access: [ [ "Engineering" ] ]
+      examinationText: access-reader-examination-functionality-restricted
     - type: PryUnpowered
       pryModifier: 0.5
     - type: PointLight

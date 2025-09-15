@@ -135,6 +135,7 @@
       name: disabling
       state: disabler
     - proto: BulletEnergyGunRevolver
+      fireCost: 200
       name: lethal
       state: lethal
   - type: MagazineVisuals

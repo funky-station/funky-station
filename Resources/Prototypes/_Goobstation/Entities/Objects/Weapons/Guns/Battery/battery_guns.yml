@@ -123,8 +123,8 @@
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: Battery
-    maxCharge: 1200
-    startingCharge: 1200
+    maxCharge: 2400
+    startingCharge: 2400
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 100
@@ -134,8 +134,7 @@
       fireCost: 100
       name: disabling
       state: disabler
-    - proto: BulletEnergyGunMagnum
-      fireCost: 225
+    - proto: BulletEnergyGunRevolver
       name: lethal
       state: lethal
   - type: MagazineVisuals
@@ -154,4 +153,4 @@
     - Sidearm
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 30
+    autoRechargeRate: 0.1 #16 minutes for a single disabler shot...

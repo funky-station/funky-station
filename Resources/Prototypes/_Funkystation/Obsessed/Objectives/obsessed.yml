@@ -1,0 +1,101 @@
+﻿- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseObsessedObjective
+  components:
+  - type: Objective
+    difficulty: 1.5 # unused but necessary I guess
+    issuer: objective-issuer-obsessed
+  #- type: RoleRequirement
+  #  roles:
+  #    components:
+  #    - ObsessedRole
+
+- type: entity
+  parent: [BaseObsessedObjective, BaseKeepAliveObjective]
+  id: ObsessedKeepAliveObjective
+  description: No matter what, I can't let anyone hurt them!
+  components:
+  - type: Objective
+    icon:
+      sprite: Mobs/Demons/abomination.rsi
+      state: dead
+  - type: TargetObjective
+    title: objective-condition-obsessed-keep-safe-title
+  - type: RandomPersistentTarget
+
+- type: entity
+  parent: BaseObsessedObjective
+  id: ObsessedHugObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Mobs/Demons/abomination.rsi
+      state: dead
+  - type: NumberObjective
+    min: 5
+    max: 15
+    title: objective-condition-obsessed-hug-target-title
+    description: I need to show my appreciation to them!
+  - type: HuggingObjectiveCondition
+
+- type: entity
+  parent: BaseObsessedObjective
+  id: ObsessedProximityObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Mobs/Demons/abomination.rsi
+      state: dead
+  - type: NumberObjective
+    min: 8
+    max: 15
+    title: objective-condition-obsessed-proximity-target-title
+    description: I need to be around them more!
+  - type: TargetProximityCondition
+
+- type: entity
+  parent: BaseObsessedObjective
+  id: ObsessedKillRandomPersonObjective
+  description: I can't let them get in the way!
+  components:
+  - type: Objective
+    unique: false
+    icon:
+      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+      state: icon
+  - type: TargetObjective
+    title: objective-condition-kill-person-title
+  - type: PickRandomPerson
+  - type: KillPersonCondition
+
+- type: entity
+  parent: BaseObsessedObjective
+  id: ObsessedKillObsessionObjective
+  description: If I can't have them... no one can.
+  components:
+  - type: Objective
+    unique: false
+    icon:
+      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+      state: icon
+  - type: TargetObjective
+    title: objective-condition-kill-person-title
+  - type: RandomPersistentTarget
+  - type: KillPersonCondition
+
+# TODO: add murder suicide
+#- type: entity
+#  parent: BaseObsessedObjective
+#  id: ObsessedKillObsessionObjective
+#  description: I can't let them get in the way!
+#  components:
+#  - type: Objective
+#    unique: false
+#    icon:
+#      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+#      state: icon
+#  - type: TargetObjective
+#    title: objective-condition-kill-person-title
+#  - type: PickRandomPerson
+#  - type: KillPersonCondition

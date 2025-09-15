@@ -416,6 +416,7 @@
     - id: ProtolatheMachineCircuitboard
     - id: ResearchComputerCircuitboard
     - id: CargoRequestScienceComputerCircuitboard
+    - id: StationAiFixerCircuitboard
     - id: RubberStampRd
     - id: AnomalyLocator # GoobStation - adding anomaly locator to the RD locker to reduce the amount of anoms that crit
     - id: CigarCase

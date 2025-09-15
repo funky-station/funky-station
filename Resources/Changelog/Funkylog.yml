@@ -4566,3 +4566,11 @@ Entries:
       message: Rainbow Cannabis brownies are no longer ain't shit
   id: 548
   time: '2025-09-14T21:56:21.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Ore Processor steel recipe still using coal when it was supposed
+        to have been changed to not.
+  id: 549
+  time: '2025-09-15T17:08:28.0000000+00:00'

@@ -4492,3 +4492,77 @@ Entries:
         reasons.
   id: 538
   time: '2025-09-08T04:52:25.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: Changed the Warden icon for accessibility reasons.
+  id: 539
+  time: '2025-09-08T23:28:37.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Rat King's Vent Spawn version still saying it is a Free Agent on
+        the [C] screen, it is a Solo Antagonist.
+  id: 540
+  time: '2025-09-11T21:56:25.0000000+00:00'
+- author: Komonighub
+  changes:
+    - type: Add
+      message: >-
+        Added the ability to lathe pens and vox tank harnesses at autolathes, as
+        well as stethoscopes at medical techfabs
+  id: 541
+  time: '2025-09-14T00:24:04.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added Crew monitor to Roids warden office
+    - type: Fix
+      message: >-
+        Fixed Roid missing an captain fax machine and entertainment camera
+        router
+  id: 542
+  time: '2025-09-14T00:24:50.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: Gave most of command new icons with a department-coloured stripe.
+  id: 543
+  time: '2025-09-14T14:02:18.0000000+00:00'
+- author: EmillyCoelho
+  changes:
+    - type: Tweak
+      message: 'NTVS Gax: Post-playtest fixes'
+  id: 544
+  time: '2025-09-14T21:24:36.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Tweak
+      message: Magistrate's playtime requirements were changed to 100 Security hours.
+  id: 545
+  time: '2025-09-14T21:28:47.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Bagel SM chamber reworked with help from Fern aka Terkala
+    - type: Tweak
+      message: Bagel atmos pipes converted over to pipelayers
+    - type: Add
+      message: Warden now has a crew monitor on Bagel
+  id: 546
+  time: '2025-09-14T21:29:54.0000000+00:00'
+- author: TakuTaco
+  changes:
+    - type: Add
+      message: >-
+        Added time display to tape recorder UI. Now you can use your transcripts
+        to more conveniently navigate the recording!
+  id: 547
+  time: '2025-09-14T21:48:24.0000000+00:00'
+- author: PurpleTranStar
+  changes:
+    - type: Tweak
+      message: Rainbow Cannabis brownies are no longer ain't shit
+  id: 548
+  time: '2025-09-14T21:56:21.0000000+00:00'

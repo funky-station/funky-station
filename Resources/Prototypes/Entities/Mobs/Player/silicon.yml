@@ -771,6 +771,7 @@
   - type: SiliconLawProvider
     laws: Crewsimov
   - type: SiliconLawBound
+  - type: IonStormTarget
   - type: ActionGrant
     actions:
     - ActionViewLaws

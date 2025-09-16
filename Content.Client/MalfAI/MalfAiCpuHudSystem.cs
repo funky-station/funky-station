@@ -16,7 +16,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Store;
 using Content.Client.UserInterface.Systems.Chat.Widgets;
-using Content.Client.UserInterface.Systems.Alerts.Widgets;
+using Content.Client.UserInterface.Systems.Alerts.Widgets; using Robust.Shared.Localization;
 
 namespace Content.Client.MalfAI;
 

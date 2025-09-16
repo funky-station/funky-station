@@ -54,6 +54,10 @@
   - type: Storage
     grid:
     - 0,0,3,1
+    whitelist:
+      tags:
+      - Cigar
+      - Pen
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigars/case.rsi
     size: Normal

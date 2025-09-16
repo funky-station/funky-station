@@ -9,10 +9,10 @@
   components:
   - type: Objective
     difficulty: 1
-    issuer: malfai
+    issuer: objective-issuer-malfai
   - type: RoleRequirement
-    roles:
-    - MalfAiRole
+  roles:
+  - MalfAiRole
 
 # Survive (guaranteed via AntagObjectives in the game rule)
 - type: entity

@@ -1,4 +1,4 @@
-<!-- SPDX-FileCopyrightText: 2025 YourName -->
+<!-- SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com> -->
 <!-- SPDX-License-Identifier: MIT -->
 <widgets:MalfAiCpuHud xmlns="https://spacestation14.io"
                       xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.MalfAI.Widgets"

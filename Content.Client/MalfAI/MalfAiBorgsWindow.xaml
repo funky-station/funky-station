@@ -1,4 +1,4 @@
-<!-- SPDX-FileCopyrightText: 2025 YourName -->
+<!-- SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com> -->
 <!-- SPDX-License-Identifier: MIT -->
 <controls:FancyWindow xmlns="https://spacestation14.io"
                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"

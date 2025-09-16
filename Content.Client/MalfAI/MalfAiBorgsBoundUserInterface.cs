@@ -1,5 +1,4 @@
 // SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
-// SPDX-FileCopyrightText: 2025 YourName
 //
 // SPDX-License-Identifier: MIT
 

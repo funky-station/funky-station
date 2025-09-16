@@ -243,7 +243,7 @@
         damage:
           groups: # Funky
             Brute: -0.75
-          types: 
+          types:
             Heat: -0.25
       - !type:ChemVomit
         probability: 0.04
@@ -281,10 +281,7 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
-      - !type:HealthChange
-        damage:
-          types:
-            Radiation: -1.0    
+
 
 - type: reagent
   id: CoffeeLiqueur
@@ -454,7 +451,10 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
-
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: -0.25
 - type: reagent
   id: Whiskey
   name: reagent-name-whiskey

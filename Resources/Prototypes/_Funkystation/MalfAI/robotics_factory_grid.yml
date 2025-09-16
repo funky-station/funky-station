@@ -1,0 +1,10 @@
+- type: entity
+  id: RoboticsFactoryGrid
+  name: robotics-factory-grid
+  description: A modular robotics factory grid.
+  components:
+  - type: RoboticsFactoryGrid
+  - type: Transform
+    anchored: true
+  - type: MetaData
+    entityCategory: Static

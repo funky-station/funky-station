@@ -14,7 +14,7 @@ public sealed partial class MalfAiRoboticsFactorySystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     private static readonly ISawmill Sawmill = Logger.GetSawmill("malf.ai.factory");
 
-    private static readonly ProtoId<EntityPrototype> RoboticsFactoryPrototype = "RoboticsFactoryGrid";
+    private static readonly EntProtoId RoboticsFactoryPrototype = "RoboticsFactoryGrid";
 
     public override void Initialize()
     {

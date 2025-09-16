@@ -17,7 +17,8 @@ public sealed class AIShaderProtosExist
     public async Task ShaderProtoExists(string protoId)
     {
         await using var pair = await PoolManager.GetServerClient();
-        var protoMan = pair.Server.ResolveDependency<IPrototypeManager>();
+        await pair.Client.WaitIdleAsync();
+        var protoMan = pair.Client.ResolveDependency<IPrototypeManager>();
 
         Assert.That(protoMan.HasIndex(protoId), Is.True, $"Missing shader prototype: {protoId}");
     }

@@ -11,8 +11,8 @@
     difficulty: 1
     issuer: objective-issuer-malfai
   - type: RoleRequirement
-  roles:
-  - MalfAiRole
+    roles:
+    - MalfAiRole
 
 # Survive (guaranteed via AntagObjectives in the game rule)
 - type: entity

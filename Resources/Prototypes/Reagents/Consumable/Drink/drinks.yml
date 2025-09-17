@@ -52,14 +52,6 @@
   color: "#664300"
   recognizable: true
   metabolisms:
-    Alcohol:
-      effects:
-      - !type:Drunk
-        conditions:
-        - !type:OrganType
-          type: Arachnid # Spiders get drunk on coffee, supposedly.
-          shouldHave: true
-        boozePower: 2
     Drink:
       effects:
       - !type:SatiateThirst
@@ -153,14 +145,6 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Alcohol:
-      effects:
-      - !type:Drunk
-        conditions:
-        - !type:OrganType
-          type: Arachnid # Spiders get drunk on coffee, supposedly.
-          shouldHave: true
-        boozePower: 2
     Drink:
       effects:
       - !type:SatiateThirst
@@ -219,14 +203,6 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Alcohol:
-      effects:
-      - !type:Drunk
-        conditions:
-        - !type:OrganType
-          type: Arachnid # Spiders get drunk on coffee, supposedly.
-          shouldHave: true
-        boozePower: 2
     Drink:
       effects:
       - !type:SatiateThirst

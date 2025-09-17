@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 Unisol <1929445+Unisol@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -52,6 +53,17 @@
   - type: StaticPrice
     price: 100
   - type: BlockWeather
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 4000
 
 - type: entity
   id: PlastitaniumWindowSquareBase
@@ -162,6 +174,7 @@
         - FullTileMask
         layer:
         - GlassLayer
+        density: 4000
   - type: Airtight
     noAirWhenFullyAirBlocked: false
     airBlockedDirection:

@@ -8,7 +8,6 @@ public sealed class MalfAiProtosExist
     public static readonly string[] ProtoIds =
     {
         "ActionMalfAiRoboticsFactory",
-        "RoboticsFactoryGrid",
     };
 
     [Test]

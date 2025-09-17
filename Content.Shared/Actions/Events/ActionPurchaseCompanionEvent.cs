@@ -16,9 +16,7 @@ namespace Content.Shared.Actions.Events;
 [Serializable, NetSerializable, DataDefinition]
 public sealed partial class ActionPurchaseCompanionEvent : EntityEventArgs
 {
-    [DataField("buyer")]
     public NetEntity Buyer { get; set; }
-
     [DataField("companionActions")]
     public List<string> CompanionActions { get; set; } = new();
 

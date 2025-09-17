@@ -17,16 +17,16 @@ public sealed class AiBuildPrototypeValidationTest
         // Dynamically discover AI build prototypes by examining systems that use typed prototype IDs
         var buildPrototypes = new HashSet<EntProtoId>();
 
-        // Get prototypes from MalfAiRoboticsFactorySystem
+        // Get prototypes from MalfAiRoboticsFactorySystem by scanning all static non-public EntProtoId fields
         var factorySystemType = typeof(MalfAiRoboticsFactorySystem);
-        var roboticsFactoryPrototypeField = factorySystemType.GetField("RoboticsFactoryPrototype",
-            BindingFlags.NonPublic | BindingFlags.Static);
-
-        if (roboticsFactoryPrototypeField != null)
+        foreach (var field in factorySystemType.GetFields(BindingFlags.NonPublic | BindingFlags.Static))
         {
-            var value = roboticsFactoryPrototypeField.GetValue(null);
-            if (value is EntProtoId entId)
-                buildPrototypes.Add(entId);
+            if (field.FieldType == typeof(EntProtoId))
+            {
+                var value = field.GetValue(null);
+                if (value is EntProtoId entId)
+                    buildPrototypes.Add(entId);
+            }
         }
 
         Assert.That(buildPrototypes.Count, Is.GreaterThan(0), "No AI build prototypes were discovered");

@@ -23,6 +23,8 @@ using Content.Shared.Alert;
 using Content.Shared.Mind.Components;
 using Content.Shared.Silicons.StationAi;
 using Robust.Shared.Utility;
+using Content.Shared.CCVar;
+using Robust.Shared.Configuration;
 
 namespace Content.Server.Research.Systems;
 
@@ -41,6 +43,7 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
     [Dependency] private readonly Content.Shared.Damage.DamageableSystem _damageable = default!;
     [Dependency] private readonly Content.Shared.Mobs.Systems.MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     // almost never timing out more than 1 per tick so initialize with that capacity
     private List<string> _removing = new(1);
@@ -50,11 +53,6 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
     /// </summary>
     private const string CpuCurrency = "CPU";
 
-    /// <summary>
-    /// CPU cost to impose Law 0 on a borg.
-    /// Note for the second review pass. Should I have this be a CVAR mayhaps?
-    /// </summary>
-    private static readonly FixedPoint2 LawImposeCpuCost = FixedPoint2.New(5);
 
     public override void Initialize()
     {
@@ -182,11 +180,15 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
         // Charge CPU from the AI's store before sending the command.
         if (!TryComp<StoreComponent>(args.Actor, out var store))
             return;
-        if (!store.Balance.TryGetValue(CpuCurrency, out var balance) || balance < LawImposeCpuCost)
+
+        // Read CVAR cost and convert to FixedPoint2 for balance ops
+        var imposeCost = FixedPoint2.New(_cfg.GetCVar(CCVars.MalfAiImposeLawCpuCost));
+
+        if (!store.Balance.TryGetValue(CpuCurrency, out var balance) || balance < imposeCost)
             return; // insufficient CPU
 
         // Deduct cost and proceed
-        store.Balance[CpuCurrency] = balance - LawImposeCpuCost;
+        store.Balance[CpuCurrency] = balance - imposeCost;
         // Replicate to clients and refresh the Malf CPU alert so client HUD updates digits.
         Dirty(args.Actor, store);
         _alerts.ShowAlert(args.Actor, "MalfCpu");
@@ -240,7 +242,7 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
         };
 
         _deviceNetwork.QueuePacket(ent, args.Address, payload);
-        _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(args.Actor):user} imposed Law 0 on borg {data.Name} with address {args.Address} (CPU cost: {LawImposeCpuCost})");
+        _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(args.Actor):user} imposed Law 0 on borg {data.Name} with address {args.Address} (CPU cost: {imposeCost})");
     }
 
     private void UpdateUserInterface(Entity<RoboticsConsoleComponent> ent)

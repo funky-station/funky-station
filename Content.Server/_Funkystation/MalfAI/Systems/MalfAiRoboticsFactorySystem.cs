@@ -37,7 +37,7 @@ public sealed partial class MalfAiRoboticsFactorySystem : EntitySystem
         }
 
         // Server determines the prototype - client cannot specify it for security
-        var buildRequest = new AIBuildRequestEvent(uid, args.Target, RoboticsFactoryPrototype);
+        var buildRequest = new AIBuildRequestEvent(uid, args.Target, RoboticsFactoryPrototype.Id);
 
         // Send the build request to the AIBuild system
         RaiseLocalEvent(buildRequest);

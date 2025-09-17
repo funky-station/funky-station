@@ -16,7 +16,8 @@ public sealed class MalfAiProtosExist
     public async Task MalfAiProtoExist(string protoId)
     {
         await using var pair = await PoolManager.GetServerClient();
-        var protoMan = pair.Server.ResolveDependency<IPrototypeManager>();
+        await pair.Client.WaitIdleAsync();
+        var protoMan = pair.Client.ResolveDependency<IPrototypeManager>();
 
         Assert.That(protoMan.HasIndex(protoId), Is.True, $"Missing prototype: {protoId}");
     }

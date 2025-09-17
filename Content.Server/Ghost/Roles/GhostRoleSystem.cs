@@ -40,7 +40,9 @@
 
 using System.Linq;
 using Content.Server.Administration.Logs;
+using Content.Server.Administration.Managers;
 using Content.Server.EUI;
+using Content.Server.GameTicking.Events;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Shared.Ghost.Roles.Raffles;
@@ -72,19 +74,16 @@ using Content.Server.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Collections;
 using Content.Shared.Ghost.Roles.Components;
-using Content.Server.GameTicking;
-using Content.Shared.Preferences;
-using Content.Server.Preferences.Managers;
-using Content.Server.Station.Systems;
-using Content.Server.Spawners.Components;
-using Content.Shared.Bed.Cryostorage;
+using Content.Shared.Roles.Components;
 
 namespace Content.Server.Ghost.Roles;
 
 [UsedImplicitly]
 public sealed class GhostRoleSystem : EntitySystem
 {
+    [Dependency] private readonly IBanManager _ban = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IEntityManager _ent = default!;
     [Dependency] private readonly EuiManager _euiManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
@@ -96,10 +95,6 @@ public sealed class GhostRoleSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly IServerPreferencesManager _prefsManager = default!;
-    [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
 
     private uint _nextRoleIdentifier;
     private bool _needsUpdateGhostRoleCount = true;
@@ -137,9 +132,6 @@ public sealed class GhostRoleSystem : EntitySystem
         SubscribeLocalEvent<GhostRoleMobSpawnerComponent, TakeGhostRoleEvent>(OnSpawnerTakeRole);
         SubscribeLocalEvent<GhostRoleMobSpawnerComponent, GetVerbsEvent<Verb>>(OnVerb);
         SubscribeLocalEvent<GhostRoleMobSpawnerComponent, GhostRoleRadioMessage>(OnGhostRoleRadioMessage);
-
-        SubscribeLocalEvent<SpawnPointComponent, TakeGhostRoleEvent>(OnJobSpawnerTakeRole); // funky - centcomm ghostjobs
-
         _playerManager.PlayerStatusChanged += PlayerStatusChanged;
     }
 
@@ -178,7 +170,7 @@ public sealed class GhostRoleSystem : EntitySystem
     public void OpenEui(ICommonSession session)
     {
         if (session.AttachedEntity is not { Valid: true } attached ||
-            !EntityManager.HasComponent<GhostComponent>(attached))
+            !HasComp<GhostComponent>(attached))
             return;
 
         if (_openUis.ContainsKey(session))
@@ -512,6 +504,23 @@ public sealed class GhostRoleSystem : EntitySystem
         if (!_ghostRoles.TryGetValue(identifier, out var roleEnt))
             return;
 
+        TryPrototypes(roleEnt, out var antags, out var jobs);
+
+        // Check role bans
+        if (_ban.IsRoleBanned(player, antags) || _ban.IsRoleBanned(player, jobs))
+        {
+            Log.Warning($"Server rejected ghost role request '{roleEnt.Comp.RoleName}' for '{player.Name}' - client missed ban?");
+            return;
+        }
+
+        // Check role requirements
+        if (!IsRoleAllowed(player, jobs, antags))
+        {
+            Log.Warning($"Server rejected ghost role request '{roleEnt.Comp.RoleName}' for '{player.Name}' - client missed requirement check?");
+            return;
+        }
+
+        // Decide to do a raffle or not
         if (roleEnt.Comp.RaffleConfig is not null)
         {
             JoinRaffle(player, identifier);
@@ -520,6 +529,78 @@ public sealed class GhostRoleSystem : EntitySystem
         {
             Takeover(player, identifier);
         }
+    }
+
+    /// <summary>
+    /// Collect all role prototypes on the Ghostrole.
+    /// </summary>
+    /// <returns>
+    /// Returns true if at least on role prototype could be found.
+    /// </returns>
+    private bool TryPrototypes(
+        Entity<GhostRoleComponent> roleEnt,
+        out List<ProtoId<AntagPrototype>> antags,
+        out List<ProtoId<JobPrototype>> jobs)
+    {
+        antags = [];
+        jobs = [];
+
+        // If there is a mind already, check its mind roles.
+        // Not sure if this can ever actually happen.
+        if (TryComp<MindContainerComponent>(roleEnt, out var mindCont)
+            && TryComp<MindComponent>(mindCont.Mind, out var mind))
+        {
+            foreach (var role in mind.MindRoleContainer.ContainedEntities)
+            {
+                if(!TryComp<MindRoleComponent>(role, out var comp))
+                    continue;
+
+                if (comp.JobPrototype is not null)
+                    jobs.Add(comp.JobPrototype.Value);
+
+                else if (comp.AntagPrototype is not null)
+                    antags.Add(comp.AntagPrototype.Value);
+            }
+
+            return antags.Count > 0 || jobs.Count > 0;
+        }
+
+        if (roleEnt.Comp.JobProto is not null)
+            jobs.Add(roleEnt.Comp.JobProto.Value);
+
+
+        // If there is no mind, check the mindRole prototypes
+        foreach (var proto in roleEnt.Comp.MindRoles)
+        {
+            if (!_prototype.TryIndex(proto, out var indexed)
+                || !indexed.TryGetComponent<MindRoleComponent>(out var comp, _ent.ComponentFactory))
+                continue;
+            var roleComp = (MindRoleComponent)comp;
+
+            if (roleComp.JobPrototype is not null)
+                jobs.Add(roleComp.JobPrototype.Value);
+            else if (roleComp.AntagPrototype is not null)
+                antags.Add(roleComp.AntagPrototype.Value);
+            else
+                Log.Debug($"Mind role '{proto}' of '{roleEnt.Comp.RoleName}' has neither a job or antag prototype specified");
+        }
+
+        return antags.Count > 0 || jobs.Count > 0;
+    }
+
+    /// <summary>
+    /// Checks if the player passes the requirements for the supplied roles.
+    /// Returns false if any role fails the check.
+    /// </summary>
+    private bool IsRoleAllowed(
+        ICommonSession player,
+        List<ProtoId<JobPrototype>>? jobIds,
+        List<ProtoId<AntagPrototype>>? antagIds)
+    {
+        var ev = new IsRoleAllowedEvent(player, jobIds, antagIds);
+        RaiseLocalEvent(ref ev);
+
+        return !ev.Cancelled;
     }
 
     /// <summary>
@@ -562,8 +643,13 @@ public sealed class GhostRoleSystem : EntitySystem
 
         DebugTools.AssertNotNull(player.ContentData());
 
+        // After taking a ghost role, the player cannot return to the original body, so wipe the player's current mind
+        // unless it is a visiting mind
+        if(_mindSystem.TryGetMind(player.UserId, out _, out var mind) && !mind.IsVisitingEntity)
+            _mindSystem.WipeMind(player);
+
         var newMind = _mindSystem.CreateMind(player.UserId,
-            EntityManager.GetComponent<MetaDataComponent>(mob).EntityName);
+            Comp<MetaDataComponent>(mob).EntityName);
 
         _mindSystem.SetUserId(newMind, player.UserId);
         _mindSystem.TransferTo(newMind, mob);
@@ -619,13 +705,15 @@ public sealed class GhostRoleSystem : EntitySystem
                 ? _timing.CurTime.Add(raffle.Countdown)
                 : TimeSpan.MinValue;
 
+            TryPrototypes((uid, role), out var antags, out var jobs);
+
             roles.Add(new GhostRoleInfo
             {
                 Identifier = id,
                 Name = role.RoleName,
                 Description = role.RoleDescription,
                 Rules = role.RoleRules,
-                Requirements = role.Requirements,
+                RolePrototypes = (jobs, antags),
                 Kind = kind,
                 RafflePlayerCount = rafflePlayerCount,
                 RaffleEndTime = raffleEndTime
@@ -674,18 +762,6 @@ public sealed class GhostRoleSystem : EntitySystem
         if (!ghostRole.ReregisterOnGhost || component.LifeStage > ComponentLifeStage.Running)
             return;
 
-        // handle if it was due to cryostorage and it was a job spawner thingy - if a mind leaves and this component is present it means they ghosted or timed out while in cryo, and cannot re-enter.
-        if (TryComp<CryostorageContainedComponent>(uid, out var _))
-        {
-            if (ghostRole.SpawnerGhostRoleEntity != null && TryComp(ghostRole.SpawnerGhostRoleEntity, out GhostRoleComponent? originalGhostRoleComp) && TryComp(ghostRole.SpawnerGhostRoleEntity, out SpawnPointComponent? originalSpawnPointComp) && originalSpawnPointComp.Respawn)
-            {
-                originalGhostRoleComp.Taken = false;
-                RegisterGhostRole((ghostRole.SpawnerGhostRoleEntity!.Value, originalGhostRoleComp));
-                // return early, do not re-register the component in the now cryostoraged body
-                return;
-            }
-        }
-
         ghostRole.Taken = false;
         RegisterGhostRole((uid, ghostRole));
     }
@@ -721,19 +797,6 @@ public sealed class GhostRoleSystem : EntitySystem
 
     private void OnMapInit(Entity<GhostRoleComponent> ent, ref MapInitEvent args)
     {
-        // Funky - centcomm ghostjobs
-        if (TryComp(ent, out SpawnPointComponent? sp_comp) && sp_comp.SpawnType == SpawnPointType.GhostJob && sp_comp.Job != null)
-        {
-            var jobRequirements = _roleSystem.GetJobRequirement(sp_comp.Job!.Value);
-            if (jobRequirements?.Count > 0)
-            {
-                if (ent.Comp.Requirements == null)
-                    ent.Comp.Requirements = new HashSet<JobRequirement>();
-                ent.Comp.Requirements.UnionWith(jobRequirements);
-            }
-        }
-        // end funky
-
         if (ent.Comp.Probability < 1f && !_random.Prob(ent.Comp.Probability))
             RemCompDeferred<GhostRoleComponent>(ent);
     }
@@ -783,69 +846,6 @@ public sealed class GhostRoleSystem : EntitySystem
 
         if (component.DeleteOnSpawn)
             QueueDel(uid);
-
-        args.TookRole = true;
-    }
-
-    private void OnJobSpawnerTakeRole(EntityUid uid, SpawnPointComponent component, ref TakeGhostRoleEvent args)
-    {
-        // can we actually take the role?
-        if (component.SpawnType != SpawnPointType.GhostJob)
-        {
-            args.TookRole = false;
-            return;
-        }
-
-        if (!TryComp(uid, out GhostRoleComponent? ghostRole) ||
-            !CanTakeGhost(uid, ghostRole))
-        {
-            args.TookRole = false;
-            return;
-        }
-
-        if (_ticker.RunLevel != GameRunLevel.InRound)
-        {
-            args.TookRole = false;
-            return;
-        }
-
-        // actual takover logic
-        // spawn location
-        var xform = Transform(uid);
-        var spawnLoc = xform.Coordinates;
-        var station = _stationSystem.GetOwningStation(uid, xform);
-
-        // its possible to do loadouts for this, but not worth the effort rn
-        // spawn the role
-        var newCharacter = _stationSpawning.SpawnPlayerMob(
-            spawnLoc,
-            component.Job,
-            HumanoidCharacterProfile.Random(),
-            station);
-
-        // create a new ghostRoleComponent in the entity that we just spawned - this way if they ghost, it can be taken again instead of spawning a new one.
-        // if they cryo it will NOT do that... thats something we can work on later.
-        var spawnedGRComp = EnsureComp<GhostRoleComponent>(newCharacter);
-        var spawnedTakoverComp = EnsureComp<GhostTakeoverAvailableComponent>(newCharacter);
-
-        // copy all the values from the original spawner ghostRole component
-        if (ghostRole.Requirements != null)
-        {
-            if (spawnedGRComp.Requirements == null)
-                spawnedGRComp.Requirements = new HashSet<JobRequirement>();
-            spawnedGRComp.Requirements.UnionWith(ghostRole.Requirements);
-        }
-        spawnedGRComp.ReregisterOnGhost = ghostRole.ReregisterOnGhost;
-        spawnedGRComp.MindRoles.AddRange(ghostRole.MindRoles);
-        spawnedGRComp.RoleRules = ghostRole.RoleRules;
-        spawnedGRComp.RoleDescription = ghostRole.RoleDescription;
-        spawnedGRComp.RoleName = ghostRole.RoleName;
-        spawnedGRComp.SpawnerGhostRoleEntity = uid;
-
-        GhostRoleInternalCreateMindAndTransfer(args.Player, spawnedGRComp.Owner, newCharacter, spawnedGRComp);
-
-        UnregisterGhostRole((uid, ghostRole));
-        ghostRole.Taken = true;
 
         args.TookRole = true;
     }
@@ -944,7 +944,7 @@ public sealed class GhostRoleSystem : EntitySystem
 
     public void OnGhostRoleRadioMessage(Entity<GhostRoleMobSpawnerComponent> entity, ref GhostRoleRadioMessage args)
     {
-        if (!_prototype.TryIndex(args.ProtoId, out var ghostRoleProto))
+        if (!_prototype.Resolve(args.ProtoId, out var ghostRoleProto))
             return;
 
         // if the prototype chosen isn't actually part of the selectable options, ignore it

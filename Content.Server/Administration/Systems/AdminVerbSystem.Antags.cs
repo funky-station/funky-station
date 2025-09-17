@@ -38,7 +38,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Server._DV.CosmicCult.Components; // DeltaV
+using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Administration.Commands;
 using Content.Server.Antag;
 using Content.Server.GameTicking;
@@ -278,6 +278,21 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-cultist")
         };
         args.Verbs.Add(cultAntag);
+
+        // Funkystation - Malfunctioning AI
+        Verb malfAi = new()
+        {
+            Text = "Malfunctioning AI",
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "StationAi"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<MalfAiRuleComponent>(targetPlayer, "MalfAi");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-malfai")
+        };
+        args.Verbs.Add(malfAi);
 
         var paradoxCloneName = Loc.GetString("admin-verb-text-make-paradox-clone");
         Verb paradox = new()

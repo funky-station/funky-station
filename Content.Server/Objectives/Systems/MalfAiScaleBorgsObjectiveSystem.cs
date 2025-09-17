@@ -7,8 +7,6 @@ using Content.Shared.MalfAI;
 using Content.Shared.Mind.Components;
 using Content.Shared.Objectives.Components;
 using Robust.Server.Player;
-using Robust.Shared.Player;
-using Robust.Shared.Localization;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -38,7 +36,7 @@ public sealed class MalfAiScaleBorgsObjectiveSystem : EntitySystem
 
         component.Target = targetBorgs;
 
-        Sawmill.Info($"[MalfAiScaleBorgsObjectiveSystem] OnAfterAssign: Set Target to {component.Target} for entity {uid} (playerCount={playerCount})");
+        TryLogInfo($"[MalfAiScaleBorgsObjectiveSystem] OnAfterAssign: Set Target to {component.Target} for entity {uid} (playerCount={playerCount})");
 
         // Update the objective name to include the number of borgs
         var name = Loc.GetString("malfai-objective-control-borgs", ("count", targetBorgs));
@@ -61,7 +59,7 @@ public sealed class MalfAiScaleBorgsObjectiveSystem : EntitySystem
         component.Target = targetBorgs;
 
         // Debug log to confirm Target is set
-        Sawmill.Info($"[MalfAiScaleBorgsObjectiveSystem] {eventName}: Set Target to {component.Target} for entity {uid} (playerCount={playerCount})");
+        TryLogInfo($"[MalfAiScaleBorgsObjectiveSystem] {eventName}: Set Target to {component.Target} for entity {uid} (playerCount={playerCount})");
 
         // Update the objective name to include the number of borgs
         var name = Loc.GetString("malfai-objective-control-borgs", ("count", targetBorgs));
@@ -79,7 +77,7 @@ public sealed class MalfAiScaleBorgsObjectiveSystem : EntitySystem
         // Fallback: If Target is not set, set it to MinBorgs
         if (component.Target <= 0)
         {
-            Sawmill.Warning($"[MalfAiScaleBorgsObjectiveSystem] OnGetProgress: Target was {component.Target}, resetting to MinBorgs {component.MinBorgs} for entity {uid}");
+            TryLogWarning($"[MalfAiScaleBorgsObjectiveSystem] OnGetProgress: Target was {component.Target}, resetting to MinBorgs {component.MinBorgs} for entity {uid}");
             component.Target = component.MinBorgs;
         }
 
@@ -103,6 +101,21 @@ public sealed class MalfAiScaleBorgsObjectiveSystem : EntitySystem
         args.Progress = component.Target > 0 ? Math.Min(1.0f, (float)controlledCount / component.Target) : 1.0f;
 
         // Debug log to confirm progress calculation
-        Sawmill.Info($"[MalfAiScaleBorgsObjectiveSystem] OnGetProgress: controlledCount={controlledCount}, Target={component.Target}, Progress={args.Progress} for entity {uid}");
+        TryLogInfo($"[MalfAiScaleBorgsObjectiveSystem] OnGetProgress: controlledCount={controlledCount}, Target={component.Target}, Progress={args.Progress} for entity {uid}");
+    }
+
+    // Helper logging methods to avoid test-context exceptions during component construction.
+    private static void TryLogInfo(string message)
+    {
+        try { Sawmill.Info(message); }
+        catch (System.InvalidOperationException) { }
+        catch { }
+    }
+
+    private static void TryLogWarning(string message)
+    {
+        try { Sawmill.Warning(message); }
+        catch (System.InvalidOperationException) { }
+        catch { }
     }
 }

@@ -89,7 +89,7 @@
       briefing:
         text: roles-antag-malfunctioning-ai-briefing
         color: Red
-        sound: "/Audio/Ambience/Antag/silicon_lawboard_antimov.ogg"
+        sound: "/Audio/_Funkystation/Ambience/Antag/malfai_start.ogg"
       components:
       - type: MalfAiMarker
       mindRoles:

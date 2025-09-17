@@ -23,7 +23,6 @@ public sealed class MalfAiScaleBorgsObjectiveSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<MalfAiScaleBorgsObjectiveComponent, ObjectiveGetProgressEvent>(OnGetProgress);
-        SubscribeLocalEvent<MalfAiScaleBorgsObjectiveComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<MalfAiScaleBorgsObjectiveComponent, ObjectiveAfterAssignEvent>(OnAfterAssign);
     }
 
@@ -44,10 +43,6 @@ public sealed class MalfAiScaleBorgsObjectiveSystem : EntitySystem
         // Initialize target/name right when the objective is assigned so the UI shows the correct target immediately.
     }
 
-    private void OnStartup(EntityUid uid, MalfAiScaleBorgsObjectiveComponent component, ComponentStartup args)
-    {
-        CalculateAndSetTarget(uid, component, "OnStartup");
-    }
 
     private void CalculateAndSetTarget(EntityUid uid, MalfAiScaleBorgsObjectiveComponent component, string eventName)
     {
@@ -74,11 +69,11 @@ public sealed class MalfAiScaleBorgsObjectiveSystem : EntitySystem
             return;
         }
 
-        // Fallback: If Target is not set, set it to MinBorgs
+        // Determine effective target for this calculation without mutating the component
+        var effectiveTarget = component.Target > 0 ? component.Target : component.MinBorgs;
         if (component.Target <= 0)
         {
-            TryLogWarning($"[MalfAiScaleBorgsObjectiveSystem] OnGetProgress: Target was {component.Target}, resetting to MinBorgs {component.MinBorgs} for entity {uid}");
-            component.Target = component.MinBorgs;
+            TryLogWarning($"[MalfAiScaleBorgsObjectiveSystem] OnGetProgress: Target was {component.Target}, using MinBorgs {component.MinBorgs} for entity {uid}");
         }
 
         // Count cyborgs controlled by this AI mind
@@ -98,10 +93,10 @@ public sealed class MalfAiScaleBorgsObjectiveSystem : EntitySystem
         }
 
         // Calculate progress as controlled borgs / target borgs
-        args.Progress = component.Target > 0 ? Math.Min(1.0f, (float)controlledCount / component.Target) : 1.0f;
+        args.Progress = effectiveTarget > 0 ? Math.Min(1.0f, (float)controlledCount / effectiveTarget) : 1.0f;
 
         // Debug log to confirm progress calculation
-        TryLogInfo($"[MalfAiScaleBorgsObjectiveSystem] OnGetProgress: controlledCount={controlledCount}, Target={component.Target}, Progress={args.Progress} for entity {uid}");
+        TryLogInfo($"[MalfAiScaleBorgsObjectiveSystem] OnGetProgress: controlledCount={controlledCount}, Target={effectiveTarget}, Progress={args.Progress} for entity {uid}");
     }
 
     // Helper logging methods to avoid test-context exceptions during component construction.

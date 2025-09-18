@@ -4584,3 +4584,12 @@ Entries:
       message: Removed the RD's binary key from their locker.
   id: 550
   time: '2025-09-17T20:25:38.0000000+00:00'
+- author: hivehum, Ecramox, ported by amethystowo
+  changes:
+    - type: Add
+      message: >-
+        Ported hops from Impstation! They can be juiced for beer, and can be
+        mutated into the HoPfruit, which can be further mutated into Agent
+        Grain!
+  id: 551
+  time: '2025-09-18T01:26:08.0000000+00:00'

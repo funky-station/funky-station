@@ -9,17 +9,18 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Gingerbread
+  # Galleta de Jengibre
 
   <Box>
     <GuideEntityEmbed Entity="MobGingerbread" Caption=""/>
   </Box>
 
-  Gingerbreads are a species of sentient confectionary. They have sugar for blood, and can be butchered for cookies.
+  Los panes de jengibre son una especie de confitería consciente.
+  Tienen azúcar por sangre y pueden ser sacrificados para obtener galletas.
 
-  ## Damage stats
+  ## Estadísticas de daño
 
-  Gingerbreads take 3x less heat damage than Humans, but take a lot of damage from being exposed to water externally.
-  They take 3x more damage from being exposed to water externally than Slimes.
+  Los panes de jengibre reciben 3 veces menos daño por calor que los humanos, pero reciben mucho daño al estar expuestos al agua externamente.
+  Reciben 3 veces más daño por exposición al agua que los Slimes.
 
 </Document>

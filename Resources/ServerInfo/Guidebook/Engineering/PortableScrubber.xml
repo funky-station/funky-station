@@ -7,23 +7,22 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Portable Scrubber
-  The portable scrubber is a portable machine that can be used to scrub the atmosphere in a room.
+  # Limpiador Portátil
+  El limpiador portátil es una máquina transportable que se puede usar para limpiar la atmósfera de una habitación.
   <Box>
     <GuideEntityEmbed Entity="PortableScrubber"/>
   </Box>
 
-  It is invaluable for quickly removing unwanted gasses from a room when regular [textlink="scrubbers" link="AirScrubber"] are working too slow, or when a [textlink="scrubber" link="AirScrubber"] is not present.
+  Es invaluable para eliminar rápidamente gases no deseados de una sala cuando los [textlink="scrubbers" link="AirScrubber"] regulares son demasiado lentos o cuando no hay ningún [textlink="scrubber" link="AirScrubber"] disponible.
 
-  The portable scrubber requires [textlink="power" link="Power"] through a nearby [textlink="LV cable" link="VoltageNetworks"] to function.
+  El limpiador portátil requiere [textlink="power" link="Power"] a través de un [textlink="LV cable" link="VoltageNetworks"] cercano para funcionar.
 
-  The portable scrubber automatically starts removing all non-breathable gasses from the room when it is bolted (wrenched) to the floor.
+  El limpiador portátil comienza automáticamente a eliminar todos los gases no respirables de la habitación cuando está fijado (con llave) al piso.
 
-  It will stop scrubbing when unbolted (unwrenched) from the floor or when its internal volume is full. The scrubber has an internal capacity of [color=orange][protodata="PortableScrubber" comp="PortableScrubber" member="Volume"/] liters[/color].
+  Dejará de limpiar cuando se desmonte (desatornille) del piso o cuando su volumen interno esté lleno. El limpiador tiene una capacidad interna de [color=orange][protodata="PortableScrubber" comp="PortableScrubber" member="Volume"/] litros[/color].
 
-  ## Dumping Waste and Storage
-  The scrubber's internal volume can be emptied by anchoring (wrenching) onto a [textlink="connector" link="GasCanisters"].
+  ## Vaciar Residuos y Almacenamiento
+  El volumen interno del limpiador se puede vaciar fijándolo (con llave) a un [textlink="connector" link="GasCanisters"].
 
-  Stations commonly have a dedicated emptying point to quickly transfer the waste from the scrubber to the station's wastenet.
-
+  Las estaciones comúnmente tienen un punto de vaciado dedicado para transferir rápidamente los residuos del limpiador a la red de desechos de la estación.
 </Document>

@@ -9,26 +9,26 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Artifact Reports
-  A large portion of Xenoarchaeology gameplay revolves around the interpretation of artifact reports, which are created at the [color=#a4885c]analysis console[/color] after an artifact is scanned. Reports contain the following information:
+  # Informes de Artefactos
+  Una gran parte de la jugabilidad de la Xenoarqueología gira en torno a la interpretación de los informes de artefactos, que se crean en la [color=#a4885c]consola de análisis[/color] después de que un artefacto haya sido escaneado. Los informes contienen la siguiente información:
 
-  - [color=#a4885c]Node ID:[/color] a unique numeric ID corresponding to this artifact's node. Useful in conjunction with a [color=#a4885c]node scanner[/color] for quickly identifying recurring nodes.
+  - [color=#a4885c]ID del Nodo:[/color] un ID numérico único correspondiente al nodo de este artefacto. Es útil en conjunto con un [color=#a4885c]escáner de nodos[/color] para identificar rápidamente nodos recurrentes.
 
-  - [color=#a4885c]Depth:[/color] a distance from the starting node (depth 0). This is a good shorthand for the value and danger of a node.
+  - [color=#a4885c]Profundidad:[/color] una distancia desde el nodo inicial (profundidad 0). Este es un buen atajo para determinar el valor y el peligro de un nodo.
 
-  - [color=#a4885c]Activation status:[/color] whether or not a node has been activated in the past.
+  - [color=#a4885c]Estado de activación:[/color] si un nodo ha sido activado en el pasado o no.
 
-  - [color=#a4885c]Stimulus:[/color] the stimulus for that particular node.
+  - [color=#a4885c]Estímulo:[/color] el estímulo para ese nodo en particular.
 
-  - [color=#a4885c]Reaction:[/color] the reaction the stimulus induces. This is often vague, so caution is advised.
+  - [color=#a4885c]Reacción:[/color] la reacción que induce el estímulo. Esto suele ser vago, por lo que se recomienda precaución.
 
-  - [color=#a4885c]Edges:[/color] the amount of nodes that are connected to the current node. Using this, you can calculate the total number of nodes as well as organize a map of their connections.
+  - [color=#a4885c]Conexiones:[/color] la cantidad de nodos que están conectados al nodo actual. Usando esto, puedes calcular el número total de nodos y organizar un mapa de sus conexiones.
 
-  - [color=#a4885c]Unextracted value:[/color] the amount of research points an artifact will give when extracted. Extracting sets this to zero and traversing new nodes increases it.
+  - [color=#a4885c]Valor no extraído:[/color] la cantidad de puntos de investigación que un artefacto dará al ser extraído. Extraerlo pone este valor a cero, y recorrer nuevos nodos lo incrementa.
 
-  Reports are a helpful tool in manipulating an artifact, especially in the later stages where you are traversing nodes that have already been activated.
+  Los informes son una herramienta útil para manipular un artefacto, especialmente en las etapas más avanzadas, donde estás recorriendo nodos que ya han sido activados.
   <Box>
   <GuideEntityEmbed Entity="PaperArtifactAnalyzer"/>
   </Box>
-  To help with this process, consider printing out reports, writing down details uncovered during activation, or storing them in a folder nearby.
+  Para ayudar con este proceso, considera imprimir los informes, escribir los detalles descubiertos durante la activación o almacenarlos en una carpeta cercana.
 </Document>

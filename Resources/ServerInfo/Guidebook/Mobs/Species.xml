@@ -15,30 +15,30 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Species
+  # Especies
 
-  Nanotrasen employs a variety of sapient species.
+  Nanotrasen emplea una variedad de especies sapientes.
 
   <Box>
-  <GuideEntityEmbed Entity="MobArachnid" Caption="Arachnid"/>
-  <GuideEntityEmbed Entity="MobDiona" Caption="Diona"/>
-  <GuideEntityEmbed Entity="MobDwarf" Caption="Dwarf"/>
-  <GuideEntityEmbed Entity="MobFelinid" Caption="Felinid"/>
-  <GuideEntityEmbed Entity="MobGingerbread" Caption="Gingerbread"/>
+    <GuideEntityEmbed Entity="MobArachnid" Caption="Arácnido"/>
+    <GuideEntityEmbed Entity="MobDiona" Caption="Diona"/>
+    <GuideEntityEmbed Entity="MobDwarf" Caption="Enano"/>
+    <GuideEntityEmbed Entity="MobFelinid" Caption="Felinid"/>
+    <GuideEntityEmbed Entity="MobGingerbread" Caption="Gingerbread"/>
   </Box>
   <Box>
-  <GuideEntityEmbed Entity="MobHarpy" Caption="Harpy"/>
-  <GuideEntityEmbed Entity="MobHuman" Caption="Human"/>
-  <GuideEntityEmbed Entity="MobMoth" Caption="Moth Person"/>
-  <GuideEntityEmbed Entity="MobReptilian" Caption="Reptilian"/>
-  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Slime Person"/>
-  <GuideEntityEmbed Entity="MobVox" Caption="Vox"/>
+    <GuideEntityEmbed Entity="MobHarpy" Caption="Harpía"/>
+    <GuideEntityEmbed Entity="MobHuman" Caption="Humano"/>
+    <GuideEntityEmbed Entity="MobMoth" Caption="Persona Polilla"/>
+    <GuideEntityEmbed Entity="MobReptilian" Caption="Reptiliano"/>
+    <GuideEntityEmbed Entity="MobSlimePerson" Caption="Persona Slime"/>
+    <GuideEntityEmbed Entity="MobVox" Caption="Vox"/>
   </Box>
   <Box>
-  <GuideEntityEmbed Entity="MobVulpkanin" Caption="Vulpkanin"/>
-  <GuideEntityEmbed Entity="MobRodentia" Caption="Rodentia"/>
-  <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C."/>
-  <GuideEntityEmbed Entity="MobThaven" Caption="Thaven"/>
+    <GuideEntityEmbed Entity="MobVulpkanin" Caption="Vulpkanin"/>
+    <GuideEntityEmbed Entity="MobRodentia" Caption="Rodentia"/>
+    <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C."/>
+    <GuideEntityEmbed Entity="MobThaven" Caption="Thaven"/>
   </Box>
 
 </Document>

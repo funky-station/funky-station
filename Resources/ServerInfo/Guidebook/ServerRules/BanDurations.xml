@@ -1,26 +1,27 @@
 <!--
 SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-SPDX-FileCopyrightText: 2024 DevilishMilk <bluscout78@yahoo.com>
 SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2025 Huhm-1 <cameronhillard40@gmail.com>
+SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 
 SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Ban Durations
+  # Duración de los Baneos
 
-  Bans can be appealed on the Funky Station Discord, by creating a ticket.
+  Los baneos pueden ser apelados en el Discord, creando un ticket.
   
-  ## Temporary
-  Temporary bans will be lifted automatically after a certain amount of time. If they are a game ban, they will tell you how much time is remaining when you try to connect.
+  ## Temporal
+  Los baneos temporales se levantarán automáticamente después de un cierto tiempo. Si es un baneo del juego, te dirán cuánto tiempo queda cuando intentes conectarte.
 
-  ## Indefinite
-  These bans will only be removed on a successful appeal. Any ban which doesn't tell you when it expires and doesn't specify otherwise can be presumed to be an indefinite ban.
+  ## Indefinido
+  Estos baneos solo se eliminarán si la apelación es exitosa. Cualquier baneo que no te indique cuándo expira y no especifique lo contrario puede considerarse un baneo indefinido.
 
   ## Voucher
-  This is an indefinite ban which may only be appealed both with a successful appeal and which require a voucher of good behavior from the administrative team of a well-known or at least decently active SS13/SS14 server in order for the appeal to be considered. Voucher bans typically cannot be appealed for at least six months after being issued. Without a voucher, a player can only attempt to appeal a voucher ban once, and only if the ban was inappropriately placed. Voucher bans are typically only placed as a result of an unsuccessful appeal of an indefinite game ban by players with a history of bans and of causing issues.
+  Este es un baneo indefinido que solo puede ser apelado con una apelación exitosa y que requiere un voucher de buen comportamiento del equipo administrativo de un servidor SS13/SS14 conocido o al menos medianamente activo para que la apelación sea considerada. Los baneos con voucher generalmente no pueden ser apelados hasta al menos seis meses después de ser emitidos. Sin un voucher, un jugador solo podrá intentar apelar un baneo con voucher una vez, y solo si el baneo fue colocado de manera inapropiada. Los baneos con voucher suelen ser impuestos como resultado de una apelación fallida de un baneo indefinido por jugadores con un historial de baneos y de causar problemas.
 
-  ## Permanent
-  This is a ban that is only appealable if the ban was inappropriately placed, including if the ban should not have been permanent. If the result of the appeal is that the ban was appropriately placed, the ban may not be appealed again and will not be lifted. These bans are extremely rare, but are applied to players who continually cause problems even after a voucher ban or users who have completely unacceptable behavior may be permanently removed.
+  ## Permanente
+  Este es un baneo que solo es apelable si el baneo fue colocado de manera inapropiada, incluyendo si el baneo no debería haber sido permanente. Si el resultado de la apelación es que el baneo fue apropiadamente colocado, el baneo no podrá ser apelado nuevamente y no será levantado. Estos baneos son extremadamente raros, pero se aplican a jugadores que causan problemas de manera continua incluso después de un baneo con voucher o a usuarios que tienen un comportamiento completamente inaceptable y pueden ser eliminados permanentemente.
 </Document>

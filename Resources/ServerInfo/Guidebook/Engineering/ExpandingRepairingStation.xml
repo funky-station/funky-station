@@ -7,27 +7,27 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Expanding and Repairing Stations
-  In Space Station 14, it is common for players to want to expand the station, or repair holes left by meteors or other damage.
+  # Expandiendo y Reparando Estaciones
+  En Space Station 14, es común que los jugadores quieran expandir la estación o reparar agujeros causados por meteoritos u otros daños.
 
-  ## Lattice
-  Lattice is bare rodwork placed in empty space. It's used as a foundation for building and anchoring objects onto the station.
+  ## Enrejado (Lattice)
+  El enrejado son varillas metálicas colocadas en el espacio vacío. Se usa como base para construir y anclar objetos a la estación.
 
   <Box>
     <GuideEntityEmbed Entity="SheetSteel" Caption=""/>
     <GuideEntityEmbed Entity="PartRodMetal" Caption=""/>
   </Box>
 
-  You can create lattice by placing rods on empty space using [color=yellow][bold][keybind="Use"][/bold][/color]. Remember you can craft steel sheets into rods using the construction menu.
+  Puedes crear enrejado colocando varillas en el espacio vacío usando [color=yellow][bold][keybind="Use"][/bold][/color]. Recuerda que puedes fabricar láminas de acero en varillas usando el menú de construcción.
 
-  Lattice cannot hold pressure, and all gasses will leak out into space through it.
+  El enrejado no puede mantener presión, y todos los gases se escaparán al espacio a través de él.
 
-  You can use wirecutters to remove lattice by using [color=yellow][bold][keybind="Use"][/bold][/color] on them.
+  Puedes usar cortaalambres para quitar el enrejado usando [color=yellow][bold][keybind="Use"][/bold][/color] sobre él.
 
-  If the game is preventing you from placing lattice, it's because there is another separated grid too close to the grid you're trying to expand. You can use a wirecutter to remove the offending grid.
+  Si el juego no te deja colocar enrejado, es porque hay otra cuadrícula separada demasiado cerca de la que intentas expandir. Puedes usar el cortaalambres para quitar la cuadrícula que estorba.
 
-  ## Hull Tiles
-  Hull tiles are solid foundation for the station, where all the other parts of the station rest upon.
+  ## Losas del Casco (Hull Tiles)
+  Las losas del casco son una base sólida para la estación, sobre la cual descansan todas las demás partes de esta.
 
   <Box>
     <GuideEntityEmbed Entity="SheetSteel" Caption=""/>
@@ -36,12 +36,10 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="FloorTileItemWhite" Caption=""/>
   </Box>
 
-  Lattice can be made into hull tiles by using either steel or almost any type of floor tile on them by pressing [color=yellow][bold][keybind="Use"][/bold][/color].
-  This will convert the lattice into a hull tile, which can hold pressure and gasses.
+  El enrejado puede convertirse en losas del casco usando ya sea acero o casi cualquier tipo de losa de piso sobre él presionando [color=yellow][bold][keybind="Use"][/bold][/color].
+  Esto convertirá el enrejado en una losa del casco, la cual puede mantener presión y gases.
 
-  It is advised to use floor tiles to replace lattice instead of steel sheets, as you can craft 4 floor tiles from a single steel sheet.
+  Se recomienda usar losas de piso para reemplazar el enrejado en lugar de láminas de acero, ya que puedes fabricar 4 losas de piso a partir de una sola lámina de acero.
 
-  You can use an RCD to deconstruct hull tiles into lattice.
-
-
+  Puedes usar un RCD para deconstruir losas del casco y convertirlas nuevamente en enrejado.
 </Document>

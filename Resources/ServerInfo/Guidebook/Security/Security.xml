@@ -13,41 +13,41 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-# Security
-Ensuring the safety of both station and crew is number one for [color=#cb0000]Security[/color]. They are ready for any situation, and [color=#cb0000]Security[/color] are on hand to maintain order and control crowds.
+# Seguridad
+Garantizar la seguridad tanto de la estación como de la tripulación es la prioridad número uno para [color=#cb0000]Seguridad[/color]. Están listos para cualquier situación, y [color=#cb0000]Seguridad[/color] está presente para mantener el orden y controlar multitudes.
 
-They face [textlink="Syndicate Agents" link="Traitors"], [textlink="Nuclear Operatives" link="NuclearOperatives"], [textlink="Zombies" link="Zombies"] and unruly staff.
+Se enfrentan a [textlink="Agentes del Sindicato" link="Traitors"], [textlink="Operativos Nucleares" link="NuclearOperatives"], [textlink="Zombis" link="Zombies"] y personal indisciplinado.
 
-## Personnel
-[color=#cb0000]Security[/color]'s staff is made up of Security Cadets, Security Officers, and the Detective. [color=#cb0000]Security[/color] is run by the Warden and Head of Security.
+## Personal
+El personal de [color=#cb0000]Seguridad[/color] está compuesto por Cadetes de Seguridad, Oficiales de Seguridad y el Detective. [color=#cb0000]Seguridad[/color] está a cargo del Alcaide y el Jefe de Seguridad.
 
   <Box>
     <GuideEntityEmbed Entity="ToyFigurineSecurity" Caption="Secoff"/>
     <GuideEntityEmbed Entity="ToyFigurineDetective" Caption="Detective"/>
-    <GuideEntityEmbed Entity="ToyFigurineWarden" Caption="Warden"/>
-    <GuideEntityEmbed Entity="ToyFigurineHeadOfSecurity" Caption="HoS"/>
+    <GuideEntityEmbed Entity="ToyFigurineWarden" Caption="Alcaide"/>
+    <GuideEntityEmbed Entity="ToyFigurineHeadOfSecurity" Caption="JdS"/>
   </Box>
 
-## Gear
-First we have non-lethals a step above simply telling someone to cooperate with instructions. Both the stunbaton and disabler are capable of limiting the movement of an assailant, whereas handcuffs can be applied to deny a criminal free movement and access to their hands. Cuffs will also shove the person down if your [color=red]harm mode[/color] is active during uncuff.
+## Equipamiento
+Primero tenemos herramientas no letales, un paso más allá que simplemente decirle a alguien que coopere con las instrucciones. Tanto el bastón de aturdimiento como el desactivador son capaces de limitar el movimiento de un agresor, mientras que las esposas se pueden aplicar para negar el movimiento libre a un criminal y el acceso a sus manos. Las esposas también tiran a la persona al suelo si tu [color=red]modo de daño[/color] está activo al desesposar.
   <Box>
     <GuideEntityEmbed Entity="Stunbaton"/>
     <GuideEntityEmbed Entity="Handcuffs"/>
    <GuideEntityEmbed Entity="WeaponDisabler"/>
   </Box>
 
-## Flashes
-[color=#a4885c]Flashes[/color] are an effective tool for dispersing crowds and apprehending particularly evasive targets, with a large area of effect blinding all those without protection.
-It is worth noting that flashes can be both used in a large area ([color=yellow]Z[/color] hotkey) and if you attack somebody with it while [color=red]harm mode[/color] is active. Important to note that localized flashes last [color=yellow]2.5[/color] times as long as large area ones.
-[color=#cb0000]Security[/color] and [color=#a4885c]some[/color] other members of staff have eye protection from flashbangs and flashes.
+## Destellos
+[color=#a4885c]Destellos[/color] son una herramienta efectiva para dispersar multitudes y capturar objetivos particularmente evasivos, con un área de efecto grande que ciega a todos los que no tengan protección.
+Vale la pena señalar que los destellos se pueden usar tanto en un área grande ([color=yellow]tecla Z[/color]) como si atacas a alguien con él mientras el [color=red]modo de daño[/color] está activo. Es importante destacar que los destellos localizados duran [color=yellow]2.5[/color] veces más que los de área grande.
+[color=#cb0000]Seguridad[/color] y [color=#a4885c]algunos[/color] otros miembros del personal tienen protección ocular contra destellos y granadas de destello.
   <Box>
     <GuideEntityEmbed Entity="Flash"/>
     <GuideEntityEmbed Entity="ClothingEyesGlassesSecurity"/>
     <GuideEntityEmbed Entity="GrenadeFlashBang"/>
   </Box>
 
-## Lethals
-Should the situation dictate, [color=#cb0000]Security[/color] have access to laser rifles, shotguns, handguns and automatic rifles able to put down substancial fire against any who would stand against the station.
+## Letales
+Si la situación lo requiere, [color=#cb0000]Seguridad[/color] tiene acceso a rifles láser, escopetas, pistolas y rifles automáticos capaces de generar un fuego sustancial contra cualquiera que se oponga a la estación.
   <Box>
     <GuideEntityEmbed Entity="WeaponLaserCarbine"/>
     <GuideEntityEmbed Entity="WeaponShotgunKammerer"/>
@@ -55,6 +55,6 @@ Should the situation dictate, [color=#cb0000]Security[/color] have access to las
     <GuideEntityEmbed Entity="WeaponRifleLecter"/>
   </Box>
 
-  ## Miscellaneous
-  Security Officers should not patrol maintenance tunnels on Green, especially alone. Security Officers should be concerned with keeping the peace in the station.
+  ## Varios
+  Los Oficiales de Seguridad no deben patrullar los túneles de mantenimiento en verde, especialmente si están solos. Los Oficiales de Seguridad deben centrarse en mantener la paz dentro de la estación.
 </Document>

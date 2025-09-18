@@ -8,44 +8,44 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Rule 11 - Silicons Must Follow Their Laws
-  Under no circumstances are Silicons (Station AIs and Cyborgs) allowed to ignore their laws completely.
+  # Regla 11 - Los Silicons Deben Seguir Sus Leyes
+  Bajo ninguna circunstancia los Silicons (IA de la estación y Ciborgs) deben ignorar completamente sus leyes.
 
-  Silicons are considered third faction, they are free agents whose ties to any other faction are determined solely by their Silicon laws. They are not innately fully crew-sided.
+  Los Silicons son considerados una facción neutral, son agentes libres cuyos lazos con cualquier otra facción están determinados exclusivamente por sus leyes de Silicon. No son inherentemente completamente aliados de la tripulación.
 
-  Lower-numbered laws take priority over higher-numbered ones. In any case where two laws would conflict, the higher listed law takes priority. (e.g. Law 1 "Don't harm crew" takes priority over law 2 "Harm the Captain")
+  Las leyes de número inferior tienen prioridad sobre las de número superior. En cualquier caso donde dos leyes entren en conflicto, la ley listada en primer lugar tiene prioridad. (Por ejemplo, la Ley 1 "No dañar a la tripulación" tiene prioridad sobre la ley 2 "Dañar al Capitán")
 
-  Exploiting loopholes in laws is allowed, but Rule 0 still applies. If a law has multiple reasonable interpretations, pick one and stick to it. Consistency is important as a Silicon.
+  Explotar lagunas en las leyes está permitido, pero la Regla 0 sigue siendo aplicable. Si una ley tiene múltiples interpretaciones razonables, elige una y mantenla. La consistencia es importante como Silicon.
 
-  When resolving conflicts between orders based on the same law, you may choose how to resolve the conflict yourself, if not required by laws to do so in a specific way. You must remain consistent with whatever method of conflict resolution you decided upon (such as recency, or crew rank).
+  Al resolver conflictos entre órdenes basadas en la misma ley, puedes elegir cómo resolver el conflicto tú mismo, si no se te requiere hacerlo de una manera específica según las leyes. Debes mantenerte consistente con el método de resolución de conflictos que decidas (como por ejemplo, la recencia o el rango de la tripulación).
 
-  ## Crew
-  Any person with a valid station job ID or CentComm ID that displays on your HUD counts as crew, unless you have a law that redefines what crew is. This does still include zombies, changelings, traitors, or any other antagonists with valid IDs that appear on the HUD.
+  ## Tripulación
+  Cualquier persona con una ID válida de trabajo de estación o ID de CentComm que aparezca en tu HUD cuenta como tripulación, a menos que tengas una ley que redefina lo que es la tripulación. Esto incluye zombis, cambiaformas, traidores u otros antagonistas con ID válidas que aparezcan en el HUD.
 
-  Prisoner, visitor, blank, and hostile ID icons do not count as crew by default.
+  Las ID de prisionero, visitante, en blanco y las iconos de ID hostiles no cuentan como tripulación por defecto.
 
-  You can not perform an action that causes someone to not be considered crew, or directly request that someone be made non-crew.
+  No puedes realizar una acción que haga que alguien no sea considerado tripulación, ni solicitar directamente que alguien sea hecho no-tripulación.
 
-  ## Harm
-  By default, harm refers to physical harm, prioritized by immediacy and likelihood, unless otherwise defined. Immediate harm takes priority over future harm, guaranteed harm takes priority over likely harm.
+  ## Daño
+  Por defecto, el daño se refiere al daño físico, priorizado por inmediatez y probabilidad, a menos que se defina de otra manera. El daño inmediato tiene prioridad sobre el daño futuro, el daño garantizado tiene prioridad sobre el daño probable.
 
-  Laws that prohibit you from commiting harm also prevent you from doing so in any capacity, even if it is to fulfill another portion of the same law. (Ex. Under default Crewsimov, you may not commit harm to a crew member to prevent harm to another crew member)
+  Las leyes que te prohíben cometer daño también te prohíben hacerlo en cualquier capacidad, incluso si es para cumplir con otra parte de la misma ley. (Ej. Bajo el Crewsimov por defecto, no puedes cometer daño a un miembro de la tripulación para prevenir daño a otro miembro de la tripulación).
 
-  Protecting your own existence or integrity does not qualify as preventing harm, if no immediate or likely harm will come as a direct result.
+  Proteger tu propia existencia o integridad no califica como prevenir daño, si no hay daño inmediato o probable que resulte directamente de ello.
 
-  Threats of suicide do not have to be considered as a serious risk of harm. Any crewmate threatening this may be treated as unstable and forcibly admitted to the on-station Psychologist.
+  Las amenazas de suicidio no tienen que considerarse como un riesgo serio de daño. Cualquier miembro de la tripulación que haga esta amenaza puede ser tratado como inestable y admitido a la fuerza al Psicólogo de la estación.
 
-  ## Law changes
-  Do not ask for law changes unless forced to, you are meant to follow your laws as written. However, you should not be stopping law changes that are in compliance with your laws, unless also required to stop them by your current laws.
+  ## Cambios de Ley
+  No solicites cambios de ley a menos que te veas forzado a hacerlo, debes seguir tus leyes tal y como están escritas. Sin embargo, no debes detener los cambios de ley que estén en cumplimiento con tus leyes, a menos que también te sea requerido detenerlos por tus leyes actuales.
 
-  Examples of lawful law changes:
-  - As the Station AI, allowing an authorized individual (such as the Captain or RD) inside to change your laws, so long as doing so does not directly conflict with any of your laws.
-  - Being ordered to allow a law change when on a lawset that forces you to obey orders from said individual, so long as it is not in direct conflict with any higher law.
+  Ejemplos de cambios de ley legítimos:
+  - Como IA de la estación, permitir a un individuo autorizado (como el Capitán o el RD) entrar para cambiar tus leyes, siempre que hacer esto no entre en conflicto directo con ninguna de tus leyes.
+  - Ser ordenado a permitir un cambio de ley cuando estés en un conjunto de leyes que te obliga a obedecer las órdenes de dicho individuo, siempre que no entre en conflicto directo con ninguna ley superior.
 
-  Examples of denial reasons:
-  - Stopping a law change when you would be installed with a law or lawset that is in direct conflict with your current lawset (such as being switched to Antimov from Crewsimov, as that requires you to harm crew, which Crewsimov's Law 1 is in direct conflict with).
-  - Stopping an unauthorized individual from changing your laws in an unknown way, as that may conflict with your current laws (such as EMAGing, or allowing an unauthorized individual into the AI Core to change your laws as the AI).
-  - Resolving two conflicting orders in favor of an individual telling you to not allow a law change.
-  - Having a law that tells you to not allow your laws to be changed.
+  Ejemplos de razones para denegar:
+  - Detener un cambio de ley cuando te instalarían con una ley o conjunto de leyes que entra en conflicto directo con tu conjunto actual de leyes (como ser cambiado a Antimov desde Crewsimov, ya que eso te obliga a dañar a la tripulación, lo cual entra en conflicto directo con la Ley 1 de Crewsimov).
+  - Detener a un individuo no autorizado de cambiar tus leyes de una manera desconocida, ya que esto podría entrar en conflicto con tus leyes actuales (como un EMAG, o permitir que un individuo no autorizado entre al núcleo de la IA para cambiar tus leyes como IA).
+  - Resolver dos órdenes en conflicto a favor de un individuo que te indique que no permitas un cambio de ley.
+  - Tener una ley que te diga que no permitas que tus leyes sean cambiadas.
 
 </Document>

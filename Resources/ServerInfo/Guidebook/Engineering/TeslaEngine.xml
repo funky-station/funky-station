@@ -7,8 +7,8 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Tesla Engine
-  The Tesla Engine is a powerful generator that uses a contained ball of lightning to produce energy for the station.
+  # Motor Tesla
+  El Motor Tesla es un generador potente que utiliza una bola de electricidad contenida para producir energía para la estación.
   <Box>
     <GuideEntityEmbed Entity="TeslaGenerator"/>
   </Box>
@@ -16,13 +16,13 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="TeslaEnergyBall"/>
   </Box>
 
-  It generates power by harnessing the lightning strikes produced by the lightning ball using Tesla Coils.
+  Genera energía aprovechando los rayos producidos por la bola eléctrica usando Bobinas Tesla.
 
-  ## Containment Field
-  The Tesla Engine requires a containment field to prevent the lightning ball from escaping and destroying the station.
+  ## Campo de Contención
+  El Motor Tesla requiere un campo de contención para evitar que la bola eléctrica escape y destruya la estación.
 
-  It is suggested to use the minimum size containment field for the lightning ball.
-  Larger containment fields allow the lightning ball to reach closer to sensitive equipment and potentially strike it, ignoring placed grounding rods and tesla coils.
+  Se recomienda usar el tamaño mínimo de campo de contención para la bola eléctrica.
+  Campos más grandes permiten que la bola se acerque a equipos sensibles y potencialmente los golpee, ignorando las varillas de tierra y bobinas Tesla colocadas.
 
   <Box>
     <GuideEntityEmbed Entity="ContainmentFieldGenerator" Caption="" Margin="0"/>
@@ -40,19 +40,19 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="ContainmentFieldGenerator" Caption="" Margin="0"/>
   </Box>
 
-  ## Lightning Strikes
-  When the Tesla Engine is active, the lightning ball will periodically strike objects surrounding it.
+  ## Rayos
+  Cuando el Motor Tesla está activo, la bola eléctrica golpeará periódicamente objetos a su alrededor.
 
-  The Tesla prefers to strike some objects more than others, such as Tesla Coils and Grounding Rods.
+  La Tesla prefiere golpear ciertos objetos más que otros, como las Bobinas Tesla y las Varillas de Tierra.
 
-  If the tesla can't find any Tesla Coils or Grounding Rods to strike first, it will strike almost any station object capable of being powered, such as Substations, APCs, and general machinery.
+  Si la Tesla no encuentra Bobinas o Varillas para golpear primero, atacará casi cualquier objeto de la estación que pueda recibir energía, como Subestaciones, APCs y maquinaria en general.
 
-  Certain objects aren't struck by the tesla, such as batteries, lights, PDAs, and other handheld items.
+  Algunos objetos no son golpeados por la Tesla, como baterías, luces, PDAs y otros dispositivos portátiles.
 
-  It will also strike mobs and crew members, shocking them. Make sure to wear insulated gloves before approaching it.
+  También puede golpear mobs y tripulantes, electrocutándolos. Asegúrate de usar guantes aislantes antes de acercarte.
 
-  ## Tesla Coils
-  Lightning strikes can be harnessed using Tesla Coils, which convert the lightning strikes into power for the station.
+  ## Bobinas Tesla
+  Los rayos pueden aprovecharse con Bobinas Tesla, que convierten los rayos en energía para la estación.
 
   <Box>
     <GuideEntityEmbed Entity="TeslaCoil" Caption=""/>
@@ -60,16 +60,16 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="TeslaCoil" Caption=""/>
   </Box>
 
-  Tesla Coils should be placed around the lightning ball to capture the energy from lightning strikes, as well as to prevent the lightning from striking sensitive equipment further away.
+  Las Bobinas Tesla deben colocarse alrededor de la bola eléctrica para capturar la energía de los rayos y evitar que estos golpeen equipos sensibles más alejados.
 
-  Tesla Coils take damage every time they are struck by lightning, and will eventually break if not repaired.
-  Be sure to monitor the condition of the Tesla Coils and repair them as needed.
+  Las Bobinas Tesla se dañan cada vez que reciben un rayo y eventualmente se romperán si no se reparan.
+  Monitorea su estado y repáralas según sea necesario.
 
-  When lightning strikes Tesla Coils, they fill an internal battery, which is rapidly discharged to the grid.
-  It will discharge this power even if there is no consumer to take it, so it's a good idea to have an SMES nearby to store the power and discharge it smoothly.
+  Cuando los rayos golpean las Bobinas Tesla, llenan una batería interna que se descarga rápidamente a la red.
+  Esta descarga ocurre incluso si no hay consumidores conectados, por lo que es recomendable tener un SMES cerca para almacenar energía y liberarla de manera controlada.
 
-  ## Grounding Rods
-  Grounding Rods help protect sensitive equipment from being struck and prevent a loosed tesla (tesloose).
+  ## Varillas de Tierra
+  Las Varillas de Tierra protegen equipos sensibles de los rayos y previenen una Tesla suelta (tesloose).
 
   <Box>
     <Box>
@@ -83,31 +83,30 @@ SPDX-License-Identifier: MIT
     </Box>
   </Box>
 
-  Grounding rods do not take damage from lightning strikes.
-  This makes them beneficial for forming a saftey net of grounding rods to rely on in case the tesla coils are damaged or destroyed.
+  Las varillas de tierra no se dañan con los rayos.
+  Esto las hace útiles para formar una red de seguridad en caso de que las Bobinas Tesla se dañen o destruyan.
 
-  Engineers should use grounding rods to protect sensitive equipment from lightning strikes, such as the Emitters powering the containment field generators.
+  Los ingenieros deben usar varillas de tierra para proteger equipos sensibles de los rayos, como los Emisores que alimentan los generadores de campo de contención.
 
-  ## Loosed Tesla (Tesloose)
-  If the lightning ball escapes the containment field, it is referred to as a loosed tesla, or tesloose.
+  ## Tesla suelta (Tesloose)
+  Si la bola eléctrica escapa del campo de contención, se denomina Tesla suelta, o tesloose.
 
-  An escaped tesla will randomly walk around the station, attracted to objects that can be powered, such as APCs, Substations, and machinery.
-  It will also gladly strike crew members and mobs, shocking them.
+  Una Tesla suelta caminará aleatoriamente por la estación, atraída por objetos que puedan recibir energía, como APCs, Subestaciones y maquinaria.
+  También golpeará a los tripulantes y mobs, electrocutándolos.
 
-  Wearing insulated gloves will protect you from being shocked by the tesla, but it won't prevent the tesla from striking you.
+  Usar guantes aislantes te protege de la descarga, pero no evita que la Tesla te golpee.
 
   <Box>
     <GuideEntityEmbed Entity="ClothingHandsGlovesColorYellow"/>
   </Box>
 
-  The tesla can be destroyed by firing antiparticles at it using a Portable Particle Decelerator, however, the Tesla is much more powerful than the Singularity, and it will take a lot of antiparticles to destroy it.
-  A group of people using decelerators is recommended to destroy a tesloose.
+  La Tesla puede destruirse disparándole antipartículas con un Desacelerador de Partículas Portátil, pero es mucho más poderosa que la Singularidad, y se necesitarán muchas antipartículas para destruirla.
+  Se recomienda que un grupo de personas use desaceleradores para eliminar una tesloose.
 
-  Portable Particle Decelerators can be either researched and made by the Research Department, or they can be bought from Cargo.
+  Los Desaceleradores de Partículas Portátiles pueden investigarse y fabricarse en el Departamento de Investigación, o comprarse en Cargo.
 
   <Box>
     <GuideEntityEmbed Entity="WeaponParticleDecelerator"/>
   </Box>
-
 
 </Document>

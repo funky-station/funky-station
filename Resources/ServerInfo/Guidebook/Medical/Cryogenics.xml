@@ -12,14 +12,14 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-# Cryogenics
-Cryogenics can be a bit daunting to understand, but hopefully, quick run through of this diagram, you'll learn how to work it! So, let's go over what each part does:
+# Criogenia
+La criogenia puede ser un poco intimidante de entender, pero con un repaso rápido de este diagrama, ¡aprenderás a manejarla! Así que, repasemos qué hace cada parte:
 
-- Air in: Air comes in here through the distro or an air tank, giving those inside something to breathe, and the freezer something to chill.
-- Gas pump: Limits the network pressure, so those in the tube aren't crushed.
-- Freezer: Chills the air, and by extension, patients in the tube, so Cryoxadone can activate.
-- Gas filters: Removes waste gas (Carbon Dioxide and Nitrous Oxide) from the loop.
-- Air out: Waste gasses go here, either into a storage tank, or into the waste network.
+- Entrada de aire: El aire entra aquí desde la red o un tanque de aire, proporcionando algo para respirar a los ocupantes y enfriando el pod.
+- Bomba de gas: Limita la presión en la red para que los que estén en el tubo no sean aplastados.
+- Congelador: Enfría el aire y, por extensión, a los pacientes en el tubo, permitiendo que el Cryoxadone se active.
+- Filtros de gas: Eliminan los gases de desecho (Dióxido de Carbono y Óxido Nitroso) del circuito.
+- Salida de aire: Los gases de desecho van aquí, ya sea a un tanque de almacenamiento o a la red de desechos.
 <Box>
 <GuideEntityEmbed Entity="GasPipeBend" Rotation="90"/>
 <GuideEntityEmbed Entity="GasPipeStraight" Rotation="90"/>
@@ -37,24 +37,24 @@ Cryogenics can be a bit daunting to understand, but hopefully, quick run through
 <GuideEntityEmbed Entity="GasPipeTJunction" Rotation="270"/>
 </Box>
 <Box>
-<GuideEntityEmbed Entity="GasPort" Caption="air out" Rotation="90"/>
+<GuideEntityEmbed Entity="GasPort" Caption="salida de aire" Rotation="90"/>
 <GuideEntityEmbed Entity="GasPipeTJunction" Rotation="180"/>
 <GuideEntityEmbed Entity="GasPipeBend" Rotation="270"/>
-<GuideEntityEmbed Entity="GasPort" Caption="air in" Rotation="90"/>
+<GuideEntityEmbed Entity="GasPort" Caption="entrada de aire" Rotation="90"/>
 <GuideEntityEmbed Entity="GasPressurePump" Rotation="90"/>
 <GuideEntityEmbed Entity="GasPipeBend" Rotation="270"/>
 </Box>
 
-Not every network will look like this, but hopefully, it's enough to give you the basic gist of how it's functioning.
+No todas las redes se verán así, pero con suerte, esto es suficiente para darte una idea básica de cómo funciona.
 
-An important thing to note, winter clothing (and hardsuits) will make cryogenic treatment less, or completely ineffective. Be sure to remove cold preventative clothing before placing people in the pod.
+Un punto importante a tener en cuenta: la ropa de invierno (y los trajes de armadura) hará que el tratamiento criogénico sea menos eficaz o completamente ineficaz. Asegúrate de quitar la ropa preventiva antes de colocar a las personas en el pod.
 
-## Using the Pod
-Once things have been set up, you're going to require a specific medication, Cryoxadone. Cryoxadone heals all damage types when a patient is chilled, and can either be pre-administered (with a pill), or loaded into the cell directly with a beaker. Do note, patients won't begin to heal until they've chilled to the appropriate temperature, it may be worthwhile to wait a bit before placing a beaker inside.
+## Uso del Pod
+Una vez configurado todo, necesitarás un medicamento específico, Cryoxadone. Cryoxadone cura todo tipo de daño cuando un paciente está enfriado, y puede administrarse previamente (con una pastilla) o cargarse directamente en la celda con un vaso de precipitados. Ten en cuenta que los pacientes no comenzarán a sanar hasta alcanzar la temperatura adecuada; puede ser recomendable esperar un poco antes de colocar un vaso dentro.
 
-## Additional Information:
+## Información Adicional:
 
-The standard pressure for a gas pump is 100.325 kpa. Cryoxadone works at under 170K, but it is standard practice to set the freezer to 100K for faster freezing.
+La presión estándar para una bomba de gas es de 100.325 kPa. Cryoxadone funciona por debajo de 170K, pero es práctica habitual ajustar el congelador a 100K para un enfriamiento más rápido.
 
 <GuideReagentEmbed Reagent="Aloxadone"/>
 <GuideReagentEmbed Reagent="Cryoxadone"/>

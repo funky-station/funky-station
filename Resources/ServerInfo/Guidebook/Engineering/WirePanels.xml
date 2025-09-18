@@ -7,10 +7,10 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Wire Panels
-  Some station devices like airlocks, vending machines, and arcade consoles have wire panels, which control certain aspects of their functionality.
+  # Paneles de Cables
+  Algunos dispositivos de la estación, como puertas de aire, máquinas expendedoras y consolas de arcade, tienen paneles de cables que controlan ciertos aspectos de su funcionamiento.
 
-  These panels can be opened using a screwdriver to access the wiring inside.
+  Estos paneles pueden abrirse usando un destornillador para acceder al cableado interno.
 
   <Box>
     <GuideEntityEmbed Entity="Wirecutter"/>
@@ -18,20 +18,19 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="Multitool"/>
   </Box>
 
-  From here you can use wirecutters and a multitool to interact with the wiring. Note that interacting with the wiring often requires insulated gloves, as if the wire is live, you can get shocked.
+  Desde aquí puedes usar cortacables y una herramienta múltiple (multitool) para interactuar con el cableado.
+  Ten en cuenta que al manipular los cables a menudo se requieren guantes aislantes, ya que si el cable está energizado, podrías recibir una descarga.
 
   <Box>
     <GuideEntityEmbed Entity="ClothingHandsGlovesColorYellow"/>
   </Box>
 
-  You can cut and mend wires using the wirecutters and pulse wires using the multitool.
+  Puedes cortar y reparar cables usando los cortacables, y enviar pulsos a los cables usando la herramienta múltiple.
 
-  Cutting wires often completely disables or restores functionality to a device.
-  It may also trigger unintended functionality like shocking people, dropping door bolts, or exploding.
+  Cortar cables a menudo desactiva completamente o restaura la funcionalidad de un dispositivo.
+  También puede activar funcionalidades no deseadas, como electrocutar a personas, soltar pestillos de puertas o causar explosiones.
 
-  Pulsing wires can have a variety of effects, but oftentimes it either temporarily disables or enables functionality.
+  Pulsar cables puede tener varios efectos, pero generalmente habilita o deshabilita temporalmente alguna función.
 
-  You can't pulse wires if the wire you're trying to pulse is cut. You have to mend the wire first.
-
-
+  No puedes pulsar un cable si está cortado; primero debes repararlo.
 </Document>

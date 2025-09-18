@@ -8,22 +8,22 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-# Medical
-This is the department where people go to when they're hurt, it's up to the folks working here to fix them.
+# Medicina
+Este es el departamento al que acuden las personas cuando están heridas, y corresponde al personal que trabaja aquí repararlas.
 
-## Personnel
-[color=#5b97bc]Medical[/color]'s staff is made up of Medical Interns, Medical Doctors, Paramedics and Chemists. [color=#5b97bc]Medical[/color] is run by the Chief Medical Officer.
+## Personal
+El personal de [color=#5b97bc]Medicina[/color] está compuesto por internos médicos, doctores, paramédicos y químicos. [color=#5b97bc]Medicina[/color] es dirigida por el Oficial Médico Principal (Chief Medical Officer).
 
   <Box>
     <GuideEntityEmbed Entity="ToyFigurineMedicalDoctor" Caption="Doctor"/>
-    <GuideEntityEmbed Entity="ToyFigurineParamedic" Caption="Paramedic"/>
-    <GuideEntityEmbed Entity="ToyFigurineChemist" Caption="Chemist"/>
+    <GuideEntityEmbed Entity="ToyFigurineParamedic" Caption="Paramédico"/>
+    <GuideEntityEmbed Entity="ToyFigurineChemist" Caption="Químico"/>
     <GuideEntityEmbed Entity="ToyFigurineChiefMedicalOfficer" Caption="CMO"/>
   </Box>
-  
-Right now, medbay is divided into two different sets of care:
 
-## Medical Treatment
+Actualmente, la medbay está dividida en dos áreas diferentes de atención:
+
+## Tratamiento Médico
   <Box>
     <GuideEntityEmbed Entity="Brutepack"/>
     <GuideEntityEmbed Entity="Bloodpack"/>
@@ -31,7 +31,8 @@ Right now, medbay is divided into two different sets of care:
     <GuideEntityEmbed Entity="Gauze"/>
     <GuideEntityEmbed Entity="HandheldHealthAnalyzer"/>
   </Box>
-## Chemical Production
+
+## Producción Química
   <Box>
     <GuideEntityEmbed Entity="ChemDispenser"/>
     <GuideEntityEmbed Entity="LargeBeaker"/>

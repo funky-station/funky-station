@@ -7,22 +7,23 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-# Cloning
-If all else fails, patients will need to be cloned. This should only be used as a last resort, if recovery is impossible. This is most often the case when the body has started to rot, or if they have excessive amounts of damage.
+# Clonación
+Si todo lo demás falla, será necesario clonar a los pacientes. Esto solo debe usarse como último recurso, si la recuperación es imposible. Esto ocurre con mayor frecuencia cuando el cuerpo ha comenzado a pudrirse o si tiene cantidades excesivas de daño.
 
-Cloning itself is relatively simple. (Assuming the network is set.) Just drag a body into the scanner, check the cloning console, and clone! If they've taken cellular damage, or have rotted for too long, the results can be... less than pleasant.
+La clonación en sí es relativamente simple (asumiendo que la red esté configurada). Solo arrastra un cuerpo al escáner, revisa la consola de clonación ¡y clona! Si han sufrido daño celular o han estado podridos demasiado tiempo, los resultados pueden ser… menos que agradables.
 
-As a note: Cloning isn't always available, and it would be best not to rely on it. 
+Como nota: La clonación no siempre está disponible, y lo mejor es no depender de ella.
 <Box>
-<GuideEntityEmbed Entity="ComputerCloningConsole" Caption="cloning console"/>
+<GuideEntityEmbed Entity="ComputerCloningConsole" Caption="consola de clonación"/>
 <GuideEntityEmbed Entity="MedicalScanner"/>
 <GuideEntityEmbed Entity="CloningPod"/>
 <GuideEntityEmbed Entity="NetworkConfigurator"/>
 </Box>
-## Biomass
-Creating a clone requires biomass, which, gruesomely, involves recycling organic material. Be it crew members without a soul, station pets, or hostile creatures that have been 'taken care of', things can often be recycled.
 
-Dragging a body onto the biomass reclaimer (with your cursor) will mulch it for re-use. If it's a crew member, it's common practice to strip the body and return departmental gear before doing such.
+## Biomasa
+Crear un clon requiere biomasa, que, de manera macabra, implica reciclar material orgánico. Ya sean miembros de la tripulación sin alma, mascotas de la estación o criaturas hostiles que han sido "eliminadas", a menudo se pueden reciclar.
+
+Arrastrar un cuerpo al reciclador de biomasa (con el cursor) lo triturará para su reutilización. Si es un miembro de la tripulación, es práctica común desnudar el cuerpo y devolver el equipo departamental antes de hacer esto.
 <Box>
 <GuideEntityEmbed Entity="BiomassReclaimer"/>
 <GuideEntityEmbed Entity="MaterialBiomass"/>

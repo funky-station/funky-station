@@ -7,31 +7,31 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Atmos Tools
-  Atmospheric Technicians have the same core toolset as Engineers, but they also have access to two new tools, the Holofan Projector and the Gas Analyzer.
+  # Herramientas de Atmos
+  Los Técnicos de Atmosférica tienen el mismo conjunto de herramientas básicas que los Ingenieros, pero también tienen acceso a dos herramientas nuevas: el Proyector Holofan y el Analizador de Gases.
 
   <Box>
     <GuideEntityEmbed Entity="HolofanProjector"/>
     <GuideEntityEmbed Entity="GasAnalyzer"/>
   </Box>
 
-  ## Holofan Projector
-  The Holofan Projector is a tool that can project a barrier of hard-light which blocks air and gas flow, while still allowing people to pass through.
+  ## Proyector Holofan
+  El Proyector Holofan es una herramienta que puede proyectar una barrera de luz dura que bloquea el flujo de aire y gas, pero permite que las personas la atraviesen.
 
   <Box>
     <GuideEntityEmbed Entity="HolofanProjector"/>
     <GuideEntityEmbed Entity="HoloFan"/>
   </Box>
 
-  This is super useful for moving in between [textlink="firelock buffers" link="FireAndGasControl"] without leaking gas between rooms, as well a signifying to regular crew that a room may be unsafe for entry.
-  It can also be used for forming a temporary barrier to allow crew to quickly move between a spaced and unspaced area without risk of leaking air from other rooms.
+  Esto es muy útil para moverse entre [textlink="firelock buffers" link="FireAndGasControl"] sin filtrar gas entre habitaciones, así como para indicar a la tripulación regular que una sala puede ser insegura para entrar.
+  También puede usarse para formar una barrera temporal que permita al personal moverse rápidamente entre un área expuesta al espacio y una no expuesta, sin riesgo de pérdida de aire de otras habitaciones.
 
-  It has an internal charge that will deplete with each use, but it can be recharged by taking out the power cell and inserting it into a cell charger or recharger.
+  Tiene una carga interna que se agota con cada uso, pero puede recargarse sacando la celda de energía e insertándola en un cargador o recargador de celdas.
 
-  Holofans that are placed adjacent to a [textlink="firelock" link="FireAndGasControl"] will deactivate the firelock lockout, allowing the firelock to be opened by hand.
+  Los Holofans colocados junto a un [textlink="firelock" link="FireAndGasControl"] desactivarán el bloqueo del firelock, permitiendo que se abra manualmente.
 
-  ## Gas Analyzer
-  The Gas Analyzer is a tool that can be used to analyze the gas composition of an exposed atmosphere, or any [textlink="atmospheric device" link="GasManipulation"] containing gas.
+  ## Analizador de Gases
+  El Analizador de Gases es una herramienta que puede usarse para analizar la composición de gas de una atmósfera expuesta o de cualquier [textlink="atmospheric device" link="GasManipulation"] que contenga gas.
 
   <Box>
     <GuideEntityEmbed Entity="GasAnalyzer"/>
@@ -45,16 +45,16 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="GasThermoMachineFreezer" Caption=""/>
   </Box>
 
-  You can use the Gas Analyzer by clicking on a gas-containing [textlink="device" link="GasManipulation"], or by clicking on the air in the room.
+  Puedes usar el Analizador de Gases haciendo clic en un [textlink="dispositivo" link="GasManipulation"] que contenga gas, o haciendo clic en el aire de la sala.
 
-  When used, the gas analyzer will report on:
-  - The volume of the device measured (not the volume of the gas!)
-  - The total pressure of the gas, in kPa
-  - The temperature of the gas, in Kelvin (K) and Celsius (C)
-  - The precise composition of the gas in molar amounts, and as a percentage of the total gas volume
+  Al usarlo, el analizador de gases reportará:
+  - El volumen del dispositivo medido (¡no el volumen del gas!)
+  - La presión total del gas, en kPa
+  - La temperatura del gas, en Kelvin (K) y Celsius (C)
+  - La composición precisa del gas en cantidades molares y como porcentaje del volumen total de gas
 
-  At the bottom of the UI, the gas analyzer will display a visual indication of the different [textlink="gasses" link="Gasses"] present in the composition, as well as their relative concentrations.
+  En la parte inferior de la interfaz, el analizador mostrará una indicación visual de los diferentes [textlink="gases" link="Gasses"] presentes en la composición, así como sus concentraciones relativas.
 
-  When the gas analyzer is analyzing binary and trinary [textlink="devices" link="GasManipulation"] (devices with two and three inputs/outputs), it will display the composition of each input/output separately. This is useful for troubleshooting gas [textlink="mixing and filtering" link="MixingAndFiltering"] setups.
+  Cuando el analizador analiza [textlink="dispositivos" link="GasManipulation"] binarios y ternarios (dispositivos con dos y tres entradas/salidas), mostrará la composición de cada entrada/salida por separado. Esto es útil para solucionar problemas de configuraciones de [textlink="mezcla y filtrado de gases" link="MixingAndFiltering"].
 
 </Document>

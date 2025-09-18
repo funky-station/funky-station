@@ -10,9 +10,9 @@ SPDX-License-Identifier: MIT
 
 <Document>
 
-  # Specialized Brute Chemicals
+  # Químicos Bruto Especializados
 
-  Nanotrasen's greatest scientists have synthesized three more specific brute chemicals! Each one heals a specific damage subtype.
+  Los mejores científicos de Nanotrasen han sintetizado tres químicos bruto más específicos. ¡Cada uno cura un subtipo de daño específico!
 
   <GuideReagentEmbed Reagent="Bruizine"/>
   <GuideReagentEmbed Reagent="Puncturase"/>
@@ -20,19 +20,19 @@ SPDX-License-Identifier: MIT
 
   # Razorium
 
-  [color=red]USE CAUTION[/color] when using the aforementioned specialized brute chemicals. Should one mix together with a different type of advanced brute chemical, the resulting mixture will create a dangerous chemical known as Razorium!
+  [color=red]USAR CON PRECAUCIÓN[/color] al utilizar los químicos bruto especializados mencionados. Si se mezclan con otro tipo de químico avanzado de daño, la mezcla resultante creará un químico peligroso conocido como Razorium.
   <GuideReagentEmbed Reagent="Razorium"/>
-  To avoid this, make sure the patient is done metabolizing one medication before giving them another. Keep an eye on the rate their health is changing.
+  Para evitar esto, asegúrate de que el paciente haya terminado de metabolizar un medicamento antes de administrarle otro. Observa la velocidad a la que cambia su salud.
 
-  [bold]Some examples of mixtures that create Razorium are as follows:[/bold]
+  [bold]Algunos ejemplos de mezclas que crean Razorium son los siguientes:[/bold]
 
-  Salicylic Acid and Puncturase
+  Ácido Salicílico y Puncturase
 
-  Puncturase and Lacerinol
+  Puncturase y Lacerinol
 
-  Bruizine and Salicylic Acid
+  Bruizine y Ácido Salicílico
 
-  Lacerinol and Bruizine
+  Lacerinol y Bruizine
 
-  Please note that [bold]any[/bold] combination of these 4 chemicals will likely mix and create Razorium! 
+  Ten en cuenta que [bold]cualquier[/bold] combinación de estos 4 químicos probablemente se mezclará y creará Razorium.
 </Document>

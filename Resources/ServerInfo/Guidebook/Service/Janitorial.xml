@@ -9,11 +9,11 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-# Janitorial
+# Limpieza
 
-You keep things clean, it's a rough job sometimes, but someone's gotta do it. This will walk you through the tools of the trade, and how they're used.
+Tú mantienes todo limpio, a veces es un trabajo difícil, pero alguien tiene que hacerlo. Aquí te explicamos las herramientas y cómo usarlas.
 
-## Basic Equipment
+## Equipamiento Básico
 <Box>
 <GuideEntityEmbed Entity="MopItem"/>
 <GuideEntityEmbed Entity="JanitorialTrolley"/>
@@ -28,39 +28,39 @@ You keep things clean, it's a rough job sometimes, but someone's gotta do it. Th
 <GuideEntityEmbed Entity="Mousetrap"/>
 </Box>
 
-## Additional Equipment
+## Equipamiento Adicional
 <Box>
 <GuideEntityEmbed Entity="WetFloorSign"/>
-<GuideEntityEmbed Entity="Holoprojector" Caption="holosign projector"/>
+<GuideEntityEmbed Entity="Holoprojector" Caption="proyector de señal holográfica"/>
 <GuideEntityEmbed Entity="LightReplacer"/>
 </Box>
 <Box>
-<GuideEntityEmbed Entity="AdvMopItem" Caption="Advanced mop, ask in R&D"/>
+<GuideEntityEmbed Entity="AdvMopItem" Caption="Mopa avanzada, consulta con I+D"/>
 </Box>
 
-## Fluid Acquisition and Disposal
+## Adquisición y Eliminación de Fluidos
 <Box>
 <GuideEntityEmbed Entity="WaterTankFull"/>
 <GuideEntityEmbed Entity="Sink"/>
 <GuideEntityEmbed Entity="FloorDrain"/>
 </Box>
 
-## Tidying up.
-Now, onto the (figurative) meat and potatoes. We're here to clean, right? Lets keep it simple. The main tools you'll be putting to use are the trusty mop, a trash bag, space cleaner, and one of the three different buckets.
+## Limpiar
+Ahora vamos a lo (figurativamente) importante. Estamos aquí para limpiar, ¿verdad? Vamos a mantenerlo simple. Las herramientas principales que usarás son la mopa, una bolsa de basura, limpiador espacial y uno de los tres cubos diferentes.
 
-Mopping: Fill your cart up with water, then, find some puddles! Wet your mop, and wipe them up, the resulting water puddle will dry after a short time. Don't forget the wet floor signs!
-- To drain your cart, drag it (with your cursor) onto a floor drain. This will dump all the fluids inside! Floor drains can usually be found somewhere in medical, the kitchen freezer, and of course, the janitor closet.
+Mopar: Llena tu carrito con agua, luego, ¡encuentra algunos charcos! Moja tu mopa y limpia los charcos, el agua resultante se secará después de un corto tiempo. ¡No olvides las señales de piso mojado!
+- Para drenar tu carrito, arrástralo (con tu cursor) sobre un desagüe de piso. Esto vaciará todo el líquido que tenga adentro. Los desagües de piso generalmente se encuentran en lugares como la sala médica, el congelador de la cocina y, por supuesto, el cuarto de limpieza.
 
-Trash: Place it in the bag directly, or hold it in your hand. Click -near- trash to scoop -all- nearby junk up, or click on each piece individually. Using the bag on a disposal will empty it.
-- Cargo might want some of your trash, it might be worthwhile to check in from time to time!
+Basura: Colócala directamente en la bolsa o mantenla en tu mano. Haz clic cerca de la basura para recoger todo el desperdicio cercano, o haz clic en cada pieza individualmente. Usar la bolsa en un contenedor de eliminación vaciará la bolsa.
+- ¡Cargo puede necesitar algo de tu basura, podría ser útil revisar de vez en cuando!
 
-Space Cleaner: This miracle spray can do two things, clean graffiti, and in a pinch, clean up puddles!
-- You might be able to get more of this from chemistry.
+Limpiador Espacial: Este spray milagroso puede hacer dos cosas, limpiar grafitis y, en caso de emergencia, ¡limpiar charcos!
+- Puede que consigas más de esto en química.
 
-## Extra Duties
-A good janitor is always on the lookout for a bit more to do, and there are plenty of tools at your disposal. Keep an eye out for broken lights, help the chef take care of mice in the kitchen, and if you're feeling -really- generous, try to restock the vending machines and emergency closets around the station!
+## Tareas Extra
+Un buen limpiador siempre está buscando algo más que hacer, y hay muchas herramientas a tu disposición. Mantén los ojos abiertos para luces rotas, ayuda al chef con las ratas en la cocina y, si te sientes realmente generoso, ¡intenta reabastecer las máquinas expendedoras y los closets de emergencia alrededor de la estación!
 
-##Additional Information:
+## Información Adicional:
 <GuideReagentEmbed Reagent="SpaceCleaner"/>
 <GuideReagentEmbed Reagent="Ammonia"/>
 

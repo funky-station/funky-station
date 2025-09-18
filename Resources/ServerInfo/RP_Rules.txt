@@ -1,134 +1,134 @@
-[color=#ff0000]YOU MUST BE AT LEAST 14 YEARS OF AGE TO PLAY ON THE GOOB STATION SERVER. ANY USERS SUSPECTED OF BEING UNDER 14 YEARS OF AGE WILL BE BANNED UNTIL THEY ARE OF AGE.[/color]
+[color=#ff0000]DEBES TENER AL MENOS 14 AÑOS DE EDAD PARA JUGAR EN EL SERVIDOR GOOB STATION. CUALQUIER USUARIO SOSPECHOSO DE TENER MENOS DE 14 AÑOS SERÁ BANEADO HASTA QUE CUMPLA LA EDAD.[/color]
 
-[color=#ff0000]DISCONNECTING FROM OR IGNORING/EVADING ADMIN-HELPS WILL RESULT IN AN APPEAL ONLY BAN.[/color]
+[color=#ff0000]DESCONECTARSE O IGNORAR/EVADIR LOS ADMIN-HELPS (AYUDAS DE ADMINISTRADOR) RESULTARÁ EN UN BAN SOLO APELABLE.[/color]
 
-This is the "short" form of the rules, which has all the information any regular player should need. You can find the "long" form of the rules with more examples & clarifications of any ambiguity on the Space Station 14 wiki at [color=#a4885c]wiki.spacestation14.io[/color], should you need it.
+Esta es la forma "corta" de las reglas, que tiene toda la información que cualquier jugador regular debería necesitar. Puedes encontrar la forma "larga" de las reglas con más ejemplos y aclaraciones de cualquier ambigüedad en la wiki de Space Station 14 en [color=#a4885c]wiki.spacestation14.io[/color], si la necesitas.
 
-[color=#ff0000]Recent Changes[/color]
-    - Removed Sandbox Rule 2.
+[color=#ff0000]Cambios Recientes[/color]
+    - Se eliminó la Regla de Sandbox 2.
 
-[color=#a4885c]01.[/color] [color=#a4885c]The[/color] [color=#ffd700]Golden[/color] [color=#a4885c]Rule.[/color] Admins may exercise discretion with rules as they see fit. If you rule lawyer or line skirt, you will get removed. Admins will answer for use of this privilege.
+[color=#a4885c]01.[/color] [color=#a4885c]La[/color] [color=#ffd700]Regla[/color] [color=#a4885c]de Oro.[/color] Los administradores pueden ejercer discreción con las reglas como consideren apropiado. Si buscas lagunas legales o te aprovechas de tecnicismos, serás removido. Los administradores responderán por el uso de este privilegio.
 
-[color=#ff0000]ZERO TOLERANCE RULES[/color]
+[color=#ff0000]REGLAS DE TOLERANCIA CERO[/color]
 
-[color=#a4885c]02.[/color] Absolutely no hate speech, slurs, bigotry, racism, speciesism (demeaning other characters in-game due to their in-game race), sexism, disability-related or anything even remotely similar. (YOU WILL GET PERMABANNED)
+[color=#a4885c]02.[/color] Absolutamente ningún discurso de odio, insultos discriminatorios, intolerancia, racismo, especismo (menospreciar a otros personajes en el juego debido a su raza dentro del juego), sexismo, contenido relacionado con discapacidades o anything remotamente similar. (SERÁS PERMABANEADO)
 
-[color=#a4885c]03.[/color] Absolutely no Erotic Roleplay (ERP) or sexual content, including direct or indirect mentions of sexual behavior or actions. (YOU WILL GET PERMABANNED) (Leeway is given to insults, ex: 'You are a dickhead', do not push it)
+[color=#a4885c]03.[/color] Absolutamente ningún Roleplay Erótico (ERP) o contenido sexual, incluyendo menciones directas o indirectas de comportamiento o acciones sexuales. (SERÁS PERMABANEADO) (Se da margen a los insultos, ej: 'Eres un capullo', no lo forces)
 
-[color=#a4885c]04.[/color] Don't communicate in-game/in-character information through methods outside of the game (such as talking in Discord with other users actively playing or by talking to your sibling across the room while you are both playing). This is referred to as "Metacomming". Adminstrators cannot police metacommunications, we must assume it is being abused. (ALL INVOLVED WILL GET PERMABANNED)
+[color=#a4885c]04.[/color] No comuniques información del juego/en personaje a través de métodos externos al juego (como hablar en Discord con otros usuarios que están jugando activamente o hablar con tu hermano al otro lado de la habitación mientras ambos juegan). Esto se conoce como "Metacomming". Los administradores no pueden controlar las metacomunicaciones, debemos asumir que se está abusando de ellas. (TODOS LOS INVOLUCRADOS SERÁN PERMABANEADOS)
 
-[color=#a4885c]05.[/color] Attempting to evade game bans will result in an automatic appeal-only permanent ban that is only appealable after six months and only with a voucher of good behavior from another SS13/SS14 server. Attempting to evade job bans will result in an appeal-only permanent ban. (YOU WILL GET BANNED MUCH WORSE THAN YOU ALREADY WERE)
+[color=#a4885c]05.[/color] Intentar evadir baneos del juego resultará en un ban permanente automático solo apelable después de seis meses y solo con un aval de buen comportamiento de otro servidor de SS13/SS14. Intentar evadir baneos de trabajo resultará en un ban permanente solo apelable. (SERÁS BANEADO MUCHO PEOR DE LO QUE YA ESTABAS)
 
-[color=#ff0000]GENERAL ETIQUETTE[/color]
+[color=#ff0000]ETIQUETA GENERAL[/color]
 
-[color=#a4885c]06.[/color] These are English servers. Speak only English in IC and OOC.
+[color=#a4885c]06.[/color] Este es un servidor que se habla español. Procura hablar en español en IC (En Personaje) y OOC (Fuera de Personaje).
 
-[color=#a4885c]07.[/color] Don't use exploits or external programs to play, gain an advantage, or disrupt/crash the round/server. This includes autoclickers and scripts to automate the game or evade AFK detection. Intentionally attempting to lag/crash the server will result in an immediate appeal-only ban.
+[color=#a4885c]07.[/color] No uses exploits o programas externos para jugar, ganar ventaja o interrumpir/cerrar la ronda/servidor. Esto incluye autoclickers y scripts para automatizar el juego o evadir la detección de AFK. Intentar laggear/cerrar el servidor intencionalmente resultará en un ban inmediato solo apelable.
 
-[color=#a4885c]08.[/color] Don't use multiple SS14 accounts to play (referred to as "multi-keying"). Users knowingly using multiple SS14 accounts will have all of their accounts banned.
+[color=#a4885c]08.[/color] No uses múltiples cuentas de SS14 para jugar (conocido como "multi-keying"). Los usuarios que usen knowingly múltiples cuentas de SS14 tendrán todas sus cuentas baneadas.
 
-[color=#a4885c]09.[/color] Do not ignore the admin help relay or abuse it by flooding it with garbage, checking for admins before stating a problem (ex: "hello?", "any admins?"), using it as a chatroom, or sending messages of no substance. Hostility to administators in the relay will likely result in your removal. All admin helps are sent to Funky Station's ahelp channel.
+[color=#a4885c]09.[/color] No ignores el relay de ayuda de administrador (ahelp) ni lo abuses inundándolo con basura, chequeando si hay admins antes de plantear un problema (ej: "¿hola?", "¿algún admin?"), usándolo como sala de chat o enviando mensajes sin sustancia. La hostilidad hacia los administradores en el relay probablemente resultará en tu remoción. Todas las ayudas de admin se envían al canal de ahelp de Funky Station.
 
-[color=#ff0000]IN GAME & ROLEPLAY RULES[/color]
+[color=#ff0000]REGLAS EN EL JUEGO Y DE ROLEPLAY[/color]
 
-[color=#a4885c]10.[/color] Pick a realistic name that could appear on a birth certificate with at least a first and last name (leeway is given to this for Clowns, Mimes, and non-human races).
-    - Names of notable famous or fictional persons or names that resemble/parody them are strictly forbidden. You are not clever if you slightly change a famous name around. Terrible names open you up to being politely reminded to change it, smited, or instantly banned, depending on severity.
-    - Names resulting in inappropriate phonetic play-on-words are forbidden (ex: "Mike Oxlong", "Ben Dover", "Dixie Normus"). They are also extremely overdone.
+[color=#a4885c]10.[/color] Elige un nombre realista que podría aparecer en un certificado de nacimiento con al menos un nombre y apellido (se da margen a esto para Payasos, Mimos y razas no humanas).
+    - Los nombres de personas famosas o ficticias notables o nombres que se les parezcan/parodien están estrictamente prohibidos. No eres ingenioso si cambias ligeramente un nombre famoso. Los nombres terribles te exponen a que se te recuerde educadamente que lo cambies, a un castigo divino (smite) o a un ban instantáneo, dependiendo de la severidad.
+    - Los nombres que resulten en juegos de palabras fonéticos inapropiados están prohibidos (ej: "Mike Oxlong", "Ben Dover", "Dixie Normus"). También están extremadamente trillados.
 
-[color=#a4885c]11.[/color] Act like an actual human being on a space station in a low-roleplay (LRP) environment. Do not use text speak or emoticons IC, and do not refer to OOC things like admins in-game. Do not threaten players that you are calling the admins on them. Do not use emotes to bypass speech filters or muteness. You are not required to write a backstory or follow strict procedure; however, you are expected to at least make an effort to act like your role.
+[color=#a4885c]11.[/color] Actúa como un ser humano real en una estación espacial en un entorno de bajo roleo (LRP). No uses jerga de texto o emoticones IC, y no te refieras a cosas OOC como administradores en el juego. No amenaces a los jugadores con que les vas a llamar a los administradores. No uses emotes para bypassear filtros de habla o mudez. No estás obligado a escribir una historia de fondo o seguir procedimientos estrictos; sin embargo, se espera que al menos hagas un esfuerzo por actuar como tu rol.
 
-[color=#a4885c]12.[/color] Don't be a dick. You are playing a multiplayer game with other people who also want to enjoy the game.
-    - [color=#ff0000]The arrivals station, shuttle, and general arrivals docking area are completely off-limits to any hostile activity, including activity by antagonists. Attacking newly spawned players in these areas or damaging/sabotaging these areas is strictly forbidden.[/color]
-    - Do not intentionally make other players' lives hell for your own amusement.
-    - [color=#ff0000]THE ROUND IS NOT OVER UNTIL THE END-ROUND SUMMARY APPEARS. KILLING SOMEONE FOR NO REASON BEFORE THIS WILL BE HANDLED ACCORDINGLY.[/color]
-    - Antagonists have a lot of leeway with this rule and may kill/sabotage as they see fit, however if your behavior degrades the experience for the majority of the server you will be told to stop. Antagonists are still generally forbidden from causing massive station damage early into the round (less than 30 minutes) and are forbidden from needlessly prolonging rounds. For antagonist specific rules, see the "long" form of the rules at [color=#a4885c]wiki.spacestation14.io[/color].
+[color=#a4885c]12.[/color] No seas un imbécil. Estás jugando un juego multijugador con otras personas que también quieren disfrutar del juego.
+    - [color=#ff0000]La estación de llegadas (arrivals), el transporte (shuttle) y el área general de acoplamiento de llegadas están completamente prohibidas para cualquier actividad hostil, incluyendo actividad de antagonistas. Atacar a jugadores recién aparecidos en estas áreas o dañar/sabotear estas áreas está estrictamente prohibido.[/color]
+    - No le hagas la vida imposible intencionalmente a otros jugadores para tu propia diversión.
+    - [color=#ff0000]LA RONDA NO TERMINA HASTA QUE APAREZCA EL RESUMEN FINAL DE LA RONDA. MATAR A ALGUIEN SIN RAZÓN ANTES DE ESTO SERÁ MANEJADO EN CONSECUENCIA.[/color]
+    - Los antagonistas tienen mucho margen con esta regla y pueden matar/sabotear como consideren apropiado, sin embargo, si tu comportamiento degrada la experiencia para la mayoría del servidor, se te dirá que te detengas. A los antagonistas todavía se les prohíbe generalmente causar daños masivos en la estación temprano en la ronda (menos de 30 minutos) y se les prohíbe prolongar innecesariamente las rondas. Para reglas específicas de antagonistas, consulta la forma "larga" de las reglas en [color=#a4885c]wiki.spacestation14.io[/color].
 
-[color=#a4885c]13.[/color] Don't harass or target players across rounds for actions in prior rounds or for actions outside of the game (this is referred to as "Metagrudging".)
-    - Annoying players for IC reasons in the current round is fine; doing it across rounds or as a ghost role after they kill you is not.
+[color=#a4885c]13.[/color] No acoses o targets a jugadores a través de rondas por acciones en rondas anteriores o por acciones fuera del juego (esto se conoce como "Metagrudging" o rencor meta).
+    - Molestar a jugadores por razones IC en la ronda actual está bien; hacerlo a través de rondas o como un rol fantasma (ghost role) después de que te maten, no lo está.
 
-[color=#a4885c]14.[/color] Don't use information gained from outside your character's knowledge to gain an advantage (this is referred to as "Metagaming").
-    - Using information you gain from outside your own character (such as spectating while a ghost, metacomms, or other means) to your advantage is strictly forbidden. You remember all events up until you fall unconscious, even after cloning. If you take a ghost role, unless otherwise stated, you DO NOT REMEMBER ANYTHING from your past life.
+[color=#a4885c]14.[/color] No uses información obtenida fuera del conocimiento de tu personaje para ganar ventaja (esto se conoce como "Metagaming" o metajuego).
+    - Usar información que ganas fuera de tu propio personaje (como espectar mientras eres un fantasma, metacomunicaciones u otros medios) para tu ventaja está estrictamente prohibido. Recuerdas todos los eventos hasta que caes inconsciente, incluso después de clonarte. Si tomas un rol fantasma (ghost role), a menos que se indique lo contrario, NO RECUERDAS NADA de tu vida pasada.
 
-[color=#a4885c]15.[/color] Follow escalation rules and don't murder someone for slipping you, use common sense.
-    - You can defend yourself to the extent of protecting your own life.
-    - Security may use less-lethal force to effect arrests of criminals.
-    - Don't outright leave people to die if you get in a fight, make an effort to heal them or bring them to Medbay.
-    - Adminhelp the situation if you think someone is over-escalating.
-    - Department strikes, revolutions (ex: cargonia and any variation thereof), cults, and any other type of similar largely disruptive behavior are strictly forbidden. Other than for revolutionary antagonists, these activities are strictly forbidden. All players, including antagonists other than revolutionaries, must obtain admin permission before engaging in this behavior.
+[color=#a4885c]15.[/color] Sigue las reglas de escalación y no asesines a alguien por hacerte resbalar, usa el sentido común.
+    - Puedes defenderte hasta el punto de proteger tu propia vida.
+    - Seguridad puede usar fuerza menos letal para efectuar arrestos de criminales.
+    - No dejes directamente a la gente morir si te metes en una pelea, haz un esfuerzo por curarlos o llevarlos a Medbay.
+    - Pide ayuda a los administradores (ahelp) si crees que alguien está escalando demasiado.
+    - Huelgas departamentales, revoluciones (ej: cargonia y cualquier variación de la misma), cultos y cualquier otro tipo de comportamiento similar mayormente disruptivo están estrictamente prohibidos. Excepto para antagonistas revolucionarios, estas actividades están estrictamente prohibidas. Todos los jugadores, incluidos antagonistas que no sean revolucionarios, deben obtener permiso de administración antes de participar en este comportamiento.
 
-[color=#a4885c]16.[/color] Don't immediately ghost or suicide from your role if you do not get antagonist (referred to as "Antag-rolling" and will lead to an immediate ban.) or from head roles without notifying your chain of command or administrators.
-    - This is not fair to other players actually waiting patiently for an antagonist round. Alternatively, if you do not want to play an antagonist or do not want to cause conflict, do not opt-in for antagonist roles.
-    - Head of Staff roles help drive rounds. If you need to leave, please admin-help your role and that you are leaving. There is no need to wait for a reply when admin-helping that you need to disconnect as a head role.
+[color=#a4885c]16.[/color] No abandones inmediatamente (ghost) o suicides de tu rol si no te sale antagonista (conocido como "Antag-rolling" y conducirá a un ban inmediato) o de roles de mando (head roles) sin notificar a tu cadena de mando o a los administradores.
+    - Esto no es justo para otros jugadores que esperan pacientemente una ronda de antagonista. Alternativamente, si no quieres jugar como antagonista o no quieres causar conflicto, no optes por roles de antagonista.
+    - Los roles de Jefe de Personal (Head of Staff) ayudan a impulsar las rondas. Si necesitas irte, por favor avisa por admin-help tu rol y que te vas. No es necesario esperar una respuesta cuando avises por admin-help que necesitas desconectarte siendo un rol de mando.
 
-[color=#a4885c]17.[/color] Don't rush for or prepare equipment unrelated to your job for no purpose other then to have it "just in case" (referred to as "Powergaming").
-    - A security officer does not need galoshes, and the Head of Personnel does not need to give themselves armory access so they can go grab a gun. Have an actual reason for needing these things.
-    - Don't manufacture weapons, bombs, or death poisons before you know of any reason you would need them.
-    - Don't pre-emptively hide antagonist objectives or pre-emptively secure them with higher security then normally required.
-    - Don't manufacture or prepare things for the "end of the round" when the shuttle docks with Central Command.
+[color=#a4885c]17.[/color] No corras ni prepares equipo no relacionado con tu trabajo sin otro propósito que tenerlo "por si acaso" (conocido como "Powergaming").
+    - Un oficial de seguridad no necesita botas de agua (galoshes), y el Jefe de Personal no necesita darse a sí mismo acceso a la armería para ir a agarrar un arma. Ten una razón real para necesitar estas cosas.
+    - No manufactures armas, bombas o venenos mortales antes de saber de alguna razón por la que los necesitarías.
+    - No ocultes preemptivamente objetivos de antagonistas ni los asegures preemptivamente con mayor seguridad de la normalmente requerida.
+    - No manufactures o prepares cosas para el "final de la ronda" cuando el transporte se acople con el Comando Central.
 
-[color=#a4885c]18.[/color] Intentionally making yourself a major problem/annoyance/disruption for the crew or other players at large while not an antagonist is forbidden (referred to as "self-antagging").
-    - Don't openly try to cooperate with obvious or known antagonists as a non-antagonist.
-    - If you are on a shift with no Command and you break into the bridge to get the Captain's ID, you will be held to the standards of a Command player from that point on.
+[color=#a4885c]18.[/color] Hacerte intencionalmente un problema/molestia/disrupción mayor para la tripulación u otros jugadores en general sin ser un antagonista está prohibido (conocido como "self-antagging" o autoantagonizar).
+    - No intentes cooperar abiertamente con antagonistas obvios o conocidos como no antagonista.
+    - Si estás en un turno sin Mando y irrumpes en el puente para obtener la ID del Capitán, se te mantendrá a los estándares de un jugador de Mando a partir de ese momento.
 
-[color=#ff0000]SECURITY & COMMAND RULES[/color]
-If you regularly play Security or Command roles and got this far, we applaud you for reading. These rules also apply to any individual who is promoted or is acting in the place of a Security/Command role (unless they are an antagonist).
+[color=#ff0000]REGLAS DE SEGURIDAD Y MANDO[/color]
+Si juegas regularmente roles de Seguridad o Mando y llegaste hasta aquí, te aplaudimos por leer. Estas reglas también se aplican a cualquier individuo que sea promovido o esté actuando en lugar de un rol de Seguridad/Mando (a menos que sean un antagonista).
 
-[color=#a4885c]19.[/color] Command and Security are held to a higher standard of play.
-    - Be competent in your job and department. Failure to know the basics of your department is liable to result in a job ban.
-    - Do not willingly and openly cooperate with terrorists/antagonists. Do not give away your objective items. Some leeway is given to making deals with antagonists if the deal benefits the safety or situation of the station as a whole and not just yourself.
-    - Uphold the Law & maintain order. Do not engage in lawbreaking activity or troublemaker behavior. Security is expected to intervene into criminal activity where possible. Heads of Staff are at minimum expected to report criminal activity to Security.
-    - Do not immediately abandon your position as a Command role and go do whatever you want instead of managing your department/the station. Do not abuse your position or use it to make arbitrary choices to the detriment of the station.
-    - Do not hire random crew to be your bodyguards or promote them to Captain or a Head of Staff at random. If you need bodyguards, talk to your security department. If you need a new Command role, talk to the personnel in that related department.
-    - '''Do not abandon the station during Nuclear Operatives. You are supposed to protect the station, not let operatives kill everyone on it without a fight.'''
+[color=#a4885c]19.[/color] Mando y Seguridad son mantenidos a un estándar más alto de juego.
+    - Sé competente en tu trabajo y departamento. No saber lo básico de tu departamento es susceptible de resultar en un ban del trabajo (job ban).
+    - No cooperes voluntaria y abiertamente con terroristas/antagonistas. No regales tus objetos objetivo. Se da cierto margen para hacer tratos con antagonistas si el trato beneficia la seguridad o situación de la estación en general y no solo a ti mismo.
+    - Defiende la Ley y mantén el orden. No participes en actividades delictivas o comportamiento problemático. Se espera que Seguridad intervenga en actividad criminal donde sea posible. Se espera como mínimo que los Jefes de Personal reporten actividad criminal a Seguridad.
+    - No abandones inmediatamente tu posición como un rol de Mando y vayas a hacer lo que quieras en lugar de gestionar tu departamento/la estación. No abuses de tu posición ni la uses para tomar decisiones arbitrarias en detrimento de la estación.
+    - No contrates tripulación aleatoria para que sean tus guardaespaldas ni los promuevas a Capitán o a un Jefe de Personal al azar. Si necesitas guardaespaldas, habla con tu departamento de seguridad. Si necesitas un nuevo rol de Mando, habla con el personal de ese departamento relacionado.
+    - '''No abandones la estación durante Operativos Nucleares. Se supone que debes proteger la estación, no dejar que los operativos maten a todos sin luchar.'''
 
-[color=#a4885c]20.[/color] Security/Command should try to remain non-lethal and effect arrests, except in the following special circumstances, where they may choose to use lethal force:
-    - Lethal force is used against you (ex: firearms, lasers, disabling/stunning weapons with intent to kill, deadly melee weapons)
-    - Suspect is wearing clothing or showing immediately dangerous equipment only used by enemy agents/antagonists (ex: Syndicate EVA Suit, Bloodred Hardsuit, Holoparasite, C-20R, etc.).
-    - You determine that your life or the life of an innocent is in immediate danger.
-    - The suspect is unable to be safely detained by less-lethal means. This includes suspects who continually resist efforts to be cuffed or continually manages to escape.
-    - If no other reasonable options are readily available and allowing the suspect to continue would be an unreasonable danger to the station/crew.
+[color=#a4885c]20.[/color] Seguridad/Mando debería intentar permanecer no letal y efectuar arrestos, excepto en las siguientes circunstancias especiales, donde pueden elegir usar fuerza letal:
+    - Se usa fuerza letal contra ti (ej: armas de fuego, láseres, armas incapacitantes/aturdidoras con intención de matar, armas cuerpo a cuerpo mortales)
+    - El sospechoso viste ropa o muestra equipo inmediatamente peligroso solo usado por agentes/antagonistas enemigos (ej: Traje EVA del Sindicato, Escafandra Sangrienta (Bloodred Hardsuit), Holoparásito, C-20R, etc.).
+    - Determinas que tu vida o la vida de un inocente está en peligro inmediato.
+    - El sospechoso no puede ser detenido de forma segura por medios menos letales. Esto incluye sospechosos que se resisten continuamente a ser esposados o que logran escapar continuamente.
+    - Si no hay otras opciones razonables disponibles readily y permitir que el sospechoso continúe sería un peligro irrazonable para la estación/tripulación.
 
-Security/Command will be expected to answer for use of lethal force. Security/Command will be expected to effect arrests on criminals and prevent them from dying while in custody, even if lethal force is used. Security/Command is strongly encouraged, but not required, to revive antagonists and effect a permabrigging or other sentence as deemed appropriate.
+Se esperará que Seguridad/Mando responda por el uso de fuerza letal. Se esperará que Seguridad/Mando efectúe arrestos de criminales y evite que mueran bajo custodia, incluso si se usa fuerza letal. Se recomienda encarecidamente, pero no se requiere, que Seguridad/Mando reviva a los antagonistas y efectúe un permabriggeo u otra sentencia que se considere apropiada.
 
-[color=#a4885c]21.[/color] Security/Command are expected to protect detainees in their custody to the best of their ability so as long as it does not come to unreasonable risk to themselves, the crew, or the station at large to do so.
-    - Brig times should generally not exceed 10 minutes unless the crime is permabriggable. Repeat offenders or antagonists may be permabrigged.
-    - Security may choose to confiscate dangerous items (weapons, firearms) as well as items used to commission crimes or items that prove problematic in possession of the detainee (tools, insulated gloves, etc.).
-    - Detainees that die in your custody must be revived unless they have been (legally) executed or committed suicide.
-    - Executions must be for a permabriggable crime, used only as a last resort, and approved by the Captain/Acting Captain, who will answer for approving it alongside Security's chain of command. Those who willingly attempt to damage/destroy or escape from the permabrig may be executed.
-    - Any prisoner may be borged with their consent. Borging may be offered as an alternative to execution, but cannot be forced if the prisoner is able to consent.
-    - Detainees in the brig have the right to know what they are being charged with, as well as basic medical aid, at least to the point they are no longer at risk of dying.
-Security/Command acts to maintain the safety of the station and its inhabitants, as well as Nanotrasen assets.
+[color=#a4885c]21.[/color] Se espera que Seguridad/Mando proteja a los detenidos bajo su custodia lo mejor que puedan, siempre y cuando no suponga un riesgo irrazonable para ellos mismos, la tripulación o la estación en general hacerlo.
+    - Los tiempos de brig generalmente no deberían exceder los 10 minutos a menos que el crimen sea permabrigeable. Los reincidentes o antagonistas pueden ser permabrigeados.
+    - Seguridad puede elegir confiscar objetos peligrosos (armas, armas de fuego) así como objetos usados para cometer crímenes o objetos que resulten problemáticos en posesión del detenido (herramientas, guantes aislados, etc.).
+    - Los detenidos que mueren bajo tu custodia deben ser revividos a menos que hayan sido ejecutados (legalmente) o se hayan suicidado.
+    - Las ejecuciones deben ser por un crimen permabrigeable, usadas solo como último recurso, y aprobadas por el Capitán/Capitán en Funciones, quien responderá por aprobarla junto con la cadena de mando de Seguridad. Aquellos que intenten voluntariamente dañar/destruir o escapar del permabrig pueden ser ejecutados.
+    - Cualquier prisionero puede ser borgado con su consentimiento. Se puede ofrecer el borging como alternativa a la ejecución, pero no puede forzarse si el prisionero es capaz de consentir.
+    - Los detenidos en el brig tienen derecho a saber de qué se les acusa, así como a atención médica básica, al menos hasta el punto en que ya no corran riesgo de morir.
+Seguridad/Mando actúa para mantener la seguridad de la estación y sus habitantes, así como los activos de Nanotrasen.
 
-[color=#ff0000]SILICON RULES[/color]
-These rules also apply to any individual who is a silicon, including cyborgs and AI. As with other rules, more details are available on our wiki at [color=#a4885c]wiki.spacestation14.io[/color].
+[color=#ff0000]REGLAS DE SILICON[/color]
+Estas reglas también se aplican a cualquier individuo que sea un silicon, incluyendo cyborgs e IA. Como con otras reglas, más detalles están disponibles en nuestra wiki en [color=#a4885c]wiki.spacestation14.io[/color].
 
-[color=#a4885c]22.[/color] You must follow your laws
-    - Silicons without any laws are free from any restrictions that would normally be placed by laws, but self-antagging rules still apply unless they are also antagonists.
-    - The order of your laws determines law priority. Law 1 takes priority over laws 2 and 3, and so on.
-    - Each individual silicon must remain consistent in their interpretations of laws through the round.
-    - Any silicon role not following their laws, or having laws that are a danger to the crew or station may be disabled or destroyed. Any silicon role posing a danger or disruption to the crew may be disabled or destroyed if there is no other reasonable and less severe way of dealing with them.
-    - Characters who are turned into cyborgs can remember their former lives, however they are still bound to their laws.
-    - Everyone that the borg's HUD indicates have a job, including passenger, are considered "crewmembers" for the purpose of laws that refer to crewmembers. Borgs may not do anything to remove the indicator from someone, including removing their ID, but someone else removing a crewmember's ID is not crew harm.
-    - "Harm" is at minimum seen as physical violence or damage against someone or something. If the player wishes, they may choose to interpret psychological harm or similar aspects as harm as well. If two actions are likely to cause harm via action or inaction, silicons will be expected to try and pursue the option with the least potential for harm, however silicons instructed to prevent harm are still forbidden from directly causing harm. You can take an action or not act in cases that might result in eventual harm if it minimizes harm, but you cannot do so if it results in immediate harm. Silicons should default to inaction if neither action nor inaction can prevent harm.
-    - When receiving orders or directives from crewmembers and with a law that instructs you must obey, conflicting orders typically defer the choice to the silicon player of which directive you choose to obey if they conflict (taking into account the priorities of your other laws).
-    - Orders to silicons that are clearly unreasonable or obnoxious are a violation of the "Don't be a dick" rule. They can be ignored and can be ahelped if egregious enough.
+[color=#a4885c]22.[/color] Debes seguir tus leyes
+    - Los silicons sin leyes están libres de cualquier restricción que normalmente impondrían las leyes, pero las reglas de autoantagonizar todavía aplican a menos que también sean antagonistas.
+    - El orden de tus leyes determina la prioridad de la ley. La Ley 1 tiene prioridad sobre las leyes 2 y 3, y así sucesivamente.
+    - Cada silicon individual debe permanecer consistente en sus interpretaciones de las leyes a lo largo de la ronda.
+    - Cualquier rol de silicon que no siga sus leyes, o que tenga leyes que sean un peligro para la tripulación o la estación, puede ser desactivado o destruido. Cualquier rol de silicon que represente un peligro o disruptción para la tripulación puede ser desactivado o destruido si no hay otra forma razonable y menos severa de lidiar con ellos.
+    - Los personajes que son convertidos en cyborgs pueden recordar sus vidas anteriores, sin embargo todavía están sujetos a sus leyes.
+    - Todos aquellos a los que el HUD del borg indique que tienen un trabajo, incluido pasajero, son considerados "miembros de la tripulación" a los efectos de las leyes que se refieren a miembros de la tripulación. Los borgs no pueden hacer nada para quitar el indicador de alguien, incluido quitar su ID, pero que alguien más le quite la ID a un miembro de la tripulación no es daño a la tripulación.
+    - "Daño" se ve como mínimo como violencia física o daño contra alguien o algo. Si el jugador lo desea, puede elegir interpretar daño psicológico o aspectos similares como daño también. Si dos acciones tienen probabilidad de causar daño por acción o inacción, se esperará que los silicons intenten seguir la opción con el menor potencial de daño, sin embargo, a los silicons a los que se les instruye prevenir daño todavía se les prohíbe causar daño directamente. Puedes tomar una acción o no actuar en casos que puedan resultar en daño eventual si minimiza el daño, pero no puedes hacerlo si resulta en daño inmediato. Los silicons deberían optar por la inacción si ni la acción ni la inacción pueden prevenir el daño.
+    - Al recibir órdenes o directivas de miembros de la tripulación y con una ley que te instruye a obedecer, las órdenes conflictivas típicamente dejan la elección al jugador silicon de qué directiva elige obedecer si entran en conflicto (teniendo en cuenta las prioridades de tus otras leyes).
+    - Las órdenes a silicons que son claramente irrazonables o odiosas son una violación de la regla "No seas un imbécil". Pueden ser ignoradas y se puede pedir ayuda a un admin (ahelp) si son lo suficientemente graves.
 
-[color=#00ff00]SANDBOX SPECIFIC RULES[/color]
-[color=#0066ff]Blueshield Officer Rules[/color]
-    - You are to protect the Nanotrasen Representative, and to periodically check in with station command members. You are not a Security Officer with extra access, so do not abandon your duties.
-    - If you are dismissed by the Nanotrasen Representative, you may check in with the Captain or the highest ranking command member for guidance.
-    - If there is no Nanotrasen Representative on board, you are to protect the highest ranking command member until one arrives onto the station.
-    - You answer directly to Central Command.
-    - Do not abuse your role, and use common sense. If you have questions or concerns, fax CentComm, or ask the Nanotrasen Representative for guidance.
-    - Do not make yourself Captain or any other command job. If you want to be Captain, instead choose that role while in the lobby.
+[color=#00ff00]REGLAS ESPECÍFICAS DEL SANDBOX[/color]
+[color=#0066ff]Reglas del Oficial Blueshield[/color]
+    - Debes proteger al Representante de Nanotrasen y hacer chequeos periódicos con los miembros del comando de la estación. No eres un Oficial de Seguridad con acceso extra, así que no abandones tus deberes.
+    - Si eres despedido por el Representante de Nanotrasen, puedes consultar al Capitán o al miembro de comando de más alto rango para obtener orientación.
+    - Si no hay un Representante de Nanotrasen a bordo, debes proteger al miembro de comando de más alto rango hasta que llegue uno a la estación.
+    - Respondes directamente a Comando Central.
+    - No abuses de tu rol y usa el sentido común. Si tienes preguntas o inquietudes, envía un fax a CentComm o pide orientación al Representante de Nanotrasen.
+    - No te conviertas en Capitán ni en otro trabajo de comando. Si deseas ser Capitán, elige ese rol en el vestíbulo.
 
-[color=#00ff00]Nanotrasen Representative Rules[/color]
-    - You are the liaison between Central Command and the Station. You should be periodically faxing CentComm with an update on how the station is doing.
-    - You are to also guide the Station Heads, along with the Blueshield if needed. If you can't provide an answer, try faxing CentComm for one.
-    - Do not abuse your extra access for malicious reasons. Only use it if you must.
-    - Use common sense and remember that you are also held up to a high standard of play. Failure to do so will lead to a roleban from command or gameban from the server entirely.
-    - You are not to promote yourself or convince another command member to promote you to a position within the chain of command. You are outside of it, and can only step in when there is NO command available.
-    - You are not to relieve the Blueshield of their duties without approval from CentComm. They are there to protect you, and other important corporate assets.
+[color=#00ff00]Reglas del Representante de Nanotrasen[/color]
+    - Eres el enlace entre Comando Central y la Estación. Debes enviar un fax periódicamente a CentComm con una actualización sobre el estado de la estación.
+    - También debes guiar a los Jefes de la Estación, junto con el Blueshield si es necesario. Si no puedes proporcionar una respuesta, intenta enviar un fax a CentComm para obtener una.
+    - No abuses de tu acceso extra con fines maliciosos. Solo úsalo si es necesario.
+    - Usa el sentido común y recuerda que también debes cumplir con un alto estándar de juego. No hacerlo llevará a un "roleban" del comando o "gameban" del servidor por completo.
+    - No debes promoverte a ti mismo ni convencer a otro miembro del comando para que te promueva a una posición dentro de la cadena de mando. Estás fuera de ella, y solo puedes intervenir cuando NO haya comando disponible.
+    - No debes relevar al Blueshield de sus deberes sin la aprobación de CentComm. Ellos están allí para protegerte a ti y a otros activos corporativos importantes.
 
-[color=#ffffff]SANDBOX SPECIFIC RULES[/color]
-1. You are free to do as you wish, however, causing massive damage to both the station, the arrivals system, and other player’s builds is strictly prohibited. It is also strictly prohibited to spawn large amounts of entities, as too much entities can cause severe lag.
+[color=#ffffff]RELGAS ESPECIFICAS DE SANDBOX[/color]
+1. Eres libre de hacer practicamente todo lo que quieras, solo asegurate de no molestar a los demas jugadores y no usar exploits o metodos para causar lag al servidor.

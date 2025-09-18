@@ -9,77 +9,77 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 -->
 
 <Document>
-  # Surgery
-  Your usual weekly activity. By performing surgical operations on your patients, you can heal wounds, remove or add body parts, organs, and more.
+# Cirugía
+Tu actividad semanal habitual. Al realizar operaciones quirúrgicas en tus pacientes, puedes curar heridas, remover o agregar partes del cuerpo, órganos y más.
 
-  ## The Basics
-  To start surgery your patient needs to be laying down, and ideally sedated.
+## Conceptos Básicos
+Para iniciar una cirugía, tu paciente debe estar acostado y, idealmente, sedado.
 
-  You will also need an operating table to perform more advanced surgeries, such as replacing limbs or organs. These can be made in Science if none are available.
-  You may also find spare Operating Tables in maintenance.
+También necesitarás una **mesa de operaciones** para realizar cirugías más avanzadas, como reemplazo de extremidades u órganos. Estas pueden fabricarse en Ciencia si no hay disponibles.
+También puedes encontrar mesas de operaciones de repuesto en mantenimiento.
 
-  <Box>
-    <GuideEntityEmbed Entity="OperatingTable" Caption="nitrous oxide"/>
-  </Box>
+<Box>
+<GuideEntityEmbed Entity="OperatingTable" Caption="mesa de operaciones"/>
+</Box>
 
-  If they are not sedated, they will be in a lot of pain, which decreases their mood, and will make surgical wounds worse.
+Si no están sedados, sentirán mucho dolor, lo que disminuirá su ánimo y empeorará las heridas quirúrgicas.
 
-  <Box>
-    <GuideEntityEmbed Entity="NitrousOxideTank" Caption="nitrous oxide"/>
-    <GuideEntityEmbed Entity="ClothingMaskBreathMedical" Caption="any breathing tool"/>
-  </Box>
+<Box>
+<GuideEntityEmbed Entity="NitrousOxideTank" Caption="óxido nitroso"/>
+<GuideEntityEmbed Entity="ClothingMaskBreathMedical" Caption="herramienta respiratoria"/>
+</Box>
 
-  You also need to wear protective gear such as a mask and gloves to prevent harming the patient due to contamination.
+También necesitas usar equipo de protección como mascarilla y guantes para evitar contaminar al paciente.
 
-  <Box>
-    <GuideEntityEmbed Entity="ClothingMaskSterile" Caption="any mask"/>
-    <GuideEntityEmbed Entity="ClothingHandsGlovesNitrile" Caption="any gloves"/>
-  </Box>
+<Box>
+<GuideEntityEmbed Entity="ClothingMaskSterile" Caption="mascarilla"/>
+<GuideEntityEmbed Entity="ClothingHandsGlovesNitrile" Caption="guantes"/>
+</Box>
 
-  ## Getting Started
+## Comenzando
 
-  To engage in surgery, you'll need a set of surgical tools.
+Para realizar cirugía, necesitarás un conjunto de **herramientas quirúrgicas**.
 
-  <Box>
-    <GuideEntityEmbed Entity="Scalpel" Caption="scalpel"/>
-    <GuideEntityEmbed Entity="Retractor" Caption="retractor"/>
-    <GuideEntityEmbed Entity="Hemostat" Caption="hemostat"/>
-    <GuideEntityEmbed Entity="Drill" Caption="drill"/>
-  </Box>
+<Box>
+<GuideEntityEmbed Entity="Scalpel" Caption="bisturí"/>
+<GuideEntityEmbed Entity="Retractor" Caption="separador"/>
+<GuideEntityEmbed Entity="Hemostat" Caption="pinza hemostática"/>
+<GuideEntityEmbed Entity="Drill" Caption="taladro"/>
+</Box>
 
-  <Box>
-    <GuideEntityEmbed Entity="Saw" Caption="saw"/>
-    <GuideEntityEmbed Entity="Cautery" Caption="cautery"/>
-    <GuideEntityEmbed Entity="BoneGel" Caption="bone gel"/>
-    </Box>
+<Box>
+<GuideEntityEmbed Entity="Saw" Caption="sierra"/>
+<GuideEntityEmbed Entity="Cautery" Caption="electrocauterio"/>
+<GuideEntityEmbed Entity="BoneGel" Caption="gel óseo"/>
+</Box>
 
-  Once you've got tools in hand, interact with your patient to begin surgery. You'll be able to choose which part you want to operate on.
+Una vez tengas las herramientas, interactúa con tu paciente para iniciar la cirugía. Podrás elegir qué parte deseas operar.
 
-  ## Sterility
+## Esterilidad
 
-  Your tools will accumulate dirt and grime while you use them, requiring you to clean them.
-  Unclean tools will cause your patient to take poison damage.
+Tus herramientas acumularán suciedad con su uso, por lo que necesitarás limpiarlas.
+Las herramientas sucias provocarán daño por envenenamiento al paciente.
 
-  <Box>
-    <GuideEntityEmbed Entity="SoapNT" Caption="soap" />
-    <GuideEntityEmbed Entity="Scalpel" Caption="scalpel" />
-  </Box>
+<Box>
+<GuideEntityEmbed Entity="SoapNT" Caption="jabón"/>
+<GuideEntityEmbed Entity="Scalpel" Caption="bisturí"/>
+</Box>
 
-  You can clean your tools by using soap on them. Be sure to also regularly clean or change your mask and gloves, as well.
-  Using the same dirty tools between two or more patients will cause your tools to become filthy, so be sure to clean them regularly.
+Puedes limpiar tus herramientas usando jabón sobre ellas. Asegúrate de limpiar o cambiar regularmente tu mascarilla y guantes.
+Usar las mismas herramientas sucias entre varios pacientes hará que se ensucien más, así que limpia con frecuencia.
 
-  ## Ghetto Surgery
+## Cirugía improvisada
 
-  Certain non-surgical tools can be used in a pinch, use the scalpel examine icon to see how good or bad something is.
-  An operating table is still required for certain medical procedures.
+Algunas herramientas no quirúrgicas pueden usarse en caso de emergencia. Usa el icono de **examinar** del bisturí para ver qué tan útiles son.
+Aun así, una mesa de operaciones sigue siendo necesaria para ciertos procedimientos médicos.
 
-  <Box>
-    <GuideEntityEmbed Entity="Welder" Caption="welder"/>
-    <GuideEntityEmbed Entity="Wirecutter" Caption="wirecutter"/>
-    <GuideEntityEmbed Entity="KitchenKnife" Caption="knife"/>
-    <GuideEntityEmbed Entity="Crowbar" Caption="crowbar"/>
-  </Box>
+<Box>
+<GuideEntityEmbed Entity="Welder" Caption="soldador"/>
+<GuideEntityEmbed Entity="Wirecutter" Caption="cortacables"/>
+<GuideEntityEmbed Entity="KitchenKnife" Caption="cuchillo"/>
+<GuideEntityEmbed Entity="Crowbar" Caption="palanca"/>
+</Box>
 
-  They aren't ideal compared to real surgical equipment, but they'll do in a pinch!
+No son ideales comparadas con el equipo quirúrgico real, pero funcionan en emergencias.
 
 </Document>

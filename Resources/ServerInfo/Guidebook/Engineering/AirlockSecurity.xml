@@ -11,78 +11,78 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Airlock Upgrades
-  It is not uncommon for plucky individuals to try and bypass an airlock by meddling with its internal wiring.
+  # Mejoras de Exclusas
+  No es raro que individuos audaces intenten evadir una esclusa manipulando su cableado interno.
 
-  Fortunately, certain countermeasures can be installed into airlocks to inconvenience any would-be trespassers.
+  Afortunadamente, se pueden instalar ciertas contramedidas en las exclusas para dificultar el acceso a intrusos.
 
-  ## Medium security airlocks
-  The most basic form of intrusion deterrence is to install a secured steel plating that will prevent access to internal wiring of the airlock.
+  ## Exclusas de seguridad media
+  La forma más básica de disuasión contra intrusiones es instalar una placa de acero asegurada que impida el acceso al cableado interno de la esclusa.
 
-  To upgrade a basic airlock to a medium security airlock, you will require the following materials:
+  Para mejorar una esclusa básica a una esclusa de seguridad media, necesitarás los siguientes materiales:
   <Box HorizontalAlignment="Stretch">
 	  <Box>
-		  <GuideEntityEmbed Entity="SheetSteel" Caption="2 steel sheets"/>
+		  <GuideEntityEmbed Entity="SheetSteel" Caption="2 láminas de acero"/>
 	  </Box>
 	  <Box>
-		  <GuideEntityEmbed Entity="Screwdriver" Caption="Screwdriver"/>
+		  <GuideEntityEmbed Entity="Screwdriver" Caption="Destornillador"/>
 	  </Box>
 	  <Box>
-		  <GuideEntityEmbed Entity="Welder" Caption="Welder"/>
+		  <GuideEntityEmbed Entity="Welder" Caption="Soldador"/>
 	  </Box>
   </Box>
 
-  To upgrade a basic airlock:
-  -	Use the screwdriver to open the airlock maintenance panel.
-  -	Add the steel sheets to the airlock.
-  -	Weld the steel sheets into place.
-  -	Close the maintenance panel using the screwdriver.
+  Para mejorar una esclusa básica:
+  - Usa el destornillador para abrir el panel de mantenimiento de la esclusa.
+  - Agrega las láminas de acero a la esclusa.
+  - Suelda las láminas de acero en su lugar.
+  - Cierra el panel de mantenimiento usando el destornillador.
 
-  ## High security airlocks
-  For airlocks leading to the more sensitive areas of the space station, the use of stronger deterrents are advised. High security airlocks have improved armor plating to protect its internal wiring.
+  ## Exclusas de alta seguridad
+  Para las exclusas que conducen a áreas más sensibles de la estación espacial, se recomienda usar medidas disuasorias más fuertes. Las exclusas de alta seguridad tienen placas de armadura mejoradas para proteger su cableado interno.
 
-  To upgrade a medium security airlock to a high security airlock, you will require the following materials:
+  Para mejorar una esclusa de seguridad media a una esclusa de alta seguridad, necesitarás los siguientes materiales:
   <Box HorizontalAlignment="Stretch">
 	  <Box>
-		  <GuideEntityEmbed Entity="SheetPlasteel" Caption="2 plasteel sheets"/>
+		  <GuideEntityEmbed Entity="SheetPlasteel" Caption="2 láminas de plasteel"/>
 	  </Box>
 	  <Box>
-		  <GuideEntityEmbed Entity="Screwdriver" Caption="Screwdriver"/>
+		  <GuideEntityEmbed Entity="Screwdriver" Caption="Destornillador"/>
 	  </Box>
 	  <Box>
-		  <GuideEntityEmbed Entity="Welder" Caption="Welder"/>
+		  <GuideEntityEmbed Entity="Welder" Caption="Soldador"/>
 	  </Box>
   </Box>
 
-  To upgrade a medium security airlock:
-  - Use the screwdriver to open the airlock maintenance panel.
-  - Add the plasteel sheets to the airlock.
-  - Weld the plasteel sheets into place.
-  - Close the maintenance panel using the screwdriver.
+  Para mejorar una esclusa de seguridad media:
+  - Usa el destornillador para abrir el panel de mantenimiento de la esclusa.
+  - Agrega las láminas de plasteel a la esclusa.
+  - Suelda las láminas de plasteel en su lugar.
+  - Cierra el panel de mantenimiento usando el destornillador.
 
-  ## Maximum security airlocks
-  You can optionally upgrade a high security airlock to a maximum security airlock. Maximum security airlocks possess an additional layer of electrified wire mesh on top of its other protections, which can shock any unauthorized personnel attempting to tamper with the airlock.
+  ## Exclusas de seguridad máxima
+  Opcionalmente, puedes mejorar una esclusa de alta seguridad a una esclusa de seguridad máxima. Las exclusas de seguridad máxima poseen una capa adicional de malla metálica electrificada sobre sus otras protecciones, que puede electrocutar a cualquier persona no autorizada que intente manipular la esclusa.
 
-  To upgrade a high security airlock to a maximum security airlock, you will require the following materials:
+  Para mejorar una esclusa de alta seguridad a una esclusa de seguridad máxima, necesitarás los siguientes materiales:
   <Box HorizontalAlignment="Stretch">
 	  <Box>
-		  <GuideEntityEmbed Entity="SheetPlasteel" Caption="2 plasteel sheets"/>
+		  <GuideEntityEmbed Entity="SheetPlasteel" Caption="2 láminas de plasteel"/>
 	  </Box>
     <Box>
-      <GuideEntityEmbed Entity="PartRodMetal" Caption="2 metal rods"/>
+      <GuideEntityEmbed Entity="PartRodMetal" Caption="2 barras de metal"/>
     </Box>
 	  <Box>
-		  <GuideEntityEmbed Entity="Screwdriver" Caption="Screwdriver"/>
+		  <GuideEntityEmbed Entity="Screwdriver" Caption="Destornillador"/>
 	  </Box>
 	  <Box>
-		  <GuideEntityEmbed Entity="Welder" Caption="Welder"/>
+		  <GuideEntityEmbed Entity="Welder" Caption="Soldador"/>
 	  </Box>
   </Box>
 
-  To upgrade a high security airlock:
-  -	Use the screwdriver to open the airlock maintenance panel.
-  -	Add the plasteel sheets to the airlock.
-  -	Weld the plasteel sheets into place.
-  - Add the metal rods to the airlock.
-  -	Close the maintenance panel using the screwdriver.
+  Para mejorar una esclusa de alta seguridad:
+  - Usa el destornillador para abrir el panel de mantenimiento de la esclusa.
+  - Agrega las láminas de plasteel a la esclusa.
+  - Suelda las láminas de plasteel en su lugar.
+  - Agrega las barras de metal a la esclusa.
+  - Cierra el panel de mantenimiento usando el destornillador.
 </Document>

@@ -1,126 +1,125 @@
 <!--
-SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Icepick <icepickedcyanide@gmail.com>
+SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2025 Huhm-1 <cameronhillard40@gmail.com>
+SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 
 SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Species Naming Schemes	
+  # Esquemas de Nombres de Especies
 
-  This page contains the guidelines for all non-humanoid species names. Characters must follow the naming scheme of their species, have both a first name and last name, or have reasonably alien sounding names.  
-    
-  ## Arachnids
-    
-  Arachnids typically have latin sounding names.
+  Esta página contiene las pautas para los nombres de todas las especies no humanoides. Los personajes deben seguir el esquema de nombres de su especie, tener tanto un nombre de pila como un apellido, o tener nombres razonablemente alienígenas.
+
+  ## Arácnidos
+
+  Los arácnidos generalmente tienen nombres de sonido latino.
 
     [bullet] Envia Radiatus
 
     [bullet] Drassodes Walckenaerius
-    
+
     [bullet] Microhexura Digua
-      
+  
   ## Diona
-  
-  Diona typically have nature themed, Noun of Noun style names.
-  
-    [bullet] The Blossom of Bravery
 
-    [bullet] The Elder of Nobility
-    
-    [bullet] The Canyon of Balance
-        
-  ## Moths
-    
-  Moth people typically have latin and light related names.
+  Los diona generalmente tienen nombres con temática natural, del tipo Sustantivo de Sustantivo.
 
-    [bullet] Silkie Gossamer
+    [bullet] La Flor de la Valentía
 
-    [bullet] Shelly Nightwatch
-    
-    [bullet] Allie Lightweaver
-               
-  ## Reptilian 
-    
-  Reptilians typically have hyphenated two to four syllable names favouring guttural consonants while avoiding soft sounds.
+    [bullet] El Anciano de la Nobleza
+
+    [bullet] El Cañón del Equilibrio
+
+  ## Polillas
+
+  Los polillanos generalmente tienen nombres de sonido latino y relacionados con la luz.
+
+    [bullet] Silkie Resplandor
+
+    [bullet] Shelly luz de luna 
+
+    [bullet] Allie amanecer
+
+  ## Reptilianos
+
+  Los reptilianos generalmente tienen nombres de dos a cuatro sílabas con guiones, favoreciendo consonantes guturales mientras se evitan los sonidos suaves.
 
     [bullet] Neeus-Hixeeh
 
     [bullet] Wud-Geel
-    
+
     [bullet] Deroh-Haj
-        
+
   ## Slimes
 
-  Slimes typically have names that are onomatopoeic, "liquidy", or references their slime.
-  
+  Los slimes generalmente tienen nombres onomatopéyicos, "líquidos" o que hacen referencia a su baba.
+
     [bullet] Glub Green
-  
+
     [bullet] Blorb
-  
+
     [bullet] Glort Jones
 
-  ## Gingerbread
-    
-  Gingerbread typically have food or baking themed names.
+  ## Pan de Jengibre
 
-    [bullet] Sugarbottoms
+  Los pan de jengibre generalmente tienen nombres temáticos de comida o repostería.
 
-    [bullet] Gumdrop Gus
-    
-    [bullet] Johnny Dough
-            
+    [bullet] Dulce de leche
+
+    [bullet] Caramelo
+
+    [bullet] Jhon Bollo
+
   ## Vox
-    
-  Vox typically have one word names comprised of random syllables and repeating patterns.
+
+  Los vox generalmente tienen nombres de una sola palabra compuestos por sílabas aleatorias y patrones repetitivos.
 
     [bullet] Hirikachi
 
     [bullet] Chepekakak
-    
-    [bullet] Skichabi    
+
+    [bullet] Skichabi
 
   ## Vulpkanin
-    
-  Vulpkanin have similar names to the humanoid species, but are typically more guttural and harsh.
+
+  Los vulpkanin tienen nombres similares a los de las especies humanoides, pero generalmente son más guturales y duros.
 
     [bullet] Hugo Meissner
 
     [bullet] Cadog Thalassa
-    
+
     [bullet] Emery Kamphaus
-    
+
   ## Rodentia
-    
-  Rodentia typically have names structured by a descriptor followed by a pet sounding first name.
 
-    [bullet] Short-legged Noodle
+  Los rodenia generalmente tienen nombres estructurados por un descriptor seguido de un nombre de mascota.
 
-    [bullet] Long-tail Chitters
-    
-    [bullet] Squeaky Cheesetail
- 
+    [bullet] Pierna Corta Toby
+
+    [bullet] Cola Larga Laika
+
+
   ## IPC
-    
-  IPCs typically have 3-5 characters names followed by a hyphen and numbers.
+
+  Los IPC generalmente tienen nombres de 3 a 5 caracteres seguidos de un guion y números.
 
     [bullet] ARMA-206
 
     [bullet] YPT-042
-    
+
     [bullet] WISP-524
 
-            
   ## Thaven
-    
-  Thaven have multiple sets of names: one set being virtues, and the other being maxims.
 
-    [bullet] Righteousness
+  Los thaven tienen múltiples conjuntos de nombres: uno de virtudes y otro de máximas.
 
-    [bullet] Drink Full And Descend
-    
-    [bullet] Repent All Ye Sinners     
+    [bullet] Rectitud
 
-    
+    [bullet] Bebe Abundante y Desciende
+
+    [bullet] Arrepiéntanse Todos Ustedes Pecadores
+
 </Document>

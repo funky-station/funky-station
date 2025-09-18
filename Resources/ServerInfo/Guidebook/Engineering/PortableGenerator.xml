@@ -12,10 +12,10 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Portable Generators
+  # Generadores Portátiles
 
-  The "P.A.C.M.A.N." line of portable generators are used to provide emergency or supplemental power to key rooms, areas, or even departments.
-  They are easy to set up and maintain, and can be used to power critical systems and areas in the event of a power outage.
+  La línea de generadores portátiles "P.A.C.M.A.N." se utiliza para proporcionar energía de emergencia o suplementaria a salas clave, áreas o incluso departamentos completos.
+  Son fáciles de instalar y mantener, y pueden alimentar sistemas críticos y áreas en caso de un corte de energía.
 
   <Box>
     <GuideEntityEmbed Entity="PortableGeneratorJrPacman" Caption="J.R.P.A.C.M.A.N." />
@@ -23,21 +23,21 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="PortableGeneratorSuperPacman" Caption="S.U.P.E.R.P.A.C.M.A.N." />
   </Box>
 
-  # The Junior
+  # El Junior
 
   <Box>
     <GuideEntityEmbed Entity="PortableGeneratorJrPacman" Caption="J.R.P.A.C.M.A.N." />
     <GuideEntityEmbed Entity="WeldingFuelTank" />
   </Box>
 
-  The J.R.P.A.C.M.A.N. can be found across the station in maintenance shafts, and is ideal for crew to set up themselves whenever there are power issues.
-  Its output of up to [color=orange][protodata="PortableGeneratorJrPacman" comp="FuelGenerator" member="MaxTargetPower" format="N0"/] W[/color] is enough to power a room or two, which can prove invaluable in a place like Medbay or Chemistry in the Medical Department.
+  El J.R.P.A.C.M.A.N. se encuentra en toda la estación, en los conductos de mantenimiento, y es ideal para que la tripulación lo instale cuando hay problemas de energía.
+  Su salida de hasta [color=orange][protodata="PortableGeneratorJrPacman" comp="FuelGenerator" member="MaxTargetPower" format="N0"/] W[/color] es suficiente para alimentar una o dos habitaciones, lo que puede ser invaluable en lugares como la Medbay o el Departamento de Química.
 
-  Setup is incredibly easy: wrench it down above an [color=green]LV[/color] power cable, give it some welding fuel, and start it up.
+  La instalación es muy sencilla: fíjalo con una llave sobre un cable de energía [color=green]LV[/color], añade combustible de soldadura y enciéndelo.
 
-  Welding fuel is the only fuel source the J.R.P.A.C.M.A.N. can use and it can be found in welding fuel tanks across the station, commonly in maintenance areas.
+  El combustible de soldadura es la única fuente de energía que el J.R.P.A.C.M.A.N. puede usar y se encuentra en los tanques de combustible de soldadura repartidos por la estación, normalmente en áreas de mantenimiento.
 
-  # The Big Ones
+  # Los Grandes
 
   <Box>
     <GuideEntityEmbed Entity="PortableGeneratorPacman" Caption="P.A.C.M.A.N." />
@@ -49,12 +49,12 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="SheetUranium" />
   </Box>
 
-  The P.A.C.M.A.N. and S.U.P.E.R.P.A.C.M.A.N. is intended for usage by engineering for larger power outages and supplementing power in the event of a deficit.
-  Bootstrapping larger [textlink="engines" link="SingularityTeslaEngine"], powering departments, and so on.
+  El P.A.C.M.A.N. y el S.U.P.E.R.P.A.C.M.A.N. están pensados para ser usados por ingeniería ante cortes de energía más grandes o para suplementar la energía en caso de déficit.
+  Por ejemplo: arrancar grandes [textlink="engines" link="SingularityTeslaEngine"], alimentar departamentos, entre otros.
 
-  The S.U.P.E.R.P.A.C.M.A.N. boasts a larger power output (up to [color=orange][protodata="PortableGeneratorSuperPacman" comp="FuelGenerator" member="MaxTargetPower" format="N0"/] W[/color]) and longer runtime at maximum output, but scales down to lower outputs less efficiently.
+  El S.U.P.E.R.P.A.C.M.A.N. ofrece una mayor potencia (hasta [color=orange][protodata="PortableGeneratorSuperPacman" comp="FuelGenerator" member="MaxTargetPower" format="N0"/] W[/color]) y mayor duración al máximo rendimiento, aunque es menos eficiente cuando opera a potencias menores.
 
-  They connect directly to [color=yellow]MV[/color] or [color=orange]HV[/color] [textlink="power cables" link="VoltageNetworks"] and are able to switch between them for flexibility.
+  Se conectan directamente a cables de [color=yellow]MV[/color] o [color=orange]HV[/color] [textlink="power cables" link="VoltageNetworks"] y pueden cambiar entre ellos para mayor flexibilidad.
 
-  The S.U.P.E.R.P.A.C.M.A.N and P.A.C.M.A.N require uranium sheets and plasma sheets as fuel, respectively.
+  El S.U.P.E.R.P.A.C.M.A.N. y el P.A.C.M.A.N. requieren láminas de uranio y de plasma como combustible, respectivamente.
 </Document>

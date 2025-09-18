@@ -9,48 +9,48 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Zombies
-  
+  # Zombis
+
   <Box>
-    [color=#999999][italic]"They're coming to get you, Barbara!"[/italic][/color]
+    [color=#999999][italic]"¡Vienen por ti, Bárbara!"[/italic][/color]
   </Box>
   <Box>
     <GuideEntityEmbed Entity="SignBiohazard" Caption=""/>
   </Box>
 
-  Zombies are conversion antagonists that infect all beings that they bite with [color=#7e916e]Romerol[/color], a deadly, contagious virus that can easily spread if not contained.
+  Los zombis son antagonistas de conversión que infectan a todos los seres que muerden con [color=#7e916e]Romerol[/color], un virus mortal y contagioso que puede propagarse fácilmente si no se contiene.
 
   <Box>
     <GuideReagentEmbed Reagent="Romerol"></GuideReagentEmbed>
   </Box>
 
-  ## Inital Infected
-  You are patient zero. You have [color=#7e916e]Romerol[/color] coursing through your veins and you have a grand desire to share it with every single flesh being you see.
+  ## Infectado Inicial
+  Eres el paciente cero. Tienes [color=#7e916e]Romerol[/color] corriendo por tus venas y un gran deseo de compartirlo con cada ser de carne que veas.
 
-  Upon learning of your infection, [italic]all bets are off[/italic]. You have only so much time before you turn, and you want to [bold]maximize your chances of taking over the station.[/bold]
-  Use this time to prepare weapons, gear, and traps. [italic]Space Law means nothing to you now.[/italic]
+  Al enterarte de tu infección, [italic]todas las apuestas están fuera[/italic]. Solo tienes un tiempo limitado antes de transformarte, y quieres [bold]maximizar tus posibilidades de apoderarte de la estación.[/bold]
+  Usa este tiempo para preparar armas, equipo y trampas. [italic]La Ley Espacial ya no significa nada para ti.[/italic]
 
-  ## Transmission
-  Zombies only know how to shamble, bite and throw themselves against barricades. Their bite [bold]may not always transmit [color=#7e916e]Romerol[/color][/bold] through heavy layers of clothing, but it'll definitely hurt.
+  ## Transmisión
+  Los zombis solo saben arrastrarse, morder y embestir barricadas. Su mordida [bold]no siempre transmite [color=#7e916e]Romerol[/color][/bold] a través de capas gruesas de ropa, pero definitivamente dolerá.
 
-  The undead can also chomp on a crit or dead body to [bold]instantly convert[/bold] it to a zombie.
+  Los muertos vivientes también pueden morder a un cuerpo crítico o muerto para [bold]convertirlo instantáneamente[/bold] en un zombi.
 
-  ## Zombie Attributes
-  A zombie can be identified by dark green skin, red eyes, slow movement, rotting smell, and lack of motor functions. They'll drop their headset and gloves upon turning, and cuffs don't work against their vicious bite.
+  ## Atributos del Zombi
+  Un zombi puede identificarse por su piel verde oscura, ojos rojos, movimientos lentos, olor a putrefacción y falta de funciones motoras. Soltarán su headset y guantes al transformarse, y las esposas no funcionan contra su mordida feroz.
 
-  Zombies are known for their [bold]resilience to slashes, bruises, poison and cold.[/bold] They can survive in a vacuum and do not require food, water, air, or sleep. The undead do, however, [italic]take increased burn and shock damage.[/italic]
+  Los zombis son conocidos por su [bold]resistencia a cortes, golpes, venenos y frío.[/bold] Pueden sobrevivir en el vacío y no requieren comida, agua, aire ni sueño. Sin embargo, [italic]reciben más daño por fuego y electricidad.[/italic]
 
-  ## Survival
-  When the infection sweeps and [color=#cb0000]Security[/color] falls, it's up to the [bold]survivors[/bold] to try and make it to Central Command.
+  ## Supervivencia
+  Cuando la infección arrasa y [color=#cb0000]Security[/color] cae, depende de los [bold]sobrevivientes[/bold] intentar llegar a Central Command.
 
-  [bold]Constructing barricades[/bold] around departments or [bold]bolting doors[/bold] can buy enough time to make weapons, save lives or make a plan.
+  [bold]Construir barricadas[/bold] alrededor de departamentos o [bold]asegurar puertas[/bold] puede dar tiempo suficiente para fabricar armas, salvar vidas o planear una estrategia.
 
-  Remember that when it really hits the fan, [italic]you've gotta do what you gotta do[/italic], as long as it's not at the expense of fellow survivors. Scavenge what you need from those who haven't made it.
+  Recuerda que cuando todo se vaya al traste, [italic]haz lo que tengas que hacer[/italic], siempre que no sea a expensas de otros sobrevivientes. Recolecta lo que necesites de aquellos que no lo lograron.
 
-  ## Cure
-  [bold]Those who are already undead can only be cured by [color=red]death.[/color][/bold]
+  ## Cura
+  [bold]Aquellos que ya están muertos vivientes solo pueden ser curados por [color=red]la muerte.[/color][/bold]
 
-  If you're infected but not zombified yet, using [color=#86caf7]Ambuzol[/color] will cure you but won't prevent re-infection. [color=#1274b5]Ambuzol Plus[/color] will cure and prevent re-infection only while alive.
+  Si estás infectado pero aún no te has zombificado, usar [color=#86caf7]Ambuzol[/color] te curará, pero no previene la reinfección. [color=#1274b5]Ambuzol Plus[/color] te curará y prevendrá la reinfección mientras estés vivo.
 
   <Box>
     <GuideReagentEmbed Reagent="Ambuzol"></GuideReagentEmbed>

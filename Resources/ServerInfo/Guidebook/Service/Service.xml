@@ -6,36 +6,36 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-# Service
-[color=#9fed58]Service[/color] keeps the station clean, efficient and sane so that all other departments can do their jobs better and keep their staff happy. They also end up doing most of the paperwork on the station.
+# Servicio
+[color=#9fed58]Servicio[/color] mantiene la estación limpia, eficiente y cuerda para que todos los demás departamentos puedan hacer su trabajo mejor y mantener a su personal feliz. También terminan haciendo la mayor parte del papeleo en la estación.
 
-## Personnel
-[color=#9fed58]Service[/color]'s staff is made up of Service Workers, Chefs, Botanists, Bartenders, Janitors, Chaplains, Clowns, Mimes, Musicians, Lawyers, Librarians and Passengers. Service is run by the Head of Personnel.
+## Personal
+El personal de [color=#9fed58]Servicio[/color] está compuesto por Trabajadores de Servicio, Chefs, Botánicos, Cantineros, Conserjes, Capellanes, Payasos, Mimos, Músicos, Abogados, Bibliotecarios y Pasajeros. Servicio está dirigido por el Jefe de Personal.
 
   <Box>
     <GuideEntityEmbed Entity="ToyFigurineChef" Caption="Chef"/>
-    <GuideEntityEmbed Entity="ToyFigurineBotanist" Caption="Botanist"/>
-    <GuideEntityEmbed Entity="ToyFigurineBartender" Caption="Bartender"/>
-    <GuideEntityEmbed Entity="ToyFigurineJanitor" Caption="Janitor"/>
+    <GuideEntityEmbed Entity="ToyFigurineBotanist" Caption="Botánico"/>
+    <GuideEntityEmbed Entity="ToyFigurineBartender" Caption="Cantinero"/>
+    <GuideEntityEmbed Entity="ToyFigurineJanitor" Caption="Conserje"/>
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="ToyFigurineChaplain" Caption="Chaplain"/>
-    <GuideEntityEmbed Entity="ToyFigurineClown" Caption="Clown"/>
-    <GuideEntityEmbed Entity="ToyFigurineMime" Caption="Mime"/>
-    <GuideEntityEmbed Entity="ToyFigurineMusician" Caption="Musician"/>
+    <GuideEntityEmbed Entity="ToyFigurineChaplain" Caption="Capellán"/>
+    <GuideEntityEmbed Entity="ToyFigurineClown" Caption="Payaso"/>
+    <GuideEntityEmbed Entity="ToyFigurineMime" Caption="Mimo"/>
+    <GuideEntityEmbed Entity="ToyFigurineMusician" Caption="Músico"/>
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="ToyFigurineLawyer" Caption="Lawyer"/>
-    <GuideEntityEmbed Entity="ToyFigurineLibrarian" Caption="Librarian"/>
-    <GuideEntityEmbed Entity="ToyFigurinePassenger" Caption="Passenger"/>
-    <GuideEntityEmbed Entity="ToyFigurineHeadOfPersonnel" Caption="HoP"/>
+    <GuideEntityEmbed Entity="ToyFigurineLawyer" Caption="Abogado"/>
+    <GuideEntityEmbed Entity="ToyFigurineLibrarian" Caption="Bibliotecario"/>
+    <GuideEntityEmbed Entity="ToyFigurinePassenger" Caption="Pasajero"/>
+    <GuideEntityEmbed Entity="ToyFigurineHeadOfPersonnel" Caption="JdP"/>
   </Box>
 
-## Working Together
-[color=#9fed58]Service[/color], despite being the most diverse, tends to be the most [color=#a4885c]interlinked[/color] department by far.
-Most [color=#9fed58]Service[/color] jobs require [color=#a4885c]cooperation[/color] between workers.
-Chefs often need ingredients that only botanists can grow efficiently. The bartender may request bananas that only clowns carry in abundance.
-The lawyer may invite the mime to play charades to convince the judge that their client is innocent.
+## Trabajar Juntos
+[color=#9fed58]Servicio[/color], a pesar de ser el más diverso, tiende a ser el departamento más [color=#a4885c]interconectado[/color] con diferencia.
+La mayoría de los trabajos de [color=#9fed58]Servicio[/color] requieren [color=#a4885c]cooperación[/color] entre los trabajadores.
+Los chefs a menudo necesitan ingredientes que solo los botánicos pueden cultivar eficientemente. El cantinero puede solicitar plátanos que solo los payasos llevan en abundancia.
+El abogado puede invitar al mimo a jugar charadas para convencer al juez de que su cliente es inocente.
 
-A lot of [color=#a4885c]collaboration[/color] is necessary within and without [color=#9fed58]Service[/color]. Often times, [color=#9fed58]Service[/color] is required by other departments, so be on your toes.
+Mucha [color=#a4885c]colaboración[/color] es necesaria dentro y fuera de [color=#9fed58]Servicio[/color]. Muchas veces, otros departamentos requieren de [color=#9fed58]Servicio[/color], así que mantente alerta.
 </Document>

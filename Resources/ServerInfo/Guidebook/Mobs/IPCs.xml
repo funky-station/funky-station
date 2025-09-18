@@ -13,65 +13,62 @@ SPDX-License-Identifier: MIT
 <Document>
   # I.P.C.
   <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C."/>
-  An IPC (short for Integrated Positronic Chassis) is a type of sentient robot and is considered an [color=yellow]independent individual[/color], meaning [color=red]they are not guided by any laws of robotics[/color]. IPCs cannot be hacked by Emags because they do not have to follow any predefined directives in their system. [color=red]IPCs are silicon-based beings, so doctors do not have the skills to repair them.[/color]
+  Un IPC (por sus siglas en inglés Integrated Positronic Chassis) es un tipo de robot consciente y se considera un [color=yellow]individuo independiente[/color], lo que significa que [color=red]no están guiados por ninguna ley de la robótica[/color]. Los IPC no pueden ser hackeados por Emags porque no tienen que seguir directivas predefinidas en su sistema. [color=red]Los IPC son seres basados en silicio, por lo que los doctores no tienen las habilidades para repararlos.[/color]
 
   <Box>
-    <GuideEntityEmbed Entity="PositronicBrain" Caption="Positronic Brain"/>
+    <GuideEntityEmbed Entity="PositronicBrain" Caption="Cerebro Positrónico"/>
   </Box>
-  Like borgs, IPCs have a positronic brain as their processing source. However, unlike them, IPCs can't be assembled. "It's cheaper to create a shell that obeys you than one that doesn't! *wink*"
-  
-  ## Recharging an IPC
-   <Box>
-    <GuideEntityEmbed Entity="APCBasic" Caption="APC Terminal"/>
-    <GuideEntityEmbed Entity="BorgCharger" Caption="Borg Charger"/>
-    <GuideEntityEmbed Entity="PowerCellMedium" Caption="Power Cell"/>
-  </Box>
-  IPCs can be recharged in three different ways:
+  Al igual que los borgs, los IPC tienen un cerebro positrónico como fuente de procesamiento. Sin embargo, a diferencia de ellos, los IPC no pueden ser ensamblados. "¡Es más barato crear un casco que te obedezca que uno que no lo haga! *guiño*"
 
-  APC Terminal: IPCs can use APC terminals to recharge. Press [color=yellow]Alt + left click[/color] on a terminal as many times as needed to fully recharge.
-
-  Borg Rechargers: IPCs can use borg rechargers to recharge. Always prioritize the ones outside of the Sci area to avoid headaches.
-
-  Power Cell: IPCs have an internal power cell that serves as their battery. They can simply swap it out by opening the hatch and manually replacing it.
-
-  ## Integrated Radio
+  ## Recargar un IPC
   <Box>
-    <GuideEntityEmbed Entity="EncryptionKeyScience" Caption="Encryption key"/>
+    <GuideEntityEmbed Entity="APCBasic" Caption="Terminal APC"/>
+    <GuideEntityEmbed Entity="BorgCharger" Caption="Cargador Borg"/>
+    <GuideEntityEmbed Entity="PowerCellMedium" Caption="Celda de Energía"/>
   </Box>
+  Los IPC pueden recargarse de tres formas diferentes:
 
-  IPCs do [bold]not[/bold] use external radios because they already have one built in. They only need to get an encryption key from a radio. By clicking on an IPC with a [color=yellow]wire cutter[/color], you can remove their keys.
-  You can find new keys around the station or remove one from a sector radio using a [color=yellow]screwdriver[/color].
+  - **Terminal APC**: Los IPC pueden usar terminales APC para recargarse. Presiona [color=yellow]Alt + clic izquierdo[/color] en un terminal tantas veces como sea necesario para recargar completamente.
+  - **Cargadores Borg**: Los IPC pueden usar cargadores borg para recargarse. Prioriza siempre los que están fuera del área científica para evitar problemas.
+  - **Celda de Energía**: Los IPC tienen una celda de energía interna que sirve como batería. Simplemente pueden reemplazarla manualmente abriendo la escotilla.
 
-  ## Repairing
+  ## Radio Integrado
+  <Box>
+    <GuideEntityEmbed Entity="EncryptionKeyScience" Caption="Llave de Encriptación"/>
+  </Box>
+  Los IPC [bold]no[/bold] usan radios externas porque ya tienen una incorporada. Solo necesitan obtener una llave de encriptación de un radio. Al hacer clic en un IPC con un [color=yellow]cortacables[/color], puedes remover sus llaves.
+  Puedes encontrar nuevas llaves alrededor de la estación o remover una de un radio sectorial usando un [color=yellow]destornillador[/color].
+
+  ## Reparación
   <Box HorizontalAlignment="Stretch">
-    <GuideEntityEmbed Entity="WelderIndustrialAdvanced" Caption="Welder"/>
-    Welders can be used to repair [color=yellow]Brute[/color] damage and stop [color=orange]Bleeding[/color].
+    <GuideEntityEmbed Entity="WelderIndustrialAdvanced" Caption="Soldador"/>
+    Los soldadores pueden usarse para reparar daño [color=yellow]Bruto[/color] y detener [color=orange]Sangrado[/color].
   </Box>
   <Box HorizontalAlignment="Stretch">
-    <GuideEntityEmbed Entity="CableApcStack" Caption="Cables (any type)"/>
-    Cables can be used to repair [color=yellow]Burns[/color].
+    <GuideEntityEmbed Entity="CableApcStack" Caption="Cables (cualquier tipo)"/>
+    Los cables pueden usarse para reparar [color=yellow]Quemaduras[/color].
   </Box>
   <Box HorizontalAlignment="Stretch">
-    <GuideEntityEmbed Entity="SheetGlass" Caption="Glass Sheets (any type)"/>
-    Glass Sheets can be used to repair [color=yellow]Blindness[/color].
+    <GuideEntityEmbed Entity="SheetGlass" Caption="Hojas de Vidrio (cualquier tipo)"/>
+    Las hojas de vidrio pueden usarse para reparar [color=yellow]Ceguera[/color].
   </Box>
   <Box HorizontalAlignment="Stretch">
-    <GuideEntityEmbed Entity="SheetPlasma" Caption="Plasma Sheets"/>
-    Plasma Sheets can be used to repair [color=green]Radiation[/color] damage.
+    <GuideEntityEmbed Entity="SheetPlasma" Caption="Hojas de Plasma"/>
+    Las hojas de plasma pueden usarse para reparar daño por [color=green]Radiación[/color].
   </Box>
   <Box HorizontalAlignment="Stretch">
-    <GuideEntityEmbed Entity="SheetPlastic" Caption="Plastic Sheets"/>
-    Plastic Sheets can be used to stop [color=orange]Bleeding[/color].
+    <GuideEntityEmbed Entity="SheetPlastic" Caption="Hojas de Plástico"/>
+    Las hojas de plástico pueden usarse para detener [color=orange]Sangrado[/color].
   </Box>
   <Box HorizontalAlignment="Stretch">
-    <GuideEntityEmbed Entity="Oilpack" Caption="Oil Packs"/>
-    IPCs have no blood, but they have Oil. Oil Packs can be used to replenish [color=red]Oil[/color].
+    <GuideEntityEmbed Entity="Oilpack" Caption="Paquetes de Aceite"/>
+    Los IPC no tienen sangre, pero tienen aceite. Los Paquetes de Aceite pueden usarse para reponer [color=red]Aceite[/color].
   </Box>
   <Box HorizontalAlignment="Stretch">
-    In the event an IPC dies, after being fully repaired, it should be restarted using the [color=yellow]"Restart"[/color] button (located by right-clicking).
+    En caso de que un IPC muera, después de ser completamente reparado, debe reiniciarse usando el botón [color=yellow]"Reiniciar"[/color] (ubicado al hacer clic derecho).
   </Box>
   <Box HorizontalAlignment="Stretch">
-    [color=red]NEVER ELECTROCUTE AN IPC with a defibrillator or in any other way while it is dead, as this will cause the battery to discharge energy rays outward![/color]
+    [color=red]NUNCA ELECTROCUTES a un IPC con un desfibrilador o de cualquier otra manera mientras esté muerto, ya que esto hará que la batería libere rayos de energía hacia afuera.[/color]
   </Box>
 
 </Document>

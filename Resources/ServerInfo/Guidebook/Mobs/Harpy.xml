@@ -9,33 +9,32 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Harpy
+  # Harpía
 
   <Box>
     <GuideEntityEmbed Entity="MobHarpy" Caption=""/>
   </Box>
 
-  Harpies are an avian human mutation, sprouting feathered wings and ruffled tails.
-  They see the world through an ultraviolet view, slash with their claws dealing
-  [color=#ec3a3a]piercing [/color]damage, and walk around on digitrade legs.
-  Their most iconic ability, however, is to take to the skies!
+  Las harpías son una mutación humana aviar, con alas emplumadas y colas alborotadas.
+  Ven el mundo con visión ultravioleta, atacan con sus garras causando
+  [color=#ec3a3a]daño punzante[/color], y caminan sobre patas digitígradas.
+  Sin embargo, su habilidad más icónica es ¡elevarse por los cielos!
 
-  ## Sing your heart out
+  ## Canta a todo pulmón
 
-  Harpies are capable of singing out a tune on the spot with their voice, allowing for you to play music wherever you are,
-  as long as you aren't muffled
+  Las harpías pueden cantar una melodía en el momento con su voz, lo que permite reproducir música dondequiera que estés,
+  siempre que no estén amordazadas.
 
-  ## Take to the skies!
+  ## ¡Vuela por los cielos!
 
-  Harpies can fly with their wings to increase their movement speed dramatically, at the cost of heavy stamina drain and a temporary inability to use their hands.
-  Their wings give them better acceleration if there is no gravity on the station, but they still can't move without equipment when floating out in space.
+  Las harpías pueden volar con sus alas para aumentar drásticamente su velocidad de movimiento,
+  a costa de un gran gasto de resistencia y la incapacidad temporal de usar las manos.
+  Sus alas les proporcionan mejor aceleración si no hay gravedad en la estación,
+  pero aún así no pueden moverse sin equipo cuando flotan en el espacio.
 
-  ## Weaknesses
+  ## Debilidades
 
-  Due to their digitrade legs, they are unable to wear any type of footwear.
-  Along with this, harpies have sensitive lungs. This causes them to breathe [color=#1e90ff]3 times faster[/color] than other species and
-  gasp when there is 0.2 combined mols of either miasma or CO2 in the air.
-
-
+  Debido a sus patas digitígradas, no pueden usar ningún tipo de calzado.
+  Además, las harpías tienen pulmones sensibles, lo que hace que respiren [color=#1e90ff]3 veces más rápido[/color] que otras especies y jadeen cuando hay 0.2 moles combinados de miasma o CO2 en el aire.
 
 </Document>

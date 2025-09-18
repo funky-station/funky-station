@@ -7,24 +7,24 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Gas Mining and Storage
-  Gasses are often permanently used. Whether they are lost to [textlink="space" link="Spacing"] or used in a burn chamber, the station needs to be able to produce more gas to replace what is lost.
-  It also needs to store this gas in a safe and efficient manner.
+  # Minería y Almacenamiento de Gas
+  Los gases suelen usarse de forma permanente. Ya sea que se pierdan en el [textlink="espacio" link="Spacing"] o se utilicen en una cámara de combustión, la estación necesita poder producir más gas para reemplazar lo que se pierde.
+  También necesita almacenar este gas de manera segura y eficiente.
 
-  ## Gas Miners
-  Gas miners are used to replenish the station's gas supply. They are found in the gas storage tanks in Atmospherics.
+  ## Mineros de Gas
+  Los mineros de gas se usan para reponer el suministro de gas de la estación. Se encuentran en los tanques de almacenamiento de gas en Atmospherics.
 
   <Box>
     <GuideEntityEmbed Entity="GasMinerOxygenStation"/>
     <GuideEntityEmbed Entity="GasMinerNitrogenStation"/>
   </Box>
 
-  Gas miners constantly produce room temperature gas and push it into the exposed atmosphere. They require no power to function, and never stop working unless they have reached the defined [bold]cutoff pressure[/bold].
+  Los mineros de gas producen constantemente gas a temperatura ambiente y lo empujan hacia la atmósfera expuesta. No requieren energía para funcionar y nunca dejan de trabajar a menos que hayan alcanzado la [bold]presión de corte[/bold] definida.
 
-  You can see more information about the gas miners by inspecting them using [color=yellow][bold][keybind="ExamineEntity"][/bold][/color].
-  Try inspecting the gas miners presented above.
+  Puedes ver más información sobre los mineros de gas inspeccionándolos usando [color=yellow][bold][keybind="ExamineEntity"][/bold][/color].
+  Intenta inspeccionar los mineros de gas presentados arriba.
 
-  Gas miners come in tiers, with the larger versions having a higher pressure cutoff than the smaller versions.
+  Los mineros de gas vienen en distintos niveles, siendo las versiones más grandes las que tienen una presión de corte más alta que las versiones pequeñas.
 
   <Box>
     <GuideEntityEmbed Entity="GasMinerNitrogen" Caption="300 kPa"/>
@@ -32,10 +32,10 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="GasMinerNitrogenStationLarge" Caption="4500 kPa"/>
   </Box>
 
-  If gas miners are ever unanchored from the station, they can be reanchored using a regular wrench.
+  Si los mineros de gas alguna vez se desanclan de la estación, pueden volver a fijarse usando una llave inglesa normal.
 
-  ## Gas Storage
-  Gas storage tanks are used to store gas produced by the gas miners, and to make it available to other processes. They are found in Atmospherics.
+  ## Almacenamiento de Gas
+  Los tanques de almacenamiento de gas se usan para guardar el gas producido por los mineros de gas y ponerlo a disposición de otros procesos. Se encuentran en Atmospherics.
 
   <Box>
     <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
@@ -60,15 +60,15 @@ SPDX-License-Identifier: MIT
   </Box>
 
   <Box>
-    [color=#999999][italic]An example of a small gas holding tank[italic][/color]
+    [color=#999999][italic]Un ejemplo de un pequeño tanque de almacenamiento de gas[italic][/color]
   </Box>
 
-  Various atmos processes insert and remove gasses from the gas storage tanks.
-  For example:
-  - The gas miner provides fresh gasses to the gas storage tanks, if there is room.
-  - The recyclernet injects reclaimed gasses into the gas storage tanks for reuse.
-  - Setups like the distronet and burn chamber remove gasses from the gas storage tanks.
+  Varios procesos de Atmos insertan y extraen gases de los tanques de almacenamiento de gas.
+  Por ejemplo:
+  - El minero de gas provee gases frescos a los tanques de almacenamiento, si hay espacio.
+  - El *recyclernet* inyecta gases recuperados en los tanques de almacenamiento para su reutilización.
+  - Configuraciones como el *distronet* y la cámara de combustión extraen gases de los tanques de almacenamiento.
 
-  Gas storage tanks are designed to be able to be measured using a [textlink="Gas Analyzer" link="AtmosTools"].
-  Because the outflow vent is a [textlink="passive vent" link="PassiveVent"], you can use a [textlink="gas analyzer" link="AtmosTools"] to measure the gas content of the [textlink="pump's" link="Pumps"] input, which is drawing from the gas storage tank.
+  Los tanques de almacenamiento de gas están diseñados para poder ser medidos usando un [textlink="Analizador de Gas" link="AtmosTools"].
+  Como el respiradero de salida es un [textlink="respiradero pasivo" link="PassiveVent"], puedes usar un [textlink="analizador de gas" link="AtmosTools"] para medir el contenido de gas en la entrada de la [textlink="bomba" link="Pumps"], que está extrayendo del tanque de almacenamiento.
 </Document>

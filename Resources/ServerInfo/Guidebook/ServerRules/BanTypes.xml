@@ -1,18 +1,21 @@
 <!--
 SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2025 Huhm-1 <cameronhillard40@gmail.com>
+SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 
 SPDX-License-Identifier: MIT
 -->
 
 <Document>
-  # Ban Types
+  # Tipos de Baneos
 
-  Bans can be appealed at forum.ss14.io in the ban appeals section.
+  Los baneos pueden ser apelados en forum.ss14.io en la sección de apelaciones de baneos.
 
-  ## Role Ban
-  Also called a "job ban", this ban prevents your character from joining or late-joining a round as one or more jobs or roles. These are often used in response to problematic behavior in particular departments or address gross inexperience in important roles such as heads of staff. These bans do not mechanically prevent you from switching to the role during a round or acting as that role, but doing so is considered ban evasion.
+  ## Baneo de Rol
+  También llamado "baneo de trabajo", este baneo impide que tu personaje se una o entre tarde en una ronda como uno o más trabajos o roles. Estos se utilizan comúnmente en respuesta a comportamientos problemáticos en departamentos específicos o para abordar la falta de experiencia en roles importantes, como los jefes de personal. Estos baneos no previenen mecánicamente que cambies a ese rol durante una ronda o actúes como ese rol, pero hacerlo se considera evasión de baneo.
 
-  ## Game Ban
-  Also called a "server ban", this ban prevents you from connecting to all Wizard's Den servers.
+  ## Baneo de Juego
+  También llamado "baneo de servidor", este baneo impide que te conectes a todos los servidores de Wizard's Den.
 </Document>

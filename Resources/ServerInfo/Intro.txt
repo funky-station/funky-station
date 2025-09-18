@@ -1,8 +1,10 @@
-Welcome to Space Station 14! You have just started your shift aboard a Nanotrasen space station and along with your crewmates should cooperate, perform your job role to the best of your ability and have fun (not at the expense of others hopefully).
+¡Bienvenido a Space Station 14! Acabas de comenzar tu turno a bordo de una estación espacial de Nanotrasen y, junto con tus compañeros de tripulación, deben cooperar, desempeñar su rol laboral lo mejor posible y divertirse (esperemos que no a expensas de los demás).
 
-Please make sure you understand the server rules (F1) and if you have any questions, consult this guide, your colleagues on shift in person or over radio or via discord. You can also ask admins for help (ahelp) by hitting the escape key > admin help and typing a message to any online admins. Especially do this if you witness someone breaking rules.
+Por favor, asegúrate de entender las reglas del servidor (F1) y, si tienes alguna pregunta, consulta esta guía, a tus colegas en el turno en persona o por radio, o a través de Discord. También puedes pedir ayuda a los administradores (ahelp) presionando la tecla Escape > Ayuda de administrador y escribiendo un mensaje a cualquier administrador en línea. Haz esto especialmente si presencias a alguien infringiendo las reglas.
 
-To reiterate, you are all a crew of people who work together (even the clown) and you should not be harming each other unless you have an extremely good reason (self defence) and even then, call security over radio, stun and detain, do not commit murder as a non antagonist (see antagonist further down).
+Para reiterar, todos son una tripulación de personas que trabajan juntas (incluso el payaso) y no deberían hacerse daño entre ustedes a menos que tengan una razón extremadamente buena (autodefensa) e incluso en ese caso, llamen a seguridad por radio, aturdan y detengan, no cometan asesinato si no son antagonistas (consulta la sección de antagonistas más adelante).
 
 
-Instead of intents, we have combat mode. Check controls below for its keybind. You can't attack anybody with it off, so no more hitting yourself with your own crowbar.
+En lugar de intenciones (intents), tenemos el modo de combate. Consulta los controles a continuación para conocer su tecla de acceso rápido. No puedes atacar a nadie con él desactivado, así que no más golpearte a ti mismo con tu propia palanca.
+
+La traducción del servidor sigue en proceso.

@@ -75,7 +75,7 @@
   equipment:
     #eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    belt: ClothingBeltHolsterFilled
+    belt: ClothingBeltHolster
   storage:
     back:
     - Flash

@@ -1298,6 +1298,14 @@
   loadouts:
   - SecStar
 
+- type: loadoutGroup
+  id: LoadoutDetectiveWeapon
+  name: loadout-group-detective-weapon
+  minLimit: 1
+  loadouts:
+    - DetectiveEnergyRevolver
+    - DetectiveRevolver
+
 # Medical
 - type: loadoutGroup
   id: ChiefMedicalOfficerHead

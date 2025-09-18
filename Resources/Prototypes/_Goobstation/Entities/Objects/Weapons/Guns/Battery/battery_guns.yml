@@ -152,6 +152,3 @@
   - type: Tag
     tags:
     - Sidearm
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 0.1 #16 minutes for a single disabler shot...

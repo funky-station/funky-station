@@ -59,6 +59,20 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtDetectiveGrey
 
+# Service Weapon
+- type: loadout
+  id: DetectiveEnergyRevolver
+  storage:
+    back:
+    - WeaponEnergyRevolver
+    
+- type: loadout
+  id: DetectiveRevolver
+  storage:
+    back:
+    - WeaponRevolverInspector
+    - SpeedLoaderMagnum
+
 # OuterClothing
 - type: loadout
   id: DetectiveArmorVest

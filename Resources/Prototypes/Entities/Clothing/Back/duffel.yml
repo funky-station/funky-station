@@ -152,10 +152,9 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Duffels/mime.rsi
-    storageOpenSound:
-      collection: null
-    storageInsertSound:
-      collection: null
+  - type: Storage
+    storageOpenSound: null
+    storageInsertSound: null
 
 - type: entity
   parent: ClothingBackpackDuffel

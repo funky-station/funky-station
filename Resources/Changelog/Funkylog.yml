@@ -4593,3 +4593,9 @@ Entries:
         Grain!
   id: 551
   time: '2025-09-18T01:26:08.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: Redesigned Chaplain icon to be more interdenominational.
+  id: 552
+  time: '2025-09-19T12:00:44.0000000+00:00'

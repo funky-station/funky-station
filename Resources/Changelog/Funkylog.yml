@@ -4566,3 +4566,36 @@ Entries:
       message: Rainbow Cannabis brownies are no longer ain't shit
   id: 548
   time: '2025-09-14T21:56:21.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Ore Processor steel recipe still using coal when it was supposed
+        to have been changed to not.
+  id: 549
+  time: '2025-09-15T17:08:28.0000000+00:00'
+- author: Tyranex
+  changes:
+    - type: Add
+      message: Added malfunctioning AI!
+    - type: Tweak
+      message: Made the station core destructible.
+    - type: Tweak
+      message: Removed the RD's binary key from their locker.
+  id: 550
+  time: '2025-09-17T20:25:38.0000000+00:00'
+- author: hivehum, Ecramox, ported by amethystowo
+  changes:
+    - type: Add
+      message: >-
+        Ported hops from Impstation! They can be juiced for beer, and can be
+        mutated into the HoPfruit, which can be further mutated into Agent
+        Grain!
+  id: 551
+  time: '2025-09-18T01:26:08.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: Redesigned Chaplain icon to be more interdenominational.
+  id: 552
+  time: '2025-09-19T12:00:44.0000000+00:00'

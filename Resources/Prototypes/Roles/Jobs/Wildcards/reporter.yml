@@ -36,7 +36,7 @@
   id: ReporterGear
   equipment:
     id: ReporterPDA
-    ears: ClothingHeadsetService
+    ears: ClothingHeadsetReporter #Funky
     shoes: ClothingShoesColorBlack
     belt: NewsDigiBoard
   storage: # DeltaV: Give reporters tape recording equipment

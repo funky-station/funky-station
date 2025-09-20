@@ -28,3 +28,18 @@
       - EncryptionKeySecurity
       - EncryptionKeyEmergency
       - EncryptionKeyCommon
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetReporter
+  name: reporter headset
+  description: A headset for the most important role on-station barring the Clown.
+  components:
+  - type: IntercomOnlyBypass #have fun
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Ears/Headsets/reporter.rsi
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyService

@@ -4650,3 +4650,9 @@ Entries:
       message: Added yellow and black crystals, crystal shards, and light tubes.
   id: 557
   time: '2025-09-20T04:32:32.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Add
+      message: Reporters now have Common access and a new shiny headset.
+  id: 558
+  time: '2025-09-20T05:26:15.0000000+00:00'

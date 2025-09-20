@@ -4615,3 +4615,9 @@ Entries:
       message: There is a chance you will encounter a talking dog around the station.
   id: 554
   time: '2025-09-20T00:02:18.0000000+00:00'
+- author: BrightNibbleston
+  changes:
+    - type: Fix
+      message: Fixed vodka healing rads instead of gin
+  id: 555
+  time: '2025-09-20T00:09:01.0000000+00:00'

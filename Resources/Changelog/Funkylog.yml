@@ -4621,3 +4621,14 @@ Entries:
       message: Fixed vodka healing rads instead of gin
   id: 555
   time: '2025-09-20T00:09:01.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Add
+      message: Vox now have more scar markings, heterochromia, and a new tail type.
+    - type: Fix
+      message: >-
+        Several strange sprite issues with Vox have been fixed, most notably
+        jumpsuits and many neck items overlapping the face, as well as a
+        layering issue where their tank would appear over their hair.
+  id: 556
+  time: '2025-09-20T04:00:54.0000000+00:00'

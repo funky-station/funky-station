@@ -20,15 +20,22 @@
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
+using System.Linq;
 using Content.Server.Administration;
+using Content.Server.Administration.Logs;
 using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Shared.Administration;
+using Content.Shared.CCVar;
+using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Instruments;
 using Content.Shared.Instruments.UI;
@@ -43,6 +50,7 @@ using Robust.Shared.Console;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Instruments;
 
@@ -57,6 +65,7 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
+    [Dependency] private readonly IAdminLogManager _admingLogSystem = default!;
 
     private const float MaxInstrumentBandRange = 10f;
 
@@ -76,6 +85,7 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
         SubscribeNetworkEvent<InstrumentStopMidiEvent>(OnMidiStop);
         SubscribeNetworkEvent<InstrumentSetMasterEvent>(OnMidiSetMaster);
         SubscribeNetworkEvent<InstrumentSetFilteredChannelEvent>(OnMidiSetFilteredChannel);
+        SubscribeNetworkEvent<InstrumentSetChannelsEvent>(OnMidiSetChannels);
 
         Subs.BuiEvents<InstrumentComponent>(InstrumentUiKey.Key, subs =>
         {
@@ -156,6 +166,47 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
             return;
 
         Clean(uid, instrument);
+    }
+
+
+    private void OnMidiSetChannels(InstrumentSetChannelsEvent msg, EntitySessionEventArgs args)
+    {
+        var uid = GetEntity(msg.Uid);
+
+        if (!TryComp(uid, out InstrumentComponent? instrument) || !TryComp(uid, out ActiveInstrumentComponent? activeInstrument))
+            return;
+
+        if (args.SenderSession.AttachedEntity != instrument.InstrumentPlayer)
+            return;
+
+        if (msg.Tracks.Length > RobustMidiEvent.MaxChannels)
+        {
+            Log.Warning($"{args.SenderSession.UserId.ToString()} - Tried to send tracks over the limit! Received: {msg.Tracks.Length}; Limit: {RobustMidiEvent.MaxChannels}");
+            return;
+        }
+
+
+        foreach (var t in msg.Tracks)
+        {
+            // Remove any control characters that may be part of the midi file so they don't end up in the admin logs.
+            t?.SanitizeFields();
+            // Truncate any track names too long.
+            t?.TruncateFields(_cfg.GetCVar(CCVars.MidiMaxChannelNameLength));
+        }
+
+        var tracksString = string.Join("\n",
+            msg.Tracks
+            .Where(t => t != null)
+            .Select(t => t!.ToString()));
+
+        _admingLogSystem.Add(
+            LogType.Instrument,
+            LogImpact.Low,
+            $"{ToPrettyString(args.SenderSession.AttachedEntity)} set the midi channels for {ToPrettyString(uid)} to {tracksString}");
+
+        activeInstrument.Tracks = msg.Tracks;
+
+        Dirty(uid, activeInstrument);
     }
 
     private void OnMidiSetMaster(InstrumentSetMasterEvent msg, EntitySessionEventArgs args)

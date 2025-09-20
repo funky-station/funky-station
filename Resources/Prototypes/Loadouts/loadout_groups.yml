@@ -34,12 +34,17 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 AtlasHD <99688062+AtlasHDD@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Cthyga <41489382+Cthyga@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 FeelFlows <1493889+FeelFlows@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lyndomen <49795619+lyndomen@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Max_Power <1493889+FeelFlows@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Minerva <218184747+mnva0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Neoncamouflage <neoncamouflage@yahoo.com>
+# SPDX-FileCopyrightText: 2025 PoquitoDondito <danielchristianstone@gmail.com>
 # SPDX-FileCopyrightText: 2025 RadsammyT <32146976+RadsammyT@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
@@ -583,6 +588,7 @@
   - EmergencyNitrogenClown
   - EmergencyOxygenClown
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # Funky
 
 - type: loadoutGroup
   id: MimeHead
@@ -637,7 +643,9 @@
   loadouts:
   - EmergencyNitrogenMime
   - EmergencyOxygenMime
+  - EmergencySpeciesMothMime
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # Funky
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -946,6 +954,7 @@
   - EmergencyNitrogenExtended
   - EmergencyOxygenExtended
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # Funky
 
 # Science
 - type: loadoutGroup
@@ -992,6 +1001,7 @@
   loadouts:
   - RoboticistCap
   - SkullBandana
+  - ScientistHardhatWhite # Funky
   - ScientificBeret
 
 - type: loadoutGroup
@@ -1279,6 +1289,7 @@
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # Funky
 
 - type: loadoutGroup
   id: SecurityStar
@@ -1318,6 +1329,7 @@
   name: loadout-group-chief-medical-officer-neck
   minLimit: 0
   loadouts:
+  - MedicalStethoscope
   - ChiefMedicalOfficerCloak
   - ChiefMedicalOfficerMantle
 
@@ -1348,6 +1360,7 @@
   loadouts:
     - MedicalNormGlasses
     - MedicalJamjarGlasses
+    - MedicalGlasses
 
 - type: loadoutGroup
   id: MedicalDoctorJumpsuit
@@ -1360,6 +1373,13 @@
   - MedicalBlueScrubs
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
+
+- type: loadoutGroup
+  id: MedicalNeck
+  name: loadout-group-medical-neck
+  minLimit: 0
+  loadouts:
+  - MedicalStethoscope
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
@@ -1485,6 +1505,7 @@
   - EmergencyNitrogenMedical
   - EmergencyOxygenMedical
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyIPCBox # Funky
 
 # Wildcards
 - type: loadoutGroup
@@ -1529,7 +1550,8 @@
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
   - LoadoutSpeciesVoxNitrogen
-
+  - EmergencyIPCBox # Funky
+  
 - type: loadoutGroup
   id: GroupSpeciesBreathTool
   name: loadout-group-breath-tool

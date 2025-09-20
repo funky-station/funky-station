@@ -134,6 +134,7 @@
 # SPDX-FileCopyrightText: 2025 Catazeus <200477155+Catazeus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Neoncamouflage <neoncamouflage@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
@@ -2437,6 +2438,25 @@
     - ResearchDirector
     - Chef
   saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: uplinkChairFoldingSpawnFoldedSteel
+  name: uplink-chair-folding-spawn-folded-steel-name
+  description: uplink-chair-folding-spawn-folded-steel-desc
+  productEntity: ChairFoldingSpawnFoldedSteel
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Boxer
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  saleLimit: 1
 
 - type: listing
   id: UplinkCaneBlade

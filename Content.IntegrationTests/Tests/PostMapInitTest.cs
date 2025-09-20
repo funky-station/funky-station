@@ -39,7 +39,9 @@
 // SPDX-FileCopyrightText: 2024 mkanke-real <mikekanke@gmail.com>
 // SPDX-FileCopyrightText: 2024 terezi <147006836+terezi-station@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ArsCatalyst <Heartflareburst@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ichaie <ichaicoelho@gmail.com>
 // SPDX-FileCopyrightText: 2025 LaCumbiaDelCoronavirus <90893484+LaCumbiaDelCoronavirus@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Spanky <180730777+spanky-spanky@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Spanky <scott@wearejacob.com>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
@@ -130,6 +132,7 @@ namespace Content.IntegrationTests.Tests
             "FlandHighPop", // Goobstation - add highpop maps
             "OriginHighPop",
             "OasisHighPop",
+            "Gax", // funkystation
             "Divide", // funkystation
             "Glacier", // funkystation
             "Barratry", // Harmony

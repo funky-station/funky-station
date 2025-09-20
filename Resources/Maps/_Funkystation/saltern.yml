@@ -36,12 +36,14 @@
 # SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Leonidas <aidenfisherofficial@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -52570,13 +52572,6 @@ entities:
     - type: Transform
       pos: 7.2571726,18.545927
       parent: 31
-- proto: MaterialSilo
-  entities:
-  - uid: 12018
-    components:
-    - type: Transform
-      pos: 50.5,-11.5
-      parent: 31
 - proto: MaterialWoodPlank1
   entities:
   - uid: 9680
@@ -61563,13 +61558,6 @@ entities:
     components:
     - type: Transform
       pos: -11.5,-7.5
-      parent: 31
-- proto: SpawnPointBlueshieldOfficer
-  entities:
-  - uid: 11590
-    components:
-    - type: Transform
-      pos: -2.5,24.5
       parent: 31
 - proto: SpawnPointBorg
   entities:

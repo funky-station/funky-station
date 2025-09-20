@@ -21,6 +21,7 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
@@ -375,14 +376,21 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     {
         _adminLogger.Add(LogType.AntagSelection, $"Start trying to make {session} become the antagonist: {ToPrettyString(ent)}");
 
-        if (checkPref && !HasPrimaryAntagPreference(session, def, ent.Comp.SelectionTime))
+        if (!IsSessionValid(ent, session, def))
+        {
+            _adminLogger.Add(LogType.AntagSelection, $"{session} didn't have valid session");
             return false;
-
-        if (!IsSessionValid(ent, session, def) || !IsEntityValid(session?.AttachedEntity, def))
-            return false;
+        }
 
         if (onlyPreSelect && session != null)
         {
+            // This is preselection, so check if the PLAYER AS A WHOLE is compatible with the antagonist
+            if (checkPref && !HasPrimaryAntagPreference(session, def, ent.Comp.SelectionTime))
+            {
+                _adminLogger.Add(LogType.AntagSelection, $"{session} didn't have antagonist preference for {ToPrettyString(ent)}");
+                return false;
+            }
+
             if (!ent.Comp.PreSelectedSessions.TryGetValue(def, out var set))
                 ent.Comp.PreSelectedSessions.Add(def, set = new HashSet<ICommonSession>());
             set.Add(session);
@@ -391,6 +399,14 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         }
         else
         {
+            // This is not preselection, so check the player's actual entity to see if it's compatible with the antagonist.
+            // This function will also check the character profile's antagonist preferences.
+            if (!IsEntityValid(session?.AttachedEntity, def))
+            {
+                _adminLogger.Add(LogType.AntagSelection, $"{session} didn't have valid entity for {ToPrettyString(ent)}");
+                return false;
+            }
+
             MakeAntag(ent, session, def, ignoreSpawner);
         }
 
@@ -584,7 +600,23 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         // todo: expand this to allow for more fine antag-selection logic for game rules.
         if (!_jobs.CanBeAntag(session))
+        {
+            // Allow Malf AI rule to bypass job CanBeAntag gating so Station AI can be selected.
+            if (HasComp<Content.Server.GameTicking.Rules.Components.MalfAiRuleComponent>(ent.Owner))
+                goto MalfAiStrictCheck;
             return false;
+        }
+
+        // Strict gating for Malf AI: only the Station AI may be selected as Malf AI.
+        MalfAiStrictCheck:
+        if (HasComp<Content.Server.GameTicking.Rules.Components.MalfAiRuleComponent>(ent.Owner))
+        {
+            var entUid = session.AttachedEntity;
+            if (entUid == null)
+                return false;
+            if (!HasComp<Content.Shared.Silicons.StationAi.StationAiHeldComponent>(entUid.Value))
+                return false;
+        }
 
         return true;
     }

@@ -42,6 +42,8 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Do You Like Beans <bowenjonathan407@gmail.com>
+# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Selva <140060182+selvamoonbell@users.noreply.github.com>
@@ -243,7 +245,7 @@
         damage:
           groups: # Funky
             Brute: -0.75
-          types: 
+          types:
             Heat: -0.25
       - !type:ChemVomit
         probability: 0.04
@@ -281,10 +283,7 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
-      - !type:HealthChange
-        damage:
-          types:
-            Radiation: -1.0    
+
 
 - type: reagent
   id: CoffeeLiqueur
@@ -454,7 +453,10 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
-
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: -0.25
 - type: reagent
   id: Whiskey
   name: reagent-name-whiskey

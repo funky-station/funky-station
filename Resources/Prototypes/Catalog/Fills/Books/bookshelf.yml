@@ -48,6 +48,7 @@
       children:
       - id: BookAurora
       - id: BookCafe
+      - id: BookCookbookPie
       - id: BookEarth
       - id: BookFeather
       - id: BookIanAntarctica

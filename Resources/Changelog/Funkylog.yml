@@ -4599,3 +4599,60 @@ Entries:
       message: Redesigned Chaplain icon to be more interdenominational.
   id: 552
   time: '2025-09-19T12:00:44.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Remove
+      message: Removed jobspawn for BSO on Fland
+    - type: Tweak
+      message: >-
+        Changed salvage on Omega Station to prevent mining charges exploding due
+        to Cargo shuttle collision
+  id: 553
+  time: '2025-09-19T23:58:40.0000000+00:00'
+- author: LaryNevesPR
+  changes:
+    - type: Add
+      message: There is a chance you will encounter a talking dog around the station.
+  id: 554
+  time: '2025-09-20T00:02:18.0000000+00:00'
+- author: BrightNibbleston
+  changes:
+    - type: Fix
+      message: Fixed vodka healing rads instead of gin
+  id: 555
+  time: '2025-09-20T00:09:01.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Add
+      message: Vox now have more scar markings, heterochromia, and a new tail type.
+    - type: Fix
+      message: >-
+        Several strange sprite issues with Vox have been fixed, most notably
+        jumpsuits and many neck items overlapping the face, as well as a
+        layering issue where their tank would appear over their hair.
+  id: 556
+  time: '2025-09-20T04:00:54.0000000+00:00'
+- author: >-
+    Quantum, ScarKy0, Tayrtahn, Firewars763, brainfood1183, Fildrance,
+    slarticodefast
+  changes:
+    - type: Fix
+      message: >-
+        Hosted anomaly effects not appearing at host when host is in container
+        or buckled
+    - type: Fix
+      message: >-
+        Being pushed while an anomaly host no longer breaks your legs
+        permanently.
+    - type: Add
+      message: Added gold, coal and bananium rock anomalies and ore crab enemies.
+    - type: Add
+      message: Added yellow and black crystals, crystal shards, and light tubes.
+  id: 557
+  time: '2025-09-20T04:32:32.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Add
+      message: Reporters now have Common access and a new shiny headset.
+  id: 558
+  time: '2025-09-20T05:26:15.0000000+00:00'

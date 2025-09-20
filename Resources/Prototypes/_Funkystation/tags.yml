@@ -68,3 +68,6 @@
 
 - type: Tag
   id: GlassesBase
+
+- type: Tag
+  id: StationAiBrain

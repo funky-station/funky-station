@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
 # SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -14,6 +15,7 @@
   - type: Sprite
     state: mecha_chainsword
   - type: MeleeWeapon
+    canWideSwing: false # mech wideswings are currently bugged
     autoAttack: true
     angle: 0
     wideAnimationRotation: -90
@@ -23,4 +25,5 @@
     damage:
       types:
         Structural: 35
-        Piercing: 15
+        Blunt: 10
+        Slash: 15

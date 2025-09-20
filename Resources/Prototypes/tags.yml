@@ -133,6 +133,7 @@
 # SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 # SPDX-FileCopyrightText: 2025 RedBookcase <Usualmoves@gmail.com>
 # SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
+# SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
@@ -488,6 +489,9 @@
 
 - type: Tag
   id: CoordinatesDisk
+
+- type: Tag # designed to let corgis wear things; at present only for SmartCorgi.  View PR 33737 on upstream for more dog wearables
+  id: CorgiWearable
 
 - type: Tag #Ohioans die happy
   id: Corn

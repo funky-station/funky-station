@@ -72,7 +72,6 @@
   storage:
     back:
     - WeaponRevolverInspector
-    - SpeedLoaderMagnum
 
 # OuterClothing
 - type: loadout

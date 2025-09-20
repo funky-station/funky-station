@@ -197,6 +197,7 @@
       - id: BoxEvidenceMarkers
       - id: HandLabeler
       - id: BoxTapeRecorder # DeltaV
+      - id: SpeedLoaderMagnum
 
 - type: entity
   id: ClosetBombFilled

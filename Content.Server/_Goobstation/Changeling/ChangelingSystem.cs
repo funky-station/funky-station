@@ -753,6 +753,9 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         UpdateBiomass(uid, comp, 0);
         // make their blood unreal
         _blood.ChangeBloodReagent(uid, "BloodChangeling");
+        
+        // funky - give changelings roundstart hivemind
+        GrantHivemindAccess(uid);
     }
 
     private void OnMobStateChange(EntityUid uid, ChangelingComponent comp, ref MobStateChangedEvent args)

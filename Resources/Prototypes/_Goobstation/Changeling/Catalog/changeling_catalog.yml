@@ -338,19 +338,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-- type: listing
-  id: EvolutionMenuUtilityHivemindAccess
-  name: evolutionmenu-utility-hivemindaccess-name
-  description: evolutionmenu-utility-hivemindaccess-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: hivemind_access }
-  productAction: ActionHivemindAccess
-  cost:
-    EvolutionPoint: 4
-  categories:
-  - ChangelingAbilityUtility
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
+#- type: listing
+#  id: EvolutionMenuUtilityHivemindAccess
+#  name: evolutionmenu-utility-hivemindaccess-name
+#  description: evolutionmenu-utility-hivemindaccess-desc
+#  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: hivemind_access }
+#  productAction: ActionHivemindAccess
+#  cost:
+#    EvolutionPoint: 4
+#  categories:
+#  - ChangelingAbilityUtility
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
 
 # disabled for now
 #- type: listing

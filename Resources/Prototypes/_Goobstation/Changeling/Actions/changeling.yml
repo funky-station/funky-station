@@ -616,20 +616,20 @@
   - type: ChangelingAction
     chemicalCost: 20
 
-- type: entity
-  id: ActionHivemindAccess
-  name: Hivemind Access
-  description: Tune your chemical receptors for hivemind communication.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    checkCanInteract: false
-    checkConsciousness: false
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: hivemind_access
-    event: !type:ActionHivemindAccessEvent {}
-  - type: ChangelingAction
-    chemicalCost: 0
-    useInLesserForm: true
+#- type: entity
+#  id: ActionHivemindAccess
+#  name: Hivemind Access
+#  description: Tune your chemical receptors for hivemind communication.
+#  categories: [ HideSpawnMenu ]
+#  components:
+#  - type: InstantAction
+#    checkCanInteract: false
+#    checkConsciousness: false
+#    itemIconStyle: NoItem
+#    icon:
+#      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+#      state: hivemind_access
+#    event: !type:ActionHivemindAccessEvent {}
+#  - type: ChangelingAction
+#    chemicalCost: 0
+#    useInLesserForm: true

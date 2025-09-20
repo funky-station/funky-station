@@ -813,5 +813,15 @@ public sealed partial class ChangelingSystem
         _popup.PopupEntity(Loc.GetString("changeling-hivemind-start"), uid, uid);
     }
 
+    public void GrantHivemindAccess(EntityUid uid)
+    {
+        EnsureComp<HivemindComponent>(uid);
+        EnsureComp<IntrinsicRadioReceiverComponent>(uid);
+        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
+        var radio = EnsureComp<ActiveRadioComponent>(uid);
+        radio.Channels = ["Hivemind"];
+        transmitter.Channels = ["Hivemind"];
+    }
+
     #endregion
 }

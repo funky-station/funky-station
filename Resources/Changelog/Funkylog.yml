@@ -4566,3 +4566,107 @@ Entries:
       message: Rainbow Cannabis brownies are no longer ain't shit
   id: 548
   time: '2025-09-14T21:56:21.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Ore Processor steel recipe still using coal when it was supposed
+        to have been changed to not.
+  id: 549
+  time: '2025-09-15T17:08:28.0000000+00:00'
+- author: Tyranex
+  changes:
+    - type: Add
+      message: Added malfunctioning AI!
+    - type: Tweak
+      message: Made the station core destructible.
+    - type: Tweak
+      message: Removed the RD's binary key from their locker.
+  id: 550
+  time: '2025-09-17T20:25:38.0000000+00:00'
+- author: hivehum, Ecramox, ported by amethystowo
+  changes:
+    - type: Add
+      message: >-
+        Ported hops from Impstation! They can be juiced for beer, and can be
+        mutated into the HoPfruit, which can be further mutated into Agent
+        Grain!
+  id: 551
+  time: '2025-09-18T01:26:08.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: Redesigned Chaplain icon to be more interdenominational.
+  id: 552
+  time: '2025-09-19T12:00:44.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Remove
+      message: Removed jobspawn for BSO on Fland
+    - type: Tweak
+      message: >-
+        Changed salvage on Omega Station to prevent mining charges exploding due
+        to Cargo shuttle collision
+  id: 553
+  time: '2025-09-19T23:58:40.0000000+00:00'
+- author: LaryNevesPR
+  changes:
+    - type: Add
+      message: There is a chance you will encounter a talking dog around the station.
+  id: 554
+  time: '2025-09-20T00:02:18.0000000+00:00'
+- author: BrightNibbleston
+  changes:
+    - type: Fix
+      message: Fixed vodka healing rads instead of gin
+  id: 555
+  time: '2025-09-20T00:09:01.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Add
+      message: Vox now have more scar markings, heterochromia, and a new tail type.
+    - type: Fix
+      message: >-
+        Several strange sprite issues with Vox have been fixed, most notably
+        jumpsuits and many neck items overlapping the face, as well as a
+        layering issue where their tank would appear over their hair.
+  id: 556
+  time: '2025-09-20T04:00:54.0000000+00:00'
+- author: >-
+    Quantum, ScarKy0, Tayrtahn, Firewars763, brainfood1183, Fildrance,
+    slarticodefast
+  changes:
+    - type: Fix
+      message: >-
+        Hosted anomaly effects not appearing at host when host is in container
+        or buckled
+    - type: Fix
+      message: >-
+        Being pushed while an anomaly host no longer breaks your legs
+        permanently.
+    - type: Add
+      message: Added gold, coal and bananium rock anomalies and ore crab enemies.
+    - type: Add
+      message: Added yellow and black crystals, crystal shards, and light tubes.
+  id: 557
+  time: '2025-09-20T04:32:32.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Add
+      message: Reporters now have Common access and a new shiny headset.
+  id: 558
+  time: '2025-09-20T05:26:15.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: >-
+        The Janitor icon and ID card are now "service green". The reporter icon
+        and ID card are now "civilian grey".
+  id: 559
+  time: '2025-09-20T07:28:05.0000000+00:00'
+- author: ATDoop
+  changes:
+    - type: Tweak
+      message: Microphones now work in your offhand.
+  id: 560
+  time: '2025-09-20T18:36:21.0000000+00:00'

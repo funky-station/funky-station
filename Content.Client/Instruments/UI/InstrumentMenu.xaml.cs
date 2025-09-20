@@ -22,6 +22,7 @@
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -39,6 +40,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Containers;
 using Robust.Shared.Input;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 using Range = Robust.Client.UserInterface.Controls.Range;
 
@@ -173,10 +175,6 @@ namespace Content.Client.Instruments.UI
             if (!PlayCheck())
                 return;
 
-            await using var memStream = new MemoryStream((int) file.Length);
-
-            await file.CopyToAsync(memStream);
-
             if (!_entManager.TryGetComponent<InstrumentComponent>(Entity, out var instrument))
             {
                 return;
@@ -184,7 +182,7 @@ namespace Content.Client.Instruments.UI
 
             if (!_entManager.System<InstrumentSystem>()
                     .OpenMidi(Entity,
-                    memStream.GetBuffer().AsSpan(0, (int) memStream.Length),
+                        file.CopyToArray(),
                     instrument))
             {
                 return;

@@ -4609,3 +4609,9 @@ Entries:
         to Cargo shuttle collision
   id: 553
   time: '2025-09-19T23:58:40.0000000+00:00'
+- author: LaryNevesPR
+  changes:
+    - type: Add
+      message: There is a chance you will encounter a talking dog around the station.
+  id: 554
+  time: '2025-09-20T00:02:18.0000000+00:00'

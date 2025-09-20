@@ -4656,3 +4656,11 @@ Entries:
       message: Reporters now have Common access and a new shiny headset.
   id: 558
   time: '2025-09-20T05:26:15.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: >-
+        The Janitor icon and ID card are now "service green". The reporter icon
+        and ID card are now "civilian grey".
+  id: 559
+  time: '2025-09-20T07:28:05.0000000+00:00'

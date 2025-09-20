@@ -4664,3 +4664,9 @@ Entries:
         and ID card are now "civilian grey".
   id: 559
   time: '2025-09-20T07:28:05.0000000+00:00'
+- author: ATDoop
+  changes:
+    - type: Tweak
+      message: Microphones now work in your offhand.
+  id: 560
+  time: '2025-09-20T18:36:21.0000000+00:00'

@@ -22,6 +22,7 @@
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Eris <erisfiregamer1@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
@@ -616,20 +617,20 @@
   - type: ChangelingAction
     chemicalCost: 20
 
-- type: entity
-  id: ActionHivemindAccess
-  name: Hivemind Access
-  description: Tune your chemical receptors for hivemind communication.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    checkCanInteract: false
-    checkConsciousness: false
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: hivemind_access
-    event: !type:ActionHivemindAccessEvent {}
-  - type: ChangelingAction
-    chemicalCost: 0
-    useInLesserForm: true
+#- type: entity
+#  id: ActionHivemindAccess
+#  name: Hivemind Access
+#  description: Tune your chemical receptors for hivemind communication.
+#  categories: [ HideSpawnMenu ]
+#  components:
+#  - type: InstantAction
+#    checkCanInteract: false
+#    checkConsciousness: false
+#    itemIconStyle: NoItem
+#    icon:
+#      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+#      state: hivemind_access
+#    event: !type:ActionHivemindAccessEvent {}
+#  - type: ChangelingAction
+#    chemicalCost: 0
+#    useInLesserForm: true

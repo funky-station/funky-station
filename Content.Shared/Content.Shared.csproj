@@ -55,6 +55,43 @@ SPDX-License-Identifier: MIT
       <Private>false</Private>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Actions\BaseActionEvent.Serialization.cs" />
+    <Compile Remove="Actions\InstantActionEvent.Serialization.cs" />
+    <Compile Remove="Animation\DynamicRsiAnimationSystem.cs" />
+    <Compile Remove="MalfAI\MalfAiCameraNetworkUpgradeComponent.cs" />
+    <Compile Remove="UI\Themes\UIThemePrototype.cs" />
+    <Compile Remove="UI\UiThemePrototype.cs" />
+    <Compile Remove="Objectives\Components\ObjectivePoolComponent.cs" />
+    <Compile Remove="MalfAI\MalfAiControlBorgsObjectiveComponent.cs" />
+    <Compile Remove="MalfAI\MalfAiActionEvents.cs" />
+    <Compile Remove="Actions\Events\RcdBuildActionEvent.cs" />
+    <Compile Remove="Actions\Events\SaveActionsEvent.cs" />
+    <Compile Remove="_Funkystation\Factory\Systems\RcdBuildDoAfterEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiLockdownGridActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiDetonateRcdsActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiDoomsdayActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\OpenMalfAiBorgsUiActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiSetViewportActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiReturnToCoreActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiOverrideMachineActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiOpenViewportActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiShuntToApcActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiHijackMechActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiToggleCameraUpgradeActionEvent.cs" />
+    <Compile Remove="MalfAI\Actions\MalfAiToggleCameraMicrophonesActionEvent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Animation\" />
+    <Folder Include="Resources\Prototypes\Actions\" />
+    <Folder Include="Resources\Prototypes\Store\" />
+    <Folder Include="UI\Themes\" />
+    <Folder Include="_Funkystation\Factory\Systems\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\Prototypes\Store\malf_ai_viewport.yml" />
+    <None Remove="Resources\Prototypes\Actions\malf_ai.yml" />
+  </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\Robust.CompNetworkGenerator.targets" />
 </Project>

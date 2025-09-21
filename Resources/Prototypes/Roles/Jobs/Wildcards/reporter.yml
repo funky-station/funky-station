@@ -11,6 +11,7 @@
 # SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Minerva <218184747+mnva0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Sophia Rustfield <gitlab@catwolf.xyz>
@@ -36,7 +37,7 @@
   id: ReporterGear
   equipment:
     id: ReporterPDA
-    ears: ClothingHeadsetService
+    ears: ClothingHeadsetReporter #Funky
     shoes: ClothingShoesColorBlack
     belt: NewsDigiBoard
   storage: # DeltaV: Give reporters tape recording equipment

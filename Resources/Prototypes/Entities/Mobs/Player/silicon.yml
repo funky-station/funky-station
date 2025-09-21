@@ -32,7 +32,6 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ekpy <33184056+Ekpy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ekpy <xekpyx@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ichaie <ichaicoelho@gmail.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
@@ -56,6 +55,9 @@
   description: Components added / removed from an entity that gets inserted into an AI core.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Tag
+    tags:
+      - StationAiBrain
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
@@ -100,6 +102,10 @@
         type: SiliconLawBoundUserInterface
       enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.MalfAiBorgsUiKey.Key:
+        type: MalfAiBorgsBoundUserInterface
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
@@ -381,11 +387,31 @@
   - type: ContainerComp
     proto: AiHeld
     container: station_ai_mind_slot
+  - type: Damageable
+    damageContainer: AiCore
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 1000
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      800: Critical
+      1000: Dead
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 1000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -396,6 +422,9 @@
     powerLoad: 1000
     needsPower: false
   - type: StationAiCore
+  - type: WeldingHealable
+  - type: ExaminableDamage
+    messages: StationAiCoreMessages
   - type: StationAiVision
   - type: InteractionOutline
   - type: Sprite
@@ -496,7 +525,6 @@
     layerData:
     - sprite: Mobs/Silicon/holograms.rsi
       state: default
-  - type: IntercomOnlyBypass
 
 # Hologram projection that the AI's eye tracks.
 - type: entity
@@ -561,6 +589,18 @@
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
     silent: true
+
+# Funkystation, for Malf AI
+- type: entity
+  id: PlayerBorgBatteryNoMind
+  parent: BorgChassisSelectable
+  suffix: Battery, No Mind
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
 
 - type: entity
   id: PlayerBorgSyndicateAssaultBattery

@@ -4670,3 +4670,11 @@ Entries:
       message: Microphones now work in your offhand.
   id: 560
   time: '2025-09-20T18:36:21.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: >-
+        Changelings are now a team antagonist, and are given Hivemind
+        roundstart.
+  id: 561
+  time: '2025-09-21T01:03:20.0000000+00:00'

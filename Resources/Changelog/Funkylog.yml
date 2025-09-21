@@ -4678,3 +4678,23 @@ Entries:
         roundstart.
   id: 561
   time: '2025-09-21T01:03:20.0000000+00:00'
+- author: SigmaDraconis
+  changes:
+    - type: Tweak
+      message: Increased the damage and charge of the energy revolver
+    - type: Tweak
+      message: Increased the Hristov's fire rate by 25%
+    - type: Fix
+      message: Changed the X-01 Multiphase's description to show it self recharges
+    - type: Tweak
+      message: Increased the spread of the WT550
+    - type: Tweak
+      message: Decreased the size of the sawn-off shotgun
+    - type: Tweak
+      message: >-
+        The detective can now choose between the energy revolver and the
+        inspector through loadouts.
+    - type: Add
+      message: The detective now has a magnum speedloader that comes in their locker.
+  id: 562
+  time: '2025-09-21T07:22:19.0000000+00:00'

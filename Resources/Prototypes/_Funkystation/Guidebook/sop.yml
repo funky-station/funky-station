@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheHolyAegis <sanderkamphuis719@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -39,6 +40,7 @@
   - BlueAlertSOP
   - RedAlertSOP
   - VioletAlertSOP
+  - CyanAlertSOP
   - DeltaAlertSOP
   - GammaAlertSOP
   - OctarineAlertSOP
@@ -111,20 +113,26 @@
   text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/VioletAlert.xml"
 
 - type: guideEntry
+  id: CyanAlertSOP
+  name: guide-entry-alertlevel-cyan
+  priority: 60
+  text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/CyanAlert.xml"
+
+- type: guideEntry
   id: GammaAlertSOP
   name: guide-entry-alertlevel-gamma
-  priority: 60
+  priority: 70
   text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/GammaAlert.xml"
 
 - type: guideEntry
   id: DeltaAlertSOP
   name: guide-entry-alertlevel-delta
-  priority: 70
+  priority: 80
   text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/DeltaAlert.xml"
 
 # impstation cosmic cult
 - type: guideEntry
   id: OctarineAlertSOP
   name: alert-level-octarine
-  priority: 70
+  priority: 90
   text: "/ServerInfo/Funkystation/Guidebook/AlertLevel/OctarineAlert.xml"

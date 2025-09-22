@@ -1,0 +1,43 @@
+<!--
+SPDX-FileCopyrightText: 2025 TheHolyAegis <sanderkamphuis719@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
+<Document>
+  # Station Alert - Cyan
+
+  <Box>
+    [italic]Called by: Anyone with Command-Level Access at a working Communications Console.[/italic]
+  </Box>
+
+  [bold]Conditions:[/bold]
+
+  A large number of borgs have been emagged, or the AI is malfunctioning. Either way there are dangerous silicons aboard the station.
+
+  [bold]Security:[/bold]
+
+  Security is required to be armed and ready to deal with any silicons;
+
+  Disable borgs with lethal force if necessary;
+
+  Only destroy borgs if they are too dangerous.
+
+  [bold]Science:[/bold]
+
+  Roboticists are required to turn borgs back to better laws;
+  
+  The Research Director or roboticist should disable all borgs with their console if it isn't stolen yet;
+
+  If the AI is malfunctioning, the Research Director should try to download the AI's consciousness onto their Intellicard.
+
+  [bold]Secure Areas:[/bold]
+
+  EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used.
+
+  It's recommended to bolt any door leading to an important area, so borgs can't enter that room.
+
+  [bold]General Crew:[/bold]
+
+  All personel are to remain in their department, for Visitors (anyone with Civilian-level access) it's inside the Bar, Library or Dormitories.
+</Document>

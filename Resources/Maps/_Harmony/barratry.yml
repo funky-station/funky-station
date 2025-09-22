@@ -25,10 +25,12 @@
 # SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Huhm-1 <cameronhillard40@gmail.com>
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Spanky <scott@wearejacob.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -23962,22 +23964,16 @@ entities:
     - type: Transform
       pos: -19.5,-7.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 13590
   - uid: 801
     components:
     - type: Transform
       pos: -38.5,-1.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 13590
   - uid: 802
     components:
     - type: Transform
       pos: -63.5,27.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 13590
 - proto: BananaPhoneInstrument
   entities:
   - uid: 803
@@ -58669,8 +58665,6 @@ entities:
     - type: Transform
       pos: -19.5,-4.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 13590
 - proto: CleanerDispenser
   entities:
   - uid: 7002
@@ -69439,8 +69433,6 @@ entities:
     - type: Transform
       pos: -8.5,-18.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 13590
 - proto: ExplosivesSignMed
   entities:
   - uid: 8381
@@ -106252,42 +106244,6 @@ entities:
     - type: Transform
       pos: -23.341305,39.482185
       parent: 2
-- proto: MaterialSilo
-  entities:
-  - uid: 13590
-    components:
-    - type: Transform
-      pos: 28.5,27.5
-      parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        801:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
-        802:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
-        13604:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
-        7001:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
-        14370:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
-        800:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
-        8380:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
-        15634:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
-        15990:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
 - proto: MaterialWoodPlank
   entities:
   - uid: 13591
@@ -106374,8 +106330,6 @@ entities:
     - type: Transform
       pos: 6.5,23.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 13590
 - proto: Medkit
   entities:
   - uid: 13605
@@ -111450,8 +111404,6 @@ entities:
     - type: Transform
       pos: -19.5,-6.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 13590
 - proto: ProtolatheMachineCircuitboard
   entities:
   - uid: 14371
@@ -118994,8 +118946,6 @@ entities:
     - type: Transform
       pos: -43.5,63.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 13590
 - proto: SeedExtractor
   entities:
   - uid: 15635
@@ -121416,15 +121366,6 @@ entities:
     - type: Transform
       pos: -14.5,9.5
       parent: 2
-- proto: SiloRelay
-  entities:
-  - uid: 15990
-    components:
-    - type: Transform
-      pos: -45.5,-11.5
-      parent: 2
-    - type: SiloUtilizer
-      silo: 13590
 - proto: SingularityGenerator
   entities:
   - uid: 5492

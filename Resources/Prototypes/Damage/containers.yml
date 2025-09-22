@@ -88,3 +88,8 @@
   - Airloss
   - Genetic
   - Metaphysical
+
+- type: damageContainer
+  id: AiCore
+  supportedGroups:
+  - Brute

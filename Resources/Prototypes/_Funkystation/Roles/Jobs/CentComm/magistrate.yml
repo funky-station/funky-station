@@ -1,4 +1,6 @@
+# SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
 # SPDX-FileCopyrightText: 2025 Josh Hilsberg <thejoulesberg@gmail.com>
+# SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -10,17 +12,9 @@
   description: "Serve directly under CentComm. As the stations central legal authority, you authorize executions, extended detentions, warrants, etc."
   playTimeTracker: JobMagistrate
   requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 72000 #20 hrs
-  - !type:RoleTimeRequirement
-    role: JobNanotrasenRepresentative
-    time: 36000 #10 hrs
-  - !type:RoleTimeRequirement
-    role: JobCaptain
-    time: 36000 #10 hrs
-  - !type:RoleTimeRequirement
-    role: JobHeadOfSecurity
-    time: 36000 #10 hrs
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 360000 #100 hrs
   weight: 20
   startingGear: MagistrateGear
   icon: "JobIconMagistrate"

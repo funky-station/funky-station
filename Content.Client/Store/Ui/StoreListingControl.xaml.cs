@@ -3,7 +3,6 @@
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -80,6 +79,7 @@ public sealed partial class StoreListingControl : Control
         _data = data;
         _hasBalance = hasBalance;
         _price = price;
+        _extra = extra; //imp addition
 
         StoreItemName.Text = ListingLocalisationHelpers.GetLocalisedNameOrEntityName(_data, _prototype);
         StoreItemDescription.SetMessage(ListingLocalisationHelpers.GetLocalisedDescriptionOrEntityDescription(_data, _prototype));
@@ -114,6 +114,7 @@ public sealed partial class StoreListingControl : Control
         {
             StoreItemBuyButton.Text = _price;
         }
+
     }
 
     private void UpdateName()

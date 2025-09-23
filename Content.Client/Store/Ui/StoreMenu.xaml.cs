@@ -13,7 +13,6 @@
 // SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -359,7 +358,7 @@ public sealed partial class StoreMenu : DefaultWindow
         if (allCategories.Count < 1)
             return;
 
-        var normalGroup = new ButtonGroup();
+        var group = new ButtonGroup();
         foreach (var proto in allCategories)
         {
             var catButton = new StoreCategoryButton
@@ -367,7 +366,7 @@ public sealed partial class StoreMenu : DefaultWindow
                 Text = Loc.GetString(proto.Name),
                 Id = proto.ID,
                 Pressed = proto.ID == CurrentCategory,
-                Group = normalGroup,
+                Group = group,
                 ToggleMode = true,
                 StyleClasses = { "OpenBoth" }
             };

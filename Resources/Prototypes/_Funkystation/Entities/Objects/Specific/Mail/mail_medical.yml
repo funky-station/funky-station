@@ -18,7 +18,7 @@
       orGroup: RareTopicals
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailLargeFlat
   id: MailMedicalRollerBed
   suffix: Roller Bed
   components:

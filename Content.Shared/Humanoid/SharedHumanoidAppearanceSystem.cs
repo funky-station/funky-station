@@ -21,6 +21,7 @@
 
 using System.IO;
 using System.Linq;
+using System.Numerics;
 using Content.Shared._Funkystation.Humanoid.Events;
 using Content.Shared.CCVar;
 using Content.Shared.Decals;
@@ -29,10 +30,12 @@ using Content.Shared.Humanoid.Markings;
 using Content.Shared._Shitmed.Humanoid.Events; // Shitmed Change
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Inventory;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Shared;
 using Robust.Shared.Configuration;
+using Robust.Shared.Enums;
 using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -60,9 +63,10 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ISerializationManager _serManager = default!;
     [Dependency] private readonly MarkingManager _markingManager = default!;
+    [Dependency] private readonly GrammarSystem _grammarSystem = default!;
+    [Dependency] private readonly IdentitySystem _identity = default!;
 
-    [ValidatePrototypeId<SpeciesPrototype>]
-    public const string DefaultSpecies = "Human";
+    public static readonly ProtoId<SpeciesPrototype> DefaultSpecies = "Human";
 
     public override void Initialize()
     {
@@ -138,7 +142,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         }
 
         if (string.IsNullOrEmpty(humanoid.Initial)
-            || !_proto.TryIndex(humanoid.Initial, out HumanoidProfilePrototype? startingSet))
+            || !_proto.Resolve(humanoid.Initial, out HumanoidProfilePrototype? startingSet))
         {
             LoadProfile(uid, HumanoidCharacterProfile.DefaultWithSpecies(humanoid.Species), humanoid);
             return;

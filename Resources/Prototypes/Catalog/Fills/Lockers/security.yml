@@ -307,3 +307,5 @@
     contents:
     - id: WeaponLaserCarbine
       amount: 3
+    - id: WeaponIonRifle #remove this this shit gotta get mapped
+      amount: 1

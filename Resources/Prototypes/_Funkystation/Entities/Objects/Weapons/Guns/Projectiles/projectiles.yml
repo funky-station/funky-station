@@ -142,7 +142,7 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
     - state: omnilaser
-      shader: cyan
+      shader: unshaded
   - type: Physics
   - type: Fixtures
     fixtures:

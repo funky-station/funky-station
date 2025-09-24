@@ -16,37 +16,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: gamePreset
-  id: Heretics
-  alias:
-    - Heretic
-  name: heretic-gamemode-title
-  description: heretic-gamemode-description
-  cooldown: 1
-  showInVote: false
-  rules:
-    - Heretic
-    - SubGamemodesRule
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - MidpopLimiter
-
-- type: gamePreset
-  id: SecretHeretics
-  alias:
-    - SecretHeretic
-  name: secret-title
-  description: secret-description
-  showInVote: false
-  rules:
-    - Heretic
-    - SubGamemodesRule
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - MidpopLimiter
-
-- type: gamePreset
   id: Changeling
   alias:
     - ling

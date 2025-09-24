@@ -7,8 +7,6 @@
 - type: guideEntry
   id: Heretics
   name: guide-entry-heretics
-  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Heretics.xml"
-
   text: "/ServerInfo/_Impstation/Guidebook/Antagonist/Heretics.xml" # given a consistency pass by dark, keeping in imp directory 4 now
   children:
   - HereticsKnowledge

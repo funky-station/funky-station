@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2025 duston <66768086+dch-GH@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 mqole <113324899+mqole@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //

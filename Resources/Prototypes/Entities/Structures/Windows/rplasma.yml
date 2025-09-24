@@ -97,7 +97,7 @@
         mask:
         - FullTileMask
         layer:
-        - WallLayer
+        - GlassLayer
         density: 2000
 
 - type: entity

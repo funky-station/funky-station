@@ -55,7 +55,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
 
 
             var tileref = grid.GetTileRef(trans.Coordinates);
-            var tile = _prot.Index<ContentTileDefinition>(rod.IceTilePrototype);
+            var tile = _prot.Index<ContentTileDefinition>("FloorAstroSnow");
             _tile.ReplaceTile(tileref, tile);
         }
     }

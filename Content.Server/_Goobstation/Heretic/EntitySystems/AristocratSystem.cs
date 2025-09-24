@@ -120,7 +120,7 @@ public sealed partial class AristocratSystem : EntitySystem
 
         foreach (var tileref in tiles)
         {
-            var tile = _prot.Index<ContentTileDefinition>(ent.Comp.IceTilePrototype);
+            var tile = _prot.Index<ContentTileDefinition>("FloorAstroSnow");
             _tile.ReplaceTile(tileref, tile);
         }
 

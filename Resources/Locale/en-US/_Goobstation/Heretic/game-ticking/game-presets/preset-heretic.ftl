@@ -51,3 +51,4 @@ ghoul-notif-text =
 
     Protect your new master and follow their orders.
 ghoul-notif-title = Return to Flesh
+hell-memory-confirm = Confirm

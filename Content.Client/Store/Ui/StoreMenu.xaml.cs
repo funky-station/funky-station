@@ -358,7 +358,7 @@ public sealed partial class StoreMenu : DefaultWindow
         if (allCategories.Count < 1)
             return;
 
-        var group = new ButtonGroup();
+        var normalGroup = new ButtonGroup();
         foreach (var proto in allCategories)
         {
             var catButton = new StoreCategoryButton
@@ -366,7 +366,7 @@ public sealed partial class StoreMenu : DefaultWindow
                 Text = Loc.GetString(proto.Name),
                 Id = proto.ID,
                 Pressed = proto.ID == CurrentCategory,
-                Group = group,
+                Group = normalGroup,
                 ToggleMode = true,
                 StyleClasses = { "OpenBoth" }
             };

@@ -79,7 +79,6 @@ public sealed partial class StoreListingControl : Control
         _data = data;
         _hasBalance = hasBalance;
         _price = price;
-        _extra = extra; //imp addition
 
         StoreItemName.Text = ListingLocalisationHelpers.GetLocalisedNameOrEntityName(_data, _prototype);
         StoreItemDescription.SetMessage(ListingLocalisationHelpers.GetLocalisedDescriptionOrEntityDescription(_data, _prototype));

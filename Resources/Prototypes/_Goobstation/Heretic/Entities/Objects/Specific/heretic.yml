@@ -72,7 +72,7 @@
 
 - type: entity
   name: wildering mirror
-  parent: [BaseItem, TierXContraband]
+  parent: [BaseItem, BaseMagicContraband]
   id: HereticMirror
   description: "A multiplicity of vistas! A bewilderment of views! Gaze upon me, and rejoice in the dissolution of your senses!"
   components:

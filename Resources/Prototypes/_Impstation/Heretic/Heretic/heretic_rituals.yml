@@ -1,16 +1,4 @@
 ##side knowledge
-- type: hereticRitual
-  id: SeekersHeartRitual
-  locName: knowledge-path-side-s1-sensor-name
-  locDesc: knowledge-path-side-s1-sensor-description
-  icon:
-    sprite: _Goobstation/Heretic/items.rsi
-    state: living_heart
-  requiredTags:
-    Heart: 1
-    Flare: 1
-  output:
-    HereticBookSensor: 1
 
 - type: hereticRitual
   id: HereticMirrorRitual

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Dark <darkwindleaf@hotmail.co.uk>
+#
+# SPDX-License-Identifier: MIT
+
 - type: antag
   id: SynthesisSpecialist
   name: roles-antag-syndicate-synthesis-name

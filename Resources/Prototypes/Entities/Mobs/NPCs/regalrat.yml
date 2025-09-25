@@ -165,6 +165,7 @@
       - CannotSuicide
       - FootstepSound
   - type: NoSlip
+  - type: Rummager
   - type: RatKing
     hungerPerArmyUse: 25
     hungerPerDomainUse: 50
@@ -196,7 +197,7 @@
     toggleAction: null
     color: "#50595C"
     activateSound: null
-    deactivateSound: null 
+    deactivateSound: null
 
 - type: entity
   id: MobRatKingBuff
@@ -383,13 +384,16 @@
     activateSound: null
     deactivateSound: null
 
-- type: weightedRandomEntity
+- type: entityTable
   id: RatKingLoot
-  weights: # DeltaV: Rebalanced for Rodentia rummaging because we don't have Rat King
-    RandomSpawner100: 70 #garbage
-    FoodCheeseSlice: 15 #food
-    RandomSnacks: 10
-    RandomFoodSingle: 5
+  table: !type:GroupSelector
+    children:
+    - id: RandomSpawner100
+      weight: 66
+    - id: FoodCheese
+      weight: 28
+    - id: IngotGold1
+      weight: 5
 
 - type: entity
   parent: BaseAction

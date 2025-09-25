@@ -1043,16 +1043,6 @@ entities:
     - type: Transform
       pos: 7.451991,-2.4680228
       parent: 1
-- proto: ClothingEyesGlassesChemicalInterdyne
-  entities:
-  - uid: 306
-    components:
-    - type: Transform
-      pos: 7.5032854,3.791647
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        lens_slot: !type:ContainerSlot {}
 - proto: ClothingHeadHatSurgcapCybersun
   entities:
   - uid: 70

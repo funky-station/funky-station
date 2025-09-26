@@ -49,7 +49,7 @@
       time: 36000 #10 hrs
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 72000 #20 hrs
+      time: 144000 #40 hrs
       inverted: true # stop playing intern if you're good at security!
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"

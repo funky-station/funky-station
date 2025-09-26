@@ -189,6 +189,7 @@ guide-entry-minor-antagonists = Minor Antagonists
 guide-entry-space-ninja = Space Ninja
 guide-entry-thieves = Thieves
 guide-entry-wizard = Wizard
+guide-entry-malfunctioningai = Malfunctioning AI
 
 guide-entry-rules = Server Rules
 guide-entry-rules-core-only = Core Only Ruleset

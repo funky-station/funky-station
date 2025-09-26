@@ -10,6 +10,7 @@
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -753,6 +754,9 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         UpdateBiomass(uid, comp, 0);
         // make their blood unreal
         _blood.ChangeBloodReagent(uid, "BloodChangeling");
+        
+        // funky - give changelings roundstart hivemind
+        GrantHivemindAccess(uid);
     }
 
     private void OnMobStateChange(EntityUid uid, ChangelingComponent comp, ref MobStateChangedEvent args)

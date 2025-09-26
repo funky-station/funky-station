@@ -3,6 +3,9 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -52,7 +55,7 @@
     damage:
       types:
         Heat: 5
-        Structural: 75 #funkystation -okay its a plasma CUTTER wouldn't it make more sense for this to do struct dmg? like wtf?
+        Structural: 25 #funkystation mining tools should not deal above 30 structural damage if they are ment to have the GatheringProjectile tag as otherwise it will cause ore drops to dupe
   - type: TimedDespawn
     lifetime: 0.2
   - type: PointLight
@@ -69,10 +72,49 @@
     damage:
       types:
         Heat: 8 #funkystation -GLORY TO TAYDEO!!!!, GREAT LEADER!!! TAYDEO NUMBA 1!!!
-        Structural: 10 #funkystation -seriously why the fuck would this shit do 100 struct what kinda of crack are these people smoking???
+        Structural: 25 #funkystation mining tools should not deal above 30 structural damage if they are ment to have the GatheringProjectile tag as otherwise it will cause ore drops to dupe
   - type: TimedDespawn
     lifetime: 0.4
   - type: PointLight
     radius: 4
     color: purple
     energy: 2
+
+- type: entity #Put here since the energy revolver is under _Goobstation
+  name: revolver bolt
+  id: BulletEnergyGunRevolver
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: heavylaser
+      shader: unshaded
+  - type: Ammo
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        mask:
+        - Opaque
+  - type: Projectile
+    impactEffect: BulletImpactEffectRedDisabler
+    damage:
+      types:
+        Blunt: 10
+        Heat: 35
+    soundHit:
+      collection: MeatLaserImpact

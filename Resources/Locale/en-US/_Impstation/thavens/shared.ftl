@@ -59,7 +59,7 @@ thaven-mood-room-holy-name = {$room} Is A Holy Place
 thaven-mood-room-holy-desc = Thaven must congregate at least three times per day at {$room}. If such a room does not exist, it must be constructed. If it is made inaccessible, Thaven must set up a place of worship as close to it as they legally can.
 
 thaven-mood-delicacy-name = Just Like Mom Used To Make
-thaven-mood-delicacy-desc = {$edible} is a traditional Thaven delicacy. All Thaven aboard the station should gather as many as possible and organize a feasEAt.
+thaven-mood-delicacy-desc = {$edible} is a traditional Thaven delicacy. All Thaven aboard the station should gather as many as possible and organize a feast.
 
 thaven-mood-thirstquencher-name = Thirst Quencher
 thaven-mood-thirstquencher-desc = {$drink} is a traditional Thaven beverage. All Thaven aboard the station should make as many as possible and hold a drinking party.

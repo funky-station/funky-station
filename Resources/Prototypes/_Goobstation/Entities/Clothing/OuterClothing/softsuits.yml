@@ -32,3 +32,5 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
+  - type: StaminaResistance
+    damageCoefficient: 0.4

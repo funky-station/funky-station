@@ -25,6 +25,8 @@
     modifiers:
       coefficients:
         Caustic: 0.5
+  - type: StaminaResistance
+    damageCoefficient: 0.6
 
 - type: entity
   parent: ClothingOuterBioGeneral

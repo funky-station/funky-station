@@ -87,6 +87,8 @@
   - type: ClothingSpeedModifier #But that protection comes at a price.
     walkModifier: 0.6
     sprintModifier: 0.6
+  - type: StaminaResistance
+    damageCoefficient: 0.5
   - type: GroupExamine
   - type: Construction
     graph: scraparmor

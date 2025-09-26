@@ -78,6 +78,8 @@
     - WhitelistChameleon
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: StaminaResistance
+    damageCoefficient: 0.6
 
 - type: entity
   parent: ClothingOuterSuitBomb
@@ -121,6 +123,8 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: StaminaResistance
+    damageCoefficient: 0.6
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowTankStorageClothing]
@@ -156,6 +160,8 @@
   - type: Tag # Assmos - Metal Hydrogen
     tags:
       - AtmosFireSuit
+  - type: StaminaResistance
+    damageCoefficient: 0.5
 
 - type: entity
   parent: [ClothingOuterBaseLarge, GeigerCounterClothing, AllowTankStorageClothing]
@@ -181,6 +187,8 @@
       toggleable-clothing: !type:ContainerSlot {}
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: StaminaResistance
+    damageCoefficient: 0.6
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowTankStorageClothing, AllowBackStorageClothingCombat, BaseToggleClothing, BaseMajorContraband]
@@ -206,6 +214,8 @@
         Slash: 0.8
         Piercing: 0.8
         Heat: 0.8
+  - type: StaminaResistance
+    damageCoefficient: 0.5
   # phase cloak
   - type: ToggleClothing
     action: ActionTogglePhaseCloak
@@ -359,3 +369,5 @@
     coolingCoefficient: 0.01
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCarp
+  - type: StaminaResistance
+    damageCoefficient: 0.5

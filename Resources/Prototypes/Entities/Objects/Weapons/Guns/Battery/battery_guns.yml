@@ -582,7 +582,7 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
-    fireCost: 50
+    fireCost: 100
 
 - type: entity
   name: disabler
@@ -606,7 +606,7 @@
       - Belt
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 50
+    fireCost: 100
   - type: GuideHelp
     guides:
     - Security
@@ -644,7 +644,7 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerSmg
-    fireCost: 25
+    fireCost: 50
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -957,7 +957,7 @@
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 100
+      fireCost: 200
       name: disabling
       state: disabler
     - proto: BulletEnergyGunLaser

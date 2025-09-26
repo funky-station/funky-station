@@ -82,6 +82,8 @@
 - type: entity
   parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBase]
   id: ClothingOuterArmorBasic
+  - type: StaminaResistance
+    damageCoefficient: 0.6
 
 #Alternate / slim basic armor vest
 - type: entity
@@ -95,6 +97,8 @@
     sprite: Clothing/OuterClothing/Armor/security_slim.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/security_slim.rsi
+  - type: StaminaResistance
+    damageCoefficient: 0.6
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowBackStorageClothingCombat, BaseSecurityContraband]
@@ -119,6 +123,8 @@
   - type: StaminaResistance
     damageCoefficient: 0.85
   - type: GroupExamine
+  - type: StaminaResistance
+    damageCoefficient: 0.4
 
 - type: entity
   parent: ClothingOuterArmorBase
@@ -141,6 +147,8 @@
     damageCoefficient: 0.80
   - type: StaminaResistance
     damageCoefficient: 0.85
+  - type: StaminaResistance
+    damageCoefficient: 0.5
 
 - type: entity
   parent: ClothingOuterArmorBase
@@ -165,6 +173,8 @@
     reflectProb: 1
     reflects:
       - Energy
+  - type: StaminaResistance
+    damageCoefficient: 0.05
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowBackStorageClothingCombat, BaseSyndicateContraband ]
@@ -192,7 +202,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.35
   - type: StaminaResistance
-    damageCoefficient: 0.8
+    damageCoefficient: 0.1
   #- type: StaminaResistance
   #  damageCoefficient: 0.45
   - type: ClothingSpeedModifier
@@ -268,6 +278,8 @@
         Piercing: 0.6
         Heat: 0.5
   - type: GroupExamine
+  - type: StaminaResistance
+    damageCoefficient: 0.5
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowBackStorageClothingCombat]
@@ -294,6 +306,8 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: StaminaResistance
+    damageCoefficient: 0.3
 
 - type: entity
   parent: ClothingOuterArmorHeavy
@@ -369,6 +383,8 @@
   - type: Tag
     tags:
       - SpecialArmor
+  - type: StaminaResistance
+    damageCoefficient: 0.5
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowBackStorageClothingCombat, AllowTankStorageClothing ]
@@ -399,6 +415,8 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: StaminaResistance
+    damageCoefficient: 0.5
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowBackStorageClothingCombat ]
@@ -427,6 +445,8 @@
     node: armor
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: StaminaResistance
+    damageCoefficient: 0.6
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowBackStorageClothingCombat ]
@@ -448,6 +468,8 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: StaminaResistance
+    damageCoefficient: 0.5
 
 # Assmos - Metal Hydrogen
 - type: entity
@@ -477,6 +499,8 @@
   - type: Tag
     tags:
       - MetalHydrogenArmor
+  - type: StaminaResistance
+    damageCoefficient: 0.6
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowBackStorageClothingCombat, AllowTankStorageClothing]
@@ -518,3 +542,5 @@
   - type: Construction
     graph: AtmosianArmor
     node: armor
+  - type: StaminaResistance
+    damageCoefficient: 0.4

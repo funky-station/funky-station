@@ -44,6 +44,8 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
+  - type: StaminaResistance
+    damageCoefficient: 0.5
 
 #Syndicate EVA
 - type: entity
@@ -61,6 +63,8 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
+  - type: StaminaResistance
+    damageCoefficient: 0.4
 
 #Emergency EVA
 - type: entity
@@ -90,6 +94,8 @@
     tags:
     - MonkeyWearable
     - WhitelistChameleon
+  - type: StaminaResistance
+    damageCoefficient: 0.6
 
 #Prisoner EVA
 - type: entity
@@ -107,6 +113,8 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
+  - type: StaminaResistance
+    damageCoefficient: 0.8
 
 #NTSRA Voidsuit / Ancient Voidsuit
 - type: entity
@@ -123,6 +131,8 @@
     walkModifier: 0.85
     sprintModifier: 0.85
   - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.5
 
 #Paramedic Voidsuit
 - type: entity
@@ -154,6 +164,8 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.5
   - type: GroupExamine
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitVoidParamed

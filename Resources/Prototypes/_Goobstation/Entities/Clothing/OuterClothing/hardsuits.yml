@@ -42,6 +42,8 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.70
     sprintModifier: 0.70
+  - type: StaminaResistance
+    damageCoefficient: 0.05
   - type: HeldSpeedModifier
   - type: StasisProtection
   - type: StasisBlinkProvider
@@ -84,7 +86,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.60
   - type: StaminaResistance
-    damageCoefficient: 0.70
+    damageCoefficient: 0.3
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
@@ -127,6 +129,8 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.85
+  - type: StaminaResistance
+    damageCoefficient: 0.3
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersunStealth

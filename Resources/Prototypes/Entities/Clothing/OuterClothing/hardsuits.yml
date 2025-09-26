@@ -123,6 +123,8 @@
     damageCoefficient: 0.5
   - type: FireResistance
     damageCoefficient: 0.1
+  - type: StaminaResistance
+    damageCoefficient: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -154,6 +156,8 @@
         Caustic: 0.8
         Radiation: 0.2
   - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: StaminaResistance
     damageCoefficient: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.7
@@ -187,6 +191,8 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.90
     sprintModifier: 0.80
+  - type: StaminaResistance
+    damageCoefficient: 0.4
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSpatio
@@ -223,6 +229,8 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
+  - type: StaminaResistance
+    damageCoefficient: 0.3
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSalvage
@@ -255,6 +263,8 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
+  - type: StaminaResistance
+    damageCoefficient: 0.2
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitGoliath
@@ -291,6 +301,8 @@
         Radiation: 0.1
   - type: ExplosionResistance
     damageCoefficient: 0.2
+  - type: StaminaResistance
+    damageCoefficient: 0.2
   - type: TemperatureProtection
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
@@ -322,7 +334,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: StaminaResistance
-    damageCoefficient: 0.8
+    damageCoefficient: 0.2
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -355,7 +367,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: StaminaResistance
-    damageCoefficient: 0.8
+    damageCoefficient: 0.2
   - type: ClothingSpeedModifier
     walkModifier: 0.80
     sprintModifier: 0.80
@@ -388,7 +400,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: StaminaResistance
-    damageCoefficient: 0.7
+    damageCoefficient: 0.15
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -422,7 +434,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.50
   - type: StaminaResistance
-    damageCoefficient: 0.40
+    damageCoefficient: 0.2
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -457,6 +469,8 @@
     damageCoefficient: 0.20
   - type: FireResistance
     damageCoefficient: 0.20
+  - type: StaminaResistance
+    damageCoefficient: 0.4
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.8
@@ -496,6 +510,8 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.95
+  - type: StaminaResistance
+    damageCoefficient: 0.4
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMedical
@@ -528,6 +544,8 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
+  - type: StaminaResistance
+    damageCoefficient: 0.4
   - type: HeldSpeedModifier
   - type: Tag
     tags:
@@ -557,7 +575,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.6
   - type: StaminaResistance
-    damageCoefficient: 0.6
+    damageCoefficient: 0.15
   - type: Armor
     modifiers:
       coefficients:
@@ -602,6 +620,8 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
+  - type: StaminaResistance
+    damageCoefficient: 0.4
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitLuxury
@@ -628,7 +648,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: StaminaResistance
-    damageCoefficient: 0.6
+    damageCoefficient: 0.15
   - type: Armor
     modifiers:
       coefficients:
@@ -690,7 +710,7 @@
   - type: FireResistance
     damageCoefficient: 0.8
   - type: StaminaResistance
-    damageCoefficient: 0.6
+    damageCoefficient: 0.1
   - type: Armor
     modifiers:
       coefficients:
@@ -726,7 +746,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: StaminaResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.1
   - type: Armor
     modifiers:
       coefficients:
@@ -773,6 +793,8 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.65
+  - type: StaminaResistance
+    damageCoefficient: 0.05
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
@@ -794,7 +816,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: StaminaResistance
-    damageCoefficient: 0.8
+    damageCoefficient: 0.2
   - type: Armor
     modifiers:
       coefficients:
@@ -837,6 +859,8 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
+  - type: StaminaResistance
+    damageCoefficient: 0.35
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitLing
@@ -857,7 +881,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: StaminaResistance
-    damageCoefficient: 0.8
+    damageCoefficient: 0.4
   - type: Armor
     modifiers:
       coefficients:
@@ -892,7 +916,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.6
   - type: StaminaResistance
-    damageCoefficient: 0.70
+    damageCoefficient: 0.3
   - type: Armor
     modifiers:
       coefficients:
@@ -952,6 +976,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
+  - type: StaminaResistance
+    damageCoefficient: 0.3
 
 #ERT Medic Hardsuit
 - type: entity
@@ -998,6 +1024,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTJanitor
+  - type: StaminaResistance
+    damageCoefficient: 0.3
 
 #Deathsquad
 - type: entity
@@ -1030,7 +1058,7 @@
   - type: FireResistance
     damageCoefficient: 0.20
   - type: StaminaResistance
-    damageCoefficient: 0.15 # Needs 21 hits with a disabler to stun :godo:
+    damageCoefficient: 0.05 # Needs 21 hits with a disabler to stun :godo:
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
@@ -1058,7 +1086,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: StaminaResistance
-    damageCoefficient: 0.75
+    damageCoefficient: 0.4
   - type: Armor
     modifiers:
       coefficients:
@@ -1104,6 +1132,8 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.5
   - type: HeldSpeedModifier
   - type: Construction
     graph: ClownHardsuit
@@ -1127,6 +1157,8 @@
     node: mimeHardsuit
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMime
+  - type: StaminaResistance
+    damageCoefficient: 0.5
 
 #Santa's Hardsuit
 - type: entity
@@ -1154,6 +1186,8 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.5
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSanta

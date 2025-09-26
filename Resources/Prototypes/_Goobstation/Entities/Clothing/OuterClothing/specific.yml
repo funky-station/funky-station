@@ -40,6 +40,8 @@
   - type: Tag
     tags:
       - HEVSuit
+  - type: StaminaResistance
+    damageCoefficient: 0.5
 
 - type: entity
   parent: ClothingNeckBase # funkystation - bodycams should take up a neckslot

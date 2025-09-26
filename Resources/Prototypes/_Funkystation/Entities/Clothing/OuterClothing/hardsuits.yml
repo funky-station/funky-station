@@ -48,6 +48,8 @@
     interfaces:
       enum.InstrumentUiKey.Key:
         type: InstrumentBoundUserInterface
+  - type: StaminaResistance
+    damageCoefficient: 0.5
 
 # Helldiver, Funkified
 - type: entity
@@ -75,3 +77,5 @@
     netsync: false
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHelldiver
+  - type: StaminaResistance
+    damageCoefficient: 0.4

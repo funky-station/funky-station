@@ -41,7 +41,6 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps: #funkystation
-  - Barratry
   - Fland
   - Cluster
   - Omega

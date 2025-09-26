@@ -32,3 +32,18 @@
   - type: Sprite
     sprite: _Funkystation/Objects/Misc/stamps.rsi
     state: stamp-magi
+
+- type: entity
+  name: borg rubber stamp
+  parent: RubberStampBase
+  id: RubberStampCyborg
+  suffix: DO NOT MAP
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-borg
+    stampedColor: "#515961"
+    stampState: "paper_stamp-generic"
+    stampLargeIcon: "large_stamp-borg"
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/stamps.rsi
+    state: stamp-borg

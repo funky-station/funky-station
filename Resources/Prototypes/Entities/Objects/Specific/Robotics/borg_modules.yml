@@ -398,6 +398,7 @@
     - Wirecutter
     - Multitool
     - WelderIndustrial
+    - RubberStampCyborg # Funkystation
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: tool-module }
 

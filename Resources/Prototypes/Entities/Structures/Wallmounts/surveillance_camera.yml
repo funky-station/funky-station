@@ -47,6 +47,8 @@
   - type: SlimPoweredLight
     enabled: false
   - type: StationAiVision
+  - type: SurveillanceCameraMicrophone
+  - type: ActiveListener
   - type: Clickable
   - type: InteractionOutline
   - type: Construction

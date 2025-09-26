@@ -206,6 +206,7 @@ loadout-group-detective-neck = Detective neck
 loadout-group-detective-jumpsuit = Detective jumpsuit
 loadout-group-detective-outerclothing = Detective outer clothing
 loadout-group-detective-id = Detective ID
+loadout-group-detective-weapon = Detective Weapon
 
 loadout-group-security-cadet-jumpsuit = Security cadet jumpsuit
 loadout-group-security-star = Security Star
@@ -213,6 +214,7 @@ loadout-group-security-star = Security Star
 # Medical
 loadout-group-medical-gloves = Medical gloves
 loadout-group-medical-mask = Medical mask
+loadout-group-medical-neck = Medical neck
 
 loadout-group-chief-medical-officer-head = Chief Medical Officer head
 loadout-group-chief-medical-officer-jumpsuit = Chief Medical Officer jumpsuit

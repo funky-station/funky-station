@@ -1,0 +1,8 @@
+<!-- SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com> -->
+<!-- SPDX-License-Identifier: MIT -->
+<widgets:MalfAiCpuHud xmlns="https://spacestation14.io"
+                      xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.MalfAI.Widgets"
+                      xmlns:controls="clr-namespace:Robust.Client.UserInterface.Controls;assembly=Robust.Client">
+    <controls:TextureRect TexturePath="/Textures/Interface/Actions/actions_malf_ai.rsi/CPU.png"
+                         Stretch="KeepAspectCentered" />
+</widgets:MalfAiCpuHud>

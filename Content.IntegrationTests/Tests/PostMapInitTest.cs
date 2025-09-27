@@ -135,6 +135,7 @@ namespace Content.IntegrationTests.Tests
             "Gax", // funkystation
             "Divide", // funkystation
             "Glacier", // funkystation
+			"Eden", // funkystation
             "Barratry", // Harmony
             "Eclipse", // Harmony
             "Kettle", // Goobstation - add Kettle

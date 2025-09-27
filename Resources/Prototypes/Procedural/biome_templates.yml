@@ -3,6 +3,7 @@
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Firewars763 <35506916+Firewars763@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -522,7 +523,9 @@
         - CrystalGreen
         - CrystalPink
         - CrystalOrange
+        - CrystalBlack
         - CrystalBlue
+        - CrystalYellow
         - CrystalCyan
     - !type:BiomeEntityLayer
       threshold: 0.95
@@ -570,7 +573,9 @@
         - CrystalGreen
         - CrystalPink
         - CrystalOrange
+        - CrystalBlack
         - CrystalBlue
+        - CrystalYellow
         - CrystalCyan
     - !type:BiomeEntityLayer
       threshold: 0.95

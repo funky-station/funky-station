@@ -205,6 +205,14 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         if (!Resolve(uid, ref component))
             return;
 
+        // Allow systems to intercept processing (e.g., robotics factory conversion).
+        var processEvent = new MaterialReclaimerProcessEntityEvent(item);
+        RaiseLocalEvent(uid, processEvent);
+        if (processEvent.Handled)
+        {
+            return;
+        }
+
         base.Reclaim(uid, item, completion, component);
 
         var xform = Transform(uid);

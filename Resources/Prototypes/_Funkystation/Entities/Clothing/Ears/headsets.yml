@@ -45,3 +45,18 @@
       key_slots:
       - EncryptionKeyCommon
       - EncryptionKeyService
+
+- type: entity
+  parent: ClothingHeadsetSecurity
+  id: ClothingHeadsetLawyer
+  name: lawyer headset
+  description: A headset for lawyers to incessantly argue about Space Law.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Ears/Headsets/lawyer.rsi
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySecurity
+      - EncryptionKeyService
+      - EncryptionKeyCommon

@@ -19,6 +19,7 @@
 // SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 paige404 <59348003+paige404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -83,7 +84,7 @@ public sealed class LungSystem : EntitySystem
 
     private void OnMaskToggled(Entity<BreathToolComponent> ent, ref ItemMaskToggledEvent args)
     {
-        if (args.IsToggled || args.IsEquip)
+        if (args.Mask.Comp.IsToggled)
         {
             _atmos.DisconnectInternals(ent);
         }
@@ -94,7 +95,7 @@ public sealed class LungSystem : EntitySystem
             if (TryComp(args.Wearer, out InternalsComponent? internals))
             {
                 ent.Comp.ConnectedInternalsEntity = args.Wearer;
-                _internals.ConnectBreathTool((args.Wearer, internals), ent);
+                _internals.ConnectBreathTool((args.Wearer.Value, internals), ent);
             }
         }
     }

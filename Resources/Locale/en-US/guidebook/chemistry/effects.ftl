@@ -47,19 +47,7 @@ reagent-effect-guidebook-create-entity-reaction-effect =
         *[other] {$amount} {MAKEPLURAL($entname)}
     }
 
-entity-effect-guidebook-destroy =
-    { $chance ->
-        [1] Destroys
-        *[other] destroy
-    } the object
-
-entity-effect-guidebook-break =
-    { $chance ->
-        [1] Breaks
-        *[other] break
-    } the object
-
-entity-effect-guidebook-explosion =
+reagent-effect-guidebook-explosion-reaction-effect =
     { $chance ->
         [1] Causes
         *[other] cause
@@ -121,7 +109,42 @@ reagent-effect-guidebook-health-change =
                  }
     } { $changes }
 
+reagent-effect-guidebook-even-health-change =
+    { $chance ->
+        [1] { $healsordeals ->
+            [heals] Evenly heals
+            [deals] Evenly deals
+            *[both] Evenly modifies health by
+        }
+        *[other] { $healsordeals ->
+            [heals] evenly heal
+            [deals] evenly deal
+            *[both] evenly modify health by
+        }
+    } { $changes }
+
+
 reagent-effect-guidebook-status-effect =
+    { $type ->
+        [update]{ $chance ->
+                    [1] Causes
+                    *[other] cause
+                } {LOC($key)} for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} without accumulation
+        [add]   { $chance ->
+                    [1] Causes
+                    *[other] cause
+                } {LOC($key)} for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} with accumulation
+        *[set]  { $chance ->
+                    [1] Causes
+                    *[other] cause
+                } {LOC($key)} for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} without accumulation
+        [remove]{ $chance ->
+                    [1] Removes
+                    *[other] remove
+                } {NATURALFIXED($time, 3)} {MANY("second", $time)} of {LOC($key)}
+    }
+
+reagent-effect-guidebook-status-effect-delay =
     { $type ->
         [add]   { $chance ->
                     [1] Causes
@@ -135,6 +158,26 @@ reagent-effect-guidebook-status-effect =
                     [1] Removes
                     *[other] remove
                 } {NATURALFIXED($time, 3)} {MANY("second", $time)} of {LOC($key)}
+    } after a {NATURALFIXED($delay, 3)} second delay
+
+reagent-effect-guidebook-knockdown =
+    { $type ->
+        [update]{ $chance ->
+                    [1] Causes
+                    *[other] cause
+                    } {LOC($key)} for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} without accumulation
+        [add]   { $chance ->
+                    [1] Causes
+                    *[other] cause
+                } knockdown for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} with accumulation
+        *[set]  { $chance ->
+                    [1] Causes
+                    *[other] cause
+                } knockdown for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} without accumulation
+        [remove]{ $chance ->
+                    [1] Removes
+                    *[other] remove
+                } {NATURALFIXED($time, 3)} {MANY("second", $time)} of knockdown
     }
 
 reagent-effect-guidebook-set-solution-temperature-effect =

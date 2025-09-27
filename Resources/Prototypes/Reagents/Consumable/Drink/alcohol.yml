@@ -1,61 +1,3 @@
-# SPDX-FileCopyrightText: 2019 moneyl <8206401+Moneyl@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Hugo Laloge <hugo.laloge@gmail.com>
-# SPDX-FileCopyrightText: 2020 Injazz <injazza@gmail.com>
-# SPDX-FileCopyrightText: 2020 Peter Wedder <burneddi@gmail.com>
-# SPDX-FileCopyrightText: 2020 Swept <jamesurquhartwebb@gmail.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 nuke <47336974+nuke-makes-games@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara D <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 ZeroDayDaemon <60460608+ZeroDayDaemon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 Maxtone <124747282+MagnusCrowe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-# SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-# SPDX-FileCopyrightText: 2023 SpaceCat <99134830+Verslebas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Veritius <veritiusgaming@gmail.com>
-# SPDX-FileCopyrightText: 2023 Waylon Cude <waylon.cude@finzdani.net>
-# SPDX-FileCopyrightText: 2023 Waylon Cude <waylon531@gmail.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 kerisargit <108146620+kerisargit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hanz <41141796+Hanzdegloker@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RumiTiger <154005209+RumiTiger@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BrightNibbleston <brightnibbleston@gmail.com>
-# SPDX-FileCopyrightText: 2025 Do You Like Beans <bowenjonathan407@gmail.com>
-# SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
-# SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
-# SPDX-FileCopyrightText: 2025 Selva <140060182+selvamoonbell@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SharkSnake98 <peanutbuttersharky@gmail.com>
-# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
-
 
 # Base Alcohol
 
@@ -70,17 +12,37 @@
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/absintheglass.rsi
     state: icon_empty
-  metamorphicMaxFillLevels: 5
+  metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
     Drink:
       effects:
-      - !type:SatiateThirst
-        factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.3
+    Narcotic: # The green fairy
+      metabolismRate : 0.01
+      effects:
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.05
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        type: Add
+        time: 5
+      - !type:PopupMessage
+        type: Local
+        messages:
+        - absinthe-effect-hear-voice
+        - absinthe-effect-feel-tulips
+        probability: 0.02
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: Ale
@@ -209,7 +171,7 @@
         damage:
           types:
             Poison: 1
-      # dwarves take less toxin damage and heal a marginal amount of brute - Funky - they heal earlier and heal heat lightly, but brute less.
+      # dwarves take less toxin damage and heal a marginal amount of brute
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -222,14 +184,12 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 5 # Funky
+          min: 15
         - !type:OrganType
           type: Dwarf
         damage:
-          groups: # Funky
-            Brute: -0.75
-          types:
-            Heat: -0.25
+          groups:
+            Brute: -1
       - !type:ChemVomit
         probability: 0.04
         conditions:
@@ -266,7 +226,6 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
-
 
 - type: reagent
   id: CoffeeLiqueur
@@ -450,10 +409,7 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
-      - !type:HealthChange
-        damage:
-          types:
-            Radiation: -0.25
+
 - type: reagent
   id: Whiskey
   name: reagent-name-whiskey
@@ -610,6 +566,9 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+
+#Antifreeze as a drink is a bright blue color while it is an orangish red otherwise.
+#As a result this sprite doesn't need changing.
 
 - type: reagent
   id: Antifreeze
@@ -1028,6 +987,21 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
+
+- type: reagent
+  id: Eggnog
+  name: reagent-name-eggnog
+  parent: BaseAlcohol
+  desc: reagent-desc-eggnog
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: eggnog
+  color: "#e6d6bc"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/eggnogglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
 
 - type: reagent
   id: ElectricShark
@@ -1596,7 +1570,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.2 
+        amount: 0.2
 
 - type: reagent
   id: PinaColada
@@ -1619,7 +1593,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.2  
+        amount: 0.2
 
 - type: reagent
   id: Radler
@@ -2202,7 +2176,7 @@
           time: 1
           type: Remove
   fizziness: 0.25
-  
+
 - type: reagent
   id: BlueHawaiian
   name: reagent-name-blue-hawaiian
@@ -2273,8 +2247,8 @@
         amount: 0.2
       - !type:AdjustReagent
         reagent: Copper
-        amount: 0.05        
-        
+        amount: 0.05
+
 - type: reagent
   id: Mimeosa
   name: reagent-name-mimeosa
@@ -2323,7 +2297,7 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.07
-        
+
 - type: reagent
   id: Mayojito
   name: reagent-name-mayojito
@@ -2424,7 +2398,7 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
-        
+
 - type: reagent
   id: Daiquiri
   name: reagent-name-daiquiri
@@ -2447,7 +2421,7 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.1
-        
+
 - type: reagent
   id: TheSunAlsoRises
   name: reagent-name-the-sun-also-rises
@@ -2516,3 +2490,58 @@
         - !type:AdjustReagent
           reagent: Ethanol
           amount: 0.25
+
+- type: reagent
+  id: BacchusBlessing
+  name: reagent-name-bacchus-blessing
+  parent: BaseAlcohol
+  desc: reagent-desc-bacchus-blessing
+  physicalDesc: reagent-physical-desc-unidentifiable
+  flavor: bacchusblessing
+  color: "#331303"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/bacchusblessing.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 2
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.45 # TODO: Figure out why setting this to 0 means this does more damage... WHAT BUG IS THIS?!!
+    Alcohol:
+      effects:
+      - !type:Drunk
+        boozePower: 10
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 6
+        - !type:OrganType
+          type: Dwarf
+          shouldHave: false
+        damage:
+          types:
+            Poison: 2 # TODO: Figure out poison amount. Ethanol does 1, this does 2 but also metabolises almost 3 to 4 times as fast as ethanol. This would be more Liver damage when that time arrives.
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 6
+        - !type:OrganType
+          type: Dwarf
+        damage:
+          types:
+            Poison: 0.4 # TODO: Might increase this, even though it's just double of ethanol from 0.2 to 0.4
+      - !type:ChemVomit
+        probability: 0.1 #TODO: Tweak vomit probability, maybe make this more violent and poisonous but the body aggressively purges it...
+        conditions:
+        - !type:ReagentThreshold
+          reagent: BacchusBlessing
+          min: 8
+        - !type:OrganType
+          type: Dwarf
+          shouldHave: false

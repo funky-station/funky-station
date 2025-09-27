@@ -1,0 +1,60 @@
+# SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
+# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Gtheglorious <gtheglorious@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: body
+  id: Palinid
+  name: "palinid"
+  root: torso
+  slots:
+    head:
+      part: HeadPalinid
+      connections:
+      - torso
+      organs:
+        brain: OrganAnimalBrain
+        eyes: OrganAnimalEyes
+    torso:
+      part: TorsoPalinid
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head
+      organs:
+        heart: OrganAnimalHeart
+        lungs: OrganAnimalLungs
+        stomach: OrganAnimalStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganAnimalKidneys
+    right arm:
+      part: RightArmPalinid
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmPalinid
+      connections:
+      - left hand
+    right hand:
+      part: RightHandPalinid
+    left hand:
+      part: LeftHandPalinid
+    right leg:
+      part: RightLegPalinid
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegPalinid
+      connections:
+      - left foot
+    right foot:
+      part: RightFootPalinid
+    left foot:
+      part: LeftFootPalinid

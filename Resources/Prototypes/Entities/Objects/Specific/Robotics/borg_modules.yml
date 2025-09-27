@@ -912,6 +912,8 @@
     - state: icon-surgery
   - type: ItemBorgModule
     items:
+    - HandheldHealthAnalyzerUnpowered
+    - Soap
     - Scalpel
     - Drill
     - Hemostat
@@ -933,6 +935,8 @@
     - state: icon-advanced-surgery
   - type: ItemBorgModule
     items:
+    - HandheldHealthAnalyzerUnpowered
+    - Soap
     - EnergyScalpel
     - EnergyCautery
     - AdvancedRetractor

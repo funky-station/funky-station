@@ -627,7 +627,7 @@ GunSafeSubMachineGunDrozd: null
 GunSafePistolMk58: GunSafeEnergyGunMiniature
 WeaponSubMachineGunWt550: null
 MagazinePistolSubMachineGunTopMounted: null
-WeaponPistolkMk58: WeaponEnergyGunMiniature
+WeaponPistolMk58: WeaponEnergyGunMiniature
 MagazinePistol: null
 
 # 2025-08-15

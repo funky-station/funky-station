@@ -10,7 +10,7 @@
     layers:
     - state: paper
     - state: cover_base
-      color: "#D01C1F"
+      color: "#55369a"
     - state: decor_bottom
       color: "#8A6240"
     - state: icon_eye

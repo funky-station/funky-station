@@ -1,3 +1,25 @@
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Repo <47093363+Titian3@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
+// SPDX-FileCopyrightText: 2024 J. Brown <DrMelon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+// SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 jackel234 <jackel234@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Client.Actions;
 using Content.Client.Message;
@@ -10,6 +32,8 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
+using Robust.Client.ResourceManagement;
+using Content.Client.MalfAI.Theme;
 
 namespace Content.Client.Store.Ui;
 
@@ -19,7 +43,14 @@ public sealed partial class StoreMenu : DefaultWindow
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
+    [Dependency] private readonly IResourceCache _resCache = default!;
+
     private StoreWithdrawWindow? _withdrawWindow;
+
+    private Font? _malfFont;
+    private bool _malfThemeApplied;
+    private static readonly Color MalfGreen = MalfUiTheme.Accent;
+    private StyleBox? _malfButtonStyle;
 
     public event EventHandler<string>? SearchTextUpdated;
     public event Action<BaseButton.ButtonEventArgs, ListingData>? OnListingButtonPressed;
@@ -40,6 +71,53 @@ public sealed partial class StoreMenu : DefaultWindow
         WithdrawButton.OnButtonDown += OnWithdrawButtonDown;
         RefundButton.OnButtonDown += OnRefundButtonDown;
         SearchBar.OnTextChanged += _ => SearchTextUpdated?.Invoke(this, SearchBar.Text);
+    }
+
+    public void ApplyMalfTheme()
+    {
+        if (_malfThemeApplied)
+            return;
+
+        _malfThemeApplied = true;
+
+        // Load font
+        _malfFont ??= MalfUiTheme.GetFont(_resCache, 12);
+
+        // Backdrop goes black for Malf shop (no static - will be added as overlay)
+        RootBackdrop.PanelOverride = MalfUiTheme.CreateBackdropStyle();
+
+        // Add scrolling error backdrop behind all UI elements - insert at beginning so it appears behind
+        var errorBackdrop = MalfEffectOverlay.CreateErrorBackdrop();
+        RootBackdrop.AddChild(errorBackdrop);
+        errorBackdrop.SetPositionInParent(0);
+
+        // Add CRT static overlay using AI statics fog of war shader - this stays on top
+        var staticOverlay = MalfEffectOverlay.CreateStaticOverlay();
+        RootBackdrop.AddChild(staticOverlay);
+
+        // Apply green-outlined black panels
+        var borderMain = MalfUiTheme.CreateMainPanelStyle(MalfUiTheme.Accent);
+        MainPanel.PanelOverride = borderMain;
+
+        var borderCat = MalfUiTheme.CreateCategoryPanelStyle(MalfUiTheme.Accent);
+        CategoryPanel.PanelOverride = borderCat;
+
+        // Apply color to common controls
+        BalanceInfo.Modulate = MalfGreen;
+
+        // Apply Malf stylesheet
+        RootBackdrop.Stylesheet = MalfUiTheme.GetCachedStylesheet(_resCache, 12);
+
+        // Apply specific styling for the search bar
+        SearchBar.StyleBoxOverride = MalfUiTheme.CreateButtonStyle(MalfUiTheme.Accent);
+
+        // Create and apply green-bordered black style for buttons WITHOUT static (static comes from backdrop overlay)
+        _malfButtonStyle ??= MalfUiTheme.CreateButtonStyle(MalfUiTheme.Accent);
+
+        // Hide withdraw in the CPU/Malf store.
+        WithdrawButton.Visible = false;
+
+        RefundButton.StyleBoxOverride = _malfButtonStyle;
     }
 
     public void UpdateBalance(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance)
@@ -119,6 +197,7 @@ public sealed partial class StoreMenu : DefaultWindow
 
     private void AddListingGui(ListingData listing)
     {
+	// Apply category filtering for both Malf and normal shops.
         if (!listing.Categories.Contains(CurrentCategory))
             return;
 
@@ -138,23 +217,43 @@ public sealed partial class StoreMenu : DefaultWindow
         }
         else if (listing.ProductAction != null)
         {
-            var actionId = _entityManager.Spawn(listing.ProductAction);
-            if (_entityManager.System<ActionsSystem>().TryGetActionData(actionId, out var action) &&
-                action.Icon != null)
+            if (texture == null)
             {
-                texture = spriteSys.Frame0(action.Icon);
+                var actionId = _entityManager.Spawn(listing.ProductAction);
+                if (_entityManager.System<ActionsSystem>().TryGetActionData(actionId, out var action) &&
+                    action.Icon != null)
+                {
+                    texture = spriteSys.Frame0(action.Icon);
+                }
             }
         }
 
-        var newListing = new StoreListingControl(listing, GetListingPriceString(listing), hasBalance, texture);
+        if (_malfThemeApplied && _malfFont != null)
+        {
+            var malfListing = new MalfStoreListingControl(listing, GetListingPriceString(listing), hasBalance, texture, _malfFont, MalfGreen);
 
-        if (listing.DiscountValue > 0) // WD EDIT
-            newListing.StoreItemBuyButton.AddStyleClass("ButtonColorRed");
+            // Apply sale-red first so theming can respect it.
+            if (listing.DiscountValue > 0) // WD EDIT
+                malfListing.StoreItemBuyButton.AddStyleClass("ButtonColorRed");
 
-        newListing.StoreItemBuyButton.OnButtonDown += args
-            => OnListingButtonPressed?.Invoke(args, listing);
+            malfListing.StoreItemBuyButton.OnButtonDown += args
+                => OnListingButtonPressed?.Invoke(args, listing);
 
-        StoreListingsContainer.AddChild(newListing);
+            StoreListingsContainer.AddChild(malfListing);
+        }
+        else
+        {
+            var newListing = new StoreListingControl(listing, GetListingPriceString(listing), hasBalance, texture);
+
+            // Apply sale-red first so theming can respect it.
+            if (listing.DiscountValue > 0) // WD EDIT
+                newListing.StoreItemBuyButton.AddStyleClass("ButtonColorRed");
+
+            newListing.StoreItemBuyButton.OnButtonDown += args
+                => OnListingButtonPressed?.Invoke(args, listing);
+
+            StoreListingsContainer.AddChild(newListing);
+        }
     }
 
     public bool HasListingPrice(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> currency, Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> price)
@@ -195,6 +294,50 @@ public sealed partial class StoreMenu : DefaultWindow
 
     public void PopulateStoreCategoryButtons(HashSet<ListingData> listings)
     {
+        // Malf shop: show only the requested categories.
+        if (_malfThemeApplied)
+        {
+            var malfCats = new[] { "Deception", "Factory", "Disruption" };
+
+            // Default selection for Malf shop
+            if (!malfCats.Contains(CurrentCategory))
+                CurrentCategory = "Deception";
+
+            CategoryListContainer.Children.Clear();
+
+            var group = new ButtonGroup();
+            foreach (var id in malfCats)
+            {
+                // Localize the visible label for each Malf category
+                var textKey = id switch
+                {
+                    "Deception" => "malf-store-category-deception",
+                    "Factory" => "malf-store-category-factory",
+                    "Disruption" => "malf-store-category-disruption",
+                    _ => "malf-store-category-deception"
+                };
+
+                var catButton = new StoreCategoryButton
+                {
+                    Text = Loc.GetString(textKey),
+                    Id = id,
+                    Pressed = id == CurrentCategory,
+                    Group = group,
+                    ToggleMode = true,
+                    StyleClasses = { "OpenBoth" }
+                };
+
+                if (_malfButtonStyle != null)
+                    catButton.StyleBoxOverride = _malfButtonStyle;
+
+                catButton.OnPressed += args => OnCategoryButtonPressed?.Invoke(args, catButton.Id);
+                CategoryListContainer.AddChild(catButton);
+            }
+
+            return;
+        }
+
+        // Normal shop: original behavior, collect categories from listings.
         var allCategories = new List<StoreCategoryPrototype>();
         foreach (var listing in listings)
         {
@@ -219,7 +362,7 @@ public sealed partial class StoreMenu : DefaultWindow
         if (allCategories.Count < 1)
             return;
 
-        var group = new ButtonGroup();
+        var normalGroup = new ButtonGroup();
         foreach (var proto in allCategories)
         {
             var catButton = new StoreCategoryButton
@@ -227,7 +370,7 @@ public sealed partial class StoreMenu : DefaultWindow
                 Text = Loc.GetString(proto.Name),
                 Id = proto.ID,
                 Pressed = proto.ID == CurrentCategory,
-                Group = group,
+                Group = normalGroup,
                 ToggleMode = true,
                 StyleClasses = { "OpenBoth" }
             };

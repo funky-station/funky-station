@@ -1,3 +1,35 @@
+// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
+// SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2022 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Illiux <newoutlook@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DEATHB4DEFEAT <77995199+DEATHB4DEFEAT@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 sleepyyapril <flyingkarii@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Labels;
@@ -282,39 +314,84 @@ namespace Content.Server.Chemistry.EntitySystems
         private void OnOutputToBottleMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterOutputToBottleMessage message)
         {
             var user = message.Actor;
+            var needed = message.Dosage * message.Number;
             var maybeContainer = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.OutputSlotName);
+            Entity<SolutionComponent>? soln;
+            Solution? solution;
 
             if (maybeContainer == null)
             {
-                var canister = _entityManager.SpawnEntity(PillCanisterPrototypeId, Transform(chemMaster.Owner).Coordinates);
-                _itemSlotsSystem.TryInsert(chemMaster.Owner, SharedChemMaster.OutputSlotName, canister, null);
-                maybeContainer = canister;
+                return;
             }
 
-            if (maybeContainer is not { Valid: true } container
-                || !_solutionContainerSystem.TryGetSolution(container, SharedChemMaster.BottleSolutionName, out var soln, out var solution))
+            if (maybeContainer is not { Valid: true } container)
                 return; // output can't fit reagents
 
             // Ensure the amount is valid.
-            if (message.Dosage == 0 || message.Dosage > solution.AvailableVolume)
+            if (message.Dosage == 0)
                 return;
 
             // Ensure label length is within the character limit.
             if (message.Label.Length > SharedChemMaster.LabelMaxLength)
                 return;
 
-            if (!WithdrawFromBuffer(chemMaster, message.Dosage, user, out var withdrawal))
+            if (_solutionContainerSystem.TryGetSolution(container,
+                    SharedChemMaster.BottleSolutionName,
+                    out soln,
+                    out solution) && message.Number == 1)
+            {
+                if (message.Dosage > solution.AvailableVolume)
+                    return;
+                if (!WithdrawFromBuffer(chemMaster, message.Dosage, user, out var withdrawal))
+                    return;
+
+                _labelSystem.Label(container, message.Label);
+                _solutionContainerSystem.TryAddSolution(soln.Value, withdrawal);
+
+                // Log bottle fill by a user
+                _adminLogger.Add(LogType.Action, LogImpact.Low,
+                    $"{ToPrettyString(user):user} bottled {ToPrettyString(container):bottle} {SharedSolutionContainerSystem.ToPrettyString(solution)}");
+                UpdateUiState(chemMaster);
+                ClickSound(chemMaster);
                 return;
+            }
 
-            _labelSystem.Label(container, message.Label);
-            _solutionContainerSystem.TryAddSolution(soln.Value, withdrawal);
+            if (TryComp<StorageComponent>(container, out var storage))
+            {
+                List<EntityUid> bottles = new List<EntityUid>();
+                foreach (var ent in storage.Container.ContainedEntities)
+                {
+                    if (!_solutionContainerSystem.TryGetSolution(ent,
+                            SharedChemMaster.BottleSolutionName,
+                            out soln,
+                            out solution) || message.Dosage > solution.AvailableVolume)
+                        continue;
+                    bottles.Add(ent);
+                }
+                if (bottles.Count < message.Number)
+                    return; // Check for enough bottles
 
-            // Log bottle creation by a user
-            _adminLogger.Add(LogType.Action, LogImpact.Low,
-                $"{ToPrettyString(user):user} bottled {ToPrettyString(container):bottle} {SharedSolutionContainerSystem.ToPrettyString(solution)}");
+                if (!WithdrawFromBuffer(chemMaster, needed, user, out var withdrawal))
+                    return;
 
-            UpdateUiState(chemMaster);
-            ClickSound(chemMaster);
+                _labelSystem.Label(container, message.Label);
+                foreach (var bottle in bottles)
+                {
+                    _solutionContainerSystem.TryGetSolution(bottle,
+                        SharedChemMaster.BottleSolutionName,
+                        out soln,
+                        out solution);
+
+                    _labelSystem.Label(bottle, message.Label);
+                    _solutionContainerSystem.TryAddSolution(soln!.Value, withdrawal.SplitSolution(message.Dosage));
+
+                    // Log bottle fill by a user
+                    _adminLogger.Add(LogType.Action, LogImpact.Low,
+                        $"{ToPrettyString(user):user} bottled {ToPrettyString(container):bottle} {SharedSolutionContainerSystem.ToPrettyString(solution!)}");
+                }
+                UpdateUiState(chemMaster);
+                ClickSound(chemMaster);
+            }
         }
 
         private bool WithdrawFromBuffer(

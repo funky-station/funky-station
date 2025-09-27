@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
+# SPDX-FileCopyrightText: 2023 James Simonson <jamessimo89@gmail.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 anomaly-component-contact-damage = The anomaly sears off your skin!
 
 anomaly-vessel-component-anomaly-assigned = Anomaly assigned to vessel.
@@ -54,6 +64,8 @@ anomaly-sync-examine-connected = It is [color=darkgreen]attached[/color] to an a
 anomaly-sync-examine-not-connected = It is [color=darkred]not attached[/color] to an anomaly.
 anomaly-sync-connect-verb-text = Attach anomaly
 anomaly-sync-connect-verb-message = Attach a nearby anomaly to {THE($machine)}.
+anomaly-sync-disconnect-verb-text = Detach anomaly
+anomaly-sync-disconnect-verb-message = Detach the connected anomaly from {THE($machine)}.
 
 anomaly-generator-ui-title = Anomaly Generator
 anomaly-generator-fuel-display = Fuel:
@@ -78,7 +90,7 @@ anomaly-generator-flavor-right = v1.1
 anomaly-behavior-unknown = [color=red]ERROR. Cannot be read.[/color]
 
 anomaly-behavior-title = behavior deviation analysis:
-anomaly-behavior-point =[color=gold]Anomaly produces {$mod}% of the points[/color] 
+anomaly-behavior-point = [color=gold]Anomaly produces {$mod}% of the points[/color]
 
 anomaly-behavior-safe = [color=forestgreen]The anomaly is extremely stable. Extremely rare pulsations.[/color]
 anomaly-behavior-slow = [color=forestgreen]The frequency of pulsations is much less frequent.[/color]

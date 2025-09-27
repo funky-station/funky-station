@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 IronDragoon <8961391+IronDragoon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TakuTaco <gorill.ka.fmb@gmail.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using Content.Client.UserInterface.Controls;
 using Content.Shared._DV.TapeRecorder;
 using Content.Shared._DV.TapeRecorder.Components;
@@ -125,5 +132,6 @@ public sealed partial class TapeRecorderWindow : FancyWindow
             ? -comp.RewindSpeed
             : 1f;
         PlaybackSlider.Value += args.DeltaSeconds * speed;
+        DurationLabel.Text = $@"{TimeSpan.FromSeconds(PlaybackSlider.Value):mm\:ss}";
     }
 }

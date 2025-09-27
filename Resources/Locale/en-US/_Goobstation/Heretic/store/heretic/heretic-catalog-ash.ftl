@@ -1,9 +1,16 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 knowledge-path-ash-s1-name = Nightwatcher's Secret
 knowledge-path-ash-s1-desc =
     The City Guard know their watch. If you ask them at night, they may tell you about the ashy lantern.
 
     Opens up the Path of Ash to you.
-    Allows you to transmute a match and a knife into an Ashen Blade.
+    Allows you to transmute a welding tool and a knife into an Ashen Blade.
 
 knowledge-path-ash-s2-name = Grasp of Ash
 knowledge-path-ash-s2-desc =
@@ -11,11 +18,11 @@ knowledge-path-ash-s2-desc =
 
     Your Mansus Grasp will burn the eyes of the victim, damaging them and blurring their vision.
 
-knowledge-path-ash-s3-name = Ashen Shift
+knowledge-path-ash-s3-name = Blazing Dash
 knowledge-path-ash-s3-desc =
-    He knew how to walk between the planes.
+    He could move like a raging wildfire.
 
-    Grants you Ashen Passage, a spell that lets you phase out of reality and traverse a short distance, passing though any walls.
+    Grants you Blazing Dash, a spell that lets you move extremely quickly for a short time. Be sure to bring a firesuit.
 
 knowledge-path-ash-s4-name = Mark of Ash
 knowledge-path-ash-s4-desc =

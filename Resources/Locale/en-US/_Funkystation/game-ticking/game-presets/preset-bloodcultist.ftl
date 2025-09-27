@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 roles-antag-cult-name = Blood Cultist
 roles-antag-cult-objective = Your objective is to summon your master, the Geometer of Blood, Nar'Sie. Through conversion, domination, and blood may She be brought back into this world. Cooperate with your fellow Cultists to tear open the veil and bring about Her coming!
 
@@ -22,9 +28,9 @@ cult-attack-teamhit = Your attack stops dead before hitting a cultist.
 
 contraband-examine-text-BloodCult = [color=crimson]This item is a highly illegal product of blood cultist magic![/color]
 
-cult-rune-drawing-novowel = You begin smearing a rune into the floor with your own wrist's blood...
+cult-rune-drawing-novowel = You begin smearing a rune into the floor with blood...
 cult-rune-drawing-vowel-first = You begin smearing a
-cult-rune-drawing-vowel-second = into the floor with your own wrist's blood...
+cult-rune-drawing-vowel-second = into the floor with blood...
 cult-rune-select = Select Rune
 
 cult-veil-drawing-toostrong = The veil is too strong here to tear open.

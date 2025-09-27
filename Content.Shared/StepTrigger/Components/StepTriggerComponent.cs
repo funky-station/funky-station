@@ -1,3 +1,19 @@
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 KISS <59531932+YuriyKiss@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.StepTrigger.Prototypes; // Goobstation
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Whitelist;
@@ -9,7 +25,6 @@ namespace Content.Shared.StepTrigger.Components;
 [Access(typeof(StepTriggerSystem))]
 public sealed partial class StepTriggerComponent : Component
 {
-    public const float DefaultRequiredTriggeredSpeed = 3.5f;
     /// <summary>
     ///     List of entities that are currently colliding with the entity.
     /// </summary>
@@ -39,7 +54,7 @@ public sealed partial class StepTriggerComponent : Component
     ///     Entities will only be triggered if their speed exceeds this limit.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float RequiredTriggeredSpeed = DefaultRequiredTriggeredSpeed;
+    public float RequiredTriggeredSpeed = 3.5f;
 
     /// <summary>
     ///     If any entities occupy the blacklist on the same tile then steptrigger won't work.

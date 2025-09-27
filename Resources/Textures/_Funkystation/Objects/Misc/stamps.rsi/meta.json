@@ -9,6 +9,12 @@
     "states": [
         {
             "name": "stamp-iaa"
-        }
+        },
+        {
+            "name": "stamp-magi"
+        },
+	{
+	    "name": "stamp-borg"
+	}
     ]
 }

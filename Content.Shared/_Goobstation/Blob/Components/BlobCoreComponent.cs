@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+// SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using Content.Shared.Damage;
 using Content.Shared.Explosion;
 using Content.Shared.FixedPoint;
@@ -36,6 +44,9 @@ public sealed partial class BlobCoreComponent : Component
 
     [DataField]
     public FixedPoint2 CoreBlobTotalHealth = 400;
+
+    [DataField]
+    public float InitialPoints = 300f;
 
     [DataField]
     public float AttackRate = 0.3f;
@@ -80,8 +91,7 @@ public sealed partial class BlobCoreComponent : Component
             {
                 DamageDict = new Dictionary<string, FixedPoint2>
                 {
-                    { "Heat", 5 },
-                    { "Structural", 150 },
+                    { "Structural", 300 },
                 }
             }
         },
@@ -101,6 +111,7 @@ public sealed partial class BlobCoreComponent : Component
                 DamageDict = new Dictionary<string, FixedPoint2>
                 {
                     { "Structural", 150 },
+                    { "Blunt", 6 },
                     { "Poison", 15 },
                 }
             }

@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailJellyOfTheMonth
   suffix: Jelly of the Month
   components:

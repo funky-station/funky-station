@@ -4704,3 +4704,9 @@ Entries:
       message: Added the base mime and clown masks to the autodrobe.
   id: 563
   time: '2025-09-27T05:53:18.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: Added Eden map to be playtested
+  id: 564
+  time: '2025-09-28T02:42:01.0000000+00:00'

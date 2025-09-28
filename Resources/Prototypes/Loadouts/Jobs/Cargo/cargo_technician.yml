@@ -12,9 +12,9 @@
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
-      !type:RoleTimeRequirement
-      role: JobCargoTechnician
-      time: 72000 #20 hrs
+      !type:DepartmentTimeRequirement
+      department: Cargo
+      time: 216000 #20 hrs
 
 # Head
 - type: loadout

@@ -77,6 +77,20 @@
   equipment:
     outerClothing: ClothingOuterWinterNTR
 
+# Gloves
+- type: loadout
+  id: NanotrasenRepresentativePaperworkGloves
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorNanotrasenRepresentative
+  equipment:
+    gloves: ClothingHandsGlovesHop
+
+- type: loadout
+  id: NanotrasenRepresentativeBlackGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+
 # Jumpsuits
 - type: loadout
   id: NanotrasenRepresentativeJumpsuit

@@ -70,6 +70,12 @@
   equipment:
     back: ClothingBackpackSatchelLeather
 
+# Outer Clothing
+- type: loadout
+  id: NanotrasenRepresentativeWinterCoat
+  equipment:
+    outerClothing: ClothingOuterWinterNTR
+
 # Jumpsuits
 - type: loadout
   id: NanotrasenRepresentativeJumpsuit

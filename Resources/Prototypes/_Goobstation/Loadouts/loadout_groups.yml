@@ -50,6 +50,13 @@
   - NanotrasenRepresentativeWinterCoat
 
 - type: loadoutGroup
+  id: NanotrasenRepresentativeGloves
+  name: loadout-group-ntr-gloves
+  loadouts:
+  - NanotrasenRepresentativePaperworkGloves
+  - NanotrasenRepresentativeBlackGloves
+
+- type: loadoutGroup
   id: NanotrasenRepresentativeBelt
   name: loadout-group-ntr-belt
   minLimit: 0

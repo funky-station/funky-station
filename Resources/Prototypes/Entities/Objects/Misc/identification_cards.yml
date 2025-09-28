@@ -440,7 +440,7 @@
   - type: Sprite
     layers:
     - state: default #base
-    - state: decal-stripe-civillian #decal
+    - state: decal-stripe-service #decal
     - sprite: Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: Janitor
@@ -969,7 +969,7 @@
   - type: Sprite
     layers:
     - state: default #base
-    - state: decal-stripe-service #decal
+    - state: decal-stripe-civillian #decal
     - sprite: Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: Reporter

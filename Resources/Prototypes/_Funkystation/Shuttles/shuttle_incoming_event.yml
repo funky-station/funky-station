@@ -32,3 +32,8 @@
   id: wanderingNomad
   path: /Maps/_Funkystation/Shuttles/ShuttleEvent/wanderingNomad.yml
   copies: 2
+
+- type: preloadedGrid
+  id: wanderingspacecowboy
+  path: /Maps/_Funkystation/Shuttles/ShuttleEvent/spacecowboyshuttle.yml
+  copies: 2

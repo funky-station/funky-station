@@ -38,8 +38,10 @@
       settings: default
   - type: SpawnPoint
     job_id: SpaceCowboy
-    respawn: true
+    respawn: false
   - type: Sprite
+    sprite: Markers/jobs.rsi
     layers:
-    - state: centcom
-    - state: green
+      - state: green
+      - sprite: Clothing/Head/Hats/cowboyhatbountyhunter.rsi
+        state: icon

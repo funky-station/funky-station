@@ -1,0 +1,15 @@
+- type: entity
+  id: DresserFilledCowboy
+  parent: Dresser
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingUniformJumpskirtRedElegantDress
+    - id: ClothingUniformJumpskirtBlackElegantDress
+    - id: ClothingOuterCoatGentle
+    - id: ClothingUniformJumpskirtPurpleTurtleneckDress
+    - id: ClothingOuterPoncho
+    - id: ClothingOuterPonchoClassic
+    - id: ClothingHandsGlovesColorBlack
+    - id: ClothingHandsGlovesColorLightBrown

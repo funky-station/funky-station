@@ -118,3 +118,14 @@
     sprite: _Funkystation/Structures/Doors/Airlocks/Standard/maint_command.rsi
   - type: Wires
     layoutId: AirlockCommand
+
+#Fun
+
+- type: entity
+  parent: AirlockServiceLocked
+  id: AirlockSpaceCowboyLocked
+  suffix: SpaceCowboy, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSpaceCowboy ]

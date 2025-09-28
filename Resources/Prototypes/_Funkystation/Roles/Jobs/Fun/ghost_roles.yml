@@ -2,21 +2,32 @@
   id: SpaceCowboy
   name: Space Cowboy
   description: ghost-role-information-space-cowboy-description
-  playTimeTracker: SpaceCowboy
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 36000 #100 hrs
+    time: 36000 #10 hrs
   weight: 0
+  playTimeTracker: JobSpaceCowboy
   startingGear: SpaceCowboyGear
-  icon: JobIconCentralCommandIntern
   requireAdminNotify: false
   joinNotifyCrew: false
   canBeAntag: false
   access:
   - SpaceCowboy
+  special:
+    !type:AddComponentSpecial
+    accent: cowboy
 
 - type: startingGear
   id: SpaceCowboyGear
   equipment:
-    inhand:
-    - SpaceCowboyIDCard
+    jumpsuit: ClothingUniformJumpsuitSecBlue
+    shoes: ClothingShoesBootsLaceup
+    outerClothing: ClothingOuterVest
+    id: SpaceCowboyIDCard
+    eyes: ClothingEyesGlassesSunglasses
+    back: ClothingBackpackSatchelLeather
+    ears: ClothingHeadsetFreelance
+    belt: ClothingBeltHolster
+    pocket1: ClothingMaskGasMerc
+    pocket2: ClothingHandsKnuckleDusters
+

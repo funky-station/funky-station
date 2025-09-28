@@ -12,9 +12,9 @@
   name: mail-item-name-unaddressed
   components:
   - type: Item
-    size: Small
+    size: Normal
   - type: Sprite
-    scale: 0.8, 0.8
+    scale: 1, 1
     sprite: _Funkystation/Objects/Specific/Mail/mail_small.rsi
     layers:
     - state: icon

@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: entity
+  parent: [ClothingOuterWinterCoat, BaseCentcommContraband]
+  id: ClothingOuterWinterNTR
+  name: nanotrasen representative's winter coat
+  description: Sleek, comfortable, imposing. Perfect for keeping clipboards and stamps in - or a gun.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/ntr_winter_coat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/ntr_winter_coat.rsi
+  - type: Item
+    size: Normal

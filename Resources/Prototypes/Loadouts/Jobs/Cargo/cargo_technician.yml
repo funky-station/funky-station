@@ -28,6 +28,11 @@
     jumpsuit: ClothingUniformJumpsuitCargo
 
 - type: loadout
+  id: CargoTechnicianJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtCargo
+
+- type: loadout
   id: SeniorCargoTechnicianJumpskirt
   effects:
   - !type:GroupLoadoutEffect

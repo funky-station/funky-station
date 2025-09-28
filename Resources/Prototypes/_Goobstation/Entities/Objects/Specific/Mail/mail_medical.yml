@@ -8,7 +8,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailSmall
   id: MailMedicalBasicSupplies
   suffix: Base Medics
   components:
@@ -22,7 +22,7 @@
       maxAmount: 5
 
 - type: entity # Funkychem
-  parent: BaseMailLarge
+  parent: BaseMail
   id: MailMedicalMedicinePills
   suffix: Pills
   components:
@@ -38,7 +38,7 @@
     - id: PillLibital
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMail
   id: MailMedicalEmergencyPens
   suffix: Medipens
   components:
@@ -48,7 +48,7 @@
       maxAmount: 3
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMail
   id: MailMedicalStabilizers
   suffix: Stabilizers
   components:
@@ -65,7 +65,7 @@
 
 # Chemist
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailSmall
   id: MailMedicalChemistrySupplement
   suffix: Chemical Supplies
   components:

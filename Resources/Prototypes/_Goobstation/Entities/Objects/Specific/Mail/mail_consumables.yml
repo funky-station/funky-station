@@ -6,7 +6,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailAlcohol
   suffix: Alcohol
   components:
@@ -48,7 +48,7 @@
       amount: 2
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailSmall
   id: MailCakes
   suffix: Cakes
   components:
@@ -105,7 +105,7 @@
       amount: 2
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailCheese #Sometimes i dream about cheese
   suffix: Cheese
   components:
@@ -371,7 +371,7 @@
       prob: 0.5
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailDonkPockets
   suffix: Donk Pockets
   components:
@@ -406,7 +406,7 @@
       prob: 0.05
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailNFSodaPwrGame
   suffix: Pwrgame
   components:
@@ -417,7 +417,7 @@
     - id: PaperMailNFPwrGameAd
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailNFSodaRedBool
   suffix: Red Bool
   components:
@@ -428,7 +428,7 @@
     - id: PaperMailNFRedBoolAd
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailNFSodaSpaceCola
   suffix: Space Cola
   components:
@@ -438,7 +438,7 @@
     - id: PaperMailNFSpaceColaAd
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailNFSodaSpaceMountainWind
   suffix: Space Mountain Wind
   components:
@@ -448,7 +448,7 @@
     - id: PaperMailNFSpaceMountainWindAd
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailNFSodaSpaceUp
   suffix: Space Up
   components:
@@ -506,7 +506,7 @@
 
 - type: entity
   parent: BaseMail
-  id: MailUnusualFood
+  id: MailUnusualFoodSmall
   suffix: Unusual food
   components:
   - type: Mail
@@ -569,7 +569,7 @@
       orGroup: Food
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailBakedGoods
   suffix: Baked
   components:

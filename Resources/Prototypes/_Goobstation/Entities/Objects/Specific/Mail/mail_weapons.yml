@@ -6,7 +6,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailSmall
   id: MailKnife
   suffix: Knifes
   components:
@@ -22,7 +22,7 @@
       orGroup: Knife
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailLargeFlat
   id: MailSword
   suffix: Swords
   components:

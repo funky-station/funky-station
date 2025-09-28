@@ -233,7 +233,7 @@
       maxAmount: 5
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailMimeBottleOfNothing
   suffix: Bottle of Nothing
   components:
@@ -243,7 +243,7 @@
 
 #Botanist
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailMutatedProduce
   suffix: Mutated Produce
   components:
@@ -293,7 +293,7 @@
       prob: 0.05
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailSmall
   id: MailBotanistChemicalBottles
   suffix: Botanist Chemicals
   components:
@@ -357,7 +357,7 @@
       orGroup: Seeds
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailKudzuDeterrent
   suffix: Antikudzu
   components:
@@ -367,7 +367,7 @@
 
 # Janitor
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailSoaps # Also for clown and mime
   suffix: Soaps
   components:
@@ -380,7 +380,7 @@
       orGroup: Ad
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailSoapsOmega # Also for clown and mime
   suffix: Omega Soap
   components:
@@ -394,7 +394,7 @@
 
 # Musician
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailLargeFlat
   id: MailInstrumentLarge
   suffix: Instruments, Large
   components:

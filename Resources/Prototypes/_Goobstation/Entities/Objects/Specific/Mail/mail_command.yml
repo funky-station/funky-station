@@ -6,7 +6,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailSmall
   id: MailCommandPipebombIntern
   suffix: Command smoke and drink
   components:
@@ -19,7 +19,7 @@
 
 # Head of Personnel
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailSmall
   id: MailHoPSupplement
   suffix: HoP supplement
   components:

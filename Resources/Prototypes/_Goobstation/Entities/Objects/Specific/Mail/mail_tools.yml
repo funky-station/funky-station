@@ -16,7 +16,7 @@
     - id: RemoteSignaller
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailFlashlight
   suffix: Flashlight
   components:

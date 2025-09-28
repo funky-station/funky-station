@@ -70,7 +70,7 @@
     - id: ClothingOuterCoatGentle
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailFishingCap
   suffix: Fishing Cap
   components:
@@ -79,7 +79,7 @@
     - id: ClothingHeadFishCap
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailSunglasses
   suffix: Sunglasses
   components:

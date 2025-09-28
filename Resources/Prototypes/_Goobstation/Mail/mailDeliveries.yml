@@ -87,7 +87,7 @@
       MailEngineeringBoards: 1.5
       MailEngineeringCables: 2
       MailEngineeringMaterials: 2
-      MailScienceHazardousMaterials: 200
+      MailScienceHazardousMaterials: 0.2
     Science:
       MailScienceRareMaterials: 0.5
       MailScienceHazardousMaterials: 0.2

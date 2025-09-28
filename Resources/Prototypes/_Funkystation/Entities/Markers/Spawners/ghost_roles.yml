@@ -23,3 +23,23 @@
       - state: green
       - sprite: Objects/Weapons/Melee/baseball_bat.rsi
         state: icon
+
+- type: entity
+  id: SpawnPointGhostSpaceCowboy
+  name: ghost role spawn point
+  suffix: space cowboy
+  parent: SpawnPointGhostRoleJob
+  components:
+  - type: GhostRole
+    name: ghost-role-information-space-cowboy-name
+    description: ghost-role-information-space-cowboy-description
+    rules: ghost-role-information-space-cowboy-rules
+    raffle:
+      settings: default
+  - type: SpawnPoint
+    job_id: SpaceCowboy
+    respawn: true
+  - type: Sprite
+    layers:
+    - state: centcom
+    - state: green

@@ -1,0 +1,22 @@
+- type: job
+  id: SpaceCowboy
+  name: Space Cowboy
+  description: ghost-role-information-space-cowboy-description
+  playTimeTracker: SpaceCowboy
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 36000 #100 hrs
+  weight: 0
+  startingGear: SpaceCowboyGear
+  icon: JobIconCentralCommandIntern
+  requireAdminNotify: false
+  joinNotifyCrew: false
+  canBeAntag: false
+  access:
+  - SpaceCowboy
+
+- type: startingGear
+  id: SpaceCowboyGear
+  equipment:
+    inhand:
+    - SpaceCowboyIDCard

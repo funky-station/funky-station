@@ -145,3 +145,18 @@
   - type: Sprite
     layers:
     - state: retro_nanotrasen
+
+- type: entity
+  parent: IDCardStandard
+  id: SpaceCowboyIDCard
+  name: space cowboy ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default #base
+    - state: decal-stripe-civillian #decal
+    - sprite: Interface/Misc/job_icons.rsi #icon
+      offset: "-0.125, 0.09375"
+      state: Passenger
+  - type: PresetIdCard
+    job: Passenger

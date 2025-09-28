@@ -5,6 +5,16 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+# Senior Stuff
+- type: loadoutEffectGroup
+  id: SeniorCargo
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCargoTechnician
+      time: 72000 #20 hrs
+
 # Head
 - type: loadout
   id: CargoTechnicianHead
@@ -18,9 +28,20 @@
     jumpsuit: ClothingUniformJumpsuitCargo
 
 - type: loadout
-  id: CargoTechnicianJumpskirt
+  id: SeniorCargoTechnicianJumpskirt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCargo
   equipment:
-    jumpsuit: ClothingUniformJumpskirtCargo
+    jumpsuit: ClothingUniformJumpskirtSeniorCargo
+
+- type: loadout
+  id: SeniorCargoTechnicianJumpsuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCargo
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSeniorCargo
 
 # Back
 - type: loadout
@@ -44,8 +65,30 @@
   equipment:
     outerClothing: ClothingOuterWinterCargo
 
+- type: loadout
+  id: SeniorCargoTechnicianWinterCoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCargo
+  equipment:
+    jumpsuit: ClothingOuterWinterSeniorCargo
+
 # Shoes
 - type: loadout
   id: CargoWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterCargo
+
+# ID
+- type: loadout
+  id: CargoPDA
+  equipment:
+    id: CargoPDA
+
+- type: loadout
+  id: SeniorCargoPDA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCargo
+  equipment:
+    id: SeniorCargoPDA

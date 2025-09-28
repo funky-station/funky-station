@@ -15,3 +15,16 @@
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/redperformer.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/redperformer.rsi
+
+# senior cargo tech uniform! (by AraiMaia)
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtSeniorCargo
+  name: senior cargo tech jumpskirt
+  description: A sign of skill and prestige within the cargo department.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/senior_cargo.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/senior_cargo.rsi

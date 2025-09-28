@@ -756,8 +756,17 @@
   loadouts:
   - CargoTechnicianJumpsuit
   - CargoTechnicianJumpskirt
+  - SeniorCargoTechnicianJumpsuit
+  - SeniorCargoTechnicianJumpskirt
   - CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail
   - CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail
+
+- type: loadoutGroup
+  id: CargoPDA
+  name: loadout-group-cargo-technician-id
+  loadouts:
+  - CargoPDA
+  - SeniorCargoPDA
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
@@ -773,6 +782,7 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianWintercoat
+  - SeniorCargoTechnicianWinterCoat
   - CargoTechnicianWintercoatMail # Goob/DeltaV - Mail
 
 - type: loadoutGroup
@@ -1562,7 +1572,7 @@
   - EmergencyOxygenSyndicate
   - LoadoutSpeciesVoxNitrogen
   - EmergencyIPCBox # Funky
-  
+
 - type: loadoutGroup
   id: GroupSpeciesBreathTool
   name: loadout-group-breath-tool

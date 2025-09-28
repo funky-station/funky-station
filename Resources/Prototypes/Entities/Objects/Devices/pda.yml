@@ -1570,6 +1570,25 @@
 
 - type: entity
   parent: BasePDA
+  id: SeniorCargoPDA
+  name: senior cargo PDA
+  description: Upgraded with all the latest in expensive, useless PDA accessories.
+  components:
+  - type: Pda
+    id: CargoIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-cargo
+  - type: PdaBorderColor
+    borderColor: "#665346"
+    accentVColor: "#F7BA6A"
+  - type: Icon
+    state: pda-cargo
+
+- type: entity
+  parent: BasePDA
   id: SeniorResearcherPDA
   name: senior researcher PDA
   description: Looks like it's been through years of chemical burns and explosions.

@@ -44,6 +44,12 @@
   - NanotrasenRepresentativeJumpskirt
 
 - type: loadoutGroup
+  id: NanotrasenRepresentativeOuter
+  name: loadout-group-ntr-outer
+  loadouts:
+  - NanotrasenRepresentativeWinterCoat
+
+- type: loadoutGroup
   id: NanotrasenRepresentativeBelt
   name: loadout-group-ntr-belt
   minLimit: 0

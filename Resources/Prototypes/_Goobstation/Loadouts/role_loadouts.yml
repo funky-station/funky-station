@@ -16,6 +16,7 @@
   groups:
   - NanotrasenRepresentativeHead
   - NanotrasenRepresentativeNeck
+  - NanotrasenRepresentativeOuter
   - NanotrasenRepresentativeJumpsuit
   - NanotrasenRepresentativeBackpack
   - NanotrasenRepresentativeShoes

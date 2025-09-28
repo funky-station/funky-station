@@ -1,0 +1,35 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+#Submitted by Taydeo
+- type: entity
+  parent: BookBase
+  id: TheWealthOfNations
+  name: The Wealth of Nations
+  description: A book outlining the blueprint of Capitalism.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_old
+      color: "#ffc773"
+    - state: icon_diamond
+    - state: detail_rivets
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: "NT APPROVED"
+    content: |2
+      [head=1]The Wealth of Nations[/head]
+      A book by Adam Smith
+      ================================================
+      [head=2]T[/head]HE ANNUAL LABOUR of every nation is the fund which originally supplies it with all the necessaries and conveniencies of life which it annually consumes, and which consist always either in the immediate produce of that labour,or in what is purchased with that produce from other nations. According, therefore, as this produce, or what is purchased with it, bears a greater or smaller proportion to the number of those who are to consume it, the nation will be better or worse supplied with all the necessaries and conveniencies for which it has occasion. But this proportion must in every nation be regulated by two different circumstances: first, by the skill, dexterity, and judgment with which its labour is generally applied; and, secondly, by the proportion between the number of those who are employed in useful labour, and that of those who are not so employed. Whatever be the soil, climate, or extent of territory of any particular nation, the abundance or scantiness of its annual supply must, in that particular situation, depend upon those two circumstances.The abundance or scantiness of this supply, too, seems to depend more upon the former of those two circumstances than upon the latter. Among the savage nations of hunters and fishers, every individual who is able to work is more or less employed in useful labour, and endeavours to provide, as well as he can, the necessaries and conveniencies of life, for himself, and such of his family or tribe as are either too old, or too young, or too infirm, to go a-hunting and fishing. Such nations, however, are so miserably poor, that, from mere want, they are frequently reduced, or at least think themselves reduced, to the necessity sometimes of directly destroying, and sometimes of abandoning their infants, their old people, and those afflicted with lingering diseases, to perish with hunger, or to be devoured by wild beasts. Among civilized and thriving nations, on the contrary, though a great number of people do not labour at all, many of whom consume the produce of ten times, frequently of a hundred times, more labour than the greater part of those who work; yet the produce of the whole labour of the society is so great, that all are often abundantly supplied; and a workman, even of the lowest and poorest order, if he is frugal and industrious, may enjoy a greater share of the necessaries and conveniencies of life than it is possible for any savage to acquire.
+
+      The causes of this improvement in the productive powers of labour, and the order according to which its produce is naturally distributed among the different ranks and conditions of men in the society, make the subject of the first book of this Inquiry. Whatever be the actual state of the skill, dexterity, and judgment, with which labour is applied in any nation, the abundance or scantiness of its annual supply must depend, during the continuance of that state, upon the proportion between the number of those who are annually employed in useful labour, and that of those who are not so employed. The number of useful and productive labourers, it will hereafter appear, is everywhere in proportion to the quantity of capital stock which is employed in setting them to work, and to the particular way in which it is so employed. The second book, therefore, treats of the nature of capital stock, of the manner in which it is gradually accumulated, and of the different quantities of labour which it puts into motion, according to the different ways in which it is employed. Nations tolerably well advanced as to skill, dexterity, and judgment, in the application of labour, have followed very different plans in the general conduct or direction of it; and those plans have not all been equally favourable to the greatness of its produce. The policy of some nations has given extraordinary encouragement to the industry of the country; that of others to the industry of towns. Scarce any nation has dealt equally and impartially with every sort of industry. Since the down-fall of the Roman empire, the policy of Europe has been more favourable to arts, manufactures, and commerce, the industry of towns, than to agriculture, the Industry of the country. The circumstances which seem to have introduced and established this policy are explained in the third book.
+
+      Though those different plans were, perhaps, first introduced by the private interests and prejudices of particular orders of men, without any regard to, or foresight of, their consequences upon the general welfare of the society; yet they have given occasion to very different theories of political economy; of which some magnify the importance of that industry which is carried on in towns, others of that which is carried on in the country. Those theories have had a considerable influence, not only upon the opinions of men of learning, but upon the public conduct of princes and sovereign states. I have endeavoured, in the fourth book, to explain as fully and distinctly as I can those different theories, and the principal effects which they have produced in different ages and nations. To explain in what has consisted the revenue of the great body of the people, or what has been the nature of those funds, which, in different ages and nations, have supplied their annual consumption, is the object of these four first books. The fifth and last book treats of the revenue of the sovereign, or commonwealth. In this book I have endeavoured to shew, first, what are the necessary expenses of the sovereign, or commonwealth; which of those expenses ought to be defrayed by the general contribution of the whole society, and which of them, by that of some particular part only, or of some particular members of it: secondly, what are the different methods in which the whole society may be made to contribute towards defraying the expenses incumbent on the whole society, and what are the principal advantages and inconveniencies of each of those methods; and, thirdly and lastly, what are the reasons and causes which have induced almost all modern governments to mortgage some part of this revenue, or to contract debts; and what have been the effects of those debts upon the real wealth, the annual produce of the land and labour of the society
+
+
+

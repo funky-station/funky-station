@@ -5,31 +5,26 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-#For anything that contains radiation
 - type: entity
-  categories: [ HideSpawnMenu ] # mail isnt meant to be spawned manually
-  parent: BaseItem
+  parent: BaseMail
   abstract: true
-  id: BaseMailRadioactive
+  id: BaseMailSmall
   name: mail-item-name-unaddressed
   components:
   - type: Item
-    storedRotation: -90
-  - type: Mail
-  - type: AccessReader
+    size: Small
   - type: Sprite
-    scale: 0.7, 0.7 # Frontier
-    sprite: _Funkystation/Objects/Specific/Mail/mail_hazard.rsi
+    scale: 0.8, 0.8
+    sprite: _Funkystation/Objects/Specific/Mail/mail_small.rsi
     layers:
     - state: icon
       map: ["enum.MailVisualLayers.Icon"]
-    - state: postmark
     - state: fragile
       map: ["enum.MailVisualLayers.FragileStamp"]
       visible: false
     - map: ["enum.MailVisualLayers.JobStamp"]
-      scale: 0.8, 0.8 # Frontier 0.5<0.8
-      offset: 0.225, 0.165 # Frontier (0.275, 0.2)<(0.225, 0.165)
+      scale: 0.6, 0.6
+      offset: 0.08, -0.16
     - state: locked
       map: ["enum.MailVisualLayers.Lock"]
     - state: priority
@@ -39,7 +34,92 @@
     - state: broken
       map: ["enum.MailVisualLayers.Breakage"]
       visible: false
-  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.MailVisuals.IsTrash:
+        enum.MailVisualLayers.Icon:
+          True:
+            state: trash
+          False:
+            state: icon
+      enum.MailVisuals.IsLocked:
+        enum.MailVisualLayers.Lock:
+          True:
+            visible: true
+          False:
+            visible: false
+      enum.MailVisuals.IsFragile:
+        enum.MailVisualLayers.FragileStamp:
+          True:
+            visible: true
+          False:
+            visible: false
+      enum.MailVisuals.IsPriority:
+        enum.MailVisualLayers.PriorityTape:
+          True:
+            visible: true
+          False:
+            visible: false
+      enum.MailVisuals.IsPriorityInactive:
+        enum.MailVisualLayers.PriorityTape:
+          True:
+            shader: shaded
+            state: priority_inactive
+          False:
+            shader: unshaded
+            state: priority
+      enum.MailVisuals.IsBroken:
+        enum.MailVisualLayers.Breakage:
+          True:
+            visible: true
+          False:
+            visible: false
+  - type: Mail
+
+# This empty parcel is allowed to exist and evade the tests for the admin
+# mailto command.
+- type: entity
+  parent: BaseMailSmall
+  id: MailAdminFunMailSmall
+  suffix: adminfun
+
+#For anything that contains radiation
+- type: entity
+  categories: [ HideSpawnMenu ] # mail isnt meant to be spawned manually
+  parent: BaseMailSmall
+  abstract: true
+  id: BaseMailRadioactive
+  name: mail-item-name-unaddressed
+  components:
+  - type: Item
+    storedRotation: -90
+    size: Large
+  - type: Mail
+  - type: AccessReader
+  - type: Sprite
+    scale: 0.8, 0.8
+    sprite: _Funkystation/Objects/Specific/Mail/mail_small.rsi
+    layers:
+    - state: icon
+      map: [ "enum.MailVisualLayers.Icon" ]
+    - state: fragile
+      map: [ "enum.MailVisualLayers.FragileStamp" ]
+      visible: false
+    - map: [ "enum.MailVisualLayers.JobStamp" ]
+      scale: 0.6, 0.6
+      offset: 0.08, -0.16
+    - state: hazard
+      scale: 0.6, 0.6
+      offset: 0, -0.1
+    - state: locked
+      map: [ "enum.MailVisualLayers.Lock" ]
+    - state: priority
+      map: [ "enum.MailVisualLayers.PriorityTape" ]
+      visible: false
+      shader: unshaded
+    - state: broken
+      map: [ "enum.MailVisualLayers.Breakage" ]
+      visible: false
   - type: GenericVisualizer
     visuals:
       enum.MailVisuals.IsTrash:
@@ -201,3 +281,5 @@
   parent: BaseMailLargeFlat
   id: MailAdminFunLargeFlat
   suffix: adminfun
+
+

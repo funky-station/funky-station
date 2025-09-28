@@ -214,7 +214,7 @@
       orGroup: Cookie4
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailMuffins
   suffix: Muffins
   components:

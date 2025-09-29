@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - files: ["avali_1, avali_1_ask, avali_1_exclaim, avali_2, avali_2_ask, avali_2_exclaim"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "Taken from Steam mod / Starbound. Made by Steam user: https://steamcommunity.com/id/Nefuki with permission."

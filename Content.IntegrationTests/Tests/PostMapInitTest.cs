@@ -39,6 +39,7 @@
 // SPDX-FileCopyrightText: 2024 mkanke-real <mikekanke@gmail.com>
 // SPDX-FileCopyrightText: 2024 terezi <147006836+terezi-station@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ArsCatalyst <Heartflareburst@gmail.com>
+// SPDX-FileCopyrightText: 2025 EmillyCoelho <167008606+Ichaie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ichaie <ichaicoelho@gmail.com>
 // SPDX-FileCopyrightText: 2025 LaCumbiaDelCoronavirus <90893484+LaCumbiaDelCoronavirus@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Spanky <180730777+spanky-spanky@users.noreply.github.com>
@@ -48,6 +49,7 @@
 // SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 salpphie <alyssa.thomas51@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -135,6 +137,7 @@ namespace Content.IntegrationTests.Tests
             "Gax", // funkystation
             "Divide", // funkystation
             "Glacier", // funkystation
+			"Eden", // funkystation
             "Barratry", // Harmony
             "Eclipse", // Harmony
             "Kettle", // Goobstation - add Kettle

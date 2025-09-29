@@ -3,6 +3,7 @@ using Content.Shared.Actions;
 namespace Content.Shared._Starlight.Actions.Stasis;
 
 /// <summary>
+/// # Starlight, under MIT License
 /// Allows mobs to enter nanite induced stasis <see cref="StasisComponent"/>.
 /// </summary>
 public abstract class SharedStasisSystem : EntitySystem

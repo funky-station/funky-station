@@ -4,6 +4,7 @@ using Robust.Shared.Map;
 namespace Content.Shared._Starlight.Actions.Stasis;
 
 /// <summary>
+/// # Starlight, under MIT License
 /// The type of stasis animation to play
 /// </summary>
 [Serializable, NetSerializable]

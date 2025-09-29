@@ -12,6 +12,7 @@ using Content.Shared.Throwing;
 namespace Content.Shared._Starlight.Actions.Stasis;
 
 /// <summary>
+/// # Starlight, under MIT License
 /// System that handles the freezing behavior of entities in stasis.
 /// This system prevents entities with StasisFrozenComponent from performing most actions,
 /// while still allowing them to use the exit stasis action.

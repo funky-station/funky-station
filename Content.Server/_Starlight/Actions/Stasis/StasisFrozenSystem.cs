@@ -6,6 +6,7 @@ public sealed class StasisFrozenSystem : SharedStasisFrozenSystem
 {
     /// <summary>
     /// Freezes and mutes the given entity.
+	/// # Starlight, under MIT License
     /// </summary>
     public void FreezeAndMute(EntityUid uid)
     {

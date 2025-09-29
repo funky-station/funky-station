@@ -14,8 +14,11 @@
   access:
   - SpaceCowboy
   special:
-    !type:AddComponentSpecial
-    accent: cowboy
+  - !type:AddComponentSpecial
+    components:
+    - type: ReplacementAccent
+      accent: cowboy
+
 
 - type: startingGear
   id: SpaceCowboyGear

@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/28/2025 08:56:31
-  entityCount: 323
+  time: 09/28/2025 21:45:15
+  entityCount: 336
 maps: []
 grids:
 - 2
@@ -226,11 +226,6 @@ entities:
     components:
     - type: Transform
       pos: 1.2867676,8.409221
-      parent: 2
-  - uid: 260
-    components:
-    - type: Transform
-      pos: 1.6343706,8.445191
       parent: 2
 - proto: CableApcExtension
   entities:
@@ -621,10 +616,9 @@ entities:
       parent: 2
 - proto: ChairPilotSeat
   entities:
-  - uid: 287
+  - uid: 258
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 0.5,-0.5
       parent: 2
 - proto: ChairWood
@@ -688,6 +682,42 @@ entities:
     - type: Transform
       pos: 1.478549,8.265335
       parent: 2
+    - type: BallisticAmmoProvider
+      entities:
+      - 260
+      - 287
+      - 324
+      - 325
+      - 326
+      - 327
+      - 328
+      - 329
+      - 330
+      - 331
+      - 332
+      - 333
+      - 334
+      - 335
+    - type: ContainerContainer
+      containers:
+        ballistic-ammo: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 260
+          - 287
+          - 324
+          - 325
+          - 326
+          - 327
+          - 328
+          - 329
+          - 330
+          - 331
+          - 332
+          - 333
+          - 334
+          - 335
 - proto: ClothingHeadHatBowlerHat
   entities:
   - uid: 278
@@ -1353,6 +1383,12 @@ entities:
     - type: Transform
       pos: 2.5,4.5
       parent: 2
+  - uid: 257
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,1.5
+      parent: 2
   - uid: 319
     components:
     - type: Transform
@@ -1373,6 +1409,120 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 3.5,1.5
       parent: 2
+- proto: ShellShotgun
+  entities:
+  - uid: 260
+    components:
+    - type: Transform
+      parent: 261
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+  - uid: 287
+    components:
+    - type: Transform
+      parent: 261
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+  - uid: 324
+    components:
+    - type: Transform
+      parent: 261
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+  - uid: 325
+    components:
+    - type: Transform
+      parent: 261
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+  - uid: 326
+    components:
+    - type: Transform
+      parent: 261
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+  - uid: 327
+    components:
+    - type: Transform
+      parent: 261
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+  - uid: 328
+    components:
+    - type: Transform
+      parent: 261
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+  - uid: 329
+    components:
+    - type: Transform
+      parent: 261
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+  - uid: 330
+    components:
+    - type: Transform
+      parent: 261
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+  - uid: 331
+    components:
+    - type: Transform
+      parent: 261
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+  - uid: 332
+    components:
+    - type: Transform
+      parent: 261
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+  - uid: 333
+    components:
+    - type: Transform
+      parent: 261
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+  - uid: 334
+    components:
+    - type: Transform
+      parent: 261
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+  - uid: 335
+    components:
+    - type: Transform
+      parent: 261
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
 - proto: SpawnPointGhostSpaceCowboy
   entities:
   - uid: 72
@@ -1386,11 +1536,6 @@ entities:
     components:
     - type: Transform
       pos: 2.4014947,8.409221
-      parent: 2
-  - uid: 257
-    components:
-    - type: Transform
-      pos: 2.3056033,8.3612585
       parent: 2
 - proto: SubstationWallBasic
   entities:
@@ -2018,12 +2163,12 @@ entities:
     - type: Transform
       pos: 2.3056033,8.613057
       parent: 2
-- proto: WeaponShotgunKammerer
+- proto: WeaponShotgunDoubleBarreled
   entities:
-  - uid: 258
+  - uid: 336
     components:
     - type: Transform
-      pos: 1.4905348,8.720971
+      pos: 1.5105335,8.770982
       parent: 2
 - proto: WoodenSupportLight
   entities:

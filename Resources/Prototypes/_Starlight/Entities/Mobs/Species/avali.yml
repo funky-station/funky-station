@@ -2,7 +2,7 @@
 - type: entity
   save: false
   name: Urist McAvali
-  parent: [ BaseMobSpeciesOrganic, BaseSpeciesPickupable ]
+  parent: BaseMobSpeciesOrganic
   id: BaseMobAvali
   abstract: true
   components:

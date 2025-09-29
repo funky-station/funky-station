@@ -3,6 +3,40 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+# Roletime Requirement, Funky!
+- type: loadoutEffectGroup
+  id: SeniorInternalAffairsAgent
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobInternalAffairsAgent
+      time: 108000 #30 hrs
+
+# Jumpsuit
+- type: loadout
+  id: InternalAffairsAgentTurtleneck
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitIAATurtleneck
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorInternalAffairsAgent
+
+# Outer
+- type: loadout
+  id: InternalAffairsAgentWinterCoat
+  equipment:
+    outerClothing: ClothingOuterWinterIAA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorInternalAffairsAgent
+
+# Gloves
+- type: loadout
+  id: InternalAffairsAgentGloves
+  equipment:
+    hands: ClothingHandsGlovesColorBlack
+
 # Backpack
 - type: loadout
   id: InternalAffairsAgentDuffel

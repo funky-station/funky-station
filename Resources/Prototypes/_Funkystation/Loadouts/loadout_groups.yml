@@ -19,6 +19,19 @@
   - LawyerJumpskirtBlue
   - LawyerJumpsuitRed
   - LawyerJumpskirtRed
+  - InternalAffairsAgentTurtleneck
+
+- type: loadoutGroup
+  id: InternalAffairsAgentOuterClothing
+  name: loadout-group-iaa-outer
+  loadouts:
+    - InternalAffairsAgentWinterCoat
+
+- type: loadoutGroup
+  id: InternalAffairsAgentGloves
+  name: loadout-group-iaa-gloves
+  loadouts:
+  - InternalAffairsAgentGloves
 
 - type: loadoutGroup
   id: InternalAffairsAgentBackpack

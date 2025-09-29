@@ -30,6 +30,8 @@
   groups:
   - SecurityGlasses
   - InternalAffairsAgentJumpsuit
+  - InternalAffairsAgentOuterClothing
+  - InternalAffairsAgentGloves
   - InternalAffairsAgentBackpack
   - InternalAffairsAgentBelt
   - Survival

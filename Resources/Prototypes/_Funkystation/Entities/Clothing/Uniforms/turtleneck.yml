@@ -1,0 +1,13 @@
+﻿#SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+# IAA Turtleneck
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitIAATurtleneck
+  name: internal affairs agent turtleneck
+  description: An imposing turtleneck and suit worn only by the most loyal little agents.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/iaaturtleneck.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/iaaturtleneck.rsi

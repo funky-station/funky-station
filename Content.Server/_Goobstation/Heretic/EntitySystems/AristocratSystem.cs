@@ -2,7 +2,9 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Kandiyaki <106633914+Kandiyaki@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 jackel234 <jackel234@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -35,8 +37,6 @@ public sealed partial class AristocratSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly TemperatureSystem _temp = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-
-    private string _snowWallPrototype = "WallSnowCobblebrick";
 
     public override void Update(float frameTime)
     {
@@ -83,15 +83,18 @@ public sealed partial class AristocratSystem : EntitySystem
 
                 // replace walls with snow ones
                 if (_rand.Prob(.45f) && tags.Contains("Wall")
-                && Prototype(look) != null && Prototype(look)!.ID != _snowWallPrototype)
+                && Prototype(look) != null && Prototype(look)!.ID != ent.Comp.SnowWallPrototype)
                 {
-                    Spawn(_snowWallPrototype, Transform(look).Coordinates);
+                    Spawn(ent.Comp.SnowWallPrototype, Transform(look).Coordinates);
                     QueueDel(look);
                 }
             }
         }
     }
 
+    //apparently void ascension is supposed to replace tiles?
+    //it doesn't
+    //i guess they didn't test this -kandi
     private void SpawnTiles(Entity<AristocratComponent> ent)
     {
         var xform = Transform(ent);

@@ -1,0 +1,11 @@
+<Document>
+  # Starlight, under MIT License
+  # Species
+
+  Nanotrasen employs a variety of sapient species.
+  <Box>
+
+  <GuideEntityEmbed Entity="MobAvali" Caption="Avali"/>
+  </Box>
+
+</Document>

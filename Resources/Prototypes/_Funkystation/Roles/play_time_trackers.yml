@@ -13,3 +13,6 @@
 
 - type: playTimeTracker
   id: CentralCommandIntern
+
+- type: playTimeTracker
+  id: SpaceCowboyTime

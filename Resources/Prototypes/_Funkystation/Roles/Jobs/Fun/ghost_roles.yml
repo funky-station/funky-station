@@ -6,7 +6,7 @@
   - !type:OverallPlaytimeRequirement
     time: 36000 #10 hrs
   weight: 0
-  playTimeTracker: JobSpaceCowboy
+  playTimeTracker: SpaceCowboyTime
   startingGear: SpaceCowboyGear
   requireAdminNotify: false
   joinNotifyCrew: false

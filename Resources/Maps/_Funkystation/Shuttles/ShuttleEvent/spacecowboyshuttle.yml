@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/28/2025 21:45:15
-  entityCount: 336
+  time: 09/29/2025 03:54:25
+  entityCount: 337
 maps: []
 grids:
 - 2
@@ -70,12 +70,211 @@ entities:
         nodes:
         - node:
             color: '#FFFFFFFF'
+            id: Caution
+          decals:
+            4: -1,7
+        - node:
+            angle: 3.141592653589793 rad
+            color: '#FFFFFFFF'
+            id: Caution
+          decals:
+            5: -2,1
+        - node:
+            cleanable: True
+            color: '#FFFFFFFF'
+            id: DirtHeavy
+          decals:
+            63: -1,3
+            64: -2,5
+            65: -3,6
+            66: -4,7
+            67: -1,7
+            68: -1,11
+            69: 0,11
+            70: 0,10
+            71: -2,10
+            72: -3,10
+            73: -2,10
+            74: -1,10
+            75: -2,10
+            76: -3,11
+            77: -1,10
+            78: 2,10
+            79: 2,11
+            80: -1,10
+        - node:
+            cleanable: True
+            color: '#FFFFFFFF'
+            id: DirtHeavyMonotile
+          decals:
+            61: -4,2
+            62: 0,2
+        - node:
+            cleanable: True
+            color: '#FFFFFFFF'
+            id: DirtLight
+          decals:
+            6: -1,3
+            7: -4,4
+            8: -4,2
+            9: -2,3
+            10: -2,4
+            11: -3,4
+            12: -4,4
+            13: -2,6
+            14: -2,7
+            15: -3,7
+            16: -4,7
+            17: -4,6
+            18: -1,6
+            19: -1,5
+            20: -2,3
+            21: -1,2
+            22: -3,1
+            23: -3,2
+            24: -3,4
+            25: -3,2
+            26: 0,1
+            27: 1,1
+            28: 1,3
+            29: 1,4
+            30: 1,2
+            31: 1,2
+            32: 1,3
+            33: 0,2
+            34: -2,2
+            35: 1,-1
+            36: 0,-1
+            37: 0,-1
+            38: 1,-1
+            39: 1,-1
+            40: 0,-1
+            41: 0,-1
+            42: 1,-1
+            43: 1,-1
+            44: 1,-2
+            45: 1,-2
+            46: 0,-2
+            47: 1,-2
+            48: 1,-2
+            49: 0,-2
+            50: 0,-1
+            51: 0,-1
+            52: 0,-1
+            53: -2,-2
+            54: -2,-2
+            55: -2,-1
+            56: -2,-1
+            57: -2,-1
+            58: -2,-2
+            59: -2,-2
+            60: -2,1
+            81: -1,10
+            82: -1,10
+            83: -1,9
+            84: -2,10
+            85: -3,10
+            86: -4,10
+            87: -4,11
+            88: -4,11
+            89: -3,11
+            90: -1,11
+            91: 0,11
+            92: 1,11
+            93: 2,10
+            94: 2,10
+            95: 1,11
+            96: 0,11
+            97: 1,11
+            98: -1,12
+            99: -1,12
+            100: -2,12
+            101: 0,12
+            102: 0,12
+            103: -2,12
+            104: -1,12
+            105: -1,11
+            106: -2,11
+            107: 2,10
+            108: 3,10
+            109: 1,10
+            110: 1,10
+        - node:
+            cleanable: True
+            color: '#FFFFFFFF'
+            id: DirtMedium
+          decals:
+            111: -1,1
+            112: -2,1
+            113: 1,3
+            114: 2,2
+            115: 2,2
+            116: 2,4
+            117: 2,4
+            118: -1,3
+            119: 0,3
+            120: 0,2
+            121: 0,4
+            122: -2,2
+            123: -3,2
+            124: -3,1
+            125: -3,1
+            126: -3,4
+            127: -3,4
+            128: -2,4
+            129: -1,4
+            130: -1,4
+            131: -1,6
+            132: -3,6
+        - node:
+            color: '#FFFFFFFF'
             id: WoodTrimThinLineE
           decals:
             0: 0,4
             1: 0,3
             2: 0,2
             3: 0,1
+        - node:
+            cleanable: True
+            color: '#FFFFFF54'
+            id: burnt2
+          decals:
+            133: -3,3
+            134: -3,2
+            135: -2,3
+            136: -2,3
+            137: -2,2
+            138: -1,2
+            139: -1,1
+            140: -2,2
+            141: -2,3
+            142: -3,4
+            143: -2,3
+            144: -4,3
+            145: -3,5
+            146: -4,6
+            147: -1,7
+            148: -1,6
+            149: -1,5
+            150: -1,7
+            151: -1,7
+            152: -3,6
+            153: -3,4
+            154: -4,2
+            155: -2,1
+            156: -1,1
+            157: 0,1
+            158: 1,3
+            159: 1,2
+            160: 1,1
+            161: 1,3
+            162: 2,2
+            163: 2,1
+            164: -1,2
+            165: -2,3
+            166: -3,3
+            167: -1,5
+            168: -3,3
     - type: GridAtmosphere
       version: 2
       data:
@@ -161,6 +360,13 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+- proto: AcousticGuitarInstrument
+  entities:
+  - uid: 337
+    components:
+    - type: Transform
+      pos: 0.46334004,4.582978
+      parent: 2
 - proto: AirlockShuttleSyndicate
   entities:
   - uid: 154
@@ -1778,139 +1984,116 @@ entities:
   - uid: 60
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -5.5,8.5
       parent: 2
   - uid: 61
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -5.5,9.5
       parent: 2
   - uid: 62
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -5.5,10.5
       parent: 2
   - uid: 63
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 3.5,11.5
       parent: 2
   - uid: 65
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 4.5,9.5
       parent: 2
   - uid: 66
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 3.5,9.5
       parent: 2
   - uid: 67
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 1.5,9.5
       parent: 2
   - uid: 69
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 2.5,9.5
       parent: 2
   - uid: 92
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -4.5,9.5
       parent: 2
   - uid: 93
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -3.5,9.5
       parent: 2
   - uid: 94
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -2.5,9.5
       parent: 2
   - uid: 96
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 4.5,10.5
       parent: 2
   - uid: 97
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -4.5,11.5
       parent: 2
   - uid: 98
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 4.5,11.5
       parent: 2
   - uid: 99
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -5.5,11.5
       parent: 2
   - uid: 100
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -4.5,12.5
       parent: 2
   - uid: 101
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -3.5,12.5
       parent: 2
   - uid: 102
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -2.5,13.5
       parent: 2
   - uid: 106
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 1.5,13.5
       parent: 2
   - uid: 107
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 2.5,12.5
       parent: 2
   - uid: 108
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 3.5,12.5
       parent: 2
   - uid: 109
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -2.5,12.5
       parent: 2
   - uid: 110
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 1.5,12.5
       parent: 2
   - uid: 130

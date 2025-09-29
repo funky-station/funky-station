@@ -15,9 +15,25 @@
 
 # Jumpsuit
 - type: loadout
-  id: InternalAffairsAgentTurtleneck
+  id: InternalAffairsAgentTurtleneckBlack
   equipment:
-    jumpsuit: ClothingUniformJumpsuitIAATurtleneck
+    jumpsuit: ClothingUniformJumpsuitIAATurtleneckBlack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorInternalAffairsAgent
+
+- type: loadout
+  id: InternalAffairsAgentTurtleneckRed
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitIAATurtleneckRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorInternalAffairsAgent
+
+- type: loadout
+  id: InternalAffairsAgentTurtleneckBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitIAATurtleneckBlue
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorInternalAffairsAgent
@@ -33,9 +49,14 @@
 
 # Gloves
 - type: loadout
-  id: InternalAffairsAgentGloves
+  id: InternalAffairsAgentGlovesBlack
   equipment:
     hands: ClothingHandsGlovesColorBlack
+
+- type: loadout
+  id: InternalAffairsAgentGlovesRed
+  equipment:
+    hands: ClothingHandsGlovesColorRed
 
 # Backpack
 - type: loadout

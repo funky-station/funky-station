@@ -178,6 +178,10 @@
       collection: Welder
     endSound:
       collection: WelderOff
+  # an imp change
+  - type: Tag
+    tags:
+    - WeldingTool
 
 - type: entity
   name: industrial welding tool

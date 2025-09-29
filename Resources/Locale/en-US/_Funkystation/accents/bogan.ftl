@@ -9,8 +9,7 @@ accent-bogan-prefix-4 = Mmmmm,
 accent-bogan-suffix-1 = , cunt
 accent-bogan-suffix-2 = , fuckin' oath
 accent-bogan-suffix-3 = , fuckin' oath cunt
-accent-bogan-suffix-4 = , ya fuckin' druggo
-accent-bogan-suffix-5 = , ya fuckin' drug addict
+accent-bogan-suffix-4 = , yeah
 
 accent-bogan-words-1 = hey
 accent-bogan-words-1-2 = hi
@@ -365,3 +364,34 @@ accent-bogan-words-replace-86 = footies
 accent-bogan-words-87 = not fair
 accent-bogan-words-87-2 = unfair
 accent-bogan-words-replace-87 = just not cricket
+
+accent-bogan-words-88 = a tider
+accent-bogan-words-replace-88 = an eshay
+
+accent-bogan-words-89 = tider
+accent-bogan-words-replace-89 = eshay
+
+accent-bogan-words-90 = tiders
+accent-bogan-words-replace-90 = eshays
+
+accent-bogan-words-91 = french fries
+accent-bogan-words-91-2 = space fries
+accent-bogan-words-91-3 = crisps
+accent-bogan-words-replace-91 = chips
+
+accent-bogan-words-92 = australia
+accent-bogan-words-replace-92 = Aus
+
+accent-bogan-words-93 = australian
+accent-bogan-words-replace-93 = Aussie
+
+accent-bogan-words-94 = australians
+accent-bogan-words-replace-94 = Aussies
+
+accent-bogan-words-95 = period
+accent-bogan-words-95-2 = full point
+accent-bogan-words-replace-95 = full stop
+
+accent-bogan-words-96 = periods
+accent-bogan-words-96-2 = full point
+accent-bogan-words-replace-96 = full stops

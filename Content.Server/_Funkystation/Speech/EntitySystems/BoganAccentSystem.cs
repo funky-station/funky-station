@@ -13,6 +13,7 @@ public sealed class BoganAccentSystem : EntitySystem
     private static readonly Regex RegexUpperIng = new(@"ING\b");
     private static readonly Regex RegexLowerDve = new(@"d've\b");
     private static readonly Regex RegexUpperDve = new(@"D'VE\b");
+    private static readonly Regex RegexEndPunctuation = new(@"[,.;:!?‽]$");
 
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
@@ -37,10 +38,17 @@ public sealed class BoganAccentSystem : EntitySystem
         if (_random.Prob(0.15f))
         {
             var pick = _random.Next(1, 4);
-
-            // Reverse sanitize capital
-            message = message[0].ToString().ToLower() + message.Remove(0, 1);
-            message = Loc.GetString($"accent-bogan-prefix-{pick}") + " " + message;
+            if (message == message.ToUpper())
+            {
+                // If the player is shouting in all caps, make the prefix all caps too
+                message = Loc.GetString($"accent-bogan-prefix-{pick}").ToUpper() + " " + message;
+            }
+            else
+            {
+                // Reverse sanitize capital
+                message = message[0].ToString().ToLower() + message.Remove(0, 1);
+                message = Loc.GetString($"accent-bogan-prefix-{pick}") + " " + message;
+            }
         }
 
         // Sanitize capital again, in case we substituted a word that should be capitalized
@@ -50,30 +58,31 @@ public sealed class BoganAccentSystem : EntitySystem
         // Also sorry for the shitcode. Hopefully someone can make this better.
         if (_random.Prob(0.3f))
         {
-            if (message.EndsWith('.'))
+            var endPunctuation = "";
+            // Remove punctuation at the end of the message, after storing it in a String for later. If the player didn't put any, just make it a full stop.
+            if (RegexEndPunctuation.IsMatch(message))
             {
-                message = message.Remove(message.Length - 1);
-            }
-            var pick = _random.Next(1, 5);
-            if (message.EndsWith('!'))
-            {
-                message += Loc.GetString($"accent-bogan-suffix-{pick}") + "!";
-            }
-            else if (message.EndsWith('?'))
-            {
-                message = message.Remove(message.Length - 1);
-                message += Loc.GetString($"accent-bogan-suffix-{pick}") + "?";
-            }
-            else if (message.EndsWith('‽'))
-            {
-                message = message.Remove(message.Length - 1);
-                message += Loc.GetString($"accent-bogan-suffix-{pick}") + "‽";
+                foreach (Match m in RegexEndPunctuation.Matches(message))
+                {
+                    endPunctuation += m.Value;
+                }
+                message = message.Remove(message.Length - RegexEndPunctuation.Matches(message).Count);
             }
             else
             {
-                message += Loc.GetString($"accent-bogan-suffix-{pick}") + ".";
+                endPunctuation = ".";
             }
+            var pick = _random.Next(1, 4);
 
+            if (message == message.ToUpper())
+            {
+                // If the player is shouting in all caps, make the suffix all caps too
+                message += Loc.GetString($"accent-bogan-suffix-{pick}").ToUpper() + endPunctuation;
+            }
+            else
+            {
+                message += Loc.GetString($"accent-bogan-suffix-{pick}") + endPunctuation;
+            }
         }
         args.Message = message;
     }

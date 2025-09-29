@@ -6,8 +6,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-trait-funky-name = Bogan Accent
-trait-funky-desc = You come from a particularly foul-mouthed, uncouth, true-blue sector.
+trait-bogan-name = Bogan Accent
+trait-bogan-desc = You come from a particularly foul-mouthed, uncouth, true-blue sector down under.
 
 trait-funky-name = Funky Accent
 trait-funky-desc = Put some funky flair on your inflections.

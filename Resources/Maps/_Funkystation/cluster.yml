@@ -7198,7 +7198,7 @@ entities:
       pos: -28.5,22.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -57804.793
+      secondsUntilStateChange: -57242.12
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7383,7 +7383,7 @@ entities:
       pos: 10.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -11831.951
+      secondsUntilStateChange: -11269.279
       state: Opening
     - type: DeviceLinkSource
       lastSignals:

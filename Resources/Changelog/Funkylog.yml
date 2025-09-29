@@ -4710,3 +4710,19 @@ Entries:
       message: Added Eden map to be playtested
   id: 564
   time: '2025-09-28T02:42:01.0000000+00:00'
+- author: ArionGekkota
+  changes:
+    - type: Add
+      message: Lawyers now start with service headsets.
+    - type: Remove
+      message: Lawyers no longer start with security headsets.
+  id: 565
+  time: '2025-09-28T20:33:40.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New winter coat for NTR!
+    - type: Tweak
+      message: Adjusted NTR's loadout to allow for the selection of gloves
+  id: 566
+  time: '2025-09-28T21:58:24.0000000+00:00'

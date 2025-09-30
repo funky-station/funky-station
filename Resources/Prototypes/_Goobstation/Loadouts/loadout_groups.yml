@@ -47,12 +47,14 @@
 - type: loadoutGroup
   id: NanotrasenRepresentativeOuter
   name: loadout-group-ntr-outer
+  minLimit: 0
   loadouts:
   - NanotrasenRepresentativeWinterCoat
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeGloves
   name: loadout-group-ntr-gloves
+  minLimit: 0
   loadouts:
   - NanotrasenRepresentativePaperworkGloves
   - NanotrasenRepresentativeBlackGloves

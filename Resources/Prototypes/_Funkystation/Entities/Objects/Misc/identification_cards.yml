@@ -155,8 +155,9 @@
   - type: Sprite
     layers:
     - sprite: _Funkystation/Objects/Misc/id_cards.rsi
-    - state: cowboy #base
-    - state: decal-stripe-party #decal
+      state: cowboy #base
+    - sprite: _Funkystation/Objects/Misc/id_cards.rsi
+      state: decal-stripe-party #decal
     - sprite: _Funkystation/Interface/Misc/job_icons.rsi #icon
       offset: "-0.125, 0.09375"
       state: Cowboy

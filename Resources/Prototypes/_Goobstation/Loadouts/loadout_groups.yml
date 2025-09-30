@@ -44,15 +44,19 @@
   - NanotrasenRepresentativeJumpsuit
   - NanotrasenRepresentativeJumpskirt
 
+# Funky!
 - type: loadoutGroup
   id: NanotrasenRepresentativeOuter
   name: loadout-group-ntr-outer
+  minLimit: 0
   loadouts:
   - NanotrasenRepresentativeWinterCoat
 
+# Funky!
 - type: loadoutGroup
   id: NanotrasenRepresentativeGloves
   name: loadout-group-ntr-gloves
+  minLimit: 0
   loadouts:
   - NanotrasenRepresentativePaperworkGloves
   - NanotrasenRepresentativeBlackGloves

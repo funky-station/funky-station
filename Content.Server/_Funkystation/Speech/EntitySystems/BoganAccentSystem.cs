@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 // Uses some code from SouthernAccentSystem.cs, credited to GitHub users Pieter-Jan Briers and UBlueberry under AGPL-3.0-or-later.
 // Also uses some code from Goob Station's BoganAccentSystem.cs, credited to GitHub users Aidenkrz, BeeRobyn, Piras314, Misandry, and gus under AGPL-3.0-or-later.
 

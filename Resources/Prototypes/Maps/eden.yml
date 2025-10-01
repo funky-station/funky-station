@@ -7,7 +7,7 @@
   mapName: 'Eden'
   mapPath: /Maps/_Funkystation/eden.yml
   minPlayers: 7
-  maxPlayers: 35
+  maxPlayers: 45
   stations:
     Eden:
       stationProto: StandardNanotrasenStation

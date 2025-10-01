@@ -27,12 +27,14 @@
 - type: loadoutGroup
   id: InternalAffairsAgentOuterClothing
   name: loadout-group-iaa-outer
+  minLimit: 0
   loadouts:
     - InternalAffairsAgentWinterCoat
 
 - type: loadoutGroup
   id: InternalAffairsAgentGloves
   name: loadout-group-iaa-gloves
+  minLimit: 0
   loadouts:
   - InternalAffairsAgentGlovesBlack
   - InternalAffairsAgentGlovesRed

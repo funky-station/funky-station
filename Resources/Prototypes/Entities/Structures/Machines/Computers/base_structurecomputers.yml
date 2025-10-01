@@ -109,14 +109,14 @@
 # Begin Harmony changes, add ambience
   - type: SpamEmitSoundRequirePower
   - type: SpamEmitSound
-    minInterval: 15
-    maxInterval: 30
+    minInterval: 60 # funky - 4x
+    maxInterval: 120 # funky - 4x
     sound:
       collection: HarmonyComputerSFX
       params:
         volume: -8
         maxDistance: 3.5
-        variation: 0.1
+        variation: 0.2 # funky
 # End Harmony changes
 #
 #     This is overwritten by children, so needs to be defined there

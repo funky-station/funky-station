@@ -113,7 +113,7 @@
     - id: BlobSpawn #Goobstation - Blob
     - id: FalseAlarm
     - id: DerelictCyborgSpawn
-    #- id: WizardSpawn # todo: remove these when done
+    - id: WizardSpawn
 
 - type: entity
   id: BaseStationEvent

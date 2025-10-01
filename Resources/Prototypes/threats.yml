@@ -10,8 +10,9 @@
 - type: weightedRandom
   id: NinjaThreats
   weights:
-    Dragon: 1
-    Revenant: 1
+    Dragon: 5
+    Revenant: 4
+    Wizard: 1
 
 - type: ninjaHackingThreat
   id: Dragon
@@ -22,3 +23,8 @@
   id: Revenant
   announcement: terror-revenant
   rule: RevenantSpawn
+
+- type: ninjaHackingThreat
+  id: Wizard
+  announcement: terror-wizard
+  rule: WizardSpawn

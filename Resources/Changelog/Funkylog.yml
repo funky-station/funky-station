@@ -4732,3 +4732,9 @@ Entries:
       message: Fixed NTR's loadout not allowing you to refuse the coat and gloves
   id: 567
   time: '2025-10-01T11:10:37.0000000+00:00'
+- author: Spanky
+  changes:
+    - type: Add
+      message: Computers now emit ambient sounds.
+  id: 568
+  time: '2025-10-01T20:02:03.0000000+00:00'

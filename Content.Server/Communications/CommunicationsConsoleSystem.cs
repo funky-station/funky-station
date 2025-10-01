@@ -246,7 +246,7 @@ namespace Content.Server.Communications
             if (message.Actor is not { Valid: true } mob)
                 return;
 
-            if (!CanUse(mob, uid))
+            if (!CanUse(mob, uid) || !comp.CanAlert) // funky - canAlert
             {
                 _popupSystem.PopupCursor(Loc.GetString("comms-console-permission-denied"), message.Actor, PopupType.Medium);
                 return;
@@ -295,7 +295,7 @@ namespace Content.Server.Communications
             // allow admemes with vv
             Loc.TryGetString(comp.Title, out var title);
             title ??= comp.Title;
-			
+
 			Console.WriteLine(comp.Title);
 
 			List<string> announcementWords = new List<string>{};

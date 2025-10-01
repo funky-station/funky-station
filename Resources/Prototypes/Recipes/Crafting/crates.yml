@@ -49,8 +49,8 @@
   objectType: Structure
 
 - type: construction
-  name: freezer
   id: CrateFreezer
+  name: construction-recipe-crate-freezer
   graph: CrateFreezer
   startNode: start
   targetNode: done
@@ -71,8 +71,8 @@
   objectType: Structure
 
 - type: construction
-  name: cardboard box
   id: BigBox
+  name: construction-recipe-big-box
   graph: BaseBigBox
   startNode: start
   targetNode: basebigbox
@@ -82,14 +82,23 @@
   objectType: Structure
 
 - type: construction
-  name: cardboard box
   id: BoxCardboard
+  name: construction-recipe-box-cardboard
   graph: BoxCardboard
   startNode: start
   targetNode: boxcardboard
   category: construction-category-storage
   description: A small box for storing things.
   icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  objectType: Item
+
+- type: construction
+  id: ToteBase
+  name: construction-recipe-box-tote
+  graph: ToteBase
+  startNode: start
+  targetNode: totebase
+  category: construction-category-storage
   objectType: Item
 
 - type: construction
@@ -100,7 +109,7 @@
   targetNode: foodboxpizza
   category: construction-category-storage
   description: A box for pizza.
-  icon: 
+  icon:
     sprite: Objects/Consumable/Food/Baked/pizza.rsi
     state: box
   objectType: Item

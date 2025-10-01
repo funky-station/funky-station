@@ -206,7 +206,7 @@
   dummyPrototype: BorgChassisService
 
   # Functional
-  extraModuleCount: 3
+  extraModuleCount: 4
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
@@ -214,7 +214,8 @@
 
   defaultModules:
   - BorgModuleMusique
-  - BorgModuleService
+  - BorgModuleBartender # imp
+  - BorgModulePaper # imp
   - BorgModuleClowning
 
   radioChannels:

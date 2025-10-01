@@ -1507,6 +1507,9 @@
   id: Torch
 
 - type: Tag
+  id: ToteBase
+
+- type: Tag
   id: Tourniquet
 
 - type: Tag

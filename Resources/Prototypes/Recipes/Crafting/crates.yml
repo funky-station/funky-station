@@ -93,6 +93,26 @@
   objectType: Item
 
 - type: construction
+  id: ToteBase
+  name: construction-recipe-box-tote
+  graph: ToteBase
+  startNode: start
+  targetNode: totebase
+  category: construction-category-storage
+  description: A small box for storing things.
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  objectType: Item
+
+- type: construction
+  id: ToteBase
+  name: construction-recipe-box-tote
+  graph: ToteBase
+  startNode: start
+  targetNode: totebase
+  category: construction-category-storage
+  objectType: Item
+
+- type: construction
   name: pizza box
   id: FoodBoxPizza
   graph: FoodBoxPizza

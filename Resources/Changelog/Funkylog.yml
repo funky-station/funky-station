@@ -4726,3 +4726,9 @@ Entries:
       message: Adjusted NTR's loadout to allow for the selection of gloves
   id: 566
   time: '2025-09-28T21:58:24.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Tweak
+      message: Fixed NTR's loadout not allowing you to refuse the coat and gloves
+  id: 567
+  time: '2025-10-01T11:10:37.0000000+00:00'

@@ -17,6 +17,8 @@
 # SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
+# SPDX-FileCopyrightText: 2025 Spanky <180730777+spanky-spanky@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -106,6 +108,18 @@
   - type: Wires
     boardName: wires-board-name-computer
     layoutId: Computer
+# Begin Harmony changes, add ambience
+  - type: SpamEmitSoundRequirePower
+  - type: SpamEmitSound
+    minInterval: 60 # funky - 4x
+    maxInterval: 120 # funky - 4x
+    sound:
+      collection: HarmonyComputerSFX
+      params:
+        volume: -8
+        maxDistance: 3.5
+        variation: 0.2 # funky
+# End Harmony changes
 #
 #     This is overwritten by children, so needs to be defined there
 #  - type: UserInterface

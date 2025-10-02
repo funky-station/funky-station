@@ -38,3 +38,15 @@
   license: "CC-BY-NC-3.0"
   copyright: "Stamp icons by empty0set for Funkystation"
   source: "https://funkystation.org/"
+
+- files:
+  - large_stamp-iaa.png
+  - large_stamp-ntr.png
+  - large_stamp-greytide.png
+  - large_stamp-det.png
+  - large_stamp-psych.png
+  - large_stamp-wiz.png
+  - large_stamp-warden.png
+  license: "CC-BY-SA-3.0"
+  copyright: "Stamp icons by stabithar for FunkyStation"
+  source: "https://funkystation.org/"

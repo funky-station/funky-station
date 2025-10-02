@@ -15,6 +15,7 @@
     stampedName: stamp-component-stamped-name-iaa
     stampedColor: "#515961"
     stampState: "paper_stamp-iaa"
+    stampLargeIcon: "large_stamp-iaa" # Funky!
   - type: Sprite
     sprite: _Funkystation/Objects/Misc/stamps.rsi
     state: stamp-iaa

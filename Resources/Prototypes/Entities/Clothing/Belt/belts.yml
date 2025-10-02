@@ -122,6 +122,7 @@
         - JawsOfLife
         - GPS
         - WeldingMask
+        - UtilityKnife
       components:
         - StationMap
         - SprayPainter
@@ -206,6 +207,7 @@
         - HolofanProjector
         - Multitool
         - AppraisalTool
+        - UtilityKnife
       components:
         - StationMap
         - SprayPainter

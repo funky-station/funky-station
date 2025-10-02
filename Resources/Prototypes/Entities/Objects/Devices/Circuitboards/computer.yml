@@ -321,7 +321,7 @@
     state: cpu_service
   - type: ComputerBoard
     prototype: ComputerSurveillanceWirelessCameraMonitor
-  
+
 - type: entity
   parent: BaseComputerCircuitboard
   id: XenoborgCameraMonitorCircuitboard
@@ -522,7 +522,7 @@
     prototype: ComputerShuttle
 
 - type: entity
-  parent: BaseComputerCircuitboard
+  parent: [ BaseComputerCircuitboard, BaseSyndicateContraband ]
   id: SyndicateShuttleConsoleCircuitboard
   name: syndicate shuttle console board
   description: A computer printed circuit board for a syndicate shuttle console.
@@ -555,7 +555,7 @@
       prototype: ComputerIFF
 
 - type: entity
-  parent: BaseComputerCircuitboard
+  parent: [ BaseComputerCircuitboard, BaseSyndicateContraband ]
   id: ComputerIFFSyndicateCircuitboard
   name: syndicate IFF console board
   description: Allows you to control the IFF and stealth characteristics of this vessel.
@@ -625,7 +625,7 @@
 - type: entity
   parent: BaseComputerCircuitboard
   id: StationAiFixerCircuitboard
-  name: AI restoration console
+  name: AI restoration console board
   description: A computer printed circuit board for an AI restoration console console.
   components:
     - type: Sprite

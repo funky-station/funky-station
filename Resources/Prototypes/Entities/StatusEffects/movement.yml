@@ -54,14 +54,6 @@
   id: StatusEffectStaminaLow
   name: stamina low
 
-# Makes you more slippery, or perhaps less slippery.
-- type: entity
-  parent: MobStatusEffectDebuff # Debatable if this should be MobStatusEffectBase or not
-  id: StatusEffectFriction
-  name: friction
-  components:
-  - type: FrictionStatusEffect
-
 # Stunnable Status Effect
 
 - type: entity

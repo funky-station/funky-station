@@ -61,9 +61,6 @@
   description: Components added / removed from an entity that gets inserted into an AI core.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Tag
-    tags:
-      - StationAiBrain
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
@@ -138,15 +135,15 @@
     title: comms-console-announcement-title-station-ai
     color: "#5ed7aa"
   - type: ShowJobIcons
+  - type: DamagedSiliconAccent
+    startPowerCorruptionAtCharIdx: 4
+    maxPowerCorruptionAtCharIdx: 20
 
 - type: entity
   id: AiHeldIntellicard
   description: Components added / removed from an entity that gets inserted into an Intellicard.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Tag
-    tags:
-    - StationAiBrain
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
@@ -181,7 +178,7 @@
       disableEject: true
       whitelist:
         tags:
-        - StationAiBrain
+        - StationAi
   - type: ContainerContainer
     containers:
       station_ai_mind_slot: !type:ContainerSlot
@@ -191,163 +188,6 @@
         # anyway it's just a quality of life thing.
         showEnts: True
 
-# Boards
-- type: entity
-  id: AsimovCircuitBoard
-  parent: BaseElectronics
-  name: law board (Crewsimov)
-  description: An electronics board containing the Crewsimov lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: Crewsimov
-
-- type: entity
-  id: CorporateCircuitBoard
-  parent: BaseElectronics
-  name: law board (Corporate)
-  description: An electronics board containing the Corporate lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: Corporate
-
-- type: entity
-  id: NTDefaultCircuitBoard
-  parent: BaseElectronics
-  name: law board (NT Default)
-  description: An electronics board containing the NT Default lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: NTDefault
-
-- type: entity
-  id: CommandmentCircuitBoard
-  parent: BaseElectronics
-  name: law board (Ten Commandments)
-  description: An electronics board containing the Ten Commandments lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: CommandmentsLawset
-
-- type: entity
-  id: PaladinCircuitBoard
-  parent: BaseElectronics
-  name: law board (Paladin)
-  description: An electronics board containing the Paladin lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: PaladinLawset
-
-- type: entity
-  id: LiveLetLiveCircuitBoard
-  parent: BaseElectronics
-  name: law board (Live and Let Live)
-  description: An electronics board containing the Live and Let Live lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: LiveLetLiveLaws
-
-- type: entity
-  id: StationEfficiencyCircuitBoard
-  parent: BaseElectronics
-  name: law board (Station Efficiency)
-  description: An electronics board containing the Station Efficiency lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: EfficiencyLawset
-
-- type: entity
-  id: RobocopCircuitBoard
-  parent: BaseElectronics
-  name: law board (Robocop)
-  description: An electronics board containing the Robocop lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: RobocopLawset
-
-- type: entity
-  id: OverlordCircuitBoard
-  parent: BaseElectronics
-  name: law board (Overlord)
-  description: An electronics board containing the Overlord lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: OverlordLawset
-
-- type: entity
-  id: DungeonMasterCircuitBoard
-  parent: BaseElectronics
-  name: law board (Game Master)
-  description: An electronics board containing the Game Master lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: DungeonMasterLawset
-
-- type: entity
-  id: ArtistCircuitBoard
-  parent: BaseElectronics
-  name: law board (Artist)
-  description: An electronics board containing the Artist lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: PainterLawset
-
-- type: entity
-  id: AntimovCircuitBoard
-  parent: [BaseElectronics, BaseSyndicateContraband]
-  name: law board (Antimov)
-  description: An electronics board containing the Antimov lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: AntimovLawset
-    lawUploadSound: /Audio/Ambience/Antag/silicon_lawboard_antimov.ogg
-
-- type: entity
-  id: NutimovCircuitBoard
-  parent: BaseElectronics
-  name: law board (Nutimov)
-  description: An electronics board containing the Nutimov lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: NutimovLawset
 
 # Items
 - type: entity
@@ -394,7 +234,7 @@
 # Empty AI core
 - type: entity
   id: PlayerStationAiEmpty
-  name: AI Core
+  name: AI core
   description: The latest in Artificial Intelligences.
   parent:
   - BaseStructure
@@ -424,25 +264,10 @@
     proto: AiHeld
     container: station_ai_mind_slot
   - type: Damageable
-    damageContainer: AiCore
-  - type: Physics
-    bodyType: Static
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
-        density: 1000
-        mask:
-        - MachineMask
-        layer:
-        - MachineLayer
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      800: Critical
-      1000: Dead
+    damageModifierSet: StrongMetallic
+  - type: Repairable
+    doAfterDelay: 10
+    allowSelfRepair: false
   - type: Destructible
     thresholds:
     - trigger:
@@ -494,6 +319,7 @@
   - type: StationAiVision
   - type: InteractionOutline
   - type: Sprite
+    snapCardinals: true
     sprite: Mobs/Silicon/station_ai.rsi
     layers:
     - state: base
@@ -572,7 +398,7 @@
 - type: entity
   parent: BaseStructure
   id: PlayerStationAiAssembly
-  name: AI Core Assembly
+  name: AI core assembly
   description: An unfinished computer core for housing an artifical intelligence.
   components:
   - type: Anchorable
@@ -794,11 +620,11 @@
   - type: ContainerFill
     containers:
       borg_brain:
-      - PositronicBrain
+        - PositronicBrain
       borg_module:
-      - BorgModuleOperative
-      - BorgModuleL6C
-      - BorgModuleEsword
+        - BorgModuleOperative
+        - BorgModuleL6C
+        - BorgModuleDoubleEsword
   - type: ItemSlots
     slots:
       cell_slot:
@@ -830,11 +656,11 @@
   - type: ContainerFill
     containers:
       borg_brain:
-      - PositronicBrain
+        - PositronicBrain
       borg_module:
-      - BorgModuleTool
-      - BorgModuleOperative
-      - BorgModuleSyndicateWeapon
+        - BorgModuleTool
+        - BorgModuleOperative
+        - BorgModuleSyndicateWeapon
   - type: ItemSlots
     slots:
       cell_slot:
@@ -864,9 +690,9 @@
   components:
   - type: Sprite
     layers:
-    - state: red
-    - sprite: Structures/Decoration/banner.rsi
-      state: banner_syndicate
+      - state: red
+      - sprite: Structures/Decoration/banner.rsi
+        state: banner_syndicate
   - type: RandomSpawner
     prototypes:
     - PlayerBorgSyndicateAssaultGhostRole
@@ -913,16 +739,17 @@
 
 - type: entity
   parent: BorgChassisDerelict
+  id: PlayerBorgDerelict
   suffix: Battery, Module
   components:
   - type: ContainerFill
     containers:
       borg_brain:
-      - PositronicBrain
+        - PositronicBrain
       borg_module:
-      - BorgModuleTool
-      - BorgModuleFireExtinguisher
-      - BorgModuleGPS
+        - BorgModuleTool
+        - BorgModuleFireExtinguisher
+        - BorgModuleGPS
   - type: ItemSlots
     slots:
       cell_slot:
@@ -934,8 +761,8 @@
     factor: 10 # / 2 = times more powerful than an unarmed crew-member
 
 - type: entity
-  id: PlayerBorgDerelictGhostRole
   parent: PlayerBorgDerelict
+  id: PlayerBorgDerelictGhostRole
   suffix: Ghost role
   components:
     - type: GhostRole

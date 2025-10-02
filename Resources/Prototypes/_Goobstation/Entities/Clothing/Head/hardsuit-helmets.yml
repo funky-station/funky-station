@@ -177,3 +177,9 @@
     sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.95
+        Radiation: 0.25

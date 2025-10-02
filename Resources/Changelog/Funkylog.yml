@@ -4742,3 +4742,13 @@ Entries:
   changes: []
   id: 569
   time: '2025-10-01T20:13:03.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: Three new jumpsuits and winter coat for experienced IAAs
+    - type: Tweak
+      message: >-
+        Internal Affairs Agents can now pick a pair of black or red gloves for
+        their loadouts.
+  id: 570
+  time: '2025-10-02T04:01:19.0000000+00:00'

@@ -57,7 +57,7 @@
       required: true
       defaultMarkings: [ VulpTail ]
     Head:
-      points: 1
+      points: 3 # Funky - was 1, changed to 3 for facepaints
       required: false
     Legs:
       points: 4 # Funky - was 1, changed to 4

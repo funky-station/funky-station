@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 unknown <alexander.kuepper1234@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -164,3 +165,15 @@
     component:
     - type: Stealth
 
+# HEV
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitBasic
+  id: ClothingHeadHelmetHEV
+  name: HEV helmet
+  description: Not included in a set with crowbar, long jump module and gravity manipulation device.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi

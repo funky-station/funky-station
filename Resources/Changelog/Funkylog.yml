@@ -4752,3 +4752,19 @@ Entries:
         their loadouts.
   id: 570
   time: '2025-10-02T04:01:19.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Material Silos to Box
+    - type: Add
+      message: Material Silos to Amber
+    - type: Add
+      message: Science Communications console to Amber
+    - type: Tweak
+      message: Adjusted decals on Box to make areas blend in
+    - type: Tweak
+      message: Adjusted decals on Amber to make areas blend in
+    - type: Remove
+      message: Removed Fland and Barratry from rotation.
+  id: 571
+  time: '2025-10-03T17:48:36.0000000+00:00'

@@ -493,7 +493,7 @@
   - sprite: _NF/Mobs/Customization/facepaints/vulpkanin.rsi
     state: facepaint_white
 
-## Shared Facepaints, two variants depending on if snout or head is topmost face layer.
+## Shared facepaints, two variants depending on if snout or head is topmost face layer.
 - type: marking
   id: FacepaintBlushHead
   bodyPart: Head

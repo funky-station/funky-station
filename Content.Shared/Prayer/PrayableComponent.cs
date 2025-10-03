@@ -24,6 +24,13 @@ public sealed partial class PrayableComponent : Component
     public bool BibleUserOnly;
 
     /// <summary>
+    /// If Atheists are allowed to use this prayable entity
+    /// </summary>
+    [DataField("usableByAtheists")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool UsableByAtheists;
+
+    /// <summary>
     /// Message given to user to notify them a message was sent
     /// </summary>
     [DataField("sentMessage")]

@@ -71,6 +71,7 @@
   - type: Item
     size: Small
   - type: Prayable
+    usableByAtheists: true
     sentMessage: prayer-popup-notify-centcom-sent
     notificationPrefix: prayer-chat-notify-centcom
     verb: prayer-verbs-call

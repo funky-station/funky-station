@@ -67,6 +67,15 @@
       uiWindowPos: 3,1
       strippingWindowPos: 2,2
       displayName: Belt
+    - name: back
+      slotTexture: back
+      fullTextureName: template_small
+      slotFlags: BACK
+      slotGroup: SecondHotbar
+      stripTime: 6
+      uiWindowPos: 3,0
+      strippingWindowPos: 2,5
+      displayName: Back
     - name: neck
       slotTexture: neck
       slotFlags: NECK
@@ -88,7 +97,7 @@
       uiWindowPos: 0,3
       strippingWindowPos: 0,0
       displayName: Eyes
-      offset: 0, 0.08
+      offset: 0, 0.0655
     - name: ears
       slotTexture: ears
       slotFlags: EARS

@@ -71,3 +71,12 @@
 
 - type: Tag
   id: StationAiBrain
+
+- type: Tag
+  id: CardboardboxSmall
+
+- type: Tag
+  id: CardboardboxLarge
+
+- type: Tag
+  id: CardboardboxLargeFlat

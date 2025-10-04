@@ -4768,3 +4768,9 @@ Entries:
       message: Removed Fland and Barratry from rotation.
   id: 571
   time: '2025-10-03T17:48:36.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added an orderable mailcart to the cargo catalogue
+  id: 572
+  time: '2025-10-04T19:46:43.0000000+00:00'

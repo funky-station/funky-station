@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Dark <darkwindleaf@hotmail.co.uk>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -9,6 +10,7 @@
   parent: BaseMindRoleAntag
   id: MindRoleRecruiter
   name: Recruiter Role
+#  description: mind-role-recruiter-description
   components:
   - type: MindRole
     antagPrototype: Recruiter
@@ -16,3 +18,15 @@
   - type: RecruiterRole
   - type: RoleBriefing
     briefing: recruiter-role-briefing
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleSynthesis
+  name: Synthesis Specialist Role
+  components:
+  - type: MindRole
+    antagPrototype: SynthesisSpecialist
+    exclusiveAntag: true
+  - type: SynthesisRole
+  - type: RoleBriefing
+    briefing: synthesis-role-briefing

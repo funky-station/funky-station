@@ -21,3 +21,13 @@
   cost: 7500
   category: cargoproduct-category-name-cargo
   group: market
+
+- type: cargoProduct
+  id: MailcartOrder
+  icon:
+    sprite: _Funkystation/Objects/Specific/Mail/mail_small.rsi
+    state: icon
+  product: MailCart
+  cost: 2500
+  category: cargoproduct-category-name-cargo
+  group: market

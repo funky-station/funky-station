@@ -1,7 +1,7 @@
 - type: entity
-  name: mail cart
   id: MailCart
   parent: [BaseStructureDynamic, StructureWheeled]
+  name: mailcart
   description: Not distance nor tide can stop the mail.
   components:
   - type: Sprite
@@ -14,49 +14,49 @@
   - type: ItemSlots
     slots:
       big_slot2:
-        name: janitorial-trolley-slot-component-slot-name-mop
+        name: mailcart-slot-component-slot-name-big
         whitelist:
           tags:
           - CardboardboxLarge
         insertOnInteract: true
         priority: 9
       big_slot1:
-        name: janitorial-trolley-slot-component-slot-name-mop
+        name: mailcart-slot-component-slot-name-big
         whitelist:
           tags:
           - CardboardboxLarge
         insertOnInteract: true
         priority: 8
       flat_slot:
-        name: janitorial-trolley-slot-component-slot-name-mop
+        name: mailcart-slot-component-slot-name-flat
         whitelist:
           tags:
           - CardboardboxLargeFlat
         insertOnInteract: true
         priority: 7
       small_slot4:
-        name: janitorial-trolley-slot-component-slot-name-mop
+        name: mailcart-slot-component-slot-name-small
         whitelist:
           tags:
           - CardboardboxSmall
         insertOnInteract: true
         priority: 6
       small_slot3:
-        name: janitorial-trolley-slot-component-slot-name-mop
+        name: mailcart-slot-component-slot-name-small
         whitelist:
           tags:
           - CardboardboxSmall
         insertOnInteract: true
         priority: 5
       small_slot2:
-        name: janitorial-trolley-slot-component-slot-name-mop
+        name: mailcart-slot-component-slot-name-small
         whitelist:
           tags:
           - CardboardboxSmall
         insertOnInteract: true
         priority: 4
       small_slot1:
-        name: janitorial-trolley-slot-component-slot-name-mop
+        name: mailcart-slot-component-slot-name-small
         whitelist:
           tags:
           - CardboardboxSmall
@@ -89,8 +89,13 @@
         whitelist:
           tags:
           - CardboardboxLargeFlat
-      small4:
-        minCount: 4
+      small1:
+        minCount: 1
+        whitelist:
+          tags:
+          - CardboardboxSmall
+      small2:
+        minCount: 2
         whitelist:
           tags:
           - CardboardboxSmall
@@ -99,13 +104,8 @@
         whitelist:
           components:
           - CardboardboxSmall
-      small2:
-        minCount: 2
-        whitelist:
-          tags:
-          - CardboardboxSmall
-      small1: # this is like stack of floor signs
-        minCount: 1
+      small4:
+        minCount: 4
         whitelist:
           tags:
           - CardboardboxSmall

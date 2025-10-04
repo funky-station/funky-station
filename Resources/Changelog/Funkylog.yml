@@ -4774,3 +4774,9 @@ Entries:
       message: Added an orderable mailcart to the cargo catalogue
   id: 572
   time: '2025-10-04T19:46:43.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New stamp icons by Stabithar
+  id: 573
+  time: '2025-10-04T19:47:41.0000000+00:00'

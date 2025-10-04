@@ -12,6 +12,7 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 Voomra <dimon550@gmail.com>
+// SPDX-FileCopyrightText: 2025 Pile of Oxides <pileofoxides@posteo.de>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -73,7 +74,7 @@ public sealed class PrayerSystem : EntitySystem
             Act = () =>
             {
                 //Public Domain Code start
-                if (EntityManager.TryGetComponent(args.User, out ReligionComponent? religionComponent) && religionComponent.Type == Religion.Atheist)
+                if (!comp.UsableByAtheists && EntityManager.TryGetComponent(args.User, out ReligionComponent? religionComponent) && religionComponent.Type == Religion.Atheist)
                 {
                     _popupSystem.PopupEntity(Loc.GetString("prayer-popup-notify-pray-atheist"), uid, actor.PlayerSession, PopupType.Large);
                     return;

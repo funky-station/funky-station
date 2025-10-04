@@ -128,26 +128,6 @@ public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
         }
     }
 
-    private void AddVerbs(EntityUid uid, SurveillanceCameraComponent component, GetVerbsEvent<AlternativeVerb> verbs)
-    {
-        if (!_actionBlocker.CanInteract(verbs.User, uid) || !_actionBlocker.CanComplexInteract(verbs.User))
-        {
-            return;
-        }
-
-        if (component.NameSet && component.NetworkSet)
-        {
-            return;
-        }
-
-        AlternativeVerb verb = new();
-        verb.Text = Loc.GetString("surveillance-camera-setup");
-        verb.Act = () => OpenSetupInterface(uid, verbs.User, component);
-        verbs.Verbs.Add(verb);
-    }
-
-
-
     private void OnPowerChanged(EntityUid camera, SurveillanceCameraComponent component, ref PowerChangedEvent args)
     {
         SetActive(camera, args.Powered, component);

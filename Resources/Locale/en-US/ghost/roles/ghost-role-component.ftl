@@ -110,7 +110,6 @@ ghost-role-information-shiva-rules = You are [bold]Shiva the Spider[/bold]. The 
                                         You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
                                         You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
 
-
 ghost-role-information-mouse-name = Mouse
 ghost-role-information-mouse-description = A hungry and mischievous mouse.
 
@@ -173,9 +172,6 @@ ghost-role-information-kobold-description = Be the little gremlin you are, yell 
 ghost-role-information-rat-king-name = Rat King
 
 ghost-role-information-rat-king-description = You are the Rat King, your interests are food, food, and more food. Cooperate with or fight against the station for food. Did I say food interests you?
-
-# funkystation
-ghost-role-information-neanderthal-description = You are a freshly unfrozen neanderthal. You have no idea what is going on, where this is, what anything is, or who anyone else is.
 
 ghost-role-information-rat-servant-name = Rat Servant
 ghost-role-information-rat-servant-description = You are a Rat Servant. You must follow your king's orders.

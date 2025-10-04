@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: 2025 Gtheglorious <gtheglorious@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: emoteSounds
+  id: Palinid
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: FelinidScreams
+    Laugh:
+      collection: FelinidMeows
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    Yawn:
+      collection: FelinidMeows
+    Snore:
+      collection: FelinidPurrs
+    Honk:
+      collection: BikeHorn
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Hiss:
+      collection: FelinidHisses
+    Meow:
+      collection: FelinidMeows
+    Mew:
+      collection: FelinidMews
+    Growl:
+      collection: FelinidGrowls
+    Purr:
+      collection: FelinidPurrs
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: DeathGasp

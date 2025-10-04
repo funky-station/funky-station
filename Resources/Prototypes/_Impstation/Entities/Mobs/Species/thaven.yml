@@ -1,6 +1,9 @@
 # SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 Doop <1959416+ATDoop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 majima-fan-420 <161394779+phmnsx@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 phmnsx <lynnwastinghertime@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -101,26 +104,6 @@
           32:
             sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
             state: head
-      eyes:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: eyes
-      mask:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: mask
-      neck:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: neck
-      ears:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: ears
       outerClothing:
         sizeMaps:
           32:
@@ -176,16 +159,6 @@
           32:
             sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
             state: head
-      eyes:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: eyes
-      mask:
-        sizeMaps:
-          32:
-            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
-            state: mask
       outerClothing:
         sizeMaps:
           32:

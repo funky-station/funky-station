@@ -1,7 +1,9 @@
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -37,4 +39,16 @@
   - large_stamp-borg.png
   license: "CC-BY-NC-3.0"
   copyright: "Stamp icons by empty0set for Funkystation"
+  source: "https://funkystation.org/"
+
+- files:
+  - large_stamp-iaa.png
+  - large_stamp-ntr.png
+  - large_stamp-greytide.png
+  - large_stamp-det.png
+  - large_stamp-psych.png
+  - large_stamp-wiz.png
+  - large_stamp-warden.png
+  license: "CC-BY-SA-3.0"
+  copyright: "Stamp icons by stabithar for FunkyStation"
   source: "https://funkystation.org/"

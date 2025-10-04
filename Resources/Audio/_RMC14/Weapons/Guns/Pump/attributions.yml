@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
 # SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -12,3 +14,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from cmss13"
   source: "https://github.com/cmss13-devs/cmss13/blob/master/sound/weapons/shotgunpump2.ogg"
+
+- files: ["gun_boomslang_lever.ogg"]
+  license: "CC0"
+  copyright: "Taken from freesound"
+  source: "https://freesound.org/people/C-V/sounds/523402/?"

@@ -7,6 +7,7 @@
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Xenoarchaeology.Artifact.XAE.Components;
+using Content.Shared.Power.Components;
 using Content.Shared.Xenoarchaeology.Artifact;
 using Content.Shared.Xenoarchaeology.Artifact.XAE;
 

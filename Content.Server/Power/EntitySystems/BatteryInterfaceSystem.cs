@@ -6,6 +6,7 @@
 
 using Content.Server.Power.Components;
 using Content.Shared.Power;
+using Content.Shared.Power.Components;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.Power.EntitySystems;

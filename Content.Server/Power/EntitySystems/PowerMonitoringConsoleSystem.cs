@@ -1,25 +1,4 @@
-// SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
-using Content.Server.NodeContainer.Nodes;
 using Content.Server.Power.Components;
 using Content.Server.Power.Nodes;
 using Content.Server.Power.NodeGroups;
@@ -28,6 +7,7 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Pinpointer;
 using Content.Shared.Station.Components;
 using Content.Shared.Power;
+using Content.Shared.Power.Components;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
@@ -99,7 +79,7 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
 
     private void OnPowerMonitoringConsoleMessage(EntityUid uid, PowerMonitoringConsoleComponent component, PowerMonitoringConsoleMessage args)
     {
-        var focus = EntityManager.GetEntity(args.FocusDevice);
+        var focus = GetEntity(args.FocusDevice);
         var group = args.FocusGroup;
 
         // Update this if the focus device has changed
@@ -226,17 +206,17 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
 
             if (!args.Anchored)
             {
-                entConsole.PowerMonitoringDeviceMetaData.Remove(EntityManager.GetNetEntity(uid));
+                entConsole.PowerMonitoringDeviceMetaData.Remove(GetNetEntity(uid));
                 Dirty(ent, entConsole);
 
                 continue;
             }
 
             var name = MetaData(uid).EntityName;
-            var coords = EntityManager.GetNetCoordinates(xform.Coordinates);
+            var coords = GetNetCoordinates(xform.Coordinates);
 
             var metaData = new PowerMonitoringDeviceMetaData(name, coords, component.Group, component.SpritePath, component.SpriteState);
-            entConsole.PowerMonitoringDeviceMetaData.TryAdd(EntityManager.GetNetEntity(uid), metaData);
+            entConsole.PowerMonitoringDeviceMetaData.TryAdd(GetNetEntity(uid), metaData);
 
             Dirty(ent, entConsole);
         }
@@ -383,7 +363,7 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
                 continue;
 
             // Generate a new console entry with which to populate the UI
-            var entry = new PowerMonitoringConsoleEntry(EntityManager.GetNetEntity(ent), device.Group, powerStats.PowerValue, powerStats.BatteryLevel);
+            var entry = new PowerMonitoringConsoleEntry(GetNetEntity(ent), device.Group, powerStats.PowerValue, powerStats.BatteryLevel);
             allEntries.Add(entry);
         }
 
@@ -567,7 +547,7 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
                     continue;
                 }
 
-                indexedSources.Add(ent, new PowerMonitoringConsoleEntry(EntityManager.GetNetEntity(ent), entDevice.Group, powerSupplier.CurrentSupply, GetBatteryLevel(ent)));
+                indexedSources.Add(ent, new PowerMonitoringConsoleEntry(GetNetEntity(ent), entDevice.Group, powerSupplier.CurrentSupply, GetBatteryLevel(ent)));
             }
         }
 
@@ -597,7 +577,7 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
                     continue;
                 }
 
-                indexedSources.Add(ent, new PowerMonitoringConsoleEntry(EntityManager.GetNetEntity(ent), entDevice.Group, entBattery.CurrentSupply, GetBatteryLevel(ent)));
+                indexedSources.Add(ent, new PowerMonitoringConsoleEntry(GetNetEntity(ent), entDevice.Group, entBattery.CurrentSupply, GetBatteryLevel(ent)));
             }
         }
 
@@ -681,7 +661,7 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
                     continue;
                 }
 
-                indexedLoads.Add(ent, new PowerMonitoringConsoleEntry(EntityManager.GetNetEntity(ent), entDevice.Group, powerConsumer.ReceivedPower, GetBatteryLevel(ent)));
+                indexedLoads.Add(ent, new PowerMonitoringConsoleEntry(GetNetEntity(ent), entDevice.Group, powerConsumer.ReceivedPower, GetBatteryLevel(ent)));
             }
         }
 
@@ -711,7 +691,7 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
                     continue;
                 }
 
-                indexedLoads.Add(ent, new PowerMonitoringConsoleEntry(EntityManager.GetNetEntity(ent), entDevice.Group, battery.CurrentReceiving, GetBatteryLevel(ent)));
+                indexedLoads.Add(ent, new PowerMonitoringConsoleEntry(GetNetEntity(ent), entDevice.Group, battery.CurrentReceiving, GetBatteryLevel(ent)));
             }
         }
 
@@ -850,7 +830,7 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
 
     private void UpdateCollectionChildMetaData(EntityUid child, EntityUid master)
     {
-        var netEntity = EntityManager.GetNetEntity(child);
+        var netEntity = GetNetEntity(child);
         var xform = Transform(child);
 
         var query = AllEntityQuery<PowerMonitoringConsoleComponent, TransformComponent>();
@@ -862,7 +842,7 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
             if (!entConsole.PowerMonitoringDeviceMetaData.TryGetValue(netEntity, out var metaData))
                 continue;
 
-            metaData.CollectionMaster = EntityManager.GetNetEntity(master);
+            metaData.CollectionMaster = GetNetEntity(master);
             entConsole.PowerMonitoringDeviceMetaData[netEntity] = metaData;
 
             Dirty(ent, entConsole);
@@ -871,7 +851,7 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
 
     private void UpdateCollectionMasterMetaData(EntityUid master, int childCount)
     {
-        var netEntity = EntityManager.GetNetEntity(master);
+        var netEntity = GetNetEntity(master);
         var xform = Transform(master);
 
         var query = AllEntityQuery<PowerMonitoringConsoleComponent, TransformComponent>();
@@ -979,9 +959,9 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
             if (grid != entXform.GridUid)
                 continue;
 
-            var netEntity = EntityManager.GetNetEntity(ent);
+            var netEntity = GetNetEntity(ent);
             var name = MetaData(ent).EntityName;
-            var netCoords = EntityManager.GetNetCoordinates(entXform.Coordinates);
+            var netCoords = GetNetCoordinates(entXform.Coordinates);
 
             var metaData = new PowerMonitoringDeviceMetaData(name, netCoords, entDevice.Group, entDevice.SpritePath, entDevice.SpriteState);
 
@@ -989,7 +969,7 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
             {
                 if (!entDevice.IsCollectionMaster)
                 {
-                    metaData.CollectionMaster = EntityManager.GetNetEntity(entDevice.CollectionMaster);
+                    metaData.CollectionMaster = GetNetEntity(entDevice.CollectionMaster);
                 }
 
                 else if (entDevice.ChildDevices.Count > 0)

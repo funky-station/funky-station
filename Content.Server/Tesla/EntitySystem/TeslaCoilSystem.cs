@@ -7,6 +7,7 @@ using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Tesla.Components;
 using Content.Server.Lightning;
+using Content.Shared.Power.Components;
 
 namespace Content.Server.Tesla.EntitySystems;
 

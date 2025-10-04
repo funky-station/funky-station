@@ -1,48 +1,17 @@
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Sailor <109166122+Equivocateur@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Server.Emp;
+using System.Diagnostics.CodeAnalysis;
+using Content.Server.Kitchen.Components;
 using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
+using Content.Shared.Popups;
+using Content.Shared.Power;
+using Content.Shared.Power.Components;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Rounding;
+using Content.Shared.UserInterface;
 using Robust.Shared.Containers;
-using System.Diagnostics.CodeAnalysis;
-using Content.Server.Kitchen.Components;
-using Content.Server.Power.EntitySystems;
-using Content.Server.UserInterface;
-using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Popups;
-using ActivatableUISystem = Content.Shared.UserInterface.ActivatableUISystem;
 
 namespace Content.Server.PowerCell;
 
@@ -65,7 +34,6 @@ public sealed partial class PowerCellSystem : SharedPowerCellSystem
 
         SubscribeLocalEvent<PowerCellComponent, ChargeChangedEvent>(OnChargeChanged);
         SubscribeLocalEvent<PowerCellComponent, ExaminedEvent>(OnCellExamined);
-        SubscribeLocalEvent<PowerCellComponent, EmpAttemptEvent>(OnCellEmpAttempt);
 
         SubscribeLocalEvent<PowerCellDrawComponent, ChargeChangedEvent>(OnDrawChargeChanged);
         SubscribeLocalEvent<PowerCellDrawComponent, PowerCellChangedEvent>(OnDrawCellChanged);
@@ -73,6 +41,9 @@ public sealed partial class PowerCellSystem : SharedPowerCellSystem
         SubscribeLocalEvent<PowerCellSlotComponent, ExaminedEvent>(OnCellSlotExamined);
         // funny
         SubscribeLocalEvent<PowerCellSlotComponent, BeingMicrowavedEvent>(OnSlotMicrowaved);
+
+        SubscribeLocalEvent<PowerCellSlotComponent, GetChargeEvent>(OnGetCharge);
+        SubscribeLocalEvent<PowerCellSlotComponent, ChangeChargeEvent>(OnChangeCharge);
     }
 
     private void OnSlotMicrowaved(EntityUid uid, PowerCellSlotComponent component, BeingMicrowavedEvent args)
@@ -249,18 +220,10 @@ public sealed partial class PowerCellSystem : SharedPowerCellSystem
         OnBatteryExamined(uid, battery, args);
     }
 
-    private void OnCellEmpAttempt(EntityUid uid, PowerCellComponent component, EmpAttemptEvent args)
-    {
-        var parent = Transform(uid).ParentUid;
-        // relay the attempt event to the slot so it can cancel it
-        if (HasComp<PowerCellSlotComponent>(parent))
-            RaiseLocalEvent(parent, args);
-    }
-
     private void OnCellSlotExamined(EntityUid uid, PowerCellSlotComponent component, ExaminedEvent args)
     {
-        TryGetBatteryFromSlot(uid, out var batteryEnt, out var battery); // Goobstation
-        OnBatteryExamined(batteryEnt.GetValueOrDefault(uid), battery, args); // Goobstation
+        TryGetBatteryFromSlot(uid, out var battery);
+        OnBatteryExamined(uid, battery, args);
     }
 
     private void OnBatteryExamined(EntityUid uid, BatteryComponent? component, ExaminedEvent args)
@@ -274,5 +237,21 @@ public sealed partial class PowerCellSystem : SharedPowerCellSystem
         {
             args.PushMarkup(Loc.GetString("power-cell-component-examine-details-no-battery"));
         }
+    }
+
+    private void OnGetCharge(Entity<PowerCellSlotComponent> entity, ref GetChargeEvent args)
+    {
+        if (!TryGetBatteryFromSlot(entity, out var batteryUid, out _))
+            return;
+
+        RaiseLocalEvent(batteryUid.Value, ref args);
+    }
+
+    private void OnChangeCharge(Entity<PowerCellSlotComponent> entity, ref ChangeChargeEvent args)
+    {
+        if (!TryGetBatteryFromSlot(entity, out var batteryUid, out _))
+            return;
+
+        RaiseLocalEvent(batteryUid.Value, ref args);
     }
 }

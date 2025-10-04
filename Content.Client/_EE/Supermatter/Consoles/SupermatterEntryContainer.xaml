@@ -239,7 +239,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
                         HorizontalAlignment="Left"
                         HorizontalExpand="True"
                         Name="MolesLabel"
-                        Text="{Loc 'supermatter-console-window-label-power'}" />
+                        Text="{Loc 'supermatter-console-window-label-moles'}" />
                     <BoxContainer
                         Orientation="Horizontal"
                         SetHeight="24"

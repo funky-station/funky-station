@@ -84,7 +84,7 @@
   icon:
     sprite: Objects/Consumable/Drinks/cola.rsi
     state: icon
-  product: CrateFoodSoftdrinks
+  product: BoxFoodSoftdrinks
   cost: 3500
   category: cargoproduct-category-name-food
   group: market
@@ -114,7 +114,7 @@
   icon:
     sprite: Objects/Consumable/Food/burger.rsi
     state: bigbite
-  product: CrateFoodHappyHonkBigBite
+  product: BoxFoodHappyHonkBigBite
   cost: 1000
   category: cargoproduct-category-name-food
   group: market

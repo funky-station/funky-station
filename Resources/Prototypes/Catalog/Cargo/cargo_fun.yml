@@ -97,7 +97,7 @@
   icon:
     sprite: Objects/Fun/crayons.rsi
     state: box
-  product: CrateFunArtSupplies
+  product: BoxFunArtSupplies #Funky Edit
   cost: 500
   category: cargoproduct-category-name-fun
   group: market
@@ -147,17 +147,17 @@
   icon:
     sprite: Objects/Fun/toys.rsi
     state: plushie_lizard
-  product: CrateFunLizardPlushieBulk
+  product: BoxFunLizardPlushieBulk #Funky Edit
   cost: 500
   category: cargoproduct-category-name-fun
   group: market
-  
+
 - type: cargoProduct
   id: FunSharkPlushies
   icon:
     sprite: Objects/Fun/sharkplush.rsi
     state: blue
-  product: CrateFunSharkPlushieBulk
+  product: BoxFunSharkPlushieBulk #Funky Edit
   cost: 500
   category: cargoproduct-category-name-fun
   group: market
@@ -197,7 +197,7 @@
   icon:
     sprite: Clothing/Hands/Gloves/Boxing/boxingred.rsi
     state: icon
-  product: CrateFunBoxing
+  product: BoxFunBoxing
   cost: 500
   category: cargoproduct-category-name-fun
   group: market

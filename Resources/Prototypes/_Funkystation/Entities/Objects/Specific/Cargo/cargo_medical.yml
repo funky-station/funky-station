@@ -1,0 +1,10 @@
+- type: entity
+  id: BoxEmergencyMedipens
+  parent: CardboardBoxLarge
+  name: emergency medipens box
+  description: Box that contains six emergency medipens
+  components:
+  - type: StorageFill
+    contents:
+    - id: EmergencyMedipen
+      amount: 6

@@ -17,7 +17,7 @@
   icon:
     sprite: Objects/Specific/Medical/medipen.rsi
     state: medipen
-  product: CrateEmergencyMedipens
+  product: BoxEmergencyMedipens
   cost: 2500
   category: cargoproduct-category-name-medical
   group: market
@@ -30,7 +30,7 @@
   product: CrateMedicalEquipment
   cost: 2500
   category: cargoproduct-category-name-medical
-  group: market    
+  group: market
 
 - type: cargoProduct
   id: MedicalParamedSuit
@@ -40,7 +40,7 @@
   product: CrateMedicalParamedSuit
   cost: 6500
   category: cargoproduct-category-name-medical
-  group: market      
+  group: market
 
 - type: cargoProduct
   id: MedicalBiomass
@@ -50,4 +50,4 @@
   product: CrateMedicalBiomass
   cost: 3000
   category: cargoproduct-category-name-medical
-  group: market    
+  group: market

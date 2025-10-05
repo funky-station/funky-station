@@ -56,6 +56,15 @@
       blacklist:
         tags:
         - Book
+  - type: Dumpable
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 100
+  - type: Construction
+    graph: CardboardboxLargeGraph
+    node: cardboardboxlargenode
+    containers:
+    - entity_storage
   - type: Tag
     tags:
     - CardboardboxLarge

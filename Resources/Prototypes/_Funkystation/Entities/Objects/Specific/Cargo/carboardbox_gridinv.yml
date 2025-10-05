@@ -59,7 +59,7 @@
   - type: Dumpable
   - type: PhysicalComposition
     materialComposition:
-      Cardboard: 100
+      Cardboard: 200 #Loses 2 cardboard per recycle
   - type: Construction
     graph: CardboardboxLargeGraph
     node: cardboardboxlargenode

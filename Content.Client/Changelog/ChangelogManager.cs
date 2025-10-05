@@ -12,6 +12,7 @@
 // SPDX-License-Identifier: MIT
 
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Content.Shared.CCVar;
 using Robust.Shared;

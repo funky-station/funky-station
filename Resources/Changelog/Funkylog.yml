@@ -4786,3 +4786,11 @@ Entries:
       message: Fixed erroneous label on the supermatter console
   id: 574
   time: '2025-10-06T05:06:45.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Tweak
+      message: >-
+        HEV suit protects from rads better, being nearly on par with the rad
+        suit.
+  id: 575
+  time: '2025-10-06T05:09:44.0000000+00:00'

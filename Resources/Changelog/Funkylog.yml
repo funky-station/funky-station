@@ -4816,3 +4816,9 @@ Entries:
         three.
   id: 577
   time: '2025-10-06T05:14:29.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Tweak
+      message: Syndicate comms computers can no longer change the alert level.
+  id: 578
+  time: '2025-10-06T05:15:40.0000000+00:00'

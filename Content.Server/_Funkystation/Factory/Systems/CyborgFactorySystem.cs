@@ -51,6 +51,13 @@ public sealed class CyborgFactorySystem : EntitySystem
     {
         var entity = args.Entity;
 
+        // Don't process crew if unanchored
+        if (!Transform(factoryUid).Anchored)
+        {
+            args.Handled = true;
+            return;
+        }
+
         // Capture prior name (if any) before gibbing
         string? priorName = null;
         if (TryComp<MetaDataComponent>(entity, out var meta))

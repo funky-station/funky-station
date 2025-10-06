@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ZarathushtraSpitama <bloodcunt@protonmail.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -30,6 +31,8 @@
   groups:
   - SecurityGlasses
   - InternalAffairsAgentJumpsuit
+  - InternalAffairsAgentOuterClothing
+  - InternalAffairsAgentGloves
   - InternalAffairsAgentBackpack
   - InternalAffairsAgentBelt
   - Survival

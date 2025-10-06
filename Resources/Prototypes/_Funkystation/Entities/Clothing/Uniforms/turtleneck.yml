@@ -1,0 +1,39 @@
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+#SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+# IAA Turtleneck
+- type: entity
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformJumpsuitIAATurtleneckBlack
+  name: black internal affairs agent turtleneck
+  description: An imposing turtleneck and suit worn only by the most loyal little agents. Now in an intimidating black.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/iaaturtleneckblack.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/iaaturtleneckblack.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformJumpsuitIAATurtleneckRed
+  name: red internal affairs agent turtleneck
+  description: An imposing turtleneck and suit worn only by the most loyal little agents. Now in a confusing red.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/iaaturtleneckred.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/iaaturtleneckred.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCentcommContraband]
+  id: ClothingUniformJumpsuitIAATurtleneckBlue
+  name: blue internal affairs agent turtleneck
+  description: An imposing turtleneck and suit worn only by the most loyal little agents. Now in a reassuring blue.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/iaaturtleneckblue.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Jumpsuit/iaaturtleneckblue.rsi

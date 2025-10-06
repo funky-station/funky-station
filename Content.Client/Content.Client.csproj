@@ -72,4 +72,9 @@ SPDX-License-Identifier: MIT
     <None Remove="_Funkystation\Prototypes\funkystation\malfAI\malf_ai_storeentries.yml" />
     <None Remove="Resources\Prototypes\Store\malf_ai.yml" />
   </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Update="_Goobstation\Heretic\UI\GhoulNotifMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AdditionalFiles>
+  </ItemGroup>
 </Project>

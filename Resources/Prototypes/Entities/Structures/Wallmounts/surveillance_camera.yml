@@ -58,6 +58,9 @@
     enabled: false
     usesApcPower: true
   - type: WallMount
+  - type: Tag # Funky edit
+    tags:
+    - WallMount
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: Eye

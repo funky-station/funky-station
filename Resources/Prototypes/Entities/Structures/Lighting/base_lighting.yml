@@ -105,6 +105,9 @@
     cost: 4
     delay: 2
     fx: EffectRCDDeconstruct2
+  - type: Tag # Funky edit
+    tags:
+    - WallMount
   - type: Physics
     bodyType: Static
   - type: Fixtures

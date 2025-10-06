@@ -1550,6 +1550,9 @@
 - type: Tag
   id: WallmountSubstationElectronics
 
+- type: Tag # Funky edit
+  id: WallMount
+
 - type: Tag
   id: WeaponAntiqueLaser
 

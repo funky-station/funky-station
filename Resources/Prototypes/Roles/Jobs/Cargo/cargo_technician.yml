@@ -56,7 +56,6 @@
     holiday: BoxingDay
     prototype: BoxCardboard
 
-# Removed PDA for Funky!
 - type: startingGear
   id: CargoTechGear
   equipment:

@@ -4822,3 +4822,9 @@ Entries:
       message: Syndicate comms computers can no longer change the alert level.
   id: 578
   time: '2025-10-06T05:15:40.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: Cargo Techs no longer spawn with two PDAs
+  id: 579
+  time: '2025-10-06T17:12:57.0000000+00:00'

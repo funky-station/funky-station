@@ -56,10 +56,10 @@
     holiday: BoxingDay
     prototype: BoxCardboard
 
+# Removed PDA for Funky!
 - type: startingGear
   id: CargoTechGear
   equipment:
-    id: CargoPDA
     ears: ClothingHeadsetCargo
     pocket1: AppraisalTool
   #storage:

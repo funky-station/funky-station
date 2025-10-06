@@ -46,7 +46,7 @@ public sealed partial class PinpointerComponent : Component
     /// <summary>
     ///     Name to display of the target being tracked.
     /// </summary>
-    [DataField("targetName"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("targetName"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField] // Funky, AutoNetworkedField for custom naming
     public string? TargetName;
 
     /// <summary>

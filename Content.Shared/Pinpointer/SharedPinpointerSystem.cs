@@ -71,6 +71,26 @@ public abstract class SharedPinpointerSystem : EntitySystem
     }
 
     /// <summary>
+    ///     Set pinpointers target to track with a custom target name
+    ///     funky addition
+    /// </summary>
+    public virtual void SetTargetWithCustomName(EntityUid uid, EntityUid? target, string? targetName, PinpointerComponent? pinpointer = null)
+    {
+        if (!Resolve(uid, ref pinpointer))
+            return;
+
+        if (pinpointer.Target == target && pinpointer.TargetName == targetName)
+            return;
+
+        pinpointer.Target = target;
+        pinpointer.TargetName = targetName;
+        Dirty(uid, pinpointer);
+        if (pinpointer.IsActive)
+            UpdateDirectionToTarget(uid, pinpointer);
+    }
+
+
+    /// <summary>
     ///     Update direction from pinpointer to selected target (if it was set)
     /// </summary>
     protected virtual void UpdateDirectionToTarget(EntityUid uid, PinpointerComponent? pinpointer = null)

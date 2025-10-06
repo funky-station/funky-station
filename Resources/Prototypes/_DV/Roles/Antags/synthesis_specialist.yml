@@ -22,9 +22,7 @@
     back: ClothingBackpackChemistry
     belt: ChemBag
     eyes: ClothingEyesGlassesChemical
-    gloves: ClothingHandsGlovesChemist
     outerClothing: ClothingOuterCoatLabChem
-    shoes: ClothingShoesEnclosedChem
     id: SyndiPDA
     ears: ClothingHeadsetAltSyndicate
     pocket1: HandLabeler

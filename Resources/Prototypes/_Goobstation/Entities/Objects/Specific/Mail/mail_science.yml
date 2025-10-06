@@ -7,7 +7,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: BaseMailRadioactive
+  parent: BaseMailSmall
   id: MailScienceRareMaterials
   suffix: Rare materials
   components:

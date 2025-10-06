@@ -4698,3 +4698,127 @@ Entries:
       message: The detective now has a magnum speedloader that comes in their locker.
   id: 562
   time: '2025-09-21T07:22:19.0000000+00:00'
+- author: Chedd-Error
+  changes:
+    - type: Tweak
+      message: Added the base mime and clown masks to the autodrobe.
+  id: 563
+  time: '2025-09-27T05:53:18.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: Added Eden map to be playtested
+  id: 564
+  time: '2025-09-28T02:42:01.0000000+00:00'
+- author: ArionGekkota
+  changes:
+    - type: Add
+      message: Lawyers now start with service headsets.
+    - type: Remove
+      message: Lawyers no longer start with security headsets.
+  id: 565
+  time: '2025-09-28T20:33:40.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New winter coat for NTR!
+    - type: Tweak
+      message: Adjusted NTR's loadout to allow for the selection of gloves
+  id: 566
+  time: '2025-09-28T21:58:24.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Tweak
+      message: Fixed NTR's loadout not allowing you to refuse the coat and gloves
+  id: 567
+  time: '2025-10-01T11:10:37.0000000+00:00'
+- author: Spanky
+  changes:
+    - type: Add
+      message: Computers now emit ambient sounds.
+  id: 568
+  time: '2025-10-01T20:02:03.0000000+00:00'
+- author: AraiMaia
+  changes: []
+  id: 569
+  time: '2025-10-01T20:13:03.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: Three new jumpsuits and winter coat for experienced IAAs
+    - type: Tweak
+      message: >-
+        Internal Affairs Agents can now pick a pair of black or red gloves for
+        their loadouts.
+  id: 570
+  time: '2025-10-02T04:01:19.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Material Silos to Box
+    - type: Add
+      message: Material Silos to Amber
+    - type: Add
+      message: Science Communications console to Amber
+    - type: Tweak
+      message: Adjusted decals on Box to make areas blend in
+    - type: Tweak
+      message: Adjusted decals on Amber to make areas blend in
+    - type: Remove
+      message: Removed Fland and Barratry from rotation.
+  id: 571
+  time: '2025-10-03T17:48:36.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added an orderable mailcart to the cargo catalogue
+  id: 572
+  time: '2025-10-04T19:46:43.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New stamp icons by Stabithar
+  id: 573
+  time: '2025-10-04T19:47:41.0000000+00:00'
+- author: selvamoonbell
+  changes:
+    - type: Fix
+      message: Fixed erroneous label on the supermatter console
+  id: 574
+  time: '2025-10-06T05:06:45.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Tweak
+      message: >-
+        HEV suit protects from rads better, being nearly on par with the rad
+        suit.
+  id: 575
+  time: '2025-10-06T05:09:44.0000000+00:00'
+- author: ATDoop, ported by zergologist
+  changes:
+    - type: Tweak
+      message: >-
+        Thaven head items now use offsets instead of displacements, which should
+        make hats and mask look a little nicer on them!
+  id: 576
+  time: '2025-10-06T05:11:44.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: >-
+        Ported from Frontier: A total of 14 distinct customization options for
+        the head slot to human-headed species, vulpkanins, reptilians, and,
+        Funky specific, Thavens. Includes base white facepaint, five options
+        each for clown and mime, lipstick, eyebrows, and blush.
+    - type: Tweak
+      message: >-
+        Changed the total number of Vulpkanin head marking slots from one to
+        three.
+  id: 577
+  time: '2025-10-06T05:14:29.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Tweak
+      message: Syndicate comms computers can no longer change the alert level.
+  id: 578
+  time: '2025-10-06T05:15:40.0000000+00:00'

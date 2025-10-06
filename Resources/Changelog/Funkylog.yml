@@ -4802,3 +4802,17 @@ Entries:
         make hats and mask look a little nicer on them!
   id: 576
   time: '2025-10-06T05:11:44.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: >-
+        Ported from Frontier: A total of 14 distinct customization options for
+        the head slot to human-headed species, vulpkanins, reptilians, and,
+        Funky specific, Thavens. Includes base white facepaint, five options
+        each for clown and mime, lipstick, eyebrows, and blush.
+    - type: Tweak
+      message: >-
+        Changed the total number of Vulpkanin head marking slots from one to
+        three.
+  id: 577
+  time: '2025-10-06T05:14:29.0000000+00:00'

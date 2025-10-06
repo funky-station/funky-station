@@ -4794,3 +4794,11 @@ Entries:
         suit.
   id: 575
   time: '2025-10-06T05:09:44.0000000+00:00'
+- author: ATDoop, ported by zergologist
+  changes:
+    - type: Tweak
+      message: >-
+        Thaven head items now use offsets instead of displacements, which should
+        make hats and mask look a little nicer on them!
+  id: 576
+  time: '2025-10-06T05:11:44.0000000+00:00'

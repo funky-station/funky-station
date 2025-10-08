@@ -78,10 +78,6 @@
     {
       "name": "tail_docked",
       "directions": 4
-    },
-    {
-      "name": "tail_split",
-      "directions": 4
     }
   ]
 }

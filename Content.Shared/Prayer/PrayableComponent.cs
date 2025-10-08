@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Pile of Oxides <pileofoxides@posteo.de>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -22,6 +23,13 @@ public sealed partial class PrayableComponent : Component
     [DataField("bibleUserOnly")]
     [ViewVariables(VVAccess.ReadWrite)]
     public bool BibleUserOnly;
+
+    /// <summary>
+    /// If Atheists are allowed to use this prayable entity
+    /// </summary>
+    [DataField("usableByAtheists")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool UsableByAtheists;
 
     /// <summary>
     /// Message given to user to notify them a message was sent

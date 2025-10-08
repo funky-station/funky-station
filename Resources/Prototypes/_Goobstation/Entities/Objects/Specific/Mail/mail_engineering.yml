@@ -1,13 +1,14 @@
 # SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: BaseMailLarge
-  id: MailPowerTool 
+  parent: BaseMailSmall
+  id: MailPowerTool
   suffix: power tool
   components:
   - type: Mail
@@ -32,7 +33,7 @@
       prob: 0.04
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailSmall
   id: MailCircuitboardService
   suffix: Service Circuitboard
   components:
@@ -73,7 +74,7 @@
       prob: 0.1
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailSmall
   id: MailCircuitboardIndustrial
   suffix: Industrial Circuitboard
   components:
@@ -138,7 +139,7 @@
       prob: 0.1
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMail
   id: MailEngineeringCables
   suffix: cables
   components:
@@ -152,7 +153,7 @@
       orGroup: Cables
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailLargeFlat
   id: MailEngineeringMaterials
   suffix: sheetglass
   components:

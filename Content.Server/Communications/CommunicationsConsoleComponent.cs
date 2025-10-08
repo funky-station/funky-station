@@ -25,6 +25,7 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Justin Pfeifler <jrpl101998@gmail.com>
 // SPDX-FileCopyrightText: 2024 avery <51971268+graevy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -86,6 +87,13 @@ namespace Content.Server.Communications
         [ViewVariables]
         [DataField]
         public bool CanShuttle = true;
+
+        /// <summary>
+        /// FUNKY - Can set alert levels
+        /// </summary>
+        [ViewVariables]
+        [DataField]
+        public bool CanAlert = true;
 
         /// <summary>
         /// Announce on all grids (for nukies)

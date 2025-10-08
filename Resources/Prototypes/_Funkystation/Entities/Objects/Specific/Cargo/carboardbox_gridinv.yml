@@ -1,0 +1,74 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: BaseItem
+  id: CardboardBoxLarge
+  name: Large Cardboard Box
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: _Funkystation/Objects/Specific/Cargo/cardboard_box.rsi
+    layers:
+    - state: bigbox
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      map: [ "enum.PaperLabelVisuals.Layer" ]
+      offset: -0.1, 0.2
+  - type: GenericVisualizer
+    visuals:
+      enum.PaperLabelVisuals.HasLabel:
+        enum.PaperLabelVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PaperLabelVisuals.LabelType:
+        enum.PaperLabelVisuals.Layer:
+          Paper: { state: paper }
+          Bounty: { state: bounty }
+          CaptainsPaper: { state: captains_paper }
+          Invoice: { state: invoice }
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,7,4
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+      paper_label: !type:ContainerSlot
+  # to prevent bag open/honk spam
+  - type: UseDelay
+    delay: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: MultiHandedItem
+  - type: InteractionOutline
+  - type: Appearance
+  - type: ItemSlots
+  - type: PaperLabel
+    labelSlot:
+      insertVerbText: comp-paper-label-insert
+      ejectVerbText: comp-paper-label-eject
+      whitelist:
+        components:
+        - Paper
+      blacklist:
+        tags:
+        - Book
+  - type: Dumpable
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 200 #Loses 2 cardboard per recycle
+  - type: Construction
+    graph: CardboardboxLargeGraph
+    node: cardboardboxlargenode
+    containers:
+    - entity_storage
+  - type: Tag
+    tags:
+    - CardboardboxLarge

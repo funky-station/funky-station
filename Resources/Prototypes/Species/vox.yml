@@ -72,8 +72,8 @@
       required: false
     Snout:
       points: 1
-      required: false #imp
-      #defaultMarkings: [ VoxBeak ]
+      required: true #so they dont start beakless
+      defaultMarkings: [ VoxBeakColor ]
     Arms:
       points: 6
       required: false #imp

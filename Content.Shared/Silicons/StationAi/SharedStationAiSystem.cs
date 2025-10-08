@@ -350,6 +350,20 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
         QueueDel(ent.Comp.RemoteEntity);
         ent.Comp.RemoteEntity = null;
+
+        //Funky edit, Handle AI brain destruction when core is destroyed
+        if (_containers.TryGetContainer(ent.Owner, StationAiCoreComponent.Container, out var container))
+        {
+            foreach (var containedEntity in container.ContainedEntities)
+            {
+                if (HasComp<StationAiHeldComponent>(containedEntity))
+                {
+                    // The AI brain's parent core is being destroyed, so destroy the AI brain too
+                    QueueDel(containedEntity);
+                }
+            }
+        }
+        // End funky edit
     }
 
     private void OnCorePower(Entity<StationAiCoreComponent> ent, ref PowerChangedEvent args)

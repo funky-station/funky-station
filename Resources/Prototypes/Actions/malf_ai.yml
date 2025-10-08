@@ -64,18 +64,6 @@
       state: malfai_bg_borgs
     event: !type:OpenMalfAiBorgsUiActionEvent
 
-- type: entity
-  id: ActionMalfAiToggleCameraUpgrade
-  name: malfai-camera-upgrade-name
-  description: malfai-camera-upgrade-desc
-  components:
-  - type: InstantAction
-    itemIconStyle: BigAction
-    priority: -5
-    icon:
-      sprite: Interface/Actions/actions_malf_ai.rsi
-      state: malfai_bg_cameraupgrade
-    event: !type:MalfAiToggleCameraUpgradeActionEvent
 
 # New: Doomsday Protocol (AI-only)
 - type: entity
@@ -201,19 +189,6 @@
       state: malfai_bg_overridemachine
     event: !type:MalfAiOverrideMachineActionEvent
 
-# Toggle Camera Microphones action
-- type: entity
-  id: ActionMalfAiToggleCameraMicrophones
-  name: malfai-toggle-camera-microphones-name
-  description: malfai-toggle-camera-microphones-desc
-  components:
-  - type: InstantAction
-    itemIconStyle: BigAction
-    priority: -5
-    icon:
-      sprite: Interface/Actions/actions_malf_ai.rsi
-      state: malfai_bg_cameramic
-    event: !type:MalfAiToggleCameraMicrophonesActionEvent
 
 # Detonate RCDs action
 - type: entity

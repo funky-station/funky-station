@@ -6,14 +6,6 @@ using Robust.Shared.Serialization;
 namespace Content.Server.MalfAI;
 
 /// <summary>
-/// Event raised when the AI purchases syndicate keys
-/// </summary>
-[Serializable, DataDefinition]
-public sealed partial class MalfAiSyndicateKeysUnlockedEvent : EntityEventArgs
-{
-}
-
-/// <summary>
 /// System that handles granting syndicate radio communications to malfunction AI
 /// </summary>
 public sealed class MalfAiSyndicateCommsSystem : EntitySystem

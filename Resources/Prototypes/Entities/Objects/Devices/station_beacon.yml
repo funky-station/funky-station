@@ -265,7 +265,7 @@
 - type: entity
   parent: DefaultStationBeaconSecurity
   id: DefaultStationBeaconSecurityCheckpoint
-  suffix: Sec Checkpoint
+  suffix: Security Checkpoint #funky - I'm a bitch and "Sec" breaks my immersion
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-security-checkpoint

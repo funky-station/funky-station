@@ -1,0 +1,14 @@
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobUraniumCrab
+  name: Ore Crab Spawner
+  suffix: Uranium
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: uranium_crab
+      sprite: Mobs/Elemental/orecrab.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobUraniumCrab

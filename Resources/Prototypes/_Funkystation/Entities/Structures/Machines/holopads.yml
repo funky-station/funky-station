@@ -1,0 +1,31 @@
+- type: entity
+  parent: Holopad
+  id: HolopadNTRep
+  suffix: Nanotrasen Representative
+  components:
+  - type: Label
+    currentLabel: holopad-general-ntrep
+
+- type: entity
+  parent: Holopad
+  id: HolopadInternalAffairs
+  suffix: Internal Affairs
+  components:
+  - type: Label
+    currentLabel: holopad-general-ia
+
+- type: entity
+  parent: Holopad
+  id: HolopadMagistrate
+  suffix: Magistrate
+  components:
+  - type: Label
+    currentLabel: holopad-general-magi
+
+- type: entity
+  parent: Holopad
+  id: HolopadServiceGeneral #how was this not a thing already
+  suffix: Service General
+  components:
+  - type: Label
+    currentLabel: holopad-general-service

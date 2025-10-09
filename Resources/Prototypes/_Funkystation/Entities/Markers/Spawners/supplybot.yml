@@ -1,0 +1,13 @@
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobSupplyBot
+  name: Supplybot Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: supplybot
+      sprite: Mobs/Silicon/Bots/supplybot.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobSupplyBot

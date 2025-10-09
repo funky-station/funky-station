@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/08/2025 05:11:50
+  time: 10/09/2025 01:15:55
   entityCount: 20387
 maps:
 - 1
@@ -13645,7 +13645,7 @@ entities:
       pos: -10.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -124735.29
+      secondsUntilStateChange: -125024.71
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13822,7 +13822,7 @@ entities:
       pos: -7.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -304278.6
+      secondsUntilStateChange: -304568.03
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14348,7 +14348,7 @@ entities:
       pos: -27.5,10.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -482681.53
+      secondsUntilStateChange: -482970.97
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -54480,39 +54480,34 @@ entities:
     - type: Transform
       pos: -11.432068,21.774883
       parent: 2
-- proto: CryogenicSleepUnitSpawner
+- proto: CryogenicSleepUnit
   entities:
+  - uid: 12024
+    components:
+    - type: Transform
+      pos: 25.5,-17.5
+      parent: 2
+  - uid: 12038
+    components:
+    - type: Transform
+      pos: 27.5,-17.5
+      parent: 2
+- proto: CryogenicSleepUnitSpawnerLateJoin
+  entities:
+  - uid: 6330
+    components:
+    - type: Transform
+      pos: 25.5,-19.5
+      parent: 2
   - uid: 10935
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 27.5,-19.5
       parent: 2
   - uid: 11888
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 25.5,-19.5
-      parent: 2
-- proto: CryogenicSleepUnitSpawnerLateJoin
-  entities:
-  - uid: 12024
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
       pos: 26.5,-19.5
-      parent: 2
-  - uid: 12038
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 27.5,-17.5
-      parent: 2
-  - uid: 12039
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 25.5,-17.5
       parent: 2
 - proto: CryoPod
   entities:
@@ -104661,6 +104656,11 @@ entities:
     - type: Transform
       pos: 10.5,-33.5
       parent: 2
+  - uid: 12039
+    components:
+    - type: Transform
+      pos: 20.5,0.5
+      parent: 2
 - proto: VendingMachineChapel
   entities:
   - uid: 4
@@ -104926,13 +104926,6 @@ entities:
     components:
     - type: Transform
       pos: -39.5,-12.5
-      parent: 2
-- proto: VendingMachineSmite
-  entities:
-  - uid: 6330
-    components:
-    - type: Transform
-      pos: 20.5,0.5
       parent: 2
 - proto: VendingMachineSnackGreen
   entities:

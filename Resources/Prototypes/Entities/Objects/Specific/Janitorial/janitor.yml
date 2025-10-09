@@ -322,10 +322,61 @@
   - type: Plunger
 
 - type: entity
+  name: bronze plunger
+  id: BronzePlunger
+  parent: Plunger
+  description: A bronze plunger awarded for a Janitor's service within Nanotrasen. It's a very common plunger, and is typically the first a janitor would be awarded from Nanotrasen. Still used to unclog drains.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Janitorial/bronze_plunger.rsi
+    state: plunger
+  - type: Item
+    sprite: Objects/Specific/Janitorial/bronze_plunger.rsi
+    heldPrefix: plunger
+  - type: Clothing
+    sprite: Objects/Specific/Janitorial/bronze_plunger.rsi
+    slots:
+      - HEAD
+    clothingVisuals:
+      head:
+        - state: equipped-HELMET
+          offset: "0, 0.15625"
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 50
+      Wood: 25
+
+- type: entity
+  name: silver plunger
+  id: SilverPlunger
+  parent: Plunger
+  description: A silver plunger awarded for a janitor's service within Nanotrasen. It is a somewhat common plunger which signifies the amount of time a janitor has spent with Nanotrasen. Still used to unclog drains.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Janitorial/silver_plunger.rsi
+    state: plunger
+  - type: Item
+    sprite: Objects/Specific/Janitorial/silver_plunger.rsi
+    heldPrefix: plunger
+  - type: Clothing
+    sprite: Objects/Specific/Janitorial/silver_plunger.rsi
+    slots:
+      - HEAD
+    clothingVisuals:
+      head:
+        - state: equipped-HELMET
+          offset: "0, 0.15625"
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 50
+      Silver: 10
+      Wood: 25
+
+- type: entity
   name: golden plunger
   id: GoldenPlunger
   parent: Plunger
-  description: A plunger with a plastic suction cup coated in a thin layer of gold given as a token of appreciation for years of service. Still used to unclog drains.
+  description: A prestigious golden plunger awarded for a janitor's service within Nanotrasen. It signifies the amount of time a Janitor has spent with Nanotrasen. Still used to unclog drains.
   components:
   - type: Sprite
     sprite: Objects/Specific/Janitorial/golden_plunger.rsi
@@ -350,6 +401,156 @@
       Plastic: 50
       Gold: 10
       Wood: 25
+
+- type: entity
+  name: platinum plunger
+  id: PlatinumPlunger
+  parent: Plunger
+  description: An esteemed platinum plunger awarded for a janitor's service within Nanotrasen. It signifies the sheer amount of time a janitor has spent with Nanotrasen. Still used to unclog drains.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Janitorial/platinum_plunger.rsi
+    state: plunger
+  - type: Item
+    sprite: Objects/Specific/Janitorial/platinum_plunger.rsi
+    heldPrefix: plunger
+  - type: Clothing
+    sprite: Objects/Specific/Janitorial/platinum_plunger.rsi
+    slots:
+      - HEAD
+    clothingVisuals:
+      head:
+        - state: equipped-HELMET
+          offset: "0, 0.15625"
+  - type: PointLight
+    radius: 1.5
+    energy: 0.75
+    color: "#ACACAC"
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 50
+      Wood: 25
+      Metal: 10
+
+- type: entity
+  name: ruby plunger
+  id: RubyPlunger
+  parent: Plunger
+  description: An Exalted ruby plunger awarded for a janitor's service within Nanotrasen; such plungers are hand-given by Nanotrasen Officials directly to a Janitor. It signifies the excessive amount of time a janitor has spent with Nanotrasen. Still used to unclog drains.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Janitorial/ruby_plunger.rsi
+    state: plunger
+  - type: Item
+    sprite: Objects/Specific/Janitorial/ruby_plunger.rsi
+    heldPrefix: plunger
+  - type: Clothing
+    sprite: Objects/Specific/Janitorial/ruby_plunger.rsi
+    slots:
+      - HEAD
+    clothingVisuals:
+      head:
+        - state: equipped-HELMET
+          offset: "0, 0.15625"
+  - type: PointLight
+    radius: 1.5
+    energy: 0.75
+    color: "#E10000"
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 50
+      Wood: 25
+      Metal: 10
+
+- type: entity
+  name: emerald plunger
+  id: EmeraldPlunger
+  parent: Plunger
+  description: A revered emerald plunger awarded for a janitor's service within Nanotrasen; such medals are hand-given by the Nanotrasen Janitorial Corps directly to a Janitor. It signifies the exorbitant amount of time a janitor has spent with Nanotrasen. Still used to unclog drains.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Janitorial/emerald_plunger.rsi
+    state: plunger
+  - type: Item
+    sprite: Objects/Specific/Janitorial/emerald_plunger.rsi
+    heldPrefix: plunger
+  - type: Clothing
+    sprite: Objects/Specific/Janitorial/emerald_plunger.rsi
+    slots:
+      - HEAD
+    clothingVisuals:
+      head:
+        - state: equipped-HELMET
+          offset: "0, 0.15625"
+  - type: PointLight
+    radius: 1.5
+    energy: 0.75
+    color: "#66CC00"
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 50
+      Wood: 25
+      Metal: 10
+
+- type: entity
+  name: amethyst plunger
+  id: AmethystPlunger
+  parent: Plunger
+  description: A mythical amethyst plunger awarded for a janitor's service within Nanotrasen; such plungers are hand-given by the Nanotrasen Janitorial Corps directly to a janitor. It signifies the unreasonable amount of time a janitor has spent with Nanotrasen. Still used to unclog drains.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Janitorial/amethyst_plunger.rsi
+    state: plunger
+  - type: Item
+    sprite: Objects/Specific/Janitorial/amethyst_plunger.rsi
+    heldPrefix: plunger
+  - type: Clothing
+    sprite: Objects/Specific/Janitorial/amethyst_plunger.rsi
+    slots:
+      - HEAD
+    clothingVisuals:
+      head:
+        - state: equipped-HELMET
+          offset: "0, 0.15625"
+  - type: PointLight
+    radius: 1.5
+    energy: 0.75
+    color: "#DF0FFF"
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 50
+      Wood: 25
+      Metal: 10
+
+- type: entity
+  name: prismatic plunger
+  id: PrismaticPlunger
+  parent: Plunger
+  description: A legendary prismatic plunger awarded for a janitor's service within Nanotrasen; whom this is awarded may be a god walking amongst mere mortals. It signifies the nigh on impossible amount of time a janitor has spent with Nanotrasen. Still used to unclog drains.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Janitorial/prismatic_plunger.rsi
+    state: plunger
+  - type: Item
+    sprite: Objects/Specific/Janitorial/prismatic_plunger.rsi
+    heldPrefix: plunger
+  - type: Clothing
+    sprite: Objects/Specific/Janitorial/prismatic_plunger.rsi
+    slots:
+      - HEAD
+    clothingVisuals:
+      head:
+        - state: equipped-HELMET
+          offset: "0, 0.15625"
+  - type: PointLight
+    radius: 1.75
+    energy: 0.85
+    color: "#B90033"
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 50
+      Wood: 25
+      Metal: 10
 
 - type: weightedRandomEntity
   id: PlungerLoot

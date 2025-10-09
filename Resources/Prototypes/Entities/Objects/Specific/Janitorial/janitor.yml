@@ -436,7 +436,7 @@
   name: ruby plunger
   id: RubyPlunger
   parent: Plunger
-  description: An Exalted ruby plunger awarded for a janitor's service within Nanotrasen; such plungers are hand-given by Nanotrasen Officials directly to a Janitor. It signifies the excessive amount of time a janitor has spent with Nanotrasen. Still used to unclog drains.
+  description: An exalted ruby plunger awarded for a janitor's service within Nanotrasen; such plungers are hand-given by Nanotrasen Officials directly to a Janitor. It signifies the excessive amount of time a janitor has spent with Nanotrasen. Still used to unclog drains.
   components:
   - type: Sprite
     sprite: Objects/Specific/Janitorial/ruby_plunger.rsi

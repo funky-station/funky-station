@@ -6,7 +6,7 @@
 
 - type: entity
   id: ShellHypo
-  name: shell (.50 hypo)
+  name: shell (12 gauge hypo)
   parent: [BaseSyndicateContraband, BaseShellShotgun]
   components:
   - type: Sprite

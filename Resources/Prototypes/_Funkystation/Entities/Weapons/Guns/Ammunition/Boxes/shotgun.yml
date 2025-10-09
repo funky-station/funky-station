@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  name: shell box (hypo)
+  name: shell box (12 gauge hypo)
   parent: [AmmoProviderShotgunShell, BaseSyndicateContraband]
   id: BoxShellHypo
   components:

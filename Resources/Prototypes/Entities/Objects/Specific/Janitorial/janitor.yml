@@ -395,7 +395,7 @@
   - type: PointLight
     radius: 1.5
     energy: 0.75
-    color: "#ffc20e"
+    color: "#917624"
   - type: PhysicalComposition
     materialComposition:
       Plastic: 50
@@ -423,9 +423,9 @@
         - state: equipped-HELMET
           offset: "0, 0.15625"
   - type: PointLight
-    radius: 1.5
+    radius: 1.6
     energy: 0.75
-    color: "#ACACAC"
+    color: "#3e3dad"
   - type: PhysicalComposition
     materialComposition:
       Plastic: 50
@@ -453,9 +453,9 @@
         - state: equipped-HELMET
           offset: "0, 0.15625"
   - type: PointLight
-    radius: 1.5
+    radius: 1.7
     energy: 0.75
-    color: "#E10000"
+    color: "#FF6e57"
   - type: PhysicalComposition
     materialComposition:
       Plastic: 50
@@ -483,7 +483,7 @@
         - state: equipped-HELMET
           offset: "0, 0.15625"
   - type: PointLight
-    radius: 1.5
+    radius: 1.9
     energy: 0.75
     color: "#66CC00"
   - type: PhysicalComposition
@@ -513,7 +513,7 @@
         - state: equipped-HELMET
           offset: "0, 0.15625"
   - type: PointLight
-    radius: 1.5
+    radius: 1.8
     energy: 0.75
     color: "#DF0FFF"
   - type: PhysicalComposition
@@ -543,9 +543,9 @@
         - state: equipped-HELMET
           offset: "0, 0.15625"
   - type: PointLight
-    radius: 1.75
+    radius: 2
     energy: 0.85
-    color: "#B90033"
+    color: "#FF98DB"
   - type: PhysicalComposition
     materialComposition:
       Plastic: 50

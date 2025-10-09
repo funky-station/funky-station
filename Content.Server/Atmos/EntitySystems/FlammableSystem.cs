@@ -355,6 +355,12 @@ namespace Content.Server.Atmos.EntitySystems
             else
             {
                 flammable.OnFire |= ignite;
+                // FUNKYSTATION - START
+                if (flammable.OnFire)
+                {
+                    EnsureComp<OnFireComponent>(uid);
+                }
+                // FUNKYSTATION - END
                 UpdateAppearance(uid, flammable);
             }
         }
@@ -367,6 +373,10 @@ namespace Content.Server.Atmos.EntitySystems
 
             // Goobstation - from EE at 7b0949568d07df81b298251c6fce9be4d7d03f18 (https://github.com/Simple-Station/Einstein-Engines/pull/2462)
             RemCompDeferred<OnFireComponent>(uid);
+            // FUNKYSTATION - START
+            if (_alertsSystem.IsShowingAlert(uid, flammable.FireAlert))
+                _alertsSystem.ClearAlert(uid, flammable.FireAlert);
+            // FUNKYSTATION - END
             if (!flammable.OnFire)
                 return;
 

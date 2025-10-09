@@ -77,8 +77,8 @@
       - DeathRattleImplant
       - MindShieldImplant
       - SmokeImplant # Goob
-      - RadioImplanter # Funky
-      - FakeMindShieldImplanter # Funky
+      - RadioImplant # Funky
+      - FakeMindShieldImplant # Funky
       - ReagentImplant # Funky
       deimplantFailureDamage:
         types:

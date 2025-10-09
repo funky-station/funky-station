@@ -210,6 +210,18 @@
   categories:
   - UplinkWeaponry
 
+#  Funkystation. Big gun with uranium rounds, don't forget chem can make Siderlac!
+- type: listing
+  id: UplinkPistolWyvern
+  name: uplink-pistol-wyvern-name
+  description: uplink-pistol-wyvern-desc
+  productEntity: WeaponPistolWyvernSyndicate
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkWeaponry
+  saleLimit: 1
+
 - type: listing
   id: UplinkEsword
   name: uplink-esword-name
@@ -732,6 +744,36 @@
         tags:
           - NukeOpsUplink
     - !type:BuyerWhitelistCondition
+      blacklist:
+        components:
+          - SurplusBundle
+          
+# For the wyvern
+- type: listing
+  id: UplinkPistolLargeMagazineUranium
+  name: uplink-pistol-magazine-large-uranium-name
+  description: uplink-pistol-magazine-large-uranium-desc
+  icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag_50.rsi, state: green-icon }
+  productEntity: MagazinePistolLargeUranium
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkAmmo
+  saleBlacklist: true
+
+- type: listing
+  id: UplinkPistolLargeMagazineIncendiary
+  name: uplink-pistol-magazine-large-incendiary-name
+  description: uplink-pistol-magazine-large-incendiary-desc
+  icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag_50.rsi, state: red-icon }
+  productEntity: MagazinePistolLargeIncendiary
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkAmmo
+  saleBlacklist: true
+  conditions:
+    - !type:BuyerWhitelistCondition # as to not spam the surplus crates with a bunch of ammo types
       blacklist:
         components:
           - SurplusBundle

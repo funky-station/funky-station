@@ -509,6 +509,9 @@
     - MagazineShotgun
     - MagazineShotgunEmpty
     - MagazineShotgunSlug
+    - MagazinePistolLargeEmpty # Funkystation
+    - MagazinePistolLarge # Funkierstation
+    - MagazineBoxPistolLarge # Funkieststation
     - RiotShield
     - SpeedLoaderMagnum
     - SpeedLoaderMagnumEmpty
@@ -708,6 +711,10 @@
     - WeaponLaserCannon
     - WeaponLaserCarbine
     - WeaponXrayCannon
+    - MagazinePistolLargeUranium # Funkystation
+    - MagazinePistolLargeIncendiary # Funkystation
+    - MagazineBoxPistolLargeUranium # Funkystation
+    - MagazineBoxPistolLargeIncendiary # Funkystation
 
 - type: entity
   id: ProtolatheHyperConvection
@@ -1122,6 +1129,11 @@
     - MagazineShotgun
     - MagazineShotgunEmpty
     - MagazineShotgunSlug
+    - MagazinePistolLargeEmpty # Funkystation
+    - MagazinePistolLarge # Funkystation
+    - MagazineBoxPistolLarge # Funkystation
+    - MagazinePistolLargePractice # Funkystation
+    - MagazineBoxPistolLargePractice # Funkystation
     - RiotShield
     - SpeedLoaderMagnum
     - SpeedLoaderMagnumEmpty
@@ -1174,6 +1186,10 @@
     - MagazineShotgunIncendiary
     - MagazinePistolSubMachineGunTopMountedIncendiary
     - MagazinePistolSubMachineGunTopMountedUranium
+    - MagazinePistolLargeUranium # Funkystation
+    - MagazinePistolLargeIncendiary # Funkystation
+    - MagazineBoxPistolLargeUranium # Funkystation
+    - MagazineBoxPistolLargeIncendiary # Funkystation
     - PortableRecharger
     - PowerCageHigh
     - PowerCageMedium

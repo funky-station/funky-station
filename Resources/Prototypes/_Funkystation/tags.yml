@@ -82,3 +82,9 @@
 
 - type: Tag
   id: CardboardboxLargeFlat
+  
+- type: Tag
+  id: CartridgePistolLarge
+
+- type: Tag
+  id: MagazinePistolLarge

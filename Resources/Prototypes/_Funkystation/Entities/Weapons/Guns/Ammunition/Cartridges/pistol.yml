@@ -34,7 +34,7 @@
   - type: CartridgeAmmo
     proto: BulletPistolLarge
   - type: Sprite
-    sprite: _Funkystation\Objects\Weapons\Guns\Ammunition\Casings\pistol_large.rsi
+    sprite: _Funkystation/Objects/Weapons/Guns/Ammunition/Casings/pistol_large.rsi
     layers:
       - state: base
         map: [ "enum.AmmoVisualLayers.Base" ]

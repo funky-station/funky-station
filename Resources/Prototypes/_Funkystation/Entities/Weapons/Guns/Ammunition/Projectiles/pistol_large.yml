@@ -27,12 +27,12 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 45
+        Piercing: 38
   - type: StaminaDamageOnCollide
-    damage: 15
+    damage: 20
 
 - type: entity
-  id: BulletLightRiflePractice
+  id: BulletPistolLargePractice
   name: bullet (.50 AE practice)
   parent: BaseBulletPractice
   categories: [ HideSpawnMenu ]
@@ -54,12 +54,12 @@
     damage:
       types:
         Blunt: 10
-        Heat: 35
+        Heat: 28
   - type: StaminaDamageOnCollide
-    damage: 15
+    damage: 20
 
 - type: entity
-  id: BulletLightRifleUranium
+  id: BulletPistolLargeUranium
   parent: BaseBulletUranium
   name: bullet (.20 rifle uranium)
   categories: [ HideSpawnMenu ]
@@ -67,7 +67,7 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 20
-        Piercing: 25
+        Radiation: 19
+        Piercing: 19
   - type: StaminaDamageOnCollide
-    damage: 15
+    damage: 20

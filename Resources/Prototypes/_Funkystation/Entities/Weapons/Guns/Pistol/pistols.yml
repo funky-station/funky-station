@@ -1,8 +1,8 @@
 - type: entity
   name: wyvern
-  parent: [BaseWeaponPistol, BaseSecurityContraband]
+  parent: [BaseWeaponPistol, BaseSecurityCommandContraband]
   id: WeaponPistolWyvern
-  description: An exceptionally powerful ‘hand cannon’ designed as part of Nanotrasen's BFG initiative. Chambered in .45, the lord’s caliber, it is generally considered too unwieldy for standard use but has become something of a status symbol among Nanotrasen officials. Feeds from .45 pistol magazines.
+  description: A large, bulky and incredibly powerful pistol with large damage potential and stopping power. Chambered in .50 AE, it is able to hurt even armored targets. Historically it has been produced and sold in small amounts to both Nanotransen and Cybersun, making it a rare and sought after pistol.
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Weapons/Guns/Pistols/wyvern.rsi
@@ -18,11 +18,11 @@
     maxAngle: 15
     angleIncrease: 5
     angleDecay: 5
-    fireRate: 2
+    fireRate: 1.5
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -38,6 +38,53 @@
       gun_chamber:
         name: Chamber
         startingItem: CartridgePistolLarge
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistolLarge
+  - type: Multishot # Goobstation
+    spreadMultiplier: 1.5
+
+- type: entity
+  name: wyvern
+  parent: [BaseWeaponPistol, BaseSecurityCommandContraband]
+  id: WeaponPistolWyvernSyndicate
+  description: A large, bulky and incredibly powerful pistol with large damage potential and stopping power. Chambered in .50 AE, it is able to hurt even armored targets. Historically it has been produced and sold in small amounts to both Nanotransen and Cybersun, making it a rare and sought after pistol.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Guns/Pistols/wyvern.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Guns/Pistols/wyvern.rsi
+  - type: Gun
+    minAngle: 1
+    maxAngle: 15
+    angleIncrease: 5
+    angleDecay: 5
+    fireRate: 1.5
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolLargeUranium
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolLarge
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistolLargeUranium
         priority: 1
         whitelist:
           tags:

@@ -20,7 +20,7 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Funkystation\Objects\Weapons\Guns\Ammunition\Magazine\Pistol\pistol_mag_50.rsi
+    sprite: _Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag_50.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]

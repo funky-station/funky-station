@@ -430,6 +430,76 @@
     Steel: 25
     Plastic: 540
 
+# .50 AE Rounds
+- type: latheRecipe
+  parent: BaseEmptyAmmoRecipe
+  id: MagazinePistolLargeEmpty
+  result: MagazinePistolLargeEmpty
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolLarge
+  result: MagazinePistolLarge
+  materials:
+    Steel: 295
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolLargePractice
+  result: MagazinePistolLargePractice
+  materials:
+    Steel: 105
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolLargeUranium
+  result: MagazinePistolLargeUranium
+  materials:
+    Steel: 25
+    Plastic: 180
+    Uranium: 180
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolLargeIncendiary
+  result: MagazinePistolLargeIncendiary
+  materials:
+    Steel: 25
+    Plastic: 270
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxPistolLarge
+  result: MagazineBoxPistolLarge
+  materials:
+    Steel: 450
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxPistolLargeIncendiary
+  result: MagazineBoxPistolLargeIncendiary
+  materials:
+    Plastic: 450
+    
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxPistolLargePractice
+  result: MagazineBoxPistolLargePractice
+  materials:
+    Steel: 150
+    
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxPistolLargeUranium
+  result: MagazineBoxPistolLargeUranium
+  materials:
+    Plastic: 300
+    Uranium: 300
+
+#.50 AE rounds END
+
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: MagazineBoxRifle

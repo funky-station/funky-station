@@ -505,8 +505,8 @@
   - JanitorGoldPlunger
   - JanitorPlatinumPlunger
   - JanitorRubyPlunger
-  - JanitorEmeraldPlunger
   - JanitorAmethystPlunger
+  - JanitorEmeraldPlunger
   - JanitorPrismaticPlunger
 
 - type: loadoutGroup

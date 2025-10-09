@@ -111,11 +111,23 @@ public sealed class DamageOverlayUiController : UIController
                 {
                     _overlay.BruteLevel = 0;
                 }
-                else if (damageable.DamagePerGroup.TryGetValue("Brute", out var bruteDamage))
-                {
-                    _overlay.BruteLevel = FixedPoint2.Min(1f, bruteDamage / critThreshold).Float();
-                }
 
+                // FUNKYSTATION - START
+                else
+                {
+                    // We're trying to get the combined sum of Brute and Burn but it's easier to do what they did and
+                    // use TryGetValue for it.
+                    var totalHurt = FixedPoint2.Zero;
+
+                    if (damageable.DamagePerGroup.TryGetValue("Brute", out var bruteDamage))
+                        totalHurt += bruteDamage;
+
+                    if (damageable.DamagePerGroup.TryGetValue("Burn", out var burnDamage))
+                        totalHurt += burnDamage;
+
+                    _overlay.BruteLevel = FixedPoint2.Min(1f, totalHurt / critThreshold).Float();
+                }
+                // FUNKYSTATION - END
                 if (damageable.DamagePerGroup.TryGetValue("Airloss", out var oxyDamage))
                 {
                     _overlay.OxygenLevel = FixedPoint2.Min(1f, oxyDamage / critThreshold).Float();

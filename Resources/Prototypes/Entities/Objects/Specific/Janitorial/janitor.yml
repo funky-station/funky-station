@@ -430,7 +430,7 @@
     materialComposition:
       Plastic: 50
       Wood: 25
-      Metal: 10
+      Steel: 10
 
 - type: entity
   name: ruby plunger
@@ -460,7 +460,7 @@
     materialComposition:
       Plastic: 50
       Wood: 25
-      Metal: 10
+      Steel: 10
 
 - type: entity
   name: emerald plunger
@@ -490,7 +490,7 @@
     materialComposition:
       Plastic: 50
       Wood: 25
-      Metal: 10
+      Steel: 10
 
 - type: entity
   name: amethyst plunger
@@ -520,7 +520,7 @@
     materialComposition:
       Plastic: 50
       Wood: 25
-      Metal: 10
+      Steel: 10
 
 - type: entity
   name: prismatic plunger
@@ -550,7 +550,7 @@
     materialComposition:
       Plastic: 50
       Wood: 25
-      Metal: 10
+      Steel: 10
 
 - type: weightedRandomEntity
   id: PlungerLoot

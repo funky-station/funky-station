@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tojo <32783144+Alecksohs@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -26,6 +27,22 @@ public sealed class TypingChangedEvent : EntityEventArgs
         State = state;
     }
 }
+// FUNKYSTATION EDIT START
+/// <summary>
+///     Networked event from client.
+///     Send to server when client started/stopped typing in chat input field.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class TypingChangedTypeEvent : EntityEventArgs
+{
+    public readonly ChatSelectChannel ChatType;
+
+    public TypingChangedTypeEvent(ChatSelectChannel chatType)
+    {
+        ChatType = chatType;
+    }
+}
+// FUNKYSTATION EDIT END
 
 /// <summary>
 ///     This event will be broadcast right before displaying an entities typing indicator.

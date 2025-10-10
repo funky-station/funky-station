@@ -335,3 +335,14 @@
   - type: Mail
     contents:
     - id: SyndicateWhistle
+
+- type: entity
+  parent: BaseMailLarge
+  id: Mail24Pack
+  suffix: 24 Pack
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: DrinkCanPack
+      amount: 4

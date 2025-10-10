@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  id: BoxFunBoxing
+  parent: CardboardBoxLarge
+  name: boxing box
+  description: Want to set up an underground fight club or host a tournament amongst station crew? This crate is for you!
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingHandsGlovesBoxingRed
+    - id: ClothingHandsGlovesBoxingBlue
+    - id: ClothingHandsGlovesBoxingYellow
+    - id: ClothingHandsGlovesBoxingGreen
+    - id: UniformShortsRed
+      amount: 3
+    - id: UniformShortsRedWithTop
+      amount: 3

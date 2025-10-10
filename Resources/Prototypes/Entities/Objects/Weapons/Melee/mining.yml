@@ -18,7 +18,10 @@
 # SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -31,13 +34,13 @@
   description: Notched to perfection, for jamming it into rocks.
   components:
   - type: Tag
-    tags:
-    - Pickaxe
+ #  tags:
+ #   - Pickaxe
   - type: Sprite
     sprite: Objects/Weapons/Melee/pickaxe.rsi
     state: pickaxe
   - type: MeleeWeapon
-    attackRate: 0.7
+    attackRate: 0.5
     wideAnimationRotation: -135
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
@@ -82,7 +85,7 @@
     wideAnimationRotation: -90
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
-    attackRate: 4
+    attackRate: 3
     damage:
       groups:
         Brute: 3
@@ -152,7 +155,7 @@
   - type: LeechOnMarker
     leech:
       groups:
-        Brute: -10
+        Brute: -15
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
@@ -166,7 +169,7 @@
     capacity: 1
     count: 1
   - type: MeleeWeapon
-    attackRate: 1.5
+    attackRate: 2
     wideAnimationRotation: -135
     damage:
       types:
@@ -180,7 +183,7 @@
       types:
         Blunt: 2.5
         Slash: 2.5
-        Structural: 30
+        Structural: 25
   - type: GunRequiresWield
   - type: DisarmMalus
   - type: Prying
@@ -197,7 +200,7 @@
   - type: MeleeWeapon
     autoAttack: true
     wideAnimationRotation: -135
-    attackRate: 2
+    attackRate: 1.6
     damage:
       types:
         Slash: 12
@@ -214,7 +217,7 @@
   - type: ThrowingAngle
     angle: 225
 
-# Like a crusher... but better
+# Like a crusher... but cooler
 - type: entity
   parent: [ WeaponCrusher, BaseSecurityCargoContraband]
   id: WeaponCrusherGlaive
@@ -238,8 +241,8 @@
   - type: LeechOnMarker
     leech:
       groups:
-        Brute: -21
+        Brute: -15
   - type: MeleeWeapon
   - type: Tag
     tags:
-      - Pickaxe
+     - Pickaxe

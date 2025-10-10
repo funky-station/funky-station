@@ -2,7 +2,9 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Kandiyaki <106633914+Kandiyaki@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 jackel234 <jackel234@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -88,9 +90,11 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
         TryComp<TagComponent>(args.OtherEntity, out var tag);
         var tags = tag?.Tags ?? new();
 
-        if (tags.Contains("Wall") && Prototype(args.OtherEntity) != null && Prototype(args.OtherEntity)!.ID != "WallSnowCobblebrick")
+        var proto = Prototype(args.OtherEntity);
+
+        if (tags.Contains("Wall") && proto != null && proto.ID != ent.Comp.SnowWallPrototype)
         {
-            Spawn("WallSnowCobblebrick", Transform(args.OtherEntity).Coordinates);
+            Spawn(ent.Comp.SnowWallPrototype, Transform(args.OtherEntity).Coordinates);
             QueueDel(args.OtherEntity);
         }
     }

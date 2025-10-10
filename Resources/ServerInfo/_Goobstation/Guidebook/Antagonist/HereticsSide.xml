@@ -1,0 +1,32 @@
+<Document>
+  # Side Knowledge
+
+  ## Wildering Mirror
+  <Box>
+    <GuideEntityEmbed Entity="HereticMirror" Caption=""/>
+  </Box>
+  Allows you to transmute a pair of eyes, a light bulb, and a crowbar into a Wildering Mirror.
+
+  The Wildering Mirror has a high chance to reflect energy weapons such as disablers when it is held.
+
+  ## Armorer’s Ritual
+  <Box>
+    <GuideEntityEmbed Entity="ClothingOuterArmorHeretic" Caption=""/>
+  </Box>
+  Allows you to transmute a table and a gas mask to create Eldritch Armor.
+
+  Eldritch Armor provides great protection while also acting as a focus when hooded.
+
+  ## Priest’s Ritual
+  <Box>
+    <GuideEntityEmbed Entity="HereticEldritchFlask" Caption=""/>
+  </Box>
+  Allows you to transmute a water tank and a shard of glass into an Eldritch Flask.
+
+  This flask contains Omnizine as well as anti-bleeding chemicals.
+ 
+  ## Ritual of Knowledge
+  You learn a special ritual that requires 4 random items, ranging from various organs to candles and stun batons.
+
+  Performing this ritual grants you 4 knowledge points and resets the items needed.
+</Document>

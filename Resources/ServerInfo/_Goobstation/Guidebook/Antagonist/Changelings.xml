@@ -34,15 +34,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
   ## Biomass
   Your biomass is your health. In the beginning you have 30 biomass to begin. Biomass does not drain over time, as it's used by some of your abilities.
 
-  Once your biomass levels get low enough, the effects of your decay will be seen by crew, such as:
-  - Vomiting blood
-  - Violently shaking
-  - Death.
-
   You cannot die normally, as in being gibbed by blunt trauma. As you are a natural organism, being tossed in the incinerator is your biggest worry. Or tossed into the super-matter.
 
   ## DNA Extraction
   If your main weapon is deception, then DNA Extraction is your main tool. This sting allows you to copy the genetic information of anyone you come into contact with.
+
+  This sting works on one person for free, and further stings on different targets must be on those who are either critical or dead.
 
   The person you extract from will have no indication that they were just harvested, and can be used secretly. This ability is powerful, as you can turn into someone just from stinging them.
 

@@ -99,6 +99,7 @@
     MailSecWhistle: 0.4
     MailSyndWhistle: 0.2
     MailGayWackpack: 0.05
+    MailCatBerry: 0.05
   # Tools
     MailSignallerKit: 0.5
     MailFlashlight: 0.8
@@ -159,6 +160,7 @@
       MailBotanistChemicalBottles: 2
       MailBotanistSeeds: 2
       MailKudzuDeterrent: 2
+      MailCatberrySeeds: 0.01
     Chaplain:
       MailChapCandles: 0.3
       MailWitchery: 1

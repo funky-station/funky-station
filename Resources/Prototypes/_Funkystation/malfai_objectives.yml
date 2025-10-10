@@ -77,7 +77,7 @@
     sabotageType: Protect
   - type: TargetObjective
     title: objective-condition-keep-alive-title
-  - type: PickRandomPerson
+  - type: MalfAiPickProtectTarget
   - type: KeepAliveCondition
 
 # Sabotage: Control cyborgs

@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Woodensponge <43834352+Woodensponge@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -94,7 +95,7 @@
 
 - type: entity
   name: EG-4 energy revolver
-  parent: [ BaseWeaponBatterySmall, BaseCentcommContraband ]
+  parent: [ BaseWeaponBatterySmall, BaseSecurityContraband ]
   id: WeaponEnergyRevolver
   description: A highly advanced energy revolver capable of firing both lethal and disabling bullets.
   components:

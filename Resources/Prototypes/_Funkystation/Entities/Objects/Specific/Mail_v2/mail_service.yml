@@ -24,3 +24,13 @@
   - type: Mail
     contents:
     - id: MoproachCube
+
+#Botanist
+- type: entity
+  parent: BaseMail
+  id: MailCatberrySeeds
+  suffix: Catberry Seeds
+  components:
+  - type: Mail
+    contents:
+    - id: CatberrySeeds

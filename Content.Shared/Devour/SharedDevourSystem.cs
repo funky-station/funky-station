@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -99,9 +100,3 @@ public sealed partial class DevourActionEvent : EntityTargetActionEvent { }
 [Serializable, NetSerializable]
 public sealed partial class DevourDoAfterEvent : SimpleDoAfterEvent { }
 
-[Serializable, NetSerializable]
-public enum FoodPreference : byte
-{
-    Humanoid = 0,
-    All = 1
-}

@@ -1,0 +1,138 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  id: MailCart
+  parent: [BaseStructureDynamic, StructureWheeled]
+  name: mailcart
+  description: Not distance nor tide can stop the mail.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Funkystation/Objects/Specific/Mail/mailcart.rsi
+    state: cart
+  - type: Appearance
+  - type: Rotatable
+  - type: InteractionOutline
+  - type: ItemSlots
+    slots:
+      big_slot2:
+        name: mailcart-slot-component-slot-name-big
+        whitelist:
+          tags:
+          - CardboardboxLarge
+        insertOnInteract: true
+        priority: 9
+      big_slot1:
+        name: mailcart-slot-component-slot-name-big
+        whitelist:
+          tags:
+          - CardboardboxLarge
+        insertOnInteract: true
+        priority: 8
+      flat_slot:
+        name: mailcart-slot-component-slot-name-flat
+        whitelist:
+          tags:
+          - CardboardboxLargeFlat
+        insertOnInteract: true
+        priority: 7
+      small_slot4:
+        name: mailcart-slot-component-slot-name-small
+        whitelist:
+          tags:
+          - CardboardboxSmall
+        insertOnInteract: true
+        priority: 6
+      small_slot3:
+        name: mailcart-slot-component-slot-name-small
+        whitelist:
+          tags:
+          - CardboardboxSmall
+        insertOnInteract: true
+        priority: 5
+      small_slot2:
+        name: mailcart-slot-component-slot-name-small
+        whitelist:
+          tags:
+          - CardboardboxSmall
+        insertOnInteract: true
+        priority: 4
+      small_slot1:
+        name: mailcart-slot-component-slot-name-small
+        whitelist:
+          tags:
+          - CardboardboxSmall
+        insertOnInteract: true
+        priority: 3
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]
+      big_slot2: !type:ContainerSlot { }
+      big_slot1: !type:ContainerSlot { }
+      flat_slot: !type:ContainerSlot { }
+      small_slot4: !type:ContainerSlot { }
+      small_slot3: !type:ContainerSlot { }
+      small_slot2: !type:ContainerSlot { }
+      small_slot1: !type:ContainerSlot { }
+  - type: ItemMapper
+    mapLayers:
+      big1:
+        minCount: 1
+        whitelist:
+          tags:
+          - CardboardboxLarge
+      big2:
+        minCount: 2
+        whitelist:
+          tags:
+          - CardboardboxLarge
+      flat:
+        whitelist:
+          tags:
+          - CardboardboxLargeFlat
+      small1:
+        minCount: 1
+        whitelist:
+          tags:
+          - CardboardboxSmall
+      small2:
+        minCount: 2
+        whitelist:
+          tags:
+          - CardboardboxSmall
+      small3:
+        minCount: 3
+        whitelist:
+          components:
+          - CardboardboxSmall
+      small4:
+        minCount: 4
+        whitelist:
+          tags:
+          - CardboardboxSmall
+    sprite: _Funkystation/Objects/Specific/Mail/mailcart.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 250
+        layer:
+        - TableLayer
+        mask:
+        - TableMask
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+  - type: StaticPrice
+    price: 500
+  - type: DnaSubstanceTrace

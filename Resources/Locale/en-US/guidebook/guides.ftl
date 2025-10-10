@@ -68,6 +68,7 @@ guide-entry-manualvalve = Manual Valve
 guide-entry-signalvalve = Signal Valve
 guide-entry-pneumaticvalve = Pneumatic Valve
 guide-entry-passivegate = Passive Gate
+guide-entry-ressureregulator = Pressure Regulator
 guide-entry-mixingandfiltering = Mixing and Filtering
 guide-entry-gascanisters = Gas Canisters
 guide-entry-thermomachines = Thermomachines
@@ -189,6 +190,7 @@ guide-entry-minor-antagonists = Minor Antagonists
 guide-entry-space-ninja = Space Ninja
 guide-entry-thieves = Thieves
 guide-entry-wizard = Wizard
+guide-entry-malfunctioningai = Malfunctioning AI
 
 guide-entry-rules = Server Rules
 guide-entry-rules-core-only = Core Only Ruleset

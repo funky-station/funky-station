@@ -28,6 +28,8 @@
 // SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Джексон Миссиссиппи <tripwiregamer@gmail.com>
+// SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 duston <66768086+dch-GH@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
@@ -857,7 +859,7 @@ public sealed partial class AdminVerbSystem
         var superSpeedName = Loc.GetString("admin-smite-super-speed-name").ToLowerInvariant();
         Verb superSpeed = new()
         {
-            Text = "admin-smite-garbage-can-name",
+            Text = "admin-smite-super-speed-name",
             Category = VerbCategory.Smite,
             Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/AdminActions/super_speed.png")),
             Act = () =>
@@ -915,9 +917,9 @@ public sealed partial class AdminVerbSystem
                 var hadSlipComponent = EnsureComp(args.Target, out SlipperyComponent slipComponent);
                 if (!hadSlipComponent)
                 {
-                    slipComponent.SuperSlippery = true;
-                    slipComponent.ParalyzeTime = 5;
-                    slipComponent.LaunchForwardsMultiplier = 20;
+                    slipComponent.SlipData.SuperSlippery = true;
+                    slipComponent.SlipData.ParalyzeTime = TimeSpan.FromSeconds(5);
+                    slipComponent.SlipData.LaunchForwardsMultiplier = 20;
                 }
 
                 _slipperySystem.TrySlip(args.Target, slipComponent, args.Target, requiresContact: false);
@@ -961,5 +963,24 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", omniaccentName, Loc.GetString("admin-smite-omni-accent-description"))
         };
         args.Verbs.Add(omniaccent);
+
+        //Funky begin
+        var bluespaceName = Loc.GetString("admin-smite-bluespace-name").ToLowerInvariant();
+        Verb bluespace = new()
+        {
+            Text = bluespaceName,
+            Category = VerbCategory.Smite,
+            Icon = new SpriteSpecifier.Texture(new ("Structures/cargo_telepad.rsi/display.png")),
+            Act = () =>
+            {
+                var coords = _transformSystem.GetMapCoordinates(args.Target);
+                EntityManager.QueueDeleteEntity(args.Target);
+                Spawn("EffectFlashBluespace", Transform(args.Target).Coordinates);
+            },
+            Impact = LogImpact.Extreme,
+            Message = string.Join(": ", bluespaceName, Loc.GetString("admin-smite-bluespace-description"))
+        };
+        args.Verbs.Add(bluespace);
+        //Funky end
     }
 }

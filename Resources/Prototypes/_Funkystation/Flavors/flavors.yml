@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -37,4 +38,8 @@
   id: pineapple-margherita
   flavorType: Complex
   description: flavor-complex-pineapple-margherita
-
+  
+- type: flavor
+  id: shrimp
+  flavorType: Complex
+  description: flavor-complex-shrimp

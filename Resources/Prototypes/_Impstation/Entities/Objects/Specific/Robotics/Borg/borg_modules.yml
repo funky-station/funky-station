@@ -1,0 +1,44 @@
+# SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 iaada <iaada@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BorgModulePaper
+  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  name: bureaucracy cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-pen
+  - type: ItemBorgModule
+    items:
+    - Pen
+    - BooksBag
+    - HandLabeler
+    - RubberStampApproved
+    - RubberStampDenied
+    - RubberStampCyborg
+  - type: BorgModuleIcon
+    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: bureaucracy-module }
+
+- type: entity
+  id: BorgModuleBartender
+  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  name: bartender cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-beer
+  - type: ItemBorgModule
+    items:
+    - Lighter
+    - DrinkShaker
+    - BarSpoon
+    - BorgIceBucket
+    - Pitcher
+    - BorgDropper
+  - type: BorgModuleIcon
+    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: bartender-module }

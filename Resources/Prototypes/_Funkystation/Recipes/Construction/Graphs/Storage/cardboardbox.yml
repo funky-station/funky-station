@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: construction
+  name: large cardboard box
+  id: CardboardBoxLarge
+  graph: CardboardboxLargeGraph
+  startNode: start
+  targetNode: cardboardboxlargenode
+  category: construction-category-storage
+  description: A big box for storing things.
+  icon: { sprite: _Funkystation/Objects/Specific/Cargo/cardboard_box.rsi, state: bigbox }
+  objectType: Structure
+
+- type: constructionGraph
+  id: CardboardboxLargeGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: cardboardboxlargenode
+      steps:
+      - material: Cardboard
+        amount: 4
+        doAfter: 5
+
+
+  - node: cardboardboxlargenode
+    entity: CardboardBoxLarge

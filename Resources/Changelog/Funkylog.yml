@@ -4300,3 +4300,545 @@ Entries:
         nitrile & latex gloves!
   id: 515
   time: '2025-08-26T01:46:06.0000000+00:00'
+- author: BrightNibbleston
+  changes:
+    - type: Tweak
+      message: >-
+        Changed air alarms and such to allow harpies to breath without setting
+        off air alarms
+  id: 516
+  time: '2025-08-27T00:19:05.0000000+00:00'
+- author: ArsCatalyst
+  changes:
+    - type: Remove
+      message: Removed Blueshield from Resort and Microstation
+  id: 517
+  time: '2025-08-27T18:34:51.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Add
+      message: Handheld radio variants for every department, not just security.
+    - type: Add
+      message: >-
+        New emergency radio channel to inform the Warden and the Paramedics of
+        your impending demise.
+  id: 518
+  time: '2025-08-27T18:36:07.0000000+00:00'
+- author: Minerva
+  changes:
+    - type: Add
+      message: >-
+        Body scanner computers can now be linked to operating tables and act as
+        health analyzers for the person buckled to them
+  id: 519
+  time: '2025-08-27T18:38:52.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added a Book Cart to the game
+    - type: Add
+      message: Bookshelves can now be labeled with paper
+    - type: Add
+      message: Added Bookshelf Label Folder for a sampling of paper colors
+    - type: Tweak
+      message: Books Bag and Book Shelf inventory sizes adjusted
+    - type: Tweak
+      message: Book Shelves generally contain more books round start
+  id: 520
+  time: '2025-08-31T02:41:32.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: >-
+        Conversion to a cosmic cult breaks a mindshield, and implanted
+        mindshields into cult members do not work.
+  id: 521
+  time: '2025-08-31T03:49:49.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Add
+      message: >-
+        MedTek has returned! It is once again available in all ways it used to
+        be (except in the BSO's PDA, BSO is not real).
+    - type: Remove
+      message: >-
+        Medical Staff no longer spawn with analyzers, as they do not need them
+        again.
+    - type: Tweak
+      message: Reduced number of Health Analyzers in the MedVend from 5 back to 3.
+  id: 522
+  time: '2025-08-31T19:28:40.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Tweak
+      message: >-
+        Rule 11 - Silicon Rules has had its ID definition adjusted. Non-crew ID
+        icons such as Prisoners, Visitors, Blanks, and Hostile icons no longer
+        count as crew by default.
+    - type: Add
+      message: >-
+        Updated and adjusted Ion Storm's job pool (Added NTR, IAA, Prisoner, and
+        Visitor. Replaced Passenger with Assistant.)
+  id: 523
+  time: '2025-08-31T19:29:45.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Remove
+      message: >-
+        Removed the Asimov Silicon lawset (Crewsimov is fine, the human-only
+        version is removed).
+  id: 524
+  time: '2025-08-31T22:38:36.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a mapping tool oversight from pipe layers implementation where the
+        unary stuff was overriding non default vent prototypes
+  id: 525
+  time: '2025-09-01T02:20:17.0000000+00:00'
+- author: Queer-Cats
+  changes:
+    - type: Tweak
+      message: Silos have a limited range now
+    - type: Remove
+      message: Silo Relay is gone
+  id: 526
+  time: '2025-09-02T00:12:32.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Remove
+      message: Removed invalid prototypes from many orphaned or unmaintained maps.
+  id: 527
+  time: '2025-09-05T03:42:36.0000000+00:00'
+- author: Princess-Cheeseballs
+  changes:
+    - type: Add
+      message: Items now slip on slippery surfaces
+    - type: Tweak
+      message: Puddle slipperiness has been tweaked to be more intuitive
+  id: 528
+  time: '2025-09-05T06:27:19.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Fix
+      message: Fixed duplicate spawns with the recycler.
+  id: 529
+  time: '2025-09-05T06:28:46.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added departmental silos to Bagel
+    - type: Add
+      message: Bagel now has extra intercoms and a few extra radios
+    - type: Add
+      message: Added book cart and label folder to Bagels library
+  id: 530
+  time: '2025-09-05T06:31:23.0000000+00:00'
+- author: EmillyCoelho
+  changes:
+    - type: Add
+      message: NTVS Gax added to the rotation!
+  id: 531
+  time: '2025-09-06T01:00:17.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Tweak
+      message: Nutribricks now deal damage when you hit people with them.
+  id: 532
+  time: '2025-09-06T01:05:54.0000000+00:00'
+- author: JoulesBerg
+  changes:
+    - type: Fix
+      message: >-
+        Fixed an oversight with vox atmospherics prototypes that was causing
+        massive client errors if you tried to use vox specific air alarms and
+        components.
+  id: 533
+  time: '2025-09-06T18:27:43.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: More holopads and intercoms on Box
+    - type: Remove
+      message: Removed BSO from Box
+  id: 534
+  time: '2025-09-06T18:47:20.0000000+00:00'
+- author: Max_Power
+  changes:
+    - type: Add
+      message: Added the white hard hat to science loadouts!
+  id: 535
+  time: '2025-09-07T01:17:13.0000000+00:00'
+- author: AtlasHD
+  changes:
+    - type: Add
+      message: >-
+        Added craftable Medical Issued Glasses and Diagnostic Issued Glasses
+        that retain HUD functionality. Hamlet can wear them as well.
+  id: 536
+  time: '2025-09-07T23:10:10.0000000+00:00'
+- author: Tyranex
+  changes:
+    - type: Fix
+      message: Fixed borgs not standing up after being repaired!
+  id: 537
+  time: '2025-09-07T23:14:26.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: >-
+        Changed Internal Affairs Agent icon for consistency and accessibility
+        reasons.
+  id: 538
+  time: '2025-09-08T04:52:25.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: Changed the Warden icon for accessibility reasons.
+  id: 539
+  time: '2025-09-08T23:28:37.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Rat King's Vent Spawn version still saying it is a Free Agent on
+        the [C] screen, it is a Solo Antagonist.
+  id: 540
+  time: '2025-09-11T21:56:25.0000000+00:00'
+- author: Komonighub
+  changes:
+    - type: Add
+      message: >-
+        Added the ability to lathe pens and vox tank harnesses at autolathes, as
+        well as stethoscopes at medical techfabs
+  id: 541
+  time: '2025-09-14T00:24:04.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added Crew monitor to Roids warden office
+    - type: Fix
+      message: >-
+        Fixed Roid missing an captain fax machine and entertainment camera
+        router
+  id: 542
+  time: '2025-09-14T00:24:50.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: Gave most of command new icons with a department-coloured stripe.
+  id: 543
+  time: '2025-09-14T14:02:18.0000000+00:00'
+- author: EmillyCoelho
+  changes:
+    - type: Tweak
+      message: 'NTVS Gax: Post-playtest fixes'
+  id: 544
+  time: '2025-09-14T21:24:36.0000000+00:00'
+- author: 88tv
+  changes:
+    - type: Tweak
+      message: Magistrate's playtime requirements were changed to 100 Security hours.
+  id: 545
+  time: '2025-09-14T21:28:47.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Bagel SM chamber reworked with help from Fern aka Terkala
+    - type: Tweak
+      message: Bagel atmos pipes converted over to pipelayers
+    - type: Add
+      message: Warden now has a crew monitor on Bagel
+  id: 546
+  time: '2025-09-14T21:29:54.0000000+00:00'
+- author: TakuTaco
+  changes:
+    - type: Add
+      message: >-
+        Added time display to tape recorder UI. Now you can use your transcripts
+        to more conveniently navigate the recording!
+  id: 547
+  time: '2025-09-14T21:48:24.0000000+00:00'
+- author: PurpleTranStar
+  changes:
+    - type: Tweak
+      message: Rainbow Cannabis brownies are no longer ain't shit
+  id: 548
+  time: '2025-09-14T21:56:21.0000000+00:00'
+- author: Rainbeon
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Ore Processor steel recipe still using coal when it was supposed
+        to have been changed to not.
+  id: 549
+  time: '2025-09-15T17:08:28.0000000+00:00'
+- author: Tyranex
+  changes:
+    - type: Add
+      message: Added malfunctioning AI!
+    - type: Tweak
+      message: Made the station core destructible.
+    - type: Tweak
+      message: Removed the RD's binary key from their locker.
+  id: 550
+  time: '2025-09-17T20:25:38.0000000+00:00'
+- author: hivehum, Ecramox, ported by amethystowo
+  changes:
+    - type: Add
+      message: >-
+        Ported hops from Impstation! They can be juiced for beer, and can be
+        mutated into the HoPfruit, which can be further mutated into Agent
+        Grain!
+  id: 551
+  time: '2025-09-18T01:26:08.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: Redesigned Chaplain icon to be more interdenominational.
+  id: 552
+  time: '2025-09-19T12:00:44.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Remove
+      message: Removed jobspawn for BSO on Fland
+    - type: Tweak
+      message: >-
+        Changed salvage on Omega Station to prevent mining charges exploding due
+        to Cargo shuttle collision
+  id: 553
+  time: '2025-09-19T23:58:40.0000000+00:00'
+- author: LaryNevesPR
+  changes:
+    - type: Add
+      message: There is a chance you will encounter a talking dog around the station.
+  id: 554
+  time: '2025-09-20T00:02:18.0000000+00:00'
+- author: BrightNibbleston
+  changes:
+    - type: Fix
+      message: Fixed vodka healing rads instead of gin
+  id: 555
+  time: '2025-09-20T00:09:01.0000000+00:00'
+- author: TrixxedHeart
+  changes:
+    - type: Add
+      message: Vox now have more scar markings, heterochromia, and a new tail type.
+    - type: Fix
+      message: >-
+        Several strange sprite issues with Vox have been fixed, most notably
+        jumpsuits and many neck items overlapping the face, as well as a
+        layering issue where their tank would appear over their hair.
+  id: 556
+  time: '2025-09-20T04:00:54.0000000+00:00'
+- author: >-
+    Quantum, ScarKy0, Tayrtahn, Firewars763, brainfood1183, Fildrance,
+    slarticodefast
+  changes:
+    - type: Fix
+      message: >-
+        Hosted anomaly effects not appearing at host when host is in container
+        or buckled
+    - type: Fix
+      message: >-
+        Being pushed while an anomaly host no longer breaks your legs
+        permanently.
+    - type: Add
+      message: Added gold, coal and bananium rock anomalies and ore crab enemies.
+    - type: Add
+      message: Added yellow and black crystals, crystal shards, and light tubes.
+  id: 557
+  time: '2025-09-20T04:32:32.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Add
+      message: Reporters now have Common access and a new shiny headset.
+  id: 558
+  time: '2025-09-20T05:26:15.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: >-
+        The Janitor icon and ID card are now "service green". The reporter icon
+        and ID card are now "civilian grey".
+  id: 559
+  time: '2025-09-20T07:28:05.0000000+00:00'
+- author: ATDoop
+  changes:
+    - type: Tweak
+      message: Microphones now work in your offhand.
+  id: 560
+  time: '2025-09-20T18:36:21.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: >-
+        Changelings are now a team antagonist, and are given Hivemind
+        roundstart.
+  id: 561
+  time: '2025-09-21T01:03:20.0000000+00:00'
+- author: SigmaDraconis
+  changes:
+    - type: Tweak
+      message: Increased the damage and charge of the energy revolver
+    - type: Tweak
+      message: Increased the Hristov's fire rate by 25%
+    - type: Fix
+      message: Changed the X-01 Multiphase's description to show it self recharges
+    - type: Tweak
+      message: Increased the spread of the WT550
+    - type: Tweak
+      message: Decreased the size of the sawn-off shotgun
+    - type: Tweak
+      message: >-
+        The detective can now choose between the energy revolver and the
+        inspector through loadouts.
+    - type: Add
+      message: The detective now has a magnum speedloader that comes in their locker.
+  id: 562
+  time: '2025-09-21T07:22:19.0000000+00:00'
+- author: Chedd-Error
+  changes:
+    - type: Tweak
+      message: Added the base mime and clown masks to the autodrobe.
+  id: 563
+  time: '2025-09-27T05:53:18.0000000+00:00'
+- author: salpphie
+  changes:
+    - type: Add
+      message: Added Eden map to be playtested
+  id: 564
+  time: '2025-09-28T02:42:01.0000000+00:00'
+- author: ArionGekkota
+  changes:
+    - type: Add
+      message: Lawyers now start with service headsets.
+    - type: Remove
+      message: Lawyers no longer start with security headsets.
+  id: 565
+  time: '2025-09-28T20:33:40.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New winter coat for NTR!
+    - type: Tweak
+      message: Adjusted NTR's loadout to allow for the selection of gloves
+  id: 566
+  time: '2025-09-28T21:58:24.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Tweak
+      message: Fixed NTR's loadout not allowing you to refuse the coat and gloves
+  id: 567
+  time: '2025-10-01T11:10:37.0000000+00:00'
+- author: Spanky
+  changes:
+    - type: Add
+      message: Computers now emit ambient sounds.
+  id: 568
+  time: '2025-10-01T20:02:03.0000000+00:00'
+- author: AraiMaia
+  changes: []
+  id: 569
+  time: '2025-10-01T20:13:03.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: Three new jumpsuits and winter coat for experienced IAAs
+    - type: Tweak
+      message: >-
+        Internal Affairs Agents can now pick a pair of black or red gloves for
+        their loadouts.
+  id: 570
+  time: '2025-10-02T04:01:19.0000000+00:00'
+- author: Huhm-1
+  changes:
+    - type: Add
+      message: Material Silos to Box
+    - type: Add
+      message: Material Silos to Amber
+    - type: Add
+      message: Science Communications console to Amber
+    - type: Tweak
+      message: Adjusted decals on Box to make areas blend in
+    - type: Tweak
+      message: Adjusted decals on Amber to make areas blend in
+    - type: Remove
+      message: Removed Fland and Barratry from rotation.
+  id: 571
+  time: '2025-10-03T17:48:36.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added an orderable mailcart to the cargo catalogue
+  id: 572
+  time: '2025-10-04T19:46:43.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New stamp icons by Stabithar
+  id: 573
+  time: '2025-10-04T19:47:41.0000000+00:00'
+- author: selvamoonbell
+  changes:
+    - type: Fix
+      message: Fixed erroneous label on the supermatter console
+  id: 574
+  time: '2025-10-06T05:06:45.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Tweak
+      message: >-
+        HEV suit protects from rads better, being nearly on par with the rad
+        suit.
+  id: 575
+  time: '2025-10-06T05:09:44.0000000+00:00'
+- author: ATDoop, ported by zergologist
+  changes:
+    - type: Tweak
+      message: >-
+        Thaven head items now use offsets instead of displacements, which should
+        make hats and mask look a little nicer on them!
+  id: 576
+  time: '2025-10-06T05:11:44.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: >-
+        Ported from Frontier: A total of 14 distinct customization options for
+        the head slot to human-headed species, vulpkanins, reptilians, and,
+        Funky specific, Thavens. Includes base white facepaint, five options
+        each for clown and mime, lipstick, eyebrows, and blush.
+    - type: Tweak
+      message: >-
+        Changed the total number of Vulpkanin head marking slots from one to
+        three.
+  id: 577
+  time: '2025-10-06T05:14:29.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Tweak
+      message: Syndicate comms computers can no longer change the alert level.
+  id: 578
+  time: '2025-10-06T05:15:40.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: Cargo Techs no longer spawn with two PDAs
+  id: 579
+  time: '2025-10-06T17:12:57.0000000+00:00'
+- author: Alecksohs
+  changes:
+    - type: Tweak
+      message: Resprites flooring!
+  id: 580
+  time: '2025-10-07T02:36:11.0000000+00:00'
+- author: Toastermeister
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a bug where the implanter wouldn't remove syndicate radio implant
+        or fake mindshield implant.
+  id: 581
+  time: '2025-10-10T03:10:13.0000000+00:00'

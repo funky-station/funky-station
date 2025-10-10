@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheHolyAegis <sanderkamphuis719@gmail.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -24,14 +25,20 @@
   supervisors: job-supervisors-ntr
   canBeAntag: false
   access:
+  - Command
   - Cargo
+  - Salvage
   - Brig
+  - Security
   - External
   - Cryogenics
   - Maintenance
   - Engineering
+  - Atmospherics
   - Medical
+  - Chemistry
   - Research
+  - Robotics
   - Lawyer
   special:
   - !type:AddImplantSpecial

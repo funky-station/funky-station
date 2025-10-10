@@ -1,0 +1,58 @@
+// SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.ComponentModel.DataAnnotations;
+using Content.Shared.Atmos;
+using Content.Shared.Damage;
+using Robust.Shared.Audio;
+
+namespace Content.Server._Funkystation.Atmos.Components
+{
+    [RegisterComponent]
+    public sealed partial class PipeBurstComponent  : Component
+    {
+        public const float MaxExplosionRange = 26f;
+        public int Ticker = 0;
+
+        [ViewVariables(VVAccess.ReadWrite), DataField("ruptureSound")]
+        public SoundSpecifier RuptureSound = new SoundPathSpecifier("/Audio/Effects/spray.ogg");
+
+        /// <summary>
+        ///     Pressure at which pipes start leaking.
+        /// </summary>
+        [DataField("pipeLeakPressure"), ViewVariables(VVAccess.ReadWrite)]
+        public float PipeLeakPressure = 50000;
+
+        /// <summary>
+        ///     Pressure at which pipe starts breaking.
+        /// </summary>
+        [DataField("pipeRupturePressure"), ViewVariables(VVAccess.ReadWrite)]
+        public float PipeRupturePressure = 100000;
+
+        /// <summary>
+        ///     Pressure at which pipe explodes
+        /// </summary>
+        [DataField("pipeFragmentPressure"), ViewVariables(VVAccess.ReadWrite)]
+        public float PipeFragmentPressure = 200000;
+
+        /// <summary>
+        ///     Increases explosion for each scale kPa above threshold.
+        /// </summary>
+        [DataField("pipeFragmentScale"), ViewVariables(VVAccess.ReadWrite)]
+        public float PipeFragmentScale = 1000;
+
+        /// <summary>
+        /// Damage dealt per tick of rupture
+        /// </summary>
+        [DataField("ruptureDamage"), ViewVariables(VVAccess.ReadWrite)]
+        public DamageSpecifier RuptureDamage = new()
+        {
+            DamageDict = new()
+            {
+                { "Structural", 10 },
+            }
+        };
+    }
+}
+

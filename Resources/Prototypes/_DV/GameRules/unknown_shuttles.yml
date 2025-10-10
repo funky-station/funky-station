@@ -1,6 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Dark <darkwindleaf@hotmail.co.uk>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 jhardtmadsen-blip <jhardtmadsen@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -11,6 +13,7 @@
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
     - id: SyndicateRecruiter
+    - id: SynthesisSpecialist
 
 - type: entity
   parent: BaseUnknownShuttleRule
@@ -53,3 +56,47 @@
         - Syndicate
       mindRoles:
       - MindRoleRecruiter
+
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: SynthesisSpecialist
+  components:
+  - type: StationEvent
+    startAnnouncement: false # Impstation no announcement
+    weight: 4
+    minimumPlayers: 20
+    maxOccurrences: 1
+    duration: null
+  #- type: PrecognitionResult // Impstation no precog
+  #  message: psionic-power-precognition-synthesis-specialist-result-message
+  - type: RuleGrids
+  - type: LoadMapRule
+    preloadedGrid: SyndieSynthesisShip
+  - type: AntagSpawner
+    prototype: MobHuman
+  - type: AntagObjectives
+    objectives:
+    - SynthesisSurviveObjective
+    - SynthesisPrescribeObjective
+  - type: AntagSelection
+    agentName: synthesis-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSynthesis
+      min: 2
+      max: 2
+      pickPlayer: false
+      startingGear: SyndicateSynthesisGear
+      roleLoadout:
+      - RoleSurvivalStandard
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesFakeHumanFirst
+        - NamesFakeHumanLast
+      - type: RandomHumanoidAppearance
+        randomizeName: false
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRoleSynthesis

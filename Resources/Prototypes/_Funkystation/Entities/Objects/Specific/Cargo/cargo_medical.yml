@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  id: BoxEmergencyMedipens
+  parent: CardboardBoxLarge
+  name: emergency medipens box
+  description: Box that contains six emergency medipens
+  components:
+  - type: StorageFill
+    contents:
+    - id: EmergencyMedipen
+      amount: 6

@@ -1,0 +1,16 @@
+﻿# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterWinterSeniorCargo
+  name: senior cargo tech winter coat
+  description: A robust winter coat built for making that delivery, no matter the weather.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/senior_cargo_winter_coat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/senior_cargo_winter_coat.rsi
+  - type: Item
+    size: Normal

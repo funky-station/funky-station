@@ -131,15 +131,6 @@
 
 - type: entity
   parent: BaseMail
-  id: MailCatEars
-  suffix: Cat Ears
-  components:
-  - type: Mail
-    contents:
-    - id: ClothingHeadHatCatEars
-
-- type: entity
-  parent: BaseMail
   id: MailCorgiBalloon
   suffix: Corgi Balloon
   components:

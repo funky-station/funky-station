@@ -16,26 +16,25 @@ namespace Content.Server._Funkystation.Atmos.Components
         public int Ticker = 0;
 
         [ViewVariables(VVAccess.ReadWrite), DataField("ruptureSound")]
-        //TODO: Change this to something less ass
         public SoundSpecifier RuptureSound = new SoundPathSpecifier("/Audio/Effects/spray.ogg");
 
         /// <summary>
         ///     Pressure at which pipes start leaking.
         /// </summary>
         [DataField("pipeLeakPressure"), ViewVariables(VVAccess.ReadWrite)]
-        public float PipeLeakPressure = 10000;
+        public float PipeLeakPressure = 50000;
 
         /// <summary>
-        ///     Pressure at which pipe unanchors.
+        ///     Pressure at which pipe starts breaking.
         /// </summary>
         [DataField("pipeRupturePressure"), ViewVariables(VVAccess.ReadWrite)]
-        public float PipeRupturePressure = 20000;
+        public float PipeRupturePressure = 100000;
 
         /// <summary>
-        ///     Pressure at which pipe bursts
+        ///     Pressure at which pipe explodes
         /// </summary>
         [DataField("pipeFragmentPressure"), ViewVariables(VVAccess.ReadWrite)]
-        public float PipeFragmentPressure = 40000;
+        public float PipeFragmentPressure = 200000;
 
         /// <summary>
         ///     Increases explosion for each scale kPa above threshold.

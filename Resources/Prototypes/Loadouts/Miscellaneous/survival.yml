@@ -40,6 +40,8 @@
     - Gingerbread
     - Rodentia
     - Thaven
+    # Starlight
+    - Avali
 
 - type: loadoutEffectGroup
   id: EffectSpeciesVox

@@ -98,6 +98,7 @@
     MailCancerMouse: 0.1
     MailSecWhistle: 0.4
     MailSyndWhistle: 0.2
+    MailGayWackpack: 0.05
   # Tools
     MailSignallerKit: 0.5
     MailFlashlight: 0.8

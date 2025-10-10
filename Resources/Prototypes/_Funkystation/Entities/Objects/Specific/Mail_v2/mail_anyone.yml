@@ -355,3 +355,13 @@
   - type: Mail
     contents:
     - id: ClothingBackpackDebug3
+
+- type: entity
+  parent: BaseMail
+  id: MailCatBerry
+  suffix: Cat Berry
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: FoodCatberry

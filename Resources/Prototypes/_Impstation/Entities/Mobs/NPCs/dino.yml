@@ -184,9 +184,12 @@
   id: BaseMobDinosaurCarnivore
   abstract: true
   components:
-  - type: Devourer
-    foodPreference: Humanoid
-    shouldStoreDevoured: true
+    foodPreferenceWhitelist:
+      components:
+      - HumanoidAppearance
+    stomachStorageWhitelist:
+      components:
+      - MobState
     chemical: DinoBlood
     healRate: 15.0
     whitelist:

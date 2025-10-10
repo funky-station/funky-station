@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
@@ -15,34 +16,28 @@ namespace Content.Server._Funkystation.Atmos.Components
         public SoundSpecifier RuptureSound = new SoundPathSpecifier("/Audio/Effects/spray.ogg");
 
         /// <summary>
-        /// Factor that adjusts the pipe's resistance to bursting
-        /// </summary>
-        [DataField("pipeStrengthFactor"), ViewVariables(VVAccess.ReadWrite)]
-        public static float PipeStrengthFactor = 1f;
-
-        /// <summary>
         ///     Pressure at which pipes start leaking.
         /// </summary>
         [DataField("pipeLeakPressure"), ViewVariables(VVAccess.ReadWrite)]
-        public float PipeLeakPressure = 2 * Atmospherics.MaxOutputPressure * PipeStrengthFactor;
+        public float PipeLeakPressure = 10000;
 
         /// <summary>
         ///     Pressure at which pipe unanchors.
         /// </summary>
         [DataField("pipeRupturePressure"), ViewVariables(VVAccess.ReadWrite)]
-        public float PipeRupturePressure = 3 * Atmospherics.MaxOutputPressure * PipeStrengthFactor;
+        public float PipeRupturePressure = 20000;
 
         /// <summary>
         ///     Pressure at which pipe bursts
         /// </summary>
         [DataField("pipeFragmentPressure"), ViewVariables(VVAccess.ReadWrite)]
-        public float PipeFragmentPressure = 4 * Atmospherics.MaxOutputPressure * PipeStrengthFactor;
+        public float PipeFragmentPressure = 40000;
 
         /// <summary>
         ///     Increases explosion for each scale kPa above threshold.
         /// </summary>
         [DataField("pipeFragmentScale"), ViewVariables(VVAccess.ReadWrite)]
-        public float PipeFragmentScale = 2 * Atmospherics.MaxOutputPressure * PipeStrengthFactor;
+        public float PipeFragmentScale = 1000;
 
         /// <summary>
         /// Damage dealt per tick of rupture

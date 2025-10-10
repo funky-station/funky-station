@@ -81,15 +81,10 @@
     tags:
       - PowerCell
   - type: Riggable
-  - type: Appearance
-  - type: PredictedBatteryVisuals
-  - type: GenericVisualizer
-    visuals:
-      enum.BatteryVisuals.State:
-        enum.PowerCellVisualLayers.Unshaded:
-          Full: {visible: true, state: o2}
-          Neither: {visible: true, state: o1}
-          Empty: {visible: false}
+  - type: StealTarget #Goobstation - IPC steal
+    stealGroup: Battery
+  - type: BatteryDrinkerSource # Goobstation - Energycrit
+    maxAmount: 360
 
 - type: entity
   name: potato battery

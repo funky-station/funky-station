@@ -9,6 +9,7 @@ using Content.Server.Lightning;
 using Content.Server.Popups;
 using Content.Server.PowerCell;
 using Content.Server._EinsteinEngines.Silicon.Charge;
+using Content.Server.Power.EntitySystems; // Goobstation - Energycrit
 using Content.Shared._EinsteinEngines.Silicon.DeadStartupButton;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
@@ -32,6 +33,7 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
     [Dependency] private readonly SiliconChargeSystem _siliconChargeSystem = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
+    [Dependency] private readonly BatterySystem _battery = default!; // Goobstation - Energycrit
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -67,13 +69,12 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
     {
         if (!TryComp<MobStateComponent>(uid, out var mobStateComponent)
             || !_mobState.IsDead(uid, mobStateComponent)
-            || !_siliconChargeSystem.TryGetSiliconBattery(uid, out var bateria)
+            || !_siliconChargeSystem.TryGetSiliconBattery(uid, out var bateria, out var batteryEnt) // Goobstation - Added batteryEnt argument
             || bateria.CurrentCharge <= 0)
             return;
 
         _lightning.ShootRandomLightnings(uid, 2, 4);
-        _powerCell.TryUseCharge(uid, bateria.CurrentCharge);
-
+        _battery.TryUseCharge(batteryEnt.Value, bateria.CurrentCharge); // Goobstation - Added batteryEnt argument
     }
 
     private void OnMobStateChanged(EntityUid uid, DeadStartupButtonComponent comp, MobStateChangedEvent args)

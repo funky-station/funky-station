@@ -20,6 +20,7 @@ using Content.Shared.Movement.Systems;
 using Content.Server.Body.Components;
 using Content.Shared.Mind.Components;
 using System.Diagnostics.CodeAnalysis;
+using Content.Goobstation.Common.CCVar;
 using Content.Server.Power.EntitySystems; // Goobstation - Energycrit
 using Content.Server.PowerCell;
 using Robust.Shared.Timing;
@@ -27,10 +28,6 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Alert;
-using Content.Shared.Atmos.Components;
-using Content.Shared.Power.Components;
-using Content.Shared.PowerCell;
-using Content.Shared.Temperature.Components;
 
 namespace Content.Server._EinsteinEngines.Silicon.Charge;
 

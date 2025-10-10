@@ -32,6 +32,7 @@
     MailBakedGoods: 0.75
     MailLollipops: 1
     MailBadCigs: 0.1 
+    Mail24Pack: 0.1
   # Costumes
     MailCosplayMaid: 0.6
     MailCosplayWizard: 0.6

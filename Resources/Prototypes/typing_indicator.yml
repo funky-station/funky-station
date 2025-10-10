@@ -92,3 +92,15 @@
   typingState: regal0
   idleState: regal3
   offset: 0, 0.125
+
+- type: typingIndicator
+  id: emote
+  typingState: emote0
+  idleState: emote1
+  offset: 0, 0.125
+
+- type: typingIndicator
+  id: outofcharacter
+  typingState: outofcharacter0
+  idleState: outofcharacter1
+  offset: 0, 0.125

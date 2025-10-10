@@ -142,7 +142,12 @@ public partial class ChatBox : UIWidget
         var selectStart = Index.End;
 
         if (channel != null)
+        {
             ChatInput.ChannelSelector.Select(channel.Value);
+            // FUNKYSTATION EDIT START
+            _controller.NotifyChatTypeChange(channel.Value);
+            // FUNKYSTATION EDIT END
+        }
 
         input.IgnoreNext = true;
         input.GrabKeyboardFocus();
@@ -171,6 +176,7 @@ public partial class ChatBox : UIWidget
             return;
 
         ChatInput.ChannelSelector.Select(toSelect);
+        _controller.NotifyChatTypeChange(toSelect);
     }
 
     private void OnInputKeyBindDown(GUIBoundKeyEventArgs args)
@@ -210,6 +216,10 @@ public partial class ChatBox : UIWidget
     {
         // Warn typing indicator about focus
         _controller.NotifyChatFocus(true);
+        // FUNKYSTATION EDIT START
+        // If it's changed by something that didn't call focus, we handle that.
+        _controller.NotifyChatTypeChange(SelectedChannel);
+        // FUNKYSTATION EDIT END
     }
 
     private void OnFocusExit(LineEditEventArgs args)

@@ -9,6 +9,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.CCVar;
+using Content.Shared.Chat;
 using Content.Shared.Chat.TypingIndicator;
 using Robust.Client.Player;
 using Robust.Shared.Configuration;
@@ -27,13 +28,29 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
     private TimeSpan _lastTextChange;
     private bool _isClientTyping;
     private bool _isClientChatFocused;
-
+    //FUNKYSTATION EDIT START
+    private ChatSelectChannel _chatType;
+    //FUNKYSTATION EDIT END
     public override void Initialize()
     {
         base.Initialize();
 
         Subs.CVar(_cfg, CCVars.ChatShowTypingIndicator, OnShowTypingChanged);
     }
+
+    // FUNKY STATION EDIT START
+    public void ClientChangedChatType(ChatSelectChannel type)
+    {
+        // don't update it if player don't want to show typing indicator
+        if (!_cfg.GetCVar(CCVars.ChatShowTypingIndicator))
+            return;
+
+        // client changed chat type - change typing indicator class
+        _chatType = type;
+        ClientUpdateChatType();
+    }
+    // FUNKY STATION EDIT END
+
 
     public void ClientChangedChatText()
     {
@@ -86,6 +103,21 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
         }
     }
 
+    // FUNKYSTATION EDIT START
+    private void ClientUpdateChatType()
+    {
+        // check if player controls any pawn
+        if (_playerManager.LocalEntity == null)
+            return;
+
+        var chatType = ChatSelectChannel.None;
+        if (_isClientChatFocused)
+            chatType = _chatType;
+
+        // send a networked event to server
+        RaisePredictiveEvent(new TypingChangedTypeEvent(chatType));
+    }
+    // FUNKYSTATION EDIT END
     private void ClientUpdateTyping()
     {
         // check if player controls any pawn

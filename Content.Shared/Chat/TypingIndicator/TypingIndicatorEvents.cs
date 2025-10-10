@@ -26,6 +26,22 @@ public sealed class TypingChangedEvent : EntityEventArgs
         State = state;
     }
 }
+// FUNKYSTATION EDIT START
+/// <summary>
+///     Networked event from client.
+///     Send to server when client started/stopped typing in chat input field.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class TypingChangedTypeEvent : EntityEventArgs
+{
+    public readonly ChatSelectChannel ChatType;
+
+    public TypingChangedTypeEvent(ChatSelectChannel chatType)
+    {
+        ChatType = chatType;
+    }
+}
+// FUNKYSTATION EDIT END
 
 /// <summary>
 ///     This event will be broadcast right before displaying an entities typing indicator.

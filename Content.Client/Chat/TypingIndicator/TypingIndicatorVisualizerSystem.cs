@@ -46,24 +46,39 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
             return;
         }
 
+        // FUNKYSTATION EDIT START
+        var protoToUse = proto;
+
+        if (AppearanceSystem.TryGetData<string>(uid,
+                TypingIndicatorVisuals.OverrideIndicatorPrototype,
+                out var overrideId))
+        {
+            // If we're overriding. We've assigned it on a switch, everything but 2 is default.
+            if (overrideId != "default")
+            {
+                if (_prototypeManager.TryIndex(overrideId, out TypingIndicatorPrototype? overrideProto))
+                    protoToUse = overrideProto;
+            }
+        }
+        // FUNKYSTATION EDIT END
         var layerExists = args.Sprite.LayerMapTryGet(TypingIndicatorLayers.Base, out var layer);
         if (!layerExists)
             layer = args.Sprite.LayerMapReserveBlank(TypingIndicatorLayers.Base);
 
-        args.Sprite.LayerSetRSI(layer, proto.SpritePath);
-        args.Sprite.LayerSetState(layer, proto.TypingState);
-        args.Sprite.LayerSetShader(layer, proto.Shader);
-        args.Sprite.LayerSetOffset(layer, proto.Offset);
+        args.Sprite.LayerSetRSI(layer, protoToUse.SpritePath);
+        args.Sprite.LayerSetState(layer, protoToUse.TypingState);
+        args.Sprite.LayerSetShader(layer, protoToUse.Shader);
+        args.Sprite.LayerSetOffset(layer, protoToUse.Offset);
 
         AppearanceSystem.TryGetData<TypingIndicatorState>(uid, TypingIndicatorVisuals.State, out var state);
         args.Sprite.LayerSetVisible(layer, state != TypingIndicatorState.None);
         switch (state)
         {
             case TypingIndicatorState.Idle:
-                args.Sprite.LayerSetState(layer, proto.IdleState);
+                args.Sprite.LayerSetState(layer, protoToUse.IdleState);
                 break;
             case TypingIndicatorState.Typing:
-                args.Sprite.LayerSetState(layer, proto.TypingState);
+                args.Sprite.LayerSetState(layer, protoToUse.TypingState);
                 break;
         }
     }

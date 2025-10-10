@@ -964,7 +964,12 @@ public sealed partial class ChatUIController : UIController
     {
         _typingIndicator?.ClientChangedChatText();
     }
-
+    // FUNKY STATION EDIT START
+    public void NotifyChatTypeChange(ChatSelectChannel type)
+    {
+        _typingIndicator?.ClientChangedChatType(type);
+    }
+    // FUNKY STATION EDIT END
     public void NotifyChatFocus(bool isFocused)
     {
         _typingIndicator?.ClientChangedChatFocus(isFocused);

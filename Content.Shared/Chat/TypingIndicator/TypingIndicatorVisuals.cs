@@ -9,14 +9,17 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Chat.TypingIndicator;
 
+// FUNKYSTATION EDIT - ADD CHATTYPE AND OVERRIDEPROTOTYPE
 [Serializable, NetSerializable]
 public enum TypingIndicatorVisuals : byte
 {
-    State
+    State,
+    ChatType,
+    OverrideIndicatorPrototype
 }
 
 [Serializable]
 public enum TypingIndicatorLayers : byte
 {
-    Base
+    Base,
 }

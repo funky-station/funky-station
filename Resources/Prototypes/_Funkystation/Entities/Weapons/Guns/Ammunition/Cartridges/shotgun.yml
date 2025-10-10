@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 thecopbennet <bennetgood@gmail.com>
 # SPDX-FileCopyrightText: 2025 thecopbennet <thecopbennet@proton.me>
@@ -6,7 +7,7 @@
 
 - type: entity
   id: ShellHypo
-  name: shell (.50 hypo)
+  name: shell (12 gauge hypo)
   parent: [BaseSyndicateContraband, BaseShellShotgun]
   components:
   - type: Sprite

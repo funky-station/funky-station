@@ -135,6 +135,7 @@
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Neoncamouflage <neoncamouflage@yahoo.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
@@ -209,6 +210,18 @@
     Telecrystal: 4 # goob
   categories:
   - UplinkWeaponry
+
+#  Funkystation. Big gun with uranium rounds, don't forget chem can make Siderlac!
+- type: listing
+  id: UplinkPistolWyvern
+  name: uplink-pistol-wyvern-name
+  description: uplink-pistol-wyvern-desc
+  productEntity: WeaponPistolWyvernSyndicate
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkWeaponry
+  saleLimit: 1
 
 - type: listing
   id: UplinkEsword
@@ -732,6 +745,36 @@
         tags:
           - NukeOpsUplink
     - !type:BuyerWhitelistCondition
+      blacklist:
+        components:
+          - SurplusBundle
+          
+# For the wyvern
+- type: listing
+  id: UplinkPistolLargeMagazineUranium
+  name: uplink-pistol-magazine-large-uranium-name
+  description: uplink-pistol-magazine-large-uranium-desc
+  icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag_50.rsi, state: green-icon }
+  productEntity: MagazinePistolLargeUranium
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkAmmo
+  saleBlacklist: true
+
+- type: listing
+  id: UplinkPistolLargeMagazineIncendiary
+  name: uplink-pistol-magazine-large-incendiary-name
+  description: uplink-pistol-magazine-large-incendiary-desc
+  icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag_50.rsi, state: red-icon }
+  productEntity: MagazinePistolLargeIncendiary
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkAmmo
+  saleBlacklist: true
+  conditions:
+    - !type:BuyerWhitelistCondition # as to not spam the surplus crates with a bunch of ammo types
       blacklist:
         components:
           - SurplusBundle

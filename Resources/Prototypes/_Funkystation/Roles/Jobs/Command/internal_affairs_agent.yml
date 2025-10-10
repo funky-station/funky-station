@@ -24,14 +24,20 @@
   supervisors: job-supervisors-ntr
   canBeAntag: false
   access:
+  - Command
   - Cargo
+  - Salvage
   - Brig
+  - Security
   - External
   - Cryogenics
   - Maintenance
   - Engineering
+  - Atmospherics
   - Medical
+  - Chemistry
   - Research
+  - Robotics
   - Lawyer
   special:
   - !type:AddImplantSpecial

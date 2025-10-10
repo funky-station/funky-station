@@ -184,6 +184,7 @@
   id: BaseMobDinosaurCarnivore
   abstract: true
   components:
+  - type: Devourer
     foodPreferenceWhitelist:
       components:
       - HumanoidAppearance

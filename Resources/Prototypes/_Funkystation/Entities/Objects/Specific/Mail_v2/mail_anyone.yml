@@ -346,3 +346,12 @@
     contents:
     - id: DrinkCanPack
       amount: 4
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailGayWackpack
+  suffix: Gay Wackpack
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingBackpackDebug3

@@ -963,8 +963,8 @@
       - Ingredient
   - type: FoodSequenceElement
     entries:
-      burger: Cocoa
-      taco: Cocoa
+      Burger: Cocoa
+      Taco: Cocoa
 
 - type: entity
   name: raw croissant

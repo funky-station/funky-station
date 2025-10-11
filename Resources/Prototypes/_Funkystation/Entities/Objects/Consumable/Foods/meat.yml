@@ -124,8 +124,8 @@
           Quantity: 2
   - type: FoodSequenceElement
     entries:
-      burger: CookedMysteryCutlet
-      taco: CookedMysteryCutlet
+      Burger: CookedMysteryCutlet
+      Taco: CookedMysteryCutlet
   - type: Construction
     graph: MysteryCutlet
     node: cooked mystery cutlet

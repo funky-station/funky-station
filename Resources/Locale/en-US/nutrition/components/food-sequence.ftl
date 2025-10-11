@@ -102,7 +102,7 @@ food-sequence-content-meatball-cooked = meatball
 food-sequence-content-chanterelle = chanterelle
 food-sequence-content-chevre-disk = chevre
 food-sequence-content-tofu-slice = tofu
-
+food-sequence-content-roingus = roingus
 # BURGERS
 
 food-sequence-burger-gen = {$content}burger

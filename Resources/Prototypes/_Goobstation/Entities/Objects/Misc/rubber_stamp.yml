@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -14,6 +15,7 @@
     stampedName: stamp-component-stamped-name-nanorep
     stampedColor: "#2ec69b"
     stampState: "paper_stamp-nanorep"
+    stampLargeIcon: "large_stamp-ntr" # Funky!
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/stamps.rsi
     state: stamp-nanorep

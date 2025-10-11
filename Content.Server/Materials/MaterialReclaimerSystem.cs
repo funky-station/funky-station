@@ -16,8 +16,12 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
+// SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 //
 // SPDX-License-Identifier: MIT
 
@@ -42,6 +46,7 @@ using Content.Shared.Materials;
 using Content.Shared.Mind;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Power;
+using Content.Shared.Stacks;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -185,9 +190,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         Dirty(uid, component);
 
         // scales the output if the process was interrupted.
-        var completion = 1f - Math.Clamp((float) Math.Round((active.EndTime - Timing.CurTime) / active.Duration),
-            0f,
-            1f);
+        var completion = 1f; //funkystation fix dupe bug
         Reclaim(uid, item, completion, component);
 
         return true;
@@ -201,6 +204,14 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
     {
         if (!Resolve(uid, ref component))
             return;
+
+        // Allow systems to intercept processing (e.g., robotics factory conversion).
+        var processEvent = new MaterialReclaimerProcessEntityEvent(item);
+        RaiseLocalEvent(uid, processEvent);
+        if (processEvent.Handled)
+        {
+            return;
+        }
 
         base.Reclaim(uid, item, completion, component);
 
@@ -237,9 +248,12 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         if (!Resolve(item, ref composition, false))
             return;
 
+        // If more of these checks are needed, use an event instead
+        var modifier = CompOrNull<StackComponent>(item)?.Count ?? 1.0f;
+
         foreach (var (material, amount) in composition.MaterialComposition)
         {
-            var outputAmount = (int) (amount * efficiency);
+            var outputAmount = (int) (amount * efficiency* modifier);
             _materialStorage.TryChangeMaterialAmount(reclaimer, material, outputAmount, storage);
         }
 

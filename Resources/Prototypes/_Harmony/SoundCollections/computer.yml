@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: 2025 Spanky <180730777+spanky-spanky@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: soundCollection
+  id: HarmonyComputerSFX
+  files:
+  - /Audio/_Harmony/Effects/Computer/beep1.ogg
+  - /Audio/_Harmony/Effects/Computer/beep2.ogg
+  - /Audio/_Harmony/Effects/Computer/beep3.ogg
+  - /Audio/_Harmony/Effects/Computer/beep4.ogg
+  - /Audio/_Harmony/Effects/Computer/beep5.ogg
+  - /Audio/_Harmony/Effects/Computer/beep6.ogg
+  - /Audio/_Harmony/Effects/Computer/beep7.ogg
+  - /Audio/_Harmony/Effects/Computer/buzz1.ogg
+  - /Audio/_Harmony/Effects/Computer/hum1.ogg
+  - /Audio/_Harmony/Effects/Computer/hum2.ogg
+  - /Audio/_Harmony/Effects/Computer/scroll1.ogg
+  - /Audio/_Harmony/Effects/Computer/scroll2.ogg
+  - /Audio/_Harmony/Effects/Computer/scroll3.ogg

@@ -21,6 +21,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheHolyAegis <sanderkamphuis719@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -48,7 +49,6 @@
             #service
             Captain: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]
-            BlueshieldOfficer: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 3, 3 ]
             Botanist: [ 5, 5 ]
@@ -57,6 +57,7 @@
             Chaplain: [ 2, 2 ]
             Librarian: [ 2, 2 ]
             ServiceWorker: [ 4, 4 ]
+            Zookeeper: [ 1, 1 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 5, 5 ]
@@ -89,6 +90,7 @@
             Clown: [ 2, 2 ]
             Mime: [ 2, 2 ]
             Musician: [ 3, 3 ]
+            Boxer: [ 4, 4 ]
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 4, 4 ]

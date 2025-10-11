@@ -22,3 +22,12 @@
   - type: Mail
     contents:
     - id: SyndicateBombFake
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailSecurityFlareShells
+  suffix: Flare Shells
+  components:
+  - type: Mail
+    contents:
+    - id: BoxShotgunFlare

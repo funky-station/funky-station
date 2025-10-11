@@ -730,8 +730,8 @@
     state: meatball
   - type: FoodSequenceElement
     entries:
-      burger: MeatballBurger
-      taco: MeatballTaco
+      burger: Meatball
+      taco: Meatball
   - type: Construction
     graph: MeatMeatballCooked
     node: start
@@ -1393,8 +1393,8 @@
     node: dragon steak
   - type: FoodSequenceElement
     entries:
-      Burger: DragonSteak
-      Taco: DragonSteak
+      Burger: FoodMeatDragonCooked
+      Taco: FoodMeatDragonCooked
 
 # Cutlets
 

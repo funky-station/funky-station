@@ -849,8 +849,8 @@
     - Slice
   - type: FoodSequenceElement
     entries:
-      Taco: ChevreTaco
-      Burger: ChevreBurger
+      Taco: ChevreDisk
+      Burger: ChevreDisk
 
 - type: entity
   name: tofu
@@ -901,8 +901,8 @@
     - Slice
   - type: FoodSequenceElement
     entries:
-      burger: TofuBurger
-      taco: TofuTaco
+      burger: TofuSlice
+      taco: TofuSlice
 
 - type: entity
   name: burned mess
@@ -961,8 +961,8 @@
       - Ingredient
   - type: FoodSequenceElement
     entries:
-      burger: CocoaBurger
-      taco: CocoaTaco
+      burger: Cocoa
+      taco: Cocoa
 
 - type: entity
   name: raw croissant

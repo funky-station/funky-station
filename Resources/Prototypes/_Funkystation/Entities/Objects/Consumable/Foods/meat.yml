@@ -27,10 +27,6 @@
     graph: MysteryMeatSteak
     node: start
     defaultTarget: cooked mystery meat
-  - type: FoodSequenceElement
-    entries:
-      burger: MysteryMeatBurger
-      taco: MysteryMeatTaco
 
 # Cooked
 
@@ -65,8 +61,8 @@
     node: cooked mystery meat
   - type: FoodSequenceElement
     entries:
-      burger: CookedMysteryBurger
-      taco: CookedMysteryTaco
+      burger: CookedMysteryMeat
+      taco: CookedMysteryMeat
 
 # Cutlets
 
@@ -95,10 +91,6 @@
           Quantity: 3
         - ReagentId: Fat
           Quantity: 2
-  - type: FoodSequenceElement
-    entries:
-      burger: MysteryCutletBurger
-      taco: MysteryCutletTaco
   - type: Construction
     graph: MysteryCutlet
     node: start
@@ -131,9 +123,8 @@
           Quantity: 2
   - type: FoodSequenceElement
     entries:
-      burger: CookedMysteryCutletBurger
-      taco: CookedMysteryCutletTaco
-      skewer: CookedMysteryCutletSkewer
+      burger: CookedMysteryCutlet
+      taco: CookedMysteryCutlet
   - type: Construction
     graph: MysteryCutlet
     node: cooked mystery cutlet

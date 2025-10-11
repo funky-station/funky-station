@@ -1394,9 +1394,8 @@
     - Vegetable
   - type: FoodSequenceElement
     entries:
-      burger: Mushroom
-      taco: Mushroom
-      skewer: MushroomSkewer
+      burger: Chanterelle
+      taco: Chanterelle
 
 # Slices
 

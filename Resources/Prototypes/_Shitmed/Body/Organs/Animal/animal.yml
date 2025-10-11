@@ -42,8 +42,8 @@
       - people
   - type: FoodSequenceElement
     entries:
-      burger: AnimalBrainBurger
-      taco: AnimalBrainTaco
+      burger: AnimalBrainMeat
+      taco: AnimalBrainMeat
   - type: Item
     size: Small
     shape:

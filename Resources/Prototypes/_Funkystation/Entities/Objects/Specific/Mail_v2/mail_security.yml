@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailSecurityPracticeShotgun
+  suffix: Practice Shotgun
+  components:
+  - type: Mail
+    contents:
+    - id: WeaponShotgunSawnEmpty
+    - id: BoxShotgunPractice
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailSecurityPracticeBomb
+  suffix: Practice Syndicate Bomb
+  components:
+  - type: Mail
+    contents:
+    - id: SyndicateBombFake
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailSecurityFlareShells
+  suffix: Flare Shells
+  components:
+  - type: Mail
+    contents:
+    - id: BoxShotgunFlare

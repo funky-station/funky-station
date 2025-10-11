@@ -1,0 +1,65 @@
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+
+#Bartender
+- type: entity
+  parent: BaseMailLarge
+  id: MailBartenderKeg
+  suffix: Bartender Keg
+  components:
+  - type: Mail
+    contents:
+    - id: NuclearBombKeg
+
+#Janitor
+- type: entity
+  parent: BaseMail
+  id: MailJanitorMoproach
+  suffix: Janitor Moproach
+  components:
+  - type: Mail
+    contents:
+    - id: MoproachCube
+
+#Botanist
+- type: entity
+  parent: BaseMail
+  id: MailCatberrySeeds
+  suffix: Catberry Seeds
+  components:
+  - type: Mail
+    contents:
+    - id: CatberrySeeds
+
+- type: entity
+  parent: BaseMail
+  id: MailPlantAnalyzer
+  suffix: Plant Analyzer
+  components:
+  - type: Mail
+    contents:
+    - id: PlantAnalyzer
+
+#Chef
+
+- type: entity
+  parent: BaseMail
+  id: MailDonkcowave
+  suffix: Donkco Microwave
+  components:
+  - type: Mail
+    contents:
+    - id: SyndicateMicrowaveMachineCircuitboard
+
+- type: entity
+  parent: BaseMail
+  id: MailFatExtractor
+  suffix: Fat Extractor
+  components:
+  - type: Mail
+    contents:
+    - id: FatExtractorMachineCircuitboard

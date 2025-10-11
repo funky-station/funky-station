@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Teasq <Xerithin@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -19,6 +20,24 @@
   - LawyerJumpskirtBlue
   - LawyerJumpsuitRed
   - LawyerJumpskirtRed
+  - InternalAffairsAgentTurtleneckBlack
+  - InternalAffairsAgentTurtleneckRed
+  - InternalAffairsAgentTurtleneckBlue
+
+- type: loadoutGroup
+  id: InternalAffairsAgentOuterClothing
+  name: loadout-group-iaa-outer
+  minLimit: 0
+  loadouts:
+    - InternalAffairsAgentWinterCoat
+
+- type: loadoutGroup
+  id: InternalAffairsAgentGloves
+  name: loadout-group-iaa-gloves
+  minLimit: 0
+  loadouts:
+  - InternalAffairsAgentGlovesBlack
+  - InternalAffairsAgentGlovesRed
 
 - type: loadoutGroup
   id: InternalAffairsAgentBackpack

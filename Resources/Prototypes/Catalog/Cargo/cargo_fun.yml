@@ -26,6 +26,7 @@
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -97,7 +98,7 @@
   icon:
     sprite: Objects/Fun/crayons.rsi
     state: box
-  product: CrateFunArtSupplies
+  product: BoxFunArtSupplies #Funky Edit
   cost: 500
   category: cargoproduct-category-name-fun
   group: market
@@ -147,17 +148,17 @@
   icon:
     sprite: Objects/Fun/toys.rsi
     state: plushie_lizard
-  product: CrateFunLizardPlushieBulk
+  product: BoxFunLizardPlushieBulk #Funky Edit
   cost: 500
   category: cargoproduct-category-name-fun
   group: market
-  
+
 - type: cargoProduct
   id: FunSharkPlushies
   icon:
     sprite: Objects/Fun/sharkplush.rsi
     state: blue
-  product: CrateFunSharkPlushieBulk
+  product: BoxFunSharkPlushieBulk #Funky Edit
   cost: 500
   category: cargoproduct-category-name-fun
   group: market
@@ -197,7 +198,7 @@
   icon:
     sprite: Clothing/Hands/Gloves/Boxing/boxingred.rsi
     state: icon
-  product: CrateFunBoxing
+  product: BoxFunBoxing
   cost: 500
   category: cargoproduct-category-name-fun
   group: market

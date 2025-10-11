@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -15,6 +17,7 @@
     stampedName: stamp-component-stamped-name-iaa
     stampedColor: "#515961"
     stampState: "paper_stamp-iaa"
+    stampLargeIcon: "large_stamp-iaa" # Funky!
   - type: Sprite
     sprite: _Funkystation/Objects/Misc/stamps.rsi
     state: stamp-iaa

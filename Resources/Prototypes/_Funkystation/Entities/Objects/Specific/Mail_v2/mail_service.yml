@@ -34,3 +34,32 @@
   - type: Mail
     contents:
     - id: CatberrySeeds
+
+- type: entity
+  parent: BaseMail
+  id: MailPlantAnalyzer
+  suffix: Plant Analyzer
+  components:
+  - type: Mail
+    contents:
+    - id: PlantAnalyzer
+
+#Chef
+
+- type: entity
+  parent: BaseMail
+  id: MailDonkcowave
+  suffix: Donkco Microwave
+  components:
+  - type: Mail
+    contents:
+    - id: SyndicateMicrowaveMachineCircuitboard
+
+- type: entity
+  parent: BaseMail
+  id: MailFatExtractor
+  suffix: Fat Extractor
+  components:
+  - type: Mail
+    contents:
+    - id: FatExtractorMachineCircuitboard

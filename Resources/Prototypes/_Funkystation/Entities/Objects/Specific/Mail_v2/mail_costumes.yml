@@ -121,3 +121,23 @@
     - id: ClothingOuterWinterSyndieCap
     - id: ClothingShoesBootsWinterSyndicate
     - id: ClothingOuterCoatSyndieCap
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailDogi
+  suffix: Dogi
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingOuterDogi
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailCatHats
+  suffix: Cat Hats
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHeadHatAnimalCat
+    - id: ClothingHeadHatAnimalCatBrown
+    - id: ClothingHeadHatAnimalCatBlack

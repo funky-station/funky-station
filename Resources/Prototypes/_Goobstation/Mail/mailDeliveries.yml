@@ -33,6 +33,9 @@
     MailLollipops: 1
     MailBadCigs: 0.1 
     Mail24Pack: 0.1
+    MailCatBerry: 0.05
+    MailSuppermatter: 0.1 
+    MailSuppermatterShard: 0.5
   # Costumes
     MailCosplayMaid: 0.6
     MailCosplayWizard: 0.6
@@ -52,6 +55,8 @@
     MailHECU2: 0.1
     MailShrineMaidenOutfit: 0.2
     MailSyndicateSurplus: 0.1
+    MailDogi: 0.3
+    MailCatHats: 0.5
   # Fun
     MailEMP: 0.1 # Xcy - People comically hate this, bumping down by half to 0.1
     MailSmoke: 0.3
@@ -99,7 +104,16 @@
     MailSecWhistle: 0.4
     MailSyndWhistle: 0.2
     MailGayWackpack: 0.05
-    MailCatBerry: 0.05
+    MailSecurityPracticeBomb: 0.01
+    MailReporterKit: 0.5 
+    MailSpectralLocator: 0.3 
+    MailPortableMixer: 0.2
+    MailInfiniteCrayon: 0.01 
+    MailKitten: 0.2 
+    MailCak: 0.1 
+    MailBreadDog: 0.1 
+    MailCognizineBottle: 0.05 
+    MailHandheldTV: 0.5
   # Tools
     MailSignallerKit: 0.5
     MailFlashlight: 0.8
@@ -107,10 +121,12 @@
     MailBetterFilledBelt: 0.2 
     MailFakeInsuls: 0.8 
     MailInsuls: 0.4 
+    MailHandheldMap: 0.6
   # Weapons
     MailKnife: 0.3
     MailSword: 0.2
     MailSwitchblade: 0.05
+    MailBrassKnuckles: 0.1 
   # Departments
   departments:
     Cargo:
@@ -127,6 +143,7 @@
       MailMedicalRareTopicals: 0.5
       MailMedicalRollerBed: 1
       MailMedicalSurgeryKit: 0.5
+      MailOmnizineBottle: 0.1
     Engineering:
       MailPowerTool: 1.2
       MailCircuitboardService: 1.6
@@ -135,6 +152,7 @@
       MailEngineeringCables: 2
       MailEngineeringMaterials: 2
       MailScienceHazardousMaterials: 0.5
+      MailRechargingRCDRPD: 0.2
     Science:
       MailScienceRareMaterials: 0.5
       MailScienceHazardousMaterials: 0.2
@@ -150,6 +168,7 @@
       MailSecurityJusticeHelm: 0.2
       MailSecurityPracticeShotgun: 0.1 
       MailSecurityPracticeBomb: 0.05
+      MailSecurityFlareShells: 0.2
   jobs: # Jobs
     Bartender:
       MailBartenderTools: 0.5
@@ -161,12 +180,15 @@
       MailBotanistSeeds: 2
       MailKudzuDeterrent: 2
       MailCatberrySeeds: 0.01
+      MailPlantAnalyzer: 0.5
     Chaplain:
       MailChapCandles: 0.3
       MailWitchery: 1
     Chef:
       MailScienceHazardousMaterials: 0.05
       MailChefCheese: 1
+      MailDonkcowave: 0.1
+      MailFatExtractor: 0.5
     Chemist:
       MailMedicalChemistrySupplement: 2
       MailMedicalChemistryChems: 0.3

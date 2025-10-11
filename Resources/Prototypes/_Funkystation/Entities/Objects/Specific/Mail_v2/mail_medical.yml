@@ -13,6 +13,16 @@
     contents:
     - id: SurgeryKitFilled
 
+- type: entity
+  parent: BaseMail
+  id: MailOmnizineBottle
+  suffix: Omnizine Bottle
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: OmnizineChemistryBottle
+
 # Chemist
 - type: entity
   parent: BaseMailLarge

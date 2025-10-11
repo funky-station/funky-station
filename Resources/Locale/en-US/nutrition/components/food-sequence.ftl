@@ -93,6 +93,8 @@ food-sequence-content-anomaly-berry = anomaly berry
 food-sequence-content-patty = meat patty
 food-sequence-content-dragon-cooked = dragon steak
 food-sequence-content-dragoncutlet-cooked = dragon cutlet
+food-sequence-content-bacon-cooked = bacon
+food-sequence-content-meatball-cooked = meatball
 
 # BURGERS
 

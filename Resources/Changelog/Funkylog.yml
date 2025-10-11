@@ -4834,3 +4834,11 @@ Entries:
       message: Resprites flooring!
   id: 580
   time: '2025-10-07T02:36:11.0000000+00:00'
+- author: Toastermeister
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a bug where the implanter wouldn't remove syndicate radio implant
+        or fake mindshield implant.
+  id: 581
+  time: '2025-10-10T03:10:13.0000000+00:00'

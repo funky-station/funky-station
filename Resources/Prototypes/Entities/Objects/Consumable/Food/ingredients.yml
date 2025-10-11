@@ -903,8 +903,8 @@
     - Slice
   - type: FoodSequenceElement
     entries:
-      burger: TofuSlice
-      taco: TofuSlice
+      Burger: TofuSlice
+      Taco: TofuSlice
 
 - type: entity
   name: burned mess

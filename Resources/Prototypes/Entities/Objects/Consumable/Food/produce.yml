@@ -1397,8 +1397,8 @@
     - Vegetable
   - type: FoodSequenceElement
     entries:
-      burger: Chanterelle
-      taco: Chanterelle
+      Burger: Chanterelle
+      Taco: Chanterelle
 
 # Slices
 

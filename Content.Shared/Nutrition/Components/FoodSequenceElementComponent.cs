@@ -7,7 +7,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using System.Numerics;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Nutrition.Prototypes;
 using Content.Shared.Tag;

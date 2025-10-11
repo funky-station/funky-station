@@ -1191,6 +1191,8 @@
   minLimit: 1
   loadouts:
     - SecurityNormGlasses
+    - SecurityHud
+    - SecurityEyepatch
     - SecurityJamjarGlasses
 
 - type: loadoutGroup
@@ -1234,6 +1236,14 @@
   - ArmorVest
   - ArmorVestSlim
   - SecurityOfficerWintercoat
+
+#Funky
+- type: loadoutGroup
+  id: SecurityGloves
+  name: loadout-group-security-gloves
+  loadouts:
+  - BlackGloves
+  - FingerlessGloves
 
 - type: loadoutGroup
   id: SecurityShoes

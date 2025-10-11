@@ -64,6 +64,16 @@
     eyes: ClothingEyesGlassesSecurity
 
 - type: loadout
+  id: SecurityHud
+  equipment:
+    eyes: ClothingEyesHudSecurity
+
+- type: loadout
+  id: SecurityEyepatch
+  equipment:
+    eyes: ClothingEyesEyepatchHudSecurity
+
+- type: loadout
   id: SecurityJamjarGlasses
   equipment:
     eyes: ClothingEyesGlassesSecjar
@@ -152,6 +162,18 @@
   id: SecurityOfficerWintercoat
   equipment:
     outerClothing: ClothingOuterWinterSec
+
+# Gloves - Funky
+
+- type: loadout
+  id: BlackGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+
+- type: loadout
+  id: FingerlessGloves
+  equipment:
+    gloves: ClothingHandsGlovesFingerless
 
 # Shoes
 - type: loadout

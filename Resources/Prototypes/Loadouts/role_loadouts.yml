@@ -407,6 +407,7 @@
   - SecurityNeck
   - SecurityBackpack
   - SecurityOuterClothing
+  - SecurityGloves # Funky
   - SecurityShoes
   - SecurityPDA
   - SecurityBelt
@@ -436,7 +437,10 @@
   id: JobSecurityCadet
   groups:
   - SecurityCadetJumpsuit
+  - SecurityGlasses #Funky
   - SecurityBackpack
+  - SecurityGloves # Funky
+  - SecurityShoes
   - SurvivalSecurity
   - SecurityOuterClothing # Goobstation - Why not.
   - Trinkets

@@ -81,7 +81,7 @@
       maxPicks: 3
     maxDifficulty: 8
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
+    selectionTime: PostPlayerSpawn
     definitions:
     - prefRoles: [ MalfunctioningAI ]
       max: 1

@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -27,15 +28,6 @@
     graph: MysteryMeatSteak
     node: start
     defaultTarget: cooked mystery meat
-  - type: FoodSequenceElement
-    sprite:
-      sprite: _Funkystation/Objects/Consumable/Food/meat.rsi
-      state: mysterymeat
-    entries:
-      burger:
-        name: food-sequence-burger-content-mystery
-      taco:
-        name: food-sequence-content-mystery
 
 # Cooked
 
@@ -69,19 +61,9 @@
     graph: MysteryMeatSteak
     node: cooked mystery meat
   - type: FoodSequenceElement
-    sprite:
-      sprite: _Funkystation/Objects/Consumable/Food/meat.rsi
-      state: mysterymeat-cooked
     entries:
-      burger:
-        name: food-sequence-burger-content-mystery
-      taco:
-        name: food-sequence-content-mystery
-      skewer:
-        name: food-sequence-content-mystery
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-meat
+      Burger: FoodMysteryMeatCooked
+      Taco: FoodMysteryMeatCooked
 
 # Cutlets
 
@@ -110,15 +92,6 @@
           Quantity: 3
         - ReagentId: Fat
           Quantity: 2
-  - type: FoodSequenceElement
-    sprite:
-      sprite: _Funkystation/Objects/Consumable/Food/meat.rsi
-      state: mysterycutlet
-    entries:
-      burger:
-        name: food-sequence-burger-content-mystery
-      taco:
-        name: food-sequence-content-mystery
   - type: Construction
     graph: MysteryCutlet
     node: start
@@ -150,19 +123,9 @@
         - ReagentId: Protein
           Quantity: 2
   - type: FoodSequenceElement
-    sprite:
-      sprite: _Funkystation/Objects/Consumable/Food/meat.rsi
-      state: mysterycutlet-cooked
     entries:
-      burger:
-        name: food-sequence-burger-content-mystery
-      taco:
-        name: food-sequence-content-mystery
-      skewer:
-        name: food-sequence-content-mystery
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-meat
+      Burger: CookedMysteryCutlet
+      Taco: CookedMysteryCutlet
   - type: Construction
     graph: MysteryCutlet
     node: cooked mystery cutlet

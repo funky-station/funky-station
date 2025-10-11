@@ -40,7 +40,7 @@ entities:
   - uid: 2
     components:
     - type: MetaData
-      name: grid
+      name: YSB-Yeehaw
     - type: Transform
       pos: -1.2071928,-0.014389038
       parent: invalid

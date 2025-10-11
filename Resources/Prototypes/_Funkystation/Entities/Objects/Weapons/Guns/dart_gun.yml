@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-# Just a weaker syringe gun with a purchaseable ammo type and syndie contra. Hypodarts can only hold 7u max.
+# Just a weaker syringe gun with a purchaseable ammo type and syndie contra. Hypodarts can only hold 8u max.
 - type: entity
   name: dart gun
   parent: [LauncherSyringe, BaseSyndicateContraband]

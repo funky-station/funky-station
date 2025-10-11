@@ -729,38 +729,9 @@
   - type: Sprite
     state: meatball
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: meatball
     entries:
-      burger:
-        name: food-sequence-burger-content-raw-meat
-      taco:
-        name: food-sequence-content-raw-meat
-  - type: Construction
-    graph: MeatMeatballCooked
-    node: start
-
-# meat patty - grillin' time
-
-- type: entity
-  name: meat patty
-  parent: FoodMeatBase
-  id: FoodMeatPatty
-  description: A flat slab of ground meat. Ready for grillin'.
-  components:
-  - type: Tag
-    tags:
-    - Raw
-    - Meat
-  - type: Sprite
-    state: raw_patty
-  - type: InternalTemperature
-    conductivity: 0.43
-  - type: Construction
-    graph: CookedPatty
-    node: start
-    defaultTarget: cooked meat patty
+      burger: MeatballBurger
+      taco: MeatballTaco
   - type: Construction
     graph: MeatMeatballCooked
     node: start
@@ -1368,14 +1339,9 @@
     graph: DragonSteak
     node: dragon steak
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: dragon-cooked
     entries:
-      burger:
-        name: food-sequence-content-dragon-cooked
-      taco:
-        name: food-sequence-content-dragon-cooked
+      burger: DragonBurger
+      taco: DragonTaco
 
 # Cutlets
 
@@ -1935,11 +1901,6 @@
     graph: DragonCutlet
     node: dragon cutlet
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/meat.rsi
-      state: dragoncutlet-cooked
     entries:
-      burger:
-        name: food-sequence-content-dragoncutlet-cooked
-      taco:
-        name: food-sequence-content-dragoncutlet-cooked
+      burger: DragonCutletBurger
+      taco: DragonCutletTaco

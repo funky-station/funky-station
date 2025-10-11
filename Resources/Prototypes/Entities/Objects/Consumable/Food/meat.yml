@@ -732,10 +732,6 @@
     - Meat
   - type: Sprite
     state: meatball
-  - type: FoodSequenceElement
-    entries:
-      burger: Meatball
-      taco: Meatball
   - type: Construction
     graph: MeatMeatballCooked
     node: start
@@ -1272,8 +1268,8 @@
           Quantity: 5
   - type: FoodSequenceElement
     entries:
-      Burger: MeatBall
-      Taco: MeatBall
+      Burger: Meatball
+      Taco: Meatball
   - type: Construction
     graph: MeatMeatballCooked
     node: meatball cooked

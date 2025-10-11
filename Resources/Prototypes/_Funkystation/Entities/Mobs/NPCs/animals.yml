@@ -43,6 +43,8 @@
     size: Tiny
     heldPrefix: 1
   - type: FoodSequenceElement
+    id: Roingus
+    name: food-sequence-content-roingus
     sprites:
       sprite: _Funkystation/Mobs/Animals/roingus.rsi
       state: dead

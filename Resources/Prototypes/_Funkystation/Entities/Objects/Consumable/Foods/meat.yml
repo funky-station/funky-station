@@ -62,8 +62,8 @@
     node: cooked mystery meat
   - type: FoodSequenceElement
     entries:
-      burger: CookedMysteryMeat
-      taco: CookedMysteryMeat
+      burger: FoodMysteryMeatCooked
+      taco: FoodMysteryMeatCooked
 
 # Cutlets
 

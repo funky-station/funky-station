@@ -327,7 +327,7 @@
 # Mystery Meat
 
 - type: foodSequenceElement
-  id: CookedMysteryMeat
+  id: FoodMysteryMeatCooked
   name: food-sequence-content-mystery-meat
   sprites:
   - sprite: _Funkystation/Objects/Consumable/Food/meat.rsi
@@ -523,7 +523,7 @@
 # Animal Brain
 
 - type: foodSequenceElement
-  id: AnimalBrainMeat
+  id: OrganAnimalBrain
   name: food-sequence-content-animal-brain
   sprites:
   - sprite: Mobs/Species/Human/organs.rsi
@@ -597,7 +597,7 @@
   id: Chanterelle
   name: food-sequence-content-chanterelle
   sprites:
-  - sprite: Objects/Specific/Hydroponics/Chanterelle.rsi
+  - sprite: Objects/Specific/Hydroponics/chanterelle.rsi
     state: produce
   tags:
   - Vegetable

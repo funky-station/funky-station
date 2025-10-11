@@ -365,3 +365,135 @@
     isFragile: true
     contents:
     - id: FoodCatberry
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailReporterKit
+  suffix: Reporter Kit
+  components:
+  - type: Mail
+    contents:
+    - id: NewsDigiBoard
+    - id: SurveillanceWirelessCameraMovableEntertainment
+    - id: SurveillanceWirelessCameraBodyEntertainment
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailSpectralLocator
+  suffix: Spectral Locator
+  components:
+  - type: Mail
+    contents:
+    - id: SpectralLocator
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailPortableMixer
+  suffix: Portable Mixer
+  components:
+  - type: Mail
+    contents:
+    - id: portableChemicalMixer
+
+- type: entity
+  parent: BaseMail
+  id: MailInfiniteCrayon
+  suffix: Infinite Crayon
+  components:
+  - type: Mail
+    contents:
+    - id: InfinityCrayon
+
+- type: entity
+  parent: BaseMail
+  id: MailBrassKnuckles
+  suffix: BrassKnuckles
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHandsKnuckleDustersBrass
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailKitten
+  suffix: Kitten
+  components:
+  - type: Mail
+    contents:
+    - id: MobCatKitten
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailCak
+  suffix: Cak
+  components:
+  - type: Mail
+    contents:
+    - id: MobCatCake
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailBreadDog
+  suffix: Bread Dog
+  components:
+  - type: Mail
+    contents:
+    - id: MobBreadDog
+
+- type: entity
+  parent: BaseMail
+  id: MailCognizineBottle
+  suffix: Cognizine Bottle
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: CognizineChemistryBottle
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailSuppermatter
+  suffix: Suppermatter
+  components:
+  - type: Mail
+    contents:
+    - id: FoodCakeSuppermatter
+
+- type: entity
+  parent: BaseMail
+  id: MailSuppermatterShard
+  suffix: Suppermatter Shard
+  components:
+  - type: Mail
+    contents:
+    - id: FoodCakeSuppermatterSlice
+
+- type: entity
+  parent: BaseMail
+  id: MailHandheldMap
+  suffix: Handheld Map
+  components:
+  - type: Mail
+    contents:
+    - id: HandheldStationMap
+
+- type: entity
+  parent: BaseMail
+  id: MailHandheldTV
+  suffix: Handheld TV
+  components:
+  - type: Mail
+    contents:
+    - id: BaseHandheldTelevision
+
+#Engineering
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailRechargingRCDRPD
+  suffix: Recharging RCD RPD
+  components:
+  - type: Mail
+    contents:
+    - id: RCDRecharging
+    - id: RPDRecharging

@@ -7,6 +7,7 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-malfunctioning-ai-objective
+  guides: [ MalfunctioningAI ]
   requirements:
   - !type:RoleTimeRequirement
     role: JobStationAi

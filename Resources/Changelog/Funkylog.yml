@@ -4848,3 +4848,9 @@ Entries:
       message: Wardens headset now spawns in the locker.
   id: 582
   time: '2025-10-12T19:34:13.0000000+00:00'
+- author: Nictis
+  changes:
+    - type: Tweak
+      message: Adjusted the Hypodart internal reservoir to 9 units from 7.
+  id: 583
+  time: '2025-10-12T19:35:29.0000000+00:00'

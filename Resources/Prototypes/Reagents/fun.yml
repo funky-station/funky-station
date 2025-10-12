@@ -1,30 +1,3 @@
-# SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022 CrudeWax <75271456+CrudeWax@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Sam Weaver <weaversam8@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 CrigCrag <137215465+CrigCrag@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Avalon <148660190+BYONDFuckery@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+pronana@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
-
 - type: reagent
   id: Carpetium
   name: reagent-name-carpetium
@@ -48,7 +21,7 @@
       # Hail the madman logic, if it has CARP, means it helps against CARPs
       - !type:AdjustReagent
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: CarpoToxin
           min: 1
         reagent: CarpoToxin
@@ -66,8 +39,8 @@
       effects:
       - !type:SatiateHunger
         conditions:
-        - !type:OrganType
-          type: Moth
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
 
 - type: reagent
   id: BuzzochloricBees
@@ -75,6 +48,7 @@
   group: Toxins
   desc: reagent-desc-buzzochloric-bees
   physicalDesc: reagent-physical-desc-buzzy
+  contrabandSeverity: Minor
   flavor: bee
   color: "#FFD35D"
   tileReactions:
@@ -101,11 +75,11 @@
         - "buzzochloricbees-effect-squeaky-clean"
         probability: 0.1
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           max: 0
           reagent: Histamine
-        - !type:HasTag
-          invert: true
+        - !type:TagCondition
+          inverted: true
           tag: Bee
       - !type:PopupMessage
         type: Local
@@ -118,11 +92,11 @@
           - "buzzochloricbees-effect-squeaky-clean"
         probability: 0.05
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 0.01
           reagent: Histamine
-        - !type:HasTag
-          invert: true
+        - !type:TagCondition
+          inverted: true
           tag: Bee
       - !type:PopupMessage
         type: Local
@@ -134,10 +108,10 @@
           - "buzzochloricbees-effect-licoxide-buzzes"
         probability: 0.05
         conditions:
-        - !type:HasTag
-          invert: true
+        - !type:TagCondition
+          inverted: true
           tag: Bee
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 0.01
           reagent: Licoxide
       - !type:PopupMessage
@@ -147,10 +121,10 @@
           - "buzzochloricbees-effect-fiber-soft"
         probability: 0.05
         conditions:
-        - !type:HasTag
-          invert: true
+        - !type:TagCondition
+          inverted: true
           tag: Bee
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 0.01
           reagent: Fiber
       - !type:HealthChange
@@ -159,8 +133,8 @@
             Poison: 2
             Piercing: 2
         conditions:
-        - !type:HasTag
-          invert: true
+        - !type:TagCondition
+          inverted: true
           tag: Bee
 
 - type: reagent
@@ -185,6 +159,7 @@
   group: Toxins
   desc: reagent-desc-licoxide
   physicalDesc: reagent-physical-desc-electric
+  contrabandSeverity: Minor
   flavor: shocking
   color: "#FDD023"
   metabolisms:
@@ -208,11 +183,11 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
+        scaling: true
         ignoreResistances: false
         damage:
           types:
-            Slash: 0.5
+            Slash: 0.25
       - !type:Emote
         emote: Scream
         probability: 0.7
@@ -241,6 +216,8 @@
     requiredSlipSpeed: 3.5
   desc: reagent-desc-fresium
   physicalDesc: reagent-physical-desc-frosty
+  allowedDepartments:
+  - Medical
   flavor: cold
   color: "#b3f1ff"
   boilingPoint: 50.0
@@ -256,20 +233,20 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
+        scaling: true
         ignoreResistances: false
         damage:
           types:
             Cold: 0.05
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 160.15
         amount: -30000
     Extinguish:
       methods: [ Touch ]
       effects:
-      - !type:ExtinguishReaction # cold
+      - !type:Extinguish # cold
   metabolisms:
     Poison:
       metabolismRate : 0.45
@@ -281,7 +258,7 @@
              Heat: -3 # ghetto burn chem. i don't think anyone would use this intentionally but it's funny
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Fresium
           max: 35
         type: Local
@@ -290,7 +267,7 @@
         probability: 0.05
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Fresium
           max: 35
         type: Local
@@ -299,26 +276,26 @@
         probability: 0.2
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 160.15 # not quite enough for cryo, but can speed it up if you wanna take the risk
         amount: -10000
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Fresium
           max: 40 # slows when less than 40
         walkSpeedModifier: 0.6
         sprintSpeedModifier: 0.6
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Fresium
           min: 40 # your legs stop working when above 40
         walkSpeedModifier: 0.00
         sprintSpeedModifier: 0.00
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Fresium
           min: 40
         type: Local
@@ -341,6 +318,7 @@
       effects:
       - !type:Emote
         emote: Laugh
+        showInGuidebook: true
         probability: 0.3
       - !type:PopupMessage
         type: Local
@@ -363,21 +341,24 @@
       - !type:Emote
         emote: Weh
         showInChat: true
+        showInGuidebook: true
         force: true
         probability: 0.5
       - !type:Polymorph
         prototype: ArtifactLizard # Does the same thing as the original YML I made for this reagent.
         conditions:
-        - !type:OrganType
-          type: Animal
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [Animal]
+          inverted: true
+        - !type:ReagentCondition
+          reagent: JuiceThatMakesYouWeh
           min: 50
       - !type:AdjustReagent
         reagent: JuiceThatMakesYouWeh
         amount: -20
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: JuiceThatMakesYouWeh
           min: 50
 
 - type: reagent
@@ -395,19 +376,56 @@
       - !type:Emote
         emote: Hew
         showInChat: true
+        showInGuidebook: true
         force: true
         probability: 0.5
       - !type:Polymorph
         prototype: ArtifactLizard
         conditions:
-        - !type:OrganType
-          type: Animal
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Animal ]
+          inverted: true
+        - !type:ReagentCondition
+          reagent: JuiceThatMakesYouHew
           min: 50
       - !type:AdjustReagent
         reagent: JuiceThatMakesYouHew
         amount: -20
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: JuiceThatMakesYouHew
+          min: 50
+
+- type: reagent
+  id: CorgiJuice
+  name: reagent-name-corgiessence
+  group: Toxins
+  desc: reagent-desc-corgiessence
+  physicalDesc: reagent-physical-desc-fluffy
+  flavor: dogfood
+  color: "#ed9715"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: CorgiJuice
+          min: 15
+        damage:
+          types:
+            Cellular: 0.5
+      - !type:Polymorph
+        prototype: SmartCorgiMorph
+        conditions:
+        - !type:ReagentCondition
+          reagent: CorgiJuice
+          min: 50
+      - !type:AdjustReagent
+        reagent: CorgiJuice
+        amount: -20
+        conditions:
+        - !type:ReagentCondition
+          reagent: CorgiJuice
           min: 50

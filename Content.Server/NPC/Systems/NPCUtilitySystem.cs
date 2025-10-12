@@ -1,28 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tyzemol <85772526+Tyzemol@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Server.Atmos.Components;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Hands.Systems;
 using Content.Server.NPC.Queries;
@@ -30,20 +5,17 @@ using Content.Server.NPC.Queries.Considerations;
 using Content.Server.NPC.Queries.Curves;
 using Content.Server.NPC.Queries.Queries;
 using Content.Server.Nutrition.Components;
-using Content.Server.Nutrition.EntitySystems;
-using Content.Server.Storage.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Fluids.Components;
-using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Storage.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Turrets;
@@ -55,7 +27,9 @@ using Microsoft.Extensions.ObjectPool;
 using Robust.Server.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.Atmos.Components;
 using System.Linq;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Server.NPC.Systems;
 
@@ -66,14 +40,12 @@ public sealed class NPCUtilitySystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly DrinkSystem _drink = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly IngestionSystem _ingestion = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly OpenableSystem _openable = default!;
     [Dependency] private readonly PuddleSystem _puddle = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
@@ -255,6 +227,9 @@ public sealed class NPCUtilitySystem : EntitySystem
             {
                 if (_container.TryGetContainingContainer(targetUid, out var container))
                 {
+                    if (container.Owner == owner)
+                        return 0f;
+
                     if (TryComp<EntityStorageComponent>(container.Owner, out var storageComponent))
                     {
                         if (storageComponent is { Open: false } && _weldable.IsWelded(container.Owner))
@@ -397,6 +372,13 @@ public sealed class NPCUtilitySystem : EntitySystem
 
                     return 0f;
                 }
+            case TargetLowTempCon con:
+                {
+                    if (!TryComp<TemperatureComponent>(targetUid, out var temperature))
+                        return 0f;
+
+                    return temperature.CurrentTemperature <= con.MinTemp ? 1f : 0f;
+                }
             default:
                 throw new NotImplementedException();
         }
@@ -530,11 +512,12 @@ public sealed class NPCUtilitySystem : EntitySystem
                 {
                     foreach (var comp in compFilter.Components)
                     {
-                        if (HasComp(ent, comp.Value.Component.GetType()))
-                            continue;
-
-                        _entityList.Add(ent);
-                        break;
+                        var hasComp = HasComp(ent, comp.Value.Component.GetType());
+                        if (!compFilter.RetainWithComp == hasComp)
+                        {
+                            _entityList.Add(ent);
+                            break;
+                        }
                     }
                 }
 

@@ -6,9 +6,11 @@
 // SPDX-License-Identifier: MIT
 
 using System.Linq;
+using Content.Shared.Atmos;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Temperature.Components;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Temperature.Systems;
@@ -16,7 +18,7 @@ namespace Content.Shared.Temperature.Systems;
 /// <summary>
 /// This handles predicting temperature based speedup.
 /// </summary>
-public sealed class SharedTemperatureSystem : EntitySystem
+public abstract class SharedTemperatureSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
@@ -106,5 +108,20 @@ public sealed class SharedTemperatureSystem : EntitySystem
             _movementSpeedModifier.RefreshMovementSpeedModifiers(uid, movement);
             Dirty(uid, temp);
         }
+    }
+
+    public virtual void ChangeHeat(EntityUid uid, float heatAmount, bool ignoreHeatResistance = false, TemperatureComponent? temperature = null)
+    {
+
+    }
+
+    public float GetHeatCapacity(EntityUid uid, TemperatureComponent? comp = null, PhysicsComponent? physics = null)
+    {
+        if (!Resolve(uid, ref comp) || !Resolve(uid, ref physics, false) || physics.FixturesMass <= 0)
+        {
+            return Atmospherics.MinimumHeatCapacity;
+        }
+
+        return comp.SpecificHeat * physics.FixturesMass;
     }
 }

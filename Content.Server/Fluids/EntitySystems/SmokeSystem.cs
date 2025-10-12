@@ -1,29 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Ben <50087092+benev0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 BenOwnby <ownbyb@appstate.edu>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
 using Content.Shared.EntityEffects.Effects;
@@ -47,8 +21,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
-using Content.Server.Nutrition.Components;
-using Content.Shared.Inventory;
+using Content.Shared.EntityEffects.Effects.Solution;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
 
 namespace Content.Server.Fluids.EntitySystems;
@@ -71,7 +44,6 @@ public sealed class SmokeSystem : EntitySystem
     [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!; // Goobstation
 
     private EntityQuery<SmokeComponent> _smokeQuery;
     private EntityQuery<SmokeAffectedComponent> _smokeAffectedQuery;
@@ -297,13 +269,6 @@ public sealed class SmokeSystem : EntitySystem
 
         var blockIngestion = _internals.AreInternalsWorking(entity);
 
-        if (_inventory.TryGetSlotEntity(entity, "mask", out var maskUid) &&
-            EntityManager.TryGetComponent<IngestionBlockerComponent>(maskUid, out var blocker) &&
-            blocker is { Enabled: true, BlockSmokeIngestion: true }) // Goobstation
-        {
-            blockIngestion = true;
-        }
-
         var cloneSolution = solution.Clone();
         var availableTransfer = FixedPoint2.Min(cloneSolution.Volume, component.TransferRate);
         var transferAmount = FixedPoint2.Min(availableTransfer, chemSolution.AvailableVolume);
@@ -313,11 +278,10 @@ public sealed class SmokeSystem : EntitySystem
         {
             if (reagentQuantity.Quantity == FixedPoint2.Zero)
                 continue;
-            var reagentProto = _prototype.Index<ReagentPrototype>(reagentQuantity.Reagent.Prototype);
 
-            _reactive.ReactionEntity(entity, ReactionMethod.Touch, reagentProto, reagentQuantity, transferSolution);
+            _reactive.ReactionEntity(entity, ReactionMethod.Touch, reagentQuantity);
             if (!blockIngestion)
-                _reactive.ReactionEntity(entity, ReactionMethod.Ingestion, reagentProto, reagentQuantity, transferSolution);
+                _reactive.ReactionEntity(entity, ReactionMethod.Ingestion, reagentQuantity);
         }
 
         if (blockIngestion)

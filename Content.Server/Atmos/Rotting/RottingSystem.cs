@@ -18,11 +18,11 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Temperature.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Body.Events;
 using Content.Shared.Damage;
+using Content.Shared.Temperature.Components;
 using Robust.Server.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;

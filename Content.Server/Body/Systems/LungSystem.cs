@@ -1,48 +1,22 @@
-// SPDX-FileCopyrightText: 2021 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 SapphicOverload <93578146+SapphicOverload@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Server.Atmos.Components;
-using Content.Server.Atmos.EntitySystems;
-using Content.Server.Body.Components;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
+using Content.Shared.Atmos.EntitySystems;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Prototypes;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Clothing;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Inventory.Events;
+using Robust.Shared.Prototypes;
 using BreathToolComponent = Content.Shared.Atmos.Components.BreathToolComponent;
 using InternalsComponent = Content.Shared.Body.Components.InternalsComponent;
 
-namespace Content.Server.Body.Systems;
+namespace Content.Shared.Body.Systems;
 
 public sealed class LungSystem : EntitySystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly InternalsSystem _internals = default!;
+    [Dependency] private readonly SharedAtmosphereSystem _atmos = default!;
+    [Dependency] private readonly SharedInternalsSystem _internals = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-
-    public static string LungSolutionName = "Lung";
 
     public override void Initialize()
     {
@@ -80,6 +54,7 @@ public sealed class LungSystem : EntitySystem
         }
     }
 
+    // TODO: JUST METABOLIZE GASES DIRECTLY DON'T CONVERT TO REAGENTS!!! (Needs Metabolism refactor :B)
     public void GasToReagent(EntityUid uid, LungComponent lung)
     {
         if (!_solutionContainerSystem.ResolveSolution(uid, lung.SolutionName, ref lung.Solution, out var solution))
@@ -89,6 +64,9 @@ public sealed class LungSystem : EntitySystem
         _solutionContainerSystem.UpdateChemicals(lung.Solution.Value);
     }
 
+    /* This should really be moved to somewhere in the atmos system and modernized,
+     so that other systems, like CondenserSystem, can use it.
+     */
     private void GasToReagent(GasMixture gas, Solution solution)
     {
         foreach (var gasId in Enum.GetValues<Gas>())

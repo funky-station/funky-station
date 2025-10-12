@@ -4864,3 +4864,11 @@ Entries:
       message: Fixed several small Bagel mapping issues
   id: 584
   time: '2025-10-12T19:37:09.0000000+00:00'
+- author: Toastermeister, Sparlight
+  changes:
+    - type: Tweak
+      message: >-
+        Dragons no longer destroy non-humanoid mobs upon eating them. Originally
+        by Sparlight on WizDen.
+  id: 585
+  time: '2025-10-12T19:45:15.0000000+00:00'

@@ -1,9 +1,10 @@
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Database;
 using Content.Shared.EntityConditions;
+using Content.Shared.Localizations;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -91,7 +92,7 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
         // TODO: Replace with proper random prediciton when it exists.
         if (effect.Probability <= 1f)
         {
-            var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(target).Id, 0);
+            var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(target).Id, 0 });
             var rand = new System.Random(seed);
             if (!rand.Prob(effect.Probability))
                 return false;
@@ -118,11 +119,11 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
         if (!effect.Scaling)
             scale = Math.Min(scale, 1f);
 
-        if (effect.Impact is {} level)
+        if (effect.ShouldLog)
         {
             _adminLog.Add(
-                effect.LogType,
-                level,
+                LogType.EntityEffect,
+                effect.LogImpact,
                 $"Entity effect {effect.GetType().Name:effect}"
                 + $" applied on entity {target:entity}"
                 + $" at {Transform(target).Coordinates:coordinates}"
@@ -212,16 +213,22 @@ public abstract partial class EntityEffect
     [DataField]
     public float Probability = 1.0f;
 
+    /// <summary>
+    /// The description of this entity effect that shows in guidebooks.
+    /// </summary>
     public virtual string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) => null;
+
+    /// <summary>
+    /// Whether this effect should be logged in admin logs.
+    /// </summary>
+    [ViewVariables]
+    public virtual bool ShouldLog => true;
 
     /// <summary>
     /// If this effect is logged, how important is the log?
     /// </summary>
     [ViewVariables]
-    public virtual LogImpact? Impact => null;
-
-    [ViewVariables]
-    public virtual LogType LogType => LogType.EntityEffect;
+    public virtual LogImpact LogImpact => LogImpact.Low;
 }
 
 /// <summary>

@@ -15,11 +15,11 @@ public sealed class ReactiveSystem : EntitySystem
     {
         foreach (var reagent in solution.Contents.ToArray())
         {
-            ReactionEntity(uid, method, reagent, source);
+            ReactionEntity(uid, method, reagent);
         }
     }
 
-    public void ReactionEntity(EntityUid uid, ReactionMethod method, ReagentQuantity reagentQuantity, EntityUid? source = null)
+    public void ReactionEntity(EntityUid uid, ReactionMethod method, ReagentQuantity reagentQuantity)
     {
         if (reagentQuantity.Quantity == FixedPoint2.Zero)
             return;
@@ -28,11 +28,10 @@ public sealed class ReactiveSystem : EntitySystem
         if (!_proto.Resolve<ReagentPrototype>(reagentQuantity.Reagent.Prototype, out var proto))
             return;
 
-        var ev = new ReactionEntityEvent(method, reagentQuantity, proto, source);
+        var ev = new ReactionEntityEvent(method, reagentQuantity, proto);
         RaiseLocalEvent(uid, ref ev);
     }
 }
-
 public enum ReactionMethod
 {
     Touch,
@@ -41,4 +40,4 @@ public enum ReactionMethod
 }
 
 [ByRefEvent]
-public readonly record struct ReactionEntityEvent(ReactionMethod Method, ReagentQuantity ReagentQuantity, ReagentPrototype Reagent, EntityUid? Source);
+public readonly record struct ReactionEntityEvent(ReactionMethod Method, ReagentQuantity ReagentQuantity, ReagentPrototype Reagent);

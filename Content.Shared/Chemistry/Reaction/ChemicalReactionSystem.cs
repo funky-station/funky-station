@@ -34,6 +34,7 @@ using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Network;
 using Robust.Shared.Utility;
 using System.Collections.Frozen;
 using System.Linq;
@@ -53,6 +54,7 @@ namespace Content.Shared.Chemistry.Reaction
         /// </summary>
         private const int MaxReactionIterations = 20;
 
+        [Dependency] private readonly INetManager _netMan = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
@@ -239,7 +241,11 @@ namespace Content.Shared.Chemistry.Reaction
 
             _entityEffects.ApplyEffects(soln, reaction.Effects, unitReactions.Float());
 
-            _audio.PlayPvs(reaction.Sound, soln);
+            // Someday, some brave soul will thread through an optional actor
+            // argument in from every call of OnReaction up, all just to pass
+            // it to PlayPredicted. I am not that brave soul.
+            if (_netMan.IsServer)
+                _audio.PlayPvs(reaction.Sound, soln);
         }
 
         /// <summary>

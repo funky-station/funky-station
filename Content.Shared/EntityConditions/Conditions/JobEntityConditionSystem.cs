@@ -3,7 +3,7 @@ using Content.Shared.Localizations;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Roles;
-using Content.Shared.Roles.Jobs;
+using Content.Shared.Roles.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.EntityConditions.Conditions;
@@ -54,6 +54,6 @@ public sealed partial class JobCondition : EntityConditionBase<JobCondition>
     public override string EntityConditionGuidebookText(IPrototypeManager prototype)
     {
         var localizedNames = Jobs.Select(jobId => prototype.Index(jobId).LocalizedName).ToList();
-        return Loc.GetString("entity-condition-guidebook-job-condition", ("job", ContentLocalizationManager.FormatListToOr(localizedNames)));
+        return Loc.GetString("reagent-effect-condition-guidebook-job-condition", ("job", ContentLocalizationManager.FormatListToOr(localizedNames)));
     }
 }

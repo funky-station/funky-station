@@ -2,7 +2,6 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
-# SPDX-FileCopyrightText: 2025 Xcybitt <lenazheng88@gmail.com>
 # SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -106,7 +105,7 @@
     MailSyndWhistle: 0.2
     MailGayWackpack: 0.05
     MailSecurityPracticeBomb: 0.01
-    MailReporterKit: 0.5 
+    MailReporterKit: 0.1 
     MailSpectralLocator: 0.3 
     MailPortableMixer: 0.2
     MailInfiniteCrayon: 0.01 

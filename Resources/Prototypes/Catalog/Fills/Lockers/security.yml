@@ -105,6 +105,7 @@
       - id: BookSpaceLaw
       - id: ClothingBackpackElectropack
         amount: 2
+      - id: ClothingHeadsetWarden #funkystation
       - id: RemoteSignaller
         amount: 2
       - id: Binoculars

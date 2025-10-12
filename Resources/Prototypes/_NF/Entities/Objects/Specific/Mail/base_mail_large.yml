@@ -79,6 +79,9 @@
   - type: MultiHandedItem
   - type: Mail
     isLarge: true
+  - type: Tag
+    tags:
+    - CardboardboxLarge
 
 - type: entity
   categories: [ HideSpawnMenu ]

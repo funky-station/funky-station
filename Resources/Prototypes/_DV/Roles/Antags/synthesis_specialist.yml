@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2025 Dark <darkwindleaf@hotmail.co.uk>
+# SPDX-FileCopyrightText: 2025 jhardtmadsen-blip <jhardtmadsen@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: antag
+  id: SynthesisSpecialist
+  name: roles-antag-syndicate-synthesis-name
+  objective: roles-antag-syndicate-synthesis-objective
+  antagonist: true # making poisons and shit on demand is evil
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 86400 # 24h so you probably know some general lore or something
+  - !type:RoleTimeRequirement
+    role: JobChemist
+    time: 7200 # 2h chemist so you know how to make CH
+
+- type: startingGear
+  id: SyndicateSynthesisGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndieFormal
+    jumpskirt: ClothingUniformJumpskirtSyndieFormalDress
+    back: ClothingBackpackChemistry
+    belt: ChemBag
+    eyes: ClothingEyesGlassesChemical
+    outerClothing: ClothingOuterCoatLabChem
+    id: SyndiPDA
+    ears: ClothingHeadsetAltSyndicate
+    pocket1: HandLabeler
+    pocket2: RubberStampSyndicate
+    mask: ClothingMaskNeckGaiter
+    head: ClothingHeadHatSyndie

@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2024 Sage <sagefacepants@gmail.com>
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 Theapug <159912420+Teapug@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -44,15 +45,19 @@
   - NanotrasenRepresentativeJumpsuit
   - NanotrasenRepresentativeJumpskirt
 
+# Funky!
 - type: loadoutGroup
   id: NanotrasenRepresentativeOuter
   name: loadout-group-ntr-outer
+  minLimit: 0
   loadouts:
   - NanotrasenRepresentativeWinterCoat
 
+# Funky!
 - type: loadoutGroup
   id: NanotrasenRepresentativeGloves
   name: loadout-group-ntr-gloves
+  minLimit: 0
   loadouts:
   - NanotrasenRepresentativePaperworkGloves
   - NanotrasenRepresentativeBlackGloves

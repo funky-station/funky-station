@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Darkmajia <darkwindleaf@hotmail.co.uk>
+# SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -185,8 +186,12 @@
   abstract: true
   components:
   - type: Devourer
-    foodPreference: Humanoid
-    shouldStoreDevoured: true
+    foodPreferenceWhitelist:
+      components:
+      - HumanoidAppearance
+    stomachStorageWhitelist:
+      components:
+      - MobState
     chemical: DinoBlood
     healRate: 15.0
     whitelist:

@@ -75,6 +75,9 @@
           False:
             visible: false
   - type: Mail
+  - type: Tag
+    tags:
+    - CardboardboxSmall
 
 # This empty parcel is allowed to exist and evade the tests for the admin
 # mailto command.
@@ -194,6 +197,9 @@
           Quantity: 1
   - type: RadiationBlockingContainer
     resistance: 20 #Once opened you cant reuse so just made the value block everything
+  - type: Tag
+    tags:
+    - CardboardboxSmall
 
 # This empty parcel is allowed to exist and evade the tests for the admin
 # mailto command.
@@ -274,6 +280,9 @@
   - type: MultiHandedItem
   - type: Mail
     isLarge: true
+  - type: Tag
+    tags:
+    - CardboardboxLargeFlat
 
 # This empty parcel is allowed to exist and evade the tests for the admin
 # mailto command.

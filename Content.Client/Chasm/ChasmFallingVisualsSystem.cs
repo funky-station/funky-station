@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -20,6 +21,7 @@ namespace Content.Client.Chasm;
 public sealed class ChasmFallingVisualsSystem : EntitySystem
 {
     [Dependency] private readonly AnimationPlayerSystem _anim = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     private readonly string _chasmFallAnimationKey = "chasm_fall";
 
@@ -55,7 +57,7 @@ public sealed class ChasmFallingVisualsSystem : EntitySystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        sprite.Scale = component.OriginalScale;
+        _sprite.SetScale((uid, sprite), component.OriginalScale);
 
         if (!TryComp<AnimationPlayerComponent>(uid, out var player))
             return;

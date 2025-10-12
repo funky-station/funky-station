@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 0uranous <gonzalezdiosmel13@gmail.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -9,6 +10,6 @@
     sprite: _Funkystation/Structures/Machines/HFR/hfrbox.rsi
     state: box_core
   product: CrateEngineeringHFR
-  cost: 50000
+  cost: 10000
   category: cargoproduct-category-name-atmospherics
   group: market

@@ -5,11 +5,9 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Projectiles;
-using Robust.Shared.Spawners;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
-using Robust.Shared.GameStates;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
 
 namespace Content.Client.Projectiles;
@@ -17,6 +15,7 @@ namespace Content.Client.Projectiles;
 public sealed class ProjectileSystem : SharedProjectileSystem
 {
     [Dependency] private readonly AnimationPlayerSystem _player = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -36,8 +35,8 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         if (TryComp<SpriteComponent>(ent, out var sprite))
         {
             sprite[EffectLayers.Unshaded].AutoAnimated = false;
-            sprite.LayerMapTryGet(EffectLayers.Unshaded, out var layer);
-            var state = sprite.LayerGetState(layer);
+            _sprite.LayerMapTryGet((ent, sprite), EffectLayers.Unshaded, out var layer, false);
+            var state = _sprite.LayerGetRsiState((ent, sprite), layer);
             var lifetime = 0.5f;
 
             if (TryComp<TimedDespawnComponent>(ent, out var despawn))

@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 JoulesBerg <104539820+JoulesBerg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -19,8 +20,9 @@ namespace Content.Client.Doors;
 public sealed class TurnstileSystem : SharedTurnstileSystem
 {
     [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
-    private static EntProtoId _examineArrow = "TurnstileArrow";
+    private static readonly EntProtoId ExamineArrow = "TurnstileArrow";
 
     private const string AnimationKey = "Turnstile";
 
@@ -39,12 +41,12 @@ public sealed class TurnstileSystem : SharedTurnstileSystem
 
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
-        sprite.LayerSetState(TurnstileVisualLayers.Base, new RSI.StateId(ent.Comp.DefaultState));
+        _sprite.LayerSetRsiState((ent.Owner, sprite), TurnstileVisualLayers.Base, new RSI.StateId(ent.Comp.DefaultState));
     }
 
     private void OnExamined(Entity<TurnstileComponent> ent, ref ExaminedEvent args)
     {
-        Spawn(_examineArrow, new EntityCoordinates(ent, 0, 0));
+        Spawn(ExamineArrow, new EntityCoordinates(ent, 0, 0));
     }
 
     protected override void PlayAnimation(EntityUid uid, string stateId)

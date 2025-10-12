@@ -4842,3 +4842,61 @@ Entries:
         or fake mindshield implant.
   id: 581
   time: '2025-10-10T03:10:13.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Fix
+      message: Wardens headset now spawns in the locker.
+  id: 582
+  time: '2025-10-12T19:34:13.0000000+00:00'
+- author: Nictis
+  changes:
+    - type: Tweak
+      message: Adjusted the Hypodart internal reservoir to 9 units from 7.
+  id: 583
+  time: '2025-10-12T19:35:29.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Changed Bagel's salvage dock so the ship can actually dock
+    - type: Add
+      message: Added custom cargo shuttle to Bagel so the salv shuttle can fit
+    - type: Fix
+      message: Fixed several small Bagel mapping issues
+  id: 584
+  time: '2025-10-12T19:37:09.0000000+00:00'
+- author: Toastermeister, Sparlight
+  changes:
+    - type: Tweak
+      message: >-
+        Dragons no longer destroy non-humanoid mobs upon eating them. Originally
+        by Sparlight on WizDen.
+  id: 585
+  time: '2025-10-12T19:45:15.0000000+00:00'
+- author: 0uranous
+  changes:
+    - type: Tweak
+      message: Lowered the Hypertorus Fusion Reactor price from 50,000 to 10,000!
+  id: 586
+  time: '2025-10-12T19:46:14.0000000+00:00'
+- author: Toastermeister, Tayrtahn
+  changes:
+    - type: Tweak
+      message: >-
+        Builds will now spew fewer warnings when building the program.
+        Originally done by Tayrtahn on Wizard's Den.
+  id: 587
+  time: '2025-10-12T21:58:18.0000000+00:00'
+- author: Toastermeister, TheShuEd, Gentlemen-Bird, TiniestShark
+  changes:
+    - type: Add
+      message: >-
+        Added custom burgers, tacos and skewers. Originally done by TheShuEd,
+        small fix by Gentlemen-Bird on Wizard's Den.
+    - type: Add
+      message: >-
+        New in-hand burger sprites. Originally added by TiniestShark on Wizard's
+        Den.
+    - type: Remove
+      message: Removed Goobstation anything burgers.
+  id: 588
+  time: '2025-10-12T22:18:06.0000000+00:00'

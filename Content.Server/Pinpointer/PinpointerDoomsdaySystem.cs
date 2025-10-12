@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Station.Systems;
 using Content.Shared.Emag.Systems;
 using Content.Shared.MalfAI;

@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 # SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -12,3 +13,12 @@
   cost: 1
   components:
   - type: FunkyAccent
+
+- type: trait
+  id: ScandinavianAccent
+  name: trait-scandinavian-name
+  description: trait-scandinavian-desc
+  category: SpeechTraits
+  cost: 1
+  components:
+  - type: ScandinavianAccent

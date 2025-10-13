@@ -318,3 +318,11 @@
     Steel: 200
     Plastic: 100
     Cloth: 100
+
+- type: latheRecipe
+  id: Lantern
+  result: EmptyLantern
+  completetime: 2
+  materials:
+    Steel: 200
+    Glass: 200

@@ -478,6 +478,7 @@
     - WetFloorSign
     - ClothingHeadHatCone
     - FreezerElectronics
+    - Lantern #funky
     # Begin Delta-V additions
     - CassetteTape
     - TapeRecorder
@@ -491,7 +492,6 @@
     emagStaticRecipes:
     - BoxLethalshot
     - BoxShotgunSlug
-    - BoxShotgunFlare
     - CombatKnife
     - MagazineBoxLightRifle
     - MagazineBoxMagnum
@@ -1095,7 +1095,6 @@
     - BoxLethalshot
     - BoxShotgunPractice
     - BoxShotgunSlug
-    - BoxShotgunFlare
     - ClothingEyesHudSecurity
     - CombatKnife
     - Flash
@@ -1256,7 +1255,6 @@
     staticRecipes:
     - BoxLethalshot
     - BoxShotgunSlug
-    - BoxShotgunFlare
     - BoxShellTranquilizer
     - MagazineBoxLightRifle
     - MagazineBoxMagnum

@@ -120,12 +120,3 @@
   materials:
     Steel: 100               
     Plastic: 50           
-
-- type: latheRecipe
-  parent: BaseWeaponRecipe
-  id: WeaponFlareGun
-  result: WeaponFlareGun
-  completetime: 6
-  materials:
-    Plastic: 100
-    Steel: 400

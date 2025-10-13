@@ -130,3 +130,13 @@
           enum.FlashVisuals.LightLayer:
             True: {visible: true}
             False: {visible: false}
+
+- type: entity
+  parent: Lantern
+  id: EmptyLantern
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default

@@ -1244,7 +1244,6 @@
   name: loadout-group-security-gloves
   loadouts:
   - BlackGloves
-  - FingerlessGloves
 
 - type: loadoutGroup
   id: SecurityShoes

@@ -86,6 +86,8 @@
     idleState: icon
     runningState: icon
     staticRecipes:
+    - BoxShotgunFlare
+    - WeaponFlareGun
     - FultonBeacon
     - Fulton
     - AppraisalTool

@@ -4886,17 +4886,3 @@ Entries:
         Originally done by Tayrtahn on Wizard's Den.
   id: 587
   time: '2025-10-12T21:58:18.0000000+00:00'
-- author: Toastermeister, TheShuEd, Gentlemen-Bird, TiniestShark
-  changes:
-    - type: Add
-      message: >-
-        Added custom burgers, tacos and skewers. Originally done by TheShuEd,
-        small fix by Gentlemen-Bird on Wizard's Den.
-    - type: Add
-      message: >-
-        New in-hand burger sprites. Originally added by TiniestShark on Wizard's
-        Den.
-    - type: Remove
-      message: Removed Goobstation anything burgers.
-  id: 588
-  time: '2025-10-12T22:18:06.0000000+00:00'

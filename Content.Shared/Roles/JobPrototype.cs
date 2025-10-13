@@ -113,7 +113,7 @@ namespace Content.Shared.Roles
         ///     Whether this job should show in the ID Card Console.
         ///     If set to null, it will default to SetPreference's value.
         /// </summary>
-        [DataField]
+        [DataField("overrideConsoleVisibility")]
         public bool? OverrideConsoleVisibility { get; private set; } = null;
 
         [DataField("canBeAntag")]

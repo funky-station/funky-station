@@ -17,6 +17,7 @@
   icon: "JobIconCommandMaid"
   supervisors: job-supervisors-command
   setPreference: false
+  overrideConsoleVisibility: true
   access:
   - Service
   - Janitor

@@ -7,6 +7,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
 using Content.Server.Vocalization.Components;
 using Content.Shared.ActionBlocker;
+using Content.Shared.Chat;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 

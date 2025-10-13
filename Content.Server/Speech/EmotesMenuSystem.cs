@@ -1,10 +1,5 @@
-// SPDX-FileCopyrightText: 2024 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
+﻿using Content.Shared.Chat;
 using Content.Server.Chat.Systems;
-using Content.Shared.Chat;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Speech;
@@ -27,7 +22,7 @@ public sealed partial class EmotesMenuSystem : EntitySystem
         if (!player.HasValue)
             return;
 
-        if (!_prototypeManager.TryIndex(msg.ProtoId, out var proto) || proto.ChatTriggers.Count == 0)
+        if (!_prototypeManager.Resolve(msg.ProtoId, out var proto) || proto.ChatTriggers.Count == 0)
             return;
 
         _chat.TryEmoteWithChat(player.Value, msg.ProtoId);

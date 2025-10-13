@@ -25,10 +25,9 @@ bwoink-system-messages-being-relayed-to-discord =
     Issues may be handled without a response.
 
 bwoink-system-introductory-message =
-    Please describe the issue that you have encountered in detail. Assume that the game administrator who is resolving the problem does not have first-hand knowledge of what has occurred.
-    Please do not ask for special events or punishments for other players.
-    Any bugs and other related issues should be reported through Discord or Github.
-    Misuse of this message system may result in disciplinary action.
+    This is a relay that allows you to communicate directly with game admins.
+    Feel free to use this relay if you have any questions about an event that happened in-game or would like clarification on something.
+    If you are unsure about someone's actions being against the rules, contact a game admin anyway. Thank you for Ahelping!
 
 bwoink-system-typing-indicator = {$players} {$count ->
 [one] is

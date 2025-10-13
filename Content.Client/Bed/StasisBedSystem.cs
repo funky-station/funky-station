@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -18,7 +19,7 @@ public sealed class StasisBedSystem : VisualizerSystem<StasisBedVisualsComponent
         if (args.Sprite != null
             && AppearanceSystem.TryGetData<bool>(uid, StasisBedVisuals.IsOn, out var isOn, args.Component))
         {
-            args.Sprite.LayerSetVisible(StasisBedVisualLayers.IsOn, isOn);
+            SpriteSystem.LayerSetVisible((uid, args.Sprite), StasisBedVisualLayers.IsOn, isOn);
         }
     }
 }

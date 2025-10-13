@@ -29,6 +29,8 @@
 # SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Disp-Dev <91643998+Disp-Dev@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 # SPDX-FileCopyrightText: 2025 MissKay1994 <15877268+MissKay1994@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 mubururu_ <139181059+muburu@users.noreply.github.com>
@@ -1208,14 +1210,9 @@
     tags:
     - Slice
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/Baked/cake.rsi
-      state: suppermatter-shard
     entries:
-      burger:
-        name: food-sequence-burger-content-suppermatter
-      taco:
-        name: food-sequence-content-suppermatter
+      Taco: Suppermatter
+      Burger: SuppermatterBurger
   - type: Item
     heldPrefix: suppermatter-shard
 

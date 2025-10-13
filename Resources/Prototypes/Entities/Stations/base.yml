@@ -17,6 +17,7 @@
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 heree <79546981+hereelabs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 hereelabs <hahmorm@gmail.com>
+# SPDX-FileCopyrightText: 2025 hereelabs <hahmorme@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -87,12 +88,6 @@
         mining: !type:GridSpawnGroup
           paths:
           - /Maps/_Funkystation/Shuttles/mining.yml #funky
-        oldstation: !type:GridSpawnGroup #force this to always spawn so ghost roles are always accessible
-          minimumDistance: 950 #unlikely to work
-          maximumDistance: 1200
-          stationGrid: false
-          paths:
-          - /Maps/_Funkystation/Ruins/oldstation.yml
         # Spawn last
         ruins: !type:GridSpawnGroup
           hide: true

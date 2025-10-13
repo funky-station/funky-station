@@ -132,6 +132,7 @@ loadout-group-cargo-technician-jumpsuit = Cargo Technician jumpsuit
 loadout-group-cargo-technician-backpack = Cargo Technician backpack
 loadout-group-cargo-technician-outerclothing = Cargo Technician outer clothing
 loadout-group-cargo-technician-shoes = Cargo Technician shoes
+loadout-group-cargo-technician-id = Cargo Technician ID
 
 loadout-group-salvage-specialist-backpack = Salvage Specialist backpack
 loadout-group-salvage-specialist-outerclothing = Salvage Specialist outer clothing
@@ -206,6 +207,7 @@ loadout-group-detective-neck = Detective neck
 loadout-group-detective-jumpsuit = Detective jumpsuit
 loadout-group-detective-outerclothing = Detective outer clothing
 loadout-group-detective-id = Detective ID
+loadout-group-detective-weapon = Detective Weapon
 
 loadout-group-security-cadet-jumpsuit = Security cadet jumpsuit
 loadout-group-security-star = Security Star

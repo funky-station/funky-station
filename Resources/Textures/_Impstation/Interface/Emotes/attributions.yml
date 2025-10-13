@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 KOTOB <59124164+kotobdev@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -7,4 +8,10 @@
   - coo.png
   license: "CC-BY-SA-4.0"
   copyright: "Created by UndertaleSex for Impstation"
+  source: "https://github.com/impstation/imp-station-14"
+
+- files:
+  - blink.png
+  license: "CC0-1.0"
+  copyright: "Created by Rarenth for Impstation"
   source: "https://github.com/impstation/imp-station-14"

@@ -72,6 +72,7 @@ namespace Content.IntegrationTests.Tests
             var eyeManager = client.ResolveDependency<IEyeManager>();
             var spriteQuery = clientEntManager.GetEntityQuery<SpriteComponent>();
             var eye = client.ResolveDependency<IEyeManager>().CurrentEye;
+            var spriteSys = clientEntManager.System<SpriteSystem>();
 
             var testMap = await pair.CreateTestMap();
 
@@ -92,7 +93,7 @@ namespace Content.IntegrationTests.Tests
             await client.WaitPost(() =>
             {
                 var sprite = spriteQuery.GetComponent(clientEnt);
-                sprite.Scale = new Vector2(scale, scale);
+                spriteSys.SetScale((clientEnt, sprite), new Vector2(scale, scale));
 
                 // these tests currently all assume player eye is 0
                 eyeManager.CurrentEye.Rotation = 0;

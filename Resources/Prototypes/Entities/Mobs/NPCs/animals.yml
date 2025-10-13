@@ -17,6 +17,7 @@
 # SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
 # SPDX-FileCopyrightText: 2022 Justin Trotter <trotter.justin@gmail.com>
+# SPDX-FileCopyrightText: 2022 Júlio César Ueti <52474532+Mirino97@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 J�lio C�sar Ueti <52474532+Mirino97@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
 # SPDX-FileCopyrightText: 2022 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
@@ -144,12 +145,20 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 timur2011 <16829159+timurjavid@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 youtissoum <51883137+youtissoum@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Crude Oil <124208219+CroilBird@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ekpy <33184056+Ekpy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Lary <89530982+LaryNevesPR@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 LaryNevesPR <LaryNevesPR@proton.me>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
+# SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
@@ -1874,7 +1883,7 @@
     drawdepth: SmallMobs
     sprite: Mobs/Animals/mouse.rsi
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+    - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
       state: mouse-0
   - type: SpriteMovement
     movementLayers:
@@ -2015,26 +2024,16 @@
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
   - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Animals/mouse.rsi
-      state: dead-0
     entries:
-      burger:
-        name: food-sequence-burger-content-rat
-      taco:
-        name: food-sequence-content-rat
-      skewer:
-        name: food-sequence-content-rat
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-rat
+      Taco: RatTaco
+      Burger: RatBurger
+      Skewer: RatSkewer
   - type: NightVision # EE edit
     isActive: true
     toggleAction: null
     color: "#50595C"
     activateSound: null
     deactivateSound: null
-
 - type: entity
   parent: MobMouse
   suffix: Dead
@@ -2095,10 +2094,6 @@
   - type: Item
     size: Tiny
     heldPrefix: 1
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Animals/mouse.rsi
-      state: dead-1
 
 - type: entity
   parent: MobMouse
@@ -2128,10 +2123,6 @@
   - type: Item
     size: Tiny
     heldPrefix: 2
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Animals/mouse.rsi
-      state: dead-2
 
 - type: entity
   name: cancer mouse
@@ -3081,9 +3072,10 @@
     deactivateSound: null
 
 - type: entity
-  name: corgi
+  abstract: true
   parent: [SimpleMobBase, StripableInventoryBase]
-  id: MobCorgi
+  id: MobCorgiBase
+  name: corgi
   description: Finally, a space corgi!
   components:
   - type: Sprite
@@ -3110,6 +3102,22 @@
   - type: Inventory
     speciesId: dog
     templateId: pet
+  - type: InteractionPopup
+    interactSuccessString: petting-success-dog
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/small_dog_bark_happy.ogg
+  - type: Grammar
+    attributes:
+      gender: epicene
+  - type: MobPrice
+    price: 200
+
+- type: entity
+  parent: MobCorgiBase
+  id: MobCorgi
+  components:
   - type: DamageStateVisuals
     states:
       Alive:
@@ -3124,19 +3132,8 @@
       amount: 2
   - type: ReplacementAccent
     accent: dog
-  - type: InteractionPopup
-    interactSuccessString: petting-success-dog
-    interactFailureString: petting-failure-generic
-    interactSuccessSpawn: EffectHearts
-    interactSuccessSound:
-      path: /Audio/Animals/small_dog_bark_happy.ogg
-  - type: Grammar
-    attributes:
-      gender: epicene
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-corgi
-  - type: MobPrice
-    price: 200
   - type: Tag
     tags:
     - VimPilot
@@ -3720,15 +3717,6 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Animals/hamster.rsi
-      state: dead-0
-    entries:
-      burger:
-        name: food-sequence-burger-content-hamster
-      taco:
-        name: food-sequence-content-hamster
 
 - type: entity
   name: pig
@@ -3989,3 +3977,64 @@
         Base: reindeer_doe_dead
       Dead:
         Base: reindeer_doe_dead
+
+- type: entity
+  parent: MobCorgiBase
+  id: MobCorgiSmart
+  name: smart corgi
+  description: An unusually smart dog.
+  components:
+  # Use corgi sprite, need to add handcuff layer
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: corgi
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi # Would do a custom dog handcuff sprite but unfortunately handcuffs have their overlay baked-in to the cuff itself so this is mostly filler
+      state: body-overlay-2
+      visible: false
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  # Custom inventory template
+  - type: Inventory
+    speciesId: dog
+    templateId: SmartCorgi
+    displacements:
+      belt:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/corgi.rsi
+            state: belt_displacement
+      ears:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/corgi.rsi
+            state: belt_displacement
+  - type: Hands # HANDS!
+  - type: Puller
+  - type: Cuffable # bad dog!
+  #- type: BlockWriting
+  - type: Stripping
+  - type: ComplexInteraction
+  # Implement custom borgi body type
+  - type: Body
+    prototype: SmartCorgi
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 180
+  - type: Grammar
+    attributes:
+      gender: epicene # Gender neutral
+      proper: true
+  - type: Tag
+    tags:
+    - VimPilot
+    - CanPilot
+    - DoorBumpOpener
+  - type: StatusIcon # marks them as crew
+    bounds: -0.5,-0.5,0.5,0.5

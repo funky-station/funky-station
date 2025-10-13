@@ -4906,3 +4906,9 @@ Entries:
       message: '"*blinks" emote'
   id: 589
   time: '2025-10-13T00:26:15.0000000+00:00'
+- author: Alecksohs
+  changes:
+    - type: Tweak
+      message: Added emote and LOOC indicators to typing indicators!
+  id: 590
+  time: '2025-10-13T00:28:47.0000000+00:00'

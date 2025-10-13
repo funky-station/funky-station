@@ -4900,3 +4900,9 @@ Entries:
       message: Removed Goobstation anything burgers.
   id: 588
   time: '2025-10-12T22:18:06.0000000+00:00'
+- author: wafehling, kotobdev, ilyamikcoder
+  changes:
+    - type: Add
+      message: '"*blinks" emote'
+  id: 589
+  time: '2025-10-13T00:26:15.0000000+00:00'

@@ -492,7 +492,7 @@
     emagStaticRecipes:
     - BoxLethalshot
     - BoxShotgunSlug
-    - BoxShotgunFlare
+    - BoxShotgunFlare #funky
     - CombatKnife
     - MagazineBoxLightRifle
     - MagazineBoxMagnum
@@ -1096,7 +1096,7 @@
     - BoxLethalshot
     - BoxShotgunPractice
     - BoxShotgunSlug
-    - BoxShotgunFlare
+    - BoxShotgunFlare #funky
     - ClothingEyesHudSecurity
     - CombatKnife
     - Flash
@@ -1257,7 +1257,7 @@
     staticRecipes:
     - BoxLethalshot
     - BoxShotgunSlug
-    - BoxShotgunFlare
+    - BoxShotgunFlare #funky
     - BoxShellTranquilizer
     - MagazineBoxLightRifle
     - MagazineBoxMagnum

@@ -4912,3 +4912,12 @@ Entries:
       message: Added emote and LOOC indicators to typing indicators!
   id: 590
   time: '2025-10-13T00:28:47.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Fix
+      message: >-
+        Fixed shuttles and the ATS counting as the station for Revolutionaries
+        off-station checks. If the last Head Rev or Command member is not
+        directly on-station for long enough, the game should now correctly end.
+  id: 591
+  time: '2025-10-13T01:15:16.0000000+00:00'

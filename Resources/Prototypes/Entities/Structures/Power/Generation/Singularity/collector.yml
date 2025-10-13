@@ -90,15 +90,15 @@
       - reactantPrototype: Plasma
         powerGenerationEfficiency: 1
         reactantBreakdownRate: 0.0001
-  - reactantPrototype: Tritium
-    powerGenerationEfficiency: 1.25
-    reactantBreakdownRate: 0.000125
-  - reactantPrototype: Frezon
-    powerGenerationEfficiency: 0.75
-    reactantBreakdownRate: 0.000025
-  - reactantPrototype: Nitrogen
-    powerGenerationEfficiency: 0.50
-    reactantBreakdownRate: 0.000005
+      - reactantPrototype: Tritium
+        powerGenerationEfficiency: 1.25
+        reactantBreakdownRate: 0.000125
+      - reactantPrototype: Frezon
+        powerGenerationEfficiency: 0.75
+        reactantBreakdownRate: 0.000025
+      - reactantPrototype: Nitrogen
+        powerGenerationEfficiency: 0.50
+        reactantBreakdownRate: 0.000005
   - type: RadiationReceiver
   - type: PowerSupplier
   - type: Anchorable

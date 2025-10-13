@@ -344,6 +344,10 @@
     - id: RubberStampCMO
     - id: RadioHandheldMedical #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: LauncherSyringe #funkystation
+    - id: MiniSyringe     #funkystation
+    - id: MiniSyringe     #funkystation
+    - id: MiniSyringe     #funkystation
     # Goobstation
     #- id: CloningPodMachineCircuitboard
     - id: MedicalScannerMachineCircuitboard

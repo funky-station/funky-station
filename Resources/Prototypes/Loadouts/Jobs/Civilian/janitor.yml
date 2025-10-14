@@ -80,6 +80,24 @@
       role: JobJanitor
       time: 5400000 #1500 hrs
 
+- type: loadoutEffectGroup
+  id: JanitorMaidOutfit
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 36000 #10 hrs
+
+- type: loadoutEffectGroup
+  id: JanitorMaidOutfitmini
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 36000 #10 hrs
+
 # Head
 - type: loadout
   id: JanitorHead
@@ -96,6 +114,22 @@
   id: JanitorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtJanitor
+
+- type: loadout
+  id: JanitorialMaidOutfit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: JanitorMaidOutfit
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtJanimaid
+
+- type: loadout
+  id: JanitorialMaidOutfitmini
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: JanitorMaidOutfitmini
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtJanimaidmini
 
 # Gloves
 - type: loadout

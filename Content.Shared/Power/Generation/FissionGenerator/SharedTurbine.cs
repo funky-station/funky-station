@@ -1,0 +1,1 @@
+namespace Content.Shared.Power.Generation.FissionGenerator;

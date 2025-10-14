@@ -188,42 +188,23 @@ public sealed partial class SupermatterSystem
             }
         }
 
-
         if (mix.GetMoles(Gas.AntiNoblium) > 0.01f && mix.GetMoles(Gas.Helium) > 0.01f)
         {
-            var ANPP = gasReleased.Pressure * ((mix.GetMoles(Gas.AntiNoblium) / mix.TotalMoles) * 100);
-            var ANRatio = Math.Clamp(0.5f * (ANPP - (101.325f * 0.01f)) / (ANPP + (101.325f * 0.25f)), 0, 1);
-            var consumedAN = gasReleased.GetMoles(Gas.AntiNoblium) * ANRatio;
-            consumedAN = Math.Min(consumedAN,
-                Math.Min(gasReleased.GetMoles(Gas.Helium), gasReleased.GetMoles(Gas.AntiNoblium)));
-
-
-
+            var consumedAN = Math.Min(gasReleased.GetMoles(Gas.Helium), gasReleased.GetMoles(Gas.AntiNoblium));
 
             var zapPower = 0;
             var zapCount = 0;
             var zapRange = Math.Clamp(sm.Power / 1000, 2, 7);
 
-
-
-
             if (consumedAN > 0)
             {
-                zapPower += 1;
                 zapCount += 2;
-                zapRange = Math.Clamp(sm.Power / 1000, 2, 7);
-
-
-                if (sm.Power >= 10)
-                    zapCount += 1;
-
 
 
 
                 gasReleased.AdjustMoles(Gas.AntiNoblium, -consumedAN);
                 gasReleased.AdjustMoles(Gas.Helium, -consumedAN);
                 gasReleased.AdjustMoles(Gas.HyperNoblium, consumedAN);
-
 
                 if (sm.ZapLast + TimeSpan.FromSeconds(5) <= _SmTiming.CurTime )
                 {

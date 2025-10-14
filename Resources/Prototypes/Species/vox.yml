@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 hivehum <ketchupfaced@gmail.com>
@@ -72,8 +73,8 @@
       required: false
     Snout:
       points: 1
-      required: false #imp
-      #defaultMarkings: [ VoxBeak ]
+      required: true #so they dont start beakless
+      defaultMarkings: [ VoxBeakColor ]
     Arms:
       points: 6
       required: false #imp

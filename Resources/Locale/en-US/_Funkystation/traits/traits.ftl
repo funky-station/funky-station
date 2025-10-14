@@ -9,6 +9,9 @@
 trait-funky-name = Funky Accent
 trait-funky-desc = Put some funky flair on your inflections.
 
+trait-scandinavian-name = Scandinavian accent
+trait-scandinavian-desc = You sound like you come from some nondescript northern European nation. Or you're a Viking!
+
 trait-extra-lightweight-name = Extreme Lightweight
 trait-extra-lightweight-desc = You are the lightest of lightweights. Even a shot will hit you the same as a glass.
 

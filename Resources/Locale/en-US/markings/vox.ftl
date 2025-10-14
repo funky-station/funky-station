@@ -3,6 +3,36 @@
 #
 # SPDX-License-Identifier: MIT
 
+marking-TattooEyeshadowVoxSmall-tattoo_eyeshadow_small = Eyeshadow (Small)
+marking-TattooEyeshadowVoxSmall = Eyeshadow (Small)
+
+marking-TattooEyeshadowVoxMedium-tattoo_eyeshadow_medium = Eyeshadow (Medium)
+marking-TattooEyeshadowVoxMedium = Eyeshadow (Medium)
+
+marking-TattooEyeshadowVoxLarge-tattoo_eyeshadow_Large = Eyeshadow (Large)
+marking-TattooEyeshadowVoxLarge = Eyeshadow (Large)
+
+marking-VoxTattooEyeliner-eyeliner = Eyeliner
+marking-VoxTattooEyeliner = Eyeliner
+
+marking-VoxVisage-visage = Visage (Full)
+marking-VoxVisage = Visage (Full)
+
+marking-VoxVisageL-visage_l = Visage (Left)
+marking-VoxVisageL = Visage (Left)
+
+marking-VoxVisageR-visage_r = Visage (Right)
+marking-VoxVisageR = Visage (Right)
+
+marking-VoxBeakSquareCere-beak_squarecere = Beak (Square Cere)
+marking-VoxBeakSquareCere = Beak (Square Cere)
+
+marking-VoxBeakHooked-beak_hooked = Beak (Hooked)
+marking-VoxBeakHooked = Beak (Hooked)
+
+marking-VoxBeakShaved-beak_shaved = Beak (Shaved)
+marking-VoxBeakShaved = Beak (Shaved)
+
 marking-TattooVoxHeartLeftArm-heart_l_arm = Vox Left Arm Tattoo (Heart)
 marking-TattooVoxHeartLeftArm = Vox Left Arm Tattoo (Heart)
 
@@ -12,8 +42,17 @@ marking-TattooVoxHeartRightArm = Vox Right Arm Tattoo (Heart)
 marking-TattooVoxHiveChest-hive_s = Vox Chest Tattoo (hive)
 marking-TattooVoxHiveChest = Vox Chest Tattoo (hive)
 
+marking-TattooVoxArrowHead-tattoo_arrow_head = Vox Head Tattoo (Arrow)
+marking-TattooVoxArrowHead = Vox Head Tattoo (Arrow)
+
+marking-TattooVoxNightlingHead-tattoo_nightling_head = Vox Head Tattoo (Nightling)
+marking-TattooVoxNightlingHead = Vox Head Tattoo (Nightling)
+
 marking-TattooVoxNightlingChest-nightling_s = Vox Chest Tattoo (nightling)
 marking-TattooVoxNightlingChest = Vox Chest Tattoo (nightling)
+
+marking-TattooVoxNightbelt-nightbelt = Vox Stomach Tattoo (Nightling)
+marking-TattooVoxNightbelt = Vox Stomach Tattoo (Nightling)
 
 marking-VoxScarEyeRight-vox_scar_eye_right = Right Eye Scar
 marking-VoxScarEyeRight = Eye Scar (Right)
@@ -57,5 +96,14 @@ marking-TattooEyeVoxRight = Right Eye
 marking-TattooEyeVoxLeft-tattoo_eye_vox_l = Left Eye
 marking-TattooEyeVoxLeft = Left Eye
 
+marking-VoxTailShort-vox_tail_small = Vox Tail (Short)
+marking-VoxTailShort = Vox Tail (Short)
+
+marking-VoxTailBig-vox_tail_big = Vox Tail (Big)
+marking-VoxTailBig = Vox Tail (Big)
+
 marking-VoxTailSpikes-vox_tail_spikes = Vox Tail (Spiked)
 marking-VoxTailSpikes = Vox Tail (Spiked)
+
+marking-VoxTailDocked-vox_tail_docked = Vox Tail (Vestigial)
+marking-VoxTailDocked = Vox Tail (Vestigial)

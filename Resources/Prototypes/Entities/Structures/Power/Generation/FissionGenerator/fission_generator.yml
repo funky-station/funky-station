@@ -1,0 +1,27 @@
+- type: entity
+  id: FissionGenerator
+  parent: BaseStructure
+  name: nuclear reactor
+  description: Should you really be standing this close to that?
+  components:
+  - type: Sprite
+    sprite: Structures/Power/Generation/FissionGenerator/fission_generator.rsi
+    state: fission_generatorbroken
+  - type: Icon
+    sprite: Structures/Power/Generation/FissionGenerator/fission_generator.rsi
+    state: fission_generator
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-2.5,-2.5,2.5,2.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: RadiationSource # only when broken.
+    intensity: 5

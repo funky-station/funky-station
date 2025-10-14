@@ -2,14 +2,14 @@
   id: Turbine
   parent: BaseStructure
   name: turbine
-  description: POWAH... Oh wait, it's broken.
+  description: POWAH
   components:
   - type: Sprite
     sprite: Structures/Power/Generation/FissionGenerator/turbine.rsi
-    state: turbinebroken
+    state: turbinerun
   - type: Icon
     sprite: Structures/Power/Generation/FissionGenerator/turbine.rsi
-    state: turbinebroken
+    state: turbine
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -23,3 +23,18 @@
         - MachineMask
         layer:
         - MachineLayer
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      output:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+  - type: PowerMonitoringDevice
+    group: Generator
+    loadNode: output
+    sprite: Structures/Power/Generation/FissionGenerator/turbine.rsi
+    state: static
+  - type: PowerSupplier
+    supplyRate: 100000
+    supplyRampRate: 10000
+    supplyRampTolerance: 10000

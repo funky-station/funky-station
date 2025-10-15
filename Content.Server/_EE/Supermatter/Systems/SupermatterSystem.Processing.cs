@@ -191,7 +191,6 @@ public sealed partial class SupermatterSystem
         if (mix.GetMoles(Gas.AntiNoblium) > 0.01f && mix.GetMoles(Gas.Helium) > 0.01f)
         {
             var consumedAN = Math.Min(gasReleased.GetMoles(Gas.Helium), gasReleased.GetMoles(Gas.AntiNoblium));
-
             var zapPower = (int) Math.Clamp((Math.Round(consumedAN / mix.TotalMoles) * 5), 1 ,3);
             var zapCount = (int) Math.Clamp(Math.Round(consumedAN/4), 1, 10);
             var zapRange = Math.Clamp(sm.Power / 1000, 2, 7);

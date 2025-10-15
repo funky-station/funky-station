@@ -191,17 +191,21 @@ public sealed partial class SupermatterSystem
 
         if (mix.GetMoles(Gas.AntiNoblium) > 0.01f && mix.GetMoles(Gas.Helium) > 0.01f)
         {
+            // finds the minumum amount of either anti-noblium or helium
             var consumedAN = Math.Min(gasReleased.GetMoles(Gas.Helium), gasReleased.GetMoles(Gas.AntiNoblium));
+            // finds zapPower by dividing the consumededAN and the total mols than multiplying it by 5 (capped between 1 and 3)
+            // finds zapCount by dividing the consumedAN by 4
             var zapPower = (int) Math.Clamp((Math.Round(consumedAN / mix.TotalMoles) * 5), 1 ,3);
             var zapCount = (int) Math.Clamp(Math.Round(consumedAN/4), 1, 10);
             var zapRange = Math.Clamp(sm.Power / 1000, 2, 7);
 
             if (consumedAN > 0)
             {
+                //removes consumed gasses
                 gasReleased.AdjustMoles(Gas.AntiNoblium, -consumedAN);
                 gasReleased.AdjustMoles(Gas.Helium, -consumedAN);
                 gasReleased.AdjustMoles(Gas.HyperNoblium, consumedAN);
-
+                // delay for lightning zaps
                 if (sm.ZapLast + TimeSpan.FromSeconds(5) <= _SmTiming.CurTime)
                 {
                     _lightning.ShootRandomLightnings(uid, zapRange, zapCount, sm.LightningPrototypes[zapPower], hitCoordsChance: sm.ZapHitCoordinatesChance); sm.ZapLast = _SmTiming.CurTime;

@@ -44,6 +44,9 @@
   whitelist:
     components:
     - Vocal
+  blacklist:
+    components:
+    - PAI
   chatMessages: ["chat-emote-msg-scream"]
   chatTriggers:
     - scream
@@ -71,6 +74,9 @@
   whitelist:
     components:
     - Vocal
+  blacklist:
+    components:
+    - PAI
   chatMessages: ["chat-emote-msg-laugh"]
   chatTriggers:
     - laugh
@@ -142,6 +148,9 @@
   whitelist:
     components:
     - Vocal
+  blacklist:
+    components:
+    - PAI
   chatMessages: ["chat-emote-msg-crying"]
   chatTriggers:
     - cry
@@ -410,6 +419,9 @@
   whitelist:
     components:
     - MobState
+  blacklist:
+    components:
+      - PAI
   chatMessages: ["chat-emote-msg-deathgasp"]
   chatTriggers:
   - deathgasp
@@ -429,6 +441,7 @@
     - HarpyEmotes
     components:
     - BorgChassis
+    - PAI
   category: Vocal
   icon: Interface/Emotes/buzz.png
   chatMessages: ["chat-emote-msg-buzz"]
@@ -491,6 +504,7 @@
     - HarpyEmotes
     components:
     - BorgChassis
+    - PAI
   icon: Interface/Emotes/beep.png
   chatMessages: ["chat-emote-msg-beep"]
   chatTriggers:
@@ -508,6 +522,7 @@
     - HarpyEmotes
     components:
     - BorgChassis
+    - PAI
   category: Vocal
   icon: Interface/Emotes/chime.png
   chatMessages: ["chat-emote-msg-chime"]
@@ -526,6 +541,7 @@
     - HarpyEmotes
     components:
     - BorgChassis
+    - PAI
   category: Vocal
   icon: Interface/Emotes/buzztwo.png
   chatMessages: ["chat-emote-msg-buzzestwo"]
@@ -550,6 +566,7 @@
     - HarpyEmotes
     components:
     - BorgChassis
+    - PAI
   category: Vocal
   icon: Interface/Emotes/ping.png
   chatMessages: ["chat-emote-msg-ping"]

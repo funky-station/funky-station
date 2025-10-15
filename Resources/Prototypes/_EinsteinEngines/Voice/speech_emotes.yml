@@ -28,6 +28,7 @@
     - HarpyEmotes
     components:
     - BorgChassis
+    - PAI
   category: Vocal
   chatMessages: [ boops ]
   chatTriggers:

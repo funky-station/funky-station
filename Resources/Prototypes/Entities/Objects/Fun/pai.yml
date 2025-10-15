@@ -133,6 +133,9 @@
     whitelist:
       components:
         - SecretStash
+  - type: Vocal # Funkystation PAI emoting
+    sounds:
+      Unsexed: PAISounds
 
 - type: entity
   parent: [ PersonalAI, BaseSyndicateContraband]

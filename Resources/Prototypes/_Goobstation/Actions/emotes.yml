@@ -7,6 +7,9 @@
 - type: emote
   id: Flip
   name: chat-emote-name-flip
+  blacklist:
+    components:
+      - PAI
   chatMessages: ["chat-emote-msg-flip"]
   chatTriggers:
   - flip
@@ -21,6 +24,9 @@
 - type: emote
   id: Spin
   name: chat-emote-name-spin
+  blacklist:
+    components:
+      - PAI
   chatMessages: ["chat-emote-msg-spin"]
   chatTriggers:
   - spin
@@ -32,6 +38,9 @@
 - type: emote
   id: Jump
   name: chat-emote-name-jump
+  blacklist:
+    components:
+      - PAI  
   chatMessages: ["chat-emote-msg-jump"]
   chatTriggers:
   - jump

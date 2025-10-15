@@ -12,6 +12,9 @@
   id: Sneeze
   name: chat-emote-name-sneeze
   category: Vocal
+  blacklist:
+    components:
+      - PAI
   chatMessages: ["chat-emote-msg-sneeze"]
   chatTriggers:
     - sneeze
@@ -28,6 +31,7 @@
   blacklist:
     components:
     - BorgChassis
+    - PAI
   chatMessages: ["chat-emote-msg-cough"]
   chatTriggers:
     - cough
@@ -75,6 +79,7 @@
   blacklist:
     components:
     - BorgChassis
+    - PAI
   chatMessages: ["chat-emote-msg-yawn"]
   chatTriggers:
     - yawn

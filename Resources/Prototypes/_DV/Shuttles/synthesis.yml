@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Dark <darkwindleaf@hotmail.co.uk>
+#
+# SPDX-License-Identifier: MIT
+
+- type: preloadedGrid
+  id: SyndieSynthesisShip
+  path: /Maps/_DV/Shuttles/synthesis_ship.yml
+  copies: 1

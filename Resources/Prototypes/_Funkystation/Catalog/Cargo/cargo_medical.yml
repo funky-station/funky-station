@@ -1,4 +1,6 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -17,7 +19,7 @@
   icon:
     sprite: Objects/Specific/Medical/medipen.rsi
     state: medipen
-  product: CrateEmergencyMedipens
+  product: BoxEmergencyMedipens
   cost: 2500
   category: cargoproduct-category-name-medical
   group: market
@@ -30,7 +32,7 @@
   product: CrateMedicalEquipment
   cost: 2500
   category: cargoproduct-category-name-medical
-  group: market    
+  group: market
 
 - type: cargoProduct
   id: MedicalParamedSuit
@@ -40,7 +42,7 @@
   product: CrateMedicalParamedSuit
   cost: 6500
   category: cargoproduct-category-name-medical
-  group: market      
+  group: market
 
 - type: cargoProduct
   id: MedicalBiomass
@@ -50,4 +52,4 @@
   product: CrateMedicalBiomass
   cost: 3000
   category: cargoproduct-category-name-medical
-  group: market    
+  group: market

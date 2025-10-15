@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: 2025 Dark <darkwindleaf@hotmail.co.uk>
+# SPDX-FileCopyrightText: 2025 jhardtmadsen-blip <jhardtmadsen@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: [ClothingMaskGas, BaseSyndicateContraband]
+  id: ClothingMaskInterdyneChemistry
+  name: interdyne gas mask
+  description: A face-covering mask that can be connected to an air supply.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Mask/interdynechemmask.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Mask/interdynechemmask.rsi

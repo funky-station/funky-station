@@ -16,7 +16,16 @@ SPDX-License-Identifier: MIT
 It is generally wise to avoid situations that will cause you harm, because medical can only heal you so much with limited chemicals and medical items and especially when there's nuclear operatives on your doorstep.
 
 ## Identifying your situation
-Your PDA contains both a vessel name and list of crew currently active in your vessel, a reminder for your name if needed, and your assigned job for the shift, allowing you to quickly assess the situation.
+Your PDA contains both a vessel name and list of crew currently active in your vessel, a reminder for your name if needed, and your assigned job for the shift, allowing you to quickly assess the situation. Your suit also have in-built sensors that report your current status to the crew monitors around the station. You can set how much information is broadcasted via the right-click menu on your suit.
+
+## Calling for help
+
+Your best hope is to use the SOS app in your PDA to alert Security and Medical that you need help. You can also use an emergency hand-held radio to call for help.
+
+<Box>
+  <GuideEntityEmbed Entity="SOSCartridge"/>
+  <GuideEntityEmbed Entity="RadioHandheldEmergency"/>
+</Box>
 
 ## Emergency Treatment
 In the event of a serious emergency, there're a few things you can do to help ensure your long-term survival, including:

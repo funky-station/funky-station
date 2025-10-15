@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -25,6 +26,7 @@ public sealed class CardboardBoxSystem : SharedCardboardBoxSystem
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     private EntityQuery<BodyComponent> _bodyQuery;
 
@@ -86,7 +88,7 @@ public sealed class CardboardBoxSystem : SharedCardboardBoxSystem
             if (!xformQuery.TryGetComponent(ent, out var entTransform) || !TryComp<SpriteComponent>(ent, out var sprite))
                 continue;
 
-            sprite.Offset = new Vector2(0, 1);
+            _sprite.SetOffset((ent, sprite), new Vector2(0, 1));
             _transform.SetParent(ent, entTransform, mob);
         }
 

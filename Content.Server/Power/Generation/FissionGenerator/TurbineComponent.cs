@@ -13,7 +13,7 @@ public sealed partial class TurbineComponent : Component
     // Watts per revolution
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("statorLoad")]
-    public float StatorLoad = 500000;
+    public float StatorLoad = 100000;
 
     // Current RPM of turbine
     [ViewVariables(VVAccess.ReadWrite)]
@@ -93,5 +93,13 @@ public sealed partial class TurbineComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("outlet")]
     public string OutletName { get; set; } = "outlet";
+
+    //Debugging
+    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField("HasPipes")]
+    public bool HasPipes = false;
+    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField("SupplierMaxSupply")]
+    public float SupplierMaxSupply = 0;
 
 }

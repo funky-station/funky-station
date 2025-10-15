@@ -42,5 +42,7 @@
     sprite: Structures/Power/Generation/FissionGenerator/turbine.rsi
     state: static
   - type: PowerSupplier
+    supplyRampRate: 75000
+    supplyRampTolerance: 5000
   - type: AtmosDevice
   - type: Turbine

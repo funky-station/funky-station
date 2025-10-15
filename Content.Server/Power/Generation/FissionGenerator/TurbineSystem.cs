@@ -31,7 +31,7 @@ public sealed class TurbineSystem : EntitySystem
 
     private void OnEnabled(EntityUid uid, TurbineComponent comp, ref AtmosDeviceEnabledEvent args)
     {
-        UpdateAppearance(uid, comp);
+        return;
     }
 
     private void OnExamined(Entity<TurbineComponent> ent, ref ExaminedEvent args)
@@ -94,11 +94,20 @@ public sealed class TurbineSystem : EntitySystem
 
     private void OnUpdate(EntityUid uid, TurbineComponent comp, ref AtmosDeviceUpdateEvent args)
     {
-        
+        var supplier = Comp<PowerSupplierComponent>(uid);
+        comp.SupplierMaxSupply = supplier.MaxSupply;
+
+        supplier.MaxSupply = (float)comp.LastGen;
+
         if (!_nodeContainer.TryGetNodes(uid, comp.InletName, comp.OutletName, out PipeNode? inlet, out PipeNode? outlet))
         {
             _ambientSoundSystem.SetAmbience(uid, false);
+            comp.HasPipes = false;
             return;
+        }
+        else
+        {
+            comp.HasPipes = true;
         }
 
         // TODO: change sprite based on RPM
@@ -111,6 +120,7 @@ public sealed class TurbineSystem : EntitySystem
         }
         var AirContents = inlet.Air.Remove(TransferMoles);
 
+        comp.LastGen = 0;
         comp.Overtemp = AirContents?.Temperature >= comp.MaxTemp;
         comp.Undertemp = AirContents?.Temperature <= comp.MinTemp;
 
@@ -199,13 +209,7 @@ public sealed class TurbineSystem : EntitySystem
                 return; // TODO: crash the game here
             }
 
-            Comp<PowerSupplierComponent>(uid).MaxSupply = 10000;
-            if (TryComp<PowerSupplierComponent>(uid, out var supplier))
-            {
-                supplier.MaxSupply = 10000;
-            }
-
-                comp.Overspeed = comp.RPM > comp.BestRPM * 1.2;
+            comp.Overspeed = comp.RPM > comp.BestRPM * 1.2;
             var random = new Random();
             if (comp.Overspeed && random.NextFloat() > 0.15 * Math.Min(comp.RPM / comp.BestRPM, 3))
             {
@@ -234,8 +238,8 @@ public sealed class TurbineSystem : EntitySystem
         return;
     }
 
-    private void UpdateAppearance(EntityUid uid, TurbineComponent? comp = null)
-    {
-        return;
-    }
+    //private void UpdateAppearance(EntityUid uid, TurbineComponent? comp = null)
+    //{
+    //    return;
+    //}
 }

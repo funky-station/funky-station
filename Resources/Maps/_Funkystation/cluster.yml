@@ -49,6 +49,7 @@
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 twirling-jesters <7096270+twirling-jesters@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -58,8 +59,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/06/2025 19:54:23
-  entityCount: 12920
+  time: 09/29/2025 19:39:53
+  entityCount: 12917
 maps:
 - 1
 grids:
@@ -16478,7 +16479,7 @@ entities:
   - uid: 2004
     components:
     - type: Transform
-      pos: 22.5,-16.5
+      pos: 21.5,-16.5
       parent: 2
   - uid: 2005
     components:
@@ -16585,11 +16586,6 @@ entities:
     - type: Transform
       pos: 25.5,-10.5
       parent: 2
-  - uid: 2026
-    components:
-    - type: Transform
-      pos: 21.5,-15.5
-      parent: 2
   - uid: 2027
     components:
     - type: Transform
@@ -16624,11 +16620,6 @@ entities:
     components:
     - type: Transform
       pos: 12.5,-9.5
-      parent: 2
-  - uid: 2034
-    components:
-    - type: Transform
-      pos: 21.5,-13.5
       parent: 2
   - uid: 2035
     components:
@@ -19904,11 +19895,6 @@ entities:
     components:
     - type: Transform
       pos: 26.5,-18.5
-      parent: 2
-  - uid: 2690
-    components:
-    - type: Transform
-      pos: 21.5,-14.5
       parent: 2
   - uid: 2691
     components:

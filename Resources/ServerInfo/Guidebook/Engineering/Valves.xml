@@ -14,6 +14,7 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="SignalControlledValve"/>
     <GuideEntityEmbed Entity="PressureControlledValve"/>
     <GuideEntityEmbed Entity="GasPassiveGate"/>
+    <GuideEntityEmbed Entity="GasPressureRegulator"/>
   </Box>
   All valves do not require [textlink="power" link="Power"] to operate.
 

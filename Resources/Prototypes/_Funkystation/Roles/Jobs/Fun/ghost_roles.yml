@@ -1,0 +1,40 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: job
+  id: SpaceCowboy
+  name: Space Cowboy
+  description: ghost-role-information-space-cowboy-description
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 36000 #10 hrs
+  weight: 0
+  playTimeTracker: SpaceCowboyTime
+  startingGear: SpaceCowboyGear
+  requireAdminNotify: false
+  joinNotifyCrew: false
+  canBeAntag: false
+  access:
+  - SpaceCowboy
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: ReplacementAccent
+      accent: cowboy
+
+
+- type: startingGear
+  id: SpaceCowboyGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecBlue
+    shoes: ClothingShoesBootsLaceup
+    outerClothing: ClothingOuterVest
+    id: SpaceCowboyIDCard
+    eyes: ClothingEyesGlassesSunglasses
+    back: ClothingBackpackSatchelLeather
+    ears: ClothingHeadsetFreelance
+    belt: ClothingBeltHolster
+    pocket1: ClothingMaskGasMerc
+    pocket2: ClothingHandsKnuckleDusters
+

@@ -4780,3 +4780,144 @@ Entries:
       message: New stamp icons by Stabithar
   id: 573
   time: '2025-10-04T19:47:41.0000000+00:00'
+- author: selvamoonbell
+  changes:
+    - type: Fix
+      message: Fixed erroneous label on the supermatter console
+  id: 574
+  time: '2025-10-06T05:06:45.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Tweak
+      message: >-
+        HEV suit protects from rads better, being nearly on par with the rad
+        suit.
+  id: 575
+  time: '2025-10-06T05:09:44.0000000+00:00'
+- author: ATDoop, ported by zergologist
+  changes:
+    - type: Tweak
+      message: >-
+        Thaven head items now use offsets instead of displacements, which should
+        make hats and mask look a little nicer on them!
+  id: 576
+  time: '2025-10-06T05:11:44.0000000+00:00'
+- author: zergologist
+  changes:
+    - type: Add
+      message: >-
+        Ported from Frontier: A total of 14 distinct customization options for
+        the head slot to human-headed species, vulpkanins, reptilians, and,
+        Funky specific, Thavens. Includes base white facepaint, five options
+        each for clown and mime, lipstick, eyebrows, and blush.
+    - type: Tweak
+      message: >-
+        Changed the total number of Vulpkanin head marking slots from one to
+        three.
+  id: 577
+  time: '2025-10-06T05:14:29.0000000+00:00'
+- author: Miiish
+  changes:
+    - type: Tweak
+      message: Syndicate comms computers can no longer change the alert level.
+  id: 578
+  time: '2025-10-06T05:15:40.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Fix
+      message: Cargo Techs no longer spawn with two PDAs
+  id: 579
+  time: '2025-10-06T17:12:57.0000000+00:00'
+- author: Alecksohs
+  changes:
+    - type: Tweak
+      message: Resprites flooring!
+  id: 580
+  time: '2025-10-07T02:36:11.0000000+00:00'
+- author: Toastermeister
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a bug where the implanter wouldn't remove syndicate radio implant
+        or fake mindshield implant.
+  id: 581
+  time: '2025-10-10T03:10:13.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Fix
+      message: Wardens headset now spawns in the locker.
+  id: 582
+  time: '2025-10-12T19:34:13.0000000+00:00'
+- author: Nictis
+  changes:
+    - type: Tweak
+      message: Adjusted the Hypodart internal reservoir to 9 units from 7.
+  id: 583
+  time: '2025-10-12T19:35:29.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Changed Bagel's salvage dock so the ship can actually dock
+    - type: Add
+      message: Added custom cargo shuttle to Bagel so the salv shuttle can fit
+    - type: Fix
+      message: Fixed several small Bagel mapping issues
+  id: 584
+  time: '2025-10-12T19:37:09.0000000+00:00'
+- author: Toastermeister, Sparlight
+  changes:
+    - type: Tweak
+      message: >-
+        Dragons no longer destroy non-humanoid mobs upon eating them. Originally
+        by Sparlight on WizDen.
+  id: 585
+  time: '2025-10-12T19:45:15.0000000+00:00'
+- author: 0uranous
+  changes:
+    - type: Tweak
+      message: Lowered the Hypertorus Fusion Reactor price from 50,000 to 10,000!
+  id: 586
+  time: '2025-10-12T19:46:14.0000000+00:00'
+- author: Toastermeister, Tayrtahn
+  changes:
+    - type: Tweak
+      message: >-
+        Builds will now spew fewer warnings when building the program.
+        Originally done by Tayrtahn on Wizard's Den.
+  id: 587
+  time: '2025-10-12T21:58:18.0000000+00:00'
+- author: Toastermeister, TheShuEd, Gentlemen-Bird, TiniestShark
+  changes:
+    - type: Add
+      message: >-
+        Added custom burgers, tacos and skewers. Originally done by TheShuEd,
+        small fix by Gentlemen-Bird on Wizard's Den.
+    - type: Add
+      message: >-
+        New in-hand burger sprites. Originally added by TiniestShark on Wizard's
+        Den.
+    - type: Remove
+      message: Removed Goobstation anything burgers.
+  id: 588
+  time: '2025-10-12T22:18:06.0000000+00:00'
+- author: wafehling, kotobdev, ilyamikcoder
+  changes:
+    - type: Add
+      message: '"*blinks" emote'
+  id: 589
+  time: '2025-10-13T00:26:15.0000000+00:00'
+- author: Alecksohs
+  changes:
+    - type: Tweak
+      message: Added emote and LOOC indicators to typing indicators!
+  id: 590
+  time: '2025-10-13T00:28:47.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Fix
+      message: >-
+        Fixed shuttles and the ATS counting as the station for Revolutionaries
+        off-station checks. If the last Head Rev or Command member is not
+        directly on-station for long enough, the game should now correctly end.
+  id: 591
+  time: '2025-10-13T01:15:16.0000000+00:00'

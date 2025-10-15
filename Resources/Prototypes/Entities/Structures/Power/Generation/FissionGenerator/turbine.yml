@@ -1,13 +1,10 @@
 - type: entity
   id: Turbine
-  parent: BaseStructure
+  parent: BaseMachine
   name: turbine
   description: POWAH
   components:
   - type: Sprite
-    sprite: Structures/Power/Generation/FissionGenerator/turbine.rsi
-    state: turbinerun
-  - type: Icon
     sprite: Structures/Power/Generation/FissionGenerator/turbine.rsi
     state: turbine
   - type: Physics
@@ -26,6 +23,16 @@
   - type: NodeContainer
     examinable: true
     nodes:
+      inlet:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: West
+        volume: 100
+      outlet:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: East
+        volume: 100
       output:
         !type:CableDeviceNode
         nodeGroupID: HVPower
@@ -35,6 +42,5 @@
     sprite: Structures/Power/Generation/FissionGenerator/turbine.rsi
     state: static
   - type: PowerSupplier
-    supplyRate: 100000
-    supplyRampRate: 10000
-    supplyRampTolerance: 10000
+  - type: AtmosDevice
+  - type: Turbine

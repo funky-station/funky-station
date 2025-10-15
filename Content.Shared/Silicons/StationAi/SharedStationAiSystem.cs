@@ -278,9 +278,6 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         if (!TryComp(args.Target, out StationAiHolderComponent? targetHolder))
             return;
 
-        //Don't want to download/upload between several intellicards. You can just pick it up at that point.
-        if (HasComp<IntellicardComponent>(args.Target))
-            return;
 
         if (!TryComp(args.Used, out IntellicardComponent? intelliComp))
             return;
@@ -307,7 +304,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             AnnounceIntellicardUsage(held, intelliComp.WarningSound);
         }
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, cardHasAi ? intelliComp.UploadTime : intelliComp.DownloadTime, new IntellicardDoAfterEvent(), args.Target, ent.Owner)
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, cardHasAi ? intelliComp.UploadTime : intelliComp.DownloadTime, new IntellicardDoAfterEvent(), ent.Owner, args.Target, ent.Owner)
         {
             BreakOnDamage = true,
             BreakOnMove = true,

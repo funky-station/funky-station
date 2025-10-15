@@ -166,7 +166,7 @@
       disableEject: true
       whitelist:
         tags:
-        - StationAi
+        - StationAiBrain
   - type: ContainerContainer
     containers:
       station_ai_mind_slot: !type:ContainerSlot

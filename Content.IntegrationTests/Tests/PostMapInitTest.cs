@@ -52,6 +52,7 @@
 // SPDX-FileCopyrightText: 2025 salpphie <alyssa.thomas51@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Dusty_Plant <ytsur2001@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -138,6 +139,7 @@ namespace Content.IntegrationTests.Tests
             "Divide", // funkystation
             "Glacier", // funkystation
 			"Eden", // funkystation
+			"Court", // funkystation
             "Barratry", // Harmony
             "Eclipse", // Harmony
             "Kettle", // Goobstation - add Kettle

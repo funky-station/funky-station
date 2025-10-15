@@ -57,22 +57,6 @@
     containers:
       contents: !type:ContainerSlot
       paper_label: !type:ContainerSlot
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.WrappedParcelVisuals.Size:
-        enum.WrappedParcelVisuals.Layer:
-          "Tiny": { state: "parcel-tiny" }
-          "Small": { state: "parcel-small" }
-          "Medium": { state: "parcel-medium" }
-          "Large": { state: "parcel-medium" }
-          "Huge": { state: "parcel-large" }
-          "Ginormous": { state: "parcel-large" }
-  - type: Sprite
-    sprite: Objects/Misc/ParcelWrap/wrapped_parcel.rsi
-    layers:
-    - state: parcel-medium
-      map: [ "enum.WrappedParcelVisuals.Layer" ]
   - type: WrappedParcel
     unwrapDelay: 0.5
     unwrapSound:

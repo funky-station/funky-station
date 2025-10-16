@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -23,6 +24,10 @@ using static Content.Server.Chat.Systems.ChatSystem;
 using Robust.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Damage;
+using Content.Server.Power.Components;
+using Content.Shared.Mech.Components;
+using Content.Shared.Destructible;
+using Robust.Shared.Containers;
 
 namespace Content.Server.Silicons.StationAi;
 
@@ -35,6 +40,8 @@ public sealed class StationAiSystem : SharedStationAiSystem
     [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedContainerSystem _containers = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!;
 
     private readonly HashSet<Entity<StationAiCoreComponent>> _ais = new();
 
@@ -49,6 +56,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
 
         SubscribeLocalEvent<ExpandICChatRecipientsEvent>(OnExpandICChatRecipients);
         SubscribeLocalEvent<StationAiCoreComponent, DamageChangedEvent>(OnAiCoreDamaged);
+        SubscribeLocalEvent<ApcComponent, ComponentShutdown>(OnApcShutdown);
     }
 
     private void OnExpandICChatRecipients(ExpandICChatRecipientsEvent ev)
@@ -153,7 +161,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
     }
 
     /// <summary>
-    /// Cooldown duration between AI core attack alerts to prevent spamming the player
+    /// Funky edit, AI gets alert for damage
     /// </summary>
     private static readonly TimeSpan AttackAlertCooldown = TimeSpan.FromSeconds(10);
 
@@ -188,4 +196,39 @@ public sealed class StationAiSystem : SharedStationAiSystem
             _roles.MindPlaySound(mindId, alertSound);
         }
     }
+
+    // Funky edit, malf brain destroyed on APC destruction
+    private void OnApcShutdown(EntityUid uid, ApcComponent component, ComponentShutdown args)
+    {
+        DestroyAiBrainInContainer(uid, StationAiHolderComponent.Container);
+    }
+
+
+    private void DestroyAiBrainInContainer(EntityUid parentEntity, BaseContainer? container)
+    {
+        if (container == null)
+            return;
+
+        foreach (var containedEntity in container.ContainedEntities.ToArray())
+        {
+            if (HasComp<StationAiHeldComponent>(containedEntity))
+            {
+                // Make station announcement about AI destruction
+                var msg = Loc.GetString("ai-destroyed-announcement");
+                _chatSystem.DispatchStationAnnouncement(parentEntity, msg, playDefaultSound: true);
+
+                // Delete the AI brain
+                QueueDel(containedEntity);
+            }
+        }
+    }
+
+    private void DestroyAiBrainInContainer(EntityUid parentEntity, string containerName)
+    {
+        if (!_containers.TryGetContainer(parentEntity, containerName, out var container))
+            return;
+
+        DestroyAiBrainInContainer(parentEntity, container);
+    }
+    // End funky edit
 }

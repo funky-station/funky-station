@@ -1,14 +1,21 @@
+using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
+using Content.Server.Popups;
 using Content.Server.Power.Components;
-using Content.Server.Power.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Piping.Components;
 using Content.Shared.Audio;
+using Content.Shared.Database;
 using Content.Shared.Examine;
+using Content.Shared.Popups;
+using Robust.Server.Audio;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Components;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 
 namespace Content.Server.Power.Generation.FissionGenerator;
@@ -17,15 +24,18 @@ public sealed class TurbineSystem : EntitySystem
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+        SubscribeLocalEvent<TurbineComponent, AtmosDeviceDisabledEvent>(OnDisabled);
         SubscribeLocalEvent<TurbineComponent, AtmosDeviceEnabledEvent>(OnEnabled);
         SubscribeLocalEvent<TurbineComponent, AtmosDeviceUpdateEvent>(OnUpdate);
-        SubscribeLocalEvent<TurbineComponent, AtmosDeviceDisabledEvent>(OnDisabled);
         SubscribeLocalEvent<TurbineComponent, ExaminedEvent>(OnExamined);
     }
 
@@ -120,6 +130,7 @@ public sealed class TurbineSystem : EntitySystem
         }
         var AirContents = inlet.Air.Remove(TransferMoles);
 
+        comp.LastVolumeTransfer = AirContents.Volume;
         comp.LastGen = 0;
         comp.Overtemp = AirContents?.Temperature >= comp.MaxTemp;
         comp.Undertemp = AirContents?.Temperature <= comp.MinTemp;
@@ -134,12 +145,21 @@ public sealed class TurbineSystem : EntitySystem
                 _atmosphereSystem.Merge(tile, AirContents!);
             }
 
-            // TODO: message and sound on overtemp (not ruined)
+            if (!comp.Ruined && !_audio.IsPlaying(comp.AlarmAudioStream))
+            {
+                comp.AlarmAudioStream = _audio.PlayPvs(new SoundPathSpecifier("/Audio/_FarHorizons/Machines/alarm_buzzer.ogg"), uid, AudioParams.Default.WithLoop(true))?.Entity;
+                _popupSystem.PopupEntity(Loc.GetString("turbine-overheat", ("owner", uid)), uid, PopupType.LargeCaution);
+            }
+
 
             _atmosphereSystem.Merge(outlet.Air, AirContents!);
 
             // Prevent power from being gereated by residual gasses
             AirContents?.Clear();
+        }
+        else
+        {
+            comp.AlarmAudioStream = _audio.Stop(comp.AlarmAudioStream);
         }
 
         if (!comp.Ruined && AirContents != null)
@@ -191,15 +211,25 @@ public sealed class TurbineSystem : EntitySystem
 
             if (NewRPM < 0 || NextRPM < 0)
             {
+                if (!comp.Stalling)
+                {
+                    comp.GeneratorAudioStream = _audio.Stop(comp.GeneratorAudioStream);
+                    comp.GeneratorAudioStream = _audio.PlayPvs(new SoundPathSpecifier("/Audio/_FarHorizons/Machines/tractor_running.ogg"), uid, AudioParams.Default)?.Entity;
+                }
                 // Stator load is too high
                 comp.Stalling = true;
                 comp.RPM = 0;
-                // TODO: sound
             }
             else
             {
                 comp.Stalling = false;
                 comp.RPM = NextRPM;
+            }
+
+            //_ambientSoundSystem.SetAmbience(uid, comp.RPM > 0);
+            if(comp.RPM>10)
+            {
+                comp.GeneratorAudioStream = _audio.PlayPvs(new SoundPathSpecifier("/Audio/_FarHorizons/Ambience/Objects/turbine_room.ogg"), uid, AudioParams.Default.WithPitchScale(comp.RPM / comp.BestRPM).WithVolume(-2))?.Entity;
             }
 
             comp.LastGen = comp.PowerMultiplier * comp.StatorLoad * (comp.RPM / 30) * (float)(1 / Math.Cosh(0.01 * (comp.RPM - comp.BestRPM)));
@@ -211,10 +241,12 @@ public sealed class TurbineSystem : EntitySystem
 
             comp.Overspeed = comp.RPM > comp.BestRPM * 1.2;
             var random = new Random();
-            if (comp.Overspeed && random.NextFloat() > 0.15 * Math.Min(comp.RPM / comp.BestRPM, 3))
+            if (comp.Overspeed && random.NextFloat() < 0.15 * Math.Min(comp.RPM / comp.BestRPM, 3))
             {
+                // TODO: damage flash
                 // TODO: Sound
                 comp.BladeHealth--;
+                UpdateHealthIndicators(uid, comp);
             }
 
             _atmosphereSystem.Merge(outlet.Air, AirContents);
@@ -226,8 +258,9 @@ public sealed class TurbineSystem : EntitySystem
         if (!comp.Ruined && comp.BladeHealth <= 0)
         {
             // TODO: Sound
-            // TODO: visible message
+            _popupSystem.PopupEntity(Loc.GetString("turbine-explode", ("owner", uid)), uid, PopupType.LargeCaution);
             // TODO: shoot blades everywhere
+            _adminLogger.Add(LogType.Explosion, LogImpact.Medium, $"{ToPrettyString(uid)} destroyed by overspeeding for too long");
             comp.Ruined = true;
             comp.RPM = 0;
         }
@@ -236,6 +269,33 @@ public sealed class TurbineSystem : EntitySystem
     private void OnDisabled(EntityUid uid, TurbineComponent comp, ref AtmosDeviceDisabledEvent args)
     {
         return;
+    }
+
+    private void UpdateHealthIndicators(EntityUid uid, TurbineComponent comp)
+    {
+        if (comp.BladeHealth <= 0.75 * comp.BladeHealthMax)
+        {
+            //TODO: sound
+            //TODO: particles
+            _popupSystem.PopupEntity(Loc.GetString("turbine-spark", ("owner", uid)), uid, PopupType.MediumCaution);
+        }
+        else if (comp.BladeHealth > 0.75 * comp.BladeHealthMax)
+        {
+            //TODO: particles
+            _popupSystem.PopupEntity(Loc.GetString("turbine-spark-stop", ("owner", uid)), uid, PopupType.Medium);
+        }
+
+        if (comp.BladeHealth <= 0.5 * comp.BladeHealthMax)
+        {
+            //TODO: sound
+            //TODO: particles
+            _popupSystem.PopupEntity(Loc.GetString("turbine-smoke", ("owner", uid)), uid, PopupType.MediumCaution);
+        }
+        else if (comp.BladeHealth > 0.5 * comp.BladeHealthMax)
+        {
+            //TODO: particles
+            _popupSystem.PopupEntity(Loc.GetString("turbine-smoke-stop", ("owner", uid)), uid, PopupType.Medium);
+        }
     }
 
     //private void UpdateAppearance(EntityUid uid, TurbineComponent? comp = null)

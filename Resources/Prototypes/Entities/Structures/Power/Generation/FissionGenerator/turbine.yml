@@ -20,6 +20,9 @@
         - MachineMask
         layer:
         - MachineLayer
+  - type: Anchorable
+    flags: 
+    - Anchorable
   - type: NodeContainer
     examinable: true
     nodes:
@@ -44,5 +47,12 @@
   - type: PowerSupplier
     supplyRampRate: 75000
     supplyRampTolerance: 5000
+  - type: AmbientSound
+    volume: -1
+    range: 15
+    enabled: false
+    sound:
+      path: /Audio/_FarHorizons/Ambience/Objects/turbine_room.ogg
   - type: AtmosDevice
   - type: Turbine
+  

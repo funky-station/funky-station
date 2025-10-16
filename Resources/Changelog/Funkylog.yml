@@ -4921,3 +4921,29 @@ Entries:
         directly on-station for long enough, the game should now correctly end.
   id: 591
   time: '2025-10-13T01:15:16.0000000+00:00'
+- author: Tyranex
+  changes:
+    - type: Fix
+      message: Fixed robotics factory processing crew while unanchored
+    - type: Fix
+      message: >-
+        Fixed robotics factory not being able to be placed on free tiles with
+        subfloor or wall mounted entities
+    - type: Fix
+      message: Fixed detonate RCDs incorrectly targeting engineering cyborgs
+    - type: Fix
+      message: "\tFixed malf AI's protect target not assigning correctly"
+    - type: Fix
+      message: The intelicard is now functional again
+    - type: Tweak
+      message: "\tChanged both malfunctioning AI camera upgrades to be on purchase instead of toggle"
+    - type: Tweak
+      message: >-
+        The doomsday protocol objective for malf AI now has a minimum
+        playercount
+    - type: Tweak
+      message: "\tThe pin pointer now points to the AI core when doomsday protocol is initiated"
+    - type: Tweak
+      message: "\tThe station AI's brain is now destroyed if its container is destroyed"
+  id: 592
+  time: '2025-10-16T19:13:49.0000000+00:00'

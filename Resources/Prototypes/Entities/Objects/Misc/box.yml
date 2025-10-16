@@ -66,7 +66,7 @@
     whitelist:
       components:
       - MachineBoard
-      - Circuitboard
+      - CircuitBoard
   - type: Construction
     graph: ToteBase
     node: totebase

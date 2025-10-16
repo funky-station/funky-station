@@ -3,7 +3,7 @@
   mapName: 'Olympus'
   mapPath: /Maps/_Funkystation/olympus.yml
   minPlayers: 50
-  maxPlayers: 90
+  maxPlayers: 100 # maybe good for events
   stations:
     Olympus:
       stationProto: StandardNanotrasenStation
@@ -12,7 +12,7 @@
         mapNameTemplate: '{0} Olympus {1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
-          prefixCreator: 'TRS'
+          prefixCreator: '-TRS'
       - type: StationEmergencyShuttle
         emergencyShuttlePath: /Maps/_Funkystation/Shuttles/emergency_olympus.yml
       - type: StationJobs
@@ -67,3 +67,7 @@
           Mime: [ 1, 1 ]
           Musician: [ 5, 5 ]
           Boxer: [ 1, 1 ]
+      - type: StationBlobConfig
+        stageBegin: 75
+        stageCritical: 500
+        stageTheEnd: 1000

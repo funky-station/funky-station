@@ -26,6 +26,10 @@
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      map: [ "enum.PaperLabelVisuals.Layer" ]
+      offset: -0.25, 0.25
   - type: VendingMachine
     pack: FitnessVendInventory
     offState: off
@@ -68,6 +72,10 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
     - state: heater
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      map: [ "enum.PaperLabelVisuals.Layer" ]
+      offset: -0.25, 0.25
   - type: VendingMachine
     pack: HotfoodInventory
     offState: off
@@ -106,6 +114,10 @@
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      map: [ "enum.PaperLabelVisuals.Layer" ]
+      offset: -0.25, 0.25
   - type: VendingMachine
     pack: SolsnackInventory
     offState: off
@@ -147,6 +159,10 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
     - state: fan
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      map: [ "enum.PaperLabelVisuals.Layer" ]
+      offset: -0.25, 0.25
   - type: VendingMachine
     pack: WeebVendInventory
     offState: off
@@ -193,6 +209,10 @@
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      map: [ "enum.PaperLabelVisuals.Layer" ]
+      offset: -0.25, 0.25
   - type: AccessReader
     access: [["Cargo"]]
   - type: PointLight

@@ -4967,3 +4967,12 @@ Entries:
         the cargofab. Also put a flaregun recipe into the cargofab.
   id: 595
   time: '2025-10-16T19:25:22.0000000+00:00'
+- author: Toastermeister, Spanky-Spanky, BoskiYourk
+  changes:
+    - type: Add
+      message: >-
+        You are now able to pickup an unwrenched microwave with two free hands
+        and use it as a weapon. Originally done by Spanky-Spanky on Wizard's
+        Den, based on work by BoskiYourk on Harmony.
+  id: 596
+  time: '2025-10-16T19:28:49.0000000+00:00'

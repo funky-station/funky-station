@@ -79,6 +79,7 @@
           tags:
           - Knife
           - Sidearm
+          - RevolverSalamander # Funky
   - type: FootstepModifier #funky start
     footstepSoundCollection:
       collection: FootstepBoot

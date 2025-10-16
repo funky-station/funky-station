@@ -40,6 +40,7 @@
       mask: !type:ContainerSlot
       emergencypen: !type:ContainerSlot
       spacepen: !type:ContainerSlot
+      weapon: !type:ContainerSlot
   - type: ItemSlots
     slots:
       water:
@@ -83,6 +84,11 @@
         whitelist:
           tags:
           - SpaceMedipen
+      weapon:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - RevolverSalamander
   - type: ContainerFill
     containers:
       water:

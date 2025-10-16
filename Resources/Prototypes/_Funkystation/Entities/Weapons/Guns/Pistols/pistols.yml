@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: wyvern
+  name: Wyvern
   parent: [BaseWeaponPistol, BaseSecurityCommandContraband]
   id: WeaponPistolWyvern
   description: A large, bulky and incredibly powerful pistol with large damage potential and stopping power. Chambered in .50 AE, it is able to hurt even armored targets. Historically it has been produced and sold in small amounts to both Nanotransen and Cybersun, making it a rare and sought after pistol.
@@ -50,7 +50,7 @@
     spreadMultiplier: 1.5
 
 - type: entity
-  name: wyvern
+  name: Wyvern
   parent: [BaseWeaponPistol, BaseSecurityCommandContraband]
   id: WeaponPistolWyvernSyndicate
   description: A large, bulky and incredibly powerful pistol with large damage potential and stopping power. Chambered in .50 AE, it is able to hurt even armored targets. Historically it has been produced and sold in small amounts to both Nanotransen and Cybersun, making it a rare and sought after pistol.

@@ -4,8 +4,10 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ekpy <33184056+Ekpy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 // SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -276,9 +278,6 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         if (!TryComp(args.Target, out StationAiHolderComponent? targetHolder))
             return;
 
-        //Don't want to download/upload between several intellicards. You can just pick it up at that point.
-        if (HasComp<IntellicardComponent>(args.Target))
-            return;
 
         if (!TryComp(args.Used, out IntellicardComponent? intelliComp))
             return;
@@ -305,7 +304,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             AnnounceIntellicardUsage(held, intelliComp.WarningSound);
         }
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, cardHasAi ? intelliComp.UploadTime : intelliComp.DownloadTime, new IntellicardDoAfterEvent(), args.Target, ent.Owner)
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, cardHasAi ? intelliComp.UploadTime : intelliComp.DownloadTime, new IntellicardDoAfterEvent(), ent.Owner, args.Target, ent.Owner)
         {
             BreakOnDamage = true,
             BreakOnMove = true,
@@ -350,6 +349,20 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
         QueueDel(ent.Comp.RemoteEntity);
         ent.Comp.RemoteEntity = null;
+
+        //Funky edit, Handle AI brain destruction when core is destroyed
+        if (_containers.TryGetContainer(ent.Owner, StationAiCoreComponent.Container, out var container))
+        {
+            foreach (var containedEntity in container.ContainedEntities)
+            {
+                if (HasComp<StationAiHeldComponent>(containedEntity))
+                {
+                    // The AI brain's parent core is being destroyed, so destroy the AI brain too
+                    QueueDel(containedEntity);
+                }
+            }
+        }
+        // End funky edit
     }
 
     private void OnCorePower(Entity<StationAiCoreComponent> ent, ref PowerChangedEvent args)

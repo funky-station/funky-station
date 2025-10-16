@@ -4947,3 +4947,9 @@ Entries:
       message: "\tThe station AI's brain is now destroyed if its container is destroyed"
   id: 592
   time: '2025-10-16T19:13:49.0000000+00:00'
+- author: Nictis
+  changes:
+    - type: Tweak
+      message: Good Clean Fun vendor now has pens for gaming in your gaming.
+  id: 593
+  time: '2025-10-16T19:15:08.0000000+00:00'

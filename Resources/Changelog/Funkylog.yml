@@ -4959,3 +4959,11 @@ Entries:
       message: commented out a thaven mood
   id: 594
   time: '2025-10-16T19:21:50.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: >-
+        Added a flareshell recipe to the secfab, ammo fab, emagged lathe, and
+        the cargofab. Also put a flaregun recipe into the cargofab.
+  id: 595
+  time: '2025-10-16T19:25:22.0000000+00:00'

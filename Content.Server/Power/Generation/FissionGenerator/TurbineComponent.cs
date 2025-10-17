@@ -94,11 +94,22 @@ public sealed partial class TurbineComponent : Component
     [DataField("outlet")]
     public string OutletName { get; set; } = "outlet";
 
+    public bool IsSparking = false;
+    public bool IsSmoking = false;
+
     [DataField, AutoNetworkedField]
     public EntityUid? AlarmAudioStream;
 
     [DataField, AutoNetworkedField]
     public EntityUid? GeneratorAudioStream;
+
+    public List<string> DamageSoundList = [ 
+        "/Audio/_FarHorizons/Effects/engine_grump1.ogg", 
+        "/Audio/_FarHorizons/Effects/engine_grump2.ogg", 
+        "/Audio/_FarHorizons/Effects/engine_grump3.ogg", 
+        "/Audio/Effects/metal_slam5.ogg", 
+        "/Audio/Effects/metal_scrape2.ogg" 
+    ];
 
     //Debugging
     [ViewVariables(VVAccess.ReadOnly)]

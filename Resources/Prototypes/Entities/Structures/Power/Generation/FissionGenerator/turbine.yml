@@ -1,14 +1,39 @@
 - type: entity
   id: Turbine
-  parent: BaseMachine
+  parent: BaseStructure
   name: turbine
   description: POWAH
   components:
   - type: Sprite
     sprite: Structures/Power/Generation/FissionGenerator/turbine.rsi
-    state: turbine
+    layers:
+    - state: turbine
+    - state: turbinerun
+      visible: false
+      map: [ "enum.TurbineVisualLayers.TurbineSpeed" ]
+    - state: turbinebroken
+      visible: false
+      map: [ "enum.TurbineVisualLayers.TurbineRuined" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.TurbineVisuals.TurbineRuined:
+        enum.TurbineVisualLayers.TurbineRuined:
+          True: { visible: true }
+          False: { visible: false }
+      enum.TurbineVisuals.TurbineSpeed:
+        enum.TurbineVisualLayers.TurbineSpeed:
+          SpeedStill: { visible: false }
+          # Allows for multiple speed anims
+          SpeedSlow: { visible: true }
+          SpeedMid: { visible: true }
+          SpeedFast: { visible: true }
+          SpeedOverspeed: { visible: true }
+  - type: Appearance
   - type: Physics
     bodyType: Static
+  - type: InteractionOutline
+  - type: Transform
+    noRot: true
   - type: Fixtures
     fixtures:
       fix1:
@@ -48,11 +73,15 @@
     supplyRampRate: 75000
     supplyRampTolerance: 5000
   - type: AmbientSound
-    volume: -1
+    volume: -5
     range: 15
     enabled: false
     sound:
-      path: /Audio/_FarHorizons/Ambience/Objects/turbine_room.ogg
+      path: /Audio/_FarHorizons/Ambience/Objects/electrical_hum.ogg
   - type: AtmosDevice
+  - type: Explosive
+    explosionType: Default
+    tileBreakScale: 0
+    canCreateVacuum: false
   - type: Turbine
   

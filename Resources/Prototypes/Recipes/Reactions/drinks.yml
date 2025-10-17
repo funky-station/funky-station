@@ -71,7 +71,7 @@
 - type: reaction
   id: AlliesCocktail
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     Martini:
       amount: 2
@@ -83,7 +83,7 @@
 - type: reaction
   id: Amasec
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     Wine:
       amount: 2
@@ -97,7 +97,7 @@
 - type: reaction
   id: Andalusia
   requiredMixerCategories:
-  - Stir
+    - Stir
   reactants:
     Rum:
       amount: 1
@@ -165,7 +165,7 @@
 - type: reaction
   id: BlueHawaiian
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     CoconutRum:
       amount: 2
@@ -195,7 +195,7 @@
 - type: reaction
   id: BahamaMama
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     Ice:
       amount: 1
@@ -239,7 +239,7 @@
 - type: reaction
   id: BeepskySmash
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     Iron:
       amount: 1
@@ -263,7 +263,7 @@
 - type: reaction
   id: BloodyMary
   requiredMixerCategories:
-  - Stir
+    - Stir
   reactants:
     JuiceLime:
       amount: 1
@@ -301,7 +301,7 @@
 - type: reaction
   id: Bronx
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     Gin:
       amount: 1
@@ -389,7 +389,7 @@
 - type: reaction
   id: DemonsBlood
   requiredMixerCategories:
-  - Stir
+    - Stir
   reactants:
     Rum:
       amount: 1
@@ -405,7 +405,7 @@
 - type: reaction
   id: DevilsKiss
   requiredMixerCategories:
-  - Stir
+    - Stir
   reactants:
     Rum:
       amount: 1
@@ -419,7 +419,7 @@
 - type: reaction
   id: DoctorsDelight
   requiredMixerCategories:
-  - Stir
+    - Stir
   reactants:
     Cream:
       amount: 2
@@ -437,7 +437,7 @@
 - type: reaction
   id: DriestMartini
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     Gin:
       amount: 1
@@ -449,7 +449,7 @@
 - type: reaction
   id: ElectricShark
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     DarkandStormy:
       amount: 4
@@ -463,7 +463,7 @@
 - type: reaction
   id: ErikaSurprise
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     Ale:
       amount: 2
@@ -482,7 +482,7 @@
   id: EthanolBreakdown
   source: true
   requiredMixerCategories:
-  - Electrolysis
+    - Electrolysis
   reactants:
     Ethanol:
       amount: 9
@@ -506,7 +506,7 @@
 - type: reaction
   id: GargleBlaster
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     Cognac:
       amount: 1
@@ -546,7 +546,7 @@
 - type: reaction
   id: Gildlager
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     Gold:
       amount: 1
@@ -685,7 +685,7 @@
 - type: reaction
   id: IrishCoffee
   requiredMixerCategories:
-  - Stir
+    - Stir
   reactants:
     Coffee:
       amount: 1
@@ -707,7 +707,7 @@
 - type: reaction
   id: JackRose
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     JuiceApple:
       amount: 1
@@ -723,7 +723,7 @@
 - type: reaction
   id: JungleBird
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     Rum:
       amount: 3
@@ -749,7 +749,7 @@
 - type: reaction
   id: KiraSpecial
   requiredMixerCategories:
-  - Stir
+    - Stir
   reactants:
     JuiceLime:
       amount: 1
@@ -763,7 +763,7 @@
 - type: reaction
   id: Lemonade
   requiredMixerCategories:
-  - Stir
+    - Stir
   reactants:
     JuiceLemon:
       amount: 1
@@ -777,7 +777,7 @@
 - type: reaction
   id: LemonLime
   requiredMixerCategories:
-  - Stir
+    - Stir
   reactants:
     JuiceLemon:
       amount: 1
@@ -791,7 +791,7 @@
 - type: reaction
   id: LongIslandIcedTea
   requiredMixerCategories:
-  - Stir
+    - Stir
   reactants:
     CubaLibre:
       amount: 3
@@ -807,7 +807,7 @@
 - type: reaction
   id: Manhattan
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     Whiskey:
       amount: 2
@@ -839,7 +839,7 @@
 - type: reaction
   id: Margarita
   requiredMixerCategories:
-  - Shake #funkystation
+    - Shake #funkystation
   reactants:
     Tequila:
       amount: 2
@@ -851,7 +851,7 @@
 - type: reaction
   id: Martini
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     Gin:
       amount: 2
@@ -874,7 +874,7 @@
 - type: reaction
   id: Mojito
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     JuiceLime:
       amount: 1
@@ -890,7 +890,7 @@
 - type: reaction
   id: MonkeyBusiness
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     Gin:
       amount: 1
@@ -940,7 +940,7 @@
   id: NuclearColaBreakdown
   source: true
   requiredMixerCategories:
-  - Centrifuge
+    - Centrifuge
   reactants:
     NuclearCola:
       amount: 10 # assuming we loose all o2 released as gas in the centrifugal process
@@ -953,7 +953,7 @@
 - type: reaction
   id: Patron
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     Tequila:
       amount: 10
@@ -965,7 +965,7 @@
 - type: reaction
   id: Painkiller
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     JuicePineapple:
       amount: 3
@@ -1079,7 +1079,7 @@
 - type: reaction
   id: ScrewdriverCocktail
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     JuiceOrange:
       amount: 2
@@ -1136,7 +1136,7 @@
 - type: reaction
   id: SodaWater
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     Water:
       amount: 5
@@ -1220,7 +1220,7 @@
 - type: reaction
   id: Tortuga
   requiredMixerCategories:
-  - Stir
+    - Stir
   reactants:
     IcedTea:
       amount: 1
@@ -1232,7 +1232,7 @@
 - type: reaction
   id: ToxinsSpecial
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     Rum:
       amount: 2
@@ -1246,7 +1246,7 @@
 - type: reaction
   id: Vampiro
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     TequilaSunrise:
       amount: 3
@@ -1262,7 +1262,7 @@
 - type: reaction
   id: VodkaMartini
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     Vermouth:
       amount: 1
@@ -1381,7 +1381,7 @@
 - type: reaction
   id: Vodka
   requiredMixerCategories:
-  - Stir
+    - Stir
   reactants:
     Ethanol:
       amount: 1
@@ -1394,7 +1394,7 @@
   id: WaterBreakdown
   source: true
   requiredMixerCategories:
-  - Electrolysis
+    - Electrolysis
   reactants:
     Water:
       amount: 3
@@ -1425,11 +1425,11 @@
       amount: 1
   products:
     Cola: 4
-    
+
 - type: reaction
   id: Caipirinha
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     Rum:
       amount: 1
@@ -1445,7 +1445,7 @@
 - type: reaction
   id: Daiquiri
   requiredMixerCategories:
-  - Stir
+    - Stir
   reactants:
     Rum:
       amount: 4
@@ -1469,7 +1469,7 @@
 - type: reaction
   id: Empress75
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     Champagne:
       amount: 2
@@ -1485,7 +1485,7 @@
 - type: reaction
   id: EspressoMartini
   requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     BlackRussian:
       amount: 1
@@ -1527,7 +1527,7 @@
 - type: reaction
   id: MoscowMule
   requiredMixerCategories:
-  - Stir
+    - Stir
   reactants:
     Vodka:
       amount: 4
@@ -1551,145 +1551,7 @@
 - type: reaction
   id: WhiskeySour
   requiredMixerCategories:
-  - Shake
-  reactants:
-    Whiskey:
-      amount: 2
-    Sugar:
-      amount: 1
-    JuiceLemon:
-      amount: 2
-    Egg:
-      amount: 1
-  products:
-    WhiskeySour: 6
-
-- type: reaction
-  id: Caipirinha
-  requiredMixerCategories:
-  - Shake
-  reactants:
-    Rum:
-      amount: 1
-    JuiceLime:
-      amount: 1
-    Sugar:
-      amount: 1
-    Ice:
-      amount: 1
-  products:
-    Caipirinha: 4
-
-- type: reaction
-  id: Daiquiri
-  requiredMixerCategories:
-  - Stir
-  reactants:
-    Rum:
-      amount: 4
-    Sugar:
-      amount: 1
-    JuiceLime:
-      amount: 1
-  products:
-    Daiquiri: 6
-
-- type: reaction
-  id: DeathInTheAfternoon
-  reactants:
-    Absinthe:
-      amount: 2
-    Champagne:
-      amount: 1
-  products:
-    DeathInTheAfternoon: 3
-
-- type: reaction
-  id: Empress75
-  requiredMixerCategories:
-  - Shake
-  reactants:
-    Champagne:
-      amount: 2
-    Gin:
-      amount: 2
-    JuiceLime:
-      amount: 1
-    Grenadine:
-      amount: 1
-  products:
-    Empress75: 6
-
-- type: reaction
-  id: EspressoMartini
-  requiredMixerCategories:
-  - Shake
-  reactants:
-    BlackRussian:
-      amount: 1
-    Coffee:
-      amount: 1
-  products:
-    EspressoMartini: 2
-
-- type: reaction
-  id: Mayojito
-  reactants:
-    Mojito:
-      amount: 1
-    Mayo:
-      amount: 1
-  products:
-    Mayojito: 2
-
-- type: reaction
-  id: Mimeosa
-  reactants:
-    Mimosa:
-      amount: 2
-    Nothing:
-      amount: 1
-  products:
-    Mimeosa: 3
-
-- type: reaction
-  id: Mimosa
-  reactants:
-    JuiceOrange:
-      amount: 2
-    Champagne:
-      amount: 1
-  products:
-    Mimosa: 3
-
-- type: reaction
-  id: MoscowMule
-  requiredMixerCategories:
-  - Stir
-  reactants:
-    Vodka:
-      amount: 4
-    JuiceLime:
-      amount: 1
-    SolDry:
-      amount: 1
-  products:
-    MoscowMule: 6
-
-- type: reaction
-  id: TheSunAlsoRises
-  reactants:
-    Absinthe:
-      amount: 1
-    Daiquiri:
-      amount: 5
-  products:
-    TheSunAlsoRises: 6
-
-- type: reaction
-  id: WhiskeySour
-  requiredMixerCategories:
-  - Shake
+    - Shake
   reactants:
     Whiskey:
       amount: 2

@@ -1,4 +1,7 @@
+using System.Runtime.Intrinsics.X86;
 using Content.Shared.Atmos;
+using Content.Shared.Tools;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Power.Generation.FissionGenerator;
 
@@ -85,6 +88,10 @@ public sealed partial class TurbineComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("powerMultiplier")]
     public float PowerMultiplier = 1;
+
+    public float RepairDelay = 10;
+    public float RepairFuelCost = 20;
+    public ProtoId<ToolQualityPrototype> RepairTool = "Welding";
 
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("inlet")]

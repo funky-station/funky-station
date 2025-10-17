@@ -25,3 +25,8 @@ turbine-spark = The {$owner} starts sparking!
 turbine-spark-stop = The {$owner} stops sparking.
 turbine-smoke = The {$owner} begins to smoke!
 turbine-smoke-stop = The {$owner} stops smoking.
+
+# Shown during repairs
+turbine-repair-ruined = You repair the {$target}'s casing with the {$tool}.
+turbine-repair = You repair some of the damage to the {$target} using the {$tool}.
+turbine-no-damage = There is no damage to repair on the {$target} using the {$tool}.

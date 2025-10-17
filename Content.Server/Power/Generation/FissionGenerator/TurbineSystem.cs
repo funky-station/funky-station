@@ -18,6 +18,12 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Explosion.Components;
+using Content.Shared.Tools.Systems;
+using Content.Shared.Interaction;
+using Content.Shared.Repairable;
+using Content.Shared.Damage;
+using Content.Shared.Tools;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Power.Generation.FissionGenerator;
 
@@ -31,6 +37,7 @@ public sealed class TurbineSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
+    [Dependency] private readonly SharedToolSystem _toolSystem = default!;
 
     public override void Initialize()
     {
@@ -39,6 +46,8 @@ public sealed class TurbineSystem : EntitySystem
         SubscribeLocalEvent<TurbineComponent, AtmosDeviceEnabledEvent>(OnEnabled);
         SubscribeLocalEvent<TurbineComponent, AtmosDeviceUpdateEvent>(OnUpdate);
         SubscribeLocalEvent<TurbineComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<TurbineComponent, InteractUsingEvent>(RepairTurbine);
+        SubscribeLocalEvent<TurbineComponent, RepairFinishedEvent>(OnRepairTurbineFinished);
     }
 
     private void OnEnabled(EntityUid uid, TurbineComponent comp, ref AtmosDeviceEnabledEvent args)
@@ -350,6 +359,43 @@ public sealed class TurbineSystem : EntitySystem
         _adminLogger.Add(LogType.Explosion, LogImpact.Medium, $"{ToPrettyString(uid)} destroyed by overspeeding for too long");
         comp.Ruined = true;
     }
+
+    private void RepairTurbine(Entity<TurbineComponent> ent, ref InteractUsingEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        // Only try repair the target if it is damaged
+        if (ent.Comp.BladeHealth >= ent.Comp.BladeHealthMax && !ent.Comp.Ruined)
+            return;
+
+        args.Handled = _toolSystem.UseTool(args.Used, args.User, ent.Owner, ent.Comp.RepairDelay, ent.Comp.RepairTool, new RepairFinishedEvent(), ent.Comp.RepairFuelCost);
+    }
+
+    private void OnRepairTurbineFinished(Entity<TurbineComponent> ent, ref RepairFinishedEvent args)
+    {
+        var MessageID = "";
+
+        if (ent.Comp.Ruined)
+        {
+            MessageID = "turbine-repair-ruined";
+            ent.Comp.Ruined = false;
+            UpdateHealthIndicators(ent.Owner, ent.Comp);
+        }
+        else if(ent.Comp.BladeHealth <  ent.Comp.BladeHealthMax)
+        {
+            MessageID = "turbine-repair";
+            ent.Comp.BladeHealth++;
+            UpdateHealthIndicators(ent.Owner, ent.Comp);
+        }
+        else
+        {
+            MessageID = "turbine-no-damage";
+        }
+
+        _popupSystem.PopupClient(Loc.GetString(MessageID, ("target", ent.Owner), ("tool", args.Used!)), ent.Owner, args.User);
+    }
+
 
     //private void UpdateAppearance(EntityUid uid, TurbineComponent? comp = null)
     //{

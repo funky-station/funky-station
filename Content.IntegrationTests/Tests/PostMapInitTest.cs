@@ -141,6 +141,7 @@ namespace Content.IntegrationTests.Tests
             "Barratry", // Harmony
             "Eclipse", // Harmony
             "Kettle", // Goobstation - add Kettle
+            "Olympus", // funkystation - hey a step I didn't know existed
             "Amber",
             "HotSprings",
             "Gate",

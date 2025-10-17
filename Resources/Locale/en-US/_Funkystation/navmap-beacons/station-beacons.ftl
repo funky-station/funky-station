@@ -12,7 +12,7 @@ station-beacon-firing-range = Firing Range
 
 station-beacon-triage = Triage
 station-beacon-emergency-room = Emergency Room
-station-beacon-icu = ICU
+station-beacon-ICU = ICU
 station-beacon-paramedic = Paramedic Watchpoint
 station-beacon-infirmary = Infirmary
 
@@ -31,7 +31,7 @@ station-beacon-solars-east = East Solars
 station-beacon-solars-south = South Solars
 station-beacon-solars-nw = Northwest Solars
 station-beacon-solars-ne = Northeast Solars
-station-beacon-solars-sw = Southwest Solars
+station-beacon-solars-SW = Southwest Solars
 station-beacon-solars-se = Southeast Solars
 
 station-beacon-clown = Clown

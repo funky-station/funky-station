@@ -98,10 +98,7 @@ public sealed partial class TurbineComponent : Component
     public bool IsSmoking = false;
 
     [DataField, AutoNetworkedField]
-    public EntityUid? AlarmAudioStream;
-
-    [DataField, AutoNetworkedField]
-    public EntityUid? GeneratorAudioStream;
+    public List<EntityUid?> AudioStreams = [new(), new()]; 
 
     public List<string> DamageSoundList = [ 
         "/Audio/_FarHorizons/Effects/engine_grump1.ogg", 

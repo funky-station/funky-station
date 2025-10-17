@@ -55,12 +55,12 @@
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: West
-        volume: 100
+        volume: 1000
       outlet:
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: East
-        volume: 100
+        volume: 1000
       output:
         !type:CableDeviceNode
         nodeGroupID: HVPower
@@ -83,5 +83,6 @@
     explosionType: Default
     tileBreakScale: 0
     canCreateVacuum: false
+    repeatable: true
   - type: Turbine
   

@@ -109,7 +109,7 @@ public sealed class TurbineSystem : EntitySystem
         var supplier = Comp<PowerSupplierComponent>(uid);
         comp.SupplierMaxSupply = supplier.MaxSupply;
 
-        supplier.MaxSupply = (float)comp.LastGen;
+        supplier.MaxSupply = comp.LastGen;
 
         if (!_nodeContainer.TryGetNodes(uid, comp.InletName, comp.OutletName, out PipeNode? inlet, out PipeNode? outlet))
         {
@@ -186,9 +186,9 @@ public sealed class TurbineSystem : EntitySystem
                 _atmosphereSystem.Merge(tile, AirContents!);
             }
 
-            if (!comp.Ruined && !_audio.IsPlaying(comp.AlarmAudioStream))
+            if (!comp.Ruined && !_audio.IsPlaying(comp.AudioStreams[0]))
             {
-                comp.AlarmAudioStream = _audio.PlayPvs(new SoundPathSpecifier("/Audio/_FarHorizons/Machines/alarm_buzzer.ogg"), uid, AudioParams.Default.WithLoop(true))?.Entity;
+                comp.AudioStreams[0] = _audio.PlayPvs(new SoundPathSpecifier("/Audio/_FarHorizons/Machines/alarm_buzzer.ogg"), uid, AudioParams.Default.WithLoop(true))?.Entity;
                 _popupSystem.PopupEntity(Loc.GetString("turbine-overheat", ("owner", uid)), uid, PopupType.LargeCaution);
             }
 
@@ -200,7 +200,7 @@ public sealed class TurbineSystem : EntitySystem
         }
         else
         {
-            comp.AlarmAudioStream = _audio.Stop(comp.AlarmAudioStream);
+            comp.AudioStreams[0] = _audio.Stop(comp.AudioStreams[0]);
         }
 
         if (!comp.Ruined && AirContents != null)
@@ -253,9 +253,9 @@ public sealed class TurbineSystem : EntitySystem
             if (NewRPM < 0 || NextRPM < 0)
             {
                 // Stator load is too high
-                if (!_audio.IsPlaying(comp.AlarmAudioStream))
+                if (!_audio.IsPlaying(comp.AudioStreams[1])) 
                 {
-                    comp.AlarmAudioStream = _audio.PlayPvs(new SoundPathSpecifier("/Audio/_FarHorizons/Machines/alarm_beep.ogg"), uid, AudioParams.Default.WithLoop(true).WithVolume(-4))?.Entity;
+                    comp.AudioStreams[1] = _audio.PlayPvs(new SoundPathSpecifier("/Audio/_FarHorizons/Machines/alarm_beep.ogg"), uid, AudioParams.Default.WithLoop(true).WithVolume(-4))?.Entity;
                 }
                 comp.Stalling = true;
                 comp.RPM = 0;
@@ -266,9 +266,9 @@ public sealed class TurbineSystem : EntitySystem
                 comp.RPM = NextRPM;
             }
 
-            _ambientSoundSystem.SetAmbience(uid, comp.RPM > 0);
             if(comp.RPM>10)
             {
+                if (_audio.IsPlaying(comp.AudioStreams[1])) { comp.AudioStreams[1] = _audio.Stop(comp.AudioStreams[1]); }
                 // Sacrifices must be made to have a smooth ramp up:
                 // This will generate 2 audio streams every second with up to 4 of them playing at once... surely this can't go wrong :clueless:
                 _audio.PlayPvs(new SoundPathSpecifier("/Audio/_FarHorizons/Ambience/Objects/turbine_room.ogg"), uid, AudioParams.Default.WithPitchScale(comp.RPM / comp.BestRPM).WithVolume(-2));

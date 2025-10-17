@@ -539,8 +539,8 @@
 
 - type: latheRecipe
   parent: BaseCommandJumpsuitRecipe
-  id: ClothingUniformJumpsuitQMFormal
-  result: ClothingUniformJumpsuitQMFormal
+  id: ClothingUniformJumpsuitQMMilitary
+  result: ClothingUniformJumpsuitQMMilitary
 
 - type: latheRecipe
   parent: BaseCommandJumpsuitRecipe

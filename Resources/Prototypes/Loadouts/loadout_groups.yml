@@ -718,6 +718,7 @@
   loadouts:
   - QuartermasterHead
   - QuartermasterBeret
+  - QuartermasterTophat
 
 - type: loadoutGroup
   id: QuartermasterJumpsuit
@@ -727,7 +728,9 @@
   - QuartermasterJumpskirt
   - QuartermasterTurtleneck
   - QuartermasterTurtleneckSkirt
-  - QuartermasterFormalSuit
+  - QuartermasterFormalSuit # Funky!
+  - QuartermasterFormalDress # Funky! 
+  - QuartermasterFormalMilitary 
 
 - type: loadoutGroup
   id: QuartermasterNeck

@@ -90,12 +90,14 @@
   - type: StorageFill
     contents:
       - id: ClothingHeadHatBeretQM
-      - id: ClothingUniformJumpsuitQMFormal
+      - id: ClothingUniformJumpsuitQMFormal 
       - id: ClothingUniformJumpsuitQMTurtleneck
-      - id: ClothingUniformJumpskirtQMTurtleneck
+      - id: ClothingUniformJumpsuitQM
       - id: ClothingHandsGlovesColorBrown
       - id: ClothingOuterWinterQM
       - id: ClothingNeckCloakQm
+      - id: ClothingHeadHatQMsoft
+      - id: ClothingHeadHatQMFormal
 
 - type: entity
   id: DresserResearchDirectorFilled

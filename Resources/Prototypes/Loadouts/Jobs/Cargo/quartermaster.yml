@@ -38,9 +38,19 @@
     jumpsuit: ClothingUniformJumpskirtQMTurtleneck
 
 - type: loadout
-  id: QuartermasterFormalSuit
+  id: QuartermasterFormalSuit # Funky!
   equipment:
     jumpsuit: ClothingUniformJumpsuitQMFormal
+
+- type: loadout
+  id: QuartermasterFormalDress # Funky!
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtQMFormal
+
+- type: loadout
+  id: QuartermasterFormalMilitary 
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitQMMilitary
 
 # Head
 - type: loadout
@@ -52,6 +62,12 @@
   id: QuartermasterBeret
   equipment:
     head: ClothingHeadHatBeretQM
+
+- type: loadout
+  id: QuartermasterTophat
+  equipment:
+    head: ClothingHeadHatQMFormal
+
 
 # Neck
 - type: loadout

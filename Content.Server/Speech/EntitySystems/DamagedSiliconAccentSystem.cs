@@ -38,7 +38,8 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
             {
                 currentChargeLevel = ent.Comp.OverrideChargeLevel.Value;
             }
-            else if (_powerCell.TryGetBatteryFromSlot(uid, out var battery))
+            else if (_powerCell.TryGetBatteryFromSlot(uid, out var battery) ||
+                     TryComp<BatteryComponent>(uid, out battery)) // Goobstation - Energycrit: Make this work with BatteryComponent too
             {
                 currentChargeLevel = _battery.GetCharge(battery.Value.AsNullable()) / battery.Value.Comp.MaxCharge;
             }

@@ -595,7 +595,7 @@ uplink-barber-scissors-name = Barber Scissors
 uplink-barber-scissors-desc = A good tool to give your fellow agent a nice haircut, unless you want to give it to yourself.
 
 uplink-backpack-syndicate-name = Syndicate backpack
-uplink-backpack-syndicate-desc = A lightweight explosion-proof backpack for holding various traitor goods
+uplink-backpack-syndicate-desc = A lightweight explosion-proof backpack for holding various traitor goods.
 
 uplink-cameraBug-name = Camera bug
 uplink-cameraBug-desc = A portable device that allows you to view the station's cameras.
@@ -619,7 +619,7 @@ uplink-autoinjector-cart-sedative-name = Syndicate Sedative Cartridge
 uplink-autoinjector-cart-sedative-desc = Contains one Syndicate branded autoinjector cartridge. Can provide almost instant (but temporary) sedation upon injection. Contains ONE dose of 15u of Nocturine.
 
 uplink-autoinjector-cart-gunshot-name = Syndicate Gunshot Cartridge
-uplink-autoinjector-cart-gunshot-desc = Contains one Syndicate branded autoinjector cartridge. Provides a single dose of Puncturase and Tranexamic acid, designed to stabilise a patient who has been shot. Contains ONE dose of 10u Puncturase and 5u Tranexamic Acid
+uplink-autoinjector-cart-gunshot-desc = Contains one Syndicate branded autoinjector cartridge. Provides a single dose of Puncturase and Tranexamic acid, designed to stabilise a patient who has been shot. Contains ONE dose of 10u Puncturase and 5u Tranexamic Acid.
 
 uplink-syndicate-autoinjector-softcase-name = Cartridge Autoinjector Soft Case (Filled)
 uplink-syndicate-autoinjector-softcase-desc = Contains 4 different cartridges for use in an autoinjector. Provide enough chems to stabilise a patient. One for airloss, critical injury, brute injury and burns. Each is single use!

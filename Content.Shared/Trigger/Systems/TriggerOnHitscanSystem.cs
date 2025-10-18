@@ -5,6 +5,8 @@ namespace Content.Shared.Trigger.Systems;
 
 public sealed class TriggerOnHitscanSystem : TriggerOnXSystem
 {
+    [Dependency] private readonly TriggerSystem _trigger = default!;
+
     public override void Initialize()
     {
         base.Initialize();

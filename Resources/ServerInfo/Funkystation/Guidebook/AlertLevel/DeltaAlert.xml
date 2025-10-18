@@ -8,25 +8,31 @@ SPDX-License-Identifier: MIT
   # Station Alert - Delta
 
   <Box>
-    [italic]Called by: Malfunctioning AI Units, the supermatter delaminating, or the on-board Nuclear Fission Device being activated.[/italic]
+    [italic]Called by: A Heretic ascending, a Blob reaching sufficent mass, or the on-board Nuclear Fission Device being activated.[/italic]
   </Box>
-
+  
+  There is imminent risk of station destruction or loss of all crew life.
+  
   [bold]Conditions:[/bold]
-
-  A Malfunctioning AI Unit has dropped all semblance of stealth and activated their Override Mechanism.
-
-  [bold]OR[/bold]
-
-  The on-board Nuclear Fission Device has been activated by Command or Central Command personnel. Though it does not trigger Code Delta, Nuclear Operative Nuclear Operations should still be considered as a Code Delta situation.
+  
+  A Heretic has completed their Ritual of Ascension and is poised to enact their wrath on the station.
 
   [bold]OR[/bold]
 
-  The supermatter is in the process of delaminating. This is a station-wide threat.
+  A Blob organism is halfway complete in overtaking the station, and will soon subsume all life onboard.
+
+  [bold]OR[/bold]
+
+  The on-board Nuclear Fission Device has been activated and will soon detonate. 
 
   [bold]Security:[/bold]
+  
+  Martial Law is enacted. Standard Operating Procedure is suspended. Security personnel have full permission to do whatever it takes to ensure that the safety of the station and crew is maintained. Personnel interfering with emergency procedures may be detained. Security are cleared to use lethal force in response to any physical threat. Assault of Command or ERT may be punished with immediate field execution.
 
-  In the case of a Malfunctioning AI Unit, all Security personnel are required to drop whatever it is they are doing, and proceed to neutralize the AI Unit. Any relevant help from station personnel (such as Engineers or Scientists) is not to be turned down;
+  Random searches are fully permitted, allowed and encouraged. Security personnel may detain any personnel refusing a random search in order to conduct said search;
 
+  Security personnel are to cooperate fully with any Central Command Staff (such as Emergency Response Teams) in order to eliminate the threat to the station.
+  
   In the case of a Central Command-authorized activation of the on-board Nuclear Fission Device, all Security personnel are to stand down.
 
   [bold]Secure Areas:[/bold]
@@ -36,8 +42,12 @@ SPDX-License-Identifier: MIT
   Procedures are irrelevant.
 
   [bold]General Crew:[/bold]
+  
+  All personnel are required to maximize their Suit Sensors;
+  
+  All personnel are to do whatever they can to stop the threat to the station. Crew should follow any commands given by Security, Command, or Central Command Staff.
 
-  In the case of a Malfunctioning AI Unit or Nuclear Operatives that have armed a nuclear device, all non-vital personnel are to evacuate off-station immediately;
-
+  Visitors to the station (anyone with Civilian-level access) are to remain inside the Bar, Library or Dormitories unless directed otherwise by Security, Command, or Central Command Staff.
+  
   In the case of a Central Command-authorized activation of the on-board Nuclear Fission Device, all personnel are to stand down.
 </Document>

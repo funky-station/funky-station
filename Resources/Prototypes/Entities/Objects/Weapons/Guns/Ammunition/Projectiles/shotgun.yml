@@ -32,13 +32,14 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
   id: PelletShotgunSlug
-  name: pellet (.50 slug)
+  name: pellet (12 gauge slug)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -52,7 +53,7 @@
 
 - type: entity
   id: PelletShotgunBeanbag
-  name: beanbag (.50)
+  name: beanbag (12 gauge beanbag)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -68,7 +69,7 @@
 
 - type: entity
   id: PelletShotgun
-  name: pellet (.50)
+  name: pellet (12 gauge pellet)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -92,7 +93,7 @@
 
 - type: entity
   id: PelletShotgunIncendiary
-  name: pellet (.50 incendiary)
+  name: pellet (12 gauge incendiary)
   categories: [ HideSpawnMenu ]
   parent: BaseBulletIncendiary
   components:
@@ -119,7 +120,7 @@
 
 - type: entity
   id: PelletShotgunPractice
-  name: pellet (.50 practice)
+  name: pellet (12 gauge practice)
   categories: [ HideSpawnMenu ]
   parent: BaseBulletPractice
   components:
@@ -168,7 +169,7 @@
 
 - type: entity
   id: PelletShotgunTranquilizer
-  name: pellet (.50 tranquilizer)
+  name: pellet (12 gauge tranquilizer)
   categories: [ HideSpawnMenu ]
   parent: BaseBulletPractice
   components:
@@ -195,7 +196,7 @@
 
 - type: entity
   id: PelletShotgunFlare
-  name: pellet (.50 flare)
+  name: pellet (12 gauge flare)
   categories: [ HideSpawnMenu ]
   components:
   - type: Physics
@@ -242,7 +243,7 @@
 
 - type: entity
   id: PelletShotgunUranium
-  name: pellet (.50 uranium)
+  name: pellet (12 gauge uranium)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:

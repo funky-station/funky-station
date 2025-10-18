@@ -1,0 +1,20 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-4.0",
+    "copyright": "Sprites by Sigma Draconis",
+    "states": [
+        {
+            "name": "base"
+        },
+        {
+            "name": "base-spent"
+        },
+        {
+            "name": "tip"
+        }
+    ]
+}

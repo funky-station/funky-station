@@ -4976,3 +4976,9 @@ Entries:
         Den, based on work by BoskiYourk on Harmony.
   id: 596
   time: '2025-10-16T19:28:49.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Fix
+      message: fixed issues with the salvage shuttle
+  id: 597
+  time: '2025-10-18T21:45:47.0000000+00:00'

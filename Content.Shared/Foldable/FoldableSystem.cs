@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 paige404 <59348003+paige404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -114,7 +115,7 @@ public sealed class FoldableSystem : EntitySystem
         if (_container.IsEntityInContainer(uid) && !fold.CanFoldInsideContainer)
             return false;
 
-        var ev = new FoldAttemptEvent();
+        var ev = new FoldAttemptEvent(fold);
         RaiseLocalEvent(uid, ref ev);
         return !ev.Cancelled;
     }
@@ -168,7 +169,7 @@ public sealed class FoldableSystem : EntitySystem
 /// </summary>
 /// <param name="Cancelled"></param>
 [ByRefEvent]
-public record struct FoldAttemptEvent(bool Cancelled = false);
+public record struct FoldAttemptEvent(FoldableComponent Comp, bool Cancelled = false);
 
 /// <summary>
 /// Event raised on an entity after it has been folded.

@@ -11,6 +11,7 @@
 # SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2024 RealFakeSoof <william_r_dunn@yahoo.com>
 # SPDX-FileCopyrightText: 2024 zzylex <146784470+zzylex@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Schuyler Duryee <skywd7766@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -99,8 +100,13 @@
   license: "CC0-1.0"
   copyright: "Taken from ScreamStudio on freesound.org"
   source: "https://freesound.org/people/ScreamStudio/sounds/392617/"
-  
+
 - files: ["pop.ogg"]
   license: "CC0-1.0"
   copyright: "Taken from 0ne_one111yt on freesound.org"
   source: "https://freesound.org/people/0ne_one111yt/sounds/478213/"
+
+- files: ["utilityknifeopen.ogg, utilityknifeclose.ogg"]
+  license: "CC0-1.0"
+  copyright: "Taken from FilmOrbit on freesound.org"
+  source: "https://freesound.org/s/554299/"

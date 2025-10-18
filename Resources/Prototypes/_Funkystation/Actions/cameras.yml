@@ -1,0 +1,11 @@
+﻿- type: entity
+  id: ActionCapturePhoto
+  name: Take a photo
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Clothing/Neck/Misc/stethoscope.rsi
+      state: icon
+    event: !type:PhotoCameraTakePictureEvent
+    checkCanInteract: false
+    priority: -1

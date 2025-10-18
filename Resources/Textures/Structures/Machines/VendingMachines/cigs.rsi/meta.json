@@ -82,6 +82,9 @@
     {
       "name": "panel",
       "directions": 4
+    },
+    {
+      "name": "icon"
     }
   ]
 }

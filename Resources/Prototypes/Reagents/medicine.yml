@@ -343,6 +343,10 @@
       metabolismRate: 0.2 # Funkychem
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType # Starlight, under MIT license
+          type: Avali
+          shouldHave: false
         damage:
           groups:
             Airloss: -2 # Funkychem- aka 1 asphyx/blood damage
@@ -355,6 +359,16 @@
           types:
             Asphyxiation: 2
             Cold: 1
+      - !type:HealthChange # Starlight, under MIT license
+        conditions:
+        - !type:OrganType
+          type: Avali
+          shouldHave: true
+        damage:
+          types:
+            Poison: 1.5 #Avali blood is ammonia based, so chems made to treat normal bloodloss poison them instead (Lethal Dose: 20u)
+            Asphyxiation: 1 
+            Bloodloss: 1
 
 #- type: reagent
 #  id: DexalinPlus
@@ -755,8 +769,31 @@
       effects:
         - !type:SatiateThirst
           factor: 6
+    Medicine: #Starlight, under MIT License
+      metabolismRate: 0.5
+      effects:
         - !type:ModifyBloodLevel
+          conditions:
+          - !type:OrganType
+           type: Avali
+           shouldHave: false
           amount: 6
+        - !type:ModifyBleedAmount
+          conditions:
+          - !type:OrganType
+           type: Avali
+           shouldHave: true
+          amount: 2
+        - !type:HealthChange
+          conditions:
+          - !type:OrganType
+           type: Avali
+           shouldHave: true
+          damage:
+            types:
+              Poison: 12 #This is on par with giving someone the wrong blood-type (very lethal) / (Lethal Dose: 10u, VERY FAST ACTING)
+              Caustic: 2 #Split to prevent 15u RRing someone, as caustic can be healed with topicals.
+              Slash: 1 #Allows it to heal bleeding.
 
 - type: reagent
   id: Siderlac

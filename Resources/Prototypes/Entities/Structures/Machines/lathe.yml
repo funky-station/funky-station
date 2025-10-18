@@ -1419,6 +1419,12 @@
     - ClothingUniformJumpskirtCapFormalDress
     - ClothingUniformJumpsuitCargo
     - ClothingUniformJumpskirtCargo
+    - ClothingUniformJumpsuitSeniorCargo # Funky!
+    - ClothingUniformJumpskirtSeniorCargo # Funky!
+    - ClothingUniformJumpskirtMailCarrier # Funky!
+    - ClothingUniformJumpsuitMailCarrier # Funky!
+    - ClothingHeadHatCargoCap # Funky!
+    - ClothingHeadHatMailCarrier # Funky!
     - ClothingUniformJumpsuitSalvageSpecialist
     - ClothingHeadHatBeretEngineering
     - ClothingUniformJumpsuitChiefEngineer
@@ -1485,11 +1491,14 @@
     - ClothingUniformJumpskirtPrisoner
     - ClothingHeadHatQMsoft
     - ClothingHeadHatBeretQM
+    - ClothingHeadHatQMFormal # Funky! 
     - ClothingUniformJumpsuitQM
     - ClothingUniformJumpskirtQM
     - ClothingUniformJumpsuitQMTurtleneck
     - ClothingUniformJumpskirtQMTurtleneck
-    - ClothingUniformJumpsuitQMFormal
+    - ClothingUniformJumpsuitQMFormal # Funky!
+    - ClothingUniformJumpskirtQMFormal # Funky! 
+    - ClothingUniformJumpsuitQMMilitary
     - ClothingHeadHatBeretRND
     - ClothingUniformJumpsuitResearchDirector
     - ClothingUniformJumpskirtResearchDirector
@@ -1528,6 +1537,8 @@
     - ClothingOuterWinterAtmos
     - ClothingOuterWinterEngi
     - ClothingOuterWinterCargo
+    - ClothingOuterWinterSeniorCargo # Funky!
+    - ClothingOuterWinterMailCarrier # Funky!
     - ClothingOuterWinterMiner
     - ClothingOuterWinterMed
     - ClothingOuterWinterPara

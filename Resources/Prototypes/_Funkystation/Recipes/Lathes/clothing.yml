@@ -1,0 +1,58 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtQMFormal
+  result: ClothingUniformJumpskirtQMFormal
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitQMFormal
+  result: ClothingUniformJumpsuitQMFormal
+
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatQMFormal
+  result: ClothingHeadHatQMFormal  
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtSeniorCargo
+  result: ClothingUniformJumpskirtSeniorCargo
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitSeniorCargo
+  result: ClothingUniformJumpsuitSeniorCargo
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterWinterSeniorCargo
+  result: ClothingOuterWinterSeniorCargo      
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtMailCarrier
+  result: ClothingUniformSkirtMailCarrier
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitMailCarrier
+  result: ClothingUniformMailCarrier  
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterWinterMailCarrier
+  result: ClothingOuterWinterCoatMail      
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatMailCarrier
+  result: ClothingHeadMailCarrier
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatCargoCap
+  result: ClothingHeadHatCargosoft  

@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -38,9 +39,19 @@
     jumpsuit: ClothingUniformJumpskirtQMTurtleneck
 
 - type: loadout
-  id: QuartermasterFormalSuit
+  id: QuartermasterFormalSuit # Funky!
   equipment:
     jumpsuit: ClothingUniformJumpsuitQMFormal
+
+- type: loadout
+  id: QuartermasterFormalDress # Funky!
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtQMFormal
+
+- type: loadout
+  id: QuartermasterFormalMilitary 
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitQMMilitary
 
 # Head
 - type: loadout
@@ -52,6 +63,12 @@
   id: QuartermasterBeret
   equipment:
     head: ClothingHeadHatBeretQM
+
+- type: loadout
+  id: QuartermasterTophat
+  equipment:
+    head: ClothingHeadHatQMFormal
+
 
 # Neck
 - type: loadout

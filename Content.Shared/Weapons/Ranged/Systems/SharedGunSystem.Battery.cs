@@ -8,6 +8,8 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Examine;
+using Content.Shared.Projectiles;
+using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.GameStates;
@@ -141,7 +143,8 @@ public abstract partial class SharedGunSystem
                 var ent = Spawn(proj.Prototype, coordinates);
                 return (ent, EnsureShootable(ent));
             case HitscanBatteryAmmoProviderComponent hitscan:
-                return (null, ProtoManager.Index<HitscanPrototype>(hitscan.Prototype));
+                var hitscanEnt = Spawn(hitscan.HitscanEntityProto);
+                return (hitscanEnt, EnsureShootable(hitscanEnt));
             default:
                 throw new ArgumentOutOfRangeException();
         }

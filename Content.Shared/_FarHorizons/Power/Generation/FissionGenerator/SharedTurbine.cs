@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Power.Generation.FissionGenerator;
+namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
 [Serializable, NetSerializable]
 public enum TurbineVisuals

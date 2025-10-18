@@ -1,43 +1,41 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
+using Content.Server.Explosion.EntitySystems;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
-using Content.Shared.Atmos;
+using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Atmos.Piping.Components;
+using Content.Shared.Atmos;
 using Content.Shared.Audio;
 using Content.Shared.Database;
 using Content.Shared.Examine;
-using Content.Shared.Popups;
-using Content.Shared.Power.Generation.FissionGenerator;
-using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Random;
-using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Explosion.Components;
-using Content.Shared.Tools.Systems;
 using Content.Shared.Interaction;
+using Content.Shared.Popups;
 using Content.Shared.Repairable;
-using Content.Shared.Damage;
-using Content.Shared.Tools;
-using Robust.Shared.Prototypes;
+using Content.Shared.Tools.Systems;
+using Robust.Server.GameObjects;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Audio;
+using Robust.Shared.Random;
 
-namespace Content.Server.Power.Generation.FissionGenerator;
+namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
 public sealed class TurbineSystem : EntitySystem
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedToolSystem _toolSystem = default!;
+    [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
 
     public override void Initialize()
     {
@@ -170,7 +168,6 @@ public sealed class TurbineSystem : EntitySystem
                     break;
             }
         }
-        // TODO: change sprite based on RPM
 
         var InletStartingPressure = inlet.Air.Pressure;
         var TransferMoles = 0f;
@@ -374,7 +371,7 @@ public sealed class TurbineSystem : EntitySystem
 
     private void OnRepairTurbineFinished(Entity<TurbineComponent> ent, ref RepairFinishedEvent args)
     {
-        var MessageID = "";
+        string MessageID;
 
         if (ent.Comp.Ruined)
         {

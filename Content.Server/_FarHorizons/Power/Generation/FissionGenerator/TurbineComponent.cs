@@ -3,7 +3,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Tools;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Power.Generation.FissionGenerator;
+namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
 [RegisterComponent]
 public sealed partial class TurbineComponent : Component

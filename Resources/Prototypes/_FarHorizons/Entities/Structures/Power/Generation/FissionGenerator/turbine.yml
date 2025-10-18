@@ -5,7 +5,7 @@
   description: POWAH
   components:
   - type: Sprite
-    sprite: Structures/Power/Generation/FissionGenerator/turbine.rsi
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/turbine.rsi
     layers:
     - state: turbine
     - state: turbinerun
@@ -67,7 +67,7 @@
   - type: PowerMonitoringDevice
     group: Generator
     loadNode: output
-    sprite: Structures/Power/Generation/FissionGenerator/turbine.rsi
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/turbine.rsi
     state: static
   - type: PowerSupplier
     supplyRampRate: 75000

@@ -43,9 +43,11 @@
 # SPDX-FileCopyrightText: 2025 LucasTheDrgn <kirbyfan.95@gmail.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
+# SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 # SPDX-FileCopyrightText: 2025 MisterImp <101299120+MisterImp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Starry <202317940+PurpleTranStar@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Toaster <mrtoastymyroasty@gmail.com>
 # SPDX-FileCopyrightText: 2025 Wolfkey-SomeoneElseTookMyUsername <wolfkey75@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -794,14 +796,9 @@
     tags:
     - Slice
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/ingredients.rsi
-      state: cheesewedge
     entries:
-      burger:
-        name: food-sequence-content-cheese
-      taco:
-        name: food-sequence-content-cheese
+      Taco: CheeseTaco
+      Burger: CheeseBurger
 
 - type: entity
   name: chèvre log
@@ -853,14 +850,9 @@
     tags:
     - Slice
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/ingredients.rsi
-      state: chevredisk
     entries:
-      burger:
-        name: food-sequence-content-chevre
-      taco:
-        name: food-sequence-content-chevre
+      Taco: ChevreDisk
+      Burger: ChevreDisk
 
 - type: entity
   name: tofu
@@ -910,14 +902,9 @@
     tags:
     - Slice
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/ingredients.rsi
-      state: tofu
     entries:
-      burger:
-        name: food-sequence-content-tofu
-      taco:
-        name: food-sequence-content-tofu
+      Burger: TofuSlice
+      Taco: TofuSlice
 
 - type: entity
   name: burned mess
@@ -975,14 +962,9 @@
     tags:
       - Ingredient
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Specific/Hydroponics/cocoa.rsi
-      state: produce-beans
     entries:
-      burger:
-        name: food-sequence-content-cocoa
-      taco:
-        name: food-sequence-content-cocoa
+      Burger: Cocoa
+      Taco: Cocoa
 
 - type: entity
   name: raw croissant

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+//
 // SPDX-License-Identifier: MIT
 
 using Content.Server._Funkystation.Factory.Components;
@@ -8,6 +10,7 @@ using Content.Shared.MalfAI;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
+using Content.Shared.Tag;
 
 namespace Content.Server._Funkystation.Factory.Systems;
 
@@ -38,6 +41,7 @@ public sealed partial class AIBuildSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly Content.Shared.Actions.SharedActionsSystem _actions = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!;
     private static readonly ISawmill Sawmill = Logger.GetSawmill("ai.build.system");
 
     public override void Initialize()
@@ -182,13 +186,24 @@ public sealed partial class AIBuildSystem : EntitySystem
         if (tileRef.Tile.IsEmpty)
             return false;
 
-        // Check for anchored entities (existing structures, doors, etc.)
-        foreach (var _ in grid.GetAnchoredEntities(tile))
+        // Check for anchored entities, but allow building on subfloor and wall-mounted entities
+        foreach (var entity in grid.GetAnchoredEntities(tile))
+        {
+            // Allow building over entities with SubFloorHideComponent (cables, pipes, disposal pipes)
+            if (HasComp<Content.Shared.SubFloor.SubFloorHideComponent>(entity))
+                continue;
+
+            // Allow building over entities with WallMount tag (cameras, lights, wall-mounted devices)
+            // I may have forgot a few here, add this tag if noticed missing
+            if (_tagSystem.HasTag(entity, "WallMount"))
+                continue;
+
+            // Block building on other anchored entities (walls, doors, machines, etc.)
             return false;
+        }
 
         return true;
     }
-
     /// <summary>
     /// Attempts to anchor an entity if it can be anchored
     /// </summary>

@@ -4834,3 +4834,151 @@ Entries:
       message: Resprites flooring!
   id: 580
   time: '2025-10-07T02:36:11.0000000+00:00'
+- author: Toastermeister
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a bug where the implanter wouldn't remove syndicate radio implant
+        or fake mindshield implant.
+  id: 581
+  time: '2025-10-10T03:10:13.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Fix
+      message: Wardens headset now spawns in the locker.
+  id: 582
+  time: '2025-10-12T19:34:13.0000000+00:00'
+- author: Nictis
+  changes:
+    - type: Tweak
+      message: Adjusted the Hypodart internal reservoir to 9 units from 7.
+  id: 583
+  time: '2025-10-12T19:35:29.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: Changed Bagel's salvage dock so the ship can actually dock
+    - type: Add
+      message: Added custom cargo shuttle to Bagel so the salv shuttle can fit
+    - type: Fix
+      message: Fixed several small Bagel mapping issues
+  id: 584
+  time: '2025-10-12T19:37:09.0000000+00:00'
+- author: Toastermeister, Sparlight
+  changes:
+    - type: Tweak
+      message: >-
+        Dragons no longer destroy non-humanoid mobs upon eating them. Originally
+        by Sparlight on WizDen.
+  id: 585
+  time: '2025-10-12T19:45:15.0000000+00:00'
+- author: 0uranous
+  changes:
+    - type: Tweak
+      message: Lowered the Hypertorus Fusion Reactor price from 50,000 to 10,000!
+  id: 586
+  time: '2025-10-12T19:46:14.0000000+00:00'
+- author: Toastermeister, Tayrtahn
+  changes:
+    - type: Tweak
+      message: >-
+        Builds will now spew fewer warnings when building the program.
+        Originally done by Tayrtahn on Wizard's Den.
+  id: 587
+  time: '2025-10-12T21:58:18.0000000+00:00'
+- author: Toastermeister, TheShuEd, Gentlemen-Bird, TiniestShark
+  changes:
+    - type: Add
+      message: >-
+        Added custom burgers, tacos and skewers. Originally done by TheShuEd,
+        small fix by Gentlemen-Bird on Wizard's Den.
+    - type: Add
+      message: >-
+        New in-hand burger sprites. Originally added by TiniestShark on Wizard's
+        Den.
+    - type: Remove
+      message: Removed Goobstation anything burgers.
+  id: 588
+  time: '2025-10-12T22:18:06.0000000+00:00'
+- author: wafehling, kotobdev, ilyamikcoder
+  changes:
+    - type: Add
+      message: '"*blinks" emote'
+  id: 589
+  time: '2025-10-13T00:26:15.0000000+00:00'
+- author: Alecksohs
+  changes:
+    - type: Tweak
+      message: Added emote and LOOC indicators to typing indicators!
+  id: 590
+  time: '2025-10-13T00:28:47.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Fix
+      message: >-
+        Fixed shuttles and the ATS counting as the station for Revolutionaries
+        off-station checks. If the last Head Rev or Command member is not
+        directly on-station for long enough, the game should now correctly end.
+  id: 591
+  time: '2025-10-13T01:15:16.0000000+00:00'
+- author: Tyranex
+  changes:
+    - type: Fix
+      message: Fixed robotics factory processing crew while unanchored
+    - type: Fix
+      message: >-
+        Fixed robotics factory not being able to be placed on free tiles with
+        subfloor or wall mounted entities
+    - type: Fix
+      message: Fixed detonate RCDs incorrectly targeting engineering cyborgs
+    - type: Fix
+      message: "\tFixed malf AI's protect target not assigning correctly"
+    - type: Fix
+      message: The intelicard is now functional again
+    - type: Tweak
+      message: "\tChanged both malfunctioning AI camera upgrades to be on purchase instead of toggle"
+    - type: Tweak
+      message: >-
+        The doomsday protocol objective for malf AI now has a minimum
+        playercount
+    - type: Tweak
+      message: "\tThe pin pointer now points to the AI core when doomsday protocol is initiated"
+    - type: Tweak
+      message: "\tThe station AI's brain is now destroyed if its container is destroyed"
+  id: 592
+  time: '2025-10-16T19:13:49.0000000+00:00'
+- author: Nictis
+  changes:
+    - type: Tweak
+      message: Good Clean Fun vendor now has pens for gaming in your gaming.
+  id: 593
+  time: '2025-10-16T19:15:08.0000000+00:00'
+- author: emmawantsblahaj
+  changes:
+    - type: Remove
+      message: commented out a thaven mood
+  id: 594
+  time: '2025-10-16T19:21:50.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: >-
+        Added a flareshell recipe to the secfab, ammo fab, emagged lathe, and
+        the cargofab. Also put a flaregun recipe into the cargofab.
+  id: 595
+  time: '2025-10-16T19:25:22.0000000+00:00'
+- author: Toastermeister, Spanky-Spanky, BoskiYourk
+  changes:
+    - type: Add
+      message: >-
+        You are now able to pickup an unwrenched microwave with two free hands
+        and use it as a weapon. Originally done by Spanky-Spanky on Wizard's
+        Den, based on work by BoskiYourk on Harmony.
+  id: 596
+  time: '2025-10-16T19:28:49.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Fix
+      message: fixed issues with the salvage shuttle
+  id: 597
+  time: '2025-10-18T21:45:47.0000000+00:00'

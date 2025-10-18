@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -11,3 +12,282 @@
   - type: NavMapBeacon
     defaultText: station-beacon-internal-affairs
     color: "#D1323D"
+
+# ALL THE BEACONS.
+# this wouldn't be so much a problem if beacons weren't so goddamn fucky with mapping
+
+# Central Command
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconNTRep #no need for generic "CC office" when we don't have BSO anymore
+  suffix: Nanotrasen Representative
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-ntrep
+    color: "#159415"
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconMagistrate
+  suffix: Magistrate
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-magi
+    color: "#6F4D89" #fuk u tea
+
+# Security
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconSecurityBriefing
+  suffix: Security Briefing
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-security-briefing
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconFiringRange
+  suffix: Firing Range
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-firing-range
+
+# Medical
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconTriage
+  suffix: Triage
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-triage
+    color: "#52B4E9"
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconER
+  suffix: Emergency Room
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-emergency-room
+    color: "#52B4E9"
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconICU
+  suffix: ICU
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-ICU
+    color: "#52B4E9"
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconParamedic
+  suffix: Paramedic Watchpoint
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-paramedic
+    color: "#52B4E9"
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconInfirmary
+  suffix: Infirmary
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-infirmary
+    color: "#52B4E9"
+
+# Science
+
+- type: entity
+  parent: DefaultStationBeaconScience
+  id: DefaultStationBeaconCansSci
+  suffix: Science Canister Storage
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-cans-sci
+
+- type: entity
+  parent: DefaultStationBeaconScience
+  id: DefaultStationBeaconXenobio
+  suffix: Xenobiology Lab # can you believe it guys?
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-xenobio
+
+# Cargo
+
+- type: entity
+  parent: DefaultStationBeaconSupply
+  id: DefaultStationBeaconCargoDocks
+  suffix: Cargo Docks #kinda olympus-specific
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-cargo-docks
+
+- type: entity
+  parent: DefaultStationBeaconSupply
+  id: DefaultStationBeaconSalvDocks
+  suffix: Salvage Docks #kinda olympus-specific
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-salv-docks
+
+# Engineering
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSupermatter
+  suffix: Supermatter
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-ce
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconHFR
+  suffix: HFR Area
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-hfr
+
+
+# HOLY MOTHER OF SOLARS
+# btw other mappers please use these it makes blob/dragon much less janky
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsN
+  suffix: Solars (North)
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-north
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsW
+  suffix: Solars (West)
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-west
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsE
+  suffix: Solars (East)
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-east
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsS
+  suffix: Solars (South)
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-south
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsNW
+  suffix: Solars (NW)
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-nw
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsNE
+  suffix: Solars (NE)
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-ne
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsSW
+  suffix: Solars (SW)
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-SW
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsSE
+  suffix: Solars (SE)
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-se
+
+#Service (actually Theater but who actually cares)
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconClown
+  suffix: Clown
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-clown
+    color: "#EC1EC1"
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconMime
+  suffix: Mime
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-mime
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconMusicRoom
+  suffix: Music Room
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-music-room
+
+- type: entity
+  parent: DefaultStationBeaconClown
+  id: DefaultStationBeaconClownCave
+  suffix: Clown's Cave #Olympus-specific
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-clown-cave
+
+- type: entity
+  parent: DefaultStationBeaconMime
+  id: DefaultStationBeaconMimeAbode
+  suffix: Mime's Abode #Olympus-specific
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-mime-abode
+
+# General
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconGym
+  suffix: Gym
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-gym
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconBoxing
+  suffix: Boxing Club
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-boxing
+
+- type: entity
+  parent: DefaultStationBeaconDisposals
+  id: DefaultStationBeaconDisposalsOdd
+  suffix: Disposals Odd #Olympus-specific
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-disposals-odd

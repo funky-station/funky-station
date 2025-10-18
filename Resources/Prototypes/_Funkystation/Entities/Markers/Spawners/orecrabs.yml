@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobUraniumCrab
+  name: Ore Crab Spawner
+  suffix: Uranium
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: uranium_crab
+      sprite: Mobs/Elemental/orecrab.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobUraniumCrab

@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobSupplyBot
+  name: Supplybot Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: supplybot
+      sprite: Mobs/Silicon/Bots/supplybot.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobSupplyBot

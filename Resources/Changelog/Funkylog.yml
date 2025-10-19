@@ -4994,3 +4994,27 @@ Entries:
       message: Added Olympus, a new station originally based on Glacier
   id: 599
   time: '2025-10-19T07:14:37.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: Some snacks resprited.
+    - type: Tweak
+      message: Mini extinguisher resprited.
+    - type: Tweak
+      message: Flares resprited.
+    - type: Tweak
+      message: Jugs inhand sprites resprited.
+    - type: Tweak
+      message: Pill canisters resprited.
+    - type: Tweak
+      message: health analyzer resprited.
+    - type: Tweak
+      message: Brute packs / Gauze / Ointment resprited.
+    - type: Tweak
+      message: Medipens resprited.
+    - type: Tweak
+      message: Toolboxes resprited.
+    - type: Tweak
+      message: Energy shotgun resprited.
+  id: 600
+  time: '2025-10-19T12:45:38.0000000+00:00'

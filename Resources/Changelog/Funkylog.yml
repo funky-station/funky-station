@@ -4982,3 +4982,9 @@ Entries:
       message: fixed issues with the salvage shuttle
   id: 597
   time: '2025-10-18T21:45:47.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added a lämp recipe into lathes
+  id: 598
+  time: '2025-10-19T07:12:55.0000000+00:00'

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - files: ["monotone_button.svg.96dpi.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Modified from slider_outline.svg.96dpi.png by chromiumboy"

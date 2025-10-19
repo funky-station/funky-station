@@ -5050,3 +5050,17 @@ Entries:
       message: Removed wizard event spells pending rework
   id: 603
   time: '2025-10-19T18:17:26.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Add
+      message: Added new mailing units to departments and some offices.
+    - type: Tweak
+      message: >-
+        Reworked the whole chute system using mail chutes instead of disposal
+        chutes for easier recognition.
+    - type: Tweak
+      message: >-
+        Moved some of the already existing mailing units to be in a more visible
+        location.
+  id: 604
+  time: '2025-10-19T18:34:25.0000000+00:00'

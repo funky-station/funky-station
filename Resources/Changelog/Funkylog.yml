@@ -5044,3 +5044,9 @@ Entries:
         and changed cargo to start with steel instead of plasteel
   id: 602
   time: '2025-10-19T18:15:57.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Remove
+      message: Removed wizard event spells pending rework
+  id: 603
+  time: '2025-10-19T18:17:26.0000000+00:00'

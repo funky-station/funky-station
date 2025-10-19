@@ -5064,3 +5064,20 @@ Entries:
         location.
   id: 604
   time: '2025-10-19T18:34:25.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: >-
+        All Security jobs can now choose between the security hud and security
+        hud eyepatch in addition to their existing roundstart eyewear options in
+        the loadout menu.
+    - type: Tweak
+      message: >-
+        Security Officers and Security Cadets have an option to start with
+        either black or fingerless gloves.
+    - type: Tweak
+      message: >-
+        Security Cadets can now choose their security eyewear, like the other
+        Security members.
+  id: 605
+  time: '2025-10-19T18:36:05.0000000+00:00'

@@ -1,11 +1,11 @@
 using Content.Server.DeviceNetwork.Systems;
 using Content.Shared.Access;
 using Content.Shared.DeviceNetwork;
-using Content.Shared.DeviceNetwork.Components;
-using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.DeviceNetwork.Systems;
 using Content.Shared.TurretController;
 using Content.Shared.Turrets;
+using Content.Server.DeviceNetwork;
+using Content.Server.DeviceNetwork.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using System.Linq;

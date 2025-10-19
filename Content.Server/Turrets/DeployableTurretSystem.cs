@@ -14,6 +14,8 @@ using Content.Server.TurretController;
 using Content.Shared.Access;
 using Content.Shared.Destructible;
 using Content.Shared.DeviceNetwork;
+using Content.Server.DeviceNetwork;
+using Content.Server.DeviceNetwork.Components;
 using Content.Shared.Power;
 using Content.Shared.Turrets;
 using Content.Shared.Weapons.Ranged.Components;

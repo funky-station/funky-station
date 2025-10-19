@@ -66,7 +66,7 @@ public sealed partial class GhostGui : UIWidget
 
             if (roles > _prevNumberRoles)
             {
-                GhostRolesButton.StyleClasses.Add(StyleBase.ButtonCaution);
+                GhostRolesButton.StyleClasses.Add(StyleClass.Negative);
             }
 
             _prevNumberRoles = (int)roles;

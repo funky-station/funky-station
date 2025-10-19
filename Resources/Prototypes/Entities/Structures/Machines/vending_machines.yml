@@ -220,6 +220,7 @@
   - type: ContainerContainer
     containers:
       paper_label: !type:ContainerSlot
+  - type: ItemSlots
   - type: PaperLabel
     labelSlot:
       insertVerbText: comp-paper-label-insert

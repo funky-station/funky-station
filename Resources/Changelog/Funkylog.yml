@@ -5018,3 +5018,21 @@ Entries:
       message: Energy shotgun resprited.
   id: 600
   time: '2025-10-19T12:45:38.0000000+00:00'
+- author: kallalilies
+  changes:
+    - type: Add
+      message: Cluster's Salvage department now has a proper dock for their shuttle.
+    - type: Add
+      message: >-
+        Salvage Shuttle Console in place of the redundant Recyler in the Cluster
+        Salvage Bay.
+    - type: Tweak
+      message: >-
+        Swapped the locations of Cluster's Warden's Office and Brigmed area for
+        convenience.
+    - type: Fix
+      message: >-
+        Cargo's silo has been moved to fix an issue wherein the autolathe was
+        not linking properly.
+  id: 601
+  time: '2025-10-19T18:14:44.0000000+00:00'

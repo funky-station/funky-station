@@ -192,7 +192,7 @@ public sealed partial class SupermatterSystem
         if (mix.GetMoles(Gas.AntiNoblium) > 0.01f && mix.GetMoles(Gas.Helium) > 0.01f)
         {
             // finds the minumum amount of either anti-noblium or helium
-            var consumedAN = Math.Min(gasReleased.GetMoles(Gas.Helium), gasReleased.GetMoles(Gas.AntiNoblium));
+            var consumedAN =  (Math.Min(gasReleased.GetMoles(Gas.Helium), gasReleased.GetMoles(Gas.AntiNoblium))* 0.5f);
             // finds zapPower by dividing the consumededAN and the total mols than multiplying it by 5 (capped between 1 and 3)
             // finds zapCount by dividing the consumedAN by 4
             var zapPower = (int) Math.Clamp((Math.Round(consumedAN / mix.TotalMoles) * 5), 1 ,3);

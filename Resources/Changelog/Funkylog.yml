@@ -5036,3 +5036,11 @@ Entries:
         not linking properly.
   id: 601
   time: '2025-10-19T18:14:44.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: >-
+        On Roid changed buttons to directional, fixed some unlinked disposals
+        and changed cargo to start with steel instead of plasteel
+  id: 602
+  time: '2025-10-19T18:15:57.0000000+00:00'

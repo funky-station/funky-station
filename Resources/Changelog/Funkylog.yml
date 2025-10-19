@@ -4921,3 +4921,76 @@ Entries:
         directly on-station for long enough, the game should now correctly end.
   id: 591
   time: '2025-10-13T01:15:16.0000000+00:00'
+- author: Tyranex
+  changes:
+    - type: Fix
+      message: Fixed robotics factory processing crew while unanchored
+    - type: Fix
+      message: >-
+        Fixed robotics factory not being able to be placed on free tiles with
+        subfloor or wall mounted entities
+    - type: Fix
+      message: Fixed detonate RCDs incorrectly targeting engineering cyborgs
+    - type: Fix
+      message: "\tFixed malf AI's protect target not assigning correctly"
+    - type: Fix
+      message: The intelicard is now functional again
+    - type: Tweak
+      message: "\tChanged both malfunctioning AI camera upgrades to be on purchase instead of toggle"
+    - type: Tweak
+      message: >-
+        The doomsday protocol objective for malf AI now has a minimum
+        playercount
+    - type: Tweak
+      message: "\tThe pin pointer now points to the AI core when doomsday protocol is initiated"
+    - type: Tweak
+      message: "\tThe station AI's brain is now destroyed if its container is destroyed"
+  id: 592
+  time: '2025-10-16T19:13:49.0000000+00:00'
+- author: Nictis
+  changes:
+    - type: Tweak
+      message: Good Clean Fun vendor now has pens for gaming in your gaming.
+  id: 593
+  time: '2025-10-16T19:15:08.0000000+00:00'
+- author: emmawantsblahaj
+  changes:
+    - type: Remove
+      message: commented out a thaven mood
+  id: 594
+  time: '2025-10-16T19:21:50.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: >-
+        Added a flareshell recipe to the secfab, ammo fab, emagged lathe, and
+        the cargofab. Also put a flaregun recipe into the cargofab.
+  id: 595
+  time: '2025-10-16T19:25:22.0000000+00:00'
+- author: Toastermeister, Spanky-Spanky, BoskiYourk
+  changes:
+    - type: Add
+      message: >-
+        You are now able to pickup an unwrenched microwave with two free hands
+        and use it as a weapon. Originally done by Spanky-Spanky on Wizard's
+        Den, based on work by BoskiYourk on Harmony.
+  id: 596
+  time: '2025-10-16T19:28:49.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Fix
+      message: fixed issues with the salvage shuttle
+  id: 597
+  time: '2025-10-18T21:45:47.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added a lämp recipe into lathes
+  id: 598
+  time: '2025-10-19T07:12:55.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Add
+      message: Added Olympus, a new station originally based on Glacier
+  id: 599
+  time: '2025-10-19T07:14:37.0000000+00:00'

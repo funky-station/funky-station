@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Ichaie <ichaicoelho@gmail.com>
+// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.DeviceNetwork.Systems;
 using Content.Shared.Access;
 using Content.Shared.DeviceNetwork;

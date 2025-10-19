@@ -4988,3 +4988,9 @@ Entries:
       message: Added a lämp recipe into lathes
   id: 598
   time: '2025-10-19T07:12:55.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Add
+      message: Added Olympus, a new station originally based on Glacier
+  id: 599
+  time: '2025-10-19T07:14:37.0000000+00:00'

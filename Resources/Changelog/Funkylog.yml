@@ -5081,3 +5081,9 @@ Entries:
         Security members.
   id: 605
   time: '2025-10-19T18:36:05.0000000+00:00'
+- author: Morb0, ssdaniel24
+  changes:
+    - type: Add
+      message: Added a Discord webhook that will receive station news
+  id: 606
+  time: '2025-10-19T23:42:45.0000000+00:00'

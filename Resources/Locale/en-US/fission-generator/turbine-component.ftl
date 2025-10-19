@@ -1,4 +1,4 @@
-### UI
+### Examine
 
 # Shown when examining the turbine.
 turbine-spinning-0 = The blades are not spinning.
@@ -30,3 +30,16 @@ turbine-smoke-stop = The {$owner} stops smoking.
 turbine-repair-ruined = You repair the {$target}'s casing with the {$tool}.
 turbine-repair = You repair some of the damage to the {$target} using the {$tool}.
 turbine-no-damage = There is no damage to repair on the {$target} using the {$tool}.
+
+### UI
+
+# Shown when using the UI
+comp-turbine-ui-rpm = RPM
+
+comp-turbine-ui-overspeed = OVERSPEED
+comp-turbine-ui-overtemp = OVERTEMP
+comp-turbine-ui-stalling = STALLING
+comp-turbine-ui-undertemp = UNDERTEMP
+
+comp-turbine-ui-flow-rate = Flow Rate
+comp-turbine-ui-stator-load = Stator Load

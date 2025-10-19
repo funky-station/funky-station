@@ -1,15 +1,14 @@
 - type: entity
   id: Turbine
   parent: BaseStructure
-  name: turbine
-  description: POWAH
+  name: gas turbine
+  description: A large turbine used for generating power using hot gas.
   components:
   - type: Sprite
     sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/turbine.rsi
     layers:
     - state: turbine
-    - state: turbinerun
-      visible: false
+      visible: true
       map: [ "enum.TurbineVisualLayers.TurbineSpeed" ]
     - state: turbinebroken
       visible: false
@@ -22,12 +21,12 @@
           False: { visible: false }
       enum.TurbineVisuals.TurbineSpeed:
         enum.TurbineVisualLayers.TurbineSpeed:
-          SpeedStill: { visible: false }
+          SpeedStill: { state: turbine }
           # Allows for multiple speed anims
-          SpeedSlow: { visible: true }
-          SpeedMid: { visible: true }
-          SpeedFast: { visible: true }
-          SpeedOverspeed: { visible: true }
+          SpeedSlow: { state: turbinerun }
+          SpeedMid: { state: turbinerun }
+          SpeedFast: { state: turbinerun }
+          SpeedOverspeed: { state: turbinerun }
   - type: Appearance
   - type: Physics
     bodyType: Static
@@ -85,4 +84,15 @@
     canCreateVacuum: false
     repeatable: true
   - type: Turbine
+  - type: ActivatableUI
+    key: enum.TurbineUiKey.Key
+  - type: ActivatableUIRequiresAnchor
+  - type: UserInterface
+    interfaces:
+      enum.TurbineUiKey.Key:
+        type: TurbineBoundUserInterface
+  - type: AccessReader # Keeps some random tider from blowing up the turbine
+    access: [["Engineering"]]
+  - type: Lock
+    unlockOnClick: false
   

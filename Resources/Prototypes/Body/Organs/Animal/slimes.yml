@@ -13,6 +13,8 @@
   name: sentient slimes core
   description: "The source of incredible, unending gooeyness."
   components:
+    - type:  Organ
+      slotId: core
     - type: Sprite
       sprite: Mobs/Species/Slime/organs.rsi
       state: brain-slime

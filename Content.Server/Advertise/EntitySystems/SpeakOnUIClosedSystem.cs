@@ -7,14 +7,17 @@
 
 using Content.Server.Advertise.Components;
 using Content.Server.Chat.Systems;
-using Content.Shared.Dataset;
+using Content.Shared.Advertise.Components;
+using Content.Shared.Advertise.Systems;
+using Content.Shared.Chat;
+using Content.Shared.UserInterface;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using ActivatableUIComponent = Content.Shared.UserInterface.ActivatableUIComponent;
 
-namespace Content.Server.Advertise;
+namespace Content.Server.Advertise.EntitySystems;
 
-public sealed partial class SpeakOnUIClosedSystem : EntitySystem
+public sealed partial class SpeakOnUIClosedSystem : SharedSpeakOnUIClosedSystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -45,7 +48,7 @@ public sealed partial class SpeakOnUIClosedSystem : EntitySystem
         if (!entity.Comp.Enabled)
             return false;
 
-        if (!_prototypeManager.TryIndex(entity.Comp.Pack, out var messagePack))
+        if (!_prototypeManager.Resolve(entity.Comp.Pack, out var messagePack))
             return false;
 
         var message = Loc.GetString(_random.Pick(messagePack.Values), ("name", Name(entity)));

@@ -31,6 +31,7 @@
 using Content.Server.Chat.Systems;
 using Content.Server.CombatMode.Disarm;
 using Content.Server.Movement.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Components;
 using Content.Shared.CombatMode;

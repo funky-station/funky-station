@@ -3,13 +3,28 @@ using Content.Shared.Trigger.Components.Effects;
 
 namespace Content.Shared.Trigger.Systems;
 
-public sealed class RejuvenateOnTriggerSystem : XOnTriggerSystem<RejuvenateOnTriggerComponent>
+public sealed class RejuvenateOnTriggerSystem : EntitySystem
 {
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
 
-    protected override void OnTrigger(Entity<RejuvenateOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
+    public override void Initialize()
     {
-        _rejuvenate.PerformRejuvenate(target);
+        base.Initialize();
+
+        SubscribeLocalEvent<RejuvenateOnTriggerComponent, TriggerEvent>(OnTrigger);
+    }
+
+    private void OnTrigger(Entity<RejuvenateOnTriggerComponent> ent, ref TriggerEvent args)
+    {
+        if (args.Key != null && !ent.Comp.KeysIn.Contains(args.Key))
+            return;
+
+        var target = ent.Comp.TargetUser ? args.User : ent.Owner;
+
+        if (target == null)
+            return;
+
+        _rejuvenate.PerformRejuvenate(target.Value);
         args.Handled = true;
     }
 }

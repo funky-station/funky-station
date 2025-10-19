@@ -29,7 +29,7 @@
 
 - type: gameMap
   id: Eden
-  mapName: 'Eden'
+  mapName: 'Eden Station'
   mapPath: /Maps/_Funkystation/eden.yml
   minPlayers: 7
   maxPlayers: 45

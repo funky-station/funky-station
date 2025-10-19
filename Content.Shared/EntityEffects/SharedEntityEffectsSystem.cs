@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Reaction;
@@ -45,7 +45,7 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
             if (!group.Contains(args.Method))
                 continue;
 
-            ApplyEffects(entity, val.Effects, scale, args.Source);
+            ApplyEffects(entity, val.Effects, scale);
         }
 
         if (entity.Comp.Reactions == null)
@@ -57,7 +57,7 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
                 continue;
 
             if (entry.Reagents == null || entry.Reagents.Contains(args.Reagent.ID))
-                ApplyEffects(entity, entry.Effects, scale, args.Source);
+                ApplyEffects(entity, entry.Effects, scale);
         }
     }
 
@@ -67,13 +67,12 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
     /// <param name="target">Entity being targeted by the effects</param>
     /// <param name="effects">Effects we're applying to the entity</param>
     /// <param name="scale">Optional scale multiplier for the effects</param>
-    /// <param name="user">Optional entity causing the effects</param>
-    public void ApplyEffects(EntityUid target, EntityEffect[] effects, float scale = 1f, EntityUid? user = null)
+    public void ApplyEffects(EntityUid target, EntityEffect[] effects, float scale = 1f)
     {
         // do all effects, if conditions apply
         foreach (var effect in effects)
         {
-            TryApplyEffect(target, effect, scale, user);
+            TryApplyEffect(target, effect, scale);
         }
     }
 
@@ -83,17 +82,16 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
     /// <param name="target">Target we're applying an effect to</param>
     /// <param name="effect">Effect we're applying</param>
     /// <param name="scale">Optional scale multiplier for the effect. Not all </param>
-    /// <param name="user">Optional entity causing the effect</param>
     /// <returns>True if all conditions pass!</returns>
-    public bool TryApplyEffect(EntityUid target, EntityEffect effect, float scale = 1f, EntityUid? user = null)
+    public bool TryApplyEffect(EntityUid target, EntityEffect effect, float scale = 1f)
     {
         if (scale < effect.MinScale)
             return false;
 
         // TODO: Replace with proper random prediciton when it exists.
-        if (effect.Probability < 1f)
+        if (effect.Probability <= 1f)
         {
-            var seed = HashCode.Combine((int)_timing.CurTick.Value, GetNetEntity(target).Id, 0);
+            var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(target).Id, 0);
             var rand = new System.Random(seed);
             if (!rand.Prob(effect.Probability))
                 return false;
@@ -103,7 +101,7 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
         if (!_condition.TryConditions(target, effect.Conditions))
             return false;
 
-        ApplyEffect(target, effect, scale, user);
+        ApplyEffect(target, effect, scale);
         return true;
     }
 
@@ -114,8 +112,7 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
     /// <param name="target">Target we're applying an effect to</param>
     /// <param name="effect">Effect we're applying</param>
     /// <param name="scale">Optional scale multiplier for the effect. Not all </param>
-    /// <param name="user">Optional entity causing the effect</param>
-    public void ApplyEffect(EntityUid target, EntityEffect effect, float scale = 1f, EntityUid? user = null)
+    public void ApplyEffect(EntityUid target, EntityEffect effect, float scale = 1f)
     {
         // Clamp the scale if the effect doesn't allow scaling.
         if (!effect.Scaling)
@@ -133,15 +130,15 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
             );
         }
 
-        effect.RaiseEvent(target, this, scale, user);
+        effect.RaiseEvent(target, this, scale);
     }
 
     /// <summary>
     /// Raises an effect to an entity. You should not be calling this unless you know what you're doing.
     /// </summary>
-    public void RaiseEffectEvent<T>(EntityUid target, T effect, float scale, EntityUid? user = null) where T : EntityEffectBase<T>
+    public void RaiseEffectEvent<T>(EntityUid target, T effect, float scale) where T : EntityEffectBase<T>
     {
-        var effectEv = new EntityEffectEvent<T>(effect, scale, user);
+        var effectEv = new EntityEffectEvent<T>(effect, scale);
         RaiseLocalEvent(target, ref effectEv);
     }
 }
@@ -167,7 +164,7 @@ public abstract partial class EntityEffectSystem<T, TEffect> : EntitySystem wher
 /// </summary>
 public interface IEntityEffectRaiser
 {
-    void RaiseEffectEvent<T>(EntityUid target, T effect, float scale, EntityUid? user = null) where T : EntityEffectBase<T>;
+    void RaiseEffectEvent<T>(EntityUid target, T effect, float scale) where T : EntityEffectBase<T>;
 }
 
 /// <summary>
@@ -176,12 +173,12 @@ public interface IEntityEffectRaiser
 /// <typeparam name="T">The Condition wer are raising.</typeparam>
 public abstract partial class EntityEffectBase<T> : EntityEffect where T : EntityEffectBase<T>
 {
-    public override void RaiseEvent(EntityUid target, IEntityEffectRaiser raiser, float scale, EntityUid? user = null)
+    public override void RaiseEvent(EntityUid target, IEntityEffectRaiser raiser, float scale)
     {
         if (this is not T type)
             return;
 
-        raiser.RaiseEffectEvent(target, type, scale, user);
+        raiser.RaiseEffectEvent(target, type, scale);
     }
 }
 
@@ -191,7 +188,7 @@ public abstract partial class EntityEffectBase<T> : EntityEffect where T : Entit
 [ImplicitDataDefinitionForInheritors]
 public abstract partial class EntityEffect
 {
-    public abstract void RaiseEvent(EntityUid target, IEntityEffectRaiser raiser, float scale, EntityUid? user = null);
+    public abstract void RaiseEvent(EntityUid target, IEntityEffectRaiser raiser, float scale);
 
     [DataField]
     public EntityCondition[]? Conditions;
@@ -232,9 +229,8 @@ public abstract partial class EntityEffect
 /// </summary>
 /// <param name="Effect">The Effect</param>
 /// <param name="Scale">A strength scalar for the effect, defaults to 1 and typically only goes under for incomplete reactions.</param>
-/// <param name="User">The entity causing the effect.</param>
 [ByRefEvent, Access(typeof(SharedEntityEffectsSystem))]
-public readonly partial record struct EntityEffectEvent<T>(T Effect, float Scale, EntityUid? User) where T : EntityEffectBase<T>
+public readonly record struct EntityEffectEvent<T>(T Effect, float Scale) where T : EntityEffectBase<T>
 {
     /// <summary>
     /// The Condition being raised in this event
@@ -245,10 +241,4 @@ public readonly partial record struct EntityEffectEvent<T>(T Effect, float Scale
     /// The Scale modifier of this Effect.
     /// </summary>
     public readonly float Scale = Scale;
-
-    /// <summary>
-    /// The entity that caused this effect.
-    /// Used for admin logs and prediction purposes.
-    /// </summary>
-    public readonly EntityUid? User = User;
 }

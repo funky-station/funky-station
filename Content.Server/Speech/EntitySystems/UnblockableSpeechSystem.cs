@@ -3,7 +3,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Server.Chat.Systems;
 using Content.Server.Speech.Components;
 using Content.Shared.Chat;
 

@@ -4982,3 +4982,102 @@ Entries:
       message: fixed issues with the salvage shuttle
   id: 597
   time: '2025-10-18T21:45:47.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added a lämp recipe into lathes
+  id: 598
+  time: '2025-10-19T07:12:55.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Add
+      message: Added Olympus, a new station originally based on Glacier
+  id: 599
+  time: '2025-10-19T07:14:37.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: Some snacks resprited.
+    - type: Tweak
+      message: Mini extinguisher resprited.
+    - type: Tweak
+      message: Flares resprited.
+    - type: Tweak
+      message: Jugs inhand sprites resprited.
+    - type: Tweak
+      message: Pill canisters resprited.
+    - type: Tweak
+      message: health analyzer resprited.
+    - type: Tweak
+      message: Brute packs / Gauze / Ointment resprited.
+    - type: Tweak
+      message: Medipens resprited.
+    - type: Tweak
+      message: Toolboxes resprited.
+    - type: Tweak
+      message: Energy shotgun resprited.
+  id: 600
+  time: '2025-10-19T12:45:38.0000000+00:00'
+- author: kallalilies
+  changes:
+    - type: Add
+      message: Cluster's Salvage department now has a proper dock for their shuttle.
+    - type: Add
+      message: >-
+        Salvage Shuttle Console in place of the redundant Recyler in the Cluster
+        Salvage Bay.
+    - type: Tweak
+      message: >-
+        Swapped the locations of Cluster's Warden's Office and Brigmed area for
+        convenience.
+    - type: Fix
+      message: >-
+        Cargo's silo has been moved to fix an issue wherein the autolathe was
+        not linking properly.
+  id: 601
+  time: '2025-10-19T18:14:44.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Tweak
+      message: >-
+        On Roid changed buttons to directional, fixed some unlinked disposals
+        and changed cargo to start with steel instead of plasteel
+  id: 602
+  time: '2025-10-19T18:15:57.0000000+00:00'
+- author: Terkala
+  changes:
+    - type: Remove
+      message: Removed wizard event spells pending rework
+  id: 603
+  time: '2025-10-19T18:17:26.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Add
+      message: Added new mailing units to departments and some offices.
+    - type: Tweak
+      message: >-
+        Reworked the whole chute system using mail chutes instead of disposal
+        chutes for easier recognition.
+    - type: Tweak
+      message: >-
+        Moved some of the already existing mailing units to be in a more visible
+        location.
+  id: 604
+  time: '2025-10-19T18:34:25.0000000+00:00'
+- author: pirakaplant
+  changes:
+    - type: Tweak
+      message: >-
+        All Security jobs can now choose between the security hud and security
+        hud eyepatch in addition to their existing roundstart eyewear options in
+        the loadout menu.
+    - type: Tweak
+      message: >-
+        Security Officers and Security Cadets have an option to start with
+        either black or fingerless gloves.
+    - type: Tweak
+      message: >-
+        Security Cadets can now choose their security eyewear, like the other
+        Security members.
+  id: 605
+  time: '2025-10-19T18:36:05.0000000+00:00'

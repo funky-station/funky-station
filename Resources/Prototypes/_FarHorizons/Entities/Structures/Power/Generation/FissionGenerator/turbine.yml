@@ -82,6 +82,8 @@
     explosionType: Default
     tileBreakScale: 0
     canCreateVacuum: false
+    intensitySlope: 15
+    maxIntensity: 70
     repeatable: true
   - type: Turbine
   - type: ActivatableUI

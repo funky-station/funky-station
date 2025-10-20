@@ -43,3 +43,7 @@ comp-turbine-ui-undertemp = UNDERTEMP
 
 comp-turbine-ui-flow-rate = Flow Rate
 comp-turbine-ui-stator-load = Stator Load
+
+comp-turbine-ui-locked-message = Controls locked, swipe ID.
+comp-turbine-ui-footer-left = Danger: fast-moving machinery.
+comp-turbine-ui-footer-right = 1.0 REV 2

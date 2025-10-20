@@ -15,11 +15,14 @@ using Robust.Shared.Audio;
 using Robust.Shared.Random;
 using Content.Shared.Administration.Logs;
 using Robust.Server.GameObjects;
+using Content.Server.Weapons.Ranged.Systems;
+using Content.Server.Explosion.Components;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
 public sealed class TurbineSystem : SharedTurbineSystem
 {
+    [Dependency] private readonly GunSystem _gun = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
@@ -27,6 +30,8 @@ public sealed class TurbineSystem : SharedTurbineSystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly TransformSystem _transformSystem = default!;
 
     private readonly List<string> _damageSoundList = [
         "/Audio/_FarHorizons/Effects/engine_grump1.ogg",
@@ -184,11 +189,10 @@ public sealed class TurbineSystem : SharedTurbineSystem
             comp.Overspeed = comp.RPM > comp.BestRPM * 1.2;
 
             // Damage the turbines during overspeed, linear increase from 18% to 45% then stays at 45%
-            var random = new Random();
-            if (comp.Overspeed && random.NextFloat() < 0.15 * Math.Min(comp.RPM / comp.BestRPM, 3))
+            if (comp.Overspeed && _random.NextFloat() < 0.15 * Math.Min(comp.RPM / comp.BestRPM, 3))
             {
                 // TODO: damage flash
-                _audio.PlayPvs(new SoundPathSpecifier(_damageSoundList[random.Next(0, _damageSoundList.Count - 1)]), uid, AudioParams.Default.WithVariation(0.25f).WithVolume(-1));
+                _audio.PlayPvs(new SoundPathSpecifier(_damageSoundList[_random.Next(0, _damageSoundList.Count - 1)]), uid, AudioParams.Default.WithVariation(0.25f).WithVolume(-1));
                 comp.BladeHealth--;
                 UpdateHealthIndicators(uid, comp);
             }
@@ -199,7 +203,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
         AirContents!.Volume = comp.FlowRate;
 
         // Explode
-        if (!comp.Ruined && comp.BladeHealth <= 0)
+        if (!comp.Ruined && (comp.BladeHealth <= 0|| comp.RPM>comp.BestRPM*4))
         {
             TearApart(uid, comp);
         }
@@ -209,12 +213,21 @@ public sealed class TurbineSystem : SharedTurbineSystem
     {
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/metal_break5.ogg"), uid, AudioParams.Default);
         _popupSystem.PopupEntity(Loc.GetString("turbine-explode", ("owner", uid)), uid, PopupType.LargeCaution);
-        _explosion.TriggerExplosive(uid, Comp<ExplosiveComponent>(uid), false, comp.RPM / 10, 5);
-        // TODO: shoot blades everywhere
+        _explosion.TriggerExplosive(uid, Comp<ExplosiveComponent>(uid), false, comp.RPM, 5);
+        ShootShrapnel(uid);
         _adminLogger.Add(LogType.Explosion, LogImpact.High, $"{ToPrettyString(uid)} destroyed by overspeeding for too long");
         comp.Ruined = true;
         comp.RPM = 0;
         UpdateAppearance(uid, comp);
+    }
+
+    private void ShootShrapnel(EntityUid uid)
+    {
+        var ShrapnelCount = _random.Next(5, 20);
+        for (var i=0;i< ShrapnelCount; i++)
+        {
+            _gun.ShootProjectile(Spawn("TurbineBladeShrapnel", _transformSystem.GetMapCoordinates(uid)), _random.NextAngle().ToVec().Normalized(), _random.NextVector2(2, 6), uid, uid);
+        }
     }
 
     public override void Update(float frameTime)

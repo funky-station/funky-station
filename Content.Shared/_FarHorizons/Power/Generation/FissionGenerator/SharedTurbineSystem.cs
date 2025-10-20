@@ -66,19 +66,19 @@ public abstract class SharedTurbineSystem : EntitySystem
 
             if (comp.Ruined)
             {
-                args.PushMarkup(Loc.GetString("turbine-ruined")); // " <b>It's completely broken!</b>"
+                args.PushMarkup(Loc.GetString("turbine-ruined")); // " It's completely broken!"
             }
             else if (comp.BladeHealth <= 0.25 * comp.BladeHealthMax)
             {
-                args.PushMarkup(Loc.GetString("turbine-damaged-3")); // " <b>It's critically damaged!</b>"
+                args.PushMarkup(Loc.GetString("turbine-damaged-3")); // " It's critically damaged!"
             }
             else if (comp.BladeHealth <= 0.5 * comp.BladeHealthMax)
             {
-                args.PushMarkup(Loc.GetString("turbine-damaged-2")); // " The turbine looks badly damaged!"
+                args.PushMarkup(Loc.GetString("turbine-damaged-2")); // " The turbine looks badly damaged."
             }
             else if (comp.BladeHealth <= 0.75 * comp.BladeHealthMax)
             {
-                args.PushMarkup(Loc.GetString("turbine-damaged-1")); // " The turbine looks a bit scuffed!"
+                args.PushMarkup(Loc.GetString("turbine-damaged-1")); // " The turbine looks a bit scuffed."
             }
             else
             {
@@ -95,22 +95,17 @@ public abstract class SharedTurbineSystem : EntitySystem
         _appearance.TryGetData<bool>(uid, TurbineVisuals.TurbineRuined, out var IsSpriteRuined);
         if (comp.Ruined)
         {
-
             if (!IsSpriteRuined)
             {
                 _appearance.SetData(uid, TurbineVisuals.TurbineRuined, true);
             }
-            comp.RPM = 0;
         }
-        else if (comp.RPM <= 0)
+        else
         {
             if (IsSpriteRuined)
             {
                 _appearance.SetData(uid, TurbineVisuals.TurbineRuined, false);
             }
-        }
-        else if (comp.RPM > 0)
-        {
             switch (comp.RPM)
             {
                 case float n when n is > 1 and <= 60:
@@ -172,27 +167,26 @@ public abstract class SharedTurbineSystem : EntitySystem
 
     private void OnRepairTurbineFinished(Entity<TurbineComponent> ent, ref RepairFinishedEvent args)
     {
-        string MessageID;
-
         if (ent.Comp.Ruined)
         {
-            MessageID = "turbine-repair-ruined";
+            _popupSystem.PopupClient(Loc.GetString("turbine-repair-ruined", ("target", ent.Owner), ("tool", args.Used!)), ent.Owner, args.User);
             ent.Comp.Ruined = false;
             if (ent.Comp.BladeHealth <= 0) { ent.Comp.BladeHealth = 1; }
             UpdateHealthIndicators(ent.Owner, ent.Comp);
+            return;
         }
         else if (ent.Comp.BladeHealth < ent.Comp.BladeHealthMax)
         {
-            MessageID = "turbine-repair";
+            _popupSystem.PopupClient(Loc.GetString("turbine-repair", ("target", ent.Owner), ("tool", args.Used!)), ent.Owner, args.User);
             ent.Comp.BladeHealth++;
             UpdateHealthIndicators(ent.Owner, ent.Comp);
+            return;
         }
         else
         {
-            MessageID = "turbine-no-damage";
+            // This should technically never occur, but just in case...
+            _popupSystem.PopupClient(Loc.GetString("turbine-no-damage", ("target", ent.Owner), ("tool", args.Used!)), ent.Owner, args.User);
         }
-
-        _popupSystem.PopupClient(Loc.GetString(MessageID, ("target", ent.Owner), ("tool", args.Used!)), ent.Owner, args.User);
     }
 
     protected void UpdateHealthIndicators(EntityUid uid, TurbineComponent comp)

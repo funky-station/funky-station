@@ -7,6 +7,16 @@
 # Funky Station
 # 31 Mar 2025 - Disabled due to balancing issues
 
+- type: trait
+  id: NitrogenBreathing
+  name: trait-nitrogen-breathing-name
+  category: Quirks
+  cost: 0
+  components:
+  - type: NitrogenBreathing
+  
+  
+  description: trait-nitrogen-breathing-desc
 #- type: trait
 #  id: NaturalRegeneration
 #  name: trait-natural-regeneration-name

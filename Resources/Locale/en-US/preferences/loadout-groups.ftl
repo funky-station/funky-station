@@ -199,6 +199,7 @@ loadout-group-security-neck = Security neck
 loadout-group-security-backpack = Security backpack
 loadout-group-security-belt = Security Belt
 loadout-group-security-outerclothing = Security outer clothing
+loadout-group-security-gloves = Security gloves
 loadout-group-security-shoes = Security shoes
 loadout-group-security-id = Security ID
 

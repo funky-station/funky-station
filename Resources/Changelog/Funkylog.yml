@@ -5087,3 +5087,9 @@ Entries:
       message: Added a Discord webhook that will receive station news
   id: 606
   time: '2025-10-19T23:42:45.0000000+00:00'
+- author: Evaisa
+  changes:
+    - type: Fix
+      message: AI vision no longer goes black when outside of the station grid.
+  id: 607
+  time: '2025-10-20T21:56:24.0000000+00:00'

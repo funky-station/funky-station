@@ -199,6 +199,7 @@
       - EncryptionKeyMedical
       - EncryptionKeyCommand
       - EncryptionKeyCommon
+      - EncryptionKeyEmergency
 
 - type: entity
   parent: ClothingHeadset

@@ -38,6 +38,12 @@ using Content.Shared.Instruments;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
 using System.Text;
+using Robust.Server.Containers;
+using Robust.Shared.Toolshed.Commands.Values;
+using Content.Shared.PDA;
+using Content.Server.PDA;
+using System.Diagnostics;
+using Robust.Shared.Player;
 
 namespace Content.Server.PAI;
 
@@ -49,6 +55,13 @@ public sealed class PAISystem : SharedPAISystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly ToggleableGhostRoleSystem _toggleableGhostRole = default!;
+    [Dependency] private readonly ContainerSystem _containerSystem = default!;
+
+    //test
+    [Dependency] private readonly PdaSystem _pda = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly ILogManager _logManager = default!;
+    private ISawmill _sawmill = default!;
 
     /// <summary>
     /// Possible symbols that can be part of a scrambled pai's name.
@@ -65,6 +78,9 @@ public sealed class PAISystem : SharedPAISystem
         SubscribeLocalEvent<PAIComponent, BeingMicrowavedEvent>(OnMicrowaved);
 
         SubscribeLocalEvent<PAIComponent, PAIShopActionEvent>(OnShop);
+        SubscribeLocalEvent<PAIComponent, PAIOpenPdaActionEvent>(OnOpenPda);
+
+        _sawmill = _logManager.GetSawmill("debug");
     }
 
     private void OnUseInHand(EntityUid uid, PAIComponent component, UseInHandEvent args)
@@ -138,6 +154,31 @@ public sealed class PAISystem : SharedPAISystem
             return;
 
         _store.ToggleUi(args.Performer, ent, store);
+    }
+
+    private void OnOpenPda(Entity<PAIComponent> ent, ref PAIOpenPdaActionEvent args)
+    {
+        _sawmill.Debug("event");
+        if (!_containerSystem.TryGetContainingContainer(ent.Owner, out var container))
+        {
+            // not contained in anything
+            return;
+        }
+        _sawmill.Debug("contained in something");
+        if (!TryComp<PdaComponent>(container.Owner, out var pda_comp) ||
+            !TryComp<UserInterfaceComponent>(container.Owner, out var ui_comp) ||
+            !TryComp<ActorComponent>(ent.Owner, out var actor))
+        {
+            // not contained in a PDA or the PDA has no ui for some reason
+            return;
+        }
+        _sawmill.Debug("opening ui");
+        if (!_ui.TryToggleUi((container.Owner, ui_comp), PdaUiKey.Key, actor.PlayerSession))
+        {
+            _sawmill.Debug("failed to open ui");
+            // failed to open the ui
+            return;
+        }
     }
 
     public void PAITurningOff(EntityUid uid)

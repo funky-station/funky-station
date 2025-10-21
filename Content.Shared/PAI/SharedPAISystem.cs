@@ -45,6 +45,7 @@ public abstract class SharedPAISystem : EntitySystem
     private void OnMapInit(Entity<PAIComponent> ent, ref MapInitEvent args)
     {
         _actions.AddAction(ent, ent.Comp.ShopActionId);
+        _actions.AddAction(ent, "ActionPAIOpenPda");
     }
 
     private void OnShutdown(Entity<PAIComponent> ent, ref ComponentShutdown args)
@@ -59,6 +60,9 @@ public abstract class SharedPAISystem : EntitySystem
     }
 }
 public sealed partial class PAIShopActionEvent : InstantActionEvent
+{
+}
+public sealed partial class PAIOpenPdaActionEvent : InstantActionEvent
 {
 }
 

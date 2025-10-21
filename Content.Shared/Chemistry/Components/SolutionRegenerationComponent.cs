@@ -11,8 +11,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Server.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;

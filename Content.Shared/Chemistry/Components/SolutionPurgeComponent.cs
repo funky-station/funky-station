@@ -6,7 +6,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Server.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;

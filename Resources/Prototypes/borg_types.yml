@@ -183,6 +183,8 @@
     - Biological
   - type: SurgeryTarget # Shitmed
   - type: Sanitized # Shitmed
+  - type: SurgerySpeedModifier
+    speedModifier: 2 #moderately faster than a regular doctor w/ gloves
 
   # Visual
   inventoryTemplateId: borgDutch

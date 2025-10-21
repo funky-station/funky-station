@@ -4,6 +4,7 @@ using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Repairable;
+using Content.Shared.Tools.Components;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -157,24 +158,20 @@ public abstract class SharedTurbineSystem : EntitySystem
         if (args.Handled)
             return;
 
-        // Only try repair the target if it is damaged
         if (comp.BladeHealth >= comp.BladeHealthMax && !comp.Ruined)
             return;
 
         args.Handled = _toolSystem.UseTool(args.Used, args.User, uid, comp.RepairDelay, comp.RepairTool, new RepairFinishedEvent(), comp.RepairFuelCost);
     }
 
+    //Gotta love server/client desync
     protected virtual void OnRepairTurbineFinished(Entity<TurbineComponent> ent, ref RepairFinishedEvent args)
     {
         if (args.Cancelled)
-        {
             return;
-        }
 
         if (!TryComp(ent.Owner, out TurbineComponent? comp))
-        {
             return;
-        }
 
         if (comp.Ruined)
         {

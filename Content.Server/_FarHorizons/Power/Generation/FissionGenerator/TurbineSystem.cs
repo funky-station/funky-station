@@ -32,6 +32,8 @@ public sealed class TurbineSystem : SharedTurbineSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
 
+    public event Action<string>? TurbineRepairMessage;
+
     private readonly List<string> _damageSoundList = [
         "/Audio/_FarHorizons/Effects/engine_grump1.ogg",
         "/Audio/_FarHorizons/Effects/engine_grump2.ogg",

@@ -47,12 +47,13 @@ public abstract class SharedPAISystem : EntitySystem
     private void OnMapInit(Entity<PAIComponent> ent, ref MapInitEvent args)
     {
         _actions.AddAction(ent, ent.Comp.ShopActionId);
-        _actions.AddAction(ent, "ActionPAIOpenPda");
+        _actions.AddAction(ent, ent.Comp.OpenPdaActionId);
     }
 
     private void OnShutdown(Entity<PAIComponent> ent, ref ComponentShutdown args)
     {
         _actions.RemoveAction(ent, ent.Comp.ShopAction);
+        _actions.RemoveAction(ent, ent.Comp.OpenPdaAction);
     }
 
     private void EnableEncryption(Entity<PAIComponent> ent, ref PAIEnableEncryptionEvent args)

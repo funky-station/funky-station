@@ -7,11 +7,9 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.Alert;
+using Content.Shared.Alert; // Funkystation - Removed unnecessary references
 using Content.Shared.Inventory;
-using Content.Shared.Mindshield.Components;
 using Content.Shared.Strip.Components;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Strip;
 

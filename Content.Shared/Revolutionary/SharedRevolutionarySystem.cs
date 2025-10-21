@@ -60,10 +60,10 @@ public abstract class SharedRevolutionarySystem : EntitySystem
             return;
         }
 
-        if (HasComp<ThievingComponent>(uid)) // funkystation - We're doing it here because this FUCKING SUCKS
-        {
-            RemComp<ThievingComponent>(uid);
-        }
+        //if (HasComp<ThievingComponent>(uid)) // funkystation - We're doing it here because this FUCKING SUCKS
+        //{
+        //    RemComp<ThievingComponent>(uid);
+        //} funkystation again - NEVERMORE SHALL THIEF FEEL THE WRATH OF THE MINDSHIELD!!
 
         if (HasComp<RevolutionaryComponent>(uid))
         {

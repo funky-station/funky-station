@@ -613,7 +613,7 @@
     wideAnimationRotation: 180
     damage:
       types:
-        Blunt: 6
+        Blunt: 7
 
 - type: entity
   id: BoxFolderCentComClipboard

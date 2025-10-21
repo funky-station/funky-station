@@ -3,7 +3,10 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
+using Content.Shared.Clothing;
 using Content.Shared.GameTicking;
+using Content.Shared.Preferences.Loadouts;
+using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Funkystation.Quirks;
@@ -14,8 +17,9 @@ namespace Content.Shared._Funkystation.Quirks;
 public sealed class NitrogenBreathingSystem : EntitySystem
 {
     // [Dependency] SharedSurgerySystem surgerySystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] SharedBodySystem bodySystem = default!;
+    [Dependency] private readonly IPrototypeManager prototypeManager = default!;
+    [Dependency] private readonly SharedBodySystem bodySystem = default!;
+    [Dependency] private readonly LoadoutSystem loadoutSystem = default!;
     // [Dependency] SharedSurgerySystem surgerySystem = default!;
     /// <inheritdoc/>
     public override void Initialize()
@@ -27,14 +31,14 @@ public sealed class NitrogenBreathingSystem : EntitySystem
         SubscribeLocalEvent<NitrogenBreathingComponent, TraitComponentAddedEvent>(TraitComponentAdded);
     }
 
-    private void TraitComponentAdded(EntityUid uid, NitrogenBreathingComponent component, TraitComponentAddedEvent args)
+    private void TraitComponentAdded(EntityUid playerEntity, NitrogenBreathingComponent component, TraitComponentAddedEvent args)
     {
-        EntityUid playerEntity = args.SpawnCompleteEvent.Mob;
         TryComp(playerEntity, out BodyComponent? bodyComponent);
         if (bodyComponent == null)
             return;
         (EntityUid bodyPartEntity, BodyPartComponent bodyPart)? bodyRoot = bodySystem.GetRootPartOrNull(playerEntity, bodyComponent);
-        if (bodyRoot == null || bodyRoot.Value.bodyPart.PartType != BodyPartType.Torso) return;
+        if (bodyRoot == null || bodyRoot.Value.bodyPart.PartType != BodyPartType.Torso)
+            return;
         var torso = bodyRoot.Value.bodyPart;
         if (torso.Body == null)
             return;
@@ -52,8 +56,6 @@ public sealed class NitrogenBreathingSystem : EntitySystem
         var newLungsId = EntityManager.Spawn("OrganVoxLungs");
         TryComp(newLungsId, out OrganComponent? newLungs);
         bodySystem.InsertOrgan(bodyRoot.Value.bodyPartEntity, newLungsId, "lungs", bodyRoot.Value.bodyPart, newLungs);
-
-
 
         // bodySystem.GetPartOrgans()
         // var b = bodySystem.GetBodyOrgans(playerEntity, bodyComponent);

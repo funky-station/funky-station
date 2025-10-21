@@ -211,6 +211,8 @@
         reagents:
         - ReagentId: CarpoToxin
           Quantity: 5
+  - type: StaticPrice # funky
+    price: 400 # four dollars a pound
   - type: Extractable
     juiceSolution:
       reagents:

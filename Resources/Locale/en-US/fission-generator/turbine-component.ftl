@@ -30,6 +30,7 @@ turbine-smoke-stop = The {$owner} stops smoking.
 turbine-repair-ruined = You repair the {$target}'s casing with the {$tool}.
 turbine-repair = You repair some of the damage to the {$target} using the {$tool}.
 turbine-no-damage = There is no damage to repair on the {$target} using the {$tool}.
+turbine-show-damage = BladeHealth {$health}, BladeHealthMax {$healthMax}.
 
 ### UI
 

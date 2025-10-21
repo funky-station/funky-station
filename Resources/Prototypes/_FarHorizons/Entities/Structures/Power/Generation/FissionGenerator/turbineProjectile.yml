@@ -41,7 +41,7 @@
         Structural: 400
     soundHit:
       path: /Audio/Effects/metal_crunch.ogg
-    penetrationThreshold: 500
+    penetrationThreshold: 400
     penetrationDamageTypeRequirement:
     - Structural
   - type: TimedDespawn

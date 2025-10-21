@@ -27,13 +27,13 @@
 				<PanelContainer Name="Indicators" StyleClasses="Inset" VerticalExpand="True">
 					<GridContainer Columns="4">
 						<Label Text="{Loc 'comp-turbine-ui-overspeed'}" StyleClasses="StatusFieldTitle" />
-						<Label Name="TurbineOverspeed" HorizontalAlignment="Right" HorizontalExpand="True" />
+						<TextureRect Name="TurbineOverspeed" SetSize="16 16" HorizontalAlignment="Right" />
 						<Label Text="{Loc 'comp-turbine-ui-overtemp'}" StyleClasses="StatusFieldTitle" />
-						<Label Name="TurbineOvertemp" HorizontalAlignment="Right" HorizontalExpand="True" />
+						<TextureRect Name="TurbineOvertemp" SetSize="16 16" HorizontalAlignment="Right" />
 						<Label Text="{Loc 'comp-turbine-ui-stalling'}" StyleClasses="StatusFieldTitle" />
-						<Label Name="TurbineStalling" HorizontalAlignment="Right" HorizontalExpand="True" />
+						<TextureRect Name="TurbineStalling" SetSize="16 16" HorizontalAlignment="Right" />
 						<Label Text="{Loc 'comp-turbine-ui-undertemp'}" StyleClasses="StatusFieldTitle" />
-						<Label Name="TurbineUndertemp" HorizontalAlignment="Right" HorizontalExpand="True" />
+						<TextureRect Name="TurbineUndertemp" SetSize="16 16" HorizontalAlignment="Right" />
 					</GridContainer>
 				</PanelContainer>
 				

@@ -1,12 +1,8 @@
 using Content.Client.UserInterface;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Localizations;
-using Content.Shared.Power;
 using JetBrains.Annotations;
 using Robust.Client.Timing;
 using Robust.Client.UserInterface;
-using static Robust.Client.UserInterface.Controls.MenuBar;
 
 namespace Content.Client._FarHorizons.Power.UI;
 
@@ -52,18 +48,6 @@ public sealed class TurbineBoundUserInterface : BoundUserInterface, IBuiPreTickU
         if (_statorLoadCoalescer.CheckIsModified(out var statorLoadValue))
             _pred!.SendMessage(new TurbineChangeStatorLoadMessage(statorLoadValue));
     }
-
-    //public override void Update()
-    //{
-    //    base.Update();
-
-    //    if (_window is null || !EntMan.TryGetComponent(Owner, out TurbineComponent? turbine))
-    //        return;
-
-    //    _window.Title = Identity.Name(Owner, EntMan);
-    //    _window.SetFlowRate(turbine.FlowRate);
-    //    _window.SetStatorLoad(turbine.StatorLoad);
-    //}
 
     protected override void UpdateState(BoundUserInterfaceState state)
     {

@@ -31,7 +31,6 @@ public abstract class SharedTurbineSystem : EntitySystem
         SubscribeLocalEvent<TurbineComponent, RepairFinishedEvent>(OnRepairTurbineFinished);
     }
 
-
     private void OnExamined(Entity<TurbineComponent> ent, ref ExaminedEvent args)
     {
         var comp = ent.Comp;
@@ -153,39 +152,47 @@ public abstract class SharedTurbineSystem : EntitySystem
     #endregion
 
     #region Repairs
-    private void RepairTurbine(Entity<TurbineComponent> ent, ref InteractUsingEvent args)
+    private void RepairTurbine(EntityUid uid, TurbineComponent comp, ref InteractUsingEvent args)
     {
         if (args.Handled)
             return;
 
         // Only try repair the target if it is damaged
-        if (ent.Comp.BladeHealth >= ent.Comp.BladeHealthMax && !ent.Comp.Ruined)
+        if (comp.BladeHealth >= comp.BladeHealthMax && !comp.Ruined)
             return;
 
-        args.Handled = _toolSystem.UseTool(args.Used, args.User, ent.Owner, ent.Comp.RepairDelay, ent.Comp.RepairTool, new RepairFinishedEvent(), ent.Comp.RepairFuelCost);
+        args.Handled = _toolSystem.UseTool(args.Used, args.User, uid, comp.RepairDelay, comp.RepairTool, new RepairFinishedEvent(), comp.RepairFuelCost);
     }
 
-    private void OnRepairTurbineFinished(Entity<TurbineComponent> ent, ref RepairFinishedEvent args)
+    protected virtual void OnRepairTurbineFinished(Entity<TurbineComponent> ent, ref RepairFinishedEvent args)
     {
-        if (ent.Comp.Ruined)
+        if (args.Cancelled)
         {
-            _popupSystem.PopupClient(Loc.GetString("turbine-repair-ruined", ("target", ent.Owner), ("tool", args.Used!)), ent.Owner, args.User);
-            ent.Comp.Ruined = false;
-            if (ent.Comp.BladeHealth <= 0) { ent.Comp.BladeHealth = 1; }
-            UpdateHealthIndicators(ent.Owner, ent.Comp);
             return;
         }
-        else if (ent.Comp.BladeHealth < ent.Comp.BladeHealthMax)
+
+        if (!TryComp(ent.Owner, out TurbineComponent? comp))
         {
-            _popupSystem.PopupClient(Loc.GetString("turbine-repair", ("target", ent.Owner), ("tool", args.Used!)), ent.Owner, args.User);
-            ent.Comp.BladeHealth++;
-            UpdateHealthIndicators(ent.Owner, ent.Comp);
             return;
         }
-        else
+
+        if (comp.Ruined)
+        {
+            comp.Ruined = false;
+            if (comp.BladeHealth <= 0) { comp.BladeHealth = 1; }
+            UpdateHealthIndicators(ent.Owner, comp);
+            return;
+        }
+        else if (comp.BladeHealth < comp.BladeHealthMax)
+        {
+            comp.BladeHealth++;
+            UpdateHealthIndicators(ent.Owner, comp);
+            return;
+        }
+        else if (comp.BladeHealth >= comp.BladeHealthMax)
         {
             // This should technically never occur, but just in case...
-            _popupSystem.PopupClient(Loc.GetString("turbine-no-damage", ("target", ent.Owner), ("tool", args.Used!)), ent.Owner, args.User);
+            return;
         }
     }
 

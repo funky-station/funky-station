@@ -23,7 +23,7 @@ public sealed partial class TurbineComponent : Component
     /// <summary>
     /// Current RPM of turbine
     /// </summary>
-    [DataField("RPM")]
+    [DataField("RPM"), AutoNetworkedField]
     public float RPM = 0;
 
     /// <summary>
@@ -61,9 +61,9 @@ public sealed partial class TurbineComponent : Component
     /// <summary>
     /// Health of the turbine
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public int BladeHealth = 15;
-    [DataField]
+    [DataField, AutoNetworkedField]
     public int BladeHealthMax = 15;
 
     /// <summary>
@@ -108,8 +108,8 @@ public sealed partial class TurbineComponent : Component
     [DataField]
     public EntityUid? AlarmAudioUnderspeed;
 
-    public float RepairDelay = 10;
-    public float RepairFuelCost = 20;
+    public float RepairDelay = 1;
+    public float RepairFuelCost = 1;
     public ProtoId<ToolQualityPrototype> RepairTool = "Welding";
 
     [DataField("inlet")]

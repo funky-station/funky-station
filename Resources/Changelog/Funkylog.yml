@@ -5099,3 +5099,21 @@ Entries:
       message: Carp filets are now worth 400 spesos each.
   id: 608
   time: '2025-10-22T00:25:43.0000000+00:00'
+- author: ThatOneMoon,Frogoo
+  changes:
+    - type: Add
+      message: >-
+        Added a new formal suit and dress for Quartermaster's, alongisde a fancy
+        tophat (Sprites courtesy of Frogoo)
+    - type: Add
+      message: >-
+        Some missing uniforms have been added into the Uniform Printer such as
+        senior cargo outfits and mail carrier uniforms
+    - type: Tweak
+      message: >-
+        the QMs roundstart dresser now contains:  formal Suit, turtleneck,
+        jumpsuit, and now also a quartermaster's cap and tophat 
+    - type: Fix
+      message: Some inconsistencies on how the QMs items are named have been fixed
+  id: 609
+  time: '2025-10-22T02:24:37.0000000+00:00'

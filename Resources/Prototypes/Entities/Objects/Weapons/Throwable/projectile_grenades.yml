@@ -93,7 +93,7 @@
       path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
 
 - type: entity
-  parent: [ProjectileGrenadeBase, BaseSyndicateContraband]
+  parent: [ProjectileGrenadeBase, BaseSecurityContraband]
   id: GrenadeShrapnel
   name: shrapnel grenade
   description: Releases a deadly spray of shrapnel that causes severe bleeding.

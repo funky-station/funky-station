@@ -763,3 +763,19 @@
     Plastic: 1000
     Plasma: 500
     Glass: 500
+
+- type: latheRecipe
+  id: GrenadeStinger
+  result: GrenadeStinger
+  completetime: 3
+  materials:
+    Steel: 200
+    Plastic: 400
+
+- type: latheRecipe
+  id: GrenadeShrapnel
+  result: GrenadeShrapnel
+  completetime: 3
+  materials:
+    Steel: 400
+    Plastic: 200

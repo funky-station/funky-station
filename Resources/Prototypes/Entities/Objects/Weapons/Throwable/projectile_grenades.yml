@@ -131,7 +131,7 @@
       map: ["enum.TriggerVisualLayers.Base"]
   - type: ProjectileGrenade
     fillPrototype: PelletClusterLethal
-    capacity: 15
+    capacity: 10
   - type: OnUseTimerTrigger
     beepSound:
       path: "/Audio/Effects/beep1.ogg"

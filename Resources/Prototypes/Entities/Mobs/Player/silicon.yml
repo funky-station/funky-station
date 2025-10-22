@@ -74,6 +74,7 @@
     - Security
     - Service
     - Supply
+    - Emergency
   - type: ActiveRadio
     channels:
     - Binary
@@ -85,6 +86,7 @@
     - Security
     - Service
     - Supply
+    - Emergency
   - type: IgnoreUIRange
   - type: StationAiHeld
   - type: StationAiOverlay

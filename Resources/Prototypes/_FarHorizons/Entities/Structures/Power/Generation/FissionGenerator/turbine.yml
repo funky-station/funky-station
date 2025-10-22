@@ -55,15 +55,15 @@
         nodeGroupID: Pipe
         pipeDirection: West
         volume: 1000
-        offsetEast: 1
-        offsetNorth: -2
+        offsetEast: -2
+        offsetNorth: -1
       outlet:
         !type:OffsetPipeNode
         nodeGroupID: Pipe
         pipeDirection: East
         volume: 1000
-        offsetEast: -1
-        offsetNorth: -2
+        offsetEast: 2
+        offsetNorth: -1
       output:
         !type:CableDeviceNode
         nodeGroupID: HVPower

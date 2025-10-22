@@ -16,6 +16,9 @@ using Robust.Shared.Random;
 using Content.Shared.Administration.Logs;
 using Robust.Server.GameObjects;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Server._FarHorizons.NodeContainer.Nodes;
+using Content.Shared.NodeContainer;
+using Robust.Shared.Map.Components;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -31,6 +34,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
+    [Dependency] private readonly NodeGroupSystem _nodeGroupSystem = default!;
 
     public event Action<string>? TurbineRepairMessage;
 
@@ -55,7 +59,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
 
         supplier.MaxSupply = comp.LastGen;
 
-        if (!_nodeContainer.TryGetNodes(uid, comp.InletName, comp.OutletName, out PipeNode? inlet, out PipeNode? outlet))
+        if (!_nodeContainer.TryGetNodes(uid, comp.InletName, comp.OutletName, out OffsetPipeNode? inlet, out OffsetPipeNode? outlet))
         {
             comp.HasPipes = false;
             return;
@@ -64,6 +68,11 @@ public sealed class TurbineSystem : SharedTurbineSystem
         {
             comp.HasPipes = true;
         }
+
+        if (inlet.ReachableNodes.Count == 0) 
+            _nodeGroupSystem.QueueReflood(inlet);
+        if (outlet.ReachableNodes.Count == 0)
+            _nodeGroupSystem.QueueReflood(outlet);
 
         UpdateAppearance(uid, comp);
 

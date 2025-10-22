@@ -2,6 +2,7 @@ using Content.Server.NodeContainer.Nodes;
 using Content.Shared.Atmos;
 using Content.Shared.NodeContainer;
 using Robust.Shared.Map.Components;
+using Robust.Server.GameObjects;
 
 namespace Content.Server._FarHorizons.NodeContainer.Nodes;
 
@@ -9,6 +10,11 @@ namespace Content.Server._FarHorizons.NodeContainer.Nodes;
 ///     Connects with other <see cref="PipeNode"/>s whose <see cref="PipeDirection"/>
 ///     and <see cref="CurrentPipeLayer"/> correctly correspond, but at a distance.
 /// </summary>
+/// <remarks>
+/// <para>
+/// Due to its nature, it should be queued to reflood via the <see cref="NodeGroupSystem"/> if it does not have any ReachableNodes.
+/// </para>
+/// </remarks>
 /// This is kinda just a nasty copy of <see cref="PipeNode"/>, but the LinkableNodesInDirection() 
 /// and PipesInDirection() methods had too restricted of access.
 [DataDefinition]
@@ -16,6 +22,7 @@ namespace Content.Server._FarHorizons.NodeContainer.Nodes;
 public partial class OffsetPipeNode : PipeNode
 {
     // Described in terms of directions to make YML easier to understand
+    // NOTE: Directions are based off the PipeDirection being "South"
     [DataField]
     public int OffsetEast = 0;
     [DataField]
@@ -71,7 +78,7 @@ public partial class OffsetPipeNode : PipeNode
         EntityQuery<NodeContainerComponent> nodeQuery)
     {
         var OffsetVector = new Vector2i(OffsetEast, OffsetNorth);
-        var offsetPos = pos + OffsetVector.Rotate(pipeDir.ToAngle());
+        var offsetPos = pos + OffsetVector.Rotate(OriginalPipeDirection.ToAngle() - pipeDir.ToAngle());
 
         foreach (var entity in grid.GetAnchoredEntities(offsetPos))
         {

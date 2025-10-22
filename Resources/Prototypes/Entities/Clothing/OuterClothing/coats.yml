@@ -77,6 +77,8 @@
     contents:
     - id: SmokingPipeFilledTobacco
     - id: FlippoEngravedLighter
+  - type: ExplosionResistance
+    damageCoefficient: 1 #its a coat. it doesnt do shit
   - type: ItemSlots
     slots:
       item:
@@ -85,8 +87,6 @@
           tags:
           - Knife
           - Sidearm
-  - type: ExplosionResistance
-    damageCoefficient: 1 #its a coat. it doesnt do shit
 
 - type: entity
   parent: [ClothingOuterCoatDetectiveLoadout]
@@ -133,6 +133,10 @@
         Piercing: 0.6
         Heat: 0.7
         Caustic: 0.75 # not the full 90% from ss13 because of the head
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: StaminaResistance
+    damageCoefficient: 0.8
   - type: ItemSlots
     slots:
       item:
@@ -141,10 +145,6 @@
           tags:
           - Knife
           - Sidearm
-  - type: ExplosionResistance
-    damageCoefficient: 0.8
-  - type: StaminaResistance
-    damageCoefficient: 0.8
 
 - type: entity
   abstract: true
@@ -158,6 +158,10 @@
         Slash: 0.6
         Piercing: 0.65
         Heat: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.8
   - type: ItemSlots
     slots:
       item:
@@ -166,10 +170,6 @@
           tags:
           - Knife
           - Sidearm
-  - type: ExplosionResistance
-    damageCoefficient: 0.9
-  - type: StaminaResistance
-    damageCoefficient: 0.8
 
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]

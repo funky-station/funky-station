@@ -494,9 +494,8 @@
     - BoxLethalshot
     - BoxShotgunSlug
     - BoxShotgunFlare #funky
-    - GrenadeFlash #funky
     - GrenadeStinger #funky
-    - GrenadeShrapnel #funky
+    - GrenadeShrapnelSecurity #funky
     - CombatKnife
     - MagazineBoxLightRifle
     - MagazineBoxMagnum
@@ -1101,9 +1100,8 @@
     - BoxShotgunPractice
     - BoxShotgunSlug
     - BoxShotgunFlare #funky
-    - GrenadeFlash #funky
     - GrenadeStinger #funky
-    - GrenadeShrapnel #funky
+    - GrenadeShrapnelSecurity #funky
     - ClothingEyesHudSecurity
     - CombatKnife
     - Flash
@@ -1222,6 +1220,7 @@
     - ClothingEyesNightVisionSecurityGoggles # Funky - EE nightvision
   - type: EmagLatheRecipes # Goobstation
     emagStaticRecipes:
+    - GrenadeShrapnel #funky
     - MagazinePistolCaselessRifle # Goobstation
     - MagazineBoxCaselessRifle # Goobstation
     - MagazineLightRifleBoxEmpty # Goobstation

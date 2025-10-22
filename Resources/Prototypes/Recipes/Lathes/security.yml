@@ -777,5 +777,22 @@
   result: GrenadeShrapnel
   completetime: 3
   materials:
+    Steel: 800
+    Plastic: 400
+
+- type: latheRecipe
+  id: GrenadeFlashBang
+  result: GrenadeFlashBang
+  completetime: 3
+  materials:
+    Steel: 200
+    Plastic: 200
+    Glass: 200
+
+- type: latheRecipe
+  id: GrenadeShrapnelSecurity
+  result: GrenadeShrapnelSecurity
+  completetime: 3
+  materials:
     Steel: 400
     Plastic: 200

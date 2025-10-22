@@ -93,7 +93,7 @@
       path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
 
 - type: entity
-  parent: [ProjectileGrenadeBase, BaseSecurityContraband]
+  parent: [ProjectileGrenadeBase, BaseSyndicateContraband]
   id: GrenadeShrapnel
   name: shrapnel grenade
   description: Releases a deadly spray of shrapnel that causes severe bleeding.
@@ -106,6 +106,32 @@
   - type: ProjectileGrenade
     fillPrototype: PelletClusterLethal
     capacity: 30
+  - type: OnUseTimerTrigger
+    beepSound:
+      path: "/Audio/Effects/beep1.ogg"
+      params:
+        volume: 5
+    initialBeepDelay: 0
+    beepInterval: 2
+    delay: 3.5
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+
+- type: entity
+  parent: [ProjectileGrenadeBase, BaseSecurityContraband]
+  id: GrenadeShrapnelSecurity
+  name: security shrapnel grenade
+  description: Releases a "less lethal" spray of shrapnel that causes moderate bleeding. Feels oddly light for it's size.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/shrapnelgrenade.rsi
+    layers:
+    - state: icon
+      map: ["enum.TriggerVisualLayers.Base"]
+  - type: ProjectileGrenade
+    fillPrototype: PelletClusterLethal
+    capacity: 15
   - type: OnUseTimerTrigger
     beepSound:
       path: "/Audio/Effects/beep1.ogg"

@@ -5093,3 +5093,9 @@ Entries:
       message: AI vision no longer goes black when outside of the station grid.
   id: 607
   time: '2025-10-20T21:56:24.0000000+00:00'
+- author: Komonighub
+  changes:
+    - type: Tweak
+      message: Carp filets are now worth 400 spesos each.
+  id: 608
+  time: '2025-10-22T00:25:43.0000000+00:00'

@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2023 eclips_e <67359748+Just-a-Unity-Dev@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 V <97265903+formlessnameless@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nictis <39938897+Nictis@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -17,6 +18,7 @@
   startingInventory:
     DiceBag: 6
     Paper: 8
+    Pen: 4
     d6Dice: 8
     CardBoxBlack: 2
     ChessBoard: 1
@@ -30,8 +32,10 @@
     GrassBattlemap: 1
     PaperCNCSheet: 6
     MysteryFigureBox: 2
+    CrayonBox: 1
     BooksBag: 3
   contrabandInventory:
+    LuxuryPen: 1
     Basketball: 1
     FoodSnackBoritos: 3
     DrinkSpaceMountainWindCan: 3

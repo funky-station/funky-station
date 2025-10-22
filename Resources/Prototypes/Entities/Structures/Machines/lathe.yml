@@ -169,6 +169,7 @@
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 V <97265903+formlessnameless@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 aa5g21 <aa5g21@soton.ac.uk>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
@@ -478,6 +479,7 @@
     - WetFloorSign
     - ClothingHeadHatCone
     - FreezerElectronics
+    - Lantern #funky
     # Begin Delta-V additions
     - CassetteTape
     - TapeRecorder
@@ -491,6 +493,7 @@
     emagStaticRecipes:
     - BoxLethalshot
     - BoxShotgunSlug
+    - BoxShotgunFlare #funky
     - CombatKnife
     - MagazineBoxLightRifle
     - MagazineBoxMagnum
@@ -1094,6 +1097,7 @@
     - BoxLethalshot
     - BoxShotgunPractice
     - BoxShotgunSlug
+    - BoxShotgunFlare #funky
     - ClothingEyesHudSecurity
     - CombatKnife
     - Flash
@@ -1254,6 +1258,7 @@
     staticRecipes:
     - BoxLethalshot
     - BoxShotgunSlug
+    - BoxShotgunFlare #funky
     - BoxShellTranquilizer
     - MagazineBoxLightRifle
     - MagazineBoxMagnum
@@ -1415,6 +1420,12 @@
     - ClothingUniformJumpskirtCapFormalDress
     - ClothingUniformJumpsuitCargo
     - ClothingUniformJumpskirtCargo
+    - ClothingUniformJumpsuitSeniorCargo # Funky!
+    - ClothingUniformJumpskirtSeniorCargo # Funky!
+    - ClothingUniformJumpskirtMailCarrier # Funky!
+    - ClothingUniformJumpsuitMailCarrier # Funky!
+    - ClothingHeadHatCargoCap # Funky!
+    - ClothingHeadHatMailCarrier # Funky!
     - ClothingUniformJumpsuitSalvageSpecialist
     - ClothingHeadHatBeretEngineering
     - ClothingUniformJumpsuitChiefEngineer
@@ -1481,11 +1492,14 @@
     - ClothingUniformJumpskirtPrisoner
     - ClothingHeadHatQMsoft
     - ClothingHeadHatBeretQM
+    - ClothingHeadHatQMFormal # Funky! 
     - ClothingUniformJumpsuitQM
     - ClothingUniformJumpskirtQM
     - ClothingUniformJumpsuitQMTurtleneck
     - ClothingUniformJumpskirtQMTurtleneck
-    - ClothingUniformJumpsuitQMFormal
+    - ClothingUniformJumpsuitQMFormal # Funky!
+    - ClothingUniformJumpskirtQMFormal # Funky! 
+    - ClothingUniformJumpsuitQMMilitary
     - ClothingHeadHatBeretRND
     - ClothingUniformJumpsuitResearchDirector
     - ClothingUniformJumpskirtResearchDirector
@@ -1524,6 +1538,8 @@
     - ClothingOuterWinterAtmos
     - ClothingOuterWinterEngi
     - ClothingOuterWinterCargo
+    - ClothingOuterWinterSeniorCargo # Funky!
+    - ClothingOuterWinterMailCarrier # Funky!
     - ClothingOuterWinterMiner
     - ClothingOuterWinterMed
     - ClothingOuterWinterPara

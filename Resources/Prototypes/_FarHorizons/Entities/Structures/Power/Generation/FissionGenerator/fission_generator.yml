@@ -5,10 +5,7 @@
   description: Should you really be standing this close to that?
   components:
   - type: Sprite
-    sprite: Structures/Power/Generation/FissionGenerator/fission_generator.rsi
-    state: fission_generatorbroken
-  - type: Icon
-    sprite: Structures/Power/Generation/FissionGenerator/fission_generator.rsi
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/fission_generator.rsi
     state: fission_generator
   - type: Physics
     bodyType: Static
@@ -24,4 +21,4 @@
         layer:
         - MachineLayer
   - type: RadiationSource # only when broken.
-    intensity: 5
+    intensity: 0

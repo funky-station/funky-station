@@ -97,7 +97,7 @@
     sprite: Clothing/OuterClothing/Armor/security_slim.rsi
 
 - type: entity
-  parent: [ClothingOuterBase, AllowBackStorageClothingCombat, BaseSecurityContraband]
+  parent: [ClothingOuterBaseLarge, AllowBackStorageClothingCombat, BaseSecurityContraband]
   id: ClothingOuterArmorRiot
   name: riot suit
   description: A suit of semi-flexible polycarbonate body armor with heavy padding to protect against melee attacks. Perfect for fighting delinquents around the station.
@@ -121,10 +121,10 @@
   - type: GroupExamine
 
 - type: entity
-  parent: ClothingOuterArmorBase
+  parent: [ClothingOuterBaseLarge, AllowBackStorageClothingCombat, BaseSecurityContraband]
   id: ClothingOuterArmorBulletproof
-  name: bulletproof vest
-  description: A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
+  name: bulletproof suit
+  description: A Type III heavy bulletproof suit that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/bulletproof.rsi
@@ -133,8 +133,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
+        Blunt: 0.7
+        Slash: 0.7
         Piercing: 0.4
         Heat: 0.9
   - type: ExplosionResistance

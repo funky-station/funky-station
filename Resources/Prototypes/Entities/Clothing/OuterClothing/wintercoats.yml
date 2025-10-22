@@ -706,6 +706,7 @@
   parent: [ClothingOuterWinterCoatToggleable, BaseSecurityContraband]
   id: ClothingOuterWinterSec
   name: security winter coat
+  description: A red winter coat outfitted with standard type I armored vest padding with some modifications as to fit both the padding and the insulation.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
@@ -722,6 +723,25 @@
     clothingVisuals:
       outerClothing:
       - state: SEC-equipped-OUTERCLOTHING
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.85
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: StaminaResistance
+    damageCoefficient: 0.80
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSec
 

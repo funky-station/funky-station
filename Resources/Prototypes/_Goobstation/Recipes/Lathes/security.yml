@@ -10,13 +10,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-- type: latheRecipe
-  id: GrenadeFlashBang
-  result: GrenadeFlashBang
-  completetime: 3
-  materials:
-    Steel: 100
-    Plastic: 100
 
 - type: latheRecipe
   id: BolaEnergy

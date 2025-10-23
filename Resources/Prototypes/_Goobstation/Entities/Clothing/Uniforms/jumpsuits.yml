@@ -26,14 +26,6 @@
       coefficients:
         Blunt: 0.95
         Heat: 0.95
-  - type: ItemSlots
-    slots:
-      item:
-        name: clothing-boots-sidearm
-        whitelist:
-          tags:
-          - Knife
-          - Sidearm
 
 - type: entity
   parent: ClothingUniformBase
@@ -67,14 +59,6 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/blueshield_officer.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/blueshield_officer.rsi
-  - type: ItemSlots
-    slots:
-      item:
-        name: clothing-boots-sidearm
-        whitelist:
-          tags:
-          - Knife
-          - Sidearm
 
 - type: entity
   parent: ClothingUniformBase
@@ -86,14 +70,6 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/blueshield_shirt.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/blueshield_shirt.rsi
-  - type: ItemSlots
-    slots:
-      item:
-        name: clothing-boots-sidearm
-        whitelist:
-          tags:
-          - Knife
-          - Sidearm
 
 - type: entity
   parent: ClothingUniformBase

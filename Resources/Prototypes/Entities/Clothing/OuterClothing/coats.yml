@@ -87,6 +87,15 @@
           tags:
           - Knife
           - Sidearm
+  containers:
+  storagebase: !type:Container
+    showEnts: False
+    occludes: True
+    ents: []
+  item: !type:ContainerSlot
+    showEnts: False
+    occludes: True
+    ent: null
 
 - type: entity
   parent: [ClothingOuterCoatDetectiveLoadout]
@@ -145,6 +154,15 @@
           tags:
           - Knife
           - Sidearm
+  containers:
+  storagebase: !type:Container
+    showEnts: False
+    occludes: True
+    ents: []
+  item: !type:ContainerSlot
+    showEnts: False
+    occludes: True
+    ent: null
 
 - type: entity
   abstract: true
@@ -170,6 +188,15 @@
           tags:
           - Knife
           - Sidearm
+  containers:
+  storagebase: !type:Container
+    showEnts: False
+    occludes: True
+    ents: []
+  item: !type:ContainerSlot
+    showEnts: False
+    occludes: True
+    ent: null
 
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]

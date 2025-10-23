@@ -15,6 +15,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared._Funkystation.Traits;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;

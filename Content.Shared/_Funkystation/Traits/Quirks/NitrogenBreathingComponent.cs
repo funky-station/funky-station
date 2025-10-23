@@ -5,6 +5,4 @@ namespace Content.Shared._Funkystation.Quirks;
 /// </summary>
 [RegisterComponent]
 public sealed partial class NitrogenBreathingComponent : Component
-{
-    
-}
+{ }

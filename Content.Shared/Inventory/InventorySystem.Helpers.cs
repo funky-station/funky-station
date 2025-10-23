@@ -71,6 +71,17 @@ public partial class InventorySystem
                && (slot.SlotFlags & flags) == flags;
     }
 
+    public void SetSlotIgnoreDependencices(EntityUid entityUid, InventoryComponent inventory, string slot, bool ignore = true)
+    {
+        if (HasSlot(entityUid, slot, inventory))
+            inventory.IgnoreDependencies[slot] = ignore;
+    }
+
+    public bool GetSlotIgnoreDependencices(InventoryComponent inventory, string slot)
+    {
+        return inventory.IgnoreDependencies.GetValueOrDefault(slot, false);
+    }
+
     public bool SpawnItemInSlot(EntityUid uid, string slot, string prototype, bool silent = false, bool force = false, InventoryComponent? inventory = null)
     {
         if (!Resolve(uid, ref inventory, false))

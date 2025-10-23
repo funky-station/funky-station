@@ -34,6 +34,7 @@ public sealed partial class InventoryTemplatePrototype : IPrototype
     [DataField("slots")] public SlotDefinition[] Slots { get; private set; } = Array.Empty<SlotDefinition>();
 }
 
+[Serializable]
 [DataDefinition]
 public sealed partial class SlotDefinition
 {

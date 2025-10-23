@@ -4,11 +4,11 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.GameTicking;
 using Content.Shared.Traits;
 using JetBrains.Annotations;
-using Robust.Shared.Player;
 
-namespace Content.Shared.GameTicking;
+namespace Content.Shared._Funkystation.Traits;
 
 /// <summary>
 ///

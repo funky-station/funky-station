@@ -122,7 +122,7 @@
 
 - type: entity
   abstract: true
-  parent: [AllowBackStorageClothingCombat, ClothingOuterStorageBaseArmored]
+  parent: [ClothingOuterStorageBaseArmored, AllowBackStorageClothingCombat]
   id: ClothingOuterArmorHoS
   components:
   - type: Armor

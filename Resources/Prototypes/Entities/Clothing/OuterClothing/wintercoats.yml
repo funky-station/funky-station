@@ -410,6 +410,15 @@
     sprite: Clothing/OuterClothing/WinterCoats/coathosarmored.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterHOS
+  containers:
+  storagebase: !type:Container
+    showEnts: False
+    occludes: True
+    ents: []
+  item: !type:ContainerSlot
+    showEnts: False
+    occludes: True
+    ent: null
 ##########################################################
 
 - type: entity
@@ -745,6 +754,19 @@
           - Sidearm
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSec
+  containers:
+  toggleable-clothing: !type:ContainerSlot
+    showEnts: False
+    occludes: True
+    ent: null
+  storagebase: !type:Container
+    showEnts: False
+    occludes: True
+    ents: []
+  item: !type:ContainerSlot
+    showEnts: False
+    occludes: True
+    ent: null
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -789,6 +811,15 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterWarden
+  containers:
+  storagebase: !type:Container
+    showEnts: False
+    occludes: True
+    ents: []
+  item: !type:ContainerSlot
+    showEnts: False
+    occludes: True
+    ent: null
 ################################################################
 
 - type: entity

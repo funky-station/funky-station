@@ -87,6 +87,15 @@
           tags:
           - Knife
           - Sidearm
+  containers:
+  storagebase: !type:Container
+    showEnts: False
+    occludes: True
+    ents: []
+  item: !type:ContainerSlot
+    showEnts: False
+    occludes: True
+    ent: null
 
 - type: entity
   parent: [ClothingOuterCoatDetectiveLoadout]
@@ -98,6 +107,15 @@
     sprite: Clothing/OuterClothing/Coats/detective_grey.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/detective_grey.rsi
+  containers:
+  storagebase: !type:Container
+    showEnts: False
+    occludes: True
+    ents: []
+  item: !type:ContainerSlot
+    showEnts: False
+    occludes: True
+    ent: null
 
 
 - type: entity
@@ -108,6 +126,15 @@
     contents:
     - id: SmokingPipeFilledTobacco
     - id: FlippoLighter #Not the steal objective, only difference from normal detective trenchcoat
+  containers:
+  storagebase: !type:Container
+    showEnts: False
+    occludes: True
+    ents: []
+  item: !type:ContainerSlot
+    showEnts: False
+    occludes: True
+    ent: null
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -181,6 +208,15 @@
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
+  containers:
+  storagebase: !type:Container
+    showEnts: False
+    occludes: True
+    ents: []
+  item: !type:ContainerSlot
+    showEnts: False
+    occludes: True
+    ent: null
 
 - type: entity
   parent: ClothingOuterStorageToggleableBase
@@ -406,6 +442,15 @@
     sprite: Clothing/OuterClothing/Coats/warden.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/warden.rsi
+  containers:
+  storagebase: !type:Container
+    showEnts: False
+    occludes: True
+    ents: []
+  item: !type:ContainerSlot
+    showEnts: False
+    occludes: True
+    ent: null
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -478,6 +523,19 @@
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
+  containers:
+  toggleable-clothing: !type:ContainerSlot
+    showEnts: False
+    occludes: True
+    ent: null
+  storagebase: !type:Container
+    showEnts: False
+    occludes: True
+    ents: []
+  item: !type:ContainerSlot
+    showEnts: False
+    occludes: True
+    ent: null
 
 - type: entity
   parent: ClothingOuterStorageBase

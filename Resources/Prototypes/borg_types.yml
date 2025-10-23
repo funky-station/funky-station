@@ -184,7 +184,7 @@
   - type: SurgeryTarget # Shitmed
   - type: Sanitized # Shitmed
   - type: SurgerySpeedModifier
-    speedModifier: 2 #moderately faster than a regular doctor w/ gloves
+    speedModifier: 1.8 #moderately faster than a regular doctor w/ gloves (1.75)
 
   # Visual
   inventoryTemplateId: borgDutch

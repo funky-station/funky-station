@@ -91,6 +91,30 @@
         ents: []
 
 - type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterWinterCoatToggleableArmored
+  name: winter coat with hood
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodWinterDefault
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      item: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+
+- type: entity
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterAtmos
   name: atmospherics winter coat
@@ -399,7 +423,7 @@
 
 ##########################################################
 - type: entity
-  parent: [ClothingOuterArmorHoS, ClothingOuterWinterCoatToggleable, BaseSecurityCommandContraband]
+  parent: [ClothingOuterArmorHoS, ClothingOuterWinterCoatToggleableArmored, BaseSecurityCommandContraband]
   id: ClothingOuterWinterHoS
   name: head of security's armored winter coat
   description: A sturdy, utilitarian winter coat designed to protect a head of security from any brig-bound threats and hypothermic events.
@@ -410,15 +434,6 @@
     sprite: Clothing/OuterClothing/WinterCoats/coathosarmored.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterHOS
-  containers:
-  storagebase: !type:Container
-    showEnts: False
-    occludes: True
-    ents: []
-  item: !type:ContainerSlot
-    showEnts: False
-    occludes: True
-    ent: null
 ##########################################################
 
 - type: entity
@@ -713,7 +728,7 @@
     clothingPrototype: ClothingHeadHatHoodWinterSci
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseSecurityContraband]
+  parent: [ClothingOuterWinterCoatToggleableArmored, BaseSecurityContraband]
   id: ClothingOuterWinterSec
   name: security winter coat
   description: A red winter coat outfitted with standard type I armored vest padding with some modifications as to fit both the padding and the insulation.
@@ -754,19 +769,6 @@
           - Sidearm
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterSec
-  containers:
-  toggleable-clothing: !type:ContainerSlot
-    showEnts: False
-    occludes: True
-    ent: null
-  storagebase: !type:Container
-    showEnts: False
-    occludes: True
-    ents: []
-  item: !type:ContainerSlot
-    showEnts: False
-    occludes: True
-    ent: null
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
@@ -800,7 +802,7 @@
 
 ################################################################
 - type: entity
-  parent: [ClothingOuterArmorWarden, ClothingOuterWinterCoatToggleable, BaseSecurityContraband]
+  parent: [ClothingOuterArmorWarden, ClothingOuterWinterCoatToggleableArmored, BaseSecurityContraband]
   id: ClothingOuterWinterWarden
   name: warden's armored winter coat
   description: A sturdy, utilitarian winter coat designed to protect a warden from any brig-bound threats and hypothermic events.
@@ -811,15 +813,6 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterWarden
-  containers:
-  storagebase: !type:Container
-    showEnts: False
-    occludes: True
-    ents: []
-  item: !type:ContainerSlot
-    showEnts: False
-    occludes: True
-    ent: null
 ################################################################
 
 - type: entity

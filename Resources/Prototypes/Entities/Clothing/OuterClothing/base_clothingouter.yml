@@ -243,3 +243,29 @@
   - type: Tag
     tags:
       - WhitelistChameleon
+
+- type: entity
+  abstract: true
+  parent: ClothingOuterBase
+  id: ClothingOuterStorageBaseArmored
+  components:
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+    item: !type:ContainerSlot
+      showEnts: False
+      occludes: True
+      ent: null
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: StaticPrice
+    price: 70
+

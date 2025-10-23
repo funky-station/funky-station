@@ -64,7 +64,7 @@
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
 
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowBackStorageClothingCombat, ClothingOuterArmorBase]
+  parent: [ClothingOuterStorageBaseArmored, AllowBackStorageClothingCombat, ClothingOuterArmorBase]
   id: ClothingOuterCoatDetective
   name: detective trenchcoat
   description: An 18th-century multi-purpose trenchcoat. Someone who wears this means serious business.
@@ -87,15 +87,6 @@
           tags:
           - Knife
           - Sidearm
-  containers:
-  storagebase: !type:Container
-    showEnts: False
-    occludes: True
-    ents: []
-  item: !type:ContainerSlot
-    showEnts: False
-    occludes: True
-    ent: null
 
 - type: entity
   parent: [ClothingOuterCoatDetectiveLoadout]
@@ -107,15 +98,6 @@
     sprite: Clothing/OuterClothing/Coats/detective_grey.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/detective_grey.rsi
-  containers:
-  storagebase: !type:Container
-    showEnts: False
-    occludes: True
-    ents: []
-  item: !type:ContainerSlot
-    showEnts: False
-    occludes: True
-    ent: null
 
 
 - type: entity
@@ -126,15 +108,6 @@
     contents:
     - id: SmokingPipeFilledTobacco
     - id: FlippoLighter #Not the steal objective, only difference from normal detective trenchcoat
-  containers:
-  storagebase: !type:Container
-    showEnts: False
-    occludes: True
-    ents: []
-  item: !type:ContainerSlot
-    showEnts: False
-    occludes: True
-    ent: null
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -199,7 +172,7 @@
           - Sidearm
 
 - type: entity
-  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
+  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBaseArmored, BaseSecurityCommandContraband]
   id: ClothingOuterCoatHoSTrench
   name: head of security's armored trenchcoat
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
@@ -208,15 +181,6 @@
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
-  containers:
-  storagebase: !type:Container
-    showEnts: False
-    occludes: True
-    ents: []
-  item: !type:ContainerSlot
-    showEnts: False
-    occludes: True
-    ent: null
 
 - type: entity
   parent: ClothingOuterStorageToggleableBase
@@ -433,7 +397,7 @@
     sprite: Clothing/OuterClothing/Coats/pirate.rsi
 
 - type: entity
-  parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase, BaseSecurityContraband]
+  parent: [ClothingOuterArmorWarden, ClothingOuterStorageBaseArmored, BaseSecurityContraband]
   id: ClothingOuterCoatWarden
   name: warden's armored jacket
   description: A sturdy, utilitarian jacket designed to protect a warden from any brig-bound threats.
@@ -442,15 +406,6 @@
     sprite: Clothing/OuterClothing/Coats/warden.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/warden.rsi
-  containers:
-  storagebase: !type:Container
-    showEnts: False
-    occludes: True
-    ents: []
-  item: !type:ContainerSlot
-    showEnts: False
-    occludes: True
-    ent: null
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -523,19 +478,6 @@
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
-  containers:
-  toggleable-clothing: !type:ContainerSlot
-    showEnts: False
-    occludes: True
-    ent: null
-  storagebase: !type:Container
-    showEnts: False
-    occludes: True
-    ents: []
-  item: !type:ContainerSlot
-    showEnts: False
-    occludes: True
-    ent: null
 
 - type: entity
   parent: ClothingOuterStorageBase

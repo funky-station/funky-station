@@ -79,15 +79,6 @@
     containers:
       storagebase: !type:Container
         ents: []
-  containers:
-  storagebase: !type:Container
-    showEnts: False
-    occludes: True
-    ents: []
-  item: !type:ContainerSlot
-    showEnts: False
-    occludes: True
-    ent: null
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:

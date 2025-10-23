@@ -46,6 +46,14 @@
         Heat: 0.8 # Goob edit - match regular vest
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
 
 #Mercenary web vest
 - type: entity
@@ -67,6 +75,14 @@
         Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
 
 #Detective's vest
 - type: entity
@@ -79,6 +95,14 @@
     sprite: Clothing/OuterClothing/Vests/detvest.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Vests/detvest.rsi
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
 
 #Hazard vest
 - type: entity

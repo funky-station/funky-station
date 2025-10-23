@@ -77,6 +77,14 @@
     tags:
       - Armor
       - WhitelistChameleon
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
 
 #Standard armor vest, allowed for security and bartenders
 - type: entity
@@ -119,6 +127,14 @@
   - type: StaminaResistance
     damageCoefficient: 0.85
   - type: GroupExamine
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
 
 - type: entity
   parent: ClothingOuterArmorBase
@@ -141,6 +157,14 @@
     damageCoefficient: 0.80
   - type: StaminaResistance
     damageCoefficient: 0.85
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
 
 - type: entity
   parent: ClothingOuterArmorBase
@@ -165,6 +189,14 @@
     reflectProb: 1
     reflects:
       - Energy
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowBackStorageClothingCombat, BaseSyndicateContraband ]
@@ -249,6 +281,14 @@
   - type: Tag
     tags:
       - SpecialArmor
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowBackStorageClothingCombat ]

@@ -54,6 +54,7 @@
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
 # SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
@@ -578,7 +579,7 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, AllowBackStorageClothingCombat, BaseCommandContraband]
   id: ClothingOuterHardsuitLuxury
-  name: quartermasters luxury hardsuit
+  name: quartermaster's luxury hardsuit
   description: A high quality custom ordered hardsuit, fashioned after the Quartermaster's colors.
   components:
   - type: Sprite

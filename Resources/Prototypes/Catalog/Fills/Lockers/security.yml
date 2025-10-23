@@ -82,6 +82,7 @@
       - id: RemoteSignaller
         amount: 2
       - id: ClothingHeadsetWarden #funkystation
+      - id: ClothingHeadHelmetRiot
 
 - type: entity
   id: LockerWardenFilled
@@ -110,6 +111,7 @@
       - id: RemoteSignaller
         amount: 2
       - id: Binoculars
+      - id: ClothingHeadHelmetRiot
 
 - type: entity
   id: LockerSecurityFilled

@@ -456,6 +456,10 @@
         Slash: 0.85
         Piercing: 0.85
         Heat: 0.85
+        Caustic: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+  - type: FlashSoundSuppression # Goobstation
 
 #Bone Helmet
 - type: entity

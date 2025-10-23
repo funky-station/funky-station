@@ -136,6 +136,13 @@
     sprite: Clothing/Ears/Headsets/security.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/security.rsi
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
 
 - type: entity
   parent: [ClothingHeadsetAlt, BaseCommandContraband]
@@ -170,6 +177,13 @@
     sprite: Clothing/Ears/Headsets/syndicate.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/syndicate.rsi
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
 
 - type: entity
   parent: ClothingHeadsetAlt
@@ -203,4 +217,11 @@
     sprite: Clothing/Ears/Headsets/security.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/security.rsi
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
 # Goobstation end

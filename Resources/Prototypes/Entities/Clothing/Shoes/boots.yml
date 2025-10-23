@@ -199,11 +199,16 @@
   parent: [ClothingShoesBaseWinterBoots, ClothingShoesMilitaryBase, BaseSecurityContraband]
   id: ClothingShoesBootsWinterSec
   name: security winter boots
+  description: Nanotrasen-issue Security winter boots for cold combat scenarios or cold combat situations. All cold combat, all the time.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/winterbootssec.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/winterbootssec.rsi
+  - type: ClothingSlowOnDamageModifier # Goobstation
+    modifier: 0.55
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.85
 
 - type: entity
   parent: [ClothingShoesBaseWinterBoots, BaseSyndicateContraband]

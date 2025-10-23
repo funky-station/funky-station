@@ -457,7 +457,6 @@
       - state: overlay-inhand-right
         sprite: Clothing/Uniforms/Jumpsuit/security.rsi
 
-
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseSecurityContraband]
   id: ClothingUniformJumpskirtWarden
@@ -482,7 +481,6 @@
         sprite: Clothing/Uniforms/Jumpskirt/color.rsi
       - state: overlay-inhand-right
         sprite: Clothing/Uniforms/Jumpsuit/warden.rsi
-
 
 - type: entity
   parent: ClothingUniformSkirtBase

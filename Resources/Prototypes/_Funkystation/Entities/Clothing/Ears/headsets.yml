@@ -30,6 +30,13 @@
       - EncryptionKeySecurity
       - EncryptionKeyEmergency
       - EncryptionKeyCommon
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
 
 - type: entity
   parent: ClothingHeadset

@@ -733,8 +733,8 @@
   - QuartermasterTurtleneck
   - QuartermasterTurtleneckSkirt
   - QuartermasterFormalSuit # Funky!
-  - QuartermasterFormalDress # Funky! 
-  - QuartermasterFormalMilitary 
+  - QuartermasterFormalDress # Funky!
+  - QuartermasterFormalMilitary
 
 - type: loadoutGroup
   id: QuartermasterNeck
@@ -1125,6 +1125,7 @@
   loadouts:
   - HeadofSecurityHead
   - HeadofSecurityBeret
+  - HeadofSecurityHelmet
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
@@ -1160,6 +1161,7 @@
   loadouts:
   - WardenHead
   - WardenBeret
+  - WardenHelmet
 
 - type: loadoutGroup
   id: WardenJumpsuit

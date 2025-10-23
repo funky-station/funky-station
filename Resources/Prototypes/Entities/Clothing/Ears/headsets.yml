@@ -276,6 +276,13 @@
     sprite: Clothing/Ears/Headsets/security.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/security.rsi
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
 
 - type: entity
   parent: [ClothingHeadset, BaseSecurityContraband]
@@ -294,6 +301,13 @@
     sprite: Clothing/Ears/Headsets/brigmedic.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/brigmedic.rsi
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
 
 - type: entity
   parent: ClothingHeadset

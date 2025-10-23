@@ -12,9 +12,15 @@
   description: "Serve directly under CentComm. As the stations central legal authority, you authorize executions, extended detentions, warrants, etc."
   playTimeTracker: JobMagistrate
   requirements:
+  - !type:RoleTimeRequirement
+    role: JobHeadOfSecurity
+    time: 54000 #15 hrs - to unlock HOS, you need to play security for 35 hours (10 warden, 20 secoff, 5 cadet).
+  - !type:DepartmentTimeRequirement
+    department: CentralCommand
+    time: 72000 #20 hrs - not NT rep hours, as that requires command role time - too stringent. IAA will do.
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 360000 #100 hrs
+    time: 270000 #75 hrs - to demand 25 hours of security in addition to the 20 hour HOS requirement, which implies 50 total hours in security roles once complete.
   weight: 20
   startingGear: MagistrateGear
   icon: "JobIconMagistrate"

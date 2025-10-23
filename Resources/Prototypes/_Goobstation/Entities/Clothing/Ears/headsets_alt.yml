@@ -20,13 +20,6 @@
     sprite: _Goobstation/Clothing/Ears/Headsets/chronolegioneer.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Ears/Headsets/chronolegioneer.rsi
-  - type: ItemSlots
-    slots:
-      item:
-        name: clothing-boots-sidearm
-        whitelist:
-          tags:
-          - Knife
 
 - type: entity
   parent: ClothingHeadsetChronolegioneer

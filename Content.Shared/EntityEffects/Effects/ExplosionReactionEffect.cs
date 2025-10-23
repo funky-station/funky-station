@@ -11,16 +11,17 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using System.Text.Json.Serialization;
 
-namespace Content.Shared.EntityEffects.Effects;
+namespace Content.Shared.EntityEffects.Effects.Transform;
 
-[DataDefinition]
-public sealed partial class ExplosionReactionEffect : EventEntityEffect<ExplosionReactionEffect>
+/// <inheritdoc cref="EntityEffect"/>
+/// <seealso cref="ExplodeEffect">
+public sealed partial class ExplosionEffect : EntityEffectBase<ExplosionEffect>
 {
     /// <summary>
     ///     The type of explosion. Determines damage types and tile break chance scaling.
     /// </summary>
-    [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<ExplosionPrototype>))]
-    public string ExplosionType = default!;
+    [DataField(required: true)]
+    public ProtoId<ExplosionPrototype> ExplosionType;
 
     /// <summary>
     ///     The max intensity the explosion can have at a given tile. Places an upper limit of damage and tile break
@@ -58,7 +59,8 @@ public sealed partial class ExplosionReactionEffect : EventEntityEffect<Explosio
     [DataField]
     public float TileBreakScale = 1f;
 
-    public override bool ShouldLog => true;
+    public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+        => Loc.GetString("entity-effect-guidebook-explosion", ("chance", Probability));
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-explosion-reaction-effect", ("chance", Probability));

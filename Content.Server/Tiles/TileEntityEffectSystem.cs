@@ -15,6 +15,7 @@ namespace Content.Server.Tiles;
 
 public sealed class TileEntityEffectSystem : EntitySystem
 {
+    [Dependency] private readonly SharedEntityEffectsSystem _entityEffects = default!;
 
     public override void Initialize()
     {
@@ -30,11 +31,7 @@ public sealed class TileEntityEffectSystem : EntitySystem
     private void OnTileStepTriggered(Entity<TileEntityEffectComponent> ent, ref StepTriggeredOffEvent args)
     {
         var otherUid = args.Tripper;
-        var effectArgs = new EntityEffectBaseArgs(otherUid, EntityManager);
 
-        foreach (var effect in ent.Comp.Effects)
-        {
-            effect.Effect(effectArgs);
-        }
+        _entityEffects.ApplyEffects(otherUid, ent.Comp.Effects.ToArray(), user: otherUid);
     }
 }

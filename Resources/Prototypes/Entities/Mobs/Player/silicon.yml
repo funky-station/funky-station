@@ -89,6 +89,7 @@
     - Service
     - Supply
     - Emergency
+  - type: IntercomOnlyBypass
   - type: IgnoreUIRange
   - type: StationAiHeld
   - type: StationAiOverlay

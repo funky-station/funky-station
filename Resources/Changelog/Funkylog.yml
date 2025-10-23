@@ -5117,3 +5117,17 @@ Entries:
       message: Some inconsistencies on how the QMs items are named have been fixed
   id: 609
   time: '2025-10-22T02:24:37.0000000+00:00'
+- author: SigmaDraconis
+  changes:
+    - type: Add
+      message: Added the Wyvern, a new pistol
+    - type: Add
+      message: Added the Salamander, a new syndicate revolver.
+    - type: Add
+      message: Added the .50 AE ammo type and lathe recipes for it
+    - type: Add
+      message: Added a Wyvern pistol to the vault fridge
+    - type: Tweak
+      message: Made so all shotgun shells are called 12 gauge instead of .50 shells.
+  id: 610
+  time: '2025-10-23T20:48:11.0000000+00:00'

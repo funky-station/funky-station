@@ -135,6 +135,7 @@
 # SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 # SPDX-FileCopyrightText: 2025 RedBookcase <Usualmoves@gmail.com>
 # SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
+# SPDX-FileCopyrightText: 2025 Schuyler Duryee <skywd7766@gmail.com>
 # SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
@@ -1544,6 +1545,9 @@
 
 - type: Tag
   id: UtilityBelt
+
+- type: Tag
+  id: UtilityKnife
 
 - type: Tag
   id: Vegetable

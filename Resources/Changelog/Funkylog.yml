@@ -5140,3 +5140,11 @@ Entries:
         remotely monitor and alter the settings of any linked sentry turrets
   id: 611
   time: '2025-10-24T00:09:29.0000000+00:00'
+- author: lolmatdi
+  changes:
+    - type: Fix
+      message: >-
+        Animal Slime Core changed to actually metabolize chemicals, Smile can
+        take her meds!
+  id: 612
+  time: '2025-10-24T19:38:29.0000000+00:00'

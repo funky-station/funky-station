@@ -160,6 +160,7 @@
 # SPDX-FileCopyrightText: 2025 OnyxTheBrave <131422822+OnyxTheBrave@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <scarky0@onet.eu>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SpaceCat~Chan <49094338+SpaceCat-Chan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
@@ -512,6 +513,9 @@
     - MagazineShotgun
     - MagazineShotgunEmpty
     - MagazineShotgunSlug
+    - MagazinePistolLargeEmpty # Funkystation
+    - MagazinePistolLarge # Funkierstation
+    - MagazineBoxPistolLarge # Funkieststation
     - RiotShield
     - SpeedLoaderMagnum
     - SpeedLoaderMagnumEmpty
@@ -711,6 +715,10 @@
     - WeaponLaserCannon
     - WeaponLaserCarbine
     - WeaponXrayCannon
+    - MagazinePistolLargeUranium # Funkystation
+    - MagazinePistolLargeIncendiary # Funkystation
+    - MagazineBoxPistolLargeUranium # Funkystation
+    - MagazineBoxPistolLargeIncendiary # Funkystation
 
 - type: entity
   id: ProtolatheHyperConvection
@@ -1126,6 +1134,11 @@
     - MagazineShotgun
     - MagazineShotgunEmpty
     - MagazineShotgunSlug
+    - MagazinePistolLargeEmpty # Funkystation
+    - MagazinePistolLarge # Funkystation
+    - MagazineBoxPistolLarge # Funkystation
+    - MagazinePistolLargePractice # Funkystation
+    - MagazineBoxPistolLargePractice # Funkystation
     - RiotShield
     - SpeedLoaderMagnum
     - SpeedLoaderMagnumEmpty
@@ -1178,6 +1191,10 @@
     - MagazineShotgunIncendiary
     - MagazinePistolSubMachineGunTopMountedIncendiary
     - MagazinePistolSubMachineGunTopMountedUranium
+    - MagazinePistolLargeUranium # Funkystation
+    - MagazinePistolLargeIncendiary # Funkystation
+    - MagazineBoxPistolLargeUranium # Funkystation
+    - MagazineBoxPistolLargeIncendiary # Funkystation
     - PortableRecharger
     - PowerCageHigh
     - PowerCageMedium
@@ -1420,6 +1437,12 @@
     - ClothingUniformJumpskirtCapFormalDress
     - ClothingUniformJumpsuitCargo
     - ClothingUniformJumpskirtCargo
+    - ClothingUniformJumpsuitSeniorCargo # Funky!
+    - ClothingUniformJumpskirtSeniorCargo # Funky!
+    - ClothingUniformJumpskirtMailCarrier # Funky!
+    - ClothingUniformJumpsuitMailCarrier # Funky!
+    - ClothingHeadHatCargoCap # Funky!
+    - ClothingHeadHatMailCarrier # Funky!
     - ClothingUniformJumpsuitSalvageSpecialist
     - ClothingHeadHatBeretEngineering
     - ClothingUniformJumpsuitChiefEngineer
@@ -1486,11 +1509,14 @@
     - ClothingUniformJumpskirtPrisoner
     - ClothingHeadHatQMsoft
     - ClothingHeadHatBeretQM
+    - ClothingHeadHatQMFormal # Funky! 
     - ClothingUniformJumpsuitQM
     - ClothingUniformJumpskirtQM
     - ClothingUniformJumpsuitQMTurtleneck
     - ClothingUniformJumpskirtQMTurtleneck
-    - ClothingUniformJumpsuitQMFormal
+    - ClothingUniformJumpsuitQMFormal # Funky!
+    - ClothingUniformJumpskirtQMFormal # Funky! 
+    - ClothingUniformJumpsuitQMMilitary
     - ClothingHeadHatBeretRND
     - ClothingUniformJumpsuitResearchDirector
     - ClothingUniformJumpskirtResearchDirector
@@ -1529,6 +1555,8 @@
     - ClothingOuterWinterAtmos
     - ClothingOuterWinterEngi
     - ClothingOuterWinterCargo
+    - ClothingOuterWinterSeniorCargo # Funky!
+    - ClothingOuterWinterMailCarrier # Funky!
     - ClothingOuterWinterMiner
     - ClothingOuterWinterMed
     - ClothingOuterWinterPara

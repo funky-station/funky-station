@@ -39,4 +39,50 @@
       types:
         Slash: 20
 
+- type: entity
+  abstract: true
+  parent: ClothingHeadBase
+  id: ClothingBeanieBase
+  description: Oi.
+  components:
+  - type: Storage
+    grid:
+    - 0,0,0,0
+  - type: UserInterface
+    interfaces:
+        enum.StorageUiKey.Key:
+          type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
 
+
+- type: entity
+  parent: ClothingBeanieBase
+  id: ClothingHeadBeanieBlack
+  name: black beanie
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/beanies/black.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/beanies/black.rsi
+
+- type: entity
+  parent: ClothingBeanieBase
+  id: ClothingHeadBeanieRed
+  name: red beanie
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/beanies/red.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/beanies/red.rsi
+
+- type: entity
+  parent: ClothingBeanieBase
+  id: ClothingHeadBeanieWhite
+  name: white beanie
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/beanies/white.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/beanies/white.rsi

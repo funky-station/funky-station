@@ -118,13 +118,11 @@
     MailMothroach: 0.1
     MailHonkBot: 0.1
     MailJonkBot: 0.05
-    MailSyndieDrobe: 0.05
+    MailSyndieDrobe: 0.01
     MailPeelMortar: 0.2
     MailMousetrapMortar: 0.2
     MailSyndieToolbox: 0.1
-    MailGoldenToolbox: 0.05
     MailBloodredPhone: 0.1
-    MailRedPhone: 0.05
     MailBananaPhone: 0.05
   # Tools
     MailSignallerKit: 0.5

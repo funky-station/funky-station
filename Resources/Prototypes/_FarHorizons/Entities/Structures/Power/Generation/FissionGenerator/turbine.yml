@@ -75,12 +75,6 @@
   - type: PowerSupplier
     supplyRampRate: 75000
     supplyRampTolerance: 5000
-  - type: AmbientSound
-    volume: -5
-    range: 15
-    enabled: false
-    sound:
-      path: /Audio/_FarHorizons/Ambience/Objects/electrical_hum.ogg
   - type: AtmosDevice
   - type: Explosive
     explosionType: Default

@@ -2,7 +2,6 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.NodeContainer.EntitySystems;
-using Content.Server.NodeContainer.Nodes;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
@@ -17,8 +16,6 @@ using Content.Shared.Administration.Logs;
 using Robust.Server.GameObjects;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Server._FarHorizons.NodeContainer.Nodes;
-using Content.Shared.NodeContainer;
-using Robust.Shared.Map.Components;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -69,6 +66,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
             comp.HasPipes = true;
         }
 
+        // Try to connect to a distant pipe
         if (inlet.ReachableNodes.Count == 0) 
             _nodeGroupSystem.QueueReflood(inlet);
         if (outlet.ReachableNodes.Count == 0)

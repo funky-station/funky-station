@@ -1,5 +1,58 @@
+# - type: entity
+#   id: FissionGenerator
+#   parent: BaseStructure
+#   name: nuclear reactor
+#   description: Should you really be standing this close to that?
+#   components:
+#   - type: Sprite
+#     sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/fission_generator.rsi
+#     state: fission_generator
+#   - type: Physics
+#     bodyType: Static
+#   - type: InteractionOutline
+#   - type: Transform
+#     noRot: true
+#   - type: Fixtures
+#     fixtures:
+#       fix1:
+#         shape:
+#           !type:PhysShapeAabb
+#           bounds: "-2.5,-2.5,2.5,2.5"
+#         density: 190
+#         mask:
+#         - MachineMask
+#         layer:
+#         - MachineLayer
+#   - type: Anchorable
+#     flags: 
+#     - Anchorable
+#   - type: NodeContainer
+#     examinable: true
+#     nodes:
+#       inlet:
+#         !type:OffsetPipeNode
+#         nodeGroupID: Pipe
+#         pipeDirection: West
+#         volume: 1000
+#         offsetEast: -3
+#         offsetNorth: 0
+#       outlet:
+#         !type:OffsetPipeNode
+#         nodeGroupID: Pipe
+#         pipeDirection: East
+#         volume: 1000
+#         offsetEast: 3
+#         offsetNorth: 0
+#   - type: RadiationSource
+#     intensity: 0
+#   - type: FissionGenerator
+#   - type: AccessReader # You got a permit for that meltdown?
+#     access: [["Engineering"]]
+#   - type: Lock
+#     unlockOnClick: false
+
 - type: entity
-  id: FissionGenerator
+  id: NuclearReactor
   parent: BaseStructure
   name: nuclear reactor
   description: Should you really be standing this close to that?
@@ -9,16 +62,44 @@
     state: fission_generator
   - type: Physics
     bodyType: Static
+  - type: InteractionOutline
+  - type: Transform
+    noRot: true
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-2.5,-2.5,2.5,2.5"
+          bounds: "-1.5,-2.5,1.5,2.5"
         density: 190
         mask:
         - MachineMask
         layer:
         - MachineLayer
-  - type: RadiationSource # only when broken.
-    intensity: 0
+  - type: Anchorable
+    flags: 
+    - Anchorable
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      inlet:
+        !type:OffsetPipeNode
+        nodeGroupID: Pipe
+        pipeDirection: West
+        volume: 1000
+        offsetEast: -2
+        offsetNorth: -1
+      outlet:
+        !type:OffsetPipeNode
+        nodeGroupID: Pipe
+        pipeDirection: East
+        volume: 1000
+        offsetEast: 2
+        offsetNorth: -1
+  - type: AtmosDevice
+  - type: FissionGenerator
+  - type: AccessReader # Keeps some random tider from blowing up the turbine
+    access: [["Engineering"]]
+  - type: Lock
+    unlockOnClick: false
+  

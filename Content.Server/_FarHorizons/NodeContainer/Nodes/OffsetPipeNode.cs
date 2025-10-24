@@ -21,10 +21,15 @@ namespace Content.Server._FarHorizons.NodeContainer.Nodes;
 [Virtual]
 public partial class OffsetPipeNode : PipeNode
 {
-    // Described in terms of directions to make YML easier to understand
-    // NOTE: Directions are based off the PipeDirection being "South"
+    // Described in terms of directions to make YML easier to understand/wrtie
+    /// <summary>
+    /// Offest of the node East relative to the grid plane. Negative values offset West.
+    /// </summary>
     [DataField]
     public int OffsetEast = 0;
+    /// <summary>
+    /// Offest of the node North relative to the grid plane. Negative values offset South.
+    /// </summary>
     [DataField]
     public int OffsetNorth = 0;
 

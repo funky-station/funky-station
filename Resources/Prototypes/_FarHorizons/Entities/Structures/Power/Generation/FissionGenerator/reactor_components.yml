@@ -1,0 +1,68 @@
+- type: entity
+  id: ReactorFuelRod
+  name: uranium fuel rod
+  description: A fuel rod for a nuclear reactor.
+  components:
+  - type: ReactorPart
+    iconStateInserted: "fuel"
+    iconStateCap: "fuel_cap"
+    neutronCrossSection: 1.0
+    thermalCrossSection: 10
+    thermalMass: 420000 # specific heat capacity of steel (420 J/KgK) * mass of component (1000Kg)
+    nRadioactive: 3
+    radioactive: 4
+
+- type: entity
+  parent: ReactorFuelRod
+  id: ReactorFuelRodPlutonium
+  name: plutonium fuel rod
+  description: A fuel rod for a nuclear reactor.
+  components:
+  - type: ReactorPart
+    nRadioactive: 5
+    radioactive: 3
+
+- type: entity
+  parent: ReactorFuelRod
+  id: ReactorFuelRodBananium
+  name: bananium fuel rod
+  description: A honk rod for a nuclear reactor.
+  components:
+  - type: ReactorPart
+    nRadioactive: 4
+    radioactive: 3
+
+- type: entity
+  id: ReactorControlRod
+  name: control rod
+  description: A control rod assembly for a nuclear reactor.
+  components:
+  - type: ReactorControlRod
+    iconStateInserted: "control"
+    iconStateCap: "control_cap"
+    isControlRod: false
+    neutronCrossSection: 1.0
+    thermalCrossSection: 10
+
+- type: entity
+  id: ReactorHeatExchanger
+  name: heat exchanger
+  description: A heat exchanger component for a nuclear reactor.
+  components:
+  - type: ReactorPart
+    iconStateInserted: "heat"
+    iconStateCap: "heat_cap"
+    neutronCrossSection: 0.1
+    thermalCrossSection: 25
+
+- type: entity
+  id: ReactorGasChannel
+  name: gas channel
+  description: A gas coolant channel component for a nuclear reactor. Rated for 100 liters of gas flow volume.
+  components:
+  - type: ReactorPart
+    iconStateInserted: "gas"
+    iconStateCap: "gas_cap"
+    thermalCrossSection: 15
+    gasVolume: 100
+    thermalMass: 21000 # specific heat capacity of steel (420 J/KgK) * mass of component (50Kg)

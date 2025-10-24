@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._Funkystation.Traits;
 using Content.Shared._Funkystation.Traits.Quirks;
 using Content.Shared.Body.Components;

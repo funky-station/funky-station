@@ -5154,3 +5154,9 @@ Entries:
       message: Added Court map to be playtested
   id: 613
   time: '2025-10-24T19:42:41.0000000+00:00'
+- author: gaesnek
+  changes:
+    - type: Tweak
+      message: Made borgs slightly faster at surgery than their humanoid counterparts.
+  id: 614
+  time: '2025-10-24T19:45:15.0000000+00:00'

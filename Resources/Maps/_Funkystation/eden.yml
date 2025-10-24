@@ -1,67 +1,11 @@
-# SPDX-FileCopyrightText: 2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021 buletsponge <96000213+buletsponge@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-# SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2022 Cheackraze <71046427+Cheackraze@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morbo <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TimrodDX <timrod@gmail.com>
-# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-# SPDX-FileCopyrightText: 2022 and_a <and_a@DESKTOP-RJENGIR>
-# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Checkraze <71046427+Cheackraze@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 WIN-AOO91TUKDC7\geniy <bogdanilchev@yandex.ru>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2023 not-gavnaed <114421346+not-gavnaed@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 rottenheadphones <juaelwe@outlook.com>
-# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 salpphie <53307242+salpphie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 salpphie <alyssa.thomas51@gmail.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 meta:
   format: 7
   category: Map
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/23/2025 08:52:43
-  entityCount: 24258
+  time: 10/24/2025 14:06:47
+  entityCount: 24260
 maps:
 - 1
 grids:
@@ -9961,7 +9905,7 @@ entities:
       pos: -55.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -182601.75
+      secondsUntilStateChange: -182743.42
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10525,7 +10469,7 @@ entities:
       pos: 29.5,-41.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -164034.06
+      secondsUntilStateChange: -164175.73
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11628,7 +11572,7 @@ entities:
       pos: -19.5,25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1698928.4
+      secondsUntilStateChange: -1699070
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11745,7 +11689,7 @@ entities:
       pos: 5.5,17.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3230820.2
+      secondsUntilStateChange: -3230962
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -74258,8 +74202,6 @@ entities:
       pos: -0.5,22.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - 20649
       deviceLists:
       - 20410
   - uid: 16513
@@ -74269,8 +74211,6 @@ entities:
       pos: 0.5,22.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - 20649
       deviceLists:
       - 20410
   - uid: 16514
@@ -74280,8 +74220,6 @@ entities:
       pos: 1.5,22.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - 20649
       deviceLists:
       - 20410
   - uid: 16515
@@ -106029,13 +105967,10 @@ entities:
   - uid: 20649
     components:
     - type: Transform
-      pos: -6.316951,41.62139
+      pos: -6.377333,41.58618
       parent: 2
     - type: NetworkConfigurator
-      devices:
-        'UID: 54285': 16514
-        'UID: 54284': 16513
-        'UID: 54283': 16507
+      linkModeActive: False
     - type: Physics
       angularDamping: 0
       linearDamping: 0
@@ -149179,21 +149114,62 @@ entities:
     - type: Transform
       pos: 20.5,59.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 24260
+      - 24259
   - uid: 7164
     components:
     - type: Transform
       pos: 12.5,59.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 24260
+      - 24259
   - uid: 7165
     components:
     - type: Transform
       pos: 12.5,67.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 24260
+      - 24259
   - uid: 7166
     components:
     - type: Transform
       pos: 20.5,67.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 24260
+      - 24259
+- proto: WeaponEnergyTurretAIControlPanel
+  entities:
+  - uid: 24259
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 14.5,58.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 7163
+      - 7166
+      - 7165
+      - 7164
+  - uid: 24260
+    components:
+    - type: Transform
+      pos: 15.5,56.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 7164
+      - 7165
+      - 7166
+      - 7163
 - proto: WeaponRifleFoam
   entities:
   - uid: 24241
@@ -151284,7 +151260,7 @@ entities:
       pos: 28.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1774024.9
+      secondsUntilStateChange: -1774166.5
       state: Opening
   - uid: 10484
     components:

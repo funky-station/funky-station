@@ -5131,3 +5131,12 @@ Entries:
       message: Made so all shotgun shells are called 12 gauge instead of .50 shells.
   id: 610
   time: '2025-10-23T20:48:11.0000000+00:00'
+- author: chromiumboy
+  changes:
+    - type: Add
+      message: >-
+        Sentry turret control panels can now be found adjacent to rooms
+        containing sentry turrets. Authorized personnel can use these panels to
+        remotely monitor and alter the settings of any linked sentry turrets
+  id: 611
+  time: '2025-10-24T00:09:29.0000000+00:00'

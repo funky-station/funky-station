@@ -508,7 +508,7 @@
   - type: Mail
     contents:
     - id: MobMothroach
-      amount: 20
+      amount: 5
 
 - type: entity
   parent: BaseMailLarge

@@ -538,7 +538,7 @@
     - id: VendingMachineSyndieDrobe
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailLargeFlat
   id: MailPeelMortar
   suffix: Peel Mortar
   components:
@@ -547,7 +547,7 @@
     - id: WeaponMechSpecialBananaMortar
 
 - type: entity
-  parent: BaseMailLarge
+  parent: BaseMailLargeFlat
   id: MailMousetrapMortar
   suffix: Mousetrap Mortar
   components:
@@ -574,7 +574,7 @@
     - id: ToolboxGolden
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailRedPhone
   suffix: Handheld Map
   components:
@@ -583,7 +583,7 @@
     - id: PhoneInstrument
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailBloodredPhone
   suffix: Bloodred Phone
   components:
@@ -592,7 +592,7 @@
     - id: PhoneInstrumentSyndicate
 
 - type: entity
-  parent: BaseMail
+  parent: BaseMailSmall
   id: MailBananaPhone
   suffix: Banana Phone
   components:

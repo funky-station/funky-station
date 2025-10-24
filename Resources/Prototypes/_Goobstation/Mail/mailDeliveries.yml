@@ -100,7 +100,6 @@
     MailGocrazyPlush: 0.1
     MailToySword: 0.2
     MailCapGuns: 0.1
-    MailCodex: 0.1
     MailCancerMouse: 0.1
     MailSecWhistle: 0.4
     MailSyndWhistle: 0.2
@@ -124,6 +123,7 @@
     MailSyndieToolbox: 0.1
     MailBloodredPhone: 0.1
     MailBananaPhone: 0.05
+    MailInsulsGambling: 0.6
   # Tools
     MailSignallerKit: 0.5
     MailFlashlight: 0.8

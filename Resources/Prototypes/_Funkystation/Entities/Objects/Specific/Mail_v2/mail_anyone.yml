@@ -565,24 +565,6 @@
     - id: ToolboxSyndicate
 
 - type: entity
-  parent: BaseMailLarge
-  id: MailGoldenToolbox
-  suffix: Golden Toolbox
-  components:
-  - type: Mail
-    contents:
-    - id: ToolboxGolden
-
-- type: entity
-  parent: BaseMailSmall
-  id: MailRedPhone
-  suffix: Handheld Map
-  components:
-  - type: Mail
-    contents:
-    - id: PhoneInstrument
-
-- type: entity
   parent: BaseMailSmall
   id: MailBloodredPhone
   suffix: Bloodred Phone

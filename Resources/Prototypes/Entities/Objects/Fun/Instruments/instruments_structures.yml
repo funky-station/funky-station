@@ -188,6 +188,7 @@
   name: digital audio workstation
   description: Cutting edge music technology, straight from the 90s.
   components:
+  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - state: daw-base

@@ -54,6 +54,23 @@
     - ClothMade
     - WhitelistChameleon
   - type: ProtectedFromStepTriggers
+  - type: Armor # provide minimal covering to your feet
+    coverage:
+    - Foot
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+  - type: Appearance
+  - type: Stainable
+    clothingVisuals:
+      shoes:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: shoeblood
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: shoebloodicon
 
 - type: entity
   abstract: true

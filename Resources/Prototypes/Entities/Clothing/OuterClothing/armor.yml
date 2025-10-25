@@ -79,6 +79,14 @@
     tags:
       - Armor
       - WhitelistChameleon
+  - type: Stainable
+    clothingVisuals:
+      outerClothing:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: armorblood
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: armorbloodicon
 
 #Standard armor vest, allowed for security and bartenders
 - type: entity

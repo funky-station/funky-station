@@ -47,6 +47,23 @@
     damageProtection:
       flatReductions:
         Heat: 5 # the average lightbulb only does around four damage!
+  - type: Armor # provide minimal covering to your hands
+    coverage:
+    - Hand
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+  - type: Appearance
+  - type: Stainable
+    clothingVisuals:
+      gloves:
+      - sprite: _Gabystation/Effects/blood.rsi
+        state: gloveblood
+    iconVisuals:
+    - sprite: _Gabystation/Effects/blood.rsi
+      state: glovebloodicon
 
 - type: entity
   abstract: true

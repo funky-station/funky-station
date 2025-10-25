@@ -18,11 +18,24 @@
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 0vrseer <iov3rseeri@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 redfire1331 <Redfire1331@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Doctor-Cpu <77215380+Doctor-Cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GabyChangelog <agentepanela2@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Chemistry.Containers.EntitySystems;
-using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry;
@@ -31,9 +44,6 @@ using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Fluids.Components;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Nutrition.EntitySystems;
-using Content.Shared.Popups;
 using Content.Shared.Spillable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
@@ -54,7 +64,6 @@ public sealed partial class PuddleSystem
 
         SubscribeLocalEvent<SpillableComponent, LandEvent>(SpillOnLand);
         // Openable handles the event if it's closed
-        SubscribeLocalEvent<SpillableComponent, MeleeHitEvent>(SplashOnMeleeHit, after: [typeof(OpenableSystem)]);
         SubscribeLocalEvent<SpillableComponent, SolutionContainerOverflowEvent>(OnOverflow);
         SubscribeLocalEvent<SpillableComponent, SpillDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<SpillableComponent, AttemptPacifiedThrowEvent>(OnAttemptPacifiedThrow);
@@ -150,6 +159,7 @@ public sealed partial class PuddleSystem
             }
             // DeltaV - end of Beergoggles enable safe throw
             _adminLogger.Add(LogType.Landed,
+            AdminLogger.Add(LogType.Landed,
                 $"{ToPrettyString(entity.Owner):entity} spilled a solution {SharedSolutionContainerSystem.ToPrettyString(solution):solution} on landing");
         }
 

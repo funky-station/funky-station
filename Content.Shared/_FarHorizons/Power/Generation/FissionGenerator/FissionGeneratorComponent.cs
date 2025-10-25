@@ -26,12 +26,19 @@ public sealed partial class FissionGeneratorComponent : Component
     public float ThermalMass = 420 * 2000; // specific heat capacity of steel (420 J/KgK) * mass of reactor (Kg)
 
     // Making this a DataField causes the game to explode, neat
-    public ReactorPart[,] ComponentGrid = new ReactorPart[ReactorGridWidth, ReactorGridHeight];
+    public ReactorPart?[,] ComponentGrid;
 
+    [DataField]
+    public string Prefab = "debug";
+    [DataField]
+    public bool ApplyPrefab = true;
 
     [DataField("inlet")]
     public string InletName { get; set; } = "inlet";
 
     [DataField("outlet")]
     public string OutletName { get; set; } = "outlet";
+
+    [DataField("[DEBUG] neutrons")]
+    public int NeutronCount = 0;
 }

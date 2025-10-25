@@ -40,7 +40,7 @@
   - type: ReactorControlRod
     iconStateInserted: "control"
     iconStateCap: "control_cap"
-    isControlRod: false
+    isControlRod: true
     neutronCrossSection: 1.0
     thermalCrossSection: 10
 

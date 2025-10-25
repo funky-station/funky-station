@@ -6,6 +6,7 @@ using Content.Server.NodeContainer.EntitySystems;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Atmos;
 using Content.Shared.Radiation.Components;
+using Robust.Shared.Random;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -13,6 +14,7 @@ public sealed class FissionGeneratorSystem : EntitySystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     // Woe, 3 dimentions be upon ye
     public List<ReactorNeutron>[,] FluxGrid = new List<ReactorNeutron>[FissionGeneratorComponent.ReactorGridWidth, FissionGeneratorComponent.ReactorGridHeight];
@@ -38,6 +40,11 @@ public sealed class FissionGeneratorSystem : EntitySystem
     {
         if (comp.Melted)
             return;
+        if (comp.ApplyPrefab)
+        {
+            SelectPrefab(comp);
+            comp.ApplyPrefab = false;
+        }
         if (!_nodeContainer.TryGetNodes(uid, comp.InletName, comp.OutletName, out OffsetPipeNode? inlet, out OffsetPipeNode? outlet))
             return;
 
@@ -58,35 +65,40 @@ public sealed class FissionGeneratorSystem : EntitySystem
         _airContents.Volume = inlet.Air.Volume;
         GasInput.Volume = _airContents.Volume;
 
+        // Snapshot of the flux grid that won't get messed up during the neutron calculations
+        var flux = FluxGrid;
         for (var x = 0; x < FissionGeneratorComponent.ReactorGridWidth; x++)
         {
             for (var y = 0; y < FissionGeneratorComponent.ReactorGridHeight; y++)
             {
-                if (comp.ComponentGrid[x, y] != null)
+                if (comp.ComponentGrid![x, y] != null)
                 {
-                    comp.ComponentGrid[x, y].AssignParentReactor(comp);
+                    comp.ComponentGrid[x, y]!.AssignParentReactor(comp);
 
                     var ReactorComp = comp.ComponentGrid[x, y];
-                    var gas = ProcessGas(uid, ReactorComp, GasInput);
-                    GasInput.Volume -= ReactorComp.GasVolume;
+                    var gas = ProcessGas(uid, ReactorComp!, GasInput);
+                    GasInput.Volume -= ReactorComp!.GasVolume;
 
                     if (gas != null)
                         _atmosphereSystem.Merge(_airContents, gas);
 
-                    ReactorComp.ProcessHeat(GetGridNeighbors(comp, x, y));
+                    ReactorComp.ProcessHeat(GetGridNeighbors(comp, x, y), _random);
 
-                    FluxGrid[x, y] = ReactorComp.ProcessNeutrons(FluxGrid[x, y]);
+                    FluxGrid[x, y] = ReactorComp.ProcessNeutrons(FluxGrid[x, y], _random);
                 }
 
-                foreach (var neutron in FluxGrid[x, y])
+                //foreach (var neutron in flux[x, y])
+                for (var i = 0; i<flux[x, y].Count; i++) 
                 {
+                    var neutron = flux[x, y][i];
+
                     var dir = neutron.dir.AsFlag();
                     // Bit abuse
                     var xmod = (((byte)dir >> 1) % 2) - (((byte)dir >> 3) % 2);
                     var ymod = (((byte)dir >> 2) % 2) - ((byte)dir % 2);
 
-                    if (x + xmod >= 0 && y + ymod >= 0 && x + xmod <= FissionGeneratorComponent.ReactorGridWidth
-                        && y + ymod <= FissionGeneratorComponent.ReactorGridHeight)
+                    if (x + xmod >= 0 && y + ymod >= 0 && x + xmod <= FissionGeneratorComponent.ReactorGridWidth-1
+                        && y + ymod <= FissionGeneratorComponent.ReactorGridHeight-1)
                     {
                         FluxGrid[x + xmod, y + ymod].Add(neutron);
                         FluxGrid[x, y].Remove(neutron);
@@ -249,7 +261,6 @@ public sealed class FissionGeneratorSystem : EntitySystem
             if (_currentGas.Temperature < 0 || gasChannel.Temperature < 0)
                 return inGas; // TODO: crash the game here
 
-
             ProcessedGas = _currentGas;
         }
 
@@ -278,10 +289,18 @@ public sealed class FissionGeneratorSystem : EntitySystem
     {
         if (rads <= 0) return;
 
-        var comp = Comp<RadiationSourceComponent>(uid);
+        var comp = CompOrNull<RadiationSourceComponent>(uid);
         if (comp == null) return;
 
         // Slow ramp up to 25 emitted rads at 1000 rads 
         comp.Intensity = 24 * (float)Math.Log10((rads / 100) + 1);
     }
+
+    private static void SelectPrefab(FissionGeneratorComponent comp) => comp.ComponentGrid = comp.Prefab switch
+    {
+        "normal" => FissionGeneratorPrefabs.Normal,
+        "debug" => FissionGeneratorPrefabs.Debug,
+        "meltdown" => FissionGeneratorPrefabs.Meltdown,
+        _ => FissionGeneratorPrefabs.Empty,
+    };
 }

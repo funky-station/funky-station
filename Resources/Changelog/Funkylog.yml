@@ -5184,3 +5184,9 @@ Entries:
       message: 'NTVS Gax: added Turret Control Panels'
   id: 617
   time: '2025-10-25T02:25:27.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: The captain's sheathe can now beat people into submission.
+  id: 618
+  time: '2025-10-25T19:58:02.0000000+00:00'

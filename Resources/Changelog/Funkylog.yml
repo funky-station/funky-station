@@ -5172,3 +5172,9 @@ Entries:
         you unlock after 10 hours of playing as a janitor.
   id: 615
   time: '2025-10-25T00:23:59.0000000+00:00'
+- author: Currot
+  changes:
+    - type: Add
+      message: pAIs can now emote!
+  id: 616
+  time: '2025-10-25T00:30:20.0000000+00:00'

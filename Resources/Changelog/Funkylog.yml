@@ -5190,3 +5190,9 @@ Entries:
       message: The captain's sheathe can now beat people into submission.
   id: 618
   time: '2025-10-25T19:58:02.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Add
+      message: Added Oxygen Allergy trait.
+  id: 619
+  time: '2025-10-25T20:00:56.0000000+00:00'

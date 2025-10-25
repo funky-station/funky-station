@@ -5178,3 +5178,9 @@ Entries:
       message: pAIs can now emote!
   id: 616
   time: '2025-10-25T00:30:20.0000000+00:00'
+- author: EmillyCoelho
+  changes:
+    - type: Add
+      message: 'NTVS Gax: added Turret Control Panels'
+  id: 617
+  time: '2025-10-25T02:25:27.0000000+00:00'

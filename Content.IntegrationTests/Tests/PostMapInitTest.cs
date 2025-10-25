@@ -136,6 +136,7 @@ namespace Content.IntegrationTests.Tests
             "OasisHighPop",
             "Gax", // funkystation
             "Cyberiad", // andromeda
+            "CyberiadHighPop", // andromeda - highpop version
             "Divide", // funkystation
             "Glacier", // funkystation
 			"Eden", // funkystation

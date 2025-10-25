@@ -1,0 +1,68 @@
+- type: gameMap
+  id: Cyberiad
+  mapName: 'Cyberiad Station'
+  mapPath: /Maps/_Andromeda/cyberiad.yml
+  minPlayers: 30
+  maxPlayers: 85
+  stations:
+    Cyberiad:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'NSS14 Cyberiad Station {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency_box.yml
+        - type: StationJobs
+          availableJobs:
+            #service
+            Captain: [ 1, 1 ]
+            NanotrasenRepresentative: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            Magistrate: [ 1, 1 ]
+            InternalAffairsAgent: [ 3, 3 ]
+            Bartender: [ 2, 2 ]
+            Botanist: [ 2, 3 ]
+            Chaplain: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            Chef: [ 2, 2 ]
+            Janitor: [ 2, 2 ]
+            #engineering
+            ChiefEngineer: [ 1, 1 ]
+            AtmosphericTechnician: [ 2, 3 ]
+            StationEngineer: [ 3, 5 ]
+            TechnicalAssistant: [ 2, 4 ]
+            #medical
+            ChiefMedicalOfficer: [ 1, 1 ]
+            Chemist: [ 2, 2 ]
+            MedicalDoctor: [ 2, 4 ]
+            Paramedic: [ 1, 1 ]
+            MedicalIntern: [ 2, 4 ]
+            Psychologist: [ 1, 1 ]
+            #science
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 3, 5 ]
+            Roboticist: [ 1, 2 ]
+            ResearchAssistant: [ 4, 4 ]
+            #security
+            HeadOfSecurity: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            SecurityOfficer: [ 3, 5 ]
+            Detective: [ 1, 1 ]
+            SecurityCadet: [ 4, 4 ]
+            Lawyer: [ 2, 2 ]
+            #supply
+            Quartermaster: [ 1, 1 ]
+            SalvageSpecialist: [ 2, 3 ]
+            CargoTechnician: [ 3, 5 ]
+            #civilian
+            Passenger: [ -1, -1 ]
+            Clown: [ 1, 1 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 2 ]
+            Reporter: [ 1, 1 ]
+            #silicon
+            StationAi: [ 1, 1 ]
+            Borg: [ 3, 4 ]

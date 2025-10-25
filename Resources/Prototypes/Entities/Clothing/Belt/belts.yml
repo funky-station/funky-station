@@ -619,6 +619,11 @@
     state: sheath
   - type: Clothing
     sprite: Clothing/Belt/sheath.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 4
   - type: Item
     size: Ginormous
   - type: ItemSlots

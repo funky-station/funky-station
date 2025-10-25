@@ -565,15 +565,6 @@
     - id: PhoneInstrumentSyndicate
 
 - type: entity
-  parent: BaseMailSmall
-  id: MailBananaPhone
-  suffix: Banana Phone
-  components:
-  - type: Mail
-    contents:
-    - id: BananaPhoneInstrument
-
-- type: entity
   parent: BaseMailLarge
   id: MailInsulsGambling
   suffix: Insuls Gambling #when it sucks, hit da slots

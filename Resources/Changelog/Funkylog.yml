@@ -5196,3 +5196,9 @@ Entries:
       message: Added Oxygen Allergy trait.
   id: 619
   time: '2025-10-25T20:00:56.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Add
+      message: Added "M for Meltdown" as a new lobby track.
+  id: 620
+  time: '2025-10-25T23:54:13.0000000+00:00'

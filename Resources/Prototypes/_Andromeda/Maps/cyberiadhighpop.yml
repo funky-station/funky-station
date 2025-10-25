@@ -2,7 +2,7 @@
   id: CyberiadHighPop
   mapName: 'Cyberiad Station'
   mapPath: /Maps/_Andromeda/cyberiad.yml 
-  maxPlayers: 85
+  minPlayers: 85
   stations:
     Cyberiad:
       stationProto: StandardNanotrasenStation

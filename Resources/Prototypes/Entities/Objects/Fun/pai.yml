@@ -23,7 +23,10 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 mr-bo-jangles <mr-bo-jangles@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArchRBX <5040911+ArchRBX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AsnDen <75905158+AsnDen@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Carrot <carpecarrot@gmail.com>
 # SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 archrbx <punk.gear5260@fastmail.com>
@@ -133,6 +136,9 @@
     whitelist:
       components:
         - SecretStash
+  - type: Vocal # Funkystation PAI emoting
+    sounds:
+      Unsexed: PAISounds
 
 - type: entity
   parent: [ PersonalAI, BaseSyndicateContraband]

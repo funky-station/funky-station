@@ -63,7 +63,7 @@
       - Honk
   # Bad - weight: 25
     - quantity: 20
-      weight: 10.5
+      weight: 10
       reagents:
       - MuteToxin
       - Pax
@@ -98,9 +98,9 @@
       weight: 2.5
       reagents:
       - Lexorin
-    # Yeesh - Romerol, ~0.1% chance
+    # Yeesh - Romerol, ~0.5% chance
     - quantity: 15
-      weight: 0.1
+      weight: 0.5
       reagents:
       - Romerol
 

@@ -65,8 +65,8 @@
 // SPDX-License-Identifier: MIT
 
 using System.Numerics;
-using Content.Server.Inventory;
 using Content.Server.Stack;
+using Content.Server.Inventory;
 using Content.Server.Stunnable;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Body.Part;
@@ -79,6 +79,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Input;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Stacks;
 using Content.Shared.Standing;
@@ -130,6 +131,7 @@ namespace Content.Server.Hands.Systems
             SubscribeLocalEvent<HandsComponent, BeforeExplodeEvent>(OnExploded);
             SubscribeLocalEvent<HandsComponent, BodyPartEnabledEvent>(HandleBodyPartEnabled); // Shitmed Change
             SubscribeLocalEvent<HandsComponent, BodyPartDisabledEvent>(HandleBodyPartDisabled); // Shitmed Change
+            SubscribeLocalEvent<HandsComponent, DropHandItemsEvent>(OnDropHandItems);
 
             CommandBinds.Builder
                 .Bind(ContentKeyFunctions.ThrowItemInHand, new PointerInputCmdHandler(HandleThrowItem))
@@ -295,7 +297,7 @@ namespace Content.Server.Hands.Systems
 
             if (EntityManager.TryGetComponent(throwEnt, out StackComponent? stack) && stack.Count > 1 && stack.ThrowIndividually)
             {
-                var splitStack = _stackSystem.Split(throwEnt.Value, 1, EntityManager.GetComponent<TransformComponent>(player).Coordinates, stack);
+                var splitStack = _stackSystem.Split((throwEnt.Value, stack), 1, Comp<TransformComponent>(player).Coordinates);
 
                 if (splitStack is not {Valid: true})
                     return false;

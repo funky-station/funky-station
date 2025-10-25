@@ -3,6 +3,7 @@
 # SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 puuupy <59433122+lolmatdi@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -13,6 +14,8 @@
   name: sentient slimes core
   description: "The source of incredible, unending gooeyness."
   components:
+    - type:  Organ
+      slotId: core
     - type: Sprite
       sprite: Mobs/Species/Slime/organs.rsi
       state: brain-slime

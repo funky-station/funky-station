@@ -1,0 +1,102 @@
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: entity
+  id: BaseMagazinePistolLarge
+  name: pistol magazine (.50 AE)
+  parent: [ BaseItem, BaseSecurityContraband ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - MagazinePistolLarge
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgePistolLarge
+    capacity: 7
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag_50.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazinePistolLarge
+  name: pistol magazine (.50 AE)
+  parent: BaseMagazinePistolLarge
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolLarge
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazinePistolLargeEmpty
+  name: pistol magazine (.50 AE any)
+  suffix: empty
+  parent: MagazinePistolLarge
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazinePistolLargeIncendiary
+  name: pistol magazine (.50 AE incendiary)
+  parent: MagazinePistolLarge
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolLargeIncendiary
+
+- type: entity
+  id: MagazinePistolLargePractice
+  name: pistol magazine (.50 AE practice)
+  parent: BaseMagazinePistolLarge
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolLargePractice
+  - type: Sprite
+    layers:
+    - state: practice
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazinePistolLargeUranium
+  name: pistol magazine (.50 AE uranium)
+  parent: BaseMagazinePistolLarge
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolLargeUranium
+  - type: Sprite
+    layers:
+    - state: uranium
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

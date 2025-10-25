@@ -1,4 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 # SPDX-FileCopyrightText: 2025 YourName
+#
 # SPDX-License-Identifier: MIT
 
 # Malf AI shop listings
@@ -36,7 +38,8 @@
   icon:
     sprite: Interface/Actions/actions_malf_ai.rsi
     state: malfai_cameraupgrade
-  productAction: ActionMalfAiToggleCameraUpgrade
+  productEvent: !type:MalfAiCameraUpgradeUnlockedEvent
+  raiseProductEventOnUser: true
   priority: 8
   conditions:
   - !type:ListingLimitedStockCondition
@@ -195,7 +198,8 @@
   icon:
     sprite: Interface/Actions/actions_malf_ai.rsi
     state: malfai_cameramic
-  productAction: ActionMalfAiToggleCameraMicrophones
+  productEvent: !type:MalfAiCameraMicrophonesUnlockedEvent
+  raiseProductEventOnUser: true
   priority: 6
   conditions:
   - !type:ListingLimitedStockCondition

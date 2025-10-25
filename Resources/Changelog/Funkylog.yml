@@ -5160,3 +5160,15 @@ Entries:
       message: Made borgs slightly faster at surgery than their humanoid counterparts.
   id: 614
   time: '2025-10-24T19:45:15.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Add
+      message: >-
+        Added the maid outfit to the janitor's loadout, which you unlock after
+        10 hours of playing as a janitor.
+    - type: Add
+      message: >-
+        Added the maid outfit with mini skirt to the janitor's loadout, which
+        you unlock after 10 hours of playing as a janitor.
+  id: 615
+  time: '2025-10-25T00:23:59.0000000+00:00'

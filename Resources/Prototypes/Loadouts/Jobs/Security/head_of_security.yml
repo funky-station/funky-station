@@ -58,11 +58,6 @@
   equipment:
     head: ClothingHeadHatBeretHoS
 
-- type: loadout
-  id: HeadofSecurityHelmet
-  equipment:
-    head: ClothingHeadHelmetSwat
-
 # Neck
 - type: loadout
   id: HeadofSecurityCloak

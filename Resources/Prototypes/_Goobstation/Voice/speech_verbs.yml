@@ -21,3 +21,12 @@
     path: /Audio/_Goobstation/Voice/Chrono/dagger.ogg
   exclaimSound:
     path: /Audio/_Goobstation/Voice/Chrono/contact.ogg
+
+- type: speechVerb
+  id: Bingle
+  name: chat-speech-verb-name-bingle
+  speechVerbStrings:
+  - bingle-verb-1
+  - bingle-verb-2
+  - bingle-verb-3
+  - bingle-verb-4

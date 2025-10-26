@@ -5217,3 +5217,9 @@ Entries:
       message: 'Increased Romerol strange pill chance from .1% to .5% '
   id: 622
   time: '2025-10-26T00:11:37.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added more mail. You'll know it when you see it.
+  id: 623
+  time: '2025-10-26T00:16:35.0000000+00:00'

@@ -52,12 +52,12 @@
 - type: loadout
   id: InternalAffairsAgentGlovesBlack
   equipment:
-    hands: ClothingHandsGlovesColorBlack
+    gloves: ClothingHandsGlovesColorBlack
 
 - type: loadout
   id: InternalAffairsAgentGlovesRed
   equipment:
-    hands: ClothingHandsGlovesColorRed
+    gloves: ClothingHandsGlovesColorRed
 
 # Backpack
 - type: loadout

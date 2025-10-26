@@ -78,7 +78,7 @@
   - !type:GroupLoadoutEffect
     proto: SeniorCargo
   equipment:
-    jumpsuit: ClothingOuterWinterSeniorCargo
+    outerClothing: ClothingOuterWinterSeniorCargo
 
 # Shoes
 - type: loadout

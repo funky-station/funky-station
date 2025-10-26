@@ -245,7 +245,7 @@
 - type: startingGear
   id: VisitorSecurityCadetAlt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSecGrey
+    jumpsuit: ClothingUniformJumpsuitSecBlue
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHelmetBasic
     neck: SecurityWhistle
@@ -280,7 +280,7 @@
 - type: startingGear
   id: VisitorSecurityOfficerAlt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSecGrey
+    jumpsuit: ClothingUniformJumpsuitSecBlue
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHatCorpsoft
     neck: SecurityWhistle

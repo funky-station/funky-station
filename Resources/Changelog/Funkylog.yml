@@ -5202,3 +5202,12 @@ Entries:
       message: Added "M for Meltdown" as a new lobby track.
   id: 620
   time: '2025-10-25T23:54:13.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: >-
+        Added flashbang and stinger recipes. Also added security shrapnel
+        grenades and with that, shrapnel grenades are in the secfab if you emag
+        it.
+  id: 621
+  time: '2025-10-26T00:05:12.0000000+00:00'

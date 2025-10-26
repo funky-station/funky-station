@@ -69,23 +69,21 @@
         endSound:
           path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
 
-  # Goobstation - Return pen embeddability
-  - type: entity
-    parent: Pen
-    id: PenEmbeddable
-    abstract: true
-    components:
-    - type: EmbeddableProjectile
-      offset: 0.3,0.0
-      removalTime: 0.0
-    - type: ThrowingAngle
-      angle: 315
-    - type: LandAtCursor
-    - type: SignatureWriter # imp
-    - type: DamageOtherOnHit
-      damage:
-        types:
-          Piercing: 3
+- type: entity
+  parent: Pen
+  id: PenEmbeddable
+  abstract: true
+  components:
+  - type: EmbeddableProjectile
+    offset: 0.3,0.0
+    removalTime: 0.0
+  - type: ThrowingAngle
+    angle: 315
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 3
 
 #TODO: I want the luxury pen to write a cool font like Merriweather in the future.
 
@@ -195,7 +193,7 @@
 
 - type: entity
   name: wizard's magical pen
-  parent: [ Pen, BaseMagicalContraband ]
+  parent: [ PenEmbeddable, BaseMagicalContraband ]
   id: PenWiz
   description: A luxurious fountain pen. Seems to have a magical crystal eraser.
   components:

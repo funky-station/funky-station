@@ -582,7 +582,7 @@ entities:
     - type: Transform
       pos: -1.5,0.5
       parent: 181
-- proto: AirlockExternal
+- proto: RandomSpawner
   entities:
   - uid: 36
     components:
@@ -604,7 +604,7 @@ entities:
     - type: Transform
       pos: -4.5,1.5
       parent: 181
-- proto: AirlockShuttle
+- proto: AirlockShuttleSyndicate
   entities:
   - uid: 4
     components:
@@ -740,7 +740,7 @@ entities:
     - type: Transform
       pos: 0.5,-2.5
       parent: 181
-- proto: BorgModuleMining
+- proto: ToyFigurineSalvage
   entities:
   - uid: 94
     components:
@@ -1052,7 +1052,7 @@ entities:
     - type: Transform
       pos: -2.5,6.5
       parent: 181
-- proto: CrowbarRed
+- proto: RadioHandheldCargo
   entities:
   - uid: 155
     components:
@@ -1346,7 +1346,7 @@ entities:
           - Reverse
         - - Middle
           - Off
-- proto: WallSolid
+- proto: WallMining
   entities:
   - uid: 30
     components:
@@ -1463,7 +1463,7 @@ entities:
     - type: Transform
       pos: -6.5,0.5
       parent: 181
-- proto: WallSolidRust
+- proto: WallMining
   entities:
   - uid: 113
     components:
@@ -1485,7 +1485,7 @@ entities:
     - type: Transform
       pos: -4.5,-5.5
       parent: 181
-- proto: Window
+- proto: MiningWindow
   entities:
   - uid: 78
     components:
@@ -1527,7 +1527,7 @@ entities:
     - type: Transform
       pos: -4.5,5.5
       parent: 181
-- proto: WindowDiagonal
+- proto: MiningWindowDiagonal
   entities:
   - uid: 80
     components:
@@ -1551,7 +1551,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -1.5,7.5
       parent: 181
-- proto: Wrench
+- proto: MaterialBag
   entities:
   - uid: 153
     components:

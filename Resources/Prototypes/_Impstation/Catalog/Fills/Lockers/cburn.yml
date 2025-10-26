@@ -1,0 +1,12 @@
+- type: entity
+  id: LockerCBURNFilled
+  suffix: Filled
+  parent: LockerCBURN
+  components:
+  - type: StorageFill
+    contents:
+      - id: FuelTankOlympus
+      - id: MedkitBurnFilled
+      - id: FireExtinguisherMini
+      - id: DoubleEmergencyOxygenTankFilled
+      - id: DoubleEmergencyNitrogenTankFilled

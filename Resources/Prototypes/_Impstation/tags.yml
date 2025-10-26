@@ -15,6 +15,12 @@
   id: CartridgeBazooka
 
 - type: Tag
+  id: OlympusBackTank
+
+- type: Tag
+  id: OlympusFlamer
+
+- type: Tag
   id: EchionGun
 
 - type: Tag

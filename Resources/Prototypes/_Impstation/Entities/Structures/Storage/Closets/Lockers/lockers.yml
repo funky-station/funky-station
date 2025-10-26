@@ -1,0 +1,94 @@
+# Courier
+- type: entity
+  id: LockerCourier
+  parent: LockerBaseSecure
+  name: courier's locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: courier
+    stateDoorOpen: generic_open_2
+    stateDoorClosed: courier_door
+  - type: AccessReader
+    access: [["Courier"]]
+
+# HD
+- type: entity
+  id: LockerHospitalityDirector
+  parent: LockerBaseSecure
+  name: hospitality director's locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: hd
+    stateDoorOpen: command_open
+    stateDoorClosed: hd_door
+  - type: AccessReader
+    access: [["HospitalityDirector"]]
+
+# Janitor
+- type: entity
+  id: LockerJanitor
+  parent: LockerBaseSecure
+  name: janitor's locker
+  description: It's a storage unit for janitorial gear.
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: janitor_secure
+    stateDoorOpen: generic_open_2
+    stateDoorClosed: janitor_door
+  - type: AccessReader
+    access: [["Janitor"]]
+
+# Musician
+- type: entity
+  id: LockerMusician
+  parent: LockerBaseSecure
+  name: musician locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: musician
+    stateDoorOpen: generic_open
+    stateDoorClosed: musician_door
+  - type: AccessReader
+    access: [["Musician"]]
+
+# Belongings
+- type: entity
+  id: LockerBelongings
+  parent: LockerSecurity
+  name: belongings locker
+  description: To safely store detainee and prisoner belongings during their stay.
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: belongings
+    stateDoorOpen: generic_open_2
+    stateDoorClosed: belongings_door
+  - type: AccessReader
+    access: [["Security"]]
+
+# Griffy
+- type: entity
+  id: LockerGriffy
+  parent: LockerBaseSecure
+  name: griffy suit locker
+  description: A standard-issue Nanotrasen mascot storage unit.
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: sec_griffy
+    stateDoorOpen: generic_open_2
+    stateDoorClosed: sec_griffy_door
+  - type: AccessReader
+    access: [["Security"]]
+
+# CBURN
+- type: entity
+  id: LockerCBURN
+  parent: LockerBaseSecure
+  name: CBURN equipment locker
+  description: Everything an emergency responder would need to disinfect a station.
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: cburn_secure
+    stateDoorOpen: generic_open_3
+    stateDoorClosed: cburn_door
+  - type: AccessReader
+    access: [["CentralCommand"]]

@@ -8,11 +8,11 @@
     sprite: _Impstation/Objects/Specific/Syndicate/echionsynth.rsi
     layers:
     - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: cap-1
-      visible: false
-      shader: unshaded
-      map: ["enum.SolutionContainerLayers.Fill"]
+#      map: ["enum.GunVisualLayers.Base"]
+#    - state: cap-1
+#      visible: false
+#      shader: unshaded
+#      map: ["enum.SolutionContainerLayers.Fill"]
     - state: core
       visible: false
       shader: unshaded
@@ -26,27 +26,27 @@
     quickEquip: false
     slots:
     - Belt
-    - suitStorage
-    clothingVisuals:
-      belt:
-      - state: equipped-BELT
-      suitstorage:
-      - state: equipped-SUITSTORAGE
-  - type: GenericVisualizer
-    visuals:
-      enum.ToggleableVisuals.Enabled:
-        enum.ToggleableVisuals.Layer:
-          True: { visible: true }
-          False: { visible: false }
-  - type: ToggleableVisuals
-    spriteLayer: core
-    inhandVisuals:
-      left:
-      - state: inhand-left-core
-        shader: unshaded
-      right:
-      - state: inhand-right-core
-        shader: unshaded
+    - backStorage
+#    clothingVisuals:
+#      belt:
+#      - state: equipped-BELT
+#      suitstorage:
+#      - state: equipped-SUITSTORAGE
+#  - type: GenericVisualizer
+#    visuals:
+#     enum.ToggleableVisuals.Enabled:
+#        enum.ToggleableVisuals.Layer:
+#          True: { visible: true }
+#          False: { visible: false }
+#  - type: ToggleableVisuals
+#    spriteLayer: core
+#    inhandVisuals:
+#      left:
+#      - state: inhand-left-core
+#        shader: unshaded
+#      right:
+#      - state: inhand-right-core
+#        shader: unshaded
     clothingVisuals:
       belt:
       - state: core-equipped-BELT

@@ -47,17 +47,20 @@
 // SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Sk1tch <ben.peter.smith@gmail.com>
 // SPDX-FileCopyrightText: 2024 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TGRCDev <tgrc@tgrc.dev>
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 Willhelm53 <97707302+Willhelm53@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 ike709 <ike709@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 maylokana <88361930+maylokana@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 EmillyCoelho <167008606+Ichaie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
+// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 w.xyz() <84605679+pirakaplant@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -131,6 +134,10 @@ namespace Content.Client.Stylesheets
         public const string StyleClassChatFilterOptionButton = "chatFilterOptionButton";
         public const string StyleClassStorageButton = "storageButton";
         public const string StyleClassInset = "Inset";
+
+        public const string StyleClassConsoleHeading = "ConsoleHeading";
+        public const string StyleClassConsoleSubHeading = "ConsoleSubHeading";
+        public const string StyleClassConsoleText = "ConsoleText";
 
         public const string StyleClassSliderRed = "Red";
         public const string StyleClassSliderGreen = "Green";
@@ -224,6 +231,9 @@ namespace Content.Client.Stylesheets
         public const string StyleClassPinButtonPinned = "pinButtonPinned";
         public const string StyleClassPinButtonUnpinned = "pinButtonUnpinned";
 
+        //Manifest
+        public const string StyleClassCrewManifestGender = "CrewManifestGender";
+
         public static string StyleClassTraitBackground = "TraitBackground";
         public static string StyleClassTraitCost = "TraitCost";
 
@@ -249,6 +259,10 @@ namespace Content.Client.Stylesheets
             var notoSansBold18 = resCache.NotoStack(variation: "Bold", size: 18);
             var notoSansBold20 = resCache.NotoStack(variation: "Bold", size: 20);
             var notoSansMono = resCache.GetFont("/EngineFonts/NotoSans/NotoSansMono-Regular.ttf", size: 12);
+            var robotoMonoBold11 = resCache.GetFont("/Fonts/RobotoMono/RobotoMono-Bold.ttf", size: 11);
+            var robotoMonoBold12 = resCache.GetFont("/Fonts/RobotoMono/RobotoMono-Bold.ttf", size: 12);
+            var robotoMonoBold14 = resCache.GetFont("/Fonts/RobotoMono/RobotoMono-Bold.ttf", size: 14);
+
             var windowHeaderTex = resCache.GetTexture("/Textures/Interface/Nano/window_header.png");
             var windowHeader = new StyleBoxTexture
             {
@@ -483,9 +497,60 @@ namespace Content.Client.Stylesheets
             };
             progressBarForeground.SetContentMarginOverride(StyleBox.Margin.Vertical, 14.5f);
 
+            // Monotone (unfilled)
+            var monotoneButton = new StyleBoxTexture
+            {
+                Texture = resCache.GetTexture("/Textures/Interface/Nano/Monotone/monotone_button.svg.96dpi.png"),
+            };
+            monotoneButton.SetPatchMargin(StyleBox.Margin.All, 11);
+            monotoneButton.SetPadding(StyleBox.Margin.All, 1);
+            monotoneButton.SetContentMarginOverride(StyleBox.Margin.Vertical, 2);
+            monotoneButton.SetContentMarginOverride(StyleBox.Margin.Horizontal, 14);
+
+            var monotoneButtonOpenLeft = new StyleBoxTexture(monotoneButton)
+            {
+                Texture = resCache.GetTexture("/Textures/Interface/Nano/Monotone/monotone_button_open_left.svg.96dpi.png"),
+            };
+
+            var monotoneButtonOpenRight = new StyleBoxTexture(monotoneButton)
+            {
+                Texture = resCache.GetTexture("/Textures/Interface/Nano/Monotone/monotone_button_open_right.svg.96dpi.png"),
+            };
+
+            var monotoneButtonOpenBoth = new StyleBoxTexture(monotoneButton)
+            {
+                Texture = resCache.GetTexture("/Textures/Interface/Nano/Monotone/monotone_button_open_both.svg.96dpi.png"),
+            };
+
+            // Monotone (filled)
+            var monotoneFilledButton = new StyleBoxTexture(monotoneButton)
+            {
+                Texture = buttonTex,
+            };
+
+            var monotoneFilledButtonOpenLeft = new StyleBoxTexture(monotoneButton)
+            {
+                Texture = new AtlasTexture(buttonTex, UIBox2.FromDimensions(new Vector2(10, 0), new Vector2(14, 24))),
+            };
+            monotoneFilledButtonOpenLeft.SetPatchMargin(StyleBox.Margin.Left, 0);
+
+            var monotoneFilledButtonOpenRight = new StyleBoxTexture(monotoneButton)
+            {
+                Texture = new AtlasTexture(buttonTex, UIBox2.FromDimensions(new Vector2(0, 0), new Vector2(14, 24))),
+            };
+            monotoneFilledButtonOpenRight.SetPatchMargin(StyleBox.Margin.Right, 0);
+
+            var monotoneFilledButtonOpenBoth = new StyleBoxTexture(monotoneButton)
+            {
+                Texture = new AtlasTexture(buttonTex, UIBox2.FromDimensions(new Vector2(10, 0), new Vector2(3, 24))),
+            };
+            monotoneFilledButtonOpenBoth.SetPatchMargin(StyleBox.Margin.Horizontal, 0);
+
             // CheckBox
             var checkBoxTextureChecked = resCache.GetTexture("/Textures/Interface/Nano/checkbox_checked.svg.96dpi.png");
             var checkBoxTextureUnchecked = resCache.GetTexture("/Textures/Interface/Nano/checkbox_unchecked.svg.96dpi.png");
+            var monotoneCheckBoxTextureChecked = resCache.GetTexture("/Textures/Interface/Nano/Monotone/monotone_checkbox_checked.svg.96dpi.png");
+            var monotoneCheckBoxTextureUnchecked = resCache.GetTexture("/Textures/Interface/Nano/Monotone/monotone_checkbox_unchecked.svg.96dpi.png");
 
             // Tooltip box
             var tooltipTexture = resCache.GetTexture("/Textures/Interface/Nano/tooltip.png");
@@ -1015,6 +1080,17 @@ namespace Content.Client.Stylesheets
                     new StyleProperty(BoxContainer.StylePropertySeparation, 10),
                 }),
 
+                // MonotoneCheckBox
+                new StyleRule(new SelectorElement(typeof(TextureRect), new [] { MonotoneCheckBox.StyleClassMonotoneCheckBox }, null, null), new[]
+                {
+                    new StyleProperty(TextureRect.StylePropertyTexture, monotoneCheckBoxTextureUnchecked),
+                }),
+
+                new StyleRule(new SelectorElement(typeof(TextureRect), new [] { MonotoneCheckBox.StyleClassMonotoneCheckBox, CheckBox.StyleClassCheckBoxChecked }, null, null), new[]
+                {
+                    new StyleProperty(TextureRect.StylePropertyTexture, monotoneCheckBoxTextureChecked),
+                }),
+
                 // Tooltip
                 new StyleRule(new SelectorElement(typeof(Tooltip), null, null, null), new[]
                 {
@@ -1217,6 +1293,22 @@ namespace Content.Client.Stylesheets
                         new StyleProperty(Label.StylePropertyFontColor, Color.DarkGray),
                     }),
 
+                // Console text
+                new StyleRule(new SelectorElement(typeof(Label), new[] {StyleClassConsoleText}, null, null), new[]
+                {
+                    new StyleProperty(Label.StylePropertyFont, robotoMonoBold11)
+                }),
+
+                new StyleRule(new SelectorElement(typeof(Label), new[] {StyleClassConsoleSubHeading}, null, null), new[]
+                {
+                    new StyleProperty(Label.StylePropertyFont, robotoMonoBold12)
+                }),
+
+                new StyleRule(new SelectorElement(typeof(Label), new[] {StyleClassConsoleHeading}, null, null), new[]
+                {
+                    new StyleProperty(Label.StylePropertyFont, robotoMonoBold14)
+                }),
+
                 // Big Button
                 new StyleRule(new SelectorChild(
                     new SelectorElement(typeof(Button), new[] {StyleClassButtonBig}, null, null),
@@ -1316,6 +1408,64 @@ namespace Content.Client.Stylesheets
                         new StyleProperty(Label.StylePropertyFont, notoSansDisplayBold14),
                     }),
 
+                // MonotoneButton (unfilled)
+                new StyleRule(
+                    new SelectorElement(typeof(MonotoneButton), null, null, null),
+                    new[]
+                    {
+                        new StyleProperty(Button.StylePropertyStyleBox, monotoneButton),
+                    }),
+
+                new StyleRule(
+                    new SelectorElement(typeof(MonotoneButton), new[] { ButtonOpenLeft }, null, null),
+                    new[]
+                    {
+                        new StyleProperty(Button.StylePropertyStyleBox, monotoneButtonOpenLeft),
+                    }),
+
+                new StyleRule(
+                    new SelectorElement(typeof(MonotoneButton), new[] { ButtonOpenRight }, null, null),
+                    new[]
+                    {
+                        new StyleProperty(Button.StylePropertyStyleBox, monotoneButtonOpenRight),
+                    }),
+
+                new StyleRule(
+                    new SelectorElement(typeof(MonotoneButton), new[] { ButtonOpenBoth }, null, null),
+                    new[]
+                    {
+                        new StyleProperty(Button.StylePropertyStyleBox, monotoneButtonOpenBoth),
+                    }),
+
+                // MonotoneButton (filled)
+                new StyleRule(
+                    new SelectorElement(typeof(MonotoneButton), null, null, new[] { Button.StylePseudoClassPressed }),
+                    new[]
+                    {
+                        new StyleProperty(Button.StylePropertyStyleBox, monotoneFilledButton),
+                    }),
+
+                new StyleRule(
+                    new SelectorElement(typeof(MonotoneButton), new[] { ButtonOpenLeft }, null, new[] { Button.StylePseudoClassPressed }),
+                    new[]
+                    {
+                        new StyleProperty(Button.StylePropertyStyleBox, monotoneFilledButtonOpenLeft),
+                    }),
+
+                new StyleRule(
+                    new SelectorElement(typeof(MonotoneButton), new[] { ButtonOpenRight }, null, new[] { Button.StylePseudoClassPressed }),
+                    new[]
+                    {
+                        new StyleProperty(Button.StylePropertyStyleBox, monotoneFilledButtonOpenRight),
+                    }),
+
+                new StyleRule(
+                    new SelectorElement(typeof(MonotoneButton), new[] { ButtonOpenBoth }, null, new[] { Button.StylePseudoClassPressed }),
+                    new[]
+                    {
+                        new StyleProperty(Button.StylePropertyStyleBox, monotoneFilledButtonOpenBoth),
+                    }),
+
                 // NanoHeading
 
                 new StyleRule(
@@ -1345,6 +1495,11 @@ namespace Content.Client.Stylesheets
                     .Class(StyleClassItemStatusNotHeld)
                     .Prop("font", notoSansItalic10)
                     .Prop("font-color", ItemStatusNotHeldColor),
+
+                Element<RichTextLabel>()
+                    .Class(StyleClassCrewManifestGender)
+                    .Prop("font", notoSansItalic10)
+                    .Prop("font-style", "italic"),
 
                 Element<RichTextLabel>()
                     .Class(StyleClassItemStatus)

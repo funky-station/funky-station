@@ -5237,3 +5237,9 @@ Entries:
       message: Sprite size tweaked.
   id: 625
   time: '2025-10-26T04:29:26.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Add
+      message: New lobby art by Frogoo
+  id: 626
+  time: '2025-10-26T21:54:01.0000000+00:00'

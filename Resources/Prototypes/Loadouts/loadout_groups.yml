@@ -1202,11 +1202,11 @@
   loadouts:
   - SecurityJumpsuit
   - SecurityJumpskirt
-  - SecurityJumpsuitGrey
   - SecurityJumpskirtGrey
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
   - TrooperUniform
+  - SecurityJumpsuitBlue
 
 - type: loadoutGroup
   id: SecurityBackpack

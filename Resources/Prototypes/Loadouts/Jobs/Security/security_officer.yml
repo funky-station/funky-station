@@ -91,19 +91,19 @@
     jumpsuit: ClothingUniformJumpskirtSec
 
 - type: loadout
-  id: SecurityJumpsuitGrey
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitSecGrey
-
-- type: loadout
   id: SecurityJumpskirtGrey
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecGrey
 
 - type: loadout
   id: TrooperUniform
-  equipment: 
+  equipment:
     jumpsuit: ClothingUniformSecurityTrooper
+
+- type: loadout
+  id: SecurityJumpsuitBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecBlue
 
 - type: loadout
   id: SeniorOfficerJumpsuit
@@ -215,4 +215,4 @@
   storage:
     back:
     - Dinkystar
-    
+

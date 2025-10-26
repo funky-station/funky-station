@@ -244,9 +244,6 @@ accent-newyork-words-replace-81 = beat it
 accent-newyork-words-82 = okay
 accent-newyork-words-replace-82 = a’ight
 
-accent-newyork-words-83 = ipc
-accent-newyork-words-replace-83 = clanka'
-
 accent-newyork-words-84 = fool
 accent-newyork-words-replace-84 = schmuck
 

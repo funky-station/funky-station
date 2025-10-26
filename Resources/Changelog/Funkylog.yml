@@ -5231,3 +5231,9 @@ Entries:
       message: The Station AI can now talk on Common Comms
   id: 624
   time: '2025-10-26T01:41:26.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: Sprite size tweaked.
+  id: 625
+  time: '2025-10-26T04:29:26.0000000+00:00'

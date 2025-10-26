@@ -5223,3 +5223,11 @@ Entries:
       message: Added more mail. You'll know it when you see it.
   id: 623
   time: '2025-10-26T00:16:35.0000000+00:00'
+- author: lolmatdi
+  changes:
+    - type: Tweak
+      message: 'The Station AI now has Emergency Comms '
+    - type: Tweak
+      message: The Station AI can now talk on Common Comms
+  id: 624
+  time: '2025-10-26T01:41:26.0000000+00:00'

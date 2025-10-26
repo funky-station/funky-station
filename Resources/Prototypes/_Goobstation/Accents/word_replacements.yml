@@ -1,5 +1,8 @@
 # SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
@@ -102,6 +105,7 @@
     accent-ohio-words-80: accent-ohio-words-replace-80
     accent-ohio-words-81: accent-ohio-words-replace-81
     accent-ohio-words-82: accent-ohio-words-replace-82
+    accent-ohio-words-83: accent-ohio-words-replace-83
     accent-ohio-words-84: accent-ohio-words-replace-84
     accent-ohio-words-85: accent-ohio-words-replace-85
     accent-ohio-words-86: accent-ohio-words-replace-86
@@ -390,7 +394,6 @@
     accent-newyork-words-80: accent-newyork-words-replace-80
     accent-newyork-words-81: accent-newyork-words-replace-81
     accent-newyork-words-82: accent-newyork-words-replace-82
-    accent-newyork-words-83: accent-newyork-words-replace-83
     accent-newyork-words-84: accent-newyork-words-replace-84
     accent-newyork-words-85: accent-newyork-words-replace-85
     accent-newyork-words-86: accent-newyork-words-replace-86

@@ -81,6 +81,8 @@
       - id: TheWealthOfNations #Funky
       - id: OnChangelings #Funky
       - id: IanHoppyBook1 #Funky
+      - id: ZeroSumSymphonyVol1 #Funky
+      - id: ZeroSumSymphonyVol2 #Funky
       - id: BookCosmicCult # imp
     # if you add more books please consider organizing them into a new group selector
 

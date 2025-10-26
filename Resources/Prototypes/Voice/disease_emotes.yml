@@ -3,6 +3,7 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ty Ashley <42426760+TyAshley@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
+# SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
 # SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -12,6 +13,9 @@
   id: Sneeze
   name: chat-emote-name-sneeze
   category: Vocal
+  blacklist:
+    components:
+      - PAI
   chatMessages: ["chat-emote-msg-sneeze"]
   chatTriggers:
     - sneeze
@@ -28,6 +32,7 @@
   blacklist:
     components:
     - BorgChassis
+    - PAI
   chatMessages: ["chat-emote-msg-cough"]
   chatTriggers:
     - cough
@@ -75,6 +80,7 @@
   blacklist:
     components:
     - BorgChassis
+    - PAI
   chatMessages: ["chat-emote-msg-yawn"]
   chatTriggers:
     - yawn

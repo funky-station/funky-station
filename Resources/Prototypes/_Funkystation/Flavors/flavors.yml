@@ -43,3 +43,8 @@
   id: shrimp
   flavorType: Complex
   description: flavor-complex-shrimp
+
+- type: flavor
+  id: fresh
+  flavorType: Base
+  description: flavor-base-fresh

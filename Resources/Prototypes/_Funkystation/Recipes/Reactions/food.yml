@@ -17,3 +17,17 @@
   effects:
     - !type:CreateEntityReactionEffect
       entity: FoodMysteryMeat
+
+# Condiments
+
+- type: reaction
+  id: CookingTzatziki
+  reactants:
+    Cream:
+      amount: 1
+    JuiceLemon:
+      amount: 1
+    GreenTea:
+      amount: 1
+  products:
+    TzatzikiSauce: 3

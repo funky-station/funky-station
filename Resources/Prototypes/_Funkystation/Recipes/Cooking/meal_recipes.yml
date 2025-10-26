@@ -65,3 +65,48 @@
     FoodBreadBun: 1
     FoodOnionSlice: 1
     FoodMysteryMeat: 1
+
+- type: microwaveMealRecipe
+  id: RecipeGyrosMeat
+  name: meat gyros recipe
+  result: FoodGyrosMeat
+  time: 15
+  group: Savory
+  reagents:
+    TzatzikiSauce: 5
+  solids:
+    FoodDoughFlat: 1
+    FoodOnionRedSlice: 1
+    FoodMeatCutlet: 2
+    FoodCabbage: 1
+    FoodTomato: 1
+
+- type: microwaveMealRecipe
+  id: RecipeGyrosMystery
+  name: gyros? recipe
+  result: FoodGyrosMystery
+  time: 15
+  group: Savory
+  reagents:
+    TzatzikiSauce: 5
+  solids:
+    FoodDoughFlat: 1
+    FoodOnionRedSlice: 1
+    FoodMysteryCutlet: 2
+    FoodCabbage: 1
+    FoodTomato: 1
+
+- type: microwaveMealRecipe
+  id: RecipeGyrosTofu
+  name: tofu gyros recipe
+  result: FoodGyrosTofu
+  time: 15
+  group: Savory
+  reagents:
+    TzatzikiSauce: 5
+  solids:
+    FoodDoughFlat: 1
+    FoodOnionRedSlice: 1
+    FoodTofuSlice: 2
+    FoodCabbage: 1
+    FoodTomato: 1

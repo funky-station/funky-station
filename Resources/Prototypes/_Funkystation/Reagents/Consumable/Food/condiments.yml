@@ -1,0 +1,9 @@
+- type: reagent
+  id: TzatzikiSauce
+  name: reagent-name-tzatziki-sauce
+  group: Foods
+  desc: reagent-desc-tzatziki-sauce
+  physicalDesc: reagent-physical-desc-thick
+  flavor: fresh
+  color: "#f1ebdb"
+  recognizable: true

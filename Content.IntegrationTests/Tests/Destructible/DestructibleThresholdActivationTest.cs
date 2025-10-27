@@ -24,7 +24,9 @@ using Content.Server.Destructible;
 using Content.Server.Destructible.Thresholds;
 using Content.Server.Destructible.Thresholds.Behaviors;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Destructible;
@@ -145,7 +147,7 @@ namespace Content.IntegrationTests.Tests.Destructible
                 Assert.That(sTestThresholdListenerSystem.ThresholdsReached, Is.Empty);
 
                 // Set damage to 0
-                sDamageableSystem.SetAllDamage(sDestructibleEntity, sDamageableComponent, 0);
+                sDamageableSystem.ClearAllDamage((sDestructibleEntity, sDamageableComponent));
 
                 // Damage for 100, up to 100
                 sDamageableSystem.TryChangeDamage(sDestructibleEntity, bluntDamage * 10, true);
@@ -206,7 +208,7 @@ namespace Content.IntegrationTests.Tests.Destructible
                 sTestThresholdListenerSystem.ThresholdsReached.Clear();
 
                 // Heal all damage
-                sDamageableSystem.SetAllDamage(sDestructibleEntity, sDamageableComponent, 0);
+                sDamageableSystem.ClearAllDamage((sDestructibleEntity, sDamageableComponent));
 
                 // Damage up to 50
                 sDamageableSystem.TryChangeDamage(sDestructibleEntity, bluntDamage * 5, true);
@@ -268,7 +270,7 @@ namespace Content.IntegrationTests.Tests.Destructible
                 sTestThresholdListenerSystem.ThresholdsReached.Clear();
 
                 // Heal the entity completely
-                sDamageableSystem.SetAllDamage(sDestructibleEntity, sDamageableComponent, 0);
+                sDamageableSystem.ClearAllDamage((sDestructibleEntity, sDamageableComponent));
 
                 // Check that the entity has 0 damage
                 Assert.That(sDamageableComponent.TotalDamage, Is.EqualTo(FixedPoint2.Zero));

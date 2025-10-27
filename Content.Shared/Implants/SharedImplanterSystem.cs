@@ -20,7 +20,7 @@
 using Content.Shared.Chemistry.Components.SolutionManager; // Funky
 using Content.Shared.Chemistry.EntitySystems; // Funky
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Forensics;

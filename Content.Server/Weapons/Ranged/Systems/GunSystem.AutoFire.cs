@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Map;
 
@@ -38,7 +39,7 @@ public sealed partial class GunSystem
             }
             else if (gun.BurstActivated)
             {
-                var parent = _transform.GetParentUid(uid);
+                var parent = TransformSystem.GetParentUid(uid);
                 if (HasComp<DamageableComponent>(parent))
                     AttemptShoot(parent, uid, gun, gun.ShootCoordinates ?? new EntityCoordinates(uid, gun.DefaultDirection));
                 else

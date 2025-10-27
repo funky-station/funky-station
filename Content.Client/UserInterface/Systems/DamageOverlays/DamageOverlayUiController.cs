@@ -1,17 +1,4 @@
-// SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tojo <32783144+Alecksohs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -80,7 +67,7 @@ public sealed class DamageOverlayUiController : UIController
     {
         _overlay.DeadLevel = 0f;
         _overlay.CritLevel = 0f;
-        _overlay.BruteLevel = 0f;
+        _overlay.PainLevel = 0f;
         _overlay.OxygenLevel = 0f;
     }
 
@@ -108,35 +95,27 @@ public sealed class DamageOverlayUiController : UIController
         {
             case MobState.Alive:
             {
-                if (EntityManager.HasComponent<PainNumbnessComponent>(entity))
+                FixedPoint2 painLevel = 0;
+                _overlay.PainLevel = 0;
+
+                if (!EntityManager.HasComponent<PainNumbnessComponent>(entity))
                 {
-                    _overlay.BruteLevel = 0;
+                    foreach (var painDamageType in damageable.PainDamageGroups)
+                    {
+                        damageable.DamagePerGroup.TryGetValue(painDamageType, out var painDamage);
+                        painLevel += painDamage;
+                    }
+                    _overlay.PainLevel = FixedPoint2.Min(1f, painLevel / critThreshold).Float();
+
+                    if (_overlay.PainLevel < 0.05f) // Don't show damage overlay if they're near enough to max.
+                    {
+                        _overlay.PainLevel = 0;
+                    }
                 }
 
-                // FUNKYSTATION - START
-                else
-                {
-                    // We're trying to get the combined sum of Brute and Burn but it's easier to do what they did and
-                    // use TryGetValue for it.
-                    var totalHurt = FixedPoint2.Zero;
-
-                    if (damageable.DamagePerGroup.TryGetValue("Brute", out var bruteDamage))
-                        totalHurt += bruteDamage;
-
-                    if (damageable.DamagePerGroup.TryGetValue("Burn", out var burnDamage))
-                        totalHurt += burnDamage;
-
-                    _overlay.BruteLevel = FixedPoint2.Min(1f, totalHurt / critThreshold).Float();
-                }
-                // FUNKYSTATION - END
                 if (damageable.DamagePerGroup.TryGetValue("Airloss", out var oxyDamage))
                 {
                     _overlay.OxygenLevel = FixedPoint2.Min(1f, oxyDamage / critThreshold).Float();
-                }
-
-                if (_overlay.BruteLevel < 0.05f) // Don't show damage overlay if they're near enough to max.
-                {
-                    _overlay.BruteLevel = 0;
                 }
 
                 _overlay.CritLevel = 0;
@@ -150,13 +129,13 @@ public sealed class DamageOverlayUiController : UIController
                     return;
                 _overlay.CritLevel = critLevel.Value.Float();
 
-                _overlay.BruteLevel = 0;
+                _overlay.PainLevel = 0;
                 _overlay.DeadLevel = 0;
                 break;
             }
             case MobState.Dead:
             {
-                _overlay.BruteLevel = 0;
+                _overlay.PainLevel = 0;
                 _overlay.CritLevel = 0;
                 break;
             }

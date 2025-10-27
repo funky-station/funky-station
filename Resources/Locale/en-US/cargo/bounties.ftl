@@ -178,7 +178,7 @@ bounty-item-biosynthectic-heart = Biosynthetic Heart
 bounty-item-autoinjector-cartrige = Autoinjector Cartrige
 bounty-item-medical-autoinjector = Autoinjector
 bounty-item-health-analyzer = Health Analyzer
-bounty-item-cybernetic-medical-eyes Cybernetic Medical Eyes
+bounty-item-cybernetic-medical-eyes = Cybernetic Medical Eyes
 bounty-item-defibrillator = Defibrilator
 bounty-item-medical-hud = Medical Hud
 bounty-item-surgery-advanced-tool = Advanced Surgery Tool

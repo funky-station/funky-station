@@ -1448,9 +1448,9 @@
     convertTo: WallCosmicCult
 
 - type: entity
-  parent: BaseWall
+  parent: WallShuttle
   id: WallMining
-  name: mining wall
+  name: mining shuttle wall
   components:
   - type: Tag
     tags:
@@ -1481,7 +1481,7 @@
 - type: entity
   parent: WallShuttleDiagonal
   id: WallMiningDiagonal
-  name: mining wall
+  name: mining shuttle wall
   suffix: diagonal
   placement:
     mode: SnapgridCenter

@@ -16,8 +16,8 @@
 
 - type: entity
   id: MiningWindow
-  name: mining window
-  parent: WindowRCDResistant
+  name: mining shuttle window
+  parent: ShuttleWindow
   components:
   - type: Sprite
     drawdepth: WallTops

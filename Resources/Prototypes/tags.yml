@@ -766,6 +766,9 @@
 - type: Tag
   id: FireBomb
 
+- type: Tag
+  id: FlashPayload
+
 
 - type: Tag
   id: Galaxythistle
@@ -1154,6 +1157,9 @@
 
 - type: Tag
   id: MakeshiftStunprod
+
+- type: Tag
+  id: MakeshiftShield
 
 - type: Tag
   id: MedSecHud
@@ -1550,6 +1556,12 @@
 
 - type: Tag
   id: SvalinnPistol
+
+- type: Tag
+  id: SpeedLegs
+
+- type: Tag
+  id: SecurityCyberneticEyes
 
 
 - type: Tag # goob edit

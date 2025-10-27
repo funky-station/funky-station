@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2022 Jack Fox <35575261+DubiousDoggo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-License: MIT
+
 - type: entity
   parent: GasPipeBase
   abstract: true
@@ -19,6 +26,7 @@
           nodeGroupID: Pipe
           pipeDirection: South
     - type: CollideOnAnchor
+    - type: DeviceRestrictOverlap # Funky
 
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
@@ -26,7 +34,7 @@
   name: air vent
   description: Has a valve and a pump attached to it.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
@@ -45,7 +53,7 @@
       noRot: true
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
-          state: pipeHalf
+          state: pipeUnaryConnectors
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: vent_off
           map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
@@ -78,6 +86,11 @@
       guides:
       - AirVent
       - DeviceMonitoringAndControl
+    - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: GasVentPump
+        Secondary: GasVentPumpAlt1
+        Tertiary: GasVentPumpAlt2
 
 - type: entity
   parent: GasUnaryBase
@@ -85,7 +98,7 @@
   name: passive vent
   description: It's an open vent.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
     - type: SubFloorHide
       visibleLayers:
@@ -96,7 +109,7 @@
       noRot: true
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
-          state: pipeHalf
+          state: pipeUnaryConnectors
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: vent_passive
           map: [ "enum.SubfloorLayers.FirstLayer" ]
@@ -111,6 +124,11 @@
     - type: GuideHelp
       guides:
       - PassiveVent
+    - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: GasPassiveVent
+        Secondary: GasPassiveVentAlt1
+        Tertiary: GasPassiveVentAlt2
 
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
@@ -118,7 +136,7 @@
   name: air scrubber
   description: Has a valve and pump attached to it.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
@@ -137,7 +155,7 @@
       noRot: true
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
-          state: pipeHalf
+          state: pipeUnaryConnectors
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: scrub_off
           map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
@@ -170,6 +188,11 @@
       guides:
       - AirScrubber
       - DeviceMonitoringAndControl
+    - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: GasVentScrubber
+        Secondary: GasVentScrubberAlt1
+        Tertiary: GasVentScrubberAlt2
 
 - type: entity
   parent: GasUnaryBase
@@ -177,13 +200,13 @@
   name: air injector
   description: Has a valve and pump attached to it.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
     - type: Sprite
       drawdepth: FloorObjects
       sprite: Structures/Piping/Atmospherics/outletinjector.rsi
       layers:
-        - state: pipeHalf
+        - state: pipeUnaryConnectors
           sprite: Structures/Piping/Atmospherics/pipe.rsi
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: injector
@@ -192,6 +215,7 @@
           shader: unshaded
           map: [ "enum.LightLayers.Unshaded" ]
           color: "#990000"
+    - type: Appearance
     - type: GenericVisualizer
       visuals:
        # toggle color of the unshaded light:
@@ -199,7 +223,6 @@
          enum.LightLayers.Unshaded:
            True: { color: "#5eff5e" }
            False: { color: "#990000" }
-    - type: Appearance
     - type: PipeColorVisuals
     - type: GasOutletInjector
     - type: Construction
@@ -214,6 +237,11 @@
     - type: GuideHelp
       guides:
       - AirInjector
+    - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: GasOutletInjector
+        Secondary: GasOutletInjectorAlt1
+        Tertiary: GasOutletInjectorAlt2
 
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
@@ -231,6 +259,12 @@
     - type: Rotatable
     - type: GasThermoMachine
     - type: AtmosPipeColor
+    - type: AtmosPipeLayers
+      spriteLayersRsiPaths:
+        enum.PipeVisualLayers.Pipe:
+          Primary: Structures/Piping/Atmospherics/thermomachine.rsi
+          Secondary: Structures/Piping/Atmospherics/thermomachine_alt1.rsi
+          Tertiary: Structures/Piping/Atmospherics/thermomachine_alt2.rsi
     - type: AtmosDevice
     - type: UserInterface
       interfaces:
@@ -409,6 +443,7 @@
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: false
     - state: trans
+  - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.Powered:
@@ -418,11 +453,16 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 7
     fillBaseName: fill-
-  - type: Appearance
   - type: PipeColorVisuals
   - type: Rotatable
   - type: GasCondenser
   - type: AtmosPipeColor
+  - type: AtmosPipeLayers
+    spriteLayersRsiPaths:
+      enum.PipeVisualLayers.Pipe:
+        Primary: Structures/Piping/Atmospherics/condenser.rsi
+        Secondary: Structures/Piping/Atmospherics/condenser_alt1.rsi
+        Tertiary: Structures/Piping/Atmospherics/condenser_alt2.rsi
   - type: AtmosDevice
   # Goobstation - Allow device-on-pipe stacking
   # - type: PipeRestrictOverlap

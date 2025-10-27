@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Clothing;
 using Content.Client.Items.Systems;
 using Content.Shared.Clothing;
@@ -15,6 +26,7 @@ public sealed class ToggleableLightVisualsSystem : VisualizerSystem<ToggleableLi
 {
     [Dependency] private readonly SharedItemSystem _itemSys = default!;
     [Dependency] private readonly SharedPointLightSystem _lights = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -31,11 +43,11 @@ public sealed class ToggleableLightVisualsSystem : VisualizerSystem<ToggleableLi
         var modulate = AppearanceSystem.TryGetData<Color>(uid, ToggleableLightVisuals.Color, out var color, args.Component);
 
         // Update the item's sprite
-        if (args.Sprite != null && component.SpriteLayer != null && args.Sprite.LayerMapTryGet(component.SpriteLayer, out var layer))
+        if (args.Sprite != null && component.SpriteLayer != null && _sprite.LayerMapTryGet((uid, args.Sprite), component.SpriteLayer, out var layer, false))
         {
-            args.Sprite.LayerSetVisible(layer, enabled);
+            _sprite.LayerSetVisible((uid, args.Sprite), layer, enabled);
             if (modulate)
-                args.Sprite.LayerSetColor(layer, color);
+                _sprite.LayerSetColor((uid, args.Sprite), layer, color);
         }
 
         // Update any point-lights

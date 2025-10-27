@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.SurveillanceCamera;
 using Robust.Client.GameObjects;
 
@@ -5,6 +10,8 @@ namespace Content.Client.SurveillanceCamera;
 
 public sealed class SurveillanceCameraVisualsSystem : EntitySystem
 {
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -18,12 +25,12 @@ public sealed class SurveillanceCameraVisualsSystem : EntitySystem
         if (!args.AppearanceData.TryGetValue(SurveillanceCameraVisualsKey.Key, out var data)
             || data is not SurveillanceCameraVisuals key
             || args.Sprite == null
-            || !args.Sprite.LayerMapTryGet(SurveillanceCameraVisualsKey.Layer, out int layer)
+            || !_sprite.LayerMapTryGet((uid, args.Sprite), SurveillanceCameraVisualsKey.Layer, out var layer, false)
             || !component.CameraSprites.TryGetValue(key, out var state))
         {
             return;
         }
 
-        args.Sprite.LayerSetState(layer, state);
+        _sprite.LayerSetRsiState((uid, args.Sprite), layer, state);
     }
 }

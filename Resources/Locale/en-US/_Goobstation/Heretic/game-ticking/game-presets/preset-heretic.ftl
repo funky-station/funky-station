@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 heretic-roundend-name = heretic
 
 roundend-prepend-heretic-ascension-success = {$name}, [color=green] has Ascended![/color]
@@ -38,3 +45,10 @@ ghostrole-ghoul-desc = Aid your summoner in achieving ascension.
 ghostrole-prophet-desc = Aid your summoner in achieving ascension. Connect other believers to the Mansus Link.
 ghostrole-stalker-desc = Aid your summoner in achieving ascension. Jaunt and sabotage crew's lighting.
 ghostrole-ghoul-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the one who summoned you and other eldritch beings.
+
+ghoul-notif-text =
+    You have been resurrected as a ghoul!
+
+    Protect your new master and follow their orders.
+ghoul-notif-title = Return to Flesh
+hell-memory-confirm = Confirm

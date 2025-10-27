@@ -1,0 +1,576 @@
+# SPDX-FileCopyrightText: 2025 Xcybitt <lenazheng88@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailFilledBelt
+  suffix: Utility Belt
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingBeltUtilityFilled
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailBetterFilledBelt
+  suffix: CE Belt
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingBeltChiefEngineerFilled
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailInsuls
+  suffix: Insuls
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHandsGlovesColorYellow
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailFakeInsuls
+  suffix: Fake Insuls
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHandsGlovesConducting
+
+- type: entity
+  parent: BaseMail
+  id: MailBadCigs
+  suffix: Bad Cigarretes
+  components:
+  - type: Mail
+    contents:
+    - id: CigPackMixedRejects
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailBalloonNukies
+  suffix: BalloonNukies
+  components:
+  - type: Mail
+    contents:
+    - id: BalloonCommander
+    - id: BalloonOperative
+    - id: BalloonAgent
+    - id: BalloonJuggernaut
+    - id: BalloonElite
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailFoamCrossbows
+  suffix: Foam Crossbows
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: FoamCrossbow
+      amount: 2
+    - id: BoxDonkSoftBox
+    - id: GrenadeFoamDart
+      amount: 2
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailFoamGuns
+  suffix: FoamGuns
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: WeaponRifleFoam
+      amount: 2
+    - id: BoxDonkSoftBox
+    - id: GrenadeFoamDart
+      amount: 2
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailPresent
+  suffix: Present
+  components:
+  - type: Mail
+    contents:
+    - id: PresentRandom
+
+- type: entity
+  parent: BaseMailLargeFlat
+  id: MailFoamBlade
+  suffix: Foam Blade
+  components:
+  - type: Mail
+    contents:
+    - id: FoamBlade
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailPracticeGuns
+  suffix: Practice Guns
+  components:
+  - type: Mail
+    contents:
+    - id: WeaponLaserCarbinePractice
+      amount: 2
+    - id: WeaponDisablerPractice
+      amount: 2
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailCatEars
+  suffix: Cat Ears
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHeadHatCatEars
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailCorgiBalloon
+  suffix: Corgi Balloon
+  components:
+  - type: Mail
+    contents:
+    - id: BalloonCorgi
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailNTBalloon
+  suffix: NT Balloon
+  components:
+  - type: Mail
+    contents:
+    - id: BalloonNT
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailSynBalloon
+  suffix: Syndicate Balloon
+  components:
+  - type: Mail
+    contents:
+    - id: BalloonSyn
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailWehPackage
+  suffix: Weh Package
+  components:
+  - type: Mail
+    contents:
+    - id: WehMedipen #why does this inject 1u at a time, literally only reason why it's as rare as a throngler plush
+    - id: WehpetInstrument
+    - id: ClothingHeadWehcellentCap
+
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailStrangePills
+  suffix: Strange Pills
+  components:
+  - type: Mail
+    contents:
+    - id: StrangePill
+      amount: 10
+
+- type: entity
+  parent: BaseMail
+  id: MailDealbreakers
+  suffix: Deal Breakers
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingEyesDealbreakers
+
+- type: entity
+  parent: BaseMail
+  id: MailOutlawGlasses
+  suffix: OutlawGlasses
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingEyesGlassesOutlawGlasses
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailSingulothToy
+  suffix: Singuloth Toy
+  components:
+  - type: Mail
+    contents:
+    - id: SingularityToy
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailTeslaToy
+  suffix: Tesla Toy
+  components:
+  - type: Mail
+    contents:
+    - id: TeslaToy
+
+- type: entity
+  parent: BaseMail
+  id: MailSpaceGlue
+  suffix: Space Glue
+  components:
+  - type: Mail
+    contents:
+    - id: DrinkSpaceGlue
+
+- type: entity
+  parent: BaseMail
+  id: MailSpaceLube
+  suffix: Space Lube
+  components:
+  - type: Mail
+    contents:
+    - id: DrinkSpaceLube
+
+- type: entity
+  parent: BaseMail
+  id: MailGlorpMiku
+  suffix: Glorp Miku
+  components:
+  - type: Mail
+    contents:
+    - id: GlorpPerformancePlushie
+
+- type: entity
+  parent: BaseMail
+  id: MailDrazilPlush
+  suffix: Drazil Plush
+  components:
+  - type: Mail
+    contents:
+    - id: PlushieLizardInversed
+
+- type: entity
+  parent: BaseMail
+  id: MailGodoPlush
+  suffix: Godo Plush
+  components:
+  - type: Mail
+    contents:
+    - id: PlushieGodo
+
+- type: entity
+  parent: BaseMail
+  id: MailGocrazyPlush
+  suffix: Gocrazy Plush
+  components:
+  - type: Mail
+    contents:
+    - id: PlushieGocrazy
+
+- type: entity
+  parent: BaseMail
+  id: MailToySword
+  suffix: Toy Sword
+  components:
+  - type: Mail
+    contents:
+    - id: ToySword
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailCapGuns
+  suffix: Cap Guns
+  components:
+  - type: Mail
+    contents:
+    - id: RevolverCapGun
+      amount: 2
+    - id: SpeedLoaderCap
+      amount: 2
+    - id: BoxCartridgeCap
+
+- type: entity
+  parent: BaseMail
+  id: MailCancerMouse
+  suffix: Cancer Mouse
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: MobMouseCancer
+
+- type: entity
+  parent: BaseMail
+  id: MailSwitchblade
+  suffix: Switchblade
+  components:
+  - type: Mail
+    contents:
+    - id: Switchblade
+
+- type: entity
+  parent: BaseMail
+  id: MailSecWhistle
+  suffix: Security Whistle
+  components:
+  - type: Mail
+    contents:
+    - id: SecurityWhistle
+
+- type: entity
+  parent: BaseMail
+  id: MailSyndWhistle
+  suffix: Syndicate Whistle
+  components:
+  - type: Mail
+    contents:
+    - id: SyndicateWhistle
+
+- type: entity
+  parent: BaseMailLarge
+  id: Mail24Pack
+  suffix: 24 Pack
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: DrinkCanPack
+      amount: 4
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailGayWackpack
+  suffix: Gay Wackpack
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingBackpackDebug3
+
+- type: entity
+  parent: BaseMail
+  id: MailCatBerry
+  suffix: Cat Berry
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: FoodCatberry
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailReporterKit
+  suffix: Reporter Kit
+  components:
+  - type: Mail
+    contents:
+    - id: NewsDigiBoard
+    - id: SurveillanceWirelessCameraMovableEntertainment
+    - id: SurveillanceWirelessCameraBodyEntertainment
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailSpectralLocator
+  suffix: Spectral Locator
+  components:
+  - type: Mail
+    contents:
+    - id: SpectralLocator
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailPortableMixer
+  suffix: Portable Mixer
+  components:
+  - type: Mail
+    contents:
+    - id: portableChemicalMixer
+
+- type: entity
+  parent: BaseMail
+  id: MailInfiniteCrayon
+  suffix: Infinite Crayon
+  components:
+  - type: Mail
+    contents:
+    - id: InfinityCrayon
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailBrassKnuckles
+  suffix: BrassKnuckles
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHandsKnuckleDustersBrass
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailKitten
+  suffix: Kitten
+  components:
+  - type: Mail
+    contents:
+    - id: MobCatKitten
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailCak
+  suffix: Cak
+  components:
+  - type: Mail
+    contents:
+    - id: MobCatCake
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailBreadDog
+  suffix: Bread Dog
+  components:
+  - type: Mail
+    contents:
+    - id: MobBreadDog
+
+- type: entity
+  parent: BaseMail
+  id: MailCognizineBottle
+  suffix: Cognizine Bottle
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: CognizineChemistryBottle
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailSuppermatter
+  suffix: Suppermatter
+  components:
+  - type: Mail
+    contents:
+    - id: FoodCakeSuppermatter
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailSuppermatterShard
+  suffix: Suppermatter Shard
+  components:
+  - type: Mail
+    contents:
+    - id: FoodCakeSuppermatterSlice
+
+- type: entity
+  parent: BaseMail
+  id: MailHandheldMap
+  suffix: Handheld Map
+  components:
+  - type: Mail
+    contents:
+    - id: HandheldStationMap
+
+- type: entity
+  parent: BaseMail
+  id: MailHandheldTV
+  suffix: Handheld TV
+  components:
+  - type: Mail
+    contents:
+    - id: BaseHandheldTelevision
+
+#Engineering
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailRechargingRCDRPD
+  suffix: Recharging RCD RPD
+  components:
+  - type: Mail
+    contents:
+    - id: RCDRecharging
+    - id: RPDRecharging
+
+#
+- type: entity
+  parent: BaseMailLarge
+  id: MailMothroach
+  suffix: Mothroach
+  components:
+  - type: Mail
+    contents:
+    - id: MobMothroach
+      amount: 5
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailHonkBot
+  suffix: HonkBot
+  components:
+  - type: Mail
+    contents:
+    - id: MobHonkBot
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailJonkBot
+  suffix: JonkBot
+  components:
+  - type: Mail
+    contents:
+    - id: MobJonkBot
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailSyndieDrobe
+  suffix: SyndieDrobe
+  components:
+  - type: Mail
+    contents:
+    - id: VendingMachineSyndieDrobe
+
+- type: entity
+  parent: BaseMailLargeFlat
+  id: MailPeelMortar
+  suffix: Peel Mortar
+  components:
+  - type: Mail
+    contents:
+    - id: WeaponMechSpecialBananaMortar
+
+- type: entity
+  parent: BaseMailLargeFlat
+  id: MailMousetrapMortar
+  suffix: Mousetrap Mortar
+  components:
+  - type: Mail
+    contents:
+    - id: WeaponMechSpecialMousetrapMortar
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailSyndieToolbox
+  suffix: Syndicate Toolbox
+  components:
+  - type: Mail
+    contents:
+    - id: ToolboxSyndicate
+
+- type: entity
+  parent: BaseMailSmall
+  id: MailBloodredPhone
+  suffix: Bloodred Phone
+  components:
+  - type: Mail
+    contents:
+    - id: PhoneInstrumentSyndicate
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailInsulsGambling
+  suffix: Insuls Gambling #when it sucks, hit da slots
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHandsGlovesConducting
+      amount: 7
+    - id: ClothingHandsGlovesColorYellow

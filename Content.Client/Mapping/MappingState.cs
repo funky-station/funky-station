@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using System.Numerics;
 using Content.Client.Administration.Managers;
@@ -454,7 +462,7 @@ public sealed class MappingState : GameplayStateBase
         switch (prototype)
         {
             case EntityPrototype entity:
-                textures.AddRange(SpriteComponent.GetPrototypeTextures(entity, _resources).Select(t => t.Default));
+                textures.AddRange(_sprite.GetPrototypeTextures(entity).Select(t => t.Default));
                 break;
             case DecalPrototype decal:
                 textures.Add(_sprite.Frame0(decal.Sprite));

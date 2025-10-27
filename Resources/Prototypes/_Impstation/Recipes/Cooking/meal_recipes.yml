@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Ecramox <65426878+Ecramox@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <jackel234@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: microwaveMealRecipe
   id: RecipeCultLollipop
   name: entro-pop recipe
@@ -52,3 +59,13 @@
   solids:
      FoodKebabSkewer: 1
      FoodMeat: 1
+
+- type: microwaveMealRecipe
+  id: RecipeHopTart
+  name: identification tart recipe
+  result: SpawnHoPTart
+  time: 5
+  group: Dessert
+  solids:
+    HopTart: 1
+

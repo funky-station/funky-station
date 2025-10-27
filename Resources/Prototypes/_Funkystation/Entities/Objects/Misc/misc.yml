@@ -1,0 +1,40 @@
+# SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  id: WrappedBee
+  parent: BaseItem
+  name: Bee-Yourself brand wrapped bee
+  description: It's a bee. In a wrapper.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/wrappedbee.rsi
+    state: icon
+  - type: SpawnItemsOnUse
+    items:
+    - id: WrappedBeeTrash
+    - id: MobBee
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+  - type: Jittering
+    frequency: 10
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: WrappedBeeTrash
+  name: Bee-Yourself brand wrapper
+  description: It's a wrapper. It used to have a bee.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/wrappedbee.rsi
+    state: trash
+  - type: Tag
+    tags:
+    - Trash
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 0 # unrecyclable. NT <3 waste

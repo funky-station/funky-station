@@ -3,7 +3,7 @@
   abstract: true
   id: GasTrinaryBase
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
     - type: AtmosDevice
     - type: Tag
@@ -26,6 +26,7 @@
           !type:PipeNode
           nodeGroupID: Pipe
           pipeDirection: South
+    - type: DeviceRestrictOverlap # Funky
 
 - type: entity
   parent: GasTrinaryBase
@@ -33,7 +34,7 @@
   name: gas filter
   description: Very useful for filtering gases.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
     - type: SubFloorHide
       visibleLayers:
@@ -67,6 +68,11 @@
     - type: Construction
       graph: GasTrinary
       node: filter
+    - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: GasFilter
+        Secondary: GasFilterAlt1
+        Tertiary: GasFilterAlt2
     - type: AmbientSound
       enabled: false
       volume: -9
@@ -85,7 +91,7 @@
   name: gas filter
   suffix: Flipped
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
   - type: SubFloorHide
     visibleLayers:
@@ -109,7 +115,11 @@
           False: { state: gasFilterF }
   - type: Construction
     node: filterflipped
-
+  - type: AtmosPipeLayers
+    alternativePrototypes:
+      Primary: GasFilterFlipped
+      Secondary: GasFilterFlippedAlt1
+      Tertiary: GasFilterFlippedAlt2
   - type: PipeColorVisuals
   - type: NodeContainer
     nodes:
@@ -132,7 +142,7 @@
   name: gas mixer
   description: Very useful for mixing gases.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
     - type: SubFloorHide
       visibleLayers:
@@ -166,6 +176,11 @@
     - type: Construction
       graph: GasTrinary
       node: mixer
+    - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: GasMixer
+        Secondary: GasMixerAlt1
+        Tertiary: GasMixerAlt2
     - type: AmbientSound
       enabled: false
       volume: -9
@@ -184,7 +199,7 @@
   name: gas mixer
   suffix: Flipped
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/gasmixer.rsi
@@ -204,6 +219,13 @@
   - type: PipeColorVisuals
   - type: Flippable
     mirrorEntity: GasMixer
+  - type: Construction
+    node: mixerflipped
+  - type: AtmosPipeLayers
+    alternativePrototypes:
+      Primary: GasMixerFlipped
+      Secondary: GasMixerFlippedAlt1
+      Tertiary: GasMixerFlippedAlt2
   - type: NodeContainer
     nodes:
       inlet:
@@ -218,8 +240,6 @@
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: North
-  - type: Construction
-    node: mixerflipped
 
 - type: entity
   parent: GasPipeBase
@@ -227,7 +247,7 @@
   name: pneumatic valve
   description: A bidirectional valve controlled by pressure. Opens if the output pipe is lower than the pressure of the control pipe by 101.325 kPa.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
     - type: AtmosDevice
     - type: Tag
@@ -285,3 +305,9 @@
       - PneumaticValve
       - Pumps
       - Valves
+    - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: PressureControlledValve
+        Secondary: PressureControlledValveAlt1
+        Tertiary: PressureControlledValveAlt2
+    - type: DeviceRestrictOverlap # Funky

@@ -1,4 +1,10 @@
-﻿using Robust.Client.GameObjects;
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
@@ -15,6 +21,8 @@ public sealed class MappingOverlay : Overlay
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
 
+    private readonly SpriteSystem _sprite;
+
     // 1 off in case something else uses these colors since we use them to compare
     private static readonly Color PickColor = new(1, 255, 0);
     private static readonly Color DeleteColor = new(255, 1, 0);
@@ -30,6 +38,8 @@ public sealed class MappingOverlay : Overlay
     {
         IoCManager.InjectDependencies(this);
 
+        _sprite = _entities.System<SpriteSystem>();
+
         _state = state;
         _shader = _prototypes.Index<ShaderPrototype>("unshaded").Instance();
     }
@@ -42,7 +52,7 @@ public sealed class MappingOverlay : Overlay
                 continue;
 
             if (sprite.Color == DeleteColor || sprite.Color == PickColor)
-                sprite.Color = color;
+                _sprite.SetColor((id, sprite), color);
         }
 
         _oldColors.Clear();
@@ -61,7 +71,7 @@ public sealed class MappingOverlay : Overlay
                     _entities.TryGetComponent(entity, out SpriteComponent? sprite))
                 {
                     _oldColors[entity] = sprite.Color;
-                    sprite.Color = PickColor;
+                    _sprite.SetColor((entity, sprite), PickColor);
                 }
 
                 break;
@@ -72,7 +82,7 @@ public sealed class MappingOverlay : Overlay
                     _entities.TryGetComponent(entity, out SpriteComponent? sprite))
                 {
                     _oldColors[entity] = sprite.Color;
-                    sprite.Color = DeleteColor;
+                    _sprite.SetColor((entity, sprite), DeleteColor);
                 }
 
                 break;

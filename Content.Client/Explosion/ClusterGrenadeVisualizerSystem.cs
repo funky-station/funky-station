@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 Aexxie <codyfox.077@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Explosion;
 using Content.Shared.Explosion.Components;
 using Robust.Client.GameObjects;
@@ -12,6 +18,6 @@ public sealed class ClusterGrenadeVisualizerSystem : VisualizerSystem<ClusterGre
             return;
 
         if (AppearanceSystem.TryGetData<int>(uid, ClusterGrenadeVisuals.GrenadesCounter, out var grenadesCounter, args.Component))
-            args.Sprite.LayerSetState(0, $"{comp.State}-{grenadesCounter}");
+            SpriteSystem.LayerSetRsiState((uid, args.Sprite), 0, $"{comp.State}-{grenadesCounter}");
     }
 }

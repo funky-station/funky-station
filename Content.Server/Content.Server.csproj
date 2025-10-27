@@ -1,3 +1,40 @@
+<!--
+SPDX-FileCopyrightText: 2018 Acruid <shatter66@gmail.com>
+SPDX-FileCopyrightText: 2018 Centronias <Centronias@users.noreply.github.com>
+SPDX-FileCopyrightText: 2018 PJB3005 <pieterjan.briers@gmail.com>
+SPDX-FileCopyrightText: 2018 Víctor Aguilera Puerto <ZDDM@users.noreply.github.com>
+SPDX-FileCopyrightText: 2018 clusterfack <8516830+clusterfack@users.noreply.github.com>
+SPDX-FileCopyrightText: 2018 clusterfack <clusterfack@users.noreply.github.com>
+SPDX-FileCopyrightText: 2019 Injazz <43905364+Injazz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2019 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+SPDX-FileCopyrightText: 2019 PrPleGoo <PrPleGoo@users.noreply.github.com>
+SPDX-FileCopyrightText: 2019 ScumbagDog <33865465+ScumbagDog@users.noreply.github.com>
+SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
+SPDX-FileCopyrightText: 2020 DamianX <DamianX@users.noreply.github.com>
+SPDX-FileCopyrightText: 2020 Paul <ritter.paul1+git@googlemail.com>
+SPDX-FileCopyrightText: 2020 Tyler Young <tyler.young@impromptu.ninja>
+SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
+SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
+SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
+SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <!-- Work around https://github.com/dotnet/project-system/issues/4314 -->
@@ -27,8 +64,26 @@
     <ProjectReference Include="..\Content.Shared\Content.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources\Prototypes\Actions\" />
+    <Folder Include="Resources\Prototypes\Store\" />
     <Folder Include="_DV\StationEvents\Components\" />
     <Folder Include="_DV\StationEvents\Events\" />
+    <Folder Include="_Funkystation\MalfAI\Components\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="MalfAI\MalfAiApcSiphonedComponent.cs" />
+    <Compile Remove="_Funkystation\Factory\Systems\MalfAiRoboticsFactorySystem.cs" />
+    <Compile Remove="MalfAI\MalfAiCameraNetworkUpgradeSystem.cs" />
+    <Compile Remove="Audio\OggDurationHelper.cs" />
+    <Compile Remove="Objectives\Components\MalfAiControlBorgsObjectiveComponent.cs" />
+    <Compile Remove="Objectives\Components\MalfAiSabotageObjectiveComponent.cs" />
+    <Compile Remove="MalfAI\MalfAiShopSystem.cs" />
+    <Compile Remove="_Funkystation\MalfAI\Systems\MalfAiAntagInfoSystem.cs" />
+    <Compile Remove="SurveillanceCamera\SurveillanceCameraMicrophoneComponent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\Prototypes\Store\malf_ai.yml" />
+    <None Remove="Resources\Prototypes\Actions\malf_ai.yml" />
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
 </Project>

@@ -1,3 +1,23 @@
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Repo <47093363+Titian3@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
+// SPDX-FileCopyrightText: 2024 J. Brown <DrMelon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Client.MalfAI;
 using Content.Shared.Store;
 using JetBrains.Annotations;
 using System.Linq;
@@ -21,6 +41,8 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
     [ViewVariables]
     private HashSet<ListingData> _listings = new();
 
+    private static readonly ProtoId<CurrencyPrototype> CpuCurrencyId = "CPU";
+
     public StoreBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
     }
@@ -29,9 +51,22 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _menu = this.CreateWindow<StoreMenu>();
         if (EntMan.TryGetComponent<StoreComponent>(Owner, out var store))
-            _menu.Title = Loc.GetString(store.Name);
+        {
+            if (store.CurrencyWhitelist.Contains(CpuCurrencyId))
+            {
+                // Removed call to open Malf AI store window here to prevent duplicate/empty window.
+                return;
+            }
+        }
+
+        _menu = this.CreateWindow<StoreMenu>();
+        if (EntMan.TryGetComponent<StoreComponent>(Owner, out var store2))
+        {
+            _menu.Title = Loc.GetString(store2.Name);
+            if (store2.CurrencyWhitelist.Contains(CpuCurrencyId))
+                _menu.ApplyMalfTheme();
+        }
 
         _menu.OnListingButtonPressed += (_, listing) =>
         {
@@ -70,6 +105,11 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
                 _listings = msg.Listings;
 
                 _menu?.UpdateBalance(msg.Balance);
+                if (_menu != null)
+                {
+                    if (msg.Balance.ContainsKey(CpuCurrencyId))
+                        _menu.ApplyMalfTheme();
+                }
                 UpdateListingsWithSearchFilter();
                 _menu?.SetFooterVisibility(msg.ShowFooter);
                 _menu?.UpdateRefund(msg.AllowRefund);

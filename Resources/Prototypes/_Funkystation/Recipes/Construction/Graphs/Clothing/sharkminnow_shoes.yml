@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Binbag <124107163+Binbagg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: constructionGraph
   id: SharkminnowShoes
   start: start
@@ -6,7 +12,7 @@
     edges:
     - to: sharkminnowShoes
       steps:
-        - material: SharkminnowChitin
+        - material: CarpScale
           amount: 15
           doAfter: 8
         - tag: Magboots

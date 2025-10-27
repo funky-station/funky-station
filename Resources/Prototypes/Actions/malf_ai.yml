@@ -1,0 +1,241 @@
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+# SPDX-FileCopyrightText: 2025 YourName
+#
+# SPDX-License-Identifier: MIT
+
+# Note: This file exists in the root Resources to ensure the server content pack
+# loads the viewport pack prototype used by the store listing.
+
+# Bundle: Viewport actions (Set + Open)
+# Place viewport action
+- type: entity
+  id: ActionMalfAiSetViewport
+  name: malfai-viewport-place-name
+  description: malfai-viewport-place-desc
+  components:
+  - type: WorldTargetAction
+    itemIconStyle: BigAction
+    priority: -5
+    useDelay: 30
+    checkCanAccess: false
+    range: 99999
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_placeviewport
+    event: !type:MalfAiSetViewportActionEvent
+
+# Open viewport action
+- type: entity
+  id: ActionMalfAiOpenViewport
+  name: malfai-viewport-open-name
+  description: malfai-viewport-open-desc
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    priority: -5
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_openviewport
+    event: !type:MalfAiOpenViewportActionEvent
+
+
+# Malf AI: required action entities for rule startup
+- type: entity
+  id: ActionMalfAiOpenStore
+  name: malfai-open-store-name
+  description: malfai-open-store-desc
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_shop
+    event: !type:OpenMalfAiStoreActionEvent
+
+- type: entity
+  id: ActionMalfAiOpenBorgsUi
+  name: malfai-open-borgs-ui-name
+  description: malfai-open-borgs-ui-desc
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    priority: -10
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_borgs
+    event: !type:OpenMalfAiBorgsUiActionEvent
+
+
+# New: Doomsday Protocol (AI-only)
+- type: entity
+  id: ActionMalfAiDoomsday
+  name: malfai-doomsday-name
+  description: malfai-doomsday-desc
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    priority: -5
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_doomsday
+    event: !type:MalfAiDoomsdayActionEvent
+
+# New: Robotics Factory (AI-only)
+- type: entity
+  id: ActionMalfAiRoboticsFactory
+  name: malfai-robotics-factory-name
+  description: malfai-robotics-factory-desc
+  components:
+  - type: WorldTargetAction
+    itemIconStyle: BigAction
+    priority: -5
+    checkCanAccess: false
+    range: 99999
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_factory
+    event: !type:MalfAiRoboticsFactoryActionEvent
+
+# Shunt to APC action
+- type: entity
+  id: ActionMalfAiShuntToApc
+  name: malfai-shunt-to-apc-name
+  description: malfai-shunt-to-apc-desc
+  components:
+  - type: EntityTargetAction
+    itemIconStyle: BigAction
+    priority: -5
+    checkCanAccess: false
+    range: 99999
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_shunttoapc
+    event: !type:MalfAiShuntToApcActionEvent
+
+# Voice Modulator action
+- type: entity
+  id: ActionMalfAiVoiceModulator
+  name: malfai-voice-modulator-name
+  description: malfai-voice-modulator-desc
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    priority: -5
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_voicemodulator
+    event: !type:MalfAiVoiceModulatorActionEvent
+
+# Return to Core action (used for shunt and mech hijack)
+- type: entity
+  id: ActionMalfAiReturnToCore
+  name: malfai-return-to-core-name
+  description: malfai-return-to-core-desc
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    priority: -5
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_returntocore
+    event: !type:MalfAiReturnToCoreActionEvent
+
+# Overload Machine action
+- type: entity
+  id: ActionMalfAiOverloadMachine
+  name: malfai-overload-machine-name
+  description: malfai-overload-machine-desc
+  components:
+  - type: WorldTargetAction
+    itemIconStyle: BigAction
+    priority: -5
+    checkCanAccess: false
+    range: 99999
+    charges: 2
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_overloadmachine
+    event: !type:MalfAiOverloadMachineActionEvent
+
+# Hijack Mech action
+- type: entity
+  id: ActionMalfAiHijackMech
+  name: malfai-hijack-mech-name
+  description: malfai-hijack-mech-desc
+  components:
+  - type: EntityTargetAction
+    itemIconStyle: BigAction
+    priority: -5
+    checkCanInteract: false
+    checkCanAccess: false
+    range: 99999
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_mech
+    event: !type:MalfAiHijackMechActionEvent
+
+- type: entity
+  id: ActionMalfAiOverrideMachine
+  name: malfai-action-override-machine-name
+  description: malfai-action-override-machine-desc
+  components:
+  - type: WorldTargetAction
+    itemIconStyle: BigAction
+    priority: -5
+    checkCanAccess: false
+    range: 99999
+    charges: 2
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_overridemachine
+    event: !type:MalfAiOverrideMachineActionEvent
+
+
+# Detonate RCDs action
+- type: entity
+  id: ActionMalfAiDetonateRCDs
+  name: malfai-detonate-rcds-name
+  description: malfai-detonate-rcds-desc
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    priority: -5
+    charges: 1
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_detonatercd
+    event: !type:MalfAiDetonateRcdsActionEvent
+
+# Lockdown Grid action
+- type: entity
+  id: ActionMalfAiLockdownGrid
+  name: malfai-lockdown-grid-name
+  description: malfai-lockdown-grid-desc
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    priority: -5
+    charges: 1
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_lockdowngrid
+    event: !type:MalfAiLockdownGridActionEvent
+
+# Gyroscope action
+- type: entity
+  id: ActionMalfAiGyroscope
+  name: malfai-gyroscope-name
+  description: malfai-gyroscope-desc
+  components:
+  - type: WorldTargetAction
+    itemIconStyle: BigAction
+    priority: -5
+    useDelay: 3
+    checkCanAccess: false
+    range: 5
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_gyroscope
+    event: !type:MalfAiGyroscopeActionEvent
+

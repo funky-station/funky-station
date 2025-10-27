@@ -1,3 +1,16 @@
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Shared.Jittering;
 using Robust.Client.Animations;
@@ -10,6 +23,7 @@ namespace Content.Client.Jittering
     {
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
+        [Dependency] private readonly SpriteSystem _sprite = default!;
 
         private readonly float[] _sign = { -1, 1 };
         private readonly string _jitterAnimationKey = "jittering";
@@ -40,12 +54,12 @@ namespace Content.Client.Jittering
                 _animationPlayer.Stop(uid, animationPlayer, _jitterAnimationKey);
 
             if (TryComp(uid, out SpriteComponent? sprite))
-                sprite.Offset = jittering.StartOffset;
+                _sprite.SetOffset((uid, sprite), jittering.StartOffset);
         }
 
         private void OnAnimationCompleted(EntityUid uid, JitteringComponent jittering, AnimationCompletedEvent args)
         {
-            if(args.Key != _jitterAnimationKey)
+            if (args.Key != _jitterAnimationKey)
                 return;
 
             if (!args.Finished)
@@ -59,7 +73,7 @@ namespace Content.Client.Jittering
         private Animation GetAnimation(JitteringComponent jittering, SpriteComponent sprite)
         {
             var amplitude = MathF.Min(4f, jittering.Amplitude / 100f + 1f) / 10f;
-            var offset = new Vector2(_random.NextFloat(amplitude/4f, amplitude),
+            var offset = new Vector2(_random.NextFloat(amplitude / 4f, amplitude),
                 _random.NextFloat(amplitude / 4f, amplitude / 3f));
 
             offset.X *= _random.Pick(_sign);

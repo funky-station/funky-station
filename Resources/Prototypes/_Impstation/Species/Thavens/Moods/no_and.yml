@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
+# SPDX-FileCopyrightText: 2025 Aurelai <81323207+ItsAurelai@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ItsAurelai <81323207+ItsAurelai@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 emmawantsblahaj <coolbloxxie@yahoo.com.au>
+# SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 # "No, and" moods will discourage players from certain behaviors and objects
 
 # Make sure to add new moods to this dataset or they will not be selected!!!!!!
@@ -10,7 +20,7 @@
   - DontSpeakToCommand
   - DisapproveOfDrugs
   - ExcessivelyDisorganized
-  - DetestSilicons
+  # - DetestSilicons # this mood has been causing some instances of speciesism recently
   - DinnerFloor
   - HugBad
   - Atheist
@@ -213,6 +223,8 @@
   moodDesc: thaven-mood-hardsuits-bad-desc
   moodVars:
     clothes: MoodClothes
+  conflicts:
+    - HardsuitsGood
 
 # Hats and helmets make your hair look bad. You cannot wear them.
 - type: thavenMood
@@ -315,7 +327,7 @@
   moodDesc: thaven-mood-elevated-desc
   conflicts:
   - Crawler
-  
+
 # Iron, steel, and silver are deathly poisonous to you. Touching them directly will cause you extreme physical pain.
 - type: thavenMood
   id: Fairy
@@ -335,7 +347,6 @@
   id: AfraidDark
   moodName: thaven-mood-afraiddark-name
   moodDesc: thaven-mood-afraiddark-desc
-
 
 # [ITEM]s are an abomination. You must avoid them at all costs, and destroy them if necessary.
 #- type: thavenMood

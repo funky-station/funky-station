@@ -1,5 +1,16 @@
+# SPDX-FileCopyrightText: 2025 PWJDM <158008238+PWJDM@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
+# SPDX-FileCopyrightText: 2025 empty0set <16693552+empty0set@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 empty0set <empty0set@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 trait-funky-name = Funky Accent
 trait-funky-desc = Put some funky flair on your inflections.
+
+trait-scandinavian-name = Scandinavian accent
+trait-scandinavian-desc = You sound like you come from some nondescript northern European nation. Or you're a Viking!
 
 trait-extra-lightweight-name = Extreme Lightweight
 trait-extra-lightweight-desc = You are the lightest of lightweights. Even a shot will hit you the same as a glass.
@@ -42,3 +53,6 @@ trait-lizard-dragger-desc = You can drag objects without an open hand, like Liza
 
 trait-acrobat-name = Acrobat
 trait-acrobat-desc = You move much faster in low-gravity, similar to a moth.
+
+trait-nitrogen-breathing-name = Oxygen Allergy
+trait-nitrogen-breathing-desc = You seem to have Vox relatives. Oxygen poisons you. Mask and nitrogen tank included.

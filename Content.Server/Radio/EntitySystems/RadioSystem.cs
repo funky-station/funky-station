@@ -1,3 +1,34 @@
+// SPDX-FileCopyrightText: 2020 Bright0 <55061890+Bright0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 adamsong <adamsong@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 SkaldetSkaeg <impotekh@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Carrot <carpecarrot@gmail.com>
+// SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ecramox <65426878+Ecramox@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 PurpleTranStar <purpletranstars@gmail.com>
+// SPDX-FileCopyrightText: 2025 PurpleTranStar <tehevilduckiscoming@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
@@ -7,6 +38,7 @@ using Content.Shared.Database;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Content.Shared.Speech;
+using Content.Shared.Silicons.Laws.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -45,7 +77,7 @@ public sealed class RadioSystem : EntitySystem
 
     private void OnIntrinsicSpeak(EntityUid uid, IntrinsicRadioTransmitterComponent component, EntitySpokeEvent args)
     {
-        if (args.Channel != null && component.Channels.Contains(args.Channel.ID))
+        if (args.Channel != null && CanTalkChannel(uid, args.Channel.ID))
         {
             SendRadioMessage(uid, args.Message, args.Channel, uid);
             args.Channel = null; // prevent duplicate messages from other listeners.
@@ -126,7 +158,7 @@ public sealed class RadioSystem : EntitySystem
         {
             if (!radio.ReceiveAllChannels)
             {
-                if (!radio.Channels.Contains(channel.ID) || (TryComp<IntercomComponent>(receiver, out var intercom) &&
+                if (!CanListenChannel(receiver, channel.ID) || (TryComp<IntercomComponent>(receiver, out var intercom) &&
                                                              !intercom.SupportedChannels.Contains(channel.ID)))
                     continue;
             }
@@ -144,6 +176,10 @@ public sealed class RadioSystem : EntitySystem
             RaiseLocalEvent(ref attemptEv);
             RaiseLocalEvent(receiver, ref attemptEv);
             if (attemptEv.Cancelled)
+                continue;
+
+            // Imp original - edited to correct behavior for IPCs and Silicons
+            if (channel.IntercomOnly && !(HasComp<IntercomComponent>(radioSource) || HasComp<IntercomOnlyBypassComponent>(radioSource)))
                 continue;
 
             // send the message
@@ -172,6 +208,21 @@ public sealed class RadioSystem : EntitySystem
                 return true;
             }
         }
+        return false;
+    }
+
+    private bool CanTalkChannel(EntityUid uid, string channelId){
+        if (TryComp<IntrinsicRadioTransmitterComponent>(uid, out var intrinsicTransmitter) && (intrinsicTransmitter.IntrinsicChannels.Contains(channelId) || intrinsicTransmitter.Channels.Contains(channelId)))
+            return true;
+
+        return false;
+    }
+
+    private bool CanListenChannel(EntityUid uid, string channelId){
+
+        if (TryComp<ActiveRadioComponent>(uid, out var activeRadio) && (activeRadio.IntrinsicChannels.Contains(channelId) || activeRadio.Channels.Contains(channelId)))
+            return true;
+
         return false;
     }
 }

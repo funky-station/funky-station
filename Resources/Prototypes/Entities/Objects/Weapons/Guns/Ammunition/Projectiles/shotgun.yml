@@ -1,6 +1,45 @@
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 py01 <pyronetics01@gmail.com>
+# SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
+# SPDX-FileCopyrightText: 2022 Charlese2 <knightside@hotmail.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2022 ScalyChimp <72841710+scaly-chimp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <gradientvera@outlook.com>
+# SPDX-FileCopyrightText: 2022 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Admiral-Obvious-001 <89495925+Admiral-Obvious-001@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 MendaxxDev <153332064+MendaxxDev@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 kerisargit <108146620+kerisargit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 vanx <61917534+Vaaankas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 vanx <vanx#5477>
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 FungiFellow <151778459+FungiFellow@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   id: PelletShotgunSlug
-  name: pellet (.50 slug)
+  name: pellet (12 gauge slug)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -14,7 +53,7 @@
 
 - type: entity
   id: PelletShotgunBeanbag
-  name: beanbag (.50)
+  name: beanbag (12 gauge beanbag)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -30,7 +69,7 @@
 
 - type: entity
   id: PelletShotgun
-  name: pellet (.50)
+  name: pellet (12 gauge pellet)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -54,7 +93,7 @@
 
 - type: entity
   id: PelletShotgunIncendiary
-  name: pellet (.50 incendiary)
+  name: pellet (12 gauge incendiary)
   categories: [ HideSpawnMenu ]
   parent: BaseBulletIncendiary
   components:
@@ -81,7 +120,7 @@
 
 - type: entity
   id: PelletShotgunPractice
-  name: pellet (.50 practice)
+  name: pellet (12 gauge practice)
   categories: [ HideSpawnMenu ]
   parent: BaseBulletPractice
   components:
@@ -130,7 +169,7 @@
 
 - type: entity
   id: PelletShotgunTranquilizer
-  name: pellet (.50 tranquilizer)
+  name: pellet (12 gauge tranquilizer)
   categories: [ HideSpawnMenu ]
   parent: BaseBulletPractice
   components:
@@ -157,7 +196,7 @@
 
 - type: entity
   id: PelletShotgunFlare
-  name: pellet (.50 flare)
+  name: pellet (12 gauge flare)
   categories: [ HideSpawnMenu ]
   components:
   - type: Physics
@@ -204,7 +243,7 @@
 
 - type: entity
   id: PelletShotgunUranium
-  name: pellet (.50 uranium)
+  name: pellet (12 gauge uranium)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:

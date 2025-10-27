@@ -1,3 +1,21 @@
+// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Rotation;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
@@ -12,6 +30,7 @@ internal sealed class BuckleSystem : SharedBuckleSystem
     [Dependency] private readonly RotationVisualizerSystem _rotationVisualizerSystem = default!;
     [Dependency] private readonly IEyeManager _eye = default!;
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -59,11 +78,11 @@ internal sealed class BuckleSystem : SharedBuckleSystem
             {
                 // This will only assign if empty, it won't get overwritten by new depth on multiple calls, which do happen easily
                 buckle.OriginalDrawDepth ??= buckledSprite.DrawDepth;
-                buckledSprite.DrawDepth = strapSprite.DrawDepth - 1;
+                _sprite.SetDrawDepth((buckledEntity, buckledSprite), strapSprite.DrawDepth - 1);
             }
             else if (buckle.OriginalDrawDepth.HasValue)
             {
-                buckledSprite.DrawDepth = buckle.OriginalDrawDepth.Value;
+                _sprite.SetDrawDepth((buckledEntity, buckledSprite), buckle.OriginalDrawDepth.Value);
                 buckle.OriginalDrawDepth = null;
             }
         }
@@ -87,7 +106,7 @@ internal sealed class BuckleSystem : SharedBuckleSystem
             return;
 
         ent.Comp.OriginalDrawDepth ??= buckledSprite.DrawDepth;
-        buckledSprite.DrawDepth = strapSprite.DrawDepth - 1;
+        _sprite.SetDrawDepth((ent.Owner, buckledSprite), strapSprite.DrawDepth - 1);
     }
 
     /// <summary>
@@ -101,7 +120,7 @@ internal sealed class BuckleSystem : SharedBuckleSystem
         if (!ent.Comp.OriginalDrawDepth.HasValue)
             return;
 
-        buckledSprite.DrawDepth = ent.Comp.OriginalDrawDepth.Value;
+        _sprite.SetDrawDepth((ent.Owner, buckledSprite), ent.Comp.OriginalDrawDepth.Value);
         ent.Comp.OriginalDrawDepth = null;
     }
 

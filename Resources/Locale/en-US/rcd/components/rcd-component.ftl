@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2024 August Eymann <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Minerva <218184747+mnva0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 
 ### UI
 
@@ -33,8 +45,8 @@ rcd-component-cannot-build-identical-tile = That tile already exists there!
 
 ### Category names
 
-rcd-component-walls-and-flooring = Walls and flooring
-rcd-component-windows-and-grilles = Windows and grilles
+rcd-component-walls-and-flooring = Walls & Flooring
+rcd-component-windows-and-grilles = Windows & Grilles
 rcd-component-airlocks = Airlocks
 rcd-component-electrical = Electrical
 rcd-component-lighting = Lighting
@@ -42,6 +54,7 @@ rcd-component-piping = Piping
 rcd-component-atmosphericutility = Atmospheric Utility
 rcd-component-pumpsvalves = Pumps & Valves
 rcd-component-vents = Vents
+rcd-component-sensorsmonitors = Sensors & Monitors
 
 
 ### Prototype names (note: constructable items will be puralized)

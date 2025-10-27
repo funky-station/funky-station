@@ -1,0 +1,45 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: cargoProduct
+  id: FultonSupplies
+  icon:
+    sprite: Objects/Tools/fulton.rsi
+    state: extraction_pack
+  product: CrateFultonSupplies
+  cost: 1000
+  category: cargoproduct-category-name-cargo
+  group: market
+
+- type: cargoProduct
+  id: SalvageEquipment
+  icon:
+    sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
+    state: icon
+  product: CrateSalvageEquipment
+  cost: 7500
+  category: cargoproduct-category-name-cargo
+  group: market
+
+- type: cargoProduct
+  id: MailcartOrder
+  icon:
+    sprite: _Funkystation/Objects/Specific/Mail/mail_small.rsi
+    state: icon
+  product: MailCart
+  cost: 2500
+  category: cargoproduct-category-name-cargo
+  group: market
+
+- type: cargoProduct
+  id: CargoCartOrder
+  icon:
+    sprite: _Funkystation/Objects/Specific/Cargo/cardboard_box.rsi
+    state: bigbox
+  product: CargoCart
+  cost: 2500
+  category: cargoproduct-category-name-cargo
+  group: market

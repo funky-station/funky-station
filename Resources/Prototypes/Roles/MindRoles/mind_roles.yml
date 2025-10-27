@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+# SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 - type: entity
   id: BaseMindRole
   name: Mind Role
@@ -308,7 +318,7 @@
   - type: MindRole
     antagPrototype: Changeling
     exclusiveAntag: true
-    roleType: SoloAntagonist
+    roleType: TeamAntagonist
   - type: ChangelingRole
 
 - type: entity
@@ -333,3 +343,15 @@
     roleType: TeamAntagonist
   - type: MindcontrolledRole
 # goob edit end
+
+# Malfunctioning AI
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleMalfAi
+  name: Malfunctioning AI Role
+  components:
+  - type: MindRole
+    antagPrototype: MalfunctioningAI
+    exclusiveAntag: true
+    roleType: MalfunctioningSilicon
+  - type: MalfAiRole

@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: CrateHydroponicsChemicals 
+  parent: CrateHydroSecure
+  name: botanical chemicals crate 
+  description: Any entrepreneuring botanist's dream. Contains many botanical chemicals. Requires Hydroponics access to open.
+  components:
+  - type: StorageFill
+    contents:
+      - id: DiethylamineChemistryBottle
+        amount: 4
+      - id: EZNutrientChemistryBottle
+        amount: 4
+      - id: RobustHarvestChemistryBottle
+        amount: 2
+      - id: Left4ZedChemistryBottle
+        amount: 4
+      - id: UnstableMutagenChemistryBottle
+        amount: 4
+      - id: SedinChemistryBottle
+        amount: 2
+      - id: CryoxadoneChemistryBottle
+        amount: 2
+      - id: PhalanximineChemistryBottle
+        amount: 2

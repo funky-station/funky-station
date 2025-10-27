@@ -1,3 +1,31 @@
+// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
+// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 Zoldorf <silvertorch5@gmail.com>
+// SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Gorox221 <139872389+Gorox221@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
+// SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Mech.Components;
@@ -23,6 +51,8 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Content.Shared.Whitelist;
+using Content.Server.Chat.Systems;
+using Content.Shared.Silicons.StationAi;
 
 namespace Content.Server.Mech.Systems;
 
@@ -39,6 +69,7 @@ public sealed partial class MechSystem : SharedMechSystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly SharedToolSystem _toolSystem = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -313,6 +344,36 @@ public sealed partial class MechSystem : SharedMechSystem
 
     public override void BreakMech(EntityUid uid, MechComponent? component = null)
     {
+        // Funky edit, handle destruction of malf AI shunted brains on destruction
+        if (!Resolve(uid, ref component))
+            return;
+
+        // Check for AI brain in pilot slot BEFORE calling base.BreakMech (which ejects the pilot)
+        var pilotSlot = component.PilotSlot;
+        if (pilotSlot.ContainedEntity != null)
+        {
+            var pilotEntity = pilotSlot.ContainedEntity.Value;
+
+            // Check if it's an AI brain either by component or prototype
+            var hasStationAiHeld = HasComp<StationAiHeldComponent>(pilotEntity);
+            var isStationAiBrainProto = false;
+            if (TryComp<MetaDataComponent>(pilotEntity, out var meta) && meta.EntityPrototype != null)
+            {
+                isStationAiBrainProto = meta.EntityPrototype.ID == "StationAiBrain";
+            }
+
+            if (hasStationAiHeld || isStationAiBrainProto)
+            {
+                // Make station announcement about AI destruction
+                var msg = Loc.GetString("ai-destroyed-announcement");
+                _chatSystem.DispatchStationAnnouncement(uid, msg, playDefaultSound: true);
+
+                // Delete the AI brain
+                QueueDel(pilotEntity);
+            }
+        }
+        // End funky edit
+
         base.BreakMech(uid, component);
 
         _ui.CloseUi(uid, MechUiKey.Key);

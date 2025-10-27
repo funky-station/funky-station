@@ -1,3 +1,18 @@
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 #nullable enable
 using System.Linq;
 using Robust.Client.GameObjects;
@@ -16,6 +31,7 @@ namespace Content.IntegrationTests.Tests
             var client = pair.Client;
             var prototypeManager = client.ResolveDependency<IPrototypeManager>();
             var resourceCache = client.ResolveDependency<IResourceCache>();
+            var spriteSys = client.System<SpriteSystem>();
 
             await client.WaitAssertion(() =>
             {
@@ -26,7 +42,7 @@ namespace Content.IntegrationTests.Tests
 
                     Assert.DoesNotThrow(() =>
                     {
-                        var _ = SpriteComponent.GetPrototypeTextures(proto, resourceCache).ToList();
+                        var _ = spriteSys.GetPrototypeTextures(proto).ToList();
                     }, "Prototype {0} threw an exception when getting its textures.",
                         proto.ID);
                 }

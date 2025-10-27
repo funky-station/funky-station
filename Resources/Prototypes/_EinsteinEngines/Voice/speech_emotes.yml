@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+# SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -28,6 +29,7 @@
     - HarpyEmotes
     components:
     - BorgChassis
+    - PAI
   category: Vocal
   chatMessages: [ boops ]
   chatTriggers:

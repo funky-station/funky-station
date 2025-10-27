@@ -37,6 +37,7 @@
 # SPDX-FileCopyrightText: 2024 Джексон Миссиссиппи <tripwiregamer@gmail.com>
 # SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
@@ -121,10 +122,10 @@
   - type: GroupExamine
 
 - type: entity
-  parent: ClothingOuterArmorBase
+  parent: [ClothingOuterBaseLarge, AllowBackStorageClothingCombat, BaseSecurityContraband]
   id: ClothingOuterArmorBulletproof
-  name: bulletproof vest
-  description: A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
+  name: bulletproof suit
+  description: A Type III heavy bulletproof suit that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/bulletproof.rsi
@@ -133,8 +134,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
+        Blunt: 0.7
+        Slash: 0.7
         Piercing: 0.4
         Heat: 0.9
   - type: ExplosionResistance

@@ -32,6 +32,7 @@
     RemoteSignaller: 3
     Igniter: 3 # its more ordnance but yeah
     HandheldHealthAnalyzer: 3
+    Oilpack: 3
     Scalpel: 2
     SawElectric: 2
     #Bonesetter: 2 add when robotics

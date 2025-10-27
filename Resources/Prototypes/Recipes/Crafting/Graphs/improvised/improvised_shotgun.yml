@@ -11,11 +11,8 @@
     edges:
     - to: shotgun
       steps:
-      - tag: Pipe
-        icon:
-          sprite: Structures/Piping/Atmospherics/pipe.rsi
-          state: pipeStraight
-        name: pipe
+      - material: Steel
+        amount: 2
       - tag: ModularReceiver
         icon:
           sprite: Objects/Misc/modular_receiver.rsi

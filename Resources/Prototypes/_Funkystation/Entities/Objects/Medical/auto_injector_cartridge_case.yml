@@ -49,8 +49,9 @@
     sprite: _Funkystation/Objects/Medical/auto_injector_cartridge_case.rsi
     size: Large
   - type: Storage
+    maxItemSize: Small
     grid:
-    - 0,0,3,1
+    - 0,0,1,1
   - type: PhysicalComposition
     materialComposition:
       Plastic: 300

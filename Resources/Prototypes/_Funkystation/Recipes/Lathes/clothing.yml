@@ -1,0 +1,28 @@
+- type: latheRecipe
+  id: ApronBartender
+  result: ClothingOuterApronBar
+  completetime: 3
+  materials:
+    Cloth: 200
+
+- type: latheRecipe
+  id: ApronHydroponics
+  result: ClothingOuterApronBotanist
+  completetime: 3
+  materials:
+    Cloth: 200
+
+- type: latheRecipe
+  id: ApronChef
+  result: ClothingOuterApronChef
+  completetime: 3
+  materials:
+    Cloth: 200
+
+- type: latheRecipe
+  id: MedHUD
+  result: ClothingEyesHudMedical
+  completetime: 3
+  materials:
+    Steel: 300
+    Glass: 200

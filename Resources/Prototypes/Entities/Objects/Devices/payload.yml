@@ -60,6 +60,9 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Tag
+    tags:
+    - ExplosivePayload
 
 - type: entity
   name: chemical payload
@@ -112,3 +115,6 @@
     - type: EmitSoundOnTrigger
       sound:
         path: "/Audio/Effects/flash_bang.ogg"
+    - type: Tag
+      tags:
+      - FlashPayload

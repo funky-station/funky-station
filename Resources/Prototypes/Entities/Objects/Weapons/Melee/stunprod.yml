@@ -25,9 +25,9 @@
   id: Stunprod
   description: A stun prod for illegal incapacitation.
   components:
-  - type: Tag # goob edit
+  - type: Tag 
     tags:
-    - Stunbaton
+    - MakeshiftStunprod
   - type: Sprite
     sprite: Objects/Weapons/Melee/stunprod.rsi
     layers:

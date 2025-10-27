@@ -1,0 +1,25 @@
+- type: latheRecipe
+  id: MedHUD
+  result: ClothingEyesHudMedical
+  completetime: 3
+  materials:
+    Steel: 300
+    Glass: 200
+
+- type: latheRecipe
+  id: CompactDefib
+  result: DefibrillatorCompactEmpty
+  completetime: 3
+  materials:
+    Steel: 500
+    Plastic: 300
+    Silver: 100
+    Plasma: 200    
+
+- type: latheRecipe
+  id: Vial
+  result: BaseChemistryEmptyVial
+  completetime: 1
+  materials:
+    Glass: 50
+    

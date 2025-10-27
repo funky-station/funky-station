@@ -91,3 +91,6 @@
   - type: Construction
     graph: scraparmor
     node: scrapArmor
+  - type: Tag
+    tags:
+    - ScrapArmor

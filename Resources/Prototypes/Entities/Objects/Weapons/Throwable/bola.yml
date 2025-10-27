@@ -42,6 +42,9 @@
     staminaDamage: 25 # Sudden weight increase sapping stamina
     canThrowTrigger: true
     canMoveBreakout: true
+  - type: Tag
+    tags:
+    - MakeshiftBola
 
 - type: entity
   name: bola

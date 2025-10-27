@@ -401,6 +401,9 @@
     speed: 1.5
   - type: Drill
     speed: 1.5
+  - type: Tag
+    tags:
+    - AdvancedSurgeryTool
 
 - type: entity
   name: energy scalpel
@@ -432,6 +435,10 @@
     speed: 1.5
   - type: BoneSaw
     speed: 1.5
+  - type: Tag
+    tags:
+    - AdvancedSurgeryTool
+
 
 - type: entity
   name: mechanical pinches
@@ -467,6 +474,9 @@
     speed: 1.5
   - type: Tending
     speed: 1.5
+  - type: Tag
+    tags:
+    - AdvancedSurgeryTool
 
 - type: entity
   name: medical multitool
@@ -501,6 +511,9 @@
     speed: 0.75  # funkystation
   - type: Tending
     speed: 0.75  # funkystation
+  - type: Tag
+    tags:
+    - AdvancedSurgeryTool
 
 - type: entity
   parent: [ OmnimedTool, BaseSyndicateContraband ]

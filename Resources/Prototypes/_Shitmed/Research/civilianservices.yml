@@ -27,6 +27,7 @@
   - EnergyCautery
   - AdvancedRetractor
   - BorgModuleAdvancedSurgery
+  - CompactDefib # Funky!
 
 - type: technology
   id: CyberneticEnhancements

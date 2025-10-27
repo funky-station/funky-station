@@ -137,6 +137,9 @@
     - type: Prying
       speedModifier: 1.5
       pryPowered: true
+  - type: Tag
+    tags:
+    - JWLArms
 
 - type: entity
   parent: RightArmCybernetic
@@ -149,6 +152,9 @@
     - type: Prying
       speedModifier: 1.5
       pryPowered: true
+  - type: Tag
+    tags:
+    - JWLArms
 
 - type: entity
   parent: LeftLegCybernetic
@@ -163,6 +169,9 @@
     onAdd:
     - type: NoSlip
     - type: ProtectedFromStepTriggers
+  - type: Tag
+    tags:
+    - SpeedLegs
 
 - type: entity
   parent: RightLegCybernetic
@@ -177,3 +186,6 @@
     onAdd:
     - type: NoSlip
     - type: ProtectedFromStepTriggers
+  - type: Tag
+    tags:
+    - SpeedLegs

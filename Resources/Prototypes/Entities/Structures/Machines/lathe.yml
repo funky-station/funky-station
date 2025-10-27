@@ -1200,7 +1200,7 @@
     - WeaponLaserCannon
     - WeaponLaserCarbine
     - WeaponXrayCannon
-    - WeaponLaserSvalinn # Funky Change 
+    - WeaponLaserSvalinn # Funky Change
     - SecurityCyberneticEyes # Shitmed Change
     - MedicalCyberneticEyes # Shitmed Change
     # Goobstation - Mechs
@@ -1368,6 +1368,8 @@
     - ParamedHypo # Goobstation - ParamedHypo
     - autoInjectorCartridgeCase
     - autoInjectorCartridgeCaseSoft
+    - MedHUD # Funky
+    - Vial # Funky
     dynamicRecipes:
     - ChemicalPayload
     - CryostasisBeaker
@@ -1381,6 +1383,7 @@
     - OmnimedTool
     - MedicalCyberneticEyes
     - ClothingEyesNightVisionMedicalGoggles # Funky - EE nightvision
+    - CompactDefib # Funky
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
@@ -1412,6 +1415,7 @@
     - ClothingUniformJumpskirtColorGrey
     - ClothingUniformJumpsuitBartender
     - ClothingUniformJumpskirtBartender
+    - ApronBartender # Funky Change
     - ClothingHeadHatCapcap
     - ClothingHeadHatCaptain
     - ClothingUniformJumpsuitCaptain
@@ -1430,6 +1434,7 @@
     - ClothingUniformJumpskirtChaplain
     - ClothingUniformJumpsuitChef
     - ClothingUniformJumpskirtChef
+    - ApronChef # Funky Change
     - ClothingUniformJumpsuitChemistry
     - ClothingUniformJumpskirtChemistry
     - ClothingUniformJumpsuitClown
@@ -1462,6 +1467,7 @@
     - ClothingUniformJumpskirtHoSParadeMale
     - ClothingUniformJumpsuitHydroponics
     - ClothingUniformJumpskirtHydroponics
+    - ApronHydroponics # Funky Change
     - ClothingUniformJumpsuitJanitor
     - ClothingUniformJumpskirtJanitor
     - ClothingUniformJumpsuitLawyerBlack
@@ -1757,15 +1763,15 @@
     materialUseMultiplier: 0.75
     timeMultiplier: 0.5
     staticRecipes:
-    # Funky Change, replaced with Industrial Procecor specific recipes 
+    # Funky Change, replaced with Industrial Procecor specific recipes
     #- IngotGold1
     #- IngotSilver1
     #- MaterialBananium1
-    #- MaterialDiamond    
+    #- MaterialDiamond
     #- SheetSteel
     #- SheetGlass1
-    #- SheetPlasma1    
-    #- SheetUranium1   
+    #- SheetPlasma1
+    #- SheetUranium1
     # Funky Recipe Start
     - SheetSteelIndustrial
     - SheetGlassIndustrial
@@ -1775,7 +1781,7 @@
     - SheetUraniumIndustrial
     - MaterialBananiumIndustrial
     - MaterialDiamondIndustrial
-    # Funky Recipe End 
+    # Funky Recipe End
     - SheetRGlassRaw
     - SheetPGlass1
     - SheetRPGlass1

@@ -64,6 +64,9 @@
   - type: Construction
     graph: FireBomb
     node: firebomb
+  - type: Tag
+    tags:
+    - FireBomb
 
 # has igniter but no fuel or wires
 - type: entity

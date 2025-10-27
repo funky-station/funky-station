@@ -163,6 +163,9 @@
   id: WoodenBuckler
   description: A small round wooden makeshift shield.
   components:
+    - type: Tag 
+      tags:
+      - WoodenBuckler    
     - type: Sprite
       state: buckler-icon
     - type: Item
@@ -212,12 +215,16 @@
     - type: StaticPrice
       price: 150
 
+
 - type: entity
   name: makeshift shield
   parent: BaseShield
   id: MakeshiftShield
   description: A rundown looking shield, not good for much.
   components:
+    - type: Tag 
+      tags:
+      - MakeshiftShield  
     - type: Sprite
       state: makeshift-icon
     - type: Item

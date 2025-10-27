@@ -31,14 +31,3 @@
     sprite: _Funkystation\Clothing\Head\Hoods\Coat\hoodntr.rsi
   - type: Clothing
     sprite: _Funkystation\Clothing\Head\Hoods\Coat\hoodntr.rsi
-
-- type: entity
-  parent: ClothingHeadHatHoodWinterBase
-  id: ClothingHeadHatHoodWinterSeniorCargo
-  categories: [ HideSpawnMenu ]
-  name: senior cargo tech winter coat hood
-  components:
-  - type: Sprite
-    sprite: _Funkystation\Clothing\Head\Hoods\Coat\hoodseniorcargo.rsi
-  - type: Clothing
-    sprite: _Funkystation\Clothing\Head\Hoods\Coat\hoodseniorcargo.rsi

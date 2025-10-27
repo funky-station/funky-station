@@ -16,5 +16,3 @@
     sprite: _Funkystation/Clothing/OuterClothing/WinterCoats/senior_cargo_winter_coat.rsi
   - type: Item
     size: Normal
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterSeniorCargo

@@ -1217,7 +1217,7 @@ entities:
       parent: 181
     - type: ApcPowerReceiver
       powerLoad: 0
-- proto: Rack
+- proto: CardboardBoxLarge
   entities:
   - uid: 27
     components:

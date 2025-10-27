@@ -25,14 +25,6 @@
     Cloth: 200
 
 - type: latheRecipe
-  id: MedHUD
-  result: ClothingEyesHudMedical
-  completetime: 3
-  materials:
-    Steel: 300
-    Glass: 200
-
-- type: latheRecipe
   parent: BaseCommandJumpsuitRecipe
   id: ClothingUniformJumpskirtQMFormal
   result: ClothingUniformJumpskirtQMFormal

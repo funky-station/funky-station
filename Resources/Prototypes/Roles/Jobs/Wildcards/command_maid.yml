@@ -22,6 +22,7 @@
   access:
   - Service
   - Janitor
+  - Kitchen
   - Maintenance
   - Command
   special:

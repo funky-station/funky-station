@@ -25,7 +25,7 @@
 #    reagent: Omnizine
 
 # Generally, each category should be considered from the perspective of the orderer, what is a medical department likely to order? What will totally not the syndicate order?
-# Items inside a category should be things that can be resonably produced by the station/department, items that you can just get from a vending machine or cargo crates should be avoided as bounty targets. 
+# Items inside a category should be things that can be resonably produced by the station/department, items that you can just get from a vending machine or cargo crates should be avoided as bounty targets.
 # NOTE: Bounties seem to work weird with stackable items currently, if you have a bounty for 6 artifact fragments, you need to split them into 6 diffrent stacks for it to count properly,
 #       So for the time being stackable items should be avoided as bounty targets.
 
@@ -327,7 +327,7 @@
       tags:
       - CyberneticMedicalEyes
     requiredResearch:
-      - CyberneticEnhancements             
+      - CyberneticEnhancements
   - name: bounty-item-defibrillator
     minAmount: 2
     maxAmount: 8
@@ -348,7 +348,7 @@
     rewardPer: 2500
     whitelist:
       tags:
-      - MedSecHud      
+      - MedSecHud
   - name: bounty-item-surgery-advanced-tool
     minAmount: 2
     maxAmount: 5
@@ -608,30 +608,30 @@
       tags:
       - SvalinnPistol
     requiredResearch:
-      - ExperimentalBatteryAmmo            
+      - ExperimentalBatteryAmmo
   - name: bounty-item-security-hud
     minAmount: 2
     maxAmount: 8
     rewardPer: 900
     whitelist:
       tags:
-      - HudSecurity 
+      - HudSecurity
   - name: bounty-item-medsec-hud
     minAmount: 2
     maxAmount: 5
     rewardPer: 2500
     whitelist:
       tags:
-      - MedSecHud 
+      - MedSecHud
   - name: bounty-item-cybernetic-security-eyes
     minAmount: 1
     maxAmount: 3
     rewardPer: 6500
     whitelist:
       tags:
-      - CyberneticSecurityEyes   
+      - CyberneticSecurityEyes
     requiredResearch:
-      - CyberneticEnhancements         
+      - CyberneticEnhancements
   - name: bounty-item-combat-knife
     minAmount: 2
     maxAmount: 8
@@ -647,7 +647,7 @@
       tags:
       - ExplosivePayload
     requiredResearch:
-      - ExplosiveTechnology  
+      - ExplosiveTechnology
   - name: bounty-item-grenade-flashbang
     minAmount: 5
     maxAmount: 12
@@ -761,7 +761,7 @@
     rewardPer: 1000
     whitelist:
       tags:
-      - WoodenBuckler      
+      - WoodenBuckler
   - name: bounty-item-makeshift-stunprod
     minAmount: 1
     maxAmount: 4
@@ -784,7 +784,7 @@
       tags:
       - SvalinnPistol
     requiredResearch:
-      - ExperimentalBatteryAmmo  
+      - ExperimentalBatteryAmmo
 
 - type: cargoBountyCategory
   id: clothingCategory
@@ -1023,7 +1023,7 @@
     minAmount: 90
     maxAmount: 90
     rewardPer: 65
-    reagent: ErikaSuprise    
+    reagent: ErikaSurprise
   - name: bounty-item-bloody-mary
     minAmount: 90
     maxAmount: 90
@@ -1033,27 +1033,27 @@
     minAmount: 60
     maxAmount: 60
     rewardPer: 65
-    reagent: BlueHawaiian    
+    reagent: BlueHawaiian
   - name: bounty-item-kira-special
     minAmount: 60
     maxAmount: 60
     rewardPer: 65
-    reagent: KiraSpecial       
+    reagent: KiraSpecial
   - name: bounty-item-andalusia
     minAmount: 60
     maxAmount: 60
     rewardPer: 65
-    reagent: Andalusia    
+    reagent: Andalusia
   - name: bounty-item-watermelon-wakeup
     minAmount: 60
     maxAmount: 60
     rewardPer: 75
-    reagent: WatermelonWakeup             
+    reagent: WatermelonWakeup
   - name: bounty-item-xeno-basher
     minAmount: 120
     maxAmount: 120
     rewardPer: 65
-    reagent: XenoBasher    
+    reagent: XenoBasher
   - name: bounty-item-cogchamp
     minAmount: 60
     maxAmount: 60
@@ -1063,7 +1063,7 @@
     minAmount: 60
     maxAmount: 60
     rewardPer: 75
-    reagent: DemonsBlood    
+    reagent: DemonsBlood
   - name: bounty-item-cosmopolitan
     minAmount: 60
     maxAmount: 60
@@ -1073,22 +1073,22 @@
     minAmount: 60
     maxAmount: 60
     rewardPer: 75
-    reagent: BeepskySmash    
+    reagent: BeepskySmash
   - name: bounty-item-classic-martini
     minAmount: 60
     maxAmount: 60
     rewardPer: 65
-    reagent: Martini      
+    reagent: Martini
   - name: bounty-item-posca
     minAmount: 60
     maxAmount: 60
     rewardPer: 65
-    reagent: Posca       
+    reagent: Posca
   - name: bounty-item-the-martinez
     minAmount: 90
     maxAmount: 90
     rewardPer: 70
-    reagent: TheMartinez        
+    reagent: TheMartinez
   - name: bounty-item-doctors-delight
     minAmount: 60
     maxAmount: 60
@@ -1098,12 +1098,12 @@
     minAmount: 60
     maxAmount: 60
     rewardPer: 100
-    reagent: Tayquila    
+    reagent: Tayquila
   - name: bounty-item-fever-dream
     minAmount: 60
     maxAmount: 60
     rewardPer: 100
-    reagent: FeverDream      
+    reagent: FeverDream
   - name: bounty-item-gargle-blaster
     minAmount: 60
     maxAmount: 60

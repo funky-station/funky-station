@@ -1405,7 +1405,12 @@
     - OmnimedTool
     - MedicalCyberneticEyes
     - ClothingEyesNightVisionMedicalGoggles # Funky - EE nightvision
-    - CompactDefib # Funky
+    - CompactDefib # Funky Change
+    - JawsOfLifeLeftArm # Funky Change
+    - JawsOfLifeRightArm # Funky Change
+    - SpeedLeftLeg # Funky Change
+    - SpeedRightLeg # Funky Change
+    - BasicCyberneticEyes # Funky Change
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget

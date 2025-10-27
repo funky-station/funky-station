@@ -452,7 +452,7 @@
       task: SimpleHostileCompound
   - type: NpcFactionMember
     factions:
-    - Xeno
+    - Dragon
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite

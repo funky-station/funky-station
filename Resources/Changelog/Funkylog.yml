@@ -5237,3 +5237,27 @@ Entries:
       message: Sprite size tweaked.
   id: 625
   time: '2025-10-26T04:29:26.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Add
+      message: New lobby art by Frogoo
+  id: 626
+  time: '2025-10-26T21:54:01.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New sprites for the Paramedic Voidsuit
+  id: 627
+  time: '2025-10-27T03:06:20.0000000+00:00'
+- author: BrightNibbleston
+  changes:
+    - type: Fix
+      message: outdated distro mix info in the guidebook
+  id: 628
+  time: '2025-10-27T22:11:21.0000000+00:00'
+- author: lolmatdi
+  changes:
+    - type: Fix
+      message: Space Adders and Space Cobras are Friends Again!
+  id: 629
+  time: '2025-10-27T22:24:23.0000000+00:00'

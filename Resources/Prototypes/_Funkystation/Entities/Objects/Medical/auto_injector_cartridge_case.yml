@@ -52,6 +52,9 @@
     maxItemSize: Small
     grid:
     - 0,0,1,1
+    whitelist:
+      tags:
+      - AutoinjectorCartrige
   - type: PhysicalComposition
     materialComposition:
       Plastic: 300

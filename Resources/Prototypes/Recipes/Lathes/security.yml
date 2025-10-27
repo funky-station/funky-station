@@ -45,7 +45,9 @@
 # SPDX-FileCopyrightText: 2024 takemysoult <143123247+takemysoult@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -430,6 +432,76 @@
     Steel: 25
     Plastic: 540
 
+# .50 AE Rounds
+- type: latheRecipe
+  parent: BaseEmptyAmmoRecipe
+  id: MagazinePistolLargeEmpty
+  result: MagazinePistolLargeEmpty
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolLarge
+  result: MagazinePistolLarge
+  materials:
+    Steel: 295
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolLargePractice
+  result: MagazinePistolLargePractice
+  materials:
+    Steel: 105
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolLargeUranium
+  result: MagazinePistolLargeUranium
+  materials:
+    Steel: 25
+    Plastic: 180
+    Uranium: 180
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolLargeIncendiary
+  result: MagazinePistolLargeIncendiary
+  materials:
+    Steel: 25
+    Plastic: 270
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxPistolLarge
+  result: MagazineBoxPistolLarge
+  materials:
+    Steel: 450
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxPistolLargeIncendiary
+  result: MagazineBoxPistolLargeIncendiary
+  materials:
+    Plastic: 450
+    
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxPistolLargePractice
+  result: MagazineBoxPistolLargePractice
+  materials:
+    Steel: 150
+    
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxPistolLargeUranium
+  result: MagazineBoxPistolLargeUranium
+  materials:
+    Plastic: 300
+    Uranium: 300
+
+#.50 AE rounds END
+
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: MagazineBoxRifle
@@ -763,3 +835,36 @@
     Plastic: 1000
     Plasma: 500
     Glass: 500
+
+- type: latheRecipe
+  id: GrenadeStinger
+  result: GrenadeStinger
+  completetime: 3
+  materials:
+    Steel: 200
+    Plastic: 400
+
+- type: latheRecipe
+  id: GrenadeShrapnel
+  result: GrenadeShrapnel
+  completetime: 3
+  materials:
+    Steel: 800
+    Plastic: 400
+
+- type: latheRecipe
+  id: GrenadeFlashBang
+  result: GrenadeFlashBang
+  completetime: 3
+  materials:
+    Steel: 200
+    Plastic: 200
+    Glass: 200
+
+- type: latheRecipe
+  id: GrenadeShrapnelSecurity
+  result: GrenadeShrapnelSecurity
+  completetime: 3
+  materials:
+    Steel: 400
+    Plastic: 200

@@ -5255,3 +5255,9 @@ Entries:
       message: outdated distro mix info in the guidebook
   id: 628
   time: '2025-10-27T22:11:21.0000000+00:00'
+- author: lolmatdi
+  changes:
+    - type: Fix
+      message: Space Adders and Space Cobras are Friends Again!
+  id: 629
+  time: '2025-10-27T22:24:23.0000000+00:00'

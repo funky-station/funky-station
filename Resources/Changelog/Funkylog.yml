@@ -5243,3 +5243,9 @@ Entries:
       message: New lobby art by Frogoo
   id: 626
   time: '2025-10-26T21:54:01.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New sprites for the Paramedic Voidsuit
+  id: 627
+  time: '2025-10-27T03:06:20.0000000+00:00'

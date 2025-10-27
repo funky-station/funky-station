@@ -1,0 +1,7 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: accessLevel
+  id: SpaceCowboy
+  name: id-card-access-level-external

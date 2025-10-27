@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
@@ -22,4 +23,26 @@
     layers:
       - state: green
       - sprite: Objects/Weapons/Melee/baseball_bat.rsi
+        state: icon
+
+- type: entity
+  id: SpawnPointGhostSpaceCowboy
+  name: ghost role spawn point
+  suffix: space cowboy
+  parent: SpawnPointGhostRoleJob
+  components:
+  - type: GhostRole
+    name: ghost-role-information-space-cowboy-name
+    description: ghost-role-information-space-cowboy-description
+    rules: ghost-role-information-space-cowboy-rules
+    raffle:
+      settings: default
+  - type: SpawnPoint
+    job_id: SpaceCowboy
+    respawn: false
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Clothing/Head/Hats/cowboyhatbountyhunter.rsi
         state: icon

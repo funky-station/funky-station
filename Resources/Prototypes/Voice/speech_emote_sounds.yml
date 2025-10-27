@@ -26,6 +26,7 @@
 # SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 KOTOB <59124164+kotobdev@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 # SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
@@ -544,6 +545,8 @@
         volume: -6
     Salute:
       collection: Salutes
+    Blink: # Imp
+      collection: Blinks # Imp
 
 - type: emoteSounds
   id: DionaBodyEmotes
@@ -561,6 +564,8 @@
       path: /Audio/Voice/Diona/diona_salute.ogg
       params:
        volume: -5
+    Blink: # Imp
+      collection: Blinks # Imp
 
 - type: emoteSounds
   id: ReptilianBodyEmotes
@@ -579,6 +584,8 @@
         volume: -6
     Salute:
       collection: Salutes
+    Blink: # Imp
+      collection: Blinks # Imp
 
 # mobs
 - type: emoteSounds

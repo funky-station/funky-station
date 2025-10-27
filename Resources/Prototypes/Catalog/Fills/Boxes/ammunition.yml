@@ -16,6 +16,7 @@
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -194,10 +195,10 @@
 
 # Shotgun
 - type: entity
-  name: box of (.50 pellet) ammo drums
+  name: box of (12 Gauge pellet) ammo drums
   parent: BoxMagazine
   id: BoxMagazineShotgun
-  description: A box full of (.50 pellet) ammo drums.
+  description: A box full of (12 Gauge pellet) ammo drums.
   components:
   - type: StorageFill
     contents:
@@ -205,10 +206,10 @@
         amount: 4
 
 - type: entity
-  name: box of (.50 beanbag) ammo drums
+  name: box of (12 Gauge beanbag) ammo drums
   parent: BoxMagazine
   id: BoxMagazineShotgunBeanbag
-  description: A box full of (.50 beanbag) ammo drums.
+  description: A box full of (12 Gauge beanbag) ammo drums.
   components:
   - type: StorageFill
     contents:
@@ -216,10 +217,10 @@
         amount: 4
 
 - type: entity
-  name: box of (.50 slug) ammo drums
+  name: box of (12 Gauge slug) ammo drums
   parent: BoxMagazine
   id: BoxMagazineShotgunSlug
-  description: A box full of (.50 slug) ammo drums.
+  description: A box full of (12 Gauge slug) ammo drums.
   components:
   - type: StorageFill
     contents:
@@ -227,14 +228,59 @@
         amount: 4
 
 - type: entity
-  name: box of (.50 incendiary) ammo drums
+  name: box of (12 Gauge incendiary) ammo drums
   parent: BoxMagazine
   id: BoxMagazineShotgunIncendiary
-  description: A box full of (.50 incendiary) ammo drums.
+  description: A box full of (12 Gauge incendiary) ammo drums.
   components:
   - type: StorageFill
     contents:
       - id: MagazineShotgunIncendiary
+        amount: 4
+
+# Funky - .50 AE
+- type: entity
+  name: box of (.50 AE) magazines
+  parent: BoxMagazine
+  id: BoxMagazinePistolLarge
+  description: A box full of (.50 AE) magazines.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazinePistolLarge
+        amount: 4
+
+- type: entity
+  name: box of (.50 AE Practice) magazines
+  parent: BoxMagazine
+  id: BoxMagazinePistolLargePractice
+  description: A box full of (.50 AE Practice) magazines.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazinePistolLargePractice
+        amount: 4
+
+- type: entity
+  name: box of (.50 AE Incendiary) magazines
+  parent: BoxMagazine
+  id: BoxMagazinePistolLargeIncendiary
+  description: A box full of (.50 AE Incendiary) magazines.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazinePistolLargeIncendiary
+        amount: 4
+
+- type: entity
+  name: box of (.50 AE Uranium) magazines
+  parent: BoxMagazine
+  id: BoxMagazinePistolLargeUranium
+  description: A box full of (.50 AE Uranium) magazines.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazinePistolLargeUranium
         amount: 4
 
 # Rifle

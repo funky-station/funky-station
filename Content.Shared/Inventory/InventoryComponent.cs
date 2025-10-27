@@ -9,9 +9,11 @@
 // SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared._Funkystation.Quirks;
 using Content.Shared.DisplacementMap;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -30,8 +32,14 @@ public sealed partial class InventoryComponent : Component
 
     [DataField("speciesId")] public string? SpeciesId { get; set; }
 
-    public SlotDefinition[] Slots = Array.Empty<SlotDefinition>();
-    public ContainerSlot[] Containers = Array.Empty<ContainerSlot>();
+    public SlotDefinition[] Slots = [];
+    public ContainerSlot[] Containers = [];
+
+    /// <summary>
+    /// Whether this slot should ignore its dependencies.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Dictionary<string, bool> IgnoreDependencies = new(); //Hacky way, since I don't really know how to pass a DataDef over network.
 
     [DataField]
     public Dictionary<string, DisplacementData> Displacements = new();

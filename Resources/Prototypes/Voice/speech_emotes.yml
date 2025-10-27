@@ -24,6 +24,7 @@
 # SPDX-FileCopyrightText: 2024 geraeumig <171753363+geraeumig@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 geraeumig <alfenos@proton.me>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
 # SPDX-FileCopyrightText: 2025 Erisiaa <185582649+Erisiaa@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
@@ -44,6 +45,9 @@
   whitelist:
     components:
     - Vocal
+  blacklist:
+    components:
+    - PAI
   chatMessages: ["chat-emote-msg-scream"]
   chatTriggers:
     - scream
@@ -71,6 +75,9 @@
   whitelist:
     components:
     - Vocal
+  blacklist:
+    components:
+    - PAI
   chatMessages: ["chat-emote-msg-laugh"]
   chatTriggers:
     - laugh
@@ -142,6 +149,9 @@
   whitelist:
     components:
     - Vocal
+  blacklist:
+    components:
+    - PAI
   chatMessages: ["chat-emote-msg-crying"]
   chatTriggers:
     - cry
@@ -410,6 +420,9 @@
   whitelist:
     components:
     - MobState
+  blacklist:
+    components:
+      - PAI
   chatMessages: ["chat-emote-msg-deathgasp"]
   chatTriggers:
   - deathgasp
@@ -429,6 +442,7 @@
     - HarpyEmotes
     components:
     - BorgChassis
+    - PAI
   category: Vocal
   icon: Interface/Emotes/buzz.png
   chatMessages: ["chat-emote-msg-buzz"]
@@ -491,6 +505,7 @@
     - HarpyEmotes
     components:
     - BorgChassis
+    - PAI
   icon: Interface/Emotes/beep.png
   chatMessages: ["chat-emote-msg-beep"]
   chatTriggers:
@@ -508,6 +523,7 @@
     - HarpyEmotes
     components:
     - BorgChassis
+    - PAI
   category: Vocal
   icon: Interface/Emotes/chime.png
   chatMessages: ["chat-emote-msg-chime"]
@@ -526,6 +542,7 @@
     - HarpyEmotes
     components:
     - BorgChassis
+    - PAI
   category: Vocal
   icon: Interface/Emotes/buzztwo.png
   chatMessages: ["chat-emote-msg-buzzestwo"]
@@ -550,6 +567,7 @@
     - HarpyEmotes
     components:
     - BorgChassis
+    - PAI
   category: Vocal
   icon: Interface/Emotes/ping.png
   chatMessages: ["chat-emote-msg-ping"]

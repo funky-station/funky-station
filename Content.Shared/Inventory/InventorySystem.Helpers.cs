@@ -8,6 +8,7 @@
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -69,6 +70,17 @@ public partial class InventorySystem
     {
         return TryGetContainingSlot(entity, out var slot)
                && (slot.SlotFlags & flags) == flags;
+    }
+
+    public void SetSlotIgnoreDependencices(EntityUid entityUid, InventoryComponent inventory, string slot, bool ignore = true)
+    {
+        if (HasSlot(entityUid, slot, inventory))
+            inventory.IgnoreDependencies[slot] = ignore;
+    }
+
+    public bool GetSlotIgnoreDependencices(InventoryComponent inventory, string slot)
+    {
+        return inventory.IgnoreDependencies.GetValueOrDefault(slot, false);
     }
 
     public bool SpawnItemInSlot(EntityUid uid, string slot, string prototype, bool silent = false, bool force = false, InventoryComponent? inventory = null)

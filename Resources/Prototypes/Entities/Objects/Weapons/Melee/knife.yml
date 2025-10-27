@@ -247,7 +247,6 @@
   components:
   - type: Tag
     tags:
-    - CombatKnife
     - Knife
     - Shiv
   - type: Construction

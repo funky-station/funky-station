@@ -66,6 +66,8 @@
       - id: ClothingOuterWinterHoP
       - id: ClothingEyesGlasses
       - id: ClothingNeckCloakHop
+      - id: ClothingUniformJumpskirtHoP
+      - id: ClothingUniformJumpsuitHoP
 
 - type: entity
   id: DresserHeadOfSecurityFilled
@@ -91,7 +93,7 @@
   - type: StorageFill
     contents:
       - id: ClothingHeadHatBeretQM
-      - id: ClothingUniformJumpsuitQMFormal 
+      - id: ClothingUniformJumpsuitQMFormal
       - id: ClothingUniformJumpsuitQMTurtleneck
       - id: ClothingUniformJumpsuitQM
       - id: ClothingHandsGlovesColorBrown
@@ -113,6 +115,8 @@
       - id: ClothingOuterWinterRD
       - id: ClothingOuterCoatRD
       - id: ClothingNeckCloakRd
+      - id: ClothingUniformJumpskirtResearchDirector
+      - id: ClothingUniformJumpsuitResearchDirector
 
 - type: entity
   id: DresserWardenFilled

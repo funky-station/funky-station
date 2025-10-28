@@ -54,6 +54,20 @@
     - BasicRoundstartVariation
 
 - type: gamePreset
+  id: SecretSurvival
+  alias:
+    - secretsurvival
+  name: secret-title
+  showInVote: false # secret
+  description: secret-description
+  rules:
+    - MeteorSwarmScheduler
+    - RampingStationEventScheduler
+    - SpaceTrafficControlEventScheduler
+    - SpaceTrafficControlFriendlyEventScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
   id: KesslerSyndrome
   alias:
     - kessler
@@ -62,6 +76,19 @@
   name: kessler-syndrome-title
   showInVote: false # secret
   description: kessler-syndrome-description
+  rules:
+    - KesslerSyndromeScheduler
+    - RampingStationEventScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretKesslerSyndrome
+  alias:
+    - secretkessler
+  name: secret-title
+  showInVote: false # secret
+  description: secret-description
   rules:
     - KesslerSyndromeScheduler
     - RampingStationEventScheduler
@@ -207,6 +234,22 @@
     - BasicRoundstartVariation
 
 - type: gamePreset
+  id: SecretTraitor
+  alias:
+    - secrettraitor
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+    - DummyNonAntagChance
+    - Traitor
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
   id: Deathmatch
   alias:
     - deathmatch
@@ -236,6 +279,22 @@
     - BasicRoundstartVariation
 
 - type: gamePreset
+  id: SecretNukeops
+  alias:
+    - secretnukeops
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+    - Nukeops
+    - DummyNonAntagChance
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
   id: Revolutionary
   alias:
     - rev
@@ -254,11 +313,28 @@
   - BasicRoundstartVariation
 
 - type: gamePreset
-  id: Wizard
+  id: SecretRevolutionary
   alias:
-  - wizard
-  name: wizard-title
-  description: wizard-description
+    - secretrevs
+    - secretrevolutionaries
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+  - DummyNonAntagChance
+  - Revolutionary
+  - SubGamemodesRule
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretWizard
+  alias:
+  - secretwizard
+  name: secret-title
+  description: secret-description
   showInVote: false
   rules:
   - Wizard
@@ -278,6 +354,20 @@
   - zomber
   name: zombie-title
   description: zombie-description
+  showInVote: false
+  rules:
+  - Zombie
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretZombie
+  alias:
+  - secretzombie
+  name: secret-title
+  description: secret-description
   showInVote: false
   rules:
   - Zombie

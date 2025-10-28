@@ -19,7 +19,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 # Funky Edit
-# Humans, but no tank or headset slot
+# Humans, but no headset slot
 - type: inventoryTemplate
   id: ipc
   slots:
@@ -136,3 +136,14 @@
       dependsOnComponents:
       - type: AllowBackStorage
       displayName: Back Storage
+    - name: tankstorage
+      slotTexture: tank_storage
+      slotFlags:   TANKSTORAGE
+      slotGroup: MainHotbar
+      stripTime: 3
+      uiWindowPos: 3,0
+      strippingWindowPos: 1, 5
+      dependsOn: outerClothing
+      dependsOnComponents:
+      - type: AllowTankStorage
+      displayName: Tank Storage

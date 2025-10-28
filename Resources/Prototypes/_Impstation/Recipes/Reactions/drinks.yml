@@ -4,7 +4,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-
 - type: reaction
   id: FeverDream
   requiredMixerCategories:
@@ -12,10 +11,8 @@
   reactants:
     ShimmeringBlood:
       amount: 2
-    Absinthe:
-      amount: 2
-    Champagne:
-      amount: 1
+    DeathInTheAfternoon:
+      amount: 3
     Egg:
       amount: 1
   products:

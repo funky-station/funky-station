@@ -1,4 +1,5 @@
 using Content.Shared.Atmos;
+using Content.Shared.Radiation.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Random;
 
@@ -6,6 +7,8 @@ namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
 public abstract partial class ReactorPart : Component
 {
+    private float _rate = 5;
+
     [DataField]
     public string IconStateInserted = "base";
     [DataField]
@@ -77,9 +80,12 @@ public abstract partial class ReactorPart : Component
 
     #region Properties
     // SS13 material properties for Steel
-    public readonly float _propertyDensity = 4;
-    public readonly float _propertyThermal = 6;
-    public readonly float _propertyHard = 3;
+    [DataField]
+    public float PropertyDensity = 4;
+    [DataField]
+    public float PropertyThermal = 7; //was 6
+    [DataField]
+    public float PropertyHard = 3;
 
     /// <summary>
     /// Neutron radioactivity, basically how much fuel is in the rod
@@ -106,7 +112,7 @@ public abstract partial class ReactorPart : Component
             return;
 
         Melted = true;
-        IconStateCap += "_melted_" + random.Next(1, 4);
+        IconStateCap += "_melted_" + random.Next(1, 4 + 1);
         // TODO: tell parent to update its looks
         NeutronCrossSection = 5f;
         ThermalCrossSection = 20f;
@@ -124,11 +130,11 @@ public abstract partial class ReactorPart : Component
             var DeltaT = Temperature - RC.Temperature;
             // The thermal conductivity for a steel/steel interaction in SS13. SS14 does not support material properties
             // like this, so this is the best I can do
-            var k = (Math.Pow(10, _propertyThermal / 5) - 1 + (Math.Pow(10, _propertyThermal / 5) - 1)) / 2;
+            var k = (Math.Pow(10, PropertyThermal / 5) - 1 + (Math.Pow(10, RC.PropertyThermal / 5) - 1)) / 2;
             var A = Math.Min(ThermalCrossSection, RC.ThermalCrossSection);
 
-            Temperature = (float)(Temperature - (k * A * (0.4 * 8) / ThermalMass * DeltaT));
-            RC.Temperature = (float)(RC.Temperature - (k * A * (0.4 * 8) / RC.ThermalMass * -DeltaT));
+            Temperature = (float)(Temperature - ((k * A * (0.5 * 8) / ThermalMass) * DeltaT));
+            RC.Temperature = (float)(RC.Temperature - ((k * A * (0.5 * 8) / RC.ThermalMass) * -DeltaT));
 
             if (RC.Temperature < 0 || Temperature < 0)
                 return; // TODO: crash the game here
@@ -141,11 +147,11 @@ public abstract partial class ReactorPart : Component
         {
             var DeltaT = Temperature - ParentReactor.Temperature;
 
-            var k = (Math.Pow(10, _propertyThermal / 5) - 1 + (Math.Pow(10, _propertyThermal / 5) - 1)) / 2;
+            var k = (Math.Pow(10, PropertyThermal / 5) - 1 + (Math.Pow(10, 7 / 5) - 1)) / 2;
             var A = ThermalCrossSection;
 
-            Temperature = (float)(Temperature - (k * A * (0.4 * 8) / ThermalMass * DeltaT));
-            ParentReactor.Temperature = (float)(ParentReactor.Temperature - (k * A * (0.4 * 8) / ParentReactor.ThermalMass * -DeltaT));
+            Temperature = (float)(Temperature - (k * A * (0.5 * 8) / ThermalMass * DeltaT));
+            ParentReactor.Temperature = (float)(ParentReactor.Temperature - (k * A * (0.5 * 8) / ParentReactor.ThermalMass * -DeltaT));
 
             if (ParentReactor.Temperature < 0 || Temperature < 0)
                 return; // TODO: crash the game here
@@ -153,7 +159,7 @@ public abstract partial class ReactorPart : Component
             // This is where we'd put material-based temperature effects... IF WE HAD ANY
         }
         if (Temperature > MeltingPoint && MeltHealth > 0)
-            MeltHealth -= random.Next(10, 50);
+            MeltHealth -= random.Next(10, 50 + 1);
         if (MeltHealth <= 0)
             Melt(random);
     }
@@ -166,34 +172,33 @@ public abstract partial class ReactorPart : Component
         {
             var neutron = flux[n];
 
-            // The "4" is SS13's definition of steel's density
-            if (Prob(_propertyDensity * 10 * NeutronCrossSection, random))
+            if (Prob(PropertyDensity * _rate * NeutronCrossSection, random))
             {
-                if (neutron.velocity <= 1 && Prob(10 * NRadioactive, random)) // neutron stimulated emission
+                if (neutron.velocity <= 1 && Prob(_rate * NRadioactive, random)) // neutron stimulated emission
                 {
-                    NRadioactive -= 0.01f;
-                    Radioactive += 0.005f;
-                    for (var i = 0; i < random.Next(1, 5); i++)
+                    NRadioactive -= 0.001f;
+                    Radioactive += 0.0005f;
+                    for (var i = 0; i < random.Next(1, 5+1); i++)
                     {
-                        neutrons.Add(new() { dir = random.NextAngle().GetDir(), velocity = random.Next(2, 3) });
+                        neutrons.Add(new() { dir = random.NextAngle().GetDir(), velocity = random.Next(2, 3 + 1) });
                     }
                     neutrons.Remove(neutron);
                     Temperature += 50;
                 }
-                else if (neutron.velocity <= 1 && Prob(10 * Radioactive, random)) // stimulated emission
+                else if (neutron.velocity <= 5 && Prob(_rate * Radioactive, random)) // stimulated emission
                 {
-                    Radioactive -= 0.01f;
-                    SpentFuel += 0.005f;
-                    for (var i = 0; i < random.Next(1, 5); i++)
+                    Radioactive -= 0.001f;
+                    SpentFuel += 0.0005f;
+                    for (var i = 0; i < random.Next(1, 5+1); i++)
                     {
-                        neutrons.Add(new() { dir = random.NextAngle().GetDir(), velocity = random.Next(1, 3) });
+                        neutrons.Add(new() { dir = random.NextAngle().GetDir(), velocity = random.Next(1, 3 + 1) });
                     }
                     neutrons.Remove(neutron);
                     Temperature += 25;
                 }
                 else
                 {
-                    if (Prob(10 * _propertyHard, random)) // reflection, based on hardness
+                    if (Prob(_rate * PropertyHard, random)) // reflection, based on hardness
                         // A really complicated way of saying do a 180 or a 180+/-45
                         neutron.dir = (neutron.dir.GetOpposite().ToAngle() + (random.NextAngle() / 4) - (MathF.Tau / 8)).GetDir();
                     else if (IsControlRod)
@@ -208,24 +213,24 @@ public abstract partial class ReactorPart : Component
                 }
             }
         }
-        if (Prob(NRadioactive * 10 * NeutronCrossSection, random))
+        if (Prob(NRadioactive * _rate * NeutronCrossSection, random))
         {
-            for (var i = 0; i < random.Next(1, 3); i++)
+            for (var i = 0; i < random.Next(1, 3 + 1); i++)
             {
                 neutrons.Add(new() { dir = random.NextAngle().GetDir(), velocity = 3 });
             }
-            NRadioactive -= 0.01f;
-            Radioactive += 0.005f;
+            NRadioactive -= 0.001f;
+            Radioactive += 0.0005f;
             Temperature += 20;
         }
-        if (Prob(Radioactive * 10 * NeutronCrossSection, random))
+        if (Prob(Radioactive * _rate * NeutronCrossSection, random))
         {
-            for (var i = 0; i < random.Next(1, 3); i++)
+            for (var i = 0; i < random.Next(1, 3+1); i++)
             {
-                neutrons.Add(new() { dir = random.NextAngle().GetDir(), velocity = random.Next(1, 3) });
+                neutrons.Add(new() { dir = random.NextAngle().GetDir(), velocity = random.Next(1, 3+1) });
             }
-            Radioactive -= 0.01f;
-            SpentFuel += 0.005f;
+            Radioactive -= 0.001f;
+            SpentFuel += 0.0005f;
             Temperature += 10;
         }
 
@@ -259,14 +264,14 @@ public sealed partial class ReactorControlRodComponent : ReactorPart
 
     public override List<ReactorNeutron> ProcessNeutrons(List<ReactorNeutron> neutrons, IRobustRandom random)
     {
-        base.ProcessNeutrons(neutrons, random);
+        neutrons = base.ProcessNeutrons(neutrons, random);
 
         if(!Melted && (NeutronCrossSection != ConfiguredInsertionLevel))
         {
             if (ConfiguredInsertionLevel < NeutronCrossSection)
                 NeutronCrossSection -= Math.Min(0.1f, NeutronCrossSection - ConfiguredInsertionLevel);
             else
-                NeutronCrossSection += Math.Min(0.1f, NeutronCrossSection - ConfiguredInsertionLevel);
+                NeutronCrossSection += Math.Min(0.1f, ConfiguredInsertionLevel - NeutronCrossSection);
         }
 
         return neutrons;
@@ -277,7 +282,7 @@ public sealed partial class ReactorControlRodComponent : ReactorPart
 public sealed partial class ReactorGasChannelComponent : ReactorPart
 {
     [DataField]
-    public float GasThermalCrossSection = 15;
+    public float GasThermalCrossSection = 25; //was 15
     public GasMixture? AirContents;
 
     public GasMixture? ReturnAir() => AirContents;
@@ -305,7 +310,10 @@ public static class BaseReactorComponents
         IconStateCap = "control_cap",
         IsControlRod = true,
         NeutronCrossSection = 1.0f,
-        ThermalCrossSection = 10
+        ThermalCrossSection = 10,
+        PropertyDensity = 6,
+        PropertyHard = 5,
+        Temperature = default,
     };
 
     public static readonly ReactorPartComponent FuelRod = new()
@@ -315,8 +323,12 @@ public static class BaseReactorComponents
         NeutronCrossSection = 1.0f,
         ThermalCrossSection = 10,
         ThermalMass = 420000,
-        NRadioactive = 3,
-        Radioactive = 4
+        NRadioactive = 1.5f,
+        Radioactive = 4,
+        PropertyHard = 5,
+        PropertyDensity = 7,
+        PropertyThermal = 4,
+        Temperature = default,
     };
 
     public static readonly ReactorGasChannelComponent GasChannel = new()
@@ -325,7 +337,8 @@ public static class BaseReactorComponents
         IconStateCap = "gas_cap",
         ThermalCrossSection = 15,
         GasVolume = 100,
-        ThermalMass = 21000
+        ThermalMass = 21000,
+        Temperature = default,
     };
 
     public static readonly ReactorPartComponent HeatExchanger = new()
@@ -333,6 +346,7 @@ public static class BaseReactorComponents
         IconStateInserted = "heat",
         IconStateCap = "heat_cap",
         NeutronCrossSection = 0.1f,
-        ThermalCrossSection = 25
+        ThermalCrossSection = 25,
+        Temperature = default,
     };
 }

@@ -47,60 +47,66 @@
   - type: RadiationSource
     intensity: 0
   - type: FissionGenerator
+  - type: ActivatableUI
+    key: enum.FissionGeneratorUiKey.Key
+  - type: ActivatableUIRequiresAnchor
+  - type: UserInterface
+    interfaces:
+      enum.FissionGeneratorUiKey.Key:
+        type: FisisonGeneratorBoundUserInterface
   - type: AccessReader # You got a permit for that meltdown?
     access: [["Engineering"]]
   - type: Lock
     unlockOnClick: false
 
-# - type: entity
-#   id: NuclearReactor
-#   parent: BaseStructure
-#   name: nuclear reactor
-#   description: Should you really be standing this close to that?
-#   components:
-#   - type: Sprite
-#     sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/fission_generator.rsi
-#     state: fission_generator
-#   - type: Physics
-#     bodyType: Static
-#   - type: InteractionOutline
-#   - type: Transform
-#     noRot: true
-#   - type: Fixtures
-#     fixtures:
-#       fix1:
-#         shape:
-#           !type:PhysShapeAabb
-#           bounds: "-1.5,-2.5,1.5,2.5"
-#         density: 190
-#         mask:
-#         - MachineMask
-#         layer:
-#         - MachineLayer
-#   - type: Anchorable
-#     flags: 
-#     - Anchorable
-#   - type: NodeContainer
-#     examinable: true
-#     nodes:
-#       inlet:
-#         !type:OffsetPipeNode
-#         nodeGroupID: Pipe
-#         pipeDirection: West
-#         volume: 1000
-#         offsetEast: -2
-#         offsetNorth: -1
-#       outlet:
-#         !type:OffsetPipeNode
-#         nodeGroupID: Pipe
-#         pipeDirection: East
-#         volume: 1000
-#         offsetEast: 2
-#         offsetNorth: -1
-#   - type: AtmosDevice
-#   - type: FissionGenerator
-#   - type: AccessReader # Keeps some random tider from blowing up the turbine
-#     access: [["Engineering"]]
-#   - type: Lock
-#     unlockOnClick: false
-  
+- type: entity
+  id: ReactorComponent
+  name: reactor component
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_component_cap.rsi
+    layers:
+    - state: base_cap
+      visible: true
+      map: [ "enum.ReactorCapVisualLayers.Sprite" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ReactorCapVisuals.Sprite:
+        enum.ReactorCapVisualLayers.Sprite:
+          Base: { state: empty_cap }
+          Control: { state: control_cap }
+          ControlM1: { state: control_cap_melted_1 }
+          ControlM2: { state: control_cap_melted_2 }
+          ControlM3: { state: control_cap_melted_3 }
+          ControlM4: { state: control_cap_melted_4 }
+          Fuel: { state: fuel_cap }
+          FuelM1: { state: fuel_cap_melted_1 }
+          FuelM2: { state: fuel_cap_melted_2 }
+          FuelM3: { state: fuel_cap_melted_3 }
+          FuelM4: { state: fuel_cap_melted_4 }
+          Gas: { state: gas_cap }
+          GasM1: { state: gas_cap_melted_1 }
+          GasM2: { state: gas_cap_melted_2 }
+          GasM3: { state: gas_cap_melted_3 }
+          GasM4: { state: gas_cap_melted_4 }
+          Heat: { state: heat_cap }
+          HeatM1: { state: heat_cap_melted_1 }
+          HeatM2: { state: heat_cap_melted_2 }
+          HeatM3: { state: heat_cap_melted_3 }
+          HeatM4: { state: heat_cap_melted_4 }
+  - type: Appearance
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        density: 1
+        mask:
+        - MobMask 
+        layer:
+        - MobLayer 

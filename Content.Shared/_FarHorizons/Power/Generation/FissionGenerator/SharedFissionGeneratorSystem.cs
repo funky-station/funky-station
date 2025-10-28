@@ -3,6 +3,60 @@ namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 public abstract class SharedFissionGeneratorSystem : EntitySystem
 {
 
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+
+    protected EntityUid[,] _reactorGrid = new EntityUid[FissionGeneratorComponent.ReactorGridWidth, FissionGeneratorComponent.ReactorGridHeight];
+
+    protected virtual void UpdateGridVisual(EntityUid uid, FissionGeneratorComponent? comp)
+    {
+        //if (!Resolve(uid, ref comp, ref appearance, false))
+        //    return;
+
+        for (var x = 0; x < FissionGeneratorComponent.ReactorGridWidth; x++)
+        {
+            for (var y = 0; y < FissionGeneratorComponent.ReactorGridHeight; y++)
+            {
+                if(comp!.ComponentGrid[x, y] == null)
+                {
+                    _appearance.SetData(_reactorGrid[x, y], ReactorCapVisuals.Sprite, ReactorCaps.Base);
+                    continue;
+                }
+                else
+                    _appearance.SetData(_reactorGrid[x,y], ReactorCapVisuals.Sprite, ChoseSprite(comp.ComponentGrid[x,y]!.IconStateCap));
+            }
+        }
+    }
+
+    private static ReactorCaps ChoseSprite(string capName) => capName switch
+    {
+        "base_cap" => ReactorCaps.Base,
+
+        "control_cap" => ReactorCaps.Control,
+        "control_cap_melted_1" => ReactorCaps.ControlM1,
+        "control_cap_melted_2" => ReactorCaps.ControlM2,
+        "control_cap_melted_3" => ReactorCaps.ControlM3,
+        "control_cap_melted_4" => ReactorCaps.ControlM4,
+
+        "fuel_cap" => ReactorCaps.Fuel,
+        "fuel_cap_melted_1" => ReactorCaps.FuelM1,
+        "fuel_cap_melted_2" => ReactorCaps.FuelM2,
+        "fuel_cap_melted_3" => ReactorCaps.FuelM3,
+        "fuel_cap_melted_4" => ReactorCaps.FuelM4,
+
+        "gas_cap" => ReactorCaps.Gas,
+        "gas_cap_melted_1" => ReactorCaps.GasM1,
+        "gas_cap_melted_2" => ReactorCaps.GasM2,
+        "gas_cap_melted_3" => ReactorCaps.GasM3,
+        "gas_cap_melted_4" => ReactorCaps.GasM4,
+
+        "heat_cap" => ReactorCaps.Heat,
+        "heat_cap_melted_1" => ReactorCaps.HeatM1,
+        "heat_cap_melted_2" => ReactorCaps.HeatM2,
+        "heat_cap_melted_3" => ReactorCaps.HeatM3,
+        "heat_cap_melted_4" => ReactorCaps.HeatM4,
+
+        _ => ReactorCaps.Base,
+    };
 }
 
 public static class FissionGeneratorPrefabs
@@ -110,5 +164,30 @@ public static class FissionGeneratorPrefabs
         {
             f, f, f, f, f, f, f
         },
+    };
+
+    public static readonly ReactorPart?[,] Alignment =
+    {
+        {
+            null, null, null, null, null, null, c
+        },
+        {
+            null, null, null, null, null, c, null
+        },
+        {
+            null, null, null, null, c, null, null
+        },
+        {
+            null, null, null, c, null, null, null
+        },
+        {
+            null, null, c, null, c, null, null
+        },
+        {
+            null, c, null, null, null, c, null
+        },
+        {
+            c, null, null, null, null, null, c
+        }
     };
 }

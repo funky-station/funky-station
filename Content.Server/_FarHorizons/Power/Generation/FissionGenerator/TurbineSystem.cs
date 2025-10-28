@@ -78,7 +78,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
         var TransferMoles = 0f;
         if (InletStartingPressure > 0)
         {
-            TransferMoles = inlet.Air.Volume * InletStartingPressure / (Atmospherics.R * inlet.Air.Temperature);
+            TransferMoles = comp.FlowRate * InletStartingPressure / (Atmospherics.R * inlet.Air.Temperature);
         }
         var AirContents = inlet.Air.Remove(TransferMoles);
 
@@ -202,12 +202,13 @@ public sealed class TurbineSystem : SharedTurbineSystem
                 // TODO: damage flash
                 _audio.PlayPvs(new SoundPathSpecifier(_damageSoundList[_random.Next(0, _damageSoundList.Count - 1)]), uid, AudioParams.Default.WithVariation(0.25f).WithVolume(-1));
                 comp.BladeHealth--;
+                Dirty(uid, comp);
                 UpdateHealthIndicators(uid, comp);
             }
 
             _atmosphereSystem.Merge(outlet.Air, AirContents);
         }
-        inlet.Air.Volume = comp.FlowRate;
+        //inlet.Air.Volume = comp.FlowRate;
         AirContents!.Volume = comp.FlowRate;
 
         // Explode
@@ -269,7 +270,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
                FlowRate = turbine.FlowRate,
 
                StatorLoadMin = 1000,
-               StatorLoadMax = 100000,
+               StatorLoadMax = 500000,
                StatorLoad = turbine.StatorLoad,
            });
     }

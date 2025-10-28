@@ -56,7 +56,7 @@ public sealed partial class TurbineComponent : Component
     [DataField]
     public float MaxTemp = 3000;
     [DataField]
-    public float MinTemp = Atmospherics.T0C + 100;
+    public float MinTemp = Atmospherics.T20C;
 
     /// <summary>
     /// Health of the turbine

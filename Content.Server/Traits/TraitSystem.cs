@@ -12,9 +12,11 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared._Funkystation.Traits;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -70,6 +72,9 @@ public sealed class TraitSystem : EntitySystem
 
             // Add all components required by the prototype
             EntityManager.AddComponents(args.Mob, traitPrototype.Components, false);
+
+            if (traitPrototype.Components.Count != 0)
+                RaiseLocalEvent(args.Mob, new TraitComponentAddedEvent(traitPrototype, args), true);
 
             // Add item required by the trait
             if (traitPrototype.TraitGear == null)

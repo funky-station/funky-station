@@ -18,6 +18,7 @@
 # SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Dusty-Plant <ytsur2001@gmail.com>
+# SPDX-FileCopyrightText: 2025 Dusty_Plant <34702649+Dusty-Plant@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
 # SPDX-FileCopyrightText: 2025 Huhm-1 <cameronhillard40@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
@@ -46,11 +47,12 @@
           emergencyShuttlePath: /Maps/Shuttles/emergency_rod.yml
         - type: StationJobs
           availableJobs:
-            #service
-            Captain: [ 1, 1 ]
-            Magistrate: [ 1, 1 ]
+            # central command
             NanotrasenRepresentative: [ 1, 1 ]
             InternalAffairsAgent: [ 2, 2 ]
+            Magistrate: [ 1, 1 ]
+            #service
+            Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
@@ -62,8 +64,8 @@
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 3, 4 ]
-            StationEngineer: [ 5, 7 ]
-            TechnicalAssistant: [ 4, 7 ]
+            StationEngineer: [ 4, 5 ]
+            TechnicalAssistant: [ 4, 5 ]
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 3, 3 ]
@@ -79,7 +81,7 @@
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
-            SecurityOfficer: [ 5, 7 ]
+            SecurityOfficer: [ 4, 5 ]
             Detective: [ 1, 1 ]
             SecurityCadet: [ 4, 4 ]
             Lawyer: [ 2, 2 ]
@@ -92,6 +94,8 @@
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
+            Boxer: [ 1, 1 ]
+            Reporter: [ 1, 2 ]
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 5, 5 ]

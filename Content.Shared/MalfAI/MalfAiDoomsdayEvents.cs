@@ -7,8 +7,22 @@ using Robust.Shared.GameObjects;
 namespace Content.Shared.MalfAI;
 
 /// <summary>
+/// Raised when the Malf AI Doomsday Protocol countdown starts.
+/// </summary>
+public sealed class MalfAiDoomsdayStartedEvent : EntityEventArgs
+{
+    public EntityUid Station { get; }
+    public EntityUid Ai { get; }
+
+    public MalfAiDoomsdayStartedEvent(EntityUid station, EntityUid ai)
+    {
+        Station = station;
+        Ai = ai;
+    }
+}
+
+/// <summary>
 /// Raised when the Malf AI Doomsday Protocol countdown completes (was not aborted).
-/// Systems can handle this to implement the actual doomsday effect.
 /// </summary>
 public sealed class MalfAiDoomsdayCompletedEvent : EntityEventArgs
 {

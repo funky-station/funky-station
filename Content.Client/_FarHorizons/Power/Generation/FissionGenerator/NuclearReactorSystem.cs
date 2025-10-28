@@ -2,6 +2,6 @@ using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
 namespace Content.Client._FarHorizons.Power.Generation.FissionGenerator;
 
-public sealed class FissionGeneratorSystem : SharedFissionGeneratorSystem
+public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 {
 }

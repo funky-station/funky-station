@@ -7,16 +7,16 @@ using Robust.Client.UserInterface;
 namespace Content.Client._FarHorizons.Power.UI;
 
 /// <summary>
-/// Initializes a <see cref="FissionGeneratorWindow"/> and updates it when new server messages are received.
+/// Initializes a <see cref="NuclearReactorWindow"/> and updates it when new server messages are received.
 /// </summary>
 [UsedImplicitly]
-public sealed class FisisonGeneratorBoundUserInterface : BoundUserInterface
+public sealed class NuclearReactorBoundUserInterface : BoundUserInterface
 {
 
     [ViewVariables]
-    private FissionGeneratorWindow? _window;
+    private NuclearReactorWindow? _window;
 
-    public FisisonGeneratorBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+    public NuclearReactorBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
     }
 
@@ -24,14 +24,14 @@ public sealed class FisisonGeneratorBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _window = this.CreateWindow<FissionGeneratorWindow>();
+        _window = this.CreateWindow<NuclearReactorWindow>();
 
         Update();
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
     {
-        if (state is not FissionGeneratorBuiState reactorState)
+        if (state is not NuclearReactorBuiState reactorState)
             return;
 
         _window?.Update(reactorState);

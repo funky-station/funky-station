@@ -15,18 +15,18 @@ namespace Content.Client._FarHorizons.Power.UI;
 /// Client-side UI used to view a nuclear reactor.
 /// </summary>
 [GenerateTypedNameReferences]
-public sealed partial class FissionGeneratorWindow : FancyWindow
+public sealed partial class NuclearReactorWindow : FancyWindow
 {
 
     private StyleBoxFlat[,] _reactorGrid;
 
-    private double[,] _temperatureGrid = new double[FissionGeneratorComponent.ReactorGridWidth, FissionGeneratorComponent.ReactorGridHeight];
-    private int[,] _neutronGrid = new int[FissionGeneratorComponent.ReactorGridWidth, FissionGeneratorComponent.ReactorGridHeight];
+    private double[,] _temperatureGrid = new double[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
+    private int[,] _neutronGrid = new int[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
 
     private byte displayMode = 1<<0;
     public event Action? ChangeViewButtonPressed;
 
-    public FissionGeneratorWindow()
+    public NuclearReactorWindow()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
@@ -40,11 +40,11 @@ public sealed partial class FissionGeneratorWindow : FancyWindow
     [MemberNotNull(nameof(_reactorGrid))]
     public void InitReactorGrid()
     {
-        _reactorGrid = new StyleBoxFlat[FissionGeneratorComponent.ReactorGridWidth, FissionGeneratorComponent.ReactorGridHeight];
+        _reactorGrid = new StyleBoxFlat[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
 
-        for (var x = 0; x < FissionGeneratorComponent.ReactorGridWidth; x++)
+        for (var x = 0; x < NuclearReactorComponent.ReactorGridWidth; x++)
         {
-            for (var y = 0; y < FissionGeneratorComponent.ReactorGridHeight; y++)
+            for (var y = 0; y < NuclearReactorComponent.ReactorGridHeight; y++)
             {
                 var styleBox = new StyleBoxFlat();
                 _reactorGrid[x,y] = styleBox;
@@ -61,16 +61,16 @@ public sealed partial class FissionGeneratorWindow : FancyWindow
         }
     }
 
-    public void Update(FissionGeneratorBuiState msg)
+    public void Update(NuclearReactorBuiState msg)
     {
         Array.Clear(_temperatureGrid);
         Array.Clear(_neutronGrid);
-        for (var x = 0; x < FissionGeneratorComponent.ReactorGridWidth; x++)
+        for (var x = 0; x < NuclearReactorComponent.ReactorGridWidth; x++)
         {
-            for (var y = 0; y < FissionGeneratorComponent.ReactorGridHeight; y++)
+            for (var y = 0; y < NuclearReactorComponent.ReactorGridHeight; y++)
             {
-                _temperatureGrid[x,y] = msg.TemperatureGrid[x * FissionGeneratorComponent.ReactorGridWidth + y];
-                _neutronGrid[x,y] = msg.NeutronGrid[x * FissionGeneratorComponent.ReactorGridWidth + y];
+                _temperatureGrid[x,y] = msg.TemperatureGrid[x * NuclearReactorComponent.ReactorGridWidth + y];
+                _neutronGrid[x,y] = msg.NeutronGrid[x * NuclearReactorComponent.ReactorGridWidth + y];
             }
         }
     }
@@ -79,9 +79,9 @@ public sealed partial class FissionGeneratorWindow : FancyWindow
     {
         base.FrameUpdate(args);
 
-        for (var x = 0; x < FissionGeneratorComponent.ReactorGridWidth; x++)
+        for (var x = 0; x < NuclearReactorComponent.ReactorGridWidth; x++)
         {
-            for (var y = 0; y < FissionGeneratorComponent.ReactorGridHeight; y++)
+            for (var y = 0; y < NuclearReactorComponent.ReactorGridHeight; y++)
             {
                 var box = _reactorGrid[x,y];
                 if (displayMode % 2 == 1)

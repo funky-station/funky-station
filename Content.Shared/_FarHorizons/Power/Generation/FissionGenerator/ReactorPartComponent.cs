@@ -75,7 +75,7 @@ public abstract partial class ReactorPart : Component
     [DataField]
     public float ThermalMass = 420 * 250; //specific heat capacity of steel (420 J/KgK) * mass of component (Kg)
 
-    public FissionGeneratorComponent? ParentReactor;
+    public NuclearReactorComponent? ParentReactor;
     #endregion
 
     #region Properties
@@ -103,7 +103,7 @@ public abstract partial class ReactorPart : Component
     public float SpentFuel = 0;
     #endregion
 
-    public void AssignParentReactor(FissionGeneratorComponent reactor) => ParentReactor = reactor;
+    public void AssignParentReactor(NuclearReactorComponent reactor) => ParentReactor = reactor;
     public void RemoveParentReactor() => ParentReactor = null;
 
     public virtual void Melt(IRobustRandom random)

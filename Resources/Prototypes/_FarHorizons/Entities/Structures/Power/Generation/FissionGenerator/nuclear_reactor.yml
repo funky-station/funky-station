@@ -1,5 +1,5 @@
 - type: entity
-  id: NuclearReactor
+  id: BaseNuclearReactor
   parent: BaseStructure
   name: nuclear reactor
   description: Should you really be standing this close to that?
@@ -46,14 +46,14 @@
   - type: AtmosDevice
   - type: RadiationSource
     intensity: 0
-  - type: FissionGenerator
+  - type: NuclearReactor
   - type: ActivatableUI
-    key: enum.FissionGeneratorUiKey.Key
+    key: enum.NuclearReactorUiKey.Key
   - type: ActivatableUIRequiresAnchor
   - type: UserInterface
     interfaces:
-      enum.FissionGeneratorUiKey.Key:
-        type: FisisonGeneratorBoundUserInterface
+      enum.NuclearReactorUiKey.Key:
+        type: NuclearReactorBoundUserInterface
   - type: AccessReader # You got a permit for that meltdown?
     access: [["Engineering"]]
   - type: Lock

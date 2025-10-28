@@ -16,7 +16,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
-public sealed class FissionGeneratorSystem : SharedFissionGeneratorSystem
+public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
@@ -25,39 +25,39 @@ public sealed class FissionGeneratorSystem : SharedFissionGeneratorSystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
 
     // Woe, 3 dimentions be upon ye
-    public List<ReactorNeutron>[,] FluxGrid = new List<ReactorNeutron>[FissionGeneratorComponent.ReactorGridWidth, FissionGeneratorComponent.ReactorGridHeight];
+    public List<ReactorNeutron>[,] FluxGrid = new List<ReactorNeutron>[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
 
     private GasMixture _airContents = new();
     private GasMixture _currentGas = new();
 
-    public double[,] TemperatureGrid = new double[FissionGeneratorComponent.ReactorGridWidth, FissionGeneratorComponent.ReactorGridHeight];
-    public int[,] NeutronGrid = new int[FissionGeneratorComponent.ReactorGridWidth, FissionGeneratorComponent.ReactorGridHeight];
+    public double[,] TemperatureGrid = new double[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
+    public int[,] NeutronGrid = new int[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<FissionGeneratorComponent, AtmosDeviceUpdateEvent>(OnUpdate);
-        SubscribeLocalEvent<FissionGeneratorComponent, AtmosDeviceEnabledEvent>(OnEnabled);
-        SubscribeLocalEvent<FissionGeneratorComponent, AtmosDeviceDisabledEvent>(OnDisabled);
+        SubscribeLocalEvent<NuclearReactorComponent, AtmosDeviceUpdateEvent>(OnUpdate);
+        SubscribeLocalEvent<NuclearReactorComponent, AtmosDeviceEnabledEvent>(OnEnabled);
+        SubscribeLocalEvent<NuclearReactorComponent, AtmosDeviceDisabledEvent>(OnDisabled);
     }
 
-    private void OnEnabled(EntityUid uid, FissionGeneratorComponent comp, ref AtmosDeviceEnabledEvent args)
+    private void OnEnabled(EntityUid uid, NuclearReactorComponent comp, ref AtmosDeviceEnabledEvent args)
     {
-        for (var x = 0; x < FissionGeneratorComponent.ReactorGridWidth; x++)
+        for (var x = 0; x < NuclearReactorComponent.ReactorGridWidth; x++)
         {
-            for (var y = 0; y < FissionGeneratorComponent.ReactorGridHeight; y++)
+            for (var y = 0; y < NuclearReactorComponent.ReactorGridHeight; y++)
             {
                 FluxGrid[x, y] = [];
             }
         }
 
-        comp.ComponentGrid = new ReactorPart[FissionGeneratorComponent.ReactorGridWidth, FissionGeneratorComponent.ReactorGridHeight];
+        comp.ComponentGrid = new ReactorPart[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
         Array.Copy(SelectPrefab(comp.Prefab), comp.ComponentGrid, comp.ComponentGrid.Length);
         comp.ApplyPrefab = false;
         UpdateGridVisual(uid, comp);
     }
 
-    private void OnDisabled(EntityUid uid, FissionGeneratorComponent comp, ref AtmosDeviceDisabledEvent args)
+    private void OnDisabled(EntityUid uid, NuclearReactorComponent comp, ref AtmosDeviceDisabledEvent args)
     {
         comp.ApplyPrefab = default!;
         comp.Temperature = Atmospherics.T20C;
@@ -74,7 +74,7 @@ public sealed class FissionGeneratorSystem : SharedFissionGeneratorSystem
         _airContents.Clear();
     }
 
-    private void OnUpdate(Entity<FissionGeneratorComponent> ent, ref AtmosDeviceUpdateEvent args)
+    private void OnUpdate(Entity<NuclearReactorComponent> ent, ref AtmosDeviceUpdateEvent args)
     {
         var comp = ent.Comp;
         var uid = ent.Owner;
@@ -127,10 +127,10 @@ public sealed class FissionGeneratorSystem : SharedFissionGeneratorSystem
         GasInput.Volume = _airContents.Volume;
 
         // Snapshot of the flux grid that won't get messed up during the neutron calculations
-        var flux = new List<ReactorNeutron>[FissionGeneratorComponent.ReactorGridWidth, FissionGeneratorComponent.ReactorGridHeight];
-        for (var x = 0; x < FissionGeneratorComponent.ReactorGridWidth; x++)
+        var flux = new List<ReactorNeutron>[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
+        for (var x = 0; x < NuclearReactorComponent.ReactorGridWidth; x++)
         {
-            for (var y = 0; y < FissionGeneratorComponent.ReactorGridHeight; y++)
+            for (var y = 0; y < NuclearReactorComponent.ReactorGridHeight; y++)
             {
                 if (flux[x, y] == null)
                     flux[x, y] = [];
@@ -179,8 +179,8 @@ public sealed class FissionGeneratorSystem : SharedFissionGeneratorSystem
                     var xmod = (((byte)dir >> 1) % 2) - (((byte)dir >> 3) % 2);
                     var ymod = (((byte)dir >> 2) % 2) - ((byte)dir % 2);
 
-                    if (x + xmod >= 0 && y + ymod >= 0 && x + xmod <= FissionGeneratorComponent.ReactorGridWidth - 1
-                        && y + ymod <= FissionGeneratorComponent.ReactorGridHeight - 1)
+                    if (x + xmod >= 0 && y + ymod >= 0 && x + xmod <= NuclearReactorComponent.ReactorGridWidth - 1
+                        && y + ymod <= NuclearReactorComponent.ReactorGridHeight - 1)
                     {
                         if (flux[x + xmod, y + ymod] == null) // This is lazy and bad
                             flux[x + xmod, y + ymod] = [];
@@ -239,14 +239,14 @@ public sealed class FissionGeneratorSystem : SharedFissionGeneratorSystem
         ProcessCaseRadiation(uid, TempRads);
     }
 
-    private static List<ReactorPart?> GetGridNeighbors(FissionGeneratorComponent reactor, int x, int y)
+    private static List<ReactorPart?> GetGridNeighbors(NuclearReactorComponent reactor, int x, int y)
     {
         var neighbors = new List<ReactorPart?>();
         if (x - 1 < 0)
             neighbors.Add(null);
         else
             neighbors.Add(reactor.ComponentGrid[x - 1, y]);
-        if (x + 1 >= FissionGeneratorComponent.ReactorGridWidth)
+        if (x + 1 >= NuclearReactorComponent.ReactorGridWidth)
             neighbors.Add(null);
         else
             neighbors.Add(reactor.ComponentGrid[x + 1, y]);
@@ -254,7 +254,7 @@ public sealed class FissionGeneratorSystem : SharedFissionGeneratorSystem
             neighbors.Add(null);
         else
             neighbors.Add(reactor.ComponentGrid[x, y - 1]);
-        if (y + 1 >= FissionGeneratorComponent.ReactorGridHeight)
+        if (y + 1 >= NuclearReactorComponent.ReactorGridHeight)
             neighbors.Add(null);
         else
             neighbors.Add(reactor.ComponentGrid[x, y + 1]);
@@ -328,7 +328,7 @@ public sealed class FissionGeneratorSystem : SharedFissionGeneratorSystem
         return ProcessedGas;
     }
 
-    private GasMixture? ProcessCasingGas(FissionGeneratorComponent reactor, GasMixture inGas)
+    private GasMixture? ProcessCasingGas(NuclearReactorComponent reactor, GasMixture inGas)
     {
         GasMixture? ProcessedGas = null;
         if (_currentGas != null)
@@ -402,9 +402,9 @@ public sealed class FissionGeneratorSystem : SharedFissionGeneratorSystem
 
     private void InitGrid(EntityUid reactor)
     {
-        for (var x = 0; x < FissionGeneratorComponent.ReactorGridWidth; x++)
+        for (var x = 0; x < NuclearReactorComponent.ReactorGridWidth; x++)
         {
-            for (var y = 0; y < FissionGeneratorComponent.ReactorGridHeight; y++)
+            for (var y = 0; y < NuclearReactorComponent.ReactorGridHeight; y++)
             {
                 // ...48 entities stuck on the grid, spawn one more, pass it around, 49 entities stuck on the grid...
                 _reactorGrid[x, y] = SpawnAttachedTo("ReactorComponent", new(reactor, 0.5f*y-1.5f-5f, -0.5f*x+1.5f));
@@ -414,7 +414,7 @@ public sealed class FissionGeneratorSystem : SharedFissionGeneratorSystem
 
     public override void Update(float frameTime)
     {
-        var query = EntityQueryEnumerator<FissionGeneratorComponent>();
+        var query = EntityQueryEnumerator<NuclearReactorComponent>();
 
         while (query.MoveNext(out var uid, out var reactor))
         {
@@ -422,25 +422,25 @@ public sealed class FissionGeneratorSystem : SharedFissionGeneratorSystem
         }
     }
 
-    private void UpdateUI(EntityUid uid, FissionGeneratorComponent reactor)
+    private void UpdateUI(EntityUid uid, NuclearReactorComponent reactor)
     {
-        if (!_uiSystem.IsUiOpen(uid, FissionGeneratorUiKey.Key))
+        if (!_uiSystem.IsUiOpen(uid, NuclearReactorUiKey.Key))
             return;
 
-        var temp = new double[FissionGeneratorComponent.ReactorGridWidth * FissionGeneratorComponent.ReactorGridHeight];
-        var neutron = new int[FissionGeneratorComponent.ReactorGridWidth * FissionGeneratorComponent.ReactorGridHeight];
+        var temp = new double[NuclearReactorComponent.ReactorGridWidth * NuclearReactorComponent.ReactorGridHeight];
+        var neutron = new int[NuclearReactorComponent.ReactorGridWidth * NuclearReactorComponent.ReactorGridHeight];
 
-        for (var x = 0; x < FissionGeneratorComponent.ReactorGridWidth; x++)
+        for (var x = 0; x < NuclearReactorComponent.ReactorGridWidth; x++)
         {
-            for (var y = 0; y < FissionGeneratorComponent.ReactorGridHeight; y++)
+            for (var y = 0; y < NuclearReactorComponent.ReactorGridHeight; y++)
             {
-                temp[x * FissionGeneratorComponent.ReactorGridWidth + y] = TemperatureGrid[x, y];
-                neutron[x * FissionGeneratorComponent.ReactorGridWidth + y] = NeutronGrid[x, y];
+                temp[x * NuclearReactorComponent.ReactorGridWidth + y] = TemperatureGrid[x, y];
+                neutron[x * NuclearReactorComponent.ReactorGridWidth + y] = NeutronGrid[x, y];
             }
         }
 
-        _uiSystem.SetUiState(uid, FissionGeneratorUiKey.Key,
-           new FissionGeneratorBuiState
+        _uiSystem.SetUiState(uid, NuclearReactorUiKey.Key,
+           new NuclearReactorBuiState
            {
                TemperatureGrid = temp,
                NeutronGrid = neutron,

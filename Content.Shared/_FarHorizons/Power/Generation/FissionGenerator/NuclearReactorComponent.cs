@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class FissionGeneratorComponent : Component
+public sealed partial class NuclearReactorComponent : Component
 {
     public static int ReactorGridWidth = 7;
     public static int ReactorGridHeight = 7;

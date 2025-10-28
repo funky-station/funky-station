@@ -1,20 +1,20 @@
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
-public abstract class SharedFissionGeneratorSystem : EntitySystem
+public abstract class SharedNuclearReactorSystem : EntitySystem
 {
 
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
-    protected EntityUid[,] _reactorGrid = new EntityUid[FissionGeneratorComponent.ReactorGridWidth, FissionGeneratorComponent.ReactorGridHeight];
+    protected EntityUid[,] _reactorGrid = new EntityUid[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
 
-    protected virtual void UpdateGridVisual(EntityUid uid, FissionGeneratorComponent? comp)
+    protected virtual void UpdateGridVisual(EntityUid uid, NuclearReactorComponent? comp)
     {
         //if (!Resolve(uid, ref comp, ref appearance, false))
         //    return;
 
-        for (var x = 0; x < FissionGeneratorComponent.ReactorGridWidth; x++)
+        for (var x = 0; x < NuclearReactorComponent.ReactorGridWidth; x++)
         {
-            for (var y = 0; y < FissionGeneratorComponent.ReactorGridHeight; y++)
+            for (var y = 0; y < NuclearReactorComponent.ReactorGridHeight; y++)
             {
                 if(comp!.ComponentGrid[x, y] == null)
                 {

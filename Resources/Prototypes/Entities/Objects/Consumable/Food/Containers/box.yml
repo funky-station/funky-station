@@ -55,30 +55,30 @@
   description: Mmm, Donuts.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/Baked/donut.rsi
-    state: box
+    sprite: _Impstation/Objects/Storage/donut_box.rsi # imp
+    state: icon # imp
     layers:
-    - state: box
+    - state: icon # imp
       map: ["closeLayer"]
-    - state: box-open
+    - state: icon-open # imp
       map: ["openLayer"]
       visible: false
     - state: box1
       map: ["box1"]
       visible: false
-    - state: pink-box2
+    - state: box2 # imp
       map: ["pink-box2"]
       visible: false
     - state: box3
       map: ["box3"]
       visible: false
-    - state: pink-box4
+    - state: box4 # imp
       map: ["pink-box4"]
       visible: false
     - state: box5
       map: ["box5"]
       visible: false
-    - state: pink-box6
+    - state: box6 # imp
       map: ["pink-box6"]
       visible: false
   - type: Storage
@@ -88,9 +88,11 @@
       tags:
       - Donut
   - type: Item
-    sprite: Objects/Consumable/Food/Baked/donut.rsi
-    size: Small
-    heldPrefix: box
+    sprite: _Impstation/Objects/Storage/donut_box.rsi # imp
+    size: Normal
+    shape:
+    - 0,0,2,1
+    #heldPrefix: box # imp
   - type: StorageFill
     contents:
     - id: FoodDonutPink

@@ -30,6 +30,20 @@
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
     - BasicRoundstartVariation
+    
+- type: gamePreset
+  id: SecretChangeling
+  alias:
+    - secretling
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+    - Changeling
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - BasicRoundstartVariation
 
 - type: gamePreset
   id: Traitorling
@@ -47,6 +61,22 @@
     - MeteorSwarmScheduler
     - BasicRoundstartVariation
 
+- type: gamePreset
+  id: SecretTraitorling
+  alias:
+    - secretlingtraitor
+    - secrettraitorling
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+    - CalmLing
+    - CalmTraitor
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - BasicRoundstartVariation
+    
 - type: gamePreset
   id: NukeTraitor
   alias:
@@ -116,6 +146,20 @@
   - blab
   name: blob-title
   description: blob-description
+  showInVote: false
+  rules:
+  - BlobGameMode
+  - BasicStationEventScheduler
+  - BasicRoundstartVariation
+  - SubGamemodesRule
+  - MeteorSwarmScheduler
+
+- type: gamePreset
+  id: SecretBlob
+  alias:
+  - secretblab
+  name: secret-title
+  description: secret-description
   showInVote: false
   rules:
   - BlobGameMode

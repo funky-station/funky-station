@@ -1,18 +1,12 @@
-using System.Collections.Generic;
-using System.Numerics;
 using Content.Server._FarHorizons.NodeContainer.Nodes;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Atmos.Piping.Binary.Components;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Atmos;
-using Content.Shared.Atmos.Piping.Binary.Components;
 using Content.Shared.Atmos.Piping.Components;
 using Content.Shared.Radiation.Components;
 using Robust.Server.GameObjects;
-using Robust.Shared.Map;
-using Robust.Shared.Random;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -20,9 +14,9 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly NodeGroupSystem _nodeGroupSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
+    [Dependency] private readonly ReactorPartSystem _partSystem = default!;
 
     // Woe, 3 dimentions be upon ye
     public List<ReactorNeutron>[,] FluxGrid = new List<ReactorNeutron>[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
@@ -136,16 +130,14 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                     flux[x, y] = [];
                 if (comp.ComponentGrid![x, y] != null)
                 {
-                    comp.ComponentGrid[x, y]!.AssignParentReactor(comp);
-
                     var ReactorComp = comp.ComponentGrid[x, y];
-                    var gas = ProcessGas(uid, ReactorComp!, GasInput);
+                    var gas = _partSystem.ProcessGas(ReactorComp!, ent, GasInput);
                     GasInput.Volume -= ReactorComp!.GasVolume;
 
                     if (gas != null)
                         _atmosphereSystem.Merge(_airContents, gas);
 
-                    ReactorComp.ProcessHeat(GetGridNeighbors(comp, x, y), _random);
+                    _partSystem.ProcessHeat(ReactorComp, ent, GetGridNeighbors(comp, x, y));
                     TemperatureGrid[x, y] = ReactorComp.Temperature;
 
                     if (ReactorComp is ReactorControlRodComponent ControlRod)
@@ -158,7 +150,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                     if (ReactorComp.Melted)
                         MeltedComps++;
 
-                    FluxGrid[x, y] = ReactorComp.ProcessNeutrons(FluxGrid[x, y], _random);
+                    FluxGrid[x, y] = _partSystem.ProcessNeutrons(ReactorComp, FluxGrid[x, y]);
 
                     TotalNRads += ReactorComp.NRadioactive;
                     TotalRads += ReactorComp.Radioactive;
@@ -259,73 +251,6 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         else
             neighbors.Add(reactor.ComponentGrid[x, y + 1]);
         return neighbors;
-    }
-
-    private GasMixture? ProcessGas(EntityUid uid, ReactorPart reactorComp, GasMixture inGas)
-    {
-        if (reactorComp is not ReactorGasChannelComponent gasChannel)
-            return null;
-
-        GasMixture? ProcessedGas = null;
-        if (gasChannel.AirContents != null)
-        {
-            var compTemp = gasChannel.Temperature;
-            var gasTemp = gasChannel.AirContents.Temperature;
-
-            var DeltaT = compTemp - gasTemp;
-            var DeltaTr = (compTemp + gasTemp) * (compTemp - gasTemp) * (Math.Pow(compTemp, 2) + Math.Pow(gasTemp, 2));
-
-            var k = (Math.Pow(10, gasChannel.PropertyThermal / 5) - 1) / 2;
-            var A = gasChannel.GasThermalCrossSection * (0.4 * 8);
-
-            var ThermalEnergy = _atmosphereSystem.GetThermalEnergy(gasChannel.AirContents);
-
-            var Hottest = Math.Max(gasTemp, compTemp);
-            var Coldest = Math.Min(gasTemp, compTemp);
-
-            var MaxDeltaE = Math.Clamp((k * A * DeltaT) + (5.67037442e-8 * A * DeltaTr),
-                (compTemp * gasChannel.ThermalMass) - (Hottest * gasChannel.ThermalMass),
-                (compTemp * gasChannel.ThermalMass) - (Coldest * gasChannel.ThermalMass));
-
-            gasChannel.AirContents.Temperature = (float)Math.Clamp(gasTemp +
-                (MaxDeltaE / _atmosphereSystem.GetHeatCapacity(gasChannel.AirContents, true)), Coldest, Hottest);
-
-            gasChannel.Temperature = (float)Math.Clamp(compTemp -
-                ((_atmosphereSystem.GetThermalEnergy(gasChannel.AirContents) - ThermalEnergy) / gasChannel.ThermalMass), Coldest, Hottest);
-
-            if (gasTemp < 0 || compTemp < 0)
-                return inGas; // TODO: crash the game here
-
-            if (gasChannel.Melted)
-            {
-                var T = _atmosphereSystem.GetTileMixture(uid, excite: true);
-                if (T != null)
-                    _atmosphereSystem.Merge(T, gasChannel.AirContents);
-            }
-            else
-                ProcessedGas = gasChannel.AirContents;
-        }
-
-        if (inGas != null && _atmosphereSystem.GetThermalEnergy(inGas) > 0)
-        {
-            gasChannel.AirContents = inGas.Remove(gasChannel.GasVolume * inGas.Pressure / (Atmospherics.R * inGas.Temperature));
-            gasChannel.AirContents.Volume = gasChannel.GasVolume;
-
-            if (gasChannel.AirContents != null && gasChannel.AirContents.TotalMoles < 1)
-            {
-                if (ProcessedGas != null)
-                {
-                    _atmosphereSystem.Merge(ProcessedGas, gasChannel.AirContents);
-                    gasChannel.AirContents.Clear();
-                }
-                else
-                {
-                    ProcessedGas = gasChannel.AirContents;
-                    gasChannel.AirContents.Clear();
-                }
-            }
-        }
-        return ProcessedGas;
     }
 
     private GasMixture? ProcessCasingGas(NuclearReactorComponent reactor, GasMixture inGas)

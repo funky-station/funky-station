@@ -1,7 +1,5 @@
 using Content.Shared.Atmos;
-using Content.Shared.Tools;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 

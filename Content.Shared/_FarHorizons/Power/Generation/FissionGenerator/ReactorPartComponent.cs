@@ -1,34 +1,40 @@
 using Content.Shared.Atmos;
-using Content.Shared.Radiation.Components;
 using Robust.Shared.GameStates;
-using Robust.Shared.Random;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
+/// <summary>
+/// Non-physical representation of a reactor part.
+/// </summary>
 public abstract partial class ReactorPart : Component
 {
-    private float _rate = 5;
-
+    /// <summary>
+    /// Icon of this component as it shows in the UIs.
+    /// </summary>
     [DataField]
     public string IconStateInserted = "base";
+
+    /// <summary>
+    /// Icon of this component as it shows in the world.
+    /// </summary>
     [DataField]
     public string IconStateCap = "rod_cap";
 
     #region Variables
     /// <summary>
-    /// Temperature of this component, starts at room temp Kelvin by default
+    /// Temperature of this component, starts at room temp Kelvin by default.
     /// </summary>
     [DataField]
     public float Temperature = Atmospherics.T20C;
 
     /// <summary>
-    /// How much does this component share heat with surrounding components? Basically surface area in contact (m2)
+    /// How much does this component share heat with surrounding components? Basically surface area in contact (m2).
     /// </summary>
     [DataField]
     public float ThermalCrossSection = 10;
 
     /// <summary>
-    /// How adept is this component at interacting with neutrons - fuel rods are set up to capture them, heat exchangers are set up not to
+    /// How adept is this component at interacting with neutrons - fuel rods are set up to capture them, heat exchangers are set up not to.
     /// </summary>
     [DataField]
     public float NeutronCrossSection = 0.5f;
@@ -40,215 +46,88 @@ public abstract partial class ReactorPart : Component
     public bool IsControlRod = false;
 
     /// <summary>
-    /// Max health to set melt_health to on init
+    /// Max health to set <see cref="MeltHealth"/> to on init.
     /// </summary>
     [DataField]
     public float MaxHealth = 100;
 
     /// <summary>
-    /// Essentially indicates how long this component can be at a dangerous temperature before it melts
+    /// Essentially indicates how long this component can be at a dangerous temperature before it melts.
     /// </summary>
     [DataField]
     public float MeltHealth = 100;
 
     /// <summary>
-    /// If this component is melted, you can't take it out of the reactor and it might do some weird stuff
+    /// If this component is melted, you can't take it out of the reactor and it might do some weird stuff.
     /// </summary>
     [DataField]
     public bool Melted = false;
 
     /// <summary>
-    /// The dangerous temperature above which this component starts to melt. 1700K is the melting point of steel
+    /// The dangerous temperature above which this component starts to melt. 1700K is the melting point of steel.
     /// </summary>
     [DataField]
     public float MeltingPoint = 1700;
 
     /// <summary>
-    /// How much gas this component can hold, and will be processed per tick
+    /// How much gas this component can hold, and will be processed per tick.
     /// </summary>
     [DataField]
     public float GasVolume = 0;
 
     /// <summary>
-    /// Thermal mass. Basically how much energy it takes to heat this up 1Kelvin
+    /// Thermal mass. Basically how much energy it takes to heat this up 1Kelvin.
     /// </summary>
     [DataField]
     public float ThermalMass = 420 * 250; //specific heat capacity of steel (420 J/KgK) * mass of component (Kg)
-
-    public NuclearReactorComponent? ParentReactor;
     #endregion
 
     #region Properties
     // SS13 material properties for Steel
+    /// <summary>
+    /// The material density of the rod. Determines how likley it is to interact with neutrons.
+    /// </summary>
     [DataField]
     public float PropertyDensity = 4;
+
+    /// <summary>
+    /// The thermal conductivity of the rod. Determines the rate of heat transfer.
+    /// </summary>
     [DataField]
     public float PropertyThermal = 7; //was 6
+
+    /// <summary>
+    /// The material hardness of the rod. Determines how likley it is to reflect neutrons.
+    /// </summary>
     [DataField]
     public float PropertyHard = 3;
 
     /// <summary>
-    /// Neutron radioactivity, basically how much fuel is in the rod
+    /// Neutron radioactivity, basically how much fuel is in the rod.
     /// </summary>
     public float NRadioactive = 0;
 
     /// <summary>
-    /// Radioactivity
+    /// Radioactivity.
     /// </summary>
     public float Radioactive = 0;
 
     /// <summary>
-    /// How much spent fuel is in the rod
+    /// How much spent fuel is in the rod.
     /// </summary>
     public float SpentFuel = 0;
     #endregion
-
-    public void AssignParentReactor(NuclearReactorComponent reactor) => ParentReactor = reactor;
-    public void RemoveParentReactor() => ParentReactor = null;
-
-    public virtual void Melt(IRobustRandom random)
-    {
-        if (Melted)
-            return;
-
-        Melted = true;
-        IconStateCap += "_melted_" + random.Next(1, 4 + 1);
-        // TODO: tell parent to update its looks
-        NeutronCrossSection = 5f;
-        ThermalCrossSection = 20f;
-        IsControlRod = false;
-    }
-
-    public void ProcessHeat(List<ReactorPart?> AdjacentComponents, IRobustRandom random)
-    {
-        // Intercomponent calculation
-        foreach (var RC in AdjacentComponents)
-        {
-            if (RC == null)
-                continue;
-
-            var DeltaT = Temperature - RC.Temperature;
-            // The thermal conductivity for a steel/steel interaction in SS13. SS14 does not support material properties
-            // like this, so this is the best I can do
-            var k = (Math.Pow(10, PropertyThermal / 5) - 1 + (Math.Pow(10, RC.PropertyThermal / 5) - 1)) / 2;
-            var A = Math.Min(ThermalCrossSection, RC.ThermalCrossSection);
-
-            Temperature = (float)(Temperature - ((k * A * (0.5 * 8) / ThermalMass) * DeltaT));
-            RC.Temperature = (float)(RC.Temperature - ((k * A * (0.5 * 8) / RC.ThermalMass) * -DeltaT));
-
-            if (RC.Temperature < 0 || Temperature < 0)
-                return; // TODO: crash the game here
-
-            // This is where we'd put material-based temperature effects... IF WE HAD ANY
-        }
-
-        // Component-Reactor calculation
-        if (ParentReactor != null)
-        {
-            var DeltaT = Temperature - ParentReactor.Temperature;
-
-            var k = (Math.Pow(10, PropertyThermal / 5) - 1 + (Math.Pow(10, 7 / 5) - 1)) / 2;
-            var A = ThermalCrossSection;
-
-            Temperature = (float)(Temperature - (k * A * (0.5 * 8) / ThermalMass * DeltaT));
-            ParentReactor.Temperature = (float)(ParentReactor.Temperature - (k * A * (0.5 * 8) / ParentReactor.ThermalMass * -DeltaT));
-
-            if (ParentReactor.Temperature < 0 || Temperature < 0)
-                return; // TODO: crash the game here
-
-            // This is where we'd put material-based temperature effects... IF WE HAD ANY
-        }
-        if (Temperature > MeltingPoint && MeltHealth > 0)
-            MeltHealth -= random.Next(10, 50 + 1);
-        if (MeltHealth <= 0)
-            Melt(random);
-    }
-
-    public virtual List<ReactorNeutron> ProcessNeutrons(List<ReactorNeutron> neutrons, IRobustRandom random)
-    {
-        // Why not use a foreach? It doesn't work. Don't ask why, it just doesn't.
-        var flux = neutrons;
-        for (var n = 0; n < flux.Count; n++)
-        {
-            var neutron = flux[n];
-
-            if (Prob(PropertyDensity * _rate * NeutronCrossSection, random))
-            {
-                if (neutron.velocity <= 1 && Prob(_rate * NRadioactive, random)) // neutron stimulated emission
-                {
-                    NRadioactive -= 0.001f;
-                    Radioactive += 0.0005f;
-                    for (var i = 0; i < random.Next(1, 5+1); i++)
-                    {
-                        neutrons.Add(new() { dir = random.NextAngle().GetDir(), velocity = random.Next(2, 3 + 1) });
-                    }
-                    neutrons.Remove(neutron);
-                    Temperature += 50;
-                }
-                else if (neutron.velocity <= 5 && Prob(_rate * Radioactive, random)) // stimulated emission
-                {
-                    Radioactive -= 0.001f;
-                    SpentFuel += 0.0005f;
-                    for (var i = 0; i < random.Next(1, 5+1); i++)
-                    {
-                        neutrons.Add(new() { dir = random.NextAngle().GetDir(), velocity = random.Next(1, 3 + 1) });
-                    }
-                    neutrons.Remove(neutron);
-                    Temperature += 25;
-                }
-                else
-                {
-                    if (Prob(_rate * PropertyHard, random)) // reflection, based on hardness
-                        // A really complicated way of saying do a 180 or a 180+/-45
-                        neutron.dir = (neutron.dir.GetOpposite().ToAngle() + (random.NextAngle() / 4) - (MathF.Tau / 8)).GetDir();
-                    else if (IsControlRod)
-                        neutron.velocity = 0;
-                    else
-                        neutron.velocity--;
-
-                    if (neutron.velocity <= 0)
-                        neutrons.Remove(neutron);
-
-                    Temperature += 1;
-                }
-            }
-        }
-        if (Prob(NRadioactive * _rate * NeutronCrossSection, random))
-        {
-            for (var i = 0; i < random.Next(1, 3 + 1); i++)
-            {
-                neutrons.Add(new() { dir = random.NextAngle().GetDir(), velocity = 3 });
-            }
-            NRadioactive -= 0.001f;
-            Radioactive += 0.0005f;
-            Temperature += 20;
-        }
-        if (Prob(Radioactive * _rate * NeutronCrossSection, random))
-        {
-            for (var i = 0; i < random.Next(1, 3+1); i++)
-            {
-                neutrons.Add(new() { dir = random.NextAngle().GetDir(), velocity = random.Next(1, 3+1) });
-            }
-            Radioactive -= 0.001f;
-            SpentFuel += 0.0005f;
-            Temperature += 10;
-        }
-
-        neutrons ??= [];
-        return neutrons;
-    }
-
-    /// <summary>
-    /// Returns a true according to a probability
-    /// </summary>
-    /// <param name="probability">Double, 0-100 </param>
-    /// <returns></returns>
-    private static bool Prob(double probability, IRobustRandom random) => random.NextDouble() <= probability / 100;
 }
 
+/// <summary>
+/// A reactor part for the reactor grid.
+/// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ReactorPartComponent : ReactorPart;
 
+/// <summary>
+/// A virtual neutron that flies around within the reactor.
+/// </summary>
 [NetworkedComponent]
 public sealed class ReactorNeutron
 {
@@ -256,49 +135,35 @@ public sealed class ReactorNeutron
     public float velocity = 1;
 }
 
+/// <summary>
+/// A control rod for the reactor grid.
+/// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ReactorControlRodComponent : ReactorPart
 {
+    /// <summary>
+    /// The target insertion level of the control rod.
+    /// </summary>
     [DataField]
     public float ConfiguredInsertionLevel = 1;
-
-    public override List<ReactorNeutron> ProcessNeutrons(List<ReactorNeutron> neutrons, IRobustRandom random)
-    {
-        neutrons = base.ProcessNeutrons(neutrons, random);
-
-        if(!Melted && (NeutronCrossSection != ConfiguredInsertionLevel))
-        {
-            if (ConfiguredInsertionLevel < NeutronCrossSection)
-                NeutronCrossSection -= Math.Min(0.1f, NeutronCrossSection - ConfiguredInsertionLevel);
-            else
-                NeutronCrossSection += Math.Min(0.1f, ConfiguredInsertionLevel - NeutronCrossSection);
-        }
-
-        return neutrons;
-    }
 }
 
+/// <summary>
+/// A gas channel for the reactor grid.
+/// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ReactorGasChannelComponent : ReactorPart
 {
+    /// <summary>
+    /// How adept the gas channel is at transfering heat to/from gasses.
+    /// </summary>
     [DataField]
     public float GasThermalCrossSection = 25; //was 15
+
+    /// <summary>
+    /// The gas mixture inside the gas channel.
+    /// </summary>
     public GasMixture? AirContents;
-
-    public GasMixture? ReturnAir() => AirContents;
-
-    public override void Melt(IRobustRandom random)
-    {
-        base.Melt(random);
-        GasThermalCrossSection = 0.1f;
-    }
-
-    public override List<ReactorNeutron> ProcessNeutrons(List<ReactorNeutron> neutrons, IRobustRandom random)
-    {
-        base.ProcessNeutrons(neutrons, random);
-        // TODO: gas-neutron interactions
-        return neutrons;
-    }
 }
 
 [NetworkedComponent]

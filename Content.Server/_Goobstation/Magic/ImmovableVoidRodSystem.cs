@@ -74,7 +74,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
         || HasComp<GhoulComponent>(args.OtherEntity))
             return;
 
-        _stun.TryParalyze(args.OtherEntity, TimeSpan.FromSeconds(2.5f), false);
+        //_stun.TryParalyze(args.OtherEntity, TimeSpan.FromSeconds(2.5f), false); funky change
 
         //This is a certified Funkystation addition :fire:
 

@@ -62,9 +62,11 @@
 - type: entity
   id: ReactorComponent
   name: reactor component
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_component_cap.rsi
+    drawdepth: 1
     layers:
     - state: base_cap
       visible: true
@@ -99,14 +101,3 @@
     bodyType: Static
   - type: Transform
     noRot: true
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.1,-0.1,0.1,0.1"
-        density: 1
-        mask:
-        - MobMask 
-        layer:
-        - MobLayer 

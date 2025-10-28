@@ -78,7 +78,13 @@ public abstract class SharedReactorPartSystem : EntitySystem
             Melt(reactorPart);
     }
 
-    public List<ReactorNeutron> ProcessNeutrons(ReactorPart reactorPart, List<ReactorNeutron> neutrons)
+    /// <summary>
+    /// Returns a list of neutrons from the interation of the given ReactorPart and initial neutrons.
+    /// </summary>
+    /// <param name="reactorPart">Reactor part applying the calculations</param>
+    /// <param name="neutrons">Neutrons to be processed</param>
+    /// <returns></returns>
+    public virtual List<ReactorNeutron> ProcessNeutrons(ReactorPart reactorPart, List<ReactorNeutron> neutrons)
     {
         // Why not use a foreach? It doesn't work. Don't ask why, it just doesn't.
         var flux = neutrons;
@@ -152,7 +158,14 @@ public abstract class SharedReactorPartSystem : EntitySystem
         return neutrons;
     }
 
-    public List<ReactorNeutron> ProcessNeutrons(ReactorControlRodComponent controlRod, List<ReactorNeutron> neutrons)
+    /// <summary>
+    /// Returns a list of neutrons from the interation of the given ReactorPart and initial neutrons.
+    /// This variant applies to control rods.
+    /// </summary>
+    /// <param name="controlRod">Control rod applying the calculations</param>
+    /// <param name="neutrons">Neutrons to be processed</param>
+    /// <returns></returns>
+    public List<ReactorNeutron> ProcessNeutronsControl(ReactorControlRodComponent controlRod, List<ReactorNeutron> neutrons)
     {
         neutrons = ProcessNeutrons(controlRod as ReactorPart, neutrons);
 
@@ -167,7 +180,14 @@ public abstract class SharedReactorPartSystem : EntitySystem
         return neutrons;
     }
 
-    public List<ReactorNeutron> ProcessNeutrons(ReactorGasChannelComponent gasChannel, List<ReactorNeutron> neutrons)
+    /// <summary>
+    /// Returns a list of neutrons from the interation of the given ReactorPart and initial neutrons.
+    /// This variant applies to gas channels.
+    /// </summary>
+    /// <param name="gasChannel">Gas channel applying the calculations</param>
+    /// <param name="neutrons">Neutrons to be processed</param>
+    /// <returns></returns>
+    public List<ReactorNeutron> ProcessNeutronsGas(ReactorGasChannelComponent gasChannel, List<ReactorNeutron> neutrons)
     {
         ProcessNeutrons(gasChannel as ReactorPart, neutrons);
         // TODO: gas-neutron interactions

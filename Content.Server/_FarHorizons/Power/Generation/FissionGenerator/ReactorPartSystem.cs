@@ -10,6 +10,22 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
 
     /// <summary>
+    /// Switches between the part-specific variants of ProcessNeutrons.
+    /// </summary>
+    /// <param name="reactorPart">Reactor part applying the calculations</param>
+    /// <param name="neutrons">Neutrons to be processed</param>
+    /// <returns></returns>
+    public List<ReactorNeutron> ProcessNeutronsSwitch(ReactorPart reactorPart, List<ReactorNeutron> neutrons)
+    {
+        if(reactorPart is ReactorControlRodComponent controlRod)
+            return ProcessNeutronsControl(controlRod, neutrons);
+        else if (reactorPart is ReactorGasChannelComponent gasChannel)
+            return ProcessNeutronsGas(gasChannel, neutrons);
+        else
+            return ProcessNeutrons(reactorPart, neutrons);
+    }
+
+    /// <summary>
     /// 
     /// </summary>
     /// <param name="reactorPart">The reactor part.</param>

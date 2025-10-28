@@ -18,10 +18,9 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
     [Dependency] private readonly ReactorPartSystem _partSystem = default!;
 
-    // Woe, 3 dimentions be upon ye
-    public List<ReactorNeutron>[,] FluxGrid = new List<ReactorNeutron>[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
+    
+    //public List<ReactorNeutron>[,] FluxGrid = new List<ReactorNeutron>[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
 
-    private GasMixture _airContents = new();
     private GasMixture _currentGas = new();
 
     public double[,] TemperatureGrid = new double[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
@@ -41,7 +40,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         {
             for (var y = 0; y < NuclearReactorComponent.ReactorGridHeight; y++)
             {
-                FluxGrid[x, y] = [];
+                comp.FluxGrid[x, y] = [];
             }
         }
 
@@ -62,10 +61,9 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 
         Array.Clear(comp.ComponentGrid);
         Array.Clear(_reactorGrid);
-        Array.Clear(FluxGrid);
+        Array.Clear(comp.FluxGrid);
 
         _currentGas.Clear();
-        _airContents.Clear();
     }
 
     private void OnUpdate(Entity<NuclearReactorComponent> ent, ref AtmosDeviceUpdateEvent args)
@@ -95,9 +93,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         if (outlet.ReachableNodes.Count == 0)
             _nodeGroupSystem.QueueReflood(outlet);
 
-        // Process last tick's air
-        _atmosphereSystem.Merge(outlet.Air, _airContents);
-        _airContents = new();
+        var AirContents = new GasMixture();
 
         var InletStartingPressure = inlet.Air.Pressure;
         var TempRads = 0;
@@ -117,8 +113,8 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         }
         var GasInput = inlet.Air.Remove(TransferMoles);
 
-        _airContents.Volume = inlet.Air.Volume;
-        GasInput.Volume = _airContents.Volume;
+        AirContents.Volume = inlet.Air.Volume;
+        GasInput.Volume = AirContents.Volume;
 
         // Snapshot of the flux grid that won't get messed up during the neutron calculations
         var flux = new List<ReactorNeutron>[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
@@ -135,7 +131,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                     GasInput.Volume -= ReactorComp!.GasVolume;
 
                     if (gas != null)
-                        _atmosphereSystem.Merge(_airContents, gas);
+                        _atmosphereSystem.Merge(AirContents, gas);
 
                     _partSystem.ProcessHeat(ReactorComp, ent, GetGridNeighbors(comp, x, y));
                     TemperatureGrid[x, y] = ReactorComp.Temperature;
@@ -150,7 +146,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                     if (ReactorComp.Melted)
                         MeltedComps++;
 
-                    FluxGrid[x, y] = _partSystem.ProcessNeutrons(ReactorComp, FluxGrid[x, y]);
+                    comp.FluxGrid[x, y] = _partSystem.ProcessNeutronsSwitch(ReactorComp, comp.FluxGrid[x, y]);
 
                     TotalNRads += ReactorComp.NRadioactive;
                     TotalRads += ReactorComp.Radioactive;
@@ -159,11 +155,11 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                 else
                     TemperatureGrid[x, y] = 0;
 
-                NeutronGrid[x, y] = FluxGrid[x, y].Count;
+                NeutronGrid[x, y] = comp.FluxGrid[x, y].Count;
                 
-                for (var i = 0; i < FluxGrid[x, y].Count; i++)
+                for (var i = 0; i < comp.FluxGrid[x, y].Count; i++)
                 {
-                    var neutron = FluxGrid[x, y][i];
+                    var neutron = comp.FluxGrid[x, y][i];
                     NeutronCount++;
 
                     var dir = neutron.dir.AsFlag();
@@ -177,24 +173,24 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                         if (flux[x + xmod, y + ymod] == null) // This is lazy and bad
                             flux[x + xmod, y + ymod] = [];
                         flux[x + xmod, y + ymod].Add(neutron);
-                        FluxGrid[x, y].Remove(neutron);
+                        comp.FluxGrid[x, y].Remove(neutron);
                     }
                     else
                     {
-                        FluxGrid[x, y].Remove(neutron);
+                        comp.FluxGrid[x, y].Remove(neutron);
                         TempRads++; // neutrons hitting the casing get blasted in to the room - have fun with that engineers!
                     }
                 }
             }
         }
-        Array.Copy(flux, FluxGrid, FluxGrid.Length);
+        Array.Copy(flux, comp.FluxGrid, comp.FluxGrid.Length);
 
         var CasingGas = ProcessCasingGas(comp, GasInput);
         if (CasingGas != null)
-            _atmosphereSystem.Merge(_airContents, CasingGas);
+            _atmosphereSystem.Merge(AirContents, CasingGas);
 
         // If there's still input gas left over
-        _atmosphereSystem.Merge(_airContents, GasInput);
+        _atmosphereSystem.Merge(AirContents, GasInput);
 
         if (comp.Temperature >= comp.ReactorOverheatTemp)
         {
@@ -229,6 +225,8 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         }
 
         ProcessCaseRadiation(uid, TempRads);
+
+        _atmosphereSystem.Merge(outlet.Air, AirContents);
     }
 
     private static List<ReactorPart?> GetGridNeighbors(NuclearReactorComponent reactor, int x, int y)
@@ -318,21 +316,26 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 
     private static ReactorPart?[,] SelectPrefab(string select) => select switch
     {
-        "normal" => FissionGeneratorPrefabs.Normal,
-        "debug" => FissionGeneratorPrefabs.Debug,
-        "meltdown" => FissionGeneratorPrefabs.Meltdown,
-        "alignment" => FissionGeneratorPrefabs.Alignment,
-        _ => FissionGeneratorPrefabs.Empty,
+        "normal" => NuclearReactorPrefabs.Normal,
+        "debug" => NuclearReactorPrefabs.Debug,
+        "meltdown" => NuclearReactorPrefabs.Meltdown,
+        "alignment" => NuclearReactorPrefabs.Alignment,
+        _ => NuclearReactorPrefabs.Empty,
     };
 
     private void InitGrid(EntityUid reactor)
     {
+        var xspace = 18f / 32f;
+        var yspace = 15f / 32f;
+
+        var yoff = 6f / 32f;
+
         for (var x = 0; x < NuclearReactorComponent.ReactorGridWidth; x++)
         {
             for (var y = 0; y < NuclearReactorComponent.ReactorGridHeight; y++)
             {
                 // ...48 entities stuck on the grid, spawn one more, pass it around, 49 entities stuck on the grid...
-                _reactorGrid[x, y] = SpawnAttachedTo("ReactorComponent", new(reactor, 0.5f*y-1.5f-5f, -0.5f*x+1.5f));
+                _reactorGrid[x, y] = SpawnAttachedTo("ReactorComponent", new(reactor, xspace * (y - 3), (-yspace * (x - 3)) - yoff));
             }
         }
     }

@@ -28,6 +28,9 @@ public sealed partial class NuclearReactorComponent : Component
     // Making this a DataField causes the game to explode, neat
     public ReactorPart?[,] ComponentGrid = new ReactorPart[ReactorGridWidth, ReactorGridHeight];
 
+    // Woe, 3 dimensions be upon ye
+    public List<ReactorNeutron>[,] FluxGrid = new List<ReactorNeutron>[ReactorGridWidth, ReactorGridHeight];
+
     [DataField]
     public string Prefab = "normal";
     [DataField]

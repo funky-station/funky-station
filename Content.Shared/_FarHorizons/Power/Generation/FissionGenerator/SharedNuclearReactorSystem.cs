@@ -9,9 +9,6 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
 
     protected virtual void UpdateGridVisual(EntityUid uid, NuclearReactorComponent? comp)
     {
-        //if (!Resolve(uid, ref comp, ref appearance, false))
-        //    return;
-
         for (var x = 0; x < NuclearReactorComponent.ReactorGridWidth; x++)
         {
             for (var y = 0; y < NuclearReactorComponent.ReactorGridHeight; y++)
@@ -59,7 +56,7 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
     };
 }
 
-public static class FissionGeneratorPrefabs
+public static class NuclearReactorPrefabs
 {
     private static readonly ReactorControlRodComponent c = BaseReactorComponents.ControlRod;
     private static readonly ReactorPartComponent f = BaseReactorComponents.FuelRod;

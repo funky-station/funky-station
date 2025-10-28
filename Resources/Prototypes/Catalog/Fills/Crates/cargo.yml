@@ -421,6 +421,7 @@
       tableId: SyndieMaintLoot
     - !type:NestedSelector
       tableId: AllPlushiesTable
+    - id: GlorpPerformancePlushie
     - id: ClothingNeckBling
     - id: ClothingShoesBling
     - id: DrinkGoldenCup

@@ -33,6 +33,7 @@
   - BasicStationEventScheduler
   #- AntagStationEventScheduler
   - BasicRoundstartVariation
+  
 
 - type: gamePreset
   id: ChangelingHeretics
@@ -119,4 +120,19 @@
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
 
+- type: gamePreset
+  id: SecretMalfAi
+  alias:
+  - secretmalfai
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+  - Traitor
+  - SubGamemodesRule
+  - MalfAi
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
 

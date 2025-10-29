@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2024 PrPleGoo <PrPleGoo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 B_Kirill <cool.bkirill@yandex.ru>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
@@ -44,6 +45,20 @@
   icon:
     sprite: /Textures/Interface/Misc/security_icons.rsi
     state: hud_suspected
+
+- type: securityIcon
+  parent: SecurityIcon
+  id: SecurityIconHostile
+  icon:
+    sprite: /Textures/Interface/Misc/security_icons.rsi
+    state: hud_hostile
+
+- type: securityIcon
+  parent: SecurityIcon
+  id: SecurityIconEliminated
+  icon:
+    sprite: /Textures/Interface/Misc/security_icons.rsi
+    state: hud_eliminated
 
 - type: securityIcon
   parent: SecurityIcon

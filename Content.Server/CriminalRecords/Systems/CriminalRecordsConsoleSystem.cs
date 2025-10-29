@@ -9,6 +9,7 @@
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 B_Kirill <cool.bkirill@yandex.ru>
 //
 // SPDX-License-Identifier: MIT
 
@@ -101,7 +102,9 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
     {
         // prevent malf client violating wanted/reason nullability
         if (msg.Status == SecurityStatus.Wanted != (msg.Reason != null) &&
-            msg.Status == SecurityStatus.Suspected != (msg.Reason != null))
+            msg.Status == SecurityStatus.Suspected != (msg.Reason != null) &&
+            msg.Status == SecurityStatus.Hostile != (msg.Reason != null) &&
+            msg.Status == SecurityStatus.Search != (msg.Reason != null)) // Funkystation - search status
             return;
 
         if (!CheckSelected(ent, msg.Actor, out var mob, out var key))
@@ -158,18 +161,30 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
         // figure out which radio message to send depending on transition
         var statusString = (oldStatus, msg.Status) switch
         {
+            // person deemed hostile
+            (_, SecurityStatus.Hostile) => "hostile",
+            // person is dead, for good
+            (_, SecurityStatus.Eliminated) => "eliminated",
             // person has been detained
             (_, SecurityStatus.Detained) => "detained",
             // person did something sus
             (_, SecurityStatus.Suspected) => "suspected",
+            // Funkystation - person's in need of a search
+            (_, SecurityStatus.Search) => "search",
             // released on parole
             (_, SecurityStatus.Paroled) => "paroled",
             // prisoner did their time
             (_, SecurityStatus.Discharged) => "released",
             // going from any other state to wanted, AOS or prisonbreak / lazy secoff never set them to released and they reoffended
             (_, SecurityStatus.Wanted) => "wanted",
+            // person no longer deemed hostile
+            (SecurityStatus.Hostile, SecurityStatus.None) => "not-hostile",
+            // person returned from dead... somehow
+            (SecurityStatus.Eliminated, SecurityStatus.None) => "not-eliminated",
             // person is no longer sus
             (SecurityStatus.Suspected, SecurityStatus.None) => "not-suspected",
+            // Funkystation - person no longer needs a search
+            (SecurityStatus.Search, SecurityStatus.None) => "no-more-search",
             // going from wanted to none, must have been a mistake
             (SecurityStatus.Wanted, SecurityStatus.None) => "not-wanted",
             // criminal status removed

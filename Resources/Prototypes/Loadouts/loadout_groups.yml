@@ -1484,6 +1484,11 @@
   loadouts:
   - WhiteJumpsuit
   - WhiteJumpskirt
+- type: loadoutGroup
+  id: MedicalChemistHead
+  name: loadout-group-medical-chemist-head
+  loadouts:
+  - SeniorPhysicianBeret
 
 - type: loadoutGroup #Funky
   id: MedicalChemistGlasses
@@ -1499,6 +1504,8 @@
   loadouts:
   - ChemistJumpsuit
   - ChemistJumpskirt
+  - SeniorPhysicianJumpsuit
+  - SeniorPhysicianJumpskirt
 
 - type: loadoutGroup
   id: ChemistOuterClothing
@@ -1508,6 +1515,7 @@
   - RegularLabCoat
   - ChemistLabCoat
   - ChemistWintercoat
+  - SeniorPhysicianLabCoat
 
 - type: loadoutGroup
   id: ChemistBackpack

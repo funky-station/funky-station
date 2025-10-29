@@ -498,6 +498,7 @@
 - type: roleLoadout
   id: JobChemist
   groups:
+  - MedicalChemistHead
   - MedicalMask
   - MedicalChemistGlasses #Funky
   - ChemistJumpsuit

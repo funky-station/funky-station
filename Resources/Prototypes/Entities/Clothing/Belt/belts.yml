@@ -374,6 +374,7 @@
         - Dropper
         - Tourniquet #Goobstation - ParamedHypo
         - MedicalPatch # Goobstation
+        - AutoinjectorCartridge
       components:
         - Hypospray
         - Injector

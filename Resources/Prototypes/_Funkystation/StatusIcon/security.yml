@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: securityIcon
   parent: SecurityIcon
   id: SecurityIconSearch

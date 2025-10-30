@@ -82,6 +82,7 @@
       - Axing
   - type: ToolTileCompatible
   - type: Prying
+    pryPowered: true
   - type: UseDelay
     delay: 1
   - type: StealTarget

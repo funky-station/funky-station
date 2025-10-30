@@ -93,3 +93,6 @@
       path: /Audio/SimpleStation14/Items/Handling/disk_drop.ogg
       params:
         volume: -8
+  - type: SentienceTarget #Starlight
+    flavorKind: station-event-random-sentience-flavor-inanimate #Starlight
+    weight: 0.001 #Starlight

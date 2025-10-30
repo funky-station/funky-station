@@ -249,6 +249,9 @@
       accumulatorRatio: 0.5
       maxSpeed: 1
       minSpeed: 0.25
+    - type: SentienceTarget #Starlight
+      flavorKind: station-event-random-sentience-flavor-inanimate #Starlight
+      weight: 0.01 #Starlight
 
 - type: entity
   parent: PlushieGhost

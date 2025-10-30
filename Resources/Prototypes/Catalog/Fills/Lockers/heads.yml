@@ -78,10 +78,14 @@
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 PurpleTranStar <tehevilduckiscoming@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 # SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
@@ -344,6 +348,10 @@
     - id: RubberStampCMO
     - id: RadioHandheldMedical #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: LauncherSyringe #funkystation
+    - id: MiniSyringe     #funkystation
+    - id: MiniSyringe     #funkystation
+    - id: MiniSyringe     #funkystation
     # Goobstation
     #- id: CloningPodMachineCircuitboard
     - id: MedicalScannerMachineCircuitboard
@@ -529,3 +537,4 @@
     - id: BikeHorn
     - id: RadioHandheldCommand #funkystation
     - id: RadioHandheldEmergency #funkystation
+    - id: WeaponPistolWyvern #funkieststation

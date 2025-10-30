@@ -66,7 +66,7 @@
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
   - type: StaticPrice
-    price: 100
+    price: 350
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WindowCosmicCult
 

@@ -160,9 +160,6 @@
     walkSpeed: 3.125
     sprintSpeed: 5.625
   - type: BodyPart
-    onAdd:
-    - type: NoSlip
-    - type: ProtectedFromStepTriggers
 
 - type: entity
   parent: RightLegCybernetic
@@ -174,6 +171,3 @@
     walkSpeed: 3.125
     sprintSpeed: 5.625
   - type: BodyPart
-    onAdd:
-    - type: NoSlip
-    - type: ProtectedFromStepTriggers

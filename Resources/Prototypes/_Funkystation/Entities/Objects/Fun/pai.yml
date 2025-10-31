@@ -11,5 +11,5 @@
   - type: InstantAction
     checkCanInteract: false
     checkConsciousness: false
-    icon: Interface/Actions/shop.png
+    icon: Interface/Actions/pda.png
     event: !type:PAIOpenPdaActionEvent

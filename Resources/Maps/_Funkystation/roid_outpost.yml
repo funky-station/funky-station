@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/31/2025 00:41:59
-  entityCount: 20500
+  time: 10/31/2025 00:50:27
+  entityCount: 20502
 maps:
 - 1
 grids:
@@ -13672,7 +13672,7 @@ entities:
       pos: -10.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -128999.55
+      secondsUntilStateChange: -129194.17
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13849,7 +13849,7 @@ entities:
       pos: -7.5,-7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -308542.88
+      secondsUntilStateChange: -308737.5
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14375,7 +14375,7 @@ entities:
       pos: -27.5,10.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -486945.8
+      secondsUntilStateChange: -487140.44
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -130925,6 +130925,20 @@ entities:
     components:
     - type: Transform
       pos: -28.5,-40.5
+      parent: 2
+- proto: WeaponEnergyTurretAIControlPanel
+  entities:
+  - uid: 20501
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -25.5,-47.5
+      parent: 2
+  - uid: 20502
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -24.5,-41.5
       parent: 2
 - proto: WeaponFlareGunSecurity
   entities:

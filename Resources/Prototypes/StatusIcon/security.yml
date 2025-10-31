@@ -49,10 +49,10 @@
 
 - type: securityIcon
   parent: SecurityIcon
-  id: SecurityIconEliminated
+  id: SecurityIconIncapacitated
   icon:
     sprite: /Textures/Interface/Misc/security_icons.rsi
-    state: hud_eliminated
+    state: hud_incapacitated
 
 - type: securityIcon
   parent: SecurityIcon

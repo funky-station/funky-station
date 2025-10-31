@@ -56,7 +56,7 @@ public abstract class SharedCriminalRecordsSystem : EntitySystem
             SecurityStatus.Discharged => "SecurityIconDischarged",
             SecurityStatus.Suspected => "SecurityIconSuspected",
             SecurityStatus.Search => "SecurityIconSearch", // Funkystation
-            SecurityStatus.Eliminated => "SecurityIconEliminated",
+            SecurityStatus.Incapacitated => "SecurityIconIncapacitated",
             _ => record.StatusIcon
         };
 

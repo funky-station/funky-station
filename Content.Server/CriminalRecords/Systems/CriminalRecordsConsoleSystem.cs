@@ -104,7 +104,8 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
         // prevent malf client violating wanted/reason nullability
         if (msg.Status == SecurityStatus.Wanted != (msg.Reason != null) &&
             msg.Status == SecurityStatus.Suspected != (msg.Reason != null) &&
-            msg.Status == SecurityStatus.Search != (msg.Reason != null)) // Funkystation - search status
+            msg.Status == SecurityStatus.Search != (msg.Reason != null) && // Funkystation - search status
+            msg.Status == SecurityStatus.Incapacitated != (msg.Reason != null)) // Funkystation - incapacitated status
             return;
 
         if (!CheckSelected(ent, msg.Actor, out var mob, out var key))
@@ -161,8 +162,8 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
         // figure out which radio message to send depending on transition
         var statusString = (oldStatus, msg.Status) switch
         {
-            // person is dead, for good
-            (_, SecurityStatus.Eliminated) => "eliminated",
+            // Funkystation - killed, marooned, exfiltrated or otherwise removed from station operations
+            (_, SecurityStatus.Incapacitated) => "incapacitated",
             // person has been detained
             (_, SecurityStatus.Detained) => "detained",
             // person did something sus
@@ -175,8 +176,8 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
             (_, SecurityStatus.Discharged) => "released",
             // going from any other state to wanted, AOS or prisonbreak / lazy secoff never set them to released and they reoffended
             (_, SecurityStatus.Wanted) => "wanted",
-            // person returned from dead... somehow
-            (SecurityStatus.Eliminated, SecurityStatus.None) => "not-eliminated",
+            // Funkystation - brought back, for better or worse
+            (SecurityStatus.Incapacitated, SecurityStatus.None) => "not-incapacitated",
             // person is no longer sus
             (SecurityStatus.Suspected, SecurityStatus.None) => "not-suspected",
             // Funkystation - person no longer needs a search

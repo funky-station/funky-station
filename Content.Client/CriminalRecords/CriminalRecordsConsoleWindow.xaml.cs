@@ -302,10 +302,22 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         {
             var message = FormattedMessage.FromMarkupOrThrow(Loc.GetString("criminal-records-console-wanted-reason"));
 
-            if (criminalRecord.Status == SecurityStatus.Suspected)
+            // Funkystation: select message type via switch due to there being more of those
+            switch(criminalRecord.Status)
             {
-                message = FormattedMessage.FromMarkupOrThrow(Loc.GetString("criminal-records-console-suspected-reason"));
+                case SecurityStatus.Suspected:
+                    message = FormattedMessage.FromMarkupOrThrow(Loc.GetString("criminal-records-console-suspected-reason"));
+                    break;
+                case SecurityStatus.Search: // Funkystation - search status
+                    message = FormattedMessage.FromMarkupOrThrow(Loc.GetString("criminal-records-console-search-reason"));
+                    break;
+                case SecurityStatus.Incapacitated: // Funkystation - incapacitated status
+                    message = FormattedMessage.FromMarkupOrThrow(Loc.GetString("criminal-records-console-incapacitation-reason"));
+                    break;
+                default:
+                    break;
             }
+
             message.AddText($": {reason}");
 
             WantedReason.SetMessage(message);
@@ -330,7 +342,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
 
     private void SetStatus(SecurityStatus status)
     {
-        if (status == SecurityStatus.Wanted || status == SecurityStatus.Suspected || status == SecurityStatus.Search) // Funkystation - search status
+        if (status == SecurityStatus.Wanted || status == SecurityStatus.Suspected || status == SecurityStatus.Search || status == SecurityStatus.Incapacitated) // Funkystation - search and incapacitated statuses
         {
             GetReason(status);
             return;
@@ -377,7 +389,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             SecurityStatus.Discharged => "hud_discharged",
             SecurityStatus.Suspected => "hud_suspected",
             SecurityStatus.Search => "hud_search", // Funkystation
-            SecurityStatus.Eliminated => "hud_eliminated",
+            SecurityStatus.Incapacitated => "hud_incapacitated", // Funkystation
             _ => "SecurityIconNone"
         };
     }

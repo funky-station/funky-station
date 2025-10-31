@@ -5,8 +5,64 @@
   description: Should you really be standing this close to that?
   components:
   - type: Sprite
-    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/fission_generator.rsi
-    state: fission_generator
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/nuclear_reactor.rsi
+    layers:
+    - state: reactor
+      visible: true
+      map: [ "enum.ReactorVisualLayers.Sprite" ]
+    - state: reactor_status_active
+      visible: false
+      map: [ "enum.ReactorVisualLayers.Status" ]
+    - state: reactor_gas_input_lights
+      visible: false
+      map: [ "enum.ReactorVisualLayers.Input" ]
+    - state: reactor_gas_output_lights
+      visible: false
+      map: [ "enum.ReactorVisualLayers.Output" ]
+    - state: reactor_lights_warning
+      visible: false
+      map: [ "enum.ReactorVisualLayers.Lights" ]
+    # - state: reactor_fire
+    #   visible: false
+    #   map: [ "enum.ReactorVisualLayers.Sprite" ]
+    # - state: reactor_smoke
+    #   visible: false
+    #   map: [ "enum.ReactorVisualLayers.Sprite" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ReactorVisuals.Sprite:
+        enum.ReactorVisualLayers.Sprite:
+          Normal: { state: reactor }
+          Melted: { state: reactorbroken }
+      enum.ReactorVisuals.Status:
+        enum.ReactorVisualLayers.Status:
+          Off: { visible: false}
+          Active: { state: reactor_status_active, visible: true }
+          Overheat: { state: reactor_status_overheat }
+          Meltdown: { state: reactor_status_meltdown }
+          Boom: { state: reactor_status_boom }
+      enum.ReactorVisuals.Input:
+        enum.ReactorVisualLayers.Input:
+          True: { visible: true }
+          False: { visible: false }
+      enum.ReactorVisuals.Output:
+        enum.ReactorVisualLayers.Output:
+          True: { visible: true }
+          False: { visible: false }
+      enum.ReactorVisuals.Lights:
+        enum.ReactorVisualLayers.Lights:
+          LightsOff: { visible: false }
+          LightsWarning: { state: reactor_lights_warning, visible: true }
+          LightsMeltdown: { state: reactor_lights_meltdown }
+      # enum.ReactorVisuals.Smoke:
+      #   enum.ReactorVisualLayers.Smoke:
+      #     True: {visible: true}
+      #     False: {visible: false}
+      # enum.ReactorVisuals.Effects:
+      #   enum.ReactorVisualLayers.Fire:
+      #     True: {visible: true}
+      #     False: {visible: false}
+  - type: Appearance
   - type: Physics
     bodyType: Static
   - type: InteractionOutline
@@ -46,6 +102,15 @@
   - type: AtmosDevice
   - type: RadiationSource
     intensity: 0
+  - type: ContainerContainer
+    containers:
+      part_slot: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      part_slot:
+        whitelist:
+          components:
+            - ReactorPart
   - type: NuclearReactor
   - type: ActivatableUI
     key: enum.NuclearReactorUiKey.Key
@@ -59,6 +124,7 @@
   - type: Lock
     unlockOnClick: false
 
+#Visual parts on the reactor
 - type: entity
   id: ReactorComponent
   name: reactor component

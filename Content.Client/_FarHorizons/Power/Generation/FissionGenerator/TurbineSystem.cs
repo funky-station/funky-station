@@ -26,4 +26,4 @@ public sealed class TurbineSystem : SharedTurbineSystem
 
         _popupSystem.PopupClient(Loc.GetString("turbine-repair", ("target", ent.Owner), ("tool", args.Used!)), ent.Owner, args.User);
     }
-    }
+}

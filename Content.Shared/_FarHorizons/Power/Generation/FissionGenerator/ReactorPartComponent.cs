@@ -4,10 +4,17 @@ using Robust.Shared.GameStates;
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
 /// <summary>
-/// Non-physical representation of a reactor part.
+/// A reactor part for the reactor grid.
 /// </summary>
-public abstract partial class ReactorPart : Component
+[RegisterComponent, NetworkedComponent]
+public sealed partial class ReactorPartComponent : Component
 {
+    /// <summary>
+    /// Name of this component as it shows as an item.
+    /// </summary>
+    [DataField]
+    public string Name = "ReactorPart";
+
     /// <summary>
     /// Icon of this component as it shows in the UIs.
     /// </summary>
@@ -19,6 +26,16 @@ public abstract partial class ReactorPart : Component
     /// </summary>
     [DataField]
     public string IconStateCap = "rod_cap";
+
+    [DataField]
+    public byte RodType = (byte)RodTypes.Generic;
+
+    public enum RodTypes : byte
+    {
+        Generic = 1 << 0,
+        Control = 1 << 1,
+        GasChannel = 1 << 2,
+    }
 
     #region Variables
     /// <summary>
@@ -105,25 +122,75 @@ public abstract partial class ReactorPart : Component
     /// <summary>
     /// Neutron radioactivity, basically how much fuel is in the rod.
     /// </summary>
+    [DataField]
     public float NRadioactive = 0;
 
     /// <summary>
     /// Radioactivity.
     /// </summary>
+    [DataField]
     public float Radioactive = 0;
 
     /// <summary>
     /// How much spent fuel is in the rod.
     /// </summary>
+    [DataField]
     public float SpentFuel = 0;
     #endregion
-}
 
-/// <summary>
-/// A reactor part for the reactor grid.
-/// </summary>
-[RegisterComponent, NetworkedComponent]
-public sealed partial class ReactorPartComponent : ReactorPart;
+    #region Type specific
+    /// <summary>
+    /// The target insertion level of the control rod.
+    /// </summary>
+    [DataField]
+    public float ConfiguredInsertionLevel = 1;
+
+    /// <summary>
+    /// How adept the gas channel is at transfering heat to/from gasses.
+    /// </summary>
+    [DataField]
+    public float GasThermalCrossSection = 25; //was 15
+
+    /// <summary>
+    /// The gas mixture inside the gas channel.
+    /// </summary>
+    public GasMixture? AirContents;
+    #endregion
+
+    /// <summary>
+    /// Creates a new ReactorPartComponent with information from an existing one.
+    /// </summary>
+    /// <param name="source"></param>
+    public ReactorPartComponent(ReactorPartComponent source)
+    {
+        Name = source.Name;
+        IconStateInserted = source.IconStateInserted;
+        IconStateCap = source.IconStateCap;
+        RodType = source.RodType;
+
+        Temperature = source.Temperature;
+        ThermalCrossSection = source.ThermalCrossSection;
+        NeutronCrossSection = source.NeutronCrossSection;
+        IsControlRod = source.IsControlRod;
+        MaxHealth = source.MaxHealth;
+        MeltHealth = source.MeltHealth;
+        Melted = source.Melted;
+        MeltingPoint = source.MeltingPoint;
+        GasVolume = source.GasVolume;
+        ThermalMass = source.ThermalMass;
+
+        PropertyDensity = source.PropertyDensity;
+        PropertyThermal = source.PropertyThermal;
+        PropertyHard = source.PropertyHard;
+        NRadioactive = source.NRadioactive;
+        Radioactive = source.Radioactive;
+        SpentFuel = source.SpentFuel;
+
+        ConfiguredInsertionLevel = source.ConfiguredInsertionLevel;
+        GasThermalCrossSection = source.GasThermalCrossSection;
+        AirContents = source.AirContents;
+    }
+}
 
 /// <summary>
 /// A virtual neutron that flies around within the reactor.
@@ -135,42 +202,13 @@ public sealed class ReactorNeutron
     public float velocity = 1;
 }
 
-/// <summary>
-/// A control rod for the reactor grid.
-/// </summary>
-[RegisterComponent, NetworkedComponent]
-public sealed partial class ReactorControlRodComponent : ReactorPart
-{
-    /// <summary>
-    /// The target insertion level of the control rod.
-    /// </summary>
-    [DataField]
-    public float ConfiguredInsertionLevel = 1;
-}
-
-/// <summary>
-/// A gas channel for the reactor grid.
-/// </summary>
-[RegisterComponent, NetworkedComponent]
-public sealed partial class ReactorGasChannelComponent : ReactorPart
-{
-    /// <summary>
-    /// How adept the gas channel is at transfering heat to/from gasses.
-    /// </summary>
-    [DataField]
-    public float GasThermalCrossSection = 25; //was 15
-
-    /// <summary>
-    /// The gas mixture inside the gas channel.
-    /// </summary>
-    public GasMixture? AirContents;
-}
-
 [NetworkedComponent]
 public static class BaseReactorComponents
 {
-    public static readonly ReactorControlRodComponent ControlRod = new()
+    public static readonly ReactorPartComponent ControlRod = new()
     {
+        RodType = (byte)ReactorPartComponent.RodTypes.Control,
+        Name = "DebugControlRod",
         IconStateInserted = "control",
         IconStateCap = "control_cap",
         IsControlRod = true,
@@ -178,40 +216,39 @@ public static class BaseReactorComponents
         ThermalCrossSection = 10,
         PropertyDensity = 6,
         PropertyHard = 5,
-        Temperature = default,
     };
 
     public static readonly ReactorPartComponent FuelRod = new()
     {
+        Name = "cerenkite fuel rod",
         IconStateInserted = "fuel",
         IconStateCap = "fuel_cap",
         NeutronCrossSection = 1.0f,
         ThermalCrossSection = 10,
         ThermalMass = 420000,
-        NRadioactive = 1.5f,
-        Radioactive = 4,
-        PropertyHard = 5,
-        PropertyDensity = 7,
-        PropertyThermal = 4,
-        Temperature = default,
+        Radioactive = 5,
+        PropertyHard = 2,
+        PropertyDensity = 4,
+        PropertyThermal = 6,
     };
 
-    public static readonly ReactorGasChannelComponent GasChannel = new()
+    public static readonly ReactorPartComponent GasChannel = new()
     {
+        RodType = (byte)ReactorPartComponent.RodTypes.GasChannel,
+        Name = "DebugGasChannel",
         IconStateInserted = "gas",
         IconStateCap = "gas_cap",
         ThermalCrossSection = 15,
         GasVolume = 100,
         ThermalMass = 21000,
-        Temperature = default,
     };
 
     public static readonly ReactorPartComponent HeatExchanger = new()
     {
+        Name = "DebugHeatExchanger",
         IconStateInserted = "heat",
         IconStateCap = "heat_cap",
         NeutronCrossSection = 0.1f,
         ThermalCrossSection = 25,
-        Temperature = default,
     };
 }

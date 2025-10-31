@@ -45,3 +45,60 @@ public enum ReactorCaps
     HeatM4,
 }
 #endregion
+
+#region Reactor
+/// <summary>
+/// Appearance keys for the reactor.
+/// </summary>
+[Serializable, NetSerializable]
+public enum ReactorVisuals
+{
+    Sprite,
+    Status,
+    Input,
+    Output,
+    Lights,
+    Smoke,
+    Fire,
+}
+
+/// <summary>
+/// Visual sprite layers for the reactor.
+/// </summary>
+[Serializable, NetSerializable]
+public enum ReactorVisualLayers
+{
+    Sprite,
+    Status,
+    Input,
+    Output,
+    Lights,
+    Smoke,
+    Fire,
+}
+
+[Serializable, NetSerializable]
+public enum Reactors
+{
+    Normal,
+    Melted,
+}
+
+[Serializable, NetSerializable]
+public enum ReactorStatusLights
+{
+    Off,
+    Active,
+    Overheat,
+    Meltdown,
+    Boom,
+}
+
+[Serializable, NetSerializable]
+public enum ReactorWarningLights
+{
+    LightsOff,
+    LightsWarning,
+    LightsMeltdown,
+}
+#endregion

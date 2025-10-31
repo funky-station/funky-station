@@ -1,4 +1,5 @@
 using Content.Shared.Atmos;
+using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
@@ -15,6 +16,8 @@ public sealed partial class NuclearReactorComponent : Component
     [DataField]
     public float RadiationLevel = 0;
     [DataField]
+    public float AccRadiation = 0;
+    [DataField]
     public float ReactorVesselGasVolume = 200;
     [DataField]
     public bool Melted = false;
@@ -25,11 +28,21 @@ public sealed partial class NuclearReactorComponent : Component
     [DataField]
     public float ControlRodInsertion = 1;
 
+    [DataField]
+    public ItemSlot PartSlot = new();
+
     // Making this a DataField causes the game to explode, neat
-    public ReactorPart?[,] ComponentGrid = new ReactorPart[ReactorGridWidth, ReactorGridHeight];
+    public ReactorPartComponent?[,] ComponentGrid = new ReactorPartComponent[ReactorGridWidth, ReactorGridHeight];
 
     // Woe, 3 dimensions be upon ye
     public List<ReactorNeutron>[,] FluxGrid = new List<ReactorNeutron>[ReactorGridWidth, ReactorGridHeight];
+
+    public double[,] TemperatureGrid = new double[ReactorGridWidth, ReactorGridHeight];
+    public int[,] NeutronGrid = new int[ReactorGridWidth, ReactorGridHeight];
+
+    public NetEntity[,] VisualGrid = new NetEntity[ReactorGridWidth, ReactorGridHeight];
+
+    public GasMixture? AirContents;
 
     [DataField]
     public string Prefab = "normal";
@@ -42,6 +55,7 @@ public sealed partial class NuclearReactorComponent : Component
     [DataField("outlet")]
     public string OutletName { get; set; } = "outlet";
 
+    #region Debug
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("neutrons")]
     public int NeutronCount = 0;
@@ -63,4 +77,8 @@ public sealed partial class NuclearReactorComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("spentFuel")]
     public float TotalSpent = 0;
+    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField]
+    public float TempChange = 0;
+    #endregion
 }

@@ -189,10 +189,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
             comp.LastGen = comp.PowerMultiplier * comp.StatorLoad * (comp.RPM / 30) * (float)(1 / Math.Cosh(0.01 * (comp.RPM - comp.BestRPM)));
 
             if (float.IsNaN(comp.LastGen))
-            {
-                comp.LastGen = 0;
-                return; // TODO: crash the game here
-            }
+                throw new NotFiniteNumberException("Turbine made NaN power");
 
             comp.Overspeed = comp.RPM > comp.BestRPM * 1.2;
 

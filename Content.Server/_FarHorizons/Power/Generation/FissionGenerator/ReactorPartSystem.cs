@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Atmos;
@@ -10,92 +11,84 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
 
     /// <summary>
-    /// Switches between the part-specific variants of ProcessNeutrons.
-    /// </summary>
-    /// <param name="reactorPart">Reactor part applying the calculations</param>
-    /// <param name="neutrons">Neutrons to be processed</param>
-    /// <returns></returns>
-    public List<ReactorNeutron> ProcessNeutronsSwitch(ReactorPart reactorPart, List<ReactorNeutron> neutrons)
-    {
-        if(reactorPart is ReactorControlRodComponent controlRod)
-            return ProcessNeutronsControl(controlRod, neutrons);
-        else if (reactorPart is ReactorGasChannelComponent gasChannel)
-            return ProcessNeutronsGas(gasChannel, neutrons);
-        else
-            return ProcessNeutrons(reactorPart, neutrons);
-    }
-
-    /// <summary>
     /// 
     /// </summary>
     /// <param name="reactorPart">The reactor part.</param>
     /// <param name="reactorEnt">The entity representing the reactor this part is inserted into.</param>
     /// <param name="inGas">The gas to be processed.</param>
     /// <returns></returns>
-    public override GasMixture? ProcessGas(ReactorPart reactorPart, Entity<NuclearReactorComponent> reactorEnt, GasMixture inGas)
+    public override GasMixture? ProcessGas(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, GasMixture inGas)
     {
-        if (reactorPart is not ReactorGasChannelComponent comp)
+        if (reactorPart.RodType != (byte)ReactorPartComponent.RodTypes.GasChannel)
             return null;
 
         GasMixture? ProcessedGas = null;
-        if (comp.AirContents != null)
+        if (reactorPart.AirContents != null)
         {
-            var compTemp = comp.Temperature;
-            var gasTemp = comp.AirContents.Temperature;
+            var compTemp = reactorPart.Temperature;
+            var gasTemp = reactorPart.AirContents.Temperature;
 
             var DeltaT = compTemp - gasTemp;
             var DeltaTr = (compTemp + gasTemp) * (compTemp - gasTemp) * (Math.Pow(compTemp, 2) + Math.Pow(gasTemp, 2));
 
-            var k = (Math.Pow(10, comp.PropertyThermal / 5) - 1) / 2;
-            var A = comp.GasThermalCrossSection * (0.4 * 8);
+            var k = (Math.Pow(10, reactorPart.PropertyThermal / 5) - 1) / 2;
+            var A = reactorPart.GasThermalCrossSection * (0.4 * 8);
 
-            var ThermalEnergy = _atmosphereSystem.GetThermalEnergy(comp.AirContents);
+            var ThermalEnergy = _atmosphereSystem.GetThermalEnergy(reactorPart.AirContents);
+
+            var COECheck = ThermalEnergy + reactorPart.Temperature * reactorPart.ThermalMass;
 
             var Hottest = Math.Max(gasTemp, compTemp);
             var Coldest = Math.Min(gasTemp, compTemp);
 
             var MaxDeltaE = Math.Clamp((k * A * DeltaT) + (5.67037442e-8 * A * DeltaTr),
-                (compTemp * comp.ThermalMass) - (Hottest * comp.ThermalMass),
-                (compTemp * comp.ThermalMass) - (Coldest * comp.ThermalMass));
+                (compTemp * reactorPart.ThermalMass) - (Hottest * reactorPart.ThermalMass),
+                (compTemp * reactorPart.ThermalMass) - (Coldest * reactorPart.ThermalMass));
 
-            comp.AirContents.Temperature = (float)Math.Clamp(gasTemp +
-                (MaxDeltaE / _atmosphereSystem.GetHeatCapacity(comp.AirContents, true)), Coldest, Hottest);
+            reactorPart.AirContents.Temperature = (float)Math.Clamp(gasTemp +
+                (MaxDeltaE / _atmosphereSystem.GetHeatCapacity(reactorPart.AirContents, true)), Coldest, Hottest);
 
-            comp.Temperature = (float)Math.Clamp(compTemp -
-                ((_atmosphereSystem.GetThermalEnergy(comp.AirContents) - ThermalEnergy) / comp.ThermalMass), Coldest, Hottest);
+            reactorPart.Temperature = (float)Math.Clamp(compTemp -
+                ((_atmosphereSystem.GetThermalEnergy(reactorPart.AirContents) - ThermalEnergy) / reactorPart.ThermalMass), Coldest, Hottest);
+
+            var COEVerify = _atmosphereSystem.GetThermalEnergy(reactorPart.AirContents) + reactorPart.Temperature * reactorPart.ThermalMass;
+            if (Math.Abs(COEVerify - COECheck) > 64)
+                throw new Exception("COE violation, difference of " + Math.Abs(COEVerify - COECheck));
 
             if (gasTemp < 0 || compTemp < 0)
-                return inGas; // TODO: crash the game here
+                throw new Exception("Reactor part temperature went below 0k.");
 
-            if (comp.Melted)
+            if (reactorPart.Melted)
             {
                 var T = _atmosphereSystem.GetTileMixture(reactorEnt.Owner, excite: true);
                 if (T != null)
-                    _atmosphereSystem.Merge(T, comp.AirContents);
+                    _atmosphereSystem.Merge(T, reactorPart.AirContents);
             }
             else
-                ProcessedGas = comp.AirContents;
+                ProcessedGas = reactorPart.AirContents;
         }
 
         if (inGas != null && _atmosphereSystem.GetThermalEnergy(inGas) > 0)
         {
-            comp.AirContents = inGas.Remove(comp.GasVolume * inGas.Pressure / (Atmospherics.R * inGas.Temperature));
-            comp.AirContents.Volume = comp.GasVolume;
+            reactorPart.AirContents = inGas.RemoveVolume(reactorPart.GasVolume);
+            reactorPart.AirContents.Volume = reactorPart.GasVolume;
 
-            if (comp.AirContents != null && comp.AirContents.TotalMoles < 1)
+            if (reactorPart.AirContents != null && reactorPart.AirContents.TotalMoles < 1)
             {
                 if (ProcessedGas != null)
                 {
-                    _atmosphereSystem.Merge(ProcessedGas, comp.AirContents);
-                    comp.AirContents.Clear();
+                    _atmosphereSystem.Merge(ProcessedGas, reactorPart.AirContents);
+                    reactorPart.AirContents.Clear();
                 }
                 else
                 {
-                    ProcessedGas = comp.AirContents;
-                    comp.AirContents.Clear();
+                    ProcessedGas = reactorPart.AirContents;
+                    reactorPart.AirContents.Clear();
                 }
             }
         }
         return ProcessedGas;
     }
+
+    public override List<ReactorNeutron> ProcessNeutronsGas(ReactorPartComponent reactorPart, List<ReactorNeutron> neutrons) => neutrons;
 }

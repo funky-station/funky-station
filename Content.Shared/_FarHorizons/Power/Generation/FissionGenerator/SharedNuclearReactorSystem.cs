@@ -1,13 +1,26 @@
+using Content.Shared.Containers.ItemSlots;
+using Robust.Shared.Containers;
+
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
 public abstract class SharedNuclearReactorSystem : EntitySystem
 {
-
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private readonly ItemSlotsSystem _slotsSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
 
-    protected EntityUid[,] _reactorGrid = new EntityUid[NuclearReactorComponent.ReactorGridWidth, NuclearReactorComponent.ReactorGridHeight];
+    public override void Initialize()
+    {
+        base.Initialize();
 
-    protected virtual void UpdateGridVisual(EntityUid uid, NuclearReactorComponent? comp)
+        // Bound UI subscriptions
+        SubscribeLocalEvent<NuclearReactorComponent, ReactorEjectItemMessage>(OnEjectItemMessage);
+    }
+
+    protected bool ReactorTryGetSlot(EntityUid uid, string slotID, out ItemSlot? itemSlot) => _slotsSystem.TryGetSlot(uid, slotID, out itemSlot);
+
+    public virtual void UpdateGridVisual(EntityUid uid, NuclearReactorComponent? comp)
     {
         for (var x = 0; x < NuclearReactorComponent.ReactorGridWidth; x++)
         {
@@ -15,11 +28,11 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
             {
                 if(comp!.ComponentGrid[x, y] == null)
                 {
-                    _appearance.SetData(_reactorGrid[x, y], ReactorCapVisuals.Sprite, ReactorCaps.Base);
+                    _appearance.SetData(_entityManager.GetEntity(comp.VisualGrid[x, y]), ReactorCapVisuals.Sprite, ReactorCaps.Base);
                     continue;
                 }
                 else
-                    _appearance.SetData(_reactorGrid[x,y], ReactorCapVisuals.Sprite, ChoseSprite(comp.ComponentGrid[x,y]!.IconStateCap));
+                    _appearance.SetData(_entityManager.GetEntity(comp.VisualGrid[x, y]), ReactorCapVisuals.Sprite, ChoseSprite(comp.ComponentGrid[x,y]!.IconStateCap));
             }
         }
     }
@@ -54,16 +67,24 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
 
         _ => ReactorCaps.Base,
     };
+
+    private void OnEjectItemMessage(EntityUid uid, NuclearReactorComponent component, ReactorEjectItemMessage args)
+    {
+        if (component.PartSlot.Item == null)
+            return;
+
+        _slotsSystem.TryEjectToHands(uid, component.PartSlot, args.Actor);
+    }
 }
 
 public static class NuclearReactorPrefabs
 {
-    private static readonly ReactorControlRodComponent c = BaseReactorComponents.ControlRod;
+    private static readonly ReactorPartComponent c = BaseReactorComponents.ControlRod;
     private static readonly ReactorPartComponent f = BaseReactorComponents.FuelRod;
-    private static readonly ReactorGasChannelComponent g = BaseReactorComponents.GasChannel;
+    private static readonly ReactorPartComponent g = BaseReactorComponents.GasChannel;
     private static readonly ReactorPartComponent h = BaseReactorComponents.HeatExchanger;
 
-    public static readonly ReactorPart?[,] Empty =
+    public static readonly ReactorPartComponent?[,] Empty =
     {
         {
             null, null, null, null, null, null, null
@@ -88,7 +109,7 @@ public static class NuclearReactorPrefabs
         }
     };
 
-    public static readonly ReactorPart?[,] Normal =
+    public static readonly ReactorPartComponent?[,] Normal =
     {
         {
             null, null, null, null, null, null, null
@@ -113,7 +134,7 @@ public static class NuclearReactorPrefabs
         }
     };
 
-    public static readonly ReactorPart?[,] Debug =
+    public static readonly ReactorPartComponent?[,] Debug =
     {
         {
             null, null, null, null, null, null, null
@@ -125,7 +146,7 @@ public static class NuclearReactorPrefabs
             g, h, g, h, g, h, g
         },
         {
-            h, f, c, null, c, f, h
+            h, f, c, f, c, f, h
         },
         {
             g, h, g, h, g, h, g
@@ -138,7 +159,7 @@ public static class NuclearReactorPrefabs
         }
     };
 
-    public static readonly ReactorPart?[,] Meltdown =
+    public static readonly ReactorPartComponent?[,] Meltdown =
     {
         {
             f, f, f, f, f, f, f
@@ -163,7 +184,7 @@ public static class NuclearReactorPrefabs
         },
     };
 
-    public static readonly ReactorPart?[,] Alignment =
+    public static readonly ReactorPartComponent?[,] Alignment =
     {
         {
             null, null, null, null, null, null, c

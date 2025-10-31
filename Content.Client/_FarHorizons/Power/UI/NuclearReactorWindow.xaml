@@ -6,11 +6,57 @@
         <!--Main Content-->
         <BoxContainer Name="MainContent" Orientation="Horizontal" VerticalExpand="True" Margin="4">
 
+			<!--Left Panel-->
+			<BoxContainer Name="LeftPanel" Orientation="Vertical">
+				
+				<!--Insert/remove controls-->
+			    <BoxContainer Name="Controls" Orientation="Vertical">
+				    <GridContainer Name="ControlGrid" Columns="3" Margin="2 2 2 2">
+					    <Button Name="XDecrement" Text="-X"/>
+					    <Label Name="XPos" Text="0" StyleClasses="LabelKeyText" />
+					    <Button Name="XIncrement" Text="+X"/>
+					    <Button Name="YDecrement" Text="-Y"/>
+					    <Label Name="YPos" Text="0" StyleClasses="LabelKeyText" />
+					    <Button Name="YIncrement" Text="+Y"/>
+				    </GridContainer>
+				    <Button Name="ItemAction" Text="{Loc comp-nuclear-reactor-ui-insert-button}"/>
+			    </BoxContainer>
+				
+				<!--Target info-->
+				<BoxContainer Name="TargetData" Orientation="Vertical" VerticalExpand="True">
+					<BoxContainer Name="TargetInfo" Orientation="Vertical">
+						<Label Name="TargetName" Text="Rod"/>
+						<GridContainer Name="TargetTemperatureGrid" Columns="2" Margin="2 2 2 2">
+							<Label Text="T: " StyleClasses="LabelKeyText" />
+							<Label Name="TargetTemperature" Text="20C" HorizontalAlignment="Right"/>
+						</GridContainer>
+						<GridContainer Name="TargetNRadiationGrid" Columns="2" Margin="2 2 2 2">
+							<Label Text="N: " StyleClasses="LabelKeyText" />
+							<Label Name="TargetNRadiation" Text="0" HorizontalAlignment="Right"/>
+						</GridContainer>
+						<GridContainer Name="TargetRadiationGrid" Columns="2" Margin="2 2 2 2">
+							<Label Text="R: " StyleClasses="LabelKeyText" />
+							<Label Name="TargetRadiation" Text="0" HorizontalAlignment="Right"/>
+						</GridContainer>
+						<GridContainer Name="TargetSpentGrid" Columns="2" Margin="2 2 2 2">
+							<Label Text="S: " StyleClasses="LabelKeyText" />
+							<Label Name="TargetSpent" Text="0" HorizontalAlignment="Right"/>
+						</GridContainer>
+					</BoxContainer>
+				</BoxContainer>
+				
+				<!--"Shelf"-->
+				<BoxContainer Name="Shelf" Orientation="Vertical">
+					<Button Name="EjectItem" Text="{Loc comp-nuclear-reactor-ui-eject-button}" />
+					<Label Name="ItemName" Text="empty" />
+				</BoxContainer>
+			</BoxContainer>
+			
             <!--Reactor display-->
-            <Button Name="ChangeViewButton" Text="Change View"/>
             <PanelContainer Name="GridVisuals" StyleClasses="Inset" HorizontalExpand="True">
                 <BoxContainer Orientation="Vertical">
-                    <Label Name="ViewLabel" Text="Temperature View" StyleClasses="LabelKeyText" />
+					<Button Name="ChangeViewButton" Text="{Loc comp-nuclear-reactor-ui-view-change}"/>
+                    <Label Name="ViewLabel" Text="{Loc comp-nuclear-reactor-ui-view-temp}" StyleClasses="LabelKeyText" />
                     <GridContainer Name="ReactorGrid" Columns="7" VerticalExpand="True" Margin="2 2 2 2">
                     </GridContainer>
                 </BoxContainer>
@@ -21,8 +67,8 @@
         <BoxContainer Name="Footer" Orientation="Vertical">
             <PanelContainer StyleClasses="LowDivider" />
             <BoxContainer Orientation="Horizontal" Margin="10 2 5 0" VerticalAlignment="Bottom">
-                <Label Text="{Loc comp-turbine-ui-footer-left}" StyleClasses="WindowFooterText" />
-                <Label Text="{Loc comp-turbine-ui-footer-right}" StyleClasses="WindowFooterText"
+                <Label Text="{Loc comp-nuclear-reactor-ui-footer-left}" StyleClasses="WindowFooterText" />
+                <Label Text="{Loc comp-nuclear-reactor-ui-footer-right}" StyleClasses="WindowFooterText"
                        HorizontalAlignment="Right" HorizontalExpand="True" Margin="0 0 5 0" />
                 <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
                              VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19" />

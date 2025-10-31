@@ -2848,7 +2848,7 @@
       bloodReagent: Laughter
 
 - type: entity
-  name: clown spider [no ghostrole]
+  name: clown spider
   parent: MobSpiderAngryNoGhostBase
   id: MobClownSpiderNoGhost # Funky Station - Court map
   description: Combines the two most terrifying things in existence, spiders and clowns.

@@ -153,6 +153,7 @@
       children:
       - id: ClothingNeckCloakHerald
       - id: ClothingHeadHelmetTemplar
+      - id: ClothingHeadScaryMask
       # Cloaks
       - !type:GroupSelector
         children:

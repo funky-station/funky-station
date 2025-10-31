@@ -5196,3 +5196,68 @@ Entries:
       message: Added Oxygen Allergy trait.
   id: 619
   time: '2025-10-25T20:00:56.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Add
+      message: Added "M for Meltdown" as a new lobby track.
+  id: 620
+  time: '2025-10-25T23:54:13.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: >-
+        Added flashbang and stinger recipes. Also added security shrapnel
+        grenades and with that, shrapnel grenades are in the secfab if you emag
+        it.
+  id: 621
+  time: '2025-10-26T00:05:12.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: 'Increased Romerol strange pill chance from .1% to .5% '
+  id: 622
+  time: '2025-10-26T00:11:37.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added more mail. You'll know it when you see it.
+  id: 623
+  time: '2025-10-26T00:16:35.0000000+00:00'
+- author: lolmatdi
+  changes:
+    - type: Tweak
+      message: 'The Station AI now has Emergency Comms '
+    - type: Tweak
+      message: The Station AI can now talk on Common Comms
+  id: 624
+  time: '2025-10-26T01:41:26.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: Sprite size tweaked.
+  id: 625
+  time: '2025-10-26T04:29:26.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Add
+      message: New lobby art by Frogoo
+  id: 626
+  time: '2025-10-26T21:54:01.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New sprites for the Paramedic Voidsuit
+  id: 627
+  time: '2025-10-27T03:06:20.0000000+00:00'
+- author: BrightNibbleston
+  changes:
+    - type: Fix
+      message: outdated distro mix info in the guidebook
+  id: 628
+  time: '2025-10-27T22:11:21.0000000+00:00'
+- author: lolmatdi
+  changes:
+    - type: Fix
+      message: Space Adders and Space Cobras are Friends Again!
+  id: 629
+  time: '2025-10-27T22:24:23.0000000+00:00'

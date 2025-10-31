@@ -47,6 +47,7 @@
 # SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 # SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xcybitt <xcybitt@gmail.com>
 # SPDX-FileCopyrightText: 2025 ferynn <117872973+ferynn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -834,3 +835,36 @@
     Plastic: 1000
     Plasma: 500
     Glass: 500
+
+- type: latheRecipe
+  id: GrenadeStinger
+  result: GrenadeStinger
+  completetime: 3
+  materials:
+    Steel: 200
+    Plastic: 400
+
+- type: latheRecipe
+  id: GrenadeShrapnel
+  result: GrenadeShrapnel
+  completetime: 3
+  materials:
+    Steel: 800
+    Plastic: 400
+
+- type: latheRecipe
+  id: GrenadeFlashBang
+  result: GrenadeFlashBang
+  completetime: 3
+  materials:
+    Steel: 200
+    Plastic: 200
+    Glass: 200
+
+- type: latheRecipe
+  id: GrenadeShrapnelSecurity
+  result: GrenadeShrapnelSecurity
+  completetime: 3
+  materials:
+    Steel: 400
+    Plastic: 200

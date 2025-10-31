@@ -32,7 +32,7 @@
   id: OasisHighPop
   mapName: 'Oasis'
   mapPath: /Maps/_Funkystation/oasis.yml #Funkystation - Robotics
-  minPlayers: 85
+  minPlayers: 80
   stations:
     Oasis:
       stationProto: StandardNanotrasenStation
@@ -50,7 +50,8 @@
             StationAi: [ 1, 1 ]
             Captain: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]
-            BlueshieldOfficer: [ 1, 1 ]
+            Magistrate: [ 1, 1 ]
+            InternalAffairsAgent: [ 3, 3 ]
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 3, 3 ]
             Botanist: [ 5, 5 ]

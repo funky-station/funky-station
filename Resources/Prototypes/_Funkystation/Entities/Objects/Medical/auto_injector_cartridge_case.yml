@@ -53,7 +53,7 @@
     - 0,0,3,1
   - type: PhysicalComposition
     materialComposition:
-      Plastic: 300
+      Plastic: 100
   - type: ItemCounter
     count:
       tags: [AutoinjectorCartridge]

@@ -204,6 +204,7 @@
   - type: UserInterface
     interfaces:
       enum.PdaUiKey.Key:
+        requireInputValidation: false
         type: PdaBoundUserInterface
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface

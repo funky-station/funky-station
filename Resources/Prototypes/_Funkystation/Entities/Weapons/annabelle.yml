@@ -26,8 +26,25 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
   - type: BallisticAmmoProvider
-    capacity: 4
+    capacity: 7
     proto: CartridgeLightRifleSilver
     whitelist:
       tags:
       - CartridgeLightRifle
+  - type: PumpAction
+    sound:
+      path: /Audio/_RMC14/Weapons/Guns/Pump/gunlevering.ogg
+
+- type: entity
+  parent: [ClothingOuterStorageBase, AllowBackStorageClothingCombat, BaseChaplainContraband]
+  id: ClothingOuterDusterCoat
+  name: Duster
+  description: An 18th-century duster trenchcoat, emblazoned with religious imagery
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/annabellecoat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/annabellecoat.rsi
+  - type: StorageFill
+    contents:
+    - id: MagazineBoxLightRifleSilver

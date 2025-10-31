@@ -42,7 +42,7 @@
     state: nullrod_bow
   content:
   - NullRodBow
-  - NullRodArrowQuiver
+#  - NullRodArrowQuiver
 
 # begin funky
 - type: chaplainGearMenuSet
@@ -54,5 +54,6 @@
     state: icon
   content:
   - WeaponSniperChaplainAnnabelle
+  - ClothingOuterDusterCoat
 # end funky
 

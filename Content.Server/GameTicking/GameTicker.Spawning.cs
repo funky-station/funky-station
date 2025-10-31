@@ -342,7 +342,17 @@ namespace Content.Server.GameTicking
 
             if (lateJoin && !silent)
             {
-                if (jobPrototype.JoinNotifyCrew)
+                if (jobPrototype.ID == "StationAi")
+                {
+                    _chatSystem.DispatchStationAnnouncement(station,
+                        Loc.GetString("latejoin-arrival-announcement-ai",
+                            ("character", MetaData(mob).EntityName),
+                            ("entity", mob)),
+                        Loc.GetString("latejoin-arrival-sender"),
+                        playDefaultSound: false,
+                        colorOverride: Color.Cyan);
+                }
+                else if (jobPrototype.JoinNotifyCrew)
                 {
                     _chatSystem.DispatchStationAnnouncement(station,
                         Loc.GetString("latejoin-arrival-announcement-special",

@@ -330,7 +330,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
 
     private void SetStatus(SecurityStatus status)
     {
-        if (status == SecurityStatus.Wanted || status == SecurityStatus.Suspected || status == SecurityStatus.Hostile || status == SecurityStatus.Search) // Funkystation - search status
+        if (status == SecurityStatus.Wanted || status == SecurityStatus.Suspected || status == SecurityStatus.Search) // Funkystation - search status
         {
             GetReason(status);
             return;
@@ -377,7 +377,6 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             SecurityStatus.Discharged => "hud_discharged",
             SecurityStatus.Suspected => "hud_suspected",
             SecurityStatus.Search => "hud_search", // Funkystation
-            SecurityStatus.Hostile => "hud_hostile",
             SecurityStatus.Eliminated => "hud_eliminated",
             _ => "SecurityIconNone"
         };

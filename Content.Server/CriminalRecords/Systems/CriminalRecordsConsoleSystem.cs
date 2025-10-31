@@ -104,7 +104,6 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
         // prevent malf client violating wanted/reason nullability
         if (msg.Status == SecurityStatus.Wanted != (msg.Reason != null) &&
             msg.Status == SecurityStatus.Suspected != (msg.Reason != null) &&
-            msg.Status == SecurityStatus.Hostile != (msg.Reason != null) &&
             msg.Status == SecurityStatus.Search != (msg.Reason != null)) // Funkystation - search status
             return;
 
@@ -162,8 +161,6 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
         // figure out which radio message to send depending on transition
         var statusString = (oldStatus, msg.Status) switch
         {
-            // person deemed hostile
-            (_, SecurityStatus.Hostile) => "hostile",
             // person is dead, for good
             (_, SecurityStatus.Eliminated) => "eliminated",
             // person has been detained
@@ -178,8 +175,6 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
             (_, SecurityStatus.Discharged) => "released",
             // going from any other state to wanted, AOS or prisonbreak / lazy secoff never set them to released and they reoffended
             (_, SecurityStatus.Wanted) => "wanted",
-            // person no longer deemed hostile
-            (SecurityStatus.Hostile, SecurityStatus.None) => "not-hostile",
             // person returned from dead... somehow
             (SecurityStatus.Eliminated, SecurityStatus.None) => "not-eliminated",
             // person is no longer sus

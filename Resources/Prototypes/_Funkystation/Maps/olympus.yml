@@ -6,8 +6,7 @@
   id: Olympus
   mapName: 'Olympus'
   mapPath: /Maps/_Funkystation/olympus.yml
-  minPlayers: 50
-  maxPlayers: 100 # maybe good for events
+  minPlayers: 75
   stations:
     Olympus:
       stationProto: StandardNanotrasenStation
@@ -69,7 +68,7 @@
           Passenger: [ -1, -1 ]
           Clown: [ 1, 1 ]
           Mime: [ 1, 1 ]
-          Musician: [ 5, 5 ]
+          Musician: [ 2, 2 ]
           Boxer: [ 1, 1 ]
       - type: StationBlobConfig
         stageBegin: 75

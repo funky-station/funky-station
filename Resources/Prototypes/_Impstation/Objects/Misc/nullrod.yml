@@ -250,39 +250,39 @@
     tags:
     - NoRecharge
 
-- type: entity
-  name: aureate quiver
-  parent: [ BaseAmmoProvider, BaseMinorContraband ]
-  id: NullRodArrowQuiver
-  description: A divine quiver, bristling with sparks of light.
-  components:
-    - type: Sprite
-      sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
-      layers:
-      - state: quiver-0
-        map: ["enum.GunVisualLayers.Mag"]
-      - state: quiver_unshaded
-        shader: unshaded
-    - type: Item
-      size: Large
-      shape:
-      - 0,0,2,2
-      sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
-    - type: Clothing
-      quickEquip: false
-      sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
-      slots:
-      - Back
-      - backStorage
-    - type: BallisticAmmoProvider
-      proto: HolyArrow
-      mayTransfer: true
-      capacity: 7
-      whitelist:
-        tags:
-        - HolyArrow
-    - type: MagazineVisuals
-      magState: quiver
-      steps: 1
-      zeroVisible: false
-    - type: Appearance
+#- type: entity
+#  name: aureate quiver
+#  parent: [ BaseAmmoProvider, BaseMinorContraband ]
+#  id: NullRodArrowQuiver
+#  description: A divine quiver, bristling with sparks of light.
+#  components:
+#    - type: Sprite
+#      sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
+#      layers:
+#      - state: quiver-0
+#        map: ["enum.GunVisualLayers.Mag"]
+#      - state: quiver_unshaded
+#        shader: unshaded
+#    - type: Item
+#      size: Large
+#      shape:
+#      - 0,0,2,2
+#      sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
+#    - type: Clothing
+#      quickEquip: false
+#      sprite: _Impstation/Objects/Misc/nullrod_quiver.rsi
+#      slots:
+#      - Back
+#      - backStorage
+#    - type: BallisticAmmoProvider
+#      proto: HolyArrow
+#      mayTransfer: true
+#      capacity: 7
+#      whitelist:
+#        tags:
+#        - HolyArrow
+#    - type: MagazineVisuals
+#      magState: quiver
+#      steps: 1
+#      zeroVisible: false
+#    - type: Appearance

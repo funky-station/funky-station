@@ -32,7 +32,7 @@
     impactEffect: BulletImpactEffectRedDisabler
     damage:
       types:
-        Heat: 15
+        Heat: 23 #reduce to 15 if holy damage ever becomes a thing
         Holy: 20
     soundHit:
       collection: MeatLaserImpact

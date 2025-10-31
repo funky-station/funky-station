@@ -32,7 +32,7 @@
   id: OasisHighPop
   mapName: 'Oasis'
   mapPath: /Maps/_Funkystation/oasis.yml #Funkystation - Robotics
-  minPlayers: 80
+  minPlayers: 85
   stations:
     Oasis:
       stationProto: StandardNanotrasenStation

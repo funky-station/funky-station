@@ -14,7 +14,7 @@ public sealed partial class CCVars
     ///     Will mapping mode enable autosaves when it's activated?
     /// </summary>
     public static readonly CVarDef<bool>
-        AutosaveEnabled = CVarDef.Create("mapping.autosave", true, CVar.SERVERONLY);
+        AutosaveEnabled = CVarDef.Create("mapping.autosave", false, CVar.SERVERONLY);
 
     /// <summary>
     ///     Autosave interval in seconds.

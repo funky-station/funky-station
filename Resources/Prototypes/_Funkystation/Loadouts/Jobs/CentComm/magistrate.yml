@@ -4,6 +4,28 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+# Jumpsuit
+- type: loadout
+  id: MagistrateSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMagistrateSuit
+
+- type: loadout
+  id: MagistrateTurtleneck
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMagistrateTurtleneck
+
+# Coats
+- type: loadout
+  id: MagistrateWinterCoat
+  equipment:
+    outerClothing: ClothingOuterWinterMagistrate
+
+- type: loadout
+  id: MagistrateCoat
+  equipment:
+    outerClothing: ClothingOuterMagistrateCoat
+
 # Backpack
 - type: loadout
   id: MagistrateDuffel

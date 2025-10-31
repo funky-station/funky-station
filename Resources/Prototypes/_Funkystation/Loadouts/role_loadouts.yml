@@ -43,6 +43,9 @@
   id: JobMagistrate
   groups:
   - MagistrateJumpsuit
+  - MagistrateOuterClothing
+  - MagistrateGloves
+  - MagistrateShoes
   - MagistrateBackpack
   - MagistrateFlavor
   - Survival

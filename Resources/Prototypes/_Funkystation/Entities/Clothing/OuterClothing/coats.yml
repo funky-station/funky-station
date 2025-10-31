@@ -1,0 +1,14 @@
+﻿# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [ClothingOuterCoatLab, BaseCentcommContraband]
+  id: ClothingOuterMagistrateCoat
+  name: magistrate's coat
+  description: And thy punishment is death.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/magi_coat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/magi_coat.rsi
+  - type: Item
+    size: Normal

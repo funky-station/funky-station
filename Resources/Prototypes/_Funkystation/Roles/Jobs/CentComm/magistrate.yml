@@ -53,7 +53,6 @@
   id: MagistrateGear
   equipment:
     id: MagistratePDA
-    shoes: ClothingShoesBootsLaceup
     eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetCentCom
     pocket2: RubberStampMagistrate

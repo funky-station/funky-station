@@ -20,6 +20,15 @@
       role: JobNanotrasenRepresentative
       time: 72000 #20 hrs
 
+- type: loadoutEffectGroup
+  id: SeniorCentralCommand
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: CentralCommand
+      time: 72000 #20 hrs
+
 #hat
 - type: loadout
   id: NanotrasenRepresentativeBowler
@@ -82,7 +91,7 @@
   id: NanotrasenRepresentativePaperworkGloves
   effects:
   - !type:GroupLoadoutEffect
-    proto: SeniorNanotrasenRepresentative
+    proto: SeniorCentralCommand
   equipment:
     gloves: ClothingHandsGlovesHop
 

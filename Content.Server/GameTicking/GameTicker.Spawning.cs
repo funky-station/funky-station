@@ -42,7 +42,9 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 wrexbe <wrexbe@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 W.xyz() <tptechteam@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -342,7 +344,17 @@ namespace Content.Server.GameTicking
 
             if (lateJoin && !silent)
             {
-                if (jobPrototype.JoinNotifyCrew)
+                if (jobPrototype.ID == "StationAi")
+                {
+                    _chatSystem.DispatchStationAnnouncement(station,
+                        Loc.GetString("latejoin-arrival-announcement-ai",
+                            ("character", MetaData(mob).EntityName),
+                            ("entity", mob)),
+                        Loc.GetString("latejoin-arrival-sender"),
+                        playDefaultSound: false,
+                        colorOverride: Color.Cyan);
+                }
+                else if (jobPrototype.JoinNotifyCrew)
                 {
                     _chatSystem.DispatchStationAnnouncement(station,
                         Loc.GetString("latejoin-arrival-announcement-special",

@@ -9,24 +9,44 @@
   id: BioSynthHeart
   name: bio-synthetic heart
   description: This heart can be transplanted into any living organism and it will adapt to its recipient.
+  components:
+    - type: Tag
+      tags:
+      - BiosynthecticHeart
+
 
 - type: entity
   parent: OrganHumanLiver
   id: BioSynthLiver
   name: bio-synthetic liver
   description: This liver can be transplanted into any living organism and it will adapt to its recipient.
+  components:
+    - type: Tag
+      tags:
+      - BiosynthecticLiver
+
 
 - type: entity
   parent: OrganHumanLungs
   id: BioSynthLungs
   name: bio-synthetic lungs
   description: These lungs can be transplanted into any living organism and it will adapt to its recipient.
+  components:
+    - type: Tag
+      tags:
+      - BiosynthecticLung
+
 
 - type: entity
   parent: OrganHumanEyes
   id: BioSynthEyes
   name: bio-synthetic eyes
   description: These eyes can be transplanted into any living organism and it will adapt to its recipient.
+  components:
+    - type: Tag
+      tags:
+      - BiosynthecticEyes
+
 
 - type: entity
   parent: OrganHumanStomach

@@ -39,11 +39,14 @@
     - type: ShowJobIcons
     - type: ShowMindShieldIcons
     - type: ShowCriminalRecordIcons
+  - type: Tag
+    tags:
+    - SecurityCyberneticEyes
 
 - type: entity
   parent: BaseCyberneticEyes
   id: MedicalCyberneticEyes
-  name: cybernetic diagnostic eyes
+  name: cybernetic medical eyes
   description: A pair of cybernetic eyes that enhance your vision, featuring an integrated MedHUD.
   components:
   - type: Organ
@@ -56,3 +59,6 @@
     - type: ShowHealthIcons
       damageContainers:
       - Biological
+  - type: Tag
+    tags:
+    - CyberneticMedicalEyes

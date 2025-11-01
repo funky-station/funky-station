@@ -1,0 +1,189 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
+  id: CrateLockBoxService
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: lockbox
+          steps:
+            - material: Steel
+              amount: 5
+            - material: Cable
+              amount: 2
+              doAfter: 5
+
+
+    - node: lockbox
+      entity: CrateLockBoxService
+      edges:
+        - to: start
+          steps:
+            - tool: Screwing
+              doAfter: 5
+          conditions:
+            - !type:StorageWelded
+              welded: false
+            - !type:Locked
+              locked: false
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 5
+            - !type:SpawnPrototype
+              prototype: CableApcStack1
+              amount: 2
+            - !type:EmptyAllContainers
+            - !type:DeleteEntity
+
+
+- type: constructionGraph
+  id: CrateLockBoxSecurity
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: lockbox
+          steps:
+            - material: Steel
+              amount: 5
+            - material: Cable
+              amount: 2
+              doAfter: 5
+
+
+    - node: lockbox
+      entity: CrateLockBoxSecurity
+      edges:
+        - to: start
+          steps:
+            - tool: Screwing
+              doAfter: 5
+          conditions:
+            - !type:StorageWelded
+              welded: false
+            - !type:Locked
+              locked: false
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 5
+            - !type:SpawnPrototype
+              prototype: CableApcStack1
+              amount: 2
+            - !type:EmptyAllContainers
+            - !type:DeleteEntity
+
+- type: constructionGraph
+  id: CrateLockBoxMedical
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: lockbox
+          steps:
+            - material: Steel
+              amount: 5
+            - material: Cable
+              amount: 2
+              doAfter: 5
+
+
+    - node: lockbox
+      entity: CrateLockBoxMedical
+      edges:
+        - to: start
+          steps:
+            - tool: Screwing
+              doAfter: 5
+          conditions:
+            - !type:StorageWelded
+              welded: false
+            - !type:Locked
+              locked: false
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 5
+            - !type:SpawnPrototype
+              prototype: CableApcStack1
+              amount: 2
+            - !type:EmptyAllContainers
+            - !type:DeleteEntity
+
+- type: constructionGraph
+  id: CrateLockBoxEngineering
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: lockbox
+          steps:
+            - material: Steel
+              amount: 5
+            - material: Cable
+              amount: 2
+              doAfter: 5
+
+
+    - node: lockbox
+      entity: CrateLockBoxEngineering
+      edges:
+        - to: start
+          steps:
+            - tool: Screwing
+              doAfter: 5
+          conditions:
+            - !type:StorageWelded
+              welded: false
+            - !type:Locked
+              locked: false
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 5
+            - !type:SpawnPrototype
+              prototype: CableApcStack1
+              amount: 2
+            - !type:EmptyAllContainers
+            - !type:DeleteEntity
+
+- type: constructionGraph
+  id: CrateLockBoxScience
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: lockbox
+          steps:
+            - material: Steel
+              amount: 5
+            - material: Cable
+              amount: 2
+              doAfter: 5
+
+
+    - node: lockbox
+      entity: CrateLockBoxScience
+      edges:
+        - to: start
+          steps:
+            - tool: Screwing
+              doAfter: 5
+          conditions:
+            - !type:StorageWelded
+              welded: false
+            - !type:Locked
+              locked: false
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 5
+            - !type:SpawnPrototype
+              prototype: CableApcStack1
+              amount: 2
+            - !type:EmptyAllContainers
+            - !type:DeleteEntity           

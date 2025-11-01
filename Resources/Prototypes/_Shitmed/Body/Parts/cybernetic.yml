@@ -138,6 +138,9 @@
     - type: Prying
       speedModifier: 1.5
       pryPowered: true
+  - type: Tag
+    tags:
+    - JWLArms
 
 - type: entity
   parent: RightArmCybernetic
@@ -150,6 +153,9 @@
     - type: Prying
       speedModifier: 1.5
       pryPowered: true
+  - type: Tag
+    tags:
+    - JWLArms
 
 - type: entity
   parent: LeftLegCybernetic
@@ -161,6 +167,9 @@
     walkSpeed: 3.125
     sprintSpeed: 5.625
   - type: BodyPart
+  - type: Tag
+    tags:
+    - SpeedLegs
 
 - type: entity
   parent: RightLegCybernetic
@@ -172,3 +181,7 @@
     walkSpeed: 3.125
     sprintSpeed: 5.625
   - type: BodyPart
+  - type: Tag
+    tags:
+    - SpeedLegs
+

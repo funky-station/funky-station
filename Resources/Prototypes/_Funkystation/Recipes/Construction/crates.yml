@@ -1,0 +1,58 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: construction
+  name: security lockbox crate
+  id: CrateLockBoxSecurity
+  graph: CrateLockBoxSecurity
+  startNode: start
+  targetNode: lockbox
+  category: construction-category-storage
+  description: A secure lock box. 75% of funds from its sale will be distributed back to the department while cargo takes the rest.
+  icon: { sprite: Structures/Storage/Crates/lockbox.rsi, state: icon }
+  objectType: Structure
+
+- type: construction
+  name: medical lockbox crate
+  id: CrateLockBoxMedical
+  graph: CrateLockBoxMedical
+  startNode: start
+  targetNode: lockbox
+  category: construction-category-storage
+  description: A secure lock box. 75% of funds from its sale will be distributed back to the department while cargo takes the rest.
+  icon: { sprite: Structures/Storage/Crates/lockbox.rsi, state: icon }
+  objectType: Structure
+
+- type: construction
+  name: service lockbox crate
+  id: CrateLockBoxService
+  graph: CrateLockBoxService
+  startNode: start
+  targetNode: lockbox
+  category: construction-category-storage
+  description: A secure lock box. 75% of funds from its sale will be distributed back to the department while cargo takes the rest.
+  icon: { sprite: Structures/Storage/Crates/lockbox.rsi, state: icon }
+  objectType: Structure
+
+- type: construction
+  name: engineering lockbox crate
+  id: CrateLockBoxEngineering
+  graph: CrateLockBoxEngineering
+  startNode: start
+  targetNode: lockbox
+  category: construction-category-storage
+  description: A secure lock box. 75% of funds from its sale will be distributed back to the department while cargo takes the rest.
+  icon: { sprite: Structures/Storage/Crates/lockbox.rsi, state: icon }
+  objectType: Structure
+
+- type: construction
+  name: science lockbox crate
+  id: CrateLockBoxScience
+  graph: CrateLockBoxScience
+  startNode: start
+  targetNode: lockbox
+  category: construction-category-storage
+  description: A secure lock box. 75% of funds from its sale will be distributed back to the department while cargo takes the rest.
+  icon: { sprite: Structures/Storage/Crates/lockbox.rsi, state: icon }
+  objectType: Structure      

@@ -138,10 +138,10 @@
   result: CartridgeEmergency
   completetime: 1
   materials:
-    Steel: 500
+    Steel: 200
     Glass: 100
     Plastic: 100
-    Silver: 100
+    Plasma: 100
 
 
 - type: latheRecipe
@@ -149,40 +149,40 @@
   result: CartridgeAirloss
   completetime: 1
   materials:
-    Steel: 500
+    Steel: 200
     Glass: 100
     Plastic: 100
-    Silver: 100
+    Plasma: 100
 
 - type: latheRecipe
   id: CartridgeBrute
   result: CartridgeBrute
   completetime: 1
   materials:
-    Steel: 500
+    Steel: 200
     Glass: 100
     Plastic: 100
-    Silver: 100
+    Plasma: 100
 
 - type: latheRecipe
   id: CartridgeBurn
   result: CartridgeBurn
   completetime: 1
   materials:
-    Steel: 500
+    Steel: 200
     Glass: 100
     Plastic: 100
-    Silver: 100
+    Plasma: 100
 
 - type: latheRecipe
   id: CartridgePoison
   result: CartridgePoison
   completetime: 1
   materials:
-    Steel: 500
+    Steel: 200
     Glass: 100
     Plastic: 100
-    Silver: 100
+    Plasma: 100
 
 - type: latheRecipe
   id: SecHypo
@@ -192,7 +192,7 @@
     Steel: 1500
     Plastic: 1000
     Glass: 500
-    Gold: 500
+    Plasma: 500
 
 # Ammo
 

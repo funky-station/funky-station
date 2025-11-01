@@ -130,6 +130,8 @@
     - MechEquipmentDrillDiamond
     - MechEquipmentKineticAccelerator
     - CargoTelepadMachineCircuitboard
+    - WeaponLaserSvalinn
+    - OreProcessorIndustrialMachineCircuitboard
   - type: EmagLatheRecipes
     emagStaticRecipes:
     - ToolboxSyndicate

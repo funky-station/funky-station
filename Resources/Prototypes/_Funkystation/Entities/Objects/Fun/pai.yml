@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Sophia Rustfield <gitlab@catwolf.xyz>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: entity
+  id: ActionPAIOpenPda
+  name: Open PDA
+  description: Open the PDA you're in.
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: Interface/Actions/pda.png
+    event: !type:PAIOpenPdaActionEvent

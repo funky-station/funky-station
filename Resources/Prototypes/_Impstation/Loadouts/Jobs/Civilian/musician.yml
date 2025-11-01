@@ -7,9 +7,10 @@
   id: ClothingUniformMrSpaceWide
   equipment:
     jumpsuit: ClothingUniformMrSpaceWide #imp
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: ClothingUniformMrSpaceWideSkirt
   equipment:
     jumpsuit: ClothingUniformMrSpaceWideSkirt #imp
-
+  groupBy: "jumpskirt"

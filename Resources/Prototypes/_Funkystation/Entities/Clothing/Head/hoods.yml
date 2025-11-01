@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2025 North <anorthamerican.scii@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+<<<<<<< HEAD
+
+=======
+# SPDX-FileCopyrightText: 2025 North <anorthamerican.scii@gmail.com>
+#
+>>>>>>> b150f483be45100710890acfe885af2c6129278b
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodWinterIAA
+  categories: [ HideSpawnMenu ]
+  name: internal affairs agent's winter coat hood
+  components:
+  - type: Sprite
+    sprite: _Funkystation\Clothing\Head\Hoods\Coat\hoodiaa.rsi
+  - type: Clothing
+    sprite: _Funkystation\Clothing\Head\Hoods\Coat\hoodiaa.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodWinterNTR
+  categories: [ HideSpawnMenu ]
+  name: nanotrasen representative's winter coat hood
+  components:
+  - type: Sprite
+    sprite: _Funkystation\Clothing\Head\Hoods\Coat\hoodntr.rsi
+  - type: Clothing
+    sprite: _Funkystation\Clothing\Head\Hoods\Coat\hoodntr.rsi

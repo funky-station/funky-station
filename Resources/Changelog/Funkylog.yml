@@ -5301,3 +5301,9 @@ Entries:
       message: 'Medical and EMT belts can now carry Autoinjector Cartridges '
   id: 634
   time: '2025-11-01T20:38:58.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added custom door accesses and doors for both Librarian and Reporter
+  id: 635
+  time: '2025-11-01T20:40:01.0000000+00:00'

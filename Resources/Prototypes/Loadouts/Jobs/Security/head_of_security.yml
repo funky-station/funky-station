@@ -15,7 +15,15 @@
       !type:RoleTimeRequirement
       role: JobHeadOfSecurity
       time: 72000 #20 hrs
-
+#Law Helmet
+- type: loadoutEffectGroup
+  id: LawHelmetWorthy
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobHeadOfSecurity
+      time: 108000 #30 hrs
 # Jumpsuit
 - type: loadout
   id: HeadofSecurityJumpsuit
@@ -57,6 +65,14 @@
   id: HeadofSecurityBeret
   equipment:
     head: ClothingHeadHatBeretHoS
+
+- type: loadout
+  id: HelmetLaw
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: LawHelmetWorthy
+  equipment:
+    head: ClothingHeadHelmetLaw
 
 # Neck
 - type: loadout

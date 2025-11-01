@@ -5269,3 +5269,9 @@ Entries:
       message: Various mapping fixes for Bagel
   id: 630
   time: '2025-11-01T19:40:55.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Tweak
+      message: Void heretic's void blast no longer stuns.
+  id: 631
+  time: '2025-11-01T19:42:26.0000000+00:00'

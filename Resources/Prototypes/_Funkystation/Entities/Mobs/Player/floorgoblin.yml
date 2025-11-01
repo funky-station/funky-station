@@ -43,6 +43,8 @@
     speechVerb: FloorGoblin
     speechSounds: Duende
     allowedEmotes: [Laugh]
+  - type: ReplacementAccent
+    accent: floorgoblin
   - type: Vocal
     sounds:
       Unsexed: Duende

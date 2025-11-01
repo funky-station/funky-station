@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: accent
+  id: floorgoblin
+  fullReplacements:
+  - accent-words-floorgoblin-1
+  - accent-words-floorgoblin-2
+  - accent-words-floorgoblin-3
+  - accent-words-floorgoblin-4
+  - accent-words-floorgoblin-5
+  - accent-words-floorgoblin-6
+  - accent-words-floorgoblin-7

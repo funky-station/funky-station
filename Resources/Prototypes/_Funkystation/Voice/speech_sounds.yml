@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: speechSounds
+  id: Duende
+  saySound:
+    collection: DuendeSounds
+  askSound:
+    collection: DuendeSounds
+  exclaimSound:
+    collection: DuendeSounds

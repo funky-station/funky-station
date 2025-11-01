@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 qrwas <55228920+qrwas@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT

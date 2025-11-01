@@ -52,6 +52,7 @@
 - type: loadout
   id: CaptainCap
   equipment:
+    head: ClothingHeadHatCapcap
 
 # Neck
 - type: loadout

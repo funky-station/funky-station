@@ -21,32 +21,38 @@
   id: CaptainJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCaptain
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: CaptainJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtCaptain
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: CaptainFormalSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCapFormal
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: CaptainFormalSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtCapFormalDress
+  groupBy: "jumpskirt"
 
 # Head
 - type: loadout
   id: CaptainHead
   equipment:
     head: ClothingHeadHatCaptain
+  groupby: "hats"
 
 - type: loadout
   id: CaptainCap
   equipment:
     head: ClothingHeadHatCapcap
+  groupby: "hats"
 
 # Neck
 - type: loadout

@@ -12,16 +12,19 @@
   id: AtmosphericTechnicianJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitAtmos
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: AtmosphericTechnicianJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtAtmos
+  groupBy: "jumpskirt"
 
 - type: loadout
   id: AtmosphericTechnicianJumpsuitCasual
   equipment:
     jumpsuit: ClothingUniformJumpsuitAtmosCasual
+  groupBy: "jumpsuit"
 
 # Back
 - type: loadout

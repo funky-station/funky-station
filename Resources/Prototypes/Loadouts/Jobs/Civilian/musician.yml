@@ -12,11 +12,13 @@
   id: MusicianJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitMusician
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: MusicianJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtMusician
+  groupBy: "jumpskirt"
 
 # Outerclothing
 - type: loadout

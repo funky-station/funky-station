@@ -26,11 +26,13 @@
   id: WardenJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitWarden
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: WardenJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtWarden
+  groupBy: "jumpskirt"
 
 # OuterClothing
 - type: loadout

@@ -48,11 +48,14 @@ SPDX-License-Identifier: MIT
     <GuideEntityEmbed Entity="ComputerPalletConsole"/>
     <GuideEntityEmbed Entity="CargoPalletSell"/>
     <GuideEntityEmbed Entity="ComputerCargoOrders"/>
+    <GuideEntityEmbed Entity="ComputerFundingAllocation"/>
   </Box>
 
   After the shuttle is loaded, fly it to the Trade Station. There, move the sellable items onto the green [color=cyan]Cargo Selling Pallets[/color], and then go to the [color=cyan]Cargo Sale Computer[/color] and click [italic]"Sell"[/italic].
 
-  Now, you can take those spesos and bring them back to the station and deposit them into the [color=cyan]Cargo Request Computer[/color].
+  The [color=cyan]spesos[/color] from the sale will be distributed between Cargo and every other department following the distribution in the HoP's [color=cyan]Funding Allocation Console[/color].
+
+  Loose [color=cyan]spesos[/color] can be deposited into the [color=cyan]Cargo Request Computer[/color].
 
   You can also make even more money by completing [textlink="bounties" link="CargoBounties"] or selling valuable items from [textlink="salvage" link="Salvage"].
 

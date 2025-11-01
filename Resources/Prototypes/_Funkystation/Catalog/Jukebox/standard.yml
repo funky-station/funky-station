@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 lolmatdi <59433122+lolmatdi@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -7,3 +8,8 @@
   name: Alien Kids - The Great Message
   path:
     path: /Audio/_Funkystation/Music/the_great_message_alien_kids.ogg
+- type: jukebox
+  id: AlienKidsAnAlienSong
+  name: Alien Kids - An Alien Song (In Their Own Language! Glumphish
+  path:
+    path: /Audio/_Funkystation/Music/an_alien_song_alien_kids.ogg

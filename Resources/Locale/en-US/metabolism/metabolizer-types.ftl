@@ -14,3 +14,6 @@ metabolizer-type-plant = Plant
 metabolizer-type-dwarf = Dwarf
 metabolizer-type-moth = Moth
 metabolizer-type-arachnid = Arachnid
+
+# Starlight, under MIT license
+metabolizer-type-avali = Avali

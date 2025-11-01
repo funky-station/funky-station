@@ -280,6 +280,8 @@
     - Slime
     - AmmoniaBlood
     - ZombieBlood
+    - Sap # Starlight, under MIT License
+    - AvaliBlood # Starlight end
 
 - type: xenoArchTrigger
   id: TriggerThrow

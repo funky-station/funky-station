@@ -33,6 +33,8 @@
     - IPC
     # ImpStation additions
     - Thaven
+    # Starlight
+    - Avali
 
 - type: guideEntry
   id: Arachnid
@@ -104,3 +106,9 @@
   id: IPC
   name: species-name-ipc
   text: "/ServerInfo/Guidebook/Mobs/IPCs.xml"
+
+# Starlight, under MIT license
+- type: guideEntry
+  id: Avali
+  name: species-name-avali
+  text: "/ServerInfo/Guidebook/Mobs/Avali.xml"

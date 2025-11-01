@@ -74,6 +74,8 @@
       # begin Funkystation: make actually usable for fixing turnstiles and such
       - GenpopEnter
       - GenpopLeave
+      - Library
+      - Reporter
       # end Funkystation
       privilegedIdSlot:
         name: id-card-console-privileged-id
@@ -155,6 +157,8 @@
     - Wizard
     - GenpopEnter
     - GenpopLeave
+    - Library
+    - Reporter
     privilegedIdSlot:
       name: id-card-console-privileged-id
       ejectSound: /Audio/Machines/id_swipe.ogg

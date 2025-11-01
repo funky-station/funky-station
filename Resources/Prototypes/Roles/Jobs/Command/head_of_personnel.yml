@@ -90,13 +90,15 @@
   # Head level access that isn't their own was deliberately left out, get AA from the captain instead.
   - Chemistry
   - Engineering
+  - Reporter #funkystation
   - Research
-  - Robotics # funkystation
+  - Robotics #funkystation
   - Detective
   - Salvage
   - Security
   - Brig
   - Lawyer
+  - Library #funkystation
   - Logistics #Imp - mish note 2025-07-07 - yes this does mean they can approve orders, this can be removed but then QM would have to give out access manually
   - Cargo
   - Atmospherics

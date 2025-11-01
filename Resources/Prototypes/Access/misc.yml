@@ -40,8 +40,9 @@
   - Quartermaster
   - Salvage
   - Cargo
+  - Reporter #funkystation
   - Research
-  - Robotics # funkystation
+  - Robotics #funkystation
   - Service
   - Maintenance
   - External
@@ -56,6 +57,7 @@
   - GenpopEnter
   - GenpopLeave
   - Logistics #imp
+  - Library #funkystation
 
 - type: accessGroup
   id: General

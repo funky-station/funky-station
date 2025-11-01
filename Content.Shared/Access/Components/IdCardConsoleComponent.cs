@@ -95,10 +95,12 @@ public sealed partial class IdCardConsoleComponent : Component
         "Janitor",
         "Kitchen",
         "Lawyer",
+        "Library",
         "Logistics", //Imp
         "Maintenance",
         "Medical",
         "Quartermaster",
+        "Reporter",
         "Research",
         "Robotics", // funkystation
         "ResearchDirector",

@@ -32,6 +32,7 @@
   access:
   - Service
   - Maintenance
+  - Reporter
 
 - type: startingGear
   id: ReporterGear

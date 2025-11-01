@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2025 Evaisa <evagiacosa1@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseGameRule
+  id: FloorGoblinMidRound
+  components:
+  - type: StationEvent
+    weight: 15
+    earliestStart: 15
+    minimumPlayers: 15
+    duration: null
+    maxOccurrences: 2
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: 0
+  - type: VentCrittersRule
+    max: 1
+    table:
+      id: MobFloorGoblin
+  - type: Tag
+    tags:
+    - MidroundAntag

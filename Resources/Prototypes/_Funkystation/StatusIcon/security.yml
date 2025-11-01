@@ -6,5 +6,12 @@
   parent: SecurityIcon
   id: SecurityIconSearch
   icon:
-    sprite: /Textures/Interface/Misc/security_icons.rsi
+    sprite: /Textures/_Funkystation/Interface/Misc/security_icons.rsi
     state: hud_search
+
+- type: securityIcon
+  parent: SecurityIcon
+  id: SecurityIconIncapacitated
+  icon:
+    sprite: /Textures/_Funkystation/Interface/Misc/security_icons.rsi
+    state: hud_incapacitated

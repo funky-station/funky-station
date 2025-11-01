@@ -5275,3 +5275,9 @@ Entries:
       message: Void heretic's void blast no longer stuns.
   id: 631
   time: '2025-11-01T19:42:26.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: Replaced Survival with Traitorling in Secret.
+  id: 632
+  time: '2025-11-01T20:17:01.0000000+00:00'

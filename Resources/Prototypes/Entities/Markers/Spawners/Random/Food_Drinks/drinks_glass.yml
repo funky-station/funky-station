@@ -8,6 +8,8 @@
 # SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Hanz <41141796+Hanzdegloker@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <peanutbuttersharky@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -32,6 +34,7 @@
     prototypes:
       - DrinkAbsintheGlass
       - DrinkAleGlass
+      - DrinkAlienBrainHemorrhage
       - DrinkAloe
       - DrinkAndalusia
       - DrinkAntifreeze
@@ -48,17 +51,21 @@
       - DrinkBloodyMaryGlass
       - DrinkBooger
       - DrinkBraveBullGlass
+      - DrinkBronxGlass
       - BudgetInsulsDrinkGlass
       - DrinkCarrotJuice
       - DrinkCoconutRum
       - DrinkChocolateGlass
       - DrinkCognacGlass
       - DrinkCosmopolitan
+      - DrinkCrushDepthGlass
       - DrinkCubaLibreGlass
+      - DrinkDarkandStormyGlass
       - DrinkDeadRumGlass
       - DrinkDevilsKiss
       - DrinkDriestMartiniGlass
       - DrinkDrGibbGlass
+      - DrinkElectricSharkGlass
       - DrinkErikaSurprise
       - DrinkFourteenLokoGlass
       - DrinkGargleBlasterGlass
@@ -78,6 +85,9 @@
       - DrinkIrishSlammer
       - DrinkIrishCoffeeGlass
       - DrinkLemonadeGlass
+      - DrinkJackRoseGlass
+      - DrinkJungleBirdGlass
+      - DrinkKalimotxoGlass
       - DrinkKiraSpecial
       - DrinkLongIslandIcedTeaGlass
       - DrinkManhattanGlass
@@ -87,11 +97,13 @@
       - DrinkMeadGlass
       - DrinkMilkshake
       - DrinkMojito
+      - DrinkMonkeyBusinessGlass
       - DrinkNTCahors
       - DrinkPainkillerGlass
       - DrinkPatronGlass
       - DrinkPinaColadaGlass
       - DrinkPoscaGlass
+      - DrinkRadlerGlass
       - DrinkRedMeadGlass
       - DrinkRewriter
       - DrinkRoyRogersGlass
@@ -108,7 +120,9 @@
       - DrinkSyndicatebomb
       - DrinkTequilaSunriseGlass
       - DrinkThreeMileIslandGlass
+      - DrinkTortugaGlass
       - DrinkToxinsSpecialGlass
+      - DrinkVampiroGlass
       - DrinkVodkaMartiniGlass
       - DrinkVodkaRedBool
       - DrinkVodkaTonicGlass

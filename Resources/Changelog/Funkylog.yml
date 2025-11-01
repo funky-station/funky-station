@@ -5281,3 +5281,17 @@ Entries:
       message: Replaced Survival with Traitorling in Secret.
   id: 632
   time: '2025-11-01T20:17:01.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Tweak
+      message: >-
+        The Salvage shuttle has been given some improvements, now it has mining
+        shuttle walls and windows, the airlock doors have been removed due to
+        redundancy, and the shuttle now starts with a material bag and cargo
+        radio while the mining module has been removed
+    - type: Fix
+      message: >-
+        Mining shuttle walls now work the same way that regular shuttle walls
+        do 
+  id: 633
+  time: '2025-11-01T20:26:28.0000000+00:00'

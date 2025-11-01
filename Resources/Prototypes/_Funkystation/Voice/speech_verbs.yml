@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: speechVerb
+  id: FloorGoblin
+  name: chat-speech-verb-name-floor-goblin
+  speechVerbStrings:
+  - chat-speech-verb-floor-goblin-1
+  - chat-speech-verb-floor-goblin-2
+  - chat-speech-verb-floor-goblin-3

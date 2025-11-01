@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseGameRule
+  id: FloorGoblinSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 0
+    minimumPlayers: 15
+    weight: 5
+    reoccurrenceDelay: 30
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: 0
+  - type: VentCrittersRule
+    max: 1
+    table:
+      id: MobFloorGoblin

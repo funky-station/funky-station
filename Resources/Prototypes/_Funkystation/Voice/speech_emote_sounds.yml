@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: emoteSounds
+  id: Duende
+  params:
+    variation: 0.125
+  sound:
+    collection: DuendeSounds
+    params:
+      variation: 0.125
+  sounds:
+    Laugh:
+      path: /Audio/_FunkyStation/FloorGoblin/laugh.ogg

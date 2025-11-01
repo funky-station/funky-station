@@ -31,3 +31,35 @@
       sprite: Objects/Specific/Medical/medipen.rsi
       state: stimpen
     event: !type:UseReagentImplantEvent {}
+
+
+- type: entity
+  id: ActionToggleFloorBoardsMode
+  name: Enter or Exit Floor
+  description: Crawl under the floor boards.
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    useDelay: 3
+    icon:
+      sprite: Structures/Piping/Atmospherics/vent.rsi
+      state: vent_off
+    event: !type:ToggleCrawlingStateEvent
+
+- type: entity
+  id: ActionStealShoes
+  name: Steal Shoes
+  description: A tasty snack it will be!
+  components:
+  - type: EntityTargetAction
+    checkCanInteract: false
+    itemIconStyle: NoItem
+    interactOnMiss: false
+    canTargetSelf: false
+    icon:
+      sprite: Clothing/Shoes/Boots/jackboots.rsi
+      state: icon
+    whitelist:
+      components:
+      - Inventory
+    event: !type:StealShoesEvent {}

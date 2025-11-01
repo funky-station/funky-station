@@ -97,6 +97,7 @@
     - id: SpiderSpawn
     - id: HonkbotSpawn
     - id: VentClog
+    - id: FloorGoblinSpawn # Goobstation
 
 - type: entityTable
   id: BasicAntagEventsTable

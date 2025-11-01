@@ -47,13 +47,10 @@
   id: CaptainHead
   equipment:
     head: ClothingHeadHatCaptain
-  groupby: "hats"
 
 - type: loadout
   id: CaptainCap
   equipment:
-    head: ClothingHeadHatCapcap
-  groupby: "hats"
 
 # Neck
 - type: loadout

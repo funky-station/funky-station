@@ -30,6 +30,7 @@
 // SPDX-FileCopyrightText: 2025 QueerCats <jansencheng3@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -273,7 +274,7 @@ public abstract partial class InventorySystem
             return false;
 
         DebugTools.Assert(slotDefinition.Name == slot);
-        if (slotDefinition.DependsOn != null)
+        if (!GetSlotIgnoreDependencices(inventory, slot) && slotDefinition.DependsOn != null)
         {
             if (!TryGetSlotEntity(target, slotDefinition.DependsOn, out EntityUid? slotEntity, inventory))
                 return false;

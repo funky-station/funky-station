@@ -5117,3 +5117,167 @@ Entries:
       message: Some inconsistencies on how the QMs items are named have been fixed
   id: 609
   time: '2025-10-22T02:24:37.0000000+00:00'
+- author: SigmaDraconis
+  changes:
+    - type: Add
+      message: Added the Wyvern, a new pistol
+    - type: Add
+      message: Added the Salamander, a new syndicate revolver.
+    - type: Add
+      message: Added the .50 AE ammo type and lathe recipes for it
+    - type: Add
+      message: Added a Wyvern pistol to the vault fridge
+    - type: Tweak
+      message: Made so all shotgun shells are called 12 gauge instead of .50 shells.
+  id: 610
+  time: '2025-10-23T20:48:11.0000000+00:00'
+- author: chromiumboy
+  changes:
+    - type: Add
+      message: >-
+        Sentry turret control panels can now be found adjacent to rooms
+        containing sentry turrets. Authorized personnel can use these panels to
+        remotely monitor and alter the settings of any linked sentry turrets
+  id: 611
+  time: '2025-10-24T00:09:29.0000000+00:00'
+- author: lolmatdi
+  changes:
+    - type: Fix
+      message: >-
+        Animal Slime Core changed to actually metabolize chemicals, Smile can
+        take her meds!
+  id: 612
+  time: '2025-10-24T19:38:29.0000000+00:00'
+- author: Dusty_Plant
+  changes:
+    - type: Add
+      message: Added Court map to be playtested
+  id: 613
+  time: '2025-10-24T19:42:41.0000000+00:00'
+- author: gaesnek
+  changes:
+    - type: Tweak
+      message: Made borgs slightly faster at surgery than their humanoid counterparts.
+  id: 614
+  time: '2025-10-24T19:45:15.0000000+00:00'
+- author: TheHolyAegis
+  changes:
+    - type: Add
+      message: >-
+        Added the maid outfit to the janitor's loadout, which you unlock after
+        10 hours of playing as a janitor.
+    - type: Add
+      message: >-
+        Added the maid outfit with mini skirt to the janitor's loadout, which
+        you unlock after 10 hours of playing as a janitor.
+  id: 615
+  time: '2025-10-25T00:23:59.0000000+00:00'
+- author: Currot
+  changes:
+    - type: Add
+      message: pAIs can now emote!
+  id: 616
+  time: '2025-10-25T00:30:20.0000000+00:00'
+- author: EmillyCoelho
+  changes:
+    - type: Add
+      message: 'NTVS Gax: added Turret Control Panels'
+  id: 617
+  time: '2025-10-25T02:25:27.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Tweak
+      message: The captain's sheathe can now beat people into submission.
+  id: 618
+  time: '2025-10-25T19:58:02.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Add
+      message: Added Oxygen Allergy trait.
+  id: 619
+  time: '2025-10-25T20:00:56.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Add
+      message: Added "M for Meltdown" as a new lobby track.
+  id: 620
+  time: '2025-10-25T23:54:13.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: >-
+        Added flashbang and stinger recipes. Also added security shrapnel
+        grenades and with that, shrapnel grenades are in the secfab if you emag
+        it.
+  id: 621
+  time: '2025-10-26T00:05:12.0000000+00:00'
+- author: ferynn
+  changes:
+    - type: Tweak
+      message: 'Increased Romerol strange pill chance from .1% to .5% '
+  id: 622
+  time: '2025-10-26T00:11:37.0000000+00:00'
+- author: Xcybitt
+  changes:
+    - type: Add
+      message: Added more mail. You'll know it when you see it.
+  id: 623
+  time: '2025-10-26T00:16:35.0000000+00:00'
+- author: lolmatdi
+  changes:
+    - type: Tweak
+      message: 'The Station AI now has Emergency Comms '
+    - type: Tweak
+      message: The Station AI can now talk on Common Comms
+  id: 624
+  time: '2025-10-26T01:41:26.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Tweak
+      message: Sprite size tweaked.
+  id: 625
+  time: '2025-10-26T04:29:26.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Add
+      message: New lobby art by Frogoo
+  id: 626
+  time: '2025-10-26T21:54:01.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New sprites for the Paramedic Voidsuit
+  id: 627
+  time: '2025-10-27T03:06:20.0000000+00:00'
+- author: BrightNibbleston
+  changes:
+    - type: Fix
+      message: outdated distro mix info in the guidebook
+  id: 628
+  time: '2025-10-27T22:11:21.0000000+00:00'
+- author: lolmatdi
+  changes:
+    - type: Fix
+      message: Space Adders and Space Cobras are Friends Again!
+  id: 629
+  time: '2025-10-27T22:24:23.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: 'Bagel now has a Vox Box near the library '
+    - type: Tweak
+      message: Various mapping fixes for Bagel
+  id: 630
+  time: '2025-11-01T19:40:55.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Tweak
+      message: Void heretic's void blast no longer stuns.
+  id: 631
+  time: '2025-11-01T19:42:26.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: Replaced Survival with Traitorling in Secret.
+  id: 632
+  time: '2025-11-01T20:17:01.0000000+00:00'

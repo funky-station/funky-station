@@ -5,9 +5,10 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.Security;
+using Content.Shared._Funkystation.Security;
 using Content.Shared.StationRecords;
 using Robust.Shared.Serialization;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.CriminalRecords;
 
@@ -44,7 +45,7 @@ public sealed class CriminalRecordsConsoleState : BoundUserInterfaceState
     public uint? SelectedKey = null;
     public CriminalRecord? CriminalRecord = null;
     public GeneralStationRecord? StationRecord = null;
-    public SecurityStatus FilterStatus = SecurityStatus.None;
+    public ProtoId<SecurityStatusPrototype>? FilterStatus = null;
     public readonly Dictionary<uint, string>? RecordListing;
     public readonly StationRecordsFilter? Filter;
 
@@ -70,10 +71,10 @@ public sealed class CriminalRecordsConsoleState : BoundUserInterfaceState
 [Serializable, NetSerializable]
 public sealed class CriminalRecordChangeStatus : BoundUserInterfaceMessage
 {
-    public readonly SecurityStatus Status;
+    public readonly ProtoId<SecurityStatusPrototype> Status;
     public readonly string? Reason;
 
-    public CriminalRecordChangeStatus(SecurityStatus status, string? reason)
+    public CriminalRecordChangeStatus(ProtoId<SecurityStatusPrototype> status, string? reason)
     {
         Status = status;
         Reason = reason;
@@ -117,8 +118,8 @@ public sealed class CriminalRecordDeleteHistory : BoundUserInterfaceMessage
 
 public sealed class CriminalRecordSetStatusFilter : BoundUserInterfaceMessage
 {
-    public readonly SecurityStatus FilterStatus;
-    public CriminalRecordSetStatusFilter(SecurityStatus newFilterStatus)
+    public readonly ProtoId<SecurityStatusPrototype> FilterStatus;
+    public CriminalRecordSetStatusFilter(ProtoId<SecurityStatusPrototype> newFilterStatus)
     {
         FilterStatus = newFilterStatus;
     }

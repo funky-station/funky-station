@@ -5295,3 +5295,9 @@ Entries:
         do 
   id: 633
   time: '2025-11-01T20:26:28.0000000+00:00'
+- author: lolmatdi
+  changes:
+    - type: Tweak
+      message: 'Medical and EMT belts can now carry Autoinjector Cartridges '
+  id: 634
+  time: '2025-11-01T20:38:58.0000000+00:00'

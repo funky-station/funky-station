@@ -11,6 +11,7 @@
 // SPDX-FileCopyrightText: 2025 Kip <tfraser520@gmail.com>
 // SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 // SPDX-FileCopyrightText: 2025 ilyamikcoder <me@ilyamikcoder.com>
+// SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: MIT

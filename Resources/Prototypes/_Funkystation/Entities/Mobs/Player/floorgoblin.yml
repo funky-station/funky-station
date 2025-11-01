@@ -10,7 +10,7 @@
   components:
   - type: Sprite
     drawdepth: SmallMobs
-    sprite: _FunkyStation/Mobs/FloorGoblin/floor_goblin.rsi
+    sprite: _Funkystation/Mobs/FloorGoblin/floor_goblin.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: floor_goblin

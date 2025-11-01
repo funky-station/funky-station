@@ -280,12 +280,13 @@ public abstract class SharedCrawlUnderFloorSystem : EntitySystem
         if (wasOnSubfloor == isOnSubfloor)
             return;
 
+        // Moving from regular floor to subfloor = coming out of cover (exposed)
+        // Moving from subfloor to regular floor = going under cover (hidden)
         var movedOutOfCover = !wasOnSubfloor && isOnSubfloor;
-        var enteredCover = wasOnSubfloor && !isOnSubfloor;
 
-        if (enteredCover)
+        if (!movedOutOfCover)
             SetStealth(uid, true);
-        else if (movedOutOfCover)
+        else
             SetStealth(uid, false);
 
         if (movedOutOfCover)

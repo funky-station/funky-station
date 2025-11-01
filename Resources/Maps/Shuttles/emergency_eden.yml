@@ -14,6 +14,7 @@
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 salpphie <53307242+salpphie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 salpphie <alyssa.thomas51@gmail.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -25,8 +26,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/23/2025 08:49:25
-  entityCount: 758
+  time: 10/30/2025 17:14:01
+  entityCount: 777
 maps: []
 grids:
 - 2
@@ -2004,6 +2005,101 @@ entities:
     components:
     - type: Transform
       pos: -10.5,-3.5
+      parent: 2
+  - uid: 759
+    components:
+    - type: Transform
+      pos: -17.5,-20.5
+      parent: 2
+  - uid: 760
+    components:
+    - type: Transform
+      pos: -17.5,-21.5
+      parent: 2
+  - uid: 761
+    components:
+    - type: Transform
+      pos: -18.5,-21.5
+      parent: 2
+  - uid: 762
+    components:
+    - type: Transform
+      pos: -18.5,-22.5
+      parent: 2
+  - uid: 763
+    components:
+    - type: Transform
+      pos: -15.5,-20.5
+      parent: 2
+  - uid: 764
+    components:
+    - type: Transform
+      pos: -15.5,-21.5
+      parent: 2
+  - uid: 765
+    components:
+    - type: Transform
+      pos: -14.5,-21.5
+      parent: 2
+  - uid: 766
+    components:
+    - type: Transform
+      pos: -14.5,-22.5
+      parent: 2
+  - uid: 767
+    components:
+    - type: Transform
+      pos: -23.5,-17.5
+      parent: 2
+  - uid: 768
+    components:
+    - type: Transform
+      pos: -23.5,-4.5
+      parent: 2
+  - uid: 769
+    components:
+    - type: Transform
+      pos: -22.5,-1.5
+      parent: 2
+  - uid: 770
+    components:
+    - type: Transform
+      pos: -22.5,-2.5
+      parent: 2
+  - uid: 771
+    components:
+    - type: Transform
+      pos: -23.5,-2.5
+      parent: 2
+  - uid: 772
+    components:
+    - type: Transform
+      pos: -10.5,-2.5
+      parent: 2
+  - uid: 773
+    components:
+    - type: Transform
+      pos: -10.5,-1.5
+      parent: 2
+  - uid: 774
+    components:
+    - type: Transform
+      pos: -9.5,-2.5
+      parent: 2
+  - uid: 775
+    components:
+    - type: Transform
+      pos: -9.5,-4.5
+      parent: 2
+  - uid: 776
+    components:
+    - type: Transform
+      pos: -9.5,-19.5
+      parent: 2
+  - uid: 777
+    components:
+    - type: Transform
+      pos: -9.5,-18.5
       parent: 2
 - proto: CableHV
   entities:

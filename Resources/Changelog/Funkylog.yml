@@ -5261,3 +5261,17 @@ Entries:
       message: Space Adders and Space Cobras are Friends Again!
   id: 629
   time: '2025-10-27T22:24:23.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: 'Bagel now has a Vox Box near the library '
+    - type: Tweak
+      message: Various mapping fixes for Bagel
+  id: 630
+  time: '2025-11-01T19:40:55.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Tweak
+      message: Void heretic's void blast no longer stuns.
+  id: 631
+  time: '2025-11-01T19:42:26.0000000+00:00'

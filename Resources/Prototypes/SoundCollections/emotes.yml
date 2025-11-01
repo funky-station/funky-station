@@ -9,6 +9,7 @@
 # SPDX-FileCopyrightText: 2025 Erisiaa <185582649+Erisiaa@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fr0goo <153249069+Fr0goo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -156,6 +157,7 @@
   files:
     - /Audio/_Impstation/Voice/Vox/voxchitter1.ogg
     - /Audio/_Impstation/Voice/Vox/voxchitter2.ogg
+    - /Audio/Voice/Vox/vox_chitter.ogg # Funky edit, Wizden chitter sound
 
 - type: soundCollection
   id: VoxCoo

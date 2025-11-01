@@ -296,9 +296,13 @@
       params:
         volume: -7
     Cough:
-      path: /Audio/_Goobstation/Voice/Vox/vox_cough.ogg #Placeholder from goob until Imp inevitably comes out with a better one
+      path: /Audio/Voice/Vox/vox_cough.ogg
+    Sigh:
+      path: /Audio/Voice/Vox/vox_sigh.ogg
     Sneeze:
       path: /Audio/_Goobstation/Voice/Vox/vox_sneeze.ogg #Placeholder from goob until Imp inevitably comes out with a better one
+    Click:
+      path: /Audio/Voice/Vox/vox_click.ogg
     Chitter:
       collection: VoxChitter
       params:
@@ -314,7 +318,7 @@
     Caw:
       collection: HarpyCaws #This is a placeholder for now
     DefaultDeathgasp:
-      path: /Audio/_Goobstation/Voice/Vox/vox_deathgasp.ogg #Placeholder from goob until Imp inevitably comes out with a better one
+      path: /Audio/Effects/Gasp/vox_DeathGasp.ogg
       params:
         volume: -5
     Hiss:

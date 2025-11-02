@@ -706,7 +706,7 @@
   id: Eyes
 
 - type: Tag
-  id: ExplosivePayload
+  id: PayloadExplosive
 
 
 - type: Tag
@@ -1623,7 +1623,7 @@
 
 - type: Tag
   id: Truncheon
-  
+
 - type: Tag
   id: TurretCompatibleWeapon # Used in the construction of sentry turrets
 

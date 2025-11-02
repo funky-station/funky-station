@@ -645,7 +645,7 @@
     rewardPer: 1250
     whitelist:
       tags:
-      - ExplosivePayload
+      - PayloadExplosive
     requiredResearch:
       - ExplosiveTechnology
   - name: bounty-item-grenade-flashbang

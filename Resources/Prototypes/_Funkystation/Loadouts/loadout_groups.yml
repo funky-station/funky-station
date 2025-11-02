@@ -65,6 +65,14 @@
   - ChaplainBibleBhuddhist
 
 - type: loadoutGroup
+  id: MagistrateHead
+  name: loadout-group-magistrate-head
+  minLimit: 0
+  loadouts:
+  - MagistrateOfficerBeret
+  - NanotrasenRepresentativeMAA
+
+- type: loadoutGroup
   id: MagistrateJumpsuit
   name: loadout-group-magistrate-jumpsuit
   loadouts:

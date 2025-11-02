@@ -43,6 +43,7 @@
 - type: roleLoadout
   id: JobMagistrate
   groups:
+  - MagistrateHead
   - MagistrateJumpsuit
   - MagistrateOuterClothing
   - MagistrateGloves

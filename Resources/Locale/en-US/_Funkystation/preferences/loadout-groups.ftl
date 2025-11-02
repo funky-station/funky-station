@@ -17,6 +17,7 @@ loadout-group-bible = Bible
 
 # Magistrate
 loadout-group-magistrate-backpack = Magistrate backpack
+loadout-group-magistrate-head = Magistrate head
 loadout-group-magistrate-jumpsuit = Magistrate jumpsuit
 loadout-group-magistrate-gloves = Magistrate gloves
 loadout-group-magistrate-shoes = Magistrate shoes

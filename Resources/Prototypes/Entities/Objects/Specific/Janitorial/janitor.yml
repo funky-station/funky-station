@@ -55,6 +55,7 @@
 # SPDX-FileCopyrightText: 2024 zzylex <146784470+zzylex@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 88tv <131759102+88tv@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 8tv <eightev@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Velken <8467292+Velken@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 hoshizora <willhornbeck12@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -610,3 +611,39 @@
     - type: Fiber
       fiberColor: fibers-white
     - type: DnaSubstanceTrace
+
+- type: entity
+  parent: BaseItem
+  id: WireBrush
+  name: wire brush
+  description: A bristly steel wire brush, perfect for scraping away even the toughest patches of rust.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Janitorial/wirebrush.rsi
+    state: icon
+  - type: Item
+    storedSprite:
+      sprite: Objects/Specific/Janitorial/wirebrush.rsi
+      state: storage
+    size: Small
+  - type: Tag
+    tags:
+    - WireBrush
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+      Plastic: 50
+  - type: Tool
+    qualities:
+    - Brushing
+    useSound:
+      path: /Audio/Items/wirebrushing.ogg
+  - type: StaticPrice
+    price: 22
+  - type: MeleeWeapon
+    wideAnimationRotation: 45
+    damage:
+      types:
+        Piercing: 3
+    soundHit:
+      path: "/Audio/Weapons/bladeslice.ogg"

@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: accessLevel
+  id: Library
+  name: id-card-access-level-library
+
+- type: accessLevel
+  id: Reporter
+  name: id-card-access-level-reporter

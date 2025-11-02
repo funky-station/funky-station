@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 SigmaTheDragon <162711378+SigmaTheDragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 thecopbennet <bennetgood@gmail.com>
 # SPDX-FileCopyrightText: 2025 thecopbennet <thecopbennet@proton.me>
@@ -5,7 +6,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  name: shell box (hypo)
+  name: shell box (12 gauge hypo)
   parent: [AmmoProviderShotgunShell, BaseSyndicateContraband]
   id: BoxShellHypo
   components:

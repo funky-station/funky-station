@@ -15,6 +15,9 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
+# SPDX-FileCopyrightText: 2025 Schuyler Duryee <skywd7766@gmail.com>
 # SPDX-FileCopyrightText: 2025 Smith <182301147+AgentSmithRadio@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
@@ -226,14 +229,16 @@
 
 - type: cargoBounty
   id: BountyKnife
-  reward: 6000
+  reward: 2000
   description: bounty-description-knife
   entries:
   - name: bounty-item-knife
     amount: 5
     whitelist:
       components:
-        - Sharp
+      - Sharp
+      tags:
+      - UtilityKnife # required because retracted utility knives are not Sharp
 
 - type: cargoBounty
   id: BountyLemon

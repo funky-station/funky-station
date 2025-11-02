@@ -84,31 +84,26 @@
   id: SecurityJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitSec
-  groupBy: "jumpsuit"
 
 - type: loadout
   id: SecurityJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtSec
-  groupBy: "jumpskirt"
 
 - type: loadout
   id: SecurityJumpsuitGrey
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecGrey
-  groupBy: "jumpsuit"
 
 - type: loadout
   id: SecurityJumpskirtGrey
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecGrey
-  groupBy: "jumpskirt"
 
 - type: loadout
   id: TrooperUniform
-  equipment:
+  equipment: 
     jumpsuit: ClothingUniformSecurityTrooper
-  groupBy: "jumpsuit"
 
 - type: loadout
   id: SeniorOfficerJumpsuit
@@ -117,7 +112,6 @@
     proto: SeniorOfficer
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorOfficer
-  groupBy: "jumpsuit"
 
 - type: loadout
   id: SeniorOfficerJumpskirt
@@ -126,7 +120,6 @@
     proto: SeniorOfficer
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorOfficer
-  groupBy: "jumpskirt"
 
 # Back
 - type: loadout
@@ -160,13 +153,11 @@
   id: ArmorVest
   equipment:
     outerClothing: ClothingOuterArmorBasic
-  groupBy: "armor"
 
 - type: loadout
   id: ArmorVestSlim
   equipment:
     outerClothing: ClothingOuterArmorBasicSlim
-  groupBy: "armor"
 
 - type: loadout
   id: SecurityOfficerWintercoat
@@ -224,4 +215,4 @@
   storage:
     back:
     - Dinkystar
-
+    

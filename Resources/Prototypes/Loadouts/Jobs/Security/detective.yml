@@ -27,13 +27,11 @@
   id: DetectiveFedora
   equipment:
     head: ClothingHeadHatFedoraBrown
-  groupBy: "fedora"
 
 - type: loadout
   id: DetectiveFedoraGrey
   equipment:
     head: ClothingHeadHatFedoraGrey
-  groupBy: "fedora"
 
 # Neck
 - type: loadout
@@ -46,25 +44,21 @@
   id: DetectiveJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitDetective
-  groupBy: "jumpsuit"
 
 - type: loadout
   id: DetectiveJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtDetective
-  groupBy: "jumpskirt"
 
 - type: loadout
   id: NoirJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitDetectiveGrey
-  groupBy: "jumpsuit"
 
 - type: loadout
   id: NoirJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtDetectiveGrey
-  groupBy: "jumpskirt"
 
 # Service Weapon
 - type: loadout
@@ -89,13 +83,11 @@
   id: DetectiveCoat
   equipment:
     outerClothing: ClothingOuterCoatDetectiveLoadout
-  groupBy: "coat"
 
 - type: loadout
   id: DetectiveCoatGrey
   equipment:
     outerClothing: ClothingOuterCoatDetectiveLoadoutGrey
-  groupBy: "coat"
 
 # Funkystation - PDA
 - type: loadout

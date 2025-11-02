@@ -22,7 +22,6 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorInternalAffairsAgent
-  groupBy: "jumpsuit"
 
 - type: loadout
   id: InternalAffairsAgentTurtleneckRed
@@ -31,7 +30,6 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorInternalAffairsAgent
-  groupBy: "jumpsuit"
 
 - type: loadout
   id: InternalAffairsAgentTurtleneckBlue
@@ -40,7 +38,6 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorInternalAffairsAgent
-  groupBy: "jumpsuit"
 
 # Outer
 - type: loadout

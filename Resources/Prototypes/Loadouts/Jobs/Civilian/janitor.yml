@@ -124,7 +124,6 @@
     proto: JanitorMaidOutfit
   equipment:
     jumpsuit: ClothingUniformJumpskirtJanimaid
-  groupBy: "maid"
 
 - type: loadout
   id: JanitorialMaidOutfitmini
@@ -133,7 +132,6 @@
     proto: JanitorMaidOutfitmini
   equipment:
     jumpsuit: ClothingUniformJumpskirtJanimaidmini
-  groupBy: "maid"
 
 # Gloves
 - type: loadout

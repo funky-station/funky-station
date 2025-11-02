@@ -50,7 +50,6 @@
     proto: SeniorPhysician
   equipment:
     head: ClothingHeadHatBeretSeniorPhysician
-  groupBy: "beret"
 
 - type: loadout
   id: MedicalHeadMirror
@@ -64,25 +63,21 @@
   id: MedicalBeret
   equipment:
     head: ClothingHeadHatBeretMedic
-  groupBy: "beret"
 
 - type: loadout
   id: BlueSurgeryCap
   equipment:
     head: ClothingHeadHatSurgcapBlue
-  groupBy: "cap"
 
 - type: loadout
   id: GreenSurgeryCap
   equipment:
     head: ClothingHeadHatSurgcapGreen
-  groupBy: "cap"
 
 - type: loadout
   id: PurpleSurgeryCap
   equipment:
     head: ClothingHeadHatSurgcapPurple
-  groupBy: "cap"
 
 - type: loadout
   id: NurseHat
@@ -108,13 +103,11 @@
   id: MedicalDoctorJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitMedicalDoctor
-  groupBy: "jumpsuit"
 
 - type: loadout
   id: MedicalDoctorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtMedicalDoctor
-  groupBy: "jumpskirt"
 
 - type: loadout
   id: SeniorPhysicianJumpsuit
@@ -123,7 +116,6 @@
     proto: SeniorPhysician
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorPhysician
-  groupBy: "jumpsuit"
 
 - type: loadout
   id: SeniorPhysicianJumpskirt
@@ -132,25 +124,21 @@
     proto: SeniorPhysician
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorPhysician
-  groupBy: "jumpskirt"
 
 - type: loadout
   id: MedicalBlueScrubs
   equipment:
     jumpsuit: UniformScrubsColorBlue
-  groupBy: "scrubs"
 
 - type: loadout
   id: MedicalGreenScrubs
   equipment:
     jumpsuit: UniformScrubsColorGreen
-  groupBy: "scrubs"
 
 - type: loadout
   id: MedicalPurpleScrubs
   equipment:
     jumpsuit: UniformScrubsColorPurple
-  groupBy: "scrubs"
 
 # Back
 - type: loadout

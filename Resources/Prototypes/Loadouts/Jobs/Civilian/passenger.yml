@@ -42,13 +42,11 @@
   id: GreyJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorGrey
-  groupBy: "jumpsuit"
 
 - type: loadout
   id: GreyJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorGrey
-  groupBy: "jumpskirt"
 
 # Rainbow
 - type: loadout
@@ -58,7 +56,6 @@
     proto: GreyTider
   equipment:
     jumpsuit: ClothingUniformColorRainbow
-  groupBy: "jumpsuit"
 
 # Ancient
 - type: loadout
@@ -68,7 +65,6 @@
     proto: GreyTider
   equipment:
     jumpsuit: ClothingUniformJumpsuitAncient
-  groupBy: "jumpsuit"
 
 # Neck
 - type: loadout

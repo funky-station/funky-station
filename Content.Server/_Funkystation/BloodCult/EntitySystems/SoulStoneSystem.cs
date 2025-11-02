@@ -40,6 +40,10 @@ public sealed class SoulStoneSystem : EntitySystem
 	[Dependency] private readonly DamageableSystem _damageableSystem = default!;
 	[Dependency] private readonly IPrototypeManager _protoMan = default!;
 
+	[ValidatePrototypeId<DamageTypePrototype>] private const string BloodlossDamage = "Bloodloss";
+	[ValidatePrototypeId<DamageTypePrototype>] private const string IonDamage = "Ion";
+	[ValidatePrototypeId<DamageTypePrototype>] private const string SlashDamage = "Slash";
+
 	private EntityQuery<ShadeComponent> _shadeQuery;
 
 	public override void Initialize()
@@ -109,21 +113,20 @@ public sealed class SoulStoneSystem : EntitySystem
 				shadeComp.OriginSoulstone = ent;
 			}
 			
-			// Apply bloodloss damage to the user for summoning
-			if (TryComp<DamageableComponent>(args.User, out var damageable))
-			{
-				DamageSpecifier bloodDamage;
-				string damageType;
-				if (damageable.Damage.DamageDict.ContainsKey("Bloodloss"))
-					damageType = "Bloodloss";
-				else if (damageable.Damage.DamageDict.ContainsKey("Ion"))
-					damageType = "Ion";
-				else
-					damageType = "Slash";
-				
-				bloodDamage = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>(damageType), FixedPoint2.New(15));
-				_damageableSystem.TryChangeDamage(args.User, bloodDamage, true, origin: args.User);
-			}
+		// Apply bloodloss damage to the user for summoning
+		if (TryComp<DamageableComponent>(args.User, out var damageable))
+		{
+			string damageType;
+			if (damageable.Damage.DamageDict.ContainsKey(BloodlossDamage))
+				damageType = BloodlossDamage;
+			else if (damageable.Damage.DamageDict.ContainsKey(IonDamage))
+				damageType = IonDamage;
+			else
+				damageType = SlashDamage;
+			
+			var bloodDamage = new DamageSpecifier(_protoMan.Index<DamageTypePrototype>(damageType), FixedPoint2.New(15));
+			_damageableSystem.TryChangeDamage(args.User, bloodDamage, true, origin: args.User);
+		}
 			
 			_audioSystem.PlayPvs("/Audio/Magic/blink.ogg", coordinates);
 			_popupSystem.PopupEntity(

@@ -68,6 +68,7 @@ public sealed class UniqueActionSystem : EntitySystem
         if (!_actionBlockerSystem.CanInteract(userUid, targetUid))
             return;
 
-        RaiseLocalEvent(targetUid, new UniqueActionEvent(userUid));
+        var ev = new UniqueActionEvent(userUid);
+        RaiseLocalEvent(targetUid, ref ev);
     }
 }

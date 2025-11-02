@@ -754,16 +754,18 @@ public abstract partial class SharedGunSystem : EntitySystem
                 var angles = LinearSpread(mapAngle - spreadEvent.Spread / 2,
                     mapAngle + spreadEvent.Spread / 2, ammoSpreadComp.Count);
 
-                ShootOrThrow(ammoEnt, angles[0].ToVec(), gunVelocity, gun, gunUid, user);
-                shotProjectiles.Add(ammoEnt);
-
-                for (var i = 1; i < ammoSpreadComp.Count; i++)
+                // Spawn all projectiles from the Proto, not the spread entity itself
+                for (var i = 0; i < ammoSpreadComp.Count; i++)
                 {
                     var newuid = Spawn(ammoSpreadComp.Proto, fromEnt);
                     ShootOrThrow(newuid, angles[i].ToVec(), gunVelocity, gun, gunUid, user);
                     shotProjectiles.Add(newuid);
-                    MarkPredicted(newuid, i + 1);
+                    MarkPredicted(newuid, i);
                 }
+
+                // Delete the spread entity as it's only a spawner, not meant to be shot
+                if (_netManager.IsServer || IsClientSide(ammoEnt))
+                    Del(ammoEnt);
             }
             else
             {
@@ -809,7 +811,17 @@ public abstract partial class SharedGunSystem : EntitySystem
         // Do a throw
         if (!HasComp<ProjectileComponent>(uid))
         {
-            RemoveShootable(uid);
+            // Remove shootable components on client side for prediction, similar to AmmoComponent handling
+            if (_netManager.IsClient && !GunPrediction)
+                RemoveShootable(uid);
+
+            // Ensure thrown items are removed from containers so they're visible
+            // On the client during prediction, items may still be in containers from OnContainerTakeAmmo
+            if (Containers.TryGetContainingContainer(uid, out var container))
+            {
+                Containers.Remove(uid, container);
+            }
+
             // TODO: Someone can probably yeet this a billion miles so need to pre-validate input somewhere up the call stack.
             ThrowingSystem.TryThrow(uid, mapDirection, gun.ProjectileSpeedModified, user);
             return;

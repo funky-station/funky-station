@@ -33,7 +33,14 @@ public sealed class ThrownItemVisualizerSystem : EntitySystem
 
     private void OnAutoHandleState(EntityUid uid, ThrownItemComponent component, ref AfterAutoHandleStateEvent args)
     {
-        if (!TryComp<SpriteComponent>(uid, out var sprite) || !component.Animate)
+        if (!TryComp<SpriteComponent>(uid, out var sprite))
+            return;
+
+        // Ensure thrown items are visible (items from containers may be occluded)
+        _sprite.SetVisible((uid, sprite), true);
+        _sprite.SetContainerOccluded((uid, sprite), false);
+
+        if (!component.Animate)
             return;
 
         var animationPlayer = EnsureComp<AnimationPlayerComponent>(uid);

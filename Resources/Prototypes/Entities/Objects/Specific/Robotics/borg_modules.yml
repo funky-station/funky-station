@@ -577,7 +577,7 @@
     items:
     - AdvMopItem
     - HoloprojectorBorg
-    - MegaSprayBottle
+    - MegaSprayBottle # Funky
     - Dropper
     - TrashBag
   - type: BorgModuleIcon

@@ -495,12 +495,13 @@ public abstract partial class SharedGunSystem : EntitySystem
     {
         userImpulse = true;
 
-        // Raise event for clumsy check and other systems that need to intercept before shooting
+        // Check for clumsy interactions using the event system
         if (user != null)
         {
-            var selfEvent = new SelfBeforeGunShotEvent(user.Value, (gunUid, gun), ammo);
-            RaiseLocalEvent(user.Value, ref selfEvent);
-            if (selfEvent.Cancelled)
+            var beforeGunShotEvent = new SelfBeforeGunShotEvent(user.Value, (gunUid, gun), ammo);
+            RaiseLocalEvent(user.Value, beforeGunShotEvent);
+
+            if (beforeGunShotEvent.Cancelled)
             {
                 userImpulse = false;
                 return null;

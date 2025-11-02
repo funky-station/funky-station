@@ -110,7 +110,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         var (uid, component, ourBody) = projectile;
         if (projectile.Comp1.DamagedEntity)
         {
-            if (_netManager.IsServer && component.DeleteOnCollide)
+            if (_net.IsServer && component.DeleteOnCollide)
                 QueueDel(uid);
 
             return;
@@ -135,7 +135,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             : Transform(projectile).Coordinates;
         var otherName = ToPrettyString(target);
         var direction = ourBody.LinearVelocity.Normalized();
-        var modifiedDamage = _netManager.IsServer
+        var modifiedDamage = _net.IsServer
             ? _damageableSystem.TryChangeDamage(target,
                 ev.Damage,
                 component.IgnoreResistances,
@@ -175,9 +175,9 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         component.DamagedEntity = true;
         Dirty(uid, component);
 
-        if (!predicted && component.DeleteOnCollide && (_netManager.IsServer || IsClientSide(uid)))
+        if (!predicted && component.DeleteOnCollide && (_net.IsServer || IsClientSide(uid)))
             QueueDel(uid);
-        else if (_netManager.IsServer && component.DeleteOnCollide)
+        else if (_net.IsServer && component.DeleteOnCollide)
         {
             var predictedComp = EnsureComp<PredictedProjectileHitComponent>(uid);
             predictedComp.Origin = _transform.GetMoverCoordinates(coordinates);
@@ -189,10 +189,10 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             Dirty(uid, predictedComp);
         }
 
-        if ((_netManager.IsServer || IsClientSide(uid)) && component.ImpactEffect != null)
+        if ((_net.IsServer || IsClientSide(uid)) && component.ImpactEffect != null)
         {
             var impactEffectEv = new ImpactEffectEvent(component.ImpactEffect, GetNetCoordinates(coordinates));
-            if (_netManager.IsServer)
+            if (_net.IsServer)
                 RaiseNetworkEvent(impactEffectEv, filter);
             else
                 RaiseLocalEvent(impactEffectEv);

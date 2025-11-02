@@ -5249,3 +5249,69 @@ Entries:
       message: New sprites for the Paramedic Voidsuit
   id: 627
   time: '2025-10-27T03:06:20.0000000+00:00'
+- author: BrightNibbleston
+  changes:
+    - type: Fix
+      message: outdated distro mix info in the guidebook
+  id: 628
+  time: '2025-10-27T22:11:21.0000000+00:00'
+- author: lolmatdi
+  changes:
+    - type: Fix
+      message: Space Adders and Space Cobras are Friends Again!
+  id: 629
+  time: '2025-10-27T22:24:23.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: 'Bagel now has a Vox Box near the library '
+    - type: Tweak
+      message: Various mapping fixes for Bagel
+  id: 630
+  time: '2025-11-01T19:40:55.0000000+00:00'
+- author: KittyCat432
+  changes:
+    - type: Tweak
+      message: Void heretic's void blast no longer stuns.
+  id: 631
+  time: '2025-11-01T19:42:26.0000000+00:00'
+- author: willowzeta
+  changes:
+    - type: Tweak
+      message: Replaced Survival with Traitorling in Secret.
+  id: 632
+  time: '2025-11-01T20:17:01.0000000+00:00'
+- author: ThatOneMoon
+  changes:
+    - type: Tweak
+      message: >-
+        The Salvage shuttle has been given some improvements, now it has mining
+        shuttle walls and windows, the airlock doors have been removed due to
+        redundancy, and the shuttle now starts with a material bag and cargo
+        radio while the mining module has been removed
+    - type: Fix
+      message: >-
+        Mining shuttle walls now work the same way that regular shuttle walls
+        do 
+  id: 633
+  time: '2025-11-01T20:26:28.0000000+00:00'
+- author: lolmatdi
+  changes:
+    - type: Tweak
+      message: 'Medical and EMT belts can now carry Autoinjector Cartridges '
+  id: 634
+  time: '2025-11-01T20:38:58.0000000+00:00'
+- author: mkanke-real
+  changes:
+    - type: Add
+      message: Added custom door accesses and doors for both Librarian and Reporter
+  id: 635
+  time: '2025-11-01T20:40:01.0000000+00:00'
+- author: wgreen84
+  changes:
+    - type: Add
+      message: >-
+        Wirebrush. Included in starter kits for Janitor, also in the Janitor
+        Supply Crate.
+  id: 636
+  time: '2025-11-01T23:17:25.0000000+00:00'

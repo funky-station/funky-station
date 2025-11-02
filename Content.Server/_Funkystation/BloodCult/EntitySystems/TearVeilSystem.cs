@@ -93,7 +93,7 @@ namespace Content.Server.BloodCult.EntitySystems
 			var lookup7 = _lookup.GetEntitiesInRange(bottomLeft, 0.225f);
 			var lookup8 = _lookup.GetEntitiesInRange(bottom, 0.225f);
 			var lookup9 = _lookup.GetEntitiesInRange(bottomRight, 0.225f);
-			bool didFindCultist = false;
+			//bool didFindCultist = false;//never used
 
 			int cultistsFound = 0;
 			bool found1 = false;

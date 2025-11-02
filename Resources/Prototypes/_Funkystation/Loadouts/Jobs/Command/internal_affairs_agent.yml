@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -22,6 +24,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorInternalAffairsAgent
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: InternalAffairsAgentTurtleneckRed
@@ -30,6 +33,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorInternalAffairsAgent
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: InternalAffairsAgentTurtleneckBlue
@@ -38,6 +42,7 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorInternalAffairsAgent
+  groupBy: "jumpsuit"
 
 # Outer
 - type: loadout

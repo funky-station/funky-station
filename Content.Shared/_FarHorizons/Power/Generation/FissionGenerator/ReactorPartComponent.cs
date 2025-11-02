@@ -212,7 +212,7 @@ public static class BaseReactorComponents
         IconStateInserted = "control",
         IconStateCap = "control_cap",
         IsControlRod = true,
-        NeutronCrossSection = 1.0f,
+        NeutronCrossSection = 2.0f,
         ThermalCrossSection = 10,
         PropertyDensity = 6,
         PropertyHard = 5,

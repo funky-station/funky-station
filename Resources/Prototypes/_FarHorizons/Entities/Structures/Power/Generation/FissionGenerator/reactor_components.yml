@@ -99,7 +99,7 @@
 #     iconStateInserted: "control"
 #     iconStateCap: "control_cap"
 #     isControlRod: true
-#     neutronCrossSection: 1.0
+#     neutronCrossSection: 2.0
 #     thermalCrossSection: 10
 
 # - type: entity

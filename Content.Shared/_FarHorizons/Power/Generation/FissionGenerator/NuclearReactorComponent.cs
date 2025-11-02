@@ -79,6 +79,7 @@ public sealed partial class NuclearReactorComponent : Component
     public float TotalSpent = 0;
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField]
-    public float TempChange = 0;
+    public float TempChangeAvg = 0;
+    public float[] TempChange = new float[32];
     #endregion
 }

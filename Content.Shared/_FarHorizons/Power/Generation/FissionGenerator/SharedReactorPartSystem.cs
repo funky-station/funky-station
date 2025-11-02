@@ -1,5 +1,4 @@
 using Content.Shared.Atmos;
-using Content.Shared.Ghost;
 using Robust.Shared.Random;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
@@ -40,8 +39,6 @@ public abstract class SharedReactorPartSystem : EntitySystem
                 continue;
 
             var DeltaT = reactorPart.Temperature - RC.Temperature;
-            // The thermal conductivity for a steel/steel interaction in SS13. SS14 does not support material properties
-            // like this, so this is the best I can do
             var k = (Math.Pow(10, reactorPart.PropertyThermal / 5) - 1 + (Math.Pow(10, RC.PropertyThermal / 5) - 1)) / 2;
             var A = Math.Min(reactorPart.ThermalCrossSection, RC.ThermalCrossSection);
 
@@ -49,7 +46,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
             RC.Temperature = (float)(RC.Temperature - (k * A * (0.5 * 8) / RC.ThermalMass * -DeltaT));
 
             if (RC.Temperature < 0 || reactorPart.Temperature < 0)
-                throw new Exception("Reactor part temperature went below 0k.");
+                throw new Exception("ReactorPart-ReactorPart temperature calculation resulted in sub-zero value.");
 
             // This is where we'd put material-based temperature effects... IF WE HAD ANY
         }
@@ -67,7 +64,7 @@ public abstract class SharedReactorPartSystem : EntitySystem
             reactor.Temperature = (float)(reactor.Temperature - (k * A * (0.5 * 8) / reactor.ThermalMass * -DeltaT));
 
             if (reactor.Temperature < 0 || reactorPart.Temperature < 0)
-                throw new Exception("Reactor/part temperature went below 0k.");
+                throw new Exception("Reactor-ReactorPart temperature calculation resulted in sub-zero value.");
 
             // This is where we'd put material-based temperature effects... IF WE HAD ANY
         }
@@ -95,25 +92,25 @@ public abstract class SharedReactorPartSystem : EntitySystem
                 {
                     reactorPart.NRadioactive -= 0.001f;
                     reactorPart.Radioactive += 0.0005f;
-                    for (var i = 0; i < _random.Next(1, 5 + 1); i++)
+                    for (var i = 0; i < _random.Next(3, 5 + 1); i++) // was 1, 5+1
                     {
                         neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(2, 3 + 1) });
                     }
                     neutrons.Remove(neutron);
-                    reactorPart.Temperature += 50;
-                    thermalEnergy += 50;
+                    reactorPart.Temperature += 75f; // 50 * 0.65, SS13 value compensated for SS14's worse gas heat caps
+                    thermalEnergy += 75f * reactorPart.ThermalMass;
                 }
                 else if (neutron.velocity <= 5 && Prob(_rate * reactorPart.Radioactive * _bias)) // stimulated emission
                 {
                     reactorPart.Radioactive -= 0.001f;
                     reactorPart.SpentFuel += 0.0005f;
-                    for (var i = 0; i < _random.Next(1, 5 + 1); i++)
+                    for (var i = 0; i < _random.Next(3, 5 + 1); i++)// was 1, 5+1
                     {
                         neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
                     }
                     neutrons.Remove(neutron);
-                    reactorPart.Temperature += 25;
-                    thermalEnergy += 25;
+                    reactorPart.Temperature += 50f; // 25 * 0.65
+                    thermalEnergy += 50f * reactorPart.ThermalMass;
                 }
                 else
                 {
@@ -129,32 +126,36 @@ public abstract class SharedReactorPartSystem : EntitySystem
                     if (neutron.velocity <= 0)
                         neutrons.Remove(neutron);
 
-                    reactorPart.Temperature += 1;
-                    thermalEnergy += 1;
+                    reactorPart.Temperature += 1; // ... not worth the adjustment
+                    thermalEnergy += 1 * reactorPart.ThermalMass;
                 }
             }
         }
         if (Prob(reactorPart.NRadioactive * _rate * reactorPart.NeutronCrossSection))
         {
-            var count = _random.Next(1, 3 + 1);
+            var count = _random.Next(1, 5 + 1); // Was 3+1
             for (var i = 0; i < count; i++)
             {
                 neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = 3 });
             }
             reactorPart.NRadioactive -= 0.001f;
             reactorPart.Radioactive += 0.0005f;
-            reactorPart.Temperature += 5; thermalEnergy += 5;
+            //This code has been deactivated so neutrons would have a bigger impact
+            //reactorPart.Temperature += 13; // 20 * 0.65
+            //thermalEnergy += 13 * reactorPart.ThermalMass;
         }
         if (Prob(reactorPart.Radioactive * _rate * reactorPart.NeutronCrossSection))
         {
-            var count = _random.Next(1, 3 + 1); // Was 3+1
+            var count = _random.Next(1, 5 + 1); // Was 3+1
             for (var i = 0; i < count; i++)
             {
                 neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
             }
             reactorPart.Radioactive -= 0.001f;
             reactorPart.SpentFuel += 0.0005f;
-            reactorPart.Temperature += 1; thermalEnergy += 1;
+            //This code has been deactivated so neutrons would have a bigger impact
+            //reactorPart.Temperature += 6.5f; // 10 * 0.65
+            //thermalEnergy += 6.5f * reactorPart.ThermalMass;
         }
 
         if (reactorPart.RodType == (byte)ReactorPartComponent.RodTypes.Control)
@@ -184,5 +185,5 @@ public abstract class SharedReactorPartSystem : EntitySystem
     /// </summary>
     /// <param name="chance">Double, 0-100 </param>
     /// <returns></returns>
-    private bool Prob(double chance) => _random.NextDouble() <= chance / 100;
+    protected bool Prob(double chance) => _random.NextDouble() <= chance / 100;
 }

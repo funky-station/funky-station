@@ -1,29 +1,28 @@
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using Content.Server._FarHorizons.NodeContainer.Nodes;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
-using Content.Shared.Atmos;
 using Content.Shared.Atmos.Piping.Components;
+using Content.Shared.Atmos;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Radiation.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
+using System.Linq;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
 public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
     [Dependency] private readonly NodeGroupSystem _nodeGroupSystem = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
     [Dependency] private readonly ReactorPartSystem _partSystem = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
+    [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
 
     private static readonly int _gridWidth = NuclearReactorComponent.ReactorGridWidth;
     private static readonly int _gridHeight = NuclearReactorComponent.ReactorGridHeight;
@@ -130,7 +129,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         var TotalNRads = 0f;
         var TotalRads = 0f;
         var TotalSpent = 0f;
-        comp.TempChange = 0;
+        var TempChange = 0f;
 
         var GasInput = inlet.Air.RemoveVolume(inlet.Air.Volume);
 
@@ -168,7 +167,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                         MeltedComps++;
 
                     comp.FluxGrid[x, y] = _partSystem.ProcessNeutrons(ReactorComp, comp.FluxGrid[x, y], out var deltaT);
-                    comp.TempChange += deltaT;
+                    TempChange += deltaT;
 
                     TotalNRads += ReactorComp.NRadioactive;
                     TotalRads += ReactorComp.Radioactive;
@@ -255,6 +254,13 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         comp.TotalRads = TotalRads;
         comp.TotalSpent = TotalSpent;
 
+        for(var i = 1; i < comp.TempChange.Length; i++)
+        {
+            comp.TempChange[i-1]=comp.TempChange[i];
+        }
+        comp.TempChange[^1] = TempChange;
+        comp.TempChangeAvg = comp.TempChange.Average();
+
         if (TempRads > 1000 || comp.Temperature > comp.ReactorMeltdownTemp)
         {
             CatastrophicOverload(ent);
@@ -291,7 +297,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             }
         }
         comp.AccRadiation += MeltdownBadness;
-        // TODO: add gas based on badness
+        comp.AirContents.AdjustMoles(Gas.Tritium, MeltdownBadness * 15);
         comp.AirContents.Temperature = Math.Max(comp.Temperature, comp.AirContents.Temperature);
 
         var T = _atmosphereSystem.GetTileMixture(ent.Owner, excite: true);
@@ -302,10 +308,10 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         // TODO: explosion
 
         // Reset grids
-        comp.ComponentGrid = new ReactorPartComponent[_gridWidth, _gridHeight];
-        comp.NeutronGrid = new int[_gridWidth, _gridHeight];
-        comp.TemperatureGrid = new double[_gridWidth, _gridHeight];
-        comp.FluxGrid = new List<ReactorNeutron>[_gridWidth, _gridHeight];
+        Array.Clear(comp.ComponentGrid);
+        Array.Clear(comp.NeutronGrid);
+        Array.Clear(comp.TemperatureGrid);
+        Array.Clear(comp.FluxGrid);
 
         UpdateGridVisual(ent.Owner, comp);
     }
@@ -365,7 +371,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                 //throw new Exception("COE violation, difference of " + Math.Abs(COEVerify - COECheck));
 
             if (reactor.AirContents.Temperature < 0 || reactor.Temperature < 0)
-                throw new Exception("Reactor temperature went below 0k.");
+                throw new Exception("Reactor casing temperature calculation resulted in sub-zero value.");
 
             ProcessedGas = reactor.AirContents;
         }
@@ -485,11 +491,14 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         var pos = args.Position;
         var part = comp.ComponentGrid[(int)pos.X, (int)pos.Y];
 
-        if ((comp.PartSlot.Item == null) == (part == null))
+        if (comp.PartSlot.Item == null == (part == null))
             return;
 
         if (comp.PartSlot.Item == null)
         {
+            if (part!.Melted) // No removing a part if it's melted
+                return;
+
             var item = SpawnInContainerOrDrop("BaseReactorItem", ent.Owner, "part_slot");
             _metaDataSystem.SetEntityName(item, part!.Name);
             _entityManager.AddComponent(item, new ReactorPartComponent(part!));

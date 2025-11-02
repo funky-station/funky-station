@@ -2,6 +2,7 @@ using System.Numerics;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Atmos;
+using Robust.Shared.Random;
 using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
@@ -9,6 +10,7 @@ namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 public sealed class ReactorPartSystem : SharedReactorPartSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     /// <summary>
     /// 
@@ -90,5 +92,90 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
         return ProcessedGas;
     }
 
-    public override List<ReactorNeutron> ProcessNeutronsGas(ReactorPartComponent reactorPart, List<ReactorNeutron> neutrons) => neutrons;
+    public override List<ReactorNeutron> ProcessNeutronsGas(ReactorPartComponent reactorPart, List<ReactorNeutron> neutrons)
+    {
+        if (reactorPart.AirContents == null) return neutrons;
+
+        var flux = new List<ReactorNeutron>(neutrons);
+        foreach (var neutron in flux)
+        {
+            if (neutron.velocity > 0)
+            {
+                var neutronCount = GasNeutronInteract(reactorPart);
+                if (neutronCount > 1)
+                    for (var i = 0; i < neutronCount; i++)
+                        neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
+                else
+                    neutrons.Remove(neutron);
+            }
+        }
+
+        return neutrons;
+    }
+
+    private int GasNeutronInteract(ReactorPartComponent reactorPart)
+    {
+        if (reactorPart.AirContents == null)
+            return 0;
+
+        var neutronCount = 0;
+        var gas = reactorPart.AirContents;
+
+        if (gas.GetMoles(Gas.Plasma) > 1)
+        {
+            var reactMolPerLiter = 0.25;
+
+            var plasma = gas.GetMoles(Gas.Plasma);
+            var plasmaReactCount = (int)Math.Round((plasma - (plasma % (reactMolPerLiter * gas.Volume))) / (reactMolPerLiter * gas.Volume))
+                + (Prob(plasma - (plasma % (reactMolPerLiter * gas.Volume))) ? 1 : 0);
+            plasmaReactCount = _random.Next(0, plasmaReactCount + 1);
+            gas.AdjustMoles(Gas.Plasma, plasmaReactCount * -0.5f);
+            gas.AdjustMoles(Gas.Tritium, plasmaReactCount * 2);
+            neutronCount += plasmaReactCount;
+        }
+
+        if (gas.GetMoles(Gas.CarbonDioxide) > 1)
+        {
+            var reactMolPerLiter = 0.4;
+
+            var co2 = gas.GetMoles(Gas.CarbonDioxide);
+            var co2ReactCount = (int)Math.Round((co2 - (co2 % (reactMolPerLiter * gas.Volume))) / (reactMolPerLiter * gas.Volume))
+                + (Prob(co2 - (co2 % (reactMolPerLiter * gas.Volume))) ? 1 : 0);
+            co2ReactCount = _random.Next(0, co2ReactCount + 1);
+            reactorPart.Temperature += Math.Min(co2ReactCount, neutronCount);
+            neutronCount -= Math.Min(co2ReactCount, neutronCount);
+        }
+
+        if (gas.GetMoles(Gas.Tritium) > 1)
+        {
+            var tritium = gas.GetMoles(Gas.Tritium);
+            if (Prob(tritium))
+            {
+                gas.AdjustMoles(Gas.Tritium, -1);
+                reactorPart.Temperature += 1;
+                switch (_random.Next(0, 5))
+                {
+                    case 0:
+                        gas.AdjustMoles(Gas.Oxygen, 0.5f);
+                        break;
+                    case 1:
+                        gas.AdjustMoles(Gas.Nitrogen, 0.5f);
+                        break;
+                    case 2:
+                        gas.AdjustMoles(Gas.Ammonia, 0.1f);
+                        break;
+                    case 3:
+                        gas.AdjustMoles(Gas.NitrousOxide, 0.1f);
+                        break;
+                    case 4:
+                        gas.AdjustMoles(Gas.Frezon, 0.1f);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        return neutronCount;
+    }
 }

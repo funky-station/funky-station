@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: localizedDataset
+  id: NamesGyros
+  values:
+    prefix: names-gyros-data-set-
+    count: 8

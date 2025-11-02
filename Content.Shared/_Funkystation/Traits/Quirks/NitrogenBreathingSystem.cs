@@ -31,14 +31,14 @@ public sealed class NitrogenBreathingSystem : EntitySystem
     [Dependency] private readonly SharedStorageSystem storageSystem = default!;
     // [Dependency] SharedSurgerySystem surgerySystem = default!;
     /// <inheritdoc/>
-    public override void Initialize()
-    {
-        base.Initialize();
+    //public override void Initialize()
+    //{
+        //base.Initialize();
         // SubscribeLocalEvent<NitrogenBreathingComponent, PlayerSpawnCompleteEvent>(OnPlayerSpawned);
         //this  doesn't work, bullshit^^^
 
-        SubscribeLocalEvent<NitrogenBreathingComponent, TraitComponentAddedEvent>(TraitComponentAdded);
-    }
+        //SubscribeLocalEvent<NitrogenBreathingComponent, TraitComponentAddedEvent>(TraitComponentAdded);
+    //}
 
     //I am sorry this exists.
     private void TraitComponentAdded(EntityUid playerEntity, NitrogenBreathingComponent component, TraitComponentAddedEvent args)

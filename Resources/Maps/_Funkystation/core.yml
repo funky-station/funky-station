@@ -74530,7 +74530,7 @@ entities:
     - type: Transform
       pos: 26.46458,-54.482555
       parent: 2
-- proto: ClothingHeadBandBotany
+- proto: ClothingHeadBandGreen
   entities:
   - uid: 15407
     components:
@@ -146201,7 +146201,7 @@ entities:
       parent: 2
     - type: Paper
       content: >-
-        holy fuck they're real holy fuck they're real holy fuck they're real 
+        holy fuck they're real holy fuck they're real holy fuck they're real
 
         [bold]holy fuck they're real holy fuck they're real holy fuck they're real holy fuck they're real holy fuck they're real holy fuck they're real[/bold]
 

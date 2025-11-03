@@ -58,14 +58,9 @@
   name: blue bandana
 
 - type: entity
-  parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
-  id: ClothingHeadBandBotany
-  name: botany bandana
-
-- type: entity
   parent: [ClothingHeadBandBase, ClothingMaskBandGold]
   id: ClothingHeadBandGold
-  name: gold bandana
+  name: yellow bandana
 
 - type: entity
   parent: [ClothingHeadBandBase, ClothingMaskBandGreen]

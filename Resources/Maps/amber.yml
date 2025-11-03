@@ -64386,7 +64386,7 @@ entities:
     - type: Transform
       pos: -53.45067,-27.958363
       parent: 2
-- proto: ClothingHeadBandBotany
+- proto: ClothingHeadBandGreen
   entities:
   - uid: 21440
     components:

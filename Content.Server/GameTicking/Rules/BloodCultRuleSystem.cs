@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -68,7 +69,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly AntagSelectionSystem _antag = default!;
 	[Dependency] private readonly MindSystem _mind = default!;
 	[Dependency] private readonly RoleSystem _role = default!;
-	[Dependency] private readonly GhostSystem _ghost = default!;
 	[Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
 	[Dependency] private readonly GhostRoleSystem _ghostRole = default!;
 	[Dependency] private readonly CultistSpellSystem _cultistSpell = default!;
@@ -664,19 +664,19 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			}
 		}
 
-		// End the round
-		if (component.CultistsWin && !component.CultVictoryAnnouncementPlayed && component.CultVictoryEndTime != null && _timing.CurTime >= component.CultVictoryEndTime)
-		{
-			component.CultVictoryAnnouncementPlayed = true;
-			component.CultVictoryEndTime = null;
+	// End the round
+	if (component.CultistsWin && !component.CultVictoryAnnouncementPlayed && component.CultVictoryEndTime != null && _timing.CurTime >= component.CultVictoryEndTime)
+	{
+		component.CultVictoryAnnouncementPlayed = true;
+		component.CultVictoryEndTime = null;
 
-			//EndRound();
-			_roundEnd.DoRoundEndBehavior(RoundEndBehavior.ShuttleCall,
-				component.ShuttleCallTime,
-				textCall: "cult-win-announcement-shuttle-call",
-				textAnnounce: "cult-win-announcement");
-			return;
-		}
+		_chatSystem.DispatchGlobalAnnouncement(
+			Loc.GetString("cult-win-announcement"),
+			colorOverride: Color.Red);
+
+		EndRound();
+		return;
+	}
     }
 
 	private void EndRound()

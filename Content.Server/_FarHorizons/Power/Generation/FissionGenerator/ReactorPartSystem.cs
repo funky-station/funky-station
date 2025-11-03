@@ -1,5 +1,5 @@
-using System.Numerics;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Atmos.Piping.Components;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Atmos;
 using Robust.Shared.Random;
@@ -19,7 +19,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     /// <param name="reactorEnt">The entity representing the reactor this part is inserted into.</param>
     /// <param name="inGas">The gas to be processed.</param>
     /// <returns></returns>
-    public override GasMixture? ProcessGas(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, GasMixture inGas)
+    public GasMixture? ProcessGas(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, AtmosDeviceUpdateEvent args, GasMixture inGas)
     {
         if (reactorPart.RodType != (byte)ReactorPartComponent.RodTypes.GasChannel)
             return null;
@@ -72,7 +72,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
 
         if (inGas != null && _atmosphereSystem.GetThermalEnergy(inGas) > 0)
         {
-            reactorPart.AirContents = inGas.RemoveVolume(reactorPart.GasVolume);
+            reactorPart.AirContents = inGas.RemoveVolume(Math.Min(reactorPart.GasVolume * _atmosphereSystem.PumpSpeedup() * args.dt, inGas.Volume));
             reactorPart.AirContents.Volume = reactorPart.GasVolume;
 
             if (reactorPart.AirContents != null && reactorPart.AirContents.TotalMoles < 1)
@@ -148,27 +148,31 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
 
         if (gas.GetMoles(Gas.Tritium) > 1)
         {
+            var reactMolPerLiter = 0.5;
+
             var tritium = gas.GetMoles(Gas.Tritium);
-            if (Prob(tritium))
+            var tritiumReactCount = (int)Math.Round((tritium - (tritium % (reactMolPerLiter * gas.Volume))) / (reactMolPerLiter * gas.Volume))
+                + (Prob(tritium - (tritium % (reactMolPerLiter * gas.Volume))) ? 1 : 0);
+            if (tritiumReactCount > 0)
             {
-                gas.AdjustMoles(Gas.Tritium, -1);
+                gas.AdjustMoles(Gas.Tritium, -1 * tritiumReactCount);
                 reactorPart.Temperature += 1;
                 switch (_random.Next(0, 5))
                 {
                     case 0:
-                        gas.AdjustMoles(Gas.Oxygen, 0.5f);
+                        gas.AdjustMoles(Gas.Oxygen, 0.5f * tritiumReactCount);
                         break;
                     case 1:
-                        gas.AdjustMoles(Gas.Nitrogen, 0.5f);
+                        gas.AdjustMoles(Gas.Nitrogen, 0.5f * tritiumReactCount);
                         break;
                     case 2:
-                        gas.AdjustMoles(Gas.Ammonia, 0.1f);
+                        gas.AdjustMoles(Gas.Ammonia, 0.1f * tritiumReactCount);
                         break;
                     case 3:
-                        gas.AdjustMoles(Gas.NitrousOxide, 0.1f);
+                        gas.AdjustMoles(Gas.NitrousOxide, 0.1f * tritiumReactCount);
                         break;
                     case 4:
-                        gas.AdjustMoles(Gas.Frezon, 0.1f);
+                        gas.AdjustMoles(Gas.Frezon, 0.1f * tritiumReactCount);
                         break;
                     default:
                         break;

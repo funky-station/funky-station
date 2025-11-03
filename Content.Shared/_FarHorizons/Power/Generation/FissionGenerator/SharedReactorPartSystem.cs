@@ -1,4 +1,7 @@
 using Content.Shared.Atmos;
+using Content.Shared.Examine;
+using Content.Shared.Radiation.Components;
+using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
@@ -6,14 +9,112 @@ namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 public abstract class SharedReactorPartSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedPointLightSystem _lightSystem = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!;
 
     private readonly float _rate = 5;
     private readonly float _bias = 1.5f;
 
-    /// <summary>
-    /// Melts the related ReactorPart.
-    /// </summary>
-    /// <param name="reactorPart">ReactorPart to be melted</param>
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<ReactorPartComponent, ExaminedEvent>(OnExamine);
+    }
+
+    private void OnExamine(Entity<ReactorPartComponent> ent, ref ExaminedEvent args)
+    {
+        var comp = ent.Comp;
+        if (!args.IsInDetailsRange)
+            return;
+
+        using (args.PushGroup(nameof(ReactorPartComponent)))
+        {
+            switch(comp.NRadioactive)
+            {
+                case > 8:
+                    args.PushMarkup(Loc.GetString("reactor-part-nrad-5"));
+                    break;
+                case > 6:
+                    args.PushMarkup(Loc.GetString("reactor-part-nrad-4"));
+                    break;
+                case > 4:
+                    args.PushMarkup(Loc.GetString("reactor-part-nrad-3"));
+                    break;
+                case > 2:
+                    args.PushMarkup(Loc.GetString("reactor-part-nrad-2"));
+                    break;
+                case > 1:
+                    args.PushMarkup(Loc.GetString("reactor-part-nrad-1"));
+                    break;
+                case > 0:
+                    args.PushMarkup(Loc.GetString("reactor-part-nrad-0"));
+                    break;
+            }
+
+            switch (comp.Radioactive)
+            {
+                case > 8:
+                    args.PushMarkup(Loc.GetString("reactor-part-rad-5"));
+                    break;
+                case > 6:
+                    args.PushMarkup(Loc.GetString("reactor-part-rad-4"));
+                    break;
+                case > 4:
+                    args.PushMarkup(Loc.GetString("reactor-part-rad-3"));
+                    break;
+                case > 2:
+                    args.PushMarkup(Loc.GetString("reactor-part-rad-2"));
+                    break;
+                case > 1:
+                    args.PushMarkup(Loc.GetString("reactor-part-rad-1"));
+                    break;
+                case > 0:
+                    args.PushMarkup(Loc.GetString("reactor-part-rad-0"));
+                    break;
+            }
+
+            if(comp.Temperature>Atmospherics.T0C+80)
+                args.PushMarkup(Loc.GetString("reactor-part-hot"));
+        }
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<ReactorPartComponent>();
+        while (query.MoveNext(out var uid, out var component))
+        {
+            if (!_entityManager.HasComponent<RadiationSourceComponent>(uid))
+            {
+                var radcomp = EnsureComp<RadiationSourceComponent>(uid);
+                radcomp.Intensity = component.Radioactive * 0.1f + component.NRadioactive * 0.15f + component.SpentFuel * 0.125f;
+            }
+
+            if (component.NRadioactive > 1 && !_entityManager.HasComponent<PointLightComponent>(uid))
+            {
+                var lightcomp = _lightSystem.EnsureLight(uid);
+                _lightSystem.SetEnergy(uid, component.NRadioactive, lightcomp);
+                _lightSystem.SetColor(uid, Color.FromHex("#22bbff"), lightcomp);
+                _lightSystem.SetRadius(uid, 1.2f, lightcomp);
+            }
+            
+            if (component.Temperature == Atmospherics.T20C)
+                continue;
+
+            if(Math.Abs(component.Temperature - Atmospherics.T20C)>0.1)
+                component.Temperature -= (component.Temperature - Atmospherics.T20C) * 0.01f;
+            else
+                component.Temperature = Atmospherics.T20C;
+        }
+    }
+
+    #region Methods
+        /// <summary>
+        /// Melts the related ReactorPart.
+        /// </summary>
+        /// <param name="reactorPart">ReactorPart to be melted</param>
     public void Melt(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, SharedNuclearReactorSystem reactorSystem)
     {
         if (reactorPart.Melted)
@@ -176,8 +277,6 @@ public abstract class SharedReactorPartSystem : EntitySystem
         return neutrons;
     }
 
-    public virtual GasMixture? ProcessGas(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, GasMixture inGas) => null;
-
     public virtual List<ReactorNeutron> ProcessNeutronsGas(ReactorPartComponent reactorPart, List<ReactorNeutron> neutrons) => neutrons;
 
     /// <summary>
@@ -186,4 +285,6 @@ public abstract class SharedReactorPartSystem : EntitySystem
     /// <param name="chance">Double, 0-100 </param>
     /// <returns></returns>
     protected bool Prob(double chance) => _random.NextDouble() <= chance / 100;
+
+    #endregion
 }

@@ -16,8 +16,6 @@ public sealed partial class NuclearReactorComponent : Component
     [DataField]
     public float RadiationLevel = 0;
     [DataField]
-    public float AccRadiation = 0;
-    [DataField]
     public float ReactorVesselGasVolume = 200;
     [DataField]
     public bool Melted = false;
@@ -26,7 +24,15 @@ public sealed partial class NuclearReactorComponent : Component
     [DataField]
     public float ThermalMass = 420 * 2000; // specific heat capacity of steel (420 J/KgK) * mass of reactor (Kg)
     [DataField]
-    public float ControlRodInsertion = 1;
+    public float ControlRodInsertion = 2;
+
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField]
+    public float ThermalPower = 0;
+    public float[] ThermalPowerL1 = new float[32];
+    public float[] ThermalPowerL2 = new float[32];
+
 
     [DataField]
     public ItemSlot PartSlot = new();
@@ -77,9 +83,5 @@ public sealed partial class NuclearReactorComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField("spentFuel")]
     public float TotalSpent = 0;
-    [ViewVariables(VVAccess.ReadOnly)]
-    [DataField]
-    public float TempChangeAvg = 0;
-    public float[] TempChange = new float[32];
     #endregion
 }

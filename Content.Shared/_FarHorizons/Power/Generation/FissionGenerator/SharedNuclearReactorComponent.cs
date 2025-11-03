@@ -18,6 +18,12 @@ public sealed class NuclearReactorBuiState : BoundUserInterfaceState
     public double[] PartInfo = new double[NuclearReactorComponent.ReactorGridWidth * NuclearReactorComponent.ReactorGridHeight * 3];
 
     public string? ItemName;
+
+    public float ReactorTemp = 0;
+    public float ReactorRads = 0;
+    public float ReactorTherm = 0;
+    public float ControlRodActual = 0;
+    public float ControlRodSet = 0;
 }
 
 [Serializable, NetSerializable]
@@ -28,3 +34,9 @@ public sealed class ReactorItemActionMessage(Vector2d position) : BoundUserInter
 
 [Serializable, NetSerializable]
 public sealed class ReactorEjectItemMessage() : BoundUserInterfaceMessage;
+
+[Serializable, NetSerializable]
+public sealed class ReactorControlRodModifyMessage(float change) : BoundUserInterfaceMessage
+{
+    public float Change { get; } = change;
+}

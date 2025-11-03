@@ -74,13 +74,13 @@ public sealed class TurbineSystem : SharedTurbineSystem
 
         UpdateAppearance(uid, comp);
 
-        var InletStartingPressure = inlet.Air.Pressure;
-        var TransferMoles = 0f;
-        if (InletStartingPressure > 0)
-        {
-            TransferMoles = comp.FlowRate * InletStartingPressure / (Atmospherics.R * inlet.Air.Temperature);
-        }
-        var AirContents = inlet.Air.Remove(TransferMoles);
+        //var InletStartingPressure = inlet.Air.Pressure;
+        //var TransferMoles = 0f;
+        //if (InletStartingPressure > 0)
+        //{
+        //    TransferMoles = comp.FlowRate * InletStartingPressure / (Atmospherics.R * inlet.Air.Temperature);
+        //}
+        var AirContents = inlet.Air.RemoveVolume(Math.Min(comp.FlowRate * _atmosphereSystem.PumpSpeedup() * args.dt, inlet.Air.Volume));
 
         comp.LastVolumeTransfer = AirContents.Volume;
         comp.LastGen = 0;

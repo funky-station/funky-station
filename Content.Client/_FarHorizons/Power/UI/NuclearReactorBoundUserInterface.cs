@@ -32,33 +32,37 @@ public sealed class NuclearReactorBoundUserInterface : BoundUserInterface
 
         _window.ItemActionButtonPressed += OnActionButtonPressed;
         _window.EjectButtonPressed += OnEjectButtonPressed;
+        _window.ControlRodModify += OnControlRodModify;
 
         Update();
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
     {
-        if (state is not NuclearReactorBuiState reactorState || !EntMan.TryGetComponent(Owner, out NuclearReactorComponent? component))
+        if (state is not NuclearReactorBuiState reactorState)
             return;
-
-        //var item = component.SlottedItem;
-        //var partLabel = item != null ? Identity.Name((EntityUid)item, EntMan) : null;
-        //_window?.SetItemName(partLabel);
 
         _window?.Update(reactorState);
     }
 
-    protected void OnActionButtonPressed(Vector2d vector)
+    private void OnActionButtonPressed(Vector2d vector)
     {
         if (_window is null ) return;
 
         SendPredictedMessage(new ReactorItemActionMessage(vector));
     }
 
-    protected void OnEjectButtonPressed()
+    private void OnEjectButtonPressed()
     {
         if (_window is null) return;
 
         SendPredictedMessage(new ReactorEjectItemMessage());
+    }
+
+    private void OnControlRodModify(float amount)
+    {
+        if (_window is null) return;
+
+        SendPredictedMessage(new ReactorControlRodModifyMessage(amount));
     }
 }

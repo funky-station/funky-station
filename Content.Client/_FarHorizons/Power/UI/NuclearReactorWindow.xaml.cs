@@ -34,33 +34,28 @@ public sealed partial class NuclearReactorWindow : FancyWindow
     private int _targetX = 0;
     private int _targetY = 0;
 
-    public event Action? ChangeViewButtonPressed;
-    public event Action? XIncrementButtonPressed;
-    public event Action? XDecrementButtonPressed;
-    public event Action? YIncrementButtonPressed;
-    public event Action? YDecrementButtonPressed;
-
     public event Action<Vector2d>? ItemActionButtonPressed;
     public event Action? EjectButtonPressed;
+
+    public event Action<float>? ControlRodModify;
 
     public NuclearReactorWindow()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        ChangeViewButton.OnPressed += _ => ChangeViewButtonPressed?.Invoke();
-        XIncrement.OnPressed += _ => XIncrementButtonPressed?.Invoke();
-        XDecrement.OnPressed += _ => XDecrementButtonPressed?.Invoke();
-        YIncrement.OnPressed += _ => YIncrementButtonPressed?.Invoke();
-        YDecrement.OnPressed += _ => YDecrementButtonPressed?.Invoke();
+        ChangeViewButton.OnPressed += _ => OnChangeViewButtonPressed();
+        XIncrement.OnPressed += _ => OnXIncrement();
+        XDecrement.OnPressed += _ => OnXDecrement();
+        YIncrement.OnPressed += _ => OnYIncrement();
+        YDecrement.OnPressed += _ => OnYDecrement();
         ItemAction.OnPressed += _ => ItemActionButtonPressed?.Invoke(new(_targetY, _targetX));
         EjectItem.OnPressed += _ => EjectButtonPressed?.Invoke();
 
-        ChangeViewButtonPressed += OnChangeViewButtonPressed;
-        XIncrementButtonPressed += OnXIncrement;
-        XDecrementButtonPressed += OnXDecrement;
-        YIncrementButtonPressed += OnYIncrement;
-        YDecrementButtonPressed += OnYDecrement;
+        ControlRodsInsertLarge.OnPressed += _ => AdjustControlRods(0.1f);
+        ControlRodsInsert.OnPressed += _ => AdjustControlRods(0.01f);
+        ControlRodsRemove.OnPressed += _ => AdjustControlRods(-0.01f);
+        ControlRodsRemoveLarge.OnPressed += _ => AdjustControlRods(-0.1f);
 
         InitReactorGrid();
     }
@@ -122,6 +117,19 @@ public sealed partial class NuclearReactorWindow : FancyWindow
             }
         }
 
+        ReactorTempValue.Text = Math.Round(msg.ReactorTemp - Atmospherics.T0C, 1).ToString() + "C";
+        ReactorTempBar.Value = msg.ReactorTemp;
+
+        ReactorRadsValue.Text = Math.Round(msg.ReactorRads, 1).ToString();
+        ReactorRadsBar.Value = msg.ReactorRads;
+
+        ReactorThermValue.Text = FormatPower(msg.ReactorTherm) + "t";
+        ReactorThermBar.Value = msg.ReactorTherm;
+
+        ControlRodsValue.Text = Math.Round(msg.ControlRodActual*50, 1).ToString()+"%";
+        ControlRodsActual.Value = msg.ControlRodActual;
+        ControlRodsSet.Value = msg.ControlRodSet;
+
         ItemName.Text = msg.ItemName ?? "empty";
     }
 
@@ -142,7 +150,7 @@ public sealed partial class NuclearReactorWindow : FancyWindow
                 }
                 else if ((_displayMode >> 1) % 2 == 1)
                 {
-                    box.BackgroundColor = GetColor(0, 5, _neutronGrid[x, y]);
+                    box.BackgroundColor = GetColor(0, 7, _neutronGrid[x, y]);
                     ViewLabel.Text = Loc.GetString("comp-nuclear-reactor-ui-view-neutron");
                 }
 
@@ -165,9 +173,9 @@ public sealed partial class NuclearReactorWindow : FancyWindow
             result = Color.InterpolateBetween(Color.FromHex("#31843E"), Color.FromHex("#BBBB00"), (float)((value - pointA) / (mid - pointA)));
         else if (value >= mid && value < pointB)
             result = Color.InterpolateBetween(Color.FromHex("#BBBB00"), Color.FromHex("#BB3232"), (float)((value - mid) / (pointB - mid)));
-        else if (value >= pointB && value < pointB * 1.25)
-            result = Color.FromHex("#BB3232");
-        else if (value >= pointB * 1.25)
+        else if (value >= pointB && value < pointB * 1.4)
+            result = Color.InterpolateBetween(Color.FromHex("#BB3232"), Color.FromHex("#550000"), (float)((value - pointB) / ((pointB * 1.4) - pointB)));
+        else if (value >= pointB * 1.4)
             result = Color.FromHex("#550000"); // Death.
         else
             result = Color.Black;
@@ -289,4 +297,8 @@ public sealed partial class NuclearReactorWindow : FancyWindow
     #endregion
 
     public void SetItemName(string? itemName) => ItemName.Text = itemName ?? "empty";
+
+    private static string FormatPower(float power) => Loc.GetString("comp-nuclear-reactor-ui-therm-format", ("power", power));
+
+    private void AdjustControlRods(float amount) => ControlRodModify?.Invoke(amount);
 }

@@ -10,6 +10,7 @@ using Content.Shared.Radiation.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using System.Linq;
+using Content.Server.Explosion.EntitySystems;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -23,6 +24,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
     [Dependency] private readonly ReactorPartSystem _partSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
+    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
 
     private static readonly int _gridWidth = NuclearReactorComponent.ReactorGridWidth;
     private static readonly int _gridHeight = NuclearReactorComponent.ReactorGridHeight;
@@ -37,6 +39,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         SubscribeLocalEvent<NuclearReactorComponent, EntInsertedIntoContainerMessage>(OnPartChanged);
         SubscribeLocalEvent<NuclearReactorComponent, EntRemovedFromContainerMessage>(OnPartChanged);
         SubscribeLocalEvent<NuclearReactorComponent, ReactorItemActionMessage>(OnItemActionMessage);
+        SubscribeLocalEvent<NuclearReactorComponent, ReactorControlRodModifyMessage>(OnControlRodMessage);
     }
 
     private void OnPartChanged(EntityUid uid, NuclearReactorComponent component, ContainerModifiedMessage args) => ReactorTryGetSlot(uid, "part_slot", out component.PartSlot!);
@@ -147,7 +150,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                 if (comp.ComponentGrid![x, y] != null)
                 {
                     var ReactorComp = comp.ComponentGrid[x, y];
-                    var gas = _partSystem.ProcessGas(ReactorComp!, ent, GasInput);
+                    var gas = _partSystem.ProcessGas(ReactorComp!, ent, args, GasInput);
                     GasInput.Volume -= ReactorComp!.GasVolume;
 
                     if (gas != null)
@@ -218,7 +221,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             }
         }
 
-        var CasingGas = ProcessCasingGas(comp, GasInput);
+        var CasingGas = ProcessCasingGas(comp, args, GasInput);
         if (CasingGas != null)
             _atmosphereSystem.Merge(AirContents, CasingGas);
 
@@ -243,8 +246,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             _appearance.SetData(uid, ReactorVisuals.Smoke, false);
         }
 
-        comp.RadiationLevel = TempRads;
-        comp.AccRadiation += TempRads*0.5f;
+        comp.RadiationLevel = Math.Clamp(comp.RadiationLevel + TempRads, 0, 50);
 
         comp.NeutronCount = NeutronCount;
         comp.MeltedParts = MeltedComps;
@@ -254,14 +256,20 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         comp.TotalRads = TotalRads;
         comp.TotalSpent = TotalSpent;
 
-        for(var i = 1; i < comp.TempChange.Length; i++)
+        // Averaging my averages
+        for(var i = 1; i < comp.ThermalPowerL1.Length; i++)
         {
-            comp.TempChange[i-1]=comp.TempChange[i];
+            comp.ThermalPowerL1[i-1]=comp.ThermalPowerL1[i];
         }
-        comp.TempChange[^1] = TempChange;
-        comp.TempChangeAvg = comp.TempChange.Average();
+        comp.ThermalPowerL1[^1] = TempChange;
+        for (var i = 1; i < comp.ThermalPowerL2.Length; i++)
+        {
+            comp.ThermalPowerL2[i - 1] = comp.ThermalPowerL2[i];
+        }
+        comp.ThermalPowerL2[^1] = comp.ThermalPowerL1.Average();
+        comp.ThermalPower = comp.ThermalPowerL2.Average();
 
-        if (TempRads > 1000 || comp.Temperature > comp.ReactorMeltdownTemp)
+        if (comp.Temperature > comp.ReactorMeltdownTemp) // Disabled the explode if over 1000 rads thing, hope the server survives
         {
             CatastrophicOverload(ent);
         }
@@ -296,7 +304,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                 }
             }
         }
-        comp.AccRadiation += MeltdownBadness;
+        comp.RadiationLevel = Math.Clamp(comp.RadiationLevel + MeltdownBadness, 0, 200);
         comp.AirContents.AdjustMoles(Gas.Tritium, MeltdownBadness * 15);
         comp.AirContents.Temperature = Math.Max(comp.Temperature, comp.AirContents.Temperature);
 
@@ -305,7 +313,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
             _atmosphereSystem.Merge(T, comp.AirContents);
 
         // TODO: shrapnel
-        // TODO: explosion
+        _explosionSystem.QueueExplosion(ent.Owner, "Default", Math.Max(100, MeltdownBadness * 5), 1, 4, 0, canCreateVacuum: false);
 
         // Reset grids
         Array.Clear(comp.ComponentGrid);
@@ -338,7 +346,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         return neighbors;
     }
 
-    private GasMixture? ProcessCasingGas(NuclearReactorComponent reactor, GasMixture inGas)
+    private GasMixture? ProcessCasingGas(NuclearReactorComponent reactor, AtmosDeviceUpdateEvent args, GasMixture inGas)
     {
         GasMixture? ProcessedGas = null;
         if (reactor.AirContents != null)
@@ -378,7 +386,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 
         if (inGas != null && _atmosphereSystem.GetThermalEnergy(inGas) > 0)
         {
-            reactor.AirContents = inGas.RemoveVolume(reactor.ReactorVesselGasVolume);
+            reactor.AirContents = inGas.RemoveVolume(Math.Min(reactor.ReactorVesselGasVolume * _atmosphereSystem.PumpSpeedup() * args.dt, inGas.Volume));
 
             if (reactor.AirContents != null && reactor.AirContents.TotalMoles < 1)
             {
@@ -399,12 +407,10 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 
     private void ProcessCaseRadiation(Entity<NuclearReactorComponent> ent)
     {
-        var reactor = ent.Comp;
-        var comp = CompOrNull<RadiationSourceComponent>(ent.Owner);
-        if (comp == null) return;
+        var comp = EnsureComp<RadiationSourceComponent>(ent.Owner);
 
-        comp.Intensity = (float)Math.Sqrt(Math.Max(reactor.AccRadiation, 0));
-        reactor.AccRadiation -= Math.Min(comp.Intensity, reactor.AccRadiation);
+        comp.Intensity = ent.Comp.RadiationLevel;
+        ent.Comp.RadiationLevel /= 2;
     }
 
     private static ReactorPartComponent?[,] SelectPrefab(string select) => select switch
@@ -482,6 +488,13 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
                PartInfo = partInfo,
                PartName = partName,
                ItemName = reactor.PartSlot.Item != null ? Identity.Name((EntityUid)reactor.PartSlot.Item, _entityManager) : null,
+
+               ReactorTemp = reactor.Temperature,
+               ReactorRads = reactor.RadiationLevel,
+               ReactorTherm = reactor.ThermalPower,
+
+               ControlRodActual = reactor.AvgInsertion,
+               ControlRodSet = reactor.ControlRodInsertion,
            });
     }
 
@@ -519,14 +532,24 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         UpdateGridVisual(ent.Owner, comp);
     }
 
+    private void OnControlRodMessage(Entity<NuclearReactorComponent> ent, ref ReactorControlRodModifyMessage args) 
+        => ent.Comp.ControlRodInsertion = Math.Clamp(ent.Comp.ControlRodInsertion + args.Change, 0, 2);
+
     private void UpdateVisuals(Entity<NuclearReactorComponent> ent)
     {
         var comp = ent.Comp;
         var uid = ent.Owner;
 
+        if(comp.Melted)
+        {
+            _appearance.SetData(uid, ReactorVisuals.Lights, ReactorWarningLights.LightsOff);
+            _appearance.SetData(uid, ReactorVisuals.Status, ReactorStatusLights.Off);
+            return;
+        }
+
         // Temperature & radiation warning
-        if (comp.Temperature >= comp.ReactorOverheatTemp || comp.RadiationLevel > 50)
-            if (comp.Temperature >= comp.ReactorFireTemp || comp.RadiationLevel > 75)
+        if (comp.Temperature >= comp.ReactorOverheatTemp || comp.RadiationLevel > 15)
+            if (comp.Temperature >= comp.ReactorFireTemp || comp.RadiationLevel > 30)
                 _appearance.SetData(uid, ReactorVisuals.Lights, ReactorWarningLights.LightsMeltdown);
             else
                 _appearance.SetData(uid, ReactorVisuals.Lights, ReactorWarningLights.LightsWarning);

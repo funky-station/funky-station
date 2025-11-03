@@ -26,6 +26,12 @@ public sealed partial class NuclearReactorComponent : Component
     [DataField]
     public float ControlRodInsertion = 2;
 
+    [DataField]
+    public bool isSmoking = false;
+    [DataField]
+    public bool isBurning = false;
+    [DataField]
+    public string AlertChannel = "Engineering";
 
     [ViewVariables(VVAccess.ReadOnly)]
     [DataField]

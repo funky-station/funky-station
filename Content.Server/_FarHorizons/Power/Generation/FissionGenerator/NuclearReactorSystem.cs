@@ -11,11 +11,17 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using System.Linq;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.Radio.EntitySystems;
+using Robust.Shared.Prototypes;
+using Content.Shared.Radio;
+using Content.Server.Chat.Systems;
+using Content.Server.Station.Systems;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
 public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
 {
+    // The great wall of dependencies
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
@@ -25,9 +31,14 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
+    [Dependency] private readonly RadioSystem _radioSystem = default!;
+    [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!;
+    [Dependency] private readonly StationSystem _station = default!;
 
     private static readonly int _gridWidth = NuclearReactorComponent.ReactorGridWidth;
     private static readonly int _gridHeight = NuclearReactorComponent.ReactorGridHeight;
+    private RadioChannelPrototype? _engi;
 
     public override void Initialize()
     {
@@ -229,22 +240,7 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         _atmosphereSystem.Merge(AirContents, GasInput);
 
         // TODO: probably more for this
-        if (comp.Temperature >= comp.ReactorOverheatTemp)
-        {
-            _appearance.SetData(uid, ReactorVisuals.Smoke, true);
-            if (comp.Temperature >= comp.ReactorFireTemp)
-            {
-                _appearance.SetData(uid, ReactorVisuals.Fire, true);
-            }
-            else
-            {
-                _appearance.SetData(uid, ReactorVisuals.Fire, false);
-            }
-        }
-        else
-        {
-            _appearance.SetData(uid, ReactorVisuals.Smoke, false);
-        }
+        UpdateTempIndicators(ent);
 
         comp.RadiationLevel = Math.Clamp(comp.RadiationLevel + TempRads, 0, 50);
 
@@ -282,8 +278,14 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
     private void CatastrophicOverload(Entity<NuclearReactorComponent> ent)
     {
         var comp = ent.Comp;
+        var uid = ent.Owner;
 
         // TODO: Audio
+
+        var stationUid = _station.GetStationInMap(Transform(uid).MapID);
+        var announcement = Loc.GetString("reactor-meltdown-announcement");
+        var sender = Loc.GetString("reactor-meltdown-announcement-sender");
+        _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender, false, null, Color.Orange);
 
         comp.Melted = true;
         var MeltdownBadness = 0f;
@@ -322,6 +324,13 @@ public sealed class NuclearReactorSystem : SharedNuclearReactorSystem
         Array.Clear(comp.FluxGrid);
 
         UpdateGridVisual(ent.Owner, comp);
+    }
+
+    protected override void SendEngiRadio(Entity<NuclearReactorComponent> ent, string message)
+    {
+        _engi ??= _prototypes.Index<RadioChannelPrototype>(ent.Comp.AlertChannel);
+
+        _radioSystem.SendRadioMessage(ent.Owner, message, _engi, ent);
     }
 
     private static List<ReactorPartComponent?> GetGridNeighbors(NuclearReactorComponent reactor, int x, int y)

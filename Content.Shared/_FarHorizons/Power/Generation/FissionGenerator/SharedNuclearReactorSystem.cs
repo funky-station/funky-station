@@ -1,4 +1,6 @@
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Popups;
 using Robust.Shared.Containers;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
@@ -8,7 +10,7 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly ItemSlotsSystem _slotsSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {
@@ -75,6 +77,49 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
 
         _slotsSystem.TryEjectToHands(uid, component.PartSlot, args.Actor);
     }
+
+    protected void UpdateTempIndicators(Entity<NuclearReactorComponent> ent)
+    {
+        var comp = ent.Comp;
+        var uid = ent.Owner;
+
+        if (comp.Temperature >= comp.ReactorOverheatTemp)
+        {
+            if(!comp.isSmoking)
+            {
+                comp.isSmoking = true;
+                _appearance.SetData(uid, ReactorVisuals.Smoke, true);
+                _popupSystem.PopupEntity(Loc.GetString("reactor-smoke-start", ("owner", uid)), uid, PopupType.MediumCaution);
+                SendEngiRadio(ent, Loc.GetString("reactor-smoke-start-message", ("owner", uid), ("temperature", Math.Round(comp.Temperature))));
+            }
+            if (comp.Temperature >= comp.ReactorFireTemp && !comp.isBurning)
+            {
+                comp.isBurning = true;
+                _appearance.SetData(uid, ReactorVisuals.Fire, true);
+                _popupSystem.PopupEntity(Loc.GetString("reactor-fire-start", ("owner", uid)), uid, PopupType.MediumCaution);
+                SendEngiRadio(ent, Loc.GetString("reactor-fire-start-message", ("owner", uid), ("temperature", Math.Round(comp.Temperature))));
+            }
+            else if (comp.Temperature < comp.ReactorFireTemp && comp.isBurning)
+            {
+                comp.isBurning = false;
+                _appearance.SetData(uid, ReactorVisuals.Fire, false);
+                _popupSystem.PopupEntity(Loc.GetString("reactor-fire-stop", ("owner", uid)), uid, PopupType.Medium);
+                SendEngiRadio(ent, Loc.GetString("reactor-fire-stop-message", ("owner", uid)));
+            }
+        }
+        else
+        {
+            if(comp.isSmoking)
+            {
+                comp.isSmoking = false;
+                _appearance.SetData(uid, ReactorVisuals.Smoke, false);
+                _popupSystem.PopupEntity(Loc.GetString("reactor-smoke-stop", ("owner", uid)), uid, PopupType.Medium);
+                SendEngiRadio(ent, Loc.GetString("reactor-smoke-stop-message", ("owner", uid)));
+            }
+        }
+    }
+
+    protected virtual void SendEngiRadio(Entity<NuclearReactorComponent> ent, string message) { }
 }
 
 public static class NuclearReactorPrefabs

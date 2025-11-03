@@ -6,6 +6,8 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 B_Kirill <cool.bkirill@yandex.ru>
+// SPDX-FileCopyrightText: 2025 Ilya Mikheev <me@ilyamikcoder.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -22,8 +24,10 @@ using Content.Shared.CriminalRecords;
 using Content.Shared.CriminalRecords.Components;
 using Content.Shared.CriminalRecords.Systems;
 using Content.Shared.Security;
+using Content.Shared._Funkystation.Security;
 using Content.Shared.StationRecords;
 using Robust.Server.GameObjects;
+using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Security.Components;
@@ -37,6 +41,7 @@ namespace Content.Server.CriminalRecords.Systems;
 /// </summary>
 public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleSystem
 {
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly AccessReaderSystem _access = default!;
     [Dependency] private readonly CriminalRecordsSystem _criminalRecords = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -45,6 +50,8 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
+    private static readonly ProtoId<SecurityStatusPrototype> DetainedStatusProtoId = "SecurityStatusDetained";
+    private static readonly ProtoId<SecurityStatusPrototype> NoneStatusProtoId = "SecurityStatusNone";
     public override void Initialize()
     {
         SubscribeLocalEvent<CriminalRecordsConsoleComponent, RecordModifiedEvent>(UpdateUserInterface);
@@ -76,7 +83,7 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
     }
     private void OnStatusFilterPressed(Entity<CriminalRecordsConsoleComponent> ent, ref CriminalRecordSetStatusFilter msg)
     {
-        ent.Comp.FilterStatus = msg.FilterStatus;
+        ent.Comp.FilterStatus = _proto.Index(msg.FilterStatus);
         UpdateUserInterface(ent);
     }
 
@@ -99,9 +106,9 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
 
     private void OnChangeStatus(Entity<CriminalRecordsConsoleComponent> ent, ref CriminalRecordChangeStatus msg)
     {
+        var status = _proto.Index(msg.Status);
         // prevent malf client violating wanted/reason nullability
-        if (msg.Status == SecurityStatus.Wanted != (msg.Reason != null) &&
-            msg.Status == SecurityStatus.Suspected != (msg.Reason != null))
+        if (status.RequiresReason != (msg.Reason != null))
             return;
 
         if (!CheckSelected(ent, msg.Actor, out var mob, out var key))
@@ -126,7 +133,7 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
 
         // when arresting someone add it to history automatically
         // fallback exists if the player was not set to wanted beforehand
-        if (msg.Status == SecurityStatus.Detained)
+        if (msg.Status == DetainedStatusProtoId)
         {
             var oldReason = record.Reason ?? Loc.GetString("criminal-records-console-unspecified-reason");
             var history = Loc.GetString("criminal-records-console-auto-history", ("reason", oldReason));
@@ -147,39 +154,22 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
         if (tryGetIdentityShortInfoEvent.Title != null)
             officer = tryGetIdentityShortInfoEvent.Title;
 
-        _criminalRecords.TryChangeStatus(key.Value, msg.Status, msg.Reason, officer);
+        _criminalRecords.TryChangeStatus(key.Value, status, msg.Reason, officer);
 
         (string, object)[] args;
         if (reason != null)
-            args = new (string, object)[] { ("name", name), ("officer", officer), ("reason", reason), ("job", jobName) };
+            args = [("name", name), ("officer", officer), ("reason", reason), ("job", jobName)];
         else
-            args = new (string, object)[] { ("name", name), ("officer", officer), ("job", jobName) };
+            args = [("name", name), ("officer", officer), ("job", jobName)];
 
-        // figure out which radio message to send depending on transition
-        var statusString = (oldStatus, msg.Status) switch
-        {
-            // person has been detained
-            (_, SecurityStatus.Detained) => "detained",
-            // person did something sus
-            (_, SecurityStatus.Suspected) => "suspected",
-            // released on parole
-            (_, SecurityStatus.Paroled) => "paroled",
-            // prisoner did their time
-            (_, SecurityStatus.Discharged) => "released",
-            // going from any other state to wanted, AOS or prisonbreak / lazy secoff never set them to released and they reoffended
-            (_, SecurityStatus.Wanted) => "wanted",
-            // person is no longer sus
-            (SecurityStatus.Suspected, SecurityStatus.None) => "not-suspected",
-            // going from wanted to none, must have been a mistake
-            (SecurityStatus.Wanted, SecurityStatus.None) => "not-wanted",
-            // criminal status removed
-            (SecurityStatus.Detained, SecurityStatus.None) => "released",
-            // criminal is no longer on parole
-            (SecurityStatus.Paroled, SecurityStatus.None) => "not-parole",
-            // this is impossible
-            _ => "not-wanted"
-        };
-        _radio.SendRadioMessage(ent, Loc.GetString($"criminal-records-console-{statusString}", args),
+        string radioMessage;
+        if (msg.Status == NoneStatusProtoId) {
+            radioMessage = Loc.GetString(_proto.Index(oldStatus).RemovalRadioMessage, args);
+        } else {
+            radioMessage = Loc.GetString(status.RadioMessage, args);
+        }
+
+        _radio.SendRadioMessage(ent, radioMessage,
             ent.Comp.SecurityChannel, ent);
 
         UpdateUserInterface(ent);
@@ -233,7 +223,7 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
 
         // filter the listing by the selected criminal record status
         //if NONE, dont filter by status, just show all crew
-        if (console.FilterStatus != SecurityStatus.None)
+        if (console.FilterStatus != null && console.FilterStatus.ID != NoneStatusProtoId)
         {
             listing = listing
                 .Where(x => _records.TryGetRecord<CriminalRecord>(new StationRecordKey(x.Key, owningStation.Value), out var record) && record.Status == console.FilterStatus)
@@ -251,7 +241,7 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
         }
 
         // Set the Current Tab aka the filter status type for the records list
-        state.FilterStatus = console.FilterStatus;
+        state.FilterStatus = console.FilterStatus ?? _proto.Index(NoneStatusProtoId);
 
         _ui.SetUiState(uid, CriminalRecordsConsoleKey.Key, state);
     }
@@ -301,9 +291,9 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
             if (_records.TryGetRecord<CriminalRecord>(new StationRecordKey(id, station.Value),
                     out var record))
             {
-                if (record.Status != SecurityStatus.None)
+                if (record.Status != NoneStatusProtoId)
                 {
-                    _criminalRecords.SetCriminalIcon(name, record.Status, uid);
+                    _criminalRecords.SetCriminalIcon(_proto.Index(record.Status), uid);
                     return;
                 }
             }

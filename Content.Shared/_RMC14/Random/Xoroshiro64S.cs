@@ -1,4 +1,8 @@
-﻿using System.Runtime.CompilerServices;
+﻿// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using System.Runtime.CompilerServices;
 
 namespace Content.Shared._RMC14.Random;
 

@@ -1,4 +1,8 @@
-﻿using Content.Server.Movement.Components;
+﻿// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Movement.Components;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.Weapons.Ranged.Prediction;

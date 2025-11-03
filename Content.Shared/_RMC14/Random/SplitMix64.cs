@@ -1,4 +1,8 @@
-﻿namespace Content.Shared._RMC14.Random;
+﻿// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+namespace Content.Shared._RMC14.Random;
 
 /// <summary>
 /// Seed initializer PRNG (splitmix64).

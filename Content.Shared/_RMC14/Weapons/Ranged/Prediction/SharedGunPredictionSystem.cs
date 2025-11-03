@@ -1,4 +1,8 @@
-﻿using Content.Shared._RMC14.CCVar;
+﻿// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared._RMC14.CCVar;
 using Robust.Shared.Configuration;
 
 namespace Content.Shared._RMC14.Weapons.Ranged.Prediction;

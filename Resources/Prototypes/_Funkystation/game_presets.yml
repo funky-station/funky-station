@@ -1,4 +1,6 @@
 # SPDX-FileCopyrightText: 2024 John Space <bigdumb421@gmail.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 # SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -32,6 +34,7 @@
   - BasicStationEventScheduler
   #- AntagStationEventScheduler
   - BasicRoundstartVariation
+  
 
 - type: gamePreset
   id: ChangelingHeretics
@@ -101,4 +104,36 @@
   rules:
     - SecretDirector
 
+- type: gamePreset
+  id: MalfAi
+  alias:
+  - malfai
+  - malf
+  name: malfai-title
+  description: malfai-description
+  showInVote: false
+  rules:
+  - Traitor
+  - SubGamemodesRule
+  - MalfAi
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretMalfAi
+  alias:
+  - secretmalfai
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+  - Traitor
+  - SubGamemodesRule
+  - MalfAi
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
 

@@ -1,0 +1,77 @@
+# SPDX-FileCopyrightText: 2025 willow <willowzeta632146@proton.me>
+# SPDX-FileCopyrightText: 2025 wilowzeta <willowzeta632146@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: gameMap
+  id: Olympus
+  mapName: 'Olympus'
+  mapPath: /Maps/_Funkystation/olympus.yml
+  minPlayers: 75
+  stations:
+    Olympus:
+      stationProto: StandardNanotrasenStation
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: '{0} Olympus {1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '-TRS'
+      - type: StationEmergencyShuttle
+        emergencyShuttlePath: /Maps/_Funkystation/Shuttles/emergency_olympus.yml
+      - type: StationJobs
+        availableJobs:
+          #service
+          StationAi: [ 1, 1 ]
+          Captain: [ 1, 1 ]
+          Magistrate: [ 1, 1 ]
+          NanotrasenRepresentative: [ 1, 1 ]
+          InternalAffairsAgent: [ 2, 2 ]
+          HeadOfPersonnel: [ 1, 1 ]
+          Bartender: [ 1, 1 ]
+          Botanist: [ 2, 2 ]
+          Chef: [ 2, 2 ]
+          Janitor: [ 2, 2 ]
+          Chaplain: [ 1, 1 ]
+          Librarian: [ 1, 1 ]
+          ServiceWorker: [ 5, 5 ]
+          Reporter: [ 2, 2 ]
+          #engineering
+          ChiefEngineer: [ 1, 1 ]
+          AtmosphericTechnician: [ 2, 2 ]
+          StationEngineer: [ 4, 4 ]
+          TechnicalAssistant: [ 4, 4 ]
+          #medical
+          ChiefMedicalOfficer: [ 1, 1 ]
+          Chemist: [ 2, 2 ]
+          MedicalDoctor: [ 5, 5 ]
+          Paramedic: [ 2, 2 ]
+          MedicalIntern: [ 4, 4 ]
+          Psychologist: [ 1, 1 ]
+          #science
+          ResearchDirector: [ 1, 1 ]
+          Scientist: [ 4, 4 ]
+          Roboticist: [ 2, 2 ]
+          ResearchAssistant: [ 4, 4 ]
+          Borg: [ 6, 6 ]
+          #security
+          HeadOfSecurity: [ 1, 1 ]
+          Warden: [ 1, 1 ]
+          SecurityOfficer: [ 6, 6 ]
+          Detective: [ 1, 1 ]
+          SecurityCadet: [ 4, 4 ]
+          Lawyer: [ 2, 2 ]
+          #supply
+          Quartermaster: [ 1, 1 ]
+          SalvageSpecialist: [ 3, 3 ]
+          CargoTechnician: [ 6, 6 ]
+          #civilian
+          Passenger: [ -1, -1 ]
+          Clown: [ 1, 1 ]
+          Mime: [ 1, 1 ]
+          Musician: [ 2, 2 ]
+          Boxer: [ 1, 1 ]
+      - type: StationBlobConfig
+        stageBegin: 75
+        stageCritical: 500
+        stageTheEnd: 1000

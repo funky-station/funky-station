@@ -354,7 +354,7 @@
   parent: OrganCarpLungs
   id: OrganDragonLungs
   name: dragon lungs
-  description: "The large, fire-breathing lungs of a space dragon. Shares many similaries with the lungs of its carp underlings spare for its size and abilities."
+  description: "The large, fire-breathing lungs of a space dragon. Without the might of a dragon behind it, it requires some form of an atmosphere supplied to it to actually function."
   components:
   - type: Sprite
     layers:

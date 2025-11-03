@@ -64,6 +64,7 @@ cult-spell-repelled = Holy magic protects your target!
 cult-shade-summoned = The stolen soul materializes as a servant Shade!
 cult-shade-recalled = You recapture the stolen soul, rejuvinating it!
 cult-shade-servant = You have been released from your prison, but you are still bound to {$name}'s will. Help them succeed in their goals at all costs.
+cult-shade-death-return = The shade's essence returns to the soulstone.
 
 cult-soulstone-empty = You are unable to contact any soul from this stone -- perhaps it is empty.
 
@@ -111,3 +112,7 @@ cult-roundend-victory = The blood cult has summoned Nar'Sie and laid claim
 cult-roundend-failure = The blood cult was unable to summon their master.
 cult-roundend-count = There were {$count} total blood cultists.
 cult-roundend-sacrifices = The blood cult rendered {$sacrifices} souls up to the Geometer of Blood.
+
+cult-soulstone-role-name = Trapped Soul
+cult-soulstone-role-description = You are trapped in a soulstone. You can speak and will be released as a shade when a cultist uses the stone.
+cult-soulstone-role-rules = You are serving the blood cult. Follow the orders of the cultist who holds your soulstone and help them achieve their goals.

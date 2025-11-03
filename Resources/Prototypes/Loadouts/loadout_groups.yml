@@ -524,7 +524,13 @@
   minLimit: 0
   loadouts:
   - BotanistHead
-  - BotanistBandana
+  - BotanistBandanaBlack
+  - BotanistBandanaBlue
+  - BotanistBandanaGold
+  - BotanistBandanaGreen
+  - BotanistBandanaRed
+  - BotanistBandanaSkull
+  - BotanistBandanaBrown
 
 - type: loadoutGroup
   id: BotanistJumpsuit

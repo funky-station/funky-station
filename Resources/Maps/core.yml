@@ -61322,7 +61322,7 @@ entities:
     - type: Transform
       pos: 26.46458,-54.482555
       parent: 2
-- proto: ClothingHeadBandBotany
+- proto: ClothingHeadBandGreen
   entities:
   - uid: 15407
     components:

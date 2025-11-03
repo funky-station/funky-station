@@ -45400,7 +45400,7 @@ entities:
     - type: Transform
       pos: 46.43723,33.34558
       parent: 2
-- proto: ClothingHeadBandBotany
+- proto: ClothingHeadBandGreen
   entities:
   - uid: 12448
     components:

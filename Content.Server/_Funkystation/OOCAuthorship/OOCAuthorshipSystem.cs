@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Examine;
 using Content.Shared.Examine;
 using Content.Server.OOCAuthorship.Components;

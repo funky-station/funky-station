@@ -6,7 +6,9 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 mr-bo-jangles <mr-bo-jangles@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ArchRBX <5040911+ArchRBX@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Carrot <carpecarrot@gmail.com>
 // SPDX-FileCopyrightText: 2025 Currot <carpecarrot@gmail.com>
+// SPDX-FileCopyrightText: 2025 Sophia Rustfield <gitlab@catwolf.xyz>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2025 archrbx <punk.gear5260@fastmail.com>
 // SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
@@ -45,11 +47,13 @@ public abstract class SharedPAISystem : EntitySystem
     private void OnMapInit(Entity<PAIComponent> ent, ref MapInitEvent args)
     {
         _actions.AddAction(ent, ent.Comp.ShopActionId);
+        _actions.AddAction(ent, ent.Comp.OpenPdaActionId);
     }
 
     private void OnShutdown(Entity<PAIComponent> ent, ref ComponentShutdown args)
     {
         _actions.RemoveAction(ent, ent.Comp.ShopAction);
+        _actions.RemoveAction(ent, ent.Comp.OpenPdaAction);
     }
 
     private void EnableEncryption(Entity<PAIComponent> ent, ref PAIEnableEncryptionEvent args)
@@ -59,6 +63,9 @@ public abstract class SharedPAISystem : EntitySystem
     }
 }
 public sealed partial class PAIShopActionEvent : InstantActionEvent
+{
+}
+public sealed partial class PAIOpenPdaActionEvent : InstantActionEvent
 {
 }
 

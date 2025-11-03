@@ -208,7 +208,7 @@ public static class BaseReactorComponents
     public static readonly ReactorPartComponent ControlRod = new()
     {
         RodType = (byte)ReactorPartComponent.RodTypes.Control,
-        Name = "DebugControlRod",
+        Name = "control rod",
         IconStateInserted = "control",
         IconStateCap = "control_cap",
         IsControlRod = true,
@@ -235,7 +235,7 @@ public static class BaseReactorComponents
     public static readonly ReactorPartComponent GasChannel = new()
     {
         RodType = (byte)ReactorPartComponent.RodTypes.GasChannel,
-        Name = "DebugGasChannel",
+        Name = "gas channel",
         IconStateInserted = "gas",
         IconStateCap = "gas_cap",
         ThermalCrossSection = 15,
@@ -245,7 +245,7 @@ public static class BaseReactorComponents
 
     public static readonly ReactorPartComponent HeatExchanger = new()
     {
-        Name = "DebugHeatExchanger",
+        Name = "heat exchanger",
         IconStateInserted = "heat",
         IconStateCap = "heat_cap",
         NeutronCrossSection = 0.1f,

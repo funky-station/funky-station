@@ -89,10 +89,10 @@ public abstract class SharedReactorPartSystem : EntitySystem
             if (!_entityManager.HasComponent<RadiationSourceComponent>(uid))
             {
                 var radcomp = EnsureComp<RadiationSourceComponent>(uid);
-                radcomp.Intensity = component.Radioactive * 0.1f + component.NRadioactive * 0.15f + component.SpentFuel * 0.125f;
+                radcomp.Intensity = (component.Radioactive * 0.1f) + (component.NRadioactive * 0.15f) + (component.SpentFuel * 0.125f);
             }
 
-            if (component.NRadioactive > 1 && !_entityManager.HasComponent<PointLightComponent>(uid))
+            if (component.NRadioactive > 0 && !_entityManager.HasComponent<PointLightComponent>(uid))
             {
                 var lightcomp = _lightSystem.EnsureLight(uid);
                 _lightSystem.SetEnergy(uid, component.NRadioactive, lightcomp);

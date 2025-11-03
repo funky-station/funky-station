@@ -91,14 +91,14 @@
         pipeDirection: West
         volume: 1000
         offsetEast: -3
-        offsetNorth: 0
+        offsetNorth: -1
       outlet:
         !type:OffsetPipeNode
         nodeGroupID: Pipe
         pipeDirection: East
         volume: 1000
         offsetEast: 3
-        offsetNorth: 0
+        offsetNorth: 1
   - type: AtmosDevice
   - type: RadiationSource
     intensity: 0

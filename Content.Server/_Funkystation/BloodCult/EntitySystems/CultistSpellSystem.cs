@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
@@ -154,11 +155,40 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			}
 		}
 
-		if (comp.KnownSpells.Count > 3 || (!standingOnRune && comp.KnownSpells.Count > 0))
+	// If standing on rune, limit is 3 spells. If not on rune, forget all previous spells to learn new one
+	if (comp.KnownSpells.Count > 3)
+	{
+		_popup.PopupEntity(Loc.GetString("cult-spell-exceeded"), uid, uid);
+		return;
+	}
+
+	// If not standing on empowering rune and has spells, forget all of them to make room for the new one
+	if (!standingOnRune && comp.KnownSpells.Count > 0)
+	{
+		// Remove all actions for known spells
+		for (int i = comp.KnownSpells.Count - 1; i >= 0; i--)
 		{
-			_popup.PopupEntity(Loc.GetString("cult-spell-exceeded"), uid, uid);
-			return;
+			var knownSpellId = comp.KnownSpells[i];
+			var knownSpell = GetSpell(knownSpellId);
+			if (knownSpell.ActionPrototypes != null)
+			{
+				foreach (var actionProto in knownSpell.ActionPrototypes)
+				{
+					// Find and remove all actions matching this prototype
+					foreach (var action in _action.GetActions(uid))
+					{
+						var protoId = MetaData(action.Id).EntityPrototype?.ID;
+						if (protoId != null && protoId == actionProto)
+						{
+							_action.RemoveAction(uid, action.Id);
+						}
+					}
+				}
+			}
 		}
+		// Clear the known spells list
+		comp.KnownSpells.Clear();
+	}
 
         if (data.Event != null)
             RaiseLocalEvent(uid, (object) data.Event, true);
@@ -195,11 +225,40 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 	public void OnCarveSpellDoAfter(Entity<BloodCultistComponent> ent, ref CarveSpellDoAfterEvent args)
 	{
-		if (ent.Comp.KnownSpells.Count > 3 || (!args.StandingOnRune && ent.Comp.KnownSpells.Count > 0))
+		if (ent.Comp.KnownSpells.Count > 3)
 		{
 			_popup.PopupEntity(Loc.GetString("cult-spell-exceeded"), ent, ent);
 			return;
 		}
+
+	// If not standing on empowering rune and has spells, forget all of them to make room for the new one
+	if (!args.StandingOnRune && ent.Comp.KnownSpells.Count > 0)
+	{
+		// Remove all actions for known spells
+		for (int i = ent.Comp.KnownSpells.Count - 1; i >= 0; i--)
+		{
+			var knownSpellId = ent.Comp.KnownSpells[i];
+			var knownSpell = GetSpell(knownSpellId);
+			if (knownSpell.ActionPrototypes != null)
+			{
+			foreach (var actionProto in knownSpell.ActionPrototypes)
+			{
+				// Find and remove all actions matching this prototype
+				foreach (var action in _action.GetActions(ent))
+				{
+					var protoId = MetaData(action.Id).EntityPrototype?.ID;
+					if (protoId != null && protoId == actionProto)
+					{
+						_action.RemoveAction(ent, action.Id);
+					}
+				}
+			}
+			}
+		}
+		// Clear the known spells list
+		ent.Comp.KnownSpells.Clear();
+	}
+
 		if (args.CultAbility.ActionPrototypes == null)
 			return;
 
@@ -273,7 +332,14 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 	private void OnStun(Entity<BloodCultistComponent> ent, ref EventCultistStun args)
 	{
-		if (args.Handled || !TryUseAbility(ent, args) || HasComp<BloodCultistComponent>(args.Target))
+		if (args.Handled)
+			return;
+
+		// Check if targeting a teammate before consuming the spell
+		if (HasComp<BloodCultistComponent>(args.Target) || HasComp<BloodCultConstructComponent>(args.Target))
+			return;
+
+		if (!TryUseAbility(ent, args))
 			return;
 
 		float staminaDamage = 90f;

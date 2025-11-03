@@ -57,7 +57,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly GravityWellSystem _gravityWell = default!;
     [Dependency] private readonly LightningSystem _lightning = default!;
-    [Dependency] private readonly ParacusiaSystem _paracusia = default!;
+    //[Dependency] private readonly ParacusiaSystem _paracusia = default!;
     [Dependency] private readonly PointLightSystem _light = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly RadioSystem _radio = default!;

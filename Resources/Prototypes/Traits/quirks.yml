@@ -96,3 +96,12 @@
       maxSoundDistance: 7
       sounds:
         collection: Paracusia
+
+- type: trait
+  id: SupermatterHallucinationImmune
+  name: trait-supermatter-hallucination-immune-name
+  description: trait-supermatter-hallucination-immune-desc
+  category: Quirks
+  cost: 0
+  components:
+    - type: SupermatterHallucinationImmune

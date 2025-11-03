@@ -745,8 +745,9 @@ public sealed partial class SupermatterSystem
 
         foreach (var mob in mobLookup)
         {
-            // Ignore silicons
-            if (HasComp<SiliconLawBoundComponent>(uid))
+            // Ignore immune entities
+            if (HasComp<SupermatterHallucinationImmuneComponent>(mob) || // Immune to supermatter hallucinations
+            HasComp<SiliconLawBoundComponent>(mob))                // Silicons don't get supermatter hallucinations
                 continue;
 
             if (!EnsureComp<ParacusiaComponent>(mob, out var paracusia))

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Mora <46364955+trixxedheart@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Traits.Assorted;

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Mora <46364955+trixxedheart@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Hands;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Wieldable;

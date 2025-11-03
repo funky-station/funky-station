@@ -14,7 +14,7 @@
   - type: Item
     size: Normal
     sprite: Objects/Weapons/Melee/offset_canes/standard.rsi
-#  - type: MobilityAid TODO // Mobility Impaired is not implemented yet, if you do add it, make sure to add it to the cane.yml as well
+  - type: MobilityAid
   - type: MeleeWeapon
     wideAnimationRotation: 45
     damage:

@@ -375,14 +375,12 @@
       food:
         maxVol: 20
         reagents:
-        - ReagentId: Carpotoxin
-          Quantity: 5
         - ReagentId: UncookedAnimalProteins
-          Quantity: 5
+          Quantity: 10
         - ReagentId: Ichor
           Quantity: 10
   - type: Extractable
     juiceSolution:
       reagents:
       - ReagentId: Ichor
-        Quantity: 5
+        Quantity: 10

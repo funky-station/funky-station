@@ -95,6 +95,12 @@
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 0
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Blunt: 5
+        Slash: 10
   - type: Body # Funky + Shitmed: Special space animal organs
     prototype: SpaceAnimal
   - type: SurgeryTarget # Shitmed
@@ -102,12 +108,6 @@
     interfaces:
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
-    angle: 0
-    animation: WeaponArcClaw
-    damage:
-      types:
-        Blunt: 5
-        Slash: 10
   - type: Tag
     tags:
     - DoorBumpOpener

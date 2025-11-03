@@ -1,0 +1,384 @@
+
+# stealing organs from shitmed, making them look better
+# space animal organs first
+- type: entity
+  id: BaseSpaceAnimalOrganUnGibbable
+  parent: BaseAnimalOrganUnGibbable
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Mobs/Species/Space/organs.rsi
+  - type: StaticPrice
+    price: 100
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+        - ReagentId: Cryoxadone
+          Quantity: 5
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Cryoxadone
+        Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - medicine # Cryoxadone is a medicine
+  - type: Tag
+    tags:
+    - Meat
+    - Organ
+
+- type: entity
+  id: BaseSpaceAnimalOrgan
+  parent: BaseSpaceAnimalOrganUnGibbable
+  abstract: true
+  components:
+  - type: Gibbable
+
+- type: entity
+  id: OrganSpaceAnimalEyes
+  parent: BaseSpaceAnimalOrgan
+  name: space animal eyes
+  description: "Like distant stars, these eyes glimmer faintly in orangey tones."
+  components:
+  - type: Organ
+    slotId: eyes
+  - type: Eyes
+  - type: Sprite
+    layers:
+      - state: eyeball-l
+      - state: eyeball-r
+      - state: eyeball-l-glow
+        shader: unshaded
+      - state: eyeball-r-glow
+        shader: unshaded
+  - type: Tag
+    tags:
+      - Meat
+      - Organ
+      - Eyes
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    heldPrefix: eyeballs
+
+- type: entity
+  id: OrganSpaceAnimalLungs
+  parent: BaseSpaceAnimalOrgan
+  name: space animal lungs
+  description: "A pair of surprisingly frigid lungs that allow space animals to respire without an atmosphere. Even outside of their host, they seem to be slowly rising and falling."
+  components:
+  - type: Sprite
+    layers:
+    - state: lung-l
+    - state: lung-r
+    - state: lung-l-glow
+      shader: unshaded
+    - state: lung-r-glow
+      shader: unshaded
+  - type: Organ
+    slotId: lungs
+    onAdd:
+    - type: BreathingImmunity
+  - type: Lung
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Animal ]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: SolutionContainerManager
+    solutions:
+      Lung:
+        maxVol: 100.0
+        canReact: false
+  - type: Tag
+    tags:
+    - Meat
+    - Organ
+    - Lungs
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    heldPrefix: lungs
+    
+- type: entity
+  id: OrganSpaceAnimalHeart
+  parent: BaseSpaceAnimalOrgan
+  name: space animal heart
+  description: "An ice-cold heart for those cool enough to chill in the void. Does not come with antifreeze."
+  components:
+  - type: Sprite
+    layers:
+    - state: heart-on
+    - state: heart-on-glow
+      shader: unshaded
+  - type: Organ
+    slotId: heart
+    onAdd:
+    - type: PressureImmunity
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [ Animal ]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+  - type: Heart
+  - type: Tag
+    tags:
+    - Meat
+    - Organ
+    - Heart
+  - type: Item
+    size: Tiny
+    heldPrefix: heart
+
+- type: entity
+  id: OrganSpaceAnimalLiver
+  parent: BaseSpaceAnimalOrgan
+  name: space animal liver
+  description: "The least radical part of a space animal. Literally."
+  components:
+  - type: Sprite
+    layers:
+    - state: liver
+    - state: liver-glow
+      shader: unshaded
+  - type: Organ
+    slotId: liver
+  - type: Metabolizer
+    maxReagents: 1
+    metabolizerTypes: [ Animal ]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1
+  - type: ConstantHealing
+    effects:
+    - !type:HealthChange
+      damage:
+        types:
+          Radiation: -0.1
+  - type: Liver
+  - type: Tag
+    tags:
+    - Meat
+    - Organ
+    - Liver
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+    heldPrefix: liver
+
+- type: entity
+  id: OrganSpaceAnimalStomach
+  parent: BaseSpaceAnimalOrgan
+  name: space animal stomach
+  description: "A stomach that breaks down food using aggressive oxidation instead of strong acids. The end result is pretty much the same."
+  components:
+  - type: Sprite
+    layers:
+    - state: stomach
+    - state: stomach-glow
+      shader: unshaded
+  - type: Organ
+    slotId: stomach
+  - type: Stomach
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [ Animal ]
+    groups:
+    - id: Food
+    - id: Drink
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Stomach
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    heldPrefix: stomach
+
+- type: entity
+  id: OrganSpaceAnimalKidneys
+  parent: BaseSpaceAnimalOrgan
+  name: space animal kidneys
+  description: "A pair of unassuming space animal kidneys. You'd assume that there's more going for them, but you'd be mistaken."
+  components:
+  - type: Sprite
+    layers:
+    - state: kidney-l
+    - state: kidney-r
+    - state: kidney-l-glow
+      shader: unshaded
+    - state: kidney-r-glow
+      shader: unshaded
+  - type: Organ
+    slotId: kidneys
+  - type: Metabolizer
+    maxReagents: 5
+    metabolizerTypes: [ Animal ]
+    removeEmpty: true
+  - type: Tag
+    tags:
+    - Meat
+    - Organ
+    - Kidneys
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    heldPrefix: kidneys
+
+# Carps
+
+- type: entity
+  id: OrganCarpLungs
+  parent: OrganThavenLungs
+  name: carp lungs
+  description: "Technically not lungs for much the same reason that thaven lungs are only lungs in name only. Doesn't need nor care about a working medium in order to respire."
+  components: 
+  - type: Sprite
+    sprite: _Funkystation/Mobs/Species/Space/Carp/organs.rsi
+  - type: Organ
+    onAdd:
+    - type: BreathingImmunity
+
+- type: entity
+  id: OrganCarpHeart
+  parent: OrganThavenHeart
+  name: carp heart
+  description: "A dark and toxic heart pulsing with a prismatic ichor. Strong enough alone to keep a carp from exploding from the void, but needs help to keep it from exploding otherwise."
+  components: 
+  - type: Sprite
+    sprite: _Funkystation/Mobs/Species/Space/Carp/organs.rsi
+  - type: Metabolizer
+    metabolizerTypes: [Animal, Thaven]
+  - type: Organ
+    onAdd:
+    - type: PressureImmunity
+
+- type: entity
+  id: OrganMinnowHeart
+  parent: BaseSpaceAnimalOrgan
+  name: sharkminnow heart
+  description: "The large, dark heart of sharkminnows and closely related species. Perpetually beating, it appears a little dry."
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Mobs/Species/Space/Carp/organs.rsi
+    state: minnow-heart-on
+  - type: Organ
+    slotId: heart
+    onAdd:
+    - type: PressureImmunity
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [ Animal, Thaven, Bloodsucker ]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+  - type: Heart
+  - type: Tag
+    tags:
+    - Meat
+    - Organ
+    - Heart
+  - type: Item
+    size: Tiny
+    heldPrefix: minnow-heart
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 1
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 4
+        - ReagentId: CarpoToxin
+          Quantity: 5
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: CarpoToxin
+        Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - thavenflesh
+
+- type: entity
+  id: OrganCarpStomach
+  parent: OrganThavenStomach
+  name: carp stomach
+  description: "The stomach of sharkminnow and closely related carpkin. Seems to have a taste for blood."
+  components: 
+  - type: Sprite
+    sprite: _Funkystation/Mobs/Species/Space/Carp/organs.rsi
+  - type: Metabolizer
+    metabolizerTypes: [Animal, Thaven, Bloodsucker]
+
+- type: entity
+  id: OrganCarpLiver
+  parent: OrganThavenLiver
+  name: carp liver
+  description: "The liver of violent carpkin. Can weakly filter out the radiation one might encounter in the void."
+  components: 
+  - type: Sprite
+    sprite: _Funkystation/Mobs/Species/Space/Carp/organs.rsi
+  - type: Metabolizer
+    metabolizerTypes: [Animal, Thaven, Bloodsucker]
+  - type: ConstantHealing
+    effects:
+    - !type:HealthChange
+      damage:
+        types:
+          Radiation: -0.05
+
+- type: entity
+  parent: OrganCarpLungs
+  id: OrganDragonLungs
+  name: dragon lungs
+  description: "The large, fire-breathing lungs of a space dragon. Shares many similaries with the lungs of its carp underlings spare for its size and abilities."
+  components:
+  - type: Sprite
+    layers:
+    - state: dragon-lung-l
+    - state: dragon-lung-r
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,2
+    heldPrefix: dragon-lungs
+  - type: Organ
+    onAdd:
+    - type: ActionGun
+      action: ActionDragonsBreath
+      gunProto: DragonsBreathGun
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Carpotoxin
+          Quantity: 5
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+        - ReagentId: Ichor
+          Quantity: 10
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Ichor
+        Quantity: 5

@@ -16,12 +16,12 @@
       part: TorsoAnimal
       connections:
       - legs
-      organs:
+      organs: # funky change, made everything apart from the lungs either pull from thavens or new carp organs.
         lungs: OrganDragonLungs
-        stomach: OrganAnimalStomach
-        liver: OrganAnimalLiver
-        heart: OrganAnimalHeart
-        kidneys: OrganAnimalKidneys
+        stomach: OrganCarpStomach
+        liver: OrganCarpLiver
+        heart: OrganCarpHeart
+        kidneys: OrganThavenKidneys
     legs:
       part: LegsAnimal
       connections:

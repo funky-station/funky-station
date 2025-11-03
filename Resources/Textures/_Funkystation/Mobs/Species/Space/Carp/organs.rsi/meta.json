@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "sprited by zergologist (discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+        {
+            "name": "heart-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "heart-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "heart-off"
+        },
+        {
+            "name": "heart-on",
+            "delays": [
+                [
+                    0.6,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "lung-l"
+        },
+        {
+            "name": "lung-r"
+        },
+        {
+            "name": "lungs-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "lungs-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "dragon-lung-l"
+        },
+        {
+            "name": "dragon-lung-r"
+        },
+        {
+            "name": "dragon-lungs-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "dragon-lungs-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "stomach"
+        },
+        {
+            "name": "stomach-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "stomach-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "liver"
+        },
+        {
+            "name": "liver-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "liver-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "minnow-heart-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "minnow-heart-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "minnow-heart-off"
+        },
+        {
+            "name": "minnow-heart-on",
+            "delays": [
+                [
+                    0.6,
+                    0.1,
+                    0.1
+                ]
+            ]
+        }
+  ]
+}

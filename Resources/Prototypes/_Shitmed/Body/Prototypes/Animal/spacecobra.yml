@@ -17,11 +17,12 @@
       connections:
       - legs
       organs:
-        lungs: OrganAnimalLungs
-        stomach: OrganAnimalStomach
-        liver: OrganAnimalLiver
+        lungs: OrganSpaceAnimalLungs # Funky change, gives them space animal organs
+        stomach: OrganSpaceAnimalStomach
+        liver: OrganSpaceAnimalLiver
         heart: OrganCobraHeart # Allows you to become invisible.
-        kidneys: OrganAnimalKidneys
+        kidneys: OrganSpaceAnimalKidneys
+        eyes: OrganSpaceAnimalEyes #end funkystation
     legs:
       part: LegsAnimal
       connections:

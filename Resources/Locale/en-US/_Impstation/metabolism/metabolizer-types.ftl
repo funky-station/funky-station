@@ -4,5 +4,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-
-metabolizer-type-thaven = Thaven
+# funky change, ID is still Thaven in code
+metabolizer-type-thaven = Carpkin

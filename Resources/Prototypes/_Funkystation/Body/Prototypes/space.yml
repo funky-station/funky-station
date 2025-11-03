@@ -1,0 +1,22 @@
+- type: body
+  id: SpaceAnimal
+  name: "space animal"
+  root: torso
+  slots:
+    torso:
+      part: TorsoAnimal
+      connections:
+      - legs
+      organs:
+        lungs: OrganSpaceAnimalLungs
+        stomach: OrganSpaceAnimalStomach
+        liver: OrganSpaceAnimalLiver
+        heart: OrganSpaceAnimalHeart
+        kidneys: OrganSpaceAnimalKidneys
+        eyes: OrganSpaceAnimalEyes
+    legs:
+      part: LegsAnimal
+      connections:
+      - feet
+    feet:
+      part: FeetAnimal

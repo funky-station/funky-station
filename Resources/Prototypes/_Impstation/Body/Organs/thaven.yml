@@ -200,7 +200,7 @@
 - type: entity
   id: OrganThavenKidneys
   parent: OrganHumanKidneys
-  name: thaven kidneys
+  name: carpkin kidneys # funky change, used in space carps for conveniency's sake
   description: "Shiny, coppery veins make these the most ornate kidneys known to modern science."
   components:
   - type: Sprite

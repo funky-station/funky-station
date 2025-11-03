@@ -1,0 +1,17 @@
+- type: body
+  id: Sharkminnow
+  name: "sharkminnow"
+  root: torso
+  slots:
+    torso:
+      part: TorsoAnimal
+      connections:
+      - tail
+      organs:
+        lungs: OrganCarpLungs
+        stomach: OrganCarpStomach
+        liver: OrganCarpLiver
+        heart: OrganMinnowHeart
+        kidneys: OrganThavenKidneys
+    tail:
+      part: TailCarp

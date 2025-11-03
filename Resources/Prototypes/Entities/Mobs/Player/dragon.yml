@@ -62,6 +62,7 @@
     prototype: SpaceDragon
   - type: Bloodstream
     bloodMaxVolume: 650
+    bloodReagent: ShimmeringBlood # funky change, makes it more in line with thavens/carp having shimmering blood
   - type: GhostRole
     allowMovement: true
     allowSpeech: true

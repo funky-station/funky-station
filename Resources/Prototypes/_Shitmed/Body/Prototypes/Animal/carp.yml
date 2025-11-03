@@ -13,11 +13,11 @@
       part: TorsoAnimal
       connections:
       - tail
-      organs:
-        lungs: OrganSpaceAnimalLungs # Immunity to airloss
-        stomach: OrganAnimalStomach
-        liver: OrganSpaceAnimalLiver
-        heart: OrganSpaceAnimalHeart # Immunity to cold
-        kidneys: OrganAnimalKidneys
+      organs: # funky change, turned this from space animal organs to appropriate space carp and thaven organs
+        lungs: OrganCarpLungs # Immunity to airloss
+        stomach: OrganCarpStomach
+        liver: OrganCarpLiver
+        heart: OrganCarpHeart # Immunity to cold
+        kidneys: OrganThavenKidneys # no real difference would be made if they were their own thing
     tail:
       part: TailCarp

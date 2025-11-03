@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "sprited by zergologist (discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "eyeballs-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "eyeballs-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "eyeball-l"
+        },
+        {
+            "name": "eyeball-l-glow"
+        },
+        {
+            "name": "eyeball-r"
+        },
+        {
+            "name": "eyeball-r-glow"
+        },
+        {
+            "name": "heart-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "heart-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "heart-off"
+        },
+        {
+            "name": "heart-on",
+            "delays": [
+                [
+                    0.6,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "heart-on-glow",
+            "delays": [
+                [
+                    0.6,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "kidneys-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "kidneys-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "kidney-l"
+        },
+        {
+            "name": "kidney-l-glow"
+        },
+        {
+            "name": "kidney-r"
+        },
+        {
+            "name": "kidney-r-glow"
+        },
+        {
+            "name": "liver"
+        },
+        {
+            "name": "liver-glow"
+        },
+        {
+            "name": "liver-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "liver-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "lung-l"
+        },
+        {
+            "name": "lung-l-glow"
+        },
+        {
+            "name": "lung-r"
+        },
+        {
+            "name": "lung-r-glow"
+        },
+        {
+            "name": "lungs-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "lungs-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "stomach"
+        },
+        {
+            "name": "stomach-glow"
+        },
+        {
+            "name": "stomach-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "stomach-inhand-right",
+            "directions": 4
+        }
+    ]
+}

@@ -100,6 +100,9 @@
       baseSprintSpeed: 3.5
     - type: Stamina
       critThreshold: 100
+    - type: Bloodstream # Funky change, space carp now have shimmering blood
+      bloodMaxVolume: 300
+      bloodReagent: ShimmeringBlood
     - type: DamageStateVisuals
       states:
         Alive:
@@ -309,8 +312,7 @@
           Base: dead
           BaseUnshaded: dead_mouth
     - type: Body
-      prototype: Bloodsucker
-      requiredLegs: 1
+      prototype: Sharkminnow # funky
     - type: SurgeryTarget # Shitmed
     - type: UserInterface # Shitmed
       interfaces:

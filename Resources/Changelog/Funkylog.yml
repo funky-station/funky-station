@@ -5321,3 +5321,9 @@ Entries:
       message: Added crayons in the detective's locker.
   id: 637
   time: '2025-11-02T20:06:23.0000000+00:00'
+- author: AraiMaia
+  changes:
+    - type: Add
+      message: New sprite for the donut box, taken from Impstation, originally from TG
+  id: 638
+  time: '2025-11-03T05:32:04.0000000+00:00'

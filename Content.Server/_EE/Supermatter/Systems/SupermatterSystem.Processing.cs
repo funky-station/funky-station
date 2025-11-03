@@ -734,28 +734,28 @@ public sealed partial class SupermatterSystem
 
         // Add hallucinations to every player on the map
         // TODO: change this from paracusia to actual hallucinations whenever those are real
-        var mobLookup = new HashSet<Entity<MobStateComponent>>();
-        _entityLookup.GetEntitiesOnMap<MobStateComponent>(mapId, mobLookup);
+        //var mobLookup = new HashSet<Entity<MobStateComponent>>();
+        //_entityLookup.GetEntitiesOnMap<MobStateComponent>(mapId, mobLookup);
 
         // These values match the paracusia disability, since we can't double up on paracusia
-        var paracusiaSounds = new SoundCollectionSpecifier("Paracusia");
-        var paracusiaMinTime = 0.1f;
-        var paracusiaMaxTime = 300f;
-        var paracusiaDistance = 7f;
+        //var paracusiaSounds = new SoundCollectionSpecifier("Paracusia");
+        //var paracusiaMinTime = 0.1f;
+        //var paracusiaMaxTime = 300f;
+        //var paracusiaDistance = 7f;
 
-        foreach (var mob in mobLookup)
-        {
+        //foreach (var mob in mobLookup)
+        //{
             // Ignore silicons
-            if (HasComp<SiliconLawBoundComponent>(uid))
-                continue;
+            //if (HasComp<SiliconLawBoundComponent>(uid))
+                //continue;
 
-            if (!EnsureComp<ParacusiaComponent>(mob, out var paracusia))
-            {
-                _paracusia.SetSounds(mob, paracusiaSounds, paracusia);
-                _paracusia.SetTime(mob, paracusiaMinTime, paracusiaMaxTime, paracusia);
-                _paracusia.SetDistance(mob, paracusiaDistance, paracusia);
-            }
-        }
+            //if (!EnsureComp<ParacusiaComponent>(mob, out var paracusia))
+            //{
+                //_paracusia.SetSounds(mob, paracusiaSounds, paracusia);
+                //_paracusia.SetTime(mob, paracusiaMinTime, paracusiaMaxTime, paracusia);
+                //_paracusia.SetDistance(mob, paracusiaDistance, paracusia);
+            //}
+        //}
 
         switch (sm.PreferredDelamType)
         {
@@ -817,29 +817,29 @@ public sealed partial class SupermatterSystem
                 continue;
 
             // Someone (generally a psychologist), when looking at the supermatter within hallucination range, makes it easier to manage.
-            if (HasComp<SupermatterSootherComponent>(mob))
-                psyDiff = 0.007f;
+            //if (HasComp<SupermatterSootherComponent>(mob))
+                //psyDiff = 0.007f;
 
-            if (HasComp<SupermatterHallucinationImmuneComponent>(mob) || // Immune to supermatter hallucinations
-                HasComp<SiliconLawBoundComponent>(mob) ||                // Silicons don't get supermatter hallucinations
-                HasComp<PermanentBlindnessComponent>(mob) ||             // Blind people don't get supermatter hallucinations
-                HasComp<TemporaryBlindnessComponent>(mob))               // Neither do blinded people
-                continue;
+            //if (HasComp<SupermatterHallucinationImmuneComponent>(mob) || // Immune to supermatter hallucinations
+                //HasComp<SiliconLawBoundComponent>(mob) ||                // Silicons don't get supermatter hallucinations
+                //HasComp<PermanentBlindnessComponent>(mob) ||             // Blind people don't get supermatter hallucinations
+                //HasComp<TemporaryBlindnessComponent>(mob))               // Neither do blinded people
+                //continue;
 
             // Everyone else gets hallucinations
             // These values match the paracusia disability, since we can't double up on paracusia
             // TODO: change this from paracusia to actual hallucinations whenever those are real
-            var paracusiaSounds = new SoundCollectionSpecifier("Paracusia");
-            var paracusiaMinTime = 0.1f;
-            var paracusiaMaxTime = 300f;
-            var paracusiaDistance = 7f;
+            //var paracusiaSounds = new SoundCollectionSpecifier("Paracusia");
+            //var paracusiaMinTime = 0.1f;
+            //var paracusiaMaxTime = 300f;
+            //var paracusiaDistance = 7f;
 
-            if (!EnsureComp<ParacusiaComponent>(mob, out var paracusia))
-            {
-                _paracusia.SetSounds(mob, paracusiaSounds, paracusia);
-                _paracusia.SetTime(mob, paracusiaMinTime, paracusiaMaxTime, paracusia);
-                _paracusia.SetDistance(mob, paracusiaDistance, paracusia);
-            }
+            //if (!EnsureComp<ParacusiaComponent>(mob, out var paracusia))
+            //{
+                //_paracusia.SetSounds(mob, paracusiaSounds, paracusia);
+                //_paracusia.SetTime(mob, paracusiaMinTime, paracusiaMaxTime, paracusia);
+                //_paracusia.SetDistance(mob, paracusiaDistance, paracusia);
+            //}
         }
 
         sm.PsyCoefficient = Math.Clamp(sm.PsyCoefficient + psyDiff, 0f, 1f);

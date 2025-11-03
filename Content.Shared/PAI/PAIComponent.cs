@@ -10,6 +10,9 @@
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 mr-bo-jangles <mr-bo-jangles@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ArchRBX <5040911+ArchRBX@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Sophia Rustfield <gitlab@catwolf.xyz>
+// SPDX-FileCopyrightText: 2025 archrbx <punk.gear5260@fastmail.com>
+// SPDX-FileCopyrightText: 2025 jackel234 <52829582+jackel234@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -47,6 +50,12 @@ public sealed partial class PAIComponent : Component
 
     [DataField, AutoNetworkedField]
     public EntityUid? ShopAction;
+
+    [DataField]
+    public EntProtoId OpenPdaActionId = "ActionPAIOpenPda";
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? OpenPdaAction;
 
     /// <summary>
     /// When microwaved there is this chance to brick the pai, kicking out its player and preventing it from being used again.

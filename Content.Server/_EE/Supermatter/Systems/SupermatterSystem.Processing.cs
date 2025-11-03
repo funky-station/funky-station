@@ -1,7 +1,9 @@
+// SPDX-FileCopyrightText: 2025 BrightNibbleston <218794821+BrightNibbleston@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BrightNibbleston <brightnibbleston@gmail.com>
 // SPDX-FileCopyrightText: 2025 Do You Like Beans <bowenjonathan407@gmail.com>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
@@ -745,8 +747,9 @@ public sealed partial class SupermatterSystem
 
         foreach (var mob in mobLookup)
         {
-            // Ignore silicons
-            if (HasComp<SiliconLawBoundComponent>(uid))
+            // Ignore immune entities
+            if (HasComp<SupermatterHallucinationImmuneComponent>(mob) || // Immune to supermatter hallucinations
+            HasComp<SiliconLawBoundComponent>(mob))                // Silicons don't get supermatter hallucinations
                 continue;
 
             if (!EnsureComp<ParacusiaComponent>(mob, out var paracusia))

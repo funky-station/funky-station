@@ -1,0 +1,17 @@
+<!--
+SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+SPDX-FileCopyrightText: 2025 qrwas <55228920+qrwas@users.noreply.github.com>
+
+SPDX-License-Identifier: MIT
+-->
+
+<Button Name="ToggleButton"
+        xmlns="https://spacestation14.io"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        VerticalExpand="False"
+        HorizontalExpand="False"
+        SetSize="64 64"
+        HorizontalAlignment="Right"
+        VerticalAlignment="Center"
+        Margin="0 0 5 0"/>

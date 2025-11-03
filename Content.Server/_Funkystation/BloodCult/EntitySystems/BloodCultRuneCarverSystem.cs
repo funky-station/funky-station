@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
 // SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -46,7 +47,6 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 	[Dependency] private readonly SharedAudioSystem _audioSystem = default!;
 	[Dependency] private readonly BloodCultRuleSystem _cultRule = default!;
 	[Dependency] private readonly PopupSystem _popupSystem = default!;
-	[Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 	[Dependency] private readonly IEntityManager _entManager = default!;
 
 	private EntityQuery<BloodCultRuneComponent> _runeQuery;
@@ -195,7 +195,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
             CancelDuplicate = false,
         };
 
-		if (_prototypeManager.TryIndex(ent.Comp.Rune, out var ritualPrototype))
+		if (_protoMan.TryIndex(ent.Comp.Rune, out var ritualPrototype))
 			_popupSystem.PopupEntity(
 				Loc.GetString("cult-rune-drawing-vowel-first") +
 				("aeiou".Contains(ritualPrototype.Name.ToLower()[0]) ? "n" : "") +
@@ -232,18 +232,19 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 			}
 			var targetTile = _mapSystem.GetTileRef(gridUid.Value, grid, ev.Coords);
 
-			var rune = Spawn(ev.EntityId, ev.Coords);  // Spawn the final rune
+		var rune = Spawn(ev.EntityId, ev.Coords);  // Spawn the final rune
 
-			if (gridUid != null && TryComp<TransformComponent>(rune, out var runeTransform))
-			{
-				_transform.AnchorEntity((rune, runeTransform), ((EntityUid)gridUid, grid), targetTile.GridIndices);
-				_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
-				_audioSystem.PlayPvs(ev.CarveSound, ent);
-			}
-			else
-			{
-				QueueDel(rune);
-			}
+		if (gridUid != null)
+		{
+			var runeTransform = Transform(rune);
+			_transform.AnchorEntity((rune, runeTransform), ((EntityUid)gridUid, grid), targetTile.GridIndices);
+			_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
+			_audioSystem.PlayPvs(ev.CarveSound, ent);
+		}
+		else
+		{
+			QueueDel(rune);
+		}
 		}
     }
 

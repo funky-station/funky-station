@@ -78,24 +78,9 @@
 
 - type: entity
   parent: ClothingMaskBandanaBase
-  id: ClothingMaskBandBotany
-  name: botany bandana
-  description: A botany bandana to make you look cool, made from natural fibers.
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Bandanas/botany.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Bandanas/botany.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - ClothMade
-
-- type: entity
-  parent: ClothingMaskBandanaBase
   id: ClothingMaskBandGold
-  name: gold bandana
-  description: A gold bandana to make you look cool.
+  name: yellow bandana
+  description: A yellow bandana to make you look cool.
   components:
   - type: Sprite
     sprite: Clothing/Head/Bandanas/gold.rsi

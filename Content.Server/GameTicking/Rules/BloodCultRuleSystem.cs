@@ -92,7 +92,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly IAdminLogManager _adminLogger = default!;
 	[Dependency] private readonly IConsoleHost _consoleHost = default!;
 
-	[Dependency] private readonly IEntityManager _entManager = default!
+	[Dependency] private readonly IEntityManager _entManager = default!;
 
 	public readonly string CultComponentId = "BloodCultist";
 

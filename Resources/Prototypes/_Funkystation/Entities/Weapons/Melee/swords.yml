@@ -1,0 +1,96 @@
+- type: entity
+  id: ImprovisedEnergySword
+  name: improvaised energy sword
+  description: A energy sword cobbled together from random parts. Burns through power like no other.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/e_sword.rsi
+    layers:
+    - state: e_sword
+    - state: e_sword_blade
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: EnergySword
+  - type: ToggleCellDraw
+  - type: PowerCellDraw
+    Enabled: true
+    DrawRate: 3
+    UseRate: 20
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/ebladeon.ogg
+    soundDeactivate:
+      path: /Audio/Weapons/ebladeoff.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/ebladehum.ogg
+  - type: ComponentToggler
+    components:
+    - type: Sharp
+    - type: DisarmMalus
+      malus: 0.6
+    - type: Execution
+      doAfterDuration: 4.0
+  - type: ItemToggleHot
+  - type: ItemToggleSize
+    activatedSize: ginormous
+  - type: ItemTogglePointLight
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        variation: 0.125
+    activatedDamage:
+      types:
+        Slash: 8
+        Heat: 8
+        Structural: 5
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 4.5
+  - type: Item
+    size: Huge
+    sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
+  - type: UseDelay
+    delay: 1.0
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: white
+    netsync: false
+  - type: Appearance
+  - type: ToggleableLightVisuals # Add support for multiple layers
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-blade
+        shader: unshaded
+      right:
+      - state: inhand-right-blade
+        shader: unshaded
+  - type: IgnitionSource
+    temperature: 700
+

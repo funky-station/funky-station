@@ -4,16 +4,16 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-- type: trait
-  id: DrunkenResilience # Funky - Renamed Liqour Lifeline. Cheaper than 13 as its weaker, and a species trait. Maybe one day the moth grav-off and similar can be traits.
-  name: drunken-resilience-trait-name
-  description: drunken-resilience-trait-desc
-  category: Quirks
-  cost: 1
-  components:
-  - type: LiquorLifeline
-  speciesRestrictions:
-  - Dwarf
+#- type: trait
+#  id: DrunkenResilience # Funky - Renamed Liqour Lifeline. Cheaper than 13 as its weaker, and a species trait. Maybe one day the moth grav-off and similar can be traits.
+#  name: drunken-resilience-trait-name
+#  description: drunken-resilience-trait-desc
+#  category: Quirks
+#  cost: 1
+#  components:
+#  - type: LiquorLifeline
+#  speciesRestrictions:
+#  - Dwarf
 
 #- type: trait
 #  id: SelfAware

@@ -5349,3 +5349,9 @@ Entries:
       message: Fixed Malf AI breaking the chat.
   id: 640
   time: '2025-11-03T19:12:33.0000000+00:00'
+- author: vectorassembly
+  changes:
+    - type: Add
+      message: Added impaired mobility trait.
+  id: 641
+  time: '2025-11-04T22:30:06.0000000+00:00'

@@ -1,0 +1,9 @@
+- type: entity
+  id: CrateVendingMachineRestocSolFilled
+  parent: CratePlastic
+  name: Mars Mart restock crate
+  description: Contains a restock box for the Mars Mart.
+  components:
+  - type: StorageFill
+    contents:
+    - id: VendingMachineRestockSol

@@ -98,6 +98,10 @@ cult-status-veil-weak-cultdata = Current cult members: {$cultCount} | Conversion
     Cultists: {$cultistCount}
     Constructs: {$constructCount}
 
+cult-status-cultdata = Current cult members: {$cultCount}
+    Cultists: {$cultistCount}
+    Constructs: {$constructCount}
+
 cult-blood-progress = [italic]Blood Collected: {$bloodCollected}u / {$totalRequired}u. {$bloodNeeded}u more needed for {$nextPhase}.[/italic]
 cult-blood-progress-complete = [italic]Blood Collected: {$bloodCollected}u. All blood thresholds have been met![/italic]
 

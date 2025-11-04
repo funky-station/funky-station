@@ -56,6 +56,9 @@ using Content.Server.Revolutionary.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.Chat.Managers;
 using Content.Shared.Chat;
+using Robust.Shared.Console;
+using Content.Server.Administration;
+using Content.Shared.Administration;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -87,8 +90,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly AppearanceSystem _appearance = default!;
 	[Dependency] private readonly NpcFactionSystem _npcFaction = default!;
 	[Dependency] private readonly IAdminLogManager _adminLogger = default!;
+	[Dependency] private readonly IConsoleHost _consoleHost = default!;
 
-	[Dependency] private readonly IEntityManager _entManager = default!;
+	[Dependency] private readonly IEntityManager _entManager = default!
 
 	public readonly string CultComponentId = "BloodCultist";
 
@@ -118,6 +122,22 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 		// Do we need a special "head" cultist? Don't think so
 		//SubscribeLocalEvent<HeadRevolutionaryComponent, AfterFlashedEvent>(OnPostFlash);
+
+		// Register admin commands
+		InitializeCommands();
+	}
+
+	private void InitializeCommands()
+	{
+		_consoleHost.RegisterCommand("cult_queryblood",
+			"Query the current blood collected and remaining for the Blood Cult game rule",
+			"cult_queryblood",
+			QueryBloodCommand);
+
+		_consoleHost.RegisterCommand("cult_setblood",
+			"Set the current blood amount for the Blood Cult game rule",
+			"cult_setblood <amount>",
+			SetBloodCommand);
 	}
 
 	protected override void Started(EntityUid uid, BloodCultRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -1148,15 +1168,14 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			AnnounceToCultists(purpleMessage,
 					color:new Color(111, 80, 143, 255), fontSize:12, newlineNeeded:true);
 
-	var conversionsUntilRise = GetConversionsToRise(component, cultists);
 	if (specificCultist != null)
-		AnnounceToCultist(Loc.GetString("cult-status-veil-weak-cultdata", ("cultCount", (cultists.Count+constructs.Count).ToString()),
-			("cultUntilRise", conversionsUntilRise.ToString()), ("cultistCount", cultists.Count.ToString()),
+		AnnounceToCultist(Loc.GetString("cult-status-cultdata", ("cultCount", (cultists.Count+constructs.Count).ToString()),
+			("cultistCount", cultists.Count.ToString()),
 			("constructCount", constructs.Count.ToString())),
 			(EntityUid)specificCultist, fontSize: 11, newlineNeeded:true);
 	else
-		AnnounceToCultists(Loc.GetString("cult-status-veil-weak-cultdata", ("cultCount", (cultists.Count+constructs.Count).ToString()),
-			("cultUntilRise", conversionsUntilRise.ToString()), ("cultistCount", cultists.Count.ToString()),
+		AnnounceToCultists(Loc.GetString("cult-status-cultdata", ("cultCount", (cultists.Count+constructs.Count).ToString()),
+			("cultistCount", cultists.Count.ToString()),
 			("constructCount", constructs.Count.ToString())),
 			fontSize: 11, newlineNeeded:true);
 
@@ -1240,4 +1259,93 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			return;
 		}
 	}
+
+	#region Admin Commands
+
+	[AdminCommand(AdminFlags.Fun)]
+	private void QueryBloodCommand(IConsoleShell shell, string argstr, string[] args)
+	{
+		var query = EntityQueryEnumerator<BloodCultRuleComponent, GameRuleComponent>();
+		var found = false;
+
+		while (query.MoveNext(out var uid, out var ruleComp, out var gameRule))
+		{
+			if (!GameTicker.IsGameRuleActive(uid, gameRule))
+				continue;
+
+			found = true;
+			var currentBlood = Math.Round(ruleComp.BloodCollected, 1);
+			var eyesRequired = Math.Round(ruleComp.BloodRequiredForEyes, 1);
+			var riseRequired = Math.Round(ruleComp.BloodRequiredForRise, 1);
+			var veilRequired = Math.Round(ruleComp.BloodRequiredForVeil, 1);
+
+			shell.WriteLine($"=== Blood Cult Status ===");
+			shell.WriteLine($"Current Blood Collected: {currentBlood}u");
+			shell.WriteLine($"");
+			shell.WriteLine($"Phase 1 (Eyes): {eyesRequired}u needed - {(ruleComp.HasEyes ? "COMPLETE" : $"{Math.Round(eyesRequired - currentBlood, 1)}u remaining")}");
+			shell.WriteLine($"Phase 2 (Rise): {riseRequired}u needed - {(ruleComp.HasRisen ? "COMPLETE" : $"{Math.Round(riseRequired - currentBlood, 1)}u remaining")}");
+			shell.WriteLine($"Phase 3 (Veil): {veilRequired}u needed - {(ruleComp.VeilWeakened ? "COMPLETE" : $"{Math.Round(veilRequired - currentBlood, 1)}u remaining")}");
+
+			if (shell.Player != null)
+			{
+				_adminLogger.Add(LogType.Action, LogImpact.Low, 
+					$"{shell.Player} queried blood cult status: {currentBlood}u collected");
+			}
+		}
+
+		if (!found)
+		{
+			shell.WriteError("No active Blood Cult game rule found.");
+		}
+	}
+
+	[AdminCommand(AdminFlags.Fun)]
+	private void SetBloodCommand(IConsoleShell shell, string argstr, string[] args)
+	{
+		if (args.Length != 1)
+		{
+			shell.WriteError("Usage: cult_setblood <amount>");
+			return;
+		}
+
+		if (!double.TryParse(args[0], out var amount))
+		{
+			shell.WriteError("Invalid amount. Must be a number.");
+			return;
+		}
+
+		if (amount < 0)
+		{
+			shell.WriteError("Amount cannot be negative.");
+			return;
+		}
+
+		var query = EntityQueryEnumerator<BloodCultRuleComponent, GameRuleComponent>();
+		var found = false;
+
+		while (query.MoveNext(out var uid, out var ruleComp, out var gameRule))
+		{
+			if (!GameTicker.IsGameRuleActive(uid, gameRule))
+				continue;
+
+			found = true;
+			var oldAmount = ruleComp.BloodCollected;
+			ruleComp.BloodCollected = amount;
+
+			shell.WriteLine($"Blood cult amount set from {Math.Round(oldAmount, 1)}u to {Math.Round(amount, 1)}u");
+
+			if (shell.Player != null)
+			{
+				_adminLogger.Add(LogType.Action, LogImpact.Medium, 
+					$"{shell.Player} set blood cult amount from {oldAmount}u to {amount}u");
+			}
+		}
+
+		if (!found)
+		{
+			shell.WriteError("No active Blood Cult game rule found.");
+		}
+	}
+
+	#endregion
 }

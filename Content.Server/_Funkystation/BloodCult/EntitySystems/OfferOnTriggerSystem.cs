@@ -32,6 +32,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Body.Part;
+using Content.Shared.Body.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.Roles;
@@ -45,6 +46,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.GameTicking.Rules;
+using Content.Shared._EinsteinEngines.Silicon.Components;
 
 namespace Content.Server.BloodCult.EntitySystems
 {
@@ -279,6 +281,11 @@ namespace Content.Server.BloodCult.EntitySystems
 		private bool _IsValidTarget(EntityUid uid, out Entity<MindComponent>? mind)
 		{
 			mind = null;
+			
+			// Soulstones cannot be sacrificed or converted
+			if (HasComp<SoulStoneComponent>(uid))
+				return false;
+			
 			if (TryComp(uid, out MindContainerComponent? mindContainer) &&
 				mindContainer.Mind != null &&
 				TryComp((EntityUid)mindContainer.Mind, out MindComponent? mindComponent))
@@ -299,9 +306,10 @@ namespace Content.Server.BloodCult.EntitySystems
 
 	private bool _IsSoulstoneEligible(EntityUid uid)
 	{
-		// Entities that cannot bleed (no bloodstream) should be captured in soulstones
-		// This includes IPCs, positronic brains, slimes, and other non-organic entities
-		return !HasComp<BloodstreamComponent>(uid);
+		// Entities that cannot bleed (no bloodstream) or are synthetic should be captured in soulstones
+		// This includes IPCs, positronic brains, borgs, slimes, and other non-organic entities
+		// Note: IPCs have bloodstream (for oil) but are silicon-based, so check for SiliconComponent
+		return !HasComp<BloodstreamComponent>(uid) || HasComp<SiliconComponent>(uid);
 	}
 
 	private void _CreateSoulstoneFromEntity(EntityUid victim, EntityUid user, EntityUid rune, EntityUid[] cultistsInRange)
@@ -338,16 +346,23 @@ namespace Content.Server.BloodCult.EntitySystems
 		var soulstone = Spawn("CultSoulStone", coordinates);
 		_mind.TransferTo((EntityUid)mindId, soulstone, mind:mindComp);
 		
-		// Gib the original entity (for realism)
-		var gibs = _bodySystem.GibBody(victim);
-		
-		// Delete any brain or mind container from the gibs to prevent soulless brains
-		foreach (var gib in gibs)
+		// Destroy the original entity
+		// Check if it has a body to gib, otherwise just delete it
+		if (TryComp<BodyComponent>(victim, out _))
 		{
-			if (HasComp<BrainComponent>(gib) || HasComp<MindContainerComponent>(gib))
+			// Gib the body and delete ALL gibs (the soul has been captured, leave nothing behind)
+			var gibs = _bodySystem.GibBody(victim, gibOrgans: true);
+			foreach (var gib in gibs)
 			{
+				// Delete all gibs - no remains should be left when a soul is captured
 				QueueDel(gib);
 			}
+		}
+		else
+		{
+			// No body to gib (e.g., positronic brain, item-based entities)
+			// Just delete the entity directly
+			QueueDel(victim);
 		}
 		
 		// Play success audio

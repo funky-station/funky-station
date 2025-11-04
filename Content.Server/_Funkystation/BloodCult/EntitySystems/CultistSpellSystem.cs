@@ -388,14 +388,15 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 		var targetCoords = Transform(args.Target).Coordinates;
 
-		// Spawn a stack of 4 plasteel sheets (the amount used to build a reinforced wall)
+		// Spawn a stack of 2 plasteel sheets (the amount to upgrade girder to reinforced girder)
 		var plasteel = Spawn("SheetPlasteel1", targetCoords);
 		if (TryComp<StackComponent>(plasteel, out var stack))
 		{
-			stack.Count = 4;
+			stack.Count = 2;
 		}
 
-		// Change the wall to a girder
-		_construction.ChangeNode(args.Target, ent, "girder", performActions: true, construction: construction);
+		// Change the wall to a reinforced girder (this will spawn the 2 plasteel from the wall plating)
+		// The construction graph automatically handles spawning materials when deconstructing
+		_construction.ChangeNode(args.Target, ent, "reinforcedGirder", performActions: true, construction: construction);
 	}
 }

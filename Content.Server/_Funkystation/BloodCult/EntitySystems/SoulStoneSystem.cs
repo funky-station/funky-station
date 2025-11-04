@@ -19,6 +19,11 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.Mobs;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.FixedPoint;
+using Robust.Shared.Prototypes;
+using Content.Server.Roles;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -31,6 +36,9 @@ public sealed class SoulStoneSystem : EntitySystem
 	[Dependency] private readonly BloodCultConstructSystem _constructSystem = default!;
 	[Dependency] private readonly MobStateSystem _mobState = default!;
 	[Dependency] private readonly IEntityManager _entityManager = default!;
+	[Dependency] private readonly DamageableSystem _damageable = default!;
+	[Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+	[Dependency] private readonly RoleSystem _role = default!;
 
 	private EntityQuery<ShadeComponent> _shadeQuery;
 
@@ -90,6 +98,32 @@ public sealed class SoulStoneSystem : EntitySystem
 		{
 			if (mindContainer.Mind != null && TryComp<MindComponent>((EntityUid)mindContainer.Mind, out var mindComp))
 			{
+				// Make the mind in the soulstone a cultist (without giving them cultist abilities yet)
+				var mindId = (EntityUid)mindContainer.Mind;
+				if (!_role.MindHasRole<BloodCultRoleComponent>(mindId))
+				{
+					_role.MindAddRole(mindId, "MindRoleCultist", mindComp);
+				}
+				
+				// Damage the user for releasing the shade
+				if (TryComp<DamageableComponent>(args.User, out var damageable))
+				{
+					var damage = new DamageSpecifier();
+					
+					// Deal 20 bloodloss damage if they have blood
+					if (damageable.Damage.DamageDict.ContainsKey("Bloodloss"))
+					{
+						damage.DamageDict.Add("Bloodloss", FixedPoint2.New(20));
+					}
+					// Otherwise deal brute damage (for non-organic cultists, which shouldn't exist but this handles it just in case)
+					else
+					{
+						damage.DamageDict.Add("Blunt", FixedPoint2.New(20));
+					}
+					
+					_damageable.TryChangeDamage(args.User, damage, ignoreResistances: false);
+				}
+				
 				var coordinates = Transform((EntityUid)args.User).Coordinates;
 				var construct = Spawn("MobBloodCultShade", coordinates);
 				_mind.TransferTo((EntityUid)mindContainer.Mind, construct, mind:mindComp);

@@ -67,6 +67,10 @@
       damageContainer: BloodCultConstruct
       damageModifierSet: CultJuggernaut
     - type: BloodCultConstruct
+    - type: Bloodstream
+      bloodMaxVolume: 0
+      bloodReagent: None
+      maxBleedAmount: 0
     - type: Reactive
       groups:
         Flammable: [ Touch ]
@@ -132,6 +136,7 @@
       states:
         Alive:
           Base: juggernaut
+          BaseUnshaded: nautdamage
         Critical:
           Base: juggernaut_dead
         Dead:
@@ -187,6 +192,10 @@
       damageContainer: BloodCultConstruct
       damageModifierSet: CultShade
     - type: BloodCultConstruct
+    - type: Bloodstream
+      bloodMaxVolume: 0
+      bloodReagent: None
+      maxBleedAmount: 0
     - type: MindContainer
     - type: Shade
     - type: Physics

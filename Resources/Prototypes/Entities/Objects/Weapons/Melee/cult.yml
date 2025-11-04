@@ -54,6 +54,28 @@
     blockSpectators: true
     verbOnly: false
     verbText: cult-rune-select
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 15
+        reagents:
+        - ReagentId: EdgeEssentia
+          Quantity: 15
+  - type: MeleeChemicalInjector
+    transferAmount: 3
+    solution: melee
+    pierceArmor: true
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 3
+  - type: ReagentAutoRefill
+    solution: melee
+    reagent: EdgeEssentia
+    refillRate: 0.5
+    maxAmount: 15
 
 - type: entity
   name: cult dagger

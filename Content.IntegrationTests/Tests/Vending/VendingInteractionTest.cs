@@ -66,6 +66,7 @@ public sealed class VendingInteractionTest : InteractionTest
     ejectDelay: 0 # no delay to speed up tests
   - type: Sprite
     sprite: error.rsi
+    state: error
 ";
 
     [Test]

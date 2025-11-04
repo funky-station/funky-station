@@ -96,3 +96,23 @@
   - type: Lock
     unlockOnClick: false
   
+# Arrow to indicate flow
+- type: entity
+  id: TurbineFlowArrow
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: Markers/teg_arrow.rsi
+      color: "#FFFFFFBB"
+      layers:
+        - state: arrow
+          rotation: 90
+          offset: 1.75, -1
+        - state: arrow
+          rotation: 90
+          offset: -1.75, -1
+    - type: TimedDespawn
+      lifetime: 2
+    - type: Tag
+      tags:
+        - HideContextMenu

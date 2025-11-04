@@ -168,6 +168,9 @@
     bodyType: Static
   - type: Transform
     noRot: true
+  - type: Tag
+    tags:
+    - HideContextMenu
 
 # Nuclear waste resultant from a meltdown
 - type: entity
@@ -189,3 +192,24 @@
         nuclear_waste: "" # Allows for multiple waste sprites... even though there's just one
   - type: RadiationSource
     intensity: 1.6
+
+# Arrow to indicate flow
+- type: entity
+  id: ReactorFlowArrow
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: Markers/teg_arrow.rsi
+      color: "#FFFFFFBB"
+      layers:
+        - state: arrow
+          rotation: 90
+          offset: 2.75, 1
+        - state: arrow
+          rotation: 90
+          offset: -2.75, -1
+    - type: TimedDespawn
+      lifetime: 2
+    - type: Tag
+      tags:
+        - HideContextMenu

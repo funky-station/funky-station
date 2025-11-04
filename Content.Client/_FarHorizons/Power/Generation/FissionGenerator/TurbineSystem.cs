@@ -1,7 +1,10 @@
+using Content.Client.Examine;
 using Content.Client.Popups;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Repairable;
 using Robust.Client.GameObjects;
+using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -9,6 +12,14 @@ public sealed class TurbineSystem : SharedTurbineSystem
 {
     [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+
+    private static readonly EntProtoId ArrowPrototype = "TurbineFlowArrow";
+
+    public override void Initialize()
+    {
+        SubscribeLocalEvent<TurbineComponent, ClientExaminedEvent>(ReactorExamined);
+    }
+
     protected override void UpdateUi(Entity<TurbineComponent> entity)
     {
         if (_userInterfaceSystem.TryGetOpenUi(entity.Owner, TurbineUiKey.Key, out var bui))
@@ -25,5 +36,10 @@ public sealed class TurbineSystem : SharedTurbineSystem
             return;
 
         _popupSystem.PopupClient(Loc.GetString("turbine-repair", ("target", ent.Owner), ("tool", args.Used!)), ent.Owner, args.User);
+    }
+
+    private void ReactorExamined(EntityUid uid, TurbineComponent comp, ClientExaminedEvent args)
+    {
+        Spawn(ArrowPrototype, new EntityCoordinates(uid, 0, 0));
     }
 }

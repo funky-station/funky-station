@@ -98,11 +98,31 @@
     balance:
       Telecrystal: 0
 
+# Base uplink for nukeops reinforcements - has NukeOpsUplink tag
+- type: entity
+  parent: BaseUplinkRadio
+  id: BaseUplinkRadioNukeopsReinforcement
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - NukeOpsUplink
+
 # goobstation - duke nukies
 - type: entity
   parent: BaseUplinkRadio
   id: BaseUplinkRadio50TC
   suffix: 50 TC
+  components:
+  - type: Store
+    balance:
+      Telecrystal: 50
+
+# Nukeops reinforcement variant with 50 TC
+- type: entity
+  parent: BaseUplinkRadioNukeopsReinforcement
+  id: BaseUplinkRadio50TCNukeops
+  suffix: 50 TC, Nukeops Reinforcement
   components:
   - type: Store
     balance:
